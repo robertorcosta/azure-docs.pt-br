@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e8c305da074f3090ced0dfc16b4a3faa4c757699
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 0bdf2c4dda3e272ae04681f886f6e4da31dcebd8
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91440213"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569826"
 ---
 # <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Configurar o ExpressRoute direto usando o CLI do Azure
 
@@ -216,6 +216,8 @@ Insira o nome do recurso direto do ExpressRoute criado recentemente, o nome do g
 ```azurecli
 az network express-route port generate-loa -n Contoso-Direct -g Contoso-Direct-rg --customer-name Contoso --destination C:\Users\SampleUser\Downloads\LOA.pdf
 ```
+
+## <a name="change-adminstate-for-links"></a><a name="state"></a>Alterar AdminState para links
 
 Use esse processo para conduzir um teste de camada 1. Certifique-se de que cada conexão cruzada seja corretamente corrigida em cada roteador nas portas primárias e secundárias.
 

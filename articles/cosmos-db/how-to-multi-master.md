@@ -1,29 +1,29 @@
 ---
-title: Como configurar vários mestres no Azure Cosmos DB
-description: Saiba como configurar vários mestres para seus aplicativos usando SDKs diferentes no Azure Cosmos DB.
+title: Como configurar gravações de várias regiões no Azure Cosmos DB
+description: Saiba como configurar gravações de várias regiões para seus aplicativos usando SDKs diferentes no Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: mjbrown
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 40d2e5f3d79fdc7725f04fbfd2c7f29f8db265a3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8079fb3ab04d5f613566816735491203d7df951a
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328523"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570659"
 ---
-# <a name="configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Configurar vários mestres nos aplicativos que usam o Azure Cosmos DB
+# <a name="configure-multi-region-writes-in-your-applications-that-use-azure-cosmos-db"></a>Configurar gravações de várias regiões em seus aplicativos que usam Azure Cosmos DB
 
-Quando uma conta tiver sido criada com várias regiões de gravação habilitadas, faça duas alterações em seu aplicativo em ConnectionPolicy para DocumentClient a fim de habilitar os recursos de vários mestres e a hospedagem múltipla no Azure Cosmos DB. Em ConnectionPolicy, defina UseMultipleWriteLocations como true e passe o nome da região em que o aplicativo é implantado em SetCurrentLocation. Isso preencherá a propriedade PreferredLocations com base na proximidade geográfica do local passado. Se uma nova região posteriormente é adicionada à conta, o aplicativo não precisa ser atualizado ou reimplantado, ele detectará automaticamente a região mais próxima e será automaticamente iniciado em caso de evento regional.
+Depois que uma conta tiver sido criada com várias regiões de gravação habilitadas, você deverá fazer duas alterações em seu aplicativo para o ConnectionPolicy para o DocumentClient para habilitar as gravações de várias regiões e os recursos de hospedagem múltipla no Azure Cosmos DB. Em ConnectionPolicy, defina UseMultipleWriteLocations como true e passe o nome da região em que o aplicativo é implantado em SetCurrentLocation. Isso preencherá a propriedade PreferredLocations com base na proximidade geográfica do local passado. Se uma nova região posteriormente é adicionada à conta, o aplicativo não precisa ser atualizado ou reimplantado, ele detectará automaticamente a região mais próxima e será automaticamente iniciado em caso de evento regional.
 
 > [!Note]
-> Contas do Cosmos configuradas inicialmente com uma região de gravação podem ser configuradas para várias regiões de gravação (ou seja, vários mestres) sem nenhum tempo de inatividade. Para saber mais, consulte [Configurar a gravação de várias regiões](how-to-manage-database-account.md#configure-multiple-write-regions)
+> As contas do cosmos inicialmente configuradas com uma única região de gravação podem ser configuradas para várias regiões de gravação com tempo de inatividade zero. Para saber mais, consulte [Configurar a gravação de várias regiões](how-to-manage-database-account.md#configure-multiple-write-regions)
 
 ## <a name="net-sdk-v2"></a><a id="netv2"></a>SDK v2 do .NET
 
-Para habilitar vários mestres em seu aplicativo, defina `UseMultipleWriteLocations` como `true`. Além disso, defina `SetCurrentLocation` como a região na qual o aplicativo está sendo implantado e em que o Azure Cosmos DB está replicado:
+Para habilitar as gravações de várias regiões em seu aplicativo, defina `UseMultipleWriteLocations` como `true` . Além disso, defina `SetCurrentLocation` como a região na qual o aplicativo está sendo implantado e em que o Azure Cosmos DB está replicado:
 
 ```csharp
 ConnectionPolicy policy = new ConnectionPolicy
@@ -37,7 +37,7 @@ policy.SetCurrentLocation("West US 2");
 
 ## <a name="net-sdk-v3"></a><a id="netv3"></a>SDK v3 do .NET
 
-Para habilitar vários mestres no seu aplicativo, defina `ApplicationRegion` como a região na qual o aplicativo está sendo implantado e o Cosmos DB está replicado:
+Para habilitar as gravações de várias regiões em seu aplicativo, defina `ApplicationRegion` para a região em que o aplicativo está sendo implantado e onde Cosmos DB é replicado:
 
 ```csharp
 CosmosClient cosmosClient = new CosmosClient(
@@ -56,9 +56,9 @@ CosmosClientBuilder cosmosClientBuilder = new CosmosClientBuilder("<connection-s
 CosmosClient client = cosmosClientBuilder.Build();
 ```
 
-## <a name="java-v4-sdk"></a><a id="java4-multi-master"></a> SDK do Java v4
+## <a name="java-v4-sdk"></a><a id="java4-multi-region-writes"></a> SDK do Java v4
 
-Para habilitar o multimestre em seu aplicativo, chame `.multipleWriteRegionsEnabled(true)` e `.preferredRegions(preferredRegions)` no Client Builder, onde `preferredRegions` é um `List` elemento que contém um, que é a região em que o aplicativo está sendo implantado e onde Cosmos DB é replicado:
+Para habilitar as gravações de várias regiões em seu aplicativo, chame `.multipleWriteRegionsEnabled(true)` e `.preferredRegions(preferredRegions)` no construtor de cliente, em que `preferredRegions` é um `List` elemento contendo um, que é a região em que o aplicativo está sendo implantado e onde Cosmos DB é replicado:
 
 # <a name="async"></a>[Async](#tab/api-async)
 
@@ -74,9 +74,9 @@ Para habilitar o multimestre em seu aplicativo, chame `.multipleWriteRegionsEnab
 
 --- 
 
-## <a name="async-java-v2-sdk"></a><a id="java2-milti-master"></a> SDK do Java v2 assíncrono
+## <a name="async-java-v2-sdk"></a><a id="java2-multi-region-writes"></a> SDK do Java v2 assíncrono
 
-O SDK do Java v2 usava o Maven [com. Microsoft. Azure:: Azure-cosmosdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb). Para habilitar vários mestres no seu aplicativo, defina `policy.setUsingMultipleWriteLocations(true)` e defina `policy.setPreferredLocations` como a região na qual o aplicativo está sendo implantado e o Cosmos DB está replicado:
+O SDK do Java v2 usava o Maven [com. Microsoft. Azure:: Azure-cosmosdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb). Para habilitar as gravações de várias regiões em seu aplicativo, defina `policy.setUsingMultipleWriteLocations(true)` e defina `policy.setPreferredLocations` como a região em que o aplicativo está sendo implantado e onde Cosmos DB é replicado:
 
 ```java
 ConnectionPolicy policy = new ConnectionPolicy();
@@ -93,7 +93,7 @@ AsyncDocumentClient client =
 
 ## <a name="nodejs-javascript-and-typescript-sdks"></a><a id="javascript"></a>SDK do Node.js, do JavaScript e do TypeScript
 
-Para habilitar vários mestres em seu aplicativo, defina `connectionPolicy.UseMultipleWriteLocations` como `true`. Além disso, defina `connectionPolicy.PreferredLocations` como a região na qual o aplicativo está sendo implantado e em que o Cosmos DB está replicado:
+Para habilitar as gravações de várias regiões em seu aplicativo, defina `connectionPolicy.UseMultipleWriteLocations` como `true` . Além disso, defina `connectionPolicy.PreferredLocations` como a região na qual o aplicativo está sendo implantado e em que o Cosmos DB está replicado:
 
 ```javascript
 const connectionPolicy: ConnectionPolicy = new ConnectionPolicy();
@@ -110,7 +110,7 @@ const client = new CosmosClient({
 
 ## <a name="python-sdk"></a><a id="python"></a>SDK do Python
 
-Para habilitar vários mestres em seu aplicativo, defina `connection_policy.UseMultipleWriteLocations` como `true`. Além disso, defina `connection_policy.PreferredLocations` como a região na qual o aplicativo está sendo implantado e em que o Cosmos DB está replicado.
+Para habilitar as gravações de várias regiões em seu aplicativo, defina `connection_policy.UseMultipleWriteLocations` como `true` . Além disso, defina `connection_policy.PreferredLocations` como a região na qual o aplicativo está sendo implantado e em que o Cosmos DB está replicado.
 
 ```python
 connection_policy = documents.ConnectionPolicy()

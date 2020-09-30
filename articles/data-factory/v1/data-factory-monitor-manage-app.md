@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: de56ba1281d0f20c8be838fa1bc9ebc24905b26c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e378c1e25fb434e689eadd91e9e8562ffe7e61fd
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85846902"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570112"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Monitorar e gerenciar os pipelines do Azure Data Factory usando o aplicativo de Monitoramento e Gerenciamento
 > [!div class="op_single_selector"]
@@ -124,7 +124,7 @@ Na exibição do pipeline, ao selecionar um conjunto de dados de saída ou mover
 
 No painel direito, mude para a guia **Gerenciador de Janelas de Atividades** para ver mais detalhes.
 
-![Gerenciador de Janelas de Atividades](./media/data-factory-monitor-manage-app/ActivityWindowExplorer.png)
+![Captura de tela que mostra como acessar a guia Gerenciador de janelas de atividades.](./media/data-factory-monitor-manage-app/ActivityWindowExplorer.png)
 
 Você também verá as **variáveis resolvidas** para cada tentativa de execução de atividade na seção **Tentativas**.
 
@@ -193,7 +193,7 @@ As janelas de atividades podem estar em um dos seguintes status:
 <td>A janela de atividades está sendo processada.</td>
 </tr>
 <tr>
-<td rowspan="4">Falhou</td><td>TimedOut</td><td>A execução demorou mais do que o permitido pela atividade.</td>
+<td rowspan="4">Failed (Falha)</td><td>TimedOut</td><td>A execução demorou mais do que o permitido pela atividade.</td>
 </tr>
 <tr>
 <td>Canceled</td><td>A janela de atividade foi cancelada por ação do usuário.</td>
@@ -217,7 +217,7 @@ As janelas de atividades podem estar em um dos seguintes status:
 
 Ao clicar em uma janela de atividades na lista, você verá detalhes sobre ela na janela **Gerenciador de Janelas de Atividades** ou nas **Propriedades** à direita.
 
-![Gerenciador de Janelas de Atividades](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-2.png)
+![Captura de tela que mostra como exibir detalhes sobre uma janela de atividade.](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-2.png)
 
 ### <a name="refresh-activity-windows"></a>Atualizar janelas de atividades
 Os detalhes não são atualizados automaticamente e, portanto, você precisa usar o botão de atualização (segundo botão) na barra de comandos para atualizar manualmente a lista de janelas de atividades.  
@@ -238,7 +238,7 @@ Você pode mudar para outra janela de atividades clicando nela na exibição de 
 
 Você pode usar os botões da barra de ferramentas no painel inferior para executar novamente a janela de atividades ou para atualizar os detalhes no painel.
 
-### <a name="script"></a>script
+### <a name="script"></a>Script
 Você pode usar a guia **Script** para exibir a definição de JSON da entidade selecionada do Data Factory (serviço vinculado, conjunto de dados ou pipeline).
 
 ![Guia Script](./media/data-factory-monitor-manage-app/ScriptTab.png)

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 371cfdc8bf2b09f703e1c7bd0153a433ff60ad16
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 4d1c68ba1e0b7db8afefa64abefc671d51e78bd4
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89298956"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569511"
 ---
 # <a name="develop-with-media-services-v3-apis"></a>Desenvolver com as APIs dos Serviços de Mídia v3
 
@@ -41,7 +41,7 @@ Em vez de criar uma entidade de serviço, considere o uso de identidades gerenci
 
 ### <a name="azure-ad-service-principal"></a>Entidade de serviço do Azure AD
 
-Se você estiver criando um aplicativo do Microsoft Azure AD e uma entidade de serviço, o aplicativo precisará estar no próprio locatário. Depois de criar o aplicativo, conceda o acesso da função de **Colaborado** ou **Proprietário** ao aplicativo à conta dos Serviços de Mídia.
+O aplicativo do Azure AD e a entidade de serviço devem estar no mesmo locatário. Depois de criar o aplicativo, conceda o acesso da função de **Colaborado** ou **Proprietário** ao aplicativo à conta dos Serviços de Mídia.
 
 Se você não tiver certeza se tem permissões para criar um aplicativo do Azure AD, consulte [Permissões necessárias](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 

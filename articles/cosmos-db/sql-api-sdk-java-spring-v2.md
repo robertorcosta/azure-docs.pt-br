@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 8d795624097877d20f98a6fd205fb7136cf38007
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 11278f558f94fe358be94c914ecfeae6cfd5461e
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069117"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570742"
 ---
 # <a name="spring-data-azure-cosmos-db-v2-for-core-sql-api-release-notes-and-resources"></a>API do Spring data Azure Cosmos DB v2 para núcleo (SQL): notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -53,7 +53,7 @@ Você pode usar o Spring data Azure Cosmos DB em seus aplicativos de [nuvem Spri
 > * [Gremlin de Spring data com Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db)
 >
 > Quer começar a usar rapidamente?
-> 1. Instale o [tempo de execução Java mínimo com suporte, JDK 8](/java/azure/jdk/?view=azure-java-stable), para que você possa usar o SDK.
+> 1. Instale o [tempo de execução Java mínimo com suporte, JDK 8](/java/azure/jdk/?view=azure-java-stable&preserve-view=true), para que você possa usar o SDK.
 > 2. Crie um aplicativo de Azure Cosmos DB Spring data usando o [iniciador](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db). É fácil!
 > 3. Trabalhe no [Guia do desenvolvedor do Spring Data Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb), que percorre as solicitações de Azure Cosmos DB básicas.
 >
@@ -170,7 +170,7 @@ Você pode usar o Spring data Azure Cosmos DB em seus aplicativos de [nuvem Spri
 
 ### <a name="211-march-7-2019"></a>2.1.1 (7 de março de 2019)
 #### <a name="new-features"></a>Novos recursos
-* Atualiza a versão mestre para 2.1.1.
+* Atualiza a versão principal para 2.1.1.
 
 ### <a name="206-march-7-2019"></a>2.0.6 (7 de março de 2019)
 #### <a name="new-features"></a>Novos recursos

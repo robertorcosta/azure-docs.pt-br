@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/07/2019
-ms.openlocfilehash: 917a8d6edf04d8a160c3a6a5ac59949623dfee5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0119d134861b54ac14c6fe22b638ab459344c5ec
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81418670"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569882"
 ---
 # <a name="transform-data-using-mapping-data-flows"></a>Transformar dados usando o mapeamento de fluxos de dados
 
@@ -80,10 +80,10 @@ Nesta etapa, você criará um pipeline que contém uma atividade de fluxo de dad
     ![Atividade de fluxo de dados](media/tutorial-data-flow/dataflow1.png)
 1. No painel **atividades** , expanda o acorde **e a transformação** . Arraste e solte a atividade **fluxo de dados** do painel para a tela do pipeline.
 
-    ![Atividade de fluxo de dados](media/tutorial-data-flow/activity1.png)
+    ![Captura de tela que mostra as telas de pipeline em que é possível descartar a atividade de fluxo de dados.](media/tutorial-data-flow/activity1.png)
 1. No pop-up **adicionando fluxo de dados** , selecione **criar novo fluxo de dados** e, em seguida, nomeie o fluxo de dados **TransformMovies**. Clique em Concluir quando tiver terminado.
 
-    ![Atividade de fluxo de dados](media/tutorial-data-flow/activity2.png)
+    ![Captura de tela que mostra onde você nomeou o fluxo de dados ao criar um novo fluxo de dados.](media/tutorial-data-flow/activity2.png)
 
 ## <a name="build-transformation-logic-in-the-data-flow-canvas"></a>Criar lógica de transformação na tela de fluxo de dados
 
@@ -91,19 +91,19 @@ Depois de criar o fluxo de dados, você será enviado automaticamente para a tel
 
 1. Na tela fluxo de dados, adicione uma fonte clicando na caixa **Adicionar origem** .
 
-    ![Tela de fluxo de dados](media/tutorial-data-flow/dataflow2.png)
+    ![Captura de tela que mostra a caixa Adicionar origem.](media/tutorial-data-flow/dataflow2.png)
 1. Nomeie sua fonte **MoviesDB**. Clique em **novo** para criar um novo conjunto de fonte de origem.
 
-    ![Tela de fluxo de dados](media/tutorial-data-flow/dataflow3.png)
+    ![Captura de tela que mostra onde você seleciona novo depois de nomear sua origem.](media/tutorial-data-flow/dataflow3.png)
 1. Escolha **Azure data Lake Storage Gen2**. Clique em Continuar.
 
-    ![Dataset](media/tutorial-data-flow/dataset1.png)
+    ![Captura de tela que mostra o bloco Azure Data Lake Storage Gen2.](media/tutorial-data-flow/dataset1.png)
 1. Escolha **DelimitedText**. Clique em Continuar.
 
-    ![Dataset](media/tutorial-data-flow/dataset2.png)
+    ![Captura de tela que mostra o bloco DelimitedText.](media/tutorial-data-flow/dataset2.png)
 1. Nomeie seu DataSet **MoviesDB**. Na lista suspensa serviço vinculado, escolha **novo**.
 
-    ![Dataset](media/tutorial-data-flow/dataset3.png)
+    ![Captura de tela que mostra a lista suspensa serviço vinculado.](media/tutorial-data-flow/dataset3.png)
 1. Na tela de criação de serviço vinculado, nomeie o serviço vinculado ADLS Gen2 **ADLSGen2** e especifique o método de autenticação. Em seguida, insira suas credenciais de conexão. Neste tutorial, estamos usando a chave de conta para se conectar à nossa conta de armazenamento. Você pode clicar em **testar conexão** para verificar se suas credenciais foram inseridas corretamente. Clique em Criar quando terminar.
 
     ![Serviço vinculado](media/tutorial-data-flow/ls1.png)
@@ -112,13 +112,13 @@ Depois de criar o fluxo de dados, você será enviado automaticamente para a tel
     ![Conjunto de dados](media/tutorial-data-flow/dataset4.png)
 1. Se o cluster de depuração for iniciado, vá para a guia **visualização de dados** da transformação origem e clique em **Atualizar** para obter um instantâneo dos dados. Você pode usar a visualização de dados para verificar se a transformação está configurada corretamente.
 
-    ![Tela de fluxo de dados](media/tutorial-data-flow/dataflow4.png)
+    ![Captura de tela que mostra onde você pode visualizar seus dados para verificar se a transformação está configurada corretamente.](media/tutorial-data-flow/dataflow4.png)
 1. Ao lado do nó de origem na tela fluxo de dados, clique no ícone de adição para adicionar uma nova transformação. A primeira transformação que você está adicionando é um **filtro**.
 
     ![Tela de fluxo de dados](media/tutorial-data-flow/dataflow5.png)
 1. Nomeie sua transformação de filtro **FilterYears**. Clique na caixa expressão ao lado de **filtrar em** para abrir o construtor de expressões. Aqui você especificará sua condição de filtragem.
 
-    ![Filtrar](media/tutorial-data-flow/filter1.png)
+    ![Captura de tela que mostra a caixa Filtrar na expressão.](media/tutorial-data-flow/filter1.png)
 1. O construtor de expressões de fluxo de dados permite criar expressões interativamente para usar em várias transformações. As expressões podem incluir funções internas, colunas do esquema de entrada e parâmetros definidos pelo usuário. Para obter mais informações sobre como criar expressões, consulte [Construtor de expressões de fluxo de dados](concepts-data-flow-expression-builder.md).
 
     Neste tutorial, você deseja filtrar filmes de gênero comédia que se passaram entre os anos 1910 e 2000. Como ano, atualmente é uma cadeia de caracteres, você precisa convertê-lo em um inteiro usando a ```toInteger()``` função. Use os operadores maior que ou igual a (>=) e menor ou igual a (<=) para comparar com os valores de ano literal 1910 e 200-. Union essas expressões junto com o operador and (&&). A expressão é exibida como:
@@ -137,35 +137,35 @@ Depois de criar o fluxo de dados, você será enviado automaticamente para a tel
 
 1. Busque uma **visualização de dados** para verificar se o filtro está funcionando corretamente.
 
-    ![Filtrar](media/tutorial-data-flow/filter3.png)
+    ![Captura de tela que mostra a visualização de dados que você buscou.](media/tutorial-data-flow/filter3.png)
 1. A próxima transformação que você adicionará é uma transformação **agregação** em **modificador de esquema**.
 
-    ![Agregado](media/tutorial-data-flow/agg1.png)
+    ![Captura de tela que mostra o modificador de esquema de agregação.](media/tutorial-data-flow/agg1.png)
 1. Nomeie sua transformação agregada **AggregateComedyRatings**. Na guia **Agrupar por** , selecione **ano** na lista suspensa para agrupar as agregações pelo ano em que o filme surgiu.
 
-    ![Agregado](media/tutorial-data-flow/agg2.png)
+    ![Captura de tela que mostra a opção de ano na guia agrupar por, em configurações de agregação.](media/tutorial-data-flow/agg2.png)
 1. Vá para a guia **agregações** . Na caixa de texto à esquerda, nomeie a coluna de agregação **AverageComedyRating**. Clique na caixa de expressão à direita para inserir a expressão de agregação por meio do construtor de expressões.
 
-    ![Agregado](media/tutorial-data-flow/agg3.png)
+    ![Captura de tela que mostra a opção year na guia Agregações em configurações de agregação.](media/tutorial-data-flow/agg3.png)
 1. Para obter a média de **classificação**de coluna, use a ```avg()``` função de agregação. Como a **classificação** é uma cadeia de caracteres e ```avg()``` usa uma entrada numérica, devemos converter o valor em um número por meio da ```toInteger()``` função. Essa expressão é semelhante a:
 
     ```avg(toInteger(Rating))```
 
     Clique em **salvar e concluir** quando terminar.
 
-    ![Agregado](media/tutorial-data-flow/agg4.png)
+    ![Captura de tela que mostra a expressão salva.](media/tutorial-data-flow/agg4.png)
 1. Vá para a guia **visualização de dados** para exibir a saída da transformação. Observe que apenas duas colunas estão lá, **year** e **AverageComedyRating**.
 
     ![Agregado](media/tutorial-data-flow/agg3.png)
 1. Em seguida, você deseja adicionar uma transformação de **coletor** em **destino**.
 
-    ![Coletor](media/tutorial-data-flow/sink1.png)
+    ![Captura de tela que mostra onde adicionar uma transformação de coletor em destino.](media/tutorial-data-flow/sink1.png)
 1. Nomeie o **coletor**do coletor. Clique em **novo** para criar o conjunto de seus conjuntos de coleta.
 
-    ![Coletor](media/tutorial-data-flow/sink2.png)
+    ![Captura de tela que mostra onde você pode nomear seu coletor e criar um novo conjunto de um.](media/tutorial-data-flow/sink2.png)
 1. Escolha **Azure data Lake Storage Gen2**. Clique em Continuar.
 
-    ![Dataset](media/tutorial-data-flow/dataset1.png)
+    ![Captura de tela que mostra o bloco Azure Data Lake Storage Gen2 que você pode escolher.](media/tutorial-data-flow/dataset1.png)
 1. Escolha **DelimitedText**. Clique em Continuar.
 
     ![Dataset](media/tutorial-data-flow/dataset2.png)
@@ -181,13 +181,13 @@ Você pode depurar um pipeline antes de publicá-lo. Nesta etapa, você vai disp
 
 1. Vá para a tela do pipeline. Clique em **depurar** para disparar uma execução de depuração.
 
-    ![Pipeline](media/tutorial-data-flow/pipeline1.png)
+    ![Captura de tela que mostra as telas de pipeline com a depuração realçada.](media/tutorial-data-flow/pipeline1.png)
 1. A depuração de pipeline de atividades de fluxo de dados usa o cluster de depuração ativo, mas ainda levará pelo menos um minuto para ser inicializado. Você pode acompanhar o progresso por meio da guia **saída** . Quando a execução for bem-sucedida, clique no ícone de óculos para abrir o painel Monitoramento.
 
     ![Pipeline](media/tutorial-data-flow/pipeline2.png)
 1. No painel Monitoramento, você pode ver o número de linhas e o tempo gasto em cada etapa de transformação.
 
-    ![Monitoramento](media/tutorial-data-flow/pipeline3.png)
+    ![Captura de tela que mostra o painel Monitoramento, no qual você pode ver o número de linhas e o tempo gasto em cada etapa de transformação.](media/tutorial-data-flow/pipeline3.png)
 1. Clique em uma transformação para obter informações detalhadas sobre as colunas e o particionamento dos dados.
 
     ![Monitoramento](media/tutorial-data-flow/pipeline4.png)

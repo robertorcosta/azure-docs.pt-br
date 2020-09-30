@@ -3,14 +3,14 @@ title: Perguntas frequentes
 description: Respostas das perguntas frequentes relacionadas ao serviço de Registro de Contêiner do Azure
 author: sajayantony
 ms.topic: article
-ms.date: 03/18/2020
+ms.date: 09/18/2020
 ms.author: sajaya
-ms.openlocfilehash: 02facedda206a5621cabe62a07520303635dc3ff
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 499ef509fc9f8d9365d8db3f7058d12352db9bb2
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245359"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570511"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Perguntas frequentes sobre o Registro de Contêiner do Azure
 
@@ -19,7 +19,7 @@ Este artigo aborda as perguntas frequentes e problemas conhecidos sobre o Regist
 Para obter diretrizes de solução de problemas do registro, consulte:
 * [Solucionar problemas de logon do registro](container-registry-troubleshoot-login.md)
 * [Solucionar problemas de rede com o registro](container-registry-troubleshoot-access.md)
-* [Solucionar problemas de desempenho do registro](container-registry-troubleshoot-performance.md)
+* [Solucionar problemas de desempenho de registro](container-registry-troubleshoot-performance.md)
 
 ## <a name="resource-management"></a>Gerenciamento de recursos
 
@@ -261,8 +261,8 @@ Atualmente, a quarentena da imagem é uma versão prévia do recurso do ACR. Voc
 
 Atualmente, a configuração de um registro de contêiner do Azure para acesso de pull anônimo (público) é uma versão prévia do recurso. Se você tiver qualquer [mapa de escopo (usuário) ou recursos de token](https://aka.ms/acr/repo-permissions) em seu registro, exclua-os antes de gerar um tíquete de suporte (os mapas de escopo do sistema podem ser ignorados). Para habilitar o acesso público, abra um tíquete de suporte em https://aka.ms/acr/support/create-ticket. Para obter detalhes, confira o [Fórum de Comentários do Azure](https://feedback.azure.com/forums/903958-azure-container-registry/suggestions/32517127-enable-anonymous-access-to-registries).
 
-
-
+> [!NOTE]
+> Somente as APIs necessárias para efetuar pull de uma imagem conhecida podem ser acessadas anonimamente. Nenhuma outra API para operações como lista de marcas ou lista de repositórios é acessível anonimamente.
 
 ## <a name="diagnostics-and-health-checks"></a>Diagnóstico e verificações de integridade
 
@@ -443,7 +443,7 @@ Entre em contato com o administrador de rede ou verifique a configuração de re
 ### <a name="why-does-my-pull-or-push-request-fail-with-disallowed-operation"></a>Por que minha solicitação de pull ou push falha com a operação não permitida?
 
 Estes são alguns cenários em que as operações podem não ser permitidas:
-* Os registros clássicos não são mais compatíveis. Atualize para uma [camada de serviço](https://aka.ms/acr/skus) com suporte usando o [az acr update](/cli/azure/acr?view=azure-cli-latest#az-acr-update) ou o portal do Azure.
+* Os registros clássicos não são mais compatíveis. Atualize para uma [camada de serviço](https://aka.ms/acr/skus) com suporte usando o [az acr update](/cli/azure/acr#az-acr-update) ou o portal do Azure.
 * A imagem ou o repositório pode estar bloqueado para que não possa ser excluído ou atualizado. Você pode usar o comando [az acr show repository](./container-registry-image-lock.md) para exibir os atributos atuais.
 * Algumas operações não serão permitidas se a imagem estiver em quarentena. Saiba mais sobre a [quarentena](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
 * O registro pode ter atingido seu [limite de armazenamento](container-registry-skus.md#service-tier-features-and-limits).

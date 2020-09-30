@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: sngun
-ms.openlocfilehash: 31c3c02f2b32594e5b20450d0bb519f4cdf82807
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b9e6e1388465542e9fb3ac69540c981a1fd70d4b
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497753"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570126"
 ---
 # <a name="how-to-use-azure-kubernetes-with-azure-cosmos-db-preview"></a>Como usar o Kubernetes do Azure com o Azure Cosmos DB (versão prévia)
 
-A API do etcd no Azure Cosmos DB permite que você use o Azure Cosmos DB como armazenamento de back-end para Kubernetes do Azure. O Azure Cosmos DB implementa o protocolo de transmissão etcd, que permite que os servidores de API do nó mestre usem o Azure Cosmos DB exatamente como ele acessaria um etcd instalado localmente. A API do etcd no Azure Cosmos DB está atualmente em versão prévia. Quando você usa a API do etcd do Azure Cosmos como repositório de backup para o Kubernetes, obtém os seguintes benefícios: 
+A API do etcd no Azure Cosmos DB permite que você use o Azure Cosmos DB como armazenamento de back-end para Kubernetes do Azure. Azure Cosmos DB implementa o protocolo etcd Wire, que permite que os servidores de API do nó primário usem Azure Cosmos DB assim como acessaria um etcd instalado localmente. A API do etcd no Azure Cosmos DB está atualmente em versão prévia. Quando você usa a API do etcd do Azure Cosmos como repositório de backup para o Kubernetes, obtém os seguintes benefícios: 
 
 * Não há necessidade de configurar e gerenciar etcd manualmente.
 * Alta disponibilidade de etcd, garantida pelo Cosmos (99,99% em única região, 99,999% em várias regiões).
@@ -27,7 +27,7 @@ Para saber mais sobre a API do etcd no Azure Cosmos DB, veja o artigo de [visão
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-1. Instale a [versão mais recente](/cli/azure/install-azure-cli?view=azure-cli-latest) da CLI do Azure. Você pode baixar a CLI do Azure específica para seu sistema operacional e instalar.
+1. Instale a [versão mais recente](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) da CLI do Azure. Você pode baixar a CLI do Azure específica para seu sistema operacional e instalar.
 
 1. Instale a [última versão](https://github.com/Azure/aks-engine/releases) do Mecanismo de Kubernetes do Azure. As instruções de instalação para diferentes sistemas operacionais estão disponíveis na página [Mecanismo de Kubernetes do Azure](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/quickstart.md#install-aks-engine). Você só precisa das etapas da seção **instalar mecanismo do AKS** do documento vinculado. Após o download, extraia o arquivo zip.
 

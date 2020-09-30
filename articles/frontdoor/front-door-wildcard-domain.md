@@ -8,18 +8,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/10/2020
+ms.date: 09/29/2020
 ms.author: duau
-ms.openlocfilehash: edeaaf97c818831aa1eda5823ea491110f784549
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 5194e088ce2bd35208a92c5295457e6c34cd2cc1
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91442357"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570322"
 ---
 # <a name="wildcard-domains"></a>Domínios curinga
 
-Além de domínios Apex e subdomínios, você pode mapear um nome de domínio curinga para sua lista de hosts de front-end ou domínios personalizados em seu perfil de porta frontal do Azure. Ter domínios curinga na sua configuração de porta frontal do Azure simplifica o comportamento de roteamento de tráfego para vários subdomínios para uma API, um aplicativo ou um site da mesma regra de roteamento. Você não precisa modificar a configuração para adicionar ou especificar cada subdomínio separadamente. Por exemplo, você pode definir o roteamento para o `customer1.contoso.com` , o `customer2.contoso.com` e `customerN.contoso.com` o usando a mesma regra de roteamento e adicionando o domínio curinga `*.contoso.com` .
+Além dos domínios e subdomínios do Apex, você também pode mapear um domínio curinga para seus hosts de front-end ou domínios personalizados para seu perfil de porta frontal do Azure. Ter domínios curinga na sua configuração de porta frontal do Azure simplifica o comportamento de roteamento de tráfego para vários subdomínios para uma API, um aplicativo ou um site da mesma regra de roteamento. Você não precisa modificar a configuração para adicionar ou especificar cada subdomínio separadamente. Por exemplo, você pode definir o roteamento para o `customer1.contoso.com` , o `customer2.contoso.com` e `customerN.contoso.com` o usando a mesma regra de roteamento e adicionando o domínio curinga `*.contoso.com` .
 
 Os principais cenários que são aprimorados com suporte para domínios curinga incluem:
 
@@ -47,7 +47,7 @@ Você pode adicionar domínios curinga e seus subdomínios com determinadas limi
 - Se um domínio curinga for adicionado a um perfil de porta de recepção do Azure:
   - O domínio curinga não pode ser adicionado a nenhum outro perfil de porta frontal do Azure.
   - Subdomínios de primeiro nível do domínio curinga não podem ser adicionados a outro perfil de porta frontal do Azure ou a um perfil de rede de distribuição de conteúdo do Azure.
-- Se um subdomínio de um domínio curinga for adicionado a um perfil de porta de entrega do Azure ou a um perfil de rede de distribuição de conteúdo do Azure, o domínio curinga não poderá ser adicionado a outros perfis de porta frontal do Azure.
+- Se um subdomínio de um domínio curinga já estiver adicionado a um perfil de porta de entrega do Azure ou a um perfil de rede de distribuição de conteúdo do Azure, o domínio curinga não poderá ser usado para outro perfil de porta frontal do Azure.
 - Se dois perfis (Azure front door ou rede de distribuição de conteúdo do Azure) tiverem vários subdomínios de um domínio raiz, os domínios curinga não poderão ser adicionados a nenhum dos perfis.
 
 ## <a name="certificate-binding"></a>Associação de certificado
@@ -59,7 +59,7 @@ Para aceitar o tráfego HTTPS em seu domínio curinga, você deve habilitar o HT
 
 Você pode optar por usar o mesmo certificado curinga de Azure Key Vault ou de certificados gerenciados de porta frontal do Azure para subdomínios.
 
-Se um subdomínio for adicionado a um domínio curinga que já tenha um certificado associado a ele, o HTTPS para o subdomínio não poderá ser desabilitado. O subdomínio usa a associação de certificado para o domínio curinga, a menos que uma Key Vault diferente ou o certificado gerenciado da porta de recepção do Azure a substitua.
+Se um subdomínio for adicionado a um domínio curinga que já tenha um certificado associado a ele, você não poderá desabilitar o HTTPS para o subdomínio. O subdomínio usa a associação de certificado para o domínio curinga, a menos que uma Key Vault diferente ou o certificado gerenciado da porta de recepção do Azure a substitua.
 
 ## <a name="waf-policies"></a>Políticas de WAF
 

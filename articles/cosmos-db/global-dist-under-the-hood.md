@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/02/2020
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 7e315a7366793d355967f777cbc1dda0f9277087
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: c86207af51ebd1a9442afe6fa609598ec917bf15
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955906"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570442"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---under-the-hood"></a>Distribuição de dados global com o Azure Cosmos DB – nos bastidores
 
@@ -30,7 +30,7 @@ Quando um aplicativo que usa Cosmos DB dimensiona a taxa de transferência de fo
 
 Conforme mostrado na imagem a seguir, os dados dentro de um contêiner são distribuídos juntamente com duas dimensões – dentro de uma região e entre regiões, em todo o mundo:  
 
-:::image type="content" source="./media/global-dist-under-the-hood/distribution-of-resource-partitions.png" alt-text="partições físicas" border="false":::
+:::image type="content" source="./media/global-dist-under-the-hood/distribution-of-resource-partitions.png" alt-text="Topologia do sistema" border="false":::
 
 Uma partição física é implementada por um grupo de réplicas, chamado de *conjunto de réplicas*. Cada computador hospeda centenas de réplicas que correspondem a várias partições físicas em um conjunto fixo de processos, conforme mostrado na imagem acima. As réplicas correspondentes às partições físicas são colocadas dinamicamente e com balanceamento de carga entre os computadores dentro de um cluster e os data centers dentro de uma região.  
 
@@ -52,7 +52,7 @@ Uma partição física é materializada como um grupo autogerenciado e com balan
 
 Um grupo de partições físicas, um de cada um dos configurados com as regiões de banco de dados Cosmos, é composto para gerenciar o mesmo conjunto de chaves replicadas em todas as regiões configuradas. Esse primitivo de coordenação mais alto é chamado de *conjunto* de partições, uma sobreposição dinâmica geograficamente distribuída de partições físicas que gerenciam um determinado conjunto de chaves. Embora uma determinada partição física (um conjunto de réplicas) esteja no escopo de um cluster, um conjunto de partições pode abranger clusters, data centers e regiões geográficas, conforme mostrado na imagem abaixo:  
 
-:::image type="content" source="./media/global-dist-under-the-hood/dynamic-overlay-of-resource-partitions.png" alt-text="Conjuntos de partição" border="false":::
+:::image type="content" source="./media/global-dist-under-the-hood/dynamic-overlay-of-resource-partitions.png" alt-text="Topologia do sistema" border="false":::
 
 Você pode pensar em um conjunto de partições como um "superconjunto de réplicas" geograficamente disperso composto por vários conjuntos de réplicas com o mesmo conjunto de chaves. Semelhante a um conjunto de réplicas, a associação de um conjunto de partições também é dinâmica – ela flutua com base nas operações de gerenciamento de partição física implícitas para adicionar/remover novas partições de/para um determinado conjunto de partições (por exemplo, quando você dimensiona a taxa de transferência em um contêiner, adiciona/remove uma região ao banco de dados Cosmos ou quando ocorrem falhas). Em virtude de ter cada uma das partições (de um conjunto de partição) gerenciar a associação de conjunto de partições em seu próprio conjunto de réplicas, a associação é totalmente descentralizada e altamente disponível. Durante a reconfiguração de um conjunto de partições, a topologia da sobreposição entre as partições físicas também é estabelecida. A topologia é selecionada dinamicamente com base no nível de consistência, distância geográfica e largura de banda de rede disponível entre as partições físicas de origem e de destino.  
 
@@ -62,7 +62,7 @@ O serviço permite que você configure seus bancos de dados do Cosmos com uma ou
 
 Nosso design para propagação da atualização, resolução de conflitos e acompanhamento de causalidade é inspirado no trabalho anterior sobre [algoritmos epidêmicos](https://www.cs.utexas.edu/~lorenzo/corsi/cs395t/04S/notes/naor98load.pdf) e o sistema [Bayou](https://zoo.cs.yale.edu/classes/cs422/2013/bib/terry95managing.pdf). Embora kernels de ideias tenham sobrevivido e apresentem um quadro de referência conveniente para comunicação com o design do sistema do Cosmos DB, eles também foram submetidos a transformações significativas ao serem aplicados ao sistema do Cosmos DB. Isso era necessário porque os sistemas anteriores não foram projetados nem com a governança de recursos nem com a escala na qual Cosmos DB precisa operar, nem para fornecer os recursos (por exemplo, consistência de desatualização limitada) e os SLAs rigorosos e abrangentes que Cosmos DB fornece aos seus clientes.  
 
-Lembre-se de que um conjunto de partições é distribuído em várias regiões e segue o protocolo de replicação do Cosmos DB (vários mestres) para replicar os dados entre as partições físicas que compõem um determinado conjunto de partições. Cada partição física (de um conjunto de partições) aceita gravações e prepara leituras tipicamente para os clientes que são locais dessa região. As gravações aceitas por uma partição física em uma região são confirmadas permanentemente e altamente disponibilizadas na partição física, antes de serem reconhecidas para o cliente. São gravações provisórias e propagadas para outras partições físicas dentro do conjunto de partições usando um canal antientropia. Os clientes podem solicitar gravações provisórias ou confirmadas passando um cabeçalho de solicitação. A propagação antientropia (incluindo a frequência da propagação) é dinâmica, baseada na topologia do conjunto de partições, na proximidade regional entre as partições físicas e no nível de coerência configurado. Em um conjunto de partições, o Cosmos DB segue um esquema de confirmação primário com uma partição de arbitrador selecionada dinamicamente. A seleção do arbitrador é dinâmica e é parte integrante da reconfiguração do conjunto de partições com base na topologia da sobreposição. As gravações confirmadas (incluindo atualizações multilinha/em lote) têm garantia de serem pedidas. 
+Lembre-se de que um conjunto de partições é distribuído entre várias regiões e segue o protocolo de replicação de bancos de dados Cosmos (gravações de várias regiões) para replicar o dado entre as partições físicas que abrangem um determinado conjunto de partições. Cada partição física (de um conjunto de partições) aceita gravações e prepara leituras tipicamente para os clientes que são locais dessa região. As gravações aceitas por uma partição física em uma região são confirmadas permanentemente e altamente disponibilizadas na partição física, antes de serem reconhecidas para o cliente. São gravações provisórias e propagadas para outras partições físicas dentro do conjunto de partições usando um canal antientropia. Os clientes podem solicitar gravações provisórias ou confirmadas passando um cabeçalho de solicitação. A propagação antientropia (incluindo a frequência da propagação) é dinâmica, baseada na topologia do conjunto de partições, na proximidade regional entre as partições físicas e no nível de coerência configurado. Em um conjunto de partições, o Cosmos DB segue um esquema de confirmação primário com uma partição de arbitrador selecionada dinamicamente. A seleção do arbitrador é dinâmica e é parte integrante da reconfiguração do conjunto de partições com base na topologia da sobreposição. As gravações confirmadas (incluindo atualizações multilinha/em lote) têm garantia de serem pedidas. 
 
 Podemos empregar os relógios de vetor codificados (contendo a ID da região e relógios lógicos correspondendo a cada nível de consenso no conjunto de réplicas e no conjunto de partições, respectivamente) para vetores de versão e acompanhamento de causalidade detectarem e resolverem conflitos de atualização. A topologia e o algoritmo de seleção de par são projetados para garantir os armazenamentos fixo e mínimo e a sobrecarga mínima de rede dos vetores de versão. O algoritmo garante a propriedade de convergência estrita.  
 

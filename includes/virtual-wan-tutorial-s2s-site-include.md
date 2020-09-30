@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 06/23/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: bc94f31887526f387413f78fe3270784a4e3bd88
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ba69b94514a0c1b59001011a64a4fb28e5e4a827
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525136"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90606959"
 ---
 1. Na página de portal da sua WAN virtual, na seção **Conectividade**, selecione **Sites VPN** para abrir a página Sites VPN.
 2. Na página **Sites VPN**, clique em **+Criar site**.
 
-   ![Noções básicas](./media/virtual-wan-tutorial-site-include/basics.png "Noções básicas")
+   ![Captura de tela mostrando a janela VPN (Site a site) com o painel Criar Site VPN aberto.](./media/virtual-wan-tutorial-site-include/basics.png "Noções básicas")
 3. Na página **Criar Site VPN**, na guia **Básico**, preencha os seguintes campos:
 
     * **Região** - anteriormente conhecida como Local. Esse é o local em que você deseja criar o recurso de site.
@@ -29,7 +29,7 @@ ms.locfileid: "86525136"
     * **Hubs** - o hub ao qual você deseja que o Site se conecte. Um site só pode ser conectado a hubs que têm um Gateway de VPN. Se você não vir o hub, primeiro crie um gateway de VPN nele.
 4. Selecione **Links** para adicionar informações sobre os links físicos no branch. Se você tiver um dispositivo CPE de parceiro de WAN virtual, verifique com o parceiro para ver se essas informações são trocadas com o Azure como parte do upload de informações do branch configurado em seus sistemas.
 
-   ![links](./media/virtual-wan-tutorial-site-include/links.png "Links")
+   ![A captura de tela mostrando o painel Criar Site VPN com a guia Links selecionada.](./media/virtual-wan-tutorial-site-include/links.png "Links")
 
     * **Nome do link** - um nome que você deseja fornecer para o link físico no site VPN. Exemplo: mylink1.
     * **Nome do provedor** - o nome do link físico no site VPN. Exemplo: ATT, Verizon.

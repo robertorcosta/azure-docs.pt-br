@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 3f882375197fa45cfbc74ff7a80ed33fd33f33a3
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 1f2e90f9391654d10332b9f1a21c56fd22e2307b
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91400291"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570797"
 ---
 # <a name="how-does-azure-cosmos-db-provide-high-availability"></a>Como Azure Cosmos DB fornece alta disponibilidade? 
 
@@ -30,7 +30,7 @@ Se sua conta do Azure Cosmos for distribuída entre *n* regiões do Azure, haver
 
 ## <a name="slas-for-availability"></a>SLAs de disponibilidade
 
-Como um banco de dados distribuído globalmente, o Azure Cosmos DB fornece SLAs abrangentes que abrangem a taxa de transferência, a latência no 99 º percentil, a consistência e a alta disponibilidade. A tabela a seguir mostra as garantias de alta disponibilidade fornecidas por Azure Cosmos DB para contas de uma e várias regiões. Para alta disponibilidade, sempre configure suas contas do Azure Cosmos para ter várias regiões de gravação (também chamadas de vários mestres).
+Como um banco de dados distribuído globalmente, o Azure Cosmos DB fornece SLAs abrangentes que abrangem a taxa de transferência, a latência no 99 º percentil, a consistência e a alta disponibilidade. A tabela a seguir mostra as garantias de alta disponibilidade fornecidas por Azure Cosmos DB para contas de uma e várias regiões. Para alta disponibilidade, sempre configure suas contas do Azure Cosmos para ter várias regiões de gravação.
 
 |Tipo de operação  | Região única |Várias regiões (gravações de região única)|Várias regiões (gravações de várias regiões) |
 |---------|---------|---------|-------|
@@ -46,7 +46,7 @@ Para casos raros de interrupção regional, o Azure Cosmos DB garante que seu ba
 
 - Com Azure Cosmos DB, antes que uma operação de gravação seja confirmada para o cliente, os dados são permanentemente confirmados por um quorum de réplicas dentro da região que aceita as operações de gravação.
 
-- As contas de várias regiões configuradas com regiões de várias gravações/mestres múltiplos serão altamente disponíveis para gravações e leituras. Failovers regionais são instantâneos e não exigem nenhuma alteração do aplicativo.
+- Contas de várias regiões configuradas com várias regiões de gravação estarão altamente disponíveis para leituras e gravações. Failovers regionais são instantâneos e não exigem nenhuma alteração do aplicativo.
 
 - Contas de uma única região poderão perder disponibilidade após uma indisponibilidade regional. É sempre recomendável configurar **pelo menos duas regiões** (preferencialmente, pelo menos duas regiões de gravação) com sua conta do Azure Cosmos para garantir a alta disponibilidade em todos os momentos.
 
@@ -125,7 +125,7 @@ az cosmosdb create \
 
 Você pode habilitar Zonas de Disponibilidade usando portal do Azure ao criar uma conta do Azure Cosmos. Ao criar uma conta, certifique-se de habilitar a **redundância geográfica**, as **gravações de várias regiões**e escolher uma região onde zonas de disponibilidade têm suporte:
 
-:::image type="content" source="./media/high-availability/enable-availability-zones-using-portal.png" alt-text="Habilitar Zonas de Disponibilidade usando portal do Azure"::: 
+:::image type="content" source="./media/high-availability/enable-availability-zones-using-portal.png" alt-text="Particionamento físico"::: 
 
 ## <a name="building-highly-available-applications"></a>Criando aplicativos altamente disponíveis
 

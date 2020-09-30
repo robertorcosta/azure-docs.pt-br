@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-python
-ms.openlocfilehash: e9f9daea2c0d570efb81603784ee730b11668426
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 03c8f5acfc10738401f61de099f946c33497d705
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585977"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569816"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>SDK do Python do Azure Cosmos DB para a API do SQL: Notas sobre a versão e recursos
 
@@ -40,7 +40,7 @@ ms.locfileid: "88585977"
 | |  |
 |---|---|
 |**Baixar o SDK**|[PyPI](https://pypi.org/project/azure-cosmos)|
-|**Documentação da API**|[Documentação de referência da API do Python](https://docs.microsoft.com/python/api/azure-cosmos/?view=azure-python)|
+|**Documentação da API**|[Documentação de referência da API do Python](https://docs.microsoft.com/python/api/azure-cosmos/?view=azure-python&preserve-view=true)|
 |**Instruções de instalação do SDK**|[Instruções de instalação do SDK do Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)|
 |**Introdução**|[Introdução ao SDK do Python](create-sql-api-python.md)|
 |**Plataforma atual com suporte**|[Python 2.7](https://www.python.org/downloads/) e [Python 3.5.3+](https://www.python.org/downloads/)|
@@ -54,7 +54,7 @@ ms.locfileid: "88585977"
 **Novos recursos**
 - Adicionada a capacidade de definir o TTL de armazenamento analítico ao criar um novo contêiner.
 
-**Correções de bug**
+**Correções de bugs**
 - Corrigido o suporte para os dictfiles como entradas para get_client APIs.
 - Correção da compatibilidade do Python 2/3 nos iteradores de consulta.
 - Erro de dica de tipo fixo (problema #12570).
@@ -126,7 +126,7 @@ ms.locfileid: "88585977"
 
 * O construtor de `CosmosClient` foi atualizado:
 
-  * O parâmetro `auth` foi renomeado para `credential` e agora usará um tipo de autenticação diretamente. Isso significa que o valor da chave mestra, um dicionário de tokens de recurso ou uma lista de permissões pode ser passado. No entanto, o formato de dicionário antigo ainda é compatível.
+  * O parâmetro `auth` foi renomeado para `credential` e agora usará um tipo de autenticação diretamente. Isso significa que o valor de chave primária, um dicionário de tokens de recurso ou uma lista de permissões pode ser passado. No entanto, o formato de dicionário antigo ainda é compatível.
 
   * O parâmetro `connection_policy` tornou-se um parâmetro somente de palavra-chave e, embora ainda tenha suporte, cada um dos atributos individuais da política agora pode ser passado como argumentos de palavra-chave explícitas:
 

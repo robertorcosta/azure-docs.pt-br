@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 8d1c9027b6a9a7b295ce83e26281832beca1bc33
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 8e91a611084d201e6609f7e203eaa08c81e19a00
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91531948"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570001"
 ---
 # <a name="troubleshooting-postgresql-hyperscale-server-groups"></a>Solucionando problemas de grupos de servidores de hiperescala PostgreSQL
 Este artigo descreve algumas técnicas que você pode usar para solucionar problemas do seu grupo de servidores. Além deste artigo, talvez você queira ler como usar o [Kibana](monitor-grafana-kibana.md) para pesquisar os logs ou usar o [Grafana](monitor-grafana-kibana.md) para visualizar as métricas sobre o grupo de servidores. 

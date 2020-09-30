@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/18/2020
 ms.author: mjbrown
-ms.openlocfilehash: 6b09c51c68586f6e55b4238b7420460f3f2b4ac3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 98210f26072504c129ba32f765cf6bab74fef604
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330549"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570724"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Gerenciar uma conta do Azure Cosmos
 
@@ -31,7 +31,7 @@ Consulte [criar uma conta de Azure Cosmos DB com CLI do Azure](manage-with-cli.m
 
 Consulte [criar uma conta de Azure Cosmos DB com o PowerShell](manage-with-powershell.md#create-account)
 
-### <a name="azure-resource-manager-template"></a><a id="create-database-account-via-arm-template"></a>Modelo do Azure Resource Manager
+### <a name="azure-resource-manager-template"></a><a id="create-database-account-via-arm-template"></a>Modelo de Azure Resource Manager
 
 Consulte [criar conta de Azure Cosmos DB com modelos de Azure Resource Manager](manage-sql-with-resource-manager.md)
 
@@ -69,7 +69,7 @@ Consulte [Adicionar ou remover regiões com o PowerShell](manage-with-powershell
 
 Abra a guia **Replicar Dados Globalmente** e selecione **Habilitar** para habilitar gravações de várias regiões. Depois que você habilitar gravações de várias regiões, todas as regiões de leitura que você tiver na conta no momento se tornarão regiões de leitura e gravação.
 
-:::image type="content" source="./media/how-to-manage-database-account/single-to-multi-master.png" alt-text="Captura de tela da configuração de vários mestres da conta do Azure Cosmos":::
+:::image type="content" source="./media/how-to-manage-database-account/single-to-multi-master.png" alt-text="Adicionar ou remover o menu de regiões":::
 
 ### <a name="azure-cli"></a><a id="configure-multiple-write-regions-cli"></a>Azure CLI
 
@@ -77,11 +77,11 @@ Consulte [habilitar regiões de várias gravações com CLI do Azure](manage-wit
 
 ### <a name="azure-powershell"></a><a id="configure-multiple-write-regions-ps"></a>Azure PowerShell
 
-Consulte [habilitar regiões de várias gravações com o PowerShell](manage-with-powershell.md#multi-master)
+Consulte [habilitar regiões de várias gravações com o PowerShell](manage-with-powershell.md#multi-region-writes)
 
 ### <a name="resource-manager-template"></a><a id="configure-multiple-write-regions-arm"></a>Modelo do Resource Manager
 
-Uma conta pode ser migrada de mestre único para vários mestres com a implantação do modelo do Resource Manager usado para criar a conta e a configuração `enableMultipleWriteLocations: true`. O modelo do Azure Resource Manager a seguir é um modelo mínimo possível que implantará uma conta do Azure Cosmos para a API do SQL com duas regiões e vários locais de gravação habilitados.
+Uma conta pode ser migrada de uma única região de gravação para várias regiões de gravação implantando o modelo do Resource Manager usado para criar a conta e a configuração `enableMultipleWriteLocations: true` . O modelo do Azure Resource Manager a seguir é um modelo mínimo possível que implantará uma conta do Azure Cosmos para a API do SQL com duas regiões e vários locais de gravação habilitados.
 
 ```json
 {
@@ -149,13 +149,13 @@ A opção Failover automático permite que o Azure Cosmos DB faça failover para
 
 2. Escolha **Failover Automático** na parte superior do painel.
 
-   :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Menu Replicar dados globalmente":::
+   :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Adicionar ou remover o menu de regiões":::
 
 3. No painel **Failover Automático**, verifique se a opção **Habilitar Failover Automático** está definida como **ATIVADO**. 
 
 4. Clique em **Salvar**.
 
-   :::image type="content" source="./media/how-to-manage-database-account/automatic-failover.png" alt-text="Menu do portal Failover automático":::
+   :::image type="content" source="./media/how-to-manage-database-account/automatic-failover.png" alt-text="Adicionar ou remover o menu de regiões":::
 
 ### <a name="azure-cli"></a><a id="enable-automatic-failover-via-cli"></a>Azure CLI
 
@@ -178,7 +178,7 @@ Depois que uma conta do Cosmos for configurada para failover automático, a prio
 
 2. Escolha **Failover Automático** na parte superior do painel.
 
-   :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Menu Replicar dados globalmente":::
+   :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Adicionar ou remover o menu de regiões":::
 
 3. No painel **Failover Automático**, verifique se a opção **Habilitar Failover Automático** está definida como **ATIVADO**.
 
@@ -186,7 +186,7 @@ Depois que uma conta do Cosmos for configurada para failover automático, a prio
 
 5. Clique em **Salvar**.
 
-   :::image type="content" source="./media/how-to-manage-database-account/automatic-failover.png" alt-text="Menu do portal Failover automático":::
+   :::image type="content" source="./media/how-to-manage-database-account/automatic-failover.png" alt-text="Adicionar ou remover o menu de regiões":::
 
 ### <a name="azure-cli"></a><a id="set-failover-priorities-via-cli"></a>Azure CLI
 
@@ -204,7 +204,7 @@ Consulte [definir a prioridade de failover com o PowerShell](manage-with-powersh
 O processo de execução de um failover manual envolve a alteração da região de gravação da conta (prioridade de failover = 0) para outra região configurada para a conta.
 
 > [!NOTE]
-> As contas de vários mestres não podem ter um failover manual. Para aplicativos que usam o SDK do Azure Cosmos, o SDK detectará quando uma região ficar indisponível e, em seguida, fará o redirecionamento automático para a próxima região mais perto se a API de hospedagem múltipla estiver sendo usada no SDK.
+> Não é possível fazer failover manual de contas com várias regiões de gravação. Para aplicativos que usam o SDK do Azure Cosmos, o SDK detectará quando uma região ficar indisponível e, em seguida, fará o redirecionamento automático para a próxima região mais perto se a API de hospedagem múltipla estiver sendo usada no SDK.
 
 ### <a name="azure-portal"></a><a id="enable-manual-failover-via-portal"></a>Portal do Azure
 
@@ -212,13 +212,13 @@ O processo de execução de um failover manual envolve a alteração da região 
 
 2. Na parte superior do menu, escolha **Failover Manual**.
 
-   :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Menu Replicar dados globalmente":::
+   :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Adicionar ou remover o menu de regiões":::
 
 3. No menu **Failover Manual**, escolha a nova região de gravação. Marque a caixa de seleção para indicar que você entende que essa opção alterará sua região de gravação.
 
 4. Para disparar o failover, escolha **OK**.
 
-   :::image type="content" source="./media/how-to-manage-database-account/manual-failover.png" alt-text="Menu do portal de failover manual":::
+   :::image type="content" source="./media/how-to-manage-database-account/manual-failover.png" alt-text="Adicionar ou remover o menu de regiões":::
 
 ### <a name="azure-cli"></a><a id="enable-manual-failover-via-cli"></a>Azure CLI
 

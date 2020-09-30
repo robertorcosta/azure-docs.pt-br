@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 051f6e6ef15cc94e2b607c74e666bae9c91c1160
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 75344204e03920c96d0868ad584b8701813fabf0
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401615"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569523"
 ---
 # <a name="azure-security-baseline-for-cosmos-db"></a>Linha de base de segurança do Azure para Cosmos DB
 
@@ -290,7 +290,7 @@ O Azure Cosmos DB fornece RBAC interno para cenários comuns de gerenciamento no
 
 Você também pode usar o módulo do PowerShell do Azure AD para executar consultas ad hoc para descobrir contas que são membros de grupos administrativos. 
 
-Além disso, algumas ações no Azure Cosmos DB podem ser controladas com Azure Active Directory e chaves mestras específicas da conta.  Use a configuração de conta ' disableKeyBasedMetadataWriteAccess ' para controlar o acesso à chave.
+Além disso, algumas ações no Azure Cosmos DB podem ser controladas com Azure Active Directory e chaves primárias específicas da conta.  Use a configuração de conta ' disableKeyBasedMetadataWriteAccess ' para controlar o acesso à chave.
 
 Compreenda o controle de acesso baseado em função no Azure Cosmos DB: https://docs.microsoft.com/azure/cosmos-db/role-based-access-control
 
@@ -298,9 +298,9 @@ Crie suas próprias funções personalizadas usando ações de Azure Cosmos DB (
 
 Crie uma nova função no Azure Active Directory: https://docs.microsoft.com/azure/role-based-access-control/custom-roles
 
-Como obter uma função de diretório no Azure Active Directory com o PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0
+Como obter uma função de diretório no Azure Active Directory com o PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&preserve-view=true
 
-Como obter membros de uma função de diretório no Azure Active Directory com o PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0
+Como obter membros de uma função de diretório no Azure Active Directory com o PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&preserve-view=true
 
 Restringir o acesso do usuário somente a operações de dados: https://docs.microsoft.com/azure/cosmos-db/how-to-restrict-user-data
 
@@ -310,7 +310,7 @@ Restringir o acesso do usuário somente a operações de dados: https://docs.mic
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3.2: alterar senhas padrão quando aplicável
 
-**Orientação**: o conceito de senhas padrão ou em branco não existe em relação ao Azure AD ou Azure Cosmos DB. Em vez disso, Azure Cosmos DB usa dois tipos de chaves para autenticar usuários e fornecer acesso a seus dados e recursos; chaves mestras e tokens de recurso. As chaves podem ser geradas novamente a qualquer momento.
+**Orientação**: o conceito de senhas padrão ou em branco não existe em relação ao Azure AD ou Azure Cosmos DB. Em vez disso, Azure Cosmos DB usa dois tipos de chaves para autenticar usuários e fornecer acesso a seus dados e recursos; chaves primárias e tokens de recurso. As chaves podem ser geradas novamente a qualquer momento.
 
 Noções básicas sobre o acesso seguro aos dados no Azure Cosmos DB: https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data
 
@@ -640,7 +640,7 @@ Embora os recursos clássicos do Azure possam ser descobertos por meio do Resour
 
 Como criar consultas com o Azure Resource Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
-Como exibir suas assinaturas do Azure: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
+Como exibir suas assinaturas do Azure: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0&preserve-view=true
 
 Noções básicas sobre o controle de acesso baseado em função do Azure: https://docs.microsoft.com/azure/role-based-access-control/overview
 
@@ -792,7 +792,7 @@ Como configurar o acesso condicional para bloquear o acesso ao Azure Resource Ma
 
 - O Cosmos DB deve usar um ponto de extremidade de serviço de rede virtual Microsoft Azure Cosmos DB
 
-Como exibir os aliases do Azure Policy disponíveis: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+Como exibir os aliases do Azure Policy disponíveis: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0&preserve-view=true
 
 Como configurar e gerenciar o Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -834,7 +834,7 @@ Compreender os efeitos do Azure Policy: https://docs.microsoft.com/azure/governa
 
 **Orientação**: se você estiver usando definições de Azure Policy personalizadas para seu Cosmos DB ou recursos relacionados, use Azure Repos para armazenar e gerenciar seu código com segurança.
 
-Documentação do Azure Repos: https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
+Documentação do Azure Repos: https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops&preserve-view=true https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&preserve-view=true
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -1003,7 +1003,7 @@ https://docs.microsoft.com/azure/cosmos-db/how-to-backup-and-restore
 
 Como restaurar Azure Key Vault segredos:
 
-https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0
+https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0&preserve-view=true
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 

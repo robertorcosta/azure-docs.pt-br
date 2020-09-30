@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: e0a24b52c12bce6a8e016a926dfa64a1e36a7cc6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8d98c9a7e58f08d9ad63183805cd6cd0d2ab3b3d
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72753316"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570172"
 ---
 # <a name="optimize-multi-region-cost-in-azure-cosmos-db"></a>Otimizar o custo de várias regiões no Azure Cosmos DB
 
@@ -25,7 +25,7 @@ A taxa de transferência provisionada com região de gravação única custa US$
 
 ## <a name="costs-for-multiple-write-regions"></a>Custos de várias regiões de gravação
 
-Em um sistema de vários mestres, as RUs disponíveis para operações de gravação aumentam `N` vezes em que `N` é o número de regiões de gravação. Ao contrário de gravações de região única, cada região agora é gravável e deve dar suporte à resolução de conflitos. A quantidade de carga de trabalho para gravadores aumentou. Do ponto de vista do planejamento de custos, para executar `M` ru/s de gravações em todo o mundo, você precisará provisionar M `RUs` em um nível de contêiner ou banco de dados. Em seguida, você pode adicionar quantas regiões desejar e usá-las para gravações para executar `M` RU de gravações em todo o mundo. 
+Em um sistema de gravações de várias regiões, o RUs de rede disponível para operações de gravação aumenta `N` os tempos em que `N` é o número de regiões de gravação. Ao contrário de gravações de região única, cada região agora é gravável e deve dar suporte à resolução de conflitos. A quantidade de carga de trabalho para gravadores aumentou. Do ponto de vista do planejamento de custos, para executar `M` ru/s de gravações em todo o mundo, você precisará provisionar M `RUs` em um nível de contêiner ou banco de dados. Em seguida, você pode adicionar quantas regiões desejar e usá-las para gravações para executar `M` RU de gravações em todo o mundo. 
 
 ### <a name="example"></a>Exemplo
 

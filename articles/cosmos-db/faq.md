@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: f6b2d081b0dc475e0950b12de31bab83cbe7da8b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4bd29ce3bf2cc7cd69f86dbf172d3cd9a2044e79
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213084"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570351"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Perguntas frequentes sobre diferentes APIs no Azure Cosmos DB
 
@@ -85,7 +85,7 @@ Experimente as assinaturas do Azure Cosmos DB é exibido no portal do Azure ao l
 
 As seguintes condições se aplicam às assinaturas de Experimente o Azure Cosmos DB:
 
-* O acesso à conta pode ser concedido a MSAs (Contas pessoais da Microsoft). Evite usar contas do AAD (Azure Active Directory) ou contas que pertencem a locatários corporativos do AAD, pois elas podem ter limitações em vigor que poderiam bloquear a concessão de acesso.
+* O acesso à conta pode ser concedido a MSAs (Contas pessoais da Microsoft). Evite usar contas do Azure Active Directory (AD do Azure) ou contas que pertencem a locatários corporativos do Azure AD, elas podem ter limitações em vigor que poderiam bloquear a concessão de acesso.
 * Um [contêiner de taxa de transferência provisionada](./set-throughput.md#set-throughput-on-a-container) por assinatura para contas SQL, API do Gremlin e Table.
 * Até três [coleções de taxa de transferência provisionada](./set-throughput.md#set-throughput-on-a-container) por assinatura para contas do MongoDB.
 * Um [banco de dados de taxa de transferência provisionada](./set-throughput.md#set-throughput-on-a-database) por assinatura. Os bancos de dados de taxa de transferência provisionada podem conter qualquer número de contêineres internamente.
@@ -102,9 +102,9 @@ As seguintes condições se aplicam às assinaturas de Experimente o Azure Cosmo
 
 O Azure Cosmos DB está disponível no Portal do Azure. Primeiro, inscreva-se para uma assinatura do Azure. Depois de se inscrever, você poderá adicionar uma conta do Azure Cosmos DB à sua assinatura do Azure.
 
-### <a name="what-is-a-master-key"></a>O que é uma chave mestra?
+### <a name="what-is-a-primary-key"></a>O que é uma chave primária?
 
-Uma chave mestra é um token de segurança para acessar todos os recursos de uma conta. As pessoas que têm a chave têm acesso de leitura e gravação a todos os recursos na conta do banco de dados. Seja cauteloso ao distribuir chaves mestras. As chaves mestras primária e a secundária estão disponíveis na folha **Chaves** do [portal do Azure][azure-portal]. Para saber mais sobre as chaves, consulte [Exibir, copiar e regenerar chaves de acesso](manage-with-cli.md#list-account-keys).
+Uma chave primária é um token de segurança para acessar todos os recursos de uma conta. As pessoas que têm a chave têm acesso de leitura e gravação a todos os recursos na conta do banco de dados. Tenha cuidado ao distribuir chaves primárias. A chave primária primária e a chave primária secundária estão disponíveis na folha **chaves** da [portal do Azure][azure-portal]. Para saber mais sobre as chaves, consulte [Exibir, copiar e regenerar chaves de acesso](manage-with-cli.md#list-account-keys).
 
 ### <a name="what-are-the-regions-that-preferredlocations-can-be-set-to"></a>Quais são as regiões para as quais PreferredLocations pode ser definido?
 

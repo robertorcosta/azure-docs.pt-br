@@ -6,13 +6,13 @@ ms.author: nimoolen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/29/2020
-ms.openlocfilehash: d28cd7a7edd5d6405761bf21ee87ec39dc9ec9cb
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.date: 09/29/2020
+ms.openlocfilehash: 6802e3f6c0892993f9ffe4373f43274362b8a003
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448537"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569684"
 ---
 # <a name="data-flow-script-dfs"></a>Script de fluxo de dados (DFS)
 
@@ -210,6 +210,14 @@ Esse trecho de código adicionará uma nova transformação agregada ao fluxo de
 ```
 aggregate(groupBy(mycols = sha2(256,columns())),
     each(match(true()), $$ = first($$))) ~> DistinctRows
+```
+
+### <a name="check-for-nulls-in-all-columns"></a>Verificar se há nulos em todas as colunas
+Este é um trecho de código que você pode colar em seu fluxo de dados para verificar genericamente todas as suas colunas em busca de valores nulos. Essa técnica aproveita a descompasso de esquema para examinar todas as colunas em todas as linhas e usa uma divisão condicional para separar as linhas com valores nulos das linhas sem nulos. 
+
+```
+CreateColumnArray split(contains(array(columns()),isNull(#item)),
+    disjoint: false) ~> LookForNULLs@(hasNULLs, noNULLs)
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

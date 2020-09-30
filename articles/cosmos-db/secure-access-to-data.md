@@ -1,18 +1,18 @@
 ---
 title: Saiba como proteger o acesso aos dados no Azure Cosmos DB
-description: Saiba mais sobre os conceitos do controle de acesso no Azure Cosmos DB, incluindo chaves mestras, chaves somente leitura, usuários e permissões.
+description: Saiba mais sobre os conceitos de controle de acesso no Azure Cosmos DB, incluindo chaves primárias, chaves somente leitura, usuários e permissões.
 author: thomasweiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4714ec9773b98887de483b7353eea9f4416eec19
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 0a5411a8fba8456deb59a5c9ede4e9314876dbdb
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017746"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569575"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Proteger o acesso aos dados no Azure Cosmos DB
 
@@ -22,10 +22,10 @@ O Azure Cosmos DB usa dois tipos de chaves para autenticar usuários e fornecer 
 
 |Tipo de chave|Recursos|
 |---|---|
-|[Chaves mestras](#master-keys) |Usadas para os recursos administrativos: contas de bancos de dados, bancos de dados, usuários e permissões|
+|[Chaves mestras](#primary-keys) |Usadas para os recursos administrativos: contas de bancos de dados, bancos de dados, usuários e permissões|
 |[Tokens de recurso](#resource-tokens)|Usado para recursos de aplicativo: contêineres, documentos, anexos, procedimentos armazenados, gatilhos e UDFs|
 
-<a id="master-keys"></a>
+<a id="primary-keys"></a>
 
 ## <a name="master-keys"></a>Chaves mestras
 
@@ -38,15 +38,15 @@ As chaves mestras fornecem acesso a todos os recursos administrativos da conta d
 
 Cada conta é formada por duas Chaves mestras: uma chave primária e uma chave secundária. A finalidade das chaves duplas é para que você possa gerar novamente, ou reverter as chaves, fornecendo acesso contínuo à sua conta e dados.
 
-Além das duas chaves mestras da conta do Cosmos DB, há duas chaves somente leitura. Essas chaves somente leitura só permitem operações de leitura na conta. As chaves somente leitura não fornecem acesso a recursos com permissões de leitura.
+Além das duas chaves primárias para a conta de Cosmos DB, há duas chaves somente leitura. Essas chaves somente leitura só permitem operações de leitura na conta. As chaves somente leitura não fornecem acesso a recursos com permissões de leitura.
 
-As chaves mestras primária, secundária, somente leitura e de leitura-gravação podem ser recuperadas e geradas novamente usando o Portal do Azure. Para obter instruções, veja [Exibir, copiar e gerar novamente as chaves de acesso](manage-with-cli.md#regenerate-account-key).
+Chaves primárias primárias, secundárias, somente leitura e de leitura/gravação podem ser recuperadas e geradas novamente usando o portal do Azure. Para obter instruções, veja [Exibir, copiar e gerar novamente as chaves de acesso](manage-with-cli.md#regenerate-account-key).
 
 :::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-portal.png" alt-text="Controle de acesso (IAM) no Portal do Azure - demonstrando a segurança do banco de dados NoSQL":::
 
 ### <a name="key-rotation"></a>Rotação de chaves<a id="key-rotation"></a>
 
-O processo de girar a chave mestra é simples. 
+O processo de rotação de sua chave primária é simples. 
 
 1. Navegue até o portal do Azure para recuperar a chave secundária.
 2. Substitua sua chave primária pela sua chave secundária em seu aplicativo. Certifique-se de que todos os clientes Cosmos DB em todas as implantações sejam reiniciados imediatamente e começarão a usar a chave atualizada.
@@ -54,11 +54,11 @@ O processo de girar a chave mestra é simples.
 4. Valide se a nova chave primária funciona em todos os recursos. O processo de rotação de chaves pode levar qualquer ponto abaixo de um minuto a horas, dependendo do tamanho da conta de Cosmos DB.
 5. Substitua a chave secundária pela nova chave primária.
 
-:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png" alt-text="Rotação de chave mestra no Portal do Azure – demonstrando a segurança do banco de dados NoSQL" border="false":::
+:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png" alt-text="Controle de acesso (IAM) no Portal do Azure - demonstrando a segurança do banco de dados NoSQL" border="false":::
 
-### <a name="code-sample-to-use-a-master-key"></a>Exemplo de código para uso de uma chave mestra
+### <a name="code-sample-to-use-a-primary-key"></a>Exemplo de código para usar uma chave primária
 
-O exemplo de código a seguir ilustra como usar um ponto de extremidade de conta Cosmos DB e uma chave mestra para instanciar um DocumentClient e criar um banco de dados:
+O exemplo de código a seguir ilustra como usar um ponto de extremidade de conta Cosmos DB e uma chave primária para instanciar um DocumentClient e criar um banco de dados:
 
 ```csharp
 //Read the Azure Cosmos DB endpointUrl and authorization keys from config.
@@ -71,7 +71,7 @@ private static readonly string authorizationKey = ConfigurationManager.AppSettin
 CosmosClient client = new CosmosClient(endpointUrl, authorizationKey);
 ```
 
-O exemplo de código a seguir ilustra como usar o ponto de extremidade da conta do Azure Cosmos DB e a chave mestra para criar uma instância de um `CosmosClient` objeto:
+O exemplo de código a seguir ilustra como usar o ponto de extremidade da conta do Azure Cosmos DB e a chave primária para criar uma instância de um `CosmosClient` objeto:
 
 :::code language="python" source="~/cosmosdb-python-sdk/sdk/cosmos/azure-cosmos/samples/access_cosmos_with_resource_token.py" id="configureConnectivity":::
 
@@ -84,17 +84,17 @@ Os tokens de recurso fornecem acesso aos recursos do aplicativo em um banco de d
 - São recriados quando um recurso de permissão recebe uma ação de uma chamada POST, GET ou PUT.
 - Use um token de recurso de hash construído especificamente para o usuário, o recurso e a permissão.
 - São associados a um período de validade personalizável. O intervalo de tempo válido padrão é de uma hora. O tempo de vida do token, no entanto, pode ser especificado explicitamente, até o máximo de cinco horas.
-- Fornecem uma alternativa segura para o fornecimento da chave mestra.
+- Forneça uma alternativa segura para fornecer a chave primária.
 - Permitem aos clientes ler, gravar e excluir recursos da conta do Cosmos DB de acordo com as permissões que receberam.
 
-Você pode usar um token de recurso (criando usuários e permissões do Cosmos DB) quando desejar fornecer acesso aos recursos de sua conta do Cosmos DB a um cliente que não é confiável para receber a chave mestra.  
+Você pode usar um token de recurso (criando Cosmos DB usuários e permissões) quando desejar fornecer acesso aos recursos em sua conta de Cosmos DB para um cliente que não pode ser confiável com a chave primária.  
 
-Os tokens de recurso do Cosmos DB fornecem uma alternativa segura que permite aos clientes ler, gravar e excluir recursos de sua conta do Cosmos DB de acordo com as permissões que você concedeu e sem a necessidade de uma chave mestra ou somente leitura.
+Cosmos DB tokens de recurso fornecem uma alternativa segura que permite que os clientes leiam, gravem e excluam recursos em sua conta de Cosmos DB de acordo com as permissões que você concedeu e sem a necessidade de uma chave primária ou somente leitura.
 
 Este é um padrão de design típico no qual tokens de recurso podem ser solicitados, gerados e fornecidos aos clientes:
 
 1. Um serviço de camada intermediária é configurado para atender a um aplicativo móvel de compartilhamento de fotos do usuário.
-2. O serviço de camada intermediária tem a chave mestra da conta do Cosmos DB.
+2. O serviço de camada intermediária possui a chave primária da conta de Cosmos DB.
 3. O aplicativo de fotos é instalado em dispositivos móveis de usuários finais.
 4. No logon, o aplicativo de fotos estabelece a identidade do usuário com o serviço de camada intermediária. Esse mecanismo de estabelecimento de identidade depende apenas do aplicativo.
 5. Depois que a identidade é estabelecida, o serviço de camada intermediária solicita permissões com base na identidade.
@@ -102,7 +102,7 @@ Este é um padrão de design típico no qual tokens de recurso podem ser solicit
 7. O aplicativo de telefone pode continuar usando o token de recurso para acessar diretamente recursos do Cosmos DB com as permissões definidas pelo token de recurso e no intervalo permitido por ele.
 8. Quando o token de recurso expira, as solicitações seguintes recebem uma exceção 401 de não autorizado.  Nesse ponto, o aplicativo móvel restabelece a identidade e solicita um novo token de recurso.
 
-    :::image type="content" source="./media/secure-access-to-data/resourcekeyworkflow.png" alt-text="Fluxo de trabalho dos tokens de recurso do Azure Cosmos DB" border="false":::
+    :::image type="content" source="./media/secure-access-to-data/resourcekeyworkflow.png" alt-text="Controle de acesso (IAM) no Portal do Azure - demonstrando a segurança do banco de dados NoSQL" border="false":::
 
 A geração e o gerenciamento do token de recurso são manipulados pelas bibliotecas de cliente nativas do Cosmos DB; no entanto, se você usar a REST, deverá construir os cabeçalhos de solicitação/autenticação. Para obter mais informações sobre como criar cabeçalhos de autenticação para REST, consulte [controle de acesso em Cosmos DB recursos](/rest/api/cosmos-db/access-control-on-cosmosdb-resources) ou o código-fonte para nosso [SDK do .net](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos/src/AuthorizationHelper.cs) ou [ SDK doNode.js](https://github.com/Azure/azure-cosmos-js/blob/master/src/auth.ts).
 

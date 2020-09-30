@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: 3dcadd77866a6c57542a43657a1942791cc4d179
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: fc3ca5fdde464ba63671512a6ebecd2c314cb192
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027779"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570838"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>Visualizar dados do Azure Cosmos DB usando o conector do Power BI
 
@@ -82,7 +82,7 @@ Você recuperará os dados do vulcão da conta do Azure Cosmos DB e visualizará
 
 4. Clique em **Azure**, selecione **Azure Cosmos DB (Beta)** e clique em **Conectar**. 
 
-   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbigetdata.png" alt-text="Obtenção de dados do Power BI Desktop — conector do Power BI":::
+   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbigetdata.png" alt-text="Exibição de relatório do Power BI Desktop — conector do Power BI":::
 
 5. Na página de **Visualizar Conector**, clique em **Continuar**. A janela do **Azure Cosmos DB** é exibida.
 
@@ -90,7 +90,7 @@ Você recuperará os dados do vulcão da conta do Azure Cosmos DB e visualizará
    
 7. Se estiver se conectando a este ponto de extremidade pela primeira vez, você será solicitado a fornecer a chave de conta. Para sua própria conta, recupere a chave na caixa **Chave Primária** na folha **Chaves Somente Leitura** do portal do Azure. Insira a chave apropriada e, em seguida, clique em **Conectar**.
    
-   Recomendamos que você use a chave somente leitura ao criar relatórios. Isso evita a exposição desnecessária da chave mestra a potenciais riscos de segurança. A chave somente leitura está disponível na folha **Chaves** no portal do Azure. 
+   Recomendamos que você use a chave somente leitura ao criar relatórios. Isso impede a exposição desnecessária da chave primária a possíveis riscos de segurança. A chave somente leitura está disponível na folha **Chaves** no portal do Azure. 
     
 8. Quando a conta é conectada com êxito, o painel **Navegador** é exibido. O **Navegador** mostra uma lista de bancos de dados na conta.
 
@@ -100,34 +100,34 @@ Você recuperará os dados do vulcão da conta do Azure Cosmos DB e visualizará
     
     O painel Visualização mostra uma lista dos itens de **Registro** .  Um Documento é representado como um tipo **Registro** no Power BI. Da mesma forma, um bloco JSON aninhado dentro de um documento é também um **Registro**.
     
-    :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbinavigator.png" alt-text="Tutorial do Power BI para o conector do Azure Cosmos DB para Power BI – Janela Navegador":::
+    :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbinavigator.png" alt-text="Exibição de relatório do Power BI Desktop — conector do Power BI":::
 
 12. Clique em **Editar** para iniciar o Editor de Consultas em uma nova janela para transformar os dados.
 
 ## <a name="flattening-and-transforming-json-documents"></a>Nivelando e transformando documentos JSON
 1. Altere para a janela do Editor de Consultas do Power BI, onde a coluna **Documento** no painel central.
 
-   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbiqueryeditor.png" alt-text="Editor de Consultas do Power BI Desktop":::
+   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbiqueryeditor.png" alt-text="Exibição de relatório do Power BI Desktop — conector do Power BI":::
 
 1. Clique no expansor no lado direito do cabeçalho da coluna **Documento** .  O menu de contexto com uma lista de campos será exibido.  Selecione os campos que você precisa para o relatório, por exemplo, Nome do Vulcão, País, Região, Localização, Elevação, Tipo, Status e Última Erupção. Desmarque a caixa **Usar nome original da coluna como prefixo** e, em seguida, clique em **OK**.
    
-   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbiqueryeditorexpander.png" alt-text="Tutorial do Power BI para o conector do Azure Cosmos DB para Power BI – Expandir documentos":::
+   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbiqueryeditorexpander.png" alt-text="Exibição de relatório do Power BI Desktop — conector do Power BI":::
 
 1. O painel central exibe uma visualização do resultado com os campos selecionados.
    
-   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbiresultflatten.png" alt-text="Tutorial do Power BI para o conector do Azure Cosmos DB para Power BI – Nivelar resultados":::
+   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbiresultflatten.png" alt-text="Exibição de relatório do Power BI Desktop — conector do Power BI":::
 
 1. Em nosso exemplo, a propriedade Location é um bloco GeoJSON em um documento.  Como você pode ver, o Local é representado como um tipo **Registro** no Power BI Desktop.  
 
 1. Clique no expansor no lado direito do cabeçalho da coluna Document.Location.  O menu de contexto com os campos tipo e coordenadas é exibido.  Vamos selecionar o campo de coordenadas, assegurar de que **Usar nome original da coluna como prefixo** não está selecionado e clicar em **OK**.
    
-   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbilocationrecord.png" alt-text="Tutorial do Power BI para o conector do Azure Cosmos DB para Power BI – Registro de localização":::
+   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbilocationrecord.png" alt-text="Exibição de relatório do Power BI Desktop — conector do Power BI":::
 
 1. Agora, o painel central mostra uma coluna de coordenadas do tipo **Lista** .  Como mostrado no início do tutorial, os dados GeoJSON neste tutorial são do tipo Ponto com valores de Latitude e Longitude gravados na matriz de coordenadas.
    
    O elemento coordinates[0] representa a Longitude, enquanto que coordinates[1] representa a Latitude.
 
-   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbiresultflattenlist.png" alt-text="Tutorial do Power BI para o conector do Azure Cosmos DB para Power BI – Lista de coordenadas":::
+   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbiresultflattenlist.png" alt-text="Exibição de relatório do Power BI Desktop — conector do Power BI":::
 
 1. Para nivelar a matriz de coordenadas, crie uma **Coluna Personalizada** chamada LatLong.  Selecione a faixa de opções **Adicionar Coluna** e clique em **Coluna Personalizada**.  A janela **Coluna Personalizada** é exibida.
 
@@ -137,21 +137,21 @@ Você recuperará os dados do vulcão da conta do Azure Cosmos DB e visualizará
    
    Para obter mais informações sobre o DAX (Data Analysis Expressions) incluindo funções DAX, visite [noções básicas do Dax em Power bi desktop](https://docs.microsoft.com/power-bi/desktop-quickstart-learn-dax-basics).
    
-   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbicustomlatlong.png" alt-text="Tutorial do Power BI para o conector do Azure Cosmos DB para Power BI – Adicionar Coluna Personalizada":::
+   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbicustomlatlong.png" alt-text="Exibição de relatório do Power BI Desktop — conector do Power BI":::
 
 1. Agora, o painel central mostra as novas colunas LatLong preenchidas com os valores.
     
-    :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbicolumnlatlong.png" alt-text="Tutorial do Power BI para o conector do Azure Cosmos DB para Power BI – Coluna LatLong personalizada":::
+    :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbicolumnlatlong.png" alt-text="Exibição de relatório do Power BI Desktop — conector do Power BI":::
     
     Se você receber um erro na nova coluna, verifique as etapas aplicadas nas Configurações de Consulta correspondem à figura abaixo:
     
-    :::image type="content" source="./media/powerbi-visualize/power-bi-applied-steps.png" alt-text="As etapas aplicadas devem ser Origem, Navegação, Document.Location Expandido, Personalizado Adicionado":::
+    :::image type="content" source="./media/powerbi-visualize/power-bi-applied-steps.png" alt-text="Exibição de relatório do Power BI Desktop — conector do Power BI":::
     
     Se as etapas são diferentes, exclua as etapas adicionais e tente adicionar a coluna personalizada novamente. 
 
 1. Clique em **Fechar e Aplicar** para salvar o modelo de dados.
 
-   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbicloseapply.png" alt-text="Tutorial de Power BI do conector para Azure Cosmos DB Power BI-fechar & aplicar":::
+   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbicloseapply.png" alt-text="Exibição de relatório do Power BI Desktop — conector do Power BI":::
 
 <a id="build-the-reports"></a>
 ## <a name="build-the-reports"></a>Compilar os relatórios
@@ -186,18 +186,18 @@ Para compartilhar seu relatório, você deve ter uma conta no PowerBI.com.
 1. Depois que a credencial é autenticada, o relatório é publicado no destino selecionado.
 1. Clique em **Abrir 'PowerBITutorial.pbix' no Power BI** para ver e compartilhar seu relatório no PowerBI.com.
    
-   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_open_in_powerbi.png" alt-text="Publicação em Power BI êxito! Abrir o tutorial no Power BI":::
+   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_open_in_powerbi.png" alt-text="Exibição de relatório do Power BI Desktop — conector do Power BI":::
 
 ## <a name="create-a-dashboard-in-powerbicom"></a>Criar um painel no PowerBI.com
 Agora que você tem um relatório, vamos compartilhá-lo no PowerBI.com
 
 Quando você publica o relatório do Power BI Desktop no PowerBI.com, ele gera um **Relatório** e um **Conjunto de Dados** em seu locatário PowerBI.com. Por exemplo, após publicar um relatório chamado **PowerBITutorial** no PoweBI.com, você verá PowerBITutorial nas seções **Relatórios** e **Conjuntos de Dados** no PowerBI.com.
 
-   :::image type="content" source="./media/powerbi-visualize/powerbi-reports-datasets.png" alt-text="Captura de tela dos novos Relatório e Conjunto de Dados no PowerBI.com":::
+   :::image type="content" source="./media/powerbi-visualize/powerbi-reports-datasets.png" alt-text="Exibição de relatório do Power BI Desktop — conector do Power BI":::
 
 Para criar um painel compartilhável, clique no botão **Pin Live página** no seu relatório em PowerBI.com.
 
-   :::image type="content" source="./media/powerbi-visualize/power-bi-pin-live-tile.png" alt-text="Captura de tela dos novos Relatório e Conjunto de Dados no PowerBI.com":::
+   :::image type="content" source="./media/powerbi-visualize/power-bi-pin-live-tile.png" alt-text="Exibição de relatório do Power BI Desktop — conector do Power BI":::
 
 Siga as instruções em [Fixar um bloco de um relatório](https://powerbi.microsoft.com/documentation/powerbi-service-pin-a-tile-to-a-dashboard-from-a-report/#pin-a-tile-from-a-report) para criar um novo painel. 
 
@@ -208,13 +208,13 @@ There are two ways to refresh data, ad hoc and scheduled.
 
 For an ad hoc refresh, simply click on the eclipses (…) by the **Dataset**, e.g. PowerBITutorial. You should see a list of actions including **Refresh Now**. Click **Refresh Now** to refresh the data.
 
-:::image type="content" source="./media/powerbi-visualize/power-bi-refresh-now.png" alt-text="Screenshot of Refresh Now in PowerBI.com":::
+:::image type="content" source="./media/powerbi-visualize/power-bi-refresh-now.png" alt-text="Exibição de relatório do Power BI Desktop — conector do Power BI":::
 
 For a scheduled refresh, do the following.
 
 1. Click **Schedule Refresh** in the action list. 
 
-    :::image type="content" source="./media/powerbi-visualize/power-bi-schedule-refresh.png" alt-text="Screenshot of the Schedule Refresh in PowerBI.com":::
+    :::image type="content" source="./media/powerbi-visualize/power-bi-schedule-refresh.png" alt-text="Exibição de relatório do Power BI Desktop — conector do Power BI":::
 2. In the **Settings** page, expand **Data source credentials**. 
 3. Click on **Edit credentials**. 
    

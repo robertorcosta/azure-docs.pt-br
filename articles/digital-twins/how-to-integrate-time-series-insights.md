@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 7/14/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: c6c5c9b00ec3309638a7c5618e5995c8c5f07b11
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: f64e959536b4abea4f2facb5ae3238b4843e4611
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90564348"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569959"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-time-series-insights"></a>Integrar o gêmeos digital do Azure ao Azure Time Series Insights
 
@@ -65,7 +65,7 @@ O tutorial do Azure digital gêmeos [*: conectar uma solução de ponta a ponta*
     az eventhubs eventhub authorization-rule create --rights Listen Send --resource-group <resource group name> --namespace-name <Event Hubs namespace from above> --eventhub-name <Twins event hub name from above> --name <name for your Twins auth rule>
     ```
 
-4. Crie um [ponto de extremidade](concepts-route-events.md#create-an-endpoint) de gêmeos digital do Azure que vincula seu tópico da grade de eventos à instância do gêmeos digital do Azure.
+4. Crie um [ponto de extremidade](concepts-route-events.md#create-an-endpoint) de gêmeos digital do Azure que vincula seu hub de eventos à instância do gêmeos digital do Azure.
 
     ```azurecli
     az dt endpoint create eventhub --endpoint-name <name for your Event Hubs endpoint> --eventhub-resource-group <resource group name> --eventhub-namespace <Event Hubs namespace from above> --eventhub <Twins event hub name from above> --eventhub-policy <Twins auth rule from above> -n <your Azure Digital Twins instance name>
@@ -203,11 +203,11 @@ Em seguida, você irá configurar uma instância de Time Series Insights para re
     1. Selecione o tipo de preço **PAYG (visualização)** .
     2. Será necessário escolher uma ID de **série temporal** para esse ambiente. Sua ID de série temporal pode ter até três valores que você usará para pesquisar seus dados em Time Series Insights. Para este tutorial, você pode usar **$dtId**. Leia mais sobre como selecionar um valor de ID nas [*práticas recomendadas para escolher uma ID de série temporal*](https://docs.microsoft.com/azure/time-series-insights/how-to-select-tsid).
     
-        :::image type="content" source="media/how-to-integrate-time-series-insights/create-twin-id.png" alt-text="O UX do portal de criação para um ambiente de Time Series Insights. O tipo de preço PAYG (visualização) é selecionado e o nome da propriedade ID da série temporal é $dtId":::
+        :::image type="content" source="media/how-to-integrate-time-series-insights/create-twin-id.png" alt-text="Uma exibição dos serviços do Azure em um cenário de ponta a ponta, realçando Time Series Insights":::
 
 2. Selecione **Avançar: origem do evento** e selecione as informações dos hubs de eventos acima. Você também precisará criar um novo grupo de consumidores de hubs de eventos.
     
-    :::image type="content" source="media/how-to-integrate-time-series-insights/event-source-twins.png" alt-text="O UX do portal de criação para uma fonte de evento de Time Series Insights ambiente. Você está criando uma origem do evento com as informações do hub de eventos acima. Você também está criando um novo grupo de consumidores.":::
+    :::image type="content" source="media/how-to-integrate-time-series-insights/event-source-twins.png" alt-text="Uma exibição dos serviços do Azure em um cenário de ponta a ponta, realçando Time Series Insights":::
 
 ## <a name="begin-sending-iot-data-to-azure-digital-twins"></a>Começar a enviar dados de IoT para o Azure digital gêmeos
 
@@ -223,19 +223,19 @@ Agora, os dados devem estar fluindo para sua instância de Time Series Insights,
 
 1. Abra sua instância do Time Series Insights no [portal do Azure](https://portal.azure.com) (você pode pesquisar o nome da sua instância na barra de pesquisa do Portal). Visite a *URL do time Series insights Explorer* mostrada na visão geral da instância.
     
-    :::image type="content" source="media/how-to-integrate-time-series-insights/view-environment.png" alt-text="Selecione a URL do Time Series Insights Explorer na guia Visão geral do ambiente de Time Series Insights":::
+    :::image type="content" source="media/how-to-integrate-time-series-insights/view-environment.png" alt-text="Uma exibição dos serviços do Azure em um cenário de ponta a ponta, realçando Time Series Insights":::
 
 2. No Gerenciador, você verá os três gêmeos do Azure digital gêmeos mostrados à esquerda. Selecione _**thermostat67**_, selecione **temperatura**e clique em **Adicionar**.
 
-    :::image type="content" source="media/how-to-integrate-time-series-insights/add-data.png" alt-text="Selecione * * thermostat67 * *, selecione * * temperatura * * e pressione * * Adicionar * *":::
+    :::image type="content" source="media/how-to-integrate-time-series-insights/add-data.png" alt-text="Uma exibição dos serviços do Azure em um cenário de ponta a ponta, realçando Time Series Insights":::
 
 3. Agora você deve estar vendo as leituras de temperatura iniciais de seu termostato, conforme mostrado abaixo. A mesma leitura de temperatura é atualizada para *room21* e *FLOOR1*, e você pode visualizar esses fluxos de dados em tandem.
     
-    :::image type="content" source="media/how-to-integrate-time-series-insights/initial-data.png" alt-text="Os dados iniciais de temperatura estão grafos no Gerenciador de TSI. É uma linha de valores aleatórios entre 68 e 85":::
+    :::image type="content" source="media/how-to-integrate-time-series-insights/initial-data.png" alt-text="Uma exibição dos serviços do Azure em um cenário de ponta a ponta, realçando Time Series Insights":::
 
 4. Se você permitir que a simulação seja executada por muito mais tempo, sua visualização terá uma aparência semelhante a esta:
     
-    :::image type="content" source="media/how-to-integrate-time-series-insights/day-data.png" alt-text="Os dados de temperatura para cada linhas de entrelaçamento estão grafos em três linhas paralelas de cores diferentes.":::
+    :::image type="content" source="media/how-to-integrate-time-series-insights/day-data.png" alt-text="Uma exibição dos serviços do Azure em um cenário de ponta a ponta, realçando Time Series Insights":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

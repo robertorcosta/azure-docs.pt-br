@@ -6,12 +6,12 @@ ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 20b0bcfe5043d4767199c36796fa1123ed779363
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 87112af870100859ae008f77eefc4b58eac1b0fb
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791139"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570728"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-with-autoscale-throughput"></a>Criar contêineres e bancos de dados do Azure Cosmos com taxa de transferência de dimensionamento automático
 
@@ -77,7 +77,7 @@ Para obter mais detalhes, consulte esta [documentação](how-to-choose-offer.md)
 | **Taxa de transferência provisionada (RU/s)** | Provisionado manualmente. | Dimensionado de forma automática e instantânea com base nos padrões de uso da carga de trabalho. |
 | **Limitação de taxa de solicitações/operações (429)**  | Pode acontecer se o consumo exceder a capacidade provisionada. | Não ocorrerá se você consumir RU/s dentro do intervalo de taxa de transferência de dimensionamento automático definido.    |
 | **Planejamento da capacidade** |  Você precisa fazer o planejamento de capacidade e provisionar a taxa de transferência exata necessária. |    O sistema cuida automaticamente do planejamento de capacidade e do gerenciamento de capacidade. |
-| **Preços** | Você paga pelas RU/s provisionadas manualmente por hora, usando a [taxa de RU/s padrão (manual) por hora](https://azure.microsoft.com/pricing/details/cosmos-db/). | Você paga por hora pela RU/s mais alta que o sistema dimensionou dentro de uma hora. <br/><br/> Para contas de região de gravação única, você paga pela RU/s usada por hora, usando a [taxa de RU/s de dimensionamento automático por hora](https://azure.microsoft.com/pricing/details/cosmos-db/). <br/><br/>Para contas com várias regiões de gravação, não há custo adicional para o dimensionamento automático. Você paga pela taxa de transferência usada por hora, usando a mesma [taxa de RU/s de vários mestres por hora ](https://azure.microsoft.com/pricing/details/cosmos-db/). |
+| **Preços** | Você paga pelas RU/s provisionadas manualmente por hora, usando a [taxa de RU/s padrão (manual) por hora](https://azure.microsoft.com/pricing/details/cosmos-db/). | Você paga por hora pela RU/s mais alta que o sistema dimensionou dentro de uma hora. <br/><br/> Para contas de região de gravação única, você paga pela RU/s usada por hora, usando a [taxa de RU/s de dimensionamento automático por hora](https://azure.microsoft.com/pricing/details/cosmos-db/). <br/><br/>Para contas com várias regiões de gravação, não há custo adicional para o dimensionamento automático. Você paga pela taxa de transferência usada por hora usando as mesmas [taxas de gravação de várias regiões/s por hora](https://azure.microsoft.com/pricing/details/cosmos-db/). |
 | **Mais adequado para tipos de carga de trabalho** |  Cargas de trabalho previsíveis e estáveis|   Cargas de trabalho imprevisíveis e variáveis  |
 
 ## <a name="next-steps"></a>Próximas etapas

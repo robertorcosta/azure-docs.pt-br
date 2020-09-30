@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 5046e40ea15a27e80f4e92ebf36488dedeee1821
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 3c82edd73921e11cd2f43a0d609624267af81575
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91396001"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570068"
 ---
 # <a name="latency-availability-and-performance-tradeoffs-with-different-azure-cosmos-db-consistency-levels"></a>Latência, disponibilidade e compensações de desempenho com diferentes níveis de consistência de Azure Cosmos DB
 
@@ -76,9 +76,9 @@ A tabela a seguir define a relação entre o modelo de consistência e a durabil
 
 *T* = o intervalo de tempo *"T"* desde a última atualização.
 
-## <a name="strong-consistency-and-multi-master"></a>Consistência forte e vários mestres
+## <a name="strong-consistency-and-multiple-write-regions"></a>Consistência forte e várias regiões de gravação
 
-As contas do cosmos configuradas para vários mestres não podem ser configuradas para uma consistência forte, pois não é possível que um sistema distribuído forneça um RPO de zero e um RTO igual a zero. Além disso, não há nenhum benefício de latência de gravação para usar a consistência forte com vários mestres, uma vez que qualquer gravação em qualquer região deve ser replicada e confirmada em todas as regiões configuradas na conta. Isso resulta na mesma latência de gravação que uma conta mestra única.
+As contas do cosmos configuradas com várias regiões de gravação não podem ser configuradas para uma consistência forte, pois não é possível que um sistema distribuído forneça um RPO de zero e um RTO igual a zero. Além disso, não há benefícios de latência de gravação sobre o uso de consistência forte com várias regiões de gravação porque, a solicitação de gravação em qualquer região deve ser replicada e confirmada em todas as regiões configuradas na conta. Isso resulta na mesma latência de gravação que uma única conta de região de gravação.
 
 ## <a name="next-steps"></a>Próximas etapas
 

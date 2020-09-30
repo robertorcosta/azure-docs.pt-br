@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 06/09/2020
 ms.reviewer: sngun
-ms.openlocfilehash: a68207b3e5390a26e8d62ee6b725b0768ea565a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7583e35cad03927d003de7a836de03af091b55eb
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85116070"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569696"
 ---
 # <a name="work-with-azure-cosmos-account"></a>Como trabalhar com a conta do Azure Cosmos
 
@@ -21,7 +21,7 @@ O Azure Cosmos DB é uma plataforma como serviço (PaaS) totalmente gerenciada. 
 
 A conta do Azure Cosmos é a unidade fundamental de distribuição global e alta disponibilidade. Para distribuir globalmente seus dados e taxa de transferência em várias regiões do Azure, você pode adicionar e remover regiões do Azure à sua conta do Azure Cosmos a qualquer momento. Você pode configurar sua conta do Azure Cosmos para ter uma única ou várias regiões de gravação. Para obter mais informações, consulte [como adicionar e remover regiões do Azure à sua conta do Azure Cosmos](how-to-manage-database-account.md). Você pode configurar o [consistência padrão](consistency-levels.md) nível na conta do Cosmos do Azure. O Azure Cosmos DB fornece SLAs abrangentes, abrangendo throughput, latência no percentil 99, consistência e alta disponibilidade. Para obter mais informações, consulte [Microsoft Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/).
 
-Para gerenciar com segurança o acesso a todos os dados em sua conta do Azure Cosmos, você pode usar as [chaves mestras](secure-access-to-data.md) associadas à sua conta. Para proteger ainda mais o acesso aos seus dados, você pode configurar um [ponto de extremidade de serviço de rede virtual](vnet-service-endpoint.md) e um [Firewall de IP](firewall-support.md) em sua conta do Azure Cosmos. 
+Para gerenciar com segurança o acesso a todos os dados em sua conta do Azure Cosmos, você pode usar as [chaves primárias](secure-access-to-data.md) associadas à sua conta. Para proteger ainda mais o acesso aos seus dados, você pode configurar um [ponto de extremidade de serviço de rede virtual](vnet-service-endpoint.md) e um [Firewall de IP](firewall-support.md) em sua conta do Azure Cosmos. 
 
 ## <a name="elements-in-an-azure-cosmos-account"></a>Elementos em uma conta do Azure Cosmos
 
