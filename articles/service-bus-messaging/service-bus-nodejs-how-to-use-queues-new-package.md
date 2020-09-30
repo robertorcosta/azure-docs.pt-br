@@ -6,13 +6,13 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.custom: devx-track-javascript
-ms.openlocfilehash: c082eff4f70b0255b7701340ac6e8b377223c0b5
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.custom: devx-track-js
+ms.openlocfilehash: d1d0d2b57ec1ed23082101c9207c4700424dd7cc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88076856"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289745"
 ---
 # <a name="quickstart-how-to-use-service-bus-queues-with-nodejs-and-the-azureservice-bus-package"></a>Início Rápido: Como usar filas do barramento de serviço com o Node.js e o pacote azure/service-bus
 Neste tutorial, você aprende a escrever um programa Nodejs para enviar e receber mensagens de uma fila do Barramento de Serviço usando o novo pacote de [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus). Esse pacote usa o [protocolo AMQP 1.0](service-bus-amqp-overview.md) mais rápido, enquanto o pacote [azure-sb](https://www.npmjs.com/package/azure-sb) mais antigo usava [APIs de tempo de execução REST do Barramento de Serviço](/rest/api/servicebus/service-bus-runtime-rest). As amostras são escritas em JavaScript.

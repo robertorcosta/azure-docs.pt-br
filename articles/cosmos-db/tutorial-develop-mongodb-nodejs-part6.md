@@ -8,14 +8,14 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jopapa
-ms.custom: seodec18, devx-track-javascript
+ms.custom: seodec18, devx-track-js
 ms.reviewer: sngun
-ms.openlocfilehash: a5d697465f811f468fb0047284126deae0c455dd
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 3116038939a07084f13db22819726dcbb2622a10
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424300"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292414"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---add-crud-functions-to-the-app"></a>Criar um aplicativo Angular com a API do Azure Cosmos DB para MongoDB – adicionar funções de CRUD ao aplicativo
 
@@ -88,11 +88,9 @@ Antes de iniciar esta parte do tutorial, verifique se você concluiu as etapas n
 
 6. Agora volte para o navegador da Internet e abra a guia Rede de ferramentas de Desenvolvedor pressionando F12 na maioria dos computadores. Navegue até `http://localhost:3000` para observar as chamadas feitas pela rede.
 
-    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/add-new-hero.png" alt-text="Guia Rede no Chrome que mostra a atividade de rede":::
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/add-new-hero.png" alt-text="routes.js and hero.service.js no Visual Studio Code" e clique em **Salvar**. Você deve ver na guia Rede que enviou uma solicitação POST para um novo hero. 
 
-7. Adicione um novo hero selecionando o botão **Adicionar Novo Hero**. Insira uma ID "999", o nome "Vinicius" dizendo "Olá" e clique em **Salvar**. Você deve ver na guia Rede que enviou uma solicitação POST para um novo hero. 
-
-    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/post-new-hero.png" alt-text="Guia Rede no Chrome que mostra a atividade de rede para as funções Get e Post":::
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/post-new-hero.png" alt-text="routes.js and hero.service.js no Visual Studio Code":::
 
     Agora vamos voltar e adicionar as funções Put e Delete ao aplicativo.
 
@@ -177,11 +175,9 @@ Antes de iniciar esta parte do tutorial, verifique se você concluiu as etapas n
 
     Agora você pode selecionar a ID na guia Rede para mostrar a carga. Você pode ver na carga que a fala agora está definida como "Tchau".
 
-    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/put-hero-function.png" alt-text="Aplicativo Heroes e guia Rede mostrando o conteúdo"::: 
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/put-hero-function.png" alt-text="routes.js and hero.service.js no Visual Studio Code" para o hero chamado "Vinicius".
 
-    Você também pode excluir um hero na interface de usuário e ver o tempo que leva para concluir a operação de exclusão. Tente isso selecionando o botão "Excluir" para o hero chamado "Vinicius".
-
-    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/times.png" alt-text="Aplicativo Heroes e guia Rede mostrando o tempo que leva para concluir as funções"::: 
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/times.png" alt-text="routes.js and hero.service.js no Visual Studio Code"::: 
 
     Se você atualizar a página, a guia Rede mostrará o tempo necessário para obter os heroes. Quando leva pouco tempo, grande parte disso depende de onde seus dados estão localizados no mundo e da sua capacidade de replicá-lo geograficamente em uma área perto de seus usuários. Você pode encontrar mais informações sobre a replicação geográfica no próximo tutorial que será lançado em breve.
 

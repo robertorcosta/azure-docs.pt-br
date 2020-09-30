@@ -6,13 +6,13 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 08/09/2020
 ms.author: spelluru
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 8a86a1bd9a312f3b1c6d94914d426422687b25a6
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.custom: devx-track-js
+ms.openlocfilehash: 219132fc8a0e618cdf2561947ae3904a9e2cb310
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88077009"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91300744"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azure-sb-package"></a>Início Rápido: Como usar tópicos e assinaturas do Barramento de Serviço do Azure com o Node.js e o pacote azure-sb
 Neste tutorial, você aprenderá a criar aplicativos Node.js para enviar mensagens para um tópico do Barramento de Serviço e receber mensagens de uma assinatura do Barramento de Serviço usando o pacote [azure-sb](https://www.npmjs.com/package/azure-sb). As amostras são escritas em JavaScript e usam o [módulo do Azure](https://www.npmjs.com/package/azure) do Node.js que usa internamente o pacote `azure-sb`.

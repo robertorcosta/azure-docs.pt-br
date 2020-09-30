@@ -5,18 +5,18 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 5/25/2020
 ms.author: baanders
-ms.openlocfilehash: 5c41f7516cecdb6bbc42a66d118a90986dd7de56
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 302a478dd32c93a555bb17e9d7d0f60bd7859a50
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827292"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292637"
 ---
 ### <a name="prepare-an-azure-digital-twins-instance"></a>Preparar uma instância dos Gêmeos Digitais do Azure
 
 Para concluir este tutorial, você precisará de uma **instância dos Gêmeos Digitais do Azure** sobre a qual programar. Se você já tiver uma instância dos Gêmeos Digitais do Azure configurada de algum trabalho anterior, poderá usar essa instância.
 
-* Caso contrário, **configure uma instância e uma autenticação** usando as instruções descritas em [*Como configurar uma instância e uma autenticação*](../articles/digital-twins/how-to-set-up-instance-scripted.md). As instruções também contêm etapas para confirmar se você concluiu cada etapa com êxito e está pronto para passar a usar sua nova instância.
+* Caso contrário, **configure uma instância e uma autenticação** usando as instruções descritas em [*Como configurar uma instância e uma autenticação*](../articles/digital-twins/how-to-set-up-instance-portal.md). As instruções também contêm etapas para confirmar se você concluiu cada etapa com êxito e está pronto para passar a usar sua nova instância.
 
 Neste tutorial, você precisará dos valores a seguir quando configurar sua instância. Se você precisar reunir esses valores novamente, use os links abaixo para as seções correspondentes no artigo de instalação para localizá-los no [portal do Azure](https://portal.azure.com).
 * Instância de Gêmeos Digitais do Azure **_nome_** ([localizar no portal](../articles/digital-twins/how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))

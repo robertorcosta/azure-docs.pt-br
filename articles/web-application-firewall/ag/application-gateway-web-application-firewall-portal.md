@@ -5,14 +5,14 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: tutorial
-ms.date: 11/14/2019
+ms.date: 09/16/2020
 ms.author: victorh
-ms.openlocfilehash: 68a9f051bf3d59cbf32377cb503e9ded0a54d5e9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 58002140cd6ec0cd90eefc506dc743be05e7be7e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74049233"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91274446"
 ---
 # <a name="tutorial-create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>Tutorial: Criar um gateway de aplicativo com um Firewall do Aplicativo Web usando o portal do Azure
 
@@ -31,6 +31,8 @@ Neste tutorial, você aprenderá como:
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 <!---If you prefer, you can complete this tutorial using [Azure PowerShell](tutorial-restrict-web-traffic-powershell.md) or [Azure CLI](tutorial-restrict-web-traffic-cli.md).--->
+
+## <a name="prerequisites"></a>Pré-requisitos
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -230,7 +232,7 @@ Configure o diagnóstico para registrar dados nos logs de ApplicationGatewayAcce
 4. Digite *myDiagnosticsSettings* como o nome para as configurações de diagnóstico.
 5. Selecione **Arquivar em uma conta de armazenamento**, selecione **Configurar** para selecionar a conta de armazenamento *myagstore1* criada anteriormente e, em seguida, selecione **OK**.
 6. Selecione os logs do gateway de aplicativo a serem coletados e mantidos.
-7. Clique em **Salvar**.
+7. Selecione **Salvar**.
 
     ![Configurar o diagnóstico](../media/application-gateway-web-application-firewall-portal/application-gateway-diagnostics.png)
 
