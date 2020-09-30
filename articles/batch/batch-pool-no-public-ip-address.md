@@ -3,15 +3,15 @@ title: Criar um pool do Lote do Azure sem endereços IP públicos
 description: Saiba como criar um pool sem endereços IP públicos
 author: pkshultz
 ms.topic: how-to
-ms.date: 09/25/2020
+ms.date: 09/28/2020
 ms.author: peshultz
 ms.custom: references_regions
-ms.openlocfilehash: 9b36c769c70792e47464c2704e1912dbb2d744dd
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 6c6207e7f52e49b88dc8dc99e0bd20a2c774339d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91367930"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541893"
 ---
 # <a name="create-an-azure-batch-pool-without-public-ip-addresses"></a>Criar um pool do Lote do Azure sem endereços IP públicos
 
@@ -24,7 +24,7 @@ Por padrão, todos os nós de computação em um pool de configuração de máqu
 Para restringir o acesso a esses nós e reduzir a capacidade de descoberta desses nós da Internet, você pode provisionar o pool sem endereços IP públicos.
 
 > [!IMPORTANT]
-> O suporte para pools sem endereços IP públicos no lote do Azure é atualmente uma visualização pública para todas as regiões, exceto Leste da China, Leste da China 2, Norte da China e Norte da China 2.
+> O suporte para pools sem endereços IP públicos no lote do Azure está atualmente em visualização pública para as seguintes regiões: França central, Ásia Oriental, Oeste EUA Central, Sul EUA Central, oeste dos EUA 2, leste dos EUA, Europa Setentrional, leste dos EUA 2, EUA Central, Europa Ocidental.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Pré-requisitos

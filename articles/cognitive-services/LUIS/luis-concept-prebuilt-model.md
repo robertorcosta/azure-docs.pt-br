@@ -3,20 +3,18 @@ title: Modelos predefinidos – LUIS
 titleSuffix: Azure Cognitive Services
 description: Modelos predefinidos fornecem domínios, intenções, enunciados e entidades. Você pode iniciar o aplicativo com um domínio predefinido ou, posteriormente adicionar um domínio relevante ao aplicativo.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
-ms.author: diberry
-ms.openlocfilehash: e0b5b95a7524b60a7c3367035a15a7158fa7908a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 32755ea9dccd2a7d4a0e727c7a006491d5ea3521
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74280830"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91535876"
 ---
 # <a name="prebuilt-models"></a>Modelos predefinidos
 
@@ -28,9 +26,9 @@ O LUIS fornece três tipos de modelos pré-criados. Cada modelo poderá ser adic
 
 |Tipo de modelo|Includes|
 |--|--|
-|[Domain](luis-reference-prebuilt-domains.md)|Intenções, enunciados, entidades|
+|[Domínio](luis-reference-prebuilt-domains.md)|Intenções, enunciados, entidades|
 |Intenções|Intenções, enunciados|
-|[Entities](luis-reference-prebuilt-entities.md)|Apenas entidades| 
+|[Entidades](luis-reference-prebuilt-entities.md)|Apenas entidades| 
 
 ## <a name="prebuilt-domains"></a>Domínios predefinidos
 

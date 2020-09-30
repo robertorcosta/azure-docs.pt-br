@@ -3,20 +3,18 @@ title: Conceitos empresariais-LUIS
 titleSuffix: Azure Cognitive Services
 description: Entenda os conceitos de design para aplicativos LUIS grandes ou em vários aplicativos, incluindo o LUIS e o QnA Maker juntos.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.author: diberry
-ms.openlocfilehash: efef3faf3cc4ff04235254f0ff6538d92a831196
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d8c88883b839ff47ef57a17378f43918e9ecf7e2
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79221057"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536113"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>Estratégias empresariais para um aplicativo LUIS
 Examine essas estratégias de design para seu aplicativo empresarial.
@@ -74,7 +72,7 @@ Um aplicativo de expedição tem 500 fontes de expedição, equivalentes a 500 i
 * [SDK do bot Framework](https://github.com/Microsoft/botframework)
 * [Tutorial do modelo de expedição](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&branch=master&tabs=cs)
 * [CLI de expedição](https://github.com/Microsoft/botbuilder-tools)
-* Exemplo de bot de modelo de expedição – [.net](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/14.nlp-with-dispatch), [node. js](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/14.nlp-with-dispatch)
+* Exemplo de bot de modelo de expedição – [.net](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/14.nlp-with-dispatch), [Node.js](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/14.nlp-with-dispatch)
 
 ## <a name="next-steps"></a>Próximas etapas
 

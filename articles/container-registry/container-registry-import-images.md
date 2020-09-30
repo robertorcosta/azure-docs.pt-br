@@ -2,13 +2,13 @@
 title: Importar imagens de contêiner
 description: Importe imagens de contêiner para um registro de contêiner do Azure usando APIs do Azure sem a necessidade de executar comandos do Docker.
 ms.topic: article
-ms.date: 08/17/2020
-ms.openlocfilehash: 66c3a8b19e2288c1f8720dd4fe79f348a11f052e
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.date: 09/18/2020
+ms.openlocfilehash: 2c99d3c32bf6dad3a1950da56b29f47d2a988161
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88660488"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541570"
 ---
 # <a name="import-container-images-to-a-container-registry"></a>Importar imagens de contêiner para um registro de contêiner
 
@@ -18,7 +18,7 @@ O Registro de Contêiner do Azure lida com inúmeros cenários comuns para copia
 
 * Importar de um registro público
 
-* Importar de outro registro de contêiner do Azure, com a mesma assinatura ou uma assinatura diferente do Azure
+* Importar de outro registro de contêiner do Azure, no mesmo ou em uma assinatura ou locatário diferente do Azure
 
 * Importar de um registro de contêiner particular que não é do Azure
 
@@ -28,7 +28,7 @@ A importação de imagem para um registro de contêiner do Azure tem os seguinte
 
 * Quando você importa imagens de várias arquiteturas (como imagens oficiais do Docker), são copiadas as imagens de todas as arquiteturas e plataformas especificadas na lista de manifesto.
 
-* O acesso aos registros de origem e de destino não precisa usar os pontos de extremidade públicos de registros.
+* O acesso ao registro de destino não precisa usar o ponto de extremidade público do registro.
 
 Para importar imagens de contêiner, este artigo requer que você execute a CLI do Azure no Azure Cloud Shell ou localmente (versão 2.0.55 ou posterior recomendada). Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure][azure-cli].
 
@@ -83,9 +83,9 @@ az acr import \
 --image servercore:ltsc2019
 ```
 
-## <a name="import-from-another-azure-container-registry"></a>Importar de outro registro de contêiner do Azure
+## <a name="import-from-an-azure-container-registry-in-the-same-ad-tenant"></a>Importar de um registro de contêiner do Azure no mesmo locatário do AD
 
-Você pode importar uma imagem de outro registro de contêiner do Azure usando permissões integradas do Azure Active Directory.
+Você pode importar uma imagem de um registro de contêiner do Azure no mesmo locatário do AD usando permissões de Azure Active Directory integradas.
 
 * Sua identidade deve ter Azure Active Directory permissões para ler o registro de origem (função de leitor) e importar para o registro de destino (função de colaborador ou uma [função personalizada](container-registry-roles.md#custom-roles) que permita a ação importImage).
 
@@ -136,7 +136,20 @@ az acr import \
 
 ### <a name="import-from-a-registry-using-service-principal-credentials"></a>Importar de um registro usando as credenciais da entidade de serviço
 
-Para importar de um registro que você não pode acessar usando permissões do Active Directory, você pode usar as credenciais da entidade de serviço (se disponível). Forneça a appID e a senha da [entidade de serviço](container-registry-auth-service-principal.md) do Active Directory que tem acesso de ACRPull no registro de origem. O uso de uma entidade de serviço é útil para sistemas de compilação e outros sistemas autônomos que precisam importar imagens confiáveis para seu registro.
+Para importar de um registro que você não pode acessar usando permissões de Active Directory integradas, você pode usar as credenciais da entidade de serviço (se disponível) para o registro de origem. Forneça a appID e a senha da [entidade de serviço](container-registry-auth-service-principal.md) do Active Directory que tem acesso de ACRPull no registro de origem. O uso de uma entidade de serviço é útil para sistemas de compilação e outros sistemas autônomos que precisam importar imagens confiáveis para seu registro.
+
+```azurecli
+az acr import \
+  --name myregistry \
+  --source sourceregistry.azurecr.io/sourcerrepo:tag \
+  --image targetimage:tag \
+  --username <SP_App_ID> \
+  –-password <SP_Passwd>
+```
+
+## <a name="import-from-an-azure-container-registry-in-a-different-ad-tenant"></a>Importar de um registro de contêiner do Azure em um locatário do AD diferente
+
+Para importar de um registro de contêiner do Azure em um locatário Azure Active Directory diferente, especifique o registro de origem por nome do servidor de logon e forneça as credenciais de nome de usuário e senha que habilitam o acesso de pull ao registro. Por exemplo, use um [token no escopo do repositório](container-registry-repository-scoped-permissions.md) e uma senha, ou a AppID e a senha de uma [entidade de serviço](container-registry-auth-service-principal.md) Active Directory que tenha acesso ACRPull ao registro de origem. 
 
 ```azurecli
 az acr import \
@@ -149,7 +162,7 @@ az acr import \
 
 ## <a name="import-from-a-non-azure-private-container-registry"></a>Importar de um registro de contêiner particular que não é do Azure
 
-Importe uma imagem de um registro particular ao especificar as credenciais que permitem acesso de pull ao registro. Por exemplo, efetue o pull de uma imagem de um registro particular do Docker: 
+Importe uma imagem de um registro privado não Azure especificando as credenciais que habilitam o acesso de pull ao registro. Por exemplo, efetue o pull de uma imagem de um registro particular do Docker: 
 
 ```azurecli
 az acr import \

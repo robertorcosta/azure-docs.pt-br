@@ -12,12 +12,12 @@ ms.topic: end-user-help
 ms.date: 08/03/2018
 ms.author: curtand
 ms.reviewer: jairoc
-ms.openlocfilehash: 146b867f1075a7eac1b6817f5fc8dbcd7ba04b02
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: efb3ee24add847baf8264eccdf71278be5ee9496
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333402"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536963"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>Junte seu dispositivo de trabalho à rede da sua organização
 Junte-se ao seu dispositivo Windows 10 de propriedade de trabalho à rede da sua organização para poder acessar recursos possivelmente restritos.
@@ -48,7 +48,7 @@ Se seu dispositivo está totalmente novo e ainda não foi configurado ainda, per
 
 4. Em seu dispositivo móvel, aprove seu dispositivo para que possa acessar sua conta. 
 
-    ![Tela de notificação móvel](./media/user-help-join-device-on-network/join-device-oobe-mobile.png)
+    ![Captura de tela que mostra as telas de notificação "Insira sua senha".](./media/user-help-join-device-on-network/join-device-oobe-mobile.png)
 
 5. Conclua o processo OOBE, inclusive definindo suas configurações de privacidade e configurando o Windows Hello (se necessário).
 
@@ -63,7 +63,7 @@ Você pode ter certeza de que você está associado, observando as configuraçõ
 
 2. Selecione **acesso corporativo ou de estudante**e verifique se você vê texto que diz algo como, **conectado ao *\<your_organization>* Azure ad**.
 
-    ![Acessar tela de trabalho ou escola com conta contoso conectada](./media/user-help-join-device-on-network/join-device-oobe-verify.png)
+    ![Captura de tela que mostra a janela "acessar o trabalho ou a escola" com a conta "conectado à (sua organização) Azure AD" selecionada.](./media/user-help-join-device-on-network/join-device-oobe-verify.png)
 
 
 ## <a name="to-join-an-already-configured-windows-10-device"></a>Para ingressar um dispositivo Windows 10 já configurado

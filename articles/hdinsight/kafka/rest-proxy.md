@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: has-adal-ref, devx-track-python
 ms.date: 04/03/2020
-ms.openlocfilehash: 508d054bc4eed88867bb6e3282edbafaae9a5247
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 97bd71dd5a70a867f45915a5a5f95f6513f2a824
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89298038"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541723"
 ---
 # <a name="interact-with-apache-kafka-clusters-in-azure-hdinsight-using-a-rest-proxy"></a>Interagir com os clusters do Apache Kafka no Azure HDInsight por meio de um proxy REST
 
@@ -63,11 +63,11 @@ Use o portal do Azure nas etapas a seguir. Para ver um exemplo de como usar a CL
 
 1. Durante o fluxo de trabalho de criação do cluster do Kafka, na guia **Segurança + rede**, verifique a opção **Habilitar proxy REST do Kafka**.
 
-     ![Habilitar o proxy REST do Kafka e selecionar o grupo de segurança](./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest.png)
+     ![Captura de tela mostra a página criar cluster do H D Insight com segurança + rede selecionada.](./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest.png)
 
 1. Clique em **Selecionar Grupo de Segurança**. Na lista de grupos de segurança, selecione aqueles que você quer que tenham acesso ao proxy REST. Use a caixa de pesquisa para encontrar o grupo de segurança apropriado. Clique no botão **Selecionar** na parte inferior.
 
-     ![Habilitar o proxy REST do Kafka e selecionar o grupo de segurança](./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest2.png)
+     ![Captura de tela mostra a página criar cluster do H D Insight com a opção de selecionar um grupo de segurança.](./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest2.png)
 
 1. Conclua as etapas restantes para criar o cluster, conforme descrito em [Criar um cluster do Apache Kafka no Azure HDInsight usando o portal do Azure](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-get-started).
 

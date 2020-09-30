@@ -1,7 +1,7 @@
 ---
-title: Instalar e executar contêineres do Docker para a API de leitura de Pesquisa Visual Computacional
+title: Instalar contêineres de Docker de OCR de leitura do Pesquisa Visual Computacional
 titleSuffix: Azure Cognitive Services
-description: Use o contêiner do Docker para a API de leitura do Pesquisa Visual Computacional para detectar e extrair texto de imagens locais.
+description: Use os contêineres de Docker de leitura OCR de Pesquisa Visual Computacional para extrair texto de imagens e douments locais.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,22 +11,23 @@ ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
-keywords: local, Docker, contêiner
-ms.openlocfilehash: 17aa0050ed3e2a2f5a2cc83964d032caa4b8c098
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+keywords: local, OCR, Docker, contêiner
+ms.openlocfilehash: acf6a391965dcba20a2dabc18648076b88c5e7c5
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/29/2020
-ms.locfileid: "91460434"
+ms.locfileid: "91536368"
 ---
-# <a name="install-and-run-docker-containers-for-the-read-api-preview"></a>Instalar e executar contêineres do Docker para a API de leitura (versão prévia) 
+# <a name="install-read-ocr-docker-containers-preview"></a>Instalar contêineres de Docker do OCR de leitura (versão prévia) 
 
 [!INCLUDE [container hosting on the Microsoft Container Registry](../containers/includes/gated-container-hosting.md)]
 
-Os contêineres permitem executar as APIs de Pesquisa Visual Computacional em seu próprio ambiente. Contêineres são excelentes para especificar requisitos de segurança e governança de dados. Neste artigo, você aprenderá a baixar, instalar e executar um contêiner da Pesquisa Visual Computacional.
+Os contêineres permitem executar as APIs de Pesquisa Visual Computacional em seu próprio ambiente. Contêineres são excelentes para especificar requisitos de segurança e governança de dados. Neste artigo, você aprenderá a baixar, instalar e executar Pesquisa Visual Computacional contêineres.
 
-O contêiner *ler* permite detectar e extrair *texto impresso* de imagens de vários objetos com diferentes superfícies e planos de fundo, como recibos, pôsteres e cartões de visita. Além disso, o contêiner de *leitura* detecta *texto manuscrito* em imagens e fornece suporte a arquivos PDF, TIFF e de várias páginas. Para obter mais informações, consulte a [documentação da API de leitura](concept-recognizing-text.md#read-api).
+O contêiner de OCR de *leitura* permite extrair texto impresso e manuscrito de imagens e documentos com suporte para formatos de arquivo JPEG, png, BMP, PDF e TIFF. Para obter mais informações, consulte a [documentação da API de leitura](concept-recognizing-text.md#read-api).
 
+## <a name="read-3x-containers"></a>Ler contêineres 3. x
 Há duas versões dos contêineres 3. x disponíveis na visualização. Ambas as versões fornecem precisão e recursos adicionais sobre o contêiner anterior.
 
 O contêiner Read 3,0-Preview fornece:
