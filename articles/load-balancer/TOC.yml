@@ -69,8 +69,10 @@
       href: load-balancer-tcp-reset.md
     - name: Load Balancer Standard e Zonas de Disponibilidade
       href: load-balancer-standard-availability-zones.md
-    - name: Controles de segurança interna
-      href: load-balancer-security-controls.md
+    - name: Segurança
+      items:
+        - name: Linha de base de segurança
+          href: security-baseline.md
     - name: Gerenciamento de pools de back-end
       href: backend-pool-management.md
     - name: Standard Load Balancer e Conjuntos de Dimensionamento de Máquinas Virtuais
