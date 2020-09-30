@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp
-ms.openlocfilehash: 353ed321ce3b6161b28bf67d852a81f809880603
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: d7ff9efcedc1a6a5f92555a62e429be0431f2098
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "81733020"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448504"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>Tutorial: Configurar um dispositivo IoT Edge
 
@@ -167,7 +167,7 @@ Em seguida, execute o script para criar a máquina virtual para seu dispositivo 
     * Crie o grupo de recursos se ele ainda não existir
     * Criar a máquina virtual
     * Adicione exceções de NSG para a VM para as portas 22 (SSH), 5671 (AMQP), 5672 (AMPQ) e 443 (TLS)
-    * Instale a [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli-apt?view=azure-cli-latest))
+    * Instale a [CLI do Azure](/cli/azure/install-azure-cli-apt)
 
 7. O script gera a cadeia de conexão do SSH para conectar-se à VM. Copie a cadeia de conexão para a próxima etapa.
 

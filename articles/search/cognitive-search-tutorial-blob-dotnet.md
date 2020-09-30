@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 08/20/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 09273cf901830e850acca05c57c0b110ffd7e28a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 13e3f5a7d86d2e9b705fbeb104ba4f8eb690cb3a
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89002855"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534090"
 ---
 # <a name="tutorial-ai-generated-searchable-content-from-azure-blobs-using-the-net-sdk"></a>Tutorial: Conteúdo pesquisável gerado por IA de Blobs do Azure usando o SDK do .NET
 
@@ -170,7 +170,7 @@ Em seguida, instale o último pacote NuGet `Microsoft.Extensions.Configuration.J
       "AzureBlobConnectionString": "Put your Azure Blob connection string here",
     }
     ```
-    
+
 Adicione as informações do seu serviço de pesquisa e da conta de armazenamento de blobs. Lembre-se de que você pode obter essas informações nas etapas de provisionamento do serviço indicadas na seção anterior.
 
 Para **SearchServiceName**, insira o nome do serviço curto, não a URL completa.
@@ -586,11 +586,11 @@ Este exercício usa os seguintes campos e tipos de campo:
 
 | Nomes de campo | Tipos de campo |
 | --- | --- |
-| id | Edm.String |
-| content | Edm.String |
-| languageCode | Edm.String |
-| keyPhrases | List<Edm.String> |
-| organizações | List<Edm.String> |
+| `id` | Edm.String |
+| `content` | Edm.String |
+| `languageCode` | Edm.String |
+| `keyPhrases` | List<Edm.String> |
+| `organizations` | List<Edm.String> |
 
 #### <a name="create-demoindex-class"></a>Criar classe DemoIndex
 
@@ -906,7 +906,7 @@ catch (Exception e)
 }
 ```
 
-Repita para campos adicionais: conteúdo, idioma, frases-chave e organizações neste exercício. Você pode retornar vários campos por meio da propriedade [Select](/dotnet/api/microsoft.azure.search.models.searchparameters.select?view=azure-dotnet) usando uma lista delimitada por vírgula.
+Repita para campos adicionais: conteúdo, idioma, frases-chave e organizações neste exercício. Você pode retornar vários campos por meio da propriedade [Select](/dotnet/api/microsoft.azure.search.models.searchparameters.select) usando uma lista delimitada por vírgula.
 
 <a name="reset"></a>
 

@@ -12,14 +12,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/3/2018
+ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: e51d0bfb79eab4db9bb571cc0f4ee70ada352d92
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: b583e3d86ba193a92080f2da9cc0b16d07c5a993
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90895754"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447170"
 ---
 # <a name="quickstart-setting-up-azure-security-center"></a>Início Rápido: configurando a Central de Segurança do Azure
 
@@ -61,7 +61,7 @@ Para poder executar os inícios rápidos e os tutoriais da Central de Segurança
 
 1. Na barra lateral da Central de Segurança, selecione **Introdução**.
 
-    :::image type="content" source="./media/security-center-get-started/get-started-upgrade-tab.png" alt-text="Guia de atualização da página de introdução"::: 
+    :::image type="content" source="./media/security-center-get-started/get-started-upgrade-tab.png" alt-text="Dashboard de visão geral da Central de Segurança"::: 
 
     A guia **Atualização** lista as assinaturas e os workspaces qualificados para a integração.
 
@@ -82,7 +82,7 @@ Para habilitar o provisionamento automático do agente de Log Analytics:
 1. Na página **Coleta de dados**, defina o **Provisionamento automático** como **Ativado**.
 1. Selecione **Salvar**.
 
-    :::image type="content" source="./media/security-center-enable-data-collection/enable-automatic-provisioning.png" alt-text="Habilitar o provisionamento automático do agente do Log Analytics":::
+    :::image type="content" source="./media/security-center-enable-data-collection/enable-automatic-provisioning.png" alt-text="Dashboard de visão geral da Central de Segurança":::
 
 >[!TIP]
 > Se for necessário provisionar um workspace, a instalação do agente poderá levar até 25 minutos.
@@ -109,7 +109,6 @@ Deseja otimizar e reduzir seus gastos com a nuvem?
 [2]: ./media/security-center-get-started/overview.png
 [4]: ./media/security-center-get-started/get-started.png
 [5]: ./media/security-center-get-started/pricing.png
-[6]: ./media/security-center-get-started/enable-automatic-provisioning.png
 [7]: ./media/security-center-get-started/security-alerts.png
 [8]: ./media/security-center-get-started/recommendations.png
 [9]: ./media/security-center-get-started/select-subscription.png

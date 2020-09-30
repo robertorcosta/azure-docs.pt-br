@@ -2,18 +2,17 @@
 title: Como obter o ponto de extremidade de previsão V3
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: include
 ms.date: 05/05/2020
-ms.author: diberry
-ms.openlocfilehash: 18f5422202cf972d49349cc04b845c623cabffa3
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: a607ad71915606d6046b4c71291a49b8641bdcc9
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83589101"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91545047"
 ---
 1. No portal do LUIS, na seção **Gerenciar** (menu à direita superior), na página **Recursos do Azure** (menu à esquerda), na guia **Recursos de Previsão**, copie a **Consulta de Exemplo** na parte inferior da página.
 

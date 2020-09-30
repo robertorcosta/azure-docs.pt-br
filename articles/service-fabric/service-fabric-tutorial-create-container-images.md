@@ -1,17 +1,15 @@
 ---
 title: Criar imagens de contêiner no Service Fabric no Azure
 description: Neste tutorial, você aprende a criar imagens de contêiner para um aplicativo do Service Fabric com vários contêineres.
-author: suhuruli
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: fe06da759a1ad42ef5cef888f98c440cdfb9569c
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 73d202b3b812b59ed8dadd4a6508dfe2873ecd6c
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "78252777"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91532203"
 ---
 # <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>Tutorial: Criar imagens de contêiner em um cluster do Service Fabric do Linux
 

@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 06/12/2020
+ms.date: 09/25/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 39891b69cdb8e7f392657514d255f5f85b3eba60
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 34265552122c1f8d1bcbbcfe95948683a5750a71
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936020"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530996"
 ---
 # <a name="tutorial-use-python-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Tutorial: Use o Python e a IA para gerar conteúdo pesquisável em blobs do Azure
 
@@ -59,7 +59,7 @@ Se possível, crie os dois na mesma região e no mesmo grupo de recursos para fa
 
 1. Pesquise *conta de armazenamento* e selecione a oferta Conta de Armazenamento da Microsoft.
 
-   ![Criar conta de armazenamento](media/cognitive-search-tutorial-blob/storage-account.png "Criar Conta de Armazenamento")
+   :::image type="content" source="media/cognitive-search-tutorial-blob/storage-account.png" alt-text="Criar conta de armazenamento" border="false":::
 
 1. Na guia Informações Básicas, os itens a seguir são obrigatórios. Aceite os padrões para todo o restante.
 
@@ -81,7 +81,7 @@ Se possível, crie os dois na mesma região e no mesmo grupo de recursos para fa
 
 1. Selecione *cog-search-demo* e, em seguida, clique em **Upload** para abrir a pasta em que você salvou os arquivos de download. Selecione todos os arquivos que não sejam de imagem. Você deve ter sete arquivos. Clique em **OK** para fazer upload deles.
 
-   ![Carregar arquivos de exemplo](media/cognitive-search-tutorial-blob/sample-files.png "Carregar arquivos de exemplo")
+   :::image type="content" source="media/cognitive-search-tutorial-blob/sample-files.png" alt-text="Criar conta de armazenamento" border="false":::
 
 1. Antes de sair do Armazenamento do Azure, obtenha uma cadeia de conexão, de modo que você possa formular uma conexão na Pesquisa Cognitiva do Azure. 
 
@@ -117,7 +117,7 @@ Assim como o Armazenamento de Blobs do Azure, reserve um momento para coletar a 
 
    Obtenha a chave de consulta também. É uma melhor prática para emitir solicitações de consulta com acesso somente leitura.
 
-   ![Obter o nome do serviço e as chaves de consulta e de administrador](media/search-get-started-nodejs/service-name-and-keys.png)
+   :::image type="content" source="media/search-get-started-nodejs/service-name-and-keys.png" alt-text="Criar conta de armazenamento" border="false":::
 
 Todas as solicitações exigem uma api-key no cabeçalho de cada solicitação enviada a seu serviço. Uma chave válida estabelece a relação de confiança, para cada solicitação, entre o aplicativo que envia a solicitação e o serviço que a manipula.
 
@@ -190,7 +190,7 @@ A solicitação deve retornar um código de status 201 que confirma o êxito.
 
 No portal do Azure, na página do painel do serviço de pesquisa, verifique se cogsrch-py-datasource aparece na lista **Fontes de dados**. Clique em **Atualizar** para atualizar a página.
 
-![Bloco de fontes de dados no portal](./media/cognitive-search-tutorial-blob-python/py-data-source-tile.png "Bloco de fontes de dados no portal")
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-data-source-tile.png" alt-text="Criar conta de armazenamento" border="false":::
 
 ### <a name="step-2-create-a-skillset"></a>Etapa 2: Criar um conjunto de habilidades
 
@@ -303,7 +303,7 @@ Cada uma delas executa no conteúdo do documento. Durante o processamento, a Pes
 
 Uma representação gráfica do conjunto de qualificações é mostrada abaixo.
 
-![Entender um conjunto de habilidades](media/cognitive-search-tutorial-blob/skillset.png "Entender um conjunto de habilidades")
+:::image type="content" source="media/cognitive-search-tutorial-blob/skillset.png" alt-text="Criar conta de armazenamento" border="false":::
 
 As saídas podem ser mapeadas para um índice, usadas como entrada para uma habilidade posterior, ou ambos, como é o caso com o código de idioma. No índice, um código de idioma é útil para filtragem. Como uma entrada, o código de idioma é usado por habilidades de análise de texto para informar as regras linguísticas em torno de quebra de palavras.
 
@@ -315,7 +315,7 @@ Nesta seção, você define o esquema de índice especificando os campos que ser
 
 Este exercício usa os seguintes campos e tipos de campo:
 
-| nomes de campo: | id         | content   | languageCode | keyPhrases         | organizações     |
+| nomes de campo: | ID         | content   | languageCode | keyPhrases         | organizações     |
 |--------------|----------|-------|----------|--------------------|-------------------|
 | nomes de campo: | Edm.String|Edm.String| Edm.String| List<Edm.String>  | List<Edm.String>  |
 
@@ -472,11 +472,11 @@ pprint(json.dumps(r.json(), indent=1))
 
 Na resposta, monitore o `"lastResult"` quanto a seus valores `"status"` e `"endTime"`. Execute o script periodicamente para verificar o status. Quando o indexador for concluído, o status será definido como "success", será especificado um "endTime" e a resposta incluirá todos os erros e avisos que ocorreram durante o aprimoramento.
 
-![O indexador é criado](./media/cognitive-search-tutorial-blob-python/py-indexer-is-created.png "O indexador é criado")
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-indexer-is-created.png" alt-text="Criar conta de armazenamento" border="false":::
 
 Os avisos são comuns com algumas combinações de arquivo e a habilidade de origem e sempre não indicam um problema. Muitos avisos são benignos. Por exemplo, se você indexar um arquivo JPEG sem texto, verá o aviso nesta captura de tela.
 
-![Exemplo de aviso do indexador](./media/cognitive-search-tutorial-blob-python/py-indexer-warning-example.png "Exemplo de aviso do indexador")
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-indexer-warning-example.png" alt-text="Criar conta de armazenamento" border="false":::
 
 ## <a name="5---search"></a>5 – Pesquisar
 
@@ -493,7 +493,7 @@ pprint(json.dumps(r.json(), indent=1))
 
 O resultado deve ser semelhante ao exemplo a seguir. A captura de tela mostra apenas uma parte da resposta.
 
-![Índice de consulta para todos os campos](./media/cognitive-search-tutorial-blob-python/py-query-index-for-fields.png "Consultar o índice para todos os campos")
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-query-index-for-fields.png" alt-text="Criar conta de armazenamento" border="false":::
 
 A saída é o esquema de índice, com o nome, tipo e atributos de cada campo.
 
@@ -508,7 +508,7 @@ pprint(json.dumps(r.json(), indent=1))
 
 O resultado deve ser semelhante ao exemplo a seguir. A captura de tela mostra apenas uma parte da resposta.
 
-![Índice de consulta para o conteúdo das organizações](./media/cognitive-search-tutorial-blob-python/py-query-index-for-organizations.png "Consultar o índice para retornar o conteúdo das organizações")
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-query-index-for-organizations.png" alt-text="Criar conta de armazenamento" border="false":::
 
 Repita para os campos adicionais: `content`, `languageCode`, `keyPhrases` e `organizations` neste exercício. Você pode retornar vários campos via `$select` usando uma lista delimitada por vírgulas.
 
@@ -522,7 +522,7 @@ Nos primeiros estágios experimentais de desenvolvimento, a abordagem mais prát
 
 Use o portal para excluir índices, indexadores, fontes de dados e conjuntos de habilidades. Ao excluir o indexador, também é possível excluir o índice, o conjunto de habilidades e a fonte de dados ao mesmo tempo.
 
-![Excluir objetos de pesquisa](./media/cognitive-search-tutorial-blob-python/py-delete-indexer-delete-all.png "Excluir objetos de pesquisa no portal")
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-delete-indexer-delete-all.png" alt-text="Criar conta de armazenamento" border="false":::
 
 Você também pode excluí-los usando um script. O script a seguir mostra como excluir um conjunto de habilidades. 
 
