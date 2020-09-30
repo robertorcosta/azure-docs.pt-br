@@ -2,13 +2,13 @@
 title: Barramento de serviço do Azure – suspender entidades de mensagens
 description: Este artigo explica como suspender e reativar temporariamente as entidades de mensagem do barramento de serviço do Azure (filas, tópicos e assinaturas).
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 2dad0b774f271ed719ca09b1e749559d5e1868bd
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.date: 09/29/2020
+ms.openlocfilehash: f89e17e494cc777691b7f7ca47538cd29114d2dc
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88078846"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575207"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>Suspender e reativar as entidades de mensagens (desabilitar)
 
@@ -18,28 +18,29 @@ A suspensão de uma entidade normalmente é feita por razões administrativas ur
 
 Uma suspensão ou reativação pode ser executada pelo usuário ou pelo sistema. O sistema suspende entidades apenas por razões administrativas graves como atingir a limite de gastos de assinatura. As entidades desabilitadas pelo sistema não podem ser reativadas pelo usuário, mas serão restauradas quando a causa a suspensão tiver sido resolvida.
 
-No portal, a seção de **visão geral** para a respectiva entidade permite alterar o estado; o estado atual é exibido em **status** como um hiperlink.
-
-A captura de tela a seguir mostra os Estados disponíveis para os quais a entidade pode ser alterada selecionando o hiperlink: 
-
-![Captura de tela do recurso de barramento de serviço em visão geral para alterar a opção de estado de entidade.][1]
-
-O portal permite apenas desabilitar completamente filas. Você também pode desabilitar as operações de envio e recebimento separadamente usando as APIs de Barramento de Serviço [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) no SDK do .NET Framework, ou com um modelo do Azure Resource Manager por meio da CLI do Azure ou o Azure PowerShell.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-## <a name="suspension-states"></a>Estados de suspensão
-
+## <a name="queue-status"></a>Status da fila 
 Os estados que podem ser definidos para uma fila são:
 
 -   **Active**: a fila está ativa.
--   **Disabled**: a fila está suspensa.
+-   **Disabled**: a fila está suspensa. É equivalente a definir **SendDisabled** e **ReceiveDisabled**. 
 -   **SendDisabled**: a fila está parcialmente suspensa, com o recebimento sendo permitido.
 -   **ReceiveDisabled**: a fila está parcialmente suspensa, com o envio sendo permitido.
 
-Para assinaturas e tópicos, é possível definir apenas **Active** e **Disabled**.
+### <a name="change-the-queue-status-in-the-azure-portal"></a>Altere o status da fila no portal do Azure: 
 
-A enumeração [EntityStatus](/dotnet/api/microsoft.servicebus.messaging.entitystatus) também define um conjunto de estados de transição que podem ser definidos apenas pelo sistema. O comando do PowerShell para desabilitar uma fila é mostrado no exemplo a seguir. O comando de reativação é equivalente, definindo `Status` como **Active**.
+1. Na portal do Azure, navegue até o namespace do barramento de serviço. 
+1. Selecione a fila para a qual você deseja alterar o status. Você vê as filas no painel inferior no meio. 
+1. Na página **fila do barramento de serviço** , consulte o status atual da fila como um hiperlink. Se a **visão geral** não estiver selecionada no menu à esquerda, selecione-a para ver o status da fila. Selecione o status atual da fila para alterá-la. 
+
+    :::image type="content" source="./media/entity-suspend/select-state.png" alt-text="Selecione o estado da fila":::
+4. Selecione o novo status para a fila e selecione **OK**. 
+
+    :::image type="content" source="./media/entity-suspend/entity-state-change.png" alt-text="Selecione o estado da fila":::
+    
+O portal permite apenas desabilitar completamente filas. Você também pode desabilitar as operações de envio e recebimento separadamente usando as APIs de Barramento de Serviço [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) no SDK do .NET Framework, ou com um modelo do Azure Resource Manager por meio da CLI do Azure ou o Azure PowerShell.
+
+### <a name="change-the-queue-status-using-azure-powershell"></a>Alterar o status da fila usando Azure PowerShell
+O comando do PowerShell para desabilitar uma fila é mostrado no exemplo a seguir. O comando de reativação é equivalente, definindo `Status` como **Active**.
 
 ```powershell
 $q = Get-AzServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueue
@@ -48,6 +49,30 @@ $q.Status = "Disabled"
 
 Set-AzServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueue -QueueObj $q
 ```
+
+## <a name="topic-status"></a>Status do tópico
+Alterar o status do tópico no portal do Azure é semelhante à alteração do status de uma fila. Ao selecionar o status atual do tópico, você verá a página a seguir que permite alterar o status. 
+
+:::image type="content" source="./media/entity-suspend/topic-state-change.png" alt-text="Selecione o estado da fila":::
+
+Os Estados que podem ser definidos para um tópico são:
+- **Ativo**: o tópico está ativo.
+- **Desabilitado**: o tópico é suspenso.
+- **SendDisabled**: mesmo efeito como **desabilitado**.
+
+## <a name="subscription-status"></a>Status da assinatura
+Alterar o status da assinatura no portal do Azure é semelhante à alteração do status de um tópico ou de uma fila. Ao selecionar o status atual da assinatura, você verá a página a seguir que permite alterar o status. 
+
+:::image type="content" source="./media/entity-suspend/subscription-state-change.png" alt-text="Selecione o estado da fila":::
+
+Os Estados que podem ser definidos para um tópico são:
+- **Ativo**: o tópico está ativo.
+- **Desabilitado**: o tópico é suspenso.
+- **ReceiveDisabled**: mesmo efeito como **desabilitado**.
+
+## <a name="other-statuses"></a>Outros status
+A enumeração [EntityStatus](/dotnet/api/microsoft.servicebus.messaging.entitystatus) também define um conjunto de estados de transição que podem ser definidos apenas pelo sistema. 
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

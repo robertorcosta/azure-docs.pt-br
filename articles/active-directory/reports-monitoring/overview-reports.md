@@ -13,16 +13,16 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 09/30/2020
 ms.author: markvi
-ms.reviewer: dhanyahk
+ms.reviewer: sarbar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c07500ec432d176b2cf74aa95f0a1c943348f9f
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 4f9a51c10a4f390e5627bccf35ab5dc74689e9c6
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89229509"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91566815"
 ---
 # <a name="what-are-azure-active-directory-reports"></a>O que são os relatórios do Azure Active Directory?
 
@@ -66,6 +66,12 @@ Os relatórios de atividade ajudam você a compreender o comportamento de usuár
 - **Logs de auditoria**: o [relatório de atividade dos logs de auditoria](concept-audit-logs.md) fornece acesso ao histórico de todas as tarefas executadas em seu locatário.
 
 - **Entradas**: com o [relatório de atividades de entradas](concept-sign-ins.md), você pode determinar quem realizou as tarefas indicadas pelo relatório dos logs de auditoria.
+
+
+
+> [!VIDEO https://www.youtube.com/embed/ACVpH6C_NL8]
+
+
 
 
 ### <a name="audit-logs-report"></a>Relatório de logs de auditoria 

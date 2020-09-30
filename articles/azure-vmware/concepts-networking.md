@@ -3,16 +3,16 @@ title: Conceitos-interconectividade de rede
 description: Saiba mais sobre os principais aspectos e casos de uso de rede e interconectividade na solução do Azure VMware.
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 4ffcdd8ea42df127ee1480927f4fdf2eb8f137b8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f8e9ed143d53afe2f7a24c832c69390c6ffcb36b
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91316879"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575751"
 ---
 # <a name="azure-vmware-solution-networking-and-interconnectivity-concepts"></a>Conceitos de rede e interconectividade da solução do Azure VMware
 
-[!INCLUDE [avs-networking-description](includes/avs-networking-description.md)]
+[!INCLUDE [avs-networking-description](includes/azure-vmware-solution-networking-description.md)]
 
 Uma perspectiva útil na interconectividade é considerar os dois tipos de implementações de nuvem privada da solução Azure VMware:
 
@@ -53,7 +53,7 @@ O diagrama a seguir mostra a interconectividade de local para nuvem privada, que
 * Excelente/frio entre o vMotion do vCenter
 * Acesso de gerenciamento de nuvem privada de solução local para o Azure VMware
 
-:::image type="content" source="media/concepts/adjacency-overview-drawing-double.png" alt-text="Conectividade de nuvem privada completa local e de rede virtual" border="false":::
+:::image type="content" source="media/concepts/adjacency-overview-drawing-double.png" alt-text="Rede virtual básica para conectividade de nuvem privada" border="false":::
 
 Para obter a interconectividade completa com sua nuvem privada, habilite o ExpressRoute Alcance Global e, em seguida, solicite uma chave de autorização e uma ID de emparelhamento privado para Alcance Global no portal do Azure. A chave de autorização e a ID de emparelhamento são usadas para estabelecer Alcance Global entre um circuito de ExpressRoute em sua assinatura e o circuito de ExpressRoute para sua nova nuvem privada. Uma vez vinculado, os dois circuitos do ExpressRoute roteiam o tráfego de rede entre seus ambientes locais para sua nuvem privada.  Consulte o [tutorial para criar um ExpressRoute alcance global emparelhamento para uma nuvem privada](tutorial-expressroute-global-reach-private-cloud.md) para que os procedimentos solicitem e usem a chave de autorização e a ID de emparelhamento.
 

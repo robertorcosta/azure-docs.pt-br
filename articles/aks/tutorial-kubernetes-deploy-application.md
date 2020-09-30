@@ -3,14 +3,14 @@ title: Tutorial do Kubernetes no Azure – Implantar um aplicativo
 description: Neste tutorial do Serviço de Kubernetes do Azure (AKS), você deve implantar um aplicativo de vários contêineres em seu cluster usando uma imagem personalizada armazenada no Registro de Contêiner do Azure.
 services: container-service
 ms.topic: tutorial
-ms.date: 12/19/2018
+ms.date: 09/30/2020
 ms.custom: mvc
-ms.openlocfilehash: 3b614fcb6692f35884af2fc4e19210267ab8ab04
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8114aa0b6c2483d543376727a44d14041ed02b37
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77593267"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576482"
 ---
 # <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>Tutorial: executar aplicativos no AKS (Serviço de Kubernetes do Azure)
 
@@ -54,7 +54,7 @@ Substitua *microsoft* pelo seu nome de servidor de logon do ACR. Esse valor pode
 ```yaml
 containers:
 - name: azure-vote-front
-  image: microsoft/azure-vote-front:v1
+  image: mcr.microsoft.com/azuredocs/azure-vote-front:v1
 ```
 
 Forneça seu próprio nome de servidor de logon do ACR para que o arquivo de manifesto se pareça com o exemplo a seguir:

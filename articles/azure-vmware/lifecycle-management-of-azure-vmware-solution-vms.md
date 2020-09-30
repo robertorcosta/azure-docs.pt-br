@@ -3,18 +3,18 @@ title: Gerenciamento do ciclo de vida de VMs da solução Azure VMware
 description: Saiba como gerenciar todos os aspectos do ciclo de vida de suas VMs de solução do Azure VMware com Microsoft Azure ferramentas nativas.
 ms.topic: conceptual
 ms.date: 09/11/2020
-ms.openlocfilehash: 20948ec088d11468b5750ca89979050965246b58
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 10e721996b2e3186417a702d2d7473b36b11237f
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89663623"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575462"
 ---
 # <a name="lifecycle-management-of-azure-vmware-solution-vms"></a>Gerenciamento do ciclo de vida de VMs da solução Azure VMware
 
 Microsoft Azure ferramentas nativas permitem que você monitore e gerencie suas VMs (máquinas virtuais) no ambiente do Azure. Ainda assim, eles também permitem que você monitore e gerencie suas VMs na solução VMware do Azure e suas VMs locais. Nesta visão geral, veremos a arquitetura de monitoramento integrado que o Azure oferece e como você pode usar suas ferramentas nativas para gerenciar suas VMs de solução do Azure VMware em todo o ciclo de vida.
 
-## <a name="benefits"></a>Benefícios
+## <a name="benefits"></a>Vantagens
 
 - Os serviços nativos do Azure podem ser usados para gerenciar suas VMs em um ambiente híbrido (Azure, solução do Azure VMware e local).
 - Monitoramento e visibilidade integrados de seu Azure, solução Azure VMware e VMs locais.
@@ -38,7 +38,7 @@ Microsoft Azure ferramentas nativas permitem que você monitore e gerencie suas 
 
 O diagrama a seguir mostra a arquitetura de monitoramento integrado para VMs de solução do Azure VMware.
 
-![Arquitetura de monitoramento do Azure integrada](media/lifecycle-mgmt-avs-vms/integrated-azure-monitoring-architecture.png)
+![Arquitetura de monitoramento do Azure integrada](media/lifecycle-management-azure-vmware-solutions-virtual-machines/integrated-azure-monitoring-architecture.png)
 
 ## <a name="integrating-and-deploying-azure-native-services"></a>Integrando e implantando os serviços nativos do Azure
 

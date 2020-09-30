@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 06/25/2020
 ms.author: mahain
-ms.openlocfilehash: 3469b612081f9cb96beec98a065e0827d1c04b4c
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 400c2d91383b5f21fcd40fdbbe279bd83fcef51a
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88261830"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576533"
 ---
 # <a name="server-assessment-overview-migrate-to-azure-vmware-solution"></a>Visão geral da avaliação do servidor (migrar para a solução VMware do Azure)
 
@@ -152,7 +152,7 @@ A avaliação do servidor revisa a seguinte propriedade da VM local para determi
 
 | **Propriedade** | **Detalhes** | **Status de preparação de AVS** 
 | - | - | - 
-| **Protocolo IP** | Atualmente, a AVS não oferece suporte a endereçamento de Internet IPv6.<br/><br/> Entre em contato com sua equipe local de GBB do AVS da MSFT para obter orientação sobre as diretrizes de correção se seu computador for detectado com o IPv6.| Protocolo de Internet condicionalmente pronto
+| **Protocolo de Internet** | Atualmente, a AVS não oferece suporte a endereçamento de Internet IPv6.<br/><br/> Entre em contato com sua equipe local de GBB do AVS da MSFT para obter orientação sobre as diretrizes de correção se seu computador for detectado com o IPv6.| Protocolo de Internet condicionalmente pronto
 
 
 ### <a name="guest-operating-system"></a>Sistema operacional convidado
@@ -256,7 +256,7 @@ Observe que, como a solução do Azure VMware (AVS) está em versão prévia, os
 ## <a name="migration-tool-guidance"></a>Diretrizes da ferramenta de migração
 
 No relatório de Preparação para o Azure para a avaliação da Solução VMware no Azure (AVS), você pode ver as seguintes sugestões de ferramentas: 
-- **VMware HCX ou Enterprise**: para máquinas VMware, a solução de HCX (extensão de nuvem híbrida) do VMware é a ferramenta de migração sugerida para migrar sua carga de trabalho local para sua nuvem privada da AVS (solução VMware) do Azure. [Saiba mais](../azure-vmware/hybrid-cloud-extension-installation.md).
+- **VMware HCX ou Enterprise**: para máquinas VMware, a solução de HCX (extensão de nuvem híbrida) do VMware é a ferramenta de migração sugerida para migrar sua carga de trabalho local para sua nuvem privada da AVS (solução VMware) do Azure. [Saiba mais](../azure-vmware/tutorial-deploy-vmware-hcx.md).
 - **Desconhecido**: Para computadores importados por meio de um arquivo CSV, a ferramenta de migração padrão é desconhecida. No entanto, para máquinas VMware, é recomendável usar a solução de HCX (extensão de nuvem híbrida) do VMware.
 
 ## <a name="next-steps"></a>Próximas etapas

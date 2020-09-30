@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 09/29/2020
 ms.author: tomfitz
-ms.openlocfilehash: 06fa5868cf0a907e268a347cfdfa2b5ee20908e3
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 73b242754bfae53b6df5abd9c2c8dee33b973dad
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/30/2020
-ms.locfileid: "91571277"
+ms.locfileid: "91575989"
 ---
 # <a name="microsoftcommonserviceprincipalselector-ui-element"></a>Elemento de interface do usuário Microsoft. Common. ServicePrincipalSelector
 
@@ -148,7 +148,7 @@ Quando nenhuma seleção é feita na lista suspensa, o `newOrExisting` valor da 
     "value": "<default guid>"
   },
   "objectId": {
-    "value": "<default guid>"
+    "value": ["<default guid>"]
   },
   "password": {
     "value": "<password>"
@@ -173,7 +173,7 @@ Quando **criar novo** ou um identificador de aplicativo existente é selecionado
     "value": "<guid>"
   },
   "objectId": {
-    "value": "<guid>"
+    "value": ["<guid>"]
   },
   "password": {
     "value": "<password>"

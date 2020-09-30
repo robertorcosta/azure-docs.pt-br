@@ -3,12 +3,12 @@ title: Criar uma biblioteca de conteúdo para implantar VMs na solução VMware 
 description: Crie uma biblioteca de conteúdo para implantar uma VM em uma nuvem privada da solução Azure VMware.
 ms.topic: how-to
 ms.date: 09/21/2020
-ms.openlocfilehash: a8e2f1911899e659724760cff514a33c8f0740a5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3a1b0a091dcdf9a225b4bf91ec83f542c2310285
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91341722"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575818"
 ---
 # <a name="create-a-content-library-to-deploy-vms-in-azure-vmware-solution"></a>Criar uma biblioteca de conteúdo para implantar VMs na solução VMware do Azure
 
@@ -92,7 +92,7 @@ Agora que a biblioteca de conteúdo foi criada, é possível adicionar uma image
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se planejar usar a HCX (Extensão de Nuvem Híbrida) para migrar cargas de trabalho de VM para sua nuvem privada, use o procedimento [Instalar a HCX para a Solução VMware no Azure](hybrid-cloud-extension-installation.md).
+Se planejar usar a HCX (Extensão de Nuvem Híbrida) para migrar cargas de trabalho de VM para sua nuvem privada, use o procedimento [Instalar a HCX para a Solução VMware no Azure](tutorial-deploy-vmware-hcx.md).
 
 <!-- LINKS - external-->
 

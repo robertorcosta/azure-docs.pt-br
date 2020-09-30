@@ -5,14 +5,14 @@ ms.service: iot-central
 services: iot-central
 author: sarahhubbard
 ms.author: sahubbar
-ms.date: 09/10/2020
+ms.date: 09/30/2020
 ms.topic: how-to
-ms.openlocfilehash: ae8b830469a9b52ae68310dde2e65dcffdf4e3be
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.openlocfilehash: 5b8aba74cb0914cf26382e0d17a8ce2ba6bd4063
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90060808"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91573932"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Criar e executar um trabalho em seu aplicativo de IoT Central do Azure
 
@@ -32,42 +32,50 @@ O exemplo a seguir mostra como criar e executar um trabalho para definir o limit
 
 1. Escolha **propriedade de nuvem**, **Propriedade**ou **comando** como o **tipo de trabalho**:
 
-    Para definir uma configuração de trabalho de **Propriedade** , selecione uma propriedade e defina seu novo valor. Para definir uma configuração de trabalho de **comando** , escolha o comando a ser executado. Um trabalho de propriedade pode definir várias propriedades.
+    Para configurar um trabalho de **Propriedade** , selecione uma propriedade e defina seu novo valor. Para configurar um trabalho de **comando** , escolha o comando a ser executado. Um trabalho de propriedade pode definir várias propriedades.
 
     :::image type="content" source="media/howto-run-a-job/configure-job.png" alt-text="Captura de tela que mostra seleções para criar um trabalho de propriedade chamado definir limite claro":::
 
     Selecione **salvar e sair** para adicionar o trabalho à lista de trabalhos salvos na página **trabalhos** . Posteriormente, você pode retornar a um trabalho na lista de trabalhos salvos.
 
+    Selecione **Avançar** para ir para a página **Opções de entrega** . A página **Opções de entrega** permite que você defina as opções de entrega para este trabalho: limite de **lotes** e **cancelamento**.
+
+    Os lotes permitem escalonar trabalhos para um grande número de dispositivos. O trabalho é dividido em vários lotes e cada lote contém um subconjunto dos dispositivos. Os lotes são enfileirados e executados em sequência.
+
+    O limite de cancelamento permite cancelar automaticamente um trabalho se o número de erros exceder o limite definido. O limite pode ser aplicado a todos os dispositivos no trabalho ou a lotes individuais.
+
+    :::image type="content" source="media/howto-run-a-job/job-wizard-delivery-options.png" alt-text="Captura de tela que mostra seleções para criar um trabalho de propriedade chamado definir limite claro":::
+
     Selecione **Avançar** para ir para a página **revisão** . A página **revisão** mostra os detalhes de configuração do trabalho. Selecione **executar** para enviar o trabalho.
 
-    :::image type="content" source="media/howto-run-a-job/job-wizard-review.png" alt-text="Captura de tela da página de revisão do assistente de trabalho":::
+    :::image type="content" source="media/howto-run-a-job/job-wizard-review.png" alt-text="Captura de tela que mostra seleções para criar um trabalho de propriedade chamado definir limite claro":::
 
 1. Um trabalho passa por etapas *pendentes*, *em execução*e *concluídas* . Os detalhes de execução do trabalho contêm métricas de resultado, detalhes de duração e uma grade de lista de dispositivos.
 
     Quando o trabalho for concluído, você poderá selecionar **log de resultados** para baixar um arquivo CSV dos detalhes do trabalho, incluindo os dispositivos e seus valores de status. Essas informações podem ser úteis para a solução de problemas.
 
-    :::image type="content" source="media/howto-run-a-job/download-details.png" alt-text="Captura de tela que mostra o status do dispositivo":::
+    :::image type="content" source="media/howto-run-a-job/download-details.png" alt-text="Captura de tela que mostra seleções para criar um trabalho de propriedade chamado definir limite claro":::
 
 1. O trabalho agora aparece na lista **últimos 30 dias** na página **trabalhos** . Esta página mostra os trabalhos atualmente em execução e o histórico de todos os trabalhos executados ou salvos anteriormente.
 
     > [!NOTE]
-    > Você pode exibir até 30 dias de histórico para os trabalhos executados anteriormente.
+    > Você pode exibir 30 dias de histórico para os trabalhos executados anteriormente.
 
 ## <a name="manage-jobs"></a>Gerenciar trabalhos
 
 Para interromper um trabalho em execução, abra-o e selecione **parar**. O status do trabalho é alterado para refletir que o trabalho foi interrompido. A seção de **Resumo** mostra quais dispositivos foram concluídos, falharam ou ainda estão pendentes.
 
-:::image type="content" source="media/howto-run-a-job/manage-job.png" alt-text="Captura de tela que mostra um trabalho em execução e o botão para parar um trabalho":::
+:::image type="content" source="media/howto-run-a-job/manage-job.png" alt-text="Captura de tela que mostra seleções para criar um trabalho de propriedade chamado definir limite claro":::
 
 Quando um trabalho está em um estado parado, você pode selecionar **continuar** para retomar a execução do trabalho. O status do trabalho é alterado para refletir que o trabalho agora está em execução novamente. A seção de **Resumo** continua a ser atualizada com o progresso mais recente.
 
-:::image type="content" source="media/howto-run-a-job/stopped-job.png" alt-text="Captura de tela que mostra um trabalho parado e o botão para continuar um trabalho":::
+:::image type="content" source="media/howto-run-a-job/stopped-job.png" alt-text="Captura de tela que mostra seleções para criar um trabalho de propriedade chamado definir limite claro":::
 
 ## <a name="copy-a-job"></a>Copiar um trabalho
 
 Para copiar um trabalho existente, selecione um trabalho executado. Selecione **copiar** na página de resultados do trabalho ou na página de detalhes de trabalhos:
 
-:::image type="content" source="media/howto-run-a-job/job-details-copy.png" alt-text="Captura de tela que mostra o botão de cópia":::
+:::image type="content" source="media/howto-run-a-job/job-details-copy.png" alt-text="Captura de tela que mostra seleções para criar um trabalho de propriedade chamado definir limite claro":::
 
 Uma cópia da configuração do trabalho é aberta para você editar e a **cópia** é anexada ao nome do trabalho.
 
@@ -82,6 +90,7 @@ Depois que um trabalho é criado, a coluna **status** é atualizada com a mensag
 | Pending (Pendente)              | Esse trabalho ainda não começou a ser executado em dispositivos.         |
 | Executando              | Este trabalho está sendo executado atualmente em dispositivos.             |
 | Parado              | Um usuário interrompeu manualmente este trabalho.           |
+| Canceled             | Este trabalho foi cancelado porque o limite definido na página **Opções de entrega** foi excedido. |
 
 A mensagem de status é seguida por uma visão geral dos dispositivos no trabalho. A tabela a seguir lista os possíveis valores de *status do dispositivo* :
 
@@ -104,13 +113,13 @@ Para baixar um arquivo CSV que inclui os detalhes do trabalho e a lista de dispo
 
 Você pode filtrar a lista de dispositivos na página de **detalhes do trabalho** selecionando o ícone de filtro. Você pode filtrar o campo **ID do dispositivo** ou **status** :
 
-:::image type="content" source="media/howto-run-a-job/filter.png" alt-text="Captura de tela que mostra seleções para filtrar uma lista de dispositivos.":::
+:::image type="content" source="media/howto-run-a-job/filter.png" alt-text="Captura de tela que mostra seleções para criar um trabalho de propriedade chamado definir limite claro":::
 
 ## <a name="customize-columns-in-the-device-list"></a>Personalizar colunas na lista de dispositivos
 
 Você pode adicionar colunas à lista de dispositivos selecionando o ícone de opções de coluna:
 
-:::image type="content" source="media/howto-run-a-job/column-options.png" alt-text="Captura de tela que mostra o ícone para as opções de coluna.":::
+:::image type="content" source="media/howto-run-a-job/column-options.png" alt-text="Captura de tela que mostra seleções para criar um trabalho de propriedade chamado definir limite claro":::
 
 Use a caixa de diálogo **Opções de coluna** para escolher as colunas da lista de dispositivos. Selecione as colunas que você deseja exibir, selecione a seta para a direita e, em seguida, selecione **OK**. Para selecionar todas as colunas disponíveis, escolha **selecionar tudo**. As colunas selecionadas aparecem na lista de dispositivos.
 
@@ -120,7 +129,7 @@ As colunas selecionadas persistem em uma sessão de usuário ou em sessões de u
 
 Você pode executar novamente um trabalho que tenha dispositivos com falha. Selecione **executar novamente em com falha**:
 
-:::image type="content" source="media/howto-run-a-job/rerun.png" alt-text="Captura de tela que mostra o botão para executar novamente um trabalho em dispositivos com falha.":::
+:::image type="content" source="media/howto-run-a-job/rerun.png" alt-text="Captura de tela que mostra seleções para criar um trabalho de propriedade chamado definir limite claro":::
 
 Insira um nome de trabalho e uma descrição e, em seguida, selecione **executar novamente o trabalho**. Um novo trabalho é enviado para repetir a ação em dispositivos com falha.
 

@@ -9,12 +9,12 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: seodec18, devx-track-java
-ms.openlocfilehash: fa25d07ff034cec50da515341bd9ca604ee28577
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 902980d7c145d5150214b7d4f4433e5da344e30b
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319177"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570054"
 ---
 # <a name="tutorial-create-a-cassandra-api-account-in-azure-cosmos-db-by-using-a-java-application-to-store-keyvalue-data"></a>Tutorial: Criar uma conta de API do Cassandra no Azure Cosmos DB por meio de um aplicativo Java para armazenar dados de chave/valor
 
@@ -33,7 +33,7 @@ Este tutorial cobre as seguintes tarefas:
 
 * Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar. 
 
-* Obter a versão mais recente do [JDK (Java Development Kit)](/java/azure/jdk/?view=azure-java-stable). 
+* Obter a versão mais recente do [JDK (Java Development Kit)](/java/azure/jdk/?view=azure-java-stable&preserve-view=true). 
 
 * [Baixe](https://maven.apache.org/download.cgi) e [instale](https://maven.apache.org/install.html) o arquivo binário [Maven](https://maven.apache.org/). 
   - No Ubuntu, você pode executar `apt-get install maven` para instalar o Maven. 

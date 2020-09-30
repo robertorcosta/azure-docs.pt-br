@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: afc7e6c1ed41661c835a811a7cbcaa6f7771328e
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: a7b463394a6919dee56e0448997dbd6c59ac9cc6
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89645644"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576584"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Solucionar problemas de visualização de avaliação/dependência
 
@@ -52,7 +52,7 @@ Protocolo de Internet condicionalmente pronto | Aplicável somente a avaliaçõe
 
 ## <a name="suggested-migration-tool-in-import-based-avs-assessment-marked-as-unknown"></a>Ferramenta de migração sugerida na avaliação de AVS baseada em importação marcada como desconhecida
 
-Para computadores importados por meio de um arquivo CSV, a ferramenta de migração padrão no e a avaliação AVS são desconhecidas. No entanto, para máquinas VMware, é recomendável usar a solução de HCX (extensão de nuvem híbrida) do VMware. [Saiba mais](../azure-vmware/hybrid-cloud-extension-installation.md).
+Para computadores importados por meio de um arquivo CSV, a ferramenta de migração padrão no e a avaliação AVS são desconhecidas. No entanto, para máquinas VMware, é recomendável usar a solução de HCX (extensão de nuvem híbrida) do VMware. [Saiba mais](../azure-vmware/tutorial-deploy-vmware-hcx.md).
 
 ## <a name="linux-vms-are-conditionally-ready-in-an-azure-vm-assessment"></a>VMs do Linux são "prontamente prontas" em uma avaliação de VM do Azure
 
@@ -163,7 +163,7 @@ Para VMs do Windows:
 
 Para VMs do Linux, certifique-se de que os comandos de instalação para MMA e o Dependency Agent tenham êxito. Consulte mais diretrizes para solução de problemas [aqui](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#post-installation-issues).
 
-## <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
+## <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
 
 - **Agente MMS**: examine os sistemas operacionais [Windows](../azure-monitor/platform/agents-overview.md#supported-operating-systems)e [Linux](../azure-monitor/platform/agents-overview.md#supported-operating-systems) com suporte.
 - **Agente de dependência**: os sistemas operacionais [Windows e Linux](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) com suporte.

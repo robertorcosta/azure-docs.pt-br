@@ -6,20 +6,20 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.date: 10/03/2018
 ms.topic: article
-ms.openlocfilehash: ef8862ebbcdd1ee79178af56b7c6cc81c7a68a43
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1ee8c7eabd33ad2d8773d55041fcdf54a7dd489b
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91269277"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575003"
 ---
 # <a name="run-actions-based-on-group-status-by-using-scopes-in-azure-logic-apps"></a>Executar ações com base no status do grupo usando os escopos nos Aplicativos Lógicos do Azure
 
 Para executar ações somente após um outro grupo de ações ter êxito ou falhar, agrupe essas ações em um *escopo*. Essa estrutura é útil quando deseja organizar ações como um grupo lógico, avaliar o status desse grupo e executar ações baseadas no status do escopo. Depois que todas as ações em um escopo concluem a execução, o escopo também obtém seu próprio status. Por exemplo, é possível usar escopos quando você quiser implementar [tratamento de erro e exceção](../logic-apps/logic-apps-exception-handling.md#scopes). 
 
-Para verificar o status de um escopo, você pode usar os mesmos critérios usados para determinar o status de execução de um aplicativo lógico, como "êxito", "falha", "cancelado" e assim por diante. Por padrão, quando todas as ações do escopo são bem-sucedidas, o status do escopo é marcado como "Com êxito." Mas, quando qualquer ação no escopo apresenta falha ou é cancelada, o status do escopo é marcado como "Com falha." Para limites nos escopos, consulte [Limites e configurações](../logic-apps/logic-apps-limits-and-config.md). 
+Para verificar o status de um escopo, você pode usar os mesmos critérios usados para determinar o status de execução de um aplicativo lógico, como com **êxito**, **falha**, **cancelado**e assim por diante. Por padrão, quando todas as ações do escopo forem bem-sucedidas, o status do escopo será marcado como **bem-sucedido**. Mas quando qualquer ação no escopo falha ou é cancelada, o status do escopo é marcado como **falha**. Para limites nos escopos, consulte [Limites e configurações](../logic-apps/logic-apps-limits-and-config.md). 
 
-Por exemplo, aqui é um aplicativo lógico de alto nível que usa um escopo para executar ações específicas e uma condição para verificar o status do escopo. Se alguma ação no escopo falhar ou encerrar inesperadamente, o escopo é marcado como "Com falha" ou "Anulado", respectivamente, e o aplicativo lógico envia uma mensagem "Falha de escopo". Se todas as ações de escopo tiverem êxito, o aplicativo lógico envia uma mensagem "Escopo com êxito".
+Por exemplo, aqui é um aplicativo lógico de alto nível que usa um escopo para executar ações específicas e uma condição para verificar o status do escopo. Se alguma ação no escopo falhar ou terminar inesperadamente, o escopo será marcado como **com falha** ou **anulado** respectivamente, e o aplicativo lógico enviará uma mensagem "falha no escopo". Se todas as ações de escopo tiverem êxito, o aplicativo lógico envia uma mensagem "Escopo com êxito".
 
 ![O diagrama mostra o fluxo de escopo do aplicativo lógico com exemplos de "escopo com falha" e "escopo bem-sucedido".](./media/logic-apps-control-flow-run-steps-group-scopes/scope-high-level.png)
 
@@ -192,7 +192,7 @@ Em seguida, adicione um escopo para que seja possível agrupar ações específi
    
       `result('Scope')[0]['status']`
 
-      ![Captura de tela que mostra a janela "Adicionar expressão" com a expressão de resultado realçada.](./media/logic-apps-control-flow-run-steps-group-scopes/check-scope-status.png)
+      ![Captura de tela que mostra a caixa "expressão" com a expressão de resultado realçada.](./media/logic-apps-control-flow-run-steps-group-scopes/check-scope-status.png)
 
    1. Para ambas as linhas, selecione **é igual a** como o operador. 
    

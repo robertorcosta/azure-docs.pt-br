@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: 4ad3aa7169fcf7eeda6e56a2eab6669b8783d77d
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: 714a43ec197ac150488d4443c1eb6fe1be1da232
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91461454"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575513"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Azure Monitor os clusters dedicados
 
@@ -19,7 +19,7 @@ Azure Monitor os clusters dedicados de logs são uma opção de implantação qu
 
 Além do suporte para alto volume, há outros benefícios do uso de clusters dedicados:
 
-- **Limite de taxa** – um cliente pode ter mais limites de taxa de ingestão apenas no cluster dedicado.
+- **Limite de taxa** – um cliente pode ter mais [limites de taxa de ingestão](../service-limits.md#data-ingestion-volume-rate) apenas no cluster dedicado.
 - **Recursos** – determinados recursos da empresa estão disponíveis apenas em clusters dedicados, especificamente CMK (chaves gerenciadas pelo cliente) e suporte de lockbox. 
 - **Consistência** – os clientes têm seus próprios recursos dedicados e, portanto, não há nenhuma influência de outros clientes em execução na mesma infraestrutura compartilhada.
 - **Eficiência de custo** – pode ser mais econômico usar o cluster dedicado, já que as camadas de reserva de capacidade atribuídas levam em conta toda a ingestão de cluster e se aplicam a todos os seus espaços de trabalho, mesmo que algumas delas sejam pequenas e não elegíveis para o desconto de reserva de capacidade.
@@ -38,14 +38,23 @@ Depois que o cluster é criado, ele pode ser configurado e espaços de trabalho 
 
 Todas as operações no nível do cluster exigem a `Microsoft.OperationalInsights/clusters/write` permissão Action no cluster. Essa permissão pode ser concedida por meio do proprietário ou colaborador que contém a `*/write` ação ou por meio da função colaborador de log Analytics que contém a `Microsoft.OperationalInsights/*` ação. Para obter mais informações sobre Log Analytics permissões, consulte [gerenciar o acesso a dados de log e espaços de trabalho no Azure monitor](../platform/manage-access.md). 
 
-## <a name="billing"></a>Cobrança
 
-Os clusters dedicados têm suporte apenas para espaços de trabalho que usam planos por GB com ou sem camadas de reserva de capacidade. Os clusters dedicados não têm custo adicional para os clientes que se confirmam para ingerir mais de 1 TB para esse cluster. "Confirmar para ingestão" significa que eles atribuiram uma camada de reserva de capacidade de pelo menos 1 TB/dia no nível do cluster. Enquanto a reserva de capacidade é anexada no nível do cluster, há duas opções para o carregamento real dos dados:
+## <a name="cluster-pricing-model"></a>Modelo de preços do cluster
 
-- *Cluster* (padrão)-os custos de reserva de capacidade para o cluster são atribuídos ao recurso de *cluster* .
-- *Espaços de trabalho* -os custos de reserva de capacidade para o cluster são atribuídos proporcionalmente aos espaços de trabalho no cluster. O recurso de *cluster* será cobrado por parte do uso se o total de dados ingeridos para o dia estiver sob a reserva de capacidade. Consulte [log Analytics clusters dedicados](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters) para saber mais sobre o modelo de preços do cluster.
+Log Analytics clusters dedicados usam um modelo de preços de reserva de capacidade, que de pelo menos 1000 GB/dia. Qualquer uso acima do nível de reserva será cobrado com a taxa de Pagamento Conforme o Uso.  As informações de preços de reserva de capacidade estão disponíveis na [página de preços Azure monitor]( https://azure.microsoft.com/pricing/details/monitor/).  
 
-Para obter mais informações sobre a cobrança de clusters dedicados, consulte [log Analytics cobrança de cluster dedicado](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters).
+O nível de reserva de capacidade do cluster é configurado por meio de programação com Azure Resource Manager usando o `Capacity` parâmetro em `Sku` . A `Capacity` é especificada em unidades de GB e pode ter valores de 1.000 GB/dia ou mais em incrementos de 100 GB/dia.
+
+Há dois modos de cobrança para uso em um cluster. Eles podem ser especificados pelo `billingType` parâmetro ao configurar o cluster. 
+
+1. **Cluster**: nesse caso (que é o padrão), a cobrança de dados ingeridos é feita no nível do cluster. As quantidades de dados ingeridos de cada workspace associado a um cluster são agregadas para calcular a fatura diária do cluster. 
+
+2. **Espaços de trabalho**: os custos de reserva de capacidade para o cluster são atribuídos proporcionalmente aos espaços de trabalho no cluster (após a contabilização de alocações por nó da [central de segurança do Azure](https://docs.microsoft.com/azure/security-center/) para cada espaço de trabalho).
+
+Observe que, se o seu espaço de trabalho estiver usando o tipo de preço herdado por nó, quando ele estiver vinculado a um cluster, ele será cobrado com base nos dados ingeridos em relação à reserva de capacidade do cluster e não mais por nó. As alocações de dados por nó da central de segurança do Azure continuarão a ser aplicadas.
+
+Mais detalhes são cobrados para Log Analytics clusters dedicados estão disponíveis [aqui]( https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-dedicated-clusters).
+
 
 ## <a name="creating-a-cluster"></a>Criar um cluster
 
@@ -155,8 +164,8 @@ Depois de criar o recurso de *cluster* e ele ser totalmente provisionado, você 
 
 - **Keyvaultproperties**: usado para configurar o Azure Key Vault usado para provisionar um [Azure monitor chave gerenciada pelo cliente](../platform/customer-managed-keys.md#cmk-provisioning-procedure). Ele contém os seguintes parâmetros:  *KeyVaultUri*, *KeyName*, *keyversion*. 
 - **billtype** – a propriedade *billtype* determina a atribuição de cobrança para o recurso de *cluster* e seus dados:
-- **Cluster** (padrão)-os custos de reserva de capacidade para o cluster são atribuídos ao recurso de *cluster* .
-- **Espaços de trabalho** -os custos de reserva de capacidade para o cluster são atribuídos proporcionalmente aos espaços de trabalho no cluster, com o recurso de *cluster* sendo cobrado por parte do uso se o total de dados ingeridos para o dia estiver sob a reserva de capacidade. Consulte [log Analytics clusters dedicados](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters) para saber mais sobre o modelo de preços do cluster. 
+  - **Cluster** (padrão)-os custos de reserva de capacidade para o cluster são atribuídos ao recurso de *cluster* .
+  - **Espaços de trabalho** -os custos de reserva de capacidade para o cluster são atribuídos proporcionalmente aos espaços de trabalho no cluster, com o recurso de *cluster* sendo cobrado por parte do uso se o total de dados ingeridos para o dia estiver sob a reserva de capacidade. Consulte [log Analytics clusters dedicados](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters) para saber mais sobre o modelo de preços do cluster. 
 
 > [!NOTE]
 > Não há suporte para a propriedade *billtype* no PowerShell.
@@ -185,7 +194,7 @@ Content-type: application/json
 {
    "sku": {
      "name": "capacityReservation",
-     "capacity": 1000
+     "capacity": <capacity-reservation-amount-in-GB>
      },
    "properties": {
     "billingType": "cluster",
@@ -265,8 +274,6 @@ Como qualquer operação de cluster, a vinculação de um espaço de trabalho po
 > [!WARNING]
 > Vincular um espaço de trabalho a um cluster requer a sincronização de vários componentes de back-end e a garantia de hidratação de cache. Esta operação pode levar até duas horas para ser concluída. Recomendamos executá-lo de forma assíncrona.
 
-
-### <a name="link-operations"></a>Operações de link
 
 **PowerShell**
 
@@ -366,7 +373,36 @@ Você pode desvincular um espaço de trabalho de um cluster. Depois de desvincul
 
 ## <a name="delete-a-dedicated-cluster"></a>Excluir um cluster dedicado
 
-Um recurso de cluster dedicado pode ser excluído. Você deve desvincular todos os espaços de trabalho do cluster antes de excluí-lo. Depois que o recurso de cluster é excluído, o cluster físico entra em um processo de limpeza e exclusão. A exclusão de um cluster exclui todos os dados que foram armazenados no cluster. Os dados podem ser de espaços de trabalho que foram vinculados ao cluster no passado.
+Um recurso de cluster dedicado pode ser excluído. Você deve desvincular todos os espaços de trabalho do cluster antes de excluí-lo. Você precisa de permissões de “gravação” no recurso de *cluster* para executar essa operação. 
+
+Depois que o recurso de cluster é excluído, o cluster físico entra em um processo de limpeza e exclusão. A exclusão de um cluster exclui todos os dados que foram armazenados no cluster. Os dados podem ser de espaços de trabalho que foram vinculados ao cluster no passado.
+
+Um recurso de *cluster* que foi excluído nos últimos 14 dias está no estado de exclusão temporária e pode ser recuperado com seus dados. Como todos os espaços de trabalho foram desassociados do recurso de *cluster* com a exclusão de recursos de *cluster* , você precisa associar novamente os espaços de trabalho após a recuperação. A operação de recuperação não pode ser executada pelo usuário entre em contato com seu canal da Microsoft ou suporte para solicitações de recuperação.
+
+Dentro dos 14 dias após a exclusão, o nome do recurso de cluster é reservado e não pode ser usado por outros recursos.
+
+**PowerShell**
+
+Use o seguinte comando do PowerShell para excluir um cluster:
+
+  ```powershell
+  Remove-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name"
+  ```
+
+**REST**
+
+Use a seguinte chamada REST para excluir um cluster:
+
+  ```rst
+  DELETE https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
+  Authorization: Bearer <token>
+  ```
+
+  **Resposta**
+
+  200 OK
+
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

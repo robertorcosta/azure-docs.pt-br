@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/28/2020
-ms.openlocfilehash: 469620456fecb7c0cb398988c4a4fc25da97f863
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 82a109dd5c2813861e21e11aa40774b6b868cfe3
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91357702"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576176"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Use grupos de failover automático para habilitar o failover transparente e coordenado de vários bancos de dados
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -33,7 +33,7 @@ Além disso, os grupos de failover automático fornecem pontos de extremidade de
 
 Quando você estiver usando grupos de failover automático com a política de failover automático, qualquer interrupção que afete os bancos de dados em um servidor ou instância gerenciada resultará em failover automático. Você pode gerenciar o grupo de failover automático usando:
 
-- [Azure portal](geo-distributed-application-configure-tutorial.md)
+- [Portal do Azure](geo-distributed-application-configure-tutorial.md)
 - [CLI do Azure: grupo de failover](scripts/add-database-to-failover-group-cli.md)
 - [PowerShell: grupo de failover](scripts/add-database-to-failover-group-powershell.md)
 - [API REST: grupo de failover](/rest/api/sql/failovergroups).
@@ -76,9 +76,9 @@ Para garantir a continuidade de negócios real, a adição de redundância de ba
   
 - **Propagação inicial**
 
-  Ao adicionar bancos de dados, pools elásticos ou instâncias gerenciadas a um grupo de failover, há uma fase de propagação inicial antes do início da replicação de dados. A fase de propagação inicial é a operação mais longa e cara. Após a conclusão da propagação inicial, os dados são sincronizados e, em seguida, somente as alterações de dados subsequentes são replicadas. O tempo necessário para que a semente inicial seja concluída depende do tamanho dos dados, do número de bancos de dado replicados e da velocidade do link entre as entidades no grupo de failover. Em circunstâncias normais, a velocidade de propagação típica é de 50-500 GB de hora para o banco de dados SQL e 18-35 GB de hora para um Instância Gerenciada SQL. A propagação é executada para todos os bancos de dados em paralelo. Você pode usar a velocidade de propagação declarada, juntamente com o número de bancos de dados e o tamanho total do dado para estimar quanto tempo a fase de propagação inicial levará antes de iniciar a replicação de dados.
+  Ao adicionar bancos de dados, pools elásticos ou instâncias gerenciadas a um grupo de failover, há uma fase de propagação inicial antes do início da replicação de dados. A fase de propagação inicial é a operação mais longa e cara. Após a conclusão da propagação inicial, os dados são sincronizados e, em seguida, somente as alterações de dados subsequentes são replicadas. O tempo necessário para que a semente inicial seja concluída depende do tamanho dos dados, do número de bancos de dado replicados e da velocidade do link entre as entidades no grupo de failover. Em circunstâncias normais, a possível velocidade de propagação é de até 500 GB de hora para o banco de dados SQL e até 360 GB de hora para o SQL Instância Gerenciada. A propagação é executada para todos os bancos de dados em paralelo.
 
-  Para o SQL Instância Gerenciada, a velocidade do link de rota expressa entre as duas instâncias também precisa ser considerada ao estimar o tempo da fase de propagação inicial. Se a velocidade do link entre as duas instâncias for mais lenta do que o necessário, é provável que o tempo de propagação seja notavelmente afetado. Você pode usar a velocidade de propagação declarada, o número de bancos de dados, o tamanho total e a velocidade do link para estimar quanto tempo a fase de propagação inicial levará antes de iniciar a replicação de dados. Por exemplo, para um único banco de dados de 100 GB, a fase de semente inicial levaria de 2,8 a 5,5 horas se o link for capaz de enviar por push 35 GB por hora. Se o link só puder transferir 10 GB por hora, a propagação de um banco de dados de 100 GB levará cerca de 10 horas. Se houver vários bancos de dados a serem replicados, a propagação será executada em paralelo e, quando combinada com uma velocidade de link lento, a fase de propagação inicial poderá levar muito mais tempo, especialmente se a propagação paralela de dados de todos os bancos de dado exceder a largura de banda de link disponível. Se a largura de banda de rede entre duas instâncias for limitada e você estiver adicionando várias instâncias gerenciadas a um grupo de failover, considere adicionar várias instâncias gerenciadas ao grupo de failover sequencialmente, uma a uma.
+  Para o SQL Instância Gerenciada, considere a velocidade do link de rota expressa entre as duas instâncias ao estimar o tempo da fase de propagação inicial. Se a velocidade do link entre as duas instâncias for mais lenta do que o necessário, é provável que o tempo de propagação seja notavelmente afetado. Você pode usar a velocidade de propagação declarada, o número de bancos de dados, o tamanho total e a velocidade do link para estimar quanto tempo a fase de propagação inicial levará antes de iniciar a replicação de dados. Por exemplo, para um único banco de dados de 100 GB, a fase de propagação inicial levará cerca de 1,2 horas se o link for capaz de enviar por push 84 GB por hora e se não houver nenhum outro banco de dados sendo propagado. Se o link só puder transferir 10 GB por hora, a propagação de um banco de dados de 100 GB levará cerca de 10 horas. Se houver vários bancos de dados a serem replicados, a propagação será executada em paralelo e, quando combinada com uma velocidade de link lento, a fase de propagação inicial poderá levar muito mais tempo, especialmente se a propagação paralela de dados de todos os bancos de dado exceder a largura de banda de link disponível. Se a largura de banda de rede entre duas instâncias for limitada e você estiver adicionando várias instâncias gerenciadas a um grupo de failover, considere adicionar várias instâncias gerenciadas ao grupo de failover sequencialmente, uma a uma. Dado um SKU de gateway adequadamente dimensionado entre as duas instâncias gerenciadas e, se a largura de banda da rede corporativa permitir, é possível alcançar velocidades de até 360 GB de hora.  
 
 - **Zona DNS**
 
@@ -232,6 +232,10 @@ Para garantir a conectividade não interrompida com o Instância Gerenciada do S
 > A primeira instância gerenciada criada na sub-rede determina a zona DNS para todas as instâncias subsequentes na mesma sub-rede. Isso significa que duas instâncias da mesma sub-rede não podem pertencer a diferentes zonas DNS.
 
 Para obter mais informações sobre como criar o SQL Instância Gerenciada secundário na mesma zona DNS que a instância primária, consulte [criar uma instância gerenciada secundária](../managed-instance/failover-group-add-instance-tutorial.md#create-a-secondary-managed-instance).
+
+### <a name="using-geo-paired-regions"></a>Usando regiões emparelhadas geograficamente
+
+Implante ambas as instâncias gerenciadas em [regiões emparelhadas](../../best-practices-availability-paired-regions.md) por motivos de desempenho. As instâncias gerenciadas que residem em regiões emparelhadas geograficamente têm um desempenho muito melhor em comparação com regiões não emparelhadas. 
 
 ### <a name="enabling-replication-traffic-between-two-instances"></a>Habilitando o tráfego de replicação entre duas instâncias
 

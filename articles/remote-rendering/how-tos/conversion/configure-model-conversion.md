@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 03/06/2020
 ms.topic: how-to
-ms.openlocfilehash: dda2676f258705ed833068c966bcc57115434b0d
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 2134dde0fa0b92bec4519c0d6a24dcaad3792baa
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90967231"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575173"
 ---
 # <a name="configure-the-model-conversion"></a>Configurar a conversão de modelo
 
@@ -33,7 +33,6 @@ O conteúdo do arquivo deve satisfazer o esquema JSON a seguir:
         "scaling" : { "type" : "number", "exclusiveMinimum" : 0, "default" : 1.0 },
         "recenterToOrigin" : { "type" : "boolean", "default" : false },
         "opaqueMaterialDefaultSidedness" : { "type" : "string", "enum" : [ "SingleSided", "DoubleSided" ], "default" : "DoubleSided" },
-        "material-override" : { "type" : "string", "default" : "" },
         "gammaToLinearMaterial" : { "type" : "boolean", "default" : false },
         "gammaToLinearVertex" : { "type" : "boolean", "default" : false },
         "sceneGraphMode": { "type" : "string", "enum" : [ "none", "static", "dynamic" ], "default" : "dynamic" },
@@ -85,10 +84,6 @@ Centralizar o modelo pode ajudar nessa situação.
 
 * `opaqueMaterialDefaultSidedness` – o mecanismo de renderização pressupõe que os materiais opacos têm dois lados.
 Se essa suposição não for verdadeira de um modelo específico, esse parâmetro deverá ser definido como "SingleSided". Para obter mais informações, consulte [ :::no-loc text="single sided"::: renderização](../../overview/features/single-sided-rendering.md).
-
-### <a name="material-overrides"></a>Substituições de material
-
-* `material-override` – esse parâmetro permite que o processamento de materiais seja [personalizado durante a conversão](override-materials.md).
 
 ### <a name="material-de-duplication"></a>Eliminação de duplicação do material
 
@@ -305,6 +300,8 @@ Nesses casos de uso, os modelos geralmente apresentam muitos detalhes em um volu
 
 O fornecimento de configurações usando o nome de arquivo não específico ao modelo `conversionSettings.json` ainda é suportado, mas preterido.
 Em vez disso, use o nome de arquivo específico do modelo `<modelName>.ConversionSettings.json` .
+
+O uso de uma `material-override` configuração para identificar um [arquivo de substituição de material](override-materials.md) no arquivo de configurações de conversão ainda é suportado, mas preterido. Em vez disso, use o nome de arquivo específico do modelo `<modelName>.MaterialOverrides.json` .
 
 ## <a name="next-steps"></a>Próximas etapas
 

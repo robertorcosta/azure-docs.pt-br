@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 12/07/2016
 ms.author: tagore
-ms.openlocfilehash: 169b12ff4fbf2471270aa912d5d1f8242371036b
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 4f2b5716e253f2810ff953a10c879574c6a6c342
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223730"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576652"
 ---
 # <a name="how-to-configure-cloud-services"></a>Como configurar serviços de nuvem
 
@@ -95,7 +95,7 @@ Talvez seja necessário reconfigurar o serviço de nuvem por meio do arquivo da 
     ![Baixar](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-download.png)
 4. Após atualizar o arquivo de configuração de serviço, carregue e aplique as atualizações da configuração:
 
-    ![Upload](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-upload.png)
+    ![Carregar](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-upload.png)
 5. Selecione o arquivo .cscfg e clique em **OK**.
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/02/2019
 ms.author: memildin
-ms.openlocfilehash: b60798ad1fab0ed66f3d4a39b2fd7faf79fd515e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1d452406b05a3ad6b2be2e31bce1063f20e6c622
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91268053"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575938"
 ---
 # <a name="cloud-smart-alert-correlation-in-azure-security-center-incidents"></a>Correlação de alertas inteligentes na nuvem na central de segurança do Azure (incidentes)
 
@@ -35,6 +35,9 @@ A central de segurança aproveita a matriz de ataques MITRE para associar alerta
 Como os ataques geralmente ocorrem em diferentes locatários, a central de segurança pode combinar algoritmos de ia para analisar as sequências de ataque que são relatadas em cada assinatura. Essa técnica identifica as sequências de ataque como padrões de alerta predominantes, em vez de apenas ser associada incidentalmente entre si.
 
 Durante uma investigação de um incidente, os analistas geralmente precisam de um contexto extra para alcançar uma veredicto sobre a natureza da ameaça e como atenuá-la. Por exemplo, mesmo quando uma anomalia de rede é detectada, sem entender o que mais está acontecendo na rede ou em relação ao recurso de destino, é difícil entender as ações a serem tomadas em seguida. Para ajudar, um incidente de segurança pode incluir artefatos, eventos relacionados e informações. As informações adicionais disponíveis para incidentes de segurança variam de acordo com o tipo de ameaça detectada e a configuração do seu ambiente. 
+
+> [!TIP]
+> Para obter uma lista de alertas de incidente de segurança que podem ser produzidos pela análise de fusão, consulte a [tabela de referência de alertas](alerts-reference.md#alerts-fusion).
 
 ![Captura de tela do relatório de incidente de segurança detectado](./media/security-center-alerts-cloud-smart/security-incident.png)
 

@@ -6,14 +6,14 @@ author: lisaguthrie
 ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.date: 1/9/2019
+ms.date: 09/28/2020
 ms.author: lcozzens
-ms.openlocfilehash: 57202752a965ad0405a04b2eba4cdf42070c94bf
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 83da47ce27d452fd77fab3905c9ce48944c42ffb
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89319484"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575054"
 ---
 # <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>Início Rápido: Criar um aplicativo .NET Core com a Configuração de Aplicativo
 
@@ -21,7 +21,7 @@ Neste guia de início rápido, você incorpora a Configuração de Aplicativos d
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/)
+- Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/dotnet)
 - [SDK do .NET Core](https://dotnet.microsoft.com/download) – também disponível no [Azure Cloud Shell](https://shell.azure.com).
 
 ## <a name="create-an-app-configuration-store"></a>Criar um repositório de Configuração de Aplicativos

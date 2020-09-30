@@ -3,14 +3,14 @@ title: Tutorial do Kubernetes no Azure - Implantar um cluster
 description: Neste tutorial do Serviço de Kubernetes do Azure (AKS), você cria um cluster AKS e usa o kubectl para conectar-se ao nó mestre do Kubernetes.
 services: container-service
 ms.topic: tutorial
-ms.date: 02/25/2020
+ms.date: 09/30/2020
 ms.custom: mvc
-ms.openlocfilehash: 72c2a664b3994d53fdd3602b432df1cabdaeb3ef
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: e78dcb3b7ba503011ec83058d9ad765815ef66a8
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002975"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576346"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Tutorial: Implantar um cluster do AKS (Serviço de Kubernetes do Azure)
 
