@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5c44f72021fa46352ae6ded8fe671ea4f1a4d60
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: a94d1a4fa717bbee9974f7218e704ba06dad530d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88797166"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531523"
 ---
 # <a name="create-or-update-a-dynamic-group-in-azure-active-directory"></a>Criar ou atualizar um grupo dinâmico no Azure Active Directory
 
@@ -40,7 +40,7 @@ Aqui estão alguns exemplos de regras ou sintaxe avançadas para as quais recome
 > [!NOTE]
 > O construtor de regras pode não conseguir exibir algumas regras construídas na caixa de texto. Você poderá ver uma mensagem quando o construtor de regras não puder exibir a regra. O construtor de regras não altera a sintaxe com suporte, a validação nem o processamento de regras de grupo dinâmicas de modo algum.
 
-![Adicionar regra de associação a um grupo dinâmico](./media/groups-create-rule/update-dynamic-group-rule.png)
+![Captura de tela que mostra a página "regras de associação dinâmica" com a ação "Adicionar expressão" na guia "configurar regras" selecionada.](./media/groups-create-rule/update-dynamic-group-rule.png)
 
 Para obter exemplos de sintaxe, propriedades com suporte, operadores e valores para uma regra de associação, consulte [regras de associação dinâmica para grupos no Azure Active Directory](groups-dynamic-membership.md).
 
@@ -54,7 +54,7 @@ Para obter exemplos de sintaxe, propriedades com suporte, operadores e valores p
 
 1. Na página **grupo** , insira um nome e uma descrição para o novo grupo. Selecione um **tipo de associação** para usuários ou dispositivos e, em seguida, selecione **Adicionar consulta dinâmica**. O construtor de regras dá suporte a até cinco expressões. Para adicionar mais de cinco expressões, você deve usar a caixa de texto.
 
-   ![Adicionar regra de associação a um grupo dinâmico](./media/groups-create-rule/add-dynamic-group-rule.png)
+   ![Captura de tela que mostra a página "todos os grupos" com a ação "novo grupo" selecionada.](./media/groups-create-rule/add-dynamic-group-rule.png)
 
 1. Para ver as propriedades de extensão personalizadas disponíveis para sua consulta de associação:
    1. Selecionar **obter propriedades de extensão personalizadas**

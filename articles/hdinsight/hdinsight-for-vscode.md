@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 04/07/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: bf31ad3311d6cbfd82ad1071d28bb7fee1bb9d2b
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: bb2fff699b31d8b3b311180c4b85e2bfd1da892c
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876777"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530146"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Use as ferramentas do Spark & Hive para Visual Studio Code
 
@@ -199,11 +199,11 @@ Usando o comando interativo PySpark para enviar as consultas, siga estas etapas:
 
 4. O prompt para instalar o kernel do PySpark é exibido no canto inferior direito da janela. Você pode clicar no botão **instalar** para prosseguir com as instalações do PySpark; ou clique no botão **ignorar** para ignorar esta etapa.
 
-   ![instalar o kernel do pyspark](./media/hdinsight-for-vscode/install-the-pyspark-kernel.png)
+   ![Captura de tela mostra uma opção para ignorar a instalação do PySpark.](./media/hdinsight-for-vscode/install-the-pyspark-kernel.png)
 
 5. Se precisar instalá-lo mais tarde, você poderá navegar até **arquivo**  >  **Preference**  >  **configurações**de preferência e desmarcar **Hdinsight: habilitar ignorar a instalação do Pyspark** nas configurações. 
     
-    ![instalar o kernel do pyspark](./media/hdinsight-for-vscode/enable-skip-pyspark-installation.png)
+    ![Captura de tela mostra a opção para habilitar a instalação do Skip Pyspark.](./media/hdinsight-for-vscode/enable-skip-pyspark-installation.png)
 
 6. Se a instalação for bem-sucedida na etapa 4, a caixa de mensagem "PySpark instalado com êxito" será exibida no canto inferior direito da janela. Clique no botão **recarregar** para recarregar a janela.
     ![pyspark instalado com êxito](./media/hdinsight-for-vscode/pyspark-kernel-installed-successfully.png)
@@ -214,7 +214,7 @@ Usando o comando interativo PySpark para enviar as consultas, siga estas etapas:
 
     ![menu de contexto do pyspark interativo](./media/hdinsight-for-vscode/pyspark-interactive-right-click.png)
 
-9. Selecione o cluster, se você não tiver especificado um cluster padrão. Após alguns instantes, os resultados **interativos do Python** aparecerão em uma nova guia. clique em PySpark para alternar o kernel para **PySpark**e o código será executado com êxito. As ferramentas também permitem que você envie um bloco de código em vez do arquivo de script inteiro usando o menu de contexto:
+9. Selecione o cluster, se você não tiver especificado um cluster padrão. Após alguns instantes, os resultados **interativos do Python** aparecem em uma nova guia. Clique em PySpark para alternar o kernel para **PySpark**e o código será executado com êxito. As ferramentas também permitem que você envie um bloco de código em vez do arquivo de script inteiro usando o menu de contexto:
 
    ![janela de python interativo pyspark interativo](./media/hdinsight-for-vscode/pyspark-interactive-python-interactive-window.png)
 
@@ -331,9 +331,9 @@ O método 2 envia um arquivo e observa que a `.vscode` pasta é adicionada autom
 
     **Postar/batches** Corpo da solicitação
 
-    | name | descrição | type |
+    | name | descrição | tipo |
     | --- | --- | --- |
-    | file | Arquivo que contém o aplicativo a ser executado | Caminho (obrigatório) |
+    | Arquivo  | Arquivo que contém o aplicativo a ser executado | Caminho (obrigatório) |
     | proxyUser | Usuário a representar ao executar o trabalho | String |
     | className | Classe principal de Java/Spark do aplicativo | String |
     | args | Argumentos de linha de comando para o aplicativo | Lista de cadeias de caracteres |
@@ -352,7 +352,7 @@ O método 2 envia um arquivo e observa que a `.vscode` pasta é adicionada autom
 
     Corpo da resposta o objeto do lote criado.
 
-    | name | descrição | type |
+    | name | descrição | tipo |
     | --- | ---| --- |
     | ID | ID da sessão | Int |
     | appId | ID do aplicativo desta sessão | String |

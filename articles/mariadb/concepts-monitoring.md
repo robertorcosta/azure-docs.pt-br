@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 8/13/2020
-ms.openlocfilehash: 088d2c0a11f7d145f0c8a7ccb2c0aac5bd2d140d
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 35a097f7b6d73a14ac4840839a31d9aa256aa8de
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88224078"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91532684"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>Monitorando no Banco de Dados do Azure para MariaDB
 Monitorar os dados dos seus servidores ajuda a solucionar problemas e otimizar sua carga de trabalho. O Banco de Dados do Azure para MariaDB fornece várias métricas que fornecem informações sobre o comportamento do seu servidor.
@@ -37,7 +37,7 @@ Essas métricas estão disponíveis para o Banco de Dados do Azure para MariaDB:
 |storage_limit|Limite de armazenamento|Bytes|O armazenamento máximo para esse servidor.|
 |active_connections|Conexões ativas|Contagem|O número de conexões ativas com o servidor.|
 |connections_failed|Conexões com falha|Contagem|O número de conexões com falha com o servidor.|
-|seconds_behind_master|Retardo de replicação em segundos|Contagem|O número de segundos que o servidor de réplica está atrasando contra o servidor mestre. (Não aplicável para servidores de camada básica)|
+|seconds_behind_master|Retardo de replicação em segundos|Contagem|O número de segundos que o servidor de réplica está atrasado no servidor de origem. (Não aplicável para servidores de camada básica)|
 |network_bytes_egress|Saída da rede|Bytes|Rede-Out em conexões ativas.|
 |network_bytes_ingress|Entrada na rede|Bytes|Entrada de rede em conexões ativas.|
 |backup_storage_used|Backup do Microsoft Azure|Bytes|A quantidade de armazenamento de backup usado. Essa métrica representa a soma do armazenamento consumido por todos os backups de banco de dados completos, backups diferenciais e backups de log retidos com base no período de retenção de backup definido para o servidor. A frequência dos backups é gerenciada pelo serviço e explicada no [artigo conceitos](concepts-backup.md). Para o armazenamento com redundância geográfica, o uso de armazenamento de backup é o dobro do armazenamento com redundância local.|

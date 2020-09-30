@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 4b729e975ddc9c184c1b0f39a6d3be548211cdfc
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 990d8ef275982b6d70c51819e47b33f543345023
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90052708"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531268"
 ---
 # <a name="password-policies-and-account-restrictions-in-azure-active-directory"></a>Políticas de senha e restrições de conta no Azure Active Directory
 
@@ -61,7 +61,7 @@ As seguintes opções de política de senha são definidas:
 
 ## <a name="administrator-reset-policy-differences"></a>Diferenças da política de redefinição de senha do administrador
 
-A Microsoft impõe uma política padrão forte de redefinição de senha de *dois portão* para qualquer função de administrador do Azure. Essa política pode ser diferente da que você definiu para os usuários e essa política não pode ser alterada. Sempre teste a funcionalidade de redefinição de senha como um usuário sem funções de administrador do Azure atribuídas.
+Por padrão, as contas de administrador são habilitadas para redefinição de senha de autoatendimento e uma política de redefinição de senha de *duas portão* padrão forte é imposta. Essa política pode ser diferente da que você definiu para os usuários e essa política não pode ser alterada. Sempre teste a funcionalidade de redefinição de senha como um usuário sem funções de administrador do Azure atribuídas.
 
 Com uma política de dois portões, os administradores não podem usar perguntas de segurança.
 
@@ -93,6 +93,8 @@ A política de duas portas requer dois tipos de dados de autenticação, como um
 * Caso tenham se passado 30 dias decorridos de uma assinatura de avaliação; ou
 * Um domínio personalizado foi configurado para seu locatário do Azure AD, como *contoso.com*; or
 * O Azure AD Connect está sincronizando identidades do seu diretório local
+
+Você pode desabilitar o uso de SSPR para contas de administrador usando o cmdlet do PowerShell [set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0) . O `-SelfServePasswordResetEnabled $False` parâmetro DESABILITA SSPR para administradores.
 
 ### <a name="exceptions"></a>Exceções
 

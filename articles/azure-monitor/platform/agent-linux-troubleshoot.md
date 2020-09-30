@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: 98ef2b416c809789307f946ed90fb3138d9a20c1
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: c28a3b0f445ca905a882a7ede3fcfed2c1e673a4
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325365"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531183"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Como solucionar problemas com o agente do Log Analytics para Linux 
 
@@ -36,7 +36,7 @@ Se nenhuma dessas etapas funcionar para você, os seguintes canais de suporte ta
 
 ## <a name="important-configuration-files"></a>Arquivos de configuração importantes
 
- Categoria | Localização do arquivo
+ Categoria | Local do arquivo
  ----- | -----
  syslog | `/etc/syslog-ng/syslog-ng.conf` ou `/etc/rsyslog.conf` ou `/etc/rsyslog.d/95-omsagent.conf`
  Desempenho, Nagios, Zabbix, saída do Log Analytics e agente geral | `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`
@@ -150,7 +150,7 @@ Abaixo do plug-in de saída, remova o comentário da seção a seguir removendo 
 
 ### <a name="probable-causes"></a>Causas prováveis
 * O proxy especificado durante a integração estava incorreto
-* Os pontos de extremidade do Azure Monitor e do serviço de automação do Azure não estão na lista de permissões no seu datacenter 
+* Os pontos de extremidade do Azure Monitor e do serviço de automação do Azure não estão incluídos na lista aprovada em seu datacenter 
 
 ### <a name="resolution"></a>Resolução
 1. Reintegre para Azure Monitor com o agente de Log Analytics para Linux usando o comando a seguir com a opção `-v` habilitada. Ele permite a saída detalhada do agente que se conecta por meio do proxy para Azure Monitor. 
@@ -211,7 +211,7 @@ Os bugs relacionados ao desempenho não acontecem o tempo todo e são muito dif�
 - O agente do Log Analytics para dados do Linux é submetido a backup
 
 ### <a name="resolution"></a>Resolução
-1. Verifique se a integração de Azure Monitor foi bem-sucedida verificando se o seguinte arquivo existe:`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`
+1. Verifique se a integração de Azure Monitor foi bem-sucedida verificando se o seguinte arquivo existe: `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`
 2. Reintegração usando as instruções de linha de comando do `omsadmin.sh`
 3. Se estiver usando um proxy, consulte as etapas de resolução de proxy fornecidas anteriormente.
 4. Em alguns casos, quando o agente do Log Analytics para Linux não pode se comunicar com o serviço, os dados no agente são enfileirados para o tamanho do buffer completo, que é de 50 MB. O agente deve ser reiniciado executando o seguinte comando: `/opt/microsoft/omsagent/bin/service_control restart [<workspace id>]`. 
@@ -444,4 +444,3 @@ Execute os seguintes passos para corrigir o problema.
     ```
 
 3. Atualizar pacotes executando `sudo sh ./omsagent-*.universal.x64.sh --upgrade`.
-

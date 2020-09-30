@@ -3,12 +3,12 @@ title: Solucionar problemas de rede com o registro
 description: Sintomas, causas e resolução de problemas comuns ao acessar um registro de contêiner do Azure em uma rede virtual ou atrás de um firewall
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 227eeeadb2aef4b4d3feb7923a198b129a6267d3
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 06c5b65537fd7d256010260bb3a93888721f643b
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88227043"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91532441"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>Solucionar problemas de rede com o registro
 
@@ -32,7 +32,7 @@ Pode incluir um ou mais dos seguintes:
 * Um firewall ou proxy cliente impede a [solução](#configure-client-firewall-access) de acesso
 * As regras de acesso de rede pública no registro impedem a [solução](#configure-public-access-to-registry) de acesso
 * A configuração de rede virtual impede a [solução](#configure-vnet-access) de acesso
-* Você tenta integrar a central de segurança do Azure a um registro que tem um ponto de extremidade de serviço ou Endpoint particular- [solução](#configure-image-scanning-solution)
+* Você tenta integrar a central de segurança do Azure ou alguns outros serviços do Azure com um registro que tem um ponto de extremidade privado, ponto de extremidade de serviço ou regras de acesso de IP público- [solução](#configure-service-access)
 
 ## <a name="further-diagnosis"></a>Diagnóstico adicional 
 
@@ -96,17 +96,22 @@ Links relacionados:
 * [Kubernetes: Depurando resolução DNS](https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/)
 * [Marcas de serviço de rede virtual](../virtual-network/service-tags-overview.md)
 
-### <a name="configure-image-scanning-solution"></a>Configurar solução de verificação de imagem
+### <a name="configure-service-access"></a>Configurar o acesso ao serviço
 
-Se o registro estiver configurado com um ponto de extremidade particular ou ponto de extremidade de serviço, você não poderá se integrar atualmente à central de segurança do Azure para verificação de imagem. Opcionalmente, configure outras soluções de verificação de imagem disponíveis no Azure Marketplace, incluindo:
+Atualmente, a central de segurança do Azure não pode executar a [verificação de vulnerabilidade de imagem](../security-center/azure-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json) em um registro que restringe o acesso a pontos de extremidade privados, sub-redes selecionadas ou endereços IP. Além disso, os recursos dos seguintes serviços não podem acessar um registro de contêiner com restrições de rede:
 
-* [Plataforma de segurança nativa na nuvem azul](https://azuremarketplace.microsoft.com/marketplace/apps/aqua-security.aqua-security)
-* [Twistlock Enterprise Edition](https://azuremarketplace.microsoft.com/marketplace/apps/twistlock.twistlock)
+* Azure DevOps Services 
+* Instâncias de Contêiner do Azure
+* Tarefas do Registro de Contêiner do Azure
+
+Se o acesso ou a integração desses serviços do Azure com o registro de contêiner for necessário, remova a restrição de rede. Por exemplo, remova os pontos de extremidade privados do registro ou remova ou modifique as regras de acesso público do registro.
 
 Links relacionados:
 
 * [Verificação de imagem do registro de contêiner do Azure por central de segurança](../security-center/azure-container-registry-integration.md)
 * Fornecer [comentários](https://feedback.azure.com/forums/347535-azure-security-center/suggestions/41091577-enable-vulnerability-scanning-for-images-that-are)
+* [Configurar regras de rede IP pública](container-registry-access-selected-networks.md)
+* [Conectar-se de forma privada a um registro de contêiner do Azure usando o link privado do Azure](container-registry-private-link.md)
 
 
 ## <a name="advanced-troubleshooting"></a>Solução de problemas avançada
@@ -126,7 +131,7 @@ Se você não resolver o problema aqui, consulte as opções a seguir.
 
 * Outros tópicos de solução de problemas de registro incluem:
   * [Solucionar problemas de logon do registro](container-registry-troubleshoot-login.md) 
-  * [Solucionar problemas de desempenho do registro](container-registry-troubleshoot-performance.md)
+  * [Solucionar problemas de desempenho de registro](container-registry-troubleshoot-performance.md)
 * Opções de [suporte da Comunidade](https://azure.microsoft.com/support/community/)
 * [P e R da Microsoft](https://docs.microsoft.com/answers/products/)
 * [Abra um tíquete de suporte](https://azure.microsoft.com/support/create-ticket/)

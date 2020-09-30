@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 02/29/2020
-ms.openlocfilehash: dd61ac9751010d57cbf5b742a5081beb3ac560e9
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 5d161b287f9706473c96d25684fa23a2c94b8c3e
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83826053"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91532136"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>Migrar trabalhos do Agendador do Azure para Aplicativos Lógicos do Azure
 
@@ -96,7 +96,7 @@ Cada trabalho do Agendador é exclusivo, portanto, não existe uma única ferram
 
    Por exemplo, é possível incluir uma ação HTTP que envia uma solicitação para uma URL ou ações que funcionam com Filas de Armazenamento, filas ou tópicos de Barramento de Serviço:
 
-   ![Ação HTTP](./media/migrate-from-scheduler-to-logic-apps/request-http-action.png)
+   ![Captura de tela mostra um atraso até a ação seguida de uma ação H T T P com um método POST.](./media/migrate-from-scheduler-to-logic-apps/request-http-action.png)
 
 1. Quando terminar, salve o aplicativo lógico.
 
@@ -155,7 +155,7 @@ Nos Aplicativos Lógicos, cada trabalho único é executado como uma instância 
 
    Por exemplo, é possível incluir uma ação HTTP que envia uma solicitação para uma URL ou ações que funcionam com Filas de Armazenamento, filas ou tópicos de Barramento de Serviço:
 
-   ![Ação HTTP](./media/migrate-from-scheduler-to-logic-apps/recurrence-http-action.png)
+   ![A captura de tela mostra uma ação H T T P com um método POST.](./media/migrate-from-scheduler-to-logic-apps/recurrence-http-action.png)
 
 1. Quando terminar, salve o aplicativo lógico.
 

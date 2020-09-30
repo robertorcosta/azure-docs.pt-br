@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf57bea87fcb5e1d1f1bde4eada5a79d2fef52c8
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 555673d1496ac33642e04c09233ba554ee2cca95
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90706312"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531234"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Protegendo os recursos de nuvem usando a Autenticação Multifator do Azure e o AD FS
 
@@ -38,12 +38,12 @@ Para proteger seus recursos de nuvem, configure uma regra de declaração para q
 
 5. No Assistente Adicionar Regra de Declaração de Transformação, selecione **Passar ou filtrar uma Declaração de Entrada** na lista e clique em **Avançar**.
 
-   ![Assistente para Adicionar Regra de Declaração de Transformação](./media/howto-mfa-adfs/trustedip3.png)
+   ![A captura de tela mostra o assistente Adicionar regra de declaração de transformação onde você seleciona um modelo de regra de declaração.](./media/howto-mfa-adfs/trustedip3.png)
 
 6. Dê um nome para a regra. 
 7. Selecione **Referências de Métodos de Autenticação** como o tipo de declaração Entrada.
 8. Selecione **Passar todos os valores de declaração**.
-    ![Assistente para Adicionar Regra de Declaração de Transformação](./media/howto-mfa-adfs/configurewizard.png)
+    ![A captura de tela mostra o assistente Adicionar regra de declaração de transformação, em que você seleciona passar todos os valores de declaração.](./media/howto-mfa-adfs/configurewizard.png)
 9. Clique em **Concluir**. Feche o Console de gerenciamento do AD FS.
 
 ## <a name="trusted-ips-for-federated-users"></a>IPs confiáveis para usuários federados
@@ -63,7 +63,7 @@ A primeira coisa que precisamos fazer é configurar as declarações do AD FS. C
 4. Em regras de transformação de emissão, clique em **Adicionar regra.** 
     ![ Adicionando uma regra de declaração](./media/howto-mfa-adfs/trustedip2.png)
 5. No Assistente Adicionar Regra de Declaração de Transformação, selecione **Passar ou filtrar uma Declaração de Entrada** na lista e clique em **Avançar**.
-   ![Assistente para Adicionar Regra de Declaração de Transformação](./media/howto-mfa-adfs/trustedip3.png)
+   ![A captura de tela mostra o assistente para Adicionar regra de declaração de transformação, onde você seleciona passar ou filtrar uma declaração de entrada.](./media/howto-mfa-adfs/trustedip3.png)
 6. Na caixa ao lado do nome da regra de declaração, nomeie a regra. Por exemplo: InsideCorpNet.
 7. Na lista suspensa, ao lado do tipo de declaração de entrada, selecione **Dentro da rede corporativa**.
    ![Adicionando dentro da declaração de rede corporativa](./media/howto-mfa-adfs/trustedip4.png)
@@ -81,7 +81,7 @@ A primeira coisa que precisamos fazer é configurar as declarações do AD FS. C
 
 13. Clique em **Concluir**.
 14. Clique em **Aplicar**.
-15. Clique em **Ok**.
+15. Clique em **OK**.
 16. Feche o gerenciamento do AD FS.
 
 ### <a name="configure-azure-multi-factor-authentication-trusted-ips-with-federated-users"></a>Configurar IPs confiáveis da Autenticação Multifator do Azure com usuários federados

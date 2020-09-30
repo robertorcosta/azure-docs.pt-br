@@ -7,14 +7,16 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 8/26/2020
 ms.author: matjazl
-ms.openlocfilehash: ecc2134d1a528ee22710cb447f996e0c5e31a8de
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ee7ba96a7cc8789e1a949db80bc84c63b28f4518
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91308173"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531659"
 ---
 # <a name="how-to-export-fhir-data"></a>Como exportar dados do FHIR
+
+O recurso de exportação em massa permite que os dados sejam exportados do servidor FHIR de acordo com a especificação FHIR] ( https://hl7.org/fhir/uv/bulkdata/export/index.html) . 
 
 Antes de usar $export, você desejará certificar-se de que a API do Azure para FHIR está configurada para usá-la. Para definir configurações de exportação e criar conta de armazenamento do Azure, consulte [a página configurar dados de exportação](configure-export-data.md).
 
@@ -22,7 +24,7 @@ Antes de usar $export, você desejará certificar-se de que a API do Azure para 
 
 Depois de configurar a API do Azure para FHIR para exportação, você pode usar o comando $export para exportar os dados para fora do serviço. Os dados serão armazenados na conta de armazenamento que você especificou ao configurar a exportação. Para saber como invocar $export comando no servidor FHIR, leia a documentação sobre a [especificação de $Export](https://hl7.org/Fhir/uv/bulkdata/export/index.html). 
 
-O comando $export na API do Azure para FHIR usa um parâmetro de _ \_ contêiner_ opcional que especifica o contêiner dentro da conta de armazenamento configurada onde os dados devem ser exportados.
+O comando $export na API do Azure para FHIR usa um parâmetro de _ \_ contêiner_ opcional que especifica o contêiner dentro da conta de armazenamento configurada onde os dados devem ser exportados. Se um contêiner for especificado, os dados serão exportados para esse contêiner em uma nova pasta com o nome. Se nenhum contêiner for especificado, os dados serão exportados para um novo contêiner com o nome
 
 `https://<<FHIR service base URL>>/$export?_container=<<container_name>>`
 
@@ -32,6 +34,8 @@ A API do Azure para FHIR dá suporte a $export no nível do sistema, do paciente
 
 > [!Note] 
 > $export irá exportar recursos duplicados se o recurso estiver em um compartimento de mais de um recurso ou em vários grupos.
+
+Além disso, há suporte para a verificação do status de exportação por meio da URL retornada pelo cabeçalho de local durante o enfileiramento, com o cancelamento do trabalho de exportação real.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -3,12 +3,12 @@ title: Guia de Protocolo de Conexões Híbridas de Retransmissão do Azure | Mic
 description: Este artigo descreve as interações do lado do cliente com a retransmissão das Conexões Híbridas para conectar clientes em funções de ouvinte e de remetente.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: fec021d961a17102f8d979c61ee46af6b938f073
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 893092124961ffa9df2535ca6de75def2930b797
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272002"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531438"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Protocolo de Conexões Híbridas de Retransmissão do Azure
 
@@ -55,7 +55,7 @@ As informações codificadas são válidas apenas por um curto período de tempo
 
 Além das conexões do WebSocket, o ouvinte também poderá receber quadros de solicitação HTTP de um remetente, se esse recurso estiver habilitado explicitamente na Conexão Híbrida.
 
-Os ouvintes que se conectam às Conexões Híbridas com o suporte de HTTP PRECISAM manipular o gesto `request`. Um ouvinte que não manipular o `request` e, portanto, causar repetidos erros de tempo limite enquanto estiver conectado PODERÁ entrar na lista de bloqueio do serviço futuramente.
+Os ouvintes que se conectam às Conexões Híbridas com o suporte de HTTP PRECISAM manipular o gesto `request`. Um ouvinte que não manipula `request` e, portanto, causa erros de tempo limite repetidos durante a conexão pode ser bloqueado pelo serviço no futuro.
 
 Os metadados de cabeçalho do quadro HTTP são convertidos em JSON para serem manipulados de forma mais simples pela estrutura do ouvinte, também porque as bibliotecas de análise de cabeçalho HTTP são mais raras do que os analisadores JSON. Os metadados HTTP que são relevantes apenas para a relação entre o remetente e o gateway HTTP de retransmissão, incluindo informações de autorização, não são encaminhados. Os corpos de solicitação HTTP são transferidos de forma transparente como quadros de WebSocket binários.
 
@@ -230,7 +230,7 @@ Se houver um erro, o serviço poderá responder da seguinte maneira:
 
  Para rejeitar o soquete, o cliente usa o URI de endereço da mensagem `accept` e acrescenta dois parâmetros da cadeia de consulta, da seguinte forma:
 
-| Param                   | Obrigatório | Descrição                              |
+| Param                   | Necessária | Descrição                              |
 | ----------------------- | -------- | ---------------------------------------- |
 | sb-hc-statusCode        | Sim      | Código de status HTTP numérico.                |
 | sb-hc-statusDescription | Sim      | Motivo da rejeição legível por humanos. |
@@ -326,7 +326,7 @@ O conteúdo JSON de `request` é o seguinte:
 
 ##### <a name="responding-to-requests"></a>Respondendo a solicitações
 
-O receptor PRECISA responder. Repetidas falhas ao responder a solicitações durante a conexão podem fazer com que o ouvinte seja colocado na lista de bloqueio.
+O receptor PRECISA responder. A falha repetida de responder às solicitações enquanto mantém a conexão pode fazer com que o ouvinte seja bloqueado.
 
 As respostas podem ser enviadas em qualquer ordem, mas cada solicitação precisa ser respondida em até 60 segundos ou a entrega será relatada como com falha. O prazo limite de 60 segundos é contado até que o quadro `response` seja recebido pelo serviço. Uma resposta em andamento com vários quadros binários não pode ficar ociosa por mais de 60 segundos ou será terminada.
 

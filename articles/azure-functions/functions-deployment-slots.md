@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: cshoe
-ms.openlocfilehash: f84dc17c6c074fc4dbda8a13fad3586a397fdf10
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0361ba7bc67948c25b842a3fb7406d2999fdd725
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87055415"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530605"
 ---
 # <a name="azure-functions-deployment-slots"></a>Azure Functions slots de implantação
 
@@ -73,15 +73,15 @@ Use as seguintes etapas para criar uma configuração de implantação:
 
 1. Selecione **configuração**e, em seguida, selecione o nome da configuração que você deseja colocar com o slot atual.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-configure-deployment-slot.png" alt-text="Defina a configuração de aplicativo para um slot no portal do Azure." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-configure-deployment-slot.png" alt-text="Localize os slots no portal do Azure." border="true":::
 
 1. Selecione a **configuração do slot de implantação**e, em seguida, selecione **OK**.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slot-setting.png" alt-text="Defina a configuração do slot de implantação." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slot-setting.png" alt-text="Localize os slots no portal do Azure." border="true":::
 
 1. Quando a seção de configuração desaparecer, selecione **salvar** para manter as alterações
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-save-deployment-slot-setting.png" alt-text="Salve a configuração do slot de implantação." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-save-deployment-slot-setting.png" alt-text="Localize os slots no portal do Azure." border="true":::
 
 ## <a name="deployment"></a>Implantação
 
@@ -102,11 +102,11 @@ Você pode adicionar um slot por meio da [CLI](/cli/azure/functionapp/deployment
 
 1. Selecione **Slots de implantação**e, em seguida, selecione **+ Adicionar slot**.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slots-add.png" alt-text="Adicionar Azure Functions slot de implantação." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slots-add.png" alt-text="Localize os slots no portal do Azure." border="true":::
 
 1. Digite o nome do slot e selecione **Adicionar**.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slots-add-name.png" alt-text="Nomeie o slot de implantação Azure Functions." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slots-add-name.png" alt-text="Localize os slots no portal do Azure." border="true":::
 
 ## <a name="swap-slots"></a>Slots de permuta
 
@@ -115,11 +115,11 @@ Você pode trocar os slots por meio da [CLI](/cli/azure/functionapp/deployment/s
 1. Navegue até o aplicativo de função.
 1. Selecione **Slots de implantação**e, em seguida, selecione **alternar**.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-swap-deployment-slot.png" alt-text="Troque o slot de implantação." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-swap-deployment-slot.png" alt-text="Localize os slots no portal do Azure." border="true":::
 
 1. Verifique os parâmetros de configuração para sua permuta e selecione **alternar**
     
-    :::image type="content" source="./media/functions-deployment-slots/azure-functions-deployment-slots-swap-config.png" alt-text="Troque o slot de implantação." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/azure-functions-deployment-slots-swap-config.png" alt-text="Localize os slots no portal do Azure." border="true":::
 
 A operação pode demorar um pouco enquanto a operação de permuta está em execução.
 
@@ -137,15 +137,15 @@ Você pode remover um slot por meio da [CLI](/cli/azure/functionapp/deployment/s
 
 1. Selecione **Excluir**.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-delete-deployment-slot.png" alt-text="Exclua o slot de implantação no portal do Azure." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-delete-deployment-slot.png" alt-text="Localize os slots no portal do Azure." border="true":::
 
 1. Digite o nome do slot de implantação que você deseja excluir e, em seguida, selecione **excluir**.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-delete-deployment-slot-details.png" alt-text="Exclua o slot de implantação no portal do Azure." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-delete-deployment-slot-details.png" alt-text="Localize os slots no portal do Azure." border="true":::
 
 1. Feche o painel confirmação de exclusão.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slot-deleted.png" alt-text="Confirmação de exclusão do slot de implantação." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slot-deleted.png" alt-text="Localize os slots no portal do Azure." border="true":::
 
 ## <a name="automate-slot-management"></a>Automatizar o gerenciamento de Slots
 
@@ -174,7 +174,7 @@ Use as etapas a seguir para alterar o plano do serviço de aplicativo de um slot
 
 1. Selecione o plano para o qual você deseja atualizar ou crie um novo plano.
 
-    :::image type="content" source="./media/functions-deployment-slots/azure-functions-deployment-slots-change-app-service-apply.png" alt-text="Altere o plano do serviço de aplicativo no portal do Azure." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/azure-functions-deployment-slots-change-app-service-apply.png" alt-text="Localize os slots no portal do Azure." border="true":::
 
 1. Selecione **OK**.
 

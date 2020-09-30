@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/20/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b1206d9e4d6eec7b2bf029310360f563849d61d6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 01b57526b15a806271d58b250f06a4372fe56b72
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91268293"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91532254"
 ---
 # <a name="analyzers-for-text-processing-in-azure-cognitive-search"></a>Analisadores para processamento de texto no Azure Pesquisa Cognitiva
 
@@ -317,7 +317,7 @@ Qualquer analisador usado como está, sem configuração, é especificado em uma
 
 Este exemplo atribui os analisadores em inglês e francês da Microsoft aos campos de descrição. É um trecho extraído de uma definição maior do índice de hotéis, criando usando a classe Hotel no arquivo hotels.cs do exemplo [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) .
 
-O Call [Analyzer](/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet), especificando o tipo [analyzername](/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) , fornecendo um analisador de texto com suporte no Azure pesquisa cognitiva.
+O Call [Analyzer](/dotnet/api/microsoft.azure.search.models.analyzer), especificando o tipo [analyzername](/dotnet/api/microsoft.azure.search.models.analyzername) , fornecendo um analisador de texto com suporte no Azure pesquisa cognitiva.
 
 ```csharp
     public partial class Hotel
@@ -343,7 +343,7 @@ O Call [Analyzer](/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-
 
 Quando a personalização ou configuração for necessária, será necessário adicionar uma construção do analisador a um índice. Depois de defini-lo, você pode adicioná-lo à definição de campo, conforme demonstrado no exemplo anterior.
 
-Crie um objeto [CustomAnalyzer](/dotnet/api/microsoft.azure.search.models.customanalyzer?view=azure-dotnet) . Para obter mais exemplos, consulte [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Microsoft.Azure.Search/tests/Tests/CustomAnalyzerTests.cs).
+Crie um objeto [CustomAnalyzer](/dotnet/api/microsoft.azure.search.models.customanalyzer) . Para obter mais exemplos, consulte [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Microsoft.Azure.Search/tests/Tests/CustomAnalyzerTests.cs).
 
 ```csharp
 {
@@ -375,7 +375,7 @@ Crie um objeto [CustomAnalyzer](/dotnet/api/microsoft.azure.search.models.custom
 
 + [Configurar analisadores personalizados](index-add-custom-analyzers.md) para o mínimo de processamento ou processamento especializado em campos individuais.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
  [API REST para pesquisar documentos](/rest/api/searchservice/search-documents) 
 

@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 1ff28b13d9adc120f8ee40bcd0119bf9b6883d6a
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 79a0db3b9f81368fbdaace5be3fd94ad29649291
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/29/2020
-ms.locfileid: "91449129"
+ms.locfileid: "91532594"
 ---
 # <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>Usar o Azure defender para registros de contêiner para verificar se há vulnerabilidades em suas imagens
 
@@ -127,7 +127,7 @@ Quando uma localização corresponde aos critérios que você definiu em suas re
 > [!IMPORTANT]
 > Para criar uma regra, você precisa de permissões para editar uma política no Azure Policy.
 >
-> Saiba mais em [permissões de RBAC no Azure Policy](../governance/policy/overview.md#rbac-permissions-in-azure-policy).
+> Saiba mais em [permissões de RBAC do Azure no Azure Policy](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy).
 
 Você pode usar qualquer um dos seguintes critérios: 
 

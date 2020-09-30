@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
-ms.openlocfilehash: 631f5afbac4337cd0852f46ac4a336107f042397
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b1ad4ead83c9e07966f921a5b192f2791838e6ef
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331634"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530554"
 ---
 # <a name="connect-to-and-index-azure-sql-content-using-an-azure-cognitive-search-indexer"></a>Conectar e indexar conteúdo SQL do Azure usando um indexador Pesquisa Cognitiva do Azure
 
@@ -39,7 +39,7 @@ Um único indexador pode consumir apenas uma tabela ou exibição, mas você pod
 Você pode definir e configurar um indexador do SQL Azure usando:
 
 * Assistente para Importação de Dados no [portal do Azure](https://portal.azure.com)
-* SDK do [.net](/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet) pesquisa cognitiva do Azure
+* SDK do [.net](/dotnet/api/microsoft.azure.search.models.indexer) pesquisa cognitiva do Azure
 * [API REST](/rest/api/searchservice/indexer-operations) do Azure pesquisa cognitiva
 
 Neste artigo, usaremos a API REST para criar **indexadores** e **fontes de dados**.

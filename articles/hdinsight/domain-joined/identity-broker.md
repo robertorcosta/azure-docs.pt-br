@@ -6,13 +6,13 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
-ms.date: 12/12/2019
-ms.openlocfilehash: 12d98406b21ed9a3ea27f9aa4abc0db6f536468d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/23/2020
+ms.openlocfilehash: 8f1e0a6aecc9702552a3dd66acc8dc7eb5bf1d85
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91251908"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91529910"
 ---
 # <a name="azure-hdinsight-id-broker-preview"></a>Agente de ID do Azure HDInsight (versão prévia)
 
@@ -30,11 +30,13 @@ O HIB fornece a infraestrutura de autenticação que permite a transição de pr
 
 O diagrama a seguir mostra o fluxo de autenticação moderno baseado em OAuth para todos os usuários, incluindo usuários federados, depois que o agente de ID está habilitado:
 
-![Fluxo de autenticação com o agente de ID](./media/identity-broker/identity-broker-architecture.png)
+:::image type="content" source="media/identity-broker/identity-broker-architecture.png" alt-text="Fluxo de autenticação com o agente de ID":::
 
 Neste diagrama, o cliente (ou seja, navegador ou aplicativos) precisa adquirir o token OAuth primeiro e, em seguida, apresentar o token ao gateway em uma solicitação HTTP. Se você já tiver entrado em outros serviços do Azure, como o portal do Azure, você pode entrar em seu cluster HDInsight com uma experiência de logon único (SSO).
 
 Ainda pode haver muitos aplicativos herdados que dão suporte apenas à autenticação básica (ou seja, nome de usuário/senha). Para esses cenários, você ainda pode usar a autenticação básica HTTP para se conectar aos gateways de cluster. Nessa configuração, você deve garantir a conectividade de rede dos nós de gateway para o ponto de extremidade de Federação (ponto de extremidade do ADFS) para garantir uma linha de visão direta dos nós do gateway.
+
+:::image type="content" source="media/identity-broker/basic-authentication.png" alt-text="Fluxo de autenticação com o agente de ID":::
 
 Use a tabela a seguir para determinar a melhor opção de autenticação com base em suas necessidades de organização:
 

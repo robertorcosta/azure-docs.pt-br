@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 01/16/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ae4a7dc400b347a963e07a8c696e7581e2dcd703
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 60d889b232857ae69372df8ebabbd0edd01a2f17
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507838"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91529823"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Como instalar e configurar o SAP HANA (Instâncias Grandes) no Azure
 
@@ -179,7 +179,7 @@ Esses pontos de montagem são configurados em /etc/fstab, conforme mostrado nos 
 
 O resultado do comando df -h em uma unidade S72m de Instância Grande do HANA se parece com este:
 
-![fstab de volumes montados na unidade de Instância Grande do HANA](./media/hana-installation/image2_df_output.PNG)
+![Captura de tela mostra a saída do comando para a unidade de instância grande do HANA.](./media/hana-installation/image2_df_output.PNG)
 
 
 O controlador de armazenamento e os nós nos carimbos de Instância Grande são sincronizados com os servidores NTP. Ao sincronizar o SAP HANA em unidades (Instâncias Grandes) do Azure e VMs do Azure em relação a um servidor NTP, não deve haver uma diferença de tempo significativa entre a infraestrutura e as unidades de computação no Azure ou carimbos de Instância Grande.

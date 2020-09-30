@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
-ms.date: 09/03/2020
-ms.openlocfilehash: abdd04f59ee820585d58817297d161f68bd952f0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/30/2020
+ms.openlocfilehash: 1120a3636b7ce24dde0d33c213f9063f910123c4
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897403"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530622"
 ---
 # <a name="manage-azure-machine-learning-resources-with-the-vs-code-extension-preview"></a>Gerenciar Azure Machine Learning recursos com a extensão de VS Code (versão prévia)
 
@@ -201,6 +201,7 @@ Para obter mais informações, consulte [experimentos](concept-azure-machine-lea
 1. Expanda o nó **experimentos** dentro de seu espaço de trabalho.
 1. Clique com o botão direito do mouse no experimento que você deseja executar.
 1. Selecione o ícone **executar experimento** na barra de atividade.
+1. Selecione se deseja executar seu experimento localmente ou remotamente. Consulte o [Guia de depuração](how-to-debug-visual-studio-code.md) para obter mais informações sobre a execução e a depuração de experimentos localmente.
 1. Escolha sua assinatura.
 1. Escolha o Workspace do ML do Azure para executar o experimento em.
 1. Escolha seu experimento.

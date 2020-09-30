@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/01/2020
-ms.openlocfilehash: 49eea969f987a72872cda58ae6a7c41e50a14c10
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2cda79e1b08e67e10d42acb5093230ce8450d67d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85830274"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530911"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Monitorar o desempenho com o Repositório de Consultas
 
@@ -250,7 +250,7 @@ As tabelas a seguir descrevem os campos para os dois tipos de log. Dependendo do
 ## <a name="limitations-and-known-issues"></a>Limitações e problemas conhecidos
 - Se um servidor PostgreSQL tem o parâmetro default_transaction_read_only ativo, o Repositório de Consultas não é capaz de capturar dados.
 - A funcionalidade do Repositório de Consultas poderá ser interrompida se ele encontrar consultas Unicode longas (> = 6.000 bytes).
-- As [réplicas de leitura](concepts-read-replicas.md) replicam dados de repositório de consultas do servidor mestre. Isso significa que a Repositório de Consultas de uma réplica de leitura não fornece estatísticas sobre as consultas executadas na réplica de leitura.
+- As [réplicas de leitura](concepts-read-replicas.md) replicam repositório de consultas dados do servidor primário. Isso significa que a Repositório de Consultas de uma réplica de leitura não fornece estatísticas sobre as consultas executadas na réplica de leitura.
 
 
 ## <a name="next-steps"></a>Próximas etapas

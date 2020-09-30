@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: likebupt
 ms.author: keli19
 ms.date: 04/25/2019
-ms.openlocfilehash: 59a0989157a87c7fb951c8b6d9c7b70474626f42
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 01c0b6610968c8eaa493a63aa9004d8ea4c36ca2
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91361867"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530759"
 ---
 # <a name="powershell-modules-for-azure-machine-learning-studio-classic"></a>Módulos do PowerShell para Azure Machine Learning Studio (clássico)
 
@@ -53,12 +53,12 @@ O PowerShell clássico pode ser instalado juntamente com AZ ou AzureRM para cobr
 ## <a name="powershell-support-table"></a><a name="support-table"></a> Tabela de compatibilidade do PowerShell
 
 
-|  **AZ** |  **Clássico do PowerShell** |
+| Tarefa | **AZ** |  **Clássico do PowerShell** |
 | --- | --- | --- |
 | Criar/excluir espaços de trabalho | [Modelos do Gerenciador de Recursos](https://docs.microsoft.com/azure/machine-learning/studio/deploy-with-resource-manager-template) |  |
 | Gerenciar planos de compromisso do espaço de trabalho | [New-AzMlCommitmentPlan](https://docs.microsoft.com/powershell/module/az.machinelearning/new-azmlcommitmentplan) | |
 | Gerenciar os usuários do workspace |  | [Add-AmlWorkspaceUsers](https://github.com/hning86/azuremlps#add-amlworkspaceusers)|
-| Gerenciar serviços Web | [New-AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/new-azmlwebservice) <br>("novos" serviços Web)|| [New-AmlWebService](https://github.com/hning86/azuremlps#manage-classic-web-service) <br>(serviços Web "clássicos") |
+| Gerenciar serviços Web | [New-AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/new-azmlwebservice) <br>("novos" serviços Web)| [New-AmlWebService](https://github.com/hning86/azuremlps#manage-classic-web-service) <br>(serviços Web "clássicos") |
 | Gerenciar pontos de extremidade de serviço Web/chaves |  [Get-AzMlWebServiceKey](https://docs.microsoft.com/powershell/module/az.machinelearning/get-azmlwebservicekey)|  [Add-AmlWebServiceEndpoint](https://github.com/hning86/azuremlps#manage-classic-web-servcie-endpoint)|
 | Gerenciar conjuntos de usuários/modelos treinados| | [Get-AmlDataset](https://github.com/hning86/azuremlps#manage-user-assets-dataset-trained-model-transform) |
 | Gerenciar experimentos do usuário |  | [Start-AmlExperiment](https://github.com/hning86/azuremlps#manage-experiment) |

@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 71657d45ce9c4cc6fb103b61235a282b3005b924
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 30c60dbe74835cb67879f7e0cf9bf403dca17fd8
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90884922"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531081"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>Criptografia de dados do Banco de Dados do Azure para MySQL com uma chave gerenciada pelo cliente
 
@@ -24,7 +24,7 @@ O Key Vault é um sistema de gerenciamento de chaves externas baseado em nuvem. 
 > [!NOTE]
 > Esse recurso está disponível em todas as regiões do Azure nas quais o Banco de Dados do Azure para MySQL dá suporte aos tipos de preço "Uso Geral" e "Otimizado para Memória". Para obter outras limitações, consulte a seção [limitação](concepts-data-encryption-mysql.md#limitations) .
 
-## <a name="benefits"></a>Benefícios
+## <a name="benefits"></a>Vantagens
 
 A criptografia de dados com chaves gerenciadas pelo cliente do banco de dados do Azure para MySQL oferece os seguintes benefícios:
 
@@ -80,7 +80,7 @@ Quando você estiver usando a criptografia de dados usando uma chave gerenciada 
 * Verifique se o Key Vault e o Banco de Dados do Azure para MySQL residem na mesma região, para garantir um acesso mais rápido para as operações de encapsulamento e desencapsulamento da DEK.
 * Bloqueie o Azure Key Vault para apenas **ponto de extremidade privado e redes selecionadas** e permita somente serviços *confiáveis da Microsoft* para proteger os recursos.
 
-    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/keyvault-trusted-service.png" alt-text="trusted-service-with-AKV":::
+    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/keyvault-trusted-service.png" alt-text="Diagrama que mostra uma visão geral de Bring Your Own Key":::
 
 Veja recomendações para configurar uma chave gerenciada pelo cliente:
 
@@ -121,9 +121,9 @@ Para monitorar o estado do banco de dados e habilitar o alerta para perda de ace
 
 Depois que o Banco de Dados do Azure para MySQL é criptografado com uma chave gerenciada pelo cliente armazenada no Key Vault, qualquer cópia recém-criada do servidor também é criptografada. Você pode fazer essa nova cópia por meio de uma operação de restauração local ou geográfica, ou por meio de réplicas de leitura. No entanto, a cópia pode ser alterada para refletir a nova chave gerenciada pelo cliente para criptografia. Quando a chave gerenciada pelo cliente é alterada, os backups antigos do servidor começam a usar a chave mais recente.
 
-Para evitar problemas durante a configuração da criptografia de dados gerenciados pelo cliente durante a restauração ou a criação de réplica de leitura, é importante seguir estas etapas nos servidores mestre e restaurado/de réplica:
+Para evitar problemas durante a configuração da criptografia de dados gerenciada pelo cliente durante a restauração ou a criação da réplica de leitura, é importante seguir estas etapas nos servidores de origem e restaurados/replicados:
 
-* Inicie o processo de restauração ou criação de réplica de leitura mestre do Banco de Dados do Azure para MySQL.
+* Inicie o processo de restauração ou leitura da réplica do banco de dados do Azure de origem para MySQL.
 * Mantenha o servidor recém-criado (restaurado/de réplica) em um estado inacessível, porque sua identidade exclusiva ainda não recebeu permissões para o Key Vault.
 * No servidor restaurado/de réplica, revalide a chave gerenciada pelo cliente nas configurações de criptografia de dados para garantir que o servidor recém-criado receba permissões de encapsulamento e desencapsulamento para a chave armazenada no Key Vault.
 

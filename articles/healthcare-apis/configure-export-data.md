@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 3/5/2020
 ms.author: matjazl
-ms.openlocfilehash: 7ed4e471764fbf8ecc9b82a7d614ae52b97360f1
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: e4adceea5c2cd2a36d7a867ca9b9d2ad7c33c155
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267251"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91529976"
 ---
 # <a name="configure-export-setting-and-set-up-the-storage-account"></a>Configurar a configuração de exportação e configurar a conta de armazenamento
 
@@ -40,11 +40,11 @@ A próxima etapa na exportação é atribuir permissão para a API do Azure para
 
 Depois de criarmos uma conta de armazenamento, navegue até a folha controle de acesso (IAM) na conta de armazenamento e selecione Adicionar atribuições de função
 
-![Habilitar identidade gerenciada](media/export-data/fhir-export-role-assignment.png)
+![Exportar atribuição de função](media/export-data/fhir-export-role-assignment.png)
 
 Aqui, adicionamos o colaborador de dados de blob de armazenamento de função ao nosso nome de serviço.
 
-![Habilitar identidade gerenciada](media/export-data/fhir-export-role-add.png)
+![Adicionar função](media/export-data/fhir-export-role-add.png)
 
 Agora estamos prontos para a próxima etapa, na qual podemos selecionar a conta de armazenamento na API do Azure para FHIR como uma conta de armazenamento padrão para $export.
 
@@ -52,7 +52,7 @@ Agora estamos prontos para a próxima etapa, na qual podemos selecionar a conta 
 
 A etapa final é atribuir a conta de armazenamento do Azure que a API do Azure para FHIR usará para exportar os dados para o. Para fazer isso, navegue até a folha de integração na API do Azure para serviço FHIR em portal do Azure e selecione a conta de armazenamento
 
-![Habilitar identidade gerenciada](media/export-data/fhir-export-storage.png)
+![Armazenamento de exportação FHIR](media/export-data/fhir-export-storage.png)
 
 Depois disso, estamos prontos para exportar os dados usando $export comando.
 

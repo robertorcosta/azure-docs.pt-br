@@ -9,30 +9,55 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 9c0d3d9c74be8dabaec20ff5d4c7e7cfc74d8eef
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8d1c9027b6a9a7b295ce83e26281832beca1bc33
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90933208"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531948"
 ---
 # <a name="troubleshooting-postgresql-hyperscale-server-groups"></a>Solucionando problemas de grupos de servidores de hiperescala PostgreSQL
+Este artigo descreve algumas técnicas que você pode usar para solucionar problemas do seu grupo de servidores. Além deste artigo, talvez você queira ler como usar o [Kibana](monitor-grafana-kibana.md) para pesquisar os logs ou usar o [Grafana](monitor-grafana-kibana.md) para visualizar as métricas sobre o grupo de servidores. 
 
-Os notebooks podem documentar os procedimentos, incluindo o conteúdo de redução para descrever o que fazer/como fazê-lo. Ele também pode fornecer código executável para automatizar um procedimento.  Esse padrão é útil para tudo, desde procedimentos operacionais padrão até guias de solução de problemas.
+## <a name="getting-more-details-about-the-execution-of-an-azdata-command"></a>Obtendo mais detalhes sobre a execução de um comando azdata
+Você pode adicionar o parâmetro **--debug** a qualquer comando azdata que você executar. Isso será exibido para as informações adicionais do seu console sobre a execução desse comando. Você deve achar útil obter detalhes para ajudá-lo a entender o comportamento desse comando.
+Por exemplo, você pode executar
+```console
+azdata arc postgres server create -n postgres01 -w 2 --debug
+```
+
+ou
+```console
+azdata arc postgres server edit -n postgres01 --extension SomeExtensionName --debug
+```
+
+Além disso, você pode usar o parâmetro--Help em qualquer comando azdata para exibir alguma ajuda, lista de parâmetros para um comando específico. Por exemplo:
+```console
+azdata arc postgres server create --help
+```
+
+
+## <a name="collecting-logs-of-the-data-controller-and-your-server-groups"></a>Coletando logs do controlador de dados e de seus grupos de servidores
+Leia o artigo sobre como [obter logs para os serviços de dados habilitados para o Azure Arc](troubleshooting-get-logs.md)
+
+
+
+## <a name="interactive-troubleshooting-with-jupyter-notebooks-in-azure-data-studio"></a>Solução de problemas interativa com notebooks Jupyter no Azure Data Studio
+Os notebooks podem documentar os procedimentos, incluindo o conteúdo de redução para descrever o que fazer/como fazê-lo. Eles também podem fornecer código executável para automatizar um procedimento.  Esse padrão é útil para tudo, desde procedimentos operacionais padrão até guias de solução de problemas.
 
 Por exemplo, vamos solucionar um grupo de servidores de hiperescala PostgreSQL que pode ter alguns problemas usando Azure Data Studio.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="install-tools"></a>Instalar ferramentas
+### <a name="install-tools"></a>Instalar ferramentas
 
 Instale o Azure Data Studio `kubectl` e `azdata` no computador cliente que você está usando para executar o bloco de anotações em Azure Data Studio. Para fazer isso, siga as instruções em [instalar ferramentas de cliente](install-client-tools.md)
 
-## <a name="update-the-path-environment-variable"></a>Atualizar a variável de ambiente PATH
+### <a name="update-the-path-environment-variable"></a>Atualizar a variável de ambiente PATH
 
 Verifique se essas ferramentas podem ser invocadas de qualquer lugar neste computador cliente. Por exemplo, em um computador cliente Windows, atualize a variável de ambiente do sistema PATH e adicione a pasta na qual você instalou o kubectl.
 
-## <a name="sign-in-with-azdata"></a>Entrar com `azdata`
+### <a name="sign-in-with-azdata"></a>Entrar com `azdata`
 
 Conecte seu controlador de dados de arco a partir desta máquina cliente e antes de iniciar o Azure Data Studio. Para fazer isso, execute um comando como:
 
@@ -46,7 +71,7 @@ Substitua `<IP address>` pelo endereço IP do cluster kubernetes e `<port>` pela
 azdata login --help
 ```
 
-## <a name="log-into-your-kubernetes-cluster-with-kubectl"></a>Faça logon em seu cluster do kubernetes com kubectl
+### <a name="log-into-your-kubernetes-cluster-with-kubectl"></a>Faça logon em seu cluster do kubernetes com kubectl
 
 Para fazer isso, talvez você queira usar os comandos de exemplo [fornecidos nesta postagem de blog.](https://blog.christianposta.com/kubernetes/logging-into-a-kubernetes-cluster-with-kubectl/)
 Você executaria comandos como:
@@ -59,7 +84,7 @@ kubectl config set-context default/my_kubeuser/ArcDataControllerAdmin --user=Arc
 kubectl config use-context default/my_kubeuser/ArcDataControllerAdmin
 ```
 
-### <a name="the-troubleshooting-notebook"></a>O notebook de solução de problemas
+#### <a name="the-troubleshooting-notebook"></a>O notebook de solução de problemas
 
 Inicie o Azure Data Studio e abra o notebook de solução de problemas. 
 
@@ -72,9 +97,9 @@ Implemente as etapas descritas em  [033-Manage-postgres-with-AzureDataStudio.MD]
 
 :::image type="content" source="media/postgres-hyperscale/ads-controller-postgres-troubleshooting-notebook.jpg" alt-text="Bloco de notas de solução de problemas do Azure Data Studio Open PostgreSQL":::
 
-O **TSG100-o notebook de solução de problemas de hiperescala do PostgreSQL habilitado para o Azure Arc** abre: :::image type="content" source="media/postgres-hyperscale/ads-controller-postgres-troubleshooting-notebook2.jpg" alt-text="Azure Data Studio-use o notebook de solução de problemas do PostgreSQL":::
+O **TSG100-o notebook de solução de problemas de hiperescala do PostgreSQL habilitado para o Azure Arc** abre: :::image type="content" source="media/postgres-hyperscale/ads-controller-postgres-troubleshooting-notebook2.jpg" alt-text="Bloco de notas de solução de problemas do Azure Data Studio Open PostgreSQL":::
 
-### <a name="run-the-scripts"></a>Executar os scripts
+#### <a name="run-the-scripts"></a>Executar os scripts
 Selecione o botão ' executar tudo ' na parte superior para executar o bloco de anotações de uma só vez ou você pode percorrer e executar cada célula de código uma a uma.
 
 Exiba a saída da execução das células de código para quaisquer possíveis problemas.

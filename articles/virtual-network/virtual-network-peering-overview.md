@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2019
 ms.author: kumud
-ms.openlocfilehash: 6ba0caa2546fdb9d4845e2c7adf87a06d906dd12
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 61617777efa8241c93b2b5ffe42fc1d914b6ebcf
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87265153"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531863"
 ---
 # <a name="virtual-network-peering"></a>Emparelhamento de rede virtual
 
-O emparelhamento de rede virtual permite que você conecte diretamente as redes na [rede virtual do Azure](virtual-networks-overview.md). As redes virtuais aparecem como uma para fins de conectividade. O tráfego entre as máquinas virtuais usa a infraestrutura de backbone da Microsoft. Assim como o tráfego entre as máquinas virtuais na mesma rede, o tráfego é roteado somente pela rede *privada* da Microsoft.
+O emparelhamento de rede virtual permite que você conecte diretamente duas ou mais [redes virtuais](virtual-networks-overview.md) no Azure. As redes virtuais aparecem como uma para fins de conectividade. O tráfego entre máquinas virtuais em redes virtuais emparelhadas usa a infraestrutura de backbone da Microsoft. Assim como o tráfego entre as máquinas virtuais na mesma rede, o tráfego é roteado somente pela rede *privada* da Microsoft.
 
 O Azure dá suporte aos seguintes tipos de emparelhamento:
 
@@ -110,7 +110,7 @@ O tráfego de gateway é uma propriedade de emparelhamento que permite que uma r
 
 * Você pode criar um emparelhamento entre duas redes virtuais. As redes podem pertencer à mesma assinatura, a modelos de implantação diferentes na mesma assinatura ou a assinaturas diferentes. Conclua um tutorial para um dos seguintes cenários:
 
-    |Modelo de implantação do Azure             | Subscription  |
+    |Modelo de implantação do Azure             | Assinatura  |
     |---------                          |---------|
     |Ambos Resource Manager              |[Idêntico](tutorial-connect-virtual-networks-portal.md)|
     |                                   |[Diferente](create-peering-different-subscriptions.md)|
