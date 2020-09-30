@@ -5,15 +5,16 @@ services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: include
 ms.date: 08/25/2019
 ms.author: erhopf
-ms.openlocfilehash: eafc782f6244b73df1511466af07adad9bb4301d
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.openlocfilehash: 6a212cd931153574eb8a931c7394d39108852bef
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055942"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91377274"
 ---
 > [!IMPORTANT]
 > Acesse o portal do Azure. Se o recurso do Personalizador que você criou na seção **Pré-requisitos** tiver sido implantado com êxito, clique no botão **Acessar o Recurso** em **Próximas Etapas**. Encontre a chave e o ponto de extremidade na página da **chave e do ponto de extremidade** do recurso, em **gerenciamento de recursos**. 

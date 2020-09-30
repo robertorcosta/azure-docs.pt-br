@@ -7,13 +7,13 @@ author: tchristiani
 ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 06/10/2020
-ms.openlocfilehash: a4e686fe7adcc7e990a26484bc5850de977e862a
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/25/2020
+ms.openlocfilehash: 3ecef629e38e2823bea101af47899f9b7d6845f0
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88924581"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399832"
 ---
 # <a name="tutorial-build-and-deploy-a-custom-skill-with-azure-machine-learning"></a>Tutorial: Criar e implantar uma habilidade personalizada com o Azure Machine Learning 
 
@@ -82,16 +82,15 @@ A seção 4 do notebook tem quatro células que atualizam o conjunto de habilida
 
 No portal, acesse o conjunto de habilidades e selecione o link Definição do Conjunto de Habilidades (JSON). O portal exibirá o JSON do seu conjunto de habilidades que foi criado nas primeiras células do notebook. À direita da exibição, há um menu suspenso em que você pode selecionar o modelo de definição de habilidade. Selecione o modelo do AML (Azure Machine Learning). Forneça o nome do workspace do Azure ML e o ponto de extremidade para o modelo implantado no cluster de inferência. O modelo será atualizado com o URI e a chave do ponto de extremidade.
 
-> [!div class="mx-imgBorder"]
-> ![Modelo de definição de conjunto de habilidades](media/cognitive-search-aml-skill/portal-aml-skillset-definition.png)
+> :::image type="content" source="media/cognitive-search-aml-skill/portal-aml-skillset-definition.png" alt-text="Modelo de definição de conjunto de habilidades&quot;:::
 
 Copie o modelo do conjunto de habilidades da janela e cole-o na definição de conjunto de habilidades à esquerda. Edite o modelo para fornecer os valores ausentes para:
 
 * Nome
 * Descrição
 * Contexto
-* Nome e origem de "inputs"
-* Nome e targetName de "outputs"
+* Nome e origem de &quot;inputs&quot;
+* Nome e targetName de &quot;outputs"
 
 Salve o conjunto de habilidades.
 

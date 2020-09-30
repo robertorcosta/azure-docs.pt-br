@@ -8,14 +8,14 @@ ms.author: heidist
 ms.devlang: nodejs
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/23/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 2c97a770dc10168284bebbc038d8c48145c2a385
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/25/2020
+ms.custom: devx-track-js
+ms.openlocfilehash: ab3142426b12f86b9f8afa84ce0ea05fc1939eec
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88917883"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400597"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-nodejs-using-rest-apis"></a>Início Rápido: Criar um índice da Pesquisa Cognitiva do Azure em Node.js usando APIs REST
 > [!div class="op_single_selector"]
@@ -60,7 +60,7 @@ As chamadas ao serviço exigem um ponto de extremidade de URL e uma chave de ace
 
     Obtenha a chave de consulta também. É uma melhor prática para emitir solicitações de consulta com acesso somente leitura.
 
-![Obter o nome do serviço e as chaves de consulta e de administrador](media/search-get-started-nodejs/service-name-and-keys.png)
+:::image type="content" source="media/search-get-started-nodejs/service-name-and-keys.png" alt-text="Obter o nome do serviço e as chaves de consulta e de administrador" border="false":::
 
 Todas as solicitações exigem uma api-key no cabeçalho de cada solicitação enviada a seu serviço. Uma chave válida estabelece a relação de confiança, para cada solicitação, entre o aplicativo que envia a solicitação e o serviço que a manipula.
 
@@ -473,7 +473,7 @@ Você deve ver uma série de mensagens que descrevem as ações que estão sendo
 
 Abra a **Visão geral** do serviço de pesquisa no portal do Azure. Selecione a guia **Índices**. Você verá algo semelhante ao que se segue:
 
-![Captura de tela do portal do Azure, Visão Geral do Serviço de Pesquisa, guia Índices](media/search-get-started-nodejs/create-index-no-data.png)
+:::image type="content" source="media/search-get-started-nodejs/create-index-no-data.png" alt-text="Obter o nome do serviço e as chaves de consulta e de administrador" border="false":::
 
 Na próxima etapa, você adicionará dados ao índice. 
 

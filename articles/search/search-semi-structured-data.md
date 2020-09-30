@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 06/23/2020
-ms.openlocfilehash: 8a615dc02b78993a18a86def9d8f496ba0bba922
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/25/2020
+ms.openlocfilehash: f501b9f4215b9eeb48aa8bc80d492d55cf940404
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88929696"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397378"
 ---
 # <a name="tutorial-index-json-blobs-from-azure-storage-using-rest"></a>Tutorial: Indexar blobs JSON do Armazenamento do Azure usando a REST
 
@@ -54,7 +54,7 @@ Se possível, crie os dois na mesma região e no mesmo grupo de recursos para fa
 
 1. Pesquise *conta de armazenamento* e selecione a oferta Conta de Armazenamento da Microsoft.
 
-   ![Criar conta de armazenamento](media/cognitive-search-tutorial-blob/storage-account.png "Criar Conta de Armazenamento")
+   :::image type="content" source="media/cognitive-search-tutorial-blob/storage-account.png" alt-text="Criar conta de armazenamento" border="false":::
 
 1. Na guia Informações Básicas, os itens a seguir são obrigatórios. Aceite os padrões para todo o restante.
 
@@ -76,11 +76,11 @@ Se possível, crie os dois na mesma região e no mesmo grupo de recursos para fa
 
 1. Depois que o contêiner for criado, abra-o e selecione **Carregar** na barra de comandos.
 
-   ![Carregar na barra de comandos](media/search-semi-structured-data/upload-command-bar.png "Carregar na barra de comandos")
+   :::image type="content" source="media/search-semi-structured-data/upload-command-bar.png" alt-text="Criar conta de armazenamento" border="false":::
 
 1. Navegue até a pasta que contém os arquivos de exemplo. Selecione todos eles e, em seguida, clique em **Carregar**.
 
-   ![Carregar arquivos](media/search-semi-structured-data/clinicalupload.png "Carregar arquivos")
+   :::image type="content" source="media/search-semi-structured-data/clinicalupload.png" alt-text="Criar conta de armazenamento" border="false":::
 
 Após o upload ser concluído, os arquivos devem aparecer em sua própria subpasta dentro do contêiner de dados.
 
@@ -98,7 +98,7 @@ As chamadas REST exigem a URL do serviço e uma chave de acesso em cada solicita
 
 1. Em **Configurações** > **Chaves**, obtenha uma chave de administração para adquirir todos os direitos sobre o serviço. Há duas chaves de administração intercambiáveis, fornecidas para a continuidade dos negócios, caso seja necessário sobrepor uma. É possível usar a chave primária ou secundária em solicitações para adicionar, modificar e excluir objetos.
 
-![Obter um ponto de extremidade HTTP e uma chave de acesso](media/search-get-started-postman/get-url-key.png "Obter um ponto de extremidade HTTP e uma chave de acesso")
+:::image type="content" source="media/search-get-started-postman/get-url-key.png" alt-text="Criar conta de armazenamento" border="false":::
 
 Todas as solicitações requerem uma chave de api em cada pedido enviado ao serviço. Ter uma chave válida estabelece a relação de confiança, para cada solicitação, entre o aplicativo que envia a solicitação e o serviço que lida com ela.
 
@@ -110,7 +110,7 @@ Os métodos de solicitação para cada chamada neste tutorial são **POST** e **
 
 Em Cabeçalhos, defina "Content-Type" como `application/json` e `api-key` como a chave de API de administração do serviço da Pesquisa Cognitiva do Azure. Depois de definir os cabeçalhos, você poderá usá-los para cada solicitação neste exercício.
 
-  ![URL e cabeçalho da solicitação do Postman](media/search-get-started-postman/postman-url.png "URL e cabeçalho da solicitação do Postman")
+  :::image type="content" source="media/search-get-started-postman/postman-url.png" alt-text="Criar conta de armazenamento" border="false":::
 
 Os URIs precisam especificar uma api-version e cada chamada de consulta deve retornar uma mensagem **201 Criado**. A versão de API disponível em geral para o uso de matrizes JSON é `2020-06-30`.
 
@@ -315,11 +315,11 @@ Você poderá iniciar a pesquisa assim que o primeiro documento for carregado.
 
 1. Adicione o parâmetro de consulta `$select` para limitar os resultados a menos campos: `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&$select=Gender,metadata_storage_size&api-version=2020-06-30&$count=true`.  Nesta consulta, 100 documentos são correspondentes, mas por padrão, o Azure Cognitive Search retorna apenas 50 nos resultados.
 
-   ![Consulta parametrizada](media/search-semi-structured-data/lastquery.png "Consulta parametrizada")
+   :::image type="content" source="media/search-semi-structured-data/lastquery.png" alt-text="Criar conta de armazenamento" border="false":::
 
 1. Um exemplo de uma consulta mais complexa será `$filter=MinimumAge ge 30 and MaximumAge lt 75`, que apenas retorna resultados em que o parâmetro MinimumAge é superior ou igual a 30 e MaximumAge é inferior a 75. Substitua a expressão `$select` pela expressão `$filter`.
 
-   ![Pesquisa semi-estruturada](media/search-semi-structured-data/metadatashort.png)
+   :::image type="content" source="media/search-semi-structured-data/metadatashort.png" alt-text="Criar conta de armazenamento" border="false":::
 
 Use também operadores lógicos (and, or e not) e operadores de comparação (eq, ne, gt, lt, ge e le). Comparações de cadeia de caracteres diferenciam maiúsculas de minúsculas. Para obter mais informações e exemplos, confira [Criar uma consulta simples](search-query-simple-examples.md).
 

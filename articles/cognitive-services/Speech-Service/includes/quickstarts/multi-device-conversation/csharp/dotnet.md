@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 04/04/2020
 ms.author: ralphe
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dff5c7c7018945bb93ce492ee3205f3567dff1d7
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: a8aa2fc0b5ba76a92a0aa0234635dadee5a00f28
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88925872"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91377440"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, é preciso:
 
 > [!div class="checklist"]
-> * [Criar um recurso de Fala do Azure](../../../../get-started.md)
+> * [Criar um recurso de Fala do Azure](../../../../overview.md#try-the-speech-service-for-free)
 > * [Configurar seu ambiente de desenvolvimento e criar um projeto vazio](../../../../quickstarts/setup-platform.md?tabs=dotnet&pivots=programming-language-csharp)
 
 ## <a name="add-sample-code"></a>Adicionar código de exemplo

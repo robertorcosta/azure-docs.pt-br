@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/13/2020
 ms.author: trbye
-ms.openlocfilehash: 804cc2213379364002a093509f2393e375c3971b
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 2a8deaa76c02e86c9304c2221c0617041ae2e138
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81400919"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91377064"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -17,7 +17,7 @@ Antes de começar, é preciso:
 
 > [!div class="checklist"]
 > * [Configurar seu ambiente de desenvolvimento e criar um projeto vazio](../../../../quickstarts/setup-platform.md?tabs=jre&pivots=programmming-language-java)
-> * [Criar um recurso de Fala do Azure](../../../../get-started.md)
+> * [Criar um recurso de Fala do Azure](../../../../overview.md#try-the-speech-service-for-free)
 > * [Carregar um arquivo de origem em um blob do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
 
 

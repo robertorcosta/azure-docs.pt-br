@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 09/22/2020
-ms.openlocfilehash: 71cf11673756dcefb828ad1fad0412a791b43efd
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 268eedf6f9d64d52539e20006322b6b1dd9964e8
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90943192"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439984"
 ---
 # <a name="azure-database-for-postgresql---flexible-server"></a>Servidor Flexível do Banco de Dados do Azure para PostgreSQL
 
@@ -49,15 +49,14 @@ Durante eventos de failover planejados ou não planejados, se o servidor ficar i
 1. Uma nova VM de computação do Linux será provisionada.
 2. O armazenamento com os arquivos de dados é mapeado para a nova Máquina Virtual
 3. O mecanismo de banco de dados PostgreSQL é colocado online na nova Máquina Virtual.
-4. O serviço de gateway garante um failover transparente, garantindo que nenhuma alteração no lado do aplicativo seja exigida.
 
 A imagem abaixo mostra a transição para a falha de VM e de armazenamento.
 
- :::image type="content" source="./media/overview/overview-azure-postgres-flex-virtualmachine-storage-failure.png" alt-text="Servidor flexível – falhas de VM e de armazenamento":::
+ :::image type="content" source="./media/overview/overview-azure-postgres-flex-virtualmachine.png" alt-text="Servidor flexível – falhas de VM e de armazenamento":::
 
 Se a alta disponibilidade com redundância de zona estiver configurada, o serviço provisionará e manterá um servidor em espera ativa na zona de disponibilidade, na mesma região do Azure. As alterações de dados no servidor de origem são replicadas de maneira síncrona para o servidor em espera para garantir zero perda de dados. Com alta disponibilidade com redundância de zona, uma vez que o evento de failover planejado ou não planejado é disparado, o servidor em espera fica online imediatamente e está disponível para processar transações de entrada. Isso permite a resiliência de serviço de uma falha de zona de disponibilidade em uma região do Azure que dá suporte a várias zonas de disponibilidade, conforme mostrado na imagem abaixo.
 
- :::image type="content" source="./media/business-continuity/concepts-zone-redundant-high-availability-architecture.png" alt-text="Alta disponibilidade com redundância de zona":::
+ :::image type="content" source="./media/business-continuity/concepts-zone-redundant-high-availability-architecture.png" alt-text="Servidor flexível – falhas de VM e de armazenamento":::
 
  Confira o [documento sobre alta disponibilidade](./concepts-high-availability.md) para obter mais detalhes.
 

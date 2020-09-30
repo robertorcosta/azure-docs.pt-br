@@ -8,12 +8,12 @@ ms.subservice: enterprise
 ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: banders
-ms.openlocfilehash: 564acd6d6072a4308141942666cc0ebcc0ad0136
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 13b344d3f13993dc7b6acf7bfe9a0ccdea0c866b
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89433510"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371347"
 ---
 # <a name="managing-azure-enterprise-roles"></a>Gerenciando funções do Azure Enterprise
 
@@ -114,12 +114,12 @@ A tabela a seguir mostra o relacionamento entre as funções de administração 
 |Proprietário da conta ou administrador de departamento|✘ Desabilitado |none|Não há preços|
 |Nenhum|Não aplicável |Proprietário|Preço de varejo|
 
-Você define a função de administrador da empresa e exibe as políticas de cobranças no portal da empresa. A função do Azure pode ser atualizada no portal do Azure. Para obter mais informações, confira [gerenciar o acesso usando o portal do Azure e o RBAC](../../role-based-access-control/role-assignments-portal.md).
+Você define a função de administrador da empresa e exibe as políticas de cobranças no portal da empresa. A função do Azure pode ser atualizada no portal do Azure. Para obter mais informações, confira [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](../../role-based-access-control/role-assignments-portal.md).
 
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Gerenciar o acesso a informações de faturamento do Azure](manage-billing-access.md)
-- [Gerenciar acesso usando o RBAC e o Portal do Azure](../../role-based-access-control/role-assignments-portal.md)
+- [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](../../role-based-access-control/role-assignments-portal.md)
 - [Funções internas do Azure](../../role-based-access-control/built-in-roles.md)

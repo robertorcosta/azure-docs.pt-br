@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/07/2020
-ms.openlocfilehash: 8f004ff8118829ebf2d245a136cf22cdde23accc
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/25/2020
+ms.openlocfilehash: adcd07ad370ad9f1301caa41c494a33958743dd8
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88929781"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398401"
 ---
 # <a name="quickstart-use-search-explorer-to-run-queries-in-the-portal"></a>Início Rápido: Usar o Gerenciador de pesquisa para executar consultas no portal
 
@@ -37,11 +37,11 @@ Antes de começar, você deverá ter o seguinte:
 
 1. Abra o Gerenciador de pesquisa por meio da barra de comandos:
 
-   ![Comando do gerenciador de pesquisa no portal](./media/search-explorer/search-explorer-cmd2.png "Comando do gerenciador de pesquisa no portal")
+   :::image type="content" source="media/search-explorer/search-explorer-cmd2.png" alt-text="Comando do gerenciador de pesquisa no portal" border="false":::
 
     Ou use a guia inserida do **Gerenciador de pesquisa** em um índice aberto:
 
-   ![Guia do Gerenciador de pesquisa](./media/search-explorer/search-explorer-tab.png "Guia do Gerenciador de pesquisa")
+   :::image type="content" source="media/search-explorer/search-explorer-tab.png" alt-text="Comando do gerenciador de pesquisa no portal" border="false":::
 
 ## <a name="unspecified-query"></a>Consulta não especificada
 
@@ -55,7 +55,7 @@ Uma sintaxe equivalente para uma pesquisa vazia é `*` ou `search=*`.
 
    **Resultados**
    
-   ![Exemplo de consulta vazia](./media/search-explorer/search-explorer-example-empty.png "Exemplo de consulta vazia ou não qualificada")
+   :::image type="content" source="media/search-explorer/search-explorer-example-empty.png" alt-text="Comando do gerenciador de pesquisa no portal" border="false":::
 
 ## <a name="free-text-search"></a>Pesquisa de texto livre
 
@@ -71,7 +71,7 @@ Observe que, quando você fornece critérios de pesquisa, como expressões ou te
 
    Você pode usar Ctrl-F para pesquisar termos específicos de interesse nos resultados.
 
-   ![Exemplo de consulta de texto livre](./media/search-explorer/search-explorer-example-freetext.png "Exemplo de consulta de texto livre")
+   :::image type="content" source="media/search-explorer/search-explorer-example-freetext.png" alt-text="Comando do gerenciador de pesquisa no portal" border="false":::
 
 ## <a name="count-of-matching-documents"></a>Contagem de documentos correspondentes 
 
@@ -83,7 +83,7 @@ Adicione **$count=true** para obter o número de correspondências encontradas e
 
    **Resultados**
 
-   ![Exemplo de contagem de documentos](./media/search-explorer/search-explorer-example-count.png "Contagem de documentos correspondentes no índice")
+   :::image type="content" source="media/search-explorer/search-explorer-example-count.png" alt-text="Comando do gerenciador de pesquisa no portal" border="false":::
 
 ## <a name="limit-fields-in-search-results"></a>Limitar campos nos resultados da pesquisa
 
@@ -95,7 +95,7 @@ Adicione [ **$select**](search-query-odata-select.md) para limitar os resultados
 
    **Resultados**
 
-   ![Limitar exemplo de campos](./media/search-explorer/search-explorer-example-selectfield.png "Restringir os campos nos resultados da pesquisa")
+   :::image type="content" source="media/search-explorer/search-explorer-example-selectfield.png" alt-text="Comando do gerenciador de pesquisa no portal" border="false":::
 
 ## <a name="return-next-batch-of-results"></a>Retornar o próximo lote de resultados
 
@@ -107,7 +107,7 @@ O Azure Cognitive Search retorna as primeiras 50 correspondências com base na c
 
    **Resultados**
 
-   ![Resultados da pesquisa em lote](./media/search-explorer/search-explorer-example-topskip.png "Retornar o próximo lote de resultados da pesquisa")
+   :::image type="content" source="media/search-explorer/search-explorer-example-topskip.png" alt-text="Comando do gerenciador de pesquisa no portal" border="false":::
 
 ## <a name="filter-expressions-greater-than-less-than-equal-to"></a>Expressões de filtro (maior que, menor que, igual a)
 
@@ -119,7 +119,7 @@ Use o parâmetro [ **$filter**](search-query-odata-filter.md) quando desejar esp
    
    **Resultados**
 
-   ![Expressão de filtro](./media/search-explorer/search-explorer-example-filter.png "Filtrar por critérios")
+   :::image type="content" source="media/search-explorer/search-explorer-example-filter.png" alt-text="Comando do gerenciador de pesquisa no portal" border="false":::
 
 ## <a name="order-by-expressions"></a>Expressões orderby
 
@@ -131,7 +131,7 @@ Adicione [ **$orderby**](search-query-odata-orderby.md) para classificar os resu
    
    **Resultados**
 
-   ![Expressão Orderby](./media/search-explorer/search-explorer-example-ordery.png "Alterar a ordem de classificação")
+   :::image type="content" source="media/search-explorer/search-explorer-example-ordery.png" alt-text="Comando do gerenciador de pesquisa no portal" border="false":::
 
 As expressões **$filter** e **$orderby** são construções do OData. Para saber mais, confira [Sintaxe de filtro OData](/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 

@@ -1,18 +1,18 @@
 ---
 title: 'Consulta com a API do Gremlin do Azure Cosmos DB usando o Console do Gremlin TinkerPop: Tutorial'
 description: Um início rápido do Azure Cosmos DB para criar vértices, bordas e consultas usando a API do Gremlin do Azure Cosmos DB.
-author: luisbosquez
+author: jasonwhowell
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: quickstart
 ms.date: 07/10/2020
-ms.author: lbosq
-ms.openlocfilehash: e1ce632a04269704b498a69e1a0dd4fe72e00c87
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.author: jasonh
+ms.openlocfilehash: ca1ca258296f5ac8f1fb7120d2965ccacf74b5d5
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543768"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409384"
 ---
 # <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Início Rápido: Criar, consultar e percorrer um banco de dados de grafo do Azure Cosmos DB usando o console do Gremlin
 
@@ -65,11 +65,11 @@ Também é necessário instalar o [Console do Gremlin](https://tinkerpop.apache.
 
    Para obter o valor de hosts, copie o valor **URI do Gremlin** na página **Visão geral**:
 
-   :::image type="content" source="./media/create-graph-gremlin-console/gremlin-uri.png" alt-text="Exibir e copiar o valor URI do Gremlin na página Visão geral no portal do Azure":::
+   :::image type="content" source="./media/create-graph-gremlin-console/gremlin-uri.png" alt-text="Azure Cosmos DB no console do Apache Gremlin":::
 
    Para obter o valor da senha, copie a **Chave Primária** da página **Chaves**:
 
-   :::image type="content" source="./media/create-graph-gremlin-console/keys.png" alt-text="Exibir e copiar sua chave primária no portal do Azure, página Chaves":::
+   :::image type="content" source="./media/create-graph-gremlin-console/keys.png" alt-text="Azure Cosmos DB no console do Apache Gremlin":::
 
    O arquivo remote-secure.yaml deve ter esta aparência:
 

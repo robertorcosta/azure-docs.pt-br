@@ -7,13 +7,13 @@ author: dereklegenzoff
 ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 06/22/2020
-ms.openlocfilehash: e714c58827ebb4ee7e50696db27644fa65a73af1
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.date: 09/25/2020
+ms.openlocfilehash: ac7cee2c1d72b4102fb397aa8093c2d38686fc88
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89290303"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397259"
 ---
 # <a name="tutorial-create-a-custom-analyzer-for-phone-numbers"></a>Tutorial: Criar um analisador personalizado para números de telefone
 
@@ -59,7 +59,7 @@ Para cada solicitação, você precisa:
 
 1. Substituir `<YOUR-ADMIN-API-KEY>` pela chave primária ou secundária do serviço de pesquisa.
 
-  ![URL e cabeçalho da solicitação do Postman](media/search-get-started-postman/postman-url.png "URL e cabeçalho da solicitação do Postman")
+  :::image type="content" source="media/search-get-started-postman/postman-url.png" alt-text="URL e cabeçalho da solicitação do Postman" border="false":::
 
 Se não estiver familiarizado com o Postman, confira [Explorar APIs REST do Azure Cognitive Search usando Postman](search-get-started-postman.md).
 
@@ -239,11 +239,11 @@ Os analisadores consistem em três componentes:
 
 No seguinte diagrama, você pode ver como esses três componentes funcionam em conjunto para indexar uma sentença:
 
-  ![Diagrama do processo do analisador para criar tokens para uma sentença](media/tutorial-create-custom-analyzer/analyzers-explained.png)
+  :::image type="content" source="media/tutorial-create-custom-analyzer/analyzers-explained.png" alt-text="URL e cabeçalho da solicitação do Postman":::
 
 Esses tokens são então armazenados em um índice invertido, que permite pesquisas rápidas de texto completo.  Um índice invertido permite a pesquisa de texto completo mapeando todos os termos exclusivos extraídos durante a análise lexical para os documentos em que eles ocorrem. Você pode ver um exemplo no diagrama abaixo:
 
-  ![Índice invertido de exemplo](media/tutorial-create-custom-analyzer/inverted-index-explained.png)
+  :::image type="content" source="media/tutorial-create-custom-analyzer/inverted-index-explained.png" alt-text="URL e cabeçalho da solicitação do Postman":::
 
 Toda a pesquisa fica inativa para pesquisar os termos armazenados no índice invertido. Quando o usuário emite uma consulta:
 
@@ -251,7 +251,7 @@ Toda a pesquisa fica inativa para pesquisar os termos armazenados no índice inv
 1. O índice invertido é então examinado em busca de documentos com termos correspondentes.
 1. Por fim, os documentos recuperados são classificados pelo [algoritmo de similaridade](index-ranking-similarity.md).
 
-  ![Similaridade de classificação do diagrama do processo do Analisador](media/tutorial-create-custom-analyzer/query-architecture-explained.png)
+  :::image type="content" source="media/tutorial-create-custom-analyzer/query-architecture-explained.png" alt-text="URL e cabeçalho da solicitação do Postman":::
 
 Se os termos da consulta não corresponderem aos termos no índice invertido, os resultados não serão retornados. Para saber mais sobre como funcionam as consultas, confira este artigo sobre [pesquisa de texto completo](search-lucene-query-architecture.md).
 
