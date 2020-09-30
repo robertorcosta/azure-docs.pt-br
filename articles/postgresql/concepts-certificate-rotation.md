@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 576ff4eb3a189b27a4c7743966ced0676ec67a9d
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 976b423822fa667df713382b34d7208cb0e3b002
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90978902"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540652"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-postgresql-single-server"></a>Noções básicas sobre as alterações na AC raiz alterar para o banco de dados do Azure para PostgreSQL servidor único
 
@@ -120,7 +120,7 @@ Para servidores criados após 26 de outubro de 2020 (10/26/2020), você pode usa
 ### <a name="10-how-often-does-microsoft-update-their-certificates-or-what-is-the-expiry-policy"></a>10. com que frequência o Microsoft atualiza seus certificados ou qual é a política de expiração?
 Esses certificados usados pelo banco de dados do Azure para PostgreSQL são fornecidos por autoridades de certificação (CA) confiáveis. Portanto, o suporte desses certificados no banco de dados do Azure para PostgreSQL está vinculado ao suporte desses certificados pela CA. No entanto, como nesse caso, pode haver bugs imprevistos nesses certificados predefinidos, que precisam ser corrigidos no início.
 
-### <a name="11-if-i-am-using-read-replicas-do-i-need-to-perform-this-update-only-on-master-server-or-the-read-replicas"></a>11. se eu estiver usando réplicas de leitura, preciso executar essa atualização somente no servidor mestre ou nas réplicas de leitura?
+### <a name="11-if-i-am-using-read-replicas-do-i-need-to-perform-this-update-only-on-the-primary-server-or-the-read-replicas"></a>11. se eu estiver usando réplicas de leitura, preciso executar essa atualização somente no servidor primário ou nas réplicas de leitura?
 Como essa atualização é uma alteração no lado do cliente, se o cliente usado para ler dados do servidor de réplica, você também precisará aplicar as alterações para esses clientes. 
 
 ### <a name="12-do-we-have-server-side-query-to-verify-if-ssl-is-being-used"></a>12. temos uma consulta do lado do servidor para verificar se o SSL está sendo usado?

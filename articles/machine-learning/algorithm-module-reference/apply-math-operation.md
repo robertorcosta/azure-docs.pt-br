@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 654b10a283c4dcf5a1a1866ec51799aad45a8893
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 04ce45f428604275696d83938708bcee0c6c023f
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90898898"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536759"
 ---
 # <a name="apply-math-operation"></a>Aplicar operação matemática
 
@@ -22,11 +22,11 @@ Este artigo descreve um módulo do designer de Azure Machine Learning.
 
 Use a operação aplicar matemática para criar cálculos que são aplicados a colunas numéricas no conjunto de dados de entrada. 
 
-As operações matemáticas com suporte incluem funções aritméticas comuns, como multiplicação e divisão, funções trigonométricas, uma variedade de funções de arredondamento e funções especiais usadas em ciência de dados, como gama e funções de erro.  
+As operações matemáticas incluem funções aritméticas, funções trigonométricas, funções de arredondamento e funções especiais usadas em ciência de dados, como gama e funções de erro.  
 
 Depois de definir uma operação e executar o pipeline, os valores são adicionados ao conjunto de seus conjuntos de seus. Dependendo de como você configura o módulo, você pode:
 
-+ Acrescente os resultados ao conjunto de seus conjuntos de seus. Isso é particularmente útil quando você está verificando o resultado da operação.
++ Acrescente os resultados ao seu conjunto de um (útil ao verificar o resultado da operação).
 + Substitua os valores de colunas pelos novos valores calculados.
 + Gerar uma nova coluna para resultados e não mostrar os dados originais. 
 
@@ -42,7 +42,7 @@ Procure a operação que você precisa nessas categorias:
   
 -   [Operações](#arithmetic-operations)  
   
-     A categoria de **operações** inclui as funções matemáticas básicas: adição, subtração, multiplicação e divisão. Você pode trabalhar com colunas ou constantes. Por exemplo, você pode adicionar o valor na coluna A ao valor na coluna B. Ou, você pode subtrair uma constante, como uma média calculada anteriormente, de cada valor na coluna A.  
+     A categoria de **operações** inclui funções matemáticas básicas: adição, subtração, multiplicação e divisão. Você pode trabalhar com colunas ou constantes. Por exemplo, você pode adicionar o valor na coluna A ao valor na coluna B. Ou, você pode subtrair uma constante, como uma média calculada anteriormente, de cada valor na coluna A.  
   
 -   [Arredondamento](#rounding-operations)  
   
@@ -55,7 +55,7 @@ Procure a operação que você precisa nessas categorias:
 -   [Trigonométricas](#trigonometric-functions)  
   
      A categoria **trigonométrica** inclui todas as funções trigonométricas padrão. Por exemplo, você pode converter radianos em graus ou calcular funções como tangentes em radianos ou graus.
-     Essas funções são unários, o que significa que elas usam uma única coluna de valores como entrada, aplicam a função trigonométrica e retornam uma coluna de valores como resultado.  Portanto, você precisa certificar-se de que a coluna de entrada é o tipo apropriado e contém o tipo correto de valores para a operação especificada.   
+     Essas funções são unários, o que significa que elas usam uma única coluna de valores como entrada, aplicam a função trigonométrica e retornam uma coluna de valores como resultado. Verifique se a coluna de entrada é o tipo apropriado e se contém o tipo correto de valores para a operação especificada.   
 
 ## <a name="how-to-configure-apply-math-operation"></a>Como configurar aplicar operação matemática  
 
@@ -74,7 +74,7 @@ Cada instância desse módulo pode executar apenas um tipo de operação de cada
     - Qualquer coluna escolhida deve ser um tipo de dados numérico. 
     - O intervalo de dados deve ser válido para a operação matemática selecionada. Caso contrário, poderá ocorrer um erro ou o resultado NaN (não um número). Por exemplo, ln (-1,0) é uma operação inválida e resulta em um valor de `NaN` .
   
-1.  Clique em **categoria** para selecionar o **tipo** de operação matemática a ser executada.
+1.  Selecione **categoria** para selecionar o **tipo** de operação matemática a ser executada.
     
 1. Escolha uma operação específica da lista nessa categoria.
   
@@ -95,7 +95,7 @@ Se você gerar os resultados usando as opções **Append** ou **ResultOnly** , o
 -   **Equals (Col2_Col1)**, indicando que você testou Col2 em col1.  
 -   **Equals (Col2_ $10)**, indicando que você comparou a coluna 2 com a constante 10.  
 
-Mesmo que você use a opção de **local** , os dados de origem não são excluídos ou alterados; a coluna no DataSet original ainda está disponível no designer. Para exibir os dados originais, você pode conectar o módulo [adicionar colunas](add-columns.md) e associá-lo à saída de **aplicar operação matemática**.  
+Mesmo que você use a opção **in loco** , os dados de origem não são excluídos ou alterados; a coluna no DataSet original ainda está disponível no designer. Para exibir os dados originais, você pode conectar o módulo [adicionar colunas](add-columns.md) e associá-lo à saída de **aplicar operação matemática**.  
     
 ## <a name="basic-math-operations"></a>Operações matemáticas básicas 
 
@@ -113,7 +113,7 @@ Retorna uma tangente inversa de quatro quadrantes.
 
 Selecione as colunas que contêm as coordenadas de ponto. Para o segundo argumento, que corresponde à coordenada x, você também pode especificar uma constante.  
 
-Corresponde à função ATAN2 no Matlab.  
+Corresponde à função ATAN2 no MATLAB.  
 
 ### <a name="conj"></a>Conj
 
@@ -124,15 +124,15 @@ Retorna o conjugado para os valores na coluna selecionada.
 Calcula a raiz do cubo para os valores na coluna selecionada.  
 
 ### <a name="doublefactorial"></a>DoubleFactorial  
- Calcula o fatorial duplo para valores na coluna selecionada. O fatorial duplo é uma extensão da função fatorial normal e é indicado como x!!.  
+ Calcula o fatorial duplo para valores na coluna selecionada. O fatorial duplo é uma extensão da função fatorial normal e é denotado como `x!!`.  
 
 ### <a name="eps"></a>Eps
 
-Retorna o tamanho do espaço entre o valor atual e o próximo número mais alto de precisão dupla. Corresponde à função EPS no Matlab.  
+Retorna o tamanho do espaço entre o valor atual e o próximo número mais alto de precisão dupla. Corresponde à função EPS no MATLAB.  
   
 ### <a name="exp"></a>Exp
 
-Retorna e elevado à potência do valor na coluna selecionada. Isso é o mesmo que a função EXP do Excel.  
+Retorna e elevado à potência do valor na coluna selecionada. Essa função é igual à função EXP do Excel.  
 
 ### <a name="exp2"></a>Exp2
 
@@ -360,7 +360,7 @@ A função de erro (também chamada de função de erro Gauss) é uma função e
 
 Retorna o valor da função de erro complementar.  
 
-ERFC é definido como 1 – ERF (x).  
+`Erfc` é definido como 1 – ERF (x).  
 
 ### <a name="erfscaled"></a>ErfScaled
 
@@ -370,7 +370,7 @@ Uma versão dimensionada da função de erro pode ser usada para evitar estouro 
 
 ### <a name="erfinverse"></a>ErfInverse
 
-Retorna o valor da função erf inversa.  
+Retorna o valor da função inversa `erf` .  
 
 ### <a name="exponentialintegralein"></a>ExponentialIntegralEin
 

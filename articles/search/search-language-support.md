@@ -8,12 +8,12 @@ ms.author: jlembicz
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
-ms.openlocfilehash: c7d574bf172a792c59e4b00ea9ad0366ad1f17ad
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: a121751e71bffdb76341f6a7dc2a01a22240019b
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88922847"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534459"
 ---
 # <a name="how-to-create-an-index-for-multiple-languages-in-azure-cognitive-search"></a>Como criar um índice para vários idiomas no Azure Pesquisa Cognitiva
 
@@ -67,4 +67,4 @@ Você pode consultar o índice no portal, usando o [**Search Explorer**](search-
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você for um desenvolvedor do .NET, observe que é possível configurar os analisadores de idioma usando o [SDK do .net pesquisa cognitiva do Azure](https://www.nuget.org/packages/Microsoft.Azure.Search) e a propriedade do [analisador](/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet) .
+Se você for um desenvolvedor do .NET, observe que é possível configurar os analisadores de idioma usando o [SDK do .net pesquisa cognitiva do Azure](https://www.nuget.org/packages/Microsoft.Azure.Search) e a propriedade do [analisador](/dotnet/api/microsoft.azure.search.models.analyzer) .

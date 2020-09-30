@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/10/2020
-ms.openlocfilehash: 2fd96777a5fe74d44aeed5f6de82e54b2663a024
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: afae49cf6ee44b138a55f58f415fc761308b7894
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090375"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542369"
 ---
 # <a name="receive-and-confirm--b2b-as2-messages-by-using-azure-logic-apps-and-enterprise-integration-pack"></a>Receber e confirmar mensagens AS2 de B2B usando os aplicativos lógicos do Azure e Enterprise Integration Pack
 
@@ -111,7 +111,7 @@ Para notificar o parceiro comercial de que a mensagem foi recebida, você pode r
 
    Agora, a forma de condição é exibida, incluindo os caminhos para se a condição é atendida ou não.
 
-   ![Forma de condição com caminhos de decisão](./media/logic-apps-enterprise-integration-b2b/added-condition-action.png)
+   ![Captura de tela mostra a forma da condição com caminhos vazios.](./media/logic-apps-enterprise-integration-b2b/added-condition-action.png)
 
 1. Agora, especifique a condição a ser avaliada. Na caixa **escolher um valor** , insira esta expressão:
 
@@ -119,7 +119,7 @@ Para notificar o parceiro comercial de que a mensagem foi recebida, você pode r
 
    Na caixa do meio, verifique se a operação de comparação está definida como `is equal to` . Na caixa do lado direito, insira o valor `Expected` . Para obter a expressão a ser resolvida como esse token, alterne entre o designer e o modo de exibição de código.
 
-   ![Forma de condição com caminhos de decisão](./media/logic-apps-enterprise-integration-b2b/expression-for-evaluating-condition.png)
+   ![Captura de tela mostra a forma da condição com uma condição adicionada.](./media/logic-apps-enterprise-integration-b2b/expression-for-evaluating-condition.png)
 
 1. Agora, especifique as respostas para retornar se a ação de **decodificação AS2** for bem sucedido ou não.
 

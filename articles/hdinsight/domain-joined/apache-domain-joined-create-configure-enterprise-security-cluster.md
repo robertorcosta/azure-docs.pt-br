@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 12/10/2019
-ms.openlocfilehash: acd51fc54e0655af6bfc6c05d2e99be2f26f942b
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: c0e35b94b4322d9273e5793c85792eb2bbd34d05
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86080152"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536062"
 ---
 # <a name="create-and-configure-enterprise-security-package-clusters-in-azure-hdinsight"></a>Criar e configurar clusters Enterprise Security Package no Azure HDInsight
 
@@ -45,9 +45,9 @@ Nesta seção, você usará um modelo de implantação de início rápido do Azu
 
     |Propriedade | Valor |
     |---|---|
-    |Subscription|Selecione a assinatura na qual você deseja implantar os recursos.|
-    |Resource group|Selecione **criar novo**e insira o nome`OnPremADVRG`|
-    |Location|Selecione um local.|
+    |Assinatura|Selecione a assinatura na qual você deseja implantar os recursos.|
+    |Grupo de recursos|Selecione **criar novo**e insira o nome `OnPremADVRG`|
+    |Location|Selecione uma localização.|
     |Nome de Usuário do Administrador|`HDIFabrikamAdmin`|
     |Senha do Administrador|Digite uma senha.|
     |Nome de domínio|`HDIFabrikam.com`|
@@ -118,7 +118,7 @@ Os usuários serão sincronizados com o Azure AD.
 
 ### <a name="create-an-azure-ad-directory"></a>Criar um diretório do AD do Azure
 
-1. Entre no Portal do Azure.
+1. Entre no portal do Azure.
 1. Selecione **criar um recurso** e digite `directory` . Selecione **Azure Active Directory**  >  **criar**.
 1. Em **nome da organização**, insira `HDIFabrikam` .
 1. Em **nome de domínio inicial**, insira `HDIFabrikamoutlook` .
@@ -158,7 +158,7 @@ Crie um administrador de locatários Active Directory.
 
     |Propriedade |Descrição |
     |---|---|
-    |Nome de usuário|Insira `fabrikamazureadmin` na caixa de texto. Na lista suspensa nome de domínio, selecione`hdifabrikam.com`|
+    |Nome de usuário|Insira `fabrikamazureadmin` na caixa de texto. Na lista suspensa nome de domínio, selecione `hdifabrikam.com`|
     |Nome| Digite `fabrikamazureadmin`.|
 
     **Senha**
@@ -192,11 +192,11 @@ Crie um administrador de locatários Active Directory.
 
 1. Na página **conectar ao Azure ad** , insira o nome de usuário e a senha do administrador global do Azure AD. Use o nome de usuário `fabrikamazureadmin@hdifabrikam.com` que você criou quando configurou seu locatário de Active Directory. Em seguida, selecione **Avançar**.
 
-    ![A página "conectar ao Azure AD"](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0058.png)
+    ![A página "conectar-se ao Azure A D".](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0058.png)
 
 1. Na página **conectar a Active Directory Domain Services** , insira o nome de usuário e a senha de uma conta de administrador corporativo. Use o nome de usuário `HDIFabrikam\HDIFabrikamAdmin` e sua senha que você criou anteriormente. Em seguida, selecione **Avançar**.
 
-   ![A página "conectar ao Azure AD"](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0060.png)
+   ![A página "conectar a uma D D S".](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0060.png)
 1. Na página de **configuração de entrada do Azure ad** , selecione **Avançar**.
    ![A página "configuração de entrada do Azure AD"](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0062.png)
 
@@ -204,18 +204,18 @@ Crie um administrador de locatários Active Directory.
 
    ![A página "pronto para configurar"](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0064.png)
 
-1. Na página **Configuração completa** selecione **Sair**.
+1. Na página **Configuração completa**, selecione **Sair**.
    ![A página "configuração concluída"](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0078.png)
 
 1. Após a conclusão da sincronização, confirme se os usuários que você criou no diretório IaaS estão sincronizados com o Azure AD.
-   1. Entre no Portal do Azure.
+   1. Entre no portal do Azure.
    1. Selecione **Azure Active Directory**  >  **HDIFabrikam**  >  **usuários**do HDIFabrikam.
 
 ### <a name="create-a-user-assigned-managed-identity"></a>Criar uma identidade gerenciada atribuída ao usuário
 
 Crie uma identidade gerenciada atribuída pelo usuário que você possa usar para configurar o Azure AD Domain Services (AD DS do Azure). Para obter mais informações, consulte [criar, listar, excluir ou atribuir uma função a uma identidade gerenciada atribuída pelo usuário usando o portal do Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
 
-1. Entre no Portal do Azure.
+1. Entre no portal do Azure.
 1. Selecione **criar um recurso** e digite `managed identity` . Selecione criação de **identidade gerenciada atribuída pelo usuário**  >  **Create**.
 1. Para o **nome do recurso**, digite `HDIFabrikamManagedIdentity` .
 1. Selecione sua assinatura.
@@ -247,7 +247,7 @@ Siga estas etapas para habilitar o Azure AD DS. Para obter mais informações, c
     $virtualNetwork | Set-AzVirtualNetwork
     ```
 
-1. Entre no Portal do Azure.
+1. Entre no portal do Azure.
 1. Selecione **criar recurso**, insira `Domain services` e selecione **Azure AD Domain Services**  >  **criar**.
 1. Na página **noções básicas** :
     1. Em **nome do diretório**, selecione o diretório do Azure AD que você criou: **HDIFabrikam**.
@@ -291,7 +291,7 @@ Use as etapas a seguir para configurar sua rede virtual do Azure AD DS (**HDIFab
     1. Em **configurações**, selecione **servidores DNS**.
     1. Selecione **personalizado**.
     1. Na caixa de texto, insira o primeiro endereço IP (*10.0.0.4*).
-    1. Selecione **Salvar**.
+    1. Clique em **Salvar**.
     1. Repita as etapas para adicionar o outro endereço IP (*10.0.0.5*).
 
 Em nosso cenário, configuramos o Azure AD DS para usar os endereços IP 10.0.0.4 e 10.0.0.5, definindo o mesmo endereço IP na rede virtual do Azure AD DS:
@@ -392,7 +392,7 @@ Esta etapa requer os seguintes pré-requisitos:
 1. Configure o DNS personalizado na rede virtual **HDIFabrikam-AADDSVNET** .
     1. Vá para o portal do Azure > **grupos de recursos**  >  **OnPremADVRG**  >  **HDIFabrikam-AADDSVNET**  >  **servidores DNS**.
     1. Selecione **personalizado** e insira *10.0.0.4* e *10.0.0.5*.
-    1. Selecione **Salvar**.
+    1. Clique em **Salvar**.
 
         ![Salvar configurações personalizadas de DNS para uma rede virtual](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0123.png)
 

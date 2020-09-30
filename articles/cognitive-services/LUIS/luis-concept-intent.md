@@ -3,20 +3,18 @@ title: Intenções e entidades-LUIS
 titleSuffix: Azure Cognitive Services
 description: Uma única intenção representa uma tarefa ou ação que o usuário deseja executar. É uma finalidade ou uma meta expressa no enunciado de um usuário. Defina um conjunto de intenções que corresponda às ações que os usuários desejem executar em seu aplicativo.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
-ms.author: diberry
-ms.openlocfilehash: f2e4f91dbc03853d6f1a5240f693ea8ff510e8c4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: cf138248e878b21531df2035dfeda1b90162ea99
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82101069"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536096"
 ---
 # <a name="intents-in-your-luis-app"></a>Tentativas em seu aplicativo LUIS
 
@@ -55,7 +53,7 @@ A intenção representa a ação que o aplicativo deve executar para o usuário 
 
 |Intencional   | Entidade | Exemplo de enunciado   |
 |------------------|------------------------------|------------------------------|
-| CheckWeather | { "type": "location", "entity": "seattle" }<br>{ "type": "builtin.datetimeV2.date","entity": "tomorrow","resolution":"2018-05-23" } | Qual é o clima como em `Seattle` `tomorrow`? |
+| CheckWeather | { "type": "location", "entity": "seattle" }<br>{ "type": "builtin.datetimeV2.date","entity": "tomorrow","resolution":"2018-05-23" } | Qual é o clima como em `Seattle` `tomorrow` ? |
 | CheckWeather | { "type": "date_range", "entity": "this weekend" } | Mostre-me a previsão para `this weekend` |
 ||||
 

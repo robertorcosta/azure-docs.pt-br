@@ -5,13 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.author: diberry
-ms.openlocfilehash: 3e4567eea02b3b7db9514f4e03c7f7f36496449b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a5760db2d6e453d631680d6154e6d9a03ce55cd6
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91309415"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541332"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Alterações de ponto de extremidade de previsão para v3
 
@@ -104,7 +103,7 @@ Se desejar consultar por versão, primeiro você precisará [publicar via API](h
 }
 ```
 
-|Propriedade|Type|Versão|Padrão|Finalidade|
+|Propriedade|Tipo|Versão|Padrão|Finalidade|
 |--|--|--|--|--|
 |`dynamicLists`|matriz|Somente V3|Não necessário.|As [listas dinâmicas](schema-change-prediction-runtime.md#dynamic-lists-passed-in-at-prediction-time) permitem que você estenda uma entidade de lista treinada e publicada existente, já no aplicativo Luis.|
 |`externalEntities`|matriz|Somente V3|Não necessário.|[Entidades externas](schema-change-prediction-runtime.md#external-entities-passed-in-at-prediction-time) dão ao seu aplicativo Luis a capacidade de identificar e rotular entidades durante o tempo de execução, que pode ser usado como recursos para entidades existentes. |

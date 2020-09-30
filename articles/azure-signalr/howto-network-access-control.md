@@ -8,12 +8,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: dayshen
-ms.openlocfilehash: 78b9859adbcf61ae3a9fc0d72a63d5973f90a487
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 72532029b2d9258dba7dea82bb5c5fc8b2673300
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84302158"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536215"
 ---
 # <a name="configure-network-access-control"></a>Configurar o controle de acesso à rede
 
@@ -48,7 +48,7 @@ Você pode gerenciar o controle de acesso à rede para o serviço de Signaler do
 1. Para editar a ação padrão, alterne o botão **permitir/negar** .
 
     > [!TIP]
-    > A ação padrão é a ação que executamos quando não há correspondências de regras de ACL. Por exemplo, se a ação padrão for **Deny**, os tipos de solicitação que não estão explicitamente na lista de permissões abaixo serão negados.
+    > A ação padrão é a ação que executamos quando não há correspondências de regras de ACL. Por exemplo, se a ação padrão for **Deny**, os tipos de solicitação que não são explicitamente aprovados abaixo serão negados.
 
 1. Para editar a regra de rede pública, selecione tipos permitidos de solicitações em **rede pública**.
 

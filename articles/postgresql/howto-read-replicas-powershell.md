@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 06/08/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0caa8e2911046e18e63748fe5bde4b4c965eb965
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: b57fe5879c45225f8ba22e2c94aceeb5b38369e3
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502522"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539428"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-postgresql-using-powershell"></a>Como criar e gerenciar réplicas de leitura no banco de dados do Azure para PostgreSQL usando o PowerShell
 
@@ -38,7 +38,7 @@ Se você optar por usar o PowerShell localmente, conecte-se à sua conta do Azur
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 > [!IMPORTANT]
-> O recurso ler réplica só está disponível para servidores do banco de dados do Azure para PostgreSQL nos tipos de preço Uso Geral ou com otimização de memória. Assegure-se de que o servidor principal esteja em um desses níveis de preços.
+> O recurso ler réplica só está disponível para servidores do banco de dados do Azure para PostgreSQL nos tipos de preço Uso Geral ou com otimização de memória. Verifique se o servidor primário está em um desses tipos de preço.
 
 ### <a name="create-a-read-replica"></a>Criar uma réplica de leitura
 
@@ -54,7 +54,7 @@ O comando `New-AzPostgreSqlServerReplica` exige os seguintes parâmetros:
 | Configuração | Valor de exemplo | Descrição  |
 | --- | --- | --- |
 | ResourceGroupName |  myresourcegroup |  O grupo de recursos em que o servidor de réplica é criado.  |
-| Name | mydemoreplicaserver | O nome do novo servidor de réplica criado. |
+| Nome | mydemoreplicaserver | O nome do novo servidor de réplica criado. |
 
 Para criar uma réplica de leitura entre regiões, use o parâmetro **Location** . O exemplo a seguir cria uma réplica na região **oeste dos EUA** .
 
@@ -65,14 +65,14 @@ Get-AzPostgreSqlServer -Name mrdemoserver -ResourceGroupName myresourcegroup |
 
 Para saber mais sobre em quais regiões você pode criar uma réplica, visite o artigo [conceitos de réplica de leitura](concepts-read-replicas.md).
 
-Por padrão, as réplicas de leitura são criadas com a mesma configuração de servidor que o mestre, a menos que o parâmetro **SKU** seja especificado.
+Por padrão, as réplicas de leitura são criadas com a mesma configuração de servidor que a primária, a menos que o parâmetro **SKU** seja especificado.
 
 > [!NOTE]
-> Recomenda-se que a configuração do servidor de réplica seja mantida em valores iguais ou maiores que o mestre para garantir que a réplica seja capaz de acompanhar o mestre.
+> É recomendável que a configuração do servidor de réplica seja mantida em valores iguais ou maiores do que o primário para garantir que a réplica seja capaz de acompanhar o mestre.
 
-### <a name="list-replicas-for-a-master-server"></a>Listar réplicas para um servidor mestre
+### <a name="list-replicas-for-a-primary-server"></a>Listar réplicas para um servidor primário
 
-Para exibir todas as réplicas de um determinado servidor mestre, execute o seguinte comando:
+Para exibir todas as réplicas de um determinado servidor primário, execute o seguinte comando:
 
 ```azurepowershell-interactive
 Get-AzMariaDReplica -ResourceGroupName myresourcegroup -ServerName mydemoserver
@@ -83,7 +83,7 @@ O comando `Get-AzMariaDReplica` exige os seguintes parâmetros:
 | Configuração | Valor de exemplo | Descrição  |
 | --- | --- | --- |
 | ResourceGroupName |  myresourcegroup |  O grupo de recursos para o qual o servidor de réplica será criado.  |
-| ServerName | mydemoserver | O nome ou a ID do servidor mestre. |
+| ServerName | mydemoserver | O nome ou a ID do servidor primário. |
 
 ### <a name="delete-a-replica-server"></a>Excluir um servidor de réplica
 
@@ -93,12 +93,12 @@ A exclusão de um servidor de réplica de leitura pode ser feita executando o `R
 Remove-AzPostgreSqlServer -Name mydemoreplicaserver -ResourceGroupName myresourcegroup
 ```
 
-### <a name="delete-a-master-server"></a>Excluir um servidor mestre
+### <a name="delete-a-primary-server"></a>Excluir um servidor primário
 
 > [!IMPORTANT]
-> A exclusão de um servidor mestre interrompe a replicação para todos os servidores de réplica e exclui o próprio servidor mestre. Os servidores de réplica tornam-se servidores independentes que agora suportam leitura e gravação.
+> A exclusão de um servidor primário interrompe a replicação para todos os servidores de réplica e exclui o próprio servidor primário. Os servidores de réplica tornam-se servidores independentes que agora suportam leitura e gravação.
 
-Para excluir um servidor mestre, você pode executar o `Remove-AzPostgreSqlServer` cmdlet.
+Para excluir um servidor primário, você pode executar o `Remove-AzPostgreSqlServer` cmdlet.
 
 ```azurepowershell-interactive
 Remove-AzPostgreSqlServer -Name mydemoserver -ResourceGroupName myresourcegroup

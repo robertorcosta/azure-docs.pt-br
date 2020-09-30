@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.custom: dpalled
-ms.openlocfilehash: 43d3e80c66d54e3f7518246f7d75c5661995578c
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 4d4e7f4433171e593f5e61ab6f48afc640857d9b
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89489027"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536572"
 ---
 # <a name="adding-support-for-long-data-type-in-azure-time-series-insights-gen2"></a>Adicionando suporte para o tipo de dados Long no Azure Time Series Insights Gen2
 
@@ -72,11 +72,11 @@ Se você quiser consultar dados entre essas duas colunas para a propriedade **Pr
 
 *Definição de variável anterior:*
 
-[![Definição de variável anterior](media/time-series-insights-long-data-type/var-def-previous.png)](media/time-series-insights-long-data-type/var-def-previous.png#lightbox)
+[![Captura de tela mostra a caixa de diálogo Adicionar uma nova variável para a variável PropertyValue, Numeric.](media/time-series-insights-long-data-type/var-def-previous.png)](media/time-series-insights-long-data-type/var-def-previous.png#lightbox)
 
 *Nova definição de variável:*
 
-[![Nova definição de variável](media/time-series-insights-long-data-type/var-def.png)](media/time-series-insights-long-data-type/var-def.png#lightbox)
+[![Captura de tela mostra a caixa de diálogo Adicionar uma nova variável para a variável PropertyValue com um valor personalizado, Numeric.](media/time-series-insights-long-data-type/var-def.png)](media/time-series-insights-long-data-type/var-def.png#lightbox)
 
 Você também pode usar o **adesão ($Event. PropertyValue. Double e toduplo ($Event. PropertyValue. Long))** como a [expressão de série temporal](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax)personalizada.
 
@@ -139,11 +139,11 @@ Se, no momento, você usar variáveis categóricas que mapeiem valores inteiros 
 
 *Definição de variável anterior:*
 
-[![Definição de variável anterior](media/time-series-insights-long-data-type/var-def-cat-previous.png)](media/time-series-insights-long-data-type/var-def-cat-previous.png#lightbox)
+[![Captura de tela mostra a caixa de diálogo Adicionar uma nova variável para a variável PropertyValue, categórica.](media/time-series-insights-long-data-type/var-def-cat-previous.png)](media/time-series-insights-long-data-type/var-def-cat-previous.png#lightbox)
 
 *Nova definição de variável:*
 
-[![Nova definição de variável](media/time-series-insights-long-data-type/var-def-cat.png)](media/time-series-insights-long-data-type/var-def-cat.png#lightbox)
+[![Captura de tela mostra a caixa de diálogo Adicionar uma nova variável para a variável PropertyValue com um valor personalizado, categórico.](media/time-series-insights-long-data-type/var-def-cat.png)](media/time-series-insights-long-data-type/var-def-cat.png#lightbox)
 
 Você também pode usar o **adesão ($Event. PropertyValue. Double e toduplo ($Event. PropertyValue. Long))** como a [expressão de série temporal](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)personalizada.
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 6/10/2020
-ms.openlocfilehash: 075c8b2670121e7d493d0d99397961155fd0de4b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3a46c2024269affc06d18806aa186fb8b0feaafe
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84736553"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533750"
 ---
 # <a name="incrementally-copy-new-files-based-on-time-partitioned-file-name-by-using-the-copy-data-tool"></a>Copiar incrementalmente novos arquivos com base no nome do arquivo particionado usando a ferramenta de Copiar Dados
 
@@ -39,7 +39,7 @@ Neste tutorial, você executa as seguintes etapas:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * **Assinatura do Azure**: Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-* **Conta de armazenamento do Azure**: Use o armazenamento de BLOBs como o armazenamento de dados de _origem_ e de _coletor_ . Se você não tiver uma conta de armazenamento do Azure, consulte as instruções em [criar uma conta de armazenamento](../storage/common/storage-account-create.md).
+* **Conta de armazenamento do Azure**: Use o armazenamento de BLOBs como o armazenamento de dados de _origem_  e de _coletor_ . Se você não tiver uma conta de armazenamento do Azure, consulte as instruções em [criar uma conta de armazenamento](../storage/common/storage-account-create.md).
 
 ### <a name="create-two-containers-in-blob-storage"></a>Criar dois contêineres no armazenamento de BLOBs
 
@@ -122,13 +122,13 @@ Prepare o armazenamento de BLOBs para o tutorial executando estas etapas.
 
     a. Procure e selecione o contêiner de **origem** e selecione **escolher**.
 
-    ![Escolha o arquivo ou a pasta de entrada](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/choose-input-file-folder.png)
+    ![Captura de tela mostra a caixa de diálogo Escolher arquivo de entrada ou pasta.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/choose-input-file-folder.png)
 
     b. Em **comportamento de carregamento de arquivo**, selecione **carga incremental: nomes de pasta/arquivo particionados por tempo**.
 
     c. Grave o caminho da pasta dinâmica como **origem/{ano}/{mês}/{dia}/{hora}/** e altere o formato, conforme mostrado na captura de tela a seguir. Marque **cópia binária** e clique em **Avançar**.
 
-    ![Escolha o arquivo ou a pasta de entrada](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/check-binary-copy.png)     
+    ![Captura de tela mostra a caixa de diálogo Escolher arquivo ou pasta de entrada com uma pasta selecionada.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/check-binary-copy.png)     
 
 5. Na página **armazenamento de dados de destino** , selecione o **AzureBlobStorage**, que é a mesma conta de armazenamento que o armazenamento de fonte de dados e clique em **Avançar**.
 
@@ -139,11 +139,11 @@ Prepare o armazenamento de BLOBs para o tutorial executando estas etapas.
 
     b. Grave o caminho da pasta dinâmica como **destino/{ano}/{mês}/{dia}/{hora}/** e altere o formato da seguinte maneira:
 
-    ![Escolha o arquivo ou a pasta de saída](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/output-file-name.png)
+    ![Captura de tela mostra a caixa de diálogo Escolher arquivo de saída ou pasta.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/output-file-name.png)
 
-    c. Clique em **Próximo**.
+    c. Clique em **Avançar**.
 
-    ![Escolha o arquivo ou a pasta de saída](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/click-next-after-output-folder.png)
+    ![Captura de tela mostra a caixa de diálogo Escolher arquivo de saída ou pasta com a próxima selecionada.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/click-next-after-output-folder.png)
 7. Na página **Configurações**, selecione **Avançar**.
 
 8. Na página **Resumo**, analise as configurações e selecione **Avançar**.
@@ -155,14 +155,14 @@ Prepare o armazenamento de BLOBs para o tutorial executando estas etapas.
 
 10. Observe que a guia **Monitor** à esquerda é selecionada automaticamente.  Você precisa aguardar a execução do pipeline quando ele é disparado automaticamente (aproximadamente uma hora). Quando ele for executado, clique no nome do pipeline link **DeltaCopyFromBlobPipeline** para exibir detalhes da execução da atividade ou execute novamente o pipeline. Selecione **Atualizar** para atualizar a lista.
 
-    ![Monitorar execuções de pipeline](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs-1.png)
-11. Há apenas uma atividade (atividade de cópia) no pipeline. Assim, você vê apenas uma entrada. Ajuste a largura da coluna das colunas de **origem** e de **destino** (se necessário) para exibir mais detalhes, você pode ver que o arquivo de origem (file1.txt) foi copiado de *origem/2020/03/17/03/* para *destino/2020/03/17/03/* com o mesmo nome de arquivo. 
+    ![Captura de tela mostra o painel execuções de pipeline.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs-1.png)
+11. Há apenas uma atividade (atividade de cópia) no pipeline. Assim, você vê apenas uma entrada. Ajuste a largura da coluna das colunas de **origem** e de **destino** (se necessário) para exibir mais detalhes, você pode ver que o arquivo de origem (file1.txt) foi copiado de  *origem/2020/03/17/03/* para *destino/2020/03/17/03/* com o mesmo nome de arquivo. 
 
-    ![Monitorar execuções de pipeline](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs2.png)
+    ![Captura de tela mostra os detalhes da execução do pipeline.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs2.png)
 
     Você também pode verificar o mesmo usando Gerenciador de Armazenamento do Azure ( https://storageexplorer.com/) para verificar os arquivos.
 
-    ![Monitorar execuções de pipeline](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs3.png)
+    ![Captura de tela mostra os detalhes da execução do pipeline para o destino.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs3.png)
 
 12. Crie outro arquivo de texto vazio com o novo nome como **file2.txt**. Carregue o arquivo de file2.txt no caminho da pasta **Source/2020/03/17/04** em sua conta de armazenamento. É possível usar várias ferramentas para executar essas tarefas, como o [Azure Storage Explorer](https://storageexplorer.com/).
 
@@ -171,9 +171,9 @@ Prepare o armazenamento de BLOBs para o tutorial executando estas etapas.
 
 13. Para voltar para a exibição **execuções de pipeline** , selecione **todos os pipelines são executados**e aguarde até que o mesmo pipeline seja disparado novamente automaticamente após outra hora.  
 
-    ![Monitorar execuções de pipeline](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs5.png)
+    ![Captura de tela mostra o link todas as execuções de pipeline para retornar a essa página.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs5.png)
 
-14. Selecione o novo link **DeltaCopyFromBlobPipeline** para a segunda execução de pipeline quando ele vier e faça o mesmo para examinar os detalhes. Você verá que o arquivo de origem (file2.txt) foi copiado de **origem/2020/03/17/04** /para **destino/2020/03/17/04/** com o mesmo nome de arquivo. Você também pode verificar o mesmo usando Gerenciador de Armazenamento do Azure ( https://storageexplorer.com/) para examinar os arquivos no contêiner de **destino** .
+14. Selecione o novo link **DeltaCopyFromBlobPipeline** para a segunda execução de pipeline quando ele vier e faça o mesmo para examinar os detalhes. Você verá que o arquivo de origem (file2.txt) foi copiado de  **origem/2020/03/17/04**  /para **destino/2020/03/17/04/** com o mesmo nome de arquivo. Você também pode verificar o mesmo usando Gerenciador de Armazenamento do Azure ( https://storageexplorer.com/) para examinar os arquivos no contêiner de **destino** .
 
 
 ## <a name="next-steps"></a>Próximas etapas

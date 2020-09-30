@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: addimitu
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97a8f372a90d3add99390220d89214c6ad205db6
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: bf8eeb2d1f19ca0848ae5c608ba9f0d8e9526e05
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90056295"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541247"
 ---
 # <a name="delete-a-tenant-in-azure-active-directory"></a>Excluir um novo locatário no Azure Active Directory
 
@@ -123,19 +123,19 @@ Você pode colocar um produto de inscrição para autoatendimento, como o Micros
 
 2. Selecione **Licenças** e, em seguida, selecione **Produtos de inscrição para autoatendimento**. Você pode ver todos os produtos de inscrição para autoatendimento separadamente das assinaturas baseadas em estação. Escolha o produto que deseja excluir permanentemente. Veja um exemplo no Microsoft Power BI:
 
-    ![o nome de usuário foi digitado incorretamente ou não foi encontrado](./media/directory-delete-howto/licenses-page.png)
+    ![Captura de tela que mostra a página "licenças – produtos de inscrição de autoatendimento".](./media/directory-delete-howto/licenses-page.png)
 
 3. Selecione **Excluir** para excluir o produto e aceitar os termos que a exclusão dos dados é imediata e Irrevogável. Esta ação de exclusão removerá todos os usuários e removerá o acesso da organização ao produto. Clique em “Sim” para prosseguir com a exclusão.  
 
-    ![O nome de usuário foi digitado incorretamente ou não foi encontrado](./media/directory-delete-howto/delete-product.png)
+    ![Captura de tela que mostra a página "licenças – produtos de inscrição de autoatendimento" com a janela "excluir produto de inscrição de autoatendimento" aberta.](./media/directory-delete-howto/delete-product.png)
 
 4. Quando você seleciona **Sim**, a exclusão do produto de autoatendimento será iniciada. Há uma notificação informando sobre a exclusão em andamento.  
 
-    ![O nome de usuário foi digitado incorretamente ou não foi encontrado](./media/directory-delete-howto/progress-message.png)
+    ![Captura de tela que mostra a página "licenças – produtos de inscrição de autoatendimento" com a notificação "exclusão em andamento" exibida.](./media/directory-delete-howto/progress-message.png)
 
 5. Agora, o estado do produto de inscrição para autoatendimento foi alterado para **Excluído**. Quando você atualiza a página, o produto deve ser removido da página **Produtos de inscrição para autoatendimento**.  
 
-    ![O nome de usuário foi digitado incorretamente ou não foi encontrado](./media/directory-delete-howto/product-deleted.png)
+    ![Captura de tela que mostra a página "licenças – produtos de inscrição de autoatendimento" com o painel "produto de inscrição de autoatendimento excluído" no lado direito.](./media/directory-delete-howto/product-deleted.png)
 
 6. Depois de excluir todos os produtos, você poderá entrar novamente no centro de administração do Azure Active Directory, e não deve haver nenhuma ação necessária e nenhum produto bloqueando a exclusão da organização. Você poderá excluir a organização do Azure Active Directory.
 

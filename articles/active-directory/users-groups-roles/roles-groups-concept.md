@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1c3143dac79b37ff6dac04856311394440dec9a1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c6c39fd6ceb9e5623d2b857ce8196ef29e73d78a
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91317405"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542301"
 ---
 # <a name="use-cloud-groups-to-manage-role-assignments-in-azure-active-directory-preview"></a>Usar grupos de nuvem para gerenciar atribuições de função no Azure Active Directory (versão prévia)
 
@@ -58,7 +58,6 @@ Os cenários a seguir não têm suporte no momento:
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
-- Você não pode criar ou modificar um grupo dinâmico quando a função é atribuída por meio de um grupo.
 - O recurso **habilitar a distribuição preparada para entrada de usuário gerenciado** não dá suporte à atribuição por meio de grupo.
 - *Somente clientes licenciados do Azure ad P2*: não atribua um grupo como ativo a uma função por meio do Azure AD e do PRIVILEGED Identity Management (PIM). Especificamente, não atribua uma função a um grupo de função atribuível quando ela estiver sendo criada *e* atribua uma função ao grupo usando o PIM posteriormente. Isso resultará em problemas em que os usuários não podem ver suas atribuições de função ativas no PIM, bem como a incapacidade de remover essa atribuição de PIM. As atribuições qualificadas não são afetadas neste cenário. Se você tentar fazer essa atribuição, poderá ver um comportamento inesperado, como:
   - A hora de término da atribuição de função pode ser exibida incorretamente.

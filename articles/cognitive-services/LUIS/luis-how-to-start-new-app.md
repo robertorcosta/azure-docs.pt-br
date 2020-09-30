@@ -3,20 +3,18 @@ title: Criar um novo aplicativo-LUIS
 titleSuffix: Azure Cognitive Services
 description: Criar e gerenciar seus aplicativos na página da Web do Serviço Inteligente de Reconhecimento Vocal (LUIS).
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/18/2020
-ms.author: diberry
-ms.openlocfilehash: 304e76a2bf8bae3e6ee2120b892ef97d89c3decc
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: fcc803e87b2efd3e94b90eb17258ab3bb156359f
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86144403"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541418"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>Criar um aplicativo LUIS no portal do LUIS
 Há algumas maneiras de criar um aplicativo do LUIS. Você pode criar um aplicativo do LUIS no portal do LUIS ou por meio das [APIs](developer-reference-resource.md) de criação do LUIS.
@@ -45,7 +43,7 @@ Você pode criar um aplicativo com as APIs de criação de várias maneiras:
 
 ## <a name="create-new-app-in-luis"></a>Criar aplicativo no LUIS
 
-1. Na página **meus aplicativos** , selecione sua **assinatura**e crie o **recurso** e, em seguida, **+ criar**. 
+1. Na página **meus aplicativos** , selecione sua **assinatura**e crie o  **recurso** e, em seguida, **+ criar**. 
 
 > [!div class="mx-imgBorder"]
 > ![Lista de aplicativos LUIS](./media/create-app-in-portal.png)
@@ -69,7 +67,7 @@ Você pode criar um aplicativo com as APIs de criação de várias maneiras:
 A barra de ferramentas de contexto fornece outras ações:
 
 * Renomear aplicativo
-* Importar do arquivo usando `.lu` ou`.json`
+* Importar do arquivo usando `.lu` ou `.json`
 * Exportar aplicativo como `.lu` (para [LUDown](https://github.com/microsoft/botbuilder-tools/tree/master/packages/Ludown)), `.json` ou `.zip` (para o [contêiner Luis](luis-container-howto.md))
 * Importar logs de ponto de extremidade de contêiner para examinar o ponto de extremidade declarações
 * Exportar logs de ponto de extremidade, como um `.csv` , para análise offline

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9df06a9d81ef3c9fbe3380bab88325a586981db9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5ca65a428af02eaf5ae6ac461006c720da4461bd
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91329305"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538173"
 ---
 # <a name="cloud-tiering-overview"></a>Visão geral da Camada de Nuvem
 A camada de nuvem é um recurso opcional da Sincronização de Arquivos do Azure em que arquivos acessados frequentemente são armazenados em cache localmente no servidor, enquanto todos os outros arquivos são organizados em camadas para Arquivos do Azure com base nas configurações de política. Quando um arquivo está disposto em camadas, o filtro do sistema de arquivos da Sincronização de Arquivos do Azure (StorageSync.sys) substitui o arquivo localmente por um ponteiro ou ponto de nova análise. O ponto de nova análise representa uma URL para o arquivo nos Arquivos do Azure. Um arquivo em camadas tem o atributo "offline" e o atributo FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS definidos em NTFS, de modo que aplicativos de terceiros podem identificar com segurança os arquivos dispostos em camadas.
@@ -40,7 +40,7 @@ A disposição em camadas da nuvem não depende do recurso NTFS para controlar o
 <a id="tiering-minimum-file-size"></a>
 ### <a name="what-is-the-minimum-file-size-for-a-file-to-tier"></a>Qual é o tamanho mínimo do arquivo de um arquivo para uma camada?
 
-Para o Agent versões 12 e mais recentes, o tamanho mínimo do arquivo para um arquivo para camada é baseado no tamanho do cluster do sistema de arquivos. O tamanho mínimo de arquivo qualificado para a camada de nuvem é calculado por 2x o tamanho do cluster e, no mínimo, 8 KB. A tabela a seguir ilustra os tamanhos mínimos de arquivo que podem ser em camadas, com base no tamanho do cluster de volume:
+Para o Agent versões 9 e mais recentes, o tamanho mínimo do arquivo para um arquivo para camada é baseado no tamanho do cluster do sistema de arquivos. O tamanho mínimo de arquivo qualificado para a camada de nuvem é calculado por 2x o tamanho do cluster e, no mínimo, 8 KB. A tabela a seguir ilustra os tamanhos mínimos de arquivo que podem ser em camadas, com base no tamanho do cluster de volume:
 
 |Tamanho do cluster de volume (bytes) |Arquivos desse tamanho ou maiores podem ser em camadas  |
 |----------------------------|---------|
@@ -50,7 +50,7 @@ Para o Agent versões 12 e mais recentes, o tamanho mínimo do arquivo para um a
 |32 KB (32768)               | 64 KB   |
 |64 KB (65536) e maiores    | 128 KB  |
 
-Com o Windows Server 2019 e o agente Sincronização de Arquivos do Azure versão 12 e mais recente, tamanhos de cluster de até 2 MB também têm suporte e camadas nesses tamanhos de cluster maiores funciona da mesma maneira. Versões mais antigas do sistema operacional ou agente dão suporte a tamanhos de cluster de até 64 KB, mas além disso, a camada de nuvem não funciona.
+Com o Windows Server 2019 e o agente do Sincronização de Arquivos do Azure versão 12 (versão do agente futura), os tamanhos de cluster de até 2 MB também têm suporte e camadas nesses tamanhos de cluster maiores funciona da mesma maneira. Versões mais antigas do sistema operacional ou agente dão suporte a tamanhos de cluster de até 64 KB, mas além disso, a camada de nuvem não funciona.
 
 Todos os sistemas de arquivos usados pelo Windows, organizam o disco rígido com base no tamanho do cluster (também conhecido como tamanho da unidade de alocação). O tamanho do cluster representa a menor quantidade de espaço em disco que pode ser usada para manter um arquivo. Quando os tamanhos de arquivo não chegam a um múltiplo par do tamanho do cluster, o espaço adicional deve ser usado para manter o arquivo até o próximo múltiplo do tamanho do cluster.
 

@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b297ee3d03d61b654e2b7fffa17141a1fd5268f3
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 93c97055c6e31050dbc545445ec144ba37abc865
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90971168"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539887"
 ---
 # <a name="assign-a-role-to-a-group-using-privileged-identity-management"></a>Atribuir uma função a um grupo usando Privileged Identity Management
 
@@ -35,7 +35,7 @@ Este artigo descreve como você pode atribuir uma função de Azure Active Direc
 
 1. Selecione uma função e, em seguida, selecione um grupo. Somente os grupos qualificados para atribuição de função (grupos de função atribuíveis) são exibidos e não todos os grupos.
 
-    ![selecionar o usuário a quem você está atribuindo a função](./media/roles-groups-pim-eligible/select-member.png)
+    ![Captura de tela que mostra a página "Adicionar atribuições" com as seções "selecionar função" e "selecionar membro (s)" realçadas.](./media/roles-groups-pim-eligible/select-member.png)
 
 1. Selecione a configuração de associação desejada. Para funções que exigem ativação, escolha **qualificado**. Por padrão, o usuário estaria permanentemente qualificado, mas você também pode definir uma hora de início e de término para a elegibilidade do usuário. Quando estiver concluído, pressione salvar e adicionar para concluir a atribuição de função.
 

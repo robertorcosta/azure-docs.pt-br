@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 2cde352738c1aa545c77cbcf5d974030cd75b1e8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7365e4904bb8e1920e7d4c57c165e489f2ff302e
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91326517"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540584"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Gerenciar pontos de extremidade e rotas no gêmeos digital do Azure (APIs e CLI)
 
@@ -29,7 +29,7 @@ Eles também podem ser gerenciados por meio do [portal do Azure](https://portal.
 * Você precisará de uma **conta do Azure** (você pode configurar uma gratuitamente [aqui](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
 * Você precisará de uma **instância do gêmeos digital do Azure** em sua assinatura do Azure. Se você ainda não tiver uma instância, poderá criar uma usando as etapas em [*como: configurar uma instância e uma autenticação*](how-to-set-up-instance-portal.md). Faça com que os seguintes valores da configuração sejam úteis para uso posterior neste artigo:
     - Nome da instância
-    - Resource group
+    - Grupo de recursos
     
 ## <a name="create-an-endpoint-for-azure-digital-twins"></a>Criar um ponto de extremidade para o gêmeos digital do Azure
 
@@ -58,7 +58,7 @@ az eventgrid topic create -g <your-resource-group-name> --name <your-topic-name>
 > az account list-locations -o table
 > ```
 
-Depois de criar o tópico, você pode vinculá-lo ao Azure digital gêmeos com o seguinte comando:
+Depois de criar o tópico, você pode vinculá-lo ao Azure digital gêmeos com o seguinte [comando da CLI do Azure digital gêmeos](how-to-use-cli.md):
 
 ```azurecli
 az dt endpoint create eventgrid --endpoint-name <Event-Grid-endpoint-name> --eventgrid-resource-group <Event-Grid-resource-group-name> --eventgrid-topic <your-Event-Grid-topic-name> -n <your-Azure-Digital-Twins-instance-name>
@@ -90,7 +90,7 @@ az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --event
 
 Para realmente enviar dados do Azure digital gêmeos para um ponto de extremidade, você precisará definir uma **rota de evento**. As APIs do gêmeos **EventRoutes** do Azure digital permitem que os desenvolvedores conectem o fluxo de eventos, em todo o sistema e em serviços downstream. Leia mais sobre as rotas de eventos em [*conceitos: roteamento de eventos do gêmeos digital do Azure*](concepts-route-events.md).
 
-Os exemplos nesta seção usam o SDK do C#.
+Os exemplos nesta seção usam o [SDK do .net (C#)](https://www.nuget.org/packages/Azure.DigitalTwins.Core).
 
 **Pré-requisito**: você precisa criar pontos de extremidade conforme descrito anteriormente neste artigo antes de passar para a criação de uma rota. Você pode prosseguir com a criação de uma rota de evento quando seus pontos de extremidade tiverem concluído a configuração.
 
@@ -101,7 +101,7 @@ Os exemplos nesta seção usam o SDK do C#.
 
 ### <a name="create-an-event-route"></a>Criar uma rota de eventos
 
-As rotas de eventos são definidas usando APIs de plano de dados. 
+As rotas de eventos são definidas usando [APIs de plano de dados](how-to-use-apis-sdks.md#overview-data-plane-apis). 
 
 Uma definição de rota pode conter estes elementos:
 * O nome da rota que você deseja usar

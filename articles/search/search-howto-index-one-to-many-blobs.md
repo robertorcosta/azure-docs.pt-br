@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
-ms.openlocfilehash: 76086dd7cccb042fdde3722b68b654343f2df012
-ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
+ms.openlocfilehash: e5a69525c4bd0717c0561bc61ee3c52aa68e1c9d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91403578"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533954"
 ---
 # <a name="indexing-blobs-to-produce-multiple-search-documents"></a>Indexando BLOBs para produzir vários documentos de pesquisa
 Por padrão, um indexador de blob tratará o conteúdo de um blob como um único documento de pesquisa. Determinados valores de **parsingMode** dão suporte a cenários em que um blob individual pode resultar em vários documentos de pesquisa. Os diferentes tipos de **parsingMode** que permitem que um indexador Extraia mais de um documento de pesquisa de um blob são:
@@ -66,7 +66,7 @@ Quando você cria um indexador e define o **parsingMode** como `jsonLines` -sem 
 
 Essa configuração resultará no índice de Pesquisa Cognitiva do Azure que contém as seguintes informações (ID codificada em base64 reduzida para fins de brevidade)
 
-| id | temperatura | pressão | timestamp |
+| ID | temperatura | pressão | timestamp |
 |----|-------------|----------|-----------|
 | aHR0 ... YjEuanNvbjsx | 100 | 100 | 2019-02-13T00:00:00Z |
 | aHR0 ... YjEuanNvbjsy | 33 | 30 | 2019-02-14T00:00:00Z |

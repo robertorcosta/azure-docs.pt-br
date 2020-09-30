@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/21/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4889e73e851e285c84d5d4429298e9a7cdacc140
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: e439f7d2b0232a2e1c36517f24723e4e16f7e6bb
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89014380"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537592"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Criar um Sugestor para habilitar o preenchimento automático e os resultados sugeridos em uma consulta
 
@@ -26,7 +26,7 @@ A captura de tela a seguir de [criar seu primeiro aplicativo em C#](tutorial-csh
 
 Você pode usar esses recursos separadamente ou juntos. Para implementar esses comportamentos no Azure Pesquisa Cognitiva, há um componente de índice e consulta. 
 
-+ No índice, adicione um Sugestor a um índice. Você pode usar o portal, a [API REST](/rest/api/searchservice/create-index)ou o [SDK do .net](/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). O restante deste artigo se concentra na criação de um Sugestor.
++ No índice, adicione um Sugestor a um índice. Você pode usar o portal, a [API REST](/rest/api/searchservice/create-index)ou o [SDK do .net](/dotnet/api/microsoft.azure.search.models.suggester). O restante deste artigo se concentra na criação de um Sugestor.
 
 + Na solicitação de consulta, chame uma das [APIs listadas abaixo](#how-to-use-a-suggester).
 
@@ -111,7 +111,7 @@ Na API REST, adicione sugestores por meio de [CREATE INDEX](/rest/api/searchserv
 
 ## <a name="create-using-net"></a>Criar usando o .NET
 
-Em C#, defina um [objeto de sugestão](/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). `Suggesters` é uma coleção, mas só pode pegar um item. 
+Em C#, defina um [objeto de sugestão](/dotnet/api/microsoft.azure.search.models.suggester). `Suggesters` é uma coleção, mas só pode pegar um item. 
 
 ```csharp
 private static void CreateHotelsIndex(SearchServiceClient serviceClient)
@@ -138,7 +138,7 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 |--------------|-----------------|
 |`name`        |O nome do sugestor.|
 |`searchMode`  |A estratégia usada para pesquisar frases candidatas. O único modo com suporte no momento é `analyzingInfixMatching` , que corresponde atualmente ao início de um termo.|
-|`sourceFields`|Uma lista de um ou mais campos que são a fonte do conteúdo para obter sugestões. Os campos devem ser do tipo `Edm.String` e `Collection(Edm.String)` . Se um analisador for especificado no campo, ele deverá ser um analisador Nomeado [desta lista](/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) (não um analisador personalizado).<p/> Como prática recomendada, especifique somente os campos que se prestam a uma resposta esperada e apropriada, seja uma cadeia de caracteres completa em uma barra de pesquisa ou uma lista suspensa.<p/>Um nome de Hotel é um bom candidato porque tem precisão. Campos detalhados, como descrições e comentários, são muito densos. Da mesma forma, campos repetitivos, como categorias e marcas, são menos eficazes. Nos exemplos, incluímos "category" de qualquer forma para demonstrar que você pode incluir vários campos. |
+|`sourceFields`|Uma lista de um ou mais campos que são a fonte do conteúdo para obter sugestões. Os campos devem ser do tipo `Edm.String` e `Collection(Edm.String)` . Se um analisador for especificado no campo, ele deverá ser um analisador Nomeado [desta lista](/dotnet/api/microsoft.azure.search.models.analyzername) (não um analisador personalizado).<p/> Como prática recomendada, especifique somente os campos que se prestam a uma resposta esperada e apropriada, seja uma cadeia de caracteres completa em uma barra de pesquisa ou uma lista suspensa.<p/>Um nome de Hotel é um bom candidato porque tem precisão. Campos detalhados, como descrições e comentários, são muito densos. Da mesma forma, campos repetitivos, como categorias e marcas, são menos eficazes. Nos exemplos, incluímos "category" de qualquer forma para demonstrar que você pode incluir vários campos. |
 
 <a name="how-to-use-a-suggester"></a>
 
@@ -148,8 +148,8 @@ Um Sugestor é usado em uma consulta. Depois que um Sugestor for criado, chame u
 
 + [API REST de sugestões](/rest/api/searchservice/suggestions) 
 + [API REST de preenchimento automático](/rest/api/searchservice/autocomplete) 
-+ [Método SuggestWithHttpMessagesAsync](/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet)
-+ [Método AutocompleteWithHttpMessagesAsync](/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync?view=azure-dotnet&viewFallbackFrom=azure-dotnet)
++ [Método SuggestWithHttpMessagesAsync] (/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?
++ [Método AutocompleteWithHttpMessagesAsync](/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync)
 
 Em um aplicativo de pesquisa, o código do cliente deve aproveitar uma biblioteca, como o [jQuery interface do usuário](https://jqueryui.com/autocomplete/) , para coletar a consulta parcial e fornecer a correspondência. Para obter mais informações sobre essa tarefa, consulte [Adicionar resultados automáticos ou sugeridos ao código do cliente](search-autocomplete-tutorial.md).
 

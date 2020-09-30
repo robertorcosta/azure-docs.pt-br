@@ -8,12 +8,12 @@ ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/25/2020
-ms.openlocfilehash: 2b01b9a3782d25660462d0cc2bf3aec87baf0023
-ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
+ms.openlocfilehash: 417bdacc3ce8b619d5ec9618e6060ac071882471
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91403765"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533918"
 ---
 # <a name="how-to-index-plain-text-blobs-in-azure-cognitive-search"></a>Como indexar blobs de texto sem formatação no Azure Pesquisa Cognitiva
 
@@ -61,9 +61,10 @@ Os modos de análise são especificados na definição do indexador.
 ```
 
 ## <a name="help-us-make-azure-cognitive-search-better"></a>Ajude-nos a tornar o Azure Pesquisa Cognitiva melhor
+
 Caso você tenha solicitações de recursos ou ideias para melhorias, dê sua opinião em [site UserVoice](https://feedback.azure.com/forums/263029-azure-search/). Se precisar de ajuda para usar o recurso existente, poste sua pergunta em [Stack Overflow](https://stackoverflow.microsoft.com/questions/tagged/18870).
 
-## <a name="see-also"></a>Confira também
+## <a name="next-steps"></a>Próximas etapas
 
 * [Indexadores na Pesquisa Cognitiva do Azure](search-indexer-overview.md)
 * [Como configurar um indexador de BLOB](search-howto-indexing-azure-blob-storage.md)

@@ -16,12 +16,12 @@ ms.date: 08/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64a8cab82511a495ed2eef444b05dc534c0f1891
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 8745482ed551108044bbe5e2b2f191ad46d7a441
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422038"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538440"
 ---
 # <a name="configure-azure-ad-custom-roles-in-privileged-identity-management"></a>Configurar funções personalizadas do Azure AD no Privileged Identity Management
 
@@ -44,7 +44,7 @@ Siga estas etapas para abrir as configurações de uma função do Azure AD.
 1. Selecione **Configuração** para abrir a página **Configurações**. Selecione a função para as configurações que você deseja definir.
 1. Selecione **Editar** para abrir a página **Configurações da função**.
 
-    ![Abra a função personalizada do Azure AD para editar as configurações](./media/azure-ad-custom-roles-configure/edit-settings.png)
+    ![Captura de tela que mostra a página "detalhes de configuração de função" com a ação "Editar" selecionada.](./media/azure-ad-custom-roles-configure/edit-settings.png)
 
 ## <a name="role-settings"></a>Configurações de função
 

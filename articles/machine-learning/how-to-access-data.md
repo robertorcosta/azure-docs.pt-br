@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 07/22/2020
 ms.custom: how-to, contperfq1, devx-track-python
-ms.openlocfilehash: 639e4cde82fd8496c90f8ebf263dd42661a75748
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e118c22829bc55e8baafb87db20817ab043ef4df
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91296800"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540771"
 ---
 # <a name="connect-to-azure-storage-services"></a>Conectar aos serviços de armazenamento do Azure
 
@@ -266,5 +266,5 @@ O Azure Data Factory fornece transferência de dados eficiente e resiliente com 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Criar um conjunto de dados do Azure Machine Learning](how-to-create-register-datasets.md)
-* [Treinar um modelo](how-to-train-ml-models.md)
+* [Treinar um modelo](how-to-set-up-training-targets.md)
 * [Implantar um modelo](how-to-deploy-and-where.md)

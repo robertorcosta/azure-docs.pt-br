@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 2f6d1e20db64cb0c2a64771ea26b971b22031fd9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 453cb28b3053ee2fd2706a5537dc71b6cdca4174
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79529983"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539836"
 ---
 # <a name="azure-database-for-mariadb-management-stored-procedures"></a>Banco de dados do Azure para procedimentos armazenados de gerenciamento do MariaDB
 
@@ -21,17 +21,17 @@ Os procedimentos armazenados estão disponíveis no banco de dados do Azure para
 
 A Replicação de Dados permite sincronizar dados de um servidor do MariaDB executado localmente em máquinas virtuais ou em serviços de banco de dados hospedados por outros provedores de nuvem no serviço do Banco de Dados do Azure para MariaDB.
 
-Os procedimentos armazenados a seguir são usados para configurar ou remover a Replicação de Dados entre um mestre e uma réplica.
+Os procedimentos armazenados a seguir são usados para configurar ou remover Replicação de Dados entre uma origem e uma réplica.
 
 |**Nome do procedimento armazenado**|**Parâmetros de entrada**|**Parâmetros de saída**|**Observação de uso**|
 |-----|-----|-----|-----|
 |*mysql.az_replication_change_master*|master_host<br/>master_user<br/>master_password<br/>master_port<br/>master_log_file<br/>master_log_pos<br/>master_ssl_ca|N/D|Para transferir dados com o modo SSL, passe o contexto do certificado de autoridade de certificação para o parâmetro master_ssl_ca. </br><br>Para transferir dados sem SSL, passe uma cadeia de caracteres vazia para o parâmetro master_ssl_ca.|
 |*mysql.az_replication _start*|N/D|N/D|Inicia a replicação.|
 |*mysql.az_replication _stop*|N/D|N/D|Para a replicação.|
-|*mysql.az_replication _remove_master*|N/D|N/D|Remove o relacionamento de replicação entre o mestre e a réplica.|
+|*mysql.az_replication _remove_master*|N/D|N/D|Remove a relação de replicação entre a origem e a réplica.|
 |*mysql.az_replication_skip_counter*|N/D|N/D|Ignora um erro de replicação.|
 
-Para configurar Replicação de Dados entre um mestre e uma réplica no banco de dados do Azure para MariaDB, consulte [como configurar o replicação de dados](howto-data-in-replication.md).
+Para configurar Replicação de Dados entre uma origem e uma réplica no banco de dados do Azure para MariaDB, consulte [como configurar o replicação de dados](howto-data-in-replication.md).
 
 ## <a name="other-stored-procedures"></a>Outros procedimentos armazenados
 

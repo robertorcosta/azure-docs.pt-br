@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 05/18/2020
 ms.author: derekol
-ms.openlocfilehash: 596f06d6dc3ad33f2794dfe0e3ed7822a4820adb
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 62210105ba4ba84cff4b246c5b7cf8cc794fb5e7
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91399008"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534940"
 ---
 # <a name="register-peering-service-by-using-the-azure-portal"></a>Registrar o serviço de emparelhamento usando o portal do Azure
 
@@ -72,14 +72,14 @@ Em um navegador, vá para o portal do Azure e entre com sua conta do Azure.
 1. Selecione **Criar prefixo** na parte inferior da seção **Prefixos** e as caixas de texto aparecerão. Agora, digite o nome do recurso de prefixo e os prefixos associados ao provedor de serviços.
 
 1. Selecione **Chave de Prefixo** e adicione a chave de prefixo que foi atribuída a você pelo seu provedor (ISP ou PTT). Essa chave permite que o MS valide o prefixo e o provedor que alocou o prefixo de IP.
-   > ![Guia Registrar configuração do Serviço de Emparelhamento](./media/peering-service-portal/peering-serviceconfiguration.png)
+   > ![Captura de tela mostra a guia Configuração da página criar uma conexão de serviço de emparelhamento, na qual você pode inserir a chave de prefixo.](./media/peering-service-portal/peering-serviceconfiguration.png)
 
 1. Selecione o botão **Examinar + criar** na parte inferior esquerda da página. A página **Examinar + criar** é exibida e o Azure valida sua configuração.
     
 
 1. Quando a mensagem **Validação aprovada** for exibida, selecione **Criar**.
 
-   > ![Guia Registrar configuração do Serviço de Emparelhamento](./media/peering-service-portal/peering-service-prefix.png)
+   > ![Captura de tela mostra a guia revisar + criar da página criar uma conexão de serviço de emparelhamento.](./media/peering-service-portal/peering-service-prefix.png)
 
 
 1. Depois de registrar uma conexão de Serviço de Emparelhamento, a validação adicional é executada nos prefixos incluídos. Você pode examinar o status de validação na seção **Prefixos** do nome do recurso. Se a validação falhar, uma das seguintes mensagens de erro será exibida:

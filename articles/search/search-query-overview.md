@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/22/2020
-ms.openlocfilehash: 018c3fb08c7fa0ad35fa567bffbeae48b6fbbce9
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: bae4cb72201bbc1653db5bb549d67531bda71d50
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88928829"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537711"
 ---
 # <a name="query-types-and-composition-in-azure-cognitive-search"></a>Tipos de consulta e composição no Azure Pesquisa Cognitiva
 
@@ -88,11 +88,11 @@ Todos os outros parâmetros de pesquisa são opcionais. Para obter a lista compl
 
 A tabela a seguir lista as APIs e as abordagens baseadas em ferramentas para enviar consultas.
 
-| Metodologia | DESCRIÇÃO |
+| Metodologia | Descrição |
 |-------------|-------------|
 | [Gerenciador de pesquisa (Portal)](search-explorer.md) | Fornece uma barra de pesquisa e opções para seleções de versão da API e índice. Os resultados são retornados como documentos JSON. Recomendado para exploração, teste e validação. <br/>[Saiba mais.](search-get-started-portal.md#query-index) | 
 | [O postmaster ou outras ferramentas REST](search-get-started-postman.md) | As ferramentas de teste da Web são uma excelente opção para formular chamadas REST. A API REST dá suporte a todas as operações possíveis no Azure Pesquisa Cognitiva. Neste artigo, saiba como configurar um cabeçalho de solicitação HTTP e o corpo para enviar solicitações para o Azure Pesquisa Cognitiva.  |
-| [SearchIndexClient (.NET)](/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | Cliente que pode ser usado para consultar um índice de Pesquisa Cognitiva do Azure.  <br/>[Saiba mais.](search-howto-dotnet-sdk.md#core-scenarios)  |
+| [SearchIndexClient (.NET)](/dotnet/api/microsoft.azure.search.searchindexclient) | Cliente que pode ser usado para consultar um índice de Pesquisa Cognitiva do Azure.  <br/>[Saiba mais.](search-howto-dotnet-sdk.md#core-scenarios)  |
 | [Pesquisar documentos (API REST)](/rest/api/searchservice/search-documents) | Métodos GET ou POST em um índice, usando parâmetros de consulta para entrada adicional.  |
 
 ## <a name="choose-a-parser-simple--full"></a>Escolha um analisador: simples | completo
@@ -165,7 +165,7 @@ Se você quiser que o Azure Pesquisa Cognitiva retorne os resultados ordenados p
 ### <a name="hit-highlighting"></a>Realce de ocorrência
 No Azure Pesquisa Cognitiva, enfatizando a parte exata dos resultados da pesquisa que correspondem à consulta de pesquisa é facilitada usando **`highlight`** os **`highlightPreTag`** parâmetros, e **`highlightPostTag`** . Você pode especificar quais campos *pesquisáveis* devem ter seu texto correspondente enfatizado, bem como especificar as marcas de cadeia de caracteres exatas a serem acrescentadas ao início e ao fim do texto correspondente que o Azure pesquisa cognitiva retorna.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 + [Como a pesquisa de texto completo funciona no Azure Pesquisa Cognitiva (arquitetura de análise de consulta)](search-lucene-query-architecture.md)
 + [Gerenciador de pesquisa](search-explorer.md)

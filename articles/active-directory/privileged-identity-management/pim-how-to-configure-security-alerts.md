@@ -14,12 +14,12 @@ ms.date: 03/05/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 98af7725e1929637228c6cadd7ee2dc856bd4e8b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 706770db4309d1a909bc1161ab9d6657b6c5310a
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331277"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533541"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-privileged-identity-management"></a>Configurar alertas de segurança para funções do Azure AD no Privileged Identity Management
 
@@ -38,7 +38,7 @@ Siga as etapas neste artigo para investigar alertas de segurança para funções
 
 # <a name="new-version"></a>[Nova versão](#tab/new)
 
-![Funções do Azure AD – painel de alerta listando alertas e a severidade](./media/pim-how-to-configure-security-alerts/view-alerts.png)
+![Captura de tela que mostra a página "alertas" com uma lista de alertas e sua gravidade.](./media/pim-how-to-configure-security-alerts/view-alerts.png)
 
 ## <a name="security-alerts"></a>Alertas de segurança
 
@@ -82,7 +82,7 @@ Esta seção lista todos os alertas de segurança para funções do Azure AD, ju
 
 | | |
 | --- | --- |
-| **Gravidade** | Médio |
+| **Gravidade** | Média |
 | **Por que recebo este alerta?** | As contas em uma função privilegiada não alteraram sua senha nos últimos 90 dias. Essas contas podem ser de serviço ou compartilhadas, que não estejam passando por manutenção e estejam vulneráveis aos invasores. |
 | **Como corrigir?** | Examine as contas na lista. Se eles não precisarem mais de acesso, remova-os de suas funções privilegiadas. |
 | **Prevenção** | Certifique-se de que as contas compartilhadas estejam girando senhas fortes quando houver uma alteração nos usuários que conhecem a senha. </br>Examine regularmente as contas com funções privilegiadas usando [revisões de acesso](pim-how-to-start-security-review.md) e remova as atribuições de função que não são mais necessárias. |
@@ -93,7 +93,7 @@ Esta seção lista todos os alertas de segurança para funções do Azure AD, ju
 
 | | |
 | --- | --- |
-| **Gravidade** | Alto |
+| **Gravidade** | Alta |
 | **Por que recebo este alerta?** | As atribuições de função com privilégios feitas fora do Privileged Identity Management não são monitoradas corretamente e podem indicar um ataque ativo. |
 | **Como corrigir?** | Examine os usuários na lista e remova-os das funções privilegiadas atribuídas fora do Privileged Identity Management. |
 | **Prevenção** | Investigue onde os usuários estão sendo atribuídos a funções privilegiadas fora do Privileged Identity Management e proíba as atribuições futuras a partir daí. |
@@ -181,7 +181,7 @@ Esta seção lista todos os alertas de segurança para funções do Azure AD, ju
 
 | | |
 | --- | --- |
-| **Gravidade** | Médio |
+| **Gravidade** | Média |
 | **Por que recebo este alerta?** | As contas em uma função privilegiada não alteraram sua senha nos últimos 90 dias. Essas contas podem ser de serviço ou compartilhadas, que não estejam passando por manutenção e estejam vulneráveis aos invasores. |
 | **Como corrigir?** | Examine as contas na lista. Se eles não precisarem mais de acesso, remova-os de suas funções privilegiadas. |
 | **Prevenção** | Certifique-se de que as contas compartilhadas estejam girando senhas fortes quando houver uma alteração nos usuários que conhecem a senha. </br>Examine regularmente as contas com funções privilegiadas usando [revisões de acesso](pim-how-to-start-security-review.md) e remova as atribuições de função que não são mais necessárias. |
@@ -192,7 +192,7 @@ Esta seção lista todos os alertas de segurança para funções do Azure AD, ju
 
 | | |
 | --- | --- |
-| **Gravidade** | Alto |
+| **Gravidade** | Alta |
 | **Por que recebo este alerta?** | As atribuições de função com privilégios feitas fora do Privileged Identity Management não são monitoradas corretamente e podem indicar um ataque ativo. |
 | **Como corrigir?** | Examine os usuários na lista e remova-os das funções privilegiadas atribuídas fora do Privileged Identity Management. |
 | **Prevenção** | Investigue onde os usuários estão sendo atribuídos a funções privilegiadas fora do Privileged Identity Management e proíba as atribuições futuras a partir daí. |
