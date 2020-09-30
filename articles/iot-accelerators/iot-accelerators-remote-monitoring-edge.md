@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: a812155474b244682613b38b9b9379fa6cdcdcd8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 43ba14845765230b9a54c2b34dbc7ccd53af950b
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "66117756"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969996"
 ---
 # <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>Tutorial: Detectar anomalias na borda com o acelerador de solução de Monitoramento Remoto
 
@@ -26,7 +26,7 @@ A Contoso deseja implantar um módulo de borda inteligente na bomba de extraçã
 
 O diagrama a seguir mostra os principais componentes no cenário do tutorial:
 
-![Visão geral](media/iot-accelerators-remote-monitoring-edge/overview.png)
+![O diagrama mostra o conector da bomba de óleo conectado ao módulo de análise de fluxo do IoT Edge no dispositivo do IoT Edge para telemetria e comandos. A telemetria filtrada vai para o dispositivo do IoT Edge no Acelerador de solução de monitoramento remoto na nuvem. A nuvem também contém a Implantação e o Pacote. A implantação implanta o runtime do IoT Edge no dispositivo.](media/iot-accelerators-remote-monitoring-edge/overview.png)
 
 Neste tutorial, você:
 
@@ -83,8 +83,8 @@ Para facilitar o gerenciamento de dispositivos do IoT Edge na solução, crie um
     | Trabalho     | Marcas  |
     | Nome do Trabalho | AddEdgeTag |
     | Chave     | IsOilPump |
-    | Valor   | S     |
-    | Type    | Texto  |
+    | Valor   | Y     |
+    | Tipo    | Texto  |
 
     [![Adicionar marca](./media/iot-accelerators-remote-monitoring-edge/addtag-inline.png)](./media/iot-accelerators-remote-monitoring-edge/addtag-expanded.png#lightbox)
 
@@ -99,8 +99,8 @@ Para facilitar o gerenciamento de dispositivos do IoT Edge na solução, crie um
     | Nome    | OilPumps |
     | Campo   | Tags.IsOilPump |
     | Operador | = Equals |
-    | Valor    | S |
-    | Type     | Texto |
+    | Valor    | Y |
+    | Tipo     | Texto |
 
     [![Criar um grupo de dispositivos](./media/iot-accelerators-remote-monitoring-edge/createdevicegroup-inline.png)](./media/iot-accelerators-remote-monitoring-edge/createdevicegroup-expanded.png#lightbox)
 
@@ -163,7 +163,7 @@ Você pode definir o trabalho do Stream Analytics no portal antes de empacotá-l
     | Nome do trabalho | EdgeDeviceJob |
     | Subscription | Sua assinatura do Azure |
     | Resource group | IoTEdgeDevices |
-    | Location | Leste dos EUA |
+    | Localização | Leste dos EUA |
     | Ambiente de hospedagem | Microsoft Edge |
     | Unidades de transmissão | 1 |
 
@@ -239,7 +239,7 @@ Em seguida, crie um manifesto de implantação do IoT Edge que define os módulo
 
 1. Na página **Criar Implantação > Examinar Implantação**, clique em **Enviar**:
 
-    [![Examinar implantação](./media/iot-accelerators-remote-monitoring-edge/reviewdeployment-inline.png)](./media/iot-accelerators-remote-monitoring-edge/reviewdeployment-expanded.png#lightbox)
+    [![Rever implantação](./media/iot-accelerators-remote-monitoring-edge/reviewdeployment-inline.png)](./media/iot-accelerators-remote-monitoring-edge/reviewdeployment-expanded.png#lightbox)
 
 1. Na página principal do **IoT Edge**, clique em **Implantações do IoT Edge**. É possível ver **oil-pump-device** na lista de implantações.
 
@@ -269,7 +269,7 @@ Agora você está pronto para implantar o pacote em seu dispositivo.
 
 1. Na interface de usuário Web do Monitoramento Remoto, navegue até a página **Implantações** e clique em **+ Nova implantação**:
 
-    [![Nova Implantação](./media/iot-accelerators-remote-monitoring-edge/newdeployment-inline.png)](./media/iot-accelerators-remote-monitoring-edge/newdeployment-expanded.png#lightbox)
+    [![Nova implantação](./media/iot-accelerators-remote-monitoring-edge/newdeployment-inline.png)](./media/iot-accelerators-remote-monitoring-edge/newdeployment-expanded.png#lightbox)
 
 1. No painel **Nova implantação**, crie uma implantação com as seguintes configurações:
 
@@ -315,7 +315,7 @@ Se você quiser notificar os operadores quando o limite for atingido, é possív
     | Opção | Valor |
     | ------ | ----- |
     | Nome da regra | Temperatura da bomba de extração |
-    | DESCRIÇÃO | Temperatura da bomba de extração ultrapassou 300 |
+    | Descrição | Temperatura da bomba de extração ultrapassou 300 |
     | Grupo de dispositivos | OilPumps |
     | Cálculo | Instantâneo |
     | Campo | temperatura |
@@ -334,7 +334,7 @@ Se você quiser notificar os operadores quando o limite for atingido, é possív
 Este tutorial mostrou como adicionar e configurar um dispositivo do IoT Edge no acelerador de solução de Monitoramento Remoto. Para saber mais sobre como trabalhar com pacotes do IoT Edge da solução de Monitoramento Remoto, confira o guia de instruções abaixo:
 
 > [!div class="nextstepaction"]
-> [Importar um pacote do IoT Edge para o acelerador de solução de Monitoramento Remoto](iot-accelerators-remote-monitoring-import-edge-package.md)
+> [Importe um pacote IoT Edge para o acelerador de solução de monitoramento remoto](iot-accelerators-remote-monitoring-import-edge-package.md)
 
 Para saber mais sobre como instalar o runtime do IoT Edge, confira [Instalar o runtime do Azure IoT Edge no Linux (x64)](../iot-edge/how-to-install-iot-edge-linux.md).
 

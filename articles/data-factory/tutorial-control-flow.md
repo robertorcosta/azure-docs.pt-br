@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 9/27/2019
-ms.openlocfilehash: 0330e72ad74726f97bfdfd78ef8d5f9b24a5d172
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 6eaf00679566aa8dfb7a90db95228349c81fcfec
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85513321"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983416"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Ramificação e encadeamento de atividades em um pipeline de Data Factory
 
@@ -26,7 +26,7 @@ Neste tutorial, você deve criar um pipeline de Data Factory que apresente algun
 
 Este gráfico fornece uma visão geral do cenário:
 
-![Visão geral](media/tutorial-control-flow/overview.png)
+![O diagrama mostra o Armazenamento de Blobs do Azure, que é o destino de uma cópia. Em caso de êxito, ele envia um email com detalhes e, em caso de falha, ele envia um email com detalhes do erro.](media/tutorial-control-flow/overview.png)
 
 O tutorial mostra como executar as seguintes tarefas:
 

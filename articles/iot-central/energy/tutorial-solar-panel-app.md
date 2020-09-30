@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 5a48ea0747a110720a29a9c34fa2dca0f5a74f16
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: c0f4c4deaa57b1414a3ef55226e4c451b53ba72c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84309995"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971305"
 ---
 # <a name="tutorial-create-and-walk-through-the-solar-panel-monitoring-app-template"></a>Tutorial: Criar e percorrer o modelo de aplicativo de monitoramento do painel solar 
 
@@ -105,8 +105,9 @@ Se optar por não continuar usando este aplicativo, exclua-o seguindo estas etap
     > [!div class="mx-imgBorder"]
     > ![Excluir aplicativo](media/tutorial-iot-central-solar-panel/solar-panel-delete-app.png)
 
-
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre a arquitetura do aplicativo de painel solar conferindo o [artigo de conceito](https://docs.microsoft.com/azure/iot-central/energy/concept-iot-central-solar-panel-app)
+* Saiba mais sobre a arquitetura do aplicativo de painel solar: confira 
+> [!div class="nextstepaction"]
+> [o artigo conceito](https://docs.microsoft.com/azure/iot-central/energy/concept-iot-central-solar-panel-app)
 * Crie modelos de aplicativos de painel solar gratuitamente: [aplicativo de painel solar](https://apps.azureiotcentral.com/build/new/solar-panel-monitoring)
 * Saiba mais sobre o IoT Central conferindo a [Visão geral do IoT Central](https://docs.microsoft.com/azure/iot-central/)

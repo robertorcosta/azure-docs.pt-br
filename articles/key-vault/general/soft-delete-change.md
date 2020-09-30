@@ -10,17 +10,19 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: sudbalas
-ms.openlocfilehash: c5509d6a284ab7afe827f67b79b7be027e76f66c
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: bf758a07cff248fc0da3f279e68a14e88797e382
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90068839"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984598"
 ---
 # <a name="soft-delete-will-be-enabled-on-all-key-vaults"></a>A exclusão reversível será habilitada em todos os cofres de chaves
 
 > [!WARNING]
 > **Alteração da Falha**: A capacidade de recusar a exclusão reversível será preterida no final do ano e a proteção de exclusão reversível será ativada automaticamente para todos os cofres de chaves.  Os usuários e administradores do Azure Key Vault devem habilitar a exclusão reversível nos seus cofres de chaves imediatamente.
+>
+> Para o HSM Gerenciado, a exclusão reversível é habilitada por padrão e não pode ser desabilitada.
 
 Quando um segredo for excluído de um cofre de chaves sem proteção de exclusão reversível, o segredo será excluído permanentemente. Atualmente, os usuários podem recusar a exclusão reversível durante a criação do cofre de chaves, mas, para proteger os seus segredos de exclusão acidental ou mal-intencionada por um usuário, a Microsoft em breve habilitará a proteção de exclusão reversível em **todos** os cofres de chaves e os usuários não terão mais a opção de recusar ou desativar a exclusão reversível.
 

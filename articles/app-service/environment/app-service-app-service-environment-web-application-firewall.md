@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 03/03/2018
 ms.author: stefsch
 ms.custom: mvc, seodec18
-ms.openlocfilehash: e40a42afc99d505dc48794d5ad919e4d682b7070
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 354568fa3ab3816b643a8f08305ab55868a9b0b6
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961832"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973710"
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>Configurando um WAF (Firewall do Aplicativo Web) para Ambiente do Serviço de Aplicativo
 ## <a name="overview"></a>Visão geral
@@ -26,7 +26,7 @@ Além do Gateway de Aplicativo Azure, há várias opções no marketplace, como 
 ## <a name="setup"></a>Instalação
 Neste documento, configuramos nosso Ambiente do Serviço de Aplicativo por trás de várias instâncias balanceadas por carga do Barracuda WAF, de modo que somente o tráfego do WAF possa chegar ao Ambiente do Serviço de Aplicativo e que este não possa ser acessado da DMZ. Também temos o Gerenciador de Tráfego do Azure em nossas instâncias do Barracuda WAF para balancear carga entre os datacenters e regiões do Azure. Um diagrama de alto nível da configuração seria semelhante à seguinte imagem:
 
-![Arquitetura][Architecture] 
+![O diagrama mostra um Gerenciador de Tráfego do Azure opcional que se conecta a instâncias do Firewall de Aplicativo Web, que se conecta à A C L de Rede para permitir apenas o tráfego do firewall em um Ambiente do Serviço de Aplicativo que contém Web, A P I e Aplicativo Móvel para duas regiões.][Architecture] 
 
 > [!NOTE]
 > Com a introdução do [suporte ILB para o Ambiente do Serviço de Aplicativo](app-service-environment-with-internal-load-balancer.md), você pode configurar o ASE para ser acessado da DMZ e estar disponível apenas para a rede privada. 

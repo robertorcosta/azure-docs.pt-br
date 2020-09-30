@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/24/2020
 ms.author: mbaldwin
-ms.openlocfilehash: ec1d02cefcdb443a74fab52496cd9428a852139f
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 0a2c1b39f5688b4fc544e5456666ccb8b4801517
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84169960"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91281042"
 ---
 # <a name="quickstart-set-and-retrieve-a-certificate-from-azure-key-vault-using-the-azure-portal"></a>Início Rápido: Definir e recuperar um certificado do Azure Key Vault usando o portal do Azure
 
@@ -45,7 +45,7 @@ Entre no Portal do Azure em https://portal.azure.com.
 Anote as duas propriedades listadas abaixo:
 
 * **Nome do cofre**: no exemplo, ele é **Example-Vault**. Você usará esse nome nas outras etapas.
-* **URI do cofre**: no exemplo, é https://example-vault.vault.azure.net/. Aplicativos que usam seu cofre via API REST devem usar esse URI.
+* **URI do cofre**: no exemplo, é `https://example-vault.vault.azure.net/`. Aplicativos que usam seu cofre via API REST devem usar esse URI.
 
 Nesse ponto, sua conta do Azure é a única autorizada a executar operações nesse novo cofre.
 

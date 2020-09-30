@@ -7,12 +7,12 @@ ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 274d725a0e7987c8cb15363ba276aec7ebc541d5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 53304f14286577bf0bc25b2a66442286527c5140
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77426353"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90972424"
 ---
 # <a name="tutorial-create-a-connected-waste-management-application-in-iot-central"></a>Tutorial: Criar um aplicativo de gestão de resíduos conectada no IoT Central
 
@@ -131,13 +131,13 @@ Para exibir do modelo de dispositivo:
 
 1. Clique em **Modelos de dispositivo** no painel esquerdo do aplicativo no IoT Central. 
 
-    ![Modelo de dispositivo](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate.png)
+    ![Captura de tela mostrando a lista de modelos de dispositivo no aplicativo](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate.png)
 
 2. Na lista Modelos de dispositivo, você verá a **Lixeira Conectada**. Abra clicando no nome.
 
 3. Familiarize-se com as funcionalidades do modelo de dispositivo. Você poderá ver que ele define sensores como *Nível de preenchimento*, *Medidor de odor*, *peso*, *localização*, entre outros.
 
-   ![Modelo de dispositivo](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate-connectedbin.png)
+   ![Captura de tela mostrando os detalhes do modelo de dispositivo de compartimento de resíduos conectado](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate-connectedbin.png)
 
    
 
@@ -265,8 +265,9 @@ Se você não quiser continuar usando o aplicativo, exclua-o seguindo estas etap
 1. Abra a guia Administração no painel esquerdo de seu aplicativo do IoT Central.
 2. Selecione Configurações do aplicativo e clique no botão Excluir na parte inferior da página.
 
-  
-
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre os [Conceitos da gestão de resíduos conectada](./concepts-connectedwastemanagement-architecture.md)
+* Saiba mais sobre
+ 
+> [!div class="nextstepaction"]
+> [Conceitos de gestão de resíduos conectada](./concepts-connectedwastemanagement-architecture.md)

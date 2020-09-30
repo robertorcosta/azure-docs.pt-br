@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/07/2020
 ms.author: jeedes
-ms.openlocfilehash: 1aa52c81b7abbfb355ef06f6ae93a5dd4c985042
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f5b5f115ab2fb7036287c976a94b9e123bf6ed42
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88532374"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90982796"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-verasmart"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao VeraSMART
 
@@ -131,7 +131,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 1. Acesse **Administração** -> **Segurança** -> **Configuração de Autenticação**.
 
-    ![Configuração](./media/verasmart-tutorial/configuration.png)
+    ![A captura de tela mostra VeraSMART com Administração, Segurança e Configuração de Autenticação selecionados.](./media/verasmart-tutorial/configuration.png)
 
 1. Execute as etapas abaixo na seguinte página:
 

@@ -7,23 +7,22 @@ author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 05/20/2020
+ms.date: 09/14/2020
 ms.author: nitinme
-ms.openlocfilehash: 2455297cd9dd77d2b5f605bf36ed46b6240b3f4d
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.openlocfilehash: 7a298de40264a06e18aa4b7c77abfd622be4bb75
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89505362"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978252"
 ---
-A [Leitura Avançada](https://www.onenote.com/learningtools) é uma ferramenta projetada de forma inclusiva que implementa técnicas comprovadas para melhorar a compreensão da leitura.
+A [Leitura Avançada](https://www.onenote.com/learningtools) é uma ferramenta inclusivamente desenvolvida que implementa técnicas comprovadas para melhorar a compreensão de leitura para novos leitores, aprendizes da idioma e pessoas com diferenças de aprendizado, como dislexia. Você pode usar a Leitura Avançada em seus aplicativos para isolar texto e aprimorar o foco, exibir imagens para palavras usadas com frequência, realçar partes de fala, ler o texto selecionado em voz alta, traduzir palavras e frases em tempo real e muito mais.
 
 Neste início rápido, você criará um aplicativo iOS do zero e integrará a Leitura Avançada. Um exemplo de funcionamento completo deste Início Rápido está disponível [aqui](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/ios).
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar.
-
 ## <a name="prerequisites"></a>Pré-requisitos
 
+* Assinatura do Azure – [Criar uma gratuitamente](https://azure.microsoft.com/free/cognitive-services)
 * [Xcode](https://apps.apple.com/us/app/xcode/id497799835?mt=12)
 * Um recurso de Leitura Avançada configurado para autenticação do Azure Active Directory. Siga [estas instruções](../../how-to-create-immersive-reader.md) para a configuração. Você precisará de alguns dos valores criados aqui ao configurar as propriedades do projeto de exemplo. Salve a saída da sessão em um arquivo de texto para referência futura.
 
@@ -31,21 +30,21 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Criar um projeto no Xcode.
 
-![Novo Projeto](../../media/ios/xcode-create-project.png)
+![Novo Projeto – Swift](../../media/ios/xcode-create-project.png)
 
 Escolha **Aplicativo de Modo de Exibição Único**.
 
-![Novo Aplicativo de Modo de Exibição Único](../../media/ios/xcode-single-view-app.png)
+![Novo Aplicativo de Modo de Exibição Único – Swift](../../media/ios/xcode-single-view-app.png)
 
 ## <a name="set-up-authentication"></a>Configurar a autenticação
 
 No menu superior, clique em **Produto > Esquema > Editar Esquema...** .
 
-![Editar Esquema](../../media/ios/quickstart-ios-edit-scheme.png)
+![Editar Esquema – Swift](../../media/ios/quickstart-ios-edit-scheme.png)
 
 Na exibição **Executar**, clique na guia **Argumentos**.
 
-![Editar Esquema](../../media/ios/quickstart-ios-env-vars.png)
+![Editar variáveis de ambiente do esquema – Swift](../../media/ios/quickstart-ios-env-vars.png)
 
 Na seção **Variáveis de Ambiente**, adicione os seguintes nomes e valores, fornecendo os valores fornecidos quando você criou o recurso de Leitura Avançada.
 
@@ -557,19 +556,19 @@ function sendContentToReader(message) {
 
 Defina o esquema de arquivo no Xcode selecionando um simulador ou um destino do dispositivo.
 
-![Esquema de arquivo](../../media/ios/xcode-archive-scheme.png)
+![Esquema de arquivo – Swift](../../media/ios/xcode-archive-scheme.png)
 
-![Selecionar o destino](../../media/ios/xcode-select-target.png)
+![Selecionar destino – Swift](../../media/ios/xcode-select-target.png)
 
 No Xcode, pressione **Ctrl+R** ou clique no botão reproduzir para executar o projeto. O aplicativo deve ser iniciado no simulador ou dispositivo especificado.
 
 Em seu aplicativo, você deverá ver:
 
-![Aplicativo de exemplo](../../media/ios/sample-app-ipad.png)
+![Aplicativo de exemplo – Swift](../../media/ios/sample-app-ipad.png)
 
 Quando clicar no botão **Leitura Avançada**, você verá a Leitura Avançada iniciada com o conteúdo no aplicativo.
 
-![Leitura Avançada](../../media/ios/immersive-reader-ipad.png)
+![Leitura Avançada – Swift](../../media/ios/immersive-reader-ipad.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

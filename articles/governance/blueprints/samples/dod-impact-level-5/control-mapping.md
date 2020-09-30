@@ -1,14 +1,14 @@
 ---
 title: Controles do modelo de blueprint do Nível de Impacto 5 do DoD
 description: Mapeamento de controle do modelo de blueprint do Nível de Impacto 5 do DoD. Cada controle é mapeado para uma ou mais Políticas do Azure que auxiliam na avaliação.
-ms.date: 06/30/2020
+ms.date: 09/17/2020
 ms.topic: sample
-ms.openlocfilehash: a7d1439a73cf387cee773d558ced50ce1c07f6dc
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 456560a8042b239a4d53e1c309742650c00bfa6a
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921309"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978370"
 ---
 # <a name="control-mapping-of-the-dod-impact-level-5-blueprint-sample"></a>Mapeamento de controle do modelo de blueprint do Nível de Impacto 5 do DoD
 
@@ -307,11 +307,8 @@ Este blueprint ajuda você a gerenciar as falhas do sistema de informações por
 
 ## <a name="si-02-06-flaw-remediation--removal-of-previous-versions-of-software--firmware"></a>Correção de falhas SI-02 (06) | Remoção de versões anteriores do software/firmware
 
-Esse blueprint atribui definições de política que ajudam você a garantir que os aplicativos estejam usando a versão mais recente do .NET Framework, HTTP, Java, PHP, Python e TLS. Esse blueprint também atribui uma definição de política que garante que os Serviços do Kubernetes sejam atualizados para uma versão não vulnerável do Kubernetes.
+Esse blueprint atribui definições de política que ajudam você a garantir que os aplicativos estejam usando a versão mais recente do HTTP, Java, PHP, Python e TLS. Esse blueprint também atribui uma definição de política que garante que os Serviços do Kubernetes sejam atualizados para uma versão não vulnerável do Kubernetes.
 
-- Verificar se a versão do '.NET Framework' é a última, se usada como parte do aplicativo de API
-- Verificar se a versão do '.NET Framework' é a última, se usada como parte do aplicativo de funções
-- Verificar se a versão do '.NET Framework' é a última, se usada como parte do aplicativo Web
 - Garantir que a 'Versão do HTTP' seja a última, se usada para executar o aplicativo de API
 - Garantir que a 'Versão do HTTP' seja a última, se usada para executar o aplicativo de funções
 - Garantir que a 'Versão do HTTP' seja a última, se usada para executar o aplicativo Web
@@ -319,7 +316,6 @@ Esse blueprint atribui definições de política que ajudam você a garantir que
 - Garantir que a "versão do Java" seja a mais recente, se usada como parte do aplicativo de funções
 - Garantir que a 'versão do Java' seja a última, se usada como parte do aplicativo Web
 - Garantir que a 'versão do PHP' seja a última, se usada como parte do aplicativo de API
-- Garantir que a 'versão do PHP' seja a última, se usada como parte do aplicativo de funções
 - Garantir que a 'versão do PHP' seja a última, se usada como parte do aplicativo Web
 - Garantir que a 'versão do Python' seja a última, se usada como parte do aplicativo de API
 - Garantir que a 'versão do Python' seja a última, se usada como parte do aplicativo de funções

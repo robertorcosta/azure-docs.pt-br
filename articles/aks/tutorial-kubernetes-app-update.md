@@ -5,12 +5,12 @@ services: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
 ms.custom: mvc
-ms.openlocfilehash: d5457d790cd3c95bb23ec0c517097b443a2389ed
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e9981f9df31f6de21262aedc9790dbf1a7725fc7
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77593369"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985347"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Tutorial: atualizar um aplicativo no Serviço de Kubernetes do Azure (AKS)
 
@@ -64,7 +64,7 @@ docker-compose up --build -d
 
 Para verificar que a atualização imagem de contêiner atualizada mostra as alterações, abra um navegador da Web local para `http://localhost:8080`.
 
-![Imagem do cluster Kubernetes no Azure](media/container-service-kubernetes-tutorials/vote-app-updated.png)
+:::image type="content" source="media/container-service-kubernetes-tutorials/vote-app-updated.png" alt-text="Captura de tela que mostra um exemplo da imagem de contêiner atualizada do Aplicativo de Votação do Azure aberto com um navegador da Web local e um host local.":::
 
 Os valores atualizados fornecidos no arquivo *config_file.cfg* são exibidos no aplicativo em execução.
 
@@ -145,7 +145,7 @@ kubectl get service azure-vote-front
 
 Agora abra um navegador da Web local no endereço IP do serviço:
 
-![Imagem do cluster Kubernetes no Azure](media/container-service-kubernetes-tutorials/vote-app-updated-external.png)
+:::image type="content" source="media/container-service-kubernetes-tutorials/vote-app-updated-external.png" alt-text="Captura de tela que mostra um exemplo da imagem de contêiner atualizada do Aplicativo de Votação do Azure aberto com um navegador da Web local e um host local.":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

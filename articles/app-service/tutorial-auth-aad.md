@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/29/2020
 ms.custom: devx-track-csharp, seodec18
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: c1c3f52dafe63e3f829eb12d4fb872ed3ce85f36
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: abda26e359becb137d4c0c9f2965ebfbb5ee047c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88211708"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90982896"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Tutorial: Autenticar e autorizar usuários de ponta a ponta no Serviço de Aplicativo do Azure
 
@@ -145,7 +145,7 @@ http://<back-end-app-name>.azurewebsites.net
 http://<front-end-app-name>.azurewebsites.net
 ```
 
-![API do ASP.NET Core em execução no Serviço de Aplicativo do Azure](./media/tutorial-auth-aad/azure-run.png)
+:::image type="content" source="./media/tutorial-auth-aad/azure-run.png" alt-text="Captura de tela de um Exemplo de API REST do Serviço de Aplicativo do Azure em uma janela do navegador, que mostra um aplicativo de lista de Tarefas pendentes.":::
 
 > [!NOTE]
 > Se seu aplicativo foi reiniciado, talvez você tenha notado que os novos dados foram apagados. Esse comportamento é por design porque o aplicativo ASP.NET Core de exemplo usa um banco de dados na memória.
@@ -225,7 +225,7 @@ Navegue até `http://<front-end-app-name>.azurewebsites.net` e adicione alguns i
 
 Navegue até `http://<back-end-app-name>.azurewebsites.net` para ver os itens adicionados do aplicativo de front-end. Além disso, adicione alguns itens, como `from back end 1` e `from back end 2` e atualize o aplicativo de front-end para ver se ele reflete as alterações.
 
-![API do ASP.NET Core em execução no Serviço de Aplicativo do Azure](./media/tutorial-auth-aad/remote-api-call-run.png)
+:::image type="content" source="./media/tutorial-auth-aad/remote-api-call-run.png" alt-text="Captura de tela de um Exemplo de API REST do Serviço de Aplicativo do Azure em uma janela do navegador, que mostra um aplicativo de lista de Tarefas pendentes.":::
 
 ## <a name="configure-auth"></a>Configurar autenticação
 
@@ -239,7 +239,7 @@ No menu do [portal do Azure](https://portal.azure.com), selecione **Grupos de re
 
 Clique em **grupos de recursos** e selecione o grupo de recursos. Em **Visão geral**, selecione a página de gerenciamento do aplicativo de back-end.
 
-![API do ASP.NET Core em execução no Serviço de Aplicativo do Azure](./media/tutorial-auth-aad/portal-navigate-back-end.png)
+:::image type="content" source="./media/tutorial-auth-aad/portal-navigate-back-end.png" alt-text="Captura de tela de um Exemplo de API REST do Serviço de Aplicativo do Azure em uma janela do navegador, que mostra um aplicativo de lista de Tarefas pendentes.":::
 
 No menu esquerdo do aplicativo de back-end, selecione **Autenticação/Autorização** e habilite a autenticação do Serviço de Aplicativo selecionando **Ativo**.
 
@@ -247,7 +247,7 @@ Em **Ação a tomar quando a solicitação não está autenticada**, selecione *
 
 Em **Provedores de Autenticação**, selecione **Azure Active Directory**.
 
-![API do ASP.NET Core em execução no Serviço de Aplicativo do Azure](./media/tutorial-auth-aad/configure-auth-back-end.png)
+:::image type="content" source="./media/tutorial-auth-aad/configure-auth-back-end.png" alt-text="Captura de tela de um Exemplo de API REST do Serviço de Aplicativo do Azure em uma janela do navegador, que mostra um aplicativo de lista de Tarefas pendentes.":::
 
 Selecione **Expresso**, aceite as configurações padrão para criar um novo aplicativo AD e selecione **OK**.
 
@@ -259,9 +259,7 @@ Selecione **Azure Active Directory** novamente e selecione **Aplicativo Azure AD
 
 Copie a **ID do Cliente** do aplicativo do Azure AD para um bloco de notas. Você precisará desse valor mais tarde.
 
-![API do ASP.NET Core em execução no Serviço de Aplicativo do Azure](./media/tutorial-auth-aad/get-application-id-back-end.png)
-
-Se parar por aqui, você terá um aplicativo autossuficiente que já está protegido pela autenticação e pela autorização do Serviço de Aplicativo. As seções restantes mostram como proteger uma solução de vários aplicativos "levando" o usuário autenticado do front-end para o back-end. 
+:::image type="content" source="./media/tutorial-auth-aad/get-application-id-back-end.png" alt-text="Captura de tela de um Exemplo de API REST do Serviço de Aplicativo do Azure em uma janela do navegador, que mostra um aplicativo de lista de Tarefas pendentes." o usuário autenticado do front-end para o back-end. 
 
 ### <a name="enable-authentication-and-authorization-for-front-end-app"></a>Habilitar autenticação e autorização para o aplicativo de front-end
 
@@ -284,13 +282,13 @@ No menu [portal do Azure](https://portal.azure.com), selecione **Azure Active Di
 
 Selecione **Registros de aplicativo** > **Aplicativos próprios** > **Exibir todos os aplicativos neste diretório**. Selecione o nome do aplicativo front-end e, em seguida, **permissões de API**.
 
-![API do ASP.NET Core em execução no Serviço de Aplicativo do Azure](./media/tutorial-auth-aad/add-api-access-front-end.png)
+:::image type="content" source="./media/tutorial-auth-aad/add-api-access-front-end.png" alt-text="Captura de tela de um Exemplo de API REST do Serviço de Aplicativo do Azure em uma janela do navegador, que mostra um aplicativo de lista de Tarefas pendentes.":::
 
 Selecione **Adicionar uma permissão** e, em seguida, selecione **APIs que a minha organização usa** >  **\<back-end-app-name>** .
 
 Na página **Solicitar permissões de API** para o aplicativo de back-end, selecione **Permissões delegadas** e **user_impersonation**, então selecione **Adicionar permissões**.
 
-![API do ASP.NET Core em execução no Serviço de Aplicativo do Azure](./media/tutorial-auth-aad/select-permission-front-end.png)
+:::image type="content" source="./media/tutorial-auth-aad/select-permission-front-end.png" alt-text="Captura de tela de um Exemplo de API REST do Serviço de Aplicativo do Azure em uma janela do navegador, que mostra um aplicativo de lista de Tarefas pendentes.":::
 
 ### <a name="configure-app-service-to-return-a-usable-access-token"></a>Configurar o Serviço de Aplicativo para retornar um token de acesso utilizável
 
@@ -300,7 +298,7 @@ Navegue até [Azure Resource Explorer](https://resources.azure.com) e usando, a 
 
 O [Azure Resource Explorer](https://resources.azure.com) agora está aberto com seu aplicativo de front-end selecionado na árvore de recursos. Na parte superior da página, clique em **Leitura/Gravação** para permitir a edição dos recursos do Azure.
 
-![API do ASP.NET Core em execução no Serviço de Aplicativo do Azure](./media/tutorial-auth-aad/resources-enable-write.png)
+:::image type="content" source="./media/tutorial-auth-aad/resources-enable-write.png" alt-text="Captura de tela de um Exemplo de API REST do Serviço de Aplicativo do Azure em uma janela do navegador, que mostra um aplicativo de lista de Tarefas pendentes.":::
 
 No navegador esquerdo, faça uma busca detalhada até **config** > **authsettings**.
 
@@ -310,7 +308,7 @@ No modo de exibição **authsettings**, clique em **Editar**. Defina `additional
 "additionalLoginParams": ["response_type=code id_token","resource=<back-end-client-id>"],
 ```
 
-![API do ASP.NET Core em execução no Serviço de Aplicativo do Azure](./media/tutorial-auth-aad/additional-login-params-front-end.png)
+:::image type="content" source="./media/tutorial-auth-aad/additional-login-params-front-end.png" alt-text="Captura de tela de um Exemplo de API REST do Serviço de Aplicativo do Azure em uma janela do navegador, que mostra um aplicativo de lista de Tarefas pendentes.":::
 
 Salve suas configurações clicando em **PUT**.
 

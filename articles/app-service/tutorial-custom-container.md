@@ -7,12 +7,12 @@ ms.author: msangapu
 keywords: serviço de aplicativo do azure, aplicativo Web, linux, windows, docker, contêiner
 ms.custom: devx-track-csharp, mvc, seodec18, devx-track-python
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: df46d61ddfba5f4da977b19db3158691c78168f8
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: fdc15ecd79a6672d2a46b4da284533965977d753
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88958449"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90982863"
 ---
 # <a name="migrate-custom-software-to-azure-app-service-using-a-custom-container"></a>Migrar software personalizado para o Serviço de Aplicativo do Azure usando um contêiner personalizado
 
@@ -56,7 +56,7 @@ Abra o arquivo *custom-font-win-container/CustomFontSample.sln* no Visual Studio
 
 Tipo `Ctrl+F5` para executar o aplicativo sem depuração. O aplicativo é exibido no navegador padrão. 
 
-![Caixa de diálogo Novo Projeto ASP .NET](media/tutorial-custom-container/local-app-in-browser.png)
+:::image type="content" source="media/tutorial-custom-container/local-app-in-browser.png" alt-text="Captura de tela que mostra o aplicativo exibido no navegador padrão.":::
 
 Como ele usa uma fonte instalada, o aplicativo não pode ser executado na área restrita do Serviço de Aplicativo. No entanto, você pode implantá-lo usando um contêiner do Windows em vez disso, pois é possível instalar a fonte no contêiner do Windows.
 
@@ -64,7 +64,7 @@ Como ele usa uma fonte instalada, o aplicativo não pode ser executado na área 
 
 No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **CustomFontSample** e selecione **Adicionar** > **Suporte de orquestração de contêiner**.
 
-![Caixa de diálogo Novo Projeto ASP .NET](media/tutorial-custom-container/enable-container-orchestration.png)
+:::image type="content" source="media/tutorial-custom-container/enable-container-orchestration.png" alt-text="Captura de tela que mostra o aplicativo exibido no navegador padrão.":::
 
 Selecione **Docker Compose** > **OK**.
 
@@ -98,13 +98,13 @@ O [Registro de Contêiner do Azure](../container-registry/index.yml) pode armaze
 
 No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **CustomFontSample** e selecione **Publicar**.
 
-![Caixa de diálogo Novo Projeto ASP .NET](media/tutorial-custom-container/open-publish-wizard.png)
+:::image type="content" source="media/tutorial-custom-container/open-publish-wizard.png" alt-text="Captura de tela que mostra o aplicativo exibido no navegador padrão.":::
 
 ### <a name="create-registry-and-publish"></a>Criar registro e publicar
 
 No assistente de publicação, selecione **Registro de Contêiner** > **Criar novo Registro de Contêiner do Azure** > **Publicar**.
 
-![Caixa de diálogo Novo Projeto ASP .NET](media/tutorial-custom-container/create-registry.png)
+:::image type="content" source="media/tutorial-custom-container/create-registry.png" alt-text="Captura de tela que mostra o aplicativo exibido no navegador padrão.":::
 
 ### <a name="sign-in-with-azure-account"></a>Entre com a conta do Azure
 
@@ -211,7 +211,7 @@ Os logs transmitidos têm esta aparência:
 
 ::: zone pivot="container-linux"
 
-O Serviço de Aplicativo do Azure usa a tecnologia de contêiner do Docker para hospedar imagens internas e personalizadas. Para ver uma lista de imagens internas, execute o comando da CLI do Azure, ['az webapp list-runtimes --linux'](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes). Se essas imagens não atenderem às suas necessidades, você poderá criar e implantar uma imagem personalizada.
+O Serviço de Aplicativo do Azure usa a tecnologia de contêiner do Docker para hospedar imagens internas e personalizadas. Para ver uma lista de imagens internas, execute o comando da CLI do Azure, ['az webapp list-runtimes --linux'](/cli/azure/webapp?view=azure-cli-latest&preserve-view=true#az-webapp-list-runtimes). Se essas imagens não atenderem às suas necessidades, você poderá criar e implantar uma imagem personalizada.
 
 Neste tutorial, você aprenderá como:
 
@@ -346,7 +346,7 @@ ENTRYPOINT ["init.sh"]
 
 Nesta seção e nas seguintes, você provisiona recursos no Azure para os quais envia a imagem por push e implanta um contêiner no Serviço de Aplicativo do Azure. Você começa criando um grupo de recursos no qual todos esses recursos serão coletados.
 
-Execute o comando [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create) para criar um grupo de recursos:
+Execute o comando [az group create](/cli/azure/group?view=azure-cli-latest&preserve-view=true#az-group-create) para criar um grupo de recursos:
 
 ```azurecli-interactive
 az group create --name AppSvc-DockerTutorial-rg --location westus2
@@ -358,7 +358,7 @@ Você pode alterar o valor de `--location` para especificar uma região perto de
 
 Nesta seção, você envia por push a imagem para o Registro de Contêiner do Azure no qual o Serviço de Aplicativo pode implantá-la.
 
-1. Execute o comando [`az acr create`](/cli/azure/acr?view=azure-cli-latest#az-acr-create) para criar um Registro de Contêiner do Azure:
+1. Execute o comando [`az acr create`](/cli/azure/acr?view=azure-cli-latest&preserve-view=true#az-acr-create) para criar um Registro de Contêiner do Azure:
 
     ```azurecli-interactive
     az acr create --name <registry-name> --resource-group AppSvc-DockerTutorial-rg --sku Basic --admin-enabled true
@@ -366,7 +366,7 @@ Nesta seção, você envia por push a imagem para o Registro de Contêiner do Az
     
     Substitua `<registry-name>` por um nome adequado para o registro. O nome precisa conter apenas letras e números e ser exclusivo em todo o Azure.
 
-1. Execute o comando [`az acr show`](/cli/azure/acr?view=azure-cli-latest#az-acr-show) para recuperar as credenciais do registro:
+1. Execute o comando [`az acr show`](/cli/azure/acr?view=azure-cli-latest&preserve-view=true#az-acr-show) para recuperar as credenciais do registro:
 
     ```azurecli-interactive
     az acr credential show --resource-group AppSvc-DockerTutorial-rg --name <registry-name>
@@ -413,7 +413,7 @@ Nesta seção, você envia por push a imagem para o Registro de Contêiner do Az
 
 Para implantar um contêiner no Serviço de Aplicativo do Azure, primeiro crie um aplicativo Web no Serviço de Aplicativo e, depois, conecte o aplicativo Web ao registro de contêiner. Quando um aplicativo Web for iniciado, o Serviço de Aplicativo efetuará pull automaticamente da imagem do registro.
 
-1. Crie um plano do Serviço de Aplicativo usando o comando [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create):
+1. Crie um plano do Serviço de Aplicativo usando o comando [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest&preserve-view=true#az-appservice-plan-create):
 
     ```azurecli-interactive
     az appservice plan create --name AppSvc-DockerTutorial-plan --resource-group AppSvc-DockerTutorial-rg --is-linux
@@ -421,7 +421,7 @@ Para implantar um contêiner no Serviço de Aplicativo do Azure, primeiro crie u
 
     Um plano do Serviço de Aplicativo corresponde à máquina virtual que hospeda o aplicativo Web. Por padrão, o comando anterior usa um [tipo de preço B1](https://azure.microsoft.com/pricing/details/app-service/linux/) econômico que é gratuito no primeiro mês. Você pode controlar o nível com o parâmetro `--sku`.
 
-1. Crie o aplicativo Web com o comando [`az webpp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create):
+1. Crie o aplicativo Web com o comando [`az webpp create`](/cli/azure/webapp?view=azure-cli-latest&preserve-view=true#az-webapp-create):
 
     ```azurecli-interactive
     az webapp create --resource-group AppSvc-DockerTutorial-rg --plan AppSvc-DockerTutorial-plan --name <app-name> --deployment-container-image-name <registry-name>.azurecr.io/appsvc-tutorial-custom-image:latest
@@ -429,7 +429,7 @@ Para implantar um contêiner no Serviço de Aplicativo do Azure, primeiro crie u
     
     Substitua `<app-name>` por um nome para o aplicativo Web, que precisa ser exclusivo em todo o Azure. Além disso, substitua `<registry-name>` pelo nome do registro da etapa anterior.
 
-1. Use [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) para definir a variável de ambiente `WEBSITES_PORT` conforme esperado pelo código do aplicativo: 
+1. Use [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest&preserve-view=true#az-webapp-config-appsettings-set) para definir a variável de ambiente `WEBSITES_PORT` conforme esperado pelo código do aplicativo: 
 
     ```azurecli-interactive
     az webapp config appsettings set --resource-group AppSvc-DockerTutorial-rg --name <app-name> --settings WEBSITES_PORT=8000
@@ -439,7 +439,7 @@ Para implantar um contêiner no Serviço de Aplicativo do Azure, primeiro crie u
     
     Para obter mais informações sobre essa variável de ambiente, confira o [Leiame no repositório GitHub de exemplo](https://github.com/Azure-Samples/docker-django-webapp-linux).
 
-1. Habilite a [identidade gerenciada](./overview-managed-identity.md) para o aplicativo Web usando o comando [`az webapp identity assign`](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign):
+1. Habilite a [identidade gerenciada](./overview-managed-identity.md) para o aplicativo Web usando o comando [`az webapp identity assign`](/cli/azure/webapp/identity?view=azure-cli-latest&preserve-view=true#az-webapp-identity-assign):
 
     ```azurecli-interactive
     az webapp identity assign --resource-group AppSvc-DockerTutorial-rg --name <app-name> --query principalId --output tsv
@@ -449,7 +449,7 @@ Para implantar um contêiner no Serviço de Aplicativo do Azure, primeiro crie u
 
     A identidade gerenciada permite que você conceda permissões ao aplicativo Web para acessar outros recursos do Azure sem precisar de credenciais específicas.
 
-1. Recupere a sua ID de assinatura com o comando [`az account show`](/cli/azure/account?view=azure-cli-latest#az-account-show), que você precisará na próxima etapa:
+1. Recupere a sua ID de assinatura com o comando [`az account show`](/cli/azure/account?view=azure-cli-latest&preserve-view=true#az-account-show), que você precisará na próxima etapa:
 
     ```azurecli-interactive
     az account show --query id --output tsv
@@ -472,7 +472,7 @@ Para obter mais informações sobre essas permissões, confira [O que é o contr
 
 Você poderá concluir essas etapas quando a imagem for enviada por push para o registro de contêiner e o Serviço de Aplicativo for totalmente provisionado.
 
-1. Use o comando [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set) para especificar o registro de contêiner e a imagem a ser implantada para o aplicativo Web:
+1. Use o comando [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest&preserve-view=true#az-webapp-config-container-set) para especificar o registro de contêiner e a imagem a ser implantada para o aplicativo Web:
 
     ```azurecli-interactive
     az webapp config container set --name <app-name> --resource-group AppSvc-DockerTutorial-rg --docker-custom-image-name <registry-name>.azurecr.io/appsvc-tutorial-custom-image:latest --docker-registry-server-url https://<registry-name>.azurecr.io

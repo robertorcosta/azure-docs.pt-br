@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 24117e914afa0e443ce979ae71eb506156fa11b3
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 4fc8a0a4ea5063f52b6f9553018bddddd7bcf312
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830403"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90974609"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>Tutorial: Usar a Central de Segurança do Azure para monitorar máquinas virtuais do Linux
 
@@ -41,7 +41,7 @@ Para acessar o painel da Central de segurança, no portal do Azure, no menu, sel
 
 A Central de segurança vai além da descoberta de dados para fornecer recomendações para problemas detectados. Por exemplo, se uma VM foi implantada sem um grupo de segurança de rede, a Central de segurança exibe uma recomendação com etapas de solução que você pode tomar. Você pode obter a correção automatizada sem deixar o contexto da Central de segurança.  
 
-![Recomendações](./media/tutorial-azure-security/recommendations.png)
+![A captura de tela mostra a página Recomendações, que inclui uma descrição, um recurso, um estado e uma severidade de recomendações.](./media/tutorial-azure-security/recommendations.png)
 
 ## <a name="set-up-data-collection"></a>Configurar a coleta de dados
 

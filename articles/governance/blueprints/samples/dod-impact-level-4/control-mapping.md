@@ -1,14 +1,14 @@
 ---
 title: Controles do modelo de blueprint do Nível de Impacto 4 do DoD
 description: Mapeamento de controle do modelo de blueprint do Nível de Impacto 4 do DoD. Cada controle é mapeado para uma ou mais Políticas do Azure que auxiliam na avaliação.
-ms.date: 06/30/2020
+ms.date: 09/17/2020
 ms.topic: sample
-ms.openlocfilehash: a704731f4fe8e810235507fd84c90b17571a8442
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 9ee3214f8cdacd1d70a59bc5a23e4638cadb579d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87923281"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978390"
 ---
 # <a name="control-mapping-of-the-dod-impact-level-4-blueprint-sample"></a>Mapeamento de controle do modelo de blueprint do Nível de Impacto 4 do DoD
 
@@ -102,11 +102,11 @@ Esse blueprint fornece definições de política que ajudam você a garantir que
 Dados de log coletados pelo Azure Monitor são armazenados em um workspace do Log Analytics, permitindo o gerenciamento e a configuração centralizada. Este blueprint ajuda você a garantir que os eventos sejam registrados em log por meio da atribuição de definições do [Azure Policy](../../../policy/overview.md) que auditam e impõem a implantação do agente do Log Analytics em máquinas virtuais do Azure.
 
 - \[Versão Prévia\]: Auditar a implantação do Agente do Log Analytics – imagem de VM (sistema operacional) não listada
-- \[Versão Prévia\]: Auditar a implantação do Agente do Log Analytics no VMSS – imagem de VM (sistema operacional) não listada
+- Auditar a implantação do agente do Log Analytics em Conjuntos de Dimensionamento de Máquinas Virtuais – imagem de VM (sistema operacional) não listada
 - \[Versão Prévia\]: Auditar o espaço de trabalho do Log Analytics para a VM – Relatar incompatibilidade
-- \[Versão Prévia\]: Implantar o Agente do Log Analytics no VMSS (Conjuntos de Dimensionamento de VMs) do Linux
+- Implantar o agente do Log Analytics em conjuntos de dimensionamento de máquinas virtuais do Linux
 - \[Versão Prévia\]: Implantar o Agente do Log Analytics para VMs do Linux
-- \[Versão Prévia\]: Implantar o Agente do Log Analytics no VMSS (Conjuntos de Dimensionamento de VMs) do Windows
+- Implantar o agente do Log Analytics em conjuntos de dimensionamento de máquinas virtuais do Windows
 - \[Versão Prévia\]: Implantar o Agente do Log Analytics para VMs do Windows
 
 ## <a name="au-5-response-to-audit-processing-failures"></a>AU-5 Resposta a Falhas de Processamento de Auditoria
@@ -123,11 +123,11 @@ Este blueprint atribui definições do [Azure Policy](../../../policy/overview.m
 Dados de log coletados pelo Azure Monitor são armazenados em um workspace do Log Analytics, permitindo análises e relatórios centralizados. Este blueprint ajuda você a garantir que os eventos sejam registrados em log por meio da atribuição de definições do [Azure Policy](../../../policy/overview.md) que auditam e impõem a implantação do agente do Log Analytics em máquinas virtuais do Azure.
 
 - \[Versão Prévia\]: Auditar a implantação do Agente do Log Analytics – imagem de VM (sistema operacional) não listada
-- \[Versão Prévia\]: Auditar a implantação do Agente do Log Analytics no VMSS – imagem de VM (sistema operacional) não listada
+- Auditar a implantação do agente do Log Analytics em Conjuntos de Dimensionamento de Máquinas Virtuais – imagem de VM (sistema operacional) não listada
 - \[Versão Prévia\]: Auditar o espaço de trabalho do Log Analytics para a VM – Relatar incompatibilidade
-- \[Versão Prévia\]: Implantar o Agente do Log Analytics no VMSS (Conjuntos de Dimensionamento de VMs) do Linux
+- Implantar o agente do Log Analytics em conjuntos de dimensionamento de máquinas virtuais do Linux
 - \[Versão Prévia\]: Implantar o Agente do Log Analytics para VMs do Linux
-- \[Versão Prévia\]: Implantar o Agente do Log Analytics no VMSS (Conjuntos de Dimensionamento de VMs) do Windows
+- Implantar o agente do Log Analytics em conjuntos de dimensionamento de máquinas virtuais do Windows
 - \[Versão Prévia\]: Implantar o Agente do Log Analytics para VMs do Windows
 
 ## <a name="au-6-5-audit-review-analysis-and-reporting--integration--scanning-and-monitoring-capabilities"></a>AU-6 (5) Revisão, análise e relatórios de auditoria | Funcionalidades de integração/verificação e monitoramento
@@ -144,7 +144,7 @@ Esse blueprint fornece definições de políticas que auditam registros com a an
 - As vulnerabilidades devem ser corrigidas por uma solução de Avaliação de Vulnerabilidades
 - As vulnerabilidades da configuração de segurança nos conjuntos de dimensionamento de máquinas virtuais devem ser corrigidas
 - \[Versão Prévia\]: Auditar a implantação do Agente do Log Analytics – imagem de VM (sistema operacional) não listada
-- \[Versão Prévia\]: Auditar a implantação do Agente do Log Analytics no VMSS – imagem de VM (sistema operacional) não listada
+- Auditar a implantação do agente do Log Analytics em Conjuntos de Dimensionamento de Máquinas Virtuais – imagem de VM (sistema operacional) não listada
 
 ## <a name="au-12-audit-generation"></a>AU-12 Geração de Auditoria
 
@@ -152,11 +152,11 @@ Esse blueprint fornece definições de política que auditam e impõem a implant
 Essas definições de política também auditam a configuração dos logs de diagnóstico para fornecer informações sobre as operações executadas em recursos do Azure. Além disso, a auditoria e a Segurança de Dados Avançada são configuradas em servidores SQL.
 
 - \[Versão Prévia\]: Auditar a implantação do Agente do Log Analytics – imagem de VM (sistema operacional) não listada
-- \[Versão Prévia\]: Auditar a implantação do Agente do Log Analytics no VMSS – imagem de VM (sistema operacional) não listada
+- Auditar a implantação do agente do Log Analytics em Conjuntos de Dimensionamento de Máquinas Virtuais – imagem de VM (sistema operacional) não listada
 - \[Versão Prévia\]: Auditar o espaço de trabalho do Log Analytics para a VM – Relatar incompatibilidade
-- \[Versão Prévia\]: Implantar o Agente do Log Analytics no VMSS (Conjuntos de Dimensionamento de VMs) do Linux
+- Implantar o agente do Log Analytics em conjuntos de dimensionamento de máquinas virtuais do Linux
 - \[Versão Prévia\]: Implantar o Agente do Log Analytics para VMs do Linux
-- \[Versão Prévia\]: Implantar o Agente do Log Analytics no VMSS (Conjuntos de Dimensionamento de VMs) do Windows
+- Implantar o agente do Log Analytics em conjuntos de dimensionamento de máquinas virtuais do Windows
 - \[Versão Prévia\]: Implantar o Agente do Log Analytics para VMs do Windows
 - Configuração de diagnóstico de auditoria
 - A auditoria deve ser habilitada nas configurações de segurança de dados avançada no SQL Server
@@ -336,11 +336,8 @@ Este blueprint ajuda você a gerenciar as falhas do sistema de informações por
 
 ## <a name="si-02-06-flaw-remediation--removal-of-previous-versions-of-software--firmware"></a>Correção de falhas SI-02 (06) | Remoção de versões anteriores do software/firmware
 
-Esse blueprint atribui definições de política que ajudam você a garantir que os aplicativos estejam usando a versão mais recente do .NET Framework, HTTP, Java, PHP, Python e TLS. Esse blueprint também atribui uma definição de política que garante que os Serviços do Kubernetes sejam atualizados para uma versão não vulnerável do Kubernetes.
+Esse blueprint atribui definições de política que ajudam você a garantir que os aplicativos estejam usando a versão mais recente do HTTP, Java, PHP, Python e TLS. Esse blueprint também atribui uma definição de política que garante que os Serviços do Kubernetes sejam atualizados para uma versão não vulnerável do Kubernetes.
 
-- Garantir que a versão do '.NET Framework' seja a última, se usada como parte do aplicativo de API
-- Garantir que a versão do '.NET Framework' seja a última, se usada como parte do aplicativo de funções
-- Garantir que a versão do '.NET Framework' seja a última, se usada como parte do aplicativo Web
 - Garantir que a 'Versão do HTTP' seja a última, se usada para executar o aplicativo de API
 - Garantir que a 'Versão do HTTP' seja a última, se usada para executar o aplicativo de funções
 - Garantir que a 'Versão do HTTP' seja a última, se usada para executar o aplicativo Web
@@ -348,7 +345,6 @@ Esse blueprint atribui definições de política que ajudam você a garantir que
 - Garantir que a "versão do Java" seja a mais recente, se usada como parte do aplicativo de funções
 - Garantir que a 'versão do Java' seja a última, se usada como parte do aplicativo Web
 - Garantir que a 'versão do PHP' seja a última, se usada como parte do aplicativo de API
-- Garantir que a 'versão do PHP' seja a última, se usada como parte do aplicativo de funções
 - Garantir que a 'versão do PHP' seja a última, se usada como parte do aplicativo Web
 - Garantir que a 'versão do Python' seja a última, se usada como parte do aplicativo de API
 - Garantir que a 'versão do Python' seja a última, se usada como parte do aplicativo de funções
@@ -356,7 +352,7 @@ Esse blueprint atribui definições de política que ajudam você a garantir que
 - A última versão do TLS deve ser usada no aplicativo de API
 - A última versão do TLS deve ser usada no aplicativo de funções
 - A última versão do TLS deve ser usada no aplicativo Web
-- \[Versão Prévia\]: Os Serviços de Kubernetes devem ser atualizados para uma versão não vulnerável do Kubernetes
+- Os Serviços de Kubernetes devem ser atualizados para uma versão não vulnerável do Kubernetes
 
 ## <a name="si-3-malicious-code-protection"></a>SI-3 Proteção contra código mal-intencionado
 
@@ -378,11 +374,11 @@ Este blueprint ajuda você a gerenciar a proteção do ponto de extremidade, inc
 Esse blueprint ajuda a monitorar seu sistema por meio da auditoria e da imposição do registro em log e da segurança de dados em todos os recursos do Azure. Especificamente, as políticas atribuídas auditam e impõem a implantação do agente do Log Analytics e de configurações de segurança aprimoradas para bancos de dados SQL, contas de armazenamento e recursos de rede. Esses recursos podem ajudar você a detectar comportamentos anormais e indicadores de ataques para que possa tomar as devidas providências.
 
 - \[Versão Prévia\]: Auditar a implantação do Agente do Log Analytics – imagem de VM (sistema operacional) não listada
-- \[Versão Prévia\]: Auditar a implantação do Agente do Log Analytics no VMSS – imagem de VM (sistema operacional) não listada
+- Auditar a implantação do agente do Log Analytics em Conjuntos de Dimensionamento de Máquinas Virtuais – imagem de VM (sistema operacional) não listada
 - \[Versão Prévia\]: Auditar o espaço de trabalho do Log Analytics para a VM – Relatar incompatibilidade
-- \[Versão Prévia\]: Implantar o Agente do Log Analytics no VMSS (Conjuntos de Dimensionamento de VMs) do Linux
+- Implantar o agente do Log Analytics em conjuntos de dimensionamento de máquinas virtuais do Linux
 - \[Versão Prévia\]: Implantar o Agente do Log Analytics para VMs do Linux
-- \[Versão Prévia\]: Implantar o Agente do Log Analytics no VMSS (Conjuntos de Dimensionamento de VMs) do Windows
+- Implantar o agente do Log Analytics em conjuntos de dimensionamento de máquinas virtuais do Windows
 - \[Versão Prévia\]: Implantar o Agente do Log Analytics para VMs do Windows
 - A Segurança de Dados Avançada deve ser habilitada nas instâncias gerenciadas
 - A Segurança de Dados Avançada deve ser habilitada nos servidores SQL

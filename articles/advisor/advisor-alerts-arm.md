@@ -1,15 +1,15 @@
 ---
 title: Criar alertas do Assistente do Azure para novas recomendações usando o modelo do Resource Manager
-description: Criar alertas do Assistente do Azure para novas recomendações
+description: Saiba como configurar um alerta de novas recomendações do Assistente do Azure usando um modelo do ARM (Azure Resource Manager).
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 06/29/2020
-ms.openlocfilehash: 2becfbbc63beb6451e5e877c5a60553d98650494
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a10ca5f0b4119fb65d6b0f717f5c212acb20f9cd
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87057820"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973687"
 ---
 # <a name="quickstart-create-azure-advisor-alerts-on-new-recommendations-using-an-arm-template"></a>Início Rápido: Criar alertas do Assistente do Azure sobre novas recomendações usando o modelo do ARM
 

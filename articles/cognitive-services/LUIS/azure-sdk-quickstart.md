@@ -2,22 +2,22 @@
 title: 'Início Rápido: Bibliotecas de clientes do SDK do LUIS (Reconhecimento vocal)'
 description: Crie e consulte um aplicativo LUIS com as bibliotecas de clientes do SDK do LUIS com este guia de início rápido usando C#, Python ou JavaScript.
 ms.topic: quickstart
-ms.date: 09/01/2020
-keywords: Azure, artificial intelligence, ai, natural language processing, nlp, natural language understanding, nlu, ai conversation, conversational ai, ai chatbot, chatbot maker, LUIS, nlp ai, luis ai, azure luis, understanding natural language
+ms.date: 09/14/2020
+keywords: Azure, artificial intelligence, ai, natural language processing, nlp, LUIS, azure luis, natural language understanding, ai chatbot, chatbot maker,  understanding natural language
 ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-set-diberry-3core
-ms.openlocfilehash: 6bcdca85125d44475fadfd195c1dfda88f761f88
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 64288bbffa2d2c24e2f719477d98426f52da4070
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89323046"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90972617"
 ---
 # <a name="quickstart-language-understanding-luis-sdk-client-libraries-to-create-and-query-your-luis-app"></a>Início Rápido: Bibliotecas de clientes do SDK do LUIS (Reconhecimento vocal) para criar e consultar seu aplicativo LUIS
 
-Crie e consulte um aplicativo LUIS com as bibliotecas de clientes do SDK do LUIS com este guia de início rápido usando C#, Python ou JavaScript.
+Crie e consulte um aplicativo de IA (inteligência artificial) do com as bibliotecas de clientes do SDK do Azure LUIS com este guia de início rápido usando C#, Python ou JavaScript.
 
-O Reconhecimento Vocal (LUIS) permite aplicar inteligência de aprendizado de máquina personalizado em um texto de linguagem natural de conversação do usuário para prever o significado geral e extrair informações detalhadas relevantes.
+O LUIS (Reconhecimento Vocal) permite aplicar o NLP (processamento de idioma natural) a um texto de idioma natural de conversa do usuário para prever o significado geral e extrair informações detalhadas relevantes.
 
 * A biblioteca de clientes do **SDK de criação** permite criar, editar, treinar e publicar seu aplicativo LUIS. * A biblioteca de clientes do **SDK do runtime de previsão** permite consultar o aplicativo publicado.
 
@@ -45,7 +45,7 @@ Você pode excluir o aplicativo do [portal do LUIS](https://www.luis.ai) e exclu
 * Treinamento – se você recebe um erro de treinamento, isso geralmente indica um aplicativo vazio (sem intenções com os enunciados de exemplo) ou um aplicativo com tentativas ou entidades malformadas.
 * Erros diversos – como o código faz chamadas às bibliotecas do cliente com objetos JSON e de texto, verifique se você não alterou o código.
 
-Outros erros – se você receber um erro não abordado na lista anterior, informe-nos fornecendo comentários na parte inferior desta página. Inclua a linguagem de programação e a versão das bibliotecas de clientes instaladas. 
+Outros erros – se você receber um erro não abordado na lista anterior, informe-nos fornecendo comentários na parte inferior desta página. Inclua a linguagem de programação e a versão das bibliotecas de clientes instaladas.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -53,3 +53,5 @@ Outros erros – se você receber um erro não abordado na lista anterior, infor
 * [Novidades](whats-new.md)
 * [Intenções](luis-concept-intent.md), [entidades](luis-concept-entity-types.md), [exemplos de enunciados](luis-concept-utterance.md) e [entidades predefinidas](luis-reference-prebuilt-entities.md)
 * O código-fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code).
+* Noções básicas do idioma natural: [NLU (reconhecimento de idioma natural) e NLP (processamento de idioma natural)](artificial-intelligence.md)
+* Bots: [Chatbots de IA](luis-csharp-tutorial-bf-v4.md "tutorial do chatbot maker")
