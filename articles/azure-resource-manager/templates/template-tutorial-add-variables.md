@@ -6,12 +6,12 @@ ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9607ddd4a44af6a515080d4fd6f0c475268470b9
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 398b2741d7bafe4c3fdd9520d00eb7fcb766b876
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497487"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069604"
 ---
 # <a name="tutorial-add-variables-to-your-arm-template"></a>Tutorial: Adicionar variáveis ao seu modelo do ARM
 
@@ -83,7 +83,7 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> Se a implantação falhar, use a opção **debug** com o comando de implantação para mostrar os logs de depuração.  Use também a opção **verbose** para mostrar os logs de depuração completos.
+> Se a implantação falhar, use a opção **Detalhado** para obter informações sobre os recursos que estão sendo criados. Use a opção **Depurar** para obter mais informações de depuração.
 
 ## <a name="verify-deployment"></a>Verificar implantação
 

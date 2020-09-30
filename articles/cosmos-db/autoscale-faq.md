@@ -6,12 +6,12 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/10/2020
-ms.openlocfilehash: 0e6a502ae7ed71beaeefe603e0810264e62187ba
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: bc8e5baa92f507c9abb9bc6b5305773010803f01
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707995"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567580"
 ---
 # <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Perguntas frequentes sobre a taxa de transferência provisionada de dimensionamento automático no Azure Cosmos DB
 
@@ -37,14 +37,14 @@ Use as [métricas do Azure Monitor](how-to-choose-offer.md#measure-and-monitor-y
 A cada hora, você será cobrado pela maior taxa de transferência `T` para a qual o sistema é dimensionado dentro da hora. Se seu recurso não recebeu solicitações durante a hora ou não foi dimensionado além de `0.1 * Tmax`, você será cobrado pelo mínimo de `0.1 * Tmax`. Veja a [página de preço](https://azure.microsoft.com/pricing/details/cosmos-db/) do Azure Cosmos DB para obter detalhes. 
 
 ### <a name="how-does-autoscale-show-up-on-my-bill"></a>Como o dimensionamento automático é mostrado na minha fatura?
-Nas contas de mestre único, a taxa de dimensionamento automático por 100 RU/s é 1,5x a taxa de transferência padrão (manual) provisionada. Na sua fatura, você verá o medidor da taxa de transferência provisionada padrão atual. A quantidade desse medidor será multiplicada por 1,5. Por exemplo, se as RU/s mais altas para as quais o sistema dimensionou dentro de uma hora foram 6.000 RU/s, você receberá uma cobrança de 60 * 1,5 = 90 unidades do medidor para essa hora.
+Em contas de região de gravação única, a taxa de dimensionamento automático por 100 RU/s é 1,5 x a taxa de taxa de transferência padrão (manual) provisionada. Na sua fatura, você verá o medidor da taxa de transferência provisionada padrão atual. A quantidade desse medidor será multiplicada por 1,5. Por exemplo, se as RU/s mais altas para as quais o sistema dimensionou dentro de uma hora foram 6.000 RU/s, você receberá uma cobrança de 60 * 1,5 = 90 unidades do medidor para essa hora.
 
-Nas contas de vários mestres, a taxa de dimensionamento automático por 100 RU/s é a mesma para a taxa de transferência padrão (manual) provisionada de vários mestres. Na sua fatura, você verá o medidor de vários mestres atual. Como as taxas são as mesmas, se você usar o dimensionamento automático, verá a mesma quantidade da taxa de transferência padrão.
+Em contas com várias regiões de gravação, a taxa de dimensionamento automático por 100 RU/s é a mesma que a taxa da taxa de transferência de região de gravação múltipla padrão (manual) provisionada. Em sua conta, você verá o medidor de várias regiões de gravação existentes. Como as taxas são as mesmas, se você usar o dimensionamento automático, verá a mesma quantidade da taxa de transferência padrão.
 
 ### <a name="does-autoscale-work-with-reserved-capacity"></a>O dimensionamento automático funciona com capacidade reservada?
-Sim. Quando você adquire a capacidade reservada de mestre único, o desconto de reserva para recursos de dimensionamento automático é aplicado ao uso do medidor a uma taxa de 1,5 * a [proporção da região específica](../cost-management-billing/reservations/understand-cosmosdb-reservation-charges.md#reservation-discount-per-region). 
+Sim. Quando você adquire capacidade reservada para contas com várias regiões de gravação, o desconto de reserva para recursos de dimensionamento automático é aplicado ao seu uso de medidor a uma taxa de 1,5 * a [taxa da região específica](../cost-management-billing/reservations/understand-cosmosdb-reservation-charges.md#reservation-discount-per-region). 
 
-A capacidade reservada de vários mestres funciona da mesma para o dimensionamento automático e para a taxa de transferência padrão (manual) provisionada. Confira [Capacidade reservada do Azure Cosmos DB](cosmos-db-reserved-capacity.md)
+A capacidade reservada da região de várias gravações funciona da mesma para a taxa de transferência de dimensionamento automático e padrão (manual). Confira [Capacidade reservada do Azure Cosmos DB](cosmos-db-reserved-capacity.md)
 
 ### <a name="does-autoscale-work-with-free-tier"></a>O dimensionamento automático funciona com a camada gratuita?
 Sim. Na camada gratuita, você pode usar a taxa de transferência do dimensionamento automático em um contêiner. O suporte para bancos de dados de taxa de transferência compartilhada de dimensionamento automático com o máximo personalizado de RU/s ainda não está disponível. Confira como [a cobrança da camada gratuita funciona com o dimensionamento automático](understand-your-bill.md#billing-examples-with-free-tier-accounts).
@@ -52,7 +52,7 @@ Sim. Na camada gratuita, você pode usar a taxa de transferência do dimensionam
 ### <a name="is-autoscale-supported-for-all-apis"></a>O dimensionamento automático tem suporte para todas as APIs?
 Sim, o dimensionamento automático tem suporte para todas as APIs: Core (SQL), Gremlin, Table, Cassandra e API para MongoDB.
 
-### <a name="is-autoscale-supported-for-multi-master-accounts"></a>O dimensionamento automático tem suporte para contas de vários mestres?
+### <a name="is-autoscale-supported-for-multi-region-write-accounts"></a>O dimensionamento automático tem suporte para contas de gravação de várias regiões?
 Sim. O máximo de RU/s está disponível em cada região adicionada à conta do Azure Cosmos DB. 
 
 ### <a name="how-do-i-enable-autoscale-on-new-databases-or-containers"></a>Como posso habilitar o dimensionamento automático em novos bancos de dados ou contêineres?

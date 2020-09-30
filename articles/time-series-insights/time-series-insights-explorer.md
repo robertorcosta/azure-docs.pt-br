@@ -10,16 +10,19 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1bcf8ec2395dbc94154072c1c4d839bf45125a3e
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 49a763af8d936ec9fd15c59c908ba9015f803930
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89487293"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568643"
 ---
 # <a name="azure-time-series-insights-gen1-explorer"></a>Azure Time Series Insights Explorer do Gen1
+
+> [!CAUTION]
+> Este é um artigo do Gen1.
 
 Este artigo descreve os recursos e as opções para o Azure Time Series Insights [aplicativo Web](https://insights.timeseries.azure.com/)do Gen1 Explorer. O Azure Time Series Insights Explorer demonstra os poderosos recursos de visualização de dados fornecidos pelo serviço e podem ser acessados em seu próprio ambiente.
 
@@ -108,7 +111,7 @@ Em minutos de conexão da origem do evento ao seu ambiente de Azure Time Series 
 
 1. Use o **calor** para identificar rapidamente séries de dados exclusivas ou anormais em uma determinada consulta. Apenas um termo de pesquisa pode ser visualizado como um mapa de calor.
 
-    [![Gráfico de calor do Time Series Insights Explorer ](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png)](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png#lightbox)
+    [Time Series insights calor Explorer](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png) (Media/Time-Series-percepções-Explorer/tsi-ga-example-heatmap-charting.png # Lightbox)
 
 1. Quando você explora eventos selecionando ou clicando com o botão direito do mouse, o painel **eventos** é disponibilizado. Aqui, você pode examinar todos os seus eventos brutos e exportar seus eventos como arquivos JSON ou CSV. Azure Time Series Insights armazena todos os dados brutos.
 

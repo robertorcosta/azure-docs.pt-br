@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 08/28/2020
+ms.date: 09/29/2020
 ms.author: alkohli
-ms.openlocfilehash: a0918c6cebd50231a9664811bb467e04d2d2bfd9
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f0f9dfa6e3d6ae02f66ac71f62586953cb21517e
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90891331"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568345"
 ---
 # <a name="troubleshooting-certificate-errors"></a>Solucionando problemas de erros de certificado
 
@@ -30,7 +30,6 @@ A tabela a seguir mostra os erros de certificado comuns e informações detalhad
 |---|---|
 | CertificateManagement_UntrustedCertificate | O certificado com o nome da entidade {0} tem uma cadeia de certificados quebrada. Carregue o certificado da cadeia de assinatura antes de carregar esse certificado.|
 | CertificateManagement_DeviceNotRegistered| Seu dispositivo não está ativado. Você pode carregar um certificado de suporte somente após a ativação.|
-| CertificateManagement_EmptySAN | O certificado com o nome da entidade {0} não tem um nome alternativo da entidade. Verifique as propriedades do certificado e traga um novo certificado.|
 | CertificateManagement_ExpiredCertificate | O certificado com o tipo {0} expirou ou expira em breve. Verifique a expiração do certificado e, se necessário, traga um novo certificado.|
 | CertificateManagement_FormatMismatch | Não há suporte para o formato de certificado. Verifique o formato do certificado e, se necessário, traga um novo certificado.  Esperado {0} , encontrado {1} . |
 | CertificateManagement_GenericError | Não foi possível executar a operação de gerenciamento de certificados. Repita essa operação em alguns minutos. Se o problema persistir, contate o Suporte da Microsoft. |
@@ -42,7 +41,6 @@ A tabela a seguir mostra os erros de certificado comuns e informações detalhad
 | CertificateManagement_KeySizeNotSufficient | O certificado com o nome da entidade não {0} tem tamanho de chave suficiente {1} . O tamanho mínimo da chave é 4096.|
 | CertificateManagement_MissingClientOid | O certificado com o nome da entidade {0} não tem OID de autenticação de cliente. Verifique as propriedades do certificado e, se necessário, traga um novo certificado.|
 | CertificateManagement_MissingDigitalSignatureKeyUsage | O certificado com {0} o nome da entidade não tem uma assinatura digital no uso da chave. Verifique as propriedades do certificado e, se necessário, traga um novo certificado. |
-| CertificateManagement_MissingEntryInSAN | O certificado com o nome {0} da entidade não tem uma entrada de nome de entidade no nome alternativo da entidade. Verifique as propriedades do certificado e traga um novo certificado. |
 | CertificateManagement_MissingKeyCertSignKeyUsage | O certificado com {0} o nome da entidade não tem uma assinatura de certificado no uso da chave. Verifique as propriedades do certificado e, se necessário, traga um novo certificado.|
 | CertificateManagement_MissingKeyEnciphermentKeyUsage | O certificado com {0} o nome da entidade não tem codificação de chave no uso da chave. Verifique as propriedades do certificado e, se necessário, traga um novo certificado. |
 | CertificateManagement_MissingServerOid | O certificado com o nome da entidade {0} não tem OID de autenticação de servidor. Verifique as propriedades do certificado e, se necessário, traga um novo certificado.|
@@ -55,6 +53,10 @@ A tabela a seguir mostra os erros de certificado comuns e informações detalhad
 | CertificateManagement_SubjectNamesInvalid | O certificado com {0} o nome da entidade não tem o nome da entidade ou nomes alternativos da entidade corretos para o {1} certificado. Verifique o certificado que você carregou e, se necessário, traga um novo certificado. Você também deve verificar o nome DNS para coincidir com os nomes dos SANS.|
 | CertificateManagement_UnreadableCertificate | Não foi possível ler o certificado com o tipo {0} . Esse erro ocorre quando o certificado está ilegível ou corrompido. Traga um novo certificado.|
 | CertificateSubjectNotFound | Não foi possível encontrar o certificado com o nome da entidade {0} . Traga um novo certificado.|
+| CertificateRotationGenericFailure | Falha na rotação de um ou mais certificados. Tente novamente em alguns minutos. Se o problema persistir, contate o Suporte da Microsoft.|
+| CertificateImportFailure | O certificado com impressão digital {0} não foi importado no nó {1} . Se o problema persistir, contate o Suporte da Microsoft. |
+| CertificateApplyFailure | O certificado com impressão digital {0} não foi aplicado ao nó {1} . Se o problema persistir, contate o Suporte da Microsoft.|
+| NodeNotReachable | Não foi possível validar o certificado no {0} . Verifique o hardware do sistema e a integridade do software.|
 
 ## <a name="next-steps"></a>Próximas etapas
 

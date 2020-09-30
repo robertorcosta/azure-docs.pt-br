@@ -3,12 +3,12 @@ title: Autorizar o acesso com o Azure Active Directory
 description: Este artigo fornece informações sobre como autorizar o acesso aos recursos de hubs de eventos usando Azure Active Directory.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: d26838831964b66beea4ed1e3c6e9873cfce247e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 48d2bc1aa3389459077bb7b8df0ac63ce1e1a438
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91270025"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91566254"
 ---
 # <a name="authorize-access-to-event-hubs-resources-using-azure-active-directory"></a>Autorizar o acesso aos recursos de hubs de eventos usando Azure Active Directory
 Os hubs de eventos do Azure dão suporte ao uso de Azure Active Directory (AD do Azure) para autorizar solicitações para recursos de hubs de eventos. Com o Azure AD, você pode usar o RBAC (controle de acesso baseado em função) para conceder permissões a uma entidade de segurança, que pode ser um usuário ou uma entidade de serviço de aplicativo. Para saber mais sobre funções e atribuições de função, confira [noções básicas sobre as diferentes funções](../role-based-access-control/overview.md).
@@ -35,11 +35,11 @@ O Azure fornece as seguintes funções internas do Azure para autorizar o acesso
 
 | Função | Descrição | 
 | ---- | ----------- | 
-[Proprietário de dados dos hubs de eventos do Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner) | Use essa função para fornecer acesso completo aos recursos dos hubs de eventos. |
+| [Proprietário de dados dos hubs de eventos do Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner) | Use essa função para fornecer acesso completo aos recursos dos hubs de eventos. |
 | [Remetente de dados dos hubs de eventos do Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender) | Use essa função para fornecer acesso de envio aos recursos dos hubs de eventos. |
 | [Receptor de dados dos hubs de eventos do Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver) | Use essa função para fornecer o acesso de consumo/recebimento aos recursos dos hubs de eventos. |
-| Leitor de registro de esquema (versão prévia) | Ler e listar os esquemas e grupos de registro de esquema. |
-| Colaborador do registro de esquema (versão prévia) | Ler, gravar e excluir esquemas e grupos de registro de esquema. |
+
+Para funções internas do registro de esquema, consulte [funções de registro de esquema](schema-registry-overview.md#role-based-access-control).
 
 ## <a name="resource-scope"></a>Escopo do recurso 
 Antes de atribuir uma função do Azure a uma entidade de segurança, determine o escopo do acesso que essa entidade de segurança deve ter. De acordo com as melhores práticas, sempre é melhor conceder o escopo mais estreito possível.

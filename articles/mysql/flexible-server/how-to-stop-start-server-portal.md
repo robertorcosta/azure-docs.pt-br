@@ -5,16 +5,15 @@ author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: how-to
-ms.date: 09/21/2020
-ms.openlocfilehash: b9f406035d32a9af9ba2f5b085bcaca1b51e9d92
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/29/2020
+ms.openlocfilehash: e3e08ae9bbf00e1c9a44e6ba913cac1d842928b7
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90932875"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567461"
 ---
 # <a name="stopstart-an-azure-database-for-mysql---flexible-server-preview"></a>Parar/iniciar um banco de dados do Azure para MySQL – servidor flexível (visualização)
-
 
 > [!IMPORTANT]
 > O Banco de Dados do Azure para MySQL – Servidor Flexível está atualmente na versão prévia pública.
@@ -32,6 +31,12 @@ Para concluir este guia de instruções, você precisa:
 1.  Na [portal do Azure](https://portal.azure.com/), escolha o servidor flexível que você deseja parar.
 
 2.  Na página **visão geral** , clique no botão **parar** na barra de ferramentas.
+    
+    :::image type="content" source="media/how-to-stop-start-server-portal/stop-server.png" alt-text="Pare o servidor flexível."::: 
+
+3.  Clique em **Sim** para confirmar a interrupção do servidor.
+
+    :::image type="content" source="media/how-to-stop-start-server-portal/confirm-stop.png" alt-text="Pare o servidor flexível."::: 
 
 > [!NOTE]
 > Depois que o servidor for interrompido, as outras operações de gerenciamento não estarão disponíveis para o servidor flexível.
@@ -40,7 +45,9 @@ Para concluir este guia de instruções, você precisa:
 
 1.  Na [portal do Azure](https://portal.azure.com/), escolha o servidor flexível que você deseja iniciar.
 
-2.  Na página **visão geral** , clique no botão **parar** na barra de ferramentas.
+2.  Na página **visão geral** , clique no botão **Iniciar** na barra de ferramentas.
+
+    :::image type="content" source="media/how-to-stop-start-server-portal/start-server.png" alt-text="Pare o servidor flexível.":::  
 
 > [!NOTE]
 > Depois que o servidor é iniciado, todas as operações de gerenciamento agora estão disponíveis para o servidor flexível.

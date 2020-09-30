@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/29/2020
 ms.author: mjbrown
-ms.openlocfilehash: 0ae29039702a6f73a33f73afc366532077aa4b71
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: c248755c1f32d41b6926d4492dcc3d0eea2869b8
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432835"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91566866"
 ---
 # <a name="manage-azure-cosmos-resources-using-azure-cli"></a>Gerenciar Microsoft Azure Cosmos usando a CLI do Azure
 
@@ -19,7 +19,7 @@ O guia a seguir descreve os comandos comuns para automatizar o gerenciamento de 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar a CLI localmente, este tópico exigirá que você esteja executando o CLI do Azure versão 2.9.1 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+Se você optar por instalar e usar a CLI localmente, este tópico exigirá a execução da CLI do Azure versão 2.9.1 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
 ## <a name="azure-cosmos-accounts"></a>Contas do Azure Cosmos
 
@@ -33,7 +33,7 @@ As seções a seguir demonstram como gerenciar a conta do Azure Cosmos, incluind
 * [Disparar failover manual](#trigger-manual-failover)
 * [Listar chaves de conta](#list-account-keys)
 * [Listar chaves de conta somente leitura](#list-read-only-account-keys)
-* [Listar cadeias de conexão](#list-connection-strings)
+* [Cadeias de caracteres de conexão de lista](#list-connection-strings)
 * [Regenerar a chave de conta](#regenerate-account-key)
 
 ### <a name="create-an-azure-cosmos-db-account"></a>Criar uma conta do Azure Cosmos DB
@@ -87,10 +87,10 @@ az cosmosdb update --name $accountName --resource-group $resourceGroupName \
 
 ### <a name="enable-multiple-write-regions"></a>Habilitar várias regiões de gravação
 
-Habilitar vários mestres para uma conta do cosmos
+Habilitar gravações de várias regiões para uma conta do cosmos
 
 ```azurecli-interactive
-# Update an Azure Cosmos account from single to multi-master
+# Update an Azure Cosmos account from single write region to multiple write regions
 resourceGroupName='myResourceGroup'
 accountName='mycosmosaccount'
 
@@ -148,7 +148,7 @@ az cosmosdb failover-priority-change --ids $accountId \
     --failover-policies 'East US 2=0' 'South Central US=1' 'West US 2=2'
 ```
 
-### <a name="list-all-account-keys"></a><a id="list-account-keys"></a>Listar todas as chaves de conta
+### <a name="list-all-account-keys"></a><a id="list-account-keys"></a> Listar todas as chaves de conta
 
 Obter todas as chaves para uma conta do cosmos.
 
@@ -489,5 +489,5 @@ az lock delete --ids $lockid
 Para obter mais informações sobre a CLI do Azure, consulte:
 
 - [Instalar a CLI do Azure.](/cli/azure/install-azure-cli)
-- [Referência da CLI do Azure](https://docs.microsoft.com/cli/azure/cosmosdb)
+- [Referência de CLI do Azure](https://docs.microsoft.com/cli/azure/cosmosdb)
 - [Amostras adicionais do CLI do Azure para o Azure Cosmos DB](cli-samples.md)

@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 09/22/2020
+ms.date: 09/30/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 11901e0b68fed9a6a83287d50896bf2afc51fa37
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9aa8857ab10423f460874870a3663929e8e5a5c5
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91279546"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91566934"
 ---
 A habilitação de discos compartilhados só está disponível para um subconjunto de tipos de disco. No momento, apenas ultra discos e o SSDs Premium podem habilitar discos compartilhados. Cada disco gerenciado que tem discos compartilhados habilitados está sujeito às seguintes limitações, organizadas por tipo de disco:
 
@@ -30,7 +30,6 @@ Ultra discos compartilhados estão disponíveis em todas as regiões que dão su
 
 ### <a name="premium-ssds"></a>SSDs Premium
 
-- Atualmente, só tem suporte em [um subconjunto de regiões](#regional-availability).
 - Atualmente limitado a suporte a Azure Resource Manager ou SDK. 
 - Só pode ser habilitado em discos de dados, não em discos do sistema operacional.
 - O cache de host **ReadOnly** não está disponível para o SSDs Premium com `maxShares>1` .
@@ -42,24 +41,4 @@ Ultra discos compartilhados estão disponíveis em todas as regiões que dão su
 
 #### <a name="regional-availability"></a>Disponibilidade regional
 
-O SSDs Premium compartilhado só tem suporte nas seguintes regiões:
-
-- Leste dos EUA
-- Leste dos EUA 2
-- Oeste dos EUA
-- Oeste dos EUA 2
-- Centro-Oeste dos EUA
-- Centro-Sul dos Estados Unidos
-- Centro-Norte dos EUA
-- Centro dos EUA
-- Europa Ocidental
-- Norte da Europa
-- Coreia Central
-- Canadá Central
-- Leste do Canadá
-- Leste do Japão
-- Oeste do Japão
-- Sudeste da Ásia
-- Leste da Ásia
-- Gov. dos EUA – Virgínia
-- Governo dos EUA do Arizona
+O SSDs Premium compartilhado está disponível em todas as regiões em que os discos gerenciados estão disponíveis.

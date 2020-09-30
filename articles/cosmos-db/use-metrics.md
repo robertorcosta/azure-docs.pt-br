@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/22/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 24f321e3c3c0fe8e85633edb505879874e8c772f
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 6de0a6632c53055dd3d3f428481dcc465b67ef6e
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019225"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568005"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Monitore e depure com métricas no Azure Cosmos DB
 
@@ -41,7 +41,7 @@ As métricas a seguir estão disponíveis no painel de **métricas** :
 
 * **Métricas de consistência** – essa métrica mostra como a eventualidade é a consistência do modelo de consistência escolhido. Para contas de várias regiões, essa métrica também mostra a latência de replicação entre as regiões que você selecionou.
 
-* **Métricas do sistema** – essa métrica mostra quantas solicitações de metadados são atendidas pela partição mestre. Ele também ajuda a identificar as solicitações limitadas.
+* **Métricas do sistema** – essa métrica mostra quantas solicitações de metadados são atendidas pela partição primária. Ele também ajuda a identificar as solicitações limitadas.
 
 As seções a seguir explicam cenários comuns em que você pode usar Azure Cosmos DB métricas. 
 
@@ -51,13 +51,13 @@ Para começar, vá até o [Portal do Azure](https://portal.azure.com) e navegue 
 
 O código de status de erro mais comum é 429 (limitação/limitação da taxa). Esse erro significa que as solicitações para o Azure Cosmos DB são mais do que a taxa de transferência provisionada. A solução mais comum para esse problema é [expandir as RUs](./set-throughput.md) para determinada coleção.
 
-:::image type="content" source="media/use-metrics/metrics-12.png" alt-text="Número de solicitações por minuto":::
+:::image type="content" source="media/use-metrics/metrics-12.png" alt-text="Cosmos DB métricas de desempenho no portal do Azure":::
 
 ## <a name="determine-the-throughput-distribution-across-partitions"></a>Determine a distribuição da taxa de transferência entre as partições
 
 Ter uma boa cardinalidade de suas chaves de partição é essencial para qualquer aplicativo escalonável. Para determinar a distribuição da produtividade de qualquer contêiner particionado dividida por partições, navegue até a **folha Métricas** no [portal do Azure](https://portal.azure.com). Na guia **Taxa de transferência**, a divisão do armazenamento é mostrada no gráfico **Máx. de RUs/segundo consumidas para cada partição física**. O gráfico a seguir ilustra um exemplo de uma má distribuição de dados, conforme mostrado pela partição distorcida na extrema esquerda.
 
-:::image type="content" source="media/use-metrics/metrics-17.png" alt-text="Partição única vendo uso intenso":::
+:::image type="content" source="media/use-metrics/metrics-17.png" alt-text="Cosmos DB métricas de desempenho no portal do Azure":::
 
 Uma distribuição desigual de taxa de transferência pode causar partições *quentes*, que por sua vez podem resultar em solicitações limitadas e podem exigir reparticionamento. Para obter mais informações sobre o particionamento no Azure Cosmos DB, consulte [Partição e escala no Azure Cosmos DB](./partition-data.md).
 
@@ -65,11 +65,11 @@ Uma distribuição desigual de taxa de transferência pode causar partições *q
 
 Ter uma boa cardinalidade em sua partição é essencial para qualquer aplicativo escalonável. Para determinar a distribuição de armazenamento de qualquer contêiner particionado dividida por partições, acesse a folha Métricas no [portal do Azure](https://portal.azure.com). Na guia Armazenamento, a divisão de armazenamento é mostrada no armazenamento Dados + índice consumido pelo gráfico de chaves de partição superior. O gráfico a seguir ilustra uma distribuição ruim de armazenamento de dados, conforme mostrado pela partição distorcida na extrema esquerda.
 
-:::image type="content" source="media/use-metrics/metrics-07.png" alt-text="Exemplo de distribuição de dados ruim":::
+:::image type="content" source="media/use-metrics/metrics-07.png" alt-text="Cosmos DB métricas de desempenho no portal do Azure":::
 
 Você pode determinar a causa raiz ao identificar qual chave de partição está distorcendo a distribuição, clicando na partição no gráfico.
 
-:::image type="content" source="media/use-metrics/metrics-05.png" alt-text="A chave de partição está distorcendo a distribuição":::
+:::image type="content" source="media/use-metrics/metrics-05.png" alt-text="Cosmos DB métricas de desempenho no portal do Azure":::
 
 Depois de identificar qual chave de partição está causando a distorção na distribuição, você precisará reparticionar o contêiner com uma chave de partição mais distribuída. Para obter mais informações sobre o particionamento no Azure Cosmos DB, consulte [Partição e escala no Azure Cosmos DB](./partition-data.md).
 

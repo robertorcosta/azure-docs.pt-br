@@ -3,12 +3,12 @@ title: Pontos de extremidade privados
 description: Entenda o processo de criação de pontos de extremidade privados para o backup do Azure e os cenários em que o uso de pontos de extremidade privados ajuda a manter a segurança de seus recursos.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: 0a875dfedbf7a3b76b479fd4f23b74a7ced47252
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: e1121f1d1217ebd48c744135c976587545323f44
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89179225"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91565149"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Pontos de extremidade privados para o backup do Azure
 
@@ -62,75 +62,13 @@ Identidades gerenciadas permitem que o cofre crie e use pontos de extremidade pr
     >[!NOTE]
     >Uma vez habilitada, a identidade gerenciada **não** deve ser desabilitada (até mesmo temporariamente). Desabilitar a identidade gerenciada pode levar a um comportamento inconsistente.
 
-## <a name="dns-changes"></a>Alterações de DNS
-
-O uso de pontos de extremidade privados requer zonas de DNS privado para permitir que a extensão de backup resolva FQDNs de link privado para IPs privados. Totalmente, três zonas DNS privadas são necessárias. Embora duas dessas zonas devam ser mandatorily criadas, a terceira pode ser aceita para ser integrada ao ponto de extremidade privado (ao criar o ponto de extremidade privado) ou pode ser criada separadamente.
-
-Você também pode usar seus servidores DNS personalizados. Consulte [alterações de DNS para servidores DNS personalizados](#dns-changes-for-custom-dns-servers) para obter detalhes sobre como usar servidores DNS personalizados.
-
-### <a name="creating-mandatory-dns-zones"></a>Criando zonas DNS obrigatórias
-
-Há duas zonas DNS obrigatórias que precisam ser criadas:
-
-- `privatelink.blob.core.windows.net` (para dados de backup/restauração)
-- `privatelink.queue.core.windows.net` (para comunicação de serviço)
-
-1. Pesquise **DNS privado zona** na barra de pesquisa **todos os serviços** e selecione **DNS privado zona** na lista suspensa.
-
-    ![Selecionar zona de DNS privado](./media/private-endpoints/private-dns-zone.png)
-
-1. Uma vez no painel **DNS privado zona** , selecione o botão **+ Adicionar** para começar a criar uma nova zona.
-
-1. No painel **criar zona DNS privada** , preencha os detalhes necessários. A assinatura deve ser a mesma de onde o ponto de extremidade privado será criado.
-
-    As zonas devem ser nomeadas como:
-
-    - `privatelink.blob.core.windows.net`
-    - `privatelink.queue.core.windows.net`
-
-    | **Zona**                           | **Serviço** | **Detalhes de assinatura e grupo de recursos (RG)**                  |
-    | ---------------------------------- | ----------- | ------------------------------------------------------------ |
-    | `privatelink.blob.core.windows.net`  | Blob        | **Assinatura**: o mesmo que o ponto de extremidade privado precisa ser criado  **RG**: ou o RG da VNET ou o do ponto de extremidade privado |
-    | `privatelink.queue.core.windows.net` | Fila       | **RG**: o RG da VNET ou o do ponto de extremidade privado |
-
-    ![Criar zona de DNS privado](./media/private-endpoints/create-private-dns-zone.png)
-
-1. Depois de concluído, vá para revisar e criar a zona DNS.
-
-### <a name="optional-dns-zone"></a>Zona DNS opcional
-
-Você pode optar por integrar seus pontos de extremidade privados com zonas DNS privadas para o backup do Azure (discutido na seção [criando e usando pontos de extremidade privados para backup](#creating-and-using-private-endpoints-for-backup)) para comunicação de serviço. Se você não quiser se integrar à zona DNS privada, poderá optar por usar seu próprio servidor DNS ou criar uma zona DNS privada separadamente. Isso é além das duas zonas DNS privadas obrigatórias discutidas na seção anterior.
-
-Se você quiser criar uma zona DNS privada separada no Azure, poderá fazer o mesmo usando as mesmas etapas usadas para criar zonas DNS obrigatórias. Os detalhes de nomenclatura e assinatura são compartilhados abaixo:
-
-| **Zona**                                                     | **Serviço** | **Detalhes do grupo de recursos e da assinatura**                  |
-| ------------------------------------------------------------ | ----------- | ------------------------------------------------------------ |
-| `privatelink.<geo>.backup.windowsazure.com`  <br><br>   **Observação**: a *geografia* aqui refere-se ao código de região. Por exemplo, *wcus* e *ne* para o Oeste EUA Central e Europa setentrional respectivamente. | Backup      | **Assinatura**: o mesmo que o ponto de extremidade privado precisa ser criado  **RG**: qualquer RG dentro da assinatura |
-
-Consulte [esta lista](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx) para códigos de região.
-
-Para convenções de nomenclatura de URL em regiões nacionais:
-
-- [China](/azure/china/resources-developer-guide#check-endpoints-in-azure)
-- [Alemanha](../germany/germany-developer-guide.md#endpoint-mapping)
-- [US Gov](../azure-government/documentation-government-developer-guide.md)
-
-### <a name="linking-private-dns-zones-with-your-virtual-network"></a>Vinculando zonas DNS privadas com sua rede virtual
-
-As zonas DNS criadas acima agora devem ser vinculadas à rede virtual na qual são localizados os servidores de backup. Isso precisa ser feito para todas as zonas DNS que você criou.
-
-1. Vá para a zona DNS (que você criou na etapa anterior) e navegue até os **links de rede virtual** na barra à esquerda. Uma vez lá, selecione o botão **+ Adicionar**
-1. Preencha os detalhes necessários. Os campos **assinatura** e **rede virtual** devem ser preenchidos com os detalhes correspondentes da rede virtual onde os servidores existem. Os outros campos devem ser deixados como estão.
-
-    ![Adicionar link de rede virtual](./media/private-endpoints/add-virtual-network-link.png)
-
 ## <a name="grant-permissions-to-the-vault-to-create-required-private-endpoints"></a>Conceder permissões ao cofre para criar pontos de extremidade privados necessários
 
 Para criar os pontos de extremidade privados necessários para o backup do Azure, o cofre (a identidade gerenciada do cofre) deve ter permissões para os seguintes grupos de recursos:
 
 - O grupo de recursos que contém a VNet de destino
 - O grupo de recursos em que os pontos de extremidade privados devem ser criados
-- O grupo de recursos que contém as zonas de DNS privado
+- O grupo de recursos que contém as zonas de DNS privado, conforme discutido em detalhes [aqui](#creating-private-endpoints-for-backup)
 
 Recomendamos que você conceda a função de **colaborador** para esses três grupos de recursos ao cofre (identidade gerenciada). As etapas a seguir descrevem como fazer isso para um grupo de recursos específico (isso precisa ser feito para cada um dos três grupos de recursos):
 
@@ -173,6 +111,8 @@ Esta seção descreve o processo de criação de um ponto de extremidade privado
 
         ![Guia de configuração de preenchimento](./media/private-endpoints/configuration-tab.png)
 
+        Consulte [esta seção](#dns-changes-for-custom-dns-servers) se você quiser usar seus servidores DNS personalizados em vez de integrar com o Azure DNS privado Zones.  
+
     1. Opcionalmente, você pode adicionar **marcas** para seu ponto de extremidade particular.
 
     1. Continue a **examinar + criar** depois de inserir detalhes. Quando a validação for concluída, selecione **criar** para criar o ponto de extremidade privado.
@@ -189,51 +129,6 @@ Consulte [aprovação manual de pontos de extremidade privados usando o cliente 
 
     ![Aprovar pontos de extremidade privados](./media/private-endpoints/approve-private-endpoints.png)
 
-## <a name="adding-dns-records"></a>Adicionando registros DNS
-
->[!NOTE]
-> Essa etapa não será necessária se você estiver usando uma zona DNS integrada. No entanto, se você tiver criado sua própria zona de DNS privado do Azure ou estiver usando uma zona DNS privada personalizada, certifique-se de que as entradas sejam feitas conforme descrito nesta seção.
-
-Depois de criar a zona DNS privada opcional e os pontos de extremidade privados para seu cofre, você precisará adicionar os registros DNS à sua zona DNS. Você pode fazer isso manualmente ou usando um script do PowerShell. Isso precisa ser feito apenas para a zona DNS de backup, os BLOBs e as filas serão atualizados automaticamente.
-
-### <a name="add-records-manually"></a>Adicionar registros manualmente
-
-Isso exige que você faça entradas para cada FQDN em seu ponto de extremidade privado em sua zona de DNS privado.
-
-1. Vá para a **zona DNS privada** e navegue até a opção **visão geral** na barra esquerda. Uma vez lá, selecione **+ conjunto de registros** para começar a adicionar registros.
-
-    ![Selecione + conjunto de registros para adicionar registros](./media/private-endpoints/select-record-set.png)
-
-1. No painel **Adicionar conjunto de registros** que é aberto, adicione uma entrada para cada FQDN e IP privado como um registro **de tipo** . A lista de FQDNs e IPs pode ser obtida em seu ponto de extremidade privado (em **visão geral**). Conforme mostrado no exemplo abaixo, o primeiro FQDN do ponto de extremidade privado está sendo adicionado ao conjunto de registros na zona DNS privada.
-
-    ![Lista de FQDNs e IPs](./media/private-endpoints/list-of-fqdn-and-ip.png)
-
-    ![Adicionar conjunto de registros](./media/private-endpoints/add-record-set.png)
-
-### <a name="add-records-using-powershell-script"></a>Adicionar registros usando o script do PowerShell
-
-1. Inicie o **Cloud Shell** na portal do Azure e selecione **carregar arquivo** na janela do PowerShell.
-
-    ![Selecione carregar arquivo na janela do PowerShell](./media/private-endpoints/upload-file-in-powershell.png)
-
-1. Carregue este script: [DnsZoneCreation](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/dnszonerecordcreation.ps1)
-
-1. Vá para sua pasta base (por exemplo: `cd /home/user` )
-
-1. Execute o seguinte script:
-
-    ```azurepowershell
-    ./dnszonerecordcreation.ps1 -Subscription <SubscriptionId> -VaultPEName <VaultPE Name> -VaultPEResourceGroup <Vault PE RG> -DNSResourceGroup <Private DNS RG> -Privatezone <privatednszone>
-    ```
-
-    Estes são os parâmetros:
-
-    - **assinatura**: a assinatura na qual os recursos (ponto de extremidade particular do cofre e zona DNS privada) residem
-    - **vaultPEName**: nome do ponto de extremidade privado criado para o cofre
-    - **vaultPEResourceGroup**: grupo de recursos que contém o ponto de extremidade privado do cofre
-    - **dnsResourceGroup**: grupo de recursos que contém as zonas DNS privadas
-    - **Privatezone**: nome da zona DNS privada
-
 ## <a name="using-private-endpoints-for-backup"></a>Usando pontos de extremidade privados para backup
 
 Depois que os pontos de extremidade privados criados para o cofre em sua VNet tiverem sido aprovados, você poderá começar a usá-los para executar backups e restaurações.
@@ -243,12 +138,9 @@ Depois que os pontos de extremidade privados criados para o cofre em sua VNet ti
 >
 >1. Criado um (novo) cofre de serviços de recuperação
 >1. Habilitou o cofre para usar a identidade gerenciada atribuída pelo sistema
->1. Criou três zonas de DNS privado (duas se estiver usando uma zona DNS integrada para backup)
->1. Vinculou suas zonas de DNS privado à sua rede virtual do Azure
 >1. Permissões relevantes atribuídas à identidade gerenciada do cofre
 >1. Criou um ponto de extremidade privado para seu cofre
 >1. Aprovado o ponto de extremidade privado (se não aprovado automaticamente)
->1. Adicionados registros DNS necessários à sua zona DNS privada para backup (aplicável somente se não estiver usando uma zona DNS privada integrada)
 
 ### <a name="backup-and-restore-of-workloads-in-azure-vm-sql-sap-hana"></a>Backup e restauração de cargas de trabalho na VM do Azure (SQL, SAP HANA)
 
@@ -504,7 +396,11 @@ Você precisa criar três zonas DNS privadas e vinculá-las à sua rede virtual.
 >[!NOTE]
 >No texto acima, *geo* refere-se ao código da região. Por exemplo, *wcus* e *ne* para o Oeste EUA Central e Europa setentrional respectivamente.
 
-Consulte [esta lista](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx) para códigos de região.
+Consulte [esta lista](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx) para códigos de região. Consulte os links a seguir para obter as convenções de nomenclatura de URL em regiões nacionais:
+
+- [China](https://docs.microsoft.com/azure/china/resources-developer-guide#check-endpoints-in-azure)
+- [Alemanha](https://docs.microsoft.com/azure/germany/germany-developer-guide#endpoint-mapping)
+- [US Gov](https://docs.microsoft.com/azure/azure-government/documentation-government-developer-guide)
 
 #### <a name="adding-dns-records-for-custom-dns-servers"></a>Adicionando registros DNS para servidores DNS personalizados
 

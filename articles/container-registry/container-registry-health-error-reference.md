@@ -1,14 +1,14 @@
 ---
-title: Referência de erro para verificações de integridade
+title: Referência de erro para verificações de integridade do registro
 description: Códigos de erro e possíveis soluções para problemas encontrados ao executar o comando AZ ACR check-Health Diagnostic no registro de contêiner do Azure
 ms.topic: article
 ms.date: 07/02/2019
-ms.openlocfilehash: a23b95ea0eaffc053c47b70107c95d2b1cdc0645
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9136d41097207bfb17776071e958308f36a9aadd
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82978307"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91565591"
 ---
 # <a name="health-check-error-reference"></a>Referência de erro de verificação de integridade
 
@@ -90,7 +90,7 @@ Esse erro significa que o servidor de logon do registro não respondeu com um to
 
 Esse erro significa que o cliente não pôde estabelecer uma conexão segura com o registro de contêiner. Esse erro geralmente ocorre se você estiver executando ou usando um servidor proxy.
 
-*Soluções potenciais*: mais informações sobre como trabalhar atrás de um proxy podem ser [encontradas aqui](https://github.com/Azure/azure-cli/blob/master/doc/use_cli_effectively.md#working-behind-a-proxy).
+*Soluções potenciais*: mais informações sobre como trabalhar atrás de um proxy podem ser [encontradas aqui](/cli/azure/use-cli-effectively).
 
 ## <a name="login_server_error"></a>LOGIN_SERVER_ERROR
 

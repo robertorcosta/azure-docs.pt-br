@@ -3,12 +3,12 @@ title: Solucionar problemas de autenticação e autorização-hubs de eventos do
 description: Este artigo fornece informações sobre como solucionar problemas de autenticação e autorização com os hubs de eventos do Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: bed415c6180953b5a5728032a50d51618c084343
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: cd5f48dfb146a027f0b95b4ddea3dc054a315c6e
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533879"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91566220"
 ---
 # <a name="troubleshoot-authentication-and-authorization-issues---azure-event-hubs"></a>Solucionar problemas de autenticação e autorização-hubs de eventos do Azure
 O artigo [solucionar problemas de conectividade](troubleshooting-guide.md) fornece dicas para solucionar problemas de conectividade com os hubs de eventos do Azure. Este artigo fornece dicas e recomendações para solucionar problemas de autenticação e autorização com os hubs de eventos do Azure. 
@@ -20,6 +20,8 @@ Se você estiver usando Azure Active Directory (Azure AD) para autenticar e auto
 - O [proprietário dos dados dos hubs de eventos do Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner) para acesso completo aos recursos dos hubs de eventos.
 - [Remetente de dados dos hubs de eventos do Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver) para o acesso de envio.
 - [Receptor de dados dos hubs de eventos do Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender) para o acesso de recebimento.
+
+Para funções internas do registro de esquema, consulte [funções de registro de esquema](schema-registry-overview.md#role-based-access-control).
 
 ### <a name="resource-scopes"></a>Escopos de recursos
 - **Grupo de consumidores**: nesse escopo, a atribuição de função se aplica somente a essa entidade. Atualmente, o portal do Azure não dá suporte à atribuição de uma função do Azure a uma entidade de segurança nesse nível. 

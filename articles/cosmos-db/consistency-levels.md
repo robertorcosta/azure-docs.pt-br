@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: aa09b1ec1e3f73547d211fab0907c9e3388c008b
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 27c1a896d25a0db00ff5f263d949f6657a658e3d
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91445325"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567192"
 ---
 # <a name="what-are-consistency-levels-in-azure-cosmos-db"></a>O que são os níveis de consistência no Azure Cosmos DB?
 
@@ -52,10 +52,10 @@ A desatualização limitada oferece a ordem global total fora da "janela de desa
 
 Dentro da janela de desatualização, a desatualização limitada fornece as seguintes garantias de consistência:
 
-- Consistência para clientes na mesma região para uma conta mestre único = Strong
-- Consistência para clientes em regiões diferentes para uma conta mestre única = prefixo consistente
-- Consistência para clientes que gravam em uma única região para uma conta de vários mestres = prefixo consistente
-- Consistência para clientes que gravam em regiões diferentes para uma conta de vários mestres = eventual
+- Consistência para clientes na mesma região para uma conta com uma única região de gravação = forte
+- Consistência para clientes em regiões diferentes para uma conta com uma única região de gravação = prefixo consistente
+- Consistência para clientes que gravam em uma única região para uma conta com várias regiões de gravação = prefixo consistente
+- Consistência para clientes que gravam em regiões diferentes para uma conta com várias regiões de gravação = eventual
 
   A desatualização limitada é frequentemente escolhida por aplicativos distribuídos globalmente que esperam latências de baixa gravação, mas exigem garantia de ordem global total. A desatualização limitada é excelente para aplicativos que apresentam colaboração e compartilhamento de grupos, cotação de ações, publicação/assinatura/enfileiramento, etc. O gráfico a seguir ilustra a consistência de desatualização limitada com notas musicais. Depois que os dados são gravados na região "oeste dos EUA 2", as regiões "leste dos EUA 2" e "leste da Austrália" lêem o valor escrito com base no tempo de retardo máximo configurado ou no máximo de operações:
 
@@ -63,10 +63,10 @@ Dentro da janela de desatualização, a desatualização limitada fornece as seg
 
 Os clientes fora da sessão que executam gravações verão as seguintes garantias:
 
-- Consistência para clientes na mesma região para uma conta mestre único = prefixo consistente
-- Consistência para clientes em regiões diferentes para uma conta mestre única = prefixo consistente
-- Consistência para clientes que gravam em uma única região para uma conta de vários mestres = prefixo consistente
-- Consistência para clientes que gravam em várias regiões para uma conta de vários mestres = eventual
+- Consistência para clientes na mesma região para uma conta com uma única região de gravação = prefixo consistente
+- Consistência para clientes em regiões diferentes para uma conta com uma única região de gravação = prefixo consistente
+- Consistência para clientes que gravam em uma única região para uma conta com várias regiões de gravação = prefixo consistente
+- Consistência para clientes que gravam em várias regiões para uma conta com várias regiões de gravação = eventual
 
   A consistência da sessão é o nível de consistência mais amplamente usado para a região única, bem como para aplicativos distribuídos globalmente. Ele fornece latências de gravação, disponibilidade e taxa de transferência de leitura comparável à de consistência eventual, mas também fornece as garantias de consistência que atendem às necessidades dos aplicativos escritos para operar no contexto de um usuário. O gráfico a seguir ilustra a consistência da sessão com notas musicais. O "gravador oeste dos EUA 2" e o "leitor oeste dos EUA 2" estão usando a mesma sessão (sessão A) para que ambos leiam os mesmos dados ao mesmo tempo. Enquanto a região "leste da Austrália" está usando a "sessão B", ela recebe dados mais tarde, mas na mesma ordem que as gravações.
 
@@ -78,10 +78,10 @@ Se as gravações foram executadas na ordem `A, B, C` , um cliente vê `A` , `A,
 
 Abaixo estão as garantias de consistência para o prefixo consistente:
 
-- Consistência para clientes na mesma região para uma conta mestre único = prefixo consistente
-- Consistência para clientes em regiões diferentes para uma conta mestre única = prefixo consistente
-- Consistência para clientes que gravam em uma única região para uma conta de vários mestres = prefixo consistente
-- Consistência para clientes que gravam em várias regiões para uma conta de vários mestres = eventual
+- Consistência para clientes na mesma região para uma conta com uma única região de gravação = prefixo consistente
+- Consistência para clientes em regiões diferentes para uma conta com uma única região de gravação = prefixo consistente
+- Consistência para clientes que gravam em uma única região para uma conta com várias regiões de gravação = prefixo consistente
+- Consistência para clientes que gravam em várias regiões para uma conta com várias regiões de gravação = eventual
 
 O gráfico a seguir ilustra a consistência do prefixo de consistência com notas musicais. Em todas as regiões, as leituras nunca veem gravações fora de ordem:
 

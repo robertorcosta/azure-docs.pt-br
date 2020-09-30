@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: a73a2bc82c7f4e77808f751bb8ba24adcacd2e31
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: e2046673cda17c58153ceb12eee31edb83365092
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91400376"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91565659"
 ---
 # <a name="configure-and-access-slow-query-logs-for-azure-database-for-mysql---flexible-server-using-the-azure-portal"></a>Configurar e acessar logs de consulta lentos para o banco de dados do Azure para MySQL-servidor flexível usando o portal do Azure
 
@@ -31,15 +31,16 @@ Configure o acesso aos logs de consulta lenta do MySQL.
 1. Selecione seu servidor flexível.
 
 1. Na seção **configurações** na barra lateral, selecione **parâmetros do servidor**.
-   <!-- :::image type="content" source="./media/howto-configure-server-logs-in-portal/1-select-server-logs-configure.png" alt-text="Screenshot of Server logs options":::-->
+   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/server-parameters.png" alt-text="Página de parâmetros do servidor.":::
 
 1. Atualize o parâmetro **slow_query_log** como **ativado**.
+   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/slow-query-log-enable.png" alt-text="Página de parâmetros do servidor.":::
 
 1. Altere quaisquer outros parâmetros necessários (por exemplo, `long_query_time`, `log_slow_admin_statements`). Consulte os documentos de [logs de consulta lenta](./concepts-slow-query-logs.md#configure-slow-query-logging) para obter mais parâmetros.  
+   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/long-query-time.png" alt-text="Página de parâmetros do servidor.":::
 
 1. Clique em **Salvar**. 
-
-   <!-- :::image type="content" source="./media/howto-configure-server-logs-in-portal/3-save-discard.png" alt-text="Screenshot of slow query log parameters and save."::: -->
+   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/save-parameters.png" alt-text="Página de parâmetros do servidor.":::
 
 Na página **parâmetros do servidor** , você pode retornar à lista de logs fechando a página.
 
@@ -49,17 +50,17 @@ Logs de consulta lentos são integrados com Azure Monitor configurações de dia
 
 1. Na seção **monitoramento** na barra lateral, selecione **configurações de diagnóstico**  >  **Adicionar configurações de diagnóstico**.
 
-   <!--:::image type="content" source="./media/howto-configure-server-logs-in-portal/add-diagnostic-setting.png" alt-text="Screenshot of Diagnostic settings options":::-->
+   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/add-diagnostic-setting.png" alt-text="Página de parâmetros do servidor.":::
 
 1. Forneça um nome de configuração de diagnóstico.
 
 1. Especifique quais destinos enviarão os logs de consulta lentos (conta de armazenamento, Hub de eventos ou espaço de trabalho Log Analytics).
 
 1. Selecione **MySqlSlowLogs** como o tipo de log.
-    <!--:::image type="content" source="./media/howto-configure-server-logs-in-portal/configure-diagnostic-setting.png" alt-text="Screenshot of Diagnostic settings configuration options":::-->
+    :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/configure-diagnostic-setting.png" alt-text="Página de parâmetros do servidor.":::
 
 1. Depois de configurar os coletores de dados para canalizar os logs de consulta lentos, selecione **salvar**.
-    <!--:::image type="content" source="./media/howto-configure-server-logs-in-portal/save-diagnostic-setting.png" alt-text="Screenshot of Diagnostic settings configuration options, with Save highlighted":::-->
+    :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/save-diagnostic-setting.png" alt-text="Página de parâmetros do servidor.":::
 
 1. Acesse os logs de consulta lento explorando-os nos coletores de dados que você configurou. Pode levar até 10 minutos para que os logs sejam exibidos.
 

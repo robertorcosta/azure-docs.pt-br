@@ -6,12 +6,12 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/09/2020
-ms.openlocfilehash: b2fc13158d197aaa2e870d1b772386628ee3f9bc
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 34bc8e3775c2334b0cdbb22c8cad8f8d1dd5c732
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91398794"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568612"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Perguntas frequentes sobre o Link do Azure Synapse para Azure Cosmos DB
 
@@ -25,7 +25,7 @@ Na versão de visualização pública, há suporte para o link Synapse para a AP
 
 ### <a name="is-synapse-link-supported-for-multi-region-azure-cosmos-accounts"></a>Há suporte para o Link do Synapse para contas do Azure Cosmos de várias regiões?
 
-Sim, para contas de várias regiões do Azure Cosmos, os dados armazenados no repositório analítico também são distribuídos globalmente. Independentemente de região de gravação única (mestre único) ou de várias regiões de gravação (também conhecidas como vários mestres), as consultas analíticas executadas no Azure Synapse Analytics podem ser entregues a partir da região local mais próxima.
+Sim, para contas de várias regiões do Azure Cosmos, os dados armazenados no repositório analítico também são distribuídos globalmente. Independentemente de região de gravação única ou de várias regiões de gravação, as consultas analíticas executadas no Azure Synapse Analytics podem ser entregues pela região local mais próxima.
 
 Quando planejar a configuração de uma conta do Azure Cosmos de várias regiões com suporte ao repositório analítico, é recomendável ter todas as regiões necessárias adicionadas no momento da criação da conta.
 
@@ -120,7 +120,7 @@ O [repositório analítico do Azure Cosmos DB](analytical-store-introduction.md)
 
 ### <a name="what-are-the-ways-to-authenticate-with-the-analytical-store"></a>Quais são as maneiras de autenticar com o repositório analítico?
 
-A autenticação com o repositório analítico é igual a de um repositório transacional. Para um determinado banco de dados, você pode autenticar com a chave mestra ou somente leitura. Você pode usar o serviço vinculado no Synapse Studio para evitar colar as chaves do Azure Cosmos DB nos notebooks do Spark. O acesso a esse serviço vinculado está disponível para todos que têm acesso ao espaço de trabalho.
+A autenticação com o repositório analítico é igual a de um repositório transacional. Para um determinado banco de dados, você pode autenticar com a chave primária ou somente leitura. Você pode usar o serviço vinculado no Synapse Studio para evitar colar as chaves do Azure Cosmos DB nos notebooks do Spark. O acesso a esse serviço vinculado está disponível para todos que têm acesso ao espaço de trabalho.
 
 ## <a name="synapse-run-times"></a>Tempos de execução do Synapse
 
@@ -150,7 +150,7 @@ Um contêiner do Azure Cosmos DB habilitado com o repositório analítico tem o 
 
 Um contêiner de repositório transacional será representado com o seguinte ícone:
 
-:::image type="content" source="./media/synapse-link-frequently-asked-questions/transactional-store-icon.png" alt-text="Ícone do contêiner do Azure Cosmos DB com repositório transacional":::
+:::image type="content" source="./media/synapse-link-frequently-asked-questions/transactional-store-icon.png" alt-text="Ícone do contêiner do Azure Cosmos DB habilitado com o repositório analítico":::
  
 ### <a name="how-do-you-pass-azure-cosmos-db-credentials-from-synapse-studio"></a>Como você passa as credenciais do Azure Cosmos DB a partir do Synapse Studio?
 

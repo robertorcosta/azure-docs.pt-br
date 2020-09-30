@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 09/23/2020
-ms.openlocfilehash: 8f1e0a6aecc9702552a3dd66acc8dc7eb5bf1d85
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 24f15b8a4d5a5afd3a2794fe686d3acb0036cdd8
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91529910"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91565319"
 ---
 # <a name="azure-hdinsight-id-broker-preview"></a>Agente de ID do Azure HDInsight (versão prévia)
 
@@ -28,16 +28,6 @@ O HIB simplifica as configurações de autenticação complexas nos seguintes ce
 
 O HIB fornece a infraestrutura de autenticação que permite a transição de protocolo do OAuth (moderno) para o Kerberos (Herdado) sem a necessidade de sincronizar hashes de senha para o AAD-DS. Essa infraestrutura consiste em componentes em execução em uma VM do Windows Server (nó do agente de ID), juntamente com nós de gateway de cluster.
 
-O diagrama a seguir mostra o fluxo de autenticação moderno baseado em OAuth para todos os usuários, incluindo usuários federados, depois que o agente de ID está habilitado:
-
-:::image type="content" source="media/identity-broker/identity-broker-architecture.png" alt-text="Fluxo de autenticação com o agente de ID":::
-
-Neste diagrama, o cliente (ou seja, navegador ou aplicativos) precisa adquirir o token OAuth primeiro e, em seguida, apresentar o token ao gateway em uma solicitação HTTP. Se você já tiver entrado em outros serviços do Azure, como o portal do Azure, você pode entrar em seu cluster HDInsight com uma experiência de logon único (SSO).
-
-Ainda pode haver muitos aplicativos herdados que dão suporte apenas à autenticação básica (ou seja, nome de usuário/senha). Para esses cenários, você ainda pode usar a autenticação básica HTTP para se conectar aos gateways de cluster. Nessa configuração, você deve garantir a conectividade de rede dos nós de gateway para o ponto de extremidade de Federação (ponto de extremidade do ADFS) para garantir uma linha de visão direta dos nós do gateway.
-
-:::image type="content" source="media/identity-broker/basic-authentication.png" alt-text="Fluxo de autenticação com o agente de ID":::
-
 Use a tabela a seguir para determinar a melhor opção de autenticação com base em suas necessidades de organização:
 
 |Opções de autenticação |Configuração do HDInsight | Fatores a serem considerados |
@@ -45,6 +35,18 @@ Use a tabela a seguir para determinar a melhor opção de autenticação com bas
 | OAuth totalmente | ESP + HIB | 1. opção mais segura (MFA é suportada) 2.    Não é necessário passar a sincronização de hash. 3.  Nenhum acesso SSH/kinit/keytab para contas locais, que não têm hash de senha no AAD-DS. 4.   Contas somente em nuvem ainda podem SSH/kinit/keytab. 5. Acesso baseado na Web a Ambari por meio do OAuth 6.  Requer a atualização de aplicativos herdados (JDBC/ODBC, etc.) para dar suporte ao OAuth.|
 | OAuth + autenticação básica | ESP + HIB | 1. acesso baseado na Web a Ambari por meio do OAuth 2. Os aplicativos herdados continuam a usar a autenticação básica. 3. A MFA deve ser desabilitada para acesso básico à autenticação. 4. Não é necessário passar a sincronização de hash. 5. Nenhum acesso SSH/kinit/keytab para contas locais, que não têm hash de senha no AAD-DS. 6. Contas somente em nuvem ainda podem SSH/kinit. |
 | Autenticação totalmente básica | ESP | 1. mais semelhante às configurações locais. 2. A sincronização de hash de senha para AAD-DS é necessária. 3. As contas locais podem SSH/kinit ou usar keytab. 4. A MFA deverá ser desabilitada se o armazenamento de backup estiver ADLS Gen2 |
+
+O diagrama a seguir mostra o fluxo de autenticação moderno baseado em OAuth para todos os usuários, incluindo usuários federados, depois que o agente de ID está habilitado:
+
+:::image type="content" source="media/identity-broker/identity-broker-architecture.png" alt-text="Fluxo de autenticação com o agente de ID":::
+
+Neste diagrama, o cliente (ou seja, navegador ou aplicativos) precisa adquirir o token OAuth primeiro e, em seguida, apresentar o token ao gateway em uma solicitação HTTP. Se você já tiver entrado em outros serviços do Azure, como o portal do Azure, você pode entrar em seu cluster HDInsight com uma experiência de logon único (SSO).
+
+Ainda pode haver muitos aplicativos herdados que dão suporte apenas à autenticação básica (ou seja, nome de usuário/senha). Para esses cenários, você ainda pode usar a autenticação básica HTTP para se conectar aos gateways de cluster. Nessa configuração, você deve garantir a conectividade de rede dos nós de gateway para o ponto de extremidade de Federação (AD FS ponto de extremidade) para garantir uma linha direta de visão dos nós de gateway. 
+
+O diagrama a seguir mostra o fluxo de autenticação básica para usuários federados. Primeiro, o gateway tenta concluir a autenticação usando o [fluxo ROPC](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth-ropc) e, caso não haja hashes de senha sincronizados com o Azure AD, ele volta a descobrir AD FS ponto de extremidade e concluir a autenticação acessando o ponto de extremidade AD FS.
+
+:::image type="content" source="media/identity-broker/basic-authentication.png" alt-text="Fluxo de autenticação com o agente de ID":::
 
 
 ## <a name="enable-hdinsight-id-broker"></a>Habilitar agente de ID do HDInsight

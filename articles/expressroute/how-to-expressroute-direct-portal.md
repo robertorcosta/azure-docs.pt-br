@@ -5,14 +5,14 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 08/06/2020
+ms.date: 09/29/2020
 ms.author: duau
-ms.openlocfilehash: 52aba71ba289a1b5479a6a9eaef7e07418b563fd
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: c4021fbf87cc7cff8dde8e759423eb52c705cf97
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90986368"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568328"
 ---
 # <a name="create-expressroute-direct-using-the-azure-portal"></a>Criar ExpressRoute direto usando o portal do Azure
 
@@ -26,7 +26,7 @@ Verifique se o provedor de recursos **Microsoft. Network** está registrado em s
 1. Acesse suas configurações de assinatura, conforme descrito em [provedores de recursos e tipos do Azure](../azure-resource-manager/management/resource-providers-and-types.md).
 1. Em sua assinatura, para **provedores de recursos**, verifique se o provedor **Microsoft. Network** mostra um status **registrado** . Se o provedor de recursos Microsoft. Network não estiver presente na lista de provedores registrados, adicione-o.
 
-## <a name="1-create-expressroute-direct"></a><a name="create-erdir"></a>1. criar ExpressRoute direto
+## <a name="create-expressroute-direct"></a><a name="create-erdir"></a>Criar ExpressRoute direto
 
 1. No menu [portal do Azure](https://portal.azure.com) ou na **Home** Page do, selecione **criar um recurso**.
 
@@ -47,7 +47,7 @@ Verifique se o provedor de recursos **Microsoft. Network** está registrado em s
 
 1. Em seguida, preencha os campos na página de **configuração** .
 
-    :::image type="content" source="./media/how-to-expressroute-direct-portal/configuration.png" alt-text="Página de configuração":::
+    :::image type="content" source="./media/how-to-expressroute-direct-portal/configuration.png" alt-text="Página de noções básicas":::
 
     * **Local de emparelhamento**: o local de emparelhamento em que você se conectará ao recurso direto do ExpressRoute. Para obter mais informações sobre locais de emparelhamento, examine [locais de ExpressRoute](expressroute-locations-providers.md).
    * **Largura de banda**: a largura de banda do par de portas que você deseja reservar. O ExpressRoute Direct dá suporte a opções de largura de banda de 10 GB e 100 GB. Se a largura de banda desejada não estiver disponível no local de emparelhamento especificado, [abra uma solicitação de suporte no portal do Azure](https://aka.ms/azsupt).
@@ -61,21 +61,25 @@ Verifique se o provedor de recursos **Microsoft. Network** está registrado em s
 
 1. Especifique todas as marcas de recurso e selecione **examinar + criar** para validar as configurações de recurso direto do ExpressRoute.
 
-    :::image type="content" source="./media/how-to-expressroute-direct-portal/validate.png" alt-text="Examinar e criar":::
+    :::image type="content" source="./media/how-to-expressroute-direct-portal/validate.png" alt-text="Página de noções básicas":::
 
 1. Selecione **Criar**. Você verá uma mensagem informando que a implantação está em andamento. O status será exibido nessa página conforme os recursos são criados. 
 
-## <a name="2-change-admin-state-of-links"></a><a name="state"></a>2. alterar o estado do administrador de links
+## <a name="generate-the-letter-of-authorization-loa"></a><a name="authorization"></a>Gerar a letra de autorização (LOA)
+
+No momento, a geração da carta de autorização não está disponível no Portal. Use **[Azure PowerShell](expressroute-howto-erdirect.md#authorization)** ou **[CLI do Azure](expressroute-howto-expressroute-direct-cli.md#authorization)** para obter a carta de autorização.
+
+## <a name="change-admin-state-of-links"></a><a name="state"></a>Alterar Estado de Administrador de links
 
 Esse processo deve ser usado para realizar um teste de Camada 1, garantindo que cada conexão cruzada seja corrigida corretamente em cada roteador para o primário e o secundário.
 
 1. Na página **visão geral** do recurso do ExpressRoute Direct, na seção **links** , selecione **LINK1**.
 
-    :::image type="content" source="./media/how-to-expressroute-direct-portal/link.png" alt-text="Link 1" lightbox="./media/how-to-expressroute-direct-portal/link-expand.png":::
+    :::image type="content" source="./media/how-to-expressroute-direct-portal/link.png" alt-text="Página de noções básicas" lightbox="./media/how-to-expressroute-direct-portal/link-expand.png":::
 
 1. Alterne a configuração de **estado do administrador** para **habilitado**e, em seguida, selecione **salvar**.
 
-    :::image type="content" source="./media/how-to-expressroute-direct-portal/state.png" alt-text="Estado do administrador":::
+    :::image type="content" source="./media/how-to-expressroute-direct-portal/state.png" alt-text="Página de noções básicas":::
 
     >[!IMPORTANT]
     >A cobrança será iniciada quando o estado do administrador for habilitado em um dos links.
@@ -83,7 +87,7 @@ Esse processo deve ser usado para realizar um teste de Camada 1, garantindo que 
 
 1. Repita o mesmo processo para **Link2**.
 
-## <a name="3-create-a-circuit"></a><a name="circuit"></a>3. criar um circuito
+## <a name="create-a-circuit"></a><a name="circuit"></a>Criar um circuito
 
 Por padrão, você pode criar 10 circuitos na assinatura que contém o recurso ExpressRoute Direct. Esse número pode ser aumentado pelo suporte. Você é responsável por acompanhar a largura de banda provisionada e utilizada. A largura de banda provisionada é a soma da largura de banda de todos os circuitos no recurso direto do ExpressRoute. A largura de banda utilizada é o uso físico das interfaces físicas subjacentes.
 
@@ -97,15 +101,15 @@ As etapas a seguir ajudam a criar um circuito de ExpressRoute do fluxo de trabal
 
 1. Na seção **configurações** diretas do ExpressRoute, selecione **circuitos**e, em seguida, selecione **+ Adicionar**. 
 
-    :::image type="content" source="./media/how-to-expressroute-direct-portal/add.png" alt-text="Captura de tela mostra as configurações do ExpressRoute com circuitos selecionados e adicionadas realçadas." lightbox="./media/how-to-expressroute-direct-portal/add-expand.png":::
+    :::image type="content" source="./media/how-to-expressroute-direct-portal/add.png" alt-text="Página de noções básicas" lightbox="./media/how-to-expressroute-direct-portal/add-expand.png":::
 
 1. Defina as configurações na página **configuração** .
 
-   :::image type="content" source="./media/how-to-expressroute-direct-portal/configuration2.png" alt-text="Página de configuração":::
+   :::image type="content" source="./media/how-to-expressroute-direct-portal/configuration2.png" alt-text="Página de noções básicas":::
 
 1. Especifique quaisquer marcas de recurso, selecione **revisar + criar** para validar os valores antes de criar o recurso.
 
-   :::image type="content" source="./media/how-to-expressroute-direct-portal/review.png" alt-text="Examinar e criar":::
+   :::image type="content" source="./media/how-to-expressroute-direct-portal/review.png" alt-text="Página de noções básicas":::
 
 1. Selecione **Criar**. Você verá uma mensagem informando que a implantação está em andamento. O status será exibido nessa página conforme os recursos são criados. 
 

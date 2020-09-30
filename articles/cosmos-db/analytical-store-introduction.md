@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: rosouz
-ms.openlocfilehash: 75ad602eb6b9a0ce52b2b4c4115f351668327c43
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d27eb4dc6c4e4bd8f0a744ad925d91aee0faa8d0
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91253183"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567138"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>O que é o repositório analítico do Azure Cosmos DB (versão prévia)?
 
@@ -52,7 +52,7 @@ O repositório analítico, que é um repositório de coluna, é mais adequado pa
 
 A imagem a seguir mostra o repositório de linhas transacional em comparação ao repositório de colunas analíticas no Azure Cosmos DB:
 
-:::image type="content" source="./media/analytical-store-introduction/transactional-analytical-data-stores.png" alt-text="Repositório de linhas transacional em comparação ao repositório de colunas analíticas no Azure Cosmos DB" border="false":::
+:::image type="content" source="./media/analytical-store-introduction/transactional-analytical-data-stores.png" alt-text="Exemplo de tabela operacional" border="false":::
 
 ### <a name="decoupled-performance-for-analytical-workloads"></a>Desempenho separado para cargas de trabalho analíticas
 
@@ -149,7 +149,7 @@ Aqui está um mapa de todos os tipos de dados de propriedade e suas representaç
 | Double |  ". float64" |    24,99|
 | Array | ". array" |    ["a", "b"]|
 |Binário | ". Binary" |0|
-|Booliano    | ". bool"   |Verdadeiro|
+|Boolean    | ". bool"   |Verdadeiro|
 |Int32  | ". Int32"  |123|
 |Int64  | ". Int64"  |255486129307|
 |Nulo   | ". NULL"   | null|
@@ -171,7 +171,7 @@ Se você tiver uma conta do Azure Cosmos DB distribuída globalmente, depois de 
 
 ### <a name="security"></a>Segurança
 
-A autenticação com o repositório analítico é igual a de um repositório transacional para um determinado banco de dados. Você pode usar chaves mestras ou somente leitura para a autenticação. Você pode usar o serviço vinculado no Synapse Studio para evitar colar as chaves do Azure Cosmos DB nos notebooks do Spark. O acesso a esse serviço vinculado está disponível para todos que tenham acesso ao espaço de trabalho.
+A autenticação com o repositório analítico é igual a de um repositório transacional para um determinado banco de dados. Você pode usar chaves primárias ou somente leitura para autenticação. Você pode usar o serviço vinculado no Synapse Studio para evitar colar as chaves do Azure Cosmos DB nos notebooks do Spark. O acesso a esse serviço vinculado está disponível para todos que tenham acesso ao espaço de trabalho.
 
 ### <a name="support-for-multiple-azure-synapse-analytics-runtimes"></a>Suporte para vários runtimes do Azure Synapse Analytics
 

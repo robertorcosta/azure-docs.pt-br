@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 373463ff9024ec3b657df6d141ed830142b23f2e
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: e4d2da56146a14b295e08a1093fe62a50f87ecfa
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91400053"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567546"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Cotas de serviço do Azure Cosmos DB
 
@@ -154,11 +154,11 @@ O Azure Cosmos DB dá suporte a [operações CRUD e de consulta](/rest/api/cosmo
 
 Quando uma operação como consulta atinge o tempo limite de execução ou o limite de tamanho de resposta, ela retorna uma página de resultados e um token de continuação para o cliente para retomar a execução. Não há nenhum limite prático de duração em que uma consulta possa ser executada em páginas/continuações.
 
-O Cosmos DB usa HMAC para autorização. Você pode usar uma chave mestra ou [tokens de recurso](secure-access-to-data.md) para controle de acesso refinado a recursos como contêineres, chaves de partição ou itens. A tabela a seguir lista os limites para tokens de autorização no Cosmos DB.
+O Cosmos DB usa HMAC para autorização. Você pode usar uma chave primária ou [tokens de recurso](secure-access-to-data.md) para controle de acesso refinado a recursos como contêineres, chaves de partição ou itens. A tabela a seguir lista os limites para tokens de autorização no Cosmos DB.
 
 | Recurso | Limite padrão |
 | --- | --- |
-| Tempo máximo de expiração do token mestre | 15 min  |
+| Tempo máximo de expiração do token primário | 15 min  |
 | Tempo de expiração do token de recurso mínimo | 10 min  |
 | Tempo de expiração do token de recurso máximo | 24 h por padrão. Você pode aumentar isso [abrindo um tíquete de Suporte do Azure](create-support-request-quota-increase.md)|
 | Distorção máxima de relógio para autorização de token| 15 min |
@@ -171,7 +171,7 @@ Azure Cosmos DB mantém metadados do sistema para cada conta. Esses metadados pe
 
 | Recurso | Limite padrão |
 | --- | --- |
-|Taxa máxima de criação de coleção exec minuto| 5|
+|Taxa máxima de criação de coleção por minuto| 5|
 |Taxa máxima de criação de banco de dados por minuto|   5|
 |Taxa máxima de atualização de produtividade provisionada por minuto| 5|
 

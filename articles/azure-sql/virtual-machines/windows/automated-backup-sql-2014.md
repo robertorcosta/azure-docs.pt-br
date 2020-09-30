@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 25f3b1e6a01ba190dffaa8c43534a5e23b7d9b23
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d7938f24e408e72a84003c19e5c294d31f6b65b5
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91299102"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91565115"
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>Backup Automatizado para máquinas virtuais do SQL Server 2014 (Resource Manager)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -34,27 +34,24 @@ O backup automatizado configura automaticamente o [Backup Gerenciado do Microsof
 ## <a name="prerequisites"></a>Pré-requisitos
 Para usar o Backup Automatizado, considere os seguintes pré-requisitos:
 
+
 **Sistema operacional**:
 
-- Windows Server 2012
-- Windows Server 2012 R2
-- Windows Server 2016
+- Windows Server 2012 e superior 
 
 **Versão/edição do SQL Server**:
 
 - SQL Server 2014 Standard
 - SQL Server 2014 Enterprise
 
-> [!IMPORTANT]
-> O Backup Automatizado funciona com o SQL Server 2014. Se você estiver usando o SQL Server 2016/2017, pode usar o Backup Automatizado v2 para fazer backup de seus bancos de dados. Para obter mais informações, confira [Backup automatizado v2 para máquinas virtuais do SQL Server 2016 no Azure](automated-backup.md).
+> [!NOTE]
+> Para o SQL 2016 e superior, consulte [backup automatizado para SQL Server 2016](automated-backup.md).
 
 **Configuração do banco de dados**:
 
-- Os bancos de dados de destino devem usar o modelo de recuperação completa. Para obter mais informações sobre o impacto do modelo de recuperação completa em backups, confira [Backup com o modelo de recuperação completa](https://technet.microsoft.com/library/ms190217.aspx).
-- Os bancos de dados de destino devem estar na instância padrão do SQL Server. A Extensão SQL Server IaaS Agent não dá suporte a instâncias nomeadas.
-
-> [!NOTE]
-> O Backup Automatizado conta com a Extensão do agente IaaS do SQL Server. As imagens atuais da galeria da máquina virtual do SQL adicionam essa extensão por padrão. Para obter mais informações, consulte [Extensão do agente IaaS do SQL Server](sql-server-iaas-agent-extension-automate-management.md).
+- Os bancos de dados de _usuário_ de destino devem usar o modelo de recuperação completa. Os bancos de dados do sistema não precisam usar o modelo de recuperação completa. No entanto, se você precisar que os backups de log sejam considerados para o Modelo ou MSDB, será necessário usar o modelo de recuperação completa. Para obter mais informações sobre o impacto do modelo de recuperação completa em backups, veja [Backup com o modelo de recuperação completa](https://technet.microsoft.com/library/ms190217.aspx). 
+- A VM SQL Server foi registrada com o provedor de recursos de VM do SQL no [modo de gerenciamento completo](sql-vm-resource-provider-register.md#upgrade-to-full). 
+-  O backup automatizado depende da extensão completa do [agente IaaS SQL Server](sql-server-iaas-agent-extension-automate-management.md). Assim, o backup automatizado só tem suporte em bancos de dados de destino da instância padrão ou em uma única instância nomeada. Se não houver nenhuma instância padrão e várias instâncias nomeadas, a extensão de IaaS do SQL falhará e o backup automatizado não funcionará. 
 
 ## <a name="settings"></a>Configurações
 
@@ -113,9 +110,9 @@ $resourcegroupname = "resourcegroupname"
 (Get-AzVM -Name $vmname -ResourceGroupName $resourcegroupname).Extensions
 ```
 
-Se a extensão SQL Server IaaS Agent estiver instalada, você deverá vê-la listada como "SqlIaaSAgent" ou "SQLIaaSExtension". O **ProvisioningState** da extensão também deverá mostrar "Êxito".
+Se a extensão do agente IaaS do SQL Server estiver instalada, você deverá vê-la listada como "SqlIaaSAgent" ou "SQLIaaSExtension". **ProvisioningState** para a extensão também deve mostrar "Êxito".
 
-Se ele não estiver instalado ou o provisionamento tiver falhado, você poderá instalá-lo com o comando a seguir. Além do grupo de recursos e do nome da VM, você também deve especificar a região ( **$region**) em que a VM está localizada. Especifique o tipo de licença para a sua VM do SQL Server escolhendo entre pagamento conforme o uso ou traga sua própria licença por meio do [Benefício Híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/). Para obter mais informações sobre licenciamento, confira [Modelo de licenciamento](licensing-model-azure-hybrid-benefit-ahb-change.md). 
+Se ela não estiver instalada ou o provisionamento tiver falhado, você poderá instalá-la com o comando a seguir. Além do grupo de recursos e do nome da VM, você também deve especificar a região ( **$region**) em que a VM está localizada. Especifique o tipo de licença para a sua VM do SQL Server escolhendo entre pagamento conforme o uso ou traga sua própria licença por meio do [Benefício Híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/). Para obter mais informações sobre licenciamento, confira [Modelo de licenciamento](licensing-model-azure-hybrid-benefit-ahb-change.md). 
 
 ```powershell
 New-AzSqlVM  -Name $vmname `
@@ -282,4 +279,4 @@ Você pode encontrar outras orientações de backup e de restauração para o SQ
 
 Para obter informações sobre outras tarefas de automação disponíveis, consulte [Extensão do agente IaaS do SQL Server](sql-server-iaas-agent-extension-automate-management.md).
 
-Para obter mais informações sobre como executar o SQL Server em VMs do Azure, confira [Visão geral das máquinas virtuais do SQL Server no Azure](sql-server-on-azure-vm-iaas-what-is-overview.md).
+Para obter mais informações sobre como executar o SQL Server em VMs do Azure, veja [Visão geral do SQL Server em máquinas virtuais do Azure](sql-server-on-azure-vm-iaas-what-is-overview.md).
