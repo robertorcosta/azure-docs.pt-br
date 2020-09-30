@@ -4,12 +4,12 @@ description: Saiba como executar restaurações em nível de arquivo em uma VM d
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: c8adb114685379112aee20ab600d37bc25ce700e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 6684e8717bad47248b539ecf70d135a46f459a4e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89007597"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324970"
 ---
 # <a name="restore-files-to-a-virtual-machine-in-azure"></a>Restaurar arquivos para uma máquina virtual no Azure
 
@@ -41,7 +41,7 @@ Quando a transferência de dados é concluída, o instantâneo é removido e um 
 
 Se você excluir ou fizer alterações em um arquivo acidentalmente, será possível restaurar os arquivos individuais de um ponto de recuperação. Esse processo permite procurar os arquivos de backup em um ponto de recuperação e restaurar apenas os arquivos necessários. Neste exemplo, vamos excluir um arquivo de um servidor Web para demonstrar o processo de recuperação em nível de arquivo.
 
-1. Para conectar-se à VM, obter o endereço IP da VM com [az vm show](/cli/azure/vm?view=azure-cli-latest#az-vm-show):
+1. Para conectar-se à VM, obter o endereço IP da VM com [az vm show](/cli/azure/vm#az-vm-show):
 
      ```azurecli-interactive
      az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv
@@ -77,7 +77,7 @@ Se você excluir ou fizer alterações em um arquivo acidentalmente, será poss�
 
 Para restaurar os arquivos, o Backup do Azure fornece um script para ser executado na VM que conecta o ponto de recuperação a uma unidade local. Você pode procurar essa unidade local, restaurar arquivos para a própria VM e desconectar o ponto de recuperação. O Backup do Azure continua a fazer backup dos dados com base na política atribuída para agendamento e retenção.
 
-1. Para listar os pontos de recuperação da VM, use [az backup recoverypoint list](/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-list). Neste exemplo, selecionamos o ponto de recuperação mais recente da VM denominada *myVM* que está protegido em *myRecoveryServicesVault*:
+1. Para listar os pontos de recuperação da VM, use [az backup recoverypoint list](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-list). Neste exemplo, selecionamos o ponto de recuperação mais recente da VM denominada *myVM* que está protegido em *myRecoveryServicesVault*:
 
     ```azurecli-interactive
     az backup recoverypoint list \
@@ -89,7 +89,7 @@ Para restaurar os arquivos, o Backup do Azure fornece um script para ser executa
         --output tsv
     ```
 
-2. Para obter o script que conecta ou monta o ponto de recuperação da VM, use [az backup restore files mount-rp](/cli/azure/backup/restore/files?view=azure-cli-latest#az-backup-restore-files-mount-rp). O exemplo a seguir obtém o script para a VM denominada *myVM* que está protegida em *myRecoveryServicesVault*.
+2. Para obter o script que conecta ou monta o ponto de recuperação da VM, use [az backup restore files mount-rp](/cli/azure/backup/restore/files#az-backup-restore-files-mount-rp). O exemplo a seguir obtém o script para a VM denominada *myVM* que está protegida em *myRecoveryServicesVault*.
 
     Substitua *myRecoveryPointName* pelo nome do ponto de recuperação que você obteve no comando anterior:
 
@@ -139,7 +139,7 @@ Com o script de recuperação copiado para a VM, você pode conectar o ponto de 
     ./myVM_we_1571974050985163527.sh
     ```
 
-    Conforme o script for executado, você precisará inserir uma senha para acessar o ponto de recuperação. Insira a senha mostrada na saída do comando [az backup restore files mount-rp](/cli/azure/backup/restore/files?view=azure-cli-latest#az-backup-restore-files-mount-rp) anterior que gerou o script de recuperação.
+    Conforme o script for executado, você precisará inserir uma senha para acessar o ponto de recuperação. Insira a senha mostrada na saída do comando [az backup restore files mount-rp](/cli/azure/backup/restore/files#az-backup-restore-files-mount-rp) anterior que gerou o script de recuperação.
 
     A saída do script fornece o caminho para o ponto de recuperação. A saída de exemplo a seguir mostra que o ponto de recuperação está montado em */home/azureuser/myVM-20170919213536/Volume1*:
 
@@ -179,7 +179,7 @@ Com o script de recuperação copiado para a VM, você pode conectar o ponto de 
     exit
     ```
 
-7. Desmonte o ponto de recuperação da VM com [az backup restore files unmount-rp](/cli/azure/backup/restore/files?view=azure-cli-latest#az-backup-restore-files-unmount-rp). O exemplo a seguir desmonta o ponto de recuperação da VM denominada *myVM* em *myRecoveryServicesVault*.
+7. Desmonte o ponto de recuperação da VM com [az backup restore files unmount-rp](/cli/azure/backup/restore/files#az-backup-restore-files-unmount-rp). O exemplo a seguir desmonta o ponto de recuperação da VM denominada *myVM* em *myRecoveryServicesVault*.
 
     Substitua *myRecoveryPointName* pelo nome do ponto de recuperação que você obteve nos comandos anteriores:
 

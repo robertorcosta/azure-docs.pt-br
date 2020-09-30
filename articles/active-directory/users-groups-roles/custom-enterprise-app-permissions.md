@@ -12,12 +12,12 @@ ms.date: 09/22/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 1d196ea33eafbfae0d9db68588c0adb131a383f4
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 2ebba2bb957a1c05fd591181f0a784ed778c6c57
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90998280"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333368"
 ---
 # <a name="enterprise-application-permissions-for-custom-roles-in-azure-active-directory"></a>Permissões de aplicativo empresarial para funções personalizadas no Azure Active Directory
 
@@ -138,7 +138,6 @@ microsoft.directory/servicePrincipals/appRoleAssignedTo/read | Ler as atribuiç�
 microsoft.directory/servicePrincipals/appRoleAssignedTo/update | Atualizar as atribuições de função da entidade de serviço.
 microsoft.directory/servicePrincipals/appRoleAssignments/read | Ler as atribuições de função atribuídas a entidades de serviço.
 microsoft.directory/servicePrincipals/audience/update | Atualizar as propriedades de público-alvo nas entidades de serviço.
-microsoft.directory/servicePrincipals/authentication/read |  
 microsoft.directory/servicePrincipals/authentication/update | Atualizar as propriedades de autenticação nas entidades de serviço.
 microsoft.directory/servicePrincipals/basic/update | Atualizar as propriedades básicas nas entidades de serviço.
 microsoft.directory/servicePrincipals/create | Criar entidades de serviço.

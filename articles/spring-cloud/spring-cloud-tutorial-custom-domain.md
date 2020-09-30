@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: cd10421ddcf752625b8040e1afa4e7b15f142ce2
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 5892fd732a1e66b2b7dd4c1031cabfcbcc768c6d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90885679"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326143"
 ---
 # <a name="map-an-existing-custom-domain-to-azure-spring-cloud"></a>Mapear um domínio personalizado existente para o Azure Spring Cloud
 
@@ -58,12 +58,12 @@ Ou, você pode usar a CLI do Azure para conceder ao Azure Spring Cloud acesso ao
 
 Obtenha a ID do objeto por meio do comando a seguir.
 ```
-az ad sp show --id 03b39d0f-4213-4864-a245-b1476ec03169 --query objectId
+az ad sp show --id <service principal id> --query objectId
 ```
 
 Conceda ao Azure Spring Cloud acesso de leitura ao cofre de chaves, substitua a ID do objeto no comando a seguir.
 ```
-az keyvault set-policy -g <key vault resource group> -n <key vault name>  --object-id <object id> --certificate-permissions get list --secret-permissions get list
+az keyvault set-policy -g <key vault resource group> -n <key vault name>  --object-id <object id> --certificate-permissions get list
 ``` 
 
 Para importar o certificado para o Azure Spring Cloud:
@@ -93,7 +93,7 @@ Depois de importar o certificado com êxito, você o verá na lista de **Certifi
 Ou, você pode usar a CLI do Azure para mostrar uma lista de certificados:
 
 ```
-az spring-cloud certificate list
+az spring-cloud certificate list --resource-group <resource group name> --service <service name>
 ```
 
 > [!IMPORTANT] 
@@ -128,7 +128,7 @@ Acesse a página do aplicativo.
 
 Ou você pode usar a CLI do Azure para adicionar um domínio personalizado:
 ```
-az spring-cloud app custom-domain bind --domain-name <domain name> --app <app name> 
+az spring-cloud app custom-domain bind --domain-name <domain name> --app <app name> --resource-group <resource group name> --service <service name>
 ```
 
 Um aplicativo pode ter vários domínios, mas um domínio só pode ser mapeado para um aplicativo. Quando você tiver mapeado com êxito seu domínio personalizado para o aplicativo, você o verá na tabela de domínios personalizados.
@@ -137,7 +137,7 @@ Um aplicativo pode ter vários domínios, mas um domínio só pode ser mapeado p
 
 Ou, você pode usar a CLI do Azure para mostrar uma lista de domínios personalizados:
 ```
-az spring-cloud app custom-domain list --app <app name> 
+az spring-cloud app custom-domain list --app <app name> --resource-group <resource group name> --service <service name>
 ```
 
 > [!NOTE]
@@ -168,7 +168,7 @@ Na sua página do aplicativo, na navegação esquerda, selecione **Domínio Pers
 
 Ou, você pode usar a CLI do Azure para impor HTTPS:
 ```
-az spring-cloud app update -name <app-name> --https-only <true|false> -g <resource group> --service <service-name>
+az spring-cloud app custom-domain update --domain-name <domain name> --certificate <cert name> --app <app name> --resource-group <resource group name> --service <service name>
 ```
 
 Quando a operação estiver concluída, navegue até qualquer uma das URLs HTTPS que aponte para seu aplicativo. Observe que as URLs HTTP não funcionam.

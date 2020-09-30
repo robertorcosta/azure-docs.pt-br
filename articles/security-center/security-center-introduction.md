@@ -12,14 +12,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/06/2019
+ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 53fdea6a52cc02ddc9aaf22574a6bac5f5b7bca6
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 2eee46f99af247ffd0e11b262ace0a96453270d4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90943175"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323667"
 ---
 # <a name="what-is-azure-security-center"></a>O que é a Central de Segurança do Azure?
 
@@ -67,7 +67,7 @@ A Central de Segurança do Azure permite que você fortaleça sua postura de seg
 
 A Central de Segurança o ajuda a **identificar as assinaturas de TI sombra**. Examinando as assinaturas rotuladas como **não cobertas** no seu painel, você pode saber imediatamente quando há assinaturas criadas recentemente e garantir que elas sejam cobertas pelas suas políticas e protegidas pela Central de Segurança do Azure.
 
-:::image type="content" source="./media/security-center-intro/sc-policy-dashboard.png" alt-text="Painel de política da Central de Segurança":::
+:::image type="content" source="./media/security-center-intro/sc-policy-dashboard.png" alt-text="Página Gerenciamento de políticas":::
 
 ### <a name="continuous-assessments"></a>Avaliações contínuas
 
@@ -75,13 +75,13 @@ A Central de Segurança descobre novos recursos que estão sendo implantados em 
 
 Para ajudar você a entender a importância de cada recomendação para sua postura de segurança geral, a Central de Segurança agrupa as recomendações em controles de segurança e adiciona um valor de **classificação de segurança** a cada controle. Isso é fundamental para permitir que você **priorize seu trabalho de segurança**.
 
-:::image type="content" source="./media/security-center-intro/sc-secure-score.png" alt-text="Classificação de segurança da Central de Segurança":::
+:::image type="content" source="./media/security-center-intro/sc-secure-score.png" alt-text="Página Gerenciamento de políticas":::
 
 ### <a name="network-map"></a>Mapa de rede
 
 Uma das ferramentas mais avançadas que a Central de Segurança oferece para monitoramento contínuo do status de segurança da sua rede é o **Mapa de rede**. O mapa permite que você veja a topologia de suas cargas de trabalho para que você possa ver se cada nó está configurado corretamente. Você pode ver como os nós estão conectados, o que ajuda a bloquear conexões indesejadas que poderiam potencialmente tornar mais fácil para um invasor entrar na sua rede.
 
-:::image type="content" source="./media/security-center-intro/sc-net-map.png" alt-text="Mapa de rede da Central de Segurança":::
+:::image type="content" source="./media/security-center-intro/sc-net-map.png" alt-text="Página Gerenciamento de políticas":::
 
 
 ### <a name="optimize-and-improve-security-by-configuring-recommended-controls"></a>Otimizar e melhorar a segurança configurando controles recomendados
@@ -92,7 +92,7 @@ Dessa forma, a Central de Segurança permite que você não apenas defina polít
 
 As recomendações ajudam a reduzir a superfície de ataque em cada um de seus recursos. Isso inclui máquinas virtuais do Azure, servidores não Azure e serviços de PaaS do Azure, como SQL e contas de Armazenamento e mais – em que cada tipo de recurso é avaliado de maneira diferente e tem seus próprios padrões.
 
-:::image type="content" source="./media/security-center-intro/sc-recommendation-example.png" alt-text="Exemplo de recomendação da Central de Segurança":::
+:::image type="content" source="./media/security-center-intro/sc-recommendation-example.png" alt-text="Página Gerenciamento de políticas":::
 
 ## <a name="protect-against-threats"></a>Proteção contra ameaças
 
@@ -100,7 +100,7 @@ A proteção contra ameaças da Central de Segurança permite que você detecte 
 
 A proteção contra ameaças da Central de Segurança inclui análise de cadeia de eliminação de fusão, que correlaciona automaticamente alertas em seu ambiente com base na análise de cadeia de eliminação de cibernéticos para ajudá-lo a entender melhor a história completa de uma campanha de ataque, o ponto de partida e que tipo de impacto causou aos seus recursos.
 
-:::image type="content" source="./media/security-center-intro/sc-alerts.png" alt-text="Alertas de segurança":::
+:::image type="content" source="./media/security-center-intro/sc-alerts.png" alt-text="Página Gerenciamento de políticas":::
 
 ### <a name="integration-with-microsoft-defender-advanced-threat-protection"></a>Integração à proteção avançada contra ameaças do Microsoft Defender
 

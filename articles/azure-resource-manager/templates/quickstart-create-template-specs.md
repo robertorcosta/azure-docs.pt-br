@@ -2,15 +2,15 @@
 title: Criar e implantar especificação de modelo
 description: Saiba como criar uma especificação usando um modelo do ARM. Implante a especificação de modelo em um grupo de recursos em sua assinatura.
 author: tfitzmac
-ms.date: 08/31/2020
+ms.date: 09/25/2020
 ms.topic: quickstart
 ms.author: tomfitz
-ms.openlocfilehash: 47791455c63852bfc6f8a7e3152fabe18d303ecb
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: a4f24e69f29614de27947573d968d817dce4a57b
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89227722"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91369208"
 ---
 # <a name="quickstart-create-and-deploy-template-spec-preview"></a>Início Rápido: Criar e implantar especificação de modelo (versão prévia)
 
@@ -55,7 +55,7 @@ Essas opções são mostradas abaixo.
       -Version "1.0" `
       -ResourceGroupName templateSpecRG `
       -Location westus2 `
-      -TemplateJsonFile "c:\Templates\azuredeploy.json"
+      -TemplateFile "c:\Templates\azuredeploy.json"
     ```
 
 # <a name="cli"></a>[CLI](#tab/azure-cli)
@@ -220,7 +220,7 @@ Agora você pode implantar a especificação de modelo. Implantar a especificaç
 1. Obtenha a ID do recurso da especificação de modelo.
 
     ```azurepowershell
-    $id = (Get-AzTemplateSpec -ResourceGroupName templateSpecRG -Name storageSpec -Version "1.0").Version.Id
+    $id = (Get-AzTemplateSpec -ResourceGroupName templateSpecRG -Name storageSpec -Version "1.0").Versions.Id
     ```
 
 1. Implante a especificação de modelo.

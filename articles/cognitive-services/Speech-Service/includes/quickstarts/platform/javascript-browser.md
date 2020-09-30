@@ -10,13 +10,13 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/11/2019
 ms.author: erhopf
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 54fe96ecee99f3de37667d255b57b89c34aecc14
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-js
+ms.openlocfilehash: 2701b4cd17a132de07c031166bbe4cb1086227e9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406395"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324716"
 ---
 Este guia mostra como instalar o [SDK de Fala](~/articles/cognitive-services/speech-service/speech-sdk.md) para JavaScript para uso com uma página da Web.
 

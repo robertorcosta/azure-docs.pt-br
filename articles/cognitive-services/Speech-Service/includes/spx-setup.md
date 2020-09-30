@@ -5,17 +5,13 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 2a0cb34c23ebee5ae16a8c0a272055880ceed388
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 3c176f103371bfb1b35231f222b2045f1f4a3ef9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89494300"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326993"
 ---
-## <a name="prerequisites"></a>Pré-requisitos
-
-O único pré-requisito é uma assinatura do serviço Fala do Azure. Consulte o [guia](../get-started.md#new-resource) sobre a criação de uma nova assinatura se você ainda não tiver uma.
-
 ## <a name="download-and-install"></a>Fazer o download e instalar
 
 #### <a name="windows-install"></a>[Instalação do Windows](#tab/windowsinstall)

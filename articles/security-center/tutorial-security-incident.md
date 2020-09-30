@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2018
 ms.author: memildin
-ms.openlocfilehash: c508591fe9909578dcc04b0922c0b76691898743
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 08e04749eae7158abb501f9a4d127cdd7a89a391
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90901085"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336268"
 ---
 # <a name="tutorial-respond-to-security-incidents"></a>Tutorial: Responder a incidentes de segurança
 A Central de Segurança analisa continuamente as cargas de trabalho de nuvem híbrida usando a análise avançada e a inteligência contra ameaças para lhe avisar a existência de atividades mal-intencionadas. Além disso, você pode integrar à Central de Segurança alertas de outros produtos e serviços de segurança, bem como criar alertas personalizados com base em indicadores próprios ou fontes de inteligência. Após a geração de um alerta, é necessária uma ação rápida para investigação e correção da questão. Neste tutorial, você aprenderá a:
@@ -76,7 +76,7 @@ A Central de Segurança fornece uma visualização unificada de todos os alertas
 
    ![Detalhes do alerta do incidente](./media/tutorial-security-incident/tutorial-security-incident-fig3.png)
 
-   O tipo de alerta pode variar, leia [Noções básicas sobre os alertas de segurança na Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) para obter mais detalhes sobre o tipo de alerta e as etapas de correção possíveis. Para os alertas que podem ser ignorados com segurança, clique com o botão direito no alerta e selecione a opção **Ignorar**:
+   O tipo de alerta pode variar, leia [Noções básicas sobre os alertas de segurança na Central de Segurança do Azure](security-center-alerts-type.md) para obter mais detalhes sobre o tipo de alerta e as etapas de correção possíveis. Para os alertas que podem ser ignorados com segurança, clique com o botão direito no alerta e selecione a opção **Ignorar**:
 
    ![Alerta](./media/tutorial-security-incident/tutorial-security-incident-fig4.png)
 

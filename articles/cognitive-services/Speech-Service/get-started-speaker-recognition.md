@@ -12,12 +12,12 @@ ms.date: 09/02/2020
 ms.author: trbye
 ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
 keywords: reconhecimento de locutor, biometria de voz
-ms.openlocfilehash: f22eb02e6812bef73133b1778484f9f4640245cd
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: cfb16d95c0de7fabb7e939e53903f0a611f749e9
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89410533"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362547"
 ---
 # <a name="get-started-with-speaker-recognition"></a>Introdução ao Reconhecimento do Locutor
 
@@ -31,7 +31,7 @@ Para obter uma visão de alto nível sobre os conceitos do Reconhecimento de Fal
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este artigo pressupõe que você tem uma conta do Azure e uma assinatura do Serviço de Fala. Se você não tiver uma conta e uma assinatura, [experimente o serviço de Fala gratuitamente](get-started.md).
+Este artigo pressupõe que você tem uma conta do Azure e uma assinatura do Serviço de Fala. Se você não tiver uma conta e uma assinatura, [experimente o serviço de Fala gratuitamente](overview.md#try-the-speech-service-for-free).
 
 > [!IMPORTANT]
 > Atualmente, o Reconhecimento do Locutor é compatível *somente* com os recursos de Fala do Azure criados na região `westus`.
@@ -283,7 +283,7 @@ public static async Task SpeakerIdentification(SpeechConfig config, List<VoicePr
 
     Console.WriteLine("Speak some text to identify who it is from your list of enrolled speakers.");
     var result = await speakerRecognizer.RecognizeOnceAsync(model);
-    Console.WriteLine($"The most similiar voice profile is {profileMapping[result.ProfileId]} with similiarity score {result.Score}");
+    Console.WriteLine($"The most similar voice profile is {profileMapping[result.ProfileId]} with similarity score {result.Score}");
 }
 ```
 

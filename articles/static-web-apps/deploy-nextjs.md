@@ -7,13 +7,13 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: chnwamba
-ms.custom: devx-track-javascript
-ms.openlocfilehash: c5afd7d912142dd8556e71ba9e0a522b2fa0da1c
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.custom: devx-track-js
+ms.openlocfilehash: 554a7504e4e72eb2b2921c56e535343398cfa8b6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684585"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333640"
 ---
 # <a name="deploy-server-rendered-nextjs-websites-on-azure-static-web-apps-preview"></a>Implantar sites do Next.js renderizados no servidor na versão prévia do serviço Aplicativos Web Estáticos do Azure
 
@@ -63,7 +63,7 @@ Navegue até `http://localhost:3000` para abrir o aplicativo, onde você deverá
 
 Ao clicar em uma estrutura/biblioteca, você verá uma página de detalhes sobre o item selecionado:
 
-:::image type="content" source="media/deploy-nextjs/start-nextjs-details.png" alt-text="Página de detalhes":::
+:::image type="content" source="media/deploy-nextjs/start-nextjs-details.png" alt-text="Inicie o aplicativo Next.js":::
 
 ## <a name="generate-a-static-website-from-nextjs-build"></a>Gerar um site estático utilizando o build do Next.js
 
@@ -146,7 +146,7 @@ As etapas a seguir mostram como vincular o aplicativo que você acabou de enviar
 1. Na lista suspensa *Região*, escolha a região mais próxima de você.
 1. Selecione **Gratuito** na lista suspensa SKU.
 
-   :::image type="content" source="media/deploy-nextjs/create-static-web-app.png" alt-text="Criar Aplicativo Web Estático":::
+   :::image type="content" source="media/deploy-nextjs/create-static-web-app.png" alt-text="Inicie o aplicativo Next.js":::
 
 ### <a name="add-a-github-repository"></a>Adicionar um repositório GitHub
 
@@ -157,7 +157,7 @@ A nova conta do serviço Aplicativos Web Estáticos precisa acessar o repositór
 1. Encontre e selecione o nome do repositório que você criou anteriormente.
 1. Escolha **mestre** como branch, na lista suspensa *Branch*.
 
-   :::image type="content" source="media/deploy-nextjs/connect-github.png" alt-text="Conectar o GitHub":::
+   :::image type="content" source="media/deploy-nextjs/connect-github.png" alt-text="Inicie o aplicativo Next.js":::
 
 ### <a name="configure-the-build-process"></a>Configurar o processo de compilação
 
@@ -165,7 +165,7 @@ O serviço Aplicativos Web Estáticos do Azure é criado para executar automatic
 
 1. Clique na guia **Build** para configurar a pasta de saída estática.
 
-   :::image type="content" source="media/deploy-nextjs/build-tab.png" alt-text="Guia Build":::
+   :::image type="content" source="media/deploy-nextjs/build-tab.png" alt-text="Inicie o aplicativo Next.js":::
 
 2. Digite **out** na caixa de texto *Local do artefato do aplicativo*.
 
@@ -195,7 +195,7 @@ Retorne ao terminal e execute o comando `git pull origin master`.
 
 Navegue até o novo site implantado e clique em um dos logotipos de estrutura ou de biblioteca. Em vez de obter uma página de detalhes, você recebe uma página de erro 404.
 
-:::image type="content" source="media/deploy-nextjs/404-in-production.png" alt-text="404 em rotas dinâmicas":::
+:::image type="content" source="media/deploy-nextjs/404-in-production.png" alt-text="Inicie o aplicativo Next.js":::
 
 O motivo para esse erro é porque o Next.js gerou apenas a home page com base na configuração do aplicativo.
 
@@ -231,7 +231,7 @@ O motivo para esse erro é porque o Next.js gerou apenas a home page com base na
 
 2. Envie por push as novas alterações para seu repositório GitHub e aguarde alguns minutos enquanto o GitHub Actions compila o site novamente. Após a conclusão da compilação, o erro 404 desaparece.
 
-   :::image type="content" source="media/deploy-nextjs/404-in-production-fixed.png" alt-text="404 em rotas dinâmicas corrigido":::
+   :::image type="content" source="media/deploy-nextjs/404-in-production-fixed.png" alt-text="Inicie o aplicativo Next.js":::
 
 > [!div class="nextstepaction"]
 > [Configurar um domínio personalizado](custom-domain.md)
