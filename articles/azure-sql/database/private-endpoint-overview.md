@@ -9,12 +9,12 @@ ms.topic: overview
 ms.custom: sqldbrb=1
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: f8c7e2cfb17ca48a67a009f532a9cbb6894cc05d
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: b0908aee6253a3be486f71c245ea1eee2ff8b9bb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442591"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319462"
 ---
 # <a name="azure-private-link-for-azure-sql-database-and-azure-synapse-analytics"></a>Link Privado do Azure para o Banco de Dados SQL do Azure e o Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -23,28 +23,6 @@ O Link Privado permite que você se conecte a vários serviços de PaaS no Azure
 
 > [!IMPORTANT]
 > Este artigo se aplica ao Banco de Dados SQL do Azure e ao Azure Synapse Analytics (anteriormente, SQL Data Warehouse). Para simplificar, o termo "banco de dados" se refere aos bancos de dados no Banco de Dados SQL do Azure e no Azure Synapse Analytics. Da mesma forma, as referências a "servidor" se referem ao [servidor SQL lógico](logical-servers.md) que hospeda o Banco de Dados SQL do Azure e o Azure Synapse Analytics. Este artigo *não* se aplica à **Instância Gerenciada de SQL do Azure**.
-
-## <a name="data-exfiltration-prevention"></a>Prevenção contra exportação de dados
-
-A exportação de dados no Banco de Dados SQL do Azure ocorre quando um usuário autorizado, como um administrador de banco de dados, tem a capacidade de extrair dados de um sistema e movê-los para outra localização ou outro sistema fora da organização. Por exemplo, o usuário move os dados para uma conta de armazenamento pertencente a terceiros.
-
-Considere um cenário com um usuário que executa o SSMS (SQL Server Management Studio) em uma máquina virtual do Azure que se conecta a um banco de dados no Banco de Dados SQL. Esse banco de dados está no data center do Oeste dos EUA. O exemplo abaixo mostra como limitar o acesso com pontos de extremidade públicos no Banco de Dados SQL usando controles de acesso à rede.
-
-1. Desabilite todo o tráfego de serviço do Azure para o Banco de Dados SQL por meio do ponto de extremidade público configurando Permitir Serviços do Azure como **DESATIVADO**. Verifique se nenhum endereço IP é permitido nas regras de firewall no nível de servidor e de banco de dados. Para obter mais informações, confira [Controles de acesso à rede do Banco de Dados SQL do Azure e do Azure Synapse Analytics](network-access-controls-overview.md).
-1. Só permita o tráfego para o banco de dados no Banco de Dados SQL usando o endereço IP privado da VM. Para obter mais informações, confira os artigos sobre o [ponto de extremidade de serviço](vnet-service-endpoint-rule-overview.md) e as [regras de firewall da rede virtual](firewall-configure.md).
-1. Na VM do Azure, restrinja o escopo da conexão de saída usando [NSGs (grupos de segurança de rede)](../../virtual-network/manage-network-security-group.md) e Marcas de Serviço, conforme mostrado a seguir
-    - Especifique uma regra NSG para permitir o tráfego para a Tag de Serviço = SQL.WestUs – só permitindo a conexão com o Banco de Dados SQL no Oeste dos EUA
-    - Especifique uma regra NSG (com uma **prioridade mais alta**) para negar o tráfego para a Tag de Serviço = SQL – negando as conexões com o Banco de Dados SQL em todas as regiões
-
-Ao final desta configuração, a VM do Azure só poderá se conectar a um banco de dados no Banco de Dados SQL na região Oeste dos EUA. No entanto, a conectividade não é restrita a um banco de dados individual no Banco de Dados SQL. A VM ainda pode se conectar a qualquer banco de dados na região Oeste dos EUA, incluindo os bancos de dados que não fazem parte da assinatura. Embora tenhamos reduzido o escopo da exportação de dados no cenário acima a uma região específica, não o eliminamos por completo.
-
-Com o Link Privado, os clientes agora podem configurar controles de acesso à rede como NSGs para restringir o acesso ao ponto de extremidade privado. Os recursos de PaaS individuais do Azure são então mapeados para pontos de extremidade privados específicos. Um usuário interno mal-intencionado só pode acessar o recurso de PaaS mapeado (por exemplo, um banco de dados no Banco de Dados SQL) e nenhum outro recurso. 
-
-## <a name="on-premises-connectivity-over-private-peering"></a>Conectividade local no emparelhamento privado
-
-Quando os clientes se conectam ao ponto de extremidade público em computadores locais, seus endereços IP precisam ser adicionados ao firewall baseado em IP usando uma [Regra de firewall no nível de servidor](firewall-create-server-level-portal-quickstart.md). Embora esse modelo funcione bem para permitir o acesso a computadores individuais para cargas de trabalho de desenvolvimento ou teste, é difícil gerenciá-lo em um ambiente de produção.
-
-Com o Link Privado, os clientes podem habilitar o acesso entre instalações ao ponto de extremidade privado usando o [ExpressRoute](../../expressroute/expressroute-introduction.md), o emparelhamento privado ou o túnel de VPN. Os clientes podem então desabilitar todo o acesso por meio do ponto de extremidade público e não usar o firewall baseado em IP para permitir qualquer endereço IP.
 
 ## <a name="how-to-set-up-private-link-for-azure-sql-database"></a>Como configurar o Link Privado para o Banco de Dados SQL do Azure 
 
@@ -71,6 +49,12 @@ Depois que o administrador de rede cria o PE (ponto de extremidade privado), o a
 
 1. Após a aprovação ou a rejeição, a lista refletirá o estado apropriado junto com o texto de resposta.
 ![Captura de tela de todas as PECs após a aprovação][5]
+
+## <a name="on-premises-connectivity-over-private-peering"></a>Conectividade local no emparelhamento privado
+
+Quando os clientes se conectam ao ponto de extremidade público em computadores locais, seus endereços IP precisam ser adicionados ao firewall baseado em IP usando uma [Regra de firewall no nível de servidor](firewall-create-server-level-portal-quickstart.md). Embora esse modelo funcione bem para permitir o acesso a computadores individuais para cargas de trabalho de desenvolvimento ou teste, é difícil gerenciá-lo em um ambiente de produção.
+
+Com o Link Privado, os clientes podem habilitar o acesso entre instalações ao ponto de extremidade privado usando o [ExpressRoute](../../expressroute/expressroute-introduction.md), o emparelhamento privado ou o túnel de VPN. Os clientes podem então desabilitar todo o acesso por meio do ponto de extremidade público e não usar o firewall baseado em IP para permitir qualquer endereço IP.
 
 ## <a name="use-cases-of-private-link-for-azure-sql-database"></a>Casos de uso do Link Privado para o Banco de Dados SQL do Azure 
 
@@ -154,6 +138,22 @@ Siga as etapas fornecidas aqui para usar o [SSMS para se conectar ao Banco de Da
 select client_net_address from sys.dm_exec_connections 
 where session_id=@@SPID
 ````
+
+## <a name="data-exfiltration-prevention"></a>Prevenção contra exportação de dados
+
+A exportação de dados no Banco de Dados SQL do Azure ocorre quando um usuário autorizado, como um administrador de banco de dados, tem a capacidade de extrair dados de um sistema e movê-los para outra localização ou outro sistema fora da organização. Por exemplo, o usuário move os dados para uma conta de armazenamento pertencente a terceiros.
+
+Considere um cenário com um usuário que executa o SSMS (SQL Server Management Studio) em uma máquina virtual do Azure que se conecta a um banco de dados no Banco de Dados SQL. Esse banco de dados está no data center do Oeste dos EUA. O exemplo abaixo mostra como limitar o acesso com pontos de extremidade públicos no Banco de Dados SQL usando controles de acesso à rede.
+
+1. Desabilite todo o tráfego de serviço do Azure para o Banco de Dados SQL por meio do ponto de extremidade público configurando Permitir Serviços do Azure como **DESATIVADO**. Verifique se nenhum endereço IP é permitido nas regras de firewall no nível de servidor e de banco de dados. Para obter mais informações, confira [Controles de acesso à rede do Banco de Dados SQL do Azure e do Azure Synapse Analytics](network-access-controls-overview.md).
+1. Só permita o tráfego para o banco de dados no Banco de Dados SQL usando o endereço IP privado da VM. Para obter mais informações, confira os artigos sobre o [ponto de extremidade de serviço](vnet-service-endpoint-rule-overview.md) e as [regras de firewall da rede virtual](firewall-configure.md).
+1. Na VM do Azure, restrinja o escopo da conexão de saída usando [NSGs (grupos de segurança de rede)](../../virtual-network/manage-network-security-group.md) e Marcas de Serviço, conforme mostrado a seguir
+    - Especifique uma regra NSG para permitir o tráfego para a Tag de Serviço = SQL.WestUs – só permitindo a conexão com o Banco de Dados SQL no Oeste dos EUA
+    - Especifique uma regra NSG (com uma **prioridade mais alta**) para negar o tráfego para a Tag de Serviço = SQL – negando as conexões com o Banco de Dados SQL em todas as regiões
+
+Ao final desta configuração, a VM do Azure só poderá se conectar a um banco de dados no Banco de Dados SQL na região Oeste dos EUA. No entanto, a conectividade não é restrita a um banco de dados individual no Banco de Dados SQL. A VM ainda pode se conectar a qualquer banco de dados na região Oeste dos EUA, incluindo os bancos de dados que não fazem parte da assinatura. Embora tenhamos reduzido o escopo da exportação de dados no cenário acima a uma região específica, não o eliminamos por completo.
+
+Com o Link Privado, os clientes agora podem configurar controles de acesso à rede como NSGs para restringir o acesso ao ponto de extremidade privado. Os recursos de PaaS individuais do Azure são então mapeados para pontos de extremidade privados específicos. Um usuário interno mal-intencionado só pode acessar o recurso de PaaS mapeado (por exemplo, um banco de dados no Banco de Dados SQL) e nenhum outro recurso. 
 
 ## <a name="limitations"></a>Limitações 
 As conexões com o ponto de extremidade privado só dão suporte ao **Proxy** como a [política de conexão](connectivity-architecture.md#connection-policy)

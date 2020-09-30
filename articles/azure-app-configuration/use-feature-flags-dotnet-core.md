@@ -11,15 +11,15 @@ ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 08/12/2020
+ms.date: 09/17/2020
 ms.author: lcozzens
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 3f8a43a1ff28206a4bcc5fd059f69492c83eb34d
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: f863ca855ca36603085ed96b5aa17d277ae00516
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88224706"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317303"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Tutorial: Usar sinalizadores de recursos em um aplicativo ASP.NET Core
 
@@ -230,6 +230,12 @@ public IActionResult Index()
 Quando uma ação ou um controlador MVC está bloqueado devido ao sinalizador de recursos controlador estar *desativado*, uma interface `IDisabledFeaturesHandler` registrada é chamada. A interface `IDisabledFeaturesHandler` padrão retorna um código de status 404 para o cliente sem nenhum corpo de resposta.
 
 ## <a name="mvc-views"></a>Exibições do MVC
+
+Abra *_ViewImports.cshtml* no diretório *Views* e adicione o auxiliar de marca do gerenciador de recursos:
+
+```html
+@addTagHelper *, Microsoft.FeatureManagement.AspNetCore
+```
 
 Em exibições do MVC, você pode usar uma marca `<feature>` para renderizar o conteúdo com base em se um sinalizador de recursos está habilitado:
 

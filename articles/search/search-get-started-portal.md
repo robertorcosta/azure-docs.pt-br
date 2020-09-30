@@ -7,23 +7,15 @@ manager: nitinme
 ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/07/2020
-ms.openlocfilehash: f405219701e910159de6f4fc91e9960a76f5a0cd
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/16/2020
+ms.openlocfilehash: 0a28bd0d4101fc9d49413adaaccc0a6d38ec64ed
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935306"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91307714"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Início Rápido: Criar um índice da Pesquisa Cognitiva do Azure no portal do Azure
-> [!div class="op_single_selector"]
-> * [Portal](search-get-started-portal.md)
-> * [C#](search-get-started-dotnet.md)
-> * [Java](search-get-started-java.md)
-> * [Node.js](search-get-started-nodejs.md)
-> * [PowerShell](search-get-started-powershell.md)
-> * [Postman](search-get-started-postman.md)
-> * [Python](search-get-started-python.md)
 
 O assistente **Importar dados** é uma ferramenta do portal do Azure que orienta você durante a criação de um índice de pesquisa para poder escrever consultas interessantes em minutos. 
 
@@ -276,8 +268,3 @@ Use um assistente do portal para gerar um aplicativo Web pronto para uso executa
 
 > [!div class="nextstepaction"]
 > [Criar um aplicativo de demonstração no portal](search-create-app-portal.md)
-
-Deseja otimizar e reduzir seus gastos com a nuvem?
-
-> [!div class="nextstepaction"]
-> [Comece a analisar os custos com o Gerenciamento de Custos](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

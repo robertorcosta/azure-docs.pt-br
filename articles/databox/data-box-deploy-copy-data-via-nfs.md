@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 07/02/2020
 ms.author: alkohli
-ms.openlocfilehash: 590a0a1ce474d48e95163081dcdcacb52233badf
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: d49a1120ddda98430f4f9b3c488819829a9fd7b3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926069"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320686"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>Tutorial: Copiar dados para o Azure Data Box por meio do NFS
 
@@ -85,7 +85,7 @@ Se você estiver usando um computador host Linux, execute as seguintes etapas pa
 Quando você estiver conectado aos compartilhamentos de caixa de dados, a próxima etapa é copiar dados. Antes de começar a cópia de dados, examine as considerações a seguir:
 
 * Assegure-se de copiar os dados para compartilhamentos que correspondam ao formato de dados apropriado. Por exemplo, copie os dados blob do bloco para o compartilhamento de blobs de bloco. Copie VHDs para blobs de páginas. Se o formato de dados não corresponder ao tipo de compartilhamento apropriado, em uma etapa posterior, o upload de dados para o Azure falhará.
-*  Ao copiar dados, verifique se o tamanho dos dados está de acordo com os limites de tamanho descritos nos [armazenamento do Azure e nos limites da Caixa de Dados](data-box-limits.md). 
+*  Ao copiar dados, verifique se o tamanho dos dados está de acordo com os limites de tamanho descritos nos [armazenamento do Azure e nos limites da Caixa de Dados](data-box-limits.md).
 * Se os dados, que estão sendo carregados pelo Data Box, forem carregados simultaneamente por outros aplicativos fora do Data Box, isso poderá resultar em falhas de trabalho de upload e corrupção de dados.
 * Recomendamos que você não use o SMB e o NFS simultaneamente ou copie os mesmos dados para o mesmo destino final no Azure. Em tais casos, o resultado final não pode ser determinado.
 * **Sempre crie uma pasta para os arquivos que você pretende copiar no compartilhamento e, em seguida, copie os arquivos para a pasta**. A pasta criada nos compartilhamentos de blob de blocos e de blob de páginas representa um contêiner no qual os dados são carregados como blobs. Não é possível copiar arquivos diretamente para a pasta *raiz* na conta de armazenamento.

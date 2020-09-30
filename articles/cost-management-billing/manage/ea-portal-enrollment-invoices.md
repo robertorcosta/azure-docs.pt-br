@@ -3,17 +3,17 @@ title: Faturas do Registro Enterprise do Azure
 description: Este artigo explica como gerenciar e usar sua fatura do Azure Enterprise.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/03/2020
+ms.date: 09/18/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: ca7aaea1e0bac1c00a373c8847623606d629e800
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: fec013395af9aeb3d83f86ab47cc52b3fedd7a1f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442506"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316130"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Faturas do Registro Enterprise do Azure
 
@@ -162,20 +162,6 @@ Confira [serviços do Azure](https://azure.microsoft.com/services/) e [preços d
 ### <a name="enterprise-agreement-units-of-measure"></a>Unidades de medida do Contrato Enterprise
 
 As unidades de medida para Contratos Enterprise costumam ser diferentes daquelas utilizadas em nossos outros programas, como o programa MOSA (Contrato do Microsoft Online Services). Essa diferença significa que, para vários serviços, a unidade de medida é agregada para fornecer os preços normalizados. A unidade de medida mostrada na exibição Resumo do Uso do Azure Enterprise Portal é sempre a medida do Enterprise. Apresentamos uma lista completa das unidades atuais de medida e conversões de cada serviço no arquivo Excel [Nomes de serviços amigáveis](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx).
-
-### <a name="rounding-rules"></a>Regras de arredondamento
-
-O Azure Enterprise Portal segue a lógica padrão de arredondamento bancário do IEEE ou a lógica de arredondamento gaussiana. Essa lógica arredonda números para o dígito par mais próximo para valores de meio dígito. A lógica mais típica de arredondar meio para cima sempre arredonda meio dígito para o próximo dígito mais alto. Esse método do Azure Enterprise Portal, na verdade, fornece uma soma total mais precisa sobre o grupo quando comparado à lógica padrão do Excel.
-
-Para ilustrar: quando o primeiro dígito solto é um 5 e não há dígitos a seguir ou os dígitos a seguir são zeros, arredonde para o dígito par mais próximo. Por exemplo: 2,315 e 2,325 arredondados para o 100º mais próximo tornam-se 2,32.
-
-Para referência, a seguinte tabela mostra as fórmulas do Excel que você pode usar para modelar as regras do Azure Enterprise Portal para arredondamento e conversão:
-
-| Cenário | Fórmula da lógica de arredondamento bancária |
-| --- | --- |
-| Uso de arredondamento | =MARRED({_origem_}, 0,0002) |
-| Arredondamento de preços (2 decimais) | =MARRED({_origem_}, 0,02) |
-| Arredondamento de preços (0 decimais) | =MARRED({_origem_}, 2) |
 
 ### <a name="conversion-between-usage-detail-report-and-the-usage-summary-page"></a>Conversão entre o relatório de detalhes de uso e a página de resumo de uso
 

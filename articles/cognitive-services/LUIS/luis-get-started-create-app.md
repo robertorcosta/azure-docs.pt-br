@@ -1,14 +1,16 @@
 ---
 title: 'Início Rápido: criar aplicativo – LUIS'
 description: Neste início rápido, crie um aplicativo LUIS que use o domínio predefinido `HomeAutomation` para ligar e desligar luzes e dispositivos. Este domínio predefinido fornece intenções, entidades e exemplos de enunciados a você. Quando terminar, você terá um ponto de extremidade do LUIS em execução na nuvem.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 05/05/2020
-ms.openlocfilehash: cefa9d5995f876ef3f07cc32324e747125e9cbf7
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 28bf79b61c0278a3f45820a23cd2c69f0b609700
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701299"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316471"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>Início Rápido: usar aplicativo de automação Inicial predefinido
 

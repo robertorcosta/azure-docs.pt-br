@@ -10,12 +10,12 @@ ms.date: 08/20/2020
 ms.topic: include
 ms.custom: include file
 ms.author: chrwhit
-ms.openlocfilehash: 72bb38b7d9d28366fb75c5656832a1f37c770fd2
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c11c2098d30ed6f00d94124fd77c2ebdb6cd2c7a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90943297"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91303295"
 ---
 Comece a usar os Serviços de Comunicação do Azure usando a biblioteca de clientes de SMS do Java dos Serviços de Comunicação para enviar mensagens SMS.
 
@@ -30,7 +30,8 @@ A realização deste início rápido gera um pequeno custo de alguns centavos de
 - Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [JDK (Java Development Kit)](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable&preserve-view=true) versão 8 ou superior.
 - [Apache Maven](https://maven.apache.org/download.cgi).
-- Um recurso dos Serviços de Comunicação implantado. [Crie um recurso dos Serviços de Comunicação](../../create-communication-resource.md).
+- Um recurso e uma cadeia de conexão ativos dos Serviços de Comunicação. [Crie um recurso dos Serviços de Comunicação](../../create-communication-resource.md).
+- Um número de telefone habilitado para SMS. [Obter um número de telefone](../get-phone-number.md).
 
 ### <a name="prerequisite-check"></a>Verificação de pré-requisitos
 

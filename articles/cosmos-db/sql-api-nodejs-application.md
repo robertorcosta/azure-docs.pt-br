@@ -8,13 +8,13 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 9554fa63d13c5da465653064d69d7950d91f0300
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: 005473fa02dda2e5466ffbc5a32499006c41292c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421868"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322692"
 ---
 # <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>Tutorial: Compilar um aplicativo Web do Node.js usando o SDK do JavaScript para gerenciar uma conta de API do SQL no Azure Cosmos DB 
 
@@ -439,7 +439,7 @@ Agora que você criou o aplicativo, pode executá-lo localmente usando as seguin
 
 1. Para testar o aplicativo no computador local, execute `npm start` no terminal para iniciar o aplicativo e atualize a página do navegador `http://localhost:3000`. A página agora deve se parecer com a seguinte captura de tela:
    
-    :::image type="content" source="./media/sql-api-nodejs-application/cosmos-db-node-js-localhost.png" alt-text="Captura de tela do aplicativo MyTodo List em uma janela do navegador":::
+    :::image type="content" source="./media/sql-api-nodejs-application/cosmos-db-node-js-localhost.png" alt-text="Aprender Node.js – captura de tela do aplicativo Olá, Mundo em uma janela do navegador":::
 
     > [!TIP]
     > Se receber um erro sobre o recuo no arquivo layout.jade ou o arquivo index.jade, verifique se as duas primeiras linhas em ambos os arquivos estão justificadas à esquerda, sem espaços. Se houver espaços antes das duas primeiras linhas, remova-os, salve os dois arquivos e atualize a janela do navegador. 
@@ -448,7 +448,7 @@ Agora que você criou o aplicativo, pode executá-lo localmente usando as seguin
 
 3. A página deverá ser atualizada para exibir o item recém-criado na lista de Tarefas Pendentes.
    
-    :::image type="content" source="./media/sql-api-nodejs-application/cosmos-db-node-js-added-task.png" alt-text="Captura de tela do aplicativo com um novo item na lista de Tarefas pendentes":::
+    :::image type="content" source="./media/sql-api-nodejs-application/cosmos-db-node-js-added-task.png" alt-text="Aprender Node.js – captura de tela do aplicativo Olá, Mundo em uma janela do navegador":::
 
 4. Para concluir uma tarefa, marque a caixa de seleção na coluna Concluir e escolha **Atualizar tarefas**. Isso atualiza o documento que você já criou e o remove da exibição.
 
