@@ -1,24 +1,24 @@
 ---
 title: O que é Reconhecimento Vocal (LUIS)?
 description: 'LUIS (Reconhecimento vocal): um serviço de API baseado em nuvem que usa o machine learning em idioma natural e de conversa para prever o significado e extrair informações.'
-keywords: Azure, artificial intelligence, ai, natural language processing, nlp, natural language understanding, nlu, ai conversation, conversational ai, ai chatbot, chatbot maker, LUIS, nlp ai, luis ai, azure luis, understanding natural language
+keywords: Azure, inteligência artificial, ia, processamento de linguagem natural, nlp, compreensão de linguagem natural, nlu, LUIS, IA de conversação, chatbot de ia, ia do nlp, luis do azure
 ms.topic: overview
 ms.date: 09/02/2020
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: ff9aa2652fe8a1e503b5e2c93ca149112770b081
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 3a8905ca1b9e7d7b4b1e4f5add000def9e91f9c6
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400935"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985853"
 ---
 # <a name="what-is-language-understanding-luis"></a>O que é Reconhecimento Vocal (LUIS)?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-O Reconhecimento Vocal (LUIS) é um serviço de API baseado em nuvem que aplica inteligência de aprendizado de máquina personalizado em um texto de linguagem natural de conversação do usuário prever o significado geral, e extrair informações detalhadas relevantes.
+O LUIS (Reconhecimento Vocal) é um serviço de IA de conversação baseado em nuvem que aplica inteligência de machine learning personalizada em um texto de linguagem natural de conversação do usuário para prever o significado geral e extrair informações detalhadas relevantes.
 
-Um aplicativo cliente para LUIS é qualquer aplicativo que se comunica com um usuário em linguagem natural para completar uma tarefa. Exemplos de aplicativos clientes incluem aplicativos de mídia social, chatbots e aplicativos para área de trabalho habilitados para fala.
+Um aplicativo cliente para LUIS é qualquer aplicativo que se comunica com um usuário em linguagem natural para completar uma tarefa. Exemplos de aplicativos clientes incluem aplicativos de mídia social, chatbots de IA e aplicativos da área de trabalho habilitados para fala.
 
 ![Imagem conceitual de três aplicativos cliente trabalhando com Reconhecimento vocal de serviços cognitivos (LUIS)](./media/luis-overview/luis-entry-point.png "Imagem conceitual de três aplicativos cliente que trabalham com Reconhecimento vocal de serviços cognitivos (LUIS)")
 
@@ -26,7 +26,7 @@ Um aplicativo cliente para LUIS é qualquer aplicativo que se comunica com um us
 
 <a name="Accessing-LUIS"></a>
 
-Depois que o aplicativo LUIS for publicado, um aplicativo cliente envia expressões (texto) para a [API][endpoint-apis] do ponto de extremidade de processamento da linguagem natural do LUIS e recebe os resultados como respostas em JSON. Um aplicativo cliente comum para LUIS é um chatbot.
+Depois que o aplicativo LUIS do Azure for publicado, um aplicativo cliente envia enunciados (texto) para a [API][endpoint-apis] do ponto de extremidade de processamento da linguagem natural do LUIS e recebe os resultados como respostas em JSON. Um aplicativo cliente comum para LUIS é um chatbot.
 
 
 ![Imagens conceituais do LUIS trabalhando com o Chat bot para prever o texto do usuário com NLP (reconhecimento de linguagem natural)](./media/luis-overview/LUIS-chat-bot-request-response.svg "Imagens conceituais do LUIS que trabalham com o Chat bot para prever o texto do usuário com NLP (reconhecimento de linguagem natural)")
@@ -44,7 +44,7 @@ O aplicativo LUIS fornece inteligência, para que o aplicativo cliente possa faz
 
 ## <a name="natural-language-understanding-nlu"></a>NLU (Reconhecimento de idioma natural)
 
-O [LUIS fornece IA (inteligência artificial)](artificial-intelligence.md "O LUIS fornece IA (inteligência artificial)") na forma de NLU, um subconjunto do NLP (processamento de idioma natural).
+O [LUIS fornece IA (inteligência artificial)](artificial-intelligence.md "O LUIS fornece IA (inteligência artificial)") na forma de NLU, um subconjunto da IA de processamento de linguagem natural.
 
 Um aplicativo LUIS contém um modelo de linguagem natural de domínio específico. Você pode iniciar o aplicativo LUIS com um modelo de domínio predefinido, criar seu próprio modelo ou combinar partes de um domínio predefinido com suas próprias informações personalizadas.
 
@@ -52,7 +52,7 @@ Um aplicativo LUIS contém um modelo de linguagem natural de domínio específic
 
 * **O modelo personalizado** LUIS oferece várias maneiras de identificar seus próprios modelos personalizados, incluindo intenções e entidades. As entidades incluem entidades de aprendizado de máquina, entidades específicas ou literais e uma combinação de aprendizado de máquina e literal.
 
-Saiba mais sobre o [NLP](artificial-intelligence.md "NLP") e a área específica do LUIS de NLU.
+Saiba mais sobre a [IA do NLP](artificial-intelligence.md "NLP") e a área específica do LUIS do NLU.
 
 ## <a name="step-1-design-and-build-your-model"></a>Etapa 1: Projetar e criar seu modelo
 

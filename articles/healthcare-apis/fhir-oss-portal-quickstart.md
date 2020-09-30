@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: quickstart
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: 7fa119db0c974c93aff667060d153b21b8de16bb
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 57ab6bca820c4c25a9a56e4a801aa7d917d317ec
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87843480"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978593"
 ---
 # <a name="quickstart-deploy-open-source-fhir-server-using-azure-portal"></a>Início Rápido: Implantar o servidor FHIR de software livre usando o portal do Azure
 
@@ -25,17 +25,17 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Navegue até a [página de Implantação do GitHub](https://github.com/Microsoft/fhir-server/blob/master/docs/DefaultDeployment.md) e localize os botões "Implantar no Azure":
 
-![Página de Implantação de Software Livre](media/quickstart-oss-portal/deployment-page-oss.png)
+>[!div class="mx-imgBorder"]
+>![Página de Implantação de Software Livre](media/quickstart-oss-portal/deployment-page-oss.png)
 
 Clique no botão implantação e a portal do Azure será aberto.
 
 ## <a name="fill-in-deployment-parameters"></a>Preencher parâmetros de implantação
 
-Escolha criar um grupo de recursos e dê a ele um nome. Somente outro parâmetro obrigatório é um nome para o serviço.
+Escolha criar um grupo de recursos e dê a ele um nome. Somente outros parâmetros obrigatórios são o nome do serviço e a senha de administrador do SQL.
 
-![Parâmetros de implantação personalizados](media/quickstart-oss-portal/deployment-custom-parameters.png)
-
-Observe que a implantação efetuará pull do código-fonte diretamente do repositório de software livre no GitHub. Se você tiver bifurcado o repositório, poderá apontar para o seu próprio para uma ramificação específica.
+>[!div class="mx-imgBorder"]
+>![Parâmetros de implantação personalizados](media/quickstart-oss-portal/deployment-custom-parameters.png)
 
 Depois de preencher os detalhes, você pode iniciar a implantação.
 

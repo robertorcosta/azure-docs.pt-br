@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 02/13/2019
+ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: 35ca071cd8495611f0f350511ef9406f82c5be23
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b78c2b93a9427105ce2cc0ad8bd5d2b995c834ae
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77209419"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90976286"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan"></a>Tutorial: Criar uma associação do ExpressRoute usando a WAN Virtual do Azure
 
@@ -122,7 +122,7 @@ Use a chave de autorização e o URI de circuito que você forneceu para se cone
 
 1. Na página do ExpressRoute, clique em **+Resgatar chave de autorização**
 
-   ![resgatar](./media/virtual-wan-expressroute-portal/redeem.png "resgatar")
+   ![A captura de tela mostra o ExpressRoute para um hub virtual com Resgatar chave de autorização selecionado.](./media/virtual-wan-expressroute-portal/redeem.png "resgatar")
 2. Na página Resgatar a chave de autorização, preencha os valores.
 
    ![resgatar valores de chave](./media/virtual-wan-expressroute-portal/redeemkey2.png "resgatar valores de chave")

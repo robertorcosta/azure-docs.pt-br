@@ -11,12 +11,12 @@ ms.date: 06/10/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: e7dca9224fd213178aa9cee3a284f1eba39fb4fc
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 8d11fada41d0152b44be6cb0cdef41e68808689b
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89001166"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967523"
 ---
 # <a name="secure-access-to-application-data"></a>Proteger o acesso aos dados do aplicativo
 
@@ -160,7 +160,7 @@ As classes, propriedades e métodos a seguir são usados na tarefa anterior:
 
 A [Criptografia do Armazenamento do Azure](../common/storage-service-encryption.md) ajuda a proteger e resguardar seus dados criptografando-os em repouso e manipulando a criptografia e a descriptografia. Todos os dados são criptografados usando a [criptografia AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)de 256 bits, um dos codificadores de blocos mais potentes.
 
-Você pode optar por a Microsoft gerenciar as chaves de criptografia ou trazer suas próprias chaves com chaves gerenciadas pelo cliente com o Azure Key Vault. Para obter mais informações, confira [Usar chaves gerenciadas pelo cliente com o Azure Key Vault para gerenciar a criptografia do Armazenamento do Azure](../common/encryption-customer-managed-keys.md).
+A Microsoft pode gerenciar as chaves de criptografia ou você pode trazer suas próprias chaves com chaves gerenciadas pelo cliente armazenadas no Azure Key Vault ou no HSM (modelo de segurança de hardware) do Key Vault (versão prévia). Para obter mais informações, confira [Chaves gerenciadas pelo cliente para criptografia do Armazenamento do Azure](../common/customer-managed-keys-overview.md).
 
 A criptografia do Armazenamento do Azure criptografa automaticamente os dados em todos os níveis de desempenho (Standard e Premium), em todos os modelos de implantação (Azure Resource Manager e Clássico) e em todos os serviços do Armazenamento do Azure (Blobs, Filas, Tabelas e Arquivos).
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
-ms.openlocfilehash: dd9aee01edf45f89feb6a6010c8d958511bc3904
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 613ce41820dc5f388af441836bdb4a93e43e5d07
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86185391"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987638"
 ---
 # <a name="tutorial-create-a-powershell-workflow-runbook"></a>Tutorial: Criar runbook de Fluxo de Trabalho do PowerShell
 
@@ -109,17 +109,17 @@ O runbook que você criou ainda está em modo de Rascunho. Você precisa public�
 
 6. Observe que o status do trabalho é mostrado em **Resumo do Trabalho**. Esse status corresponde aos status que você viu ao testar o runbook.
 
-   ![Resumo do trabalho](../media/automation-tutorial-runbook-textual/job-pane-status-blade-jobsummary.png)
+   :::image type="content" source="../media/automation-tutorial-runbook-textual/job-pane-status-blade-jobsummary.png" alt-text="Captura de tela do painel Trabalho do runbook, mostrando a seção Resumo do Trabalho realçada.":::
 
 7. Assim que o status do runbook mostrar Concluído, clique em **Saída**. A página Saída é aberta e nela você pode ver sua mensagem de `Hello World`.
 
-   ![Resumo do trabalho](../media/automation-tutorial-runbook-textual/job-pane-status-blade-outputtile.png)
+   :::image type="content" source="../media/automation-tutorial-runbook-textual/job-pane-status-blade-outputtile.png" alt-text="Captura de tela do painel Trabalho do runbook, mostrando a seção Resumo do Trabalho realçada.":::
 
 8. Feche a página de Saída.
 
 9. Clique em **Todos os Logs** para abrir o painel Fluxos do trabalho do runbook. Você deverá ver apenas `Hello World` no fluxo de saída. Observe que o painel Fluxos poderá mostrar outros fluxos de um trabalho de runbook, como Detalhado e Erro, se o runbook gravar neles.
 
-   ![Resumo do trabalho](../media/automation-tutorial-runbook-textual/job-pane-status-blade-alllogstile.png)
+   :::image type="content" source="../media/automation-tutorial-runbook-textual/job-pane-status-blade-alllogstile.png" alt-text="Captura de tela do painel Trabalho do runbook, mostrando a seção Resumo do Trabalho realçada.":::
 
 10. Feche o painel Fluxos e o painel Trabalho para retornar à página MyFirstRunbook.
 
