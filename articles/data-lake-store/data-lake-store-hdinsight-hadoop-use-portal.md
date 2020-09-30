@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: fd49ddcb59e0d0f3a706f566cf0c011116b1501a
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 8b516180f09634dfa430275ef39370f0328a0927
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89229218"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577893"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-by-using-the-azure-portal"></a>Criar clusters do HDInsight com o Gen1 do Azure Data Lake Storage usando o portal do Azure
 
@@ -49,7 +49,7 @@ Para criar um cluster HDInsight com uma conta de Data Lake Storage Gen1 como a c
 2. Siga [Criar clusters](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md#create-clusters) para obter as informações gerais sobre a criação de clusters do HDInsight.
 3. Na folha **Armazenamento**, em **Tipo de armazenamento principal**, selecione **Armazenamento do Data Lake do Azure Gen1** e insira as seguintes informações:
 
-    ![Adicionar entidade de serviço no cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png "Adicionar entidade de serviço no cluster HDInsight")
+    ![Captura de tela da folha armazenamento com a opção tipo de armazenamento primário, selecione Data Lake Store opção conta e Data Lake Store opção de acesso chamada.](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png "Adicionar entidade de serviço no cluster HDInsight")
 
     * **Selecione a conta do Data Lake Store**: Selecione uma conta existente do Data Lake Storage Gen1. Uma conta existente do Data Lake armazenamento Gen1 é necessária.  Consulte [Pré-requisitos](#prerequisites).
     * **Caminho raiz**: insira um caminho em que os arquivos específicos de cluster deverão ser armazenados. Na captura de tela, é __/clusters/myhdiadlcluster/__, em que a pasta __/clusters__ deve existir e o Portal cria a pasta *myhdicluster*.  O *myhdicluster* é o nome do cluster.
@@ -68,7 +68,7 @@ Para criar um cluster HDInsight com uma conta de Data Lake Storage Gen1 como uma
 2. Siga [Criar clusters](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md#create-clusters) para obter as informações gerais sobre a criação de clusters do HDInsight.
 3. Na folha **Armazenamento**, em **Tipo de armazenamento primário**, selecione **Armazenamento do Azure** e, em seguida, insira as seguintes informações:
 
-    ![Adicionar entidade de serviço no cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.png "Adicionar entidade de serviço no cluster HDInsight")
+    ![Captura de tela da folha de armazenamento com a opção de tipo de armazenamento primário e Data Lake Store opção de acesso chamada out.](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.png "Adicionar entidade de serviço no cluster HDInsight")
 
     * **Método de seleção** – para especificar uma conta de armazenamento que faça parte de sua assinatura do Azure, selecione **minhas assinaturas**e, em seguida, selecione a conta de armazenamento. Para especificar uma conta de armazenamento que está fora de sua assinatura do Azure, selecione **Chave de acesso** e, em seguida, forneça as informações da conta de armazenamento externa.
 
@@ -95,7 +95,7 @@ Para usar uma entidade de serviço existente do portal do Azure:
 1. Selecione **entidade de serviço**e, em seguida, selecione uma entidade de serviço.
 1. Carregue o certificado (arquivo .pfx) associado à entidade de serviço selecionada e insira a senha do certificado.
 
-    ![Adicionar entidade de serviço no cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.5.png "Adicionar entidade de serviço no cluster HDInsight")
+    ![Captura de tela da folha de acesso Data Lake Storage Gen1 com a opção Usar existente chamada out e a folha selecionar uma entidade de serviço com a opção h d Insight s p e selecionar a opção chamada out.](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.5.png "Adicionar entidade de serviço no cluster HDInsight")
 
 1. Selecione **acesso** para configurar o acesso à pasta.  Consulte [Configurar permissões de arquivo](#configure-file-permissions).
 
@@ -121,7 +121,7 @@ Para atribuir permissão no nível raiz da conta de Data Lake Storage Gen1:
 1. Na folha **acesso data Lake Storage Gen1** , selecione **acesso**. A folha **Selecionar permissões de arquivo** é aberta. Ele lista todas as contas do Data Lake Storage Gen1 na sua assinatura.
 1. Passe o mouse (não clique) com o mouse sobre o nome da conta Data Lake Storage Gen1 para tornar a caixa de seleção visível e marque a caixa de seleção.
 
-    ![Adicionar entidade de serviço no cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.3.png "Adicionar entidade de serviço no cluster HDInsight")
+    ![Captura de tela da folha permissões de autoarquivo que mostra a conta Data Lake Storage Gen 1 realçada e selecionada.](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.3.png "Adicionar entidade de serviço no cluster HDInsight")
 
    Por padrão, __ler__, __gravar__e __executar__ estão todos selecionados.
 
@@ -149,11 +149,11 @@ Após a conclusão da configuração do cluster, na folha do cluster, verifique 
 
 * Para verificar se o armazenamento associado para o cluster é a conta de Data Lake Storage Gen1 que você especificou, selecione **contas de armazenamento** no painel esquerdo.
 
-    ![Adicionar entidade de serviço no cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.6-1.png "Adicionar entidade de serviço no cluster HDInsight")
+    ![Captura de tela da conta Data Lake Storage Gen 1 com a opção contas de armazenamento realçada.](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.6-1.png "Adicionar entidade de serviço no cluster HDInsight")
 
 * Para verificar se a entidade de serviço está corretamente associada ao cluster HDInsight, selecione **Data Lake Storage Gen1 acesso** no painel esquerdo.
 
-    ![Adicionar entidade de serviço no cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.6.png "Adicionar entidade de serviço no cluster HDInsight")
+    ![Captura de tela da conta Data Lake Storage Gen 1 com a opção de acesso Data Lake Storage Gen 1 realçada.](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.6.png "Adicionar entidade de serviço no cluster HDInsight")
 
 ## <a name="examples"></a>Exemplos
 
@@ -194,7 +194,7 @@ Você pode usar um cluster do Spark para executar trabalhos do Spark em dados ar
 
 Você pode usar a conta Data Lake Storage Gen1 para gravar dados de uma topologia do Storm. Para obter instruções sobre como alcançar esse cenário, consulte [Usar o armazenamento de dados do Windows Azure Gen1 com o Apache Storm com o HDInsight](../hdinsight/storm/apache-storm-write-data-lake-store.md).
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Confira também
 
 * [Usar Data Lake Storage Gen1 com clusters HDInsight do Azure](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
 * [PowerShell: crie um cluster do HDInsight para usar o Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-powershell.md)

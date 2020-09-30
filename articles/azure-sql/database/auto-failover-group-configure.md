@@ -12,19 +12,19 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 08/14/2019
-ms.openlocfilehash: 42326247117c0710c93b45c896bb6e7cb3a8120f
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: ab057e1328efbff294faa1d68f2a27c5a1f03ade
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91444381"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577502"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>Configurar um grupo de failover para o banco de dados SQL do Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Este tópico ensina como configurar um grupo de [failover automático](auto-failover-group-overview.md) para o banco de dados SQL do Azure e o azure SQL instância gerenciada.
 
-## <a name="single-database-in-azure-sql-database"></a>Banco de dados individual no banco de dados SQL do Azure
+## <a name="single-database"></a>Banco de dados individual
 
 Crie o grupo de failover e adicione um banco de dados individual a ele usando o portal do Azure ou o PowerShell.
 
@@ -192,7 +192,7 @@ Reverta o grupo de failover de volta para o servidor primário:
 > [!IMPORTANT]
 > Se você precisar excluir o banco de dados secundário, remova-o do grupo de failover antes de excluí-lo. A exclusão de um banco de dados secundário antes que ele seja removido do grupo de failover pode causar um comportamento imprevisível.
 
-## <a name="elastic-pools-in-azure-sql-database"></a>Pools elásticos no banco de dados SQL do Azure
+## <a name="elastic-pool"></a>Pool elástico
 
 Crie o grupo de failover e adicione um pool elástico a ele usando o portal do Azure ou o PowerShell.  
 
@@ -346,7 +346,9 @@ Fazer failover para o servidor secundário:
 
 Crie um grupo de failover entre duas instâncias gerenciadas no Azure SQL Instância Gerenciada usando o portal do Azure ou o PowerShell.
 
-Será necessário configurar o [ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) ou criar um gateway para a rede virtual de cada SQL instância gerenciada, conectar os dois gateways e, em seguida, criar o grupo de failover.
+Será necessário configurar o [ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) ou criar um gateway para a rede virtual de cada SQL instância gerenciada, conectar os dois gateways e, em seguida, criar o grupo de failover. 
+
+Implante ambas as instâncias gerenciadas em [regiões emparelhadas](../../best-practices-availability-paired-regions.md) por motivos de desempenho. As instâncias gerenciadas que residem em regiões emparelhadas geograficamente têm um desempenho muito melhor em comparação com regiões não emparelhadas. 
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
@@ -360,6 +362,9 @@ Considere os seguintes pré-requisitos:
 ### <a name="create-primary-virtual-network-gateway"></a>Criar gateway de rede virtual primária
 
 Se você não tiver configurado o [ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md), poderá criar o gateway de rede virtual primária com o portal do Azure ou o PowerShell.
+
+> [!NOTE]
+> A SKU do gateway afeta o desempenho da taxa de transferência. Este artigo implanta um gateway com o SKU mais básico ( `HwGw1` ). Implante uma SKU mais alta (exemplo: `VpnGw3` ) para obter uma taxa de transferência mais alta. Para todas as opções disponíveis, consulte [SKUs de gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md#benchmark) 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 

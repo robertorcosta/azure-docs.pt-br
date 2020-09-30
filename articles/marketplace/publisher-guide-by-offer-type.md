@@ -6,19 +6,19 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 09/04/2020
-ms.openlocfilehash: 565ad4267bcdab095a85ab537c10728981eadb0d
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.date: 09/29/2020
+ms.openlocfilehash: 2dfdfaae2c07adc7d9193ffb00f8549bd4090a6e
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89484146"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578454"
 ---
 # <a name="publishing-guide-by-offer-type"></a>Guia de publicação por tipo de oferta
 
 Este artigo descreve os tipos de oferta que estão disponíveis no mercado comercial. O *tipo de oferta* define a estrutura da oferta, que inclui os metadados, os artefatos e outros conteúdos apresentados no mercado comercial.
 
-Depois [de decidir sobre uma opção de publicação](determine-your-listing-type.md), você deve escolher um tipo de oferta antes de começar a criar sua oferta. O tipo de oferta corresponderá ao tipo de solução, aplicativo, ou oferta de serviço que você deseja publicar, bem como seu alinhamento com produtos e serviços Microsoft.
+Depois [de decidir sobre uma opção de publicação](determine-your-listing-type.md), você deve escolher um tipo de oferta antes de começar a criar sua oferta no Partner Center. O tipo de oferta corresponderá ao tipo de solução, aplicativo, ou oferta de serviço que você deseja publicar, bem como seu alinhamento com produtos e serviços Microsoft.
 
 Você pode configurar um único tipo de oferta de maneiras diferentes para habilitar diferentes opções de publicação, a opção de listagem, o provisionamento ou o preço. A opção de publicação e a configuração do tipo de oferta também são alinhados aos requisitos técnicos e de qualificação da oferta.
 
@@ -26,18 +26,19 @@ Certifique-se de examinar a loja online e oferecer requisitos de qualificação 
 
 ## <a name="list-of-offer-types"></a>Lista de tipos de oferta
 
-Os tipos de oferta de Marketplace do Azure estão listados na tabela a seguir.
+A tabela a seguir mostra os tipos de oferta do Marketplace comercial no Partner Center.
 
 | **Tipo de oferta**    | **Descrição**  |
 | :------------------- | :-------------------|
-| [**Máquinas virtuais**](./marketplace-virtual-machines.md) | Use o tipo de oferta de Máquina Virtual quando implantar um dispositivo virtual na assinatura associada ao cliente. |
-| [**Modelos de Solução**](./marketplace-solution-templates.md) | Use o tipo de oferta de modelo de solução (também conhecido como aplicativo do Azure) quando sua solução exigir implantação adicional e automação de configuração além de uma única VM. Os modelos de solução podem empregar vários tipos diferentes de recursos do Azure, incluindo, mas não se limitando a VMs.  |
-| [**Aplicativos gerenciados**](./marketplace-managed-apps.md) | Use o aplicativo do Azure: tipo de oferta de aplicativo gerenciado quando as seguintes condições forem necessárias: <br> <ul> <li> Você pode implantar uma solução baseada em assinatura para o cliente usando uma VM ou uma solução inteira com base em IaaS. </li> <li>Você ou seu cliente exigem que a solução seja gerenciada por um parceiro. </li> <ul> |
-| [**SaaS**](plan-saas-offer.md) | Use o tipo de oferta SaaS (software como serviço) para permitir que o cliente compre sua solução técnica baseada em SaaS como uma assinatura. |
-| [**Ofertas de contêiner**](./marketplace-containers.md) | Use o tipo de oferta de Contêiner quando a solução é uma imagem de contêiner do Docker provisionada como um serviço de contêiner do Azure baseado em Kubernetes. |
-| [**Módulos do Azure IoT Edge**](./iot-edge-module.md) | Os módulos do Azure IoT Edge são as menores unidades de computação gerenciadas pelo IoT Edge e podem conter serviços da Microsoft (como o Azure Stream Analytics), serviços de terceiros ou o código específico da sua própria solução. |
-| [**Serviços de consultoria**](./consulting-services.md) | Os serviços de consultoria ajudam a conectar clientes com serviços para dar suporte e estender o uso dos serviços Azure, Dynamics 365 ou Power Suite.|
-| [**Microsoft 365, Dynamics 365 e Power BI**](./appsource-offer-publishing-guide.md) | Você pode publicar ofertas de AppSource que criam ou estendem o Dynamics 365, Microsoft 365, Power BI e Power apps.|
+| [Aplicativo Azure: **aplicativo gerenciado**](./marketplace-managed-apps.md) | Use o tipo de oferta de aplicativo Aplicativo Azure: Managed quando as seguintes condições forem necessárias: <br> <ul> <li> Você pode implantar uma solução baseada em assinatura para o cliente usando uma VM ou uma solução inteira com base em IaaS. </li> <li>Você ou seu cliente exigem que a solução seja gerenciada por um parceiro. </li> <ul> |
+| [Aplicativo Azure: **modelo de solução**](./marketplace-solution-templates.md) | Use o tipo de oferta de modelo de solução Aplicativo Azure: quando sua solução exigir implantação adicional e automação de configuração além de uma única VM. Os modelos de solução podem empregar vários tipos diferentes de recursos do Azure, incluindo, mas não se limitando a VMs.  |
+  | [**Contêiner do Azure**](./marketplace-containers.md) | Use o tipo de oferta de contêiner do Azure quando sua solução for uma imagem de contêiner do Docker provisionado como um serviço de contêiner do Azure baseado em kubernetes. |
+| [**Máquina virtual do Azure**](./marketplace-virtual-machines.md) | Use o tipo de oferta de Máquina Virtual quando implantar um dispositivo virtual na assinatura associada ao cliente. |
+| [**Serviço de consultoria**](./consulting-services.md) | Os serviços de consultoria ajudam a conectar clientes com serviços para dar suporte e estender o uso dos serviços Azure, Dynamics 365 ou Power Suite.|
+| [**Dynamics 365**](./appsource-offer-publishing-guide.md) | Você pode publicar ofertas de AppSource que criam ou estendem o Dynamics 365 Business central, o compromisso com o cliente do Dynamics 365, os aplicativos de energia e os aplicativos de finanças e operações.|
+| [**Módulo do IoT Edge**](./iot-edge-module.md) | Os módulos do Azure IoT Edge são as menores unidades de computação gerenciadas pelo IoT Edge e podem conter serviços da Microsoft (como o Azure Stream Analytics), serviços de terceiros ou o código específico da sua própria solução. |
+| [**Power BI Microsoft 365 de aplicativo <br/>**](./appsource-offer-publishing-guide.md) | Você pode publicar ofertas de AppSource que se baseiam ou estendem Power BI e Microsoft 365.|
+| [**Software como serviço**](plan-saas-offer.md) | Use o tipo de oferta SaaS (software como serviço) para permitir que o cliente compre sua solução técnica baseada em SaaS como uma assinatura. |
 | [**Soluções integradas**](./integrated-solutions-for-publishers.md) | Você pode publicar soluções integradas e alinhadas à indústria que combinam a tecnologia e os serviços como uma única oferta.|
 
 Para obter informações sobre os requisitos de logon único listando opções e tipos de oferta, consulte [**requisitos do Azure ad**](./enable-appsource-marketplace-using-azure-ad.md).

@@ -1,14 +1,14 @@
 ---
 title: Criar políticas para propriedades de matriz em recursos
 description: Aprenda a trabalhar com parâmetros de matriz e expressões de linguagem de matriz, avaliar o alias [*] e acrescentar elementos com regras de definição do Azure Policy.
-ms.date: 08/17/2020
+ms.date: 09/30/2020
 ms.topic: how-to
-ms.openlocfilehash: 5b9392a943e264ae5eca989ee87eb9ff09b36972
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: c67982197c0161d99f29747d6fd11166cba86079
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89048475"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576890"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Criar políticas para propriedades de matriz em recursos do Azure
 
@@ -194,18 +194,30 @@ Os seguintes resultados são o resultado da combinação entre a condição, da 
 |`{<field>,"Equals":"127.0.0.1"}` |Nada |Todos correspondem |Um elemento de matriz é avaliado como true (127.0.0.1 == 127.0.0.1) e outro como false (127.0.0.1 == 192.168.1.1), portanto, a condição **Equals** é _false_ e o efeito não é disparado. |
 |`{<field>,"Equals":"10.0.4.1"}` |Nada |Todos correspondem |Ambos os elementos da matriz são avaliados como true (10.0.4.1 == 127.0.0.1 e 10.0.4.1 == 192.168.1.1), então a condição **Equals** é _false_ e o efeito não é disparado. |
 
-## <a name="the-append-effect-and-arrays"></a>O efeito append e as matrizes
+## <a name="modifying-arrays"></a>Modificando matrizes
 
-O [efeito append](../concepts/effects.md#append) se comporta de maneira diferente dependendo de o **details.field** ser um alias de **\[\*\]** ou não.
+As propriedades [Append](../concepts/effects.md#append) e [Modify](../concepts/effects.md#modify) ALTER em um recurso durante a criação ou atualização. Ao trabalhar com propriedades de matriz, o comportamento desses efeitos depende se a operação está tentando modificar o  **\[\*\]** alias ou não:
 
-- Quando ele não é um alias **\[\*\]** , append substitui toda a matriz pela propriedade **value**
-- Quando ele é um alias **\[\*\]** , append adiciona a propriedade **value** à matriz existente ou cria outra matriz
+> [!NOTE]
+> O uso do `modify` efeito com aliases está atualmente em **Visualização**.
+
+|Alias |Efeito | Resultado |
+|-|-|-|
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules` | `append` | Azure Policy acrescenta toda a matriz especificada nos detalhes do efeito, se estiver ausente. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules` | `modify` com `add` operação | Azure Policy acrescenta toda a matriz especificada nos detalhes do efeito, se estiver ausente. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules` | `modify` com `addOrReplace` operação | Azure Policy acrescenta toda a matriz especificada nos detalhes do efeito, se ausente ou substitui a matriz existente. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]` | `append` | Azure Policy acrescenta o membro da matriz especificado nos detalhes do efeito. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]` | `modify` com `add` operação | Azure Policy acrescenta o membro da matriz especificado nos detalhes do efeito. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]` | `modify` com `addOrReplace` operação | Azure Policy remove todos os membros da matriz existentes e acrescenta o membro da matriz especificado nos detalhes do efeito. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action` | `append` | Azure Policy acrescenta um valor à `action` propriedade de cada membro da matriz. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action` | `modify` com `add` operação | Azure Policy acrescenta um valor à `action` propriedade de cada membro da matriz. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action` | `modify` com `addOrReplace` operação | Azure Policy acrescenta ou substitui a propriedade existente `action` de cada membro da matriz. |
 
 Para obter mais informações, consulte os [exemplos de append](../concepts/effects.md#append-examples).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Examine os exemplos em [amostras do Azure Policy](../samples/index.md).
+- Revise os exemplos em [Exemplos do Azure Policy](../samples/index.md).
 - Revise a [estrutura de definição do Azure Policy](../concepts/definition-structure.md).
 - Revisar [Compreendendo os efeitos da política](../concepts/effects.md).
 - Entenda como [criar políticas de maneira programática](programmatically-create.md).

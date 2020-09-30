@@ -7,22 +7,25 @@ ms.date: 07/24/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 7d736721e2676a42da90aead3144f8016329f730
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: c82858294054b50d6edae42a3d41e9fcb89ca89d
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475491"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577791"
 ---
 # <a name="azure-iot-model-repository"></a>Repositório de modelo IoT do Azure
 
 O repositório de modelo IoT do Azure permite que os integradores de dispositivos gerenciem e compartilhem modelos de dispositivos IoT Plug and Play. Os modelos de dispositivo são documentos JSON LD definidos usando a [linguagem de modelagem de gêmeos digital (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). Os modelos armazenados no serviço de repositório de modelo podem ser compartilhados com os desenvolvedores de solução de forma privada por meio do controle de acesso ou publicamente sem a necessidade de autenticação para integrar e desenvolver a solução de nuvem de Plug and Play de IoT.
 
+> [!NOTE]
+> Os criadores de dispositivos podem optar por implementar modelos de dispositivos IoT Plug and Play diretamente em um dispositivo, usar módulos ou em um módulo IoT Edge.
+
 Você pode acessar o repositório de modelos usando o:
 
 - Portal [do repositório de modelo IOT do Azure](https://aka.ms/iotmodelrepo)
 - [API REST do repositório de modelo IoT do Azure](https://docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/getmodelasync/getmodelasync)
-- [Comandos do repositório de modelo de IoT CLI do Azure](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp?view=azure-cli-latest)
+- [Comandos do repositório de modelo de IoT CLI do Azure](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp?view=azure-cli-latest&preserve-view=true)
 
 ## <a name="public-models"></a>Modelos públicos
 
@@ -45,10 +48,10 @@ var httpClient = new HttpClient();
 httpClient.BaseAddress = new Uri("https://repo.azureiotrepository.com");
 
 var modelId = "dtmi:com:mxchip:model;1";
-var response = await httpClient.GetAsync($"/models/{modelId}?api-version=2020-05-01-preview").ConfigureAwait(false);
+var response = await httpClient.GetAsync($"/models/{modelId}?api-version=2020-09-30").ConfigureAwait(false);
 ```
 
-Para exibir um modelo público usando a CLI, consulte o comando CLI do Azure [obter modelo](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-show) .
+Para exibir um modelo público usando a CLI, consulte o comando CLI do Azure [obter modelo](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-show&preserve-view=true) .
 
 ## <a name="company-models"></a>Modelos da empresa
 
@@ -68,7 +71,7 @@ Para saber como configurar um locatário do Azure AD e como criar um usuário ou
 
 A tabela a seguir resume os recursos com suporte no repositório de modelo da empresa e suas permissões associadas:
 
-| Funcionalidade  | Permissão| Description|
+| Funcionalidade  | Permissão| Descrição|
 |-------------|-----------|------------|
 |Ler modelos|Ler modelos|Por padrão, todos os usuários no locatário da empresa podem exibir seus modelos de empresa. Além disso, o usuário também pode exibir os modelos privados compartilhados com eles por outras empresas.|
 |Gerenciar Acesso|Gerenciar Acesso|Gerencie a atribuição de função de usuário (adicionar ou remover) para outros usuários na organização.|
@@ -115,10 +118,10 @@ Para exibir uma empresa ou um modelo compartilhado usando a API REST, consulte a
 
 ```csharp
 var modelId = "dtmi:com:mxchip:model;1";
-var response = await httpClient.GetAsync($"/models/{modelId}?api-version=2020-05-01-preview").ConfigureAwait(false);
+var response = await httpClient.GetAsync($"/models/{modelId}?api-version=2020-09-30").ConfigureAwait(false);
 ```
 
-Para exibir um modelo da empresa ou um modelo compartilhado usando a CLI, consulte o comando CLI do Azure [obter modelo](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-show) .
+Para exibir um modelo da empresa ou um modelo compartilhado usando a CLI, consulte o comando CLI do Azure [obter modelo](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-show&preserve-view=true) .
 
 ### <a name="manage-roles"></a>Gerenciar funções
 
@@ -161,10 +164,10 @@ Para carregar um modelo usando a API REST, consulte [criar uma](https://docs.mic
 ```csharp
 var httpContent = new StringContent(jsonLdModel, Encoding.UTF8, "application/json");
 var modelId = "dtmi:com:mxchip:model;1";
-var response = await httpClient.PutAsync($"/models/{modelId}?api-version=2020-05-01-preview", httpContent).ConfigureAwait(false);
+var response = await httpClient.PutAsync($"/models/{modelId}?api-version=2020-09-30", httpContent).ConfigureAwait(false);
 ```
 
-Para carregar um modelo usando a CLI, consulte o CLI do Azure [criar um comando de modelo](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-create) .
+Para carregar um modelo usando a CLI, consulte o CLI do Azure [criar um comando de modelo](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-create&preserve-view=true) .
 
 ### <a name="publish-a-model"></a>Publicar um modelo
 
@@ -189,7 +192,10 @@ Para publicar um modelo usando o portal:
 
 Para publicar um modelo usando a API REST, consulte a documentação [publicar uma](https://docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/createorupdateasync/createorupdateasync) API REST do modelo. Forneça o parâmetro de cadeia de caracteres de consulta `update-metadata=true` para publicar um modelo usando a API REST. Consulte [passando um token de segurança ao acessar modelos da empresa com uma API REST](#passing-a-security-token-when-accessing-company-models-with-a-rest-api) para obter informações sobre como transmitir um cabeçalho de autorização JWT na solicitação HTTP.
 
-Para publicar um modelo usando a CLI, consulte o CLI do Azure [publicar um comando de modelo](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-publish) .
+Para publicar um modelo usando a CLI, consulte o CLI do Azure [publicar um comando de modelo](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-publish&preserve-view=true) .
+
+> [!NOTE]
+> Os modelos devem ser publicados no repositório de modelos antes de executar os testes de certificação. Para saber mais, confira [como certificar dispositivos IoT plug and Play](howto-certify-device.md).
 
 ### <a name="share-a-model"></a>Compartilhar um modelo
 

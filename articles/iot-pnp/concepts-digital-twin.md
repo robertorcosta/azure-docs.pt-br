@@ -1,18 +1,18 @@
 ---
 title: Entender o gêmeos digital de IoT Plug and Play
-description: Entenda como a visualização de Plug and Play de IoT usa o digital gêmeos
+description: Entenda como o Plug and Play IoT usa o gêmeos digital
 author: prashmo
 ms.author: prashmo
 ms.date: 07/17/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 1908abfb3d0ea20c69a68344d54076c6760e9e63
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 5d5ffe4e7d92530f18e278382ab3637c3326e57c
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352104"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578046"
 ---
 # <a name="understand-iot-plug-and-play-digital-twins"></a>Entender o gêmeos digital de IoT Plug and Play
 
@@ -34,7 +34,7 @@ As APIs de entrelaçamento digital operam em construções de alto nível na DTD
 
 Em um dispositivo, o estado de uma propriedade gravável é dividido nas seções desejadas e relatadas. Todas as propriedades somente leitura estão disponíveis na seção relatada.
 
-Em uma folha de erro digital, há uma exibição unificada do estado atual e desejado da propriedade. O estado de sincronização de uma determinada propriedade é armazenado na seção nível raiz ou componente correspondente `$metadata` .
+Em uma folha de erro digital, há uma exibição unificada do estado atual e desejado da propriedade. O estado de sincronização de uma determinada propriedade é armazenado na seção componente padrão correspondente `$metadata` .
 
 ### <a name="digital-twin-json-format"></a>Formato JSON digital de entrelaçamento
 
@@ -51,9 +51,9 @@ Quando representado como um objeto JSON, uma pesquisa digital inclui os seguinte
 | `$metadata.{propertyName}.ackCode` | [Necessário, somente para propriedades graváveis] O `ack` código retornado pelo aplicativo de dispositivo que implementa o teledigital |
 | `$metadata.{propertyName}.ackDescription` | [Opcional, somente para propriedades graváveis] A `ack` Descrição retornada pelo aplicativo de dispositivo que implementa o teledigital |
 | `$metadata.{propertyName}.lastUpdateTime` | O Hub IoT mantém o carimbo de data/hora da última atualização da propriedade pelo dispositivo. Os carimbos de data/hora estão em UTC e são codificados no formato ISO8601 AAAA-MM-DDTHH: MM: SS. mmmZ |
-| `{componentName}` | Um objeto JSON que contém os valores de propriedade e metadados do componente, semelhante a um objeto raiz. |
+| `{componentName}` | Um objeto JSON que contém os valores de propriedade e metadados do componente. |
 | `{componentName}.{propertyName}` | O valor da Propriedade do componente em JSON |
-| `{componentName}.$metadata` | As informações de metadados para o componente, semelhante ao nível raiz`$metadata` |
+| `{componentName}.$metadata` | As informações de metadados para o componente. |
 
 #### <a name="device-twin-sample"></a>Amostra de dispositivo
 
@@ -171,7 +171,7 @@ Os trechos de código a seguir mostram a representação JSON lado a lado da `se
 
 #### <a name="writable-property"></a>Propriedade gravável
 
-Digamos que o dispositivo também tenha a seguinte propriedade gravável no nível raiz:
+Digamos que o dispositivo também tenha a seguinte propriedade gravável no componente padrão:
 
 ```json
 {
@@ -228,7 +228,7 @@ Digamos que o dispositivo também tenha a seguinte propriedade gravável no nív
    :::column-end:::
 :::row-end:::
 
-Neste exemplo, `3.0` é o valor atual da `fanSpeed` Propriedade relatada pelo dispositivo. `2.0`é o valor desejado definido pela solução. O valor desejado e o estado de sincronização de uma propriedade no nível da raiz são definidos no nível da raiz para um conjunto de bits `$metadata` digital. Quando o dispositivo fica online, ele pode aplicar essa atualização e reportar o valor atualizado.
+Neste exemplo, `3.0` é o valor atual da `fanSpeed` Propriedade relatada pelo dispositivo. `2.0` é o valor desejado definido pela solução. O valor desejado e o estado de sincronização de uma propriedade no nível da raiz são definidos no nível da raiz para um conjunto de bits `$metadata` digital. Quando o dispositivo fica online, ele pode aplicar essa atualização e reportar o valor atualizado.
 
 ### <a name="components"></a>Componentes
 
@@ -240,8 +240,8 @@ Em um dispositivo, um componente é identificado pelo `{ "__t": "c"}` marcador. 
 
 Neste exemplo, `thermostat1` é um componente com duas propriedades:
 
-- `maxTempSinceLastReboot`é uma propriedade somente leitura.
-- `targetTemperature`é uma propriedade gravável que foi sincronizada com êxito pelo dispositivo. O valor desejado e o estado de sincronização dessas propriedades estão no componente `$metadata` .
+- `maxTempSinceLastReboot` é uma propriedade somente leitura.
+- `targetTemperature` é uma propriedade gravável que foi sincronizada com êxito pelo dispositivo. O valor desejado e o estado de sincronização dessas propriedades estão no componente `$metadata` .
 
 Os trechos de código a seguir mostram a representação JSON lado a lado do `thermostat1` componente:
 
@@ -374,11 +374,14 @@ content-encoding:utf-8
 ]
 ```
 
+> [!NOTE]
+> As mensagens de notificação de alteração de troca são duplas quando ativadas tanto no dispositivo quanto na notificação de alteração de mensagens digitais.
+
 ## <a name="next-steps"></a>Próximas etapas
 
 Agora que você aprendeu sobre o digital gêmeos, aqui estão alguns recursos adicionais:
 
 - [Como usar as APIs de Plug and Play do IoT digital](howto-manage-digital-twin.md)
-- [Interagir com um dispositivo de sua solução](quickstart-service-node.md)
+- [Interagir com um dispositivo da sua solução](quickstart-service-node.md)
 - [API REST de monodigital de IoT](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin)
-- [Gerenciador de IoT do Azure](howto-use-iot-explorer.md)
+- [Azure IoT Explorer](howto-use-iot-explorer.md)

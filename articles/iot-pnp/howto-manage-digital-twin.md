@@ -1,26 +1,26 @@
 ---
 title: Como gerenciar gêmeos digitais de IoT Plug and Play
-description: Como gerenciar o dispositivo de visualização de Plug and Play IoT usando APIs de entrelaçamento digital
+description: Como gerenciar o dispositivo de Plug and Play de IoT usando APIs de entrelaçamento digital
 author: prashmo
 ms.author: prashmo
 ms.date: 07/20/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: f86bf17c34d88fa48df4933e979a590fbc89820b
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: bfbfc6e5e4a0f5721d620c2936e5ea0aa685f8ad
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352095"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577587"
 ---
 # <a name="manage-iot-plug-and-play-digital-twins"></a>Gerenciar gêmeos digital de IoT Plug and Play
 
 O IoT Plug and Play dá suporte a **obter** operações digitais de atualização de e/ou **Atualizar** para gerenciar o digital gêmeos. Você pode usar as [APIs REST](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin) ou um dos SDKs de [serviço](libraries-sdks.md).
 
-No momento da elaboração do artigo, a versão da API do digital up para visualização pública é `2020-05-31-preview` .
+No momento da gravação, a versão da API do digital up é `2020-09-30` .
 
-## <a name="update-a-digital-twin"></a>Atualizar uma atualização digital
+## <a name="update-a-digital-twin"></a>Atualizar um gêmeo digital
 
 Um dispositivo de Plug and Play IoT implementa um modelo descrito pelo [DTDL (digital gêmeos Definition Language) V2](https://github.com/Azure/opendigitaltwins-dtdl). Os desenvolvedores de soluções podem usar a **API de atualização de atualizações digitais** para atualizar o estado do componente e as propriedades do digital.
 
@@ -72,7 +72,7 @@ Por exemplo, você pode atualizar a `targetTemperature` propriedade da seguinte 
 ]
 ```
 
-A atualização anterior define o valor desejado de uma propriedade no nível raiz ou nível de componente correspondente `$metadata` , conforme mostrado no trecho a seguir. O Hub IoT atualiza a versão desejada da propriedade:
+A atualização anterior define o valor desejado de uma propriedade no nível de componente correspondente `$metadata` , conforme mostrado no trecho a seguir. O Hub IoT atualiza a versão desejada da propriedade:
 
 ```json
 "thermostat1": {
@@ -130,7 +130,7 @@ O exemplo de patch JSON a seguir mostra como adicionar, substituir ou remover um
 
 Uma operação de adicionar ou substituir define o valor desejado de uma propriedade. O dispositivo pode sincronizar o estado e relatar uma atualização do valor junto com um `ack` código, uma versão e uma descrição.
 
-A remoção de uma propriedade desmarcará o valor desejado da propriedade se ela estiver definida. O dispositivo pode então parar de relatar essa propriedade e ela é removida do nível raiz ou do componente. Se essa propriedade for a última no componente, o componente também será removido.
+A remoção de uma propriedade desmarcará o valor desejado da propriedade se ela estiver definida. O dispositivo pode então parar de relatar essa propriedade e é removido do componente. Se essa propriedade for a última no componente, o componente também será removido.
 
 O exemplo de patch JSON a seguir mostra como adicionar, substituir ou remover uma propriedade dentro de um componente:
 
@@ -193,6 +193,6 @@ As atualizações podem falhar se os valores relatados de um dispositivo não es
 
 Agora que você aprendeu sobre o digital gêmeos, aqui estão alguns recursos adicionais:
 
-- [Interagir com um dispositivo de sua solução](quickstart-service-node.md)
+- [Interagir com um dispositivo da sua solução](quickstart-service-node.md)
 - [API REST de monodigital de IoT](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin)
-- [Gerenciador de IoT do Azure](howto-use-iot-explorer.md)
+- [Azure IoT Explorer](howto-use-iot-explorer.md)

@@ -1,0 +1,86 @@
+---
+title: Guia do desenvolvedor de serviços – IoT Plug and Play | Microsoft Docs
+description: Descrição de Plug and Play de IoT para desenvolvedores de serviço
+author: dominicbetts
+ms.author: dobett
+ms.date: 09/24/2020
+ms.topic: conceptual
+ms.service: iot-pnp
+services: iot-pnp
+ms.openlocfilehash: e7728af831b26bff19f347e5b85db6420e7966ed
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91579626"
+---
+# <a name="iot-plug-and-play-service-developer-guide"></a>Guia do desenvolvedor do serviço de Plug and Play de IoT
+
+O Plug and Play IoT permite criar dispositivos inteligentes que anunciam seus recursos para os aplicativos IoT do Azure. Os dispositivos IoT Plug and Play não exigem configuração manual quando um cliente os conecta aos aplicativos habilitados para IoT Plug and Play.
+
+O Plug and Play IoT permite que você use dispositivos que anunciaram sua ID de modelo com o Hub IoT. Por exemplo, você pode acessar as propriedades e os comandos de um dispositivo diretamente.
+
+Para usar um dispositivo de Plug and Play IoT conectado ao seu hub IoT, use um dos SDKs do serviço IoT ou a API REST do Hub IoT:
+
+## <a name="service-sdks"></a>SDKs do Serviço
+
+Use os SDKs do serviço IoT do Azure em sua solução para interagir com dispositivos e módulos. Por exemplo, você pode usar os SDKs de serviço para ler e atualizar as propriedades de entrelaçamento e invocar comandos. Os idiomas com suporte incluem C#, Java, Node.js e Python.
+
+Os SDKs de serviço permitem que você acesse informações de dispositivo de uma solução, como um desktop ou aplicativo Web. Os SDKs de serviço incluem dois namespaces e modelos de objeto que você pode usar para recuperar a ID do modelo:
+
+- Cliente de serviço do Hub IOT.
+- Cliente do serviço de gêmeos digital.
+
+| Idioma | Cliente de serviço do Hub IoT | Cliente do serviço de gêmeos digital |
+| -------- | ---------------------- | ---------------------------- |
+| C#       | [Documentação](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.shared.twin.modelid?view=azure-dotnet#Microsoft_Azure_Devices_Shared_Twin_ModelId&preserve-view=true) <br/> [Amostra](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Samples/service/PnpServiceSamples/Thermostat/Program.cs)| [Amostra](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Samples/service/DigitalTwinClientSamples) |
+| Java     | [Documentação](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwindevice?view=azure-java-stable&preserve-view=true) <br/> [Amostra](https://github.com/Azure/azure-iot-sdk-java/blob/master/service/iot-service-samples/pnp-service-sample/thermostat-service-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/service/Thermostat.java)| [Amostra](https://github.com/Azure/azure-iot-sdk-java/tree/master/service/iot-service-samples/digitaltwin-service-samples) |
+| Node.js  | [Documentação](https://docs.microsoft.com/javascript/api/azure-iothub/twin?view=azure-node-latest&preserve-view=true) <br/> [Amostra](https://github.com/Azure/azure-iot-sdk-node/blob/master/service/samples/javascript/twin.js)| [Documentação](https://docs.microsoft.com/javascript/api/azure-iot-digitaltwins-service/?view=azure-node-latest&preserve-view=true) |
+| Python   | [Documentação](https://docs.microsoft.com/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?view=azure-python&preserve-view=true) <br/> [Amostra](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-hub/samples/iothub_registry_manager_method_sample.py)| [Documentação](https://docs.microsoft.com/python/api/azure-iot-hub/azure.iot.hub.iothubdigitaltwinmanager?view=azure-python&preserve-view=true) | 
+
+## <a name="rest-api"></a>API REST
+
+Os exemplos a seguir usam a API REST do Hub IoT para interagir com um dispositivo de Plug and Play de IoT conectado. A versão atual da API é `2020-09-30` . Acrescente `?api-version=2020-05-31` às suas chamadas do PI REST.
+
+> [!NOTE]
+> Atualmente, o módulo gêmeos não tem suporte da `digitalTwins` API.
+
+Se o dispositivo termostato for chamado `t-123` , você obterá todas as propriedades em todas as interfaces implementadas pelo dispositivo com uma chamada Get da API REST:
+
+```REST
+GET /digitalTwins/t-123
+```
+
+Essa chamada incluirá a propriedade JSON `$metadata.$model` com a ID de modelo anunciada pelo dispositivo.
+
+Todas as propriedades em todas as interfaces são acessadas com o `GET /DigitalTwin/{device-id}` modelo de API REST, em que `{device-id}` é o identificador do dispositivo:
+
+```REST
+GET /digitalTwins/{device-id}
+```
+
+Você pode chamar os comandos do dispositivo IoT Plug and Play diretamente. Se o `Thermostat` componente no `t-123` dispositivo tiver um `restart` comando, você poderá chamá-lo com uma pós-chamada à API REST:
+
+```REST
+POST /digitalTwins/t-123/components/Thermostat/commands/restart
+```
+
+Em geral, os comandos podem ser chamados por meio desse modelo de API REST:
+
+- `device-id`: o identificador do dispositivo.
+- `component-name`: o nome da interface da seção implementações no modelo de funcionalidade do dispositivo.
+- `command-name`: o nome do comando.
+
+```REST
+/digitalTwins/{device-id}/components/{component-name}/commands/{command-name}
+```
+
+## <a name="next-steps"></a>Próximas etapas
+
+Agora que você aprendeu sobre a modelagem de dispositivo, aqui estão alguns recursos adicionais:
+
+- [DTDL (Linguagem de Definição de Gêmeos Digitais)](https://github.com/Azure/opendigitaltwins-dtdl)
+- [SDK do Dispositivo C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
+- [API REST de IoT](https://docs.microsoft.com/rest/api/iothub/device)
+- [Componentes do modelo](./concepts-components.md)
+- [Instalar e usar as ferramentas de criação do DTDL](howto-use-dtdl-authoring-tools.md)

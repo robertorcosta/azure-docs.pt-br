@@ -1,15 +1,15 @@
 ---
 title: Entender como funcionam os alertas de métrica no Azure Monitor.
 description: Obtenha uma visão geral do que você pode fazer com alertas de métrica e como eles funcionam no Azure Monitor.
-ms.date: 08/16/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 8e57ec698f96826f493d048490ac053672e45895
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 78ec5ff3fc87ef29d25e439b7d4c69bb3a10f3a7
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89595556"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578063"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Entender como funcionam os alertas de métrica no Azure Monitor
 
@@ -143,6 +143,7 @@ No momento, esse recurso tem suporte para métricas de plataforma (não métrica
 | Pools de capacidade de arquivos do NetApp | **Sim** | **Sim** | **Sim** |
 | Volumes de arquivos do NetApp | **Sim** | **Sim** | **Sim** |
 | Cofres de chaves | **Sim** | **Sim** | **Sim** |
+| Cache Redis do Azure | **Sim** | **Sim** | **Sim** |
 | Dispositivos de borda da caixa de dados | **Sim** | **Sim** | **Sim** |
 
 <sup>1</sup> não há suporte para métricas de rede de máquina virtual (rede no total, total de saída de rede, fluxos de entrada, fluxos de saída, taxa de criação máxima de fluxos de entrada, taxa de criação máxima de fluxos de saída).

@@ -7,12 +7,12 @@ ms.date: 07/23/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 9752589c8863cc911369225d268035d9f61c0273
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 165f83e0f021d23c26333a294ffe992838bda6b0
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032020"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577706"
 ---
 # <a name="use-iot-plug-and-play-models-in-an-iot-solution"></a>Usar modelos de Plug and Play de IoT em uma solução de IoT
 
@@ -26,7 +26,7 @@ Há duas categorias amplas de uma solução de IoT:
 
 Para usar um modelo de Plug and Play IoT, uma solução de IoT:
 
-1. Identifica a ID do modelo implementada pelo dispositivo IoT Plug and Play conectado à solução.
+1. Identifica a ID do modelo implementada pelo dispositivo Plug and Play de IoT, módulo ou módulo IoT Edge conectado à solução.
 
 1. Usa a ID do modelo para recuperar a definição do modelo do dispositivo conectado de um repositório de modelos ou de um repositório personalizado.
 
@@ -40,7 +40,10 @@ Uma solução pode obter a ID do modelo do dispositivo IoT Plug and Play usando 
 
 ### <a name="get-device-twin-api"></a>Obter API de dispositivo
 
-A solução pode usar a API de [obtenção de dispositivo](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.deviceclient.getdevicetwin?view=azure-java-stable) para recuperar a ID de modelo do dispositivo de plug and Play de IOT.
+A solução pode usar a API de [obtenção de dispositivo](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.deviceclient.getdevicetwin?view=azure-java-stable&preserve-view=true) para recuperar a ID de modelo do dispositivo de plug and Play de IOT.
+
+> [!TIP]
+> Para módulos e módulos de IoT Edge, use [ModuleClient. Getentrelaçar](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.moduleclient.gettwin?view=azure-java-stable&preserve-view=true).
 
 No trecho de resposta do dispositivo de dispositivos a seguir, `modelId` contém a ID do modelo de um dispositivo de plug and Play IOT:
 

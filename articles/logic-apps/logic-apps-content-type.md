@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/20/2018
-ms.openlocfilehash: 3a71c78dcbaa5fb02927e9a2cfdea40cd5b26130
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 04642e69adba82cf33b933829d72c51109ad2ee1
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91269090"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578166"
 ---
 # <a name="handle-content-types-in-azure-logic-apps"></a>Manipular tipos de conteúdo em Aplicativos Lógicos do Azure
 
@@ -61,7 +61,7 @@ Os Aplicativos Lógicos possibilitam gerar tokens amigáveis que representam as 
   
   2. Em **Inserir ou colar um conteúdo JSON de amostra**, forneça um conteúdo de exemplo e, em seguida, escolha **Concluído**. Por exemplo: 
 
-     ![Captura de tela que mostra a janela "quando uma solicitação HTTP é recebida" com um conteúdo JSON de exemplo.](./media/logic-apps-content-type/request-trigger.png)
+     ![Captura de tela que mostra a ação "quando uma solicitação HTTP é recebida" com um conteúdo JSON de exemplo.](./media/logic-apps-content-type/request-trigger.png)
 
      O esquema gerado agora aparece no gatilho.
 

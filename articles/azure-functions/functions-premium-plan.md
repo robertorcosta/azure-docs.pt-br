@@ -5,13 +5,15 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: jehollan
-ms.custom: references_regions
-ms.openlocfilehash: a650c6d5aeea28e800b1a4ce9db325a52d60d5cc
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.custom:
+- references_regions
+- fasttrack-edit
+ms.openlocfilehash: a037c903a72ba79b79c7e6b011fe025aefd7b51d
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91372214"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578029"
 ---
 # <a name="azure-functions-premium-plan"></a>Azure Functions plano Premium
 
@@ -43,7 +45,7 @@ Se nenhum evento e execução ocorrer hoje no plano de consumo, seu aplicativo p
 No plano Premium, você pode ter seu aplicativo sempre pronto em um número especificado de instâncias.  O número máximo de instâncias sempre prontas é 20.  Quando os eventos começam a disparar o aplicativo, eles são roteados para as instâncias do Always Ready primeiro.  À medida que a função se torna ativa, as instâncias adicionais serão quentes como um buffer.  Esse buffer impede a inicialização a frio para novas instâncias necessárias durante a escala.  Essas instâncias em buffer são chamadas de [instâncias pré-configuradas](#pre-warmed-instances).  Com a combinação das instâncias Always Ready e um buffer pré-configurado, seu aplicativo pode efetivamente eliminar a inicialização a frio.
 
 > [!NOTE]
-> Todo plano Premium terá pelo menos uma instância ativa e cobrada em todos os momentos.
+> Todo plano Premium terá pelo menos uma instância ativa (cobrada) em todos os momentos.
 
 Você pode configurar o número de instâncias do Always Ready no portal do Azure selecionando sua **aplicativo de funções**, acessando a guia **recursos da plataforma** e selecionando as opções de **scale out** . Na janela Editar do aplicativo de funções, as instâncias sempre prontas são específicas para esse aplicativo.
 
@@ -59,9 +61,9 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 
 Instâncias pré-configuradas são o número de instâncias que são ativadas como um buffer durante os eventos de escala e ativação.  As instâncias pré-configuradas continuam no buffer até que o limite máximo de expansão seja atingido.  A contagem de instâncias pré-passiva padrão é 1 e, para a maioria dos cenários, deve permanecer como 1.  Se um aplicativo tiver um longo tempo de aquecimento (como uma imagem de contêiner personalizada), talvez você queira aumentar esse buffer.  Uma instância pré-configurada se tornará ativa somente depois que todas as instâncias ativas estiverem suficientemente utilizadas.
 
-Considere este exemplo de como as instâncias do Always Ready e as instâncias pré-configuradas funcionam juntas.  Um aplicativo de funções Premium tem cinco instâncias sempre prontas configuradas e o padrão de uma instância pré-configurada.  Quando o aplicativo estiver ocioso e nenhum evento estiver sendo disparado, o aplicativo será provisionado e executado em cinco instâncias.  
+Considere este exemplo de como as instâncias do Always Ready e as instâncias pré-configuradas funcionam juntas.  Um aplicativo de funções Premium tem cinco instâncias sempre prontas configuradas e o padrão de uma instância pré-configurada.  Quando o aplicativo estiver ocioso e nenhum evento estiver sendo disparado, o aplicativo será provisionado e executado em cinco instâncias.  Neste momento, você não será cobrado por uma instância pré-configurada, já que as instâncias do Always Ready não são usadas e nenhuma instância pré-configurada é até mesmo alocada.
 
-Assim que o primeiro gatilho chega, as cinco instâncias sempre prontas se tornam ativas e uma instância pré-configurada adicional é alocada.  Agora, o aplicativo está em execução com seis instâncias provisionadas: as cinco instâncias do Always Ready estão ativas e o sexto buffer pré-configurado e inativo.  Se a taxa de execuções continuar aumentando, as cinco instâncias ativas serão utilizadas eventualmente.  Quando a plataforma decidir Dimensionar para além de cinco instâncias, ela será dimensionada para a instância pré-configurada.  Quando isso acontecer, agora haverá seis instâncias ativas, e uma sétima instância será instantaneamente provisionada e preencherá o buffer pré-configurado.  Essa sequência de dimensionamento e pré-aquecimento continuará até que a contagem máxima de instâncias do aplicativo seja atingida.  Nenhuma instância será pré-configurada ou ativada além do máximo.
+Assim que o primeiro gatilho chega, as cinco instâncias sempre prontas se tornam ativas e uma instância pré-configurada é alocada.  Agora, o aplicativo está em execução com seis instâncias provisionadas: as cinco instâncias do Always Ready estão ativas e o sexto buffer pré-configurado e inativo.  Se a taxa de execuções continuar aumentando, as cinco instâncias ativas serão utilizadas eventualmente.  Quando a plataforma decidir Dimensionar para além de cinco instâncias, ela será dimensionada para a instância pré-configurada.  Quando isso acontecer, agora haverá seis instâncias ativas, e uma sétima instância será instantaneamente provisionada e preencherá o buffer pré-configurado.  Essa sequência de dimensionamento e pré-aquecimento continuará até que a contagem máxima de instâncias do aplicativo seja atingida.  Nenhuma instância será pré-configurada ou ativada além do máximo.
 
 Você pode modificar o número de instâncias pré-configuradas para um aplicativo usando o CLI do Azure.
 
@@ -95,7 +97,7 @@ Azure Functions em um plano de consumo são limitados a 10 minutos para uma úni
 
 Quando você cria o plano, há duas configurações de tamanho de plano: o número mínimo de instâncias (ou o tamanho do plano) e o limite máximo de intermitência.
 
-Se seu aplicativo exigir instâncias além das instâncias do Always Ready, ele poderá continuar a escalar horizontalmente até que o número de instâncias atinja o limite máximo de intermitência.  Você será cobrado por instâncias além do tamanho do plano somente enquanto eles estiverem em execução e alugados para você.  Faremos um melhor esforço em dimensionar seu aplicativo para o limite máximo definido.
+Se seu aplicativo exigir instâncias além das instâncias do Always Ready, ele poderá continuar a escalar horizontalmente até que o número de instâncias atinja o limite máximo de intermitência.  Você será cobrado por instâncias além do tamanho do plano somente enquanto eles estiverem em execução e alocados a você, por segundo.  Faremos um melhor esforço em dimensionar seu aplicativo para o limite máximo definido.
 
 Você pode configurar o tamanho do plano e os máximos no portal do Azure selecionando as opções de **scale out** no plano ou um aplicativo de funções implantado nesse plano (em **recursos da plataforma**).
 
@@ -120,7 +122,7 @@ az resource update -g <resource_group> -n <premium_plan_name> --set sku.capacity
 
 ### <a name="available-instance-skus"></a>SKUs da instância disponível
 
-Ao criar ou dimensionar seu plano, você pode escolher entre três tamanhos de instância.  Você será cobrado pelo número total de núcleos e memória consumida por segundo.  Seu aplicativo pode ser dimensionado automaticamente para várias instâncias, conforme necessário.  
+Ao criar ou dimensionar seu plano, você pode escolher entre três tamanhos de instância.  Você será cobrado pelo número total de núcleos e memória provisionados, por segundo, que cada instância é alocada para você.  Seu aplicativo pode ser dimensionado automaticamente para várias instâncias, conforme necessário.  
 
 |SKU|Núcleos|Memória|Armazenamento|
 |--|--|--|--|

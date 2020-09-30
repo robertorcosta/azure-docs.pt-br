@@ -7,16 +7,20 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/15/2020
 ms.author: cherylmc
-ms.openlocfilehash: fba8433a7964b10901527894eee98722ece970ec
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 7105597ec34e804c2f2b85b01feb4824d63005c5
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90602186"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578114"
 ---
 # <a name="create-an-intune-profile-to-deploy-vpn-client-profiles"></a>Criar um perfil do Intune para implantar perfis de cliente VPN
 
 Você pode implantar perfis para clientes de VPN do Azure (Windows 10) usando Microsoft Intune. Este artigo ajuda você a criar um perfil do Intune usando configurações personalizadas.
+
+> [!NOTE]
+> Esse método só funcionará para a implantação de perfis que usam Azure Active Directory ou um certificado comum para autenticação de cliente. Se forem usados certificados de cliente exclusivos, cada usuário terá que selecionar o certificado correto manualmente no cliente de VPN do Azure.
+>
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -76,13 +80,13 @@ Nesta seção, você criará um perfil de Microsoft Intune com configurações p
 
    Selecione o ícone de pasta e escolha o arquivo que você salvou na etapa 6 nas etapas de [XML](#xml) . Selecione **Adicionar**.
 
-   :::image type="content" source="./media/create-profile-intune/configuration-settings.png" alt-text="Definições de configuração" lightbox="./media/create-profile-intune/configuration-settings.png":::
+   :::image type="content" source="./media/create-profile-intune/configuration-settings.png" alt-text="Perfis de configuração" lightbox="./media/create-profile-intune/configuration-settings.png":::
 1. Selecione **Avançar**.
 1. Em **atribuições**, selecione o grupo para o qual você deseja enviar a configuração por push. Em seguida, selecione **Avançar**.
 1. As regras de aplicabilidade são opcionais. Defina todas as regras, se necessário, e selecione **Avançar**.
 1. Na página **revisar + criar** , selecione **criar**.
 
-    :::image type="content" source="./media/create-profile-intune/create-profile.png" alt-text="Criar perfil":::
+    :::image type="content" source="./media/create-profile-intune/create-profile.png" alt-text="Perfis de configuração":::
 1. Seu perfil personalizado agora é criado. Para as Microsoft Intune etapas para implantar esse perfil, consulte [atribuir perfis de usuário e de dispositivo](https://docs.microsoft.com/mem/intune/configuration/device-profile-assign).
  
 ## <a name="next-steps"></a>Próximas etapas

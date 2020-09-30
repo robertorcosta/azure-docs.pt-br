@@ -1,20 +1,20 @@
 ---
 title: Compilar um aplicativo .NET Framework, Core do Azure Cosmos DB usando a API do Gremlin
 description: Apresenta um exemplo de código do .NET Framework/Core que pode ser usado para conectar e consultar o Azure Cosmos DB
-author: luisbosquez
+author: jasonwhowell
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 02/21/2020
-ms.author: lbosq
+ms.author: jasonh
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: f781018fc5fc832be92de34c3ef220517ad28d75
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 72b3f8a4e4a6da434ef20c8e505718ccd3e2deff
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020415"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578370"
 ---
 # <a name="quickstart-build-a-net-framework-or-core-application-using-the-azure-cosmos-db-gremlin-api-account"></a>Início Rápido: Compilar um aplicativo .NET Framework ou Core usando a conta da API do Gremlin do Azure Cosmos DB
 
@@ -110,7 +110,7 @@ Agora, volte ao portal do Azure para obter informações sobre a cadeia de conex
 
    **Ponto de Extremidade do Gremlin** - Esse valor é usado ao se conectar à conta do Graph usando a biblioteca Gremlin.Net.
 
-    :::image type="content" source="./media/create-graph-dotnet/endpoint.png" alt-text="Copiar o ponto de extremidade":::
+    :::image type="content" source="./media/create-graph-dotnet/endpoint.png" alt-text="Copiar o ponto de extremidade&quot;:::
 
    Para executar este exemplo, copie o valor do **Ponto de Extremidade do Gremlin**, exclua o número da porta no final e o URI se tornará `https://<your cosmos db account name>.gremlin.cosmosdb.azure.com`. O valor de ponto de extremidade deve ter esta aparência: `testgraphacct.gremlin.cosmosdb.azure.com`
 
@@ -119,11 +119,11 @@ Agora, volte ao portal do Azure para obter informações sobre a cadeia de conex
 1. Depois de copiar o URI e a CHAVE PRIMÁRIA da sua conta, salve-os em uma nova variável de ambiente no computador local que executa o aplicativo. Para definir a variável de ambiente, abra uma janela do prompt de comando e execute o comando a seguir. Não se esqueça de substituir os valores <Your_Azure_Cosmos_account_URI> e <Your_Azure_Cosmos_account_PRIMARY_KEY>.
 
    ```console
-   setx EndpointUrl "<your Azure Cosmos account name>.gremlin.cosmosdb.azure.com"
-   setx PrimaryKey "<Your_Azure_Cosmos_account_PRIMARY_KEY>"
+   setx Host &quot;<your Azure Cosmos account name>.gremlin.cosmosdb.azure.com&quot;
+   setx PrimaryKey &quot;<Your_Azure_Cosmos_account_PRIMARY_KEY>&quot;
    ```
 
-1. Abra o arquivo *Program.cs* e atualize as variáveis "banco de dados" e "contêiner" pelos nomes do banco de dados e contêiner (que também é o nome do gráfico) criados acima.
+1. Abra o arquivo *Program.cs* e atualize as variáveis &quot;banco de dados&quot; e &quot;contêiner" pelos nomes do banco de dados e contêiner (que também é o nome do gráfico) criados acima.
 
     `private static string database = "your-database-name";` `private static string container = "your-container-or-graph-name";`
 
@@ -147,7 +147,20 @@ Agora você pode voltar ao Data Explorer no Portal do Azure e procurar e consult
 
     É possível ampliar e diminuir o zoom do grafo, expandir o espaço de exibição do grafo, adicionar outros vértices e mover vértices na superfície de exibição.
 
-    :::image type="content" source="./media/create-graph-dotnet/graph-explorer.png" alt-text="Exibir o grafo no Data Explorer no portal do Azure":::
+    :::image type="content" source="./media/create-graph-dotnet/graph-explorer.png" alt-text="Copiar o ponto de extremidade&quot;:::
+
+   Para executar este exemplo, copie o valor do **Ponto de Extremidade do Gremlin**, exclua o número da porta no final e o URI se tornará `https://<your cosmos db account name>.gremlin.cosmosdb.azure.com`. O valor de ponto de extremidade deve ter esta aparência: `testgraphacct.gremlin.cosmosdb.azure.com`
+
+1. Em seguida, navegue até a guia **Chaves** e copie o valor de **CHAVE PRIMÁRIA** do portal do Azure. 
+
+1. Depois de copiar o URI e a CHAVE PRIMÁRIA da sua conta, salve-os em uma nova variável de ambiente no computador local que executa o aplicativo. Para definir a variável de ambiente, abra uma janela do prompt de comando e execute o comando a seguir. Não se esqueça de substituir os valores <Your_Azure_Cosmos_account_URI> e <Your_Azure_Cosmos_account_PRIMARY_KEY>.
+
+   ```console
+   setx Host &quot;<your Azure Cosmos account name>.gremlin.cosmosdb.azure.com&quot;
+   setx PrimaryKey &quot;<Your_Azure_Cosmos_account_PRIMARY_KEY>&quot;
+   ```
+
+1. Abra o arquivo *Program.cs* e atualize as variáveis &quot;banco de dados&quot; e &quot;contêiner":::
 
 ## <a name="review-slas-in-the-azure-portal"></a>Examinar SLAs no Portal do Azure
 

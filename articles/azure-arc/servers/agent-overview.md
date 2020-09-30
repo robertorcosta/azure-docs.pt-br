@@ -1,18 +1,21 @@
 ---
 title: Visão geral do agente do Connected Machine do Windows
 description: Este artigo fornece uma visão geral detalhada do agente de servidores habilitados para Arc do Azure disponível, que dá suporte ao monitoramento de máquinas virtuais hospedadas em ambientes híbridos.
-ms.date: 09/24/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 01f1b291fee57d94b95bdeeef5f9f24b011e9fca
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0fa406692ae0ff011c65a2683ea04ad969bdc3b5
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91255036"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577213"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Visão geral do agente de servidores habilitados para Arc do Azure
 
 O agente de máquina conectado de servidores habilitados para Arc do Azure permite que você gerencie seus computadores Windows e Linux hospedados fora do Azure em sua rede corporativa ou em outro provedor de nuvem. Este artigo fornece uma visão geral detalhada do agente, dos requisitos do sistema e da rede e dos diferentes métodos de implantação.
+
+>[!NOTE]
+>A partir da versão geral dos servidores habilitados para Arc do Azure em setembro de 2020, todas as versões de pré-lançamento do agente do computador conectado do Azure (agentes com versões inferiores a 1,0) estão sendo **preteridas** até **2 de fevereiro de 2021**.  Este período de tempo permite que você atualize para a versão 1,0 ou superior antes que os agentes de pré-lançamento não possam mais se comunicar com o serviço de servidores habilitados para Arc do Azure.
 
 ## <a name="agent-component-details"></a>Detalhes do componente do agente
 
@@ -44,13 +47,13 @@ O agente do Azure Connected Machine para Windows e Linux pode ser atualizado par
 
 ### <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
 
-Há suporte oficial para as seguintes versões do sistema operacional Windows e Linux para o agente do Azure Connected Machine: 
+Há suporte oficial para as seguintes versões do sistema operacional Windows e Linux para o agente do Azure Connected Machine:
 
 - Windows Server 2012 R2 e versões posteriores (incluindo o Windows Server Core)
 - Ubuntu 16, 4 e 18, 4 LTS (x64)
 - CentOS Linux 7 (x64)
 - SLES (SUSE Linux Enterprise Server) 15 (x64)
-- Red Hat Enterprise Linux (RHEL) 7 (x64)
+- RHEL (Red Hat Enterprise Linux) 7 (x64)
 - Amazon Linux 2 (x64)
 
 ### <a name="required-permissions"></a>Permissões necessárias
