@@ -1,14 +1,14 @@
 ---
 title: Noções básicas da linguagem de consulta
 description: Descreve as tabelas do Resource Graph e os tipos de dados, operadores e funções do Kusto disponíveis utilizáveis com o Azure Resource Graph.
-ms.date: 08/24/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 65304ca1241b2c8a1f9541580e7ee8434dd5b6eb
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: ef588bd3fd8afcf1f1139f97d5df2d48a14b4dd9
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89426394"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578522"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Noções básicas sobre a linguagem de consulta do Azure Resource Graph
 
@@ -125,7 +125,7 @@ A seguir está a lista de operadores de tabela da linguagem KQL com suporte do R
 |[distinct](/azure/kusto/query/distinctoperator) |[Mostrar valores distintos para um alias específico](../samples/starter.md#distinct-alias-values) | |
 |[extend](/azure/kusto/query/extendoperator) |[Contagem de máquinas virtuais por tipo de sistema operacional](../samples/starter.md#count-os) | |
 |[join](/azure/kusto/query/joinoperator) |[Cofre de chaves com o nome da assinatura](../samples/advanced.md#join) |Tipos de união com suporte: [innerunique](/azure/kusto/query/joinoperator#default-join-flavor), [inner](/azure/kusto/query/joinoperator#inner-join), [leftouter](/azure/kusto/query/joinoperator#left-outer-join). Há um limite de 3 `join` em uma única consulta. Estratégias de união personalizadas, como união difundida, não são permitidas. Elas podem ser usadas para uma única tabela ou entre as tabelas _Resources_ e _ResourceContainers_. |
-|[limit](/azure/kusto/query/limitoperator) |[Listar todos os endereços de IP](../samples/starter.md#list-publicip) |Sinônimo de `take` |
+|[limit](/azure/kusto/query/limitoperator) |[Listar todos os endereços de IP](../samples/starter.md#list-publicip) |Sinônimo de `take` . Não funciona com [Skip](./work-with-data.md#skipping-records). |
 |[mvexpand](/azure/kusto/query/mvexpandoperator) | | Operador herdado, use `mv-expand` como substituto. _RowLimit_ com limite máximo de 400. O padrão é 128. |
 |[mv-expand](/azure/kusto/query/mvexpandoperator) |[Listar Cosmos DB com locais de gravação específicos](../samples/advanced.md#mvexpand-cosmosdb) |_RowLimit_ com limite máximo de 400. O padrão é 128. |
 |[order](/azure/kusto/query/orderoperator) |[Listar recursos classificados por nome](../samples/starter.md#list-resources) |Sinônimo de `sort` |
@@ -133,7 +133,7 @@ A seguir está a lista de operadores de tabela da linguagem KQL com suporte do R
 |[project-away](/azure/kusto/query/projectawayoperator) |[Remover colunas dos resultados](../samples/advanced.md#remove-column) | |
 |[sort](/azure/kusto/query/sortoperator) |[Listar recursos classificados por nome](../samples/starter.md#list-resources) |Sinônimo de `order` |
 |[summarize](/azure/kusto/query/summarizeoperator) |[Recursos do Count Azure](../samples/starter.md#count-resources) |Somente a primeira página simplificada |
-|[take](/azure/kusto/query/takeoperator) |[Listar todos os endereços de IP](../samples/starter.md#list-publicip) |Sinônimo de `limit` |
+|[take](/azure/kusto/query/takeoperator) |[Listar todos os endereços de IP](../samples/starter.md#list-publicip) |Sinônimo de `limit` . Não funciona com [Skip](./work-with-data.md#skipping-records). |
 |[início](/azure/kusto/query/topoperator) |[Mostrar as primeiras cinco máquinas virtuais por nome e tipo do sistema operacional](../samples/starter.md#show-sorted) | |
 |[union](/azure/kusto/query/unionoperator) |[Combinar resultados de duas consultas em um único resultado](../samples/advanced.md#unionresults) |Tabela individual permitida: _T_ `| union` \[`kind=` `inner`\|`outer`\] \[`withsource=`_ColumnName_\] _Table_. Há um limite de 3 expressões de `union` em uma única consulta. A resolução difusa de tabelas da expressão de `union` não é permitida. Elas podem ser usadas para uma única tabela ou entre as tabelas _Resources_ e _ResourceContainers_. |
 |[where](/azure/kusto/query/whereoperator) |[Mostrar recursos que contêm o armazenamento](../samples/starter.md#show-storage) | |

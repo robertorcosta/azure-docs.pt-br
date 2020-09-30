@@ -1,15 +1,15 @@
 ---
 title: Trabalhar com grandes conjuntos de dados
 description: Entenda como obter, formatar, paginar e ignorar registros em grandes conjuntos de dados enquanto estiver trabalhando com o Azure Resource Graph.
-ms.date: 08/10/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5f3073986e424c641d884e1c2427d3d519658d37
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ee552908696aa652931bf3555391adcfec0fc6d3
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89005931"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578488"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Trabalhando com grandes conjuntos de dados de recurso do Azure
 
@@ -48,7 +48,7 @@ Atualmente, **First** tem um valor máximo permitido de _5000_, obtido através 
 A próxima opção para trabalhar com grandes conjuntos de dados é o controle **Skip**. Esse controle permite que sua consulta pule ou ignore o número definido de registros antes de retornar os resultados. **Skip** é útil para consultas que classificam os resultados de uma maneira significativa, em que a intenção é chegar a registros em algum lugar no meio do conjunto de resultados. Se os resultados necessários estão no final do conjunto de dados retornado, é mais eficiente usar uma configuração de classificação diferente e, em vez disso, recuperar os resultados da parte superior do conjunto de dados.
 
 > [!NOTE]
-> É recomendável ordenar os resultados em pelo menos uma coluna com `asc` ou `desc` quando **Skip** for usado. Os resultados retornados são aleatórios e não podem ser repetidos quando não são classificados.
+> É recomendável ordenar os resultados em pelo menos uma coluna com `asc` ou `desc` quando **Skip** for usado. Os resultados retornados são aleatórios e não podem ser repetidos quando não são classificados. Se `limit` ou `take` forem usados na consulta, **Skip** será ignorado.
 
 Os exemplos a seguir mostram como ignorar os primeiros _10_ registros em que uma consulta resultaria, começando em vez disso o conjunto de resultados pelo 11º registro:
 
