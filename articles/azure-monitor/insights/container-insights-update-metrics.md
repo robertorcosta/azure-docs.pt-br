@@ -2,18 +2,18 @@
 title: Como atualizar Azure Monitor para contêineres para métricas | Microsoft Docs
 description: Este artigo descreve como você atualiza Azure Monitor para contêineres para habilitar o recurso de métricas personalizadas que dá suporte à exploração e aos alertas em métricas agregadas.
 ms.topic: conceptual
-ms.date: 07/17/2020
+ms.date: 09/24/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d56a280bdef2058c28d596f6c259eb319d80b08e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 6c420c91e20cc1cf9ab5e4f58bdd352ead3ba4d0
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499952"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91618138"
 ---
 # <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>Como atualizar o Azure Monitor para contêineres para habilitar as métricas
 
-Azure Monitor para contêineres está introduzindo o suporte para coletar métricas de nós de clusters dos AKS (serviços Kubernetess do Azure) e pods e gravá-los no repositório de métricas de Azure Monitor. Essa alteração destina-se a fornecer uma linha de tempo aprimorada ao apresentar cálculos agregados (AVG, Count, Max, min, Sum) em gráficos de desempenho, dar suporte à fixação de gráficos de desempenho em painéis de portal do Azure e dar suporte a alertas de métricas.
+Azure Monitor para contêineres está introduzindo o suporte para coletar métricas dos AKS (serviços Kubernetess do Azure) e dos nós de clusters e pods do Azure habilitados para o Arc e gravá-los no repositório de métricas de Azure Monitor. Essa alteração destina-se a fornecer uma linha de tempo aprimorada ao apresentar cálculos agregados (AVG, Count, Max, min, Sum) em gráficos de desempenho, dar suporte à fixação de gráficos de desempenho em painéis de portal do Azure e dar suporte a alertas de métricas.
 
 >[!NOTE]
 >Atualmente, esse recurso não dá suporte a clusters do Azure Red Hat OpenShift.
@@ -27,9 +27,12 @@ As seguintes métricas são habilitadas como parte desse recurso:
 | Percepções. Container/pods | podCount, completedJobsCount, restartingContainerCount, oomKilledContainerCount, podReadyPercentage | Como métricas de *Pod* , eles incluem o seguinte como Dimensions-ControllerName, namespace kubernetes, nome, fase. |
 | Informações. contêiner/contêineres | cpuExceededPercentage, memoryRssExceededPercentage, memoryWorkingSetExceededPercentage | |
 
-Para dar suporte a esses novos recursos, um novo agente em contêineres, versão **Microsoft/OMS: ciprod02212019**, está incluído na versão. As novas implantações do AKS incluem automaticamente essa alteração e recursos de configuração. A atualização do cluster para dar suporte a esse recurso pode ser executada no portal do Azure, Azure PowerShell ou com CLI do Azure. Com Azure PowerShell e CLI. Você pode habilitar esse por cluster ou para todos os clusters em sua assinatura.
+Para dar suporte a esses novos recursos, um novo agente em contêineres está incluído na versão **Microsoft/OMS: ciprod05262020** para AKs e versão **Microsoft/OMS: ciprod09252020** para clusters kubernetes habilitados para Arc do Azure. As novas implantações do AKS incluem automaticamente essa alteração e recursos de configuração. A atualização do cluster para dar suporte a esse recurso pode ser executada no portal do Azure, Azure PowerShell ou com CLI do Azure. Com Azure PowerShell e CLI. Você pode habilitar esse por cluster ou para todos os clusters em sua assinatura.
 
-Qualquer processo atribui a função de **Editor de métricas de monitoramento** à entidade de serviço do cluster ou à MSI atribuída pelo usuário para o complemento de monitoramento para que os dados coletados pelo agente possam ser publicados no recurso de clusters. O monitoramento de métricas Publisher tem permissão apenas para enviar métricas por push para o recurso, ele não pode alterar nenhum estado, atualizar o recurso ou ler dados. Para obter mais informações sobre a função, consulte [monitorando métricas de função de editor](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher).
+Qualquer processo atribui a função de **Editor de métricas de monitoramento** à entidade de serviço do cluster ou à MSI atribuída pelo usuário para o complemento de monitoramento para que os dados coletados pelo agente possam ser publicados no recurso de clusters. O monitoramento de métricas Publisher tem permissão apenas para enviar métricas por push para o recurso, ele não pode alterar nenhum estado, atualizar o recurso ou ler dados. Para obter mais informações sobre a função, consulte [monitorando métricas de função de editor](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher). O requisito de função de Publicador de métricas de monitoramento não é aplicável a clusters kubernetes habilitados para Arc do Azure.
+
+> [!IMPORTANT]
+> A atualização não é necessária para clusters kubernetes habilitados para o Azure Arc, pois eles já terão a versão mínima necessária do agente.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -37,7 +40,7 @@ Antes de atualizar o cluster, confirme o seguinte:
 
 * As métricas personalizadas só estão disponíveis em um subconjunto de regiões do Azure. Uma lista de regiões com suporte está documentada [aqui](../platform/metrics-custom-overview.md#supported-regions).
 
-* Você é membro da função **[proprietário](../../role-based-access-control/built-in-roles.md#owner)** no recurso de cluster AKs para habilitar a coleta de métricas de desempenho personalizadas de nó e Pod.
+* Você é membro da função **[proprietário](../../role-based-access-control/built-in-roles.md#owner)** no recurso de cluster AKs para habilitar a coleta de métricas de desempenho personalizadas de nó e Pod. Esse requisito não se aplica aos clusters kubernetes habilitados para o Azure Arc.
 
 Se você optar por usar a CLI do Azure, primeiro precisará instalar e usar a CLI localmente. Você deve estar executando o CLI do Azure versão 2.0.59 ou posterior. Para identificar sua versão, execute `az --version`. Caso precise instalar ou atualizar a CLI do Azure, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 

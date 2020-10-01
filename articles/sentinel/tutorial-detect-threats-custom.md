@@ -1,6 +1,6 @@
 ---
 title: Crie regras de análise personalizadas para detectar ameaças com o Azure Sentinel | Microsoft Docs
-description: Use este tutorial para aprender a criar regras de análise personalizadas para detectar ameaças à segurança com o Azure Sentinel.
+description: Use este tutorial para aprender a criar regras de análise personalizadas para detectar ameaças à segurança com o Azure Sentinel. Tire proveito do agrupamento de eventos e do agrupamento de alertas e entenda o AUTO DESABILITAdo.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/06/2020
 ms.author: yelevin
-ms.openlocfilehash: 0e5989490603e22745a8bc972b16ed016c894893
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 55853cc6a3dc27df4c63e0a28ab079813040e45d
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88605890"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91617172"
 ---
 # <a name="tutorial-create-custom-analytics-rules-to-detect-threats"></a>Tutorial: criar regras de análise personalizadas para detectar ameaças
 
@@ -53,13 +53,15 @@ Você pode criar regras de análise personalizadas para ajudá-lo a Pesquisar os
 
       Aqui está um exemplo de consulta que alertaria quando um número anormal de recursos for criado na atividade do Azure.
 
-      `AzureActivity
-     \| where OperationName == "Create or Update Virtual Machine" or OperationName =="Create Deployment"
-     \| where ActivityStatus == "Succeeded"
-     \| make-series dcount(ResourceId)  default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller`
+      ```kusto
+      AzureActivity
+      | where OperationName == "Create or Update Virtual Machine" or OperationName =="Create Deployment"
+      | where ActivityStatus == "Succeeded"
+      | make-series dcount(ResourceId)  default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
+      ```
 
-      > [!NOTE]
-      > O comprimento da consulta deve ter entre 1 e 10.000 caracteres e não pode conter "Search \* " ou "Union \* ".
+        > [!NOTE]
+        > O comprimento da consulta deve ter entre 1 e 10.000 caracteres e não pode conter "Search \* " ou "Union \* ".
 
     1. Use a seção **mapear entidades** para vincular os parâmetros dos resultados da consulta às entidades reconhecidas do Sentinela do Azure. Essas entidades formam a base para análise adicional, incluindo o agrupamento de alertas em incidentes na guia **configurações de incidentes** .
   
@@ -69,8 +71,12 @@ Você pode criar regras de análise personalizadas para ajudá-lo a Pesquisar os
 
        1. Defina **dados de pesquisa do último** para determinar o período de tempo dos dados cobertos pela consulta-por exemplo, ele pode consultar os últimos 10 minutos de dados ou as últimas 6 horas de dados.
 
-       > [!NOTE]
-       > Essas duas configurações são independentes umas das outras, até um ponto. Você pode executar uma consulta em um intervalo curto, cobrindo um período de tempo maior do que o intervalo (em vigor com consultas sobrepostas), mas não é possível executar uma consulta em um intervalo que exceda o período de cobertura, caso contrário, você terá lacunas na cobertura de consulta geral.
+          > [!NOTE]
+          > **Intervalos de consulta e período de lookback**
+          > - Essas duas configurações são independentes umas das outras, até um ponto. Você pode executar uma consulta em um intervalo curto, cobrindo um período de tempo maior do que o intervalo (em vigor com consultas sobrepostas), mas não é possível executar uma consulta em um intervalo que exceda o período de cobertura, caso contrário, você terá lacunas na cobertura de consulta geral.
+          >
+          > **Atraso de ingestão**
+          > - Para considerar a **latência** que pode ocorrer entre a geração de um evento na origem e sua ingestão na sentinela do Azure, e para garantir a cobertura completa sem a duplicação de dados, o Azure Sentinel executa regras de análise agendadas em um **atraso de cinco minutos** em relação ao horário agendado.
 
     1. Use a seção **limite de alerta** para definir uma linha de base. Por exemplo, defina **gerar alerta quando o número de resultados da consulta** **for maior que** e insira o número 1000 se você quiser que a regra gere um alerta somente se a consulta retornar mais de 1000 resultados cada vez que for executada. Este é um campo obrigatório, portanto, se você não quiser definir uma linha de base – ou seja, se quiser que seu alerta Registre todos os eventos – Insira 0 no campo número.
     
@@ -134,6 +140,43 @@ Você pode criar regras de análise personalizadas para ajudá-lo a Pesquisar os
 
 > [!NOTE]
 > Os alertas gerados no Azure Sentinel estão disponíveis por meio do [Microsoft Graph Security](https://aka.ms/securitygraphdocs). Para obter mais informações, consulte a [documentação de alertas de segurança do Microsoft Graph](https://aka.ms/graphsecurityreferencebetadocs).
+
+## <a name="troubleshooting"></a>Solução de problemas
+
+### <a name="a-scheduled-rule-failed-to-execute-or-appears-with-auto-disabled-added-to-the-name"></a>Uma regra agendada não pôde ser executada ou aparece com DESABILITAdo automaticamente adicionado ao nome
+
+É uma rara ocorrência de falha na execução de uma regra de consulta agendada, mas isso pode acontecer. O Azure Sentinel classifica as falhas antecipadamente como transitórias ou permanentes, com base no tipo específico da falha e nas circunstâncias que levaram a ela.
+
+#### <a name="transient-failure"></a>Falha transitória
+
+Uma falha transitória ocorre devido a uma circunstância que é temporária e em breve retornará ao normal, ponto em que a execução da regra terá êxito. Alguns exemplos de falhas que o Azure Sentinel classifica como transitória são:
+
+- Uma consulta de regra leva muito tempo para ser executada e atinge o tempo limite.
+- Problemas de conectividade entre fontes de dados e Log Analytics, ou entre Log Analytics e o Azure Sentinel.
+- Qualquer outra falha nova e desconhecida é considerada transitória.
+
+No caso de uma falha transitória, o Azure Sentinel continua tentando executar a regra novamente após os intervalos predeterminados e cada vez maiores, até um ponto. Depois disso, a regra será executada novamente apenas no próximo horário agendado. Uma regra nunca será desabilitada automaticamente devido a uma falha transitória.
+
+#### <a name="permanent-failure---rule-auto-disabled"></a>Falha permanente-regra desabilitada automaticamente
+
+Uma falha permanente ocorre devido a uma alteração nas condições que permitem a execução da regra, o que sem intervenção humana não retornará ao status anterior. Veja a seguir alguns exemplos de falhas que são classificadas como permanentes:
+
+- O espaço de trabalho de destino (no qual a consulta de regra operada) foi excluído.
+- A tabela de destino (na qual a consulta de regra operada) foi excluída.
+- O Azure Sentinel foi removido do espaço de trabalho de destino.
+- Uma função usada pela consulta de regra não é mais válida; Ele foi modificado ou removido.
+- As permissões para uma das fontes de dados da consulta de regra foram alteradas.
+- Uma das fontes de dados da consulta de regra foi excluída ou desconectada.
+
+**No caso de um número predeterminado de falhas permanentes consecutivas, do mesmo tipo e da mesma regra,** O Azure Sentinel interrompe a tentativa de executar a regra e também executa as seguintes etapas:
+
+- Desabilita a regra.
+- Adiciona as palavras **"desabilitadas automaticamente"** ao início do nome da regra.
+- Adiciona o motivo da falha (e a desabilitação) à descrição da regra.
+
+Você pode determinar facilmente a presença de qualquer regra desabilitada automaticamente, classificando a lista de regras por nome. As regras desabilitadas automaticamente estarão no início da lista ou próximo dela.
+
+Os gerentes de SOC devem ter certeza de verificar a lista de regras regularmente para a presença de regras desabilitadas automaticamente.
 
 ## <a name="next-steps"></a>Próximas etapas
 

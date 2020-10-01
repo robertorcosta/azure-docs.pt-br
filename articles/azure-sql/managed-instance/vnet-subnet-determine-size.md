@@ -7,17 +7,17 @@ ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 02/22/2019
-ms.openlocfilehash: 04f0fca06c2e50ef6d99d51c03e58b468a476e9d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 156a4c74eea24b20c28df88be85cb32c0ebe2981
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91323100"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91617631"
 ---
 # <a name="determine-required-subnet-size--range-for-azure-sql-managed-instance"></a>Determinar o tamanho de sub-rede necessário & intervalo para o SQL Instância Gerenciada do Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -28,7 +28,7 @@ O número de instâncias gerenciadas que podem ser implantadas na sub-rede de um
 
 Quando você cria uma instância gerenciada, o Azure aloca um número de máquinas virtuais dependendo da camada selecionada durante o provisionamento. Como essas máquinas virtuais estão associadas à sua sub-rede, elas exigem endereços IP. Para garantir alta disponibilidade durante operações regulares e manutenção do serviço, o Azure pode alocar máquinas virtuais adicionais. Como resultado, o número de endereços IP necessários em uma sub-rede é maior do que o número de instâncias gerenciadas nessa sub-rede.
 
-Por design, uma instância gerenciada precisa de um mínimo de 32 endereços IP em uma sub-rede. Como resultado, você pode usar a máscara de sub-rede mínima de/27 ao definir os intervalos de IP de sub-rede. É recomendável um planejamento cuidadoso de tamanho de sub-rede para suas implantações de instância gerenciada. As entradas que devem ser levadas em consideração durante o planejamento são:
+Por padrão, uma instância gerenciada precisa de um mínimo de 32 endereços IP em uma sub-rede. Como resultado, você pode usar a máscara de sub-rede mínima de /27 ao definir os intervalos de IP de sub-rede. É recomendável um planejamento cuidadoso de tamanho de sub-rede para suas implantações da instância gerenciada. As entradas que devem ser levadas em consideração durante o planejamento são:
 
 - Número de instâncias gerenciadas, incluindo os seguintes parâmetros de instância:
   - camada de serviço

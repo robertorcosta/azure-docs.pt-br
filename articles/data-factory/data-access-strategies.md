@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/28/2020
-ms.openlocfilehash: 76181f089511a6645a51707f9a8537c1589d82bf
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: a4d8d7eaed40b876adecb82f339be4a4c434325f
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89484945"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91616849"
 ---
 # <a name="data-access-strategies"></a>Estratégias de acesso a dados
 
@@ -38,10 +38,10 @@ Isso deve funcionar em muitos cenários e entendemos que um endereço IP Estáti
 ## <a name="data-access-strategies-through-azure-data-factory"></a>Estratégias de acesso a dados por meio do Azure Data Factory
 
 * **[Link privado](https://docs.microsoft.com/azure/private-link/private-link-overview)** – você pode criar um Azure Integration Runtime em Azure data Factory rede virtual gerenciada e utilizará pontos de extremidade privados para se conectar com segurança a armazenamentos de dados com suporte. O tráfego entre a rede virtual gerenciada e as fontes de dados viaja pela rede de backbone da Microsoft e não é uma exposição à rede pública.
-* **[Serviço Confiável](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)** - O Armazenamento do Microsoft Azure (Blob, ADLS Gen2) dá suporte à configuração do firewall que permite selecionar serviços confiáveis da plataforma Azure para acessar a conta de armazenamento com segurança. Os Serviços Confiáveis aplicam a autenticação de Identidade Gerenciada, o que garante que nenhum outro data factory possa se conectar a esse armazenamento, a menos que a lista de permissões faça isso usando a identidade gerenciada. Você pode encontrar mais detalhes **[neste blog](https://techcommunity.microsoft.com/t5/azure-data-factory/data-factory-is-now-a-trusted-service-in-azure-storage-and-azure/ba-p/964993)** . Portanto, é extremamente seguro e recomendado. 
+* **[Serviço Confiável](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)** - O Armazenamento do Microsoft Azure (Blob, ADLS Gen2) dá suporte à configuração do firewall que permite selecionar serviços confiáveis da plataforma Azure para acessar a conta de armazenamento com segurança. Os serviços confiáveis imponham a autenticação de identidade gerenciada, o que garante que nenhum outro data factory possa se conectar a esse armazenamento, a menos que seja aprovado para fazer isso usando a identidade gerenciada. Você pode encontrar mais detalhes **[neste blog](https://techcommunity.microsoft.com/t5/azure-data-factory/data-factory-is-now-a-trusted-service-in-azure-storage-and-azure/ba-p/964993)** . Portanto, é extremamente seguro e recomendado. 
 * **IP Estático Exclusivo** - Você precisará configurar um runtime de integração auto-hospedada para obter um IP Estático para conectores de Data Factory. Esse mecanismo garante que você possa bloquear o acesso de todos os outros endereços IP. 
 * **[Intervalo de IP Estático](https://docs.microsoft.com/azure/data-factory/azure-integration-runtime-ip-addresses)** - Você pode usar os endereços IP do Azure Integration Runtime para permitir listá-los no armazenamento (digamos S3, Salesforce, etc.). Certamente, ele restringe os endereços IP que podem se conectar aos armazenamentos de dados, mas também se baseia em regras de Autenticação/Autorização.
-* **[Service Tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)** - Uma marca de serviço representa um grupo de prefixos de endereço IP de determinado serviço do Azure (como o Azure Data Factory). A Microsoft gerencia os prefixos de endereço englobados pela marca de serviço e atualiza automaticamente a marca de serviço em caso de alteração de endereços, minimizando a complexidade de atualizações frequentes das regras de segurança de rede. É útil ao elaborar a lista de permissões de acesso a dados em armazenamentos de dados hospedados de IaaS na Rede Virtual.
+* **[Service Tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)** - Uma marca de serviço representa um grupo de prefixos de endereço IP de determinado serviço do Azure (como o Azure Data Factory). A Microsoft gerencia os prefixos de endereço englobados pela marca de serviço e atualiza automaticamente a marca de serviço em caso de alteração de endereços, minimizando a complexidade de atualizações frequentes das regras de segurança de rede. Ele é útil ao filtrar o acesso a dados em armazenamentos de dados hospedados de IaaS na rede virtual.
 * **Permitir serviços do Azure** - Permite que todos os serviços do Azure sejam conectados, caso você escolha essa opção. 
 
 Para obter mais informações sobre os mecanismos de segurança de rede com suporte em armazenamentos de dados no Azure Integration Runtime e Runtime de Integração Auto-Hospedada, confira as duas tabelas abaixo.  

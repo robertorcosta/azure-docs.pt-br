@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: development
 ms.custom: sqldbrb=2
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 ms.date: 01/25/2019
-ms.openlocfilehash: 01e1c63a4cfea367a0f721ac33986abade8b5b35
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 94f54e02de1b61cb05b4e41bb4c40118299cf20f
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84343822"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91618634"
 ---
 # <a name="how-to-use-batching-to-improve-azure-sql-database-and-azure-sql-managed-instance-application-performance"></a>Como usar o envio em lote para melhorar o desempenho do banco de dados SQL do Azure e do Azure SQL Instância Gerenciada do aplicativo
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -99,7 +99,7 @@ A tabela a seguir mostra alguns resultados de testes ad hoc. Os testes executara
 
 **De Local para o Azure**:
 
-| Operações | Nenhuma transação (MS) | Com transação (ms) |
+| Operations | Nenhuma transação (MS) | Com transação (ms) |
 | --- | --- | --- |
 | 1 |130 |402 |
 | 10 |1208 |1226 |
@@ -108,7 +108,7 @@ A tabela a seguir mostra alguns resultados de testes ad hoc. Os testes executara
 
 **Do Azure para o Azure (mesmo datacenter)**:
 
-| Operações | Nenhuma transação (MS) | Com transação (ms) |
+| Operations | Nenhuma transação (MS) | Com transação (ms) |
 | --- | --- | --- |
 | 1 |21 |26 |
 | 10 |220 |56 |
@@ -195,7 +195,7 @@ Na maioria dos casos, os parâmetros com valor de tabela têm um desempenho equi
 
 A tabela a seguir mostra os resultados de teste ad hoc para o uso de parâmetros com valor de tabela em milissegundos.
 
-| Operações | Local para o Azure (MS) | Mesmo datacenter do Azure (ms) |
+| Operations | Local para o Azure (MS) | Mesmo datacenter do Azure (ms) |
 | --- | --- | --- |
 | 1 |124 |32 |
 | 10 |131 |25 |
@@ -233,7 +233,7 @@ Há alguns casos nos quais é preferível usar a cópia em massa do que os parâ
 
 Os seguintes resultados de teste ad hoc mostram o desempenho do envio em lote com **SqlBulkCopy** em milissegundos.
 
-| Operações | Local para o Azure (MS) | Mesmo datacenter do Azure (ms) |
+| Operations | Local para o Azure (MS) | Mesmo datacenter do Azure (ms) |
 | --- | --- | --- |
 | 1 |433 |57 |
 | 10 |441 |32 |
@@ -276,7 +276,7 @@ Esse exemplo tem como objetivo mostrar o conceito básico. Um cenário mais real
 
 Os seguintes resultados de teste ad hoc mostram o desempenho desse tipo de instrução INSERT em milissegundos.
 
-| Operações | Parâmetros com valor de tabela (ms) | Instrução INSERT única (ms) |
+| Operations | Parâmetros com valor de tabela (ms) | Instrução INSERT única (ms) |
 | --- | --- | --- |
 | 1 |32 |20 |
 | 10 |30 |25 |

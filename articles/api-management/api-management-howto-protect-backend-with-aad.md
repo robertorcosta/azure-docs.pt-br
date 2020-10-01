@@ -8,12 +8,13 @@ ms.service: api-management
 ms.topic: article
 ms.date: 09/23/2020
 ms.author: apimpm
-ms.openlocfilehash: 285a99bd47fa94940187aa0a4406e773a254dcb4
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.custom: contperfq1
+ms.openlocfilehash: 9892c311651df39b882c3aa38596a905d22a42ec
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/01/2020
-ms.locfileid: "91612329"
+ms.locfileid: "91618770"
 ---
 # <a name="protect-a-web-api-backend-in-azure-api-management-by-using-oauth-20-authorization-with-azure-ad"></a>Proteger um back-end de API da Web no gerenciamento de API do Azure usando a autorização OAuth 2,0 com o Azure AD 
 
@@ -170,7 +171,7 @@ A próxima etapa é habilitar a autorização de usuário do OAuth 2.0 para a su
 
 1. Em **Segurança**, escolha **OAuth 2.0** e selecione o servidor OAuth 2.0 configurado anteriormente. 
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 ## <a name="successfully-call-the-api-from-the-developer-portal"></a>Chamar com êxito a API do portal do desenvolvedor
 

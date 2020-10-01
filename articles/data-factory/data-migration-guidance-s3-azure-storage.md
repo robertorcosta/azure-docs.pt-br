@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 8/04/2019
-ms.openlocfilehash: 5de1ef97050f37bb44d87ebae1d95df365952ace
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 963a541835c5e45c5642f2d516da53fd165142b4
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90984886"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91616917"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-amazon-s3-to-azure-storage"></a>Use o Azure Data Factory para migrar dados do Amazon S3 para o Armazenamento do Azure 
 
@@ -74,7 +74,7 @@ Migrar dados por link privado:
 
 - Nessa arquitetura, a migração de dados é feita por meio de um link de emparelhamento privado entre o AWS Direct Connect e o Azure ExpressRoute, de modo que os dados nunca percorram a Internet pública.  Ele exige o uso da AWS VPC e da Rede Virtual do Azure. 
 - Você precisa instalar o runtime de integração auto-hospedada do ADF em uma VM do Windows na rede virtual do Azure para obter essa arquitetura.  Escale verticalmente suas VMs do IR auto-hospedado manualmente ou escale-as horizontalmente para várias VMs (até 4 nós) para utilizar totalmente a rede e a IOPS/a largura de banda de armazenamento. 
-- Se for aceitável transferir dados via HTTPS, mas você quiser bloquear o acesso à rede ao S3 de origem para um intervalo de IP específico, adote uma variação dessa arquitetura removendo a AWS VPC e substituindo o link privado por HTTPS.  O ideal é manter o IR auto-hospedado e a Rede Virtual do Azure na VM do Azure para ter um IP roteável publicamente estático para fins da lista de permissões. 
+- Se for aceitável transferir dados via HTTPS, mas você quiser bloquear o acesso à rede ao S3 de origem para um intervalo de IP específico, adote uma variação dessa arquitetura removendo a AWS VPC e substituindo o link privado por HTTPS.  Convém manter o IR do Azure virtual e auto-Hosted na VM do Azure para que você possa ter um IP roteável publicamente estático para fins de filtragem. 
 - A migração de dados de instantâneo inicial e a migração de dados delta podem ser obtidas por meio dessa arquitetura. 
 
 ## <a name="implementation-best-practices"></a>Melhores práticas de implementação 
