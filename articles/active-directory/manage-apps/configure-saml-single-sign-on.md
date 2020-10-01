@@ -1,38 +1,38 @@
 ---
-title: Configurar SSO (logon único) baseado em SAML para aplicativos no Azure AD
-description: Configurar SSO (logon único) baseado em SAML para aplicativos no Azure AD
+title: Entenda o SSO (logon único) baseado em SAML para aplicativos no Azure Active Directory
+description: Entenda o SSO (logon único) baseado em SAML para aplicativos no Azure Active Directory
 services: active-directory
 author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: how-to
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 07/28/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: afa927f8faa1ac2bd9cd910b3e78b690c16259e5
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 28bf7e631c8693434d686022891bb2e45152f0ce
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90605134"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597905"
 ---
-# <a name="configure-saml-based-single-sign-on"></a>Configurar o logon único baseado em SAML
+# <a name="understand-saml-based-single-sign-on"></a>Entender o logon único baseado em SAML
 
 Na [série de guias de início rápido](view-applications-portal.md) sobre o gerenciamento de aplicativos, você aprendeu a usar o Azure ad como o IDP (provedor de identidade) para um aplicativo. Este artigo apresenta mais detalhes sobre a opção baseada em SAML para logon único. 
 
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Usar o Azure AD como seu IdP (provedor de identidade) e configurar o SSO (logon único) pode ser simples ou complexo, dependendo do aplicativo que está sendo usado. Alguns aplicativos podem ser configurados com apenas algumas ações. Outros exigem configuração detalhada. Para aumentar rapidamente, percorra a [série de guias de início rápido](view-applications-portal.md) sobre o gerenciamento de aplicativos. Se o aplicativo que você está adicionando for simples, provavelmente você não precisará ler este artigo. Se o aplicativo que você está adicionando exigir configuração personalizada para SSO baseado em SAML, este artigo será para você.
+Usar o Azure AD como seu IdP (provedor de identidade) e configurar o logon único (SSO) pode ser simples ou complexo, dependendo do aplicativo que está sendo usado. Alguns aplicativos podem ser configurados com apenas algumas ações. Outros exigem configuração detalhada. Para aprimorar o conhecimento rapidamente, percorra a [série de guias de início rápido](view-applications-portal.md) sobre o gerenciamento de aplicativos. Se o aplicativo que você está adicionando for simples, provavelmente você não precisará ler este artigo. Se o aplicativo que você está adicionando exigir configuração personalizada para SSO baseado em SAML, este artigo será para você.
 
 Na [série de início rápido](add-application-portal-setup-sso.md), há um artigo sobre como configurar o logon único. Nele, você aprende a acessar a página de configuração do SAML para um aplicativo. A página de configuração do SAML inclui cinco seções. Essas seções são discutidas detalhadamente neste artigo.
 
 > [!IMPORTANT] 
 > Há alguns cenários em que a opção de **logon único** não estará presente na navegação de um aplicativo em **aplicativos empresariais**. 
 >
-> Se o aplicativo tiver sido registrado usando **registros de aplicativo** , o recurso de logon único será configurado para usar o OIDC OAuth por padrão. Nesse caso, a opção de **logon único** não aparecerá na navegação em **aplicativos empresariais**. Ao usar **registros de aplicativo** para adicionar seu aplicativo personalizado, você configura opções no arquivo de manifesto. Para saber mais sobre o arquivo de manifesto, consulte [Azure Active Directory manifesto do aplicativo](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest). Para saber mais sobre os padrões de SSO, consulte [autenticação e autorização usando a plataforma de identidade da Microsoft](https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization#authentication-and-authorization-using-microsoft-identity-platform). 
+> Se o aplicativo tiver sido registrado usando **registros de aplicativo** , a funcionalidade de logon único será configurada para usar o OIDC OAuth por padrão. Nesse caso, a opção de **logon único** não será mostrada na navegação em **aplicativos empresariais**. Ao usar **registros de aplicativo** para adicionar seu aplicativo personalizado, você configura opções no arquivo de manifesto. Para saber mais sobre o arquivo de manifesto, consulte [Azure Active Directory manifesto do aplicativo](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest). Para saber mais sobre os padrões de SSO, consulte [autenticação e autorização usando a plataforma de identidade da Microsoft](https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization#authentication-and-authorization-using-microsoft-identity-platform). 
 >
 > Outros cenários em que o **logon único** ficará ausente da navegação incluem quando um aplicativo é hospedado em outro locatário ou se sua conta não tem as permissões necessárias (administrador global, administrador de aplicativos de nuvem, administrador de aplicativos ou proprietário da entidade de serviço). As permissões também podem causar um cenário em que você pode abrir o **logon único** , mas não poderá salvar. Para saber mais sobre as funções administrativas do Azure AD, consulte ( https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) .
 
@@ -42,7 +42,7 @@ Na [série de início rápido](add-application-portal-setup-sso.md), há um arti
 É possível obter esses valores do fornecedor do aplicativo. Pode inserir os valores manualmente ou carregar um arquivo de metadados para extrair o valor dos campos.
 
 > [!TIP]
-> Muitos aplicativos já foram pré-configurados para trabalhar com o Azure AD. Esses aplicativos são listados na Galeria de aplicativos que você pode navegar quando adiciona um aplicativo ao seu locatário do Azure AD. A [série de guias de início rápido](add-application-portal-setup-sso.md) orienta você pelo processo. Para os aplicativos na Galeria, você encontrará instruções detalhadas e passo a passo de configuração. Para acessar as etapas, você pode clicar no link na página de configuração do SAML para o aplicativo, conforme descrito na série de início rápido, ou pode procurar uma lista de todos os tutoriais de configuração de aplicativo em [tutoriais de configuração do aplicativo SaaS](../saas-apps/tutorial-list.md).
+> Muitos aplicativos já foram pré-configurados para trabalhar com o Azure AD. Esses aplicativos são listados na Galeria de aplicativos que você pode navegar quando adiciona um aplicativo ao seu locatário do Azure AD. A [série de guias de início rápido](add-application-portal-setup-sso.md) orienta você pelo processo. Para os aplicativos na Galeria, você encontrará instruções detalhadas, passo a passo. Para acessar as etapas, você pode clicar no link na página de configuração do SAML para o aplicativo, conforme descrito na série de início rápido, ou pode procurar uma lista de todos os tutoriais de configuração de aplicativo em [tutoriais de configuração do aplicativo SaaS](../saas-apps/tutorial-list.md).
 
 | Configuração Básica do SAML | Iniciado por SP | iniciado por idP | Descrição |
 |:--|:--|:--|:--|
@@ -76,7 +76,7 @@ Você pode adicionar novas declarações, para obter detalhes, consulte [adicion
 
 ## <a name="saml-signing-certificate"></a>Certificado de autenticação SAML
 
-O Azure AD usa um certificado para assinar os tokens SAML que ele envia para o aplicativo. Você precisa deste certificado para configurar a confiança entre o Azure AD e o aplicativo. Para obter detalhes sobre o formato de certificado, consulte a documentação do aplicativo SAML. Para saber mais, confira [Gerenciar certificados para logon único federado](manage-certificates-for-federated-single-sign-on.md) e [Opções de assinatura de certificado avançado no token SAML](certificate-signing-options.md).
+O Azure AD usa um certificado para assinar os tokens SAML que ele envia para o aplicativo. Você precisa desse certificado para configurar a relação de confiança entre o Azure AD e o aplicativo. Para obter detalhes sobre o formato de certificado, consulte a documentação do aplicativo SAML. Para saber mais, confira [Gerenciar certificados para logon único federado](manage-certificates-for-federated-single-sign-on.md) e [Opções de assinatura de certificado avançado no token SAML](certificate-signing-options.md).
 
 > [!IMPORTANT]
 > Muitos aplicativos já estão pré-configurados e na Galeria de aplicativos e você não precisa se aprofundar nos certificados. A [série de guias de início rápido](add-application-portal.md) orienta você pela adição e configuração de aplicativos.

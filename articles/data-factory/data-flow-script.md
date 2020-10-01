@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/29/2020
-ms.openlocfilehash: 6802e3f6c0892993f9ffe4373f43274362b8a003
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 8310c34e06d52dc12af42f8bc33f4a4d7e99d68d
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/30/2020
-ms.locfileid: "91569684"
+ms.locfileid: "91598100"
 ---
 # <a name="data-flow-script-dfs"></a>Script de fluxo de dados (DFS)
 
@@ -176,13 +176,13 @@ aggregate(groupBy(movie),
 Use esse código em seu script de fluxo de dados para criar uma nova coluna derivada chamada ```DWhash``` que produz um ```sha1``` hash de três colunas.
 
 ```
-derive(DWhash = sha1(Name,ProductNumber,Color))
+derive(DWhash = sha1(Name,ProductNumber,Color)) ~> DWHash
 ```
 
 Você também pode usar esse script abaixo para gerar um hash de linha usando todas as colunas presentes em seu fluxo, sem a necessidade de nomear cada coluna:
 
 ```
-derive(DWhash = sha1(columns()))
+derive(DWhash = sha1(columns())) ~> DWHash
 ```
 
 ### <a name="string_agg-equivalent"></a>String_agg equivalente
@@ -191,7 +191,7 @@ Esse código funcionará como a função T-SQL ```string_agg()``` e irá agregar
 ```
 source1 aggregate(groupBy(year),
     string_agg = collect(title)) ~> Aggregate1
-Aggregate1 derive(string_agg = toString(string_agg)) ~> DerivedColumn2
+Aggregate1 derive(string_agg = toString(string_agg)) ~> StringAgg
 ```
 
 ### <a name="count-number-of-updates-upserts-inserts-deletes"></a>Número de contagem de atualizações, upserts, inserções, exclusões
@@ -216,7 +216,7 @@ aggregate(groupBy(mycols = sha2(256,columns())),
 Este é um trecho de código que você pode colar em seu fluxo de dados para verificar genericamente todas as suas colunas em busca de valores nulos. Essa técnica aproveita a descompasso de esquema para examinar todas as colunas em todas as linhas e usa uma divisão condicional para separar as linhas com valores nulos das linhas sem nulos. 
 
 ```
-CreateColumnArray split(contains(array(columns()),isNull(#item)),
+split(contains(array(columns()),isNull(#item)),
     disjoint: false) ~> LookForNULLs@(hasNULLs, noNULLs)
 ```
 

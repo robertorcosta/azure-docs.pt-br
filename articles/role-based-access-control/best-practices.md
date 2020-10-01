@@ -2,23 +2,19 @@
 title: Práticas recomendadas para o RBAC do Azure
 description: Práticas recomendadas para usar o controle de acesso baseado em função do Azure (RBAC do Azure).
 services: active-directory
-documentationcenter: ''
 author: rolyon
 manager: mtillman
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/17/2020
+ms.date: 09/30/2020
 ms.author: rolyon
-ms.reviewer: bagovind
-ms.openlocfilehash: 053e86f3493c7a11a3cbbaad0871e45345697878
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4cb3e1fe0275c676e2ce54ff9201502fc3595937
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82735327"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91595485"
 ---
 # <a name="best-practices-for-azure-rbac"></a>Práticas recomendadas para o RBAC do Azure
 
@@ -28,7 +24,9 @@ Este artigo descreve algumas práticas recomendadas para usar o controle de aces
 
 Com o Azure RBAC, você pode separar as tarefas dentro de sua equipe e permitir somente a quantidade de acesso de que os usuários precisam para realizar os trabalhos deles. Em vez de apresentar todos irrestrito permissões em sua assinatura do Azure ou recursos, você pode permitir apenas determinadas ações para um escopo específico.
 
-Ao planejar sua estratégia de controle de acesso, uma melhor prática é conceder aos usuários o privilégio mínimo para realizarem seus trabalhos. O diagrama a seguir mostra um padrão sugerido para usar o RBAC do Azure.
+Ao planejar sua estratégia de controle de acesso, uma melhor prática é conceder aos usuários o privilégio mínimo para realizarem seus trabalhos. Evite atribuir funções mais amplas em escopos mais amplos, mesmo que, inicialmente, isso pareça mais prático. Ao limitar as funções e os escopos, você limita quais recursos estão em risco se a entidade de segurança estiver comprometida.
+
+O diagrama a seguir mostra um padrão sugerido para usar o RBAC do Azure.
 
 ![RBAC do Azure e privilégios mínimos](./media/best-practices/rbac-least-privilege.png)
 

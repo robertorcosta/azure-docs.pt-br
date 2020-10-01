@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/28/2020
+ms.date: 09/30/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1b636c1b01bb3b4a8a4ab285c812d04dedfcc966
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 450bd87c6dd1f55c58f4c8a620dbddcfdf42ec7f
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91536317"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596547"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Usar o Azure para hospedar e executar cenários de carga de trabalho do SAP
 
@@ -82,6 +82,7 @@ Nesta seção, você pode encontrar informações sobre como configurar o SSO co
 
 ## <a name="change-log"></a>Log de alterações
 
+- 09/30/2020: alterar a [alta disponibilidade de SAP Hana em VMs do Azure no RHEL](./sap-hana-high-availability-rhel.md), [ha para SAP Hana escalar verticalmente com seja no RHEL](./sap-hana-high-availability-netapp-files-red-hat.md) e [Configurando o pacemaker no RHEL no Azure](./high-availability-guide-rhel-pacemaker.md) para adaptar as instruções para RHEL 8,1
 - 09/28/2020: adicionando um novo guia de operação de armazenamento para SAP HANA usando Azure NetApp Files com os volumes do documento [NFS v 4.1 no Azure NetApp Files para SAP Hana](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp)
 - 09/23/2020: adicionar novos SKUs certificados para o HLI em [SKUs disponíveis para o HLI](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus) 
 - 09/20/2020: alterações em documentos [Considerações sobre implantação de DBMS de máquinas virtuais do Azure para carga de trabalho do SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general), [SQL Server implantação de DBMS de máquinas virtuais do Azure para SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_sqlserver), [implantação de máquinas virtuais do Azure Oracle DBMS para a carga de trabalho](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_oracle)do SAP, [implantação de DBMS de máquinas virtuais do Azure DB2 para carga de trabalho](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_ibm) do SAP em diferentes discos do Azure. Além disso, adicionar recomendações de ultra Disk aos diferentes guias.

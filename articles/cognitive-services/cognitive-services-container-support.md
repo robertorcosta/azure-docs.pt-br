@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/28/2020
 ms.author: aahi
 keywords: local, Docker, contêiner, kubernetes
-ms.openlocfilehash: 48bfad4b101556dfcc4e57cf684341bda8063202
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: ccba46c1e83f92b1f27c64cb4d9ca32039862bd1
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91461199"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597444"
 ---
 # <a name="azure-cognitive-services-containers"></a>Contêineres de serviços cognitivas do Azure
 
@@ -58,9 +58,9 @@ Os contêineres dos Serviços Cognitivos do Azure fornecem o seguinte conjunto d
 | Serviço | Tipo de preço com suporte | Contêiner | Descrição |
 |--|--|--|--|
 | [Detector de anomalias][ad-containers] | F0, S0 | **Condetector de anomalias** ([imagem](https://hub.docker.com/_/azure-cognitive-services-decision-anomaly-detector))  | A API do Detector de Anomalias permite monitorar e detectar anormalidades em seus dados de série temporal com aprendizado de máquina.<br>[Solicitar acesso][request-access] |
-| [Pesquisa Visual Computacional][cv-containers] | F0, S1 | **Ler** | Extrai texto impresso de imagens de vários objetos com diferentes superfícies e planos de fundo como recibos, pôsters e cartões de visita. O contêiner de leitura também detecta *texto manuscrito* em imagens e fornece suporte a PDF/TIFF/várias páginas.<br/><br/>**Importante:** O contêiner de leitura atualmente funciona apenas com o inglês. |
-| [Detecção Facial][fa-containers] | F0, S0 | **Detecção Facial** | Detecta rostos humanos em imagens e identifica atributos, incluindo referências faciais (como narizes e olhos), sexo, idade e outras características faciais previstas pelo computador. Além de detectar, a Detecção Facial pode verificar se duas faces na mesma imagem ou imagens diferentes são iguais usando uma pontuação de confiança, ou comparar faces em relação a um banco de dados para ver se uma face semelhante ou idêntica já existe. Além disso, também pode organizar rostos semelhantes em grupos, usando traços visuais compartilhados.<br>[Solicitar acesso][request-access] |
-| [Reconhecedor de formulário][fr-containers] | F0, S0 | **Reconhecimento de Formulários** | A compreensão de formulário aplica a tecnologia de aprendizado de máquina para identificar e extrair pares de chave-valor e tabelas de formulários.<br>[Solicitar acesso][request-access] |
+| [Pesquisa Visual Computacional][cv-containers] | F0, S1 | **Ler** OCR ([imagem](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-read)) | O contêiner de OCR de leitura permite extrair texto impresso e manuscrito de imagens e documentos com suporte para formatos de arquivo JPEG, PNG, BMP, PDF e TIFF. Para obter mais informações, consulte a [documentação da API de leitura](./computer-vision/concept-recognizing-text.md).<br>[Solicitar acesso][request-access] |
+| [Detecção Facial][fa-containers] | F0, S0 | **Detecção Facial** | Detecta rostos humanos em imagens e identifica atributos, incluindo referências faciais (como narizes e olhos), sexo, idade e outras características faciais previstas pelo computador. Além de detectar, a Detecção Facial pode verificar se duas faces na mesma imagem ou imagens diferentes são iguais usando uma pontuação de confiança, ou comparar faces em relação a um banco de dados para ver se uma face semelhante ou idêntica já existe. Além disso, também pode organizar rostos semelhantes em grupos, usando traços visuais compartilhados. |
+| [Reconhecedor de formulário][fr-containers] | F0, S0 | **Reconhecimento de Formulários** | A compreensão de formulário aplica a tecnologia de aprendizado de máquina para identificar e extrair pares de chave-valor e tabelas de formulários. |
 | [LUIS][lu-containers] | F0, S0 | **LUIS** ([imagem](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409)) | Carrega um modelo de reconhecimento vocal treinado ou publicado, também conhecido como um aplicativo LUIS, para um contêiner do Docker e fornece acesso às previsões de consulta dos pontos de extremidade da API do contêiner. Você pode coletar logs de consulta do contêiner e carregá-los novamente no [portal do LUIS](https://www.luis.ai) para aumentar a precisão da previsão do aplicativo. |
 | [API do Serviço de Fala][sp-containers-stt] | F0, S0 | **Conversão de fala em texto** ([imagem](https://hub.docker.com/_/azure-cognitive-services-speechservices-speech-to-text)) | Transcreve fala em tempo real contínua em texto. |
 | [API do Serviço de Fala][sp-containers-cstt] | F0, S0 | **Fala personalizada para texto** ([imagem](https://hub.docker.com/_/azure-cognitive-services-speechservices-custom-speech-to-text)) | Transcreve a fala contínua em tempo real em texto usando um modelo personalizado. |
@@ -82,7 +82,7 @@ Além disso, alguns contêineres têm suporte em chaves de recurso de oferta de 
 * Visual Computacional
 * Face
 * LUIS
-* Análise de texto
+* Análise de Texto
 
 ## <a name="container-availability-in-azure-cognitive-services"></a>Disponibilidade de contêiner nos Serviços Cognitivos do Azure
 

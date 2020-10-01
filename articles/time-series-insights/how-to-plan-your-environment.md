@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1788eba0ef9be781fb7cf23f1eb86b48c9c360e1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: cb12777a6a4fa1e75cd65bc597c87442d592aad5
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91287400"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91598111"
 ---
 # <a name="plan-your-azure-time-series-insights-gen2-environment"></a>Planejar o ambiente do Azure Time Series Insights Gen2
 
@@ -36,7 +36,6 @@ Azure Time Series Insights emprega um modelo de negócios pago conforme o uso. P
 ## <a name="the-gen2-environment"></a>O ambiente Gen2
 
 Ao provisionar um ambiente de Azure Time Series Insights Gen2, você cria dois recursos do Azure:
-
 
 * Um ambiente de Azure Time Series Insights Gen2
 * Uma conta de armazenamento do Azure
@@ -94,8 +93,8 @@ Para obter mais informações e entender como os eventos serão mesclados e arma
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Examine o [Azure Advisor](../advisor/advisor-overview.md) para planejar suas opções de configuração de recuperação de negócios.
-- Examine o [Azure Advisor](../advisor/advisor-overview.md) para planejar suas opções de configuração de recuperação de negócios.
-- Leia mais sobre a [ingestão de dados](./concepts-ingestion-overview.md) no Azure Time Series insights Gen2.
-- Examine o artigo sobre [armazenamento de dados](./concepts-storage.md) em Azure Time Series insights Gen2.
-- Saiba mais sobre a [modelagem de dados](./concepts-model-overview.md) no Azure Time Series insights Gen2.
+* Examine o [Azure Advisor](../advisor/advisor-overview.md) para planejar suas opções de configuração de recuperação de negócios.
+* Examine o [Azure Advisor](../advisor/advisor-overview.md) para planejar suas opções de configuração de recuperação de negócios.
+* Leia mais sobre a [ingestão de dados](./concepts-ingestion-overview.md) no Azure Time Series insights Gen2.
+* Examine o artigo sobre [armazenamento de dados](./concepts-storage.md) em Azure Time Series insights Gen2.
+* Saiba mais sobre a [modelagem de dados](./concepts-model-overview.md) no Azure Time Series insights Gen2.

@@ -4,15 +4,15 @@ description: Este artigo descreve como o Azure Cosmos DB fornece alta disponibil
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/29/2020
+ms.date: 09/30/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 1f2e90f9391654d10332b9f1a21c56fd22e2307b
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 4e1a2fdd772c7b318ba36b1aee623c663689526f
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/30/2020
-ms.locfileid: "91570797"
+ms.locfileid: "91597281"
 ---
 # <a name="how-does-azure-cosmos-db-provide-high-availability"></a>Como Azure Cosmos DB fornece alta disponibilidade? 
 
@@ -81,9 +81,6 @@ Ao configurar gravações de várias regiões para sua conta do Azure Cosmos, vo
 
 Esse recurso está disponível em: *sul do Reino Unido, Sudeste Asiático, leste dos EUA, leste dos EUA 2, EUA Central, Europa Ocidental, oeste dos EUA 2, leste do Japão, Europa setentrional, França central, leste da Austrália, leste dos EUA 2 EUAP* regiões.
 
-> [!NOTE]
-> A habilitação de Zonas de Disponibilidade para uma única conta do Azure Cosmos de região resultará em encargos equivalentes à adição de uma região adicional à sua conta. Para obter detalhes sobre preços, consulte a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/) e o custo de [várias regiões em artigos Azure Cosmos DB](optimize-cost-regions.md) .
-
 A tabela a seguir resume a capacidade de alta disponibilidade de várias configurações de conta:
 
 |KPI  |Região única sem Zonas de Disponibilidade (não AZ)  |Região única com Zonas de Disponibilidade (AZ)  |Gravações de várias regiões com Zonas de Disponibilidade (AZ, 2 regiões) – configuração mais recomendada |
@@ -97,7 +94,7 @@ A tabela a seguir resume a capacidade de alta disponibilidade de várias configu
 |Latência de gravação | Entre regiões | Entre regiões | Baixo |
 |Interrupção regional – perda de dados | Perda de dados |  Perda de dados | Perda de dados <br/><br/> Ao usar a consistência de desatualização limitada com várias regiões de gravação e mais de uma região, a perda de dados é limitada à desatualização limitada configurada em sua conta <br /><br />Você pode evitar a perda de dados durante uma interrupção regional Configurando uma forte consistência com várias regiões. Essa opção vem com compensações que afetam a disponibilidade e o desempenho. Ele pode ser configurado somente em contas configuradas para gravações de região única. |
 |Interrupção regional – disponibilidade | Perda de disponibilidade | Perda de disponibilidade | Sem perda de disponibilidade |
-|Produtividade | Taxa de transferência provisionada X RU/s | Taxa de transferência provisionada X RU/s | taxa de transferência provisionada de 2 RU/s <br/><br/> Esse modo de configuração requer duas vezes a quantidade de taxa de transferência quando comparado a uma única região com Zonas de Disponibilidade porque há duas regiões. |
+|Produtividade | Taxa de transferência provisionada X RU/s | Taxa de transferência provisionada X RU/s * 1,25 | taxa de transferência provisionada de 2 RU/s <br/><br/> Esse modo de configuração requer duas vezes a quantidade de taxa de transferência quando comparado a uma única região com Zonas de Disponibilidade porque há duas regiões. |
 
 > [!NOTE]
 > Para habilitar o suporte à zona de disponibilidade para uma conta do Azure Cosmos de várias regiões, a conta deve ter gravações de várias regiões habilitadas.

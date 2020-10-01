@@ -2,13 +2,13 @@
 title: Métricas do Barramento de Serviço no Azure Monitor | Microsoft Docs
 description: Este artigo explica como usar o Azure Monitor para monitorar entidades do barramento de Serviço (filas, tópicos e assinaturas).
 ms.topic: article
-ms.date: 07/15/2020
-ms.openlocfilehash: 158662a5d0fc3489b2cac638b28a64aa218b888e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/30/2020
+ms.openlocfilehash: 169edb651a59302d0ea1245fd48787404dd3e555
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320431"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91598128"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor"></a>Métricas do Barramento de Serviço do Azure no Azure Monitor
 
@@ -93,7 +93,7 @@ Os dois tipos de erros a seguir são classificados como erros do usuário:
 
 | Nome da métrica | Descrição |
 | ------------------- | ----------------- |
-|Conexões ativas|O número de conexões ativas em um namespace, bem como em uma entidade.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: nome da entidade|
+|Conexões ativas|O número de conexões ativas em um namespace, bem como em uma entidade no namespace. O valor dessa métrica é um valor pontual. As conexões que estavam ativas imediatamente após esse ponto no tempo podem não ser refletidas na métrica.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: nome da entidade|
 |Conexões Abertas |O número de conexões abertas.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: nome da entidade|
 |Conexões Fechadas |O número de conexões fechadas.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: nome da entidade|
 

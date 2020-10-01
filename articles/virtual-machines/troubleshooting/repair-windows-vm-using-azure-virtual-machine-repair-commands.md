@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 09/10/2019
 ms.author: v-miegge
-ms.openlocfilehash: 66dfd198b543ec49fabe381b50174b182cf070c7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 82bebcbda3110d51ae72df1fb4b18fedaa6c2f4e
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91336030"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597703"
 ---
 # <a name="repair-a-windows-vm-by-using-the-azure-virtual-machine-repair-commands"></a>Reparar uma VM do Windows usando os comandos de reparo da Máquina Virtual do Azure
 
@@ -43,7 +43,7 @@ Siga estas etapas para solucionar o problema da VM:
 1. Iniciar o Azure Cloud Shell
 2. Execute az extension add/update.
 3. Execute az vm repair create.
-4. Execute az vm repair run.
+4. Execute AZ VM Repair Run ou execute etapas de mitigação.
 5. Execute az vm repair restore.
 
 Para obter a documentação e as instruções adicionais, confira [az vm repair](/cli/azure/ext/vm-repair/vm/repair).
@@ -60,7 +60,7 @@ Para obter a documentação e as instruções adicionais, confira [az vm repair]
 
    Se preferir instalar e usar a CLI localmente, este início rápido exigirá a CLI do Azure versão 2.0.30 ou posterior. Execute ``az --version`` para encontrar a versão. Se você precisar instalar ou atualizar sua CLI do Azure, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
    
-   Se você precisar fazer logon em Cloud Shell com uma conta diferente da que está conectada no momento ao portal do Azure com você pode usar ``az login`` [AZ login Reference](/cli/azure/reference-index?view=azure-cli-latest#az-login).  Para alternar entre as assinaturas associadas à sua conta, você pode usar a ``az account set --subscription`` [referência do conjunto de contas AZ](/cli/azure/account?view=azure-cli-latest#az-account-set).
+   Se você precisar fazer logon em Cloud Shell com uma conta diferente da que está conectada no momento ao portal do Azure com você pode usar ``az login`` [AZ login Reference](/cli/azure/reference-index?view=azure-cli-latest#az-login&preserve-view=true).  Para alternar entre as assinaturas associadas à sua conta, você pode usar a ``az account set --subscription`` [referência do conjunto de contas AZ](/cli/azure/account?view=azure-cli-latest#az-account-set&preserve-view=true).
 
 2. Se esta é a primeira vez que você usa os comandos `az vm repair`, adicione a extensão da CLI vm-repair.
 
@@ -80,11 +80,13 @@ Para obter a documentação e as instruções adicionais, confira [az vm repair]
    az vm repair create -g MyResourceGroup -n myVM --repair-username username --repair-password 'password!234' --verbose
    ```
 
-4. Execute `az vm repair run`. Este comando executará o script de reparo especificado no disco anexado por meio da VM de reparo. Se o guia de solução de problemas que você está usando especificou uma ID de execução, use-a aqui. Caso contrário, você pode usar `az vm repair list-scripts` para ver os scripts de reparo disponíveis. O grupo de recursos e o nome da VM usados aqui são para a VM não funcional usada na etapa 3.
+4. Execute `az vm repair run`. Este comando executará o script de reparo especificado no disco anexado por meio da VM de reparo. Se o guia de solução de problemas que você está usando especificou uma ID de execução, use-a aqui. Caso contrário, você pode usar `az vm repair list-scripts` para ver os scripts de reparo disponíveis. O grupo de recursos e o nome da VM usados aqui são para a VM não funcional usada na etapa 3. Informações adicionais sobre os scripts de reparo podem ser encontradas na [biblioteca de scripts de reparo](https://github.com/Azure/repair-script-library).
 
    ```azurecli-interactive
    az vm repair run -g MyResourceGroup -n MyVM --run-on-repair --run-id win-hello-world --verbose
    ```
+   
+   Opcionalmente, você pode executar as etapas de mitigação manual necessárias usando a VM de reparo e, em seguida, passar para a etapa 5.
 
 5. Execute `az vm repair restore`. Este comando irá trocar o disco do SO reparado pelo disco do SO original da VM. O grupo de recursos e o nome da VM usados aqui são para a VM não funcional usada na etapa 3.
 

@@ -7,16 +7,16 @@ ms.topic: troubleshooting
 ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: a899927166d7e1294ad89d48e5c646e6abb5ed76
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 9b0eeda443aefc105fb36d6075c717fafae4cb61
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707604"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91598027"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Solucionar problemas de arquivos do Azure no Windows (SMB)
 
-Este artigo lista os problemas comuns relacionados aos Arquivos do Microsoft Azure quando você se conecta de clientes Windows. Também fornece as possíveis causas e resoluções para esses problemas. Além das etapas de solução de problemas neste artigo, você também pode usar o [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows)   para garantir que o ambiente de cliente do Windows tenha pré-requisitos corretos. O AzFileDiagnostics automatiza a detecção da maioria dos sintomas mencionados neste artigo e ajuda a configurar seu ambiente para obter um desempenho ideal. Você também pode encontrar essas informações no [solucionador de problemas de compartilhamentos de arquivos do Azure](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) que fornece etapas para ajudá-lo com problemas de conexão/mapeamento/montagem de compartilhamentos de arquivos do Azure.
+Este artigo lista os problemas comuns relacionados aos Arquivos do Microsoft Azure quando você se conecta de clientes Windows. Também fornece as possíveis causas e resoluções para esses problemas. Além das etapas de solução de problemas neste artigo, você também pode usar o [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows)   para garantir que o ambiente de cliente do Windows tenha pré-requisitos corretos. O AzFileDiagnostics automatiza a detecção da maioria dos sintomas mencionados neste artigo e ajuda a configurar seu ambiente para obter um desempenho ideal.
 
 > [!IMPORTANT]
 > O conteúdo deste artigo se aplica somente a compartilhamentos SMB. Para obter detalhes sobre compartilhamentos NFS, consulte [solucionar problemas de compartilhamentos de arquivos NFS](storage-troubleshooting-files-nfs.md)
@@ -26,7 +26,7 @@ Este artigo lista os problemas comuns relacionados aos Arquivos do Microsoft Azu
 
 Quando você tenta montar um compartilhamento de arquivos, pode receber o erro a seguir:
 
-- Ocorreu um erro de sistema 5. Acesso negado.
+- Ocorreu um erro de sistema 5. O acesso é negado.
 
 ### <a name="cause-1-unencrypted-communication-channel"></a>Causa 1: Canal de comunicação não criptografado
 
@@ -343,7 +343,7 @@ O cmdlet executa essas verificações abaixo em sequência e fornece diretrizes 
 1. CheckADObjectPasswordIsCorrect: Verifique se a senha configurada na identidade do AD que representa a conta de armazenamento corresponde à da conta de armazenamento kerb1 ou à chave kerb2. Se a senha estiver incorreta, você poderá executar [Update-AzStorageAccountADObjectPassword](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-update-password) para redefinir a senha. 
 2. CheckADObject: Confirme se há um objeto no Active Directory que representa a conta de armazenamento e tem o SPN (nome da entidade de serviço) correto. Se o SPN não estiver configurado corretamente, execute o cmdlet Set-AD retornado no cmdlet debug para configurar o SPN.
 3. CheckDomainJoined: valide se o computador cliente está ingressado no domínio no AD. Se seu computador não estiver ingressado no domínio no AD, consulte este [artigo](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain#:~:text=To%20join%20a%20computer%20to%20a%20domain&text=Navigate%20to%20System%20and%20Security,join%2C%20and%20then%20click%20OK) para obter instruções de ingresso no domínio.
-4. CheckPort445Connectivity: Verifique se a porta 445 está aberta para conexão SMB. Se a porta necessária não estiver aberta, consulte a ferramenta de solução de problemas [AzFileDiagnostics.ps1](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) para problemas de conectividade com os arquivos do Azure.
+4. CheckPort445Connectivity: Verifique se a porta 445 está aberta para conexão SMB. Se a porta necessária não estiver aberta, consulte a ferramenta de solução de problemas [AzFileDiagnostics.ps1](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows) para problemas de conectividade com os arquivos do Azure.
 5. CheckSidHasAadUser: Verifique se o usuário conectado do AD está sincronizado com o Azure AD. Se você quiser procurar se um usuário específico do AD está sincronizado com o Azure AD, você pode especificar o-UserName e-Domain nos parâmetros de entrada. 
 6. CheckGetKerberosTicket: tentativa de obter um tíquete Kerberos para conectar-se à conta de armazenamento. Se não houver um token Kerberos válido, execute o cmdlet klist Get CIFS/Storage-Account-Name. File. Core. Windows. net e examine o código de erro para raiz, causando a falha de recuperação do tíquete.
 7. CheckStorageAccountDomainJoined: Verifique se a autenticação do AD foi habilitada e se as propriedades do AD da conta estão preenchidas. Caso contrário, consulte a instrução [aqui](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-enable) para habilitar a autenticação de AD DS nos arquivos do Azure. 

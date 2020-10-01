@@ -9,14 +9,14 @@ manager: diviso
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: ee94a36ea27a15067cbcbab22b10629bc4b37634
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c7f811991cdc325a3901a696216af21883f02fdb
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87096100"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596246"
 ---
 # <a name="add-an-event-hub-event-source-to-your-azure-time-series-insights-environment"></a>Adicionar uma origem de evento do hub de eventos ao seu ambiente de Azure Time Series Insights
 
@@ -42,7 +42,7 @@ Para adicionar um novo grupo de consumidores ao seu hub de eventos:
 
     [![Abrir o namespace do hub de eventos](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-connect-event-hub-namespace.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-connect-event-hub-namespace.png#lightbox)
 
-1. Na sua instância do hub de eventos, selecione **entidades > grupos de consumidores**. Em seguida, selecione **+ grupo de consumidores** para adicionar um novo grupo de consumidores. 
+1. Na sua instância do hub de eventos, selecione **entidades > grupos de consumidores**. Em seguida, selecione **+ grupo de consumidores** para adicionar um novo grupo de consumidores.
 
    [![Hub de eventos-adicionar um grupo de consumidores](media/time-series-insights-how-to-add-an-event-source-eventhub/add-event-hub-consumer-group.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/add-event-hub-consumer-group.png#lightbox)
 
@@ -68,11 +68,11 @@ Para adicionar um novo grupo de consumidores ao seu hub de eventos:
 
 1. Selecione os valores apropriados para **Opção de importação**:
 
-   * Se você tiver um hub de eventos existente em uma de suas assinaturas, selecione **Usar Hub de Eventos de assinaturas disponíveis**. Essa opção é a abordagem mais fácil.
+   - Se você tiver um hub de eventos existente em uma de suas assinaturas, selecione **Usar Hub de Eventos de assinaturas disponíveis**. Essa opção é a abordagem mais fácil.
 
      [![Selecionar uma opção de importação de origem de evento](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-event-hub-select-import-option.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-event-hub-select-import-option.png#lightbox)
 
-    *  A tabela a seguir descreve as propriedades necessárias para a opção **Usar Hub de Eventos de assinaturas disponíveis**:
+   - A tabela a seguir descreve as propriedades necessárias para a opção **Usar Hub de Eventos de assinaturas disponíveis**:
 
        [![Detalhes de assinatura e Hub de eventos](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-configure-create-confirm.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-configure-create-confirm.png#lightbox)
 
@@ -84,20 +84,20 @@ Para adicionar um novo grupo de consumidores ao seu hub de eventos:
        | Valor da política do hub de eventos | Selecione a política de acesso compartilhado desejada. Você pode criar a política de acesso compartilhado na guia **Configurar** o Hub de eventos. Cada política de acesso compartilhado tem um nome, as permissões definidas por você e as chaves de acesso. A política de acesso compartilhado para a origem do evento *deve* ter permissões de **leitura**. |
        | Chave de política do Hub de Eventos | Preenchido previamente com base no valor da política do hub de eventos selecionado. |
 
-    * Se o hub de eventos for externo às suas assinaturas ou se você quiser selecionar opções avançadas, selecione **Fornecer configurações do Hub de Eventos manualmente**.
+   - Se o hub de eventos for externo às suas assinaturas ou se você quiser selecionar opções avançadas, selecione **Fornecer configurações do Hub de Eventos manualmente**.
 
        A tabela a seguir descreve as propriedades necessárias para a opção **Fornecer configurações do Hub de Eventos manualmente**:
- 
+
        | Propriedade | Descrição |
        | --- | --- |
        | ID da assinatura | A assinatura à qual a instância do hub de eventos desejada e o namespace pertencem. |
-       | Grupo de recursos | O grupo de recursos ao qual a instância do hub de eventos desejada e o namespace pertencem. |
+       | Resource group | O grupo de recursos ao qual a instância do hub de eventos desejada e o namespace pertencem. |
        | Namespace do Hub de Eventos | O namespace do hub de eventos ao qual a instância do hub de eventos desejada pertence. |
        | Nome do Hub de Eventos | O nome da instância do hub de eventos desejada. |
        | Valor da política do hub de eventos | Selecione a política de acesso compartilhado desejada. Você pode criar a política de acesso compartilhado na guia **Configurar** o Hub de eventos. Cada política de acesso compartilhado tem um nome, as permissões definidas por você e as chaves de acesso. A política de acesso compartilhado para a origem do evento *deve* ter permissões de **leitura**. |
        | Chave de política do Hub de Eventos | A chave de acesso compartilhado usada para autenticar o acesso ao namespace do Barramento de Serviço. Insira aqui a chave primária ou secundária. |
 
-    * Ambas as opções compartilham as seguintes opções de configuração:
+   - Ambas as opções compartilham as seguintes opções de configuração:
 
        | Propriedade | Descrição |
        | --- | --- |
@@ -113,8 +113,8 @@ Para adicionar um novo grupo de consumidores ao seu hub de eventos:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Definir as políticas de acesso de dados](time-series-insights-data-access.md) para proteger os dados.
+- [Definir as políticas de acesso de dados](time-series-insights-data-access.md) para proteger os dados.
 
-* [Enviar eventos](time-series-insights-send-events.md) para a origem do evento.
+- [Enviar eventos](time-series-insights-send-events.md) para a origem do evento.
 
-* Acesse seu ambiente no [Azure Time Series insights Explorer](https://insights.timeseries.azure.com).
+- Acesse seu ambiente no [Azure Time Series insights Explorer](https://insights.timeseries.azure.com).

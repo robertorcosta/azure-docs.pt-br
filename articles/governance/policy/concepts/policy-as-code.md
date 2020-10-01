@@ -1,14 +1,14 @@
 ---
 title: Projetar os fluxos de trabalho da Política como código
 description: Aprenda a criar fluxos de trabalho para implantar suas definições do Azure Policy como código e validar automaticamente os recursos.
-ms.date: 08/27/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: bc7a6d72e344868a799638f724b5c225516b5a32
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 7fa8eb36283821527e16c1d97e326aa9dcde9dba
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651879"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91598213"
 ---
 # <a name="design-policy-as-code-workflows"></a>Projetar os fluxos de trabalho da Política como código
 
@@ -38,6 +38,8 @@ Exemplos desses formatos de arquivo estão disponíveis no [repositório GitHub 
 
 - Definição de política: [Adicionar uma marca aos recursos](https://github.com/Azure/azure-policy/tree/master/samples/Tags/add-tag)
 - Definição de iniciativa: [marcas de cobrança](https://github.com/Azure/azure-policy/tree/master/samples/PolicyInitiatives/multiple-billing-tags)
+
+Além disso, examine [exportar recursos de Azure Policy](../how-to/export-resources.md) para obter suas definições e atribuições existentes no [GitHub](https://www.github.com)do ambiente de gerenciamento de código-fonte.
 
 ## <a name="workflow-overview"></a>Visão geral do fluxo de trabalho
 

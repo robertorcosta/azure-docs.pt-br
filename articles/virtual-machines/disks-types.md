@@ -3,17 +3,17 @@ title: Escolha um tipo de disco para VMs IaaS do Azure – discos gerenciados
 description: Saiba mais sobre os tipos de disco do Azure disponíveis para máquinas virtuais, incluindo discos ultra, SSDs Premium, SSDs Standard e HDDs Standard.
 author: roygara
 ms.author: rogarana
-ms.date: 06/03/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: bfc1a818aeb85eca04faca713d4c7acbbce3626a
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 7f274827e646ea0a7c0fd103983cfc566d699228
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90088486"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596788"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Quais tipos de disco estão disponíveis no Azure?
 
@@ -54,10 +54,10 @@ Alguns dos principais recursos dos ultra discos são:
 |8     |2.400         |600         |
 |16     |4.800         |1.200         |
 |32     |9.600         |2.000         |
-|64     |19.200         |2\.000         |
+|64     |19.200         |2.000         |
 |128     |38.400         |2.000         |
 |256     |76.800         |2.000         |
-|512     |80.000         |2\.000         |
+|512     |153.600         |2.000         |
 |1.024 a 65.536 (os tamanhos nesse intervalo aumentam em incrementos de 1 TiB)     |160.000         |2.000         |
 
 ### <a name="ga-scope-and-limitations"></a>Limitações e escopo de GA

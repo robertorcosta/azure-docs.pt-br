@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 09/25/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 7a546c06e990d7fdb0fa7865c176f39772136539
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: e5a6dae98e786bf55dc17d8fabe42f84e9927442
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91539956"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91605777"
 ---
 ![Documentação do Dsv3](media/vm-disk-performance/dsv3-documentation.jpg)
 
-A taxa de transferência máxima do disco não **armazenado em cache** é o limite máximo de armazenamento padrão que a máquina virtual pode manipular. O limite máximo de taxa de transferência de armazenamento **em cache** é um limite separado quando você habilita o cache de host. O cache de host funciona colocando o armazenamento mais próximo da VM que pode ser gravada ou lida com rapidez. A quantidade de armazenamento disponível para a VM para o cache de host está na documentação. Por exemplo, você pode ver que a Standard_D8s_v3 vem com 200 GiB de armazenamento em cache. Vamos 
+A taxa de transferência máxima do disco não **armazenado em cache** é o limite máximo de armazenamento padrão que a máquina virtual pode manipular. O limite máximo de taxa de transferência de armazenamento **em cache** é um limite separado quando você habilita o cache de host. O cache de host funciona colocando o armazenamento mais próximo da VM que pode ser gravada ou lida com rapidez. A quantidade de armazenamento disponível para a VM para o cache de host está na documentação. Por exemplo, você pode ver que a Standard_D8s_v3 vem com 200 GiB de armazenamento em cache.
 
 Habilitar o cache de host pode ser feito ao criar sua máquina virtual e anexar discos. Você também pode ajustar para ativar e desativar o cache de host de seus discos em uma VM existente.
 
@@ -94,7 +94,7 @@ Configurar:
     - Cache de host: leitura/gravação
 - 2 discos de dados p30 X 2
     - IOPS: 5.000
-    - Cache de host: leitura/gravação
+    - Cache de host: desabilitado
 
 ![Exemplo de cache de host com armazenamento remoto](media/vm-disk-performance/host-caching-example-with-remote.jpg)
 

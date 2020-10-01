@@ -1,14 +1,14 @@
 ---
 title: Gerenciar espaços de trabalho do Azure Sentinel em escala
 description: Saiba como gerenciar efetivamente o Azure Sentinel em recursos de clientes delegados.
-ms.date: 08/27/2020
+ms.date: 09/30/2020
 ms.topic: how-to
-ms.openlocfilehash: 78896d6458f6b1c40655bc36d2bf63e05ddb0a59
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: d1ab392ee946e09a5f9e32ddf01ec2cd1e8bd41f
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90019726"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596939"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>Gerenciar espaços de trabalho do Azure Sentinel em escala
 
@@ -35,6 +35,9 @@ Esse modelo centralizado de implantação tem as seguintes vantagens:
 - Os dados de todas as fontes de dados e conectores de dados que são integrados ao Azure Sentinel (como logs de atividades do Azure AD, logs do Office 365 ou alertas de proteção contra ameaças da Microsoft) permanecerão dentro de cada locatário do cliente.
 - Reduz a latência de rede.
 - Fácil de adicionar ou remover novas subsidiárias ou clientes.
+
+> [!NOTE]
+> Você pode gerenciar recursos delegados que estão localizados em [regiões](../../availability-zones/az-overview.md#regions)diferentes. No entanto, a delegação de assinaturas em uma [nuvem nacional](../../active-directory/develop/authentication-national-cloud.md) e na nuvem pública do Azure ou em duas nuvens nacionais separadas não tem suporte.
 
 ## <a name="granular-role-based-access-control-rbac"></a>RBAC (controle de acesso baseado em função) granular
 

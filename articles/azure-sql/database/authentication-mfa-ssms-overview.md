@@ -13,12 +13,12 @@ ms.author: mireks
 ms.reviewer: vanto
 ms.date: 09/28/2020
 tags: azure-synapse
-ms.openlocfilehash: e526b8e2e4f31187bb958ec37c2ffa4d30f0265b
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: 2a3e1e7279e915c0c5992190ef0c8d1d83880dbb
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91461148"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596143"
 ---
 # <a name="using-multi-factor-azure-active-directory-authentication"></a>Usando a autenticação de Azure Active Directory multifator
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -27,14 +27,12 @@ O banco de dados SQL do Azure, o Azure SQL Instância Gerenciada e o Azure Synap
 
 **Baixar a última versão do SSMS** - No computador cliente, baixe a última versão do SSMS em [Baixar o SQL Server Management Studio (SSMS)](https://aka.ms/ssms). 
 
-> [!Note]
-> Em dezembro de 2021, as versões do SSMS anteriores a 18,6 não serão mais autenticadas por meio de Azure Active Directory com MFA. Para continuar utilizando a autenticação Azure Active Directory com MFA, instale ou atualize para o SSMS 18,6 ou mais recente.
+[!INCLUDE[ssms-connect-azure-ad](../includes/ssms-connect-azure-ad.md)]
+
 
 Para todos os recursos neste artigo, use a versão 17.2 de julho de 2017 ou posterior. A caixa de diálogo de conexão mais recente deve ser semelhante à seguinte imagem:
 
   ![Captura de tela da caixa de diálogo conectar ao servidor no SQL Server Management Studio, mostrando as configurações de tipo de servidor, nome do servidor e autenticação.](./media/authentication-mfa-ssms-overview/1mfa-universal-connect.png)
-  
-    
 
 ## <a name="authentication-options"></a>Opções de autenticação
 

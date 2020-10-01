@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, rohitha, vikanand, hongzili, sopai, absaafan, logicappspm
 ms.topic: conceptual
 ms.date: 09/26/2020
-ms.openlocfilehash: 1595051c851d1c21242bcbb5368baa28a1da740d
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.openlocfilehash: cc52358af203bafc87c5f9ac3ae1f237c0c7ae6c
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91409843"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597787"
 ---
 # <a name="create-stateful-or-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Criar fluxos de trabalho com ou sem estado no Visual Studio Code com a extensão de aplicativos lógicos do Azure (versão prévia)
 
@@ -389,9 +389,11 @@ O fluxo de trabalho do aplicativo lógico neste exemplo usa esse gatilho e estas
 
 1. Se você precisar excluir um item no designer, siga estas etapas:
 
-   1. No designer, selecione o item.
+   1. No designer, selecione o item, que abre o painel detalhes do item no lado direito.
 
-   1. No painel de detalhes do item que é aberto no lado direito, selecione o botão de reticências (**...**) **>** **excluir**. Para confirmar a exclusão, selecione **OK**.
+   1. Expanda a janela de Visual Studio Code muito suficiente para que ao lado do gatilho ou do nome da ação, o botão de reticências (**...**) seja exibido no canto superior direito. 
+
+   1. Abra o menu de reticências (**...**) e selecione **excluir**. Para confirmar a exclusão, selecione **OK**.
 
       ![Captura de tela que mostra o item selecionado no designer com o painel de detalhes aberto e com o botão de reticências selecionadas e a opção "excluir".](./media/create-stateful-stateless-workflows-visual-studio-code/delete-item-from-designer.png)
 
@@ -965,7 +967,7 @@ Esta tabela especifica o comportamento do fluxo de trabalho filho com base em se
 | Sem estado | Sem estado | Gatilho e espera |
 ||||
 
-## <a name="limits"></a>limites
+## <a name="limits"></a>Limites
 
 Embora muitos [limites existentes para aplicativos lógicos do Azure](../logic-apps/logic-apps-limits-and-config.md) sejam os mesmos para esse tipo de recurso, aqui estão as diferenças nesta extensão de visualização pública:
 

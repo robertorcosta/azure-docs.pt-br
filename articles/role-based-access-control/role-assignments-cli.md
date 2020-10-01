@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 09/28/2020
 ms.author: rolyon
 ms.custom: contperfq1
-ms.openlocfilehash: 17a32b27fba4fcde2e148e44e9db768cc9270e01
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 16ead03af14da70b5aaedc21118488c6dd3012c6
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91441978"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597657"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-azure-cli"></a>Adicionar ou remover atribuições de função do Azure usando CLI do Azure
 
@@ -95,7 +95,7 @@ Para obter mais informações, consulte [listar definições de função do Azur
  
 ### <a name="step-3-identify-the-needed-scope"></a>Etapa 3: identificar o escopo necessário
 
-O Azure fornece quatro níveis de escopo: recurso, [grupo de recursos](../azure-resource-manager/management/overview.md#resource-groups), assinatura e grupo de [Gerenciamento](../governance/management-groups/overview.md). É uma prática recomendada conceder acesso com o privilégio mínimo necessário, portanto, evite atribuir uma função em um escopo mais amplo.
+O Azure fornece quatro níveis de escopo: recurso, [grupo de recursos](../azure-resource-manager/management/overview.md#resource-groups), assinatura e grupo de [Gerenciamento](../governance/management-groups/overview.md). É uma prática recomendada conceder acesso com o privilégio mínimo necessário, portanto, evite atribuir uma função em um escopo mais amplo. Para obter mais informações sobre escopo, consulte [entender o escopo](scope-overview.md).
 
 **Escopo do recurso**
 

@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: references_regions
-ms.openlocfilehash: e9da87f3b5f7cb513b4b5d51c93a59d1703d401d
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 9c54482dc188141c4fc697bd43628b81e0ddc29f
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89258649"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597133"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Nuvens e regiões em que os Serviços de Mídia do Azure v3 existem
 
@@ -47,7 +47,7 @@ O [LiveTranscription](live-transcription.md) está disponível nas seguintes reg
 - Centro dos EUA
 - Centro-Sul dos Estados Unidos
 - Oeste dos EUA 2
-- Brazil South
+- Sul do Brasil
 
 ## <a name="regionsgeographieslocations"></a>Regiões/geografias/locais
 
@@ -82,7 +82,7 @@ Por exemplo, para a região Oeste dos EUA 2 (exibida abaixo) do Azure, você usa
 
 ### <a name="global-azure"></a>Azure Global
 
-| Serviço | Ponto de Extremidade |
+| Serviço | Ponto de extremidade |
 | ------- | -------- |
 | Azure Resource Manager |  `https://management.azure.com/` |
 | Autenticação | `https://login.microsoftonline.com/` |
@@ -90,15 +90,17 @@ Por exemplo, para a região Oeste dos EUA 2 (exibida abaixo) do Azure, você usa
 
 ### <a name="azure-government"></a>Azure Government
 
-| Serviço | Ponto de Extremidade |
+| Serviço | Ponto de extremidade |
 | ------- | -------- |
 | Azure Resource Manager |  `https://management.usgovcloudapi.net/` |
 | Autenticação | `https://login.microsoftonline.us/` |
 | Público do token | `https://management.core.usgovcloudapi.net/` |
 
+[!INCLUDE [Widevine is not available in the GovCloud region.](./includes/widevine-not-available-govcloud.md)]
+
 ### <a name="azure-germany"></a>Azure Alemanha
 
-| Serviço | Ponto de Extremidade |
+| Serviço | Ponto de extremidade |
 | ------- | -------- |
 | Azure Resource Manager | `https://management.cloudapi.de/` |
 | Autenticação | `https://login.microsoftonline.de/` |
@@ -106,7 +108,7 @@ Por exemplo, para a região Oeste dos EUA 2 (exibida abaixo) do Azure, você usa
 
 ### <a name="azure-china-21vianet"></a>Azure China 21Vianet
 
-| Serviço | Ponto de Extremidade |
+| Serviço | Ponto de extremidade |
 | ------- | -------- |
 | Azure Resource Manager | `https://management.chinacloudapi.cn/` |
 | Autenticação | `https://login.chinacloudapi.cn/` |

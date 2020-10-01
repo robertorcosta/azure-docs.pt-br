@@ -3,12 +3,12 @@ title: Obter dados de conformidade da política
 description: Efeitos e avaliações do Azure Policy determinam a conformidade. Saiba como obter os detalhes de conformidade dos seus recursos do Azure.
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 5a308a23e84587eba69951081674d3525f083441
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 2b4db7daf75f153cadb03e5dd028084e311bb874
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91537943"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596040"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Obter dados de conformidade de recursos do Azure
 
@@ -46,7 +46,37 @@ As avaliações de políticas atribuídas e iniciativas ocorrem como resultado d
 
 ### <a name="on-demand-evaluation-scan"></a>Exame de avaliação sob demanda
 
-Uma verificação de avaliação para uma assinatura ou um grupo de recursos pode ser iniciada com CLI do Azure, Azure PowerShell ou uma chamada para a API REST. Essa verificação é um processo assíncrono.
+Uma verificação de avaliação para uma assinatura ou um grupo de recursos pode ser iniciada com CLI do Azure, Azure PowerShell, uma chamada para a API REST ou usando a [ação do GitHub de verificação de conformidade Azure Policy](https://github.com/marketplace/actions/azure-policy-compliance-scan).
+Essa verificação é um processo assíncrono.
+
+#### <a name="on-demand-evaluation-scan---github-action"></a>Verificação de avaliação sob demanda – ação do GitHub
+
+Use a [ação de verificação de conformidade Azure Policy](https://github.com/marketplace/actions/azure-policy-compliance-scan) para disparar uma verificação de avaliação sob demanda de seu [fluxo de trabalho do GitHub](https://docs.github.com/actions/configuring-and-managing-workflows/configuring-a-workflow#about-workflows) em um ou vários recursos, grupos de recursos ou assinaturas e portão o fluxo de trabalho com base no estado de conformidade dos recursos. Você também pode configurar o fluxo de trabalho para ser executado em um horário agendado para que você obtenha o status de conformidade mais recente em um momento conveniente. Opcionalmente, essa ação do GitHub pode gerar um relatório sobre o estado de conformidade dos recursos verificados para análise posterior ou arquivamento.
+
+O exemplo a seguir executa uma verificação de conformidade para uma assinatura. 
+
+```yaml
+on:
+  schedule:    
+    - cron:  '0 8 * * *'  # runs every morning 8am
+jobs:
+  assess-policy-compliance:    
+    runs-on: ubuntu-latest
+    steps:         
+    - name: Login to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{secrets.AZURE_CREDENTIALS}} 
+
+    
+    - name: Check for resource compliance
+      uses: azure/policy-compliance-scan@v0
+      with:
+        scopes: |
+          /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+```
+
+Para obter mais informações e exemplos de fluxo de trabalho, consulte a [ação do GitHub para Azure Policy repositório de verificação de conformidade](https://github.com/Azure/policy-compliance-scan).
 
 #### <a name="on-demand-evaluation-scan---azure-cli"></a>Varredura de avaliação sob demanda-CLI do Azure
 

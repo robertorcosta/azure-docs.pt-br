@@ -14,21 +14,22 @@ ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3d8cc24722832fac9b2d353a6d87772ffce6c0a4
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: abedbd60a82f280bcd983c05a43685524a3a24e7
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90527115"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91598149"
 ---
 # <a name="media-services-v3-with-widevine-license-template-overview"></a>Visão geral do modelo de licença do Media Services V3 com Widevine
 
 Os Serviços de Mídia do Azure permitem criptografar o conteúdo com **Google Widevine**. Os Serviços de Mídia também fornecem um serviço para fornecer licenças Widevine. É possível usar APIs dos Serviços de Mídia do Azure para configurar licenças Widevine. Quando um player tenta reproduzir o conteúdo protegido por Widevine, uma solicitação é enviada ao serviço de entrega de licenças para obter a licença. Se o serviço de licença aprovar a solicitação, o serviço emitirá a licença. Ela é enviada ao cliente e é usada para descriptografar e reproduzir o conteúdo especificado.
 
+[!INCLUDE [Widevine is not available in the GovCloud region.](./includes/widevine-not-available-govcloud.md)]
+
 A solicitação de licença do Widevine é formatada como uma mensagem JSON.  
 
->[!NOTE]
-> Você pode criar uma mensagem vazia sem valores, apenas "{}". Em seguida, é criado um modelo de licença com os padrões. O padrão funciona na maioria dos casos. Cenários de entrega de licença baseada na Microsoft sempre devem usar os padrões. Se você precisar definir os valores de "content_id" e "provedor", um provedor deverá corresponder às credenciais de Widevine.
+
 
 ```json
 {  
@@ -60,6 +61,9 @@ A solicitação de licença do Widevine é formatada como uma mensagem JSON.
     }
 }
 ```
+
+>[!NOTE]
+> Você pode criar uma mensagem vazia sem valores, apenas "{}". Em seguida, é criado um modelo de licença com os padrões. O padrão funciona na maioria dos casos. Cenários de entrega de licença baseada na Microsoft sempre devem usar os padrões. Se você precisar definir os valores de "content_id" e "provedor", um provedor deverá corresponder às credenciais de Widevine.
 
 ## <a name="json-message"></a>Mensagem JSON
 
