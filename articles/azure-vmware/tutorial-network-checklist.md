@@ -3,12 +3,12 @@ title: Tutorial – Lista de verificação de planejamento de rede
 description: Saiba mais sobre os pré-requisitos dos requisitos de rede e os detalhes sobre a conectividade de rede e as portas de rede para a Solução VMware no Azure.
 ms.topic: tutorial
 ms.date: 09/21/2020
-ms.openlocfilehash: c9a3c18d69cb81ed2810c0516820a9ef348402f1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5538f9c5d6543ca312835f4ef6437e413dea231b
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91254390"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576670"
 ---
 # <a name="networking-planning-checklist-for-azure-vmware-solution"></a>Lista de verificação de planejamento de rede da Solução VMware no Azure 
 
@@ -21,8 +21,6 @@ Neste tutorial, você aprenderá:
 > * Requisitos de roteamento e sub-rede
 > * Portas de rede necessárias para comunicação com os serviços
 > * Considerações sobre o DHCP e o DNS na Solução VMware no Azure
-
-
 
 ## <a name="virtual-network-and-expressroute-circuit-considerations"></a>Considerações sobre a rede virtual e o circuito do ExpressRoute
 Quando você cria uma conexão de rede virtual na sua assinatura, o circuito do ExpressRoute é estabelecido por meio do emparelhamento e usa uma chave de autorização e uma ID de emparelhamento solicitada por você no portal do Azure. O emparelhamento é uma conexão particular e individual entre a nuvem privada e a rede virtual.

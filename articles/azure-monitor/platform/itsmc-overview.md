@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 0940521873b8d6746381acbd8e6c4c6d3a273c49
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0a632e8c57ab57869e4454b0d6a4018de6bd5548
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325752"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613757"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Conectar o Azure a ferramentas de ITSM usando o Conector de Gerenciamento de Serviços de TI
 
@@ -111,6 +111,10 @@ Depois de preparar as ferramentas de ITSM, siga as etapas abaixo para criar uma 
 Depois de criar a conexão de ITSM, crie itens de trabalho na ferramenta de ITSM com base nos alertas do Azure, usando a **Ação de ITSM** em **Grupos de Ação**.
 
 Os Grupos de Ações fornecem uma maneira modular e reutilizável de disparar ações para os Alertas do Azure. Use Grupos de Ação com alertas de métricas, alertas do Log de Atividades e alertas do Azure Log Analytics no portal do Azure.
+
+> [!NOTE]
+> Depois que a conexão de ITSM for criada, haverá a necessidade de aguardar 30 min após o conector criado para o processo de sincronização ser concluído
+> 
 
 Use este procedimento:
 

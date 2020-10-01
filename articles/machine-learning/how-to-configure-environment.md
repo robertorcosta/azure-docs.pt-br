@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 54c607ebac02a9d7e534d24656a8687e9ff39725
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: b97d36a5773eeb82a60330d0398ea19232f72b1e
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91533172"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613706"
 ---
 # <a name="set-up-a-development-environment-for-azure-machine-learning"></a>Configurar um ambiente de desenvolvimento para Azure Machine Learning
 
@@ -228,7 +228,7 @@ Use estas configurações:
 | Configuração |Aplica-se a| Valor |
 |----|---|---|
 | Nome do cluster |always| nomedoseucluster |
-| Databricks Runtime |always|Tempo de execução não ML 6,5 (escala 2,11, Spark 2.4.3) |
+| Databricks Runtime |always|Tempo de execução não ML 7,1 (escala 2,21, Spark 3.0.0) |
 | Versão do Python |always| 3 |
 | Trabalhos |always| 2 ou superior |
 | Tipos de VM do nó de trabalho <br>(determina o número máximo de iterações simultâneas) |ML automatizado<br>rápido| Uma VM otimizada para memória é preferível |
@@ -238,19 +238,18 @@ Aguarde até que o cluster está em execução antes de continuar.
 
 ### <a name="install-the-correct-sdk-into-a-databricks-library"></a>Instalar o SDK correto em uma biblioteca do databricks
 
-Depois que o cluster estiver em execução, [crie uma biblioteca](https://docs.databricks.com/user-guide/libraries.html#create-a-library) para anexar o pacote SDK do Azure Machine Learning apropriado ao cluster.
+Depois que o cluster estiver em execução, [crie uma biblioteca](https://docs.databricks.com/user-guide/libraries.html#create-a-library) para anexar o pacote SDK do Azure Machine Learning apropriado ao cluster. Para o ML automatizado, pule para o [SDK do databricks com a seção de aprendizado de máquina automatizado](#sdk-for-databricks-with-automated-machine-learning).
 
 1. Clique com o botão direito do mouse na pasta do espaço de trabalho atual onde você deseja armazenar a biblioteca. Selecione **criar**  >  **biblioteca**.
 
-1. Escolha **apenas uma** opção (não há suporte para nenhuma outra instalação do SDK)
+1. Escolha a opção a seguir (não há suporte para nenhuma outra instalação do SDK)
 
    |&nbsp;Extras do pacote do SDK &nbsp;|Fonte|Nome do PyPi &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
    |----|---|---|
    |Para databricks| Carregar Python Egg ou PyPI | azureml-sdk[databricks]|
-   |Para databricks-com-<br> recursos de ML automatizados| Carregar Python Egg ou PyPI | `azureml-sdk[automl]`|
 
    > [!Warning]
-   > Nenhum outro adicional do SDK pode ser instalado. Escolha apenas uma das opções anteriores [ `databricks` ] ou [ `automl` ].
+   > Nenhum outro adicional do SDK pode ser instalado. Escolha apenas a `databricks` opção [].
 
    * Não selecione **anexar automaticamente a todos os clusters**.
    * Selecione  **anexar** ao lado do nome do cluster.
@@ -270,9 +269,17 @@ Depois que o cluster estiver em execução, [crie uma biblioteca](https://docs.d
 
 Se a instalação tiver sido bem-sucedida, a biblioteca importada deverá ser semelhante a uma destas:
 
-SDK para databricks **_sem_** o machine learning ![ Azure Machine Learning SDK para databricks](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
+#### <a name="sdk-for-databricks"></a>SDK para databricks
+![SDK do Azure Machine Learning para databricks](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
 
-SDK para databricks **com** o SDK do Machine Learning automatizado ![ com o Machine Learning automatizado instalado no databricks](./media/how-to-configure-environment/automlonadb.png)
+#### <a name="sdk-for-databricks-with-automated-machine-learning"></a>SDK para databricks com o Machine Learning automatizado
+Se o cluster tiver sido criado com o databricks que não seja o tempo de execução 7,1 ou superior, execute o seguinte comando na primeira célula do bloco de anotações para instalar o SDK do AML.
+
+```
+%pip install -r https://aka.ms/automl_linux_requirements.txt
+```
+Para databricks que não seja o tempo de execução de ML 7,0 e inferior, instale o SDK do AML usando o [script de inicialização](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks/automl/README.md).
+
 
 ### <a name="start-exploring"></a>Comece a explorar
 

@@ -4,12 +4,12 @@ description: Use um cluster do Azure Service Fabric para hospedar um aplicativo 
 ms.topic: conceptual
 ms.date: 12/06/2017
 ms.custom: devx-track-js
-ms.openlocfilehash: 29278faa80340d17e9ed9093dd5f432fd24a3a2d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: dfd1fe9db54925bc17a53a7686fa34d5ea53cd5a
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91314276"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91614097"
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Hospedar um aplicativo Node.js no Azure Service Fabric
 
@@ -31,7 +31,7 @@ Criar um projeto com `CTRL`+`SHIFT`+`N`
 
 Na caixa de diálogo **Novo Projeto**, escolha **Nuvem > Aplicativo do Service Fabric**.
 
-Nomeie o aplicativo **MyGuestApp** e pressione **OK**.
+Nomeie o aplicativo **MyGuestApp** e pressione **criar**.
 
 >[!IMPORTANT]
 >O Node.js pode interromper o limite de 260 caracteres para caminhos do Windows facilmente. Use um caminho curto para o projeto, como **c:\code\svc1**. Opcionalmente, você pode seguir **[estas instruções](https://stackoverflow.com/a/41687101/1664231)** para habilitar caminhos de arquivo longos no Windows 10.

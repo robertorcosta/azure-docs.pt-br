@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/6/2020
 ms.reviewer: sngun
-ms.openlocfilehash: af777efda769315019ecee41d4053f5ab82f3047
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: bb8a413f2e2a3aa4a8facd533d822312bb61fa0e
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920425"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613553"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Níveis de consistência e APIs do Azure Cosmos DB
 
@@ -49,11 +49,11 @@ Ao usar a API do Azure Cosmos DB para MongoDB:
 
 * Azure Cosmos DB mapeará dinamicamente a preocupação de leitura especificada pelo driver do cliente MongoDB para um dos níveis de consistência Azure Cosmos DB configurados dinamicamente em uma solicitação de leitura.  
 
-* Você pode anotar uma região específica associada à sua conta do Azure cosmos como "mestre", tornando a região como a primeira região gravável. 
+* Você pode anotar uma região específica associada à sua conta do Azure cosmos como "primária", tornando a região como a primeira região gravável. 
 
 A tabela a seguir ilustra como as preocupações nativas de gravação/leitura do MongoDB são mapeadas para os níveis de consistência do Azure Cosmos ao usar a API do Azure Cosmos DB para MongoDB:
 
-:::image type="content" source="./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png" alt-text="Mapeamento de modelo de consistência do MongoDB" lightbox= "./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png":::
+:::image type="content" source="./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png" alt-text="Mapeamento de modelo de consistência Cassandra" lightbox= "./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

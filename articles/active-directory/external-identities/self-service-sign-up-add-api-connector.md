@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f241fd038d0d7309d8e1e5578dd77f950261b68
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: db68528a810ebc9cd61b205dd5167396d75db7f7
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88165168"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613978"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>Adicionar um conector de API a um fluxo de usuário
 
@@ -37,14 +37,14 @@ Para usar um [conector de API](api-connectors-overview.md), primeiro crie o cone
 
    - Somente a autenticação básica tem suporte no momento. Se você quiser usar uma API sem autenticação básica para fins de desenvolvimento, basta inserir um **nome de usuário** e **senha** fictícios que sua API pode ignorar. Para usar com uma função do Azure com uma chave de API, você pode incluir o código como um parâmetro de consulta na **URL do ponto de extremidade** (por exemplo, https []() ://contoso.azurewebsites.NET/API/Endpoint<b>? Code = 0123456789</b>).
 
-   ![Adicionar um novo conector de API](./media/self-service-sign-up-add-api-connector/api-connector-config.png)
+   ![Configurar um novo conector de API](./media/self-service-sign-up-add-api-connector/api-connector-config.png)
 8. Selecione **Salvar**.
 
 > [!IMPORTANT]
 > Anteriormente, era necessário configurar quais atributos de usuário enviar à API (' claims to send ') e quais atributos de usuário aceitar da API (' claims to Receive '). Agora, todos os atributos de usuário são enviados por padrão se eles tiverem um valor e qualquer atributo de usuário puder ser retornado pela API em uma resposta de ' continuação '.
 
 ## <a name="the-request-sent-to-your-api"></a>A solicitação enviada à sua API
-Um conector de API se materializa como uma solicitação **http post** , enviando atributos de usuário (' declarações ') como pares de chave-valor em um corpo JSON. Os atributos são serializados da mesma forma para [Microsoft Graph](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0#properties) Propriedades de usuário. 
+Um conector de API se materializa como uma solicitação **http post** , enviando atributos de usuário (' declarações ') como pares de chave-valor em um corpo JSON. Os atributos são serializados da mesma forma para [Microsoft Graph](https://docs.microsoft.com/graph/api/resources/user#properties) Propriedades de usuário. 
 
 **Solicitação de exemplo**
 ```http
@@ -77,7 +77,7 @@ Content-type: application/json
 
 Somente as propriedades de usuário e os atributos personalizados listados na **Azure Active Directory**  >  experiência de atributos de usuário personalizados de**identidades externas**  >  **Custom user attributes** estão disponíveis para serem enviados na solicitação.
 
-Existem atributos personalizados no formato **de \<extensions-app-id> _AttributeName extension_** no diretório. Sua API deve esperar receber declarações nesse mesmo formato serializado. Para obter mais informações sobre atributos personalizados, consulte [definir atributos personalizados para fluxos de inscrição de autoatendimento](user-flow-add-custom-attributes.md).
+Existem atributos personalizados no formato **de \<extensions-app-id> _AttributeName extension_**  no diretório. Sua API deve esperar receber declarações nesse mesmo formato serializado. Para obter mais informações sobre atributos personalizados, consulte [definir atributos personalizados para fluxos de inscrição de autoatendimento](user-flow-add-custom-attributes.md).
 
 Além disso, a Declaração **localidades da interface do usuário (' ui_locales ')** é enviada por padrão em todas as solicitações. Ele fornece a localidade de um usuário, conforme configurado em seu dispositivo, que pode ser usado pela API para retornar respostas internacionalizadas.
 
@@ -85,7 +85,7 @@ Além disso, a Declaração **localidades da interface do usuário (' ui_locales
 > Se uma declaração a ser enviada não tiver um valor no momento em que o ponto de extremidade de API for chamado, a declaração não será enviada para a API. Sua API deve ser projetada para verificar explicitamente o valor esperado.
 
 > [!TIP] 
-> [**identidades (' identidades ')**](https://docs.microsoft.com/graph/api/resources/objectidentity?view=graph-rest-1.0) e as declarações de **endereço de email (' email ')** podem ser usadas pela sua API para identificar um usuário antes que eles tenham uma conta em seu locatário. A declaração ' Identities ' é enviada quando um usuário é autenticado com um provedor de identidade, como Google ou Facebook. ' email ' é sempre enviado.
+> [**identidades (' identidades ')**](https://docs.microsoft.com/graph/api/resources/objectidentity) e as declarações de **endereço de email (' email ')** podem ser usadas pela sua API para identificar um usuário antes que eles tenham uma conta em seu locatário. A declaração ' Identities ' é enviada quando um usuário é autenticado com um provedor de identidade, como Google ou Facebook. ' email ' é sempre enviado.
 
 ## <a name="enable-the-api-connector-in-a-user-flow"></a>Habilitar o conector de API em um fluxo de usuário
 
@@ -244,7 +244,7 @@ Content-type: application/json
 }
 ```
 
-| Parâmetro                                          | Type              | Obrigatório | Descrição                                                                                                                                                                                                                                                                            |
+| Parâmetro                                          | Tipo              | Obrigatório | Descrição                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | version                                            | String            | Sim      | A versão da API.                                                                                                                                                                                                                                                                |
 | ação                                             | String            | Sim      | O valor precisa ser `Continue`.                                                                                                                                                                                                                                                              |
@@ -266,10 +266,10 @@ Content-type: application/json
 
 ```
 
-| Parâmetro   | Type   | Obrigatório | Descrição                                                                |
+| Parâmetro   | Tipo   | Obrigatório | Descrição                                                                |
 | ----------- | ------ | -------- | -------------------------------------------------------------------------- |
 | version     | String | Sim      | A versão da API.                                                    |
-| ação      | String | Sim      | O valor deve ser`ShowBlockPage`                                              |
+| ação      | String | Sim      | O valor deve ser `ShowBlockPage`                                              |
 | userMessage | String | Sim      | Mensagem a ser exibida ao usuário.                                            |
 | code        | String | Não       | Código do erro. Pode ser usado para fins de depuração. Não são exibidos para o usuário. |
 
@@ -292,7 +292,7 @@ Content-type: application/json
 }
 ```
 
-| Parâmetro   | Type    | Obrigatório | Descrição                                                                |
+| Parâmetro   | Tipo    | Obrigatório | Descrição                                                                |
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
 | version     | String  | Sim      | A versão da API.                                                    |
 | ação      | String  | Sim      | O valor precisa ser `ValidationError`.                                           |
@@ -304,11 +304,29 @@ Content-type: application/json
 
 ![Página de validação de exemplo](./media/api-connectors-overview/validation-error-postal-code.png)
 
-## <a name="using-azure-functions"></a>Usando o Azure Functions
-Você pode usar um gatilho HTTP em Azure Functions como uma maneira simples de criar um ponto de extremidade de API para usar com o conector de API. Você usa a função do Azure para, [por exemplo](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts), executar a lógica de validação e limitar as entradas a domínios específicos. Você também pode chamar e invocar outras APIs da Web, lojas de usuários e outros serviços de nuvem do Azure function para cenários extensos.
+
+## <a name="best-practices-and-how-to-troubleshoot"></a>Práticas recomendadas e como solucionar problemas
+
+### <a name="using-serverless-cloud-functions"></a>Usando funções de nuvem sem servidor
+Funções sem servidor, como gatilhos HTTP no Azure Functions, fornecem uma maneira simples de criar pontos de extremidade de API para usar com o conector de API. Você pode usar a função de nuvem sem servidor para, [por exemplo](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts), executar a lógica de validação e limitar as entradas a domínios específicos. A função de nuvem sem servidor também pode chamar e invocar outras APIs da Web, lojas de usuários e outros serviços de nuvem para cenários mais complexos.
+
+### <a name="best-practices"></a>Práticas recomendadas
+Verifique se:
+* Sua API está seguindo os contratos de solicitação e resposta da API, conforme descrito acima. 
+* A **URL do ponto de extremidade** do conector de API aponta para o ponto de extremidade de API correto.
+* Sua API verifica explicitamente se há valores nulos de declarações recebidas.
+* Sua API responde o mais rápido possível para garantir uma experiência de usuário fluida.
+    * Se estiver usando uma função sem servidor ou um serviço Web escalonável, use um plano de hospedagem que mantenha a API "ativo" ou "quente". Por Azure Functions, é recomendável usar o [plano Premium](../../azure-functions/functions-scale.md#premium-plan). 
+
+
+### <a name="use-logging"></a>Usar registro em log
+Em geral, é útil usar as ferramentas de log habilitadas pelo serviço de API Web, como o [Application insights](../../azure-functions/functions-monitoring.md), para monitorar sua API para códigos de erro inesperados, exceções e baixo desempenho.
+* Monitore os códigos de status HTTP que não são HTTP 200 ou 400.
+* Um código de status HTTP 401 ou 403 normalmente indica que há um problema com sua autenticação. Verifique a camada de autenticação da API e a configuração correspondente no conector da API.
+* Use níveis mais agressivos de registro em log (por exemplo, "rastreamento" ou "depuração") no desenvolvimento, se necessário.
+* Monitore sua API para tempos de resposta longos.
 
 ## <a name="next-steps"></a>Próximas etapas
-
 <!-- - Learn [where you can enable an API connector](api-connectors-overview.md#where-you-can-enable-an-api-connector-in-a-user-flow) -->
 - Saiba como [Adicionar um fluxo de trabalho de aprovação personalizado à inscrição de autoatendimento](self-service-sign-up-add-approvals.md)
 - Introdução aos nossos [exemplos de início rápido do Azure function](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts).

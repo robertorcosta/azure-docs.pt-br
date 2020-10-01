@@ -4,12 +4,12 @@ description: Saiba como descobrir instâncias da AWS com a Avaliação de Servid
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: c2d91e0b2c2eaa2df8b01aca60e5a0e18e251fb8
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: e48d123a9317d35cd2bb8e38a29d23cae3b75eb8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90603689"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275448"
 ---
 # <a name="tutorial-discover-aws-instances-with-server-assessment"></a>Tutorial: Descobrir instâncias da AWS com a Avaliação de Servidor
 
@@ -76,7 +76,18 @@ Configure uma conta que o dispositivo possa usar para acessar as instâncias da 
 
 - Para servidores do Windows, configure uma conta de usuário local em todos os servidores do Windows que você deseja incluir na descoberta. Adicione a conta de usuário aos seguintes grupos: – Usuários de gerenciamento remoto – Usuários do Monitor de Desempenho – Usuários de Log de Desempenho.
  - Para os servidores Linux, você precisa de uma conta raiz nos servidores Linux que deseja descobrir.
-
+- As Migrações para Azure usam a autenticação de senha ao descobrir instâncias da AWS. As instâncias da AWS não dão suporte para a autenticação de senha por padrão. Para descobrir a instância, habilite a autenticação de senha.
+    - Para computadores Windows, permita a porta 5985 (HTTP) do WinRM. Isso autorizará as chamadas remotas do WMI.
+    - Para computadores Linux:
+        1. Entre em cada computador Linux.
+        2. Abra o arquivo sshd_config: vi /etc/ssh/sshd_config
+        3. No arquivo, localize a linha **PasswordAuthentication** e altere o valor para **yes**.
+        4. Salve o arquivo e feche-o. Reinicie o serviço ssh.
+    - Se você estiver usando um usuário raiz para descobrir suas VMs do Linux, verifique se o logon raiz é permitido nas VMs.
+        1. Entrar em cada computador Linux
+        2. Abra o arquivo sshd_config: vi /etc/ssh/sshd_config
+        3. No arquivo, localize a linha **PermitRootLogin** e altere o valor para **yes**.
+        4. Salve o arquivo e feche-o. Reinicie o serviço ssh.
 
 ## <a name="set-up-a-project"></a>Configurar um projeto
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: da89bf6cb336087f97341ca57a9b2545c966a053
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 094a146f8e0e32667986a8e807955be1a5f66e39
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88533409"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613910"
 ---
 # <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>Tutorial: Configurar o Tableau Online para provisionamento automático de usuário
 
@@ -125,7 +125,7 @@ Esta seção aborda as etapas para configurar o serviço de provisionamento do A
 
     ![Email de notificação do tableau online](./media/tableau-online-provisioning-tutorial/EmailNotification.png)
 
-9. Clique em **Salvar**.
+9. Selecione **Salvar**.
 
 10. Na seção **Mapeamentos**, selecione **Sincronizar Usuários do Azure Active Directory com o Tableau**.
 
@@ -133,7 +133,7 @@ Esta seção aborda as etapas para configurar o serviço de provisionamento do A
 
 11. Examine os atributos de usuário que são sincronizados do Azure AD para o tableau online na seção **mapeamentos de atributo** . Os atributos selecionados como propriedades **Correspondentes** são usados para corresponder as contas de usuário no Tableau Online para operações de atualização. Selecione **Salvar** para salvar as alterações.
 
-    ![Atributos de usuário correspondentes do tableau online](./media/tableau-online-provisioning-tutorial/UserAttributeMapping.png)
+    ![Atributos de usuário correspondentes do tableau online](./media/tableau-online-provisioning-tutorial/attribute.png)
 
 12. Na seção **Mapeamentos**, selecione **Sincronizar Grupos do Azure Active Directory com o Tableau**.
 
@@ -162,6 +162,9 @@ Essa operação inicia a sincronização inicial de todos os usuários ou grupos
 É possível usar a seção **Detalhes de Sincronização** para monitorar o andamento e seguir os links para o relatório de atividade de provisionamento. O relatório descreve todas as ações executadas pelo serviço de provisionamento do Azure AD no tableau online.
 
 Para obter informações sobre como ler os logs de provisionamento do Azure AD, confira [Relatórios sobre o provisionamento automático de contas de usuário](../app-provisioning/check-status-user-account-provisioning.md).
+
+## <a name="change-log"></a>Log de alterações
+* 09/30/2020-suporte adicionado para o atributo "authSetting" para usuários.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

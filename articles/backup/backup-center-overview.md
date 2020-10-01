@@ -2,13 +2,13 @@
 title: Visão geral do centro de backup
 description: Este artigo fornece uma visão geral do centro de backup do Azure.
 ms.topic: conceptual
-ms.date: 09/01/2020
-ms.openlocfilehash: e7577f302b9a137f5f3c257dc35d0fdf339f69a4
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.date: 09/30/2020
+ms.openlocfilehash: 2857433e00a678603e30c8e5fc276020c4658f2e
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90994049"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91614268"
 ---
 # <a name="overview-of-backup-center"></a>Visão geral do centro de backup
 
@@ -39,7 +39,11 @@ No bloco **trabalhos** , você obtém uma exibição resumida de todos os trabal
 
 No bloco **instâncias de backup** , você obtém uma exibição resumida de todas as instâncias de backup em seu espaço de backup. Por exemplo, você pode ver o número de instâncias de backup que estão no estado de exclusão reversível em comparação com o número de instâncias que ainda estão configuradas para proteção. A seleção de qualquer um dos números neste bloco permite que você exiba mais informações sobre instâncias de backup para um tipo de fonte de dados e um estado de proteção específicos.
 
-Siga as etapas abaixo para entender os diferentes recursos que o centro de backup fornece e como você pode usar esses recursos para gerenciar seu espaço de backup com eficiência.
+Assista ao vídeo a seguir para entender os recursos do centro de backup:
+
+> [!VIDEO https://www.youtube.com/embed/pFRMBSXZcUk?t=497]
+
+Siga as [próximas etapas](#next-steps) para entender os diferentes recursos que o centro de backup fornece e como você pode usar esses recursos para gerenciar seu espaço de backup com eficiência.
 
 ## <a name="next-steps"></a>Próximas etapas
 

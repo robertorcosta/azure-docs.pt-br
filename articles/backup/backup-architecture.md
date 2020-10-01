@@ -3,12 +3,12 @@ title: Visão geral da arquitetura
 description: Fornece uma visão geral da arquitetura, componentes e processos usados pelo serviço de Backup do Azure.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: e70fe13e895315763ae305b48a72d688f09931f0
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 6f95e8f6edaef61a7c5971a46ed4bff1a34e3dbe
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90986487"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613995"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Arquitetura e componentes de backup do Azure
 
@@ -35,7 +35,7 @@ Saiba mais sobre [o que você pode fazer](backup-overview.md) backup e sobre [ce
 
 ## <a name="where-is-data-backed-up"></a>Onde os dados são armazenados em backup?
 
-O backup do Azure armazena dados de backup em cofres-recuperar cofres de serviços e cofres de backup. Um cofre é uma entidade de armazenamento online no Azure que é usada para armazenar dados, como cópias de backup, pontos de recuperação e políticas de backup.
+O backup do Azure armazena dados de backup em cofres-cofres de serviços de recuperação e cofres de backup. Um cofre é uma entidade de armazenamento online no Azure que é usada para armazenar dados, como cópias de backup, pontos de recuperação e políticas de backup.
 
 Os cofres têm os seguintes recursos:
 

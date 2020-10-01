@@ -9,13 +9,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
-ms.date: 08/14/2020
-ms.openlocfilehash: ceb1c9711d67b32f9a31e6105df0e0e0eec42907
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/30/2020
+ms.openlocfilehash: 44dafd1b0043c2daa7065069f571f13529303a73
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91321366"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91614420"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>Visão geral do modelo vCore-banco de dados SQL do Azure e Azure SQL Instância Gerenciada 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -91,7 +91,11 @@ Fsv2-Series somente com suporte na camada de Uso Geral. Para regiões em que a F
 - A série M é uma opção de hardware com otimização de memória para cargas de trabalho que exigem mais memória e limites de computação mais altos do que o fornecido pelo Gen5.
 - A série M fornece 29 GB por vCore e até 128 vCores, o que aumenta o limite de memória em relação ao Gen5 por 8x a quase 4 TB.
 
-A série M só tem suporte na camada de Comercialmente Crítico e não oferece suporte à redundância de zona.  A assinatura deve ser um tipo de oferta paga, incluindo pré-pago ou Enterprise Agreement (EA). Para regiões em que a série M está disponível, consulte [disponibilidade da série m](#m-series-1).
+A série M só tem suporte na camada de Comercialmente Crítico e não oferece suporte à redundância de zona.  Para regiões em que a série M está disponível, consulte [disponibilidade da série m](#m-series-1).
+
+#### <a name="azure-offer-types-supported-by-m-series"></a>Tipos de oferta do Azure com suporte da série M
+
+Para acessar a série M, a assinatura deve ser um tipo de oferta paga, incluindo pré-pago ou Enterprise Agreement (EA).  Para obter uma lista completa dos tipos de oferta do Azure com suporte da série M, consulte [ofertas atuais sem limites de gastos](https://azure.microsoft.com/support/legal/offer-details).
 
 <!--
 To enable M-series hardware for a subscription and region, a support request must be opened. The subscription must be a paid offer type including Pay-As-You-Go or Enterprise Agreement (EA).  If the support request is approved, then the selection and provisioning experience of M-series follows the same pattern as for other hardware generations. For regions where M-series is available, see [M-series availability](#m-series).

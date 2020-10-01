@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 09/24/2020
 ms.author: jlian
-ms.openlocfilehash: eb25fc0d7831bc06b708431ce3d47c73b36fe5c6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6c562f7a5d9c7c02c737898821eef5ee5271eea4
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91281243"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613893"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>Suporte do Hub IoT para redes virtuais com Link Privado e Identidade Gerenciada
 
@@ -38,7 +38,7 @@ Este artigo descreve como atingir essas metas usando [Link Privado do Azure](../
 
 Um ponto de extremidade privado é um endereço IP privado alocado dentro de uma VNet de propriedade do cliente por meio da qual um recurso do Azure pode ser acessado. Por meio do Link Privado do Azure, você pode configurar um ponto de extremidade privado para o Hub IoT para permitir que os serviços dentro de sua VNet alcancem o Hub IoT sem exigir que o tráfego seja enviado ao ponto de extremidade público do Hub IoT. Da mesma forma, seus dispositivos locais podem usar emparelhamento da [Rede Virtual Privada (VPN)](../vpn-gateway/vpn-gateway-about-vpngateways.md) ou do [ExpressRoute](https://azure.microsoft.com/services/expressroute/) para obter conectividade com sua VNet e seu Hub IoT (por meio de seu ponto de extremidade privado). Como resultado, você pode restringir ou bloquear completamente a conectividade com os pontos de extremidade públicos do seu Hub IoT usando o [filtro de IP do Hub IoT](./iot-hub-ip-filtering.md) e [configurar o roteamento para não enviar dados ao ponto de extremidade interno](#built-in-event-hub-compatible-endpoint-doesnt-support-access-over-private-endpoint). Essa abordagem mantém a conectividade com o seu Hub usando o ponto de extremidade privado para dispositivos. O foco principal dessa configuração é para dispositivos dentro de uma rede local. Essa configuração não é recomendada para dispositivos implantados em uma rede de longa distância.
 
-![Ponto de extremidade público do Hub IoT](./media/virtual-network-support/virtual-network-ingress.png)
+![Engress de rede virtual do Hub IoT](./media/virtual-network-support/virtual-network-ingress.png)
 
 Antes de continuar, verifique se os seguintes pré-requisitos foram atendidos:
 
@@ -92,7 +92,7 @@ Para permitir que outros serviços localizem seu hub IoT como um serviço confi�
 
 1. Em **Status**, selecione **Ativado** e, em seguida, clique em **Salvar**.
 
-    :::image type="content" source="media/virtual-network-support/managed-identity.png" alt-text="Captura de tela que mostra como ativar a identidade gerenciada para o Hub IoT":::
+    :::image type="content" source="media/virtual-network-support/managed-identity.png" alt-text="Captura de tela que mostra onde adicionar um ponto de extremidade privado para o Hub IoT":::
 
 ### <a name="assign-managed-identity-to-your-iot-hub-at-creation-time-using-arm-template"></a>Atribuir identidade gerenciada ao Hub IoT no momento da criação usando o modelo ARM
 

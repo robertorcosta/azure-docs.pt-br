@@ -4,12 +4,12 @@ description: Saiba como proteger seu cluster usando um intervalo de endereços I
 services: container-service
 ms.topic: article
 ms.date: 09/21/2020
-ms.openlocfilehash: 5dbe5061253fb18222a476a88a1ec94a5ce4b0fa
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 99c6b173d96bbd54f12a0edc501d49e8c65caf01
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91299656"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613723"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Proteger o acesso ao servidor de API usando intervalos de endereços IP autorizados no serviço de kubernetes do Azure (AKS)
 
@@ -129,6 +129,32 @@ az aks update \
     --name myAKSCluster \
     --api-server-authorized-ip-ranges ""
 ```
+
+## <a name="how-to-find-my-ip-to-include-in---api-server-authorized-ip-ranges"></a>Como encontrar meu IP para incluir em `--api-server-authorized-ip-ranges` ?
+
+Você deve adicionar seus computadores de desenvolvimento, ferramentas ou endereços IP de automação à lista de clusters do AKS de intervalos de IP aprovados para acessar o servidor de API a partir daí. 
+
+Outra opção é configurar um Jumpbox com as ferramentas necessárias dentro de uma sub-rede separada na rede virtual do firewall. Isso pressupõe que seu ambiente tenha um firewall com a respectiva rede e que você tenha adicionado os IPs de firewall a intervalos autorizados. Da mesma forma, se você tiver um túnel forçado da sub-rede AKS para a sub-rede de firewall, do que ter o Jumpbox na sub-rede do cluster também está bem.
+
+Adicione outro endereço IP aos intervalos aprovados com o comando a seguir.
+
+```bash
+# Retrieve your IP address
+CURRENT_IP=$(dig @resolver1.opendns.com ANY myip.opendns.com +short)
+# Add to AKS approved list
+az aks update -g $RG -n $AKSNAME --api-server-authorized-ip-ranges $CURRENT_IP/32
+```
+
+>> [!NOTE]
+> O exemplo acima acrescenta os intervalos de IP autorizados do servidor de API no cluster. Para desabilitar intervalos IP autorizados, use AZ AKs Update e especifique um intervalo vazio "". 
+
+Outra opção é usar o comando abaixo em sistemas Windows para obter o endereço IPv4 público, ou você pode usar as etapas em [localizar seu endereço IP](https://support.microsoft.com/en-gb/help/4026518/windows-10-find-your-ip-address).
+
+```azurepowershell-interactive
+Invoke-RestMethod http://ipinfo.io/json | Select -exp ip
+```
+
+Você também pode encontrar esse endereço pesquisando "o que é meu endereço IP" em um navegador da Internet.
 
 ## <a name="next-steps"></a>Próximas etapas
 
