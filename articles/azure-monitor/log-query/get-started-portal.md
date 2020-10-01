@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
-ms.openlocfilehash: 8917c73474b81ee76e6acdf8c6f274e962ee1215
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: b337065f125d12e309dd1f7fcc56c2af72b1c28c
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87874224"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088350"
 ---
 # <a name="tutorial-get-started-with-log-analytics-queries"></a>Tutorial: Introdução às consultas no Log Analytics
 
@@ -42,7 +42,7 @@ Um *esquema* é uma coleção de tabelas agrupadas em categorias lógicas. O esq
 
 O esquema de tabela aparece na guia **Tabelas** do workspace do Log Analytics. As tabelas contêm colunas, cada uma com um tipo de dados mostrado pelo ícone ao lado do nome da coluna. Por exemplo, a tabela **Evento** contém colunas de texto como **Computador** e colunas numéricas como **EventCategory**.
 
-![Esquema](media/get-started-portal/schema.png)
+![A captura de tela mostra a página Logs do portal do Azure com uma nova consulta, realçando o painel Tabelas com Computer e EventCategory realçados.](media/get-started-portal/schema.png)
 
 ## <a name="write-and-run-basic-queries"></a>Escrever e executar consultas básicas
 
@@ -120,7 +120,7 @@ Para filtrar os resultados da consulta `Event` para eventos de **Erro** filtrand
    
 1. Selecione **Filtrar**.
    
-   ![Filtrar](media/get-started-portal/filter.png)
+   ![A captura de tela mostra uma tabela de resultados com um menu contextual para filtrar os resultados por EventLevelName.](media/get-started-portal/filter.png)
 
 ## <a name="sort-group-and-select-columns"></a>Classificar, agrupar e selecionar colunas
 Para classificar os resultados da consulta por uma coluna específica, como **TimeGenerated [UTC]** , selecione o título de coluna. Selecione o título novamente para alternar entre ordem crescente e decrescente.
@@ -129,7 +129,7 @@ Para classificar os resultados da consulta por uma coluna específica, como **Ti
 
 Outra maneira de organizar os resultados é por grupos. Para agrupar os resultados por uma coluna específica, arraste o cabeçalho da coluna para a barra acima da tabela de resultados rotulada **Arraste um cabeçalho de coluna e solte-o aqui para agrupar por essa coluna**. Para criar subgrupos, arraste outras colunas para a barra superior. Você pode reorganizar a hierarquia e a classificação dos grupos e subgrupos na barra.
 
-![Grupos](media/get-started-portal/groups.png)
+![A captura de tela mostra os resultados da consulta com subgrupos de EventLevelName e Computer.](media/get-started-portal/groups.png)
 
 Para ocultar ou mostrar colunas nos resultados, selecione **Colunas** acima da tabela e, em seguida, marque ou desmarque as colunas desejadas na lista suspensa.
 

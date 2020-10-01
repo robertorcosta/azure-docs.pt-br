@@ -2,18 +2,18 @@
 title: Tutorial para pedido do Azure Data Box | Microsoft Docs
 description: Neste tutorial, saiba mais sobre o Azure Data Box, uma solução híbrida que permite importar dados locais para o Azure, e como pedir o Azure Data Box.
 services: databox
-author: twooley
+author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 07/21/2020
-ms.author: twooley
-ms.openlocfilehash: 2000ecc84a92bef5ad6b80fecde4aee0157e4bc5
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.date: 09/15/2020
+ms.author: alkohli
+ms.openlocfilehash: c2d971c2c9375f58fd5f41a46716fac4bff29f88
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783562"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604301"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Tutorial: Solicitar o Azure Data Box
 
@@ -268,8 +268,21 @@ Execute as etapas a seguir no portal do Azure para solicitar um dispositivo.
     ![Ordem do Data Box para o disco gerenciado](media/data-box-deploy-ordered/select-data-box-import-07b.png)
 
     A conta de armazenamento especificada para os discos gerenciados é usada como uma conta de armazenamento de preparo. O serviço do Data Box carrega os VHDs como blobs de páginas na conta de armazenamento de preparo antes de convertê-los em discos gerenciados e movê-los para os grupos de recursos. Para obter mais informações, confira [Verificar o upload de dados para o Azure](data-box-deploy-picked-up.md#verify-data-upload-to-azure).
+   > [!NOTE]
+   > Caso um blob de páginas não seja convertido com êxito em um disco gerenciado, ele permanecerá na conta de armazenamento e você será cobrado pelo armazenamento.
 
-    Selecione **Avançar: Detalhes de contato** para continuar.
+    Selecione **Avançar: segurança** para continuar.
+
+1. Em **Segurança**, caso queira habilitar uma criptografia dupla baseada em software, selecione **Habilitar uma criptografia dupla para o pedido**. 
+
+   Uma criptografia baseada em software será executada além da criptografia AES de 256 bits dos dados no Data Box.
+
+   > [!NOTE]
+   > Habilitar essa opção poderá fazer com que o processamento de pedidos e a cópia de dados demorem mais. Não será possível alterar essa opção depois de criar seu pedido.
+
+   ![Tela de segurança para importação do Data Box e de uma criptografia dupla](media/data-box-deploy-ordered/select-data-box-import-07c.png)
+
+   Selecione **Avançar: Detalhes de contato** para continuar.
 
 8. Em **Detalhes de contato**, selecione **+ Adicionar Endereço para Entrega**.
 

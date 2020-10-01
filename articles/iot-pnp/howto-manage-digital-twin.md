@@ -7,12 +7,12 @@ ms.date: 07/20/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: bfbfc6e5e4a0f5721d620c2936e5ea0aa685f8ad
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: a0fa8c1c3d897ce65c70b6097dd323139716b8c7
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91577587"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613383"
 ---
 # <a name="manage-iot-plug-and-play-digital-twins"></a>Gerenciar gêmeos digital de IoT Plug and Play
 
@@ -179,11 +179,11 @@ Todas as chaves de mapa devem ser nomes DTDL v2 válidos.
 
 ## <a name="troubleshoot-update-digital-twin-api-errors"></a>Solucionar problemas de erros de API de atualização digital
 
-Durante a visualização pública, a API de atualização de atualizações digitais gera a seguinte mensagem de erro genérica:
+A API de teledigital de digitais gera a seguinte mensagem de erro genérica:
 
 `ErrorCode:ArgumentInvalid;'{propertyName}' exists within the device twin and is not digital twin conformant property. Please refer to aka.ms/dtpatch to update this to be conformant.`
 
-Verifique se o patch de atualização segue as [regras para definir o valor desejado de uma propriedade de propriedades digitais](#rules-for-setting-the-desired-value-of-a-digital-twin-property)
+Se você vir esse erro, verifique se o patch de atualização segue as [regras para definir o valor desejado de uma propriedade de propriedades digitais](#rules-for-setting-the-desired-value-of-a-digital-twin-property)
 
 Ao atualizar um componente, verifique se o [objeto vazio $Metadata marcador](#add-replace-or-remove-a-component) está definido.
 

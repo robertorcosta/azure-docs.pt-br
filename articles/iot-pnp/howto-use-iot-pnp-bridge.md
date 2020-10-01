@@ -7,12 +7,12 @@ ms.date: 09/22/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: b952c2663750c055ec6838bf66df31fec5a0d730
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 4c84fbb131809c92d597b46d18c53e46b636f8ef
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91579613"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613468"
 ---
 # <a name="how-to-connect-an--iot-plug-and-play-bridge-sample-running-on-linux-or-windows-to-iot-hub"></a>Como conectar um exemplo de ponte IoT Plug and Play em execução no Linux ou Windows para o Hub IoT
 
@@ -88,7 +88,7 @@ Quando você baixa o código na etapa abaixo, ele inclui os arquivos de modelo d
 Abra um prompt de comando no diretório de sua escolha. Execute o comando a seguir para clonar o repositório GitHub do [IoT plug and Play Bridge](https://aka.ms/iotplugandplaybridge) neste local:
 
 ```cmd
-git clone https://github.com/Azure/AzurePnPBridgePreview.git
+git clone https://github.com/Azure/iot-plug-and-play-bridge.git
 ```
 
 Depois de clonar o repositório de ponte IoT Plug and Play para seu computador, abra um prompt de comando administrativo e navegue até o diretório do repositório clonado:

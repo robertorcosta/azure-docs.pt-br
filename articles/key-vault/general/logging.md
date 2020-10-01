@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 0ed50b8d128386008a73eb4d1a8b412a42fdb945
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 0364495d751465f644686824758992d47f0b8bdf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89485448"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91290630"
 ---
 # <a name="azure-key-vault-logging"></a>Log do Azure Key Vault
 
@@ -133,6 +133,7 @@ O que é registrado em log:
   * A criação, modificação ou exclusão dessas chaves ou segredos.
   * A assinatura, verificação, criptografia, descriptografia, encapsulamento e desencapsulamento de chaves, obtenção de segredos e listagem de chaves e segredos (e suas versões).
 * Solicitações não autenticadas que resultam em uma resposta 401. Por exemplo, solicitações que não têm um token de portador estão malformadas ou expiradas ou têm um token inválido.  
+* Os eventos de notificação da Grade de Eventos sobre vencimento próximo, item vencido e política de acesso ao cofre foram alterados (o evento da nova versão não é registrado). Os eventos são registrados independentemente da presença de uma assinatura de evento criada no cofre de chaves. Para obter mais informações, confira [Esquema de evento da Grade de Eventos do Key Vault](https://docs.microsoft.com/azure/event-grid/event-schema-key-vault)
 
 ## <a name="enable-logging-using-azure-cli"></a>Habilitar o registro em log usando a CLI do Azure
 
@@ -289,6 +290,8 @@ Os valores do campo **operationName** estão no formato *ObjectVerb*. Por exempl
 
 A tabela a seguir lista os valores de **operationName** e os comandos da API REST correspondentes:
 
+### <a name="operation-names-table"></a>Tabela de nomes de operação
+
 | operationName | Comando da API REST |
 | --- | --- |
 | **Autenticação** |Autenticação via ponto de extremidade do Azure Active Directory |
@@ -318,6 +321,13 @@ A tabela a seguir lista os valores de **operationName** e os comandos da API RES
 | **SecretDelete** |[Excluir um segredo](https://msdn.microsoft.com/library/azure/dn903613.aspx) |
 | **SecretList** |[Listar segredos em um cofre](https://msdn.microsoft.com/library/azure/dn903614.aspx) |
 | **SecretListVersions** |[Listar versões de um segredo](https://msdn.microsoft.com/library/azure/dn986824.aspx) |
+| **VaultAccessPolicyChangedEventGridNotification** | Evento de alteração da política de acesso ao cofre publicado |
+| **SecretNearExpiryEventGridNotification** |Evento de segredo próximo do vencimento publicado |
+| **SecretExpiredEventGridNotification** |Evento de segredo vencido publicado |
+| **KeyNearExpiryEventGridNotification** |Evento de chave próxima do vencimento publicado |
+| **KeyExpiredEventGridNotification** |Evento de chave vencida publicado |
+| **CertificateNearExpiryEventGridNotification** |Evento de certificado próximo do vencimento publicado |
+| **CertificateExpiredEventGridNotification** |Evento de certificado vencido publicado |
 
 ## <a name="use-azure-monitor-logs"></a><a id="loganalytics"></a>Usar logs do Azure Monitor
 

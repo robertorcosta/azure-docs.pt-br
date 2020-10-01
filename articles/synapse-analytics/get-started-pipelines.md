@@ -9,12 +9,12 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: 5e32a6a9817f2a3176e96e39c5e261875e8f4ed1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 72eea7c46dd005cd16ae5b8f0022c1174dd28f27
+ms.sourcegitcommit: 0194a29a960e3615f96a2d9d8a7e681cf3e8f9ab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87093160"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89667487"
 ---
 # <a name="orchestrate-with-pipelines"></a>Orquestração com pipelines
 
@@ -26,7 +26,7 @@ Você pode orquestrar uma ampla variedade de tarefas no Azure Synapse.
 
 1. No Synapse Studio, navegue até o hub **Orquestrar**.
 1. Selecione **+**  > **Pipeline** para criar um pipeline.
-1. Navegue até o hub **Desenvolver** e localize o notebook que você criou anteriormente.
+1. Acesse o hub **Desenvolver** e selecione um dos notebooks que você criou anteriormente.
 1. Arraste esse notebook para o pipeline.
 1. No pipeline, selecione **Adicionar gatilho** > **Novo/editar**.
 1. Em **Escolher gatilho**, selecione **Novo** e, em seguida, em **recorrência**, defina o gatilho para ser executado a cada hora.

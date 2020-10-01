@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 0197bb81fdba8bab20742d95aebaa2028bb90c18
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
-ms.translationtype: HT
+ms.openlocfilehash: 1b7b5e209329bd5dc4c95f81f61fecf48fb74e40
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027674"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362102"
 ---
 # <a name="set-up-web-endpoints"></a>Configurar pontos de extremidade da Web
 
@@ -29,7 +29,7 @@ Neste artigo, você aprenderá a configurar pontos de extremidade da Web em um a
 ## <a name="prerequisites"></a>Pré-requisitos
 > [!div class = "checklist"]
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
-> * Uma chave de assinatura do Azure para o serviço de Fala: [Obtenha uma gratuitamente](get-started.md) ou crie-a no [portal do Azure](https://portal.azure.com)
+> * Uma chave de assinatura do Azure para o serviço de Fala: [Obtenha uma gratuitamente](overview.md#try-the-speech-service-for-free) ou crie-a no [portal do Azure](https://portal.azure.com)
 > * Um [aplicativo de Comandos Personalizados criado](quickstart-custom-commands-application.md) anteriormente
 > * Um aplicativo cliente habilitado para o SDK de Fala: [Como enviar uma atividade para o aplicativo cliente](./how-to-custom-commands-setup-speech-sdk.md)
 

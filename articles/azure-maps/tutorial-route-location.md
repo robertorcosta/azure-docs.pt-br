@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 992640424f6fdb632327866e132fdbb1c6244492
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 35a3f6d1e7894eec9baa4ea5432a8e3fec138a21
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400323"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085035"
 ---
 # <a name="tutorial-how-to-display-route-directions-using-azure-maps-route-service-and-map-control"></a>Tutorial: Como exibir o trajeto de rota usando o serviço Roteiros do Azure Mapas e o Controle de Mapeamento
 
@@ -143,7 +143,7 @@ Neste tutorial, vamos renderizar a rota usando uma camada de linhas. Os pontos i
 
     No manipulador de eventos `ready` do Controle de Mapeamento, uma fonte de dados é criada para armazenar a rota do ponto inicial ao final. Para definir como a linha de rota será renderizada, uma camada de linhas será criada e anexada à fonte de dados.  Para garantir que a linha de rota não cubra os rótulos de estrada, passamos um segundo parâmetro com o valor de `'labels'`.
 
-    Em seguida, uma camada de símbolo é criada e anexada à fonte de dados. Essa camada especifica como os pontos inicial e final são renderizados. Nesse caso, as expressões foram adicionadas para recuperar a imagem de ícone e as informações de rótulo de texto das propriedades em cada objeto de ponto.
+    Em seguida, uma camada de símbolo é criada e anexada à fonte de dados. Essa camada especifica como os pontos inicial e final são renderizados. As expressões foram adicionadas para recuperar as informações de rótulo de texto e de imagem de ícone das propriedades em cada objeto de ponto. Para saber mais sobre as expressões, confira [Expressões de estilo controladas por dados](data-driven-style-expressions-web-sdk.md).
 
 2. Defina o ponto inicial como Microsoft e o ponto final como um posto de gasolina em Seattle.  No manipulador de eventos `ready` do Controle de Mapeamento, acrescente o código a seguir.
 
@@ -168,17 +168,22 @@ Neste tutorial, vamos renderizar a rota usando uma camada de linhas. Os pontos i
     });
     ```
 
-    Esse código cria dois [objetos de Ponto GeoJSON](https://en.wikipedia.org/wiki/GeoJSON) para representar os pontos inicial e final, que são então adicionados à fonte de dados. O último bloco de código define a exibição da câmera usando a latitude e a longitude dos pontos inicial e final. Para obter mais informações sobre a propriedade setCamera do Controle de Mapeamento, confira a propriedade [setCamera(CameraOptions | CameraBoundsOptions & AnimationOptions)](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-).
+    Esse código cria dois [objetos de Ponto GeoJSON](https://en.wikipedia.org/wiki/GeoJSON) para representar os pontos inicial e final, que são então adicionados à fonte de dados. 
+
+    O último bloco de código define a exibição da câmera usando a latitude e a longitude dos pontos inicial e final. Os pontos de partida e chegada são adicionados à fonte de dados. A caixa delimitadora dos pontos de partida e chegada é calculada com a função `atlas.data.BoundingBox.fromData`. Essa caixa delimitadora é usada para definir o modo de exibição das câmeras por toda a rota usando a função `map.setCamera`. Um preenchimento é adicionado para compensar as dimensões de pixel dos ícones de símbolo. Para obter mais informações sobre a propriedade setCamera do Controle de Mapeamento, confira a propriedade [setCamera(CameraOptions | CameraBoundsOptions & AnimationOptions)](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-&preserve-view=false).
 
 3. Salve **MapRoute.html** e atualize o navegador. Agora o mapa está centralizado em Seattle. O alfinete azul em formato de lágrima marca o ponto inicial. O alfinete azul redondo marca o ponto final.
 
-    :::image type="content" source="./media/tutorial-route-location/map-pins.png" alt-text="Exibir os pontos de início e fim das rotas no mapa":::
+    :::image type="content" source="./media/tutorial-route-location/map-pins.png" alt-text="Renderização de mapa básica do Controle de Mapeamento":::
 
 <a id="getroute"></a>
 
 ## <a name="get-route-directions"></a>Obter trajeto de rota
 
-Esta seção mostra como usar a API do serviço Roteiros do Azure Mapas para obter o trajeto de um ponto a outro. Nesse serviço, existem outras APIs que permitem planejar as rotas *mais rápida*, *mais curta*, *econômica* ou *emocionante* entre duas localizações. Esse serviço também permite que os usuários planejem rotas futuras com base nas condições históricas de tráfego. Os usuários podem ver a previsão de durações de rota para qualquer determinado horário. Para obter mais informações, confira [API de Obtenção de trajeto de rota](https://docs.microsoft.com/rest/api/maps/route/getroutedirections).
+Esta seção mostra como usar a API de Direções de Rota do Azure Mapas para obter direções de rota e o tempo estimado de chegada de um ponto para outro.
+
+>[!TIP]
+>Os serviços Roteiros do Azure Mapas fornecem APIs para planejar rotas com base em diferentes tipos de rota, como *mais rápidas*, *mais curtas*, *econômicas* ou *emocionantes* com base na distância, nas condições de tráfego e no meio de transporte usado. O serviço também permite que os usuários planejem rotas futuras com base nas condições históricas de tráfego. Os usuários podem ver a previsão de durações de rota para qualquer determinado horário. Para obter mais informações, confira [API de Obtenção de trajeto de rota](https://docs.microsoft.com/rest/api/maps/route/getroutedirections).
 
 1. Na função `GetMap`, dentro do manipulador de eventos `ready` do controle, adicione o seguinte ao código JavaScript.
 
@@ -193,7 +198,7 @@ Esta seção mostra como usar a API do serviço Roteiros do Azure Mapas para obt
     var routeURL = new atlas.service.RouteURL(pipeline);
     ```
 
-   O `SubscriptionKeyCredential` cria um `SubscriptionKeyCredentialPolicy` para autenticar solicitações HTTP para Azure Mapas com a chave de assinatura. O `atlas.service.MapsURL.newPipeline()` usa a `SubscriptionKeyCredential` política e cria uma instância de [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest). O `routeURL` representa uma URL para as operações de [rota](https://docs.microsoft.com/rest/api/maps/route) do Azure Mapas.
+   O `SubscriptionKeyCredential` cria um `SubscriptionKeyCredentialPolicy` para autenticar solicitações HTTP para Azure Mapas com a chave de assinatura. O `atlas.service.MapsURL.newPipeline()` usa a `SubscriptionKeyCredential` política e cria uma instância de [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline). O `routeURL` representa uma URL para as operações de [rota](https://docs.microsoft.com/rest/api/maps/route) do Azure Mapas.
 
 2. Depois de configurar as credenciais e a URL, acrescente o código a seguir no manipulador de eventos `ready` do controle. Esse código constrói a rota do ponto inicial ao ponto final. O `routeURL` solicita à API do serviço Roteiros do Azure Mapas que calcule os trajetos de rota. Um conjunto de recursos GeoJSON da resposta é então extraído usando o método `geojson.getFeatures()` e adicionada à fonte de dados.
 
@@ -211,7 +216,7 @@ Esta seção mostra como usar a API do serviço Roteiros do Azure Mapas para obt
 
 3. Salve o arquivo **MapRoute.html** e atualize seu navegador da Web. O mapa agora deve exibir a rota do ponto inicial ao ponto final.
 
-     :::image type="content" source="./media/tutorial-route-location/map-route.png" alt-text="Serviço de Roteiros e Controle de Mapeamento do Azure":::
+     :::image type="content" source="./media/tutorial-route-location/map-route.png" alt-text="Renderização de mapa básica do Controle de Mapeamento":::
 
     Você pode obter o código-fonte completo para o exemplo [aqui](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html). É possível encontrar um exemplo ao vivo [aqui](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination).
 

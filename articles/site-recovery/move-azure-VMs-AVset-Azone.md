@@ -1,5 +1,6 @@
 ---
 title: Mover VMs para uma região do Azure com zonas de disponibilidade usando o Azure Site Recovery
+description: Saiba como mover VMs para uma zona de disponibilidade em uma região diferente usando o Site Recovery
 services: site-recovery
 author: sideeksh
 ms.service: site-recovery
@@ -7,14 +8,18 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: sideeksh
 ms.custom: MVC
-ms.openlocfilehash: c1a552ba634234ac3b4d4a8eec260c739ce0d846
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: fd541e551102b205acff28b6bc06bc88abd14763
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89425465"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605100"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>Mover as VMs do Azure para Zonas de Disponibilidade
+
+Este artigo descreverá como mover VMs do Azure para uma zona de disponibilidade em uma região diferente. Caso queira mover VMs para uma zona diferente na mesma região, [examine este artigo](./azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md).
+
+
 As Zonas de Disponibilidade do Azure ajudam a proteger seus aplicativos e seus dados contra falhas do datacenter. Cada Zona de disponibilidade é composta por um ou mais datacenters equipados com energia, resfriamento e rede independentes. Para garantir a resiliência, há um mínimo de três zonas separadas em todas as regiões habilitadas. A separação física das Zonas de Disponibilidade dentro de uma região ajuda a proteger os aplicativos e os dados contra falhas do datacenter. Com as Zonas de Disponibilidade, o Azure oferece um SLA (contrato de nível de serviço) de 99,99% de tempo de atividade de VMs (máquinas virtuais). As Zonas de Disponibilidade são compatíveis com regiões selecionadas, conforme mencionado em [Regiões compatíveis com Zonas de Disponibilidade](../availability-zones/az-region.md).
 
 Em um cenário em que você implantou as VMs como *instância única* em uma região específica e deseja melhorar a disponibilidade movendo-as para uma Zona de Disponibilidade, faça isso usando o Azure Site Recovery. Essa ação pode ser categorizada mais detalhadamente em:
@@ -23,7 +28,15 @@ Em um cenário em que você implantou as VMs como *instância única* em uma reg
 - Mover as VMs em um conjunto de disponibilidade para Zonas de Disponibilidade em uma região de destino
 
 > [!IMPORTANT]
-> Atualmente, o Azure Site Recovery dá suporte à movimentação de VMs de uma região para outra. Ele só dá suporte à movimentação entre zonas dentro de uma região em algumas regiões. [Saiba mais](./azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md).
+> Agora recomendamos usar o [Azure Resource Mover](../resource-mover/move-region-availability-zone.md) para mover VMs do Azure para uma zona de disponibilidade em uma região diferente. O Resource Mover está na versão prévia pública e fornecerá:
+> - Um único hub para mover recursos entre regiões.
+> - Tempo e complexidade de movimentação reduzidos. Tudo o que você precisa está em um único local.
+> - Uma experiência simples e consistente para mover os diferentes tipos de recursos do Azure.
+> - Uma maneira fácil de identificar dependências entre os recursos que você deseja mover. Isso ajuda a mover os recursos relacionados em conjunto, para que tudo funcione conforme o esperado na região de destino após a movimentação.
+> - Se você quiser excluí-los após a movimentação, realize a limpeza automática de recursos na região de origem.
+> - Testes. Será possível experimentar uma movimentação e depois descartá-la caso não queira fazer uma movimentação completa.
+
+
 
 ## <a name="check-prerequisites"></a>Verificar pré-requisitos
 

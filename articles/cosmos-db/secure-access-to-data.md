@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0a5411a8fba8456deb59a5c9ede4e9314876dbdb
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: d06ec62f2ef1438657a4406b0f9a5b2c85feee16
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91569575"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611632"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Proteger o acesso aos dados no Azure Cosmos DB
 
@@ -22,21 +22,21 @@ O Azure Cosmos DB usa dois tipos de chaves para autenticar usuários e fornecer 
 
 |Tipo de chave|Recursos|
 |---|---|
-|[Chaves mestras](#primary-keys) |Usadas para os recursos administrativos: contas de bancos de dados, bancos de dados, usuários e permissões|
+|[Chaves primárias](#primary-keys) |Usadas para os recursos administrativos: contas de bancos de dados, bancos de dados, usuários e permissões|
 |[Tokens de recurso](#resource-tokens)|Usado para recursos de aplicativo: contêineres, documentos, anexos, procedimentos armazenados, gatilhos e UDFs|
 
 <a id="primary-keys"></a>
 
-## <a name="master-keys"></a>Chaves mestras
+## <a name="primary-keys"></a>Chaves primárias
 
-As chaves mestras fornecem acesso a todos os recursos administrativos da conta do banco de dados. Chaves mestras:
+As chaves primárias fornecem acesso a todos os recursos administrativos da conta do banco de dados. Chaves primárias:
 
 - Fornecem acesso a contas, a bancos de dados, a usuários e a permissões. 
 - Não pode ser usado para fornecer acesso granular a contêineres e documentos.
 - São criadas durante a criação de uma conta.
 - Podem ser geradas novamente a qualquer momento.
 
-Cada conta é formada por duas Chaves mestras: uma chave primária e uma chave secundária. A finalidade das chaves duplas é para que você possa gerar novamente, ou reverter as chaves, fornecendo acesso contínuo à sua conta e dados.
+Cada conta consiste em duas chaves primárias: uma chave primária e uma chave secundária. A finalidade das chaves duplas é para que você possa gerar novamente, ou reverter as chaves, fornecendo acesso contínuo à sua conta e dados.
 
 Além das duas chaves primárias para a conta de Cosmos DB, há duas chaves somente leitura. Essas chaves somente leitura só permitem operações de leitura na conta. As chaves somente leitura não fornecem acesso a recursos com permissões de leitura.
 
@@ -168,7 +168,7 @@ Para adicionar o acesso de leitor de conta do Azure Cosmos DB à sua conta de us
 4. Na **caixa atribuir acesso a**, selecione **usuário, grupo ou aplicativo do Azure ad**.
 5. Selecione o usuário, o grupo ou o aplicativo no diretório ao qual você deseja conceder acesso.  Você pode pesquisar o diretório por nome para exibição, endereço de email ou identificadores de objeto.
     O usuário, grupo ou aplicativo selecionado aparece na lista de membros selecionados.
-6. Clique em **Save** (Salvar).
+6. Clique em **Salvar**.
 
 A entidade agora poderá ler recursos do Azure Cosmos DB.
 

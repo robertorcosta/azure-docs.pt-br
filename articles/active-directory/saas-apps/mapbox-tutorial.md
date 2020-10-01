@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/21/2020
+ms.date: 08/20/2020
 ms.author: jeedes
-ms.openlocfilehash: faedec24bc4b962044d55a47345739592e276b61
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 4111752d949b7ed2b0ea14734e5d795564718611
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554763"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661908"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mapbox"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Mapbox
 
@@ -41,6 +41,9 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 
 * O Mapbox dá suporte ao SSO iniciado por **IDP**
 * Depois de configurar o Mapbox, você poderá impor um controle de sessão, que fornece proteção contra o vazamento e a infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+
+> [!NOTE]
+> O identificador desse aplicativo é um valor de cadeia de caracteres fixo; portanto apenas uma instância pode ser configurada em um locatário.
 
 ## <a name="adding-mapbox-from-the-gallery"></a>Adicionar o Mapbox da galeria
 
@@ -136,15 +139,15 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 1. Clique na guia **Configurações**.
 
-    ![Configuração do Mapbox](./media/mapbox-tutorial/configure1.png)
+    ![Guia Configurações do Mapbox](./media/mapbox-tutorial/configure1.png)
 
 1. Clique na guia **Segurança** no painel de navegação esquerdo.
 
-    ![Configuração do Mapbox](./media/mapbox-tutorial/configure2.png)
+    ![Guia Segurança do Mapbox](./media/mapbox-tutorial/configure2.png)
 
 1. Clique em **Editar logon único**.
 
-    ![Configuração do Mapbox](./media/mapbox-tutorial/configure3.png)
+    ![Editar logon único do Mapbox](./media/mapbox-tutorial/configure3.png)
 
 1. Role para baixo até **Etapa 3: Configurar logon único do SAML para o Mapbox** e execute as seguintes etapas:
 

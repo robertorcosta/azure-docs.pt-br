@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/23/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: f312170fd357e64e2fbd7d455987993cdad76123
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: a79a030c4f57c3dabdd14c01aa2062cab7026cd3
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87837101"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611513"
 ---
 # <a name="ephemeral-os-disks-for-azure-vms"></a>Discos do sistema operacional efêmero para VMs do Azure
 
@@ -51,7 +51,7 @@ Você pode implantar as imagens da VM e da instância até o tamanho do cache da
 Os discos efêmeros também exigem que o tamanho da VM dê suporte ao armazenamento Premium. Os tamanhos geralmente (mas nem sempre) têm um `s` no nome, como DSv2 e EsV3. Para obter mais informações, consulte [tamanhos de VM do Azure](sizes.md) para obter detalhes sobre quais tamanhos dão suporte ao armazenamento Premium.
 
 ## <a name="preview---ephemeral-os-disks-can-now-be-stored-on-temp-disks"></a>Visualização-OS discos do sistema operacional efêmero agora podem ser armazenados em discos temporários
-Os discos do sistema operacional efêmero agora podem ser armazenados no disco temporário/de recurso da VM, além do cache da VM. Então, agora você pode usar discos do sistema operacional efêmero com a VM que não tem um cache ou tem cache insuficiente, mas tem um disco temporário/de recursos para armazenar o disco do sistema operacional efêmero, como Dav3, Dav4, Eav4 e Eav3. Se uma VM tiver um espaço temporário e cache suficiente, você também poderá especificar onde deseja armazenar o disco do sistema operacional efêmero usando uma nova propriedade chamada [DiffDiskPlacement](/rest/api/compute/virtualmachines/list#diffdiskplacement). Esse recurso está atualmente na visualização. Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Para começar, [solicite o acesso](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6cQw0fZJzdIsnbfbI13601URTBCRUZPMkQwWFlCOTRIMFBSNkM1NVpQQS4u).
+Os discos do sistema operacional efêmero agora podem ser armazenados no disco temporário/de recurso da VM, além do cache da VM. Então, agora você pode usar discos do sistema operacional efêmero com a VM que não tem um cache ou tem cache insuficiente, mas tem um disco temporário/de recursos para armazenar o disco do sistema operacional efêmero, como Dav3, Dav4, Eav4 e Eav3. Se uma VM tiver um espaço temporário e cache suficiente, você também poderá especificar onde deseja armazenar o disco do sistema operacional efêmero usando uma nova propriedade chamada [DiffDiskPlacement](/rest/api/compute/virtualmachines/list#diffdiskplacement). Com esse recurso, quando uma VM do Windows é provisionada, configuramos o arquivo de paginação para estar localizado no disco do sistema operacional. Esse recurso está atualmente na visualização. Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Para começar, [solicite o acesso](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6cQw0fZJzdIsnbfbI13601URTBCRUZPMkQwWFlCOTRIMFBSNkM1NVpQQS4u).
 
 ## <a name="powershell"></a>PowerShell
 

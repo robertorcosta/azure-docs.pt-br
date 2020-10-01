@@ -6,21 +6,21 @@ ms.topic: tutorial
 ms.date: 03/13/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8eac40ad958a10b8c853304ee2be8b2dc27af1a2
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: b8eb8378480b8784939e3ab63327e73e3705c74a
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88008705"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526503"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Tutorial: Criar um pool de hosts para validar as atualizações de serviço
 
 >[!IMPORTANT]
 >Este conteúdo se aplica à Área de Trabalho Virtual do Windows com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver usando a Área de Trabalho Virtual do Windows (clássica), sem objetos do Azure Resource Manager, confira [este artigo](./virtual-desktop-fall-2019/create-validation-host-pool-2019.md).
 
-Pools de hosts são uma coleção de uma ou mais máquinas virtuais idênticas dentro dos ambientes de locatário da Área de Trabalho Virtual do Windows. Antes de implantar pools de host para seu ambiente de produção, é altamente recomendável criar um pool de host de validação. As atualizações são aplicadas primeiro para pools de host de validação, permitindo que você monitore atualizações de serviço antes de implantá-las em seu ambiente de produção. Sem um pool de host de validação, você pode não detectar alterações que apresentam erros, o que pode resultar em tempo de inatividade para os usuários em seu ambiente de produção.
+Os pools de host são uma coleção de uma ou mais máquinas virtuais idênticas no ambiente de Área de Trabalho Virtual do Windows. É altamente recomendável criar um pool de host de validação em que as atualizações de serviço são aplicadas primeiro. Isso permitirá monitorar as atualizações de serviço antes que o serviço as aplique ao ambiente padrão ou de não validação. Sem um pool de host de validação, você não poderá descobrir alterações que introduzam erros, o que poderá resultar em tempo de inatividade para os usuários em seu ambiente padrão.
 
-Para garantir que seus aplicativos funcionem com as atualizações mais recentes, o pool de host de validação deve ser o mais semelhante possível aos pools de host em seu ambiente de produção. Os usuários devem se conectar com frequência ao pool de host de validação como fazem com o pool de host de produção. Se você tiver testes automatizados em seu pool de host, deverá incluí-los no pool de host de validação.
+Para garantir que seus aplicativos funcionem com as atualizações mais recentes, o pool de host de validação deverá ser o mais semelhante possível aos pools de host do ambiente de não validação. Os usuários devem se conectar com frequência ao pool de host de validação como fazem com o pool de host padrão. Se você tiver testes automatizados em seu pool de host, deverá incluí-los no pool de host de validação.
 
 Você pode depurar problemas no pool de host de validação com o [recurso de diagnóstico](diagnostics-role-service.md) ou com os [artigos de para solucionar problemas da Área de Trabalho Virtual do Windows](troubleshoot-set-up-overview.md).
 

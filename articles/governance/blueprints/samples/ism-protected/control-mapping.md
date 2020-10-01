@@ -1,14 +1,14 @@
 ---
-title: Visão geral da amostra de blueprint ISM PROTECTED do governo australiano
-description: Visão geral da amostra de blueprint ISM PROTECTED do governo australiano. Este exemplo de blueprint ajuda os clientes a avaliar controles específicos do ISM PROTECTED.
-ms.date: 08/03/2020
+title: Controles do exemplo de blueprint ISM PROTECTED do governo australiano
+description: Mapeamento de controle de exemplo do blueprint ISM PROTECTED do governo australiano. Cada controle é mapeado para uma ou mais definições do Azure Policy que auxiliam na avaliação.
+ms.date: 09/11/2020
 ms.topic: sample
-ms.openlocfilehash: 750cc5551f0bbf05e0da6ad41d46729231243f72
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 605e92b75da1e5363884fc6ef9457251cfbc6e4e
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760423"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030099"
 ---
 # <a name="control-mapping-of-the-australian-government-ism-protected-blueprint-sample"></a>Mapeamento de controle da amostra de blueprint ISM PROTECTED do governo australiano
 
@@ -350,6 +350,10 @@ Este blueprint ajuda a restringir a localização da implantação de todos os r
 ## <a name="next-steps"></a>Próximas etapas
 
 Outros artigos sobre blueprints e como usá-los:
+
+> [!div class="nextstepaction"]
+> [Blueprint ISM PROTECTED – Visão geral](./index.md)
+> [Blueprint ISM PROTECTED – Etapas de implantação](./deploy.md)
 
 - Saiba mais sobre o [ciclo de vida do blueprint](../../concepts/lifecycle.md).
 - Saiba como usar [parâmetros estáticos e dinâmicos](../../concepts/parameters.md).

@@ -5,18 +5,18 @@ author: vhorne
 ms.service: web-application-firewall
 services: web-application-firewall
 ms.topic: tutorial
-ms.date: 03/10/2020
+ms.date: 09/15/2020
 ms.author: victorh
-ms.openlocfilehash: be66a93ea4a518b26d973d222caf58e73b6986a3
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7c7ea5297276ed9a1d1f2ca8f4190997dcab57c3
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79475834"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602210"
 ---
 # <a name="tutorial-create-a-web-application-firewall-policy-on-azure-front-door-using-the-azure-portal"></a>Tutorial: Criar uma política de Firewall do Aplicativo Web no Azure Front Door usando o portal do Azure
 
-Neste tutorial, você verá como criar uma política básica de WAF (Firewall do Aplicativo Web) do Azure e aplicá-la a um host de front-end no Azure Front Door.
+Este tutorial mostrará como criar uma política básica de WAF (Firewall de Aplicativo Web) do Azure e aplicá-la a um host de front-end no Azure Front Door.
 
 Neste tutorial, você aprenderá como:
 
@@ -68,7 +68,7 @@ Para ver o WAF na prática, altere as configurações de modo de **Detecção** 
 
 É possível criar uma regra personalizada selecionando **Adicionar regra personalizada** na seção **Regras personalizadas**. Desse modo, você iniciará a página de configuração de regras personalizadas. Veja abaixo um exemplo de como configurar uma regra personalizada para bloquear uma solicitação se a cadeia de caracteres de consulta contiver **blockme**.
 
-![Alterar o modo de política WAF](../media/waf-front-door-create-portal/customquerystring2.png)
+![Regras personalizadas](../media/waf-front-door-create-portal/customquerystring2.png)
 
 ### <a name="default-rule-set-drs"></a>DRS (Conjunto de Regras Padrão)
 
@@ -76,8 +76,11 @@ O Conjunto de Regras Padrão gerenciado pelo Azure é habilitado por padrão. Pa
 
  ![Alterar conjunto de regras de WAF](../media/waf-front-door-create-portal/managed2.png)
 
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Remova o grupo de recursos e todos os recursos relacionados quando eles não forem mais necessários.
+
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre o Firewall do Aplicativo Web do Azure](../overview.md)
 > [Saiba mais sobre o Azure Front Door](../../frontdoor/front-door-overview.md)

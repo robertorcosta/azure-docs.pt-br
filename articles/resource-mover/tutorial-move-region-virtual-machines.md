@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 49b7a3700bf497ad868b7c4ab1f0802564b61bf3
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 3a5489241aa15ce105dbe4d89086aff00373ca55
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89652197"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90603961"
 ---
 # <a name="tutorial-move-azure-vms-across-regions"></a>Tutorial: mover VMs do Azure entre regiões
 
@@ -68,9 +68,10 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 Selecione os recursos que deseja mover.
 
 - Todos os tipos de recursos compatíveis nos grupos de recursos dentro da região de origem selecionada são exibidos.
+- Os recursos que já foram adicionados para executar a movimentação entre as regiões não são exibidos.
 - Você moverá os recursos para uma região de destino na mesma assinatura que a região de origem. Se você quiser alterar a assinatura, poderá fazer isso depois que os recursos forem movidos.
 
-1. No portal do Azure, pesquise por *Resource Mover*. Em seguida, em **serviços**, selecione o **Azure Resource Mover**.
+1. No portal do Azure, pesquise por *Resource Mover*. Em seguida, em **Serviços**, selecione o **Azure Resource Mover**.
 
     ![Resultados da pesquisa por Resource Mover no portal do Azure](./media/tutorial-move-region-virtual-machines/search.png)
 
@@ -80,7 +81,6 @@ Selecione os recursos que deseja mover.
 
 3. Em **Mover recursos** > **Origem + Destino**, selecione a assinatura e a região de origem.
 4. Em **Destino**, selecione a região para a qual deseja mover as VMs. Em seguida, clique em **Próximo**.
-5. Em **Região de metadados**, selecione onde deseja armazenar os metadados sobre os recursos que você está movendo. Um grupo de recursos é criado especificamente para essa finalidade. Em seguida, clique em **Próximo**.
 
     ![Página para selecionar a região de origem e de destino](./media/tutorial-move-region-virtual-machines/source-target.png)
 
@@ -90,7 +90,7 @@ Selecione os recursos que deseja mover.
     ![Página para selecionar as VMs a serem movidas](./media/tutorial-move-region-virtual-machines/select-vm.png)
 
 8.  Em **Recursos a serem movidos**, clique **Próximo**.
-9. Em **Examinar + Adicionar**, verifique as configurações de origem e destino. Verifique se você entendeu que os metadados sobre a movimentação serão armazenados em um grupo de recursos criado para essa finalidade na região de metadados.
+9. Em **Examinar + Adicionar**, verifique as configurações de origem e destino. 
 
     ![Página para examinar as configurações e prosseguir com a movimentação](./media/tutorial-move-region-virtual-machines/review.png)
 10. Clique em **Prosseguir**, para começar a adicionar os recursos.
@@ -235,7 +235,8 @@ Se você quiser concluir o processo de movimentação, confirme a movimentação
 
 ## <a name="configure-settings-after-the-move"></a>Definir as configurações após a movimentação
 
-O serviço Mobilidade não é desinstalado automaticamente das VMs. Desinstale-o manualmente ou deixe-o instalado caso planeje mover o servidor novamente.
+- O serviço Mobilidade não é desinstalado automaticamente das VMs. Desinstale-o manualmente ou deixe-o instalado caso planeje mover o servidor novamente.
+- Modifique as regras do Azure RBAC (controle de acesso baseado em função do Azure) após a movimentação.
 
 ## <a name="delete-source-resources-after-commit"></a>Excluir recursos de origem após a confirmação
 

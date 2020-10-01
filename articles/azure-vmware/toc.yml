@@ -40,6 +40,8 @@
   items:
     - name: Habilitar a Solução VMware no Azure
       href: enable-azure-vmware-solution.md
+    - name: Economize custos com uma instância reservada
+      href: reserved-instance.md
     - name: Avaliação da migração
       href: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=/azure/migrate/context/migrate-context.json
     - name: Configurar HCX

@@ -69,6 +69,8 @@
           href: export-from-microsoft-flow-logic-app-template.md
         - name: Criar fluxos de trabalho com ou sem estado no Visual Studio Code
           href: create-stateful-stateless-workflows-visual-studio-code.md
+        - name: Chamar aplicativos lógicos do Power Automate e do Power Apps
+          href: call-logic-apps-from-power-automate-power-apps.md
         - name: Controlar a execução do fluxo de trabalho
           items:
             - name: Instruções de condição

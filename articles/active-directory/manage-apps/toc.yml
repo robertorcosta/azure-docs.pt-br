@@ -26,7 +26,7 @@
       href: delete-application-portal.md
 - name: Tutoriais
   items:
-    - name: 'Aplicativos integrados da galeria (por exemplo, ServiceNow, Salesforce, Dropbox)'
+    - name: Lista de aplicativos pré-configurados
       href: /azure/active-directory/saas-apps/
     - name: Adicionar um aplicativo local por meio do Proxy de Aplicativo
       href: application-proxy-add-on-premises-application.md
@@ -142,7 +142,7 @@
       items:
         - name: Recursos de migração
           href: migration-resources.md
-        - name: Migrar um aplicativo do ADFS para o Azure
+        - name: Migrar um aplicativo AD FS para o Azure
           href: migrate-adfs-apps-to-azure.md
         - name: Usar o relatório de atividade do aplicativo do AD FS (versão prévia)
           href: migrate-adfs-application-activity.md

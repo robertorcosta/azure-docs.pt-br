@@ -232,6 +232,8 @@
               href: how-to-use-perfinsights.md
             - name: Extensão de diagnóstico de desempenho
               href: performance-diagnostics-vm-extension.md
+            - name: Solucionar problemas de alta utilização de CPU para a Máquina Virtual do Windows do Azure
+              href: troubleshoot-high-cpu-issues-azure-windows-vm.md
         - name: Linux
           items:
             - name: Como usar o PerfInsights

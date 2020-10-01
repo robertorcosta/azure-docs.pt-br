@@ -6,12 +6,12 @@ ms.author: sudbalas
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 08/25/2020
-ms.openlocfilehash: bfcaf9d4b1d03457f2e4cddd2e0eaf9d9d58eee2
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: f77d197c30d00083b280a97079fe03146fcfeb82
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88869177"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061794"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>Tutorial: Configurar e executar o provedor do Azure Key Vault para o driver da Secrets Store CSI no Kubernetes
 
@@ -70,7 +70,7 @@ Conclua as seções "Criar um grupo de recursos", "Criar cluster do AKS" e "Cone
     ```azurecli
     kubectl version
     ```
-1. Sua versão do Kubernetes deve ser a 1.16.0 ou superior. O comando a seguir atualiza o cluster do Kubernetes e o pool de nós. O comando pode levar alguns minutos para ser executado. Neste exemplo, o grupo de recursos é *contosoResourceGroup* e o cluster do Kubernetes é *contosoAKSCluster*.
+1. Sua versão do Kubernetes deve ser a 1.16.0 ou superior. Para clusters do Windows, a sua versão do Kubernetes deve ser a 1.18.0 ou superior. O comando a seguir atualiza o cluster do Kubernetes e o pool de nós. O comando pode levar alguns minutos para ser executado. Neste exemplo, o grupo de recursos é *contosoResourceGroup* e o cluster do Kubernetes é *contosoAKSCluster*.
     ```azurecli
     az aks upgrade --kubernetes-version 1.16.9 --name contosoAKSCluster --resource-group contosoResourceGroup
     ```
@@ -110,18 +110,20 @@ Para criar seu próprio cofre de chaves e definir seus segredos, siga as instru�
 
 ## <a name="create-your-own-secretproviderclass-object"></a>Criar seu próprio objeto SecretProviderClass
 
-Para criar seu próprio objeto SecretProviderClass personalizado com parâmetros específicos do provedor para o driver da Secrets Store CSI, [use este modelo](https://github.com/Azure/secrets-store-csi-driver-provider-azure/blob/master/test/bats/tests/azure_v1alpha1_secretproviderclass.yaml). Esse objeto fornecerá acesso de identidade ao seu cofre de chaves.
+Para criar seu próprio objeto SecretProviderClass personalizado com parâmetros específicos do provedor para o driver da Secrets Store CSI, [use este modelo](https://github.com/Azure/secrets-store-csi-driver-provider-azure/blob/master/examples/v1alpha1_secretproviderclass_service_principal.yaml). Esse objeto fornecerá acesso de identidade ao seu cofre de chaves.
 
 No arquivo YAML SecretProviderClass de exemplo, preencha os parâmetros ausentes. Os seguintes parâmetros são necessários:
 
-* **userAssignedIdentityID**: ID do cliente da entidade de serviço
+* **userAssignedIdentityID**: # [OBRIGATÓRIO] Se você estiver usando uma entidade de serviço, use a ID do cliente para especificar qual identidade gerenciada atribuída pelo usuário deve ser usada. Se você estiver usando uma identidade atribuída pelo usuário como a identidade gerenciada da VM, especifique a ID do cliente da identidade. Se o valor estiver vazio, o padrão será usar a identidade atribuída pelo sistema na VM 
 * **keyvaultName**: o nome de seu cofre de chaves
 * **objects**: o conteúdo com todo o conteúdo secreto que você deseja montar
     * **objectName**: o nome do conteúdo secreto
     * **objectType**: o tipo de objeto (segredo, chave, certificado)
-* **resourceGroup**: o nome do grupo de recursos
-* **subscriptionId**: a ID da assinatura de seu cofre de chaves
+* **resourceGroup**: O nome do grupo de recursos. # [OBRIGATÓRIO para versões < 0.0.4] O grupo de recursos do KeyVault
+* **subscriptionId**: A ID da assinatura do cofre de chaves. # [OBRIGATÓRIO para versões < 0.0.4] A ID da assinatura do KeyVault
 * **tenantID**: a ID do locatário ou a ID do diretório de seu cofre de chaves
+
+A documentação de todos os campos obrigatórios está disponível aqui: [Link](https://github.com/Azure/secrets-store-csi-driver-provider-azure#create-a-new-azure-key-vault-resource-or-use-an-existing-one)
 
 O modelo atualizado é mostrado no código a seguir. Baixe-o como um arquivo YAML e preencha os campos obrigatórios. Neste exemplo, o cofre de chaves é **contosoKeyVault5**. Ele tem dois segredos, **secret1** e **secret2**.
 
@@ -210,6 +212,11 @@ Se estiver usando identidades gerenciadas, atribua funções específicas ao clu
 1. Para criar, listar ou ler uma identidade gerenciada atribuída pelo usuário, seu cluster do AKS precisa ter a função de [Operador de Identidade Gerenciada](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator). Verifique se a **$clientId** é a do cluster do Kubernetes. Para o escopo, ele estará sob seu serviço de assinatura do Azure, especificamente, o grupo de recursos do nó que foi gerado quando o cluster AKS foi criado. Esse escopo garantirá que apenas os recursos dentro desse grupo sejam afetados pelas funções atribuídas a seguir. 
 
     ```azurecli
+    RESOURCE_GROUP=contosoResourceGroup
+    az role assignment create --role "Managed Identity Operator" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$RESOURCE_GROUP
+
+    az role assignment create --role "Virtual Machine Contributor" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$RESOURCE_GROUP
+    
     az role assignment create --role "Managed Identity Operator" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP
     
     az role assignment create --role "Virtual Machine Contributor" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP
@@ -304,6 +311,8 @@ spec:
         readOnly: true
         volumeAttributes:
           secretProviderClass: azure-kvname
+          nodePublishSecretRef:
+              name: secrets-store-creds 
 ```
 
 Execute o seguinte comando para implantar o pod:

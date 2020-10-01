@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/28/2020
+ms.date: 08/24/2020
 ms.author: jeedes
-ms.openlocfilehash: fdea1f3b2d4cff0203951b6ec5ef6b86b62cdf9c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a631ab7190891ae3716a28615bcdbfe4d219ea27
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88527472"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90053405"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-slack"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory com o Slack
 
@@ -50,6 +50,9 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 * O Slack dá suporte ao [provisionamento **automatizado** de usuários](https://docs.microsoft.com/azure/active-directory/saas-apps/slack-provisioning-tutorial)
 * Depois de configurar o Slack, você poderá impor um controle de sessão, que fornece proteção contra o vazamento e a infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
+> [!NOTE]
+> O identificador desse aplicativo é um valor de cadeia de caracteres fixo; portanto apenas uma instância pode ser configurada em um locatário.
+
 ## <a name="adding-slack-from-the-gallery"></a>Adicionar o Slack da galeria
 
 Para configurar a integração do Slack ao Azure AD, você precisa adicionar o Slack por meio da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -61,7 +64,7 @@ Para configurar a integração do Slack ao Azure AD, você precisa adicionar o S
 1. Na seção **Adicionar da galeria**, digite **Slack** na caixa de pesquisa.
 1. Selecione **Slack** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-slack"></a>Configurar e testar o logon único do Azure AD para o Slack
+## <a name="configure-and-test-azure-ad-sso-for-slack"></a>Configurar e testar o SSO do Azure AD para o Slack
 
 Configure e teste o SSO do Azure AD com o Slack usando um usuário de teste chamado **B.Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Slack.
 
@@ -86,13 +89,20 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Na seção **Configuração Básica do SAML**, insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://< DOMAIN NAME>.slack.com/sso/saml/start`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<DOMAIN NAME>.slack.com/sso/saml/start`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL: `https://slack.com`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite a URL: `https://slack.com`
+    
+    c. Para a **URL de Resposta**, insira um dos seguintes padrões de URLs:
+    
+    | URL de resposta|
+    |----------|
+    | `https://<DOMAIN NAME>.slack.com/sso/saml` |
+    | `https://<DOMAIN NAME>.enterprise.slack.com/sso/saml` |
 
     > [!NOTE]
-    > O valor da URL de Entrada não é real. Atualize o valor com a URL de Entrada real. Contate a [equipe de suporte ao cliente do Slack](https://slack.com/help/contact) para obter o valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
-    
+    > Esses valores não são reais. Você precisa atualizar esses valores com a URL de Entrada e a URL de Resposta reais. Contate a [equipe de suporte ao cliente do Slack](https://slack.com/help/contact) para obter o valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
+
     > [!NOTE]
     > O valor para **Identificador (ID da Entidade)** poderá ser uma variável se você tiver mais de uma instância do Slack que precise ser integrada ao locatário. Use o padrão `https://<DOMAIN NAME>.slack.com`. Nesse cenário, você também precisa emparelhar com outra configuração no Slack usando o mesmo valor.
 
@@ -106,7 +116,6 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     | -----|---------|
     | emailaddress | user.userprincipalname |
     | email | user.userprincipalname |
-    | | |
 
    > [!NOTE]
    > Para definir a configuração do SP (provedor de serviços), você deve clicar em **Expandir** ao lado de **Opções Avançadas** na página de configuração de SAML. Na caixa **Emissor do Provedor de Serviços**, insira a URL do workspace. O padrão é slack.com. 
@@ -155,15 +164,15 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
 2. Navegue até **Microsoft Azure AD** e depois em **Configurações de Equipe**.
 
-     ![Configurar o logon único no lado do aplicativo](./media/slack-tutorial/tutorial-slack-team-settings.png)
+     ![Configurar o logon único no Microsoft Azure AD](./media/slack-tutorial/tutorial-slack-team-settings.png)
 
 3. Na seção **Configurações de Equipe**, clique na guia **Autenticação** e em **Alterar Configurações**.
 
-    ![Configurar o logon único no lado do aplicativo](./media/slack-tutorial/tutorial-slack-authentication.png)
+    ![Configurar o logon único nas Configurações da Equipe](./media/slack-tutorial/tutorial-slack-authentication.png)
 
 4. No diálogo **Configurações de Autenticação SAML** , realize as seguintes etapas:
 
-    ![Configurar o logon único no lado do aplicativo](./media/slack-tutorial/tutorial-slack-save-authentication.png)
+    ![Configurar o logon único das Configurações de Autenticação do SAML](./media/slack-tutorial/tutorial-slack-save-authentication.png)
 
     a.  Na caixa de texto **Ponto de Extremidade do SAML 2.0 (HTTP)** , cole o valor da **URL de Logon** copiado do portal do Azure.
 

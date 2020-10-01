@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 5582056f1bae2dbeb69a7d05044f055ff1394bd5
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: ebc6ca630ea3cabb519805ae8505abf336a2a9ea
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88244662"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604284"
 ---
 # <a name="tutorial-use-custom-vision-with-an-iot-device-to-report-visual-states"></a>Tutorial: usar a Visão Personalizada com um dispositivo IoT para relatar estados visuais
 
@@ -52,7 +52,7 @@ O aplicativo Alertas Visuais da IoT é executado em loop contínuo, alternando e
 * **Aguardando o modelo treinado**: nesse estado, o aplicativo chama a API da Visão Personalizada a cada segundo para verificar se o projeto de destino contém uma iteração treinada. Ao encontrar uma, baixa o modelo do ONNX correspondente em um arquivo local e alterna para o estado **Pontuação**.
 * **Pontuação**: nesse estado o aplicativo usa o Azure Machine Learning para avaliar um único quadro da câmera em relação ao modelo local do ONNX. A classificação da imagem resultante é exibida na tela e enviada como uma mensagem ao Hub IoT. O aplicativo é suspenso por um segundo antes de pontuar uma nova imagem.
 
-## <a name="understand-the-code-structure"></a>Reconhecer a estrutura de código
+## <a name="examine-the-code-structure"></a>Examinar a estrutura de código
 
 Os arquivos a seguir tratam da principal funcionalidade do aplicativo.
 
@@ -98,13 +98,13 @@ Enquanto o aplicativo estiver capturando imagens, você deverá expor a câmera 
 
 ## <a name="train-the-custom-vision-model"></a>Treinar o modelo de Visão Personalizada
 
-Depois que o aplicativo terminar de capturar as imagens, ele as carregará e, em seguida, alternará para o estado **Aguardando o modelo treinado**. Nesse ponto, você precisa acessar o [Portal da Visão Personalizada](https://www.customvision.ai/) e criar um modelo com base nas novas imagens de treinamento. A animação a seguir mostra um exemplo desse processo.
+Depois que o aplicativo terminar de capturar as imagens, ele as carregará e, em seguida, alternará para o estado **Aguardando o modelo treinado**. Nesse momento, será necessário acessar o [Site Visão Personalizada](https://www.customvision.ai/) e criar um modelo baseado nas novas imagens de treinamento. A animação a seguir mostra um exemplo desse processo.
 
 ![Animação: marca de várias imagens de bananas](./media/iot-visual-alerts-tutorial/labeling.gif)
 
 Para repetir esse processo com seu próprio cenário:
 
-1. Entre no [Portal da Visão Personalizada](http://customvision.ai).
+1. Entre no [Site Visão Personalizada](http://customvision.ai).
 1. Localize seu projeto de destino, que agora deve ter todas as imagens de treinamento carregadas pelo aplicativo.
 1. Para cada estado visual que você deseja identificar, selecione as imagens apropriadas e aplique a marca manualmente.
     * Por exemplo, se sua meta é distinguir entre uma sala vazia e uma sala com pessoas, é recomendável marcar cinco ou mais imagens com pessoas como uma nova classe, **Pessoas**, e marcar cinco ou mais imagens sem pessoas como a marca **Negativa**. Isso ajudará o modelo a diferenciar entre os dois estados.

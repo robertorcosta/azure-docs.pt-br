@@ -3,15 +3,15 @@ title: Portal do Azure do pool de host da Área de Trabalho Virtual do Windows �
 description: Como criar um pool de host da Área de Trabalho Virtual do Windows usando o portal do Azure.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 09/01/2020
+ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b6d54c226dd3a156ff6164f87fc755aac3dd040c
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: da944f74fd6214e1b69a3ee7d230e72accd4e2e4
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322578"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084355"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Tutorial: Criar um pool de host com o portal do Azure
 
@@ -188,6 +188,13 @@ Para registrar o grupo de aplicativos da área de trabalho em um workspace:
      - Um link de download para um modelo de gerenciamento de recursos do Azure com base em sua configuração.
 
 Depois disso, está tudo pronto.
+
+## <a name="run-the-azure-resource-manager-template-to-provision-a-new-host-pool"></a>Executar o modelo do Azure Resource Manager para provisionar um novo pool de host
+
+Se você preferir usar um processo automatizado, [baixe nosso modelo de Azure Resource Manager](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates) para provisionar o seu novo pool de host.
+
+>[!NOTE]
+>Se você estiver usando um processo automatizado para criar o seu ambiente, precisará da versão mais recente do arquivo JSON de configuração. Você pode localizar o arquivo JSON [aqui](https://wvdportalstorageblob.blob.core.windows.net/galleryartifacts?restype=container&comp=list).
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/29/2018
+ms.date: 09/30/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c88f3cdc880888162301ace5c896161f669d2ede
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 9b25f2691646192faf4d4c133835b456038abd94
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89269192"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611921"
 ---
 # <a name="view-the-service-principal-of-a-managed-identity-in-the-azure-portal"></a>Exibir a entidade de serviço de uma identidade gerenciada no portal do Azure
 
@@ -43,7 +43,7 @@ Esse procedimento demonstra como exibir a entidade de serviço de uma VM com a i
 
 1. Clique no **Azure Active Directory** e, em seguida, clique em **Aplicativos empresariais**.
 2. Em **tipo de aplicativo**, escolha **todos os aplicativos** e clique em **aplicar**.
-3. Na caixa de filtro de pesquisa, digite o nome da VM ou aplicativo que tem identidade gerenciada habilitada ou escolha-o na lista apresentada.
+3. Na caixa filtro de pesquisa, digite o nome do recurso do Azure que tem a identidade gerenciada habilitada ou escolha-o na lista apresentada.
 
    ![Exibir as entidades gerenciadas de serviço de identidade no portal](./media/how-to-view-managed-identity-service-principal-portal/view-managed-identity-service-principal-portal.png)
 

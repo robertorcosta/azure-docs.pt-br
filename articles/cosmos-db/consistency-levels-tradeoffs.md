@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 3c82edd73921e11cd2f43a0d609624267af81575
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: b96902603deca4b7a184659e6274d65f02ac712d
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91570068"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613519"
 ---
 # <a name="latency-availability-and-performance-tradeoffs-with-different-azure-cosmos-db-consistency-levels"></a>Latência, disponibilidade e compensações de desempenho com diferentes níveis de consistência de Azure Cosmos DB
 
@@ -65,12 +65,12 @@ A tabela a seguir define a relação entre o modelo de consistência e a durabil
 
 |**Região (ões)**|**Modo de replicação**|**Nível de consistência**|**RPO**|**RTO**|
 |---------|---------|---------|---------|---------|
-|1|Único ou vários mestres|Qualquer nível de consistência|< 240 minutos|< 1 semana|
-|> 1|Único mestre|Sessão, Prefixo Consistente, Eventual|< 15 minutos|< 15 minutos|
-|> 1|Único mestre|Desatualização limitada|*K*  &  *T*|< 15 minutos|
-|> 1|Único mestre|Forte|0|< 15 minutos|
-|> 1|Vários mestres|Sessão, Prefixo Consistente, Eventual|< 15 minutos|0|
-|> 1|Vários mestres|Desatualização limitada|*K*  &  *T*|0|
+|1|Uma ou várias regiões de gravação|Qualquer nível de consistência|< 240 minutos|< 1 semana|
+|> 1|Região de gravação única|Sessão, Prefixo Consistente, Eventual|< 15 minutos|< 15 minutos|
+|> 1|Região de gravação única|Desatualização limitada|*K*  &  *T*|< 15 minutos|
+|> 1|Região de gravação única|Forte|0|< 15 minutos|
+|> 1|Várias regiões de gravação|Sessão, Prefixo Consistente, Eventual|< 15 minutos|0|
+|> 1|Várias regiões de gravação|Desatualização limitada|*K*  &  *T*|0|
 
 *K* = o número de versões *"K"* (ou seja, atualizações) de um item.
 

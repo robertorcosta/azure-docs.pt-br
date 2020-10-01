@@ -5,15 +5,15 @@ description: Este artigo fornece uma visão geral do WAF (Firewall do Aplicativo
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 08/31/2020
+ms.date: 09/16/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: e3b7e3ae10afd45105358743ef1fc0f4c6d14e78
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 659e7fcdbd2284110282d14fc89bd4d8d5ac2472
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226991"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91267016"
 ---
 # <a name="what-is-azure-web-application-firewall-on-azure-application-gateway"></a>O que é o Firewall do aplicativo Web do Azure no Gateway de Aplicativo do Azure?
 
@@ -75,9 +75,21 @@ Esta seção descreve os principais benefícios oferecidos pelo WAF no Gateway d
 - Filtre o tráfego pela geografia para permitir ou impedir que determinados países/regiões tenham acesso a seus aplicativos. (versão prévia)
 - Proteja seus aplicativos de bots com o conjunto de regras de mitigação de bots. (versão prévia)
 
-## <a name="waf-policy"></a>Política do WAF
+## <a name="waf-policy-and-rules"></a>Política e regras do WAF
 
-Para habilitar um firewall do aplicativo Web em um Gateway de Aplicativo, você deve criar uma política de WAF. Essa política é onde existem todas as regras gerenciadas, regras personalizadas, exclusões e outras personalizações, como o limite de carregamento de arquivos. 
+Para habilitar um Firewall de Aplicativo Web em um Gateway de Aplicativo, crie uma política de WAF. Essa política é o local em que se encontram todas as regras gerenciadas, as regras personalizadas, as exclusões e outras personalizações, como o limite de upload de arquivos.
+
+Você pode configurar uma política de WAF e associá-la a um ou mais gateways de aplicativo para proteção. Uma política do WAF consiste em dois tipos de regras de segurança:
+
+- Regras personalizadas criadas por você
+
+- Conjuntos de regras gerenciados que são uma coleção do conjunto de regras pré-configurado gerenciado pelo Azure
+
+Quando ambas estiverem presentes, as regras personalizadas serão processadas antes das regras em um conjunto de regras gerenciado. Uma regra é composta por uma condição de correspondência, uma prioridade e uma ação. Os tipos de ação com suporte são: ALLOW, BLOCK e LOG. Você pode criar uma política totalmente personalizada que atenda aos seus requisitos de proteção de aplicativo específicos combinando regras gerenciadas e personalizadas.
+
+As regras em uma política são processadas em uma ordem de prioridade. A prioridade é um inteiro exclusivo que define a ordem de regras a serem processadas. Um valor inteiro menor denota uma prioridade maior. Essas regras são avaliadas antes daquelas com um valor inteiro mais alto. Quando há correspondência de uma regra, a ação relevante definida na regra é aplicada à solicitação. Depois de essa correspondência ser processada, as regras com prioridades menores não serão mais processadas.
+
+Um aplicativo Web entregue pelo Gateway de Aplicativo pode ter uma política de WAF associada no nível global, em um nível por site ou em um nível por URI.
 
 ### <a name="core-rule-sets"></a>Conjuntos de regras principais
 
@@ -159,6 +171,11 @@ Com a pasta de trabalho interna de eventos de firewall WAF do Azure, você poder
 
 
 ![Pasta de trabalho de eventos de firewall do WAF do Azure](../media/ag-overview/sentinel.png)
+
+
+#### <a name="azure-monitor-workbook-for-waf"></a>Pasta de trabalho do Azure Monitor para o WAF
+
+Esta pasta de trabalho permite a visualização personalizada de eventos do WAF relevantes para a segurança em vários painéis filtráveis. Ela funciona com todos os tipos de WAF, incluindo o Gateway de Aplicativo, o Front Door e a CDN, podendo ser filtrada com base no tipo de WAF ou em uma instância de WAF específica. Faça a importação por meio de um modelo do ARM ou um modelo da Galeria. Para implantar essa pasta de trabalho, confira [Pasta de trabalho do WAF](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20WAF/Azure%20Monitor%20Workbook).
 
 #### <a name="logging"></a>Registro em log
 

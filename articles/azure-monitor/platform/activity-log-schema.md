@@ -4,15 +4,15 @@ description: Descreve o esquema de evento para cada categoria no log de atividad
 author: bwren
 services: azure-monitor
 ms.topic: reference
-ms.date: 06/09/2020
+ms.date: 09/30/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 656161849ce8d48fb15cfac4024ec5b77adb5fee
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 52f0db4086bac7c8131015114ea6ecfdc391a4af
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829502"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91612754"
 ---
 # <a name="azure-activity-log-event-schema"></a>Esquema sobre eventos do Log de Atividades do Azure
 O [log de atividades do Azure](platform-logs-overview.md) fornece informações sobre qualquer evento de nível de assinatura que ocorreu no Azure. Este artigo descreve as categorias de log de atividades e o esquema para cada uma. 
@@ -23,6 +23,17 @@ O esquema irá variar dependendo de como você acessa o log:
 - Consulte o [esquema de seção final da conta de armazenamento e dos hubs de eventos](#schema-from-storage-account-and-event-hubs) para o esquema quando você usa uma configuração de [diagnóstico](diagnostic-settings.md) para enviar o log de atividades para o armazenamento do Azure ou hubs de eventos do Azure.
 - Consulte [Azure monitor referência de dados](/azure/azure-monitor/reference/) para o esquema ao usar uma [configuração de diagnóstico](diagnostic-settings.md) para enviar o log de atividades para um espaço de trabalho do log Analytics.
 
+## <a name="severity-level"></a>Nível de severidade
+Cada entrada no log de atividades tem um nível de severidade. O nível de severidade pode ter um dos seguintes valores:  
+
+| Severidade | Descrição |
+|:---|:---|
+| Crítico | Eventos que exigem a atenção imediata de um administrador do sistema. Pode indicar que um aplicativo ou sistema falhou ou parou de responder.
+| Erro | Eventos que indicam um problema, mas não exigem atenção imediata.
+| Aviso | Eventos que fornecem forewarning de possíveis problemas, embora não seja um erro real. Indique que um recurso não está em um estado ideal e possa diminuir mais tarde para mostrar erros ou eventos críticos.  
+| Informativo | Eventos que passam informações não críticas para o administrador. Semelhante a uma observação que diz: "para suas informações". 
+
+O devlopers de cada provedor de recursos escolhe os níveis de severidade de suas entradas de recurso. Como resultado, a severidade real para você pode variar dependendo de como seu aplicativo é criado. Por exemplo, itens que são "críticos" para um recurso específico realizado em isloation podem não ser tão importantes quanto "erros" em um tipo de recurso que é fundamental para seu aplicativo do Azure. Certifique-se de considerar esse fato ao decidir quais eventos alertar.  
 
 ## <a name="categories"></a>Categorias
 Cada evento no log de atividades tem uma categoria específica que são descritas na tabela a seguir. Consulte as seções abaixo para obter mais detalhes sobre cada categoria e seu esquema ao acessar o log de atividades do portal, do PowerShell, da CLI e da API REST. O esquema é diferente quando você [transmite o log de atividades para o armazenamento ou hubs de eventos](./resource-logs.md#send-to-azure-event-hubs). Um mapeamento das propriedades para o [esquema de logs de recursos](./resource-logs-schema.md) é fornecido na última seção do artigo.
@@ -137,7 +148,7 @@ Essa categoria contém o registro de todas as operações de criação, atualiza
 | canais |Um dos seguintes valores: "Admin", "Operação" |
 | declarações |O token JWT usado pelo Active Directory para autenticar o usuário ou o aplicativo a fim de executar essa operação no Resource Manager. |
 | correlationId |Geralmente, um GUID no formato de cadeia de caracteres. Os eventos que compartilham um correlationId pertencem à mesma ação superior. |
-| descrição |Descrição de texto estático de um evento. |
+| description |Descrição de texto estático de um evento. |
 | eventDataId |Identificador exclusivo de um evento. |
 | eventName | Nome amigável do evento administrativo. |
 | category | Sempre "administrativo" |
@@ -281,7 +292,7 @@ Esta categoria contém o registro de qualquer evento de integridade do recurso o
 | --- | --- |
 | canais | Sempre "Administrador, Operação" |
 | correlationId | Um GUID no formato de cadeia de caracteres. |
-| descrição |Descrição de texto estático do evento de alerta. |
+| description |Descrição de texto estático do evento de alerta. |
 | eventDataId |Identificador exclusivo do alerta de evento. |
 | category | Sempre "ResourceHealth" |
 | eventTimestamp |Carimbo de hora quando o evento foi gerado pelo serviço do Azure que está processando a solicitação correspondente ao evento. |
@@ -376,7 +387,7 @@ Essa categoria contém o registro de todas as ativações de alertas clássicos 
 | canais | Sempre "Administrador, Operação" |
 | declarações | Blob JSON com o SPN (nome da entidade de serviço) ou tipo de recurso do mecanismo de alerta. |
 | correlationId | Um GUID no formato de cadeia de caracteres. |
-| descrição |Descrição de texto estático do evento de alerta. |
+| description |Descrição de texto estático do evento de alerta. |
 | eventDataId |Identificador exclusivo do alerta de evento. |
 | category | Sempre "alerta" |
 | nível |Nível do evento. Um dos seguintes valores: “Crítico”, “Erro”, “Aviso” e “Informativo” |
@@ -486,7 +497,7 @@ Essa categoria contém o registro de todos os eventos relacionados à operação
 | canais | Sempre "Administrador, Operação" |
 | declarações | Blob JSON com o SPN (nome da entidade de serviço) ou tipo de recurso do mecanismo de dimensionamento automático. |
 | correlationId | Um GUID no formato de cadeia de caracteres. |
-| descrição |Descrição de texto estático do evento de dimensionamento automático. |
+| description |Descrição de texto estático do evento de dimensionamento automático. |
 | eventDataId |Identificador exclusivo do evento de dimensionamento automático. |
 | nível |Nível do evento. Um dos seguintes valores: “Crítico”, “Erro”, “Aviso” e “Informativo” |
 | resourceGroupName |Nome do grupo de recursos para a configuração de dimensionamento automático. |
@@ -574,7 +585,7 @@ Esta categoria contém o registro de todos os alertas gerados pela Central de Se
 | --- | --- |
 | canais | Sempre "Operação" |
 | correlationId | Um GUID no formato de cadeia de caracteres. |
-| descrição |Descrição de texto estático do evento de segurança. |
+| description |Descrição de texto estático do evento de segurança. |
 | eventDataId |Identificador exclusivo do evento de segurança. |
 | eventName |Nome amigável do evento de segurança. |
 | category | Sempre "segurança" |
@@ -655,7 +666,7 @@ Esta categoria contém o registro das novas recomendações geradas para os serv
 | --- | --- |
 | canais | Sempre "Operação" |
 | correlationId | Um GUID no formato de cadeia de caracteres. |
-| descrição |Descrição de texto estático do evento de recomendação |
+| description |Descrição de texto estático do evento de recomendação |
 | eventDataId | Identificador exclusivo do evento de recomendação. |
 | category | Sempre "Recomendação" |
 | ID |Identificador exclusivo do recurso do evento de recomendação. |
@@ -768,7 +779,7 @@ Essa categoria contém registros de todas as operações de ação de efeito exe
 | canais | Eventos do Policy usam apenas o canal "Operation". |
 | declarações | O token JWT usado pelo Active Directory para autenticar o usuário ou o aplicativo a fim de executar essa operação no Resource Manager. |
 | correlationId | Geralmente, um GUID no formato de cadeia de caracteres. Os eventos que compartilham um correlationId pertencem à mesma ação superior. |
-| descrição | Este campo fica em branco para eventos do Policy. |
+| description | Este campo fica em branco para eventos do Policy. |
 | eventDataId | Identificador exclusivo de um evento. |
 | eventName | "BeginRequest" ou "EndRequest". "BeginRequest" é usado para avaliações de auditIfNotExists e deployIfNotExists atrasadas e quando um efeito deployIfNotExists inicia uma implantação de modelo. Todas as outras operações retornam "EndRequest". |
 | category | Declara um evento de log de atividades como pertencente a "Policy". |
@@ -801,13 +812,13 @@ Ao transmitir o log de atividades do Azure para uma conta de armazenamento ou Hu
 
 | Propriedade de esquema dos logs de recursos | Propriedade de esquema da API REST do Log de Atividades | Observações |
 | --- | --- | --- |
-| time | eventTimestamp |  |
+| hora | eventTimestamp |  |
 | resourceId | resourceId | subscriptionId, resourceType e resourceGroupName são todos inferidos da resourceId. |
 | operationName | operationName.value |  |
 | category | Parte do nome da operação | Detalhamento do tipo de operação – "Gravação"/"Exclusão"/"Ação" |
 | resultType | status.value | |
 | resultSignature | substatus.value | |
-| resultDescription | descrição |  |
+| resultDescription | description |  |
 | durationMs | N/D | Sempre 0 |
 | callerIpAddress | httpRequest.clientIpAddress |  |
 | correlationId | correlationId |  |

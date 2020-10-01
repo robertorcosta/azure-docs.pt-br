@@ -4,14 +4,14 @@ description: Como gerenciar e atualizar o cache HPC do Azure usando o portal do 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 07/08/2020
+ms.date: 08/31/2020
 ms.author: v-erkel
-ms.openlocfilehash: 66b084cca3d1cd54362a538423988755a3d31ced
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 19950ca215abbac3a56bdb901448c9d92ad369be
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497208"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613026"
 ---
 # <a name="manage-your-cache"></a>Gerenciar seu cache
 
@@ -28,6 +28,7 @@ Os botões na parte superior da página podem ajudá-lo a gerenciar o cache:
 * **Iniciar** e [**parar**](#stop-the-cache) – retoma ou suspende a operação de cache
 * [**Flush**](#flush-cached-data) -grava dados alterados para destinos de armazenamento
 * [**Atualização**](#upgrade-cache-software) – atualiza o software de cache
+* [**Coletar diagnóstico**](#collect-diagnostics) – carrega informações de depuração
 * **Atualizar** – recarrega a página Visão geral
 * [**Excluir**](#delete-the-cache) – destrói permanentemente o cache
 
@@ -196,6 +197,16 @@ $
 ```
 
 ---
+
+## <a name="collect-diagnostics"></a>Coletar diagnóstico
+
+O botão **coletar diagnósticos** inicia manualmente o processo para coletar informações do sistema e carregá-lo para o serviço Microsoft e o suporte para solução de problemas. O cache coleta e carrega automaticamente as mesmas informações de diagnóstico se ocorre um problema grave de cache.
+
+Use este controle se o serviço da Microsoft e o suporte solicitarem.
+
+Depois de clicar no botão, clique em **Sim** para confirmar o carregamento.
+
+![captura de tela da mensagem de confirmação de pop-up ' Iniciar coleta de diagnóstico '. O botão padrão ' Sim ' está realçado.](media/diagnostics-confirm.png)
 
 ## <a name="delete-the-cache"></a>Excluir o cache
 

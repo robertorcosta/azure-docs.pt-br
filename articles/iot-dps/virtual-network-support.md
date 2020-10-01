@@ -7,12 +7,12 @@ ms.service: iot-dps
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: wesmc
-ms.openlocfilehash: 8912ef907641367bda89d7c0e98f9da811c6e577
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 43d7b3ae906909312a9e9ec4517061a788267a0c
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534593"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91612771"
 ---
 # <a name="azure-iot-hub-device-provisioning-service-dps-support-for-virtual-networks"></a>Suporte do DPS (serviço de provisionamento de dispositivos) do Hub IoT do Azure para redes virtuais
 
@@ -69,13 +69,13 @@ Observe as seguintes limitações atuais para o DPS ao usar pontos de extremidad
 
 Para configurar um ponto de extremidade privado, siga estas etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), abra o recurso de DPS e clique na guia **rede** . clique em conexões de **ponto de extremidade privado** e **+ ponto de extremidade privado**.
+1. No [portal do Azure](https://portal.azure.com/), abra o recurso de DPS e clique na guia **rede** . Clique em **conexões de ponto de extremidade privado** e **+ ponto de extremidade privado**.
 
     ![Adicionar um novo ponto de extremidade privado para o DPS](./media/virtual-network-support/networking-tab-add-private-endpoint.png)
 
 2. Na página Criar noções básicas do _ponto de extremidade privado_ , insira as informações mencionadas na tabela a seguir.
 
-    ![Configurar o recurso que um novo ponto de extremidade privado mapeia para](./media/virtual-network-support/create-private-endpoint-basics.png)
+    ![Crie noções básicas de pontos de extremidade privados](./media/virtual-network-support/create-private-endpoint-basics.png)
 
     | Campo | Valor |
     | :---- | :-----|
@@ -88,7 +88,7 @@ Para configurar um ponto de extremidade privado, siga estas etapas:
 
 3. Na página _criar um recurso de ponto de extremidade privado_ , insira as informações mencionadas na tabela a seguir.
 
-    ![Configurar o recurso que um novo ponto de extremidade privado mapeia para](./media/virtual-network-support/create-private-endpoint-resource.png)
+    ![Criar recurso de ponto de extremidade privado](./media/virtual-network-support/create-private-endpoint-resource.png)
 
     | Campo | Valor |
     | :---- | :-----|
@@ -107,7 +107,7 @@ Para configurar um ponto de extremidade privado, siga estas etapas:
  
     Clique em **Avançar: marcas**e, opcionalmente, forneça todas as marcas para o recurso.
 
-    ![Configurar o recurso que um novo ponto de extremidade privado mapeia para](./media/virtual-network-support/create-private-endpoint-configuration.png)
+    ![Configurar ponto de extremidade privado](./media/virtual-network-support/create-private-endpoint-configuration.png)
 
 6. Clique em **revisar + criar** e em **criar** para criar seu recurso de ponto de extremidade privado.
 
@@ -141,7 +141,7 @@ Você pode solicitar um ponto de extremidade privado para um recurso de DPS por 
 
 5. O proprietário do DPS verá a solicitação de ponto de extremidade privado na lista de **conexões do ponto de extremidade privado** na guia rede do DPS. Nessa página, o proprietário pode **aprovar** ou **rejeitar** a solicitação de ponto de extremidade particular, conforme mostrado abaixo.
 
-    ![Guia Propriedades do DPS](./media/virtual-network-support/approve-dps-private-endpoint.png)
+    ![Aprovação de DPS](./media/virtual-network-support/approve-dps-private-endpoint.png)
 
 
 ## <a name="pricing-private-endpoints"></a>Pontos de extremidade privados de preços

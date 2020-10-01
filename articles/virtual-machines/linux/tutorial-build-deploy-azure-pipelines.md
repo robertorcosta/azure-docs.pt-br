@@ -11,12 +11,12 @@ ms.workload: infrastructure
 ms.date: 1/3/2020
 ms.author: ushan
 ms.custom: devops, devx-track-javascript
-ms.openlocfilehash: c83a67f7d524a062485f2c68e0adb7fdd2855a84
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 6025e1c257ad7b94586ceb4f89c02c3a44c59c3e
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462166"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090305"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-using-azure-devops-services-and-azure-pipelines"></a>Tutorial: Implantar seu aplicativo em máquinas virtuais do Linux no Azure usando o Azure DevOps Services e o Azure Pipelines
 
@@ -147,6 +147,7 @@ Você precisará de um pipeline de build de CI (integração contínua) que publ
 Selecione o modelo **inicial** e copie o snippet de código YAML abaixo que cria seu projeto Java e executa testes com o Apache Maven:
 
 ```YAML
+jobs:
 - job: Build
   displayName: Build Maven Project
   steps:
@@ -209,7 +210,7 @@ Para obter mais diretrizes, siga as etapas em [Crie seu aplicativo Node.js com o
 
 ## <a name="define-cd-steps-to-deploy-to-the-linux-vm"></a>Definir as etapas da CD para implantar na VM do Linux
 
-1. Edite o pipeline acima e inclua um [trabalho de implantação](/azure/devops/pipelines/process/deployment-jobs), referenciando o ambiente e os recursos da VM que você tinha anteriormente usando a sintaxe do YAML abaixo:
+1. Altere o arquivo YAML do pipeline acima para incluir um [trabalho de implantação](/azure/devops/pipelines/process/deployment-jobs) referenciando o ambiente e os recursos da VM que você usou anteriormente com a sintaxe YAML abaixo:
 
    ```YAML
    jobs:  
@@ -218,8 +219,7 @@ Para obter mais diretrizes, siga as etapas em [Crie seu aplicativo Node.js com o
      environment:
        name:  <environment name>
        resourceType: VirtualMachine
-       tags: web1
-     strategy:
+       tags: web
    ```
 2. Você pode selecionar conjuntos específicos de máquinas virtuais do ambiente para receber a implantação, especificando as **marcas** que você definiu para cada máquina virtual no ambiente.
 Confira [aqui](/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema#deployment-job) o esquema completo do YAML para o trabalho de implantação.

@@ -4,6 +4,8 @@
   items:
     - name: O que é o Banco de Dados do Azure para PostgreSQL?
       href: overview.md
+    - name: Qual opção de implantação do PostgreSQL deve ser escolhida?
+      href: overview-postgres-choose-server-options.md
     - name: Atualizações de serviço
       items:
         - name: Expiração do certificado raiz SSL

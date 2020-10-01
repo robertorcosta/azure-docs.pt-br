@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/04/2020
+ms.date: 08/20/2020
 ms.author: jeedes
-ms.openlocfilehash: 1e1ec1dc4d6982194fc10a8701629adba2c8b24c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 31e8533da91fdab86313e21c20c2ebb107eef848
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544305"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660593"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-edx-for-business-saml-integration"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory integração com o edX for Business SAML Integration
 
@@ -41,7 +41,10 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 * O edX for Business SAML Integration é compatível com SSO iniciado pelo **SP**
 * O edX for Business SAML Integration é compatível com provisionamento de usuário **Just-in-Time**
 
-* Depois de configurar o edX for Business SAML Integration, você poderá impor o controle de sessão, que protege contra o vazamento e a infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do Acesso Condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Depois de configurar o edX for Business SAML Integration, você poderá impor o controle de sessão, que protege contra a exfiltração e a infiltração de dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+
+> [!NOTE]
+> O identificador desse aplicativo é um valor de cadeia de caracteres fixo; portanto apenas uma instância pode ser configurada em um locatário.
 
 ## <a name="adding-edx-for-business-saml-integration-from-the-gallery"></a>Como adicionar o edX for Business SAML Integration da galeria
 
@@ -55,7 +58,7 @@ Para configurar o edX for Business SAML Integration no Azure AD, você precisa a
 1. Selecione **edX for Business SAML Integration** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-edx-for-business-saml-integration"></a>Configurar e testar o logon único do Azure AD para o edX for Business SAML Integration
+## <a name="configure-and-test-azure-ad-sso-for-edx-for-business-saml-integration"></a>Configurar e testar o SSO do Azure AD para o edX for Business SAML Integration
 
 Configure e teste o SSO do Azure AD com o edX for Business SAML Integration usando um usuário de teste chamado **B.Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do edX for Business SAML Integration.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: jeedes
-ms.openlocfilehash: d20d527c35eac422efdc3719f153b6d7e8f4ef07
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 7e6b4524523d0659126bcd6cbe1294d700e79ed9
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017491"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707808"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-google-cloud-g-suite-connector"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Google Cloud (G Suite) Connector
 
@@ -72,9 +72,9 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
     O atributo de email é populado automaticamente para qualquer usuário com uma licença válida do Exchange. Se o usuário não estiver habilitado para email, esse erro será recebido, o aplicativo precisa obter esse atributo para fornecer acesso.
 
-    Você pode ir para portal.office.com com uma conta de Administrador, em seguida, clique no Centro de administração, cobrança, assinaturas, selecione sua assinatura do Office 365 e, em seguida, clique em atribuir a usuários, selecione os usuários que você deseja verificar a sua assinatura e no painel direito, clique em editar licenças.
+    Será possível acessar o portal.office.com usando uma conta do administrador. Em seguida, clique em Centro de Administração > Cobrança > Assinaturas. Selecione a Assinatura do Microsoft 365 e depois clique em Atribuir aos usuários. Selecione os usuários que você deseja verificar a assinatura e clique em Editar licenças no painel direito.
 
-    Depois que a licença do O365 for atribuída, pode levar alguns minutos para ser aplicado. Depois disso, o atributo user.mai será preenchido automaticamente e o problema deve ser resolvido.
+    Depois que a licença do Microsoft 365 for atribuída, a ação poderá levar alguns minutos para ser aplicada. Depois disso, o atributo user.mai será preenchido automaticamente e o problema deve ser resolvido.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
@@ -240,7 +240,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
 ### <a name="create-google-cloud-g-suite-connector-test-user"></a>Criar usuário de teste do Google Cloud (G Suite) Connector
 
-O objetivo desta seção é [criar um usuário no Google Cloud (G Suite) Connector](https://support.google.com/a/answer/33310?hl=en) chamado B. Fernandes. Depois que o usuário for criado manualmente no Google Cloud (G Suite) Connector, ele poderá entrar usando as credenciais de logon do Office 365.
+O objetivo desta seção é [criar um usuário no Google Cloud (G Suite) Connector](https://support.google.com/a/answer/33310?hl=en) chamado B. Fernandes. Depois que o usuário for sido criado de modo manual no Conector do Google Cloud (G Suite), ele poderá entrar usando as credenciais de logon do Microsoft 365.
 
 O Google Cloud (G Suite) Connector também dá suporte ao provisionamento automático de usuários. Para configurar o Provisionamento de Usuário automático, primeiro, [configure o Google Cloud (G Suite) Connector para o provisionamento automático de usuários](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-provisioning-tutorial).
 
