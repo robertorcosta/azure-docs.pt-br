@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: elastic-pools
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: reference
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein
 ms.date: 07/21/2020
-ms.openlocfilehash: 345fd0df5b56bac164e78a540f8b26221294eabe
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8ffa2a92dd33d16bf047035fb98a79a53b5f2246
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325288"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91620164"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-purchasing-model"></a>Limites de recursos para pools elásticos usando o modelo de compra vCore
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -425,8 +425,8 @@ Se todos os vCores de um pool elástico estiverem ocupados, cada banco de dados 
 |Latência de E/S (aproximada)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|
 |IOPS de dados máximo por pool <sup>2</sup>|31.248|37.497|49.996|99.993|160.000|
 |Taxa máxima de log por pool (MBps)|120|144|192|264|264|
-|Máximo de trabalhos simultâneos por pool (solicitações) <sup>3</sup>|2\.000|2.400|3\.200|6.400|12.800|
-|Máximo de logons simultâneos por pool (solicitações) <sup>3</sup>|2\.000|2.400|3\.200|6.400|12.800|
+|Máximo de trabalhos simultâneos por pool (solicitações) <sup>3</sup>|2.000|2.400|3\.200|6.400|12.800|
+|Máximo de logons simultâneos por pool (solicitações) <sup>3</sup>|2.000|2.400|3\.200|6.400|12.800|
 |Máximo de sessões simultâneas|30000|30000|30000|30000|30000|
 |Número de réplicas|4|4|4|4|4|
 |Multi-AZ|Não|Não|Não|Não|Não|

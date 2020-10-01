@@ -7,17 +7,17 @@ ms.service: sql-database
 ms.subservice: service
 ms.custom: sqldbrb=4
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/22/2020
-ms.openlocfilehash: f05871c41e2deec3f6a52446844c0b8fd2c9038d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 18ff2c9690de1708cd8382d83a0c01662a8e6fb0
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84220800"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619773"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Glossário de termos do Banco de Dados SQL do Azure
 [!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
@@ -43,7 +43,7 @@ ms.locfileid: "84220800"
 
 |Contexto|Termo|Mais informações|
 |:---|:---|:---|
-|Serviço do Azure|Instância Gerenciada do Azure SQL|[Instância Gerenciada do SQL](managed-instance/sql-managed-instance-paas-overview.md)|
+|Serviço do Azure|Instância Gerenciada do Azure SQL|[Instância Gerenciada de SQL](managed-instance/sql-managed-instance-paas-overview.md)|
 |Modelo de compra|Modelo de compra baseado em vCore|[modelo de compra baseado em vCore](database/service-tiers-vcore.md)|
 |Opção de implantação |Instância única|[Instância única](managed-instance/sql-managed-instance-paas-overview.md)|
 ||Pool de instâncias (visualização)|[Pools da instância](managed-instance/instance-pools-overview.md)|

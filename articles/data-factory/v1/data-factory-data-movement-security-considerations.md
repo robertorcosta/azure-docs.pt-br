@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 19b37472d7decb46825da4760511f1761493c246
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 9ae4970383802adad755fff4a6ce382db6ce32fe
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89441928"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619909"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory – Considerações sobre segurança para movimentação de dados
 
@@ -142,7 +142,7 @@ As imagens a seguir mostram o uso do Gateway de Gerenciamento de Dados para move
 
 ![VPN IPsec com gateway](media/data-factory-data-movement-security-considerations/ipsec-vpn-for-gateway.png)
 
-### <a name="firewall-configurations-and-whitelisting-ip-address-of-gateway"></a>Configurações de firewall e lista de permissões do endereço IP do gateway
+### <a name="firewall-configurations-and-filtering-ip-address-of-gateway"></a>Configurações de firewall e filtragem de endereço IP do gateway
 
 #### <a name="firewall-requirements-for-on-premisesprivate-network"></a>Requisitos de firewall para a rede local/privada  
 Em uma empresa, um **firewall corporativo** é executado no roteador central da organização. E o **firewall do Windows** é executado como um daemon no computador local em que o gateway está instalado. 
@@ -158,7 +158,7 @@ A tabela a seguir fornece os requisitos de **porta de saída** e de domínio do 
 | `*.azuredatalakestore.net` | 443 | (OPCIONAL) Necessária quando o destino é o Azure Data Lake Store | 
 
 > [!NOTE] 
-> Talvez você precise gerenciar as portas e os domínios na lista de permissões no nível do firewall corporativo, conforme exigido pelas respectivas fontes de dados. Esta tabela usa apenas o banco de dados SQL do Azure, o Azure Synapse Analytics, Azure Data Lake Store como exemplos.   
+> Talvez você precise gerenciar portas/filtros de domínios no nível do firewall corporativo, conforme exigido pelas respectivas fontes de dados. Esta tabela usa apenas o banco de dados SQL do Azure, o Azure Synapse Analytics, Azure Data Lake Store como exemplos.   
 
 A tabela a seguir fornece os requisitos de **porta de entrada** do **firewall do Windows**.
 
@@ -168,10 +168,10 @@ A tabela a seguir fornece os requisitos de **porta de entrada** do **firewall do
 
 ![Requisitos de porta do gateway](media/data-factory-data-movement-security-considerations/gateway-port-requirements.png)
 
-#### <a name="ip-configurations-whitelisting-in-data-store"></a>Configurações de IP/lista de permissões no armazenamento de dados
-Alguns armazenamentos de dados na nuvem também exigem a lista de permissões do endereço IP do computador que os acessa. Verifique se o endereço IP do computador do gateway está na lista de permissões e configurado no firewall corretamente.
+#### <a name="ip-configurationsfiltering-in-data-store"></a>Configurações de IP/filtragem no repositório de dados
+Alguns armazenamentos de dados na nuvem também exigem a aprovação do endereço IP do computador que os acessa. Verifique se o endereço IP do computador do gateway está aprovado/configurado no firewall adequadamente.
 
-Os armazenamentos de dados na nuvem exige a lista de permissões do endereço IP do computador do gateway. Por padrão, alguns desses armazenamentos de dados poderão não exigir a lista de permissões do endereço IP. 
+Os seguintes armazenamentos de dados de nuvem exigem a aprovação do endereço IP do computador do gateway. Por padrão, alguns desses armazenamentos de dados podem não exigir a aprovação do endereço IP. 
 
 - [Banco de Dados SQL do Azure](../../azure-sql/database/firewall-configure.md) 
 - [Azure Synapse Analytics](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
@@ -185,12 +185,10 @@ Os armazenamentos de dados na nuvem exige a lista de permissões do endereço IP
 **Resposta:** Ainda não damos suporte a esse recurso. No entanto, estamos trabalhando de forma ativa para implementá-lo.
 
 **Pergunta:** Quais são os requisitos de porta para o funcionamento do gateway?
-**Resposta:** O Gateway faz conexões baseadas em HTTP com a Internet aberta. As **portas de saída 443 e 80** devem estar abertas para que o gateway estabeleça essa conexão. Abra a **Porta de Entrada 8050** somente no nível do computador (não no nível de firewall corporativo) para o aplicativo Gerenciador de Credenciais. Se o banco de dados SQL do Azure ou o Azure Synapse Analytics for usado como origem/destino, você precisará abrir a porta **1433** também. Para obter mais informações, consulte a seção [Configurações de firewall e endereços IP na lista de permissões](#firewall-configurations-and-whitelisting-ip-address-of gateway). 
+**Resposta:** O Gateway faz conexões baseadas em HTTP com a Internet aberta. As **portas de saída 443 e 80** devem estar abertas para que o gateway estabeleça essa conexão. Abra a **Porta de Entrada 8050** somente no nível do computador (não no nível de firewall corporativo) para o aplicativo Gerenciador de Credenciais. Se o banco de dados SQL do Azure ou o Azure Synapse Analytics for usado como origem/destino, você precisará abrir a porta **1433** também. Para obter mais informações, consulte a seção [configurações de firewall e filtragem de endereços IP](#firewall-configurations-and-filtering-ip-address-of gateway) . 
 
 **Pergunta:** Quais são os requisitos de certificado do Gateway?
 **Resposta:** O gateway atual exige um certificado que é usado pelo aplicativo gerenciador de credenciais para a configuração segura das credenciais do armazenamento de dados. Esse certificado é um certificado autoassinado criado e configurado pela instalação do gateway. Em vez disso, você pode usar seu próprio certificado TLS/SSL. Para obter mais informações, consulte a seção [Aplicativo gerenciador de credenciais de clique único](#click-once-credentials-manager-app). 
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter informações sobre o desempenho da atividade de cópia, consulte [Guia desempenho e ajuste da atividade de cópia](data-factory-copy-activity-performance.md).
-
- 

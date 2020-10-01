@@ -6,19 +6,19 @@ ms.service: sql-database
 ms.subservice: performance
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: troubleshooting
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnick, sstein
 ms.date: 03/10/2020
-ms.openlocfilehash: 0a7cd807de7e723d48faaa0944ea55b1887c9721
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: afc142ec9de0e275d505276d959cfac3e652c55d
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91284101"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619756"
 ---
-# <a name="detectable-types-of-query-performance-bottlenecks-in-azure-sql-database"></a>Tipos detectáveis de afunilamentos de desempenho de consulta no banco de dados SQL do Azure
+# <a name="detectable-types-of-query-performance-bottlenecks-in-azure-sql-database"></a>Tipos detectáveis de gargalos de desempenho de consulta no Banco de Dados SQL do Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
 Ao tentar resolver um afunilamento de desempenho, comece determinando se o afunilamento está ocorrendo enquanto a consulta está em estado de execução ou em estado de espera. Resoluções diferentes se aplicam dependendo dessa determinação. Use o diagrama a seguir para ajudar a entender os fatores que podem causar um problema relacionado à execução ou a um problema de espera. Problemas e resoluções relacionadas a cada tipo de problema são discutidos neste artigo.

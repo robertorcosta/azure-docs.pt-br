@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 5a22bd9508feac1348bcd8042fa6ac791864c261
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: 88b1eb70814c349d488933179a16c084a0af803c
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89425629"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619960"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de versão dos Serviços de Mídia do Azure v3
 
@@ -42,7 +42,7 @@ Para se manter atualizado com os desenvolvimentos mais recentes, este artigo for
 ## <a name="august-2020"></a>Agosto de 2020
 
 ### <a name="dynamic-encryption"></a>Criptografia Dinâmica
-O suporte para a criptografia herdada do formato de arquivo protegido do PlayReady (PIFF 1,1) agora está disponível no empacotador dinâmico. Isso fornece suporte para conjuntos de TV inteligente herdados da Samsung e do LG que implementaram os rascunhos iniciais Criptografia Comum do CENC (Standard) publicado pela Microsoft.  O formato PIFF 1,1 também é conhecido como o formato de criptografia anteriormente suportado pela biblioteca de cliente do Silverlight. Hoje, o único cenário de caso de uso para esse formato de criptografia é direcionar para o mercado de TV inteligente herdado, em que resta um número não trivial de TV inteligente em algumas regiões que dão suporte apenas a Smooth Streaming com a criptografia PIFF 1,1. 
+O suporte para a criptografia herdada do formato de arquivo protegido do PlayReady (PIFF 1,1) agora está disponível no empacotador dinâmico. Isso fornece suporte para conjuntos de TV inteligente herdados da Samsung e do LG que implementaram os rascunhos iniciais Criptografia Comum do CENC (Standard) publicado pela Microsoft.  O formato PIFF 1,1 também é conhecido como o formato de criptografia anteriormente suportado pela biblioteca de cliente do Silverlight. Hoje, o único cenário de caso de uso para esse formato de criptografia é direcionar para o mercado de TV inteligente herdado, onde resta um número não trivial de TVs inteligentes em algumas regiões que só dão suporte a Smooth Streaming com a criptografia PIFF 1,1. 
 
 Para usar o novo suporte à criptografia do PIFF 1,1, altere o valor de criptografia para ' PIFF ' no caminho da URL do localizador de streaming. Para obter mais detalhes, consulte a [visão geral de proteção de conteúdo.](content-protection-overview.md)
 Por exemplo: `https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=piff)`|
@@ -60,7 +60,7 @@ As transcrições ao vivo agora dão suporte a 19 idiomas e 8 regiões.
 
 Publicamos um tutorial chamado [proteção de conteúdo de ponta a ponta usando o Azure ad](./azure-ad-content-protection.md).
 
-### <a name="high-availablity"></a>Alta disponibilidade
+### <a name="high-availability"></a>Alta disponibilidade
 
 Publicamos uma alta disponibilidade com os serviços de mídia e [visão geral](./media-services-high-availability-encoding.md) de VOD (vídeo por demanda) e [exemplo](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/HighAvailabilityEncodingStreaming).
 
@@ -135,13 +135,13 @@ Suporte adicionado para os seguintes novos codificadores de parceiros recomendad
 ### <a name="file-encoding-enhancements"></a>Aprimoramentos de codificação de arquivo
 
 - Uma nova predefinição de codificação com reconhecimento de conteúdo está disponível. Ela produz um conjunto de MP4s alinhados a GOP usando a codificação com reconhecimento de conteúdo. Usando qualquer conteúdo de entrada, o serviço executa uma análise leve inicial do conteúdo de entrada. Ele usa esses resultados para determinar o número ideal de camadas, a taxa de bits apropriada e as configurações de resolução para entrega por streaming adaptável. Essa predefinição é particularmente eficaz para vídeos de baixa complexidade e de complexidade média, em que os arquivos de saída têm taxas de bits menores, mas com uma qualidade que ainda oferece uma boa experiência aos espectadores. A saída conterá arquivos MP4 com vídeo e áudio intercalados. Para obter mais informações, confira as [especificações da API aberta](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/Encoding.json).
-- Desempenho aprimorado e de múltiplos threadings para o redimensionador no codificador Standard. Em condições específicas, o cliente deve ver um aumento de desempenho de 5 a 40% da codificação de VOD. O conteúdo de baixa complexidade codificado em várias taxas de bits terá o maior aumento de desempenho. 
-- A codificação padrão agora mantém uma cadência de GOP regular para conteúdo de VFR (taxa de quadros variável) durante a codificação de VOD ao usar a configuração de GOP baseada em tempo.  Isso significa que o cliente que envia conteúdo de taxa de quadros misto que varia entre 15 e 30 fps, por exemplo, agora deve ver as distâncias de GOP regulares calculadas na saída para arquivos MP4 de streaming de taxa de bits adaptável. Isso vai aprimorar a capacidade de alternar diretamente entre as faixas ao entregar HLS ou DASH. 
+- Desempenho aprimorado e multithreading para o redimensionador no codificador Standard. Em condições específicas, o cliente deve ver um aumento de desempenho de 5 a 40% da codificação de VOD. O conteúdo de baixa complexidade codificado em várias taxas de bits terá o maior aumento de desempenho. 
+- A codificação padrão agora mantém uma cadência de GOP regular para conteúdo de VFR (taxa de quadros variável) durante a codificação de VOD ao usar a configuração de GOP baseada em tempo.  Isso significa que o cliente que envia conteúdo de taxa de quadros misto que varia entre 15-30 fps, por exemplo, agora deve ver as distâncias GOP regulares calculadas na saída para arquivos MP4 de streaming de taxa de bits adaptável. Isso vai aprimorar a capacidade de alternar diretamente entre as faixas ao entregar HLS ou DASH. 
 -  Sincronização antivírus aprimorada para conteúdo de origem de VFR (taxa de quadros variável)
 
 ### <a name="video-indexer-video-analytics"></a>Video Indexer, análise de vídeo
 
-- Os quadros-chave extraídos usando a predefinição VideoAnalyzer agora estão na resolução original do vídeo em vez de serem redimensionados. A extração de quadro-chave de alta resolução fornece imagens de qualidade original e permite que você use os modelos de inteligência artificial baseados em imagem fornecidos pela Pesquisa Visual Computacional da Microsoft e pelos serviços de Visão Personalizada para obter ainda mais insights do seu vídeo.
+- Os quadros-chave extraídos usando a predefinição VideoAnalyzer agora estão na resolução original do vídeo em vez de serem redimensionados. A extração de quadro-chave de alta resolução fornece imagens de qualidade original e permite que você use os modelos de inteligência artificial baseados em imagem fornecidos pelo Microsoft Pesquisa Visual Computacional e Visão Personalizada Services para obter ainda mais informações do seu vídeo.
 
 ## <a name="september-2019"></a>Setembro de 2019
 
@@ -155,7 +155,7 @@ Os Serviços de Mídia v3 estão anunciando a versão prévia por 365 dias, 24 h
 
 #### <a name="deprecation-of-media-processors"></a>Substituição dos processadores de mídia
 
-Estamos anunciando a substituição do *Azure Media Indexer* e da *versão prévia do Azure Media Indexer 2*. Para ver as datas de desativação, consulte o tópico [Componentes herdados](../previous/legacy-components.md). O [Video Indexer dos Serviços de Mídia do Azure](../video-indexer/index.yml) substitui esses processadores de mídia herdados.
+Estamos anunciando a substituição do *Azure Media Indexer* e da *versão prévia do Azure Media Indexer 2*. Para as datas de desativação, consulte o artigo  [componentes herdados](../previous/legacy-components.md) . O [Video Indexer dos Serviços de Mídia do Azure](../video-indexer/index.yml) substitui esses processadores de mídia herdados.
 
 Para obter mais informações, confira [Migrar do Azure Media Indexer e do Azure Media Indexer 2 para o Video Indexer dos Serviços de Mídia do Azure](../previous/migrate-indexer-v1-v2.md).
 
@@ -173,7 +173,7 @@ Para obter mais informações, confira [Nuvens e regiões em que os Serviços de
 
 #### <a name="deprecation-of-media-processors"></a>Substituição dos processadores de mídia
 
-Estamos anunciando a substituição dos processadores de mídia *WAME (Codificador de Mídia do Azure para Windows)* e *AME (Codificador de Mídia do Azure)* , que estão sendo desativados. Para ver as datas de desativação, consulte o tópico de [componentes herdados](../previous/legacy-components.md).
+Estamos anunciando a substituição dos processadores de mídia *WAME (Codificador de Mídia do Azure para Windows)* e *AME (Codificador de Mídia do Azure)* , que estão sendo desativados. Para as datas de desativação, consulte este artigo sobre [componentes herdados](../previous/legacy-components.md) .
 
 Para obter detalhes, consulte [Migrar WAME para Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101334) e [Migrar AME para Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101335).
  
@@ -223,8 +223,8 @@ Para obter mais informações, confira [Nuvens e regiões em que os Serviços de
 
 Atualizações adicionadas que incluem melhorias de desempenho dos Serviços de Mídia.
 
-* O tamanho máximo do arquivo com suporte para processamento foi atualizado. Consulte [Cotas e limites](limits-quotas-constraints.md).
-* [A codificação acelera as melhorias](media-reserved-units-cli-how-to.md#choosing-between-different-reserved-unit-types).
+* O tamanho máximo do arquivo com suporte para processamento foi atualizado. Ver, [cotas e limites](limits-quotas-constraints.md).
+* [A codificação acelera as melhorias](concept-media-reserved-units.md).
 
 ## <a name="april-2019"></a>Abril de 2019
 

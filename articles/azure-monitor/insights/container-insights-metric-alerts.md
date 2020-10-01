@@ -1,18 +1,18 @@
 ---
-title: Alertas de métrica de Azure Monitor para contêineres | Microsoft Docs
+title: Alertas de métrica de Azure Monitor para contêineres
 description: Este artigo revisa os alertas de métrica recomendados disponíveis em Azure Monitor para contêineres em visualização pública.
 ms.topic: conceptual
-ms.date: 08/04/2020
-ms.openlocfilehash: aace260ff22d63211424f2ce4a7319bf577436f4
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.date: 09/24/2020
+ms.openlocfilehash: 83394faf3d7296522151b815bddd910d47e45d24
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90019879"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619943"
 ---
 # <a name="recommended-metric-alerts-preview-from-azure-monitor-for-containers"></a>Alertas de métrica recomendados (versão prévia) de Azure Monitor para contêineres
 
-Para alertar sobre problemas de recursos do sistema quando eles estão passando por uma demanda de pico e executando quase capacidade, com Azure Monitor para contêineres, você criaria um alerta de log com base nos dados de desempenho armazenados em logs de Azure Monitor. Azure Monitor para contêineres agora inclui regras de alerta de métrica pré-configuradas para o cluster AKS, que está em visualização pública.
+Para alertar sobre problemas de recursos do sistema quando eles estão passando por uma demanda de pico e executando quase capacidade, com Azure Monitor para contêineres, você criaria um alerta de log com base nos dados de desempenho armazenados em logs de Azure Monitor. Azure Monitor para contêineres agora inclui regras de alerta de métrica pré-configuradas para seu AKS e o cluster kubernetes habilitado para Arc do Azure, que está em visualização pública.
 
 Este artigo revisa a experiência e fornece orientação sobre como configurar e gerenciar essas regras de alerta.
 
@@ -22,22 +22,22 @@ Se você não estiver familiarizado com alertas de Azure Monitor, consulte [vis�
 
 Antes de começar, confirme o seguinte:
 
-* As métricas personalizadas só estão disponíveis em um subconjunto de regiões do Azure. Uma lista de regiões com suporte está documentada [aqui](../platform/metrics-custom-overview.md#supported-regions).
+* As métricas personalizadas só estão disponíveis em um subconjunto de regiões do Azure. Uma lista de regiões com suporte é documentada em [regiões com suporte](../platform/metrics-custom-overview.md#supported-regions).
 
-* Para dar suporte a alertas de métrica e à introdução de métricas adicionais, a versão mínima do agente necessária é **Microsoft/OMS: ciprod05262020**.
+* Para dar suporte a alertas de métrica e à introdução de métricas adicionais, a versão mínima do agente necessária é **Microsoft/OMS: ciprod05262020** para AKs e **Microsoft/OMS: ciprod09252020 para o** cluster kubernetes do Azure habilitado para Arc.
 
     Para verificar se o cluster está executando a versão mais recente do agente, você pode:
 
     * Execute o comando: `kubectl describe <omsagent-pod-name> --namespace=kube-system` . No status retornado, observe o valor em **imagem** para omsagent na seção *contêineres* da saída. 
     * Na guia **nós** , selecione o nó de cluster e, no painel **Propriedades** à direita, observe o valor em **marca de imagem do agente**.
 
-    O valor mostrado deve ser uma versão posterior a **ciprod05262020**. Se o cluster tiver uma versão mais antiga, siga o [agente de atualização em etapas do cluster AKs](container-insights-manage-agent.md#upgrade-agent-on-aks-cluster) para obter a versão mais recente.
-    
+    O valor mostrado para AKS deve ser a versão **ciprod05262020** ou posterior. O valor mostrado para o cluster kubernetes habilitado para Arc do Azure deve ser a versão **ciprod09252020** ou posterior. Se o cluster tiver uma versão mais antiga, consulte [como atualizar o Azure monitor para agente de contêineres](container-insights-manage-agent.md#upgrade-agent-on-aks-cluster) para obter as etapas para obter a versão mais recente.
+
     Para obter mais informações relacionadas à versão do agente, consulte [histórico de versão do agente](https://github.com/microsoft/docker-provider/tree/ci_feature_prod). Para verificar se as métricas estão sendo coletadas, você pode usar Azure Monitor métricas Explorer e verificar no **namespace de métrica** que o **insights** está listado. Se estiver, vá em frente e comece a configurar os alertas. Se você não vir nenhuma métrica coletada, a entidade de serviço de cluster ou a MSI não tem as permissões necessárias. Para verificar se o SPN ou o MSI é um membro da função de **Editor de métricas de monitoramento** , siga as etapas descritas na seção [atualizar por cluster usando CLI do Azure](container-insights-update-metrics.md#upgrade-per-cluster-using-azure-cli) para confirmar e definir a atribuição de função.
 
 ## <a name="alert-rules-overview"></a>Visão geral das regras de alerta
 
-Para alertar sobre o que importa, Azure Monitor para contêineres inclui os seguintes alertas de métrica para seus clusters AKS:
+Para alertar sobre o que importa, Azure Monitor para contêineres inclui os seguintes alertas de métrica para seus clusters kubernetes habilitados para AKS e Azure Arc:
 
 |Nome| Descrição |Limite padrão |
 |----|-------------|------------------|

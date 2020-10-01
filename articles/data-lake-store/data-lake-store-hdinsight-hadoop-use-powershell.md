@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: b1a228e9d15a349f032291fb0678bdd0ad9d95b3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 69cfe529f3d2b0f956bfbe9d002a5a220b37e19f
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87048850"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619994"
 ---
 # <a name="use-azure-powershell-to-create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-as-additional-storage"></a>Use o Azure PowerShell para criar um cluster do HDInsight com o Armazenamento de Data Lake do Azure Gen1 (como armazenamento adicional)
 
@@ -77,7 +77,7 @@ Siga estas etapas para criar uma conta do Data Lake Storage Gen1.
     ```
 
    > [!NOTE]
-   > Se você receber um erro semelhante a `Register-AzResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid` ao registrar o provedor de recursos do Data Lake Storage Gen1, é possível que sua assinatura não esteja na lista de permissões do Data Lake Storage Gen1. Certifique-se de ativar sua assinatura do Azure para o Data Lake Storage Gen1 seguindo estas [instruções](data-lake-store-get-started-portal.md).
+   > Se você receber um erro semelhante a `Register-AzResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid` ao registrar o provedor de recursos de data Lake Storage Gen1, é possível que sua assinatura não seja aprovada para data Lake Storage Gen1. Certifique-se de ativar sua assinatura do Azure para o Data Lake Storage Gen1 seguindo estas [instruções](data-lake-store-get-started-portal.md).
    >
    >
 2. Uma conta Gen1 do Data Lake Storage está associada a um Grupo de Recursos do Azure. Comece criando um Grupo de Recursos do Azure.
@@ -136,10 +136,10 @@ Cada assinatura do Azure está associada com um Azure Active Directory. Os usuá
 
 Para configurar a autenticação do Active Directory para o Data Lake armazenamento Gen1, você deve executar as seguintes tarefas.
 
-* Criará um certificado autoassinado
+* Crie um certificado autoassinado
 * Criar um aplicativo no Active Directory do Azure e uma entidade de serviço
 
-### <a name="create-a-self-signed-certificate"></a>Criará um certificado autoassinado
+### <a name="create-a-self-signed-certificate"></a>Crie um certificado autoassinado
 
 Verifique se o [SDK do Windows](https://dev.windows.com/en-us/downloads) está instalado antes de continuar com as etapas nesta seção. Você também deve ter criado um diretório, como **C:\mycertdir**, no qual o certificado será criado.
 
