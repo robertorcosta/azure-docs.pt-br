@@ -418,6 +418,8 @@
               href: id-tokens.md
             - name: Tokens de acesso
               href: access-tokens.md
+            - name: Configurar tempos de vida de tokens
+              href: active-directory-configurable-token-lifetimes.md
             - name: Ponto de extremidade UserInfo
               href: userinfo.md
             - name: Credenciais de certificado
@@ -522,7 +524,7 @@
         - name: Usar atributos de extensão de esquema de diretório em declarações
           href: active-directory-schema-extensions.md
         - name: Configurar tempos de vida de tokens
-          href: active-directory-configurable-token-lifetimes.md
+          href: configure-token-lifetimes.md
         - name: Manipular alterações de cookie SameSite no navegador Chrome
           href: howto-handle-samesite-cookie-changes-chrome-browser.md
         - name: Manipular ITP no Safari
