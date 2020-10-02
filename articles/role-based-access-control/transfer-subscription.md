@@ -1,5 +1,5 @@
 ---
-title: Transferir uma assinatura do Azure para um diretório diferente do Azure AD (versão prévia)
+title: Transferir uma assinatura do Azure para um diretório diferente do Azure AD
 description: Saiba como transferir uma assinatura do Azure e recursos relacionados conhecidos para um diretório diferente do Azure Active Directory (Azure AD).
 services: active-directory
 author: rolyon
@@ -10,19 +10,14 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 08/31/2020
 ms.author: rolyon
-ms.openlocfilehash: ab004c11b46428c5fad28177b0d94edc04b95654
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 6d0c0333186655d4f105337021164814453ab47a
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400537"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652377"
 ---
-# <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory-preview"></a>Transferir uma assinatura do Azure para um diretório diferente do Azure AD (versão prévia)
-
-> [!IMPORTANT]
-> Seguir estas etapas para transferir uma assinatura para um diretório diferente do Azure AD está atualmente em visualização pública.
-> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
-> Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Transferir uma assinatura do Azure para um diretório diferente do Azure AD
 
 As organizações podem ter várias assinaturas do Azure. Cada assinatura é associada a um diretório específico do Azure Active Directory (Azure AD). Para facilitar o gerenciamento, talvez você queira transferir uma assinatura para um diretório diferente do Azure AD. Quando você transfere uma assinatura para um diretório diferente do Azure AD, alguns recursos não são transferidos para o diretório de destino. Por exemplo, todas as atribuições de função e funções personalizadas no controle de acesso baseado em função do Azure (RBAC do Azure) são excluídas **permanentemente** do diretório de origem e não são transferidas para o diretório de destino.
 
@@ -91,7 +86,7 @@ Vários recursos do Azure têm uma dependência em uma assinatura ou em um diret
 
 Para concluir essas etapas, será necessário:
 
-- [Bash em Azure cloud Shell](/azure/cloud-shell/overview) ou [CLI do Azure](https://docs.microsoft.com/cli/azure)
+- [Bash em Azure cloud Shell](/azure/cloud-shell/overview) ou [CLI do Azure](/cli/azure)
 - Administrador da conta da assinatura que você deseja transferir no diretório de origem
 - Função de [proprietário](built-in-roles.md#owner) no diretório de destino
 
@@ -101,13 +96,13 @@ Para concluir essas etapas, será necessário:
 
 1. Entre no Azure como administrador.
 
-1. Obtenha uma lista de suas assinaturas com o comando [AZ Account List](/cli/azure/account#az-account-list) .
+1. Obtenha uma lista de suas assinaturas com o comando [AZ Account List](/cli/azure/account#az_account_list) .
 
     ```azurecli
     az account list --output table
     ```
 
-1. Use o [conjunto de contas AZ](https://docs.microsoft.com/cli/azure/account#az-account-set) para definir a assinatura ativa que você deseja transferir.
+1. Use o [conjunto de contas AZ](/cli/azure/account#az_account_set) para definir a assinatura ativa que você deseja transferir.
 
     ```azurecli
     az account set --subscription "Marketing"
@@ -115,9 +110,9 @@ Para concluir essas etapas, será necessário:
 
 ### <a name="install-the-resource-graph-extension"></a>Instalar a extensão Resource-Graph
 
- A extensão de grafo de recursos permite que você use o comando [AZ Graph](https://docs.microsoft.com/cli/azure/ext/resource-graph/graph) para consultar recursos gerenciados pelo Azure Resource Manager. Você usará esse comando em etapas posteriores.
+ A extensão de grafo de recursos permite que você use o comando [AZ Graph](/cli/azure/ext/resource-graph/graph) para consultar recursos gerenciados pelo Azure Resource Manager. Você usará esse comando em etapas posteriores.
 
-1. Use a [lista de extensões AZ](https://docs.microsoft.com/cli/azure/extension#az-extension-list) para ver se você tem a extensão *Resource-Graph* instalada.
+1. Use a [lista de extensões AZ](/cli/azure/extension#az_extension_list) para ver se você tem a extensão *Resource-Graph* instalada.
 
     ```azurecli
     az extension list
@@ -131,7 +126,7 @@ Para concluir essas etapas, será necessário:
 
 ### <a name="save-all-role-assignments"></a>Salvar todas as atribuições de função
 
-1. Use a [lista de atribuição de função AZ](https://docs.microsoft.com/cli/azure/role/assignment#az-role-assignment-list) para listar todas as atribuições de função (incluindo atribuições de função herdadas).
+1. Use a [lista de atribuição de função AZ](/cli/azure/role/assignment#az_role_assignment_list) para listar todas as atribuições de função (incluindo atribuições de função herdadas).
 
     Para facilitar a revisão da lista, você pode exportar a saída como JSON, TSV ou uma tabela. Para obter mais informações, consulte [listar atribuições de função usando o RBAC e CLI do Azure do Azure](role-assignments-list-cli.md).
 
@@ -149,7 +144,7 @@ Para concluir essas etapas, será necessário:
 
 ### <a name="save-custom-roles"></a>Salvar funções personalizadas
 
-1. Use a [lista de definição de função AZ](https://docs.microsoft.com/cli/azure/role/definition#az-role-definition-list) para listar suas funções personalizadas. Para obter mais informações, consulte [criar ou atualizar funções personalizadas do Azure usando CLI do Azure](custom-roles-cli.md).
+1. Use a [lista de definição de função AZ](/cli/azure/role/definition#az_role_definition_list) para listar suas funções personalizadas. Para obter mais informações, consulte [criar ou atualizar funções personalizadas do Azure usando CLI do Azure](custom-roles-cli.md).
 
     ```azurecli
     az role definition list --custom-role-only true --output json --query '[].{roleName:roleName, roleType:roleType}'
@@ -193,7 +188,7 @@ Identidades gerenciadas não são atualizadas quando uma assinatura é transferi
 
 1. Examine a [lista de serviços do Azure que dão suporte a identidades gerenciadas](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) para observar onde você pode estar usando identidades gerenciadas.
 
-1. Use [AZ ad SP List](/cli/azure/identity?view=azure-cli-latest#az-identity-list) para listar suas identidades gerenciadas atribuídas pelo sistema e pelo usuário.
+1. Use [AZ ad SP List](/cli/azure/ad/sp#az_ad_sp_list) para listar suas identidades gerenciadas atribuídas pelo sistema e pelo usuário.
 
     ```azurecli
     az ad sp list --all --filter "servicePrincipalType eq 'ManagedIdentity'"
@@ -207,7 +202,7 @@ Identidades gerenciadas não são atualizadas quando uma assinatura é transferi
     | `alternativeNames` a propriedade não inclui `isExplicit` | Atribuído pelo sistema |
     | `alternativeNames` Propriedade inclui `isExplicit=True` | Atribuído pelo usuário |
 
-    Você também pode usar a [lista de identidades AZ](https://docs.microsoft.com/cli/azure/identity#az-identity-list) para apenas listar identidades gerenciadas atribuídas pelo usuário. Para obter mais informações, consulte [criar, listar ou excluir uma identidade gerenciada atribuída pelo usuário usando o CLI do Azure](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md).
+    Você também pode usar a [lista de identidades AZ](/cli/azure/identity#az_identity_list) para apenas listar identidades gerenciadas atribuídas pelo usuário. Para obter mais informações, consulte [criar, listar ou excluir uma identidade gerenciada atribuída pelo usuário usando o CLI do Azure](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md).
 
     ```azurecli
     az identity list
@@ -224,7 +219,7 @@ Quando você cria um cofre de chaves, ele é automaticamente vinculado à ID de 
 > [!WARNING]
 > Se você estiver usando a criptografia em repouso para um recurso, como uma conta de armazenamento ou um banco de dados SQL, que tenha uma dependência em um cofre de chaves que **não** esteja na mesma assinatura que está sendo transferida, isso poderá levar a um cenário irrecuperável. Se você tiver essa situação, deverá executar etapas para usar um cofre de chaves diferente ou desabilitar temporariamente as chaves gerenciadas pelo cliente para evitar esse cenário irrecuperável.
 
-- Se você tiver um cofre de chaves, use [AZ keyvault show](https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-show) para listar as políticas de acesso. Para obter mais informações, consulte [atribuir uma política de acesso Key Vault](../key-vault/general/assign-access-policy-cli.md).
+- Se você tiver um cofre de chaves, use [AZ keyvault show](/cli/azure/keyvault#az_keyvault_show) para listar as políticas de acesso. Para obter mais informações, consulte [atribuir uma política de acesso Key Vault](../key-vault/general/assign-access-policy-cli.md).
 
     ```azurecli
     az keyvault show --name MyKeyVault
@@ -232,7 +227,7 @@ Quando você cria um cofre de chaves, ele é automaticamente vinculado à ID de 
 
 ### <a name="list-azure-sql-databases-with-azure-ad-authentication"></a>Listar bancos de dados SQL do Azure com autenticação do Azure AD
 
-- Use [AZ SQL Server ad-admin List](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) e [AZ Graph](https://docs.microsoft.com/cli/azure/ext/resource-graph/graph) Extension para ver se você está usando bancos de dados SQL do Azure com a integração de autenticação do Azure ad habilitada. Para obter mais informações, consulte [configurar e gerenciar a autenticação de Azure Active Directory com o SQL](../azure-sql/database/authentication-aad-configure.md).
+- Use [AZ SQL Server ad-admin List](/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_list) e [AZ Graph](/cli/azure/ext/resource-graph/graph) Extension para ver se você está usando bancos de dados SQL do Azure com a integração de autenticação do Azure ad habilitada. Para obter mais informações, consulte [configurar e gerenciar a autenticação de Azure Active Directory com o SQL](../azure-sql/database/authentication-aad-configure.md).
 
     ```azurecli
     az sql server ad-admin list --ids $(az graph query -q 'resources | where type == "microsoft.sql/servers" | project id' -o tsv | cut -f1)
@@ -248,13 +243,13 @@ Quando você cria um cofre de chaves, ele é automaticamente vinculado à ID de 
 
 ### <a name="list-other-known-resources"></a>Listar outros recursos conhecidos
 
-1. Use a [conta AZ show](https://docs.microsoft.com/cli/azure/account#az-account-show) para obter sua ID de assinatura.
+1. Use a [conta AZ show](/cli/azure/account#az_account_show) para obter sua ID de assinatura.
 
     ```azurecli
     subscriptionId=$(az account show --query id | sed -e 's/^"//' -e 's/"$//')
     ```
 
-1. Use a extensão [AZ Graph](https://docs.microsoft.com/cli/azure/ext/resource-graph/graph) para listar outros recursos do Azure com dependências de diretório do Azure ad conhecidas.
+1. Use a extensão [AZ Graph](/cli/azure/ext/resource-graph/graph) para listar outros recursos do Azure com dependências de diretório do Azure ad conhecidas.
 
     ```azurecli
     az graph query -q \
@@ -286,13 +281,13 @@ Nesta etapa, você transfere a assinatura do diretório de origem para o diretó
 
     Somente o usuário na nova conta que aceitou a solicitação de transferência terá acesso para gerenciar os recursos.
 
-1. Obtenha uma lista de suas assinaturas com o comando [AZ Account List](https://docs.microsoft.com/cli/azure/account#az-account-list) .
+1. Obtenha uma lista de suas assinaturas com o comando [AZ Account List](/cli/azure/account#az_account_list) .
 
     ```azurecli
     az account list --output table
     ```
 
-1. Use o [conjunto de contas AZ](https://docs.microsoft.com/cli/azure/account#az-account-set) para definir a assinatura ativa que você deseja usar.
+1. Use o [conjunto de contas AZ](/cli/azure/account#az_account_set) para definir a assinatura ativa que você deseja usar.
 
     ```azurecli
     az account set --subscription "Contoso"
@@ -300,7 +295,7 @@ Nesta etapa, você transfere a assinatura do diretório de origem para o diretó
 
 ### <a name="create-custom-roles"></a>Criar funções personalizadas
         
-- Use [AZ role Definition Create](https://docs.microsoft.com/cli/azure/role/definition#az-role-definition-create) para criar cada função personalizada a partir dos arquivos que você criou anteriormente. Para obter mais informações, consulte [criar ou atualizar funções personalizadas do Azure usando CLI do Azure](custom-roles-cli.md).
+- Use [AZ role Definition Create](/cli/azure/role/definition#az_role_definition_create) para criar cada função personalizada a partir dos arquivos que você criou anteriormente. Para obter mais informações, consulte [criar ou atualizar funções personalizadas do Azure usando CLI do Azure](custom-roles-cli.md).
 
     ```azurecli
     az role definition create --role-definition <role_definition>
@@ -308,7 +303,7 @@ Nesta etapa, você transfere a assinatura do diretório de origem para o diretó
 
 ### <a name="create-role-assignments"></a>Criar atribuições de função
 
-- Use [AZ role Assignment Create](https://docs.microsoft.com/cli/azure/role/assignment#az-role-assignment-create) para criar as atribuições de função para usuários, grupos e entidades de serviço. Para obter mais informações, consulte [Adicionar ou remover atribuições de função usando o Azure RBAC e CLI do Azure](role-assignments-cli.md).
+- Use [AZ role Assignment Create](/cli/azure/role/assignment#az_role_assignment_create) para criar as atribuições de função para usuários, grupos e entidades de serviço. Para obter mais informações, consulte [Adicionar ou remover atribuições de função usando o Azure RBAC e CLI do Azure](role-assignments-cli.md).
 
     ```azurecli
     az role assignment create --role <role_name_or_id> --assignee <assignee> --resource-group <resource_group>
@@ -324,7 +319,7 @@ Nesta etapa, você transfere a assinatura do diretório de origem para o diretó
     | conjuntos de escala de máquina virtual | [Configurar identidades gerenciadas para recursos do Azure em um conjunto de dimensionamento de máquinas virtuais usando a CLI do Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vmss.md#system-assigned-managed-identity) |
     | Outros serviços | [Serviços compatíveis com identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) |
 
-1. Use [AZ role Assignment Create](https://docs.microsoft.com/cli/azure/role/assignment#az-role-assignment-create) para criar as atribuições de função para identidades gerenciadas atribuídas pelo sistema. Para obter mais informações, consulte [atribuir um acesso de identidade gerenciada a um recurso usando CLI do Azure](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
+1. Use [AZ role Assignment Create](/cli/azure/role/assignment#az_role_assignment_create) para criar as atribuições de função para identidades gerenciadas atribuídas pelo sistema. Para obter mais informações, consulte [atribuir um acesso de identidade gerenciada a um recurso usando CLI do Azure](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
 
     ```azurecli
     az role assignment create --assignee <objectid> --role '<role_name_or_id>' --scope <scope>
@@ -340,7 +335,7 @@ Nesta etapa, você transfere a assinatura do diretório de origem para o diretó
     | conjuntos de escala de máquina virtual | [Configurar identidades gerenciadas para recursos do Azure em um conjunto de dimensionamento de máquinas virtuais usando a CLI do Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vmss.md#user-assigned-managed-identity) |
     | Outros serviços | [Serviços compatíveis com identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)<br/>[Criar, listar ou excluir uma identidade gerenciada atribuída ao usuário usando a CLI do Azure](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md) |
 
-1. Use [AZ role Assignment Create](https://docs.microsoft.com/cli/azure/role/assignment#az-role-assignment-create) para criar as atribuições de função para identidades gerenciadas atribuídas pelo usuário. Para obter mais informações, consulte [atribuir um acesso de identidade gerenciada a um recurso usando CLI do Azure](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
+1. Use [AZ role Assignment Create](/cli/azure/role/assignment#az_role_assignment_create) para criar as atribuições de função para identidades gerenciadas atribuídas pelo usuário. Para obter mais informações, consulte [atribuir um acesso de identidade gerenciada a um recurso usando CLI do Azure](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
 
     ```azurecli
     az role assignment create --assignee <objectid> --role '<role_name_or_id>' --scope <scope>

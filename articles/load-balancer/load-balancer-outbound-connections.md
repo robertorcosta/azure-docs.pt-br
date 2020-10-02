@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/30/2020
 ms.author: allensu
-ms.openlocfilehash: d778b3ae0889ea0bf9cc38ca5813ac61fc5fcdbe
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: 6b9f454c75a10644e86931dc86ebd9514e5431d3
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91595646"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91649789"
 ---
 # <a name="outbound-connections"></a>Conexões de saída
 
@@ -160,7 +160,7 @@ Cada um dos endereços IP dentro do prefixo IP público fornece uma 64.000 porta
 
 ### <a name="outbound-flow-idle-timeout-and-tcp-reset"></a><a name="idletimeout"></a> Tempo limite de ociosidade do fluxo de saída e redefinição de TCP
 
-Regras de saída fornecem um parâmetro de configuração para controlar o tempo limite de ociosidade de fluxo de saída e combiná-lo com as necessidades do seu aplicativo. O padrão de tempos limite de ociosidade de saída é de 4 minutos. Para obter mais informações, consulte [Configurar tempos limite de ociosidade](load-balancer-tcp-idle-timeout.md#tcp-idle-timeout). 
+Regras de saída fornecem um parâmetro de configuração para controlar o tempo limite de ociosidade de fluxo de saída e combiná-lo com as necessidades do seu aplicativo. O padrão de tempos limite de ociosidade de saída é de 4 minutos. Para obter mais informações, consulte [Configurar tempos limite de ociosidade](load-balancer-tcp-idle-timeout.md). 
 
 O comportamento padrão do balanceador de carga é descartar o fluxo silenciosamente quando o tempo limite de ociosidade de saída for atingido. O `enableTCPReset` parâmetro habilita um comportamento e controle previsíveis do aplicativo. O parâmetro determina se a redefinição TCP bidirecional (TCP RST) deve ser enviada no tempo limite do tempo limite de ociosidade de saída. 
 

@@ -3,12 +3,12 @@ title: Guia de configuração acelerada do laboratório de sala de aula do Azure
 description: Este guia ajuda desenvolvedores a configurar rapidamente uma conta de laboratório para uso em escolas.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: ad1a679c556316c2d23a713ffa5ac5dfe86cce0e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 510aa97a0a47e62f627203495c601bb2538e19ad
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445569"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652203"
 ---
 # <a name="classroom-lab-setup-guide"></a>Guia de configuração de laboratórios de sala de aula
 
@@ -60,9 +60,6 @@ Os serviços de laboratório usam um modelo de preços pago conforme o uso, o qu
 - **Agendamento**: o agendamento permite que você controle automaticamente quando as VMs nos laboratórios são iniciadas e desligadas.
 - **Cota**: a cota controla o número de horas durante as quais os alunos terão acesso a uma VM fora das horas agendadas. Se a cota for atingida enquanto um aluno a estiver usando, a VM será desligada automaticamente. O aluno não conseguirá reiniciar a VM, a menos que a cota seja aumentada.
 - **Desligamento automático**: quando habilitada, a configuração de desligamento automático faz com que as VMs do Windows sejam desligadas automaticamente após um determinado período de tempo, depois que um aluno se desconectou de uma sessão de protocolo RDP (Remote Desktop). Por padrão, essa configuração é desabilitada.  
-
-    > [!NOTE]
-    > No momento, essa configuração só existe no Windows.
 
 ### <a name="how-will-students-save-their-work"></a>Como os alunos salvarão seus trabalhos?
 
@@ -119,7 +116,7 @@ Depois de entender os requisitos para a criação do laboratório de sua classe,
         > [!NOTE]
         > Os agendamentos e cotas não se aplicam à VM modelo, mas as configurações de desligamento automático sim. 
         > 
-        > Quando você cria um laboratório, a VM modelo é criada, mas não iniciada. Você pode iniciá-lo, conectar-se a ele e instalar qualquer software de pré-requisito para o laboratório e, em seguida, publicá-lo. Quando você publicar a VM de modelo, ela será desligada automaticamente, caso você ainda não o tenha feito. 
+        > Quando você cria um laboratório, a VM modelo é criada, mas não iniciada. Você pode iniciá-la, conectar-se a ela e instalar qualquer software de pré-requisito para o laboratório e, em seguida, publicá-la. Quando você publicar a VM de modelo, ela será desligada automaticamente, caso você ainda não tenha feito isso. 
         > 
         > Durante a execução, as VMs modelo incorrem em **custos**, portanto, verifique se elas estão desligadas quando não estiverem em uso. 
 

@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 9b841b6422a4314b43a594cb0b22040f884228eb
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 21d44044250bacc95c4dbb0dde147e87f2fed6a5
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543887"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652730"
 ---
 # <a name="nvv4-series"></a>Série NVv4 
 
@@ -21,15 +21,13 @@ As máquinas virtuais da série NVv4 são alimentadas por GPUs [AMD Radeon insti
 
 <br>
 
-ACU: 230-260
-
-Armazenamento Premium:  Com suporte
-
-Cache de Armazenamento Premium:  Com suporte
-
-Migração ao Vivo: Sem suporte
-
-Atualizações de preservação de memória: Sem suporte
+[ACU](acu.md): 230-260<br>
+[Armazenamento Premium](premium-storage-performance.md): com suporte<br>
+[Cache de armazenamento Premium](premium-storage-performance.md): com suporte<br>
+[Migração ao vivo](maintenance-and-updates.md): sem suporte<br>
+[Atualizações de preservação de memória](maintenance-and-updates.md): sem suporte<br>
+[Suporte à geração de VM](generation-2.md): geração 1<br>
+<br>
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | GPU | Memória da GPU: GiB | Discos de dados máximos | Número máximo de NICs/largura de banda de rede esperada (MBps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |

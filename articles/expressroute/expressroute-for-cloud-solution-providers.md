@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: ec3f8f71713abb818f29458748eb0054390f474e
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 17b8fc3824fb1c7e6cfcfc3d4333dc226b51724d
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89396668"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653631"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>ExpressRoute para Provedores de Soluções na Nuvem (CSP)
 A Microsoft fornece serviços de hiperescala para revendedores e distribuidores tradicionais (CSP) poderem provisionar rapidamente novos serviços e soluções para seus clientes sem a necessidade de investir no desenvolvimento desses novos serviços. Para permitir que o Provedor de Soluções na Nuvem (CSP) tenha a capacidade de gerenciar esses novos serviços diretamente, a Microsoft oferece programas e APIs que permitem que o CSP gerencie recursos do Microsoft Azure em nome de seus clientes. Um desses recursos é o ExpressRoute. o ExpressRoute permite que o CSP conecte os recursos do cliente aos serviços do Azure. O ExpressRoute é um link de comunicação privada de alta velocidade para serviços no Azure. 
@@ -34,18 +34,18 @@ A Microsoft fornece CSPs com APIs para gerenciar as assinaturas de clientes do A
 O contrato que você tem com o cliente determinará como a assinatura será gerenciada. O CSP pode gerenciar diretamente a criação e a manutenção de recursos ou o cliente pode manter o controle da assinatura do Microsoft Azure e criar recursos necessário do Azure. Se o cliente gerenciar a criação de recursos em sua assinatura Microsoft Azure, ele usará um dos dois modelos: "*conectar-se*" ou modelo "*direto para*". Esses modelos serão descritos em detalhes nas seções a seguir.  
 
 ### <a name="connect-through-model"></a>Modelo Connect-Through
-![texto alternativo](./media/expressroute-for-cloud-solution-providers/connect-through.png)  
+![Diagrama que mostra o modelo "Connect-through".](./media/expressroute-for-cloud-solution-providers/connect-through.png)  
 
 No modelo Connect-Through, o CSP cria uma conexão direta entre seu datacenter e a assinatura do Azure do seu cliente. A conexão direta é feita usando o ExpressRoute, conectando a sua rede ao Azure. Em seguida, seu cliente se conecta à sua rede. Esse cenário requer que o cliente passe pela rede CSP para acessar os serviços do Azure. 
 
 Se o seu cliente tiver outras assinaturas do Azure não gerenciadas por você, elas usarão a Internet pública ou sua própria conexão privada para se conectar a esses serviços provisionados na assinatura não CSP. 
 
-Para o CSP gerenciar os serviços do Azure, presume-se que o CSP tenha um armazenamento de identidade do cliente estabelecido anteriormente, que seria então replicado em Azure Active Directory para o gerenciamento de sua assinatura do CSP por meio de AOBO (administração em nome de). Os principais drivers para esse cenário incluem onde um determinado parceiro ou provedor de serviços tem uma relação estabelecida com o cliente, o cliente está consumindo serviços de provedor no momento ou o parceiro tem a intenção de fornecer uma combinação de soluções hospedadas pelo provedor e pelo Azure para fornecer flexibilidade e solucionar os desafios dos clientes que não podem ser satisfeitos apenas pelo CSP. Esse modelo é ilustrado na **Figura**abaixo.
+Para o CSP gerenciar os serviços do Azure, presume-se que o CSP tenha um armazenamento de identidade do cliente estabelecido anteriormente, que seria então replicado em Azure Active Directory para o gerenciamento de sua assinatura do CSP por meio de AOBO (administração em nome de). Os principais drivers para esse cenário incluem onde um determinado parceiro ou provedor de serviços tem uma relação estabelecida com o cliente, o cliente está consumindo serviços de provedor no momento ou o parceiro tem a intenção de fornecer uma combinação de soluções hospedadas pelo provedor e pelo Azure para fornecer flexibilidade e solucionar os desafios dos clientes que não podem ser satisfeitos apenas pelo CSP. Esse modelo é ilustrado na **Figura** abaixo.
 
-![texto alternativo](./media/expressroute-for-cloud-solution-providers/connect-through-model.png)
+![Diagrama que mostra um cenário detalhado para o modelo "Connect-through".](./media/expressroute-for-cloud-solution-providers/connect-through-model.png)
 
 ### <a name="connect-to-model"></a>Modelo Connect-To
-![texto alternativo](./media/expressroute-for-cloud-solution-providers/connect-to.png)
+![Diagrama que mostra o modelo "Connect-to".](./media/expressroute-for-cloud-solution-providers/connect-to.png)
 
 No modelo Connect-To, o provedor de serviço cria uma conexão direta entre o datacenter do cliente e a assinatura do Azure provisionada pelo CSP usando o ExpressRoute na rede do cliente.
 
@@ -56,7 +56,7 @@ No modelo Connect-To, o provedor de serviço cria uma conexão direta entre o da
 
 Esse cenário de conectividade requer que o cliente se conecte diretamente por meio de uma rede de cliente para acessar a assinatura do Azure gerenciada pelo CSP, usando uma conexão de rede direta que é criada, de propriedade e gerenciada totalmente ou em parte pelo cliente. Para esses clientes, supõe-se que o provedor atualmente não tem um armazenamento de identidade do cliente estabelecido, e o provedor auxiliaria o cliente a replicar seu armazenamento de identificação atual em Azure Active Directory para o gerenciamento de sua assinatura por meio do AOBO. Os fatores determinantes para este cenário incluem o local onde um determinado parceiro ou provedor de serviços tem um relacionamento estabelecido com o cliente, se o cliente está consumindo serviços de provedor no momento ou se o parceiro tem um desejo fornecer serviços baseados somente em soluções hospedadas no Azure sem a necessidade de um datacenter ou de infraestrutura do provedor existente.
 
-![texto alternativo](./media/expressroute-for-cloud-solution-providers/connect-to-model.png)
+![Diagrama que mostra um cenário detalhado para o modelo "Connect-to".](./media/expressroute-for-cloud-solution-providers/connect-to-model.png)
 
 As opções entre essas duas opções se baseiam nas necessidades do cliente e na necessidade atual de fornecer serviços do Azure. Os detalhes desses modelos e dos padrões de design do controle de acesso baseado em função, de rede e de identidade serão abordados em detalhes nos links a seguir:
 
@@ -109,7 +109,7 @@ A tabela de rotas padrão inclui as seguintes rotas:
 * Rede virtual para rede virtual usando o gateway de VPN
 * Rede virtual para rede local usando um gateway de VPN ou de ExpressRoute
 
-![texto alternativo](./media/expressroute-for-cloud-solution-providers/default-routing.png)  
+![Diagrama que mostra as opções de roteamento padrão.](./media/expressroute-for-cloud-solution-providers/default-routing.png)  
 
 ### <a name="user-defined-routing-udr"></a>Roteamento definido pelo usuário (UDR)
 As rotas definidas pelo usuário permitem o controle do tráfego de saída da sub-rede atribuída para outras sub-redes na rede virtual ou em um dos outros gateways predefinidos (ExpressRoute, Internet ou VPN). A tabela padrão de roteamento do sistema pode ser substituída por uma tabela de roteamento definida pelo usuário que substitua a tabela de roteamento padrão com rotas personalizadas. Com o roteamento definido pelo usuário, os clientes podem criar rotas específicas para dispositivos como firewalls ou dispositivos de detecção de intrusão, além de bloquear o acesso a sub-redes específicas da sub-rede que hospeda a rota definida pelo usuário. Para obter uma visão geral das rotas definidas pelo usuário, procure [aqui](../virtual-network/virtual-networks-udr-overview.md). 

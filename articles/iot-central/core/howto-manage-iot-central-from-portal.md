@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 02/11/2020
 ms.topic: how-to
 manager: philmea
-ms.openlocfilehash: e7efda8efa27044168386e3ebbc557bf7fb74e8c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0802169898cad51e9a5d208e546a004f7ea7b3c0
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80157918"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653325"
 ---
 # <a name="manage-iot-central-from-the-azure-portal"></a>Gerenciar IoT Central do portal do Azure
 
@@ -56,13 +56,13 @@ Para começar, selecione **todos os recursos** no Portal. Selecione **Mostrar ti
 
 Para navegar até o aplicativo, selecione a **URL do aplicativo IOT central**:
 
-![Portal de gerenciamento: gerenciamento de recursos](media/howto-manage-iot-central-from-portal/image3.png)
+![Captura de tela que mostra a página "visão geral" com a "URL do aplicativo IoT Central" realçada.](media/howto-manage-iot-central-from-portal/image3.png)
 
 Para mover o aplicativo para um grupo de recursos diferente, selecione **alterar** ao lado do grupo de recursos. Na página **mover recursos** , escolha o grupo de recursos para o qual você deseja mover este aplicativo:
 
-![Portal de gerenciamento: gerenciamento de recursos](media/howto-manage-iot-central-from-portal/image4a.png)
+![Captura de tela que mostra a página "visão geral" com o "grupo de recursos (alterar)" realçado.](media/howto-manage-iot-central-from-portal/image4a.png)
 
-Para mover o aplicativo para uma assinatura diferente, selecione **alterar** ao lado da assinatura. Na página **mover recursos** , escolha a assinatura para a qual você gostaria de mover este aplicativo:
+Para mover o aplicativo para uma assinatura diferente, selecione  **alterar** ao lado da assinatura. Na página **mover recursos** , escolha a assinatura para a qual você gostaria de mover este aplicativo:
 
 ![Portal de gerenciamento: gerenciamento de recursos](media/howto-manage-iot-central-from-portal/image5a.png)
 

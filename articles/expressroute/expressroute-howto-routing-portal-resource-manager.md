@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 02/13/2019
 ms.author: duau
-ms.openlocfilehash: 8ac38c25821a9f636ac98903599ee7d3acfa5e17
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: ccbd9645ac7d331c06e528298b3a45a184c6cc49
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89395716"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652220"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>Criar e modificar o emparelhamento de um circuito de ExpressRoute
 
@@ -60,12 +60,12 @@ Esta seção ajuda você a criar, obter, atualizar e excluir a configuração de
 
    **Status do provedor de circuito: não provisionado**
 
-   [![Captura de tela mostrando a página de visão geral do circuito de demonstração do ExpressRoute com uma caixa vermelha realçando o status do provedor que está definido como "não provisionado".](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m.png)](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m-lightbox.png#lightbox)
+   [![Captura de tela que mostra a página de visão geral do circuito de demonstração do ExpressRoute com uma caixa vermelha realçando o status do provedor definido como "não provisionado".](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m.png)](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m-lightbox.png#lightbox)
 
 
    **Status do provedor de circuito: provisionado**
 
-   [![Captura de tela mostrando a página de visão geral do circuito de demonstração do ExpressRoute com uma caixa vermelha realçando o status do provedor que está definido como "provisionado".](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m.png)](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m-lightbox.png#lightbox)
+   [![Captura de tela que mostra a página de visão geral do circuito de demonstração do ExpressRoute com uma caixa vermelha realçando o status do provedor definido como "provisionado".](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m.png)](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m-lightbox.png#lightbox)
 
 2. Configurar o emparelhamento da Microsoft para o circuito. Você precisa ter as seguintes informações antes de continuar:
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: duau
-ms.openlocfilehash: b72126933c5454b8fabe19dda08ad5eb66edd1ba
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: f080f5011311101ed8f9faa2ee807c030a048409
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89392663"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653036"
 ---
 # <a name="performance-considerations-for-traffic-manager"></a>Considerações de desempenho sobre Gerenciador de Tráfego
 
@@ -50,7 +50,7 @@ As ferramentas nesses sites medem as latências de DNS e exibem os endereços IP
 
     Uma das ferramentas mais simples é o WebSitePulse. Insira a URL para ver o tempo de resolução DNS, o Primeiro Byte, o Último Byte e outras estatísticas de desempenho. Você pode escolher entre três locais de teste diferentes. Neste exemplo, você verá que a primeira execução mostra que a pesquisa de DNS leva 0,204 s.
 
-    ![pulse1](./media/traffic-manager-performance-considerations/traffic-manager-web-site-pulse.png)
+    ![Captura de tela que mostra a ferramenta "WebSitePulse" com o resultado de pesquisa "DNS" realçado.](./media/traffic-manager-performance-considerations/traffic-manager-web-site-pulse.png)
 
     Uma vez que os resultados estão armazenados em cache, no segundo teste para o mesmo ponto de extremidade do Gerenciador de Tráfego, a pesquisa de DNS leva 0,002 segundo.
 

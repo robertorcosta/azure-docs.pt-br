@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 8209f5b7fc02f59c33ad0a7b58ec6305d6eecf0c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8d727bc8bdc8f015504baa57f9596b3bacac9712
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320074"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651626"
 ---
 # <a name="troubleshoot-storage-resource-deletion-errors"></a>Solucionar problemas de erros de exclusão de recursos de armazenamento
 
@@ -95,7 +95,7 @@ Se o VHD for um disco de dados, desanexe o VHD da VM para remover a concessão:
 7. Selecione **Editar** na parte superior do painel **Discos**.
 8. Clique no **ícone desanexar** do disco de dados a ser excluído.
 
-     ![Captura de tela do portal, com o painel "Metadados de Blob" aberto](./media/troubleshoot-vhds/utd-vm-disks-edit.png)
+     ![Captura de tela do portal, com o painel de armazenamento "metadados de blob" aberto e realça o ícone de desanexação do disco de dados a ser excluído.](./media/troubleshoot-vhds/utd-vm-disks-edit.png)
 
 9. Clique em **Salvar**. Agora, o disco está desconectado da VM, e o VHD não é mais concedido. Talvez demore alguns minutos para o serviço ser liberado. Para verificar se a concessão foi liberada, navegue até o local do blob e, no painel **Propriedades do blob**, o valor **Status de concessão** deve ser **Desbloqueado** ou **Disponível**.
 

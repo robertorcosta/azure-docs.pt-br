@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: ddcf6758c8c648678c69070fa5b65ae6c4947018
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: e00fd3d1dac0a18ac7f7377e08ae8d20ae132c56
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252684"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652596"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Conceitos de gatilhos e de associações do Azure Functions
 
@@ -28,12 +28,12 @@ Considere os exemplos a seguir de como você pode implementar funções diferent
 
 | Cenário de exemplo | Gatilho | Associação de entrada | Associação de saída |
 |-------------|---------|---------------|----------------|
-| Uma nova mensagem de fila chega, que executa uma função para gravar em outra fila. | Espera<sup>*</sup> | *Nenhum* | Espera<sup>*</sup> |
+| Uma nova mensagem de fila chega, que executa uma função para gravar em outra fila. | Espera<sup>*</sup> | *Nenhuma* | Espera<sup>*</sup> |
 |Um trabalho agendado lê o conteúdo do armazenamento de BLOBs e cria um novo documento Cosmos DB. | Temporizador | Armazenamento de Blobs | Cosmos DB |
 |A grade de eventos é usada para ler uma imagem do armazenamento de BLOBs e um documento do Cosmos DB para enviar um email. | Grade de Eventos | Armazenamento de BLOBs e Cosmos DB | SendGrid |
-| Um webhook que usa Microsoft Graph para atualizar uma planilha do Excel. | HTTP | *Nenhum* | Microsoft Graph |
+| Um webhook que usa Microsoft Graph para atualizar uma planilha do Excel. | HTTP | *Nenhuma* | Microsoft Graph |
 
-<sup>\*</sup>Representa filas diferentes
+<sup>\*</sup> Representa filas diferentes
 
 Esses exemplos não devem ser completos, mas são fornecidos para ilustrar como você pode usar gatilhos e associações juntos.
 
@@ -73,11 +73,21 @@ Todos os disparadores e associações têm uma propriedade `direction` no arquiv
 
 Quando você usa [atributos em uma biblioteca de classes](functions-dotnet-class-library.md) para configurar associações e gatilhos, a direção é fornecida em um construtor de atributo ou inferida do tipo de parâmetro.
 
+## <a name="add-bindings-to-a-function"></a>Adicionar associações a uma função
+
+Você pode conectar sua função a outros serviços usando associações de entrada ou saída. Adicione uma associação adicionando suas definições específicas à sua função. Para saber como, consulte [Adicionar associações a uma função existente no Azure Functions](add-bindings-existing-function.md).  
+
 ## <a name="supported-bindings"></a>Associações com suporte
 
 [!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
 
 Para obter informações sobre quais associações estão na visualização ou são aprovadas para o uso de produção, consulte [Idiomas com suporte](supported-languages.md).
+
+## <a name="bindings-code-examples"></a>Exemplos de código de associações
+
+Use a tabela a seguir para encontrar exemplos de tipos de associação específicos que mostram como trabalhar com associações em suas funções. Primeiro, escolha a guia idioma que corresponde ao seu projeto. 
+
+[!INCLUDE [functions-bindings-code-example-chooser](../../includes/functions-bindings-code-example-chooser.md)]
 
 ## <a name="resources"></a>Recursos
 - [Padrões e expressões de associação](./functions-bindings-expressions-patterns.md)

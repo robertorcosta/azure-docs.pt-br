@@ -3,12 +3,12 @@ title: Endereços IP no Azure
 description: Saiba como encontrar endereços IP de entrada e saída para aplicativos de função e o que faz com que eles sejam alterados.
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: 4b99855d8cc28a41d9eb91bdcf691747910ed4a1
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 1d2cf34ee4712705eaa1c0da5ad63712f9e649fe
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87874071"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652458"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Endereços IP no Azure
 
@@ -51,7 +51,7 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 ```
 
 > [!NOTE]
-> Quando um aplicativo de função que é executado no [Plano de consumo](functions-scale.md#consumption-plan) é dimensionado, um novo intervalo de endereços IP de saída pode ser atribuído. Ao executar no plano de consumo, talvez seja necessário adicionar o data center inteiro a uma lista de permissões.
+> Quando um aplicativo de funções que é executado no [plano de consumo](functions-scale.md#consumption-plan) ou no [plano Premium](functions-scale.md#premium-plan) é dimensionado, um novo intervalo de endereços IP de saída pode ser atribuído. Ao executar em qualquer um desses planos, talvez seja necessário adicionar o data center inteiro a uma lista de permissões.
 
 ## <a name="data-center-outbound-ip-addresses"></a>Endereços IP de saída do data center
 
@@ -89,7 +89,7 @@ O endereço IP de entrada **pode** mudar quando você:
 - Exclua o último aplicativo de função em uma combinação de grupo de recursos e região e recrie-o.
 - Exclua uma associação TLS, como durante a [renovação do certificado](../app-service/configure-ssl-certificate.md#renew-certificate).
 
-Quando seu aplicativo de funções é executado em um [plano de consumo](functions-scale.md#consumption-plan), o endereço IP de entrada também pode ser alterado mesmo quando você não executou nenhuma ação, como aquelas [listadas acima](#inbound-ip-address-changes).
+Quando seu aplicativo de funções é executado em um [plano de consumo](functions-scale.md#consumption-plan) ou em um [plano Premium](functions-scale.md#premium-plan), o endereço IP de entrada também pode ser alterado mesmo quando você não executou nenhuma ação, como as [listadas acima](#inbound-ip-address-changes).
 
 ## <a name="outbound-ip-address-changes"></a>Mudanças no endereço IP de saída
 
@@ -98,7 +98,7 @@ O conjunto de endereços IP de saída disponíveis para um aplicativo de funçã
 * Execute qualquer ação que possa alterar o endereço IP de entrada.
 * Altere a camada de preços do seu plano de serviço do aplicativo. A lista de todos os possíveis endereços IP de saída que seu aplicativo pode usar, para todas as camadas de preços, está na `possibleOutboundIPAddresses`propriedade. Consulte [Localizar IPs de saída](#find-outbound-ip-addresses).
 
-Quando seu aplicativo de funções é executado em um [plano de consumo](functions-scale.md#consumption-plan), o endereço IP de saída também pode ser alterado mesmo quando você não executou nenhuma ação, como as [listadas acima](#inbound-ip-address-changes).
+Quando seu aplicativo de funções é executado em um [plano de consumo](functions-scale.md#consumption-plan) ou em um [plano Premium](functions-scale.md#premium-plan), o endereço IP de saída também pode ser alterado mesmo quando você não tiver feito nenhuma ação, como as [listadas acima](#inbound-ip-address-changes).
 
 Para forçar deliberadamente uma alteração de endereço IP de saída:
 

@@ -7,27 +7,24 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 33d481d546d94bb1279cafbd85ae23c8ac4d00b8
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 65aab240dd0be97aafa370883aa953f8eb766cf2
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89437260"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91650741"
 ---
 # <a name="av2-series"></a>Série Av2
 
 As VMs da série Av2 podem ser implantadas em uma variedade de tipos de hardware e processadores. As VMs da série Av2 têm configurações de desempenho e memória de CPU mais adequadas para cargas de trabalho de nível de entrada, como desenvolvimento e teste. O tamanho é limitado para oferecer desempenho de processador consistente para a instância em execução, independentemente do hardware no qual ele está implantado. Para determinar o hardware físico no qual esse tamanho é implantado, consulte o hardware virtual de dentro da Máquina Virtual. Alguns casos de uso de exemplo incluem servidores de desenvolvimento e teste, servidores Web de tráfego baixo, bancos de dados pequenos a médios, prova de conceitos e repositórios de código.
 
-ACU: 100
-
-Armazenamento Premium:  Sem suporte
-
-Cache de Armazenamento Premium:  Sem suporte
-
-Migração ao Vivo: Com suporte
-
-Atualizações de preservação de memória: Com suporte
-
+[ACU](acu.md): 100<br>
+[Armazenamento Premium](premium-storage-performance.md): sem suporte <br>
+[Armazenamento em cache Premium](premium-storage-performance.md): sem suporte <br>
+[Migração ao vivo](maintenance-and-updates.md): com suporte <br>
+[Atualizações de preservação de memória](maintenance-and-updates.md): com suporte <br>
+[Suporte à geração de VM](generation-2.md): geração 1 <br>
+<br>
 
 | Tamanho | vCore | Memória: GiB | Armazenamento temporário (SSD) GiB | Taxa de transferência máxima de armazenamento temporário: IOPS/MBps de leitura/MBps de gravação | Máximo de discos de dados/taxa de transferência: IOPS | Máximo de NICs | Largura de banda de rede esperada (Mbps)
 |---|---|---|---|---|---|---|---|

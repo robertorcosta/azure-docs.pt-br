@@ -6,25 +6,25 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: how-to
 ms.date: 09/21/2020
-ms.openlocfilehash: f09b6d48e8a98b0995c882769d6c978996324dad
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 706748018c9f32ab2300b290c6929d344b82e0b0
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91340989"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653087"
 ---
 # <a name="stopstart-an-azure-database-for-mysql"></a>Parar/iniciar um banco de dados do Azure para MySQL
 
 > [!IMPORTANT]
 > A funcionalidade de parar/iniciar para o banco de dados do Azure para MySQL está atualmente em visualização pública.
 
-Este artigo fornece um procedimento passo a passo para executar a interrupção e o início do servidor flexível.
+Este artigo fornece um procedimento passo a passo para executar a interrupção e o início do servidor único.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este guia de instruções, você precisa:
 
--   Você deve ter um servidor flexível do banco de dados do Azure para MySQL.
+-   Você deve ter um servidor único do banco de dados do Azure para MySQL.
 
 > [!NOTE]
 > Consulte a limitação do uso de [parar/iniciar](concepts-servers.md#limitations-of-stopstart-operation)
@@ -40,18 +40,18 @@ Para concluir este guia de instruções, você precisa:
     :::image type="content" source="./media/howto-stop-start-server/mysql-stop-server.png" alt-text="Servidor de parada do banco de dados do Azure para MySQL":::
 
     > [!NOTE]
-    > Depois que o servidor for interrompido, as outras operações de gerenciamento não estarão disponíveis para o servidor flexível.
+    > Depois que o servidor for interrompido, as outras operações de gerenciamento não estarão disponíveis para o servidor único.
 
 ### <a name="start-a-stopped-server"></a>Iniciar um servidor interrompido
 
-1.  Na [portal do Azure](https://portal.azure.com/), escolha o servidor flexível que você deseja iniciar.
+1.  Na [portal do Azure](https://portal.azure.com/), escolha o servidor único que você deseja iniciar.
 
 2.  Na página **visão geral** , clique no botão **Iniciar** na barra de ferramentas.
 
-    :::image type="content" source="./media/howto-stop-start-server/mysql-start-server.png" alt-text="Servidor inicial do banco de dados do Azure para MySQL":::
+    :::image type="content" source="./media/howto-stop-start-server/mysql-start-server.png" alt-text="Servidor de parada do banco de dados do Azure para MySQL":::
 
     > [!NOTE]
-    > Depois que o servidor é iniciado, todas as operações de gerenciamento agora estão disponíveis para o servidor flexível.
+    > Depois que o servidor é iniciado, todas as operações de gerenciamento agora estão disponíveis para o servidor único.
 
 ## <a name="how-to-stopstart-the-azure-database-for-mysql-using-cli"></a>Como parar/iniciar o banco de dados do Azure para MySQL usando a CLI
 
@@ -65,11 +65,11 @@ Para concluir este guia de instruções, você precisa:
     az mysql server stop --name <server-name> -g <resource-group-name>
     ```
     > [!NOTE]
-    > Depois que o servidor for interrompido, as outras operações de gerenciamento não estarão disponíveis para o servidor flexível.
+    > Depois que o servidor for interrompido, as outras operações de gerenciamento não estarão disponíveis para o servidor único.
 
 ### <a name="start-a-stopped-server"></a>Iniciar um servidor interrompido
 
-1.  Na [portal do Azure](https://portal.azure.com/), escolha o servidor flexível que você deseja iniciar.
+1.  Na [portal do Azure](https://portal.azure.com/), escolha o servidor único que você deseja iniciar.
 
 2.  Na página **visão geral** , clique no botão **Iniciar** na barra de ferramentas.
 
@@ -77,7 +77,7 @@ Para concluir este guia de instruções, você precisa:
     az mysql server start --name <server-name> -g <resource-group-name>
     ```
     > [!NOTE]
-    > Depois que o servidor é iniciado, todas as operações de gerenciamento agora estão disponíveis para o servidor flexível.
+    > Depois que o servidor é iniciado, todas as operações de gerenciamento agora estão disponíveis para o servidor único.
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre [como criar alertas sobre métricas](howto-alert-on-metric.md).

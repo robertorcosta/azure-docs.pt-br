@@ -2,13 +2,13 @@
 title: Exclusões de histórico de implantações
 description: Descreve como Azure Resource Manager exclui automaticamente implantações do histórico de implantação. As implantações são excluídas quando o histórico está próximo de exceder o limite de 800.
 ms.topic: conceptual
-ms.date: 09/15/2020
-ms.openlocfilehash: 0c5d972eea9bc9cf2bf8716b26cd0e07d0a07b82
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 10/01/2020
+ms.openlocfilehash: 13c65f3311e308708034bb5befb7e3c3ee158d38
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91284726"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652475"
 ---
 # <a name="automatic-deletions-from-deployment-history"></a>Exclusões automáticas do histórico de implantação
 
@@ -23,7 +23,7 @@ Azure Resource Manager exclui automaticamente as implantações do seu históric
 
 ## <a name="when-deployments-are-deleted"></a>Quando as implantações são excluídas
 
-As implantações são excluídas do seu histórico quando você atinge 775 ou mais implantações. Azure Resource Manager exclui as implantações até que o histórico seja reduzido para 750. As implantações mais antigas são sempre excluídas primeiro.
+As implantações são excluídas do seu histórico quando você excede 775 implantações. Azure Resource Manager exclui as implantações até que o histórico seja reduzido para 750. As implantações mais antigas são sempre excluídas primeiro.
 
 :::image type="content" border="false" source="./media/deployment-history-deletions/deployment-history.svg" alt-text="Exclusões do histórico de implantação":::
 

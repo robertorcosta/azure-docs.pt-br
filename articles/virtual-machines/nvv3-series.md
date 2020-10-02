@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 7fcc8d89df6ac346a44e0356a4416e4168933fd8
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: dc6056653fc50976439d4b16594e6d554e62f061
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543904"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652815"
 ---
 # <a name="nvv3-series"></a>Série NVv3
 
@@ -21,11 +21,12 @@ As máquinas virtuais da série NVv3 são alimentadas pelas GPUs [NVIDIA Tesla M
 
 Cada GPU em instâncias de NVv3 vem com uma licença de grade. Esta licença oferece flexibilidade para usar uma instância NV como uma estação de trabalho virtual para um único usuário ou 25 usuários simultâneos podem se conectar à VM para um cenário de aplicativo virtual.
 
-Cache de Armazenamento Premium:  Com suporte
-
-Migração ao Vivo: Sem suporte
-
-Atualizações de preservação de memória: Sem suporte
+[Armazenamento Premium](premium-storage-performance.md): com suporte<br>
+[Cache de armazenamento Premium](premium-storage-performance.md): com suporte<br>
+[Migração ao vivo](maintenance-and-updates.md): sem suporte<br>
+[Atualizações de preservação de memória](maintenance-and-updates.md): sem suporte<br>
+[Suporte à geração de VM](generation-2.md): geração 1 e 2<br>
+<br>
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | GPU | Memória da GPU: GiB | Discos de dados máximos | Taxa de transferência de disco sem cache: IOPS/MBps | Máximo de NICs/Largura de banda de rede esperado (Mbps) | Estações de trabalho virtuais | Aplicativos virtuais |
 |---|---|---|---|---|---|---|---|---|---|---|

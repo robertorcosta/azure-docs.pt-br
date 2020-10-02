@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8a70097cbae3bc5ebf48c0358faa32aea0a6be5
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: de383bfa9f943cd5644d35ed83db8a80ec8017bd
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91370170"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653206"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Como: planejar sua implementação de junção do Azure AD
 
@@ -187,6 +187,7 @@ Conexão da área de trabalho remota para um dispositivos adicionados ao Azure A
 Iniciando a atualização do Windows 10 2004, os usuários também podem usar a área de trabalho remota de um dispositivo Windows 10 registrado no Azure AD para um dispositivo ingressado no Azure AD. 
 
 ## <a name="understand-your-provisioning-options"></a>Entenda suas opções de provisionamento
+**Observação**: os dispositivos adicionados ao Azure ad não podem ser implantados usando a ferramenta de preparação do sistema (Sysprep) ou ferramentas de geração de imagens semelhantes
 
 Você pode provisionar o ingresso no Azure Active Directory usando as seguintes abordagens:
 

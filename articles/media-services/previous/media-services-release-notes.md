@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7764452d0e52a29204b276b4939c4a8a5c144ca4
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 4d335affa5a06bdb8e5c733c871654cf58947581
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268648"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652951"
 ---
 # <a name="azure-media-services-release-notes"></a>Notas de versão dos Serviços de Mídia do Azure
 
@@ -48,6 +48,18 @@ Queremos ouvir nossos clientes para que possamos focar na correção de problema
 
 ## <a name="rest-api-version-history"></a><a name="rest_version_history"></a>Histórico de versão da API REST
 Para obter informações sobre o histórico de versões da API REST dos Serviços de Mídia, consulte a [Referência da API REST dos Serviços de Mídia do Azure].
+
+## <a name="september-2020"></a>Setembro de 2020
+
+As seguintes propriedades v2 não serão mais preenchidas com dados de progresso do trabalho histórico:
+
+* [HistoricalEvents](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.historicalevents)
+* [PerfMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.perfmessage)
+
+Para obter o histórico de tarefas, você deve usar as notificações de trabalho v2 por meio de WebHooks ou mensagens de fila usando pontos de extremidade de notificação. Para obter mais informações, consulte:
+
+* [Usar o Armazenamento de Fila do Azure para monitorar as notificações de trabalho dos Serviços de Mídia](media-services-dotnet-check-job-progress-with-queues.md)
+* [Usar WebHooks do Azure para monitorar notificações de trabalho dos serviços de mídia](media-services-dotnet-check-job-progress-with-webhooks.md)
 
 ## <a name="february-2020"></a>Fevereiro de 2020
 

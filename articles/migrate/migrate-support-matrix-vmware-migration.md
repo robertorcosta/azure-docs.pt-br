@@ -3,12 +3,12 @@ title: Suporte para migração do VMware nas migrações para Azure
 description: Saiba mais sobre o suporte para migração de VM do VMware nas migrações para Azure.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: f41223e9dfa336fdbf64fcfdc56798511f3a5b21
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 87733cac23d0336e4b9319f2a325e8d844e6e5b2
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91442265"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651948"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Matriz de suporte para migração do VMware
 
@@ -154,9 +154,9 @@ Servidor de processo | O servidor de processo recebe dados de replicação, otim
 
 ## <a name="azure-vm-requirements"></a>Requisitos de VM do Azure
 
-Todas as VMs locais replicadas para o Azure, com migração baseada em agente ou sem agente) devem atender aos requisitos de VM do Azure resumidos nesta tabela. 
+Todas as VMs locais replicadas para o Azure (com migração baseada em agente ou sem agente) devem atender aos requisitos de VM do Azure resumidos nesta tabela. 
 
-**Componente** | **Requirements** 
+**Componente** | **Requisitos** 
 --- | --- | ---
 Sistema operacional convidado | Verifica os sistemas operacionais de VM VMware com suporte para migração.<br/> Você pode migrar qualquer carga de trabalho em execução em um sistema operacional com suporte. 
 Arquitetura do sistema operacional convidado | 64 bits. 

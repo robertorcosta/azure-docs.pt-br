@@ -2,13 +2,13 @@
 title: Restrições de nomenclatura de recursos
 description: Mostra as regras e restrições de nomenclatura de recursos do Azure.
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: a4c3bf58bf5e84051b1e21863d2d581af5fa9f23
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.date: 10/01/2020
+ms.openlocfilehash: ff92eff9351e944f8baa11cf981e8511ad8e4ae1
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447524"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653359"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Regras de nomenclatura e restrições para recursos do Azure
 
@@ -174,7 +174,7 @@ Nas tabelas a seguir, o termo alfanumérico refere-se a:
 > | galleries/images/versions | image | Inteiro de 32 bits | Números e pontos. |
 > | images | grupo de recursos | 1-80 | Caracteres alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com caractere alfanumérico. Termine com caractere alfanumérico ou sublinhado. |
 > | snapshots | grupo de recursos | 1-80 | Caracteres alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com caractere alfanumérico. Termine com caractere alfanumérico ou sublinhado. |
-> | virtualMachines | grupo de recursos | 1–15 (Windows)<br>1–64 (Linux)<br><br>Veja a observação abaixo. | Não é possível usar espaço ou estes caracteres:<br> `\/"'[]:|<>+=;,?*@&`<br><br>Não pode começar com sublinhado. Não pode terminar com ponto ou hífen. |
+> | virtualMachines | grupo de recursos | 1–15 (Windows)<br>1–64 (Linux)<br><br>Veja a observação abaixo. | Não é possível usar espaço ou estes caracteres:<br> `\/"'[]:|<>+=;,?*@&_`<br><br>As VMs do Windows não podem incluir o período ou terminar com hífen.<br><br>As VMs do Linux não podem terminar com um ponto ou hífen. |
 > | virtualMachineScaleSets | grupo de recursos | 1–15 (Windows)<br>1–64 (Linux)<br><br>Veja a observação abaixo. | Não é possível usar espaço ou estes caracteres:<br> `\/"'[]:|<>+=;,?*@&`<br><br>Não pode começar com sublinhado. Não pode terminar com ponto ou hífen. |
 
 > [!NOTE]

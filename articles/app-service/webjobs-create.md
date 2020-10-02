@@ -8,12 +8,12 @@ ms.date: 10/16/2018
 ms.author: glenga
 ms.reviewer: msangapu;suwatch;pbatum;naren.soni
 ms.custom: seodec18
-ms.openlocfilehash: 028551f04b2e44e9456e2f7343159ad9b52fd25f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 235d82e54c79350f110ab0cda4f4b672e396c61d
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82085137"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651999"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Executar tarefas em segundo plano com trabalhos Web no serviço Azure App
 
@@ -73,7 +73,7 @@ when making changes in one don't forget the other two.
 
 3. Use as configurações **Adicionar WebJob**, conforme especificado na tabela.
 
-   ![Página Adicionar WebJob](./media/web-sites-create-web-jobs/addwjcontinuous.png)
+   ![Captura de tela que mostra as configurações de adicionar WebJob que você precisa configurar.](./media/web-sites-create-web-jobs/addwjcontinuous.png)
 
    | Configuração      | Valor de exemplo   | Descrição  |
    | ------------ | ----------------- | ------------ |
@@ -111,7 +111,7 @@ when making changes in one don't forget the other two.
 
 3. Use as configurações **Adicionar WebJob**, conforme especificado na tabela.
 
-   ![Página Adicionar WebJob](./media/web-sites-create-web-jobs/addwjtriggered.png)
+   ![Captura de tela que mostra as configurações que precisam ser definidas para a criação de um WebJob disparado manualmente.](./media/web-sites-create-web-jobs/addwjtriggered.png)
 
    | Configuração      | Valor de exemplo   | Descrição  |
    | ------------ | ----------------- | ------------ |
@@ -179,7 +179,7 @@ Para saber mais, consulte [agendando um WebJob disparado](webjobs-dotnet-deploy-
 
 [!INCLUDE [webjobs-cron-timezone-note](../../includes/webjobs-cron-timezone-note.md)]
 
-## <a name="view-the-job-history"></a><a name="ViewJobHistory"></a>Exibir o histórico de trabalhos
+## <a name="view-the-job-history"></a><a name="ViewJobHistory"></a> Exibir o histórico de trabalhos
 
 1. Selecione o WebJob do qual você deseja ver o histórico e, em seguida, selecione o botão **Logs**.
    

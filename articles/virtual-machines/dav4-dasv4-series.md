@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 2548f002b2006b5d241c323ae880704bbe95301e
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 6ab532e3d824aa857a35bf2898aea2efba28df71
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88649917"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653019"
 ---
 # <a name="dav4-and-dasv4-series"></a>Séries Dav4 e Dasv4
 
@@ -20,15 +20,13 @@ As séries Dav4 e Dasv4 são novos tamanhos que utilizam o processador 2.35 GHz 
 
 ## <a name="dav4-series"></a>Série Dav4
 
-ACU: 230-260
-
-Armazenamento Premium: sem suporte
-
-Armazenamento em cache Premium: sem suporte
-
-Migração ao Vivo: Com suporte
-
-Atualizações de preservação de memória: Com suporte
+[ACU](acu.md): 230-260<br>
+[Armazenamento Premium](premium-storage-performance.md): sem suporte<br>
+[Armazenamento em cache Premium](premium-storage-performance.md): sem suporte<br>
+[Migração ao vivo](maintenance-and-updates.md): com suporte<br>
+[Atualizações de preservação de memória](maintenance-and-updates.md): com suporte<br>
+[Suporte à geração de VM](generation-2.md): geração 1<br>
+<br>
 
 Os tamanhos da série Dav4 são baseados no processador AMD EPYC<sup>TM</sup> 7452 de 2.35 GHz que pode alcançar uma frequência máxima aumentada de 3.35 GHz. Os tamanhos da série Dav4 oferecem uma combinação de vCPU, memória e armazenamento temporário para a maioria das cargas de trabalho de produção. O armazenamento do disco de dados é faturado separadamente das máquinas virtuais. Para usar o SSD Premium, use os tamanhos de Dasv4. Os medidores de cobrança e preço para os tamanhos de Dasv4 são os mesmos que os da série Dav4.
 
@@ -45,15 +43,13 @@ Os tamanhos da série Dav4 são baseados no processador AMD EPYC<sup>TM</sup> 74
 
 ## <a name="dasv4-series"></a>Série Dasv4
 
-ACU: 230-260
-
-Armazenamento Premium: com suporte
-
-Cache de armazenamento Premium: com suporte
-
-Migração ao Vivo: Com suporte
-
-Atualizações de preservação de memória: Com suporte
+[ACU](acu.md): 230-260<br>
+[Armazenamento Premium](premium-storage-performance.md): com suporte<br>
+[Cache de armazenamento Premium](premium-storage-performance.md): com suporte<br>
+[Migração ao vivo](maintenance-and-updates.md): com suporte<br>
+[Atualizações de preservação de memória](maintenance-and-updates.md): com suporte<br>
+[Suporte à geração de VM](generation-2.md): geração 1 e 2<br>
+<br>
 
 Os tamanhos da série Dasv4 são baseados no processador AMD EPYC<sup>TM</sup> 7452 de 2.35 GHz que pode alcançar uma frequência máxima aumentada de 3.35 GHz e usar SSD Premium. Os tamanhos da série Dasv4 oferecem uma combinação de vCPU, memória e armazenamento temporário para a maioria das cargas de trabalho de produção.
 
