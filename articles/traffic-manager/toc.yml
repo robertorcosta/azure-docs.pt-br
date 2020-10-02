@@ -44,6 +44,10 @@
       items:
         - name: Hierarquia de países/regiões usada pelo Gerenciador de Tráfego
           href: traffic-manager-geographic-regions.md
+    - name: Segurança
+      items:
+        - name: Linha de base de segurança
+          href: security-baseline.md
     - name: Perfis aninhados do Gerenciador de Tráfego
       href: traffic-manager-nested-profiles.md
     - name: Tipos de ponto de extremidade
