@@ -1,39 +1,39 @@
 ---
-title: Visão geral do Azure defender e dos planos disponíveis
-description: Saiba mais sobre os planos, as proteções e os alertas do Azure defender. Em seguida, continue para habilitar o Azure defender em suas assinaturas.
+title: Visão geral do Azure Defender e os planos disponíveis
+description: Saiba mais sobre os planos, as proteções e os alertas do Azure Defender. Depois, prossiga para habilitar o Azure Defender nas suas assinaturas.
 author: memildin
 ms.author: memildin
 ms.date: 9/22/2020
-ms.topic: conceptual
+ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: bb1c1e6443b5087b48aad7c3171bef557707adb1
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
-ms.translationtype: MT
+ms.openlocfilehash: 5a5b96d5a9ea6aa05da30238690b8f5fa745b3f3
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90977287"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448429"
 ---
-# <a name="introduction-to-azure-defender"></a>Introdução ao Azure defender
+# <a name="introduction-to-azure-defender"></a>Introdução ao Azure Defender
 
-Os recursos da central de segurança do Azure abrangem os dois pilares mais amplos da segurança em nuvem:
+Os recursos da Central de Segurança do Azure abrangem os dois pilares mais amplos da segurança na nuvem:
 
-- **Gerenciamento de postura de segurança na nuvem (CSPM)**
-- **Proteção de carga de trabalho de nuvem (CWP)**
+- **GPSN (gerenciamento da postura de segurança na nuvem)**
+- **PCTN (proteção de cargas de trabalho na nuvem)**
 
-Os recursos CSPM da central de segurança, como Pontuação segura, detecção de configurações incorretas de segurança em seus computadores Windows e Linux do Azure, fazem parte da experiência gratuita da central de segurança disponível para todos os usuários do Azure. Use esses recursos do CSPM para reforçar sua postura e garantir a conformidade regulatória.
+Os recursos de GPSN da Central de Segurança, como classificação de segurança, detecção de configurações incorretas de segurança nos seus computadores Windows e Linux do Azure, fazem parte da experiência gratuita da Central de Segurança disponível para todos os usuários do Azure. Use esses recursos do GPSN para fortalecer sua postura e garantir a conformidade regulatória.
 
-O **Azure defender** é a plataforma de proteção de carga de trabalho de nuvem (CWPP) integrada na central de segurança para proteção avançada, inteligente e de suas cargas de trabalho híbridas e do Azure.
+O **Azure Defender** é a PPCTN (plataforma de proteção de cargas de trabalho na nuvem) integrada à Central de Segurança para proteção avançada e inteligente das suas cargas de trabalho híbridas e do Azure.
 
-Este é o painel do Azure defender na central de segurança do Azure:
+Este é o painel do Azure Defender na Central de Segurança do Azure:
 
-:::image type="content" source="./media/azure-defender/sample-defender-dashboard.png" alt-text="Um exemplo do painel do Azure defender" lightbox="./media/azure-defender/sample-defender-dashboard.png":::
+:::image type="content" source="./media/azure-defender/sample-defender-dashboard.png" alt-text="Um exemplo do painel do Azure Defender" lightbox="./media/azure-defender/sample-defender-dashboard.png":::
 
-## <a name="what-resource-types-can-azure-defender-secure"></a>Quais tipos de recursos o Azure defender pode proteger?
+## <a name="what-resource-types-can-azure-defender-secure"></a>Quais tipos de recursos o Azure Defender pode proteger?
 
-O Azure defender fornece alertas de segurança e proteção avançada contra ameaças para máquinas virtuais, bancos de dados SQL, contêineres, aplicativos Web, sua rede e muito mais.
+O Azure Defender fornece alertas de segurança e proteção avançada contra ameaças para máquinas virtuais, bancos de dados SQL, contêineres, aplicativos Web, sua rede, entre outros.
 
-Quando você habilita o Azure defender da área de **preços e configurações** da central de segurança do Azure, os seguintes planos do defender são todos habilitados simultaneamente e fornecem defesas abrangentes para a computação, os dados e as camadas de serviço do seu ambiente:
+Quando você habilita o Azure Defender na área **Preços e configurações** da Central de Segurança do Azure, os seguintes planos do Defender são todos habilitados simultaneamente e fornecem proteções abrangentes para as camadas de computação, dados e serviço do seu ambiente:
 
 - [Azure Defender para servidores](defender-for-servers-introduction.md)
 - [Azure Defender for Serviço de Aplicativo](defender-for-app-service-introduction.md)
@@ -44,58 +44,58 @@ Quando você habilita o Azure defender da área de **preços e configurações**
 - [Azure Defender para registros de contêiner](defender-for-container-registries-introduction.md)
 - [Azure Defender para Key Vault](defender-for-key-vault-introduction.md)
 
-Cada um desses planos é explicado separadamente na documentação da central de segurança.
+Cada um desses planos é explicado separadamente na documentação da Central de Segurança.
 
 
 ## <a name="hybrid-cloud-protection"></a>Proteção de nuvem híbrida
 
-Além de defender seu ambiente do Azure, você pode adicionar recursos do Azure defender ao seu ambiente de nuvem híbrida:
+Além de defender seu ambiente do Azure, você pode adicionar funcionalidades do Azure Defender ao seu ambiente de nuvem híbrida:
 
 - Proteger seus servidores não Azure
-- Proteja suas máquinas virtuais em outras nuvens (como AWS e GCP)
+- Proteger suas máquinas virtuais em outras nuvens (como a AWS e o GCP)
 - Proteger seus dispositivos IoT
 
-Você obterá inteligência de ameaças personalizada e alertas priorizados de acordo com seu ambiente específico para que possa se concentrar no que é mais importante
+Você obterá inteligência contra ameaças personalizada e alertas priorizados de acordo com seu ambiente específico, de modo que possa se concentrar no que é mais importante
 
-Implante o [Azure Arc](https://azure.microsoft.com/services/azure-arc/) e habilite o Azure defender para estender a proteção para máquinas virtuais locais e de várias nuvens e bancos de dados SQL. O arco do Azure para servidores é um serviço gratuito, mas os serviços usados em servidores habilitados para Arc, por exemplo, o Azure defender, serão cobrados de acordo com o preço para esse serviço.
+Implante o [Azure Arc](https://azure.microsoft.com/services/azure-arc/) e habilite o Azure Defender para estender a proteção para máquinas virtuais locais e de várias nuvens e bancos de dados SQL. O Azure Arc para servidores é um serviço gratuito, mas os serviços usados nos servidores habilitados para Arc, por exemplo, o Azure Defender, serão cobrados de acordo com o preço do serviço.
 
-[Saiba mais sobre o arco do Azure](https://docs.microsoft.com/azure/azure-arc/overview).
+[Saiba mais sobre o Azure Arc](https://docs.microsoft.com/azure/azure-arc/overview).
 
 
 ## <a name="azure-defender-alerts"></a>Alertas do Azure Defender 
 
-Quando o Azure defender detecta uma ameaça em qualquer área do seu ambiente, ele gera um alerta. Esses alertas descrevem os detalhes dos recursos afetados, as etapas de correção sugeridas e, em alguns casos, uma opção para disparar um aplicativo lógico em resposta.
+Quando o Azure Defender detecta uma ameaça em qualquer área do seu ambiente, ela gera um alerta. Esses alertas descrevem os detalhes dos recursos afetados, as etapas de correção sugeridas e, em alguns casos, uma opção para disparar um aplicativo lógico em resposta.
 
-Se um alerta for gerado pela central de segurança ou recebido pela central de segurança de um produto de segurança integrado, você poderá exportá-lo. Para exportar seus alertas para o Azure Sentinel, qualquer SIEM de terceiros ou qualquer outra ferramenta externa, siga as instruções em [Exportar alertas para um SIEM](continuous-export.md).
+Seja um alerta for gerado pela Central de Segurança ou recebido pela Central de Segurança de um produto de segurança integrada, você pode exportá-lo. Para exportar seus alertas para o Azure Sentinel, qualquer SIEM de terceiros ou qualquer outra ferramenta externa, siga as instruções em [Exportar alertas para um SIEM](continuous-export.md).
 
 > [!NOTE]
 > Alertas de fontes diferentes podem levar diferentes quantidades de tempo para serem exibidos. Por exemplo, alertas que exigem análise de tráfego de rede podem levar mais tempo para aparecer do que alertas relacionados a processos suspeitos em execução em máquinas virtuais.
 
 
-## <a name="azure-defender-advanced-protection-capabilities"></a>Recursos de proteção avançada do Azure defender
+## <a name="azure-defender-advanced-protection-capabilities"></a>Funcionalidades de proteção avançada do Azure Defender
 
-O Azure defender usa análises avançadas para recomendações personalizadas relacionadas aos seus recursos. 
+O Azure Defender usa análises avançadas para fornecer recomendações personalizadas relacionadas aos seus recursos. 
 
-As proteções incluem proteger as portas de gerenciamento de suas VMs com acesso just-in-time e controles de aplicativo adaptáveis para criar listas de permissões para quais aplicativos devem e não deveriam ser executados em seus computadores. 
+As proteções incluem proteger as portas de gerenciamento das suas VMs com o acesso just-in-time e controles de aplicativo adaptáveis a fim de criar listas de permissões para quais aplicativos devem e não devem ser executados nos computadores. 
 
-Use os blocos proteção avançada no painel do Azure defender para monitorar e configurar cada uma dessas proteções. 
+Use os blocos proteção avançada do painel do Azure Defender para monitorar e configurar cada uma dessas proteções. 
 
 ## <a name="vulnerability-assessment-and-management"></a>Avaliação e gerenciamento de vulnerabilidades
 
-O Azure defender inclui verificação de vulnerabilidade para suas máquinas virtuais e registros de contêiner sem custo adicional. Os scanners são alimentados por Qualys, mas você não precisa de uma licença do Qualys ou mesmo de uma conta do Qualys-tudo é manipulado diretamente na central de segurança. 
+O Azure Defender inclui a verificação de vulnerabilidades para máquinas virtuais e registros de contêiner sem custo adicional. Os verificadores são fornecidos pela Qualys, mas você não precisa ter uma licença nem de uma conta da Qualys: a Central de Segurança cuida de tudo isso perfeitamente. 
 
-Examine as conclusões desses scanners de vulnerabilidade e responda a eles todos na central de segurança. Isso leva à central de segurança mais próxima de ser o único painel de vidro para todos os seus esforços de segurança na nuvem.
+Examine as descobertas desses verificadores de vulnerabilidade e responda a todas elas na Central de Segurança. Isso aproxima a Central de Segurança de se tornar um só painel de controle para todos os seus esforços de segurança na nuvem.
 
 Saiba mais nas seguintes páginas:
 
-- [Solução de avaliação de vulnerabilidade integrada da central de segurança para máquinas virtuais do Azure](deploy-vulnerability-assessment-vm.md)
-- [Identificar vulnerabilidades em imagens em registros de contêiner do Azure](defender-for-container-registries-usage.md#identify-vulnerabilities-in-images-in-other-container-registries)
+- [Solução de avaliação de vulnerabilidades integrada da Central de Segurança para máquinas virtuais do Azure](deploy-vulnerability-assessment-vm.md)
+- [Identificar as vulnerabilidades em imagens em registros de contêiner do Azure](defender-for-container-registries-usage.md#identify-vulnerabilities-in-images-in-other-container-registries)
 
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você aprendeu sobre os benefícios do Azure defender. 
+Neste artigo, você aprendeu mais sobre os benefícios do Azure Defender. 
 
 > [!div class="nextstepaction"]
 > [Habilitar o Azure Defender](security-center-pricing.md)
