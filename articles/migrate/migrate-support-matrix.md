@@ -4,12 +4,12 @@ description: Fornece um resumo de configurações compatíveis e limitações do
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: raynew
-ms.openlocfilehash: 6137201f8accb901ffe1892d9876b172411cfe6b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ee45d2f489b23289e4f92a544590a510e77ece13
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91329577"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627941"
 ---
 # <a name="azure-migrate-support-matrix"></a>Matriz de suporte das Migrações para Azure
 
@@ -97,7 +97,7 @@ United Kingdom | Sul do Reino Unido ou Oeste do Reino Unido
 Estados Unidos | EUA Central ou Oeste dos EUA 2
 
 > [!NOTE]
-> Para a geografia da Suíça, Oeste da Suíça só está disponível para usuários da API REST e precisa de uma assinatura na lista de permissões.
+> Para a geografia da Suíça, Oeste da Suíça só está disponível para usuários da API REST e precisa de uma assinatura aprovada.
 
 ## <a name="supported-geographies-azure-government"></a>Geografias com suporte (Azure Governamental)
 

@@ -11,12 +11,12 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 9428ad0756fac59f54e7036d26a1b7d6408cab31
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 06f62fd656357e16396a0458a9afee12dcfa507f
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85200963"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91629362"
 ---
 # <a name="secure-a-database-in-azure-synapse"></a>Proteger um banco de dados no Azure Synapse
 
@@ -33,7 +33,7 @@ Este artigo explicará os conceitos básicos da proteção do pool SQL do Synaps
 
 A Segurança da Conexão refere-se a como você restringe e protege as conexões com o banco de dados usando regras de firewall e criptografia de conexão.
 
-As regras de firewall são usadas pelo [SQL Server lógico](../../azure-sql/database/logical-servers.md) e seus bancos de dados para rejeitar tentativas de conexão de endereços IP que não foram explicitamente na lista de permissões. Para permitir conexões do endereço IP público do seu aplicativo ou computador cliente, você deve primeiro criar uma regra de firewall no nível de servidor usando o portal do Azure, a API REST ou o PowerShell.
+As regras de firewall são usadas pelo [SQL Server lógico](../../azure-sql/database/logical-servers.md) e seus bancos de dados para rejeitar tentativas de conexão de endereços IP que não foram explicitamente aprovados. Para permitir conexões do endereço IP público do seu aplicativo ou computador cliente, você deve primeiro criar uma regra de firewall no nível de servidor usando o portal do Azure, a API REST ou o PowerShell.
 
 Como prática recomendada, você deve restringir os intervalos de endereços IP permitidos por meio do firewall de nível de servidor o máximo possível.  Para acessar o pool do SQL do seu computador local, verifique se o firewall na rede e no computador local permite a comunicação de saída na porta TCP 1433.  
 
@@ -96,7 +96,7 @@ O gerenciamento de bancos de dados e servidores do portal do Azure ou do uso da 
 
 ## <a name="encryption"></a>Criptografia
 
-A Transparent Data Encryption (TDE) ajuda a proteger contra a ameaça de atividades mal-intencionadas Criptografando e descriptografando seus dados em repouso. Quando você criptografa seus banco de dados, os arquivos de log de transações e backups associados são criptografados sem exigir nenhuma alteração em seus aplicativos. A TDE criptografa o armazenamento de um banco de dados inteiro usando uma chave simétrica chamada de chave de criptografia de banco de dados.
+A Transparent Data Encryption (TDE) ajuda a proteger contra a ameaça de atividades mal-intencionadas Criptografando e descriptografando seus dados em repouso. Quando você criptografa seus banco de dados, os arquivos de log de transações e backups associados são criptografados sem exigir nenhuma alteração em seus aplicativos. A TDE criptografa o armazenamento de um banco de dados inteiro, usando uma chave simétrica chamada de chave de criptografia de banco de dados.
 
 No Banco de Dados SQL, a chave de criptografia do banco de dados é protegida por um certificado do servidor interno. O certificado do servidor interno é exclusivo para cada servidor do Azure. A Microsoft gira automaticamente esses certificados pelo menos a cada 90 dias. O algoritmo de criptografia usado é o AES-256. Para obter uma descrição geral da TDE, consulte [Transparent Data Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 

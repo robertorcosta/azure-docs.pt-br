@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: a33bc5816ded7cdca75737b02add0a6ca8821700
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 929956d6f439df2a2e7cb8d1b950f5e68cdeab68
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400187"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631708"
 ---
 # <a name="control-network-traffic-in-azure-hdinsight"></a>Controle do tráfego de rede no Azure HDInsight
 
@@ -58,7 +58,7 @@ Para ver um exemplo de configuração do UDR com o Firewall do Azure, veja [Conf
 
 ## <a name="required-ports"></a>Portas obrigatórias
 
-Se você pretende usar um **firewall** e acessar o cluster de fora em determinadas portas, será preciso permitir o tráfego nas portas necessárias para o seu cenário. Por padrão, nenhuma lista de permissões especial de portas é necessária desde que o tráfego de gerenciamento do Azure, explicado na seção anterior, tenha permissão para acessar o cluster na porta 443.
+Se você pretende usar um **firewall** e acessar o cluster de fora em determinadas portas, será preciso permitir o tráfego nas portas necessárias para o seu cenário. Por padrão, nenhuma filtragem especial de portas é necessária, contanto que o tráfego de gerenciamento do Azure explicado na seção anterior tenha permissão para alcançar o cluster na porta 443.
 
 Para obter uma lista de portas para serviços específicos, consulte o documento [Portas usadas pelos serviços do Apache Hadoop no HDInsight](hdinsight-hadoop-port-settings-for-services.md).
 

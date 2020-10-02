@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: dde4db7f3eb476b7645e910504e48fea8bb6df0c
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 4fb64a2ea55744d66b203ef4d901f22ae4695e1a
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91569718"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91630416"
 ---
 # <a name="backup-and-restore-for-azure-arc-enabled-postgresql-hyperscale-server-groups"></a>Backup e restauração para grupos de servidores de hiperescala PostgreSQL habilitados para o Azure Arc
 
@@ -93,8 +93,6 @@ Em que:
 - __nome__ indica o nome de um backup
 - __nome do servidor__ indica um grupo de servidores
 - __sem espera__ indica que a linha de comando não aguardará a conclusão do backup para que você possa continuar a usar esta janela de linha de comando
-
->**Observação**: o comando que permite listar os backups que estão disponíveis para restauração não é mostrado ainda, a data/hora em que o backup foi feito. Portanto, é recomendável que você dê um nome para o backup (usando o parâmetro--Name) que inclui as informações de data/hora.
 
 Esse comando coordenará um backup completo distribuído em todos os nós que constituem seu grupo de servidores de hiperescala PostgreSQL habilitados para o Azure Arc. Em outras palavras, ele fará backup de todos os dados em seus nós coordenador e de trabalho.
 
@@ -177,7 +175,7 @@ O comando geral para excluir backups é:
 ```console
 azdata arc postgres backup delete  [--server-name, -sn] {[--name, -n], -id}
 ```
-onde:
+em que:
 - `--server-name` é o nome do grupo de servidores do qual o usuário deseja excluir um backup
 - `--name` é o nome do backup a ser excluído
 - `-id`é a ID do backup a ser excluído

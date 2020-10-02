@@ -1,5 +1,5 @@
 ---
-title: Perguntas frequentes (FAQ)
+title: Perguntas frequentes
 titleSuffix: Azure SQL Managed Instance
 description: Perguntas frequentes (FAQ) sobre a Instância Gerenciada de SQL do Azure
 services: sql-database
@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 09/21/2020
-ms.openlocfilehash: 74c603576016b72edddb4c0fe7aa970bd8626a4a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: fedbcf00512e2eb671656ca1c585df83560a8c02
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325208"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627577"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Perguntas frequentes (FAQ) sobre a Instância Gerenciada de SQL do Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -277,7 +277,7 @@ A sub-rede deve ter um número suficiente de [endereços IP](connectivity-archit
 
 **E se não houver endereços IP suficientes para executar a operação de atualização de instância?**
 
-Caso não haja [endereços IP](connectivity-architecture-overview.md#network-requirements) suficientes na sub-rede em que sua instância gerenciada é provisionada, você precisará criar uma nova sub-rede e uma nova instância gerenciada dentro dela. Também sugerimos que a nova sub-rede seja criada com mais endereços IP alocados para que operações de atualização futuras evitem situações semelhantes. Depois que a nova instância for provisionada, você poderá fazer backup e restaurar dados manualmente entre as instâncias novas e antigas ou executar a [restauração pontual](point-in-time-restore.md?tabs=azure-powershell)entre instâncias.
+Caso não haja [endereços IP](connectivity-architecture-overview.md#network-requirements) suficientes na sub-rede em que sua instância gerenciada é provisionada, você precisará criar uma nova sub-rede e uma nova instância gerenciada dentro dela. Também sugerimos que a nova sub-rede seja criada com mais endereços IP alocados para que as operações de atualização futuras evitem uma situação semelhante. Depois que a nova instância for provisionada, você poderá fazer backup e restaurar dados manualmente entre as instâncias novas e antigas ou executar a [restauração pontual](point-in-time-restore.md?tabs=azure-powershell)entre instâncias.
 
 **Preciso de uma sub-rede vazia para criar uma Instância Gerenciada?**
 
@@ -334,9 +334,12 @@ Não, essa opção não está disponível.  Para o ponto de extremidade de dados
 
 **Qual é a maneira recomendada para conectar as instâncias gerenciadas colocadas em regiões diferentes?**
 
-O emparelhamento de circuito de rota expressa é a maneira preferida de fazer isso. Isso não deve ser misturado com o emparelhamento de rede virtual entre regiões que não tem suporte devido à [restrição](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)relacionada ao balanceador de carga interno.
+O emparelhamento de circuito de rota expressa é a maneira preferida de fazer isso. Há suporte para o emparelhamento de rede virtual global com a limitação descrita na observação abaixo.  
 
-Se o emparelhamento de circuito de rota expressa não for possível, a única outra opção é criar uma conexão VPN site a site ([portal do Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal), [PowerShell](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell) [CLI do Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli)).
+> [!IMPORTANT]
+> [Em 9/22/2020 anunciamos o emparelhamento de rede virtual global para clusters virtuais recém-criados](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Isso significa que o emparelhamento de rede virtual global tem suporte para instâncias gerenciadas do SQL criadas em sub-redes vazias após a data do anúncio, bem como para todas as instâncias gerenciadas subsequentes criadas nessas sub-redes. Para todas as outras instâncias gerenciadas do SQL, o suporte ao emparelhamento é limitado às redes na mesma região devido às [restrições do emparelhamento de rede virtual global](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Consulte também a seção relevante do artigo [perguntas frequentes sobre redes virtuais do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) para obter mais detalhes. 
+
+Se o emparelhamento de circuito de rota expressa e o emparelhamento de rede virtual global não forem possíveis, a única opção é criar uma conexão VPN site a site ([portal do Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal), [PowerShell](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell) [CLI do Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli)).
 
 ## <a name="mitigate-data-exfiltration-risks"></a>Reduzir riscos de vazamento de dados  
 

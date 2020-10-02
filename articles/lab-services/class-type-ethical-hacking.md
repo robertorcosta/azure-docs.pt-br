@@ -3,12 +3,12 @@ title: Configurar um laboratório de Ethical Hacking com o Azure Lab Services | 
 description: Saiba como configurar um laboratório usando Azure Lab Services para ensinar ao Ethical Hacking.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 5134a7db824bad69f42a4051319479f712051446
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: ae0d57223edb68d1bed4ad64a005dd33da019dd0
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297579"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631674"
 ---
 # <a name="set-up-a-lab-to-teach-ethical-hacking-class"></a>Configurar um laboratório para ensinar a classe de Ethical Hacking 
 Este artigo mostra como configurar uma classe que se concentra no lado da perícia de Ethical Hacking. O teste de penetração, uma prática usada pela comunidade de hacking ético, ocorre quando alguém tenta obter acesso ao sistema ou rede para demonstrar vulnerabilidades que um invasor mal-intencionado pode explorar. 
@@ -22,7 +22,7 @@ Para configurar este laboratório, você precisa de uma assinatura do Azure para
 
 Siga [este tutorial](tutorial-setup-classroom-lab.md) para criar um novo laboratório e, em seguida, aplicar as seguintes configurações:
 
-| Tamanho da máquina virtual | Imagem |
+| Tamanho da máquina virtual | Image |
 | -------------------- | ----- | 
 | Médio (virtualização aninhada) | Windows Server 2019 Datacenter |
 
@@ -70,26 +70,23 @@ O Kali é uma distribuição do Linux que inclui ferramentas para teste de penet
 ## <a name="set-up-a-nested-vm-with-metasploitable-image"></a>Configurar uma VM aninhada com imagem Metasploitável  
 A imagem Rapid7 Metasploitable é uma imagem configurada propositadamente com vulnerabilidades de segurança. Você usará essa imagem para testar e encontrar problemas. As instruções a seguir mostram como usar uma imagem do Metasploitable criada previamente. No entanto, se uma versão mais nova da imagem Metasploitável for necessária, consulte [https://github.com/rapid7/metasploitable3](https://github.com/rapid7/metasploitable3) .
 
-1. Navegue até [https://information.rapid7.com/download-metasploitable-2017.html](https://information.rapid7.com/download-metasploitable-2017.html). Preencha o formulário para baixar a imagem e selecione o botão **Enviar** .
-1. Selecione o botão **baixar agora** .
-1. Quando o arquivo zip for baixado, extraia o arquivo zip e lembre-se do local.
-1. Converta o arquivo VMDK extraído em um arquivo vhdx para que você possa usar o com o Hyper-V. Para fazer isso, abra o PowerShell com privilégios administrativos e navegue até a pasta onde o arquivo VMDK reside e siga estas instruções:
-    1. Baixe o [conversor de máquina virtual da Microsoft](https://download.microsoft.com/download/9/1/E/91E9F42C-3F1F-4AD9-92B7-8DD65DA3B0C2/mvmc_setup.msi)e execute mvmc_setup.msi arquivo quando solicitado.
-    1. Importe o módulo do PowerShell.  O local padrão no qual o módulo está instalado é C:\Arquivos de Programas\microsoft Virtual Machine converter \
-
-        ```powershell
-        Import-Module 'C:\Program Files\Microsoft Virtual Machine Converter\MvmcCmdlet.psd1'
-        ```
-    1. Converta o VMDK em um arquivo VHD que possa ser usado pelo Hyper-V. Essa operação pode demorar alguns minutos.
-    
-        ```powershell
-        ConvertTo-MvmcVirtualHardDisk -SourceLiteralPath .\Metasploitable.vmdk -DestinationLiteralPath .\Metasploitable.vhdx -VhdType DynamicHardDisk -VhdFormat vhdx
-        ```
-    1. Copie o recém-criado. vhdx que acabou de criar para C:\Users\Public\Documents\Hyper-V\Virtual Hard Disks\. 
+1. Baixe a imagem Metasploitável.
+    1. Navegue até [https://information.rapid7.com/download-metasploitable-2017.html](https://information.rapid7.com/download-metasploitable-2017.html). Preencha o formulário para baixar a imagem e selecione o botão **Enviar** .
+    2. Selecione o botão **baixar agora** .
+    3. Quando o arquivo zip for baixado, extraia o arquivo zip e lembre-se do local do arquivo. vmdk que é Metasploitável.
+1. Converta o arquivo VMDK extraído em um arquivo vhdx para que você possa usar o arquivo vhdx com o Hyper-V. Há várias ferramentas disponíveis para converter imagens do VMware em imagens do Hyper-V e vice-versa.  Vamos usar o [conversor STARWIND V2V](https://www.starwindsoftware.com/starwind-v2v-converter).  Para baixar, consulte a [página de download do conversor do STARWIND V2V](https://www.starwindsoftware.com/starwind-v2v-converter#download).
+    1. Inicie o **conversor STARWIND V2V**.
+    1. Na página **selecionar local da imagem a ser convertida** , escolha **arquivo local**.  Selecione **Avançar**.
+    1. Na página **imagem de origem** , navegue até e selecione o arquivo. vmdk que você extraiu na etapa anterior para a configuração **nome** .  Selecione **Avançar**.
+    1. Na **imagem selecionar local da destino**, escolha **arquivo local**.  Selecione **Avançar**.
+    1. Na página **selecionar formato de imagem de destino** , escolha **VHD/VHDX**.  Selecione **Avançar**.
+    1. Na página **selecionar opção para formato de imagem VHD/VHDX** , escolha **imagem de aumento de vhdx**.  Selecione **Avançar**.
+    1. Na página **selecionar nome do arquivo de destino** , aceite o nome de arquivo padrão.  Selecione **Converter**.
+    1. Na página **conversão** , aguarde até que a imagem seja convertida.  Isso pode levar alguns minutos.  Selecione **concluir** quando a conversão for concluída.
 1. Crie uma nova máquina virtual do Hyper-V.
     1. Abra o **Gerenciador do Hyper-V**.
     1. Escolha **ação**  ->  **nova**  ->  **máquina virtual**.
-    1. Na página **antes de começar** do assistente de **nova máquina virtual**, clique em **Avançar**.
+    1. Na página **antes de começar** do assistente de **nova máquina virtual**, selecione **Avançar**.
     1. Na página **especificar nome e local** , digite **Metasploitable** para o **nome**e selecione **Avançar**.
 
         ![Assistente de nova imagem de VM](./media/class-type-ethical-hacking/new-vm-wizard-1.png)

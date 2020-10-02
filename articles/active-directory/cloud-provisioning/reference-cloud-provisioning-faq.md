@@ -11,12 +11,12 @@ ms.date: 06/25/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 622d38e09f65d05d7cba7a34f30a070c27d3fd37
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 28fb9da04c9c9d3e98b5226e1aee4cf5dde7183b
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89658369"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91628665"
 ---
 # <a name="azure-active-directory-connect-cloud-provisioning-faq"></a>Perguntas frequentes sobre provisionamento em nuvem Azure Active Directory Connect
 
@@ -83,6 +83,18 @@ Não, não há suporte para a instalação do agente no Server Core.
 **P: posso usar um servidor de preparo com o agente de provisionamento de nuvem?**
 
 Não, não há suporte para servidores de preparo.
+
+**P: posso sincronizar contas de usuário convidado?**
+
+Não, não há suporte para a sincronização de contas de usuário convidado.
+
+**P: se eu mover um usuário de uma UO com escopo para provisionamento de nuvem para uma UO com escopo para Azure AD Connect, o que acontecerá?**
+
+O usuário será excluído e recriado.  Mover um usuário de uma UO com escopo para provisionamento de nuvem será exibido como uma operação de exclusão.  Se o usuário for movido para uma UO gerenciada pelo Azure AD Connect, ele será provisionado novamente para o Azure AD e um novo usuário criado.
+
+**P: se eu renomear ou mover a UO que está no escopo do filtro de provisionamento de nuvem, o que acontecerá com o usuário que foi criado no Azure AD?**
+
+Nada.  Os usuários não serão excluídos se a UO for renomeada ou movida.
 
 ## <a name="next-steps"></a>Próximas etapas 
 

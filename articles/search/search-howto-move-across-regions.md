@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 09/10/2020
-ms.openlocfilehash: 7383d9f95435775448f7322d9eb7707f676e9952
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 774b605859df41e0b71ee82c38a6b08bdf5b9c49
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90007036"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91629804"
 ---
 # <a name="move-your-azure-cognitive-search-service-to-another-azure-region"></a>Mover o serviço de Pesquisa Cognitiva do Azure para outra região do Azure
 
@@ -27,7 +27,7 @@ Ocasionalmente, os clientes perguntam sobre como mover um serviço de pesquisa p
 
 + Verifique se os serviços e recursos que sua conta usa têm suporte na região de destino.
 
-+ Para obter as versões prévias do recurso, verifique se sua assinatura está na lista de permissões para a região de destino.
++ Para recursos de visualização, verifique se sua assinatura foi aprovada para a região de destino.
 
 ## <a name="prepare-and-move"></a>Preparar e mover
 

@@ -3,12 +3,12 @@ title: FAQ do dispositivo de migrações para Azure
 description: Obtenha respostas para perguntas comuns sobre o dispositivo migrações para Azure.
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.openlocfilehash: 6c1e5099f208788919d27ba3d2b1de296f0d91a6
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 7839c2678152837cc9217e6afe13f7cca36ab4b0
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526554"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91630484"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Dispositivo de migrações para Azure: perguntas comuns
 
@@ -42,7 +42,7 @@ O dispositivo pode ser implantado da seguinte maneira:
 
 ## <a name="how-does-the-appliance-connect-to-azure"></a>Como o dispositivo se conecta ao Azure?
 
-O dispositivo pode se conectar pela Internet ou usando o Azure ExpressRoute. Verifique se essas [URLs](https://docs.microsoft.com/azure/migrate/migrate-appliance#url-access) estão na lista de permissões para que o dispositivo se conecte ao Azure.
+O dispositivo pode se conectar pela Internet ou usando o Azure ExpressRoute. Verifique se essas [URLs](https://docs.microsoft.com/azure/migrate/migrate-appliance#url-access) foram aprovadas para que o dispositivo se conecte ao Azure.
 
 - Para usar o Azure ExpressRoute para migrar o tráfego de replicação do Azure, o emparelhamento da Microsoft ou um emparelhamento público existente é necessário (o emparelhamento público é preterido para novas criações de ER).
 - Não há suporte para replicação no Azure ExpressRoute com o emparelhamento privado (somente) habilitado.

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/13/2020
 ms.author: harshacs
-ms.openlocfilehash: db4c3be7c79448e4cf0df39688959ae09a671dbd
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: f0a3ac0c81291a1231ef660481d8e31b38c0e212
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91361408"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631334"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Sobre a rede na recuperação de desastre da VM do Azure
 
@@ -46,7 +46,7 @@ As redes geralmente são protegidas usando firewalls e NSGs (grupos de seguranç
 Se você está usando um proxy de firewall baseado em URL para controlar a conectividade de saída, permita estas URLs do Site Recovery:
 
 >[!NOTE]
-> A lista de permissões baseada em endereço IP não deve ser executada para controlar a conectividade de saída.
+> A filtragem baseada em endereço IP não deve ser executada para controlar a conectividade de saída.
 
 **URL** | **Detalhes**
 --- | ---

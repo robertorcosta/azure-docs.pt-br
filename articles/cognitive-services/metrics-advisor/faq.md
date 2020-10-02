@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
-ms.date: 09/10/2020
+ms.date: 09/30/2020
 ms.author: aahi
-ms.openlocfilehash: 0fde9a0f46073a2f3a24962ea58431581455f474
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e4a75bdd6147ee2189660c37062c5bec9d55d512
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90933192"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631725"
 ---
 # <a name="metrics-advisor-frequently-asked-questions"></a>Perguntas frequentes do assistente de métricas
 
@@ -74,9 +74,26 @@ Com base na granularidade dos seus dados, os comprimentos dos dados históricos 
 
 ### <a name="more-concepts-and-technical-terms"></a>Mais conceitos e termos técnicos
 
-Acesse o [Glossário](glossary.md) para ler mais.
+Consulte também o [Glossário](glossary.md) para obter mais informações.
 
-## <a name="how-do-i-detect-such-kinds-of-anomalies"></a>Como fazer detectar esses tipos de anomalias? 
+###  <a name="how-do-i-write-a-valid-query-for-ingesting-my-data"></a>Como fazer gravar uma consulta válida para ingerir meus dados?  
+
+Para o assistente de métricas ingerir seus dados, você precisará criar uma consulta que retorne as dimensões de seus dados em um único carimbo de data/hora. O Orientador de métricas executará essa consulta várias vezes para obter os dados de cada carimbo de data/hora. 
+
+Observe que a consulta deve retornar no máximo um registro para cada combinação de dimensão, em um determinado carimbo de data/hora. Todos os registros retornados devem ter o mesmo carimbo de data/hora. Não deve haver nenhum registro duplicado retornado pela consulta.
+
+Por exemplo, suponha que você crie a consulta abaixo, para uma métrica diária: 
+ 
+`select timestamp, city, category, revenue from sampledata where Timestamp >= @StartTime and Timestamp < dateadd(DAY, 1, @StartTime)`
+
+Certifique-se de usar a granularidade correta para sua série temporal. Para uma métrica por hora, você usaria: 
+
+`select timestamp, city, category, revenue from sampledata where Timestamp >= @StartTime and Timestamp < dateadd(hour, 1, @StartTime)`
+
+Observe que essas consultas retornam apenas dados em um único carimbo de data/hora e contêm todas as combinações de dimensões a serem ingeridas pelo Orientador de métricas. 
+
+:::image type="content" source="media/query-result.png" alt-text="Mensagem quando um recurso F0 já existe" lightbox="media/query-result.png":::
+
 
 ### <a name="how-do-i-detect-spikes--dips-as-anomalies"></a>Como fazer detectar picos & DIPs como anomalias?
 

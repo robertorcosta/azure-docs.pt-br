@@ -13,12 +13,12 @@ ms.date: 03/17/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: 7ff1e6e3b422f55da332e206aea184ca1b5902a6
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 3578562839069eb4b9c99b16d938efe48821fcec
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90705887"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631300"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Como: entrar em qualquer usuário do Azure Active Directory usando o padrão de aplicativo de vários inquilinos
 
@@ -97,7 +97,7 @@ Como o ponto de extremidade /common não corresponde a um locatário e não é u
     https://sts.windows.net/{tenantid}/
 ```
 
-Portanto, um aplicativo multilocatário não pode validar tokens apenas combinando o valor do emissor nos metadados com o valor `issuer` no token. Um aplicativo multilocatário precisa de lógica para decidir quais valores de emissor são válidos e quais não são baseados na parte da ID do locatário do valor do emissor. 
+Portanto, um aplicativo multilocatário não pode validar tokens apenas combinando o valor do emissor nos metadados com o valor `issuer` no token. Um aplicativo multilocatário precisa de lógica para decidir quais valores de emissor são válidos e quais não são baseados na parte da ID do locatário do valor do emissor.
 
 Por exemplo, se um aplicativo multilocatário permite apenas a conexão em locatários específicos que se inscreveram para seu serviço, ele deve verificar o valor do emissor ou o valor da declaração `tid` no token para ter certeza de que o locatário está em sua lista de assinantes. Se um aplicativo multilocatário lida apenas com pessoas e não toma nenhuma decisão de acesso com base em locatários, ele pode ignorar o valor de emissor completamente.
 
@@ -116,7 +116,7 @@ Essa experiência de consentimento é afetada pelas permissões solicitadas pelo
 * Uma permissão delegada concede a um aplicativo a capacidade de atuar como um usuário conectado para um subconjunto das ações que o usuário pode realizar. Por exemplo, você pode conceder a um aplicativo a permissão delegada para ler o calendário do usuário conectado.
 * Uma permissão somente do aplicativo é concedida diretamente à identidade do aplicativo. Por exemplo, você pode conceder a permissão somente do aplicativo a um aplicativo para ler a lista de usuários em um locatário, independentemente de quem estiver conectado ao aplicativo.
 
-Algumas permissões podem ser consentidas por um usuário normal, enquanto outras exigem o consentimento de um administrador de locatários. 
+Algumas permissões podem ser consentidas por um usuário normal, enquanto outras exigem o consentimento de um administrador de locatários.
 
 ### <a name="admin-consent"></a>Consentimento do administrador
 
@@ -179,10 +179,6 @@ Se um administrador der o consentimento a um aplicativo para todos os usuários 
 
 Os aplicativos multilocatários também podem obter tokens de acesso para chamar APIs que são protegidas pelo Azure AD. Um erro comum ao usar a ADAL (Biblioteca de Autenticação do Active Directory) com um aplicativo multilocatário é solicitar inicialmente um token para um usuário usando /common, receber uma resposta e, depois, solicitar um próximo token para o mesmo usuário também usando /common. Como a resposta do Azure AD vem de um locatário, e não de /common, a ADAL armazena em cache o token como sendo do locatário. A chamada subsequente para /common para obter um token de acesso para o usuário perde a entrada de cache e o usuário é solicitado a entrar novamente. Para evitar a perda de cache, certifique-se de que as chamadas subsequentes para um usuário já conectado sejam feitas para o ponto de extremidade do locatário.
 
-## <a name="next-steps"></a>Próximas etapas
-
-Neste artigo, você aprendeu a criar um aplicativo que pode conectar um usuário por meio de qualquer locatário do Azure AD. Depois de habilitar o SSO (logon único) entre seu aplicativo e o Azure AD, você também pode atualizar seu aplicativo para acessar as APIs expostas por recursos da Microsoft, como Microsoft 365. Portanto, é possível oferecer uma experiência personalizada no aplicativo, por exemplo, mostrando informações contextuais para os usuários, como suas imagens de perfil ou seus próximos compromissos no calendário. Para saber mais sobre como fazer chamadas à API para o Azure AD e Microsoft 365 serviços como o Exchange, SharePoint, OneDrive, OneNote e muito mais, visite [Microsoft Graph API][MSFT-Graph-overview].
-
 ## <a name="related-content"></a>Conteúdo relacionado
 
 * [Exemplo de aplicativo multilocatário](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/2-WebApp-graph-user/2-3-Multi-Tenant/README.md)
@@ -191,6 +187,10 @@ Neste artigo, você aprendeu a criar um aplicativo que pode conectar um usuário
 * [Integrando aplicativos ao Azure Active Directory][AAD-Integrating-Apps]
 * [Visão geral da estrutura de consentimento][AAD-Consent-Overview]
 * [Escopos de permissão da API do Microsoft Graph][MSFT-Graph-permission-scopes]
+
+## <a name="next-steps"></a>Próximas etapas
+
+Neste artigo, você aprendeu a criar um aplicativo que pode conectar um usuário por meio de qualquer locatário do Azure AD. Depois de habilitar o SSO (logon único) entre seu aplicativo e o Azure AD, você também pode atualizar seu aplicativo para acessar as APIs expostas por recursos da Microsoft, como Microsoft 365. Portanto, é possível oferecer uma experiência personalizada no aplicativo, por exemplo, mostrando informações contextuais para os usuários, como suas imagens de perfil ou seus próximos compromissos no calendário. Para saber mais sobre como fazer chamadas à API para o Azure AD e Microsoft 365 serviços como o Exchange, SharePoint, OneDrive, OneNote e muito mais, visite [Microsoft Graph API][MSFT-Graph-overview].
 
 <!--Reference style links IN USE -->
 [AAD-Access-Panel]:  https://myapps.microsoft.com
@@ -228,8 +228,7 @@ Neste artigo, você aprendeu a criar um aplicativo que pode conectar um usuário
 [JWT]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32
 [O365-Perm-Ref]: /graph/permissions-reference
 [OAuth2-Access-Token-Scopes]: https://tools.ietf.org/html/rfc6749#section-3.3
-[OAuth2-AuthZ-Code-Grant-Flow]: /previous-versions/azure/dn645542(v=azure.100)
-[OAuth2-AuthZ-Grant-Types]: https://tools.ietf.org/html/rfc6749#section-1.3 
+[OAuth2-AuthZ-Grant-Types]: https://tools.ietf.org/html/rfc6749#section-1.3
 [OAuth2-Client-Types]: https://tools.ietf.org/html/rfc6749#section-2.1
 [OAuth2-Role-Def]: https://tools.ietf.org/html/rfc6749#page-6
 [OpenIDConnect]: https://openid.net/specs/openid-connect-core-1_0.html

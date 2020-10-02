@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: a11573da29cead49bfb17c2c5df3951229182959
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: c592055be1987786b94623bde5352e2a3cc0e092
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91360643"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91630144"
 ---
 # <a name="speech-service-for-telephony-data"></a>Serviço de fala para dados de telefonia
 
@@ -62,7 +62,7 @@ Não é incomum que 35% de uma chamada de suporte consista no que chamamos de te
 
 Algumas empresas estão experimentando o fornecimento de transcrições traduzidas de chamadas de suporte a idiomas estrangeiros para que os gerentes de entrega possam entender a experiência mundial de seus clientes. Nossas funcionalidades de [tradução](/azure/cognitive-services/speech-service/speech-translation) são incomparáveis. Podemos traduzir áudio para áudio ou áudio para texto para um grande número de localidades.
 
-### <a name="text-to-speech"></a>Texto em fala
+### <a name="text-to-speech"></a>Conversão de Texto em Fala
 
 A [conversão de texto em fala](text-to-speech.md) é outra área importante na implementação de bots que interagem com os clientes. O caminho típico é o que o cliente fala, sua voz é transcrita em texto, o texto é analisado quanto às intenções, uma resposta é sintetizada com base na intenção reconhecida e, em seguida, um ativo é exposto ao cliente ou uma resposta de voz sintetizada é gerada. É claro que tudo isso deve ocorrer rapidamente – portanto, a baixa latência é um componente importante no sucesso desses sistemas.
 
@@ -70,7 +70,7 @@ Nossa latência de ponta a ponta é consideravelmente baixa para as várias tecn
 
 Nossas novas vozes também são praticamente idênticas às vozes humanas. Você pode usar nossas vozes para dar a seu bot sua personalidade exclusiva.
 
-### <a name="search"></a>Search
+### <a name="search"></a>Pesquisar
 
 Outro ponto importante da análise é identificar as interações em que uma experiência ou um evento específico tenha ocorrido. Isso normalmente é feito com uma das duas abordagens; uma pesquisa ad hoc em que o usuário simplesmente digita uma frase e o sistema responde, ou uma consulta mais estruturada em que um analista pode criar um conjunto de instruções lógicas que identificam um cenário em uma chamada e, em seguida, cada chamada pode ser indexada em relação a esse conjunto de consultas. Um bom exemplo de pesquisa é a declaração de conformidade onipresente "esta chamada deve ser registrada para fins de qualidade... ". Muitas empresas desejam ter certeza de que seus agentes estão fornecendo esse aviso aos clientes antes que a chamada seja realmente registrada. A maioria dos sistemas de análise tem a capacidade de tendência dos comportamentos encontrados por algoritmos de consulta/pesquisa, e esse relatório de tendências é, em última instância, uma das funções mais importantes de um sistema de análise. Por meio do [diretório de Serviços Cognitivos](https://azure.microsoft.com/services/cognitive-services/directory/search/), sua solução de ponta a ponta pode ser consideravelmente aprimorada com funcionalidades de indexação e pesquisa.
 
@@ -142,7 +142,7 @@ O código de exemplo está disponível no GitHub para cada um dos recursos do se
 - [SDK de Dispositivos de Fala](speech-devices-sdk.md)
 - [API REST: conversão de fala em texto](rest-speech-to-text.md)
 - [API REST: conversão de texto em fala](rest-text-to-speech.md)
-- [API REST: transcrição e personalização em lote](https://westus.cris.ai/swagger/ui/index)
+- [API REST: transcrição e personalização em lote](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0)
 
 ## <a name="next-steps"></a>Próximas etapas
 

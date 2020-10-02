@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 0932e86494fdd1444e069f9d6fcac532cc3ace0d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 488f48275fa511ea69939563496beaaa709d9bf0
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91250718"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631657"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>Criar & usar ambientes de software no Azure Machine Learning
 
@@ -179,6 +179,12 @@ Para um ambiente registrado, você pode recuperar detalhes da imagem usando o c�
 
 ```python
 details = environment.get_image_details(workspace=ws)
+```
+
+Para obter os detalhes da imagem de um ambiente salvo na execução de uma execução, use o seguinte código:
+
+```python
+details = run.get_environment().get_image_details(workspace=ws)
 ```
 
 ### <a name="use-existing-environments"></a>Usar ambientes existentes

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 08/25/2020
-ms.openlocfilehash: 14229af9766f6604e71713f835935d43f6c7fcc6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 56febc6c2a0e88b2be547c71a2f90ccfa9b78f26
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330138"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91630824"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>O que é uma instância de computação do Azure Machine Learning?
 
@@ -91,6 +91,8 @@ Outra opção é acessar uma janela de terminal de qualquer uma das seguintes ma
 * Jupyter Lab:  selecione o bloco **Terminal** no cabeçalho **Outro** na guia Iniciador.
 * Jupyter:  Selecione **Novo > Terminal** no canto superior direito na guia Arquivos.
 * SSH para o computador.  Em seguida, instale os pacotes do Python no ambiente **Python 3.6 – AzureML**.  Instale os pacotes do R no ambiente do **R**.
+
+Ao personalizar a instância de computação, certifique-se de não excluir o ambiente de azureml_py36 Conda ou o kernel Python 3,6-AzureML. Isso é necessário para a funcionalidade Jupyter/JupyterLab
 
 ### <a name="add-new-kernels"></a>Adicionar novos kernels
 
