@@ -76,6 +76,8 @@
       href: upgrade-virtual-wan.md
     - name: Criar um NVA em um hub virtual
       href: How-to-nva-hub.md
+    - name: Criar uma conexão de VNet entre locatários
+      href: cross-tenant-vnet.md
     - name: ExpressRoute
       items:
         - name: Criar uma conexão do ExpressRoute

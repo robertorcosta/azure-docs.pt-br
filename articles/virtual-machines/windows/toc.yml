@@ -407,7 +407,7 @@
           href: ps-template.md
         - name: Como conectar-se a uma VM
           href: connect-logon.md
-        - name: Conectar-se a VMs do Linux
+        - name: Executar SSH para VMs do Linux
           displayName: ssh keygen ssk-key putty
           items:
             - name: No portal
@@ -595,7 +595,7 @@
               href: disk-encryption-troubleshooting.md
             - name: Perguntas frequentes sobre a Criptografia do disco
               href: disk-encryption-faq.md
-            - name: Criptografia de disco – versão anterior (Azure AD)
+            - name: Criptografia de disco – versão anterior
               items:
                 - name: Visão geral
                   href: disk-encryption-overview-aad.md

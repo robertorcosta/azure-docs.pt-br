@@ -43,6 +43,8 @@
       href: basic-concepts.md
     - name: Segurança
       items:
+        - name: Conceitos básicos sobre a Autenticação do Key Vault
+          href: authentication-fundamentals.md
         - name: Segurança do Azure Key Vault
           href: overview-security.md
         - name: Práticas recomendadas para usar o Key Vault – Azure Key Vault
@@ -130,6 +132,8 @@
           href: access-behind-firewall.md
     - name: Exclusão reversível
       items:
+        - name: Recuperação do Key Vault (Exclusão temporária e Proteção contra Limpeza)
+          href: key-vault-recovery.md
         - name: Usar a exclusão reversível com a CLI
           href: soft-delete-cli.md
         - name: Como usar a exclusão reversível com o PowerShell

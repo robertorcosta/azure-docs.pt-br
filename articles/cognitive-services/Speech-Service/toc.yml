@@ -10,6 +10,10 @@
       href: language-support.md
     - name: Suporte de regiões
       href: regions.md
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
+    - name: Cotas e limites
+      href: speech-services-quotas-and-limits.md
     - name: O que há de novo no Docs?
       href: whats-new.md
 - name: Conversão de fala em texto
@@ -347,6 +351,8 @@
       items:
         - name: O que é um assistente de voz?
           href: voice-assistants.md
+        - name: Exemplos de assistente de voz (GitHub)
+          href: 'https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant'
     - name: Comandos personalizados
       items:
         - name: O que são comandos personalizados?
@@ -459,11 +465,58 @@
       items:
         - name: API REST do Reconhecimento do Locutor
           href: 'https://docs.microsoft.com/rest/api/speakerrecognition/'
-- name: Hosting
+- name: Ferramentas
   items:
-    - name: Documentação de hosting
-      href: index-hosting.yml
-    - name: Guias de instruções
+    - name: SDK de fala
+      items:
+        - name: Visão geral do SDK de Fala
+          href: speech-sdk.md
+        - name: Configurar o SDK de Fala
+          href: quickstarts/setup-platform.md
+        - name: Notas de Versão do SDK de Fala
+          href: releasenotes.md
+        - name: Referência
+          items:
+            - name: C++
+              href: 'https://aka.ms/csspeech/cppref'
+            - name: C#
+              href: 'https://aka.ms/csspeech/csharpref'
+            - name: Java
+              href: 'https://aka.ms/csspeech/javaref'
+            - name: JavaScript
+              href: 'https://aka.ms/csspeech/javascriptref'
+            - name: Objective-C
+              href: 'https://aka.ms/csspeech/objectivecref'
+            - name: Python
+              href: 'https://aka.ms/csspeech/pythonref'
+    - name: CLI de Fala
+      displayName: SPX
+      items:
+        - name: Visão geral da CLI de Fala
+          displayName: What is SPX?
+          href: spx-overview.md
+        - name: Noções básicas da CLI de Fala
+          displayName: SPX basics
+          href: spx-basics.md
+    - name: Estúdio de Fala
+      items:
+        - name: Visão geral do Speech Studio
+          href: 'https://speech.microsoft.com'
+        - name: Criar um aplicativo de comandos personalizados com o Estúdio de Fala
+          href: quickstart-custom-speech-commands-create-new.md
+- name: Implantar
+  items:
+    - name: Habilitar o registro em log
+      href: how-to-use-logging.md
+    - name: Acompanhar o uso de memória
+      href: how-to-track-speech-sdk-memory-usage.md
+    - name: Configurar o OpenSSL para Linux
+      displayName: 'memory usage, memory consumption, object logging, object tracking, memory, openssl'
+      href: how-to-configure-openssl-linux.md
+    - name: Configurar o RHEL/CentOS 7
+      href: how-to-configure-rhel-centos-7.md
+      displayName: 'RHEL, CentOS 7, CentOS, Configure RHEL, Configure CentO'
+    - name: Contêineres
       items:
         - name: Instalar e executar contêineres de Fala
           displayName: 'containers,install container,run container'
@@ -479,53 +532,8 @@
         - name: Contêineres de Fala em instâncias de contêiner do Azure
           displayName: 'ACI,azure container instances,container instances,containers'
           href: deploy-speech-on-container-instances.md
-    - name: Recursos
-      items:
         - name: Perguntas frequentes sobre contêineres
           href: speech-container-faq.md
-- name: SDK de fala
-  items:
-    - name: Visão geral do SDK de Fala
-      href: speech-sdk.md
-    - name: Configurar o SDK de Fala
-      displayName: 'install the speech sdk, install the speech sdk java, install the speech sdk C#, install the speech sdk python, install the speech sdk C++, setup speech sdk, install, install C#, install C++, install Python, install Java, install Javascript'
-      href: quickstarts/setup-platform.md
-    - name: Guias de instruções
-      items:
-        - name: Habilitar o registro em log
-          href: how-to-use-logging.md
-        - name: Acompanhar o uso de memória
-          href: how-to-track-speech-sdk-memory-usage.md
-        - name: Configurar o OpenSSL para Linux
-          displayName: 'memory usage, memory consumption, object logging, object tracking, memory, openssl'
-          href: how-to-configure-openssl-linux.md
-        - name: Configurar o RHEL/CentOS 7
-          href: how-to-configure-rhel-centos-7.md
-          displayName: 'RHEL, CentOS 7, CentOS, Configure RHEL, Configure CentOS'
-    - name: Exemplos
-      items:
-        - name: Amostras do SDK de Fala (GitHub)
-          href: 'https://github.com/Azure-Samples/cognitive-services-speech-sdk'
-        - name: Amostras do SDK de dispositivos de Fala (GitHub)
-          href: 'https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK'
-        - name: Exemplos de assistente de voz (GitHub)
-          href: 'https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant'
-    - name: Referência
-      items:
-        - name: C++
-          href: 'https://aka.ms/csspeech/cppref'
-        - name: C#
-          href: 'https://aka.ms/csspeech/csharpref'
-        - name: Java
-          href: 'https://aka.ms/csspeech/javaref'
-        - name: JavaScript
-          href: 'https://aka.ms/csspeech/javascriptref'
-        - name: Objective-C
-          href: 'https://aka.ms/csspeech/objectivecref'
-        - name: Python
-          href: 'https://aka.ms/csspeech/pythonref'
-        - name: Notas de Versão do SDK de Fala
-          href: releasenotes.md
 - name: Dispositivos
   items:
     - name: Documentação dos dispositivos de fala
@@ -536,6 +544,8 @@
           href: speech-devices-sdk.md
         - name: Obter o SDK dos dispositivos de Fala
           href: get-speech-devices-sdk.md
+        - name: Amostras do SDK de dispositivos de Fala (GitHub)
+          href: 'https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK'
     - name: Hardware
       items:
         - name: Recomendações de matriz de microfone
@@ -560,23 +570,6 @@
       items:
         - name: Notas sobre a versão do SDK de dispositivos de Fala
           href: devices-sdk-release-notes.md
-- name: Ferramentas
-  items:
-    - name: CLI de Fala
-      displayName: SPX
-      items:
-        - name: O que é a CLI de Fala?
-          displayName: What is SPX?
-          href: spx-overview.md
-        - name: Noções básicas da CLI de Fala
-          displayName: SPX basics
-          href: spx-basics.md
-    - name: Estúdio de Fala
-      items:
-        - name: O que é o Estúdio de Fala?
-          href: 'https://speech.microsoft.com'
-        - name: Criar um aplicativo de comandos personalizados com o Estúdio de Fala
-          href: quickstart-custom-speech-commands-create-new.md
 - name: Migração
   items:
     - name: Da Fala do Bing
@@ -595,12 +588,8 @@
     - name: Nuvens Soberanas
       displayName: 'fairfax,mooncake,compliant,secret,compliance,government,government cloud,dod,china'
       href: sovereign-clouds.md
-    - name: Preços
-      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
     - name: Calculadora de preço
       href: 'https://azure.microsoft.com/pricing/calculator/#cognitive-services'
-    - name: Cotas e limites
-      href: speech-services-quotas-and-limits.md
     - name: Conformidade
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Criptografia
