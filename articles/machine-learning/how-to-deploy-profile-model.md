@@ -10,12 +10,12 @@ author: gvashishtha
 ms.date: 07/31/2020
 ms.topic: conceptual
 zone_pivot_groups: aml-control-methods
-ms.openlocfilehash: a3aed23441df225316f52eb3acb1387cbba6d807
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: aac5fba68c43892216cbd16dd99b0c6a9bf70217
+ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935578"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91660982"
 ---
 # <a name="profile-your-model-to-determine-resource-utilization"></a>Criar o perfil de seu modelo para determinar a utilização de recursos
 
@@ -24,6 +24,10 @@ Este artigo mostra como criar o perfil de um Machine Learning como modelo para d
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Este artigo pressupõe que você tenha treinado e registrado um modelo com Azure Machine Learning. Consulte o [tutorial de exemplo aqui](how-to-train-scikit-learn.md) para obter um exemplo de treinamento e registro de um modelo scikit-learn com Azure Machine Learning.
+
+## <a name="limitations"></a>Limitações
+
+* A criação de perfil não funcionará quando o ACR (registro de contêiner do Azure) para seu espaço de trabalho estiver por trás de uma rede virtual.
 
 ## <a name="run-the-profiler"></a>Executar o criador de perfil
 

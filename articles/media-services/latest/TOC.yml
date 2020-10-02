@@ -118,6 +118,8 @@
           href: autogen-bitrate-ladder.md
         - name: Codificação com reconhecimento de conteúdo
           href: content-aware-encoding.md
+        - name: Unidades reservadas para mídia
+          href: concept-media-reserved-units.md
     - name: Análise de conteúdo (Video Indexer)
       items:
         - name: Visão geral

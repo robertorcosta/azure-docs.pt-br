@@ -69,7 +69,7 @@
       href: ../../backup/security-baseline.md
     - name: Linha de base de segurança do Cache do Azure para Redis
       href: ../../azure-cache-for-redis/security-baseline.md
-    - name: Linha de base de segurança da Pesquisa Cognitiva do Azure
+    - name: Linha de base de segurança do Azure Cognitive Search
       href: ../../search/security-baseline.md
     - name: Linha de base de segurança do Azure Data Box
       href: ../../databox/security-baseline.md
@@ -97,6 +97,8 @@
       href: ../../azure-functions/security-baseline.md
     - name: Linha de base de segurança do Hub IoT do Azure
       href: ../../iot-hub/security-baseline.md
+    - name: Linha de base de segurança do Serviço de Kubernetes do Azure
+      href: ../../aks/security-baseline.md
     - name: Linha de base de segurança do Azure Load Balancer
       href: ../../load-balancer/security-baseline.md
     - name: Linha de base de segurança do Azure Monitor
@@ -117,6 +119,8 @@
       href: ../../sql-database/security-baseline.md
     - name: Linha de base de segurança do Armazenamento do Azure
       href: ../../storage/common/security-baseline.md
+    - name: Linha de base de segurança do Gerenciador de Tráfego do Azure
+      href: ../../traffic-manager/security-baseline.md
     - name: Linha de base de segurança do Lote
       href: ../../batch/security-baseline.md
     - name: Linha de base de segurança dos Serviços Cognitivos
@@ -163,3 +167,7 @@
       href: ../../virtual-machines/linux/security-baseline.md
     - name: Linha de base de segurança do Windows de Máquinas Virtuais
       href: ../../virtual-machines/windows/security-baseline.md
+    - name: Linha de base de segurança da Rede Virtual
+      href: ../../virtual-network/security-baseline.md
+    - name: Linha de base de segurança do Gateway de VPN
+      href: ../../vpn-gateway/security-baseline.md

@@ -3,16 +3,16 @@ title: Solucionar problemas do serviço Construtor de imagens do Azure
 description: Solucionar problemas e erros comuns ao usar o serviço do construtor de imagem de VM do Azure
 author: cynthn
 ms.author: danis
-ms.date: 09/03/2020
+ms.date: 10/02/2020
 ms.topic: troubleshooting
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: ee65cd1605e23dfd5699f92a900bdb5e7952fe13
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: dd17057a56e8dfb269a22458b9aa20fefaab68bc
+ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89459922"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91661101"
 ---
 # <a name="troubleshoot-azure-image-builder-service"></a>Solucionar problemas do serviço Construtor de imagens do Azure
 
@@ -591,6 +591,18 @@ Para obter mais informações sobre as limitações e recursos de DevOps do Azur
 #### <a name="solution"></a>Solução
 
 Você pode hospedar seus próprios agentes do DevOps ou procurar reduzir o tempo de sua compilação. Por exemplo, se você estiver distribuindo para a Galeria de imagens compartilhadas, replique para uma região. Se você quiser replicar de forma assíncrona. 
+
+### <a name="slow-windows-logon-please-wait-for-the-windows-modules-installer"></a>Logon lento do Windows: ' aguarde o instalador dos módulos do Windows '
+
+#### <a name="error"></a>Erro
+Depois de criar uma imagem do Windows 10 com o Image Builder, crie uma VM a partir da imagem, você o RDP e tenha que aguardar minutos no primeiro logon visualizando uma tela azul com a mensagem:
+```text
+Please wait for the Windows Modules Installer
+```
+
+#### <a name="solution"></a>Solução
+No início da compilação de imagem, verifique se não há reinicializações pendentes necessárias adicionando um personalizador de reinicialização do Windows como a última personalização e se toda a instalação do software foi concluída. Por fim, adicione a opção [/Mode: VM](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep-command-line-options) ao Sysprep padrão que o AIB usa, veja abaixo, ' VMs criadas de AIB images não criam com êxito ' > ' substituindo os comandos '  
+
  
 ## <a name="vms-created-from-aib-images-do-not-create-successfully"></a>As VMs criadas a partir de imagens AIB não são criadas com êxito
 
