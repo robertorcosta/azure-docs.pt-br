@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.openlocfilehash: 268293fc1391346090c1423a4290e25a57fbe666
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 54109d5889ae2c08f444a3a089386d413bf4262b
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91637057"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91650180"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-with-azure-cache-for-redis"></a>Implantar um modelo de aprendizado de máquina para Azure Functions com o cache do Azure para Redis 
 
@@ -318,5 +318,5 @@ Após alguns instantes, o grupo de recursos, e todos os recursos nele são exclu
 * Saiba mais sobre o [cache do Azure para Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-overview)
 * Saiba como configurar seu aplicativo de funções na documentação do [Functions](/azure/azure-functions/functions-create-function-linux-custom-image) .
 * [Referência da API](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py&preserve-view=true) 
-* [Crie um aplicativo Python que usa um Cache do Azure para Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-python-get-started)
+* Criar um [aplicativo Python que usa o cache do Azure para Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-python-get-started)
 

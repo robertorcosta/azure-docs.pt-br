@@ -7,12 +7,12 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: f9b5380fa219d768651703eeb9fe445fcd215332
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: e9a4f7266522fc17c33e2086af6cb7367bbed39e
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921778"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91650657"
 ---
 # <a name="prepare-data-with-wrangling-data-flow"></a>Preparar dados com o fluxo de dados do Wrangling
 
@@ -25,13 +25,13 @@ ms.locfileid: "85921778"
 
 Há duas maneiras de criar um fluxo de dados Wrangling em Azure Data Factory. Uma delas é clicar no ícone de adição e selecionar o **fluxo de dados** no painel recursos de fábrica.
 
-![Wrangling](media/wrangling-data-flow/tutorial7.png)
+![Captura de tela que mostra o fluxo de dados no painel recursos de fábrica.](media/wrangling-data-flow/tutorial7.png)
 
 O outro método está no painel atividades da tela do pipeline. Abra o adparador de **movimentação e transformação** e arraste a atividade **fluxo de dados** para a tela.
 
 Em ambos os métodos, no painel lateral que é aberto, selecione **criar novo fluxo de dados** e escolha **Wrangling fluxo de dados**. Clique em OK.
 
-![Wrangling](media/wrangling-data-flow/tutorial1.png)
+![Captura de tela que realça a opção de fluxo de dados Wrangling.](media/wrangling-data-flow/tutorial1.png)
 
 ## <a name="author-a-wrangling-data-flow"></a>Criar um fluxo de dados do Wrangling
 
@@ -44,21 +44,21 @@ Adicione um **conjunto** de dados de origem para seu fluxo de data Wrangling. Vo
 
 Clique em **criar** para abrir o Power Query editor de mashup online.
 
-![Wrangling](media/wrangling-data-flow/tutorial5.png)
+![Captura de tela que mostra o botão criar que abre o Power Query editor de mashup online.](media/wrangling-data-flow/tutorial5.png)
 
-Crie seu fluxo de dados do Wrangling usando a preparação de dados sem código. Para obter a lista de funções disponíveis, consulte [funções de transformação](wrangling-data-flow-functions.md)/
+Crie seu fluxo de dados do Wrangling usando a preparação de dados sem código. Para obter a lista de funções disponíveis, consulte [funções de transformação](wrangling-data-flow-functions.md).
 
-![Wrangling](media/wrangling-data-flow/tutorial6.png)
+![Captura de tela que mostra o processo de criação do fluxo de dados do Wrangling.](media/wrangling-data-flow/tutorial6.png)
 
 ## <a name="running-and-monitoring-a-wrangling-data-flow"></a>Executando e monitorando um fluxo de dados do Wrangling
 
 Para executar uma depuração de pipeline de execução de um fluxo de dados Wrangling, clique em **depurar** na tela do pipeline. Depois de publicar o fluxo de dados, o **gatilho agora** executa uma execução sob demanda do último pipeline publicado. Os fluxos de dados do Wrangling podem ser agendados com todos os gatilhos de Azure Data Factory existentes.
 
-![Wrangling](media/wrangling-data-flow/tutorial3.png)
+![Captura de tela que mostra como adicionar um fluxo de dados Wrangling.](media/wrangling-data-flow/tutorial3.png)
 
 Vá para a guia **Monitor** para visualizar a saída de uma execução de atividade de fluxo de dados Wrangling disparada.
 
-![Wrangling](media/wrangling-data-flow/tutorial2.png)
+![Captura de tela que mostra a saída de uma execução de atividade de fluxo de dados Wrangling disparada.](media/wrangling-data-flow/tutorial2.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

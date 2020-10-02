@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 88b1eb70814c349d488933179a16c084a0af803c
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.openlocfilehash: efdfc1c12191977c0422cda6c52eb9b73c95c55f
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91619960"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651183"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de versão dos Serviços de Mídia do Azure v3
 
@@ -37,7 +37,6 @@ Para se manter atualizado com os desenvolvimentos mais recentes, este artigo for
 > Você pode usar o [portal do Azure](https://portal.azure.com/) para gerenciar [eventos ao vivo](live-events-outputs-concept.md)v3, exibir [ativos](assets-concept.md) e trabalhos v3, obter informações sobre como acessar APIs, criptografar conteúdo. Para todas as outras tarefas de gerenciamento (por exemplo, gerenciar transformações e trabalhos), use a [API REST](https://aka.ms/ams-v3-rest-ref), a [CLI](https://aka.ms/ams-v3-cli-ref)ou um dos [SDKs](media-services-apis-overview.md#sdks)com suporte.
 >
 > Para obter detalhes, consulte: [as limitações de portal do Azure para os serviços de mídia v3](frequently-asked-questions.md#what-are-the-azure-portal-limitations-for-media-services-v3).
-
 
 ## <a name="august-2020"></a>Agosto de 2020
 
@@ -264,21 +263,21 @@ As atualizações da versão disponível ao público geral da API V3 incluem:
 
 ## <a name="november-2018"></a>Novembro de 2018
 
-O módulo de CLI 2.0 agora está disponível para [serviços de mídia do Azure v3 GA](/cli/azure/ams?view=azure-cli-latest) – v 2.0.50.
+O módulo de CLI 2.0 agora está disponível para [serviços de mídia do Azure v3 GA](/cli/azure/ams?view=azure-cli-latest&preserve-view=true) – v 2.0.50.
 
 ### <a name="new-commands"></a>Novos comandos
 
-- [conta do ams AZ](/cli/azure/ams/account?view=azure-cli-latest)
-- [filtro de conta do ams AZ](/cli/azure/ams/account-filter?view=azure-cli-latest)
-- [ativo do ams AZ](/cli/azure/ams/asset?view=azure-cli-latest)
-- [ativos de ams AZ-filtro](/cli/azure/ams/asset-filter?view=azure-cli-latest)
-- [AZ ams chave de política de conteúdo](/cli/azure/ams/content-key-policy?view=azure-cli-latest)
-- [trabalho de ams AZ](/cli/azure/ams/job?view=azure-cli-latest)
-- [AZ ams-evento ao vivo](/cli/azure/ams/live-event?view=azure-cli-latest)
-- [ams AZ saída ao vivo](/cli/azure/ams/live-output?view=azure-cli-latest)
-- [AZ ams streaming-ponto de extremidade](/cli/azure/ams/streaming-endpoint?view=azure-cli-latest)
-- [AZ ams-localizador de streaming](/cli/azure/ams/streaming-locator?view=azure-cli-latest)
-- [az ams account mru](/cli/azure/ams/account/mru?view=azure-cli-latest) – permite que você gerencie Unidades Reservadas para Mídia. Para obter mais informações, confira [Dimensionar Unidades Reservadas para Mídia](media-reserved-units-cli-how-to.md).
+- [conta do ams AZ](/cli/azure/ams/account?view=azure-cli-latest&preserve-view=true)
+- [filtro de conta do ams AZ](/cli/azure/ams/account-filter?view=azure-cli-latest&preserve-view=true)
+- [ativo do ams AZ](/cli/azure/ams/asset?view=azure-cli-latest&preserve-view=true)
+- [ativos de ams AZ-filtro](/cli/azure/ams/asset-filter?view=azure-cli-latest&preserve-view=true)
+- [AZ ams chave de política de conteúdo](/cli/azure/ams/content-key-policy?view=azure-cli-latest&preserve-view=true)
+- [trabalho de ams AZ](/cli/azure/ams/job?view=azure-cli-latest&preserve-view=true)
+- [AZ ams-evento ao vivo](/cli/azure/ams/live-event?view=azure-cli-latest&preserve-view=true)
+- [ams AZ saída ao vivo](/cli/azure/ams/live-output?view=azure-cli-latest&preserve-view=true)
+- [AZ ams streaming-ponto de extremidade](/cli/azure/ams/streaming-endpoint?view=azure-cli-latest&preserve-view=true)
+- [AZ ams-localizador de streaming](/cli/azure/ams/streaming-locator?view=azure-cli-latest&preserve-view=true)
+- [az ams account mru](/cli/azure/ams/account/mru?view=azure-cli-latest&preserve-view=true) – permite que você gerencie Unidades Reservadas para Mídia. Para obter mais informações, confira [Dimensionar Unidades Reservadas para Mídia](media-reserved-units-cli-how-to.md).
 
 ### <a name="new-features-and-breaking-changes"></a>Novos recursos e alterações de quebra
 

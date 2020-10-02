@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: e29d031bc3461c4adab87b1d784ef19c89c7c12d
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 7f1d8d34d6351fc344fdb101ac8e9a96678df9d5
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91612992"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651421"
 ---
 # <a name="mount-the-azure-hpc-cache"></a>Montar o Azure HPC Cache
 
@@ -79,7 +79,7 @@ Siga este procedimento para criar o comando Mount.
 
 1. Escolha o **caminho do namespace virtual** a ser usado para o cliente. Esses caminhos são vinculados a exportações no sistema de armazenamento de back-end.
 
-   ![captura de tela do campo caminhos de namespace com o seletor aberto](media/mount-select-target.png)
+   ![Captura de tela que mostra o campo "caminho do namespace virtual", com o seletor aberto.](media/mount-select-target.png)
 
    Você pode exibir e alterar os caminhos de namespace virtual na página do portal de **namespace** . Leia [Configurar o namespace agregado](add-namespace-paths.md) para ver como.
 

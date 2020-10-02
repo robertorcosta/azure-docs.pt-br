@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 06/24/2020
+ms.date: 10/01/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
-ms.reviewer: scottsta
-ms.openlocfilehash: 084c50a67fe332751a3679da4c97f67d414ebb94
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.reviewer: calui
+ms.openlocfilehash: 9b9617b4109318257895587cc0d8e75054a7f729
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419522"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91650299"
 ---
 # <a name="sign-in-to-azure-active-directory-using-email-as-an-alternate-login-id-preview"></a>Entrar no Azure Active Directory usando o email como uma ID de logon alternativa (versão prévia)
 
@@ -28,6 +28,8 @@ Algumas organizações não migraram para autenticação híbrida pelos seguinte
 * Devido a motivos de conformidade ou de negócios, a organização não deseja usar o UPN local para entrar no Azure AD.
 
 Para ajudar com a mudança para a autenticação híbrida, agora você pode configurar o Azure AD para permitir que os usuários entrem com um email em seu domínio verificado como uma ID de logon alternativa. Por exemplo, se *Contoso* for rebatizado como *Fabrikam*, em vez de continuar a entrar com o UPN herdado `balas@contoso.com`, será possível usar o email como uma ID de logon alternativa. Para acessar um aplicativo ou serviços, os usuários entrarão no Azure AD usando seus emails atribuídos, como `balas@fabrikam.com` .
+
+Este artigo mostra como habilitar e usar email como uma ID de logon alternativa. Esse recurso está disponível na edição do Azure AD Gratuito e superior.
 
 > [!NOTE]
 > A entrada no Azure Active Directory com o email como uma ID de logon alternativa é uma versão prévia do recurso do Azure Active Directory. Para saber mais sobre versões prévias, consulte os [Termos de Uso Complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -45,6 +47,8 @@ A solução alternativa típica para esse problema era definir o UPN do Azure AD
 Uma abordagem diferente é sincronizar o Azure AD e os UPNs locais com o mesmo valor e, em seguida, configurar o Azure AD para permitir que os usuários entrem no Azure AD com um email verificado. Para fornecer essa capacidade, você define um ou mais endereços de email no atributo *proxyAddresses* do usuário no diretório local. Os *proxyAddresses* são então sincronizados com o Azure ad automaticamente usando Azure ad Connect.
 
 ## <a name="preview-limitations"></a>Limitações de visualização
+
+Entre no Azure AD com o email como uma ID de logon alternativa está disponível na edição do Azure AD Gratuito e superior.
 
 No estado de visualização atual, as seguintes limitações se aplicam quando um usuário entra com um email não UPN como uma ID de logon alternativa:
 

@@ -7,12 +7,12 @@ ms.topic: article
 author: emuench
 ms.author: navits
 ms.date: 07/17/2020
-ms.openlocfilehash: e512c233ccfd793b87f203f837b11e97966d8102
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 10137e59e0ea06fa785fccc215c867b6d8c0cb76
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90016230"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651149"
 ---
 # <a name="appsource-dynamics-365-finance-and-operations-functional-validation"></a>Validação funcional de operações e finanças do AppSource Dynamics 365
 
@@ -56,9 +56,9 @@ Para agendar uma chamada de revisão final, entre em contato [appsourceCRM@micro
 
       2. Vá para gerenciamento de soluções do **LCS**  >  **Solution Management**  >  **pacote de solução de teste**. Faça capturas de tela que incluem a visão geral do pacote e o conteúdo mostrado nestes exemplos:
 
-    | Campo | Imagem <img src="" width="400px">|
+    | Campo | Image <img src="" width="400px">|
     | --- | --- |
-    | Visão geral do pacote | [![Tela de visão geral do pacote](media/dynamics-365-finance-operations/package-overview-45.png)](media/dynamics-365-finance-operations/package-overview.png#lightbox) |
+    | Visão geral do pacote | [![Captura de tela que mostra a janela "visão geral do pacote".](media/dynamics-365-finance-operations/package-overview-45.png)](media/dynamics-365-finance-operations/package-overview.png#lightbox) |
     | <ul><li>Aprovadores de solução</li></ul> | [![Tela de visão geral do pacote](media/dynamics-365-finance-operations/solution-approvers-45.png)](media/dynamics-365-finance-operations/solution-approvers.png#lightbox) |
     | Conteúdo do pacote<ul><li>Modelo</li><li>Pacote de implantação de software</li></ul> | [![Tela de conteúdo do pacote um](media/dynamics-365-finance-operations/package-contents-1-45.png)](media/dynamics-365-finance-operations/package-contents-1.png#lightbox) |
     | <ul><li>Configuração do Windows</li><li>Backup de banco de dados</li></ul><br>Os artefatos não são necessários na seção de **configuração do Windows** . | [![Tela de conteúdo do pacote dois](media/dynamics-365-finance-operations/package-contents-2-45.png)](media/dynamics-365-finance-operations/package-contents-2.png#lightbox) |

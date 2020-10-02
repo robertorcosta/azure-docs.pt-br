@@ -14,31 +14,24 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/22/2020
 ms.author: b-juche
-ms.openlocfilehash: 0b5558501042dd7816202ea05b3a332b23400ff4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e7e3c2eb058d3549f2e1a10ffacf01fd354fbd47
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91340867"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651047"
 ---
 # <a name="troubleshoot-capacity-pool-issues"></a>Solucionar problemas de pool de capacidade
 
 Este artigo descreve as resoluções para os problemas que você pode ter ao gerenciar pools de capacidade. 
 
-## <a name="issues-creating-a-capacity-pool"></a>Problemas ao criar um pool de capacidade
+## <a name="error-conditions-and-resolutions"></a>Condições de erro e resoluções 
 
-Certifique-se de que a contagem de pool de capacidade não exceda o limite. Consulte [limites de recursos para Azure NetApp files](azure-netapp-files-resource-limits.md).  Se a contagem for menor do que o limite e você ainda tiver problemas, arquivo a um tíquete de suporte e especifique o nome do pool de capacidade.
-
-## <a name="issues-deleting-a-capacity-pool"></a>Problemas ao excluir um pool de capacidade
-
-Certifique-se de ter removido todos os volumes Azure NetApp Files e instantâneos na assinatura em que você está tentando excluir o pool de capacidade.   
-
-Se você já tiver removido todos os volumes e instantâneos e ainda não puder excluir o pool de capacidade, as referências aos recursos ainda poderão existir sem serem exibidas no Portal. Nesse caso, arquivo um tíquete de suporte e especifique que você executou as etapas recomendadas acima. 
-
-## <a name="volume-creation-or-modification-fails-with-requested-throughput-not-available-error"></a>A criação ou modificação de volume falha com o erro "taxa de transferência não disponível"
-
-A taxa de transferência disponível para um volume é determinada pelo tamanho do pool de capacidade e o nível de serviço. Se você não tiver uma taxa de transferência suficiente, deverá aumentar o tamanho do pool ou ajustar a taxa de transferência do volume existente.
-
+|     Condição de erro    |     Resolução    |
+|-|-|
+| Problemas ao criar um pool de capacidade |  Certifique-se de que a contagem de pool de capacidade não exceda o limite. Consulte [limites de recursos para Azure NetApp files](azure-netapp-files-resource-limits.md).  Se a contagem for menor do que o limite e você ainda tiver problemas, arquivo a um tíquete de suporte e especifique o nome do pool de capacidade. |
+| Problemas ao excluir um pool de capacidade  |  Certifique-se de remover todos os volumes de Azure NetApp Files e instantâneos na assinatura em que você está tentando excluir o pool de capacidade. <br> Se você já tiver removido todos os volumes e instantâneos e ainda não puder excluir o pool de capacidade, as referências aos recursos ainda poderão existir sem serem exibidas no Portal. Nesse caso, arquivo um tíquete de suporte e especifique que você executou as etapas recomendadas acima. |
+| Falha na criação ou modificação do volume com `Requested throughput not available` erro | A taxa de transferência disponível para um volume é determinada pelo tamanho do pool de capacidade e o nível de serviço. Se você não tiver uma taxa de transferência suficiente, deverá aumentar o tamanho do pool ou ajustar a taxa de transferência do volume existente. | 
 
 ## <a name="next-steps"></a>Próximas etapas  
 
