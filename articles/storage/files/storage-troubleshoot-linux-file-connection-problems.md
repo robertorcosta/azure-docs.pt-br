@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 0be60208146681135c7502746a271e4e007dc0ea
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 40fb5a1623175445065f0546403661a1f6eb399f
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91249579"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91629430"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux-smb"></a>Solucionar problemas de arquivos do Azure no Linux (SMB)
 
@@ -298,6 +298,32 @@ Esse erro é registrado porque os arquivos do Azure [atualmente não dão suport
 
 ### <a name="solution"></a>Solução
 Este erro pode ser ignorado.
+
+
+### <a name="unable-to-access-folders-or-files-which-name-has-a-space-or-a-dot-at-the-end"></a>Não é possível acessar pastas ou arquivos cujo nome tem um espaço ou um ponto no final
+
+Você não pode acessar pastas ou arquivos do compartilhamento de arquivos do Azure durante a montagem no Linux, comandos como du e ls e/ou aplicativos de terceiros podem falhar com um erro "não existe um arquivo ou diretório" ao acessar o compartilhamento, no entanto, você pode carregar arquivos para as pastas citadas por meio do Portal.
+
+### <a name="cause"></a>Causa
+
+As pastas ou arquivos foram carregados de um sistema que codifica os caracteres no final do nome para um caractere diferente, os arquivos carregados de um computador Macintosh podem ter um caractere "0xF028" ou "0xF029" em vez de 0x20 (espaço) ou 0X2E (ponto).
+
+### <a name="solution"></a>Solução
+
+Use a opção mapchars no compartilhamento ao montar o compartilhamento no Linux: 
+
+Em vez de:
+
+```bash
+sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccountName,password=$storageAccountKey,serverino
+```
+
+utilizá
+
+```bash
+sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccountName,password=$storageAccountKey,serverino,mapchars
+```
+
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Entre em contato com o suporte.
 

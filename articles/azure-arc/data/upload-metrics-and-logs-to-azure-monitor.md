@@ -9,16 +9,37 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 7c8e92604cc6188d17411a266f8b27db55c8fbad
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3e3b804e2a3c43eb9579d1c6a1195511df528de2
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91317269"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91629990"
 ---
 # <a name="upload-usage-data-metrics-and-logs-to-azure-monitor"></a>Carregar dados de uso, métricas e logs para Azure Monitor
 
-O monitoramento é um dos muitos recursos internos que os serviços de dados habilitados para o Azure Arc trazem com ele. 
+Periodicamente, você pode exportar informações de uso para fins de cobrança, métricas de monitoramento e logs e, em seguida, carregá-las no Azure.  A exportação e o upload de qualquer um desses três tipos de dados também criarão e atualizarão o controlador de dados, a instância gerenciada do SQL e os recursos do grupo de servidores de hiperescala do PostgreSQL no Azure.
+
+> [!NOTE] 
+Durante o período de versão prévia, não há nenhum custo para usar os serviços de dados habilitados para Arc do Azure.
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Você precisará do CLI do Azure (AZ) e da CLI de dados do Azure (azdata) instalada.  [Instalar ferramentas](./install-client-tools.md).
+
+Antes de carregar dados no Azure, você precisa garantir que sua assinatura do Azure tenha o provedor de recursos Microsoft. AzureData registrado.
+
+Você pode verificar isso executando o seguinte comando:
+
+```console
+az provider show -n Microsoft.AzureData -o table
+```
+
+Se o provedor de recursos não estiver registrado em sua assinatura no momento, você poderá registrá-lo executando o comando a seguir.  Esse comando leva um minuto ou dois para ser concluído.
+
+```console
+az provider register -n Microsoft.AzureData --wait
+```
 
 ## <a name="upload-usage-data"></a>Carregar dados de uso
 

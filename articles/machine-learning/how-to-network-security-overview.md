@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 09/25/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperfq1
-ms.openlocfilehash: c1d351cf7a3d66f6051bf5c9d17672b054c2d862
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: d4690062dead8186022cc53ca47dbc7e17a9376f
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91538375"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631181"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Visão geral de isolamento de rede virtual e privacidade
 
@@ -80,19 +80,7 @@ Para obter instruções detalhadas sobre como concluir essas etapas, consulte [p
 ### <a name="limitations"></a>Limitações
 
 Proteger seu espaço de trabalho e os recursos associados em uma rede virtual tem as seguintes limitações:
-- O link privado do espaço de trabalho só está disponível nas seguintes regiões:
-    - **Leste dos EUA**
-    - **Centro-Sul dos Estados Unidos**
-    - **Oeste dos EUA**
-    - **Oeste dos EUA 2**
-    - **Centro do Canadá**
-    - **Sudeste Asiático**
-    - **Leste do Japão**
-    - **Norte da Europa**
-    - **Austrália oriental**
-    - **Sul do Reino Unido**
-    
-    Essa limitação não se aplica aos recursos associados. Por exemplo, você pode habilitar a VNet para armazenamento em qualquer região de Azure Machine Learning.
+- O uso de um espaço de trabalho Azure Machine Learning com link privado não está disponível nas regiões do Azure governamental ou do Azure China 21Vianet.
 - Todos os recursos devem estar atrás da mesma VNet. No entanto, as sub-redes na mesma VNet são permitidas.
 
 ## <a name="secure-the-training-environment"></a>Proteger o ambiente de treinamento

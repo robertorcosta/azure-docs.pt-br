@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, vanto
 ms.date: 11/09/2018
-ms.openlocfilehash: 9d58a8c1dc79c10ed42fd1675115eb14f2ad4d3e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a59e498435aab7b3e3e2ecf2e6096c044550a1b8
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91283700"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91628359"
 ---
 # <a name="connect-your-application-to-azure-sql-managed-instance"></a>Conectar seu aplicativo à Instância Gerenciada de SQL do Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -45,10 +45,10 @@ Há duas opções para conectar redes virtuais:
 - [Emparelhamento VNet do Azure](../../virtual-network/virtual-network-peering-overview.md)
 - Gateway de VPN VNET a VNET ([portal do Azure](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md), [PowerShell](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md), [CLI do Azure](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-cli.md))
 
-O emparelhamento é preferível porque usa a rede de backbone da Microsoft, portanto, da perspectiva da conectividade, não há nenhuma diferença perceptível na latência entre as máquinas virtuais em uma rede virtual emparelhada e na mesma rede virtual. O emparelhamento de rede virtual é limitado às redes na mesma região.  
+O emparelhamento é preferível porque usa a rede de backbone da Microsoft, portanto, da perspectiva da conectividade, não há nenhuma diferença perceptível na latência entre as máquinas virtuais em uma rede virtual emparelhada e na mesma rede virtual. O emparelhamento de rede virtual tem suporte entre as redes na mesma região. O emparelhamento de rede virtual global também tem suporte com a limitação descrita na observação abaixo.  
 
 > [!IMPORTANT]
-> O cenário de emparelhamento de rede virtual para SQL Instância Gerenciada é limitado às redes na mesma região devido às [restrições de emparelhamento de rede virtual global](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Consulte também a seção relevante do artigo [perguntas frequentes sobre redes virtuais do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) para obter mais detalhes. 
+> [Em 9/22/2020 anunciamos o emparelhamento de rede virtual global para clusters virtuais recém-criados](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Isso significa que o emparelhamento de rede virtual global tem suporte para instâncias gerenciadas do SQL criadas em sub-redes vazias após a data do anúncio, bem como para todas as instâncias gerenciadas subsequentes criadas nessas sub-redes. Para todas as outras instâncias gerenciadas do SQL, o suporte ao emparelhamento é limitado às redes na mesma região devido às [restrições do emparelhamento de rede virtual global](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Consulte também a seção relevante do artigo [perguntas frequentes sobre redes virtuais do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) para obter mais detalhes. 
 
 ## <a name="connect-from-on-premises"></a>Conectar do local 
 

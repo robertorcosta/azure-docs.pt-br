@@ -2,13 +2,13 @@
 title: Solucionar problemas de rede com o registro
 description: Sintomas, causas e resolução de problemas comuns ao acessar um registro de contêiner do Azure em uma rede virtual ou atrás de um firewall
 ms.topic: article
-ms.date: 08/11/2020
-ms.openlocfilehash: 06c5b65537fd7d256010260bb3a93888721f643b
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.date: 10/01/2020
+ms.openlocfilehash: c2ae8609dbd28a1a39a634e3c065030552aefb06
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91532441"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91630943"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>Solucionar problemas de rede com o registro
 
@@ -22,6 +22,7 @@ Pode incluir um ou mais dos seguintes:
 * Não é possível enviar por Push ou efetuar pull de imagens e você recebe CLI do Azure erro `Could not connect to the registry login server`
 * Não é possível efetuar pull de imagens do registro para o serviço kubernetes do Azure ou outro serviço do Azure
 * Não é possível acessar um registro por trás de um proxy HTTPS e você recebe um erro `Error response from daemon: login attempt failed with status: 403 Forbidden`
+* Não é possível definir as configurações de rede virtual e você recebe um erro `Failed to save firewall and virtual network settings for container registry`
 * Não é possível acessar ou exibir as configurações do registro no portal do Azure ou gerenciar o registro usando o CLI do Azure
 * Não é possível adicionar ou modificar as configurações de rede virtual ou as regras de acesso público
 * As tarefas ACR não podem enviar por Push ou efetuar pull de imagens
@@ -47,7 +48,7 @@ Consulte [verificar a integridade de um registro de contêiner do Azure](contain
 
 ### <a name="configure-client-firewall-access"></a>Configurar o acesso do firewall do cliente
 
-Para acessar um registro por trás de um firewall de cliente ou servidor proxy, configure as regras de firewall para acessar os pontos de extremidade de dados e REST do registro. Se [os pontos de extremidade de dados dedicados](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints) estiverem habilitados, você precisará de regras para acessar:
+Para acessar um registro por trás de um firewall cliente ou servidor proxy, configure as regras de firewall para acessar os pontos de extremidade públicos de dados e REST do registro. Se [os pontos de extremidade de dados dedicados](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints) estiverem habilitados, você precisará de regras para acessar:
 
 * Ponto de extremidade REST: `<registryname>.azurecr.io`
 * Ponto (s) de dados: `<registry-name>.<region>.data.azurecr.io`
@@ -85,6 +86,8 @@ Confirme se a rede virtual está configurada com um ponto de extremidade privado
 Examine as regras de NSG e as marcas de serviço usadas para limitar o tráfego de outros recursos na rede para o registro. 
 
 Se um ponto de extremidade de serviço para o registro estiver configurado, confirme se uma regra de rede foi adicionada ao registro que permite o acesso dessa sub-rede de rede. O ponto de extremidade de serviço só dá suporte ao acesso de máquinas virtuais e clusters AKS na rede.
+
+Se você quiser restringir o acesso ao registro usando uma rede virtual em uma assinatura do Azure diferente, certifique-se de registrar o `Microsoft.ContainerRegistry` provedor de recursos nessa assinatura. [Registre o provedor de recursos para o](../azure-resource-manager/management/resource-providers-and-types.md) registro de contêiner do Azure usando o portal do Azure, CLI do Azure ou outras ferramentas do Azure.
 
 Se o Firewall do Azure ou uma solução semelhante estiver configurada na rede, verifique se o tráfego de saída de outros recursos, como um cluster AKS, está habilitado para alcançar os pontos de extremidade do registro.
 

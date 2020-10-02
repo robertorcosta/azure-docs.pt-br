@@ -11,12 +11,12 @@ ms.date: 02/19/2019
 ms.author: martinle
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 1177551b698bb2e295a71f6cd4a132411d1c5bea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f97b7cb836009683a689fc49882e61ce66abac58
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85210687"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627067"
 ---
 # <a name="optimize-performance-by-upgrading-azure-synapse-analytics-sql-pool"></a>Otimizar o desempenho atualizando o pool do SQL do Azure Synapse Analytics
 
@@ -114,7 +114,7 @@ Agora você pode atualizar diretamente para a camada Gen2 otimizada de computaç
 
    > [!NOTE]
    > Se você não vir o cartão **Fazer upgrade para Gen2** na guia Tarefas, seu tipo de assinatura será limitado na região atual.
-   > [Envie um tíquete de suporte](sql-data-warehouse-get-started-create-support-ticket.md) para obter a lista de permissões de assinatura.
+   > [Envie um tíquete de suporte](sql-data-warehouse-get-started-create-support-ticket.md) para que sua assinatura seja aprovada.
 
 3. Certifique-se de que sua carga de trabalho teve sua execução concluída e foi confirmada antes de atualizar. Você experimentará tempo de inatividade por alguns minutos antes que o pool do SQL fique online novamente como um pool de SQL de camada Gen2 otimizado para computação. **Selecione Atualizar**:
 

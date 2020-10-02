@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 06/10/2020
 ms.author: aahi
-ms.openlocfilehash: 5ffa5398143bff4e24d81a28a541e16c44700c99
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8032c3607dd74cddbaa5fd6690a95ebdf218809a
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91254016"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91628187"
 ---
 # <a name="how-to-deploy-a-people-counting-web-application"></a>Como implantar um aplicativo Web de contagem de pessoas
 
@@ -127,14 +127,13 @@ Agora que o [manifesto de implantação](https://go.microsoft.com/fwlink/?linkid
 ```azurecli
 az login
 az extension add --name azure-iot
-az iot edge deployment create --deployment-id "<deployment name>" --hub-name "<IoT Hub name>" --content DeploymentManifest.json --target-condition "deviceId='<IoT Edge device name>'"--subscription "<subscriptionId>"
+az iot edge set-modules --hub-name "<IoT Hub name>" --device-id "<IoT Edge device name>" --content DeploymentManifest.json -–subscription "<subscriptionId>"
 ```
 
 Preencha os parâmetros necessários:
 
-* Nome da implantação: escolha um nome para esta implantação
 * Nome do Hub IoT: o nome do Hub IoT do Azure
-* Deployment.jsem: o nome do seu arquivo de implantação
+* DeploymentManifest.jsem: o nome do seu arquivo de implantação
 * Nome do dispositivo de IoT Edge: o nome do dispositivo de IoT Edge do seu computador host
 * Assinatura: sua ID de assinatura ou nome
 

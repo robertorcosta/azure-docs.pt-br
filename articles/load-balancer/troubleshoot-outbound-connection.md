@@ -7,14 +7,14 @@ ms.service: load-balancer
 ms.topic: troubleshooting
 ms.date: 05/7/2020
 ms.author: errobin
-ms.openlocfilehash: cd98d5b8d2d4a959a48bfb04fe2eb9e16c4113c9
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: c37c0e9b914854ff41053526740d3454c5c23f90
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851144"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91628988"
 ---
-# <a name="troubleshooting-outbound-connections-failures"></a><a name="obconnecttsg"></a>Solucionando problemas de falhas de conexões de saída
+# <a name="troubleshooting-outbound-connections-failures"></a><a name="obconnecttsg"></a> Solucionando problemas de falhas de conexões de saída
 
 Este artigo destina-se a fornecer resoluções para problemas comuns que podem ocorrer com conexões de saída de um Azure Load Balancer. A maioria dos problemas com a conectividade de saída que os clientes enfrentam é devido ao esgotamento da porta SNAT e tempos limite de conexão que levam a pacotes descartados. Este artigo fornece etapas para atenuar cada um desses problemas.
 
@@ -44,7 +44,7 @@ Quando as [portas efêmeras pré-alocadas](load-balancer-outbound-connections.md
 As portas efêmeras têm um tempo limite de ociosidade de 4 minutos (não ajustável). Se as tentativas forem muito agressivas, o esgotamento não terá oportunidade de limpar por conta própria. Portanto, considerando como -- e com que frequência -- o aplicativo reage transações é uma parte crítica do projeto.
 
 ## <a name="assign-a-public-ip-to-each-vm"></a><a name="assignilpip"></a>Atribuir um endereço IP a cada VM
-A atribuição de um endereço IP público altera seu cenário para [IP público para uma VM](load-balancer-outbound-connections.md). Todas as portas efêmeras do IP público que são usadas para cada VM estão disponíveis para a VM. (Em oposição aos cenários em que as portas efêmeras de um IP público são compartilhadas com todas as VMs associadas ao respectivo grupo de back-end.) Há compromissos a considerar, tais como o custo adicional dos endereços IP públicos e o potencial impacto da listagem de permissões de um grande número de endereços IP individuais.
+A atribuição de um endereço IP público altera seu cenário para [IP público para uma VM](load-balancer-outbound-connections.md). Todas as portas efêmeras do IP público que são usadas para cada VM estão disponíveis para a VM. (Em oposição aos cenários em que as portas efêmeras de um IP público são compartilhadas com todas as VMs associadas ao respectivo pool de back-end.) Há compensações a serem consideradas, como o custo adicional de endereços IP públicos e o possível impacto da filtragem de um grande número de endereços IP individuais.
 
 >[!NOTE] 
 >Essa opção não está disponível para as funções de trabalho da Web.

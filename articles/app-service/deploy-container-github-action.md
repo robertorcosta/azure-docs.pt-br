@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 10/25/2019
 ms.author: jafreebe
 ms.reviewer: ushan
-ms.openlocfilehash: 6808117728569ba6fd0b094c7330ce9a1baa24c4
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.openlocfilehash: 59bfdbf2d78497bc253f466e94fd69367a85070d
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/01/2020
-ms.locfileid: "91618600"
+ms.locfileid: "91631776"
 ---
 # <a name="deploy-a-custom-container-to-app-service-using-github-actions"></a>Implantar um contêiner personalizado no serviço de aplicativo usando as ações do GitHub
 
@@ -23,7 +23,7 @@ Para um fluxo de trabalho de contêiner de serviço Azure App, o arquivo tem tr�
 
 |Seção  |Tarefas  |
 |---------|---------|
-|**Autenticação** | 1. entidade de serviço ou perfil de publicação. <br /> 2. Crie um segredo do GitHub. |
+|**Autenticação** | 1. recupere uma entidade de serviço ou um perfil de publicação. <br /> 2. Crie um segredo do GitHub. |
 |**Compilar** | 1. Crie o ambiente. <br /> 2. Crie a imagem de contêiner. |
 |**Implantar** | 1. implante a imagem de contêiner. |
 

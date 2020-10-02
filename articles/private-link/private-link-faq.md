@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 7870b68ca931123d50e88e846aa066ce53972dbc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f557bb271c88b32a9b53cf9b41b911314427530a
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75349931"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91629940"
 ---
 # <a name="azure-private-link-frequently-asked-questions-faq"></a>Perguntas frequentes sobre o link privado do Azure
 
@@ -65,7 +65,7 @@ Sim. Um serviço de vínculo privado pode receber conexões de vários pontos de
 Você pode controlar a exposição usando a configuração de visibilidade no serviço de vínculo privado. A visibilidade dá suporte a três configurações:
 
 - **Nenhum** -somente assinaturas com acesso RBAC podem localizar o serviço. 
-- Assinaturas somente **restritivas** que estão na lista de permissões e com acesso de RBAC podem localizar o serviço. 
+- Assinaturas somente **restritivas** que são aprovadas e com acesso de RBAC podem localizar o serviço. 
 - **Todos** -todos podem localizar o serviço. 
  
 ### <a name="can-i-create-a-private-link-service-with-basic-load-balancer"></a>Posso criar um serviço de vínculo privado com Load Balancer básica? 

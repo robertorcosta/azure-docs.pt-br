@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2020
 author: shganesh-dev
 ms.author: shganesh
-ms.openlocfilehash: f0f14bf24bd867344ec72c86a6fd517085b66d1f
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: ed836e3df28c5e39aa7f9d21f020c0d37292dcfc
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317545"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631793"
 ---
 # <a name="commercial-marketplace-analytics-terminology-and-common-questions"></a>Terminologia e perguntas comuns sobre análise do marketplace comercial
 
@@ -45,6 +45,7 @@ Se estiver recebendo esta mensagem, significa que você tem dados de análise, m
 | Tipo de licença do Azure: Enterprise | Cliente, pedido | O cliente final adquire o Azure e sua oferta do Marketplace por meio de um Contrato Enterprise, assinado diretamente com a Microsoft.|
 | Tipo de licença do Azure: Enterprise por meio do revendedor  | Cliente, pedido | O cliente final adquire o Azure e sua oferta do Marketplace por meio de um revendedor que facilita seu Contrato Enterprise com a Microsoft.|
 | Tipo de licença do Azure: Pré-pago| Cliente, pedido | O cliente final adquire o Azure e sua oferta do Marketplace por meio de um contrato “Pré-pago”, assinado diretamente com a Microsoft.|
+| ID da conta de cobrança| Cliente, ordem, uso| O identificador da conta na qual a cobrança é gerada. Use este atributo para conectar relatórios analíticos com o relatório de transações de pagamento.|
 | Nome da instância de nuvem| Order| A Microsoft Cloud em que ocorreu uma implantação de VM.|
 | Nome da instância da nuvem: Azure Global| Order| A nuvem pública global da Microsoft.|
 | Nome da instância da nuvem: Azure Government | Order| Nuvens da Microsoft específicas do governo para um dos seguintes governos: China, Alemanha ou Estados Unidos da América.| |

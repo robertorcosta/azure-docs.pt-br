@@ -3,12 +3,12 @@ title: Tópicos e filas do Barramento de Serviço como manipuladores de eventos 
 description: Descreve como você pode usar tópicos e filas do Barramento de Serviço como manipuladores de eventos para eventos da Grade de Eventos do Azure.
 ms.topic: conceptual
 ms.date: 09/03/2020
-ms.openlocfilehash: 00f937a66ff17c2d5f502fe976675c999ee02a58
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ab219f0dc6009dc01d5915995fc04094e72a88cf
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91270161"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91629498"
 ---
 # <a name="service-bus-queues-and-topics-as-event-handlers-for-azure-event-grid-events"></a>Tópicos e filas do Barramento de Serviço como manipuladores de eventos para eventos da Grade de Eventos do Azure
 Um manipulador de eventos é o local para o qual o evento é enviado. O manipulador usa alguma ação adicional para processar o evento. Vários serviços do Azure são automaticamente configurados para lidar com os eventos, e o **Barramento de Serviço do Azure** é um deles. 
@@ -156,9 +156,6 @@ A ID do sistema interno da mensagem será mantida na entrega do evento para que 
     }
 }
 ```
-
-> [!NOTE]
-> Não há suporte para a entrega de eventos a uma fila ou um tópico de barramento serv do Azure em **outro locatário** . 
 
 ## <a name="next-steps"></a>Próximas etapas
 Consulte o artigo [Manipuladores de eventos](event-handlers.md) para obter uma lista dos manipuladores de eventos compatíveis. 

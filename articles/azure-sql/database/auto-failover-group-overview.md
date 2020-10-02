@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/28/2020
-ms.openlocfilehash: 023d6512a13e1add1e9980d450a91ed2183e7793
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 2035fa811ed6bb5760f2527f66e0f2ca48ccb2c9
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/01/2020
-ms.locfileid: "91614437"
+ms.locfileid: "91627218"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Use grupos de failover automático para habilitar o failover transparente e coordenado de vários bancos de dados
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -359,7 +359,11 @@ Quando você configura um grupo de failover entre instâncias gerenciadas do SQL
 - As duas instâncias do SQL Instância Gerenciada precisam estar em regiões diferentes do Azure.
 - As duas instâncias do SQL Instância Gerenciada precisam ser a mesma camada de serviço e ter o mesmo tamanho de armazenamento.
 - Sua instância secundária do SQL Instância Gerenciada deve estar vazia (nenhum banco de dados de usuário).
-- As redes virtuais usadas pelas instâncias do SQL Instância Gerenciada precisam ser conectadas por meio de um [Gateway de VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md) ou [rota expressa](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md). Quando duas redes virtuais se conectam por meio de uma rede local, verifique se não há nenhuma regra de firewall bloqueando as portas 5022 e 11000-11999. O Emparelhamento VNET Global não é compatível.
+- As redes virtuais usadas pelas instâncias do SQL Instância Gerenciada precisam ser conectadas por meio de um [Gateway de VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md) ou [rota expressa](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md). Quando duas redes virtuais se conectam por meio de uma rede local, verifique se não há nenhuma regra de firewall bloqueando as portas 5022 e 11000-11999. O emparelhamento VNet global tem suporte com a limitação descrita na observação abaixo.
+
+   > [!IMPORTANT]
+   > [Em 9/22/2020 anunciamos o emparelhamento de rede virtual global para clusters virtuais recém-criados](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Isso significa que o emparelhamento de rede virtual global tem suporte para instâncias gerenciadas do SQL criadas em sub-redes vazias após a data do anúncio, bem como para todas as instâncias gerenciadas subsequentes criadas nessas sub-redes. Para todas as outras instâncias gerenciadas do SQL, o suporte ao emparelhamento é limitado às redes na mesma região devido às [restrições do emparelhamento de rede virtual global](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Consulte também a seção relevante do artigo [perguntas frequentes sobre redes virtuais do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) para obter mais detalhes. 
+
 - Os dois VNets SQL Instância Gerenciada não podem ter endereços IP sobrepostos.
 - Você precisa configurar seus NSGs (Grupos de Segurança de Rede) de modo que as portas 5022 e o intervalo 11000~12000 sejam conexões abertas de entrada e saída para a sub-rede da outra instância gerenciada. Isso é para permitir o tráfego de replicação entre as instâncias.
 

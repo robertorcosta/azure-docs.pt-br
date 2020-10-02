@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 6/25/2020
-ms.openlocfilehash: 7d530180b499495e97cb635186fc6a0d5cbd9044
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b5064e3cef7def1aca5aa0c97d031d519fd610cf
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392719"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91626387"
 ---
 # <a name="server-parameters-in-azure-database-for-mariadb"></a>Parâmetros de servidor no banco de dados do Azure para MariaDB
 
@@ -28,6 +28,12 @@ O banco de dados do Azure para MariaDB expõe a capacidade de alterar o valor de
 A lista de parâmetros de servidor com suporte está em constante crescimento. Use a guia parâmetros do servidor na portal do Azure para exibir a lista completa e configurar os valores dos parâmetros do servidor.
 
 Consulte as seguintes seções abaixo para saber mais sobre os limites dos vários parâmetros de servidor mais atualizados. Os limites são determinados pelo tipo de preço e vCores do servidor.
+
+### <a name="log_bin_trust_function_creators"></a>log_bin_trust_function_creators
+
+No banco de dados do Azure para MariaDB, os logs binários estão sempre habilitados (ou seja, `log_bin` é definido como ativado). Caso deseje usar gatilhos, você receberá um erro semelhante a *você não tem o privilégio de superprivilégios e o log binário habilitado (talvez você queira usar a variável menos segura `log_bin_trust_function_creators` )*.
+
+O formato de log binário é sempre uma **linha** e todas as conexões com o servidor **sempre** usam o log binário baseado em linha. Com o log binário baseado em linha, os problemas de segurança não existem e o log binário não pode ser interrompido, portanto, você pode definir com segurança [`log_bin_trust_function_creators`](https://mariadb.com/docs/reference/mdb/system-variables/log_bin_trust_function_creators/) como **true**.
 
 ### <a name="innodb_buffer_pool_size"></a>innodb_buffer_pool_size
 
@@ -72,7 +78,7 @@ Consulte a [documentação do MariaDB](https://mariadb.com/kb/en/innodb-system-v
 ### <a name="innodb_file_per_table"></a>innodb_file_per_table
 
 > [!NOTE]
-> `innodb_file_per_table`Só pode ser atualizado nos tipos de preço Uso Geral e com otimização de memória.
+> `innodb_file_per_table` Só pode ser atualizado nos tipos de preço Uso Geral e com otimização de memória.
 
 O MariaDB armazena a tabela InnoDB em espaços de tabela diferentes com base na configuração fornecida durante a criação da tabela. O de [espaço de tabela do sistema](https://mariadb.com/kb/en/innodb-system-tablespaces/) é a área de armazenamento do dicionário de dados InnoDB. Um [espaço de tabela de arquivo por tabela](https://mariadb.com/kb/en/innodb-file-per-table-tablespaces/) contém dados e índices de uma única tabela InnoDB e é armazenado no sistema de arquivos em seu próprio arquivo de dados. Esse comportamento é controlado pelo parâmetro do servidor `innodb_file_per_table`. Definir `innodb_file_per_table` como `OFF` faz com que o InnoDB crie tabelas no espaço de tabela do sistema. Caso contrário, o InnoDB cria tabelas em espaços de tabela de arquivo por tabela.
 

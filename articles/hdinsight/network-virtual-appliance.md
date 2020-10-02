@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.openlocfilehash: 1dcc345260c6a0844344bb33dec94c40d1dd9a54
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 407160a5c315844003db4c5e371a03e6e25d2694
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650865"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91630926"
 ---
 # <a name="configure-network-virtual-appliance-in-azure-hdinsight"></a>Configurar solução de virtualização de rede no Azure HDInsight
 
@@ -23,7 +23,7 @@ O Firewall do Azure é configurado automaticamente para permitir o tráfego para
 
 * Os serviços com capacidade de ponto de extremidade de serviço podem ser configurados com pontos de extremidade de serviço que resultam em ignorar o NVA, geralmente para considerações de custo ou desempenho.
 * As dependências de endereço IP são para tráfego não HTTP/S (tráfego TCP e UDP).
-* Os pontos de extremidade HTTP/HTTPS do FQDN podem ser colocados na lista de permissões em seu dispositivo NVA.
+* Os pontos de extremidade HTTP/HTTPS do FQDN podem ser aprovados em seu dispositivo NVA.
 * Atribua a tabela de rotas que você cria à sub-rede do HDInsight.
 
 ## <a name="service-endpoint-capable-dependencies"></a>Dependências compatíveis com ponto de extremidade de serviço

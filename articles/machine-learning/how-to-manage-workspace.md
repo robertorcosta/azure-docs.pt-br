@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: sgilley
 author: sdgilley
-ms.date: 09/22/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: 6462226436aa7976f5293a5c271258be8a340cd4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d2885c6cc259cba74ab991ecf5046856984824f1
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322319"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631232"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Criar e gerenciar workspaces do Azure Machine Learning no portal do Azure
 
@@ -64,17 +64,15 @@ Para criar um workspace, você precisa de uma assinatura do Azure. Caso não ten
 ### <a name="networking"></a>Rede  
 
 > [!IMPORTANT]  
-> Para obter mais informações sobre como usar um ponto de extremidade privado e uma rede virtual com seu espaço de trabalho, consulte [isolamento de rede e privacidade](how-to-enable-virtual-network.md).  
-1. A configuração de rede padrão é usar um __ponto de extremidade público__, que pode ser acessado na Internet pública. Para limitar o acesso ao seu espaço de trabalho a uma rede virtual do Azure que você criou, você pode selecionar __ponto de extremidade privado__ (versão prévia) como o __método de conectividade__e, em seguida, usar __+ Adicionar__ para configurar o ponto de extremidade.   
-
-   > [!IMPORTANT]   
-   > O uso de um ponto de extremidade privado com Azure Machine Learning espaço de trabalho está atualmente em visualização pública. Essa visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.  
-   > Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+> Para obter mais informações sobre como usar um ponto de extremidade privado e uma rede virtual com seu espaço de trabalho, consulte [isolamento de rede e privacidade](how-to-enable-virtual-network.md).
+    
+1. A configuração de rede padrão é usar um __ponto de extremidade público__, que pode ser acessado na Internet pública. Para limitar o acesso ao seu espaço de trabalho a uma rede virtual do Azure que você criou, você pode selecionar __ponto de extremidade privado__ como o __método de conectividade__e, em seguida, usar __+ Adicionar__ para configurar o ponto de extremidade. 
+    
    :::image type="content" source="media/how-to-manage-workspace/select-private-endpoint.png" alt-text="Seleção de ponto de extremidade particular":::  
 
 1. No formulário __criar ponto de extremidade privado__ , defina o local, o nome e a rede virtual a ser usada. Se você quiser usar o ponto de extremidade com uma zona DNS privado, selecione __integrar com a zona DNS privada__ e selecione a zona usando o campo __zona de DNS privado__ . Selecione __OK__ para criar o ponto de extremidade.   
 
-   :::image type="content" source="media/how-to-manage-workspace/create-private-endpoint.png" alt-text="Criação de ponto de extremidade particular":::   
+   :::image type="content" source="media/how-to-manage-workspace/create-private-endpoint.png" alt-text="Seleção de ponto de extremidade particular":::   
 
 1. Quando terminar de configurar a rede, você poderá selecionar __revisar + criar__ou avançar para a configuração __avançada__ opcional. 
 
@@ -112,14 +110,15 @@ Se você estiver usando a versão __empresarial__ do Azure Machine Learning, pod
 >   
 >     Você não precisa criar manualmente a instância de Azure Cosmos DB, uma será criada para você durante a criação do espaço de trabalho. Esta instância de Azure Cosmos DB será criada em um grupo de recursos separado usando um nome com base neste padrão: `<your-workspace-resource-name>_<GUID>` .   
 >   
-> Você não pode alterar essa configuração após a criação do espaço de trabalho. Se você excluir o Azure Cosmos DB usado pelo seu espaço de trabalho, também deverá excluir o espaço de trabalho que o está usando.   
+> Você não pode alterar essa configuração após a criação do espaço de trabalho. Se você excluir o Azure Cosmos DB usado pelo seu espaço de trabalho, também deverá excluir o espaço de trabalho que o está usando.
+
 1. Selecione __chaves gerenciadas pelo cliente__e, em seguida, selecione __clique para selecionar chave__.   
 
-    :::image type="content" source="media/how-to-manage-workspace/advanced-workspace.png" alt-text="Chaves gerenciadas pelo cliente":::   
+    :::image type="content" source="media/how-to-manage-workspace/advanced-workspace.png" alt-text="Seleção de ponto de extremidade particular":::   
 
 1. No formulário __selecionar chave de Azure Key Vault__ , selecione um Azure Key Vault existente, uma chave que ele contém e a versão da chave. Essa chave é usada para criptografar os dados armazenados no Azure Cosmos DB. Por fim, use o botão __selecionar__ para usar essa chave. 
 
-   :::image type="content" source="media/how-to-manage-workspace/select-key-vault.png" alt-text="Selecione a chave":::
+   :::image type="content" source="media/how-to-manage-workspace/select-key-vault.png" alt-text="Seleção de ponto de extremidade particular":::
 
 ### <a name="download-a-configuration-file"></a>Baixar um arquivo de configuração
 
@@ -148,7 +147,7 @@ Se você estiver usando a versão __empresarial__ do Azure Machine Learning, pod
 
 Na [portal do Azure](https://portal.azure.com/), selecione **excluir**  na parte superior do espaço de trabalho que você deseja excluir.
 
-:::image type="content" source="./media/how-to-manage-workspace/delete-workspace.png" alt-text="Excluir espaço de trabalho":::
+:::image type="content" source="./media/how-to-manage-workspace/delete-workspace.png" alt-text="Seleção de ponto de extremidade particular":::
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: reference
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: e42d9713d1d61bb681c0ee51e46cc52eb0bcc807
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 30e8224b6cb757f044a5eac598d834cee838391e
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91363181"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91629974"
 ---
 # <a name="swagger-documentation"></a>Documentação do Swagger
 
@@ -26,21 +26,20 @@ O serviço de fala oferece uma especificação Swagger para interagir com alguma
 
 ## <a name="generating-code-from-the-swagger-specification"></a>Como gerar o código da especificação do Swagger
 
-A [especificação do Swager](https://cris.ai/swagger/ui/index) traz opções que permitem testar rapidamente vários caminhos. No entanto, às vezes, é desejável para gerar o código para todos os caminhos, criando uma única biblioteca de chamadas na qual é possível basear as soluções futuras. Vamos dar uma olhada no processo de geração de uma biblioteca do Python.
+A [especificação do Swager](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) traz opções que permitem testar rapidamente vários caminhos. No entanto, às vezes, é desejável para gerar o código para todos os caminhos, criando uma única biblioteca de chamadas na qual é possível basear as soluções futuras. Vamos dar uma olhada no processo de geração de uma biblioteca do Python.
 
 Você precisará definir o Swagger para a mesma região que sua assinatura do serviço de fala. Você pode confirmar sua região no portal do Azure em seu recurso de serviço de fala. Para obter uma lista completa das regiões com suporte, consulte [regiões](regions.md).
 
-1. Acesse https://editor.swagger.io
-2. Clique em **Arquivo** e, em seguida, em **Importar**
-3. Insira a URL do Swagger, incluindo a região da sua assinatura do serviço de fala `https://<your-region>.cris.ai/docs/v2.0/swagger`
-4. Clique em **gerar cliente** e selecione Python
-5. Salvar a biblioteca de clientes
+1. Em um navegador, vá para a especificação do Swagger para sua região `https://<your-region>.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0` . Nessa página, clique em **definição de API**e clique em **Swagger**. Copie a URL da página que aparece.
+1. Em um novo navegador, vá para https://editor.swagger.io
+1. Clique em **arquivo**, clique em **importar URL**, Cole a URL e clique em **OK**.
+1. Clique em **gerar cliente** e selecione **Python**. A biblioteca de cliente é baixada para o seu computador.
 
 Você pode usar a biblioteca do Python gerada com os [exemplos de serviço de fala no GitHub](https://aka.ms/csspeech/samples).
 
 ## <a name="reference-docs"></a>Documentos de Referência
 
-* [REST (Swagger): transcrição e personalização do lote](https://westus.cris.ai/swagger/ui/index)
+* [REST (Swagger): transcrição e personalização do lote](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0)
 * [API REST: conversão de fala em texto](rest-speech-to-text.md)
 * [API REST: conversão de texto em fala](rest-text-to-speech.md)
 

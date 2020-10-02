@@ -13,14 +13,14 @@ ms.topic: how-to
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/08/2020
+ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: 63acffd16fa4374d4f8541a9d3327b29a3641f71
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c1df52f027c23b2e3618ad17494b06c2ccecfaf6
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90895792"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627135"
 ---
 # <a name="connect-data-sources"></a>Conectar fontes de dados
 
@@ -45,17 +45,22 @@ O Azure Sentinel dá suporte aos métodos de conexão de dados a seguir:
 
 - **Integração de serviço a serviço**:<br> alguns serviços são conectados nativamente, como serviços da AWS e da Microsoft. Esse serviços utilizam a base do Azure para integração pronta para o uso. É possível conectar as soluções a seguir em poucos cliques:
     - [Amazon Web Services – CloudTrail](connect-aws.md)
-    - [Atividades do Azure](connect-azure-activity.md)
     - [Azure Active Directory](connect-azure-active-directory.md) -logs de auditoria e logs de entrada
+    - [Atividades do Azure](connect-azure-activity.md)
     - [Azure AD Identity Protection](connect-azure-ad-Identity-protection.md)
-    - [Microsoft defender para identidade](connect-azure-atp.md) (anteriormente, proteção avançada contra ameaças do Azure)
+    - [Proteção contra DDoS do Azure](connect-azure-ddos-protection.md)
+    - [Azure defender para IOT](connect-asc-iot.md) (antiga central de segurança do Azure para IOT)
     - [Proteção de Informações do Azure](connect-azure-information-protection.md)
+    - [Firewall do Azure](connect-azure-firewall.md)
     - [Central de segurança do Azure](connect-azure-security-center.md) -alertas de soluções do Azure defender
+    - [Firewall do aplicativo Web do Azure (WAF)](connect-azure-waf.md) (anteriormente Microsoft WAF)
     - [Cloud App Security](connect-cloud-app-security.md)
     - [Servidor de nomes de domínio](connect-dns.md)
-    - [Office 365](connect-office-365.md)
+    - [Microsoft 365 defender](connect-microsoft-365-defender.md) -inclui dados brutos do MDATP
     - [Microsoft defender para ponto de extremidade](connect-microsoft-defender-advanced-threat-protection.md) (anteriormente chamado de proteção avançada contra ameaças do Microsoft defender)
-    - [Firewall do aplicativo Web da Microsoft](connect-microsoft-waf.md)
+    - [Microsoft defender para identidade](connect-azure-atp.md) (anteriormente, proteção avançada contra ameaças do Azure)
+    - [Microsoft defender para Office 365](connect-office-365-advanced-threat-protection.md) (anteriormente chamado de proteção avançada contra ameaças do Office 365)
+    - [Office 365](connect-office-365.md) (agora com equipes!)
     - [Firewall do Windows](connect-windows-firewall.md)
     - [Eventos de segurança do Windows](connect-windows-security-events.md)
 
@@ -67,9 +72,14 @@ O Azure Sentinel dá suporte aos métodos de conexão de dados a seguir:
     - [Citrix Analytics (Security)](connect-citrix-analytics.md)
     - [F5 BIG-IP](connect-f5-big-ip.md)
     - [Forcepoint DLP](connect-forcepoint-dlp.md)
+    - [SSO do Okta](connect-okta-single-sign-on.md)
+    - [Orca Security](connect-orca-security-alerts.md)
     - [Logs do Perimeter 81](connect-perimeter-81-logs.md)
+    - [Proofpoint TAP](connect-proofpoint-tap.md)
+    - [Qualys VM](connect-qualys-vm.md)
     - [secRMM da Squadra Technologies](connect-squadra-secrmm.md)
     - [Symantec ICDX](connect-symantec.md)
+    - [Ponto de extremidade na nuvem padrão do VMware Carbon Black](connect-vmware-carbon-black.md)
     - [Zimperium](connect-zimperium-mtd.md)
 
 
@@ -79,7 +89,7 @@ O Azure Sentinel dá suporte aos métodos de conexão de dados a seguir:
 
     O agente do Azure Sentinel, que é, na verdade, o agente de Log Analytics, converte os logs formatados por CEF em um formato que pode ser ingerido pelo Log Analytics. Dependendo do tipo de dispositivo, o agente é instalado diretamente no dispositivo ou em um encaminhador de log baseado em Linux dedicado. O agente para Linux recebe eventos do daemon Syslog por UDP. Porém, se um computador Linux deve coletar um alto volume de eventos de Syslog, eles são enviados por meio de TCP do daemon Syslog para o agente e de lá para o Log Analytics.
 
-    - **Firewalls, proxies e pontos de extremidade:**
+    - **Firewalls, proxies e pontos de extremidade – CEF:**
         - [Detecção de IA da Vectra](connect-ai-vectra-detect.md)
         - [Check Point](connect-checkpoint.md)
         - [Cisco ASA](connect-cisco.md)
@@ -87,15 +97,23 @@ O Azure Sentinel dá suporte aos métodos de conexão de dados a seguir:
         - [F5 ASM](connect-f5.md)
         - [Produtos Forcepoint](connect-forcepoint-casb-ngfw.md)
         - [Fortinet](connect-fortinet.md)
-        - [Palo Alto Networks](connect-paloalto.md)
+        - [Illusive redes AMS](connect-illusive-attack-management-system.md)
         - [One Identity Safeguard](connect-one-identity.md)
-        - [Outros dispositivos CEF](connect-common-event-format.md)
-        - [Outros dispositivos Syslog](connect-syslog.md)
+        - [Palo Alto Networks](connect-paloalto.md)
         - [Deep Security da Trend Micro](connect-trend-micro.md)
         - [Zscaler](connect-zscaler.md)
+        - [Outros dispositivos baseados em CEF](connect-common-event-format.md)
+    - **Firewalls, proxies e pontos de extremidade – syslog:**
+        - [Infoblox NIOS](connect-infoblox.md)
+        - [Pulse Connect Secure](connect-pulse-connect-secure.md)
+        - [Sophos XG](connect-sophos-xg-firewall.md)
+        - [Proxy SG da Symantec](connect-symantec-proxy-sg.md)
+        - [Symantec VIP](connect-symantec-vip.md)
+        - [Outros dispositivos baseados em syslog](connect-syslog.md)
     - Soluções de DLP
     - [Provedores de inteligência contra ameaças](connect-threat-intelligence.md)
     - [Computadores DNS](connect-dns.md) - agente instalado diretamente no computador DNS
+    - [Azure Stack VMs](connect-azure-stack.md)
     - Servidores Linux
     - Outras nuvens
     

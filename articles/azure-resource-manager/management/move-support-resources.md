@@ -3,12 +3,12 @@ title: Mover suporte de operação por tipo de recurso
 description: Lista os tipos de recursos do Azure que podem ser movidos para um novo grupo de recursos ou assinatura.
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: e1e90a7cbc4f817f5dd6c854020e2711e8ac097b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 675f7bb11ed98dd17e8f4ee4a0197d05128af851
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91284968"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627101"
 ---
 # <a name="move-operation-support-for-resources"></a>Mover o suporte de operação para recursos
 
@@ -1416,7 +1416,7 @@ Pule para um namespace de provedor de recursos:
 > | frontdoors | Não | Não |
 > | ipallocations | Sim | Sim |
 > | ipgroups | Sim | Sim |
-> | loadbalancers | Sim - SKU Básico<br>Não - SKU Standard | Sim - SKU Básico<br>Não - SKU Standard |
+> | loadbalancers | Sim - SKU Básico<br> Sim-SKU padrão | Sim - SKU Básico<br>Não - SKU Standard |
 > | localnetworkgateways | Sim | Sim |
 > | natgateways | Não | Não |
 > | networkexperimentprofiles | Não | Não |
@@ -1435,7 +1435,7 @@ Pule para um namespace de provedor de recursos:
 > | privateendpointredirectmaps | Não | Não |
 > | privateendpoints | Sim | Sim |
 > | privatelinkservices | Não | Não |
-> | publicipaddresses | Sim - SKU Básico<br>Não - SKU Standard | Sim - SKU Básico<br>Não - SKU Standard |
+> | publicipaddresses | Sim - SKU Básico<br>Sim-SKU padrão | Sim - SKU Básico<br>Não - SKU Standard |
 > | publicipprefixes | Sim | Sim |
 > | routefilters | Não | Não |
 > | routetables | Sim | Sim |

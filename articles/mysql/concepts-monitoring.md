@@ -5,13 +5,14 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
+ms.custom: references_regions
 ms.date: 8/13/2020
-ms.openlocfilehash: 207693945c2fe916e99d55545d8a33c08067ba04
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 9e1bd3f555873503aa1f6ed9c804aced3620fb9e
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91538272"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627509"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>Monitoramento no Banco de Dados do Azure para MySQL
 Monitorar os dados dos seus servidores ajuda a solucionar problemas e otimizar sua carga de trabalho. O Banco de Dados do Azure para MySQL oferece várias métricas que fornecem insights sobre o comportamento do seu servidor.
@@ -56,8 +57,10 @@ O recurso [Recomendações de Desempenho](concepts-performance-recommendations.m
 
 As **notificações de manutenção planejada** permitem que você receba alertas para a próxima manutenção planejada para o banco de dados do Azure para MySQL. Essas notificações são integradas à manutenção planejada [da integridade do serviço](../service-health/overview.md) e permitem que você exiba toda a manutenção agendada para suas assinaturas em um único local. Ele também ajuda a dimensionar a notificação para os públicos certos para grupos de recursos diferentes, pois você pode ter contatos diferentes responsáveis por diferentes recursos. Você receberá a notificação sobre as próximas 72 horas de manutenção antes do evento.
 
-> [!Note]
-> Faremos todas as tentativas de fornecer **notificação de manutenção planejada** 72 horas de aviso para todos os eventos. No entanto, em casos de patches críticos ou de segurança, as notificações podem ser enviadas próximo ao evento ou ser omitidas.
+Durante a manutenção planejada, você pode esperar que o servidor seja reiniciado e [erros transitórios](concepts-connectivity.md#transient-errors) possam ocorrer. A maioria desses eventos é atenuada automaticamente pelo sistema em menos de 60 segundos.
+
+> [!IMPORTANT]
+> As notificações de manutenção planejada estão disponíveis atualmente na visualização pública em todas as regiões **, exceto** no Oeste EUA Central
 
 ### <a name="to-receive-planned-maintenance-notification"></a>Para receber a notificação de manutenção planejada
 
@@ -72,8 +75,8 @@ As **notificações de manutenção planejada** permitem que você receba alerta
 
 Para obter etapas detalhadas sobre como criar **alertas de integridade do serviço**, consulte [criar alertas do log de atividades em notificações de serviço](../service-health/alerts-activity-log-service-notifications.md).
 
-> [!IMPORTANT]
-> As notificações de manutenção planejada estão disponíveis atualmente na visualização em todas as regiões **, exceto** no Oeste EUA Central
+> [!Note]
+> Faremos todas as tentativas de fornecer **notificação de manutenção planejada** 72 horas de aviso para todos os eventos. No entanto, em casos de patches críticos ou de segurança, as notificações podem ser enviadas próximo ao evento ou ser omitidas.
 
 ## <a name="next-steps"></a>Próximas etapas
 - Consulte [Como configurar alertas](howto-alert-on-metric.md) para obter orientação sobre como criar um alerta em uma métrica.

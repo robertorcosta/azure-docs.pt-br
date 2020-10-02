@@ -7,25 +7,26 @@ ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 05/19/2020
-ms.openlocfilehash: 880b9027a3708dc283e43b813d3dabf2c9ffd401
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: f5325f2eeb6b3c1866db7db0b99b2885623e6d5a
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120799"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91626404"
 ---
 # <a name="microsoft-commercial-marketplace-resources"></a>Recursos do marketplace comercial da Microsoft
 
-Confira os recursos a seguir para obter informações sobre versões recentes e outras atualizações em todo o marketplace comercial da Microsoft.
+Consulte os recursos a seguir para obter informações sobre versões recentes e outras atualizações em todo o Microsoft Commercial Marketplace e o Partner Center.
 
 * [Microsoft AppSource e Azure Marketplace – fórum da Comunidade de Parceiros](https://www.microsoftpartnercommunity.com/t5/Microsoft-AppSource-and-Azure/bd-p/2222)
+* [Comunicados do Partner Center](/partner-center/announcements/)
 * [Blog de atualização do CSP (provedor de soluções na nuvem) e do Marketplace](https://aka.ms/marketplacemarchupdateblog)
 * [Publicar ofertas no canal do CSP (ISV)](./cloud-solution-providers.md)
 * [Revender ofertas do Marketplace (CSP)](https://aka.ms/marketplaceincsp)
 * [Contrato Standard para o marketplace comercial da Microsoft](./standard-contract.md)
 * [APIs de cumprimento de SaaS](./partner-center-portal/pc-saas-fulfillment-apis.md)
-* [Disponibilidade geográfica e suporte para moedas para o marketplace comercial](./marketplace-geo-availability-currencies.md)
-* [Análise para o marketplace comercial no Partner Center](./partner-center-portal/analytics.md)
+* [Disponibilidade geográfica e suporte para moedas para o marketplace comercial](marketplace-geo-availability-currencies.md)
+* [Análise para o marketplace comercial no Partner Center](partner-center-portal/analytics.md)
 * [Blog do Microsoft Build Marketplace](https://aka.ms/marketplacebuildblog)
 * [Blog de Atualizações de maio do Marketplace](https://azure.microsoft.com/blog/microsoft-commercial-marketplace-updates-may-2019/)
 * Partner Center: [Criar Conta](partner-center-portal/create-account.md) / [Gerenciar Conta](partner-center-portal/manage-account.md) / [Migração do CPP](partner-center-portal/account-migration-from-cpp-to-pc.md)
