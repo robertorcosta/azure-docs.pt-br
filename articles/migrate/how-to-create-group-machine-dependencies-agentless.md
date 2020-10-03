@@ -3,12 +3,12 @@ title: Configurar a análise de dependência sem agente na avaliação do servid
 description: Configure a análise de dependência sem agente na avaliação do servidor de migrações para Azure.
 ms.topic: how-to
 ms.date: 6/08/2020
-ms.openlocfilehash: 164cc20632faa1d444d06da6688000e9b40d7e76
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 57e5add810cf4fac232bce08fc7ca96df0a7c3a0
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91275584"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667462"
 ---
 # <a name="analyze-machine-dependencies-agentless"></a>Analisar dependências do computador (sem agente)
 
@@ -50,7 +50,7 @@ Adicione a conta de usuário ao dispositivo.
 2. Navegue até o painel **fornecer detalhes do vCenter** .
 3. Em **descobrir aplicativo e dependências em VMs**, clique em **Adicionar credenciais**
 3. Escolha o **sistema operacional**, forneça um nome amigável para a conta e a senha do **nome de usuário** / **Password**
-6. Clique em **Save** (Salvar).
+6. Clique em **Salvar**.
 7. Clique em **salvar e iniciar descoberta**.
 
     ![Adicionar conta de usuário da VM](./media/how-to-create-group-machine-dependencies-agentless/add-vm-credential.png)
@@ -137,12 +137,12 @@ Escolha os computadores nos quais você deseja parar a descoberta de dependênci
 Se você quiser parar a dependência em vários computadores, poderá usar o [PowerShell](#start-or-stop-dependency-discovery-using-powershell) para fazer isso.
 
 
-### <a name="start-or-stop-dependency-discovery-using-powershell"></a>Iniciar ou parar a descoberta de dependências usando o PowerShell
+## <a name="start-or-stop-dependency-discovery-using-powershell"></a>Iniciar ou parar a descoberta de dependências usando o PowerShell
 
 Baixe o módulo do PowerShell do repositório de [exemplos Azure PowerShell](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale) no github.
 
 
-#### <a name="log-in-to-azure"></a>Fazer logon no Azure
+### <a name="log-in-to-azure"></a>Fazer logon no Azure
 
 1. Faça logon em sua assinatura do Azure usando o cmdlet Connect-AzAccount.
 
@@ -166,7 +166,7 @@ Baixe o módulo do PowerShell do repositório de [exemplos Azure PowerShell](htt
     Import-Module .\AzMig_Dependencies.psm1
     ```
 
-#### <a name="enable-or-disable-dependency-data-collection"></a>Habilitar ou desabilitar a coleta de dados de dependência
+### <a name="enable-or-disable-dependency-data-collection"></a>Habilitar ou desabilitar a coleta de dados de dependência
 
 1. Obtenha a lista de VMs do VMware descobertas em seu projeto de migrações para Azure usando os comandos a seguir. No exemplo a seguir, o nome do projeto é FabrikamDemoProject e o grupo de recursos ao qual ele pertence é FabrikamDemoRG. A lista de computadores será salva no FabrikamDemo_VMs.csv
 

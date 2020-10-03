@@ -7,12 +7,12 @@ ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 08/07/2020
-ms.openlocfilehash: d92dc562136ef20dac19e7ddfa4339c565793308
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: e42111de7d05f184e1153ddc351c3f1fa10cc86f
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91531812"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665231"
 ---
 # <a name="create-a-dynamics-365-business-central-offer"></a>Criar uma oferta do Dynamics 365 Business Central
 
@@ -256,9 +256,8 @@ Carregue o arquivo de pacote de extensão (.app) da sua oferta.
 
 Será necessário caso sua oferta deva ser instalada junto com outra extensão que não será publicada no marketplace. Nesse caso, carregue seu arquivo .app aqui.
 
-#### <a name="dependency-package-file"></a>Arquivo de pacote da dependência
-
-Será necessário caso sua oferta deva ser instalada junto com outra extensão que já foi publicada no marketplace. Nesse caso, carregue seu arquivo `.app` ou `.zip` aqui.
+>[!NOTE]
+>O arquivo de pacote de dependência não é mais usado. Em vez disso, carregue um arquivo de pacote de biblioteca.
 
 ### <a name="url-to-app-installation"></a>URL para a instalação do aplicativo
 

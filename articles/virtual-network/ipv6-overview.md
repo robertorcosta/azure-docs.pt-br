@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 5c175a1575a4efbdc2294412e3743e201d8c4bb1
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: c0d4c72bd60f35088773ec6dc5df80709c5ae98c
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653309"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666816"
 ---
 # <a name="what-is-ipv6-for-azure-virtual-network"></a>O que é o IPv6 para a rede virtual do Azure?
 
@@ -61,7 +61,7 @@ O IPv6 para VNet do Azure inclui os seguintes recursos:
     - Observação: O IPv6 só pode ter balanceamento de carga para a NIC (interface de rede principal) em VMs do Azure. 
 - O [balanceador de carga interno do IPv6 padrão](ipv6-dual-stack-standard-internal-load-balancer-powershell.md) dá suporte para criar aplicativos de várias camadas resilientes no nas VNETs do Azure.   
 - Suporte básico ao Load Balancer público IPv6 para compatibilidade com implantações herdadas
-- [Os endereços IP públicos IPv6 reservados e os intervalos de endereços](ipv6-public-ip-address-prefix.md) fornecem endereços IPv6 estáveis e previsíveis que facilitam criação de listas de permissões de seus aplicativos hospedados no Azure para sua empresa e seus clientes.
+- Os [endereços IP públicos de IPv6 reservados e os intervalos de endereços](ipv6-public-ip-address-prefix.md) fornecem endereços IPv6 estáveis e previsíveis que facilitam a filtragem de seus aplicativos hospedados no Azure para sua empresa e seus clientes.
 - O IP Público em nível de instância fornece conectividade de Internet IPv6 diretamente a VMs individuais.
 - [Adicionar IPv6 a implantações de somente IPv4 existentes](ipv6-add-to-existing-vnet-powershell.md) — este recurso permite que você adicione facilmente conectividade IPv6 a implantações de somente IPv4 existentes sem a necessidade de recriar implantações.  O tráfego de rede IPv4 não é afetado durante esse processo, portanto, dependendo do seu aplicativo e do sistema operacional, é possível adicionar o IPv6 mesmo aos serviços dinâmicos.    
 - Permita que os clientes da Internet acessem diretamente seu aplicativo de pilha dupla usando o protocolo de sua escolha com o suporte do DNS do Azure para registros IPv6 (AAAA). 

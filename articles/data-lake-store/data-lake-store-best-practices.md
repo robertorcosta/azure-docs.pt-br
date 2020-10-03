@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
-ms.openlocfilehash: 103315b61592cc711f61ec5e95468e50314b9fa6
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 291a5850540ea7d7d24a4a544c1eb65183df8ffb
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440823"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667734"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Melhores práticas para utilizar o Microsoft Azure Data Lake Storeage Gen1
 
@@ -23,7 +23,7 @@ ms.locfileid: "89440823"
 
 Neste artigo, você aprenderá sobre as melhores práticas e considerações para trabalhar com o Azure Data Lake Storage Gen1. Este artigo fornece informações sobre segurança, desempenho, resiliência e monitoramento do Data Lake Storage Gen1. Antes do Data Lake Storage Gen1, trabalhar com Big Data em serviços como o Microsoft Azure HDInsight era realmente complexo. Era necessário fragmentar dados em várias contas de Armazenamento de Blobs para que o armazenamento de petabyte e o desempenho ideal nessa escala pudessem ser alcançados. Com o Data Lake Storage Gen1, a maioria dos limites rígidos para tamanho e desempenho foi removida. No entanto, ainda há algumas considerações que este artigo abrange para que seja possível obter o melhor desempenho com o Data Lake Storage Gen1.
 
-## <a name="security-considerations"></a>Considerações de segurança
+## <a name="security-considerations"></a>Considerações sobre segurança
 
 O Azure Data Lake Storage Gen1 oferece controles de acesso POSIX e auditoria detalhada para usuários, grupos e entidades de serviço do Microsoft Azure AD (Azure Active Directory). Esses controles de acesso podem ser configurados para arquivos e pastas existentes. Os controles de acesso também podem ser utilizados para criar padrões que podem ser aplicados a novos arquivos ou pastas. Quando as permissões forem definidas para pastas existentes e objetos secundários, as permissões deverão ser propagadas recursivamente em cada objeto. Se houver um grande número de arquivos, a propagação das permissões poderá demorar muito tempo. O tempo escolhido pode variar entre 30 e 50 objetos processados por segundo. Portanto, planeje a estrutura de pasta e os grupos de usuários adequadamente. Caso contrário, atrasos e problemas imprevistos poderão ocorrer ao trabalhar com os dados.
 
@@ -33,7 +33,7 @@ Suponha que você tenha uma pasta com 100.000 objetos filho. Se você aceitar o 
 
 Ao trabalhar com Big Data no Data Lake Storage Gen1, é provável que uma entidade de serviço seja usada para permitir que serviços como o Azure HDInsight trabalhem com os dados. No entanto, poderá haver casos em que usuários individuais também precisarão ter acesso aos dados. Nesses casos, será necessário utilizar os [grupos de segurança](data-lake-store-secure-data.md#create-security-groups-in-azure-active-directory) do Azure Active Directory, em vez de atribuir usuários individuais a pastas e arquivos.
 
-Quando permissões são atribuídas a um grupo de segurança, adicionar ou remover usuários do grupo não exigirá atualizações para o Data Lake Storage Gen1. Isso também ajuda a garantir que você não exceda o limite de [32 ACLs de acesso e padrão](../azure-resource-manager/management/azure-subscription-service-limits.md#data-lake-store-limits) (isso inclui as quatro ACLs de estilo POSIX que sempre estão associadas a cada arquivo e pasta: [o usuário proprietário](data-lake-store-access-control.md#the-owning-user), [o grupo proprietário](data-lake-store-access-control.md#the-owning-group), [a máscara](data-lake-store-access-control.md#the-mask) e outros).
+Quando permissões são atribuídas a um grupo de segurança, adicionar ou remover usuários do grupo não exigirá atualizações para o Data Lake Storage Gen1. Isso também ajuda a garantir que você não exceda o limite de [32 ACLs de acesso e padrão](../azure-resource-manager/management/azure-subscription-service-limits.md#data-lake-storage-limits) (isso inclui as quatro ACLs de estilo POSIX que sempre estão associadas a cada arquivo e pasta: [o usuário proprietário](data-lake-store-access-control.md#the-owning-user), [o grupo proprietário](data-lake-store-access-control.md#the-owning-group), [a máscara](data-lake-store-access-control.md#the-mask) e outros).
 
 ### <a name="security-for-groups"></a>Segurança para grupos
 

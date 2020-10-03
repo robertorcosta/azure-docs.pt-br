@@ -4,17 +4,17 @@ description: Saiba mais sobre os recursos de solicitação de dados do cliente n
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.date: 04/17/2020
 ms.topic: conceptual
 ms.service: time-series-insights
 services: time-series-insights
+ms.date: 10/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: 30b3832dfe3e1c4564d1d89b5c318421e48f554f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 5565dd43689d0420fbb9b73f088f24a38a2d54db
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501688"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665898"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Resumo dos recursos de solicitação de dados do cliente
 
@@ -54,13 +54,13 @@ Também é possível executar operações de exportação nas políticas de aces
 
 Os dados pessoais podem chegar ao armazenamento do Time Series Insights, um cenário diferente dos dados do usuário e administrador. Caso você considere os dados armazenados no Time Series Insights como dados pessoais, exporte e exclua esses dados usando as seguintes etapas:
 
-**Exibir e exportar os dados**
+### <a name="view-and-export-data"></a>Exibir e exportar os dados
 
 Para exibir e exportar os dados armazenados no Time Series Insights, é necessário pesquisá-los. Use o explorador do Time Series Insights ou as APIs de consulta do Time Series Insights para exibir e exportar os dados. Para exibir e exportar os dados usando o explorador do Time Series Insights, primeiro pesquise para encontrar os dados do usuário em questão. Após a pesquisa, clique com o botão direito do mouse no gráfico e selecione **Explorar eventos**. A grade de eventos é exibida e apresenta opções para exportar os dados como CSV e JSON.
 
 Para obter mais informações, leia [Azure Time Series insights Explorer](time-series-insights-explorer.md).
 
-**Excluir dados**
+### <a name="delete-data"></a>Excluir dados
 
 No momento, o Time Series Insights não dá suporte à exclusão granular de dados. No entanto, o Time Series Insights fornece a capacidade de remover os dados do cliente armazenados no Time Series Insights com a configuração de políticas de retenção. Ajuste o período de retenção de todo o ambiente do Time Series Insights para qualquer número de dias, a fim de dar suporte aos seus requisitos de exclusão.
 

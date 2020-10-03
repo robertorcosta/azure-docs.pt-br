@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
-ms.date: 08/13/2020
-ms.openlocfilehash: 3a1d5c70913f7e2a56eaf04be333a931c1adbc3d
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.date: 10/02/2020
+ms.openlocfilehash: c4250be15b1c4fdc5df81c0f0ba3623dedf6488f
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91450062"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667258"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Problemas conhecidos e solução de problemas no Azure Machine Learning
 
@@ -387,9 +387,9 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
   
 * **falha ao importar AutoMLConfig**: houve alterações de pacote na versão do Machine Learning automatizada 1.0.76, que requer que a versão anterior seja desinstalada antes de atualizar para a nova versão. Se o `ImportError: cannot import name AutoMLConfig` for encontrado após a atualização de uma versão do SDK antes de v 1.0.76 para v 1.0.76 ou posterior, resolva o erro executando: `pip uninstall azureml-train automl` e, em seguida `pip install azureml-train-auotml` . O script automl_setup. cmd faz isso automaticamente. 
 
-* **espaço de trabalho. from_config falha**: se as chamadas WS = workspace. from_config () ' falharem-
+* **Workspace.from_config falha**: se as chamadas ws = Workspace.from_config () ' falharem-
   1. Verifique se o bloco de anotações Configuration. ipynb foi executado com êxito.
-  2. Se o bloco de anotações estiver sendo executado de uma pasta que não está sob a pasta em que o `configuration.ipynb` foi executado, copie a pasta aml_config e o config.jsde arquivo que ele contém para a nova pasta. Espaço de trabalho. from_config lê o config.jsem para a pasta do bloco de anotações ou sua pasta pai.
+  2. Se o bloco de anotações estiver sendo executado de uma pasta que não está sob a pasta em que o `configuration.ipynb` foi executado, copie a pasta aml_config e o config.jsde arquivo que ele contém para a nova pasta. Workspace.from_config lê o config.jsem para a pasta do bloco de anotações ou sua pasta pai.
   3. Se uma nova assinatura, um grupo de recursos, um espaço de trabalho ou uma região estiver sendo usada, certifique-se de executar o `configuration.ipynb` bloco de anotações novamente. Alterar config.jsdiretamente só funcionará se o espaço de trabalho já existir no grupo de recursos especificado na assinatura especificada.
   4. Se você quiser alterar a região, altere o espaço de trabalho, o grupo de recursos ou a assinatura. `Workspace.create` não criará ou atualizará um espaço de trabalho se ele já existir, mesmo se a região especificada for diferente.
   
@@ -449,6 +449,10 @@ kubectl get secret/azuremlfessl -o yaml
 
 >[!Note]
 >Kubernetes armazena os segredos no formato codificado em base-64. Você precisará de base-64 decodificar `cert.pem` os `key.pem` componentes e dos segredos antes de fornecer a eles `attach_config.enable_ssl` . 
+
+### <a name="detaching-azure-kubernetes-service"></a>Desanexando o serviço kubernetes do Azure
+
+Usar o Azure Machine Learning Studio, o SDK ou a extensão CLI do Azure para o aprendizado de máquina para desanexar um cluster AKS não exclui o cluster AKS. Para excluir o cluster, consulte [usar o CLI do Azure com AKs](/azure/aks/kubernetes-walkthrough#delete-the-cluster).
 
 ### <a name="webservices-in-azure-kubernetes-service-failures"></a>WebServices em falhas do serviço kubernetes do Azure
 

@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/28/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 047e722a0e0ade60d1eb93a48e37333fffafd674
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6733e373b35dd160af94e3178cd11f657f362c1c
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76836449"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665250"
 ---
 # <a name="limits-in-azure-database-for-postgresql---single-server"></a>Limites no banco de dados do Azure para PostgreSQL-servidor único
 As seções a seguir descrevem a capacidade e os limites funcionais no serviço de banco de dados. Se você quiser saber mais sobre as camadas de recurso (computação, memória, armazenamento), consulte o artigo [tipos de preço](concepts-pricing-tiers.md) .
@@ -66,6 +66,11 @@ Uma conexão PostgreSQL, mesmo ociosa, pode ocupar cerca de 10 MB de memória. A
 
 ### <a name="utf-8-characters-on-windows"></a>Caracteres UTF-8 no Windows
 - Em alguns cenários, não há suporte completo para caracteres UTF-8 no PostgreSQL de software livre no Windows, o que afeta o Banco de Dados do Azure para PostgreSQL. Confira o thread [Bug nº 15476 nos arquivos do PostgreSQL](https://www.postgresql-archive.org/BUG-15476-Problem-on-show-trgm-with-4-byte-UTF-8-characters-td6056677.html) para obter mais informações.
+
+### <a name="gss-error"></a>Erro de GSS
+Se você vir um erro relacionado a **GSS**, provavelmente usará uma versão de cliente/driver mais recente que o servidor único do Azure postgres ainda não dá suporte total. Esse erro é conhecido por afetar [as versões 42.2.15 e 42.2.16 do driver JDBC](https://github.com/pgjdbc/pgjdbc/issues/1868).
+   - Planejamos concluir a atualização até o final de novembro. Considere usar uma versão de driver de trabalho enquanto isso.
+   - Ou, considere desabilitar a solicitação de GSS.  Use um parâmetro de conexão como `gssEncMode=disable` .
 
 ## <a name="next-steps"></a>Próximas etapas
 - Entenda [o que está disponível em cada tipo de preço](concepts-pricing-tiers.md)

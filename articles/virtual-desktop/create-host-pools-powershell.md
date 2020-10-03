@@ -3,15 +3,15 @@ title: Criar pool de host da Área de Trabalho Virtual do Windows no PowerShell 
 description: Como criar um pool de host na Área de Trabalho Virtual do Windows com cmdlets do PowerShell.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/11/2020
+ms.date: 10/02/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ce3b2b30b1ed421937c11e58bc014cc740b45480
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a47126a48ea63efd4e49097428679b85b7a95a61
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91287280"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667156"
 ---
 # <a name="create-a-windows-virtual-desktop-host-pool-with-powershell"></a>Criar um pool de hosts da área de trabalho virtual do Windows com o PowerShell
 
@@ -99,6 +99,9 @@ Para ingressar no domínio com êxito, execute as seguintes ações em cada máq
 
     >[!NOTE]
     > Se você estiver unindo suas VMs em um ambiente do Azure Active Directory Domain Services (Azure AD DS), verifique se o usuário de ingresso no domínio também é um membro do [grupo de Administradores do AAD DC](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
+
+>[!IMPORTANT]
+>Recomendamos que você não habilite nenhuma política ou configuração que desabilite Windows Installer. Se você desabilitar Windows Installer, o serviço não poderá instalar atualizações de agente em seus hosts de sessão e os hosts de sessão não funcionarão corretamente.
 
 ## <a name="register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool"></a>Registrar as máquinas virtuais no pool de host da Área de Trabalho Virtual do Windows
 

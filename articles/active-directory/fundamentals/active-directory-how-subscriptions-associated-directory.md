@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ddca4bc684646854ae8d308043b3de56ec65924
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: 747edfdb2a2709a842f767d2ace09662d139c827
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89426088"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666425"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Associar ou adicionar uma assinatura do Azure ao seu locatário do Azure Active Directory
 
@@ -50,7 +50,7 @@ Para poder associar ou adicionar sua assinatura, execute as seguintes tarefas:
   - Se você tiver cofres de chaves, eles ficarão inacessíveis e você precisará corrigi-los após a associação
   - Se você tiver identidades gerenciadas para recursos como máquinas virtuais ou aplicativos lógicos, será necessário reabilitá-los ou recriá-los após a associação
   - Se você tiver um Azure Stack registrado, será necessário registrá-lo novamente após a associação
-  - Para obter mais informações, confira [Transferir uma assinatura do Azure para um diretório diferente do Azure AD (versão prévia)](../../role-based-access-control/transfer-subscription.md).
+  - Para obter mais informações, consulte [transferir uma assinatura do Azure para um diretório diferente do Azure ad](../../role-based-access-control/transfer-subscription.md).
 
 - Entre usando uma conta que:
 
@@ -93,7 +93,7 @@ Depois de associar uma assinatura a um diretório diferente, talvez seja necess�
 
 - Se você tiver registrado um Azure Stack usando essa assinatura, deverá registrar novamente. Para obter mais informações, consulte [registrar Azure Stack com o Azure](/azure-stack/operator/azure-stack-registration).
 
-- Para obter mais informações, confira [Transferir uma assinatura do Azure para um diretório diferente do Azure AD (versão prévia)](../../role-based-access-control/transfer-subscription.md).
+- Para obter mais informações, consulte [transferir uma assinatura do Azure para um diretório diferente do Azure ad](../../role-based-access-control/transfer-subscription.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

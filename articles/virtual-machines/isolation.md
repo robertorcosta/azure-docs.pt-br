@@ -1,18 +1,18 @@
 ---
 title: Isolamento para VMs no Azure
 description: Saiba mais sobre o isolamento de VM funciona no Azure.
-author: ayshakeen
+author: styli365
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/18/2019
-ms.author: ayshak
-ms.openlocfilehash: 58b3f9c3655a2e15842f7fa28ad3e6921395beba
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.author: sttsinar
+ms.openlocfilehash: d6a77cac049ef32949eeba4cbd6fe9217100a360
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87831440"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666833"
 ---
 # <a name="virtual-machine-isolation-in-azure"></a>Isolamento de máquina virtual no Azure
 
@@ -42,7 +42,7 @@ Como os tamanhos de VM isoladas são os tamanhos de hardware associados, o Azure
 | Standard_DS15_v2<sup>1</sup> | 15 de maio de 2020 |
 | Standard_D15_v2<sup>1</sup>  | 15 de maio de 2020 |
 
-<sup>1</sup> para obter detalhes sobre o Standard_DS15_v2 e Standard_D15_v2 programa de desativação de isolamento, consulte FAQs
+<sup>1</sup>  para obter detalhes sobre o Standard_DS15_v2 e Standard_D15_v2 programa de desativação de isolamento, consulte FAQs
 
 
 ## <a name="faq"></a>Perguntas frequentes

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 096dbcb6b6a732bd21622658f6f30c5158a821c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff33bf771065e7af209934a5c54b6f8f2e34835e
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80420532"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666776"
 ---
 # <a name="reserved-public-ipv6-address-prefix"></a>Prefixo de endereço IPv6 público reservado
 
@@ -28,7 +28,7 @@ Todos os IPs públicos reservados estão associados a uma região do Azure de su
 > [!WARNING]
 > Tome cuidado para não excluir seus endereços IP públicos acidentalmente. Excluir um IP público o Remove da sua assinatura e você não poderá recuperá-lo (nem mesmo com a ajuda do suporte do Azure).
 
-Além de reservar endereços IPv6 individuais, Reserve intervalos contíguos de endereços IPv6 do Azure (conhecido como prefixo IP) para seu uso.  Semelhante a endereços IP individuais, os prefixos reservados são associados a uma região do Azure de sua escolha e com sua assinatura do Azure. Reservar um intervalo previsível e contíguo de endereços tem muitos usos. Por exemplo, você pode simplificar bastante a *lista* de permissões de IP de seus aplicativos hospedados no Azure por sua empresa e seus clientes, já que seus intervalos de IP estáticos podem ser prontamente programados em firewalls locais.  Você pode criar IPs públicos individuais do seu prefixo IP conforme necessário e, quando você exclui esses IPs públicos individuais, eles são *retornados* para o intervalo reservado para que você possa reutilizá-los mais tarde. Todos os endereços IP em seu prefixo IP são reservados para seu uso exclusivo até o momento em que você excluir o prefixo.
+Além de reservar endereços IPv6 individuais, Reserve intervalos contíguos de endereços IPv6 do Azure (conhecido como prefixo IP) para seu uso.  Semelhante a endereços IP individuais, os prefixos reservados são associados a uma região do Azure de sua escolha e com sua assinatura do Azure. Reservar um intervalo previsível e contíguo de endereços tem muitos usos. Por exemplo, você pode simplificar bastante a *filtragem* de IP de seus aplicativos hospedados no Azure por sua empresa e seus clientes, já que seus intervalos de IP estáticos podem ser prontamente programados em firewalls locais.  Você pode criar IPs públicos individuais do seu prefixo IP conforme necessário e, quando você exclui esses IPs públicos individuais, eles são *retornados* para o intervalo reservado para que você possa reutilizá-los mais tarde. Todos os endereços IP em seu prefixo IP são reservados para seu uso exclusivo até o momento em que você excluir o prefixo.
 
 
 

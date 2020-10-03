@@ -15,12 +15,12 @@ ms.date: 09/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 2f96e48d0c7b14178185f751b8c708e75ab3f322
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 415af4d71365a88a5998f6a9356d5240bc5e2518
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91441838"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665983"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Solucionar problemas do RBAC do Azure
 
@@ -86,7 +86,7 @@ $ras.Count
 
 ## <a name="transferring-a-subscription-to-a-different-directory"></a>Transferindo uma assinatura para um diretório diferente
 
-- Se você precisar de etapas sobre como transferir uma assinatura para um diretório diferente do Azure AD, consulte [transferir uma assinatura do Azure para um diretório diferente do Azure AD (versão prévia)](transfer-subscription.md).
+- Se você precisar de etapas sobre como transferir uma assinatura para um diretório diferente do Azure AD, consulte [transferir uma assinatura do Azure para um diretório diferente do Azure ad](transfer-subscription.md).
 - Se você transferir uma assinatura para um diretório diferente do Azure AD, todas as atribuições de função serão excluídas **permanentemente** do diretório do Azure AD de origem e não serão migradas para o diretório de destino do Azure AD. Você deve recriar as atribuições de função no diretório de destino. Você também precisa recriar manualmente as identidades gerenciadas dos recursos do Azure. Para obter mais informações, consulte [perguntas frequentes e problemas conhecidos com identidades gerenciadas](../active-directory/managed-identities-azure-resources/known-issues.md).
 - Se você for um administrador global do Azure AD e não tiver acesso a uma assinatura após sua transferência entre os diretórios, use a opção **Gerenciamento de acesso para recursos do Azure** para [elevar temporariamente seu acesso](elevate-access-global-admin.md) para obter acesso à assinatura.
 

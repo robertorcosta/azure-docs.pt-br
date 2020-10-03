@@ -6,14 +6,14 @@ ms.subservice: sizes
 author: mimckitt
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 02/20/2020
+ms.date: 10/02/2020
 ms.author: jushiman
-ms.openlocfilehash: 18389f3058bcc60c22f8598040f4fea4b036f1ee
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: afad68be53637cf258223eafab0a13f525a92f4c
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89298905"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666612"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Gerações anteriores de tamanhos de máquinas virtuais
 
@@ -163,7 +163,7 @@ Os tamanhos A8-A11 e série H também são conhecidos como *instâncias de compu
 <sup>1</sup>Para os aplicativos MPI, a rede de back-end RDMA dedicada é habilitada pela rede InfiniBand FDR, que fornece latência ultrabaixa e largura de banda alta.  
 
 > [!NOTE]
-> As VMs A8 – A11 estão planejadas para serem desativadas em 3/2021. Para obter mais informações, confira o [Guia de migração de HPC](https://azure.microsoft.com/resources/hpc-migration-guide/).
+> As VMs A8 – A11 estão planejadas para serem desativadas em 3/2021. É altamente recomendável não criar novas VMs A8 – a11. Migre quaisquer VMs A8-a11 existentes para tamanhos de VM de computação de alto desempenho mais novos e eficientes, como H, HB, HC, HBv2, bem como tamanhos de VM de computação de uso geral, como D, E e F para melhor desempenho-preço. Para obter mais informações, confira o [Guia de migração de HPC](https://azure.microsoft.com/resources/hpc-migration-guide/).
 
 <br>
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: allensu
-ms.openlocfilehash: 5efcf944f5d22759f9d448da5862bcf1f19e2efe
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.openlocfilehash: 75a2bb187b2ed7a234e99d8cd293cb30148bcb1f
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91409554"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667190"
 ---
 # <a name="what-is-virtual-network-nat"></a>O que é NAT de Rede Virtual?
 
@@ -43,7 +43,7 @@ A NAT de Rede Virtual (conversão de endereços de rede) simplifica a conectivid
 
 A conectividade de saída pode ser definida para cada sub-rede com a NAT.  Várias sub-redes dentro da mesma rede virtual podem ter NATs diferentes. Uma sub-rede é configurada especificando qual recurso de Gateway da NAT deverá ser usado. Todos os fluxos de saída UDP e TCP de qualquer instância de máquina virtual usarão a NAT. 
 
-O NAT é compatível com recursos de endereço IP público ou com recursos de prefixo IP público do SKU Standard ou uma combinação de ambos.  Você pode usar um prefixo IP público diretamente ou distribuir os endereços IP públicos do prefixo entre vários recursos do gateway da NAT. A NAT limpará todo o tráfego para o intervalo de endereços IP do prefixo.  Agora é fácil incluir o IP na lista de permissões de suas implantações.
+O NAT é compatível com recursos de endereço IP público ou com recursos de prefixo IP público do SKU Standard ou uma combinação de ambos.  Você pode usar um prefixo IP público diretamente ou distribuir os endereços IP públicos do prefixo entre vários recursos do gateway da NAT. A NAT limpará todo o tráfego para o intervalo de endereços IP do prefixo.  Qualquer filtragem de IP de suas implantações agora é fácil.
 
 Todo o tráfego de saída da sub-rede é processado pela NAT automaticamente sem nenhuma configuração do cliente.  Rotas definidas pelo usuário não são necessárias. O NAT tem precedência sobre outros cenários de saída e substitui o destino de Internet padrão de uma sub-rede.
 
@@ -145,4 +145,3 @@ Desejamos saber como podemos aprimorar o serviço. Proponha e vote em quais iten
 
 * Saiba mais sobre o [recurso de gateway da NAT](./nat-gateway-resource.md).
 * [Diga-nos o que criar em seguida para a NAT de Rede Virtual no UserVoice](https://aka.ms/natuservoice).
-

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/10/2020
+ms.date: 10/02/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9d205998ad5710ecad346db4d7be18a68747c087
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0122fa43c9d99c01797e3523748e4f31b4b7469a
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85388520"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91664844"
 ---
 # <a name="error-codes-azure-active-directory-b2c"></a>Códigos de erro: Azure Active Directory B2C
 
@@ -34,7 +34,7 @@ Os erros a seguir podem ser retornados pelo serviço de Azure Active Directory B
 | `AADB2C90013` | O tipo de resposta solicitado ' {0} ' fornecido na solicitação não tem suporte. |
 | `AADB2C90014` | Não há suporte para o modo de resposta solicitado ' {0} ' fornecido na solicitação. |
 | `AADB2C90016` | O tipo de declaração de cliente solicitado ' {0} ' não corresponde ao tipo esperado ' {1} '. |
-| `AADB2C90017` | A declaração de cliente fornecida na solicitação é inválida:{0} |
+| `AADB2C90017` | A declaração de cliente fornecida na solicitação é inválida: {0} |
 | `AADB2C90018` | A ID do cliente ' {0} ' especificada na solicitação não está registrada no locatário ' {1} '. |
 | `AADB2C90019` | O contêiner de chave com a ID ' {0} ' no locatário ' {1} ' não tem uma chave válida. Motivo: {2} . |
 | `AADB2C90021` | O perfil técnico ' {0} ' não existe na política ' {1} ' do locatário ' {2} '. |
@@ -73,7 +73,8 @@ Os erros a seguir podem ser retornados pelo serviço de Azure Active Directory B
 | `AADB2C90085` | O serviço encontrou um erro interno. Refaça a autenticação e tente novamente. |
 | `AADB2C90086` | {0}Não há suporte para o grant_type [] fornecido. |
 | `AADB2C90087` | A concessão fornecida não foi emitida para esta versão do ponto de extremidade do protocolo. |
-| `AADB2C90088` | A concessão fornecida não foi emitida para este ponto de extremidade. Valor real: {0} e valor esperado:{1} |
+| `AADB2C90088` | A concessão fornecida não foi emitida para este ponto de extremidade. Valor real: {0} e valor esperado: {1} |
+| `AADB2C90091` | Cancelamento do usuário. |
 | `AADB2C90092` | O aplicativo fornecido com a ID ' {0} ' está desabilitado para o locatário ' {1} '. Habilite o aplicativo e tente novamente. |
 | `AADB2C90107` | O aplicativo com a ID ' {0} ' não pode obter um token de ID porque o escopo de OpenID não foi fornecido na solicitação ou o aplicativo não está autorizado para ele. |
 | `AADB2C90108` | A etapa de orquestração ' {0} ' não especifica um CpimIssuerTechnicalProfileReferenceId quando um era esperado. |

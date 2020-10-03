@@ -3,17 +3,17 @@ title: Série B expansível-máquinas virtuais do Azure
 description: Descreve a série B de tamanhos expansíveis de VM do Azure.
 services: virtual-machines
 ms.subservice: sizes
-author: ayshakeen
+author: styli365
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
-ms.author: ayshak
-ms.openlocfilehash: 8591b703382049346fe019b89a5f31517380757f
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.author: sttsinar
+ms.openlocfilehash: 43e19df24de2f2c4e8e5334010ee788129cee68b
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/02/2020
-ms.locfileid: "91653410"
+ms.locfileid: "91666629"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Tamanhos expansíveis da máquina virtual da série B
 
@@ -21,12 +21,14 @@ As VMs da série B são ideais para cargas de trabalho que não precisam do dese
 
 A série B vem nos seguintes tamanhos de VM:
 
+[ACU (unidade de computação do Azure)](https://docs.microsoft.com/azure/virtual-machines/acu?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json): varia *<br>
 [Armazenamento Premium](premium-storage-performance.md): com suporte<br>
 [Armazenamento em cache Premium](premium-storage-performance.md): sem suporte<br>
 [Migração ao vivo](maintenance-and-updates.md): com suporte<br>
 [Atualizações de preservação de memória](maintenance-and-updates.md): com suporte<br>
 [Suporte à geração de VM](generation-2.md): geração 1 e 2<br>
 <br>
+* As VMs da série B são intermitentes e, portanto, os números do ACU variam dependendo das cargas de trabalho e do uso do núcleo.
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Base de desempenho da CPU da VM | Máximo desempenho da CPU da VM | Créditos iniciais | Créditos bancários/hora | Máximo de créditos armazenados | Discos de dados máximos | Taxa de transferência máxima de armazenamento temporário: IOPS/MBps | Taxa de transferência de disco sem cache: IOPS/MBps | Máximo de NICs |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|

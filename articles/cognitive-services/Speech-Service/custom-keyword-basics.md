@@ -1,5 +1,5 @@
 ---
-title: Criar palavras-chave personalizadas-serviço de fala
+title: Criar palavra-chave início rápido-serviço de fala
 titleSuffix: Azure Cognitive Services
 description: Seu dispositivo está sempre ouvindo uma palavra-chave (ou frase). Quando o usuário diz a palavra-chave, o dispositivo envia todo o áudio subsequente para a nuvem até que o usuário pare de falar. Personalizar sua palavra-chave é uma maneira eficaz de diferenciar seu dispositivo e fortalecer sua identidade visual.
 services: cognitive-services
@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/20/2019
+ms.date: 10/02/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 188824b9c43387cf106a3cdd53a09fd6bcb198b8
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: f2f333cd01057ff5f6f904924880f88b0685c72f
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91360660"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667686"
 ---
-# <a name="custom-keyword-basics"></a>Noções básicas de palavra-chave personalizada
+# <a name="get-started-with-custom-keyword"></a>Introdução à palavra-chave Custom
 
-Neste artigo, você aprende as noções básicas de como trabalhar com palavras-chave personalizadas usando o Speech Studio e o SDK de fala. Uma palavra-chave é uma palavra ou frase curta que permite que seu produto seja ativado por voz. Você cria modelos de palavra-chave no Speech Studio e, em seguida, exporta um arquivo de modelo que você usa com o SDK de fala em seus aplicativos.
+Neste guia de início rápido, você aprende as noções básicas de como trabalhar com palavras-chave personalizadas usando o Speech Studio e o Speech SDK. Uma palavra-chave é uma palavra ou frase curta que permite que seu produto seja ativado por voz. Você cria modelos de palavra-chave no Speech Studio e, em seguida, exporta um arquivo de modelo que você usa com o SDK de fala em seus aplicativos.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

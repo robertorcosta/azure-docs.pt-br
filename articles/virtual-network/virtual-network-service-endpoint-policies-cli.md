@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: rdhillon
 ms.custom: ''
-ms.openlocfilehash: 702ee5dd8d432582ce1df75ce71c220aa0507cba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 53f10996a7f15e32261f151600163f41df4e58ca
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708205"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666680"
 ---
 # <a name="manage-data-exfiltration-to-azure-storage-accounts-with-virtual-network-service-endpoint-policies-using-the-azure-cli"></a>Gerenciar vazamento de dados para contas de armazenamento do Azure com políticas de ponto de extremidade de serviço de rede virtual usando o CLI do Azure
 
@@ -252,7 +252,7 @@ az storage account network-rule add \
 
 As políticas de ponto de extremidade de serviço do Azure só estão disponíveis para o armazenamento do Azure. Portanto, Habilitaremos o ponto de extremidade de serviço para *Microsoft. Storage* nesta sub-rede para este exemplo de instalação.
 
-As políticas de ponto de extremidade de serviço são aplicadas em pontos de extremidades de serviço. Vamos começar criando uma política de ponto de extremidade de serviço. Em seguida, criaremos as definições de política nessa política para que as contas de armazenamento do Azure sejam mostradas na lista de permissões desta sub-rede
+As políticas de ponto de extremidade de serviço são aplicadas em pontos de extremidades de serviço. Vamos começar criando uma política de ponto de extremidade de serviço. Em seguida, criaremos as definições de política nessa política para que as contas de armazenamento do Azure sejam aprovadas para esta sub-rede
 
 Criar uma política de ponto de extremidade de serviço
 
@@ -353,7 +353,7 @@ O acesso é negado e você recebe um `mount error(13): Permission denied` erro, 
 
 Saia da sessão SSH para a VM *myVmPublic*.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não for mais necessário, use [az group delete](/cli/azure) para remover o grupo de recursos e todos os recursos que ele contém.
 

@@ -3,12 +3,12 @@ title: Suporte de avaliação do VMware nas Migrações para Azure
 description: Saiba mais sobre o suporte para a avaliação de VM DO VMware com a Avaliação do Servidor de Migrações para Azure.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 6716bea08347783d8c5728a4e346ffab8ea60a07
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: f672c90f6056cd735d5ddc8dd96de9e7007999ce
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89660284"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667785"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Matriz de suporte para avaliação do VMware 
 
@@ -40,12 +40,12 @@ Se você quiser migrar as VMs do VMware para o Azure, examine a [matriz de supor
 **VMware** | **Detalhes**
 --- | ---
 **VMs VMware** | Todos os sistemas operacionais podem ser avaliados quanto à migração. 
-**Armazenamento** | Há suporte para discos anexados a controladores SCSI, IDE e SATA.
+**Storage** | Há suporte para discos anexados a controladores SCSI, IDE e SATA.
 
 
 ## <a name="azure-migrate-appliance-requirements"></a>Requisitos de dispositivo para as Migrações para Azure
 
-As Migrações para Azure usam o dispositivo das [Migrações para Azure](migrate-appliance.md) para descoberta e avaliação. Você pode implantar o dispositivo como uma VM do VMWare usando um modelo OVA, importado para o vCenter Server, ou usando um [script do PowerShell](deploy-appliance-script.md).
+As Migrações para Azure usam o dispositivo das [Migrações para Azure](migrate-appliance.md) para descoberta e avaliação. Você pode implantar o dispositivo como uma VM VMware usando um modelo OVA, importado para vCenter Server ou usando um [script do PowerShell](deploy-appliance-script.md).
 
 - Saiba mais sobre os [requisitos de dispositivo](migrate-appliance.md#appliance---vmware) para VMware.
 - No Azure Governamental, você deve implantar o dispositivo [usando um script](deploy-appliance-script-government.md).
@@ -85,16 +85,15 @@ A [análise de dependência](concepts-dependency-visualization.md) ajuda a ident
 --- | --- 
 **Antes da implantação** | Você deve ter um projeto de Migrações para Azure em vigor, com a ferramenta de Avaliação do Servidor adicionada ao projeto.<br/><br/>  Você implanta a visualização de dependência depois de configurar um dispositivo de migrações para Azure para descobrir suas máquinas VMware locais.<br/><br/> [Aprenda](create-manage-projects.md) a criar um projeto pela primeira vez.<br/> [Aprenda](how-to-assess.md) a adicionar uma ferramenta de avaliação a um projeto existente.<br/> [Aprenda](how-to-set-up-appliance-vmware.md) a configurar o dispositivo de Migrações para Azure para avaliação das VMs do VMware.
 **Computadores compatíveis** | No momento, compatível apenas com as VMs do VMware.
-**VMs do Windows** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> Windows Server 2008 R2 (64 bits).
+**VMs do Windows** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> Windows Server 2008 R2 (64 bits).<br/>Microsoft Windows Server 2008 (32 bits). Verifique se o PowerShell está instalado.
 **Credenciais do vCenter Server** | A visualização de dependência precisa de uma conta do vCenter Server com acesso somente leitura e privilégios habilitados para Máquinas Virtuais > Operações de Convidado.
 **Permissões de VM do Windows** |  Para a análise de dependência, o dispositivo de Migrações para Azure precisa de uma conta de administrador de domínio ou de uma conta de administrador local para acessar as VMs do Windows.
-**VMs do Linux** | Red Hat Enterprise Linux 7, 6, 5<br/> Ubuntu Linux 14.04, 16.04<br/> Debian 7, 8<br/> Oracle Linux 6, 7<br/> CentOS 5, 6, 7.
-**Conta do Linux** | Para análise de dependência, nos computadores Linux, o dispositivo de Migrações para Azure precisa de uma conta de usuário com privilégio de Raiz.<br/><br/> Como alternativa, a conta de usuário precisa dessas permissões nos arquivos /bin/netstat e/bin/ls: CAP_DAC_READ_SEARCH e CAP_SYS_PTRACE. Defina esses recursos usando os seguintes comandos: <br/> sudo setcap CAP_DAC_READ_SEARCH, CAP_SYS_PTRACE = EP/bin/ls <br/> sudo setcap CAP_DAC_READ_SEARCH, CAP_SYS_PTRACE = EP/bin/netstat
+**VMs do Linux** | Red Hat Enterprise Linux 7, 6, 5<br/> Ubuntu Linux 14.04, 16.04<br/> Debian 7, 8<br/> Oracle Linux 6, 7<br/> CentOS 5, 6, 7.<br/> SUSE Linux Enterprise Server 11 e mais recente
+**Conta do Linux** | Para análise de dependência, em computadores Linux, o dispositivo de migrações para Azure precisa de uma conta de usuário raiz<br/><br/> Como alternativa, a conta de usuário precisa dessas permissões nos arquivos /bin/netstat e/bin/ls: CAP_DAC_READ_SEARCH e CAP_SYS_PTRACE. Defina esses recursos usando os seguintes comandos: <br/> sudo setcap CAP_DAC_READ_SEARCH, CAP_SYS_PTRACE = EP/bin/ls <br/> sudo setcap CAP_DAC_READ_SEARCH, CAP_SYS_PTRACE = EP/bin/netstat
 **Agentes necessários** | Nenhum agente é necessário nos computadores que você deseja analisar.
 **Ferramentas do VMware** | As ferramentas do VMware (posterior à 10.2) devem ser instaladas e executadas em cada VM que você deseja analisar.
-
-**PowerShell** | As VMs do Windows devem ter o PowerShell versão 2,0 ou superior instalado.
-**Acesso à porta** | Em hosts ESXi que executam VMs que você deseja analisar, o dispositivo de migrações para Azure deve ser capaz de se conectar à porta TCP 443.
+**PowerShell** | As VMs do Windows devem ter o PowerShell versão 2.0 ou posterior instalado.
+**Acesso à porta** | Nos hosts ESXi que executam as VMs que você deseja analisar, o dispositivo de Migrações para Azure deve ser conectado à porta TCP 443.
 
 
 ## <a name="dependency-analysis-requirements-agent-based"></a>Requisitos de análise de dependência (baseado em agente)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2020
 author: shganesh-dev
 ms.author: shganesh
-ms.openlocfilehash: ed836e3df28c5e39aa7f9d21f020c0d37292dcfc
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: aff26d3b491896aa9a1b1fee93d39a5ec93d730c
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91631793"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665134"
 ---
 # <a name="commercial-marketplace-analytics-terminology-and-common-questions"></a>Terminologia e perguntas comuns sobre análise do marketplace comercial
 
@@ -45,7 +45,7 @@ Se estiver recebendo esta mensagem, significa que você tem dados de análise, m
 | Tipo de licença do Azure: Enterprise | Cliente, pedido | O cliente final adquire o Azure e sua oferta do Marketplace por meio de um Contrato Enterprise, assinado diretamente com a Microsoft.|
 | Tipo de licença do Azure: Enterprise por meio do revendedor  | Cliente, pedido | O cliente final adquire o Azure e sua oferta do Marketplace por meio de um revendedor que facilita seu Contrato Enterprise com a Microsoft.|
 | Tipo de licença do Azure: Pré-pago| Cliente, pedido | O cliente final adquire o Azure e sua oferta do Marketplace por meio de um contrato “Pré-pago”, assinado diretamente com a Microsoft.|
-| ID da conta de cobrança| Cliente, ordem, uso| O identificador da conta na qual a cobrança é gerada. Use este atributo para conectar relatórios analíticos com o relatório de transações de pagamento.|
+| ID da conta de cobrança| Cliente, ordem, uso| O identificador da conta na qual a cobrança é gerada. Mapeie a **ID da conta de cobrança** para **CustomerID** para conectar seu relatório de transação de pagamento com os relatórios de cliente, de pedido e de uso.|
 | Nome da instância de nuvem| Order| A Microsoft Cloud em que ocorreu uma implantação de VM.|
 | Nome da instância da nuvem: Azure Global| Order| A nuvem pública global da Microsoft.|
 | Nome da instância da nuvem: Azure Government | Order| Nuvens da Microsoft específicas do governo para um dos seguintes governos: China, Alemanha ou Estados Unidos da América.| |

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/04/2020
-ms.openlocfilehash: d53097c7884b9908cd3a2c7f21dc059ed9d00c39
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9abca58aa79e0924281ab69314271f2aeca6bfa6
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540155"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667526"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Usar a análise de alterações do aplicativo (versão prévia) no Azure Monitor
 
@@ -101,7 +101,7 @@ A análise de alterações do aplicativo é um detector autônomo nas ferramenta
 
    ![Captura de tela do botão "falhas do aplicativo"](./media/change-analysis/application-changes.png)
 
-3. Para habilitar a análise de alterações, selecione **habilitar agora**.
+3. O link leva a uma interface do usuário Aalysis de alteração do aplicativo no escopo do aplicativo Web. Se o controle de alterações do aplicativo Web no convidado não estiver habilitado, siga a faixa para obter alterações de configurações de arquivo e aplicativo.
 
    ![Captura de tela de opções de "falhas do aplicativo"](./media/change-analysis/enable-changeanalysis.png)
 
@@ -109,11 +109,33 @@ A análise de alterações do aplicativo é um detector autônomo nas ferramenta
 
     ![Captura de tela da interface do usuário "Habilitar análise de alteração"](./media/change-analysis/change-analysis-on.png)
 
-5. Para acessar a análise de alterações, selecione **diagnosticar e solucionar problemas**  >  **de falhas de aplicativo de desempenho e disponibilidade**  >  **Application Crashes**. Você verá um grafo que resume o tipo de alterações ao longo do tempo, juntamente com detalhes sobre essas alterações. Por padrão, as alterações nas últimas 24 horas são exibidas para ajudar com problemas imediatos.
+5. Os dados de alteração também estão disponíveis em selecionar **aplicativo Web inoperante** e detectores de **falhas de aplicativo** . Você verá um grafo que resume o tipo de alterações ao longo do tempo, juntamente com detalhes sobre essas alterações. Por padrão, as alterações nas últimas 24 horas são exibidas para ajudar com problemas imediatos.
 
      ![Captura de tela da exibição alterar comparação](./media/change-analysis/change-view.png)
 
-### <a name="enable-change-analysis-at-scale"></a>Habilitar análise de alterações em escala
+
+
+### <a name="virtual-machine-diagnose-and-solve-problems"></a>Problemas de diagnóstico e resolução da máquina virtual
+
+Acesse a ferramenta diagnosticar e solucionar problemas para uma máquina virtual.  Vá para **ferramentas de solução de problemas**, navegue para baixo na página e selecione **analisar alterações recentes** para exibir as alterações na máquina virtual.
+
+![Captura de tela da VM diagnosticar e resolver problemas](./media/change-analysis/vm-dnsp-troubleshootingtools.png)
+
+![Analisador de alterações em ferramentas de solução de problemas](./media/change-analysis/analyze-recent-changes.png)
+
+### <a name="activity-log-change-history"></a>Histórico de alterações do log de atividades
+O recurso [Exibir histórico de alterações](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log#view-change-history) no log de atividades chama o back-end do serviço de análise de alterações do aplicativo para obter alterações associadas a uma operação. **O histórico de alterações** usado para chamar o grafo de [recursos do Azure](https://docs.microsoft.com/azure/governance/resource-graph/overview) diretamente, mas permutau o back-end para chamar a análise de alterações de aplicativo para que as alterações retornadas incluam alterações no nível de recurso do [grafo de recursos do Azure](https://docs.microsoft.com/azure/governance/resource-graph/overview), propriedades de recurso de [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview)e alterações no convidado de serviços de PaaS, como aplicativo Web de serviços de aplicativos. Para que o serviço de análise de alterações do aplicativo possa verificar se há alterações nas assinaturas dos usuários, um provedor de recursos precisa ser registrado. Na primeira vez que você inserir a guia **histórico de alterações** , a ferramenta começará automaticamente a registrar o provedor de recursos **Microsoft. ChangeAnalysis** . Após o registro, as alterações do **grafo de recursos do Azure** estarão disponíveis imediatamente e cobrirá os últimos 14 dias. As alterações de outras fontes estarão disponíveis após cerca de 4 horas após a integração da assinatura.
+
+![Integração do histórico de alterações do log de atividades](./media/change-analysis/activity-log-change-history.png)
+
+### <a name="vm-insights-integration"></a>Integração de informações de VM
+Os usuários que têm o [VM insights](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview) habilitado podem exibir o que mudou em suas máquinas virtuais que podem causar picos em um gráfico de métricas, como CPU ou memória, e imaginar o que o causou. Os dados de alteração são integrados na barra de navegação do lado do insights da VM. O usuário pode exibir se alguma alteração ocorreu na VM e clicar em **investigar alterações** para exibir os detalhes da alteração na interface do usuário autônoma da análise de alterações do aplicativo.
+
+[![Integração de informações de VM](./media/change-analysis/vm-insights.png)](./media/change-analysis/vm-insights.png#lightbox)
+
+
+
+## <a name="enable-change-analysis-at-scale"></a>Habilitar análise de alterações em escala
 
 Se sua assinatura inclui vários aplicativos Web, a habilitação do serviço no nível do aplicativo Web seria ineficiente. Execute o script a seguir para habilitar todos os aplicativos Web em sua assinatura.
 
@@ -147,13 +169,25 @@ foreach ($webapp in $webapp_list)
 
 ```
 
-### <a name="virtual-machine-diagnose-and-solve-problems"></a>Problemas de diagnóstico e resolução da máquina virtual
+## <a name="troubleshoot"></a>Solucionar problemas
 
-Acesse a ferramenta diagnosticar e solucionar problemas para uma máquina virtual.  Vá para **ferramentas de solução de problemas**, navegue para baixo na página e selecione **analisar alterações recentes** para exibir as alterações na máquina virtual.
+### <a name="having-trouble-registering-microsoftchange-analysis-resource-provider-from-change-history-tab"></a>Tendo problemas para registrar o provedor de recursos da Microsoft. Change Analysis no histórico de alterações guia
+Se for a primeira vez que você exibir o histórico de alterações após sua integração com a análise de alterações do aplicativo, você verá que ele registra automaticamente um provedor de recursos **Microsoft. ChangeAnalysis**. Em casos raros, pode ocorrer falha pelos seguintes motivos:
 
-![Captura de tela da VM diagnosticar e resolver problemas](./media/change-analysis/vm-dnsp-troubleshootingtools.png)
+- **Você não tem permissões suficientes para registrar o provedor de recursos Microsoft. ChangeAnalysis**. Essa mensagem de erro significa que sua função na assinatura atual não tem o escopo **Microsoft. support/Register/Action** associado a ela. Isso pode acontecer se você não for o proprietário de uma assinatura e tiver permissões de acesso compartilhado por meio de um colega de colaborador. ou seja, exiba o acesso a um grupo de recursos. Para corrigir isso, você pode entrar em contato com o proprietário da sua assinatura para registrar o provedor de recursos **Microsoft. ChangeAnalysis** . Isso pode ser feito em portal do Azure por meio de **assinaturas | Provedores de recursos** e pesquisam ```Microsoft.ChangeAnalysis``` e registram na interface do usuário, ou por meio de Azure PowerShell ou CLI do Azure.
 
-![Captura de tela da VM diagnosticar e resolver problemas](./media/change-analysis/analyze-recent-changes.png)
+    Registrar provedor de recursos por meio do PowerShell: 
+    ```PowerShell
+    # Register resource provider
+    Register-AzResourceProvider -ProviderNamespace "Microsoft.ChangeAnalysis"
+    ```
+
+- **Falha ao registrar o provedor de recursos Microsoft. ChangeAnalysis**. Essa mensagem significa que algo falhou imediatamente porque a interface do usuário enviou a solicitação para registrar o provedor de recursos e não está relacionada ao problema de permissão. É provável que possa ser um problema de conectividade de Internet temporário. Tente atualizar a página e verificar sua conexão com a Internet. Se o erro persistir, contate changeanalysishelp@microsoft.com
+
+- **Isso está demorando mais do que o esperado**. Essa mensagem significa que o registro está demorando mais do que 2 minutos. Isso é incomum, mas não significa necessariamente que algo deu errado. Você pode ir para **assinaturas | Provedor de recursos** para verificar o status de registro do provedor de recursos **Microsoft. ChangeAnalysis** . Você pode tentar usar a interface do usuário para cancelar o registro, registrar novamente ou atualizar para ver se ele ajuda. Se o problema persistir, entre em contato com o changeanalysishelp@microsoft.com suporte.
+    ![Solucionar problemas de registro de RP demorando muito](./media/change-analysis/troubleshoot-registration-taking-too-long.png)
+
+
 
 ## <a name="next-steps"></a>Próximas etapas
 
