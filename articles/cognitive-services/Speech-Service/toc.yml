@@ -449,12 +449,6 @@
               href: windows-voice-assistants-best-practices.md
             - name: Exemplos e perguntas frequentes
               href: windows-voice-assistants-faq.md
-    - name: Palavra-chave personalizada
-      items:
-        - name: Visão geral de palavra-chave personalizada
-          href: custom-keyword-overview.md
-        - name: Noções básicas de palavra-chave personalizada
-          href: custom-keyword-basics.md
 - name: Reconhecimento do Locutor
   items:
     - name: Visão geral do Reconhecimento do Locutor
@@ -465,6 +459,12 @@
       items:
         - name: API REST do Reconhecimento do Locutor
           href: 'https://docs.microsoft.com/rest/api/speakerrecognition/'
+- name: Palavra-chave personalizada
+  items:
+    - name: Visão geral de palavra-chave personalizada
+      href: custom-keyword-overview.md
+    - name: Noções básicas de palavra-chave personalizada
+      href: custom-keyword-basics.md
 - name: Ferramentas
   items:
     - name: SDK de fala
