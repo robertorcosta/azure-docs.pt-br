@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbf4d7b9f622ff590eee401544bf62655fd8d096
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 114f26c71ee1aecdb1a0ad3d1c01e558843c0969
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024376"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91705051"
 ---
 # <a name="common-conditional-access-policies"></a>Políticas de Acesso Condicional Comum
 
@@ -38,11 +38,11 @@ Mais informações sobre contas de acesso de emergência e por que elas são imp
 * [Exigir MFA para gerenciamento do Azure](howto-conditional-access-policy-azure-management.md)\*
 * [Exigir MFA para todos os usuários](howto-conditional-access-policy-all-users-mfa.md)\*
 
-\*Essas quatro políticas quando configuradas juntas, imitam a funcionalidade habilitada por [padrões de segurança](../fundamentals/concept-fundamentals-security-defaults.md).
+\* Essas quatro políticas quando configuradas juntas, imitam a funcionalidade habilitada por [padrões de segurança](../fundamentals/concept-fundamentals-security-defaults.md).
 
 ## <a name="additional-policies"></a>Políticas adicionais
 
-* [Acesso condicional baseado em risco de logon (requer Azure AD Premium P2)](howto-conditional-access-policy-risk.md)
+* [Acesso condicional com base em risco de entrada (requer Azure AD Premium P2)](howto-conditional-access-policy-risk.md)
 * [Acesso condicional baseado em risco do usuário (requer Azure AD Premium P2)](howto-conditional-access-policy-risk-user.md)
 * [Exigir local confiável para registro de MFA](howto-conditional-access-policy-registration.md)
 * [Bloquear o acesso por local](howto-conditional-access-policy-location.md)

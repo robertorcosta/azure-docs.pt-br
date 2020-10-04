@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: d9738d3abfdf30e133ae241c497823be349d25da
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: c5ee162a78ac5e8c3080cd33c89fcee507ecfe92
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040071"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91704847"
 ---
 # <a name="administer-group-policy-in-an-azure-active-directory-domain-services-managed-domain"></a>Administrar Política de Grupo em um domínio Azure Active Directory Domain Services gerenciado
 
@@ -56,7 +56,7 @@ Para criar e configurar o objeto de Política de Grupo (GPOs), você precisa ins
 1. Na página **Antes de Você Começar** do *Assistente de Adição de Funções e Recursos*, selecione **Avançar**.
 1. Para o *Tipo de Instalação*, deixe a opção **Instalação baseada em função ou recurso** marcada e selecione **Avançar**.
 1. Na página **Seleção de Servidor**, escolha a VM atual no pool de servidores, como *myvm.aaddscontoso.com* e, em seguida, selecione **Avançar**.
-1. Na página **Funções do Servidor**, clique em **Próximo**.
+1. Na página **Funções do Servidor**, clique em **Avançar**.
 1. Na página **Recursos**, selecione o recurso **Gerenciamento de Política de Grupo**.
 
     ![Instalar o ' Gerenciamento de Política de Grupo ' na página de recursos](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-gp-management.png)
@@ -90,7 +90,7 @@ Há dois objetos de Política de Grupo internos (GPOs) em um domínio gerenciado
 
 1. A ferramenta Editor de Gerenciamento de Política de Grupo é aberta para permitir que você personalize o GPO, como *políticas de conta*:
 
-    ![Personalizar o GPO para definir as configurações conforme necessário](./media/active-directory-domain-services-admin-guide/gp-editor.png)
+    ![Captura de tela da Editor de Gerenciamento de Política de Grupo.](./media/active-directory-domain-services-admin-guide/gp-editor.png)
 
     Quando terminar, escolha **arquivo > salvar** para salvar a política. Os computadores atualizam Política de Grupo por padrão a cada 90 minutos e aplicam as alterações feitas.
 

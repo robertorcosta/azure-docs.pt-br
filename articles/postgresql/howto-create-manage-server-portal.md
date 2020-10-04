@@ -1,17 +1,17 @@
 ---
 title: Gerenciar o banco de dados do Azure para PostgreSQL-portal do Azure
 description: Saiba como gerenciar um banco de dados do Azure para o servidor PostgreSQL do portal do Azure.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 11/20/2019
-ms.openlocfilehash: 02a50a94b0b07d1755abe78c567df7ff5c7eda92
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 393e67d1b690f7231b5bf298b44f4db7c489d184
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90907438"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91704507"
 ---
 # <a name="manage-an-azure-database-for-postgresql-server-using-the-azure-portal"></a>Gerenciar um servidor de banco de dados do Azure para PostgreSQL usando o portal do Azure
 
@@ -50,7 +50,7 @@ Você pode dimensionar de Uso Geral para a memória otimizada e vice-versa. Não
 
 2. Altere a configuração **vCore**, movendo o controle deslizante para o valor desejado.
 
-   :::image type="content" source="./media/howto-create-manage-server-portal/scaling-compute.png" alt-text="Captura de tela de portal do Azure para escolher a opção vCore no banco de dados do Azure para PostgreSQL":::
+   :::image type="content" source="./media/howto-create-manage-server-portal/scaling-compute.png" alt-text="Captura de tela de portal do Azure para escolher camada básica, Uso Geral ou com otimização de memória no banco de dados do Azure para PostgreSQL":::
 
    > [!NOTE]
    > O dimensionamento de vCores causa uma reinicialização do servidor.
@@ -63,7 +63,7 @@ Você pode dimensionar de Uso Geral para a memória otimizada e vice-versa. Não
 
 2. Altere a configuração de **armazenamento** movendo o controle deslizante para cima até o valor desejado.
 
-   :::image type="content" source="./media/howto-create-manage-server-portal/scaling-storage.png" alt-text="Captura de tela de portal do Azure para escolher a escala de armazenamento no banco de dados do Azure para PostgreSQL":::
+   :::image type="content" source="./media/howto-create-manage-server-portal/scaling-storage.png" alt-text="Captura de tela de portal do Azure para escolher camada básica, Uso Geral ou com otimização de memória no banco de dados do Azure para PostgreSQL":::
 
    > [!NOTE]
    > O armazenamento não pode ser reduzido verticalmente.
@@ -76,11 +76,11 @@ Você pode alterar a senha da função de administrador usando o portal do Azure
 
 1. Selecione o servidor na portal do Azure. Na janela **visão geral** , selecione **Redefinir senha**.
 
-   :::image type="content" source="./media/howto-create-manage-server-portal/overview-reset-password.png" alt-text="Captura de tela de portal do Azure para redefinir a senha no banco de dados do Azure para PostgreSQL":::
+   :::image type="content" source="./media/howto-create-manage-server-portal/overview-reset-password.png" alt-text="Captura de tela de portal do Azure para escolher camada básica, Uso Geral ou com otimização de memória no banco de dados do Azure para PostgreSQL":::
 
 2. Insira uma nova senha e confirme-a. A caixa de texto solicitará os requisitos de complexidade de senha.
 
-   :::image type="content" source="./media/howto-create-manage-server-portal/reset-password.png" alt-text="Captura de tela de portal do Azure para redefinir sua senha e salvar no banco de dados do Azure para PostgreSQL":::
+   :::image type="content" source="./media/howto-create-manage-server-portal/reset-password.png" alt-text="Captura de tela de portal do Azure para escolher camada básica, Uso Geral ou com otimização de memória no banco de dados do Azure para PostgreSQL":::
 
 3. Selecione **OK** para salvar a nova senha.
 
@@ -90,11 +90,11 @@ Você pode excluir o servidor se não precisar mais dele.
 
 1. Selecione o servidor na portal do Azure. Na janela **visão geral** , selecione **excluir**.
 
-   :::image type="content" source="./media/howto-create-manage-server-portal/overview-delete.png" alt-text="Captura de tela de portal do Azure para excluir o servidor no banco de dados do Azure para PostgreSQL":::
+   :::image type="content" source="./media/howto-create-manage-server-portal/overview-delete.png" alt-text="Captura de tela de portal do Azure para escolher camada básica, Uso Geral ou com otimização de memória no banco de dados do Azure para PostgreSQL":::
 
 2. Digite o nome do servidor na caixa de entrada para confirmar que este é o servidor que você deseja excluir.
 
-   :::image type="content" source="./media/howto-create-manage-server-portal/confirm-delete.png" alt-text="Captura de tela de portal do Azure para confirmar a exclusão do servidor no banco de dados do Azure para PostgreSQL":::
+   :::image type="content" source="./media/howto-create-manage-server-portal/confirm-delete.png" alt-text="Captura de tela de portal do Azure para escolher camada básica, Uso Geral ou com otimização de memória no banco de dados do Azure para PostgreSQL":::
 
    > [!NOTE]
    > A exclusão de um servidor é irreversível.
