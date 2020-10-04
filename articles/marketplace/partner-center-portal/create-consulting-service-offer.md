@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 06/17/2020
-ms.openlocfilehash: 7b42c12499977b5f7bc1704c57904e90be2e8466
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 464e75e55bc67ce619134be01ba00f2606a271a4
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91398007"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91709063"
 ---
 # <a name="create-a-consulting-service-offer"></a>Criar uma oferta de serviço de consultoria
 
@@ -76,10 +76,10 @@ Ao publicar sua oferta no Marketplace com a Central de Parceiros, você _precisa
 
 Veja alguns recursos adicionais de gerenciamento de clientes potenciais:
 
-- [Visão geral do gerenciamento de clientes potenciais](commercial-marketplace-get-customer-leads.md)
-- [Perguntas frequentes sobre gerenciamento de leads](../lead-management-for-cloud-marketplace.md#frequently-asked-questions))
-- [Erros comuns de configuração de leads](../lead-management-for-cloud-marketplace.md#publishing-config-errors))
-- [Visão geral do gerenciamento de clientes potenciais](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) em PDF (desative seu bloqueador de pop-up)
+- [Vendas potenciais do cliente da sua oferta do marketplace comercial](commercial-marketplace-get-customer-leads.md)
+- [Perguntas comuns sobre o gerenciamento de vendas potenciais](../lead-management-faq.md#common-questions-about-lead-management)
+- [Solucionando problemas de erros de configuração de Lead](../lead-management-faq.md#publishing-config-errors)
+- PDF de [Visão geral do gerenciamento de clientes potenciais](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) (desative seu bloqueador de pop-ups).
 
 Selecione **Salvar rascunho** antes de continuar.
 
@@ -109,7 +109,7 @@ Essa página permite definir o produto principal para o qual seu serviço de con
     - DevOps
     - Recuperação de desastre
     - Identidade
-    - Internet das coisas
+    - Internet das Coisas
     - Migração
     - Rede
     - Segurança
@@ -146,7 +146,7 @@ Aqui está um exemplo de como as informações de oferta são exibidas no Azure 
 
 <br>Aqui está um exemplo de como as informações de oferta aparecem no Microsoft AppSource (os preços listados são apenas para fins de exemplo e não têm a finalidade de refletir os custos reais):
 
-:::image type="content" source="media/example-consulting-service-offer-appsource.png" alt-text="Ilustra como essa oferta aparece em Microsoft AppSource.":::
+:::image type="content" source="media/example-consulting-service-offer-appsource.png" alt-text="Ilustra como essa oferta aparece no Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Descrições de chamada
 
@@ -202,7 +202,7 @@ Adicione de 1 a 3 documentos de suporte em PDF para sua oferta.
 
 Forneça logotipos e imagens para usar com sua oferta. Todas as imagens precisam estar no formato .png. Imagens borradas serão rejeitadas.
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!Note]
 >Se você está enfrentando um problema ao carregar arquivos, verifique se sua rede local não bloqueia o serviço https://upload.xboxlive.com que é usado pelo Partner Center.
@@ -247,7 +247,7 @@ Aqui, você definirá elementos como preços, mercado e uma chave privada.
 
 Depois de concluir todas as seções necessárias da oferta, você pode enviá-la para revisão e publicação.
 
-1. Quando estiver tudo pronto para publicar sua oferta de serviço de consultoria, clique em **Revisar e publicar**.
+1. Quando estiver pronto para publicar sua oferta de serviço de consultoria, selecione **revisar e publicar**.
 2. Revise os detalhes na página final de envio.
 3. Escreva uma observação para a equipe de certificação se entender que algum dos detalhes da sua oferta precisa de explicação.
 4. Quando estiver tudo pronto, selecione **Fechar**.

@@ -11,19 +11,22 @@ ms.subservice: core
 ms.date: 08/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
-ms.openlocfilehash: 5345fd81e41bbb354e11e1be23329c3130d4d0c2
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c22593fbd1e1653efa98c760d5bbb73b03761059
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90898095"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708388"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-in-azure-machine-learning-studio"></a>Criar destinos de computação para treinamento e implantação de modelo no Azure Machine Learning Studio
 
 Neste artigo, saiba como criar e gerenciar destinos de computação no Azure Machine Studio.  Você também pode criar e gerenciar destinos de computação com:
 
-* [SDK do Azure Machine Learning Learning](how-to-create-attach-compute-sdk.md), 
-* A [extensão da CLI](reference-azure-machine-learning-cli.md#resource-management) para Azure Machine Learning
+* SDK do Azure Machine Learning Learning ou extensão da CLI para Azure Machine Learning
+  * [Instância de computação](how-to-create-manage-compute-instance.md)
+  * [Cluster de computação](how-to-create-attach-compute-cluster.md)
+  * [Cluster do serviço kubernetes do Azure](how-to-create-attach-kubernetes.md)
+  * [Outros recursos de computação](how-to-attach-compute-targets.md)
 * A [extensão de vs Code](how-to-manage-resources-vscode.md#compute-clusters) para Azure Machine Learning.
 
 
@@ -56,11 +59,11 @@ Siga as etapas anteriores para exibir a lista de destinos de computação. Em se
 
 1. Se você não tiver destinos de computação, selecione  **criar** no meio da página.
   
-    :::image type="content" source="media/how-to-create-attach-studio/create-compute-target.png" alt-text="Criar destino de computação":::
+    :::image type="content" source="media/how-to-create-attach-studio/create-compute-target.png" alt-text="Exibir a lista de destinos de computação":::
 
 1. Se você vir uma lista de recursos de computação, selecione **+ novo** acima da lista.
 
-    :::image type="content" source="media/how-to-create-attach-studio/select-new.png" alt-text="Selecionar novo":::
+    :::image type="content" source="media/how-to-create-attach-studio/select-new.png" alt-text="Exibir a lista de destinos de computação":::
 
 
 1. Preencha o formulário para o tipo de computação:
@@ -74,14 +77,14 @@ Siga as etapas anteriores para exibir a lista de destinos de computação. Em se
 
 1. Exiba o status da operação de criação, selecionando o destino de computação na lista:
 
-    :::image type="content" source="media/how-to-create-attach-studio/view-list.png" alt-text="Exibir o status de computação de uma lista":::
+    :::image type="content" source="media/how-to-create-attach-studio/view-list.png" alt-text="Exibir a lista de destinos de computação":::
 
 
 ### <a name="compute-instance"></a>Instância de computação
 
 Use as [etapas acima](#portal-create) para criar a instância de computação.  Em seguida, preencha o formulário da seguinte maneira:
 
-:::image type="content" source="media/concept-compute-instance/create-compute-instance.png" alt-text="Criar uma nova instância de computação":::
+:::image type="content" source="media/concept-compute-instance/create-compute-instance.png" alt-text="Exibir a lista de destinos de computação":::
 
 
 |Campo  |Descrição  |
@@ -107,7 +110,7 @@ Crie um cluster de computação de nó único ou de vários nós para suas carga
 |Número máximo de nós | Número máximo de nós que você deseja provisionar. A computação fará o dimensionamento automático para um máximo dessa contagem de nós quando um trabalho for enviado. |
 |Configurações avançadas     |  Opcional. Configurar uma rede virtual. Especifique o **grupo de recursos**, a **rede virtual**e a **sub-rede** para criar a instância de computação dentro de uma vnet (rede virtual) do Azure. Para obter mais informações, consulte estes [requisitos de rede](how-to-enable-virtual-network.md#compute-instance) para vnet.   Anexar também [identidades gerenciadas](#managed-identity) para conceder acesso a recursos     |
 
-#### <a name="set-up-managed-identity"></a><a id="managed-identity"></a> Configurar identidade gerenciada
+#### <a name="set-up-managed-identity"></a><a name="managed-identity"></a> Configurar identidade gerenciada
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-managed-identity-intro.md)]
 

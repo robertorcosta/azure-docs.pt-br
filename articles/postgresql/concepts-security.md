@@ -1,17 +1,17 @@
 ---
 title: Segurança no banco de dados do Azure para PostgreSQL-servidor único
 description: Uma visão geral dos recursos de segurança no banco de dados do Azure para PostgreSQL-servidor único.
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/22/2019
-ms.openlocfilehash: b95e02046b2f05dd89ec8fce5da438380a8894e9
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: be042a0ec076538cf0f0d155667acea6f1ae19cb
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89375781"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710474"
 ---
 # <a name="security-in-azure-database-for-postgresql---single-server"></a>Segurança no banco de dados do Azure para PostgreSQL-servidor único
 
@@ -54,6 +54,9 @@ Você pode aceitar a [proteção avançada contra ameaças](concepts-data-access
 
 O [log de auditoria](concepts-audit.md) está disponível para acompanhar a atividade em seus bancos de dados. 
 
+## <a name="migrating-from-oracle"></a>Migrando do Oracle
+
+O Oracle dá suporte a Transparent Data Encryption (TDE) para criptografar dados de tabela e de espaço de tabelas. No Azure para PostgreSQL, os dados são criptografados automaticamente em várias camadas. Consulte a seção "em repouso" nesta página e também consulte vários tópicos de segurança, incluindo [chaves gerenciadas pelo cliente](./concepts-data-encryption-postgresql.md) e [criptografia dupla de infraestrutura](./concepts-infrastructure-double-encryption.md). Você também pode considerar o uso da extensão [pgcrypto](https://www.postgresql.org/docs/11/pgcrypto.html) que tem suporte no [Azure para PostgreSQL](./concepts-extensions.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 - Habilitar regras de firewall para [IPS](concepts-firewall-rules.md) ou [redes virtuais](concepts-data-access-and-security-vnet.md)

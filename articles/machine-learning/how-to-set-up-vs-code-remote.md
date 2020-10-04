@@ -10,12 +10,12 @@ ms.custom: how-to
 ms.author: jmartens
 author: j-martens
 ms.date: 09/03/2020
-ms.openlocfilehash: 2c7ff633705d3db327c563b41ce199a5342dda82
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 6ac116b315d4a11b51b37c5b51edf35aa0676713
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461554"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708366"
 ---
 # <a name="connect-to-an-azure-machine-learning-compute-instance-in-visual-studio-code-preview"></a>Conectar-se a uma instância de computação Azure Machine Learning no Visual Studio Code (visualização)
 
@@ -68,7 +68,7 @@ Neste ponto, você pode continuar a executar células em seu notebook Jupyter.
 Para uma experiência de desenvolvimento remoto com recursos completos, você precisará de alguns pré-requisitos:
 
 * [Visual Studio Code extensão SSH remota](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh).
-* Instância de computação habilitada para SSH. Para obter mais informações, [consulte o guia criar uma instância de computação](concept-compute-instance.md#create).
+* Instância de computação habilitada para SSH. Para obter mais informações, [consulte o guia criar uma instância de computação](how-to-create-manage-compute-instance.md).
 
 > [!NOTE]
 > Em plataformas Windows, você deve [instalar um cliente SSH compatível com OpenSSH](https://code.visualstudio.com/docs/remote/troubleshooting#_installing-a-supported-ssh-client) se ainda não houver um. Não há suporte para o percurso no Windows, pois o comando ssh deve estar no caminho.

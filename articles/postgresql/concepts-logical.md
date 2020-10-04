@@ -1,17 +1,17 @@
 ---
 title: Decodificação lógica-banco de dados do Azure para PostgreSQL-servidor único
 description: Descreve a decodificação lógica e o wal2json para a captura de dados de alteração no Azure Database para PostgreSQL-servidor único
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/22/2020
-ms.openlocfilehash: bd886bea90c1092e38fac191a60a118aab0bef1f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4ab4a64fa395c105ced8e47cdcec019373f7f835
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903885"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708604"
 ---
 # <a name="logical-decoding"></a>Decodificação lógica
  
@@ -38,7 +38,7 @@ O servidor precisa ser reiniciado após uma alteração desse parâmetro. Intern
 
 ### <a name="using-azure-cli"></a>Usando a CLI do Azure
 
-1. Defina Azure. replication_support como `logical` .
+1. Defina azure.replication_support como `logical` .
    ```
    az postgres server configuration set --resource-group mygroup --server-name myserver --name azure.replication_support --value logical
    ``` 
@@ -50,13 +50,13 @@ O servidor precisa ser reiniciado após uma alteração desse parâmetro. Intern
 
 ### <a name="using-azure-portal"></a>Usando o Portal do Azure
 
-1. Defina o suporte de replicação do Azure como **lógico**. Clique em **Salvar**.
+1. Defina o suporte de replicação do Azure como **lógico**. Selecione **Salvar**.
 
    :::image type="content" source="./media/concepts-logical/replication-support.png" alt-text="Banco de dados do Azure para PostgreSQL-replicação-suporte à replicação do Azure":::
 
 2. Reinicie o servidor para aplicar a alteração selecionando **Sim**.
 
-   :::image type="content" source="./media/concepts-logical/confirm-restart.png" alt-text="Banco de dados do Azure para PostgreSQL-replicação-confirmar reinicialização":::
+   :::image type="content" source="./media/concepts-logical/confirm-restart.png" alt-text="Banco de dados do Azure para PostgreSQL-replicação-suporte à replicação do Azure":::
 
 
 ## <a name="start-logical-decoding"></a>Iniciar decodificação lógica
@@ -159,7 +159,7 @@ SELECT pg_drop_replication_slot('test_slot');
 ```
 
 > [!IMPORTANT]
-> Se você parar de usar a decodificação lógica, altere o Azure. replication_support de volta para `replica` ou `off` . Os detalhes de WAL retidos pelo `logical` são mais detalhados e devem ser desabilitados quando a decodificação lógica não estiver em uso. 
+> Se você parar de usar a decodificação lógica, altere azure.replication_support de volta para `replica` ou `off` . Os detalhes de WAL retidos pelo `logical` são mais detalhados e devem ser desabilitados quando a decodificação lógica não estiver em uso. 
 
  
 ## <a name="next-steps"></a>Próximas etapas

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: 93b47d2147a7438ebd38a5ae36363950639ba414
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 2679d24a9e8c821dae73114f32adbeb3d22a1458
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89380605"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708893"
 ---
 # <a name="how-to-create-a-saas-offer-in-the-commercial-marketplace"></a>Como criar uma oferta de SaaS no Marketplace comercial
 
@@ -69,7 +69,7 @@ Uma test drive é uma ótima maneira de demonstrar sua oferta a clientes potenci
 Conecte seu sistema de CRM (gerenciamento de relacionamento com o cliente) com sua oferta de Marketplace comercial para que você possa receber informações de contato do cliente quando um cliente expressar o interesse ou implantar seu produto. Você pode modificar essa conexão a qualquer momento durante ou depois de criar a oferta.
 
 > [!NOTE]
-> Você deve configurar o gerenciamento de leads se estiver vendendo sua oferta pela Microsoft ou se tiver selecionado a opção de listagem **entre em contato comigo** . Para obter diretrizes detalhadas, consulte [Gerenciamento de leads para o Marketplace comercial](lead-management-for-cloud-marketplace.md).
+> Você deve configurar o gerenciamento de leads se estiver vendendo sua oferta pela Microsoft ou se tiver selecionado a opção de listagem **entre em contato comigo** . Para obter diretrizes detalhadas, confira [leads do cliente de sua oferta do Marketplace comercial](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
 #### <a name="to-configure-the-connection-details-in-partner-center"></a>Para configurar os detalhes de conexão no Partner Center
 

@@ -1,17 +1,17 @@
 ---
 title: Regras de rede virtual-banco de dados do Azure para PostgreSQL-servidor único
 description: Saiba como usar pontos de extremidade de serviço de rede virtual (vnet) para se conectar ao banco de dados do Azure para PostgreSQL-servidor único.
-author: rachel-msft
-ms.author: raagyema
+author: niklarin
+ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: d7ad1116f7c0168181dbf5b43f8f1595ce250949
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 170d5eaa4c14c6de54825bc08f3aef0fd0dfa0c5
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903924"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91707992"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql---single-server"></a>Usar pontos de extremidade de serviço de rede virtual e regras para o banco de dados do Azure para PostgreSQL-servidor único
 

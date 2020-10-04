@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/01/2020
 author: parthpandyaMSFT
 ms.author: parthp
-ms.openlocfilehash: 64788544971eaa7738013ab1a0475771c13bab88
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 96a11caa93a925731ad2f24ac860b21301a29cdf
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89647649"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708179"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Criar uma conta do Marketplace comercial no Partner Center
 
@@ -80,7 +80,7 @@ Seu perfil de editor inclui o nome da sua empresa e a ID do MPN. Se você ainda 
     
 1. Para verificar se a conta do Marketplace comercial está listada como registrada, selecione **configurações**  >  **configurações do parceiro**  >  **programas**.
 
-Agora você criou uma conta do Marketplace comercial no Partner Center. Para obter mais informações, consulte [visão geral do Marketplace comercial](./commercial-marketplace-overview.md). Para obter ajuda com a adição de publicadores, consulte [Adicionar novos Publicadores ao Marketplace comercial](#add-new-publishers-to-the-commercial-marketplace-program).
+Agora você criou uma conta do Marketplace comercial no Partner Center. Para obter ajuda com a adição de publicadores, consulte [Adicionar novos Publicadores ao Marketplace comercial](#add-new-publishers-to-the-commercial-marketplace-program).
 
 ## <a name="create-an-account-by-using-existing-microsoft-partner-center-enrollments"></a>Criar uma conta usando registros existentes do Microsoft Partner Center
 
@@ -129,7 +129,7 @@ Depois de entrar, conclua a configuração da sua conta fazendo o seguinte:
     
 1. Para verificar se a conta do Marketplace comercial está listada como registrada, selecione **configurações**  >  **configurações do parceiro**  >  **programas**.
 
-Agora você criou uma conta do Marketplace comercial no Partner Center. Para obter mais informações, consulte [visão geral do Marketplace comercial](./commercial-marketplace-overview.md). Para obter ajuda com a adição de publicadores, consulte [Adicionar novos Publicadores ao Marketplace comercial](#add-new-publishers-to-the-commercial-marketplace-program).
+Agora você criou uma conta do Marketplace comercial no Partner Center. Para obter ajuda com a adição de publicadores, consulte [Adicionar novos Publicadores ao Marketplace comercial](#add-new-publishers-to-the-commercial-marketplace-program).
 
 ### <a name="what-if-im-already-enrolled-in-a-developer-program"></a>E se eu já estiver inscrito em um programa de desenvolvedor?
 
@@ -157,7 +157,7 @@ Depois de entrar no Partner Center, conclua a configuração da sua conta fazend
     
 1. Para verificar se a conta do Marketplace comercial está listada como registrada, selecione **configurações**  >  **configurações do parceiro**  >  **programas**.
 
-Agora você criou uma conta do Marketplace comercial no Partner Center. Para obter mais informações, consulte [visão geral do Marketplace comercial](./commercial-marketplace-overview.md). Para obter ajuda com a adição de publicadores, consulte [Adicionar novos Publicadores ao Marketplace comercial](#add-new-publishers-to-the-commercial-marketplace-program).
+Agora você criou uma conta do Marketplace comercial no Partner Center. Para obter ajuda com a adição de publicadores, consulte [Adicionar novos Publicadores ao Marketplace comercial](#add-new-publishers-to-the-commercial-marketplace-program).
 
 ## <a name="for-publishers-who-moved-from-the-cloud-partner-portal"></a>Para Publicadores que se moveram do Portal do Cloud Partner
 
@@ -190,4 +190,5 @@ Depois que esse processo for concluído, você poderá gerenciar o Publicador re
 
 ## <a name="next-steps"></a>Próximas etapas
 
+- [O que é o Microsoft Commercial Marketplace?](../overview.md)
 - [Gerenciar sua conta do marketplace comercial no Partner Center](./manage-account.md)

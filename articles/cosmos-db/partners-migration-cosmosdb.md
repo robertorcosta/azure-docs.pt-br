@@ -6,18 +6,18 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
-ms.openlocfilehash: 4507b3f3338dccbf51f7342081997549e62f13fe
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: bd0ec4cf085fb19c89c6be48d4f4534383560fd5
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290085"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91707771"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Parceiros de desenvolvimento de aplicativo e de migração do NoSQL do Azure Cosmos DB
 
-Da migração do NoSQL ao desenvolvimento de aplicativo, é possível escolher entre uma variedade de ferramentas e parceiros experientes integradores de sistemas para dar suporte às soluções do Azure Cosmos DB. 
+Da migração do NoSQL ao desenvolvimento de aplicativo, é possível escolher entre uma variedade de ferramentas e parceiros experientes integradores de sistemas para dar suporte às soluções do Azure Cosmos DB. Este artigo lista os parceiros que têm soluções ou serviços que usam Azure Cosmos DB. Essa lista muda ao longo do tempo, a Microsoft não é responsável por nenhuma alteração ou atualização feita nas soluções desses parceiros.
 
-## <a name="systems-integrator-partners"></a>Parceiros de Integrador de Sistemas
+## <a name="systems-integrator-and-tooling-partners"></a>Integradores de sistemas e parceiros de ferramentas
 
 |**Parceiro**  |**Funcionalidades e experiência**  |**Países/regiões com suporte**  |
 |---------|---------|---------|
@@ -34,7 +34,7 @@ Da migração do NoSQL ao desenvolvimento de aplicativo, é possível escolher e
 | [Lambda3 Informatics](https://www.lambda3.com.br/) | Personalização em tempo real, inventário de varejo, desenvolvimento de aplicativos | Brasil|
 |[Neal Analytics](https://www.nealanalytics.com/)    |     Personalização, varejo (inventário), análise operacional (Spark), desenvolvimento de aplicativos  |    EUA     |  
 |[Pragmatic Works Software Inc](https://www.pragmaticworks.com/)    |   Migração do NoSQL      |   EUA      |
-| [Serviços de Ricoh digital](https://www.ricoh.com/) | IoT, personalização em tempo real, inventário de varejo, migração de NoSQL | REINO UNIDO  |
+| [Serviços de Ricoh digital](https://www.ricoh.com/) | IoT, personalização em tempo real, inventário de varejo, migração de NoSQL | Reino Unido  |
 |[SNP Technologies](https://www.snp.com/) | Migração do NoSQL| EUA |
 | [Solidsoft Reply](https://www.reply.com/solidsoft-reply/) | Migração do NoSQL | Croácia, Suécia, Dinamarca, Irlanda, Bulgária, Eslovênia, Chipre, Malta, Lituânia, República Tcheca, Islândia e Suíça e Liechtenstein|
 | [Spanish Point Technologies](https://www.spanishpoint.ie/) | Migração do NoSQL| Irlanda|

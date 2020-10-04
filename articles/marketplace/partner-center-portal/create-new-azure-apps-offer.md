@@ -7,12 +7,12 @@ ms.topic: how-to
 author: AarathiN
 ms.author: aarathin
 ms.date: 07/14/2020
-ms.openlocfilehash: 512f901c33ebce4fef06629fe78976a071820c87
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: fb3a3ab5339186d8fa4e347d9d13e66940457f8a
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91251415"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710712"
 ---
 # <a name="create-an-azure-application-offer"></a>Criar uma oferta de aplicativo do Azure
 
@@ -193,7 +193,7 @@ Aqui está um exemplo de como as informações de oferta são exibidas no Azure 
 
 <br>Aqui está um exemplo de como as informações de oferta são exibidas no portal do Azure:
 
-:::image type="content" source="media/example-virtual-machine-container-iot-edge-saas.png" alt-text="Ilustra como essa oferta aparece na portal do Azure.":::
+:::image type="content" source="media/example-virtual-machine-container-iot-edge-saas.png" alt-text="Ilustra como essa oferta aparece no Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Descrições de chamada
 
@@ -242,7 +242,7 @@ Forneça o nome, o email e o número de telefone de um **contato de suporte**, *
 
 Forneça logotipos e imagens para usar com sua oferta. O logotipo precisa estar no formato PNG. As imagens borradas farão com que seu envio seja rejeitado.
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!Note]
 >Se você está enfrentando um problema ao carregar arquivos, verifique se sua rede local não bloqueia o serviço https://upload.xboxlive.com que é usado pelo Partner Center.

@@ -7,13 +7,13 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.custom: contperfq1
-ms.date: 08/25/2020
-ms.openlocfilehash: 7de882683248406e44a617dfb5d070e12879aea3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 10/2/2020
+ms.openlocfilehash: 5f109ad719ada9728938f6e37d4ec854d3950a24
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91317745"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708428"
 ---
 # <a name="outputs-from-azure-stream-analytics"></a>Saídas de Azure Stream Analytics
 
@@ -26,10 +26,10 @@ Alguns tipos de saídas dão suporte a [particionamento](#partitioning) e os [ta
 | Tipo de saída | Particionamento | Segurança | 
 |-------------|--------------|----------|
 |[Azure Data Lake Storage Gen 1](azure-data-lake-storage-gen1-output.md)|Sim|Usuário do Active Directory do Azure </br> MSI|
-|[Banco de Dados SQL do Azure](sql-database-output.md)|Sim, precisa ser habilitada.|Autenticação de usuário do SQL </br> MSI (versão prévia)|
-|[Azure Synapse Analytics](azure-synapse-analytics-output.md)|Não|Autenticação de usuário do SQL|
+|[Banco de Dados SQL do Azure](sql-database-output.md)|Sim, opcional.|Autenticação de usuário do SQL </br> MSI (versão prévia)|
+|[Azure Synapse Analytics](azure-synapse-analytics-output.md)|Sim|Autenticação de usuário do SQL|
 |[Armazenamento de BLOBs e Azure Data Lake Gen 2](blob-storage-azure-data-lake-gen2-output.md)|Sim|MSI </br> Chave de acesso|
-|[Hubs de eventos do Azure](event-hubs-output.md)|Sim|Chave de acesso|
+|[Hubs de eventos do Azure](event-hubs-output.md)|Sim, é necessário definir a coluna de chave de partição na configuração de saída.|Chave de acesso|
 |[Power BI](power-bi-output.md)|Não|Usuário do Active Directory do Azure </br> MSI|
 |[Armazenamento de Tabelas do Azure](table-storage-output.md)|Sim|Chave de conta|
 |[Filas do Barramento de Serviço do Azure](service-bus-queues-output.md)|Sim|Chave de acesso|
@@ -41,7 +41,7 @@ Alguns tipos de saídas dão suporte a [particionamento](#partitioning) e os [ta
 
 Stream Analytics dá suporte a partições para todas as saídas, exceto para Power BI. Para obter mais informações sobre chaves de partição e o número de gravadores de saída, consulte o artigo para o tipo de saída específico em que você está interessado. Todos os artigos de saída são vinculados na seção anterior.  
 
-O número de gravadores de saída pode ser controlado usando uma `INTO <partition count>` cláusula (consulte [into](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)) em sua consulta, o que pode ser útil para atingir uma topologia de trabalho desejada. Se o adaptador de saída não estiver particionado, a falta de dados em uma partição de entrada causará um atraso até o período de chegada atrasado. Nesses casos, a saída é mesclada em um único gravador, o que pode causar gargalos no pipeline. Para saber mais sobre a política de chegada tardia, consulte [Considerações sobre a ordem de evento do Azure Stream Analytics](stream-analytics-out-of-order-and-late-events.md).
+Além disso, para um ajuste mais avançado das partições, o número de gravadores de saída pode ser controlado usando uma `INTO <partition count>` cláusula (consulte [into](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)) em sua consulta, o que pode ser útil para atingir uma topologia de trabalho desejada. Se o adaptador de saída não estiver particionado, a falta de dados em uma partição de entrada causará um atraso até o período de chegada atrasado. Nesses casos, a saída é mesclada em um único gravador, o que pode causar gargalos no pipeline. Para saber mais sobre a política de chegada tardia, consulte [Considerações sobre a ordem de evento do Azure Stream Analytics](stream-analytics-out-of-order-and-late-events.md).
 
 ## <a name="output-batch-size"></a>Tamanho do lote de saída
 

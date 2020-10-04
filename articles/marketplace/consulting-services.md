@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/08/2020
 author: Microsoft-BradleyWright
 ms.author: brwrigh
-ms.openlocfilehash: 9745dce03d87b447dfd606f021891794cb343593
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 25f110f27ec9ac55420f624b5eea4555e482e7f4
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89419747"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708349"
 ---
 # <a name="consulting-service-offers"></a>Ofertas de serviço de consultoria
 
@@ -22,7 +22,7 @@ As ofertas de serviços de consultoria são os compromissos específicos ao clie
 
 ## <a name="compare-consulting-services"></a>Comparar os serviços de consultoria
 
-As lojas online do Marketplace comercial, Microsoft AppSource e Azure Marketplace, estão alinhadas aos tipos de solução e aos produtos de nuvem para ajudar os clientes a encontrar o que precisam. Cada loja online tem opções de publicação especializadas para ajudá-lo a maximizar seu investimento de publicação. Para saber mais sobre a diferença entre as duas lojas online, consulte [Comparando Microsoft AppSource e o Azure Marketplace](comparing-appsource-azure-marketplace.md).
+As lojas online do Marketplace comercial, Microsoft AppSource e Azure Marketplace, estão alinhadas aos tipos de solução e aos produtos de nuvem para ajudar os clientes a encontrar o que precisam. Cada loja online tem opções de publicação especializadas para ajudá-lo a maximizar seu investimento de publicação. Para saber mais sobre as diferenças entre o AppSource e o Azure Marketplace, consulte [lojas online do Marketplace comercial](overview.md#commercial-marketplace-online-stores).
 
 As ofertas de serviços de consultoria baseadas no Dynamics 365, no Power Apps e no Power BI se qualificam para serem listadas no AppSource. Para obter mais informações, baixe o arquivo PDF [Diretrizes da lista de serviços de consultoria do Microsoft AppSource](https://go.microsoft.com/fwlink/?LinkId=828734&clcid=0x409).
 

@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 2d14207bada52c937875bc62bdbde63d788c1aca
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: e67346eb1a0fccc7a788e8698df734536e1e395b
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91653580"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708944"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Cotas de serviço do Azure Cosmos DB
 
@@ -137,6 +137,7 @@ Dependendo da API que você usa, um item do Azure Cosmos pode representar um doc
 | Comprimento máximo do valor da propriedade | Sem limite prático |
 | Comprimento máximo do valor da propriedade da cadeia de caracteres | Sem limite prático |
 | Comprimento máximo do valor da propriedade numérica | IEEE754 de precisão dupla de 64 bits |
+| Nível máximo de aninhamento para objetos/matrizes inseridos | 128 |
 | Valor de TTL máximo |2147483647|
 
 Não há restrições sobre as cargas de item, como o número de propriedades e a profundidade de aninhamento, exceto as restrições de comprimento nos valores de ID e chave de partição e a restrição de tamanho geral de 2 MB. Talvez seja necessário configurar a política de indexação para contêineres com estruturas de item grandes ou complexas para reduzir o consumo de RU. Confira [Modelar itens no Cosmos DB](how-to-model-partition-example.md) para obter um exemplo real e padrões para gerenciar itens grandes.

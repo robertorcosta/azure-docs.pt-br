@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e2cfa21bc5223af058d412bf3f17f53cb151fc5c
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: e756ff0133e3d3f0f86ea2f592005f2f2986488e
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297630"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91707754"
 ---
 # <a name="monitor-media-services-diagnostic-logs"></a>Monitorar logs de diagnóstico dos serviços de mídia
 
@@ -39,7 +39,7 @@ Este artigo mostra como rotear dados para a conta de armazenamento e exibir os d
 1. Faça logon no Portal do Azure em https://portal.azure.com.
 1. Navegue até sua conta dos serviços de mídia no e clique em **configurações de diagnóstico** em **Monitor**. Veja aqui uma lista de todos os recursos em sua assinatura que produzem dados de monitoramento por meio do Azure Monitor.
 
-    ![Seção Configurações de diagnóstico](media/media-services-diagnostic-logs/logs01.png)
+    ![Captura de tela que realça as configurações de diagnóstico na seção monitoramento.](media/media-services-diagnostic-logs/logs01.png)
 
 1. Clique em **Adicionar configuração de diagnóstico**.
 
@@ -181,7 +181,7 @@ Talvez seja necessário aguardar até cinco minutos antes que o evento seja exib
 
 * O Widevine é um serviço fornecido pela Google Inc. e está sujeito aos termos de serviço e à política de privacidade da Google, Inc.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 * [Métricas do Azure Monitor](../../azure-monitor/platform/data-platform.md)
 * [Azure Monitor logs de diagnóstico](../../azure-monitor/platform/platform-logs-overview.md)

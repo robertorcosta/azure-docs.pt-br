@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
 ms.author: matd
-ms.openlocfilehash: 397dac67ea94db22829080a65dfae857bb3706dd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a35b4e398757cb3d4b17e4fd6a5e342fe3c82918
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87036923"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710372"
 ---
 # <a name="storsimple-as-a-backup-target-with-backup-exec"></a>O StorSimple como destino de backup com o Backup Exec
 
@@ -313,7 +313,7 @@ Veja esta exemplo de uma agenda de rotação GFS de quatro semanas, mensal e anu
 | Frequência/tipo de backup | Completo | Incremental (1 a 5 dias)  |   
 |---|---|---|
 | Semanal (1 a 4 semanas) | Sábado | Segunda a sexta-feira |
-| Mensal  | Sábado  |   |
+| Mensalmente  | Sábado  |   |
 | Anualmente | Sábado  |   |
 
 
@@ -387,7 +387,7 @@ A capacidade total do \* inclui 17 TiB de discos do StorSimple e 1 TiB de volume
 | Semana 2 | StorSimple semanas 2 a 4 |   |   |   |   |   |
 | Semana 3 | StorSimple semanas 2 a 4 |   |   |   |   |   |
 | Semana 4 | StorSimple semanas 2 a 4 |   |   |   |   |   |
-| Mensal | StorSimple mensal |   |   |   |   |   |
+| Mensalmente | StorSimple mensal |   |   |   |   |   |
 | Anualmente | StorSimple anual  |   |   |   |   |   |
 
 
@@ -409,15 +409,15 @@ A capacidade total do \* inclui 17 TiB de discos do StorSimple e 1 TiB de volume
 
 4.  Na lista suspensa de **Armazenamento**, selecione o volume StorSimple no qual você deseja que o trabalho de arquivamento armazene os dados.
 
-    ![Console de gerenciamento, propriedades de definição de backup e opções de duplicação do Backup Exec](./media/storsimple-configure-backup-target-using-backup-exec/image22.png)
+    ![Captura de tela que mostra a lista onde você precisa selecionar armazenamento.](./media/storsimple-configure-backup-target-using-backup-exec/image22.png)
 
 5.  Selecione **Verificar** e marque a caixa de seleção **Não verificar os dados para este trabalho**.
 
-    ![Console de gerenciamento, propriedades de definição de backup e opções de duplicação do Backup Exec](./media/storsimple-configure-backup-target-using-backup-exec/image23.png)
+    ![Captura de tela que mostra onde você seleciona a opção não verificar dados para este trabalho.](./media/storsimple-configure-backup-target-using-backup-exec/image23.png)
 
 6.  Selecione **OK**.
 
-    ![Console de gerenciamento, propriedades de definição de backup e opções de duplicação do Backup Exec](./media/storsimple-configure-backup-target-using-backup-exec/image24.png)
+    ![Captura de tela que mostra as propriedades de definição de backup.](./media/storsimple-configure-backup-target-using-backup-exec/image24.png)
 
 7.  Na coluna **Backup**, adicione um novo estágio. Para a fonte, use **incremental**. Para o destino, escolha o volume do StorSimple no qual o trabalho de backup está arquivado. Repita as etapas 1 a 6.
 

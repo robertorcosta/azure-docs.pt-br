@@ -1,17 +1,17 @@
 ---
 title: Log de auditoria-banco de dados do Azure para PostgreSQL-servidor único
 description: Conceitos para o log de auditoria do pgAudit no banco de dados do Azure para PostgreSQL-servidor único.
-author: rachel-msft
-ms.author: raagyema
+author: niklarin
+ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/28/2020
-ms.openlocfilehash: 165e7984c21b74fa7730fc02756b9e75b4b33aa7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: efd4cb7c0c5db50729539373938ebccd689dee42
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82131237"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708978"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---single-server"></a>Log de auditoria no banco de dados do Azure para PostgreSQL-servidor único
 
@@ -66,7 +66,7 @@ Depois de [instalar o pgAudit](#installing-pgaudit), você pode configurar seus 
 
 > [!NOTE]
 > Definir `pgaudit.log_client` como on redirecionará os logs para um processo de cliente (como psql) em vez de ser gravado no arquivo. Essa configuração deve ser deixada desabilitada. <br> <br>
-> `pgaudit.log_level`é habilitado somente quando o `pgaudit.log_client` está ativado.
+> `pgaudit.log_level` é habilitado somente quando o `pgaudit.log_client` está ativado.
 
 > [!NOTE]
 > No banco de dados do Azure para PostgreSQL, `pgaudit.log` não pode ser definido usando um `-` atalho de sinal (menos), conforme descrito na documentação do pgAudit. Todas as classes de instrução necessárias (LEITURA, GRAVAÇÃO etc.) devem ser especificadas individualmente.
@@ -74,7 +74,7 @@ Depois de [instalar o pgAudit](#installing-pgaudit), você pode configurar seus 
 ### <a name="audit-log-format"></a>Formato do log de auditoria
 Cada entrada de auditoria é indicada `AUDIT:` próximo ao início da linha de log. O formato do restante da entrada é detalhado na [documentação do pgAudit](https://github.com/pgaudit/pgaudit/blob/master/README.md#format).
 
-Se você precisar de outros campos para atender aos seus requisitos de auditoria, use o parâmetro postgres `log_line_prefix` . `log_line_prefix`é uma cadeia de caracteres que é saída no início de cada linha de log do Postgres. Por exemplo, a configuração a seguir `log_line_prefix` fornece timestamp, username, Database Name e Process ID:
+Se você precisar de outros campos para atender aos seus requisitos de auditoria, use o parâmetro postgres `log_line_prefix` . `log_line_prefix` é uma cadeia de caracteres que é saída no início de cada linha de log do Postgres. Por exemplo, a configuração a seguir `log_line_prefix` fornece timestamp, username, Database Name e Process ID:
 
 ```
 t=%m u=%u db=%d pid=[%p]:

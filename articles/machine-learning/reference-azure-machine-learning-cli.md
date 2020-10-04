@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 06/22/2020
 ms.custom: seodec18
-ms.openlocfilehash: 490ee6e0dea5f5106d8027c2a4c9c7b09bb81fd0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 50ac8ede9f8272d6956d1ac29e57a9c26d2c0bd9
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91307952"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708264"
 ---
 # <a name="install--use-the-cli-extension-for-azure-machine-learning"></a>Instalar e usar a extensão CLI do Azure Machine Learning
 
@@ -196,39 +196,39 @@ Gerenciar instâncias de computação.  Em todos os exemplos abaixo, o nome da i
     ```azurecli-interactive
     az ml computetarget create computeinstance  -n cpu -s "STANDARD_D3_V2" -v
     ```
-    
+
     Para obter mais informações, consulte [AZ ml computetarget Create computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-create-computeinstance).
 
 + Parar um computeinstance.
-    
+
     ```azurecli-interactive
     az ml computetarget stop computeinstance -n cpu -v
     ```
-    
+
     Para obter mais informações, consulte [AZ ml computetarget Stop computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-computeinstance-stop).
-    
+
 + Inicie um computeinstance.
-    
+
     ```azurecli-interactive
     az ml computetarget start computeinstance -n cpu -v
     ```
-    
+
     Para obter mais informações, consulte [AZ ml computetarget Start computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-computeinstance-start).
-    
+
 + Reinicie um computeinstance.
-    
+
     ```azurecli-interactive
     az ml computetarget restart computeinstance -n cpu -v
     ```
-    
+
     Para obter mais informações, consulte [AZ ml computetarget Restart computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-computeinstance-restart).
-    
+
 + Excluir um computeinstance.
-    
+
     ```azurecli-interactive
     az ml computetarget delete -n cpu -v
     ```
-    
+
     Para obter mais informações, consulte [AZ ml computetarget Delete computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-delete).
 
 

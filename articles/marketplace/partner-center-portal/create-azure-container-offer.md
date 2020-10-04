@@ -7,12 +7,12 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 06/17/2020
-ms.openlocfilehash: 12987ae687e9af59fdd71b3aa846612c947b9a90
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: cbaca0b9d608d7703beec559e5434f52308629ab
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89649267"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91709097"
 ---
 # <a name="create-an-azure-container-offer-in-azure-marketplace"></a>Criar uma oferta de contêiner do Azure no Azure Marketplace
 
@@ -80,10 +80,10 @@ Ao publicar sua oferta no marketplace comercial com o Partner Center, você pode
 
 Veja alguns recursos adicionais de gerenciamento de clientes potenciais:
 
-- [Visão geral do gerenciamento de clientes potenciais](commercial-marketplace-get-customer-leads.md)
-- [Perguntas frequentes sobre gerenciamento de leads](../lead-management-for-cloud-marketplace.md#frequently-asked-questions)
-- [Erros comuns de configuração de leads](../lead-management-for-cloud-marketplace.md#publishing-config-errors)
-- [Visão geral do gerenciamento de clientes potenciais](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) em PDF (desative seu bloqueador de pop-up)
+- [Vendas potenciais do cliente da sua oferta do marketplace comercial](commercial-marketplace-get-customer-leads.md)
+- [Perguntas comuns sobre o gerenciamento de vendas potenciais](../lead-management-faq.md#common-questions-about-lead-management)
+- [Solucionando problemas de erros de configuração de Lead](../lead-management-faq.md#publishing-config-errors)
+- PDF de [Visão geral do gerenciamento de clientes potenciais](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) (desative seu bloqueador de pop-ups).
 
 Selecione **Salvar rascunho** antes de continuar.
 
@@ -122,7 +122,7 @@ Para usar o contrato padrão, selecione o * * usar o contrato padrão do Marketp
 
 ##### <a name="your-own-terms-and-conditions"></a>Seus próprios termos e condições
 
-Para fornecer seus termos e condições personalizados, insira-os na caixa **Termos e condições**. É possível inserir uma quantidade ilimitada de caracteres de texto nessa caixa. Os clientes precisam aceitar esses termos antes de poderem experimentar sua oferta.
+Para fornecer seus termos e condições personalizados, insira-os na caixa **Termos e condições**. Você pode inserir um número ilimitado de caracteres de texto nesta caixa. Os clientes precisam aceitar esses termos antes de poderem experimentar sua oferta.
 
 Selecione **Salvar rascunho** antes de seguir para a próxima seção chamada Listagem de ofertas.
 
@@ -190,7 +190,7 @@ Para saber mais sobre a criação de listagens de ofertas, consulte [Práticas r
 
 Forneça logotipos e imagens para usar com sua oferta. O logotipo precisa estar no formato PNG. Imagens borradas serão rejeitadas.
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!Note]
 >Se você está enfrentando um problema ao carregar arquivos, verifique se sua rede local não bloqueia o serviço https://upload.xboxlive.com que é usado pelo Partner Center.
@@ -223,19 +223,19 @@ Os exemplos a seguir mostram como os campos da listagem de oferta aparecem em di
 
 Isso mostra a página **Listagem de oferta** no Azure Marketplace:
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-6-offer-listing-mkt-plc.png" alt-text="Ilustra a página Listagem de ofertas no Azure Marketplace." :::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-6-offer-listing-mkt-plc.png" alt-text="Ilustra a caixa de seleção Usar o Contrato Standard para o marketplace comercial da Microsoft." :::
 
 A imagem mostra os resultados da pesquisa no Azure Marketplace:
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-7-search-results-mkt-plc.png" alt-text="Ilustra os resultados da pesquisa no Azure Marketplace.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-7-search-results-mkt-plc.png" alt-text="Ilustra a caixa de seleção Usar o Contrato Standard para o marketplace comercial da Microsoft.":::
 
 A imagem mostra a página **Listagem de ofertas** no portal do Azure:
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-8-offer-listing-portal.png" alt-text="Ilustra a página Listagem de ofertas no portal do Azure.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-8-offer-listing-portal.png" alt-text="Ilustra a caixa de seleção Usar o Contrato Standard para o marketplace comercial da Microsoft.":::
 
 A imagem mostra os resultados da pesquisa no portal do Azure:
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-9-search-results-portal.png" alt-text="Ilustra os resultados da pesquisa no portal do Azure.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-9-search-results-portal.png" alt-text="Ilustra a caixa de seleção Usar o Contrato Standard para o marketplace comercial da Microsoft.":::
 
 ## <a name="preview"></a>Visualização
 
@@ -328,11 +328,11 @@ Os exemplos a seguir mostram como os campos de listagem de plano são exibidos e
 
 A imagem a seguir mostra os campos do Azure Marketplace ao exibir detalhes do plano:
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-10-plan-details-mtplc.png" alt-text="Ilustra os campos que são vistos ao exibir detalhes do plano no Azure Marketplace.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-10-plan-details-mtplc.png" alt-text="Ilustra a caixa de seleção Usar o Contrato Standard para o marketplace comercial da Microsoft.":::
 
 A imagem a seguir mostra os detalhes do plano no portal do Azure:
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-11-plan-details-portal.png" alt-text="Ilustra os detalhes do plano no portal do Azure.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-11-plan-details-portal.png" alt-text="Ilustra a caixa de seleção Usar o Contrato Standard para o marketplace comercial da Microsoft.":::
 
 ### <a name="plan-availability"></a>Disponibilidade do plano
 
@@ -363,11 +363,11 @@ Forneça as informações a seguir na guia **Detalhes do repositório de imagens
 
 **Nome de usuário do administrador para o registro de contêiner do Azure** – forneça o [nome de usuário do administrador](../../container-registry/container-registry-authentication.md#admin-account)) vinculado ao registro de contêiner do Azure que tem sua imagem de contêiner. O nome de usuário e a senha são obrigatórios para garantir que sua empresa tenha acesso ao registro. Para obter o nome de usuário do administrador e a senha, defina a propriedade **admin-enabled** como **True** usando a CLI (Interface de Linha de Comando) do Azure. Como opção, você pode definir **Usuário administrador** como **Habilitar** no portal do Azure.
 
- :::image type="content" source="media/azure-create-container-offer-images/azure-create-12-update-container-registry-edit.png" alt-text="Ilustra a caixa de diálogo Atualizar registro de contêiner.":::
+ :::image type="content" source="media/azure-create-container-offer-images/azure-create-12-update-container-registry-edit.png" alt-text="Ilustra a caixa de seleção Usar o Contrato Standard para o marketplace comercial da Microsoft.":::
 
 **Senha para o Registro de Contêiner do Azure** – forneça a senha para o nome de usuário do administrador que está associado ao Registro de Contêiner do Azure e tem sua imagem de contêiner. O nome de usuário e a senha são obrigatórios para garantir que sua empresa tenha acesso ao registro. Você pode obter a senha do portal do Azure acessando **Registro de Contêiner** > **Chaves de Acesso** ou com a CLI do Azure usando o [comando mostrar](https://docs.microsoft.com/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show).
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-13-access-keys.png" alt-text="Ilustra o menu Chave de Acesso.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-13-access-keys.png" alt-text="Ilustra a caixa de seleção Usar o Contrato Standard para o marketplace comercial da Microsoft.":::
 
 **Nome do repositório no Registro de Contêiner do Azure**. Forneça o nome do repositório do Registro de Contêiner do Azure que tem sua imagem. Inclua o nome do repositório quando enviar a imagem por push para o registro. Você pode encontrar o nome do repositório acessando a página [Registro de Contêiner](https://azure.microsoft.com/services/container-registry/) > **Repositórios**. Para obter mais informações, consulte [Exibir repositórios de registro de contêiner no portal do Azure](../../container-registry/container-registry-repositories.md).
 

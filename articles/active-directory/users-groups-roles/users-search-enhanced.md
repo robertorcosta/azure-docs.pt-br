@@ -10,27 +10,29 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 10/02/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e0c8e6fb3bab179483d03320e6d90ab712ec528
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: be0d428120f53a4edb9763199a78b0e50409b19a
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89493305"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708723"
 ---
 # <a name="user-management-enhancements-preview-in-azure-active-directory"></a>Aprimoramentos de gerenciamento de usuário (versão prévia) no Azure Active Directory
 
-Este artigo descreve como usar a visualização avançada do gerenciamento de usuário no portal do Azure Active Directory (AD do Azure). As páginas **todos os usuários** e **usuários excluídos** foram atualizadas para fornecer mais informações e facilitar a localização dos usuários. Para saber mais sobre versões prévias, consulte os [Termos de Uso Complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Este artigo descreve como usar a visualização de aprimoramentos de gerenciamento de usuário no portal do Azure Active Directory (AD do Azure). As páginas **todos os usuários** e **usuários excluídos** foram atualizadas para fornecer mais informações e facilitar a localização dos usuários. Para saber mais sobre versões prévias, consulte os [Termos de Uso Complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 As alterações na visualização incluem:
 
 - Mais propriedades de usuário visíveis, incluindo ID de objeto, status de sincronização de diretório, tipo de criação e emissor de identidade
 - A pesquisa agora permite a pesquisa combinada de nomes, emails e IDs de objeto
-- Filtragem aprimorada por tipo de usuário (membro e convidado), status de sincronização de diretório e tipo de criação
+- Filtragem aprimorada por tipo de usuário (membro, convidado, nenhum), status de sincronização de diretório, tipo de criação, nome da empresa e nome de domínio
+- Novos recursos de classificação em propriedades como nome e nome principal do usuário
+- Uma nova contagem total de usuários que é atualizada com pesquisas ou filtros
 
 > [!NOTE]
 > Esta versão prévia não está disponível no momento para locatários Azure AD B2C.
@@ -66,7 +68,7 @@ A seguir estão as propriedades do usuário exibidas na página **todos os usuá
 - Estado do convite: o status do convite para um usuário convidado.
 - Email: o email do usuário.
 
-   ![novas propriedades de usuário exibidas em todas as páginas usuários e usuários excluídos](./media/users-search-enhanced/user-properties.png)
+![novas propriedades de usuário exibidas em todas as páginas usuários e usuários excluídos](./media/users-search-enhanced/user-properties.png)
 
 ### <a name="deleted-users-page"></a>Página usuários excluídos
 
@@ -96,22 +98,36 @@ Os recursos de filtragem foram aprimorados para fornecer mais opções de filtra
 
 A seguir estão as propriedades filtráveis na página **todos os usuários** :
 
-- Tipo de usuário-membro ou convidado
-- Status sincronizado do diretório-Sim
-- Tipo de criação-convite, email verificado, conta local
+- Tipo de usuário: membro, convidado, nenhum
+- Status sincronizado do diretório: Sim, não
+- Tipo de criação: convite, email verificado, conta local
 - Estado do convite – aceitação pendente, aceito
-- Unidade administrativa – Selecione essa opção para restringir o escopo dos usuários exibidos a uma única unidade administrativa. Para obter mais informações, consulte [visualização de gerenciamento de unidades administrativas](directory-administrative-units.md).
+- Nome de domínio: Insira um nome de domínio
+- Nome da empresa: Insira um nome de empresa
+- Unidade administrativa: Selecione esta opção para restringir o escopo dos usuários exibidos a uma única unidade administrativa. Para obter mais informações, consulte [visualização de gerenciamento de unidades administrativas](directory-administrative-units.md).
 
-## <a name="filtering-deleted-users-list"></a>Filtrando a lista de usuários excluídos
+### <a name="filtering-deleted-users-list"></a>Filtrando a lista de usuários excluídos
 
 A página **usuários excluídos** tem filtros adicionais que não estão na página **todos os usuários** . A seguir estão as propriedades filtráveis na página **usuários excluídos** :
 
-- Tipo de usuário-membro ou convidado
-- Status sincronizado do diretório-Sim
-- Tipo de criação-convite, email verificado, conta local
-- Estado do convite – aceitação pendente, aceito
-- Data de exclusão – últimos 7, 14 ou 30 dias
-- Data de exclusão permanente-últimos 7, 14 ou 30 dias
+- Tipo de usuário: membro, convidado, nenhum
+- Status sincronizado do diretório: Sim, não
+- Tipo de criação: convite, email verificado, conta local
+- Estado do convite: aceitação pendente, aceita
+- Data de exclusão: últimos 7, 14 ou 30 dias
+- Nome de domínio: Insira um nome de domínio
+- Nome da empresa: Insira um nome de empresa
+- Data de exclusão permanente: últimos 7, 14 ou 30 dias
+
+## <a name="user-list-sorting"></a>Classificação da lista de usuários
+
+Agora você pode classificar por nome e nome principal de usuário nas páginas **todos os usuários** e **usuários excluídos** . Você também pode classificar por data de exclusão na lista de **usuários excluídos** .
+
+## <a name="user-list-counts"></a>Contagens de lista de usuários
+
+Você pode exibir o número total de usuários nas páginas **todos os usuários** e **usuários excluídos** . À medida que você pesquisa ou filtra as listas, a contagem é atualizada para refletir o número total de usuários encontrados.
+
+![Ilustração de contagens de lista de usuários na página todos os usuários](./media/users-search-enhanced/user-list-sorting.png)
 
 ## <a name="frequently-asked-questions-faq"></a>Perguntas frequentes (FAQ)
 
@@ -121,8 +137,6 @@ O que acontece com os recursos em massa para usuários e convidados? | As opera�
 O que aconteceu com a coluna de origem? | A coluna de **origem** foi substituída por outras colunas que fornecem informações semelhantes, permitindo que você filtre esses valores de forma independente. Os exemplos incluem o **tipo de criação**, o **diretório foi sincronizado** e o **emissor de identidade**.
 O que aconteceu com a coluna nome de usuário? | A coluna **nome de usuário** ainda está lá, mas foi renomeada como **nome principal do usuário**. Isso reflete melhor as informações contidas nessa coluna. Você também observará que o nome principal do usuário completo agora é exibido para convidados B2B. Isso corresponde ao que você obteria no MS Graph.  
 Por que só posso executar uma pesquisa "começa com" e não uma pesquisa "contém"? | Há algumas limitações que nos impedem de permitir que você execute uma pesquisa "contém". Ouvimos os comentários, então fique atento.
-Por que não posso classificar as colunas? | Há algumas limitações que nos impedem de permitir que você classifique as colunas. Ouvimos os comentários, então fique atento.
-Por que só posso filtrar a coluna **sincronizada do diretório** por Sim? | Há algumas limitações que nos impedem de permitir que você filtre essa propriedade pelo valor sem. Ouvimos os comentários, então fique atento.
 
 ## <a name="next-steps"></a>Próximas etapas
 

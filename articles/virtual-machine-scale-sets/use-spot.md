@@ -9,12 +9,12 @@ ms.subservice: spot
 ms.date: 03/25/2020
 ms.reviewer: jagaveer
 ms.custom: jagaveer, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: b5888000028ba87d503bb0bc690aad6628a51a37
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 61f82cf907ef861307a907f6cd2b9b13f043b9a0
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89072733"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91709036"
 ---
 # <a name="azure-spot-vms-for-virtual-machine-scale-sets"></a>VMs do Azure Spot para conjuntos de dimensionamento de máquinas virtuais 
 
@@ -163,8 +163,7 @@ Para excluir a instância depois que ela tiver sido removida, altere o parâmetr
 
 **P:**  O dimensionamento automático funciona com as políticas de remoção (deslocar e excluir)?
 
-**R:** Recomenda-se definir sua política de remoção para excluir ao usar o dimensionamento automático. Isso ocorre porque instâncias desalocadas são contadas em relação a sua capacidade de contagem no conjunto de dimensionamento. Ao usar o dimensionamento automático, você provavelmente atingirá sua contagem de instâncias de destino rapidamente devido a instâncias desalocadas, removidas. 
-
+**R:** Recomenda-se definir sua política de remoção para excluir ao usar o dimensionamento automático. Isso ocorre porque instâncias desalocadas são contadas em relação a sua capacidade de contagem no conjunto de dimensionamento. Ao usar o dimensionamento automático, você provavelmente atingirá sua contagem de instâncias de destino rapidamente devido a instâncias desalocadas, removidas. Além disso, suas operações de dimensionamento podem ser afetadas por remoções de spot. Por exemplo, instâncias de VMSS podem ficar abaixo da contagem mínima definida devido a várias remoções de spot durante operações de dimensionamento. 
 
 **P:** Quais canais dão suporte a VMs do Spot?
 

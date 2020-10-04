@@ -7,12 +7,12 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 08/07/2020
-ms.openlocfilehash: dc1e8bfa9b747b9933762af1b6a5b59cf8cd98de
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 5b823b0429feffa87a05faadc78574287bc9b4a4
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815769"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708332"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Criar uma oferta de módulo do IoT Edge
 
@@ -78,9 +78,9 @@ Ao publicar sua oferta no Marketplace com o Partner Center, você pode opcionalm
 
 Veja alguns recursos adicionais de gerenciamento de clientes potenciais:
 
-- [Visão geral do gerenciamento de clientes potenciais](commercial-marketplace-get-customer-leads.md)
-- [Perguntas frequentes sobre gerenciamento de leads](../lead-management-for-cloud-marketplace.md#frequently-asked-questions))
-- [Erros comuns de configuração de leads](../lead-management-for-cloud-marketplace.md#publishing-config-errors))
+- [Vendas potenciais do cliente da sua oferta do marketplace comercial](commercial-marketplace-get-customer-leads.md)
+- [Perguntas comuns sobre o gerenciamento de vendas potenciais](../lead-management-faq.md#common-questions-about-lead-management)
+- [Solucionando problemas de erros de configuração de Lead](../lead-management-faq.md#publishing-config-errors)
 - PDF de [Visão geral do gerenciamento de clientes potenciais](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) (desative seu bloqueador de pop-ups).
 
 Selecione **Salvar rascunho** antes de continuar.
@@ -194,7 +194,7 @@ Para saber mais sobre a criação de listagens de ofertas, confira [Melhores pr�
 
 Forneça logotipos e imagens para usar com sua oferta. O logotipo precisa estar no formato PNG. Imagens borradas serão rejeitadas.
 
-[!INCLUDE [logostips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!Note]
 >Se você está enfrentando um problema ao carregar arquivos, verifique se sua rede local não bloqueia o serviço https://upload.xboxlive.com que é usado pelo Partner Center.
@@ -242,7 +242,7 @@ Aqui está um exemplo de como as informações de oferta são exibidas no Azure 
 
 <br>Aqui está um exemplo de como as informações de oferta são exibidas nos resultados da pesquisa do Azure Marketplace:
 
-:::image type="content" source="media/example-iot-azure-marketplace-offer-search-results.png" alt-text="Ilustra como essa oferta aparece nos resultados da pesquisa do Azure Marketplace.":::
+:::image type="content" source="media/example-iot-azure-marketplace-offer-search-results.png" alt-text="Ilustra como essa oferta aparece no Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Descrições de chamada
 
@@ -252,7 +252,7 @@ Aqui está um exemplo de como as informações de oferta são exibidas no Azure 
 
 <br>Aqui está um exemplo de como as informações de oferta são exibidas no portal do Azure:
 
-:::image type="content" source="media/example-iot-azure-portal-offer.png" alt-text="Ilustra como essa oferta aparece na portal do Azure.":::
+:::image type="content" source="media/example-iot-azure-portal-offer.png" alt-text="Ilustra como essa oferta aparece no Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Descrições de chamada
 
@@ -263,7 +263,7 @@ Aqui está um exemplo de como as informações de oferta são exibidas no Azure 
 
 <br>Aqui está um exemplo de como as informações de oferta são exibidas nos resultados da pesquisa portal do Azure:
 
-:::image type="content" source="media/example-iot-azure-portal-offer-search-results.png" alt-text="Ilustra como essa oferta aparece nos portal do Azure resultados da pesquisa.":::
+:::image type="content" source="media/example-iot-azure-portal-offer-search-results.png" alt-text="Ilustra como essa oferta aparece no Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Descrições de chamada
 
@@ -362,7 +362,7 @@ Selecione **Salvar rascunho** depois de preencher esses campos.
 
 Aqui está um exemplo de detalhes do plano do Azure Marketplace (os preços listados são apenas para fins de exemplo e não têm a finalidade de refletir os custos reais):
 
-:::image type="content" source="media/example-iot-azure-marketplace-plan.png" alt-text="Ilustra os detalhes do plano do Azure Marketplace.":::
+:::image type="content" source="media/example-iot-azure-marketplace-plan.png" alt-text="Ilustra como essa oferta aparece no Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Descrições de chamada
 
@@ -372,7 +372,7 @@ Aqui está um exemplo de detalhes do plano do Azure Marketplace (os preços list
 
 <br>Aqui está um exemplo dos detalhes do plano de portal do Azure (todos os preços listados são apenas para fins de exemplo e não têm a finalidade de refletir os custos reais):
 
-:::image type="content" source="media/example-iot-azure-marketplace-plan-details.png" alt-text="Ilustra os detalhes do plano de portal do Azure.":::
+:::image type="content" source="media/example-iot-azure-marketplace-plan-details.png" alt-text="Ilustra como essa oferta aparece no Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Descrições de chamada
 
@@ -393,7 +393,7 @@ Esse campo será usado normalmente se:
 
 ## <a name="technical-configuration"></a>Configuração técnica
 
-O tipo de oferta de **módulo do IoT Edge** é um tipo específico de contêiner em execução em um dispositivo do IoT Edge. Na guia **Configuração Técnica**, você fornecerá informações de referência para o repositório de imagens de contêiner dentro do [Registro de Contêiner do Azure](https://azure.microsoft.com/services/container-registry/), juntamente com as definições de configuração que permitem que os clientes usem o módulo facilmente.
+O tipo de oferta de **módulo do IoT Edge** é um tipo específico de contêiner em execução em um dispositivo do IoT Edge. Na guia **configuração técnica** , você fornecerá informações de referência para o repositório de imagens de contêiner dentro do [registro de contêiner do Azure](https://azure.microsoft.com/services/container-registry/), juntamente com as definições de configuração que permitem que os clientes usem o módulo facilmente.
 
 Assim que a oferta for publicada, a imagem de contêiner do IoT Edge será copiada para o Azure Marketplace em um registro de contêiner público específico. Todas as solicitações de usuários do Azure para usar seu módulo serão atendidas do registro de contêiner público do Azure Marketplace e não no seu registro de contêiner privado.
 
@@ -413,7 +413,7 @@ Você fornecerá as informações a seguir na guia **Detalhes do repositório de
 
 **Nome de usuário do administrador para o registro de contêiner do Azure**: forneça o [nome de usuário do administrador](../../container-registry/container-registry-authentication.md#admin-account)associado ao registro de contêiner do Azure que tem sua imagem de contêiner. O nome de usuário e a senha são obrigatórios para garantir que sua empresa tenha acesso ao registro. Para obter o nome de usuário do administrador e a senha, defina a propriedade **admin-enabled** como **True** usando a CLI (interface de linha de comando) do Azure. Opcionalmente, você pode definir **Usuário administrador** como **Habilitar** no portal do Azure.
 
-:::image type="content" source="media/example-iot-update-container-registry.png" alt-text="Ilustra a caixa de diálogo Atualizar registro de contêiner.":::
+:::image type="content" source="media/example-iot-update-container-registry.png" alt-text="Ilustra como essa oferta aparece no Azure Marketplace.":::
 
 #### <a name="call-out-description"></a>Descrição de chamada
 
@@ -421,7 +421,7 @@ Você fornecerá as informações a seguir na guia **Detalhes do repositório de
 
 <br>**Senha para o Registro de Contêiner do Azure**: forneça a senha para o nome de usuário do administrador que está associado ao Registro de Contêiner do Azure e tem sua imagem de contêiner. O nome de usuário e a senha são obrigatórios para garantir que sua empresa tenha acesso ao Registro. Você pode obter a senha do portal do Azure acessando **Registro de Contêiner** > **Chaves de Acesso** ou com a CLI do Azure usando o [comando mostrar](https://docs.microsoft.com/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show).
 
-:::image type="content" source="media/example-iot-access-keys.png" alt-text="Ilustra a tela de chave de acesso na portal do Azure.":::
+:::image type="content" source="media/example-iot-access-keys.png" alt-text="Ilustra como essa oferta aparece no Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Descrições de chamada
 
@@ -429,7 +429,7 @@ Você fornecerá as informações a seguir na guia **Detalhes do repositório de
 2. Nome de Usuário
 3. Senha
 
-**Nome do repositório no Registro de Contêiner do Azure**. Forneça o nome do repositório do Registro de Contêiner do Azure que tem sua imagem. Você especifica o nome do repositório quando envia a imagem por push para o registro. Você pode encontrar o nome do repositório acessando a página [Registro de Contêiner](https://azure.microsoft.com/services/container-registry/) > **Repositórios**. Para obter mais informações, confira [Exibir repositórios de registro de contêiner no portal do Azure](../../container-registry/container-registry-repositories.md). Observe que, após definir o nome, ele não poderá ser alterado. Use um nome exclusivo para cada oferta presente em sua conta.
+**Nome do repositório no Registro de Contêiner do Azure**. Forneça o nome do repositório do Registro de Contêiner do Azure que tem sua imagem. Você especifica o nome do repositório quando envia a imagem por push para o registro. Você pode encontrar o nome do repositório acessando a página [Registro de Contêiner](https://azure.microsoft.com/services/container-registry/) > **Repositórios**. Para obter mais informações, confira [Exibir repositórios de registro de contêiner no portal do Azure](../../container-registry/container-registry-repositories.md). Depois de definir o nome, ele não poderá mais ser alterado. Use um nome exclusivo para cada oferta presente em sua conta.
 
 ### <a name="image-tags-for-new-versions-of-your-offer"></a>Tags de imagem para novas versões da sua oferta
 
@@ -466,7 +466,7 @@ Por exemplo, se um módulo precisar aceitar termos de uso antes de ser iniciado,
 - Nome n.° 1: ACCEPT_EULA
 - Valor n.° 1: S
 
-**Opções de criação de contêiner padrão**. As opções de criação de contêiner direcionam a criação do contêiner do Docker do módulo do IoT Edge. O IoT Edge é compatível com as opções de criação de contêiner de API do mecanismo do Docker. Veja todas as opções em [Listar os contêineres.](https://docs.docker.com/engine/api/v1.30/#operation/ContainerList) O campo de opções de criação deve ser um JSON válido, sem escape e com menos de 512 caracteres.
+**Opções de criação de contêiner padrão**. As opções de criação de contêiner direcionam a criação do contêiner do Docker do módulo do IoT Edge. O IoT Edge é compatível com as opções de criação de contêiner de API do mecanismo do Docker. Veja todas as opções em [Listar os contêineres.](https://docs.docker.com/engine/api/v1.30/#operation/ContainerList) O campo de opções de criação deve ser JSON válido, sem escape e menos de 512 caracteres.
 
 Por exemplo, se um módulo exigir associação a uma porta, defina as seguintes opções de criação:
 

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2020
-ms.openlocfilehash: 382a6056076179be0d25e0fee0d55b978a3b7169
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 1d75e0d9f57aee495524e2d35231dd3c78cedea1
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89420431"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708111"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Como planejar uma oferta de SaaS para o Marketplace comercial
 
@@ -57,7 +57,7 @@ As opções de listagem _obter agora (gratuito)_, _avaliação gratuita_e _vende
 
 Esses requisitos técnicos adicionais se aplicam apenas à opção de listagem _vender por meio da Microsoft_ (de transações):
 
-- O Azure AD com gerenciamento de identidade e autenticação de SSO (logon único) é necessário. Para obter diretrizes detalhadas, consulte [Azure AD e ofertas de SaaS transactáveis no Marketplace comercial](azure-ad-saas.md).
+- O Azure AD com autenticação e gerenciamento de identidade de SSO (logon único) é necessário para que o usuário de compra acesse a página de aterrissagem. Para obter diretrizes detalhadas, consulte [Azure AD e ofertas de SaaS transactáveis no Marketplace comercial](azure-ad-saas.md).
 - Você deve usar as [APIs de preenchimento de SaaS](./partner-center-portal/pc-saas-fulfillment-api-v2.md) para integrar com o Azure Marketplace e Microsoft AppSource. Você precisa expor um serviço que pode interagir com a assinatura de SaaS para criar, atualizar e excluir uma conta de usuário e um plano de serviço. As alterações críticas na API devem ter suporte em até 24 horas. As alterações não críticas de API serão lançadas periodicamente. Os diagramas e explicações detalhadas que descrevem o uso dos campos coletados estão disponíveis na documentação para as [APIs](./partner-center-portal/pc-saas-fulfillment-api-v2.md).
 - Você deve criar pelo menos um plano para sua oferta. Seu plano é cobrado com base no modelo de preços selecionado antes da publicação: _taxa fixa_ ou _por usuário_. Mais detalhes sobre os [planos](#plans) são fornecidos posteriormente neste artigo.
 - O cliente pode cancelar sua oferta a qualquer momento.
@@ -100,7 +100,7 @@ Você pode optar por habilitar um test drive para seu aplicativo SaaS. As unidad
 
 Você deve conectar sua oferta ao seu sistema de gerenciamento de relacionamento com o cliente (CRM) para coletar informações do cliente. Será solicitado ao cliente que forneça permissão para compartilhar as respectivas informações. Esses detalhes do cliente, juntamente com o nome da oferta, a ID e a loja online onde encontraram sua oferta, serão enviados para o sistema CRM que você configurou. O Marketplace comercial dá suporte a uma variedade de sistemas CRM, juntamente com a opção de usar uma tabela do Azure ou configurar um ponto de extremidade HTTPS usando a automatização de energia.
 
-Você pode adicionar ou modificar uma conexão do CRM a qualquer momento durante ou após a criação da oferta. Para obter diretrizes detalhadas, consulte [Gerenciamento de leads para o Marketplace comercial](lead-management-for-cloud-marketplace.md).
+Você pode adicionar ou modificar uma conexão do CRM a qualquer momento durante ou após a criação da oferta. Para obter diretrizes detalhadas, confira [leads do cliente de sua oferta do Marketplace comercial](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
 ## <a name="selecting-an-online-store"></a>Selecionando uma loja online
 
@@ -141,7 +141,7 @@ O exemplo a seguir mostra uma listagem de oferta no portal do Azure.
 
 **Descrições de chamada**
 
-1. Title
+1. Título
 1. Descrição
 1. Links úteis
 1. Capturas de tela
@@ -194,7 +194,7 @@ Para ajudar a criar sua oferta com mais facilidade, prepare alguns desses itens 
 Um público de visualização pode acessar sua oferta antes de ser publicado em lojas online para testar a funcionalidade de ponta a ponta antes de você publicá-la em tempo real. Na página do **público de visualização** , você pode definir um público de visualização limitado. Essa configuração não estará disponível se você optar por processar as transações de forma independente, em vez de vender sua oferta pela Microsoft. Nesse caso, você pode ignorar esta seção e ir para [oportunidades de vendas adicionais](#additional-sales-opportunities).
 
 > [!NOTE]
-> Um público de visualização difere de um plano privado. Um plano privado é aquele que você disponibiliza apenas para um público específico que escolher. Isso permite que você negocie um plano personalizado com clientes específicos. Para obter mais detalhes, consulte a próxima seção: planos.
+> Um público de visualização difere de um plano privado. Um plano privado é aquele que você disponibiliza apenas para um público específico que escolher. Isso permite que você negocie um plano personalizado com clientes específicos. Para obter mais informações, consulte a próxima seção: planos.
 
 Você pode enviar convites para endereços de email da MSA (conta da Microsoft) ou do Azure Active Directory (Azure AD). Adicione até 10 endereços de email manualmente ou importe até 20 com um arquivo. csv. Se sua oferta já estiver ativa, você ainda poderá definir um público de visualização para testar quaisquer alterações ou atualizações na sua oferta.
 

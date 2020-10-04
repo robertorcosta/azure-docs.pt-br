@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: harahma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2e14995b92e99e1a9695f81fb71bcab6dd62303a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5f3f6238bb72704d13fef4a7171aeaebee5f9141
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011660"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708689"
 ---
 # <a name="azure-service-fabric-hosting-model"></a>Modelo de hospedagem do Microsoft Azure Service Fabric
 Este artigo fornece uma visão geral dos modelos de hospedagem de aplicativos fornecidos pelo Microsoft Azure Service Fabric e descreve as diferenças entre os modelos de **Processo Compartilhado** e **Processo Exclusivo**. Ele descreve a aparência de um aplicativo implantado em um nó do Service Fabric e a relação entre réplicas (ou instâncias) do serviço e o processo de host de serviço.
@@ -30,19 +30,19 @@ Para reconhecer o modelo de hospedagem, vamos percorrer um exemplo. Digamos que 
 Vamos supor que temos um cluster de 3 nós e que criamos um *aplicativo* **fabric:/App1** do tipo “MyAppType”. Nesse aplicativo **fabric:/App1**, criamos um serviço **fabric:/App1/ServiceA** do tipo 'MyServiceType'. Esse serviço tem duas partições (por exemplo, **P1** e **P2**) e três réplicas por partição. O diagrama a seguir mostra a exibição desse aplicativo ao final de sua implantação em um nó.
 
 
-![Diagrama da exibição do nó do aplicativo implantado][node-view-one]
+![Diagrama que mostra a exibição desse aplicativo à medida que ele acaba sendo implantado em um nó.][node-view-one]
 
 
 O Service Fabric ativou “MyServicePackage”, que iniciou “MyCodePackage”, que está hospedando réplicas de ambas as partições. Todos os nós do cluster têm a mesma exibição, porque escolhemos o número de réplicas por partição para ser igual ao número de nós no cluster. Vamos criar outro serviço, **fabric:/App1/ServiceB**, no aplicativo **fabric:/App1**. Esse serviço tem uma partição (por exemplo, **P3**) e três réplicas por partição. O seguinte diagrama mostra a nova exibição do nó:
 
 
-![Diagrama da exibição do nó do aplicativo implantado][node-view-two]
+![Diagrama que mostra a nova exibição no nó.][node-view-two]
 
 
 O Service Fabric colocou a nova réplica da partição **P3** do serviço **fabric:/App1/ServiceB** na ativação existente de “MyServicePackage”. Agora. vamos criar outro aplicativo **fabric:/App2** do tipo 'MyAppType'. No **fabric:/App2**, crie um serviço **fabric:/App2/ServiceA**. Esse serviço tem duas partições (**P4** e **P5**) e três réplicas por partição. O diagrama a seguir mostra a nova exibição do nó:
 
 
-![Diagrama da exibição do nó do aplicativo implantado][node-view-three]
+![Diagrama que mostra a nova exibição de nó.][node-view-three]
 
 
 O Service Fabric ativa uma nova cópia de “MyServicePackage”, que inicia uma nova cópia de “MyCodePackage”. As réplicas de ambas as partições do serviço **fabric:/App2/ServiceA** (**P4** e **P5**) são colocadas nesta nova cópia 'MyCodePackage'.
@@ -157,7 +157,7 @@ Agora, vamos supor que criamos um aplicativo **fabric:/SpecialApp**. No **fabric
 Em um determinado nó, os dois serviços têm duas réplicas cada. Como usamos o modelo de Processo Exclusivo para criar os serviços, o Service Fabric ativa uma nova cópia de 'MyServicePackage' para cada réplica. Cada ativação de 'MultiTypeServicePackage' inicia uma cópia de 'MyCodePackageA' e 'MyCodePackageB'. No entanto, apenas 'MyCodePackageA' ou 'MyCodePackageB' hospeda a réplica para a qual 'MultiTypeServicePackage' foi ativado. O diagrama a seguir mostra a exibição do nó:
 
 
-![Diagrama da exibição do nó do aplicativo implantado][node-view-five]
+![Diagrama que mostra a exibição de nó.][node-view-five]
 
 
 Na ativação de 'MultiTypeServicePackage' para a réplica da partição **P1** do serviço **fabric:/SpecialApp/ServiceA**, 'MyCodePackageA' está hospedando a réplica. 'MyCodePackageB' está em execução. Da mesma forma, na ativação de 'MultiTypeServicePackage' para a réplica da partição **P3** do serviço **fabric:/SpecialApp/ServiceB**, 'MyCodePackageB' está hospedando a réplica. 'MyCodePackageA' está em execução. Portanto, quanto maior o número de *CodePackages* (registrando diferentes *ServiceTypes*) por *ServicePackage*, maior será o uso de recursos redundantes. 

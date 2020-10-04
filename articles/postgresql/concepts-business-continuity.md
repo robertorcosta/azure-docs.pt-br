@@ -1,17 +1,17 @@
 ---
 title: Continuidade dos negócios-banco de dados do Azure para PostgreSQL-servidor único
 description: Este artigo descreve a continuidade dos negócios (restauração pontual, data center interrupção, restauração geográfica, réplicas) ao usar o banco de dados do Azure para PostgreSQL.
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/07/2020
-ms.openlocfilehash: 75cd86bd1587a9294caef00efdf973fe8a26c150
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 6bcb1ea6c16fd387dfb7f15f909d1908c20a44d7
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89612025"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710899"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Visão geral da continuidade de negócios com o banco de dados do Azure para PostgreSQL-servidor único
 
@@ -19,16 +19,20 @@ Esta visão geral descreve os recursos que o Banco de Dados do Azure para Postgr
 
 ## <a name="features-that-you-can-use-to-provide-business-continuity"></a>Recursos que podem ser utilizados para fornecer continuidade dos negócios
 
-O Banco de Dados do Azure para PostgreSQL fornece recursos de continuidade dos negócios que incluem backups automatizados e a capacidade dos usuários iniciarem a restauração geográfica. Cada um possui características diferentes para ERT (Tempo de Recuperação Estimado) e potencial perda de dados. O tempo de recuperação estimado (ERT) é a duração estimada para o banco de dados ser totalmente funcional após uma solicitação de restauração/failover. Após compreender essas opções, você poderá escolher entre elas e utilizá-las para diferentes cenários. Na medida em que você desenvolve o plano de continuidade dos negócios, será necessário entender qual é o tempo máximo aceitável antes que o aplicativo recupere-se completamente após o evento interruptivo - esse é o RTO (Objetivo do Tempo de Recuperação). Além disso, será necessário entender a quantidade máxima de atualizações de dados recentes (intervalo de tempo) que o aplicativo poderá tolerar perder durante a recuperação após um evento interruptivo - esse é o RPO (Objetivo de Ponto de Recuperação).
+Na medida em que você desenvolve o plano de continuidade dos negócios, será necessário entender qual é o tempo máximo aceitável antes que o aplicativo recupere-se completamente após o evento interruptivo - esse é o RTO (Objetivo do Tempo de Recuperação). Além disso, será necessário entender a quantidade máxima de atualizações de dados recentes (intervalo de tempo) que o aplicativo poderá tolerar perder durante a recuperação após um evento interruptivo - esse é o RPO (Objetivo de Ponto de Recuperação).
 
-A tabela a seguir compara o ERT e o RPO para os recursos disponíveis:
+O banco de dados do Azure para PostgreSQL fornece recursos de continuidade de negócios que incluem backups com redundância geográfica com a capacidade de iniciar a restauração geográfica e a implantação de réplicas de leitura em uma região diferente. Cada uma tem características diferentes para o tempo de recuperação e a potencial perda de dados. Com o recurso de [restauração geográfica](concepts-backup.md) , um novo servidor é criado usando os dados de backup replicados de outra região. O tempo geral necessário para restaurar e recuperar depende do tamanho do banco de dados e da quantidade de logs a serem recuperados. O tempo geral para estabelecer o servidor varia de alguns minutos a algumas horas. Com [réplicas de leitura](concepts-read-replicas.md), os logs de transações do primário são transmitidos de forma assíncrona para a réplica. A latência entre o primário e a réplica depende da latência entre os sites e também da quantidade de dados a serem transmitidos. No caso de uma falha de site primário, como falha de zona de disponibilidade, promover a réplica fornece um RTO mais curto e menor perda de dados. 
+
+A tabela a seguir compara RTO e RPO em um cenário típico:
 
 | **Recurso** | **Basic** | **Uso Geral** | **Memória otimizada** |
 | :------------: | :-------: | :-----------------: | :------------------: |
 | Recuperação Pontual do backup | Qualquer ponto de restauração dentro do período de retenção | Qualquer ponto de restauração dentro do período de retenção | Qualquer ponto de restauração dentro do período de retenção |
-| Restauração geográfica de backups replicados geograficamente | Sem suporte | ERT < 12 h<br/>RPO < 1 h | ERT < 12 h<br/>RPO < 1 h |
+| Restauração geográfica de backups replicados geograficamente | Sem suporte | RTO – varia <br/>RPO < 1 h | RTO – varia <br/>RPO < 1 h |
+| Réplicas de leitura | RTO-minutos <br/>RPO < 5 min | RTO-minutos <br/>RPO < 5 min| RTO-minutos <br/>RPO < 5 min|
 
-Você também pode considerar o uso de [réplicas de leitura](concepts-read-replicas.md).
+> [!IMPORTANT]
+> O RTO e RPO esperado mencionados aqui são apenas para fins de referência. Nenhum SLA é oferecido para essas métricas.
 
 ## <a name="recover-a-server-after-a-user-or-application-error"></a>Recuperar um servidor após um erro de aplicativo ou usuário
 

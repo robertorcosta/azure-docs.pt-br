@@ -1,17 +1,17 @@
 ---
 title: Backup e restauração-portal do Azure-banco de dados do Azure para PostgreSQL-servidor único
 description: Este artigo descreve como restaurar um servidor no banco de dados do Azure para PostgreSQL-servidor único usando o portal do Azure.
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 6/30/2020
-ms.openlocfilehash: 9ff62a568af4f60318ba0e5bdf2144bb43c9d2b1
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: debdbf6e08af7b9005336231abd6c998a871c525
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90884308"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708077"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Como fazer backup e restaurar um servidor no banco de dados do Azure para PostgreSQL-servidor único usando o portal do Azure
 
@@ -37,7 +37,7 @@ O período de retenção de backup de um servidor pode ser alterado por meio das
 2. Selecione seu servidor de Banco de Dados do Azure para PostgreSQL. Essa ação abre a página **Visão geral** do runbook.
 3. Selecione **Tipo de Preço** no menu, em **CONFIGURAÇÕES**. Usando o controle deslizante, você pode alterar o **Período de Retenção de Backup** entre 7 e 35 dias, conforme a sua preferência.
 Na captura de tela abaixo, ele foi aumentado para 34 dias.
-:::image type="content" source="./media/howto-restore-server-portal/3-increase-backup-days.png" alt-text="Período de retenção de backup aumentado":::
+:::image type="content" source="./media/howto-restore-server-portal/3-increase-backup-days.png" alt-text="Tipo de preço - Escolher redundância de backup":::
 
 4. Clique em **OK** para confirmar a alteração.
 
@@ -53,11 +53,11 @@ As etapas a seguir restauram o exemplo de servidor para um ponto anterior:
 
 2. Na barra de ferramentas da página **Visão geral** do servidor, selecione **Restaurar**.
 
-   :::image type="content" source="./media/howto-restore-server-portal/2-server.png" alt-text="Banco de Dados do Azure para PostgreSQL - Visão geral - botão Restaurar":::
+   :::image type="content" source="./media/howto-restore-server-portal/2-server.png" alt-text="Tipo de preço - Escolher redundância de backup":::
 
 3. Preencha o formulário Restaurar com as informações necessárias:
 
-   :::image type="content" source="./media/howto-restore-server-portal/3-restore.png" alt-text="Banco de Dados do Azure para PostgreSQL - Informações de restauração":::
+   :::image type="content" source="./media/howto-restore-server-portal/3-restore.png" alt-text="Tipo de preço - Escolher redundância de backup":::
    - **Ponto de restauração**: selecione o ponto para o qual você deseja restaurar.
    - **Servidor de destino**: forneça um nome para o novo servidor.
    - **Local**: não é possível selecionar a região. Por padrão, é o mesmo que o servidor de origem.
@@ -77,17 +77,17 @@ Se você configurou seu servidor para backups com redundância geográfica, um n
 
 1. Selecione o botão **Criar um recurso** (+) no canto superior esquerdo do portal. Selecione **Bancos de Dados** > **Banco de Dados do Azure para PostgreSQL**.
 
-   :::image type="content" source="./media/howto-restore-server-portal/1-navigate-to-postgres.png" alt-text="Navegue até o banco de dados do Azure para PostgreSQL.":::
+   :::image type="content" source="./media/howto-restore-server-portal/1-navigate-to-postgres.png" alt-text="Tipo de preço - Escolher redundância de backup":::
 
 2. Selecione a opção de implantação **Servidor único**.
 
-   :::image type="content" source="./media/howto-restore-server-portal/2-select-deployment-option.png" alt-text="Selecione banco de dados do Azure para PostgreSQL-opção de implantação de servidor único.":::
+   :::image type="content" source="./media/howto-restore-server-portal/2-select-deployment-option.png" alt-text="Tipo de preço - Escolher redundância de backup":::
  
 3. Forneça a assinatura, o grupo de recursos e o nome do novo servidor. 
 
 4. Selecione **backup** como a **fonte de dados**. Essa ação carrega um menu suspenso que fornece uma lista de servidores que têm backups com redundância geográfica habilitada.
    
-   :::image type="content" source="./media/howto-restore-server-portal/4-geo-restore.png" alt-text="Selecione a fonte de dados.":::
+   :::image type="content" source="./media/howto-restore-server-portal/4-geo-restore.png" alt-text="Tipo de preço - Escolher redundância de backup":::
     
    > [!NOTE]
    > Quando um servidor é criado pela primeira vez, talvez não fique imediatamente disponível para restauração geográfica. Pode demorar algumas horas para que os metadados necessários sejam preenchidos.
@@ -95,21 +95,21 @@ Se você configurou seu servidor para backups com redundância geográfica, um n
 
 5. Selecione o menu suspenso **backup** .
    
-   :::image type="content" source="./media/howto-restore-server-portal/5-geo-restore-backup.png" alt-text="Selecione lista suspensa de backup.":::
+   :::image type="content" source="./media/howto-restore-server-portal/5-geo-restore-backup.png" alt-text="Tipo de preço - Escolher redundância de backup":::
 
 6. Selecione o servidor de origem do qual restaurar.
    
-   :::image type="content" source="./media/howto-restore-server-portal/6-select-backup.png" alt-text="Selecione backup.":::
+   :::image type="content" source="./media/howto-restore-server-portal/6-select-backup.png" alt-text="Tipo de preço - Escolher redundância de backup":::
 
 7. O servidor usará como padrão os valores para o número de **vCores**, o **período de retenção de backup**, a opção de redundância de **backup**, a **versão do mecanismo**e **as credenciais de administrador**. Selecione **Continuar**. 
    
-   :::image type="content" source="./media/howto-restore-server-portal/7-accept-backup.png" alt-text="Continue com o backup.":::
+   :::image type="content" source="./media/howto-restore-server-portal/7-accept-backup.png" alt-text="Tipo de preço - Escolher redundância de backup":::
 
 8. Preencha o restante do formulário com suas preferências. Você pode selecionar qualquer **Local**.
 
     Depois de selecionar o local, você pode selecionar **Configurar servidor** para atualizar **a geração de computação** (se disponível na região que você escolheu), o número de **VCores**, o período de retenção de **backup**e a opção de **redundância de backup**. Não há suporte para a alteração do **Tipo de Preço** (Básico, Uso Geral ou Otimizado para Memória) ou do tamanho de **Armazenamento** durante a restauração.
 
-   :::image type="content" source="./media/howto-restore-server-portal/8-create.png" alt-text="Preencher formulário."::: 
+   :::image type="content" source="./media/howto-restore-server-portal/8-create.png" alt-text="Tipo de preço - Escolher redundância de backup"::: 
 
 9. Selecione **Revisar + criar** para revisar suas seleções. 
 

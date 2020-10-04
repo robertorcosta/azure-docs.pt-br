@@ -1,17 +1,17 @@
 ---
 title: Análise de Desempenho de Consultas-banco de dados do Azure para PostgreSQL-servidor único
 description: Este artigo descreve o recurso Análise de Desempenho de Consultas no banco de dados do Azure para PostgreSQL-servidor único.
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: a7573e99de96e3d13509056c49bc24be7fe166bf
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: babf2c8208732a194184549dfa5ed3228b376d0f
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906528"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710253"
 ---
 # <a name="query-performance-insight"></a>Análise de Desempenho de Consultas 
 
@@ -40,7 +40,7 @@ A tabela abaixo do gráfico contém mais detalhes sobre as consultas de execuç�
 
 Selecione a guia das **Estatísticas de Espera** guia para exibir as visualizações correspondentes em espera no servidor.
 
-:::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png" alt-text="Estatísticas de esperas de Análise de Desempenho de Consultas":::
+:::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png" alt-text="Consultas de execução longa da Análise de Desempenho de Consultas":::
 
 ## <a name="considerations"></a>Considerações
 * Análise de Desempenho de Consultas não está disponível para [réplicas de leitura](concepts-read-replicas.md).

@@ -4,14 +4,14 @@ description: Problemas comuns com Azure Monitor alertas de métrica e possíveis
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 09/14/2020
+ms.date: 10/04/2020
 ms.subservice: alerts
-ms.openlocfilehash: f9003aa7b9b2c28e443485484ccd4eb50fa6e0dd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1280529aa758194dbd02196d71a715310431a73b
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91294218"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710287"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Solucionando problemas em alertas de métrica Azure Monitor 
 
@@ -76,6 +76,9 @@ Para obter mais informações sobre como coletar dados do sistema operacional co
 > [!NOTE] 
 > Se você configurou as métricas de convidado a serem enviadas para um espaço de trabalho Log Analytics, as métricas serão exibidas no recurso de espaço de trabalho Log Analytics e começarão a mostrar dados **somente** após a criação de uma regra de alerta que as monitore. Para isso, siga as etapas para [configurar um alerta de métrica para os logs](./alerts-metric-logs.md#configuring-metric-alert-for-logs).
 
+> [!NOTE] 
+> O monitoramento de uma métrica de convidado para várias máquinas virtuais com uma única regra de alerta não tem suporte dos alertas de métrica no momento. Você pode conseguir isso com uma [regra de alerta de log](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log). Para fazer isso, verifique se as métricas de convidado são coletadas para um espaço de trabalho Log Analytics e crie uma regra de alerta de log no espaço de trabalho.
+
 ## <a name="cant-find-the-metric-to-alert-on"></a>Não é possível encontrar a métrica para alertar
 
 Se você estiver procurando alerta em uma métrica específica, mas não puder ver nenhuma métrica para o recurso, [Verifique se o tipo de recurso tem suporte para alertas de métrica](./alerts-metric-near-real-time.md).
@@ -110,7 +113,7 @@ Os alertas de métricas são monitorados por padrão e, portanto, alertas adicio
 
 Ao criar uma regra de alerta de métrica, o nome da métrica é validado em relação à [API de definições de métrica](/rest/api/monitor/metricdefinitions/list) para verificar se ela existe. Em alguns casos, você gostaria de criar uma regra de alerta em uma métrica personalizada mesmo antes de ela ser emitida. Por exemplo, ao criar (usando um modelo do Resource Manager) um recurso Application Insights que emitirá uma métrica personalizada, juntamente com uma regra de alerta que monitora essa métrica.
 
-Para evitar a falha da implantação ao tentar validar as definições da métrica personalizada, você pode usar o parâmetro *skipMetricValidation* na seção critérios da regra de alerta, o que fará com que a validação da métrica seja ignorada. Consulte o exemplo abaixo para saber como usar esse parâmetro em um modelo do Resource Manager. Para obter mais informações, consulte os [exemplos completos de modelos do Resource Manager para criar regras de alerta de métrica](./alerts-metric-create-templates.md).
+Para evitar a falha da implantação ao tentar validar as definições da métrica personalizada, você pode usar o parâmetro *skipMetricValidation* na seção critérios da regra de alerta, o que fará com que a validação da métrica seja ignorada. Consulte o exemplo abaixo para saber como usar esse parâmetro em um modelo do Resource Manager. Para obter mais informações, consulte os [exemplos de modelo completos do Resource Manager para criar regras de alerta de métrica](./alerts-metric-create-templates.md).
 
 ```json
 "criteria": {
@@ -252,6 +255,12 @@ Por exemplo:
     - Eu gostaria de atualizar a primeira condição e monitorar apenas as transações em que a dimensão **ApiName** é igual a *"getBlob"*
     - Como as métricas de **Transações** e **SuccessE2ELatency** dão suporte a uma dimensão **ApiName** , precisarei atualizar ambas as condições e fazer com que ambas especifiquem a dimensão **ApiName** com um valor *"getBlob"* .
 
+## <a name="setting-the-alert-rules-period-and-frequency"></a>Definindo o período e a frequência da regra de alerta
+
+É recomendável escolher uma *granularidade de agregação (período)* maior do que a *frequência de avaliação*, para reduzir a probabilidade de falta da primeira avaliação da série temporal adicionada nos seguintes casos:
+-   Regra de alerta de métrica que monitora várias dimensões – quando uma nova combinação de valor de dimensão é adicionada
+-   Regra de alerta de métrica que monitora vários recursos – quando um novo recurso é adicionado ao escopo
+-   Regra de alerta de métrica que monitora uma métrica que não é emitida continuamente (métrica esparsa) – quando a métrica é emitida após um período de mais de 24 horas em que ela não foi emitida
 
 ## <a name="next-steps"></a>Próximas etapas
 

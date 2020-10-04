@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/06/2020
-ms.openlocfilehash: c3ffcea27fa16fd4f5449b42407a7e4779ca27f9
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 33198f95ef0309cada6f5f11c809811f23d7f826
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89420924"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708638"
 ---
 # <a name="offer-listing-best-practices"></a>Práticas recomendadas de listagem de ofertas
 
@@ -20,7 +20,7 @@ Este artigo fornece sugestões para a criação e o envolvimento das ofertas do 
 
 ## <a name="online-store-offer-details"></a>Detalhes da oferta da loja online
 
-| Setting | Melhor prática |
+| Configuração | Melhor prática |
 |:--- |:--- |  
 | Nome da oferta | Para aplicativos, forneça um título claro que inclua palavras-chave de pesquisa para ajudar os clientes a descobrir sua oferta. <br> <br> Para serviços de consultoria, siga este formato: [nome da oferta: [duração] [tipo de oferta] (por exemplo, contoso: implementação de 2 semanas) |
 | Descrição da oferta | Forneça uma descrição clara que descreva a proposta de valor da sua oferta nas primeiras frases.  Tenha em mente que essas frases podem ser usadas nos resultados do mecanismo de pesquisa. Os componentes principais da sua proposta de valor devem incluir: <ul> <li>Descrição do produto ou da solução. </li> <li> O usuário persona que se beneficia do produto ou da solução. </li> <li> O cliente precisa ou dificuldade no produto ou nos endereços da solução. </li> </ul> <br> Use o vocabulário padrão do setor ou palavras com base no benefício quando possível.  Não dependa de recursos e em funcionalidades para vender seu produto.  Em vez disso, concentre-se no valor que você oferece. <br> <br> Para listagens de serviços de consultoria, declare claramente o serviço profissional que você fornece. |
@@ -61,7 +61,8 @@ Selecione categorias e subcategorias que melhor se alinham com o tipo de soluç�
 
 #### <a name="important-saas-offers-and-microsoft-365-add-ins"></a>IMPORTANTE: o SaaS oferece e Microsoft 365 suplementos
 
-Consulte o [guia por tipo de oferta](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-overview) para obter detalhes específicos sobre como os recursos de transação podem afetar como sua oferta pode ser exibida e adquirida por clientes do Marketplace. Para ofertas de SaaS, a capacidade de transação da oferta, bem como a seleção de categoria, determinará a loja online onde sua oferta será publicada:
+Consulte transformando [no Marketplace comercial](marketplace-commercial-transaction-capabilities-and-considerations.md) para obter detalhes específicos sobre como os recursos de transação podem afetar como sua oferta pode ser exibida e adquirida por clientes do Marketplace. Para ofertas de SaaS, a capacidade de transação da oferta, bem como a seleção de categoria, determinará a loja online onde sua oferta será publicada.
+
 
 | Oferta de SaaS    | Oferta de SaaS   | Oferta de SaaS  | Oferta de SaaS   | Oferta de SaaS   | Oferta de SaaS   | Oferta de SaaS    | Loja online aplicável| Loja online aplicável |
 |:-------------:|:---:|:--------:|:---------:|:--:|:--:|:---:|:---------------------:|:-------------:|
@@ -93,7 +94,7 @@ A seleção do setor só se aplica a ofertas publicadas no AppSource e serviços
 | **Automotivo** | |
 | **Distribuição** | Atacado <br> Envio de pacote de & de remessa |  
 | **Educação** | Ensino superior <br> Primário &do edu/K-12 <br> Bibliotecas & museus |
-| **Serviços Financeiros** | Mercados bancários & capital <br> Seguro | 
+| **Serviços financeiros** | Mercados bancários & capital <br> Seguro | 
 | **Governo** |  Inteligência de & de defesa <br> Governo civis <br> Segurança pública & justiça |
 | **Assistência médica** | Pagador de integridade <br> Provedor de integridade <br> Produtos farmacêuticos | 
 | **Hospedagem & viagem** | Viagem e Transporte <br> Hotéis & lazer <br> Serviços de restaurantes & Food | 
@@ -118,7 +119,7 @@ Selecione os produtos aplicáveis com os quais seu aplicativo trabalha para que 
 Palavras-chave podem ajudar os clientes a encontrarem sua oferta ao pesquisarem algo. Identifique as principais palavras-chave de pesquisa para sua oferta, incorpore-as no resumo e na descrição da oferta, bem como na seção de palavras-chave da seção de detalhes da listagem de ofertas.
 
 ## <a name="online-store-marketing-details"></a>Detalhes de marketing da loja online
-| Setting | Melhor prática |
+| Configuração | Melhor prática |
 |:--- |:--- |  
 | Logotipo da oferta (formato PNG, de 216 × 216 a 350 x 350 px): página de detalhes do aplicativo | Projetar e otimizar seu logotipo para uma mídia digital:<br>Carregue o logotipo no formato PNG os detalhes do aplicativo listando a página de sua oferta. O Partner Center irá redimensioná-lo para os tamanhos de logotipo necessários. |
 | Logotipo da oferta (formato PNG, 48 × 48 pixels): página de pesquisa | O Partner Center gerará esse logotipo do logotipo grande que você carregou. Você pode, opcionalmente, substituir isso por uma imagem diferente mais tarde. |

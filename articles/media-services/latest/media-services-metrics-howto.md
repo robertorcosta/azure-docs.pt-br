@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f5a3488be3fdc0eb3bc8956db66c06df25ff18c0
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 09c306b85c910e8ec2021abf15013935c44b0df3
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89296614"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91707703"
 ---
 # <a name="monitor-media-services-metrics"></a>Monitorar as métricas dos Serviços de Mídia do Microsoft Azure
 
@@ -48,7 +48,7 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 
     Selecione o recurso e pressione **aplicar**. Para obter detalhes sobre os recursos e as métricas com suporte, consulte [monitorar métricas dos serviços de mídia](media-services-metrics-diagnostic-logs.md).
 
-    ![Métricas](media/media-services-metrics/metrics02.png)
+    ![Captura de tela que mostra o recurso selecionado e realça o botão Aplicar.](media/media-services-metrics/metrics02.png)
 
     > [!NOTE]
     > Para alternar entre os recursos para os quais você deseja monitorar as métricas, clique na caixa de **recurso** novamente e repita esta etapa.
@@ -70,7 +70,7 @@ az monitor metrics list --resource \
 
 Para obter outras métricas, substitua "egresso" pelo nome da métrica em que você está interessado.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 * [Métricas do Azure Monitor](../../azure-monitor/platform/data-platform.md)
 * [Crie, exiba e gerencie alertas de métrica usando Azure monitor](../../azure-monitor/platform/alerts-metric.md).

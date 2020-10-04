@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 09/11/2020
-ms.openlocfilehash: 5bf94faff86edf954c687ca3024c63229829ca04
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: a706ced5c65b9de3cb3bfdb623d810bb1ea43623
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91369715"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91707975"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Perguntas comuns sobre o Marketplace comercial da Microsoft
 
@@ -311,9 +311,8 @@ Para receber reembolsos, os clientes podem cancelar assinaturas em um período e
 
 Aqui estão alguns recursos para começar:
 
-- [Introdução ao marketplace comercial da Microsoft](/azure/marketplace/marketplace-publishers-guide)
+- [O que é o Microsoft Commercial Marketplace?](overview.md)
 - [Hub do parceiro do marketplace comercial da Microsoft](https://partner.microsoft.com/asset/collection/commercial-marketplace#/)
-- [Bem-vindo(a) ao marketplace comercial](index.yml)
 
 ### <a name="how-can-i-engage-with-microsoft-and-other-partners"></a>Como posso me engajar com a Microsoft e com outros parceiros?
 
@@ -324,7 +323,7 @@ Recomendamos estes recursos:
 
 ### <a name="where-can-i-learn-more-about-partner-center"></a>Em que local posso obter mais informações sobre o Partner Center?
 
-- [Documentação do Partner Center](https://docs.microsoft.com/partner-center/)
+- [Documentação do Partner Center](/partner-center/)
 - [Bem-vindo(a) ao marketplace comercial](index.yml)
 
 ### <a name="where-can-i-learn-more-about-the-microsoft-admin-center"></a>Como posso saber mais sobre o Centro de Administração da Microsoft?

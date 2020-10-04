@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 07/27/2020
-ms.openlocfilehash: 6b166e46c8ebb640e15c005e2ddae3161e141f10
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.date: 09/29/2020
+ms.openlocfilehash: ca23bb49a3592dcc139bcc04875f3867018e158d
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91446771"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91707720"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>O que são destinos de computação no Azure Machine Learning? 
 
@@ -28,18 +28,31 @@ Em um ciclo de vida típico de desenvolvimento de modelos, você pode:
 Os recursos de computação que você usa para seus destinos de computação são anexados a um [espaço de trabalho](concept-workspace.md). Recursos de computação diferentes do computador local são compartilhados por usuários do espaço de trabalho.
 
 ## <a name="training-compute-targets"></a><a name="train"></a> Treinamento de destinos de computação
-
-Azure Machine Learning tem suporte variado em diferentes recursos de computação.  Você também pode anexar seu próprio recurso de computação, embora o suporte para vários cenários possa variar.
+O Azure Machine Learning tem suporte variado nos diferentes destinos de computação. Um ciclo de vida de desenvolvimento de modelo típico começa com experimentação/desenvolvimento em uma pequena quantidade de dados. Nessa fase, é recomendável usar um ambiente local. Por exemplo, o computador local ou uma VM baseada em nuvem. Na medida em que você aumenta o treinamento em conjuntos de dados maiores ou realiza treinamento distribuído, é recomendável usar a Computação do Azure Machine Learning para criar um cluster de vários nós, ou de nó único, que dimensionará automaticamente sempre que você enviar uma execução. Também é possível anexar seu próprio recurso de computação, embora o suporte para vários cenários possa variar conforme detalhado abaixo:
 
 [!INCLUDE [aml-compute-target-train](../../includes/aml-compute-target-train.md)]
 
-Saiba mais sobre como [usar um destino de computação para treinamento de modelo](how-to-set-up-training-targets.md).
+Saiba mais sobre como [Enviar uma execução de treinamento para um destino de computação](how-to-set-up-training-targets.md).
 
-## <a name="deployment-targets"></a><a name="deploy"></a>Destino de implantação
+## <a name="compute-targets-for-inference"></a><a name="deploy"></a> Destinos de computação para inferência
 
 Os recursos de computação a seguir podem ser usados para hospedar sua implantação de modelo.
 
 [!INCLUDE [aml-compute-target-deploy](../../includes/aml-compute-target-deploy.md)]
+
+Ao executar a inferência, Azure Machine Learning cria um contêiner do Docker que hospeda o modelo e os recursos associados necessários para usá-lo. Esse contêiner é usado em um dos seguintes cenários de implantação:
+
+* Como um __serviço Web__ que é usado para inferência em tempo real. As implantações de serviço Web usam um dos seguintes destinos de computação:
+
+    * [Computador local](how-to-attach-compute-targets.md#local)
+    * [Instância de computação do Azure Machine Learning](how-to-create-manage-compute-instance.md)
+    * [Instâncias de Contêiner do Azure](how-to-attach-compute-targets.md#aci)
+    * [Serviço de Kubernetes do Azure](how-to-create-attach-kubernetes.md)
+    * Azure Functions (versão prévia). A implantação em Azure Functions se baseia apenas em Azure Machine Learning para criar o contêiner do Docker. A partir daí, ele é implantado usando Azure Functions. Para obter mais informações, consulte [implantar um modelo de aprendizado de máquina para Azure Functions (versão prévia)](how-to-deploy-functions.md).
+
+* Como um ponto de extremidade de __inferência de lote__ que é usado para processar periodicamente lotes de dados. As inferências em lote usam [Azure Machine Learning cluster de computação](how-to-create-attach-compute-cluster.md).
+
+* Para um __dispositivo IOT__ (versão prévia). A implantação em um dispositivo IoT conta apenas com Azure Machine Learning para criar o contêiner do Docker. A partir daí, ele é implantado usando Azure IoT Edge. Para obter mais informações, consulte [implantar como um módulo IOT Edge (versão prévia)](/azure/iot-edge/tutorial-deploy-machine-learning).
 
 Saiba [onde e como implantar seu modelo em um destino de computação](how-to-deploy-and-where.md).
 
@@ -50,8 +63,9 @@ Um recurso de computação gerenciado é criado e gerenciado pelo Azure Machine 
 
 Você pode criar Azure Machine Learning instâncias de computação ou clusters de computação de:
 * [Azure Machine Learning Studio](how-to-create-attach-compute-studio.md)
-* Portal do Azure
-* Classes [ComputeInstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance%28class%29?view=azure-ml-py&preserve-view=true) e [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute%28class%29?view=azure-ml-py&preserve-view=true) do SDK do Python
+* SDK e CLI do Python:
+    * [Instância de computação](how-to-create-manage-compute-instance.md)
+    * [Cluster de computação](how-to-create-attach-compute-cluster.md)
 * [SDK do R](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets) (visualização)
 * Modelo do Resource Manager. Para obter um modelo de exemplo, consulte [criar Azure Machine Learning modelo de computação](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-amlcompute).
 * Extensão do Machine Learning [para o CLI do Azure](reference-azure-machine-learning-cli.md#resource-management).  
@@ -68,7 +82,7 @@ Quando criados, esses recursos de computação são automaticamente parte do seu
 
 
 > [!NOTE]
-> Quando um cluster de computação está ocioso, ele é dimensionado em escala para 0 nós, portanto, você não paga quando não está em uso.  Uma *instância*de computação, no entanto, é sempre ativada e não faz dimensionamento automático.  Você deve [interromper a instância de computação](concept-compute-instance.md#managing-a-compute-instance) quando não a estiver usando para evitar custo extra. 
+> Quando um cluster de computação está ocioso, ele é dimensionado em escala para 0 nós, portanto, você não paga quando não está em uso.  Uma *instância*de computação, no entanto, é sempre ativada e não faz dimensionamento automático.  Você deve [interromper a instância de computação](how-to-create-manage-compute-instance.md#manage) quando não a estiver usando para evitar custo extra. 
 
 ### <a name="supported-vm-series-and-sizes"></a>Séries e tamanhos de VM com suporte
 
