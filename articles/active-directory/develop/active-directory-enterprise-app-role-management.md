@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 04/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 85c406fc561424d7b02d39dfd58dc3c8fe34aab2
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 8ec87a8d78f73af48b662c5971dfe1803717f88a
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88116080"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91704541"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Como configurar a declaração de função emitida no token SAML para aplicativos empresariais
 
@@ -159,7 +159,7 @@ Se o aplicativo esperar que as funções personalizadas sejam passadas em uma re
 
     a. Clique no ícone **Editar** para abrir **atributos de usuário &** caixa de diálogo declarações.
 
-      ![Botão "Adicionar atributo"](./media/active-directory-enterprise-app-role-management/editattribute.png)
+      ![Captura de tela que realça o ícone de edição usado para abrir a caixa de diálogo atributos de usuário & declarações.](./media/active-directory-enterprise-app-role-management/editattribute.png)
 
     b. Na caixa de diálogo **gerenciar declarações do usuário** , adicione o atributo de token SAML clicando em **Adicionar nova declaração**.
 

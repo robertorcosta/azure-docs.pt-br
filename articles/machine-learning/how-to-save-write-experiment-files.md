@@ -12,12 +12,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: 548113a5f775595caf3a798d7b35eddfbc80674e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 1742c80fd6914a1c9420f37217df02791e80da9d
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90886094"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710049"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Onde salvar e gravar arquivos para experimentos Azure Machine Learnings
 
@@ -79,4 +79,4 @@ Se você não precisar de um repositório de armazenamento, grave arquivos na `.
 
 * Saiba mais sobre como [acessar os dados de seus armazenamentos](how-to-access-data.md).
 
-* Saiba mais sobre como criar destinos de computação com o [SDK do Python](how-to-create-attach-compute-sdk.md) ou usando o [estúdio](how-to-create-attach-compute-studio.md).
+* Saiba mais sobre como [criar destinos de computação para treinamento e implantação do modelo](how-to-create-attach-compute-studio.md)

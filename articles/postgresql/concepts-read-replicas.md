@@ -1,17 +1,17 @@
 ---
 title: Ler réplicas-banco de dados do Azure para PostgreSQL-servidor único
 description: Este artigo descreve o recurso de réplica de leitura no banco de dados do Azure para PostgreSQL-servidor único.
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: d1fa99d0954177e2804039fc71c2ba010b94bd50
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 2d0ee0e4c5cf3f7c2f4b623f0270ecf5eb01fc36
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91530933"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710508"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Ler réplicas no banco de dados do Azure para PostgreSQL-servidor único
 
@@ -83,7 +83,7 @@ No prompt, insira a senha da conta de usuário.
 ## <a name="monitor-replication"></a>Monitorar a replicação
 O banco de dados do Azure para PostgreSQL fornece duas métricas para monitorar a replicação. As duas métricas são o **retardo máximo entre réplicas** e **atraso de réplica**. Para saber como exibir essas métricas, consulte a seção **monitorar uma réplica** do artigo de [instruções de leitura de réplica](howto-read-replicas-portal.md).
 
-A métrica de **atraso máximo entre réplicas** mostra o retardo em bytes entre a réplica primária e a mais alta. Essa métrica está disponível somente no servidor primário.
+A métrica de **atraso máximo entre réplicas** mostra o retardo em bytes entre a réplica primária e a mais alta. Essa métrica está disponível somente no servidor primário e estará disponível somente se pelo menos uma das réplicas de leitura estiver conectada à primária.
 
 A métrica de **atraso de réplica** mostra o tempo desde a última transação reproduzida. Se não houver nenhuma transação ocorrendo no servidor primário, a métrica refletirá esse intervalo de tempo. Essa métrica está disponível somente para servidores de réplica. A latência de réplica é calculada a partir da `pg_stat_wal_receiver` exibição:
 
@@ -141,6 +141,9 @@ Depois que você decidir que deseja fazer failover para uma réplica,
     
 Depois que o aplicativo processar leituras e gravações com êxito, você terá concluído o failover. A quantidade de tempo de inatividade com a qual suas experiências de aplicativo dependerão quando você detectar um problema e concluir as etapas 1 e 2 acima.
 
+### <a name="disaster-recovery"></a>Recuperação de desastre
+
+Quando há um grande evento de desastre, como falhas regionais ou no nível de zona de disponibilidade, você pode executar a operação de recuperação de desastres promovendo a réplica de leitura. No portal de interface do usuário, você pode navegar até o servidor de réplica de leitura. Em seguida, clique na guia replicação e você pode parar a réplica para promovê-la para ser um servidor independente. Como alternativa, você pode usar o [CLI do Azure](https://docs.microsoft.com/cli/azure/postgres/server/replica?view=azure-cli-latest#az_postgres_server_replica_stop) para parar e promover o servidor de réplica.
 
 ## <a name="considerations"></a>Considerações
 
