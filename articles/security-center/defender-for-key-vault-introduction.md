@@ -1,59 +1,59 @@
 ---
-title: Azure defender para Key Vault-os benefícios e recursos
-description: Saiba mais sobre os benefícios e recursos do Azure defender para Key Vault.
+title: Azure Defender para Key Vault – Benefícios e recursos
+description: Saiba mais sobre os benefícios e os recursos do Azure Defender para Key Vault.
 author: memildin
 ms.author: memildin
 ms.date: 9/22/2020
-ms.topic: conceptual
+ms.topic: overview
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
-ms.openlocfilehash: 78a522922f8580003e2d2ff588cbf10dbf5fff9d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
-ms.translationtype: MT
+ms.openlocfilehash: 6649a8d470a75922aac423bf0b411163bdd79f71
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91301764"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91449090"
 ---
-# <a name="introduction-to-azure-defender-for-key-vault"></a>Introdução ao Azure defender para Key Vault
+# <a name="introduction-to-azure-defender-for-key-vault"></a>Introdução ao Azure Defender para Key Vault
 
 O Azure Key Vault é um serviço de nuvem que protege segredos e chaves de criptografia, como certificados, cadeias de conexão e senhas. 
 
-Habilite o **Azure defender para Key Vault** para proteção de ameaças avançadas e nativas do azure para Azure Key Vault, fornecendo uma camada adicional de inteligência de segurança. 
+Habilite o **Azure Defender para Key Vault** para proteção avançada e nativa do Azure contra ameaças para o Azure Key Vault, oferecendo uma camada adicional de inteligência de segurança. 
 
 ## <a name="availability"></a>Disponibilidade
 
 |Aspecto|Detalhes|
 |----|:----|
 |Estado da versão:|GA (em disponibilidade geral)|
-|Refere|O **Azure defender para Key Vault** é cobrado conforme mostrado na [página de preços](security-center-pricing.md)|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) National/soberanas (US Gov, China gov, outros gov)|
+|Preço:|O **Azure Defender para Key Vault** é cobrado conforme mostrado na [página de preços](security-center-pricing.md)|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) Nacionais/soberanas (US Gov, China Gov, outros Gov)|
 |||
 
-## <a name="what-are-the-benefits-of-azure-defender-for-key-vault"></a>Quais são os benefícios do Azure defender para Key Vault?
+## <a name="what-are-the-benefits-of-azure-defender-for-key-vault"></a>Quais são os benefícios do Azure Defender para Key Vault?
 
-O Azure defender detecta tentativas incomuns e potencialmente prejudiciais de acessar ou explorar contas de Key Vault. Essa camada de proteção permite que você resolva as ameaças sem ser um especialista em segurança e sem precisar gerenciar sistemas de monitoramento de segurança de terceiros.  
+O Azure Defender detecta tentativas incomuns e possivelmente prejudiciais de acessar ou explorar as contas do Key Vault. Essa camada de proteção permite que você resolva as ameaças sem ser um especialista em segurança e sem precisar gerenciar sistemas de monitoramento de segurança de terceiros.  
 
-Quando ocorrem atividades anômalas, o Azure defender mostra alertas e, opcionalmente, os envia por email para os membros relevantes da sua organização. Esses alertas incluem detalhes das atividades suspeitas e recomendações sobre como investigar e corrigir ameaças. 
+Quando ocorrem atividades incomuns, o Azure Defender mostra alertas e, opcionalmente, envia alertas por email para os membros relevantes da organização. Esses alertas incluem detalhes das atividades suspeitas e recomendações sobre como investigar e corrigir ameaças. 
 
-## <a name="azure-defender-for-key-vault-alerts"></a>Azure defender para alertas de Key Vault
-Quando receber um alerta do Azure defender para Key Vault, recomendamos que você investigue e responda ao alerta conforme descrito em [responder ao Azure defender para Key Vault](defender-for-key-vault-usage.md). O Azure defender para Key Vault protege aplicativos e credenciais, portanto, mesmo que você esteja familiarizado com o aplicativo ou o usuário que disparou o alerta, é importante verificar a situação ao redor de cada alerta.
+## <a name="azure-defender-for-key-vault-alerts"></a>Alertas do Azure Defender para Key Vault
+Quando você receber um alerta do Azure Defender para Key Vault, recomendamos que investigue e responda ao alerta, conforme descrito em [Responder ao Azure Defender para Key Vault](defender-for-key-vault-usage.md). O Azure Defender para Key Vault protege aplicativos e credenciais, portanto, mesmo que você esteja familiarizado com o aplicativo ou o usuário que disparou o alerta, é importante verificar a situação ao redor de cada alerta.
 
-Os alertas são exibidos na página **segurança** do Key Vault, no painel do Azure defender e na página de alertas da central de segurança.
+Os alertas são exibidos na página de **Segurança** do Key Vault, no dashboard do Azure Defender e na página de alertas da Central de Segurança.
 
 :::image type="content" source="./media/defender-for-key-vault-intro/key-vault-security-page.png" alt-text="Página de segurança do Azure Key Vault":::
 
 
 > [!TIP]
-> Você pode simular os alertas do Azure defender para Key Vault seguindo as instruções em [validando Azure Key Vault detecção de ameaças na central de segurança do Azure](https://techcommunity.microsoft.com/t5/azure-security-center/validating-azure-key-vault-threat-detection-in-azure-security/ba-p/1220336).
+> Você pode simular os alertas do Azure Defender para Key Vault seguindo as instruções em [Validando a detecção de ameaças do Azure Key Vault na Central de Segurança do Azure](https://techcommunity.microsoft.com/t5/azure-security-center/validating-azure-key-vault-threat-detection-in-azure-security/ba-p/1220336).
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você aprendeu sobre o Azure defender para Key Vault.
+Neste artigo, você aprendeu sobre o Azure Defender para Key Vault.
 
 Para obter material relacionado, consulte os seguintes artigos: 
 
-- [Key Vault alertas de segurança](alerts-reference.md#alerts-azurekv)– a seção Key Vault da tabela de referência para todos os alertas da central de segurança do Azure
+- [Alertas de segurança do Key Vault](alerts-reference.md#alerts-azurekv) – A seção do Key Vault na tabela de referência para todos os alertas da Central de Segurança do Azure
 - [Exportando alertas para um SIEM](continuous-export.md)
-- [Suprimir alertas do Azure defender](alerts-suppression-rules.md)
+- [Suprimir alertas do Azure Defender](alerts-suppression-rules.md)

@@ -2,20 +2,20 @@
 title: Tutorial – criar e implantar um modelo
 description: Criar seu primeiro modelo do Azure Resource Manager. No tutorial, você aprende sobre a sintaxe do arquivo de modelo e como implantar uma conta de armazenamento.
 author: mumian
-ms.date: 06/10/2020
+ms.date: 09/28/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 124df19287062a7fc8a6b9cf8b9d32eb3863b581
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 6eb2cf792eb5a458bff8508bc21e1e0690e2e1f3
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069230"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409209"
 ---
 # <a name="tutorial-create-and-deploy-your-first-arm-template"></a>Tutorial: Criar e implantar seu primeiro modelo do ARM
 
-Este tutorial apresenta os modelos do ARM (Azure Resource Manager). Ele mostra como criar um modelo inicial e implantá-lo no Azure. Você aprenderá sobre a estrutura do modelo e as ferramentas necessárias para trabalhar com modelos. Leva cerca de **12 minutos** para concluir este tutorial, mas o tempo real varia com base em quantas ferramentas você precisa instalar.
+Este tutorial apresenta a você os modelos do ARM (Azure Resource Manager). Ele mostra como criar um modelo inicial e implantá-lo no Azure. Você aprenderá sobre a estrutura do modelo e as ferramentas necessárias para trabalhar com modelos. Leva cerca de **12 minutos** para concluir este tutorial, mas o tempo real varia com base em quantas ferramentas você precisa instalar.
 
 Este tutorial é o primeiro de uma série. À medida que avança pela série, você modifica o modelo inicial passo a passo até explorar todas as partes principais de um modelo do ARM. Esses elementos são os blocos de construção para modelos muito mais complexos. Esperamos que ao final da série você tenha confiança para criar seus próprios modelos e esteja pronto para automatizar suas implantações com modelos.
 
@@ -25,7 +25,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 ## <a name="get-tools"></a>Obter ferramentas
 
-Vamos começar verificando se você tem as ferramentas necessárias para criar e implantar modelos.
+Vamos começar verificando se você tem as ferramentas necessárias para criar e implantar modelos. Instale estas ferramentas no seu computador local.
 
 ### <a name="editor"></a>Editor
 
@@ -178,7 +178,7 @@ O comando de implantação retorna os resultados. Procure `ProvisioningState` pa
 ---
 
 > [!NOTE]
-> Se a implantação falhar, use a opção **detalhado** para obter informações sobre os recursos que estão sendo criados. Use a opção **depurar** para obter mais informações de depuração.
+> Se a implantação falhar, use a opção **Detalhado** para obter informações sobre os recursos que estão sendo criados. Use a opção **Depurar** para obter mais informações de depuração.
 
 ## <a name="verify-deployment"></a>Verificar implantação
 

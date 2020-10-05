@@ -14,19 +14,19 @@ ms.date: 04/01/2020
 ms.author: kenwith
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b8a40449d7a2b17adddd55120ab232a5cd3f459
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 5a4d50bcf2493c67880fd5a27b326705b1923feb
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90600938"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91728974"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Movendo a autenticação do aplicativo de Serviços de Federação do Active Directory (AD FS) para Azure Active Directory
 
 O [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) oferece uma plataforma de identidade universal que fornece a suas pessoas, parceiros e clientes uma única identidade para acessar aplicativos e colaborar de qualquer plataforma e dispositivo. O Azure AD tem um [pacote completo de recursos de gerenciamento de identidade](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis). Padronizar sua autenticação e autorização de aplicativos (aplicativo) para o Azure AD permite os benefícios que esses recursos fornecem. 
 
-> [!NOTE]
-> Este artigo se concentra na movimentação da autenticação do aplicativo do Active Directory local e Serviços de Federação do Active Directory (AD FS) ao Azure AD. Consulte a white paper [migrando a autenticação de aplicativo para o Azure ad](https://aka.ms/migrateapps/whitepaper) para obter uma visão geral do planejamento dessa mudança. O white paper discute como planejar a migração, os testes e as ideias.
+> [!TIP]
+> Este artigo foi escrito para um público do desenvolvedor. Gerentes e administradores de projeto planejando a mudança de um aplicativo para o Azure AD deve considerar [a leitura de nossa autenticação de aplicativo de migração para o Azure ad](https://aka.ms/migrateapps/whitepaper) White Paper (PDF).
 
 ## <a name="introduction"></a>Introdução
 

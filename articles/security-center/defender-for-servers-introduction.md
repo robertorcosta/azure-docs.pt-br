@@ -1,96 +1,96 @@
 ---
-title: Azure defender para servidores-os benefícios e recursos
-description: Saiba mais sobre os benefícios e recursos do Azure defender para servidores.
+title: Azure Defender para servidores – Benefícios e recursos
+description: Saiba mais sobre os benefícios e os recursos do Azure Defender para servidores.
 author: memildin
 ms.author: memildin
 ms.date: 9/23/2020
-ms.topic: conceptual
+ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 5e4244c0526dbac3bb8e9b2d3856eb01e1b2a2b7
-ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
-ms.translationtype: MT
+ms.openlocfilehash: 8757399329f3a9bd9f4d7b914b12b2a0f7e85603
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91403477"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91448283"
 ---
-# <a name="introduction-to-azure-defender-for-servers"></a>Introdução ao Azure defender para servidores
+# <a name="introduction-to-azure-defender-for-servers"></a>Introdução ao Azure Defender para servidores
 
-O Azure defender for Servers adiciona detecção de ameaças e defesas avançadas para seus computadores Windows e Linux.
+O Azure Defender para servidores adiciona proteções avançadas e a detecção contra ameaças aos seus computadores Windows e Linux.
 
-Para o Windows, o Azure defender se integra aos serviços do Azure para monitorar e proteger suas máquinas baseadas no Windows. A Central de Segurança apresenta os alertas e as sugestões de correção de todos esses serviços em um formato fácil de usar.
+No Windows, o Azure Defender integra-se aos serviços do Azure para monitorar e proteger seus computadores baseados no Windows. A Central de Segurança apresenta os alertas e as sugestões de correção de todos esses serviços em um formato fácil de usar.
 
-Para o Linux, o Azure defender coleta registros de auditoria de computadores Linux usando **auditoria**, uma das estruturas de auditoria do Linux mais comuns. auditd reside no kernel principal. 
+No Linux, o Azure Defender coleta os registros de auditoria dos computadores Linux usando o **auditd**, uma das estruturas de auditoria mais comuns do Linux. auditd reside no kernel principal. 
 
 
-## <a name="what-are-the-benefits-of-azure-defender-for-servers"></a>Quais são os benefícios do Azure defender para servidores?
+## <a name="what-are-the-benefits-of-azure-defender-for-servers"></a>Quais são os benefícios do Azure Defender para servidores?
 
-Os recursos de detecção e proteção de ameaças fornecidos com o Azure defender para servidores incluem:
+As funcionalidades de detecção e proteção contra ameaças fornecidos no Azure Defender para servidores incluem:
 
-- **Verificação de avaliação de vulnerabilidade para VMs** -o verificador de vulnerabilidade incluído na central de segurança do Azure é fornecido pela Qualys. 
+- **Verificação de avaliação de vulnerabilidades para VMs**: o verificador de vulnerabilidades incluído na Central de Segurança do Azure é fornecido pela Qualys. 
 
-    O verificador de Qualys é uma das principais ferramentas para a identificação em tempo real de vulnerabilidades em suas máquinas virtuais do Azure. Você não precisa de uma licença do Qualys nem de uma conta do Qualys: tudo é tratado diretamente na Central de Segurança. [Saiba mais](deploy-vulnerability-assessment-vm.md).
+    O verificador da Qualys é uma das ferramentas líder para a identificação em tempo real de vulnerabilidades nas suas Máquinas Virtuais do Azure. Você não precisa de uma licença do Qualys nem de uma conta do Qualys: tudo é tratado diretamente na Central de Segurança. [Saiba mais](deploy-vulnerability-assessment-vm.md).
 
-- **Acesso à VM just-in-time (JIT)**  – atores de ameaça que buscam computadores acessíveis ativamente com portas de gerenciamento abertas, como RDP ou SSH. Todas as suas máquinas virtuais são alvos potenciais de um ataque. Quando uma VM é comprometida com êxito, ela é usada como o ponto de entrada para atacar outros recursos em seu ambiente.
+- **Acesso JIT (just-in-time) à VM**: ameace os atores que buscam ativamente computadores acessíveis com portas de gerenciamento abertas, como RDP ou SSH. Todas as suas máquinas virtuais são alvos potenciais de um ataque. Quando uma VM é comprometida com êxito, ela é usada como o ponto de entrada para atacar outros recursos no seu ambiente.
 
-    Ao habilitar o Azure defender para servidores, você pode usar o acesso à VM just-in-time para bloquear o tráfego de entrada para suas VMs, reduzindo a exposição a ataques e, ao mesmo tempo, fornecendo acesso fácil para se conectar às VMs quando necessário. [Saiba mais](just-in-time-explained.md).
+    Ao habilitar o Azure Defender para servidores, você pode usar o acesso just-in-time à VM para bloquear o tráfego de entrada nas suas VMs, reduzindo a exposição a ataques e fornecendo fácil acesso para se conectar às VMs quando necessário. [Saiba mais](just-in-time-explained.md).
 
-- O fim ( **monitoramento** de integridade de arquivo) – o fim (monitoramento de integridade de arquivo), também conhecido como monitoramento de alterações, examina arquivos e registros de sistema operacional, software de aplicativo e outros para alterações que possam indicar um ataque. Um método de comparação é usado para determinar se o estado atual do arquivo é diferente da última verificação do arquivo. Você pode aproveitar essa comparação para determinar se foram feitas modificações válidas ou suspeitas em seus arquivos.
+- **FIM (Monitoramento de Integridade do Arquivo)** : também conhecido como monitoramento de alterações, examina os arquivos e os Registros do sistema operacional, de programas de software de aplicativos e outros em busca de alterações que possam indicar um ataque. Um método de comparação é usado para determinar se o estado atual do arquivo é diferente da última verificação do arquivo. Você pode aproveitar essa comparação para determinar se foram feitas modificações válidas ou suspeitas em seus arquivos.
 
-    Ao habilitar o Azure defender para servidores, você pode usar o FIM para validar a integridade dos arquivos do Windows, seus registros do Windows e arquivos do Linux. [Saiba mais](security-center-file-integrity-monitoring.md).
+    Ao habilitar o Azure Defender para servidores, você pode usar o FIM para validar a integridade de arquivos do Windows, Registros do Windows e arquivos do Linux. [Saiba mais](security-center-file-integrity-monitoring.md).
 
-- Os controles de aplicativo adaptáveis **(AAC)** são uma solução inteligente e automatizada para definir as listas de permissões de aplicativos conhecidos confiáveis para seus computadores.
+- **AAC (controles de aplicativo adaptáveis)** : os controles de aplicativos adaptáveis são uma solução inteligente e automatizada para definir as listas de permissões de aplicativos seguros conhecidos para seus computadores.
 
-    Quando você tiver habilitado e configurado controles de aplicativo adaptáveis, obterá alertas de segurança se qualquer aplicativo for executado além daqueles que você definiu como seguro. [Saiba mais](security-center-adaptive-application.md).
+    Quando você habilitar e configurar os controles de aplicativo adaptáveis, obterá alertas de segurança se qualquer aplicativo for executado além daqueles que você definiu como seguros. [Saiba mais](security-center-adaptive-application.md).
 
-- **Anh (proteção de rede adaptável)** – aplicar NSG (grupos de segurança de rede) para filtrar o tráfego de e para recursos, melhora sua postura de segurança de rede. No entanto, ainda pode haver alguns casos em que o tráfego real que flui pelo NSG é um subconjunto das regras de NSG definidas. Nesses casos, é possível melhorar ainda mais a postura de segurança ao proteger as regras de NSG, com base nos padrões reais de tráfego.
+- **ANH (proteção de rede adaptável)** : a aplicação de NSGs (grupos de segurança de rede) para filtrar o tráfego nos recursos aprimora sua postura de segurança de rede. No entanto, ainda pode haver alguns casos em que o tráfego real que flui pelo NSG seja um subconjunto das regras NSG definidas. Nesses casos, é possível aprimorar ainda mais a postura de segurança protegendo as regras NSG, com base nos padrões reais de tráfego.
 
-    A proteção de rede adaptável fornece recomendações para proteger ainda mais as regras de NSG. Ele usa um algoritmo de aprendizado de máquina que fatores em tráfego real, configuração confiável conhecida, inteligência contra ameaças e outros indicadores de comprometimento e, em seguida, fornece recomendações para permitir o tráfego somente de tuplas de IP/porta específicas. [Saiba mais](security-center-adaptive-network-hardening.md).
+    A proteção de rede adaptável fornece recomendações para proteger ainda mais as regras NSG. Ela usa um algoritmo de machine learning que inclui o tráfego real, a configuração confiável conhecida, a inteligência contra ameaças e outros indicadores de comprometimento e, em seguida, fornece recomendações para permitir o tráfego somente de tuplas de IP/porta específicas. [Saiba mais](security-center-adaptive-network-hardening.md).
 
-- **Integração com a ATP (proteção avançada contra ameaças) do Microsoft defender (somente Windows)** – o Azure defender integra-se com o Microsoft defender com a ATP (proteção avançada contra ameaças). Juntas, elas fornecem recursos abrangentes de Detecção e resposta de ponto de extremidade (EDR). [Saiba mais](security-center-wdatp.md).
+- **Integração ao ATP (Proteção Avançada contra Ameaças do Microsoft Defender) (somente Windows)** : o Azure Defender se integra ao ATP (Proteção Avançada contra Ameaças do Microsoft Defender). Juntas, elas fornecem recursos abrangentes de Detecção e resposta de ponto de extremidade (EDR). [Saiba mais](security-center-wdatp.md).
 
     > [!IMPORTANT]
     > O sensor da ATP do Microsoft Defender é habilitado automaticamente em servidores Windows que usam a Central de Segurança.
 
-    Quando a ATP do Microsoft Defender detecta uma ameaça, ela dispara um alerta. O alerta é mostrado na central de segurança. Na central de segurança, você também pode dinamizar para o console do Microsoft defender ATP e executar uma investigação detalhada para descobrir o escopo do ataque. Para saber mais sobre a ATP do Microsoft Defender, confira [Integrar servidores ao serviço da ATP do Microsoft Defender](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints).
+    Quando a ATP do Microsoft Defender detecta uma ameaça, ela dispara um alerta. O alerta é mostrado na Central de Segurança. Na Central de Segurança, você pode dinamizar para o console do Microsoft Defender ATP e realizar uma investigação detalhada para descobrir o escopo do ataque. Para saber mais sobre a ATP do Microsoft Defender, confira [Integrar servidores ao serviço da ATP do Microsoft Defender](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints).
 
-- **Proteção de host do Docker** – a central de segurança do Azure identifica contêineres não gerenciados hospedados em VMs do Linux IaaS ou em outros computadores Linux que executam contêineres do Docker. A central de segurança avalia continuamente as configurações desses contêineres. Em seguida, ele os compara com o benchmark do Docker do CIS (Center for Internet Security). A central de segurança inclui o conjunto de regras inteiro do parâmetro de comparação do Docker do CIS e o alerta se os contêineres não atenderem a nenhum dos controles. [Saiba mais](harden-docker-hosts.md).
+- **Proteção de host do Docker**: a Central de Segurança do Azure identifica contêineres não gerenciados hospedados em VMs IaaS do Linux ou em outros computadores Linux que executam contêineres do Docker. A Central de Segurança avalia continuamente as configurações desses contêineres. Em seguida, ela as compara com o benchmark do CIS (Center for Internet Security) do Docker. A Central de Segurança inclui todo o conjunto de regras do benchmark do CIS do Docker e alerta você se os contêineres não atendem a nenhum dos controles. [Saiba mais](harden-docker-hosts.md).
 
-- Detecção de ataque de não- **arquivo (somente Windows)** -ataques de arquivo insuficiente injetam cargas mal-intencionadas na memória para evitar a detecção por técnicas de verificação baseadas em disco. A carga do invasor persiste dentro da memória de processos comprometidos e executa uma ampla variedade de atividades mal-intencionadas.
+- **Detecção de ataque sem arquivos (somente Windows)** : os ataques sem arquivos injetam conteúdo mal-intencionado na memória para evitar a detecção por técnicas de verificação baseadas em disco. Depois, o conteúdo do invasor persiste na memória de processos comprometidos e executa uma ampla gama de atividades mal-intencionadas.
 
-  Com a detecção de ataques sem arquivos, as técnicas forenses de memória automatizada identificam os toolkits, as técnicas e os comportamentos de ataques sem arquivos. Essa solução verifica periodicamente seu computador em tempo de execução e extrai informações diretamente da memória dos processos. Informações específicas incluem a identificação de: 
+  Com a detecção de ataques sem arquivos, as técnicas forenses de memória automatizada identificam os toolkits, as técnicas e os comportamentos de ataques sem arquivos. Essa solução verifica periodicamente seu computador em runtime e extrai insights diretamente da memória de processos. Os insights específicos incluem a identificação de: 
 
-  - Kits de programas conhecidos e software de mineração de criptografia 
+  - Kits de ferramentas conhecidos e programas de software de mineração de criptografia 
 
-  - Shellcode, que é uma pequena parte do código normalmente usada como a carga na exploração de uma vulnerabilidade de software.
+  - Shellcode, que é uma pequena parte do código geralmente usada como conteúdo na exploração de uma vulnerabilidade de software.
 
   - Executável mal-intencionado injetado na memória do processo
 
-  A detecção de ataque sem arquivo gera alertas de segurança detalhados contendo as descrições com metadados de processo adicionais, como a atividade de rede. Isso acelera a triagem de alerta, correlação e tempo de resposta downstream. Essa abordagem complementa as soluções de EDR baseadas em eventos e fornece maior cobertura de detecção.
+  A detecção de ataque sem arquivos gera alertas de segurança detalhados contendo as descrições com metadados de processo adicionais, como a atividade de rede. Isso acelera a triagem de alertas, a correlação e o tempo de resposta downstream. Essa abordagem complementa as soluções de EDR baseadas em eventos e proporcionam uma maior cobertura de detecção.
 
   Para obter detalhes sobre os alertas de detecção de ataques sem arquivos, confira a [Tabela de referência de alertas](alerts-reference.md#alerts-windows).
 
-- **Alertas auditados do Linux e integração do agente de log Analytics (somente Linux)** – o sistema auditado consiste em um subsistema de nível de kernel, que é responsável por monitorar chamadas do sistema. Ele as filtra de acordo com um conjunto de regras especificado e grava mensagens para eles em um soquete. A Central de Segurança integra as funcionalidades do pacote auditd no agente do Log Analytics. Essa integração habilita a coleta de eventos auditd em todas as distribuições Linux com suporte, sem nenhum pré-requisito.
+- **Alertas do auditd do Linux e integração do agente do Log Analytics (somente Linux)** : o sistema auditd consiste em um subsistema no nível de kernel, que é responsável por monitorar as chamadas do sistema. Ele as filtra de acordo com um conjunto de regras especificado e grava mensagens para eles em um soquete. A Central de Segurança integra as funcionalidades do pacote auditd no agente do Log Analytics. Essa integração habilita a coleta de eventos auditd em todas as distribuições Linux com suporte, sem nenhum pré-requisito.
 
     Os registros auditd são coletados, aprimorados e agregados em eventos usando o agente do Log Analytics para o agente do Linux. A Central de Segurança adiciona continuamente novos recursos de análise que usam sinais do Linux para detectar comportamentos mal-intencionados em máquinas Linux locais e na nuvem. Semelhante aos recursos do Windows, esses recursos de análise abrangem processos suspeitos, tentativas de entrada duvidosa, carregamento de módulos kernel e outras atividades. Essas atividades podem indicar que um computador está sob ataque ou foi violado.  
 
     Para obter uma lista dos alertas do Linux, confira a [Tabela de referência de alertas](alerts-reference.md#alerts-linux).
 
 
-## <a name="simulating-alerts"></a>Simulando alertas
+## <a name="simulating-alerts"></a>Como simular alertas
 
 Você pode simular alertas baixando um dos seguintes guias estratégicos:
 
-- Para Windows: [guia estratégico da central de segurança do Azure: alertas de segurança](https://github.com/Azure/Azure-Security-Center/blob/master/Simulations/Azure%20Security%20Center%20Security%20Alerts%20Playbook_v2.pdf)
+- Para Windows: [Guia estratégico da Central de Segurança do Azure: Alertas de segurança](https://github.com/Azure/Azure-Security-Center/blob/master/Simulations/Azure%20Security%20Center%20Security%20Alerts%20Playbook_v2.pdf)
 
-- Para Linux: [guia estratégico da central de segurança do Azure: detecções do Linux](https://github.com/Azure/Azure-Security-Center/blob/master/Simulations/Azure%20Security%20Center%20Linux%20Detections_v2.pdf).
+- Para Linux: [Guia estratégico da Central de Segurança do Azure: Detecções do Linux](https://github.com/Azure/Azure-Security-Center/blob/master/Simulations/Azure%20Security%20Center%20Linux%20Detections_v2.pdf).
 
 
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você aprendeu sobre o Azure defender para servidores. 
+Neste artigo, você aprendeu mais sobre o Azure Defender para servidores. 
 
 Para obter material relacionado, consulte os seguintes artigos: 
 

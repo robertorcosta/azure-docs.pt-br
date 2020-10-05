@@ -3,12 +3,12 @@ title: Como criar políticas de Configuração de Convidado para o Windows
 description: Saiba como criar uma política de Configuração de Convidado do Azure Policy para Windows.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 36e71f00a4613e1723645f48d9e57aed9e1e9a8a
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 3c8ab71b4ffc87209d190bc7ede0257f1377ff2b
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719386"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91728923"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Como criar políticas de Configuração de Convidado para o Windows
 
@@ -23,8 +23,6 @@ A [Configuração de Convidado do Azure Policy](../concepts/guest-configuration.
 Use as ações a seguir para criar sua própria configuração para validar o estado de um computador que tem ou não o Azure.
 
 > [!IMPORTANT]
-> As políticas personalizadas com a Configuração de Convidado são uma versão prévia do recurso.
->
 > A extensão de Configuração de Convidado é necessária para executar auditorias em máquinas virtuais do Azure.
 > Para implantar a extensão em escala em todas as máquinas com Windows, atribua as seguintes definições de política: `Deploy prerequisites to enable Guest Configuration Policy on Windows VMs`
 
@@ -219,7 +217,7 @@ Como o agente está realmente avaliando o ambiente local, na maioria dos casos, 
 Parâmetros do cmdlet `Test-GuestConfigurationPackage`:
 
 - **Name**: nome da Configuração de Convidado.
-- **Parâmetro**: parâmetros de política fornecidos no formato de tabela de hash.
+- **Parameter**: parâmetros de política fornecidos no formato de tabela de hash.
 - **Caminho**: caminho completo do pacote de Configuração de Convidado.
 
 Execute o comando a seguir para testar o pacote criado pela etapa anterior:
@@ -296,13 +294,13 @@ Depois que um pacote de política personalizada de Configuração de Convidado t
 
 Parâmetros do cmdlet `New-GuestConfigurationPolicy`:
 
-- **ContentUri**: URI de http(s) público do pacote de conteúdo da Configuração de Convidado.
+- **ContentUri**: publica URI de http(s) público do pacote de conteúdo de Configuração de Convidado.
 - **DisplayName**: nome de exibição da política.
 - **Descrição**: descrição da política.
-- **Parâmetro**: parâmetros de política fornecidos no formato de tabela de hash.
+- **Parameter**: parâmetros de política fornecidos no formato de tabela de hash.
 - **Versão**: versão da política.
 - **Caminho**: caminho de destino no qual as definições de política são criadas.
-- **Platform**: plataforma de destino (Windows/Linux) da política de Configuração de Convidado e do pacote de conteúdo.
+- **Plataforma**: plataforma de destino (Windows/Linux) da política de Configuração de Convidado e do pacote de conteúdo.
 - **Tag** adiciona um ou mais filtros de tag à definição de política
 - **Category** define o campo de metadados da categoria na definição de política
 
@@ -403,13 +401,22 @@ Os cmdlets `New-GuestConfigurationPolicy` e `Test-GuestConfigurationPolicyPackag
 O exemplo a seguir cria uma definição de política para auditar um serviço, no qual o usuário seleciona a partir de uma lista no momento da atribuição da política.
 
 ```azurepowershell-interactive
+# This DSC Resource text:
+Service 'UserSelectedNameExample'
+      {
+          Name = 'ParameterValue'
+          Ensure = 'Present'
+          State = 'Running'
+      }
+
+# Would require the following hashtable:
 $PolicyParameterInfo = @(
     @{
         Name = 'ServiceName'                                            # Policy parameter name (mandatory)
         DisplayName = 'windows service name.'                           # Policy parameter display name (mandatory)
         Description = "Name of the windows service to be audited."      # Policy parameter description (optional)
         ResourceType = "Service"                                        # DSC configuration resource type (mandatory)
-        ResourceId = 'windowsService'                                   # DSC configuration resource property name (mandatory)
+        ResourceId = 'UserSelectedNameExample'                                   # DSC configuration resource id (mandatory)
         ResourcePropertyName = "Name"                                   # DSC configuration resource property name (mandatory)
         DefaultValue = 'winrm'                                          # Policy parameter default value (optional)
         AllowedValues = @('BDESVC','TermService','wuauserv','winrm')    # Policy parameter allowed values (optional)
