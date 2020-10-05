@@ -1,92 +1,92 @@
 ---
-title: Segurança de contêiner na central de segurança do Azure | Microsoft Docs
-description: Saiba mais sobre os recursos de segurança do contêiner da central de segurança do Azure.
+title: Segurança de Contêineres na Central de Segurança do Azure | Microsoft Docs
+description: Saiba mais sobre os recursos de segurança de contêineres da Central de Segurança do Azure.
 services: security-center
 documentationcenter: na
 author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 3edd7ddf79f8400462b52f964b7677840a7e86df
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
-ms.translationtype: MT
+ms.openlocfilehash: 6b57428aeba702dc8cf06ec4ae7984854a94ac7a
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91301951"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91449178"
 ---
-# <a name="container-security-in-security-center"></a>Segurança do contêiner na central de segurança
+# <a name="container-security-in-security-center"></a>Segurança de contêineres na Central de Segurança
 
-A central de segurança do Azure é a solução nativa do Azure para proteger seus contêineres.
+A Central de Segurança do Azure é a solução nativa do Azure para proteger os contêineres.
 
-A central de segurança pode proteger os seguintes tipos de recursos de contêiner:
+A Central de Segurança pode proteger os seguintes tipos de recursos de contêiner:
 
-| Tipo de recurso | Proteções oferecidas pela central de segurança |
+| Tipo de recurso | Proteções oferecidas pela Central de Segurança |
 |:--------------------:|-----------|
-| ![Serviço kubernetes](./media/security-center-virtual-machine-recommendations/icon-kubernetes-service-rec.png)<br>**Clusters do AKS (serviço kubernetes do Azure)** | -Avaliação contínua de suas configurações de clusters AKS para fornecer visibilidade de configurações incorretas e diretrizes para ajudá-lo a resolver quaisquer problemas descobertos.<br>[Saiba mais sobre a proteção de ambiente por meio de recomendações de segurança](#environment-hardening).<br><br>-Proteção contra ameaças para clusters AKS e nós do Linux. Alertas para atividades suspeitas são fornecidos pelo  [Azure defender opcional para kubernetes](defender-for-kubernetes-introduction.md).<br>[Saiba mais sobre a proteção em tempo de execução para nós e clusters AKs](#run-time-protection-for-aks-nodes-and-clusters).|
-| ![Host do contêiner](./media/security-center-virtual-machine-recommendations/icon-container-host-rec.png)<br>**Hosts de contêiner**<br>(VMs que executam o Docker) | -Avaliação contínua das configurações do Docker para fornecer visibilidade de configurações incorretas e diretrizes para ajudá-lo a resolver quaisquer problemas descobertos com o  [Azure defender para servidores](defender-for-servers-introduction.md)opcionais.<br>[Saiba mais sobre a proteção de ambiente por meio de recomendações de segurança](#environment-hardening).|
-| ![Registro de contêiner](./media/security-center-virtual-machine-recommendations/icon-container-registry-rec.png)<br>**Registros de ACR (registro de contêiner do Azure)** | -Ferramentas de avaliação e gerenciamento de vulnerabilidade para as imagens em seus registros ACR baseados em Azure Resource Manager com o [Azure defender opcional para registros de contêiner](defender-for-container-registries-introduction.md).<br>[Saiba mais sobre como verificar se há vulnerabilidades em suas imagens de contêiner](#vulnerability-management---scanning-container-images). |
+| ![Serviço do Kubernetes](./media/security-center-virtual-machine-recommendations/icon-kubernetes-service-rec.png)<br>**Clusters do AKS (Serviço de Kubernetes do Azure)** | – Avaliação contínua das configurações dos clusters AKS para fornecer visibilidade sobre as configurações incorretas e diretrizes para ajudar você a resolver eventuais problemas descobertos.<br>[Saiba mais sobre a proteção de ambientes por meio das recomendações de segurança](#environment-hardening).<br><br>– Proteção contra ameaças para clusters AKS e nós do Linux. Os alertas de atividades suspeitas são fornecidos pelo opcional [Azure Defender para Kubernetes](defender-for-kubernetes-introduction.md).<br>[Saiba mais sobre a proteção em tempo de execução para nós e clusters AKS](#run-time-protection-for-aks-nodes-and-clusters).|
+| ![Host de contêiner](./media/security-center-virtual-machine-recommendations/icon-container-host-rec.png)<br>**Hosts de contêiner**<br>(VMs executando o Docker) | – Avaliação contínua das configurações do Docker para fornecer visibilidade sobre as configurações incorretas e diretrizes para ajudar você a resolver eventuais problemas descobertos com o opcional [Azure Defender para Servidores](defender-for-servers-introduction.md).<br>[Saiba mais sobre a proteção de ambientes por meio das recomendações de segurança](#environment-hardening).|
+| ![Registro de contêiner](./media/security-center-virtual-machine-recommendations/icon-container-registry-rec.png)<br>**Registros do ACR (Registro de Contêiner do Azure)** | – Ferramentas de avaliação e gerenciamento de vulnerabilidade para as imagens dos registros do ACR baseados no Azure Resource Manager com o opcional [Azure Defender para Registros de Contêiner](defender-for-container-registries-introduction.md).<br>[Saiba mais sobre como verificar suas imagens de contêiner em busca de vulnerabilidades](#vulnerability-management---scanning-container-images). |
 |||
 
-Este artigo descreve como você pode usar a central de segurança, junto com os planos opcionais do Azure defender para registros de contêiner, servidores e kubernetes, para melhorar, monitorar e manter a segurança de seus contêineres e seus aplicativos.
+Este artigo descreve como você pode usar a Central de Segurança, juntamente com os planos opcionais do Azure Defender para Registros de Contêiner, Servidores e Kubernetes, para melhorar, monitorar e manter a segurança dos contêineres e dos aplicativos.
 
-Você aprenderá como a central de segurança ajuda com esses aspectos principais da segurança do contêiner:
+Você aprenderá como a Central de Segurança ajuda nesses aspectos essenciais da segurança de contêineres:
 
-- [Gerenciamento de vulnerabilidades-verificação de imagens de contêiner](#vulnerability-management---scanning-container-images)
-- [Proteção do ambiente](#environment-hardening)
+- [Gerenciamento de vulnerabilidades – Verificação de imagens de contêiner](#vulnerability-management---scanning-container-images)
+- [Proteção de ambiente](#environment-hardening)
 - [Proteção em tempo de execução para nós e clusters AKS](#run-time-protection-for-aks-nodes-and-clusters)
 
-A captura de tela a seguir mostra a página de inventário de ativos e os vários tipos de recursos de contêiner protegidos pela central de segurança.
+A captura de tela a seguir mostra a página de estoque de ativos e os diversos tipos de recursos de contêiner protegidos pela Central de Segurança.
 
-:::image type="content" source="./media/container-security/container-security-tab.png" alt-text="Recursos relacionados ao contêiner na página de inventário de ativos da central de segurança" lightbox="./media/container-security/container-security-tab.png":::
+:::image type="content" source="./media/container-security/container-security-tab.png" alt-text="Recursos relacionados a contêineres na página do estoque de ativos da Central de Segurança" lightbox="./media/container-security/container-security-tab.png":::
 
-## <a name="vulnerability-management---scanning-container-images"></a>Gerenciamento de vulnerabilidades-verificação de imagens de contêiner
+## <a name="vulnerability-management---scanning-container-images"></a>Gerenciamento de vulnerabilidades – Verificação de imagens de contêiner
 
-Para monitorar imagens em seus registros de contêiner do Azure baseados em Azure Resource Manager, habilite o [Azure defender para registros de contêiner](defender-for-container-registries-introduction.md). A central de segurança examina todas as imagens recebidas nos últimos 30 dias, enviadas por push ao registro ou importadas. O scanner integrado é fornecido pelo fornecedor de verificação de vulnerabilidade líder do setor, Qualys.
+Para monitorar imagens nos registros de contêiner do Azure baseados no Azure Resource Manager, habilite o [Azure Defender para Registros de Contêiner](defender-for-container-registries-introduction.md). A Central de Segurança verifica todas as imagens recebidas nos últimos 30 dias, enviadas por push ao registro ou importadas. O verificador integrado é fornecido pela Qualys, fornecedora líder do setor de verificação de vulnerabilidades.
 
-Quando forem encontrados problemas – por Qualys ou pela central de segurança – você será notificado no [painel do Azure defender](azure-defender-dashboard.md). Para cada vulnerabilidade, a central de segurança fornece recomendações acionáveis, juntamente com uma classificação de gravidade, e orientações sobre como corrigir o problema. Para obter detalhes das recomendações da central de segurança para contêineres, consulte a [lista de recomendações de referência](recommendations-reference.md#recs-containers).
+Quando forem encontrados problemas – seja pela Qualys ou pela Central de Segurança – você será notificado no [dashboard do Azure Defender](azure-defender-dashboard.md). Para cada vulnerabilidade, a Central de Segurança fornece recomendações práticas, juntamente com uma classificação de severidade e diretrizes sobre como corrigir o problema. Para obter detalhes das recomendações da Central de Segurança para contêineres, confira a [lista de referência de recomendações](recommendations-reference.md#recs-containers).
 
-A central de segurança filtra e classifica as descobertas do verificador. Quando uma imagem está íntegra, a central de segurança a marca como tal. A central de segurança gera recomendações de segurança apenas para imagens que têm problemas a serem resolvidos. Notificando apenas quando há problemas, a central de segurança reduz o potencial para alertas informativos indesejados.
+A Central de Segurança filtra e classifica as descobertas do verificador. Quando uma imagem está íntegra, a Central de Segurança marca a imagem como tal. A Central de Segurança gera recomendações de segurança apenas para as imagens que têm problemas a serem resolvidos. Notificando você apenas quando há problemas, a Central de Segurança reduz o potencial de alertas informativos indesejados.
 
-## <a name="environment-hardening"></a>Proteção do ambiente
+## <a name="environment-hardening"></a>Proteção de ambiente
 
 ### <a name="continuous-monitoring-of-your-docker-configuration"></a>Monitoramento contínuo da configuração do Docker
 
-A central de segurança do Azure identifica contêineres não gerenciados hospedados em VMs do Linux IaaS ou em outros computadores Linux que executam contêineres do Docker. A central de segurança avalia continuamente as configurações desses contêineres. Em seguida, ele os compara com o [benchmark do Docker do CIS (Center for Internet Security)](https://www.cisecurity.org/benchmark/docker/).
+A Central de Segurança do Azure identifica contêineres não gerenciados hospedados em VMs IaaS do Linux ou em outros computadores Linux que executam contêineres do Docker. A Central de Segurança avalia continuamente as configurações desses contêineres. Em seguida, ela as compara com o [benchmark do CIS (Center for Internet Security) do Docker](https://www.cisecurity.org/benchmark/docker/).
 
-A central de segurança inclui o conjunto de regras inteiro do parâmetro de comparação do Docker do CIS e o alerta se os contêineres não atenderem a nenhum dos controles. Quando ele encontra configurações incorretas, a central de segurança gera recomendações de segurança. Use a **página recomendações** da central de segurança para exibir recomendações e corrigir problemas. As verificações de parâmetro de comparação de CIS não são executadas em instâncias gerenciadas por AKS ou em VMs gerenciadas por databricks.
+A Central de Segurança inclui todo o conjunto de regras do benchmark do CIS do Docker e alerta você se os contêineres não atendem a nenhum dos controles. Quando encontra configurações incorretas, a Central de Segurança gera recomendações de segurança. Use a **página recomendações** da Central de Segurança para exibir recomendações e corrigir problemas. As verificações de benchmark do CIS não são executadas em instâncias gerenciadas pelo AKS ou em VMs gerenciadas pelo Databricks.
 
-Para obter detalhes sobre as recomendações relevantes da central de segurança que podem ser exibidas para esse recurso, consulte a [seção contêiner](recommendations-reference.md#recs-containers) da tabela de referência de recomendações.
+Para obter detalhes sobre as recomendações relevantes da Central de Segurança que podem aparecer para esse recurso, consulte a [seção de contêiner](recommendations-reference.md#recs-containers) da tabela de referência de recomendações.
 
-Quando você estiver explorando os problemas de segurança de uma VM, a central de segurança fornecerá informações adicionais sobre os contêineres no computador. Essas informações incluem a versão do Docker e o número de imagens em execução no host. 
+Quando você estiver explorando os problemas de segurança de uma VM, a Central de Segurança fornecerá informações adicionais sobre os contêineres no computador. Essas informações incluem a versão do Docker e o número de imagens em execução no host. 
 
-Para monitorar contêineres não gerenciados hospedados em VMs do Linux IaaS, habilite o [Azure defender para servidores](defender-for-servers-introduction.md)opcionais.
+Para monitorar os contêineres não gerenciados, hospedados em VMs IaaS do Linux, habilite o opcional [Azure Defender para Servidores](defender-for-servers-introduction.md).
 
 
-### <a name="continuous-monitoring-of-your-kubernetes-clusters"></a>Monitoramento contínuo de seus clusters kubernetes
-A central de segurança funciona junto com o AKS (serviço de kubernetes do Azure), o serviço de orquestração de contêiner gerenciado da Microsoft para desenvolver, implantar e gerenciar aplicativos em contêineres.
+### <a name="continuous-monitoring-of-your-kubernetes-clusters"></a>Monitoramento contínuo dos clusters Kubernetes
+A Central de Segurança funciona juntamente com o AKS (Serviço de Kubernetes do Azure), o serviço de orquestração de contêiner gerenciado da Microsoft para desenvolver, implantar e gerenciar aplicativos em contêineres.
 
-O AKS fornece controles de segurança e visibilidade da postura de segurança de seus clusters. A central de segurança usa esses recursos para:
-* Monitore constantemente a configuração de seus clusters AKS
+O AKS fornece controles de segurança e visibilidade sobre a postura de segurança de seus clusters. A Central de Segurança usa esses recursos para:
+* Monitorar constantemente a configuração de seus clusters AKS
 * Gerar recomendações de segurança alinhadas com os padrões do setor
 
-Para obter detalhes sobre as recomendações relevantes da central de segurança que podem ser exibidas para esse recurso, consulte a [seção contêiner](recommendations-reference.md#recs-containers) da tabela de referência de recomendações.
+Para obter detalhes sobre as recomendações relevantes da Central de Segurança que podem aparecer para esse recurso, consulte a [seção de contêiner](recommendations-reference.md#recs-containers) da tabela de referência de recomendações.
 
-###  <a name="workload-protection-best-practices-using-kubernetes-admission-control"></a>Práticas recomendadas de proteção de carga de trabalho usando o controle de admissão kubernetes
+###  <a name="workload-protection-best-practices-using-kubernetes-admission-control"></a>Melhores práticas de proteção de cargas de trabalho usando o controle de admissão do Kubernetes
 
-Instale o  **complemento Azure Policy para kubernetes** para obter um pacote de recomendações para proteger as cargas de trabalho de seus contêineres do kubernetes.
+Instale o **Complemento do Azure Policy para Kubernetes** a fim de obter um pacote de recomendações para proteger as cargas de trabalho dos contêineres do Kubernetes.
 
-Conforme explicado neste [Azure Policy para a página kubernetes](../governance/policy/concepts/policy-for-kubernetes.md), o complemento estende o webhook do controlador de admissão do [gatekeeper v3](https://github.com/open-policy-agent/gatekeeper)   de software livre para abrir o [agente de política](https://www.openpolicyagent.org/). Os controladores de admissão kubernetes são plug-ins que impõem como os clusters são usados. O complemento é registrado como um gancho da Web para o controle de admissão kubernetes e possibilita a aplicação de imposição em escala e proteções em seus clusters de maneira centralizada e consistente. 
+Conforme explicado [na página do Azure Policy para Kubernetes](../governance/policy/concepts/policy-for-kubernetes.md), o complemento estende o software livre [Gatekeeper v3](https://github.com/open-policy-agent/gatekeeper) webhook controlador de admissão para [ Agente de política aberto](https://www.openpolicyagent.org/). Os controladores de admissão do Kubernetes são plug-ins que impõem como os clusters são usados. O complemento é registrado como um webhook para o controle de admissão do Kubernetes e possibilita a aplicação de imposições em escala e proteções nos clusters de maneira centralizada e consistente. 
 
-Quando você tiver instalado o complemento em seu cluster do AKS, todas as solicitações ao servidor de API do kubernetes serão monitoradas em relação ao conjunto predefinido de práticas recomendadas antes de serem persistidas no cluster. Em seguida, você pode configurar o para **impor** as práticas recomendadas e mandato-las para cargas de trabalho futuras. 
+Quando você instalar o complemento no cluster do AKS, todas as solicitações para o servidor de API do Kubernetes serão monitoradas em relação ao conjunto predefinido de melhores práticas antes de serem persistidas no cluster. Em seguida, você pode configurá-lo para **impor** as melhores práticas e exigir o uso dele em cargas de trabalho futuras. 
 
-Por exemplo, você pode obrigar que contêineres com privilégios não devam ser criados, e quaisquer futuras solicitações para fazer isso serão bloqueadas.
+Por exemplo, você poderá proibir a criação de contêineres privilegiados, e todas as futuras solicitações para fazer isso serão bloqueadas.
 
-Saiba mais em [proteger suas cargas de trabalho do kubernetes](kubernetes-workload-protections.md).
+Saiba mais em [Proteger as cargas de trabalho do Kubernetes](kubernetes-workload-protections.md).
 
 
 ## <a name="run-time-protection-for-aks-nodes-and-clusters"></a>Proteção em tempo de execução para nós e clusters AKS
@@ -97,7 +97,7 @@ Saiba mais em [proteger suas cargas de trabalho do kubernetes](kubernetes-worklo
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Nesta visão geral, você aprendeu sobre os principais elementos da segurança de contêiner na central de segurança do Azure. Para material relacionado, consulte:
+Nesta visão geral, você aprendeu sobre os principais elementos da segurança de contêineres na Central de Segurança do Azure. Para obter materiais relacionados, confira:
 
-- [Introdução ao Azure defender para kubernetes](defender-for-kubernetes-introduction.md)
-- [Introdução ao Azure defender para registros de contêiner](defender-for-container-registries-introduction.md)
+- [Introdução ao Azure Defender para Kubernetes](defender-for-kubernetes-introduction.md)
+- [Introdução ao Azure Defender para Registros de Contêiner](defender-for-container-registries-introduction.md)
