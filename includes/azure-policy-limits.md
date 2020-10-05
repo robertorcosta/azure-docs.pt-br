@@ -7,10 +7,10 @@ ms.topic: include
 ms.date: 09/30/2020
 ms.author: dacoulte
 ms.openlocfilehash: f3f706789e14cb20214bf17fd91f6ec1e503848f
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91605956"
 ---
 Há uma contagem máxima para cada tipo de objeto do Azure Policy. Para as definições, uma entrada de _Escopo_ significa o [grupo de gerenciamento](../articles/governance/management-groups/overview.md) ou a assinatura.

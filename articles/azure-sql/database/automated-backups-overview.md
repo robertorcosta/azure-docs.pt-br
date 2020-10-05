@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: shkale-msft
 ms.author: shkale
 ms.reviewer: mathoma, stevestein, danil
-ms.date: 09/25/2020
-ms.openlocfilehash: 93370050b503875d670283b720088b0871377c09
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.date: 10/05/2020
+ms.openlocfilehash: 43551ca17180cbb3614c670490a19aeaae6c7701
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91535059"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91728634"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Backups automatizados – banco de dados SQL do Azure & SQL Instância Gerenciada
 
@@ -50,7 +50,7 @@ Para um banco de dados SQL, a redundância de armazenamento de backup pode ser c
 > Atualmente, o armazenamento com redundância de zona só está disponível em [determinadas regiões](../../storage/common/storage-redundancy.md#zone-redundant-storage). 
 
 > [!NOTE]
-> A redundância de armazenamento de backup configurável do banco de dados SQL do Azure está disponível atualmente somente na visualização pública na região do sudeste asiático do Azure.  
+> A redundância de armazenamento de backup configurável para o banco de dados SQL do Azure está disponível atualmente somente na visualização pública na região do sudeste asiático do Azure. Este recurso ainda não está disponível para a camada de hiperescala. 
 
 ### <a name="backup-usage"></a>Uso do backup
 
@@ -439,9 +439,9 @@ Se você tiver requisitos de residência de dados que exigem que você mantenha 
 
 As novas políticas internas a seguir são adicionadas, que podem ser atribuídas no nível de assinatura ou grupo de recursos para bloquear a criação de novos bancos de dados ou instâncias com o armazenamento de backup com redundância geográfica. 
 
-[O banco de dados SQL deve evitar o uso de redundância de backup GRS](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb219b9cf-f672-4f96-9ab0-f5a3ac5e1c13)
+[O Banco de Dados SQL deve evitar o uso de redundância de backup de GRS](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb219b9cf-f672-4f96-9ab0-f5a3ac5e1c13)
 
-[Instâncias gerenciadas do SQL devem evitar o uso de redundância de backup GRS](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa9934fd7-29f2-4e6d-ab3d-607ea38e9079)
+[As Instâncias Gerenciadas do SQL devem evitar o uso de redundância de backup de GRS](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa9934fd7-29f2-4e6d-ab3d-607ea38e9079)
 
 Uma lista completa de definições de políticas internas para o banco de dados SQL e Instância Gerenciada pode ser encontrada [aqui](https://docs.microsoft.com/azure/azure-sql/database/policy-reference).
 

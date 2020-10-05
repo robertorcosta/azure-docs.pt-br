@@ -1,57 +1,57 @@
 ---
-title: Painel principal da central de segurança do Azure ou página de "visão geral"
-description: Saiba mais sobre os recursos da página Visão geral da central de segurança
+title: Painel principal ou página de 'visão geral' da Central de Segurança do Azure
+description: Saiba mais sobre os recursos da página de visão geral da Central de Segurança
 author: memildin
 ms.author: memildin
 ms.date: 9/12/2020
-ms.topic: conceptual
+ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 637f7dde63d562f71aa31561a960ed3502a80229
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
-ms.translationtype: MT
+ms.openlocfilehash: cc52610eacc3916b7a8978cba17a1db3f3d50686
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90932857"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91447678"
 ---
-# <a name="azure-security-centers-overview-page"></a>Página de visão geral da central de segurança do Azure
+# <a name="azure-security-centers-overview-page"></a>Página de visão geral da Central de Segurança do Azure
 
-Quando você abre a central de segurança do Azure, a primeira página a ser exibida é a página Visão geral. 
+Quando você abre a Central de Segurança do Azure, a primeira página a ser exibida é a página de visão geral. 
 
 :::image type="content" source="media/overview-page/overview.png" alt-text="Página de visão geral da Central de Segurança":::
 
-Descubra e avalie a segurança de suas cargas de trabalho e identifique e reduza riscos, com a página Visão geral da central de segurança.
+Descubra e avalie a segurança das suas cargas de trabalho e identifique e atenue riscos com a página de visão geral da Central de Segurança.
 
-A visão geral fornece uma exibição unificada sobre a postura de segurança de suas cargas de trabalho de nuvem híbrida. Além disso, ele mostra alertas de segurança, informações de cobertura e muito mais.
+A visão geral fornece uma exibição unificada da postura de segurança das suas cargas de trabalho de nuvem híbrida. Além disso, ela mostra alertas de segurança, informações de cobertura, entre outros.
 
 
-## <a name="features-of-the-overview-page"></a>Recursos da página Visão geral
+## <a name="features-of-the-overview-page"></a>Recursos da página de visão geral
 
-:::image type="content" source="media/overview-page/top-bar-of-overview.png" alt-text="Barra superior da página de visão geral da central de segurança":::
+:::image type="content" source="media/overview-page/top-bar-of-overview.png" alt-text="Página de visão geral da Central de Segurança":::
 
 A **barra de menus superior** oferece:
-- **Assinaturas** – você pode exibir e filtrar a lista de assinaturas selecionando esse botão. A Central de Segurança ajustará a exibição para refletir a postura de segurança das assinaturas selecionadas.
-- **O que há de novo** – abre as [notas de versão](release-notes.md) para que você possa se manter atualizado com os novos recursos, correções de bugs e funcionalidade preterida.
-- **Números de alto nível** para as contas de nuvem conectadas, para mostrar o contexto das informações nos blocos principais abaixo. Bem como o número de recomendações e alertas ativos.
-    Saiba mais sobre como conectar suas [contas do AWS](quickstart-onboard-aws.md) e seus projetos do [GCP](quickstart-onboard-gcp.md).
+- **Assinaturas**: veja e filtre a lista de assinaturas selecionando este botão. A Central de Segurança ajustará a exibição para refletir a postura de segurança das assinaturas selecionadas.
+- **Novidades**: abre as [notas sobre a versão](release-notes.md) para que você possa se manter atualizado com os novos recursos, as correções de bugs e as funcionalidades preteridas.
+- **Números de alto nível** para as contas de nuvem conectadas, para mostrar o contexto das informações nos blocos principais abaixo. Além do número de recomendações e alertas ativos.
+    Saiba mais sobre como conectar suas [contas da AWS](quickstart-onboard-aws.md) e seus [projetos do GCP](quickstart-onboard-gcp.md).
 
 
-No centro da página há **quatro blocos centrais**, cada um vinculando a um painel dedicado para obter mais detalhes:
-- **Pontuação segura** -a central de segurança avalia continuamente seus recursos, suas assinaturas e a organização em busca de problemas de segurança. Em seguida, ele agrega todas as conclusões em uma única pontuação para que você possa ver, rapidamente, sua situação de segurança atual: quanto maior a pontuação, menor o nível de risco identificado. [Saiba mais](secure-score-security-controls.md).
-- **Conformidade** – a central de segurança fornece informações sobre sua postura de conformidade com base em avaliações contínuas do seu ambiente do Azure. A Central de Segurança analisa fatores de risco em seu ambiente de nuvem híbrida de acordo com as melhores práticas de segurança. Essas avaliações são mapeadas para controles de conformidade de um conjunto de padrões com suporte. [Saiba mais](security-center-compliance-dashboard.md).
-- **Azure defender** – esta é a CWPP (plataforma de proteção de carga de trabalho de nuvem) integrada na central de segurança para proteção avançada e inteligente de suas cargas de trabalho híbridas e do Azure. O bloco mostra a cobertura de seus recursos conectados (para as assinaturas atualmente selecionadas) e os alertas recentes, codificados por cor por severidade. [Saiba mais](azure-defender.md).
-- **Inventário** -o bloco mostra o número de VMs não monitoradas e uma indicador simples de seus recursos monitorados pelo Security CenterBen. [Saiba mais](asset-inventory.md).
+No centro da página estão **quatro blocos centrais**, cada um se vinculando a um painel dedicado para mostrar mais detalhes:
+- **Classificação de segurança**: a Central de Segurança avalia continuamente seus recursos, suas assinaturas e a organização em busca de problemas de segurança. Em seguida, ele agrega todas as conclusões em uma única pontuação para que você possa ver, rapidamente, sua situação de segurança atual: quanto maior a pontuação, menor o nível de risco identificado. [Saiba mais](secure-score-security-controls.md).
+- **Conformidade**: a Central de Segurança fornece insights sobre a sua postura de conformidade, com base em avaliações contínuas do seu ambiente do Azure. A Central de Segurança analisa fatores de risco em seu ambiente de nuvem híbrida de acordo com as melhores práticas de segurança. Essas avaliações são mapeadas para controles de conformidade com base em um conjunto compatível de padrões.[Saiba mais](security-center-compliance-dashboard.md).
+- **Azure Defender**: esta é a PPCTN (plataforma de proteção de cargas de trabalho na nuvem) integrada à Central de Segurança para proteção avançada e inteligente das suas cargas de trabalho híbridas e do Azure. O bloco mostra a cobertura dos seus recursos conectados (para as assinaturas atualmente selecionadas) e os alertas recentes, codificados por cor e por severidade. [Saiba mais](azure-defender.md).
+- **Inventário**: o bloco mostra o número de VMs não monitoradas e um barômetro simples dos seus recursos monitorados pela Central de Segurança. [Saiba mais](asset-inventory.md).
 
 
-O painel de **informações** oferece itens personalizados para seu ambiente, incluindo:
-- Seus recursos mais atacados
-- Seus controles de segurança que têm o maior potencial para aumentar sua pontuação segura
+O painel **Insights** oferece itens personalizados para o seu ambiente, incluindo:
+- Os recursos mais atacados
+- Os controles de segurança que têm o maior potencial para aumentar sua classificação de segurança
 - As recomendações ativas com a maioria dos recursos afetados
-- Postagens recentes no blog dos especialistas da central de segurança do Azure
+- Postagens recentes no blog dos especialistas da Central de Segurança do Azure
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Esta página introduziu a página Visão geral da central de segurança. Para obter informações relacionadas. consulte:
+Esta página apresentou a página de visão geral da Central de Segurança. Para obter informações relacionadas. consulte:
 
-- [Explore e gerencie seus recursos com o inventário de ativos e as ferramentas de gerenciamento](asset-inventory.md)
+- [Explore e gerencie seus recursos com as ferramentas de gerenciamento e inventário de ativos](asset-inventory.md)
 - [Pontuação segura na Central de Segurança do Azure](secure-score-security-controls.md)

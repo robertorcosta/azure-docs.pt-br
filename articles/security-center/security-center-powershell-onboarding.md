@@ -1,5 +1,5 @@
 ---
-title: Integração à central de segurança do Azure com o PowerShell
+title: Integração à Central de Segurança do Azure com o PowerShell
 description: Este documento orienta você pelo processo de integração da Central de Segurança do Azure usando os cmdlets do PowerShell.
 services: security-center
 documentationcenter: na
@@ -8,17 +8,17 @@ manager: rkarlin
 ms.assetid: e400fcbf-f0a8-4e10-b571-5a0d0c3d0c67
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2018
 ms.author: memildin
-ms.openlocfilehash: e367851c4d709acbc0eb94a47d7e20d4d3c1cc46
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
-ms.translationtype: MT
+ms.openlocfilehash: c805b35b2c05600f96983da42ea7206a09e2e3e8
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904804"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91447390"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>Automatizar integração da Central de Segurança do Azure usando o PowerShell
 
@@ -29,15 +29,15 @@ A integração da Central de Segurança do Azure através do PowerShell permite 
 
 Este artigo fornece um exemplo de script do PowerShell que pode ser modificado e usado em seu ambiente para implantar a Central de Segurança em suas assinaturas. 
 
-Neste exemplo, Habilitaremos a central de segurança em uma assinatura com ID: d07c0080-170C-4C24-861d-9c817742786c e aplicaremos as configurações recomendadas que fornecem um alto nível de proteção, habilitando o Azure defender, que fornece recursos avançados de proteção e detecção de ameaças:
+Neste exemplo, habilitaremos a Central de Segurança em uma assinatura com a ID d07c0080-170c-4c24-861d-9c817742786c e aplicaremos as configurações recomendadas que fornecem um alto nível de proteção, com a habilitação do Azure Defender, que oferece funcionalidades de detecção e proteção avançada contra ameaças:
 
-1. Habilitar o [Azure defender](azure-defender.md). 
+1. Habilite o [Azure Defender](azure-defender.md). 
  
-2. Defina o espaço de trabalho Log Analytics ao qual o agente de Log Analytics enviará os dados coletados nas VMs associadas à assinatura – neste exemplo, um espaço de trabalho definido pelo usuário existente (MyWorkspace).
+2. Defina o workspace do Log Analytics para o qual o agente do Log Analytics enviará os dados coletados nas VMs associadas à assinatura. Neste exemplo, um workspace existente definido pelo usuário (myWorkspace).
 
-3. Ative o provisionamento automático de agente da central de segurança, que [implanta o agente de log Analytics](security-center-enable-data-collection.md#auto-provision-mma).
+3. Ative o provisionamento automático de agente da Central de Segurança que [implanta o agente do Log Analytics](security-center-enable-data-collection.md#auto-provision-mma).
 
-5. Defina o ciso da organização [como o contato de segurança para alertas da central de segurança e eventos notáveis](security-center-provide-security-contact-details.md).
+5. Defina o [CISO da organização como o contato de segurança para alertas e eventos notáveis da Central de Segurança](security-center-provide-security-contact-details.md).
 
 6. Atribua as [políticas de segurança padrão da](tutorial-security-policy.md) Central de Segurança.
 
@@ -61,7 +61,7 @@ Essas etapas devem ser realizadas antes de executar os cmdlets da Central de Seg
 
     ```Register-AzResourceProvider -ProviderNamespace 'Microsoft.Security'```
 
-1. Opcional: defina o nível de cobertura (ativar/desativar o Azure defender) das assinaturas. Se não definido, o defender estará desativado:
+1. Opcional: defina o nível de cobertura (Azure Defender ativado/desativado) das assinaturas. Se ele não for definido, o Defender ficará desativado:
 
     ```Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"```
 
@@ -71,7 +71,7 @@ Essas etapas devem ser realizadas antes de executar os cmdlets da Central de Seg
 
     ```Set-AzSecurityWorkspaceSetting -Name "default" -Scope "/subscriptions/d07c0080-170c-4c24-861d-9c817742786c" -WorkspaceId"/subscriptions/d07c0080-170c-4c24-861d-9c817742786c/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace"```
 
-1. Instalação de provisionamento automático do agente de Log Analytics em suas VMs do Azure:
+1. Provisione de modo automático a instalação do agente do Log Analytics nas suas VMs do Azure:
     
     ```Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"```
     
@@ -91,7 +91,7 @@ Essas etapas devem ser realizadas antes de executar os cmdlets da Central de Seg
 
     ```$Policy = Get-AzPolicySetDefinition | where {$_.Properties.displayName -EQ 'Enable Monitoring in Azure Security Center'} New-AzPolicyAssignment -Name 'ASC Default <d07c0080-170c-4c24-861d-9c817742786c>' -DisplayName 'Security Center Default <subscription ID>' -PolicySetDefinition $Policy -Scope '/subscriptions/d07c0080-170c-4c24-861d-9c817742786c'```
 
-Você integrou com êxito a central de segurança do Azure com o PowerShell.
+Você integrou com êxito a Central de Segurança do Azure ao PowerShell.
 
 Agora você pode usar esses cmdlets do PowerShell com scripts de automação para iterar programaticamente entre assinaturas e recursos. Isso economiza tempo e reduz a probabilidade de erro humano. Você pode usar este [exemplo de script](https://github.com/Microsoft/Azure-Security-Center/blob/master/quickstarts/ASC-Samples.ps1) como referência.
 
@@ -101,9 +101,9 @@ Agora você pode usar esses cmdlets do PowerShell com scripts de automação par
 ## <a name="see-also"></a>Confira também
 Para saber mais sobre como você pode usar o PowerShell para automatizar a integração à Central de Segurança, confira o artigo a seguir:
 
-* [AZ. Security](https://docs.microsoft.com/powershell/module/az.security)
+* [Az.Security](https://docs.microsoft.com/powershell/module/az.security)
 
 Para saber mais sobre a Central de Segurança, confira o seguinte artigo:
 
-* [Configurando políticas de segurança na central de segurança do Azure](tutorial-security-policy.md) – saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
-* [Gerenciando e respondendo a alertas de segurança na central de segurança do Azure](security-center-managing-and-responding-alerts.md) – saiba como gerenciar e responder a alertas de segurança.
+* [Configurando políticas de segurança na Central de Segurança do Azure](tutorial-security-policy.md) : saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
+* [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) : aprenda a gerenciar e a responder a alertas de segurança.

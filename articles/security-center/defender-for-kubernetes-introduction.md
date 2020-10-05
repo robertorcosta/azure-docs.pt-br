@@ -1,55 +1,55 @@
 ---
-title: Azure defender para kubernetes-os benefícios e recursos
-description: Saiba mais sobre os benefícios e recursos do Azure defender para kubernetes.
+title: Azure Defender para Kubernetes – Benefícios e recursos
+description: Saiba mais sobre os benefícios e os recursos do Azure Defender para Kubernetes.
 author: memildin
 ms.author: memildin
 ms.date: 9/12/2020
-ms.topic: conceptual
+ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: a7fb97f1036515f82fa3e61c18f95eadf0af704d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
-ms.translationtype: MT
+ms.openlocfilehash: 3308a72421b851402642f12daf56359c7e3c9216
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91301696"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91449069"
 ---
-# <a name="introduction-to-azure-defender-for-kubernetes"></a>Introdução ao Azure defender para kubernetes
+# <a name="introduction-to-azure-defender-for-kubernetes"></a>Introdução ao Azure Defender para Kubernetes
 
-O AKS (serviço kubernetes do Azure) é o serviço gerenciado da Microsoft para desenvolver, implantar e gerenciar aplicativos em contêineres.
+O AKS (Serviço de Kubernetes do Azure) é o serviço gerenciado da Microsoft para desenvolver, implantar e gerenciar aplicativos em contêineres.
 
-A central de segurança do Azure e o AKS formam a melhor oferta de segurança kubernetes de nuvem nativa e, juntas, fornecem proteção de ambiente, proteção de carga de trabalho, e segurança em tempo de execução, conforme descrito abaixo.
+A Central de Segurança do Azure e o AKS formam a melhor oferta de segurança nativa de nuvem do Kubernetes e, juntos, fornecem proteção de ambiente, proteção de cargas de trabalho e proteção em tempo de execução, conforme descrito abaixo.
 
-Para detecção de ameaças para seus clusters kubernetes, habilite o **Azure defender para kubernetes**.
+Para detecção de ameaças nos clusters do Kubernetes, habilite o **Azure Defender para Kubernetes**.
 
-A detecção de ameaças no nível de host para seus nós AKS do Linux estará disponível se você habilitar o [Azure defender para servidores](defender-for-servers-introduction.md).
+A detecção de ameaças no nível de host para os nós AKS do Linux estará disponível se você habilitar o [Azure Defender para Servidores](defender-for-servers-introduction.md).
 
 ## <a name="availability"></a>Disponibilidade
 
 |Aspecto|Detalhes|
 |----|:----|
 |Estado da versão:|GA (em disponibilidade geral)|
-|Refere|O **Azure defender para kubernetes** é cobrado conforme mostrado na [página de preços](security-center-pricing.md)|
-|Funções e permissões necessárias:|O **administrador de segurança** pode ignorar alertas.<br>**O leitor de segurança** pode exibir as conclusões.|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) National/soberanas (US Gov, China gov, outros gov)|
+|Preço:|O **Azure Defender para Kubernetes** é cobrado conforme mostrado na [página de preços](security-center-pricing.md)|
+|Funções e permissões necessárias:|O **Administrador de segurança** pode ignorar alertas.<br>**O leitor de segurança** pode exibir as conclusões.|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) Nacionais/soberanas (US Gov, China Gov, outros Gov)|
 |||
 
-## <a name="what-are-the-benefits-of-azure-defender-for-kubernetes"></a>Quais são os benefícios do Azure defender para kubernetes?
+## <a name="what-are-the-benefits-of-azure-defender-for-kubernetes"></a>Quais são os benefícios do Azure Defender para Kubernetes?
 
-### <a name="run-time-protection"></a>Proteção de tempo de execução
+### <a name="run-time-protection"></a>Proteção em tempo de execução
 
-Por meio da análise contínua das seguintes fontes de AKS, a central de segurança fornece proteção contra ameaças em tempo real para seus ambientes em contêineres e gera alertas para ameaças e atividades mal-intencionadas detectadas no nível de cluster do host *e* do AKS. É possível usar essas informações para corrigir os problemas rapidamente e aumentar a segurança de seus contêineres.
+Por meio da análise contínua das fontes do AKS a seguir, a Central de Segurança fornece proteção contra ameaças em tempo real para seus ambientes em contêineres e gera alertas para ameaças e atividades mal-intencionadas detectadas no nível do host *e* do cluster AKSS. É possível usar essas informações para corrigir os problemas rapidamente e aumentar a segurança de seus contêineres.
 
 A Central de Segurança fornece proteção contra ameaças em diferentes níveis: 
 
-- **Nível de host (fornecido pelo Azure defender para servidores)** -usando o mesmo agente de log Analytics que a central de segurança usa em outras VMS, o Azure defender monitora seus nós AKs do Linux em busca de atividades suspeitas, como detecção de Shell da Web e conexão com endereços IP suspeitos conhecidos. O agente também monitora a análise específica de contêiner, como a criação de contêiner privilegiado, acesso suspeito a servidores de API e servidores Secure Shell (SSH) em execução dentro de um contêiner do Docker.
+- **Nível de host (fornecido pelo Azure Defender para Servidores)** – Usando o mesmo agente do Log Analytics que a Central de Segurança usa em outras VMs, o Azure Defender monitora seus nós AKS do Linux em busca de atividades suspeitas, como detecção de Shell da Web e conexão com endereços IP suspeitos conhecidos. O agente também monitora a análise específica de contêiner, como a criação de contêineres privilegiados, acessos suspeitos a servidores de API e servidores SSH (Secure Shell) em execução dentro de um contêiner do Docker.
 
-    Para obter uma lista dos alertas de nível de host AKS, consulte a [tabela de referência de alertas](alerts-reference.md#alerts-containerhost).
+    Para obter uma lista dos alertas no nível do host do AKS, confira a [Tabela de referência de alertas](alerts-reference.md#alerts-containerhost).
 
     >[!IMPORTANT]
     > Se você optar por não instalar os agentes em seus hosts, receberá apenas um subconjunto dos benefícios da proteção contra ameaças e dos alertas de segurança. Você ainda receberá alertas relacionados a análises de rede e comunicações com servidores mal-intencionados.
 
-- **Nível de cluster AKs (fornecido pelo Azure defender para kubernetes)** – no nível do cluster, a proteção contra ameaças baseia-se na análise dos logs de auditoria do kubernetes. Para habilitar esse monitoramento **sem agente** , habilite o Azure defender. Para gerar alertas nesse nível, a Central de Segurança monitora seus serviços gerenciados pelo AKS usando os logs recuperados pelo AKS. Exemplos de eventos nesse nível incluem painéis expostos do Kubernetes, a criação de funções com altos privilégios e a criação de montagens confidenciais.
+- **Nível de cluster do AKS (fornecido pelo Azure Defender para Kubernetes)** – No nível do cluster, a proteção contra ameaças baseia-se na análise dos logs de auditoria do Kubernetes. Para habilitar esse monitoramento **sem agente**, habilite o Azure Defender. Para gerar alertas nesse nível, a Central de Segurança monitora seus serviços gerenciados pelo AKS usando os logs recuperados pelo AKS. Exemplos de eventos nesse nível incluem painéis expostos do Kubernetes, a criação de funções com altos privilégios e a criação de montagens confidenciais.
 
     Para obter uma lista dos alertas no nível do cluster AKS, confira a [Tabela de referência de alertas](alerts-reference.md#alerts-akscluster).
 
@@ -63,39 +63,39 @@ Além disso, nossa equipe global de pesquisadores de segurança monitora constan
 
 
 
-## <a name="how-does-security-centers-kubernetes-protection-work"></a>Como funciona a proteção kubernetes da central de segurança?
+## <a name="how-does-security-centers-kubernetes-protection-work"></a>Como funciona a proteção do Kubernetes da Central de Segurança?
 
-Veja abaixo um diagrama de alto nível da interação entre a central de segurança do Azure, o serviço kubernetes do Azure e o Azure Policy.
+Veja abaixo um diagrama de alto nível da interação entre a Central de Segurança do Azure, o serviço de Kubernetes do Azure e o Azure Policy.
 
-Você pode ver que os itens recebidos e analisados pela central de segurança incluem:
+Você pode ver que os itens recebidos e analisados pela Central de Segurança incluem:
 
 - logs de auditoria do servidor de API
-- eventos de segurança brutos do agente de Log Analytics
-- informações de configuração de cluster do cluster AKS
-- configuração de carga de trabalho de Azure Policy (por meio do **complemento de Azure Policy para kubernetes**). [Saiba mais sobre as práticas recomendadas de proteção de carga de trabalho usando o controle de admissão kubernetes](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control)
+- eventos de segurança brutos do agente do Log Analytics
+- informações de configuração de cluster do cluster do AKS
+- configuração da carga de trabalho do Azure Policy (por meio do **complemento do Azure Policy para Kubernetes**). [Saiba mais sobre as melhores práticas de proteção de cargas de trabalho usando o controle de admissão do Kubernetes](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control)
 
-:::image type="content" source="./media/defender-for-kubernetes-intro/kubernetes-service-security-center-integration-detailed.png" alt-text="Arquitetura de alto nível da interação entre a central de segurança do Azure, o serviço kubernetes do Azure e o Azure Policy" lightbox="./media/defender-for-kubernetes-intro/kubernetes-service-security-center-integration-detailed.png":::
-
-
+:::image type="content" source="./media/defender-for-kubernetes-intro/kubernetes-service-security-center-integration-detailed.png" alt-text="Arquitetura de alto nível da interação entre a Central de Segurança do Azure, o Serviço de Kubernetes do Azure e o Azure Policy" lightbox="./media/defender-for-kubernetes-intro/kubernetes-service-security-center-integration-detailed.png":::
 
 
-## <a name="azure-defender-for-kubernetes---faq"></a>Azure defender para kubernetes-perguntas frequentes
 
-### <a name="can-i-still-get-aks-protections-without-the-log-analytics-agent"></a>Ainda posso obter proteções de AKS sem o agente de Log Analytics?
 
-Conforme mencionado acima, o plano opcional do **Azure defender para kubernetes** fornece proteções no nível do cluster, o agente de log Analytics do **Azure defender para servidores** protege seus nós. 
+## <a name="azure-defender-for-kubernetes---faq"></a>Azure Defender para Kubernetes – Perguntas frequentes
+
+### <a name="can-i-still-get-aks-protections-without-the-log-analytics-agent"></a>Eu posso obter proteções do AKS mesmo sem o agente do Log Analytics?
+
+Conforme mencionado acima, o plano opcional **Azure Defender para Kubernetes** fornece proteções no nível do cluster, o agente do Log Analytics do **Azure Defender para Servidores** protege os nós. 
 
 É recomendável implantar ambos, para obter a proteção mais completa possível.
 
-Se optar por não instalar o agente em seus hosts, você receberá apenas um subconjunto dos benefícios da proteção contra ameaças e dos alertas de segurança. Você ainda receberá alertas relacionados a análises de rede e comunicações com servidores mal-intencionados.
+Se você optar por não instalar o agente nos hosts, receberá apenas um subconjunto dos benefícios da proteção contra ameaças e dos alertas de segurança. Você ainda receberá alertas relacionados a análises de rede e comunicações com servidores mal-intencionados.
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você aprendeu sobre a proteção kubernetes da central de segurança, incluindo o Azure defender para kubernetes. 
+Neste artigo, você aprendeu sobre a proteção do Kubernetes da Central de Segurança, incluindo o Azure Defender para Kubernetes. 
 
 Para obter material relacionado, consulte os seguintes artigos: 
 
 - [Habilitar o Azure Defender](security-center-pricing.md)
-- [Exportar alertas para uma sentinela do Azure ou um SIEM de terceiros](continuous-export.md)
+- [Exportar alertas para um Azure Sentinel ou um SIEM de terceiros](continuous-export.md)
 - [Tabela de referência de alertas](alerts-reference.md)

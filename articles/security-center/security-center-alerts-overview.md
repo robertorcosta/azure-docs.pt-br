@@ -8,18 +8,18 @@ manager: rkarlin
 ms.assetid: 1b71e8ad-3bd8-4475-b735-79ca9963b823
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 10/05/2020
 ms.author: memildin
-ms.openlocfilehash: b2d5731ea9e8f2fb13d234fc9d951e221c0ab3e5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 7228368645023ffc7debbc84adb8e3b7c27b1bbb
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905469"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91728430"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Alertas de segurança na Central de Segurança do Azure
 
-Na Central de Segurança do Azure, há uma variedade de alertas para vários tipos de recursos diferentes. A Central de Segurança gera alertas para recursos implantados no Azure e também para recursos implantados em ambientes de nuvens híbrida e locais.
+Na central de segurança, há uma variedade de alertas para vários tipos de recursos diferentes. A Central de Segurança gera alertas para recursos implantados no Azure e também para recursos implantados em ambientes de nuvens híbrida e locais.
 
 Os alertas de segurança são disparados por detecções avançadas e estão disponíveis somente com o Azure defender. Há uma avaliação gratuita disponível. Você pode atualizar da página de **configurações de & de preços** . Saiba mais sobre os [preços da central de segurança](https://azure.microsoft.com/pricing/details/security-center/).
 
@@ -84,6 +84,14 @@ A Central de Segurança do Azure aproveita o fato de ter equipes de pesquisas de
 * **Ajuste de detecção**: Algoritmos são executados em conjuntos de dados de clientes reais e os pesquisadores de segurança trabalham com os clientes para validar os resultados. Verdadeiros e falsos positivos são usados para refinar os algoritmos de aprendizado de máquina.
 
 Esses esforços combinados culminam em detecções novas e aprimoradas de que você pode se beneficiar instantaneamente. Não há nenhuma ação a ser tomada.
+
+## <a name="export-alerts"></a>Exportar alertas
+
+Você tem uma variedade de opções para exibir seus alertas fora da central de segurança, incluindo:
+
+- **Baixar o relatório CSV** no painel alertas fornece uma única exportação para CSV.
+- A **exportação contínua** de configurações de & de preços permite que você configure fluxos de alertas de segurança e recomendações para log Analytics espaços de trabalho e hubs de eventos. [Saiba mais sobre a exportação contínua](continuous-export.md)
+- O **conector do Azure Sentinel** transmite alertas do Azure defender da central de segurança do Azure para o Azure Sentinel. [Saiba mais sobre como conectar a central de segurança do Azure com o sentinela](../sentinel/connect-azure-security-center.md)
 
 
 ## <a name="next-steps"></a>Próximas etapas

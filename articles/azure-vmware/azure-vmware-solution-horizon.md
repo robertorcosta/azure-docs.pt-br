@@ -3,12 +3,12 @@ title: Implantar o horizonte na solução VMware do Azure
 description: Saiba como implantar o VMware horizonte na solução VMware do Azure.
 ms.topic: how-to
 ms.date: 09/29/2020
-ms.openlocfilehash: 60207b0ed9e1df805ac667752b55f14a693ec25c
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: bda4be049e360670cb7038bfbb3070c2a5f262c4
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91492376"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91729042"
 ---
 # <a name="deploy-horizon-on-azure-vmware-solution"></a>Implantar o horizonte na solução VMware do Azure 
 
@@ -84,7 +84,7 @@ Cada nuvem privada do Azure/SDDC é capaz de lidar com sessões de desktop ou de
 
 Devido ao limite máximo de nuvem privada/SDDC do Azure, recomendamos uma arquitetura de implantação em que os servidores de conexão de horizonte e os UAGs (gateways de acesso unificado) da VMware estejam em execução dentro da rede virtual do Azure. Isso efetivamente transforma cada nuvem privada/SDDC do Azure em um bloco. Isso, por sua vez, maximiza a escalabilidade do horizonte em execução na solução VMware do Azure.
 
-A conexão da rede virtual do Azure com as nuvens/SDDCs privadas do Azure deve ser configurada com o caminho rápido ExpressPath. O diagrama a seguir mostra uma implantação de Pod básico.
+A conexão da rede virtual do Azure com as nuvens/SDDCs privadas do Azure deve ser configurada com o ExpressRoute FastPath. O diagrama a seguir mostra uma implantação de Pod básico.
 
 :::image type="content" source="media/horizon/horizon-pod-deployment-expresspath-fast-path.png" alt-text="As diferenças entre o horizonte na solução VMware do Azure e na nuvem de horizonte no Azure" border="false":::
 
@@ -92,7 +92,7 @@ A conexão da rede virtual do Azure com as nuvens/SDDCs privadas do Azure deve s
 
 Esta seção apresenta a arquitetura de rede em um alto nível para o horizonte de dimensionamento na solução do Azure VMware com alguns exemplos comuns de implantação. O foco aqui se destina especificamente a elementos críticos de rede.
 
-### <a name="single-horizon-pd-on-azure-vmware-solution"></a>Horizonte único PD na solução do Azure VMware
+### <a name="single-horizon-pod-on-azure-vmware-solution"></a>Pod de horizonte único na solução VMware do Azure
 
 :::image type="content" source="media/horizon/single-horizon-pod-azure-vmware-solution.png" alt-text="As diferenças entre o horizonte na solução VMware do Azure e na nuvem de horizonte no Azure" border="false":::
 
