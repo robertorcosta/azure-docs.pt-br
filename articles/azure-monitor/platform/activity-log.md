@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 089c53c72ae2c4cf6216937e8977b64a7abf80fc
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: ff28bbf57ac77e1bc092d35e9bf493f75040cc9c
+ms.sourcegitcommit: 5b69ba21787c07547edfbfd5254eaf34315cfadd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90983207"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91712299"
 ---
 # <a name="azure-activity-log"></a>Log de Atividades do Azure
 O log de atividades é um [log de plataforma](platform-logs-overview.md) no Azure que fornece informações sobre eventos de nível de assinatura. Isso inclui informações como quando um recurso é modificado ou quando uma máquina virtual é iniciada. Veja o log de atividades no portal do Azure ou recupere as entradas com o PowerShell e a CLI. Para funcionalidade adicional, você deve criar uma configuração de diagnóstico para enviar o log de atividades para [Azure monitor logs](data-platform-logs.md), para os hubs de eventos do Azure para encaminhar fora do Azure ou para o armazenamento do Azure para arquivamento. Este artigo fornece detalhes sobre como exibir o log de atividades e enviá-lo para diferentes destinos.
@@ -201,12 +201,12 @@ Se um perfil de log já existir, primeiro você precisará remover o perfil de l
 
     | Propriedade | Obrigatório | Descrição |
     | --- | --- | --- |
-    | Name |Sim |Nome de seu perfil de log. |
-    | StorageAccountId |No |ID de recurso da conta de armazenamento em que o log de atividades deve ser salvo. |
-    | serviceBusRuleId |No |ID da Regra de Barramento de Serviço para o namespace do Barramento de Serviço no qual você gostaria que os hubs de eventos fossem criados. Esta é uma cadeia de caracteres com o formato: `{service bus resource ID}/authorizationrules/{key name}` . |
+    | Nome |Sim |Nome de seu perfil de log. |
+    | StorageAccountId |Não |ID de recurso da conta de armazenamento em que o log de atividades deve ser salvo. |
+    | serviceBusRuleId |Não |ID da Regra de Barramento de Serviço para o namespace do Barramento de Serviço no qual você gostaria que os hubs de eventos fossem criados. Esta é uma cadeia de caracteres com o formato: `{service bus resource ID}/authorizationrules/{key name}` . |
     | Localização |Sim |Lista separada por vírgulas de regiões para as quais você gostaria de coletar eventos do Log de Atividades. |
     | RetentionInDays |Sim |Número de dias pelos quais os eventos devem ser retidos na conta de armazenamento, entre 1 e 365. Um valor de zero armazena os logs indefinidamente. |
-    | Categoria |No |Lista separada por vírgulas de categorias de eventos que devem ser coletados. Os valores possíveis são _gravação_, _exclusão_e _ação_. |
+    | Categoria |Não |Lista separada por vírgulas de categorias de eventos que devem ser coletados. Os valores possíveis são _gravação_, _exclusão_e _ação_. |
 
 ### <a name="example-script"></a>Script de exemplo
 Veja a seguir um exemplo de script do PowerShell para criar um perfil de log que grava o log de atividades em uma conta de armazenamento e no Hub de eventos.
@@ -226,7 +226,7 @@ Veja a seguir um exemplo de script do PowerShell para criar um perfil de log que
    # Build the storage account Id from the settings above
    $storageAccountId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
 
-   Add-AzLogProfile -Name $logProfileName -Location $locations -ServiceBusRuleId $serviceBusRuleId
+   Add-AzLogProfile -Name $logProfileName -Location $locations -StorageAccountId  $storageAccountId -ServiceBusRuleId $serviceBusRuleId
    ```
 
 
@@ -252,7 +252,7 @@ Se um perfil de log já existir, primeiro será necessário remover o perfil de 
     | Categorias |Sim |Lista separada por espaço de categorias de eventos que devem ser coletadas. Os valores possíveis são Gravação, Exclusão e Ação. |
 
 
-### <a name="log-analytics-workspace"></a>Workspace do Log Analytics
+### <a name="log-analytics-workspace"></a>Espaço de trabalho do Log Analytics
 O método herdado para enviar o log de atividades para um Log Analytics espaço de trabalho está conectando o log na configuração do espaço de trabalho. 
 
 1. No menu **log Analytics espaços de trabalho** na portal do Azure, selecione o espaço de trabalho para coletar o log de atividades.

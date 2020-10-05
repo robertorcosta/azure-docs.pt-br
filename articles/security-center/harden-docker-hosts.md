@@ -7,12 +7,12 @@ ms.date: 9/12/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 3f59bae9864e533270b0bfea829f64ccf541a8a3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 500fa45db7e0e6bffb587d9d352ee1ab49f14703
+ms.sourcegitcommit: 5b69ba21787c07547edfbfd5254eaf34315cfadd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91301424"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91712265"
 ---
 # <a name="harden-your-docker-hosts"></a>Proteger os hosts do Docker
 
@@ -30,9 +30,9 @@ Quando as vulnerabilidades são encontradas, elas são agrupadas dentro de uma �
 |Aspecto|Detalhes|
 |----|:----|
 |Estado da versão:|GA (em disponibilidade geral)|
-|Refere|Requer o [Azure defender para servidores](defender-for-servers-introduction.md)|
+|Preço:|Requer o [Azure defender para servidores](defender-for-servers-introduction.md)|
 |Funções e permissões necessárias:|**Leitor** no espaço de trabalho ao qual o host se conecta|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) National/soberanas (US Gov, China gov, outros gov)|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) National/soberanas (US Gov, China gov, outros gov)|
 |||
 
 ## <a name="identify-and-remediate-security-vulnerabilities-in-your-docker-configuration"></a>Identificar e corrigir vulnerabilidades de segurança na configuração do Docker
@@ -50,11 +50,11 @@ Quando as vulnerabilidades são encontradas, elas são agrupadas dentro de uma �
     > [!TIP]
     > Se você iniciou na página de inventário de ativos e chegou essa recomendação a partir daí, selec o botão **executar ação** na página recomendação.
     >
-    > :::image type="content" source="./media/monitor-container-security/host-security-take-action-button.png" alt-text="Botão executar ação para iniciar Log Analytics":::
+    > :::image type="content" source="./media/monitor-container-security/host-security-take-action-button.png" alt-text="Recomendação para corrigir vulnerabilidades em configurações de segurança de contêiner ":::
 
     Log Analytics é aberto com uma operação personalizada pronta para ser executada. A consulta personalizada padrão inclui uma lista de todas as regras com falha que foram avaliadas, juntamente com as diretrizes para ajudá-lo a resolver os problemas.
 
-    :::image type="content" source="./media/monitor-container-security/docker-host-vulnerabilities-in-query.png" alt-text="Log Analytics página com a consulta mostrando todos os controles de CIS com falha":::
+    :::image type="content" source="./media/monitor-container-security/docker-host-vulnerabilities-in-query.png" alt-text="Recomendação para corrigir vulnerabilidades em configurações de segurança de contêiner ":::
 
 1. Ajuste os parâmetros de consulta, se necessário.
 
