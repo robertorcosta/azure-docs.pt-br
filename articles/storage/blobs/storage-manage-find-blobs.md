@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: hux
 ms.custom: references_regions
-ms.openlocfilehash: 70d0e31809227d5e27f8f2b22a7703d5a8ccca3c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3b6162552e43c9f475bef2ca3097da22ae198011
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91275057"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713693"
 ---
 # <a name="manage-and-find-azure-blob-data-with-blob-index-preview"></a>Gerenciar e localizar dados de blob do Azure com índice de BLOB (versão prévia)
 
@@ -196,7 +196,7 @@ A regra de gerenciamento do ciclo de vida de exemplo a seguir se aplica a blobs 
 
 Você pode autorizar o acesso ao índice de BLOB usando uma das seguintes abordagens:
 
-- Usando o RBAC (controle de acesso baseado em função) para conceder permissões a uma entidade de segurança do Azure Active Directory (Azure AD). A Microsoft recomenda usar o Azure AD para segurança superior e facilidade de uso. Para obter mais informações sobre como usar o Azure AD com operações de BLOB, consulte [autorizar o acesso a BLOBs e filas usando o Azure Active Directory](../common/storage-auth-aad.md).
+- Usando o Azure RBAC (controle de acesso baseado em função) para conceder permissões a uma entidade de segurança do Azure Active Directory (Azure AD). A Microsoft recomenda usar o Azure AD para segurança superior e facilidade de uso. Para obter mais informações sobre como usar o Azure AD com operações de BLOB, consulte [autorizar o acesso a BLOBs e filas usando o Azure Active Directory](../common/storage-auth-aad.md).
 - Usando uma SAS (assinatura de acesso compartilhado) para delegar o acesso ao índice de BLOB. Para obter mais informações sobre assinaturas de acesso compartilhado, confira [Conceder acesso limitado a recursos de Armazenamento do Azure usando SAS (assinaturas de acesso compartilhado)](../common/storage-sas-overview.md).
 - Usando as chaves de acesso da conta para autorizar operações com chave compartilhada. Para obter mais informações, consulte [Autorizar com Chave Compartilhada](/rest/api/storageservices/authorize-with-shared-key).
 
@@ -205,7 +205,7 @@ As marcas de índice de blob são um subrecurso para os dados de BLOB. Um usuár
 ### <a name="role-based-access-control"></a>Controle de acesso baseado em função
 Os chamadores usando uma [identidade do Azure ad](../common/storage-auth-aad.md) podem receber as seguintes permissões para operar em marcas de índice de BLOB.
 
-|   Operações de BLOB  |  Ação RBAC   |
+|   Operações de BLOB  |  Ação do RBAC do Azure   |
 |--------------------|----------------|
 | Localizar blobs por marcas | Microsoft. Storage/storageAccounts/blobservices/contêineres/BLOBs/filtro/ação |
 | Definir marcas de BLOB      | Microsoft. Storage/storageAccounts/blobservices/contêineres/BLOBs/marcas/gravação |

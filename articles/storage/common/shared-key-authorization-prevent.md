@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: 9bf656989dc331fdd4ce044126ea9d0be9414930
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 16080440a9458753992c62309ce75ed241fb64d5
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90088792"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715123"
 ---
 # <a name="prevent-shared-key-authorization-for-an-azure-storage-account-preview"></a>Impedir a autorização de chave compartilhada para uma conta de armazenamento do Azure (versão prévia)
 
@@ -67,7 +67,7 @@ Siga estas etapas para criar uma métrica que controla as solicitações feitas 
 
 Depois de configurar a métrica, as solicitações para sua conta de armazenamento começarão a aparecer no grafo. A imagem a seguir mostra as solicitações que foram autorizadas com a chave compartilhada ou foram feitas com um token SAS. As solicitações são agregadas por dia nos últimos trinta dias.
 
-:::image type="content" source="media/shared-key-authorization-prevent/metric-shared-key-requests.png" alt-text="Captura de tela mostrando solicitações agregadas autorizadas com chave compartilhada":::
+:::image type="content" source="media/shared-key-authorization-prevent/metric-shared-key-requests.png" alt-text="Captura de tela mostrando como configurar a métrica para somar transações feitas com chave compartilhada ou SAS":::
 
 Você também pode configurar uma regra de alerta para notificá-lo quando um determinado número de solicitações que são autorizadas com chave compartilhada são feitas em sua conta de armazenamento. Para obter mais informações, confira [Criar, exibir e gerenciar alertas de métrica usando o Azure Monitor](../../azure-monitor/platform/alerts-metric.md).
 
@@ -93,7 +93,7 @@ Para registrar dados do armazenamento do Azure com Azure Monitor e analisá-los 
 1. Em **detalhes da categoria**, na seção **log** , escolha **StorageRead**, **StorageWrite**e **StorageDelete** para registrar em log todas as solicitações de dados para o serviço selecionado.
 1. Em **detalhes de destino**, selecione **Enviar para log Analytics**. Selecione sua assinatura e o espaço de trabalho Log Analytics criado anteriormente, conforme mostrado na imagem a seguir.
 
-    :::image type="content" source="media/shared-key-authorization-prevent/create-diagnostic-setting-logs.png" alt-text="Captura de tela mostrando como criar uma configuração de diagnóstico para solicitações de log":::
+    :::image type="content" source="media/shared-key-authorization-prevent/create-diagnostic-setting-logs.png" alt-text="Captura de tela mostrando como configurar a métrica para somar transações feitas com chave compartilhada ou SAS":::
 
 Você pode criar uma configuração de diagnóstico para cada tipo de recurso de armazenamento do Azure em sua conta de armazenamento.
 
@@ -133,7 +133,7 @@ Para não permitir a autorização de chave compartilhada para uma conta de arma
 1. Localize a definição de **configuração** em **configurações**.
 1. Defina **permitir acesso à chave compartilhada** como **desabilitado**.
 
-    :::image type="content" source="media/shared-key-authorization-prevent/shared-key-access-portal.png" alt-text="Captura de tela mostrando como não permitir acesso de chave compartilhada para a conta":::
+    :::image type="content" source="media/shared-key-authorization-prevent/shared-key-access-portal.png" alt-text="Captura de tela mostrando como configurar a métrica para somar transações feitas com chave compartilhada ou SAS":::
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -199,7 +199,7 @@ Quando a chave compartilhada não é permitida para a conta de armazenamento, o 
 
 | Tipo de SAS | Tipo de autorização | Comportamento quando AllowSharedKeyAccess é false |
 |-|-|-|
-| SAS de delegação de usuário (somente armazenamento de BLOBs) | Azure AD | A solicitação é permitida. A Microsoft recomenda usar uma SAS de delegação de usuário quando possível para segurança superior. |
+| SAS de delegação de usuário (somente armazenamento de BLOBs) | AD do Azure | A solicitação é permitida. A Microsoft recomenda usar uma SAS de delegação de usuário quando possível para segurança superior. |
 | SAS do serviço | Chave compartilhada | A solicitação foi negada para o armazenamento de BLOBs. A solicitação é permitida para armazenamento de fila e de tabela e para arquivos do Azure. Para obter mais informações, consulte [solicitações com tokens SAS são permitidas para filas, tabelas e arquivos quando AllowSharedKeyAccess é false](#requests-with-sas-tokens-are-permitted-for-queues-tables-and-files-when-allowsharedkeyaccess-is-false) na seção **sobre a visualização** . |
 | SAS da conta | Chave compartilhada | A solicitação foi negada para o armazenamento de BLOBs. A solicitação é permitida para armazenamento de fila e de tabela e para arquivos do Azure. Para obter mais informações, consulte [solicitações com tokens SAS são permitidas para filas, tabelas e arquivos quando AllowSharedKeyAccess é false](#requests-with-sas-tokens-are-permitted-for-queues-tables-and-files-when-allowsharedkeyaccess-is-false) na seção **sobre a visualização** . |
 
@@ -219,7 +219,7 @@ Algumas ferramentas do Azure oferecem a opção de usar a autorização do Azure
 | Azure PowerShell | Com suporte. Para obter informações sobre como autorizar comandos do PowerShell para operações de BLOB ou fila com o Azure AD, consulte [executar comandos do PowerShell com as credenciais do Azure ad para acessar dados de blob](../blobs/authorize-active-directory-powershell.md) ou [executar comandos do PowerShell com as credenciais do Azure ad para acessar os dados da fila](../queues/authorize-active-directory-powershell.md). |
 | CLI do Azure | Com suporte. Para obter informações sobre como autorizar comandos de CLI do Azure com o Azure AD para acessar dados de BLOB e de fila, consulte [executar comandos de CLI do Azure com as credenciais do Azure ad para acessar dados de BLOB ou fila](authorize-data-operations-cli.md). |
 | Hub IoT do Azure | Com suporte. Para obter mais informações, consulte [suporte do Hub IOT para redes virtuais](../../iot-hub/virtual-network-support.md). |
-| Azure Cloud Shell | Azure Cloud Shell é um shell integrado no portal do Azure. Azure Cloud Shell hospeda arquivos para persistência em um compartilhamento de arquivos do Azure em uma conta de armazenamento. Esses arquivos ficarão inacessíveis se a autorização de chave compartilhada não for permitida para essa conta de armazenamento. Para obter mais informações, consulte [conectar o armazenamento de arquivos de Microsoft Azure](/azure/cloud-shell/overview#connect-your-microsoft-azure-files-storage). <br /><br /> Para executar comandos no Azure Cloud Shell para gerenciar contas de armazenamento para as quais o acesso à chave compartilhada não é permitido, primeiro certifique-se de ter recebido as permissões necessárias para essas contas por meio do controle de acesso baseado em função (RBAC). Para obter mais informações, consulte [o que é o Azure RBAC (controle de acesso baseado em função)?](../../role-based-access-control/overview.md). |
+| Azure Cloud Shell | Azure Cloud Shell é um shell integrado no portal do Azure. Azure Cloud Shell hospeda arquivos para persistência em um compartilhamento de arquivos do Azure em uma conta de armazenamento. Esses arquivos ficarão inacessíveis se a autorização de chave compartilhada não for permitida para essa conta de armazenamento. Para obter mais informações, consulte [conectar o armazenamento de arquivos de Microsoft Azure](/azure/cloud-shell/overview#connect-your-microsoft-azure-files-storage). <br /><br /> Para executar comandos no Azure Cloud Shell para gerenciar contas de armazenamento para as quais o acesso à chave compartilhada não é permitido, primeiro certifique-se de ter recebido as permissões necessárias para essas contas por meio do controle de acesso baseado em função do Azure (RBAC do Azure). Para obter mais informações, consulte [o que é o Azure RBAC (controle de acesso baseado em função)?](../../role-based-access-control/overview.md). |
 
 ## <a name="about-the-preview"></a>Sobre a visualização
 

@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 08/14/2019
 ms.reviewer: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 739325f66594667c6973df356e2bcf26a3eb056d
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 50b3cae00110a64e4d95171822bf1d2a282d2cc1
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89300265"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715406"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configurar as credenciais de implantação do Serviço de Aplicativo do Azure
 O [Serviço de Aplicativo do Azure](https://go.microsoft.com/fwlink/?LinkId=529714) oferece suporte a dois tipos de credenciais para a [implantação local do Git](deploy-local-git.md) e a [implantação de FTP/S](deploy-ftp.md). Essas credenciais não são iguais às suas credenciais de assinatura do Azure.
@@ -100,7 +100,7 @@ Para confirmar se as credenciais do perfil de publicação estão bloqueadas no 
 
 ### <a name="disable-access-to-the-api"></a>Desabilitar o acesso à API
 
-A API na seção anterior é apoiada no controle de acesso baseado em função (RBAC) do Azure, o que significa que você pode [criar uma função personalizada](https://docs.microsoft.com/azure/role-based-access-control/custom-roles#steps-to-create-a-custom-role) e atribuir usuários de priveldged inferior à função para que eles não possam habilitar a autenticação básica em nenhum site. Para configurar a função personalizada, [siga estas instruções](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#create-a-custom-rbac-role).
+A API na seção anterior é apoiada no controle de acesso baseado em função do Azure (RBAC do Azure), o que significa que você pode [criar uma função personalizada](https://docs.microsoft.com/azure/role-based-access-control/custom-roles#steps-to-create-a-custom-role) e atribuir usuários de priveldged menores à função para que eles não possam habilitar a autenticação básica em nenhum site. Para configurar a função personalizada, [siga estas instruções](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#create-a-custom-rbac-role).
 
 Você também pode usar [Azure monitor](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#audit-with-azure-monitor) para auditar quaisquer solicitações de autenticação bem-sucedidas e usar [Azure Policy](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#enforce-compliance-with-azure-policy) para impor essa configuração para todos os sites em sua assinatura.
 

@@ -3,12 +3,12 @@ title: Conectar computadores híbridos ao Azure em escala
 description: Neste artigo, você aprende a conectar computadores ao Azure usando os servidores habilitados para Arc do Azure usando uma entidade de serviço.
 ms.date: 09/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5976e2ff9aef5f68d119a5fdf5f7d4d4345287a4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: dc92b1cb96b61caa17f141ca9a78fb10fe59a2a9
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91254934"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713421"
 ---
 # <a name="connect-hybrid-machines-to-azure-at-scale"></a>Conectar computadores híbridos ao Azure em escala
 
@@ -67,7 +67,7 @@ Os valores das propriedades a seguir são usados com os parâmetros passados par
 > Use a propriedade **ApplicationId** da entidade de serviço, não a propriedade **Id**.
 >
 
-A função **Integração do Azure Connected Machine** contém apenas as permissões necessárias para carregar um computador. Você pode atribuir a permissão da entidade de serviço para possibilitar que o escopo inclua um grupo de recursos ou uma assinatura. Para adicionar a atribuição de função, confira [Adicionar ou remover atribuições de função usando o Azure RBAC e o portal do Azure](../../role-based-access-control/role-assignments-portal.md) ou [Adicionar ou remover atribuições de função usando o Azure RBAC e a CLI do Azure](../../role-based-access-control/role-assignments-cli.md).
+A função **Integração do Azure Connected Machine** contém apenas as permissões necessárias para carregar um computador. Você pode atribuir a permissão da entidade de serviço para possibilitar que o escopo inclua um grupo de recursos ou uma assinatura. Para adicionar a atribuição de função, consulte [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](../../role-based-access-control/role-assignments-portal.md) ou [Adicionar ou remover atribuições de função do Azure usando CLI do Azure](../../role-based-access-control/role-assignments-cli.md).
 
 ## <a name="install-the-agent-and-connect-to-azure"></a>Instalar o agente e conectar-se ao Azure
 

@@ -4,14 +4,14 @@ description: Problemas comuns com Azure Monitor alertas de métrica e possíveis
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 10/04/2020
+ms.date: 10/05/2020
 ms.subservice: alerts
-ms.openlocfilehash: 1280529aa758194dbd02196d71a715310431a73b
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: 579729eca8269d75569166a5bda32a979544b164
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91710287"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715321"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Solucionando problemas em alertas de métrica Azure Monitor 
 
@@ -81,8 +81,10 @@ Para obter mais informações sobre como coletar dados do sistema operacional co
 
 ## <a name="cant-find-the-metric-to-alert-on"></a>Não é possível encontrar a métrica para alertar
 
-Se você estiver procurando alerta em uma métrica específica, mas não puder ver nenhuma métrica para o recurso, [Verifique se o tipo de recurso tem suporte para alertas de métrica](./alerts-metric-near-real-time.md).
-Se você puder ver algumas métricas para o recurso, mas não conseguir encontrar uma métrica específica, [Verifique se essa métrica está disponível](./metrics-supported.md)e, nesse caso, consulte a descrição da métrica para ver se ela está disponível apenas em versões ou edições específicas do recurso.
+Se você estiver procurando alerta em uma métrica específica, mas não puder vê-la ao criar uma regra de alerta, verifique o seguinte:
+- Se você não puder ver nenhuma métrica para o recurso, [Verifique se o tipo de recurso tem suporte para alertas de métrica](./alerts-metric-near-real-time.md).
+- Se você puder ver algumas métricas para o recurso, mas não conseguir encontrar uma métrica específica, [Verifique se essa métrica está disponível](./metrics-supported.md)e, nesse caso, consulte a descrição da métrica para verificar se ela está disponível apenas em versões ou edições específicas do recurso.
+- Se a métrica não estiver disponível para o recurso, ela poderá estar disponível nos logs de recursos e pode ser monitorada usando alertas de log. Consulte aqui para obter mais informações sobre como [coletar e analisar logs de recursos de um recurso do Azure](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs).
 
 ## <a name="cant-find-the-metric-dimension-to-alert-on"></a>Não é possível localizar a dimensão métrica para alertar
 

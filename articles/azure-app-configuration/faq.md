@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: lcozzens
-ms.openlocfilehash: 10510774409a6b75687086290b32885b30d9131a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ef4633953f7ac03737608124309d94e436913794
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91335374"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715435"
 ---
 # <a name="azure-app-configuration-faq"></a>Perguntas frequentes sobre configuração do Azure App
 
@@ -94,7 +94,7 @@ Veja a seguir as considerações para escolher uma camada.
     Para repositórios de camada Standard, as primeiras 200.000 solicitações por dia são incluídas no encargo diário. Solicitações adicionais são cobradas como excedentes.
 
 - **Contrato de nível de serviço**: a camada Standard tem um SLA de 99,9% de disponibilidade. A camada gratuita não tem um SLA.
-- **Recursos de segurança**: ambas as camadas incluem funcionalidade de segurança básica, incluindo criptografia com chaves gerenciadas pela Microsoft, autenticação por meio de HMAC ou Azure Active Directory, suporte a RBAC e identidade gerenciada. A camada Standard oferece funcionalidade de segurança mais avançada, incluindo suporte a link privado e criptografia com chaves gerenciadas pelo cliente.
+- **Recursos de segurança**: ambas as camadas incluem funcionalidade de segurança básica, incluindo criptografia com chaves gerenciadas pela Microsoft, autenticação por meio de HMAC ou Azure Active Directory, suporte RBAC do Azure e identidade gerenciada. A camada Standard oferece funcionalidade de segurança mais avançada, incluindo suporte a link privado e criptografia com chaves gerenciadas pelo cliente.
 - **Custo**: os armazenamentos de camada Standard têm um encargo de uso diário. Há também um encargo excedente para solicitações após a alocação diária. Não há nenhum custo para usar um armazenamento de camada gratuita.
 
 ## <a name="can-i-upgrade-a-store-from-the-free-tier-to-the-standard-tier-can-i-downgrade-a-store-from-the-standard-tier-to-the-free-tier"></a>Posso atualizar um armazenamento da camada gratuita para a camada Standard? Posso fazer downgrade de um armazenamento da camada Standard para a camada gratuita?

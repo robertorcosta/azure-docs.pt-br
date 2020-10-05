@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: fa6a226926439e30b9ca51c75743ce35915ffd85
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 31d67daebf2e15fb11b5ebe30c4f7741a09eed2d
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90017227"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91716112"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Controle de acesso no Azure Data Lake Storage Gen2
 
@@ -21,22 +21,22 @@ Azure Data Lake Storage Gen2 implementa um modelo de controle de acesso que dá 
 
 <a id="azure-role-based-access-control-rbac"></a>
 
-## <a name="role-based-access-control"></a>Controle de acesso baseado em função
+## <a name="azure-role-based-access-control"></a>Controle de acesso baseado em função do Azure
 
-O RBAC usa atribuições de função para aplicar efetivamente conjuntos de permissões a *entidades de segurança*. Uma *entidade de segurança* é um objeto que representa um usuário, grupo, entidade de serviço ou identidade gerenciada que é definida no Azure Active Directory (AD) que está solicitando acesso aos recursos do Azure.
+O RBAC do Azure usa atribuições de função para aplicar efetivamente conjuntos de permissões a *entidades de segurança*. Uma *entidade de segurança* é um objeto que representa um usuário, grupo, entidade de serviço ou identidade gerenciada que é definida no Azure Active Directory (AD) que está solicitando acesso aos recursos do Azure.
 
 Normalmente, esses recursos do Azure são restritos a recursos de nível superior (por exemplo: contas de armazenamento do Azure). No caso do armazenamento do Azure e, consequentemente, Azure Data Lake Storage Gen2, esse mecanismo foi estendido para o recurso de contêiner (sistema de arquivos).
 
-Para saber como atribuir funções a entidades de segurança no escopo da sua conta de armazenamento, consulte [conceder acesso ao blob do Azure e dados de fila com RBAC no portal do Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Para saber como atribuir funções a entidades de segurança no escopo da sua conta de armazenamento, consulte [usar o portal do Azure para atribuir uma função do Azure para acesso a dados de BLOB e de fila](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 > [!NOTE]
 > Um usuário convidado não pode criar uma atribuição de função.
 
 ### <a name="the-impact-of-role-assignments-on-file-and-directory-level-access-control-lists"></a>O impacto das atribuições de função em listas de controle de acesso de nível de arquivo e diretório
 
-Embora o uso das atribuições de função do Azure seja um mecanismo poderoso para controlar as permissões de acesso, trata-se de um mecanismo bastante refinado em relação às ACLs. A menor granularidade do RBAC está no nível de contêiner e isso será avaliado em uma prioridade mais alta do que as ACLs. Portanto, se você atribuir uma função a uma entidade de segurança no escopo de um contêiner, essa entidade de segurança terá o nível de autorização associado a essa função para todos os diretórios e arquivos nesse contêiner, independentemente das atribuições de ACL.
+Embora o uso das atribuições de função do Azure seja um mecanismo poderoso para controlar as permissões de acesso, trata-se de um mecanismo bastante refinado em relação às ACLs. A menor granularidade do RBAC do Azure está no nível de contêiner e isso será avaliado em uma prioridade mais alta do que as ACLs. Portanto, se você atribuir uma função a uma entidade de segurança no escopo de um contêiner, essa entidade de segurança terá o nível de autorização associado a essa função para todos os diretórios e arquivos nesse contêiner, independentemente das atribuições de ACL.
 
-Quando uma entidade de segurança recebe permissões de dados RBAC por meio de uma [função interna](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues)ou por meio de uma função personalizada, essas permissões são avaliadas primeiro após a autorização de uma solicitação. Se a operação solicitada for autorizada pelas atribuições de função do Azure da entidade de segurança, a autorização será imediatamente resolvida e nenhuma verificação de ACL adicional será executada. Como alternativa, se a entidade de segurança não tiver uma atribuição de função do Azure ou se a operação da solicitação não corresponder à permissão atribuída, as verificações de ACL serão executadas para determinar se a entidade de segurança está autorizada a executar a operação solicitada.
+Quando uma entidade de segurança recebe permissões de dados do RBAC do Azure por meio de uma [função interna](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues)ou por meio de uma função personalizada, essas permissões são avaliadas primeiro após a autorização de uma solicitação. Se a operação solicitada for autorizada pelas atribuições de função do Azure da entidade de segurança, a autorização será imediatamente resolvida e nenhuma verificação de ACL adicional será executada. Como alternativa, se a entidade de segurança não tiver uma atribuição de função do Azure ou se a operação da solicitação não corresponder à permissão atribuída, as verificações de ACL serão executadas para determinar se a entidade de segurança está autorizada a executar a operação solicitada.
 
 > [!NOTE]
 > Se a entidade de segurança tiver sido atribuída a atribuição de função interna do proprietário de dados do blob de armazenamento, a entidade de segurança será considerada um *superusuário* e terá acesso completo a todas as operações de mutação, incluindo a definição do proprietário de um diretório ou arquivo, bem como ACLs para diretórios e arquivos para os quais eles não são proprietários. O acesso de superusuário é a única maneira autorizada para alterar o proprietário de um recurso.
@@ -102,7 +102,7 @@ As permissões em um objeto de contêiner são de **leitura**, **gravação**e *
 | **Executar (X)** | Não significa nada no contexto do Azure Data Lake Storage Gen2 | Necessário para percorrer os itens filhos de um diretório |
 
 > [!NOTE]
-> Se você estiver concedendo permissões usando somente ACLs (sem RBAC), para conceder a uma entidade de segurança acesso de leitura ou de gravação a um arquivo, você precisará conceder permissões de **execução** da entidade de segurança para o contêiner e para cada pasta na hierarquia de pastas que levam ao arquivo.
+> Se você estiver concedendo permissões usando somente ACLs (sem RBAC do Azure), para conceder a uma entidade de segurança acesso de leitura ou de gravação a um arquivo, você precisará fornecer permissões de **execução** da entidade de segurança para o contêiner e para cada pasta na hierarquia de pastas que levam ao arquivo.
 
 #### <a name="short-forms-for-permissions"></a>Formatos abreviados para permissões
 
@@ -347,6 +347,6 @@ ACLS não herdam. Porém, as ACLs padrão pode ser usadas para definir as ACLs d
 * [POSIX ACL no Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
 * [ACL usando listas de controle de acesso no Linux](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 * [Visão geral do Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md)

@@ -9,12 +9,12 @@ ms.date: 09/21/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 88349e90102bf3b0e4dc2868d5f65d476aac51f7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 794e89e75505d3c1c34bf2a15209c3218dfa3582
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91280361"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714099"
 ---
 # <a name="set-access-control-lists-acls-recursively-for-azure-data-lake-storage-gen2"></a>Definir listas de controle de acesso (ACLs) recursivamente para Azure Data Lake Storage Gen2
 
@@ -138,7 +138,7 @@ Em seguida, escolha como você deseja que seus comandos obtenham autorização p
 
 ### <a name="option-1-obtain-authorization-by-using-azure-active-directory-ad"></a>Opção 1: obter autorização usando o Azure Active Directory (AD)
 
-Com essa abordagem, o sistema garante que sua conta de usuário tenha as atribuições de RBAC (controle de acesso baseado em função) apropriadas e permissões de ACL. 
+Com essa abordagem, o sistema garante que sua conta de usuário tenha as atribuições apropriadas do Azure RBAC (controle de acesso baseado em função) e permissões de ACL. 
 
 ```powershell
 $ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -UseConnectedAccount
@@ -153,7 +153,7 @@ A tabela a seguir mostra cada uma das funções com suporte e sua funcionalidade
 
 ### <a name="option-2-obtain-authorization-by-using-the-storage-account-key"></a>Opção 2: obter autorização usando a chave da conta de armazenamento
 
-Com essa abordagem, o sistema não verifica as permissões de RBAC ou de ACL.
+Com essa abordagem, o sistema não verifica as permissões de ACL ou RBAC do Azure.
 
 ```powershell
 $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
@@ -174,7 +174,7 @@ Depois de instalar o pacote, adicione esta instrução using à parte superior d
 using Azure.Identity;
 ```
 
-Obtenha uma ID do cliente, um segredo do cliente e uma ID de locatário. Para fazer isso, consulte [adquirir um token do Azure ad para autorizar solicitações de um aplicativo cliente](../common/storage-auth-aad-app.md). Como parte desse processo, você precisará atribuir uma das seguintes funções de [RBAC (controle de acesso baseado em função)](../../role-based-access-control/overview.md) à sua entidade de segurança. 
+Obtenha uma ID do cliente, um segredo do cliente e uma ID de locatário. Para fazer isso, consulte [adquirir um token do Azure ad para autorizar solicitações de um aplicativo cliente](../common/storage-auth-aad-app.md). Como parte desse processo, você precisará atribuir uma das seguintes funções do Azure [RBAC (controle de acesso baseado em função](../../role-based-access-control/overview.md) do Azure) à sua entidade de segurança. 
 
 |Função|Funcionalidade de configuração de ACL|
 |--|--|
@@ -229,7 +229,7 @@ Para usar os trechos de código neste artigo, você precisará criar uma instân
 
 Você pode usar a [biblioteca de cliente de identidade do Azure para Python](https://pypi.org/project/azure-identity/) para autenticar seu aplicativo com o Azure AD.
 
-Este exemplo cria uma instância de **DataLakeServiceClient** usando uma ID do cliente, um segredo do cliente e uma ID de locatário.  Para obter esses valores, consulte [adquirir um token do Azure ad para autorizar solicitações de um aplicativo cliente](../common/storage-auth-aad-app.md). Como parte desse processo, você precisará atribuir uma das seguintes funções de [RBAC (controle de acesso baseado em função)](../../role-based-access-control/overview.md) à sua entidade de segurança. 
+Este exemplo cria uma instância de **DataLakeServiceClient** usando uma ID do cliente, um segredo do cliente e uma ID de locatário.  Para obter esses valores, consulte [adquirir um token do Azure ad para autorizar solicitações de um aplicativo cliente](../common/storage-auth-aad-app.md). Como parte desse processo, você precisará atribuir uma das seguintes funções do Azure [RBAC (controle de acesso baseado em função](../../role-based-access-control/overview.md) do Azure) à sua entidade de segurança. 
 
 |Função|Funcionalidade de configuração de ACL|
 |--|--|
@@ -345,7 +345,7 @@ public async void SetACLRecursively(DataLakeServiceClient serviceClient)
 
 ### <a name="python"></a>[Python](#tab/python)
 
-Defina uma ACL recursivamente chamando o método **DataLakeDirectoryClient. set_access_control_recursive** .
+Defina uma ACL recursivamente chamando o método **DataLakeDirectoryClient.set_access_control_recursive** .
 
 Este exemplo define a ACL de um diretório chamado `my-parent-directory` . Essas entradas fornecem ao usuário proprietário permissões de leitura, gravação e execução, fornece ao grupo proprietário somente permissões de leitura e execução e concede a todos os outros sem acesso. A última entrada ACL neste exemplo fornece um usuário específico com a ID de objeto "" xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx "permissões de leitura e execução.
 
@@ -423,7 +423,7 @@ public async void UpdateACLsRecursively(DataLakeServiceClient serviceClient)
 
 ### <a name="python"></a>[Python](#tab/python)
 
-Atualize uma ACL recursivamente chamando o método **DataLakeDirectoryClient. update_access_control_recursive** . 
+Atualize uma ACL recursivamente chamando o método **DataLakeDirectoryClient.update_access_control_recursive** . 
 
 Este exemplo atualiza uma entrada ACL com permissão de gravação. 
 
@@ -498,7 +498,7 @@ public async void RemoveACLsRecursively(DataLakeServiceClient serviceClient)
 
 ### <a name="python"></a>[Python](#tab/python)
 
-Remova as entradas de ACL chamando o método **DataLakeDirectoryClient. remove_access_control_recursive** . 
+Remova as entradas ACL chamando o método **DataLakeDirectoryClient.remove_access_control_recursive** . 
 
 Este exemplo remove uma entrada ACL da ACL do diretório chamado `my-parent-directory` . 
 
@@ -650,7 +650,7 @@ O número máximo de ACLs que você pode aplicar a um diretório ou arquivo é d
 
 Você pode fornecer seus comentários ou relatar um problema em  [recursiveACLfeedback@microsoft.com](mailto:recursiveACLfeedback@microsoft.com) .
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 - [Controle de acesso no Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)
 - [Problemas conhecidos](data-lake-storage-known-issues.md)

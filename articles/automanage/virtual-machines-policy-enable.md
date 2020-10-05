@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 09/04/2020
 ms.author: jushiman
-ms.openlocfilehash: 47f4085ff01526853fab29da2c1bc1a3e8998d23
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8f679626b69bd855e86b94cdde51955edd068e8f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90932935"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714900"
 ---
 # <a name="enable-automanage-for-virtual-machines-through-azure-policy"></a>Habilitar o autogerenci para máquinas virtuais por meio do Azure Policy
 
@@ -28,7 +28,7 @@ Caso não tenha uma assinatura do Azure, [crie uma conta](https://azure.microsof
 > As contas de avaliação gratuita não têm acesso às máquinas virtuais usadas neste tutorial. Atualize para uma assinatura de Pagamento Conforme o Uso.
 
 > [!IMPORTANT]
-> A permissão RBAC a seguir é necessária para habilitar autogerenciar: função de **proprietário** ou **colaborador** junto com as funções de **administrador de acesso do usuário** .
+> A permissão do RBAC do Azure a seguir é necessária para habilitar autogerenci: função de **proprietário** ou **colaborador** junto com as funções de **administrador de acesso do usuário** .
 
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure

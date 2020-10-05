@@ -6,12 +6,12 @@ ms.author: magoedte
 ms.topic: conceptual
 ms.date: 07/09/2020
 ms.subservice: ''
-ms.openlocfilehash: c81d9774dccf8c02d2eab7b1ebbb69e6671869e8
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: a4985784a17f2e0350a7b2c7a4f62f574862d50c
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423789"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714354"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-automation-preview"></a>Usar o link privado do Azure para conectar redes com segurança à automação do Azure (versão prévia)
 
@@ -53,7 +53,7 @@ Como parte da versão de visualização, uma conta de automação não pode aces
 
 ### <a name="webhook-scenario"></a>Cenário de webhook
 
-Você pode iniciar runbooks fazendo uma POSTAgem na URL do webhook. Por exemplo, a URL é semelhante a:`https://<automationAccountId>.webhooks.<region>.azure-automation.net/webhooks?token=gzGMz4SMpqNo8gidqPxAJ3E%3d`
+Você pode iniciar runbooks fazendo uma POSTAgem na URL do webhook. Por exemplo, a URL é semelhante a: `https://<automationAccountId>.webhooks.<region>.azure-automation.net/webhooks?token=gzGMz4SMpqNo8gidqPxAJ3E%3d`
 
 ### <a name="state-configuration-agentsvc-scenario"></a>Cenário de configuração de estado (AgentSvc)
 
@@ -128,7 +128,7 @@ Selecione o recurso para ver todos os detalhes. Isso cria um novo ponto de extre
 
 Da mesma forma, um FQDN (nome de domínio totalmente qualificado) exclusivo é criado para a configuração de estado (AgentSvc) e para o tempo de execução de trabalho do Hybrid Runbook Worker (jrds). Cada um deles recebe um IP separado de sua VNet e o **status da conexão** é mostrado como **aprovado**.
 
-Se o consumidor de serviço tiver permissões RBAC no recurso de automação, eles poderão escolher o método de aprovação automática. Nesse caso, quando a solicitação atinge o recurso do provedor de automação, nenhuma ação é necessária do provedor de serviços e a conexão é aprovada automaticamente.
+Se o consumidor de serviço tiver permissões RBAC do Azure no recurso de automação, eles poderão escolher o método de aprovação automática. Nesse caso, quando a solicitação atinge o recurso do provedor de automação, nenhuma ação é necessária do provedor de serviços e a conexão é aprovada automaticamente.
 
 ## <a name="set-public-network-access-flags"></a>Definir sinalizadores de acesso à rede pública
 

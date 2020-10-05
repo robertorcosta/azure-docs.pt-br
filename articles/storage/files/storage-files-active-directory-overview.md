@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
-ms.openlocfilehash: 3f2fd9f2b75faeeb2d40bd71d074a929e86eebdf
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: be308a91b5b583f96406f10675344ab263150a81
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91358365"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91716078"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>Visão geral de opções de autenticação baseadas em identidades do Azure Files para acesso SMB
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -46,7 +46,7 @@ Para saber como habilitar a autenticação de AD DS do Azure para compartilhamen
 
 -   **RBAC do Azure (controle de acesso baseado em função do Azure)**
 
-    O Azure RBAC (controle de acesso baseado em função) permite o gerenciamento de acesso refinado para o Azure. Usando o RBAC, você pode gerenciar o acesso aos recursos concedendo aos usuários o mínimo de permissões necessárias para que eles realizem seus trabalhos. Para obter mais informações sobre o RBAC, consulte [o que é o Azure RBAC (controle de acesso baseado em função) no Azure?](../../role-based-access-control/overview.md).
+    O Azure RBAC (controle de acesso baseado em função) permite o gerenciamento de acesso refinado para o Azure. Usando o RBAC do Azure, você pode gerenciar o acesso aos recursos concedendo aos usuários o menor número de permissões necessárias para executar seus trabalhos. Para obter mais informações sobre o RBAC do Azure, consulte [o que é o Azure RBAC (controle de acesso baseado em função)?](../../role-based-access-control/overview.md).
 
 ## <a name="common-use-cases"></a>Casos de uso comuns
 

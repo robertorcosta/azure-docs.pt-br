@@ -10,12 +10,12 @@ ms.date: 09/21/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 78c25afe69565840ca1af013d29dd512550241b6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: df0bc6a07444070a0f14e632e81ad0bb787569c8
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91280208"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714769"
 ---
 # <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>Adquirir um token do Azure AD para autorizar solicitações de um aplicativo cliente
 
@@ -31,7 +31,7 @@ O aplicativo de exemplo fornece uma experiência de ponta a ponta que mostra com
 
 ## <a name="assign-a-role-to-an-azure-ad-security-principal"></a>Atribuir uma função a uma entidade de segurança do Azure AD
 
-Para autenticar uma entidade de segurança do seu aplicativo de armazenamento do Azure, primeiro configure as configurações de RBAC (controle) de acesso baseado em função para essa entidade de segurança. O armazenamento do Azure define funções internas que abrangem permissões para contêineres e filas. Quando a função RBAC é atribuída a uma entidade de segurança, essa entidade de segurança recebe acesso para esse recurso. Para obter mais informações, consulte [gerenciar direitos de acesso ao blob do Azure e dados de fila com o RBAC](storage-auth-aad-rbac.md).
+Para autenticar uma entidade de segurança de seu aplicativo de armazenamento do Azure, primeiro configure as configurações do Azure RBAC (controle de acesso baseado em função) para essa entidade de segurança. O armazenamento do Azure define funções internas que abrangem permissões para contêineres e filas. Quando a função do Azure é atribuída a uma entidade de segurança, essa entidade de segurança recebe acesso a esse recurso. Para obter mais informações, consulte [gerenciar direitos de acesso ao blob do Azure e dados de fila com o RBAC do Azure](storage-auth-aad-rbac.md).
 
 ## <a name="register-your-application-with-an-azure-ad-tenant"></a>Registre o aplicativo com um locatário do Azure AD
 
@@ -46,7 +46,7 @@ A imagem a seguir mostra as configurações comuns para o registro de um aplicat
 
 Depois de registrar o aplicativo, você verá a ID do aplicativo (ou ID do cliente) em **Configurações **:
 
-:::image type="content" source="media/storage-auth-aad-app/app-registration-client-id.png" alt-text="Captura de tela mostrando a ID do cliente":::
+:::image type="content" source="media/storage-auth-aad-app/app-registration-client-id.png" alt-text="Captura de tela mostrando como registrar seu aplicativo de armazenamento com o Azure AD":::
 
 Para obter mais informações sobre como registrar um aplicativo no Azure AD, consulte [Integrando aplicativos com o Azure Active Directory](../../active-directory/develop/quickstart-v2-register-an-app.md).
 
@@ -59,13 +59,13 @@ Em seguida, conceda ao seu aplicativo permissões para chamar as APIs de armazen
 1. No painel **solicitar permissões de API** , sob **que tipo de permissões seu aplicativo requer?**, observe que o tipo de permissão disponível é **permissões delegadas**. Essa opção é selecionada por padrão.
 1. Em **permissões**, marque a caixa de seleção ao lado de **user_impersonation**e, em seguida, selecione o botão **adicionar permissões** .
 
-    :::image type="content" source="media/storage-auth-aad-app/registered-app-permissions-1.png" alt-text="Captura de tela mostrando permissões para a API de armazenamento":::
+    :::image type="content" source="media/storage-auth-aad-app/registered-app-permissions-1.png" alt-text="Captura de tela mostrando como registrar seu aplicativo de armazenamento com o Azure AD":::
 
 1. Em seguida, conceda consentimento de administrador para essas permissões clicando em **conceder consentimento do administrador para o diretório padrão**.
 
 O painel **permissões de API** agora mostra que o aplicativo registrado do Azure ad tem acesso às APIs de armazenamento do Microsoft Graph e do Azure e que o consentimento é concedido para o diretório padrão. As permissões são concedidas ao Microsoft Graph automaticamente quando você registra o aplicativo no Azure Active Directory pela primeira vez.
 
-:::image type="content" source="media/storage-auth-aad-app/registered-app-permissions-2.png" alt-text="Captura de tela mostrando permissões de API para o aplicativo registrado":::
+:::image type="content" source="media/storage-auth-aad-app/registered-app-permissions-2.png" alt-text="Captura de tela mostrando como registrar seu aplicativo de armazenamento com o Azure AD":::
 
 ### <a name="create-a-client-secret"></a>Criar um segredo do cliente
 
@@ -87,7 +87,7 @@ Em seguida, configure o fluxo de concessão implícita para seu aplicativo. Siga
 1. Na seção **gerenciar** , selecione a configuração de **autenticação** .
 1. Na seção **concessão implícita** , marque a caixa de seleção para habilitar tokens de ID, conforme mostrado na imagem a seguir:
 
-    :::image type="content" source="media/storage-auth-aad-app/enable-implicit-grant-flow.png" alt-text="Captura de tela mostrando como habilitar as configurações para o fluxo de concessão implícita":::
+    :::image type="content" source="media/storage-auth-aad-app/enable-implicit-grant-flow.png" alt-text="Captura de tela mostrando como registrar seu aplicativo de armazenamento com o Azure AD":::
 
 ## <a name="client-libraries-for-token-acquisition"></a>Bibliotecas de cliente para aquisição de token
 
@@ -127,7 +127,7 @@ Para solicitar o token, você precisará dos seguintes valores do registro do ap
 
 Para executar o exemplo de código, crie uma conta de armazenamento na mesma assinatura que o Azure Active Directory. Em seguida, crie um contêiner dentro dessa conta de armazenamento. O código de exemplo criará um blob de blocos neste contêiner.
 
-Em seguida, atribua explicitamente a função de **colaborador de dados de blob de armazenamento** à conta de usuário sob a qual você executará o código de exemplo. Para obter instruções sobre como atribuir essa função no portal do Azure, consulte [conceder acesso ao blob do Azure e dados de fila com RBAC no portal do Azure](storage-auth-aad-rbac-portal.md).
+Em seguida, atribua explicitamente a função de **colaborador de dados de blob de armazenamento** à conta de usuário sob a qual você executará o código de exemplo. Para obter instruções sobre como atribuir essa função no portal do Azure, consulte [usar o portal do Azure para atribuir uma função do Azure para acesso a dados de BLOB e de fila](storage-auth-aad-rbac-portal.md).
 
 > [!NOTE]
 > Ao criar uma conta de armazenamento do Azure, você não recebe automaticamente permissões para acessar dados por meio do Azure AD. Você deve atribuir explicitamente a si mesmo uma função do Azure para o armazenamento do Azure. Você pode atribuí-la no nível de assinatura, grupo de recursos, conta de armazenamento ou contêiner ou fila.
@@ -291,5 +291,5 @@ https://<storage-account>.blob.core.windows.net/<container>/Blob1.txt
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Plataforma de identidade da Microsoft](https://docs.microsoft.com/azure/active-directory/develop/)
-- [Gerenciar direitos de acesso aos dados de armazenamento com o RBAC](storage-auth-aad-rbac.md)
+- [Gerenciar direitos de acesso aos dados de armazenamento com o Azure RBAC](storage-auth-aad-rbac.md)
 - [Autenticar o acesso a BLOBs e filas com Azure Active Directory e identidades gerenciadas para recursos do Azure](storage-auth-aad-msi.md)

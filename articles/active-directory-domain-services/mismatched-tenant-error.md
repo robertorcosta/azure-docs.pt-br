@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 0e21009341857cc6de3cb7aa411445bc10e6827e
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 62768dcc8df9f7dbd6cbb15c434ec9886e2d1d44
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223475"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713011"
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-active-directory-domain-services-managed-domains"></a>Resolver erros de diretório incompatíveis para domínios gerenciados Azure Active Directory Domain Services existentes
 
@@ -28,11 +28,11 @@ Este artigo explica por que o erro ocorre e como resolvê-lo.
 
 Um erro de diretório incompatível ocorre quando um domínio gerenciado do Azure AD DS e uma rede virtual pertencem a dois locatários diferentes do Azure AD. Por exemplo, você pode ter um domínio gerenciado chamado *aaddscontoso.com* que é executado no locatário do Azure ad da contoso. No entanto, a rede virtual do Azure para o domínio gerenciado faz parte do locatário do Azure AD da Fabrikam.
 
-O Azure usa o RBAC (controle de acesso baseado em função) para limitar o acesso aos recursos. Quando você habilita o Azure AD DS em um locatário do Azure AD, os hashes de credenciais são sincronizados com o domínio gerenciado. Esta operação exige que você seja um administrador de locatários para o diretório do Azure AD e o acesso às credenciais deve ser controlado.
+O controle de acesso baseado em função do Azure (RBAC do Azure) é usado para limitar o acesso aos recursos. Quando você habilita o Azure AD DS em um locatário do Azure AD, os hashes de credenciais são sincronizados com o domínio gerenciado. Esta operação exige que você seja um administrador de locatários para o diretório do Azure AD e o acesso às credenciais deve ser controlado.
 
 Para implantar recursos em uma rede virtual do Azure e controlar o tráfego, você deve ter privilégios administrativos na rede virtual na qual você implanta o domínio gerenciado.
 
-Para que o RBAC funcione consistentemente e proteja o acesso a todos os recursos que o Azure AD DS usa, o domínio gerenciado e a rede virtual devem pertencer ao mesmo locatário do Azure AD.
+Para que o RBAC do Azure trabalhe de forma consistente e segura para todos os recursos que o Azure AD DS usa, o domínio gerenciado e a rede virtual devem pertencer ao mesmo locatário do Azure AD.
 
 As regras a seguir se aplicam a implantações:
 

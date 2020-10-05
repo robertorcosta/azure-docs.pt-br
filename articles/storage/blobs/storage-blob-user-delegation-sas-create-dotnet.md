@@ -10,12 +10,12 @@ ms.date: 12/18/2019
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: e499b27124ed5723fb19fecbe4091f17364aea5a
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 05ab666eff39412c1b169178e7ea4c68f3a81ca9
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533981"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714546"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-net"></a>Criar uma SAS de delegação de usuário para um contêiner ou BLOB com .NET
 
@@ -27,7 +27,7 @@ Este artigo mostra como usar as credenciais do Azure Active Directory (AD do Azu
 
 ## <a name="assign-azure-roles-for-access-to-data"></a>Atribuir funções do Azure para acesso aos dados
 
-Quando uma entidade de segurança do Azure AD tenta acessar dados de BLOB, essa entidade de segurança deve ter permissões para o recurso. Se a entidade de segurança é uma identidade gerenciada no Azure ou uma conta de usuário do Azure AD executando código no ambiente de desenvolvimento, a entidade de segurança deve ser atribuída a uma função do Azure que conceda acesso a dados de blob no armazenamento do Azure. Para obter informações sobre a atribuição de permissões via RBAC, consulte a seção intitulada **atribuir funções do Azure para direitos de acesso** em [autorizar o acesso a BLOBs e filas do Azure usando o Azure Active Directory](../common/storage-auth-aad.md#assign-azure-roles-for-access-rights).
+Quando uma entidade de segurança do Azure AD tenta acessar dados de BLOB, essa entidade de segurança deve ter permissões para o recurso. Se a entidade de segurança é uma identidade gerenciada no Azure ou uma conta de usuário do Azure AD executando código no ambiente de desenvolvimento, a entidade de segurança deve ser atribuída a uma função do Azure que conceda acesso a dados de blob no armazenamento do Azure. Para obter informações sobre a atribuição de permissões por meio do RBAC do Azure, consulte a seção intitulada **atribuir funções do Azure para direitos de acesso** em [autorizar o acesso a BLOBs e filas do Azure usando o Azure Active Directory](../common/storage-auth-aad.md#assign-azure-roles-for-access-rights).
 
 [!INCLUDE [storage-install-packages-blob-and-identity-include](../../../includes/storage-install-packages-blob-and-identity-include.md)]
 

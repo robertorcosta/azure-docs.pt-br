@@ -7,16 +7,16 @@ ms.date: 07/24/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: c82858294054b50d6edae42a3d41e9fcb89ca89d
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 5d07257d1e23ee792aa996e31a2c28c17bc23d34
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91577791"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715066"
 ---
-# <a name="azure-iot-model-repository"></a>Repositório de modelo IoT do Azure
+# <a name="azure-iot-model-repository"></a>Repositório do modelo IoT do Azure
 
-O repositório de modelo IoT do Azure permite que os integradores de dispositivos gerenciem e compartilhem modelos de dispositivos IoT Plug and Play. Os modelos de dispositivo são documentos JSON LD definidos usando a [linguagem de modelagem de gêmeos digital (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). Os modelos armazenados no serviço de repositório de modelo podem ser compartilhados com os desenvolvedores de solução de forma privada por meio do controle de acesso ou publicamente sem a necessidade de autenticação para integrar e desenvolver a solução de nuvem de Plug and Play de IoT.
+O repositório de modelo de IoT do Azure permite que os integradores de dispositivos gerenciem e compartilhem modelos de dispositivos IoT Plug and Play. Os modelos de dispositivo são documentos JSON LD definidos usando a [linguagem de modelagem de gêmeos digital (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). Os modelos armazenados no serviço de repositório de modelo podem ser compartilhados com os desenvolvedores de solução de forma privada por meio do controle de acesso ou publicamente sem a necessidade de autenticação para integrar e desenvolver a solução de nuvem de Plug and Play de IoT.
 
 > [!NOTE]
 > Os criadores de dispositivos podem optar por implementar modelos de dispositivos IoT Plug and Play diretamente em um dispositivo, usar módulos ou em um módulo IoT Edge.
@@ -48,7 +48,7 @@ var httpClient = new HttpClient();
 httpClient.BaseAddress = new Uri("https://repo.azureiotrepository.com");
 
 var modelId = "dtmi:com:mxchip:model;1";
-var response = await httpClient.GetAsync($"/models/{modelId}?api-version=2020-09-30").ConfigureAwait(false);
+var response = await httpClient.GetAsync($"/models/{modelId}?api-version=2020-05-01-preview").ConfigureAwait(false);
 ```
 
 Para exibir um modelo público usando a CLI, consulte o comando CLI do Azure [obter modelo](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-show&preserve-view=true) .
@@ -118,7 +118,7 @@ Para exibir uma empresa ou um modelo compartilhado usando a API REST, consulte a
 
 ```csharp
 var modelId = "dtmi:com:mxchip:model;1";
-var response = await httpClient.GetAsync($"/models/{modelId}?api-version=2020-09-30").ConfigureAwait(false);
+var response = await httpClient.GetAsync($"/models/{modelId}?api-version=2020-05-01-preview").ConfigureAwait(false);
 ```
 
 Para exibir um modelo da empresa ou um modelo compartilhado usando a CLI, consulte o comando CLI do Azure [obter modelo](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-show&preserve-view=true) .
@@ -164,7 +164,7 @@ Para carregar um modelo usando a API REST, consulte [criar uma](https://docs.mic
 ```csharp
 var httpContent = new StringContent(jsonLdModel, Encoding.UTF8, "application/json");
 var modelId = "dtmi:com:mxchip:model;1";
-var response = await httpClient.PutAsync($"/models/{modelId}?api-version=2020-09-30", httpContent).ConfigureAwait(false);
+var response = await httpClient.PutAsync($"/models/{modelId}?api-version=2020-05-01-preview", httpContent).ConfigureAwait(false);
 ```
 
 Para carregar um modelo usando a CLI, consulte o CLI do Azure [criar um comando de modelo](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-create&preserve-view=true) .
@@ -173,7 +173,7 @@ Para carregar um modelo usando a CLI, consulte o CLI do Azure [criar um comando 
 
 Para publicar um modelo, os seguintes requisitos devem ser atendidos:
 
-1. Sua organização precisa ser membro do [Microsoft Partner Network](https://docs.microsoft.com/partner-center/) para publicar um modelo. Para criar uma conta do Partner Center, consulte [criar uma conta do Partner Center](https://docs.microsoft.com/partner-center/mpn-create-a-partner-center-account). Depois que sua conta for aprovada, você poderá publicar seus modelos. Para obter mais informações, consulte as [perguntas frequentes sobre o Partner Center](https://support.microsoft.com/help/4340639/partner-center-account-faqs).
+1. Sua organização precisa ser membro do [Microsoft Partner Network](https://docs.microsoft.com/partner-center/) para publicar um modelo. Para criar uma conta do Partner Center, consulte [criar uma conta do Partner Center](https://docs.microsoft.com/partner-center/mpn-create-a-partner-center-account). Depois que sua conta for aprovada, você poderá publicar seus modelos. Para obter mais informações, consulte [Perguntas frequentes do Partner Center](https://support.microsoft.com/help/4340639/partner-center-account-faqs).
 
 2. O usuário deve ser membro da função de *Editor* do locatário do repositório.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: b603776ce19bca8d6fefa7c3c85366ebe3b7b01f
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 1f335640eb37f51857fa295298d0a3ca91f2a370
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653793"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714986"
 ---
 # <a name="introduction-to-the-core-azure-storage-services"></a>Introdução aos principais serviços de armazenamento do Azure
 
@@ -91,7 +91,7 @@ Por exemplo, digamos que você deseja que seus clientes possam carregar imagens 
 
 Para obter mais informações sobre Filas do Azure, consulte [Introdução às Filas do Azure](../queues/storage-queues-introduction.md).
 
-## <a name="table-storage"></a>Armazenamento de tabelas
+## <a name="table-storage"></a>Armazenamento de tabela
 
 O armazenamento de Tabelas do Azure agora faz parte do Azure Cosmos DB. Para ver a documentação do armazenamento de Tabelas do Azure, veja a [Visão geral do Armazenamento de Tabelas do Azure](../tables/table-storage-overview.md). Além do serviço de armazenamento de Tabelas do Azure existente, há uma nova oferta de API de Tabela do Azure Cosmos DB que fornece tabelas otimizadas de taxa de transferência, distribuição global e índices secundários automáticos. Para saber mais e experimentar a nova experiência Premium, confira [Azure Cosmos DB API de tabela](https://aka.ms/premiumtables).
 
@@ -111,7 +111,7 @@ O armazenamento do Azure oferece vários tipos de contas de armazenamento. Cada 
 
 Cada solicitação para o armazenamento do Azure deve ser autorizada. O armazenamento do Azure dá suporte aos seguintes métodos de autorização:
 
-- **Integração do Azure Active Directory (Azure AD) para dados de BLOB e fila.** O armazenamento do Azure dá suporte à autenticação e autorização com o Azure AD para os serviços BLOB e fila por meio do controle de acesso baseado em função (RBAC). A autorização de solicitações com o Azure AD é recomendada para segurança superior e facilidade de uso. Para obter mais informações, consulte [autorizar o acesso a BLOBs e filas do Azure usando o Azure Active Directory](storage-auth-aad.md).
+- **Integração do Azure Active Directory (Azure AD) para dados de BLOB e fila.** O armazenamento do Azure dá suporte à autenticação e autorização com o Azure AD para os serviços BLOB e fila por meio do controle de acesso baseado em função do Azure (RBAC do Azure). A autorização de solicitações com o Azure AD é recomendada para segurança superior e facilidade de uso. Para obter mais informações, consulte [autorizar o acesso a BLOBs e filas do Azure usando o Azure Active Directory](storage-auth-aad.md).
 - **Autorização do Azure AD sobre SMB para arquivos do Azure.** Os arquivos do Azure oferecem suporte à autorização baseada em identidade sobre SMB (protocolo de mensagem de servidor) por meio de Azure Active Directory Domain Services (Azure AD DS) ou Active Directory Domain Services local (versão prévia). Suas VMs do Windows ingressadas no domínio podem acessar compartilhamentos de arquivos do Azure usando as credenciais do Azure AD. Para obter mais informações, consulte [visão geral do suporte à autenticação baseada em identidade de arquivos do Azure para acesso SMB](../files/storage-files-active-directory-overview.md) e [planejamento para uma implantação de arquivos do Azure](../files/storage-files-planning.md#identity).
 - **Autorização com chave compartilhada.** Os serviços de Azure Storage Blob, arquivos, fila e tabela dão suporte à autorização com chave compartilhada. Um cliente que usa a autorização de chave compartilhada passa um cabeçalho com cada solicitação que é assinada usando a chave de acesso da conta de armazenamento. Para obter mais informações, consulte [Autorizar com Chave Compartilhada](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key).
 - **Autorização usando SAS (assinaturas de acesso compartilhado).** Uma SAS (assinatura de acesso compartilhado) é uma cadeia de caracteres que contém um token de segurança que pode ser anexado ao URI para um recurso de armazenamento. O token de segurança encapsula restrições como permissões e o intervalo de acesso. Para obter mais informações, consulte [usando SAS (assinaturas de acesso compartilhado)](storage-sas-overview.md).
@@ -121,7 +121,7 @@ Cada solicitação para o armazenamento do Azure deve ser autorizada. O armazena
 
 Há dois tipos básicos de criptografia disponíveis para os serviços de armazenamento principal. Para saber mais sobre segurança e criptografia, consulte o [Guia de segurança do Armazenamento do Azure](../blobs/security-recommendations.md).
 
-### <a name="encryption-at-rest"></a>Criptografar em repouso
+### <a name="encryption-at-rest"></a>Criptografia em repouso
 
 A criptografia de armazenamento do Azure protege e protege seus dados para atender aos compromissos de segurança e conformidade da organização. O armazenamento do Azure criptografa automaticamente todos os dados antes de persistir para a conta de armazenamento e descriptografá-los antes da recuperação. Os processos de criptografia, descriptografia e gerenciamento de chaves são transparentes para os usuários. Os clientes também podem optar por gerenciar suas próprias chaves usando Azure Key Vault. Para obter mais informações, consulte [Criptografia do Armazenamento do Azure para dados em repouso](storage-service-encryption.md).
 

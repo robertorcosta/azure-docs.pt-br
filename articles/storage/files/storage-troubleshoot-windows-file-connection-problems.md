@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 9b0eeda443aefc105fb36d6075c717fafae4cb61
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: 7ec511400d1e00d37993f2f4ee581bce1bccb897
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91598027"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715983"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Solucionar problemas de arquivos do Azure no Windows (SMB)
 
@@ -173,7 +173,7 @@ Verifique se regras de firewall e de rede virtual estão configuradas corretamen
 
 ### <a name="solution-for-cause-2"></a>Solução para a causa 2
 
-Navegue até a conta de armazenamento onde o compartilhamento de arquivos do Azure está localizado, clique em **Controle de acesso (IAM)** e verifique se sua conta de usuário tem acesso à conta de armazenamento. Para saber mais, confira [Como proteger a conta de armazenamento com o RBAC (Controle de Acesso Baseado em Função)](https://docs.microsoft.com/azure/storage/blobs/security-recommendations#data-protection).
+Navegue até a conta de armazenamento onde o compartilhamento de arquivos do Azure está localizado, clique em **Controle de acesso (IAM)** e verifique se sua conta de usuário tem acesso à conta de armazenamento. Para saber mais, confira [como proteger sua conta de armazenamento com o controle de acesso baseado em função do Azure (RBAC do Azure)](https://docs.microsoft.com/azure/storage/blobs/security-recommendations#data-protection).
 
 <a id="open-handles"></a>
 ## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>Não é possível excluir um arquivo ou diretório em um compartilhamento de arquivos do Azure
