@@ -3,17 +3,17 @@ title: Documentação do servidor único do Banco de Dados do Azure para Postgre
 summary: O Banco de Dados do Azure para PostgreSQL é um serviço de banco de dados relacional com base no mecanismo de banco de dados Postgres de software livre.  O servidor único é uma das várias opções de implantação para criar um servidor Postgres. Saiba como usar o servidor único com nossos guias de início rápido, tutoriais e exemplos.
 metadata:
   description: O Banco de Dados do Azure para PostgreSQL é um serviço de banco de dados relacional na nuvem da Microsoft que é projetado para desenvolvedores com base no mecanismo de banco de dados PostgreSQL de software livre.
-  author: rachel-msft
-  ms.author: raagyema
+  author: sunilagarwal
+  ms.author: sunila
   ms.date: 09/20/2020
   ms.service: postgresql
   ms.topic: landing-page
-  ms.openlocfilehash: 833b35b7a2f597186c69d95fc4ab8f2704b59c91
-  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+  ms.openlocfilehash: 34ecc6339f1ade7fd9f0bc427982b1b322d79f56
+  ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 09/22/2020
-  ms.locfileid: "90928664"
+  ms.lasthandoff: 10/04/2020
+  ms.locfileid: "91710148"
 landingContent:
 - title: Sobre o servidor único
   linkLists:
