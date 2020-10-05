@@ -4,12 +4,12 @@ description: Saiba como descobrir VMs de VMware locais com a ferramenta de Avali
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: cbe1561f58af8f65285ffb005b0232bff8225d3b
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: f39ad3cbc357575f735b963346c8a8b0cc95e7c8
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90604046"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442227"
 ---
 # <a name="tutorial-discover-vmware-vms-with-server-assessment"></a>Tutorial: Descobrir VMs de VMware com a Avaliação de Servidor
 
@@ -27,7 +27,7 @@ Neste tutorial, você aprenderá como:
 > * Iniciar a descoberta contínua.
 
 > [!NOTE]
-> Os tutoriais mostram o caminho mais rápido para experimentar um cenário e usam opções padrão sempre que possível.  
+> Os tutoriais mostram o caminho mais rápido para experimentar um cenário e usam as opções padrão sempre que possível.  
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de começar.
 
@@ -72,6 +72,7 @@ Se você acaba de criar uma conta gratuita do Azure, você é o proprietário da
 
     ![Verificar em Configurações de Usuário se os usuários podem registrar aplicativos do Active Directory](./media/tutorial-discover-vmware/register-apps.png)
 
+9. Como alternativa, o locatário/administrador global pode atribuir a função de **Desenvolvedor de Aplicativos** a uma conta para permitir o registro de aplicativos do AAD. [Saiba mais](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## <a name="prepare-vmware"></a>Preparar o VMware
 
@@ -165,7 +166,7 @@ Verifique se o arquivo OVA é seguro antes de implantá-lo:
   
    ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
    
-   Exemplo de uso: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
+   Exemplo de uso: ```C:\>CertUtil -HashFile C:\Users\Administrator\Desktop\MicrosoftAzureMigration.ova SHA256```
 
 3. Verifique as versões mais recentes do dispositivo e os valores de hash:
 
@@ -173,13 +174,13 @@ Verifique se o arquivo OVA é seguro antes de implantá-lo:
     
         **Algoritmo** | **Download** | **SHA256**
         --- | --- | ---
-        VMware (11,6 GB) | [Última versão](https://go.microsoft.com/fwlink/?linkid=2140333) | e9c9a1fe4f3ebae81008328e8f3a7933d78ff835ecd871d1b17f367621ce3c74
+        VMware (11,9 GB) | [Última versão](https://go.microsoft.com/fwlink/?linkid=2140333) | bd5c19eec93a62d52cc507a6b7b408d07f33f92b7d39b8a1e3dfec4ec62830d7
 
     - Para o Azure Government:
     
         **Algoritmo** | **Download** | **SHA256**
         --- | --- | ---
-        VMware (85 MB) | [Última versão](https://go.microsoft.com/fwlink/?linkid=2140337) | 47179f47eba2842337bbe533c424dd1da56baccdcf68b1d87b71a5a4280108c2
+        VMware (85,8 MB) | [Última versão](https://go.microsoft.com/fwlink/?linkid=2140337) | 2daaa2a59302bf911e8ef195f8add7d7c8352de77a9af0b860e2a627979085ca
 
 
 
