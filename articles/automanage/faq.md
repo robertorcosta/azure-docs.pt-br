@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: troubleshooting
 ms.date: 09/04/2020
 ms.author: deanwe
-ms.openlocfilehash: 348106c405e6e096f7bfd9a225fc783c4454b1ad
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 003f97c99de7dd4be79e820e822b6071f45ed146
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91449771"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714966"
 ---
 # <a name="frequently-asked-questions-for-azure-automanage-for-vms"></a>Perguntas frequentes sobre o autogerenciamento do Azure para VMs
 
@@ -35,7 +35,7 @@ Veja a seguir os pré-requisitos para habilitar o autogerenciamento do Azure:
 - As VMs não devem vincular a um espaço de trabalho do log Analytics em uma assinatura diferente
 - O autogerenci não dá suporte a assinaturas de área restrita no momento
 
-**Qual permissão RBAC é necessária para habilitar o autogerenci?**
+**Qual permissão RBAC do Azure é necessária para habilitar o autogerenci?**
 
 Se você estiver habilitando o autogerenciamento em uma VM com uma conta de autogerenciamento existente, precisará da função colaborador para o grupo de recursos onde a VM reside.
 

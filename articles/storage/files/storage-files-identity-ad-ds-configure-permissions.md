@@ -7,22 +7,22 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: rogarana
-ms.openlocfilehash: de0f58b54f0cb5ad450949bb1a7b8744f081227d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 50753950556531ed3915292f44668073b88be45b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320329"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91716020"
 ---
 # <a name="part-three-configure-directory-and-file-level-permissions-over-smb"></a>Parte três: configurar permissões de diretório e de nível de arquivo sobre SMB 
 
 Antes de começar este artigo, verifique se você concluiu o artigo anterior, [atribua permissões de nível de compartilhamento a uma identidade](storage-files-identity-ad-ds-assign-permissions.md) para garantir que suas permissões de nível de compartilhamento estejam em vigor.
 
-Depois de atribuir permissões de nível de compartilhamento com o RBAC, você deve configurar ACLs apropriadas do Windows no nível de raiz, diretório ou arquivo, para tirar proveito do controle de acesso granular. Considere as permissões de nível de compartilhamento do RBAC como o gatekeeper de alto nível que determina se um usuário pode acessar o compartilhamento. Enquanto as ACLs do Windows operam em um nível mais granular para determinar quais operações o usuário pode fazer no nível do diretório ou do arquivo. As permissões no nível de compartilhamento e de arquivo/diretório são impostas quando um usuário tenta acessar um arquivo/diretório, portanto, se houver uma diferença entre qualquer uma delas, somente a mais restritiva será aplicada. Por exemplo, se um usuário tiver acesso de leitura/gravação no nível de arquivo, mas somente leitura em um nível de compartilhamento, ele só poderá ler esse arquivo. O mesmo seria verdadeiro se ele fosse invertido e um usuário tivesse acesso de leitura/gravação no nível de compartilhamento, mas somente leitura no nível de arquivo, ele ainda poderá ler o arquivo.
+Depois de atribuir permissões de nível de compartilhamento com o RBAC do Azure, você deve configurar ACLs apropriadas do Windows no nível de raiz, diretório ou arquivo, para tirar proveito do controle de acesso granular. Considere as permissões de nível de compartilhamento do RBAC do Azure como o gatekeeper de alto nível que determina se um usuário pode acessar o compartilhamento. Enquanto as ACLs do Windows operam em um nível mais granular para determinar quais operações o usuário pode fazer no nível do diretório ou do arquivo. As permissões no nível de compartilhamento e de arquivo/diretório são impostas quando um usuário tenta acessar um arquivo/diretório, portanto, se houver uma diferença entre qualquer uma delas, somente a mais restritiva será aplicada. Por exemplo, se um usuário tiver acesso de leitura/gravação no nível de arquivo, mas somente leitura em um nível de compartilhamento, ele só poderá ler esse arquivo. O mesmo seria verdadeiro se ele fosse invertido e um usuário tivesse acesso de leitura/gravação no nível de compartilhamento, mas somente leitura no nível de arquivo, ele ainda poderá ler o arquivo.
 
-## <a name="rbac-permissions"></a>Permissões de RBAC
+## <a name="azure-rbac-permissions"></a>Permissões do RBAC do Azure
 
-A tabela a seguir contém as permissões RBAC relacionadas a essa configuração:
+A tabela a seguir contém as permissões RBAC do Azure relacionadas a esta configuração:
 
 
 | Função interna  | Permissão NTFS  | Acesso resultante  |

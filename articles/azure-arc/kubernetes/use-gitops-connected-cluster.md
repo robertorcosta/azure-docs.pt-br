@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Usar o GitOps para configurar um cluster habilitado para Azure Arc (versão prévia)
 keywords: GitOps, Kubernetes, K8s, Azure, Arc, Serviço de Kubernetes do Azure, contêineres
-ms.openlocfilehash: 142c131f0382eb887d51185db920511ccf4eb735
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: c00ed30c9a7424d083bf076c64cf008e0480bb2b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91541621"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714178"
 ---
 # <a name="deploy-configurations-using-gitops-on-arc-enabled-kubernetes-cluster-preview"></a>Implantar configurações usando o GitOps em um cluster kubernetes habilitado para Arc (visualização)
 
@@ -23,7 +23,7 @@ A conexão entre o cluster e um ou mais repositórios Git é controlada no Azure
 
 A `config-agent` execução no seu cluster é responsável por assistir a recursos de extensão novos ou atualizados `sourceControlConfiguration` no recurso kubernetes habilitado para Arc do Azure, implantando um operador de fluxo para assistir ao repositório git e propagar todas as atualizações feitas no `sourceControlConfiguration` . É possível, até mesmo, criar vários `sourceControlConfiguration` recursos com `namespace` escopo no mesmo cluster de kubernetes habilitado para Arc do Azure para obter multilocação. Nesse caso, cada operador só pode implantar configurações em seu respectivo namespace.
 
-O repositório Git pode conter quaisquer recursos válidos do Kubernetes, incluindo Namespaces, ConfigMaps, Implantações, DaemonSets etc.  Ele também pode conter gráficos Helm para implantar aplicativos. Um conjunto comum de cenários inclui a definição de uma configuração de linha de base para sua organização, que pode incluir associações e funções RBAC comuns, agentes de monitoramento e de registro em log ou serviços em todo o cluster.
+O repositório Git pode conter quaisquer recursos válidos do Kubernetes, incluindo Namespaces, ConfigMaps, Implantações, DaemonSets etc.  Ele também pode conter gráficos Helm para implantar aplicativos. Um conjunto comum de cenários inclui a definição de uma configuração de linha de base para sua organização, que pode incluir funções e associações comuns do Azure, agentes de monitoramento ou registro em log ou serviços de todo o cluster.
 
 O mesmo padrão pode ser usado para gerenciar uma coleção maior de clusters, que podem ser implantados em ambientes heterogêneos. Por exemplo, você pode ter um repositório que defina a configuração da linha de base da sua organização e aplicá-lo a dezenas de clusters do Kubernetes de uma só vez. A [política do Azure pode automatizar](use-azure-policy.md) a criação de um `sourceControlConfiguration` com um conjunto específico de parâmetros em todos os recursos de kubernetes habilitados para o Azure ARC em um escopo (assinatura ou grupo de recursos).
 

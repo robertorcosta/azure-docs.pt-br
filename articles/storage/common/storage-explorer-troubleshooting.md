@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: b57a57f05853b9f8c291dc2ac352db7b1e679260
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: f24fb6c4d83da0d443702afaf673079363a9ffb0
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534848"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714445"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guia de solução de problemas do Gerenciador de Armazenamento do Azure
 
@@ -21,13 +21,13 @@ O Gerenciador de Armazenamento do Microsoft Azure é um aplicativo autônomo que
 
 Este guia resume soluções para problemas que normalmente são vistos em Gerenciador de Armazenamento.
 
-## <a name="rbac-permissions-issues"></a>Problemas de permissões de RBAC
+## <a name="azure-rbac-permissions-issues"></a>Problemas de permissões do RBAC do Azure
 
-O [RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview) de controle de acesso baseado em função permite o gerenciamento de acesso altamente granular dos recursos do Azure combinando conjuntos de permissões em _funções_. Aqui estão algumas estratégias para fazer com que o RBAC funcione de forma ideal no Gerenciador de Armazenamento.
+Controle de acesso baseado em função do Azure o [RBAC do Azure](https://docs.microsoft.com/azure/role-based-access-control/overview) permite o gerenciamento de acesso altamente granular dos recursos do Azure combinando conjuntos de permissões em _funções_. Aqui estão algumas estratégias para colocar o RBAC do Azure funcionando de maneira ideal no Gerenciador de Armazenamento.
 
 ### <a name="how-do-i-access-my-resources-in-storage-explorer"></a>Como fazer acessar meus recursos no Gerenciador de Armazenamento?
 
-Se você estiver tendo problemas para acessar os recursos de armazenamento por meio do RBAC, talvez você não tenha atribuído as funções apropriadas. As seções a seguir descrevem as permissões Gerenciador de Armazenamento atualmente exige o acesso aos recursos de armazenamento. Entre em contato com o administrador da conta do Azure se você não tiver certeza de que tem as funções ou permissões apropriadas.
+Se você estiver tendo problemas para acessar os recursos de armazenamento por meio do RBAC do Azure, talvez você não tenha atribuído as funções apropriadas. As seções a seguir descrevem as permissões Gerenciador de Armazenamento atualmente exige o acesso aos recursos de armazenamento. Entre em contato com o administrador da conta do Azure se você não tiver certeza de que tem as funções ou permissões apropriadas.
 
 #### <a name="read-listget-storage-accounts-permissions-issue"></a>Problema de permissões de "leitura: listar/obter conta de armazenamento"
 
@@ -65,7 +65,7 @@ Se você quiser acessar contêineres ou filas de BLOB, poderá anexar a esses re
 3. Selecione a conta de usuário e o locatário associados ao recurso ao qual você está anexando. Clique em Avançar.
 4. Selecione o tipo de recurso, insira a URL para o recurso e insira um nome de exibição exclusivo para a conexão. Clique em Avançar. Clique em Conectar.
 
-Para outros tipos de recursos, atualmente não temos uma solução relacionada a RBAC. Como alternativa, você pode solicitar um URI de SAS para [anexar ao recurso](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri).
+Para outros tipos de recursos, atualmente não temos uma solução relacionada ao RBAC do Azure. Como alternativa, você pode solicitar um URI de SAS para [anexar ao recurso](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri).
 
 ### <a name="recommended-azure-built-in-roles"></a>Funções internas do Azure recomendadas
 
@@ -94,7 +94,7 @@ Esse problema também pode ocorrer se houver vários certificados (raiz e interm
 
 Se você não tiver certeza de onde o certificado provém, siga estas etapas para encontrá-lo:
 
-1. Instale o OpenSSL.
+1. Instalar OpenSSL.
     * [Windows](https://slproweb.com/products/Win32OpenSSL.html): qualquer uma das versões leves deve ser suficiente.
     * Mac e Linux: devem ser incluídos no seu sistema operacional.
 2. Execute o OpenSSL.
@@ -132,7 +132,7 @@ Se você estiver em um loop de reautenticação ou tiver alterado o UPN de uma d
 2. Exclua a pasta .IdentityService do seu computador. No Windows, a pasta está localizada em `C:\users\<username>\AppData\Local`. Para Mac e Linux, você pode encontrar a pasta na raiz do seu diretório de usuário.
 3. Se você estiver executando o Mac ou o Linux, também precisará excluir a entrada Microsoft. Developer. IdentityService do repositório de chaves do seu sistema operacional. No Mac, o keystore é o aplicativo de conjunto de *chaves GNOME* . No Linux, o aplicativo é normalmente chamado de _token_de entrada, mas o nome pode ser diferente dependendo da sua distribuição.
 
-### <a name="conditional-access"></a>Acesso condicional
+### <a name="conditional-access"></a>Acesso Condicional
 
 Devido a uma limitação na biblioteca do Azure AD usada pelo Gerenciador de Armazenamento, o acesso condicional não tem suporte quando Gerenciador de Armazenamento está sendo usado no Windows 10, Linux ou macOS.
 

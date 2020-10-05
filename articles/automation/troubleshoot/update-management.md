@@ -5,12 +5,12 @@ services: automation
 ms.date: 09/25/2020
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: 26ce59c1d4ec8e3e2bf2096a4688b7639148410f
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 9f832b45b3aca11fb96a56643f2cce0228adf8ac
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91359232"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713511"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Solucionar problemas do Gerenciamento de Atualizações
 
@@ -226,7 +226,7 @@ As possíveis causas para esse problema incluem:
 
 #### <a name="incorrect-access-on-selected-scopes"></a>Acesso incorreto nos escopos selecionados
 
-O portal do Azure só exibe computadores para os quais você tem acesso de gravação em um determinado escopo. Se você não tiver o acesso correto para um escopo, consulte [Tutorial: Conceder acesso aos recursos do Azure para um usuário usando o RBAC e o portal do Azure](../../role-based-access-control/quickstart-assign-role-user-portal.md).
+O portal do Azure só exibe computadores para os quais você tem acesso de gravação em um determinado escopo. Se você não tiver o acesso correto para um escopo, consulte [tutorial: conceder a um usuário acesso aos recursos do Azure usando o portal do Azure](../../role-based-access-control/quickstart-assign-role-user-portal.md).
 
 #### <a name="arg-query-doesnt-return-expected-machines"></a>A consulta de ARG não recupera os computadores esperados
 

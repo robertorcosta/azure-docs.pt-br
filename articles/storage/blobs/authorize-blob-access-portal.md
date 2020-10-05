@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: blobs
 ms.custom: contperfq1
-ms.openlocfilehash: 4a9f243ce32dee9948cd2f2410b5c7f1382bf7c8
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: a4c32877ddb260e90fb4121b16a9b318616c2a4d
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90088843"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715841"
 ---
 # <a name="choose-how-to-authorize-access-to-blob-data-in-the-azure-portal"></a>Escolha como autorizar o acesso aos dados de blob no portal do Azure
 
@@ -26,11 +26,11 @@ Você também pode especificar como autorizar uma operação de upload de blob i
 
 ## <a name="permissions-needed-to-access-blob-data"></a>Permissões necessárias para acessar dados de BLOB
 
-Dependendo de como você deseja autorizar o acesso aos dados de blob no portal do Azure, você precisará de permissões específicas. Na maioria dos casos, essas permissões são fornecidas por meio do RBAC (controle de acesso baseado em função). Para obter mais informações sobre o RBAC, consulte [o que é o Azure RBAC (controle de acesso baseado em função)?](../../role-based-access-control/overview.md).
+Dependendo de como você deseja autorizar o acesso aos dados de blob no portal do Azure, você precisará de permissões específicas. Na maioria dos casos, essas permissões são fornecidas por meio do controle de acesso baseado em função do Azure (RBAC do Azure). Para obter mais informações sobre o RBAC do Azure, consulte [o que é o Azure RBAC (controle de acesso baseado em função)?](../../role-based-access-control/overview.md).
 
 ### <a name="use-the-account-access-key"></a>Usar a chave de acesso da conta
 
-Para acessar dados de blob com a chave de acesso da conta, você deve ter uma função do Azure atribuída a você que inclua a ação RBAC **Microsoft. Storage/storageAccounts/listkeys/Action**. Essa função do Azure pode ser uma função interna ou personalizada. Funções internas que dão suporte a **Microsoft. Storage/storageAccounts/listkeys/Action** incluem:
+Para acessar dados de blob com a chave de acesso da conta, você deve ter uma função do Azure atribuída a você que inclua a ação do RBAC do Azure **Microsoft. Storage/storageAccounts/listkeys/Action**. Essa função do Azure pode ser uma função interna ou personalizada. Funções internas que dão suporte a **Microsoft. Storage/storageAccounts/listkeys/Action** incluem:
 
 - A função de [proprietário](../../role-based-access-control/built-in-roles.md#owner) de Azure Resource Manager
 - A função [colaborador](../../role-based-access-control/built-in-roles.md#contributor) de Azure Resource Manager
@@ -75,11 +75,11 @@ Quando você navega para um contêiner, o portal do Azure indica se você está 
 
 Se você estiver autenticando usando a chave de acesso da conta, verá a **chave de acesso** especificada como o método de autenticação no Portal:
 
-:::image type="content" source="media/authorize-blob-access-portal/auth-method-access-key.png" alt-text="Captura de tela mostrando o usuário que está acessando contêineres com a chave de conta":::
+:::image type="content" source="media/authorize-blob-access-portal/auth-method-access-key.png" alt-text="Captura de tela mostrando como navegar para dados de blob no portal do Azure":::
 
 Para alternar para o usando a conta do Azure AD, clique no link realçado na imagem. Se você tiver as permissões apropriadas por meio das funções do Azure atribuídas a você, poderá continuar. No entanto, se você não tem as permissões corretas, verá uma mensagem de erro semelhante à seguinte:
 
-:::image type="content" source="media/authorize-blob-access-portal/auth-error-azure-ad.png" alt-text="Erro mostrado se a conta do Azure AD não dá suporte ao acesso":::
+:::image type="content" source="media/authorize-blob-access-portal/auth-error-azure-ad.png" alt-text="Captura de tela mostrando como navegar para dados de blob no portal do Azure":::
 
 Observe que nenhum blob aparece na lista se sua conta do Azure AD não tem permissões para exibi-los. Clique no link **alternar para a chave de acesso** para usar a tecla de acesso para autenticação novamente.
 
@@ -87,11 +87,11 @@ Observe que nenhum blob aparece na lista se sua conta do Azure AD não tem permi
 
 Se você estiver autenticando usando sua conta do Azure AD, verá a **conta de usuário do Azure ad** especificada como o método de autenticação no Portal:
 
-:::image type="content" source="media/authorize-blob-access-portal/auth-method-azure-ad.png" alt-text="Captura de tela mostrando o usuário atualmente acessando contêineres com a conta do Azure AD":::
+:::image type="content" source="media/authorize-blob-access-portal/auth-method-azure-ad.png" alt-text="Captura de tela mostrando como navegar para dados de blob no portal do Azure":::
 
 Para alternar para o usando a chave de acesso da conta, clique no link realçado na imagem. Se você tiver acesso à chave de conta, poderá continuar. No entanto, se você não tem acesso à chave de conta, verá uma mensagem de erro semelhante à seguinte:
 
-:::image type="content" source="media/authorize-blob-access-portal/auth-error-access-key.png" alt-text="Erro mostrado se você não tiver acesso à chave de conta":::
+:::image type="content" source="media/authorize-blob-access-portal/auth-error-access-key.png" alt-text="Captura de tela mostrando como navegar para dados de blob no portal do Azure":::
 
 Observe que nenhum blob aparecerá na lista se você não tiver acesso às chaves da conta. Clique no link **alternar para a conta de usuário do Azure ad** para usar sua conta do Azure ad para autenticação novamente.
 
@@ -106,11 +106,11 @@ Para especificar como autorizar uma operação de upload de BLOB, siga estas eta
 1. Expanda a seção **avançado** para exibir as propriedades avançadas para o blob.
 1. No campo **tipo de autenticação** , indique se você deseja autorizar a operação de upload usando sua conta do Azure ad ou com a chave de acesso da conta, conforme mostrado na imagem a seguir:
 
-    :::image type="content" source="media/authorize-blob-access-portal/auth-blob-upload.png" alt-text="Captura de tela mostrando como alterar o método de autorização no carregamento de BLOB":::
+    :::image type="content" source="media/authorize-blob-access-portal/auth-blob-upload.png" alt-text="Captura de tela mostrando como navegar para dados de blob no portal do Azure":::
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Autenticar o acesso a BLOBs e filas do Azure usando o Azure Active Directory](../common/storage-auth-aad.md)
-- [Conceder acesso a contêineres e filas do Azure com RBAC no portal do Azure](../common/storage-auth-aad-rbac-portal.md)
-- [Conceder acesso a dados de blob e fila do Azure com o RBAC usando a CLI do Azure](../common/storage-auth-aad-rbac-cli.md)
-- [Conceder acesso a dados de blob e fila do Azure com RBAC usando PowerShell](../common/storage-auth-aad-rbac-powershell.md)
+- [Use o portal do Azure para atribuir uma função do Azure para acesso aos dados de BLOB e de fila](../common/storage-auth-aad-rbac-portal.md)
+- [Use o CLI do Azure para atribuir uma função do Azure para acesso aos dados de BLOB e de fila](../common/storage-auth-aad-rbac-cli.md)
+- [Usar o módulo Azure PowerShell para atribuir uma função do Azure para acesso aos dados de BLOB e de fila](../common/storage-auth-aad-rbac-powershell.md)

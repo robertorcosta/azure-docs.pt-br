@@ -1,22 +1,22 @@
 ---
-title: Usando a biblioteca de cliente do banco de dados elástico com Entity Framework
+title: Como usar a biblioteca de clientes do banco de dados com o Entity Framework
 description: Usar a biblioteca de cliente do Banco de Dados Elástico e o Entity Framework para bancos de dados de codificação
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: sample
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/04/2019
-ms.openlocfilehash: b53e37384ba85770b445f834c440075cd35b6eb2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: 8eafd99f07c64c20565a954216341f3dea9541b0
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84026577"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442649"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Biblioteca cliente do Banco de Dados Elástico com Entity Framework
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -28,7 +28,7 @@ Este documento mostra as alterações em um aplicativo do Entity Framework neces
 Para baixar o código para este artigo:
 
 * É necessário o Visual Studio 2012 ou posterior.
-* Baixe o [exemplo de integração de ferramentas de banco de BD elástico para SQL do Azure-Entity Framework](https://github.com/Azure/elastic-db-tools/). Descompacte o exemplo em um local de sua escolha.
+* Baixe as [Ferramentas de BD Elástico para SQL do Azure – Amostra de integração ao Entity Framework](https://github.com/Azure/elastic-db-tools/). Descompacte o exemplo em um local de sua escolha.
 * Inicie o Visual Studio.
 * No Visual Studio, selecione Arquivo -> Abrir Projeto/Solução.
 * Na caixa de diálogo **Abrir Projeto**, navegue até o exemplo que você baixou e selecione **EntityFrameworkCodeFirst.sln** para abrir a amostra.
@@ -39,7 +39,7 @@ Para executar o exemplo, você precisa criar três bancos de dados vazios no Ban
 * Banco de dados do fragmento 1
 * Banco de dados do fragmento 2
 
-Depois de criar esses bancos de dados, preencha os contentores em **Program.cs** com o nome do seu servidor, os nomes do banco de dados e suas credenciais para se conectar aos bancos. Compile a solução no Visual Studio. O Visual Studio baixa os pacotes NuGet necessários para a biblioteca cliente do banco de dados elástico, o Entity Framework e o tratamento de Falha Transitória como parte do processo de build. Certifique-se de que a restauração de pacotes NuGet está habilitada para sua solução. Você pode habilitar essa configuração clicando com o botão direito no arquivo de solução no Gerenciador de Soluções do Visual Studio.
+Depois de criar esses bancos de dados, preencha os espaços reservados em **Program.cs** com o nome do servidor, os nomes dos bancos de dados e as suas credenciais para se conectar aos bancos de dados. Compile a solução no Visual Studio. O Visual Studio baixa os pacotes NuGet necessários para a biblioteca cliente do banco de dados elástico, o Entity Framework e o tratamento de Falha Transitória como parte do processo de build. Certifique-se de que a restauração de pacotes NuGet está habilitada para sua solução. Você pode habilitar essa configuração clicando com o botão direito no arquivo de solução no Gerenciador de Soluções do Visual Studio.
 
 ## <a name="entity-framework-workflows"></a>Fluxos de trabalho do Entity Framework
 
@@ -81,7 +81,7 @@ Conexões de banco de dados com o Entity Framework são normalmente gerenciadas 
 
 Para integrar o **DbContexts** com o roteamento dependente de dados para expansão:
 
-1. Crie conexões de banco de dados físico por meio das interfaces de cliente do banco de dados elástico do Gerenciador de mapa de fragmentos.
+1. Crie conexões físicas de banco de dados por meio das interfaces de cliente do banco de dados elástico do gerenciador de mapa de fragmentos.
 2. Encapsule a conexão com a subclasse **DbContext**
 3. Passe a conexão para baixo para as classes base **DbContext** para garantir que todo o processamento no lado do EF também aconteça.
 
@@ -276,7 +276,7 @@ As abordagens descritas neste documento envolvem algumas limitações:
 
 ## <a name="conclusion"></a>Conclusão
 
-Por meio das etapas descritas neste documento, os aplicativos do EF podem usar a funcionalidade da biblioteca cliente do banco de dados elástico para o roteamento dependente de dados executado pelos construtores de refatoração das subclasses **DbContext** usadas no aplicativo do EF. Isso limita as alterações necessárias para os locais em que as classes **DbContext** já existem. Além disso, aplicativos do EF podem continuar a se beneficiar com a implantação automática do esquema, combinando as etapas que invocam as migrações necessárias do EF com o registro de novos fragmentos e mapeamentos no mapa de fragmentos.
+Por meio das etapas descritas neste documento, os aplicativos do EF podem usar a funcionalidade da biblioteca cliente do banco de dados elástico para o roteamento dependente de dados executado pelos construtores de refatoração das subclasses **DbContext** usadas no aplicativo do EF. Isso limita as alterações necessárias para os locais onde as classes do **DbContext** já existem. Além disso, aplicativos do EF podem continuar a se beneficiar com a implantação automática do esquema, combinando as etapas que invocam as migrações necessárias do EF com o registro de novos fragmentos e mapeamentos no mapa de fragmentos.
 
 [!INCLUDE [elastic-scale-include](../../../includes/elastic-scale-include.md)]
 

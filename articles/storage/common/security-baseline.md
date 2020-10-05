@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 6358f9d233b3c09dc4ae4f3ecac7c91dea8bba6e
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: f4687add8fdd55c8084a7180a6e0a3bffd9751b1
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228266"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715160"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Linha de base de segurança do Azure para armazenamento do Azure
 
@@ -380,13 +380,13 @@ Você também pode habilitar um acesso just-in-time/apenas o suficiente usando A
 
 ### <a name="39-use-azure-active-directory"></a>3.9: Use o Azure Active Directory Domain Services
 
-**Diretrizes**: Use Azure Active Directory (AD do Azure) como o sistema de autenticação e autorização central. O Azure AD fornece RBAC (controle de acesso baseado em função) para um controle refinado sobre o acesso de um cliente a recursos em uma conta de armazenamento.  Use as credenciais do Azure AD quando possível como uma prática recomendada de segurança, em vez de usar a chave de conta, que pode ser mais facilmente comprometida. Quando o design do aplicativo exigir assinaturas de acesso compartilhado para acesso ao armazenamento de BLOB, use as credenciais do Azure AD para criar uma SAS (assinatura de acesso compartilhado) de delegação de usuário, quando possível, para segurança superior.
+**Diretrizes**: Use Azure Active Directory (AD do Azure) como o sistema de autenticação e autorização central. O Azure fornece o Azure RBAC (controle de acesso baseado em função) para um controle refinado sobre o acesso de um cliente aos recursos em uma conta de armazenamento.  Use as credenciais do Azure AD quando possível como uma prática recomendada de segurança, em vez de usar a chave de conta, que pode ser mais facilmente comprometida. Quando o design do aplicativo exigir assinaturas de acesso compartilhado para acesso ao armazenamento de BLOB, use as credenciais do Azure AD para criar uma SAS (assinatura de acesso compartilhado) de delegação de usuário, quando possível, para segurança superior.
 
 - [Como criar e configurar uma instância do Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
 
 - [Usar o provedor de recursos de armazenamento do Azure para acessar recursos de gerenciamento](https://docs.microsoft.com/azure/storage/common/authorization-resource-provider)
 
-- [Como configurar o acesso ao blob do Azure e a dados da fila com RBAC no portal do Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal)
+- [Como configurar o acesso ao blob do Azure e a dados da fila com o RBAC do Azure no portal do Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal)
 
 - [Autorizando o acesso aos dados no armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-auth)
 
@@ -478,7 +478,7 @@ Crie configurações de diagnóstico para Azure Active Directory contas de usuá
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2: isolar sistemas que armazenam ou processam informações confidenciais
 
-**Diretrizes**: implemente o isolamento usando assinaturas separadas, grupos de gerenciamento e contas de armazenamento para domínios de segurança individuais, como a confidencialidade de dados, como ambiente.  Você pode restringir sua conta de armazenamento para controlar o nível de acesso às suas contas de armazenamento que seus aplicativos e ambientes empresariais exigem, com base no tipo e no subconjunto de redes usadas. Quando as regras de rede são configuradas, somente dados de solicitação de aplicativos do conjunto especificado de redes podem acessar uma conta de armazenamento. Você pode controlar o acesso ao armazenamento do Azure por meio do RBAC do Azure AD. Você também pode configurar pontos de extremidade privados para melhorar a segurança conforme o tráfego entre sua rede virtual e o serviço atravessa a rede de backbone da Microsoft, eliminando a exposição da Internet pública. 
+**Diretrizes**: implemente o isolamento usando assinaturas separadas, grupos de gerenciamento e contas de armazenamento para domínios de segurança individuais, como a confidencialidade de dados, como ambiente.  Você pode restringir sua conta de armazenamento para controlar o nível de acesso às suas contas de armazenamento que seus aplicativos e ambientes empresariais exigem, com base no tipo e no subconjunto de redes usadas. Quando as regras de rede são configuradas, somente dados de solicitação de aplicativos do conjunto especificado de redes podem acessar uma conta de armazenamento. Você pode controlar o acesso ao armazenamento do Azure por meio do RBAC do Azure. Você também pode configurar pontos de extremidade privados para melhorar a segurança conforme o tráfego entre sua rede virtual e o serviço atravessa a rede de backbone da Microsoft, eliminando a exposição da Internet pública. 
 
 - [Como criar assinaturas adicionais do Azure](https://docs.microsoft.com/azure/billing/billing-create-subscription)
 
@@ -502,7 +502,7 @@ Além disso, use políticas de ponto de extremidade de serviço de rede virtual 
 
 - [Configurar redes virtuais e firewalls do Armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
 
-- [Políticas de ponto de extremidade de serviço de rede virtual para armazenamento do Azure](https://docs.microsoft.com/azure/private-link/create-private-endpoint-storage-portal)
+- [Políticas de ponto de extremidade de serviço de rede virtual para o Armazenamento do Azure](https://docs.microsoft.com/azure/private-link/create-private-endpoint-storage-portal)
 
 - [Entender a proteção de dados do cliente no Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
 
@@ -534,13 +534,13 @@ Além disso, use políticas de ponto de extremidade de serviço de rede virtual 
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Usar o RBAC do Azure para controlar o acesso a recursos
 
-**Diretrizes**: o Azure Active Directory (Azure AD) autoriza os direitos de acesso a recursos protegidos por meio do controle de acesso baseado em função (RBAC). O armazenamento do Azure define um conjunto de funções internas do Azure que abrangem conjuntos comuns de permissões usadas para acessar dados de BLOB ou de fila. 
+**Diretrizes**: o Azure Active Directory (Azure AD) autoriza os direitos de acesso a recursos protegidos por meio do controle de acesso baseado em função do Azure (RBAC do Azure). O armazenamento do Azure define um conjunto de funções internas do Azure que abrangem conjuntos comuns de permissões usadas para acessar dados de BLOB ou de fila. 
 
 - [Como atribuir funções do Azure para a conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal#assign-azure-roles-using-the-azure-portal)
 
 - [Usar o provedor de recursos de armazenamento do Azure para acessar recursos de gerenciamento](https://docs.microsoft.com/azure/storage/common/authorization-resource-provider)
 
-- [Como configurar o acesso ao blob do Azure e a dados da fila com RBAC no portal do Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal)
+- [Como configurar o acesso ao blob do Azure e a dados da fila com o RBAC do Azure no portal do Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal)
 
 - [Como criar e configurar uma instância do AAD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
 

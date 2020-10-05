@@ -1,24 +1,24 @@
 ---
-title: Criar um aplicativo de Machine Learning com o Apache Spark MLlib
-description: Saiba como usar o Apache Spark MLlib para criar um aplicativo de aprendizado de máquina que analisa um conjunto de dados usando a classificação por meio de regressão logística.
+title: 'Tutorial: Criar um aplicativo de machine learning com a MLlib do Apache Spark'
+description: Um tutorial de como usar a MLlib do Apache Spark para criar um aplicativo de machine learning que analisa um conjunto de dados usando a classificação por meio de regressão logística.
 services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
 ms.reviewer: jrasnick
-ms.topic: conceptual
+ms.topic: tutorial
 ms.subservice: machine-learning
 ms.date: 04/15/2020
 ms.author: euang
-ms.openlocfilehash: 2b641075a45db29c07b96c1934d4540f4c3292dd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
-ms.translationtype: MT
+ms.openlocfilehash: 667ce8ede9469063e5714470a8e18c218f3c2c90
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91259978"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540312"
 ---
-# <a name="build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>Criar um aplicativo de aprendizado de máquina com o Apache Spark MLlib e o Azure Synapse Analytics
+# <a name="tutorial-build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>Tutorial: Criar um aplicativo de aprendizado de máquina com o Apache Spark MLlib e o Azure Synapse Analytics
 
-Neste artigo, você aprenderá a usar o Apache Spark [MLlib](https://spark.apache.org/mllib/) para criar um aplicativo de aprendizado de máquina que realiza uma análise preditiva simples em um conjunto de um DataSet aberto do Azure. O Spark fornece bibliotecas de aprendizado de máquina integradas. Este exemplo usa *classificação* por meio de regressão logística.
+Neste artigo, você vai saber como usar a [MLlib](https://spark.apache.org/mllib/) do Apache Spark para criar um aplicativo de machine learning que faz uma análise preditiva simples em um conjunto de dados em aberto do Azure. O Spark fornece bibliotecas de aprendizado de máquina integradas. Este exemplo usa *classificação* por meio de regressão logística.
 
 MLlib é uma biblioteca Spark principal que fornece vários utilitários úteis para tarefas de aprendizado de máquina, incluindo utilitários adequados para:
 
@@ -71,7 +71,7 @@ Nas etapas a seguir, você desenvolverá um modelo para prever se uma corrida es
 
 Como os dados brutos estão no formato Parquet, você pode usar o contexto do Spark para extrair o arquivo diretamente na memória como um dataframe. Embora o código a seguir use as opções padrão, é possível forçar o mapeamento dos tipos de dados e outros atributos de esquema, se necessário.
 
-1. Execute as linhas a seguir para criar um dataframe do Spark, colando o código em uma nova célula. Isso recupera os dados por meio da API de conjuntos de dados abertos. A extração de todos esses dados gera cerca de 1,5 bilhão de linhas. Dependendo do tamanho do pool do Spark (versão prévia), os dados brutos podem ser muito grandes ou levar muito tempo para a operação. Você pode filtrar esses dados para um volume menor. O exemplo de código a seguir usa start_date e end_date para aplicar um filtro que retorna um único mês de dados.
+1. Execute as linhas a seguir para criar um dataframe do Spark, colando o código em uma nova célula. Isso recupera os dados por meio da API do Conjunto de Dados em Aberto no Azure. A extração de todos esses dados gera cerca de 1,5 bilhão de linhas. Dependendo do tamanho do pool do Spark (versão prévia), os dados brutos podem ser muito grandes ou levar muito tempo para a operação. Você pode filtrar esses dados para um volume menor. O exemplo de código a seguir usa start_date e end_date para aplicar um filtro que retorna um único mês de dados.
 
     ```python
     from azureml.opendatasets import NycTlcYellow
@@ -96,7 +96,7 @@ Como os dados brutos estão no formato Parquet, você pode usar o contexto do Sp
     display(sampled_taxi_df)
     ```
 
-4. Dependendo do tamanho do tamanho do conjunto de espaço de trabalho gerado e da necessidade de experimentar ou executar o bloco de anotações muitas vezes, pode ser aconselhável armazenar em cache o conjunto de armazenamento localmente no espaço de trabalho. Há três maneiras de executar o cache explícito:
+4. Dependendo do tamanho do conjunto de dados gerado e da necessidade de experimentar ou executar o notebook muitas vezes, pode ser aconselhável armazenar em cache o conjunto de dados localmente no workspace. Há três maneiras de realizar o armazenamento em cache explícito:
 
    - Salvar o dataframe localmente como arquivo
    - Salvar o dataframe como tabela ou exibição temporária
@@ -157,7 +157,7 @@ No código abaixo, quatro classes de operações são realizadas:
 - A remoção de exceções/valores incorretos por meio da filtragem.
 - A remoção de colunas que não são necessárias.
 - A criação de novas colunas derivadas dos dados brutos para fazer com que o modelo funcione com mais eficiência, às vezes chamada de caracterização.
-- Rotulagem-como você está executando a classificação binária (haverá uma gorjeta ou não em uma determinada viagem), há a necessidade de converter o valor da gorjeta em um valor 0 ou 1.
+- A rotulagem, como você está realizando a classificação binária (haverá gorjeta ou não em determinada corrida), é necessário converter o valor das gorjetas em um valor de 0 ou 1.
 
 ```python
 taxi_df = sampled_taxi_df.select('totalAmount', 'fareAmount', 'tipAmount', 'paymentType', 'rateCodeId', 'passengerCount'\
@@ -193,7 +193,7 @@ taxi_featurised_df = taxi_df.select('totalAmount', 'fareAmount', 'tipAmount', 'p
 
 ## <a name="create-a-logistic-regression-model"></a>Criar um modelo de regressão logística
 
-A tarefa final é converter os dados rotulados para um formato que possa ser analisado pela regressão logística. A entrada para um algoritmo de regressão logística precisa ser um conjunto de *pares de vetor de recurso de rótulo*, em que o *vetor de recurso* é um vetor de números que representa o ponto de entrada. Portanto, é necessário converter as colunas categóricas em números. As `trafficTimeBins` `weekdayString` colunas e precisam ser convertidas em representações de inteiros. Há várias abordagens para realizar a conversão, no entanto, a abordagem adotada neste exemplo é *OneHotEncoding*, uma abordagem comum.
+A tarefa final é converter os dados rotulados para um formato que possa ser analisado pela regressão logística. A entrada para um algoritmo de regressão logística precisa ser um conjunto de *pares de vetor de recurso de rótulo*, em que o *vetor de recurso* é um vetor de números que representa o ponto de entrada. Portanto, é necessário converter as colunas categóricas em números. As colunas `trafficTimeBins` e `weekdayString` precisam de conversão em representações de inteiros. Há várias abordagens para realizar a conversão, no entanto, a abordagem adotada neste exemplo é *OneHotEncoding*, uma abordagem comum.
 
 ```python
 # Since the sample uses an algorithm that only works with numeric features, convert them so they can be consumed
@@ -206,7 +206,7 @@ en2 = OneHotEncoder(dropLast=False, inputCol="weekdayIndex", outputCol="weekdayV
 encoded_final_df = Pipeline(stages=[sI1, en1, sI2, en2]).fit(taxi_featurised_df).transform(taxi_featurised_df)
 ```
 
-Essa ação resulta em um novo dataframe com todas as colunas no formato correto para treinar um modelo.
+Essa ação resulta em um novo dataframe com todas as colunas no formato certo para treinar um modelo.
 
 ## <a name="train-a-logistic-regression-model"></a>Treinar um modelo de regressão logística
 
@@ -225,7 +225,7 @@ train_data_df, test_data_df = encoded_final_df.randomSplit([trainingFraction, te
 Agora que há dois DataFrames, a próxima tarefa é criar a fórmula do modelo e executá-la no DataFrames de treinamento e depois validar em relação ao DataFrames de teste. Você deve fazer experiências com versões diferentes da fórmula do modelo para ver o impacto de diferentes combinações.
 
 > [!Note]
-> Para salvar o modelo, você precisará da função do Azure de colaborador de dados de blob de armazenamento. Em sua conta de armazenamento, navegue até controle de acesso (IAM) e selecione **Adicionar atribuição de função**. Atribua a função de colaborador de dados do armazenamento de BLOBs do Azure ao servidor do banco de dados SQL Somente membros com o privilégio Proprietário podem executar essa etapa. Para obter várias funções internas do Azure, confira este [guia](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+> Para salvar o modelo, você precisará da função do Azure de Colaborador de Dados do Armazenamento de Blobs. Na conta de armazenamento, navegue até o Controle de Acesso (IAM) e selecione **Adicionar atribuição de função**. Atribua a função do Azure de Colaborador de Dados do Armazenamento de Blobs ao servidor do Banco de Dados SQL. Somente membros com o privilégio Proprietário podem executar essa etapa. Para obter várias funções internas do Azure, confira este [guia](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ```python
 ## Create a new LR object for the model

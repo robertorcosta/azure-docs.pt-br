@@ -1,29 +1,29 @@
 ---
-title: Proteção adicional contra ameaças na central de segurança do Azure
-description: Saiba mais sobre a proteção contra ameaças disponível na central de segurança do Azure além do Azure defender
+title: Proteção adicional contra ameaças na Central de Segurança do Azure
+description: Saiba mais sobre a proteção contra ameaças disponível na Central de Segurança do Azure além do Azure Defender
 services: security-center
 documentationcenter: na
 author: memildin
 manager: rkarlin
 ms.assetid: 33c45447-3181-4b75-aa8e-c517e76cd50d
 ms.service: security-center
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 09/15/2020
 ms.author: memildin
-ms.openlocfilehash: 0f4a849af2be9f02187dc3cda526c9c4727cab1b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
-ms.translationtype: MT
+ms.openlocfilehash: 377c68cd2f0b0c132fc690cb03d7c3c5694bb52e
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90933114"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91438899"
 ---
-# <a name="additional-threat-protections-in-azure-security-center"></a>Proteções de ameaças adicionais na central de segurança do Azure
-Além das [proteções internas do Azure defender](azure-defender.md), a central de segurança do Azure também oferece os seguintes recursos de proteção contra ameaças.
+# <a name="additional-threat-protections-in-azure-security-center"></a>Proteções contra ameaças adicionais na Central de Segurança do Azure
+Assim como as [proteções internas do Azure Defender](azure-defender.md), a Central de Segurança do Azure também oferece as funcionalidades de proteção contra ameaças a seguir.
 
 > [!TIP]
-> Para habilitar os recursos de proteção contra ameaças da central de segurança, você deve habilitar o Azure defender na assinatura que contém as cargas de trabalho aplicáveis.
+> Para habilitar as funcionalidades de proteção contra ameaças da Central de Segurança, você precisará habilitar o Azure Defender na assinatura que contém as cargas de trabalho aplicáveis.
 >
-> Você pode habilitar a proteção contra ameaças para o **banco de dados do Azure para MariaDB/MySQL/PostgreSQL** somente no nível de recurso.
+> Habilite a proteção contra ameaças do **Banco de Dados do Azure para MariaDB/MySQL/PostgreSQL** apenas no nível do recurso.
 
 
 ## <a name="threat-protection-for-azure-network-layer"></a>Proteção contra ameaças para a camada de rede do Azure <a name="network-layer"></a>
@@ -37,7 +37,7 @@ Algumas configurações de rede podem impedir que a Central de Segurança gere a
 Para obter uma lista dos alertas da camada de rede do Azure, confira a [Tabela de referência de alertas](alerts-reference.md#alerts-azurenetlayer).
 
 
-## <a name="threat-protection-for-azure-resource-manager-preview"></a>Proteção contra ameaças para Azure Resource Manager (versão prévia)<a name ="management-layer"></a>
+## <a name="threat-protection-for-azure-resource-manager-preview"></a>Proteção contra ameaças do Azure Resource Manager (versão prévia)<a name ="management-layer"></a>
 A camada de proteção da Central de Segurança baseada no Azure Resource Manager está atualmente em versão prévia.
 
 A Central de Segurança oferece uma camada adicional de proteção usando eventos do Azure Resource Manager, que é considerado o plano de controle do Azure. Ao analisar os registros de Azure Resource Manager, a Central de Segurança detecta operações comuns ou potencialmente prejudiciais no ambiente de assinatura do Azure.
@@ -51,18 +51,18 @@ Para obter uma lista dos alertas do Azure Resource Manager (versão prévia), co
 > 1. No menu da Central de Segurança, selecione **Preço e configurações**.
 > 1. Selecione a assinatura que deseja alterar.
 > 1. Selecione **Detecção de ameaças**.
-> 1. Desmarque **permitir que o Microsoft Cloud app Security acesse meus dados**e selecione **salvar**.
+> 1. Desmarque a opção **Permitir que o Microsoft Cloud App Security acesse meus dados** e selecione **Salvar**.
 
 
 >[!NOTE]
 >A Central de Segurança armazena dados de clientes relacionados à segurança na mesma área geográfica de seu recurso. Se a Microsoft ainda não tiver implantado a Central de Segurança na área geográfica do recurso, ela armazenará os dados no Estados Unidos. Quando o Cloud App Security está habilitado, essas informações são armazenadas de acordo com as regras de localização geográfica do Cloud App Security. Para saber mais, confira [Armazenamento de dados para serviços não regionais](https://azuredatacentermap.azurewebsites.net/).
 
-1. Defina o espaço de trabalho no qual você está instalando o agente. Verifique se que o workspace está na mesma assinatura usada na Central de Segurança e se você tem permissões de leitura/gravação no workspace.
+1. Defina o workspace no qual você está instalando o agente. Verifique se que o workspace está na mesma assinatura usada na Central de Segurança e se você tem permissões de leitura/gravação no workspace.
 
-1. Habilite o **Azure defender**e selecione **salvar**.
+1. Habilite **Azure Defender** e selecione **Salvar**.
 
 
-## <a name="threat-protection-for-azure-cosmos-db-preview"></a>Proteção contra ameaças para Azure Cosmos DB (versão prévia)<a name="cosmos-db"></a>
+## <a name="threat-protection-for-azure-cosmos-db-preview"></a>Proteção contra ameaças do Azure Cosmos DB (versão prévia)<a name="cosmos-db"></a>
 
 Os alertas do Azure Cosmos DB são gerados por tentativas incomuns e potencialmente prejudiciais de acessar ou explorar contas do Azure Cosmos DB.
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 40654926b2998b3ba1c4ce1a5607a768f2c32340
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: c78a65c3cc2d913ba0b836947d2184b3a061a648
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90987275"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714643"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Como criar conta autônoma de automação do Azure
 
@@ -22,7 +22,7 @@ Quando criar uma conta de Automação no portal do Azure, a conta **Executar com
 
 * Cria uma entidade de serviço no Azure AD (Azure Active Directory).
 * Cria um certificado.
-* Atribui o RBAC (Controle de Acesso Baseado em Função) de Colaborador, que gerencia os recursos do Azure Resource Manager por meio de runbooks.
+* Atribui a função de colaborador, que gerencia Azure Resource Manager recursos usando runbooks.
 
 Com essa conta criada, você pode começar rapidamente a criar e implantar runbooks para dar suporte às suas necessidades de automação.
 
@@ -74,7 +74,7 @@ Para criar uma conta da Automação do Azure no portal do Azure, execute as segu
    > [!NOTE]
    > Se optar por não criar a conta Executar como selecionando **Não** em **Criar conta Executar como do Azure**, será exibida uma mensagem no painel Adicionar Conta de Automação. Embora a conta seja criada no portal do Azure, ela não tem uma identidade de autenticação correspondente em sua assinatura do modelo de implantação clássico ou no serviço de diretório da assinatura do Azure Resource Manager. Portanto, a conta de Automação não tem acesso aos recursos em sua assinatura. Isso impede que runbooks que referenciam essa conta possam se autenticar e executar tarefas nos recursos nesses modelos de implantação.
    >
-   > :::image type="content" source="media/automation-create-standalone-account/create-account-decline-create-runas-msg.png" alt-text="Captura de tela do prompt com a mensagem ' você optou por não criar uma conta Executar como. '":::
+   > :::image type="content" source="media/automation-create-standalone-account/create-account-decline-create-runas-msg.png" alt-text="Captura de tela do prompt ' você não tem permissões para criar uma conta Executar como no Azure Active Directory. '":::
    >
    > Enquanto a entidade de serviço não for criada, a função Colaborador não será atribuída.
    >

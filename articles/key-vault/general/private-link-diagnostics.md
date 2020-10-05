@@ -7,12 +7,12 @@ ms.date: 09/30/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: ea818cd14e6052da2bbcf2a4473e95c68cd5e4a9
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.openlocfilehash: faf7a6e0331e3891c2ece7461685b14e751c0894
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91671295"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713049"
 ---
 # <a name="diagnose-private-links-configuration-issues-on-azure-key-vault"></a>Diagnosticar problemas de configuração de links privados em Azure Key Vault
 
@@ -24,7 +24,7 @@ Se você for novo neste recurso, consulte [integrar o Key Vault com o link priva
 
 ### <a name="symptoms-covered-by-this-article"></a>Sintomas abordados neste artigo
 
-- As consultas DNS ainda retornam um endereço IP público para o cofre de chaves, em vez de um endereço IP privado que você esperaria usando o recurso de link privado.
+- As consultas DNS ainda retornam um endereço IP público para o cofre de chaves, em vez de um endereço IP privado que você esperaria usando o recurso de links particulares.
 - Todas as solicitações feitas por um determinado cliente que está usando o link privado estão falhando com tempos limite ou erros de rede, e o problema não é intermitente.
 - O cofre de chaves tem um endereço IP privado, mas as solicitações ainda recebem `403` resposta com o `ForbiddenByFirewall` código de erro interno.
 - Você está usando links privados, mas o cofre de chaves ainda aceita solicitações da Internet pública.
@@ -34,7 +34,7 @@ Se você for novo neste recurso, consulte [integrar o Key Vault com o link priva
 ### <a name="symptoms-not-covered-by-this-article"></a>Sintomas não cobertos por este artigo
 
 - Há um problema de conectividade intermitente. Em um determinado cliente, você vê algumas solicitações funcionando e algumas não funcionam. *Problemas intermitentes normalmente não são causados por um problema na configuração de links particulares; Eles são um sinal de sobrecarga de rede ou de cliente.*
-- Você está usando o e o produto do Azure que dão suporte a BYOK (Bring Your Own Key) ou CMK (chaves gerenciadas pelo cliente) e que o produto não pode acessar o cofre de chaves. *Examine a documentação do outro produto. Verifique se ele declara explicitamente o suporte para cofres de chaves com o firewall habilitado. Contate o suporte do produto para esse produto específico, se necessário.*
+- Você está usando um produto do Azure que dá suporte a BYOK (Bring Your Own Key) ou CMK (chaves gerenciadas pelo cliente) e que o produto não pode acessar o cofre de chaves. *Examine a documentação do outro produto. Verifique se ele declara explicitamente o suporte para cofres de chaves com o firewall habilitado. Contate o suporte do produto para esse produto específico, se necessário.*
 
 ### <a name="how-to-read-this-article"></a>Como ler este artigo
 
@@ -46,7 +46,7 @@ Vamos começar!
 
 ### <a name="confirm-that-your-client-runs-at-the-virtual-network"></a>Confirmar que o cliente é executado na rede virtual
 
-Este guia de solução de problemas é aplicável a conexões com o Key Vault que se originam do código do aplicativo. Os exemplos são aplicativos e scripts que são executados em máquinas virtuais, clusters de Service Fabric do Azure, serviço Azure App, serviço kubernetes do Azure (AKS) e outros semelhantes.
+Este guia destina-se a ajudá-lo a corrigir conexões com o Key Vault provenientes do código do aplicativo. Os exemplos são aplicativos e scripts que são executados em máquinas virtuais do Azure, clusters de Service Fabric do Azure, serviço Azure App, serviço kubernetes do Azure (AKS) e outros semelhantes.
 
 Por definição de links privados, o aplicativo ou o script deve estar em execução no computador, cluster ou ambiente conectado à rede virtual em que o [recurso de ponto de extremidade privado](../../private-link/private-endpoint-overview.md) foi implantado. Se o aplicativo estiver em execução em uma rede conectada pela Internet arbitrária, este guia não será aplicável e provavelmente os links privados não poderão ser usados.
 
@@ -158,11 +158,11 @@ Linux:
 
 Você pode ver que o nome é resolvido para um endereço IP público e não há nenhum `privatelink` alias. O alias é explicado mais tarde, não se preocupe agora.
 
-O resultado acima é esperado, independentemente da máquina estar conectada à rede virtual ou ser um computador arbitrário com uma conexão com a Internet. Isso acontece porque o cofre de chaves não tem nenhum link privado no estado aprovado e, portanto, não há necessidade de que o cofre de chaves dê suporte a conexões de link privado.
+O resultado acima é esperado, independentemente da máquina estar conectada à rede virtual ou ser um computador arbitrário com uma conexão com a Internet. Isso acontece porque o cofre de chaves não tem nenhuma conexão de ponto de extremidade privada no estado aprovado e, portanto, não há necessidade de que o cofre de chaves ofereça suporte a links privados.
 
 ### <a name="key-vault-with-private-link-resolving-from-arbitrary-internet-machine"></a>Key Vault com o link privado resolvendo do computador da Internet arbitrário
 
-Quando o cofre de chaves tem uma ou mais conexões de ponto de extremidade privado no estado aprovado e você resolve o nome do host de um computador arbitrário conectado à Internet (um computador que **não está** conectado à rede virtual onde reside o ponto de extremidade privado), você deve encontrar isso:
+Quando o cofre de chaves tem uma ou mais conexões de ponto de extremidade privado no estado aprovado e você resolve o nome do host de um computador arbitrário conectado à Internet (um computador que *não está* conectado à rede virtual onde reside o ponto de extremidade privado), você deve encontrar isso:
 
 Windows:
 
@@ -229,7 +229,7 @@ Sua assinatura do Azure deve ter um recurso de [zona DNS privado](../../dns/priv
 
 Você pode verificar a presença desse recurso acessando a página de assinatura no portal e selecionando "recursos" no menu à esquerda. O nome do recurso deve ser `privatelink.vaultcore.azure.net` , e o tipo de recurso deve ser **DNS privado zona**.
 
-Normalmente, esse recurso é criado automaticamente quando você cria um ponto de extremidade privado usando um método típico. Mas há casos em que esse recurso não é criado automaticamente e você precisará fazê-lo manualmente. Esse recurso pode ter sido excluído acidentalmente também.
+Normalmente, esse recurso é criado automaticamente quando você cria um ponto de extremidade privado usando um método típico. Mas há casos em que esse recurso não é criado automaticamente e você precisa fazê-lo manualmente. Esse recurso pode ter sido excluído acidentalmente também.
 
 Se você não tiver esse recurso, crie um novo DNS privado recurso de zona em sua assinatura. Lembre-se de que o nome deve ser exatamente `privatelink.vaultcore.azure.net` , sem espaços ou pontos adicionais. Se você especificar o nome errado, a resolução de nome explicada neste artigo não funcionará. Para obter mais informações sobre como criar esse recurso, consulte [criar uma zona DNS privada do Azure usando o portal do Azure](../../dns/private-dns-getstarted-portal.md). Se você seguir essa página, poderá ignorar a criação de rede virtual porque, neste ponto, você já deve ter uma. Você também pode ignorar procedimentos de validação com máquinas virtuais.
 
@@ -253,7 +253,7 @@ Para que a resolução de nome do cofre de chaves funcione, deve haver um `A` re
 Além disso, o valor do `A` registro (o endereço IP) deve ser [o endereço IP privado do cofre de chaves](#find-the-key-vault-private-ip-address-in-the-virtual-network). Se você encontrar o `A` registro, mas ele contiver o endereço IP errado, você deverá remover o endereço IP errado e adicionar um novo. É recomendável que você remova todo o `A` registro e adicione um novo.
 
 >[!NOTE]
-> Sempre que você remover ou modificar um `A` registro, o computador ainda poderá ser resolvido para o endereço IP antigo, pois o valor TTL (vida útil) talvez ainda não tenha expirado. É recomendável que você sempre especifique um valor de TTL que não seja menor que 60 segundos (um minuto) e não maior que 600 segundos (10 minutos). Se você especificar um valor muito grande, os clientes terão problemas de recuperação de interrupções.
+> Sempre que você remover ou modificar um `A` registro, o computador ainda poderá ser resolvido para o endereço IP antigo, pois o valor TTL (vida útil) talvez ainda não tenha expirado. É recomendável que você sempre especifique um valor de TTL que não seja menor que 60 segundos (um minuto) e não maior que 600 segundos (10 minutos). Se você especificar um valor muito grande, os clientes poderão levar muito tempo para se recuperar de interrupções.
 
 ### <a name="dns-resolution-for-more-than-one-virtual-network"></a>Resolução DNS para mais de uma rede virtual
 
@@ -261,15 +261,13 @@ Se houver várias redes virtuais e cada uma tiver seu próprio recurso de ponto 
 
 Em cenários mais avançados, há várias redes virtuais com emparelhamento habilitado. Nesse caso, apenas uma rede virtual precisa do recurso de ponto de extremidade privado, embora ambos precisem ser vinculados ao recurso de zona de DNS privado. Esse cenário não é coberto diretamente por este documento.
 
-### <a name="fact-the-user-controls-dns-resolution"></a>Fato: o usuário controla a resolução DNS
+### <a name="fact-you-have-control-over-dns-resolution"></a>Fato: você tem controle sobre a resolução DNS
 
-Se você for uma Scholar de rede ou curiosidade, provavelmente percebeu como a resolução de DNS funciona. Conforme explicado na [seção anterior](#key-vault-with-private-link-resolving-from-arbitrary-internet-machine), um cofre de chaves com links privados terá o alias `{vaultname}.privatelink.vaultcore.azure.net` em seu registro *público* . O servidor DNS usado pela rede virtual verificará cada alias em busca de um registro de nome *privado* e, se um for encontrado, ele será interrompido após os aliases do registro público.
+Conforme explicado na [seção anterior](#key-vault-with-private-link-resolving-from-arbitrary-internet-machine), um cofre de chaves com links privados tem o alias `{vaultname}.privatelink.vaultcore.azure.net` em seu registro *público* . O servidor DNS usado pela rede virtual usa o registro público, mas verifica cada alias para um registro *privado* e, se um for encontrado, ele interromperá os seguintes aliases definidos no registro público.
 
-Por exemplo, considere que a rede virtual está vinculada a uma zona de DNS privado com nome `privatelink.vaultcore.azure.net` e o registro DNS público para o cofre de chaves tem o alias `fabrikam.privatelink.vaultcore.azure.net` . Observe que o sufixo corresponde exatamente ao nome da zona DNS privado. Isso significa que a resolução procurará primeiro um `A` registro com `fabrikam` o nome na zona de DNS privado. Se o `A` registro for encontrado, seu endereço IP será retornado na consulta DNS. E esse endereço IP é simplesmente o endereço IP privado do cofre de chaves.
+Essa lógica significa que, se a rede virtual estiver vinculada a uma zona de DNS privado com nome `privatelink.vaultcore.azure.net` e o registro de DNS público para o cofre de chaves tiver o alias `fabrikam.privatelink.vaultcore.azure.net` (Observe que o sufixo do nome do host do cofre de chaves corresponde exatamente ao nome da zona de DNS privado), a consulta DNS procurará um `A` registro com o nome `fabrikam` *na zona*de DNS privado. Se o `A` registro for encontrado, seu endereço IP será retornado na consulta DNS e nenhuma outra pesquisa será executada no registro de DNS público.
 
-Como você pode ver, a resolução de nome inteira está sob controle de usuário.
-
-Há dois motivos para esse design:
+Como você pode ver, a resolução de nomes está sob seu controle. Os motivos para esse design são:
 
 - Você pode ter um cenário complexo que envolve servidores DNS personalizados e integração com redes locais. Nesse caso, você precisa controlar como os nomes são convertidos em endereços IP.
 - Talvez seja necessário acessar um cofre de chaves sem links privados. Nesse caso, resolver o nome do host da rede virtual deve retornar o endereço IP público e isso ocorre porque os cofres de chaves sem links privados não têm o `privatelink` alias no registro de nome.

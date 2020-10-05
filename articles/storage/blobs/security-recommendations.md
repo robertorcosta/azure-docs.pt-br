@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: 5b1e5c73f3d43ca2627729149256f3e9362d58c2
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: bd50a007b73438a5776cf6ecdb1074dc9980c537
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90984255"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713703"
 ---
 # <a name="security-recommendations-for-blob-storage"></a>Recomendações de segurança para o armazenamento de blobs
 
@@ -29,7 +29,7 @@ A central de segurança do Azure analisa periodicamente o estado de segurança d
 
 | Recomendação | Comentários | Central de Segurança |
 |-|----|--|
-| Usar o modelo de implantação Azure Resource Manager | Crie novas contas de armazenamento usando o modelo de implantação de Azure Resource Manager para aprimoramentos de segurança importantes, incluindo controle de acesso superior (RBAC) e auditoria, implantação e governança baseadas no Resource Manager, acesso a identidades gerenciadas, acesso a Azure Key Vault para segredos e autenticação baseada no Azure AD e autorização para acesso a dados e recursos do armazenamento do Azure. Se possível, migre as contas de armazenamento existentes que usam o modelo de implantação clássico para usar Azure Resource Manager. Para obter mais informações sobre Azure Resource Manager, consulte [Azure Resource Manager visão geral](/azure/azure-resource-manager/resource-group-overview). | - |
+| Usar o modelo de implantação Azure Resource Manager | Crie novas contas de armazenamento usando o modelo de implantação Azure Resource Manager para aprimoramentos de segurança importantes, incluindo controle de acesso baseado em função do Azure (RBAC do Azure) e auditoria, implantação e governança baseadas no Resource Manager, acesso a identidades gerenciadas, acesso a Azure Key Vault para segredos e autenticação e autorização baseadas no Azure AD para acesso aos dados e recursos do armazenamento do Azure. Se possível, migre as contas de armazenamento existentes que usam o modelo de implantação clássico para usar Azure Resource Manager. Para obter mais informações sobre Azure Resource Manager, consulte [Azure Resource Manager visão geral](/azure/azure-resource-manager/resource-group-overview). | - |
 | Habilitar o Azure defender para todas as suas contas de armazenamento | O Azure defender para o armazenamento do Azure fornece uma camada adicional de inteligência de segurança que detecta tentativas incomuns e potencialmente prejudiciais de acessar ou explorar contas de armazenamento. Os alertas de segurança são disparados na central de segurança do Azure quando ocorrem anomalias na atividade e também são enviados por email para administradores de assinatura, com detalhes de atividades suspeitas e recomendações sobre como investigar e corrigir ameaças. Para obter mais informações, consulte [Configurar o Azure defender para o armazenamento do Azure](../common/azure-defender-storage-configure.md). | [Sim](../../security-center/security-center-sql-service-recommendations.md) |
 | Ativar a exclusão reversível para dados de BLOB | A exclusão reversível permite recuperar dados de blob após sua exclusão. Para obter mais informações sobre exclusão reversível, consulte [exclusão reversível para BLOBs de armazenamento do Azure](storage-blob-soft-delete.md). | - |
 | Armazene dados críticos para os negócios em BLOBs imutáveis | Configure as políticas de retenção baseadas em tempo e as isenções legais para armazenar dados de BLOB em um estado de WORM (gravar uma vez, ler muitos). Os BLOBs armazenados immutably podem ser lidos, mas não podem ser modificados ou excluídos durante a duração do intervalo de retenção. Para obter mais informações, consulte [armazenar dados de blob críticos para os negócios com armazenamento imutável](storage-blob-immutable-storage.md). | - |
@@ -40,7 +40,7 @@ A central de segurança do Azure analisa periodicamente o estado de segurança d
 | Recomendação | Comentários | Central de Segurança |
 |-|----|--|
 | Usar Azure Active Directory (AD do Azure) para autorizar o acesso a dados de BLOB | O Azure AD fornece segurança superior e facilidade de uso sobre chave compartilhada para autorizar solicitações ao armazenamento de BLOBs. Para obter mais informações, consulte [autorizar o acesso a BLOBs e filas do Azure usando o Azure Active Directory](../common/storage-auth-aad.md). | - |
-| Tenha em mente a entidade de privilégio mínimo ao atribuir permissões a uma entidade de segurança do Azure AD via RBAC | Ao atribuir uma função a um usuário, grupo ou aplicativo, conceda a essa entidade de segurança somente as permissões necessárias para que elas executem suas tarefas. Limitar o acesso a recursos ajuda a impedir o uso indevido intencional e mal-intencionado dos seus dados. | - |
+| Tenha em mente a entidade de privilégio mínimo ao atribuir permissões a uma entidade de segurança do Azure AD por meio do RBAC do Azure | Ao atribuir uma função a um usuário, grupo ou aplicativo, conceda a essa entidade de segurança somente as permissões necessárias para que elas executem suas tarefas. Limitar o acesso a recursos ajuda a impedir o uso indevido intencional e mal-intencionado dos seus dados. | - |
 | Usar uma SAS de delegação de usuário para conceder acesso limitado aos dados de blob aos clientes | Uma SAS de delegação de usuário é protegida com as credenciais do Azure Active Directory (AD do Azure) e também pelas permissões especificadas para a SAS. Uma SAS de delegação de usuário é análoga a uma SAS de serviço em termos de seu escopo e função, mas oferece benefícios de segurança em relação à SAS do serviço. Para obter mais informações, consulte [conceder acesso limitado aos recursos de armazenamento do Azure usando assinaturas de acesso compartilhado (SAS)](../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). | - |
 | Proteger as chaves de acesso da sua conta com o Azure Key Vault | A Microsoft recomenda usar o Azure AD para autorizar solicitações ao armazenamento do Azure. No entanto, se você precisar usar a autorização de chave compartilhada, proteja as chaves de sua conta com Azure Key Vault. Você pode recuperar as chaves do cofre de chaves em tempo de execução, em vez de salvá-las com seu aplicativo. Para obter mais informações sobre Azure Key Vault, consulte [Azure Key Vault visão geral](../../key-vault/general/overview.md). | - |
 | Regenerar as chaves de conta periodicamente | Girar as chaves de conta periodicamente reduz o risco de expor seus dados para atores mal-intencionados. | - |

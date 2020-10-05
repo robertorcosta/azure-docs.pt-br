@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 09/04/2020
 ms.author: jushiman
-ms.openlocfilehash: 7a716ed9bca6d34ad4dbcd2566837a839f71153b
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 377677c9e5e81487059241db68baff639a3de033
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91450318"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715035"
 ---
 # <a name="create-a-custom-preference-in-azure-automanage-for-vms"></a>Criar uma preferência personalizada no autogerenciamento do Azure para VMs
 
@@ -34,7 +34,7 @@ Caso não tenha uma assinatura do Azure, [crie uma conta](https://azure.microsof
 > As contas de avaliação gratuita não têm acesso às máquinas virtuais usadas neste tutorial. Atualize para uma assinatura de Pagamento Conforme o Uso.
 
 > [!IMPORTANT]
-> A permissão RBAC a seguir é necessária para habilitar autogerenciar: função de **proprietário** ou **colaborador** junto com as funções de administrador de **acesso do usuário** .
+> A permissão do RBAC do Azure a seguir é necessária para habilitar o autogerenci: função de **proprietário** ou **colaborador** junto com as funções de **administrador de acesso do usuário** .
 
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure

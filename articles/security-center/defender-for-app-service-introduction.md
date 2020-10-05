@@ -1,24 +1,24 @@
 ---
-title: Azure defender para serviço de aplicativo-os benefícios e recursos
-description: Saiba mais sobre os benefícios e recursos do Azure defender para o serviço de aplicativo.
+title: Azure Defender para Serviço de Aplicativo – Benefícios e recursos
+description: Saiba mais sobre os benefícios e os recursos do Azure Defender para Serviço de Aplicativo.
 author: memildin
 ms.author: memildin
 ms.date: 9/22/2020
-ms.topic: conceptual
+ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: d15e881ca1246d463d8054fe5bd094efaff0cdd5
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
-ms.translationtype: MT
+ms.openlocfilehash: c53f7e712668f32766feaf76d6a08582bda9af22
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90977182"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449101"
 ---
-# <a name="introduction-to-azure-defender-for-app-service"></a>Introdução ao Azure defender para o serviço de aplicativo
+# <a name="introduction-to-azure-defender-for-app-service"></a>Introdução ao Azure Defender para Serviço de Aplicativo
 
-Azure App serviço é uma plataforma totalmente gerenciada para criar e hospedar seus aplicativos Web e APIs sem se preocupar em ter de gerenciar a infraestrutura. Ele fornece gerenciamento, monitoramento e informações operacionais para atender aos requisitos de desempenho, segurança e conformidade de nível empresarial. Para obter mais informações, consulte [Azure app Service](https://azure.microsoft.com/services/app-service/).
+O Serviço de Aplicativo do Azure é uma plataforma totalmente gerenciada para criar e hospedar aplicativos Web e APIs sem se preocupar em ter de gerenciar a infraestrutura. Ele fornece gerenciamento, monitoramento e informações operacionais para atender aos requisitos de desempenho, segurança e conformidade em nível empresarial. Para obter mais informações, confira [Serviço de Aplicativo do Azure](https://azure.microsoft.com/services/app-service/).
 
-O **Azure defender para o serviço de aplicativo** usa a escala da nuvem para identificar ataques direcionados a aplicativos em execução no serviço de aplicativo. Os invasores investigam aplicativos Web para encontrar e explorar pontos fracos. Antes de serem roteadas para ambientes específicos, as solicitações para aplicativos em execução no Azure passam por vários gateways, onde são inspecionadas e registradas. Esses dados são usados para identificar explorações e invasores e para aprender novos padrões que serão usados posteriormente.
+O **Azure Defender para Serviço de Aplicativo** usa a escala da nuvem para identificar os ataques direcionados a aplicativos em execução no Serviço de Aplicativo. Os invasores investigam aplicativos Web para encontrar e explorar pontos fracos. Antes de serem roteadas para ambientes específicos, as solicitações para aplicativos em execução no Azure passam por vários gateways, onde são inspecionadas e registradas. Esses dados são usados para identificar explorações e invasores e para aprender novos padrões que serão usados posteriormente.
 
 Usando a visibilidade que o Azure tem como um provedor de nuvem, a Central de Segurança analisa os logs internos do Serviço de Aplicativo para identificar a metodologia de ataque em vários alvos. Por exemplo, a metodologia inclui verificação generalizada e ataques distribuídos. Esse tipo de ataque normalmente vem de um pequeno subconjunto de IPs e mostra padrões de rastreamento para pontos de extremidade semelhantes em vários hosts. Os ataques estão procurando uma página ou um plug-in vulnerável e não podem ser identificados no ponto de vista de um único host.
 
@@ -28,39 +28,39 @@ Usando a visibilidade que o Azure tem como um provedor de nuvem, a Central de Se
 |Aspecto|Detalhes|
 |----|:----|
 |Estado da versão:|Versão Prévia|
-|Refere|O [Azure defender para serviço de aplicativo](azure-defender.md) é cobrado conforme mostrado na [página de preços](security-center-pricing.md)|
-|Planos do serviço de aplicativo com suporte:|![Sim ](./media/icons/yes-icon.png) básico, Standard, Premium, isolado ou Linux<br>![Sem ](./media/icons/no-icon.png) uso gratuito, compartilhado ou de consumo<br>[Saiba mais sobre os planos do serviço de aplicativo](https://azure.microsoft.com/pricing/details/app-service/plans/)|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![No](./media/icons/no-icon.png) National/soberanas (US Gov, China gov, outros gov)|
+|Preço:|O [Azure Defender para Serviço de Aplicativo](azure-defender.md) é cobrado conforme mostrado na [página de preços](security-center-pricing.md)|
+|Planos do Serviço de Aplicativo compatíveis:|![Sim](./media/icons/yes-icon.png) Básico, Padrão, Premium, Isolado ou Linux<br>![Não](./media/icons/no-icon.png) Gratuito, Compartilhado ou Consumo<br>[Saiba mais sobre os Planos do Serviço de Aplicativo](https://azure.microsoft.com/pricing/details/app-service/plans/)|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) Nacionais/soberanas (US Gov, China Gov, outros Gov)|
 |||
 
-## <a name="what-does-azure-defender-for-app-service-protect"></a>O que o Azure defender para o serviço de aplicativo protege?
+## <a name="what-does-azure-defender-for-app-service-protect"></a>O que o Azure Defender para Serviço de Aplicativo protege?
 
-Com o plano do serviço de aplicativo habilitado, a central de segurança avalia os recursos cobertos pelo seu plano do serviço de aplicativo e gera recomendações de segurança com base em suas descobertas. A central de segurança protege a instância de VM na qual seu serviço de aplicativo está em execução e a interface de gerenciamento. Ele também monitora solicitações e respostas enviadas para e de seus aplicativos em execução no Serviço de Aplicativo.
+Com o Plano do Serviço de Aplicativo habilitado, a Central de Segurança avalia os recursos cobertos pelo Plano do Serviço de Aplicativo e gera recomendações de segurança com base nas descobertas. A Central de Segurança protege a instância da VM na qual o Serviço de Aplicativo está sendo executado e a interface de gerenciamento. Ele também monitora solicitações e respostas enviadas para e de seus aplicativos em execução no Serviço de Aplicativo.
 
 Se você estiver executando um plano do Serviço de Aplicativo baseado no Windows, a Central de Segurança também terá acesso às áreas restritas e VMs subjacentes. Juntamente com os dados de log mencionados acima, a infraestrutura pode fornecer as informações, desde um novo ataque que está ocorrendo no mundo até comprometimentos nas máquinas dos clientes. Portanto, mesmo que a Central de Segurança seja implantada depois que um aplicativo Web for explorado, ela poderá detectar ataques contínuos.
 
 
 ## <a name="protect-your-azure-app-service-web-apps-and-apis"></a>Proteger os seus aplicativos Web e APIs do Serviço de Aplicativo do Azure
-Para proteger seu plano de serviço Azure App com o Azure defender para o serviço de aplicativo:
+Para proteger seu Plano do Serviço de Aplicativo do Azure com o Azure Defender para Serviço de Aplicativo:
 
-- Verifique se você tem um plano do serviço de aplicativo com suporte associado a computadores dedicados. Os planos com suporte estão listados acima em [disponibilidade](#availability).
+- Verifique se você tem um Plano do Serviço de Aplicativo compatível, associado aos computadores dedicados. Os planos compatíveis são listados acima em [Disponibilidade](#availability).
 
-- Habilite o **Azure defender** em sua assinatura (opcionalmente, você pode habilitar apenas o **Azure defender para** o plano do serviço de aplicativo), conforme descrito em [preços da central de segurança do Azure](security-center-pricing.md)
+- Habilitar o **Azure Defender** na sua assinatura (opcionalmente, você pode habilitar apenas o plano **Azure Defender para Serviço de Aplicativo**), conforme descrito nos [Preços da Central de Segurança do Azure](security-center-pricing.md)
 
-A central de segurança é integrada nativamente com o serviço de aplicativo, eliminando a necessidade de implantação e integração-o é transparente.
+A Central de Segurança é integrada de maneira nativa ao Serviço de Aplicativo, eliminando a necessidade de implantação e integração – A integração é transparente.
 
 >[!NOTE]
-> A página preços e configurações lista um número de instâncias para a **quantidade de recursos**. Isso representa o número total de instâncias de computação, em todos os planos do serviço de aplicativo nesta assinatura, em execução no momento em que você abriu a página tipo de preço.
+> A página preços e configurações lista uma série de instâncias para a **Quantidade de Recursos**. Isso representa o número total de instâncias de computação, em todos os Planos do Serviço de Aplicativo desta assinatura, em execução no momento em que você abriu a página de tipo de preço.
 >
-> O Azure App Service oferece uma variedade de planos. Seu plano do serviço de aplicativo define o conjunto de recursos de computação para um aplicativo Web a ser executado. Eles são equivalentes aos farms de servidores na hospedagem Web convencional. Um ou mais aplicativos podem ser configurados para ser executado nos mesmos recursos de computação (ou no mesmo plano de Serviço de Aplicativo).
+> O Serviço de Aplicativo do Azure oferece uma série de planos. O Plano do Serviço de Aplicativo define o conjunto de recursos de computação para um aplicativo Web ser executado. Eles são equivalentes aos farms de servidores na hospedagem Web convencional. Um ou mais aplicativos podem ser configurados para ser executado nos mesmos recursos de computação (ou no mesmo plano de Serviço de Aplicativo).
 >
->Para validar a contagem, vá para "planos do serviço de aplicativo" no portal do Azure, no qual você pode ver o número de instâncias de computação usadas por cada plano. 
+>Para validar a contagem, vá para "Planos do Serviço de Aplicativo", no portal do Azure, no qual você pode ver o número de instâncias de computação usadas em cada plano. 
 
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você aprendeu sobre o Azure defender para o serviço de aplicativo. 
+Neste artigo, você aprendeu sobre o Azure Defender para Serviço de Aplicativo. 
 
 Para obter material relacionado, consulte os seguintes artigos: 
 
