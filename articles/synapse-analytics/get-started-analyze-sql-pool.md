@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Introdução à análise de dados com o pool de SQL'
+title: 'Tutorial: Introdução à análise de dados com pools de SQL dedicados'
 description: Neste tutorial, você usará os dados de exemplo de táxi de NYC para explorar as funcionalidades analíticas do pool de SQL.
 services: synapse-analytics
 author: saveenr
@@ -9,16 +9,16 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: b1060bcc8603cb7f7395a50056424b3d6c0ebe5a
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 3df0959003923a9a4ff2347330fd5a4f22e52245
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90015493"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91300115"
 ---
-# <a name="analyze-data-with-sql-pools"></a>Analisar dados com pools de SQL
+# <a name="analyze-data-with-sql-dedicated-pools"></a>Analisar dados com pools de SQL dedicados
 
-O Azure Synapse Analytics fornece a capacidade de analisar dados com o pool de SQL. Neste tutorial, você usará os dados de exemplo de táxi de NYC para explorar as funcionalidades analíticas do pool de SQL.
+O Azure Synapse Analytics fornece a capacidade de analisar dados com o pool de SQL dedicado. Neste tutorial, você usará os dados de táxis de Nova York para explorar as funcionalidades do pool de SQL dedicado.
 
 ## <a name="load-the-nyc-taxi-data-into-sqldb1"></a>Carregar os Dados de Táxi de Nova York no SQLDB1
 
@@ -71,7 +71,7 @@ O Azure Synapse Analytics fornece a capacidade de analisar dados com o pool de S
     ```
 1. Esse script levará cerca de um minuto para ser executado. Ele carrega 2 milhões linhas de dados de Táxi de Nova York em uma tabela chamada **dbo.Trip**
 
-## <a name="explore-the-nyc-taxi-data-in-the-sql-pool"></a>Explorar os dados de táxi de Nova York no pool de SQL
+## <a name="explore-the-nyc-taxi-data-in-the-dedicated-sql-pool"></a>Explorar os dados de táxis de Nova York no pool de SQL dedicado
 
 1. No Synapse Studio, acesse o hub **Dados**.
 1. Acesse **SQLDB1** > **Tabelas**. Você verá várias tabelas carregadas.
