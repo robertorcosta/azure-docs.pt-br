@@ -7,12 +7,12 @@ ms.service: iot-dps
 ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: wesmc
-ms.openlocfilehash: 2adda858e6d39d41de49fa843d1ba226b300f8e7
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 3a8910cf0e81bd041d74ef95f45220f1c1e0b34c
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743532"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761287"
 ---
 # <a name="tls-support-in-azure-iot-hub-device-provisioning-service-dps"></a>Suporte a TLS no DPS (Serviço de Provisionamento de Dispositivos) no Hub IoT do Azure
 
@@ -73,7 +73,7 @@ O recurso de DPS criado usando essa configuração recusará dispositivos que te
 As instâncias de DPS configuradas para aceitar somente o TLS 1,2 também impedirão o uso dos seguintes conjuntos de codificação:
 
 
-| Pacotes de criptografia TLS 1,2 |
+| Pacotes de codificação TLS 1,2 recomendados |
 | :--- |
 | `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`<br>`TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`<br>`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`<br>`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256` |
 

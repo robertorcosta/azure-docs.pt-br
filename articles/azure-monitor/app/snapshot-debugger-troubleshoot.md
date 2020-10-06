@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cweining
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 935e1832629827b0286a79ab8ea6d1dfbb143e1c
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: bb2ac221169cea84205d087cbe0aadfd035d22db
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707825"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760505"
 ---
 # <a name="troubleshoot-problems-enabling-application-insights-snapshot-debugger-or-viewing-snapshots"></a><a id="troubleshooting"></a> Solucionar problemas ao habilitar Application Insights Depurador de Instantâneos ou exibir instantâneos
 Se você tiver habilitado Application Insights Depurador de Instantâneos para seu aplicativo, mas não estiver vendo instantâneos para exceções, poderá usar estas instruções para solucionar problemas. Pode haver vários motivos diferentes para não gerar instantâneos. Você pode executar a verificação de integridade de instantâneo para identificar algumas das possíveis causas comuns.
@@ -62,7 +62,7 @@ Se o aplicativo usar uma versão de visualização do .NET Core e Depurador de I
 
 ## <a name="upgrade-to-the-latest-version-of-the-nuget-package"></a>Atualize para a versão mais recente do pacote NuGet
 
-Se Depurador de Instantâneos tiver sido habilitado por meio do [painel de Application insights no portal](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json), seu aplicativo já deverá estar executando o pacote NuGet mais recente. Se Depurador de Instantâneos tiver sido habilitado incluindo o pacote NuGet [Microsoft. ApplicationInsights. SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) , use o Gerenciador de pacotes NuGet do Visual Studio para verificar se você está usando a versão mais recente de Microsoft. ApplicationInsights. SnapshotCollector. Notas de versão podem ser encontradas em https://github.com/Microsoft/ApplicationInsights-Home/issues/167
+Se Depurador de Instantâneos tiver sido habilitado por meio do [painel de Application insights no portal](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json), seu aplicativo já deverá estar executando o pacote NuGet mais recente. Se Depurador de Instantâneos tiver sido habilitado incluindo o pacote NuGet [Microsoft. ApplicationInsights. SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) , use o Gerenciador de pacotes NuGet do Visual Studio para verificar se você está usando a versão mais recente de Microsoft. ApplicationInsights. SnapshotCollector.
 
 ## <a name="check-the-uploader-logs"></a>Verificar os logs de carregador
 

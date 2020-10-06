@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: aa85f1323795098d161e6bfb1b9cf9237b2a5501
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: dbd5724797fdaf44d147d2f29362b1e5092728dd
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330597"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761542"
 ---
 # <a name="immersive-reader-javascript-sdk-reference-v11"></a>Referência do SDK do JavaScript do leitor de imersão (v 1.1)
 
@@ -43,7 +43,7 @@ launchAsync(token: string, subdomain: string, content: Content, options?: Option
 
 #### <a name="launchasync-parameters"></a>Parâmetros de launchAsync
 
-| Nome | Type | Descrição |
+| Nome | Tipo | Descrição |
 | ---- | ---- |------------ |
 | `token` | string | O token de autenticação do Azure AD. Consulte [como criar um recurso de leitura de imersão](./how-to-create-immersive-reader.md) para obter mais detalhes. |
 | `subdomain` | string | O subdomínio personalizado do seu recurso de leitor de imersão no Azure. Consulte [como criar um recurso de leitura de imersão](./how-to-create-immersive-reader.md) para obter mais detalhes. |
@@ -115,7 +115,7 @@ renderButtons(options?: RenderButtonsOptions): void;
 
 #### <a name="renderbuttons-parameters"></a>Parâmetros de renderButtons
 
-| Nome | Type | Descrição |
+| Nome | Tipo | Descrição |
 | ---- | ---- |------------ |
 | `options` | [opções de renderButtons](#renderbuttons-options) | Opções para configurar determinados comportamentos da função renderButtons. Opcional. |
 
@@ -135,7 +135,7 @@ Opções para renderizar os botões de leitura imersiva.
 | ------- | ---- | ----------- |
 | elementos | HTMLDivElement[] | Elementos para renderizar os botões de leitura de imersão no. |
 
-##### `-elements`
+##### `elements`
 ```Parameters
 Type: HTMLDivElement[]
 Required: false
@@ -205,19 +205,19 @@ Contém o conteúdo a ser mostrado no leitor de imersão.
 
 #### <a name="content-parameters"></a>Parâmetros de conteúdo
 
-| Nome | Type | Descrição |
+| Nome | Tipo | Descrição |
 | ---- | ---- |------------ |
 | título | String | Texto do título mostrado na parte superior do leitor de imersão (opcional) |
 | partes | [Parte []](#chunk) | Matriz de partes |
 
-##### `-title`
+##### `title`
 ```Parameters
 Type: String
 Required: false
 Default value: "Immersive Reader" 
 ```
 
-##### `-chunks`
+##### `chunks`
 ```Parameters
 Type: Chunk[]
 Required: true
@@ -240,27 +240,27 @@ Um único bloco de dados, que será passado para o conteúdo do leitor de imers�
 
 #### <a name="chunk-parameters"></a>Parâmetros de bloco
 
-| Nome | Type | Descrição |
+| Nome | Tipo | Descrição |
 | ---- | ---- |------------ |
 | conteúdo | String | A cadeia de caracteres que contém o conteúdo enviado ao leitor de imersão. |
 | lang | String | Idioma do texto, o valor está no formato de marca de idioma IETF BCP 47, por exemplo, en, es-ES. O idioma será detectado automaticamente se não for especificado. Confira os [Idiomas compatíveis](#supported-languages). |
 | Tipo MIME | string | Há suporte para formatos de texto sem formatação, MathML e HTML & Microsoft Word DOCX. Consulte [tipos de MIME com suporte](#supported-mime-types) para obter mais detalhes. |
 
-##### `-content`
+##### `content`
 ```Parameters
 Type: String
 Required: true
 Default value: null 
 ```
 
-##### `-lang`
+##### `lang`
 ```Parameters
 Type: String
 Required: false
 Default value: Automatically detected 
 ```
 
-##### `-mimeType`
+##### `mimeType`
 ```Parameters
 Type: String
 Required: false
@@ -305,7 +305,7 @@ Contém propriedades que configuram determinados comportamentos do leitor de ime
 
 #### <a name="options-parameters"></a>Parâmetros de opções
 
-| Nome | Type | Descrição |
+| Nome | Tipo | Descrição |
 | ---- | ---- |------------ |
 | uiLang | String | Idioma da interface do usuário, o valor está no formato de marca de idioma IETF BCP 47, por exemplo, en, es-ES. O padrão é o idioma do navegador, se não for especificado. |
 | tempo limite | Número | Duração (em milissegundos) antes de [launchAsync](#launchasync) falhar com um erro de tempo limite (o padrão é 15000 MS). Esse tempo limite só se aplica à inicialização inicial da página do leitor, onde o sucesso é observado quando a página do leitor é aberta e o controle giratório é iniciado. O ajuste do tempo limite não deve ser necessário. |
@@ -323,38 +323,38 @@ Contém propriedades que configuram determinados comportamentos do leitor de ime
 | preferencchanged | Função | É executado quando as preferências do usuário são alteradas. Consulte [como armazenar as preferências do usuário](./how-to-store-user-preferences.md) para obter mais informações. |
 | customDomain | String | Reservado para uso interno. Domínio personalizado no qual o webapp do leitor de imersão está hospedado (o padrão é NULL). |
 
-##### `-uiLang`
+##### `uiLang`
 ```Parameters
 Type: String
 Required: false
 Default value: User's browser language 
 ```
 
-##### `-timeout`
+##### `timeout`
 ```Parameters
 Type: Number
 Required: false
 Default value: 15000
 ```
 
-##### `-uiZIndex`
+##### `uiZIndex`
 ```Parameters
 Type: Number
 Required: false
 Default value: 1000
 ```
 
-##### `-onExit`
+##### `onExit`
 ```Parameters
 Type: Function
 Required: false
 Default value: null
 ```
 
-##### `-preferences`
+##### `preferences`
 
 > [!CAUTION]
-> **Importante** Não tente alterar programaticamente os valores da `-preferences` cadeia de caracteres enviada de e para o aplicativo de leitor de imersão, pois isso pode causar um comportamento inesperado, resultando em uma experiência de usuário degradada para seus clientes.
+> **Importante** Não tente alterar programaticamente os valores da `-preferences` cadeia de caracteres enviada de e para o aplicativo de leitor de imersão, pois isso pode causar um comportamento inesperado, resultando em uma experiência de usuário degradada para seus clientes. Os aplicativos host nunca devem atribuir um valor personalizado ou manipular a `-preferences` cadeia de caracteres. Ao usar a `-preferences` opção de cadeia de caracteres, use apenas o valor exato que foi retornado da `-onPreferencesChanged` opção de retorno de chamada.
 
 ```Parameters
 Type: String
@@ -362,14 +362,14 @@ Required: false
 Default value: null
 ```
 
-##### `-onPreferencesChanged`
+##### `onPreferencesChanged`
 ```Parameters
 Type: Function
 Required: false
 Default value: null
 ```
 
-##### `-customDomain`
+##### `customDomain`
 ```Parameters
 Type: String
 Required: false
@@ -390,13 +390,13 @@ type ReadAloudOptions = {
 
 #### <a name="readaloudoptions-parameters"></a>Parâmetros de ReadAloudOptions
 
-| Nome | Type | Descrição |
+| Nome | Tipo | Descrição |
 | ---- | ---- |------------ |
 | voice | String | Voz, "fêmea" ou "masculino". Observe que nem todos os idiomas dão suporte a ambos os gêneros. |
 | velocidade | Número | Velocidade de reprodução, deve estar entre 0,5 e 2,5, inclusive. |
 | autoPlay | Booliano | Iniciar automaticamente leitura em voz alta quando o leitor de imersão for carregado. |
 
-##### `-voice`
+##### `voice`
 ```Parameters
 Type: String
 Required: false
@@ -404,7 +404,7 @@ Default value: "Female" or "Male" (determined by language)
 Values available: "Female", "Male"
 ```
 
-##### `-speed`
+##### `speed`
 ```Parameters
 Type: Number
 Required: false
@@ -429,13 +429,13 @@ type TranslationOptions = {
 
 #### <a name="translationoptions-parameters"></a>Parâmetros de translationoptions
 
-| Nome | Type | Descrição |
+| Nome | Tipo | Descrição |
 | ---- | ---- |------------ |
 | Linguagem | String | Define o idioma de tradução, o valor está no formato de marca de idioma IETF BCP 47, por exemplo: fr-FR, es-MX, zh-Hans-CN. Necessário para habilitar automaticamente a tradução de palavras ou documentos. |
 | autoEnableDocumentTranslation | Booliano | Traduza automaticamente o documento inteiro. |
 | autoEnableWordTranslation | Booliano | Habilitar automaticamente a tradução automática. |
 
-##### `-language`
+##### `language`
 ```Parameters
 Type: String
 Required: true
@@ -457,13 +457,13 @@ type DisplayOptions = {
 
 #### <a name="displayoptions-parameters"></a>Parâmetros de displayoptions
 
-| Nome | Type | Descrição |
+| Nome | Tipo | Descrição |
 | ---- | ---- |------------ |
 | textSize | Número | Define o tamanho do texto escolhido. |
 | increaseSpacing | Booliano | Define se o espaçamento de texto será alternado ou desativado. |
 | fontFamily | String | Define a fonte escolhida ("Calibri", "ComicSans" ou "Sitka"). |
 
-##### `-textSize`
+##### `textSize`
 ```Parameters
 Type: Number
 Required: false
@@ -471,7 +471,7 @@ Default value: 20, 36 or 42 (Determined by screen size)
 Values available: 14, 20, 28, 36, 42, 48, 56, 64, 72, 84, 96
 ```
 
-##### `-fontFamily`
+##### `fontFamily`
 ```Parameters
 Type: String
 Required: false

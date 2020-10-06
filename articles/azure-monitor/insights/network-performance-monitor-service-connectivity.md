@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: b7b6a7202392e083aaaa5cdc8adcf0c81cfb0e0d
-ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
+ms.openlocfilehash: 18c07266cec68aaf6e95fe4085b9d21244fecff4
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91403697"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761032"
 ---
 # <a name="service-connectivity-monitor"></a>Monitor de Conectividade de Serviço
 
@@ -99,7 +99,7 @@ Determine se o desempenho insatisfatório do aplicativo é devido à rede ou dev
 
 Depois de determinar que o problema é devido à rede, selecione a exibição **Topologia** para identificar o salto problemático no mapa de topologia. Um exemplo é mostrado na imagem a seguir. Fora dos 105ms de latência total entre o nó e o ponto de extremidade do aplicativo, 96ms é devido ao salto marcado em vermelho. Depois de identificar o salto problemático, você pode adotar uma ação corretiva. 
 
-![Testes do Monitor de Conectividade de Serviço](media/network-performance-monitor-service-endpoint/service-endpoint-topology.png)
+![Topologia de ponto de extremidade do monitor de conectividade de serviço](media/network-performance-monitor-service-endpoint/service-endpoint-topology.png)
 
 ## <a name="diagnostics"></a>Diagnósticos 
 

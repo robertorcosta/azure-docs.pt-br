@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 00709ca5e842e51edbf5b26c53fe0a18e80bb896
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0382c7c7f7d068ea227397ae7accf4bc410de04a
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91262341"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761440"
 ---
 # <a name="receipt-concepts"></a>Conceitos de recebimento
 
@@ -88,7 +88,7 @@ A [confirmação de análise](https://westcentralus.dev.cognitive.microsoft.com/
 
 A segunda etapa é chamar a operação [obter resultado de recebimento de análise](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/GetAnalyzeReceiptResult) . Essa operação usa como entrada a ID de resultado que foi criada pela operação de confirmação de análise. Ele retorna uma resposta JSON que contém um campo de **status** com os seguintes valores possíveis. Você chama essa operação iterativamente até que ela retorne com o valor **Succeeded** . Use um intervalo de 3 a 5 segundos para evitar exceder a taxa de solicitações por segundo (RPS).
 
-|Campo| Type | Valores possíveis |
+|Campo| Tipo | Valores possíveis |
 |:-----|:----:|:----|
 |status | string | não iniciado: a operação de análise não foi iniciada. |
 | |  | em execução: a operação de análise está em andamento. |
@@ -459,4 +459,4 @@ A API de recebimento também alimenta o [recurso de processamento de recibo AIBu
 ## <a name="see-also"></a>Confira também
 
 * [O que é o Reconhecimento de Formulários?](./overview.md)
-* [Documentos de referência da API REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer/api)
+* [Documentos de referência da API REST](https://docs.microsoft.com/azure/cognitive-services/form-recognizer)

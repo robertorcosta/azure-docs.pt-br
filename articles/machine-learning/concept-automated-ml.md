@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: 83281a9dde0b29a9f8bfc2bd90114227bf9e769f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4908f66dbc699a449b7b94febac8133bacc9f669
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90886389"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760962"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>O que é AutoML (machine learning automatizado)?
 
@@ -39,7 +39,7 @@ A classificação é uma tarefa comum de machine learning. A classificação é 
 
 A principal meta dos modelos de classificação é prever em quais categorias novos dados se encaixarão com base em aprendizados de dados de treinamento. Exemplos de classificação comuns incluem detecção de fraudes, reconhecimento de manuscrito e detecção de objetos. Saiba mais e veja um exemplo em [criar um modelo de classificação com ml automatizado](tutorial-first-experiment-automated-ml.md).
 
-Confira exemplos de classificação e machine learning automatizado nestes notebooks Python: [Detecção de Fraudes](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb), [Previsão de Marketing](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) e [Classificação de Dados do Grupo de Notícias](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb)
+Confira exemplos de classificação e machine learning automatizado nestes notebooks Python: [Detecção de Fraudes](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb), [Previsão de Marketing](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) e [Classificação de Dados do Grupo de Notícias](https://towardsdatascience.com/automated-text-classification-using-machine-learning-3df4f4f9570b)
 
 ### <a name="regression"></a>Regressão
 

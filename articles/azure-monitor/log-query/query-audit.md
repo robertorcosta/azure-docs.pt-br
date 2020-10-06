@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/03/2020
-ms.openlocfilehash: df937ba7f23f2789d929a043c7239ababb24374f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1c0247c5adfe60dc2436c832cf3d561882ae3a5d
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91285053"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760154"
 ---
 # <a name="audit-queries-in-azure-monitor-logs-preview"></a>Auditar consultas em logs de Azure Monitor (versão prévia)
 Logs de auditoria de consulta de log fornecem telemetria sobre as consultas de log executadas no Azure Monitor. Isso inclui informações como, por exemplo, quando uma consulta foi executada, quem a executou, qual ferramenta foi usada, o texto da consulta e as estatísticas de desempenho que descrevem a execução da consulta.
@@ -68,6 +68,9 @@ Um registro de auditoria é criado cada vez que uma consulta é executada. Se vo
 - As estatísticas de desempenho não estão disponíveis para consultas provenientes do proxy de Data Explorer do Azure. Todos os outros dados para essas consultas ainda serão preenchidos.
 - A dica *h* em cadeias de [caracteres que ofuscam literais de cadeias](/azure/data-explorer/kusto/query/scalar-data-types/string#obfuscated-string-literals) não terão efeito sobre os logs de auditoria de consulta. As consultas serão capturadas exatamente como enviadas sem que a cadeia de caracteres seja ofuscada. Você deve garantir que apenas os usuários que têm direitos de conformidade Vejam esses dados possam fazer isso usando os vários modos de RBAC disponíveis nos espaços de trabalho do Log Analytics.
 - Para consultas que incluem dados de vários espaços de trabalho, a consulta só será capturada nesses espaços de trabalho aos quais o usuário tem acesso.
+
+## <a name="costs"></a>Custos  
+Não há nenhum custo para a extensão de Diagnóstico do Azure, mas pode haver encargos pelos dados ingeridos. Verifique os [preços do Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/) para o destino em que você está coletando dados.
 
 ## <a name="next-steps"></a>Próximas etapas
 

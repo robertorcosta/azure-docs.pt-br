@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 1c33cf21be0b4b1ea39a568d6df9fd90507dd454
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8cabb48e3620f1a17d1bb9b87e1646ce2793143b
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90933174"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761695"
 ---
 # <a name="retrieve-the-user-name-and-password-to-connect-to-the-arc-data-controller"></a>Recuperar o nome de usuário e a senha para se conectar ao controlador de dados Arc
 
@@ -61,4 +61,4 @@ Execute o seguinte comando para recuperar a senha:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Experimente outros [cenários](https://github.com/microsoft/Azure-data-services-on-Azure-Arc/tree/master/scenarios)
+Experimente outros [cenários](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory-domain-services/scenarios.md)

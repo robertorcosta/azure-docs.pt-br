@@ -6,14 +6,14 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.date: 07/20/2020
+ms.date: 10/02/2020
 tags: connectors
-ms.openlocfilehash: f3de582ff69dbd57aa4692fd5c3901602569cf9e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b832edca79cbbff39b7d526a21b1fbe95bd7a2ad
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286607"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761117"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitore, crie e gerencie arquivos SFTP usando SSH e os Aplicativos Lógicos do Azure
 
@@ -39,7 +39,7 @@ Você pode usar gatilhos que monitoram eventos em seu servidor SFTP e disponibil
 
 Para obter diferenças entre o conector SFTP-SSH e o conector SFTP, examine a seção [comparar SFTP-SSH versus SFTP](#comparison) mais adiante neste tópico.
 
-## <a name="limits"></a>limites
+## <a name="limits"></a>Limites
 
 * SFTP-as ações SSH que dão suporte ao [agrupamento](../logic-apps/logic-apps-handle-large-messages.md) podem manipular arquivos de até 1 GB, enquanto as ações de SFTP-SSH que não dão suporte a Agrupamento podem lidar com arquivos de até 50 MB. Embora o tamanho de parte padrão seja 15 MB, esse tamanho pode ser alterado dinamicamente, começando de 5 MB e gradualmente aumentando para o máximo de 50 MB, com base em fatores como latência de rede, tempo de resposta do servidor e assim por diante.
 
@@ -54,15 +54,15 @@ Para obter diferenças entre o conector SFTP-SSH e o conector SFTP, examine a se
   |--------|------------------|-----------------------------|
   | **Copiar arquivo** | Não | Não aplicável |
   | **Criar arquivo** | Sim | Sim |
-  | **Criar pasta** | Não aplicável | Não se aplica |
-  | **Excluir arquivo** | Não aplicável | Não se aplica |
-  | **Extrair o arquivo morto para a pasta** | Não aplicável | Não se aplica |
+  | **Criar pasta** | Não aplicável | Não aplicável |
+  | **Excluir arquivo** | Não aplicável | Não aplicável |
+  | **Extrair o arquivo morto para a pasta** | Não aplicável | Não aplicável |
   | **Obter conteúdo do arquivo** | Sim | Sim |
   | **Obter o conteúdo do arquivo usando o caminho** | Sim | Sim |
-  | **Obter metadados do arquivo** | Não aplicável | Não se aplica |
-  | **Obter metadados do arquivo usando o caminho** | Não aplicável | Não se aplica |
-  | **Listar arquivos na pasta** | Não aplicável | Não se aplica |
-  | **Renomear arquivo** | Não aplicável | Não se aplica |
+  | **Obter metadados do arquivo** | Não aplicável | Não aplicável |
+  | **Obter metadados do arquivo usando o caminho** | Não aplicável | Não aplicável |
+  | **Listar arquivos na pasta** | Não aplicável | Não aplicável |
+  | **Renomear arquivo** | Não aplicável | Não aplicável |
   | **Atualizar arquivo** | Não | Não aplicável |
   ||||
 
@@ -252,6 +252,22 @@ Se não for possível evitar ou atrasar a movimentação do arquivo, você poder
 1. Na ação **criar arquivo** , abra a lista **Adicionar novo parâmetro** , selecione a propriedade **obter todos os metadados do arquivo** e defina o valor como **não**.
 
 1. Se precisar desses metadados de arquivo mais tarde, você poderá usar a ação **obter metadados de arquivo** .
+
+### <a name="504-error-a-connection-attempt-failed-because-the-connected-party-did-not-properly-respond-after-a-period-of-time-or-established-connection-failed-because-connected-host-has-failed-to-respond-or-request-to-the-sftp-server-has-taken-more-than-000030-seconds"></a>504 erro: "falha na tentativa de conexão porque a parte conectada não respondeu corretamente após um período de tempo ou a conexão estabelecida falhou porque o host conectado falhou ao responder" ou "a solicitação ao servidor SFTP levou mais de ' 00:00:30 ' segundos"
+
+Esse erro pode ocorrer quando o aplicativo lógico não é capaz de estabelecer com êxito uma conexão com o servidor SFTP. Pode haver vários motivos diferentes e sugerimos solucionar o problema dos seguintes aspectos. 
+
+1. O tempo limite da conexão é de 20 segundos. Verifique se o servidor SFTP tem um bom desempenho e dispositivos de intermidi, como firewall, não adicione muita sobrecarga. 
+
+2. Se houver um firewall envolvido, verifique se os endereços IP do **conector gerenciado** estão na lista de permissões. Você pode encontrar esses endereços IP para a região do aplicativo lógico [**aqui**] (https://docs.microsoft.com/azure/logic-apps/logic-apps-limits-and-config#multi-tenant-azure---outbound-ip-addresses)
+
+3. Se esse for um problema intermitente, teste a configuração de repetição para ver se uma contagem de repetição maior do que o padrão 4 pode ajudar.
+
+4. Verifique se o servidor SFTP coloca um limite no número de conexões de cada endereço IP. Nesse caso, talvez seja necessário limitar o número de instâncias simultâneas do aplicativo lógico. 
+
+5. Aumentar a propriedade [**ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) para como uma hora na configuração de SSH em seu servidor SFTP para reduzir o custo de estabelecimento de conexão.
+
+6. Você pode verificar o log do servidor SFTP para ver se a solicitação do aplicativo lógico já chegou ao servidor SFTP. Você também pode pegar um rastreamento de rede em seu firewall e seu servidor SFTP para se aprofundar no problema de conectividade.
 
 ## <a name="connector-reference"></a>Referência de conector
 

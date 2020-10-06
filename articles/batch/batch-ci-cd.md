@@ -5,12 +5,12 @@ author: chrisreddington
 ms.author: chredd
 ms.date: 03/28/2019
 ms.topic: how-to
-ms.openlocfilehash: d125427a3b2e519e909aad9e6f9cf08a963d2d46
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: 2ad148579daa30d62da01aded0a01ace56f3dcbc
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91461522"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760556"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Usar Azure Pipelines para compilar e implantar soluções de HPC
 
@@ -291,7 +291,7 @@ Você também pode saber mais sobre [como criar modelos vinculados do Azure Reso
 
 A infraestrutura e o software podem ser definidos como código e colocalizados no mesmo repositório.
 
-Para essa solução, o ffmpeg é usado como o pacote de aplicativos. O pacote ffmpeg pode ser baixado [aqui](https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-3.4-win64-static.zip).
+Para essa solução, o ffmpeg é usado como o pacote de aplicativos. O pacote ffmpeg pode ser baixado [aqui](https://www.videohelp.com/software?d=ffmpeg-3.3.4-win64-static.zip).
 
 ![Exemplo de estrutura de repositório Git](media/batch-ci-cd/git-repository.jpg)
 

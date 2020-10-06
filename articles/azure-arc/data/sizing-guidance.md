@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 7afe00746b133e8376cf32ba874831c7962e85b1
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 3bd54d8a23aca7e493cd3c0ddb7f057a6e1f5362
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90933795"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761474"
 ---
 # <a name="sizing-guidance"></a>Diretrizes de dimensionamento
 
@@ -27,7 +27,7 @@ Ao planejar a implantação de serviços de dados de arco do Azure, você deve p
 ## <a name="general-sizing-requirements"></a>Requisitos gerais de dimensionamento
 
 > [!NOTE]
-> Se você não estiver familiarizado com os conceitos deste artigo, poderá ler mais sobre a [kubernetes de recursos](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/) e a [notação de tamanho de kubernetes](https://kubernetes.io/docs/concepts/configuration/.manage-resources-containers/#resource-units-in-kubernetes).
+> Se você não estiver familiarizado com os conceitos deste artigo, poderá ler mais sobre a [kubernetes de recursos](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/) e a [notação de tamanho de kubernetes](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#resource-units-in-kubernetes).
 
 Os números de núcleos devem ser um valor inteiro maior ou igual a um.
 

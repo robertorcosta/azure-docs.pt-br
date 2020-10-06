@@ -100,6 +100,8 @@
           href: rbac-migration.md
         - name: Solucionar problemas de acesso
           href: troubleshooting-access-issues.md
+    - name: Como habilitar o registro em log
+      href: howto-logging.md
     - name: Desenvolver
       items:
         - name: Guia do desenvolvedor do Cofre da Chave do Azure

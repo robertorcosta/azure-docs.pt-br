@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 6242e593171bd8a01d01739b884ae8a1ca7beb4d
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 0f433c33f50506309e88b7ffa2c8aaf498fb3613
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91629753"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761151"
 ---
 # <a name="azure-security-baseline-for-service-bus"></a>Linha de base de segurança do Azure para o barramento de serviço
 
@@ -273,7 +273,7 @@ Você também poderá construir definições de política personalizadas se as d
 
 ### <a name="34-use-azure-active-directory-single-sign-on-sso"></a>3,4: usar o logon único (SSO) do Azure Active Directory
 
-**Diretrizes**: Microsoft Azure fornece gerenciamento de controle de acesso integrado para recursos e aplicativos com base no Azure Active Directory (AD do Azure). Uma vantagem importante de usar o Azure AD com o barramento de serviço do Azure é que você não precisa mais armazenar suas credenciais no código. Em vez disso, você pode solicitar um token de acesso OAuth 2,0 da plataforma de identidade da Microsoft. O nome do recurso para solicitar um token é https://servicebus.azure.net/ . O Azure AD autentica a entidade de segurança (um usuário, grupo ou entidade de serviço) que executa o aplicativo. Se a autenticação for bem sucedido, o Azure AD retornará um token de acesso para o aplicativo e o aplicativo poderá usar o token de acesso para autorizar a solicitação aos recursos do barramento de serviço do Azure.
+**Diretrizes**: Microsoft Azure fornece gerenciamento de controle de acesso integrado para recursos e aplicativos com base no Azure Active Directory (AD do Azure). Uma vantagem importante de usar o Azure AD com o barramento de serviço do Azure é que você não precisa mais armazenar suas credenciais no código. Em vez disso, você pode solicitar um token de acesso OAuth 2,0 da plataforma de identidade da Microsoft. O nome do recurso para solicitar um token é https://azure.microsoft.com/services/service-bus/ . O Azure AD autentica a entidade de segurança (um usuário, grupo ou entidade de serviço) que executa o aplicativo. Se a autenticação for bem sucedido, o Azure AD retornará um token de acesso para o aplicativo e o aplicativo poderá usar o token de acesso para autorizar a solicitação aos recursos do barramento de serviço do Azure.
 
 - [Como autenticar um aplicativo com o Azure AD para acessar recursos do barramento de serviço](authenticate-application.md)
 

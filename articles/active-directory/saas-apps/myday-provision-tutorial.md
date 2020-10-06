@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2020
 ms.author: Zhchia
-ms.openlocfilehash: 15119a76e1e59b339a9012896a525a0ecc91f34d
-ms.sourcegitcommit: 4ce82b6df65ebd81157b6168d3aa4e7323355022
+ms.openlocfilehash: e8d8f2af0350a8b4457f70632341f070c890cba0
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90761461"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761049"
 ---
 # <a name="tutorial-configure-myday-for-automatic-user-provisioning"></a>Tutorial: configurar o MyDay para o provisionamento automático de usuário
 
-Este tutorial descreve as etapas que você precisa executar tanto no MyDay quanto no Azure Active Directory (Azure AD) para configurar o provisionamento automático de usuário. Quando configurado, o Azure AD provisiona e desprovisiona automaticamente usuários e grupos para [MyDay](https://www.mydaycloud.com) usando o serviço de provisionamento do Azure AD. Para detalhes importantes sobre o que esse serviço faz, como funciona e as perguntas frequentes, consulte [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](../manage-apps/user-provisioning.md). 
+Este tutorial descreve as etapas que você precisa executar tanto no MyDay quanto no Azure Active Directory (Azure AD) para configurar o provisionamento automático de usuário. Quando configurado, o Azure AD provisiona e desprovisiona automaticamente usuários e grupos para [MyDay](https://go.mydaycloud.com) usando o serviço de provisionamento do Azure AD. Para detalhes importantes sobre o que esse serviço faz, como funciona e as perguntas frequentes, consulte [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](../manage-apps/user-provisioning.md). 
 
 
 ## <a name="capabilities-supported"></a>Funcionalidades com suporte
@@ -125,7 +125,7 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
    |phoneNumbers[type eq "work"].value|String|
    |funções [EQ principal "true"]. display|String|
    |funções [EQ principal "true"]. Type|String|
-   |funções [EQ principal "true"]. valor|String|
+   |roles[primary eq "True"].value|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Referência|

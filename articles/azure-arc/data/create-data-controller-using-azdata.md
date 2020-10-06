@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 8651921dafd5727f79e4ab3919e188d4b8612465
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: a405a7a32b1f54732589fb14e34ff52db4992028
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90933658"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761678"
 ---
 # <a name="create-azure-arc-data-controller-using-the-azure-data-cli-azdata"></a>Criar controlador de dados de arco do Azure usando a CLI de dados do Azure (azdata)
 
@@ -155,7 +155,7 @@ Para criar um controlador de dados no Azure Red Hat OpenShift, você precisará 
 > [!NOTE]
 >   Use o mesmo namespace aqui e no `azdata arc dc create` comando a seguir. O exemplo é `arc` .
 
-Primeiro, baixe a restrição de contexto de segurança (SCC) personalizada do [GitHub](https://raw.githubusercontent.com/microsoft/azure_arc/master/data_services/deployment/yaml/arc-data-scc.yaml) e aplique-a ao cluster.
+Primeiro, baixe a restrição de contexto de segurança (SCC) personalizada do [GitHub](https://github.com/microsoft/azure_arc/tree/master/arc_data_services/deploy/yaml) e aplique-a ao cluster.
 
 Você pode executar o seguinte comando para criar o controlador de dados:
 > [!NOTE]
