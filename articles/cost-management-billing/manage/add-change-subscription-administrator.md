@@ -1,6 +1,6 @@
 ---
 title: Adicionar ou alterar administradores de assinatura do Azure
-description: Descreve como adicionar ou alterar o administrador da assinatura do Azure usando o RBAC (Controle de Acesso Baseado em Função).
+description: Descreve como adicionar ou alterar o administrador da assinatura do Azure usando o Azure RBAC (controle de acesso baseado em função).
 author: genlin
 ms.reviewer: dcscontentpm
 tags: billing
@@ -9,21 +9,21 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 2ccdb16af788f6f8d106628742b2a83e25b26263
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 273f12765f60eb1a0d65037e30e33e58b16463bf
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683089"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372299"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Adicionar ou alterar administradores de assinatura do Azure
 
 
 Para gerenciar o acesso aos recursos do Azure, você deve ter a função de administrador apropriada. O Azure tem um sistema de autorização chamado de [Azure RBAC (controle de acesso baseado em função do Azure)](../../role-based-access-control/overview.md) com várias funções internas dentre as quais você pode escolher. Você pode atribuir essas funções em escopos diferentes, como o grupo de gerenciamento, a assinatura ou o grupo de recursos. Por padrão, a pessoa que cria uma assinatura do Azure pode atribuir a outros usuários acesso administrativo a uma assinatura.
 
-Este artigo descreve como adicionar ou alterar a função de administrador para um usuário usando RBAC no escopo da assinatura.
+Este artigo descreve como adicionar ou alterar a função de administrador para um usuário usando o Azure RBAC no escopo da assinatura.
 
-A Microsoft recomenda que você gerencie o acesso aos recursos usando o RBAC. No entanto, se você está usando o modelo de implantação clássico e gerenciando os recursos clássicos com o [Módulo do PowerShell para Gerenciamento de Serviços do Azure](/powershell/module/servicemanagement/azure.service), precisa usar um administrador clássico.
+A Microsoft recomenda que você gerencie o acesso aos recursos usando o Azure RBAC. No entanto, se você está usando o modelo de implantação clássico e gerenciando os recursos clássicos com o [Módulo do PowerShell para Gerenciamento de Serviços do Azure](/powershell/module/servicemanagement/azure.service), precisa usar um administrador clássico.
 
 > [!TIP]
 > Se você usar apenas o portal do Azure para gerenciar os recursos clássicos, não precisará usar o administrador clássico.

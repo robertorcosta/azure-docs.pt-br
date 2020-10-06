@@ -1,6 +1,6 @@
 ---
 title: O que é o Azure AD Connect e o Connect Health? | Microsoft Docs
-description: Descreve as ferramentas usadas para sincronizar e monitorar seu ambiente local com o Azure AD.
+description: Saiba mais sobre as ferramentas usadas para sincronizar e monitorar seu ambiente local com o Azure AD.
 services: active-directory
 author: billmath
 manager: daveba
@@ -11,12 +11,12 @@ ms.date: 01/08/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02a30aa4d553910c52a7dde89719450baf9037ce
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 338f957d3e881a76b39b0b7c00288ae2ebf2be59
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89278829"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90018604"
 ---
 # <a name="what-is-azure-ad-connect"></a>O que é o Azure AD Connect?
 
@@ -35,7 +35,7 @@ O Azure AD Connect é a ferramenta da Microsoft criada para atender e atingir su
 
 ## <a name="what-is-azure-ad-connect-health"></a>O que é o Azure AD Connect Health?
 
-O Azure AD (Azure Active Directory) Connect Health fornece monitoramento robusto de sua infraestrutura de identidade local. Ele permite que você mantenha uma conexão confiável com o Office 365 e os Microsoft Online Services.  Essa confiabilidade é obtida fornecendo recursos de monitoramento para seus principais componentes de identidade. Além disso, ela torna os pontos de dados principais desses componentes facilmente acessíveis.
+O Azure AD (Azure Active Directory) Connect Health fornece monitoramento robusto de sua infraestrutura de identidade local. Ele permite que você mantenha uma conexão confiável com o Microsoft 365 e os Microsoft Online Services.  Essa confiabilidade é obtida fornecendo recursos de monitoramento para seus principais componentes de identidade. Além disso, ela torna os pontos de dados principais desses componentes facilmente acessíveis.
 
 As informações são apresentadas no [Portal do Azure AD Connect Health](https://aka.ms/aadconnecthealth). Use o portal do Azure AD Connect Health para exibir alertas, monitorar o desempenho e analisar o uso, bem como outras informações. O Azure AD Connect Health permite a lente única da integridade sobre seus componentes de identidade de chave em um único lugar.
 
@@ -44,7 +44,7 @@ As informações são apresentadas no [Portal do Azure AD Connect Health](https:
 ## <a name="why-use-azure-ad-connect"></a>Por que usar o Azure AD Connect?
 A integração de seus diretórios locais ao AD do Azure torna os usuários mais produtivos ao fornecer uma identidade comum para acesso aos recursos na nuvem e locais. Os usuários e as organizações podem beneficiar-se do seguinte:
 
-* Os usuários podem usar uma única identidade para acessar aplicativos locais e serviços na nuvem, como o Office 365.
+* Os usuários podem usar uma única identidade para acessar aplicativos locais e serviços de nuvem, como o Microsoft 365.
 * Ferramenta única para fornecer uma experiência de implantação fácil de sincronização e entrada.
 * Fornece os recursos mais recentes para seus cenários. O Azure AD Connect substitui as versões mais antigas das ferramentas de integração de identidade, como DirSync e Azure AD Sync. Para saber mais, confira [Comparação das ferramentas de integração de diretórios de Identidade Híbrida](plan-hybrid-identity-design-considerations-tools-comparison.md).
 

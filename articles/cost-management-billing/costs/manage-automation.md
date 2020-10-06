@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: matrive
-ms.openlocfilehash: eb6ed73305d55b4f76464a4567c6b53715b10c3a
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 2bf28384ae672440a18331cad8ac95f6ea051b85
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526639"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372180"
 ---
 # <a name="manage-costs-with-automation"></a>Gerenciar os custos com a automação
 
@@ -234,7 +234,7 @@ Há várias maneiras de configurar um orçamento no seu ambiente do Azure. Consi
 - **Período**: representa por quanto tempo o orçamento será válido. O orçamento monitora e alerta você ativamente apenas enquanto ele permanece válido.
 - **Notificações**
   - Emails de Contato: os endereços de email recebem alertas quando um orçamento acumula custos e excede os limites definidos.
-  - Funções de Contato: todos os usuários que têm uma função RBAC do Azure correspondente no escopo fornecido recebem alertas de email com essa opção. Por exemplo, os Proprietários da Assinatura podem receber um alerta para um orçamento criado no escopo da assinatura.
+  - Funções de Contato: todos os usuários que têm uma função do Azure correspondente no escopo fornecido recebem alertas por email com essa opção. Por exemplo, os Proprietários da Assinatura podem receber um alerta para um orçamento criado no escopo da assinatura.
   - Grupos de Contatos: o orçamento chama os grupos de ações configurados quando um limite de alerta é excedido.
 - **Filtros de dimensão de custo**: a mesma filtragem que você pode fazer na análise de custo ou na API de Consulta também pode ser feita no seu orçamento. Use esse filtro para reduzir o intervalo de custos que você está monitorando com o orçamento.
 

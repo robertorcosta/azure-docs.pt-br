@@ -3,22 +3,47 @@ title: Conectar os computadores não Azure à Central de Segurança do Azure
 description: Aprender a conectar computadores não Azure à Central de Segurança
 author: memildin
 ms.author: memildin
-ms.date: 9/22/2020
+ms.date: 10/01/2020
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 6f2889c298f525e1babf80f86d4ae140ef2ce96f
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: df780e4e55bb5c119320d4b33502d50a95da1eaf
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91448953"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91612210"
 ---
 #  <a name="connect-your-non-azure-machines-to-security-center"></a>Conectar os computadores não Azure à Central de Segurança
 
-A Central de Segurança pode monitorar a postura de segurança dos computadores não Azure, mas, antes, é necessário que você integre esses recursos. Você pode adicionar computadores não Azure por meio da página **Introdução** ou da página **Estoque**, conforme descrito abaixo.
+A Central de Segurança pode monitorar a postura de segurança dos computadores não Azure, mas, antes, é necessário que você integre esses recursos. 
 
-## <a name="add-non-azure-computers"></a>Adicionar computadores não Azure 
+É possível adicionar computadores que não sejam do Azure de qualquer uma das seguintes maneiras:
+
+- Usando o Azure Arc (**recomendado**)
+- Nas páginas da Central de Segurança no portal do Azure (**Introdução** e **Inventário**)
+
+Veja a descrição das duas maneiras abaixo.
+
+## <a name="add-non-azure-machines-with-azure-arc"></a>Adicionar computadores não Azure com Azure Arc
+
+Usar o Azure Arc é a maneira mais recomendada para adicionar seus computadores não Azure à Central de Segurança do Azure.
+
+Um computador com o Azure Arc habilitado torna-se um recurso do Azure e aparece na Central de Segurança com recomendações, assim como seus outros recursos do Azure. 
+
+Além disso, o Azure Arc fornece recursos aprimorados, como a opção de habilitar políticas no computador, implantar o agente de Análise de Logs como extensão, simplificar a implantação com outros serviços do Azure e muito mais. Para ter uma visão geral dos benefícios, confira [Cenários com suporte](../azure-arc/servers/overview.md#supported-scenarios).
+
+**Para implantar o Azure Arc:**
+
+- Em um computador, siga as instruções em [Início Rápido: Conectar o computador híbrido com os servidores habilitados para Azure Arc](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
+- Para implantar o Azure Arc em grande escala, confira [Conectar computadores híbridos ao Azure em grande escala](../azure-arc/servers/onboard-service-principal.md)
+
+[Saiba mais sobre o Azure Arc](../azure-arc/servers/overview.md).
+
+> [!TIP]
+> Se você estiver integrando computadores AWS, o conector da Central de Segurança para AWS lidará com a implantação do Azure Arc para você de forma transparente. Saiba mais em [Conectar as contas do AWS à Central de Segurança do Azure](quickstart-onboard-aws.md).
+
+## <a name="add-non-azure-machines-from-security-centers-portal-pages"></a>Adicionar computadores não Azure pelas páginas do portal da Central de Segurança
 
 1. No menu da Central de Segurança, abra a página **Introdução**.
 1. Selecione a guia **Introdução**.
@@ -29,6 +54,8 @@ A Central de Segurança pode monitorar a postura de segurança dos computadores 
 
     > [!TIP]
     > Você também pode abrir a seção Adicionar computadores por meio da página **Estoque**, pressionando o botão **Adicionar servidores não Azure**.
+    > 
+    > :::image type="content" source="./media/security-center-onboarding/onboard-inventory.png" alt-text="Guia de introdução na página Introdução":::
 
     É mostrada uma lista dos workspaces do Log Analytics. A lista inclui, se aplicável, o workspace padrão criado para você pela Central de Segurança quando o provisionamento automático foi habilitado. Selecione esse workspace ou outro que você queira usar.
 
@@ -89,12 +116,13 @@ Para obter mais informações sobre como instalar e configurar o agente, confira
 
 
 ## <a name="verifying"></a>Verificando
-Parabéns! Agora você pode ver seus computadores Azure e não Azure juntos, em um só lugar. Abra a [página Estoque de ativos](asset-inventory.md) e filtre pelos tipos de recursos relevantes. Esses dois ícones distinguem os tipos:
+Parabéns! Agora você pode ver seus computadores Azure e não Azure juntos, em um só lugar. Abra a [página Estoque de ativos](asset-inventory.md) e filtre pelos tipos de recursos relevantes. Estes ícones distinguem os tipos:
 
-  ![icon1](./media/quick-onboard-linux-computer/security-center-monitoring-icon1.png) Computador não Azure
+  ![Ícone ASC para computador não Azure](./media/quick-onboard-linux-computer/security-center-monitoring-icon1.png) Computador não Azure
 
-  ![icon2](./media/quick-onboard-linux-computer/security-center-monitoring-icon2.png) VM do Azure
+  ![Ícone ASC para computador Azure](./media/quick-onboard-linux-computer/security-center-monitoring-icon2.png) VM do Azure
 
+  ![Ícone ASC para computador Azure Arc](./media/quick-onboard-linux-computer/arc-enabled-machine-icon.png) Computador habilitado para Azure Arc
 
 ## <a name="next-steps"></a>Próximas etapas
 

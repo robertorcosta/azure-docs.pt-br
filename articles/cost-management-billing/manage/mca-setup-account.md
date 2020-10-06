@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: afa95609e0bcb879b6ad4b3b50b5dff5feb9a9f7
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 5498fd83efa0fa52f5f0861588eaa8cdeb0953ac
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88682783"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371789"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Configurar sua conta de cobrança para um Contrato de Cliente da Microsoft
 
@@ -225,7 +225,7 @@ As reservas do Azure no registro do Contrato Enterprise serão migradas para sua
 
 4. Selecione **Controle de acesso (IAM)** no lado esquerdo.
 
-   ![Captura de tela que mostra o acesso de administradores corporativos após a transição](./media/mca-setup-account/mca-ea-admins-ba-access-post-transition.png)
+   ![Captura de tela que mostra o acesso de administradores corporativos listados como proprietários da conta de cobrança após a transição.](./media/mca-setup-account/mca-ea-admins-ba-access-post-transition.png)
 
 Os administradores corporativos são listados como proprietários da conta de cobrança, enquanto os administradores corporativos com permissões somente leitura são listados como leitores da conta de cobrança. Se acreditar que o acesso de um administrador corporativo está ausente, forneça acesso a ele no portal do Azure. Para obter mais informações, confira [Gerenciar funções de cobrança no portal do Azure](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
 
@@ -241,7 +241,7 @@ Os administradores corporativos são listados como proprietários da conta de co
 
 4. Selecione **Controle de acesso (IAM)** no lado esquerdo.
 
-   ![Captura de tela que mostra o acesso de administradores corporativos após a transição](./media/mca-setup-account/mca-ea-admins-bp-access-post-transition.png)
+   ![Captura de tela que mostra o acesso de administradores corporativos listados como proprietários do perfil de cobrança após a transição.](./media/mca-setup-account/mca-ea-admins-bp-access-post-transition.png)
 
 Os administradores corporativos são listados como proprietários do perfil de cobrança, enquanto os administradores corporativos com permissões somente leitura são listados como leitores do perfil de cobrança. Se acreditar que o acesso de um administrador corporativo está ausente, forneça acesso a ele no portal do Azure. Para obter mais informações, confira [Gerenciar funções de cobrança no portal do Azure](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
 

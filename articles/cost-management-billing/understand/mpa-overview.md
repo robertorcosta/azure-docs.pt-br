@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 98941530ba0483e82f43af222e12df7439b6625e
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 4d6208360bd876a2a1ae0a9ff154604a33584db9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88688738"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447939"
 ---
 # <a name="get-started-with-your-microsoft-partner-agreement-billing-account"></a>Introdução à conta de cobrança do Contrato de Parceiro da Microsoft
 
@@ -55,7 +55,7 @@ Para ativar a política:
 
 1. Pesquise **Gerenciamento de Custos do Azure + Cobrança**.
 
-   ![Captura de tela que mostra a pesquisa do portal do Azure](./media/mpa-overview/search-cmb.png)
+   ![A captura de tela mostra a pesquisa de Gerenciamento de Custos e Cobrança no portal do Azure.](./media/mpa-overview/search-cmb.png)
 
 1. Selecione **Clientes** do lado esquerdo e, em seguida, selecione um cliente na lista.
 

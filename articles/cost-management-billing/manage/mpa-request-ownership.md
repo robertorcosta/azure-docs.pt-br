@@ -1,6 +1,6 @@
 ---
 title: Obter a propriedade de cobrança das assinaturas do Azure para o MPA (Contrato de Parceiro da Microsoft)
-description: Saiba como solicitar propriedade de cobrança de assinaturas do Azure de outros usuários.
+description: Saiba como solicitar a propriedade da cobrança de assinaturas do Azure de outros usuários para o MPA (Contrato de Parceiro da Microsoft).
 author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: eef36726db735cfdd42f5a103073303cf3b3a632
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: bb2a58b76445f2cfd14a905de1fb66dbff3eee7e
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684942"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371007"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-to-your-mpa-account"></a>Obter a propriedade de cobrança das assinaturas do Azure para sua conta do MPA
 
@@ -35,7 +35,7 @@ Este artigo se aplica às contas de cobrança para Contratos de Parceiro da Micr
 
 1. Entre no [portal do Azure](https://portal.azure.com) usando as credenciais de Agente Administrativo do CSP no locatário do CSP.
 1. Pesquise **Gerenciamento de Custos + Cobrança**.  
-    ![Captura de tela que mostra a pesquisa do portal do Azure para gerenciamento de custos + cobrança](./media/mpa-request-ownership/search-cmb.png)
+    ![Captura de tela que mostra a pesquisa no portal do Azure de gerenciamento de custos e cobrança para solicitar a propriedade da cobrança.](./media/mpa-request-ownership/search-cmb.png)
 1. Selecione **Clientes** do lado esquerdo e, em seguida, selecione um cliente na lista.  
     [![Captura de tela que mostra a seleção de clientes](./media/mpa-request-ownership/mpa-select-customers.png)](./media/mpa-request-ownership/mpa-select-customers.png#lightbox)
 1. Selecione **Solicitações de transferência** no lado inferior esquerdo e, em seguida, selecione **Adicionar uma nova solicitação**.  
@@ -56,7 +56,7 @@ Este artigo se aplica às contas de cobrança para Contratos de Parceiro da Micr
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 1. Pesquise **Gerenciamento de Custos + Cobrança**.  
-    ![Captura de tela que mostra a pesquisa do portal do Azure para gerenciamento de custos + cobrança](./media/mpa-request-ownership/billing-search-cost-management-billing.png)
+    ![Captura de tela que mostra a pesquisa no portal do Azure de gerenciamento de custos e cobrança para solicitar o status de transferência.](./media/mpa-request-ownership/billing-search-cost-management-billing.png)
 1. Selecione **Clientes** no lado esquerdo.  
     [![Captura de tela que mostra a seleção de clientes](./media/mpa-request-ownership/mpa-select-customers.png)](./media/mpa-request-ownership/mpa-select-customers.png#lightbox)
 1. Selecione o cliente na lista para a qual você enviou a solicitação de transferência.
@@ -127,7 +127,7 @@ As Reservas do Azure não são movidas automaticamente com as assinaturas. Você
 
 ### <a name="access-to-azure-services"></a>Acesso aos serviços do Azure
 
-O acesso de usuários, grupos ou entidades de serviço existentes que foi atribuído usando o [Azure RBAC (controle de acesso baseado em função)](../../role-based-access-control/overview.md) não é afetado durante a transição. O parceiro não obterá nenhum novo acesso RBAC às assinaturas.
+O acesso de usuários, grupos ou entidades de serviço existentes que foi atribuído usando o [Azure RBAC (controle de acesso baseado em função)](../../role-based-access-control/overview.md) não é afetado durante a transição. O parceiro não receberá nenhum acesso novo do Azure RBAC às assinaturas.
 
 Os parceiros devem trabalhar com o cliente para ter acesso às assinaturas. Os parceiros precisam obter tíquetes de suporte aberto de acesso de [Administrador em Nome de – AOBO](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) ou [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/concepts/cloud-solution-provider).
 
@@ -174,4 +174,4 @@ Se precisar de ajuda, [contate o suporte](https://portal.azure.com/?#blade/Micro
 ## <a name="next-steps"></a>Próximas etapas
 
 * A propriedade de cobrança das assinaturas do Azure é transferida para você. Controle os encargos dessas assinaturas no [portal do Azure](https://portal.azure.com).
-* Trabalhe com o cliente para obter acesso às assinaturas transferidas do Azure. [Gerencie o acesso aos recursos do Azure usando o RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+* Trabalhe com o cliente para obter acesso às assinaturas transferidas do Azure. [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).

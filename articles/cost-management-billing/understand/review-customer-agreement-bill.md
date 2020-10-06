@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: tutorial
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 4adb3bb1408357d40e3869c2a0d251b11d015195
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 619dec1b2246b7e74b058e570df4021888196b0c
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88689517"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447541"
 ---
 # <a name="tutorial-review-your-microsoft-customer-agreement-invoice"></a>Tutorial: Examinar sua fatura do Contrato de Cliente da Microsoft
 
@@ -47,7 +47,7 @@ Verifique o tipo de contrato para determinar se você tem acesso a uma conta de 
 
 Na portal do Azure, digite *gerenciamento de custos + cobrança* na caixa de pesquisa e, em seguida, selecione **Gerenciamento de Custos + Cobrança**.
 
-![Captura de tela que mostra a pesquisa do portal do Azure para gerenciamento de custos + cobrança](./media/review-customer-agreement-bill/billing-search-cost-management-billing.png)
+![A captura de tela mostra a pesquisa de gerenciamento de custos e cobrança no portal do Azure.](./media/review-customer-agreement-bill/billing-search-cost-management-billing.png)
 
 Caso você tenha acesso a apenas um escopo do orçamento, selecione **Propriedades** no lado esquerdo. Você tem acesso a uma conta de cobrança para um Contrato de Cliente da Microsoft se o tipo de conta de cobrança é **Contrato de Cliente da Microsoft**.
 
@@ -106,7 +106,7 @@ Selecione a guia **Resumo** na parte superior da tela.
 
 A seção de encargos exibe os encargos do mês atual e do mês passado.
 
-![Captura de tela que mostra a pesquisa do portal do Azure para gerenciamento de custos + cobrança](./media/review-customer-agreement-bill/mca-billing-profile-summary.png)
+![A captura de tela mostra um resumo do perfil de cobrança.](./media/review-customer-agreement-bill/mca-billing-profile-summary.png)
 
 Os encargos do mês atual são os encargos pendentes do mês atual e são faturados quando a fatura é gerada para o mês. Se a fatura do mês passado ainda não foi gerada, os encargos do mês passado também ficam pendentes e são exibidos em sua próxima fatura.
 
@@ -138,7 +138,7 @@ Selecione **Todas as assinaturas** no lado esquerdo da página.
 
 A página de assinaturas do Azure exibe os encargos do mês atual e do mês passado para cada assinatura do perfil de cobrança. Os encargos do mês atual são os encargos pendentes do mês atual e são faturados quando a fatura é gerada para o mês. Se a fatura do mês passado ainda não foi gerada, os encargos do mês passado também ficam pendentes.
 
-![Captura de tela que mostra a lista de assinaturas do Azure para o perfil de cobrança](./media/review-customer-agreement-bill/mca-billing-profile-subscriptions-list.png)
+![A captura de tela mostra assinaturas com encargos do mês atual e encargos do mês passado.](./media/review-customer-agreement-bill/mca-billing-profile-subscriptions-list.png)
 
 ## <a name="analyze-your-azure-usage-charges"></a>Analisar os encargos de uso do Azure
 
@@ -172,7 +172,7 @@ Filtre o arquivo CSV de uso e encargos do Azure para reconciliar os encargos de 
 
 A imagem a seguir mostra a lista de assinaturas no portal do Azure.
 
-![Captura de tela que mostra a lista de assinaturas do Azure para o perfil de cobrança](./media/review-customer-agreement-bill/mca-billing-profile-subscriptions-list-highlighted.png)
+![A captura de tela mostra a lista de assinaturas no portal do Azure com uma assinatura destacada.](./media/review-customer-agreement-bill/mca-billing-profile-subscriptions-list-highlighted.png)
 
 Filtre a coluna **subscriptionName** no arquivo CSV de uso e encargos do Azure para **WA_Subscription** para exibir os encargos de uso detalhado de WA_Subscription.
 

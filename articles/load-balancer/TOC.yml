@@ -65,7 +65,7 @@
       href: load-balancer-multivip-overview.md
     - name: Conexões de saída
       href: load-balancer-outbound-connections.md
-    - name: Reiniciar TCP após tempo limite de ociosidade
+    - name: Redefinição de TCP e tempo limite de ociosidade de TCP
       href: load-balancer-tcp-reset.md
     - name: Load Balancer Standard e Zonas de Disponibilidade
       href: load-balancer-standard-availability-zones.md

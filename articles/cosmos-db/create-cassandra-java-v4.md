@@ -1,6 +1,6 @@
 ---
 title: Aplicativo Java com a API do Cassandra para Azure Cosmos DB usando o SDK do Java 4.0
-description: Este guia de início rápido mostra como usar a API Cassandra do Azure Cosmos DB para criar um aplicativo de perfil com portal e Java
+description: Este guia de início rápido mostra como usar a API do Cassandra do Azure Cosmos DB para criar um aplicativo de perfil com o portal do Azure e o Java 4.0 SDK.
 ms.service: cosmos-db
 author: TheovanKraay
 ms.author: thvankra
@@ -9,14 +9,14 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/18/2020
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 4411c2d3b540423c1086fe8b45bd343870a72f5b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 076cb892740b99971400fbc34f60dc1083554555
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319194"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532198"
 ---
-# <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-cassandra-api-data-v4-driver"></a>Início Rápido: Criar um aplicativo Java para gerenciar os dados da API do Cassandra do Azure Cosmos DB (Driver v4)
+# <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-cassandra-api-data-v4-driver"></a>Criar um aplicativo Java para gerenciar os dados da API do Cassandra do Azure Cosmos DB (Driver v4)
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
@@ -215,7 +215,7 @@ Agora, volte ao portal do Azure para obter informações sobre a cadeia de conex
 
 4. No portal do Azure, abra **Data Explorer** para consultar, modificar e trabalhar com esses novos dados. 
 
-    :::image type="content" source="./media/create-cassandra-java/view-data-explorer-java-app.png" alt-text="Exibir os dados no Data Explorer – Azure Cosmos DB":::
+    :::image type="content" source="./media/create-cassandra-java/view-data-explorer-java-app.png" alt-text="Exibir e copiar um nome de usuário do portal do Azure, página Cadeia de Conexão":::
 
 ## <a name="review-slas-in-the-azure-portal"></a>Examinar SLAs no Portal do Azure
 

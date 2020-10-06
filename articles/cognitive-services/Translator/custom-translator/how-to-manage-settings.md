@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 488ca52abdd5f8d6cfd1f92a5f91861a17a77d19
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 184073ef3ee1b6a67c844754f7da81f88bbbdf62
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510432"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91757020"
 ---
 # <a name="how-to-manage-settings"></a>Como gerenciar configurações
 
@@ -51,6 +51,8 @@ Se você não tem uma assinatura, siga as etapas abaixo:
 
     ![Criar caixa de diálogo do novo workspace](media/how-to/create-new-workspace-dialog.png)
 
+>[!Note]
+>O tradutor personalizado não dá suporte à criação de espaço de trabalho para API de Tradução de Texto recurso (também conhecido como Chave de assinatura do Azure) que foi criada dentro da [VNET habilitada](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet).
 
 ### <a name="modify-existing-key"></a>Modificar chave existente
 
@@ -61,7 +63,7 @@ Se você não tem uma assinatura, siga as etapas abaixo:
 
 3. Na caixa de diálogo, insira a chave para sua assinatura do tradutor e clique no botão "salvar".
 
-    ![Como adicionar chave de assinatura](media/how-to/how-to-add-subscription-key-dialog.png)
+    ![Caixa de diálogo como adicionar chave de assinatura](media/how-to/how-to-add-subscription-key-dialog.png)
 
 ## <a name="manage-your-workspace"></a>Gerenciar seu workspace
 

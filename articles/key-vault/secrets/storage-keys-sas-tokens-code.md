@@ -9,12 +9,12 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0f81ffb5279e10c71f7d7cccfb6b738bc12e5cf4
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 6072c71fa675bd203e94f3f42814a1183b12ae8e
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90086769"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597978"
 ---
 # <a name="create-sas-definition-and-fetch-shared-access-signature-tokens-in-code"></a>Criar definição SAS e buscar tokens de assinatura de acesso compartilhado no código
 
@@ -42,6 +42,9 @@ Depois que a definição de SAS for criada, você poderá recuperar os tokens SA
 Se o token de assinatura de acesso compartilhado estiver prestes a expirar, você poderá buscar o mesmo segredo novamente para gerar um novo.
 
 Para ver um guia sobre como usar um token SAS recuperado do Key Vault para acessar os serviços do Armazenamento do Azure, confira [Usar uma SAS de conta para acessar o serviço Blob](https://docs.microsoft.com/azure/storage/common/storage-account-sas-create-dotnet#use-an-account-sas-from-a-client)
+
+> [!NOTE]
+> Seu aplicativo precisará estar preparado para atualizar a SAS se receber um erro 403 do Armazenamento para você poder lidar com o caso em que uma chave ficou comprometida. Você precisará fazer a rotação delas mais rápido do que o período de rotação normal. 
 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba como [Permitir acesso limitado aos recursos de armazenamento do Azure usando a SAS](../../storage/common/storage-sas-overview.md).

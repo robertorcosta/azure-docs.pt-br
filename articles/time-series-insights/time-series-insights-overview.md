@@ -8,16 +8,19 @@ ms.author: dpalled
 manager: diviso
 ms.workload: big-data
 ms.topic: overview
-ms.date: 07/07/2020
+ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1ab17e2c24d106e1aec0b546a6efd05ac4c3e32f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f395f96dfa48567f95a1c50cf5403d3cbb427cb7
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87020518"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597823"
 ---
 # <a name="what-is-azure-time-series-insights-gen1"></a>O que é o Azure Time Series Insights Gen1?
+
+> [!CAUTION]
+> Esse é um artigo do Gen1.
 
 O Azure Time Series Insights é compilado para armazenar, visualizar e consultar grandes quantidades de dados de série temporal, como aqueles gerados por dispositivos IoT. Se você deseja armazenar, gerenciar, consultar ou visualizar os dados de série temporal na nuvem, Azure Time Series Insights é provavelmente certa para você.
 
@@ -59,7 +62,7 @@ O Time Series Insights captura e armazena todos os novos eventos como uma linha 
 
 - Tenha uma exibição global dos dados de série temporal que fazem streaming de dados de locais diferentes para comparação de vários ativos/sites.
 
-   Você pode se conectar a várias fontes de evento em um ambiente do Azure Time Series Insights. Dessa forma, você pode visualizar dados que chegam de vários locais distintos juntos quase em tempo real. Os usuários podem aproveitar essa visibilidade para compartilhar dados com líderes empresariais. Eles podem colaborar melhor com especialistas de domínio que podem aplicar seu conhecimento para ajudar a resolver problemas, aplicar práticas recomendadas e compartilhar conhecimentos.
+   Você pode conectar várias fontes de evento a um ambiente do Azure Time Series Insights. Dessa forma, você pode visualizar dados que chegam de vários locais distintos juntos quase em tempo real. Os usuários podem aproveitar essa visibilidade para compartilhar dados com líderes empresariais. Eles podem colaborar melhor com especialistas de domínio que podem aplicar seu conhecimento para ajudar a resolver problemas, aplicar práticas recomendadas e compartilhar conhecimentos.
 
 - Crie um aplicativo cliente sobre o Azure Time Series Insights.
 

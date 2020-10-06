@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Criar uma zona e um registro DNS do Azure – modelo do ARM (Azure Resource Manager)'
+title: Criar uma zona e um registro DNS do Azure – modelo do ARM (Azure Resource Manager)
 titleSuffix: Azure DNS
 description: Saiba como criar uma zona e registro DNS no DNS do Azure. Este é um guia de início rápido passo a passo para criar e gerenciar sua primeira zona e registro DNS usando um modelo do ARM (Azure Resource Manager).
 services: dns
@@ -8,14 +8,14 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 09/8/2020
 ms.author: duau
-ms.openlocfilehash: 4fd87cb17fc222f5014585e8f1e87e3f58a58574
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 8e53e8ad26ddac1006a28fea2ddee9990533e8c9
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89596378"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89647891"
 ---
-# <a name="quickstart-create-an-azure-dns-zone-and-record-using-an-arm-template"></a>Início Rápido: Criar uma zona e um registro DNS do Azure usando um modelo ARM
+# <a name="quickstart-create-an-azure-dns-zone-and-record-using-an-arm-template"></a>Criar uma zona e um registro DNS do Azure usando um modelo ARM
 
 Este início rápido descreve como usar um modelo do ARM (Azure Resource Manager) para criar uma zona DNS que contém um registro A.
 
@@ -87,11 +87,11 @@ O Azure PowerShell é usado para implantar o modelo. Além do Azure PowerShell, 
 
 1. O grupo de recursos deve conter os seguintes recursos vistos aqui:
 
-    :::image type="content" source="./media/dns-getstarted-template/resource-group-dns-zone.png" alt-text="Grupo de recursos da implantação de zona DNS":::
+    :::image type="content" source="./media/dns-getstarted-template/resource-group-dns-zone.png" alt-text="Saída da implantação no PowerShell do modelo do Resource Manager de zona DNS do Azure":::
 
 1. Selecione a zona DNS com o sufixo de **<span>azurequickstart.</span>org** para verificar se a zona foi criada corretamente com um registro **A** referenciando os valores **1.2.3.4** e **1.2.3.5**.
 
-    :::image type="content" source="./media/dns-getstarted-template/dns-zone-overview.png" alt-text="Implantação de zona DNS":::
+    :::image type="content" source="./media/dns-getstarted-template/dns-zone-overview.png" alt-text="Saída da implantação no PowerShell do modelo do Resource Manager de zona DNS do Azure":::
 
 1. Copie um dos nomes de servidor de nomes da etapa anterior.
 
@@ -109,13 +109,13 @@ O Azure PowerShell é usado para implantar o modelo. Além do Azure PowerShell, 
 
    Você deverá ver algo semelhante à seguinte captura de tela:
 
-    :::image type="content" source="./media/dns-getstarted-template/dns-zone-validation.png" alt-text="Pesquisa de zona DNS":::
+    :::image type="content" source="./media/dns-getstarted-template/dns-zone-validation.png" alt-text="Saída da implantação no PowerShell do modelo do Resource Manager de zona DNS do Azure":::
 
 O nome do host **www<span>.2lwynbseszpam.azurequickstart.</span>org** é resolvido como **1.2.3.4** e **1.2.3.5**, assim como você o configurou. Esse resultado verifica se a resolução do nome está funcionando corretamente.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Quando não precisar mais dos recursos criados com o circuito do ExpressRoute, exclua o grupo de recursos. Isso removerá o circuito do ExpressRoute e todos os recursos relacionados.
+Quando não precisar mais dos recursos que você criou com a zona DNS, exclua o grupo de recursos. Isso remove a zona DNS e todos os recursos relacionados.
 
 Para excluir o grupo de recursos, chame o cmdlet `Remove-AzResourceGroup`:
 

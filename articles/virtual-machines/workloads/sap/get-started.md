@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/01/2020
+ms.date: 10/05/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 15581178dc1c00b6905763e8552062869f8378ce
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: eb7d7d6296432146e6e4390b0df62964ffe6f8da
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91704949"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758091"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Usar o Azure para hospedar e executar cenários de carga de trabalho do SAP
 
@@ -82,6 +82,7 @@ Nesta seção, você pode encontrar informações sobre como configurar o SSO co
 
 ## <a name="change-log"></a>Log de alterações
 
+- 10/05/2020: versão de [SAP Hana escalar horizontalmente HSR com pacemaker no guia de configuração de VMs do Azure no RHEL](./sap-hana-high-availability-scale-out-hsr-rhel.md)
 - 09/30/2020: alterar a [alta disponibilidade de SAP Hana em VMs do Azure no RHEL](./sap-hana-high-availability-rhel.md), [ha para SAP Hana escalar verticalmente com seja no RHEL](./sap-hana-high-availability-netapp-files-red-hat.md) e [Configurando o pacemaker no RHEL no Azure](./high-availability-guide-rhel-pacemaker.md) para adaptar as instruções para RHEL 8,1
 - 09/29/2020: fazendo restrições e recomendações sobre o uso de PPG mais óbvio no artigo [grupos de posicionamento de proximidade do Azure para latência de rede ideal com aplicativos SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios) 
 - 09/28/2020: adicionando um novo guia de operação de armazenamento para SAP HANA usando Azure NetApp Files com os volumes do documento [NFS v 4.1 no Azure NetApp Files para SAP Hana](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp)

@@ -9,18 +9,18 @@ ms.subservice: custom-vision
 ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: pafarley
-ms.openlocfilehash: 5285dfb23476662a13162788b2ec497b4fe49228
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 78ae0fc94e74755b481f80724ca26b34da99122c
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90532572"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758567"
 ---
 # <a name="copy-and-move-your-custom-vision-projects"></a>Copiar e mover seus projetos de Visão Personalizada
 
 Depois de criar e treinar um projeto Visão Personalizada, talvez você queira copiar o projeto para outro recurso. Por exemplo, talvez você queira mover um projeto de um ambiente de desenvolvimento para produção ou fazer backup de um projeto em uma conta em uma região diferente do Azure para aumentar a segurança dos dados.
 
-As APIs **[ExportProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeb3])** e **[ImportProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc7548b571998fddee3)** habilitam esse cenário permitindo que você copie projetos de uma conta visão personalizada para outras pessoas. Este guia mostra como usar essas APIs REST com a rotação. Você também pode usar um serviço de solicitação HTTP como o postmaster para emitir as solicitações.
+As APIs **[ExportProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeb3)** e **[ImportProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc7548b571998fddee3)** habilitam esse cenário permitindo que você copie projetos de uma conta visão personalizada para outras pessoas. Este guia mostra como usar essas APIs REST com a rotação. Você também pode usar um serviço de solicitação HTTP como o postmaster para emitir as solicitações.
 
 ## <a name="business-scenarios"></a>Cenários de negócios
 

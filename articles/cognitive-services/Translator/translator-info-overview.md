@@ -1,5 +1,5 @@
 ---
-title: O que é o Tradutor? - Tradutor
+title: Serviço Tradutor da Microsoft
 titlesuffix: Azure Cognitive Services
 description: Integre o Tradutor em seus aplicativos, sites, ferramentas e outras soluções para fornecer experiências do usuário em vários idiomas.
 services: cognitive-services
@@ -8,29 +8,30 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: overview
-ms.date: 05/26/2020
+ms.date: 09/11/2020
 ms.author: swmachan
-ms.custom: seodec18
-ms.openlocfilehash: 206e1bc86404fa41b84647c50482dbe63301c0af
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.custom: cog-serv-seo-aug-2020
+keywords: tradutor, tradução de texto, tradução automática, serviço de tradução
+ms.openlocfilehash: 32ae7f75c1b953e8af7dfef83c1971c2f78b0b62
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89425952"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530328"
 ---
-# <a name="what-is-translator"></a>O que é o Tradutor?
+# <a name="what-is-the-translator-service"></a>O que é o serviço Tradutor?
 
-O Tradutor de Serviços Cognitivos do Azure é um serviço de tradução automática baseado em nuvem e faz parte da família de APIs cognitivas de [Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/?pivot=products&panel=ai) para a criação de aplicativos inteligentes. O Tradutor é fácil de integrar em seus aplicativos, sites, ferramentas e soluções. Ele permite que você adicione experiências de usuário com vários idiomas em [mais de 70 idiomas](languages.md) e pode ser usado em qualquer plataforma de hardware com qualquer sistema operacional para traduzir idioma de texto para texto.
+O Tradutor é um serviço de tradução automática baseado em nuvem e faz parte da família de APIs cognitivas dos [Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/?pivot=products&panel=ai) usadas para a criação de aplicativos inteligentes. O Tradutor é fácil de integrar em seus aplicativos, sites, ferramentas e soluções. Ele permite que você adicione experiências de usuário em vários idiomas em [mais de 70 idiomas](languages.md) e pode ser usado em qualquer plataforma de hardware com qualquer sistema operacional para a tradução de texto.
 
 ## <a name="about-microsoft-translator"></a>Sobre o Microsoft Translator
 
-O Tradutor de Serviços Cognitivos do Azure é um serviço de tradução automática baseado em nuvem. A Tradução possibilita muitos produtos e serviços da Microsoft e é usada por milhares de empresas no mundo todo em seus aplicativos e fluxos de trabalho, o que permite que seu conteúdo alcance um público-alvo global.
+A Tradução possibilita muitos produtos e serviços da Microsoft e é usada por milhares de empresas no mundo todo em seus aplicativos e fluxos de trabalho, o que permite que seu conteúdo alcance um público-alvo global.
 
-A tradução de fala, possibilitado pela Tradução, também está disponível no [Serviço de Fala da Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/). Ele combina a funcionalidade da API de Tradução de Fala e do Serviço de Fala Personalizado em um serviço unificado e totalmente personalizável. 
+A tradução de fala, do Tradutor, também está disponível no [Serviço de Fala do Azure](https://docs.microsoft.com/azure/cognitive-services/speech-service/). Ele combina a funcionalidade da API de Tradução de Fala e do Serviço de Fala Personalizado em um serviço unificado e totalmente personalizável. 
 
 ## <a name="language-support"></a>Suporte ao idioma
 
-O Microsoft Translator dá suporte a vários idiomas para tradução, transliteração, detecção de idioma e dicionários. Confira [Suporte a idiomas](language-support.md) para obter uma lista completa, ou acesse a lista de forma programática com a [API REST](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages).  
+O Tradutor fornece suporte a vários idiomas para tradução de texto, transliteração, detecção de idioma e dicionários. Confira [Suporte a idiomas](language-support.md) para obter uma lista completa, ou acesse a lista de forma programática com a [API REST](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages).  
 
 ## <a name="microsoft-translator-neural-machine-translation"></a>Tradução Automática Neural do Microsoft Translator
 
@@ -40,18 +41,19 @@ A NMT fornece traduções melhores que a SMT não apenas de um ponto de vista de
 
 Os modelos de NMT são a essência da API e não são visíveis aos usuários finais. A única diferença notável é uma melhor qualidade da tradução, especialmente para idiomas como o chinês, o japonês e o árabe.
 
-Saiba mais sobre [como funciona a NMT](https://www.microsoft.com/en-us/translator/mt.aspx#nnt)
+Saiba mais sobre [como funciona a NMT](https://www.microsoft.com/en-us/translator/mt.aspx#nnt).
 
-## <a name="language-customization"></a>Personalização de linguagem
+## <a name="improve-translations-with-custom-translator"></a>Aprimorar traduções com o Tradutor Personalizado
 
 Uma extensão do serviço Tradução da Microsoft, o Tradutor Personalizado pode ser usado junto com a Tradução para ajudar você a personalizar o sistema de tradução neural e aprimorar a tradução conforme sua terminologia e estilo específicos.
 
 Com o Tradutor Personalizado, é possível compilar sistemas de tradução que controlem a terminologia usada na sua própria empresa ou setor. Assim, seu sistema de tradução personalizado será integrado facilmente nos aplicativos, nos fluxos de trabalho, nos sites existentes e em vários tipos de dispositivos, por meio do Tradutor regular, usando o parâmetro da categoria.
 
-Saiba mais sobre a [personalização de idioma](customization.md)
+Saiba mais sobre o [Tradutor Personalizado](customization.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Inscreva-se](translator-text-how-to-signup.md) para obter uma chave de acesso.
+- Experimente nosso [Início Rápido](quickstart-translator.md) para chamar rapidamente o serviço Tradutor.
 - A [referência de API](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference) fornece a documentação técnica para as APIs.
 - [Detalhes de preço](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)

@@ -5,19 +5,19 @@ author: bandersmsft
 ms.reviewer: dhgandhi
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: conceptual
-ms.date: 08/20/2020
+ms.topic: how-to
+ms.date: 09/24/2020
 ms.author: banders
-ms.openlocfilehash: 52dd9d2f6299f8d574934e7baec54333d2ffc0c8
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: d2d098c3a80bbbdb8c9fb64b25cc5967ee693046
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997567"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371398"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Transferir assinaturas do Azure entre assinantes e CSPs
 
-Este artigo fornece as etapas de alto nível usadas para transferir assinaturas do Azure de/para parceiros CSP (provedor de soluções de nuvem) e seus clientes.
+Este artigo fornece as etapas de alto nível usadas para transferir assinaturas do Azure de/para parceiros CSP (provedor de soluções de nuvem) e seus clientes. O objetivo das informações aqui é ajudar o assinante do Azure a fazer a coordenação com o parceiro dele. As informações que os parceiros da Microsoft usam para o processo de transferência estão documentadas em [Saiba como transferir as assinaturas do Azure de um cliente para outro parceiro](/partner-center/switch-azure-subscriptions-to-a-different-partner).
 
 ## <a name="transfer-ea-subscriptions-to-a-csp-partner"></a>Transferir assinaturas EA para um parceiro CSP
 
@@ -38,7 +38,7 @@ Para transferir qualquer outra assinatura do Azure para um parceiro CSP, o assin
     > [!IMPORTANT]
     > - Quando você associa uma assinatura a um diretório do Azure AD diferente, os usuários que têm funções atribuídas usando o [Azure RBAC (controle de acesso baseado em função do Azure)](../../role-based-access-control/role-assignments-portal.md) perdem o acesso. Os administradores de assinatura clássicos, incluindo o Administrador de Serviços e os Coadministradores, também perdem o acesso.
     > - As Atribuições de Política também são removidas de uma assinatura quando ela é associada a um diretório diferente.
-1. A conta de usuário que você usa para fazer a transferência precisa ter acesso de proprietário do [RBAC](add-change-subscription-administrator.md) nas duas assinaturas.
+1. A conta de usuário que você usa para fazer a transferência precisa ter acesso de proprietário do [Azure RBAC](add-change-subscription-administrator.md) nas duas assinaturas.
 1. Antes de começar, [valide](/rest/api/resources/resources/validatemoveresources) que todos os recursos do Azure podem ser movidos da assinatura de origem para a assinatura de destino.  
     Alguns recursos do Azure não podem ser movidos entre assinaturas. Para exibir a lista completa de recursos do Azure que podem ser movidos, confira [Suporte à operação de mover para recursos](../../azure-resource-manager/management/move-support-resources.md).
     > [!IMPORTANT]
@@ -57,10 +57,10 @@ Para transferir qualquer outra assinatura de um parceiro CSP para outra oferta d
     Observe que o diretório da alteração não é a assinatura do CSP. Por exemplo, você está transferindo de um CSP para uma assinatura paga conforme o uso. Você precisa alterar o diretório da assinatura paga conforme o uso de maneira a corresponder ao diretório.
 
     > [!IMPORTANT]
-    >  - Quando você associa uma assinatura a um diretório diferente, os usuários que têm funções atribuídas usando o [RBAC](../../role-based-access-control/role-assignments-portal.md) perdem o acesso. Os administradores de assinatura clássicos, incluindo o Administrador de Serviços e os Coadministradores, também perdem o acesso.
+    >  - Quando você associa uma assinatura a um diretório diferente, os usuários que têm funções atribuídas usando o [Azure RBAC](../../role-based-access-control/role-assignments-portal.md) perdem o acesso. Os administradores de assinatura clássicos, incluindo o Administrador de Serviços e os Coadministradores, também perdem o acesso.
     >  - As Atribuições de Política também são removidas de uma assinatura quando ela é associada a um diretório diferente.
 
-1. A conta de usuário que você usa para fazer a transferência precisa ter acesso de proprietário do [RBAC](add-change-subscription-administrator.md) nas duas assinaturas.
+1. A conta de usuário que você usa para fazer a transferência precisa ter acesso de proprietário do [Azure RBAC](add-change-subscription-administrator.md) nas duas assinaturas.
 1. Antes de começar, [valide](/rest/api/resources/resources/validatemoveresources) que todos os recursos do Azure podem ser movidos da assinatura de origem para a assinatura de destino.
     > [!IMPORTANT]
     >  - Alguns recursos do Azure não podem ser movidos entre assinaturas. Para exibir a lista completa de recursos do Azure que podem ser movidos, confira [Suporte à operação de mover para recursos](../../azure-resource-manager/management/move-support-resources.md).

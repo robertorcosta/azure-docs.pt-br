@@ -14,14 +14,14 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 178f6a2c1a71d088eeb1a3ea6f7e39198d401ff4
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 9fa15a9134fdc49d87baea48490854c1289a662a
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213725"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90054391"
 ---
-# <a name="quickstart-set-microsoft-365-groups-to-expire-in-azure-active-directory"></a>Início Rápido: Configurar os grupos do Microsoft 365 a serem expirados no Azure Active Directory
+# <a name="quickstart-set-microsoft-365-groups-to-expire-in-azure-active-directory"></a>Configurar os grupos do Microsoft 365 a serem expirados no Azure Active Directory
 
 Neste início rápido, você pode definir a política de expiração para os grupos do Microsoft 365. Quando os usuários podem configurar seus próprios grupos, os grupos não utilizados podem multiplicar-se. Uma maneira de gerenciar os grupos não utilizados é definir esses grupos para expirar, para reduzir o trabalho de ter que exclui-los manualmente.
 
@@ -33,7 +33,7 @@ A política de expiração é simples:
 - Um grupo excluído do Microsoft 365 pode ser restaurado em 30 dias, por um proprietário do grupo ou por um administrador do Azure AD
 
 > [!NOTE]
-> Agora, os grupos usam a inteligência do Azure AD para renovar automaticamente com base no uso recente. Essa decisão de renovação é baseada na atividade do usuário em grupos nos serviços do Office 365, como Outlook, SharePoint, Teams, Yammer e outros.
+> Agora, os grupos usam a inteligência do Azure AD para renovar automaticamente com base no uso recente. Essa decisão de renovação é baseada na atividade do usuário em grupos nos serviços do Microsoft 365, como Outlook, SharePoint, Teams, Yammer e outros.
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 

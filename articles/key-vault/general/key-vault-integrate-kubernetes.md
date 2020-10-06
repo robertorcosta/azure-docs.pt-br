@@ -5,13 +5,13 @@ author: ShaneBala-keyvault
 ms.author: sudbalas
 ms.service: key-vault
 ms.topic: tutorial
-ms.date: 08/25/2020
-ms.openlocfilehash: f77d197c30d00083b280a97079fe03146fcfeb82
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.date: 09/25/2020
+ms.openlocfilehash: ca075414b234b65f15b82847a112104f6fbe3cc1
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90061794"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597898"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>Tutorial: Configurar e executar o provedor do Azure Key Vault para o driver da Secrets Store CSI no Kubernetes
 
@@ -114,7 +114,7 @@ Para criar seu próprio objeto SecretProviderClass personalizado com parâmetros
 
 No arquivo YAML SecretProviderClass de exemplo, preencha os parâmetros ausentes. Os seguintes parâmetros são necessários:
 
-* **userAssignedIdentityID**: # [OBRIGATÓRIO] Se você estiver usando uma entidade de serviço, use a ID do cliente para especificar qual identidade gerenciada atribuída pelo usuário deve ser usada. Se você estiver usando uma identidade atribuída pelo usuário como a identidade gerenciada da VM, especifique a ID do cliente da identidade. Se o valor estiver vazio, o padrão será usar a identidade atribuída pelo sistema na VM 
+* **userAssignedIdentityID**: # [OBRIGATÓRIO] se você estiver usando uma entidade de serviço, use a ID do cliente para especificar qual identidade gerenciada atribuída pelo usuário deverá ser usada. Se você estiver usando uma identidade atribuída pelo usuário como a identidade gerenciada da VM, especifique a ID do cliente da identidade. Se o valor estiver vazio, o padrão será usar a identidade atribuída pelo sistema na VM 
 * **keyvaultName**: o nome de seu cofre de chaves
 * **objects**: o conteúdo com todo o conteúdo secreto que você deseja montar
     * **objectName**: o nome do conteúdo secreto

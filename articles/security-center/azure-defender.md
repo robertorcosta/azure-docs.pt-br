@@ -1,31 +1,28 @@
 ---
 title: Visão geral do Azure Defender e os planos disponíveis
-description: Saiba mais sobre os planos, as proteções e os alertas do Azure Defender. Depois, prossiga para habilitar o Azure Defender nas suas assinaturas.
+description: Saiba mais sobre os planos, as proteções e os alertas do Azure Defender. Depois, habilite o Azure Defender nas suas assinaturas para ter segurança avançada.
 author: memildin
 ms.author: memildin
-ms.date: 9/22/2020
+ms.date: 9/30/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 5a5b96d5a9ea6aa05da30238690b8f5fa745b3f3
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: bfff96666981a522cd6d91828604696a12ecad56
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91448429"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91576840"
 ---
 # <a name="introduction-to-azure-defender"></a>Introdução ao Azure Defender
 
 Os recursos da Central de Segurança do Azure abrangem os dois pilares mais amplos da segurança na nuvem:
 
-- **GPSN (gerenciamento da postura de segurança na nuvem)**
-- **PCTN (proteção de cargas de trabalho na nuvem)**
+- **GPSN (gerenciamento da postura de segurança na nuvem)** – A Central de Segurança está disponível **gratuitamente** para todos os usuários do Azure. A experiência gratuita inclui recursos de GPSN, como classificação de segurança, detecção de configurações incorretas de segurança em seus computadores do Azure, inventário de ativos e muito mais. Use esses recursos de GPSN para fortalecer sua postura de nuvem híbrida e controlar a conformidade com as políticas internas.
 
-Os recursos de GPSN da Central de Segurança, como classificação de segurança, detecção de configurações incorretas de segurança nos seus computadores Windows e Linux do Azure, fazem parte da experiência gratuita da Central de Segurança disponível para todos os usuários do Azure. Use esses recursos do GPSN para fortalecer sua postura e garantir a conformidade regulatória.
+- **PCTN (proteção de cargas de trabalho na nuvem)** – A PPCTN (plataforma de proteção de cargas de trabalho na nuvem) integrada da Central de Segurança, o **Azure Defender**, oferece proteção avançada e inteligente para cargas de trabalho e recursos híbridos do Azure. A habilitação do Azure Defender oferece uma série de recursos de segurança adicionais, conforme descrito nesta página. Além das políticas internas, ao habilitar qualquer plano do Azure Defender, você pode adicionar políticas e iniciativas personalizadas. Você pode adicionar padrões regulatórios, como NIST e Azure CIS, bem como o Azure Security Benchmark para obter uma exibição verdadeiramente personalizada da sua conformidade.
 
-O **Azure Defender** é a PPCTN (plataforma de proteção de cargas de trabalho na nuvem) integrada à Central de Segurança para proteção avançada e inteligente das suas cargas de trabalho híbridas e do Azure.
-
-Este é o painel do Azure Defender na Central de Segurança do Azure:
+O painel do Azure Defender na Central de Segurança fornece visibilidade e controle dos recursos de PCTN em seu ambiente:
 
 :::image type="content" source="./media/azure-defender/sample-defender-dashboard.png" alt-text="Um exemplo do painel do Azure Defender" lightbox="./media/azure-defender/sample-defender-dashboard.png":::
 
@@ -55,11 +52,13 @@ Além de defender seu ambiente do Azure, você pode adicionar funcionalidades do
 - Proteger suas máquinas virtuais em outras nuvens (como a AWS e o GCP)
 - Proteger seus dispositivos IoT
 
-Você obterá inteligência contra ameaças personalizada e alertas priorizados de acordo com seu ambiente específico, de modo que possa se concentrar no que é mais importante
+Você obterá inteligência contra ameaças personalizada e alertas priorizados de acordo com seu ambiente específico, de modo que possa se concentrar no que é mais importante.
 
-Implante o [Azure Arc](https://azure.microsoft.com/services/azure-arc/) e habilite o Azure Defender para estender a proteção para máquinas virtuais locais e de várias nuvens e bancos de dados SQL. O Azure Arc para servidores é um serviço gratuito, mas os serviços usados nos servidores habilitados para Arc, por exemplo, o Azure Defender, serão cobrados de acordo com o preço do serviço.
+Para estender a proteção para máquinas virtuais e bancos de dados SQL em outras nuvens ou no local, implante o [Azure Arc](https://azure.microsoft.com/services/azure-arc/) e habilite o Azure Defender. O Azure Arc para servidores é um serviço gratuito, mas os serviços usados nos servidores habilitados para Arc, por exemplo, o Azure Defender, serão cobrados de acordo com o preço do serviço. Saiba mais em [Adicionar computadores não Azure com o Azure Arc](quickstart-onboard-machines.md#add-non-azure-machines-with-azure-arc).
 
-[Saiba mais sobre o Azure Arc](https://docs.microsoft.com/azure/azure-arc/overview).
+> [!TIP]
+> O conector nativo para AWS lida de forma transparente com a implantação do Azure Arc para você. Saiba mais em [Conectar as contas do AWS à Central de Segurança do Azure](quickstart-onboard-aws.md).
+
 
 
 ## <a name="azure-defender-alerts"></a>Alertas do Azure Defender 

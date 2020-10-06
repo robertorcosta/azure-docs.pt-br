@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: 27073cb7cbd78183e519290c676c2499700b0cca
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: cc44f05491cc17adb9ca51963d09667400fa1ff6
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442540"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371908"
 ---
 # <a name="azure-ea-portal-administration"></a>Administração do Portal do EA do Azure
 
@@ -175,7 +175,7 @@ Este documento responde às perguntas frequentes relacionadas à propriedade da 
 
 ### <a name="how-many-azure-account-owners-can-you-have-per-subscription"></a>Quantos proprietários da conta do Azure você pode ter por assinatura?
 
-Somente um proprietário de conta é permitido por assinatura.  Outras funções podem ser adicionadas por meio do acesso baseado em função ou do IAM (Controle de Acesso) na guia da assinatura no canto superior esquerdo da página do [portal do Azure](https://portal.azure.com).
+Somente um proprietário de conta é permitido por assinatura.  Outras funções podem ser adicionadas usando o Azure RBAC (controle de acesso baseado em função) na guia da assinatura no canto superior esquerdo da página do [portal do Azure](https://portal.azure.com).
 
 ### <a name="can-an-azure-account-owner-be-listed-under-more-than-one-department"></a>Um proprietário de conta do Azure pode ser listado em mais de um departamento?
 
@@ -191,7 +191,7 @@ Um proprietário de conta do Azure pode criar e gerenciar um número ilimitado d
 
 ### <a name="how-can-i-accessview-all-my-organizations-subscriptions"></a>Como posso acessar/ver todas as assinaturas da minha organização?
 
-Atualmente, isso deve ser feito pela política, ou seja, você precisará exigir que, para cada assinatura criada, sua conta seja adicionada a uma função de assinatura por meio do acesso baseado em função.
+Atualmente, isso deve ser feito pela política, ou seja, você precisará exigir que, para cada assinatura criada, sua conta seja adicionada a uma função de assinatura por meio do Azure RBAC (controle de acesso baseado em função).
 
 ### <a name="where-do-i-go-to-create-a-subscription"></a>Onde posso criar uma assinatura?
 

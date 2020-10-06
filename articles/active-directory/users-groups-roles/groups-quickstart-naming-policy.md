@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5b54af39401ba8c3fede4c9ad80ec8edc963b1d
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: de0212739f5cd24cec9ab58bdaf4d2b272f31200
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213675"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90054357"
 ---
 # <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>Início Rápido: política de nomenclatura para grupos no Azure Active Directory
 
@@ -68,6 +68,6 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 Neste início rápido, você aprendeu a definir a política de nomenclatura para uma organização do Azure AD no portal do Azure.
 
-Avance para o próximo artigo para ver mais detalhes, incluindo os cmdlets do PowerShell da política de nomenclatura, restrições técnicas, como adicionar uma lista de palavras bloqueadas personalizadas e as experiências do usuário final nos aplicativos do Office 365.
+Avance para o próximo artigo para ver mais detalhes, incluindo os cmdlets do PowerShell da política de nomenclatura, restrições técnicas, como adicionar uma lista de palavras bloqueadas personalizadas e as experiências do usuário final nos aplicativos do Microsoft 365.
 > [!div class="nextstepaction"]
 > [PowerShell da política de nomenclatura](groups-naming-policy.md)

@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: b18e08f93df143f9844fe774eee59452978d7437
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 42d9c2b4b1edac62449fa4120463a384400d6d27
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686387"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360678"
 ---
 # <a name="billing-accounts-and-scopes-in-the-azure-portal"></a>Escopos do orçamento e contas de cobrança no portal do Azure
 
@@ -80,11 +80,11 @@ Um escopo é um nó em uma conta de cobrança que você usa para exibir e gerenc
 
 2. Pesquise **Gerenciamento de Custos + Cobrança**.
 
-   ![Captura de tela que mostra a pesquisa do portal do Azure](./media/view-all-accounts/billing-search-cost-management-billing.png)
+   ![Captura de tela que mostra a pesquisa no portal do Azure de Gerenciamento de Custos e Cobrança.](./media/view-all-accounts/billing-search-cost-management-billing.png)
 
 3. Na página de visão geral, selecione **Alternar escopo**.
 
-   ![Captura de tela que mostra os escopos do orçamento](./media/view-all-accounts/overview-select-scopes.png)
+   ![Captura de tela que mostra os escopos do orçamento.](./media/view-all-accounts/overview-select-scopes.png)
 
    > [!Note]
     >
@@ -92,7 +92,7 @@ Um escopo é um nó em uma conta de cobrança que você usa para exibir e gerenc
 
 4. Selecione um escopo para exibir detalhes.
 
-   ![Captura de tela que mostra os escopos do orçamento](./media/view-all-accounts/list-of-scopes.png)
+   ![Captura de tela que mostra escopos do orçamento, que você pode selecionar para obter detalhes.](./media/view-all-accounts/list-of-scopes.png)
 
 ## <a name="check-the-type-of-your-account"></a>Verifique o tipo de sua conta
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-account-type.md)]

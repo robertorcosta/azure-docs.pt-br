@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 64e7f0eae10f590ffd268b43b63a5d8cb0987c57
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 16ddb9cfc2f0731381b1c92d8fdb5f4cffa1ca63
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683140"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372350"
 ---
 # <a name="understand-and-work-with-scopes"></a>Entender e trabalhar com escopos
 
@@ -26,7 +26,7 @@ Um _escopo_ é um nó na hierarquia de recursos do Azure em que os usuários do 
 - Dados de cobrança, como pagamentos e faturas
 - Serviços de nuvem, como governança de políticas e custos
 
-Os escopos são o local em que você gerencia os dados de cobrança, têm funções específicas para pagamentos, exibem faturas e realizam o gerenciamento geral da conta. As funções de cobrança e de conta são gerenciadas separadamente das funções usadas para o gerenciamento de recursos, que usam o [Azure RBAC](../../role-based-access-control/overview.md). Para distinguir claramente a intenção dos escopos separados, incluindo as diferenças de controle de acesso, eles são chamados de _escopos do orçamento_ e _escopos do RBAC_, respectivamente.
+Os escopos são o local em que você gerencia os dados de cobrança, têm funções específicas para pagamentos, exibem faturas e realizam o gerenciamento geral da conta. As funções de cobrança e de conta são gerenciadas separadamente das funções usadas para o gerenciamento de recursos, que usam o [Azure RBAC](../../role-based-access-control/overview.md). Para distinguir claramente a intenção dos escopos separados, incluindo as diferenças de controle de acesso, eles são chamados de _escopos do orçamento_ e _escopos do Azure RBAC_, respectivamente.
 
 Para saber mais sobre escopos, assista ao vídeo [Gerenciamento de Custos configurando hierarquias](https://www.youtube.com/watch?v=n3TLRaYJ1NY). Para assistir a outros vídeos, visite o [Canal do YouTube do Gerenciamento de Custos](https://www.youtube.com/c/AzureCostManagement).
 
@@ -34,7 +34,7 @@ Para saber mais sobre escopos, assista ao vídeo [Gerenciamento de Custos config
 
 ## <a name="how-cost-management-uses-scopes"></a>Como o Gerenciamento de Custos usa os escopos
 
-O Gerenciamento de Custos funciona em todos os escopos acima dos recursos para permitir que as organizações gerenciem os custos no nível em que têm acesso, seja esse nível a conta de cobrança inteira ou um grupo de recursos. Embora os escopos do orçamento sejam diferentes de acordo com o seu contrato da Microsoft (tipo de assinatura), os escopos do RBAC não são.
+O Gerenciamento de Custos funciona em todos os escopos acima dos recursos para permitir que as organizações gerenciem os custos no nível em que têm acesso, seja esse nível a conta de cobrança inteira ou um grupo de recursos. Embora os escopos do orçamento sejam diferentes de acordo com o seu contrato da Microsoft (tipo de assinatura), os escopos do Azure RBAC não são.
 
 ## <a name="azure-rbac-scopes"></a>Função do Azure RBAC
 
@@ -98,7 +98,7 @@ Os escopos do orçamento de EA dão suporte às seguintes funções:
 - **Usuário corporativo somente leitura** – pode exibir configurações de conta de cobrança, dados de custo e configuração de custo. Por exemplo, orçamentos e exportações. Em função, o escopo do orçamento do EA é o mesmo que a [função do Azure de Leitor do Gerenciamento de Custos](../../role-based-access-control/built-in-roles.md#cost-management-reader).
 - **Administrador de departamento** – pode gerenciar configurações de departamento, como centro de custo, e pode acessar e exibir todos os custos e gerenciar a configuração de custo. Por exemplo, orçamentos e exportações.  A configuração **Administrador de departamento exibir encargos** da conta de cobrança deve estar habilitada para que administradores do departamento e usuários somente leitura vejam os custos. Se a opção **Administrador de departamento exibir encargos** estiver desabilitada, os usuários do departamento não poderão ver os custos em nenhum nível, mesmo se forem um proprietário de conta ou da assinatura.
 - **Usuário somente leitura do departamento** – pode exibir configurações de departamento, dados de custo e configuração de custo. Por exemplo, orçamentos e exportações. Se a opção **Administrador de departamento exibir encargos** estiver desabilitada, os usuários do departamento não poderão ver os custos em nenhum nível, mesmo se forem um proprietário de conta ou da assinatura.
-- **Proprietário da conta** – pode gerenciar as configurações da conta de registro (como o centro de custo), exibir todos os custos e gerenciar a configuração de custos (como orçamentos e exportações) para a conta de registro. A configuração **Proprietário da conta exibir encargos** da conta de cobrança deve estar habilitada para que proprietários da conta e usuários RBAC vejam os custos.
+- **Proprietário da conta** – pode gerenciar as configurações da conta de registro (como o centro de custo), exibir todos os custos e gerenciar a configuração de custos (como orçamentos e exportações) para a conta de registro. A configuração **Exibir cobranças de AO** da conta de cobrança deve estar habilitada para que proprietários da conta e usuários Azure RBAC vejam os custos.
 
 Os usuários da conta de cobrança do EA não têm acesso direto às faturas. As notas fiscais estão disponíveis em um sistema de licenciamento por volume externo.
 

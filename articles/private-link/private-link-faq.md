@@ -5,14 +5,14 @@ services: private-link
 author: malopMSFT
 ms.service: private-link
 ms.topic: conceptual
-ms.date: 09/16/2019
+ms.date: 10/05/2019
 ms.author: allensu
-ms.openlocfilehash: f557bb271c88b32a9b53cf9b41b911314427530a
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 91823ff0d324cd30566948fecd86cc441342f14e
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91629940"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91757037"
 ---
 # <a name="azure-private-link-frequently-asked-questions-faq"></a>Perguntas frequentes sobre o link privado do Azure
 
@@ -24,14 +24,16 @@ ms.locfileid: "91629940"
 - **[Serviço de vínculo privado do Azure](private-link-service-overview.md)**: o serviço de vínculo privado do Azure é um serviço criado por um provedor de serviços. Atualmente, um serviço de vínculo privado pode ser anexado à configuração de IP de front-end de um Standard Load Balancer. 
 
 ### <a name="how-is-traffic-being-sent-when-using-private-link"></a>Como o tráfego é enviado ao usar o link privado?
-O tráfego é enviado de forma privada usando o backbone da Microsoft. Ele não atravessa a Internet.  
+O tráfego é enviado de forma privada usando o backbone da Microsoft. Ele não atravessa a Internet. O link privado do Azure não armazena dados do cliente.
  
 ### <a name="what-is-the-difference-between-a-service-endpoints-and-a-private-endpoints"></a>Qual é a diferença entre um ponto de extremidade de serviço e um ponto de extremidade privado?
-- Ao usar pontos de extremidade privados, o acesso à rede é concedido a recursos específicos por trás de um determinado serviço, fornecendo segmentação granular, além disso, o tráfego pode acessar o recurso de serviço no local sem usar pontos de extremidade públicos.
+- Pontos de extremidade privados concedem acesso à rede para recursos específicos por trás de um determinado serviço, fornecendo segmentação granular. O tráfego pode acessar o recurso de serviço no local sem usar pontos de extremidade públicos.
 - Um ponto de extremidade de serviço permanece um endereço IP roteável publicamente.  Um ponto de extremidade privado é um IP privado no espaço de endereço da rede virtual em que o ponto de extremidade privado está configurado.
 
 ### <a name="what-is-the-relationship-between-private-link-service-and-private-endpoint"></a>Qual é a relação entre o serviço de link privado e o ponto de extremidade privado?
-O ponto de extremidade privado fornece acesso a vários tipos de recursos de link privado, incluindo os serviços de PaaS do Azure e seu próprio serviço de vínculo privado. É uma relação um-para-muitos. Um serviço de vínculo privado pode receber conexões de vários pontos de extremidade privados. Por outro lado, um ponto de extremidade privado só pode se conectar a um serviço de vínculo privado.    
+Vários tipos de recursos de link privado dão suporte ao acesso por meio do ponto de extremidade privado. Os recursos incluem os serviços de PaaS do Azure e seu próprio serviço de vínculo privado. É uma relação um-para-muitos. 
+
+Um serviço de vínculo privado recebe conexões de vários pontos de extremidade privados. Um ponto de extremidade privado se conecta a um serviço de vínculo privado.    
 
 ## <a name="private-endpoint"></a>Ponto de extremidade privado 
  
@@ -68,14 +70,14 @@ Você pode controlar a exposição usando a configuração de visibilidade no se
 - Assinaturas somente **restritivas** que são aprovadas e com acesso de RBAC podem localizar o serviço. 
 - **Todos** -todos podem localizar o serviço. 
  
-### <a name="can-i-create-a-private-link-service-with-basic-load-balancer"></a>Posso criar um serviço de vínculo privado com Load Balancer básica? 
-Não. Não há suporte para o serviço de vínculo privado em um Load Balancer básico.
+### <a name="can-i-create-a-private-link-service-with-basic-load-balancer"></a>Posso criar um serviço de vínculo privado com o Load Balancer básico? 
+Não. Não há suporte para o serviço de vínculo privado em um balanceador de carga básico.
  
 ### <a name="is-a-dedicated-subnet-required-for-private-link-service"></a>Uma sub-rede dedicada é necessária para o serviço de vínculo privado? 
 Não. O serviço de vínculo privado não requer uma sub-rede dedicada. Você pode escolher qualquer sub-rede em sua VNet onde o serviço é implantado.   
 
-### <a name="i-am-a-service-provider-using-azure-private-link-do-i-need-to-make-sure-all-my-customers-have-unique-ip-space-and-dont-overlap-with-my-ip-space"></a>Sou um provedor de serviços usando o link privado do Azure. É necessário ter certeza de que todos os meus clientes têm espaço IP exclusivo e não se sobrepõem ao meu espaço de IP? 
-Não. O link privado do Azure fornece essa funcionalidade para você. Portanto, não é necessário ter espaço de endereço não sobreposto com o espaço de endereço do seu cliente. 
+### <a name="im-a-service-provider-using-azure-private-link-do-i-need-to-make-sure-all-my-customers-have-unique-ip-space-and-dont-overlap-with-my-ip-space"></a>Sou um provedor de serviços usando o link privado do Azure. É necessário ter certeza de que todos os meus clientes têm espaço IP exclusivo e não se sobrepõem ao meu espaço de IP? 
+Não. O link privado do Azure fornece essa funcionalidade para você. Não é necessário ter espaço de endereço não sobreposto com o espaço de endereço do seu cliente. 
 
 ##  <a name="next-steps"></a>Próximas etapas
 

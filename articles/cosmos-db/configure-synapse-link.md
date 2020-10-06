@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: rosouz
 ms.custom: references_regions
-ms.openlocfilehash: 559c596ed9b7412b277fbfc1cf30cad15e852cef
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a634743441866c4f1a9f6d634efe0ff9e368b5e9
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91253149"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91757836"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db-preview"></a>Configurar e usar o Link do Azure Synapse para Azure Cosmos DB (versão prévia)
 
-O Link do Azure Synapse para Azure Cosmos DB é uma funcionalidade HTAP (transacional e de processamento analítico) híbrida e nativa de nuvem que permite executar análises quase em tempo real sobre dados operacionais no Azure Cosmos DB. O Link do Synapse cria uma integração perfeita entre o Azure Cosmos DB e o Azure Synapse Analytics.
+O [Azure Synapse link para Azure Cosmos DB](synapse-link.md) é um recurso de HTAP (transacional e de processamento analítico) híbrido nativo de nuvem que permite executar análises quase em tempo real sobre dados operacionais em Azure Cosmos DB. O Link do Synapse cria uma integração perfeita entre o Azure Cosmos DB e o Azure Synapse Analytics.
 
 > [!IMPORTANT]
 > Para usar o link Synapse do Azure, certifique-se de provisionar sua conta de Azure Cosmos DB & espaço de trabalho do Azure Synapse Analytics em uma das regiões com suporte. O link Synapse do Azure está disponível nas seguintes regiões do Azure: centro-oeste dos EUA, leste dos EUA, oeste da dos EUA 2, Europa Setentrional, Europa Ocidental, Sul EUA Central, Sudeste Asiático, leste da Austrália, leste U2, Sul do Reino Unido.
@@ -46,7 +46,7 @@ O link Synapse do Azure está disponível para os contêineres da API do SQL Azu
 
 1. Em seguida, ele solicita que você habilite o Link do Synapse em sua conta. Selecione **Habilitar**. Esse processo pode levar de 1 a 5 minutos para ser concluído.
 
-   :::image type="content" source="./media/configure-synapse-link/enable-synapse-link-feature.png" alt-text="Habilitar o recurso Link do Synapse":::
+   :::image type="content" source="./media/configure-synapse-link/enable-synapse-link-feature.png" alt-text="Localizar a versão prévia do recurso do Link do Synapse":::
 
 1. Sua conta agora está habilitada para usar o Link do Synapse. Em seguida, consulte como criar contêineres habilitados para repositório analítico para iniciar automaticamente a replicação dos dados operacionais do repositório transacional no repositório analítico.
 
@@ -68,7 +68,7 @@ Você pode ativar o repositório analítico em um contêiner Azure Cosmos ao cri
 
 1. Selecione **Novo Contêiner** e insira um nome para o banco de dados, o contêiner, a chave de partição e os detalhes da taxa de transferência. Ative a opção **Repositório analítico**. Depois de habilitar o repositório analítico, ele cria um contêiner com `AnalyicalTTL` propriedade definida como o valor padrão de -1 (retenção infinita). Esse repositório analítico retém todas as versões históricas dos registros.
 
-   :::image type="content" source="./media/configure-synapse-link/create-container-analytical-store.png" alt-text="Ativar repositório analítico para o contêiner do Azure Cosmos":::
+   :::image type="content" source="./media/configure-synapse-link/create-container-analytical-store.png" alt-text="Localizar a versão prévia do recurso do Link do Synapse":::
 
 1. Se você não tiver habilitado o Link do Synapse anteriormente nessa conta, ele solicitará que você faça isso porque é um pré-requisito para criar um contêiner habilitado para repositório analítico. Se solicitado, selecione **Habilitar Link do Synapse**. Esse processo pode levar de 1 a 5 minutos para ser concluído.
 

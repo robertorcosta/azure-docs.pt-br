@@ -10,12 +10,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 32a6284c7766f3b5d9413a76056dc915a8ac93dc
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 550be6c10402398b62af307281660b93981a0df3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686795"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91308955"
 ---
 # <a name="reactivate-a-disabled-azure-subscription"></a>Reativar uma assinatura do Azure desabilitada
 
@@ -32,7 +32,7 @@ As assinaturas do Azure com crédito, como a Avaliação Gratuita e o Microsoft 
 > [!NOTE]
 > Se você tiver uma assinatura de Avaliação Gratuita e remover os limites de gastos, sua assinatura se converterá em uma assinatura individual com taxas pagas conforme o uso no final da Avaliação Gratuita. Você manterá o crédito restante durante 30 dias após a criação da assinatura. Além disso, também terá acesso a serviços gratuitos por 12 meses.
 
-Para monitorar e gerenciar a atividade de cobrança do Azure, confira [Impedir custos inesperados com o gerenciamento de custos e de cobrança do Azure](getting-started.md).
+Para monitorar e gerenciar a atividade de cobrança para o Azure, confira [Planejar o gerenciamento de custos do Azure](../understand/plan-manage-costs.md).
 
 
 ## <a name="your-bill-is-past-due"></a>Sua fatura está atrasada
@@ -60,4 +60,4 @@ Para outros tipos de assinatura, [entre em contato com o suporte](https://portal
 Caso tenha dúvidas ou precise de ajuda, [crie uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Próximas etapas
-- Saiba como [Monitorar e gerenciar a atividade de cobrança para o Azure](getting-started.md).
+- Saiba como [Planejar o gerenciamento de custos do Azure](../understand/plan-manage-costs.md).

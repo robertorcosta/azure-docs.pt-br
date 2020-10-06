@@ -10,12 +10,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: a3930698bb2999ebaad4d78e0b545b83cc968ef2
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: c24af5a9fb1367e00d9a014b1e10f750a38ad30b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690027"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91270892"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Baixar ou exibir a fatura de cobrança e os dados de uso diário do Azure
 
@@ -49,7 +49,7 @@ Para a maioria das assinaturas, você pode baixar sua fatura do portal do Azure.
 
     ![Captura de tela que mostra a página Baixar fatura e uso](./media/download-azure-invoice-daily-usage-date/usageandinvoice.png)
 
-Para saber mais sobre a fatura, confira [Entenda sua fatura do Microsoft Azure](../understand/review-individual-bill.md). Para obter ajuda sobre como gerenciar os custos, confira [Evitar custos inesperados com o gerenciamento de custos e a cobrança do Azure](getting-started.md).
+Para saber mais sobre a fatura, confira [Entenda sua fatura do Microsoft Azure](../understand/review-individual-bill.md). Para obter ajuda para gerenciar seus custos, confira [Analisar encargos inesperados](../understand/analyze-unexpected-charges.md).
 
 ### <a name="download-invoices-for-a-microsoft-customer-agreement"></a>Baixar faturas para um Contrato de Cliente da Microsoft
 

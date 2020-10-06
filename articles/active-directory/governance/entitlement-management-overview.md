@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.subservice: compliance
-ms.date: 09/08/2020
+ms.date: 09/30/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.custom: contperfq1
-ms.openlocfilehash: 2ce5f0c9b340e1b81fcf002ee70e7ec1cc74d38c
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: f8bf2a1bb4892637ac504d5920754fc412691a4a
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89594315"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597378"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>O que é o gerenciamento de direitos do Azure AD?
 
@@ -77,8 +77,9 @@ O gerenciamento de direitos introduz o conceito de *pacote de acesso* ao Azure A
 
 Você também pode controlar o acesso a outros recursos que dependem de grupos de segurança do Azure AD ou grupos do Microsoft 365.  Por exemplo:
 
-- Você pode conceder aos usuários licenças para o Microsoft 365 usando um grupo de segurança do Azure AD em um pacote de acesso e configurando um [licenciamento baseado em grupo](../users-groups-roles/licensing-groups-assign.md) para esse grupo
-- Você pode conceder aos usuários acesso para gerenciar recursos do Azure usando um grupo de segurança do Azure AD em um pacote de acesso e criando uma [atribuição de função do Azure](../../role-based-access-control/role-assignments-portal.md) para esse grupo
+- Você pode conceder aos usuários licenças para o Microsoft 365 usando um grupo de segurança do Azure AD em um pacote de acesso e configurando um [licenciamento baseado em grupo](../users-groups-roles/licensing-groups-assign.md) para esse grupo.
+- Você pode conceder aos usuários acesso para gerenciar recursos do Azure usando um grupo de segurança do Azure AD em um pacote de acesso e criando uma [atribuição de função do Azure](../../role-based-access-control/role-assignments-portal.md) para esse grupo.
+- Você pode conceder aos usuários acesso para gerenciar funções do Azure AD usando grupos atribuíveis às funções do Azure AD em um pacote de acesso e [atribuindo uma função do Azure AD a esse grupo](../users-groups-roles/roles-groups-assign-role.md).
 
 ## <a name="how-do-i-control-who-gets-access"></a>Como faço para controlar quem obtém acesso?
 

@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 1ba3f49c9016d71acf162efb07cd6120b1dcc1ec
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 3b5698c782b691dd8ae91913115db184fc83a2eb
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743549"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91756612"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Criar e gerenciar uma instância de computação Azure Machine Learning
 
@@ -46,7 +46,7 @@ As instâncias de computação podem executar trabalhos com segurança em um [am
 
 A criação de uma instância de computação é um processo único para o espaço de trabalho. Você pode reutilizar essa computação como uma estação de trabalho de desenvolvimento ou como um destino de computação para treinamento. Você pode ter várias instâncias de computação anexadas ao seu espaço de trabalho.
 
-Os núcleos dedicados por região por cota da família de VMs e a cota regional total, que se aplicam à criação da instância de computação, são unificados e compartilhados com Azure Machine Learning cota de cluster de computação de treinamento. Parar a instância de computação não libera a cota para garantir que você poderá reiniciar a instância de computação.
+Os núcleos dedicados por região por cota da família de VMs e a cota regional total, que se aplicam à criação da instância de computação, são unificados e compartilhados com Azure Machine Learning cota de cluster de computação de treinamento. Parar a instância de computação não libera a cota para garantir que você poderá reiniciar a instância de computação. Observe que não é possível alterar o tamanho da máquina virtual da instância de computação depois que ela é criada.
 
 O exemplo a seguir demonstra como criar uma instância de computação:
 

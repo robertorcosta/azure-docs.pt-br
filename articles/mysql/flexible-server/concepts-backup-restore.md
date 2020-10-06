@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: a5f11a6054358584a8511cb967860c89f6491beb
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: a72552d8654a45d1ff4c1890c8086d43d7bd801d
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90933244"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91756527"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql-flexible-server-preview"></a>Backup e restauração no banco de dados do Azure para servidor flexível MySQL (versão prévia)
 
@@ -24,7 +24,7 @@ Banco de dados do Azure para MySQL servidor flexível, cria automaticamente back
 
 O servidor flexível faz backups instantâneos dos arquivos de dados e os armazena em um armazenamento redundante local. O servidor também executa backup de logs de transações e também os armazena em armazenamento redundante local. Esses backups permitem que você restaure um servidor pontualmente dentro de seu período de retenção de backup configurado. O período de retenção de backup padrão é de sete dias. Opcionalmente, você pode configurar o backup do banco de dados de 1 a 35 dias. Todos os backups são criptografados usando a criptografia AES de 256 bits para os dados armazenados em repouso.
 
-Esses arquivos de backup não podem ser exportados. Os backups só podem ser usados para operações de restauração no servidor flexível. Você também pode usar o [mysqldump](https://docs.microsoft.com/azure/MySQL/howto-migrate-using-dump-and-restore)   de um cliente MySQL para copiar um banco de dados.
+Esses arquivos de backup não podem ser exportados. Os backups só podem ser usados para operações de restauração no servidor flexível. Você também pode usar o [mysqldump](https://docs.microsoft.com/azure/postgresql/howto-migrate-using-dump-and-restore)   de um cliente MySQL para copiar um banco de dados.
 
 ## <a name="backup-frequency"></a>Frequência de backup
 

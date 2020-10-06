@@ -1,30 +1,28 @@
 ---
-title: 'Notas sobre a versão: Azure Synapse Analytics (workspaces)'
-description: Notas sobre a versão do Azure Synapse Analytics (workspaces)
+title: 'Notas sobre a versão: Azure Synapse Analytics (versão prévia dos workspaces)'
+description: Notas sobre a versão do Azure Synapse Analytics (versão prévia dos workspaces)
 services: synapse-analytics
 author: julieMSFT
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: ''
+ms.subservice: overview
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: add5c89e83f33980803bf571239023859653c4f1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f2050bf671af35df4faec8b0b1d53f4c10a9075e
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87059607"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90031663"
 ---
-# <a name="azure-synapse-analytics-preview-release-notes"></a>Notas sobre a versão do Azure Synapse Analytics (versão prévia)
+# <a name="azure-synapse-analytics-workspaces-preview-release-notes"></a>Notas sobre a versão do Azure Synapse Analytics (versão prévia dos workspaces)
 
 Este artigo descreve as limitações e os problemas com o Azure Synapse Analytics (workspaces). Para obter informações relacionadas, confira [O que é o Azure Synapse Analytics (workspaces)](overview-what-is.md)
 
 [!INCLUDE [preview](includes/note-preview.md)]
 
-## <a name="azure-synapse-workspaces"></a>Azure Synapse (workspaces) 
-
-### <a name="azure-synapse-cli"></a>CLI do Azure Synapse
+## <a name="azure-cli"></a>CLI do Azure
 
 - Problema e impacto sobre o cliente: Workspaces criados pelo SDK não conseguem iniciar o Synapse Studio
 
@@ -36,8 +34,6 @@ Este artigo descreve as limitações e os problemas com o Azure Synapse Analytic
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Criar um workspace](quickstart-create-workspace.md)
-* [Usar o Synapse Studio](quickstart-synapse-studio.md)
-* [Criar um pool de SQL](quickstart-create-sql-pool-portal.md)
-* [Usar o SQL sob demanda](quickstart-sql-on-demand.md)
-* [Criar um Pool do Apache Spark](quickstart-create-apache-spark-pool-portal.md)
+* [O que é o Azure Synapse](overview-what-is.md)
+* [Introdução](get-started.md)
+* [perguntas frequentes](overview-faq.md)

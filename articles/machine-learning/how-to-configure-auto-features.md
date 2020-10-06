@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: d8779a25b7c6036f3b09badab67733fa55acfee7
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 0138715e4c9df8ae05c9a3eade64d539eb7cdeda
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90907583"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91756544"
 ---
 # <a name="featurization-in-automated-machine-learning"></a>Personalização no Machine Learning automatizado
 
@@ -316,7 +316,7 @@ Para invocar BERT, você precisa definir  `enable_dnn: True` em seu automl_setti
 
 AutoML executa as seguintes etapas para o BERT. 
 
-1. **Pré-processamento e geração de tokens de todas as colunas de texto**. Por exemplo, o transformador "StringCast" pode ser encontrado no Resumo de personalização do modelo final. Um exemplo de como produzir o resumo de personalização do modelo pode ser encontrado neste [bloco de anotações](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb).
+1. **Pré-processamento e geração de tokens de todas as colunas de texto**. Por exemplo, o transformador "StringCast" pode ser encontrado no Resumo de personalização do modelo final. Um exemplo de como produzir o resumo de personalização do modelo pode ser encontrado neste [bloco de anotações](https://towardsdatascience.com/automated-text-classification-using-machine-learning-3df4f4f9570b).
 
 2. **Concatenar todas as colunas de texto em uma única coluna de texto**, portanto, `StringConcatTransformer` no modelo final. 
 

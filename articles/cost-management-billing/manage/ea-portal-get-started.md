@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: 8997cf5e86eb79b527c0b37ef0b85556469aea98
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 0404e3b268f5797e34b3818df8eebeefbe68a1f3
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88687630"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371942"
 ---
 # <a name="get-started-with-the-azure-enterprise-portal"></a>Introdução ao Azure Enterprise Portal
 
@@ -242,10 +242,10 @@ Esteja atento a essas informações importantes ao transferir contas:
 
 - Quando você conclui uma transferência de assinatura, a Microsoft atualiza o proprietário da conta.
 
-Entenda estas políticas de RBAC (controle de acesso baseado em função):
+Entenda estas políticas do Azure RBAC (controle de acesso baseado em função):
 
-- Quando você executa transferências de assinatura entre duas IDs organizacionais no mesmo locatário, as políticas de RBAC e as funções de administrador de serviços e de coadministrador existentes são preservadas.
-- Outras transferências de assinatura resultam na perda de suas políticas de RBAC e das atribuições de função.
+- Quando você executa transferências de assinatura entre duas IDs organizacionais no mesmo locatário, as políticas do Azure RBAC e as funções de administrador de serviços e de coadministrador existentes são preservadas.
+- Outras transferências de assinatura resultam na perda de suas políticas do Azure RBAC e das atribuições de função.
 - Políticas e funções de administrador não são transferidas entre diretórios diferentes. Os administradores de serviços são atualizados para o proprietário da conta de destino.
 
 Antes de alterar um proprietário da conta:
@@ -569,7 +569,7 @@ Você pode definir uma cota de gastos no nível do departamento e o sistema o no
 
 Para definir sua cota de gastos, selecione um departamento e, em seguida, selecione o ícone Editar. Depois de editar os detalhes do limite de gastos, selecione **Salvar**.
 
-### <a name="i-used-resource-groups-to-implement-rbac-and-track-usage-how-can-i-view-the-associated-usage-details"></a>Usei grupos de recursos para implementar o RBAC e acompanhar o uso. Como faço para exibir os detalhes de uso associados?
+### <a name="i-used-resource-groups-to-implement-azure-rbac-and-track-usage-how-can-i-view-the-associated-usage-details"></a>Usei grupos de recursos para implementar o Azure RBAC e acompanhar o uso. Como faço para exibir os detalhes de uso associados?
 
 Se você usar _grupos de recursos_ e _marcas_, essas informações serão rastreadas no nível de serviço e você poderá acessá-las no arquivo detalhado de uso (CSV) para download. Confira a opção [baixar o relatório de uso](https://ea.azure.com/report/downloadusage) no Azure Enterprise Portal.
 

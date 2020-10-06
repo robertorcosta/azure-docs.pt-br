@@ -9,16 +9,16 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 5fef68c9de4dae8063799255fcc7d68ff6b1e6b8
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: eb266680cc514b1e2d70e510ed65e9a7790c0260
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684840"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91370327"
 ---
 # <a name="sign-up-for-an-azure-subscription-with-your-microsoft-365-account"></a>Inscreva-se para obter uma assinatura do Azure com sua conta do Microsoft 365
 
-Se tiver uma assinatura do Microsoft 365, você poderá usar sua conta do Microsoft 365 para criar uma assinatura do Azure. Entre no [Portal do Azure](https://portal.azure.com/) usando seu nome de usuário e a senha do Microsoft 365. No entanto, se você desejar configurar máquinas virtuais ou usar outros serviços do Azure, deverá inscrever-se para uma assinatura do Azure. Compartilhe sua assinatura do Azure com outras pessoas e [use o controle de acesso baseado em função para gerenciar o acesso à sua assinatura e seus recursos do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+Se tiver uma assinatura do Microsoft 365, você poderá usar sua conta do Microsoft 365 para criar uma assinatura do Azure. Entre no [Portal do Azure](https://portal.azure.com/) usando seu nome de usuário e a senha do Microsoft 365. No entanto, se você desejar configurar máquinas virtuais ou usar outros serviços do Azure, deverá inscrever-se para uma assinatura do Azure. Compartilhe sua assinatura do Azure com outras pessoas e [use o Azure RBAC (controle de acesso baseado em função) para gerenciar o acesso à sua assinatura e aos seus recursos do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 
 Se já tiver uma conta do Microsoft 365 e uma assinatura do Azure, confira [Associar um locatário do Microsoft 365 a uma assinatura do Azure](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
@@ -57,4 +57,4 @@ Caso tenha dúvidas ou precise de ajuda, [crie uma solicitação de suporte](htt
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Compartilhe sua assinatura do Azure com outras pessoas e [use o controle de acesso baseado em função para gerenciar o acesso à sua assinatura e seus recursos do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+- Compartilhe sua assinatura do Azure com outras pessoas e [use o Azure RBAC (controle de acesso baseado em função) para gerenciar o acesso à sua assinatura e aos seus recursos do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).

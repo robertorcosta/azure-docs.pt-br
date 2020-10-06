@@ -1,24 +1,26 @@
 ---
-title: 'Início Rápido: Rotular formulários, treinar um modelo e analisar um formulário usando a ferramenta de rotulagem de exemplo – Reconhecimento de Formulários'
+title: 'Início Rápido: Rotular formulários, treinar um modelo e analisar formulários usando a ferramenta de rotulagem de exemplo – Reconhecimento de Formulários'
 titleSuffix: Azure Cognitive Services
-description: Neste início rápido, você usará a ferramenta de rotulagem de exemplo do Reconhecimento de Formulários para rotular manualmente os documentos de formulário. Em seguida, você treinará um modelo personalizado com os documentos rotulados e usará o modelo para extrair pares chave-valor.
+description: Neste início rápido, você usará a ferramenta de rotulagem de exemplo do Reconhecimento de Formulários para rotular manualmente os documentos de formulário. Em seguida, você treinará um modelo de processamento de documentos personalizado com os documentos rotulados e usará o modelo para extrair pares chave-valor.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 08/25/2020
+ms.date: 09/30/2020
 ms.author: pafarley
-ms.openlocfilehash: e231bb7919f25210d7e5a2adff49dede6f0349a9
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.custom: cog-serv-seo-aug-2020
+keywords: processamento de documentos
+ms.openlocfilehash: 6b641df00d4b4981aa47f314f8e575a9cbcccbba
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89418952"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597738"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Treinar um modelo de Reconhecimento de Formulários com rótulos usando a ferramenta de rotulagem de exemplo
 
-Neste início rápido, você usará a API REST do Reconhecimento de Formulários com a ferramenta de rotulagem de exemplo para treinar um modelo personalizado usando dados rotulados manualmente. Confira a seção [Treinar com rótulos](../overview.md#train-with-labels) da visão geral para saber mais sobre esse recurso.
+Neste início rápido, você usará a API REST do Reconhecimento de Formulários com a ferramenta de rotulagem de exemplo para treinar um modelo de processamento de documentos personalizado usando dados rotulados manualmente. Confira a seção [Treinar usando rótulos](../overview.md#train-with-labels) da visão geral para saber mais sobre o aprendizado supervisionado com o Reconhecimento de Formulários.
 
 > [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Azure-Form-Recognizer/player]
 
@@ -137,7 +139,7 @@ Na ferramenta de rótulo de exemplo, os projetos armazenam as suas configuraçõ
 * **Chave de API** – sua chave de assinatura do Reconhecimento de Formulários.
 * **Descrição** (opcional) – descrição do projeto
 
-:::image type="content" source="../media/label-tool/new-project.png" alt-text="Página Novo projeto na ferramenta de rotulagem de exemplo.":::
+:::image type="content" source="../media/label-tool/new-project.png" alt-text="Configurações de conexão da ferramenta de rotulagem de exemplo.":::
 
 ## <a name="label-your-forms"></a>Rotular seus formulários
 
@@ -153,7 +155,7 @@ Clique em **Executar o OCR em todos os arquivos** no painel esquerdo para obter 
 
 Ela também mostrará quais tabelas foram extraídas automaticamente. Clique no ícone de tabela/grade à esquerda do documento para ver a tabela extraída. Neste guia de início rápido, como o conteúdo da tabela é extraído automaticamente, não rotularemos o conteúdo da tabela; em vez disso, dependeremos da extração automatizada.
 
-:::image type="content" source="../media/label-tool/table-extraction.png" alt-text="Visualização de tabela na ferramenta de rotulagem de exemplo.":::
+:::image type="content" source="../media/label-tool/table-extraction.png" alt-text="Configurações de conexão da ferramenta de rotulagem de exemplo.":::
 
 ### <a name="apply-labels-to-text"></a>Aplicar rótulos ao texto
 
@@ -199,7 +201,7 @@ Em seguida, você criará marcas (rótulos) e as aplicará aos elementos de text
 
 ---
 
-:::image type="content" source="../media/label-tool/main-editor-2-1.png" alt-text="Janela principal do editor da ferramenta de rótulo de exemplo.":::
+:::image type="content" source="../media/label-tool/main-editor-2-1.png" alt-text="Configurações de conexão da ferramenta de rotulagem de exemplo.":::
 
 
 Siga as etapas acima para rotular pelo menos cinco de seus formulários.
@@ -254,7 +256,7 @@ Clique no ícone Treinar no painel esquerdo para abrir a página Treinamento. Em
 * A lista de marcas e a precisão estimada por marca.
 
 
-:::image type="content" source="../media/label-tool/train-screen.png" alt-text="Exibição de treinamento.":::
+:::image type="content" source="../media/label-tool/train-screen.png" alt-text="Configurações de conexão da ferramenta de rotulagem de exemplo.":::
 
 Após a conclusão do treinamento, examine o valor de **Precisão Média**. Se ele estiver baixo, você deverá adicionar mais documentos de entrada e repetir as etapas acima. Os documentos que você já rotulou permanecerão no índice do projeto.
 
@@ -273,7 +275,7 @@ Com o Model Compose, você pode compor até 100 modelos para uma ID de modelo. Q
 
 Para compor modelos na ferramenta de rotulagem de exemplo, clique no ícone Model Compose (setas se mesclando) à esquerda. À esquerda, selecione os modelos que deseja compor juntos. Modelos com o ícone de setas já são modelos compostos. Clique no botão "Redigir". No pop-up, dê um nome ao seu novo modelo composto e clique em "Redigir". Quando a operação for concluída, o novo modelo composto deverá aparecer na lista. 
 
-:::image type="content" source="../media/label-tool/model-compose.png" alt-text="Exibição da experiência do usuário do Model Compose.":::
+:::image type="content" source="../media/label-tool/model-compose.png" alt-text="Configurações de conexão da ferramenta de rotulagem de exemplo.":::
 
 ---
 
@@ -306,7 +308,10 @@ Por fim, vá para a página principal (ícone da casa) e clique em Abrir Projeto
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste guia início rápido, você aprendeu a usar a ferramenta de rotulagem de exemplo do Reconhecimento de Formulários para treinar um modelo usando dados rotulados manualmente. Se você quiser integrar a ferramenta de rotulagem em seu próprio aplicativo, use as APIs REST que lidam com o treinamento de dados rotulados.
+Neste guia início rápido, você aprendeu a usar a ferramenta de rotulagem de exemplo do Reconhecimento de Formulários para treinar um modelo usando dados rotulados manualmente. Se desejar criar o próprio utilitário para rotular dados de treinamento, use as APIs REST para lidar com o treinamento de dados rotulados.
 
 > [!div class="nextstepaction"]
 > [Treinar com rótulos usando o Python](./python-labeled-data.md)
+
+* [O que é o Reconhecimento de Formulários?](../overview.md)
+* [Inícios rápidos de bibliotecas de clientes do Reconhecimento de Formulários](client-library.md)

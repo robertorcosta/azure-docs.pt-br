@@ -9,20 +9,20 @@ ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
 ms.custom: mvc
-ms.openlocfilehash: 7c8254609b8db9c2796d431485507de7083509aa
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 0fe9d59e97ebbc9aba17fea14aed43756300d56e
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85569333"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90528578"
 ---
-# <a name="quickstart-provision-a-python-device-with-symmetric-keys"></a>Início Rápido: Provisionar um dispositivo Python com chaves simétricas
+# <a name="quickstart-provision-a-python-device-with-symmetric-keys"></a>Provisionar um dispositivo Python com chaves simétricas
 
 Neste guia de início rápido, você aprenderá a provisionar um computador de desenvolvimento do Windows como um dispositivo em um hub IoT usando o Python. Esse dispositivo usará uma chave simétrica para se autenticar em uma instância do DPS (Serviço de Provisionamento de Dispositivos) a fim de ser atribuído a um hub IoT. O dispositivo autenticado será reconhecido pelo DPS com base em um registro individual e atribuído a um hub IoT. O código de exemplo do [SDK do Python para o IoT do Azure](https://github.com/Azure/azure-iot-sdk-python) será usado para provisionar o dispositivo. 
 
 Embora este artigo demonstre o provisionamento com um registro individual, também é possível usar grupos de registros. Há algumas diferenças ao usar grupos de registro. Por exemplo, você precisa usar uma chave de dispositivo derivada com uma ID de registro exclusiva para o dispositivo. Embora os grupos de registros de chave simétrica não sejam limitados apenas a dispositivos herdados, [Como provisionar dispositivos herdados usando atestado de chave simétrica](how-to-legacy-device-symm-key.md) fornece um exemplo de grupo de registros. Para obter mais informações, consulte [Registros de grupo para atestado de chave simétrica](concepts-symmetric-key-attestation.md#group-enrollments).
 
-Se você não estiver familiarizado com o processo de provisionamento automático, analise os [Conceitos de provisionamento automático](concepts-auto-provisioning.md). 
+Se você não estiver familiarizado com o processo de provisionamento automático, examine a visão geral de [provisionamento](about-iot-dps.md#provisioning-process). 
 
 Não se esqueça de concluir as etapas em [Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT com o Portal do Azure](./quick-setup-auto-provision.md) antes de continuar com este início rápido. Este início rápido requer que você já tenha criado a instância de Serviço de Provisionamento de Dispositivos.
 
@@ -69,13 +69,13 @@ Este artigo é orientado para uma estação de trabalho baseada no Windows. No e
 
 3. No painel **Adicionar Registro**, insira as informações a seguir e pressione o botão **Salvar**.
 
-   - **Mecanismo**: Selecione **Chave Simétrica** como o *Mecanismo* do atestado de identidade.
+   - **Mecanismo:** selecione **Chave Simétrica** como o *Mecanismo* do atestado de identidade.
 
-   - **Gerar chaves automaticamente**: Marque essa caixa.
+   - **Autogerar Chaves**: marque essa caixa.
 
-   - **ID de registro**: Insira uma ID de registro para identificar o registro. Use apenas caracteres alfanuméricos minúsculos e traço ('-'). Por exemplo, **symm-key-python-device-008**.
+   - **ID de registro**: insira uma ID de registro para identificar o registro. Use apenas caracteres alfanuméricos minúsculos e traço ('-'). Por exemplo, **symm-key-python-device-008**.
 
-   - **ID do Dispositivo de Hub IoT:** Insira um identificador de dispositivo. Por exemplo, **python-device-008**.
+   - **ID do dispositivo do IoT Hub:** insira um identificador de dispositivo. Por exemplo, **python-device-008**.
 
      ![Adicionar registro individual para atestado de chave simétrica no portal](./media/quick-create-device-symm-key-python/create-individual-enrollment-python.png)
 

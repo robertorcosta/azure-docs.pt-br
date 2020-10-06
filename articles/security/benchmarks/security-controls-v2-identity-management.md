@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 8a29dbbf365304240283fe4fd5899b58e3bc227c
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: e7447d03fc231d8d96b71c7d944a380c10add0d0
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91741400"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91757929"
 ---
 # <a name="security-control-v2-identity-management"></a>Controle de segurança v2: gerenciamento de identidade
 
@@ -169,7 +169,7 @@ A ATP (proteção avançada contra ameaças) do Azure é uma solução de segura
 
 - [Como monitorar a atividade de identidade e acesso dos usuários na Central de Segurança do Azure](../../security-center/security-center-identity-access.md)
 
-- [Alertas no módulo proteção contra ameaças da central de segurança do Azure](//azure/security-center/alerts-reference)
+- [Alertas no módulo proteção contra ameaças da central de segurança do Azure](/azure/security-center/alerts-reference)
 
 - [Como integrar os logs de atividades do Azure ao Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 

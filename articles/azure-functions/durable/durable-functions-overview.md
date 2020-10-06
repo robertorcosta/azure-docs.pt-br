@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 03/12/2020
 ms.author: cgillum
 ms.reviewer: azfuncdf
-ms.openlocfilehash: d1c4f62f19a36867ebc85a98b0cd38bbbf8ce757
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 28c494bf2867ec5d2d3ee99ef7ee45f8181cfd90
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88660675"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89669256"
 ---
 # <a name="what-are-durable-functions"></a>O que são as Durable Functions?
 
@@ -21,10 +21,10 @@ As *Durable Functions* são uma extensão do [Azure Functions](../functions-over
 
 Atualmente, as Durable Functions dão suporte às seguintes linguagens:
 
-* **C#** : [bibliotecas de classes pré-compiladas](../functions-dotnet-class-library.md) e [script C#](../functions-reference-csharp.md).
+* **C#**: [bibliotecas de classes pré-compiladas](../functions-dotnet-class-library.md) e [script C#](../functions-reference-csharp.md).
 * **JavaScript**: compatível apenas com a versão 2.x do Azure Functions Runtime. Exige a versão 1.7.0 da extensão das Durable Functions ou uma versão posterior. 
-* **Python**: exige a versão 1.8.5 da extensão das Durable Functions ou uma versão posterior. 
-* **F#** : bibliotecas de classes pré-compiladas e script F#. Só há suporte para o script F# na versão 1.x do Azure Functions Runtime.
+* **Python**: exige a versão 1.8.5 da extensão das Durable Functions ou uma versão posterior. No momento, o suporte das Durable Functions está em versão prévia pública.
+* **F#**: bibliotecas de classes pré-compiladas e script F#. Só há suporte para o script F# na versão 1.x do Azure Functions Runtime.
 * **PowerShell**: atualmente, o suporte das Durable Functions está em versão prévia pública. Compatível apenas com a versão 3.x do Azure Functions Runtime e o PowerShell 7. Exige a versão 2.2.2 da extensão das Durable Functions ou uma versão posterior. No momento, há suporte apenas para os seguintes padrões: [Encadeamento de funções](#chaining), [Fan-out/fan-in](#fan-in-out) e [APIs HTTP assíncronas](#async-http).
 
 As Durable Functions têm o objetivo de dar suporte a todas as [linguagens do Azure Functions](../supported-languages.md). Confira a [lista de problemas das Durable Functions](https://github.com/Azure/azure-functions-durable-extension/issues) para obter o último status do trabalho para dar suporte a linguagens adicionais.
@@ -42,7 +42,7 @@ O principal caso de uso das Durable Functions é simplificar requisitos complexo
 * [Interação humana](#human)
 * [Agregador (entidades com estado)](#aggregator)
 
-### <a name="pattern-1-function-chaining"></a><a name="chaining"></a>Padrão 1: Encadeamento de funções
+### <a name="pattern-1-function-chaining"></a>Padrão 1: encadeamento de funções
 
 No padrão de encadeamento de funções, uma sequência de funções é executada em uma ordem específica. Nesse padrão, a saída de uma função é aplicada à entrada de outra função.
 
@@ -135,7 +135,7 @@ Use o comando `Invoke-ActivityFunction` para invocar outras funções por nome, 
 
 ---
 
-### <a name="pattern-2-fan-outfan-in"></a><a name="fan-in-out"></a>Padrão 2: Fan-out/fan-in
+### <a name="pattern-2-fan-outfan-in"></a>Padrão 2: fan-out/fan-in
 
 No padrão fan-out/fan-in, execute várias funções em paralelo e, em seguida, aguarde a conclusão de todas as funções. Frequentemente, algum trabalho de agregação é feito nos resultados retornados pelas funções.
 
@@ -255,7 +255,7 @@ A criação automática de ponto de verificação que ocorre na chamada `Wait-Ac
 > [!NOTE]
 > Em raras circunstâncias, é possível que uma falha ocorra na janela depois que uma função de atividade for concluída, mas antes de sua conclusão ser salva no histórico de orquestração. Se isso acontecer, a função de atividade será executada novamente desde o início depois que o processo for recuperado.
 
-### <a name="pattern-3-async-http-apis"></a><a name="async-http"></a>Padrão 3: APIs HTTP assíncronas
+### <a name="pattern-3-async-http-apis"></a>Padrão 3: APIs de HTTP assíncrono
 
 O padrão de API HTTP assíncrona trata do problema de coordenar o estado de operações de execução longa com clientes externos. Uma maneira comum de implementar esse padrão é fazer com que um ponto de extremidade HTTP dispare a ação de execução longa. Em seguida, redirecione o cliente para um ponto de extremidade de status que é sondado pelo cliente para saber quando a operação é concluída.
 
@@ -403,7 +403,7 @@ Atualmente, não há suporte para o Monitor no PowerShell.
 
 Quando uma solicitação é recebida, uma nova instância de orquestração é criada para essa ID do trabalho. A instância sonda um status até que uma condição seja atendida e o loop seja encerrado. Um temporizador durável controla o intervalo de sondagem. Em seguida, mais trabalho pode ser realizado ou a orquestração pode ser encerrada. Quando `nextCheck` excede `expiryTime`, o monitor é encerrado.
 
-### <a name="pattern-5-human-interaction"></a><a name="human"></a>Padrão 5: Interação humana
+### <a name="pattern-5-human-interaction"></a>Padrão 5: interação humana
 
 Muitos processos automatizados envolvem algum tipo de interação humana. Envolver humanos em um processo automatizado é complicado, porque as pessoas não estão tão altamente disponíveis nem são tão dinâmicas quanto os serviços de nuvem. Um processo automatizado pode permitir essa interação usando tempos limite e a lógica de compensação.
 

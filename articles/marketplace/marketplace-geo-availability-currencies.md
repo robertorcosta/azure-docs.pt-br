@@ -7,12 +7,12 @@ ms.topic: reference
 author: keferna
 ms.author: keferna
 ms.date: 07/29/2020
-ms.openlocfilehash: cc697cd78e929b62f951014f760d644552fa082c
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 59c5473e88e0c4a8108f651e9543ec90c08290ab
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650978"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759066"
 ---
 # <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>Disponibilidade geográfica e suporte para moedas para o marketplace comercial
 
@@ -166,7 +166,7 @@ As ofertas do marketplace comercial podem ser adquiridas em 141 regiões geográ
 | Zimbábue                            | ZW        | USD          |
 |   |   |   |
 
-\* Para clientes no Brasil, o commcercial Marketplace por meio de provedores de soluções de nuvem (CSP) usa USD.
+\* Para clientes no Brasil, o Marketplace comercial por meio de provedores de soluções de nuvem (CSP) usa USD.
 
 \** Somente imagens de VM gratuitas e BYOL.
 
@@ -181,7 +181,7 @@ Para ajustar qualquer preço antes de publicar, basta exportar a planilha de pre
 
 O preço de uma oferta sempre é mostrado aos clientes em sua moeda local. O preço selecionado no Partner Center é convertido na moeda local de clientes de acordo com a taxa de câmbio no momento em que você salvou o preço no Partner Center. O preço mostrado aos clientes nas lojas online não é alterado, a menos que você Republique sua oferta.
 
-A Microsoft recebe pagamentos de clientes em sua moeda local e paga você em sua moeda local. A Microsoft converte a moeda local do cliente em sua moeda local usando a taxa de câmbio do dia de compra.
+A Microsoft recebe pagamentos de clientes em sua moeda local e paga você na moeda selecionada no Partner Center. A Microsoft converte a moeda local do cliente usando a taxa de câmbio do dia de compra.
 
 > [!NOTE]
 > A Microsoft converte preços de oferta usando as taxas de câmbio do Microsoft tesouro.

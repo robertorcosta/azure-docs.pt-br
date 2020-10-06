@@ -7,20 +7,20 @@ ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 07/23/2020
-ms.openlocfilehash: 980e3e036257bbf5aa9743025bbfb55065176a39
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: c40bec80d9f61cf46221cbfe7dde80f3a7b46f6f
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133292"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658313"
 ---
-# <a name="quickstart-create-your-first-automated-integration-workflow-by-using-azure-logic-apps---azure-portal"></a>Início Rápido: Criar seu primeiro fluxo de trabalho de integração automatizado usando os Aplicativos Lógicos do Azure – portal do Azure
+# <a name="quickstart-create-your-first-automated-integration-workflow-by-using-azure-logic-apps---azure-portal"></a>Criar seu primeiro fluxo de trabalho de integração automatizado usando os Aplicativos Lógicos do Azure – portal do Azure
 
 Este início rápido apresenta os conceitos gerais básicos por trás de como criar seu primeiro fluxo de trabalho usando os [Aplicativos Lógicos do Azure](logic-apps-overview.md), como criar um aplicativo lógico em branco, adicionar um gatilho e uma ação e testar o aplicativo lógico. Neste início rápido, você cria um aplicativo lógico que verifica regularmente o RSS feed para novos itens. Se existirem novos itens, o aplicativo lógico envia um email para cada item. Quando terminar, o aplicativo lógico ficará parecido com este fluxo de trabalho em alto nível:
 
 ![Arte conceitual mostrando um exemplo de alto nível de um fluxo de trabalho de aplicativo lógico.](./media/quickstart-create-first-logic-app-workflow/quickstart-workflow-overview.png)
 
-Para este cenário, você precisa de uma assinatura do Azure ou precisa [inscrever-se para uma conta gratuita do Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), uma conta de email de qualquer serviço de email compatível com os Aplicativos Lógicos do Azure, como Office 365 Outlook, Outlook.com ou Gmail. Para outros serviços de email com suporte, [verifique a lista de conectores aqui](/connectors/). Neste exemplo, o aplicativo lógico usa uma conta do Outlook do Office 365. Se você usar um serviço de email diferente, as etapas gerais serão as mesmas, mas a interface do usuário poderá ser um pouco diferente.
+Para este cenário, você precisa de uma assinatura do Azure ou precisa [inscrever-se para uma conta gratuita do Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), uma conta de email de qualquer serviço de email compatível com os Aplicativos Lógicos do Azure, como Office 365 Outlook, Outlook.com ou Gmail. Para outros serviços de email com suporte, [verifique a lista de conectores aqui](/connectors/). Neste exemplo, o aplicativo lógico usa uma conta corporativa ou de estudante. Se você usar um serviço de email diferente, as etapas gerais serão as mesmas, mas a interface do usuário poderá ser um pouco diferente.
 
 > [!IMPORTANT]
 > Se você quiser usar o conector do Gmail, somente as contas comerciais do G Suite poderão usar esse conector sem restrição nos aplicativos lógicos. Se você tiver uma conta de consumidor do Gmail, poderá usar esse conector somente com serviços específicos do Google aprovados ou poderá [criar um aplicativo cliente do Google para usar para autenticação com o conector do Gmail](/connectors/gmail/#authentication-and-bring-your-own-application). Para obter mais informações, confira [Políticas de privacidade e segurança de dados para os conectores do Google nos Aplicativos Lógicos do Azure](../connectors/connectors-google-data-security-privacy-policy.md).
@@ -41,7 +41,7 @@ Para este cenário, você precisa de uma assinatura do Azure ou precisa [inscrev
 
    ![Captura de tela mostrando o painel de criação de aplicativos lógicos com os detalhes do novo aplicativo lógico.](./media/quickstart-create-first-logic-app-workflow/create-logic-app-settings.png)
 
-   | Propriedade | Valor | Descrição |
+   | Propriedade. | Valor | Descrição |
    |----------|-------|-------------|
    | **Nome** | <*logic-app-name*> | O nome de seu aplicativo lógico, que precisa ser exclusivo em todas as regiões e pode conter somente letras, números, hifens (`-`), sublinhados (`_`), parênteses (`(`, `)`) e pontos (`.`). Este exemplo usa "My-First-Logic-App". |
    | **Assinatura** | <*Azure-subscription-name*> | Seu nome da assinatura do Azure |
@@ -78,7 +78,7 @@ Em seguida, adicione um [gatilho](../logic-apps/logic-apps-overview.md#logic-app
 
    ![Captura de tela mostrando o Designer de Aplicativos Lógicos com as configurações do gatilho RSS, incluindo a URL, a frequência e o intervalo do RSS.](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-settings.png)
 
-   | Propriedade | Valor | Descrição |
+   | Propriedade. | Valor | Descrição |
    |----------|-------|-------------|
    | **A URL do RSS feed** | <*RSS-feed-URL*> | O link do RSS feed que você deseja monitorar. Este exemplo usa o RSS feed do Wall Street Journal em `https://feeds.a.dj.com/rss/RSSMarketsMain.xml`, mas, se desejar, use a URL de seu RSS feed. |
    | **Intervalo** | 1 | O número de intervalos de espera entre as verificações |
@@ -148,13 +148,13 @@ Agora, adicione uma [ação](../logic-apps/logic-apps-overview.md#logic-app-conc
 
       ![Captura de tela mostrando o Designer de Aplicativos Lógicos com a ação "Enviar um email" e um exemplo de assunto de email com a propriedade "Título do feed" incluída.](./media/quickstart-create-first-logic-app-workflow/send-email-feed-title.png)
 
-      Se um loop "For each" for exibida no designer, então você selecionou um token para uma matriz, por exemplo, o token **categories-Item**. Para esses tipos de token, o designer adiciona automaticamente esse loop em torno da ação que faz referência a esse token. Dessa forma, seu aplicativo lógico executará a mesma ação em cada item da matriz. Para remover o loop, selecione as **elipses** ( **...** ) na barra de título do loop e, em seguida, selecione **Excluir**.
+      Se um loop "For each" for exibida no designer, então você selecionou um token para uma matriz, por exemplo, o token **categories-Item**. Para esses tipos de token, o designer adiciona automaticamente esse loop em torno da ação que faz referência a esse token. Dessa forma, seu aplicativo lógico executará a mesma ação em cada item da matriz. Para remover o loop, selecione as **elipses** (**...**) na barra de título do loop e, em seguida, selecione **Excluir**.
 
    1. Na caixa **Corpo**, insira o texto e selecione esses tokens para o corpo do email. Para adicionar linhas em branco em uma caixa de edição, pressione Shift + Enter.
 
       ![Captura de tela mostrando o Designer de Aplicativos Lógicos com a ação "Enviar um email" e as propriedades selecionadas dentro da caixa "Corpo".](./media/quickstart-create-first-logic-app-workflow/send-email-body.png)
 
-      | Propriedade | Descrição |
+      | Propriedade. | Descrição |
       |----------|-------------|
       | **Título do feed** | O título do item |
       | **Feed publicado em** | A data e a hora de publicação do item |

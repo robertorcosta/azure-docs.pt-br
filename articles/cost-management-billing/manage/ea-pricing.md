@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: b4905b1aba11a2f8c457d4785897cbe70dd31f76
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 63e648681a63daafe1eaeb1d2e8e5a6cd607aa70
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88687409"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446334"
 ---
 # <a name="view-and-download-your-organizations-azure-pricing"></a>Exibir e baixar o preço do Azure de sua organização
 
@@ -28,17 +28,17 @@ Dependendo das políticas definidas para sua organização pelo Enterprise Admin
 1. Como admin corporativo, entre no [portal do Azure](https://portal.azure.com/).
 1. Pesquise *Gerenciamento de Custos + Cobrança*.
 
-   ![Captura de tela que mostra a pesquisa do portal do Azure](./media/ea-pricing/portal-cm-billing-search.png)
+   ![Captura de tela que mostra a pesquisa do portal do Azure.](./media/ea-pricing/portal-cm-billing-search.png)
 
 1. Na conta de faturamento, selecione **Usage + charges**.
 
    ![Captura de tela que mostra o uso e as cobranças em Faturamento](./media/ea-pricing/ea-pricing-usage-charges-nav.png)
 
-1. Selecione ![Captura de tela que mostra a pesquisa no portal do Azure](./media/ea-pricing/download-icon.png) **Download** do mês.
+1. Selecione o ![ícone de Download.](./media/ea-pricing/download-icon.png) **Baixar** para o mês.
 
 1. Sob **tabela de preços**, selecione **fazer o download do csv**.
 
-   ![Captura de tela que mostra o botão csv de download da planilha de preços](./media/ea-pricing/download-ea-price-sheet.png)
+   ![A captura de tela mostra as opções Baixar Uso + Encargos.](./media/ea-pricing/download-ea-price-sheet.png)
 
 ## <a name="download-pricing-for-an-mca-or-mpa-account"></a>Baixar preços de uma conta do MCA ou do MPA
 
@@ -79,7 +79,7 @@ Você também pode usar o preço de sua organização para estimar os custos usa
 1. Em **Programas e Oferta** > **Programa de Licenciamento**, selecione **Enterprise Agreement (EA)** .
 1. Em **Programas e Oferta** > **Contrato selecionado**, selecione **Nenhum selecionado**.
 
-    ![Captura de tela que mostra o botão csv de download da planilha de preços](./media/ea-pricing/ea-pricing-calculator-estimate.png)
+    ![A captura de tela mostra os Programas e as Ofertas disponíveis.](./media/ea-pricing/ea-pricing-calculator-estimate.png)
 
 1. Escolha a organização.
 1. Escolha **Aplicar**.

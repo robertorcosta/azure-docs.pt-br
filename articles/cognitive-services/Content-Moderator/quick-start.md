@@ -1,31 +1,34 @@
 ---
-title: 'Início Rápido: Experimentar o Content Moderator na Web – Content Moderator'
+title: 'Início Rápido: Experimentar o Content Moderator na Web'
 titleSuffix: Azure Cognitive Services
-description: Neste início rápido, você usará a ferramenta de revisão online Content Moderator para testar a funcionalidade básica do Content Moderator sem precisar escrever nenhum código.
+description: Use a ferramenta online de Análise do Content Moderator para testar a funcionalidade básica do Content Moderator sem precisar escrever nenhum código.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 06/29/2020
+ms.date: 09/29/2020
 ms.author: pafarley
-ms.openlocfilehash: 7be14c07a08d58f02890a48d39dd0a8010101374
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.custom: cog-serv-seo-aug-2020
+keywords: content moderator, moderação de conteúdo
+ms.openlocfilehash: 025c8fcf98a31d7b3380ee2530428d08428493fb
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91332620"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596803"
 ---
 # <a name="quickstart-try-content-moderator-on-the-web"></a>Início Rápido: Experimentar o Content Moderator na Web
 
-Neste início rápido, você usará a ferramenta de revisão online Content Moderator para testar a funcionalidade básica do Content Moderator sem precisar escrever nenhum código. Se você deseja integrar esse serviço ao seu aplicativo mais rapidamente, consulte as outras iniciações rápidas na seção [Próximas etapas](#next-steps).
+Neste início rápido, você usará a ferramenta de revisão online Content Moderator para testar a funcionalidade básica do Content Moderator sem precisar escrever nenhum código. Se você deseja integrar esse serviço ao aplicativo de moderação de conteúdo mais rapidamente, confira os outros guias de início rápido na seção [Próximas etapas](#next-steps).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Um navegador da Web
 
-## <a name="set-up-the-review-tool"></a>Configurar a ferramenta de revisão
+## <a name="set-up-the-review-tool"></a>Configurar a ferramenta de Análise
+
 A Ferramenta de Revisão do Content Moderator é uma ferramenta baseada na Web que permite que revisores humanos auxiliem o serviço cognitivo na tomada de decisões. Neste guia, você passará pelo curto processo de configuração da ferramenta de revisão para poder ver como o serviço Moderador de Conteúdo funciona. Vá para o site da [Ferramenta de Revisão do Content Moderator](https://contentmoderator.cognitive.microsoft.com/) e inscreva-se.
 
 ![Home Page do Content Moderator](images/homepage.PNG)
@@ -82,6 +85,6 @@ Ou então, continue com as próximas etapas para começar a usar as APIs de mode
 ## <a name="next-steps"></a>Próximas etapas
 
 Aprenda a usar as próprias APIs de moderação no seu aplicativo.
-- Implemente a moderação de imagem. Use o [console da API](try-image-api.md) ou siga o [início rápido do SDK do .NET](dotnet-sdk-quickstart.md) para examinar as imagens e detectar conteúdo adulto e racista em potencial usando marcas, pontuações de confiança e outras informações extraídas.
-- Implementar a moderação de texto. Use o [console da API](try-text-api.md) ou o [início rápido do SDK do .NET](dotnet-sdk-quickstart.md) para examinar o conteúdo de texto e identificar conteúdo ofensivo em potencial, classificação de textos indesejados assistida por computador (versão prévia) e dados pessoais.
+- Implemente a moderação de imagem. Use o [console de API](try-image-api.md) ou siga o [guia de início rápido da biblioteca de clientes](client-libraries.md) para examinar as imagens e detectar conteúdo adulto e racista em potencial usando marcas, pontuações de confiança e outras informações extraídas.
+- Implementar a moderação de texto. Use o [console de API](try-text-api.md) ou o [guia de início rápido da biblioteca de clientes](client-libraries.md) para examinar o conteúdo de texto para encontrar conteúdo ofensivo, classificação de textos indesejados assistida por computador (versão prévia) e dados pessoais.
 - Implementar a moderação de vídeo. Siga as [guia de instruções de moderação de vídeo para C# ](video-moderation-api.md) para verificar a vídeos e detectar possível conteúdo adulto. 
