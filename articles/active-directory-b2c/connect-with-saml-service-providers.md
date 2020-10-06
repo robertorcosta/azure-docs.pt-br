@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/09/2020
+ms.date: 10/05/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 09edfc91f98e51a7dce7e98b48f2970ccba33586
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 9e67f24cf670024432f64487df20b9fca515c006
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89611615"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740370"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registrar um aplicativo SAML no Azure AD B2C
 
@@ -252,6 +252,9 @@ O arquivo de política de terceira parte confiável final deve ser semelhante ao
   </RelyingParty>
 </TrustFrameworkPolicy>
 ```
+
+> [!NOTE]
+> Ao implementar outros tipos de fluxos de usuário (por exemplo, entrada, redefinição de senha ou edição de perfil), o processo é essencialmente o mesmo descrito nesta seção. Na etapa 4 acima, você alterará a última etapa do percurso do usuário de `JWTIssuer` para `Saml2AssertionIssuer` . E na etapa 6 acima, na seção terceira parte confiável, você alterará o **protocolo** de `OpenIdConnect` para `SAML2` .
 
 ### <a name="32-upload-and-test-your-policy-metadata"></a>3.2 Carregar e testar seus metadados de política
 

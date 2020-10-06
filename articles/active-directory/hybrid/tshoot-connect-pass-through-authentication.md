@@ -16,12 +16,12 @@ ms.date: 07/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99ebac32193f764059bea2a30b6ddbce879938a6
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 1a602405065a41cb26b2ae5303d12c45ed21616f
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89275916"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741186"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Solucionar problemas de Autenticação de Passagem do Azure Active Directory
 
@@ -92,10 +92,11 @@ Navegue até **Azure Active Directory**  ->  **entradas** no [centro de administ
 | 80002 | A solicitação de validação de senha do Agente de Autenticação atingiu o tempo limite. | Verifique se o seu Active Directory está acessível por meio do Agente de Autenticação.
 | 80003 | Resposta inválida recebida pelo Agente de Autenticação. | Se o problema puder ser reproduzido de forma consistente entre vários usuários, verifique a configuração do Active Directory.
 | 80004 | Nome UPN incorreto usado na solicitação de entrada. | Peça ao usuário para entrar com o nome de usuário correto.
-| 80005 | Agente de Autenticação: ocorreu um erro. | Erro transitório. Tente novamente depois.
+| 80005 | Agente de Autenticação: ocorreu um erro. | Erro transitório. Tente novamente mais tarde.
 | 80007 | O Agente de Autenticação não pode se conectar ao Active Directory. | Verifique se o seu Active Directory está acessível por meio do Agente de Autenticação.
 | 80010 | O Agente de Autenticação não pode descriptografar a senha. | Se o problema puder ser reproduzido consistentemente, instale e registre um novo Agente de Autenticação. E desinstale o atual. 
 | 80011 | O Agente de Autenticação não pode recuperar a chave de descriptografia. | Se o problema puder ser reproduzido consistentemente, instale e registre um novo Agente de Autenticação. E desinstale o atual.
+| 80014 | A solicitação de validação respondeu após o tempo máximo decorrido excedido. | O agente de autenticação atingiu o tempo limite. Abra um tíquete de suporte com o código de erro, ID de correlação e carimbo de data/hora para obter mais detalhes sobre este erro
 
 >[!IMPORTANT]
 >Os agentes de autenticação de passagem autenticam os usuários do Azure AD Validando seus nomes de usuário e senhas em relação à Active Directory chamando a [API do LogonUser do Win32](/windows/win32/api/winbase/nf-winbase-logonusera). Como resultado, se você tiver definido a configuração "logon para" no Active Directory para limitar o acesso de logon da estação de trabalho, você terá que adicionar servidores que hospedam agentes de autenticação de passagem à lista de "fazer logon em" servidores também. A falha ao fazer isso impedirá que os usuários entrem no Azure AD.

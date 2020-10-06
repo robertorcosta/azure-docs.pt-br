@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 1fa464eca69f50fba7fa125212b85e0f7f63bcc9
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.date: 10/05/2020
+ms.openlocfilehash: 60c5051b403d3072292a03c60d7cba95bd0cf1d7
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89294774"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740625"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-cognitive-search-service"></a>Criar e gerenciar chaves de API para um serviço de Pesquisa Cognitiva do Azure
 
@@ -21,7 +21,7 @@ Todas as solicitações para um serviço de pesquisa precisam de uma api-key som
 
 As chaves são criadas com o serviço de pesquisa durante o provisionamento de serviços. É possível exibir e obter valores de chave no [portal do Azure](https://portal.azure.com).
 
-![Página do portal, configurações de recuperação, seção de chaves](media/search-manage/azure-search-view-keys.png)
+:::image type="content" source="media/search-manage/azure-search-view-keys.png" alt-text="Página do portal, configurações de recuperação, seção de chaves" border="false":::
 
 ## <a name="what-is-an-api-key"></a>O que é uma api-key
 
@@ -47,7 +47,7 @@ Você pode obter chaves de acesso no portal ou por meio da [API REST de Gerencia
 2. Liste os [serviços de pesquisa](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) para sua assinatura.
 3. Selecione o serviço e, na página Visão geral, clique em **configurações**  > **chaves** para exibir as chaves de administrador e consulta.
 
-   ![Página do portal, configurações de exibição, seção chaves](media/search-security-overview/settings-keys.png)
+   :::image type="content" source="media/search-security-overview/settings-keys.png" alt-text="Página do portal, configurações de recuperação, seção de chaves" border="false":::
 
 ## <a name="create-query-keys"></a>Criar chaves de consulta
 
@@ -61,7 +61,7 @@ Restringir o acesso e as operações em aplicativos cliente é essencial para pr
 4. Clique em **gerenciar chaves de consulta**.
 5. Use a chave de consulta já gerada para seu serviço ou crie até 50 novas chaves de consulta. A chave de consulta padrão não é nomeada, mas chaves de consulta adicionais podem ser nomeadas para capacidade de gerenciamento.
 
-   ![Criar ou usar uma chave de consulta](media/search-security-overview/create-query-key.png) 
+   :::image type="content" source="media/search-security-overview/create-query-key.png" alt-text="Página do portal, configurações de recuperação, seção de chaves" border="false":::
 
 > [!Note]
 > Um exemplo de código que mostra o uso da chave de consulta pode ser encontrado em [consultar um índice de pesquisa cognitiva do Azure em C#](./search-get-started-dotnet.md).

@@ -7,18 +7,18 @@ ms.topic: article
 ms.date: 03/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: d2b74af723e3ba8b1d71e9f481bf96d009540a52
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: af4c333fb539ad533756c538cb3ecde1d9a91413
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962087"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743039"
 ---
 # <a name="app-service-networking-features"></a>Recursos de rede do serviço de aplicativo
 
 Os aplicativos no serviço de Azure App podem ser implantados de várias maneiras. Por padrão, os aplicativos hospedados no serviço de aplicativo são diretamente acessíveis pela Internet e só podem acessar pontos de extremidade hospedados na Internet. No entanto, muitos aplicativos de clientes precisam controlar o tráfego de rede de entrada e saída. Há vários recursos disponíveis no serviço de aplicativo para atender a essas necessidades. O desafio é saber qual recurso deve ser usado para resolver um determinado problema. Este documento destina-se a ajudar os clientes a determinar qual recurso deve ser usado com base em alguns casos de uso de exemplo.
 
-Há dois tipos de implantação principais para o serviço de Azure App. Há o serviço público multilocatário, que hospeda os planos do serviço de aplicativo nas SKUs de preços gratuita, compartilhada, básica, Standard, Premium e Premiumv2. Em seguida, há um único locatário Ambiente do Serviço de Aplicativo (ASE), que hospeda planos de serviço de aplicativo SKU isolados diretamente em sua VNet (rede virtual) do Azure. Os recursos que você usar irão variar em se você estiver no serviço multilocatário ou em um ASE. 
+Há dois tipos de implantação principais para o serviço de Azure App. Há o serviço público multilocatário, que hospeda os planos do serviço de aplicativo nas SKUs de preços gratuita, compartilhada, básica, Standard, Premium, PremiumV2 e PremiumV3. Em seguida, há um único locatário Ambiente do Serviço de Aplicativo (ASE), que hospeda planos de serviço de aplicativo SKU isolados diretamente em sua VNet (rede virtual) do Azure. Os recursos que você usar irão variar em se você estiver no serviço multilocatário ou em um ASE. 
 
 ## <a name="multi-tenant-app-service-networking-features"></a>Recursos de rede do serviço de aplicativo multilocatário 
 
@@ -62,7 +62,7 @@ Os seguintes casos de uso de saída sugerem como usar os recursos de rede do ser
 
 ### <a name="default-networking-behavior"></a>Comportamento de rede padrão
 
-As unidades de escala de serviço Azure App dão suporte a muitos clientes em cada implantação. Os planos de SKU gratuito e compartilhado hospedam cargas de trabalho do cliente em trabalhos com vários locatários. Os planos básico e acima hospedam cargas de trabalho do cliente que são dedicadas a apenas um único plano do serviço de aplicativo (ASP). Se você tivesse um plano do serviço de aplicativo padrão, todos os aplicativos nesse plano serão executados no mesmo trabalho. Se você escalar horizontalmente o trabalho, todos os aplicativos nesse ASP serão replicados em um novo trabalhador para cada instância em seu ASP. Os trabalhadores que são usados para Premiumv2 são diferentes dos trabalhadores usados para os outros planos. Cada implantação do serviço de aplicativo tem um endereço IP que é usado para todo o tráfego de entrada para os aplicativos na implantação do serviço de aplicativo. No entanto, em qualquer lugar de 4 a 11 endereços usados para fazer chamadas de saída. Esses endereços são compartilhados por todos os aplicativos na implantação do serviço de aplicativo. Os endereços de saída são diferentes com base nos diferentes tipos de trabalho. Isso significa que os endereços usados pelos ASPs gratuito, compartilhado, básico, Standard e Premium são diferentes dos endereços usados para chamadas de saída dos ASPs Premiumv2. Se você examinar as propriedades de seu aplicativo, poderá ver os endereços de entrada e de saída usados pelo seu aplicativo. Se você precisar bloquear uma dependência com uma ACL de IP, use o possibleOutboundAddresses. 
+As unidades de escala de serviço Azure App dão suporte a muitos clientes em cada implantação. Os planos de SKU gratuito e compartilhado hospedam cargas de trabalho do cliente em trabalhos com vários locatários. Os planos básico e acima hospedam cargas de trabalho do cliente que são dedicadas a apenas um único plano do serviço de aplicativo (ASP). Se você tivesse um plano do serviço de aplicativo padrão, todos os aplicativos nesse plano serão executados no mesmo trabalho. Se você escalar horizontalmente o trabalho, todos os aplicativos nesse ASP serão replicados em um novo trabalhador para cada instância em seu ASP. Os trabalhadores que são usados para PremiumV2 e PremiumV3 são diferentes dos trabalhadores usados para os outros planos. Cada implantação do serviço de aplicativo tem um endereço IP que é usado para todo o tráfego de entrada para os aplicativos na implantação do serviço de aplicativo. No entanto, em qualquer lugar de 4 a 11 endereços usados para fazer chamadas de saída. Esses endereços são compartilhados por todos os aplicativos na implantação do serviço de aplicativo. Os endereços de saída são diferentes com base nos diferentes tipos de trabalho. Isso significa que os endereços usados pelos ASPs gratuito, compartilhado, básico, Standard e Premium são diferentes dos endereços usados para chamadas de saída dos ASPs PremiumV2 e PremiumV3. Se você examinar as propriedades de seu aplicativo, poderá ver os endereços de entrada e de saída usados pelo seu aplicativo. Se você precisar bloquear uma dependência com uma ACL de IP, use o possibleOutboundAddresses. 
 
 ![Propriedades do aplicativo](media/networking-features/app-properties.png)
 

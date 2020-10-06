@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 23c64f956821dd2a204a15c37bf0fcdde4d09ba8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 662c23a29e383800a4591c900e02133c16fa2090
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/05/2020
-ms.locfileid: "91716123"
+ms.locfileid: "91743311"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guia do desenvolvedor do Cofre da Chave do Azure
 
@@ -51,11 +51,10 @@ Para obter mais informações sobre Key Vault plano de gerenciamento, consulte [
 
 Key Vault está usando a autenticação do Azure AD que requer que a entidade de segurança do Azure AD conceda acesso. Uma entidade de segurança do Azure AD pode ser um usuário, uma entidade de serviço de aplicativo, uma [identidade gerenciada para recursos do Azure](../../active-directory/managed-identities-azure-resources/overview.md)ou um grupo de qualquer tipo de entidades de segurança.
 
-Para aplicativos seguros, é recomendável usar identidade gerenciada para aplicativos implantados no Azure. Se os serviços do Azure, que não dão suporte à identidade gerenciada ou aos aplicativos implantados no local, a [entidade de serviço com um certificado](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) é uma alternativa possível. O certificado deve ser armazenado em Key Vault e girado com frequência. 
+### <a name="authentication-best-practices"></a>Práticas recomendadas de autenticação
+É recomendável usar a identidade gerenciada para aplicativos implantados no Azure. Se você usar os serviços do Azure, que não dão suporte à identidade gerenciada ou se os aplicativos forem implantados no local, a [entidade de serviço com um certificado](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) será uma alternativa possível. Nesse cenário, o certificado deve ser armazenado em Key Vault e girado com frequência. A entidade de serviço com segredo pode ser usada para ambientes de desenvolvimento e teste e localmente ou em Cloud Shell usando a entidade de usuário é recomendada.
 
-A entidade de serviço com segredo pode ser usada para ambientes de desenvolvimento e teste, e localmente ou em Cloud Shell entidade de usuário é recomendada.
-
-Para o desenvolvimento de aplicativos, você pode usar o SDK de identidade do Azure em diferentes ambientes e plataformas sem alterar o código. A identidade do Azure é integrada com CLI do Azure, Visual Studio, Visual Studio Code e outras. 
+Os cenários de autenticações acima têm suporte da biblioteca de clientes de identidade do Azure e são integrados a SDKs de Key Vault. A biblioteca de identidades do Azure pode ser usada em diferentes ambientes e plataformas sem alterar seu código. A identidade do Azure também recuperará automaticamente o token de autenticação do conectado ao usuário do Azure com CLI do Azure, Visual Studio, Visual Studio Code e outros. 
 
 Para obter mais informações, consulte: 
 

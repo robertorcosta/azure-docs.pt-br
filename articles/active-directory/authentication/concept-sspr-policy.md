@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 05/27/2020
+ms.date: 10/05/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 990d8ef275982b6d70c51819e47b33f543345023
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: bc6e72a5e5ab9f95ec88b1e8ed711f00b8051208
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91531268"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741710"
 ---
 # <a name="password-policies-and-account-restrictions-in-azure-active-directory"></a>Políticas de senha e restrições de conta no Azure Active Directory
 
@@ -41,11 +41,13 @@ A tabela a seguir descreve as políticas de nome de usuário que se aplicam a co
 
 ## <a name="azure-ad-password-policies"></a><a name="password-policies-that-only-apply-to-cloud-user-accounts"></a>Políticas de senha do Azure AD
 
-Uma política de senha é aplicada a todas as contas de usuário que são criadas e gerenciadas diretamente no Azure AD. Essa política de senha não pode ser modificada, embora você possa [Configurar senhas excluídas personalizadas para a proteção de senha do Azure ad](tutorial-configure-custom-password-protection.md).
+Uma política de senha é aplicada a todas as contas de usuário que são criadas e gerenciadas diretamente no Azure AD. Algumas dessas configurações de política de senha não podem ser modificadas, embora você possa [Configurar senhas excluídas personalizadas para a proteção de senha do Azure ad](tutorial-configure-custom-password-protection.md) ou parâmetros de bloqueio de conta.
 
-A política de senha não se aplica a contas de usuário sincronizadas de um ambiente de AD DS local usando Azure AD Connect, a menos que você habilite EnforceCloudPasswordPolicyForPasswordSyncedUsers.
+Por padrão, uma conta é bloqueada após 10 tentativas de entrada malsucedidas com a senha incorreta. O usuário é bloqueado por um minuto. Quanto mais tentativas de conexão com senha incorreta, por mais tempo o usuário ficará bloqueado. O [bloqueio inteligente](howto-password-smart-lockout.md) rastreia os três últimos hashes de senha inválidos para evitar incrementar o contador de bloqueios para a mesma senha. Se alguém inserir a mesma senha inválida várias vezes, esse comportamento não fará com que a conta seja bloqueada. Você pode definir o limite e a duração do bloqueio inteligente.
 
-As seguintes opções de política de senha são definidas:
+A política de senha do Azure AD não se aplica a contas de usuário sincronizadas de um ambiente de AD DS local usando Azure AD Connect, a menos que você habilite *EnforceCloudPasswordPolicyForPasswordSyncedUsers*.
+
+As opções de política de senha do Azure AD a seguir estão definidas. A menos que indicado, você não pode alterar essas configurações:
 
 | Propriedade | Requisitos |
 | --- | --- |
@@ -57,7 +59,6 @@ As seguintes opções de política de senha são definidas:
 | Expiração de senha (permitir que as senhas nunca expirem) |<ul><li>Valor padrão: **false** (indica que a senha tem uma data de validade).</li><li>O valor pode ser configurado para contas de usuário individuais usando o cmdlet `Set-MsolUser`.</li></ul> |
 | Histórico de alteração de senha | A última senha *não pode* ser usada novamente quando o usuário alterar uma senha. |
 | Histórico de redefinição de senha | A última senha *pode* ser usada novamente quando o usuário redefine uma senha esquecida. |
-| Bloqueio de conta | Após 10 tentativas malsucedidas de conexão com a senha incorreta, o usuário será bloqueado por um minuto. Quanto mais tentativas de conexão com senha incorreta, por mais tempo o usuário ficará bloqueado. O [bloqueio inteligente](howto-password-smart-lockout.md) rastreia os três últimos hashes de senha inválidos para evitar incrementar o contador de bloqueios para a mesma senha. Se alguém inserir a mesma senha inválida várias vezes, esse comportamento não fará com que a conta seja bloqueada. |
 
 ## <a name="administrator-reset-policy-differences"></a>Diferenças da política de redefinição de senha do administrador
 

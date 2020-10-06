@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 5687255057fdd5e73478626721c789c98b2ea366
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 6ed890fca9dddcbc7f04914a6f920d530d18ed0f
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120068"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91742835"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mariadb"></a>Usar o portal do Azure para configurar alertas de métricas no Banco de Dados do Azure para MariaDB
 
@@ -27,7 +27,7 @@ Você pode configurar um alerta para fazer as seguintes ações quando ele dispa
 Você pode configurar e obter informações sobre as regras de alerta usando:
 * [Azure portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
 * [CLI do Azure](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
-* [API REST do Monitor do Azure](https://docs.microsoft.com/rest/api/monitor/metricalerts)
+* [API REST do Azure Monitor](https://docs.microsoft.com/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric"></a>Criar uma regra de alerta em uma métrica
 1. No [portal do Azure](https://portal.azure.com/), selecione o servidor do Banco de Dados do Azure para MariaDB que você deseja monitorar.
@@ -52,7 +52,7 @@ Você pode configurar e obter informações sobre as regras de alerta usando:
    
    Selecione **Concluído** ao concluir.
 
-   ![Selecionar métrica](./media/howto-alert-metric/7-set-threshold-time.png)
+   ![Selecionar métrica 2](./media/howto-alert-metric/7-set-threshold-time.png)
 
 8. Dentro da seção **Grupos de Ações**, selecione **Criar Novo** para criar um novo grupo para receber notificações sobre o alerta.
 
@@ -70,7 +70,7 @@ Você pode configurar e obter informações sobre as regras de alerta usando:
 
 11. Especifique um Nome da regra de alerta, uma Descrição e uma Gravidade.
 
-    ![Grupo de ações](./media/howto-alert-metric/11-name-description-severity.png) 
+    ![Grupo de ação 2](./media/howto-alert-metric/11-name-description-severity.png) 
 
 12. Selecione **Criar regra de alerta** para criar o alerta.
 

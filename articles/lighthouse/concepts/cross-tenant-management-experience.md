@@ -1,14 +1,14 @@
 ---
 title: Experiências de gerenciamento entre locatários
 description: O gerenciamento de recursos delegados do Azure permite uma experiência de gerenciamento entre locatários.
-ms.date: 09/22/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 70356fd3856e517ca8fb3414a4ae2a8ccf28326e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 60eab197e38c7b6ef3b7f2d9442a0b7583f66d09
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91336625"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91739724"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gerenciamento entre locatários
 
@@ -120,6 +120,7 @@ A maioria das tarefas e serviços pode ser realizada em recursos delegados em lo
   - Proteja configuração do grupo de segurança de rede com o Fortalecimento de Rede Adaptável
   - Verifique se os servidores estão executando apenas os aplicativos e processos que eles devem estar com controles de aplicativo adaptáveis
   - Monitore alterações em arquivos importantes e entradas do Registro com o FIM (Monitoramento de Integridade do Arquivo)
+- Observe que toda a assinatura deve ser delegada ao locatário de gerenciamento; Não há suporte para cenários da central de segurança do Azure com grupos de recursos delegados
 
 [Azure Sentinel](../../sentinel/multiple-tenants-service-providers.md):
 

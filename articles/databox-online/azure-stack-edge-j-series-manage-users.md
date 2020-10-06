@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 5f7e8c09a09084b28278667cdeaf94f7e38908cd
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 66967c1fa8f6ca42459559caf46bffb0e5afe925
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904510"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743583"
 ---
 # <a name="use-the-azure-portal-to-manage-users-on-your-azure-stack-edge-pro"></a>Use o portal do Azure para gerenciar usuários em seu Azure Stack Edge pro
 
@@ -74,7 +74,7 @@ Para excluir um usuário, siga estas etapas no portal do Azure.
 
 2. Selecione um usuário na lista de usuários e, em seguida, selecione **Excluir**. Quando receber a solicitação, confirme a exclusão.
 
-    ![Selecionar o usuário a ser excluído](media/azure-stack-edge-j-series-manage-users/delete-user-2.png)
+    ![Selecione o usuário a ser excluído 2](media/azure-stack-edge-j-series-manage-users/delete-user-2.png)
 
 A lista de usuários é atualizada para refletir o usuário excluído.
 

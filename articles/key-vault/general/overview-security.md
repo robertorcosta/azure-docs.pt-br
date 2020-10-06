@@ -3,19 +3,18 @@ title: Segurança do Azure Key Vault
 description: Gerencie permissões de acesso para Azure Key Vault, chaves e segredos. Abrange o modelo de autenticação e autorização do Key Vault e descreve como proteger o cofre de chaves.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.date: 04/18/2019
+ms.date: 09/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: b6163ca0cb02670024fe95459f31ac81c4da756c
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: c3dd4e5138741a3c035507358830f3572cf92751
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91596365"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91739683"
 ---
 # <a name="azure-key-vault-security"></a>Segurança do Azure Key Vault
 
@@ -76,29 +75,16 @@ Depois que as regras de firewall estiverem ativas, os usuários podem apenas ler
 
 Para obter mais informações sobre o endereço de rede do Azure Key Vault, veja [Pontos de extremidade de serviço de rede virtual para Azure Key Vault](overview-vnet-service-endpoints.md))
 
-### <a name="tls-and-https"></a>TLS e HTTPS
+## <a name="tls-and-https"></a>TLS e HTTPS
 
 *   O front-end de Key Vault (plano de dados) é um servidor de vários locatários. Isso significa que os cofres de chaves de diferentes clientes podem compartilhar o mesmo endereço IP público. Para alcançar o isolamento, cada solicitação HTTP é autenticada e autorizada independentemente de outras solicitações.
 *   Você pode identificar versões mais antigas do TLS para relatar vulnerabilidades, mas como o endereço IP público é compartilhado, não é possível que a equipe de serviço do cofre de chaves desabilite versões antigas do TLS para cofres de chaves individuais no nível de transporte.
 *   O protocolo HTTPS permite que o cliente participe da negociação TLS. Os **clientes podem impor a versão mais recente do TLS**e sempre que um cliente faz isso, a conexão inteira usará a proteção de nível correspondente. O fato de que Key Vault ainda oferece suporte a versões mais antigas do TLS não prejudicará a segurança das conexões usando versões mais recentes do TLS.
 *   Apesar de vulnerabilidades conhecidas no protocolo TLS, não há nenhum ataque conhecido que permita que um agente mal-intencionado extraia todas as informações do cofre de chaves quando o invasor inicia uma conexão com uma versão TLS que tem vulnerabilidades. O invasor ainda precisaria se autenticar e se autorizar e, desde que os clientes legítimos sempre se conectem com versões recentes do TLS, não há nenhuma maneira de que as credenciais pudessem ter sido vazadas de vulnerabilidades em versões antigas do TLS.
 
+## <a name="logging-and-monitoring"></a>Log e monitoramento
 
-## <a name="monitoring"></a>Monitoramento
-
-O registrar em log do Key Vault salva informações sobre as atividades executadas em seu cofre. Logs do Key Vault:
-
-- Todas as solicitações da API REST autenticadas, incluindo solicitações com falha
-  - Operações no próprio cofre de chaves. Essas operações incluem a criação, a exclusão, a configuração de políticas de acesso e a atualização de atributos do cofre de chaves, como as marcas.
-  - Operações em chaves e segredos no cofre de chaves, incluindo:
-    - A criação, modificação ou exclusão dessas chaves ou segredos.
-    - A assinatura, verificação, criptografia, descriptografia, encapsulamento e desencapsulamento de chaves, obtenção de segredos e listagem de chaves e segredos (e suas versões).
-- Solicitações não autenticadas que resultam em uma resposta 401. Por exemplo, solicitações que não têm um token de portador estão malformadas ou expiradas ou têm um token inválido.
-
-As informações de log podem ser acessadas até 10 minutos após a operação do cofre de chaves. Cabe a você gerenciar os logs em sua conta de armazenamento.
-
-- Use os métodos de controle de acesso padrão do Azure para proteger seus logs ao restringir quem pode acessá-los.
-- Exclua os logs que você não deseja manter em sua conta de armazenamento.
+O registrar em log do Key Vault salva informações sobre as atividades executadas em seu cofre. Para obter detalhes completos, consulte [log de Key Vault](logging.md).
 
 Para obter recomendações sobre o gerenciamento seguro de contas de armazenamento, examine o [Guia de segurança do armazenamento do Azure](../../storage/blobs/security-recommendations.md)
 
@@ -106,4 +92,3 @@ Para obter recomendações sobre o gerenciamento seguro de contas de armazenamen
 
 - [Pontos de extremidade de serviço de rede virtual para o Azure Key Vault](overview-vnet-service-endpoints.md)
 - [RBAC: funções internas](../../role-based-access-control/built-in-roles.md)
-

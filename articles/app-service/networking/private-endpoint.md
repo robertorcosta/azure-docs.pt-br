@@ -9,19 +9,19 @@ ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 16ce03ad8d6af1908a9ea4d3b7759bb5eb3c1139
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 9f593bd5e1d4970b43b25c434abfa87177b72066
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961543"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743005"
 ---
 # <a name="using-private-endpoints-for-azure-web-app-preview"></a>Usando pontos de extremidade privados para o aplicativo Web do Azure (versão prévia)
 
 > [!Note]
 > Com a atualização da visualização, lançamos o recurso de proteção contra exfiltração de dados.
 >
-> A versão prévia está disponível em todas as regiões públicas para Aplicativos Web para Windows PremiumV2 e Linux e Funções Premium Elásticas. 
+> A versão prévia está disponível em todas as regiões públicas para aplicativos Windows e Linux PremiumV2 e PremiumV3 e funções Premium elásticos. 
 
 Você pode usar o Ponto de extremidade privado para o Azure Web App para permitir que os clientes localizados na sua rede privada acessem o aplicativo com segurança pelo link privado. O ponto de extremidade privado usa um endereço IP do espaço de endereço da VNet do Azure. O tráfego de rede entre um cliente em sua rede privada e o Web App atravessa a VNet e um Link Privado na rede principal da Microsoft, eliminando a exposição da Internet pública.
 

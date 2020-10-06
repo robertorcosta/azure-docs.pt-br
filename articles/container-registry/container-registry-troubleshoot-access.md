@@ -3,12 +3,12 @@ title: Solucionar problemas de rede com o registro
 description: Sintomas, causas e resolução de problemas comuns ao acessar um registro de contêiner do Azure em uma rede virtual ou atrás de um firewall
 ms.topic: article
 ms.date: 10/01/2020
-ms.openlocfilehash: c2ae8609dbd28a1a39a634e3c065030552aefb06
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: f84b11418344bfeaf790377c1d8644fbc7d7d636
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91630943"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743362"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>Solucionar problemas de rede com o registro
 
@@ -90,6 +90,8 @@ Se um ponto de extremidade de serviço para o registro estiver configurado, conf
 Se você quiser restringir o acesso ao registro usando uma rede virtual em uma assinatura do Azure diferente, certifique-se de registrar o `Microsoft.ContainerRegistry` provedor de recursos nessa assinatura. [Registre o provedor de recursos para o](../azure-resource-manager/management/resource-providers-and-types.md) registro de contêiner do Azure usando o portal do Azure, CLI do Azure ou outras ferramentas do Azure.
 
 Se o Firewall do Azure ou uma solução semelhante estiver configurada na rede, verifique se o tráfego de saída de outros recursos, como um cluster AKS, está habilitado para alcançar os pontos de extremidade do registro.
+
+Se um ponto de extremidade privado estiver configurado, confirme se o DNS resolve o FQDN público do registro, como *myregistry.azurecr.Io* , para o endereço IP privado do registro. Use um utilitário de rede como `dig` ou `nslookup` para pesquisa de DNS.
 
 Links relacionados:
 

@@ -2,14 +2,14 @@
 author: ccompy
 ms.service: app-service-web
 ms.topic: include
-ms.date: 04/15/2020
+ms.date: 10/01/2020
 ms.author: ccompy
-ms.openlocfilehash: c31a5aaa9866a4ce97cd3cd59a8e363834f70587
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 481bd4f50eb527bcad2ba79b5ba4b9df4b872bfc
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81312825"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91739894"
 ---
 * Os sistemas multilocatários que oferecem suporte a toda a gama de planos de preços, exceto isolados.
 * O Ambiente do Serviço de Aplicativo, que é implantado em sua VNet e dá suporte a aplicativos de plano de preços isolados.
@@ -23,7 +23,7 @@ A integração VNet dá ao seu aplicativo acesso aos recursos em sua VNet, mas n
 
 Os recursos de integração VNet:
 
-* Exigir um plano de preços Standard, Premium, PremiumV2 ou elástico Premium.
+* Exigir um plano de preços Standard, Premium, PremiumV2, PremiumV3 ou elástico Premium.
 * Suporte a TCP e UDP.
 * Trabalhe com aplicativos de serviço Azure App e aplicativos de funções.
 

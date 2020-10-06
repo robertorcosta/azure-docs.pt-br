@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: troubleshooting
 ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: e49cc400fd8af3d284a223363f3384063d862981
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: e5280805090a83245e287c0b15a1735ee41e934e
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927174"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741798"
 ---
 # <a name="troubleshoot-your-azure-data-box-gateway-issues"></a>Solucionar problemas do Azure Data Box Gateway
 
@@ -36,7 +36,7 @@ Para diagnosticar e solucionar quaisquer erros de dispositivo, você pode execut
  
 2. Depois de os testes terem sido concluídos, os resultados serão exibidos. Se um teste falhar, uma URL para a ação recomendada será apresentada. Você pode clicar no URL para exibir a ação recomendada. 
  
-    ![Clique em adicionar usuário](media/data-box-gateway-troubleshoot/run-diag-2.png)
+    ![Clique em Adicionar usuário 2](media/data-box-gateway-troubleshoot/run-diag-2.png)
 
 
 ## <a name="collect-support-package"></a>Coletar o pacote de Suporte
@@ -47,11 +47,11 @@ Execute as seguintes etapas para coletar um pacote de suporte.
 
 1. Na interface do usuário da Web local, vá para **Solução de problemas > Suporte**. Clique em **Criar pacote de suporte**. O sistema começará a coletar o pacote de suporte. A coleta do pacote poderá levar vários minutos.
 
-    ![Clique em adicionar usuário](media/data-box-gateway-troubleshoot/collect-logs-1.png)
+    ![Clique em Adicionar usuário 3](media/data-box-gateway-troubleshoot/collect-logs-1.png)
  
 2. Depois que o pacote de suporte for criado, clique em **Baixar Pacote de Suporte**. Um pacote compactado é baixado no caminho que você escolheu. Descompacte o pacote.
 
-    ![Clique em adicionar usuário](media/data-box-gateway-troubleshoot/collect-logs-2.png)
+    ![Clique em Adicionar usuário 4](media/data-box-gateway-troubleshoot/collect-logs-2.png)
 
 ## <a name="use-logs-to-troubleshoot"></a>Usar logs para solucionar problemas
 
@@ -59,7 +59,7 @@ Quaisquer erros ocorridos durante os processos de upload e de atualização são
 
 1. Para exibir os arquivos de erro, vá para o compartilhamento e clique no compartilhamento para exibir o conteúdo. 
 
-      ![Clique em adicionar usuário](media/data-box-gateway-troubleshoot/troubleshoot-logs-1.png)
+      ![Clique em Adicionar usuário 5](media/data-box-gateway-troubleshoot/troubleshoot-logs-1.png)
 
 2. Clique na _pasta do Microsoft Data Box Gateway_. Esta pasta tem duas subpastas:
 

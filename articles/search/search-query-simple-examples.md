@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 3c469d7274bb90e194478af2464cb352efe7490c
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.date: 10/05/2020
+ms.openlocfilehash: e2c6f627c69316b8f146d3ac82b8d29801ec3902
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89294859"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740676"
 ---
 # <a name="create-a-simple-query-in-azure-cognitive-search"></a>Criar uma consulta simples no Azure Pesquisa Cognitiva
 
@@ -37,13 +37,13 @@ O que é necessário é o Postman ou uma ferramenta equivalente para emitir soli
 
 Após especificar o cabeçalho de solicitação, você poderá reutilizá-lo para todas as consultas neste artigo, trocando apenas a cadeia de caracteres **search=**. 
 
-  ![Parâmetros de definição do cabeçalho de solicitação do postmaster](media/search-query-lucene-examples/postman-header.png)
+  :::image type="content" source="media/search-query-lucene-examples/postman-header.png" alt-text="Parâmetros de definição do cabeçalho de solicitação do postmaster" border="false":::
 
 ### <a name="set-the-request-url"></a>Definir a URL da solicitação
 
 A solicitação é um comando GET emparelhado com uma URL que contém o ponto de extremidade Pesquisa Cognitiva do Azure e a cadeia de caracteres de pesquisa.
 
-  ![GET de cabeçalho de solicitação do postmaster](media/search-query-lucene-examples/postman-basic-url-request-elements.png)
+  :::image type="content" source="media/search-query-lucene-examples/postman-basic-url-request-elements.png" alt-text="Parâmetros de definição do cabeçalho de solicitação do postmaster" border="false":::
 
 A composição de URL possui os elementos a seguir:
 
@@ -97,7 +97,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
 
 A resposta para essa consulta deve ser semelhante à captura de tela a seguir.
 
-  ![Resposta de exemplo do Postman](media/search-query-lucene-examples/postman-sample-results.png)
+  :::image type="content" source="media/search-query-lucene-examples/postman-sample-results.png" alt-text="Parâmetros de definição do cabeçalho de solicitação do postmaster" border="false":::
 
 Você deve ter notado a pontuação de pesquisa na resposta. Pontuações uniformes de 1 ocorrem quando não há classificação, seja porque a pesquisa não foi pesquisa de texto completo ou porque nenhum critério foi aplicado. Para pesquisa nula sem critérios, as linhas retornam em ordem arbitrária. Quando você incluir critérios reais, verá as pontuações da pesquisa evoluir para valores significativos.
 
@@ -133,7 +133,7 @@ POST /indexes/nycjobs/docs/search?api-version=2020-06-30
 
 Usado em conjunto, o filtro é aplicado primeiro ao índice inteiro e, em seguida, a pesquisa é executada nos resultados do filtro. Os filtros, portanto, podem ser uma técnica útil para melhorar o desempenho da consulta, uma vez que reduzem o conjunto de documentos que a consulta de pesquisa precisa processar.
 
-  ![Filtrar resposta da consulta](media/search-query-simple-examples/filtered-query.png)
+  :::image type="content" source="media/search-query-simple-examples/filtered-query.png" alt-text="Parâmetros de definição do cabeçalho de solicitação do postmaster" border="false":::
 
 Se quiser experimentar isso no Postman usando GET, você pode colar nesta cadeia de caracteres:
 
@@ -167,7 +167,7 @@ POST /indexes/nycjobs/docs/search?api-version=2020-06-30
       "count": "true"
     }
 ```
-  ![Filtro de intervalo para intervalos numéricos](media/search-query-simple-examples/rangefilternumeric.png)
+  :::image type="content" source="media/search-query-simple-examples/rangefilternumeric.png" alt-text="Parâmetros de definição do cabeçalho de solicitação do postmaster" border="false":::
 
 
 ```http
@@ -181,7 +181,7 @@ POST /indexes/nycjobs/docs/search?api-version=2020-06-30
     }
 ```
 
-  ![Filtro de intervalo para intervalos de texto](media/search-query-simple-examples/rangefiltertext.png)
+  :::image type="content" source="media/search-query-simple-examples/rangefiltertext.png" alt-text="Parâmetros de definição do cabeçalho de solicitação do postmaster" border="false":::
 
 Também é possível experimentá-los no Postman usando GET:
 
@@ -251,14 +251,14 @@ Usando o searchMode padrão (qualquer), 2800 documentos são retornados: aqueles
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&searchMode=any&search="fire department"  -"Metrotech Center"
 ```
 
-  ![modo de pesquisa qualquer](media/search-query-simple-examples/searchmodeany.png)
+  :::image type="content" source="media/search-query-simple-examples/searchmodeany.png" alt-text="Parâmetros de definição do cabeçalho de solicitação do postmaster" border="false":::
 
 Alterar searchMode para `all` impõe um efeito cumulativo aos critérios e retorna um conjunto de resultados menor - 21 documentos - que consiste em documentos contendo toda a frase "corpo de bombeiros", menos esses trabalhos no endereço do Metrotech Center.
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&searchMode=all&search="fire department"  -"Metrotech Center"
 ```
-  ![modo de pesquisa todos](media/search-query-simple-examples/searchmodeall.png)
+  :::image type="content" source="media/search-query-simple-examples/searchmodeall.png" alt-text="Parâmetros de definição do cabeçalho de solicitação do postmaster" border="false":::
 
 ## <a name="example-8-structuring-results"></a>Exemplo 8: resultados de estruturação
 

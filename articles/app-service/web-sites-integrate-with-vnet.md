@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/05/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 433d519cc71b8bb218569679c94142658f3c9416
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 141649f7620063b58134caaa878162f3a7e767e7
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91255223"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91739895"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrar seu aplicativo a uma rede virtual do Azure
 
@@ -144,7 +144,7 @@ O recurso de Integração VNET regional não tem nenhum custo adicional para uso
 
 Três custos estão relacionados ao uso do recurso de Integração VNET exigido pelo gateway:
 
-* **Custos do tipo de preço do Plano do serviço de aplicativo**: Os aplicativos precisam estar em um Plano do Serviço de Aplicativo Standard, Premium ou PremiumV2. Para obter mais informações sobre esses custos, confira [Preços do Serviço de Aplicativo][ASPricing].
+* **Cobranças de tipo de preço do plano do serviço de aplicativo**: seus aplicativos precisam estar em um plano do serviço de aplicativo Standard, Premium, PremiumV2 ou PremiumV3. Para obter mais informações sobre esses custos, confira [Preços do Serviço de Aplicativo][ASPricing].
 * **Custos de transferência de dados**: há um custo de saída de dados, mesmo se a VNET está no mesmo datacenter. Esses custos são descritos em [Detalhes de preços da transferência de dados][DataPricing].
 * **Custos do gateway de VPN**: há um custo para o gateway de rede virtual necessário para a VPN ponto a site. Para obter mais informações, confira [Preços do gateway de VPN][VNETPricing].
 

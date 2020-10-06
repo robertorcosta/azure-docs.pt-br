@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 07/11/2019
 ms.author: alkohli
-ms.openlocfilehash: 9df729277934e074e1e8cc92126e777336708586
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: dbdd4c7d23f56618c0e76649abe4faad86c5804c
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904523"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743294"
 ---
 # <a name="open-a-support-ticket-for-azure-stack-edge-pro-and-azure-data-box-gateway"></a>Abra um tíquete de suporte para Azure Stack Edge pro e Gateway do Azure Data Box
 
@@ -59,7 +59,7 @@ Execute as seguintes etapas para criar uma solicitação de suporte:
 
 4. Na guia **Revisar + Criar**, revise as informações relacionadas ao tíquete de suporte. Selecione **Criar**. 
 
-    ![Problema](./media/azure-stack-edge-contact-microsoft-support/data-box-edge-support-request-3.png)
+    ![Problema 2](./media/azure-stack-edge-contact-microsoft-support/data-box-edge-support-request-3.png)
 
     Depois que criar um tíquete de suporte, um engenheiro de suporte entrará em contato com você assim que possível para prosseguir com sua solicitação.
 
