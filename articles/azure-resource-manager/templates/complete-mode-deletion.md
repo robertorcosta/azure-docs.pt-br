@@ -2,13 +2,13 @@
 title: Exclusão completa de modo
 description: Mostra como os tipos de recurso lidam com a exclusão de modo completo em modelos do Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 09/21/2020
-ms.openlocfilehash: 1e27960953aeb16486f893054c7653edb98bbdbc
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.date: 10/06/2020
+ms.openlocfilehash: 72303a7916aec39c05f9b4fa2cbc77de18b7fb3e
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91372454"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766707"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Exclusão de recursos do Azure para implantações do modo completo
 
@@ -19,6 +19,11 @@ Os tipos de recurso marcados com **Sim** são excluídos quando o tipo não est�
 Os tipos de recurso marcados **sem não são excluídos** automaticamente quando não estão no modelo; no entanto, elas serão excluídas se o recurso pai for excluído. Para obter uma descrição completa do comportamento, consulte [Modos de implantação do Azure Resource Manager](deployment-modes.md).
 
 Se você implantar em [mais de um grupo de recursos em um modelo](cross-scope-deployment.md), os recursos no grupo de recursos especificado na operação de implantação poderão ser excluídos. Os recursos nos grupos de recursos secundários não são excluídos.
+
+Os recursos são listados pelo namespace do provedor de recursos. Para corresponder a um namespace de provedor de recursos com seu nome de serviço do Azure, consulte [provedores de recursos para serviços do Azure](../management/azure-services-resource-providers.md).
+
+> [!NOTE]
+> Sempre use a [operação What-If](template-deploy-what-if.md) antes de implantar um modelo no modo completo. What-If mostra quais recursos serão criados, excluídos ou modificados. Use What-If para evitar a exclusão acidental de recursos.
 
 Pule para um namespace de provedor de recursos:
 > [!div class="op_single_selector"]

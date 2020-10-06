@@ -3,61 +3,24 @@ title: Gerenciar uma conta Executar como da Automação do Azure
 description: Este artigo descreve como gerenciar as contas Executar como com PowerShell ou pelo portal do Azure.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 06/26/2020
+ms.date: 09/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: cb804b21d6f5312c13bfdbf7b0fc0404961ba1e3
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 3357cb40ff476a3cc0bce259930068aeccf2c10c
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90005727"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767422"
 ---
 # <a name="manage-an-azure-automation-run-as-account"></a>Gerenciar uma conta Executar como da Automação do Azure
 
-As contas Executar como na Automação do Azure são usadas para fornecer autenticação para o gerenciamento de recursos no Azure com os cmdlets do Azure. Quando você cria uma conta Executar como, ela cria uma nova entidade de serviço no Azure Active Directory (AD) e atribui a função Colaborador a esse usuário no nível da assinatura.
+As contas Executar como na automação do Azure fornecem autenticação para gerenciar recursos no Azure Resource Manager ou no modelo de implantação clássico do Azure usando runbooks de automação e outros recursos de automação. Este artigo fornece orientação sobre como gerenciar uma conta Executar como ou executar como clássica.
 
-## <a name="types-of-run-as-accounts"></a>Tipos de contas Executar como
+Para saber mais sobre a autenticação da conta de automação do Azure e diretrizes relacionadas a cenários de automação de processos, consulte [visão geral da autenticação da conta de automação](automation-security-overview.md).
 
-A automação do Azure usa dois tipos de contas Executar como:
-
-* Conta Executar como do Azure
-* Conta Executar como Clássica do Azure
-
->[!NOTE]
->As assinaturas do CSP (Provedor de Soluções de Nuvem) do Azure são compatíveis apenas com o modelo do Azure Resource Manager. Serviços que não pertencem ao Azure Resource Manager não estão disponíveis no programa. Quando você estiver usando uma assinatura do CSP, a conta Executar como Clássica do Azure não será criada, mas a conta Executar como do Azure será criada. Para saber mais sobre assinaturas de CSP, consulte [Serviços disponíveis em assinaturas do CSP](/azure/cloud-solution-provider/overview/azure-csp-available-services).
-
-A entidade de serviço para uma conta Executar como não tem permissões para ler o Azure AD por padrão. Se desejar adicionar permissões para ler ou gerenciar o Azure AD, você precisará conceder as permissões na entidade de serviço em **permissões de API**. Para saber mais, consulte [adicionar permissões para acessar sua API Web](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-permissions-to-access-your-web-api).
-
-### <a name="run-as-account"></a>Conta Executar como
-
-A conta Executar como gerencia recursos do [Modelo de implantação do Resource Manager](../azure-resource-manager/management/deployment-models.md). Ela segue as seguintes etapas.
-
-* Cria um aplicativo do Azure AD com um certificado autoassinado, cria uma conta de entidade de serviço para o aplicativo no Azure AD e atribui a função de Colaborador à conta na assinatura atual. Você pode alterar a configuração de certificado para Proprietário ou qualquer outra função. Para obter mais informações, confira [Controle de acesso baseado em função na Automação do Azure](automation-role-based-access-control.md).
-
-* Cria um ativo de certificado de Automação chamado `AzureRunAsCertificate` na conta de Automação especificada. O ativo de certificado contém a chave privada do certificado que é usada pelo aplicativo do Azure AD.
-
-* Cria um ativo de conexão de Automação chamado `AzureRunAsConnection` na conta de Automação especificada. O ativo de conexão contém a ID do aplicativo, a ID do locatário, a ID da assinatura e a impressão digital do certificado.
-
-### <a name="azure-classic-run-as-account"></a>Conta Executar como do Azure Clássico
-
-A conta Executar como Clássica do Azure gerencia recursos do [Modelo de implantação clássico](../azure-resource-manager/management/deployment-models.md). Você deve ser um coadministrador na assinatura para criar ou renovar esse tipo de conta.
-
-A conta Executar como Clássica do Azure executa as seguintes tarefas.
-
-  * Configurar um certificado de gerenciamento na assinatura.
-
-  * Cria um ativo de certificado de Automação chamado `AzureClassicRunAsCertificate` na conta de Automação especificada. O ativo de certificado contém a chave privada do certificado usada pelo certificado de gerenciamento.
-
-  * Cria um ativo de conexão de Automação chamado `AzureClassicRunAsConnection` na conta de Automação especificada. O ativo de conexão contém o nome da assinatura, a ID da assinatura e o nome do ativo de certificado.
-
->[!NOTE]
->A conta Executar como Clássica do Azure não é criada por padrão ao mesmo tempo em que você cria uma conta de automação. Essa conta é criada individualmente seguindo as etapas descritas posteriormente neste artigo.
-
-## <a name="obtain-run-as-account-permissions"></a><a name="permissions"></a>Obter as permissões da conta Executar como
+## <a name="run-as-account-permissions"></a><a name="permissions"></a>Permissões da conta Executar como
 
 Esta seção define permissões para contas Executar como regulares e contas Executar como Clássicas.
-
-### <a name="get-permissions-to-configure-run-as-accounts"></a>Permissões para configurar contas Executar como
 
 Para criar ou atualizar uma conta Executar como, é necessário ter privilégios e permissões específicos. Um administrador de aplicativos no Azure Active Directory e um proprietário em uma assinatura podem concluir todas as tarefas. Em uma situação em que você tem separação de tarefas, a tabela a seguir mostra uma listagem das tarefas, o cmdlet equivalente e as permissões necessárias:
 
@@ -74,7 +37,7 @@ Para criar ou atualizar uma conta Executar como, é necessário ter privilégios
 
 Se você não for um membro da instância do Active Directory da assinatura antes de ser adicionado à função de Administrador Global da assinatura, você será adicionado como convidado. Nessa situação, você receberá um `You do not have permissions to create…` aviso na página **adicionar conta de automação** .
 
-Se você for um membro da instância de Active Directory da assinatura quando a função de administrador global for atribuída, você também poderá receber um `You do not have permissions to create…` aviso na página **adicionar conta de automação** . Nesse caso, você pode solicitar a remoção da instância do Active Directory da assinatura e solicitar que ela seja adicionada novamente, para que você se torne um usuário completo no Active Directory.
+Se você for um membro da instância de Active Directory da assinatura em que a função de administrador global for atribuída, você também poderá receber um `You do not have permissions to create…` aviso na página **adicionar conta de automação** . Nesse caso, você pode solicitar a remoção da instância do Active Directory da assinatura e solicitar que ela seja adicionada novamente, para que você se torne um usuário completo no Active Directory.
 
 Para verificar se a situação que produz a mensagem de erro foi remediada:
 
@@ -83,7 +46,7 @@ Para verificar se a situação que produz a mensagem de erro foi remediada:
 3. Escolha seu nome e, em seguida, selecione **Perfil**.
 4. Verifique se o valor do atributo **Tipo de usuário** no perfil do usuário não está definido como **Convidado**.
 
-### <a name="get-permissions-to-configure-classic-run-as-accounts"></a><a name="permissions-classic"></a>Obter permissões para configurar contas Executar como Clássicas
+### <a name="permissions-required-to-create-or-manage-classic-run-as-accounts"></a><a name="permissions-classic"></a>Permissões necessárias para criar ou gerenciar contas Executar como clássicas
 
 Para configurar ou renovar contas Executar como Clássicas, você deve ter a função de coadministrador no nível de assinatura. Para saber mais sobre as permissões de assinatura clássicas, consulte [Administradores de assinatura do Azure Clássico](../role-based-access-control/classic-administrators.md#add-a-co-administrator).
 
@@ -97,17 +60,87 @@ Execute as seguintes etapas para atualizar sua conta de Automação do Azure no 
 
 3. Na página Contas de Automação, escolha sua conta de Automação na lista.
 
-4. No painel do lado esquerdo, selecione **Contas Executar como** na seção Configurações de conta.
+4. No painel esquerdo, selecione **contas Executar como** na seção **configurações de conta** .
 
-5. Dependendo da conta de que você precisa, selecione **Conta Executar como do Azure** ou **Conta Executar como Clássica do Azure**.
+    :::image type="content" source="media/manage-runas-account/automation-account-properties-pane.png" alt-text="Selecione a opção conta Executar como.":::
 
-6. Dependendo da conta de interesse, use o painel **Adicionar Executar como do Azure** ou **Adicionar a conta Executar como Clássica do Azure**. Depois de examinar as informações de visão geral, clique em **Criar**.
+5. Dependendo da conta que você precisa, use a **conta Executar como do Azure** ou **+ painel da conta Executar como clássica do Azure** . Depois de examinar as informações de visão geral, clique em **Criar**.
 
-7. Enquanto o Azure cria a conta Executar como, você poderá acompanhar o andamento em **Notificações** no menu. Uma faixa também é exibida informando que a conta está sendo criada. O processo pode levar alguns minutos.
+    :::image type="content" source="media/manage-runas-account/automation-account-create-runas.png" alt-text="Selecione a opção conta Executar como.":::
+
+6. Enquanto o Azure cria a conta Executar como, você poderá acompanhar o andamento em **Notificações** no menu. Uma faixa também é exibida informando que a conta está sendo criada. O processo pode levar alguns minutos.
+
+## <a name="create-a-run-as-account-using-powershell"></a>Criar conta Executar como usando PowerShell
+
+A lista a seguir fornece os requisitos para criar uma conta Executar como no PowerShell usando um script fornecido. Esses requisitos se aplicam a ambos os tipos de contas Executar como.
+
+* Windows 10 ou Windows Server 2016 com os módulos 3.4.1 e posteriores do Azure Resource Manager. O script do PowerShell não é compatível com versões anteriores do Windows.
+* Azure PowerShell PowerShell 6.2.4 ou posterior. Para obter informações, consulte [como instalar e configurar o Azure PowerShell](/powershell/azure/install-az-ps).
+* Uma Conta de automação, que é referenciada como o valor para os parâmetros `AutomationAccountName` e `ApplicationDisplayName`.
+* Permissões equivalentes às listadas em [Permissões necessárias para configurar contas Executar como](#permissions).
+
+Para obter os valores para `AutomationAccountName` , `SubscriptionId` e `ResourceGroupName` , que são parâmetros necessários para o script do PowerShell, conclua as etapas a seguir.
+
+1. No portal do Azure, selecione **Contas de Automação**.
+
+1. Na página de Contas de Automação, selecione a sua Conta de automação.
+
+1. Na seção de configurações da conta, selecione **Propriedades**.
+
+1. Observe os valores de **nome**, **ID da assinatura**e **grupo de recursos** na página **Propriedades** .
+
+   ![Painel de propriedades da conta de automação](media/manage-runas-account/automation-account-properties.png)
+
+### <a name="powershell-script-to-create-a-run-as-account"></a>Criar o script do PowerShell da conta Executar como
+
+O script do PowerShell inclui suporte para várias configurações.
+
+* Crie uma conta Executar como usando um certificado autoassinado.
+* Crie uma conta Executar como e uma conta Executar como Clássica usando um certificado autoassinado.
+* Criar uma conta Executar como e uma conta Clássica Executar como usando um certificado emitido por sua autoridade de certificação corporativa (CA).
+* Crie uma conta Executar como e uma conta Executar como Clássica usando um certificado autoassinado na nuvem do Azure Governamental.
+
+1. Baixe e salve o script em uma pasta local usando o comando a seguir.
+
+    ```powershell
+    wget https://raw.githubusercontent.com/azureautomation/runbooks/master/Utility/AzRunAs/Create-RunAsAccount.ps1 -outfile Create-RunAsAccount.ps1
+    ```
+
+2. Inicie o PowerShell com direitos de usuário elevados e navegue até a pasta que contém o script.
+
+3. Execute um dos comandos a seguir para criar uma conta Executar como e/ou executar como clássica com base em seus requisitos.
+
+    * Crie uma conta Executar como usando um certificado autoassinado.
+
+        ```powershell
+        .\Create-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication> -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $false
+        ```
+
+    * Crie uma conta Executar como e uma conta Executar como Clássica usando um certificado autoassinado.
+
+        ```powershell
+        .\Create-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication> -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $true
+        ```
+
+    * Crie uma conta Executar como e uma conta Executar como Clássica usando um certificado corporativo.
+
+        ```powershell
+        .\Create-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication>  -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $true -EnterpriseCertPathForRunAsAccount <EnterpriseCertPfxPathForRunAsAccount> -EnterpriseCertPlainPasswordForRunAsAccount <StrongPassword> -EnterpriseCertPathForClassicRunAsAccount <EnterpriseCertPfxPathForClassicRunAsAccount> -EnterpriseCertPlainPasswordForClassicRunAsAccount <StrongPassword>
+        ```
+
+        Se tiver criado uma conta Executar como Clássica com um certificado público corporativo (arquivo .cer), use este certificado. O script cria e salva-o na pasta arquivos temporários no computador, no perfil do usuário `%USERPROFILE%\AppData\Local\Temp` usado para executar a sessão do PowerShell. Consulte [Carregar um certificado de gerenciamento de API](../cloud-services/cloud-services-configure-ssl-certificate-portal.md) no portal do Azure.
+
+    * Crie uma conta Executar como e uma conta Executar como Clássica usando um certificado autoassinado na nuvem do Azure Governamental
+
+        ```powershell
+        .\Create-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication> -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $true -EnvironmentName AzureUSGovernment
+        ```
+
+4. Depois que o script for executado, você deverá se autenticar no Azure. Entre com uma conta que seja membro da função Administradores de assinatura. Se você estiver criando uma conta Executar como clássica, sua conta deverá ser um coadministrador da assinatura.
 
 ## <a name="delete-a-run-as-or-classic-run-as-account"></a>Excluir uma conta Executar como ou Executar como Clássica
 
-Esta seção descreve como excluir uma conta Executar como ou Executar como Clássica. Quando você executa essa ação, a conta de Automação é mantida. Após excluir uma conta, você pode recriá-la no portal do Azure.
+Esta seção descreve como excluir uma conta Executar como ou Executar como Clássica. Quando você executa essa ação, a conta de Automação é mantida. Depois de excluir a conta Executar como, você poderá recriá-la no portal do Azure ou com o script do PowerShell fornecido.
 
 1. No Portal do Azure, abra a Conta de automação.
 
@@ -120,10 +153,6 @@ Esta seção descreve como excluir uma conta Executar como ou Executar como Clá
    ![Excluir Conta Executar como](media/manage-runas-account/automation-account-delete-runas.png)
 
 5. Enquanto a conta está sendo excluída, você poderá acompanhar o andamento em **Notificações** no menu.
-
-6. Depois que a conta for excluída, você poderá recriá-la na página de propriedades Contas Executar como selecionando a opção de criação **Executar como Conta do Azure**.
-
-   ![Recriar a conta de Automação Executar como](media/manage-runas-account/automation-account-create-runas.png)
 
 ## <a name="renew-a-self-signed-certificate"></a><a name="cert-renewal"></a>Renovar um certificado autoassinado
 
@@ -174,8 +203,7 @@ Você pode determinar se a entidade de serviço usada pela sua conta Executar co
 2. Selecione **Conta Executar como do Azure**.
 3. Selecione **Função** para localizar a definição de função que está sendo usada.
 
-:::image type="content" source="media/manage-runas-account/verify-role.png" alt-text="Verifique a função da conta Executar como." lightbox="media/manage-runas-account/verify-role-expanded.png":::
-
+:::image type="content" source="media/manage-runas-account/verify-role.png" alt-text="Selecione a opção conta Executar como." lightbox="media/manage-runas-account/verify-role-expanded.png":::
 
 Você também pode determinar a definição de função usada pelas contas Executar como para várias assinaturas ou contas de automação. Faça isso usando o script [Check-AutomationRunAsAccountRoleAssignments.ps1](https://aka.ms/AA5hug5) no Galeria do PowerShell.
 
@@ -199,7 +227,7 @@ Alguns itens de configuração necessários para que a conta Executar como ou Ex
 
 Para outras instâncias de uma configuração incorreta, a conta de Automação detecta as alterações e exibe o status *Incompleto* na página de propriedades Contas Executar como para a conta.
 
-![Status incompleto de configuração de conta Executar como](media/manage-runas-account/automation-account-runas-incomplete-config.png)
+![Status incompleto de configuração de conta Executar como](media/manage-runas-account/automation-account-runas-config-incomplete.png)
 
 Quando você selecionar a conta Executar como, o painel Propriedades da conta exibirá a seguinte mensagem de erro:
 

@@ -11,12 +11,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - devx-track-csharp
-ms.openlocfilehash: a451e13b39aea27b4f1e23f9faa30f4b11c1cff1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 256ede9471f3e889dcce9415a6728414b5ab5f75
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021231"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766942"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Usar o roteamento de mensagens do Hub IoT para enviar mensagens do dispositivo para a nuvem para diferentes pontos de extremidade
 
@@ -126,7 +126,7 @@ Você pode habilitar/desabilitar a rota de fallback na folha de roteamento de me
 
 ## <a name="non-telemetry-events"></a>Eventos que não são de telemetria
 
-Além da telemetria do dispositivo, o roteamento de mensagens também permite o envio de eventos de alteração de dispositivos de troca, eventos de ciclo de vida do dispositivo e eventos de alteração de mensagens digitais (em visualização pública). Por exemplo, se uma rota é criada com a fonte de dados definida como **eventos de alteração de dispositivo gêmeo**, o Hub IoT envia mensagens para o ponto de extremidade que contém a alteração no dispositivo gêmeo. Da mesma forma, se uma rota for criada com a fonte de dados definida como **eventos de ciclo de vida do dispositivo**, o Hub IOT enviará uma mensagem indicando se o dispositivo foi excluído ou criado. Por fim, como parte da [Visualização pública de IoT plug and Play](../iot-pnp/overview-iot-plug-and-play.md), um desenvolvedor pode criar rotas com a fonte de dados definida como **eventos de alteração de troca digital** e o Hub IOT envia mensagens sempre que uma [Propriedade](../iot-pnp/iot-plug-and-play-glossary.md) de troca de alterações digitais é definida ou alterada, uma troca de dados [digitais](../iot-pnp/iot-plug-and-play-glossary.md) é substituída ou quando ocorre um evento de alteração para o dispositivo subjacente.
+Além da telemetria do dispositivo, o roteamento de mensagens também permite o envio de eventos de alteração de dispositivos de troca, eventos de ciclo de vida de dispositivo e eventos de alteração de troca digital Por exemplo, se uma rota é criada com a fonte de dados definida como **eventos de alteração de dispositivo gêmeo**, o Hub IoT envia mensagens para o ponto de extremidade que contém a alteração no dispositivo gêmeo. Da mesma forma, se uma rota for criada com a fonte de dados definida como **eventos de ciclo de vida do dispositivo**, o Hub IOT enviará uma mensagem indicando se o dispositivo foi excluído ou criado. Por fim, como parte do [plug and Play de IOT](../iot-pnp/overview-iot-plug-and-play.md), um desenvolvedor pode criar rotas com a fonte de dados definida como **eventos de alteração de troca digital** e o Hub IOT envia mensagens sempre que uma [Propriedade](../iot-pnp/iot-plug-and-play-glossary.md) de intercâmbio digital é definida ou alterada, uma troca de troca [digital](../iot-pnp/iot-plug-and-play-glossary.md) é substituída ou quando ocorre um evento de alteração para o dispositivo subjacente.
 
 O [Hub IOT também se integra à grade de eventos do Azure](iot-hub-event-grid.md) para publicar eventos de dispositivo para dar suporte a integrações em tempo real e automação de fluxos de trabalho com base nesses eventos. Confira as principais [diferenças entre o roteamento de mensagens e Grade de Eventos](iot-hub-event-grid-routing-comparison.md) para saber o que funciona melhor para seu cenário.
 

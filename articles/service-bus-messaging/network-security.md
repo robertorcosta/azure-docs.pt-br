@@ -3,12 +3,12 @@ title: Segurança de rede para o barramento de serviço do Azure
 description: Este artigo descreve os recursos de segurança de rede, como marcas de serviço, regras de firewall de IP, pontos de extremidade de serviço e pontos de extremidade privados.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 731300179ce9a0ff72169cdad5c7c039749b20f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fb21c8beb6d48ecab04917525011cc4762c46ff3
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341130"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766394"
 ---
 # <a name="network-security-for-azure-service-bus"></a>Segurança de rede para o barramento de serviço do Azure 
 Este artigo descreve como usar os seguintes recursos de segurança com o barramento de serviço do Azure: 
@@ -16,7 +16,7 @@ Este artigo descreve como usar os seguintes recursos de segurança com o barrame
 - Marcas de serviço
 - Regras de firewall de IP
 - Pontos de extremidade de serviço de rede
-- Pontos de extremidade privados (versão prévia)
+- Pontos de extremidade privados
 
 
 ## <a name="service-tags"></a>Marcas de serviço
@@ -81,8 +81,6 @@ Para obter mais informações, confira [O que é o Link Privado do Azure?](../pr
 
 > [!NOTE]
 > Esse recurso é compatível com a camada **Premium** do Barramento de Serviço do Azure. Para saber mais sobre a camada Premium, confira [Camadas de mensagens Premium e Standard do Barramento de Serviço](service-bus-premium-messaging.md).
->
-> Esse recurso está atualmente em **versão prévia**. 
 
 
 Para obter mais informações, consulte [como configurar pontos de extremidade privados para um namespace do barramento de serviço](private-link-service.md)

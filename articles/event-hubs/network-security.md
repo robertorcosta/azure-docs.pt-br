@@ -3,12 +3,12 @@ title: Segurança de rede para hubs de eventos do Azure
 description: Este artigo descreve como configurar o acesso de pontos de extremidade privados
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: ddb816e872625da06e370a7e130b4dd444de8de7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ae6cbdc8258cde9bb2da961cb452f996f0797cfe
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521846"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767794"
 ---
 # <a name="network-security-for-azure-event-hubs"></a>Segurança de rede para hubs de eventos do Azure 
 Este artigo descreve como usar os seguintes recursos de segurança com os hubs de eventos do Azure: 
@@ -16,7 +16,7 @@ Este artigo descreve como usar os seguintes recursos de segurança com os hubs d
 - Marcas de serviço
 - Regras de firewall de IP
 - Pontos de extremidade de serviço de rede
-- Pontos de extremidade privados (versão prévia)
+- Pontos de extremidade privados
 
 
 ## <a name="service-tags"></a>Marcas de serviço
@@ -74,9 +74,6 @@ O ponto de extremidade privado é uma interface de rede que conecta você de for
 
 > [!NOTE]
 > Esse recurso é suportado apenas na camada **dedicada**. Para obter mais informações sobre a camada dedicada, confira [Visão geral dos Hubs de Eventos Dedicados](event-hubs-dedicated-overview.md). 
->
-> Esse recurso está atualmente em **versão prévia**. 
-
 
 Para obter mais informações, consulte [como configurar pontos de extremidade privados para um hub de eventos](private-link-service.md)
 

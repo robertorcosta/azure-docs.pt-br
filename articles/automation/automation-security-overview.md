@@ -4,18 +4,18 @@ description: Este artigo mostra uma visão geral da autenticação de conta da A
 keywords: segurança de automação, automação segura; autenticação de automação
 services: automation
 ms.subservice: process-automation
-ms.date: 04/23/2020
+ms.date: 09/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8068d6ebe67dee1408420441aacd83726a1986df
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: bcb5f61c93bd4c3ff7c0f81ae808807f7deb71df
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89434258"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766086"
 ---
 # <a name="automation-account-authentication-overview"></a>Visão geral da autenticação da conta de automação
 
-A Automação do Azure permite automatizar tarefas em relação a recursos no Azure, locais e com outros provedores de nuvem, como AWS (Amazon Web Services). É possível usar runbooks para automatizar suas tarefas ou um Hybrid Runbook Worker se você tiver tarefas que não sejam do Azure para gerenciar. Qualquer ambiente exige permissões para acessar com segurança os recursos com os direitos mínimos necessários na assinatura do Azure.
+A Automação do Azure permite automatizar tarefas em relação a recursos no Azure, locais e com outros provedores de nuvem, como AWS (Amazon Web Services). Você pode usar runbooks para automatizar suas tarefas ou um Hybrid Runbook Worker se você tiver processos comerciais ou operacionais para gerenciar fora do Azure. O trabalho em qualquer um desses ambientes exige permissões para acessar com segurança os recursos com os direitos mínimos necessários.
 
 Este artigo aborda os vários cenários de autenticação compatíveis com a Automação do Azure e mostra como iniciar com base nos ambientes que você precisa gerenciar.
 
@@ -29,9 +29,44 @@ Os recursos de Automação para cada conta de Automação estão associados a um
 
 Todas as tarefas que você cria em relação a recursos usando o Azure Resource Manager e os cmdlets do PowerShell na Automação do Azure devem ser autenticadas no Azure usando a autenticação baseada em credenciais de identidade organizacional do Azure Active Directory.
 
-## <a name="run-as-account"></a>Conta Executar como
+## <a name="run-as-accounts"></a>Contas Executar como
 
-As contas Executar como na Automação do Azure fornecem autenticação para gerenciar recursos do Azure usando cmdlets do PowerShell. Quando você cria uma conta Executar como, ela cria uma nova entidade de serviço no Azure Active Directory e atribui a função Colaborador a esse usuário no nível da assinatura. Para runbooks que usam Hybrid Runbook Workers em VMs do Azure, é possível usar [autenticação de runbook com identidades gerenciadas](automation-hrw-run-runbooks.md#runbook-auth-managed-identities) em vez de contas Executar como para autenticar em recursos do Azure.
+As contas Executar como na automação do Azure fornecem autenticação para gerenciar Azure Resource Manager recursos ou recursos implantados no modelo de implantação clássico. Há dois tipos de contas Executar como na automação do Azure:
+
+* Conta Executar como do Azure
+* Conta Executar como Clássica do Azure
+
+Para saber mais sobre esses dois modelos de implantação, consulte [Resource Manager e implantação clássica](../azure-resource-manager/management/deployment-models.md).
+
+>[!NOTE]
+>As assinaturas do CSP (Provedor de Soluções de Nuvem) do Azure são compatíveis apenas com o modelo do Azure Resource Manager. Serviços que não pertencem ao Azure Resource Manager não estão disponíveis no programa. Quando você estiver usando uma assinatura do CSP, a conta Executar como Clássica do Azure não será criada, mas a conta Executar como do Azure será criada. Para saber mais sobre assinaturas de CSP, consulte [Serviços disponíveis em assinaturas do CSP](/azure/cloud-solution-provider/overview/azure-csp-available-services).
+
+### <a name="run-as-account"></a>Conta Executar como
+
+A conta Executar como do Azure gerencia recursos do Azure com base no serviço de implantação e gerenciamento de Azure Resource Manager do Azure.
+
+Quando você cria uma conta Executar como, ela executa as seguintes tarefas:
+
+* Cria um aplicativo do Azure AD com um certificado autoassinado, cria uma conta de entidade de serviço para o aplicativo no Azure AD e atribui a função de [colaborador](../role-based-access-control/built-in-roles.md#contributor) para a conta em sua assinatura atual. Você pode alterar a configuração de certificado para Proprietário ou qualquer outra função. Para obter mais informações, confira [Controle de acesso baseado em função na Automação do Azure](automation-role-based-access-control.md).
+
+* Cria um ativo de certificado de Automação chamado `AzureRunAsCertificate` na conta de Automação especificada. O ativo de certificado contém a chave privada do certificado que é usada pelo aplicativo do Azure AD.
+
+* Cria um ativo de conexão de Automação chamado `AzureRunAsConnection` na conta de Automação especificada. O ativo de conexão contém a ID do aplicativo, a ID do locatário, a ID da assinatura e a impressão digital do certificado.
+
+### <a name="azure-classic-run-as-account"></a>Conta Executar como do Azure Clássico
+
+A conta Executar como clássica do Azure gerencia recursos clássicos do Azure com base no modelo de implantação clássico. Você deve ser um coadministrador na assinatura para criar ou renovar esse tipo de conta Executar como.
+
+Quando você cria uma conta Executar como clássica do Azure, ela executa as seguintes tarefas.
+
+* Configurar um certificado de gerenciamento na assinatura.
+
+* Cria um ativo de certificado de Automação chamado `AzureClassicRunAsCertificate` na conta de Automação especificada. O ativo de certificado contém a chave privada do certificado usada pelo certificado de gerenciamento.
+
+* Cria um ativo de conexão de Automação chamado `AzureClassicRunAsConnection` na conta de Automação especificada. O ativo de conexão contém o nome da assinatura, a ID da assinatura e o nome do ativo de certificado.
+
+>[!NOTE]
+>A conta Executar como Clássica do Azure não é criada por padrão ao mesmo tempo em que você cria uma conta de automação. Essa conta é criada individualmente seguindo as etapas descritas no artigo [gerenciar conta Executar como](manage-runas-account.md#create-a-run-as-account-in-azure-portal) .
 
 ## <a name="service-principal-for-run-as-account"></a>Entidade de serviço para conta Executar como
 
@@ -44,6 +79,8 @@ O controle de acesso baseado em função está disponível com o Azure Resource 
 ## <a name="runbook-authentication-with-hybrid-runbook-worker"></a>Autenticação de runbook com Hybrid Runbook Worker
 
 Runbooks em execução em um Hybrid Runbook Worker em seu datacenter ou em relação a serviços de computação em outros ambientes de nuvem, como a AWS, não podem usar o mesmo método que é normalmente usado para autenticar runbooks em recursos do Azure. Isso ocorre porque esses recursos estão em execução fora do Azure e, assim, exigirão suas próprias credenciais de segurança definidas na Automação para se autenticarem em recursos que acessarão localmente. Para obter mais informações sobre a autenticação de runbook com trabalho de runbook, veja [Executar runbooks em um Hybrid Runbook Worker](automation-hrw-run-runbooks.md).
+
+Para runbooks que usam Hybrid Runbook Workers em VMs do Azure, é possível usar [autenticação de runbook com identidades gerenciadas](automation-hrw-run-runbooks.md#runbook-auth-managed-identities) em vez de contas Executar como para autenticar em recursos do Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
 

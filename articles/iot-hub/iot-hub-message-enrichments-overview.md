@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: c3dbd01faf61c164c88f09b0da03c07be4abd187
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 792486a78dfed606ce8317d9bc037221ae33d508
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75429114"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767195"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages"></a>Aprimoramentos de mensagem para mensagens do Hub IoT do dispositivo para a nuvem
 
@@ -64,7 +64,7 @@ Os aprimoramentos podem ser configurados usando os seguintes métodos:
 | ----- | -----| 
 | Portal | [Azure portal](https://portal.azure.com) | Consulte o [tutorial de aprimoramentos de mensagem](tutorial-message-enrichments.md) | 
 | CLI do Azure   | [enriquecimento de mensagem AZ Hub IOT](https://docs.microsoft.com/cli/azure/iot/hub/message-enrichment?view=azure-cli-latest) |
-| Azure PowerShell | [Add-AzIotHubMessageEnrichment](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubmessageenrichment?view=azps-2.8.0) |
+| Azure PowerShell | [Add-AzIotHubMessageEnrichment](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubmessageenrichment) |
 
 Adicionar aprimoramentos de mensagem não adiciona latência ao roteamento de mensagens.
 
@@ -86,7 +86,7 @@ Para experimentar os aprimoramentos de mensagens, consulte o [tutorial de aprimo
 
 * O tamanho total da mensagem, incluindo os aprimoramentos, não pode exceder 256 KB. Se um tamanho de mensagem exceder 256 KB, o Hub IoT removerá a mensagem. Você pode usar [métricas do Hub IOT](iot-hub-metrics.md) para identificar e depurar erros quando as mensagens são descartadas. Por exemplo, você pode monitorar D2C. telemetria. egresso. Invalid.
 
-* Os aprimoramentos de mensagens não se aplicam a eventos de alteração de troca digital (parte da [Visualização pública de IoT plug and Play](../iot-pnp/overview-iot-plug-and-play.md)).
+* Os aprimoramentos de mensagens não se aplicam a eventos de alteração de troca digital.
 
 ## <a name="pricing"></a>Preços
 

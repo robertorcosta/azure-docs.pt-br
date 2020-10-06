@@ -8,20 +8,20 @@ ms.date: 4/22/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-js
-ms.openlocfilehash: dd0d3e462f0b2d8b525e63d65d657a8f056d01a9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0438632a36fe14d35210cb5acb8d3a50d0f038b7
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331855"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767823"
 ---
 # <a name="write-client-app-authentication-code"></a>Gravar o código de autenticação do aplicativo cliente
 
 Depois de [Configurar uma instância e autenticação do gêmeos digital do Azure](how-to-set-up-instance-portal.md), você pode criar um aplicativo cliente que será usado para interagir com a instância do. Depois de configurar um projeto de cliente inicial, este artigo mostra **como escrever código nesse aplicativo cliente para autenticá-lo na** instância do gêmeos digital do Azure.
 
 Há duas abordagens para o código de exemplo neste artigo. Você pode usar o ideal para você, dependendo do idioma de sua escolha:
-* A primeira seção do código de exemplo usa o SDK do .NET do Azure digital gêmeos (C#). O SDK é parte do SDK do Azure para .NET e está localizado aqui: [*biblioteca de cliente do Azure IOT digital para .net*](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core).
-* A segunda seção de código de exemplo é para os usuários que não usam o SDK do .NET e, em vez disso, usam SDKs gerados pelo REST em outras linguagens. Para obter mais informações sobre essa estratégia, consulte [*como criar SDKs personalizados para o Azure digital gêmeos com o REST*](how-to-create-custom-sdks.md).
+* A primeira seção do código de exemplo usa o SDK do .NET do Azure digital gêmeos (C#). O SDK é parte do SDK do Azure para .NET e está localizado aqui: [*biblioteca de cliente do Azure IOT digital para .net*](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). Também há SDKs com suporte para [Java](https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0-beta.1/jar ) e [JavaScript](https://www.npmjs.com/package/@azure/digital-twins/v/1.0.0-preview.1), que podem ser usados de forma semelhante.
+* A segunda seção de código de exemplo é para os usuários que não usam um SDK fornecido e, em vez disso, usam SDKs gerados pelo REST em outras linguagens. Para obter mais informações sobre essa estratégia, consulte [*como criar SDKs personalizados para o Azure digital gêmeos com o REST*](how-to-create-custom-sdks.md).
 
 Você também pode ler mais sobre as APIs e os SDKs do Azure digital gêmeos em [*como: usar as APIs e os SDKs do gêmeos digital do Azure*](how-to-use-apis-sdks.md).
 
@@ -32,6 +32,8 @@ Primeiro, conclua as etapas de configuração em [*como: configurar uma instânc
 Para continuar, você precisará de um projeto de aplicativo cliente no qual você escreva seu código. Se você ainda não tiver um projeto de aplicativo cliente configurado, crie um projeto básico em seu idioma de escolha para usar com este tutorial.
 
 ## <a name="authentication-and-client-creation-net-c-sdk"></a>Autenticação e criação de cliente: SDK do .NET (C#)
+
+Esta seção mostra um exemplo em C# para usar o SDK do .NET fornecido.
 
 Primeiro, inclua os seguintes pacotes em seu projeto para usar o SDK do .NET e as ferramentas de autenticação para este "como":
 * `Azure.DigitalTwins.Core`
@@ -100,7 +102,7 @@ Além disso, para usar a autenticação em uma função, lembre-se de:
 
 ## <a name="authentication-with-an-autorest-generated-sdk"></a>Autenticação com um SDK gerado pelo REST automaticamente
 
-Se você não estiver usando o .NET, poderá optar por criar uma biblioteca do SDK em uma linguagem de sua escolha, conforme descrito em [*como: criar SDKs personalizados para o Azure digital gêmeos com o REST*](how-to-create-custom-sdks.md).
+Se você não estiver usando um dos SDKs fornecidos (.NET, Java, JavaScript), poderá optar por criar uma biblioteca do SDK em uma linguagem de sua escolha, conforme descrito em [*como: criar SDKs personalizados para o Azure digital gêmeos com o REST*](how-to-create-custom-sdks.md).
 
 Esta seção explica como autenticar nesse caso.
 

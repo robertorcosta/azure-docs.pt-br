@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: ed624fd5fb86b95e0b79c1c7ed4de50749ec7046
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93d230656fd7ef34e76a143fb3186d23f8d3afed
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512046"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766247"
 ---
 # <a name="use-the-device-summary-in-storsimple-device-manager-service"></a>Usar o resumo de dispositivo do serviço do Gerenciador de Dispositivos do StorSimple
 
@@ -86,7 +86,7 @@ A área de conceitos básicos captura algumas das propriedades importantes, como
 
 * O bloco **Capacidade** exibe o armazenamento primário provisionado e restante no dispositivo em relação ao armazenamento total disponível nele. **Provisionado** refere-se à quantidade de armazenamento que é preparada e alocada para uso, enquanto **Restante** refere-se à capacidade restante que pode ser provisionada nesse dispositivo. 
 
-    ![Bloco Uso](./media/storsimple-8000-device-dashboard/device-summary8.png)
+    ![Bloco de uso 2](./media/storsimple-8000-device-dashboard/device-summary8.png)
 
     Clique neste bloco para exibir como a capacidade é provisionada em volumes fixados localmente e em camadas. A capacidade **Restante em Camadas** é a capacidade disponível que pode ser provisionada, incluindo a nuvem, enquanto a capacidade **Restante Local** é a capacidade restante nos discos anexados a esse dispositivo.
 

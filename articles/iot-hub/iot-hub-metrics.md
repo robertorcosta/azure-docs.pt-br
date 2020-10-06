@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: jlian
-ms.openlocfilehash: 808320f89c4dbeca835fc5a710ea1566199f6884
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c448d7e5a5e0bea29063930bed3a59a0461b8cf5
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791836"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767620"
 ---
 <!--for build: for each metric, if you understand what it is, it's ok. otw add more info.  -->
 # <a name="understand-iot-hub-metrics"></a>Entender as métricas de Hub IoT
@@ -22,7 +22,7 @@ As métricas do Hub IoT fornecem informações sobre o estado dos recursos de Io
 As métricas são habilitadas por padrão. Você pode exibir as métricas do Hub IoT no portal do Azure.
 
 > [!NOTE]
-> Você pode usar as métricas do Hub IoT para exibir informações sobre dispositivos IoT Plug and Play conectados ao seu hub IoT. Os dispositivos IoT Plug and Play fazem parte da [Visualização pública do iot plug and Play](../iot-pnp/overview-iot-plug-and-play.md).
+> Você pode usar as métricas do Hub IoT para exibir informações sobre dispositivos [iot plug and Play](../iot-pnp/overview-iot-plug-and-play.md) conectados ao seu hub IOT.
 
 ## <a name="how-to-view-iot-hub-metrics"></a>Como exibir métricas de IoT Hub
 
@@ -44,9 +44,9 @@ As métricas são habilitadas por padrão. Você pode exibir as métricas do Hub
 
 O Hub IoT fornece várias métricas que dão uma visão geral da integridade do hub e o número total de dispositivos conectados. É possível combinar informações de várias métricas para ter uma ideia mais ampla do estado do Hub IoT. A tabela a seguir descreve as métricas que cada Hub IoT rastreia e como cada métrica se relaciona com o status geral do Hub IoT.
 
-|Métrica|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|RoutingDeliveries | Roteamento de tentativas de entrega (visualização) | Contagem | Total |Essa é a métrica de entrega de roteamento. Use as dimensões para identificar o status de entrega para um ponto de extremidade específico ou para uma fonte de roteamento específica.| Identificação<br>Disso<br>Roteamento,<br>EndpointType<br>FailureReasonCategory,<br>EndpointName<br>*Mais detalhes sobre dimensões [**aqui**](#dimensions)*. |
+|RoutingDeliveries | Roteamento de tentativas de entrega (visualização) | Contagem | Total |Essa é a métrica de entrega de roteamento. Use as dimensões para identificar o status de entrega para um ponto de extremidade específico ou para uma fonte de roteamento específica.| Identificação<br>Resultado,<br>Roteamento,<br>EndpointType<br>FailureReasonCategory,<br>EndpointName<br>*Mais detalhes sobre dimensões [**aqui**](#dimensions)*. |
 |RoutingDeliveryLatency| Latência de roteamento (versão prévia) | Milissegundos | Média |Essa é a métrica de latência de entrega de roteamento. Use as dimensões para identificar a latência de um ponto de extremidade específico ou de uma fonte de roteamento específica.| Identificação<br>Roteamento,<br>EndpointType<br>EndpointName<br>*Mais detalhes sobre dimensões [**aqui**](#dimensions)*.|
 |RoutingDataSizeInBytesDelivered| Tamanho dos dados de entrega de roteamento em bytes (versão prévia)| Bytes | Total |O número total de bytes roteados pelo Hub IoT para o ponto de extremidade personalizado e o ponto de extremidade interno. Use as dimensões para identificar o tamanho dos dados roteados para um ponto de extremidade específico ou para uma fonte de roteamento específica.| Identificação<br>Roteamento,<br>EndpointType<br>EndpointName<br>*Mais detalhes sobre dimensões [**aqui**](#dimensions)*.|
 |D2C. telemetria. entrada.<br>allProtocol|Tentativas de envio de mensagem de telemetria|Contagem|Total|Número de tentativas de envio de mensagens de telemetria do dispositivo para nuvem para o hub IoT|Nenhum|
@@ -74,7 +74,7 @@ O Hub IoT fornece várias métricas que dão uma visão geral da integridade do 
 |D2C. pontos de extremidade. latência.<br>armazenamento|Roteamento: latência de mensagem para armazenamento|Milissegundos|Média|A latência média (milissegundos) entre a entrada da mensagem e o Hub IoT e a entrada da mensagem em um ponto de extremidade de armazenamento.|Nenhum|
 |pontos de D2C. end. de saída.<br>armazenamento. bytes|Roteamento: dados entregues ao armazenamento|Bytes|Total|A quantidade de dados (bytes) de roteamento do Hub IoT entregue aos pontos de extremidade de armazenamento.|Nenhum|
 |pontos de D2C. end. de saída.<br>Storage. BLOBs|Roteamento: blobs entregues ao armazenamento|Contagem|Total|O número de vezes que o roteamento do Hub IoT entregou blobs aos pontos de extremidade de armazenamento.|Nenhum|
-|EventGridDeliveries|Entregas da Grade de Eventos (versão prévia)|Contagem|Total|O número de eventos do Hub IoT publicados na grade de eventos. Use a dimensão de resultado para o número de solicitações bem-sucedidas e com falha. A dimensão EventType mostra o tipo de evento ( https://aka.ms/ioteventgrid) .|Identificação<br/>Disso<br/>EventType|
+|EventGridDeliveries|Entregas da Grade de Eventos (versão prévia)|Contagem|Total|O número de eventos do Hub IoT publicados na grade de eventos. Use a dimensão de resultado para o número de solicitações bem-sucedidas e com falha. A dimensão EventType mostra o tipo de evento ( https://aka.ms/ioteventgrid) .|Identificação<br/>Resultado,<br/>EventType|
 |EventGridLatency|Latência da Grade de Eventos (versão prévia)|Milissegundos|Média|A latência média (milissegundos) de quando o evento do Hub IOT foi gerado quando o evento foi publicado na grade de eventos. Esse número é uma média entre todos os tipos de evento. Use a dimensão EventType para ver a latência de um tipo específico de evento.|Identificação<br/>EventType|
 |d2c.twin.read.success|Leituras de gêmeos dos dispositivos bem-sucedidas|Contagem|Total|A contagem de todas as leituras de gêmeos iniciadas pelo dispositivo bem-sucedidas.|Nenhum|
 |d2c.twin.read.failure|Leituras de gêmeos dos dispositivos com falhas|Contagem|Total|A contagem de todas as leituras de gêmeos iniciadas pelo dispositivo com falhas.|Nenhum|
@@ -121,10 +121,10 @@ As dimensões ajudam a identificar mais detalhes sobre as métricas. Algumas das
 |Dimensão|Valores|
 |---|---|
 |ResourceID|o recurso do Hub IoT|
-|Result|sucesso<br>falha|
+|Resultado|sucesso<br>falha|
 |Roteamento|Mensagens do dispositivo<br>Eventos de alteração de entrelaçamento<br>Eventos de ciclo de vida do dispositivo|
 |EndpointType|eventHubs<br>serviceBusQueues<br>cosmosDB<br>serviceBusTopics<br>Builtin<br>blobStorage|
-|FailureReasonCategory|inválido<br>passou<br>orfão<br>nulo|
+|FailureReasonCategory|inválido<br>passou<br>orfão<br>null|
 |EndpointName|nome do ponto de extremidade|
 
 ## <a name="next-steps"></a>Próximas etapas

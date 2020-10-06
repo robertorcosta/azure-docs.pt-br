@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 09/29/2020
 ms.author: alkohli
-ms.openlocfilehash: e5c8a496c60d3bba81040716c74bca7b5cb6095e
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 5cec5eda7cf398949865bf6d3d3e8be5b2d5e840
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91569417"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767365"
 ---
 # <a name="use-certificates-with-azure-stack-edge-pro-gpu-device"></a>Usar certificados com Azure Stack dispositivo de GPU pro Edge
 
@@ -101,7 +101,7 @@ Quando você coloca um certificado assinado por conta própria, também precisa 
     |Tipo |Nome da entidade (SN)  |SAN (nome alternativo da entidade)  |Exemplo de nome da entidade |
     |---------|---------|---------|---------|
     |Azure Resource Manager|`management.<Device name>.<Dns Domain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`|`management.mydevice1.microsoftdatabox.com` |
-    |Armazenamento de blob|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
+    |Armazenamento de Blobs|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
     |Certificado único de várias SANs para ambos os pontos de extremidade|`<Device name>.<dnsdomain>`|`<Device name>.<dnsdomain>`<br>`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`<br>`*.blob.<Device name>.<Dns Domain>`|`mydevice1.microsoftdatabox.com` |
 
 
@@ -392,7 +392,6 @@ O backup do arquivo. pfx agora é salvo no local selecionado e está pronto para
 3. Procure e selecione o local onde você deseja exportar o arquivo de formato. cer.
 
     ![Exportar certificado DER 3](media/azure-stack-edge-series-manage-certificates/export-cert-cer-3.png)
-
 
 4. Selecione **Concluir**.
 

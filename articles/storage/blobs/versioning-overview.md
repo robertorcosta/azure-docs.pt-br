@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 10/06/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 191213511a6b41e3a8419660a40b8d79a5c747f2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 20e48640d52fba7b3262014c2e84cfc56c7110cc
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91714927"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767227"
 ---
 # <a name="blob-versioning"></a>Controle de versão de BLOB
 
@@ -36,13 +36,13 @@ Para saber como habilitar o controle de versão de BLOB, consulte [habilitar e g
 
 Uma versão captura o estado de um blob em um determinado ponto no tempo. Quando o controle de versão do blob está habilitado para uma conta de armazenamento, o armazenamento do Azure cria automaticamente uma nova versão de um blob cada vez que o blob é modificado ou excluído.
 
-Quando você cria um blob com o controle de versão habilitado, o novo BLOB é a versão atual do blob (ou o blob de base). Se você Modificar posteriormente esse BLOB, o armazenamento do Azure criará uma versão que captura o estado do blob antes de ser modificado. O blob modificado torna-se a nova versão atual. Uma nova versão é criada cada vez que você modifica o blob.
+Quando você cria um blob com o controle de versão habilitado, o novo BLOB é a versão atual do blob (ou o blob de base). Se você Modificar posteriormente esse BLOB, o armazenamento do Azure criará uma versão que captura o estado do blob antes de ser modificado. O blob modificado torna-se a nova versão atual. Uma nova versão é criada cada vez que você modifica o blob. Um blob pode ter até 1000 versões associadas.
 
 Quando você exclui um blob com o controle de versão habilitado, o armazenamento do Azure cria uma versão que captura o estado do blob antes de ele ser excluído. A versão atual do blob é excluída, mas as versões do blob persistem, para que possam ser recriadas se necessário. 
 
 As versões de blob são imutáveis. Você não pode modificar o conteúdo ou os metadados de uma versão de blob existente.
 
-O controle de versão de blob está disponível para contas de armazenamento de BLOBs v2, BLOB de blocos e de uso geral. As contas de armazenamento com um namespace hierárquico habilitado para uso com Azure Data Lake Storage Gen2 não têm suporte no momento.
+O controle de versão de blob está disponível para contas de armazenamento de BLOBs v2, BLOB de blocos e de uso geral. As contas de armazenamento com um namespace hierárquico habilitado para uso com Azure Data Lake Storage Gen2 não têm suporte no momento. 
 
 A versão 2019-10-10 e superior da API REST do armazenamento do Azure dá suporte ao controle de versão de BLOB.
 
@@ -185,7 +185,7 @@ O controle de versão de blob foi projetado para proteger seus dados contra excl
 
 A tabela a seguir mostra quais ações do RBAC do Azure dão suporte à exclusão de um BLOB ou uma versão de BLOB.
 
-| Description | Operação do serviço blob | Ação de dados RBAC do Azure necessária | Suporte de função interna do Azure |
+| Descrição | Operação do serviço blob | Ação de dados RBAC do Azure necessária | Suporte de função interna do Azure |
 |----------------------------------------------|------------------------|---------------------------------------------------------------------------------------|-------------------------------|
 | Excluindo a versão atual do blob | Delete Blob | **Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete** | Colaborador de dados de blob de armazenamento |
 | Excluindo uma versão | Delete Blob | **Microsoft. Storage/storageAccounts/blobservices/contêineres/BLOBs/deleteBlobVersion/ação** | Proprietário de Dados do Blob de Armazenamento |
@@ -291,7 +291,7 @@ A tabela a seguir descreve o comportamento de cobrança para um blob que é excl
 | Se a exclusão reversível de BLOB e o controle de versão estiverem habilitados | Todas as versões existentes com tamanho de conteúdo completo, independentemente da camada. |
 | Se a exclusão reversível de blob estiver habilitada, mas o controle de versão estiver desabilitado | Todos os instantâneos de exclusão reversível existentes com tamanho de conteúdo completo, independentemente da camada. |
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 - [Habilitar e gerenciar o controle de versão de blob](versioning-enable.md)
 - [Criando um instantâneo de um blob](/rest/api/storageservices/creating-a-snapshot-of-a-blob)

@@ -3,14 +3,14 @@ title: Gerenciar variáveis na Automação do Azure
 description: Este artigo informa como trabalhar com variáveis em runbooks e configurações DSC.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 09/10/2020
+ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 300bfa2ed801b810bcaaeb5bc4d04775d590015b
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 4749fcb6698ff1716f2cae257cc0efad458bf9a9
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90004554"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766186"
 ---
 # <a name="manage-variables-in-azure-automation"></a>Gerenciar variáveis na Automação do Azure
 
@@ -43,7 +43,7 @@ Quando você cria uma variável com o portal do Azure, deve especificar um tipo 
 
 A variável não está restrita ao tipo de dados especificado. Você deve definir a variável usando o Windows PowerShell para especificar um valor de tipo diferente. Se você indicar `Not defined`, o valor da variável será definido como NULL. Você deve definir o valor com o cmdlet [Set-AzAutomationVariable](/powershell/module/az.automation/set-azautomationvariable) ou o cmdlet `Set-AutomationVariable` interno.
 
-Você não pode usar o portal do Azure para criar ou alterar o valor de um tipo de variável complexa. No entanto, você pode fornecer um valor de qualquer tipo usando o Windows PowerShell. Tipos complexos são retornados como um [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject).
+Você não pode usar o portal do Azure para criar ou alterar o valor de um tipo de variável complexa. No entanto, você pode fornecer um valor de qualquer tipo usando o Windows PowerShell. Tipos complexos são recuperados como um [Newtonsoft.Jsem. LINQ. JProperty](https://www.newtonsoft.com/json/help/html/N_Newtonsoft_Json_Linq.htm) para um tipo de objeto complexo em vez de um tipo de PSObject [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject).
 
 Você pode armazenar vários valores para uma única variável criando uma matriz ou hashtable e salvando-a na variável.
 
@@ -56,7 +56,7 @@ Os cmdlets na tabela a seguir são usados para criar e gerenciar variáveis de A
 
 | Cmdlet | Descrição |
 |:---|:---|
-|[Get-AzAutomationVariable](/powershell/module/az.automation/get-azautomationvariable) | Recupera o valor de uma variável existente. Se o valor for de um tipo simples, o mesmo tipo será recuperado. Se for de um tipo complexo, um tipo `PSCustomObject` será recuperado. <br>**Observação:**  você não pode usar este cmdlet para recuperar o valor de uma variável criptografada. A única maneira de fazer isso é usando o cmdlet interno `Get-AutomationVariable` em um runbook ou configuração DSC. Confira [cmdlets internos para acessar variáveis](#internal-cmdlets-to-access-variables). |
+|[Get-AzAutomationVariable](/powershell/module/az.automation/get-azautomationvariable) | Recupera o valor de uma variável existente. Se o valor for de um tipo simples, o mesmo tipo será recuperado. Se for de um tipo complexo, um tipo `PSCustomObject` será recuperado. <br>**Observação:** Você não pode usar este cmdlet para recuperar o valor de uma variável criptografada. A única maneira de fazer isso é usando o cmdlet interno `Get-AutomationVariable` em um runbook ou configuração DSC. Confira [cmdlets internos para acessar variáveis](#internal-cmdlets-to-access-variables). |
 |[New-AzAutomationVariable](/powershell/module/az.automation/new-azautomationvariable) | Cria uma nova variável e define o seu valor.|
 |[Remove-AzAutomationVariable](/powershell/module/az.automation/remove-azautomationvariable)| Remove uma variável existente.|
 |[Set-AzAutomationVariable](/powershell/module/az.automation/set-azautomationvariable)| Define o valor de uma variável existente. |
@@ -74,7 +74,7 @@ Os cmdlets internos na tabela a seguir são usados para acessar variáveis em se
 > Evite usar variáveis no parâmetro `Name` de `Get-AutomationVariable` em um runbook ou configuração DSC. O uso das variáveis pode complicar a descoberta das dependências entre runbooks e variáveis de Automação no tempo de design.
 
 `Get-AutomationVariable` não funciona no PowerShell, mas apenas em um runbook ou configuração DSC. Por exemplo, para ver o valor de uma variável criptografada, você pode criar um runbook para obter a variável e, em seguida, gravá-la no fluxo de saída:
- 
+
 ```powershell
 $mytestencryptvar = Get-AutomationVariable -Name TestVariable
 Write-output "The encrypted value of the variable is: $mytestencryptvar"
@@ -123,18 +123,18 @@ $string = (Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" `
 –AutomationAccountName "MyAutomationAccount" –Name 'MyStringVariable').Value
 ```
 
-O exemplo a seguir mostram como criar uma variável de tipo complexo e recuperar as suas propriedades. Neste caso, é usado um objeto máquina virtual de [Get-AzVM](/powershell/module/Az.Compute/Get-AzVM).
+O exemplo a seguir mostram como criar uma variável de tipo complexo e recuperar as suas propriedades. Nesse caso, um objeto de máquina virtual de [Get-AzVM](/powershell/module/Az.Compute/Get-AzVM) é usado especificando um subconjunto de suas propriedades.
 
 ```powershell
-$vm = Get-AzVM -ResourceGroupName "ResourceGroup01" –Name "VM01"
-New-AzAutomationVariable –AutomationAccountName "MyAutomationAccount" –Name "MyComplexVariable" –Encrypted $false –Value $vm
+$vm = Get-AzVM -ResourceGroupName "ResourceGroup01" –Name "VM01" | Select Name, Location, Extensions
+New-AzAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" –Name "MyComplexVariable" –Encrypted $false –Value $vm
 
-$vmValue = (Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" `
-–AutomationAccountName "MyAutomationAccount" –Name "MyComplexVariable").Value
+$vmValue = Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" `
+–AutomationAccountName "MyAutomationAccount" –Name "MyComplexVariable"
+
 $vmName = $vmValue.Name
-$vmIpAddress = $vmValue.IpAddress
+$vmExtensions = $vmValue.Extensions
 ```
-
 ## <a name="textual-runbook-examples"></a>Exemplos de runbook textual
 
 ### <a name="retrieve-and-set-a-simple-value-from-a-variable"></a>Recuperar e definir um valor simples de uma variável
