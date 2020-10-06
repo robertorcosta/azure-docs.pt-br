@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 25f74fb78979313acc068320d842d09a982d8d16
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8ccc9725ffe5304942b740d460a67129f9c1c5d8
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84339137"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743838"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-data-box-gateway"></a>Use o portal do Azure para gerenciar agendas de largura de banda em seu Azure Data Box Gateway  
 
@@ -40,13 +40,13 @@ Para adicionar um usuário, siga estas etapas no portal do Azure.
 
 3. Em **Adicionar agendamento**: 
 
-   1. Informe o **Dia de início**, o **Dia de término**, a **Hora de início** e a **Hora de término** da agenda. 
+   1. Forneça o **dia de início**, o **dia de término**, a hora de **início**e a **hora de término** da agenda. 
    2. Se essa agenda é executada o dia inteiro, você pode marcar a opção **O dia inteiro**. 
-   3. **Taxa de largura de banda** é a largura de banda em Megabits por segundo (Mbps) usada pelo dispositivo em operações que envolvem a nuvem (uploads e downloads). Forneça um número entre 1 e 1.000 para esse campo. 
+   3. A **taxa de largura de banda** é a largura de banda em megabits por segundo (Mbps) usada pelo seu dispositivo em operações que envolvem a nuvem (tanto carregamentos quanto downloads). Forneça um número entre 1 e 1.000 para esse campo. 
    4. Marque a opção de largura de banda **Ilimitada** se você não quiser restringir o download e o upload de dados. 
    5. Clique em **Adicionar**.
 
-      ![Clique em adicionar usuário](media/data-box-gateway-manage-bandwidth-schedules/add-schedule-2.png)
+      ![Clique em Adicionar usuário 2](media/data-box-gateway-manage-bandwidth-schedules/add-schedule-2.png)
 
 3. É criada uma agenda com os parâmetros especificados. Em seguida, essa agenda é exibida na lista de agendas de largura de banda no portal.
 
@@ -61,11 +61,11 @@ Execute as etapas a seguir para editar uma agenda de largura de banda.
 
 3. Faça as alterações desejadas e salve-as.
 
-    ![Modificar usuário](media/data-box-gateway-manage-bandwidth-schedules/modify-schedule-2.png)
+    ![Modificar usuário 2](media/data-box-gateway-manage-bandwidth-schedules/modify-schedule-2.png)
 
 4. Após a agenda ser modificada, a lista de agendas será atualizada para refletir a agenda modificada.
 
-    ![Modificar usuário](media/data-box-gateway-manage-bandwidth-schedules/modify-schedule-3.png)
+    ![Modificar usuário 3](media/data-box-gateway-manage-bandwidth-schedules/modify-schedule-3.png)
 
 
 ## <a name="delete-a-schedule"></a>excluir uma agenda

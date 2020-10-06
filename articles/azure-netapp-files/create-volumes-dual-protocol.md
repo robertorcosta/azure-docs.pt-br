@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/28/2020
+ms.date: 10/05/2020
 ms.author: b-juche
-ms.openlocfilehash: ce65d6f1806965a55a91117725d2232d4d6460bd
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 9266a5efb7156367dfa0d6036f5876337098c143
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91449633"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743923"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Criar um volume de protocolo duplo (NFSv3 e SMB) para Azure NetApp Files
 
@@ -40,6 +40,7 @@ O Azure NetApp Files dá suporte à criação de volumes usando NFS (NFSv3 e NFS
 * Verifique se o cliente NFS está atualizado e executando as atualizações mais recentes para o sistema operacional.
 * Verifique se o servidor LDAP do Active Directory (AD) está ativo e em execução no AD. Isso é feito instalando e configurando a função [Active Directory Lightweight Directory Services (AD LDS)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)) no computador do AD.
 * Certifique-se de que uma AC (autoridade de certificação) seja criada no AD usando a função de [serviços de certificados do Active Directory (AD CS)](https://docs.microsoft.com/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) para gerar e exportar o certificado da AC raiz autoassinado.   
+* Atualmente, os volumes de protocolo duplo não dão suporte a Azure Active Directory Domain Services (AADDS).  
 
 ## <a name="create-a-dual-protocol-volume"></a>Criar um volume de protocolo duplo
 

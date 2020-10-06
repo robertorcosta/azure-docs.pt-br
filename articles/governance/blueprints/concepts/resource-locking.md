@@ -1,14 +1,14 @@
 ---
 title: Compreender o bloqueio de recursos
 description: Saiba mais sobre as opções de bloqueio em plantas do Azure para proteger recursos ao atribuir um plano gráfico.
-ms.date: 08/27/2020
+ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 30d5528b4613dc04d1e825d10e11b7eeadc57698
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 8ac5c918a3c370b9d8e88800e05f83e585550e3c
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91534855"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91744008"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Entenda o bloqueio de recursos nos Blueprints do Azure
 
@@ -27,7 +27,7 @@ Os recursos criados por artefatos em uma atribuição Blueprint têm quatro Esta
 |Modo|Tipo de recurso do artefato|Estado|Descrição|
 |-|-|-|-|
 |Não Bloquear|*|Não Bloqueado|Os recursos não são protegidos pelas plantas do Azure. Esse estado também é usado para recursos adicionados a um artefato do grupo de recursos **Somente Leitura** ou **Não Excluir** fora de uma atribuição de blueprint.|
-|Somente leitura|Grupo de recursos|Não é Possível Editar/Excluir|O grupo de recursos é somente leitura e as marcas no grupo de recursos não podem ser modificadas. Os recursos **Não Bloqueados** podem ser adicionados, movidos, alterados ou excluídos desse grupo de recursos.|
+|Somente leitura|Resource group|Não é Possível Editar/Excluir|O grupo de recursos é somente leitura e as marcas no grupo de recursos não podem ser modificadas. Os recursos **Não Bloqueados** podem ser adicionados, movidos, alterados ou excluídos desse grupo de recursos.|
 |Somente leitura|Não grupo de recursos|Somente leitura|O recurso não pode ser alterado de nenhuma forma. Nenhuma alteração e não pode ser excluída.|
 |Não exclua|*|Não é Possível Excluir|Os recursos podem ser alterados, mas não podem ser excluídos. Os recursos **Não Bloqueados** podem ser adicionados, movidos, alterados ou excluídos desse grupo de recursos.|
 
@@ -109,8 +109,8 @@ As [Propriedades de atribuição de negação](../../../role-based-access-contro
 
 |Modo |Permissões. ações |Permissões. \ ações |Entidades de segurança [i]. Escreva |ExcludePrincipals [i]. Sessão | DoNotApplyToChildScopes |
 |-|-|-|-|-|-|
-|Somente leitura |**\*** |**\*/read** |SystemDefined (todos) |atribuição de Blueprint e definida pelo usuário em **excludedPrincipals** |Grupo de recursos- _verdadeiro_; Recurso- _falso_ |
-|Não exclua |**\*/Delete** | |SystemDefined (todos) |atribuição de Blueprint e definida pelo usuário em **excludedPrincipals** |Grupo de recursos- _verdadeiro_; Recurso- _falso_ |
+|Somente leitura |**\*** |**\*/read**<br />**Microsoft.Authorization/locks/delete**<br />**Microsoft. Network/virtualNetwork/sub-redes/junção/ação** |SystemDefined (todos) |atribuição de Blueprint e definida pelo usuário em **excludedPrincipals** |Grupo de recursos- _verdadeiro_; Recurso- _falso_ |
+|Não exclua |**\*/Delete** | **Microsoft.Authorization/locks/delete**<br />**Microsoft. Network/virtualNetwork/sub-redes/junção/ação** |SystemDefined (todos) |atribuição de Blueprint e definida pelo usuário em **excludedPrincipals** |Grupo de recursos- _verdadeiro_; Recurso- _falso_ |
 
 > [!IMPORTANT]
 > O Gerenciador de Recursos do Azure armazena em cache os detalhes da atribuição de função por até 30 minutos. Como resultado, a ação de negação das atribuições de negação nos recursos de blueprint pode não entrar imediatamente em vigor. Durante esse período, talvez seja possível excluir um recurso destinado a ser protegido por bloqueios de blueprint.

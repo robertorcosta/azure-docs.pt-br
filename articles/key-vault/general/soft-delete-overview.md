@@ -6,14 +6,13 @@ ms.subservice: general
 ms.topic: conceptual
 author: msmbaldwin
 ms.author: mbaldwin
-manager: rkarlin
-ms.date: 03/19/2019
-ms.openlocfilehash: 1affa396407ba9804261c799b559e40928b9b1fa
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.date: 09/30/2020
+ms.openlocfilehash: c8ae10fa059bb9cfd32b95f9bc6d21f30ad9f880
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87388346"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91744195"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Visão geral de exclusão reversível do Azure Key Vault
 
@@ -28,7 +27,7 @@ O recurso de exclusão reversível do Key Vault permite a recuperação dos cofr
 
 ## <a name="supporting-interfaces"></a>Interfaces de suporte
 
-O recurso de exclusão reversível está inicialmente disponível por meio das interfaces [REST](/rest/api/keyvault/), [CLI](soft-delete-cli.md), [PowerShell](soft-delete-powershell.md)e [.NET/C#](/dotnet/api/microsoft.azure.keyvault?view=azure-dotnet) , bem como [modelos de ARM](https://docs.microsoft.com/azure/templates/microsoft.keyvault/2019-09-01/vaults).
+O recurso de exclusão reversível está disponível por meio da [API REST](/rest/api/keyvault/), as interfaces [CLI do Azure](soft-delete-cli.md), [Azure PowerShell](soft-delete-powershell.md)e [.NET/C#](/dotnet/api/microsoft.azure.keyvault?view=azure-dotnet) , bem como [modelos de ARM](/azure/templates/microsoft.keyvault/2019-09-01/vaults).
 
 ## <a name="scenarios"></a>Cenários
 
@@ -48,13 +47,13 @@ O período de retenção padrão é de 90 dias, mas durante a criação do Key V
 
 Não é possível reutilizar o nome de um cofre de chaves que foi excluído de forma reversível até que o período de retenção tenha passado.
 
-### <a name="purge-protection"></a>Limpar proteção 
+### <a name="purge-protection"></a>Limpar proteção
 
 A proteção de limpeza é um comportamento opcional de Key Vault e **não é habilitada por padrão**. A proteção de limpeza só poderá ser habilitada quando a exclusão reversível estiver habilitada.  Ele pode ser ativado via [CLI](soft-delete-cli.md#enabling-purge-protection) ou [PowerShell](soft-delete-powershell.md#enabling-purge-protection).
 
-Quando a proteção de limpeza está ativada, um cofre ou um objeto no estado excluído não pode ser limpo até que o período de retenção tenha passado. Os cofres e objetos excluídos por software ainda podem ser recuperados, garantindo que a política de retenção será seguida. 
+Quando a proteção de limpeza está ativada, um cofre ou um objeto no estado excluído não pode ser limpo até que o período de retenção tenha passado. Os cofres e objetos excluídos por software ainda podem ser recuperados, garantindo que a política de retenção será seguida.
 
-O período de retenção padrão é de 90 dias, mas é possível definir o intervalo da política de retenção para um valor de 7 a 90 dias por meio da portal do Azure. Depois que o intervalo da política de retenção for definido e salvo, ele não poderá ser alterado para esse cofre. 
+O período de retenção padrão é de 90 dias, mas é possível definir o intervalo da política de retenção para um valor de 7 a 90 dias por meio da portal do Azure. Depois que o intervalo da política de retenção for definido e salvo, ele não poderá ser alterado para esse cofre.
 
 ### <a name="permitted-purge"></a>Limpeza permitida
 
@@ -63,6 +62,8 @@ A exclusão permanente, limpeza, de um cofre de chaves é possível por meio de 
 As exceções são:
 - Quando a assinatura do Azure tiver sido marcada como *undeletable*. Neste caso, apenas o serviço pode executar a exclusão real e ele o fará como um processo agendado. 
 - Quando o `--enable-purge-protection flag` está habilitado no cofre em si. Nesse caso, o Key Vault aguardará 90 dias desde quando o objeto secreto original foi marcado para exclusão para então excluí-lo permanentemente.
+
+Para obter as etapas, consulte [como usar Key Vault exclusão reversível com a CLI: limpando um cofre de chaves](soft-delete-cli.md#purging-a-key-vault) ou [como usar Key Vault exclusão reversível com o PowerShell: limpando um cofre de chaves](soft-delete-powershell.md#purging-a-key-vault).
 
 ### <a name="key-vault-recovery"></a>Recuperação do cofre de chaves
 
@@ -79,10 +80,10 @@ Ao mesmo tempo, o Key Vault agendará a exclusão dos dados subjacentes correspo
 Os recursos excluídos por software são mantidos por um período de tempo definido, 90 dias. Durante o intervalo de retenção da exclusão reversível, o seguinte se aplica:
 
 - É possível listar todos os cofres de chaves e objetos do cofre de chaves no estado de exclusão reversível de sua assinatura, bem como informações de exclusão e recuperação de acesso sobre eles.
-    - Somente usuários com permissões especiais podem listar os cofres excluídos. Recomendamos que nossos usuários criem uma função personalizada com essas permissões especiais para a manipulação dos cofres excluídos.
-- Não é possível criar um cofre de chaves com o mesmo nome na mesma localização; do mesmo modo, não é possível criar um objeto do cofre de chaves em determinado cofre se esse cofre de chaves contém um objeto com o mesmo nome e que está no estado excluído 
+  - Somente usuários com permissões especiais podem listar os cofres excluídos. Recomendamos que nossos usuários criem uma função personalizada com essas permissões especiais para a manipulação dos cofres excluídos.
+- Um cofre de chaves com o mesmo nome não pode ser criado no mesmo local; de forma correspondente, um objeto do cofre de chaves não poderá ser criado em um determinado cofre se esse cofre de chaves contiver um objeto com o mesmo nome e que estiver em um estado excluído.
 - Somente um usuário com privilégios específicos pode restaurar um cofre de chaves ou objeto do cofre de chaves emitindo um comando de recuperação no recurso de proxy correspondente.
-    - O usuário, membro da função personalizada, que tem o privilégio para criar um cofre de chaves no grupo de recursos pode restaurar o cofre.
+  - O usuário, membro da função personalizada, que tem o privilégio para criar um cofre de chaves no grupo de recursos pode restaurar o cofre.
 - Somente um usuário com privilégios específicos pode excluir por imposição um cofre de chaves ou objeto do cofre de chaves emitindo um comando de exclusão no recurso de proxy correspondente.
 
 A menos que um cofre de chaves ou objeto do cofre de chaves seja recuperado, ao final do intervalo de retenção, o serviço realizará uma limpeza do cofre de chaves ou do objeto do cofre de chaves de excluídos de maneira reversível e de seu conteúdo. A exclusão de recursos não pode ser reagendada.
@@ -100,4 +101,3 @@ As duas guias a seguir oferecem os cenários de uso primário para usar a exclus
 
 - [Como usar a exclusão reversível do Key Vault com o PowerShell](soft-delete-powershell.md) 
 - [Como usar a exclusão reversível do Key Vault com a CLI](soft-delete-cli.md)
-

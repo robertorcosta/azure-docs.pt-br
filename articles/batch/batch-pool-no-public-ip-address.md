@@ -3,15 +3,15 @@ title: Criar um pool do Lote do Azure sem endereços IP públicos
 description: Saiba como criar um pool sem endereços IP públicos
 author: pkshultz
 ms.topic: how-to
-ms.date: 09/28/2020
+ms.date: 10/05/2020
 ms.author: peshultz
 ms.custom: references_regions
-ms.openlocfilehash: e6922abb48e19157e6905d9ceb71817cfbaff767
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 3106ceef8bc45d70401265f61bacb17cb0dc7262
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91570875"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743651"
 ---
 # <a name="create-an-azure-batch-pool-without-public-ip-addresses"></a>Criar um pool do Lote do Azure sem endereços IP públicos
 
@@ -24,7 +24,7 @@ Por padrão, todos os nós de computação em um pool de configuração de máqu
 Para restringir o acesso a esses nós e reduzir a capacidade de descoberta desses nós da Internet, você pode provisionar o pool sem endereços IP públicos.
 
 > [!IMPORTANT]
-> O suporte para pools sem endereços IP públicos no lote do Azure está atualmente em visualização pública para as seguintes regiões: França central, Ásia Oriental, Oeste EUA Central, Sul EUA Central, oeste dos EUA 2, leste dos EUA, Europa Setentrional, leste dos EUA 2, EUA Central, Europa Ocidental.
+> O suporte para pools sem endereços IP públicos no lote do Azure está atualmente em visualização pública para as seguintes regiões: França central, Ásia Oriental, Oeste EUA Central, Sul EUA Central, oeste dos EUA 2, leste dos EUA, Europa Setentrional, leste dos EUA 2, EUA Central, Europa Ocidental, norte EUA Central, oeste dos EUA, leste da Austrália, leste do Japão, oeste do Japão.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Pré-requisitos

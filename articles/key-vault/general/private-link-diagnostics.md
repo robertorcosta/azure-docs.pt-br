@@ -7,12 +7,12 @@ ms.date: 09/30/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: faf7a6e0331e3891c2ece7461685b14e751c0894
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 52ac5b89a0c7173b9b2585f84b5f34361b4b136c
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/05/2020
-ms.locfileid: "91713049"
+ms.locfileid: "91744212"
 ---
 # <a name="diagnose-private-links-configuration-issues-on-azure-key-vault"></a>Diagnosticar problemas de configuração de links privados em Azure Key Vault
 
@@ -22,7 +22,7 @@ Este artigo ajuda os usuários a diagnosticar e corrigir problemas envolvendo Ke
 
 Se você for novo neste recurso, consulte [integrar o Key Vault com o link privado do Azure](private-link-service.md).
 
-### <a name="symptoms-covered-by-this-article"></a>Sintomas abordados neste artigo
+### <a name="problems-covered-by-this-article"></a>Problemas abordados neste artigo
 
 - As consultas DNS ainda retornam um endereço IP público para o cofre de chaves, em vez de um endereço IP privado que você esperaria usando o recurso de links particulares.
 - Todas as solicitações feitas por um determinado cliente que está usando o link privado estão falhando com tempos limite ou erros de rede, e o problema não é intermitente.
@@ -31,7 +31,7 @@ Se você for novo neste recurso, consulte [integrar o Key Vault com o link priva
 - O cofre de chaves tem dois pontos de extremidade privados. As solicitações que usam um estão funcionando bem, mas as solicitações que usam o outro estão falhando.
 - Você tem outra assinatura, cofre de chaves ou rede virtual que está usando links privados. Você deseja fazer uma nova implantação semelhante, mas não pode obter links privados para trabalhar lá.
 
-### <a name="symptoms-not-covered-by-this-article"></a>Sintomas não cobertos por este artigo
+### <a name="problems-not-covered-by-this-article"></a>Problemas não cobertos por este artigo
 
 - Há um problema de conectividade intermitente. Em um determinado cliente, você vê algumas solicitações funcionando e algumas não funcionam. *Problemas intermitentes normalmente não são causados por um problema na configuração de links particulares; Eles são um sinal de sobrecarga de rede ou de cliente.*
 - Você está usando um produto do Azure que dá suporte a BYOK (Bring Your Own Key) ou CMK (chaves gerenciadas pelo cliente) e que o produto não pode acessar o cofre de chaves. *Examine a documentação do outro produto. Verifique se ele declara explicitamente o suporte para cofres de chaves com o firewall habilitado. Contate o suporte do produto para esse produto específico, se necessário.*
@@ -188,7 +188,7 @@ A diferença notável do cenário anterior é que há um novo alias com o valor 
 
 Isso não significa que as solicitações executadas de computadores *fora* da rede virtual (como a que você acabou de usar) usarão links privados. Você pode ver isso do fato de que o nome do host ainda é resolvido para um endereço IP público. Somente *os computadores conectados à rede virtual* podem usar links privados. Mais informações sobre isso serão seguidas.
 
-Se você não vir o `privatelink` alias, significa que o cofre de chaves tem zero conexões de ponto de extremidade privadas em `Approved` estado. Continue a ler este artigo.
+Se você não vir o `privatelink` alias, significa que o cofre de chaves tem zero conexões de ponto de extremidade privadas em `Approved` estado. Volte para [esta seção](#2-confirm-that-the-connection-is-approved-and-succeeded) antes de tentar novamente.
 
 ### <a name="key-vault-with-private-link-resolving-from-virtual-network"></a>Cofre de chaves com resolução de link privado da rede virtual
 

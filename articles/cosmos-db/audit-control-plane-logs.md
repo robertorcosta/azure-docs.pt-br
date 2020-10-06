@@ -4,14 +4,14 @@ description: Saiba como auditar as operações do plano de controle, como adicio
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 06/25/2020
+ms.date: 10/05/2020
 ms.author: sngun
-ms.openlocfilehash: 691c6ec0559eceb60d57bf04819701edebbffd83
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 08cc3b08611947ac32973b2dfb01060140dc0798
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462438"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743889"
 ---
 # <a name="how-to-audit-azure-cosmos-db-control-plane-operations"></a>Como auditar Azure Cosmos DB operações do plano de controle
 
@@ -69,17 +69,17 @@ Depois de ativar o registro em log, use as seguintes etapas para rastrear as ope
 
 As capturas de tela a seguir capturam logs quando um nível de consistência é alterado para uma conta do Azure Cosmos:
 
-:::image type="content" source="./media/audit-control-plane-logs/add-ip-filter-logs.png" alt-text="Controlar os logs de plano quando uma VNet for adicionada":::
+:::image type="content" source="./media/audit-control-plane-logs/add-ip-filter-logs.png" alt-text="Habilitar log de solicitações de plano de controle":::
 
 As capturas de tela a seguir capturam logs quando o keyspace ou uma tabela de uma conta Cassandra são criados e quando a taxa de transferência é atualizada. Os logs do plano de controle para operações de criação e atualização no banco de dados e o contêiner são registrados separadamente, conforme mostrado na seguinte captura de tela:
 
-:::image type="content" source="./media/audit-control-plane-logs/throughput-update-logs.png" alt-text="Controlar os logs de plano quando a taxa de transferência for atualizada":::
+:::image type="content" source="./media/audit-control-plane-logs/throughput-update-logs.png" alt-text="Habilitar log de solicitações de plano de controle":::
 
 ## <a name="identify-the-identity-associated-to-a-specific-operation"></a>Identificar a identidade associada a uma operação específica
 
 Se você quiser depurar ainda mais, poderá identificar uma operação específica no log de **atividades** usando a ID da atividade ou o carimbo de data/hora da operação. O carimbo de data/hora é usado para alguns clientes do Resource Manager em que a ID da atividade não é aprovada explicitamente. O log de atividades fornece detalhes sobre a identidade com a qual a operação foi iniciada. A captura de tela a seguir mostra como usar a ID da atividade e localizar as operações associadas a ela no log de atividades:
 
-:::image type="content" source="./media/audit-control-plane-logs/find-operations-with-activity-id.png" alt-text="Usar a ID da atividade e localizar as operações":::
+:::image type="content" source="./media/audit-control-plane-logs/find-operations-with-activity-id.png" alt-text="Habilitar log de solicitações de plano de controle":::
 
 ## <a name="control-plane-operations-for-azure-cosmos-account"></a>Operações do plano de controle para a conta do Azure Cosmos
 
@@ -209,6 +209,21 @@ AzureActivity
 | summarize by Caller, HTTPRequest, activityId_g)
 on activityId_g
 | project Caller, activityId_g
+```
+
+Consulta para obter atualizações de índice ou TTL. Em seguida, você pode comparar a saída dessa consulta com uma atualização anterior para ver a alteração no índice ou TTL.
+
+```Kusto
+AzureDiagnostics
+| where Category =="ControlPlaneRequests"
+| where  OperationName == "SqlContainersUpdate"
+| project resourceDetails_s
+```
+
+**der**
+
+```json
+{id:skewed,indexingPolicy:{automatic:true,indexingMode:consistent,includedPaths:[{path:/*,indexes:[]}],excludedPaths:[{path:/_etag/?}],compositeIndexes:[],spatialIndexes:[]},partitionKey:{paths:[/pk],kind:Hash},defaultTtl:1000000,uniqueKeyPolicy:{uniqueKeys:[]},conflictResolutionPolicy:{mode:LastWriterWins,conflictResolutionPath:/_ts,conflictResolutionProcedure:}
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

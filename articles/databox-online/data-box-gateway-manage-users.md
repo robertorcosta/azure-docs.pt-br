@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 38b4b701329cf35088d797b095fa3caca46f55b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9e941007ddc27f809de7d43cd33e44c5b521a6bd
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84338967"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743821"
 ---
 # <a name="use-the-azure-portal-to-manage-users-on-your-azure-data-box-gateway"></a>Use o portal do Azure para gerenciar usuários em seu Azure Data Box Gateway
 
@@ -33,7 +33,7 @@ Os usuários podem ter privilégio completo ou somente leitura. Como o nome indi
  - **Usuário com privilégios completo** – um usuário local com acesso completo.
  - **Usuário somente leitura** – um usuário local com acesso somente leitura. Esses usuários estão associados a compartilhamentos que permitem operações somente leitura.
 
-As permissões do usuário são definidas quando o usuário é criado durante a criação do compartilhamento. No momento, não há suporte para a modificação de permissões de nível de compartilhamento.
+As permissões do usuário são definidas quando o usuário é criado durante a criação do compartilhamento. No momento, não há suporte para a modificação de permissões no nível de compartilhamento.
 
 ## <a name="add-a-user"></a>Adicionar um usuário
 
@@ -45,7 +45,7 @@ Para adicionar um usuário, siga estas etapas no portal do Azure.
 
 2. Especifique o nome de usuário e senha do usuário que você deseja adicionar. Confirme a senha e clique em **Adicionar**.
 
-    ![Clique em adicionar usuário](media/data-box-gateway-manage-users/add-user-2.png)
+    ![Clique em Adicionar usuário 2](media/data-box-gateway-manage-users/add-user-2.png)
 
     > [!IMPORTANT] 
     > Estes usuários são reservados pelo sistema e não devem ser usados: Administrador, EdgeUser, EdgeSupport, HcsSetupUser, WDAGUtilityAccount, CLIUSR, DefaultAccount, Convidado.  
@@ -70,11 +70,11 @@ Para excluir um usuário, siga estas etapas no portal do Azure.
 
 2. Quando receber a solicitação, confirme a exclusão. 
 
-   ![Excluir um usuário](media/data-box-gateway-manage-users/delete-user-2.png)
+   ![Excluir um usuário 2](media/data-box-gateway-manage-users/delete-user-2.png)
 
 A lista de usuários é atualizada para refletir o usuário excluído.
 
-![Excluir um usuário](media/data-box-gateway-manage-users/delete-user-3.png)
+![Excluir um usuário 3](media/data-box-gateway-manage-users/delete-user-3.png)
 
 
 ## <a name="next-steps"></a>Próximas etapas

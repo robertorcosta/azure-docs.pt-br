@@ -11,12 +11,12 @@ ms.reviewer: peterlu
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: af31d909c0fbab7d873b2b583bb731f9d2e8e19e
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: d7cd452b6d1107f440d952c7db930281f3d86c11
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91532866"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743791"
 ---
 # <a name="train-keras-models-at-scale-with-azure-machine-learning"></a>Treine os modelos Keras em escala com Azure Machine Learning
 
@@ -144,7 +144,7 @@ dependencies:
 
 Crie um ambiente do Azure ML a partir desta especificação de ambiente Conda. O ambiente será empacotado em um contêiner do Docker no tempo de execução.
 
-Por padrão, se nenhuma imagem base for especificada, o Azure ML usará uma imagem de CPU `azureml.core.runconfig.DEFAULT_CPU_IMAGE` como a imagem base. Como este exemplo executa o treinamento em um cluster de GPU, você precisará especificar uma imagem de base de GPU que tenha os drivers e as dependências de GPU necessários. O Azure ML mantém um conjunto de imagens de base publicadas no MCR (registro de contêiner da Microsoft) que você pode usar, consulte o repositório GitHub [Azure/AzureML-containers](https://github.com/Azure/AzureML-Containers) para obter mais informações.
+Por padrão, se nenhuma imagem base for especificada, o Azure ML usará uma imagem de CPU `azureml.core.environment.DEFAULT_CPU_IMAGE` como a imagem base. Como este exemplo executa o treinamento em um cluster de GPU, você precisará especificar uma imagem de base de GPU que tenha os drivers e as dependências de GPU necessários. O Azure ML mantém um conjunto de imagens de base publicadas no MCR (registro de contêiner da Microsoft) que você pode usar, consulte o repositório GitHub [Azure/AzureML-containers](https://github.com/Azure/AzureML-Containers) para obter mais informações.
 
 ```python
 from azureml.core import Environment

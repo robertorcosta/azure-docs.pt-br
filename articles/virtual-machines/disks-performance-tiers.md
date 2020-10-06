@@ -1,6 +1,6 @@
 ---
 title: Alterar o desempenho dos Azure Managed disks
-description: Saiba mais sobre as camadas de desempenho para discos gerenciados, além de como alterar as camadas de desempenho para os discos gerenciados existentes.
+description: Saiba mais sobre as camadas de desempenho para discos gerenciados e saiba como alterar as camadas de desempenho para os discos gerenciados existentes.
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
@@ -8,22 +8,27 @@ ms.date: 09/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 7da500c3f18b7bf7057b0c5875bc9b39136a6483
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: efbe8bc24b430716da46601ed073300e4c79cca7
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91396579"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743719"
 ---
 # <a name="performance-tiers-for-managed-disks-preview"></a>Níveis de desempenho para discos gerenciados (versão prévia)
 
-O Armazenamento em Disco do Azure atualmente oferece recursos internos de intermitência para alcançar um desempenho mais alto para o tratamento de tráfego inesperado de curto prazo. O SSDs Premium tem a flexibilidade para aumentar o desempenho do disco sem aumentar o tamanho real do disco, permitindo que você corresponda às necessidades de desempenho da carga de trabalho e reduza os custos, pois esse recurso está atualmente em versão prévia. Isso é ideal para eventos que exigem temporariamente um nível de desempenho consistentemente mais alto, como compras de feriados, testes de desempenho ou execução de um ambiente de treinamento. Para lidar com esses eventos, você pode selecionar um nível de desempenho superior, desde que seja necessário, e retornar à camada original quando o desempenho adicional não for mais necessário.
+O Armazenamento em Disco do Azure atualmente oferece recursos internos de intermitência para fornecer um desempenho mais alto para o tratamento de tráfego inesperado de curto prazo. O SSDs Premium tem a flexibilidade para aumentar o desempenho do disco sem aumentar o tamanho real do disco. Esse recurso permite que você corresponda às necessidades de desempenho da carga de trabalho e reduza os custos. 
+
+> [!NOTE]
+> Esse recurso atualmente está em versão prévia. 
+
+Esse recurso é ideal para eventos que exigem temporariamente um nível de desempenho consistentemente mais alto, como compras de feriados, testes de desempenho ou execução de um ambiente de treinamento. Para lidar com esses eventos, você pode usar um nível de desempenho mais alto pelo tempo necessário. Em seguida, você pode retornar à camada original quando não precisar mais do desempenho adicional.
 
 ## <a name="how-it-works"></a>Como ele funciona
 
-Quando você implanta ou provisiona um disco pela primeira vez, o nível de desempenho de linha de base desse disco é definido com base no tamanho do disco provisionado. Um nível de desempenho mais alto pode ser selecionado para atender à demanda mais alta e, quando esse desempenho não for mais necessário, você poderá retornar ao nível de desempenho de linha de base inicial.
+Quando você implanta ou provisiona um disco pela primeira vez, o nível de desempenho de linha de base desse disco é definido com base no tamanho do disco provisionado. Você pode usar um nível de desempenho mais alto para atender à maior demanda. Quando você não precisar mais desse nível de desempenho, poderá retornar para o nível de desempenho de linha de base inicial.
 
-Sua cobrança muda à medida que sua camada é alterada. Por exemplo, se você provisionar um disco P10 (128 GiB), o nível de desempenho de linha de base será definido como P10 (500 IOPS e 100 MB/s) e você será cobrado na taxa de P10. Você pode atualizar a camada para corresponder ao desempenho de p50 (7500 IOPS e 250 MB/s) sem aumentar o tamanho do disco, durante o qual você será cobrado na taxa de P50. Quando o melhor desempenho não for mais necessário, você poderá retornar para a camada P10 e o disco será novamente cobrado na taxa de P10.
+Sua cobrança muda à medida que sua camada é alterada. Por exemplo, se você provisionar um disco P10 (128 GiB), o nível de desempenho de linha de base será definido como P10 (500 IOPS e 100 MBps). Você será cobrado na taxa de P10. Você pode atualizar a camada para corresponder ao desempenho de p50 (7.500 IOPS e 250 MBps) sem aumentar o tamanho do disco. Durante o tempo da atualização, você será cobrado na taxa de P50. Quando você não precisar mais do melhor desempenho, poderá retornar para a camada P10. O disco será novamente cobrado na taxa de P10.
 
 | Tamanho do disco | Camada de desempenho de linha de base | Pode ser atualizado para |
 |----------------|-----|-------------------------------------|
@@ -46,16 +51,14 @@ Para obter informações de cobrança, consulte [preços de disco gerenciado](ht
 
 ## <a name="restrictions"></a>Restrições
 
-- Atualmente, só tem suporte para SSDs Premium.
-- Os discos devem ser desanexados de uma VM em execução antes de alterar as camadas.
-- O uso dos níveis de desempenho P60, P70 e P80 é restrito a discos de 4096 GiB ou superior.
-- Um nível de desempenho de discos só pode ser alterado uma vez A cada 24 horas.
+- Atualmente, esse recurso tem suporte apenas para SSDs Premium.
+- Você deve desanexar o disco de uma VM em execução antes de poder alterar a camada do disco.
+- O uso dos níveis de desempenho P60, P70 e P80 é restrito a discos de 4.096 GiB ou superior.
+- O nível de desempenho de um disco pode ser alterado apenas uma vez a cada 24 horas.
 
 ## <a name="regional-availability"></a>Disponibilidade regional
 
-O ajuste do nível de desempenho de um disco gerenciado está atualmente disponível apenas para SSDs Premium nas seguintes regiões:
-
-- Centro-Oeste dos EUA 
+A capacidade de ajustar o nível de desempenho de um disco gerenciado está disponível no momento apenas no SSDs Premium na região do EUA Central ocidental. 
 
 ## <a name="create-an-empty-data-disk-with-a-tier-higher-than-the-baseline-tier"></a>Criar um disco de dados vazio com uma camada superior à camada de linha de base
 
@@ -102,7 +105,7 @@ az disk show -n $diskName -g $resourceGroupName --query [tier] -o tsv
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você precisar redimensionar um disco para aproveitar os níveis de desempenho maiores, consulte nossos artigos sobre o assunto:
+Se você precisar redimensionar um disco para tirar proveito dos níveis de desempenho mais alto, consulte estes artigos:
 
 - [Expandir discos rígidos virtuais em uma VM do Linux com a CLI do Azure](linux/expand-disks.md)
 - [Expandir um disco gerenciado conectado a uma máquina virtual do Windows](windows/expand-os-disk.md)

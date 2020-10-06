@@ -2,13 +2,13 @@
 title: Configurar link privado
 description: Configure um ponto de extremidade privado em um registro de contêiner e habilite o acesso em um link privado em uma rede virtual local. O acesso ao link privado é um recurso da camada de serviço Premium.
 ms.topic: article
-ms.date: 06/26/2020
-ms.openlocfilehash: da07d35ad944db8e9b8a7bac0602fff23cd222d8
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.date: 10/01/2020
+ms.openlocfilehash: 793003edea853922f78b36f0dc1a6e35205cdadb
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89488738"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743634"
 ---
 # <a name="connect-privately-to-an-azure-container-registry-using-azure-private-link"></a>Conectar-se de forma privada a um registro de contêiner do Azure usando o link privado do Azure
 
@@ -79,7 +79,7 @@ az network vnet subnet update \
 
 ### <a name="configure-the-private-dns-zone"></a>Configurar a zona DNS privada
 
-Crie uma zona DNS privada para o domínio privado de registro de contêiner do Azure. Mais à frente, você criará registros DNS para seu domínio de registro nesta zona DNS.
+Crie uma [zona DNS privada](../dns/private-dns-privatednszone.md) para o domínio de registro de contêiner do Azure privado. Mais à frente, você criará registros DNS para seu domínio de registro nesta zona DNS.
 
 Para usar uma zona privada para substituir a resolução DNS padrão para o registro de contêiner do Azure, a zona deve ser nomeada como **privatelink.azurecr.io**. Execute o comando [az network private-dns zone create][az-network-private-dns-zone-create] a seguir para criar a zona privada:
 
@@ -306,28 +306,46 @@ Você deve validar se os recursos dentro da sub-rede do ponto de extremidade pri
 
 Para validar a conexão de link privado, use o SSH para a máquina virtual que você configurou na rede virtual.
 
-Execute o comando `nslookup` para resolver o endereço IP do seu registro por meio do link privado:
+Execute um utilitário como `nslookup` ou `dig` para pesquisar o endereço IP do registro no link privado. Por exemplo:
 
 ```bash
-nslookup $REGISTRY_NAME.azurecr.io
+dig $REGISTRY_NAME.azurecr.io
 ```
 
 O exemplo de saída mostra o endereço IP do registro no espaço de endereço da sub-rede:
 
 ```console
 [...]
-myregistry.azurecr.io       canonical name = myregistry.privatelink.azurecr.io.
-Name:   myregistry.privatelink.azurecr.io
-Address: 10.0.0.6
+; <<>> DiG 9.11.3-1ubuntu1.13-Ubuntu <<>> myregistry.azurecr.io
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 52155
+;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 65494
+;; QUESTION SECTION:
+;myregistry.azurecr.io.         IN      A
+
+;; ANSWER SECTION:
+myregistry.azurecr.io.  1783    IN      CNAME   myregistry.privatelink.azurecr.io.
+myregistry.privatelink.azurecr.io. 10 IN A      10.0.0.7
+
+[...]
 ```
 
-Compare esse resultado com o endereço IP público na saída `nslookup` do mesmo registro em um ponto de extremidade público:
+Compare esse resultado com o endereço IP público na saída `dig` do mesmo registro em um ponto de extremidade público:
 
 ```console
 [...]
-Non-authoritative answer:
-Name:   myregistry.westeurope.cloudapp.azure.com
-Address: 40.78.103.41
+;; ANSWER SECTION:
+myregistry.azurecr.io.  2881    IN  CNAME   myregistry.privatelink.azurecr.io.
+myregistry.privatelink.azurecr.io. 2881 IN CNAME xxxx.xx.azcr.io.
+xxxx.xx.azcr.io.    300 IN  CNAME   xxxx-xxx-reg.trafficmanager.net.
+xxxx-xxx-reg.trafficmanager.net. 300 IN CNAME   xxxx.westeurope.cloudapp.azure.com.
+xxxx.westeurope.cloudapp.azure.com. 10  IN A 20.45.122.144
+
+[...]
 ```
 
 ### <a name="registry-operations-over-private-link"></a>Operações de registro em link privado
@@ -361,9 +379,15 @@ Ao configurar uma conexão de ponto de extremidade privado usando o procedimento
 
 ## <a name="add-zone-records-for-replicas"></a>Adicionar registros de zona para réplicas
 
-Como mostrado neste artigo, ao adicionar uma conexão de ponto de extremidade privado em um registro, os registros DNS na zona `privatelink.azurecr.io` serão criados para o registro e seus pontos de extremidade de dados nas regiões onde o registro é [replicado](container-registry-geo-replication.md). 
+Conforme mostrado neste artigo, ao adicionar uma conexão de ponto de extremidade privada a um registro, você cria registros DNS na `privatelink.azurecr.io` zona para o registro e seus pontos de extremidade de dados nas regiões em que o registro é [replicado](container-registry-geo-replication.md). 
 
 Se você adicionar uma nova réplica mais tarde, precisará adicionar manualmente um novo registro de zona para o ponto de extremidade de dados nessa região. Por exemplo, se você criar uma réplica de *myregistry* no local *northeurope*, adicione um registro de zona para `myregistry.northeurope.data.azurecr.io`. Para instruções, consulte [Criar registros DNS na zona privada](#create-dns-records-in-the-private-zone) neste artigo.
+
+## <a name="dns-configuration-options"></a>Opções de configuração de DNS
+
+O ponto de extremidade privado neste exemplo se integra a uma zona DNS privada associada a uma rede virtual básica. Essa configuração usa o serviço DNS fornecido pelo Azure diretamente para resolver o FQDN público do registro para seu endereço IP privado na rede virtual. 
+
+O link privado dá suporte a cenários de configuração de DNS adicionais que usam a zona privada, incluindo as soluções de DNS personalizadas. Por exemplo, você pode ter uma solução de DNS personalizada implantada na rede virtual ou localmente em uma rede conectada à rede virtual usando um gateway de VPN. Para resolver o FQDN público do registro para o endereço IP privado nesses cenários, você precisa configurar um encaminhador no nível do servidor para o serviço DNS do Azure (168.63.129.16). As opções e as etapas de configuração exatas dependem de suas redes e DNS existentes. Para obter exemplos, consulte [configuração de DNS do ponto de extremidade privado do Azure](../private-link/private-endpoint-dns.md).
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

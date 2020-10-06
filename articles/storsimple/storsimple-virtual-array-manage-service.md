@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 2ff987448e3900c2a533789b2f38fd3ced71ce72
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 29ea9300b2f86f442d95c96d4a5df3364628d866
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84698930"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91744127"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-virtual-array"></a>Implantar o serviço Gerenciador de Dispositivo do StorSimple para a Matriz Virtual do StorSimple
 
@@ -109,7 +109,7 @@ Execute as etapas a seguir para regenerar uma chave de registro de serviço.
 #### <a name="to-regenerate-the-service-registration-key"></a>Para regenerar a chave de registro de serviço
 1. No **Gerenciador de Dispositivo do StorSimple**, acesse **Gerenciamento&gt;** **Chaves**.
    
-   ![Folha Chaves](./media/storsimple-virtual-array-manage-service/getregkey2.png)
+   ![Folha chaves novamente](./media/storsimple-virtual-array-manage-service/getregkey2.png)
 2. Na folha **Chaves**, clique em **Regenerar**.
    
    ![Clique em regenerar](./media/storsimple-virtual-array-manage-service/getregkey5.png)
@@ -118,7 +118,7 @@ Execute as etapas a seguir para regenerar uma chave de registro de serviço.
    ![Confirmar regeneração da chave](./media/storsimple-virtual-array-manage-service/getregkey3.png)
 4. Uma nova chave de registro de serviço será exibida.
    
-    ![Confirmar regeneração da chave](./media/storsimple-virtual-array-manage-service/getregkey4.png)
+    ![Confirmação adicional de regeneração de chave](./media/storsimple-virtual-array-manage-service/getregkey4.png)
    
    Copie essa chave e salve-a para registrar todos os novos dispositivos nesse serviço.
 
