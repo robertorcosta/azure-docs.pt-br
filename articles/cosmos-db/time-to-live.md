@@ -7,18 +7,20 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 976cb096ca654c38d7c4c2534bc6938026be5771
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 52885f874f877d9a2fd256d0212ba8693067ea8e
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89397025"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802923"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Vida útil no Azure Cosmos DB
 
 Com **a vida útil ou** TTL, Azure Cosmos DB fornece a capacidade de excluir itens automaticamente de um contêiner após um determinado período de tempo. Por padrão, é possível definir a Vida Útil no nível do contêiner e substituir o valor em uma base por item. Após definir a Vida Útil em um nível de item ou contêiner, o Azure Cosmos DB removerá automaticamente esses itens após o período de tempo, desde a hora em que foram modificados pela última vez. O valor de Vida Útil é configurado em segundos. Quando você configurar o TTL, o sistema excluirá automaticamente os itens expirados com base no valor TTL, sem a necessidade de uma operação de exclusão emitida explicitamente pelo aplicativo cliente. O valor máximo para TTL é 2147483647.
 
 A exclusão de itens expirados é uma tarefa em segundo plano que consome [unidades de solicitação](request-units.md)restantes, que são unidades de solicitação que não foram consumidas por solicitações do usuário. Mesmo após o TTL expirar, se o contêiner estiver sobrecarregado com solicitações e se não houver RU suficiente disponível, a exclusão de dados será atrasada. Os dados são excluídos quando há um RUs suficiente disponível para executar a operação de exclusão. Embora a exclusão de dados seja atrasada, os dados não são retornados por nenhuma consulta (por qualquer API) após o tempo de vida expirar.
+
+> Este conteúdo está relacionado a Azure Cosmos DB TTL de repositório transacional. Se você estiver procurando por TTL da loja Analitycal, que habilita cenários NoETL HTAP por meio [do link Synapse do Azure](https://docs.microsoft.com/azure/cosmos-db/synapse-link), clique [aqui](https://docs.microsoft.com/azure/cosmos-db/analytical-store-introduction#analytical-ttl).
 
 ## <a name="time-to-live-for-containers-and-items"></a>Vida Útil para contêineres e itens
 
@@ -54,7 +56,7 @@ Esta seção mostra alguns exemplos com valores de vida útil diferentes atribu�
 
 TTL no contêiner é definido como nulo (DefaultTimeToLive = NULL)
 
-|TTL no item| Result|
+|TTL no item| Resultado|
 |---|---|
 |TTL = nulo|    O TTL está desabilitado. O item nunca expirará (padrão).|
 |TTL =-1   |O TTL está desabilitado. O item nunca expirará.|
@@ -65,7 +67,7 @@ TTL no contêiner é definido como nulo (DefaultTimeToLive = NULL)
 
 TTL no contêiner é definido como-1 (DefaultTimeToLive =-1)
 
-|TTL no item| Result|
+|TTL no item| Resultado|
 |---|---|
 |TTL = nulo |O TTL está habilitado. O item nunca expirará (padrão).|
 |TTL =-1   |O TTL está habilitado. O item nunca expirará.|
@@ -76,7 +78,7 @@ TTL no contêiner é definido como-1 (DefaultTimeToLive =-1)
 
 TTL no contêiner é definido como 1000 (DefaultTimeToLive = 1000)
 
-|TTL no item| Result|
+|TTL no item| Resultado|
 |---|---|
 |TTL = nulo|    O TTL está habilitado. O item expirará após 1000 segundos (padrão).|
 |TTL =-1   |O TTL está habilitado. O item nunca expirará.|

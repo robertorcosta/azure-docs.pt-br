@@ -4,20 +4,16 @@ description: Usar o Link Privado do Azure para conectar redes com segurança ao 
 author: nkiest
 ms.author: nikiest
 ms.topic: conceptual
-ms.date: 05/20/2020
+ms.date: 10/05/2020
 ms.subservice: ''
-ms.openlocfilehash: 2b94c782b5d7139fae7a01233bffd3b17cf43c7c
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 0c7838b291ca5ba1747b08d7e8fcc6d17cc35f7d
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91570432"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802218"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Usar o Link Privado do Azure para conectar redes com segurança ao Azure Monitor
-
-> [!IMPORTANT]
-> No momento, é necessário **solicitar o acesso** para usar este recurso. Para solicitar o acesso, preencha o [formulário de inscrição](https://aka.ms/AzMonPrivateLinkSignup).
-
 
 O [Link Privado do Azure](../../private-link/private-link-overview.md) permite vincular com segurança os serviços PaaS do Azure a sua rede virtual usando pontos de extremidade privados. Em muitos serviços, basta configurar um ponto de extremidade por recurso. Já o Azure Monitor é uma constelação de diferentes serviços interconectados que trabalham juntos para monitorar suas cargas de trabalho. Como resultado, criamos um recurso chamado AMPLS (Escopo de Link Privado do Azure Monitor) com o qual você pode definir os limites da sua rede de monitoramento e conectar-se à sua rede virtual. Este artigo aborda quando usar e como configurar um Escopo de Link Privado do Azure Monitor.
 

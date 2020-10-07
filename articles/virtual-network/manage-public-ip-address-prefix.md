@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/13/2019
 ms.author: allensu
-ms.openlocfilehash: c844b25394d865453e653bfc3ac6bff396d97a47
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 90fc35249daea51a08cb83143c6be024e78964a7
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88035052"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91804003"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Criar, alterar ou excluir um prefixo de endereço IP público
 
@@ -46,10 +46,10 @@ Prefixos do endereço IP público têm um encargo. Para detalhes, consulte o [pr
 3. Em **Prefixo de endereço IP público**, selecione **Criar**.
 4. Insira ou selecione valores para as configurações a seguir, em **Criar prefixo de endereço IP público** e, em seguida, selecione **Criar**:
 
-   |Setting|Necessário?|Detalhes|
+   |Configuração|Necessário?|Detalhes|
    |---|---|---|
-   |Assinatura|Sim|Deve existir na mesma [assinatura](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) que o recurso ao qual você deseja associar o endereço IP público.|
-   |Grupo de recursos|Sim|Pode existir no mesmo ou em outro [grupo de recursos](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) que o recurso ao qual você deseja associar o endereço IP público.|
+   |Subscription|Sim|Deve existir na mesma [assinatura](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) que o recurso ao qual você deseja associar o endereço IP público.|
+   |Resource group|Sim|Pode existir no mesmo ou em outro [grupo de recursos](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) que o recurso ao qual você deseja associar o endereço IP público.|
    |Nome|Sim|O nome deve ser exclusivo no grupo de recursos selecionado.|
    |Região|Sim|Deve existir no mesma [região](https://azure.microsoft.com/regions)que os endereços IP públicos que você atribuirá endereços do intervalo.|
    |Tamanho do prefixo|Sim| O tamanho do prefixo que você precisa. Um /28 ou 16 endereços IP é o padrão.
@@ -69,7 +69,7 @@ Após criar um prefixo, você deverá criar endereços IP estáticos a partir do
 3. Quando aparecer nos resultados da pesquisa, selecione-o e clique em **+Adicionar endereço IP** na seção Visão geral.
 4. Insira ou selecione valores para as seguintes configurações em **Criar um endereço IP público**. Como um prefixo é para SKU Standard, IPv4 e estático, é necessário apenas fornecer as seguintes informações:
 
-   |Setting|Necessário?|Detalhes|
+   |Configuração|Necessário?|Detalhes|
    |---|---|---|
    |Nome|Sim|O nome do endereço IP público deve ser exclusivo no grupo de recursos selecionado.|
    |Tempo limite de ociosidade (minutos)|Não|Por quantos minutos manter uma conexão TCP ou HTTP aberta sem depender de clientes para enviar mensagens keep alive. |
@@ -88,7 +88,7 @@ Como alternativa, você pode usar os comandos da CLI e do PS abaixo com os parâ
 2. Selecione o nome do prefixo de endereço IP público que você quer exibir, alterar ou excluir da lista.
 3. Conclua uma das seguintes opções, dependendo se você quer exibir, excluir ou alterar o prefixo de endereço IP público.
    - **Exibir**: a seção **Visão geral** mostra as principais configurações do prefixo de endereço IP público, como prefixo.
-   - **Excluir**: para excluir o prefixo de endereço IP público, selecione **Excluir** na seção **Visão geral**. Se os endereços dentro do prefixo estiverem associados a recursos de endereço IP público, primeiro você deverá excluir os recursos de endereço IP público. Consulte [excluir um endereço IP público](virtual-network-public-ip-address.md#view-change-settings-for-or-delete-a-public-ip-address).
+   - **Excluir**: para excluir o prefixo de endereço IP público, selecione **Excluir** na seção **Visão geral**. Se os endereços dentro do prefixo estiverem associados a recursos de endereço IP público, primeiro você deverá excluir os recursos de endereço IP público. Consulte [excluir um endereço IP público](virtual-network-public-ip-address.md#view-modify-settings-for-or-delete-a-public-ip-address).
 
 **Comandos**
 

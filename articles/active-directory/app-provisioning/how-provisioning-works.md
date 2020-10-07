@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/20/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 69ea1964449143a25f447375f2aae15d9feeff10
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 5fdce791ba8848b93a8457f3738392b1f5f15508
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235716"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91801793"
 ---
 # <a name="how-provisioning-works"></a>Como funciona o provisionamento
 
@@ -169,22 +169,42 @@ O desempenho depende se o seu trabalho de provisionamento está executando um ci
 Todas as operações executadas pelo serviço de provisionamento de usuário são registradas nos [Logs de provisionamento (versão prévia)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) do Azure Active Directory. Os logs incluem todas as operações de gravação feitas para os sistemas de origem e destino, e os dados de usuário que foram lidos ou gravados durante cada operação. Para informações sobre como ler os logs de provisionamento no portal do Azure, consulte o [guia de relatório de provisionamento](./check-status-user-account-provisioning.md).
 
 ## <a name="de-provisioning"></a>Desprovisionamento
+O serviço de provisionamento do Azure AD mantém os sistemas de origem e de destino sincronizados por contas de provisionamento quando o acesso do usuário é removido.
 
-O serviço de provisionamento do Azure Active Directory mantém os sistemas de origem e de destino sincronizados por contas de desprovisionamento quando os usuários não devem mais ter acesso. 
+O serviço de provisionamento dá suporte à exclusão e à desabilitação (às vezes conhecida como exclusão reversível) dos usuários. A definição exata de Disable e Delete varia de acordo com a implementação do aplicativo de destino, mas, em geral, uma desabilitação indica que o usuário não pode entrar. Uma exclusão indica que o usuário foi removido completamente do aplicativo. Para aplicativos SCIM, uma desabilitação é uma solicitação para definir a propriedade *ativa* como false em um usuário. 
 
-O serviço de provisionamento do Azure AD excluirá de forma reversível um usuário em um aplicativo quando o aplicativo oferecer suporte a exclusões reversívels (solicitação de atualização com Active = false) e qualquer um dos seguintes eventos ocorrer:
+**Configurar seu aplicativo para desabilitar um usuário**
 
-* A conta de usuário é excluída no Azure Active Directory
-*   O usuário não é desatribuído do aplicativo
-*   O usuário não atende mais a um filtro de escopo e sai de escopo
-    * Por padrão, o serviço de provisionamento do Azure Active Directory exclui ou desabilita usuários que saem de escopo. Se quiser substituir esse comportamento padrão, poderá definir um sinalizador para [ignorar exclusões fora do escopo](../app-provisioning/skip-out-of-scope-deletions.md).
-*   A propriedade AccountEnabled está definida como False
+Verifique se você selecionou a caixa de seleção para atualizações.
 
-Se um dos quatro eventos acima ocorrer e o aplicativo de destino não oferecer suporte a exclusões reversíveis, o serviço de provisionamento enviará uma solicitação de EXCLUSÃO para excluir permanentemente o usuário do aplicativo. 
+Verifique se você tem o mapeamento para *ativo* para seu aplicativo. Se você estiver usando um aplicativo da Galeria de aplicativos, o mapeamento poderá ser um pouco diferente. Verifique se você usa o mapeamento padrão/pronto para os aplicativos da galeria.
 
-Trinta dias após a exclusão de um usuário no Azure Active Directory, eles serão excluídos permanentemente do locatário. Neste ponto, o serviço de provisionamento enviará uma solicitação de EXCLUSÃO para excluir permanentemente o usuário no aplicativo. Durante o período de 30 dias, você pode [excluir manualmente um usuário de forma permanente](../fundamentals/active-directory-users-restore.md), o que envia uma solicitação de exclusão ao aplicativo.
 
-Se você vir um atributo IsSoftDeleted em seus mapeamentos de atributo, ele será usado para determinar o estado do usuário e se deseja enviar uma solicitação de atualização com active = false para excluir a exclusão reversível do usuário. 
+**Configurar seu aplicativo para excluir um usuário**
+
+Os cenários a seguir dispararão uma desabilitação ou uma exclusão: 
+* Um usuário é excluído de maneira reversível no Azure AD (enviado para a propriedade da lixeira/AccountEnabled definida como false).
+    Trinta dias após a exclusão de um usuário no Azure Active Directory, eles serão excluídos permanentemente do locatário. Neste ponto, o serviço de provisionamento enviará uma solicitação de EXCLUSÃO para excluir permanentemente o usuário no aplicativo. A qualquer momento durante o período de 30 dias, você pode [excluir manualmente um usuário permanentemente](../fundamentals/active-directory-users-restore.md), o que envia uma solicitação de exclusão para o aplicativo.
+* Um usuário é excluído/removido permanentemente da lixeira no Azure AD.
+* Um usuário não é atribuído de um aplicativo.
+* Um usuário vai de um escopo para fora do escopo (o não passa mais um filtro de escopo).
+    
+Por padrão, o serviço de provisionamento do Azure Active Directory exclui ou desabilita usuários que saem de escopo. Se você quiser substituir esse comportamento padrão, poderá definir um sinalizador para [ignorar exclusões fora do escopo.](skip-out-of-scope-deletions.md)
+
+Se um dos quatro eventos acima ocorrer e o aplicativo de destino não oferecer suporte a exclusões reversíveis, o serviço de provisionamento enviará uma solicitação de EXCLUSÃO para excluir permanentemente o usuário do aplicativo.
+
+Se você vir um atributo IsSoftDeleted em seus mapeamentos de atributo, ele será usado para determinar o estado do usuário e se deseja enviar uma solicitação de atualização com active = false para excluir a exclusão reversível do usuário.
+
+**Limitações conhecidas**
+
+* Se um usuário que foi gerenciado anteriormente pelo serviço de provisionamento não tiver sido atribuído de um aplicativo ou de um grupo atribuído a um aplicativo, enviaremos uma solicitação de desabilitação. Nesse ponto, o usuário não é gerenciado pelo serviço e não enviaremos uma solicitação de exclusão quando eles forem excluídos do diretório.
+* Não há suporte para o provisionamento de um usuário que está desabilitado no Azure AD. Eles devem estar ativos no Azure AD antes de serem provisionados.
+* Quando um usuário passa de excluído de forma reversível para ativo, o serviço de provisionamento do Azure AD ativará o usuário no aplicativo de destino, mas não irá restaurar automaticamente as associações de grupo. O aplicativo de destino deve manter as associações de grupo para o usuário no estado inativo. Se o aplicativo de destino não oferecer suporte a isso, você poderá reiniciar o provisionamento para atualizar as associações de grupo. 
+
+**Recomendação**
+
+Ao desenvolver um aplicativo, o sempre dá suporte a exclusões reversível e exclusões rígidas. Ele permite que os clientes se recuperem quando um usuário é desabilitado acidentalmente.
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

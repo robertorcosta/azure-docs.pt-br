@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: banders
 ms.custom: contperfq1
-ms.openlocfilehash: ae15fc59137e9bf6fb7bfd9fedfb410aa4e0931c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2e0b9f10a321fce0b8ccc31bf914fe4f2995c49a
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91336842"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651897"
 ---
 # <a name="analyze-unexpected-charges"></a>Analisar encargos inesperados
 
@@ -26,7 +26,7 @@ A maneira como você compra os serviços do Azure ajuda a determinar a metodolog
 
 Os artigos a seguir fornecem etapas detalhadas que explicam como você deve examinar sua fatura com base no seu tipo de cliente. Em cada artigo, há instruções sobre como baixar um arquivo CSV que contém detalhes de uso e de custo para um determinado período de cobrança.
 
-- [Processo de análise de fatura de pagamento conforme o uso](review-individual-bill.md#compare-invoiced-charges-with-usage-file)
+- [Processo de análise de fatura de pagamento conforme o uso](review-individual-bill.md#charges)
 - [Processo de análise de fatura do Contrato Enterprise](review-enterprise-agreement-bill.md)
 - [Processo de análise do Contrato de Cliente da Microsoft](review-customer-agreement-bill.md#analyze-your-azure-usage-charges)
 - [Processo de análise do Contrato de Parceiro da Microsoft](review-partner-agreement-bill.md#analyze-your-azure-usage-charges)

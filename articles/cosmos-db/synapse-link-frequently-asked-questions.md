@@ -6,12 +6,12 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/09/2020
-ms.openlocfilehash: 34bc8e3775c2334b0cdbb22c8cad8f8d1dd5c732
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 9eb1f9162f0546e08f59391af1042becad25cf3b
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91568612"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803986"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Perguntas frequentes sobre o Link do Azure Synapse para Azure Cosmos DB
 
@@ -19,29 +19,29 @@ O Link do Azure Synapse para Azure Cosmos DB cria uma integração perfeita entr
 
 ## <a name="general-faq"></a>Perguntas frequentes gerais
 
-### <a name="is-synapse-link-supported-for-all-azure-cosmos-db-apis"></a>Há suporte para o Link do Synapse para todas as APIs do Azure Cosmos DB?
+### <a name="is-azure-synapse-link-supported-for-all-azure-cosmos-db-apis"></a>Há suporte para o link Synapse do Azure para todas as APIs de Azure Cosmos DB?
 
-Na versão de visualização pública, há suporte para o link Synapse para a API Azure Cosmos DB SQL (Core) e para a API Azure Cosmos DB para MongoDB. 
+Na versão de visualização pública, o link Synapse do Azure tem suporte para a API do Azure Cosmos DB SQL (núcleo) e para a API do Azure Cosmos DB para MongoDB. 
 
-### <a name="is-synapse-link-supported-for-multi-region-azure-cosmos-accounts"></a>Há suporte para o Link do Synapse para contas do Azure Cosmos de várias regiões?
+### <a name="is-azure-synapse-link-supported-for-multi-region-azure-cosmos-db-accounts"></a>Há suporte para o link Synapse do Azure para contas de Azure Cosmos DB de várias regiões?
 
 Sim, para contas de várias regiões do Azure Cosmos, os dados armazenados no repositório analítico também são distribuídos globalmente. Independentemente de região de gravação única ou de várias regiões de gravação, as consultas analíticas executadas no Azure Synapse Analytics podem ser entregues pela região local mais próxima.
 
-Quando planejar a configuração de uma conta do Azure Cosmos de várias regiões com suporte ao repositório analítico, é recomendável ter todas as regiões necessárias adicionadas no momento da criação da conta.
+Ao planejar a configuração de uma conta de Azure Cosmos DB de várias regiões com suporte ao repositório analítico, é recomendável ter todas as regiões necessárias adicionadas no momento da criação da conta.
 
-### <a name="can-i-choose-to-enable-synapse-link-for-only-certain-region-and-not-all-regions-in-a-multi-region-account-set-up"></a>Posso optar por habilitar o Link do Synapse para apenas determinada região e não todas as regiões em uma configuração de conta de várias regiões?
+### <a name="can-i-choose-to-enable-azure-synapse-link-for-only-certain-region-and-not-all-regions-in-a-multi-region-account-set-up"></a>Posso optar por habilitar o link do Azure Synapse para apenas determinada região e nem todas as regiões em uma configuração de conta de várias regiões?
 
-Na versão de visualização, quando o Link do Synapse está habilitado para uma conta de várias regiões, o repositório analítico é criado em todas as regiões. Os dados subjacentes são otimizados para consistência de taxa de transferência e transacional no repositório transacional.
+Na versão de visualização, quando o link Synapse do Azure está habilitado para uma conta de várias regiões, o repositório analítico é criado em todas as regiões. Os dados subjacentes são otimizados para consistência de taxa de transferência e transacional no repositório transacional.
 
-### <a name="is-backup-and-restore-supported-for-synapse-link-enabled-accounts"></a>O backup e a restauração têm suporte para contas habilitadas para o Synapse link?
+### <a name="is-backup-and-restore-supported-for-azure-synapse-link-enabled-accounts"></a>O backup e a restauração têm suporte para contas habilitadas do Azure Synapse link?
 
-Na visualização, para contas de banco de dados habilitadas para o Synapse link, não há suporte para backup e restauração de contêineres. Se você tiver cargas de trabalho de produção que exigem a funcionalidade de backup e restauração, recomendamos não habilitar o link Synapse nessas contas de banco de dados. 
+Em versão prévia, para contas de banco de dados habilitadas para o link do Azure Synapse, não há suporte para backup e restauração de contêineres. Se você tiver cargas de trabalho de produção que exigem a funcionalidade de backup e restauração, recomendamos não habilitar o link Synapse nessas contas de banco de dados. 
 
-### <a name="can-i-disable-the-synapse-link-feature-for-my-azure-cosmos-account"></a>Posso desabilitar o recurso de Link do Synapse para minha conta do Azure Cosmos?
+### <a name="can-i-disable-the-azure-synapse-link-feature-for-my-azure-cosmos-db-account"></a>Posso desabilitar o recurso de link Synapse do Azure para minha conta de Azure Cosmos DB?
 
-Atualmente, depois que a funcionalidade de Link do Synapse é habilitada no nível da conta, você não poderá desabilitá-la.  Se você quiser desativar essa funcionalidade, será necessário excluir e recriar uma nova conta do Azure Cosmos.
+Atualmente, depois que a funcionalidade de Link do Synapse é habilitada no nível da conta, você não poderá desabilitá-la. Lembre-se de que não há nenhuma implicação de cobrança para você caso o recurso de Link do Synapse esteja habilitado no nível da conta e não haja contêineres habilitados para o repositório analítico. 
 
-Lembre-se que **não** há nenhuma implicação de cobrança para você se o recurso de Link do Synapse estiver habilitado no nível da conta, mas não houver contêineres habilitados para repositório analítico.
+Se você precisar desativar o recurso, terá duas opções. A primeira é excluir e recriar uma nova conta de Azure Cosmos DB, migrando os dados, se necessário. A segunda opção é abrir um tíquete de suporte para obter ajuda sobre uma migração de dados para outra conta.
 
 ## <a name="azure-cosmos-db-analytical-store"></a>Repositório analítico do Azure Cosmos DB
 
@@ -49,11 +49,11 @@ Lembre-se que **não** há nenhuma implicação de cobrança para você se o rec
 
 No momento, você pode habilitar o repositório analítico apenas para novos contêineres (em contas novas e existentes).
 
-### <a name="can-i-disable-analytical-store-on-my-azure-cosmos-containers-after-enabling-it-during-container-creation"></a>Posso desabilitar o repositório analítico nos meus contêineres do Azure Cosmos depois de habilitá-lo durante a criação do contêiner?
+### <a name="can-i-disable-analytical-store-on-my-azure-cosmos-db-containers-after-enabling-it-during-container-creation"></a>Posso desabilitar o armazenamento analítico em meus contêineres de Azure Cosmos DB depois de habilitá-lo durante a criação do contêiner?
 
 Atualmente, o repositório analítico não pode ser desabilitado em um contêiner do Azure Cosmos após ser habilitado durante a criação do contêiner.
 
-### <a name="is-analytical-store-supported-for-azure-cosmos-containers-with-autoscale-provisioned-throughput"></a>O repositório analítico tem suporte para contêineres do Azure Cosmos com taxa de transferência provisionada de dimensionamento automático?
+### <a name="is-analytical-store-supported-for-azure-cosmos-db-containers-with-autoscale-provisioned-throughput"></a>O repositório analítico tem suporte para contêineres de Azure Cosmos DB com taxa de transferência provisionada de dimensionamento automático?
 
 Sim, o repositório analítico pode ser habilitado em contêineres com taxa de transferência provisionada de dimensionamento automático.
 
@@ -78,7 +78,7 @@ Neste momento, o repositório analítico não pode ser acessado a partir do SQL 
 
 ### <a name="can-i-write-back-the-query-aggregation-results-from-synapse-back-to-the-analytical-store"></a>Posso fazer write-back dos resultados da agregação de consulta do Synapse de volta para o repositório analítico?
 
-O repositório analítico é um repositório somente de leitura em um contêiner do Azure Cosmos. Portanto, você não pode fazer write-back diretamente dos resultados de agregação no repositório analítico, mas pode gravá-los no repositório transacional do Azure Cosmos DB de outro contêiner, que posteriormente podem ser aproveitados como uma camada de serviço.
+O repositório analítico é um armazenamento somente leitura em um contêiner Azure Cosmos DB. Portanto, você não pode fazer write-back diretamente dos resultados de agregação no repositório analítico, mas pode gravá-los no repositório transacional do Azure Cosmos DB de outro contêiner, que posteriormente podem ser aproveitados como uma camada de serviço.
 
 ### <a name="is-the-autosync-replication-from-transactional-store-to-the-analytical-store-asynchronous-or-synchronous-and-what-are-the-latencies"></a>A replicação de sincronização automática do repositório transacional para o repositório analítico é assíncrona ou síncrona e quais são as latências?
 
@@ -112,7 +112,7 @@ Todas as atualizações e exclusões transacionais são copiadas para o reposit�
 
 ## <a name="billing"></a>Cobrança
 
-### <a name="what-is-the-billing-model-of-synapse-link-for-azure-cosmos-db"></a>Qual é o modelo de cobrança do Link do Synapse para Azure Cosmos DB?
+### <a name="what-is-the-billing-model-of-azure-synapse-link-for-azure-cosmos-db"></a>Qual é o modelo de cobrança do link Synapse do Azure para Azure Cosmos DB?
 
 O [repositório analítico do Azure Cosmos DB](analytical-store-introduction.md) está disponível em visualização pública sem nenhum encargo para o repositório analítico até 30 de agosto de 2020. Synapse Spark e SQL do Synapse são cobrados por meio de [consumo do serviço Synapse](https://azure.microsoft.com/pricing/details/synapse-analytics/).
 
@@ -120,19 +120,19 @@ O [repositório analítico do Azure Cosmos DB](analytical-store-introduction.md)
 
 ### <a name="what-are-the-ways-to-authenticate-with-the-analytical-store"></a>Quais são as maneiras de autenticar com o repositório analítico?
 
-A autenticação com o repositório analítico é igual a de um repositório transacional. Para um determinado banco de dados, você pode autenticar com a chave primária ou somente leitura. Você pode usar o serviço vinculado no Synapse Studio para evitar colar as chaves do Azure Cosmos DB nos notebooks do Spark. O acesso a esse serviço vinculado está disponível para todos que têm acesso ao espaço de trabalho.
+A autenticação com o repositório analítico é igual a de um repositório transacional. Para um determinado banco de dados, você pode autenticar com a chave primária ou somente leitura. Você pode aproveitar o serviço vinculado no Azure Synapse Studio para evitar colar as chaves de Azure Cosmos DB nos notebooks Spark. O acesso a esse serviço vinculado está disponível para todos que têm acesso ao espaço de trabalho.
 
 ## <a name="synapse-run-times"></a>Tempos de execução do Synapse
 
 ### <a name="what-are-the-currently-supported-synapse-run-times-to-access-azure-cosmos-db-analytical-store"></a>Quais são os tempos de execução do Synapse com suporte, atualmente, para acessar o repositório analítico do Azure Cosmos DB?
 
-|Tempo de execução do Synapse |Suporte atual |
+|Tempo de execução do Azure Synapse |Suporte atual |
 |---------|---------|
-|Pools do Synapse Spark | Leitura, gravação (por meio do repositório transacional), tabela, exibição temporária |
-|Synapse SQL Server sem servidor    | Ler, exibir |
-|SQL do Synapse provisionado   |  Não disponível |
+|Pools do Azure Synapse Spark | Leitura, gravação (por meio do repositório transacional), tabela, exibição temporária |
+|Pools sem SQL Server do Azure Synapse    | Ler, exibir |
+|Azure Synapse SQL provisionado   |  Não disponível |
 
-### <a name="do-my-synapse-spark-tables-sync-with-my-synapse-sql-serverless-tables-the-same-way-they-do-with-azure-data-lake"></a>Minhas tabelas do Synapse Spark sincronizam com minhas tabelas SQL Server sem Synapse da mesma maneira que fazem com Azure Data Lake?
+### <a name="do-my-azure-synapse-spark-tables-sync-with-my-azure-synapse-sql-serverless-tables-the-same-way-they-do-with-azure-data-lake"></a>Minhas tabelas do Azure Synapse Spark são sincronizadas com as minhas tabelas do Azure Synapse SQL Server da mesma maneira que fazem com Azure Data Lake?
 
 Esse recurso não está disponível no momento.
 
@@ -140,9 +140,9 @@ Esse recurso não está disponível no momento.
 
 Atualmente, o suporte a streaming estruturado do Spark para Azure Cosmos DB é implementado usando a funcionalidade de feed de alterações do repositório transacional e ainda não tem suporte do repositório analítico.
 
-## <a name="synapse-studio"></a>Synapse Studio
+## <a name="azure-synapse-studio"></a>Azure Synapse Studio
 
-### <a name="in-the-synapse-studio-how-do-i-recognize-if-im-connected-to-an-azure-cosmos-db-container-with-the-analytics-store-enabled"></a>No Synapse Studio, como reconheço se estou conectado a um contêiner do Azure Cosmos DB com o repositório de análise habilitado?
+### <a name="in-the-azure-synapse-studio-how-do-i-recognize-if-im-connected-to-an-azure-cosmos-db-container-with-the-analytics-store-enabled"></a>No Azure Synapse Studio, como reconheço se estou conectado a um contêiner de Azure Cosmos DB com o repositório de análise habilitado?
 
 Um contêiner do Azure Cosmos DB habilitado com o repositório analítico tem o seguinte ícone:
 
@@ -152,12 +152,12 @@ Um contêiner de repositório transacional será representado com o seguinte íc
 
 :::image type="content" source="./media/synapse-link-frequently-asked-questions/transactional-store-icon.png" alt-text="Ícone do contêiner do Azure Cosmos DB habilitado com o repositório analítico":::
  
-### <a name="how-do-you-pass-azure-cosmos-db-credentials-from-synapse-studio"></a>Como você passa as credenciais do Azure Cosmos DB a partir do Synapse Studio?
+### <a name="how-do-you-pass-azure-cosmos-db-credentials-from-azure-synapse-studio"></a>Como você passa Azure Cosmos DB credenciais do Azure Synapse Studio?
 
 Atualmente, as credenciais do Azure Cosmos DB são passadas durante a criação do serviço vinculado pelo usuário que tem acesso aos bancos de dados do Azure Cosmos DB. O acesso a esse repositório está disponível para outros usuários que tenham acesso ao espaço de trabalho.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saber mais sobre os [benefícios do Link do Synapse](synapse-link.md#synapse-link-benefits)
+* Saiba mais sobre os [benefícios do Azure Synapse link](synapse-link.md#synapse-link-benefits)
 
-* Saiba mais sobre a [integração entre o Link do Synapse e o Azure Cosmos DB](synapse-link.md#synapse-link-integration).
+* Saiba mais sobre a [integração entre o link Synapse do Azure e o Azure Cosmos DB](synapse-link.md#synapse-link-integration).

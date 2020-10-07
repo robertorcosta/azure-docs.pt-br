@@ -6,24 +6,24 @@ ms.topic: how-to
 author: kanshiG
 ms.author: govindk
 ms.date: 04/07/2020
-ms.openlocfilehash: 5be2365fb5850c3f45b320d66c114fb791b22c3e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c266e42804a12403e446bf024e93fe879497570
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85262694"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803255"
 ---
 # <a name="how-to-monitor-the-server-side-latency-for-operations-in-an-azure-cosmos-db-container-or-account"></a>Como monitorar a latência do lado do servidor para operações em um Azure Cosmos DB contêiner ou uma conta
 
 O Azure Monitor para Azure Cosmos DB fornece uma exibição de métricas para monitorar sua conta e criar painéis. As métricas do Azure Cosmos DB são coletadas por padrão, e esse recurso não exige que você habilite nem configure nada explicitamente. A métrica de latência do lado do servidor é usada para exibir a latência do lado do servidor de uma operação. Azure Cosmos DB fornece SLA de menos de 10 ms para operações de leitura/gravação de ponto com conectividade direta. Para operações de leitura e gravação de ponto, os SLAs são calculados como detalhados no [documento SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/).
 
-Se você vir uma latência excepcionalmente grande para operações de ponto como:
+Você pode monitorar a latência do lado do servidor se você vir uma latência excepcionalmente alta para operação de ponto, como:
 
-* Uma operação get ou set com chave de partição e ID no modo direto
+* Uma operação GET ou uma SET com chave de partição e ID no modo de conectividade direta
 * Uma operação de leitura ou gravação ou
 * Uma consulta
 
-Você pode pesquisar o log de diagnóstico para ver o tamanho dos dados retornados. Se você vir uma alta latência sustentada para operações de consulta, poderá pesquisar o log de diagnóstico quanto ao tamanho dos dados retornados, da [taxa de transferência ou de ru/s](cosmosdb-monitor-resource-logs.md#diagnostic-queries) usados, ou o número de operações desse tipo em um determinado período. Dessa forma, você pode depurar os problemas de latência do lado do servidor.
+Você pode pesquisar o log de diagnóstico para ver o tamanho dos dados retornados. Se você vir uma alta latência sustentada para operações de consulta, deverá procurar o log de diagnóstico para obter uma taxa de transferência mais alta [ou ru/s](cosmosdb-monitor-resource-logs.md#diagnostic-queries) usado. A latência do lado do servidor mostra a quantidade de tempo gasto na infraestrutura de back-end antes que os dados sejam retornados ao cliente. É importante observar essa métrica para eliminar quaisquer problemas de latência de back-end.
 
 ## <a name="view-the-server-side-latency-metric"></a>Exibir a métrica de latência do lado do servidor
 
@@ -35,11 +35,11 @@ Você pode pesquisar o log de diagnóstico para ver o tamanho dos dados retornad
 
 1. No painel **Métricas** > **Selecionar um recurso** > escolha a **assinatura** e o **grupo de recursos** necessários. Para o **Tipo de recurso**, selecione **Contas do Azure Cosmos DB**, escolha uma das contas existentes do Azure Cosmos e selecione **Aplicar**.
    
-   :::image type="content" source="./media/monitor-server-side-latency/select-cosmos-db-account.png" alt-text="Escolha a conta do Azure Cosmos DB para exibir as métricas":::
+   :::image type="content" source="./media/monitor-server-side-latency/select-cosmos-db-account.png" alt-text="Painel Métricas no Azure Monitor":::
 
-1. Em seguida, selecione a métrica de **latência do lado do servidor** na lista de métricas disponíveis. Para saber mais detalhadamente sobre todas as métricas disponíveis nesta lista, consulte o artigo [Métricas por categoria](monitor-cosmos-db-reference.md). Neste exemplo, vamos selecionar latência do **lado do servidor** e **Méd** como o valor de agregação. Além desses detalhes, você também pode selecionar o **Intervalo de tempo** e a **Granularidade de tempo** das métricas. Você pode exibir as métricas de, no máximo, os últimos 30 dias.  Depois que você aplicar o filtro, um gráfico será exibido com base no seu filtro. Você pode ver a latência do lado do servidor por minuto para o período selecionado.  
+1. Em seguida, selecione a métrica de **latência do lado do servidor**  na lista de métricas disponíveis. Para saber mais detalhadamente sobre todas as métricas disponíveis nesta lista, consulte o artigo [Métricas por categoria](monitor-cosmos-db-reference.md). Neste exemplo, vamos selecionar latência do **lado do servidor** e **Méd** como o valor de agregação. Além desses detalhes, você também pode selecionar o **Intervalo de tempo** e a **Granularidade de tempo** das métricas. Você pode exibir as métricas de, no máximo, os últimos 30 dias.  Depois que você aplicar o filtro, um gráfico será exibido com base no seu filtro. Você pode ver a latência do lado do servidor por minuto para o período selecionado.  
 
-   :::image type="content" source="./media/monitor-server-side-latency/server-side-latency-metric.png" alt-text="Escolha a métrica de latência do lado do servidor no portal do Azure":::
+   :::image type="content" source="./media/monitor-server-side-latency/server-side-latency-metric.png" alt-text="Painel Métricas no Azure Monitor":::
 
 ## <a name="filters-for-server-side-latency"></a>Filtros para latência do lado do servidor
 
@@ -49,7 +49,7 @@ Para filtrar as métricas, selecione **Adicionar filtro** e escolha a propriedad
 
 As métricas de **latência do lado do servidor** para cada operação são exibidas conforme mostrado na imagem a seguir:
 
-:::image type="content" source="./media/monitor-server-side-latency/server-side-latency-filters.png" alt-text="Filtros para métricas de latência do lado do servidor":::
+:::image type="content" source="./media/monitor-server-side-latency/server-side-latency-filters.png" alt-text="Painel Métricas no Azure Monitor":::
 
 Você também pode agrupar as métricas usando a opção **aplicar divisão** .  
 

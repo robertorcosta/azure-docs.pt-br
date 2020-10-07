@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: dech
-ms.openlocfilehash: f4236b099915e737f9d489d89e5bf18b84736d75
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 5599a64e812c3006cf4379f98c5a0f0b0cd067e7
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87761188"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91801844"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-python-notebooks-preview"></a>Usar comandos e recursos de notebook integrado nos notebooks Python do Azure Cosmos DB (versão prévia)
 
@@ -167,7 +167,7 @@ Consulte [Exemplos de SDK do Python](https://github.com/Azure/azure-sdk-for-pyth
 ## <a name="create-a-custom-instance-of-cosmos_client"></a>Criar uma instância do ``cosmos_client``
 Para obter mais flexibilidade, você pode criar uma instância personalizada do ``cosmos_client`` para:
 
-- Personalizar a [política de conexão](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos.documents.connectionpolicy?view=azure-python-preview).
+- Personalizar a [política de conexão](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos.documents.connectionpolicy?view=azure-python-preview&preserve-view=true).
 - Executar operações em uma conta do Azure Cosmos diferente daquela em que você está.
 
 Você pode acessar a cadeia de conexão e a chave primária da conta atual por meio das [variáveis de ambiente](#access-the-account-endpoint-and-primary-key-env-variables). 
@@ -200,7 +200,7 @@ primary_key = COSMOS.KEY
 ## <a name="reset-notebooks-workspace"></a>Restaurar espaço de trabalho de notebook
 Para restaurar as configurações padrão do espaço de trabalho de notebooks, selecione **Restaurar espaço de trabalho** na barra de comandos. Isso removerá todos os pacotes personalizados instalados e reiniciará o servidor Jupyter. Seus notebooks, arquivos e recursos de Cosmos do Azure não serão afetados.  
 
-:::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="Restaurar espaço de trabalho de notebook":::
+:::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="Explorador de dados nteract":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

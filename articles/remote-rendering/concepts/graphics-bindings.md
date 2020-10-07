@@ -10,12 +10,12 @@ ms.date: 12/11/2019
 ms.topic: conceptual
 ms.service: azure-remote-rendering
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3d0628777fbd6250fff4bb8347461d206d13782d
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 332213adf64e17c0935ddf612acac5bbca413a87
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90561866"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802286"
 ---
 # <a name="graphics-binding"></a>Associações de gráficos
 
@@ -120,7 +120,10 @@ Onde `ptr` acima deve ser um ponteiro para um objeto `ABI::Windows::Perception::
 
 #### <a name="render-remote-image"></a>Renderizar imagem remota
 
-No início de cada quadro, o quadro remoto precisa ser renderizado no buffer de fundo. Para isso, é feita a chamada de `BlitRemoteFrame`, que preencherá as informações de cor e de profundidade no destino de renderização atualmente associado. Portanto, é importante fazer isso após associar o buffer de fundo como um destino de renderização.
+No início de cada quadro, o quadro remoto precisa ser renderizado no buffer de fundo. Isso é feito chamando `BlitRemoteFrame` , que preencherá as informações de cor e de profundidade dos dois olhos no destino de renderização atualmente ligado. Portanto, é importante fazer isso depois de associar o buffer de fundo completo como um destino de renderização.
+
+> [!WARNING]
+> Depois que a imagem remota foi blitda no BackBuffer, o conteúdo local deve ser processado usando uma técnica de renderização estéreo de passagem única, por exemplo, usando **SV_RenderTargetArrayIndex**. Usar outras técnicas de renderização estéreo, como renderizar cada olho em uma passagem separada, pode resultar na degradação do desempenho principal ou em artefatos gráficos e deve ser evitado.
 
 ```cs
 AzureSession currentSession = ...;

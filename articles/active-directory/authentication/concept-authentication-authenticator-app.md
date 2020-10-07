@@ -5,21 +5,21 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 10/09/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79870bcfc3b2cacb856141841a1f018eb1c50641
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 1520f3ef77353e653dca10779228e70488bcbd75
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90532583"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91801742"
 ---
 # <a name="authentication-methods-in-azure-active-directory---microsoft-authenticator-app"></a>Métodos de autenticação no aplicativo Azure Active Directory Microsoft Authenticator
 
-O aplicativo Microsoft Authenticator fornece um nível adicional de segurança à sua conta corporativa ou de estudante do Azure AD ou à sua conta Microsoft e está disponível para [Android](https://go.microsoft.com/fwlink/?linkid=866594), [Ios](https://go.microsoft.com/fwlink/?linkid=866594)e [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6). Com o aplicativo Microsoft Authenticator, os usuários podem autenticar sem senha durante a entrada ou como uma opção de verificação adicional durante os eventos de SSPR (redefinição de senha self-service) ou Autenticação Multifator do Azure.
+O aplicativo Microsoft Authenticator fornece um nível adicional de segurança à sua conta corporativa ou de estudante do Azure AD ou à sua conta Microsoft e está disponível para [Android](https://go.microsoft.com/fwlink/?linkid=866594) e [Ios](https://go.microsoft.com/fwlink/?linkid=866594). Com o aplicativo Microsoft Authenticator, os usuários podem autenticar sem senha durante a entrada ou como uma opção de verificação adicional durante os eventos de SSPR (redefinição de senha self-service) ou Autenticação Multifator do Azure.
 
 Os usuários podem receber uma notificação por meio do aplicativo móvel para que eles aprovem ou neguem a entrada ou podem usar o aplicativo Authenticator para gerar um código de verificação OATH que pode ser inserido em uma interface de entrada. Se você habilitar um código de notificação e verificação, os usuários que registrarem o aplicativo Authenticator poderão usar qualquer um dos métodos para confirmar a identidade.
 

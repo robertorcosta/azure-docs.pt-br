@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: jawilley
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 9d50ed62343a7fd0aafb1fed97c0f33f2caaec12
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: f8e610531eaf3e7e5dbee9c40c88683a05029303
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019922"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802983"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Dicas de desempenho para o Azure Cosmos DB e .NET
 
@@ -39,7 +39,7 @@ Para Linux e outras plataformas sem suporte em que o ServiceInterop.dll não est
 
 Os quatro tipos de aplicativos listados aqui usam o processamento de host de 32 bits por padrão. Para alterar o processamento de host para o processamento de 64 bits para o tipo de aplicativo, faça o seguinte:
 
-- **Para aplicativos executáveis**: na janela de **Propriedades do projeto** , no painel de **compilação** , defina o [destino da plataforma](https://docs.microsoft.com/visualstudio/ide/how-to-configure-projects-to-target-platforms?view=vs-2019) como **x64**.
+- **Para aplicativos executáveis**: na janela de **Propriedades do projeto** , no painel de **compilação** , defina o [destino da plataforma](https://docs.microsoft.com/visualstudio/ide/how-to-configure-projects-to-target-platforms?view=vs-2019&preserve-view=true) como **x64**.
 
 - **Para projetos de teste baseados em VSTest**: no menu de **teste** do Visual Studio **, selecione**  >  **configurações de teste**de teste e, em seguida, defina a **arquitetura de processador padrão** como **x64**.
 
@@ -126,7 +126,7 @@ Quando possível, coloque todos os aplicativos que chamam Azure Cosmos DB na mes
 
 Você pode obter a menor latência possível garantindo que o aplicativo de chamada esteja localizado na mesma região do Azure que o ponto de extremidade de Azure Cosmos DB provisionado. Para obter uma lista de regiões disponíveis, consulte [Regiões do Azure](https://azure.microsoft.com/regions/#services).
 
-:::image type="content" source="./media/performance-tips/same-region.png" alt-text="Colocar clientes na mesma região." border="false":::
+:::image type="content" source="./media/performance-tips/same-region.png" alt-text="Estabeleça conexão com Azure Cosmos DB com diferentes modos de conexão e protocolos." border="false":::
 
    <a id="increase-threads"></a>
 
@@ -199,7 +199,7 @@ As consultas paralelas fornecem dois parâmetros que você pode ajustar para ate
 
 Durante o teste de desempenho, você deve aumentar a carga até que uma pequena taxa de solicitações seja limitada. Se as solicitações forem limitadas, o aplicativo cliente deverá retirar a limitação do intervalo de repetição especificado pelo servidor. Respeitar a retirada ajuda a garantir que você gaste um período mínimo de tempo esperando entre as tentativas. 
 
-Para obter mais informações, consulte [RetryAfter](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosexception.retryafter?view=azure-dotnet#Microsoft_Azure_Cosmos_CosmosException_RetryAfter).
+Para obter mais informações, consulte [RetryAfter](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosexception.retryafter?view=azure-dotnet&preserve-view=true#Microsoft_Azure_Cosmos_CosmosException_RetryAfter).
     
 Há um mecanismo para registrar em log informações adicionais de diagnóstico e solucionar problemas de latência, conforme mostrado no exemplo a seguir. Você pode registrar a cadeia de caracteres de diagnóstico para solicitações que têm uma latência de leitura mais alta. A cadeia de caracteres capturada de diagnóstico ajudará você a entender quantas vezes você recebeu um erro *429* para uma determinada solicitação.
 

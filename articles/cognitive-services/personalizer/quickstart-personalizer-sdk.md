@@ -1,17 +1,19 @@
 ---
 title: 'Início Rápido: Criar e usar o loop de aprendizado com o SDK – Personalizador'
 description: Este guia de início rápido mostra como criar e gerenciar a sua base de dados de conhecimento usando a biblioteca de clientes do Personalizador.
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: quickstart
 ms.date: 08/27/2020
 ms.custom: cog-serv-seo-aug-2020
 keywords: personalizer, Azure personalizer, machine learning
 zone_pivot_groups: programming-languages-set-six
-ms.openlocfilehash: dccdec0888f2968fb7089c4ff80c9338215de135
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.openlocfilehash: 3acfd8134a2a65e6ea9f019baff24b8b8149f7f3
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055943"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777333"
 ---
 # <a name="quickstart-personalizer-client-library"></a>Início Rápido: Biblioteca de clientes do Personalizador
 

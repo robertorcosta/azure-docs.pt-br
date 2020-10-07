@@ -992,6 +992,8 @@
                 - name: Registrar-se com o RP da VM do SQL
                   displayName: 'resource provider, registration'
                   items:
+                    - name: Registro automático
+                      href: virtual-machines/windows/sql-vm-resource-provider-automatic-registration.md
                     - name: VM única
                       href: virtual-machines/windows/sql-vm-resource-provider-register.md
                     - name: Registrar várias VMs em massa

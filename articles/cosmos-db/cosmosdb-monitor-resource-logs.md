@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: sngun
-ms.openlocfilehash: 881ddfec587df61201f2c251fd0dd0a8164496c3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9284fca6a96441ad5e6c23f9c6920ba184e03086
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85549973"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91801410"
 ---
 # <a name="monitor-azure-cosmos-db-data-by-using-diagnostic-settings-in-azure"></a>Monitorar dados de Azure Cosmos DB usando as configurações de diagnóstico no Azure
 
@@ -20,7 +20,7 @@ As configurações de diagnóstico no Azure são usadas para coletar logs de rec
 
 As métricas de plataforma e os logs de atividade são coletados automaticamente, enquanto você deve criar uma configuração de diagnóstico para coletar logs de recursos ou encaminhá-los fora do Azure Monitor. Você pode ativar a configuração de diagnóstico para contas do Azure Cosmos usando as seguintes etapas:
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Faça logon no [Portal do Azure](https://portal.azure.com).
 
 1. Navegue até a conta do Azure Cosmos. Abra o painel **configurações de diagnóstico** e selecione a opção **Adicionar configuração de diagnóstico** .
 
@@ -71,7 +71,7 @@ As métricas de plataforma e os logs de atividade são coletados automaticamente
 Para obter informações detalhadas sobre como criar uma configuração de diagnóstico usando o portal do Azure, a CLI ou o PowerShell, consulte [criar configuração de diagnóstico para coletar logs e métricas de plataforma no artigo do Azure](../azure-monitor/platform/diagnostic-settings.md) .
 
 
-## <a name="troubleshoot-issues-with-diagnostics-queries"></a><a id="diagnostic-queries"></a>Solucionar problemas com consultas de diagnóstico
+## <a name="troubleshoot-issues-with-diagnostics-queries"></a><a id="diagnostic-queries"></a> Solucionar problemas com consultas de diagnóstico
 
 1. Como consultar as operações que demoram mais de 3 milissegundos para serem executadas:
 
@@ -99,12 +99,12 @@ Para obter informações detalhadas sobre como criar uma configuração de diagn
    | render timechart
    ```
     
-1. Como obter estatísticas de chave de partição para avaliar a distorção entre as três principais partições para a conta de banco de dados:
+1. Como obter estatísticas de chave de partição para avaliar a distorção entre as três principais partições para uma conta de banco de dados:
 
    ```Kusto
    AzureDiagnostics 
    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="PartitionKeyStatistics" 
-   | project SubscriptionId, regionName_s, databaseName_s, collectionname_s, partitionkey_s, sizeKb_s, ResourceId 
+   | project SubscriptionId, regionName_s, databaseName_s, collectionName_s, partitionKey_s, sizeKb_d, ResourceId 
    ```
 
 1. Como obter os encargos de solicitação para consultas caras?
@@ -214,14 +214,6 @@ Para obter informações detalhadas sobre como criar uma configuração de diagn
    | where todouble(sizeKb_d) > 800000
    ```
 
-1. Como obter estatísticas de chave de partição para avaliar a distorção entre as três principais partições para a conta do banco de dados?
-
-   ```Kusto
-   AzureDiagnostics 
-   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="PartitionKeyStatistics" 
-   | project SubscriptionId, regionName_s, databaseName_s, collectionName_s, partitionKey_s, sizeKb_d, ResourceId
-   ```
-
 1. Como obter latências de replicação P99 ou P50 para operações, encargo de solicitação ou o comprimento da resposta?
 
    ```Kusto
@@ -238,7 +230,7 @@ Para obter informações detalhadas sobre como criar uma configuração de diagn
  
 1. Como obter logs do Controlplane?
  
-   Lembre-se de alternar o sinalizador conforme descrito em [desabilitar o acesso de gravação de metadados baseado em chave](audit-control-plane-logs.md#disable-key-based-metadata-write-access) articleand executar as operações por meio de Azure PowerShell, CLI ou ARM.
+   Lembre-se de alternar para o sinalizador conforme descrito no artigo [desabilitar acesso de gravação de metadados baseado em chave](audit-control-plane-logs.md#disable-key-based-metadata-write-access) e executar as operações usando Azure PowerShell, CLI do Azure ou Azure Resource Manager.
  
    ```Kusto  
    AzureDiagnostics 

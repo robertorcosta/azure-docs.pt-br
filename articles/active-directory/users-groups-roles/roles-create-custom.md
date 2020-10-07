@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e172a023cc9156f435b4f40b2262ee44128c138e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4210ad382301851a41d3fbd7ee3dc20a748fb544
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84731997"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802184"
 ---
 # <a name="create-and-assign-a-custom-role-in-azure-active-directory"></a>Criar e atribuir uma função personalizada no Azure Active Directory
 
@@ -58,14 +58,14 @@ Primeiramente, você deve [baixar o módulo de versão prévia do PowerShell do 
 Para instalar o módulo PowerShell do Azure AD, use os seguintes comandos:
 
 ``` PowerShell
-install-module azureadpreview
-import-module azureadpreview
+Install-Module AzureADPreview
+Import-Module AzureADPreview
 ```
 
 Para verificar se o módulo está pronto para ser usado, use o seguinte comando:
 
 ``` PowerShell
-get-module azureadpreview
+Get-Module AzureADPreview
   ModuleType Version      Name                         ExportedCommands
   ---------- ---------    ----                         ----------------
   Binary     2.0.2.31     azuread                      {Add-AzureADAdministrati...}
@@ -125,7 +125,7 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
     Corpo
 
     ``` HTTP
-   {
+    {
        "description": "Can manage basic aspects of application registrations.",
        "displayName": "Application Support Administrator",
        "isEnabled": true,
@@ -138,11 +138,11 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
                ]
            }
        ]
-   }
+    }
     ```
 
-  > [!Note]
-  > O "templateId": "GUID" é um parâmetro opcional que é enviado no corpo, dependendo do requisito. Se você tiver um requisito para criar várias funções personalizadas diferentes com parâmetros comuns, é melhor criar um modelo e definir um templateId. Você pode gerar um templateId antes usando o cmdlet do powerShell (New-Guid).Guid. 
+    > [!Note]
+    > O `"templateId": "GUID"` é um parâmetro opcional que é enviado no corpo, dependendo do requisito. Se você tiver um requisito para criar várias funções personalizadas diferentes com parâmetros comuns, é melhor criar um modelo e definir um `templateId` valor. Você pode gerar um `templateId` valor com antecedência usando o cmdlet do PowerShell `(New-Guid).Guid` . 
 
 1. Crie a atribuição de função.
 
@@ -163,7 +163,6 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
        "resourceScope":"/<GUID OF APPLICATION REGISTRATION>"
    }
     ```
-
 
 ## <a name="assign-a-custom-role-scoped-to-a-resource"></a>Atribuir uma função personalizada com escopo para um recurso
 

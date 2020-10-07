@@ -8,12 +8,12 @@ ms.date: 01/28/2020
 ms.author: dech
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: af3c8713b70911399b2382184dc9fd78d585e03a
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 34508abdfa509dc2f8238e8e3b0dbac21c26ff7d
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91540278"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91801912"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Configurar um pipeline de CI/CD com a tarefa de build do emulador do Azure Cosmos DB no Azure DevOps
 
@@ -32,13 +32,13 @@ Para usar a tarefa de build, primeiro precisamos instalá-la em nossa organizaç
 Em seguida, escolha a organização na qual instalar a extensão. 
 
 > [!NOTE]
-> Para instalar uma extensão para uma organização do Azure DevOps, você deve ser um proprietário da conta ou administrador de coleção de projeto. Se você não tiver permissões, mas for um membro da conta, poderá solicitar as extensões em vez disso. [Saiba mais.](https://docs.microsoft.com/azure/devops/marketplace/faq-extensions?view=vsts)
+> Para instalar uma extensão para uma organização do Azure DevOps, você deve ser um proprietário da conta ou administrador de coleção de projeto. Se você não tiver permissões, mas for um membro da conta, poderá solicitar as extensões em vez disso. [Saiba mais.](https://docs.microsoft.com/azure/devops/marketplace/faq-extensions?view=vsts&preserve-view=true)
 
 :::image type="content" source="./media/tutorial-setup-ci-cd/addExtension_2.png" alt-text="Localizar e instalar a tarefa de build do Emulador do Azure Cosmos DB no Marketplace do Azure DevOps":::
 
 ## <a name="create-a-build-definition"></a>Criar a definição de build
 
-Agora que a extensão está instalada, entre em sua organização do Azure DevOps e encontre o projeto no painel de projetos. Você pode adicionar um [pipeline de build](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav) ao projeto ou modificar um pipeline de build existente. Se você já tiver um pipeline de build, pule para [Adicionar a tarefa de build do Emulador a uma definição de build](#addEmulatorBuildTaskToBuildDefinition).
+Agora que a extensão está instalada, entre em sua organização do Azure DevOps e encontre o projeto no painel de projetos. Você pode adicionar um [pipeline de build](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&preserve-view=true&tabs=new-nav) ao projeto ou modificar um pipeline de build existente. Se você já tiver um pipeline de build, pule para [Adicionar a tarefa de build do Emulador a uma definição de build](#addEmulatorBuildTaskToBuildDefinition).
 
 1. Para criar uma nova definição de build, navegue até a guia **Builds** no Azure DevOps. Selecione **+Novo.** \> **Novo pipeline de build**
 
@@ -51,7 +51,7 @@ Agora que a extensão está instalada, entre em sua organização do Azure DevOp
 3. Por fim, selecione o modelo desejado para o pipeline de build. Vamos selecionar o modelo do **ASP.NET** neste tutorial. Agora, você tem um pipeline de build que pode configurar para usar a tarefa de build do emulador do Azure Cosmos DB. 
 
 > [!NOTE]
-> O pool de agente a ser selecionado para este CI deve ter o Docker for Windows instalado, a menos que a instalação seja feita manualmente em uma tarefa anterior como parte do CI. Confira o artigo [Agentes hospedados da Microsoft](https://docs.microsoft.com/azure/devops/pipelines/agents/hosted?view=azure-devops&tabs=yaml) para ver uma seleção de pools de agentes. Recomendamos começar com `Hosted VS2017`.
+> O pool de agente a ser selecionado para este CI deve ter o Docker for Windows instalado, a menos que a instalação seja feita manualmente em uma tarefa anterior como parte do CI. Confira o artigo [Agentes hospedados da Microsoft](https://docs.microsoft.com/azure/devops/pipelines/agents/hosted?view=azure-devops&preserve-view=true&tabs=yaml) para ver uma seleção de pools de agentes. Recomendamos começar com `Hosted VS2017`.
 
 Atualmente, o emulador do Azure Cosmos DB não dá suporte ao pool de agentes do VS2019 hospedado. No entanto, o emulador já vem com o VS2019 instalado e você o usa iniciando o emulador com os cmdlets do PowerShell a seguir. Se tiver problemas com o uso do VS2019, entre em contato com a equipe do [Azure DevOps](https://developercommunity.visualstudio.com/spaces/21/index.html) para obter ajuda:
 
@@ -92,7 +92,7 @@ Essa etapa é opcional e só será necessária se você estiver configurando o p
 
 Agora, vamos configurar nossos testes para usar o emulador. A tarefa de build do emulador exporta uma variável de ambiente – 'CosmosDbEmulator.Endpoint' – para a qual qualquer tarefa no pipeline de build pode emitir solicitações. 
 
-Neste tutorial, vamos usar a [tarefa de Teste do Visual Studio](https://github.com/Microsoft/azure-pipelines-tasks/blob/master/Tasks/VsTestV2/README.md) para executar testes de unidade configuradas por meio de um arquivo **.RunSettings**. Para saber mais sobre a configuração do teste de unidade, leia a [documentação](https://docs.microsoft.com/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2017). O exemplo de código do aplicativo Todo completo usado neste documento está disponível no [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-todo-app)
+Neste tutorial, vamos usar a [tarefa de Teste do Visual Studio](https://github.com/Microsoft/azure-pipelines-tasks/blob/master/Tasks/VsTestV2/README.md) para executar testes de unidade configuradas por meio de um arquivo **.RunSettings**. Para saber mais sobre a configuração do teste de unidade, leia a [documentação](https://docs.microsoft.com/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2017&preserve-view=true). O exemplo de código do aplicativo Todo completo usado neste documento está disponível no [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-todo-app)
 
 Abaixo está um exemplo de um arquivo **.RunSettings** que define os parâmetros a serem passados para os testes de unidade do aplicativo. Observe que a variável `authKey` usada é a [chave bem conhecida](https://docs.microsoft.com/azure/cosmos-db/local-emulator#authenticating-requests) para o emulador. Esta `authKey` é a chave esperada pela tarefa de build do emulador e deve ser definida em seu arquivo **.RunSettings**.
 
