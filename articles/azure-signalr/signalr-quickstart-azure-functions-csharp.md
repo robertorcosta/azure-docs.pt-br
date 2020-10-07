@@ -1,19 +1,19 @@
 ---
 title: Início Rápido do Serviço do Azure SignalR sem servidor – C#
-description: Um início rápido para usar o Azure SignalR Service e o Azure Functions para criar uma sala de chat.
+description: Um guia de início rápido de como usar o Serviço do Azure SignalR e o Azure Functions para criar uma sala de chat usando o C#.
 author: sffamily
 ms.service: signalr
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.date: 03/04/2019
+ms.date: 09/25/2020
 ms.author: zhshang
-ms.openlocfilehash: 54a4c9374c064073620f2679e7c7511e30c45de6
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: be26fdafe0a8a52669fe41fd5514c808f10df745
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050634"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91369120"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-c"></a>Início Rápido: criar uma sala de chat com o Azure Functions e o Serviço do SignalR usando C\#
 
@@ -21,11 +21,11 @@ O Azure SignalR Service permite adicionar facilmente a funcionalidade em tempo r
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se ainda não tiver o Visual Studio 2019 instalado, baixe e use o **Visual Studio 2019 Community Edition** [gratuito](https://www.visualstudio.com/downloads/). Verifique se você habilitou o **desenvolvimento do Azure** durante a instalação do Visual Studio.
+Se você ainda não tiver o Visual Studio 2019 instalado, baixe e use o **Visual Studio 2019 Community Edition** [gratuito](https://www.visualstudio.com/downloads). Verifique se você habilitou o **desenvolvimento do Azure** durante a instalação do Visual Studio.
 
 Você também pode executar este tutorial na linha de comando (macOS, Windows ou Linux) usando as [Azure Functions Core Tools (v2)](https://github.com/Azure/azure-functions-core-tools#installing), o [SDK do .NET Core](https://dotnet.microsoft.com/download)e seu editor de código favorito.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+Se você não tiver uma assinatura do Azure, [crie uma gratuitamente](https://azure.microsoft.com/free/dotnet) antes de começar.
 
 [Está com problemas? Fale conosco.](https://aka.ms/asrs/qscsharp)
 
@@ -55,13 +55,13 @@ Entre no portal do Azure em <https://portal.azure.com/> com sua conta do Azure.
 
 1. Selecione e copie a cadeia de conexão primária.
 
-1. No Visual Studio, no Gerenciador de Soluções, renomeie *local.settings.sample.json* como *local.settings.json*.
+1. De volta ao Visual Studio, no **Gerenciador de Soluções**, renomeie *local.settings.sample.json* para *local.settings.json*.
 
-1. Em **local.settings.json**, cole a cadeia de conexão no valor da configuração **AzureSignalRConnectionString**. Salve o arquivo.
+1. Em *local.settings.json*, cole a cadeia de conexão no valor da configuração **AzureSignalRConnectionString**. Salve o arquivo.
 
-1. Abra **Functions.cs**. Há duas funções de gatilho HTTP nesse aplicativo de funções:
+1. Abra *Functions.cs*. Há duas funções de gatilho HTTP nesse aplicativo de funções:
 
-    - **GetSignalRInfo** – usa a associação de entrada *SignalRConnectionInfo* para gerar e retornar informações de conexão válidas.
+    - **GetSignalRInfo** – usa a associação de entrada `SignalRConnectionInfo` para gerar e retornar informações de conexão válidas.
     - **SendMessage** – recebe uma mensagem de chat no corpo da solicitação e usa a associação de saída *SignalR* para difundir a mensagem a todos os aplicativos cliente conectados.
 
 1. Use uma das opções a seguir para iniciar o aplicativo de Funções do Azure localmente.

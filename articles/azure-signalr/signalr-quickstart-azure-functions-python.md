@@ -1,6 +1,6 @@
 ---
 title: Início Rápido do Serviço do Azure SignalR sem servidor – Python
-description: Um início rápido para usar o Azure SignalR Service e o Azure Functions para criar uma sala de chat.
+description: Um guia de início rápido de como usar o Serviço do Azure SignalR e o Azure Functions para criar uma sala de chat usando o Python.
 author: anthonychu
 ms.service: signalr
 ms.devlang: python
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 12/14/2019
 ms.author: antchu
 ms.custom: devx-track-python
-ms.openlocfilehash: d7d893d3de5541bf1108a9182dfee6ad995e061b
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 24985a006390977c89c4eedc23084a9856272eba
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050600"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91355628"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-python"></a>Início Rápido: Criar uma sala de chat com o Azure Functions e o Serviço do SignalR usando Python
 
@@ -57,7 +57,7 @@ Entre no portal do Azure em <https://portal.azure.com/> com sua conta do Azure.
 
 1. Selecione e copie a cadeia de conexão primária.
 
-    ![Criar Serviço SignalR](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
+    ![Selecione e copie a cadeia de conexão primária.](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
 
 1. No editor de códigos, abra a pasta *src/chat/python* no repositório clonado.
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: 583179c4678b43bef25174835ec2701d571b37b6
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 3ceaa357150fe0c4d26eeedc6821761d2eb00106
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905643"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91357957"
 ---
 # <a name="import-soap-api"></a>Importar a API SOAP
 
@@ -45,7 +45,7 @@ Conclua o início rápido a seguir: [Criar uma instância do Gerenciamento de AP
 3. Na **Especificação WSDL**, digite a URL em que a API SOAP reside.
 4. O botão de opção **Passagem SOAP** é selecionado por padrão. Com essa seleção, a API será exposta como SOAP. O consumidor precisa usar regras SOAP. Se você quiser "restify" a API, siga as etapas em [Import a SOAP API and convert it to REST](restify-soap-api.md) (Importar uma API SOAP e convertê-la para REST).
 
-    ![Passagem](./media/import-soap-api/pass-through.png)
+    ![A captura de tela mostra a caixa de diálogo Criar com base no WSDL em que você pode inserir uma especificação do WSDL.](./media/import-soap-api/pass-through.png)
 5. Pressione Tab.
 
     Os seguintes campos são preenchidos com as informações da API SOAP: Nome de exibição, nome, descrição.

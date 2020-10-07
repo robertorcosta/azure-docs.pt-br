@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 1/10/2020
 ms.author: tdsp
 ms.custom: previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 711c4ce8af613181d35d2850393c6c24d795c280
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: fc9a5e604e6ac52eb0e853725123272ca924fa36
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799257"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91362223"
 ---
 # <a name="what-is-the-team-data-science-process"></a>O que é o Processo de Ciência de Dados de Equipe?
 
@@ -51,7 +51,7 @@ O ciclo de vida descreve os estágios principais que os projetos normalmente exe
 
 Esta é uma representação visual do **ciclo de vida do Processo de Ciência de Dados de Equipe**. 
 
-![TDSP-Lifecycle2](./media/overview/tdsp-lifecycle2.png) 
+![O diagrama mostra o ciclo de vida da ciência de dados, incluindo noções básicas sobre negócios, aquisição/compreensão dos dados, modelagem e implantação.](./media/overview/tdsp-lifecycle2.png) 
 
 As metas, tarefas e artefatos de documentação de cada estágio do ciclo de vida no TDSP estão descritos no tópico [Ciclo de vida do Processo de Ciência de Dados de Equipe](lifecycle.md). Essas tarefas e artefatos estão associados a funções do projeto:
 

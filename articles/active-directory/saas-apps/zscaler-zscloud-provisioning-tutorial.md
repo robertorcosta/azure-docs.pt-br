@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 5e8571da46ca188e975119c387fa4ee0695c4fde
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0454ffc1ed68056b2aedc10a6e904a9a934ab223
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545702"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333487"
 ---
 # <a name="tutorial-configure-zscaler-zscloud-for-automatic-user-provisioning"></a>Tutorial: Configurar o Zscaler ZSCloud para o provisionamento automático de usuário
 
@@ -120,7 +120,7 @@ Esta seção descreve as etapas de configuração do serviço de provisionamento
 
 11. Examine os atributos de usuário que são sincronizados do Azure AD para o Zscaler ZSCloud na seção **Mapeamentos de Atributo**. Os atributos selecionados como propriedades **Correspondentes** são usados para fazer a correspondência das contas de usuário no Zscaler ZSCloud em operações de atualização. Para confirmar eventuais alterações, selecione **Salvar**.
 
-    ![Mapeamentos de atributo](./media/zscaler-zscloud-provisioning-tutorial/userattributemappings.png)
+    ![Captura de tela da seção Mapeamentos de Atributos com sete mapeamentos exibidos.](./media/zscaler-zscloud-provisioning-tutorial/userattributemappings.png)
 
 12. Na seção **Mapeamentos**, selecione **Sincronizar Grupos do Azure Active Directory com o Zscaler ZSCloud**:
 
@@ -128,7 +128,7 @@ Esta seção descreve as etapas de configuração do serviço de provisionamento
 
 13. Examine os atributos de grupo que são sincronizados do Azure AD para o Zscaler ZSCloud na seção **Mapeamentos de Atributo**. Os atributos selecionados como propriedades **Correspondentes** são usados para fazer a correspondência dos grupos no Zscaler ZSCloud em operações de atualização. Para confirmar eventuais alterações, selecione **Salvar**.
 
-    ![Mapeamentos de atributo](./media/zscaler-zscloud-provisioning-tutorial/groupattributemappings.png)
+    ![Captura de tela da seção Mapeamentos de Atributos com três mapeamentos exibidos.](./media/zscaler-zscloud-provisioning-tutorial/groupattributemappings.png)
 
 14. Para configurar filtros de escopo, veja as instruções fornecidas no [tutorial sobre filtros de escopo](./../active-directory-saas-scoping-filters.md).
 

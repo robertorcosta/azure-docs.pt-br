@@ -1,15 +1,15 @@
 ---
 title: Análise Dinâmica de Vídeo usando o próprio modelo HTTP – Azure
-description: Neste guia de início rápido, você aplicará a pesquisa visual computacional para analisar o feed de vídeo ao vivo de uma câmera IP (simulada).
+description: Neste guia de início rápido, você aplicará a Pesquisa Visual Computacional para analisar o feed de vídeo ao vivo de uma câmera IP (simulada) usando seu modelo HTTP.
 ms.topic: quickstart
 ms.date: 04/27/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: 5fd7f1a7db323e3aa7971c1ced6fc588d6e60e37
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 07661fb1e9496aacff6f108a840e0c357f068d41
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684126"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91336455"
 ---
 # <a name="quickstart-analyze-live-video-by-using-your-own-http-model"></a>Início Rápido: Análise Dinâmica de Vídeo usando o próprio modelo HTTP
 

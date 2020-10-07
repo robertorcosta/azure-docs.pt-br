@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do SSO do Azure AD com o FortiGate SSL VPN'
-description: Neste tutorial, você aprenderá a configurar o logon único entre o Azure Active Directory e o FortiGate SSL VPN.
+title: 'Tutorial: Integração do SSO (logon único) do Azure Active Directory ao FortiGate SSL VPN | Microsoft Docs'
+description: Confira as etapas você precisa executar para integrar o FortiGate SSL VPN ao Azure AD (Azure Active Directory).
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/11/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: abe92218d6bb20274e916089c15df8c1f44c4fd6
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 187903bfbf75ada45b9a539acd1157dfe730747a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90986437"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331107"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-fortigate-ssl-vpn"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao FortiGate SSL VPN
 
@@ -94,16 +94,29 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure:
     > [!NOTE]
     > Esses valores são apenas padrões. Você precisará usar os valores reais de **URL de Logon**, **Identificador**, **URL de Resposta** e **URL de Logoff**. Entre em contato com a [equipe de suporte ao cliente do FortiGate SSL VPN](mailto:tac_amer@fortinet.com) para obter os valores reais. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-1. O FortiGate SSL VPN espera que as declarações SAML estejam em um formato específico. Portanto, você precisará adicionar mapeamentos de atributo personalizado à configuração de atributos do token SAML. Esta captura de tela mostra os atributos padrão:
+1. O aplicativo FortiGate SSL VPN espera as declarações SAML em um formato específico, o que exige a adição de mapeamentos de atributo personalizado à configuração. A captura de tela a seguir mostra a lista de atributos padrão.
 
     ![Captura de tela que mostra os atributos padrão.](common/default-attributes.png)
 
-1. O FortiGate SSL VPN também espera que mais alguns atributos sejam passados de volta na resposta do SAML. Esses atributos são mostrados na tabela a seguir. Eles também são preenchidos previamente, mas você pode examiná-los de acordo com seus requisitos.
-    
-    | Nome |  Atributo de origem|
-    | ------------ | --------- |
-    | Nome de Usuário | user.userprincipalname |
-    | group | user.groups |
+1. As duas declarações adicionais exigidas pelo FortiGate SSL VPN são mostradas na tabela a seguir. Os nomes dessas declarações devem corresponder aos nomes usados na seção **Executar a configuração de linha de comando do FortiGate** deste tutorial. 
+
+   | Nome |  Atributo de origem|
+   | ------------ | --------- |
+   | Nome de Usuário | user.userprincipalname |
+   | group | user.groups |
+   
+   Para criar essas declarações adicionais:
+   
+   1. Ao lado de **Atributos e Declarações do Usuário**, selecione **Editar**.
+   1. Selecione **Adicionar nova declaração**.
+   1. Para **Nome**, insira **nome de usuário**.
+   1. Para **Atributo de origem**, selecione **user.userprincipalname**.
+   1. Selecione **Salvar**.
+   1. Selecione **Adicionar uma declaração de grupo**.
+   1. Selecione **Todos os grupos**.
+   1. Marque a caixa de seleção **Personalizar o nome da declaração de grupo**.
+   1. Para **Nome**, insira **grupo**.
+   1. Selecione **Salvar**.   
 
 1. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, selecione o link **Download**, ao lado de **Certificado (Base64)** , para baixar o certificado e salvá-lo no computador:
 

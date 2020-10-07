@@ -2,13 +2,13 @@
 title: O que é a Grade de Eventos do Azure?
 description: Envie dados de eventos de uma origem para manipuladores com a Grade de Eventos do Azure. Crie aplicativos baseados em eventos e integre com serviços do Azure.
 ms.topic: overview
-ms.date: 07/07/2020
-ms.openlocfilehash: 87ac29c2324c63977c57d60b11b3b930c23a4dd9
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.date: 09/24/2020
+ms.openlocfilehash: 73d218058c5f95d8c2d2324f1a0e1e77b24f1364
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89436860"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91326484"
 ---
 # <a name="what-is-azure-event-grid"></a>O que é a Grade de Eventos do Azure?
 
@@ -20,16 +20,17 @@ A Grade de Eventos do Azure é implantada para maximizar a disponibilidade distr
 
 Este artigo fornece uma visão geral da Grade de Eventos do Azure. Se você quiser começar a usar a Grade de Eventos, confira [Criar e rotear eventos personalizados com a Grade de Eventos do Azure](custom-event-quickstart.md). 
 
-![Modelo de Grade de Eventos de origens e manipuladores](./media/overview/functional-model.png)
+:::image type="content" source="./media/overview/functional-model.png" alt-text="Modelo de Grade de Eventos de origens e manipuladores" lightbox="./media/overview/functional-model.png":::
 
 Esta imagem mostra como a Grade de Eventos conecta origens e manipuladores, mas não é uma lista abrangente de integrações compatíveis.
 
 ## <a name="event-sources"></a>Origens de eventos
 
-Atualmente, os serviços do Azure a seguir dão suporte para envio de eventos à Grade de Eventos:
+Atualmente, os serviços do Azure a seguir dão suporte para envio de eventos à Grade de Eventos. Para obter mais informações sobre uma fonte na lista, selecione o link.
 
 - [Configuração de Aplicativos do Azure](event-schema-app-configuration.md)
 - [Armazenamento de Blobs do Azure](event-schema-blob-storage.md)
+- [Serviços de Comunicação do Azure](event-schema-communication-services.md) 
 - [Registro de Contêiner do Azure](event-schema-container-registry.md)
 - [Hubs de eventos do Azure](event-schema-event-hubs.md)
 - [Hub IoT do Azure](event-schema-iot-hub.md)

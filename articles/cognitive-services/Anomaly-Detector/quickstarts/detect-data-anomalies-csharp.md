@@ -1,7 +1,7 @@
 ---
 title: 'Início Rápido: Detectar anomalias nos dados de série temporal usando o C# e a API REST do Detector de Anomalias'
 titleSuffix: Azure Cognitive Services
-description: Saiba como usar a API do Detector de Anomalias para detectar anormalidades na sua série de dados como um lote ou em dados de streaming.
+description: Saiba como usar os dois modos de detecção da API do Detector de Anomalias para detectar anomalias nos dados de série temporal.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 09/03/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a5a3757a33beebb6e688dbea13259723da9280cc
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c19f901f4419cca59a3b4e070191c8bb89ce7c34
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904570"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91319190"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-c"></a>Início Rápido: Detectar anomalias nos dados de série temporal usando o C# e a API REST do Detector de Anomalias
 

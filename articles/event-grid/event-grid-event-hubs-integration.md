@@ -4,12 +4,12 @@ description: 'Tutorial: Descreve como usar a Grade de Eventos do Azure e os Hubs
 ms.topic: tutorial
 ms.date: 07/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d45fcedb570e384b851a7ac815ca175c67cc00a0
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 64d4b9769e1a228294bd7d8741f6f4b1260fb0dd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89435024"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91270540"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Tutorial: Transmitir Big Data para um data warehouse
 A [Grade de Eventos](overview.md) do Azure é um serviço de roteamento de evento inteligente que permite que você reaja às notificações (eventos) de aplicativos e serviços. Por exemplo, ele pode disparar uma função do Azure para processar dados de Hubs de Eventos que foram capturados em um Armazenamento de Blobs do Azure ou Azure Data Lake Storage e migrar os dados para outros repositórios de dados. Este [Exemplo de integração de Hubs de Eventos e Grade de Eventos](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) mostra como usar os Hubs de Eventos com a Grade de Eventos para migrar com perfeição dados dos Hubs de Eventos capturados do armazenamento de blobs para um Azure Synapse Analytics (anteriormente conhecido como SQL Data Warehouse).
@@ -66,7 +66,7 @@ Nesta etapa, você implanta a infraestrutura necessária com um [modelo do Resou
 4. No Cloud Shell, se você vir uma opção para selecionar entre **Bash** e **PowerShell**, selecione **Bash**. 
 5. Se você estiver usando o Cloud Shell pela primeira vez, crie uma conta de armazenamento selecionando **Criar armazenamento**. O Azure Cloud Shell requer uma conta de armazenamento do Azure para armazenar alguns arquivos. 
 
-    ![Criar armazenamento para o Cloud Shell](media/event-grid-event-hubs-integration/create-storage-cloud-shell.png)
+    ![Captura de tela que mostra a caixa de diálogo "Você não tem nenhum armazenamento montado" com o botão "Criar armazenamento" selecionado.](media/event-grid-event-hubs-integration/create-storage-cloud-shell.png)
 6. Aguarde até o Cloud Shell ser inicializado. 
 
     ![Criar armazenamento para o Cloud Shell](media/event-grid-event-hubs-integration/cloud-shell-initialized.png)
@@ -209,7 +209,7 @@ Crie uma tabela no data warehouse executando o script [CreateDataWarehouseTable.
    ![Publicar o aplicativo de funções](media/event-grid-event-hubs-integration/publish-function-app.png)
 4. Se você vir a tela a seguir, selecione **Iniciar**. 
 
-   ![Botão Iniciar publicação](media/event-grid-event-hubs-integration/start-publish-button.png) 
+   ![Captura de tela que mostra o Visual Studio com o botão "Iniciar" na seção Publicar.](media/event-grid-event-hubs-integration/start-publish-button.png) 
 5. Na caixa de diálogo **Publicar**, selecione **Azure** como **Destino** e **Avançar**. 
 
    ![Botão Iniciar publicação](media/event-grid-event-hubs-integration/publish-select-azure.png)

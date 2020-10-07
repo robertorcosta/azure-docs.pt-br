@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Unir dados de sensor com os dados de previsão do tempo usando o Azure Notebooks (Python) | Microsoft Azure Mapas'
-description: Este tutorial mostra como unir dados de sensor aos dados de previsão do tempo do Serviço de Clima dos Microsoft Azure Mapas usando o Azure Notebooks (Python).
+description: Tutorial sobre como unir dados de sensor aos dados de previsão do tempo do serviço Clima dos Microsoft Azure Mapas usando o Azure Notebooks (Python).
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 01/29/2020
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 4ec51bc84041008c0b843a8549e299747c3134a3
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 717cb600f1bdae228f45409cb271ab04d1d51a19
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87851638"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91310094"
 ---
 # <a name="tutorial-join-sensor-data-with-weather-forecast-data-by-using-azure-notebooks-python"></a>Tutorial: Unir dados de sensor com os dados de previsão do tempo usando o Azure Notebooks (Python)
 
@@ -182,9 +182,6 @@ Os grafos abaixo visualizam os dados de previsão. Para a alteração da velocid
 
 ![Gráfico da velocidade do vento](./media/weather-service-tutorial/speed-date-plot.png) ![Gráfico da direção do vento](./media/weather-service-tutorial/direction-date-plot.png)</center>
 
-
-## <a name="next-steps"></a>Próximas etapas
-
 Neste tutorial, você aprendeu a chamar as APIs REST dos Azure Mapas para obter dados de previsão do tempo. Você também aprendeu a visualizar os dados em grafos.
 
 Para saber mais sobre como chamar as APIs REST do Azure Mapas dentro de Azure Notebooks, consulte [Roteamento de EV usando Azure Notebooks](https://docs.microsoft.com/azure/azure-maps/tutorial-ev-routing).
@@ -196,4 +193,9 @@ Para explorar as APIs dos Azure Mapas que são usadas neste tutorial, confira:
 
 Para obter uma lista completa das APIs REST dos Azure Mapas, confira [APIs REST dos Azure Mapas](https://docs.microsoft.com/azure/azure-maps/consumption-model).
 
-Para saber mais sobre o Azure Notebooks, confira [Azure Notebooks](https://docs.microsoft.com/azure/notebooks).
+## <a name="next-steps"></a>Próximas etapas
+
+Para saber mais sobre o Azure Notebooks, confira
+
+> [!div class="nextstepaction"]
+> [Azure Notebooks](https://docs.microsoft.com/azure/notebooks)

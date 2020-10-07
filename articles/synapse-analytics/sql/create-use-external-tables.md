@@ -1,6 +1,6 @@
 ---
 title: Criar e usar tabelas externas no SQL sob demanda (versão prévia)
-description: Nesta seção, você aprenderá a criar e usar tabelas externas no SQL sob demanda (versão prévia). As tabelas externas são úteis quando você deseja controlar o acesso a dados externos no SQL sob demanda e se deseja usar ferramentas, como o Power BI, em conjunto com o SQL sob demanda.
+description: Nesta seção, você aprenderá a criar e usar tabelas externas no SQL sob demanda (versão prévia).
 services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
@@ -8,13 +8,13 @@ ms.topic: overview
 ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: vvasic
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: d830ee28eb1f5befc3ad778a6b82c291d1e49d02
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.reviewer: jrasnick
+ms.openlocfilehash: 182deba959144f6a3992bb41243f29023bad5e5c
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85206505"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91289320"
 ---
 # <a name="create-and-use-external-tables-in-sql-on-demand-preview-using-azure-synapse-analytics"></a>Criar e usar tabelas externas no SQL sob demanda (versão prévia) usando o Azure Synapse Analytics
 
@@ -132,4 +132,4 @@ ORDER BY
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter informações sobre como armazenar os resultados de uma consulta no armazenamento, veja [Armazenar os resultados da consulta no armazenamento](../sql/create-external-table-as-select.md).
+Para obter informações sobre como armazenar os resultados de uma consulta no armazenamento, confira o artigo [Armazenar resultados da consulta no armazenamento](../sql/create-external-table-as-select.md).

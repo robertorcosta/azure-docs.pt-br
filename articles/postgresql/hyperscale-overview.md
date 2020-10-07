@@ -8,12 +8,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: overview
 ms.date: 09/01/2020
-ms.openlocfilehash: e62d1bf0e9db5e80193cb0615d0a9d31e3041d63
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 90d3cb106fa93649f7d6dda5ab5755061d118f66
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90943199"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91268376"
 ---
 # <a name="what-is-azure-database-for-postgresql---hyperscale-citus"></a>O que é a Hiperescala (Citus) do Banco de Dados do Azure para PostgreSQL?
 
@@ -32,5 +32,5 @@ Os aplicativos criados para o PostgreSQL podem executar consultas distribuídas 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Comece pela [criação do seu primeiro](./quickstart-create-hyperscale-portal.md) grupo de servidores da Hiperescala (Citus) do Banco de Dados do Azure para PostgreSQL.
-- Consultar a [página de preços](https://azure.microsoft.com/pricing/details/postgresql/) para ver comparações de custo e calculadoras. A Hiperescala (Citus) oferece descontos de Instância Reservada pré-paga também; confira as páginas de [preços da Hiperescala em RI](concepts-hyperscale-reserved-pricing.md) para obter detalhes.
+- Consultar a [página de preços](https://azure.microsoft.com/pricing/details/postgresql/) para ver comparações de custo e calculadoras. A Hiperescala (Citus) também oferece descontos de Instância Reservada pré-paga; confira as páginas de [preços da Hiperescala (Citus) em RI](concepts-hyperscale-reserved-pricing.md) para obter detalhes.
 - Determinar o melhor [tamanho inicial](howto-hyperscale-scaling.md#picking-initial-size) para seu grupo de servidores

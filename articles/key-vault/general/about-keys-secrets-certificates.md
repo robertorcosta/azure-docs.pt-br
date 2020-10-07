@@ -1,5 +1,5 @@
 ---
-title: Visão geral da API REST do Azure Key Vault
+title: Visão geral das chaves, dos segredos e dos certificados do Azure Key Vault
 description: Visão geral dos detalhes de interface e desenvolvedor de REST do Azure Key Vault para chaves, segredos e certificados.
 services: key-vault
 author: msmbaldwin
@@ -9,14 +9,14 @@ ms.service: key-vault
 ms.topic: overview
 ms.date: 04/17/2020
 ms.author: mbaldwin
-ms.openlocfilehash: b2d3753cd31b54c500b2757520f2634eb1b2794a
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: c02a2658325fdd88ef1052937edc3b84c4545872
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90983280"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91296830"
 ---
-# <a name="azure-key-vault-rest-api-overview"></a>Visão geral da API REST do Azure Key Vault
+# <a name="azure-key-vault-keys-secrets-and-certificates-overview"></a>Visão geral das chaves, dos segredos e dos certificados do Azure Key Vault
 
 O Azure Key Vault permite que aplicativos do Microsoft Azure e usuários armazenem e usem vários tipos de dados de chave/segredo. O provedor de recursos do Key Vault dá suporte a dois tipos de recursos: cofres e HSMs gerenciados.
 

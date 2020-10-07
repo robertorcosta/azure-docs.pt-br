@@ -5,15 +5,29 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
-ms.date: 07/27/2020
-ms.openlocfilehash: 9642f6d1090ef358cf86241640255c647dea52eb
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.date: 09/23/2020
+ms.openlocfilehash: c63a8efc4bbcf6e5a124d439e6f9f91397e2fa53
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432663"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91315075"
 ---
-# <a name="changelog"></a>Log de alteração #
+# <a name="changelog"></a>Log de alteração
+
+## <a name="236-official-update-september-21-2020"></a>2.3.6 (atualização oficial de 21 de setembro de 2020)
+
+### <a name="features-236"></a>Recursos do 2.3.6
+
+Adicionado suporte somente de áudio para a azureHtml5JS tech (DASH) Suporte ao início tardio da transcrição ao vivo Alteração no suporte a idioma na transcrição ao vivo
+
+### <a name="bug-fixes-236"></a>Correções de bugs da versão 2.3.6
+
+Ao usar "playsinline" em reproduções de HLS em dispositivos Apple, clicar no botão "LIVE" faz com que o vídeo seja reiniciado A imagem do pôster de AMP às vezes causa uma exceção O botão Volume estava ausente ao reproduzir as FairPlay do HLS [Acessibilidade] Dicas de ferramentas não definidas para botões quando o teclado é usado [Acessibilidade] A taxa de luminosidade é menor que 1,3:1 para a barra de progresso [Acessibilidade] O foco do teclado às vezes não retorna ao botão de qualidade do vídeo [Acessibilidade] Os controles não estão visíveis na tela Vídeo, impedindo o narrador de encontrá-los
+
+### <a name="changes-236"></a>Alterações na versão 2.3.6
+
+Retornar erros KeyDelivery significativos para chamar aplicativos
 
 ## <a name="235-official-update-june-1-2020"></a>2.3.5 (atualização oficial de 1° de junho de 2020)
 

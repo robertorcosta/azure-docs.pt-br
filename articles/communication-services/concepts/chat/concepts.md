@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 03/10/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: af07894fcbfae386849d32492be9d2718a3adcc3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 1dd3781b18f82a96f388b0e619ce62b45752a870
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90943170"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292465"
 ---
 # <a name="chat-concepts"></a>Conceitos de chat
 
@@ -28,7 +28,7 @@ Confira a [Visão geral da biblioteca de clientes de chat dos Serviços de Comun
 
 As conversas de chat acontecem em grupos de mensagens de chat. Uma conversa de chat pode conter muitas mensagens e muitos usuários. Cada mensagem pertence a uma só conversa, e um usuário pode fazer parte de uma ou várias conversas. 
 
-Cada usuário na conversa de chat é chamado de membro. É possível ter até 250 membros em uma conversa de chat. Somente os membros da conversa podem enviar e receber mensagens ou adicionar/remover membros em uma conversa de chat. O tamanho máximo permitido da mensagem é de aproximadamente 28 KB. Os Serviços de Comunicação armazenam o histórico de chats até que você execute uma operação de exclusão na conversa de chat. Recupere todas as mensagens em uma conversa de chat usando a operação `List/Get Messages`.
+Cada usuário na conversa de chat é chamado de membro. É possível ter até 250 membros em uma conversa de chat. Somente os membros da conversa podem enviar e receber mensagens ou adicionar/remover membros em uma conversa de chat. O tamanho máximo permitido da mensagem é de aproximadamente 28 KB. Recupere todas as mensagens em uma conversa de chat usando a operação `List/Get Messages`. Os Serviços de Comunicação armazenam o histórico de chat até que você execute uma operação de exclusão no thread ou na mensagem do chat ou até que não haja membros restantes no thread de chat, quando ele se torna órfão e é processado para exclusão.   
 
 Para conversas de chat com mais de 20 membros, as confirmações de leitura e os recursos do indicador de digitação ficam desabilitados. 
 
@@ -130,7 +130,7 @@ Um modo de conseguir isso é fazendo com que o serviço confiável funcione como
 
 Dessa forma, o histórico de mensagens conterá as mensagens originais e traduzidas. No aplicativo cliente, você poderá adicionar a lógica para mostrar a mensagem original ou traduzida. Confira [este guia de início rápido](https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-translate) para entender como usar as APIs Cognitivas para traduzir um texto em idiomas diferentes. 
 
-:::image type="content" source="../media/chat/cognitive-services.png" alt-text="Diagrama mostrando os Serviços Cognitivos interagindo com os Serviços de Comunicação.":::
+:::image type="content" source="../media/chat/cognitive-services.png" alt-text="Diagrama mostrando a arquitetura de chat dos Serviços de Comunicação.":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

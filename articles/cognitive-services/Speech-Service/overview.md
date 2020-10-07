@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 08/20/2020
 ms.author: trbye
-ms.openlocfilehash: 57577c840c93888b2b96971994724f085ad44ebe
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 2277c054be3e0649d48350b21eb9add2a1e52e8b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89569298"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282860"
 ---
 # <a name="what-is-the-speech-service"></a>O que é Serviço de fala?
 
@@ -74,13 +74,13 @@ Para adicionar um recurso de serviço de Fala (camada gratuita ou paga) à sua c
    - Dê um nome exclusivo ao seu novo recurso. O nome ajuda a distinguir entre várias assinaturas associadas ao mesmo serviço.
    - Escolha a assinatura do Azure a qual o novo recurso está associado para determinar como os valores serão cobrados.
    - Escolha a [região](regions.md) em que o recurso será usado.
-   - Escolha um tipo de preço gratuito (F0) ou pago (S0). Para obter informações completas sobre preços e cotas de uso para cada camada, selecione **Exibir detalhes de preço completos**.
+   - Escolha um tipo de preço gratuito (F0) ou pago (S0). Para obter informações completas sobre preços e cotas de uso para cada camada, selecione **Exibir detalhes de preço completos**. Para ver os limites dos recursos que você pode criar para cada assinatura, confira [Limites dos Serviços Cognitivos do Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cognitive-services-limits).
    - Crie um grupo de recursos para esta assinatura de Fala ou atribua a assinatura a um grupo de recursos existente. Os grupos de recurso ajudam você a manter suas diversas assinaturas do Azure organizadas.
    - Selecione **Criar**. Isso direcionará você à visão geral de implantação e exibirá mensagens sobre o progresso da implantação.
-
+<!--
 > [!NOTE]
-> Você pode criar um número ilimitado de assinaturas da camada Standard em uma ou várias regiões. No entanto, você só pode criar uma assinatura da camada gratuita. As implantações de modelo na camada gratuita que permanecerem inutilizadas por 7 dias serão desativadas automaticamente.
-
+> You can create an unlimited number of standard-tier subscriptions in one or multiple regions. However, you can create only one free-tier subscription. Model deployments on the free tier that remain unused for 7 days will be decommissioned automatically.
+-->
 São necessários alguns instantes para a implantação do novo recurso de Fala. Após a conclusão da implantação, selecione **Ir para recurso** e, no painel de navegação esquerdo, selecione **Chaves** para exibir as chaves de assinatura do serviço de Fala. Cada assinatura tem duas chaves; você pode usar uma das chaves em seu aplicativo. Para copiar/colar rapidamente uma chave no editor de código ou em outra localização, selecione o botão copiar ao lado de cada chave, alterne as janelas para colar o conteúdo da área de transferência na localização desejada.
 
 > [!IMPORTANT]

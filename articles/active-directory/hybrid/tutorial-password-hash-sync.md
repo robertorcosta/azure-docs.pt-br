@@ -14,12 +14,12 @@ ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04ea92e18fc6efb8b375a22cc34baf1d33b78802
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: b82dcc633f0f2bb13cb84f80873117f9eb94a24f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279016"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91313155"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-password-hash-sync-phs"></a>Tutorial:  Integrar uma única floresta do AD usando a sincronização de hash da senha (PHS)
 
@@ -184,7 +184,7 @@ Agora, é necessário criar um locatário do Azure AD para que seja possível si
 2. Selecione o **ícone adição (+)** e pesquise **Azure Active Directory**.
 3. Selecione **Azure Active Directory** nos resultados da pesquisa.
 4. Selecione **Criar**.</br>
-![Criar](media/tutorial-password-hash-sync/create1.png)</br>
+![Captura de tela que mostra como criar um locatário do Azure AD.](media/tutorial-password-hash-sync/create1.png)</br>
 5. Forneça um **nome para a organização** juntamente com o **nome de domínio inicial**. Em seguida, selecione **Criar**. Isso criará criar o diretório.
 6. Depois que for concluído, clique no link **aqui** para gerenciar o diretório.
 
@@ -192,10 +192,10 @@ Agora, é necessário criar um locatário do Azure AD para que seja possível si
 Agora que temos um locatário do Azure AD, criaremos uma conta de administrador global.  Essa conta é usada para criar a conta do Azure AD Connector durante a instalação do Azure AD Connect.  A conta do Azure AD Connector é usada para gravar informações no Azure AD.   Para criar a conta de administrador global, faça o seguinte.
 
 1.  Em **Gerenciar**, selecione **Usuários**.</br>
-![Criar](media/tutorial-password-hash-sync/gadmin1.png)</br>
+![Captura de tela que mostra a opção Usuário selecionada na seção Gerenciar, em que você cria um Administrador global no Azure AD.](media/tutorial-password-hash-sync/gadmin1.png)</br>
 2.  Selecione **Todos os usuários** e, em seguida, selecione **+ Novo usuário**.
 3.  Forneça um nome e um nome de usuário para esse usuário. Este será o Administrador Global para o locatário. Convém também alterar a **função do diretório** para **Administrador global.** Também é possível mostrar a senha temporária. Ao concluir, selecione **Criar**.</br>
-![Criar](media/tutorial-password-hash-sync/gadmin2.png)</br>
+![Captura de tela que mostra o botão Criar que você seleciona quando cria um Administrador global no Azure AD.](media/tutorial-password-hash-sync/gadmin2.png)</br>
 4. Depois que isso for concluído, abra um novo navegador da Web e entre em myapps.microsoft.com usando a nova conta de administrador global e a senha temporária.
 5. Altere a senha do administrador global para algo que você irá lembrar.
 
@@ -206,7 +206,7 @@ Agora é hora de baixar e instalar o Azure AD Connect.  Uma vez instalado, vamos
 2. Navegue até **AzureADConnect.msi**e clique duas vezes nessa opção.
 3. Na tela de boas-vindas, marque a caixa de concordar com os termos da licença e clique em **Continuar**.  
 4. Na tela de configurações expressas, clique em **Usar configurações expressas**.</br>  
-![Criar](media/tutorial-password-hash-sync/express1.png)</br>
+![Captura de tela que mostra as configurações do Expresso e o botão Usar configurações expressas.](media/tutorial-password-hash-sync/express1.png)</br>
 5. Na tela do Azure AD a conectar, digite o nome de usuário e a senha do administrador global do Azure AD. Clique em **Próximo**.  
 6. Na tela Conectar AD DS, digite o nome de usuário e senha para uma conta de administrador corporativa. Clique em **Próximo**.  
 7. Na tela Pronto para configurar, clique em **Instalar**.

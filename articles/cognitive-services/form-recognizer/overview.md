@@ -1,43 +1,47 @@
 ---
 title: O que é o Reconhecimento de Formulários?
 titleSuffix: Azure Cognitive Services
-description: O Reconhecimento de Formulários dos Serviços Cognitivos do Azure permite identificar e extrair pares chave-valor e dados de tabela de documentos de formulário.
+description: O serviço Reconhecimento de Formulários do Azure permite que você identifique e extraia pares chave/valor e dados de tabela de seus documentos de formulário, bem como informações importantes de recibos de vendas e cartões de visita.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 08/05/2020
+ms.date: 09/21/2020
 ms.author: pafarley
-ms.openlocfilehash: 070796cd260e56bb51115a7ef33ced8455bfb6a9
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.custom: cog-serv-seo-aug-2020
+keywords: processamento automatizado de dados, processamento de documentos, entrada automatizada de dados, processamento de formulários
+ms.openlocfilehash: 5243c170e1f6b5f647057b8cfafbcac9b2fb4db3
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89394390"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91318952"
 ---
 # <a name="what-is-form-recognizer"></a>O que é o Reconhecimento de Formulários?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-O Reconhecimento de Formulários do Azure é um serviço cognitivo que usa a tecnologia de aprendizado de máquina para identificar e extrair texto, pares chave-valor e dados de tabela de documentos de formulário. Em ingere texto de formulários e gera dados estruturados que incluem as relações no arquivo original. É possível obter resultados com rapidez e precisão, adaptados ao seu conteúdo específico, sem intervenção manual intensa nem ampla experiência em ciência de dados. O Reconhecimento de Formulários é composto por modelos personalizados, o modelo de recebimento predefinido e a API de layout. Chame os modelos do Reconhecimento de Formulários usando uma API REST para reduzir a complexidade e integrá-lo a seu fluxo de trabalho ou aplicativo.
+O Reconhecimento de Formulários do Azure é um serviço cognitivo que permite criar software de processamento de dados automatizado usando a tecnologia de machine learning. Identifique e extraia pares de texto, pares chave/valor e dados de tabela de seus documentos de formulário&mdash;o serviço gera dados estruturados que incluem as relações no arquivo original. É possível obter resultados com rapidez e precisão, adaptados ao seu conteúdo específico, sem intervenção manual intensa nem ampla experiência em ciência de dados. Use o Reconhecimento de Formulários para automatizar a entrada de dados em seus aplicativos.
+
+O Reconhecimento de Formulários é composto por modelos de processamento de documentos personalizados, modelos predefinidos de cartões de visita e recibo e a API de layout. Chame os modelos do Reconhecimento de Formulários usando uma API REST ou SDKs da biblioteca de clientes para reduzir a complexidade e integrá-lo a seu fluxo de trabalho ou aplicativo.
 
 O Reconhecimento de Formulários é composto pelos seguintes serviços:
-* **Modelos personalizados** – extraia pares de chave/valor e dados de tabela de formulários. Esses modelos são treinados usando dados próprios e, portanto, são adaptados para seus formulários.
-* **Modelos predefinidos**: extraia dados de tipos de formulário exclusivos usando modelos predefinidos. Os modelos predefinidos estão atualmente disponíveis para recibos de vendas e cartões de visita em inglês.
-* **API de layout** – extraia de documentos estruturas de texto e tabela juntamente com suas coordenadas de caixa delimitadora.
-
-<!-- add diagram -->
+* **[Modelos personalizados](#custom-models)** – extraia pares de chave/valor e dados de tabela de formulários. Esses modelos são treinados usando dados próprios e, portanto, são adaptados para seus formulários.
+* **[Modelos predefinidos](#prebuilt-models)** – extraia dados de tipos de formulário exclusivos usando modelos predefinidos. Os modelos predefinidos estão atualmente disponíveis para recibos de vendas e cartões de visita em inglês.
+* **[API de layout](#layout-api)** – extraia de documentos estruturas de texto e tabela juntamente com suas coordenadas de caixa delimitadora.
 
 ## <a name="custom-models"></a>Modelos personalizados
 
-O modelo personalizado do Reconhecimento de Formulários treina para dados próprios e você só precisa de cinco formulários de entrada de exemplo para começar. Um modelo treinado pode gerar dados estruturados que incluem as relações no documento de formulário original. Depois de treinar no modelo, você pode testá-lo, treinar novamente e, por fim, usá-lo para extrair, de forma confiável, dados de mais formulários de acordo com suas necessidades.
+O modelo personalizado do Reconhecimento de Formulários treina para dados próprios e você só precisa de cinco formulários de entrada de exemplo para começar. Um modelo de processamento de documento treinado pode gerar dados estruturados que incluem as relações no documento de formulário original. Depois de treinar no modelo, você pode testá-lo, treinar novamente e, por fim, usá-lo para extrair, de forma confiável, dados de mais formulários de acordo com suas necessidades.
 
 Você tem as seguintes opções ao treinar modelos personalizados: treinamento usando dados rotulados e sem dados rotulados.
 
 ### <a name="train-without-labels"></a>Treinar sem rótulos
 
 Por padrão, o Reconhecimento de Formulários usa o aprendizado não supervisionado para entender o layout e as relações entre campos e entradas em seus formulários. Quando você envia seus formulários de entrada, o algoritmo agrupa os formulários por tipos, descobre quais chaves e tabelas estão presentes e associa valores a chaves e entradas a tabelas. Isso não exige a rotulagem manual de dados nem a codificação e a manutenção intensivas. Recomendamos que você experimente esse método primeiro.
+
+Confira [Criar um conjunto de dados de treinamento](./build-training-data-set.md) para obter dicas sobre como coletar seus documentos de treinamento.
 
 ### <a name="train-with-labels"></a>Treinar com rótulos
 
@@ -47,15 +51,17 @@ O Reconhecimento de Formulários usa a [API de layout](#layout-api) para aprende
 
 ## <a name="prebuilt-models"></a>Modelos predefinidos
 
-O Reconhecimento de Formulários também inclui modelos predefinidos para tipos de formulário exclusivos.
+O Reconhecimento de Formulários também inclui modelos predefinidos para o processamento automático de dados de tipos de formulário exclusivos.
 
 ### <a name="prebuilt-receipt-model"></a>Modelo de Recibo Predefinido
-O modelo de Recibo Predefinido é usado para a leitura de recibos de vendas em inglês da Austrália, do Canadá, da Grã-Bretanha, da Índia e dos Estados Unidos: o tipo usado por restaurantes, postos de gasolina, varejo etc. Esse modelo extrai informações essenciais, como data e hora da transação, informações do comerciante, valores de impostos, itens de linha, totais, entre outros. Além disso, o modelo de recibo predefinido é treinado para reconhecer e retornar todo o texto de um recibo. 
+
+O modelo de Recibo Predefinido é usado para a leitura de recibos de vendas em inglês da Austrália, do Canadá, da Grã-Bretanha, da Índia e dos Estados Unidos: o tipo usado por restaurantes, postos de gasolina, varejo etc. Esse modelo extrai informações essenciais, como data e hora da transação, informações do comerciante, valores de impostos, itens de linha, totais, entre outros. Além disso, o modelo de recibo predefinido é treinado para reconhecer e retornar todo o texto de um recibo. Confira o guia conceitual [Recibos](./concept-receipts.md) para obter mais informações.
 
 ![exemplo de recibo](./media/contoso-receipt-small.png)
 
 ### <a name="prebuilt-business-cards-model"></a>Modelo de Cartões de Visita Predefinidos
-O modelo de Cartões de Visita permite que você extraia informações, como nome da pessoa, cargo, endereço, email, empresa e números de telefone de cartões de visita em inglês. 
+
+O modelo de Cartões de Visita permite que você extraia informações, como nome da pessoa, cargo, endereço, email, empresa e números de telefone de cartões de visita em inglês. Confira o guia conceitual [Cartões de visita](./concept-business-cards.md) para obter mais informações.
 
 ![exemplo de cartão de visita](./media/business-card-english.jpg)
 
@@ -67,7 +73,7 @@ O Reconhecimento de Formulários também pode extrair a estrutura de texto e tab
 
 Siga um início rápido para começar a extrair dados de seus formulários. Recomendamos usar o serviço gratuito quando estiver aprendendo a tecnologia. Lembre-se de que o número de páginas gratuitas é limitado a 500 por mês.
 
-* [Início rápido da biblioteca de cliente](./quickstarts/client-library.md) (todos os idiomas, vários cenários)
+* [Inícios rápidos da biblioteca de cliente](./quickstarts/client-library.md) (todos os idiomas, vários cenários)
 * Inícios rápidos da interface do usuário da Web
   * [Treinar com rótulos – ferramenta de rotulação de amostra](quickstarts/label-tool.md)
 * Guias de início rápido do REST
@@ -99,19 +105,8 @@ Você usará as APIs a seguir para treinar modelos e extrair dados estruturados 
 Explore a [documentação de referência da API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) para saber mais. Se você estiver familiarizado com uma versão anterior da API, confira o artigo [O que há de novo](./whats-new.md) para saber mais sobre as alterações recentes.
 
 ## <a name="input-requirements"></a>Requisitos de entrada
-### <a name="custom-model"></a>Modelo personalizado
 
 [!INCLUDE [input requirements](./includes/input-requirements.md)]
-
-### <a name="prebuilt"></a>Predefinida
-
-Os requisitos de entrada para o modelo de recebimento são um pouco diferentes.
-
-* O formato deve ser JPEG, PNG, PDF (texto ou digitalizado) ou TIFF.
-* O tamanho do arquivo deve ser inferior a 20 MB.
-* As imagens de dimensões devem estar entre 50 x 50 pixels e 10.000 x 10.000 pixels.
-* As dimensões de PDF devem ter no máximo 17 x 17 polegadas, correspondentes aos tamanhos de papel ofício ou A3 e menores.
-* Para PDF e TIFF, somente as primeiras 200 páginas são processadas (com uma assinatura de camada gratuita, somente as duas primeiras páginas são processadas).
 
 ## <a name="data-privacy-and-security"></a>Segurança e privacidade de dados
 
@@ -119,4 +114,4 @@ Assim como ocorre com todos os serviços cognitivos, os desenvolvedores que usam
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Complete um [início rápido](quickstarts/curl-train-extract.md) para começar a usar as [APIs do Reconhecimento de Formulários](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm).
+Conclua um [início rápido da biblioteca de clientes](quickstarts/client-library.md) para começar a escrever um aplicativo de processamento de formulários com o Reconhecimento de Formulários no idioma de sua escolha.

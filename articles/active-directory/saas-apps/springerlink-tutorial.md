@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 41713554273ed5d6548a35d0ac956d8ff5c74191
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2e3b2ee35352c2af4ae8196ba7c9699da761f83e
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88542506"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372452"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springer-link"></a>Tutorial: Integração do Azure Active Directory ao Springer Link
 
@@ -39,7 +39,7 @@ Para configurar a integração do Azure AD ao Springer Link, você precisa dos s
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
+Neste tutorial, você vai configurar e testar o logon único do Azure AD.
 
 * O Springer Link dá suporte ao SSO iniciado por **SP** e **IDP**
 
@@ -68,7 +68,6 @@ Para configurar a integração do Springer Link ao Azure AD, você precisa adici
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
 Nesta seção, você configura e testa o logon único do Azure AD com o Springer Link com base em um usuário de teste chamado**Brenda Fernandes**.
-Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Springer Link.
 
 Para configurar e testar o logon único do Azure AD com o Springer Link, você precisa concluir os seguintes blocos de construção:
 
@@ -76,8 +75,7 @@ Para configurar e testar o logon único do Azure AD com o Springer Link, você p
 2. **[Configurar o logon único do Springer Link](#configure-springer-link-single-sign-on)** – para definir as configurações de logon único no lado do aplicativo.
 3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
 4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Criar um usuário de teste do Springer Link](#create-springer-link-test-user)** – para ter um equivalente de Brenda Fernandes no Springer Link que esteja vinculado à representação de usuário do Azure AD.
-6. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
+5. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
@@ -120,21 +118,11 @@ Para configurar logon único do Azure AD com Springer Link, realize as seguintes
 
 6. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique no ícone Copiar para copiar a **URL de metadados de federação de aplicativos** e salve-a no computador.
 
-    ![O link de download do Certificado](common/metadataxml.png)
-
-7. Na seção **Configurar Springer Link** copie as URLs apropriadas, conforme sua necessidade.
-
-    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
-
-    a. URL de logon
-
-    b. Identificador do Azure AD
-
-    c. URL de logoff
+    ![O link de download dos metadados](common/copy_metadataurl.png)
 
 ### <a name="configure-springer-link-single-sign-on"></a>Configurar logon único do Springer Link
 
-Para configurar logon único no **Springer Link**, é necessário enviar a **URL de metadados de federação de aplicativos** copiado e as URLs copiadas apropriadas do portal do Azure para a [equipe de suporte do Springer Link](mailto:identity@springernature.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+Para configurar o logon único no lado do **Springer Link**, é necessário enviar a **URL de Metadados de Federação do Aplicativo** copiada para a [equipe de suporte do Springer Link](mailto:onlineservice@springernature.com). A equipe de suporte do Springer Link usará essa URL para configurar a conexão de SSO do SAML corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
@@ -187,10 +175,6 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 
 7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
-### <a name="create-springer-link-test-user"></a>Criar usuário de teste do Springer Link
-
-Nesta seção, você cria um usuário chamado Brenda Fernandes no Springer Link. Trabalhe com a  [equipe de suporte do Springer Link](mailto:identity@springernature.com) para adicionar os usuários à plataforma Springer Link. Os usuários devem ser criados e ativados antes de usar o logon único.
-
 ### <a name="test-single-sign-on"></a>Testar logon único 
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
@@ -203,5 +187,5 @@ Ao clicar no bloco do Springer Link no Painel de Acesso, você deverá entrar au
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

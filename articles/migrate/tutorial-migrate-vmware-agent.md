@@ -4,12 +4,12 @@ description: Saiba como executar uma migração baseada em agente de VMs VMware 
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: MVC
-ms.openlocfilehash: bf33c61783b6d7399cd880f53009033a97625bca
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: f437c0f3b9f786863d3b58f10d1a7384b0f1e8ba
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378841"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296137"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>Migrar VMs VMware para o Azure (com base em agente)
 
@@ -251,7 +251,7 @@ Selecione as VMs para migração.
 
 1. No projeto das Migrações para Azure > **Servidores**, **Migrações para Azure: Migração de Servidor**, clique em **Replicar**.
 
-    ![Replicar VMs](./media/tutorial-migrate-vmware-agent/select-replicate.png)
+    ![Captura de tela da tela Servidores nas Migrações para Azure. O botão Replicar está selecionado nas Migrações para Azure: Migração de Servidor nas ferramentas de Migração.](./media/tutorial-migrate-vmware-agent/select-replicate.png)
 
 2. Em **Replicar**, > **Configurações de origem** > **Seus computadores estão virtualizados?** , selecione **Sim, com o VMware vSphere**.
 3. Em **Dispositivo local**, selecione o nome do dispositivo de Migrações para Azure que você configurou.
@@ -259,7 +259,7 @@ Selecione as VMs para migração.
 5. Em **Servidor de Processo**, selecione o nome do dispositivo de replicação.
 6. Em **Credenciais de convidado**, especifique a conta do administrador de VM que será usada para a instalação por push do serviço de Mobilidade. Em seguida, clique em **Próximo: Máquinas virtuais**.
 
-    ![Replicar VMs](./media/tutorial-migrate-vmware-agent/source-settings.png)
+    ![Captura de tela da guia Configurações de origem na tela Replicar. O campo Credenciais de convidado está realçado e o valor está definido como VM-admin-account.](./media/tutorial-migrate-vmware-agent/source-settings.png)
 
 7. Em **Máquinas Virtuais**, selecione os computadores que você deseja replicar.
 

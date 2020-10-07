@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/25/2020
 ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: 3589aeb21053525e481f3448270d236265dd698e
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: aca16e334e594f8adf0c0a3b0354db827fc475fe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89052005"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91333963"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-powershell"></a>Início Rápido: Criar um balanceador de carga público para balancear cargas de VMs usando o Azure PowerShell
 
@@ -61,7 +61,7 @@ New-AzResourceGroup -Name $rg -Location $loc
 >[!NOTE]
 >O balanceador de carga de SKU Standard é recomendado para cargas de trabalho de produção. Para obter mais informações sobre SKUs, confira **[SKUs do Azure Load Balancer](skus.md)** .
 
-## <a name="create-a-public-ip-address"></a>Criar um endereço IP público
+## <a name="create-a-public-ip-address-in-the-standard-sku"></a>Criar um endereço IP público no SKU Standard
 
 Para acessar seu aplicativo Web na Internet, você precisará de um endereço IP público para o balanceador de carga. 
 
@@ -215,7 +215,7 @@ $lb =
 New-AzLoadBalancer -ResourceGroupName $rg -Name $lbn -SKU $sku -Location $loc -FrontendIpConfiguration $feip -BackendAddressPool $bepool -Probe $probe -LoadBalancingRule $rule
 ```
 
-## <a name="configure-virtual-network"></a>Configurar rede virtual
+## <a name="configure-virtual-network-in-the-standard-sku"></a>Configurar a rede virtual no SKU Standard
 
 Antes de implantar VMs e testar o balanceador de carga, crie os recursos da rede virtual de suporte.
 
@@ -712,7 +712,7 @@ $nic | Set-AzNetworkInterfaceIpConfig -Name $ipc -LoadBalancerBackendAddressPool
 >[!NOTE]
 >O balanceador de carga de SKU Standard é recomendado para cargas de trabalho de produção. Para obter mais informações sobre SKUs, confira **[SKUs do Azure Load Balancer](skus.md)** .
 
-## <a name="create-a-public-ip-address"></a>Criar um endereço IP público
+## <a name="create-a-public-ip-address-in-the-basic-sku"></a>Criar um endereço IP público no SKU Básico
 
 Para acessar seu aplicativo Web na Internet, você precisará de um endereço IP público para o balanceador de carga. 
 
@@ -854,7 +854,7 @@ $lb =
 New-AzLoadBalancer -ResourceGroupName $rg -Name $lbn -SKU $sku -Location $loc -FrontendIpConfiguration $feip -BackendAddressPool $bepool -Probe $probe -LoadBalancingRule $rule
 ```
 
-## <a name="configure-virtual-network"></a>Configurar rede virtual
+## <a name="configure-virtual-network-in-the-basic-sku"></a>Configurar a rede virtual no SKU Básico
 
 Antes de implantar VMs e testar o balanceador de carga, crie os recursos da rede virtual de suporte.
 

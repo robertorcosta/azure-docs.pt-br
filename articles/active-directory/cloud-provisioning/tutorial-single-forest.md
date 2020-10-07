@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a63bd6be9b21a506054ab5a02fa7f5d6751f303a
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 1b91763c275e4fd091b7c1554699e5d6f35a6f55
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228368"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266319"
 ---
 # <a name="tutorial-integrate-a-single-forest-with-a-single-azure-ad-tenant"></a>Tutorial: Integrar uma única floresta a um único locatário do Azure AD
 
@@ -61,16 +61,16 @@ Você pode usar o ambiente criado neste tutorial para testes ou para se familiar
 5. Execute o agente de provisionamento Azure AD Connect.
 6. Na tela inicial, **Aceite** os termos de licenciamento e clique em **Instalar**.
 
-   ![Tela de boas-vindas](media/how-to-install/install1.png)
+   ![Captura de tela que mostra a tela inicial "Pacote do Agente de Provisionamento do Microsoft Azure AD Connect".](media/how-to-install/install1.png)
 
 7. Quando essa operação for concluída, o assistente de configuração será iniciado.  Entre com sua conta de administrador global do Azure AD.  Observe que, se você tiver a segurança aprimorada do IE habilitada, isso bloqueará a entrada.  Se esse for o caso, feche a instalação, desabilite a segurança aprimorada do IE no Gerenciador do Servidor e clique no **Assistente do Agente de Provisionamento AAD Connect** para reiniciar a instalação.
 8. Na tela **Conectar Active Directory**, clique em **Adicionar diretório** e, em seguida, entre com sua conta de administrador de domínio do Active Directory.  OBSERVAÇÃO:  A conta de administrador de domínio não deve ter requisitos de alteração de senha. Caso a senha expire ou seja alterada, será necessário reconfigurar o agente com as novas credenciais. Esta operação adicionará o diretório local.  Clique em **Próximo**.
 
-   ![Tela de boas-vindas](media/how-to-install/install3.png)
+   ![Captura de tela da tela "Conectar o Active Directory".](media/how-to-install/install3.png)
 
 9. Na tela **Configuração completa**, clique em **Confirmar**.  Esta operação registrará e reiniciará o agente.
 
-   ![Tela de boas-vindas](media/how-to-install/install4.png)
+   ![Captura de tela que mostra a tela "Configuração concluída".](media/how-to-install/install4.png)
 
 10. Quando essa operação for concluída, você deverá ver um aviso: **A configuração do agente foi verificada com êxito.**  Você pode clicar em **Sair**.</br>
 ![Tela de boas-vindas](media/how-to-install/install5.png)</br>

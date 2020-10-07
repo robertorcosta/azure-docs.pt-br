@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Integração do logon único do Azure Active Directory ao F5 | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Azure Active Directory e o F5.
+description: Neste artigo, saiba quais etapas você precisa executar para integrar o F5 ao Azure AD (Azure Active Directory).
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 2e0e727e73fa1eff21a4b2e481738be49306676a
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: cbcbcb6a649969c5348c3ad445ff43f10372faeb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88542969"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306133"
 ---
 # <a name="tutorial-azure-active-directory-ad-single-sign-on-sso-integration-with-f5"></a>Tutorial: Integração do SSO (logon único) do Azure AD (Active Directory) ao F5
 
@@ -39,8 +39,9 @@ Para começar, você precisará dos seguintes itens:
 
 Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
-* O F5 dá suporte ao SSO iniciado por **SP e IDP**
-* O SSO do F5 pode ser configurado de três maneiras.
+O F5 dá suporte ao SSO iniciado por **SP e IDP**.
+
+O SSO do F5 pode ser configurado de três maneiras diferentes:
 
 - [Configurar logon único do F5 para aplicativo Kerberos Avançado](#configure-f5-single-sign-on-for-advanced-kerberos-application)
 

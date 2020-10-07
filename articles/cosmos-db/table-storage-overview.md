@@ -1,6 +1,6 @@
 ---
 title: Visão geral do armazenamento de Tabelas do Azure
-description: Armazene dados estruturados na nuvem usando o Armazenamento de Tabelas do Azure, um repositório de dados NoSQL.
+description: Aprenda a usar o armazenamento de Tabelas do Azure para armazenar conjuntos de dados flexíveis, como dados de usuário para aplicativos Web, catálogos de endereços, informações sobre dispositivos ou outros tipos de metadados.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: dotnet
@@ -9,12 +9,12 @@ ms.date: 05/20/2019
 author: sakash279
 ms.author: akshanka
 ms.reviewer: sngun
-ms.openlocfilehash: 20c799f89394dd8978f120097b054a9adf9f1280
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: abd88c3cdb54747c21ad8772860a3ed6929dbd15
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76770733"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91318714"
 ---
 # <a name="azure-table-storage-overview"></a>Visão geral do armazenamento de tabelas
 

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: b7b8a0d98db1411a08afdb33fa272bb7e6d6313e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e541a5620d4f263e5e1379b364d7c7dd9a97a331
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87280470"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91289014"
 ---
 # <a name="how-to-use-openrowset-with-sql-on-demand-preview"></a>Como usar OPENROWSET com o SQL sob demanda (versão prévia)
 
@@ -119,7 +119,7 @@ O unstructured_data_path que estabelece um caminho para os dados pode ser um cam
 | Armazenamento do Blobs do Azure         | wasb[s]  | \<container>@\<storage_account>.blob.core.windows.net/path/file |
 | Azure Data Lake Storage Gen1 | http[s]  | \<storage_account>.azuredatalakestore.net/webhdfs/v1 |
 | Azure Data Lake Storage Gen2 | http[s]  | \<storage_account>.dfs.core.windows.net /path/file   |
-| Azure Data Lake Storage Gen2 | abfs[s]  | [\<file_system>@\<account_name>.dfs.core.windows.net/path/file](../../storage/blobs/data-lake-storage-introduction-abfs-uri.md#uri-syntax)              |
+| Azure Data Lake Storage Gen2 | aufs[s]  | [\<file_system>@\<account_name>.dfs.core.windows.net/path/file](../../storage/blobs/data-lake-storage-introduction-abfs-uri.md#uri-syntax)              |
 ||||
 
 '\<storage_path>'
@@ -135,7 +135,7 @@ Se você especificar o unstructured_data_path para ser uma pasta, uma consulta d
 > [!NOTE]
 > Ao contrário do Hadoop e do PolyBase, o SQL sob demanda não retorna subpastas. Além disso, ao contrário do Hadoop e do PolyBase, o SQL sob demanda retorna arquivos para os quais o nome do arquivo começa com um sublinhado (_) ou um ponto final (.).
 
-No exemplo abaixo, se o unstructured_data_path=`https://mystorageaccount.dfs.core.windows.net/webdata/`, uma consulta SQL sob demanda retornará linhas de mydata.txt e _hidden.txt. Ela não retornará mydata2.txt e mydata3.txt, porque eles estão localizados em uma subpasta.
+No exemplo abaixo, se o unstructured_data_path=`https://mystorageaccount.dfs.core.windows.net/webdata/`, uma consulta SQL sob demanda retornará linhas de mydata.txt e _hidden.txt. Ele não retornará mydata2.txt e mydata3.txt porque eles estão localizados em uma subpasta.
 
 ![Dados recursivos para tabelas externas](./media/develop-openrowset/folder-traversal.png)
 
@@ -184,7 +184,7 @@ O parâmetro ESCAPE_CHAR será aplicado independentemente de FIELDQUOTE estar ou
 
 FIRSTROW = 'first_row' 
 
-Especifica o número da primeira linha a carregar. O padrão é 1. Indica a primeira linha no arquivo de dados especificado. Os números de linhas são determinados pela contagem dos terminadores de linha. FIRSTROW tem base 1.
+Especifica o número da primeira linha a carregar. O padrão é 1 e indica a primeira fila no arquivo de dados especificado. Os números de linhas são determinados pela contagem dos terminadores de linha. FIRSTROW tem base 1.
 
 FIELDQUOTE = 'field_quote' 
 
@@ -203,7 +203,7 @@ Especifica a versão do analisador a ser usada ao ler arquivos. As versões do a
 - PARSER_VERSION = '1.0'
 - PARSER_VERSION = '2.0'
 
-O analisador CSV versão 1.0 é padrão e repleta de recursos, enquanto a 2.0 é criada para desempenho e não dá suporte a todas as opções e codificações. 
+O analisador CSV versão 1.0 é o padrão e conta com muitos recursos. A versão 2.0 foi criada para ter um desempenho aprimorado e não dá suporte a todas as opções e codificações. 
 
 Especificações do analisador CSV versão 2.0:
 
@@ -229,7 +229,7 @@ WITH (
 ) AS [r]
 ```
 
-O seguinte exemplo retorna todas as colunas da primeira linha do conjunto de dados de censo no formato Parquet sem especificar nomes de colunas nem tipos de dados: 
+O seguinte exemplo retorna todas as colunas da primeira linha do conjunto de dados de censo no formato Parquet, sem especificar nomes de colunas nem tipos de dados: 
 
 ```sql
 SELECT 

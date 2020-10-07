@@ -10,18 +10,18 @@ ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8a6fc1291615760320deb488511fdd9d964d25d
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: ceffc928a0cf8313723ff6193d9a6a63f8465f90
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89227858"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266302"
 ---
 # <a name="tutorial-basic-active-directory-environment"></a>Tutorial: Ambiente básico do Active Directory
 
 Este tutorial orienta você na criação de um ambiente básico do Active Directory. 
 
-![Criar](media/tutorial-single-forest/diagram1.png)
+![Diagrama que mostra um ambiente básico do Azure AD.](media/tutorial-single-forest/diagram1.png)
 
 Você pode usar o ambiente criado no tutorial para testar vários aspectos de cenários de identidade híbrida e será um pré-requisito para alguns dos tutoriais.  Se você já tiver um ambiente do Active Directory, poderá usá-lo como substituto.  Essas informações são fornecidas para pessoas que estão começando desde o princípio.
 
@@ -200,7 +200,7 @@ Agora, é necessário criar um locatário do Azure AD para que seja possível si
 2. Selecione o **ícone adição (+)** e pesquise **Azure Active Directory**.
 3. Selecione **Azure Active Directory** nos resultados da pesquisa.
 4. Selecione **Criar**.</br>
-![Criar](media/tutorial-single-forest/create1.png)</br>
+![Captura de tela que mostra a página do Azure Active Directory no portal do Azure.](media/tutorial-single-forest/create1.png)</br>
 5. Forneça um **nome para a organização** juntamente com o **nome de domínio inicial**. Em seguida, selecione **Criar**. Isso criará criar o diretório.
 6. Depois que for concluído, clique no link **aqui** para gerenciar o diretório.
 
@@ -208,7 +208,7 @@ Agora, é necessário criar um locatário do Azure AD para que seja possível si
 Agora que você tem um locatário do Azure AD, criará uma conta de administrador global.  Para criar a conta de administrador global, faça o seguinte.
 
 1.  Em **Gerenciar**, selecione **Usuários**.</br>
-![Criar](media/tutorial-single-forest/administrator1.png)</br>
+![Captura de tela que mostra o menu "Visão geral" com "Usuários" selecionado.](media/tutorial-single-forest/administrator1.png)</br>
 2.  Selecione **Todos os usuários** e, em seguida, selecione **+ Novo usuário**.
 3.  Forneça um nome e um nome de usuário para esse usuário. Este será o Administrador Global para o locatário. Convém também alterar a **função do diretório** para **Administrador global.** Também é possível mostrar a senha temporária. Ao concluir, selecione **Criar**.</br>
 ![Criar](media/tutorial-single-forest/administrator2.png)</br>

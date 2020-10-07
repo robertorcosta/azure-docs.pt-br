@@ -4,12 +4,12 @@ description: Implante um aplicativo Web baseado em Linux para duas regiões dife
 ms.topic: tutorial
 ms.date: 08/20/2018
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 5b075e1065ef8c30837000f490cc93525b4b61cc
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: bcbce3c60aa0b4613b1dd1840c335c800193e549
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74456110"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328681"
 ---
 # <a name="tutorial-deploy-a-web-app-from-a-geo-replicated-azure-container-registry"></a>Tutorial: implantar um aplicativo Web de um Registro de Contêiner do Azure com replicação geográfica
 
@@ -58,7 +58,7 @@ No **Aplicativo Web para Contêineres** exibido após a seleção de "Implantar 
 
 Selecione **Criar** para provisionar o aplicativo Web para a região *Oeste dos EUA*.
 
-![Aplicativo Web na configuração do Linux no portal do Azure][deploy-app-portal-02]
+![A captura de tela mostra o Aplicativo Web para Contêineres com o botão Criar realçado.][deploy-app-portal-02]
 
 ## <a name="view-the-deployed-web-app"></a>Exibir o aplicativo Web implantado
 
@@ -68,11 +68,11 @@ No portal, selecione **Serviços de Aplicativos** e depois o aplicativo Web conf
 
 Selecione a URL com hiperlink do aplicativo Web na parte superior direita da visão geral do **Serviço de Aplicativo** para exibir o aplicativo em execução no seu navegador.
 
-![Aplicativo Web na configuração do Linux no portal do Azure][deploy-app-portal-04]
+![A captura de tela mostra a Visão Geral do Serviço de Aplicativo com a URL do aplicativo Web realçada.][deploy-app-portal-04]
 
 Depois que a imagem do Docker for implantada do seu registro de contêiner replicado geograficamente, o site exibirá uma imagem que representa a região do Azure que hospeda o registro do contêiner.
 
-![Aplicativo Web implantado exibido em um navegador][deployed-app-westus]
+![A captura de tela mostra o aplicativo Web implantado exibido em um navegador.][deployed-app-westus]
 
 ## <a name="deploy-second-web-app-for-containers-instance"></a>Implantar a segunda instância de Aplicativo Web para Contêineres
 
@@ -88,9 +88,9 @@ Use o procedimento descrito na seção anterior para implantar um segundo aplica
 
 Selecione **Criar** para provisionar o aplicativo Web para a região *Leste dos EUA*.
 
-![Aplicativo Web na configuração do Linux no portal do Azure][deploy-app-portal-06]
+![A captura de tela mostra a janela Criar do Aplicativo Web para Contêineres com o botão Criar realçado.][deploy-app-portal-06]
 
-## <a name="view-the-deployed-web-app"></a>Exibir o aplicativo Web implantado
+## <a name="view-the-second-deployed-web-app"></a>Exibir o segundo aplicativo Web implantado
 
 Como antes, você pode exibir o aplicativo em execução navegando até a URL no navegador.
 

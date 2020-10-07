@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: a1dc42815167da308fd87b541c0f21d02b47329b
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b6f2e8ff6689a3817ecf9eb43c7cea4a0632fc25
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022506"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297650"
 ---
 # <a name="tutorial-explore-azure-digital-twins-with-a-sample-client-app"></a>Tutorial: Explorar os Gêmeos Digitais do Azure com um aplicativo cliente de exemplo
 
@@ -85,18 +85,18 @@ Salve o arquivo antes de continuar.
 
 Agora que você definiu um modelo, as etapas restantes envolvem usar o aplicativo de exemplo para interagir com a instância dos Gêmeos Digitais do Azure. Execute o projeto com este botão na barra de ferramentas:
 
-:::image type="content" source="media/tutorial-command-line-app/start-button-sample.png" alt-text="O botão de início do Visual Studio (projeto SampleClientApp)":::
+:::image type="content" source="media/tutorial-command-line-app/start-button-sample.png" alt-text="Room.json editado com o número de versão atualizado, as propriedades HumidityLevel e RoomName e a relação contains":::
 
 Uma janela de console será aberta, executará a autenticação e aguardará um comando. 
 * A autenticação é feita no navegador: seu navegador da Web padrão será aberto com um prompt de autenticação. Use esse prompt para entrar com suas credenciais do Azure. Em seguida, você pode fechar a guia ou a janela do navegador.
 
 Veja uma captura de tela mostrando a aparência do console do projeto:
 
-:::image type="content" source="media/tutorial-command-line-app/command-line-app.png" alt-text="Mensagem de boas-vindas do aplicativo de linha de comando":::
+:::image type="content" source="media/tutorial-command-line-app/command-line-app.png" alt-text="Room.json editado com o número de versão atualizado, as propriedades HumidityLevel e RoomName e a relação contains":::
 
 > [!TIP]
 > Para obter uma lista de todos os comandos possíveis que você pode usar com este projeto, digite `help` no console do projeto e pressione retornar.
-> :::image type="content" source="media/tutorial-command-line-app/command-line-app-help.png" alt-text="Saída do comando de ajuda":::
+> :::image type="content" source="media/tutorial-command-line-app/command-line-app-help.png" alt-text="Room.json editado com o número de versão atualizado, as propriedades HumidityLevel e RoomName e a relação contains":::
 
 Mantenha o console do projeto em execução no restante das etapas deste tutorial.
 
@@ -117,7 +117,7 @@ A saída deve indicar que os modelos foram criados com êxito.
 
 Verifique se os modelos foram criados executando o comando `GetModels true`. Isso consultará a instância dos Gêmeos Digitais do Azure para todos os modelos que foram carregados e imprimirá suas informações completas. Procure pelo modelo *Room* editado nos resultados:
 
-:::image type="content" source="media/tutorial-command-line-app/output-get-models.png" alt-text="Resultados de GetModels, mostrando o modelo Room atualizado":::
+:::image type="content" source="media/tutorial-command-line-app/output-get-models.png" alt-text="Room.json editado com o número de versão atualizado, as propriedades HumidityLevel e RoomName e a relação contains":::
 
 #### <a name="errors"></a>Errors
 
@@ -165,7 +165,7 @@ CreateDigitalTwin dtmi:example:Floor;1 floor1
 
 A saída desses comandos deve indicar que os gêmeos foram criados com êxito. 
 
-:::image type="content" source="media/tutorial-command-line-app/output-create-digital-twin.png" alt-text="Trecho dos resultados dos comandos CreateDigitalTwin, mostrando floor0, floor1, room0 e room1":::
+:::image type="content" source="media/tutorial-command-line-app/output-create-digital-twin.png" alt-text="Room.json editado com o número de versão atualizado, as propriedades HumidityLevel e RoomName e a relação contains":::
 
 Você também pode verificar se os gêmeos foram criados executando o comando `Query`. Esse comando consulta sua instância dos Gêmeos Digitais do Azure para todos os gêmeos digitais que ela contém. Procure pelos gêmeos *floor0*, *floor1*, *room0* e *room1* nos resultados.
 
@@ -205,27 +205,19 @@ CreateRelationship floor1 contains room1 relationship1
 
 A saída desses comandos confirma que as relações foram criadas com êxito:
 
-:::image type="content" source="media/tutorial-command-line-app/output-create-relationship.png" alt-text="Trecho dos resultados dos comandos CreateRelationship mostrando relationship0 e relationship1":::
-
-Você também pode verificar as relações com qualquer um dos comandos a seguir, que consultam as relações em sua instância dos Gêmeos Digitais do Azure.
-* Para ver todas as relações provenientes de cada andar (exibindo as relações de um lado),
-    ```cmd/sh
-    GetRelationships floor0
-    GetRelationships floor1
-    ```
-* Para ver todas as relações chegando em cada sala (exibindo a relação do "outro" lado),
+:::image type="content" source="media/tutorial-command-line-app/output-create-relationship.png" alt-text="Room.json editado com o número de versão atualizado, as propriedades HumidityLevel e RoomName e a relação contains" lado),
     ```cmd/sh
     GetIncomingRelationships room0
     ```
 * Para consultar essas relações individualmente, 
     ```cmd/sh
-    GetRelationship floor0 contains relationship0
-    GetRelationship floor1 contains relationship1
+    GetRelationship floor0 relationship0
+    GetRelationship floor1 relationship1
     ```
 
 O gêmeos e as relações que você configurou neste tutorial formam o seguinte grafo conceitual:
 
-:::image type="content" source="media/tutorial-command-line-app/sample-graph.png" alt-text="Um grafo mostrando floor0 conectado por meio de relationship0 a room0, e floor1 conectado por meio de relationship1 a room1" border="false":::
+:::image type="content" source="media/tutorial-command-line-app/sample-graph.png" alt-text="Room.json editado com o número de versão atualizado, as propriedades HumidityLevel e RoomName e a relação contains" border="false":::
 
 ### <a name="query-the-twin-graph-to-answer-environment-questions"></a>Consultar o grafo de gêmeos para responder às perguntas sobre o ambiente
 
@@ -239,10 +231,10 @@ Um dos principais recursos dos Gêmeos Digitais do Azure é a capacidade de [con
 
     Isso permite que você faça um resumo rápido de seu ambiente e verifique se tudo está representado como você gostaria dentro dos Gêmeos Digitais do Azure. O resultado disso é uma saída que contém cada gêmeo digital com os detalhes. Veja um trecho:
 
-    :::image type="content" source="media/tutorial-command-line-app/output-query-all.png" alt-text="Resultados parciais da consulta de gêmeos, mostrando room0 e floor1":::
+    :::image type="content" source="media/tutorial-command-line-app/output-query-all.png" alt-text="Room.json editado com o número de versão atualizado, as propriedades HumidityLevel e RoomName e a relação contains":::
 
     >[!NOTE]
-    >O comando `Query` sem argumentos adicionais é o equivalente de `Query SELECT * FROM DIGITALTWINS`.
+    >No projeto de exemplo, o comando `Query` sem argumentos adicionais é o equivalente de `Query SELECT * FROM DIGITALTWINS`. Para consultar todos os gêmeos em sua instância usando as [APIs de Consulta](how-to-use-apis-sdks.md) ou os [comandos da CLI](how-to-use-cli.md), use a consulta mais longa (completa).
 
 * **Quais são as salas em meu ambiente?** (consultar por modelo)
 
@@ -252,7 +244,7 @@ Um dos principais recursos dos Gêmeos Digitais do Azure é a capacidade de [con
 
     Você pode restringir a consulta aos gêmeos de um determinado tipo a fim de obter informações mais específicas sobre o que é representado. O resultado mostra *room0* e *room1*, mas **não** mostra *floor0* nem *floor1* (pois eles são andares, não salas).
     
-    :::image type="content" source="media/tutorial-command-line-app/output-query-model.png" alt-text="Resultados da consulta de modelo, mostrando apenas room0 e room1":::
+    :::image type="content" source="media/tutorial-command-line-app/output-query-model.png" alt-text="Room.json editado com o número de versão atualizado, as propriedades HumidityLevel e RoomName e a relação contains":::
 
 * **Quais são as salas em *floor0*?** (consultar por relação)
 
@@ -262,7 +254,7 @@ Um dos principais recursos dos Gêmeos Digitais do Azure é a capacidade de [con
 
     Você pode consultar com base nas relações em seu grafo para obter informações sobre como os gêmeos estão conectados ou para restringir a consulta a uma determinada área. Somente *room0* está em *floor0* e, portanto, é a única sala no resultado.
 
-    :::image type="content" source="media/tutorial-command-line-app/output-query-relationship.png" alt-text="Resultados da consulta de relação, mostrando room0":::
+    :::image type="content" source="media/tutorial-command-line-app/output-query-relationship.png" alt-text="Room.json editado com o número de versão atualizado, as propriedades HumidityLevel e RoomName e a relação contains":::
 
 * **Quais são todos os gêmeos em meu ambiente com temperatura acima de 75?** (consultar por propriedade)
 
@@ -272,7 +264,7 @@ Um dos principais recursos dos Gêmeos Digitais do Azure é a capacidade de [con
 
     Você pode consultar o grafo com base nas propriedades para responder a uma variedade de perguntas, incluindo para localizar exceções no ambiente que podem precisar de atenção. Também há suporte para outros operadores de comparação ( *<* , *>* , *=* ou *!=* ). *room1* aparece nos resultados aqui porque tem uma temperatura de 80.
 
-    :::image type="content" source="media/tutorial-command-line-app/output-query-property.png" alt-text="Resultados da consulta de propriedade, mostrando apenas room1":::
+    :::image type="content" source="media/tutorial-command-line-app/output-query-property.png" alt-text="Room.json editado com o número de versão atualizado, as propriedades HumidityLevel e RoomName e a relação contains":::
 
 * **Quais são as salas em *floor0* com temperatura acima de 75?** (consulta composta)
 
@@ -282,7 +274,7 @@ Um dos principais recursos dos Gêmeos Digitais do Azure é a capacidade de [con
 
     Você também pode combinar as consultas anteriores como faria no SQL, usando operadores de combinação como `AND`, `OR` e `NOT`. Essa consulta usa `AND` para deixar a consulta anterior sobre as temperaturas dos gêmeos mais específica. O resultado agora inclui apenas salas com temperaturas acima de 75 que estão em *floor0*– que, nesse caso, é nenhuma delas. O conjunto de resultados é vazio.
 
-    :::image type="content" source="media/tutorial-command-line-app/output-query-compound.png" alt-text="Resultados da consulta composta, mostrando nenhum resultado":::
+    :::image type="content" source="media/tutorial-command-line-app/output-query-compound.png" alt-text="Room.json editado com o número de versão atualizado, as propriedades HumidityLevel e RoomName e a relação contains":::
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

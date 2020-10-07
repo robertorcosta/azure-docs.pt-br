@@ -1,6 +1,6 @@
 ---
 title: Enviar notificações por push para o Android usando os Hubs de Notificação do Azure e o SDK do Firebase versão 1.0.0-preview1
-description: Neste tutorial, você aprenderá a usar os Hubs de Notificação do Azure e o Google Firebase Cloud Messaging para enviar notificações por push para dispositivos Android.
+description: Neste tutorial, você aprenderá a usar os Hubs de Notificação do Azure e o Google Firebase Cloud Messaging para enviar notificações por push para dispositivos Android (versão 1.0.0-preview1).
 author: sethmanheim
 ms.author: sethm
 ms.date: 5/28/2020
@@ -9,12 +9,12 @@ ms.service: notification-hubs
 ms.reviewer: thsomasu
 ms.lastreviewed: 05/27/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ae1d2dfaf7d83d3b2323812f637bddd91b9a2ea2
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 63841bd603373d0fb325bcf82511ce3fb07b4136
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018222"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91315177"
 ---
 # <a name="tutorial-send-push-notifications-to-android-devices-using-firebase-sdk-version-100-preview1"></a>Tutorial: Enviar notificações por push para dispositivos Android usando o SDK do Firebase versão 1.0.0-preview1
 
@@ -62,23 +62,23 @@ A primeira etapa é criar um projeto no Android Studio:
 
 2. Depois de criar seu projeto, selecione **Adicionar o Firebase ao seu aplicativo do Android**.
 
-   :::image type="content" source="media/android-sdk/get-started.png" alt-text="Adicionar Firebase":::
+   :::image type="content" source="media/android-sdk/get-started.png" alt-text="Configurar o projeto":::
 
 3. Na página **Adicionar Firebase ao aplicativo do Android** , faça o seguinte:
 
    1. Em **Nome do pacote Android**, copie o valor da **applicationId** no arquivo **build.gradle** do aplicativo. Neste exemplo, ele é `com.fabrikam.fcmtutorial1app`.
 
-      :::image type="content" source="media/android-sdk/specify-package-name-fcm-settings.png" alt-text="Especificar o nome do pacote":::
+      :::image type="content" source="media/android-sdk/specify-package-name-fcm-settings.png" alt-text="Configurar o projeto":::
 
    2. Selecione **Registrar aplicativo**.
 
 4. Selecione **Baixar google-services.json**, salve o arquivo na pasta **app** do projeto e selecione **Avançar**.
 
-   :::image type="content" source="media/android-sdk/download-google-service-button.png" alt-text="Baixar o serviço do Google":::
+   :::image type="content" source="media/android-sdk/download-google-service-button.png" alt-text="Configurar o projeto":::
 
 5. No console do Firebase, selecione a engrenagem para seu projeto. Em seguida, selecione **Configurações do Projeto**.
 
-   :::image type="content" source="media/android-sdk/notification-hubs-firebase-console-project-settings.png" alt-text="Configurações do projeto":::
+   :::image type="content" source="media/android-sdk/notification-hubs-firebase-console-project-settings.png" alt-text="Configurar o projeto":::
 
 6. Se você não baixou o arquivo **google-services.json** na pasta **app** do projeto do Android Studio, faça isso nesta página.
 
@@ -94,7 +94,7 @@ A primeira etapa é criar um projeto no Android Studio:
 
 3. Na página **Hubs de Notificação** , selecione **Adicionar** na barra de ferramentas.
 
-   :::image type="content" source="media/android-sdk/add-hub.png" alt-text="Adicionar hub":::
+   :::image type="content" source="media/android-sdk/add-hub.png" alt-text="Configurar o projeto":::
 
 4. Na página **Hubs de Notificação** , faça o seguinte:
 
@@ -108,15 +108,15 @@ A primeira etapa é criar um projeto no Android Studio:
 
    5. Selecione **Criar**.
 
-      :::image type="content" source="media/android-sdk/create-hub.png" alt-text="Criar o hub":::
+      :::image type="content" source="media/android-sdk/create-hub.png" alt-text="Configurar o projeto":::
 
 5. Selecione **Notificações** (ícone de sino) e **Ir para o recurso**. Atualize também a lista na página **Hubs de Notificação** e selecione o seu hub.
 
-   :::image type="content" source="media/android-sdk/notification-hubs.png" alt-text="Selecionar o hub":::
+   :::image type="content" source="media/android-sdk/notification-hubs.png" alt-text="Configurar o projeto":::
 
 6. Selecione **Políticas de Acesso** na lista. Observe que duas cadeias de conexão estão disponíveis. Você precisará delas para manipular notificações por push mais tarde.
 
-   :::image type="content" source="media/android-sdk/access-policies.png" alt-text="Políticas de acesso":::
+   :::image type="content" source="media/android-sdk/access-policies.png" alt-text="Configurar o projeto":::
 
    > [!IMPORTANT]
    > Não use a política **DefaultFullSharedAccessSignature** no aplicativo. Essa política deverá ser usada somente no back-end do aplicativo.
@@ -129,7 +129,7 @@ A primeira etapa é criar um projeto no Android Studio:
 
 3. Na barra de ferramentas, selecione **Salvar**.
 
-   :::image type="content" source="media/android-sdk/fcm-server-key.png" alt-text="Chave do servidor":::
+   :::image type="content" source="media/android-sdk/fcm-server-key.png" alt-text="Configurar o projeto":::
 
 4. O portal do Azure exibirá uma mensagem informando que o hub foi atualizado com êxito. O botão **Salvar** está desabilitado.
 
@@ -143,15 +143,15 @@ O hub de notificação agora está configurado para trabalhar com o Firebase Clo
 
 2. Selecione a versão de destino do SDK do Android que é usada em seu projeto. Em seguida, selecione **Mostrar Detalhes do Pacote**.
 
-   :::image type="content" source="media/android-sdk/notification-hubs-android-studio-sdk-manager.png" alt-text="Gerenciador de SDK":::
+   :::image type="content" source="media/android-sdk/notification-hubs-android-studio-sdk-manager.png" alt-text="Configurar o projeto":::
 
 3. Selecione **APIs do Google**, caso ainda não estejam instaladas.
 
-   :::image type="content" source="media/android-sdk/google-apis-selected.png" alt-text="APIs":::
+   :::image type="content" source="media/android-sdk/google-apis-selected.png" alt-text="Configurar o projeto":::
 
 4. Alterne para a guia **SDK Tools** . Caso ainda não tenha instalado o Google Play Services, selecione **Google Play Services** , conforme mostrado na imagem a seguir. Em seguida, selecione **Aplicar** para instalá-lo. Anote o caminho do SDK, a ser usado em uma etapa posterior.
 
-   :::image type="content" source="media/android-sdk/google-play-services-selected.png" alt-text="Play Services":::
+   :::image type="content" source="media/android-sdk/google-play-services-selected.png" alt-text="Configurar o projeto":::
 
 5. Se a caixa de diálogo **Confirmar Alteração** for exibida, selecione **OK**. O instalador de componentes instalará os componentes solicitados. Selecione **Concluir** depois que os componentes forem instalados.
 
@@ -237,11 +237,11 @@ O hub de notificação agora está configurado para trabalhar com o Firebase Clo
 
 4. Verifique se você tem um dispositivo virtual para executar o aplicativo. Se não tiver um, adicione da seguinte maneira:
 
-   1. :::image type="content" source="media/android-sdk/open-device-manager.png" alt-text="Gerenciador de Dispositivos":::
-   2. :::image type="content" source="media/android-sdk/your-virtual-devices.png" alt-text="Dispositivos virtuais":::
+   1. :::image type="content" source="media/android-sdk/open-device-manager.png" alt-text="Configurar o projeto":::
+   2. :::image type="content" source="media/android-sdk/your-virtual-devices.png" alt-text="Configurar o projeto":::
    3. Execute o aplicativo no dispositivo selecionado e confirme se ele foi registrado com êxito no hub.
 
-      :::image type="content" source="media/android-sdk/device-registration.png" alt-text="Registro de dispositivos":::
+      :::image type="content" source="media/android-sdk/device-registration.png" alt-text="Configurar o projeto":::
 
       > [!NOTE]
       > O registro poderá falhar na primeira inicialização até que o método `onTokenRefresh()` do serviço de ID da instância seja chamado. Uma atualização deverá iniciar um registro bem-sucedido no hub de notificação.
@@ -258,7 +258,7 @@ Você pode enviar notificações por push ao Hub de Notificação por meio do [
 
 4. Confira o resultado da operação na lista na parte inferior da página do portal.
 
-   :::image type="content" source="media/android-sdk/notification-hubs-test-send.png" alt-text="Enviar notificação de teste":::
+   :::image type="content" source="media/android-sdk/notification-hubs-test-send.png" alt-text="Configurar o projeto":::
 
 5. Você verá a mensagem de notificação no dispositivo.
 

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 52cf3af4b4ab84c12b2e1b5d7f076c43e652157d
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: a2e6111f2df5a8d7334a85ec5b6a9e514368ad6c
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90031306"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91289473"
 ---
 # <a name="manage-access-to-workspaces-data-and-pipelines"></a>Gerenciar o acesso a workspaces, dados e pipelines
 
@@ -50,7 +50,7 @@ Depois de provisionar o workspace, você precisará escolher uma conta do [Azure
 1. Abra o [portal do Azure](https://portal.azure.com)
 2. Navegar para a conta do Azure Data Lake Storage Gen2
 3. Navegue até o contêiner (sistema de arquivos) escolhido para o workspace do Azure Synapse
-4. Clique em **Controle de Acesso (IAM)**
+4. Selecione **Controle de Acesso (IAM)**
 5. Atribua as seguintes funções:
    1. Função **Leitor** para: `Synapse_WORKSPACENAME_Users`
    2. Função **Proprietário de Dados do Blob de Armazenamento** para: `Synapse_WORKSPACENAME_Admins`
@@ -64,17 +64,17 @@ Depois de provisionar o workspace, você precisará escolher uma conta do [Azure
 
 1. Acesse a [**interface do usuário da Web do Azure Synapse**](https://web.azuresynapse.net)
 2. Acesse **Gerenciar**  > **Segurança** > **Controle de acesso**
-3. Clique em **Adicionar Administrador** e escolha `Synapse_WORKSPACENAME_Admins`
+3. Selecione **Adicionar administrador** e escolha `Synapse_WORKSPACENAME_Admins`
 
 ### <a name="step-4-configure-sql-admin-access-for-the-workspace"></a>Etapa 4: configurar o acesso de administrador do SQL para o workspace
 
 1. Vá para o [Portal do Azure](https://portal.azure.com)
 2. Navegue até o workspace
 3. Acesse **Configurações** > **Administrador do Active Directory**
-4. Clique em **Definir Administrador**
+4. Selecione **Definir administrador**
 5. Selecione `Synapse_WORKSPACENAME_Admins`
-6. Clique em **Selecionar**
-7. Clique em **Salvar**
+6. Escolha **Selecionar**
+7. Selecione **Salvar**
 
 > [!NOTE]
 > WORKSPACENAME – Você deve substituir essa parte pelo nome real do workspace.

@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: overview
 ms.date: 04/13/2020
 ms.author: metan
-ms.openlocfilehash: cdf21ed85933c2a629c5752659e9cc50107a3762
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: c4aa9c22a0350c5d946d2fd45a983eac34681512
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84309298"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91320924"
 ---
 # <a name="language-support-for-immersive-reader"></a>Suporte de idioma para a Leitura Avançada
 
@@ -30,7 +30,8 @@ Este artigo lista os idiomas humanos compatíveis com os recursos de Leitura Ava
 | Árabe (Arábia Saudita) | ar-SA |
 | Búlgaro | bg |
 | Búlgaro (Bulgária) | bg-BG |
-| Catalão | ca-ES |
+| Catalão | ca |
+| Catalão (Catalunha) | ca-ES |
 | Chinês | zh |
 | Chinês (China) | zh-CN |
 | Chinês (RAE de Hong Kong) | zh-HK |
@@ -40,7 +41,8 @@ Este artigo lista os idiomas humanos compatíveis com os recursos de Leitura Ava
 | Chinês simplificado | zh-Hans |
 | Chinês Simplificado (China) | zh-Hans-CN |
 | Chinês Simplificado (Singapura) | zh-Hans-SG |
-| Chinês (tradicional) | zh-Hant-CN |
+| Chinês (tradicional) | zh-Hans |
+| Chinês tradicional (China) | zh-Hant-CN |
 | Chinês Tradicional (RAE de Hong Kong) | zh-Hant-HK |
 | Chinês Tradicional (RAE de Macau) | zh-Hant-MO |
 | Chinês Tradicional (Taiwan) | zh-Hant-TW |
@@ -103,7 +105,7 @@ Este artigo lista os idiomas humanos compatíveis com os recursos de Leitura Ava
 | Eslovaco | sk |
 | Eslovaco (Eslováquia) | sk-SK |
 | Esloveno | sl |
-| Esloveno (Eslovênia) | sl-SL |
+| Esloveno (Eslovênia) | sl-SI |
 | Espanhol | es |
 | Espanhol (América Latina) | es-419 |
 | Espanhol (México) | es-MX |
@@ -126,13 +128,15 @@ Este artigo lista os idiomas humanos compatíveis com os recursos de Leitura Ava
 | Linguagem | Marca |
 |----------|-----|
 | Africâner | af |
+| Árabe | ar |
 | Árabe (Egípcio) | ar-EG |
 | Árabe (Arábia Saudita) | ar-SA |
 | Bangla | bn |
 | Bósnio | bs |
 | Búlgaro | bg |
 | Búlgaro (Bulgária) | bg-BG |
-| Catalão | ca-ES |
+| Catalão | ca |
+| Catalão (Catalunha) | ca-ES |
 | Chinês | zh |
 | Chinês (China) | zh-CN |
 | Chinês (RAE de Hong Kong) | zh-HK |
@@ -142,7 +146,8 @@ Este artigo lista os idiomas humanos compatíveis com os recursos de Leitura Ava
 | Chinês simplificado | zh-Hans |
 | Chinês Simplificado (China) | zh-Hans-CN |
 | Chinês Simplificado (Singapura) | zh-Hans-SG |
-| Chinês (tradicional) | zh-Hant-CN |
+| Chinês (tradicional) | zh-Hans |
+| Chinês tradicional (China) | zh-Hant-CN |
 | Chinês Tradicional (RAE de Hong Kong) | zh-Hant-HK |
 | Chinês Tradicional (RAE de Macau) | zh-Hant-MO |
 | Chinês Tradicional (Taiwan) | zh-Hant-TW |
@@ -152,6 +157,7 @@ Este artigo lista os idiomas humanos compatíveis com os recursos de Leitura Ava
 | Tcheco (República Tcheca) | cs-CZ |
 | Dinamarquês | da |
 | Dinamarquês (Dinamarca) | da-DK |
+| Dari (Afeganistão) | prs |
 | Holandês | nl |
 | Holandês (Países Baixos) | nl-NL |
 | Inglês | en |
@@ -176,6 +182,7 @@ Este artigo lista os idiomas humanos compatíveis com os recursos de Leitura Ava
 | Alemão (Áustria) | de-AT |
 | Alemão (Alemanha) | de-DE |
 | Alemão (Suíça)| de-CH |
+| Guzerate | gu |
 | Grego | el |
 | Grego (Grécia) | el-GR |
 | Haitiano (crioulo) | ht |
@@ -198,6 +205,8 @@ Este artigo lista os idiomas humanos compatíveis com os recursos de Leitura Ava
 | Suaíli | sw |
 | Coreano | ko |
 | Coreano (Coreia do Sul) | ko-KR |
+| Curdo (central) | ku |
+| Curdo (Norte) | kmr |
 | Letão | lv |
 | Lituano | lt |
 | Malgaxe | mg |
@@ -206,8 +215,11 @@ Este artigo lista os idiomas humanos compatíveis com os recursos de Leitura Ava
 | Malaiala | ml |
 | Maltês | mt |
 | Maori | min |
+| Marati | mr |
 | Norueguês Bokmal| nb |
 | Norueguês Bokmal (Noruega) | nb-NO |
+| Oriya | ou |
+| Pashto (Afeganistão) | ps |
 | Persa | fa |
 | Polonês | pl |
 | Polonês (Polônia) | pl-PL |
@@ -227,7 +239,7 @@ Este artigo lista os idiomas humanos compatíveis com os recursos de Leitura Ava
 | Eslovaco | sk |
 | Eslovaco (Eslováquia) | sk-SK |
 | Esloveno | sl |
-| Esloveno (Eslovênia) | sl-SL |
+| Esloveno (Eslovênia) | sl-SI |
 | Espanhol | es |
 | Espanhol (América Latina) | es-419 |
 | Espanhol (México) | es-MX |
@@ -257,12 +269,14 @@ Este artigo lista os idiomas humanos compatíveis com os recursos de Leitura Ava
 
 | Linguagem | Marca |
 |----------|-----|
+| Árabe | ar |
 | Árabe (Egípcio) | ar-EG |
 | Árabe (Arábia Saudita) | ar-SA |
 | Basco | eu |
 | Búlgaro | bg |
 | Búlgaro (Bulgária) | bg-BG |
-| Catalão | ca-ES |
+| Catalão | ca |
+| Catalão (Catalunha) | ca-ES |
 | Chinês simplificado | zh-Hans |
 | Chinês Simplificado (China) | zh-Hans-CN |
 | Chinês Simplificado (Singapura) | zh-Hans-SG |
@@ -338,7 +352,7 @@ Este artigo lista os idiomas humanos compatíveis com os recursos de Leitura Ava
 | Eslovaco | sk |
 | Eslovaco (Eslováquia) | sk-SK |
 | Esloveno | sl |
-| Esloveno (Eslovênia) | sl-SL |
+| Esloveno (Eslovênia) | sl-SI |
 | Espanhol | es |
 | Espanhol (América Latina) | es-419 |
 | Espanhol (México) | es-MX |
@@ -365,7 +379,8 @@ Este artigo lista os idiomas humanos compatíveis com os recursos de Leitura Ava
 | Basco | eu |
 | Búlgaro | bg |
 | Búlgaro (Bulgária) | bg-BG |
-| Catalão | ca-ES |
+| Catalão | ca |
+| Catalão (Catalunha) | ca-ES |
 | Croata | hr |
 | Croata (Croácia) | hr-HR |
 | Tcheco | cs |
@@ -423,7 +438,7 @@ Este artigo lista os idiomas humanos compatíveis com os recursos de Leitura Ava
 | Eslovaco | sk |
 | Eslovaco (Eslováquia) | sk-SK |
 | Esloveno | sl |
-| Esloveno (Eslovênia) | sl-SL |
+| Esloveno (Eslovênia) | sl-SI |
 | Espanhol | es |
 | Espanhol (América Latina) | es-419 |
 | Espanhol (México) | es-MX |

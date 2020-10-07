@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahandle
 ms.custom: contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ffe7f58f27d028dd114f548521feeeb74bb12cf1
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 4a6911f736e466277ba023f97189e1bb6619b8da
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89437693"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91265265"
 ---
 # <a name="what-is-identity-protection"></a>O que é proteção de identidade?
 
@@ -53,8 +53,8 @@ O Identity Protection identifica riscos nas seguintes classificações:
 | Endereço IP anônimo | Entrada de um endereço IP anônimo (por exemplo: navegador Tor, VPNs para anonimato). |
 | Propriedades de entrada desconhecidas | Entrada com propriedades que não vimos recentemente para o usuário especificado. |
 | Endereço IP vinculado a malware | Entrada de um endereço IP vinculado a malware. |
-| Credenciais vazadas | Essa detecção de risco indica que as credenciais válidas do usuário foram vazadas. |
-| Pulverização de senha | Indica que vários nomes de usuário estão sendo atacados por meio de senhas comuns de maneira unificada por força bruta. |
+| Credenciais vazadas | Indica que as credenciais válidas do usuário foram vazadas. |
+| Pulverização de senha | Indica que vários nomes de usuário estão sendo atacados por meio de senhas comuns de maneira unificada, por força bruta. |
 | Inteligência contra ameaças do Azure AD | As fontes internas e externas de inteligência contra ameaças da Microsoft identificaram um padrão de ataque conhecido. |
 
 Mais detalhes sobre esses riscos e como/quando são calculados podem ser encontrados no artigo, [O que é risco](concept-identity-protection-risks.md).
@@ -96,13 +96,13 @@ O Identity Protection requer que os usuários sejam um Leitor de Segurança, Ope
 
 Atualmente, a função de operador de segurança não pode acessar o relatório de entradas suspeitas.
 
-Os administradores do Acesso Condicional também podem criar políticas que consideram o risco de entrada como uma condição; encontre mais informações no artigo [Acesso condicional: Condições](../conditional-access/concept-conditional-access-conditions.md#sign-in-risk).
+Os administradores do Acesso Condicional também podem criar políticas que consideram o risco de entrada como uma condição. Encontre mais informações no artigo [Acesso Condicional: Condições](../conditional-access/concept-conditional-access-conditions.md#sign-in-risk).
 
 ## <a name="license-requirements"></a>Requisitos de licença
 
 [!INCLUDE [Active Directory P2 license](../../../includes/active-directory-p2-license.md)]
 
-| Recurso | Detalhes  | Azure AD Gratuito/Aplicativos do Office 365 | Azure AD Premium P1|Azure AD Premium P2 |
+| Recurso | Detalhes  | Aplicativos do Azure AD Gratuito / Microsoft 365 | Azure AD Premium P1|Azure AD Premium P2 |
 | --- | --- | --- | --- | --- |
 | Políticas de risco | Política de risco do usuário (por meio do Identity Protection)  | Não | Não |Sim | 
 | Políticas de risco | Política de risco de entrada (por meio do Identity Protection ou do acesso condicional)  | Não |  Não |Sim |

@@ -4,18 +4,19 @@ description: Conheça as novidades e as atualizações recentes no serviço Migr
 ms.topic: overview
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: 019c04c5820a82b7910b6755ff69e5dfbe7eb66c
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: a46519d434061ebfdedbabe70a3e044cb69ca552
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89421604"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322216"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Novidades nas Migrações para Azure
 
 As [Migrações para Azure](migrate-services-overview.md) ajudam a descobrir, avaliar e migrar servidores, aplicativos e dados para a nuvem do Microsoft Azure. Este artigo resume novas versões e novos recursos nas Migrações para Azure.
 ## <a name="update-september-2020"></a>Atualização (setembro de 2020)
-- As Migrações para Azure agora permitem migrar servidores para Zonas de Disponibilidade
+- As Migrações para Azure agora permitem migrar servidores para Zonas de Disponibilidade.
+- O serviço Migrações para Azure agora permite migrar VMs baseadas em UEFI e servidores físicos para VMs do Azure geração 2. 
 
 ## <a name="update-august-2020"></a>Atualização (agosto de 2020)
 

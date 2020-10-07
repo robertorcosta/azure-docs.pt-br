@@ -1,5 +1,5 @@
 ---
-title: Configurar o Provisionamento de Dispositivos no Hub IoT usando um modelo do Azure Resource Manager
+title: Início Rápido – Configurar o Provisionamento de Dispositivos no Hub IoT do Azure usando um modelo do Azure Resource Manager
 description: Início rápido do Azure – Configurar o DPS (Serviço de Provisionamento de Dispositivos) no Hub IoT do Azure usando um modelo
 author: wesmc7777
 ms.author: wesmc
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 482401b75cadf44e2cef03cced8dd216d0980524
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: e1ca3d7270fb0858bb2512e5b9e285eb8d4555c6
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74969574"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91297140"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>Início Rápido: Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT com um modelo do Azure Resource Manager
 
@@ -300,7 +300,7 @@ O modelo que você definiu na última etapa usa parâmetros para especificar o n
 
 Use os seguintes comandos da CLI do Azure para implantar seus modelos e verificar a implantação.
 
-1. Para implantar seu modelo, navegue até a pasta que contém o modelo e os arquivos de parâmetro e execute o seguinte [comando para iniciar uma implantação](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create):
+1. Para implantar seu modelo, navegue até a pasta que contém o modelo e os arquivos de parâmetro e execute o seguinte [comando para iniciar uma implantação](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create&preserve-view=true):
     
     ```azurecli
      az group deployment create -g {your resource group name} --template-file template.json --parameters @parameters.json
@@ -311,7 +311,7 @@ Use os seguintes comandos da CLI do Azure para implantar seus modelos e verifica
    ![Saída do provisionamento](./media/quick-setup-auto-provision-rm/output.png) 
 
 
-2. Para verificar sua implantação, execute o seguinte [comando para listar recursos](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-list) e procure pelo novo serviço de provisionamento e pelo Hub IoT na saída:
+2. Para verificar sua implantação, execute o seguinte [comando para listar recursos](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-list&preserve-view=true) e procure pelo novo serviço de provisionamento e pelo Hub IoT na saída:
 
     ```azurecli
      az resource list -g {your resource group name}

@@ -4,12 +4,12 @@ description: Saiba como criar, testar e implantar continuamente modelos do Azure
 ms.date: 08/24/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: c793c8bcbc01cbef99de13ef6dd2f6ce61a50773
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 433811cb632aae0d7370fc8e401c01fe36621a5b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892670"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333229"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Tutorial: Integração contínua dos modelos do Azure Resource Manager com o Azure Pipelines
 
@@ -180,7 +180,7 @@ Para criar um pipeline com uma etapa para implantar um modelo:
     * **Modo de implantação**: selecione **Incremental**.
     * **Nome da implantação**: digite **DeployPipelineTemplate**. Selecione **Avançado** antes de poder ver o **Nome da implantação**.
 
-    ![Etapa do Azure Resource Manager Azure DevOps Azure Pipelines](./media/deployment-tutorial-pipeline/resource-manager-template-pipeline-configure.png)
+    ![A captura de tela mostra a página de implantação de modelo do ARM com os valores necessários inseridos.](./media/deployment-tutorial-pipeline/resource-manager-template-pipeline-configure.png)
 
 1. Selecione **Adicionar**.
 
@@ -188,7 +188,7 @@ Para criar um pipeline com uma etapa para implantar um modelo:
 
     O arquivo yml deve ser semelhante a:
 
-    ![Azure Resource Manager Azure DevOps Azure Pipelines yaml](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-yml.png)
+    ![A captura de tela mostra a página de revisão com o novo pipeline intitulado Examinar o YAML de seu pipeline.](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-yml.png)
 
 1. Selecione **Salvar e executar**.
 1. No painel **Salvar e executar**, selecione **Salvar e executar** novamente. Uma cópia do arquivo YAML é salva no repositório conectado. É possível ver o arquivo YAML navegando até seu repositório.

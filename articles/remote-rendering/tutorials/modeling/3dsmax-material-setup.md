@@ -5,12 +5,12 @@ author: FlorianBorn71
 ms.author: flborn
 ms.date: 06/16/2020
 ms.topic: tutorial
-ms.openlocfilehash: e77379be863f4527081eeec6a0ee1f426d526527
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 12407d6344c69c747230e9db6fa4d53b4520dc82
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90084457"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331804"
 ---
 # <a name="tutorial-set-up-physically-based-rendering-materials-in-3ds-max"></a>Tutorial: Configurar materiais de renderização baseada fisicamente no 3ds Max
 
@@ -22,6 +22,10 @@ Neste tutorial, você aprenderá como:
 > * Atribuir materiais com iluminação avançada aos objetos em uma cena.
 > * Processar a instanciação de objetos e materiais.
 > * Exportar uma cena para o formato FBX e selecionar opções importantes.
+
+> [!Note]
+> O procedimento descrito neste tutorial funciona em 3ds Max 2019 e 3ds Max 2020.
+> Uma alteração em como o 3ds Max 2021 exporta os mapas de relevo significa que os mapas normais não serão encontrados pelo serviço de conversão se essa versão for usada.
 
 A criação de [materiais de PBR (renderização baseada fisicamente)](../../overview/features/pbr-materials.md) no 3ds Max é uma tarefa relativamente simples. Ela é semelhante em muitas maneiras à configuração de PBR em outros aplicativos de criação de conteúdo, como o Maya. Este tutorial é um guia para a instalação básica do sombreador de PBR e a exportação do FBX para projetos do Azure Remote Rendering.
 

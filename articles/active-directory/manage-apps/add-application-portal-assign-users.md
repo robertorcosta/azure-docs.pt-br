@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/01/2020
 ms.author: kenwith
-ms.openlocfilehash: 9d396c0787798c783b44748dc2461c073334cc7e
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 889ad3b74a2f7c0baa006a0c45e3f14664d6cd0c
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322493"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91325871"
 ---
 # <a name="quickstart-assign-users-to-an-app-that-is-using-azure-ad-as-an-identity-provider"></a>Início Rápido: Atribuir usuários a um aplicativo que está usando o Azure AD como um provedor de identidade
 
@@ -38,7 +38,7 @@ Para atribuir usuários a um aplicativo que você adicionou ao seu locatário do
 1. No portal do Azure AD, selecione **Aplicativos empresariais**. Em seguida, encontre e selecione o aplicativo que você deseja configurar.
 2. No menu de navegação esquerdo, selecione **Usuários e grupos**.
    > [!NOTE]
-   > Alguns dos aplicativos Microsoft 365 e Office 365 exigem o uso do PowerShell. 
+   > Alguns dos aplicativos Microsoft 365 exigem o uso do PowerShell. 
 3. Selecione o botão **Adicionar usuário**.
 4. No painel **Adicionar Atribuição**, selecione **Usuários e grupos**.
 5. Selecione os usuários ou o grupo que deseja atribuir ao aplicativo. Você também pode começar a digitar o nome do usuário ou grupo na caixa de pesquisa. É possível escolher vários usuários e grupos. As seleções aparecerão em **Itens selecionados**.
@@ -46,7 +46,7 @@ Para atribuir usuários a um aplicativo que você adicionou ao seu locatário do
     > Quando você atribuir um grupo a um aplicativo, somente os usuários no grupo terão acesso. A atribuição não se propaga para grupos aninhados.
 
     > [!NOTE]
-    > A atribuição baseada em grupo exige o Azure Active Directory Premium edição P1 ou P2. A atribuição baseada em grupo é compatível somente com os grupos de segurança. Atualmente, não há compatibilidade com associações de grupo aninhado e grupos do Office 365. Para ver mais requisitos de licenciamento dos recursos discutidos neste artigo, confira a [página de preços do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory). 
+    > A atribuição baseada em grupo exige o Azure Active Directory Premium edição P1 ou P2. A atribuição baseada em grupo é compatível somente com os grupos de segurança. Atualmente, não há compatibilidade com associações de grupo aninhado e grupos do Microsoft 365. Para ver mais requisitos de licenciamento dos recursos discutidos neste artigo, confira a [página de preços do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory). 
 6. Quando terminar, escolha **Selecionar**.
    ![Atribuir um usuário ou um grupo ao aplicativo](./media/assign-user-or-group-access-portal/assign-users.png)
 7. No painel **Usuários e grupos**, selecione um ou mais usuários ou grupos na lista. Em seguida, pressione o botão **Selecionar** na parte inferior do painel.
@@ -55,8 +55,7 @@ Para atribuir usuários a um aplicativo que você adicionou ao seu locatário do
     > Se o aplicativo não for compatível com a seleção de função, a função de acesso padrão será atribuída. Nesse caso, o aplicativo gerencia o nível de acesso dos usuários.
 9. No painel **Adicionar Atribuição**, clique no botão **Atribuir** na parte inferior do painel.
 
-> [!NOTE]
-> Você pode cancelar a atribuição de usuários ou grupos usando o mesmo procedimento. Selecione o usuário ou grupo cuja atribuição você deseja cancelar e selecione **Remover**. Alguns dos aplicativos Microsoft 365 e Office 365 exigem o uso do PowerShell. 
+Você pode cancelar a atribuição de usuários ou grupos usando o mesmo procedimento. Selecione o usuário ou grupo cuja atribuição você deseja cancelar e selecione **Remover**. Alguns dos aplicativos Microsoft 365 e Office 365 exigem o uso do PowerShell. 
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
@@ -66,4 +65,9 @@ Depois de concluir o guia de início rápido, considere excluir o aplicativo. De
 
 Prossiga para o próximo artigo para aprender a configurar o logon único para um aplicativo.
 > [!div class="nextstepaction"]
-> [Configurar logon único](add-application-portal-setup-sso.md)
+> [Configurar o logon único baseado em SAML](add-application-portal-setup-sso.md)
+
+OU
+
+> [!div class="nextstepaction"]
+> [Configurar o logon único baseado em OIDC](add-application-portal-setup-oidc-sso.md)

@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 09/04/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 52f495753d055730c1ad42444c83cf3d5cd4c1d3
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: beac9f64b12a07d2fc900099ee1f107e4981f17e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461418"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320210"
 ---
 # <a name="tutorial-manage-app-groups-with-the-azure-portal"></a>Tutorial: Gerenciar grupos de aplicativos com o portal do Azure
 
@@ -32,7 +32,8 @@ Se você já tiver criado um pool de host e VMs de host de sessão usando o port
 
 1.  Entre no [portal do Azure](https://portal.azure.com/).
    
-   >![NOTE] Se você estiver entrando no portal US Gov, acesse [https://portal.azure.us/](https://portal.azure.us/).
+    >[!NOTE]
+    > Se estiver entrando no portal US Gov, acesse [https://portal.azure.us/](https://portal.azure.us/).
 
 2.  Pesquise e selecione **Área de Trabalho Virtual do Windows**.
 

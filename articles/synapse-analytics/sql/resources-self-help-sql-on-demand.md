@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7a6b145e9a1efb29bbb6c233f2a09498b4a4ea7f
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 8bd955e844c9569438c5d35f152ba1bcdfccc306
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85213118"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91287994"
 ---
 # <a name="self-help-for-sql-on-demand-preview"></a>Autoajuda do SQL sob demanda (versão prévia)
 
@@ -61,7 +61,7 @@ Solução:
 CREATE DATABASE <DATABASE_NAME>
 ```
 
-  2. Execute a instrução CREATE no contexto de < NOME_DO_BANCO_DE_DADOS> que falhou anteriormente para o banco de dados mestre. 
+  2. Execute a instrução CREATE no contexto de < NOME_DO_BANCO_DE_DADOS>, que falhou anteriormente para o banco de dados mestre. 
   
   Exemplo de criação de formato de arquivo externo:
     

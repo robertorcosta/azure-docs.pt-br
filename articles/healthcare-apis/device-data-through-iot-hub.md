@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: tutorial
 ms.date: 08/03/2020
 ms.author: punagpal
-ms.openlocfilehash: 04c732b857c06246bdc636f01afd2689c98c2b0d
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 3b2e4a1ae5ff43283893b286dafb38491a1181b4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87831610"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91308217"
 ---
 # <a name="tutorial-receive-device-data-through-azure-iot-hub"></a>Tutorial: Receber dados do dispositivo por meio do Hub IoT do Azure
 
@@ -61,7 +61,7 @@ Esta é a lista de parâmetros a serem usados com o comando para criar um ponto 
 ### <a name="add-a-message-route"></a>Adicionar uma rota de mensagens
 Essa etapa define uma rota de mensagens usando o ponto de extremidade criado acima. Crie uma rota usando o comando [Add-AzIotHubRoute](https://docs.microsoft.com/powershell/module/az.iothub/Add-AzIoTHubRoute) do PowerShell ou o comando [az iot hub route create](https://docs.microsoft.com/cli/azure/iot/hub/route#az-iot-hub-route-create) da CLI, como preferir.
 
-Esta é a lista de parâmetros a serem usados com o comando para criar um ponto de extremidade:
+Esta é a lista de parâmetros a serem usados com o comando para adicionar uma rota de mensagem:
 
 |Parâmetro do PowerShell|Parâmetro da CLI|Descrição|
 |---|---|---|

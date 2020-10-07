@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: bea34b2a8b8827b709cc637c0a33132477419a83
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b3cd69876eb5fa18d9763bd7f89233d7608384ef
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545727"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317473"
 ---
 # <a name="tutorial-configure-zscaler-two-for-automatic-user-provisioning"></a>Tutorial: Configurar o Zscaler Two para o provisionamento automático de usuário
 
@@ -119,7 +119,7 @@ Esta seção descreve as etapas de configuração do serviço de provisionamento
 
 11. Examine os atributos de usuário que são sincronizados do Azure AD para o Zscaler Two na seção **Mapeamentos de Atributo**. Os atributos selecionados como propriedades **Correspondentes** são usados para fazer a correspondência das contas de usuário no Zscaler Two em operações de atualização. Para confirmar eventuais alterações, selecione **Salvar**.
 
-    ![Mapeamentos de atributo](./media/zscaler-two-provisioning-tutorial/user-attribute-mappings.png)
+    ![Captura de tela da seção Mapeamentos de Atributos com sete mapeamentos exibidos.](./media/zscaler-two-provisioning-tutorial/user-attribute-mappings.png)
 
 12. Na seção **Mapeamentos**, selecione **Sincronizar Grupos do Azure Active Directory com o Zscaler Two**:
 
@@ -127,7 +127,7 @@ Esta seção descreve as etapas de configuração do serviço de provisionamento
 
 13. Examine os atributos de grupo que são sincronizados do Azure AD para o Zscaler Two na seção **Mapeamentos de Atributo**. Os atributos selecionados como propriedades **Correspondentes** são usados para fazer a correspondência dos grupos no Zscaler Two em operações de atualização. Para confirmar eventuais alterações, selecione **Salvar**.
 
-    ![Mapeamentos de atributo](./media/zscaler-two-provisioning-tutorial/group-attribute-mappings.png)
+    ![Captura de tela da seção Mapeamentos de Atributos com três mapeamentos exibidos.](./media/zscaler-two-provisioning-tutorial/group-attribute-mappings.png)
 
 14. Para configurar filtros de escopo, veja as instruções fornecidas no [tutorial sobre filtros de escopo](./../active-directory-saas-scoping-filters.md).
 

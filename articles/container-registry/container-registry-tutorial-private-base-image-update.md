@@ -3,13 +3,13 @@ title: Tutorial – Disparar o build da imagem na atualização da imagem base p
 description: Neste tutorial, você vai configurar uma Tarefa do Registro de Contêiner do Azure para disparar automaticamente builds de imagem de contêiner na nuvem quando uma imagem base em outro Registro de Contêiner do Azure particular for atualizada.
 ms.topic: tutorial
 ms.date: 01/22/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: e28dc65f44f3d9997a59e6204451cc84b0e41e40
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-js
+ms.openlocfilehash: 09b795981c1afe497e6adbb14f4f62d45293f0e3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407125"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91270960"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-another-private-container-registry"></a>Tutorial: Automatizar builds de imagem de contêiner quando uma imagem base é atualizada em outro registro de contêiner particular 
 
@@ -171,7 +171,7 @@ docker run -d -p 8080:80 --name myapp --rm $ACR_NAME.azurecr.io/helloworld:<run-
 
 Navegue até `http://localhost:8080` no seu navegador, e você deverá ver o número de versão do Node.js renderizado na página da web, semelhante à seguinte. Em uma etapa posterior, você deve aumentar a versão adicionando uma "a" para a cadeia de caracteres de versão.
 
-![Captura de tela do aplicativo de exemplo renderizado no navegador][base-update-01]
+![Captura de tela que mostra um aplicativo de exemplo renderizado em um navegador.][base-update-01]
 
 Para interromper e remover o contêiner, execute o comando a seguir:
 

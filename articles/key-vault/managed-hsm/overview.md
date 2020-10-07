@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.date: 09/15/2020
 ms.author: mbaldwin
 author: msmbaldwin
-ms.openlocfilehash: 9eee3d5bc53ebe40ba4462f394ffe30cea6b70fa
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: e98b21d5afebdbd2654d032493b92eb5e6e7fdc6
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90998253"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91320550"
 ---
 # <a name="what-is-azure-key-vault-managed-hsm-preview"></a>O que é o HSM Gerenciado do Azure Key Vault (versão prévia)?
 
@@ -33,7 +33,7 @@ O HSM Gerenciado do Azure Key Vault é um serviço de nuvem em conformidade com 
 
 - **Gerenciamento centralizado de chaves**: gerencie chaves críticas e de alto valor em uma organização em um único lugar. Com as permissões granulares por chave, controle o acesso a cada chave conforme o princípio de "acesso com privilégios mínimos".
 - **Controle de acesso isolado**: o modelo de controle de acesso "RBAC local" do HSM Gerenciado permite que os administradores de cluster do HSM designados tenham controle total sobre os HSMs que nem mesmo administradores de grupo de recursos, assinatura ou grupo de gerenciamento podem substituir.
-- **HSMs validados para FIPS 140-2 Nível 3**: proteja seus dados e cumpra os requisitos de conformidade com HSMs validados para FIPS (Federal Information Protection Standard) 140-2 Nível 3. Os HSMs Gerenciados usam a família de HSMs LiquidSecurity da Marvell.
+- **HSMs validados para FIPS 140-2 Nível 3**: proteja seus dados e cumpra os requisitos de conformidade com HSMs validados para FIPS (Federal Information Protection Standard) 140-2 Nível 3. Os HSMs gerenciados usam adaptadores HSM Marvell LiquidSecurity.
 - **Monitorar e auditar**: totalmente integrado ao Azure Monitor. Obtenha logs completos de todas as atividades por meio do Azure Monitor. Use o Log Analytics do Azure para análise e alertas.
 
 ### <a name="integrated-with-azure-and-microsoft-paassaas-services"></a>Integrado ao Azure e aos serviços de PaaS/SaaS da Microsoft 

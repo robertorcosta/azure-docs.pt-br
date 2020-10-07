@@ -11,12 +11,12 @@ ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c87a965c96920ea2ce90dae0333147338c99018a
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: f02ec2220827fbec8c981ab3a1859d633675a6f4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279135"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91313256"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-pass-through-authentication-pta"></a>Tutorial:  Integrar uma única floresta do AD usando a autenticação de passagem (PTA)
 
@@ -188,7 +188,7 @@ Agora, é necessário criar um locatário do Azure AD para que seja possível si
 2. Selecione o **ícone adição (+)** e pesquise **Azure Active Directory**.
 3. Selecione **Azure Active Directory** nos resultados da pesquisa.
 4. Selecione **Criar**.</br>
-![Criar](media/tutorial-password-hash-sync/create1.png)</br>
+![Captura de tela que mostra como criar um locatário do Azure AD.](media/tutorial-password-hash-sync/create1.png)</br>
 5. Forneça um **nome para a organização** juntamente com o **nome de domínio inicial**. Em seguida, selecione **Criar**. Isso criará criar o diretório.
 6. Depois que for concluído, clique no link **aqui** para gerenciar o diretório.
 
@@ -196,10 +196,10 @@ Agora, é necessário criar um locatário do Azure AD para que seja possível si
 Agora que temos um locatário do Azure AD, criaremos uma conta de administrador global.  Essa conta é usada para criar a conta do Azure AD Connector durante a instalação do Azure AD Connect.  A conta do Azure AD Connector é usada para gravar informações no Azure AD.   Para criar a conta de administrador global, faça o seguinte.
 
 1.  Em **Gerenciar**, selecione **Usuários**.</br>
-![Criar](media/tutorial-password-hash-sync/gadmin1.png)</br>
+![Captura de tela que mostra a opção Usuário selecionada na seção Gerenciar, em que você cria um Administrador global no Azure AD.](media/tutorial-password-hash-sync/gadmin1.png)</br>
 2.  Selecione **Todos os usuários** e, em seguida, selecione **+ Novo usuário**.
 3.  Forneça um nome e um nome de usuário para esse usuário. Este será o Administrador Global para o locatário. Convém também alterar a **função do diretório** para **Administrador global.** Também é possível mostrar a senha temporária. Ao concluir, selecione **Criar**.</br>
-![Criar](media/tutorial-password-hash-sync/gadmin2.png)</br>
+![Captura de tela que mostra o botão Criar que você seleciona quando cria um Administrador global no Azure AD.](media/tutorial-password-hash-sync/gadmin2.png)</br>
 4. Depois que isso for concluído, abra um novo navegador da Web e entre em myapps.microsoft.com usando a nova conta de administrador global e a senha temporária.
 5. Altere a senha do administrador global para algo que você irá lembrar.
 
@@ -209,12 +209,12 @@ Agora que temos um locatário e um administrador global, precisamos adicionar no
 1. De volta ao [portal do Azure](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) certifique-se de fechar a folha **Todos os Usuários**.
 2. À esquerda, selecione **Personalizar nomes de domínio**.
 3. Selecione **Adicionar domínio personalizado**.</br>
-![Custom](media/tutorial-federation/custom1.png)</br>
+![Captura de tela que mostra o botão Adicionar domínio personalizado realçado.](media/tutorial-federation/custom1.png)</br>
 4. Em **Nomes de domínio personalizados**, insira o nome do domínio personalizado na caixa e clique em **Adicionar Domínio**.
 5. Na tela de nome de domínio personalizado, você será fornecido com informações TXT ou MX.  Essas informações devem ser adicionadas às informações de DNS do registrador de domínios em seu domínio.  Portanto, você precisa acessar o registrador de domínios e inserir as informações de TXT ou MX nas configurações de DNS do seu domínio.  Isso permitirá que o Azure verifique o domínio.  Pode demorar até 24 horas até que o Azure conclua a verificação.  Para obter mais informações, consulte a documentação [adicionar um domínio personalizado](../../active-directory/fundamentals/add-custom-domain.md).</br>
-![Custom](media/tutorial-federation/custom2.png)</br>
+![Captura de tela que mostra em que local você adiciona as informações de TXT ou MX.](media/tutorial-federation/custom2.png)</br>
 6. Para garantir que é verificado, clique no botão Verificar.</br>
-![Custom](media/tutorial-federation/custom3.png)</br>
+![Captura de tela que mostra uma mensagem de verificação bem-sucedida após você selecionar Verificar.](media/tutorial-federation/custom3.png)</br>
 
 ## <a name="download-and-install-azure-ad-connect"></a>Baixe e instale o Azure AD Connect
 Agora é hora de baixar e instalar o Azure AD Connect.  Uma vez instalado, vamos executar a instalação expressa.  Faça o seguinte:

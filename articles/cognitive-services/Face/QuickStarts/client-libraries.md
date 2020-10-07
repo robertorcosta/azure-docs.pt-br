@@ -9,32 +9,33 @@ zone_pivot_groups: programming-languages-set-eighteen
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 08/17/2020
+ms.date: 09/17/2020
 ms.author: pafarley
-ms.custom: devx-track-python, devx-track-csharp
-ms.openlocfilehash: 9352b99214598f252658ad0b5b4c1b74f193c0c5
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: devx-track-python, devx-track-csharp, cog-serv-seo-aug-2020
+keywords: face search by image, facial recognition search, facial recognition, face recognition app
+ms.openlocfilehash: de9467719c3e88d257edb64d2a9ac2a54412d6ca
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88931498"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91322930"
 ---
 # <a name="quickstart-use-the-face-client-library"></a>Início Rápido: Usar a biblioteca de clientes da Detecção Facial
 
 ::: zone pivot="programming-language-csharp"
 
-[!INCLUDE [C# quickstart](../includes/quickstarts/face-client-library-csharp.md)]
+[!INCLUDE [C# quickstart](../includes/quickstarts/csharp-sdk.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
 
-[!INCLUDE [Python quickstart](../includes/quickstarts/face-client-library-python.md)]
+[!INCLUDE [Python quickstart](../includes/quickstarts/python-sdk.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-go"
 
-[!INCLUDE [Go quickstart](../includes/quickstarts/face-client-library-go.md)]
+[!INCLUDE [Go quickstart](../includes/quickstarts/go-sdk.md)]
 
 ::: zone-end

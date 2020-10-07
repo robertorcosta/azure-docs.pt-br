@@ -1,6 +1,6 @@
 ---
 title: Tutorial – Integrar uma floresta existente e uma nova com um único locatário do Azure AD usando o provisionamento de nuvem do Azure AD Connect.
-description: tutorial.
+description: Saiba como adicionar provisionamento de nuvem a um ambiente de identidade híbrida existente. .
 services: active-directory
 author: billmath
 manager: daveba
@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eba35d6ffb4cbeb25d64d42adb2429636f1d56ce
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 4b247009669d6008644c9beb54fb687138b81716
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228455"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266404"
 ---
 # <a name="integrate-an-existing-forest-and-a-new-forest-with-a-single-azure-ad-tenant"></a>Integrar uma floresta existente e uma nova com um único locatário do Azure AD
 
@@ -60,14 +60,14 @@ Nesse cenário, há uma floresta sincronizada usando a sincronização do Azure 
 4. Clique em "Baixar agente"
 5. Execute o agente de provisionamento Azure AD Connect
 6. Na tela inicial, **Aceite** os termos de licenciamento e clique em **Instalar**.</br>
-![Tela de boas-vindas](media/how-to-install/install1.png)</br>
+![Captura de tela que mostra a tela inicial "Pacote do Agente de Provisionamento do Microsoft Azure AD Connect".](media/how-to-install/install1.png)</br>
 
 7. Quando essa operação for concluída, o assistente de configuração será iniciado.  Entre com sua conta de administrador global do Azure AD.  Observe que, se você tiver a segurança aprimorada do IE habilitada, isso bloqueará a entrada.  Se esse for o caso, feche a instalação, desabilite a segurança aprimorada do IE no Gerenciador do Servidor e clique no **Assistente do Agente de Provisionamento AAD Connect** para reiniciar a instalação.
 8. Na tela **Conectar Active Directory**, clique em **Adicionar diretório** e, em seguida, entre com sua conta de administrador de domínio do Active Directory.  OBSERVAÇÃO:  A conta de administrador de domínio não deve ter requisitos de alteração de senha. Caso a senha expire ou seja alterada, será necessário reconfigurar o agente com as novas credenciais. Esta operação adicionará o diretório local.  Clique em **Próximo**.</br>
-![Tela de boas-vindas](media/how-to-install/install3.png)</br>
+![Captura de tela que mostra a tela "Conectar o Active Directory".](media/how-to-install/install3.png)</br>
 
 9. Na tela **Configuração completa**, clique em **Confirmar**.  Esta operação registrará e reiniciará o agente.</br>
-![Tela de boas-vindas](media/how-to-install/install4.png)</br>
+![Captura de tela que mostra a tela "Configuração concluída".](media/how-to-install/install4.png)</br>
 
 10. Quando essa operação for concluída, você deverá ver um aviso: **A configuração do agente foi verificada com êxito.**  Você pode clicar em **Sair**.</br>
 ![Tela de boas-vindas](media/how-to-install/install5.png)</br>

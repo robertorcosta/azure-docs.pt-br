@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d75dbfc1acd3ffee1b641a3110717eb11ab4e623
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: a5d5528865fc910751b8052dcc78a82131e17290
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228232"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91266234"
 ---
 # <a name="what-is-identity-provisioning"></a>O que é provisionamento de identidade?
 
@@ -24,7 +24,7 @@ Hoje, as empresas e corporações estão se tornando cada vez mais uma mistura d
 
 O provisionamento é o processo de criação de um objeto com base em determinadas condições, mantendo o objeto atualizado e excluindo o objeto quando as condições não são mais atendidas. Por exemplo, quando um novo usuário ingressa em sua organização, esse usuário é inserido no sistema de RH.  Nesse ponto, o provisionamento pode criar uma conta de usuário correspondente na nuvem, no Active Directory e em diferentes aplicativos que o usuário precisa acessar.  Isso permite que o usuário inicie o trabalho e tenha acesso aos aplicativos e sistemas de que precisa, já no primeiro dia. 
 
-![provisionamento em nuvem](media/what-is-provisioning/cloud1.png)
+![Diagrama que mostra o provisionamento de nuvem com o Azure Active Directory.](media/what-is-provisioning/cloud1.png)
 
 Com relação ao Azure Active Directory, o provisionamento pode ser dividido nos cenários principais a seguir.  
 
@@ -34,21 +34,21 @@ Com relação ao Azure Active Directory, o provisionamento pode ser dividido nos
 
 ## <a name="hr-driven-provisioning"></a>Provisionamento impulsionado por RH
 
-![provisionamento em nuvem](media/what-is-provisioning/cloud2.png)
+![Diagrama que mostra o provisionamento controlado por RH com o Cloud HR, o On-premises HR e o Azure Active Directory.](media/what-is-provisioning/cloud2.png)
 
 O provisionamento de RH para a nuvem envolve a criação de objetos (usuários, funções, grupos, etc.) com base nas informações que estão em seu sistema de RH.  
 
 O cenário mais comum seria quando um novo funcionário ingressasse na sua empresa e fosse inserido no sistema de RH.  Quando isso ocorre, ele é provisionado na nuvem.  Nesse caso, o Azure AD.  O provisionamento do RH pode abranger os cenários a seguir. 
 
-- **Contratação de novos funcionários** – quando um novo funcionário é adicionado ao Cloud HR, uma conta de usuário é criada automaticamente no Active Directory, no Azure Active Directory e, opcionalmente, no Office 365 e outros aplicativos SaaS compatíveis com o Azure AD, com write-back do endereço de email para o Cloud HR.
-- **Atualizações de perfil e atributo de funcionário** – quando um registro de funcionário é atualizado no Cloud HR (como seu nome, cargo ou gerente), sua conta de usuário será atualizada automaticamente no Active Directory, no Azure Active Directory e, opcionalmente, no Office 365 e outros aplicativos SaaS compatíveis com o Azure AD.
+- **Contratação de novos funcionários** – quando um novo funcionário é adicionado ao Cloud HR, uma conta de usuário é criada automaticamente no Active Directory, no Azure Active Directory e, opcionalmente, no Microsoft 365 e em outros aplicativos SaaS compatíveis com o Azure AD, com write-back do endereço de email para o Cloud HR.
+- **Atualizações de perfil e atributo de funcionário** – quando um registro de funcionário é atualizado no Cloud HR (como seu nome, cargo ou gerente), sua conta de usuário é atualizada automaticamente no Active Directory, no Azure Active Directory e, opcionalmente, no Microsoft 365 e em outros aplicativos SaaS compatíveis com o Azure AD.
 - **Rescisão de funcionário** – quando um funcionário é rescindido no Cloud HR, sua conta de usuário será desabilitada automaticamente no Active Directory, no Azure Active Directory e, opcionalmente, no Office 365 e outros aplicativos SaaS compatíveis com o Azure AD.
-- **Recontratação de funcionário** – quando um funcionário é recontratado no Cloud HR, a conta antiga do funcionário poderá ser reativada ou reprovisionada automaticamente (dependendo da sua preferência) no Active Directory, no Azure Active Directory e, opcionalmente, no Office 365 e outros aplicativos SaaS compatíveis com o Azure AD.
+- **Recontratação de funcionário** – quando um funcionário é recontratado no Cloud HR, a conta antiga do funcionário pode ser reativada ou reprovisionada automaticamente (dependendo da sua preferência) no Active Directory, no Azure Active Directory e, opcionalmente, no Microsoft 365 e em outros aplicativos SaaS compatíveis com o Azure AD.
 
 
 ## <a name="app-provisioning"></a>Provisionamento de aplicativos
 
-![provisionamento em nuvem](media/what-is-provisioning/cloud3.png)
+![Diagrama que mostra o provisionamento de aplicativos com aplicativos locais, aplicativos de nuvem que não são da Microsoft e o Azure Active Directory.](media/what-is-provisioning/cloud3.png)
 
 No Azure AD (Azure Active Directory), o termo **[provisionamento de aplicativo](../app-provisioning/user-provisioning.md)** refere-se à criação automática de identidades e funções de usuário nos aplicativos de nuvem aos quais os usuários precisam ter acesso. Além de criar identidades de usuário, o provisionamento automático inclui a manutenção e a remoção de identidades de usuário à medida que o status ou as funções mudam. Os cenários comuns incluem o provisionamento de um usuário do Azure AD em aplicativos como [Dropbox](../saas-apps/dropboxforbusiness-provisioning-tutorial.md), [Salesforce](../saas-apps/salesforce-provisioning-tutorial.md), [ServiceNow](../saas-apps/servicenow-provisioning-tutorial.md), entre outros.
 

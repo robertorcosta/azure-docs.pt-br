@@ -11,12 +11,12 @@ author: MarkusVi
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93caf52d8b4a11f9843ad5f18ebf968d1d0730cd
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 643010ef1f6e941a57673a711e1871aafd1e341d
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226200"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361901"
 ---
 # <a name="tutorial-configure-the-log-analytics-wizard"></a>Tutorial: Configurar o assistente do Log Analytics
 
@@ -72,7 +72,7 @@ Configurar um workspace do log Analytics consiste em duas etapas principais:
 
 3. Na página workspaces do log Analytics, clique em **Adicionar**.
 
-    ![Adicionar](./media/tutorial-log-analytics-wizard/add.png)
+    ![A captura de tela mostra o botão Adicionar na página dos workspaces do Log Analytics.](./media/tutorial-log-analytics-wizard/add.png)
 
 4.  Na página **Criar workspace do Log Analytics**, execute as seguintes etapas:
 
@@ -305,7 +305,7 @@ Este procedimento mostra como criar uma pasta de trabalho usando o modelo de in�
 
 3. Na seção **Monitoramento**, clique em **Pastas de trabalho**.
 
-    ![Pastas de trabalho](./media/tutorial-log-analytics-wizard/workbooks.png)
+    ![A captura de tela mostra Monitoramento no menu do portal do Azure com a opção Pastas de Trabalho selecionada.](./media/tutorial-log-analytics-wizard/workbooks.png)
 
 4. Na seção **Início rápido**, clique em **Vazio**.
 
@@ -357,7 +357,7 @@ Este procedimento mostra como adicionar uma consulta a um modelo de pasta de tra
 
 3. Na seção **Monitoramento**, clique em **Pastas de trabalho**.
 
-    ![Pastas de trabalho](./media/tutorial-log-analytics-wizard/workbooks.png)
+    ![A captura de tela mostra Monitoramento no menu com a opção Pastas de Trabalho selecionada.](./media/tutorial-log-analytics-wizard/workbooks.png)
 
 4. Na seção **Acesso condicional**, clique em **Relatório e Insights de Acesso Condicional**.
 

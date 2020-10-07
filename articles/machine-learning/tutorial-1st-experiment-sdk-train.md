@@ -11,28 +11,28 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: a267231dd447b114c69e6ead20c8ab5252f85d0e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f5c2690ea97136c2b7887a8450c2788e3902d4e3
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90896718"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91369953"
 ---
 # <a name="tutorial-train-your-first-machine-learning-model-part-3-of-4"></a>Tutorial: Treinar seu primeiro modelo de machine learning (parte 3 de 4)
 
 Este tutorial mostra como treinar um modelo de machine learning no Azure Machine Learning.
 
-Este tutorial é a **parte três de uma série de tutoriais de quatro partes** em que você aprende os conceitos básicos do Azure Machine Learning e tarefas completas de machine learning baseadas em trabalhos no Azure. Este tutorial se baseia no trabalho que você concluiu na [Parte 1: Configurar](tutorial-1st-experiment-sdk-setup-local.md) e [Parte 2: Executar "Olá, Mundo"](tutorial-1st-experiment-hello-world.md) da série.
+Este tutorial é a *parte 3 de uma série de tutoriais de quatro partes* em que você aprenderá os conceitos básicos do Azure Machine Learning e realizará tarefas de machine learning baseadas em trabalhos no Azure. Ele se baseia no trabalho que você concluiu na [Parte 1: Configurar](tutorial-1st-experiment-sdk-setup-local.md) e [Parte 2: Executar um script "Olá, Mundo!"](tutorial-1st-experiment-hello-world.md) da série.
 
 Neste tutorial, você seguirá a próxima etapa enviando um script que treina um modelo de machine learning. Este exemplo ajudará você a entender como o Azure Machine Learning facilita o comportamento consistente entre a depuração local e as execuções remotas.
 
 Neste tutorial, você:
 
 > [!div class="checklist"]
-> * Cria o script de treinamento.
+> * Crie um script de treinamento.
 > * Usa o Conda para definir um ambiente do Azure Machine Learning.
-> * Cria o script de controle.
-> * Entende as classes do Azure Machine Learning (Ambiente, Execução, Métricas).
+> * Cria um script de controle.
+> * Aprende os conceitos básicos das classes do Azure Machine Learning (`Environment`, `Run`, `Metrics`).
 > * Envia e executa seu script de treinamento.
 > * Exibe a saída do código na nuvem.
 > * Registra em log as métricas para o Azure Machine Learning.
@@ -40,10 +40,10 @@ Neste tutorial, você:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Concluir a [Parte 1](tutorial-1st-experiment-sdk-setup-local.md) se você ainda não tiver um workspace do Azure Machine Learning.
+* Conclusão da [parte 2](tutorial-1st-experiment-hello-world.md) da série.
 * Conhecimento introdutório da linguagem Python e dos fluxos de trabalho de machine learning.
-* Ambiente de desenvolvimento local. Isso inclui, entre outros, Visual Studio Code, Jupyter ou PyCharm.
-* Python (versão 3.5-3.7).
+* Ambiente de desenvolvimento local, como o Visual Studio Code, o Jupyter ou o PyCharm.
+* Python (versão 3.5 a 3.7).
 
 ## <a name="create-training-scripts"></a>Criar scripts de treinamento
 
@@ -90,7 +90,7 @@ import torchvision.transforms as transforms
 
 from model import Net
 
-# download CIFAR 10 data
+# download CIFAR10 data
 trainset = torchvision.datasets.CIFAR10(
     root="./data",
     train=True,
@@ -138,7 +138,7 @@ if __name__ == "__main__":
 
 ```
 
-Agora você tem a estrutura de diretório descrita abaixo:
+Agora você tem a seguinte estrutura de diretório:
 
 ```txt
 tutorial
@@ -153,9 +153,9 @@ tutorial
 └──03-run-hello.py
 ```
 
-## <a name="define-a-python-environment"></a>Definir um ambiente do Python
+## <a name="create-a-python-environment"></a>Criar um ambiente de Python
 
-Para demonstração, vamos usar um ambiente Conda (as etapas para um ambiente virtual pip são quase idênticas).
+Para fins de demonstração, vamos usar um ambiente Conda. (As etapas de um ambiente virtual Pip são quase idênticas.)
 
 Crie um arquivo chamado `pytorch-env.yml` no diretório `.azureml` oculto:
 
@@ -171,23 +171,23 @@ dependencies:
     - torchvision
 ```
 
-Esse ambiente tem todas as dependências que o seu modelo e o script de treinamento exigem. Observe que não há nenhuma dependência do SDK do Python do Azure Machine Learning.
+Esse ambiente tem todas as dependências que o seu modelo e o script de treinamento exigem. Observe que não há nenhuma dependência do SDK do Azure Machine Learning para Python.
 
 ## <a name="test-locally"></a>Testar localmente
 
-Teste suas execuções de script localmente usando este ambiente com:
+Use o seguinte código para testar as execuções de script localmente nesse ambiente:
 
 ```bash
 conda env create -f .azureml/pytorch-env.yml    # create conda environment
-conda activate pytorch-env             # activate conda environment
-python src/train.py                    # train model
+conda activate pytorch-env                      # activate conda environment
+python src/train.py                             # train model
 ```
 
 Depois de executar esse script, você verá os dados baixados em um diretório chamado `tutorial/data`.
 
 ## <a name="create-the-control-script"></a>Criar o script de controle
 
-A diferença com relação ao script de controle abaixo e o usado para enviar "Olá, Mundo" é que você adiciona algumas linhas extras para definir o ambiente.
+A diferença entre o script de controle a seguir e aquele que você usou para enviar o script "Olá, Mundo!" é que você adiciona algumas linhas extras para definir o ambiente.
 
 Crie um arquivo Python no diretório `tutorial` chamado `04-run-pytorch.py`:
 
@@ -217,10 +217,10 @@ if __name__ == "__main__":
 
 :::row:::
    :::column span="":::
-      `env = Environment.from_conda_specification( ... )`
+      `env = ...`
    :::column-end:::
    :::column span="2":::
-      O Azure Machine Learning fornece o conceito de um [Ambiente](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true) para representar um ambiente do Python reproduzível com controle de versão para execução de experimentos. É fácil criar um ambiente de um ambiente Conda ou pip local.
+      O Azure Machine Learning fornece o conceito de [ambiente](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true) para representar um ambiente reproduzível com controle de versão do Python para a execução de experimentos. É fácil criar um ambiente de um ambiente Conda ou pip local.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -232,17 +232,22 @@ if __name__ == "__main__":
    :::column-end:::
 :::row-end:::
 
-## <a name="submit-run-to-azure-machine-learning"></a>Execução de envio para o Azure Machine Learning
+## <a name="submit-the-run-to-azure-machine-learning"></a>Enviar a execução para o Azure Machine Learning
 
-Caso você tenha alternado os ambientes locais, volte para um ambiente com o SDK do Python do Azure Machine Learning instalado e execute:
+Se você alternou os ambientes locais, lembre-se de voltar para um ambiente que tenha o SDK do Azure Machine Learning para Python instalado. 
+
+Em seguida, execute:
 
 ```bash
 python 04-run-pytorch.py
 ```
 
 >[!NOTE] 
-> Na primeira vez que você executar esse script, o Azure Machine Learning criará uma imagem do Docker do seu ambiente PyTorch. A execução inteira pode levar de 5-10 minutos para ser concluída. Você pode ver os logs de build do Docker no Azure Machine Learning Studio: Siga o link para o Machine Learning Studio > selecione a guia "Saídas + logs" > Selecione `20_image_build_log.txt`.
-Essa imagem será reutilizada em execuções futuras, tornando a execução muito mais rápida.
+> Na primeira vez que você executar esse script, o Azure Machine Learning criará uma imagem do Docker por meio do ambiente PyTorch. A execução inteira pode levar de 5 a 10 minutos para ser concluída. 
+>
+> Veja os logs de build do Docker no Azure Machine Learning Studio. Siga o link para o estúdio, selecione a guia **Saídas + logs** e escolha `20_image_build_log.txt`.
+>
+> Essa imagem será reutilizada em execuções futuras para tornar a execução muito mais rápida.
 
 Depois que a imagem for criada, selecione `70_driver_log.txt` para ver a saída do script de treinamento.
 
@@ -266,23 +271,25 @@ Finished Training
 ```
 
 > [!WARNING]
-> Se você vê um erro `Your total snapshot size exceeds the limit`, isso indica que o diretório `data` está localizado no `source_directory` usado no `ScriptRunConfig`.
-> Mova `data` para fora do `src`.
+> Se um erro `Your total snapshot size exceeds the limit` for exibido, isso indicará que o diretório `data` estará localizado no valor `source_directory` usado em `ScriptRunConfig`.
+>
+> Mova `data` para fora de `src`.
 
-Os ambientes podem ser registrados em um workspace com `env.register(ws)`, permitindo que sejam facilmente compartilhados e reutilizados e tenham controle de versão. Os ambientes facilitam a reprodução de resultados anteriores e a colaboração com a equipe.
+Os ambientes podem ser registrados em um workspace com `env.register(ws)`. Em seguida, eles podem ser facilmente compartilhados, reutilizados e ter o controle de versão. Os ambientes facilitam a reprodução de resultados anteriores e a colaboração com a equipe.
 
 O Azure Machine Learning também mantém uma coleção de ambientes organizados. Esses ambientes abrangem cenários comuns de machine learning e são apoiados por imagens do Docker armazenadas em cache. As imagens do Docker armazenadas em cache aceleram a primeira execução remota.
 
-Em suma, o uso de ambientes registrados pode poupar tempo! A [documentação de ambientes](./how-to-use-environments.md) apresenta mais detalhes
+Em suma, o uso de ambientes registrados pode poupar tempo! Leia [Como usar ambientes](./how-to-use-environments.md) para obter mais informações.
 
 ## <a name="log-training-metrics"></a>Métricas de treinamento de log
 
 Agora que você tem um treinamento de modelo no Azure Machine Learning, comece a controlar algumas métricas de desempenho.
+
 O script de treinamento atual imprime as métricas para o terminal. O Azure Machine Learning fornece um mecanismo para registrar métricas em log com mais funcionalidade. Ao adicionar algumas linhas de código, você pode visualizar as métricas no estúdio e compará-las entre várias execuções.
 
 ### <a name="modify-trainpy-to-include-logging"></a>Modifique `train.py` para incluir o registro em log
 
-Modifique seu script de `train.py` para incluir duas linhas de código:
+Modifique o script `train.py` para incluir mais duas linhas de código:
 
 ```python
 # train.py
@@ -298,9 +305,16 @@ from azureml.core import Run
 # ADDITIONAL CODE: get Azure Machine Learning run from the current context
 run = Run.get_context()
 
-# download CIFAR 10 data
-trainset = torchvision.datasets.CIFAR10(root='./data', train=True, download=True, transform=torchvision.transforms.ToTensor())
-trainloader = torch.utils.data.DataLoader(trainset, batch_size=4, shuffle=True, num_workers=2)
+# download CIFAR10 data
+trainset = torchvision.datasets.CIFAR10(
+    root="./data",
+    train=True,
+    download=True,
+    transform=torchvision.transforms.ToTensor(),
+)
+trainloader = torch.utils.data.DataLoader(
+    trainset, batch_size=4, shuffle=True, num_workers=2
+)
 
 if __name__ == "__main__":
 
@@ -341,7 +355,7 @@ if __name__ == "__main__":
 
 #### <a name="understand-the-additional-two-lines-of-code"></a>Entender as duas linhas de código adicionais
 
-No `train.py`, você acessa o objeto de execução _de dentro_ do próprio script de treinamento usando o método `Run.get_context()` e o usa para registrar métricas:
+Em `train.py`, você acessa o objeto de execução _dentro_ do próprio script de treinamento usando o método `Run.get_context()` e o usa para registrar métricas:
 
 ```python
 # in train.py
@@ -354,7 +368,7 @@ run.log('loss', loss)
 
 As métricas no Azure Machine Learning são:
 
-- Organizado por experimento e execução, portanto, é fácil controlar e comparar métricas.
+- Organizadas por experimento e execução, sendo, portanto, fácil controlar e comparar métricas.
 - Equipado com uma interface do usuário para que você possa visualizar o desempenho de treinamento no estúdio.
 - Projetado para ajuste de escala, assim, você aproveita esses benefícios mesmo quando executa centenas de experimentos.
 
@@ -377,22 +391,22 @@ dependencies:
         - azureml-sdk
 ```
 
-### <a name="submit-run-to-azure-machine-learning"></a>Execução de envio para o Azure Machine Learning
+### <a name="submit-the-run-to-azure-machine-learning"></a>Enviar a execução para o Azure Machine Learning
 Envie este script mais uma vez:
 
 ```bash
 python 04-run-pytorch.py
 ```
 
-Desta vez, quando você visitar o estúdio, acesse a guia "Métricas", na qual agora pode ver atualizações dinâmicas sobre a perda de treinamento do modelo!
+Desta vez, quando você visitar o estúdio, acesse a guia **Métricas**, na qual agora poderá ver atualizações dinâmicas sobre a perda de treinamento do modelo.
 
-:::image type="content" source="media/tutorial-1st-experiment-sdk-train/logging-metrics.png" alt-text="Grafo de perda de treinamento na guia Métricas":::
+:::image type="content" source="media/tutorial-1st-experiment-sdk-train/logging-metrics.png" alt-text="Grafo de perda de treinamento na guia Métricas.":::
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Nesta sessão, você atualizou de um script "Olá, Mundo!" básico para um script de treinamento mais realista que exigia a execução de um ambiente específico do Python. Você viu como levar um ambiente Conda local para a nuvem com ambientes do Azure Machine Learning. Por fim, em algumas linhas de código, você viu como pode registrar métricas em log para o Azure Machine Learning.
 
-Há outras maneiras de criar ambientes do Azure Machine Learning, incluindo [de um pip requirements.txt](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true#from-pip-requirements-name--file-path-) ou até mesmo [de um ambiente Conda local existente](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true#from-existing-conda-environment-name--conda-environment-name-).
+Há outras maneiras de criar ambientes do Azure Machine Learning, incluindo [por meio de um arquivo requirements.txt do Pip](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true#from-pip-requirements-name--file-path-) ou [de um ambiente Conda local existente](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true#from-existing-conda-environment-name--conda-environment-name-).
 
 Na próxima sessão, você verá como trabalhar com os dados no Azure Machine Learning carregando o conjunto de dados CIFAR10 para o Azure.
 
@@ -400,4 +414,4 @@ Na próxima sessão, você verá como trabalhar com os dados no Azure Machine Le
 > [Tutorial: Traga seus próprios dados](tutorial-1st-experiment-bring-data.md)
 
 >[!NOTE] 
-> Se você quiser concluir a série de tutoriais aqui e não progredir para a próxima etapa, [limpe seus recursos](tutorial-1st-experiment-bring-data.md#clean-up-resources)
+> Caso deseje concluir a série de tutoriais aqui e não progredir para a próxima etapa, lembre-se de [limpar seus recursos](tutorial-1st-experiment-bring-data.md#clean-up-resources).

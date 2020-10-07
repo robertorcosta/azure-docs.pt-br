@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Adicionar cabeçalhos de segurança com o Mecanismo de Regras – Azure Front Door'
-description: Este artigo ensina como configurar um cabeçalho de segurança por meio do mecanismo de regras no Azure Front Door
+description: Este tutorial ensina como configurar um cabeçalho de segurança por meio do Mecanismo de Regras no Azure Front Door
 services: frontdoor
 documentationcenter: ''
 author: duongau
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2020
 ms.author: duau
-ms.openlocfilehash: 204a7676fd03466929fc67a0879ff28e0318d21d
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 1727193faa028a1d681f2a74df950afeb9570ec9
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085222"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91270042"
 ---
 # <a name="tutorial-add-security-headers-with-rules-engine"></a>Tutorial: Adicionar cabeçalhos de segurança com o Mecanismo de Regras
 

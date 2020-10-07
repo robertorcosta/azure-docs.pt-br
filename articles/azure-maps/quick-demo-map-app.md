@@ -1,6 +1,6 @@
 ---
 title: 'Início Rápido: Pesquisa de Mapa Interativo com o Azure Mapas'
-description: Saiba como criar mapas interativos e pesquisáveis. Confira como criar uma conta do Azure Mapas, obter uma chave primária e usar o SDK da Web para configurar aplicativos de mapa.
+description: 'Início Rápido: Saiba como criar mapas interativos e pesquisáveis. Veja como criar uma conta do Azure Mapas, obter uma chave primária e usar o SDK da Web para configurar aplicativos de mapa'
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 7/10/2020
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: fa5cab35416f2629d39ec04803f90fae1a2e5f6d
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 99257b7bef83d0acef484118c7d53aea8eda168c
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88031039"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91264279"
 ---
 # <a name="quickstart-create-an-interactive-search-map-with-azure-maps"></a>Início Rápido: Criar um mapa de pesquisa interativo com o Azure Mapas
 
@@ -62,7 +62,7 @@ Depois de criar com êxito sua conta dos Mapas, recupere a chave primária que p
 >[!NOTE]
 > Se você usar a chave de assinatura em vez da chave primária, seu mapa não será renderizado corretamente. Além disso, para fins de segurança, é recomendável que você faça a rotação entre as chaves primária e secundária. Para fazer a rotação das chaves, atualize seu aplicativo para usar a chave secundária, implante, em seguida, pressione o botão ciclo/atualizar ao lado da chave primária para gerar uma nova chave primária. A chave primária antiga será desabilitada. Para obter mais informações sobre a rotação de chaves, confira [Configurar o Azure Key Vault com a rotação de chaves e auditoria](https://docs.microsoft.com/azure/key-vault/secrets/key-rotation-log-monitoring)
 
-:::image type="content" source="./media/quick-demo-map-app/get-key.png" alt-text="Obter a chave primária do Azure Mapas no portal do Azure":::
+:::image type="content" source="./media/quick-demo-map-app/get-key.png" alt-text="Criar a conta do Mapas no portal":::
 
 ## <a name="download-the-demo-application"></a>Baixar aplicativo de demonstração
 
@@ -78,7 +78,7 @@ Depois de criar com êxito sua conta dos Mapas, recupere a chave primária que p
 4. Teste a experiência de pesquisa interativa. Na caixa de pesquisa no canto superior esquerdo do aplicativo Web da demonstração, pesquise **restaurantes**.
 5. Mova o mouse sobre a lista de endereços e locais que aparecem abaixo da caixa de pesquisa. Observe como o marcador correspondente no mapa mostra informações sobre esse local. Para preservar a privacidade de empresas particulares, são mostrados endereços e nomes fictícios.
 
-    :::image type="content" source="./media/quick-demo-map-app/interactive-search.png" alt-text="Aplicativo Web de pesquisa no mapa interativo":::
+    :::image type="content" source="./media/quick-demo-map-app/interactive-search.png" alt-text="Criar a conta do Mapas no portal":::
 
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
@@ -92,17 +92,15 @@ Se você não planeja continuar com os tutorais, siga estas etapas para limpar o
 2. Navegue até a página do portal do Azure. Selecione **Todos os recursos** na página principal do portal. Ou clique no ícone de menu no canto superior esquerdo. Selecione **Todos os recursos**.
 3. Clique na sua conta do Azure Mapas. Na parte superior da página, clique em **Excluir**.
 
+Para obter mais exemplos de código e uma experiência interativa de codificação, consulte estes guias:
+
+[Localizar um endereço usando o serviço de pesquisa do Azure Mapas](how-to-search-for-address.md)
+
+[Usar o Controle de Mapeamento do Azure Mapas](how-to-use-map-control.md)
+
 ## <a name="next-steps"></a>Próximas etapas
 
 Neste início rápido, você criou sua conta do Azure Mapas e um aplicativo de demonstração. Confira os seguintes tutoriais para saber mais sobre o Azure Mapas:
 
 > [!div class="nextstepaction"]
 > [Pesquisar pontos de interesse próximos usando Azure Mapas](tutorial-search-location.md)
-
-Para obter mais exemplos de código e uma experiência interativa de codificação, consulte estes guias:
-
-> [!div class="nextstepaction"]
-> [Localizar um endereço usando o serviço de pesquisa do Azure Mapas](how-to-search-for-address.md)
-
-> [!div class="nextstepaction"]
-> [Usar o Controle de Mapeamento do Azure Mapas](how-to-use-map-control.md)

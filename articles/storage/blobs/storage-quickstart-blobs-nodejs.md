@@ -3,17 +3,17 @@ title: 'Início Rápido: biblioteca do armazenamento de blobs do Azure v12 – J
 description: Neste início rápido, você aprenderá a usar a biblioteca de clientes do Armazenamento de Blobs do Azure versão 12 para JavaScript para criar um contêiner e um blob no armazenamento de blobs (objeto). Em seguida, você aprenderá como baixar o blob para seu computador local e como listar todos os blobs em um contêiner.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 07/24/2020
+ms.date: 09/17/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.custom: devx-track-javascript
-ms.openlocfilehash: c4343012c7d0abb7c8b8a22da687dc5ac668dc19
-ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
+ms.custom: devx-track-js
+ms.openlocfilehash: 54bf6265a5b440e5c450d21b192acc2f7024f938
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89514367"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91307527"
 ---
 # <a name="quickstart-manage-blobs-with-javascript-v12-sdk-in-nodejs"></a>Início Rápido: Gerenciar blobs com o SDK do JavaScript v12 no Node.js
 
@@ -312,7 +312,8 @@ Neste início rápido você aprendeu a carregar, baixar e listar blobs usando Ja
 Para obter tutoriais, amostras, inícios rápidos e outros tipos de documentação, acesse:
 
 > [!div class="nextstepaction"]
-> [Documentação do Azure para JavaScript](/azure/developer/javascript/)
+> [Central de desenvolvedores do Azure para JavaScript](/azure/developer/javascript/)
 
-* Para saber mais, confira a [Biblioteca de clientes do Armazenamento de Blobs do Azure para JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob).
+* Para saber como implantar um aplicativo Web que usa o Armazenamento de Blobs do Azure, confira [Tutorial: Carregar dados de imagem na nuvem com o Armazenamento do Azure](/azure/storage/blobs/storage-upload-process-images?tabs=javascript&preserve-view=true)
 * Para ver aplicativos de exemplo do Armazenamento de Blobs, prossiga para [Amostras de JavaScript da biblioteca de clientes do Armazenamento de Blobs do Azure v12](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples).
+* Para saber mais, confira a [Biblioteca de clientes do Armazenamento de Blobs do Azure para JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob).

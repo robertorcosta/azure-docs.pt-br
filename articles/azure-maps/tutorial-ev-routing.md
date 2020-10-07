@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Rotear veículos elétricos usando o Azure Notebooks (Python) | Microsoft Azure Mapas'
-description: Roteie veículos elétricos usando as APIs de roteiros dos Microsoft Azure Mapas e do Azure Notebooks.
+description: Tutorial sobre como rotear veículos elétricos usando as APIs de roteiros dos Microsoft Azure Mapas e do Azure Notebooks
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 11/12/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 506429f51ac442b73adea98058a833f52a728c72
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 28fcdc992f98ff380467718314148984559a7fee
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88639742"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335221"
 ---
 # <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>Tutorial: Rotear veículos elétricos usando o Azure Notebooks (Python)
 
@@ -387,8 +387,6 @@ display(Image(staticMapImage))
 
 ![Um mapa que mostra a rota](./media/tutorial-ev-routing/route.png)
 
-## <a name="next-steps"></a>Próximas etapas
-
 Neste tutorial, você aprendeu a chamar as APIs REST dos Azure Mapas diretamente e a visualizar os dados dos Azure Mapas usando o Python.
 
 Para explorar as APIs dos Azure Mapas que são usadas neste tutorial, confira:
@@ -399,7 +397,11 @@ Para explorar as APIs dos Azure Mapas que são usadas neste tutorial, confira:
 * [Renderizar – obter imagem do mapa](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
 * [Matrix de rota POST](https://docs.microsoft.com/rest/api/maps/route/postroutematrix)
 * [Obter Trajeto de Rota](https://docs.microsoft.com/rest/api/maps/route/getroutedirections)
+* [APIs REST do Azure Mapas](https://docs.microsoft.com/azure/azure-maps/consumption-model)
 
-Para obter uma lista completa das APIs REST dos Azure Mapas, confira [APIs REST dos Azure Mapas](https://docs.microsoft.com/azure/azure-maps/consumption-model).
+## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre o Azure Notebooks, confira [Azure Notebooks](https://docs.microsoft.com/azure/notebooks).
+Para saber mais sobre o Azure Notebooks, confira
+
+> [!div class="nextstepaction"]
+> [Azure Notebooks](https://docs.microsoft.com/azure/notebooks)

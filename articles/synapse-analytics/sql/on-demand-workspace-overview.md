@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: fc306dbca3191f04a85f2c5cc88d41336c13e09c
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: dc47bf73f39d73861c166674a692932d51064e6d
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496382"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91288521"
 ---
 # <a name="sql-on-demand-preview-in-azure-synapse-analytics"></a>SQL sob demanda (versão prévia) no Azure Synapse Analytics 
 
@@ -25,9 +25,11 @@ O SQL sob demanda é um serviço de consulta dos dados no data lake. Ele permite
 - Uma sintaxe de T-SQL familiar para consultar dados no local sem a necessidade de copiar nem carregar dados em um repositório especializado. 
 - Conectividade integrada por meio da interface T-SQL que oferece uma ampla variedade de ferramentas de consulta ad hoc e de business intelligence, incluindo os drivers mais populares. 
 
-O SQL sob demanda é um sistema de processamento de dados distribuído, criado para dados e computação em grande escala. O SQL sob demanda permite que você analise Big Data em segundos ou minutos, dependendo da carga de trabalho. Graças à tolerância interna a falhas de execução de consulta, o sistema oferece confiabilidade e taxas de êxito altas, até mesmo para consultas de longa execução envolvendo grandes conjuntos de dados.
+O SQL sob demanda é um sistema de processamento de dados distribuído, criado para funções computacionais e de dados em grande escala. O SQL sob demanda permite que você analise Big Data em segundos ou minutos, dependendo da carga de trabalho. Graças à tolerância interna a falhas de execução de consulta, o sistema oferece confiabilidade e taxas de êxito altas, até mesmo para consultas de longa execução envolvendo grandes conjuntos de dados.
 
-O SQL sob demanda é sem servidor, portanto, não há infraestrutura a ser instalada nem clusters a serem mantidos. Um ponto de extremidade padrão para esse serviço é fornecido em todos os workspaces do Azure Synapse, de modo que você pode iniciar a consulta de dados assim que o workspace é criado. Não há nenhum encargo referente aos recursos reservados, você está sendo cobrado apenas pelos dados verificados por consultas que você executa, portanto, esse é verdadeiramente um modelo de pagamento conforme o uso.  
+O SQL sob demanda é sem servidor, portanto, não há infraestrutura a ser instalada nem clusters a serem mantidos. Um ponto de extremidade padrão para esse serviço é fornecido em todos os workspaces do Azure Synapse, de modo que você pode iniciar a consulta de dados assim que o workspace é criado. 
+
+Não há nenhum encargo referente a recursos reservados, você é cobrado apenas pelos dados processados pelas consultas que executa, portanto, esse é verdadeiramente um modelo de pagamento conforme o uso.  
 
 Se usar o Apache Spark para o Azure Synapse em seu pipeline de dados para preparação, limpeza ou enriquecimento de dados, você poderá [consultar as tabelas externas do Spark](develop-storage-files-spark-tables.md) que criou no processo, diretamente do SQL sob demanda. Use o [Link Privado](../security/how-to-connect-to-workspace-with-private-links.md) para trazer o ponto de extremidade do SQL sob demanda para dentro da [VNet do workspace gerenciado](../security/synapse-workspace-managed-vnet.md).  
 
@@ -56,7 +58,7 @@ O SQL sob demanda permite que as ferramentas existentes de consulta ad hoc e de 
 
 ## <a name="t-sql-support"></a>Suporte para T-SQL
 
-O SQL sob demanda oferece uma área de superfície de consulta T-SQL, que é ligeiramente aprimorada/estendida em alguns aspectos para permitir experiências relacionadas à consulta de dados semiestruturados e não estruturados. Além disso, alguns aspectos da linguagem T-SQL não são compatíveis devido ao design do SQL sob demanda. Por exemplo, atualmente, a funcionalidade DML não é compatível.
+O SQL sob demanda oferece uma área de superfície de consulta T-SQL, que é ligeiramente aprimorada/estendida em alguns aspectos para permitir experiências relacionadas à consulta de dados semiestruturados e não estruturados. Além disso, alguns aspectos da linguagem T-SQL não têm suporte devido ao design do SQL sob demanda. Por exemplo, atualmente, a funcionalidade DML não é compatível.
 
 - A carga de trabalho pode ser organizada usando conceitos familiares:
 - Bancos de dados: o ponto de extremidade sob demanda do SQL pode ter vários bancos de dados.
@@ -77,7 +79,7 @@ T-SQL compatível:
 - CETAS – CREATE EXTERNAL TABLE AS SELECT
 - Instruções DDL relacionadas somente a exibições e segurança
 
-O SQL sob demanda não tem armazenamento local, somente objetos de metadados são armazenados em bancos de dados. Portanto, o T-SQL relacionado aos seguintes conceitos não é compatível:
+O SQL sob demanda não tem armazenamento local, somente objetos de metadados são armazenados em bancos de dados. Portanto, o T-SQL relacionado aos seguintes conceitos não tem suporte:
 
 - Tabelas
 - Gatilhos

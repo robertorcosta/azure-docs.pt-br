@@ -15,12 +15,12 @@ ms.date: 07/07/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 8809b5fdce382b7c8f913823ca8e176226d5837b
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: b85f1d8bd7249ad26ff957a72a9cc7285158caba
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89536167"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397718"
 ---
 # <a name="classic-subscription-administrator-roles-azure-roles-and-azure-ad-roles"></a>Funções de administrador da assinatura clássica, funções do Azure e funções do Azure AD
 
@@ -122,7 +122,7 @@ De maneira geral, as funções do Azure controlam permissões para gerenciar rec
 
 Por padrão, as funções do Azure e do Azure AD não abrangem o Azure e o Azure AD. No entanto, se um Administrador global elevar o acesso escolhendo a opção **Gerenciamento de acesso para os recursos do Azure** no portal do Azure, ele receberá a função [Administrador de Acesso do Usuário](built-in-roles.md#user-access-administrator) (uma função do Azure) em todas as assinaturas de um locatário específico. A função de Administrador de Acesso do Usuário permite que o usuário conceda a outros usuários o acesso aos recursos do Azure. Essa opção pode ser útil para recuperar o acesso a uma assinatura. Para obter mais informações, confira [Elevar o acesso para gerenciar todas as assinaturas e grupos de gerenciamento do Azure](elevate-access-global-admin.md).
 
-Várias funções do Azure AD englobam o Azure AD e o Microsoft Office 365, como as funções de Administrador global e Administrador de usuários. Por exemplo, se você for um membro da função de Administrador Global, terá recursos de administrador global no Azure AD e no Office 365, por exemplo, poderá fazer alterações no Microsoft Exchange e no Microsoft SharePoint. No entanto, por padrão, o Administrador Global não tem acesso aos recursos do Azure.
+Várias funções do Azure AD englobam o Azure AD e o Microsoft 365, como as funções de Administrador global e Administrador de usuários. Por exemplo, se você for um membro da função de Administrador global, terá recursos de Administrador global no Azure AD e no Microsoft 365, por exemplo, poderá fazer alterações no Microsoft Exchange e no Microsoft SharePoint. No entanto, por padrão, o Administrador Global não tem acesso aos recursos do Azure.
 
 ![Funções do RBAC do Azure funções do Azure AD](./media/rbac-and-directory-admin-roles/azure-office-roles.png)
 

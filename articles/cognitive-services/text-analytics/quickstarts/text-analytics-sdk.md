@@ -1,27 +1,28 @@
 ---
-title: 'Início Rápido: Biblioteca de clientes da Análise de Texto v3 | Microsoft Docs'
+title: 'Início Rápido: Mineração de texto usando a biblioteca de clientes da Análise de Texto'
 titleSuffix: Azure Cognitive Services
-description: Use este início rápido para conectar seus aplicativos à API de Análise de Texto por meio dos Serviços Cognitivos do Azure.
+description: Use este guia de início rápido para executar análises de sentimentos e muito mais com a API de Análise de Texto de Serviços Cognitivos do Azure.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 07/27/2020
+ms.date: 09/09/2020
 ms.author: aahi
-ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
+keywords: mineração de texto, análise de sentimentos, análise de texto
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-text-analytics
-ms.openlocfilehash: 2d81175c73928d25c06acb396dac587c7cc73637
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: ed87c536c53ab1c07af05a7b8223901591c16e66
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88931175"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332282"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library"></a>Início Rápido: Usar a biblioteca de clientes da Análise de Texto
 
-Introdução à biblioteca de clientes da Análise de Texto. Siga essas etapas para instalar o pacote e testar o código de exemplo para tarefas básicas.
+Use este artigo para começar a usar a biblioteca de clientes de Análise de Texto. Siga essas etapas para instalar o pacote e testar o código de exemplo para minerar texto.
 
 Use a biblioteca de clientes da Análise de Texto para executar:
 

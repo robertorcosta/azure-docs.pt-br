@@ -3,12 +3,12 @@ title: Implantar um aplicativo .NET em um contêiner do Azure Service Fabric
 description: Saiba como colocar um aplicativo existente do .NET em um contêiner usando o Visual Studio e depure os contêineres no Service Fabric localmente. O aplicativo colocado em um contêiner é enviado por push para um registro de contêiner do Azure e implantado em um cluster do Service Fabric. Quando implantado no Azure, o aplicativo usa o Banco de Dados SQL do Azure para manter os dados.
 ms.topic: tutorial
 ms.date: 07/08/2019
-ms.openlocfilehash: 4970cf6492da38ad76a51df88eeb73538c850c67
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 4ef696156b6386c7aa1a027dcc61c988ba4692a2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258870"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314293"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Tutorial: Implantar um aplicativo .NET em um contêiner do Windows no Azure Service Fabric
 
@@ -39,7 +39,7 @@ Neste tutorial, você aprenderá como:
 
 2. Verifique se o aplicativo Fabrikam fibra CallCenter é compilado e executado sem erros.  Inicie o Visual Studio como um **administrador** e abra o arquivo [FabrikamFiber.CallCenter.sln][link-fabrikam-github].  Pressione F5 para depurar e executar o aplicativo.
 
-   ![Exemplo de Fabrikam Web][fabrikam-web-page]
+   ![Captura de tela da home page do aplicativo Fabrikam Fiber CallCenter em execução no host local. A página mostra um painel com uma lista de chamadas de suporte.][fabrikam-web-page]
 
 ## <a name="containerize-the-application"></a>Colocar o aplicativo em um contêiner
 
@@ -235,7 +235,7 @@ Agora que o aplicativo está pronto, você poderá implantá-lo no cluster no Az
 
 Acompanhe o progresso da implantação na janela de saída. Quando o aplicativo for implantado, abra um navegador e digite o endereço do cluster e a porta do aplicativo. Por exemplo, `https://fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:8659/`.
 
-![Exemplo de Fabrikam Web][fabrikam-web-page-deployed]
+![Captura de tela da home page do aplicativo Fabrikam Fiber CallCenter em execução no azure.com. A página mostra um painel com uma lista de chamadas de suporte.][fabrikam-web-page-deployed]
 
 ## <a name="set-up-continuous-integration-and-deployment-cicd-with-a-service-fabric-cluster"></a>Configurar a Integração e Implantação Contínuas (CI/CD) com o cluster do Service Fabric
 

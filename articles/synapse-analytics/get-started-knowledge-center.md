@@ -9,12 +9,12 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 09/15/2020
-ms.openlocfilehash: c01d1bcb682a5f711dcba3cc7b32ef69b2642ef6
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 47b8c45e22569cc758d00fb8534f409ecebf58ca
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90900756"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91299924"
 ---
 # <a name="explore-the-synapse-knowledge-center"></a>Explore o Centro de Conhecimento do Azure Synapse
 
@@ -46,7 +46,6 @@ O **Centro de Conhecimento** permite que você faça três coisas:
 1. Clique em Executar. Isso executará o texto selecionado.
 
 ## <a name="loading-more-nyc-taxi-data"></a>Como carregar mais dados de táxi de NYC
-
 1. No **Centro de Conhecimento**, clique em **Procurar amostras disponíveis** 
 1. Selecione a guia **Scripts SQL** na parte superior
 1. Selecione **Carregar o conjunto de dados de táxis de Nova York**
@@ -58,5 +57,6 @@ O **Centro de Conhecimento** permite que você faça três coisas:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-> [!div class="nextstepaction"]
-> [Análise por meio de um pool de SQL](get-started-analyze-sql-pool.md)
+* [Introdução ao Azure Synapse Analytics](get-started.md)
+* [Criar um workspace](quickstart-create-workspace.md)
+* [Usar o SQL sob demanda](quickstart-sql-on-demand.md)

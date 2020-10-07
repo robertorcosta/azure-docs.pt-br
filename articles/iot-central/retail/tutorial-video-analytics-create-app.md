@@ -8,12 +8,12 @@ ms.topic: tutorial
 author: KishorIoT
 ms.author: nandab
 ms.date: 07/31/2020
-ms.openlocfilehash: b98406984f2c9f2adfca030369a6ea3d47a786f3
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: c7ddff70d24fe87380c4bf1439811042418ac76a
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762770"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91369562"
 ---
 # <a name="tutorial-create-a-video-analytics---object-and-motion-detection-application-in-azure-iot-central"></a>Tutorial: Criar um aplicativo de detecção de objetos e movimentos e análise de vídeo no Azure IoT Central
 
@@ -111,7 +111,7 @@ Para criar um aplicativo de análise de vídeo:
 
 1. Selecione **Criar**.
 
-    :::image type="content" source="./media/tutorial-video-analytics-create-app/new-application.png" alt-text="Página Criar aplicativo do Azure IoT Central":::
+    :::image type="content" source="./media/tutorial-video-analytics-create-app/new-application.png" alt-text="Configurar o aplicativo do AAD para o AMS":::
 
 ### <a name="retrieve-the-configuration-data"></a>Recuperar os dados de configuração
 
@@ -119,11 +119,11 @@ Mais adiante neste tutorial, ao configurar o gateway do IoT Edge, você precisar
 
 Na seção **Administração**, escolha **Seu aplicativo** e anote a **URL do Aplicativo** e a **ID do Aplicativo** no arquivo *scratchpad.txt*:
 
-:::image type="content" source="./media/tutorial-video-analytics-create-app/administration.png" alt-text="Administração":::
+:::image type="content" source="./media/tutorial-video-analytics-create-app/administration.png" alt-text="Configurar o aplicativo do AAD para o AMS":::
 
 Selecione **Tokens de API** e gere um novo token chamado **LVAEdgeToken** para a função **Operador**:
 
-:::image type="content" source="./media/tutorial-video-analytics-create-app/token.png" alt-text="Gerar Token":::
+:::image type="content" source="./media/tutorial-video-analytics-create-app/token.png" alt-text="Configurar o aplicativo do AAD para o AMS":::
 
 Anote o token no arquivo *scratchpad.txt* para uso posterior. Depois que a caixa de diálogo for fechada, você não poderá ver o token novamente.
 
@@ -221,7 +221,7 @@ Para importar o manifesto de implantação e criar o modelo de dispositivo **Gat
 
     Não procure o manifesto de implantação ainda. Se você fizer isso, o assistente de implantação vai esperar uma interface para cada módulo, mas você só precisará expor a interface do **LvaEdgeGatewayModule**. Você carregará o manifesto em uma etapa posterior.
 
-    :::image type="content" source="./media/tutorial-video-analytics-create-app/upload-deployment-manifest.png" alt-text="Não carregue o manifesto de implantação":::
+    :::image type="content" source="./media/tutorial-video-analytics-create-app/upload-deployment-manifest.png" alt-text="Configurar o aplicativo do AAD para o AMS":::
 
     Selecione **Avançar: Análise**.
 
@@ -237,7 +237,7 @@ O modelo de dispositivo **Gateway de Borda de LVA** agora inclui o **Módulo do 
 
 Na página **Gateway de Borda de LVA**, selecione **+ Substituir manifesto**.
 
-:::image type="content" source="./media/tutorial-video-analytics-create-app/replace-manifest.png" alt-text="Substituir manifesto":::
+:::image type="content" source="./media/tutorial-video-analytics-create-app/replace-manifest.png" alt-text="Configurar o aplicativo do AAD para o AMS":::
 
 Procure a pasta *lva-configuration* e selecione o arquivo de manifesto *deployment.amd64.json* editado anteriormente. Escolha **Carregar**. Após a conclusão da validação, selecione **Substituir**.
 
@@ -252,7 +252,7 @@ No modelo de dispositivo **Gateway de Borda de LVA**, em **Módulos/Módulo do G
 
 Em seguida, selecione **Salvar**.
 
-:::image type="content" source="media/tutorial-video-analytics-create-app/relationships.png" alt-text="Adicionar relações":::
+:::image type="content" source="media/tutorial-video-analytics-create-app/relationships.png" alt-text="Configurar o aplicativo do AAD para o AMS":::
 
 ### <a name="add-views"></a>Adicionar exibições
 
@@ -274,7 +274,7 @@ Para adicionar uma exibição ao modelo de dispositivo:
     * Um bloco 1x1 do último valor conhecido mostrando a telemetria de **Pulsação do Sistema**.
     * Um bloco 1x1 do último valor conhecido mostrando a telemetria de **Câmeras Conectadas**.
 
-    :::image type="content" source="media/tutorial-video-analytics-create-app/gateway-dashboard.png" alt-text="Painel":::
+    :::image type="content" source="media/tutorial-video-analytics-create-app/gateway-dashboard.png" alt-text="Configurar o aplicativo do AAD para o AMS":::
 
 1. Clique em **Salvar**.
 

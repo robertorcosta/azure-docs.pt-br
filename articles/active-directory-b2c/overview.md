@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 09/19/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 61b6d5ea903d00519c58556bc99da7065741a6e3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7126cd38a9d0f9ed0079a73e1235cb08a99bcbcf
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78184053"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396528"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>O que é o Azure Active Directory B2C?
 
@@ -105,7 +105,7 @@ Clicar no botão **Criar** faz com que o Azure AD B2C redirecione o usuário de 
 
 Quando um cliente seleciona uma das opções em **Clientes empresariais**, o site do WoodGrove Groceries invoca uma política do Azure AD B2C diferente da que usa para clientes individuais.
 
-Essa política apresenta ao usuário uma opção para usar suas credenciais corporativas para inscrição e entrada. No exemplo do WoodGrove, os usuários deverão entrar com qualquer conta do Office 365 ou do Azure AD. Essa política usa um [aplicativo multilocatário do Azure AD](../active-directory/develop/howto-convert-app-to-be-multi-tenant.md) e o ponto de extremidade do Azure AD `/common` para federar o Azure AD B2C com qualquer cliente do Office 365 no mundo.
+Essa política apresenta ao usuário uma opção para usar suas credenciais corporativas para inscrição e entrada. No exemplo do WoodGrove, os usuários deverão entrar com qualquer conta corporativa ou de estudante. Essa política usa um [aplicativo multilocatário do Azure AD](../active-directory/develop/howto-convert-app-to-be-multi-tenant.md) e o ponto de extremidade do Azure AD `/common` para federar o Azure AD B2C com qualquer cliente do Microsoft 365 no mundo.
 
 ### <a name="authenticate-partners"></a>Autenticar parceiros
 

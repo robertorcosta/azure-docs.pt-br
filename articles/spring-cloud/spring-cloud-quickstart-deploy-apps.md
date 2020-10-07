@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 08/03/2020
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 94caa879aa005f8f41e44b8a56400e87f6174247
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d67b0c89fbec8da9a3057164aa59d458a85c41d7
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90908345"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91280582"
 ---
 # <a name="quickstart-build-and-deploy-apps-to-azure-spring-cloud"></a>Início Rápido: Criar e implantar aplicativos no Azure Spring Cloud
 
@@ -353,23 +353,9 @@ Também é possível navegar pelo portal do Azure para localizar a URL.
 
 ::: zone-end
 
-## <a name="clean-up-resources"></a>Limpar os recursos
-
-Se você pretende avançar para o próximo início rápido desta série, pule esta etapa.
-
-Nesses guias de início rápido, você criou recursos do Azure que continuarão acumulando encargos se permanecerem em sua assinatura. Se você não pretende avançar para o próximo início rápido e acredita que não precisará desses recursos no futuro, exclua o grupo de recursos usando o portal ou executando o seguinte comando no Cloud Shell:
-
-```azurecli
-az group delete --name <your resource group name; for example: helloworld-1558400876966-rg> --yes
-```
-
-Em um início rápido anterior, você também definiu o nome do grupo de recursos padrão. Se você não pretende avançar para o próximo início rápido, desmarque esse padrão executando o seguinte comando da CLI:
-
-```azurecli
-az configure --defaults group=
-```
-
 ## <a name="next-steps"></a>Próximas etapas
+
+Neste guia de início rápido, você criou recursos do Azure que continuarão acumulando encargos se permanecerem em sua assinatura. Se você não pretende prosseguir para o próximo início rápido, confira [Limpar recursos](spring-cloud-quickstart-logs-metrics-tracing.md#clean-up-resources). Caso contrário, avance para o próximo início rápido:
+
 > [!div class="nextstepaction"]
 > [Logs, Métricas e Rastreamento](spring-cloud-quickstart-logs-metrics-tracing.md)
-

@@ -4,12 +4,12 @@ description: Saiba como invocar processos empresariais em seu aplicativo do Serv
 ms.topic: tutorial
 ms.date: 04/08/2020
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: ddd57bfe653766d133824f42098d9ad9adb1e56b
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 5aa563e55c64893d57522dd1154a64c7e90a1690
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962189"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397429"
 ---
 # <a name="tutorial-send-email-and-invoke-other-business-processes-from-app-service"></a>Tutorial: enviar emails e invocar outros processos empresariais no Serviço de Aplicativo
 
@@ -84,7 +84,8 @@ Implante um aplicativo com a estrutura de linguagem de sua escolha no Serviço d
 1. Na parte inferior do designer, clique em **Nova etapa**, digite **Gmail** na caixa de pesquisa de ações e localize e selecione **Enviar email (V2)** .
     
     > [!TIP]
-    > Você pode pesquisar outros tipos de integrações, como SendGrid, MailChimp, Office 365 e SalesForce. Para saber mais , confira a [Documentação dos Aplicativos Lógicos](../logic-apps/index.yml).
+    > Você pode pesquisar outros tipos de integrações, como SendGrid, MailChimp, Microsoft 365 e SalesForce. Para saber mais , confira a [Documentação dos Aplicativos Lógicos](../logic-apps/index.yml).
+
 1. Na caixa de diálogo **Gmail**, selecione **Entrar** e entre na conta do Gmail da qual deseja enviar o email.
 
     ![Captura de tela que mostra a caixa de diálogo do Gmail que você usa para entrar na conta do Gmail da qual você deseja enviar email.](./media/tutorial-send-email/gmail-sign-in.png)

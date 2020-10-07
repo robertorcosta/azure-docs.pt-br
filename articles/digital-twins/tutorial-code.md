@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: c000d48043a46ecdbdfee263cc5c8ce877f66b4b
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: bd8eee2fd6134bb36c0b0ab45492567f4fdbec26
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88923697"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297497"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Tutorial: Codificação com as APIs dos Gêmeos Digitais do Azure
 
@@ -112,7 +112,7 @@ Para se autenticar, você precisará de três informações:
 >[!TIP]
 > Se você não sabe a *ID de Diretório (locatário)* , obtenha-a executando este comando no [Azure Cloud Shell](https://shell.azure.com):
 > 
-> ```azurecli-interactive
+> ```azurecli
 > az account show --query tenantId
 > ```
 
@@ -234,8 +234,7 @@ await foreach (ModelData md in modelDataList)
     Console.WriteLine($"Type name: {md.DisplayName}: {md.Id}");
 }
 ```
-
-Antes de executar o programa novamente para testar esse novo código, lembre-se de que a última vez que você executou o programa, você já tinha carregado o modelo. Os Gêmeos Digitais do Azure não permitirão que você carregue o mesmo modelo duas vezes; portanto, espere ver uma exceção ao executar novamente o programa.
+Antes de executar o programa novamente para testar esse novo código, lembre-se de que a última vez que você executou o programa, você já tinha carregado o modelo. Os Gêmeos Digitais do Azure não permitem que você carregue o mesmo modelo duas vezes. Sendo assim, se você tentar carregar o mesmo modelo novamente, o programa deverá lançar uma exceção.
 
 Agora, execute o programa novamente com este comando na janela Comando:
 
@@ -258,7 +257,6 @@ try {
     Console.WriteLine($"Load model: {rex.Status}:{rex.Message}");
 }
 ```
-
 Se você executar o programa com `dotnet run` na janela Comando agora, receberá um código de erro. A saída é parecida com esta:
 
 ```cmd/sh
@@ -270,11 +268,11 @@ Load model: 409:Service request failed.
 Status: 409 (Conflict)
 
 Content:
-{"error":{"code":"DocumentAlreadyExists","message":"A document with same identifier already exists.","details":[]}}
+{"error":{"code":"ModelAlreadyExists","message":"Model with same ID already exists dtmi:com:contoso:SampleModel;1. Use Model_List API to view models that already exist. See the Swagger example. (http://aka.ms/ModelListSwSmpl):}}
 
 Headers:
 api-supported-versions: REDACTED
-Date: Tue, 05 May 2020 01:57:51 GMT
+Date: Thu, 10 Sep 2020 01:57:51 GMT
 Content-Length: 115
 Content-Type: application/json; charset=utf-8
 
@@ -322,12 +320,13 @@ Observe que nenhum erro é gerado quando os gêmeos são criados na segunda vez,
 
 Em seguida, você pode criar **relações** entre os gêmeos criados para conectá-los a um **grafo de gêmeos**. Os [grafos de gêmeos](concepts-twins-graph.md) são usados para representar todo o ambiente.
 
-Para criar relações, adicione uma instrução `using` para o tipo base de relação no SDK (ignore isso caso ela já tenha sido adicionada).
+Para poder criar relações, você precisará do namespace `Azure.DigitalTwins.Core.Serialization`. Você adicionou o ao projeto anteriormente com esta instrução `using`:
+
 ```csharp
 using Azure.DigitalTwins.Core.Serialization;
 ```
 
-Em seguida, adicione um novo método estático à classe `Program`, sob o método `Main`:
+Adicione um novo método estático à classe `Program`, sob o método `Main`:
 ```csharp
 public async static Task CreateRelationship(DigitalTwinsClient client, string srcId, string targetId)
 {
@@ -391,6 +390,25 @@ await ListRelationships(client, "sampleTwin-0");
 ```
 
 Na janela Comando, execute o programa com `dotnet run`. Você deverá ver uma lista de todas as relações criadas.
+
+Veja um exemplo de saída:
+
+```cmd/sh
+Hello World!
+Service client created - ready to go
+
+Upload a model
+Type name: System.Collections.Generic.Dictionary'2[System.String,System.String]: dtmi:contosocom:DigitalTwins:SampleModel;1
+Create twin: sampleTwin-0
+Create twin: sampleTwin-1
+Create twin: sampleTwin-2
+Created relationship successfully
+Created relationship successfully
+Twin sampleTwin-0 is connected to:
+-contains->sampleTwin-1
+-contains->sampleTwin-2
+
+```
 
 ### <a name="query-digital-twins"></a>Consultar os gêmeos digitais
 

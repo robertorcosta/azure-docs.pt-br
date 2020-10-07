@@ -5,14 +5,14 @@ author: vhorne
 ms.service: web-application-firewall
 services: web-application-firewall
 ms.topic: tutorial
-ms.date: 03/18/2020
+ms.date: 09/16/2020
 ms.author: victorh
-ms.openlocfilehash: 7a9e0cc3977892fd899b4a25e17ad72f13481506
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: c5505b9437a4bd8dced6a090817b17d5e29374f2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82608806"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327931"
 ---
 # <a name="tutorial-create-a-waf-policy-on-azure-cdn-using-the-azure-portal"></a>Tutorial: Criar uma política de WAF na CDN do Azure usando o portal do Azure
 
@@ -72,17 +72,22 @@ Para criar uma regra personalizada, selecione **Adicionar regra personalizada** 
 
 A captura de tela a seguir mostra uma regra de correspondência personalizada para bloquear uma solicitação se a cadeia de caracteres de consulta contém o valor **blockme**.
 
-![Alterar o modo de política WAF](../media/waf-cdn-create-portal/custommatch.png)
+![Adicionar regra de correspondência personalizada](../media/waf-cdn-create-portal/custommatch.png)
 
 As regras de limite de taxa exigem dois campos adicionais: **Duração do limite de taxa** e **Limiar do limite de taxa (solicitações)** , conforme mostrado no seguinte exemplo:
 
-![Alterar o modo de política WAF](../media/waf-cdn-create-portal/customrate.png)
+![Adicionar regra de limite de taxa](../media/waf-cdn-create-portal/customrate.png)
 
 ### <a name="default-rule-set-drs"></a>DRS (Conjunto de Regras Padrão)
 
 O Conjunto de Regras Padrão gerenciado pelo Azure é habilitado por padrão. Para desabilitar uma regra individual em um grupo de regras, expanda as regras nesse grupo, marque a caixa de seleção ao lado do número da regra e clique em **Desabilitar** na guia acima. Para alterar os tipos de ações para regras individuais no grupo de regras, marque a caixa de seleção ao lado do número da regra e clique em **Alterar ação** na guia acima.
 
  ![Alterar conjunto de regras de WAF](../media/waf-cdn-create-portal/managed2.png)
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Remova o grupo de recursos e todos os recursos relacionados quando eles não forem mais necessários.
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

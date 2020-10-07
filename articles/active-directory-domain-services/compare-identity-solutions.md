@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 06/08/2020
 ms.author: iainfou
-ms.openlocfilehash: 1ed1305939f4f8a9de62de85a2f09c323a2636b1
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: af4ebcac38d4714b8a133087fe328b4d2f6c4872
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489581"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396358"
 ---
 # <a name="compare-self-managed-active-directory-domain-services-azure-active-directory-and-managed-azure-active-directory-domain-services"></a>Comparar o Active Directory Domain Services autogerenciado, o Azure Active Directory e o Azure Active Directory Domain Services gerenciado
 
@@ -26,7 +26,7 @@ Embora as três soluções de identidade baseadas em Active Directory compartilh
 * **AD DS (Active Directory Domain Services)** – servidor de protocolo LDAP pronto para empresas que fornece recursos importantes como identidade e autenticação, gerenciamento de objetos de computador, política de grupo e relações de confiança.
     * O AD DS é um componente central em muitas organizações com um ambiente de TI local e fornece autenticação de conta de usuário principal e recursos de gerenciamento de computador.
     * Para obter mais informações, confira [Visão geral do Active Directory Domain Services na documentação do Windows Server][overview-adds].
-* **Azure AD (Azure Active Directory)** – gerenciamento de identidades e dispositivos móveis baseado em nuvem que fornece serviços de autenticação e de conta de usuário para recursos como o Office 365, o portal do Azure ou aplicativos SaaS.
+* **Azure AD (Azure Active Directory)** – gerenciamento de identidades e dispositivo móvel baseado em nuvem que fornece serviços de autenticação e de conta de usuário para recursos como o Microsoft 365, o portal do Azure ou aplicativos SaaS.
     * O Azure AD pode ser sincronizado com um ambiente de AD DS local para fornecer uma única identidade para os usuários que trabalham nativamente na nuvem.
     * Para obter mais informações sobre o Azure AD, confira [O que é o Azure Active Directory?][whatis-azuread]
 * **Azure AD DS (Azure Active Directory Domain Services)** – fornece serviços de domínio gerenciado com um subconjunto de recursos tradicionais do AD DS totalmente compatíveis, como ingresso no domínio, política de grupo, LDAP e autenticação de Kerberos/NTLM.

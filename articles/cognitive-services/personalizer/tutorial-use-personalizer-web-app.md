@@ -4,12 +4,12 @@ description: Personalize um aplicativo Web .NET em C# com um loop Personalizador
 ms.topic: tutorial
 ms.date: 06/10/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e9ce4c433a038008b1ffd75dc6c4b2f9d0b57fde
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 59881a749676f4f5408c1ffc87b3bcf75c512e1e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935612"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316215"
 ---
 # <a name="tutorial-add-personalizer-to-a-net-web-app"></a>Tutorial: Adicionar Personalizador a um aplicativo Web .NET
 
@@ -254,7 +254,7 @@ Compile e execute o HttpRequestFeaturesExample com um dos seguintes métodos:
 Usando um navegador da Web, você pode enviar uma solicitação de Classificação e uma solicitação de Recompensa e ver as respostas, bem como os recursos de solicitação HTTP extraídos do seu ambiente.
 
 > [!div class="mx-imgBorder"]
-> ![Compile e execute o projeto HTTPRequestFeaturesExample. Uma janela do navegador é aberta para exibir o aplicativo de página única.](./media/tutorial-web-app/web-app-single-page.png)
+> ![A captura de tela mostra um exemplo do Recurso de Solicitação HTTP em um navegador da Web.](./media/tutorial-web-app/web-app-single-page.png)
 
 ## <a name="demonstrate-the-personalizer-loop"></a>Demonstrar o loop do Personalizador
 
@@ -267,7 +267,7 @@ Usando um navegador da Web, você pode enviar uma solicitação de Classificaç�
 1. Defina o valor de recompensa e selecione o botão **Enviar Solicitação de Recompensa**. Se você não alterar o valor de recompensa, o aplicativo cliente sempre enviará o valor igual a `1` para o Personalizador.
 
     > [!div class="mx-imgBorder"]
-    > ![Compile e execute o projeto HTTPRequestFeaturesExample. Uma janela do navegador é aberta para exibir o aplicativo de página única.](./media/tutorial-web-app/reward-score-api-call.png)
+    > ![A captura de tela mostra a seção Solicitação de Recompensa.](./media/tutorial-web-app/reward-score-api-call.png)
 
     Para seu aplicativo futuro, a geração da pontuação de recompensa pode ocorrer após a coleta de informações do comportamento do usuário no cliente, juntamente com a lógica de negócios no servidor.
 

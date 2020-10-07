@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 0b7e277518337072659bf5ccddd3436c05ff5201
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 0db39884ef54310db849abcef1062adbaeb9f22e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563787"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292635"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Tutorial: Criar uma solução de ponta a ponta
 
@@ -59,11 +59,11 @@ O projeto de exemplo também contém um componente de autorização interativo. 
 
 Primeiro, você usará a solução *AdtSampleApp* do projeto de exemplo para criar a parte referente aos Gêmeos Digitais do Azure do cenário de ponta a ponta (**seção A**):
 
-:::image type="content" source="media/tutorial-end-to-end/building-scenario-a.png" alt-text="Um trecho do gráfico de cenário de construção completo realçando a seção A, a instância dos Gêmeos Digitais do Azure":::
+:::image type="content" source="media/tutorial-end-to-end/building-scenario-a.png" alt-text="Gráfico do cenário de construção completo. Descreve dados que fluem de um dispositivo para o Hub IoT, por meio de uma função do Azure (seta B) para uma instância dos Gêmeos Digitais do Azure (seção A) e, em seguida, pela Grade de Eventos para outra função do Azure para processamento (seta C)":::
 
 Na janela do Visual Studio em que o projeto _**AdtE2ESample**_ está aberto, execute o projeto com este botão na barra de ferramentas:
 
-:::image type="content" source="media/tutorial-end-to-end/start-button-sample.png" alt-text="O botão de início do Visual Studio (projeto SampleClientApp)":::
+:::image type="content" source="media/tutorial-end-to-end/start-button-sample.png" alt-text="Gráfico do cenário de construção completo. Descreve dados que fluem de um dispositivo para o Hub IoT, por meio de uma função do Azure (seta B) para uma instância dos Gêmeos Digitais do Azure (seção A) e, em seguida, pela Grade de Eventos para outra função do Azure para processamento (seta C)":::
 
 Uma janela de console será aberta, executará a autenticação e aguardará um comando. Neste console, execute o comando seguinte para criar uma instância da solução de exemplo dos Gêmeos Digitais do Azure.
 
@@ -78,13 +78,23 @@ A saída desse comando é uma série de mensagens de confirmação, conforme tr�
 
 Elas são conectadas pelas relações no seguinte [**gráfico gêmeo**](concepts-twins-graph.md). O gráfico gêmeo representa o ambiente como um todo, incluindo como as entidades interagem e se relacionam entre si.
 
-:::image type="content" source="media/tutorial-end-to-end/building-scenario-graph.png" alt-text="Um gráfico que mostra que floor1 contém room21 e que room21 contém thermostat67" border="false":::
+:::image type="content" source="media/tutorial-end-to-end/building-scenario-graph.png" alt-text="Gráfico do cenário de construção completo. Descreve dados que fluem de um dispositivo para o Hub IoT, por meio de uma função do Azure (seta B) para uma instância dos Gêmeos Digitais do Azure (seção A) e, em seguida, pela Grade de Eventos para outra função do Azure para processamento (seta C)" border="false":::
 
 Você pode verificar que os gêmeos foram criados executando o comando a seguir, que consulta a instância conectada dos Gêmeos Digitais do Azure para todos os gêmeos digitais que ela contém:
 
 ```cmd/sh
 Query
 ```
+
+>[!TIP]
+> Esse método simplificado é fornecido como parte do projeto _**AdtE2ESample**_. Fora do contexto deste exemplo de código, você pode consultar todos os gêmeos na instância a qualquer momento usando as [APIs de Consulta](how-to-use-apis-sdks.md) ou os [comandos da CLI](how-to-use-cli.md).
+>
+> Este é o corpo da consulta completa para obter todas as gêmeos digitais na instância:
+> 
+> ```sql
+> SELECT *
+> FROM DIGITALTWINS
+> ``` 
 
 Depois disso, você pode parar de executar o projeto. No entanto, mantenha a solução aberta no Visual Studio, pois ela será usada em todo o tutorial.
 
@@ -104,29 +114,29 @@ Antes de publicar o aplicativo, é uma boa ideia verificar se suas dependências
 
 No painel *Gerenciador de Soluções*, expanda *SampleFunctionsApp > Dependências*. Selecione com o botão direito do mouse *Pacotes* e escolha *Gerenciar Pacotes do NuGet...* .
 
-:::image type="content" source="media/tutorial-end-to-end/update-dependencies-1.png" alt-text="Visual Studio: Gerenciar pacotes do NuGet para o projeto SampleFunctionsApp" border="false":::
+:::image type="content" source="media/tutorial-end-to-end/update-dependencies-1.png" alt-text="Gráfico do cenário de construção completo. Descreve dados que fluem de um dispositivo para o Hub IoT, por meio de uma função do Azure (seta B) para uma instância dos Gêmeos Digitais do Azure (seção A) e, em seguida, pela Grade de Eventos para outra função do Azure para processamento (seta C)" border="false":::
 
 Isso abrirá o Gerenciador de Pacotes do NuGet. Selecione a guia *Atualizações* e, se houver pacotes a serem atualizados, marque a caixa para *Selecionar todos os pacotes*. Em seguida, clique em *Atualizar*.
 
-:::image type="content" source="media/tutorial-end-to-end/update-dependencies-2.png" alt-text="Visual Studio: Como selecionar para atualizar todos os pacotes no Gerenciador de Pacotes do NuGet":::
+:::image type="content" source="media/tutorial-end-to-end/update-dependencies-2.png" alt-text="Gráfico do cenário de construção completo. Descreve dados que fluem de um dispositivo para o Hub IoT, por meio de uma função do Azure (seta B) para uma instância dos Gêmeos Digitais do Azure (seção A) e, em seguida, pela Grade de Eventos para outra função do Azure para processamento (seta C)":::
 
 ### <a name="publish-the-app"></a>Publicar o aplicativo
 
 De volta à janela do Visual Studio em que o projeto _**AdtE2ESample**_ está aberto, no painel do *Gerenciador de Soluções*, selecione o arquivo de projeto _**SampleFunctionsApp**_ e pressione **Publicar**.
 
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-1.png" alt-text="Visual Studio: publicar projeto":::
+:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-1.png" alt-text="Gráfico do cenário de construção completo. Descreve dados que fluem de um dispositivo para o Hub IoT, por meio de uma função do Azure (seta B) para uma instância dos Gêmeos Digitais do Azure (seção A) e, em seguida, pela Grade de Eventos para outra função do Azure para processamento (seta C)":::
 
 Na página *Publicar* que aparece, deixe a seleção de destino padrão **Azure** e pressione *Avançar*. 
 
 Para um destino específico, escolha **Aplicativo de Funções do Azure (Windows)** e pressione *Avançar*.
 
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-2.png" alt-text="Publicar função do Azure no Visual Studio: destino específico":::
+:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-2.png" alt-text="Gráfico do cenário de construção completo. Descreve dados que fluem de um dispositivo para o Hub IoT, por meio de uma função do Azure (seta B) para uma instância dos Gêmeos Digitais do Azure (seção A) e, em seguida, pela Grade de Eventos para outra função do Azure para processamento (seta C)":::
 
 Na página da *instância do Azure Functions*, escolha sua assinatura. Isso deve popular uma caixa com os *grupos de recursos* em sua assinatura.
 
 Selecione o grupo de recursos de sua instância e clique em *+ Criar uma função do Azure...* .
 
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-3.png" alt-text="Publicar função do Azure no Visual Studio: instância do Azure Functions (antes do aplicativo de funções)":::
+:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-3.png" alt-text="Gráfico do cenário de construção completo. Descreve dados que fluem de um dispositivo para o Hub IoT, por meio de uma função do Azure (seta B) para uma instância dos Gêmeos Digitais do Azure (seção A) e, em seguida, pela Grade de Eventos para outra função do Azure para processamento (seta C)":::
 
 Na janela *Aplicativo de Funções (Windows) – Criar*, preencha os campos da seguinte maneira:
 * **Nome** é o nome do plano de consumo que o Azure usará para hospedar o aplicativo do Azure Functions. Ele também se tornará o nome do aplicativo de funções que contém sua função real. Você pode escolher seu valor exclusivo ou deixar a sugestão padrão.
@@ -136,20 +146,20 @@ Na janela *Aplicativo de Funções (Windows) – Criar*, preencha os campos da s
 * Selecione **Local** correspondente ao local de seu grupo de recursos
 * Crie um recurso do **Armazenamento do Azure** usando o link *Novo...* . Defina o local de modo que corresponda ao seu grupo de recursos, use os outros valores padrão e selecione "OK".
 
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-4.png" alt-text="Publicar função do Azure no Visual Studio: Aplicativo de Funções (Windows) – Criar":::
+:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-4.png" alt-text="Gráfico do cenário de construção completo. Descreve dados que fluem de um dispositivo para o Hub IoT, por meio de uma função do Azure (seta B) para uma instância dos Gêmeos Digitais do Azure (seção A) e, em seguida, pela Grade de Eventos para outra função do Azure para processamento (seta C)":::
 
 Em seguida, selecione **Criar**.
 
 Isso deve levar você de volta à página da *instância do Azure Functions*, em que seu novo aplicativo de funções agora está visível abaixo do grupo de recursos. Selecione *Concluir*.
 
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-5.png" alt-text="Publicar função do Azure no Visual Studio: instância do Azure Functions (após o aplicativo de funções)":::
+:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-5.png" alt-text="Gráfico do cenário de construção completo. Descreve dados que fluem de um dispositivo para o Hub IoT, por meio de uma função do Azure (seta B) para uma instância dos Gêmeos Digitais do Azure (seção A) e, em seguida, pela Grade de Eventos para outra função do Azure para processamento (seta C)":::
 
 No painel *Publicar* que é aberto na janela principal do Visual Studio, verifique se todas as informações parecem corretas e selecione **Publicar**.
 
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-6.png" alt-text="Publicar função do Azure no Visual Studio: publicar":::
+:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-6.png" alt-text="Gráfico do cenário de construção completo. Descreve dados que fluem de um dispositivo para o Hub IoT, por meio de uma função do Azure (seta B) para uma instância dos Gêmeos Digitais do Azure (seção A) e, em seguida, pela Grade de Eventos para outra função do Azure para processamento (seta C)":::
 
 > [!NOTE]
-> Você verá um pop-up como este: :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-7.png" alt-text="Publicar função do Azure no Visual Studio: publicar credenciais" border="false":::
+> Você verá um pop-up como este: :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-7.png" alt-text="Gráfico do cenário de construção completo. Descreve dados que fluem de um dispositivo para o Hub IoT, por meio de uma função do Azure (seta B) para uma instância dos Gêmeos Digitais do Azure (seção A) e, em seguida, pela Grade de Eventos para outra função do Azure para processamento (seta C)" border="false":::
 > Selecione **Tentativa de recuperar credenciais do Azure** e escolha **Salvar**.
 >
 > Se você vir um aviso para *Versão das Funções de Atualização no Azure* ou se *Sua versão do runtime de funções não corresponder à versão em execução no Azure*:
@@ -188,7 +198,7 @@ Nesta etapa, você conectará um dispositivo de termostato simulado registrado n
 
 Ele acontece nesta parte do cenário de ponta a ponta (**seta B**):
 
-:::image type="content" source="media/tutorial-end-to-end/building-scenario-b.png" alt-text="Um trecho do gráfico do cenário de construção completo realçando a seta B, os elementos antes dos Gêmeos Digitais do Azure: o dispositivo, o Hub IoT e a primeira função do Azure":::
+:::image type="content" source="media/tutorial-end-to-end/building-scenario-b.png" alt-text="Gráfico do cenário de construção completo. Descreve dados que fluem de um dispositivo para o Hub IoT, por meio de uma função do Azure (seta B) para uma instância dos Gêmeos Digitais do Azure (seção A) e, em seguida, pela Grade de Eventos para outra função do Azure para processamento (seta C)":::
 
 Estas são as ações que você realizará para configurar esta conexão do dispositivo:
 1. Criar um hub IoT que gerenciará o dispositivo simulado
@@ -219,18 +229,18 @@ Para fazer isso, você criará uma **Assinatura de Evento** no Hub IoT, com a fu
 
 No [portal do Azure](https://portal.azure.com/), navegue até o hub IoT recém-criado pesquisando pelo nome dele na barra de pesquisa superior. Selecione *Eventos* no menu do hub e selecione *+ Assinatura de Evento*.
 
-:::image type="content" source="media/tutorial-end-to-end/event-subscription-1.png" alt-text="Portal do Azure: assinatura de evento do Hub IoT":::
+:::image type="content" source="media/tutorial-end-to-end/event-subscription-1.png" alt-text="Gráfico do cenário de construção completo. Descreve dados que fluem de um dispositivo para o Hub IoT, por meio de uma função do Azure (seta B) para uma instância dos Gêmeos Digitais do Azure (seção A) e, em seguida, pela Grade de Eventos para outra função do Azure para processamento (seta C)":::
 
 Isso abrirá a página *Criar Assinatura de Evento*.
 
-:::image type="content" source="media/tutorial-end-to-end/event-subscription-2.png" alt-text="Portal do Azure: criar assinatura de evento":::
+:::image type="content" source="media/tutorial-end-to-end/event-subscription-2.png" alt-text="Gráfico do cenário de construção completo. Descreve dados que fluem de um dispositivo para o Hub IoT, por meio de uma função do Azure (seta B) para uma instância dos Gêmeos Digitais do Azure (seção A) e, em seguida, pela Grade de Eventos para outra função do Azure para processamento (seta C)":::
 
 Preencha os campos da seguinte maneira (os campos preenchidos por padrão não são mencionados):
 * *DETALHES DA ASSINATURA DE EVENTO* > **Nome**: dê um nome à assinatura de evento.
 * *DETALHES DO TÓPICO* > **Nome do Tópico do Sistema**: especifique um nome a ser usado para o tópico do sistema. 
 * *TIPOS DE EVENTO* > **Filtro para Tipos de Evento**: selecione *Telemetria de Dispositivo* nas opções de menu.
 * *DETALHES DO PONTO DE EXTREMIDADE* > **Tipo de Ponto de Extremidade**: selecione *Função do Azure* nas opções de menu.
-* *DETALHES DO PONTO DE EXTREMIDADE* > **Ponto de Extremidade**: clique no link *Selecionar um ponto de extremidade*. Isso abrirá uma janela *Selecionar Função do Azure*: :::image type="content" source="media/tutorial-end-to-end/event-subscription-3.png" alt-text="Assinatura de evento do portal do Azure: selecionar Função do Azure" border="false":::
+* *DETALHES DO PONTO DE EXTREMIDADE* > **Ponto de Extremidade**: clique no link *Selecionar um ponto de extremidade*. Isso abrirá uma janela *Selecionar Função do Azure*: :::image type="content" source="media/tutorial-end-to-end/event-subscription-3.png" alt-text="Gráfico do cenário de construção completo. Descreve dados que fluem de um dispositivo para o Hub IoT, por meio de uma função do Azure (seta B) para uma instância dos Gêmeos Digitais do Azure (seção A) e, em seguida, pela Grade de Eventos para outra função do Azure para processamento (seta C)" border="false":::
     - Preencha os valores para **Assinatura**, **Grupo de recursos**, **Aplicativo de funções** e **Função** (*ProcessHubToDTEvents*). Alguns deles poderão ser preenchidos automaticamente após a seleção da assinatura.
     - Clique em **Confirmar seleção**.
 
@@ -255,13 +265,13 @@ Em seguida, configure o simulador do dispositivo para enviar dados para a instâ
 Comece obtendo a *cadeia de conexão do Hub IoT* com este comando:
 
 ```azurecli
-az iot hub show-connection-string -n <your-IoT-hub-name>
+az iot hub connection-string show -n <your-IoT-hub-name>
 ```
 
 Em seguida, obtenha a *cadeia de conexão do dispositivo* com este comando:
 
 ```azurecli
-az iot hub device-identity show-connection-string --device-id thermostat67 --hub-name <your-IoT-hub-name>
+az iot hub device-identity connection-string show --device-id thermostat67 --hub-name <your-IoT-hub-name>
 ```
 
 Você usará esses valores no código do simulador de dispositivo no projeto local para conectar o simulador ao hub IoT e ao dispositivo do hub IoT.
@@ -282,11 +292,11 @@ Salve o arquivo.
 
 Agora, para ver os resultados da simulação de dados configurada, execute o projeto do **DeviceSimulator** usando esse botão da barra de ferramentas:
 
-:::image type="content" source="media/tutorial-end-to-end/start-button-simulator.png" alt-text="O botão de início do Visual Studio (projeto DeviceSimulator)":::
+:::image type="content" source="media/tutorial-end-to-end/start-button-simulator.png" alt-text="Gráfico do cenário de construção completo. Descreve dados que fluem de um dispositivo para o Hub IoT, por meio de uma função do Azure (seta B) para uma instância dos Gêmeos Digitais do Azure (seção A) e, em seguida, pela Grade de Eventos para outra função do Azure para processamento (seta C)":::
 
 Uma janela do console será aberta e exibirá mensagens da telemetria de temperatura simulada. Elas estão sendo enviadas ao hub IoT, onde são detectadas e processadas pela função do Azure.
 
-:::image type="content" source="media/tutorial-end-to-end/console-simulator-telemetry.png" alt-text="Saída do console do simulador de dispositivo mostrando a telemetria de temperatura sendo enviada":::
+:::image type="content" source="media/tutorial-end-to-end/console-simulator-telemetry.png" alt-text="Gráfico do cenário de construção completo. Descreve dados que fluem de um dispositivo para o Hub IoT, por meio de uma função do Azure (seta B) para uma instância dos Gêmeos Digitais do Azure (seção A) e, em seguida, pela Grade de Eventos para outra função do Azure para processamento (seta C)":::
 
 Você não precisa fazer mais nada neste console, mas deixe-o em execução enquanto conclui as próximas etapas.
 
@@ -304,7 +314,7 @@ ObserveProperties thermostat67 Temperature
 
 Você deve ver as temperaturas atualizadas de maneira dinâmica *de sua instância dos Gêmeos Digitais do Azure* sendo registradas no console a cada 10 segundos.
 
-:::image type="content" source="media/tutorial-end-to-end/console-digital-twins-telemetry.png" alt-text="Saída do console mostrando o log de mensagens de temperatura do gêmeo digital thermostat67":::
+:::image type="content" source="media/tutorial-end-to-end/console-digital-twins-telemetry.png" alt-text="Gráfico do cenário de construção completo. Descreve dados que fluem de um dispositivo para o Hub IoT, por meio de uma função do Azure (seta B) para uma instância dos Gêmeos Digitais do Azure (seção A) e, em seguida, pela Grade de Eventos para outra função do Azure para processamento (seta C)":::
 
 Depois de verificar se está tudo funcionando corretamente, você pode parar de executar os dois projetos. Mantenha as janelas do Visual Studio abertas, pois elas serão usadas no restante do tutorial.
 
@@ -314,7 +324,7 @@ Até agora neste tutorial, você viu como os Gêmeos Digitais do Azure podem ser
 
 Para fazer isso, você usará a função do Azure *ProcessDTRoutedData* para atualizar um gêmeo da *Sala* quando o gêmeo do *Termostato* conectado for atualizado. Isso acontece nesta parte do cenário de ponta a ponta (**seta C**):
 
-:::image type="content" source="media/tutorial-end-to-end/building-scenario-c.png" alt-text="Um trecho do gráfico do cenário de construção completo realçando a seta C, os elementos depois dos Gêmeos Digitais do Azure: a Grade de Eventos e a segunda função do Azure":::
+:::image type="content" source="media/tutorial-end-to-end/building-scenario-c.png" alt-text="Gráfico do cenário de construção completo. Descreve dados que fluem de um dispositivo para o Hub IoT, por meio de uma função do Azure (seta B) para uma instância dos Gêmeos Digitais do Azure (seção A) e, em seguida, pela Grade de Eventos para outra função do Azure para processamento (seta C)":::
 
 Estas são as ações que você realizará para configurar este fluxo de dados:
 1. Criar um ponto de extremidade dos Gêmeos Digitais do Azure que conecta a instância à Grade de Eventos
@@ -358,7 +368,7 @@ az dt endpoint show --dt-name <your-Azure-Digital-Twins-instance> --endpoint-nam
 
 Procure o campo `provisioningState` na saída e verifique se o valor é "Êxito". Ele também pode indicar "provisionamento", o que significa que o ponto de extremidade ainda está sendo criado. Nesse caso, aguarde alguns segundos e execute o comando novamente para verificar se ele foi concluído com êxito.
 
-:::image type="content" source="media/tutorial-end-to-end/output-endpoints.png" alt-text="Resultado da consulta do ponto de extremidade, mostrando o ponto de extremidade com o provisioningState igual a Êxito":::
+:::image type="content" source="media/tutorial-end-to-end/output-endpoints.png" alt-text="Gráfico do cenário de construção completo. Descreve dados que fluem de um dispositivo para o Hub IoT, por meio de uma função do Azure (seta B) para uma instância dos Gêmeos Digitais do Azure (seção A) e, em seguida, pela Grade de Eventos para outra função do Azure para processamento (seta C)":::
 
 Salve os nomes que você atribuiu ao tópico da grade de eventos e ao ponto de extremidade dos Gêmeos Digitais do Azure. Você os usará mais tarde.
 
@@ -385,7 +395,7 @@ Para fazer isso, você criará uma **assinatura da Grade de Eventos** do tópico
 
 No [portal do Azure](https://portal.azure.com/), navegue até o tópico da grade de eventos pesquisando pelo nome dele na barra de pesquisa superior. Selecione *+ Assinatura de Evento*.
 
-:::image type="content" source="media/tutorial-end-to-end/event-subscription-1b.png" alt-text="Portal do Azure: assinatura de evento da Grade de Eventos":::
+:::image type="content" source="media/tutorial-end-to-end/event-subscription-1b.png" alt-text="Gráfico do cenário de construção completo. Descreve dados que fluem de um dispositivo para o Hub IoT, por meio de uma função do Azure (seta B) para uma instância dos Gêmeos Digitais do Azure (seção A) e, em seguida, pela Grade de Eventos para outra função do Azure para processamento (seta C)":::
 
 As etapas para criar essa assinatura de evento são semelhantes a quando você assinou a primeira função do Azure para o Hub IoT anteriormente neste tutorial. Desta vez, você não precisa especificar *Telemetria do Dispositivo* como o tipo de evento a ser escutado e você se conectará a outra função do Azure.
 
@@ -404,7 +414,7 @@ Agora, você pode executar o simulador do dispositivo para iniciar o novo fluxo 
 
 Como ocorreu quando você executou o simulador de dispositivo anteriormente, uma janela do console será aberta e exibirá mensagens da telemetria de temperatura simulada. Esses eventos estão passando pelo fluxo configurado anteriormente para atualizar o gêmeo *thermostat67* e, em seguida, percorrendo o fluxo configurado para atualizar o gêmeo *room21* de maneira correspondente.
 
-:::image type="content" source="media/tutorial-end-to-end/console-simulator-telemetry.png" alt-text="Saída do console do simulador de dispositivo mostrando a telemetria de temperatura sendo enviada":::
+:::image type="content" source="media/tutorial-end-to-end/console-simulator-telemetry.png" alt-text="Gráfico do cenário de construção completo. Descreve dados que fluem de um dispositivo para o Hub IoT, por meio de uma função do Azure (seta B) para uma instância dos Gêmeos Digitais do Azure (seção A) e, em seguida, pela Grade de Eventos para outra função do Azure para processamento (seta C)":::
 
 Você não precisa fazer mais nada neste console, mas deixe-o em execução enquanto conclui as próximas etapas.
 
@@ -418,7 +428,7 @@ ObserveProperties thermostat67 Temperature room21 Temperature
 
 Você deve ver as temperaturas atualizadas de maneira dinâmica *de sua instância dos Gêmeos Digitais do Azure* sendo registradas no console a cada 10 segundos. Observe que a temperatura de *room21* está sendo atualizada de maneira a corresponder às atualizações de *thermostat67*.
 
-:::image type="content" source="media/tutorial-end-to-end/console-digital-twins-telemetry-b.png" alt-text="Saída do console mostrando o log de mensagens de temperatura de um termostato e de uma sala":::
+:::image type="content" source="media/tutorial-end-to-end/console-digital-twins-telemetry-b.png" alt-text="Gráfico do cenário de construção completo. Descreve dados que fluem de um dispositivo para o Hub IoT, por meio de uma função do Azure (seta B) para uma instância dos Gêmeos Digitais do Azure (seção A) e, em seguida, pela Grade de Eventos para outra função do Azure para processamento (seta C)":::
 
 Depois de verificar se está tudo funcionando corretamente, você pode parar de executar os dois projetos. Você também pode fechar as janelas do Visual Studio, uma vez que o tutorial está concluído.
 
@@ -436,7 +446,7 @@ Aqui, temos uma revisão do cenário que você criou neste tutorial.
 
 Se você não precisa mais dos recursos criados neste tutorial, siga estas etapas para excluí-los. 
 
-Usando o [Azure Cloud Shell](https://shell.azure.com), exclua todos os recursos do Azure em um grupo de recursos com o comando [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete). Isso remove o grupo de recursos, a instância dos Gêmeos Digitais do Azure, o hub IoT e o registro do dispositivo de hub, os aplicativos do Azure Functions, o tópico da Grade de Eventos e as assinaturas associadas, incluindo ambas as funções e os recursos associados, como o armazenamento.
+Usando o [Azure Cloud Shell](https://shell.azure.com), exclua todos os recursos do Azure em um grupo de recursos com o comando [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest&preserve-view=true#az-group-delete). Isso remove o grupo de recursos, a instância dos Gêmeos Digitais do Azure, o hub IoT e o registro do dispositivo de hub, os aplicativos do Azure Functions, o tópico da Grade de Eventos e as assinaturas associadas, incluindo ambas as funções e os recursos associados, como o armazenamento.
 
 > [!IMPORTANT]
 > A exclusão de um grupo de recursos é irreversível. O grupo de recursos e todos os recursos contidos nele são excluídos permanentemente. Não exclua acidentalmente o grupo de recursos ou os recursos incorretos. 

@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc, devx-track-csharp
 ms.date: 02/27/2020
-ms.openlocfilehash: 4adec4579cf1a413aeac54782b4f9a833d557ad9
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 38b4713383368f0c64983738f2ed65f60edb9e67
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90029963"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334082"
 ---
 # <a name="tutorial-automate-tasks-to-process-emails-by-using-azure-logic-apps-azure-functions-and-azure-storage"></a>Tutorial: Automatizar tarefas para processar emails usando os Aplicativos Lógicos do Azure, o Azure Functions e o Armazenamento do Azure
 
@@ -323,7 +323,7 @@ Agora, adicione uma condição que seleciona somente emails com anexos.
 
    1. Na primeira linha em **E**, clique na caixa à esquerda. Na lista de conteúdo dinâmico exibida, selecione a propriedade **Tem Anexo**.
 
-      ![Condição da compilação](./media/tutorial-process-email-attachments-workflow/build-condition.png)
+      ![Captura de tela que mostra a propriedade "And" da condição e a seleção da propriedade "Has Attachment".](./media/tutorial-process-email-attachments-workflow/build-condition.png)
 
    1. Na caixa do meio, mantenha o operador **é igual a**.
 
@@ -389,7 +389,7 @@ Esta etapa adiciona a função do Azure criada anteriormente ao seu aplicativo l
 
    ![Dentro de "If true", adicionar ação](./media/tutorial-process-email-attachments-workflow/if-true-add-action.png)
 
-1. Na caixa de pesquisa, encontre "azure functions" e selecione esta ação: **Escolher uma função do Azure – Azure Functions**
+1. Na caixa de pesquisa, encontre "Azure Functions" e selecione esta ação: **Escolher uma função do Azure – Azure Functions**
 
    ![Selecionar ação para "Escolher uma função do Azure"](./media/tutorial-process-email-attachments-workflow/add-action-azure-function.png)
 
@@ -458,7 +458,7 @@ Em seguida, adicione uma ação que cria um blob em seu contêiner de armazename
 
    Após a conclusão, a ação será semelhante a este exemplo:
 
-   ![Ação "Criar blob" concluída](./media/tutorial-process-email-attachments-workflow/create-blob-for-email-body-done.png)
+   ![Captura de tela que mostra um exemplo de uma ação "Criar blob" concluída.](./media/tutorial-process-email-attachments-workflow/create-blob-for-email-body-done.png)
 
 1. Salve seu aplicativo lógico.
 

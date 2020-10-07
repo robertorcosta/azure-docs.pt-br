@@ -3,14 +3,14 @@ title: Fundamentos de Arquitetura no Azure Lab Services | Microsoft Docs
 description: O artigo abordará os recursos fundamentais usados pelo Lab Services e a arquitetura básica de um laboratório.
 author: emaher
 ms.topic: overview
-ms.date: 06/26/2020
+ms.date: 09/16/2020
 ms.author: enewman
-ms.openlocfilehash: 93e95e1b03cd942e513a6d643f8a9e96399c231b
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.openlocfilehash: ac390fb6624ffc762f77b676c778165e7382f73f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85445637"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91334031"
 ---
 # <a name="architecture-fundamentals-in-azure-lab-services"></a>Fundamentos de Arquitetura no Azure Lab Services
 
