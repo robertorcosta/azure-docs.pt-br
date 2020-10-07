@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
 ms.openlocfilehash: ab861b3ed265da9060e2367bdfdeeeee7047c584
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88815854"
 ---
 # <a name="use-the-azure-portal-to-restrict-importexport-access-for-managed-disks-with-private-links"></a>Usar o portal do Azure para restringir o acesso de importação/exportação aos discos gerenciados com Links Privados
@@ -52,7 +52,7 @@ Você precisará anotar a rede virtual da VM à qual os discos estão anexados. 
 
 Quando o recurso for criado, acesse-o diretamente.
 
-:::image type="content" source="media/disks-enable-private-links-for-import-export-portal/screenshot-resource-button.png" alt-text="Captura de tela do botão Ir para recurso no portal":::
+:::image type="content" source="media/disks-enable-private-links-for-import-export-portal/screenshot-resource-button.png" alt-text="Captura de tela da folha de criação de acesso a disco. Preencha o nome desejado, selecione uma região, escolha um grupo de recursos e prossiga":::
 
 ## <a name="create-a-private-endpoint"></a>Criar um ponto de extremidade privado
 
@@ -61,13 +61,13 @@ Agora que você tem um recurso de acesso a disco, use-o para lidar com o acesso 
 1. No recurso de acesso a disco, selecione **Conexões de ponto de extremidade privado**.
 1. Selecione **+ Ponto de extremidade privado**.
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-main-private-blade.png" alt-text="Captura de tela da folha de visão geral do recurso de acesso a disco. As conexões do ponto de extremidade privado estão realçadas.":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-main-private-blade.png" alt-text="Captura de tela da folha de criação de acesso a disco. Preencha o nome desejado, selecione uma região, escolha um grupo de recursos e prossiga":::
 
 1. Selecionar um grupo de recursos
 1. Preencha o nome e selecione a mesma região em que o recurso de acesso a disco foi criado.
 1. Selecione **Avançar: Recurso >**
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-first-blade.png" alt-text="Captura de tela do fluxo de trabalho de criação do ponto de extremidade privado, primeira folha. Se você não selecionar a região apropriada, poderá ter problemas mais tarde.":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-first-blade.png" alt-text="Captura de tela da folha de criação de acesso a disco. Preencha o nome desejado, selecione uma região, escolha um grupo de recursos e prossiga":::
 
 1. Na folha **Recurso**, selecione **Conectar-se a um recurso do Azure em meu diretório**.
 1. Em **Tipo de recurso** selecione **Microsoft.Compute/diskAccesses**
@@ -75,7 +75,7 @@ Agora que você tem um recurso de acesso a disco, use-o para lidar com o acesso 
 1. Mantenha o **Sub-recurso de destino** como **discos**
 1. Selecione **Avançar: Configuração >** .
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-second-blade.png" alt-text="Captura de tela do fluxo de trabalho de criação do ponto de extremidade privado, segunda folha. Com todos os valores realçados (Tipo de recurso, Recurso, Sub-recurso de destino)":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-second-blade.png" alt-text="Captura de tela da folha de criação de acesso a disco. Preencha o nome desejado, selecione uma região, escolha um grupo de recursos e prossiga":::
 
 1. Selecione a rede virtual para a qual deseja limitar a exportação de disco; as outras redes virtuais não poderão exportar o disco.
 
@@ -85,7 +85,7 @@ Agora que você tem um recurso de acesso a disco, use-o para lidar com o acesso 
 1. Selecione a sub-rede apropriada
 1. Selecione **Examinar + criar**.
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-third-blade.png" alt-text="Captura de tela do fluxo de trabalho de criação do ponto de extremidade privado, terceira folha. Rede virtual e sub-rede enfatizadas.":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-third-blade.png" alt-text="Captura de tela da folha de criação de acesso a disco. Preencha o nome desejado, selecione uma região, escolha um grupo de recursos e prossiga":::
 
 ## <a name="enable-private-endpoint-on-your-disk"></a>Habilitar o ponto de extremidade privado no seu disco
 
@@ -94,7 +94,7 @@ Agora que você tem um recurso de acesso a disco, use-o para lidar com o acesso 
 1. Selecione **Ponto de extremidade privado (por meio do acesso a disco)** e escolha o acesso a disco criado anteriormente.
 1. Clique em **Salvar**.
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-managed-disk-networking-blade.png" alt-text="Captura de tela da folha da rede do disco gerenciado. Realce da seleção de ponto de extremidade privado, bem como o acesso a disco selecionado. Salvar isso configura o disco para esse acesso.":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-managed-disk-networking-blade.png" alt-text="Captura de tela da folha de criação de acesso a disco. Preencha o nome desejado, selecione uma região, escolha um grupo de recursos e prossiga":::
 
 Agora você concluiu a configuração de Links Privados que podem ser usados ao importar/exportar seu disco gerenciado.
 

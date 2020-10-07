@@ -9,10 +9,10 @@ ms.custom: subject-armqs
 ms.author: danlep
 ms.date: 05/26/2020
 ms.openlocfilehash: 2cfce37ff63a8321f40843ced2a7b786bcfc013e
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88649594"
 ---
 # <a name="quickstart-create-a-geo-replicated-container-registry-by-using-an-arm-template"></a>Início Rápido: Criar um registro de contêiner com replicação geográfica usando um modelo do Resource Manager
@@ -62,7 +62,7 @@ Mais exemplos de modelo do Registro de Contêiner do Azure podem ser encontrados
 
  3. Se você aceitar os termos e condições, selecione **Comprar**. Depois que o Registro tiver sido criado com êxito, você receberá uma notificação:
 
-     :::image type="content" source="media/container-registry-get-started-geo-replication-template/deployment-notification.png" alt-text="Notificação do portal":::
+     :::image type="content" source="media/container-registry-get-started-geo-replication-template/deployment-notification.png" alt-text="Propriedades do modelo":::
 
  O portal do Azure é usado para implantar o modelo. Além do portal do Azure, você pode usar o Azure PowerShell, a CLI do Azure e a API REST. Para saber mais sobre outros métodos de implantação, confira [Implantar modelos](../azure-resource-manager/templates/deploy-cli.md).
 
@@ -74,11 +74,11 @@ Use o portal do Azure ou uma ferramenta como a CLI do Azure para examinar as pro
 
 1. Na página **Visão geral**, observe o **Servidor de logon** do Registro. Use esse URI ao usar o Docker para marcar e enviar imagens por push para o Registro. Para obter informações, confira [Enviar por push sua primeira imagem usando a CLI do Docker](container-registry-get-started-docker-cli.md).
 
-    :::image type="content" source="media/container-registry-get-started-geo-replication-template/registry-overview.png" alt-text="Visão geral do Registro":::
+    :::image type="content" source="media/container-registry-get-started-geo-replication-template/registry-overview.png" alt-text="Propriedades do modelo":::
 
 1. Na página **Replicações**, confirme os locais da réplica inicial e da réplica adicionada por meio do modelo. Se desejar, adicione mais réplicas nesta página.
 
-    :::image type="content" source="media/container-registry-get-started-geo-replication-template/registry-replications.png" alt-text="Replicações do Registro":::
+    :::image type="content" source="media/container-registry-get-started-geo-replication-template/registry-replications.png" alt-text="Propriedades do modelo":::
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
