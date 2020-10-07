@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
 ms.openlocfilehash: 11b9c553573d9e6188ba634b4cb966d6a9b850b4
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90943283"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -23,11 +23,11 @@ Para criar um recurso dos Serviços de Comunicação do Azure, primeiro, entre n
 
 Insira **Comunicação** na entrada **Pesquisar o Marketplace** ou na barra de pesquisa na parte superior do portal.
 
-:::image type="content" source="../media/create-a-communication-resource/searchbar-communication-portal.png" alt-text="Captura de tela que mostra uma pesquisa dos serviços de comunicação na barra de pesquisa.":::
+:::image type="content" source="../media/create-a-communication-resource/searchbar-communication-portal.png" alt-text="Captura de tela com realce no botão criar um recurso no portal do Azure.":::
 
 Selecione **Serviços de Comunicação** nos resultados e, em seguida, selecione **Adicionar**.
 
-:::image type="content" source="../media/create-a-communication-resource/add-communication-portal.png" alt-text="Captura de tela que mostra o painel do Azure, realçando o botão adicionar.":::
+:::image type="content" source="../media/create-a-communication-resource/add-communication-portal.png" alt-text="Captura de tela com realce no botão criar um recurso no portal do Azure.":::
 
 Agora você pode configurar o seu recurso dos Serviços de Comunicação. Na primeira página do processo de criação, você será solicitado a especificar:
 

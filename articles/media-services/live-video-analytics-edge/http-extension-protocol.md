@@ -4,10 +4,10 @@ description: Neste artigo, você aprenderá a usar o protocolo de extensão HTTP
 ms.topic: overview
 ms.date: 09/14/2020
 ms.openlocfilehash: bfc8672185d284abc8f2985b44cea92000bc73db
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89448031"
 ---
 # <a name="http-extension-protocol"></a>Protocolo de extensão HTTP

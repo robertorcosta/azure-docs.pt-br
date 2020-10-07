@@ -14,10 +14,10 @@ ms.author: marsma
 ms.custom: aaddev, contperfq1
 ms.reviewer: lenalepa, aragra, sureshja
 ms.openlocfilehash: fc2f3202ac88e3ee6c24db21dd9072a13a8deef9
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89442237"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-a-web-api"></a>Início Rápido: Configurar um aplicativo cliente para acessar uma API Web
@@ -59,7 +59,7 @@ Depois de registrar o aplicativo cliente e a API Web e expor a API criando escop
 
 Depois de adicionar permissões à sua API, você deverá ver as permissões selecionadas em **Permissões configuradas**. A imagem a seguir mostra o exemplo de permissão delegada *Employees.Read.All* adicionada ao registro do aplicativo cliente.
 
-:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-02-configured-permissions-pane.png" alt-text="Painel Permissões configuradas no portal do Azure mostrando a permissão que acaba de ser adicionada":::
+:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-02-configured-permissions-pane.png" alt-text="Diagrama de linha mostrando uma API Web com escopos expostos à direita e um aplicativo cliente à esquerda com esses escopos selecionados como permissões":::
 
 Você também pode observar a permissão *User.Read* para a API do Microsoft Graph. Essa permissão é adicionada automaticamente quando você registra um aplicativo no portal do Azure.
 
@@ -136,11 +136,11 @@ Você pode adicionar o conjunto completo de permissões de uma API ou permissõe
 
 O botão **Dar consentimento do administrador para {seu locatário}** permite que um administrador dê consentimento do administrador às permissões configuradas para o aplicativo. Quando você seleciona o botão, uma caixa de diálogo solicita que você confirme a ação de consentimento.
 
-:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-03-grant-admin-consent-button.png" alt-text="Botão Dar consentimento do administrador realçado no painel Permissões configuradas no portal do Azure":::
+:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-03-grant-admin-consent-button.png" alt-text="Diagrama de linha mostrando uma API Web com escopos expostos à direita e um aplicativo cliente à esquerda com esses escopos selecionados como permissões":::
 
 Depois de dar consentimento, as permissões que exigiam o consentimento do administrador são mostradas como tendo o consentimento:
 
-:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-04-admin-consent-granted.png" alt-text="Configurar a tabela de permissões no portal do Azure mostrando o consentimento do administrador dado para a permissão Files.Read.All":::
+:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-04-admin-consent-granted.png" alt-text="Diagrama de linha mostrando uma API Web com escopos expostos à direita e um aplicativo cliente à esquerda com esses escopos selecionados como permissões":::
 
 O botão **Dar consentimento do administrador** é *desabilitado* se você não é um administrador ou se nenhuma permissão foi configurada para o aplicativo. Se você tiver permissões que foram concedidas, mas ainda não foram configuradas, o botão de consentimento do administrador solicitará que você lide com essas permissões. Você pode adicioná-las a permissões configuradas ou removê-las.
 

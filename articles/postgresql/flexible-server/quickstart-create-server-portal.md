@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.topic: quickstart
 ms.date: 09/22/2020
 ms.openlocfilehash: 25c3f875717c9c064af0ce27bdab735db67d2f5d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90943083"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---flexible-server-in-the-azure-portal"></a>Início Rápido: Criar um Servidor Flexível do Banco de Dados do Azure para PostgreSQL no portal do Azure
@@ -41,11 +41,11 @@ Para criar um Banco de Dados do Azure para o servidor PostgreSQL, execute as seg
 
 3. Selecione a opção de implantação **Servidor flexível**.
 
-   :::image type="content" source="./media/quickstart-create-database-portal/2-select-deployment-option.png" alt-text="Selecionar a opção de implantação Servidor Flexível do Banco de Dados do Azure para PostgreSQL":::
+   :::image type="content" source="./media/quickstart-create-database-portal/2-select-deployment-option.png" alt-text="O Banco de Dados do Azure para PostgreSQL no menu":::
 
 4. Preencha o formulário **Básico** com as seguintes informações:
 
-    :::image type="content" source="./media/quickstart-create-database-portal/3-create-basics.png" alt-text="Criar um servidor":::
+    :::image type="content" source="./media/quickstart-create-database-portal/3-create-basics.png" alt-text="O Banco de Dados do Azure para PostgreSQL no menu":::
 
     Configuração|Valor sugerido|Descrição
     ---|---|---
@@ -58,23 +58,23 @@ Para criar um Banco de Dados do Azure para o servidor PostgreSQL, execute as seg
     Versão|A última versão principal| A última versão principal do PostgreSQL, a menos que você tenha requisitos específicos.
     Computação + armazenamento | **Uso Geral**, **4 vCores**, **512 GB**, **7 dias** | As configurações de computação, armazenamento e backup para o novo servidor. Selecione **Configurar servidor**. *Uso Geral*, *4 vCores*, *512 GB*, and *7 dias* são os valores padrão de **Camada de computação**, **vCore**, **Armazenamento** e **Período de Retenção de Backup**. Você pode deixar esses controles deslizantes como estão ou ajustá-los. Para salvar a seleção desse tipo de preço, selecione **OK**. A captura de tela a seguir demonstra essas seleções.
 
-    :::image type="content" source="./media/quickstart-create-database-portal/4-pricing-tier.png" alt-text="O painel Tipo de preço":::
+    :::image type="content" source="./media/quickstart-create-database-portal/4-pricing-tier.png" alt-text="O Banco de Dados do Azure para PostgreSQL no menu":::
     
 5. Como configurar as opções de Rede
 
     Na guia Rede, você pode escolher como o servidor poderá ser acessado. O Banco de Dados do Azure para PostgreSQL cria um firewall no nível do servidor. Ele impede que os aplicativos e as ferramentas externas se conectem ao servidor e aos bancos de dados no servidor, a menos que uma regra seja criada para abrir o firewall em endereços IP específicos. Recomendamos tornar o servidor publicamente acessível:
 
-    :::image type="content" source="./media/quickstart-create-database-portal/5-networking.png" alt-text="O painel Rede":::
+    :::image type="content" source="./media/quickstart-create-database-portal/5-networking.png" alt-text="O Banco de Dados do Azure para PostgreSQL no menu":::
 
     E, depois, restringi-lo ao seu endereço IP do cliente:
 
-    :::image type="content" source="./media/quickstart-create-database-portal/6-add-client-ip.png" alt-text="Selecionar Adicionar endereço IP do cliente atual":::
+    :::image type="content" source="./media/quickstart-create-database-portal/6-add-client-ip.png" alt-text="O Banco de Dados do Azure para PostgreSQL no menu":::
 
 6. Selecione **Revisar + criar** para revisar suas seleções. Selecione **Criar** para provisionar o servidor. Esta operação pode levar alguns minutos.
 
 7. Na barra de ferramentas, selecione o ícone (sino) **Notificações** para monitorar o processo de implantação. Depois que a implantação é feita, você pode selecionar **Fixar no painel**, que cria um bloco para esse servidor no seu painel do portal do Azure como um atalho para a página **Visão geral** do servidor. A opção **Ir para recurso** abre a página **Visão geral** do servidor.
 
-    :::image type="content" source="./media/quickstart-create-database-portal/7-notifications.png" alt-text="O painel Notificações":::
+    :::image type="content" source="./media/quickstart-create-database-portal/7-notifications.png" alt-text="O Banco de Dados do Azure para PostgreSQL no menu":::
 
    Por padrão, um banco de dados **postgres** é criado no servidor. O banco de dados [postgres](https://www.postgresql.org/docs/12/static/app-initdb.html) é um banco de dados padrão destinado ao uso dos usuários, de utilitários e de aplicativos de terceiros. (O outro banco de dados padrão é o **azure_maintenance**. Sua função é separar os processos de serviço gerenciado das ações do usuário. Não é possível acessar este banco de dados).
 
@@ -88,7 +88,7 @@ Ao criar o Banco de Dados do Azure para o servidor PostgreSQL, um banco de dados
 
 Abra a página **Visão geral** do servidor. Anote o **Nome do servidor** e o **Nome de logon do administrador do servidor**. Focalize o cursor em cada campo e o símbolo de cópia será exibido à direita do texto. Selecione o símbolo de cópia, conforme necessário, para copiar os valores.
 
- :::image type="content" source="./media/quickstart-create-database-portal/8-server-name.png" alt-text="A página Visão geral do servidor":::
+ :::image type="content" source="./media/quickstart-create-database-portal/8-server-name.png" alt-text="O Banco de Dados do Azure para PostgreSQL no menu":::
 
 ## <a name="connect-to-the-postgresql-database-using-psql"></a>Conectar-se ao banco de dados PostgreSQL usando psql
 
@@ -162,7 +162,7 @@ Para excluir apenas o servidor recém-criado:
 
 2. Na página **Visão Geral**, selecione **Excluir**.
 
-    :::image type="content" source="./media/quickstart-create-database-portal/9-delete.png" alt-text="O botão Excluir":::
+    :::image type="content" source="./media/quickstart-create-database-portal/9-delete.png" alt-text="O Banco de Dados do Azure para PostgreSQL no menu":::
 
 3. Confirme o nome do servidor que deseja excluir e veja embaixo do nome dele os bancos de dados que são afetados. Insira o nome do servidor na caixa de texto, como o exemplo **mydemoserver**. Selecione **Excluir**.
 

@@ -9,10 +9,10 @@ ms.date: 07/28/2020
 ms.topic: include
 ms.service: azure-communication-services
 ms.openlocfilehash: d4ef8baa123f805d380b14fa24abff65903cb41d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90943113"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -132,7 +132,7 @@ Execute a Função do Azure localmente usando `F5`. Isso inicializa a Função d
 
 Abra a URL no navegador e veja um corpo de resposta com a ID de usuário de comunicação, o token e o término do token.
 
-:::image type="content" source="../media/trusted-service-sample-response.png" alt-text="Captura de tela mostrando um exemplo de resposta para a Função do Azure criada.":::
+:::image type="content" source="../media/trusted-service-sample-response.png" alt-text="Diagrama para arquitetura de serviço confiável":::
 
 ## <a name="deploy-the-function-to-azure"></a>Implantar a Função no Azure
 

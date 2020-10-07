@@ -9,10 +9,10 @@ ms.custom: subject-armqs
 ms.author: memildin
 ms.date: 08/20/2020
 ms.openlocfilehash: 6c8a3d6c291435a379a637707a42f9ad7fe8dc00
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90906363"
 ---
 # <a name="quickstart-create-an-automatic-response-to-a-specific-security-alert-using-an-azure-resource-manager-template-arm-template"></a>Início Rápido: Criar uma resposta automática para um alerta de segurança específico usando um modelo do ARM (Azure Resource Manager)
@@ -84,7 +84,7 @@ Quando a automação de fluxo de trabalho não for mais necessária, exclua-a us
 1. No [portal do Azure](https://portal.azure.com), abra **Central de Segurança**.
 1. Na barra de menus superior, selecione o ícone de filtro e a assinatura específica na qual você implantou a nova automação de fluxo de trabalho.
 1. Na barra lateral da Central de Segurança, abra **Automação de fluxo de trabalho** e localize a automação a ser excluída.
-    :::image type="content" source="./media/quickstart-automation-alert/deleting-workflow-automation.png" alt-text="Etapas para remover uma automação de fluxo de trabalho" lightbox="./media/quickstart-automation-alert/deleting-workflow-automation.png":::
+    :::image type="content" source="./media/quickstart-automation-alert/deleting-workflow-automation.png" alt-text="Lista de automações configuradas" lightbox="./media/quickstart-automation-alert/deleting-workflow-automation.png":::
 1. Marque a caixa de seleção do item a ser excluído.
 1. Na barra de ferramentas, selecione **Excluir**.
 
