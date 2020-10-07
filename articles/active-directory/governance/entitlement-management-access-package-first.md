@@ -16,12 +16,12 @@ ms.date: 07/22/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b79a631ba82d0b4a420ef27684e5a62571ddf85a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9df1226d4b61326f8e5aa6f9b71d36eb5a33e81e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87034569"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306507"
 ---
 # <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>Tutorial: Criar seu primeiro pacote de acesso no gerenciamento de direitos do Azure AD
 
@@ -29,7 +29,7 @@ Gerenciar o acesso a todos os recursos de que os funcionários precisam, como gr
 
 Neste tutorial, você trabalhará para o Woodgrove Bank como administrador de TI. Você foi solicitado para criar um pacote de recursos para uma campanha de marketing para a qual os usuários internos podem solicitar o autoatendimento. As solicitações não exigem aprovação e o acesso do usuário expira após 30 dias. Para este tutorial, os recursos da campanha de marketing apenas são a associação em um único grupo, mas poderiam ser uma coleção de grupos, aplicativos ou sites do SharePoint Online.
 
-![Visão geral do cenário](./media/entitlement-management-access-package-first/elm-scenario-overview.png)
+![Diagrama mostrando a visão geral do cenário.](./media/entitlement-management-access-package-first/elm-scenario-overview.png)
 
 Neste tutorial, você aprenderá como:
 
@@ -41,6 +41,8 @@ Neste tutorial, você aprenderá como:
 Para obter uma demonstração passo a passo do processo de implantação do gerenciamento de direitos do Azure Active Directory, incluindo a criação de seu primeiro pacote de acesso, veja o vídeo a seguir:
 
 >[!VIDEO https://www.youtube.com/embed/zaaKvaaYwI4]
+
+Você também pode criar um pacote de acesso de forma programática usando o Microsoft Graph. Para obter um tutorial que mostra como criar um pacote de acesso de forma programática, confira [API de gerenciamento de direitos](https://docs.microsoft.com/graph/tutorial-access-package-api?view=graph-rest-beta).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -106,9 +108,9 @@ Um *pacote de acesso* é um pacote de recursos de que uma equipe ou projeto prec
 
 9. No painel Selecionar grupos, localize e selecione o grupo **Recursos de marketing** criado anteriormente.
 
-    Por padrão, você vê grupos dentro e fora do catálogo **Geral**. Quando você seleciona um grupo fora do catálogo **Geral**, ele será adicionado ao catálogo **Geral**.
+     Por padrão, você vê grupos dentro do catálogo Geral. Quando você seleciona um grupo fora do catálogo Geral, que você pode ver ao marcar a caixa de seleção **Ver todos**, ele é adicionado ao catálogo Geral.
 
-    ![Novo pacote de acesso – Guia Funções de recurso](./media/entitlement-management-access-package-first/resource-roles-select-groups.png)
+    ![Captura de tela que mostra a guia "Novo pacote de acesso – Funções de recurso" e a janela "Selecionar grupos".](./media/entitlement-management-access-package-first/resource-roles-select-groups.png)
 
 10. Clique em **Selecionar** para adicionar o grupo à lista.
 
