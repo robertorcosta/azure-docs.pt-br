@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/09/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: eceb9e4c8c839e4da333e005e879ea6094936092
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5f39f5a8f758f390536e5d113629b185252c05d9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525137"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439360"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Tutorial: Criar uma conexão site a site usando a WAN Virtual do Azure
 
@@ -231,7 +231,7 @@ Se você precisar de instruções para configurar o dispositivo, poderá usar as
 
 Você pode ver e definir suas configurações de gateway de VPN a qualquer momento selecionando **Exibir/Configurar**.
 
-:::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-1.png" alt-text="Exibir configuração" lightbox="media/virtual-wan-site-to-site-portal/view-configuration-1-expand.png":::
+:::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-1.png" alt-text="Captura de tela que mostra a página 'VPN (site a site)' com uma seta apontando para a ação 'Exibir/Configurar'." lightbox="media/virtual-wan-site-to-site-portal/view-configuration-1-expand.png":::
 
 Na página **Editar o Gateway de VPN**, você pode ver as seguintes configurações:
 
@@ -240,7 +240,7 @@ Na página **Editar o Gateway de VPN**, você pode ver as seguintes configuraç�
 * Endereço IP BGP Padrão do Gateway de VPN (atribuído pelo Azure)
 * Opção de configuração para o Endereço IP BGP Personalizado: Esse campo é reservado para APIPA (Endereçamento IP Privado Automático). O Azure dá suporte a IP BGP nos intervalos 169.254.21.* e 169.254.22.*. O Azure aceita conexões BGP nesses intervalos, mas discará a conexão com o IP BGP padrão.
 
-   :::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-2.png" alt-text="Exibir configuração" lightbox="media/virtual-wan-site-to-site-portal/view-configuration-2-expand.png":::
+   :::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-2.png" alt-text="Captura de tela que mostra a página 'VPN (site a site)' com uma seta apontando para a ação 'Exibir/Configurar'." lightbox="media/virtual-wan-site-to-site-portal/view-configuration-2-expand.png":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

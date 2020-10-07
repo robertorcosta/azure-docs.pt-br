@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: tutorial
 ms.reviewer: dineshm
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7474cfbd0182797bd62e97979e83e2aeb5244cbc
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 23684dbbc5cb8c2d5fc4880ae8fe1999450928e0
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89008787"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400563"
 ---
 # <a name="tutorial-work-with-azure-storage-queues-in-net"></a>Tutorial: Trabalhar com as filas de armazenamento do Azure em .NET
 
@@ -227,6 +227,8 @@ Criar um método para recuperar uma mensagem da fila. Quando a mensagem for rece
    # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
    Esse método recebe uma mensagem da fila ao chamar [ReceiveMessagesAsync](/dotnet/api/azure.storage.queues.queueclient.receivemessagesasync), passando 1 no primeiro parâmetro para recuperar apenas a próxima mensagem na fila. Após receber a mensagem, exclua-a da fila, chamando [DeleteMessageAsync](/dotnet/api/azure.storage.queues.queueclient.deletemessageasync).
+
+   Quando uma mensagem é enviada para a fila com uma versão do SDK anterior à v12, ela é codificada automaticamente em Base64. Da v12 em diante, essa funcionalidade foi removida. Quando você recupera uma mensagem usando o SDK v12, ela não é automaticamente decodificada em Base64. Você precisa realizar explicitamente a [decodificação em Base64](/dotnet/api/system.convert.frombase64string) do conteúdo por conta própria.
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Initial.cs" id="snippet_InitialRetrieveMessage":::
 

@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 08/25/2020
+ms.date: 09/23/2020
 ms.author: victorh
-ms.openlocfilehash: ae220a1b70be7178c4c2fea01103991c8729ae79
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 74d83ecc240fa4b48421dbaa1c5cc9e62990655d
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855044"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399441"
 ---
 # <a name="what-is-azure-firewall-manager"></a>O que é o Gerenciador de Firewall do Azure?
 
@@ -78,7 +78,7 @@ O Gerenciador de Firewall do Azure apresenta os seguintes problemas conhecidos:
 
 |Problema  |Descrição  |Atenuação  |
 |---------|---------|---------|
-|Separação de tráfego|No momento, não há suporte para a separação de tráfego do Office 365 e do PaaS público do Azure. Dessa forma, selecionar um provedor de terceiros para V2I ou B2I também envia todo o tráfego de PaaS público do Azure e do Office 365 por meio do serviço do parceiro.|Investigando a divisão de tráfego no hub.
+|Separação de tráfego|No momento, não há suporte para a separação de tráfego do Microsoft 365 e do PaaS público do Azure. Dessa forma, selecionar um provedor de terceiros para V2I ou B2I também envia todo o tráfego de PaaS público do Azure e do Microsoft 365 por meio do serviço do parceiro.|Investigando a divisão de tráfego no hub.
 |Um hub virtual seguro por região|Você não pode ter mais de um hub virtual seguro por região.|Crie várias WANs virtuais em uma região.|
 |As políticas básicas devem estar na mesma região que a política local|Crie todas as políticas locais na mesma região que a política básica. Você ainda pode aplicar uma política que foi criada em uma região em um hub seguro de outra região.|Investigando|
 |Filtro do tráfego entre hubs em implantações de hub virtual seguro|Ainda não há suporte para a comunicação entre hubs virtuais seguros. No entanto, a comunicação entre hubs ainda funcionará se a filtragem de tráfego privado por meio do Firewall do Azure não estiver habilitada.|Investigando|
@@ -87,6 +87,8 @@ O Gerenciador de Firewall do Azure apresenta os seguintes problemas conhecidos:
 |Todos os Hubs Virtuais Seguros que compartilham a mesma WAN virtual devem estar no mesmo grupo de recursos.|Esse comportamento está alinhado aos Hubs da WAN Virtual hoje.|Crie várias WANs Virtuais para permitir que os Hubs Virtuais Seguros sejam criados em diferentes grupos de recursos.|
 |Falha na adição de endereço IP em massa|O firewall do hub seguro entrará em um estado de falha se você adicionar vários endereços IP públicos.|Adicione incrementos menores de endereços IP públicos. Por exemplo, adicione 10 de cada vez.|
 |As regras de aplicativo falham em um hub seguro com DNS personalizado (versão prévia) configurado.|O DNS personalizado (versão prévia) não funciona em implantações de hub seguro e implantações de rede virtual de hub em que o túnel forçado está habilitado.|Correção sob investigação.|
+|Não há suporte à Proteção contra DDoS Standard com hubs virtuais seguros|A Proteção contra DDoS Standard não está integrada aos vWANs.|Investigando|
+|Logs de atividade sem suporte completo|Atualmente, a política de firewall não dá suporte a logs de atividade.|Investigando|
 
 ## <a name="next-steps"></a>Próximas etapas
 

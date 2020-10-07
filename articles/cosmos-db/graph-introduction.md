@@ -1,18 +1,18 @@
 ---
 title: Introdução à API do Gremlin do Azure Cosmos DB
 description: Saiba como você pode usar o Azure Cosmos DB para armazenar, consultar e percorrer grafos grandes com baixa latência usando a linguagem de consulta de grafos Gremlin do Apache TinkerPop.
-author: LuisBosquez
+author: jasonwhowell
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 07/10/2020
-ms.author: lbosq
-ms.openlocfilehash: 3dc534d1cbb195cd93ede091503222b297b17059
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.author: jasonh
+ms.openlocfilehash: 67a2c9537851343e8e5dad4a3654b31082e83d11
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86523733"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91409605"
 ---
 # <a name="introduction-to-gremlin-api-in-azure-cosmos-db"></a>Introdução à API do Gremlin no Azure Cosmos DB
 
@@ -106,7 +106,7 @@ Os bancos de dados de grafo costumam ser incluídos na categoria de banco de dad
 
 Vamos usar um grafo de exemplo para entender como as consultas podem ser expressas no Gremlin. A figura a seguir mostra um aplicativo de negócios que gerencia dados sobre usuários, interesses e dispositivos na forma de um grafo.  
 
-:::image type="content" source="./media/gremlin-support/sample-graph.png" alt-text="Banco de dados de exemplo mostrando interesses, dispositivos e pessoas" border="false"::: 
+:::image type="content" source="./media/gremlin-support/sample-graph.png" alt-text="Arquitetura de grafo do Azure Cosmos DB" border="false"::: 
 
 Este grafo tem os seguintes tipos de *vértice* (também chamados de "rótulo" no Gremlin):
 

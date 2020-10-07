@@ -1,7 +1,7 @@
 ---
 title: Criar um modelo de locatário (versão prévia) – Serviço de Fala
 titleSuffix: Azure Cognitive Services
-description: Gere automaticamente um modelo de locatário seguro e em conformidade (Fala Personalizada usando dados do Office 365) que use seus dados do Office 365 a fim de entregar um reconhecimento de fala ideal para termos específicos.
+description: Gere automaticamente um modelo de locatário seguro e em conformidade (Fala Personalizada usando dados do Microsoft 365) que use seus dados do Microsoft 365 a fim de entregar um reconhecimento de fala ideal para termos específicos.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,19 +11,19 @@ ms.topic: tutorial
 ms.date: 06/25/2020
 ms.author: erhopf
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 52e4271fca02dc9b0eab45ca98581ecd85119b59
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 5e861182ee57a0b49d3e62a858fc97dbf0890ea3
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934473"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399696"
 ---
 # <a name="tutorial-create-a-tenant-model-preview"></a>Tutorial: Criar um modelo de locatário (versão prévia)
 
-O Modelo de Locatário (Fala Personalizada usando dados do Office 365) é um serviço de aceitação para clientes do Office 365 Enterprise que gera automaticamente um modelo de reconhecimento de fala personalizada dos dados do Office 365 da sua organização. O modelo é otimizado para termos técnicos, jargões e nomes de pessoas, tudo de maneira segura e em conformidade.
+O Modelo de Locatário (Fala Personalizada usando dados do Microsoft 365) é um serviço de aceitação para clientes do Microsoft 365 Enterprise que gera automaticamente um modelo de reconhecimento de fala personalizada dos dados do Microsoft 365 da sua organização. O modelo é otimizado para termos técnicos, jargões e nomes de pessoas, tudo de maneira segura e em conformidade.
 
 > [!IMPORTANT]
-> Se a organização for registrada usando o serviço de Modelo de Locatário, o Serviço de Fala poderá acessar o modelo de linguagem da sua organização. O modelo é gerado com base em documentos e emails do grupo público do Office 365, que podem ser vistos por qualquer pessoa em sua organização. O administrador do Office 365 da sua organização pode ligar ou desligar o uso do modelo de linguagem no âmbito de toda a organização por meio do Portal de Administração do Office 365.
+> Se a organização for registrada usando o serviço de Modelo de Locatário, o Serviço de Fala poderá acessar o modelo de linguagem da sua organização. O modelo é gerado com base em documentos e emails do grupo público do Microsoft 365, que podem ser vistos por qualquer pessoa em sua organização. O administrador da sua organização pode ligar ou desligar o uso do modelo de linguagem no âmbito de toda a organização por meio do portal de administração.
 
 Neste tutorial, você aprenderá como:
 
@@ -36,7 +36,7 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="enroll-in-the-tenant-model-service"></a>Registrar-se no serviço de Modelo de Locatário
 
-Antes de implantar seu modelo de locatário, você precisa estar registrado no serviço de Modelo de Locatário. O registro é concluído no Centro de Administração do Microsoft 365 e pode ser feito somente pelo administrador do Microsoft 365.
+Antes de implantar seu modelo de locatário, você precisa estar registrado no serviço de Modelo de Locatário. O registro é concluído no centro de administração do Microsoft 365 e pode ser feito somente pelo administrador.
 
 1. Entre no [Centro de Administração do Microsoft 365](https://admin.microsoft.com).
 
@@ -69,7 +69,7 @@ Para usar seu modelo de locatário com o SDK de Fala, será necessário um recur
 
 ## <a name="create-a-language-model"></a>Criar um modelo de linguagem
 
-Depois que o administrador tiver habilitado o Modelo de Locatário para sua organização, será possível criar um modelo de linguagem com base em seus dados do Office 365.
+Depois que o administrador tiver habilitado o Modelo de Locatário para sua organização, será possível criar um modelo de linguagem com base em seus dados do Microsoft 365.
 
 1. Entre no [Estúdio de Fala](https://speech.microsoft.com/).
 1. No canto superior direito, selecione **Configurações** (o ícone de engrenagem) e, em seguida, selecione **Configurações do Modelo de Locatário**.
@@ -79,7 +79,7 @@ Depois que o administrador tiver habilitado o Modelo de Locatário para sua orga
    O Estúdio de Fala exibe uma mensagem que informa se você está qualificado para criar um modelo de locatário.
 
    > [!NOTE]
-   > Os clientes do Office 365 Enterprise na América do Norte estão qualificados para criar um modelo de locatário (inglês). Se você for um cliente do Sistema de Proteção de Dados do Cliente, da Chave de Cliente ou do Office 365 Government, esse recurso não estará disponível. Para determinar se você é um cliente do Sistema de Proteção de Dados do Cliente ou da Chave do Cliente, confira:
+   > Os clientes empresariais na América do Norte estão qualificados para criar um modelo de locatário (inglês). Se você for um cliente do Sistema de Proteção de Dados do Cliente, da Chave de Cliente ou do Office 365 Government, esse recurso não estará disponível. Para determinar se você é um cliente do Sistema de Proteção de Dados do Cliente ou da Chave do Cliente, confira:
    > * [Sistema de Proteção de Dados do Cliente](/microsoft-365/compliance/customer-lockbox-requests)
    > * [Chave de Cliente](/microsoft-365/compliance/customer-key-overview)
    > * [Office 365 Government](https://www.microsoft.com/microsoft-365/government)
@@ -302,7 +302,7 @@ Em seguida, será necessário recompilar e executar o projeto por meio da linha 
    dotnet TenantLMSample.dll --Username=<Username> --Password=<Password> --SubscriptionKey=<Subscription-Key> --EndpointUri=<Endpoint-Uri>
    ```
 
-Neste tutorial, você aprendeu a usar os dados do Office 365 para criar um modelo personalizado de reconhecimento de fala, implantá-lo e usá-lo com o SDK de Fala.
+Neste tutorial, você aprendeu a usar os dados do Microsoft 365 para criar um modelo personalizado de reconhecimento de fala, implantá-lo e usá-lo com o SDK de Fala.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,5 +1,5 @@
 ---
-title: Criar um agente de Trabalho Elástico usando o PowerShell
+title: Criar um agente de Trabalho Elástico usando o PowerShell (versão prévia)
 description: Saiba como criar e gerenciar um agente de Trabalho Elástico usando o PowerShell.
 services: sql-database
 ms.service: sql-database
@@ -11,14 +11,14 @@ author: johnpaulkee
 ms.author: joke
 ms.reviwer: sstein
 ms.date: 03/13/2019
-ms.openlocfilehash: 0fe6a3b1d0e5216d923cfe3997826e7a727f1a2b
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: aaf749708b49c57d08a63581f3d911b04aba2103
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89077340"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91408660"
 ---
-# <a name="create-an-elastic-job-agent-using-powershell"></a>Criar um agente de Trabalho Elástico usando o PowerShell
+# <a name="create-an-elastic-job-agent-using-powershell-preview"></a>Criar um agente de Trabalho Elástico usando o PowerShell (versão prévia)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Os [trabalhos elásticos (versão prévia)](job-automation-overview.md#elastic-database-jobs-preview) habilitam a execução de um ou mais scripts T-SQL (Transact-SQL) em paralelo entre vários bancos de dados.

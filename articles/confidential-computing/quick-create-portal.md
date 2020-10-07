@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 04/23/2020
 ms.author: JenCook
-ms.openlocfilehash: 476b93400b69063590c12ed38037c0bf6c6d1714
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4723bce8f3721833ae80b233f7b346fe69363b0b
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281065"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409537"
 ---
 # <a name="quickstart-deploy-an-azure-confidential-computing-vm-in-the-azure-portal"></a>Início Rápido: Implantar uma VM de computação confidencial do Azure no portal do Azure
 
@@ -199,9 +199,7 @@ Selecione o grupo de recursos da máquina virtual e, em seguida, selecione **Exc
 
 Neste guia de início rápido, você implantou uma máquina virtual de computação confidencial e instalou o Open Enclave SDK. Para obter mais informações sobre máquinas virtuais de computação confidencial no Azure, confira [Soluções sobre máquinas virtuais](virtual-machine-solutions.md). 
 
-Se você implantou uma VM do Windows, saiba como criar aplicativos com os [exemplos do OE SDK para Windows](https://github.com/openenclave/openenclave/blob/master/samples/README_Windows.md) no GitHub. 
-
-Descubra como você pode criar aplicativos de computação confidencial no Linux prosseguindo para os exemplos do Open Enclave SDK do Linux no GitHub. 
+Descubra como você pode criar aplicativos de computação confidenciais prosseguindo para os exemplos do Open Enclave SDK no GitHub. 
 
 > [!div class="nextstepaction"]
-> [Como criar amostras do Open Enclave SDK no Linux](https://github.com/openenclave/openenclave/blob/master/samples/README_Linux.md)
+> [Como criar amostras do Open Enclave SDK](https://github.com/openenclave/openenclave/blob/master/samples/README.md)

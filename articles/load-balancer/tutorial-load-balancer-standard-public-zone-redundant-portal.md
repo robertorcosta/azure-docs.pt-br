@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: d9f16b612b508a6237c748bd135ff32618015b0b
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 4deab6fcadda36ad729096ff2f38e40ce81c7ae9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057000"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446097"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Tutorial: Balancear carga de VMs entre zonas de disponibilidade com um Load Balancer Standard utilizando o Portal do Azure
 
@@ -93,7 +93,7 @@ Crie um grupo de segurança de rede para definir conexões de entrada para sua r
     - *myNetworkSecurityGroup*  - para o nome do grupo de segurança de rede.
     - *myResourceGroupLBAZ* - para o nome do grupo de recursos existente.
    
-![Criar uma rede virtual](./media/load-balancer-standard-public-availability-zones-portal/create-nsg.png)
+![A captura de tela mostra o painel Criar grupo de segurança de rede.](./media/load-balancer-standard-public-availability-zones-portal/create-nsg.png)
 
 ### <a name="create-network-security-group-rules"></a>Criar regras do grupo de segurança de rede
 
@@ -112,7 +112,7 @@ Nesta seção, você cria regras do grupo de segurança de rede para permitir co
     - *Permitir HTTP* – para descrição da regra de balanceador de carga.
 4. Clique em **OK**.
  
-   ![Criar uma rede virtual](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
+   ![A captura de tela mostra o painel Adicionar regra de segurança de entrada.](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
 5. Repita as etapas 2 a 4 para criar outra regra denominada *myRDPRule* para permitir uma conexão de RDP de entrada usando a porta 3389 com os seguintes valores:
     - *Service Tag* – para **Origem**.
     - *Internet* – para **Marca de serviço de origem**

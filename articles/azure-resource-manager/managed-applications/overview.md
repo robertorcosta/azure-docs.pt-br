@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: overview
 ms.date: 07/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: 9bb3f0d57f7d47e4cb754305627c52003273ca09
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: eb93321e0eb1b3d2dc7963f03715b1aedb4cfdcb
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89377005"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403680"
 ---
 # <a name="azure-managed-applications-overview"></a>Visão geral de aplicativos gerenciados do Azure
 
@@ -77,7 +77,7 @@ Quando o consumidor exclui o aplicativo gerenciado, o grupo de recursos gerencia
 
 ## <a name="azure-policy"></a>Azure Policy
 
-Você pode aplicar um [Azure Policy](../../governance/policy/overview.md) para fazer auditoria do seu aplicativo gerenciado. Aplique definições de política para que as instâncias implantadas do seu aplicativo gerenciado atendam aos requisitos de segurança e de dados. Se o aplicativo interage com os dados confidenciais, verifique se você avaliou como eles devem ser protegidos. Por exemplo, se o aplicativo interage com os dados do Office 365, aplique uma definição de política para que a criptografia de dados esteja habilitada.
+Você pode aplicar um [Azure Policy](../../governance/policy/overview.md) para fazer auditoria do seu aplicativo gerenciado. Aplique definições de política para que as instâncias implantadas do seu aplicativo gerenciado atendam aos requisitos de segurança e de dados. Se o aplicativo interage com os dados confidenciais, verifique se você avaliou como eles devem ser protegidos. Por exemplo, se o aplicativo interage com os dados do Microsoft 365, aplique uma definição de política para que a criptografia de dados esteja habilitada.
 
 ## <a name="next-steps"></a>Próximas etapas
 

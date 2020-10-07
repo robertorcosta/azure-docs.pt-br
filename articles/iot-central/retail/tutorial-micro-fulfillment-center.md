@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 01/09/2020
-ms.openlocfilehash: 880d8ee0e6e2b3984f6bea4b994642724085d512
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 28afa98313ef1c9577e90ed161a1d20cbf5faf75
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90980542"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91440191"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-micro-fulfillment-center-application-template"></a>Tutorial: Implantar e seguir passo a passo o modelo de aplicativo de microcentral de atendimento
 
@@ -62,11 +62,11 @@ No painel, você pode:
    * Ver a planta baixa e a localização das operadoras robóticas na estrutura de atendimento.
    * Disparar comandos, como redefinir o sistema de controle, atualizar o firmware da operadora e reconfigurar a rede.
 
-     ![Captura de tela da parte superior do painel da microcentral de atendimento da Northwind Traders](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard1.png)
+     ![Captura de tela da parte superior do painel da microcentral de atendimento da Northwind Traders.](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard1.png)
    * Veja um exemplo do painel que um operador pode usar para monitorar as condições na central de atendimento. 
    * Monitore a integridade do conteúdo em execução no dispositivo de gateway na central de atendimento.    
 
-     ![Captura de tela da parte inferior do painel da microcentral de atendimento da Northwind Traders](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard2.png)
+     ![Captura de tela da parte inferior do painel da microcentral de atendimento da Northwind Traders.](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard2.png)
 
 ## <a name="device-template"></a>Modelo de dispositivo
 Se você selecionar a guia Modelos de dispositivo, verá que há dois tipos de dispositivos diferentes que fazem parte do modelo: 

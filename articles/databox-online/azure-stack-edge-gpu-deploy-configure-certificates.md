@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure certificates for Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 5be484c613c4a18e86df7b5a83f95ca75aec6077
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 7854aff0b4194efae7c4df653dee18e2676fdd41
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903341"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446325"
 ---
 # <a name="tutorial-configure-certificates-for-your-azure-stack-edge-pro-with-gpu"></a>Tutorial: Configurar certificados para o Azure Stack Edge Pro com uma GPU
 
@@ -51,11 +51,11 @@ Antes de instalar e configurar o dispositivo do Azure Stack Edge Pro com uma GPU
 
     - Se você alterou o nome do dispositivo ou o domínio DNS, verá que o status dos certificados será exibido como **Não válido**. 
 
-        ![Página "Certificados" da IU da Web local](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-1.png)    
+        ![Página 2 de "Certificados" da IU da Web local](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-1.png)    
 
         Selecione um certificado para exibir os detalhes do status.
 
-        ![Página "Certificados" da IU da Web local](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-1a.png)  
+        ![Página 3 de "Certificados" da IU da Web local](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-1a.png)  
 
         Isso ocorre porque os certificados não refletem o nome e o domínio DNS do dispositivo atualizado (que são usados no nome da entidade e na alternativa da entidade). Para ativar o dispositivo com êxito, escolha uma das seguintes opções: 
     
@@ -108,11 +108,11 @@ Use estas etapas para regenerar e baixar os certificados de dispositivo Azure St
 
 4. Selecione o link de download para um certificado e, quando solicitado, salve o certificado em questão. 
 
-    ![Gerar e baixar o certificado 6](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-7.png)
+    ![Gerar e baixar o certificado 8](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-7.png)
 
 5. Repita esse processo para todos os certificados que você deseja baixar. 
     
-    ![Gerar e baixar o certificado 7](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-8.png)
+    ![Gerar e baixar o certificado 9](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-8.png)
 
     Os certificados gerados pelo dispositivo são salvos como certificados DER com o seguinte formato de nome: 
 
@@ -135,31 +135,31 @@ Siga estas etapas para adicionar seus certificados, incluindo a cadeia de assina
 
 1. Para carregar o certificado, na página **Certificado**, selecione **+ Adicionar certificado**.
 
-    ![Página "Certificados" da IU da Web local](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-1.png)
+    ![Página 4 de "Certificados" da IU da Web local](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-1.png)
 
 2. Carregue a cadeia de assinatura primeiro e selecione **Validar e adicionar**.
 
-    ![Página "Certificados" da IU da Web local](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-2.png)
+    ![Página 5 de "Certificados" da IU da Web local](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-2.png)
 
 3. Agora, é possível carregar outros certificados. Por exemplo, é possível carregar os certificados de ponto de extremidade do Armazenamento de Blobs e do Azure Resource Manager.
 
-    ![Página "Certificados" da IU da Web local](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-3.png)
+    ![Página 6 de "Certificados" da IU da Web local](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-3.png)
 
     Também é possível carregar o certificado da IU da Web local. Depois de carregar esse certificado, será necessário iniciar o navegador e limpar o cache. Em seguida, será necessário conectar-se à IU da Web local do dispositivo.  
 
-    ![Página "Certificados" da IU da Web local](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-5.png)
+    ![Página 7 de "Certificados" da IU da Web local](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-5.png)
 
     Também é possível carregar o certificado de nó.
 
-    ![Página "Certificados" da IU da Web local](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-4.png)
+    ![Página 8 de "Certificados" da IU da Web local](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-4.png)
 
     A qualquer momento, você pode selecionar um certificado e exibir os detalhes para garantir que correspondam ao certificado que você carregou.
 
-    ![Página "Certificados" da IU da Web local](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-6.png)
+    ![Página 9 de "Certificados" da IU da Web local](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-6.png)
 
     A página de certificados será atualizada para refletir os certificados recém-adicionados.
 
-    ![Página "Certificados" da IU da Web local](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-7.png)  
+    ![Página 10 de "Certificados" da IU da Web local](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-7.png)  
 
     > [!NOTE]
     > Exceto para a nuvem pública do Azure, os certificados de cadeia de assinatura precisam ser trazidos antes da ativação para todas as configurações de nuvem (Azure Government ou Azure Stack).

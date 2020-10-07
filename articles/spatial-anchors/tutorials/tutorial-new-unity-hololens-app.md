@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 08/17/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 365fe8c330cadcc01fcd24de28b663cd80b55117
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: 8c9e6462beb48e3326de3c2348b73053f717e032
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89535864"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441263"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-hololens-unity-app-using-azure-spatial-anchors"></a>Tutorial: Instruções passo a passo para criar um novo aplicativo HoloLens Unity usando Âncoras Espaciais do Azure
 
@@ -204,11 +204,11 @@ Antes de avançar, será necessário criar uma conta das Âncoras Espaciais do A
 
 Depois que você tiver o identificador, a chave e o domínio da conta das Âncoras Espaciais do Azure, cole `Account Id` em `SpatialAnchorsAccountId`, `Account Key` em `SpatialAnchorsAccountKey` e `Account Domain` em `SpatialAnchorsAccountDomain`.
 
-Por fim, vamos interligar tudo. Em seu método `SpawnNewAnchoredObject()`, adicione o código a seguir. Ele invocará o método `CreateAnchorAsync()` assim que a esfera for criada. Após o método retornar, o código a seguir atualizará a esfera pela última vez, alterando sua cor para azul.
+Por fim, vamos interligar tudo. Em seu método `CreateAndSaveSphere()`, adicione o código a seguir. Ele invocará o método `CreateAnchorAsync()` assim que a esfera for criada. Após o método retornar, o código a seguir atualizará a esfera pela última vez, alterando sua cor para azul.
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=320-397&highlight=26-77)]
 
-Execute seu aplicativo do **Visual Studio** mais uma vez. Mova sua cabeça e, em seguida, feche e abra os dedos indicador e polegar para posicionar a esfera. Assim que tivermos quadros suficientes, a esfera ficará amarela e o upload para a nuvem começará. Depois que o upload for concluído, a esfera ficará azul. Opcionalmente, você também pode usar a janela de Saída no **Visual Studio** para monitorar as mensagens de log que o aplicativo está enviando. Você pode assistir ao `RecommendedForCreateProgress` e, quando o upload for concluído, poderá ver o identificador de âncora retornado da nuvem.
+Execute seu aplicativo do **Visual Studio** mais uma vez. Mova sua cabeça e, em seguida, feche e abra os dedos indicador e polegar para posicionar a esfera. Assim que tivermos quadros suficientes, a esfera ficará amarela e o upload para a nuvem começará. Depois que o upload for concluído, a esfera ficará azul. Opcionalmente, você também pode usar a [janela de Saída](https://docs.microsoft.com/visualstudio/ide/reference/output-window) durante a depuração no **Visual Studio** para monitorar as mensagens de log que o aplicativo está enviando. Certifique-se de implantar a configuração de `Debug` do seu aplicativo do Visual Studio para ver as mensagens de log. Você pode assistir ao `RecommendedForCreateProgress` e, quando o upload for concluído, poderá ver o identificador de âncora retornado da nuvem.
 
 > [!NOTE]
 > Se você receber "DllNotFoundException: Não é possível carregar a DLL 'AzureSpatialAnchors': O módulo especificado não pôde ser encontrado.", você deverá **Limpar** e **Compilar** sua solução novamente.
