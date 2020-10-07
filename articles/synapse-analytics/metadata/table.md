@@ -10,12 +10,12 @@ ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d00232d602ce7b2de0db4e06ef3c7456f552833e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 6b9835cf5de28fbd515a214554f723d99e8e8fe4
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018732"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91260724"
 ---
 # <a name="azure-synapse-analytics-shared-metadata-tables"></a>Tabelas de metadados compartilhados do Azure Synapse Analytics
 
@@ -105,7 +105,7 @@ Crie uma tabela gerenciada do Spark com o SparkSQL executando o seguinte comando
     CREATE TABLE mytestdb.myParquetTable(id int, name string, birthdate date) USING Parquet
 ```
 
-Isso criará a tabela `myParquetTable` no banco de dados `mytestdb`. Após um pequeno atraso, você poderá ver a tabela no SQL sob demanda. Por exemplo, execute a instrução a seguir no SQL sob demanda.
+Esse comando cria a tabela `myParquetTable` no banco de dados `mytestdb`. Após um pequeno atraso, você poderá ver a tabela no SQL sob demanda. Por exemplo, execute a instrução a seguir no SQL sob demanda.
 
 ```sql
     USE mytestdb;

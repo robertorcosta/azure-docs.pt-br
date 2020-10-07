@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: dedf0795e72c4bdace430ba2dd07ade9d792f13c
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: e592159777f3b533bc447bb109e9b1308af7ecff
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89459532"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91249495"
 ---
 # <a name="synapse-managed-private-endpoints-preview"></a>Pontos de extremidade privados gerenciados do Synapse (versão prévia)
 
@@ -27,7 +27,9 @@ O Azure Synapse é compatível com links privados. O link privado permite que vo
 
 Quando você usa um link privado, o tráfego entre a Rede Virtual e o workspace atravessa totalmente a rede de backbone da Microsoft. O Link Privado protege contra riscos de exfiltração dos dados. Você estabelece um link privado para um recurso criando um ponto de extremidade privado.
 
-O ponto de extremidade privado usa um endereço IP privado de sua Rede Virtual para colocar efetivamente o serviço na Rede Virtual. Os pontos de extremidade privados são mapeados para um recurso específico no Azure e não para todo o serviço. Os clientes podem limitar a conectividade a um recurso específico aprovado por sua organização. Saiba mais sobre [links privados e pontos de extremidade privados](https://docs.microsoft.com/azure/private-link/).
+O ponto de extremidade privado usa um endereço IP privado de sua Rede Virtual para colocar efetivamente o serviço na Rede Virtual. Os pontos de extremidade privados são mapeados para um recurso específico no Azure e não para todo o serviço. Os clientes podem limitar a conectividade a um recurso específico aprovado por sua organização. 
+
+Saiba mais sobre [links privados e pontos de extremidade privados](https://docs.microsoft.com/azure/private-link/).
 
 >[!IMPORTANT]
 >Os Pontos de extremidade privados gerenciados só são compatíveis com workspaces do Azure Synapse com uma Rede Virtual de workspace gerenciada.
@@ -37,7 +39,7 @@ O ponto de extremidade privado usa um endereço IP privado de sua Rede Virtual p
 
 Uma conexão de ponto de extremidade privado é criada em um estado "Pendente" quando você cria um Ponto de extremidade privado gerenciado no Azure Synapse. Um fluxo de trabalho de aprovação é iniciado. O proprietário do recurso de link privado é responsável por aprovar ou rejeitar a conexão.
 
-Se o proprietário aprova a conexão, o link privado é estabelecido. Caso contrário, o link privado não será estabelecido. Em ambos os casos, o Ponto de extremidade privado gerenciado será atualizado com o status da conexão.
+Se o proprietário aprova a conexão, o link privado é estabelecido. No entanto, se o proprietário não aprovar a conexão, o link privado não será estabelecido. Em ambos os casos, o Ponto de extremidade privado gerenciado será atualizado com o status da conexão.
 
 Somente um Ponto de extremidade privado gerenciado em um estado aprovado pode enviar tráfego para um determinado recurso de link privado.
 
@@ -56,4 +58,4 @@ Esses dois Pontos de extremidade privados gerenciados são criados automaticamen
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Criar Pontos de extremidade privados gerenciados para suas fontes de dados](./how-to-create-managed-private-endpoints.md)
+Para saber mais, confira o artigo [Criar pontos de extremidade privados gerenciados para suas fontes de dados](./how-to-create-managed-private-endpoints.md).

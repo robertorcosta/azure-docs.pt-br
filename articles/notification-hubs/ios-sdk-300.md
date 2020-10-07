@@ -1,6 +1,6 @@
 ---
 title: Enviar notificações por push para o iOS usando os Hubs de Notificação do Azure e o SDK do iOS versão 3.0.0 versão prévia 1
-description: Neste tutorial, você aprenderá a usar os Hubs de Notificação do Azure e o Apple Push Notification Service para enviar notificações por push para dispositivos iOS específicos.
+description: Neste tutorial, você aprenderá a usar os Hubs de Notificação do Azure e o serviço Apple Push Notification para enviar notificações por push para dispositivos iOS específicos (versão 3.0.0-preview1).
 author: sethmanheim
 ms.author: sethm
 ms.date: 06/19/2020
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: notification-hubs
 ms.reviewer: thsomasu
 ms.lastreviewed: 06/01/2020
-ms.openlocfilehash: bec4b771387854c40045f2b57afe7ead6c52f2c7
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 25f18eb0f55560b7abd250b8511b2e250ea55852
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836030"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91250429"
 ---
 # <a name="tutorial-send-push-notifications-to-ios-apps-using-azure-notification-hubs-version-300-preview1"></a>Tutorial: Enviar notificações por push para aplicativos iOS usando os Hubs de Notificação do Microsoft Azure (versão 3.0.0 versão prévia 1)
 
@@ -53,11 +53,11 @@ Antes de prosseguir, siga o tutorial anterior sobre como começar a usar os [Hub
 
    Se você não vir o novo perfil de provisionamento que você criou no Xcode, tente atualizar os perfis da sua identidade de assinatura. Clique em **Xcode** na barra de menus, em **Preferências**, na guia **Conta** , no botão **Exibir Detalhes** , em sua identidade de assinatura e depois clique no botão Atualizar no canto inferior direito.
 
-   :::image type="content" source="media/ios-sdk/image2.png" alt-text="Exibir detalhes":::
+   :::image type="content" source="media/ios-sdk/image2.png" alt-text="Selecionar modelo":::
 
 4. Na guia **Assinatura e Funcionalidades** , selecione **+ Funcionalidade**. Clique duas vezes em **Notificações por Push** para habilitá-la.
 
-   :::image type="content" source="media/ios-sdk/image3.png" alt-text="Recurso":::
+   :::image type="content" source="media/ios-sdk/image3.png" alt-text="Selecionar modelo":::
 
 5. Adicione os módulos do SDK dos Hubs de Notificação do Microsoft Azure.
 
@@ -81,7 +81,7 @@ Antes de prosseguir, siga o tutorial anterior sobre como começar a usar os [Hub
 
         - No Xcode, clique com o botão direito do mouse no projeto e clique na opção **Adicionar Arquivos a** para adicionar a pasta **WindowsAzureMessaging.framework** ao seu projeto do Xcode. Selecione **Opções** , verifique se a opção **Copiar itens se necessário** está selecionada e clique em **Adicionar**.
 
-          :::image type="content" source="media/ios-sdk/image4.png" alt-text="Adicionar estrutura":::
+          :::image type="content" source="media/ios-sdk/image4.png" alt-text="Selecionar modelo":::
 
 6. Adicione um novo arquivo de cabeçalho a seu projeto chamado **Constants.h**. Para fazer isso, clique com o botão direito do mouse no nome do projeto e selecione **Novo Arquivo…** . Em seguida, selecione **Arquivo de Cabeçalho**. Esse arquivo conterá as constantes para o hub de notificação. Depois, selecione **Avançar**. Nomeie o arquivo **Constants.h**.
 
@@ -98,13 +98,7 @@ Antes de prosseguir, siga o tutorial anterior sobre como começar a usar os [Hub
 
 8. Adicione o arquivo de implementação para Constants.h. Para fazer isso, clique com o botão direito do mouse no nome do projeto e selecione **Novo Arquivo…** . Selecione **Arquivo Objective-C** e clique em **Avançar**. Nomeie o arquivo **Constants.m**.
 
-   :::image type="content" source="media/ios-sdk/image5.png" alt-text="Adicionar arquivo de implementação":::
-
-9. Abra o arquivo **Constants.m** e substitua o conteúdo pelo código a seguir. Substitua os espaços reservados de literal de cadeia de caracteres `NotificationHubConnectionString` e `NotificationHubConnectionString` pelo nome do hub e a **DefaultListenSharedAccessSignature**, respectivamente, como você obteve anteriormente do portal:
-
-   ```objc
-   #import <Foundation/Foundation.h>
-   #import "Constants.h"
+   :::image type="content" source="media/ios-sdk/image5.png" alt-text="Selecionar modelo"
 
    NSString* const NHInfoConnectionString = @"NotificationHubConnectionString";
    NSString* const NHInfoHubName = @"NotificationHubName";NSString* const NHUserDefaultTags = @"notification_tags";
@@ -311,7 +305,7 @@ Antes de prosseguir, siga o tutorial anterior sobre como começar a usar os [Hub
 
 Você pode testar o recebimento de notificações no aplicativo com a opção **Envio de Teste** no [portal do Azure](https://portal.azure.com/). Isso envia uma notificação por push de teste para seu dispositivo.
 
-:::image type="content" source="media/ios-sdk/image6.png" alt-text="Envio de teste":::
+:::image type="content" source="media/ios-sdk/image6.png" alt-text="Selecionar modelo":::
 
 As notificações por push normalmente são enviadas em um serviço de back-end como Aplicativos Móveis ou ASP.NET usando uma biblioteca compatível. Se uma biblioteca não estiver disponível para o seu back-end, você também poderá usar a API REST diretamente para enviar mensagens de notificação.
 
@@ -328,13 +322,13 @@ Para testar as notificações por push no iOS, você deve implantar o aplicativo
 
 1. Execute o aplicativo, verifique se o registro foi bem-sucedido e pressione **OK**.
 
-   :::image type="content" source="media/ios-sdk/image7.png" alt-text="Registrar":::
+   :::image type="content" source="media/ios-sdk/image7.png" alt-text="Selecionar modelo":::
 
 2. Em seguida, você pode enviar uma notificação por push de teste do [portal do Azure](https://portal.azure.com/), conforme descrito na seção anterior.
 
 3. A notificação por push é enviada a todos os dispositivos que estão registrados para receber as notificações do hub de notificação fornecido.
 
-   :::image type="content" source="media/ios-sdk/image8.png" alt-text="Enviar teste":::
+   :::image type="content" source="media/ios-sdk/image8.png" alt-text="Selecionar modelo":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

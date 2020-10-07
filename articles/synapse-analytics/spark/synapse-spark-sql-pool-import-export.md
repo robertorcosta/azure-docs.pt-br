@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: prgomata
 ms.reviewer: euang
-ms.openlocfilehash: 58c52649750ae03f19188a025fa4baa16a55ae05
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 11f73d2becb40b800c49afe0cd58f56953f8d42d
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590074"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91259910"
 ---
 # <a name="introduction"></a>Introdução
 
@@ -30,9 +30,9 @@ O conector do pool do Apache Spark para SQL do Synapse do Azure Synapse é uma i
 
 ## <a name="authentication-in-azure-synapse-analytics"></a>Autenticação no Azure Synapse Analytics
 
-A autenticação entre sistemas é simplificada no Azure Synapse Analytics. Há um serviço de token que se conecta ao Azure Active Directory a fim de obter tokens de segurança para uso ao acessar a conta de armazenamento ou o servidor de data warehouse.
+A autenticação entre sistemas é simplificada no Azure Synapse Analytics. O Serviço de Token se conecta ao Azure Active Directory a fim de obter tokens de segurança para uso ao acessar a conta de armazenamento ou o servidor de data warehouse.
 
-Por esse motivo, não há necessidade de criar nem de especificar credenciais na API do conector, desde que Autenticação do AAD esteja configurada na conta de armazenamento e no servidor de data warehouse. Caso contrário, a Autenticação SQL poderá ser especificada. Encontre mais detalhes na seção [Uso](#usage).
+Por esse motivo, não há necessidade de criar nem de especificar credenciais na API do conector, desde que a Autenticação do AAD esteja configurada na conta de armazenamento e no servidor de data warehouse. Caso contrário, a Autenticação SQL poderá ser especificada. Encontre mais detalhes na seção [Uso](#usage).
 
 ## <a name="constraints"></a>Restrições
 
@@ -98,7 +98,7 @@ Valores de TableType
 - Constants.INTERNAL – tabela gerenciada no pool de SQL
 - Constants.EXTERNAL – tabela externa no pool de SQL
 
-Tabela gerenciada do pool de SQL
+Tabela gerenciada pelo pool de SQL
 
 ```scala
 df.write.sqlanalytics("<DBName>.<Schema>.<TableName>", Constants.INTERNAL)
@@ -106,7 +106,7 @@ df.write.sqlanalytics("<DBName>.<Schema>.<TableName>", Constants.INTERNAL)
 
 Tabela externa do pool de SQL
 
-Para gravar em uma tabela externa do pool de SQL, uma fonte de dados externa e um formato de arquivo externo devem existir no pool de SQL.  Para obter mais informações, leia [Como criar uma fonte de dados externa](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) e [Formatos de arquivo externos](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) no pool de SQL.  Veja abaixo exemplos de como criar uma fonte de dados externa e formatos de arquivo externos no pool de SQL.
+Para gravar em uma tabela externa do pool de SQL, uma fonte de dados externa e um formato de arquivo externo devem existir no pool de SQL.  Para obter mais informações, leia [Como criar uma fonte de dados externa](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) e [Formatos de arquivo externos](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) no pool de SQL.  Veja abaixo exemplos de como criar uma fonte de dados externa e formatos de arquivo externos no pool de SQL.
 
 ```sql
 --For an external table, you need to pre-create the data source and file format in SQL pool using SQL queries:

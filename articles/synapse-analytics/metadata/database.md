@@ -10,12 +10,12 @@ ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 409311594cc26680217948e2394420fdaea29024
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 58c1aea944d89872a79d0672a925b1696791c1a8
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89015366"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91260845"
 ---
 # <a name="azure-synapse-analytics-shared-database"></a>Banco de dados compartilhado do Azure Synapse Analytics
 
@@ -23,7 +23,7 @@ O Azure Synapse Analytics permite que os diferentes mecanismos computacionais do
 
 [!INCLUDE [synapse-analytics-preview-terms](../../../includes/synapse-analytics-preview-terms.md)]
 
-Um banco de dados criado com um trabalho do Spark ficará visível com esse mesmo nome para todos os Pools do Spark atuais e futuros (versão prévia) no workspace, bem como para o mecanismo SQL sob demanda.
+Um banco de dados criado com um trabalho do Spark ficará visível com esse mesmo nome para todos os pools do Spark (versão prévia), atuais e futuros, no workspace, incluindo o mecanismo SQL sob demanda.
 
 O banco de dados padrão do Spark, chamado `default`, também ficará visível no contexto do SQL sob demanda como um banco de dados chamado `default`.
 

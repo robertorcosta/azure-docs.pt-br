@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc, contperfq1
-ms.date: 08/25/2020
+ms.date: 09/24/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 0572613fe33d525ed1a5a42c627de3ce1049a290
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 24b30842bea51394a375cf48e09b7547e057405c
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89434037"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91261729"
 ---
 # <a name="what-is-azure-firewall"></a>O que é o Firewall do Azure?
 
@@ -55,7 +55,8 @@ As regras de filtragem de rede para protocolos não TCP/UDP (por exemplo, ICMP) 
 |Não há suporte para regras NAT com portas entre 64000 e 65535|O Firewall do Azure permite qualquer porta no intervalo de 1 a 65535 nas regras de rede e de aplicativo, no entanto, as regras de NAT dão suporte apenas a portas no intervalo de 1 a 63999.|Esta é uma limitação atual.
 |As atualizações de configuração podem levar cinco minutos em média|Uma atualização de configuração do Firewall do Azure pode levar de três a cinco minutos em média e não há suporte para atualizações paralelas.|Uma correção está sendo investigada.|
 |O Firewall do Azure usa cabeçalhos de TLS SNI para filtrar tráfego HTTPS e MSSQL|Se o software do navegador ou para servidores não for compatível com a extensão SNI (Indicação de Nome do Servidor), você não poderá se conectar por meio do Firewall do Azure.|Se o software do navegador ou para servidores não for compatível com a SNI, você poderá controlar a conexão usando uma regra de rede em vez de uma regra de aplicativo. Consulte [Indicação de Nome de Servidor](https://wikipedia.org/wiki/Server_Name_Indication) para conhecer software que seja compatível com a SNI.|
-|O DNS personalizado (versão prévia) não funciona com o túnel forçado|Se o túnel forçado estiver habilitado, o DNS personalizado (versão prévia) não funcionará.|Uma correção está sendo investigada.
+|O DNS personalizado (versão prévia) não funciona com o túnel forçado|Se o túnel forçado estiver habilitado, o DNS personalizado (versão prévia) não funcionará.|Uma correção está sendo investigada.|
+|Novo suporte para endereço IP público para várias Zonas de Disponibilidade|Você não pode adicionar um novo endereço IP público ao implantar um firewall com duas zonas de disponibilidade (1 e 2, 2 e 3 ou 1 e 3)|Trata-se de uma limitação do recurso de endereço IP público.
 
 ## <a name="next-steps"></a>Próximas etapas
 

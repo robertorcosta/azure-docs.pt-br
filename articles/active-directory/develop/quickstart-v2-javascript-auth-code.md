@@ -1,7 +1,7 @@
 ---
 title: Conectar usuários em SPAs (aplicativos de página única) JavaScript com código de autenticação | Azure
 titleSuffix: Microsoft identity platform
-description: Saiba como um aplicativo JavaScript pode chamar uma API que exige tokens de acesso usando a plataforma de identidade da Microsoft.
+description: Saiba como um SPA (aplicativo de página única) JavaScript pode conectar usuários de contas pessoais, contas corporativas e de estudante usando o fluxo de código de autorização.
 services: active-directory
 author: hahamil
 manager: CelesteDG
@@ -11,13 +11,13 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
-ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-javascript
-ms.openlocfilehash: 461f05b90b79852194d657a5dcbc3ba7583cff8d
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
+ms.openlocfilehash: 224ce2ea64016db7b632ac36193f39e679c8da4b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115179"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257972"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa-using-the-auth-code-flow"></a>Início Rápido: Conectar usuários e obter um token de acesso em um SPA JavaScript usando o fluxo de código de autenticação
 

@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 07244f28a345bc3290762c657c2189941009faac
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e3c2b2ce5bd9af60d6d1fd4ac066681ee8473521
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077734"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91249443"
 ---
 # <a name="azure-synapse-workspace-managed-identity-preview"></a>Identidade gerenciada do workspace do Azure Synapse (versão prévia)
 
@@ -58,4 +58,4 @@ Na próxima janela, escolha **Identidade Gerenciada** para **Método de autentic
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Como conceder permissões para identidade gerenciada do workspace do Azure Synapse](./how-to-grant-workspace-managed-identity-permissions.md)
+Saiba mais sobre [Como conceder permissões para a identidade gerenciada do workspace do Azure Synapse](./how-to-grant-workspace-managed-identity-permissions.md)

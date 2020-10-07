@@ -1,6 +1,7 @@
 ---
-title: Daemon do Python da plataforma de identidade da Microsoft | Azure
-description: Saiba como um processo do Python pode obter um token de acesso e chamar uma API protegida pelo ponto de extremidade da plataforma de identidade da Microsoft usando a própria identidade do aplicativo
+title: 'Início Rápido: Chamar o Microsoft Graph de um daemon do Python | Azure'
+titleSuffix: Microsoft identity platform
+description: Neste início rápido, você verá como um processo do Python pode obter um token de acesso e chamar uma API protegida pelo ponto de extremidade da plataforma de identidade da Microsoft usando a própria identidade do aplicativo
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 10/22/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, devx-track-python, scenarios:getting-started, languages:Python
-ms.openlocfilehash: 0969afa95009255981381d41268f416a615dd9f3
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 2c280b8241819155f32942a399caa7f916db3827
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683735"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91257734"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-python-console-app-using-apps-identity"></a>Início Rápido: Adquirir um token e chamar a API do Microsoft Graph de um aplicativo de console Python usando a identidade do aplicativo
 
@@ -224,18 +225,3 @@ Para saber mais sobre aplicativos daemon, confira a página de aterrissagem do c
 
 > [!div class="nextstepaction"]
 > [Aplicativo daemon que chama APIs Web](scenario-daemon-overview.md)
-
-Para o tutorial do aplicativo daemon, confira:
-
-> [!div class="nextstepaction"]
-> [Tutorial do console Python do daemon](https://github.com/Azure-Samples/ms-identity-python-daemon)
-
-Saiba mais sobre permissões e consentimento:
-
-> [!div class="nextstepaction"]
-> [Permissões e consentimento](v2-permissions-and-consent.md)
-
-Para saber mais sobre o fluxo de autenticação para este cenário, consulte o fluxo de credenciais de cliente Oauth 2.0:
-
-> [!div class="nextstepaction"]
-> [Fluxo de credenciais do cliente Oauth](v2-oauth2-client-creds-grant-flow.md)

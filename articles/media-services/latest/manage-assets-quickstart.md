@@ -6,12 +6,12 @@ ms.date: 08/31/2020
 author: IngridAtMicrosoft
 ms.author: inhenkel
 manager: femila
-ms.openlocfilehash: 16a5793f9848a6e16856728877727dbefc3e0805
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 6b4373efc4979900e676257cc0b2748145165499
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89264922"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91261402"
 ---
 # <a name="quickstart-upload-encode-and-stream-content-with-portal"></a>Início Rápido: Carregar, codificar e transmitir o conteúdo com o portal
 
@@ -66,7 +66,7 @@ Este início rápido mostra como usar o portal do Azure para carregar, codificar
 
 Se você navegar até a janela de ativos, verá que um novo ativo foi adicionado à lista:
 
-![Carregar](./media/manage-assets-quickstart/upload.png)
+![Captura de tela do portal do Azure mostrando a janela Ativos aberta selecionando Ativos (novo), bem como um novo ativo adicionado selecionando o botão Carregar.](./media/manage-assets-quickstart/upload.png)
 
 ## <a name="encode"></a>Codificar
 
@@ -78,7 +78,7 @@ Se você navegar até a janela de ativos, verá que um novo ativo foi adicionado
 
 Se você navegar até a janela de ativos, verá que o ativo de saída foi adicionado à lista:
 
-![Codificar](./media/manage-assets-quickstart/encode.png)
+![Captura de tela da janela Ativos no portal do Azure mostrando o ativo ignite.mp4 com codificação padrão de mídia adicionado à lista de ativos.](./media/manage-assets-quickstart/encode.png)
 
 ## <a name="monitor-the-job-progress"></a>Monitorar o andamento do trabalho
 

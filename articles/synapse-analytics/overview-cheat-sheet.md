@@ -7,14 +7,14 @@ ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: overview
 ms.date: 04/15/2020
-ms.author: acomet
+ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3141f8044a4a257de8022ff789b12d5d3e6e7a90
-ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
+ms.openlocfilehash: 98fc8b23369f961ca023832430d47c8868e42158
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85807019"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91260658"
 ---
 # <a name="azure-synapse-analytics-cheat-sheet"></a>Folha de referências do Azure Synapse Analytics
 
@@ -22,18 +22,21 @@ ms.locfileid: "85807019"
 
 A folha de referências do Azure Synapse Analytics explicará os conceitos básicos do serviço e os comandos importantes. Este artigo é útil para os novos aprendizes e para aqueles que desejam conhecer os destaques dos tópicos essenciais do Azure Synapse.
 
-## <a name="architecture"></a>Arquitetura
+## <a name="basics"></a>Noções básicas
 
-> [!div class="mx-imgBorder"]
->![Arquitetura do Synapse](media/overview-cheat-sheet/azure-synapse-architecture-cheat-sheet.png)
+Um **workspace do Azure Synapse** é um limite de colaboração protegível para fazer análises empresariais baseadas em nuvem no Azure. Um workspace é implantado em uma região específica e tem uma conta do ADLS Gen2 e um sistema de arquivos associados (para armazenar dados temporários). Um workspace está localizado em um grupo de recursos.
+
+Um workspace permite que você execute análises com o SQL e o Apache Spark. Os recursos disponíveis para análises de SQL e do Spark são organizados em **pools** de SQL e do Spark. 
+
+## <a name="synapse-sql"></a>SQL do Synapse
+O **SQL do Synapse** é a capacidade de fazer análises baseadas em T-SQL no workspace do Azure Synapse. O SQL do Synapse tem dois modelos de consumo: dedicado e sem servidor.  Para o modelo dedicado, use **pools de SQL** dedicados. Um workspace pode ter qualquer quantidade desses pools. Para usar o modelo sem servidor, utilize o pool de SQL sem servidor chamado "SQL sob demanda". Todo workspace tem um desses pools.
+
+## <a name="apache-spark-for-synapse"></a>Apache Spark para o Synapse
+Para usar a análise do Spark, crie e use **pools do Spark** em seu workspace do Azure Synapse.
 
 ## <a name="terminology"></a>Terminologia
 | Termo                         | Definição      |
 |:---                                 |:---                 |
-| **Workspace do Synapse** | Um limite de colaboração protegível para fazer análises empresariais baseadas em nuvem no Azure. Um workspace é implantado em uma região específica e tem uma conta do ADLS Gen2 e um sistema de arquivos associados (para armazenar dados temporários). Um workspace está localizado em um grupo de recursos. |
-| **SQL do Synapse**   | Execute análises com pools ou com funcionalidades sob demanda.  |
-| **Pool de SQL**   | Os recursos provisionados do SQL de 0 a N com os bancos de dados correspondentes podem ser implantados em um workspace. Cada pool de SQL tem um banco de dados associado. Um pool de SQL pode ser escalado, colocado em pausa e retomado manual ou automaticamente. Um pool de SQL pode ser escalado de 100 DWUs até 30 mil DWUs.       |
-| **SQL sob demanda**   | Sistema de processamento de dados distribuído criado para dados de grande escala que permite executar consultas T-SQL nos dados do data lake. Ele é sem servidor e, portanto, você não precisa gerenciar a infraestrutura.       |
 |**Apache Spark para o Synapse** | Runtime do Spark usado em um Pool do Spark. A versão atual compatível é Spark 2.4 com Python 3.6.1, Scala 2.11.12, suporte do .NET para Apache Spark 0.5 e Delta Lake 0.3.  | 
 | **Pool do Apache Spark**  | Os recursos provisionados do Spark de 0 a N com os bancos de dados correspondentes podem ser implantados em um workspace. Um Pool do Spark pode ser colocado em pausa automaticamente, retomado e escalado.  |
 | **Aplicativo Spark**  |   Ele consiste em um processo de driver e em um conjunto de processos de executor. Um aplicativo Spark é executado em um Pool do Spark.            |

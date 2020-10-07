@@ -12,12 +12,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, contperfq1
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 5f34215d57bd5dae8c9a5e6e8f4630b7ed0c827e
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 9cd59d6bf5b9bf6e17cba0786bfac27ed12d7638
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89436676"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91258125"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Início Rápido: Registrar um aplicativo na plataforma de identidade da Microsoft
 
@@ -32,7 +32,7 @@ Cada aplicativo para o qual você deseja que a plataforma de identidade da Micro
 
 ## <a name="register-an-application"></a>Registrar um aplicativo
 
-Registrar seu aplicativo estabelece uma relação de confiança entre seu aplicativo e a plataforma de identidade da Microsoft. A confiança é unidirecional: seu aplicativo confia na plataforma de identidade da Microsoft, não o contrário.
+Registrar seu aplicativo estabelece uma relação de confiança entre seu aplicativo e a plataforma de identidade da Microsoft. A confiança é unidirecional: seu aplicativo confia na plataforma de identidade da Microsoft, e não o contrário.
 
 Siga estas etapas para criar o registro do aplicativo:
 
@@ -59,13 +59,13 @@ Quando o registro for concluído, o portal do Azure exibirá o painel **Visão g
 
 O código do aplicativo ou, mais tipicamente, uma biblioteca de autenticação usada em seu aplicativo, também usa a ID do cliente como um aspecto na validação dos tokens de segurança que ele recebe da plataforma de identidade.
 
-:::image type="content" source="media/quickstart-register-app/portal-03-app-reg-02.png" alt-text="Captura de tela do portal do Azure em um navegador da Web mostrando um painel Visão Geral do registro do aplicativo.":::
+:::image type="content" source="media/quickstart-register-app/portal-03-app-reg-02.png" alt-text="Captura de tela do portal do Azure em um navegador da Web mostrando o painel Registrar um aplicativo.":::
 
 ## <a name="add-a-redirect-uri"></a>Adicionar um URI de redirecionamento
 
 Um URI de redirecionamento é o local para o qual a plataforma de identidade da Microsoft redireciona o cliente de um usuário e envia tokens de segurança após a autenticação.
 
-Em um aplicativo Web de produção, por exemplo, o URI de redirecionamento geralmente é um ponto de extremidade público em que seu aplicativo está em execução, como `https://contoso.com/auth-response`. Durante o desenvolvimento, é comum também adicionar o ponto de extremidade em que você executa o aplicativo localmente, como `https://127.0.0.1/auth-response`.
+Em um aplicativo Web de produção, por exemplo, o URI de redirecionamento geralmente é um ponto de extremidade público em que seu aplicativo está em execução, como `https://contoso.com/auth-response`. Durante o desenvolvimento, é comum também adicionar o ponto de extremidade em que você executa o aplicativo localmente, como `https://127.0.0.1/auth-response` ou `http://localhost/auth-response`.
 
 Você adiciona e modifica URIs de redirecionamento para seus aplicativos registrados definindo suas [configurações de plataforma](#configure-platform-settings).
 
@@ -80,7 +80,7 @@ Para definir as configurações do aplicativo com base na plataforma ou no dispo
 1. Em **Configurações da plataforma**, selecione **Adicionar uma plataforma**.
 1. Em **Configurar plataformas**, selecione o bloco para o tipo de aplicativo (plataforma) para definir suas configurações.
 
-    :::image type="content" source="media/quickstart-register-app/portal-04-app-reg-03-platform-config.png" alt-text="Captura de tela do painel Configuração da plataforma no portal do Azure" border="false":::
+    :::image type="content" source="media/quickstart-register-app/portal-04-app-reg-03-platform-config.png" alt-text="Captura de tela do portal do Azure em um navegador da Web mostrando o painel Registrar um aplicativo." border="false":::
 
     | Plataforma | Definições de configuração |
     | -------- | ---------------------- |
@@ -101,7 +101,7 @@ As credenciais são usadas por aplicativos cliente confidenciais que acessam uma
 
 Você pode adicionar certificados e segredos do cliente (uma cadeia de caracteres) como credenciais ao registro do aplicativo cliente confidencial.
 
-:::image type="content" source="media/quickstart-register-app/portal-05-app-reg-04-credentials.png" alt-text="Captura de tela do portal do Azure mostrando o painel Certificados e segredos em um Registro de aplicativo":::
+:::image type="content" source="media/quickstart-register-app/portal-05-app-reg-04-credentials.png" alt-text="Captura de tela do portal do Azure em um navegador da Web mostrando o painel Registrar um aplicativo.":::
 
 ### <a name="add-a-certificate"></a>Adicionar um certificado
 
