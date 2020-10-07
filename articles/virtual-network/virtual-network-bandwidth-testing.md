@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/21/2017
+ms.date: 10/06/2020
 ms.author: steveesp
-ms.openlocfilehash: e5aa2c1c51fccddc3fb62d7ebdbadee19a2b093e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0b009b7c44084e76194c1447fefdb2ff59f8086a
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87265170"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812277"
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>Teste de Largura de Banda/Taxa de Transferência (NTTTCP)
 
@@ -26,7 +26,7 @@ Ao testar o desempenho de taxa de transferência de rede no Azure, é melhor usa
 Copie a ferramenta para duas VMs do Azure do mesmo tamanho. Uma VM funciona como REMETENTE e a outra como RECEPTOR.
 
 #### <a name="deploying-vms-for-testing"></a>Implantando VMs para teste
-Para fins deste teste, as duas VMs devem estar no mesmo Serviço de Nuvem ou no mesmo Conjunto de Disponibilidade, para que possamos usar seus IPs internos e excluir os Balanceadores de Carga do teste. É possível testar com o VIP, mas essa variante de teste está fora do escopo deste documento.
+Para os fins deste teste, as duas VMs devem estar no mesmo [grupo de posicionamento de proximidade](../virtual-machines/windows/co-location.md) ou no mesmo conjunto de disponibilidade para que possamos usar seus IPs internos e excluir os balanceadores de carga do teste. É possível testar com o VIP, mas essa variante de teste está fora do escopo deste documento.
 
 Anote o endereço IP do RECEPTOR. Vamos chamar esse IP de “a.b.c.r”
 

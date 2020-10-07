@@ -7,12 +7,12 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.date: 08/04/2020
-ms.openlocfilehash: b51b44f3a3d0889836bb41e0bf2fa37234338cf4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a8879bed4160c7cd1bd74cb196ce271964e384f7
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91287076"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91813229"
 ---
 # <a name="azure-boot-diagnostics"></a>Diagnóstico de inicialização do Azure
 
@@ -25,12 +25,14 @@ Uma experiência de diagnóstico de inicialização alternativa é usar uma cont
 
 > [!IMPORTANT]
 > Os clientes do Azure não serão cobrados pelos custos de armazenamento associados ao diagnóstico de inicialização usando uma conta de armazenamento gerenciado até 2020 de outubro.
+>
+> Os blobs de dados de diagnóstico de inicialização (que compõem os logs e imagens de instantâneo) são armazenados em uma conta de armazenamento gerenciada. Os clientes serão cobrados somente em GiBs usados pelos BLOBs, não no tamanho provisionado do disco. Os medidores de instantâneo serão usados para cobrança da conta de armazenamento gerenciada. Como as contas gerenciadas são criadas no padrão LRS ou Standard ZRS, os clientes serão cobrados a US $0,05/GB por mês apenas para o tamanho dos BLOBs de dados de diagnóstico. Para saber mais sobre esse preço, confira [preços de Managed disks](https://azure.microsoft.com/pricing/details/managed-disks/). Os clientes verão esse encargo associado ao URI do recurso da VM. 
 
 ## <a name="boot-diagnostics-view"></a>Exibição de diagnóstico de inicialização
 Localizado na folha máquina virtual, a opção diagnóstico de inicialização está na seção *suporte e solução de problemas* no portal do Azure. A seleção de diagnósticos de inicialização exibirá uma captura de tela e informações de log serial. O log serial contém mensagens de kernel e a captura de tela é um instantâneo do estado atual de suas VMs. Com base em se a VM que está executando o Windows ou Linux determinar a aparência esperada da captura de tela. Para o Windows, os usuários verão um plano de fundo de área de trabalho e para Linux, os usuários verão um prompt de logon.
 
 :::image type="content" source="./media/boot-diagnostics/boot-diagnostics-linux.png" alt-text="Captura de tela do diagnóstico de inicialização do Linux":::
-:::image type="content" source="./media/boot-diagnostics/boot-diagnostics-windows.png" alt-text="Captura de tela do diagnóstico de inicialização do Windows":::
+:::image type="content" source="./media/boot-diagnostics/boot-diagnostics-windows.png" alt-text="Captura de tela do diagnóstico de inicialização do Linux":::
 
 
 ## <a name="limitations"></a>Limitações

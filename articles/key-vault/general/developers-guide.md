@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 662c23a29e383800a4591c900e02133c16fa2090
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: a04435b1e2feb537231bb80d2777b9ea2599c241
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743311"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812396"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guia do desenvolvedor do Cofre da Chave do Azure
 
@@ -61,6 +61,11 @@ Para obter mais informações, consulte:
 | .NET | Python | Java | JavaScript |
 |--|--|--|--|
 |[SDK .NET do Azure Identity](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme)|[Python do SDK do Azure Identity](https://docs.microsoft.com/python/api/overview/azure/identity-readme)|[SDK do Azure Identity do Java](https://docs.microsoft.com/java/api/overview/azure/identity-readme)|[JavaScript do SDK de identidade do Azure](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme)|     
+
+Autenticar para Key Vault em aplicativos:
+- [Autenticar para Key Vault no aplicativo hospedado na VM no .NET](https://docs.microsoft.com/azure/key-vault/general/tutorial-net-virtual-machine)
+- [Autenticar para Key Vault no aplicativo hospedado na VM no Python](https://docs.microsoft.com/azure/key-vault/general/tutorial-python-virtual-machine)
+- [Autenticar para Key Vault com o serviço de aplicativo](https://docs.microsoft.com/azure/key-vault/general/tutorial-net-create-vault-azure-web-app)
 
 ## <a name="manage-keys-certificates-and-secrets"></a>Gerenciar chaves, certificados e segredos
 
@@ -112,9 +117,13 @@ Os artigos e cenários a seguir fornecem diretrizes específicas da tarefa para 
 
 Estes artigos abordam outros cenários e serviços que usam ou se integram ao Key Vault.
 
-- [Criptografia em repouso com Key Vault](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)
-
+- A [criptografia em repouso](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest) permite a codificação (criptografia) de dados quando ela é persistente. As chaves de criptografia de dados geralmente são criptografadas com uma chave de criptografia de chave em Azure Key Vault para limitar ainda mais o acesso.
 - [Proteção de Informações do Azure](/azure/information-protection/plan-implement-tenant-key) permite a você gerenciar sua própria chave de locatário. Por exemplo, em vez de a Microsoft gerenciar sua chave de locatário (o padrão), você pode gerenciá-la para cumprir os regulamentos específicos que se aplicam à sua organização. Gerenciar sua própria chave de locatário também é conhecido como "traga sua própria chave", ou BYOK.
+- O [serviço de vínculo privado do Azure](private-link-service.md) permite que você acesse os serviços do Azure (por exemplo, Azure Key Vault, armazenamento do azure e Azure Cosmos DB) e os serviços hospedados de cliente/parceiro do Azure por meio de um ponto de extremidade privado em sua rede virtual.
+- A integração do Key Vault com a [grade de eventos](https://docs.microsoft.com/azure/event-grid/event-schema-key-vault)  permite que os usuários sejam notificados quando o status de um segredo armazenado no cofre de chaves for alterado. Você pode distribuir novas versões de segredos para aplicativos ou girar segredos de expiração próximos para evitar interrupções.
+- Você pode proteger seus segredos do [DevOps do Azure](https://docs.microsoft.com/azure/devops/pipelines/release/azure-key-vault) contra acesso indesejado no Key Vault.
+- [Usar o segredo armazenado em Key Vault no databricks para se conectar ao armazenamento do Azure](https://docs.microsoft.com/azure/key-vault/general/integrate-databricks-blob-storage)
+- Configurar e executar o provedor de Azure Key Vault para o [Driver de armazenamento de segredos do CSI](https://docs.microsoft.com/azure/key-vault/general/key-vault-integrate-kubernetes) no kubernetes
 
 ## <a name="key-vault-overviews-and-concepts"></a>Visões gerais e conceitos do Key Vault
 

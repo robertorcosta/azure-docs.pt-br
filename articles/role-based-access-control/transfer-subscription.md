@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 10/06/2020
 ms.author: rolyon
-ms.openlocfilehash: fd8192b48f6923a8fe68abf674d6100c8b8e5a00
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: e5b0eb5fc9014a4f8df0f0cc363b5dddb45674af
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91761865"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91804173"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Transferir uma assinatura do Azure para um diretório diferente do Azure AD
 
@@ -74,7 +74,7 @@ Vários recursos do Azure têm uma dependência em uma assinatura ou em um diret
 | Azure Data Lake Storage Gen1 | Sim | Sim |  | Você deve recriar quaisquer ACLs. |
 | Arquivos do Azure | Sim | Sim |  | Você deve recriar quaisquer ACLs. |
 | Sincronização de Arquivos do Azure | Sim | Sim |  |  |
-| Azure Managed Disks | Sim | N/D |  |  |
+| Azure Managed Disks | Sim | Sim |  |  Se você estiver usando conjuntos de criptografia de disco para criptografar Managed Disks com chaves gerenciadas pelo cliente, deverá desabilitar e reabilitar as identidades atribuídas pelo sistema associadas aos conjuntos de criptografia de disco. E você deve recriar as atribuições de função, ou seja, conceder novamente as permissões necessárias para os conjuntos de criptografia de disco nos cofres de chaves. |
 | Serviços de contêiner do Azure para kubernetes | Sim | Sim |  |  |
 | Azure Active Directory Domain Services | Sim | Não |  |  |
 | Registros de aplicativo | Sim | Sim |  |  |

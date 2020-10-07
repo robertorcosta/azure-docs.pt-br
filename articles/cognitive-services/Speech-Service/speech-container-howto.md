@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/05/2020
+ms.date: 10/07/2020
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: local, Docker, contêiner
-ms.openlocfilehash: ed14b0b90fadf02ee23852ebce9a60b758b82573
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: 0ba479e8c73cb7b0f397f39124ec32d7b9afbf4f
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91766464"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91813263"
 ---
 # <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Instalar e executar contêineres do Docker para as APIs do serviço de fala 
 
@@ -140,7 +140,7 @@ As imagens de contêiner para fala estão disponíveis no registro de contêiner
 # <a name="speech-language-detection"></a>[Detecção de Idioma de fala](#tab/lid)
 
 > [!TIP]
-> Para obter melhores resultados, é recomendável usar o contêiner de detecção de idioma de fala com os contêineres de fala para texto ou de fala para texto personalizados. 
+> Para obter os resultados mais úteis, é recomendável usar o contêiner de detecção de idioma de fala com os contêineres de fala para texto ou de fala para texto personalizados. 
 
 | Contêiner | Repositório |
 |-----------|------------|

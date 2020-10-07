@@ -1,6 +1,6 @@
 ---
 title: Provisionando logs no portal de Azure Active Directory (versão prévia) | Microsoft Docs
-description: Introdução ao provisionamento de relatórios de atividade no portal de Azure Active Directory
+description: Introdução ao provisionamento de relatórios de logs no portal de Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 09/02/2020
+ms.date: 10/07/2020
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8aa31c6e196f916b4c7633da0c54a30ab9d7b548
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 6109f35c42d4b4a44430eeb99ec115f4cdc1a619
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91361272"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812549"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Provisionando relatórios no portal de Azure Active Directory (versão prévia)
 
@@ -42,6 +42,7 @@ Este tópico fornece uma visão geral do relatório de provisionamento.
 ## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="who-can-access-the-data"></a>Quem pode acessar os dados?
+* Proprietários do aplicativo
 * Usuários das funções administrador de segurança, leitor de segurança, leitor de relatórios, administrador de aplicativos e administrador de aplicativos de nuvem
 * Administradores globais
 
@@ -118,7 +119,7 @@ Ao selecionar um período de tempo personalizado, você pode configurar uma data
 
 O filtro **Status** permite que você selecione:
 
-- Tudo
+- Todos
 - Sucesso
 - Falha
 - Ignorado
@@ -131,7 +132,7 @@ O filtro de **ação** permite filtrar o:
 - Atualizar
 - Excluir
 - Desabilitar
-- Outro
+- Outros
 
 Além disso, para os filtros do modo de exibição padrão, você também pode definir os seguintes filtros:
 
@@ -210,13 +211,11 @@ A guia **Resumo** fornece uma visão geral do que aconteceu e identificadores pa
 
 ## <a name="what-you-should-know"></a>O que você deve saber
 
-- O portal do Azure repositórios relataram dados de provisionamento por 30 dias se você tiver uma edição Premium e 7 dias se tiver uma edição gratuita.
+- O portal do Azure repositórios relataram dados de provisionamento por 30 dias se você tiver uma edição Premium e 7 dias se tiver uma edição gratuita. Os logs de provisionamento podem ser publicados no log Analytics para retenção além de 30 dias. 
 
 - Você pode usar o atributo ID de alteração como um identificador exclusivo. Isso é, por exemplo, útil ao interagir com o suporte ao produto.
 
 - Atualmente, não há nenhuma opção para baixar dados de provisionamento como um arquivo CSV, mas você pode exportar os dados usando [Microsoft Graph](https://docs.microsoft.com/graph/api/provisioningobjectsummary-list?view=graph-rest-beta&tabs=http).
-
-- No momento, não há suporte para o log Analytics.
 
 - Você pode ver eventos ignorados para usuários que não estão no escopo. Isso é esperado, especialmente quando o escopo de sincronização é definido como todos os usuários e grupos. Nosso serviço avaliará todos os objetos no locatário, mesmo aqueles que estão fora do escopo. 
 
@@ -252,3 +251,4 @@ Use a tabela a seguir para entender melhor como resolver erros que podem ser enc
 
 * [Verificar o status do provisionamento do usuário](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md)
 * [Problema na configuração do provisionamento do usuário para um aplicativo de galeria do Azure AD](../app-provisioning/application-provisioning-config-problem.md)
+* [API do grafo de logs de provisionamento](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta)
