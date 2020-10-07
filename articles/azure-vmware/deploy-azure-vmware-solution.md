@@ -3,12 +3,12 @@ title: Implantar e configurar a Solução VMware no Azure
 description: Saiba como usar as informações coletadas na fase de planejamento para implantar a nuvem privada da Solução VMware no Azure.
 ms.topic: tutorial
 ms.date: 10/02/2020
-ms.openlocfilehash: 08d2d48820505dad9bba74fe3ac84f45525f4525
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: af2a9e4fcb4125683342ad739e3890671f64b0bf
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/30/2020
-ms.locfileid: "91578622"
+ms.locfileid: "91598179"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>Implantar e configurar a Solução VMware no Azure
 
@@ -40,7 +40,7 @@ Use as informações coletadas no artigo [Planejando a implantação da Soluçã
 Depois de implantar a Solução VMware no Azure, você criará o jumpbox da rede virtual que se conecta com o vCenter e com o NSX. Após a configuração dos circuitos do ExpressRoute e do Alcance Global do ExpressRoute, o jumpbox não será necessário.  Mas é útil acessar o vCenter e o NSX na Solução VMware no Azure.  
 
 
-:::image type="content" source="media/pre-deployment/jump-box-diagram.png" alt-text="Criar o jumpbox da Solução VMware no Azure":::
+:::image type="content" source="media/pre-deployment/jump-box-diagram.png" alt-text="Criar o jumpbox da Solução VMware no Azure" border="false" lightbox="media/pre-deployment/jump-box-diagram.png":::
 
 Para criar uma VM (máquina virtual) na rede virtual que você [identificou ou criou como parte do processo de implantação](production-ready-deployment-steps.md#azure-virtual-network-to-attach-azure-vmware-solution), siga estas instruções: 
 
@@ -60,7 +60,7 @@ O jumpbox está na rede virtual na qual a Solução VMware no Azure se conecta p
 
 Na lista de rotas em vigor, serão exibidas as redes criadas como parte da implantação da Solução VMware no Azure. Você verá várias redes que foram derivadas da rede [`/22` que você definiu](production-ready-deployment-steps.md#ip-address-segment) durante a [etapa de implantação](#deploy-azure-vmware-solution) anteriormente neste artigo.
 
-:::image type="content" source="media/pre-deployment/azure-vmware-solution-effective-routes.png" alt-text="Criar o jumpbox da Solução VMware no Azure":::
+:::image type="content" source="media/pre-deployment/azure-vmware-solution-effective-routes.png" alt-text="Criar o jumpbox da Solução VMware no Azure" lightbox="media/pre-deployment/azure-vmware-solution-effective-routes.png":::
 
 Neste exemplo, a rede 10.74.72.0/22 foi inserida durante a implantação, derivando as redes /24.  Se aparecer algo semelhante, você poderá se conectar com o vCenter na Solução VMware no Azure.
 

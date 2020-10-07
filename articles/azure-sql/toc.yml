@@ -497,12 +497,8 @@
               href: database/database-copy.md
             - name: Replicar em Banco de Dados SQL
               href: database/replication-to-sql-database.md
-            - name: Sincronização de Dados SQL
-              items:
-                - name: Replicar alterações de esquema
-                  href: database/sql-data-sync-update-sync-schema.md
-                - name: Monitorar com o OMS
-                  href: database/sql-data-sync-monitor-sync.md
+            - name: Replicar alterações de esquema (sincronização de dados)
+              href: database/sql-data-sync-update-sync-schema.md
         - name: Fragmentação do banco de dados
           items:
             - name: Atualizar biblioteca do cliente

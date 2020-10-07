@@ -6,15 +6,15 @@ author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 03/10/2020
+ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 1dd3781b18f82a96f388b0e619ce62b45752a870
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f33d7efd1c136619767c3eadd93740442ae7239a
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91292465"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91762035"
 ---
 # <a name="chat-concepts"></a>Conceitos de chat
 
@@ -128,7 +128,7 @@ Use as [APIs Cognitivas do Azure](https://docs.microsoft.com/azure/cognitive-ser
 
 Um modo de conseguir isso é fazendo com que o serviço confiável funcione como um membro de uma conversa de chat. Digamos que você deseje habilitar a tradução de idioma. Esse serviço será responsável por ouvir as mensagens trocadas por outros membros [1], chamar APIs cognitivas para traduzir o conteúdo para o idioma desejado [2, 3] e enviar o resultado traduzido como uma mensagem na conversa de chat [4]. 
 
-Dessa forma, o histórico de mensagens conterá as mensagens originais e traduzidas. No aplicativo cliente, você poderá adicionar a lógica para mostrar a mensagem original ou traduzida. Confira [este guia de início rápido](https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-translate) para entender como usar as APIs Cognitivas para traduzir um texto em idiomas diferentes. 
+Dessa forma, o histórico de mensagens conterá as mensagens originais e traduzidas. No aplicativo cliente, você poderá adicionar a lógica para mostrar a mensagem original ou traduzida. Confira [este guia de início rápido](https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-translator) para entender como usar as APIs Cognitivas para traduzir um texto em idiomas diferentes. 
 
 :::image type="content" source="../media/chat/cognitive-services.png" alt-text="Diagrama mostrando a arquitetura de chat dos Serviços de Comunicação.":::
 

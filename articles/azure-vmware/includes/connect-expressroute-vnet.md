@@ -3,12 +3,12 @@ title: Conectar o ExpressRoute ao gateway de rede virtual
 description: Etapas para conectar o ExpressRoute ao gateway de rede virtual.
 ms.topic: include
 ms.date: 09/28/2020
-ms.openlocfilehash: 241919e3a69b8d1c3c24e6c894bcbf20aea62d5f
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 214ef9c01193b238c8e456ef2809f7a2edbdb6c7
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/30/2020
-ms.locfileid: "91578335"
+ms.locfileid: "91598183"
 ---
 <!-- Used in deploy-azure-vmware-solution.md and tutorial-configure-networking.md -->
 
@@ -16,7 +16,7 @@ ms.locfileid: "91578335"
 
 1. Copie a chave de autorização. Se não houver uma chave de autorização, você precisará criar uma: selecione **+ Solicitar uma chave de autorização**.
 
-   :::image type="content" source="../media/expressroute-global-reach/start-request-auth-key.png" alt-text="Copie a chave de autorização. Se não houver uma chave de autorização, você precisará criar uma: selecione + Solicitar uma chave de autorização" border="true":::.
+   :::image type="content" source="../media/expressroute-global-reach/start-request-auth-key.png" alt-text="Copie a chave de autorização. Se não houver uma chave de autorização, você precisará criar uma: selecione + Solicitar uma chave de autorização" border="true" lightbox="../media/expressroute-global-reach/start-request-auth-key.png":::.
 
 1. Navegue até o Gateway de Rede Virtual criado na etapa anterior e, em **Configurações**, selecione **Conexões**. Na página **Conexões**, selecione **+ Adicionar**.
 
@@ -31,6 +31,6 @@ ms.locfileid: "91578335"
    | **Chave de autorização**  | Copie e cole a chave de autorização da guia ExpressRoute do seu Grupo de recursos. |
    | **URI de circuito de par**  | Copie e cole a ID do ExpressRoute da guia ExpressRoute do seu Grupo de recursos.  |
 
-   :::image type="content" source="../media/expressroute-global-reach/open-cloud-shell.png" alt-text="Copie a chave de autorização. Se não houver uma chave de autorização, você precisará criar uma: selecione + Solicitar uma chave de autorização" border="true":::
+   :::image type="content" source="../media/expressroute-global-reach/open-cloud-shell.png" alt-text="Copie a chave de autorização. Se não houver uma chave de autorização, você precisará criar uma: selecione + Solicitar uma chave de autorização" border="true" lightbox="../media/expressroute-global-reach/open-cloud-shell.png":::
 
 A conexão entre o circuito do ExpressRoute e sua Rede Virtual é criada.

@@ -4,12 +4,12 @@ description: Neste artigo, você terá uma visão geral da compatibilidade do Re
 ms.topic: overview
 ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: 6d478e264f38bb8a097c87e37479ca64b3d5e52d
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: a0cc54f6ada1a5900e817c8e22fc192cd73f6550
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91568362"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91653563"
 ---
 # <a name="azure-schema-registry-in-event-hubs-preview"></a>Registro de Esquema do Azure nos Hubs de Eventos (versão prévia)
 Em muitos cenários de streaming de eventos e mensagens, o conteúdo tem dados estruturados que estão sendo serializados ou desserializados com um formato controlado por esquema, como o Apache Avro. Tanto os remetentes quanto os destinatários podem querer validar a integridade dos dados com um documento de esquema, como o esquema JSON. Para formatos controlados por esquema, disponibilizar o esquema para o consumidor da mensagem é um pré-requisito para que ele consiga desserializar os dados. 
@@ -19,7 +19,6 @@ O **Registro de Esquema do Azure** é um recurso dos Hubs de Eventos que funcion
 > [!NOTE]
 > - O recurso de **Registro de Esquema** está em **versão prévia** no momento e não é recomendado para cargas de trabalho de produção.
 > - O recurso está disponível somente nas camadas de serviço **Standard** e **Dedicado**, e não na **Básica**.
-> - No momento, a versão prévia só está disponível na região **Centro-Oeste dos EUA**. 
 
 Com estruturas de serialização controladas por esquema, como o Apache Avro, externalizar os metadados de serialização em esquemas compartilhados também pode ajudar a reduzir drasticamente a sobrecarga por mensagem de informações de tipo e nomes de campo incluídos em cada conjunto de dados. Esse é o caso dos formatos marcados, como o JSON. Ter esquemas armazenados junto com os eventos e dentro da infraestrutura de eventos garante que os metadados necessários para serialização/desserialização sempre estejam ao alcance e os esquemas não sejam colocados no lugar incorreto. 
 

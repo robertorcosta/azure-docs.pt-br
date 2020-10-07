@@ -13,12 +13,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/28/2020
-ms.openlocfilehash: 35a637df85984bcfd20836bcd87aa5ecf1583170
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: 60977b9388af3a93d0ebbbc6aad50628b79e0e44
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91461131"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91598265"
 ---
 # <a name="quickstart-use-ssms-to-connect-to-and-query-azure-sql-database-or-azure-sql-managed-instance"></a>Início Rápido: Usar o SSMS para se conectar e consultar um Banco de Dados SQL do Azure ou uma Instância Gerenciada de SQL do Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -64,6 +64,8 @@ Obtenha as informações de conexão necessárias para se conectar ao banco de d
 
 ## <a name="connect-to-your-database"></a>Conectar-se ao seu banco de dados
 
+[!INCLUDE[ssms-connect-azure-ad](../includes/ssms-connect-azure-ad.md)]
+
 No SSMS, conecte-se ao servidor.
 
 > [!IMPORTANT]
@@ -85,7 +87,7 @@ No SSMS, conecte-se ao servidor.
    ![conectar-se ao servidor](./media/connect-query-ssms/connect.png)  
 
 > [!NOTE]
-> Este tutorial usa a Autenticação do SQL Server.  No entanto, para se conectar por meio do Azure Active Directory com MFA, verifique se você está usando o [SSMS 18.6 ou mais recente](https://aka.ms/ssms). 
+> Este tutorial usa a Autenticação do SQL Server.
 
 3. Selecione **Opções** na caixa de diálogo **Conectar-se ao servidor**. No menu suspenso **Conectar-se ao banco de dados**, selecione **mySampleDatabase**. A conclusão do início rápido na seção [Pré-requisitos](#prerequisites) cria um banco de dados AdventureWorksLT chamado mySampleDatabase. Se sua cópia funcional do banco de dados AdventureWorks tiver um nome diferente de mySampleDatabase, selecione-a em vez disso.
 

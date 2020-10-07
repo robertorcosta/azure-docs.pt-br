@@ -4,14 +4,14 @@ ms.service: app-service
 ms.topic: include
 ms.date: 03/04/2020
 ms.author: jroth
-ms.openlocfilehash: 1811590dcf9077a503f89a900f661c52aa442c96
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 557e20dcafabb2db0bc66c9dfda4977aca50de50
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87425087"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91745431"
 ---
-| Recurso | Grátis | Compartilhado | Basic | Standard | Premium (v2) | Isolado </th> |
+| Recurso | Grátis | Compartilhado | Basic | Standard | Premium (v3) | Isolado </th> |
 | --- | --- | --- | --- | --- | --- | --- |
 | [Aplicativos Web, móveis ou de API](https://azure.microsoft.com/services/app-service/) por [plano do Serviço de Aplicativo do Azure](../articles/app-service/overview-hosting-plans.md)<sup>1</sup> |10 |100 |Ilimitado<sup>2</sup> |Ilimitado<sup>2</sup> |Ilimitado<sup>2</sup> |Ilimitado<sup>2</sup>|
 | [Plano do Serviço de Aplicativo](../articles/app-service/overview-hosting-plans.md) |10 por região |10 por grupo de recursos |100 por grupo de recursos |100 por grupo de recursos |100 por grupo de recursos |100 por grupo de recursos|
@@ -52,7 +52,7 @@ ms.locfileid: "87425087"
 <sup>5</sup>O limite de armazenamento é o tamanho total do conteúdo em todos os aplicativos no mesmo Plano do Serviço de Aplicativo. O tamanho total do conteúdo de todos os aplicativos em todos os Planos do Serviço de Aplicativo em um único grupo de recursos e em uma única região não pode exceder 500 GB.  
 <sup>6</sup>Esses recursos são limitados pelos recursos físicos nas instâncias dedicadas (o tamanho de instância e o número de instâncias).  
 <sup>7</sup>Ao escalar um aplicativo na camada Basic para duas instâncias, você tem 350 conexões simultâneas para cada uma das duas instâncias. Para o nível Standard e superior, não há limites teóricos para os soquetes da Web, mas outros fatores podem limitar o número de soquetes da Web. Por exemplo, o máximo de solicitações simultâneas permitidas (definidas por `maxConcurrentRequestsPerCpu`) é: 7.500 por VM pequena, 15.000 por VM média (7.500 x 2 núcleos) e 75.000 por VM grande (18.750 x 4 núcleos).  
-<sup>8</sup>O número máximo de conexões IP é por instância e depende do tamanho da instância: 1.920 por instância B1/S1/P1V2, 3.968 por instância B2/S2/P2V2, 8.064 por instância B3/S3/P3V2.  
+<sup>8</sup>O número máximo de conexões IP é por instância e depende do tamanho da instância: 1.920 por instância B1/S1/P1V3, 3.968 por instância B2/S2/P2V3, 8.064 por instância B3/S3/P3V3.  
 <sup>9</sup>O limite de cota do Certificado do Serviço de Aplicativo por assinatura pode ser aumentado por meio de uma solicitação de suporte para um limite máximo de 200.  
 <sup>10</sup>Os SKUs do Serviço do Aplicativo Isolado podem ter balanceamento de carga interno (ILB) com o Azure Load Balancer, portanto não há conectividade pública da Internet. Como resultado, alguns recursos do Serviço de Aplicativo Isolado de ILB devem ser usados de computadores com acesso direto ao ponto de extremidade de rede de ILB.  
 <sup>11</sup>Execute scripts e/ou executáveis personalizados sob demanda, em um agendamento ou continuamente, como uma tarefa em segundo plano em sua instância do Serviço de Aplicativo. Para a execução contínua de Trabalhos Web, a opção Sempre Ativado é obrigatória. Não há nenhum limite predefinido no número de WebJobs que podem ser executados em uma instância do Serviço de Aplicativo. Há limites práticos que dependem do que o código do aplicativo está tentando fazer.

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: tutorial
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 9ed46f37c0906fa244d70cd2dea997f19c8bd462
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 0de41941fa5907b7d33e24de331571015510e7bf
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447411"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713800"
 ---
 # <a name="planning-and-operations-guide"></a>Guia de planejamento e operações
 Este guia destina-se a profissionais de TI (tecnologia da informação), arquitetos de TI, analistas de segurança da informação e administradores de nuvem que pretendem usar a Central de Segurança do Azure.
@@ -120,7 +120,7 @@ As políticas de Central de Segurança contêm os seguintes componentes:
 - [Coleta de dados](security-center-enable-data-collection.md): configurações de provisionamento de agente e de coleta de dados.
 - [Política de segurança](tutorial-security-policy.md): uma [Azure Policy](../governance/policy/overview.md) que determina quais controles são monitorados e recomendados pela Central de Segurança ou usa a Azure Policy para criar novas definições, definir políticas adicionais e atribuir políticas a grupos de gerenciamento.
 - [Notificações por email](security-center-provide-security-contact-details.md): configurações de contatos de segurança e de notificação.
-- [Tipo de preço](security-center-pricing.md): com ou sem Azure Defender, que determina quais recursos da Central de Segurança estão disponíveis para os recursos no escopo (pode ser especificado para assinaturas, grupos de recursos e workspaces).
+- [Tipo de preço](security-center-pricing.md): com ou sem o Azure Defender, que determina quais recursos da Central de Segurança estão disponíveis para os recursos no escopo (pode ser especificado para assinaturas e workspaces ou grupos de recursos usando a API).
 
 > [!NOTE]
 > A especificação de um contato de segurança faz com que o Azure possa falar com a pessoa certa na sua organização em caso de incidente de segurança. Leia [Fornecer detalhes de contato da segurança na Central de Segurança do Azure](security-center-provide-security-contact-details.md) para obter mais informações sobre como habilitar essa recomendação.
@@ -161,7 +161,7 @@ No caso de workspaces criados pela Central de Segurança do Azure, os dados ser�
 > A Microsoft está comprometida com a proteção da privacidade e da segurança dos dados. A Microsoft obedece às diretrizes rígidas de conformidade e segurança — da codificação à operação de um serviço. Para saber mais sobre manipulação de dados e privacidade, leia [Segurança de dados da Central de Segurança do Azure](security-center-data-security.md).
 >
 
-## <a name="onboarding-non-azure-resources"></a>Integração de recursos não Azure
+## <a name="onboard-non-azure-resources"></a>Integrar recursos não Azure
 
 A Central de Segurança pode monitorar a postura de segurança dos computadores não Azure, mas, antes, é necessário que você integre esses recursos. Leia [Integrar computadores não Azure](quickstart-onboard-machines.md) para obter mais informações sobre como integrar recursos que não são do Azure.
 
@@ -218,8 +218,6 @@ O exemplo a seguir mostra uma atividade de RDP suspeita ocorrendo:
 ![Atividade suspeita](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig5-ga.png)
 
 Essa página mostra os detalhes sobre o horário do ataque, o nome do host de origem, a VM de destino e também fornece etapas de recomendação. Em algumas circunstâncias, as informações de origem do ataque podem estar vazias. Leia [Informações de Origem Ausentes nos Alertas da Central de Segurança do Azure](https://blogs.msdn.microsoft.com/azuresecurity/2016/03/25/missing-source-information-in-azure-security-center-alerts/) para obter mais informações sobre esse tipo de comportamento.
-
-Nessa página, você também pode iniciar uma investigação para entender melhor a linha do tempo do ataque, como o ataque ocorreu, quais sistemas foram possivelmente comprometidos, as credenciais que foram usadas, além de ver uma representação gráfica de toda a cadeia de ataque.
 
 Depois de identificar o sistema comprometido, execute uma [Automação de Fluxo de Trabalho](workflow-automation.md) criada anteriormente. Essa é uma coleção de procedimentos que pode ser executada na Central de Segurança depois que for disparada por um alerta.
 

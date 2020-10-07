@@ -8,12 +8,12 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 8/26/2020
 ms.author: alkemper
-ms.openlocfilehash: 5542dca6d9b1ab18cf1b9b93e20fa64da0eb1dd4
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: f57163b3d17877f7f8c66fa57fc8a0736c6affb7
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90998258"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767713"
 ---
 # <a name="quickstart-add-feature-flags-to-an-azure-functions-app"></a>Início Rápido: Adicionar sinalizadores de recurso a um aplicativo Azure Functions
 
@@ -31,14 +31,14 @@ As bibliotecas do Gerenciamento de Recursos do .NET estendem a estrutura com sup
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Selecione **Gerenciador de Recursos** >  **+Adicionar** para adicionar um sinalizador de recurso chamado `Beta`.
+7. Selecione **Gerenciador de Recursos** >  **+Adicionar** para adicionar um sinalizador de recurso chamado `Beta`.
 
     > [!div class="mx-imgBorder"]
     > ![Habilitar o sinalizador de recurso chamado Beta](media/add-beta-feature-flag.png)
 
     Deixe `label` e `Description` indefinidos por enquanto.
 
-7. Selecione **Aplicar** para salvar o novo sinalizador de recurso.
+8. Selecione **Aplicar** para salvar o novo sinalizador de recurso.
 
 ## <a name="create-a-functions-app"></a>Criar um aplicativo do Functions
 

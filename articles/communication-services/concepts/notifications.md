@@ -6,15 +6,15 @@ author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 03/10/2020
+ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 5be2ff48ea5510c54c79e76e8bae082bd5085794
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: abc2367c309f46ee1b29a51145c67e8d71919774
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90943137"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91665388"
 ---
 # <a name="communication-services-notifications"></a>Notificações de Serviços de Comunicação
 
@@ -36,7 +36,7 @@ Saiba mais sobre o [processamento de eventos nos Serviços de Comunicação do A
 
 Você pode conectar um Hub de Notificação do Azure ao seu recurso de serviços de comunicação para enviar notificações por push automaticamente ao dispositivo móvel de um usuário quando ele receber uma chamada de entrada. Use essas notificações por push para ativar seu aplicativo do segundo plano e exibir a interface do usuário que permite aos usuários aceitar ou recusar a chamada. 
 
-:::image type="content" source="./media/notifications/acs-anh-int.png" alt-text="Diagrama mostrando como os serviços de comunicação integram-se ao Hub de Notificações do Azure.":::
+:::image type="content" source="./media/notifications/acs-anh-int.png" alt-text="Diagrama mostrando como os Serviços de Comunicação integram-se à Grade de Eventos.":::
 
 Os Serviços de Comunicação usam o Hub de Notificação do Azure como um serviço de passagem para comunicar-se com os vários serviços de notificação por push específicos da plataforma usando a API de [Envio Direto](https://docs.microsoft.com/rest/api/notificationhubs/direct-send). Isso permite reutilizar os recursos e as configurações do hub de notificação do Azure para fornecer notificações de chamada de baixa latência e confiáveis aos seus aplicativos.
 
@@ -66,7 +66,7 @@ armclient POST /subscriptions/<sub_id>/resourceGroups/<resource_group>/providers
 
 No portal, navegue até o recurso Serviços de Comunicação do Azure. Dentro do recurso Serviços de Comunicação, selecione Notificações por Push no menu à esquerda da página Serviços de Comunicação e conecte o Hub de Notificação provisionado antes. Você precisará fornecer a cadeia de conexão e a ID do recurso aqui:
 
-:::image type="content" source="./media/notifications/acs-anh-portal-int.png" alt-text="Captura de tela mostrando as configurações de notificações por push no portal do Azure.":::
+:::image type="content" source="./media/notifications/acs-anh-portal-int.png" alt-text="Diagrama mostrando como os Serviços de Comunicação integram-se à Grade de Eventos.":::
 
 #### <a name="device-registration"></a>Registro de dispositivos 
 

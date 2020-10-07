@@ -8,12 +8,12 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 09/16/2020
-ms.openlocfilehash: 0a28bd0d4101fc9d49413adaaccc0a6d38ec64ed
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 460c37107ac2dbd8bc3377d3716e708331db9904
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91307714"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740914"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Início Rápido: Criar um índice da Pesquisa Cognitiva do Azure no portal do Azure
 
@@ -35,7 +35,7 @@ Muitos clientes começam com o serviço gratuito. Essa versão é limitada a tr�
 
 As seções no painel de serviço mostram quantos índices, indexadores e fontes de dados você já tem. 
 
-![Listas de índices, indexadores e fontes de dados](media/search-get-started-portal/tiles-indexers-datasources.png)
+:::image type="content" source="media/search-get-started-portal/tiles-indexers-datasources.png" alt-text="Listas de índices, indexadores e fontes de dados":::
 
 ## <a name="create-an-index-and-load-data"></a><a name="create-index"></a> Criar um índice e carregar dados
 
@@ -49,11 +49,9 @@ Para este tutorial, usamos um conjunto de dados interno de exemplo que pode ser 
 
 1. [Encontre seu serviço de pesquisa](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) e, na página Visão Geral, clique em **Importar dados** na barra de comandos para criar e preencher um índice de pesquisa.
 
-   ![Comando Importar de dados](media/search-get-started-portal/import-data-cmd.png)
+   :::image type="content" source="media/search-get-started-portal/import-data-cmd.png" alt-text="Listas de índices, indexadores e fontes de dados" que pode ser reutilizada em outras operações de importação.
 
-1. No assistente, clique em **Conectar-se aos seus dados** > **Exemplos** > **hotels-sample**. Essa fonte de dados é interna. Se você estiver criando sua própria fonte de dados, precisará especificar um nome, um tipo e as informações de conexão. Depois de criada, ela se torna uma "fonte de dados existente" que pode ser reutilizada em outras operações de importação.
-
-   ![Selecionar o conjunto de dados de exemplo](media/search-get-started-portal/import-datasource-sample.png)
+   :::image type="content" source="media/search-get-started-portal/import-datasource-sample.png" alt-text="Listas de índices, indexadores e fontes de dados":::
 
 1. Continue para a próxima página.
 
@@ -63,7 +61,7 @@ O assistente dá suporte à criação de um [pipeline de enriquecimento de IA](c
 
 Ignoraremos esta etapa por enquanto e passaremos diretamente para **Personalizar o índice de destino**.
 
-   ![Ignorar etapa de habilidades cognitivas](media/search-get-started-portal/skip-cog-skill-step.png)
+   :::image type="content" source="media/search-get-started-portal/skip-cog-skill-step.png" alt-text="Listas de índices, indexadores e fontes de dados":::
 
 > [!TIP]
 > Você pode percorrer um exemplo de indexação de inteligência artificial em um [guia de início rápido](cognitive-search-quickstart-blob.md) ou [tutorial](cognitive-search-tutorial-blob.md).
@@ -87,7 +85,7 @@ Por padrão, o assistente procura na fonte de dados identificadores exclusivos c
 
    Se você executar o assistente uma segunda vez usando uma fonte de dados de hotéis existente, o índice não será configurado com os atributos padrão. Você precisará selecionar manualmente os atributos em importações futuras. 
 
-   ![Índice de hotéis gerado](media/search-get-started-portal/hotelsindex.png)
+   :::image type="content" source="media/search-get-started-portal/hotelsindex.png" alt-text="Listas de índices, indexadores e fontes de dados":::
 
 2. Continue para a próxima página.
 
@@ -100,7 +98,7 @@ Esse objeto define um processo executável. Você poderá colocá-lo em uma agen
 
 Clique em **Enviar** para criar e executar simultaneamente o indexador.
 
-  ![indexador de hotéis](media/search-get-started-portal/hotels-indexer.png)
+  :::image type="content" source="media/search-get-started-portal/hotels-indexer.png" alt-text="Listas de índices, indexadores e fontes de dados":::
 
 ## <a name="monitor-progress"></a>Monitorar o progresso
 
@@ -108,7 +106,7 @@ O assistente levará você para a lista Indexadores, na qual você poderá monit
 
 Podem ser necessários alguns minutos para que o portal atualize a página, mas você deverá ver o indexador recém-criado na lista, com o status indicando "em andamento" ou êxito, juntamente com o número de documentos indexados.
 
-   ![Mensagem de andamento do indexador](media/search-get-started-portal/indexers-inprogress.png)
+   :::image type="content" source="media/search-get-started-portal/indexers-inprogress.png" alt-text="Listas de índices, indexadores e fontes de dados":::
 
 ## <a name="view-the-index"></a>Exibir índice
 
@@ -116,13 +114,13 @@ A página principal do serviço fornece links para os recursos criados em seu se
 
 Aguarde a atualização da página do portal. Após alguns minutos, você deverá ver o índice com uma contagem de documentos e tamanho de armazenamento.
 
-   ![Lista de índices no painel de serviço](media/search-get-started-portal/indexes-list.png)
+   :::image type="content" source="media/search-get-started-portal/indexes-list.png" alt-text="Listas de índices, indexadores e fontes de dados":::
 
 Nesta lista, você pode clicar no índice *hotels-sample* que acabou de criar e exibir o esquema de índice. e, opcionalmente, adicionar novos campos. 
 
 A guia **Campos** mostra o esquema de índice. Role até a parte inferior da lista para inserir um novo campo. Na maioria dos casos, você não pode alterar os campos existentes. Os campos existentes têm uma representação física na Pesquisa Cognitiva do Azure e, portanto, não podem ser modificados, nem mesmo no código. Para alterar fundamentalmente um campo existente, crie um índice, removendo o original.
 
-   ![exemplo de definição de índice](media/search-get-started-portal/sample-index-def.png)
+   :::image type="content" source="media/search-get-started-portal/sample-index-def.png" alt-text="Listas de índices, indexadores e fontes de dados":::
 
 Outros constructos, como perfis de pontuação e opções de CORS, podem ser adicionados a qualquer momento.
 
@@ -140,15 +138,15 @@ O **Gerenciador de pesquisa** só é capaz de lidar com [Solicitações da API R
 
 1. Clique em **Gerenciador de pesquisa** na barra de comandos.
 
-   ![Comando Search Explorer](media/search-get-started-portal/search-explorer-cmd.png)
+   :::image type="content" source="media/search-get-started-portal/search-explorer-cmd.png" alt-text="Listas de índices, indexadores e fontes de dados":::
 
 2. Na lista suspensa **Índice**, escolha *hotels-sample-index*. Clique na lista suspensa **Versão da API** para ver quais APIs REST estão disponíveis. Para as consultas a seguir, use a versão em disponibilidade geral (30/06/2020).
 
-   ![Comandos de índice e API](media/search-get-started-portal/search-explorer-changeindex.png)
+   :::image type="content" source="media/search-get-started-portal/search-explorer-changeindex.png" alt-text="Listas de índices, indexadores e fontes de dados":::
 
 3. Na barra de pesquisa, cole as cadeias de consulta abaixo e clique em **Pesquisar**.
 
-   ![Botão de pesquisa e de cadeia de consulta](media/search-get-started-portal/search-explorer-query-string-example.png)
+   :::image type="content" source="media/search-get-started-portal/search-explorer-query-string-example.png" alt-text="Listas de índices, indexadores e fontes de dados":::
 
 ## <a name="example-queries"></a>Consultas de exemplo
 

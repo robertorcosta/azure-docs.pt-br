@@ -6,19 +6,19 @@ author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 03/10/2020
+ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 02a0a5dd5cfe3a1ecaa264f1e81c848a8da6c58d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 072e885ec1c618229141dea477cd598d8db34ce7
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90943259"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91756731"
 ---
 # <a name="quickstart-handle-sms-events"></a>Início Rápido: Manipular eventos de SMS
 
-[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 Introdução aos Serviços de Comunicação do Azure usando a Grade de Eventos do Azure para manipular eventos de SMS dos Serviços de Comunicação. 
 
@@ -65,11 +65,11 @@ Você pode assinar eventos específicos para informar à Grade de Eventos qual d
 
 Confira a lista completa de [eventos com suporte dos Serviços de Comunicação do Azure](../../concepts/event-handling.md).
 
-:::image type="content" source="./media/handle-sms-events/select-events-create-eventsub.png" alt-text="Captura de tela mostrando os tipos de evento de SMS Recebido e Relatório de Entrega de SMS Recebido sendo selecionados.":::
+:::image type="content" source="./media/handle-sms-events/select-events-create-eventsub.png" alt-text="Captura de tela mostrando a seleção do botão de assinatura de evento na página de eventos de um recurso.":::
 
 Selecione **Web Hook** para o **Tipo de ponto de extremidade**. 
 
-:::image type="content" source="./media/handle-sms-events/select-events-create-linkwebhook.png" alt-text="Captura de tela mostrando o campo Tipo de Ponto de Extremidade sendo definido como Web Hook.":::
+:::image type="content" source="./media/handle-sms-events/select-events-create-linkwebhook.png" alt-text="Captura de tela mostrando a seleção do botão de assinatura de evento na página de eventos de um recurso.":::
 
 Para o **Ponto de extremidade**, clique em **Selecionar um ponto de extremidade** e insira a URL do seu aplicativo Web.
 
@@ -77,7 +77,7 @@ Nesse caso, usaremos a URL do [Exemplo do Visualizador da Grade de Eventos do Az
 
 Em seguida, selecione **Confirmar Seleção**.
 
-:::image type="content" source="./media/handle-sms-events/select-events-create-selectwebhook-epadd.png" alt-text="Captura de tela mostrando a confirmação de um Ponto de Extremidade de Web Hook.":::
+:::image type="content" source="./media/handle-sms-events/select-events-create-selectwebhook-epadd.png" alt-text="Captura de tela mostrando a seleção do botão de assinatura de evento na página de eventos de um recurso.":::
 
 ## <a name="viewing-sms-events"></a>Exibir eventos de SMS
 
@@ -94,9 +94,9 @@ Confira a lista completa de [eventos com suporte dos Serviços de Comunicação 
 
 Depois de realizar uma das ações acima, você observará que os eventos `SMS Received` e `SMS Delivery Report Received` são enviados para seu ponto de extremidade. Esses eventos aparecerão no [Exemplo do Visualizador da Grade de Eventos do Azure](https://docs.microsoft.com/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) configurado no início. Você pode pressionar o ícone de olho ao lado do evento para ver todo o conteúdo. Os eventos terão a seguinte aparência:
 
-:::image type="content" source="./media/handle-sms-events/sms-received.png" alt-text="Captura de tela mostrando o Esquema da Grade de Eventos para um Evento de SMS Recebido.":::
+:::image type="content" source="./media/handle-sms-events/sms-received.png" alt-text="Captura de tela mostrando a seleção do botão de assinatura de evento na página de eventos de um recurso.":::
 
-:::image type="content" source="./media/handle-sms-events/SMS-Delivery-Report-Received.png" alt-text="Captura de tela mostrando o Esquema de Grade de Eventos para um Evento de Relatório de Entrega de SMS.":::
+:::image type="content" source="./media/handle-sms-events/sms-delivery-report-received.png" alt-text="Captura de tela mostrando a seleção do botão de assinatura de evento na página de eventos de um recurso.":::
 
 Saiba mais sobre os [esquemas de evento e outros conceitos de eventos](../../concepts/event-handling.md)
 
