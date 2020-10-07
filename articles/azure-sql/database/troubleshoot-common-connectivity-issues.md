@@ -12,12 +12,12 @@ author: dalechen
 ms.author: ninarn
 ms.reviewer: sstein, vanto
 ms.date: 01/14/2020
-ms.openlocfilehash: d6635696422c22dfdb4250516a9c3dfc8c577e12
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.openlocfilehash: 46d8aab74f658b039fe07acab82f324ec6ad731f
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91619875"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777064"
 ---
 # <a name="troubleshoot-transient-connection-errors-in-sql-database-and-sql-managed-instance"></a>Solucionar erros de conexão transitória no banco de dados SQL e no SQL Instância Gerenciada
 
@@ -126,7 +126,7 @@ Para tornar esse teste prático, o programa reconhece um parâmetro de runtime q
 
 ## <a name="net-sqlconnection-parameters-for-connection-retry"></a>Parâmetros SqlConnection .NET para repetição de conexão
 
-Se o programa cliente se conectar ao banco de dados no banco de dados SQL usando o .NET Framework classe **System. Data. SqlClient. SqlConnection**, use o .NET 4.6.1 ou posterior (ou o .NET Core) para que você possa usar seu recurso de repetição de conexão. Para obter mais informações sobre o recurso, consulte [esta página da Web](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnection).
+Se o programa cliente se conectar ao banco de dados no banco de dados SQL usando o .NET Framework classe **System. Data. SqlClient. SqlConnection**, use o .NET 4.6.1 ou posterior (ou o .NET Core) para que você possa usar seu recurso de repetição de conexão. Para obter mais informações sobre o recurso, consulte a [Propriedade SqlConnection. ConnectionString](/dotnet/api/system.data.sqlclient.sqlconnection.connectionstring?view=netframework-4.8&preserve-view=true).
 
 <!--
 2015-11-30, FwLink 393996 points to dn632678.aspx, which links to a downloadable .docx related to SqlClient and SQL Server 2014.
@@ -279,7 +279,7 @@ Aqui estão algumas instruções SQL SELECT que consultam logs de erros e outras
 | Consulta de log | Descrição |
 |:--- |:--- |
 | `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` |A exibição [sys.event_log](https://msdn.microsoft.com/library/dn270018.aspx) oferece informações sobre eventos individuais, o que inclui alguns que podem causar erros transitórios ou falhas de conectividade.<br/><br/>O ideal é que você possa correlacionar os valores **start_time** ou **end_time** com as informações sobre quando o programa cliente enfrentou problemas.<br/><br/>Você deve se conectar ao banco de dados  *mestre* para executar essa consulta. |
-| `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |A exibição [Sys. database_connection_stats](https://msdn.microsoft.com/library/dn269986.aspx) oferece contagens agregadas de tipos de evento para diagnósticos adicionais.<br/><br/>Você deve se conectar ao banco de dados  *mestre* para executar essa consulta. |
+| `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |A exibição de [Sys.database_connection_stats](https://msdn.microsoft.com/library/dn269986.aspx) oferece contagens agregadas de tipos de eventos para diagnósticos adicionais.<br/><br/>Você deve se conectar ao banco de dados  *mestre* para executar essa consulta. |
 
 <a id="d-search-for-problem-events-in-the-sql-database-log" name="d-search-for-problem-events-in-the-sql-database-log"></a>
 

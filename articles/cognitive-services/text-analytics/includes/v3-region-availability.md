@@ -6,15 +6,16 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: text-analytics
 ms.topic: include
 ms.date: 06/03/2020
 ms.author: aahi
-ms.openlocfilehash: 94af3e75b3c2f6797b54b921b6536980a8841727
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 418e3339eb9d797d7cf174ccfb724d0b243d6b02
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "84462781"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91779694"
 ---
 > [!IMPORTANT]
 > A API de Análise de Texto v3 não está disponível nas seguintes regiões: Índia Central, Norte dos EAU, Norte da China 2, Leste da China.

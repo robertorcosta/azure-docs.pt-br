@@ -8,12 +8,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 9/04/2020
 ms.author: lagayhar
-ms.openlocfilehash: 76c52d47c7fd7e271f3e74439ee8502117eb83a7
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 80846ecb1ad48d9f8ba49f0025772b4e131c23e2
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89663642"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776350"
 ---
 # <a name="composite-bar-renderer"></a>Renderizador de barra de composição
 
@@ -124,11 +124,11 @@ Para visualizações de grade, a classificação das linhas da coluna com o rend
 3. Altere a visualização para *blocos*.
 4. Executar consulta.
 5. Selecione **configurações de bloco**.
-6. Selecione *esquerda* nos campos de título.
+6. Selecione *esquerda* nos campos de bloco.
 7. Insira as configurações abaixo em *configurações de campo*.
     1. Usar coluna: "servidor".
     2. Renderizador de coluna: "text".
-8. Selecione *inferior* nos campos de título.
+8. Selecione *inferior* nos campos de bloco.
 9. Insira as configurações abaixo em *configurações de campo*.
     1. Usar coluna: "total".
     2. Renderizador de coluna: "barra de composição".
@@ -141,11 +141,11 @@ Para visualizações de grade, a classificação das linhas da coluna com o rend
     | offline     | Vermelho (brilhante) |
 
     4. Adicionar rótulo: `["online"] of ["total"] are healthy` .
-10. Selecione **Aplicar**.
+10. Escolha **Aplicar**.
 
-Configurações da barra de composição para títulos:
+Configurações da barra de composição para blocos:
 
-![Captura de tela das configurações de título da barra de composição com as configurações descritas acima.](./media/workbooks-composite-bar/tiles-settings.png)
+![Captura de tela das configurações de bloco da barra de composição com as configurações descritas acima.](./media/workbooks-composite-bar/tiles-settings.png)
 
 A exibição da barra de composição para blocos com as configurações acima terá a seguinte aparência:
 
@@ -157,7 +157,7 @@ Para fazer um renderizador de barra de composição para visualização de gráf
 
 1. Selecione **Adicionar** e *Adicionar consulta*.
 2. Alterar a fonte de dados para JSON Insira os dados do [exemplo anterior](#adding-composite-bar-renderer).
-3. Altere a visualização para *blocos*.
+3. Altere a visualização para *grafos*.
 4. Executar consulta.
 5. Selecione **configurações de grafo**.
 6. Selecione o *conteúdo do centro* nas configurações de formato do nó.
@@ -180,7 +180,7 @@ Para fazer um renderizador de barra de composição para visualização de gráf
     4. Tamanho do nó: 100.
     5. Margem entre hexágonos: 5.
     6. Tipo de Coloring Type: **None**.
-1. Selecione **Aplicar**.
+1. Escolha **Aplicar**.
     
 Configurações da barra de composição para grafos:
 

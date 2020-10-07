@@ -1,14 +1,16 @@
 ---
 title: Terminologia – personalizador
 description: O personalizador usa terminologia do reforço Learning. Esses termos são usados no portal do Azure e nas APIs.
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 04/23/2020
-ms.openlocfilehash: 8177606ac6e968bd287a23554be7b9dd06d880a8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: cd0d85be5447aad0f2a3c37041e7d5d5d047a468
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87002855"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777285"
 ---
 # <a name="personalizer-terminology"></a>Terminologia do personalizador
 

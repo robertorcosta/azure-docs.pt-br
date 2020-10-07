@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: cherylmc
-ms.openlocfilehash: 68f54e18cf20680156de8a29c54f7924ca6064d1
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: e6078ffcaaf98702bf809dfeb435cdaa0f9b5701
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91610102"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777183"
 ---
 # <a name="migrate-to-azure-virtual-wan"></a>Migrar para a WAN Virtual do Azure
 
@@ -66,11 +66,11 @@ A figura a seguir mostra uma exibição de alto nível da topologia de destino a
 
 Resumo:
 
-- a HQ na Europa permanece conectada ao ExpressRoute, os DCs locais da Europa são totalmente migrados ao Azure e agora desativados.
-- Os DCs e a HQ da Ásia permanecem conectados à WAN Particular. A WAN virtual do Azure agora é usada para aumentar a rede da operadora local e fornecer conectividade global.
-- Os hubs de WAN virtual do Azure implantados nas regiões Europa Ocidental e Sul Ásia Oriental Azure para fornecer o Hub de conectividade para dispositivos conectados por VPN e ExpressRoute.
-- Os hubs também fornecem a terminação de VPN para usuários móveis em vários tipos de clientes, usando a conectividade OpenVPN com a rede da malha global, permitindo acesso não apenas aos aplicativos migrados para o Azure, mas também a todos os recursos restantes no local.
-- Conectividade com a Internet para recursos dentro de uma rede virtual fornecida pela WAN Virtual do Azure.
+* a HQ na Europa permanece conectada ao ExpressRoute, os DCs locais da Europa são totalmente migrados ao Azure e agora desativados.
+* Os DCs e a HQ da Ásia permanecem conectados à WAN Particular. A WAN virtual do Azure agora é usada para aumentar a rede da operadora local e fornecer conectividade global.
+* Os hubs de WAN virtual do Azure implantados nas regiões Europa Ocidental e Sul Ásia Oriental Azure para fornecer o Hub de conectividade para dispositivos conectados por VPN e ExpressRoute.
+* Os hubs também fornecem a terminação de VPN para usuários móveis em vários tipos de clientes, usando a conectividade OpenVPN com a rede da malha global, permitindo acesso não apenas aos aplicativos migrados para o Azure, mas também a todos os recursos restantes no local.
+* Conectividade com a Internet para recursos dentro de uma rede virtual fornecida pela WAN Virtual do Azure.
 
 Conectividade com a Internet para sites remoto também fornecida pela WAN Virtual do Azure. Análise de Internet local com suporte por meio da integração de parceiro para acesso otimizado a serviços SaaS, como Microsoft 365.
 
@@ -87,20 +87,21 @@ A figura a seguir mostra uma topologia de região única para contoso antes da d
 
 Ao manter a abordagem de Hub e spoke, a rede virtual de Hub gerenciada pelo cliente contém vários blocos de função:
 
-- Serviços compartilhados (qualquer função comum exigida por vários spokes). Exemplo: a contoso usa controladores de domínio do Windows Server em máquinas virtuais IaaS (infraestrutura como um serviço).
-- Os serviços de firewall de IP/roteamento são fornecidos por uma solução de virtualização de rede de terceiros que permite o roteamento de IP de camada 3 spoke para spoke.
-- Serviços de entrada/saída da Internet, incluindo o Gateway de Aplicativo do Azure para solicitações HTTPS de entrada e serviços de proxy de terceiros em execução em máquinas virtuais para acesso de saída filtrado aos recursos da Internet.
-- Gateway de rede virtual de ExpressRoute e VPN para conectividade com redes locais.
+* Serviços compartilhados (qualquer função comum exigida por vários spokes). Exemplo: a contoso usa controladores de domínio do Windows Server em máquinas virtuais IaaS (infraestrutura como um serviço).
+* Os serviços de firewall de IP/roteamento são fornecidos por uma solução de virtualização de rede de terceiros que permite o roteamento de IP de camada 3 spoke para spoke.
+* Serviços de entrada/saída da Internet, incluindo o Gateway de Aplicativo do Azure para solicitações HTTPS de entrada e serviços de proxy de terceiros em execução em máquinas virtuais para acesso de saída filtrado aos recursos da Internet.
+* Gateway de rede virtual de ExpressRoute e VPN para conectividade com redes locais.
 
 ### <a name="step-2-deploy-virtual-wan-hubs"></a>Etapa 2: implantar os hubs de WAN virtual
 
 Implante um hub WAN virtual em cada região. Configure o Hub WAN virtual com a funcionalidade VPN e ExpressRoute, conforme descrito nos seguintes artigos:
 
-- [Tutorial: Criar uma conexão site a site usando a WAN Virtual do Azure](virtual-wan-site-to-site-portal.md)
-- [Tutorial: Criar uma associação do ExpressRoute usando a WAN Virtual do Azure](virtual-wan-expressroute-portal.md)
+* [Tutorial: Criar uma conexão site a site usando a WAN Virtual do Azure](virtual-wan-site-to-site-portal.md)
+* [Tutorial: Criar uma associação do ExpressRoute usando a WAN Virtual do Azure](virtual-wan-expressroute-portal.md)
 
 > [!NOTE]
 > A WAN virtual do Azure deve estar usando o SKU Standard para habilitar alguns dos caminhos de tráfego mostrados neste artigo.
+>
 
 :::image type="content" source="./media/migrate-from-hub-spoke-topology/figure2.png" alt-text="Hub e spoke":::
 **Figura 2: Hub gerenciado pelo cliente e spoke para migração de WAN virtual**
@@ -111,6 +112,7 @@ Conecte o Hub WAN virtual aos circuitos do ExpressRoute existentes e configure V
 
 > [!NOTE]
 > Os circuitos do ExpressRoute devem ser atualizados para o tipo de SKU Premium para se conectarem ao hub da WAN Virtual.
+>
 
 :::image type="content" source="./media/migrate-from-hub-spoke-topology/figure3.png" alt-text="Hub e spoke":::
 **Figura 3: Hub gerenciado pelo cliente e spoke para migração de WAN virtual**
@@ -176,9 +178,9 @@ O caminho 1 mostra o fluxo de tráfego de um Branch conectado de VPN S2S na Ási
 
 O tráfego é roteado da seguinte maneira:
 
-- A ramificação da Ásia é conectada por meio de túneis com BGP S2S habilitados para o Sul Ásia Oriental Hub de WAN virtual.
+* A ramificação da Ásia é conectada por meio de túneis com BGP S2S habilitados para o Sul Ásia Oriental Hub de WAN virtual.
 
-- O hub da WAN Virtual da Ásia roteia o tráfego localmente para a VNet conectada.
+* O hub da WAN Virtual da Ásia roteia o tráfego localmente para a VNet conectada.
 
 :::image type="content" source="./media/migrate-from-hub-spoke-topology/flow1.png" alt-text="Hub e spoke":::
 
@@ -188,9 +190,9 @@ O caminho 2 mostra o fluxo de tráfego da sede Europeia conectada do ExpressRout
 
 O tráfego é roteado da seguinte maneira:
 
-- A sede Europeia está conectada por meio do circuito do ExpressRoute Premium em Europa Ocidental Hub de WAN virtual.
+* A sede Europeia está conectada por meio do circuito do ExpressRoute Premium em Europa Ocidental Hub de WAN virtual.
 
-- A conectividade global de Hub para Hub da WAN Virtual permite o trânsito de tráfego para a VNet conectada na região remota.
+* A conectividade global de Hub para Hub da WAN Virtual permite o trânsito de tráfego para a VNet conectada na região remota.
 
 :::image type="content" source="./media/migrate-from-hub-spoke-topology/flow2.png" alt-text="Hub e spoke":::
 
@@ -200,11 +202,11 @@ O caminho 3 mostra o fluxo de tráfego do DC local da Ásia conectado à WAN pri
 
 O tráfego é roteado da seguinte maneira:
 
-- o DC da Ásia está conectado à operadora de WAN Particular local.
+* o DC da Ásia está conectado à operadora de WAN Particular local.
 
-- O circuito do ExpressRoute é encerrado localmente na WAN privada conecta-se ao Sul Ásia Oriental Hub de WAN virtual.
+* O circuito do ExpressRoute é encerrado localmente na WAN privada conecta-se ao Sul Ásia Oriental Hub de WAN virtual.
 
-- A conectividade global de Hub para Hub de WAN virtual permite o trânsito do tráfego.
+* A conectividade global de Hub para Hub de WAN virtual permite o trânsito do tráfego.
 
 :::image type="content" source="./media/migrate-from-hub-spoke-topology/flow3.png" alt-text="Hub e spoke":::
 
@@ -214,7 +216,7 @@ O caminho 4 mostra o fluxo de tráfego de uma VNet do Azure na região do Sul Á
 
 O tráfego é roteado da seguinte maneira:
 
-- A conectividade global hub a Hub da WAN Virtual permite o trânsito nativo de todas as VNets do Azure conectadas sem configurações adicionais do usuário.
+* A conectividade global hub a Hub da WAN Virtual permite o trânsito nativo de todas as VNets do Azure conectadas sem configurações adicionais do usuário.
 
 :::image type="content" source="./media/migrate-from-hub-spoke-topology/flow4.png" alt-text="Hub e spoke":::
 
@@ -224,9 +226,9 @@ O caminho 5 mostra o fluxo de tráfego de usuários de VPN de roaming (P2S) para
 
 O tráfego é roteado da seguinte maneira:
 
-- Os usuários de laptop e dispositivo móvel usam o cliente OpenVPN para conectividade transparente no gateway de VPN P2S no Europa Ocidental.
+* Os usuários de laptop e dispositivo móvel usam o cliente OpenVPN para conectividade transparente no gateway de VPN P2S no Europa Ocidental.
 
-- O hub da WAN Virtual do Oeste da Europa roteia o tráfego localmente para a VNet conectada.
+* O hub da WAN Virtual do Oeste da Europa roteia o tráfego localmente para a VNet conectada.
 
 :::image type="content" source="./media/migrate-from-hub-spoke-topology/flow5.png" alt-text="Hub e spoke":::
 
@@ -254,9 +256,9 @@ O caminho 6 mostra o fluxo de tráfego seguro entre VNets na mesma região.
 
 O tráfego é roteado da seguinte maneira:
 
-- as Redes Virtuais conectadas ao mesmo Hub Virtual Seguro agora roteiam o tráfego por meio do Firewall do Azure.
+* as Redes Virtuais conectadas ao mesmo Hub Virtual Seguro agora roteiam o tráfego por meio do Firewall do Azure.
 
-- O Firewall do Azure pode aplicar políticas a esses fluxos.
+* O Firewall do Azure pode aplicar políticas a esses fluxos.
 
 :::image type="content" source="./media/migrate-from-hub-spoke-topology/flow6.png" alt-text="Hub e spoke":::
 
@@ -266,9 +268,9 @@ O caminho 7 mostra o fluxo de tráfego de uma VNet do Azure para a Internet ou s
 
 O tráfego é roteado da seguinte maneira:
 
-- as Redes Virtuais conectadas ao Hub Virtual Seguro podem enviar tráfego para destinos públicos na Internet, usando o Hub Seguro como um ponto central de acesso à Internet.
+* as Redes Virtuais conectadas ao Hub Virtual Seguro podem enviar tráfego para destinos públicos na Internet, usando o Hub Seguro como um ponto central de acesso à Internet.
 
-- Esse tráfego pode ser filtrado localmente usando as regras de FQDN do firewall do Azure ou enviado a um serviço de segurança de terceiros para inspeção.
+* Esse tráfego pode ser filtrado localmente usando as regras de FQDN do firewall do Azure ou enviado a um serviço de segurança de terceiros para inspeção.
 
 :::image type="content" source="./media/migrate-from-hub-spoke-topology/flow7.png" alt-text="Hub e spoke":::
 
@@ -278,12 +280,12 @@ O caminho 8 mostra o fluxo de tráfego do serviço de segurança da filial para 
 
 O tráfego é roteado da seguinte maneira:
 
-- As ramificações conectadas ao Secure virtual Hub podem enviar tráfego para destinos públicos na Internet usando o Secure Hub como um ponto central de acesso à Internet.
+* As ramificações conectadas ao Secure virtual Hub podem enviar tráfego para destinos públicos na Internet usando o Secure Hub como um ponto central de acesso à Internet.
 
-- Esse tráfego pode ser filtrado localmente usando as regras de FQDN do firewall do Azure ou enviado a um serviço de segurança de terceiros para inspeção.
+* Esse tráfego pode ser filtrado localmente usando as regras de FQDN do firewall do Azure ou enviado a um serviço de segurança de terceiros para inspeção.
 
 :::image type="content" source="./media/migrate-from-hub-spoke-topology/flow8.png" alt-text="Hub e spoke":::
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre a [WAN Virtual do Azure](virtual-wan-about.md)
+Saiba mais sobre a [Wan virtual do Azure](virtual-wan-about.md).

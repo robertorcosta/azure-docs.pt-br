@@ -1,15 +1,17 @@
 ---
 title: Perguntas sugeridas sobre o aprendizado ativo-QnA Maker
 description: Melhore a qualidade de sua base de dados de conhecimento com o aprendizado ativo. Examine, aceite ou rejeite, adicione sem remover ou altere as perguntas existentes.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: bd90ea3cd73fcd6a545d925e3897c6053184d98c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7d7dc8564ee35bcd8bfd92d996d07e1d0c365806
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91321009"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776486"
 ---
 # <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>Aceitar perguntas sugeridas sobre o aprendizado ativo na base de dados de conhecimento
 

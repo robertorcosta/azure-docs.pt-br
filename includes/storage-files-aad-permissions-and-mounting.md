@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/26/2020
 ms.author: rogara
 ms.custom: include file
-ms.openlocfilehash: 897e5b58aed9c47e0b94ee47d1883e2b7a28bacb
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: a168b9f721cd9c3d4ab0e8b6a56b764fec3b1fe3
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88930785"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91779845"
 ---
 ## <a name="assign-access-permissions-to-an-identity"></a>Atribuir permissões de acesso a uma identidade
 
@@ -108,7 +108,7 @@ else
 
 ```
 
-Se você tiver problemas ao conectar-se aos arquivos do Azure, consulte [a ferramenta de solução de problemas que publicamos para erros de montagem de arquivos do Azure no Windows](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5). Também fornecemos [orientações](https://docs.microsoft.com/azure/storage/files/storage-files-faq#on-premises-access) para contornar cenários quando a porta 445 é bloqueada. 
+Se você tiver problemas ao conectar-se aos arquivos do Azure, consulte [a ferramenta de solução de problemas que publicamos para erros de montagem de arquivos do Azure no Windows](https://azure.microsoft.com/blog/new-troubleshooting-diagnostics-for-azure-files-mounting-errors-on-windows/). Também fornecemos [orientações](https://docs.microsoft.com/azure/storage/files/storage-files-faq#on-premises-access) para contornar cenários quando a porta 445 é bloqueada. 
 
 
 ### <a name="configure-ntfs-permissions-with-windows-file-explorer"></a>Configurar permissões NTFS com o explorador de arquivos do Windows
@@ -122,7 +122,7 @@ Use o explorador de arquivos do Windows para conceder permissão total a todos o
 5. Na janela de prompt para adicionar novos usuários, insira o nome de usuário de destino ao qual você deseja conceder permissão na caixa **Inserir os nomes de objeto a serem selecionados** e selecione **verificar nomes** para localizar o nome UPN completo do usuário de destino.
 7.    Selecione **OK**.
 8.    Na guia **segurança** , selecione todas as permissões que você deseja conceder ao novo usuário.
-9.    Selecione **Aplicar**.
+9.    Escolha **Aplicar**.
 
 ### <a name="configure-ntfs-permissions-with-icacls"></a>Configurar permissões NTFS com icacls
 

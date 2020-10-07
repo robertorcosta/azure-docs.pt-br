@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/16/2020
 ms.author: rogardle
-ms.openlocfilehash: 7f5f3f4edccc6d23b8041051028273559bcffecd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5bb26a21317401ddbd0d9b8f8a9a501c78153842
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325922"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776571"
 ---
 # <a name="set-up-a-direct-interconnection-between-azure-and-oracle-cloud-infrastructure"></a>Configurar uma interconexão direta entre o Azure e a infraestrutura de nuvem do Oracle  
 
@@ -96,7 +96,7 @@ Instalando agentes em ambas as nuvens, você pode aproveitar o Azure [Monitor de
 
 Para excluir a interconexão, as etapas a seguir devem ser seguidas, na ordem específica especificada. Se não fizer isso, isso resultará em um circuito de ExpressRoute de "estado de falha".
 
-1. Exclua a conexão do ExpressRoute. Exclua a conexão clicando no ícone **excluir** na página de sua conexão. Para obter mais informações, consulte a [documentação do ExpressRoute](../../../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md#delete-a-connection-to-unlink-a-vnet).
+1. Exclua a conexão do ExpressRoute. Exclua a conexão clicando no ícone **excluir** na página de sua conexão. Para obter mais informações, consulte a [documentação do ExpressRoute](../../../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md#clean-up-resources).
 1. Exclua o Oracle FastConnect do console de nuvem da Oracle.
 1. Depois que o circuito do Oracle FastConnect tiver sido excluído, você poderá excluir o circuito do Azure ExpressRoute.
 

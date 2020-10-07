@@ -1,16 +1,18 @@
 ---
 title: 'Início rápido: publicar base de dados de conhecimento, REST, Java-QnA Maker'
 description: Este início rápido baseado na REST em Java publica a base de dados de conhecimento e cria um ponto de extremidade que pode ser chamado no aplicativo ou no chatbot.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27, devx-track-java
 ms.topic: how-to
-ms.openlocfilehash: 47a6813fad2d32e1bc60d99bc682c5b200191d33
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 34184123a3fc096c014dc0185b51b088c59a6e04
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89266469"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777511"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-java"></a>Início Rápido: publicar uma base de dados de conhecimento no QnA Maker usando Java
 

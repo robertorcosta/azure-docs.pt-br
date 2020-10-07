@@ -1,16 +1,16 @@
 ---
 title: Execução de runbook na Automação do Azure
-description: Este artigo fornece uma visão geral do processamento de runbooks na Automação do Azure.
+description: Este artigo fornece uma visão geral do processamento de runbooks na automação do Azure.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/22/2020
+ms.date: 10/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: b5dd445ec4dd9014f107c0a349deed6cde47f968
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 883cf48fd38d79544d08a68f2c18fc2d2efb4706
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325820"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776282"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Execução de runbook na Automação do Azure
 
@@ -89,20 +89,22 @@ A automação do Azure usa [Azure monitor](../azure-monitor/overview.md) para mo
 
 ### <a name="log-analytics-agent-for-windows"></a>Agente do Log Analytics para Windows
 
-O [agente do Log Analytics para Windows](../azure-monitor/platform/agent-windows.md) funciona com o Azure Monitor para gerenciar VMs e computadores físicos Windows. Os computadores podem ser executados no Azure ou em um ambiente não Azure, como um datacenter local. Você deve configurar o agente para relatar para um ou mais workspaces do Log Analytics.
+O [agente do Log Analytics para Windows](../azure-monitor/platform/agent-windows.md) funciona com o Azure Monitor para gerenciar VMs e computadores físicos Windows. Os computadores podem ser executados no Azure ou em um ambiente não Azure, como um datacenter local.
 
 >[!NOTE]
 >O agente do Log Analytics para Windows era conhecido anteriormente como MMA (Microsoft Monitoring Agent).
 
 ### <a name="log-analytics-agent-for-linux"></a>Agente do Log Analytics para Linux
 
-O [agente do Log Analytics para Linux](../azure-monitor/platform/agent-linux.md) funciona de forma semelhante ao agente para Windows, mas conecta computadores Linux ao Azure Monitor. O agente é instalado com uma conta de usuário de **nxautomation** que permite a execução de comandos que exigem permissões raiz, por exemplo, em um Hybrid Runbook Worker. A conta de **nxautomation** é uma conta do sistema que não requer senha.
+O [agente do Log Analytics para Linux](../azure-monitor/platform/agent-linux.md) funciona de forma semelhante ao agente para Windows, mas conecta computadores Linux ao Azure Monitor. O agente é instalado com uma conta de usuário do **nxautomation** que permite a execução de comandos que exigem permissões raiz, por exemplo, em um Hybrid runbook Worker. A conta de **nxautomation** é uma conta do sistema que não requer senha.
 
 A conta de **nxautomation** com as permissões sudo correspondentes deve estar presente durante a [instalação de um Hybrid Runbook Worker do Linux](automation-linux-hrw-install.md). Se você tentar instalar o trabalho e a conta não estiver presente ou não tiver as permissões apropriadas, a instalação falhará.
 
+Você não deve alterar as permissões da `sudoers.d` pasta ou sua propriedade. A permissão sudo é necessária para a conta **nxautomation** e as permissões não devem ser removidas. Restringir isso a determinadas pastas ou comandos pode resultar em uma alteração significativa.
+
 Os logs disponíveis para o agente do Log Analytics e a conta de **nxautomation** são:
 
-* /var/opt/microsoft/omsagent/log/omsagent.log – log do agente do Log Analytics 
+* /var/opt/microsoft/omsagent/log/omsagent.log – log do agente do Log Analytics
 * /var/opt/Microsoft/omsagent/Run/automationworker/Worker.log – log de trabalho de Automação
 
 >[!NOTE]
@@ -226,7 +228,7 @@ Os serviços externos, como o Azure DevOps Services e o GitHub, podem iniciar um
 
 Para compartilhar recursos entre todos os runbooks na nuvem, o Azure usa um conceito chamado compartilhamento justo. Usando o compartilhamento justo, o Azure descarrega ou interrompe temporariamente qualquer trabalho que tenha sido executado por mais de três horas. Os trabalhos de [runbooks do PowerShell](automation-runbook-types.md#powershell-runbooks) e [runbooks Python](automation-runbook-types.md#python-runbooks) são interrompidos e não são reiniciados, e o status do trabalho é mostrado como Parado.
 
-Para tarefas de Automação do Azure de longa execução, recomendamos usar um Hybrid Runbook Worker. Os Hybrid Runbook Workers não são limitados por fração justa e não limitam o tempo de execução de um runbook. Os outros [limites](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) do trabalho se aplicam a áreas restritas do Azure e ao Hybrid Runbook Workers. Embora Hybrid Runbook Workers não sejam restringidos pelo limite de compartilhamento justo de três horas, você deve desenvolver runbooks para execução em trabalhos que dão suporte a reinicializações a partir de problemas de infraestrutura local inesperados.
+Para tarefas de Automação do Azure de longa execução, recomendamos usar um Hybrid Runbook Worker. Os Hybrid Runbook Workers não são limitados por fração justa e não limitam o tempo de execução de um runbook. Os outros [limites](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) do trabalho se aplicam a áreas restritas do Azure e ao Hybrid Runbook Workers. Embora Hybrid runbook Workers não sejam limitados pelo limite de compartilhamento justo de três horas, você deve desenvolver runbooks para executar em trabalhos que dão suporte a reinicializações de problemas de infraestrutura local inesperados.
 
 Outra opção é otimizar o runbook usando runbooks filhos. Por exemplo, seu runbook pode executar um loop por meio da mesma função em vários recursos, como em uma operação de banco de dados em vários bancos. Você pode mover essa função para um [runbook filho](automation-child-runbooks.md) e fazer com que seu runbook a chame usando [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook). Cada um desses runbooks filhos é executado paralelamente em processos separados.
 

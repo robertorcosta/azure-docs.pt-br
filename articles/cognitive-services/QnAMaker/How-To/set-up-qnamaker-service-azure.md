@@ -1,14 +1,16 @@
 ---
 title: Configurar um serviço de QnA Maker-QnA Maker
 description: Antes de criar quaisquer bases de dados de conhecimento do QnA Maker, primeiro você deve configurar um serviço de QnA Maker no Azure. Qualquer pessoa com autorização para criar novos recursos em uma assinatura pode configurar o serviço QnA Maker.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: 7ba8134f58a4f0e4e26a3246a44574df295e3c20
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9b8769ac5ccf83ebbdaaa0aa0d6452cc98eef7a3
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87040378"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777830"
 ---
 # <a name="manage-qna-maker-resources"></a>Gerenciar QnA Maker recursos
 
@@ -122,7 +124,7 @@ Vá para o recurso serviço de aplicativo no portal do Azure e selecione a opç�
 
 Se você planeja ter muitas bases de dados de conhecimento, atualize seu tipo de preço do serviço Pesquisa Cognitiva do Azure.
 
-No momento, não é possível realizar uma atualização in-loco da SKU do Azure Search. No entanto, pode criar um novo recurso de pesquisa do Azure com o SKU desejado, restaurar os dados para o novo recurso e vinculá-lo com a pilha do QnA Maker. Para fazer isso, siga estas etapas:
+No momento, não é possível realizar uma atualização in-loco da SKU do Azure Search. No entanto, pode criar um novo recurso de pesquisa do Azure com o SKU desejado, restaurar os dados para o novo recurso e vinculá-lo com a pilha do QnA Maker. Para fazer isso, execute estas etapas:
 
 1. Crie um novo recurso de Azure Search no portal do Azure e selecione o SKU desejado.
 

@@ -1,16 +1,18 @@
 ---
 title: 'Início Rápido: Obter respostas da base de dados de conhecimento – REST, Python – QnA Maker'
 description: Este início rápido baseado em Python REST orienta você para obter uma resposta de uma base de dados de conhecimento programaticamente.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27, devx-track-python
 ms.topic: how-to
-ms.openlocfilehash: 645ad24b2b275f9a14fda82746347a6f64c735dc
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 9bad04b060eafcdfea52668237d2d4e0547ce0a0
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267999"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777559"
 ---
 # <a name="quickstart-get-answers-to-a-question-from-a-knowledge-base-with-python"></a>Início rápido: Obtenha respostas para uma pergunta de uma base de dados de conhecimento com Python
 
@@ -57,7 +59,7 @@ O código a seguir faz uma solicitação HTTPS à API de QnA Maker para enviar a
 
 O valor do cabeçalho de `Authorization` inclui a cadeia de caracteres `EndpointKey`.
 
-## <a name="run-the-program"></a>Executar o programa
+## <a name="run-the-program"></a>Execute o programa
 
 Execute o programa na linha de comando. Ela enviará automaticamente a solicitação para a API de QnA Maker, depois a resposta será impressa na janela do console.
 

@@ -1,14 +1,16 @@
 ---
 title: Colaborando na base de dados de conhecimento-QnA Maker
 description: O QnA Maker permite que várias pessoas colaborem em uma base de dados de conhecimento. Esse recurso é fornecido com o controle de acesso baseado em função do Azure (RBAC do Azure).
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: 0d59ca83e6067c083e4bfebdb7afaaf6669dda8a
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 8adc02d4b397c2b0bdaf5d3998cfbe229c896d41
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926840"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776843"
 ---
 # <a name="collaboration-with-authors-and-editors"></a>Colaboração com autores e editores
 
@@ -62,7 +64,7 @@ Quando a pessoa que você compartilhou seu serviço de QnA Maker com logs no [po
 
 Quando eles selecionam uma base de dados de conhecimento, sua função atual nesse QnA Maker recurso fica visível ao lado do nome da base de dados de conhecimento.
 
-:::image type="content" source="../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-knowledge-base-role-name.png" alt-text="Captura de tela da base de dados de conhecimento no modo de edição com o nome da função entre parênteses ao lado do nome da base de dados de conhecimento no canto superior esquerdo da página da Web.":::
+:::image type="content" source="../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-knowledge-base-role-name.png" alt-text="QnA Maker Adicionar função IAM.":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,14 +1,16 @@
 ---
 title: Limites – QnA Maker
 description: O QnA Maker tem limites de meta para partes do serviço e da base de dados de conhecimento. É importante manter sua base de dados de conhecimento dentro desses limites para testar e publicar.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 02/14/2020
-ms.openlocfilehash: cce95574c8ffc245818b61e9843c5f7984de972f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 773c9caa2fb25b3abe4fb451bc59598c485a6110
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86524430"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776248"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Limites e limites de base de dados de conhecimento do QnA Maker
 
@@ -32,12 +34,12 @@ Os nomes de arquivo não podem incluir os seguintes caracteres:
 
 |Não usar caractere|
 |--|
-|Aspa simples`'`|
-|Aspas duplas`"`|
+|Aspa simples `'`|
+|Aspas duplas `"`|
 
 ### <a name="maximum-file-size"></a>Tamanho máximo do arquivo
 
-|Format|Tamanho máximo do arquivo (MB)|
+|Formatar|Tamanho máximo do arquivo (MB)|
 |--|--|
 |`.docx`|10|
 |`.pdf`|25|
@@ -71,8 +73,8 @@ O comprimento e os caracteres aceitáveis para o nome e o valor dos metadados s�
 
 |Item|Caracteres permitidos|Correspondência de padrão de Regex|Máximo de caracteres|
 |--|--|--|--|
-|Nome (chave)|Permitem<br>alfanumérico (letras e dígitos)<br>`_`sublinhado<br> Não deve conter espaços.|`^[a-zA-Z0-9_]+$`|100|
-|Valor|Permite tudo, exceto<br>`:`pontos<br>`|`(canal vertical)<br>Apenas um valor é permitido.|`^[^:|]+$`|500|
+|Nome (chave)|Permitem<br>alfanumérico (letras e dígitos)<br>`_` sublinhado<br> Não deve conter espaços.|`^[a-zA-Z0-9_]+$`|100|
+|Valor|Permite tudo, exceto<br>`:` pontos<br>`|` (canal vertical)<br>Apenas um valor é permitido.|`^[^:|]+$`|500|
 |||||
 
 ## <a name="knowledge-base-content-limits"></a>Limites de conteúdo da Base de Dados de Conhecimento
@@ -81,8 +83,8 @@ Limites gerais sobre o conteúdo na base de dados de conhecimento:
 * Comprimento do texto da pergunta: 1.000
 * Comprimento do texto da chave de metadados: 100
 * Comprimento do texto do valor de metadados: 500
-* Caracteres com suporte para nome de metadados: alfabetos, dígitos e`_`
-* Caracteres com suporte para valor de metadados: todos exceto `:` e`|`
+* Caracteres com suporte para nome de metadados: alfabetos, dígitos e `_`
+* Caracteres com suporte para valor de metadados: todos exceto `:` e `|`
 * Tamanho do nome do arquivo: 200
 * Formatos de arquivo com suporte: ".tsv", ".pdf", ".txt", ".docx", ".xlsx".
 * Número máximo de perguntas alternativas: 300

@@ -1,16 +1,18 @@
 ---
 title: 'Início rápido: publicar a base de dados de conhecimento, REST, Python-QnA Maker'
 description: Este início rápido baseado na REST em Python publica a base de dados de conhecimento e cria um ponto de extremidade que pode ser chamado no aplicativo ou no chatbot.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27, devx-track-python
 ms.topic: how-to
-ms.openlocfilehash: 6ba263633c6ee638ea742c47e36be4d184cdea75
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 5c28eac20b0bf2fab01312223ca2d5daef1d316d
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89266435"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777486"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-python"></a>Início Rápido: publicar uma base de dados de conhecimento no QnA Maker usando o Python
 
@@ -21,7 +23,7 @@ Este início rápido chama as APIs REST do QnA Maker:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Python 3.7](https://www.python.org/downloads/)
+* [Python 3,7](https://www.python.org/downloads/)
 * Você precisa ter um [serviço QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Para recuperar a chave e o ponto de extremidade (que inclui o nome do recurso), selecione **Início Rápido** para o recurso no portal do Azure.
 * A ID da KB (base de dados de conhecimento) do QnA Maker encontrada na URL no parâmetro de cadeia de caracteres de consulta `kbid`, conforme mostrada abaixo.
 

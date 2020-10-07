@@ -5,12 +5,12 @@ description: Aprender as práticas recomendadas do operador de cluster sobre com
 services: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: c2734aa8e4ebf0bdb693a49c3ba785dd134e8c83
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 5f249a7e6e7fac13301f0d2717336651b171b422
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88003054"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776299"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para atualizações e segurança de clusters no AKS (Serviço de Kubernetes do Azure)
 
@@ -177,7 +177,7 @@ Para obter mais informações sobre os filtros disponíveis, confira [Perfis de 
 
 O Kubernetes lança novos recursos em um ritmo mais rápido que aquele das plataformas de infraestrutura mais tradicionais. As atualizações do Kubernetes incluem novos recursos e correções de bug ou de segurança. Novos recursos normalmente começam com um status *alfa* e, em seguida, *beta*, antes que se tornem *estáveis*, disponíveis ao público em geral e recomendados para uso em produção. Esse ciclo de lançamento deve permitir que você atualize o Kubernetes sem frequentemente encontrar alterações significativas ou ajustar suas implantações e modelos.
 
-O AKS é compatível com quatro versões secundárias do Kubernetes. Isso significa que quando uma nova versão secundária de patch é introduzida, as versões secundárias e de patch compatíveis mais antigas são desativadas. As atualizações secundárias para Kubernetes ocorrem em intervalos periódicos. Assegure que você tenha um processo de governança para verificar e atualizar conforme necessário, para que você não fique sem suporte. Para obter mais informações, confira [Versões do Kubernetes compatíveis no AKS][aks-supported-versions]
+O AKS dá suporte a três versões secundárias do kubernetes. Isso significa que quando uma nova versão secundária de patch é introduzida, as versões secundárias e de patch compatíveis mais antigas são desativadas. As atualizações secundárias para Kubernetes ocorrem em intervalos periódicos. Assegure que você tenha um processo de governança para verificar e atualizar conforme necessário, para que você não fique sem suporte. Para obter mais informações, consulte [supported kubernetes Versions AKs][aks-supported-versions].
 
 Para verificar quais versões estão disponíveis para seu cluster, use o comando [az aks get-upgrades][az-aks-get-upgrades] conforme mostrado no exemplo a seguir:
 
@@ -186,6 +186,8 @@ az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster
 ```
 
 Você pode atualizar seu cluster do AKS usando o comando [az aks upgrade][az-aks-upgrade]. O processo de atualização, com segurança, isola e esvazia um nó por vez, agenda pods naqueles nós restantes e, em seguida, implanta um novo nó executando as versões mais recentes do SO e do Kubernetes.
+
+É altamente recomendável testar novas versões secundárias em um ambiente de teste de desenvolvimento para que você possa validar sua carga de trabalho continue com a operação íntegra com a nova versão kubernetes. O kubernetes pode substituir as APIs, como na versão 1,16, que poderia ser contada por suas cargas de trabalho. Ao trazer novas versões para produção, considere o uso de [vários pools de nó em versões separadas](use-multiple-node-pools.md) e a atualização de pools individuais, um de cada vez, para reverter progressivamente a atualização por um cluster. Se estiver executando vários clusters, atualize um cluster por vez para monitorar progressivamente o impacto ou as alterações.
 
 ```azurecli-interactive
 az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version KUBERNETES_VERSION

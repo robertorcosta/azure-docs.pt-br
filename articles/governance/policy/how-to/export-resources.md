@@ -4,12 +4,12 @@ description: Aprenda a exportar recursos do Azure Policy para o GitHub, como def
 ms.date: 09/30/2020
 ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 17f0322390cd2cd89ba182a9e3c7c95843cc135e
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: 691e0a026c5f4f1a0a68c744ee81b1da8da9e70b
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91604238"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777081"
 ---
 # <a name="export-azure-policy-resources"></a>Exportar recursos do Azure Policy
 
@@ -84,7 +84,7 @@ Azure Policy definições, iniciativas e atribuições podem ser exportadas como
 Aqui está um exemplo de como obter o JSON para uma definição de política com o **nome** de _VirtualMachineStorage_:
 
 ```azurepowershell-interactive
-Get-AzPolicyDefinition --Name 'VirtualMachineStorage'
+Get-AzPolicyDefinition -Name 'VirtualMachineStorage'
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

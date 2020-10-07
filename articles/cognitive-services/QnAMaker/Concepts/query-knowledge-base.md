@@ -1,14 +1,16 @@
 ---
 title: Consultar a base de dados de conhecimento-QnA Maker
 description: Uma base de dados de conhecimento deve ser publicada. Depois de publicado, a base de dados de conhecimento é consultada no ponto de extremidade de previsão de tempo de execução usando a API generateAnswer.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: cb777aa16fada50811cce1bbf49f28662c62b49b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e903714aab35de40c1179045505e1520c65b3ebc
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79220716"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776911"
 ---
 # <a name="query-the-knowledge-base-for-answers"></a>Consultar a base de dados de conhecimento para obter respostas
 
@@ -29,7 +31,7 @@ O processo é explicado na tabela a seguir.
 |1|O aplicativo cliente envia a consulta do usuário para a [API GenerateAnswer](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage).|
 |2|QnA Maker pré-processa a consulta do usuário com detecção de idioma, grafias e separadores de palavras.|
 |3|Esse pré-processamento é usado para alterar a consulta do usuário para obter os melhores resultados da pesquisa.|
-|4|Essa consulta alterada é enviada a um índice de Pesquisa Cognitiva do Azure, que `top` recebe o número de resultados. Se a resposta correta não estiver nesses resultados, aumente o valor de `top` um pouco. Em geral, um valor de 10 `top` para funciona em 90% das consultas.|
+|4|Essa consulta alterada é enviada a um índice de Pesquisa Cognitiva do Azure, que recebe o `top` número de resultados. Se a resposta correta não estiver nesses resultados, aumente o valor de `top` um pouco. Em geral, um valor de 10 para `top` funciona em 90% das consultas.|
 |5|QnA Maker usa personalização sintática e com base em semântica para determinar a similaridade entre a consulta do usuário e os resultados de QnA buscados.|
 |6|O modelo de categorizador aprendido por máquina usa os diferentes recursos, da etapa 5, para determinar as pontuações de confiança e a nova ordem de classificação.|
 |7|Os novos resultados são retornados ao aplicativo cliente em ordem classificada.|
@@ -42,7 +44,7 @@ Quando você publica sua base de dados de conhecimento, o serviço cria um ponto
 
 ### <a name="the-user-query-request-to-generate-an-answer"></a>A solicitação de consulta do usuário para gerar uma resposta
 
-Uma consulta de usuário é a questão que o usuário final solicita na base de dados de conhecimento `How do I add a collaborator to my app?`, como. A consulta geralmente está em um formato de linguagem natural ou algumas palavras-chave que representam a pergunta, como `help with collaborators`. A consulta é enviada para sua base de dados de conhecimento de uma solicitação HTTP em seu aplicativo cliente.
+Uma consulta de usuário é a questão que o usuário final solicita na base de dados de conhecimento, como `How do I add a collaborator to my app?` . A consulta geralmente está em um formato de linguagem natural ou algumas palavras-chave que representam a pergunta, como `help with collaborators` . A consulta é enviada para sua base de dados de conhecimento de uma solicitação HTTP em seu aplicativo cliente.
 
 ```json
 {
@@ -65,7 +67,7 @@ Use o [contexto de conversa](../how-to/metadata-generateanswer-usage.md#use-ques
 
 ### <a name="the-response-from-a-call-to-generate-an-answer"></a>A resposta de uma chamada para gerar uma resposta
 
-A resposta HTTP é a resposta recuperada da base de dados de conhecimento, com base na melhor correspondência para uma determinada consulta de usuário. A resposta inclui a resposta e a pontuação de previsão. Se você solicitou mais de uma resposta principal com a `top` Propriedade, obterá mais de uma resposta principal, cada uma com uma pontuação.
+A resposta HTTP é a resposta recuperada da base de dados de conhecimento, com base na melhor correspondência para uma determinada consulta de usuário. A resposta inclui a resposta e a pontuação de previsão. Se você solicitou mais de uma resposta principal com a `top` propriedade, obterá mais de uma resposta principal, cada uma com uma pontuação.
 
 ```json
 {

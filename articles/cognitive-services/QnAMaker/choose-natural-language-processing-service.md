@@ -1,14 +1,16 @@
 ---
 title: Usar NLP com LUIS para bots de chat
 description: Saiba quando usar Reconhecimento vocal e quando usar QnA Maker e entender como eles se complementam.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/16/2020
-ms.openlocfilehash: 78591fa3d74b10c71c4c50ea2662c3f2ad3c5ace
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b674fcb60ed2b4116b641ed14ff6d51ebfda3816
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328659"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777342"
 ---
 # <a name="use-cognitive-services-with-natural-language-processing-nlp-to-enrich-bot-conversations"></a>Use serviços cognitivas com NLP (processamento de idioma natural) para enriquecer conversas de bot
 

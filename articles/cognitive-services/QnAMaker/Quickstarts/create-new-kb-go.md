@@ -1,16 +1,18 @@
 ---
 title: 'Início Rápido: criar base de dados de conhecimento – REST, Go – QnA Maker'
 description: Este início rápido baseado em REST de Go orienta você pela criação programática de um exemplo de base de dados de conhecimento do QnA Maker, que será exibida no Painel do Azure de sua conta da API dos Serviços Cognitivos.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.date: 12/16/2019
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
 ms.topic: how-to
-ms.openlocfilehash: 38bfada87701533002a2dcf304af573da4c87766
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: be314ad74fbb58709f5707e84b193f8ca69b47d9
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89259890"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777707"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-go"></a>Início Rápido: criar uma base de dados de conhecimento no QnA Maker usando o Go
 
@@ -110,7 +112,7 @@ Insira o comando a seguir para compilar o arquivo. O prompt de comando não reto
 go build create-new-knowledge-base.go
 ```
 
-## <a name="run-the-program"></a>Executar o programa
+## <a name="run-the-program"></a>Execute o programa
 
 Insira o comando a seguir em uma linha de comando para executar o programa. Ele enviará a solicitação para a API de QnA Maker para criar a base de dados de conhecimento e, em seguida, sondará os resultados a cada 30 segundos. Todas as respostas são impressas na janela do console.
 

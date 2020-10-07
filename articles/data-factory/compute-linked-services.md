@@ -10,12 +10,12 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.date: 05/08/2019
-ms.openlocfilehash: 3d8e667cd96cc6d7091682a4530633588591d3a4
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 5f02a38059ebd27879a3c8d44eee7e473711d0e7
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89483177"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776503"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Ambientes de computação com suporte do Azure Data Factory
 
@@ -29,8 +29,7 @@ A tabela a seguir fornece uma lista dos ambientes de computação com suporte do
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [Cluster HDInsight sob demanda](#azure-hdinsight-on-demand-linked-service) ou [seu próprio cluster HDInsight](#azure-hdinsight-linked-service) | [Hive](transform-data-using-hadoop-hive.md), [Pig](transform-data-using-hadoop-pig.md), [Spark](transform-data-using-spark.md), [MapReduce](transform-data-using-hadoop-map-reduce.md), [Hadoop Streaming](transform-data-using-hadoop-streaming.md) |
 | [Lote do Azure](#azure-batch-linked-service)                   | [Custom](transform-data-using-dotnet-custom-activity.md)     |
-| [Azure Machine Learning Studio](#azure-machine-learning-studio-linked-service) | [Atividades de Machine Learning: Execução de lote e Recurso de atualização](transform-data-using-machine-learning.md) |
-| [Azure Machine Learning](#azure-machine-learning-linked-service) | [Pipeline de execução do Azure Machine Learning](transform-data-machine-learning-service.md) |
+| [Azure Machine Learning Studio (clássico)](#azure-machine-learning-studio-classic-linked-service) | [Atividades Machine Learning Studio (clássicas): execução em lote e recurso de atualização](transform-data-using-machine-learning.md) |
 | [Azure Machine Learning](#azure-machine-learning-linked-service) | [Pipeline de execução do Azure Machine Learning](transform-data-machine-learning-service.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [U-SQL da Análise Data Lake](transform-data-using-data-lake-analytics.md) |
 | [Azure SQL](#azure-sql-database-linked-service), [Azure Synapse Analytics (anteriormente SQL Data Warehouse)](#azure-synapse-analytics-linked-service), [SQL Server](#sql-server-linked-service) | [Procedimento armazenado](transform-data-using-stored-procedure.md) |
@@ -368,8 +367,8 @@ Veja os artigos a seguir se você for novo no serviço de Lote do Azure:
 | linkedServiceName | Nome do serviço vinculado do Armazenamento do Azure associado ao serviço vinculado de Lote do Azure. Esse serviço vinculado é usado para preparar os arquivos necessários para executar a atividade. | Sim      |
 | connectVia        | O Integration Runtime a ser usado para distribuir as atividades a esse serviço vinculado. Você pode usar o Integration Runtime do Azure ou Integration Runtime auto-hospedado. Se não for especificado, ele usa o Integration Runtime padrão do Azure. | Não       |
 
-## <a name="azure-machine-learning-studio-linked-service"></a>Serviço vinculado do Azure Machine Learning Studio
-Crie um serviço vinculado do Azure Machine Learning Studio para registrar um ponto de extremidade de pontuação do lote de Machine Learning a uma fábrica de dados.
+## <a name="azure-machine-learning-studio-classic-linked-service"></a>Serviço vinculado do Azure Machine Learning Studio (clássico)
+Você cria um serviço vinculado de Azure Machine Learning Studio (clássico) para registrar um ponto de extremidade de Pontuação de lote Machine Learning Studio (clássico) em um data factory.
 
 ### <a name="example"></a>Exemplo
 
@@ -399,7 +398,7 @@ Crie um serviço vinculado do Azure Machine Learning Studio para registrar um po
 | Type                   | A propriedade de tipo deve ser configurada como: **AzureML**. | Sim                                      |
 | mlEndpoint             | A URL de pontuação do lote.                   | Sim                                      |
 | apiKey                 | A API do modelo de workspace publicada.     | Sim                                      |
-| updateResourceEndpoint | A URL do recurso de atualização para um ponto de extremidade de serviço Web do Azure Machine Learning usado para atualizar o serviço Web preditivo com o arquivo de modelo treinado | Não                                       |
+| updateResourceEndpoint | A URL de recurso de atualização para um ponto de extremidade de serviço Web Azure Machine Learning Studio (clássico) usado para atualizar o serviço Web de previsão com arquivo de modelo treinado | Não                                       |
 | servicePrincipalId     | Especifique a ID do cliente do aplicativo.     | Necessária se a updateResourceEndpoint for especificada |
 | servicePrincipalKey    | Especifique a chave do aplicativo.           | Necessária se a updateResourceEndpoint for especificada |
 | locatário                 | Especifique as informações de locatário (domínio nome ou ID do Locatário) em que o aplicativo reside. É possível recuperá-las focalizando o mouse no canto superior direito do Portal do Azure. | Necessária se a updateResourceEndpoint for especificada |

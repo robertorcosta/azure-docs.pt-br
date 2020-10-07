@@ -9,12 +9,12 @@ ms.reviewer: dineshm
 ms.date: 09/11/2020
 ms.subservice: blobs
 ms.custom: devx-track-javascript, github-actions-azure
-ms.openlocfilehash: 9b616f8df0a8b64969fac1d18544e6d316120e50
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: 919fa0d7b6dff0361e4439b442bcfe9648ed8677
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/06/2020
-ms.locfileid: "91771023"
+ms.locfileid: "91776384"
 ---
 # <a name="set-up-a-github-actions-workflow-to-deploy-your-static-website-in-azure-storage"></a>Configurar um fluxo de trabalho de ações do GitHub para implantar seu site estático no armazenamento do Azure
 
@@ -83,7 +83,7 @@ No exemplo acima, substitua os espaços reservados por sua ID de assinatura e o 
 
 1. Exclua tudo após a `on:` seção do seu arquivo de fluxo de trabalho. Por exemplo, o fluxo de trabalho restante pode ter a seguinte aparência. 
 
-    ```yml
+    ```yaml
     name: CI
 
     on:
@@ -95,7 +95,7 @@ No exemplo acima, substitua os espaços reservados por sua ID de assinatura e o 
 
 1. Renomeie o fluxo de trabalho `Blob storage website CI` e adicione as ações de check-out e logon. Essas ações efetuarão checkout do código do site e serão autenticadas com o Azure usando o `AZURE_CREDENTIALS` segredo do GitHub criado anteriormente. 
 
-    ```yml
+    ```yaml
     name: Blob storage website CI
 
     on:
@@ -181,7 +181,7 @@ No exemplo acima, substitua os espaços reservados por sua ID de assinatura e o 
 
 1. Exclua tudo após a `on:` seção do seu arquivo de fluxo de trabalho. Por exemplo, o fluxo de trabalho restante pode ter a seguinte aparência. 
 
-    ```yml
+    ```yaml
     name: CI
 
     on:
@@ -193,7 +193,7 @@ No exemplo acima, substitua os espaços reservados por sua ID de assinatura e o 
 
 1. Renomeie o fluxo de trabalho `Blob storage website CI` e adicione as ações de check-out e logon. Essas ações efetuarão checkout do código do site e serão autenticadas com o Azure usando o `AZURE_CREDENTIALS` segredo do GitHub criado anteriormente. 
 
-    ```yml
+    ```yaml
     name: Blob storage website CI
 
     on:

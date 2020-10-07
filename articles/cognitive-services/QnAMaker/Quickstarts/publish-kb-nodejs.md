@@ -1,16 +1,18 @@
 ---
 title: 'Início rápido: QnA Maker com APIs REST para Node.js'
 description: Este início rápido oferece uma introdução às APIs REST do QnA Maker para Node.js. Siga essas etapas para instalar o pacote e testar o código de exemplo para tarefas básicas.  O QnA Maker permite ter um serviço avançado de perguntas e respostas a partir de um conteúdo semiestruturado, como documentos de perguntas frequentes ou URLs e manuais de produtos.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27, devx-track-js
 ms.topic: how-to
-ms.openlocfilehash: 67c4711d74bdeb970a706eabf795e8f9bdcbbded
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ef17f08677d715292a8ee49621156d130e2f5a6b
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91324596"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777495"
 ---
 # <a name="quickstart-qna-maker-rest-apis-for-nodejs"></a>Início rápido: APIs REST do QnA Maker para Node.js
 

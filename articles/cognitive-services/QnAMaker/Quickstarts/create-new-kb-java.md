@@ -1,16 +1,18 @@
 ---
 title: 'Início Rápido: Criar base de dados de conhecimento - REST, Java - QnA Maker'
 description: Este guia de início rápido baseado em REST Java orienta você pela criação de um exemplo QnA Maker base de dados de conhecimento, programaticamente, que aparecerá no seu painel do Azure de sua conta de API de serviços cognitivas.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.date: 12/16/2019
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27, devx-track-java
 ms.topic: how-to
-ms.openlocfilehash: 3a20198e1fce7b72befb0963a4f1eb7a5e7e3f08
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 275b1976e51789d4a458e7bd9f7cfa3240cc81d5
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89259788"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777673"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-java"></a>Início Rápido: criar uma base de dados de conhecimento no QnA Maker usando Java
 

@@ -1,14 +1,16 @@
 ---
 title: Design para QnA Maker de idiomas
 description: O recurso QnA Maker e todas as bases de dados de conhecimento dentro desse recurso dão suporte a uma única linguagem. A linguagem única é necessária para fornecer os melhores resultados de resposta para uma consulta.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: 5cb1dcd35649debbafd2e234606ad4c9d6906ea6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e09e15f71b0574a5612e7f9bacd8aaa4739a441c
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76843415"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776996"
 ---
 # <a name="design-knowledge-base-for-content-language"></a>Design da base de dados de conhecimento para linguagem de conteúdo
 

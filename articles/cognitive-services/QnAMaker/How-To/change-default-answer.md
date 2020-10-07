@@ -1,14 +1,16 @@
 ---
 title: Obter QnA Maker de resposta padrão
 description: A resposta padrão é retornada quando não há nenhuma correspondência com a pergunta. Talvez você queira alterar a resposta padrão da resposta padrão standard.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: how-to
 ms.date: 07/13/2020
-ms.openlocfilehash: d37e63d84be58e6ccd2f1e23a1344961d39ffa01
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 14954f89fcdcbbc1ef4b8654582a3274f4bb0923
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054172"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776809"
 ---
 # <a name="change-default-answer-for-a-qna-maker-resource"></a>Alterar a resposta padrão para um recurso de QnA Maker
 
@@ -21,7 +23,7 @@ Há dois tipos de resposta padrão na sua base de dados de conhecimento. É impo
 
 |Tipo de pergunta|Descrição da resposta|
 |--|--|
-|Resposta da KB quando nenhuma resposta for determinada|`No good match found in KB.`-Quando a [API GenerateAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) não encontra nenhuma resposta correspondente à pergunta, a `DefaultAnswer` configuração do serviço de aplicativo é retornada. Todas as bases de conhecimento no mesmo QnA Maker recurso compartilham o mesmo texto de resposta padrão.<br>Você pode gerenciar a configuração na portal do Azure, por meio do serviço de aplicativo ou com as APIs REST para [obter](https://docs.microsoft.com/rest/api/appservice/webapps/listapplicationsettings) ou [Atualizar](https://docs.microsoft.com/rest/api/appservice/webapps/updateapplicationsettings) a configuração.|
+|Resposta da KB quando nenhuma resposta for determinada|`No good match found in KB.` -Quando a [API GenerateAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) não encontra nenhuma resposta correspondente à pergunta, a `DefaultAnswer` configuração do serviço de aplicativo é retornada. Todas as bases de conhecimento no mesmo QnA Maker recurso compartilham o mesmo texto de resposta padrão.<br>Você pode gerenciar a configuração na portal do Azure, por meio do serviço de aplicativo ou com as APIs REST para [obter](https://docs.microsoft.com/rest/api/appservice/webapps/listapplicationsettings) ou [Atualizar](https://docs.microsoft.com/rest/api/appservice/webapps/updateapplicationsettings) a configuração.|
 |Texto de instrução de aviso de acompanhamento|Ao usar um prompt de acompanhamento em um fluxo de conversa, talvez você não precise de uma resposta no par QnA porque deseja que o usuário selecione entre os prompts de acompanhamento. Nesse caso, defina texto específico definindo o texto de resposta padrão, que é retornado com cada Previsão para avisos de acompanhamento. O texto deve ser exibido como texto de instrução para a seleção de prompts de acompanhamento. Um exemplo para esse texto de resposta padrão é `Please select from the following choices` . Essa configuração é explicada nas próximas seções deste documento. Também pode definir como parte da definição da base de dados de conhecimento de `defaultAnswerUsedForExtraction` usando a [API REST](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create).|
 
 ### <a name="client-application-integration"></a>Integração de aplicativos cliente

@@ -1,16 +1,18 @@
 ---
 title: 'Início Rápido: Criar base de dados de conhecimento – REST, Python – QnA Maker'
 description: Este início rápido baseado em REST do Python orienta você pela criação programática de um exemplo de base de dados de conhecimento do QnA Maker, que será exibida no Painel do Azure de sua conta da API dos Serviços Cognitivos.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.date: 12/16/2019
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27, devx-track-python
 ms.topic: how-to
-ms.openlocfilehash: afee82b66f9803333e27f029ecb487a47ba5dd9e
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 6155722b81b32e426a91a283910e8bdce926e342
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89259720"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777656"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-python"></a>Início Rápido: Criar uma base de dados de conhecimento no QnA Maker usando Python
 
@@ -26,7 +28,7 @@ Este início rápido chama as APIs de QnA Maker:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Python 3.7](https://www.python.org/downloads/)
+* [Python 3,7](https://www.python.org/downloads/)
 * Você precisa ter um [serviço QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Para recuperar a chave e o ponto de extremidade (que inclui o nome do recurso), selecione **Início Rápido** para o recurso no portal do Azure.
 
 ## <a name="create-a-knowledge-base-python-file"></a>Criar um arquivo Python da base de dados de conhecimento

@@ -1,14 +1,16 @@
 ---
 title: Melhores práticas – QnA Maker
 description: Use essas melhores práticas para melhorar a base de dados de conhecimento e fornecer melhores resultados aos usuários finais do aplicativo/chat.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 02/15/2020
-ms.openlocfilehash: 9a6f7f7d6edc4544942476050a1ed3c2011af7fb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 15cb1391cb6482401c2a091a4d5c0e9d819ba52d
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80053127"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777013"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Melhores práticas de uma base de dados de conhecimento do QnA Maker
 
@@ -35,11 +37,11 @@ Adicione quantas perguntas alternativas você precisa, mas mantenha as alteraç�
 
 ### <a name="add-relevant-alternative-questions"></a>Adicionar perguntas alternativas relevantes
 
-O usuário pode inserir perguntas com um estilo de conversa de texto `How do I add a toner cartridge to my printer?` ou uma pesquisa de palavra-chave, `toner cartridge`como. A base de dados de conhecimento deve ter os dois estilos de perguntas para retornar corretamente a melhor resposta. Se você não tiver certeza de quais palavras-chave um cliente está inserindo, use Application Insights dados para analisar consultas.
+O usuário pode inserir perguntas com um estilo de conversa de texto `How do I add a toner cartridge to my printer?` ou uma pesquisa de palavra-chave, como `toner cartridge` . A base de dados de conhecimento deve ter os dois estilos de perguntas para retornar corretamente a melhor resposta. Se você não tiver certeza de quais palavras-chave um cliente está inserindo, use Application Insights dados para analisar consultas.
 
 ### <a name="good-answers"></a>Boas respostas
 
-As melhores respostas são respostas simples, mas não muito simples. Não use respostas como `yes` e. `no` Se sua resposta deve ser vinculada a outras fontes ou fornecer uma experiência rica com mídia e links, use a [marcação de metadados](../how-to/edit-knowledge-base.md#add-metadata) para distinguir entre as respostas e, em seguida, [envie a consulta com as](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration) marcas de metadados na `strictFilters` propriedade para obter a versão de resposta correta.
+As melhores respostas são respostas simples, mas não muito simples. Não use respostas como `yes` e `no` . Se sua resposta deve ser vinculada a outras fontes ou fornecer uma experiência rica com mídia e links, use a [marcação de metadados](../how-to/edit-knowledge-base.md#add-metadata) para distinguir entre as respostas e, em seguida, [envie a consulta com as](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration) marcas de metadados na `strictFilters` propriedade para obter a versão de resposta correta.
 
 |Resposta|Prompts de Follup|
 |--|--|
@@ -77,7 +79,7 @@ Recomendamos que você torne as seguintes perguntas e respostas do bate-papo mai
 
 ### <a name="adding-custom-chit-chat-with-a-metadata-tag"></a>Adicionando Chit personalizado-chat com uma marca de metadados
 
-Se você adicionar seus próprios pares de QnA Chit-Chat, certifique-se de adicionar metadados para que essas respostas sejam retornadas. O par nome/valor de metadados `editorial:chitchat`é.
+Se você adicionar seus próprios pares de QnA Chit-Chat, certifique-se de adicionar metadados para que essas respostas sejam retornadas. O par nome/valor de metadados é `editorial:chitchat` .
 
 ## <a name="searching-for-answers"></a>Procurando respostas
 
@@ -132,7 +134,7 @@ Por exemplo, você pode ter duas perguntas e respostas separadas com as seguinte
 
 Uma vez que essas perguntas e respostas são formuladas com palavras muito semelhantes, essa semelhança poderia levar a pontuações muito semelhantes para muitas consultas do usuário formuladas como *"qual é a localização de `<x>`"*. Em vez disso, tente diferenciar claramente usando consultas como *"onde fica o estacionamento"* e *"onde fica o caixa eletrônico"*, evitando palavras como "localização", que poderiam estar em muitas perguntas em sua base de dados.
 
-## <a name="collaborate"></a>Colaborar
+## <a name="collaborate"></a>Colaboração
 O QnA Maker permite que os usuários [colaborem](../How-to/collaborate-knowledge-base.md) em uma base de dados de conhecimento. Os usuários precisam de acesso ao grupo de recursos do QnA Maker do Azure para acessar as bases de dados de conhecimento. Algumas organizações podem querer terceirizar a edição e manutenção da base de dados de conhecimento e ainda proteger o acesso aos recursos do Azure. Esse modelo de editor-aprovador é realizado configurando dois [serviços do QnA Maker](../How-to/set-up-qnamaker-service-azure.md) idênticos em assinaturas diferentes e designando um deles para o ciclo de teste e edição. Quando o teste estiver concluído, o conteúdo da base de dados de conhecimento será transferido com um processo de [importação-exportação](../Tutorials/migrate-knowledge-base.md) para o serviço do QnA Maker do aprovador que, por fim, publicará a base de dados de conhecimento e atualizará o ponto de extremidade.
 
 

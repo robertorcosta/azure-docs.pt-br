@@ -1,16 +1,18 @@
 ---
 title: 'Início Rápido: Obter respostas da base de dados de conhecimento - REST, Node.js - QnA Maker'
 description: Este início rápido de Node.js baseado em REST fornece uma orientação para obtenção de uma resposta de uma base de dados de conhecimento de forma programática.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
 ms.topic: how-to
-ms.openlocfilehash: aa5a6395b537daa750a2e9b97bde4df320193c1e
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: f14a2f4ffcc0c136e0770235003cbb2b6f4ff9f8
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268050"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777574"
 ---
 # <a name="quickstart-get-answers-to-a-question-from-a-knowledge-base-with-nodejs"></a>Início rápido: Obtenha respostas para uma pergunta de uma base de dados de conhecimento com Node.js
 
@@ -51,7 +53,7 @@ O código a seguir faz uma solicitação HTTPS à API de QnA Maker para enviar a
 
 :::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/QnAMaker/rest/query-kb.js" id="query":::
 
-## <a name="run-the-program"></a>Executar o programa
+## <a name="run-the-program"></a>Execute o programa
 
 Execute o programa na linha de comando. Ela enviará automaticamente a solicitação para a API de QnA Maker, depois a resposta será impressa na janela do console.
 
