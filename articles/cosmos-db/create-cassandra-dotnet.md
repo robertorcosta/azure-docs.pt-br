@@ -7,14 +7,14 @@ author: TheovanKraay
 ms.author: thvankra
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 05/18/2020
+ms.date: 10/01/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f17385307995d87f2d5792a7e9ce19ad0260cbcc
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 7389136d5f08c7efd0c0443387744ce4c5816f00
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89010232"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91627356"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-net-sdk-and-azure-cosmos-db"></a>Início Rápido: compilar um aplicativo do Cassandra com o SDK do .NET e o Azure Cosmos DB
 
@@ -158,13 +158,13 @@ Agora, volte ao portal do Azure para obter informações sobre a cadeia de conex
     ```
 3. Aperte CTRL + F5 para executar o aplicativo. Seu aplicativo é exibido na janela do seu console. 
 
-    :::image type="content" source="./media/create-cassandra-dotnet/output.png" alt-text="Exibir e verificar a saída":::
+    :::image type="content" source="./media/create-cassandra-dotnet/output.png" alt-text="Exibir e copiar uma chave de acesso no portal do Azure, página Cadeia de Conexão":::
 
     Pressione CTRL + C para interromper a execução do programa e feche a janela do console. 
     
 4. No portal do Azure, abra **Data Explorer** para consultar, modificar e trabalhar com esses novos dados.
 
-    :::image type="content" source="./media/create-cassandra-dotnet/data-explorer.png" alt-text="Exibir os dados no Data Explorer":::
+    :::image type="content" source="./media/create-cassandra-dotnet/data-explorer.png" alt-text="Exibir e copiar uma chave de acesso no portal do Azure, página Cadeia de Conexão":::
 
 ## <a name="review-slas-in-the-azure-portal"></a>Examinar SLAs no Portal do Azure
 
