@@ -3,14 +3,14 @@ title: Introdução
 description: Conheça os recursos e os benefícios da Solução VMware no Azure para implantar e gerenciar cargas de trabalho baseadas no VMware no Azure.
 ms.topic: overview
 ms.date: 05/04/2020
-ms.openlocfilehash: 3d6801a6cdec7600cc6003711a08e6af8c86483e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b71427402e08167e5868128ed1e553c69bef425d
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89005047"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91574443"
 ---
-# <a name="what-is-azure-vmware-solution-preview"></a>O que é a versão prévia da Solução VMware no Azure?
+# <a name="what-is-azure-vmware-solution"></a>O que é a Solução VMware no Azure?
 
 A Solução VMware no Azure fornece nuvens privadas no Azure. As nuvens privadas contêm clusters de vSphere, criados com base na infraestrutura bare-metal dedicada do Azure. Você pode escalar clusters da nuvem privada de 3 para 16 hosts, com a capacidade de ter vários clusters em uma só nuvem privada. Todas as nuvens privadas são provisionadas com o vCenter Server, o vSAN, o vSphere e o NSX-T. Você pode migrar cargas de trabalho de seus ambientes locais, criar ou implantar máquinas virtuais e consumir serviços do Azure de suas nuvens privadas.
 
@@ -28,9 +28,7 @@ Novas nuvens privadas são implantadas por meio do portal do Azure ou da CLI do 
 
 ## <a name="networking"></a>Rede
 
-Quando uma nuvem privada é implantada, redes privadas para gerenciamento, provisionamento e vMotion são criadas. Essas redes privadas são usadas para acessar o vCenter e o NSX-T Manager, bem como para o vMotion ou a implantação da máquina virtual. Todas as redes privadas podem ser acessadas de uma VNet no Azure ou de ambientes locais. O Alcance Global do ExpressRoute é usado para conectar nuvens privadas a ambientes locais. Essa conexão requer uma VNet com um circuito do ExpressRoute em sua assinatura.
-
-O acesso à Internet e aos serviços do Azure é provisionado quando uma nuvem privada é implantada. O acesso é fornecido para que as VMs em redes de carga de trabalho de produção possam consumir serviços do Azure ou baseados na Internet. O acesso à Internet é desabilitado por padrão para novas nuvens privadas e pode ser habilitado ou desabilitado a qualquer momento.
+[!INCLUDE [avs-networking-description](includes/azure-vmware-solution-networking-description.md)]
 
 Para obter mais informações sobre rede e interconectividade, confira o artigo [Conceitos de rede](concepts-networking.md).
 
@@ -46,7 +44,7 @@ As atualizações regulares da nuvem privada da Solução VMware no Azure e do s
 
 ## <a name="monitoring-your-private-cloud"></a>Monitoramento da nuvem privada
 
-Use os [Logs do Azure Monitor](../azure-monitor/overview.md) para coletar os logs nas máquinas virtuais em execução na nuvem privada da Solução VMware no Azure. [Baixe e instale o agente MMA](../azure-monitor/platform/log-analytics-agent.md#installation-options) nas máquinas virtuais do Windows e do Linux em execução nas nuvens privadas da Solução VMware no Azure, usando as mesmas consultas executadas nas VMs locais. Você pode executar as mesmas consultas que normalmente executaria em suas máquinas virtuais, da mesma maneira. Para saber mais sobre a criação de consultas, confira [como escrever consultas](../azure-monitor/log-query/log-query-overview.md#how-can-i-learn-how-to-write-queries).
+Os [logs do Azure Monitor](../azure-monitor/overview.md) são gerados automaticamente após a implantação da Solução VMware no Azure na sua assinatura. Além disso, você pode coletar logs em cada uma de suas máquinas virtuais em sua nuvem privada. É possível [baixar e instalar o agente MMA](../azure-monitor/platform/log-analytics-agent.md#installation-options) nas Máquinas Virtuais do Windows e do Linux em execução nas suas nuvens privadas da Solução VMware no Azure, assim como habilitar a [extensão de Diagnóstico do Azure](../azure-monitor/platform/diagnostics-extension-overview.md). Você pode até executar as mesmas consultas que normalmente executaria em suas máquinas virtuais. Para saber mais sobre a criação de consultas, confira [como escrever consultas](../azure-monitor/log-query/log-query-overview.md#how-can-i-learn-how-to-write-queries). Os padrões de monitoramento da Solução VMware no Azure são semelhantes às Máquinas Virtuais do Azure na plataforma IaaS. Para saber mais e ver outras instruções, confira [Monitorar as máquinas virtuais do Azure com o Azure Monitor](../azure-monitor/insights/monitor-vm-azure.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

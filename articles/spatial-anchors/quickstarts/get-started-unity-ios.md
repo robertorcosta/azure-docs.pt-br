@@ -5,15 +5,15 @@ author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
 ms.author: crtreasu
-ms.date: 08/14/2020
+ms.date: 09/29/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 4d5ec2411b7b1a65da9a1f4262822cb85a3b386e
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: 630e90069cd1b9735dbaec4c0d825be71df7e69c
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89536233"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91539296"
 ---
 # <a name="quickstart-create-a-unity-ios-app-with-azure-spatial-anchors"></a>Início Rápido: criar um aplicativo Unity para iOS com as Âncoras Espaciais do Azure
 
@@ -56,7 +56,11 @@ Para concluir este início rápido, certifique-se de que:
 
 [!INCLUDE [Configure Xcode](../../../includes/spatial-anchors-unity-ios-xcode.md)]
 
-Siga as instruções no aplicativo para colocar uma âncora e fazer recall dela.
+No aplicativo, selecione **BasicDemo** usando as setas e pressione o botão **Ir!** para executar a demonstração. Siga as instruções para colocar uma âncora e fazer recall dela.
+
+![Captura de tela 1](./media/get-started-unity-ios/screenshot-1.jpg)
+![Captura de tela 2](./media/get-started-unity-ios/screenshot-2.jpg)
+![Captura de tela 3](./media/get-started-unity-ios/screenshot-3.jpg)
 
 Ao concluir, interrompa o aplicativo pressionando **Parar** no Xcode.
 

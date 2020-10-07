@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: timlt
-ms.openlocfilehash: 1a27d748e16f892a748cf18569c13ca3f9ead1dd
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: a8314fed43c8282c536fc6e95e6c3aa877408b09
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "71309509"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91542488"
 ---
 # <a name="what-are-azure-iot-solution-accelerators"></a>O que são aceleradores de solução do Azure IoT?
 
@@ -46,7 +46,7 @@ Use o [acelerador de solução Alocador Conectado](iot-accelerators-connected-fa
 
 É possível usar o painel da fábrica conectada para monitorar e gerenciar seus dispositivos industriais:
 
-[![Painel da solução de fábrica conectada](./media/about-iot-accelerators/cf-dashboard-inline.png)](./media/about-iot-accelerators/cf-dashboard-expanded.png#lightbox)
+:::image type="content" source="./media/about-iot-accelerators/cf-dashboard-inline.png" alt-text="Captura de tela que mostra o painel da solução de fábrica conectada." lightbox="./media/about-iot-accelerators/cf-dashboard-expanded.png":::
 
 ### <a name="predictive-maintenance"></a>Manutenção preditiva
 
@@ -54,7 +54,7 @@ Use este [acelerador de solução de Manutenção Preditiva](iot-accelerators-pr
 
 É possível usar o painel de manutenção preditiva para exibir a análise de manutenção preditiva:
 
-[![Painel da solução de fábrica conectada](./media/about-iot-accelerators/pm-dashboard-inline.png)](./media/about-iot-accelerators/pm-dashboard-expanded.png#lightbox)
+:::image type="content" source="./media/about-iot-accelerators/pm-dashboard-inline.png" alt-text="Captura de tela que mostra o painel da solução de fábrica conectada." lightbox="./media/about-iot-accelerators/pm-dashboard-expanded.png":::
 
 ### <a name="device-simulation"></a>Simulação de dispositivo
 

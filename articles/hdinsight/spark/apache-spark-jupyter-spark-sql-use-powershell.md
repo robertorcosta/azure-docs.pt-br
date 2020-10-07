@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 06/12/2019
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: ea889f48aaf3218ad9f3f286d1cda4f8a761a7ac
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 47450b85412e75cf632d9c2873289e9a0820beb0
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89069962"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91537762"
 ---
 # <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-powershell"></a>Início Rápido: Criar um cluster do Apache Spark no Azure HDInsight usando o PowerShell
 
@@ -142,11 +142,11 @@ O [Jupyter Notebook](https://jupyter.org/) é um ambiente de notebook interativo
 
 1. No [portal do Azure](https://portal.azure.com), pesquise e selecione **Clusters HDInsight**.
    
-   ![Abrir o cluster HDInsight no portal do Azure](./media/apache-spark-jupyter-spark-sql-use-powershell/azure-portal-search-hdinsight-cluster.png)
+   ![A captura de tela mostra a opção Pesquisar por HDInsight do portal do Azure.](./media/apache-spark-jupyter-spark-sql-use-powershell/azure-portal-search-hdinsight-cluster.png)
    
 1. Na lista, selecione o cluster que você criou.
    
-   ![Abrir o cluster HDInsight no portal do Azure](./media/apache-spark-jupyter-spark-sql-use-powershell/azure-portal-open-hdinsight-cluster.png)
+   ![A captura de tela mostra os clusters do HDInsight com o cluster que você criou.](./media/apache-spark-jupyter-spark-sql-use-powershell/azure-portal-open-hdinsight-cluster.png)
    
 1. Na página **Visão geral** do cluster, selecione **Painéis do cluster** e, em seguida, **Jupyter Notebook**. Em caso de solicitação, insira as credenciais de logon do cluster.
 

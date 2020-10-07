@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/25/2019
 ms.author: dobett
-ms.openlocfilehash: 32e2d3f9e8bbd63944188355774558ca5ea7bd9d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 8d007fa7100a9880878e0b748c2c38402e5ea192
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "60889944"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91540227"
 ---
 # <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>Início Rápido: Experimentar uma solução de monitoramento remoto baseado em nuvem
 
@@ -133,7 +133,7 @@ Se você planeja passar para outros tutoriais, deixe o acelerador de solução d
 
 Caso não precise mais do acelerador de solução, exclua-o da página [Soluções provisionadas](https://www.azureiotsolutions.com/Accelerators#dashboard) selecionando-o e clicando em **Excluir solução**:
 
-![Excluir solução](media/quickstart-remote-monitoring-deploy/deletesolution.png)
+![Captura de tela que mostra a página "Soluções provisionadas" com o acelerador de solução realçado.](media/quickstart-remote-monitoring-deploy/deletesolution.png)
 
 
 ![Excluir solução](media/quickstart-remote-monitoring-deploy/deletesolution-page.png)

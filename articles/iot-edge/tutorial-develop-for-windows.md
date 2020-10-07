@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: d4846a69f548c99de735cc9d9e06bd6bb263b4bd
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: a0bc934d32a2d09fcd6b52ec1f186855bf0da92c
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87439699"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449610"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>Tutorial: Desenvolver módulos do IoT Edge para dispositivos Windows
 
@@ -275,7 +275,7 @@ Se encontrar erros ao criar e enviar sua imagem de módulo por push, isso geralm
 
 Você verificou que as imagens de contêineres criadas estão armazenadas em seu registro de contêiner, portanto, chegou a hora de implantá-las em um dispositivo. Verifique se seu dispositivo IoT Edge está em funcionamento.
 
-1. Abra o Cloud Explorer no Visual Studio e expanda os detalhes para o hub IoT.
+1. Abra o Cloud Explorer no Visual Studio e expanda os detalhes para obter o hub IoT.
 
 2. Selecione o nome do dispositivo que você deseja implantar. Na lista **Ações**, selecione **Criar Implantação**.
 
@@ -285,7 +285,7 @@ Você verificou que as imagens de contêineres criadas estão armazenadas em seu
 
    Não use o arquivo deployment.template.json, que não tem os valores de imagem de módulo completo nele.
 
-4. Expanda os detalhes de seu dispositivo IoT Edge no Cloud Explorer para ver os módulos no seu dispositivo.
+4. Expanda os detalhes de seu dispositivo IoT Edge no Cloud Explorer para conferir os módulos do dispositivo.
 
 5. Use o botão **Atualizar** para atualizar o status do dispositivo e ver que os módulos SimulatedTemperatureSensor e IotEdgeModule1 estão implantados no dispositivo.
 

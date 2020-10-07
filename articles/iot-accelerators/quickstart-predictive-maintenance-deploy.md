@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/08/2019
 ms.author: dobett
-ms.openlocfilehash: cecf23d61d6a12c20aa3e64e4ee0ddacddbe7823
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 7266f110069155e2a9f7804d53c6e1088768ec8d
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "62106806"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91541842"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-run-a-predictive-maintenance-analysis-on-my-connected-devices"></a>Início Rápido: Experimentar uma solução baseada em nuvem para executar uma análise de manutenção preditiva em meus dispositivos conectados
 
@@ -52,7 +52,7 @@ Quando a implantação para sua assinatura do Azure for concluída, você verá 
 
 Na página **Soluções provisionadas**, clique em seu novo acelerador de solução de manutenção preditiva.
 
-![Painel de solução](./media/quickstart-predictive-maintenance-deploy/solution.png)
+![Captura de tela que mostra a página "Soluções provisionadas" com o acelerador de solução de "Manutenção Preditiva".](./media/quickstart-predictive-maintenance-deploy/solution.png)
 
  Veja as informações sobre o acelerador de solução na página exibida. Escolha **Ir para o acelerador de solução** para exibir o acelerador de solução da Manutenção Preditiva:
 

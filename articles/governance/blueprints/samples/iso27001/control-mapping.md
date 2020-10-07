@@ -3,12 +3,12 @@ title: Exemplo de controles de blueprint da ISO 27001
 description: Mapeamento de controles da amostra de blueprint da ISO 27001. Cada controle é mapeado para uma ou mais Políticas do Azure que auxiliam na avaliação.
 ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: 5ae720bd5be9d80d8e1be8315d2aea88a99dc54e
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: a0d5b1118e1e063f7b4f8757e7d1b3935dc1a37c
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927259"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91535756"
 ---
 # <a name="control-mapping-of-the-iso-27001-blueprint-sample"></a>Mapeamento de controles da amostra de blueprint ISO 27001
 
@@ -47,7 +47,7 @@ Entender os recursos que estão violando essas políticas pode ajudar você a to
 
 ## <a name="a923-management-of-privileged-access-rights"></a>A.9.2.3 Gerenciamento de direitos de acesso privilegiado
 
-Esse blueprint ajuda você a restringir e controlar os direitos de acesso privilegiado por meio da atribuição de quatro definições do [Azure Policy](../../../policy/overview.md) para auditar contas externas com proprietário e/ou permissões de gravação e contas com proprietário e/ou permissões de gravação que não têm a autenticação multifator habilitada. O Azure implementa o RBAC (controle de acesso baseado em função) para gerenciar quem tem acesso aos recursos no Azure. Esse blueprint também atribui três definições do Azure Policy para auditar o uso da autenticação do Azure Active Directory para SQL Servers e o Service Fabric. O uso da autenticação do Azure Active Directory permite o gerenciamento simplificado de permissões e o gerenciamento centralizado de identidades dos usuários de banco de dados e de outros serviços da Microsoft. Esse blueprint também atribui uma definição do Azure Policy para auditar o uso de regras RBAC personalizadas. Entender o local em que as regras RBAC personalizadas são implementadas pode ajudar você a verificar a necessidade e a implementação apropriada, pois as regras RBAC personalizadas estão sujeitas a erros.
+Esse blueprint ajuda você a restringir e controlar os direitos de acesso privilegiado por meio da atribuição de quatro definições do [Azure Policy](../../../policy/overview.md) para auditar contas externas com proprietário e/ou permissões de gravação e contas com proprietário e/ou permissões de gravação que não têm a autenticação multifator habilitada. O Azure RBAC (controle de acesso baseado em função) ajuda a gerenciar quem tem acesso aos recursos no Azure. Esse blueprint também atribui três definições do Azure Policy para auditar o uso da autenticação do Azure Active Directory para SQL Servers e o Service Fabric. O uso da autenticação do Azure Active Directory permite o gerenciamento simplificado de permissões e o gerenciamento centralizado de identidades dos usuários de banco de dados e de outros serviços da Microsoft. Esse blueprint também atribui uma definição do Azure Policy para auditar o uso de regras personalizadas do Azure RBAC. Entender o local em que as regras personalizadas do Azure RBAC são implementadas pode ajudar você a verificar a necessidade e a implementação apropriada, pois as regras personalizadas do Azure RBAC estão sujeitas a erros.
 
 - O MFA deve ser habilitado em contas com permissões de proprietário em sua assinatura
 - A MFA deve ser habilitada nas contas com permissões de gravação na sua assinatura
@@ -69,7 +69,7 @@ Esse blueprint atribui três definições do [Azure Policy](../../../policy/over
 
 ## <a name="a925-review-of-user-access-rights"></a>A.9.2.5 Revisão dos direitos de acesso do usuário
 
-O Azure implementa o [Azure RBAC (controle de acesso baseado em função do Azure)](../../../../role-based-access-control/overview.md) para ajudar você a gerenciar quem tem acesso aos recursos no Azure. Usando o portal do Azure, você pode examinar quem tem acesso aos recursos do Azure e suas permissões. Esse blueprint atribui quatro definições do [Azure Policy](../../../policy/overview.md) para auditar as contas que devem ser priorizadas para revisão, incluindo contas preteridas e contas externas com permissões elevadas.
+O [Azure RBAC (controle de acesso baseado em função)](../../../../role-based-access-control/overview.md) ajuda a gerenciar quem tem acesso aos recursos no Azure. Usando o portal do Azure, você pode examinar quem tem acesso aos recursos do Azure e suas permissões. Esse blueprint atribui quatro definições do [Azure Policy](../../../policy/overview.md) para auditar as contas que devem ser priorizadas para revisão, incluindo contas preteridas e contas externas com permissões elevadas.
 
 - As contas preteridas devem ser removidas de sua assinatura
 - As contas preteridas com permissões de proprietário devem ser removidas de sua assinatura
@@ -78,7 +78,7 @@ O Azure implementa o [Azure RBAC (controle de acesso baseado em função do Azur
 
 ## <a name="a926-removal-or-adjustment-of-access-rights"></a>A.9.2.6 Remoção ou ajuste de direitos de acesso
 
-O Azure implementa o [Azure RBAC (controle de acesso baseado em função do Azure)](../../../../role-based-access-control/overview.md) para ajudar você a gerenciar quem tem acesso aos recursos no Azure. Usando o [Azure Active Directory](../../../../active-directory/fundamentals/active-directory-whatis.md) e o RBAC, você pode atualizar as funções de usuário para que elas reflitam as mudanças organizacionais. Quando necessário, as contas podem ser impedidas de entrar (ou removidas), o que remove imediatamente os direitos de acesso aos recursos do Azure. Esse blueprint atribui duas definições do [Azure Policy](../../../policy/overview.md) para auditar contas preteridas que devem ser consideradas para remoção.
+O [Azure RBAC (controle de acesso baseado em função)](../../../../role-based-access-control/overview.md) ajuda a gerenciar quem tem acesso aos recursos no Azure. Usando o [Azure Active Directory](../../../../active-directory/fundamentals/active-directory-whatis.md) e o Azure RBAC, você pode atualizar as funções de usuário para que elas reflitam as mudanças organizacionais. Quando necessário, as contas podem ser impedidas de entrar (ou removidas), o que remove imediatamente os direitos de acesso aos recursos do Azure. Esse blueprint atribui duas definições do [Azure Policy](../../../policy/overview.md) para auditar contas preteridas que devem ser consideradas para remoção.
 
 - As contas preteridas devem ser removidas de sua assinatura
 - As contas preteridas com permissões de proprietário devem ser removidas de sua assinatura

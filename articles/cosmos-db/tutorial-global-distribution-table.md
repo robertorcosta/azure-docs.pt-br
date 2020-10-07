@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.topic: tutorial
 ms.date: 01/30/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 627086bdb13acdd29821af399f90fee8deaae432
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f0d62ae3909bc886fa6a56ba7ed32d55d27302dd
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76900186"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568667"
 ---
 # <a name="set-up-azure-cosmos-db-global-distribution-using-the-table-api"></a>Configurar a distribuição global do Azure Cosmos DB usando a API de Tabela
 
@@ -34,7 +34,7 @@ O SDK da API de Tabela do Azure Cosmos DB escolhe automaticamente o melhor ponto
 
 * **Solicitações de leitura:** todas as solicitações de leitura são enviadas para o `CurrentRegion` configurado. Com base na proximidade, o SDK seleciona automaticamente uma região com replicação geográfica de fallback para alta disponibilidade.
 
-* **Solicitações de gravação:** o SDK envia automaticamente todas as solicitações de gravação para a região de gravação atual. Em uma conta de vários mestres, a região atual também atenderá às solicitações de gravação. Com base na proximidade, o SDK seleciona automaticamente uma região com replicação geográfica de fallback para alta disponibilidade.
+* **Solicitações de gravação:** o SDK envia automaticamente todas as solicitações de gravação para a região de gravação atual. Em uma conta de gravação em várias regiões, a região atual também atenderá às solicitações de gravação. Com base na proximidade, o SDK seleciona automaticamente uma região com replicação geográfica de fallback para alta disponibilidade.
 
 Se você não especificar a propriedade `CurrentRegion`, o SDK usará a região de gravação atual para todas as operações.
 

@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/21/2020
-ms.openlocfilehash: 4b79ee0999db0a19794cc167ae79ed6e58193b30
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4b629ddeb1db8dd94c1c96ecb62fafb9ca7bfc60
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90943569"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569658"
 ---
 # <a name="azure-database-for-mysql---flexible-server-preview"></a>Banco de Dados do Azure para MySQL – Servidor Flexível (versão prévia)
 
@@ -20,7 +20,7 @@ O Banco de Dados do Azure para MySQL da plataforma MySQL Community Edition está
 - Servidor único 
 - Servidor Flexível (versão prévia)
 
-Neste artigo, forneceremos uma visão geral e uma introdução aos principais conceitos do modelo de implantação de servidor flexível. 
+Neste artigo, forneceremos uma visão geral e uma introdução aos principais conceitos do modelo de implantação de servidor flexível. Para saber mais sobre como decidir a melhor opção de implantação para a sua carga de trabalho, confira [Escolher a opção correta de servidor MySQL no Azure](./../select-right-deployment-type.md).
 
 ## <a name="overview"></a>Visão geral
 
@@ -50,7 +50,7 @@ Se a alta disponibilidade com redundância de zona estiver configurada, o servi�
 
 Confira [conceitos de alta disponibilidade](concepts-high-availability.md) para obter mais detalhes.
 
-:::image type="content" source="media/overview/3-flexible-server-overview-zone-redundant-ha.png" alt-text="Diagrama conceitual de alta disponibilidade com redundância de zona"::: 
+:::image type="content" source="media/overview/3-flexible-server-overview-zone-redundant-ha.png" alt-text="Diagrama conceitual de alta disponibilidade de zona única"::: 
 
 ## <a name="automated-patching-with-managed-maintenance-window"></a>Aplicação de patch automatizada com janela de manutenção gerenciada
 
@@ -112,6 +112,15 @@ O serviço executa a versão da comunidade do MySQL. Isso permite a compatibilid
 
 - **Despejo e restauração** – nas migrações offline, em que os usuários podem ter algum tempo de inatividade, realizar o despejo e a restauração com ferramentas da comunidade como mysqldump/mydumper pode fornecer uma forma mais rápida de migração. Confira Migrar usando despejo e restauração para obter detalhes. 
 - **Serviço de Migração de Banco de Dados do Azure** – para migrações integradas e simplificadas para o servidor único com um tempo de inatividade mínimo, você pode aproveitar o [Serviço de Migração de Banco de Dados do Azure](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online). 
+
+## <a name="contacts"></a>Contatos
+Para quaisquer dúvidas ou sugestões que você possa ter sobre como trabalhar com o Banco de Dados do Azure para MySQL, envie um e-mail para o Banco de Dados do Azure para a Equipe do MySQL ([@Ask Azure DB for MySQL ](mailto:AskAzureDBforMySQL@service.microsoft.com)). Esse endereço de email não é um alias de suporte técnico.
+
+Além disso, considere os seguintes pontos de contato, conforme apropriado:
+
+- Para entrar em contato com o Suporte do Azure, [crie um tíquete no Portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+- Para corrigir um problema com sua conta, apresente uma [solicitação de suporte](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) no portal do Azure.
+- Para fornecer comentários ou solicitar novos recursos, crie uma entrada por meio do [UserVoice](https://feedback.azure.com/forums/597982-azure-database-for-mysql).
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você leu a introdução ao modo de implantação do servidor único do Banco de Dados do Azure para MySQL, você está pronto para:

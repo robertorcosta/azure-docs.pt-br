@@ -1,5 +1,5 @@
 ---
-title: conectar o SQL sob demanda ao Power BI Desktop e criar um relatório
+title: 'Tutorial: conectar o SQL sob demanda ao Power BI Desktop e criar um relatório'
 description: Neste tutorial, saiba como conectar o SQL sob demanda no Azure Synapse Analytics ao Power BI Desktop e criar um relatório de demonstração com base em uma exibição.
 services: synapse analytics
 author: azaricstefan
@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 325a2015e4107a20dfaec22e904cf3cc6ce3085d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.reviewer: jrasnick
+ms.openlocfilehash: 5c86825d6dce8681e114ec930add751b6beae085
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089168"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539547"
 ---
 # <a name="tutorial-use-sql-on-demand-with-power-bi-desktop--create-a-report"></a>Tutorial: usar o SQL sob demanda com o Power BI Desktop e criar um relatório
 
@@ -45,7 +45,7 @@ Valores para os seguintes parâmetros:
 | Endereço do ponto de extremidade de serviço do SQL sob demanda    | Usado como o nome do servidor                                   |
 | Região do ponto de extremidade de serviço do SQL sob demanda     | Usada para determinar o armazenamento usado nos exemplos |
 | Nome de usuário e senha para acesso de ponto de extremidade | Usado para acessar o ponto de extremidade                               |
-| O banco de dados que você usará para criar exibições     | O banco de dados usado como ponto de partida nas amostras       |
+| Banco de dados que você usará para criar exibições     | O banco de dados usado como ponto de partida nas amostras       |
 
 ## <a name="1---create-database"></a>1 – Criar banco de dados
 

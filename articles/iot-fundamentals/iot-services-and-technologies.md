@@ -7,12 +7,12 @@ services: iot-fundamentals
 ms.topic: overview
 ms.date: 01/15/2020
 ms.author: dobett
-ms.openlocfilehash: 0b04b5170c13f6f6c3fd74976461f03e4367060a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: dedb799121fcdbc6bab38865132ae46a78aa6494
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77046054"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578165"
 ---
 # <a name="azure-technologies-and-services-for-creating-iot-solutions"></a>Tecnologias e serviços do Azure para a criação de soluções de IoT
 
@@ -57,7 +57,7 @@ Para criar uma solução de IoT do zero ou estender uma solução criada usando 
 
 Desenvolva seus dispositivos IoT usando um dos [Kits de início de IoT do Azure](https://catalog.azureiotsolutions.com/kits) ou escolha um dispositivo a ser usado no [Catálogo de dispositivos Azure Certified para IoT](https://catalog.azureiotsolutions.com). Implemente seu código inserido usando os [SDKs de dispositivo](../iot-hub/iot-hub-devguide-sdks.md) de software livre. Os SDKs de dispositivo são compatíveis com vários sistemas operacionais, como Linux, Windows e sistemas operacionais em tempo real. Há SDKs para várias linguagens de programação, como [C](https://github.com/Azure/azure-iot-sdk-c), [Node.js](https://github.com/Azure/azure-iot-sdk-node), [Java](https://github.com/Azure/azure-iot-sdk-java), [.NET](https://github.com/Azure/azure-iot-sdk-csharp) e [Python](https://github.com/Azure/azure-iot-sdk-python).
 
-Você pode simplificar ainda mais a forma como cria o código inserido para seus dispositivos usando o serviço da [versão prévia do IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md). O IoT Plug and Play permite que os desenvolvedores de soluções integrem dispositivos às soluções deles sem escrever nenhum código inserido. No núcleo do IoT Plug and Play está um esquema de _modelo de funcionalidade do dispositivo_ que descreve os recursos do dispositivo. Use o modelo de funcionalidade do dispositivo para gerar o código de dispositivo inserido e configurar uma solução baseada em nuvem, como um aplicativo do IoT Central.
+Você pode simplificar ainda mais a forma como cria o código de inserção para seus dispositivos usando o serviço do [IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md). O IoT Plug and Play permite que os desenvolvedores de soluções integrem dispositivos às soluções deles sem escrever nenhum código inserido. No núcleo do IoT Plug and Play está um esquema de _modelo de funcionalidade do dispositivo_ que descreve os recursos do dispositivo. Use o modelo de funcionalidade do dispositivo para gerar o código de dispositivo inserido e configurar uma solução baseada em nuvem, como um aplicativo do IoT Central.
 
 O [Azure IoT Edge](../iot-edge/about-iot-edge.md) permite que você descarregue partes da carga de trabalho de IoT dos Serviços de Nuvem do Azure para seus dispositivos. O IoT Edge pode reduzir a latência em sua solução, reduzir a quantidade de dados que seus dispositivos trocam com a nuvem e habilitar cenários offline. Você pode gerenciar os dispositivos do IoT Edge do IoT Central e alguns aceleradores de solução.
 

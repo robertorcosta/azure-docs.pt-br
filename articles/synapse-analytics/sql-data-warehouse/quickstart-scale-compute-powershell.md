@@ -1,5 +1,5 @@
 ---
-title: Dimensionar a computação para o pool de SQL do Synapse (Azure PowerShell)
+title: 'Início Rápido: Dimensionar a computação para o pool de SQL do Synapse (Azure PowerShell)'
 description: Você pode dimensionar a computação para o pool de SQL do Synapse (data warehouse) usando o Azure PowerShell.
 services: synapse-analytics
 author: Antvgski
@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.openlocfilehash: 044b1b145f95e81b2aa2474950d4961131c3c88a
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 8077b1a52e44ce3a5160309c92288f756bed1014
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89079720"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91566135"
 ---
 # <a name="quickstart-scale-compute-for-synapse-sql-pool-with-azure-powershell"></a>Início Rápido: Dimensionar a computação para o pool de SQL do Synapse com o Azure PowerShell
 

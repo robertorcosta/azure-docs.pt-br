@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 10/1/2019
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 8fb9f422f2d2c4ed035b04b4abe4141bbb8ebfc7
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 81fceb210981e5755bcdd8e241b381d161d4f637
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299840"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570201"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb"></a>API do Azure Cosmos DB para MongoDB
 
@@ -36,7 +36,7 @@ Os principais benefícios do Cosmos DB como um banco de dados como serviço dist
 * Manter o aplicativo portátil e independente de fornecedor de nuvem.
 * Obter os SLAs com suporte financeiro líderes do mercado para as APIs NoSQL comuns da plataforma Cosmos DB.
 * Dimensionar elasticamente a produtividade e armazenamento provisionados para seus bancos de dados Cosmos com base na sua necessidade e pagar somente pela produtividade e o armazenamento que você precisa. Isso resulta em economia de custo significativa.
-* Distribuição global, pronta para uso, com a replicação de vários mestres.
+* Distribuição global, pronta para uso, com a replicação de várias regiões.
 
 ## <a name="cosmos-dbs-api-for-mongodb"></a>API do Cosmos DB para MongoDB
 

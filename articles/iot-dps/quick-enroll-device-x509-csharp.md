@@ -1,20 +1,20 @@
 ---
-title: Registrar o dispositivo X.509 no Serviço de Provisionamento de Dispositivos do Azure usando C#
+title: Início Rápido – Registrar o dispositivo X.509 no Serviço de Provisionamento de Dispositivos do Azure usando C#
 description: Este início rápido usa registros em grupo. Neste início rápido, registre dispositivos X.509 no DPS (Serviço de Provisionamento de Dispositivos) no Hub IoT do Azure usando o C#.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 11/08/2019
+ms.date: 09/28/2020
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 89d98cdf6f635cab3b85462adf5c6695f7c4482e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 618b2c6acb8792382adb4c067aa8f33003227091
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020925"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91532577"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-c"></a>Início Rápido: Registrar dispositivos X.509 para o Serviço de Provisionamento de Dispositivos usando C#
 
@@ -159,12 +159,15 @@ Esta seção mostra como criar um aplicativo de console .NET Core que adiciona u
    }
    ```
 
-1. Por fim, substitua o corpo do método `Main` pelas seguintes linhas:
+1. Por fim, substitua o método `Main` pelas seguintes linhas:
 
    ```csharp
-   RunSample().GetAwaiter().GetResult();
-   Console.WriteLine("\nHit <Enter> to exit ...");
-   Console.ReadLine();
+    static async Task Main(string[] args)
+    {
+        await RunSample();
+        Console.WriteLine("\nHit <Enter> to exit ...");
+        Console.ReadLine();
+    }
    ```
 
 1. Compile a solução.

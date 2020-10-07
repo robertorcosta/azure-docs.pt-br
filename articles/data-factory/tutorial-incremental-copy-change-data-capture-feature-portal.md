@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: ''
 ms.date: 05/04/2020
-ms.openlocfilehash: e15ac501a0598ae81a295d5a04074beb33c860f6
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 6e41109c65a047990577d1f2c77bdcd5219b6ed3
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085711"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537449"
 ---
 # <a name="incrementally-load-data-from-azure-sql-managed-instance-to-azure-storage-using-change-data-capture-cdc"></a>Carregar incrementalmente dados da Instância Gerenciada de SQL do Azure para o Armazenamento do Azure usando CDA (captura de dados de alterações)
 
@@ -127,10 +127,10 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 7. Clique em **Criar**.
 8. Depois que a implantação estiver concluída, selecione **Ir para o recurso**
 
-   ![Página inicial do data factory](./media/tutorial-incremental-copy-change-data-capture-feature-portal/data-factory-deploy-complete.png)
+   ![A captura de tela mostra uma mensagem informando que sua implantação foi concluída, além da opção de acessar o recurso.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/data-factory-deploy-complete.png)
 9. Após a criação, a página do **Data Factory** será exibida conforme mostrado na imagem.
 
-   ![Página inicial do data factory](./media/tutorial-incremental-copy-change-data-capture-feature-portal/data-factory-home-page.png)
+   ![A captura de tela mostra o data factory que você implantou.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/data-factory-home-page.png)
 10. Clique no bloco **Criar e Monitorar** para iniciar a interface do usuário do Azure Data Factory em uma guia separada.
 11. Na página de **introdução**, alterne para a guia **Editar** no painel esquerdo, conforme mostrado na imagem a seguir:
 
@@ -289,10 +289,10 @@ Nesta etapa, você cria um pipeline, que primeiro verifica o número de registro
 
 11. Clique em visualizar para verificar se a consulta retorna as linhas alteradas corretamente.
 
-    ![Atividade de cópia - configurações do coletor](./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-source-preview.png)
+    ![A captura de tela mostra uma visualização para verificar a consulta.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-source-preview.png)
 12. Alterne para a guia **Coletor** e especifique o conjunto de dados de Armazenamento do Azure para o campo **Conjunto de Dados do Coletor**.
 
-    ![Atividade de cópia - configurações do coletor](./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-sink-settings.png)
+    ![A captura de tela mostra a guia Coletor.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-sink-settings.png)
 13. Clique em voltar à tela do pipeline principal e conecte a atividade de **Procurar** à atividade **If Condition** uma a uma. Arraste o botão **verde** anexado à atividade de **Pesquisa** para a atividade de **If Condition**.
 
     ![Conecte as atividades de Pesquisa e Cópia](./media/tutorial-incremental-copy-change-data-capture-feature-portal/connect-lookup-if.png)
@@ -333,7 +333,7 @@ Nesta etapa, você cria um gatilho de janela em cascata para executar o trabalho
     ```
 4. Clique na guia **Coletor** da atividade **Copiar** e clique em **Abrir** para editar as propriedades do conjunto de dados. Clique na guia **Parâmetros** e adicione um novo parâmetro chamado **triggerStart**    
 
-    ![Configuração do conjunto de dados do coletor-3](./media/tutorial-incremental-copy-change-data-capture-feature-portal/sink-dataset-configuration-2.png)
+    ![A captura de tela mostra como adicionar um novo parâmetro à guia Parâmetros.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/sink-dataset-configuration-2.png)
 5. Em seguida, configure as propriedades do conjunto de dados para armazená-lo em um subdiretório **clientes/incremental** com partições baseadas em data.
    1. Clique na guia **Conexão** das propriedades do conjunto de dados e adicione conteúdo dinâmico às seções **Diretório** e **Arquivo**. 
    2. Insira a expressão a seguir na seção **Diretório** clicando no link de conteúdo dinâmico na caixa de texto:

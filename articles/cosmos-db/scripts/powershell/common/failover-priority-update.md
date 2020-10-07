@@ -1,19 +1,19 @@
 ---
-title: Script do PowerShell para alterar a prioridade de failover para uma conta mestra única do Azure Cosmos
-description: Amostra de script do Azure PowerShell – Alterar a prioridade de failover ou disparar um failover para uma conta mestra única do Azure Cosmos DB
+title: Script do PowerShell para alterar a prioridade de failover para uma conta do Azure Cosmos com somente uma região de gravação
+description: Exemplo de script do Azure PowerShell – Alterar a prioridade de failover ou disparar um failover para uma conta do Azure Cosmos com uma região de gravação
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 03/18/2020
 ms.author: mjbrown
-ms.openlocfilehash: a81938675e72d9ec3a18c920121951e38580b91e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 07561de8236a06a3ac34aa8867a07890aaf0656f
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87505262"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570596"
 ---
-# <a name="change-failover-priority-or-trigger-failover-for-an-azure-cosmos-db-single-master-account-using-powershell"></a>Alterar a prioridade de failover ou disparar um failover para uma conta mestra única do Azure Cosmos DB usando o PowerShell
+# <a name="change-failover-priority-or-trigger-failover-for-an-azure-cosmos-account-with-single-write-region-by-using-powershell"></a>Alterar a prioridade de failover ou disparar um failover para uma conta do Azure Cosmos com região de gravação única usando o PowerShell
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

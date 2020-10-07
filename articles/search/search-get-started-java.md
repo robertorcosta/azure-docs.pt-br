@@ -8,14 +8,14 @@ ms.author: heidist
 ms.devlang: java
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/23/2020
+ms.date: 09/25/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: e9a2ff5d46557ddf8f5f62b456e8a3d54bf90c55
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: ed44431af6d99daa5549d019f42efda4bbf9912b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89290337"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91540346"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-java-using-rest-apis"></a>Início Rápido: Criar um índice da Pesquisa Cognitiva do Azure em Java usando APIs REST
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "89290337"
 > * [Python](search-get-started-python.md)
 > * [Postman](search-get-started-postman.md)
 
-Crie um aplicativo de console Java que cria, carrega e consulta um índice de pesquisa usando o [IntelliJ](https://www.jetbrains.com/idea/), o [SDK do Java 11](/java/azure/jdk/?view=azure-java-stable) e a [API REST do Azure Cognitive Search](/rest/api/searchservice/). Este artigo fornece instruções passo a passo para a criação do aplicativo. Como alternativa, você pode [baixar e executar o aplicativo completo](/samples/azure-samples/azure-search-java-samples/java-sample-quickstart/).
+Crie um aplicativo de console Java que cria, carrega e consulta um índice de pesquisa usando o [IntelliJ](https://www.jetbrains.com/idea/), o [SDK do Java 11](/java/azure/jdk/) e a [API REST do Azure Cognitive Search](/rest/api/searchservice/). Este artigo fornece instruções passo a passo para a criação do aplicativo. Como alternativa, você pode [baixar e executar o aplicativo completo](/samples/azure-samples/azure-search-java-samples/java-sample-quickstart/).
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -37,7 +37,7 @@ Usamos os seguintes programas de software e serviços para criar e testar este i
 
 + [IntelliJ IDEA](https://www.jetbrains.com/idea/)
 
-+ [SDK 11 do Java](/java/azure/jdk/?view=azure-java-stable)
++ [SDK 11 do Java](/java/azure/jdk/)
 
 + [Crie um serviço da Pesquisa Cognitiva do Azure](search-create-service-portal.md) ou [localize um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) na assinatura atual. É possível usar um serviço gratuito para este início rápido.
 
@@ -53,9 +53,9 @@ As chamadas ao serviço exigem um ponto de extremidade de URL e uma chave de ace
 
    Crie também uma chave de consulta. É uma melhor prática para emitir solicitações de consulta com acesso somente leitura.
 
-![Obter o nome do serviço e as chaves de consulta e de administrador](media/search-get-started-nodejs/service-name-and-keys.png)
+:::image type="content" source="media/search-get-started-nodejs/service-name-and-keys.png" alt-text="Obter o nome do serviço e as chaves de consulta e de administrador" border="false":::
 
-Todas as solicitações enviadas ao seu serviço requerem uma chave de api. Ter uma chave válida estabelece a relação de confiança, para cada solicitação, entre o aplicativo que envia a solicitação e o serviço que lida com ela.
+Todas as solicitações enviadas ao seu serviço requerem uma chave de API. Ter uma chave válida estabelece a relação de confiança, para cada solicitação, entre o aplicativo que envia a solicitação e o serviço que lida com ela.
 
 ## <a name="set-up-your-environment"></a>Configure seu ambiente
 
@@ -67,7 +67,7 @@ Comece abrindo o IntelliJ IDEA e configurando um novo projeto.
 1. Selecione **Maven**.
 1. Na lista **SDK do Projeto**, selecione o SDK 11 do Java.
 
-    ![Criar um projeto Maven](media/search-get-started-java/java-quickstart-create-new-maven-project.png) 
+    :::image type="content" source="media/search-get-started-java/java-quickstart-create-new-maven-project.png" alt-text="Obter o nome do serviço e as chaves de consulta e de administrador" border="false":::
 
 1. Para **GroupId** e **ArtifactId**, insira `AzureSearchQuickstart`.
 1. Aceite os padrões restantes para abrir o projeto.
@@ -78,7 +78,7 @@ Comece abrindo o IntelliJ IDEA e configurando um novo projeto.
 1. Na janela **Configurações**, selecione **Build, Execução, Implantação** > **Ferramentas de Build** > **Maven** > **Importando**.
 1. Marque a caixa de seleção **Importar projetos Maven automaticamente** e clique em **OK** para fechar a janela. Agora, os plug-ins e outras dependências do Maven serão sincronizados automaticamente quando você atualizar o arquivo pom.xml na etapa seguinte.
 
-    ![Configuração das opções de importação do Maven no IntelliJ](media/search-get-started-java/java-quickstart-settings-import-maven-auto.png)
+    :::image type="content" source="media/search-get-started-java/java-quickstart-settings-import-maven-auto.png" alt-text="Obter o nome do serviço e as chaves de consulta e de administrador" border="false":::
 
 1. Abra o arquivo pom.xml e substitua o conteúdo pelos seguintes detalhes de configuração do Maven. Isso inclui referências ao [Plug-in Exec Maven](https://www.mojohaus.org/exec-maven-plugin/) e uma [API de interface JSON](https://javadoc.io/doc/org.glassfish/javax.json/1.0.2)
 
@@ -140,7 +140,7 @@ Comece abrindo o IntelliJ IDEA e configurando um novo projeto.
 
     Quando você terminar, a árvore do projeto deverá ser semelhante à imagem a seguir.
 
-    ![Estrutura de diretórios do projeto](media/search-get-started-java/java-quickstart-basic-code-tree.png)
+    :::image type="content" source="media/search-get-started-java/java-quickstart-basic-code-tree.png" alt-text="Obter o nome do serviço e as chaves de consulta e de administrador" border="false":::
 
 1. Clique em **OK** para fechar a janela.
 
@@ -148,7 +148,7 @@ Comece abrindo o IntelliJ IDEA e configurando um novo projeto.
 
 1. Na janela **Projeto**, expanda a árvore de origem para acessar a pasta `src` >  `main` >`resources` > `app` e adicione um arquivo `config.properties`. Para fazer isso, selecione a pasta `app`, pressione Alt + Insert, selecione **Arquivo** e, em seguida, insira o nome do arquivo.
 
-1. Copie as configurações a seguir no novo arquivo e substitua `<YOUR-SEARCH-SERVICE-NAME>`, `<YOUR-ADMIN-KEY>` e `<YOUR-QUERY-KEY>` pelo nome do serviço e pelas chaves. Se o ponto de extremidade de serviço for `https://mydemo.search.windows.net`, o nome do serviço será "mydemo".
+1. Copie as configurações a seguir no novo arquivo e substitua `<YOUR-SEARCH-SERVICE-NAME>`, `<YOUR-ADMIN-KEY>` e `<YOUR-QUERY-KEY>` pelo nome do serviço e pelas chaves. Se o ponto de extremidade de serviço for `https://mydemo.search.windows.net`, o nome do serviço será `"mydemo"`.
 
     ```java
         SearchServiceName=<YOUR-SEARCH-SERVICE-NAME>
@@ -373,10 +373,10 @@ Comece abrindo o IntelliJ IDEA e configurando um novo projeto.
 
 1. Verifique se o projeto tem a seguinte estrutura.
 
-    ![Estrutura de diretório do projeto e classes](media/search-get-started-java/java-quickstart-basic-code-tree-plus-classes.png)
+    :::image type="content" source="media/search-get-started-java/java-quickstart-basic-code-tree-plus-classes.png" alt-text="Obter o nome do serviço e as chaves de consulta e de administrador" border="false":::
 
 1. Abra a janela de ferramentas do **Maven** e execute esta meta do Maven: `verify exec:java`
-![Execute a meta do Maven: verify exec:java](media/search-get-started-java/java-quickstart-execute-maven-goal.png)
+:::image type="content" source="media/search-get-started-java/java-quickstart-execute-maven-goal.png" alt-text="Obter o nome do serviço e as chaves de consulta e de administrador" border="false":::
 
 Quando o processamento for concluído, procure uma mensagem de SUCESSO NO BUILD seguida de um código de saída igual a zero (0).
 

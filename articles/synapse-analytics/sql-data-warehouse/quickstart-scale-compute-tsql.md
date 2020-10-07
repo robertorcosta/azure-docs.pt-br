@@ -1,5 +1,5 @@
 ---
-title: Escalar a computação no Azure Synapse Analytics – T-SQL
+title: 'Início Rápido: Escalar a computação no Azure Synapse Analytics – T-SQL'
 description: Escale a computação no Azure Synapse Analytics usando T-SQL e SSMS (SQL Server Management Studio). Escale horizontalmente a computação para melhorar o desempenho ou reduza a escala da computação para economizar custos.
 services: synapse-analytics
 author: Antvgski
@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: cb813c9a30b644459f3e586ed4313ca070b5a746
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: d11474a3f3b5d8c314f67260fddbbe0a98fe5196
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85212914"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569901"
 ---
 # <a name="quickstart-scale-compute-in-azure-synapse-analytics-using-t-sql"></a>Início Rápido: Escalar a computação no Azure Synapse Analytics usando o T-SQL
 
@@ -132,7 +132,7 @@ Para sondar o status de alteração do objeto de serviço:
 
 ## <a name="check-data-warehouse-state"></a>Verifique o estado do data warehouse
 
-Quando um data warehouse é pausado, você não pode se conectar a ele com T-SQL. Para ver o estado atual do data warehouse, você pode usar um cmdlet do PowerShell. Para obter um exemplo, consulte [Verificar o estado do data warehouse - Powershell](quickstart-scale-compute-powershell.md#check-data-warehouse-state).
+Quando um data warehouse é pausado, você não pode se conectar a ele com T-SQL. Para ver o estado atual do data warehouse, você pode usar um cmdlet do PowerShell. Para ver um exemplo, confira [Verificar o estado do data warehouse – PowerShell](quickstart-scale-compute-powershell.md#check-data-warehouse-state).
 
 ## <a name="check-operation-status"></a>Verificar o status da operação
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: 76e72e8fd134c65cc9334e635375cc25e9b09a75
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: dea009d6d246d68f0686c3dc85f3518ccb13705c
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719063"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575190"
 ---
 # <a name="tutorial-monitor-and-manage-a-video-analytics---object-and-motion-detection-application"></a>Tutorial: Monitorar e gerenciar um aplicativo de detecção de objetos e movimentos e análise de vídeo
 
@@ -27,7 +27,7 @@ Neste tutorial, você aprende a:
 Antes de começar, você deverá concluir:
 
 * O tutorial [Criar um aplicativo da Análise Dinâmica de Vídeo no Azure IoT Central](./tutorial-video-analytics-create-app.md).
-* Um dos tutoriais anteriores [Criar uma instância do IoT Edge da Análise Dinâmica de Vídeo (VM do Linux)](tutorial-video-analytics-iot-edge-vm.md) ou [Criar uma instância do IoT Edge da Análise Dinâmica de Vídeo (VM do Linux)](tutorial-video-analytics-iot-edge-nuc.md).
+* Um dos tutoriais anteriores [Criar uma instância do IoT Edge da Análise Dinâmica de Vídeo (VM do Linux)](tutorial-video-analytics-iot-edge-vm.md) ou [Criar uma instância do IoT Edge da Análise Dinâmica de Vídeo (Intel NUC)](tutorial-video-analytics-iot-edge-nuc.md).
 
 Você deverá ter o [Docker](https://www.docker.com/products/docker-desktop) instalado no computador local para executar o aplicativo de exibição de vídeo.
 
@@ -61,7 +61,7 @@ Se você tiver duas câmeras conectadas ao dispositivo de gateway do IoT Edge, r
 
 Selecione a guia **Dispositivos Downstream** do dispositivo **Gateway de LVA 001** para ver os dispositivos de câmera recém-adicionados:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/inspect-downstream.png" alt-text="Inspecionar":::
+:::image type="content" source="media/tutorial-video-analytics-manage/inspect-downstream.png" alt-text="Adicionar Câmera":::
 
 Os dispositivos de câmera também são exibidos na lista da página **Dispositivos** no aplicativo.
 
@@ -98,7 +98,7 @@ Clique em **Salvar**.
 
 Após alguns segundos, você verá a mensagem de confirmação **Aceito** para cada configuração:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/object-detection.png" alt-text="Detecção de Objetos":::
+:::image type="content" source="media/tutorial-video-analytics-manage/object-detection.png" alt-text="Adicionar Câmera":::
 
 ## <a name="start-lva-processing"></a>Iniciar processamento de LVA
 
@@ -108,13 +108,13 @@ Execute o comando **Iniciar Processamento de LVA**.
 
 Quando o comando for concluído, exiba o histórico de comandos para verificar se não há erros:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/start-processing.png" alt-text="comando Iniciar processamento de LVA":::
+:::image type="content" source="media/tutorial-video-analytics-manage/start-processing.png" alt-text="Adicionar Câmera":::
 
 ## <a name="monitor-the-cameras"></a>Monitorar as câmeras
 
 Procure o dispositivo **camera-003** e selecione a guia **Painel**:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/camera-dashboard.png" alt-text="Painel da câmera":::
+:::image type="content" source="media/tutorial-video-analytics-manage/camera-dashboard.png" alt-text="Adicionar Câmera":::
 
 O bloco **Contagem de Detecções** mostra a contagem média de detecções de cada um dos objetos de classes de detecção selecionados durante um intervalo de detecção de um segundo.
 
@@ -157,7 +157,7 @@ docker run -it --rm -e amsAadClientId="<FROM_AZURE_PORTAL>" -e amsAadSecret="<FR
 
 Procure o dispositivo **camera-003** e selecione a guia **Painel**. Em seguida, clique em um dos hiperlinks de detecção de objetos capturados no bloco **Vídeo de Evento de Inferência**. O vídeo é exibido em uma página mostrada pelo player de vídeo local:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/video-snippet.png" alt-text="Trecho do vídeo":::
+:::image type="content" source="media/tutorial-video-analytics-manage/video-snippet.png" alt-text="Adicionar Câmera":::
 
 ## <a name="change-the-simulated-devices-in-application-dashboards"></a>Alterar os dispositivos simulados nos painéis do aplicativo
 
@@ -182,7 +182,7 @@ Os painéis de aplicativos são originalmente preenchidos com a telemetria e as 
 
 O painel **Monitor de Câmera Real** agora mostra valores do seu dispositivo de câmera real:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/update-real-cameras.png" alt-text="Painel do aplicativo Câmeras Reais":::
+:::image type="content" source="media/tutorial-video-analytics-manage/update-real-cameras.png" alt-text="Adicionar Câmera":::
 
 ## <a name="pause-processing"></a>Pausar o processamento
 

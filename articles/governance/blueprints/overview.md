@@ -3,12 +3,12 @@ title: Visão geral do Azure Blueprint
 description: Entenda como o serviço do Azure Blueprints permite criar, definir e implantar artefatos no seu ambiente do Azure.
 ms.date: 08/27/2020
 ms.topic: overview
-ms.openlocfilehash: e5c08f4211f03ddc6d2f48eee4fc84a824732e43
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 499f2c4afa55913b6af714d20ec1d52e2ecbbc47
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050770"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541757"
 ---
 # <a name="what-is-azure-blueprints"></a>O que é o Azure Blueprints?
 
@@ -78,7 +78,9 @@ Cada **Versão** **Publicada** de um blueprint pode ser atribuída (com um compr
 
 ## <a name="permissions-in-azure-blueprints"></a>Permissões nos Blueprints do Azure
 
-Para usar blueprints, você deverá receber permissões por meio do [RBAC](../../role-based-access-control/overview.md) (controle de acesso baseado em função). Para criar planos gráficos, sua conta precisa das seguintes permissões:
+Para usar blueprints, você deverá receber permissões por meio do [Azure RBAC (controle de acesso baseado em função)](../../role-based-access-control/overview.md). Para ler ou ver um blueprint no portal do Azure, sua conta deve ter acesso de leitura ao escopo no qual a definição do blueprint está localizada.
+
+Para criar planos gráficos, sua conta precisa das seguintes permissões:
 
 - `Microsoft.Blueprint/blueprints/write` -Criar uma definição de planta
 - `Microsoft.Blueprint/blueprints/artifacts/write` -Criar artefatos em uma definição de planta

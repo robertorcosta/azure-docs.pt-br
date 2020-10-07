@@ -1,7 +1,7 @@
 ---
-title: Adicionar a conexão à plataforma de identidade da Microsoft a um aplicativo Web ASP.NET
+title: 'Tutorial: Criar um aplicativo Web ASP.NET que usa a plataforma de identidade da Microsoft para autenticação | Azure'
 titleSuffix: Microsoft identity platform
-description: Como implementar a opção Entrar com a conta da Microsoft em uma solução ASP.NET usando um aplicativo tradicional baseado em navegador da Web e o padrão OpenID Connect
+description: Neste tutorial, você criará um aplicativo Web ASP.NET que usa a plataforma de identidade da Microsoft e o middleware OWIN para habilitar o logon do usuário.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: 740d62136393cf0c9cf31d367735bffed1c05276
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 6a5fb517b3ea6626a929da10954bd58cc8e39ef0
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88165576"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91574221"
 ---
 # <a name="add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Adicionar a entrada com a conta da Microsoft a um aplicativo Web ASP.NET
 
@@ -25,10 +25,18 @@ Este guia demonstra como implementar a opção Entrar com a conta da Microsoft p
 
 Quando você concluir este guia, seu aplicativo poderá aceitar entradas de contas pessoais de sites como outlook.com e live.com. Além disso, as contas corporativas e de estudante de qualquer empresa ou organização integradas à plataforma de identidade da Microsoft poderão entrar no aplicativo.
 
-> Este guia exige o Microsoft Visual Studio 2019.  Ainda não tem?  [Baixe gratuitamente o Visual Studio 2019](https://www.visualstudio.com/downloads/).
+Neste tutorial:
 
->[!NOTE]
-> Se você é novo na plataforma de identidade da Microsoft, recomendamos que comece com [Adicionar credenciais da plataforma de identidade da Microsoft a um aplicativo Web ASP.NET](quickstart-v2-aspnet-webapp.md).
+> [!div class="checklist"]
+> * Criar um projeto de *aplicativo Web ASP.NET* no Visual Studio
+> * Adicionar os componentes do middleware OWIN (Interface da Web Aberta para .NET)
+> * Adicionar código para entrada e saída do usuário
+> * Registrar o aplicativo no portal do Azure
+> * Testar o aplicativo
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) com a carga de trabalho do **ASP.NET e desenvolvimento da Web** instalada
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Como o aplicativo de exemplo gerado por este guia funciona
 
@@ -264,7 +272,7 @@ No Visual Studio, crie uma exibição para adicionar o botão Entrar e para exib
     ```
 
 ### <a name="more-information"></a>Mais informações
-Esta página adiciona um botão de conexão no formato SVG com uma tela de fundo preta:<br/>![Entrar com a Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> Para obter mais botões de entrada, acesse [Diretrizes de identidade visual](./howto-add-branding-in-azure-ad-apps.md "Diretrizes de identidade Visual").
+Esta página adiciona um botão de conexão no formato SVG com uma tela de fundo preta:<br/>![Botão Entrar com a conta da Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> Para obter mais botões de entrada, acesse [Diretrizes de identidade visual](./howto-add-branding-in-azure-ad-apps.md "Diretrizes de identidade Visual").
 
 ## <a name="add-a-controller-to-display-users-claims"></a>Adicionar um controlador para exibir as declarações do usuário
 Esse controlador demonstra os usos do atributo `[Authorize]` para proteger um controlador. Esse atributo restringe o acesso ao controlador permitindo apenas usuários autenticados. O seguinte código usa o atributo para exibir as declarações de usuário que foram recuperadas como parte da entrada:
@@ -392,7 +400,7 @@ Para testar o aplicativo no Visual Studio, pressione F5 para executar o projeto.
 
 Quando estiver pronto para executar o teste, use uma conta do Azure AD (conta corporativa ou de estudante) ou uma conta pessoal Microsoft (<span>live.</span>com ou <span>outlook.</span>com) para entrar.
 
-![Entrar com a Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin.png)
+![Botão Entrar com a conta da Microsoft mostrado na página de logon no navegador](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin.png)
 <br/><br/>
 ![Entre na sua conta da Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin2.png)
 
@@ -470,20 +478,11 @@ Essa opção é frequentemente usada para *aplicativos de linha de negócios*: S
 
 É possível implementar um método personalizado para validar emissores usando o parâmetro **IssuerValidator**. Para obter mais informações sobre como usar esse parâmetro, confira [classe TokenValidationParameters](/dotnet/api/microsoft.identitymodel.tokens.tokenvalidationparameters).
 
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre como os aplicativos Web podem chamar APIs Web.
-
-### <a name="learn-how-to-create-the-application-used-in-this-quickstart"></a>Saiba como criar o aplicativo usado neste início rápido
-
-Saiba mais sobre os aplicativos Web chamando APIs Web com a plataforma de identidade da Microsoft:
+Saiba como chamar APIs Web protegidas em aplicativos Web com a plataforma de identidade da Microsoft:
 
 > [!div class="nextstepaction"]
 > [Aplicativos Web chamando APIs Web](scenario-web-app-sign-user-overview.md)
-
-Saiba como criar aplicativos Web chamando o Microsoft Graph:
-
-> [!div class="nextstepaction"]
-> [Tutorial do Microsoft Graph ASP.NET](/graph/tutorials/aspnet)
-
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

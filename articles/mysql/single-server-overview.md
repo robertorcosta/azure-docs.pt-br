@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/20/2020
-ms.openlocfilehash: 38cf9f5d5102fa4cc322b1a9c7134db85de87814
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: b33fab7657827733b2c5e7724666a3800686c8d9
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90943194"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91564775"
 ---
 # <a name="azure-database-for-mysql-single-server"></a>Servidor Único do Banco de Dados do Azure para MySQL
 
@@ -20,7 +20,7 @@ O [Banco de Dados do Azure para MySQL](overview.md) da plataforma MySQL Communit
 - Servidor único 
 - Servidor Flexível (versão prévia)
 
-Neste artigo, forneceremos uma visão geral e introdução aos conceitos principais do modelo de implantação de servidor único. Para saber mais sobre o modo de implantação do servidor flexível, veja [visão geral do servidor flexível](flexible-server/index.yml)
+Neste artigo, forneceremos uma visão geral e introdução aos conceitos principais do modelo de implantação de servidor único. Para saber mais sobre o modo de implantação do servidor flexível, confira a [visão geral do servidor flexível](flexible-server/index.yml). Para saber mais sobre como decidir a melhor opção de implantação para a sua carga de trabalho, confira [Escolher a opção correta de servidor MySQL no Azure](select-right-deployment-type.md).
 
 ## <a name="overview"></a>Visão geral
 

@@ -1,6 +1,6 @@
 ---
 title: Como ramificar e encadear atividades em um pipeline usando portal do Azure
-description: Aprenda a controlar o fluxo de dados no Azure Data Factory por ramificação e encadeamento de atividades.
+description: Saiba como controlar o fluxo de dados no pipeline do Azure Data Factory no portal do Azure.
 services: data-factory
 author: djpmsft
 ms.author: daperlov
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: c046d2e437004146b5ee4c53dd98942ca1781ad4
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: b1b766e3cb337151c5ca9b35e2040a2a47124151
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90983742"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568542"
 ---
 # <a name="branching-and-chaining-activities-in-an-azure-data-factory-pipeline-using-the-azure-portal"></a>Como ramificar e encadear atividades em um pipeline do Azure Data Factory usando o portal do Azure
 
@@ -184,7 +184,7 @@ Nesta etapa, você pode criar um pipeline com uma atividade de Cópia e duas ati
    ![Atividade de cópia arrastar e soltar](./media/tutorial-control-flow-portal/drag-drop-copy-activity.png)
 5. Na janela **Propriedades** da atividade de **Cópia**, na parte inferior, alterne para a guia **Origem**guia e, em seguida, clique em **+ Novo**. Você cria um conjunto de dados de origem para a atividade de cópia nesta etapa.
 
-   ![Conjunto de dados de origem](./media/tutorial-control-flow-portal/new-source-dataset-button.png)
+   ![Captura de tela que mostra como criar um conjunto de dados de origem para a atividade de cópia.](./media/tutorial-control-flow-portal/new-source-dataset-button.png)
 6. Na janela **Novo serviço vinculado**, selecione **Armazenamento de Blobs do Azure** e clique em **Continuar**.
 
    ![Selecionar Armazenamento de Blobs do Azure](./media/tutorial-control-flow-portal/select-azure-blob-storage.png)
@@ -273,7 +273,7 @@ Nesta etapa, você pode criar um pipeline com uma atividade de Cópia e duas ati
         ![Configurações para a segunda atividade da Web](./media/tutorial-control-flow-portal/web-activity2-settings.png)         
 22. Selecione a atividade **Cópia** no designer do pipeline e clique no botão **+->** e, em seguida, selecione **Erro**.  
 
-    ![Configurações para a segunda atividade da Web](./media/tutorial-control-flow-portal/select-copy-failure-link.png)
+    ![Captura de tela que mostra como selecionar "Erro" na atividade de cópia no designer do pipeline.](./media/tutorial-control-flow-portal/select-copy-failure-link.png)
 23. Arraste o botão **vermelho** próximo à atividade Cópia para a segunda atividade Web **SendFailureEmailActivity**. Você pode mover as atividades de forma que o pipeline se pareça com a imagem a seguir:
 
     ![Pipeline completo com todas as atividades](./media/tutorial-control-flow-portal/full-pipeline.png)
@@ -304,7 +304,7 @@ Nesta etapa, você pode criar um pipeline com uma atividade de Cópia e duas ati
     ![Execução do pipeline bem-sucedida](./media/tutorial-control-flow-portal/monitor-success-pipeline-run.png)
 2. Para **exibir execuções de atividade** associadas a esta execução de pipeline, clique no primeiro link na coluna **Ações**. Você pode alternar para o modo de exibição anterior clicando em **Pipelines** na parte superior. Use o botão **Atualizar** para atualizar a lista.
 
-    ![Execuções de atividade](./media/tutorial-control-flow-portal/activity-runs-success.png)
+    ![Captura de tela que mostra como ver a lista de execuções de atividade.](./media/tutorial-control-flow-portal/activity-runs-success.png)
 
 ## <a name="trigger-a-pipeline-run-that-fails"></a>Gatilho de uma execução do pipeline com falha
 1. Alterne para a guia **Editar** à esquerda.

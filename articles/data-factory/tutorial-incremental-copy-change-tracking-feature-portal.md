@@ -1,6 +1,6 @@
 ---
 title: Copiar dados de maneira incremental usando o Controle de Alterações usando o portal do Azure
-description: Neste tutorial, você criará um pipeline do Azure Data Factory que copia os dados delta de maneira incremental de várias tabelas em um banco de dados do SQL Server para um banco de dados no Banco de Dados SQL do Azure.
+description: Neste tutorial, você cria um Azure Data Factory com um pipeline que carrega dados delta com base em informações de controle de alterações no banco de dados de origem no Banco de Dados SQL do Azure para um Armazenamento de Blobs do Azure.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/12/2018
-ms.openlocfilehash: c28489c2fa502f0ba1283abdea19219ed7438a99
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 78b9d3f30ebc8f74433f04c4474121682c4a3f36
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085779"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542012"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information-using-the-azure-portal"></a>Carregar dados de maneira incremental do Banco de Dados SQL do Azure para o Armazenamento de Blobs do Azure usando informações de controle de alterações usando o portal do Azure
 
@@ -285,10 +285,10 @@ Nesta etapa, crie um pipeline com uma atividade de cópia que copia todos os dad
 
 1. Clique em **+ (adição)** no painel esquerdo e clique em **Pipeline**.
 
-    ![Menu do novo pipeline](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-pipeline-menu.png)
+    ![A captura de tela mostra a opção Pipeline para um data factory.](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-pipeline-menu.png)
 2. Você verá uma nova guia para configuração do pipeline. Você também verá o pipeline no modo de exibição de árvore. Na janela **Propriedades**, altere o nome do pipeline para **FullCopyPipeline**.
 
-    ![Menu do novo pipeline](./media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-pipeline-name.png)
+    ![A captura de tela mostra um pipeline com um nome inserido.](./media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-pipeline-name.png)
 3. Na caixa de ferramentas **Atividades**, expanda o **Fluxo de dados** e arraste e solte a atividade **Copiar** para a superfície de designer do pipeline e defina o nome como **FullCopyActivity**.
 
     ![Atividade de cópia completa - nome](./media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-activity-name.png)
@@ -303,7 +303,7 @@ Nesta etapa, crie um pipeline com uma atividade de cópia que copia todos os dad
     ![Validar o pipeline](./media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-pipeline-validate.png)
 7. Para publicar as entidades (serviços vinculados, conjuntos de dados e pipelines), clique em **Publicar**. Aguarde até que a publicação seja bem-sucedida.
 
-    ![Botão Publicar](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button.png)
+    ![A captura de tela mostra data factory com o botão Publicar Tudo destacado.](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button.png)
 8. Aguarde até que você veja a mensagem **Publicado com êxito**.
 
     ![Publicado com êxito](./media/tutorial-incremental-copy-change-tracking-feature-portal/publishing-succeeded.png)
@@ -315,16 +315,16 @@ Nesta etapa, crie um pipeline com uma atividade de cópia que copia todos os dad
 ### <a name="run-the-full-copy-pipeline"></a>Executar o pipeline de cópia completa
 Clique em **Gatilho** na barra de ferramentas para o pipeline e clique em **Disparar agora**.
 
-![Menu Disparar agora](./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu.png)
+![A captura de tela mostra a opção Disparar Agora selecionada no menu Disparar.](./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu.png)
 
 ### <a name="monitor-the-full-copy-pipeline"></a>Monitorar o pipeline de cópia completa
 
 1. Clique na guia **Monitorar** à esquerda. Você verá a execução do pipeline na lista e o seu respectivo status. Para atualizar a lista, clique em **Atualizar**. Os links na coluna Ações permitem exibir execuções de atividade associadas com a execução do pipeline e executar novamente o pipeline.
 
-    ![Execuções de pipeline](./media/tutorial-incremental-copy-change-tracking-feature-portal/monitor-full-copy-pipeline-run.png)
+    ![A captura de tela mostra execuções de pipeline para um data factory.](./media/tutorial-incremental-copy-change-tracking-feature-portal/monitor-full-copy-pipeline-run.png)
 2. Para ver as execuções de atividade associadas com a execução do pipeline, clique no link **Exibir as execuções de Aatividade** na coluna **Ações**. Existe apenas uma atividade no pipeline, então você vê apenas uma entrada na lista. Para alternar novamente para a exibição de pipeline em execução, Clique em **Pipelines** na parte superior.
 
-    ![Execuções de atividade](./media/tutorial-incremental-copy-change-tracking-feature-portal/activity-runs-full-copy.png)
+    ![A captura de tela mostra execuções de atividade para um data factory com o link Pipelines destacado.](./media/tutorial-incremental-copy-change-tracking-feature-portal/activity-runs-full-copy.png)
 
 ### <a name="review-the-results"></a>Revise os resultados
 Você verá um arquivo chamado `incremental-<GUID>.txt` na pasta `incchgtracking` do contêiner `adftutorial`.
@@ -362,19 +362,19 @@ Nesta etapa, você cria um pipeline com as seguintes atividades e execute-o peri
 
 1. Na interface de usuário do Data Factory, alterne para a guia **Editar**. Clique em **+ (adição)** no painel esquerdo e clique em **Pipeline**.
 
-    ![Menu do novo pipeline](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-pipeline-menu-2.png)
+    ![A captura de tela mostra como criar um pipeline em um data factory.](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-pipeline-menu-2.png)
 2. Você verá uma nova guia para configuração do pipeline. Você também verá o pipeline no modo de exibição de árvore. Na janela **Propriedades**, altere o nome do pipeline para **IncrementalCopyPipeline**.
 
     ![Nome do pipeline](./media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-pipeline-name.png)
 3. Expanda **Geral** na caixa de ferramentas **Atividades** e arraste e solte a atividade de **Pesquisa** para a superfície do designer de pipeline. Defina o nome da atividade como **LookupLastChangeTrackingVersionActivity**. Essa atividade obtém a versão de controle de alterações usada na última operação de cópia armazenada na tabela **table_store_ChangeTracking_version**.
 
-    ![Atividade de pesquisa - nome](./media/tutorial-incremental-copy-change-tracking-feature-portal/first-lookup-activity-name.png)
+    ![A captura de tela mostra um pipeline com uma atividade de pesquisa.](./media/tutorial-incremental-copy-change-tracking-feature-portal/first-lookup-activity-name.png)
 4. Alterne para **Configurações** na janela **Propriedades** e selecione **ChangeTrackingDataset** para o campo **Conjunto de dados de origem**.
 
-    ![Atividade de pesquisa - configurações](./media/tutorial-incremental-copy-change-tracking-feature-portal/first-lookup-activity-settings.png)
+    ![A captura de tela mostra a guia Configurações na janela Propriedades.](./media/tutorial-incremental-copy-change-tracking-feature-portal/first-lookup-activity-settings.png)
 5. Arraste e solte a atividade de **Pesquisa** da caixa de ferramentas **Atividades** para a superfície do designer de pipeline. Defina o nome da atividade como **LookupCurrentChangeTrackingVersionActivity**. Essa atividade obtém a versão atual de controle de alterações.
 
-    ![Atividade de pesquisa - nome](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-name.png)
+    ![A captura de tela mostra um pipeline com duas atividades de pesquisa.](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-name.png)
 6. Alterne para **Configurações** na janela **Propriedades** e execute as seguintes etapas:
 
    1. Selecione **SourceDataset** para o campo **Conjunto de dados de origem**.
@@ -385,7 +385,7 @@ Nesta etapa, você cria um pipeline com as seguintes atividades e execute-o peri
        SELECT CHANGE_TRACKING_CURRENT_VERSION() as CurrentChangeTrackingVersion
        ```
 
-      ![Atividade de pesquisa - configurações](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-settings.png)
+      ![A captura de tela mostra uma consulta adicionada à guia Configurações na janela Propriedades.](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-settings.png)
 7. Na caixa de ferramentas **Atividades**, expanda **Fluxo de dados**e arraste e solte a atividade **Cópia** para a superfície do designer de pipeline. Defina o nome da atividade como **IncrementalCopyActivity**. Esta atividade copia os dados entre a última versão de controle de alterações e a versão atual de controle de alterações para o armazenamento de dados de destino.
 
     ![Atividade de cópia - nome](./media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-activity-name.png)
@@ -432,21 +432,21 @@ Nesta etapa, você cria um pipeline com as seguintes atividades e execute-o peri
     ![Botão Validar](./media/tutorial-incremental-copy-change-tracking-feature-portal/validate-button.png)
 16. Publique as entidades (serviços vinculados, conjuntos de dados e pipelines) para o serviço de Data Factory clicando no botão **Publicar tudo**. Aguarde até que você veja a mensagem **Publicado com êxito**.
 
-       ![Botão Publicar](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button-2.png)    
+       ![A captura de tela mostra o botão Publicar Tudo para um data factory.](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button-2.png)    
 
 ### <a name="run-the-incremental-copy-pipeline"></a>Executar o pipeline de cópia incremental
 1. Clique em **Gatilho** na barra de ferramentas para o pipeline e clique em **Disparar agora**.
 
-    ![Menu Disparar agora](./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu-2.png)
+    ![A captura de tela mostra um pipeline com atividades e a opção Disparar Agora selecionada no menu Disparar.](./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu-2.png)
 2. Na janela **Execução de Pipeline**, selecione **Concluir**.
 
 ### <a name="monitor-the-incremental-copy-pipeline"></a>Monitorar o pipeline de cópia incremental
 1. Clique na guia **Monitorar** à esquerda. Você verá a execução do pipeline na lista e o seu respectivo status. Para atualizar a lista, clique em **Atualizar**. Os links na coluna **Ações** permitem exibir execuções de atividade associadas à execução do pipeline e executar novamente o pipeline.
 
-    ![Execuções de pipeline](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-pipeline-runs.png)
+    ![A captura de tela mostra execuções de pipeline para um data factory incluindo seu pipeline.](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-pipeline-runs.png)
 2. Para ver as execuções de atividade associadas com a execução do pipeline, clique no link **Exibir as execuções de Aatividade** na coluna **Ações**. Existe apenas uma atividade no pipeline, então você vê apenas uma entrada na lista. Para alternar novamente para a exibição de pipeline em execução, Clique em **Pipelines** na parte superior.
 
-    ![Execuções de atividade](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-activity-runs.png)
+    ![A captura de tela mostra execuções de pipeline para um data factory com vários marcados como bem-sucedidos.](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-activity-runs.png)
 
 
 ### <a name="review-the-results"></a>Revise os resultados

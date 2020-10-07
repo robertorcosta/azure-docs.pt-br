@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 07/22/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 8a7bb300bb634b342b1141d175b0046c7d2d7e2b
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: b7f9a83a3972ed0a5a635826b40e15c437da16b8
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810302"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91540363"
 ---
 # <a name="quickstart-create-a-xamarin-android-app-with-azure-spatial-anchors"></a>Início Rápido: Criar um aplicativo para Xamarin Android com as Âncoras Espaciais do Azure
 
@@ -73,7 +73,7 @@ Defina o projeto de inicialização como **SampleXamarin.Android**, altere a **C
 
 # <a name="windows"></a>[Windows](#tab/deploy-windows)
 
-![Configuração do Visual Studio](./media/get-started-xamarin-android/visual-studio-windows-configuration.png)
+![Captura de tela que mostra o menu para selecionar o projeto e o dispositivo no Windows.](./media/get-started-xamarin-android/visual-studio-windows-configuration.png)
 
 Selecione **Depurar** > **Iniciar depuração** para implantar e iniciar seu aplicativo.
 

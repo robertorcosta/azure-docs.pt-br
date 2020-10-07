@@ -6,14 +6,14 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: quickstart
-ms.date: 06/09/2020
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 92d92072fbc8ceebdd4fd9253620e5fba89bfb54
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.date: 09/22/2020
+ms.custom: devx-track-azurecli, subject-armqs
+ms.openlocfilehash: d118bef4a7ccc263010fe176432a5301c4104118
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987504"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533886"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Início Rápido: Configurar o Azure NetApp Files e criar um volume do NFS 
 
@@ -53,7 +53,7 @@ Para obter as etapas de registro usando o Portal, abra uma sessão do Cloud Shel
 
 Este artigo de instruções requer o módulo do Azure PowerShell, versão Az 2.6.0 ou posterior. Execute `Get-Module -ListAvailable Az` para localizar a versão atual. Se você precisar instalá-lo ou atualizá-lo, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-Az-ps). Se preferir, poderá usar o console do Cloud Shell em uma sessão do PowerShell.
 
-1. Em um prompt de comando do PowerShell (ou uma sessão do Cloud Shell do PowerShell), especifique a assinatura que foi incluída na lista de permissões para o Azure NetApp Files:
+1. Em um prompt de comando do PowerShell (ou em uma sessão do Cloud Shell do PowerShell), especifique a assinatura que foi aprovada para o Azure NetApp Files:
     ```powershell-interactive
     Select-AzSubscription -Subscription <subscriptionId>
     ```
@@ -66,6 +66,14 @@ Este artigo de instruções requer o módulo do Azure PowerShell, versão Az 2.6
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 [!INCLUDE [azure-netapp-files-cloudshell-include](../../includes/azure-netapp-files-azure-cloud-shell-window.md)]
+
+# <a name="template"></a>[Modelo](#tab/template)
+
+Nenhum.  
+
+Use o portal do Azure, o PowerShell ou a CLI do Azure para se registrar no Azure NetApp Files e no Provedor de Recursos do NetApp.  
+
+Confira [Como se registrar no Azure NetApp Files](azure-netapp-files-register.md) para obter mais informações. 
 
 ---
 
@@ -151,6 +159,17 @@ Este artigo de instruções requer o módulo do Azure PowerShell, versão Az 2.6
         --location $LOCATION \
         --account-name $ANF_ACCOUNT_NAME
     ```
+
+# <a name="template"></a>[Modelo](#tab/template)
+
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+O snippet de código a seguir mostrará como criar uma conta do NetApp em um modelo ARM (modelo do Azure Resource Manager) usando o recurso [Microsoft.NetApp/netAppAccounts](https://docs.microsoft.com/azure/templates/microsoft.netapp/netappaccounts). Para executar o código, baixe o [modelo ARM completo](https://github.com/Azure/azure-quickstart-templates/blob/master/101-anf-nfs-volume/azuredeploy.json) de nosso repositório GitHub.
+
+:::code language="json" source="~/quickstart-templates/101-anf-nfs-volume/azuredeploy.json" range="177-183":::
+
+<!-- Block begins with "type": "Microsoft.NetApp/netAppAccounts", -->
+
 ---
 
 ## <a name="set-up-a-capacity-pool"></a>Configurar um pool de capacidade
@@ -167,14 +186,15 @@ Este artigo de instruções requer o módulo do Azure PowerShell, versão Az 2.6
 
 3. Clique em **+ Adicionar pools**. 
 
-    ![Clicar em Adicionar pools](../media/azure-netapp-files/azure-netapp-files-click-add-pools.png)  
+    ![Clicar em Adicionar pools](../media/azure-netapp-files/azure-netapp-files-new-capacity-pool.png)  
 
 4. Forneça informações para o pool de capacidade: 
-    1. Insira **mypool1** como o nome do pool.
-    2. Selecione **Premium** para o nível de serviço. 
-    3. Especifique **4 (TiB)** como o tamanho do pool. 
+    * Insira **mypool1** como o nome do pool.
+    * Selecione **Premium** para o nível de serviço. 
+    * Especifique **4 (TiB)** como o tamanho do pool. 
+    * Use o tipo QoS **Automático**.
 
-5. Clique em **OK**.
+5. Clique em **Criar**.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -213,6 +233,16 @@ Este artigo de instruções requer o módulo do Azure PowerShell, versão Az 2.6
         --size $POOL_SIZE_TiB \
         --service-level $SERVICE_LEVEL
     ```
+
+# <a name="template"></a>[Modelo](#tab/template)
+
+<!-- [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)] -->
+
+O snippet de código a seguir mostrará como criar um pool de capacidade em um modelo ARM (modelo do Azure Resource Manager) usando o recurso [Microsoft.NetApp/netAppAccounts/capacityPools](https://docs.microsoft.com/azure/templates/microsoft.netapp/netappaccounts/capacitypools). Para executar o código, baixe o [modelo ARM completo](https://github.com/Azure/azure-quickstart-templates/blob/master/101-anf-nfs-volume/azuredeploy.json) de nosso repositório GitHub.
+
+:::code language="json" source="~/quickstart-templates/101-anf-nfs-volume/azuredeploy.json" range="184-196":::
+
+<!-- LN 185, block begins with  "type": "Microsoft.NetApp/netAppAccounts/capacityPools", -->
 
 ---
 
@@ -353,6 +383,20 @@ Este artigo de instruções requer o módulo do Azure PowerShell, versão Az 2.6
         --protocol-types "NFSv3"
     ```
 
+# <a name="template"></a>[Modelo](#tab/template)
+
+<!-- [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)] --> 
+
+Os snippets de código a seguir mostrarão como configurar uma VNet e criar um volume do Azure NetApp Files em um modelo ARM (modelo do Azure Resource Manager). A configuração da VNet usará o recurso [Microsoft.Network/virtualNetworks](https://docs.microsoft.com/azure/templates/Microsoft.Network/virtualNetworks). A criação de volume usará o recurso [Microsoft.NetApp/netAppAccounts/capacityPools/volumes](https://docs.microsoft.com/azure/templates/microsoft.netapp/netappaccounts/capacitypools/volumes). Para executar o código, baixe o [modelo ARM completo](https://github.com/Azure/azure-quickstart-templates/blob/master/101-anf-nfs-volume/azuredeploy.json) de nosso repositório GitHub.
+
+:::code language="json" source="~/quickstart-templates/101-anf-nfs-volume/azuredeploy.json" range="148-176":::
+
+<!-- Block begins with  "type": "Microsoft.Network/virtualNetworks", -->
+
+:::code language="json" source="~/quickstart-templates/101-anf-nfs-volume/azuredeploy.json" range="197-229":::
+
+<!-- Block begins with  "type": "Microsoft.NetApp/netAppAccounts/capacityPools/volumes", -->
+
 ---
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
@@ -373,13 +417,13 @@ Quando você terminar, e se quiser, poderá excluir o grupo de recursos. A açã
 
 3. Na página de grupo de recursos, clique em **Excluir grupo de recursos**.
 
-    ![Excluir grupo de recursos](../media/azure-netapp-files/azure-netapp-files-azure-delete-resource-group.png) 
+    ![Captura de tela que realça o botão Excluir grupo de recursos.](../media/azure-netapp-files/azure-netapp-files-azure-delete-resource-group.png) 
 
     Uma janela é aberta e exibe um aviso sobre os recursos que serão excluídos com o grupo de recursos.
 
 4. Insira o nome do grupo de recursos (myRG1) para confirmar que você deseja excluir permanentemente o grupo de recursos e todos os recursos contidos nele e, em seguida, clique em **Excluir**.
 
-    ![Excluir grupo de recursos](../media/azure-netapp-files/azure-netapp-files-azure-confirm-resource-group-deletion.png ) 
+    ![Confirmar a exclusão do grupo de recursos](../media/azure-netapp-files/azure-netapp-files-azure-confirm-resource-group-deletion.png ) 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -407,6 +451,13 @@ Quando você terminar, e se quiser, poderá excluir o grupo de recursos. A açã
     az group delete \
         --name $RESOURCE_GROUP
     ```
+
+# <a name="template"></a>[Modelo](#tab/template)
+
+Nenhum.
+
+Use o portal do Azure, o PowerShell ou a CLI do Azure para excluir o grupo de recursos.   
+
 ---
 
 ## <a name="next-steps"></a>Próximas etapas  

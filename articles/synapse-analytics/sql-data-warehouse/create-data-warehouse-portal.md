@@ -1,5 +1,5 @@
 ---
-title: Criar e consultar um pool de SQL do Synapse (portal do Azure)
+title: 'Início Rápido: Criar e consultar um pool de SQL do Synapse (portal do Azure)'
 description: Criar e consultar um pool de SQL do Synapse usando o portal do Azure
 services: synapse-analytics
 author: kevinvngo
@@ -11,12 +11,12 @@ ms.date: 05/28/2019
 ms.author: Kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 4972e843394cac3b4a4f7c08a27f9d1a9e19cee5
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 878b272e2a1a0e1d5a00a9c2028a6803b6d95383
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89459378"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568968"
 ---
 # <a name="quickstart-create-and-query-a-synapse-sql-pool-using-the-azure-portal"></a>Início Rápido: Criar e consultar um pool de SQL do Synapse usando o portal do Azure
 
@@ -78,7 +78,7 @@ Siga estas etapas para criar um pool de SQL com os dados de exemplo do **Adventu
 
 7. Na barra de ferramentas, selecione **Notificações** para monitorar o processo de implantação.
 
-   ![notificação](./media/create-data-warehouse-portal/notification.png)
+   ![Captura de tela mostra o menu Notificações com a Implantação em andamento.](./media/create-data-warehouse-portal/notification.png)
 
 ## <a name="create-a-server-level-firewall-rule"></a>Criar uma regra de firewall no nível de servidor
 

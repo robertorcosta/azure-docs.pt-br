@@ -1,6 +1,7 @@
 ---
-title: Criar um locatário do Azure Active Directory
-description: Saiba como criar um locatário do Azure AD a ser usado para registrar e criar aplicativos.
+title: 'Início Rápido: Criar um locatário do Azure Active Directory'
+titleSuffix: Microsoft identity platform
+description: Neste início rápido, você aprenderá a criar um locatário do Azure Active Directory para usar no desenvolvimento de aplicativos que usam a plataforma de identidade da Microsoft para autenticação e autorização.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,12 +13,12 @@ ms.date: 03/12/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: df873e49e1bc581a32bcb4e4b40b2b24db98cee5
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 60d789c4297c400b812cd6c5c19c8c6148cb347d
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120806"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575972"
 ---
 # <a name="quickstart-set-up-a-tenant"></a>Início Rápido: Configurar um locatário
 
@@ -26,6 +27,10 @@ A plataforma de identidade da Microsoft permite que os desenvolvedores criem apl
 Um locatário é uma representação de uma organização. É uma instância dedicada do Azure AD que uma organização ou um desenvolvedor de aplicativos recebe ao criar uma relação com Microsoft, como inscrever-se no Azure, no Microsoft Intune ou no Microsoft 365.
 
 Cada locatário do Azure AD é distinto, separado de outros locatários do Azure AD e tem sua própria representação de identidades corporativas e de estudante, de identidades de consumidor (caso seja um locatário do Azure AD B2C) e de registros de aplicativo. Um registro de aplicativo dentro de seu locatário pode permitir autenticações de contas somente dentro do seu locatário ou de todos os locatários.
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+- Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="determining-environment-type"></a>Determinando o tipo de ambiente
 
@@ -71,6 +76,5 @@ Para começar a criar aplicativos que entram em contas sociais e locais, você p
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Registrar um aplicativo](quickstart-register-app.md) e integrar à plataforma de identidade da Microsoft. 
-* Aprenda as [noções básicas de autenticação](./authentication-vs-authorization.md).
-* Confira [Associar ou adicionar uma assinatura do Azure ao locatário Azure Active Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md) para obter detalhes sobre a relação entre assinaturas e um locatário do Azure AD.
+> [!div class="nextstepaction"]
+> [Registre um aplicativo](quickstart-register-app.md) e integre à plataforma de identidade da Microsoft.

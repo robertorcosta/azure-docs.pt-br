@@ -8,13 +8,13 @@ ms.topic: overview
 ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: fd4cc4cfa7b7be9085ac404cab7fc7447b6d66a7
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.reviewer: jrasnick
+ms.openlocfilehash: 182ab55f8e86d972293222f8a3bcf32dada89328
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987130"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91449467"
 ---
 # <a name="control-storage-account-access-for-sql-on-demand-preview"></a>Controlar o acesso à conta de armazenamento para SQL sob demanda (versão prévia)
 
@@ -26,7 +26,7 @@ Este artigo descreve os tipos de credenciais que você pode usar e como a pesqui
 
 ## <a name="supported-storage-authorization-types"></a>Tipos de autorização de armazenamento compatíveis
 
-Um usuário que fez logon em um recurso SQL sob demanda deverá estar autorizado a acessar e consultar os arquivos no Armazenamento do Azure se os arquivos não estiverem disponíveis publicamente. Você pode usar três tipos de autorização para acessar um armazenamento não público: [Identidade do Usuário](?tabs=user-identity), [Assinatura de acesso compartilhado](?tabs=shared-access-signature) e [Identidade Gerenciada](?tabs=managed-identity).
+Um usuário que fez logon em um recurso SQL sob demanda precisará estar autorizado a acessar e consultar os arquivos no Armazenamento do Azure se os arquivos não estiverem disponíveis publicamente. Você pode usar três tipos de autorização para acessar um armazenamento não público: [Identidade do Usuário](?tabs=user-identity), [Assinatura de acesso compartilhado](?tabs=shared-access-signature) e [Identidade Gerenciada](?tabs=managed-identity).
 
 > [!NOTE]
 > **Passagem do Azure AD** é o comportamento padrão quando você cria um workspace.
@@ -53,7 +53,7 @@ Você pode obter um token SAS navegando até o **Portal do Azure -> Conta de Arm
 >
 > Token SAS: ?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D
 
-Você precisa criar uma credencial no escopo do banco de dados ou no escopo do servidor para permitir o acesso usando o token SAS.
+Para permitir acesso usando um token SAS, você precisa criar uma credencial no escopo do banco de dados ou no escopo do servidor 
 
 ### <a name="managed-identity"></a>[Identidade gerenciada](#tab/managed-identity)
 
@@ -87,7 +87,7 @@ Você pode usar as seguintes combinações de autorização e tipos de Armazenam
 | [Identidade gerenciada](?tabs=managed-identity#supported-storage-authorization-types) | Com suporte      | Com suporte        | Suportado     |
 | [Identidade do Usuário](?tabs=user-identity#supported-storage-authorization-types)    | Suportado\*      | Suportado\*        | Suportado\*     |
 
-\* O token SAS e a identidade do Azure AD podem ser usados para acessar um armazenamento que não está protegido com o firewall.
+\* O token SAS e a Identidade do Azure AD podem ser usados para acessar um armazenamento que não está protegido pelo firewall.
 
 > [!IMPORTANT]
 > Ao acessar o armazenamento protegido pelo firewall, somente a Identidade Gerenciada pode ser usada. Você precisa [Permitir a configuração de serviços Microsoft confiáveis...](../../storage/common/storage-network-security.md#trusted-microsoft-services) e [atribuir uma função do Azure](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights) explicitamente à [identidade gerenciada atribuída pelo sistema](../../active-directory/managed-identities-azure-resources/overview.md) para essa instância do recurso. Nesse caso, o escopo de acesso para a instância corresponde à função do Azure atribuída à identidade gerenciada.
@@ -119,7 +119,7 @@ Para garantir uma experiência de passagem do Azure AD suave, todos os usuários
 
 ## <a name="server-scoped-credential"></a>Credencial no escopo do servidor
 
-As credenciais no escopo do servidor são usadas quando o logon do SQL chama a função `OPENROWSET` sem `DATA_SOURCE` para ler arquivos em alguma conta de armazenamento. O nome da credencial no escopo do servidor **precisa** corresponder à URL do Armazenamento do Azure. Uma credencial é adicionada executando [CREATE CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). Você precisará fornecer um argumento CREDENTIAL NAME. Ele deve corresponder a parte ou a todo o caminho para os dados no Armazenamento (veja abaixo).
+As credenciais no escopo do servidor são usadas quando o logon do SQL chama a função `OPENROWSET` sem `DATA_SOURCE` para ler arquivos em alguma conta de armazenamento. O nome da credencial no escopo do servidor **precisa** corresponder à URL do Armazenamento do Azure. Uma credencial é adicionada executando [CREATE CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). Você precisará fornecer um argumento CREDENTIAL NAME. Ele deve corresponder a parte ou a todo o caminho para os dados no Armazenamento (veja abaixo).
 
 > [!NOTE]
 > Não há suporte para o argumento `FOR CRYPTOGRAPHIC PROVIDER`.
@@ -155,7 +155,7 @@ GO
 
 ### <a name="managed-identity"></a>[Identidade gerenciada](#tab/managed-identity)
 
-O script a seguir cria uma credencial no nível do servidor que pode ser usada pela função `OPENROWSET` para acessar qualquer arquivo no Armazenamento do Azure usando a identidade gerenciada do workspace.
+O script a seguir cria uma credencial no nível do servidor que pode ser usada pela função `OPENROWSET` para acessar qualquer arquivo no armazenamento do Azure usando a identidade gerenciada pelo workspace.
 
 ```sql
 CREATE CREDENTIAL [https://<storage_account>.dfs.core.windows.net/<container>]
@@ -170,7 +170,7 @@ A credencial no escopo do banco de dados não é necessária para permitir o ace
 
 ## <a name="database-scoped-credential"></a>Credencial no escopo do banco de dados
 
-As credenciais no escopo do banco de dados são usadas quando qualquer entidade de segurança chama a função `OPENROWSET` com `DATA_SOURCE` ou seleciona dados de [tabela externa](develop-tables-external-tables.md) que não acessam arquivos públicos. A credencial no escopo do banco de dados não precisa corresponder ao nome da conta de armazenamento, pois ela será usada explicitamente na fonte de dados (argumento DATA SOURCE) que define o local do armazenamento.
+As credenciais no escopo do banco de dados são usadas quando qualquer entidade de segurança chama a função `OPENROWSET` com `DATA_SOURCE` ou seleciona dados de [tabela externa](develop-tables-external-tables.md) que não acessam arquivos públicos. A credencial no escopo do banco de dados não precisa corresponder ao nome da conta de armazenamento. Ela será usada explicitamente no DATA SOURCE que define a localização do armazenamento.
 
 As credenciais no escopo do banco de dados permitem o acesso ao Armazenamento do Azure usando os seguintes tipos de autenticação:
 
@@ -268,7 +268,7 @@ O usuário do banco de dados pode ler o conteúdo dos arquivos da fonte de dados
 SELECT TOP 10 * FROM dbo.userPublicData;
 GO
 SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet',
-                                DATA_SOURCE = [mysample],
+                                DATA_SOURCE = 'mysample',
                                 FORMAT='PARQUET') as rows;
 GO
 ```
@@ -314,7 +314,7 @@ O usuário do banco de dados pode ler o conteúdo dos arquivos da fonte de dados
 ```sql
 SELECT TOP 10 * FROM dbo.userdata;
 GO
-SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet', DATA_SOURCE = [mysample], FORMAT='PARQUET') as rows;
+SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet', DATA_SOURCE = 'mysample', FORMAT='PARQUET') as rows;
 GO
 ```
 

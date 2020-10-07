@@ -8,12 +8,12 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 9353750fdbbb52aff60fc41b7fd028ec4c5f0ec8
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 846153dd482130bbb3b35c38a3dbb791e0d0d32e
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90992041"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448275"
 ---
 # <a name="manage-a-managed-hsm-using-the-azure-cli"></a>Gerenciar um HSM Gerenciado usando a CLI do Azure
 
@@ -30,7 +30,7 @@ Para concluir as etapas deste artigo, você precisará ter os seguintes itens:
 
 * Uma assinatura do Microsoft Azure. Se você não tiver uma, pode se inscrever e fazer uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial).
 * A CLI do Azure versão 2.12.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
-* Um HSM Gerenciado na sua assinatura. Confira [Início Rápido: Provisione e ative um HSM Gerenciado usando a CLI do Azure](quick-create-cli.md) para provisionar e ativar um HSM Gerenciado.
+* Um HSM gerenciado na sua assinatura. Confira [Início Rápido: Provisione e ative um HSM gerenciado usando a CLI do Azure](quick-create-cli.md) para provisionar e ativar um HSM gerenciado.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -53,7 +53,7 @@ Use o comando `az keyvault key create` para criar uma chave.
 
 ### <a name="create-an-rsa-key"></a>Criar uma chave RSA
 
-O exemplo a seguir mostra como criar uma chave **RSA** de 3.070 bits que será usada somente para as operações **wrapKey e unwrapKey** (--ops). 
+O exemplo a seguir mostra como criar uma chave **RSA** de 3.072 bits que será usada somente para as operações **wrapKey e unwrapKey** (--ops). 
 
 
 ```azurecli-interactive
@@ -82,7 +82,7 @@ az keyvault key create --id https://ContosoMHSM.managedhsm.azure.net/keys/myec25
 
 ### <a name="create-a-256-bit-symmetric-key"></a>Criar uma chave simétrica de 256 bits
 
-O exemplo a seguir mostra como criar uma chave **simétrica** de 3.070 bits que será usada somente para as operações **encrypt e decrypt** (--ops).
+O exemplo a seguir mostra como criar uma chave **simétrica** de 256 bits que será usada somente para as operações **encrypt e decrypt** (--ops).
 
 ```azurecli-interactive
 az keyvault key create --hsm-name ContosoMHSM --name myaeskey --ops encrypt decrypt  --tags --kty oct-HSM --size 256

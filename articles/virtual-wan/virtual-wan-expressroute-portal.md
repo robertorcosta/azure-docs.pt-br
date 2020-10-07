@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: b78c2b93a9427105ce2cc0ad8bd5d2b995c834ae
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 536d233a9c135b0b7dde6d6d80c705d2008226e6
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90976286"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569639"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan"></a>Tutorial: Criar uma associação do ExpressRoute usando a WAN Virtual do Azure
 
@@ -40,7 +40,7 @@ Verifique se você atende aos seguintes critérios antes de iniciar a configura�
 
 * Obtenha um intervalo de endereços IP para sua região de hub. O hub é uma rede virtual criada e usada pela WAN Virtual. O intervalo de endereços especificado para o hub não pode se sobrepor a nenhuma das redes virtuais existentes às quais você se conecta. Ele também não pode se sobrepor aos intervalos de endereços aos quais você se conecta localmente. Se não estiver familiarizado com os intervalos de endereços IP da sua configuração de rede local, trabalhe com alguém que possa lhe fornecer esses detalhes.
 
-* O circuito do ExpressRoute precisa ser um circuito Premium para se conectar ao gateway do hub.
+* O circuito do ExpressRoute precisa ser um circuito Premium/Standard para se conectar ao gateway do hub.
 
 * Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -105,7 +105,7 @@ Nesta seção, você pode criar a conexão de emparelhamento entre uma VNET e se
 
 ## <a name="connect-your-circuit-to-the-hub-gateway"></a><a name="connectcircuit"></a>Conectar seu circuito ao gateway do hub
 
-Depois que o gateway é criado, você pode conectar um [circuito de ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) a ele. Os circuitos do ExpressRoute Premium que estão em localizações do ExpressRoute compatíveis com o Alcance Global podem se conectar a um gateway do ExpressRoute da WAN Virtual.
+Depois que o gateway é criado, você pode conectar um [circuito de ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) a ele. Circuitos Premium/Standard do ExpressRoute que estão em locais compatíveis com o Alcance Global do ExpressRoute podem se conectar a um gateway do ExpressRoute de WAN Virtual e usar todas as funcionalidades de trânsito de WAN Virtual (VPN para VPN, VPN e ExpressRoute). Os circuitos do ExpressRoute Premium/Standard que estão em locais sem Alcance Global podem se conectar aos recursos do Azure, mas não poderão usar os recursos de trânsito da WAN Virtual.
 
 ### <a name="to-connect-the-circuit-to-the-hub-gateway"></a>Para conectar o circuito ao gateway do hub
 

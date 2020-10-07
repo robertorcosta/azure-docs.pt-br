@@ -12,13 +12,13 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 05/29/2020
-ms.openlocfilehash: f1fad6554a347acb1de72bfe1e5c3413e6f74d9f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/28/2020
+ms.openlocfilehash: 35a637df85984bcfd20836bcd87aa5ecf1583170
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87004147"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461131"
 ---
 # <a name="quickstart-use-ssms-to-connect-to-and-query-azure-sql-database-or-azure-sql-managed-instance"></a>Início Rápido: Usar o SSMS para se conectar e consultar um Banco de Dados SQL do Azure ou uma Instância Gerenciada de SQL do Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -83,6 +83,9 @@ No SSMS, conecte-se ao servidor.
    ||||
 
    ![conectar-se ao servidor](./media/connect-query-ssms/connect.png)  
+
+> [!NOTE]
+> Este tutorial usa a Autenticação do SQL Server.  No entanto, para se conectar por meio do Azure Active Directory com MFA, verifique se você está usando o [SSMS 18.6 ou mais recente](https://aka.ms/ssms). 
 
 3. Selecione **Opções** na caixa de diálogo **Conectar-se ao servidor**. No menu suspenso **Conectar-se ao banco de dados**, selecione **mySampleDatabase**. A conclusão do início rápido na seção [Pré-requisitos](#prerequisites) cria um banco de dados AdventureWorksLT chamado mySampleDatabase. Se sua cópia funcional do banco de dados AdventureWorks tiver um nome diferente de mySampleDatabase, selecione-a em vez disso.
 
@@ -155,7 +158,7 @@ Execute esse código Transact-SQL [INSERT](/sql/t-sql/statements/insert-transact
 
 ### <a name="update-data"></a>Atualizar dados
 
-Execute este código Transact-SQL [UPDATE](/sql/t-sql/queries/update-transact-sql?view=sql-server-ver15) para modificar seu novo produto.
+Execute este código Transact-SQL [UPDATE](/sql/t-sql/queries/update-transact-sql) para modificar seu novo produto.
 
 1. Substitua a consulta anterior por aquela que retorna o novo registro criado anteriormente:
 

@@ -1,20 +1,21 @@
 ---
-title: Início rápido – Criar e executar a imagem de contêiner
-description: Execute tarefas rapidamente com o Registro de Contêiner do Azure para criar e executar uma imagem de contêiner do Docker sob demanda, na nuvem.
+title: Início Rápido – Criar uma imagem de contêiner sob demanda no Azure
+description: Use os comandos do Registro de Contêiner do Azure para criar, enviar por push e executar rapidamente uma imagem de contêiner do Docker sob demanda na nuvem do Azure.
 ms.topic: quickstart
-ms.date: 01/31/2020
-ms.openlocfilehash: 610d82a0761f06338d04f0794d4141165d67d36c
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.date: 09/25/2020
+ms.custom: contperfq1
+ms.openlocfilehash: 36921900f64d458f1f2591897e32c98f6d22a550
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84753698"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91538170"
 ---
 # <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>Início Rápido: Criar e executar uma imagem de contêiner usando as Tarefas do Registro de Contêiner do Azure
 
-Neste início rápido, você usará comandos de Tarefas do Registro de Contêiner do Azure para criar, efetuar push e executar rapidamente uma imagem de contêiner do Docker nativamente dentro do Azure, mostrando como descarregar seu ciclo de desenvolvimento de “loop interno” para a nuvem. [Tarefas do ACR][container-registry-tasks-overview] é um conjunto de recursos dentro do Registro de Contêiner do Azure para ajudá-lo a gerenciar e a modificar imagens de contêiner em todo o ciclo de vida do contêiner. 
+Neste início rápido, você usará comandos das [Tarefas do Registro de Contêiner do Azure][container-registry-tasks-overview] para criar, efetuar push e executar rapidamente uma imagem de contêiner do Docker nativamente no Azure, sem uma instalação local do Docker. Tarefas do ACR é um conjunto de recursos dentro do Registro de Contêiner do Azure para ajudá-lo a gerenciar e a modificar imagens de contêiner em todo o ciclo de vida do contêiner. Este exemplo mostra como descarregar seu ciclo de desenvolvimento de imagem de contêiner de "loop interno" para a nuvem com builds sob demanda usando um Dockerfile local. 
 
-Após este início rápido, explore mais recursos avançados de Tarefas do ACR. As Tarefas do ACR podem automatizar builds de imagem com base em confirmações do código ou atualizações de imagem base ou testar vários contêineres, em paralelo, entre outros cenários. 
+Após este início rápido, explore recursos mais avançados de Tarefas do ACR usando os [tutoriais](container-registry-tutorial-quick-task.md). As Tarefas do ACR podem automatizar builds de imagem com base em confirmações do código ou atualizações de imagem base ou testar vários contêineres, em paralelo, entre outros cenários. 
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita][azure-account] antes de começar.
 
@@ -45,7 +46,7 @@ Este exemplo cria um registro *Básico*, uma opção com otimização de custo p
 
 ## <a name="build-and-push-image-from-a-dockerfile"></a>Criar uma imagem e efetuar push dela de um Dockerfile
 
-Agora, use o Registro de Contêiner do Azure para criar uma imagem e efetuar push dela. Primeiro, crie um diretório de trabalho e, em seguida, crie um Dockerfile chamado *Dockerfile* com a única linha: `FROM hello-world`. Este é um exemplo simples para criar uma imagem de contêiner do Linux com base na imagem `hello-world` no Docker Hub. Você pode criar seu próprio Dockerfile padrão e criar imagens para outras plataformas. Se estiver trabalhando em um shell bash, crie o Dockerfile com o seguinte comando:
+Agora, use o Registro de Contêiner do Azure para criar uma imagem e efetuar push dela. Primeiro, crie um diretório de trabalho local e crie um Dockerfile chamado *Dockerfile* com a única linha: `FROM hello-world`. Este é um exemplo simples para criar uma imagem de contêiner do Linux com base na imagem `hello-world` no Docker Hub. Você pode criar seu próprio Dockerfile padrão e criar imagens para outras plataformas. Se estiver trabalhando em um shell bash, crie o Dockerfile com o seguinte comando:
 
 ```bash
 echo FROM hello-world > Dockerfile

@@ -1,5 +1,5 @@
 ---
-title: Pausar e retomar a computação no pool de SQL do Synapse por meio do portal do Azure
+title: 'Início Rápido: Pausar e retomar a computação no pool de SQL do Synapse por meio do portal do Azure'
 description: Use o portal do Azure para pausar a computação para o pool de SQL para economizar custos. Retomar computação quando você estiver pronto para usar o Data Warehouse.
 services: synapse-analytics
 author: kevinvngo
@@ -11,12 +11,12 @@ ms.date: 04/18/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 25f12d038b2a83688c12d95adefef3d4fb39be43
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: bf9d8234be754bd6ed325713f3c9ad27bd283b79
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85214461"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567631"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-synapse-sql-pool-via-the-azure-portal"></a>Início Rápido: Pausar e retomar a computação no pool de SQL do Synapse por meio do portal do Azure
 
@@ -49,7 +49,7 @@ Siga estas etapas para pausar um pool de SQL:
 5. Uma pergunta de confirmação será exibida perguntando se deseja continuar. Clique em **Sim**.
 6. Aguarde alguns minutos e, em seguida, observe se **Status** indica **Pausando**.
 
-    ![Pausando](./media/pause-and-resume-compute-portal/pausing.png)
+    ![A captura de tela mostra a portal do Azure para um data warehouse de amostra com um valor de Status de Pausando.](./media/pause-and-resume-compute-portal/pausing.png)
 
 7. Quando a operação de pausa for concluída, o status indica **Em Pausa** e o botão de opção é **Retomar**.
 8. Os recursos de computação do pool de SQL agora estão offline. Você não será cobrado por computação até você reiniciar o serviço.
@@ -71,7 +71,7 @@ Siga estas etapas para retomar o pool de SQL.
 5. Uma pergunta de confirmação será exibida perguntando se deseja continuar. Clique em **Sim**.
 6. Observe se o **Status** indica **Continuando**.
 
-    ![Continuando](./media/pause-and-resume-compute-portal/resuming.png)
+    ![A captura de tela mostra a portal do Azure para um data warehouse de amostra com o botão Iniciar selecionado e um valor de Status de Retomando.](./media/pause-and-resume-compute-portal/resuming.png)
 
 7. Quando o pool de SQL estiver novamente online, o status indicará **Online** e o botão de opção será **Pausar**.
 8. Os recursos de computação para o pool de SQL estão online e você pode usar o serviço. Encargos de computação foram retomados.

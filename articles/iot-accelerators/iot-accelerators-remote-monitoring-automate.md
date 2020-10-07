@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 676f1133a516174478a456a97bc467e7770fe6e7
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 695d1b1124c042b61837f0a1257ac2a201ae4860
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84712506"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539394"
 ---
 # <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>Tutorial: Detectar problemas com dispositivos conectados à sua solução de monitoramento
 
@@ -122,7 +122,7 @@ Para desativar temporariamente uma regra, desabilite-a na lista de regras. Escol
 
 Para excluir permanentemente uma regra, você pode apagá-la na lista de regras. Escolha a regra e selecione **Excluir**.
 
-[![Excluir regra](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-expanded.png#lightbox)
+[![Captura de tela que mostra a página "Regras" com a janela "Excluir Regra" realçada.](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-expanded.png#lightbox)
 
 Depois de confirmar que você deseja excluir a regra, terá a oportunidade de excluir qualquer alerta associado à regra na página **Manutenção**.
 

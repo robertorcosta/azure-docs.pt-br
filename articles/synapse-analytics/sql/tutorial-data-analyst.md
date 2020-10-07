@@ -1,6 +1,6 @@
 ---
-title: Usar o SQL sob demanda (versão prévia) para analisar os Azure Open Datasets no Azure Synapse Studio (versão prévia)
-description: Neste tutorial, você aprenderá a executar facilmente a análise de dados exploratória combinando diferentes Azure Open Datasets usando o SQL sob demanda (versão prévia) e a visualizar os resultados no Azure Synapse Studio.
+title: 'Tutorial: Usar o SQL sob demanda (versão prévia) para analisar os Azure Open Datasets no Azure Synapse Studio (versão prévia)'
+description: Este tutorial mostra como executar facilmente a análise de dados exploratória combinando diferentes Azure Open Datasets usando o SQL sob demanda (versão prévia) e visualizar os resultados no Azure Synapse Studio.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -8,15 +8,15 @@ ms.topic: tutorial
 ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 2fc98e927fcf9686f0f39dae600f944b485c5a06
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.reviewer: jrasnick
+ms.openlocfilehash: 0471bd594dcf1b0654d6b4c496e5d39ade2739fd
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089134"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539513"
 ---
-# <a name="use-sql-on-demand-to-analyze-azure-open-datasets-and-visualize-the-results-in-azure-synapse-studio"></a>Usar o SQL sob demanda para analisar os Azure Open Datasets e visualizar os resultados no Azure Synapse Studio
+# <a name="tutorial-use-sql-on-demand-to-analyze-azure-open-datasets-and-visualize-the-results-in-azure-synapse-studio"></a>Tutorial: Usar o SQL sob demanda para analisar os Azure Open Datasets e visualizar os resultados no Azure Synapse Studio
 
 Neste tutorial, você aprenderá a executar a análise de dados exploratória combinando diferentes Azure Open Datasets usando o SQL sob demanda e a visualizar os resultados no Azure Synapse Studio.
 

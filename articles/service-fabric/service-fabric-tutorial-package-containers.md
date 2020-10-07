@@ -1,17 +1,15 @@
 ---
 title: Empacotar e implantar contêineres
 description: Neste tutorial, você aprende a gerar uma definição de aplicativo do Azure Service Fabric usando o Yeoman e a empacotar o aplicativo.
-author: suhuruli
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: cc1d6e04b19d36f0ca8c7ed4b2bb3d62f5e8e15a
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 5840539b6c51a0070a98f03dbda3c596fd5c2516
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "78252758"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539870"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>Tutorial: Empacotar e implantar contêineres como um aplicativo do Service Fabric usando Yeoman
 
@@ -278,7 +276,7 @@ Abra um navegador e navegue até o Service Fabric Explorer em http:\//containert
 
 Para se conectar ao aplicativo em execução, abra um navegador da Web e acesse a URL do cluster – por exemplo, http:\//containertestcluster.eastus.cloudapp.azure.com:80. Você deve ver o aplicativo de votação na interface do usuário da Web.
 
-![votingapp][votingapp]
+![A captura de tela mostra o aplicativo Azure Voting com os botões Gatos, Cachorros, Redefinir e Totais.][votingapp]
 
 ## <a name="clean-up"></a>Limpar
 

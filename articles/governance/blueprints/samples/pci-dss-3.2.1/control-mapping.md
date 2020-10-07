@@ -1,14 +1,14 @@
 ---
 title: Controles de amostra de blueprint do PCI-DSS v3.2.1
-description: Mapeamento de controle da amostra de blueprint do Padrão de Segurança de Dados do Setor de Cartões de pagamento v3.2.1 para Azure Policy e RBAC.
+description: Mapeamento de controle da amostra de blueprint do Padrão de Segurança de Dados do Setor de Cartões de Pagamento v3.2.1 para Azure Policy e Azure RBAC.
 ms.date: 08/19/2020
 ms.topic: sample
-ms.openlocfilehash: e6133c4a847a6df8aa6a27bbca63e0fc2d047783
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 3d7bdd62dcc5b65b0978444e74013d289f03ed6a
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88649220"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541638"
 ---
 # <a name="control-mapping-of-the-pci-dss-v321-blueprint-sample"></a>Mapeamento de controle da amostra de blueprint do PCI-DSS v3.2.1
 
@@ -63,7 +63,7 @@ Ter apenas um proprietário de assinatura do Azure não permite a redundância a
 
 ## <a name="32-721-831a-and-831b-management-of-privileged-access-rights"></a>3.2, 7.2.1, 8.3.1.a e 8.3.1.b Gerenciamento de direitos de acesso privilegiado
 
-Esse blueprint ajuda você a restringir e controlar os direitos de acesso privilegiado por meio da atribuição de definições do [Azure Policy](../../../policy/overview.md) para auditar contas externas com permissões de proprietário, gravação e/ou leitura e contas de funcionário com permissões de proprietário e/ou gravação que não têm a autenticação multifator habilitada. O Azure implementa o RBAC (controle de acesso baseado em função) para gerenciar quem tem acesso aos recursos no Azure. Entender o local em que as regras RBAC personalizadas são implementadas pode ajudar você a verificar a necessidade e a implementação apropriada, pois as regras RBAC personalizadas estão sujeitas a erros. Este blueprint também atribui definições do [Azure Policy](../../../policy/overview.md) para auditar o uso da autenticação do Azure Active Directory para servidores SQL. O uso da autenticação do Azure Active Directory simplifica o gerenciamento de permissões e centraliza o gerenciamento de identidades dos usuários de banco de dados e de outros serviços  
+Esse blueprint ajuda você a restringir e controlar os direitos de acesso privilegiado por meio da atribuição de definições do [Azure Policy](../../../policy/overview.md) para auditar contas externas com permissões de proprietário, gravação e/ou leitura e contas de funcionário com permissões de proprietário e/ou gravação que não têm a autenticação multifator habilitada. O Azure RBAC (controle de acesso baseado em função) ajuda a gerenciar quem tem acesso aos recursos no Azure. Entender o local em que as regras personalizadas do Azure RBAC são implementadas pode ajudar você a verificar a necessidade e a implementação apropriada, pois as regras personalizadas do Azure RBAC estão sujeitas a erros. Este blueprint também atribui definições do [Azure Policy](../../../policy/overview.md) para auditar o uso da autenticação do Azure Active Directory para servidores SQL. O uso da autenticação do Azure Active Directory simplifica o gerenciamento de permissões e centraliza o gerenciamento de identidades dos usuários de banco de dados e de outros serviços  
 da Microsoft.
  
 - As contas externas com permissões de proprietário devem ser removidas de sua assinatura
@@ -77,7 +77,7 @@ da Microsoft.
 
 ## <a name="812-and-815-least-privilege-and-review-of-user-access-rights"></a>8.1.2 e 8.1.5 Privilégios mínimos e análise dos direitos de acesso do usuário
 
-O Azure implementa o RBAC (controle de acesso baseado em função) para ajudar você a gerenciar quem tem acesso aos recursos no Azure. Usando o portal do Azure, você pode examinar quem tem acesso aos recursos do Azure e suas permissões. Esse blueprint atribui definições do [Azure Policy](../../../policy/overview.md) para auditar as contas que devem ser priorizadas para revisão, incluindo contas preteridas e contas externas com permissões elevadas.
+O Azure RBAC (controle de acesso baseado em função) ajuda a gerenciar quem tem acesso aos recursos no Azure. Usando o portal do Azure, você pode examinar quem tem acesso aos recursos do Azure e suas permissões. Esse blueprint atribui definições do [Azure Policy](../../../policy/overview.md) para auditar as contas que devem ser priorizadas para revisão, incluindo contas preteridas e contas externas com permissões elevadas.
 
 - As contas preteridas devem ser removidas de sua assinatura
 - As contas preteridas com permissões de proprietário devem ser removidas de sua assinatura
@@ -87,7 +87,7 @@ O Azure implementa o RBAC (controle de acesso baseado em função) para ajudar v
 
 ## <a name="813-removal-or-adjustment-of-access-rights"></a>8.1.3 Remoção ou ajuste de direitos de acesso
 
-O Azure implementa o RBAC (controle de acesso baseado em função) para ajudar você a gerenciar quem tem acesso aos recursos no Azure. Usando o Azure Active Directory e o RBAC, você pode atualizar as funções de usuário para que elas reflitam as mudanças organizacionais. Quando necessário, as contas podem ser impedidas de entrar (ou removidas), o que remove imediatamente os direitos de acesso aos recursos do Azure. Esse blueprint atribui definições do [Azure Policy](../../../policy/overview.md) para auditar contas preteridas que devem ser consideradas para remoção.
+O Azure RBAC (controle de acesso baseado em função) ajuda a gerenciar quem tem acesso aos recursos no Azure. Usando o Azure Active Directory e o Azure RBAC, você pode atualizar as funções de usuário para que elas reflitam as mudanças organizacionais. Quando necessário, as contas podem ser impedidas de entrar (ou removidas), o que remove imediatamente os direitos de acesso aos recursos do Azure. Esse blueprint atribui definições do [Azure Policy](../../../policy/overview.md) para auditar contas preteridas que devem ser consideradas para remoção.
 
 - As contas preteridas devem ser removidas de sua assinatura
 - As contas preteridas com permissões de proprietário devem ser removidas de sua assinatura
