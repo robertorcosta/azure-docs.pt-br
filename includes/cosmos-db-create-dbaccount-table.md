@@ -9,10 +9,10 @@ ms.date: 01/24/2020
 ms.author: sngun
 ms.custom: include file
 ms.openlocfilehash: 5015371afc67574a214097f8d3eef661df29c22f
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85115024"
 ---
 1. Em uma nova janela do navegador, entre no [Portal do Azure](https://portal.azure.com/).
@@ -23,7 +23,7 @@ ms.locfileid: "85115024"
    
 3. Na página **Novo**, selecione **Bancos de dados** > **Azure Cosmos DB**.
    
-   :::image type="content" source="./media/cosmos-db-create-dbaccount-table/create-nosql-db-databases-json-tutorial-1.png" alt-text="O painel Bancos de Dados do portal do Azure":::
+   :::image type="content" source="./media/cosmos-db-create-dbaccount-table/create-nosql-db-databases-json-tutorial-1.png" alt-text="Crie um recurso no portal do Azure":::
    
 3. Na página **Criar Conta do Azure Cosmos DB**, insira as configurações da nova conta do Azure Cosmos DB. 
  
@@ -39,9 +39,9 @@ ms.locfileid: "85115024"
 
 5. Selecione **Revisar + Criar**. Após a concluir a validação, selecione **Criar** para criar a conta. 
  
-   :::image type="content" source="./media/cosmos-db-create-dbaccount-table/azure-cosmos-db-create-new-account.png" alt-text="A página da nova conta do Azure Cosmos DB":::
+   :::image type="content" source="./media/cosmos-db-create-dbaccount-table/azure-cosmos-db-create-new-account.png" alt-text="Crie um recurso no portal do Azure":::
 
 6. São necessários alguns minutos para criar a conta. Um mensagem informando **A implantação está em andamento** será exibida. Aguarde a conclusão da implantação e, em seguida, selecione **Ir para o recurso**.
 
-    :::image type="content" source="./media/cosmos-db-create-dbaccount-table/azure-cosmos-db-account-created.png" alt-text="O painel de notificações do portal do Azure":::
+    :::image type="content" source="./media/cosmos-db-create-dbaccount-table/azure-cosmos-db-account-created.png" alt-text="Crie um recurso no portal do Azure":::
 

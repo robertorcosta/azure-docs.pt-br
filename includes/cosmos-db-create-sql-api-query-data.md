@@ -9,10 +9,10 @@ ms.date: 04/05/2019
 ms.author: sngun
 ms.custom: include file
 ms.openlocfilehash: 609b62312329b3a8f9f16d15458a0a47f5eb377f
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85115193"
 ---
 Você pode usar consultas no Data Explorer para recuperar e filtrar os dados.
@@ -23,11 +23,11 @@ Você pode usar consultas no Data Explorer para recuperar e filtrar os dados.
    
 1. Para alterar a consulta, selecione **Editar Filtro**, substitua a consulta padrão por `ORDER BY c._ts DESC` e selecione **Aplicar Filtro**.
    
-   :::image type="content" source="./media/cosmos-db-create-sql-api-query-data/azure-cosmosdb-data-explorer-edit-query.png" alt-text="Alterar a consulta padrão adicionando ORDER BY c._ts DESC e clicando Aplicar Filtro":::
+   :::image type="content" source="./media/cosmos-db-create-sql-api-query-data/azure-cosmosdb-data-explorer-edit-query.png" alt-text="A consulta padrão no Data Explorer é SELECT * FROM c":::
 
    A consulta modificada exibe os documentos em ordem decrescente com base em seu carimbo de data/hora, portanto, agora o segundo documento é listado primeiro. 
    
-   :::image type="content" source="./media/cosmos-db-create-sql-api-query-data/azure-cosmosdb-data-explorer-edited-query.png" alt-text="Consulta alterada para ORDER BY c._ts DESC e clique em Aplicar Filtro":::
+   :::image type="content" source="./media/cosmos-db-create-sql-api-query-data/azure-cosmosdb-data-explorer-edited-query.png" alt-text="A consulta padrão no Data Explorer é SELECT * FROM c":::
 
 Se você estiver familiarizado com a sintaxe SQL, poderá inserir qualquer [consulta SQL](../articles/cosmos-db/sql-api-sql-query.md) compatível na caixa de predicado de consulta. Você também pode usar o Data Explorer para criar procedimentos armazenados, UDFs e gatilhos para lógica de negócios do lado do servidor. 
 

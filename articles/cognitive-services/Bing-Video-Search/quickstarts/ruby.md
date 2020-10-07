@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
 ms.openlocfilehash: cd02a0ea51faa7dae14e0f9d61c446aae55dcbe1
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "83849562"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-ruby"></a>Início Rápido: Pesquisar vídeos usando a API de Pesquisa de Vídeo do Bing e Ruby

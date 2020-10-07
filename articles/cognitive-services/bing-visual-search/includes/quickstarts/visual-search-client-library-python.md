@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 03/26/2020
 ms.author: aahi
 ms.openlocfilehash: debc5130824a0f661a3736b8d24d950fc789f2f3
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "80573101"
 ---
 Use este início rápido para começar a obter insights de imagens do serviço da Pesquisa Visual do Bing, usando a biblioteca de clientes Python. Embora a Pesquisa Visual do Bing tenha uma API REST compatível com a maioria das linguagens de programação, a biblioteca de clientes oferece uma forma fácil de integrar o serviço aos seus aplicativos. O código-fonte dessa amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/visual_search_samples.py) 

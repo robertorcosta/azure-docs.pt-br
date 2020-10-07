@@ -9,10 +9,10 @@ ms.date: 03/28/2018
 ms.author: wgries
 ms.custom: include file
 ms.openlocfilehash: a0db3ee9f32be35e62accc5df7b92697a883df20
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "83778264"
 ---
 Uma conta de armazenamento é um pool compartilhado de armazenamento no qual você pode implantar um compartilhamento de arquivos do Azure ou outros recursos de armazenamento como blobs ou filas. Uma conta de armazenamento pode conter uma quantidade ilimitada de compartilhamentos. Um compartilhamento pode conter uma quantidade ilimitada de arquivos, até os limites de capacidade da conta de armazenamento.
