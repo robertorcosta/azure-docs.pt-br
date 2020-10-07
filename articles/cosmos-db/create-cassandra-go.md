@@ -9,10 +9,10 @@ ms.devlang: go
 ms.topic: quickstart
 ms.date: 07/14/2020
 ms.openlocfilehash: ba53fb786b1d1f61535168cda2152049a12dfb99
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "86535470"
 ---
 # <a name="quickstart-build-a-go-app-with-the-gocql-client-to-manage-azure-cosmos-db-cassandra-api-data"></a>Início Rápido: Criar um aplicativo Go com o cliente do `gocql` para gerenciar dados da API do Cassandra para Azure Cosmos DB
@@ -254,7 +254,7 @@ go run main.go
 
 4. No portal do Azure, abra **Data Explorer** para consultar, modificar e trabalhar com esses novos dados. 
 
-    :::image type="content" source="./media/create-cassandra-go/view-data-explorer-go-app.png" alt-text="Exibir os dados no Data Explorer – Azure Cosmos DB":::
+    :::image type="content" source="./media/create-cassandra-go/view-data-explorer-go-app.png" alt-text="Ver e copiar detalhes da página Cadeia de Conexão no portal do Azure":::
 
 ## <a name="review-slas-in-the-azure-portal"></a>Examinar SLAs no Portal do Azure
 

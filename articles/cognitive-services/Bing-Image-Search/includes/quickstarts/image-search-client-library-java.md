@@ -10,10 +10,10 @@ ms.date: 03/04/2020
 ms.custom: devx-track-java
 ms.author: aahi
 ms.openlocfilehash: d7433da99fa1aa607b8c85ce6c8f44adcc6c6f89
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87375777"
 ---
 Use este início rápido para fazer sua primeira pesquisa de imagem usando a biblioteca de clientes da Pesquisa de Imagem do Bing, que é um wrapper para a API e contém os mesmos recursos. Esse aplicativo simples do Java envia uma consulta de pesquisa de imagem, analisa a resposta JSON e exibe a URL da primeira imagem retornada.

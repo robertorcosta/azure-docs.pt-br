@@ -10,10 +10,10 @@ ms.date: 03/05/2020
 ms.custom: devx-track-java
 ms.author: aahi
 ms.openlocfilehash: 3723345b10524b2063b3ec8fe43608f49b5b279b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87375113"
 ---
 A biblioteca de clientes da Pesquisa na Web do Bing facilita a integração da Pesquisa na Web do Bing ao seu aplicativo Java. Neste início rápido, você aprenderá a enviar uma solicitação, receber uma resposta JSON e filtrar e analisar os resultados.
