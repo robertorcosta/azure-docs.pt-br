@@ -1,28 +1,28 @@
 ---
-title: Conectar-se de forma privada a um aplicativo Web usando o ponto de extremidade privado do Azure (versão prévia)
-description: Este artigo explica como se conectar de forma privada a um aplicativo Web usando o ponto de extremidade privado do Azure (versão prévia).
+title: Conectar-se de forma privada a um aplicativo Web usando o ponto de extremidade privado do Azure
+description: Este artigo explica como se conectar de forma privada a um aplicativo Web usando o ponto de extremidade privado do Azure.
 author: ericgre
 ms.assetid: b8c5c7f8-5e90-440e-bc50-38c990ca9f14
 ms.topic: how-to
-ms.date: 09/08/2020
+ms.date: 10/07/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: ccbcdbe9204120e1cf181136f566556ec30be871
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 3e0f05240aba9b5c92689315e409aaabe793b3f4
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90054527"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91772831"
 ---
-# <a name="connect-privately-to-a-web-app-by-using-azure-private-endpoint-preview"></a>Conectar-se de forma privada a um aplicativo Web usando o ponto de extremidade privado do Azure (versão prévia)
+# <a name="connect-privately-to-a-web-app-by-using-azure-private-endpoint"></a>Conectar-se de forma privada a um aplicativo Web usando o ponto de extremidade privado do Azure
 
-O ponto de extremidade privado do Azure (versão prévia) é o bloco de construção fundamental para o link privado do Azure. Usando o ponto de extremidade privado, você pode se conectar de forma privada ao seu aplicativo Web. Neste artigo, você aprenderá a implantar um aplicativo Web usando o ponto de extremidade privado e, em seguida, conectar-se ao aplicativo Web de uma VM (máquina virtual).
+O ponto de extremidade privado do Azure é o bloco de construção fundamental para o link privado do Azure. Usando o ponto de extremidade privado, você pode se conectar de forma privada ao seu aplicativo Web. Neste artigo, você aprenderá a implantar um aplicativo Web usando o ponto de extremidade privado e, em seguida, conectar-se ao aplicativo Web de uma VM (máquina virtual).
 
 Para obter mais informações, consulte [usar pontos de extremidade privados para um aplicativo Web do Azure][privateendpointwebapp].
 
 > [!Note]
-> O ponto de extremidade privado (versão prévia) está disponível em regiões públicas para aplicativos Web do Windows PremiumV2, aplicativos Web do Linux e o plano Azure Functions Premium (às vezes conhecido como o plano Premium elástico). 
+> O ponto de extremidade privado está disponível em regiões públicas para PremiumV2, aplicativos Web do Windows de camada PremiumV3, aplicativos Web do Linux e o plano Azure Functions Premium (às vezes chamado de plano Premium elástico). 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
@@ -86,7 +86,7 @@ Para criar a máquina virtual, faça o seguinte:
 Nesta seção, você cria um aplicativo Web privado que usa um ponto de extremidade privado.
 
 > [!Note]
-> O recurso de ponto de extremidade privado está disponível apenas para a camada PremiumV2.
+> O recurso de ponto de extremidade privado está disponível apenas para a camada PremiumV2 e PremiumV3.
 
 ### <a name="create-the-web-app"></a>Criar o aplicativo Web
 
@@ -103,20 +103,20 @@ Nesta seção, você cria um aplicativo Web privado que usa um ponto de extremid
 
 ### <a name="create-the-private-endpoint"></a>Criar o ponto de extremidade privado
 
-1. Em Propriedades do aplicativo Web, em **configurações**, selecione **rede**e, em conexões de **ponto de extremidade privado (versão prévia)**, selecione **configurar suas conexões de ponto de extremidade privado**.
+1. Em Propriedades do aplicativo Web, em **configurações**, selecione **rede**e, em * * conexões de ponto de extremidade privado * *, selecione **configurar suas conexões de ponto de extremidade privado**.
 
    > [!div class="mx-imgBorder"]
    > ![Captura de tela do link "configurar suas conexões de ponto de extremidade privado" no painel de rede do aplicativo Web.][7]
 
-1. No assistente **conexões de ponto de extremidade privado (versão prévia)** , selecione **Adicionar**.
+1. No assistente de **conexões de ponto de extremidade privado** , selecione **Adicionar**.
 
    > [!div class="mx-imgBorder"]
-   > ![Captura de tela do botão Adicionar no assistente "conexões de ponto de extremidade privado (visualização)".][8]
+   > ![Captura de tela do botão Adicionar no assistente "conexões de ponto de extremidade particulares".][8]
 
 1. Selecione as informações corretas nas listas suspensas **assinatura**, **rede virtual**e **sub-rede** e, em seguida, selecione **OK**.
 
    > [!div class="mx-imgBorder"]
-   > ![Captura de tela do painel "Adicionar ponto de extremidade privado (visualização)".][9]
+   > ![Captura de tela do painel "Adicionar ponto de extremidade privado".][9]
 
 1. Monitore o progresso da criação do ponto de extremidade privado.
 
@@ -180,9 +180,6 @@ Nesta seção, você se conecta de modo privado ao aplicativo Web usando o ponto
    > [!div class="mx-imgBorder"]
    > ![Captura de tela de uma página de erro "erro 403-Proibido".][17]
 
-   > [!Important]
-   > Como esse recurso está em versão prévia, você precisa gerenciar manualmente a entrada DNS (serviço de nomes de domínio).
-
    Para o DNS, siga um destes procedimentos:
  
    - Use o serviço de zona privada do DNS do Azure.  
@@ -209,7 +206,7 @@ Nesta seção, você se conecta de modo privado ao aplicativo Web usando o ponto
 
 Agora você está acessando seu aplicativo Web por meio do ponto de extremidade privado.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando você terminar de usar o ponto de extremidade privado, o aplicativo Web e a VM, exclua o grupo de recursos e todos os recursos que ele contém.
 
@@ -223,7 +220,7 @@ Quando você terminar de usar o ponto de extremidade privado, o aplicativo Web e
 
 Neste artigo, você criou uma VM em uma rede virtual, um aplicativo Web e um ponto de extremidade privado. Você se conectou a uma VM da Internet e se comunica com segurança ao aplicativo Web usando o link privado. 
 
-Para saber mais sobre o ponto de extremidade privado (versão prévia), consulte [o que é o ponto de extremidade privado do Azure?][privateendpoint].
+Para saber mais sobre o ponto de extremidade privado, consulte [o que é o ponto de extremidade privado do Azure?][privateendpoint].
 
 <!--Image references-->
 [1]: ./media/create-private-endpoint-webapp-portal/createnetwork.png

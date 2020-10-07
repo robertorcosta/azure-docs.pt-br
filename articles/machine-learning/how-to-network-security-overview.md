@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 09/30/2020
+ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperfq1
-ms.openlocfilehash: d4690062dead8186022cc53ca47dbc7e17a9376f
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 7bc56f6296bf41933348fad9ea4aeb640b9afbf0
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91631181"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776010"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Visão geral de isolamento de rede virtual e privacidade
 
@@ -70,7 +70,7 @@ Use as etapas a seguir para proteger seu espaço de trabalho e os recursos assoc
 
 1. Crie um [espaço de trabalho habilitado para vínculo privado](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint) para habilitar a comunicação entre a VNet e o espaço de trabalho.
 1. Adicione Azure Key Vault à rede virtual com um [ponto de extremidade de serviço](../key-vault/general/overview-vnet-service-endpoints.md) ou um ponto de [extremidade privado](../key-vault/general/private-link-service.md). Defina Key Vault como ["permitir que os serviços confiáveis da Microsoft ignorem esse firewall"](how-to-secure-workspace-vnet.md#secure-azure-key-vault).
-1. Adicione sua conta de armazenamento do Azure à rede virtual com um [ponto de extremidade de serviço](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts) ou um ponto de [extremidade privado](../storage/common/storage-private-endpoints.md)
+1. Adicione sua conta de armazenamento do Azure à rede virtual com um [ponto de extremidade de serviço](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) ou um ponto de [extremidade privado](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints).
 1. [Configure o registro de contêiner do Azure para usar um ponto de extremidade privado](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr) e [habilitar a delegação de sub-rede em instâncias de contêiner do Azure](how-to-secure-inferencing-vnet.md#enable-azure-container-instances-aci).
 
 ![Diagrama de arquitetura mostrando como o espaço de trabalho e os recursos associados se comunicam entre si em pontos de extremidade de serviço ou pontos de extremidade privados dentro de uma VNet](./media/how-to-network-security-overview/secure-workspace-resources.png)
@@ -141,17 +141,17 @@ O diagrama de rede a seguir mostra um espaço de trabalho Azure Machine Learning
 
 [Proteger o espaço de trabalho](#secure-the-workspace-and-associated-resources)  >  [Proteger o ambiente](#secure-the-training-environment)  >  de treinamento [Proteger o ambiente inferência](#secure-the-inferencing-environment)  >  **Habilitar a funcionalidade**  >  do estúdio [Definir configurações de firewall](#configure-firewall-settings)
 
-Embora o estúdio possa acessar dados em uma conta de armazenamento configurada com um ponto de extremidade de serviço, alguns recursos são desabilitados por padrão:
+Se o armazenamento estiver em uma VNet, você deve primeiro executar etapas de configuração adicionais para habilitar a funcionalidade completa no [estúdio](overview-what-is-machine-learning-studio.md). Por padrão, o seguinte recurso está desabilitado:
 
 * Visualizar dados no estúdio.
 * Visualize dados no designer.
 * Envie um experimento do AutoML.
 * Inicie um projeto de rotulagem.
 
-Para habilitar a funcionalidade completa durante o uso de um ponto de extremidade de serviço de armazenamento, consulte [usar o Azure Machine Learning Studio em uma rede virtual](how-to-enable-studio-virtual-network.md#access-data-using-the-studio). O estúdio dá suporte a pontos de extremidade de serviço e pontos de extremidade privados para contas de armazenamento.
+Para habilitar a funcionalidade completa do estúdio dentro de uma VNet, consulte [usar o Azure Machine Learning Studio em uma rede virtual](how-to-enable-studio-virtual-network.md#access-data-using-the-studio). O estúdio dá suporte a contas de armazenamento usando pontos de extremidade de serviço ou pontos de extremidade privados.
 
 ### <a name="limitations"></a>Limitações
-- O estúdio não pode acessar dados em contas de armazenamento configuradas para usar pontos de extremidade privados. Para obter funcionalidade completa, você deve usar pontos de extremidade de serviço para armazenamento e usar a identidade gerenciada.
+- [Rótulos de dados assistidos de ml](how-to-create-labeling-projects.md#use-ml-assisted-labeling) não dão suporte a contas de armazenamento padrão protegidas por trás de uma rede virtual. Você deve usar uma conta de armazenamento não padrão para rotular dados assistidos por ML. Observe que a conta de armazenamento não padrão pode ser protegida por trás da rede virtual. 
 
 ## <a name="configure-firewall-settings"></a>Definir configurações de firewall
 

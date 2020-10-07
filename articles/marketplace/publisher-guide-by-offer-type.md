@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 09/29/2020
-ms.openlocfilehash: 2dfdfaae2c07adc7d9193ffb00f8549bd4090a6e
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.date: 10/06/2020
+ms.openlocfilehash: ff31e29b8c2a36c9aaa3d72eab86340ed405b1ff
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91578454"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91772644"
 ---
 # <a name="publishing-guide-by-offer-type"></a>Guia de publicação por tipo de oferta
 
@@ -30,18 +30,19 @@ A tabela a seguir mostra os tipos de oferta do Marketplace comercial no Partner 
 
 | **Tipo de oferta**    | **Descrição**  |
 | :------------------- | :-------------------|
-| [Aplicativo Azure: **aplicativo gerenciado**](./marketplace-managed-apps.md) | Use o tipo de oferta de aplicativo Aplicativo Azure: Managed quando as seguintes condições forem necessárias: <br> <ul> <li> Você pode implantar uma solução baseada em assinatura para o cliente usando uma VM ou uma solução inteira com base em IaaS. </li> <li>Você ou seu cliente exigem que a solução seja gerenciada por um parceiro. </li> <ul> |
-| [Aplicativo Azure: **modelo de solução**](./marketplace-solution-templates.md) | Use o tipo de oferta de modelo de solução Aplicativo Azure: quando sua solução exigir implantação adicional e automação de configuração além de uma única VM. Os modelos de solução podem empregar vários tipos diferentes de recursos do Azure, incluindo, mas não se limitando a VMs.  |
-  | [**Contêiner do Azure**](./marketplace-containers.md) | Use o tipo de oferta de contêiner do Azure quando sua solução for uma imagem de contêiner do Docker provisionado como um serviço de contêiner do Azure baseado em kubernetes. |
-| [**Máquina virtual do Azure**](./marketplace-virtual-machines.md) | Use o tipo de oferta de Máquina Virtual quando implantar um dispositivo virtual na assinatura associada ao cliente. |
-| [**Serviço de consultoria**](./consulting-services.md) | Os serviços de consultoria ajudam a conectar clientes com serviços para dar suporte e estender o uso dos serviços Azure, Dynamics 365 ou Power Suite.|
-| [**Dynamics 365**](./appsource-offer-publishing-guide.md) | Você pode publicar ofertas de AppSource que criam ou estendem o Dynamics 365 Business central, o compromisso com o cliente do Dynamics 365, os aplicativos de energia e os aplicativos de finanças e operações.|
-| [**Módulo do IoT Edge**](./iot-edge-module.md) | Os módulos do Azure IoT Edge são as menores unidades de computação gerenciadas pelo IoT Edge e podem conter serviços da Microsoft (como o Azure Stream Analytics), serviços de terceiros ou o código específico da sua própria solução. |
-| [**Power BI Microsoft 365 de aplicativo <br/>**](./appsource-offer-publishing-guide.md) | Você pode publicar ofertas de AppSource que se baseiam ou estendem Power BI e Microsoft 365.|
+| [Aplicativo Azure: **aplicativo gerenciado**](marketplace-managed-apps.md) | Use o tipo de oferta de aplicativo Aplicativo Azure: Managed quando as seguintes condições forem necessárias: <br> <ul> <li>Você pode implantar uma solução baseada em assinatura para o cliente usando uma VM ou uma solução inteira com base em IaaS. </li> <li>Você ou seu cliente exigem que a solução seja gerenciada por um parceiro. </li> <ul> |
+| [Aplicativo Azure: **modelo de solução**](marketplace-solution-templates.md) | Use o tipo de oferta de modelo de solução Aplicativo Azure: quando sua solução exigir implantação adicional e automação de configuração além de uma única VM. Os modelos de solução podem empregar vários tipos diferentes de recursos do Azure, incluindo, mas não se limitando a VMs.  |
+  | [**Contêiner do Azure**](marketplace-containers.md) | Use o tipo de oferta de contêiner do Azure quando sua solução for uma imagem de contêiner do Docker provisionado como um serviço de contêiner do Azure baseado em kubernetes. |
+| [**Máquina virtual do Azure**](marketplace-virtual-machines.md) | Use o tipo de oferta de Máquina Virtual quando implantar um dispositivo virtual na assinatura associada ao cliente. |
+| [**Serviço de consultoria**](consulting-services.md) | Os serviços de consultoria ajudam a conectar clientes com serviços para dar suporte e estender o uso dos serviços Azure, Dynamics 365 ou Power Suite.|
+| [**Dynamics 365**](appsource-offer-publishing-guide.md) | Você pode publicar ofertas de AppSource que criam ou estendem o Dynamics 365 Business central, o compromisso com o cliente do Dynamics 365, os aplicativos de energia e os aplicativos de finanças e operações.|
+| [**Módulo do IoT Edge**](iot-edge-module.md) | Os módulos do Azure IoT Edge são as menores unidades de computação gerenciadas pelo IoT Edge e podem conter serviços da Microsoft (como o Azure Stream Analytics), serviços de terceiros ou o código específico da sua própria solução. |
+| [**Serviço gerenciado**](partner-center-portal/create-new-managed-service-offer.md) | Você pode criar ofertas de serviço gerenciado e gerenciar assinaturas delegadas pelo cliente ou grupos de recursos por meio [do Azure Lighthouse](/azure/lighthouse/overview).|
+| [**Power bi aplicativo** <br/> **Microsoft 365**](appsource-offer-publishing-guide.md) | Você pode publicar ofertas de AppSource que se baseiam ou estendem Power BI e Microsoft 365.|
 | [**Software como serviço**](plan-saas-offer.md) | Use o tipo de oferta SaaS (software como serviço) para permitir que o cliente compre sua solução técnica baseada em SaaS como uma assinatura. |
-| [**Soluções integradas**](./integrated-solutions-for-publishers.md) | Você pode publicar soluções integradas e alinhadas à indústria que combinam a tecnologia e os serviços como uma única oferta.|
 
-Para obter informações sobre os requisitos de logon único listando opções e tipos de oferta, consulte [**requisitos do Azure ad**](./enable-appsource-marketplace-using-azure-ad.md).
+
+Para obter informações sobre os requisitos de logon único listando opções e tipos de oferta, consulte [**requisitos do Azure ad**](enable-appsource-marketplace-using-azure-ad.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

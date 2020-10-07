@@ -1,5 +1,5 @@
 ---
-title: Regiões e Zonas de Disponibilidade no Azure
+title: Regiões e zonas de disponibilidade no Azure
 description: Saiba mais sobre regiões e Zonas de Disponibilidade no Azure para atender aos seus requisitos técnicos e regulatórios.
 author: cynthn
 ms.service: azure
@@ -7,14 +7,14 @@ ms.topic: article
 ms.date: 08/27/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: b9a400862280cbbc219e87695e363c0ec2e75ee6
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 9a9cdef27276aa589a4aadd853185b0e3fb4be61
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018664"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91773732"
 ---
-# <a name="regions-and-availability-zones-in-azure"></a>Regiões e Zonas de Disponibilidade no Azure
+# <a name="regions-and-availability-zones-in-azure"></a>Regiões e zonas de disponibilidade no Azure
 
 Os serviços de Microsoft Azure estão disponíveis globalmente para orientar suas operações de nuvem em um nível ideal. Você pode escolher a melhor região para suas necessidades com base nas considerações técnicas e regulatórias: recursos de serviço, residência de dados, requisitos de conformidade e latência.
 
@@ -39,7 +39,7 @@ Para entender melhor as regiões e Zonas de Disponibilidade no Azure, é útil e
 
 Uma região é um conjunto de data centers implantados em um perímetro definido por latência e conectados por meio de uma rede regional de baixa latência. O Azure oferece a você a flexibilidade de implantar aplicativos onde você precisa, incluindo em várias regiões para fornecer resiliência entre regiões. Para obter mais informações, consulte [visão geral do pilar de resiliência](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview).
 
-## <a name="availability-zones"></a>Zonas de Disponibilidade
+## <a name="availability-zones"></a>Zonas de Disponibilidades
 
 Uma zona de disponibilidade é uma oferta de alta disponibilidade que protege seus aplicativos e dados de falhas do datacenter. As Zonas de Disponibilidade são locais físicos exclusivos em uma região do Azure. Cada zona é composta por um ou mais datacenters equipados com energia, resfriamento e rede independentes. Para garantir a resiliência, há um mínimo de três zonas separadas em todas as regiões habilitadas. A separação física das Zonas de Disponibilidade dentro de uma região protege os aplicativos e dados contra falhas do datacenter. Serviços com redundância de zona replicam os aplicativos e dados entre Zonas de Disponibilidade para proteger dos pontos únicos de falha. Com Zonas de Disponibilidade, o Azure oferece o melhor SLA de tempo de atividade da VM de 99,99% do setor. O [SLA completo do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) explica a disponibilidade garantida do Azure como um todo.
 
@@ -76,9 +76,9 @@ Para ver quais serviços são implantados em uma determinada região, bem como o
 
 Se uma oferta de serviço não estiver disponível em uma região específica, você poderá compartilhar seu interesse entrando em contato com seu representante de vendas da Microsoft.
 
-| Tipo de região | Não regional | Foundational | Base | Especializada | Zonas de Disponibilidade | Residência de dadosResidência de dados |
+| Tipo de região | Não regional | Foundational | Base | Especializada | Zonas de Disponibilidades | Residência de dadosResidência de dados |
 | --- | --- | --- | --- | --- | --- | --- |
-| Recomendado | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Controlado por demanda | :heavy_check_mark: | :heavy_check_mark: |
+| Recomendadas | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Controlado por demanda | :heavy_check_mark: | :heavy_check_mark: |
 | Alternativo | :heavy_check_mark: | :heavy_check_mark: | Controlado por demanda | Controlado por demanda | N/D | :heavy_check_mark: |
 
 ### <a name="services-by-category"></a>Serviços por categoria
@@ -92,7 +92,7 @@ Conforme mencionado anteriormente, o Azure classifica os serviços em três cate
 > | Foundational | Base | Especializada |
 > | --- | --- | --- |
 > | Armazenamento de conta | Gerenciamento de API | API do Azure para FHIR |
-> | Gateway de Aplicativo | Configuração de Aplicativos | Azure Analysis Services |
+> | Gateway de Aplicativo | Configuração de aplicativos | Azure Analysis Services |
 > | Serviço de Backup do Azure | Serviço de Aplicativo | Serviço do Azure Blockchain |
 > | Azure Cosmos DB | Automação | Azure Blueprints |
 > | Azure Data Lake Storage Gen2 | Azure Active Directory Domain Services | Banco de Dados do Azure para MariaDB |
@@ -105,15 +105,15 @@ Conforme mencionado anteriormente, o Azure classifica os serviços em três cate
 > | Serviços de nuvem: série Ev3 | Banco de Dados do Azure para PostgreSQL | Serviço de nuvem do Azure Spring |
 > | Serviços de nuvem: IPs de nível de instância | Serviço de Migração de Banco de Dados do Azure | Azure Time Series Insights |
 > | Serviços de nuvem: IP Reservado | Azure Databricks | Solução VMware no Azure pela CloudSimple |
-> | Armazenamento em disco | Proteção contra DDoS do Azure | Serviços de nuvem: série G |
+> | Armazenamento em Disco | Proteção contra DDoS do Azure | Serviços de nuvem: série G |
 > | Hubs de Eventos | Azure DevTest Labs | Serviços de nuvem: série H |
 > | Key Vault | Firewall do Azure | Serviços cognitivas: Visão Personalizada |
 > | Balanceador de carga | Gerenciador de Firewall do Azure | Serviços cognitivas: Reconhecimento do Locutor |
-> | Barramento de Serviço | Azure Functions | Data Box Heavy |
+> | Barramento de Serviço | Funções do Azure | Data Box Heavy |
 > | Service Fabric | Azure HPC Cache | Catálogo de Dados |
 > | Conjuntos de Dimensionamento de Máquinas Virtuais | Hub IoT do Azure | Data Factory: Data Factory v1 |
 > | Máquinas Virtuais | AKS (Serviço de Kubernetes do Azure) | Data Lake Analytics |
-> | Máquinas virtuais: Av2-Series | Azure Machine Learning | Machine Learning Studio |
+> | Máquinas virtuais: Av2-Series | Azure Machine Learning | Azure Machine Learning Studio (clássico)|
 > | Máquinas virtuais: BS-Series | Link Privado do Azure | Microsoft Genomics |
 > | Máquinas virtuais: DSv2-Series | Red Hat OpenShift no Azure | Remote Rendering |
 > | Máquinas virtuais: DSv3-Series | Serviço Azure SignalR | Âncoras Espaciais |

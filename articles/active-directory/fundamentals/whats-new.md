@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 10/06/2020
 ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9bcc356835fcfc080bd381043552d6e8868cc7f
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: c16008ac4a328f93669179ccca783efb9ef092a5
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91446627"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91773498"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Novidades no Azure Active Directory
 
@@ -57,6 +57,22 @@ Agora você pode automatizar a criação, a atualização e a exclusão de conta
 - [Reconhecimento de segurança do Webroot](../saas-apps/webroot-security-awareness-training-provisioning-tutorial.md)
 
 Para obter mais informações para proteger melhor sua organização com o provisionamento automatizado de contas de usuário, consulte [Automatizar o provisionamento de usuário para aplicativos SaaS com o Azure Active Directory](../app-provisioning/user-provisioning.md).
+ 
+---
+### <a name="cloud-provisioning-public-preview-refresh"></a>Atualização de visualização pública de provisionamento de nuvem
+
+**Tipo:** novo recurso  
+**Categoria de serviço:** **Funcionalidade do produto** de provisionamento de nuvem do Azure AD: gerenciamento do ciclo de vida de identidade
+ 
+Azure AD Connect a atualização de visualização pública de provisionamento de nuvem apresenta dois principais aprimoramentos desenvolvidos com base nos comentários dos clientes: 
+
+- Experiência de mapeamento de atributos por meio do portal do Azure
+
+    Com esse recurso, os administradores de ti podem mapear atributos de usuário, grupo ou contato do AD para o Azure AD usando vários tipos de mapeamento presentes hoje. O mapeamento de atributos é um recurso usado para padronizar os valores dos atributos que fluem de Active Directory para Azure Active Directory. É possível determinar se o valor do atributo deve ser mapeado diretamente como é do AD para o Azure AD ou usar expressões para transformar os valores de atributo ao provisionar os usuários. [Saiba mais](../cloud-provisioning/how-to-attribute-mapping.md)
+
+- Provisionamento sob demanda ou experiência do usuário de teste
+
+    Depois de configurar sua configuração, talvez você queira testar para ver se a transformação do usuário está funcionando conforme o esperado antes de aplicá-la a todos os usuários no escopo. Com o provisionamento sob demanda, os administradores de ti podem inserir o DN (nome distinto) de um usuário do AD e ver se eles estão sendo sincronizados conforme o esperado. O provisionamento sob demanda fornece uma ótima maneira de garantir que os mapeamentos de atributo que você realizou anteriormente funcionem conforme o esperado. [Saiba mais](../cloud-provisioning/how-to-on-demand-provision.md)
  
 ---
 
@@ -106,7 +122,7 @@ A avaliação de acesso contínuo (CAE) agora está disponível em visualizaçã
 
 ---
 
-### <a name="ask-users-requesting-an-access-package-additional-questions-to-improve-approval-decisions"></a>Solicitar aos usuários que solicitam um pacote de acesso outras perguntas para melhorar as decisões de aprovação
+### <a name="public-preview-ask-users-requesting-an-access-package-additional-questions-to-improve-approval-decisions"></a>Visualização pública: solicitar que os usuários solicitem a um pacote de acesso outras perguntas para melhorar as decisões de aprovação
 
 **Tipo:** novo recurso  
 **Categoria de serviço:** Gerenciamento de acesso do usuário  
@@ -396,7 +412,7 @@ Um [pacote cumulativo de atualizações de hotfix (Build 4.6.263.0)](https://sup
  
 Com a versão GA da condição de aplicativos cliente no acesso condicional, novas políticas agora serão aplicadas por padrão a todos os aplicativos cliente. Isso inclui clientes de autenticação herdados. As políticas existentes permanecerão inalteradas, mas a opção *Configurar Sim/não* será removida das políticas existentes para ver facilmente quais aplicativos cliente são aplicados pela política. 
 
-Ao criar uma nova política, certifique-se de excluir usuários e contas de serviço que ainda estão usando a autenticação herdada; caso contrário, eles serão bloqueados. [Saiba mais](https://aka.ms/caclientapps).
+Ao criar uma nova política, certifique-se de excluir usuários e contas de serviço que ainda estão usando a autenticação herdada; caso contrário, eles serão bloqueados. [Saiba mais](https://aka.ms/caclientapps) 
  
 ---
 
@@ -406,7 +422,7 @@ Ao criar uma nova política, certifique-se de excluir usuários e contas de serv
 **Categoria de serviço:** provisionamento de aplicativos  
 **Funcionalidade do produto:** Gerenciamento do ciclo de vida de identidade
  
-O serviço de provisionamento do Azure AD utiliza o padrão SCIM para integração com aplicativos. Nossa implementação do padrão SCIM está em evolução, e esperamos fazer alterações em nosso comportamento em relação a como executamos operações de PATCH, bem como definir a propriedade "active" em um recurso. [Saiba mais](../app-provisioning/application-provisioning-config-problem-scim-compatibility.md).
+O serviço de provisionamento do Azure AD utiliza o padrão SCIM para integração com aplicativos. Nossa implementação do padrão SCIM está em evolução, e esperamos fazer alterações em nosso comportamento em relação a como executamos operações de PATCH, bem como definir a propriedade "active" em um recurso. [Saiba mais](../app-provisioning/application-provisioning-config-problem-scim-compatibility.md) 
  
 ---
 
@@ -454,7 +470,7 @@ Os administradores agora podem ver se uma autenticação do Windows usou o Windo
 **Categoria de serviço:** provisionamento de aplicativos  
 **Funcionalidade do produto:** Gerenciamento do ciclo de vida de identidade
  
-Anteriormente, quando um grupo foi alterado de "dentro do escopo" para "fora do escopo" e um administrador clicou em reiniciar antes de a alteração ser concluída, o objeto de grupo não estava sendo excluído. Agora o objeto de grupo será excluído do aplicativo de destino quando ele sair do escopo (desabilitado, excluído, não atribuído ou não aprovado no filtro de escopo). [Saiba mais](../app-provisioning/how-provisioning-works.md#incremental-cycles).
+Anteriormente, quando um grupo foi alterado de "dentro do escopo" para "fora do escopo" e um administrador clicou em reiniciar antes de a alteração ser concluída, o objeto de grupo não estava sendo excluído. Agora o objeto de grupo será excluído do aplicativo de destino quando ele sair do escopo (desabilitado, excluído, não atribuído ou não aprovado no filtro de escopo). [Saiba mais](../app-provisioning/how-provisioning-works.md#incremental-cycles) 
  
 ---
 
@@ -837,7 +853,7 @@ Se o token de entrada SAML original usou um formato diferente para NameID (por e
 **Categoria de serviço:** Provisionamento de nuvem do Azure AD  
 **Funcionalidade do produto:** Gerenciamento do ciclo de vida de identidade
  
-Os administradores de ti podem começar a usar a nova função "administrador híbrido" como a função menos privilegiada para configurar o provisionamento de nuvem do Azure ADConnect. Com essa nova função, você não precisa mais usar a função de administrador global para configurar e configurar o provisionamento de nuvem. [Saiba mais](../users-groups-roles/roles-delegate-by-task.md#connect).
+Os administradores de ti podem começar a usar a nova função "administrador híbrido" como a função menos privilegiada para configurar o provisionamento de nuvem do Azure ADConnect. Com essa nova função, você não precisa mais usar a função de administrador global para configurar e configurar o provisionamento de nuvem. [Saiba mais](../users-groups-roles/roles-delegate-by-task.md#connect) 
  
 ---
 

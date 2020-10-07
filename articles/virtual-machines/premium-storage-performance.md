@@ -4,15 +4,15 @@ description: Crie aplicativos de alto desempenho usando os Managed Disks SSD Pre
 author: roygara
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 06/27/2017
+ms.date: 10/05/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 48157c8d9285c48d49e76f39602075a2a8ac9682
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: f89358f4ca34c39527d7e65307ada042ba3df7e0
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650707"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776146"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Armazenamento Premium do Azure: projeto para alto desempenho
 
@@ -305,45 +305,11 @@ Por exemplo, você pode aplicar essas diretrizes ao SQL Server em execução no 
 
 ## <a name="optimize-performance-on-linux-vms"></a>Otimizar o desempenho em VMs Linux
 
-Para todos os SSDs Premium ou Discos Ultra com cache definido como **ReadOnly** ou **nenhum**, é necessário desabilitar "barreiras" ao montar o sistema de arquivos. Você não precisa de barreiras para esse cenário, pois as gravações em discos de Armazenamento Premium são duráveis para essas configurações de cache. Quando a solicitação de gravação for concluída, os dados terão sido gravados no armazenamento persistente. Para desabilitar "barreiras", use um dos seguintes métodos. Escolha o seguinte para o sistema de arquivos:
-  
-* Para **reiserFS**, para desabilitar as barreiras, use a opção de montagem `barrier=none`. (Para habilitar as barreiras, use `barrier=flush`.)
-* Para **ext3/ext4**, para desabilitar as barreiras, use a opção de montagem `barrier=0`. (Para habilitar as barreiras, use `barrier=1`.)
-* Para **XFS**, para desabilitar as barreiras, use a opção de montagem `nobarrier`. (Para habilitar as barreiras, use `barrier`.)
-* Para discos de armazenamento premium com cache definido como **ReadWrite**, habilite as barreiras para durabilidade de gravação.
-* Para que rótulos de volume persistam depois de reiniciar a máquina virtual, você deve atualizar /etc/fstab com as referências do identificador universalmente exclusivo (UUID) nos discos. Para obter mais informações, confira [Adicionar um disco gerenciado a uma VM Linux](./linux/add-disk.md).
+Para todos os SSDs ou ultra discos Premium, você poderá desabilitar "barreiras" para sistemas de arquivos no disco, a fim de melhorar o desempenho quando for conhecido que não haja caches que possam perder dados.  Se o cache de disco do Azure estiver definido como ReadOnly ou None, você poderá desabilitar as barreiras.  Mas se o Caching estiver definido como ReadWrite, as barreiras deverão permanecer habilitadas para garantir a durabilidade da gravação.  As barreiras são geralmente habilitadas por padrão, mas você pode desabilitar as barreiras usando um dos seguintes métodos, dependendo do tipo de sistema de arquivos:
 
-As seguintes distribuições Linux foram validadas para SSDs Premium. Para obter melhor desempenho e estabilidade com SSDs Premium, recomendamos que você atualize suas VMs para uma dessas versões ou versões mais recentes. 
-
-Algumas das versões exigem um LIS (Serviços de Integração do Linux) v4.0 para Azure mais recente. Para baixar e instalar uma distribuição, siga o link listado na tabela a seguir. Podemos adicionar imagens à lista à medida que concluímos a validação. Nossas validações mostram que o desempenho varia para cada imagem. O desempenho depende da carga de trabalho e das configurações de imagem. Imagens diferentes são ajustadas para tipos diferentes de carga de trabalho.
-
-| Distribuição | Versão | Kernel com suporte | Detalhes |
-| --- | --- | --- | --- |
-| Ubuntu | 12.04 ou mais recente| 3.2.0-75.110+ | &nbsp; |
-| Ubuntu | 14.04 ou mais recente| 3.13.0-44.73+  | &nbsp; |
-| Debian | 7.x, 8.x ou mais recente| 3.16.7-ckt4-1+ | &nbsp; |
-| SUSE | SLES 12 ou mais recente| 3.12.36-38.1+ | &nbsp; |
-| SUSE | SLES 11 SP4 ou mais recente| 3.0.101-0.63.1+ | &nbsp; |
-| CoreOS | 584.0.0+ ou mais recente| 3.18.4+ | &nbsp; |
-| CentOS | 6.5, 6.6, 6.7, 7.0 ou mais recente| &nbsp; | [LIS4 obrigatório](https://www.microsoft.com/download/details.aspx?id=55106) <br> *Confira a observação na próxima seção* |
-| CentOS | 7.1+ ou mais recente| 3.10.0-229.1.2.el7+ | [LIS4 recomendado](https://www.microsoft.com/download/details.aspx?id=55106) <br> *Confira a observação na próxima seção* |
-| Red Hat Enterprise Linux (RHEL) | 6.8+, 7.2+ ou mais recente | &nbsp; | &nbsp; |
-| Oracle | 6.0+, 7.2+ ou mais recente | &nbsp; | UEK4 ou RHCK |
-| Oracle | 7.0-7.1 ou mais recente | &nbsp; | UEK4 ou RHCK w/[LIS4](https://www.microsoft.com/download/details.aspx?id=55106) |
-| Oracle | 6.4-6.7 ou mais recente | &nbsp; | UEK4 ou RHCK w/[LIS4](https://www.microsoft.com/download/details.aspx?id=55106) |
-
-### <a name="lis-drivers-for-openlogic-centos"></a>Drivers LIS para Openlogic CentOS
-
-Se você estiver executando VMs com o OpenLogic CentOS, execute o comando a seguir para instalar os drivers mais recentes:
-
-```
-sudo yum remove hypervkvpd  ## (Might return an error if not installed. That's OK.)
-sudo yum install microsoft-hyper-v
-sudo reboot
-```
-
-Em alguns casos, o comando acima também atualizará o kernel. Se uma atualização de kernel for necessária, talvez seja preciso executar os comandos acima novamente após a reinicialização para instalar completamente o pacote microsoft-hyper-v.
-
+* Para **reiserFS**, use a opção de montagem barreira = nenhum para desabilitar as barreiras.  Para habilitar as barreiras explicitamente, use barreira = liberação.
+* Para **ext3/ext4**, use a opção de montagem barreira = 0 para desabilitar as barreiras.  Para habilitar as barreiras explicitamente, use a barreira = 1.
+* Para **xfs**, use a opção de montagem nobarreira para desabilitar as barreiras.  Para habilitar as barreiras explicitamente, use a barreira.  Observe que nas versões posteriores do kernel do Linux, o design do sistema de arquivos XFS sempre garante a durabilidade, e desabilitar as barreiras não tem nenhum efeito.  
 
 ## <a name="disk-striping"></a>Distribuição de discos
 

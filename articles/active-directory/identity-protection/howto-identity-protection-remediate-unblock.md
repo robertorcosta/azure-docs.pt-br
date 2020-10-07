@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 06/05/2020
+ms.date: 10/06/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06335798addadcd8591625e25ed2eafe8469ae48
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c297e1a4f6443e584f04914712314d33df23b119
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84463953"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776095"
 ---
 # <a name="remediate-risks-and-unblock-users"></a>Corrigir riscos e desbloquear usuários
 
@@ -88,6 +88,10 @@ Para desbloquear uma conta com base no risco de entrada, os administradores têm
 1. **Entrada de um local ou dispositivo familiar** – uma razão comum para entradas suspeitas bloqueadas são as tentativas de entrada de locais ou de dispositivos desconhecidos. Os usuários podem determinar rapidamente se esse motivo é o motivo do bloqueio, tentando entrar de um local ou dispositivo familiar.
 1. **Excluir o usuário da política** – se você acredita que a configuração atual da sua política de entrada está causando problemas para usuários específicos, você pode excluir os usuários dele. Para obter mais informações, consulte a seção exclusões no artigo [como configurar e habilitar políticas de risco](howto-identity-protection-configure-risk-policies.md#exclusions).
 1. **Desabilitar política** - se você achar que sua configuração de política está causando problemas para todos os usuários, poderá desabilitar a política. Para obter mais informações, consulte o artigo [como configurar e habilitar políticas de risco](howto-identity-protection-configure-risk-policies.md).
+
+## <a name="powershell-preview"></a>Visualização do PowerShell
+
+Usando o módulo SDK do Microsoft Graph PowerShell Preview, as organizações podem gerenciar riscos usando o PowerShell. Os módulos de visualização e o código de exemplo podem ser encontrados no [repositório GitHub do Azure ad](https://github.com/AzureAD/IdentityProtectionTools).
 
 ## <a name="next-steps"></a>Próximas etapas
 

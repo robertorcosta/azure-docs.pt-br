@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: ff28bbf57ac77e1bc092d35e9bf493f75040cc9c
-ms.sourcegitcommit: 5b69ba21787c07547edfbfd5254eaf34315cfadd
+ms.openlocfilehash: 6543b629af8d67658afe61ef81e22eb7355e1de7
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91712299"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91772797"
 ---
 # <a name="azure-activity-log"></a>Log de Atividades do Azure
 O log de atividades é um [log de plataforma](platform-logs-overview.md) no Azure que fornece informações sobre eventos de nível de assinatura. Isso inclui informações como quando um recurso é modificado ou quando uma máquina virtual é iniciada. Veja o log de atividades no portal do Azure ou recupere as entradas com o PowerShell e a CLI. Para funcionalidade adicional, você deve criar uma configuração de diagnóstico para enviar o log de atividades para [Azure monitor logs](data-platform-logs.md), para os hubs de eventos do Azure para encaminhar fora do Azure ou para o armazenamento do Azure para arquivamento. Este artigo fornece detalhes sobre como exibir o log de atividades e enviá-lo para diferentes destinos.
@@ -399,4 +399,5 @@ Em breve, você não poderá mais adicionar a solução de análise de logs de a
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Leia uma visão geral dos logs de plataforma](platform-logs-overview.md)
+* [Revisar esquema de evento do log de atividades](activity-log-schema.md)
 * [Criar configuração de diagnóstico para enviar logs de atividades para outros destinos](diagnostic-settings.md)

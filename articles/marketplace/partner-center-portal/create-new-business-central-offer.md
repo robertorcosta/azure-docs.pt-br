@@ -7,12 +7,12 @@ ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 08/07/2020
-ms.openlocfilehash: e42111de7d05f184e1153ddc351c3f1fa10cc86f
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.openlocfilehash: bc34d2044c3a91fe18e900b21d589dde855754d3
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91665231"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91774571"
 ---
 # <a name="create-a-dynamics-365-business-central-offer"></a>Criar uma oferta do Dynamics 365 Business Central
 
@@ -36,12 +36,13 @@ Antes de começar, [crie uma conta do Marketplace comercial no Partner Center](c
 Insira uma **ID da oferta**. Esse é um identificador exclusivo para cada oferta em sua conta.
 
 - Essa ID é visível para os clientes no endereço da Web para a oferta do Marketplace e nos modelos do Azure Resource Manager, se aplicável.
-- Use apenas letras minúsculas e números. Ela pode incluir hifens e sublinhados, mas sem espaços, e está limitada a 50 caracteres. Por exemplo, se você inserir **test-offer-1**, o endereço web da oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
-- A ID da oferta não poderá ser alterada depois que você selecionar a opção **Criar**.
+- A ID da oferta combinada com a ID do Publicador deve ter menos de 40 caracteres de comprimento.
+- Use apenas letras minúsculas e números. Ele pode incluir hifens e sublinhados, mas sem espaços. Por exemplo, se sua ID de editor for testpublisherid e você inserir **Test-offer-1** aqui, o endereço Web da oferta será `https://appsource.microsoft.com/product/dynamics-365/testpublisherid.test-offer-1` .
+- A ID da oferta não pode ser alterada depois que você seleciona **Criar**.
 
 Insira um **Alias da oferta**. Esse é o nome usado para a oferta no Partner Center.
 
-- Esse nome não é usado no marketplace e é diferente do nome da oferta e de outros valores mostrados aos clientes.
+- Esse nome não é usado no Marketplace e é diferente do nome da oferta e de outros valores mostrados aos clientes.
 - O Alias da oferta não poderá ser alterado depois que você selecionar a opção **Criar**.
 
 Selecione **Criar** para gerar a oferta e continuar.

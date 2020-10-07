@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b225ccb0e607b073fd28f79d0151da0b77f5cdf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 922cea49179e63e2481a7f15b1e78bd8bf6c4848
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91266608"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91773919"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Opções de autenticação com senha para Azure Active Directory
 
@@ -61,6 +61,8 @@ Você também pode permitir que o telefone de seu funcionário se torne um méto
 ![Entrar no Microsoft Edge com o aplicativo Microsoft Authenticator](./media/concept-authentication-passwordless/concept-web-sign-in-microsoft-authenticator-app.png)
 
 O aplicativo autenticador transforma qualquer telefone iOS ou Android em uma credencial forte e com senha. Os usuários podem entrar em qualquer plataforma ou navegador, obtendo uma notificação para seu telefone, correspondendo a um número exibido na tela para aquele em seu telefone e, em seguida, usando sua biométrica (toque ou face) ou PIN para confirmar. Consulte [baixar e instalar o aplicativo Microsoft Authenticator](../user-help/user-help-auth-app-download-install.md) para obter detalhes de instalação.
+
+A entrada sem senha com o aplicativo Microsoft Authenticator para o Azure AD está atualmente em versão prévia. Uso do aplicativo Microsoft Authenticator para autenticação secundária para autenticação multifator do Azure, redefinição de senha de autoatendimento (SSPR) ou tokens de software OATH é GA. Para saber mais sobre versões prévias, consulte os [Termos de Uso Complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 A autenticação com senha usando o aplicativo autenticador segue o mesmo padrão básico do Windows Hello para empresas. É um pouco mais complicado, pois o usuário precisa ser identificado para que o Azure AD possa encontrar a versão do aplicativo Microsoft Authenticator que está sendo usada:
 

@@ -3,14 +3,14 @@ title: Executar runbooks da Automação do Azure em um Hybrid Runbook Worker
 description: Este artigo descreve como executar runbooks em computadores em seu datacenter local ou outro provedor de nuvem com o Hybrid Runbook Worker.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/22/2020
+ms.date: 10/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: ab3daedcb2222f8d639522d1afa6d4e9acbe1626
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2f1c703f2bd2e90e15c566b7e04e8a878c16f6de
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91323338"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91772814"
 ---
 # <a name="run-runbooks-on-a-hybrid-runbook-worker"></a>Executar runbooks em um Hybrid Runbook Worker
 
@@ -24,7 +24,7 @@ A automação do Azure lida com trabalhos em Hybrid runbook Workers de forma dif
 
 Os trabalhos para Hybrid runbook Workers são executados sob a conta **sistema** local no Windows ou a conta **nxautomation** no Linux. Para o Linux, verifique se a conta **nxautomation** tem acesso ao local onde os módulos runbook estão armazenados. Ao usar o cmdlet [Install-Module](/powershell/module/powershellget/install-module), especifique AllUsers para o parâmetro `Scope` para garantir que a conta **nxautomation** tenha acesso. Para obter mais informações sobre o PowerShell no Linux, confira [Problemas conhecidos do PowerShell em plataformas que não são do Windows](/powershell/scripting/whats-new/known-issues-ps6#known-issues-for-powershell-on-non-windows-platforms).
 
-## <a name="set-up-runbook-permissions"></a>Configurar permissões de runbook
+## <a name="configure-runbook-permissions"></a>Configurar permissões de runbook
 
 Defina as permissões para que o runbook seja executado no Hybrid Runbook Worker das seguintes maneiras:
 
@@ -32,7 +32,7 @@ Defina as permissões para que o runbook seja executado no Hybrid Runbook Worker
 * Configure a autenticação usando [identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager).
 * Especifique uma conta Executar como para fornecer um contexto de usuário a todos os runbooks.
 
-## <a name="use-runbook-authentication-to-local-resources"></a>Usar autenticação do runbook para recursos locais
+### <a name="use-runbook-authentication-to-local-resources"></a>Usar autenticação do runbook para recursos locais
 
 Se estiver preparando um runbook que forneça a própria autenticação para recursos, use os ativos [credencial](./shared-resources/credentials.md) e [certificado](./shared-resources/certificates.md) em seu runbook. Há vários cmdlets que permitem especificar credenciais para que o runbook possa se autenticar em diferentes recursos. O exemplo a seguir mostra uma parte de um runbook que reinicia um computador. Ele recupera as credenciais de um ativo de credencial e o nome do computador de um ativo variável, para então usar esses valores com o cmdlet `Restart-Computer`.
 
@@ -45,7 +45,7 @@ Restart-Computer -ComputerName $Computer -Credential $Cred
 
 Você também pode usar uma atividade [InlineScript](automation-powershell-workflow.md#use-inlinescript). A `InlineScript` permite executar blocos de código em outro computador com credenciais.
 
-## <a name="use-runbook-authentication-with-managed-identities"></a><a name="runbook-auth-managed-identities"></a>Usar autenticação de runbook com identidades gerenciadas
+### <a name="use-runbook-authentication-with-managed-identities"></a><a name="runbook-auth-managed-identities"></a>Usar autenticação de runbook com identidades gerenciadas
 
 Os Hybrid Runbook Workers em máquinas virtuais do Azure podem usar identidades gerenciadas para autenticação em recursos do Azure. O uso de identidades gerenciadas para recursos do Azure em vez das contas Executar como oferece benefícios porque você não precisa:
 
@@ -72,7 +72,7 @@ Siga as próximas etapas para usar uma identidade gerenciada para recursos do Az
     > [!NOTE]
     > O `Connect-AzAccount -Identity` funciona para um Hybrid Runbook Worker usando uma identidade atribuída pelo sistema e uma identidade atribuída pelo usuário. Se você usar várias identidades atribuídas pelo usuário no Hybrid Runbook Worker, seu runbook deverá especificar o parâmetro `AccountId` para `Connect-AzAccount` para selecionar uma identidade específica atribuída pelo usuário.
 
-## <a name="use-runbook-authentication-with-run-as-account"></a>Usar autenticação de runbook com a conta Executar como
+### <a name="use-runbook-authentication-with-run-as-account"></a>Usar autenticação de runbook com a conta Executar como
 
 Em vez dos runbooks fornecerem a própria autenticação aos recursos locais, você pode especificar uma conta Executar como para um grupo do Hybrid Runbook Worker. Para especificar uma conta Executar como, você deve definir um [ativo de credencial](./shared-resources/credentials.md) que tenha acesso aos recursos locais. Esses recursos incluem repositórios de certificados e todos os runbooks são executados sob essas credenciais em um Hybrid Runbook Worker no grupo.
 
@@ -182,7 +182,7 @@ Para concluir a preparação da conta Executar como:
 
 ## <a name="work-with-signed-runbooks-on-a-windows-hybrid-runbook-worker"></a>Trabalhar com runbooks assinados em um Hybrid Runbook Worker do Windows
 
-Você pode configurar um Hybrid Runbook Worker do Windows para executar apenas runbooks assinados. 
+Você pode configurar um Hybrid Runbook Worker do Windows para executar apenas runbooks assinados.
 
 > [!IMPORTANT]
 > Depois de configurar um Hybrid Runbook Worker para executar apenas runbooks assinados, os runbooks não assinados falharão ao serem executados no trabalho.
@@ -194,14 +194,13 @@ O exemplo a seguir cria um certificado autoassinado que pode ser usado para assi
 ```powershell
 # Create a self-signed certificate that can be used for code signing
 $SigningCert = New-SelfSignedCertificate -CertStoreLocation cert:\LocalMachine\my `
-                                        -Subject "CN=contoso.com" `
-                                        -KeyAlgorithm RSA `
-                                        -KeyLength 2048 `
-                                        -Provider "Microsoft Enhanced RSA and AES Cryptographic Provider" `
-                                        -KeyExportPolicy Exportable `
-                                        -KeyUsage DigitalSignature `
-                                        -Type CodeSigningCert
-
+    -Subject "CN=contoso.com" `
+    -KeyAlgorithm RSA `
+    -KeyLength 2048 `
+    -Provider "Microsoft Enhanced RSA and AES Cryptographic Provider" `
+    -KeyExportPolicy Exportable `
+    -KeyUsage DigitalSignature `
+    -Type CodeSigningCert
 
 # Export the certificate so that it can be imported to the hybrid workers
 Export-Certificate -Cert $SigningCert -FilePath .\hybridworkersigningcertificate.cer
@@ -247,6 +246,13 @@ Para poder trabalhar com runbooks assinados, um Hybrid Runbook Worker do Linux d
 > [!IMPORTANT]
 > Depois de configurar um Hybrid Runbook Worker para executar apenas runbooks assinados, os runbooks não assinados falharão ao serem executados no trabalho.
 
+Você executará as seguintes etapas para concluir esta configuração:
+
+* Criar um token de autenticação e um par de chaves do GPG
+* Disponibilizar o token de autenticação para o Hybrid Runbook Worker
+* Verificar se a validação de assinatura está ativada
+* Assinar um runbook
+
 ### <a name="create-a-gpg-keyring-and-keypair"></a>Criar um token de autenticação e um par de chaves do GPG
 
 Para criar o token de autenticação e o par de chaves do GPG, use a conta [nxautomation](automation-runbook-execution.md#log-analytics-agent-for-linux) do Hybrid Runbook Worker.
@@ -271,10 +277,10 @@ Para criar o token de autenticação e o par de chaves do GPG, use a conta [nxau
 
 ### <a name="make-the-keyring-available-to-the-hybrid-runbook-worker"></a>Disponibilizar o token de autenticação para o Hybrid Runbook Worker
 
-Depois que o token de autenticação for criado, disponibilize-o para o Hybrid Runbook Worker. Modifique o arquivo de configurações **/var/opt/microsoft/omsagent/state/automationworker/diy/worker.conf** para incluir o código de exemplo a seguir na seção `[worker-optional]` do arquivo.
+Depois que o token de autenticação for criado, disponibilize-o para o Hybrid Runbook Worker. Modifique o arquivo de configurações **Home/nxautomation/State/Worker. conf** para incluir o seguinte código de exemplo na seção arquivo `[worker-optional]` .
 
 ```bash
-gpg_public_keyring_path = /var/opt/microsoft/omsagent/run/.gnupg/pubring.kbx
+gpg_public_keyring_path = /home/nxautomation/run/.gnupg/pubring.kbx
 ```
 
 ### <a name="verify-that-signature-validation-is-on"></a>Verificar se a validação de assinatura está ativada
@@ -309,7 +315,7 @@ Ao iniciar um runbook usando o PowerShell, use o parâmetro `RunOn` com o cmdlet
 Start-AzAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" -RunOn "MyHybridGroup"
 ```
 
-## <a name="logging"></a>Registro em log
+## <a name="logging"></a>Registrando em log
 
 Para ajudar a solucionar problemas com seus runbooks em execução em um runbook Worker híbrido, os logs são armazenados localmente no seguinte local:
 

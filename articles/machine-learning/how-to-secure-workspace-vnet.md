@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 07/07/2020
+ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: be476af3696e0753c8e36cfc34a024f8b585c605
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: 5d34fe403e0af4bc871ba176d0fa755650c26292
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91708309"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776028"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>Proteger um espaço de trabalho Azure Machine Learning com redes virtuais
 
@@ -57,10 +57,9 @@ O link privado do Azure permite que você se conecte ao seu espaço de trabalho 
 
 Para obter mais informações sobre a configuração de um espaço de trabalho de link privado, consulte [como configurar o link privado](how-to-configure-private-link.md).
 
+## <a name="secure-azure-storage-accounts-with-service-endpoints"></a>Proteger contas de armazenamento do Azure com pontos de extremidade de serviço
 
-## <a name="secure-azure-storage-accounts"></a>Proteger contas de armazenamento do Azure
-
-Nesta seção, você aprenderá a proteger uma conta de armazenamento do Azure usando pontos de extremidade de serviço. No entanto, você também pode usar pontos de extremidade privados para proteger o armazenamento do Azure. Para obter mais informações, consulte [usar pontos de extremidade privados para o armazenamento do Azure](../storage/common/storage-private-endpoints.md).
+O Azure Machine Learning dá suporte a contas de armazenamento configuradas para usar pontos de extremidade de serviço ou pontos de extremidade privados. Nesta seção, você aprenderá a proteger uma conta de armazenamento do Azure usando pontos de extremidade de serviço. Para pontos de extremidade privados, consulte a próxima seção.
 
 > [!IMPORTANT]
 > Você pode colocar a _conta de armazenamento padrão_ para o Azure Machine Learning ou as _contas de armazenamento não padrão_ em uma rede virtual.
@@ -95,11 +94,23 @@ Para usar uma conta de armazenamento do Azure para o workspace em uma rede virtu
 
    [![O painel “Firewalls e redes virtuais” no portal do Azure](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png#lightbox)
 
+## <a name="secure-azure-storage-accounts-with-private-endpoints"></a>Proteger contas de armazenamento do Azure com pontos de extremidade privados
+
+O Azure Machine Learning dá suporte a contas de armazenamento configuradas para usar pontos de extremidade de serviço ou pontos de extremidade privados. Se a conta de armazenamento usar pontos de extremidade privados, você deverá configurar dois pontos de extremidade privados para sua conta de armazenamento padrão:
+1. Um ponto de extremidade privado com um subrecurso de destino de **blob** .
+1. Um ponto de extremidade privado com um subrecurso de destino de **arquivo** (FileShare).
+
+![Captura de tela mostrando a página de configuração de ponto de extremidade privado com opções de BLOB e arquivo](./media/how-to-enable-studio-virtual-network/configure-storage-private-endpoint.png)
+
+Para configurar um ponto de extremidade privado para uma conta de armazenamento que **não** seja o armazenamento padrão, selecione o tipo de **subrecurso de destino** que corresponde à conta de armazenamento que você deseja adicionar.
+
+Para obter mais informações, consulte [usar pontos de extremidade privados para o armazenamento do Azure](../storage/common/storage-private-endpoints.md)
+
 ## <a name="secure-datastores-and-datasets"></a>Repositórios de armazenamento e conjuntos de os seguros
 
-Nesta seção, você aprenderá a usar o repositório de armazenamento e o uso do conjunto de informações para a experiência do SDK em uma rede virtual. Para obter mais informações sobre a experiência do estúdio, consulte [usar o Azure Machine Learning Studio em uma rede virtual](how-to-enable-studio-virtual-network.md).
+Nesta seção, você aprenderá a usar o repositório de armazenamento e os conjuntos de informações na experiência do SDK com uma rede virtual. Para obter mais informações sobre a experiência do estúdio, consulte [usar o Azure Machine Learning Studio em uma rede virtual](how-to-enable-studio-virtual-network.md).
 
-Para acessar os dados usando o SDK, você deve usar o método de autenticação exigido pelo serviço individual no qual os dados são armazenados. Por exemplo, se você registrar um repositório de armazenamento para acessar Azure Data Lake Store Gen2, ainda deverá usar uma entidade de serviço, conforme documentado em [conectar-se aos serviços de armazenamento do Azure](how-to-access-data.md#azure-data-lake-storage-generation-2).
+Para acessar dados usando o SDK, você deve usar o método de autenticação exigido pelo serviço individual no qual os dados são armazenados. Por exemplo, se você registrar um repositório de armazenamento para acessar Azure Data Lake Store Gen2, ainda deverá usar uma entidade de serviço, conforme documentado em [conectar-se aos serviços de armazenamento do Azure](how-to-access-data.md#azure-data-lake-storage-generation-2).
 
 ### <a name="disable-data-validation"></a>Desabilitar validação de dados
 

@@ -10,12 +10,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: e0c5e6041da933b4a42bc438900f8c4c91cc6dbc
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: 4b2f819edd875130c57d487536691b4588dcc71f
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91711180"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91772661"
 ---
 # <a name="monitoring-azure-files"></a>Monitorando arquivos do Azure
 
@@ -71,6 +71,8 @@ Você também precisa especificar uma das seguintes categorias de operações pa
 | StorageRead | Operações de leitura em objetos. |
 | StorageWrite | Operações de gravação em objetos. |
 | StorageDelete | Excluir operações em objetos. |
+
+Para obter a lista de operações de SMB e REST registradas, consulte [operações registradas de armazenamento e mensagens de status](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) e [referência de dados de monitoramento de arquivos do Azure](storage-files-monitoring-reference.md).
 
 ## <a name="analyzing-metrics"></a>Analisando métricas
 
@@ -276,7 +278,7 @@ O exemplo a seguir mostra como ler dados em uma métrica que suporta várias dim
 
 Você pode acessar os logs de recursos como um blob em uma conta de armazenamento, como dados de evento, ou por meio de consultas do Log Analytics.
 
-Para obter uma referência detalhada dos campos que aparecem nesses logs, consulte [referência de dados de monitoramento de arquivos](storage-files-monitoring-reference.md)do Azure Azure.
+Para obter a lista de operações de SMB e REST registradas, consulte [operações registradas de armazenamento e mensagens de status](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) e [referência de dados de monitoramento de arquivos do Azure](storage-files-monitoring-reference.md).
 
 > [!NOTE]
 > Os logs do Armazenamento do Microsoft Azure no Azure Monitor estão em versão preliminar pública e disponíveis para teste de versão preliminar em todas as regiões de nuvem pública. Para se inscrever na versão preliminar, veja [esta página](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u). Essa versão preliminar habilita logs para blobs (que incluem Azure Data Lake Storage Gen2), arquivos, filas, tabelas, contas de armazenamento Premium nas contas de armazenamento GPv1 e GPv2. Não há suporte para contas de armazenamento clássicas.
@@ -292,7 +294,7 @@ As entradas de log são criadas somente se há solicitações feitas no ponto de
 - Solicitações que usam uma SAS (Assinatura de Acesso Compartilhado) ou OAuth, incluindo solicitações bem-sucedidas e com falha
 - Solicitações para dados de análise (dados de log clássicos no contêiner **$logs** e dados de métrica clássicos nas tabelas **$metric**)
 
-As solicitações feitas pelo próprio serviço de arquivos do Azure, como criação ou exclusão de log, não são registradas. Para uma lista completa de dados registrados, consulte [Mensagens de operações e status registradas em logs](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) e [Formato de log de armazenamento](storage-files-monitoring-reference.md).
+As solicitações feitas pelo próprio serviço de arquivos do Azure, como criação ou exclusão de log, não são registradas. Para obter uma lista completa das solicitações SMB e REST registradas, consulte [operações registradas de armazenamento e mensagens de status](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) e [referência de dados de monitoramento de arquivos do Azure](storage-files-monitoring-reference.md).
 
 ### <a name="log-anonymous-requests"></a>Registrar em log solicitações anônimas
 
@@ -303,7 +305,7 @@ As solicitações feitas pelo próprio serviço de arquivos do Azure, como cria�
 - Erros de tempo limite para o cliente e o servidor
 - Solicitações GET com falha com o código de erro 304 (não modificado)
 
-Nenhuma outra solicitação anônima com falha é registrada em log. Para uma lista completa de dados registrados, consulte [Mensagens de operações e status registradas em logs](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) e [Formato de log de armazenamento](storage-files-monitoring-reference.md).
+Nenhuma outra solicitação anônima com falha é registrada em log. Para obter uma lista completa das solicitações SMB e REST registradas, consulte [operações registradas de armazenamento e mensagens de status](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) e [referência de dados de monitoramento de arquivos do Azure](storage-files-monitoring-reference.md).
 
 ### <a name="accessing-logs-in-a-storage-account"></a>Acessando logs em uma conta de armazenamento
 
@@ -484,7 +486,7 @@ A tabela a seguir lista alguns cenários de exemplo para monitorar e a métrica 
 - [Referência de dados de monitoramento de arquivos do Azure](storage-files-monitoring.md)
 - [Monitorar recursos do Azure com o Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md)
 - [Migração de métricas do armazenamento do Azure](../common/storage-metrics-migration.md)
-- [Como planejar uma implantação de Arquivos do Azure](https://docs.microsoft.com/azure/storage/files/storage-files-planning)
+- [Planejando uma implantação de Arquivos do Azure](https://docs.microsoft.com/azure/storage/files/storage-files-planning)
 - [Como implantar Arquivos do Azure](https://docs.microsoft.com/azure/storage/files/storage-files-deployment-guide)
 - [Solucionar Problemas dos Arquivos do Azure no Windows](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems)
 - [Solucionar Problemas dos Arquivos do Azure no Linux](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-linux-file-connection-problems)
