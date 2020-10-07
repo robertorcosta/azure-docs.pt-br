@@ -4,16 +4,16 @@ description: Monitore o sistema e os EventCounters do .NET/.NET Core personaliza
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f8ae36545eecbbad2a6695ca979fb7da8380e8cc
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: a9af36f3c81ee52b41a8eed875c1a286b95bf838
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89657006"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803636"
 ---
 # <a name="eventcounters-introduction"></a>Introdução ao EventCounters
 
-`EventCounter` é o mecanismo do .NET/.NET Core para publicar e consumir contadores ou estatísticas. [Este](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.Tracing/documentation/EventCounterTutorial.md) documento fornece uma visão geral de `EventCounters` e exemplos sobre como publicá-los e consumi-los. Os EventCounters têm suporte em todas as plataformas de sistema operacional: Windows, Linux e macOS. Pode ser pensado como um equivalente multiplataforma para o [PerformanceCounters](/dotnet/api/system.diagnostics.performancecounter) que só tem suporte em sistemas Windows.
+[`EventCounter`](/dotnet/core/diagnostics/event-counters) é o mecanismo .NET/.NET Core para publicar e consumir contadores ou estatísticas. Os EventCounters têm suporte em todas as plataformas de sistema operacional: Windows, Linux e macOS. Pode ser pensado como um equivalente multiplataforma para o [PerformanceCounters](/dotnet/api/system.diagnostics.performancecounter) que só tem suporte em sistemas Windows.
 
 Embora os usuários possam publicar qualquer personalizado `EventCounters` para atender às suas necessidades, o .NET Core 3,0 e o tempo de execução mais recente publica um conjunto desses contadores por padrão. Este documento abordará as etapas necessárias para coletar e exibir `EventCounters` (definido pelo sistema ou definido pelo usuário) no insights aplicativo Azure.
 
@@ -23,32 +23,9 @@ Application Insights dá suporte à coleta `EventCounters` com seu `EventCounter
 
 ## <a name="default-counters-collected"></a>Contadores padrão coletados
 
-Para aplicativos em execução no .NET Core 3,0 ou superior, os contadores a seguir são coletados automaticamente pelo SDK. O nome dos contadores estará no formato "Categoria|Contador".
+Começando com a versão 2.15.0 do SDK do [AspNetCore](asp-net-core.md) ou do [SDK do WorkerService](worker-service.md), nenhum contador é coletado por padrão. O próprio módulo está habilitado, para que os usuários possam simplesmente adicionar os contadores desejados para coletá-los.
 
-|Categoria | Contador|
-|---------------|-------|
-|`System.Runtime` | `cpu-usage` |
-|`System.Runtime` | `working-set` |
-|`System.Runtime` | `gc-heap-size` |
-|`System.Runtime` | `gen-0-gc-count` |
-|`System.Runtime` | `gen-1-gc-count` |
-|`System.Runtime` | `gen-2-gc-count` |
-|`System.Runtime` | `time-in-gc` |
-|`System.Runtime` | `gen-0-size` |
-|`System.Runtime` | `gen-1-size` |
-|`System.Runtime` | `gen-2-size` |
-|`System.Runtime` | `loh-size` |
-|`System.Runtime` | `alloc-rate` |
-|`System.Runtime` | `assembly-count` |
-|`System.Runtime` | `exception-count` |
-|`System.Runtime` | `threadpool-thread-count` |
-|`System.Runtime` | `monitor-lock-contention-count` |
-|`System.Runtime` | `threadpool-queue-length` |
-|`System.Runtime` | `threadpool-completed-items-count` |
-|`System.Runtime` | `active-timer-count` |
-
-> [!NOTE]
-> A partir da versão 2.15.0-Beta3 do SDK do [AspNetCore](asp-net-core.md) ou do [SDK do WorkerService](worker-service.md), nenhum contador é coletado por padrão. O próprio módulo está habilitado, para que os usuários possam simplesmente adicionar os contadores desejados para coletá-los.
+Para obter uma lista de contadores conhecidos publicados pelo tempo de execução do .NET, consulte documento de [contadores disponíveis](/dotnet/core/diagnostics/event-counters#available-counters) .
 
 ## <a name="customizing-counters-to-be-collected"></a>Personalizar os contadores a serem coletados
 
@@ -67,7 +44,7 @@ O exemplo a seguir mostra como adicionar/remover contadores. Essa personalizaç�
         services.ConfigureTelemetryModule<EventCounterCollectionModule>(
             (module, o) =>
             {
-                // This removes all default counters.
+                // This removes all default counters, if any.
                 module.Counters.Clear();
 
                 // This adds a user defined counter "MyCounter" from EventSource named "MyEventSource"

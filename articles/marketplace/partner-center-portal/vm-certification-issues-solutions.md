@@ -1,20 +1,20 @@
 ---
-title: Certificação de máquina virtual – problemas e soluções
-description: Este artigo explica mensagens de erro comuns para imagens de VM. Ele também aborda soluções relacionadas
+title: Problemas comuns ao certificar imagens de máquina virtual para o Azure Marketplace
+description: Este artigo explica mensagens de erro e problemas comuns ao testar e certificar imagens de VM para o Azure Marketplace. Ele também aborda soluções relacionadas.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 06/16/2020
-ms.openlocfilehash: 6d7f9ccd1c87b6105988a1f5d23700cb58693062
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d724ef463d7c7ad237b5fd023e9c15f50de96f04
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91296443"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803459"
 ---
-# <a name="issues-and-solutions-during-virtual-machine-certification"></a>Problemas e soluções durante a certificação de máquina virtual 
+# <a name="common-issues-when-certifying-virtual-machine-images-for-azure-marketplace"></a>Problemas comuns ao certificar imagens de máquina virtual para o Azure Marketplace
 
 Quando você publica sua imagem de VM (máquina virtual) no Azure Marketplace, a equipe do Azure a valida para garantir sua inicialização, segurança e compatibilidade do Azure. Se qualquer um dos testes de alta qualidade falhar, a publicação falhará e você receberá uma mensagem de erro que descreve o problema.
 
@@ -66,7 +66,7 @@ Verifique se você seguiu rigorosamente o processo de provisionamento da VM ante
 
 Os problemas de provisionamento podem incluir os seguintes cenários de falha:
 
-|Cenário|Erro|Motivo|Solução|
+|Cenário|Erro do|Motivo|Solução|
 |---|---|---|---|
 |1|VHD (disco rígido virtual) inválido|Se o valor do cookie especificado no rodapé do VHD estiver incorreto, o VHD será considerado inválido.|Recrie a imagem e envie a solicitação.|
 |2|Tipo de blob inválido|Falha no provisionamento da VM porque o bloco usado é um tipo de BLOB em vez de um tipo de página.|Recrie a imagem e envie a solicitação.|
@@ -166,7 +166,7 @@ Como as VMs permitem o acesso ao sistema operacional subjacente, verifique se o 
 
 |Tamanho do VHD|Tamanho real de ocupado|Solução|
 |---|---|---|
-|>500 tebibytes (TiB)|N/D|Contate a equipe de suporte para obter uma aprovação de exceção.|
+|>500 tebibytes (TiB)|n/a|Contate a equipe de suporte para obter uma aprovação de exceção.|
 |250-500 TiB|Diferença de >200 Gibibytes (GiB) do tamanho do blob|Contate a equipe de suporte para obter uma aprovação de exceção.|
 
 > [!NOTE]
@@ -217,7 +217,7 @@ Se a imagem não estiver instalada com uma das seguintes versões de kernel, atu
 ||7.2|3.10.0-327.79.2|
 ||7.3|3.10.0-514.66.2|
 ||7.4|3.10.0-693.50.3|
-||7,5|3.10.0-862.34.2|
+||7.5|3.10.0-862.34.2|
 ||7.6|3.10.0-957.21.3|
 ||7.7|3.10.0-1062.1.1|
 ||8.0|4.18.0-80.4.2|
@@ -264,7 +264,7 @@ Verifique se o acesso adequado está habilitado para a conta na qual os casos de
     
 Consulte a tabela a seguir para obter os problemas que surgirem quando você baixar a imagem da VM usando uma URL de assinatura de acesso compartilhado (SAS).
 
-|Cenário|Erro|Motivo|Solução|
+|Cenário|Erro do|Motivo|Solução|
 |---|---|---|---|
 |1|Blob não encontrado|O VHD pode ser excluído ou movido do local especificado.|| 
 |2|Blob em uso|O VHD é usado por outro processo interno.|O VHD deve estar em um estado usado quando você o baixa usando uma URL SAS.|
@@ -310,7 +310,7 @@ Para obter mais informações sobre essa ferramenta, consulte [visão geral do S
 
 Para obter soluções para erros relacionados ao disco de dados, use a seguinte tabela:
 
-|Erro|Motivo|Solução|
+|Erro do|Motivo|Solução|
 |---|---|---|
 |`DataDisk- InvalidUrl:`|Esse erro pode ocorrer devido a um número inválido especificado para o LUN (número de unidade lógica) quando a oferta é enviada.|Verifique se a sequência de números de LUN para o disco de dados está no Partner Center.|
 |`DataDisk- NotFound:`|Esse erro pode ocorrer devido a um disco de dados não estar localizado em uma URL SAS especificada.|Verifique se o disco de dados está localizado na URL SAS especificada na solicitação.|
@@ -332,7 +332,7 @@ Etapa 1. Implante a VM e clique na opção "executar comando" em portal do Azure
 
 Etapa 2. Selecione a primeira opção "RunShellScript" e execute o comando abaixo.
 
-Comando: "Cat/dev/null > ~/. bash_history && History-c" ![ bash história Command on portal do Azure](./media/vm-certification-issues-solutions-4.png)
+Comando: "Cat/dev/null > ~/.bash_history histórico de && -c" ![ comando bash History on portal do Azure](./media/vm-certification-issues-solutions-4.png)
 
 Etapa 3. Após executar o comando com êxito, reinicie a VM.
 

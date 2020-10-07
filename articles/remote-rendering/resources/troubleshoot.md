@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: f82ea8361cef76b2030e5b257b3d3351968d8050
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e8de33e7417ab6421792d341474c320a5f63423b
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322182"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803816"
 ---
 # <a name="troubleshoot"></a>Solucionar problemas
 
@@ -88,7 +88,7 @@ A qualidade do vídeo pode ser comprometida pela qualidade da rede ou pela ausê
 
 ## <a name="video-recorded-with-mrc-does-not-reflect-the-quality-of-the-live-experience"></a>O vídeo gravado com a MRC não reflete a qualidade da experiência ao vivo
 
-Um vídeo pode ser registrado no Hololens por meio da [MRC (Captura de Realidade Misturada)](https://docs.microsoft.com/windows/mixed-reality/mixed-reality-capture-for-developers). No entanto, o vídeo resultante tem uma qualidade pior do que a experiência ao vivo por dois motivos:
+Um vídeo pode ser registrado no HoloLens por meio da [MRC (captura de realidade misturada)](https://docs.microsoft.com/windows/mixed-reality/mixed-reality-capture-for-developers). No entanto, o vídeo resultante tem uma qualidade pior do que a experiência ao vivo por dois motivos:
 * A taxa de quadros de vídeo é limitada a 30 Hz em vez de 60 Hz.
 * As imagens de vídeo não passam pela etapa de processamento de [reprojeção de fase tardia](../overview/features/late-stage-reprojection.md), portanto, o vídeo tem menos fluidez.
 
@@ -193,7 +193,7 @@ Caso os objetos renderizados pareçam estar se movendo em conjunto com os movime
 
 Outro motivo para hologramas instáveis (com oscilações, distorções, tremulações ou saltos) pode ser uma conectividade de rede ruim, em particular uma largura de banda de rede insuficiente ou uma latência muito alta. Um bom indicador para a qualidade da sua conexão de rede é o valor `ARRServiceStats.VideoFramesReused` das [estatísticas de desempenho](../overview/features/performance-queries.md). Quadros reutilizados indicam situações em que um quadro de vídeo antigo precisou ser reutilizado no lado do cliente porque nenhum novo quadro de vídeo estava disponível, por exemplo, devido à perda de pacotes ou devido a variações na latência de rede. Se `ARRServiceStats.VideoFramesReused` é frequentemente maior que zero, isso indica um problema de rede.
 
-Outro valor a ser examinado é `ARRServiceStats.LatencyPoseToReceiveAvg`. Ele deve estar consistentemente abaixo de 100 ms. Se você vir valores mais altos, isso indicará que você está conectado a um data center que está muito longe.
+Outro valor a ser examinado é `ARRServiceStats.LatencyPoseToReceiveAvg`. Ele deve estar consistentemente abaixo de 100 ms. Ver valores mais altos pode indicar que você está conectado a um data center que está muito longe.
 
 Para obter uma lista de possíveis mitigações, confira as [diretrizes para conectividade de rede](../reference/network-requirements.md#guidelines-for-network-connectivity).
 
@@ -245,7 +245,9 @@ As superfícies de coplanar podem ter várias causas diferentes:
 
 * As superfícies são intencionalmente criadas para toque, como decals ou texto em paredes.
 
+## <a name="graphics-artifacts-using-multi-pass-stereo-rendering-in-native-c-apps"></a>Artefatos gráficos usando a renderização de estéreo de várias passagens em aplicativos C++ nativos
 
+Em alguns casos, os aplicativos C++ nativos personalizados que usam um modo de renderização estéreo de várias passagens para conteúdo local (renderização para os olhos esquerdo e direito em passagens separadas) depois de chamar [**BlitRemoteFrame**](../concepts/graphics-bindings.md#render-remote-image) podem disparar um bug de driver. O bug resulta em falhas de rasterização não determinísticas, fazendo com que triângulos individuais ou partes de triângulos do conteúdo local desapareçam aleatoriamente. Por motivos de desempenho, é recomendável, de qualquer forma, renderizar o conteúdo local com uma técnica de renderização estéreo de passagem única mais moderna, por exemplo, usando **SV_RenderTargetArrayIndex**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

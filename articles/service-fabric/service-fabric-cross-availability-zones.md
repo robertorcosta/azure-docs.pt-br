@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: d763511032ebff9116702b1f649751a4b7b52afd
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 56f7224d93293a0a26d09692996d2c4a4ace344b
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518989"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803731"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Implantar um cluster de Service Fabric do Azure entre Zonas de Disponibilidade
 Zonas de Disponibilidade no Azure é uma oferta de alta disponibilidade que protege seus aplicativos e dados de falhas do datacenter. Uma zona de disponibilidade é um local físico exclusivo equipado com energia, resfriamento e rede independentes em uma região do Azure.
@@ -150,7 +150,7 @@ Para habilitar uma zona, em um conjunto de dimensionamento de máquinas virtuais
 
 * O primeiro valor é a propriedade **Zones** , que especifica em qual zona de disponibilidade o conjunto de dimensionamento de máquinas virtuais será implantado.
 * O segundo valor é a propriedade "singlePlacementGroup", que deve ser definida como true.
-* O terceiro valor é a propriedade "faultDomainOverride" na extensão do conjunto de dimensionamento de máquinas virtuais Service Fabric. O valor dessa propriedade deve incluir a região e a zona em que esse conjunto de dimensionamento de máquinas virtuais será colocado. Exemplo: "faultDomainOverride": "eastus/AZ1" todos os recursos do conjunto de dimensionamento de máquinas virtuais devem ser colocados na mesma região porque os clusters do Azure Service Fabric não têm suporte entre regiões.
+* O terceiro valor é a propriedade "faultDomainOverride" na extensão do conjunto de dimensionamento de máquinas virtuais Service Fabric. O valor dessa propriedade deve incluir somente a zona na qual esse conjunto de dimensionamento de máquinas virtuais será colocado. Exemplo: "faultDomainOverride": "AZ1" todos os recursos do conjunto de dimensionamento de máquinas virtuais devem ser colocados na mesma região porque os clusters do Azure Service Fabric não têm suporte entre regiões.
 
 ```json
 {
@@ -183,7 +183,7 @@ Para habilitar uma zona, em um conjunto de dimensionamento de máquinas virtuais
             "systemLogUploadSettings": {
                 "Enabled": true
             },
-            "faultDomainOverride": "eastus/az1"
+            "faultDomainOverride": "az1"
         },
         "typeHandlerVersion": "1.0"
     }

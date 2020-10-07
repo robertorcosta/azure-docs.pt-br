@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - contperfq1
 - device-developer
-ms.openlocfilehash: aa70c9e5d67c759afe905e9e110d6bcd18555a8c
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: d6dd1bbf853a13948f55db4ae694b28cb7549c9b
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90019233"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803782"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Definir um novo tipo de dispositivo IoT em seu aplicativo do Azure IoT Central
 
@@ -122,14 +122,14 @@ A seguinte tabela mostra as definições de configuração para uma funcionalida
 
 | Campo | Descrição |
 | ----- | ----------- |
-| Nome de exibição | O nome de exibição do valor de telemetria usado em dashboards e formulários. |
+| Nome de Exibição | O nome de exibição do valor de telemetria usado em dashboards e formulários. |
 | Nome | O nome do campo na mensagem de telemetria. O IoT Central gera um valor para esse campo com base no nome de exibição, mas você pode escolher seu próprio valor, se necessário. Este campo precisa ser alfanumérico. |
 | Tipo de Funcionalidade | Telemetria. |
 | Tipo Semântico | O tipo semântico da telemetria, como temperatura, estado ou evento. A escolha do tipo semântico determina quais dos campos a seguir estão disponíveis. |
 | Esquema | O tipo de dados telemétricos, como duplo, cadeia de caracteres ou vetor. As opções disponíveis são determinadas pelo tipo semântico. O esquema não está disponível para os tipos semânticos de evento e estado. |
-| Severidade | Disponível somente para o tipo semântico de evento. As severidades são **Erro**, **Informação** ou **Aviso**. |
+| Severity | Disponível somente para o tipo semântico de evento. As severidades são **Erro**, **Informação** ou **Aviso**. |
 | Valores de Estado | Disponível apenas para o tipo de estado semântico. Defina os valores de estado possíveis, cada um dos quais com o nome de exibição, o nome, o tipo de enumeração e o valor. |
-| Unidade | Uma unidade para o valor de telemetria, como **mph**, **%** ou ** &deg; C**. |
+| Unit | Uma unidade para o valor de telemetria, como **mph**, **%** ou ** &deg; C**. |
 | Unidade de exibição | Uma unidade de exibição para uso em dashboards e formulários. |
 | Comentário | Comentários sobre a funcionalidade de telemetria. |
 | Descrição | Uma descrição da funcionalidade de telemetria. |
@@ -142,15 +142,15 @@ A seguinte tabela mostra as definições de configuração para uma funcionalida
 
 | Campo | Descrição |
 | ----- | ----------- |
-| Nome de exibição | O nome de exibição do valor da propriedade usado em dashboards e formulários. |
+| Nome de Exibição | O nome de exibição do valor da propriedade usado em dashboards e formulários. |
 | Nome | O nome da propriedade. O IoT Central gera um valor para esse campo com base no nome de exibição, mas você pode escolher seu próprio valor, se necessário. Este campo precisa ser alfanumérico. |
 | Tipo de Funcionalidade | Propriedade. |
 | Tipo Semântico | O tipo semântico da propriedade, como temperatura, estado ou evento. A escolha do tipo semântico determina quais dos campos a seguir estão disponíveis. |
 | Esquema | O tipo de dados de propriedade, como duplo, cadeia de caracteres ou vetor. As opções disponíveis são determinadas pelo tipo semântico. O esquema não está disponível para os tipos semânticos de evento e estado. |
 | Gravável | Se a propriedade não for gravável, o dispositivo poderá relatar valores de propriedade para o IoT Central. Se a propriedade for gravável, o dispositivo poderá relatar valores de propriedade para o IoT Central, e o IoT Central poderá enviar atualizações de propriedade para o dispositivo.
-| Severidade | Disponível somente para o tipo semântico de evento. As severidades são **Erro**, **Informação** ou **Aviso**. |
+| Severity | Disponível somente para o tipo semântico de evento. As severidades são **Erro**, **Informação** ou **Aviso**. |
 | Valores de Estado | Disponível apenas para o tipo de estado semântico. Defina os valores de estado possíveis, cada um dos quais com o nome de exibição, o nome, o tipo de enumeração e o valor. |
-| Unidade | Uma unidade para o valor da propriedade, como **mph**, **%** ou ** &deg; C**. |
+| Unit | Uma unidade para o valor da propriedade, como **mph**, **%** ou ** &deg; C**. |
 | Unidade de exibição | Uma unidade de exibição para uso em dashboards e formulários. |
 | Comentário | Comentários sobre a funcionalidade de propriedade. |
 | Descrição | Uma descrição da funcionalidade de propriedade. |
@@ -163,7 +163,7 @@ A seguinte tabela mostra as definições de configuração para uma funcionalida
 
 | Campo | Descrição |
 | ----- | ----------- |
-| Nome de exibição | O nome de exibição do comando usado em dashboards e formulários. |
+| Nome de Exibição | O nome de exibição do comando usado em dashboards e formulários. |
 | Nome | O nome do comando. O IoT Central gera um valor para esse campo com base no nome de exibição, mas você pode escolher seu próprio valor, se necessário. Este campo precisa ser alfanumérico. |
 | Tipo de Funcionalidade | Comando. |
 | Comando | `SynchronousExecutionType`. |
@@ -171,6 +171,21 @@ A seguinte tabela mostra as definições de configuração para uma funcionalida
 | Descrição | Uma descrição da funcionalidade de comando. |
 | Solicitação | Se habilitada, uma definição do parâmetro de solicitação, incluindo nome, nome de exibição, esquema, unidade e unidade de exibição. |
 | Resposta | Se habilitada, uma definição da resposta do comando, incluindo nome, nome de exibição, esquema, unidade e unidade de exibição. |
+
+#### <a name="offline-commands"></a>Comandos offline
+
+Você pode escolher os comandos de fila se um dispositivo estiver offline, habilitando a opção **fila se estiver offline** para um comando no modelo de dispositivo.
+
+Essa opção usa mensagens da nuvem para o dispositivo do Hub IoT para enviar notificações para dispositivos. Para saber mais, confira o artigo do Hub IoT [enviar mensagens da nuvem para o dispositivo](../../iot-hub/iot-hub-devguide-messages-c2d.md).
+
+Mensagens da nuvem para o dispositivo:
+
+- São notificações unidirecionais para o dispositivo de sua solução.
+- Garantia de entrega de mensagem pelo menos uma vez. O Hub IoT mantém as mensagens da nuvem para o dispositivo em filas por dispositivo, garantindo a resiliência contra falhas de conectividade e de dispositivo.
+- Exigir que o dispositivo implemente um manipulador de mensagens para processar a mensagem da nuvem para o dispositivo.
+
+> [!NOTE]
+> Essa opção só está disponível na interface do usuário do IoT Central Web. Essa configuração não será incluída se você exportar um modelo ou interface do modelo de dispositivo.
 
 ## <a name="manage-an-interface"></a>Gerenciar uma interface
 
@@ -186,7 +201,7 @@ A seguinte tabela mostra as definições de configuração para uma propriedade 
 
 | Campo | Descrição |
 | ----- | ----------- |
-| Nome de exibição | O nome de exibição do valor da propriedade de nuvem usado em dashboards e formulários. |
+| Nome de Exibição | O nome de exibição do valor da propriedade de nuvem usado em dashboards e formulários. |
 | Nome | O nome da propriedade de nuvem. O IoT Central gera um valor para esse campo com base no nome de exibição, mas você pode escolher seu próprio valor, se necessário. |
 | Tipo Semântico | O tipo semântico da propriedade, como temperatura, estado ou evento. A escolha do tipo semântico determina quais dos campos a seguir estão disponíveis. |
 | Esquema | O tipo de dados de propriedade de nuvem, como duplo, cadeia de caracteres ou vetor. As opções disponíveis são determinadas pelo tipo semântico. |

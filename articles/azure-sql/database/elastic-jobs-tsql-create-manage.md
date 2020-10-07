@@ -11,12 +11,12 @@ ms.author: jaredmoo
 author: jaredmoo
 ms.reviewer: sstein
 ms.date: 02/07/2020
-ms.openlocfilehash: 5c05db4d6e0c98935fc13325b5656f8023c6228e
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: bbecfac4bfd3d5ce1510cb671b93df5f4982cbc4
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91443340"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803850"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs-preview"></a>Usar o Transact-SQL (T-SQL) para criar e gerenciar trabalhos de banco de dados elástico (visualização)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -1023,13 +1023,13 @@ Adiciona um banco de dados ou um grupo de bancos de dados a um grupo de destino.
 O nome do grupo de destino ao qual o membro será adicionado. target_group_name é nvarchar(128), sem nenhum padrão.
 
 [ ** \@ membership_type =** ] ' membership_type '  
-Especifica se o membro do grupo de destino será incluído ou excluído. target_group_name é nvarchar(128), com o padrão ‘Include’. Os valores válidos para target_group_name são 'Include' ou 'Exclude'.
+Especifica se o membro do grupo de destino será incluído ou excluído. target_group_name é nvarchar(128), com o padrão ‘Include’. Os valores válidos para membership_type são ' include ' ou ' Exclude '.
 
 [ ** \@ target_type =** ] ' target_type '  
 O tipo do banco de dados ou da coleção de bancos de dados de destino, incluindo todos os bancos de dados em um servidor, todos os bancos de dados em um pool elástico, todos os bancos de dados em um mapa de fragmentos ou em um banco de dados individual. target_type é nvarchar(128), sem nenhum padrão. Os valores válidos para target_type são 'SqlServer', 'SqlElasticPool', 'SqlDatabase' ou 'SqlShardMap'.
 
 [ ** \@ refresh_credential_name =** ] ' refresh_credential_name '  
-O nome do servidor. refresh_credential_name é nvarchar(128), sem nenhum padrão.
+O nome da credencial no escopo do banco de dados. refresh_credential_name é nvarchar(128), sem nenhum padrão.
 
 [ ** \@ server_name =** ] ' server_name '  
 O nome do servidor que deve ser adicionado ao grupo de destino especificado. server_name deverá ser especificado quando target_type for ‘SqlServer’. server_name é nvarchar(128), sem nenhum padrão.
@@ -1041,7 +1041,7 @@ O nome do banco de dados que deve ser adicionado ao grupo de destino especificad
 O nome do pool elástico que deve ser adicionado ao grupo de destino especificado. elastic_pool_name deverá ser especificado quando target_type for ‘SqlElasticPool’. elastic_pool_name é nvarchar(128), sem nenhum padrão.
 
 [ ** \@ shard_map_name =** ] ' shard_map_name '  
-O nome do pool do mapa de fragmentos que deve ser adicionado ao grupo de destino especificado. elastic_pool_name deverá ser especificado quando target_type for ‘SqlSqlShardMap’. shard_map_name é nvarchar(128), sem nenhum padrão.
+O nome do pool do mapa de fragmentos que deve ser adicionado ao grupo de destino especificado. elastic_pool_name deve ser especificado quando target_type é ' SqlShardMap '. shard_map_name é nvarchar(128), sem nenhum padrão.
 
 [ ** \@ target_id =** ] target_group_id saída  
 O número de identificação de destino atribuído ao membro do grupo de destino, se tiver sido criado, adicionado ao grupo de destino. target_id é uma variável de saída do tipo uniqueidentifier, com o padrão NULL.
@@ -1204,7 +1204,7 @@ GO
 
 As seguintes exibições estão disponíveis no [banco de dados de trabalhos](job-automation-overview.md#job-database).
 
-|Visualizar  |Descrição  |
+|Exibir  |Descrição  |
 |---------|---------|
 |[job_executions](#job_executions-view)     |  Mostra o histórico de execução de trabalho.      |
 |[sejam](#jobs-view)     |   Mostra todos os trabalhos.      |

@@ -1,5 +1,5 @@
 ---
-title: Criar ativos técnicos de máquina virtual do Azure
+title: Criar ativos técnicos para uma oferta de máquina virtual do Azure Marketplace
 description: Saiba como criar e configurar ativos técnicos para uma oferta de VM (máquina virtual) para o Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -7,22 +7,22 @@ ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 08/14/2020
-ms.openlocfilehash: 07c8de2a9d94b51f7183829466bd68d56e19efba
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: a83532e2dd6fc8e83206a3b4a055170b40d131fd
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646797"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803510"
 ---
-# <a name="create-azure-virtual-machine-technical-assets"></a>Criar ativos técnicos de máquina virtual do Azure
+# <a name="create-technical-assets-for-an-azure-marketplace-virtual-machine-offer"></a>Criar ativos técnicos para uma oferta de máquina virtual do Azure Marketplace
 
 Ao publicar suas imagens de máquina virtual (VM) no Azure Marketplace, a equipe do Azure valida a imagem da VM para garantir sua inicialização, segurança e compatibilidade do Azure. Se qualquer um dos testes de alta qualidade falhar, a publicação falhará com uma mensagem que contém o erro e [as etapas de retificação](https://docs.microsoft.com/azure/marketplace/partner-center-portal/vm-certification-issues-solutions)possíveis.
 
 Este artigo descreve como criar e configurar ativos técnicos para uma oferta de VM (máquina virtual) para o Azure Marketplace. Uma VM contém dois componentes: o VHD (disco rígido virtual) do sistema operacional e os VHDs dos discos de dados associados opcionais:
 
-1. **VHD do sistema operacional** – contém o sistema operacional e a solução que é implantada com sua oferta. O processo de preparação do VHD difere dependendo de se trata-se de uma VM baseada em Linux, baseada em Windows ou personalizada.
+- **VHD do sistema operacional**: contém o sistema operacional e a solução que é implantada com sua oferta. O processo de preparação do VHD difere dependendo de se trata-se de uma VM baseada em Linux, baseada em Windows ou personalizada.
 
-2. **VHDs de disco de dados** – armazenamento dedicado e persistente para uma VM. Não use a solução o VHD do sistema operacional (por exemplo, a unidade C:) para armazenar informações persistentes.
+- **VHDs de disco de dados**: armazenamento dedicado e persistente para uma VM. Não use a solução o VHD do sistema operacional (por exemplo, a unidade C:) para armazenar informações persistentes.
 
 Uma imagem de VM contém um disco de sistema operacional e até 16 discos de dados. Use um VHD por disco de dados, mesmo se o disco estiver em branco.
 
@@ -98,17 +98,17 @@ Siga estas etapas para criar a imagem de VM de base no [portal do Azure](https:/
 4. Selecione **+ Adicionar** para abrir **Criar uma experiência de máquina virtual**.
 5. Selecione a imagem na lista suspensa ou selecione **procurar todas as imagens públicas e privadas** para pesquisar ou procurar todas as imagens de máquina virtual disponíveis. Exemplo:
 
-    :::image type="content" source="media/vm/create-resource-group-example.png" alt-text="Mostra uma imagem de VM de exemplo.":::
+    :::image type="content" source="media/vm/create-resource-group-example.png" alt-text="Mostra o início da criação de um grupo de recursos.":::
 
 6. Selecione o tamanho da VM para implantar usando as seguintes recomendações:
     1. Se você pretende desenvolver o VHD localmente, o tamanho não importa. Considere o uso de uma das VMs menores.
     2. Se você pretende desenvolver a imagem no Azure, considere o uso de um dos tamanhos de VM recomendados para a imagem selecionada.
 
-    :::image type="content" source="media/vm/create-virtual-machine.png" alt-text="Mostra a seleção do tamanho da VM.":::
+    :::image type="content" source="media/vm/create-virtual-machine.png" alt-text="Mostra o início da criação de um grupo de recursos.":::
 
 7. Na seção **Discos**, expanda a seção **Avançado** e defina a opção **Usar discos gerenciados** como **Não**.
 
-    :::image type="content" source="media/vm/use-managed-disks.png" alt-text="Mostra a opção para usar discos gerenciados.":::
+    :::image type="content" source="media/vm/use-managed-disks.png" alt-text="Mostra o início da criação de um grupo de recursos.":::
 
 8. Forneça os outros detalhes necessários para criar a VM.
 9. Selecione **Examinar + criar** para examinar suas opções. Quando vir a mensagem **Validação aprovada**, selecione **Criar**.
@@ -129,7 +129,7 @@ Crie uma VM de geração 2 (Gen2) no portal do Azure.
 8. Selecione um tamanho recomendado de VM e tamanho de [Gen 2 com suporte](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2#generation-2-vm-sizes) .
 9. Percorra o [Fluxo de criação do portal do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) para concluir a criação da VM.
 
-    :::image type="content" source="media/vm/vm-generation.png" alt-text="Mostra a opção para selecionar a geração de VM.":::
+    :::image type="content" source="media/vm/vm-generation.png" alt-text="Mostra o início da criação de um grupo de recursos.":::
 
 ## <a name="connect-to-your-azure-vm"></a>Conectar-se à VM do Azure
 
@@ -157,7 +157,7 @@ Para conectar-se a VM com base em Linux, é necessário um cliente do protocolo 
 7. Abra o aplicativo PuTTY.
 8. Na caixa de diálogo de configuração do PuTTY, insira o endereço IP ou nome DNS da sua VM.
 
-    :::image type="content" source="media/vm/putty-configuration.png" alt-text="Ilustra as configurações de terminal de extensão, destacando os campos de nome de host e porta.":::
+    :::image type="content" source="media/vm/putty-configuration.png" alt-text="Mostra o início da criação de um grupo de recursos.":::
 
 9. Selecione **Abrir** para abrir um terminal do PuTTY.
 10. Quando você for solicitado, insira o nome da conta e a senha da sua conta de VM do Linux.
@@ -179,7 +179,7 @@ Como as VMs permitem o acesso ao sistema operacional subjacente, verifique se o 
 
 | Tamanho do VHD | Tamanho real de ocupado | Solução |
 | --- | --- | --- |
-| >500 TB | N/D | Contate a equipe de suporte para obter uma aprovação de exceção. |
+| >500 TB | n/a | Contate a equipe de suporte para obter uma aprovação de exceção. |
 | 250-500 TB | >200 GB diferentes do tamanho do blob | Contate a equipe de suporte para obter uma aprovação de exceção. |
 
 ### <a name="install-the-most-current-updates"></a>Instalar as atualizações mais atuais

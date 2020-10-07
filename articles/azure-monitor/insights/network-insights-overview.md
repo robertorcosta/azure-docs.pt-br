@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/24/2020
-ms.openlocfilehash: 2559c4f54aa19df248ddf756e376809dea516997
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5f076f477c36f96d1807ce7071720225a6df8e03
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330937"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803799"
 ---
 # <a name="azure-monitor-for-networks-preview"></a>Azure Monitor para redes (visualização)
 O Azure Monitor para rede fornece uma visão abrangente da [integridade](https://docs.microsoft.com/azure/service-health/resource-health-checks-resource-types) e das [métricas](../platform/metrics-supported.md) para todos os recursos de rede implantados sem nenhuma configuração.  Ele também fornece acesso a todos os recursos de monitoramento de rede, como o [Monitor de conexão](../../network-watcher/connection-monitor-preview.md), o [log de fluxo para NSGs (grupos de segurança de rede)](../../network-watcher/network-watcher-nsg-flow-logging-overview.md), [análise de tráfego](../../network-watcher/traffic-analytics.md)e outros recursos de [diagnóstico](../../network-watcher/network-watcher-monitoring-overview.md#diagnostics) de rede.
@@ -108,6 +108,43 @@ O Diagnostic Toolkit fornece acesso a todos os recursos de diagnóstico disponí
 
 ![Guia kit de ferramentas de diagnóstico](media/network-insights-overview/azure-monitor-for-networks-diagnostic-toolkit.png)
 
+## <a name="troubleshooting"></a>Solução de problemas 
+
+Para obter diretrizes gerais de solução de problemas, consulte o [artigo de solução de problemas](troubleshoot-workbooks.md)de informações baseadas na pasta de trabalho dedicada.
+
+Esta seção o ajudará com o diagnóstico e a solução de problemas de alguns dos problemas comuns que você pode encontrar ao usar o Azure Monitor para redes. Use a lista abaixo para localizar as informações relevantes para o seu problema específico.
+
+### <a name="resolving-performance-issues-or-failures"></a>Resolução de problemas ou falhas de desempenho
+
+Para ajudar a solucionar problemas relacionados à rede que você identifica com Azure Monitor para redes, consulte a documentação de solução de problemas do recurso que está funcionando incorretamente. Os links de solução de problemas para serviços de alta utilização estão listados abaixo.
+* Rede virtual (VNET)
+* Gateway de Aplicativo
+* Gateway de VPN
+* ExpressRoute 
+* Load Balancer 
+
+### <a name="why-dont-i-see-the-resources-from-all-the-subscriptions-i-have-selected"></a>Por que não vejo os recursos de todas as assinaturas que selecionei
+
+O insights de rede só pode mostrar recursos de 5 assinaturas de cada vez. 
+
+### <a name="i-want-to-make-changes-or-add-additional-visualizations-to-network-insights-how-do-i-do-so"></a>Quero fazer alterações ou adicionar visualizações adicionais ao insights de rede, como fazer isso
+
+Para fazer alterações, selecione o "Modo de edição" para modificar a pasta de trabalho e, em seguida, você pode salvar seu trabalho como uma nova pasta de trabalho vinculada a uma assinatura e um grupo de recursos designados.
+
+### <a name="what-is-the-time-grain-once-we-pin-any-part-of-the-workbooks"></a>Qual é o refinamento de tempo depois de fixarmos qualquer parte das pastas de trabalho
+
+Utilizamos o intervalo de agregação "Automático" e, portanto, depende do intervalo de tempo selecionado.
+
+### <a name="what-is-the-time-range-when-any-part-of-the-workbook-is-pinned"></a>Qual é o intervalo de tempo quando qualquer parte da pasta de trabalho é fixada
+
+O intervalo de tempo dependerá das configurações do painel.
+
+### <a name="what-if-i-want-to-see-other-data-or-make-my-own-visualizations-how-can-i-make-changes-to-the-network-insights"></a>E se eu quiser ver outros dados ou fazer minhas próprias visualizações? Como fazer alterações nas informações de rede
+
+Você pode editar a pasta de trabalho que vê em qualquer painel lateral e exibição de métrica detalhada, por meio do uso do modo de edição e, em seguida, salvar seu trabalho como uma nova pasta de trabalho que terá todas as suas novas alterações.
+
+
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre o monitoramento de rede em [o que é o observador de rede do Azure?](../../network-watcher/network-watcher-monitoring-overview.md).
+- Conheça os cenários aos quais as pastas de trabalho foram projetadas para dar suporte, como criar relatórios, personalizar relatórios existentes e muito mais, examinando [Criar relatórios interativos com pastas de trabalho do Azure Monitor](../platform/workbooks-overview.md).

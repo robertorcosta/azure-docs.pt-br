@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/24/2020
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 310fee91ed98409e5a724d1be8de7bc9ccb5601b
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 0db34a615c9d92401e760c702feb0dbbf13ce01d
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91570927"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803867"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Backup on-line e restauração de dados sob demanda no Azure Cosmos DB
 
@@ -88,6 +88,13 @@ Quando você exclui acidentalmente um banco de dados Cosmos do Azure, podemos re
 Quando você exclui ou modifica acidentalmente um ou mais itens dentro de um contêiner (o caso de corrupção de dados), precisa especificar a hora de restauração. O tempo é importante se houver dados corrompidos. Como o contêiner está ativo, o backup ainda está em execução. portanto, se você aguardar além do período de retenção (o padrão é de oito horas), os backups serão substituídos. **Para impedir que o backup seja substituído, aumente a retenção de backup da sua conta para pelo menos sete dias. É melhor aumentar sua retenção dentro de 8 horas a partir da corrupção de dados.**
 
 Se você acidentalmente excluiu ou danificou seus dados, deve entrar em contato com o [suporte do Azure](https://azure.microsoft.com/support/options/) dentro de 8 horas para que a equipe de Azure Cosmos DB possa ajudá-lo a restaurar os dados dos backups. Dessa forma, a equipe de suporte do Azure Cosmos DB terá tempo suficiente para restaurar sua conta.
+
+> [!NOTE]
+> Depois de restaurar os dados, nem todos os recursos ou as configurações de origem são transferidos para a conta restaurada. As configurações a seguir não são transportadas para a nova conta:
+
+> * Listas de controle de acesso VNET
+> * Procedimentos armazenados, gatilhos e funções definidas pelo usuário
+> * Configurações de várias regiões  
 
 Se você provisionar a taxa de transferência no nível do banco de dados, o processo de backup e restauração, nesse caso, ocorrerá em todo o nível do banco de dados, e não no nível de contêineres individuais. Nesses casos, você não pode selecionar um subconjunto de contêineres para restaurar.
 
