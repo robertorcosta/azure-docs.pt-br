@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 08/04/2020
 ms.custom: seodec18, mvc
 ms.openlocfilehash: ace1030923ea226376369941badafafa662d25ce
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88031756"
 ---
 # <a name="quickstart-create-an-azure-container-registry-using-the-azure-portal"></a>Início Rápido: Criar um Registro de Contêiner do Azure usando o portal do Azure
@@ -31,7 +31,7 @@ Selecione **Criar um recurso** > **Contêineres** > **Registro de Contêiner**.
 
 Na guia **Noções básicas**, insira valores para **Grupo de recursos** e **Nome do registro**. O nome do registro deve ser exclusivo no Azure e conter de 5 a 50 caracteres alfanuméricos. Para este início rápido crie um novo grupo de recursos no local `West US` denominado `myResourceGroup` e para **SKU**, selecione “Basic”.
 
-:::image type="content" source="media/container-registry-get-started-portal/qs-portal-03.png" alt-text="Criar o registro de contêiner no portal":::
+:::image type="content" source="media/container-registry-get-started-portal/qs-portal-03.png" alt-text="Navegar até o registro de contêiner no portal":::
 
 Aceite os valores padrão para as configurações restantes. Em seguida, selecione **Examinar + criar**. Depois de revisar as configurações, selecione **Criar**.
 
@@ -39,7 +39,7 @@ Neste início rápido você criará um Registro *Básico*, que é uma opção co
 
 Quando a mensagem **Implantação bem-sucedida** é exibida, selecione o registro de contêiner no portal. 
 
-:::image type="content" source="media/container-registry-get-started-portal/qs-portal-05.png" alt-text="Visão geral do registro de contêiner no portal":::
+:::image type="content" source="media/container-registry-get-started-portal/qs-portal-05.png" alt-text="Navegar até o registro de contêiner no portal":::
 
 Anote o nome do registro e o valor do **servidor de logon**. Você usará esses valores nas etapas a seguir ao enviar por push e efetuar pull de imagens com o Docker.
 
@@ -65,7 +65,7 @@ O comando retorna `Login Succeeded` na conclusão.
 
 Para listar as imagens no registro, navegue até ele no portal, selecione **Repositórios** e selecione o repositório **hello-world** que você criou com `docker push`.
 
-:::image type="content" source="media/container-registry-get-started-portal/qs-portal-09.png" alt-text="Listar imagens de contêiner no portal":::
+:::image type="content" source="media/container-registry-get-started-portal/qs-portal-09.png" alt-text="Navegar até o registro de contêiner no portal":::
 
 Ao selecionar o repositório **hello-world**, você verá a imagem marcada com `v1` em **Marcas**.
 
@@ -75,7 +75,7 @@ Ao selecionar o repositório **hello-world**, você verá a imagem marcada com `
 
 Para limpar seus recursos, navegue até o grupo de recursos **myResourceGroup** no portal. Depois que o grupo de recursos for carregado, clique em **Excluir grupo de recursos** para remover o grupo de recursos, o registro de contêiner e as imagens armazenadas lá.
 
-:::image type="content" source="media/container-registry-get-started-portal/qs-portal-08.png" alt-text="Excluir grupo de recursos no portal":::
+:::image type="content" source="media/container-registry-get-started-portal/qs-portal-08.png" alt-text="Navegar até o registro de contêiner no portal":::
 
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -6,10 +6,10 @@ ms.topic: quickstart
 ms.date: 03/06/2020
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, 23113853-34f2-4f
 ms.openlocfilehash: d7cfcd02c5e6c9ff57241288bd79efb45d4ac7ab
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88213980"
 ---
 # <a name="quickstart-create-your-first-function-in-azure-using-visual-studio"></a>Início Rápido: Criar sua primeira função no Azure usando o Visual Studio
@@ -74,7 +74,7 @@ Antes de publicar o projeto, você deve ter um aplicativo de funções em sua as
 
 2. Vá para essa URL e você verá uma resposta no navegador à solicitação GET remota retornada pela função, que é semelhante ao seguinte exemplo:
 
-    :::image type="content" source="media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-azure.png" alt-text="Resposta da função no navegador":::
+    :::image type="content" source="media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-azure.png" alt-text="Aplicativo de funções em execução":::
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
@@ -88,7 +88,7 @@ Você criou recursos para concluir esses guias de início rápido. Você pode se
 
 1. Na página do aplicativo de funções, selecione a guia **Visão geral** e depois selecione o link em **Grupo de recursos**.
 
-   :::image type="content" source="media/functions-create-your-first-function-visual-studio/functions-app-delete-resource-group.png" alt-text="Selecione o grupo de recursos a ser excluído da página do aplicativo de funções":::
+   :::image type="content" source="media/functions-create-your-first-function-visual-studio/functions-app-delete-resource-group.png" alt-text="Aplicativo de funções em execução":::
 
 2. Na página **Grupo de recursos**, examine a lista de recursos incluídos e verifique se eles são aqueles que deseja excluir.
  

@@ -4,10 +4,10 @@ description: Neste início rápido, você segue etapas necessárias para executa
 ms.date: 08/10/2020
 ms.topic: quickstart
 ms.openlocfilehash: 4d68366005ad6379669d29fb8264f78d1b8f4972
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88056373"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Início Rápido: Executar a primeira consulta do Resource Graph usando o Azure Resource Graph Explorer
@@ -94,7 +94,7 @@ Para fornecer exemplos de consultas do Resource Graph e de como o Resource Graph
 
 - [Resource Graph Explorer – Painel de Amostra 2](https://github.com/Azure-Samples/Governance/blob/master/src/resource-graph/portal-dashboards/sample-2/resourcegraphexplorer-sample-2.json)
 
-  :::image type="content" source="./media/arge-sample2-small.png" alt-text="Exemplo de imagem do Painel de Amostra 2" lightbox="./media/arge-sample2-large.png":::
+  :::image type="content" source="./media/arge-sample2-small.png" alt-text="Exemplo de imagem do Painel de Amostra 1" lightbox="./media/arge-sample2-large.png":::
 
 > [!NOTE]
 > As contagens e os gráficos nas capturas de tela do painel de exemplo acima variam de acordo com o ambiente do Azure.

@@ -4,10 +4,10 @@ description: Neste início rápido, use a API REST para criar uma atribuição d
 ms.date: 08/10/2020
 ms.topic: quickstart
 ms.openlocfilehash: 04880ef013060bc5ff12618af6a9156295a26a88
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88137079"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-rest-api"></a>Início Rápido: Criar uma atribuição de política para identificar recursos sem conformidade com a API REST

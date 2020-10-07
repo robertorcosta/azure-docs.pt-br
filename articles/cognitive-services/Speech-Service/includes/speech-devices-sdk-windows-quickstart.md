@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 02/20/2020
 ms.author: trbye
 ms.openlocfilehash: d2160a5cd38fcd24c3af5d32ccbbbee8ac723b2f
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88226411"
 ---
 Neste início rápido, você aprenderá a usar o SDK de Dispositivos de Fala para Windows para criar um produto habilitado para fala ou usá-lo como um dispositivo de [transcrição de conversas](../conversation-transcription-service.md). Na Transcrição de conversas, há suporte apenas para o [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/). Para outros usos de fala, há suporte para matrizes de microfone lineares que fornecem uma geometria de matriz de microfone.

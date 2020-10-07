@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 03/15/2020
 ms.author: matjazl
 ms.openlocfilehash: 8c0448d31cd89e2ca969b81361b30bac3f9610e9
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87851929"
 ---
 # <a name="quickstart-deploy-azure-api-for-fhir-using-azure-portal"></a>Início Rápido: Implantar a API do Azure para FHIR usando o portal do Azure
@@ -37,13 +37,13 @@ Você pode encontrar a API do Azure para FHIR digitando "FHIR" na caixa de pesqu
 
 Selecione **Criar** para criar uma conta da API do Azure para FHIR:
 
-:::image type="content" source="media/quickstart-paas-portal/portal-create-healthcare-apis.png" alt-text="Criar conta da API do Azure para FHIR":::
+:::image type="content" source="media/quickstart-paas-portal/portal-create-healthcare-apis.png" alt-text="Pesquisar APIs de Saúde":::
 
 ## <a name="enter-account-details"></a>Inserir detalhes da conta
 
 Selecione um grupo de recursos ou crie um, escolha um nome para a conta e, por fim, clique em **Examinar + criar**:
 
-:::image type="content" source="media/quickstart-paas-portal/portal-new-healthcareapi-details.png" alt-text="Novos detalhes da API de saúde":::
+:::image type="content" source="media/quickstart-paas-portal/portal-new-healthcareapi-details.png" alt-text="Pesquisar APIs de Saúde":::
 
 Confirme a criação e aguarde a implantação da API do FHIR.
 
@@ -51,7 +51,7 @@ Confirme a criação e aguarde a implantação da API do FHIR.
 
 Você também pode clicar em **Avançar: configurações adicionais** para exibir as configurações de autenticação. A configuração padrão para a API do Azure para FHIR é [usar o RBAC do Azure para atribuir funções de plano de dados](configure-azure-rbac.md). Quando configurado nesse modo, a "Autoridade" do serviço FHIR será definida como o locatário do Azure Active Directory da assinatura:
 
-:::image type="content" source="media/rbac/confirm-azure-rbac-mode-create.png" alt-text="Configurações de autenticação padrão":::
+:::image type="content" source="media/rbac/confirm-azure-rbac-mode-create.png" alt-text="Pesquisar APIs de Saúde":::
 
 Observe que a caixa para inserir as IDs de objeto permitidas está esmaecida, já que usamos o RBAC do Azure para configurar atribuições de função nesse caso.
 
