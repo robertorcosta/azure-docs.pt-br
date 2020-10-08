@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/01/2020
 ms.author: allensu
-ms.openlocfilehash: 3509b99d1b222fc4f0bfa48effe42496c209d9ae
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 8eb8be3307cf5e1df987f636be5c01cecaf4ae45
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654473"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91631436"
 ---
 # <a name="azure-load-balancer-skus"></a>SKUs do Azure Load Balancer
 
@@ -54,7 +54,9 @@ Para saber mais, confira [Limites do balanceador de carga](https://docs.microsof
 
 - Os SKUs não são mutáveis. Você não pode alterar o SKU de um recurso existente.
 - Um recurso de máquina virtual padrão, recurso de conjunto de disponibilidade ou recurso de conjunto de dimensionamento da máquina virtal podem referenciar um SKU, nunca ambos.
-- Não há suporte para [operações de movimentação de assinatura](../azure-resource-manager/management/move-resource-group-and-subscription.md) para o Standard Load Balancer e para recursos Standard de IP público.
+- [Operações de movimentação](../azure-resource-manager/management/move-resource-group-and-subscription.md):
+  - **Há compatibilidade** com as operações de movimentação de grupo de recursos (na mesma assinatura) para o Standard Load Balancer e o IP Público Padrão. 
+  - **Não** há compatibilidade com [operações de movimentação de grupo de subscrições](../azure-resource-manager/management/move-support-resources.md) nos recursos Standard Load Balancer e IP Público Padrão.
 
 ## <a name="next-steps"></a>Próximas etapas
 

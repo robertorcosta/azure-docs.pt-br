@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scenario
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/19/2018
-ms.openlocfilehash: 60c2330578ef4b8e3e40dc3e37a0c8b1eb291e2f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: 62e20a10e9709bc69a746a6f62e949c47c3a6d02
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255544"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91620147"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Gerenciar o esquema em um aplicativo SaaS usando o padrão de banco de dados por locatário com o Banco de Dados SQL do Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -39,20 +39,20 @@ Para concluir este tutorial, certifique-se de atender a todos os seguintes pré-
 
 * O aplicativo Wingtip Tickets SaaS Database Per Tenant é implantado. Para implantá-lo em menos de cinco minutos, veja [Implantar e explorar o aplicativo de banco de dados por locatário SaaS Wingtip Tickets](../../sql-database/saas-dbpertenant-get-started-deploy.md)
 * O Azure PowerShell está instalado. Para obter detalhes, consulte [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
-* A última versão do SQL Server Management Studio (SSMS) está instalada. [Baixar e instalar o SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
+* A última versão do SQL Server Management Studio (SSMS) está instalada. [Baixar e Instalar o SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>Introdução aos padrões de gerenciamento de esquema de SaaS
 
-O padrão de banco de dados por locatário isola dados do locatário com eficiência, mas aumenta o número de bancos de dados para gerenciar e manter. Os [trabalhos elásticos](../../sql-database/elastic-jobs-overview.md) facilitam a administração e o gerenciamento de vários bancos de dados. Os trabalhos permitem uma execução segura e confiável de tarefas (scripts Transact-SQL) em um grupo de bancos de dados. Trabalhos podem implantar esquemas e alterações de dados de referência comum em todos os locatários em um aplicativo. Os Trabalhos Elásticos também podem ser usados para manter um banco de dados de *modelos* usado para criar novos locatários, fazendo com que ele sempre tenha os dados de esquema e de referência mais recentes.
+O padrão de banco de dados por locatário isola dados do locatário com eficiência, mas aumenta o número de bancos de dados para gerenciar e manter. Os [Trabalhos Elásticos](../../sql-database/elastic-jobs-overview.md) facilitam a administração e o gerenciamento de vários bancos de dados. Os trabalhos permitem uma execução segura e confiável de tarefas (scripts Transact-SQL) em um grupo de bancos de dados. Trabalhos podem implantar esquemas e alterações de dados de referência comum em todos os locatários em um aplicativo. Os Trabalhos Elásticos também podem ser usados para manter um banco de dados de *modelos* usado para criar novos locatários, fazendo com que ele sempre tenha os dados de esquema e de referência mais recentes.
 
 ![tela](./media/saas-tenancy-schema-management/schema-management-dpt.png)
 
 
-## <a name="elastic-jobs-public-preview"></a>Visualização pública de trabalhos elásticos
+## <a name="elastic-jobs-public-preview"></a>Versão prévia pública dos Trabalhos Elásticos
 
-Há uma nova versão dos Trabalhos Elásticos, que agora é um recurso integrado do Banco de Dados SQL do Azure. Esta nova versão dos trabalhos elásticos está atualmente em visualização pública. Essa visualização pública atualmente dá suporte ao uso do PowerShell para criar um agente de trabalho e ao T-SQL para criar e gerenciar trabalhos.
-Consulte o artigo sobre [trabalhos de banco de dados elástico](https://docs.microsoft.com/azure/azure-sql/database/elastic-jobs-overview) para obter mais informações.
+Há uma nova versão dos Trabalhos Elásticos, que agora é um recurso integrado do Banco de Dados SQL do Azure. Essa nova versão dos Trabalhos Elásticos está em versão prévia pública atualmente. No momento, a versão prévia pública é compatível com o PowerShell para criar um agente de trabalho e com o T-SQL para criar e gerenciar trabalhos.
+Para saber mais, confira o artigo sobre [Trabalhos do Banco de Dados Elástico](https://docs.microsoft.com/azure/azure-sql/database/elastic-jobs-overview).
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Obter os scripts do aplicativo de banco de dados por locatário SaaS Wingtip Tickets
 
@@ -65,7 +65,7 @@ Este tutorial requer que você use o PowerShell para criar um agente de trabalho
 1. **No ISE do PowerShell**, abra …\\Learning Modules\\Schema Management\\*Demo-SchemaManagement.ps1*.
 1. Pressione **F5** para executar o script.
 
-O script *Demo-SchemaManagement.ps1* chama o script *Deploy-SchemaManagement.ps1* para criar um banco de dados chamado *osagent* no servidor de catálogo. Em seguida, ele cria o agente de trabalho usando o banco de dados como um parâmetro.
+O script *Demo-SchemaManagement.ps1* chama o script *Deploy-SchemaManagement.ps1* para criar um banco de dados de nome *osagent* no servidor de catálogo. Em seguida, ele cria o agente de trabalho usando o banco de dados como um parâmetro.
 
 ## <a name="create-a-job-to-deploy-new-reference-data-to-all-tenants"></a>Criar um trabalho para implantar novos dados de referência para todos os locatários
 
@@ -102,12 +102,12 @@ Este exercício usa um trabalho para recriar o índice de chave primária da tab
 Crie um trabalho usando os mesmos trabalhos dos procedimentos armazenados do "sistema".
 
 1. Abra o SSMS e conecte-se ao servidor _catalog-dpt-&lt;user&gt;.database.windows.net_
-1. Abra o arquivo _... \\ Gerenciamento de esquema de módulos de aprendizado \\ \\ OnlineReindex. SQL_
+1. Abra o arquivo _...\\Módulos de aprendizado\\Gerenciamento de esquema\\OnlineReindex.sql_
 1. Clique com o botão direito do mouse, selecione Conexão e conecte-se ao servidor _catalog-dpt-&lt;user&gt;.database.windows.net_, se ainda não estiver conectado
 1. Verifique se você está conectado ao banco de dados _jobaccount_ e pressione **F5** para executar o script
 
 Observe os seguintes elementos no script _OnlineReindex.sql_:
-* **SP \_ Add \_ Job** cria um novo trabalho chamado "online REINDEX CP \_ \_ VenueTyp \_ \_ 265E44FD7FD4C885"
+* **sp\_add\_job** cria um novo trabalho chamado “Online Reindex PK\_\_VenueTyp\_\_265E44FD7FD4C885”
 * **sp\_add\_jobstep** cria a etapa de trabalho que contém o texto do comando T-SQL para atualizar o índice
 * As exibições restantes na execução do trabalho no monitor de script. Use essas consultas para examinar o valor do status na coluna **lifecycle** para determinar quando o trabalho foi concluído com êxito em todos os membros do grupo de destino.
 
@@ -123,10 +123,10 @@ Neste tutorial, você aprendeu a:
 > * Atualizar dados de referência em todos os bancos de dados de locatário
 > * Criar um índice em uma tabela em todos os bancos de dados de locatário
 
-Em seguida, experimente o [tutorial de relatórios ad hoc](../../sql-database/saas-tenancy-cross-tenant-reporting.md) para explorar a execução de consultas distribuídas em bancos de dados de locatário.
+Em seguida, confira o [tutorial de relatórios ad hoc](../../sql-database/saas-tenancy-cross-tenant-reporting.md) para explorar a execução de consultas distribuídas entre bancos de dados de locatário.
 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [TUTORIAIS adicionais que se baseiam na implantação do aplicativo de banco de dados por locatário SaaS Wingtip tickets](../../sql-database/saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
+* [Tutoriais adicionais que aproveitam a implantação do aplicativo Banco de Dados por Locatário SaaS Wingtip Tickets](../../sql-database/saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Gerenciando bancos de dados de nuvem com escalonamento horizontal](../../sql-database/elastic-jobs-overview.md)

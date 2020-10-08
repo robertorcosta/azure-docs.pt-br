@@ -1,18 +1,18 @@
 ---
 title: 'Tutorial: Criar um Banco de Dados do Azure para PostgreSQL – Servidor único – Portal do Azure'
 description: Este tutorial mostra como Criar seu primeiro Banco de Dados do Azure para PostgreSQL – Servidor único usando o portal do Azure.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 06/25/2019
-ms.openlocfilehash: 7e98c34198c0821dac59f849267a920a87c48a54
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d22e9c10c167e0b2646298acca75d506a0ea032f
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905646"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91707567"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Tutorial: Criar um Banco de Dados do Azure para PostgreSQL – Servidor único usando o portal do Azure
 
@@ -42,11 +42,11 @@ Siga estas etapas para criar um Banco de Dados do Azure para o servidor PostgreS
 
 3. Selecione a opção de implantação **Servidor único**.
 
-   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/select-deployment-option.png" alt-text="Selecione o Banco de Dados do Azure para PostgreSQL – Opção de implantação de servidor único":::
+   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/select-deployment-option.png" alt-text="Banco de Dados do Azure para PostgreSQL – Criar o banco de dados":::
 
 4. Preencha o formulário **Básico** com as seguintes informações:
 
-    :::image type="content" source="./media/tutorial-design-database-using-azure-portal/create-basics.png" alt-text="Criar um servidor":::
+    :::image type="content" source="./media/tutorial-design-database-using-azure-portal/create-basics.png" alt-text="Banco de Dados do Azure para PostgreSQL – Criar o banco de dados":::
 
     Configuração|Valor sugerido|Descrição
     ---|---|---
@@ -64,7 +64,7 @@ Siga estas etapas para criar um Banco de Dados do Azure para o servidor PostgreS
    > Considere usar o tipo de preço Básico se computação leve e E/S forem adequadas para sua carga de trabalho. Observe que servidores criados no tipo de preço Básico não podem ser dimensionados mais tarde para Uso Geral ou Otimizado para Memória. Veja a [página de preço](https://azure.microsoft.com/pricing/details/postgresql/) para obter mais informações.
    > 
 
-    :::image type="content" source="./media/quickstart-create-database-portal/2-pricing-tier.png" alt-text="O painel Tipo de preço":::
+    :::image type="content" source="./media/quickstart-create-database-portal/2-pricing-tier.png" alt-text="Banco de Dados do Azure para PostgreSQL – Criar o banco de dados":::
 
     > [!TIP]
     > Com o **aumento automático** habilitado, seu servidor aumenta o armazenamento quando você está se aproximando do limite alocado, sem afetar sua carga de trabalho.
@@ -73,7 +73,7 @@ Siga estas etapas para criar um Banco de Dados do Azure para o servidor PostgreS
 
 6. Na barra de ferramentas, selecione o ícone (sino) **Notificações** para monitorar o processo de implantação. Depois que a implantação é feita, você pode selecionar **Fixar no painel**, que cria um bloco para esse servidor no seu painel do portal do Azure como um atalho para a página **Visão geral** do servidor. A opção **Ir para recurso** abre a página **Visão geral** do servidor.
 
-    :::image type="content" source="./media/quickstart-create-database-portal/3-notifications.png" alt-text="O painel Notificações":::
+    :::image type="content" source="./media/quickstart-create-database-portal/3-notifications.png" alt-text="Banco de Dados do Azure para PostgreSQL – Criar o banco de dados":::
    
    Por padrão, um banco de dados **postgres** é criado no servidor. O banco de dados [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) é um banco de dados padrão destinado ao uso dos usuários, de utilitários e de aplicativos de terceiros. (O outro banco de dados padrão é o **azure_maintenance**. Sua função é separar os processos de serviço gerenciado das ações do usuário. Não é possível acessar este banco de dados).
 
@@ -84,13 +84,13 @@ O serviço do Banco de Dados do Azure para PostgreSQL cria um firewall no nível
 
 1. Após a implantação ser concluída, clique em **Todos os Recursos** no menu esquerdo e digite o nome **mydemoserver**, para pesquisar o servidor recém-criado. Clique no nome do servidor listado nos resultados da pesquisa. A página **Visão geral** do servidor é aberta e oferece outras opções de configuração.
 
-   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/4-locate.png" alt-text="Banco de Dados do Azure para PostgreSQL – Pesquisar o servidor":::
+   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/4-locate.png" alt-text="Banco de Dados do Azure para PostgreSQL – Criar o banco de dados":::
 
 2. Na página do servidor, selecione **Segurança da conexão**. 
 
 3. Clique na caixa de texto em **Nome da regra** e adicione uma nova regra de firewall para especificar o intervalo de IP para conectividade. Insira o intervalo de IP. Clique em **Save** (Salvar).
 
-   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/5-firewall-2.png" alt-text="Banco de Dados do Azure para PostgreSQL - Criar Regra de Firewall":::
+   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/5-firewall-2.png" alt-text="Banco de Dados do Azure para PostgreSQL – Criar o banco de dados":::
 
 4. Clique em **Salvar** e, em seguida, clique no **X** para fechar a página de **Segurança de conexões**.
 
@@ -104,13 +104,13 @@ Quando você criou o servidor do Banco de dados do Azure para PostgreSQL, o banc
 
 1. No menu à esquerda no portal do Azure, clique em **Todos os recursos** e pesquise pelo servidor que você acabou de criar.
 
-   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/4-locate.png" alt-text="Banco de Dados do Azure para PostgreSQL – Pesquisar o servidor":::
+   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/4-locate.png" alt-text="Banco de Dados do Azure para PostgreSQL – Criar o banco de dados":::
 
 2. Clique no nome do servidor **mydemoserver**.
 
 3. Selecione a página **Visão geral** do servidor. Anote o **Nome do servidor** e o **Nome de logon de administrador do servidor**.
 
-   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/6-server-name.png" alt-text="Banco de Dados do Azure para PostgreSQL – Logon de administrador do servidor":::
+   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/6-server-name.png" alt-text="Banco de Dados do Azure para PostgreSQL – Criar o banco de dados":::
 
 
 ## <a name="connect-to-postgresql-database-using-psql"></a>Conectar-se ao banco de dados PostgreSQL usando psql
@@ -190,11 +190,11 @@ Imagine que você excluiu acidentalmente essa tabela. Essa situação é algo do
 
 1. Na página de **Visão geral** do Banco de Dados do Azure para PostgreSQL para o servidor, clique em **Restaurar** na barra de ferramentas. A página **Restaurar** será aberta.
 
-   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/9-azure-portal-restore.png" alt-text="Portal do Azure - Opções do formulário de restauração":::
+   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/9-azure-portal-restore.png" alt-text="Banco de Dados do Azure para PostgreSQL – Criar o banco de dados":::
 
 2. Preencha o formulário **Restaurar** com as informações necessárias:
 
-   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/10-azure-portal-restore.png" alt-text="Portal do Azure - Opções do formulário de restauração":::
+   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/10-azure-portal-restore.png" alt-text="Banco de Dados do Azure para PostgreSQL – Criar o banco de dados":::
 
    - **Ponto de restauração**: Selecione um ponto no tempo anterior à alteração do servidor
    - **Servidor de destino**: Forneça o novo nome do servidor para o qual deseja fazer a restauração

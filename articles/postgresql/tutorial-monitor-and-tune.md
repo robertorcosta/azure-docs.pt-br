@@ -1,17 +1,17 @@
 ---
 title: 'Tutorial: Monitorar e ajustar – Banco de Dados do Azure para PostgreSQL – Servidor único'
 description: Este tutorial descreve o monitoramento e o ajuste no Banco de Dados do Azure para PostgreSQL – Servidor único.
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: tutorial
 ms.date: 5/6/2019
-ms.openlocfilehash: 05435aae727c84a5f3eb886274f9d286627e399e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f211ce7e52ccaa6793435159d0ce1c64fe8b63ed
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90895084"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91705274"
 ---
 # <a name="tutorial-monitor-and-tune-azure-database-for-postgresql---single-server"></a>Tutorial: Monitorar e ajustar o Banco de Dados do Azure para PostgreSQL – Servidor único
 
@@ -52,7 +52,7 @@ A visualização da [Análise de Desempenho de Consultas](concepts-query-perform
 
 2. A guia **consultas de Longa execução** mostra as 5 consultas superiores por duração média por execução, agregadas em intervalos de 15 minutos. 
    
-   :::image type="content" source="./media/tutorial-performance-intelligence/query-performance-insight-landing-page.png" alt-text="Página de aterrissagem de Análise de Desempenho de Consultas":::
+   :::image type="content" source="./media/tutorial-performance-intelligence/query-performance-insight-landing-page.png" alt-text="Parâmetros de consulta do servidor Repositório de Consultas":::
 
    Você pode exibir mais consultas, selecionando a partir do **Número de consultas** lista suspensa. As cores do gráfico pode ser alteradas para uma ID de consulta específica ao fazer isso.
 
@@ -64,7 +64,7 @@ A visualização da [Análise de Desempenho de Consultas](concepts-query-perform
 
 6. Selecione a guia das **Estatísticas de Espera** guia para exibir as visualizações correspondentes em espera no servidor.
    
-   :::image type="content" source="./media/tutorial-performance-intelligence/query-performance-insight-wait-statistics.png" alt-text="Estatísticas de espera de Análise de Desempenho de Consultas":::
+   :::image type="content" source="./media/tutorial-performance-intelligence/query-performance-insight-wait-statistics.png" alt-text="Parâmetros de consulta do servidor Repositório de Consultas":::
 
 ### <a name="permissions"></a>Permissões
 **Permissões do Proprietário** ou **Colaborador** necessárias para exibir o texto das consultas na Análise de Desempenho de Consultas **Leitor** podem exibir gráficos e tabelas, mas não o texto da consulta.
@@ -75,7 +75,7 @@ O recurso das [Recomendações de Desempenho](concepts-performance-recommendatio
 
 1. Abra **Recomendações de Desempenho** da seção **suporte + solução de problemas** da barra de menus, na página do portal do Azure para seu servidor PostgreSQL.
    
-   :::image type="content" source="./media/tutorial-performance-intelligence/performance-recommendations-landing-page.png" alt-text="Página das Recomendações de Desempenho":::
+   :::image type="content" source="./media/tutorial-performance-intelligence/performance-recommendations-landing-page.png" alt-text="Parâmetros de consulta do servidor Repositório de Consultas":::
 
 2. Selecione **Analisar** e escolha um banco de dados. Isso iniciará a análise.
 
@@ -85,7 +85,7 @@ O recurso das [Recomendações de Desempenho](concepts-performance-recommendatio
 
 5. Uma recomendação mostrará informações sobre os relevantes **banco de dados**, **tabela**, **coluna**, e **tamanho de índice**.
 
-   :::image type="content" source="./media/tutorial-performance-intelligence/performance-recommendations-result.png" alt-text="Recomendações de Desempenho":::
+   :::image type="content" source="./media/tutorial-performance-intelligence/performance-recommendations-result.png" alt-text="Parâmetros de consulta do servidor Repositório de Consultas":::
 
 6. Para implementar a recomendação, copie o texto da consulta e executá-lo do seu cliente de escolha.
 

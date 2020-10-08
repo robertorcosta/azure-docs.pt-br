@@ -1,22 +1,22 @@
 ---
-title: Relatando consultas em vários bancos de dados
+title: Consultas de relatórios entre vários bancos de dados
 description: Relatório entre locatários usando consultas distribuídas.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewers: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 3542bb502bbb0d41ff6a35902bc38262c26876de
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
-ms.translationtype: MT
+ms.openlocfilehash: 03e8719b256fc758874bd7375deed0637da9447e
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91361714"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91620300"
 ---
 # <a name="cross-tenant-reporting-using-distributed-queries"></a>Relatório entre locatários usando consultas distribuídas
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -36,7 +36,7 @@ Neste tutorial, você aprende:
 Para concluir este tutorial, verifique se todos os pré-requisitos a seguir são atendidos:
 
 
-* O aplicativo Wingtip Tickets SaaS Database Per Tenant é implantado. Para implantar em menos de cinco minutos, consulte [implantar e explorar o aplicativo de banco de dados por locatário SaaS Wingtip tickets](../../sql-database/saas-dbpertenant-get-started-deploy.md)
+* O aplicativo Wingtip Tickets SaaS Database Per Tenant é implantado. Para implantá-lo em menos de cinco minutos, veja [Implantar e explorar o aplicativo Wingtip Tickets SaaS Database Per Tenant](../../sql-database/saas-dbpertenant-get-started-deploy.md)
 * O Azure PowerShell está instalado. Para obter detalhes, consulte [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 * O SSMS (SQL Server Management Studio) está instalado. Para baixar e instalar a versão mais recente do SSMS, confira [Baixar o SSMS (SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
@@ -53,7 +53,7 @@ Ao distribuir consultas entre os bancos de dados de locatário, a Consulta Elás
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Obter os scripts do aplicativo Wingtip Tickets SaaS Database Per Tenant
 
-Os scripts de banco de dados multilocatário do Wingtip tickets SaaS e o código-fonte do aplicativo estão disponíveis no repositório GitHub [repositório wingtipticketssaas-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) . Confira as [diretrizes gerais](saas-tenancy-wingtip-app-guidance-tips.md) para obter as etapas para baixar e desbloquear os scripts SaaS do Wingtip Tickets.
+Os scripts e o código-fonte do aplicativo SaaS de Banco de Dados Multilocatário Wingtip Tickets estão disponíveis no repositório [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) do GitHub. Confira as [diretrizes gerais](saas-tenancy-wingtip-app-guidance-tips.md) para obter as etapas para baixar e desbloquear os scripts SaaS do Wingtip Tickets.
 
 ## <a name="create-ticket-sales-data"></a>Criar dados de vendas de ingresso
 
@@ -93,10 +93,10 @@ Para examinar a definição da exibição *Locais*:
 
 1. Em **Pesquisador de Objetos**, expanda **contosoconcerthall** > **Exibições**:
 
-   ![Captura de tela mostra o conteúdo do nó views, incluindo quatro tipos de localização d b o.](./media/saas-tenancy-cross-tenant-reporting/views.png)
+   ![Captura de tela mostra o conteúdo do nó "Exibições", incluindo quatro tipos de Local.](./media/saas-tenancy-cross-tenant-reporting/views.png)
 
 2. Clique com botão direito do mouse em **dbo.Venues**.
-3. Selecionar **exibição de script como**  >  **criar para a**  >  **nova janela do editor de consultas**
+3. Selecione **Modo de Exibição de Script como** > **CRIAR para** > **Janela do Editor Nova Consulta**
 
 Gere o script de qualquer uma das outras exibições *Local* para ver como elas adicionam a *VenueId*.
 
@@ -106,7 +106,7 @@ Este exercício implanta o banco de dados _adhocreporting_. Esse é o banco de d
 
 1. No *ISE do PowerShell*, abra ...\\Módulos de Aprendizado\\Análise Operacional\\Relatórios Ad hoc\\*Demo-AdhocReporting.ps1*. 
 
-1. Defina **$DemoScenario = 2**, _implantar banco de dados de relatórios ad hoc_.
+1. Defina **$DemoScenario = 2**, _Implantar banco de dados de relatórios de relatório ad hoc_.
 
 1. Pressione **F5** para executar o script e criar o banco de dados *adhocreporting*.
 
@@ -148,7 +148,7 @@ Agora que o banco de dados *adhocreporting* está configurado, siga em frente e 
 
 Ao inspecionar o plano de execução, passe o mouse sobre os ícones de plano para obter detalhes. 
 
-É importante observar que configurar **DISTRIBUTION = SHARDED(VenueId)**, quando definida a fonte de dados externa, melhora o desempenho em muitos cenários. Como cada *LocalId* é mapeado para um banco de dados individual, a filtragem é facilmente feita remotamente, retornando apenas os dados necessários.
+É importante observar que configurar **DISTRIBUTION = SHARDED(VenueId)**, quando definida a fonte de dados externa, melhora o desempenho em muitos cenários. Como cada *VenueId* mapeia para um banco de dados individual, a filtragem é facilmente feita de maneira remota, retornando apenas os dados necessários.
 
 1. Abra ...\\Módulos de Aprendizado\\Análise Operacional\\Relatórios Ad hoc\\*Demo-AdhocReportingQueries.sql* no SSMS.
 2. Verifique se você está conectado ao banco de dados **adhocreporting**.
@@ -186,7 +186,7 @@ Neste tutorial, você aprendeu a:
 > * Implante um banco de dados de relatório e defina o esquema necessário para executar consultas distribuídas.
 
 
-Agora experimente o [tutorial de análise de locatário](saas-tenancy-tenant-analytics.md) para explorar a extração de dados para um banco de dado de análise separado para um processamento de análise mais complexo.
+Agora, experimente o [Tutorial de análise de locatário](saas-tenancy-tenant-analytics.md) para explorar a extração de dados para um banco de dados de análise separado para o processamento de análise mais complexo.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

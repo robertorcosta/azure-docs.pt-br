@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: development
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: sample
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: aed1965b07a80efa3cd8dbc84e396b9ef4f99252
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: 2829b1c71aebcc97452fc658e6509e4fae42da8c
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84345267"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91616798"
 ---
 # <a name="in-memory-sample"></a>Exemplo de In-Memory
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -29,14 +29,14 @@ Para obter mais informações, consulte:
 
 - [Visão geral e cenários de uso do OLTP In-Memory](/sql/relational-databases/in-memory-oltp/overview-and-usage-scenarios) (incluindo referências a estudos de caso de cliente e informações para começar)
 - [Documentação para OLTP in-memory](/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)
-- [Guia de índices Columnstore](/sql/relational-databases/indexes/columnstore-indexes-overview)
+- [Guia de Índices columnstore](/sql/relational-databases/indexes/columnstore-indexes-overview)
 - HTAP (Processamento Transacional e Analítico Híbrido), também conhecido como [análise operacional em tempo real](/sql/relational-databases/indexes/get-started-with-columnstore-for-real-time-operational-analytics)
 
 <a id="install_oltp_manuallink" name="install_oltp_manuallink"></a>
 
 &nbsp;
 
-## <a name="1-install-the-in-memory-oltp-sample"></a>1. instalar o exemplo de OLTP na memória
+## <a name="1-install-the-in-memory-oltp-sample"></a>1. Instalar o exemplo de OLTP Na Memória.
 
 Você pode criar o banco de dados de exemplo AdventureWorksLT com alguns cliques no [Portal do Azure](https://portal.azure.com/). Em seguida, as etapas desta seção explicam como você pode aprimorar seu banco de dados AdventureWorksLT com objetos OLTP in-memory e demonstram os benefícios de desempenho.
 
@@ -47,7 +47,7 @@ Para ver uma demonstração de desempenho mais simples, porém, mais visualmente
 
 ### <a name="installation-steps"></a>Etapas de instalação
 
-1. No [portal do Azure](https://portal.azure.com/), crie um banco de dados Premium ou Comercialmente Crítico em um servidor. Defina a **Origem** como o banco de dados de exemplo AdventureWorksLT. Para obter instruções detalhadas, consulte [criar seu primeiro banco de dados no banco de dados SQL do Azure](database/single-database-create-quickstart.md).
+1. No [portal do Azure](https://portal.azure.com/), crie um banco de dados Premium ou Comercialmente Crítico em um servidor. Defina a **Origem** como o banco de dados de exemplo AdventureWorksLT. Para obter instruções detalhadas, confira [Criar seu primeiro banco de dados no Banco de Dados SQL do Azure](database/single-database-create-quickstart.md).
 
 2. Conecte-se ao banco de dados com o SQL Server Management Studio [(SSMS.exe)](https://msdn.microsoft.com/library/mt238290.aspx).
 
@@ -82,7 +82,7 @@ Um resultado **0** significa que não há suporte para In-Memory e **1** signifi
 - Demo.DemoSalesOrderHeaderSeed
 - Demo.DemoSalesOrderDetailSeed
 
-Você pode inspecionar as tabelas com otimização de memória por meio do **Pesquisador de Objetos** no SSMS. Clique com o botão direito do mouse em **tabelas**  >  filtro de**filtro**  >  **configurações**com  >  **otimização de memória**. O valor é igual a 1.
+Você pode inspecionar as tabelas com otimização de memória por meio do **Pesquisador de Objetos** no SSMS. Clique com o botão direito do mouse em **Tabelas** > **Filtro** > **Configurações do Filtro** > **Com otimização de memória**. O valor é igual a 1.
 
 Ou então, você pode consultar as exibições do catálogo, tal como:
 
@@ -161,7 +161,7 @@ Na VM ou em qualquer host que você escolher, instale os utilitários RML (Repla
 Para obter mais informações, consulte:
 
 - A discussão sobre ostress.exe no [Banco de dados de exemplo para OLTP In-Memory](https://msdn.microsoft.com/library/mt465764.aspx).
-- [Banco de dados de exemplo para OLTP na memória](https://msdn.microsoft.com/library/mt465764.aspx).
+- [Banco de dados de exemplo para OLTP In-Memory](https://msdn.microsoft.com/library/mt465764.aspx).
 - O [blog para instalar o ostress.exe](https://techcommunity.microsoft.com/t5/sql-server-support/cumulative-update-2-to-the-rml-utilities-for-microsoft-sql/ba-p/317910).
 
 <!--
@@ -205,9 +205,9 @@ Quando o `ostress.exe` é concluído, ele grava a duração da execução como s
 
 `11/12/15 00:35:00.873 [0x000030A8] OSTRESS exiting normally, elapsed time: 00:01:31.867`
 
-#### <a name="reset-edit-for-_ondisk-then-rerun"></a>Redefinir, editar para *_ondisk*e executar novamente
+#### <a name="reset-edit-for-_ondisk-then-rerun"></a>Redefinir, editar *_ondisk* e executar novamente
 
-Depois de ter o resultado da execução do *_inmem* , execute as seguintes etapas para a *_ondisk* executar:
+Depois de obter o resultado da execução do *_inmem*, realize as seguintes etapas para a execução de *_ondisk*:
 
 1. Redefina o banco de dados executando o seguinte comando no SSMS para excluir todos os dados inseridos pela execução anterior:
 
@@ -229,11 +229,11 @@ Os testes In-Memory mostraram uma melhoria de desempenho de **nove vezes** para 
 
 &nbsp;
 
-## <a name="2-install-the-in-memory-analytics-sample"></a>2. instalar o exemplo de análise na memória
+## <a name="2-install-the-in-memory-analytics-sample"></a>2. Instalar o exemplo de Análise Na Memória
 
 Nesta seção, você vai comparar os resultados de E/S e de estatísticas ao usar um índice columnstore versus um índice b-tree tradicional.
 
-Para fazer uma análise em tempo real em uma carga de trabalho OLTP, quase sempre será melhor usar um índice columnstore não clusterizado. Para obter detalhes, consulte [índices Columnstore descritos](https://msdn.microsoft.com/library/gg492088.aspx).
+Para fazer uma análise em tempo real em uma carga de trabalho OLTP, quase sempre será melhor usar um índice columnstore não clusterizado. Para ver mais detalhes, confira [Índices Columnstore Descritos](https://msdn.microsoft.com/library/gg492088.aspx).
 
 ### <a name="prepare-the-columnstore-analytics-test"></a>Preparar o teste de análise de columnstore
 
@@ -335,9 +335,9 @@ Em um banco de dados com o tipo de preço P2, você pode esperar um ganho de des
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Início rápido 1: tecnologias OLTP em memória para um desempenho mais rápido do T-SQL](https://msdn.microsoft.com/library/mt694156.aspx)
+- [Início Rápido 1: Tecnologias OLTP In-Memory para um desempenho mais rápido do T-SQL](https://msdn.microsoft.com/library/mt694156.aspx)
 
-- [Usar o OLTP na memória em um aplicativo SQL do Azure existente](in-memory-oltp-configure.md)
+- [Usar o OLTP In-Memory em um aplicativo existente do SQL Azure](in-memory-oltp-configure.md)
 
 - [Monitorar o armazenamento do OLTP In-Memory](in-memory-oltp-monitor-space.md) para o OLTP In-Memory
 
@@ -345,7 +345,7 @@ Em um banco de dados com o tipo de preço P2, você pode esperar um ganho de des
 
 ### <a name="deeper-information"></a>Informações mais detalhadas
 
-- [Saiba como o quorum duplica a carga de trabalho do banco de dados principal ao reduzir a DTU por 70% com OLTP na memória no banco de dados SQL do Azure](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
+- [Saiba como o Quorum dobra a principal carga de trabalho do banco de dados reduzindo a DTU em 70% com o OLTP in-memory no Banco de Dados SQL do Azure](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
 
 - [Postagem de Blog de OLTP na memória do Banco de Dados SQL do Azure](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
 
@@ -361,7 +361,7 @@ Em um banco de dados com o tipo de preço P2, você pode esperar um ganho de des
 
 - [OLTP na memória (otimização na memória)](https://msdn.microsoft.com/library/dn133186.aspx)
 
-- [Usar o OLTP na memória em um aplicativo SQL do Azure existente](in-memory-oltp-configure.md)
+- [Usar o OLTP In-Memory em um aplicativo existente do SQL Azure](in-memory-oltp-configure.md)
 
 #### <a name="tools"></a>Ferramentas
 

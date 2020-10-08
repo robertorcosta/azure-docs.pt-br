@@ -6,19 +6,19 @@ ms.service: sql-database
 ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: PowerShell
-ms.topic: conceptual
+ms.topic: sample
 author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 06/06/2020
-ms.openlocfilehash: 7c451deb04c9fd8b394512979668ad266cadf02d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: e9f3f1ca6005ff8c61211263944513d859d6d23e
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84485476"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91620181"
 ---
-# <a name="event-file-target-code-for-extended-events-in-azure-sql-database"></a>Código de destino do arquivo de evento para eventos estendidos no banco de dados SQL do Azure
+# <a name="event-file-target-code-for-extended-events-in-azure-sql-database"></a>Código de destino do arquivo de evento para eventos estendidos no Banco de Dados SQL do Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../../includes/sql-database-xevents-selectors-1-include.md)]
@@ -41,7 +41,7 @@ Este tópico apresenta um exemplo de código em duas fases:
 > [!IMPORTANT]
 > O módulo Azure Resource Manager do PowerShell ainda tem suporte do Banco de Dados SQL do Azure, mas todo o desenvolvimento futuro é para o módulo Az.Sql. Para esses cmdlets, confira [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
 
-- Uma conta e uma assinatura do Azure. Você pode se inscrever para uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
+- Uma conta e uma assinatura do Azure. Você pode se inscrever em uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 - Qualquer banco de dados no qual você possa criar uma tabela.
   
   - Como alternativa, você pode [criar um banco de dados de demonstração do **AdventureWorksLT**](single-database-create-quickstart.md) em questão minutos.
@@ -54,7 +54,7 @@ Este tópico apresenta um exemplo de código em duas fases:
 
 - Você deve ter os [módulos do Azure PowerShell](https://go.microsoft.com/?linkid=9811175) instalados.
 
-  - Os módulos fornecem comandos como- **New-AzStorageAccount**.
+  - Os módulos fornecem comandos como: **New-AzStorageAccount**.
 
 ## <a name="phase-1-powershell-code-for-azure-storage-container"></a>Fase 1: código do PowerShell para o contêiner de Armazenamento do Azure
 
@@ -74,7 +74,7 @@ O script começa com comandos para limpeza após uma possível execução anteri
 
 ### <a name="powershell-code"></a>Código do PowerShell
 
-Este script do PowerShell pressupõe que você já instalou o módulo AZ. Para obter informações, consulte [instalar o módulo Azure PowerShell](/powershell/azure/install-Az-ps).
+Este script do PowerShell pressupõe que você já instalou o módulo Az. Para saber mais, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-Az-ps).
 
 ```powershell
 ## TODO: Before running, find all 'TODO' and make each edit!!
@@ -239,7 +239,7 @@ Related to   https://github.com/MicrosoftDocs/azure-docs/issues/56520
 -->
 
 > [!NOTE]
-> No exemplo de código anterior do PowerShell, os eventos estendidos do SQL não são compatíveis com as contas de armazenamento ADLS Gen2.
+> No exemplo anterior de código do PowerShell, os eventos estendidos do SQL não são compatíveis com as contas de armazenamento do ADLS Gen2.
 
 ## <a name="phase-2-transact-sql-code-that-uses-azure-storage-container"></a>Fase 2: código Transact-SQL que usa o contêiner de Armazenamento do Azure
 
@@ -251,7 +251,7 @@ O script começa com comandos para limpeza após uma possível execução anteri
 O script PowerShell imprimiu alguns valores nomeados quando terminou. Você precisa editar o script Transact-SQL a fim de usar esses valores. Localize **TODO** no script Transact-SQL para localizar os pontos de edição.
 
 1. Abra o SQL Server Management Studio (ssms.exe).
-2. Conecte-se ao banco de dados no banco de dados SQL do Azure.
+2. Conecte-se a seu banco de dados no Banco de Dados SQL do Azure.
 3. Clique para abrir um novo painel de consulta.
 4. Cole o script Transact-SQL a seguir no painel de consulta.
 5. Localize todos os **TODO** no script e faça as edições apropriadas.
@@ -451,9 +451,9 @@ GO
 
 ## <a name="output"></a>Saída
 
-Após a conclusão do script Transact-SQL, clique em uma célula sob o cabeçalho da coluna **event_data_XML**. Um **\<event>** elemento é exibido, que mostra uma instrução UPDATE.
+Após a conclusão do script Transact-SQL, clique em uma célula sob o cabeçalho da coluna **event_data_XML**. Um elemento **\<event>** é exibido mostrando uma instrução UPDATE.
 
-Aqui está um **\<event>** elemento que foi gerado durante o teste:
+Veja um elemento **\<event>** gerado durante o teste:
 
 ```xml
 <event name="sql_statement_starting" package="sqlserver" timestamp="2015-09-22T19:18:45.420Z">
@@ -519,6 +519,6 @@ Para saber mais sobre contas e contêineres no serviço de Armazenamento do Azur
 - [Como usar o Armazenamento de blob do .NET](../../storage/blobs/storage-quickstart-blobs-dotnet.md)
 - [Nomeando e referenciando contêineres, blobs e metadados](https://msdn.microsoft.com/library/azure/dd135715.aspx)
 - [Trabalhando com o contêiner raiz](https://msdn.microsoft.com/library/azure/ee395424.aspx)
-- [Lição 1: criar uma política de acesso armazenado e uma assinatura de acesso compartilhado em um contêiner do Azure](https://msdn.microsoft.com/library/dn466430.aspx)
-  - [Lição 2: Criar uma credencial do SQL Server usando uma assinatura de acesso compartilhado](https://msdn.microsoft.com/library/dn466435.aspx)
+- [Lição 1: Criar uma política de acesso armazenado e uma assinatura de acesso compartilhado em um contêiner do Azure](https://msdn.microsoft.com/library/dn466430.aspx)
+  - [Lição 2: Criar uma credencial do SQL Server usando uma Assinatura de Acesso Compartilhado](https://msdn.microsoft.com/library/dn466435.aspx)
 - [Eventos estendidos para o Microsoft SQL Server](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events)

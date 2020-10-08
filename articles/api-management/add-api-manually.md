@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 6b8b7c0dbdce160a19b5bb5ecb67bf2fb0a204ee
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 39a3b9d7dd9efbda93de0b5d7c5f9938922d0012
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89295254"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631283"
 ---
 # <a name="add-an-api-manually"></a>Adicionar uma API manualmente
 
@@ -39,7 +39,7 @@ Conclua o início rápido a seguir: [Criar uma instância do Gerenciamento de AP
 2. No menu à esquerda, selecione **+ Adicionar API**.
 3. Selecione **API em Branco** na lista.  
     ![API em Branco](media/add-api-manually/blank-api.png)  
-4. Insira as configurações para a API. As configurações são explicadas no tutorial [Importar e publicar sua primeira API](import-and-publish.md#-import-and-publish-a-backend-api).
+4. Insira as configurações para a API. As configurações são explicadas no tutorial [Importar e publicar sua primeira API](import-and-publish.md#import-and-publish-a-backend-api).
 5. Selecione **Criar**.
 
 Agora você não tem nenhuma operação no Gerenciamento de API mapeada para as operações em sua API de back-end. Se você chamar uma operação que é exposta por meio de back-end, mas não por meio do Gerenciamento de API, receberá um **404**.

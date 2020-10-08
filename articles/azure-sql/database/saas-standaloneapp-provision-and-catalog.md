@@ -1,22 +1,22 @@
 ---
-title: Tutorial de SaaS de vários locatários
+title: Tutorial de SaaS multilocatário
 description: Provisionar e catalogar novos locatários usando o padrão de aplicativo autônomo
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: b3d886186d26c398a83643c93b98192fca16df6d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: efee261478cdc8b9b5349ef4c69ab5fc250315c0
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84026997"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619450"
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Provisionar e catalogar novos locatários usando o padrão de aplicativo autônomo
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,7 +29,7 @@ Este artigo tem duas partes principais:
 
 ## <a name="standalone-application-per-tenant-pattern"></a>Padrão de aplicativo por locatário autônomo
 
-O aplicativo autônomo por padrão locatário é um dos vários padrões para aplicativos SaaS multilocatários.  Neste padrão, um aplicativo autônomo é provisionado para cada locatário. O aplicativo consiste em componentes de nível de aplicativo e um banco de dados SQL do Azure.  Cada aplicativo de locatário pode ser implantado na assinatura do fornecedor.  Alternativamente, o Azure oferece um [programa de aplicativos gerenciados](https://docs.microsoft.com/azure/managed-applications/overview) no qual um aplicativo pode ser implantado na assinatura de um locatário e gerenciado pelo fornecedor em nome do locatário.
+O aplicativo autônomo por padrão locatário é um dos vários padrões para aplicativos SaaS multilocatários.  Neste padrão, um aplicativo autônomo é provisionado para cada locatário. O aplicativo compreende componentes de nível de aplicativo e um Banco de Dados SQL do Azure.  Cada aplicativo de locatário pode ser implantado na assinatura do fornecedor.  Alternativamente, o Azure oferece um [programa de aplicativos gerenciados](https://docs.microsoft.com/azure/managed-applications/overview) no qual um aplicativo pode ser implantado na assinatura de um locatário e gerenciado pelo fornecedor em nome do locatário.
 
    ![padrão de aplicativo por locatário](./media/saas-standaloneapp-provision-and-catalog/standalone-app-pattern.png)
 
@@ -77,12 +77,12 @@ Para concluir este tutorial, verifique se todos os pré-requisitos a seguir são
 
 ## <a name="provision-the-catalog"></a>Provisionar o catálogo
 
-Nesta tarefa, você aprenderá como provisionar o catálogo usado para registrar todos os bancos de dados de locatário. Você terá a oportunidade de:
+Nesta tarefa, você aprenderá como provisionar o catálogo usado para registrar todos os bancos de dados de locatário. Você vai:
 
 * **Provisionar o banco de dados do catálogo** usando um modelo de gerenciamento de recursos do Azure. O banco de dados é inicializado, importando um arquivo bacpac.
 * **Registre os aplicativos de locatário de exemplo** que você implantou anteriormente.  Cada locatário é registrado usando uma chave construída a partir de um hash do nome do locatário.  O nome do locatário também é armazenado em uma tabela de extensão no catálogo.
 
-1. No ISE do PowerShell, abra *. ..\Learning Modules\UserConfig.PSM* e atualize o **\<user\>** valor para o valor usado ao implantar os três aplicativos de exemplo.  **Salve o arquivo**.
+1. No PowerShell ISE, abra *...\Learning Modules\UserConfig.psm* e atualize o valor **\<user\>** para o valor utilizado ao implementar os três aplicativos de exemplo.  **Salve o arquivo**.
 1. No PowerShell ISE, abra *...\Learning Modules\ProvisionTenants\Demo-ProvisionAndCatalog.ps1* e defina **$Scenario = 1**. Implante o catálogo de locatário e registre os locatários predefinidos.
 
 1. Adicione um ponto de interrupção, colocando o cursor em qualquer lugar na linha indicando, `& $PSScriptRoot\New-Catalog.ps1`, e, em seguida, pressione **F9**.
@@ -98,8 +98,8 @@ Quando o script for concluído, o catálogo existirá e todos os locatários de 
 
 Agora, analise os recursos que você criou.
 
-1. Abra o [Portal do Azure](https://portal.azure.com/) e navegue pelos grupos de recursos.  Abra o grupo **Wingtip-SA-Catalog \<user\> -** Resource e observe o servidor de catálogo e o banco de dados.
-1. Abra o banco de dados no portal e selecione *Data Explorer* no menu à esquerda.  Clique no comando de logon e insira a senha = **P \@ ssword1**.
+1. Abra o [Portal do Azure](https://portal.azure.com/) e navegue pelos grupos de recursos.  Abra o grupo de recursos **wingtip-sa-catalog-\<user\>** e anote o servidor de catálogo e o banco de dados.
+1. Abra o banco de dados no portal e selecione *Data Explorer* no menu à esquerda.  Clique no comando Login e, em seguida, insira a Senha = **P\@ssword1**.
 
 
 1. Explore o esquema do banco de dados *tenantcatalog*.
@@ -116,7 +116,7 @@ Agora, analise os recursos que você criou.
 
 ## <a name="provision-a-new-tenant-application"></a>Provisionar uma nova solicitação de aplicativo de locatário
 
-Nesta tarefa, você aprenderá como provisionar um aplicativo de locatário único. Você terá a oportunidade de:
+Nesta tarefa, você aprenderá como provisionar um aplicativo de locatário único. Você vai:
 
 * **Criar um novo grupo de recursos** para o locatário.
 * **Provisione o aplicativo e o banco de dados** no novo grupo de recursos, utilizando um modelo de gerenciamento de recursos do Azure.  Esta ação inclui a inicialização do banco de dados com dados de referência e esquema comuns, importando um arquivo bacpac.

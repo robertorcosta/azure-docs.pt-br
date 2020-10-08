@@ -6,19 +6,19 @@ ms.service: sql-database
 ms.subservice: scenario
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/30/2018
-ms.openlocfilehash: 098ac343885db3e267dcefb3785f5abd55d17ee2
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
-ms.translationtype: MT
+ms.openlocfilehash: beb683eef2691aad46c84da1010184182d452257
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89441027"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619671"
 ---
-# <a name="run-ad-hoc-analytics-queries-across-multiple-databases-azure-sql-database"></a>Executar consultas de análise ad hoc em vários bancos de dados (banco de dados SQL do Azure)
+# <a name="run-ad-hoc-analytics-queries-across-multiple-databases-azure-sql-database"></a>Execute consultas de análise ad hoc em vários bancos de dados (Banco de Dados SQL do Azure)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Neste tutorial, você executa consultas distribuídas em todo o conjunto de bancos de dados de locatários para habilitar os relatórios ad hoc interativos. Essas consultas podem extrair informações escondidas nos dados operacionais diários do aplicativo SaaS Wingtip Tickets. Para fazer essas extrações, você implanta um banco de dados de análise adicional no servidor de catálogo e usa a Consulta Elástica para habilitar consultas distribuídas.
@@ -47,13 +47,13 @@ Os aplicativos SaaS podem analisar a enorme quantidade de dados de locatários a
 
 É fácil acessar esses dados em um único banco de dados multilocatário, mas não tão fácil quando são distribuídos em escala por, potencialmente, milhares de bancos de dados. Uma abordagem é usar a [Consulta Elástica](elastic-query-overview.md), que permite consultas ad hoc em um conjunto distribuído de bancos de dados com esquema comum. Esses bancos de dados podem ser distribuídos entre diferentes grupos de recursos e assinaturas. Apesar disso, um logon comum deve ter acesso para extrair dados de todos os bancos de dados. A Consulta Elástica usa um único banco de dados *principal* no qual as tabelas externas são definidas que espelham tabelas ou modos de exibição nos bancos de dados distribuídos (de locatário). As consultas enviadas ao banco de dados principal são compiladas para produzir um plano de consulta distribuído, com partes da consulta propagadas para os bancos de dados de locatário, conforme necessário. A Consulta Elástica usa o mapa de fragmentos no banco de dados de catálogo para determinar o local de todos os bancos de dados de locatários. A instalação e a consulta são simples com o [Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-reference) padrão e dão suporte a consultas ad hoc em ferramentas como o Power BI e o Excel.
 
-Ao distribuir consultas entre os bancos de dados de locatário, a Consulta Elástica fornece ideias imediatas sobre dados de produção em tempo real. No entanto, como a Consulta Elástica extrai dados possivelmente de vários bancos de dados, a latência da consulta, às vezes, pode ser maior que para consultas equivalentes enviadas para um único banco de dados de vários locatários. Certifique-se de criar consultas para minimizar os dados retornados. A Consulta Elástica é geralmente mais adequada para consultar pequenas quantidades de dados em tempo real, em vez de criar consultas ou relatórios de análise complexos ou usados com frequência. Se as consultas não tiverem um bom desempenho, examine o [plano de execução](https://docs.microsoft.com/sql/relational-databases/performance/display-an-actual-execution-plan) para ver qual parte da consulta foi propagada para o banco de dados remoto. Além disso, avalie a quantidade de dados que está sendo retornada. As consultas que exigem um processamento analítico complexo podem ser mais bem atendidas salvando os dados de locatários extraídos em um banco de dados otimizado para consultas de análise. O banco de dados SQL e o Azure Synapse Analytics (anteriormente SQL Data Warehouse) poderiam hospedar esse banco de dados de análise.
+Ao distribuir consultas entre os bancos de dados de locatário, a Consulta Elástica fornece ideias imediatas sobre dados de produção em tempo real. No entanto, como a Consulta Elástica extrai dados possivelmente de vários bancos de dados, a latência da consulta, às vezes, pode ser maior que para consultas equivalentes enviadas para um único banco de dados de vários locatários. Certifique-se de criar consultas para minimizar os dados retornados. A Consulta Elástica é geralmente mais adequada para consultar pequenas quantidades de dados em tempo real, em vez de criar consultas ou relatórios de análise complexos ou usados com frequência. Se as consultas não tiverem um bom desempenho, examine o [plano de execução](https://docs.microsoft.com/sql/relational-databases/performance/display-an-actual-execution-plan) para ver qual parte da consulta foi propagada para o banco de dados remoto. Além disso, avalie a quantidade de dados que está sendo retornada. As consultas que exigem um processamento analítico complexo podem ser mais bem atendidas salvando os dados de locatários extraídos em um banco de dados otimizado para consultas de análise. O Banco de Dados SQL e o Azure Synapse Analytics (conhecido anteriormente como SQL Data Warehouse) podem hospedar esse banco de dados de análise.
 
 Esse padrão para análise é explicado no [tutorial de análise de locatário](saas-multitenantdb-tenant-analytics.md).
 
 ## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Obter o código-fonte e os scripts do aplicativo de banco de dados multilocatário SaaS Wingtip Tickets
 
-Os scripts de banco de dados multilocatário do Wingtip tickets SaaS e o código-fonte do aplicativo estão disponíveis no repositório GitHub [repositório wingtipticketssaas-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) . Confira as [diretrizes gerais](saas-tenancy-wingtip-app-guidance-tips.md) para obter as etapas para baixar e desbloquear os scripts SaaS do Wingtip Tickets.
+Os scripts e o código-fonte do aplicativo SaaS de Banco de Dados Multilocatário Wingtip Tickets estão disponíveis no repositório [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) do GitHub. Confira as [diretrizes gerais](saas-tenancy-wingtip-app-guidance-tips.md) para obter as etapas para baixar e desbloquear os scripts SaaS do Wingtip Tickets.
 
 ## <a name="create-ticket-sales-data"></a>Criar dados de vendas de ingresso
 
@@ -151,7 +151,7 @@ Neste tutorial, você aprendeu a:
 > * Executar consultas distribuídas entre todos os bancos de dados de locatário
 > * Implante um banco de dados de relatórios ad hoc e adicione o esquema a ele para executar consultas distribuídas.
 
-Agora experimente o [tutorial de análise de locatário](saas-multitenantdb-tenant-analytics.md) para explorar a extração de dados para um banco de dado de análise separado para um processamento de análise mais complexo.
+Agora, experimente o [Tutorial de análise de locatário](saas-multitenantdb-tenant-analytics.md) para explorar a extração de dados para um banco de dados de análise separado para o processamento de análise mais complexo.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
