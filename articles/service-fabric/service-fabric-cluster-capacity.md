@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: pepogors
 ms.custom: sfrev
-ms.openlocfilehash: 28a01bbc54f752ffc1f25b57dcf2eca566aa635a
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: d2b303c22eea9fb46a68bb3c8e36991d47d61554
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718094"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817743"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considerações de planejamento de capacidade de cluster do Service Fabric
 
@@ -34,7 +34,7 @@ Cada cluster requer um **tipo de nó primário**, que executa serviços de siste
 
 **Tipos de nó não primários** podem ser usados para definir funções de aplicativo (como serviços de *front-end* e *back-end* ) e para isolar fisicamente os serviços em um cluster. Service Fabric clusters podem ter zero ou mais tipos de nós não primários.
 
-O tipo de nó primário é configurado usando o `isPrimary` atributo sob a definição de tipo de nó no modelo de implantação Azure Resource Manager. Consulte o [objeto NodeTypeDescription](/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object) para obter a lista completa de propriedades de tipo de nó. Por exemplo, para uso, abra qualquer *AzureDeploy.jsno* arquivo em [exemplos de Cluster Service Fabric](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/) e *encontre na* pesquisa de página pelo `nodetTypes` objeto.
+O tipo de nó primário é configurado usando o `isPrimary` atributo sob a definição de tipo de nó no modelo de implantação Azure Resource Manager. Consulte o [objeto NodeTypeDescription](/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object) para obter a lista completa de propriedades de tipo de nó. Por exemplo, para uso, abra qualquer *AzureDeploy.jsno* arquivo em [exemplos de Cluster Service Fabric](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/) e *encontre na* pesquisa de página pelo `nodeTypes` objeto.
 
 ### <a name="node-type-planning-considerations"></a>Considerações de planejamento do tipo de nó
 

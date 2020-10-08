@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: hux
 ms.custom: references_regions
-ms.openlocfilehash: 3b6162552e43c9f475bef2ca3097da22ae198011
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: db23d3b5c532a1539936b51222345c98679c554c
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91713693"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817541"
 ---
 # <a name="manage-and-find-azure-blob-data-with-blob-index-preview"></a>Gerenciar e localizar dados de blob do Azure com índice de BLOB (versão prévia)
 
@@ -72,8 +72,11 @@ Os seguintes limites se aplicam a marcas de índice de blob:
 - Chaves e valores de marca diferenciam maiúsculas de minúsculas
 - Chaves e valores de marca dão suporte apenas a tipos de dados de cadeia de caracteres; qualquer número, data, hora ou caractere especial será salvo como cadeias de caracteres
 - As chaves e os valores de marca devem aderir às seguintes regras de nomenclatura:
-  - Caracteres alfanuméricos: a-z, A-Z, 0-9
-  - Caracteres especiais: espaço, mais, menos, ponto, dois-pontos, igual, sublinhado, barra invertida
+  - Caracteres alfanuméricos:
+    - **a** a **z** (letras minúsculas)
+    - **A** a **Z** (letras maiúsculas)
+    - **0** a **9** (números)
+  - Caracteres especiais válidos: espaço, mais, menos, período, dois-pontos, igual, sublinhado, barra invertida ( ` +-.:=_/` )
 
 ## <a name="getting-and-listing-blob-index-tags"></a>Obtendo e listando marcas de índice de BLOB
 

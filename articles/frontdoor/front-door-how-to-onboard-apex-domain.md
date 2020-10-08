@@ -7,12 +7,12 @@ ms.service: frontdoor
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: duau
-ms.openlocfilehash: 6be33df90ed58dc448009fb0e26ca49c800d1931
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: 44813a7662420ab4dedcd0bf99cc1eec7e9d9d2d
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91766045"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819083"
 ---
 # <a name="onboard-a-root-or-apex-domain-on-your-front-door"></a>Integrar um domínio raiz ou apex no seu Front Door
 A porta frontal do Azure usa registros CNAME para validar a propriedade do domínio para a integração de domínios personalizados. A porta frontal não expõe o endereço IP de front-end associado ao seu perfil de porta frontal. Portanto, você não poderá mapear seu domínio Apex para um endereço IP se sua intenção for integrar-o à porta frontal do Azure.
@@ -54,7 +54,7 @@ Você pode usar a portal do Azure para carregar um domínio Apex na sua porta fr
 
 1. Selecione **salvar** para enviar as alterações.
 
-    :::image type="content" source="./media/front-door-apex-domain/front-door-onboard-apex-domain.png" alt-text="Registro de alias para o Apex da zona":::
+   :::image type="content" source="./media/front-door-apex-domain/front-door-onboard-apex-domain.png" alt-text="Registro de alias para o Apex da zona":::
 
 ## <a name="enable-https-on-your-custom-domain"></a>Habilitar HTTPS em seu domínio personalizado
 
@@ -62,10 +62,10 @@ Você pode usar a portal do Azure para carregar um domínio Apex na sua porta fr
 
 1. Selecione o  **tipo de gerenciamento de certificado** para *' usar meu próprio certificado '*.
 
-    :::image type="content" source="./media/front-door-apex-domain/front-door-onboard-apex-custom-domain.png" alt-text="Registro de alias para o Apex da zona":::    
+   :::image type="content" source="./media/front-door-apex-domain/front-door-onboard-apex-custom-domain.png" alt-text="Registro de alias para o Apex da zona":::    
 
-    > [!WARNING]
-    > No momento, não há suporte para o tipo de gerenciamento de certificado gerenciado de porta frontal para Apex ou domínios raiz. A única opção disponível para habilitar HTTPS em um Apex ou domínio raiz para a porta frontal é usar seu próprio certificado TLS/SSL personalizado hospedado no Azure Key Vault.
+   > [!WARNING]
+   > No momento, não há suporte para o tipo de gerenciamento de certificado gerenciado de porta frontal para Apex ou domínios raiz. A única opção disponível para habilitar HTTPS em um Apex ou domínio raiz para a porta frontal é usar seu próprio certificado TLS/SSL personalizado hospedado no Azure Key Vault.
 
 1. Verifique se você configurou as permissões corretas para a porta frontal acessar o cofre de chaves, conforme observado na interface do usuário, antes de prosseguir para a próxima etapa.
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: 54a81ac36fb0b99f6931b372543dc3e4bca6a12c
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 338fe463cec4c44b1ddf019d9ecb435736e46826
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447923"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91816817"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Autogerenciamento do Azure para máquinas virtuais
 
@@ -48,7 +48,7 @@ Há vários pré-requisitos a serem considerados antes de tentar habilitar o aut
 - As VMs não devem vincular a um espaço de trabalho do log Analytics em uma assinatura diferente
 - O autogerenci não dá suporte a assinaturas de área restrita no momento
 
-Você precisa ter a função de **colaborador** para habilitar o autogerencio usando uma conta de autogerenciamento existente. Se você estiver habilitando o autogerenciamento com uma nova conta de autogerenciamento, precisará das seguintes permissões: função de **proprietário** ou **colaborador** junto com as funções de **administrador de acesso do usuário** .
+Você precisa ter a função de **Colaborador** para habilitar o Gerenciamento Automático usando uma Conta de Gerenciamento Automático existente. Se você estiver habilitando o Gerenciamento Automático com uma nova Conta de Gerenciamento Automático, precisará das seguintes permissões: Função de **Proprietário** ou **Colaborador** junto com funções de **Administrador de Acesso do Usuário**.
 
 Também é importante observar que o autogerenci só dá suporte a VMs do Windows localizadas nas seguintes regiões: Europa Ocidental, leste dos EUA, oeste dos EUA 2, Canadá central, Oeste EUA Central.
 
@@ -105,7 +105,7 @@ A conta de autogerenciamento é o contexto de segurança ou a identidade sob a q
 Na experiência de portal do Azure, quando você está habilitando o autogerenciamento em suas VMs, há uma lista suspensa avançada na folha **habilitar a prática recomendada de VM do Azure** que permite atribuir ou criar manualmente a conta de autogerenciamento.
 
 > [!NOTE]
-> Você precisa ter a função de **colaborador** para habilitar o autogerencio usando uma conta de autogerenciamento existente. Se você estiver habilitando o autogerenciamento com uma nova conta de autogerenciamento, precisará das seguintes permissões: função de **proprietário** ou **colaborador** junto com as funções de **administrador de acesso do usuário** .
+> Você precisa ter a função de **Colaborador** para habilitar o Gerenciamento Automático usando uma Conta de Gerenciamento Automático existente. Se você estiver habilitando o Gerenciamento Automático com uma nova Conta de Gerenciamento Automático, precisará das seguintes permissões: Função de **Proprietário** ou **Colaborador** junto com funções de **Administrador de Acesso do Usuário**.
 
 
 ## <a name="status-of-vms"></a>Status das VMs
@@ -134,13 +134,13 @@ Para fazer isso na portal do Azure, vá para a página **autogerenciar – prát
 
 Leia atentamente as mensagens no pop-up resultante antes de concordar em **Desabilitar**.
 
-```
-Disabling automanagement in a VM results in the following behavior:
+> [!NOTE]
+> A desabilitação do autogerenciamento em uma VM resulta no seguinte comportamento:
+>
+> - A configuração da VM e os serviços que ela está integrado não são alterados.
+> - Quaisquer encargos incorridos por esses serviços permanecem faturáveis e continuam a ser incorridos.
+> - Qualquer comportamento de autogerenciamento é interrompido imediatamente.
 
-1.    The configuration of the VM and the services it's onboarded to will not be changed
-2.    Any changes incurred by those services will remain billable and will continue to be incurred
-3.    Any Automanage behaviors will stop immediately
-```
 
 Primeiro, nós não desativamos a máquina virtual de nenhum dos serviços que a integramos e configuramos. Portanto, qualquer cobrança incorrida por esses serviços continuará a permanecer faturável. Se necessário, você precisará fazer a integração. Qualquer comportamento de autogerenciamento será interrompido imediatamente. Por exemplo, não Monitoraremos mais a VM para descompasso.
 

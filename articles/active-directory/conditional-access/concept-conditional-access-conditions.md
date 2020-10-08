@@ -11,14 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0dcbd58c5d8dc12898fe343dbba6c3a6f8cd61b4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2dddad5692ab2eebb6ef9b427c091be449791d7c
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91258704"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91818352"
 ---
-# <a name="conditional-access-conditions"></a>Acesso Condicional: condições
+# <a name="conditional-access-conditions"></a>Acesso condicional: condições
 
 Em uma política de acesso condicional, um administrador pode usar sinais de condições como risco, plataforma de dispositivo ou local para aprimorar suas decisões de política. 
 
@@ -49,6 +49,9 @@ O acesso condicional do Azure AD dá suporte às seguintes plataformas de dispos
 - macOS
 
 Se você bloquear a autenticação herdada usando a condição **outros clientes** , também poderá definir a condição de plataforma do dispositivo.
+
+> [!IMPORTANT]
+> A Microsoft recomenda que você tenha uma política de acesso condicional para plataformas de dispositivo sem suporte. Por exemplo, se você quiser bloquear o acesso aos recursos corporativos do Linux ou de qualquer outro cliente sem suporte, configure uma política com uma condição de plataforma de dispositivo que inclua qualquer dispositivo e exclua as plataformas de dispositivo com suporte e conceda o controle definido para bloquear o acesso.
 
 ## <a name="locations"></a>Locais
 

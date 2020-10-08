@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/11/2020
 ms.author: cherylmc
-ms.openlocfilehash: de3ef63600b36e1bcee8a2f5db8a1c1248524173
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 002aa9da465d86392aaaa5d404f67959b341ecf9
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91445929"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91818988"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Criar uma conexão Site a Site usando o portal do Azure (clássico)
 
@@ -104,7 +104,7 @@ Depois de criar a rede virtual, você pode adicionar o endereço IP de um servid
 
 O site local normalmente se refere ao seu site local. Ele contém o endereço IP do dispositivo VPN no qual você criará uma conexão e os intervalos de endereços IP que serão roteados através do gateway de VPN para o dispositivo VPN.
 
-1. Na página de sua VNet, em **configurações**, clique em **diagrama**.
+1. Na página de sua VNet, em **monitoramento**, clique em **diagrama**.
 1. Na página **conexões VPN** , clique em **você não tem nenhuma conexão VPN existente. Clique aqui para**começar.
 1. Para **tipo de conexão**, deixe **site a site** selecionado.
 4. Clique em **Site local - Definir configurações necessárias** para abrir a página **Site local**. Defina as configurações e, em seguida, clique em **OK** para salvar as configurações.

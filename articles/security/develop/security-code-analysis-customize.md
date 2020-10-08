@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: e36485b54f209b10f9a4e6b4e6a26248955b2275
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: b05084a7d01f4c5d5d5a79b60ac0b8ba47843622
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90031391"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91816780"
 ---
 # <a name="configure-and-customize-the-build-tasks"></a>Configurar e personalizar as tarefas de compilação
 
@@ -131,7 +131,7 @@ As opções disponíveis incluem:
 
 > [!NOTE]
 >
-> - Os analisadores Roslyn são integrados ao compilador e podem ser executados somente como parte da compilação de csc.exe. Portanto, essa tarefa requer que o comando do compilador executado anteriormente na compilação seja reproduzido ou executado novamente. Essa reprodução ou execução é feita consultando Visual Studio Team Services (VSTS) para os logs de tarefa de compilação do MSBuild.
+> - Os analisadores Roslyn são integrados ao compilador e podem ser executados somente como parte da compilação de csc.exe. Portanto, essa tarefa requer que o comando do compilador executado anteriormente na compilação seja reproduzido ou executado novamente. Essa reprodução ou execução é feita consultando o Azure DevOps (anteriormente Visual Studio Team Services) para os logs de tarefa de compilação do MSBuild.
 >
 >   Não há outra maneira para a tarefa obter de forma confiável a linha de comando de compilação do MSBuild da definição de compilação. Consideramos a adição de uma caixa de texto de forma livre para permitir que os usuários insiram suas linhas de comando. Mas seria difícil manter essas linhas de comando atualizadas e sincronizadas com a compilação principal.
 >

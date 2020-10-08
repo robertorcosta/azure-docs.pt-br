@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ae663b2c7a88e116315464c11b8d162135f0aff
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 112c1c6a0fbbd7e0011890d1ce92c6e21e168137
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91450378"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817969"
 ---
 # <a name="assign-scoped-roles-to-an-administrative-unit"></a>Atribuir funções com escopo a uma unidade administrativa
 
@@ -38,8 +38,10 @@ Administrador de Licenças  |  Pode atribuir, remover e atualizar atribuições 
 Administrador de senha  |  O pode redefinir senhas para não administradores e administradores de senha somente dentro da unidade administrativa atribuída.
 Administrador de usuários  |  Pode gerenciar todos os aspectos de usuários e grupos, incluindo a redefinição de senhas para administradores limitados somente na unidade administrativa atribuída.
 
-## <a name="security-principals-that-can-be-assigned-to-an-au-scoped-role"></a>Entidades de segurança que podem ser atribuídas a uma função com escopo de AU
-As entidades de segurança a seguir podem ser atribuídas a uma função com escopo de AU:
+## <a name="security-principals-that-can-be-assigned-to-a-scoped-role"></a>Entidades de segurança que podem ser atribuídas a uma função com escopo
+
+As entidades de segurança a seguir podem ser atribuídas a uma função com um escopo de unidade administrativa:
+
 * Usuários
 * Grupos de nuvem atribuíveis de função (visualização)
 * SPN (Nome da Entidade de Serviço)

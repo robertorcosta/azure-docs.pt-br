@@ -535,10 +535,6 @@
     - name: Configuração de aplicativo
       displayName: App configuration
       items:
-        - name: Guia de treinamento de registro de aplicativo do portal do Azure
-          href: app-registrations-training-guide-for-app-registrations-legacy-users.md
-        - name: Experiência de registro de aplicativo do portal do Azure
-          href: app-registration-portal-training-guide.md
         - name: Converter um aplicativo de locatário único em um aplicativo multilocatário
           href: howto-convert-app-to-be-multi-tenant.md
         - name: Criar uma entidade de serviço

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45263ca0448042aa972ee53093b51dd47bd51190
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: bac3e0dc6c6bcc98bb57989e1335ce6a60872a37
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049342"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91818326"
 ---
 # <a name="conditional-access-require-mfa-for-administrators"></a>Acesso condicional: exigir MFA para administradores
 
@@ -24,11 +24,12 @@ Contas que são atribuídas direitos administrativos são direcionadas por invas
 
 A Microsoft recomenda que você exija MFA nas seguintes funções no mínimo:
 
+* Administrador de Autenticação
 * Administrador de cobrança
 * Administrador de acesso condicional
 * Administradores do Exchange
 * Administrador global
-* Administrador da assistência técnica (senha)
+* Administrador de assistência técnica
 * Administrador de senha
 * Administrador de segurança
 * Administrador do SharePoint
@@ -72,7 +73,7 @@ As etapas a seguir ajudarão a criar uma política de acesso condicional para ex
    1. Em **Excluir**, selecione **Usuários e grupos** e escolha o acesso de emergência ou as contas de interrupção da sua organização. 
    1. Selecione **Concluído**.
 1. Em **Aplicativos ou ações de nuvem** > **Incluir**, selecione **Todos os aplicativos de nuvem** e selecione **Concluído**.
-1. Em **condições**  >  **aplicativos de cliente (versão prévia)**, em **selecionar os aplicativos cliente para os quais essa política será aplicada** , deixe todos os padrões selecionados e selecione **concluído**.
+1. Em **condições**  >  **aplicativos cliente**, mude **Configurar** para **Sim** e, em **Selecione os aplicativos cliente para os quais essa política será aplicada** , deixe todos os padrões selecionados e selecione **concluído**.
 1. Em **Controles de acesso** > **Conceder**, selecione **Conceder acesso**, **Exigir autenticação multifator** e selecione **Selecionar**.
 1. Confirme suas configurações e defina **Habilitar política** como **Ativado**.
 1. Selecione **Criar** para criar e habilitar sua política.
