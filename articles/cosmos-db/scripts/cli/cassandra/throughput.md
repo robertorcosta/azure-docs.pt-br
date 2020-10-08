@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: sample
 ms.date: 07/29/2020
-ms.openlocfilehash: 292ffb977ea729e87fc23bc94bb0153663f1d721
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: c0026202e8f110123a7360a5fda521947ed8e9ee
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432331"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803612"
 ---
 # <a name="update-rus-for-a-cassandra-keyspace-and-table-using-azure-cli"></a>Atualizar RU/s para um keyspace e uma tabela do Cassandra usando a CLI do Azure
 
@@ -44,7 +44,7 @@ Este script usa os comandos a seguir. Cada comando da tabela é vinculado à doc
 | [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Cria uma conta do Banco de Dados Cosmos do Azure. |
 | [az cosmosdb cassandra keyspace create](/cli/azure/cosmosdb/cassandra/keyspace#az-cosmosdb-cassandra-keyspace-create) | Cria um keyspace do Cassandra do Azure Cosmos. |
 | [az cosmosdb cassandra table create](/cli/azure/cosmosdb/cassandra/table#az-cosmosdb-cassandra-table-create) | Cria uma tabela do Cassandra do Azure Cosmos. |
-| [az cosmosdb cassandra keyspace throughput update](/cli/azure/cosmosdb/cassandra/keyspace/throughput?view=azure-cli-latest#az-cosmosdb-cassandra-keyspace-throughput-update) | Atualizar RU/s para um keyspace do Cassandra do Azure Cosmos. |
+| [az cosmosdb cassandra keyspace throughput update](/cli/azure/cosmosdb/cassandra/keyspace/throughput?view=azure-cli-latest&preserve-view=true#az-cosmosdb-cassandra-keyspace-throughput-update) | Atualizar RU/s para um keyspace do Cassandra do Azure Cosmos. |
 | [az cosmosdb cassandra table throughput update](/cli/azure/cosmosdb/cassandra/table/throughput#az-cosmosdb-cassandra-table-throughput-update) | Atualizar RU/s para uma tabela do Cassandra do Azure Cosmos. |
 | [az group delete](/cli/azure/resource#az-resource-delete) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 

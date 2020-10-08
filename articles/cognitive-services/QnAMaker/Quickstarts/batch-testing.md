@@ -1,14 +1,16 @@
 ---
 title: 'Início Rápido: Testar a base de dados de conhecimento com o perguntas em lotes'
 description: Use a ferramenta de teste em lotes do QnA Maker para testar as bases de dados de conhecimento em seu recurso do QnA Maker para respostas esperadas, pontuações de confiança e prompts de vários turnos.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 05/26/2020
-ms.openlocfilehash: bcee98678212a3bc233c36a831f6bcde7e6ae550
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: ac406761abf922ff5f0d86eacd3e419c374ce096
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88531062"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776758"
 ---
 # <a name="quickstart-test-knowledge-base-with-batch-questions-and-expected-answers"></a>Início Rápido: Testar a base de dados de conhecimento com perguntas em lotes e respostas esperadas
 

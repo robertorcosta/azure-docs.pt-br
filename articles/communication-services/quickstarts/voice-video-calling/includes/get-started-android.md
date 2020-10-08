@@ -6,39 +6,39 @@ ms.author: marobert
 ms.date: 08/11/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 658aaf018dd4c231b9bc9fc8c6dda78b2a6f05c0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 460d1c33dcd5284067d14d5d6efa9da9b5b182ae
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90943295"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91779591"
 ---
-Neste guia de início rápido, você aprenderá como iniciar uma chamada usando a biblioteca de clientes de Chamada dos Serviços de Comunicação do Azure para Android.
+Neste guia de início rápido, você aprenderá a iniciar uma chamada usando a biblioteca de clientes de Chamada dos Serviços de Comunicação do Azure para Android.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Android Studio](https://developer.android.com/studio), para criar o seu aplicativo Android.
-- Um [Token de Acesso do Usuário](../../access-tokens.md) para o seu Serviço de Comunicação do Azure.
 - Um recurso dos Serviços de Comunicação implantado. [Crie um recurso dos Serviços de Comunicação](../../create-communication-resource.md).
-
+- Um [Token de Acesso do Usuário](../../access-tokens.md) para o seu Serviço de Comunicação do Azure.
 
 ## <a name="setting-up"></a>Configurando
-
 
 ### <a name="create-an-android-app-with-an-empty-activity"></a>Criar um aplicativo Android com uma atividade vazia
 
 No Android Studio, selecione Iniciar um novo projeto do Android Studio.
 
-:::image type="content" source="../media/android/studio-new-project.png" alt-text="Captura de tela que mostra o botão 'Iniciar um novo Projeto do Android Studio' selecionado no Android Studio.":::
+:::image type="content" source="../media/android/studio-new-project.png" alt-text="Captura de tela que mostra o botão 'Iniciar um novo Projeto do Android Studio' selecionado no Android Studio.&quot;:::
 
-Selecione o modelo de projeto "Atividade Vazia" em "Telefone e Tablet".
+Selecione o modelo de projeto &quot;Atividade Vazia" em "Telefone e Tablet".
 
-:::image type="content" source="../media/android/studio-blank-activity.png" alt-text="Captura de tela que mostra a opção 'Atividade Vazia' selecionada na Tela do Modelo do Projeto.":::
+:::image type="content" source="../media/android/studio-blank-activity.png" alt-text="Captura de tela que mostra o botão 'Iniciar um novo Projeto do Android Studio' selecionado no Android Studio.&quot;:::
 
-Selecione a biblioteca de clientes Mínima de "API 26: Android 8.0 (Oreo)" ou superior.
+Selecione o modelo de projeto &quot;Atividade Vazia" ou superior.
 
-:::image type="content" source="../media/android/studio-calling-min-api.png" alt-text="Captura de tela que mostra a opção 'Atividade Vazia' selecionada na Tela do Modelo do Projeto 2.":::
+:::image type="content" source="../media/android/studio-calling-min-api.png" alt-text="Captura de tela que mostra o botão 'Iniciar um novo Projeto do Android Studio' selecionado no Android Studio.&quot;:::
+
+Selecione o modelo de projeto &quot;Atividade Vazia":::
 
 
 ### <a name="install-the-package"></a>Instalar o pacote
@@ -80,7 +80,7 @@ android {
 
 dependencies {
     ...
-    implementation 'com.azure.android:azure-communication-calling:1.0.0-beta.1'
+    implementation 'com.azure.android:azure-communication-calling:1.0.0-beta.2'
     ...
 }
 ```
@@ -126,7 +126,7 @@ See https://developer.android.com/about/versions/pie/android-9.0-changes-28#apac
     
 ```
 
-### <a name="setup-the-layout-for-the-app"></a>Configurar o layout do aplicativo
+### <a name="set-up-the-layout-for-the-app"></a>Configurar o layout do aplicativo
 
 Duas entradas são necessárias: uma entrada de texto para a ID do receptor e um botão para realizar a chamada. Elas podem ser adicionadas por meio do designer ou por meio da edição do XML de layout. Crie um botão com uma ID de `call_button` e uma entrada de texto de `callee_id`. Navegue para (`app/src/main/res/layout/activity_main.xml`) e substitua o conteúdo do arquivo pelo seguinte:
 
@@ -269,7 +269,7 @@ As seguintes classes e as interfaces administram alguns dos principais recursos 
 
 ## <a name="create-an-agent-from-the-user-access-token"></a>Criar um agente do token de acesso do usuário
 
-Com o token do usuário, um agente de chamada autenticado pode criar uma instância. Geralmente, esse token será gerado de um serviço com autenticação específica para o aplicativo. Para obter mais informações sobre tokens de acesso do usuário, verifique o guia [Tokens de Acesso do Usuário](../../access-tokens.md). Para o guia de início rápido, substitua `<User_Access_Token>` por um token de acesso de usuário gerado para o recurso do Serviço de Comunicação do Azure.
+Com o token do usuário, um agente de chamada autenticado pode criar uma instância. Geralmente, esse token será gerado de um serviço com autenticação específica para o aplicativo. Para obter mais informações sobre tokens de acesso do usuário, confira o guia [Tokens de Acesso do Usuário](../../access-tokens.md). Para o guia de início rápido, substitua `<User_Access_Token>` por um token de acesso de usuário gerado para o recurso do Serviço de Comunicação do Azure.
 
 ```java
 
@@ -315,4 +315,10 @@ private void startCall() {
 
 Agora, o aplicativo pode ser iniciado usando o botão "Executar Aplicativo" na barra de ferramentas (Shift+F10). Chame `8:echo123` para verificar se você pode fazer chamadas. Uma mensagem previamente gravada será reproduzida e, em seguida, repetirá a sua mensagem de volta para você.
 
-:::image type="content" source="../media/android/quickstart-android-call-echobot.png" alt-text="Captura de tela que mostra o aplicativo concluído.":::
+:::image type="content" source="../media/android/quickstart-android-call-echobot.png" alt-text="Captura de tela que mostra o botão 'Iniciar um novo Projeto do Android Studio' selecionado no Android Studio.&quot;:::
+
+Selecione o modelo de projeto &quot;Atividade Vazia":::
+
+## <a name="sample-code"></a>Exemplo de código
+
+É possível baixar o aplicativo de exemplo do [GitHub](https://github.com/Azure/Communication/tree/master/samples/Add%20Voice%20Calling/Android/Java)

@@ -3,12 +3,12 @@ title: Planejando a implantação da Solução VMware no Azure
 description: Este artigo descreve um fluxo de trabalho de implantação da Solução VMware no Azure.  O resultado final é um ambiente pronto para a criação e a migração da VM (máquina virtual).
 ms.topic: tutorial
 ms.date: 10/02/2020
-ms.openlocfilehash: 1a9ff313243650cc3f9c44be2eb1c62da5557955
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: e279f14406d464171f0879d85cc33f9844d22ec3
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91578610"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802201"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Planejando a implantação da Solução VMware no Azure
 
@@ -19,6 +19,40 @@ Os processos desse início rápido resultam em um ambiente pronto para produçã
 >[!IMPORTANT]
 >Antes de criar o recurso da Solução VMware no Azure, você precisará enviar um tíquete de suporte para que os nós sejam alocados. Depois que a equipe de suporte receber sua solicitação, levará até cinco dias úteis para confirmar a solicitação e alocar os nós. Se você tiver uma nuvem privada da Solução VMware no Azure existente e quiser mais nós alocados, deverá passar pelo mesmo processo. Para obter mais informações, confira [Como habilitar o recurso de Solução VMware no Azure](enable-azure-vmware-solution.md). 
 
+## <a name="subscription"></a>Subscription
+
+Identifique a assinatura que você planeja usar para implantar a Solução VMware no Azure.  Você pode criar uma assinatura ou reutilizar uma existente.
+
+>[!NOTE]
+>A assinatura deve ser associada a um Contrato Enterprise da Microsoft.
+
+## <a name="resource-group"></a>Resource group
+
+Identifique o grupo de recursos que você deseja usar para a Solução VMware no Azure.  Em geral, um grupo de recursos é criado especificamente para a Solução VMware no Azure, mas você pode usar um grupo de recursos existente.
+
+## <a name="region"></a>Região
+
+Identifique a região que você deseja que a Solução VMware no Azure seja implantada.  Para obter mais informações, veja o [Guia de produtos do Azure disponíveis por região](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=azure-vmware).
+
+## <a name="resource-name"></a>Nome do recurso
+
+Defina o nome do recurso que você usará durante a implantação.  O nome do recurso é um nome amigável e descritivo que você dará à nuvem privada da Solução VMware no Azure.
+
+## <a name="size-nodes"></a>Nós de tamanho
+
+Identifique os nós de tamanho que você deseja usar ao implantar a Solução VMware no Azure.  Para obter uma lista completa, confira a documentação [Nuvens privadas e clusters da Solução VMware no Azure](concepts-private-clouds-clusters.md#hosts).
+
+## <a name="number-of-hosts"></a>Número de hosts
+
+Defina o número de hosts que você deseja implantar na nuvem privada da Solução VMware no Azure.  É necessário no mínimo três nós e no máximo 16 por cluster.  Para obter mais informações, confira a documentação [Nuvem privada e clusters da Solução VMware no Azure](concepts-private-clouds-clusters.md#clusters).
+
+Você sempre poderá estender o cluster mais tarde se precisar ir além do número de implantação inicial.
+
+## <a name="vcenter-admin-password"></a>Senha de administrador do vCenter
+Defina a senha de administrador do vCenter.  Durante a implantação, você criará uma senha de administrador do vCenter. A senha é para a conta do administrador cloudadmin@vsphere.local durante a criação do vCenter. Você a usará para entrar no vCenter.
+
+## <a name="nsx-t-admin-password"></a>Senha de administrador do NSX-T
+Defina a senha de administrador do NSX-T.  Durante a implantação, você criará uma senha de administrador do NSX-T. A senha é atribuída ao usuário administrador na conta do NSX durante a criação do NSX. Você a usará para entrar no NSX-T Manager.
 
 ## <a name="ip-address-segment"></a>Segmento de endereço IP
 
@@ -63,41 +97,6 @@ Identifique um bloco de endereço de rede CIDR `/29`, que é necessário para o 
 
 :::image type="content" source="media/pre-deployment/expressroute-global-reach-ip-diagram.png" alt-text="Identificar – segmento de endereço IP" border="false":::
 
-## <a name="subscription"></a>Subscription
-
-Identifique a assinatura que você planeja usar para implantar a Solução VMware no Azure.  Você pode criar uma assinatura ou reutilizar uma existente.
-
->[!NOTE]
->A assinatura deve ser associada a um Contrato Enterprise da Microsoft.
-
-## <a name="resource-group"></a>Resource group
-
-Identifique o grupo de recursos que você deseja usar para a Solução VMware no Azure.  Em geral, um grupo de recursos é criado especificamente para a Solução VMware no Azure, mas você pode usar um grupo de recursos existente.
-
-## <a name="region"></a>Região
-
-Identifique a região que você deseja que a Solução VMware no Azure seja implantada.  Para obter mais informações, veja o [Guia de produtos do Azure disponíveis por região](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=azure-vmware).
-
-## <a name="resource-name"></a>Nome do recurso
-
-Defina o nome do recurso que você usará durante a implantação.  O nome do recurso é um nome amigável e descritivo que você dará à nuvem privada da Solução VMware no Azure.
-
-## <a name="size-nodes"></a>Nós de tamanho
-
-Identifique os nós de tamanho que você deseja usar ao implantar a Solução VMware no Azure.  Para obter uma lista completa, confira a documentação [Nuvens privadas e clusters da Solução VMware no Azure](concepts-private-clouds-clusters.md#hosts).
-
-## <a name="number-of-hosts"></a>Número de hosts
-
-Defina o número de hosts que você deseja implantar na nuvem privada da Solução VMware no Azure.  É necessário no mínimo três nós e no máximo 16 por cluster.  Para obter mais informações, confira a documentação [Nuvem privada e clusters da Solução VMware no Azure](concepts-private-clouds-clusters.md#clusters).
-
-Você sempre poderá estender o cluster mais tarde se precisar ir além do número de implantação inicial.
-
-## <a name="vcenter-admin-password"></a>Senha de administrador do vCenter
-Defina a senha de administrador do vCenter.  Durante a implantação, você criará uma senha de administrador do vCenter. A senha é para a conta do administrador cloudadmin@vsphere.local durante a criação do vCenter. Você a usará para entrar no vCenter.
-
-## <a name="nsx-t-admin-password"></a>Senha de administrador do NSX-T
-Defina a senha de administrador do NSX-T.  Durante a implantação, você criará uma senha de administrador do NSX-T. A senha é atribuída ao usuário administrador na conta do NSX durante a criação do NSX. Você a usará para entrar no NSX-T Manager.
-
 ## <a name="azure-virtual-network-to-attach-azure-vmware-solution"></a>Rede Virtual do Azure para anexar a Solução VMware no Azure
 
 Para acessar a nuvem privada da Solução VMware no Azure, o circuito do ExpressRoute, que vem com a Solução VMware no Azure, deve ser anexado a uma Rede Virtual do Azure.  Durante a implantação, você pode definir uma nova rede virtual ou escolher uma existente.
@@ -120,8 +119,6 @@ De qualquer forma, documente o que você deseja fazer nesta etapa.
 >Essa rede virtual é vista pelo seu ambiente local e pela Solução VMware no Azure, portanto, o segmento IP que você usa nessa rede virtual e nas sub-redes não deve se sobrepor.
 
 :::image type="content" source="media/pre-deployment/azure-vmware-solution-expressroute-diagram.png" alt-text="Identificar – segmento de endereço IP" border="false":::
-
-
 
 ## <a name="vmware-hcx-network-segments"></a>Segmentos de rede do HCX da VMware
 

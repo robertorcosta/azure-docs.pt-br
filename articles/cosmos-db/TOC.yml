@@ -975,6 +975,8 @@
           displayName: ARM
         - name: Mover entre regiões
           href: how-to-move-regions.md
+        - name: Evitar alterações ou exclusões
+          href: resource-locks.md
     - name: Distribuição global
       items:
         - name: Configurar gravações de várias regiões

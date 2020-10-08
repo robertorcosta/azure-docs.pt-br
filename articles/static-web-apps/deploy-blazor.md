@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: cshoe
-ms.openlocfilehash: 2a8e0ec113b4d008f759c7d199c4dab823576e16
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 60e62228e33d2d86bb407e45802f5c0621a94049
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90929203"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761083"
 ---
 # <a name="tutorial-building-a-static-web-app-with-blazor-in-azure-static-web-apps"></a>Tutorial: Criando um aplicativo Web estático com o Blazor em Aplicativos Web Estáticos do Azure
 
@@ -33,7 +33,7 @@ Os Aplicativos Web Estáticos do Azure permitem que você crie aplicativos Web e
 
 O aplicativo em destaque neste tutorial é composto por três projetos diferentes do Visual Studio:
 
-- **Api**: O aplicativo Azure Functions em C# que implementa o ponto de extremidade de API que fornece informações de clima para o aplicativo estático. O [`WeatherForecastFunction`](https://github.com/staticwebev/blazor-starter/blob/main/Api/WeatherForecastFunction.cs) retorna uma matriz de objetos `WeatherForecast`.
+- **Api**: O aplicativo Azure Functions em C# que implementa o ponto de extremidade de API que fornece informações de clima para o aplicativo estático. O [`WeatherForecastFunction`](https://github.com/ssdeepak/blazor/blob/main/Api/WeatherForecastFunction.cs) retorna uma matriz de objetos `WeatherForecast`.
 
 - **Cliente**: O projeto de assembly da Web do Blazor de front-end. Uma [rota de fallback](#fallback-route) é implementada para garantir que todas as rotas recebam o arquivo _index.html_.
 
@@ -79,7 +79,7 @@ Agora que o repositório foi criado, crie um aplicativo Web estático no portal 
 
 Na seção _Informações Básicas_, comece configurando seu novo aplicativo e vinculando-o a um repositório GitHub.
 
-:::image type="content" source="media/deploy-blazor/basics.png" alt-text="Guia Básico":::
+:::image type="content" source="media/deploy-blazor/basics.png" alt-text="Aplicativo Blazor completo":::
 
 1. Selecione sua _Assinatura do Azure_.
 1. Selecione ou crie um novo _Grupo de Recursos_
@@ -91,7 +91,7 @@ Na seção _Informações Básicas_, comece configurando seu novo aplicativo e v
 
 Depois de entrar no GitHub, insira as informações do repositório.
 
-:::image type="content" source="media/deploy-blazor/repository-details.png" alt-text="Detalhes do repositório":::
+:::image type="content" source="media/deploy-blazor/repository-details.png" alt-text="Aplicativo Blazor completo":::
 
 1. Selecione sua _Organização_ de preferência.
 1. Selecione **my-first-static-blazor-app** na lista suspensa _Repositório_
@@ -105,15 +105,15 @@ Depois de entrar no GitHub, insira as informações do repositório.
 
 1. Selecione **Examinar + criar**.
 
-    :::image type="content" source="media/deploy-blazor/review-create.png" alt-text="Botão Revisar Criar":::.
+    :::image type="content" source="media/deploy-blazor/review-create.png" alt-text="Aplicativo Blazor completo":::.
 
 1. Selecione **Criar**.
 
-    :::image type="content" source="media/deploy-blazor/create-button.png" alt-text="Botão Criar":::
+    :::image type="content" source="media/deploy-blazor/create-button.png" alt-text="Aplicativo Blazor completo":::
 
 1. Selecione **Ir para o recurso**.
 
-    :::image type="content" source="media/deploy-blazor/resource-button.png" alt-text="Botão Ir para o recurso":::.
+    :::image type="content" source="media/deploy-blazor/resource-button.png" alt-text="Aplicativo Blazor completo":::.
 
 ## <a name="view-the-website"></a>Exibir o site
 
@@ -123,7 +123,7 @@ Antes de navegar até o novo site estático, primeiro a compilação de implanta
 
 A janela de visão geral de Aplicativos Web Estáticos exibe uma série de links que ajudam você a interagir com seu aplicativo Web.
 
-:::image type="content" source="./media/deploy-blazor/overview-window.png" alt-text="Janela de visão geral":::
+:::image type="content" source="./media/deploy-blazor/overview-window.png" alt-text="Aplicativo Blazor completo":::
 
 1. Ao clicar na barra de notificação que indica _Clique aqui para verificar o status das suas execuções do GitHub Actions_, você será levado ao GitHub Actions em execução no repositório. Quando você verificar se o trabalho de implantação foi concluído, poderá navegar para seu site por meio da URL gerada.
 
