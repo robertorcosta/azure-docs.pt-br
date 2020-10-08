@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: e74271119b581b2bb291b1a9ddd74ad0781855e6
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 8021fb3fa9f11ef895569f48a2ae21b3f7adcd36
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91629107"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826213"
 ---
 # <a name="register-a-confidential-client-application-in-azure-active-directory"></a>Registrar um aplicativo cliente confidencial no Azure Active Directory
 
@@ -50,7 +50,7 @@ Agora que você registrou seu aplicativo, precisará selecionar quais permissõe
 
 1. Selecione **Adicionar uma permissão**.
 
-    Se estiver usando a API do Azure para FHIR, você adicionará uma permissão às APIs de assistência médica do Azure pesquisando as **APIs de assistência médica do Azure** em **APIs que minha organização usa**. 
+    Se estiver usando a API do Azure para FHIR, você adicionará uma permissão às APIs de assistência médica do Azure pesquisando as **APIs de assistência médica do Azure** em **APIs que minha organização usa**. Você só poderá encontrá-lo se já tiver [implantado a API do Azure para FHIR](fhir-paas-powershell-quickstart.md).
 
     Se você estiver fazendo referência a um aplicativo de recurso diferente, selecione o [registro de aplicativo do recurso de API do FHIR](register-resource-azure-ad-client-app.md) que você criou anteriormente em **minhas APIs**.
 
@@ -64,7 +64,7 @@ Agora que você registrou seu aplicativo, precisará selecionar quais permissõe
 
 ## <a name="application-secret"></a>Segredo do aplicativo
 
-1. Selecione **certificados & segredos**.
+1. Selecione **Certificados e segredos**.
 1. Selecione **Novo segredo do cliente**. 
 
     ![Cliente confidencial. Segredo do aplicativo](media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT-SECRET.png)
@@ -75,9 +75,7 @@ Agora que você registrou seu aplicativo, precisará selecionar quais permissõe
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você aprendeu como registrar um aplicativo cliente confidencial no Azure Active Directory. Agora você está pronto para implantar a [API do Azure para FHIR](fhir-paas-powershell-quickstart.md).
-
-Depois de implantar a API do Azure para FHIR, você poderá examinar as configurações adicionais disponíveis.
+Neste artigo, você aprendeu como registrar um aplicativo cliente confidencial no Azure Active Directory. Em seguida, você pode acessar o servidor FHIR usando o postmaster
  
 >[!div class="nextstepaction"]
->[Implantar a API do Azure para FHIR](fhir-paas-powershell-quickstart.md)
+>[Acessar a API do Azure para FHIR com o Postman](access-fhir-postman-tutorial.md)

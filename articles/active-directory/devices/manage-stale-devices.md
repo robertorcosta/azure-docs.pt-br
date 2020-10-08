@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b327e388366fe3129695a5c1780600e5903508a
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: ea5d24fd36e668fc52a8b5c9a20472c42ef3c420
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90705530"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825970"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Como gerenciar dispositivos obsoletos no Azure AD
 
@@ -69,7 +69,7 @@ Para limpar com eficiência os dispositivos obsoletos em seu ambiente, você dev
 
 Para atualizar um dispositivo no Azure AD, é necessária uma conta que tenha uma das seguintes funções atribuídas:
 
-- Administrador Global
+- Administrador global
 - Administrador de Dispositivo de Nuvem
 - Administrador de serviços do Intune
 
@@ -91,7 +91,7 @@ Se seu dispositivo estiver sob o controle do Intune ou de qualquer outra soluç�
 
 Não exclua os dispositivos gerenciados pelo sistema. Em geral, são dispositivos como o AutoPilot. Depois de excluídos, esses dispositivos não podem ser reprovisionados. O novo cmdlet `Get-AzureADDevice` exclui dispositivos gerenciados pelo sistema por padrão. 
 
-### <a name="hybrid-azure-ad-joined-devices"></a>Dispositivos ingressado no Azure AD Híbrido
+### <a name="hybrid-azure-ad-joined-devices"></a>Dispositivos adicionados ao Azure AD híbrido
 
 Seus dispositivos ingressados no Azure AD híbridos devem seguir suas políticas para gerenciamento de dispositivos obsoletos locais. 
 
@@ -163,9 +163,9 @@ Quando configuradas, as chaves do BitLocker para dispositivos Windows 10 são ar
 ### <a name="why-should-i-worry-about-windows-autopilot-devices"></a>Por que devo me preocupar com os dispositivos do Windows AutoPilot?
 
 Quando você exclui um dispositivo do Azure AD que estava associado a um objeto do Windows AutoPilot, os três cenários a seguir podem ocorrer se o dispositivo for realocado no futuro:
-- Com as implantações controladas pelo usuário do Windows AutoPilot sem usar o diferenciada branco, um novo dispositivo do Azure AD será criado, mas não será marcado com o ZTDID.
+- Com as implantações controladas pelo usuário do Windows AutoPilot sem usar o pré-provisionamento, um novo dispositivo do Azure AD será criado, mas não será marcado com o ZTDID.
 - Com as implantações do modo de implantação automática do Windows AutoPilot, elas falharão porque não é possível encontrar um dispositivo associado do Azure AD.  (Esse é um mecanismo de segurança para garantir que nenhum dispositivo "impostor" tente ingressar no Azure AD sem credenciais.) A falha indicará uma incompatibilidade de ZTDID.
-- Com as implantações de diferenciada do Windows AutoPilot, elas falharão porque um dispositivo Azure AD associado não pode ser encontrado. (Nos bastidores, as implantações do diferenciada branco usam o mesmo processo de modo de implantação automática, para que eles imponham os mesmos mecanismos de segurança.)
+- Com as implantações de pré-provisionamento do Windows AutoPilot, elas falharão porque um dispositivo do Azure AD associado não pode ser encontrado. (Nos bastidores, as implantações de pré-provisionamento usam o mesmo processo de modo de implantação automática, para que eles imponham os mesmos mecanismos de segurança.)
 
 ### <a name="how-do-i-know-all-the-type-of-devices-joined"></a>Como fazer para conhecer todos os tipos de dispositivos ingressados?
 

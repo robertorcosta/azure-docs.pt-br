@@ -4,12 +4,12 @@ description: Automatizar relatórios personalizados diariamente/semanalmente/men
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.reviewer: sdash
-ms.openlocfilehash: abd87af1a9cf61aba21e9231350aabc661e5091b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f35b7cbde7b719a91b23b19481ab704c445485cb
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320401"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827733"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatizar relatórios personalizados com dados do Azure Application Insights
 
@@ -153,5 +153,5 @@ Este passos apenas aplicam se você não tiver já uma conta SendGrip configurad
 * Saiba mais sobre como criar [consultas do Analytics](../log-query/get-started-queries.md).
 * Saiba mais sobre [dados consultando programaticamente do Application Insights](https://dev.applicationinsights.io/)
 * Saiba mais sobre o [Aplicativos Lógicos](../../logic-apps/logic-apps-overview.md).
-* Saiba mais sobre o [Microsoft Flow](https://ms.flow.microsoft.com).
+* Saiba mais sobre a [automatização de energia da Microsoft](https://ms.flow.microsoft.com).
 

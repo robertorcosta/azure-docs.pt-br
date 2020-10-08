@@ -6,12 +6,12 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 57417a80ea83005c01b6f2a17206d46e6c049719
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 98cd28e8b770ebfb7ab395fbe7fff16a078e3529
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85112771"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826856"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Particionamento e escala horizontal no Azure Cosmos DB
 
@@ -36,7 +36,7 @@ O número de partições físicas no contêiner Cosmos depende do seguinte:
 
 Não há nenhum limite para o número total de partições físicas em seu contêiner. À medida que a produtividade provisionada ou o tamanho dos dados crescer, Azure Cosmos DB criará automaticamente novas partições físicas, dividindo as existentes. As divisões de partição física não afetam a disponibilidade do aplicativo. Após a divisão da partição física, todos os dados em uma única partição lógica ainda serão armazenados na mesma partição física. Uma divisão de partição física simplesmente cria um novo mapeamento de partições lógicas para partições físicas.
 
-A taxa de transferência provisionada para um contêiner é dividida uniformemente entre as partições físicas. Um design de chave de partição que não distribui as solicitações de taxa de transferência pode, uniformemente, criar partições "ativas". As partições quentes podem resultar em limitação de taxa e em uso ineficiente da taxa de transferência provisionada e em custos mais altos.
+A taxa de transferência provisionada para um contêiner é dividida uniformemente entre as partições físicas. Um design de chave de partição que não distribui solicitações uniformemente pode resultar em muitas solicitações direcionadas para um pequeno subconjunto de partições que se tornam "quentes". As partições quentes levam ao uso ineficiente de produtividade provisionada, o que pode resultar em limitação de taxa e custos mais altos.
 
 Você pode ver as partições físicas do contêiner na seção **armazenamento** da **folha métricas** do portal do Azure:
 
@@ -54,7 +54,7 @@ A maioria dos contêineres de Cosmos pequenos requer apenas uma única partiçã
 
 A imagem a seguir mostra como as partições lógicas são mapeadas para partições físicas distribuídas globalmente:
 
-:::image type="content" source="./media/partition-data/logical-partitions.png" alt-text="Uma imagem que demonstra Azure Cosmos DB particionamento" border="false":::
+:::image type="content" source="./media/partition-data/logical-partitions.png" alt-text="Exibindo o número de partições físicas" border="false":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

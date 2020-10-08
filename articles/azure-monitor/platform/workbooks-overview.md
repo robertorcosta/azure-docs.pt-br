@@ -8,16 +8,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: mbullwin
-ms.openlocfilehash: d6ac552640b4a557c51b674624e6a4493241e0ed
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: e8ce4feaec6571adfb15f5928a6eb7c910173353
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90977569"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825785"
 ---
-# <a name="azure-monitor-workbooks"></a>Azure Monitor pastas de trabalho
+# <a name="azure-monitor-workbooks"></a>Pastas de trabalho do Azure Monitor
 
-As pastas de trabalho fornecem uma tela flexível para análise de dados e a criação de relatórios visuais avançados dentro do portal do Azure. Eles permitem que você toque em várias fontes de dados em todo o Azure e combine-as em experiências interativas unificadas. 
+As pastas de trabalho fornecem uma tela flexível para análise de dados e a criação de relatórios visuais avançados no portal do Azure. Eles permitem que você toque em várias fontes de dados em todo o Azure e combine-as em experiências interativas unificadas. 
 
 Aqui está uma explicação em vídeo sobre como criar pastas de trabalho.
 
@@ -25,11 +25,11 @@ Aqui está uma explicação em vídeo sobre como criar pastas de trabalho.
 
 ## <a name="data-sources"></a>Fontes de dados
 
-As pastas de trabalho podem consultar dados de várias fontes no Azure. Os autores de pastas de trabalho podem transformar esses dados para fornecer informações sobre a disponibilidade, o desempenho, o uso e a integridade geral dos componentes subjacentes. Por exemplo, analisar os logs de desempenho de máquinas virtuais para identificar altas instâncias de CPU ou memória insuficiente e exibir os resultados como uma grade em um relatório interativo.
+As pastas de trabalho podem consultar dados de várias fontes no Azure. Os autores de pastas de trabalho podem transformar esses dados para fornecer insights sobre a disponibilidade, o desempenho, o uso e a integridade geral dos componentes subjacentes. Por exemplo, analisar os logs de desempenho de máquinas virtuais para identificar altas instâncias de CPU ou memória insuficiente e exibir os resultados como uma grade em um relatório interativo.
   
-Mas o poder real das pastas de trabalho é a capacidade de combinar dados de fontes diferentes em um único relatório. Isso permite a criação de modos de exibição de recursos compostos ou junções entre recursos, permitindo dados e informações mais ricos que seriam impossíveis.
+Mas o poder real das pastas de trabalho é a capacidade de combinar dados de diferentes fontes em um só relatório. Isso permite a criação de modos de exibição de recursos compostos ou junções entre recursos, permitindo dados e informações mais ricos que seriam impossíveis.
 
-As pastas de trabalho são atualmente compatíveis com as seguintes fontes de dados:
+Atualmente, as pastas de trabalho são compatíveis com as seguintes fontes de dados:
 
 * [Logs](workbooks-data-sources.md#logs)
 * [Métricas](workbooks-data-sources.md#metrics)

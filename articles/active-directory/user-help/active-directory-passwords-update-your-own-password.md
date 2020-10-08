@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 09/10/2020
 ms.author: curtand
-ms.openlocfilehash: c2bf4d5facc96a0876d4321a61ed6f414dfd78da
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: c47d573dab3e72a956f6f0b9d09a1dafadf0225c
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90029538"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827771"
 ---
 # <a name="reset-your-work-or-school-password-using-security-info"></a>Redefinir sua senha corporativa ou de estudante usando informações de segurança
 
@@ -69,7 +69,7 @@ Se você não conseguir acessar sua conta do Azure AD (Azure Active Directory), 
 
     3. Digite e confirme sua nova senha e, em seguida, selecione **Finalizar**.
 
-- **Redefina sua senha usando um número de telefone.** Envia uma mensagem de texto para o número de telefone que você configurou anteriormente nas informações de segurança. Se o administrador ativou a experiência de informações de segurança, você pode encontrar mais informações sobre como configurar um número de telefone no artigo [Configurar informações de segurança para usar uma chamada telefônica (visualização)](security-info-setup-phone-number.md). Se você ainda não estiver usando as informações de segurança, poderá encontrar mais informações sobre como configurar um número de telefone no artigo [Configurar minha conta para verificação em duas etapas](multi-factor-authentication-end-user-first-time.md).
+- **Redefina sua senha usando um número de telefone.** Faz uma chamada de voz automática para o número de telefone que você configurou anteriormente nas informações de segurança. Se o administrador ativou a experiência de informações de segurança, você pode encontrar mais informações sobre como configurar um número de telefone no artigo [Configurar informações de segurança para usar uma chamada telefônica (visualização)](security-info-setup-phone-number.md). Se você ainda não estiver usando as informações de segurança, poderá encontrar mais informações sobre como configurar um número de telefone no artigo [Configurar minha conta para verificação em duas etapas](multi-factor-authentication-end-user-first-time.md).
 
     1. Selecione **Ligar para meu celular**, digite seu número de telefone e, em seguida, selecione **Ligar**.
 

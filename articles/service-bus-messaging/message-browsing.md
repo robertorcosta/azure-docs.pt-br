@@ -3,12 +3,12 @@ title: Barramento de serviço do Azure-pesquisa de mensagem
 description: Procurar e inspecionar mensagens do barramento de serviço permite que um cliente do barramento de serviço do Azure enumere todas as mensagens que residem em uma fila ou assinatura.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 0f2d4ed1225aef4c28a5f3d841669c2e3122ba10
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6e50fc737f6c81c07854ff07d8cc64061306749b
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341239"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827443"
 ---
 # <a name="message-browsing"></a>Procura de mensagens
 
@@ -30,7 +30,7 @@ Quando chamado várias vezes, o método Peek enumera todas as mensagens que exis
 
 [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatch_System_Int32_) recupera várias mensagens e as retorna como uma enumeração. Se nenhuma mensagem estiver disponível, o objeto de enumeração estará vazio, não nulo.
 
-Você também pode propagar uma sobrecarga do método com um [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) em que iniciar e, em seguida, chamar a sobrecarga de método sem parâmetros para enumerar ainda mais. **PeekBatch** funciona de forma equivalente, mas recupera um conjunto de mensagens de uma só vez.
+Você também pode usar uma sobrecarga do método com um [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) no qual iniciar e, em seguida, chamar a sobrecarga do método sem parâmetros para enumerar mais. **PeekBatch** funciona de forma equivalente, mas recupera um conjunto de mensagens de uma só vez.
 
 ## <a name="next-steps"></a>Próximas etapas
 

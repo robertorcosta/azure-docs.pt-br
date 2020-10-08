@@ -1,15 +1,15 @@
 ---
 title: Definições de políticas internas para a Automação do Azure
 description: Lista as definições de políticas internas do Azure Policy para a Automação do Azure. Essas definições de políticas internas fornecem abordagens comuns para gerenciar seus recursos do Azure.
-ms.date: 09/16/2020
+ms.date: 10/07/2020
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: cb36efbc043d99426c24d69f8bf7fe64e6355af5
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: ade53f1e2f38b9bef82067c1e9909e879cb4737d
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90987537"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827940"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-automation"></a>Definições internas do Azure Policy para a Automação do Azure
 

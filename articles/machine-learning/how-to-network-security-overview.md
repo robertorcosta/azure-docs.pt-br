@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperfq1
-ms.openlocfilehash: 7bc56f6296bf41933348fad9ea4aeb640b9afbf0
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: d08c1d23539c817792415d359b8e1cbb3979ca40
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91776010"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825507"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Visão geral de isolamento de rede virtual e privacidade
 
@@ -31,7 +31,7 @@ Estes são os outros artigos desta série:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Este artigo pressupõe que você tenha familiaridade com os seguintes tópicos:
-+ [Redes virtuais do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
++ [Redes Virtuais do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
 + [Rede IP](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm)
 + [Link Privado do Azure](how-to-configure-private-link.md)
 + [Grupos de segurança de rede (NSG)](../virtual-network/security-overview.md)
@@ -158,6 +158,12 @@ Para habilitar a funcionalidade completa do estúdio dentro de uma VNet, consult
 Configure seu firewall para controlar o acesso aos seus recursos do Azure Machine Learning Workspace e à Internet pública. Embora seja recomendável o Firewall do Azure, você deve ser capaz de usar outros produtos de firewall para proteger sua rede. Se você tiver dúvidas sobre como permitir a comunicação por meio do firewall, consulte a documentação do firewall que você está usando.
 
 Para obter mais informações sobre as configurações de firewall, consulte [usar o espaço de trabalho por trás de um firewall](how-to-access-azureml-behind-firewall.md).
+
+## <a name="custom-dns"></a>DNS Personalizado
+
+Se você precisar usar uma solução DNS personalizada para sua rede virtual, deverá adicionar registros de host para seu espaço de trabalho.
+
+Para obter mais informações sobre os nomes de domínio e endereços IP necessários, consulte [como usar um espaço de trabalho com um servidor DNS personalizado](how-to-custom-dns.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

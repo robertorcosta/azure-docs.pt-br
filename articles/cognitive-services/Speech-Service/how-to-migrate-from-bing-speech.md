@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: nitinme
-ms.openlocfilehash: 43679c52727f8cc84c7292592b68dddae7f1ea68
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 81c4c26f252cdd9eb302a7f8f362c8bf52e48629
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91362071"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825593"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Migrar do Fala do Bing para o serviço de fala
 
@@ -42,8 +42,8 @@ O serviço de fala é muito semelhante ao Fala do Bing, com as seguintes diferen
 | SDK do C# | :heavy_check_mark: | :heavy_check_mark: | O serviço de fala dá suporte ao Windows 10, Plataforma Universal do Windows (UWP) e .NET Standard 2,0. |
 | SDK do C++ | :heavy_minus_sign: | :heavy_check_mark: | O serviço de fala dá suporte ao Windows e ao Linux. |
 | Java SDK | :heavy_check_mark: | :heavy_check_mark: | O serviço de fala dá suporte a dispositivos Android e de fala. |
-| Reconhecimento de fala contínua | 10 minutos | Ilimitada (com o SDK) | Os protocolos de WebSockets do serviço de fala Fala do Bing e do Speech dão suporte a até 10 minutos por chamada. No entanto, o SDK de Fala se reconecta automaticamente no tempo limite ou se desconecta. |
-| Resultados intermediários ou parciais | :heavy_check_mark: | :heavy_check_mark: | Com o protocolo WebSockets ou SDK. |
+| Reconhecimento de fala contínua | 10 minutos | Ilimitado | O SDK de fala dá suporte a reconhecimento contínuo ilimitado e reconecta-se automaticamente após o tempo limite ou desconectar. |
+| Resultados intermediários ou parciais | :heavy_check_mark: | :heavy_check_mark: | Com suporte no SDK do Speech. |
 | Modelos de fala personalizados | :heavy_check_mark: | :heavy_check_mark: | A Fala do Bing requer uma assinatura separada da Fala Personalizada. |
 | Fontes de voz personalizadas | :heavy_check_mark: | :heavy_check_mark: | A Fala do Bing requer uma assinatura separada da Voz Personalizada. |
 | vozes de 24 kHz | :heavy_minus_sign: | :heavy_check_mark: |
@@ -53,7 +53,7 @@ O serviço de fala é muito semelhante ao Fala do Bing, com as seguintes diferen
 | Modo de reconhecimento | Manual por meio do URI do ponto de extremidade | Automática | O modo de reconhecimento não está disponível no serviço de fala. |
 | Localidade do ponto de extremidade | Global | Regional | Os pontos de extremidade regionais melhoram a latência. |
 | APIs REST | :heavy_check_mark: | :heavy_check_mark: | As APIs REST do serviço de fala são compatíveis com Fala do Bing (ponto de extremidade diferente). As APIs REST são compatíveis com as funcionalidades de conversão de texto em fala e uma funcionalidade limitada de conversão de fala em texto. |
-| Protocolos WebSockets | :heavy_check_mark: | :heavy_check_mark: | A API WebSockets do serviço de fala é compatível com Fala do Bing (ponto de extremidade diferente). Se possível, migre para o SDK de Fala para simplificar seu código. |
+| Protocolos WebSockets | :heavy_check_mark: | :heavy_minus_sign: | O SDK de fala abstrai as conexões de soquete da Web para a funcionalidade que exige uma conexão constante com o serviço, portanto, não há mais suporte para assinar manualmente. |
 | Chamadas à API de serviço a serviço | :heavy_check_mark: | :heavy_minus_sign: | Fornecidas na Fala do Bing por meio da Biblioteca de Serviço do C#. |
 | SDK do código-fonte aberto | :heavy_check_mark: | :heavy_minus_sign: |
 
@@ -65,13 +65,9 @@ Se você ou sua organização tiver aplicativos em desenvolvimento ou produção
 
 As [APIs REST](rest-apis.md) do serviço de fala são compatíveis com as apis de fala do Bing. Se você estiver usando o Fala do Bing APIs REST, precisará apenas alterar o ponto de extremidade REST e alternar para uma chave de assinatura do serviço de fala.
 
-Os protocolos do WebSocket do serviço de fala também são compatíveis com aqueles usados pelo Fala do Bing. É recomendável que você use o SDK do Speech em vez de WebSockets para o novo desenvolvimento. É uma boa ideia migrar o código existente para o SDK também. No entanto, da mesma forma que com as APIs REST, o código existente que usa a Fala do Bing por meio de WebSockets requer apenas uma alteração no ponto de extremidade e uma chave atualizada.
-
 Se você estiver usando uma biblioteca de clientes de Fala do Bing para uma linguagem de programação específica, migrar para o [SDK de Fala](speech-sdk.md) exigirá alterações no seu aplicativo porque a API é diferente. O SDK de Fala pode tornar seu código mais simples e dar acesso a novos recursos. O SDK de fala está disponível em uma ampla variedade de linguagens de programação. As APIs em todas as plataformas são semelhantes, facilitando o desenvolvimento multiplataforma.
 
 O serviço de fala não oferece um ponto de extremidade global. Determine se o aplicativo funcionará de maneira eficiente usando um ponto de extremidade regional único para todo o tráfego. Caso contrário, use a geolocalização para determinar o ponto de extremidade mais eficiente. Você precisa de uma assinatura de serviço de fala separada em cada região usada.
-
-Se o aplicativo usar conexões de longa duração e não for possível usar os SDKs disponíveis, você poderá usar uma conexão WebSockets. Gerencie o limite de tempo limite de 10 minutos ao fazer a reconexão nos momentos apropriados.
 
 Como começar a usar o SDK de Fala:
 
@@ -88,9 +84,11 @@ Para o suporte ao serviço de fala, ao SDK e à API, visite a [página de suport
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Experimente gratuitamente o serviço de fala](overview.md#try-the-speech-service-for-free)
-* [Início rápido: Reconhecer fala em um aplicativo UWP usando SDK de Fala](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp)
+* [Introdução à conversão de fala em texto](get-started-speech-to-text.md)
+* [Introdução à conversão de texto em fala](get-started-text-to-speech.md)
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
+
 * [Notas de versão do serviço de fala](releasenotes.md)
 * [O que é o serviço de fala](overview.md)
 * [Documentação do Speech Service e do Speech SDK](speech-sdk.md#get-the-speech-sdk)

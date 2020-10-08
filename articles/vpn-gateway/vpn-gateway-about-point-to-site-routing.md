@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 09/03/2020
+ms.date: 10/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 1e88afd91c0e0b344cc0eb8d82b637a88d5a1656
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 0b9b8ba555cddd56c49c750709e69ec180291c95
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447963"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827205"
 ---
 # <a name="about-point-to-site-vpn-routing"></a>Sobre o roteamento VPN Ponto a Site
 
@@ -32,7 +32,7 @@ Há vários diagramas diferentes neste artigo. Cada seção mostra uma topologia
 
 A conexão de gateway VPN Ponto a Site neste exemplo é para uma rede virtual que não é conectada ou emparelhada com qualquer outra rede virtual (VNet1). Neste exemplo, os clientes podem acessar o VNet1.
 
-![roteamento de rede virtual isolada](./media/vpn-gateway-about-point-to-site-routing/1.jpg "roteamento de rede virtual isolada")
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/isolated.jpg" alt-text="Roteamento de rede virtual isolada" lightbox="./media/vpn-gateway-about-point-to-site-routing/isolated.jpg":::
 
 ### <a name="address-space"></a>Espaço de endereço
 
@@ -56,7 +56,7 @@ Neste exemplo, a conexão de gateway VPN Ponto a Site é para VNet1. VNet1 é em
 
 Os clientes que usam o Windows podem acessar VNets emparelhadas diretamente, mas o cliente VPN deve ser baixado novamente, se as alterações são feitas para emparelhamento de rede virtual ou a topologia de rede. Os clientes não Windows podem acessar VNets emparelhadas diretamente. O acesso não é transitivo e é limitado a apenas VNets emparelhadas diretamente.
 
-![vários VNets emparelhados](./media/vpn-gateway-about-point-to-site-routing/2.jpg "vários VNets emparelhados")
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/multiple.jpg" alt-text="Roteamento de rede virtual isolada" lightbox="./media/vpn-gateway-about-point-to-site-routing/multiple.jpg":::
 
 ### <a name="address-space"></a>Espaço de endereço:
 
@@ -86,7 +86,7 @@ Neste exemplo, a conexão de gateway VPN Ponto a Site é para VNet1. VNet1 é co
 
 Os clientes que usam o Windows ou outro sistema operacional com suporte só podem acessar VNet1. Para acessar VNets adicionais, o BGP deve ser usado.
 
-![vários VNets e S2S](./media/vpn-gateway-about-point-to-site-routing/3.jpg "vários VNets e S2S")
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/multiple-s2s.jpg" alt-text="Roteamento de rede virtual isolada" lightbox="./media/vpn-gateway-about-point-to-site-routing/multiple-s2s.jpg":::
 
 ### <a name="address-space"></a>Espaço de endereço
 
@@ -114,7 +114,7 @@ Neste exemplo, a conexão de gateway VPN Ponto a Site é para VNet1. VNet1 é co
 
 Clientes que usam Windows ou outro sistema operacional com suporte podem acessar todas as VNets que estão conectadas usando a conexão VPN Site a Site, mas as rotas a VNets conectadas devem ser adicionadas manualmente aos clientes Windows.
 
-![vários VNets e S2S (BGP)](./media/vpn-gateway-about-point-to-site-routing/4.jpg "vários VNets e S2S BGP")
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/multiple-bgp.jpg" alt-text="Roteamento de rede virtual isolada" lightbox="./media/vpn-gateway-about-point-to-site-routing/multiple-bgp.jpg":::
 
 ### <a name="address-space"></a>Espaço de endereço
 
@@ -142,7 +142,7 @@ Neste exemplo, a conexão de gateway VPN Ponto a Site é para VNet1. VNet1 não 
 
 Os clientes do Windows e não Windows podem acessar apenas VNet1.
 
-![roteamento com uma VNet e uma filial](./media/vpn-gateway-about-point-to-site-routing/5.jpg "roteamento com uma VNet e uma filial")
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/branch-office.jpg" alt-text="Roteamento de rede virtual isolada" lightbox="./media/vpn-gateway-about-point-to-site-routing/branch-office.jpg":::
 
 ### <a name="address-space"></a>Espaço de endereço
 
@@ -168,7 +168,7 @@ Neste exemplo, a conexão de gateway VPN Ponto a Site é para VNet1. VNet1 não 
 
 Os clientes Windows podem acessar VNet e filial (Site1), mas as rotas para Site1 devem ser adicionadas manualmente ao cliente. Os clientes não Windows podem acessar a VNet, bem como a filial local.
 
-![uma VNet e uma filial (BGP)](./media/vpn-gateway-about-point-to-site-routing/6.jpg "uma VNet e uma filial")
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/branch-bgp.jpg" alt-text="Roteamento de rede virtual isolada" lightbox="./media/vpn-gateway-about-point-to-site-routing/branch-bgp.jpg":::
 
 ### <a name="address-space"></a>Espaço de endereço
 
@@ -195,7 +195,7 @@ Neste exemplo, a conexão de gateway VPN Ponto a Site é para VNet1. VNet1 é co
 
 Todos os clientes podem acessar apenas VNet1.
 
-![Diagrama que mostra um S2S de várias VNet e uma filial.](./media/vpn-gateway-about-point-to-site-routing/7.jpg "S2S e filial de vários VNet")
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/multi-branch.jpg" alt-text="Roteamento de rede virtual isolada" lightbox="./media/vpn-gateway-about-point-to-site-routing/multi-branch.jpg":::
 
 ### <a name="address-space"></a>Espaço de endereço
 
@@ -225,7 +225,7 @@ Neste exemplo, a conexão de gateway VPN Ponto a Site é para VNet1. VNet1 é co
 
 Os clientes que usam o Windows podem acessar VNets e sites que são conectados usando uma conexão VPN Site a Site, mas as rotas para VNet2, VNet3 e Site1 devem ser adicionados manualmente ao cliente. Os clientes não Windows podem acessar VNets e sites que são conectados usando uma conexão VPN Site a Site sem qualquer intervenção manual. O acesso é transitivo, e os clientes podem acessar recursos em todos os sites (local) e VNets conectadas.
 
-![S2S e filial de vários VNet](./media/vpn-gateway-about-point-to-site-routing/8.jpg "S2S e filial de vários VNet")
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/multi-branch-bgp.jpg" alt-text="Roteamento de rede virtual isolada" lightbox="./media/vpn-gateway-about-point-to-site-routing/multi-branch-bgp.jpg":::
 
 ### <a name="address-space"></a>Espaço de endereço
 

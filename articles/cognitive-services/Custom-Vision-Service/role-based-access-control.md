@@ -10,16 +10,16 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: pafarley
-ms.openlocfilehash: fc536b3b0c7af113919f274fc4bdd5fad63cbd06
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 4eea87d7b5ef543551b789ddc6b045358fa98631
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057154"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826927"
 ---
 # <a name="role-based-access-control"></a>Controle de acesso baseado em função
 
-O Visão Personalizada dá suporte ao controle de acesso baseado em função do Azure (RBAC do Azure), um sistema de autorização para gerenciar o acesso individual aos recursos do Azure. Usando o RBAC, atribua diferentes membros da equipe diferentes níveis de permissões para seus projetos de Visão Personalizada. Para obter mais informações sobre o RBAC, consulte a [documentação do RBAC do Azure](https://docs.microsoft.com/azure/role-based-access-control/).
+A Visão Personalizada dá suporte ao RBAC (controle de acesso baseado em função) do Azure, um sistema de autorização para gerenciar o acesso individual aos recursos do Azure. Usando o RBAC, atribua diferentes membros da equipe diferentes níveis de permissões para seus projetos de Visão Personalizada. Para obter mais informações sobre o RBAC, consulte a [documentação do RBAC do Azure](https://docs.microsoft.com/azure/role-based-access-control/).
 
 ## <a name="add-role-assignment-to-custom-vision-resource"></a>Adicionar atribuição de função a Visão Personalizada recurso
 
@@ -43,8 +43,8 @@ Use a tabela a seguir para determinar as necessidades de acesso para seus recurs
 
 |Função  |Permissões  |
 |---------|---------|
-|`Cognitive Service Custom Vision Contributor`     | Acesso completo aos projetos, incluindo a capacidade de criar, editar ou excluir um projeto.        |
-|`Cognitive Service Custom Vision Trainer`     | Acesso completo, exceto a capacidade de criar ou excluir um projeto. Os treinadores podem exibir e editar projetos e treinar, publicar, cancelar a publicação ou exportar os modelos.        |
-|`Cognitive Service Custom Vision Labeler`     | Capacidade de carregar, editar ou excluir imagens de treinamento e criar, adicionar, remover ou excluir marcas. Rotuladores podem exibir projetos, mas não podem atualizar nada além de imagens e marcas de treinamento.         |
-|`Cognitive Service Custom Vision Deployment`     | Capacidade de publicar, cancelar a publicação ou exportar os modelos. Os implantadores podem exibir projetos, mas não podem atualizar um projeto, imagens de treinamento ou marcas.        |
-|`Cognitive Service Custom Vision Reader`     | Capacidade de exibir projetos. Os leitores não podem fazer nenhuma alteração.        |
+|`Cognitive Services Custom Vision Contributor`     | Acesso completo aos projetos, incluindo a capacidade de criar, editar ou excluir um projeto.        |
+|`Cognitive Services Custom Vision Trainer`     | Acesso completo, exceto a capacidade de criar ou excluir um projeto. Os treinadores podem exibir e editar projetos e treinar, publicar, cancelar a publicação ou exportar os modelos.        |
+|`Cognitive Services Custom Vision Labeler`     | Capacidade de carregar, editar ou excluir imagens de treinamento e criar, adicionar, remover ou excluir marcas. Rotuladores podem exibir projetos, mas não podem atualizar nada além de imagens e marcas de treinamento.         |
+|`Cognitive Services Custom Vision Deployment`     | Capacidade de publicar, cancelar a publicação ou exportar os modelos. Os implantadores podem exibir projetos, mas não podem atualizar um projeto, imagens de treinamento ou marcas.        |
+|`Cognitive Services Custom Vision Reader`     | Capacidade de exibir projetos. Os leitores não podem fazer nenhuma alteração.        |

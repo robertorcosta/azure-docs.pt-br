@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 09/22/2020
+ms.date: 10/07/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d22ec2219a86b8445931350b616dd76d0a22ec5
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 133ea21bf7a7c1df0fccaeacce7d7a29199c033d
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91439813"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827678"
 ---
 # <a name="add-and-manage-groups-in-administrative-units-in-azure-active-directory"></a>Adicionar e gerenciar grupos em unidades administrativas no Azure Active Directory
 
@@ -101,6 +101,7 @@ Get-AzureADGroup -ObjectId $member.ObjectId
 }
 }
 ```
+
 ### <a name="microsoft-graph"></a>Microsoft Graph
 
 ```http
@@ -136,13 +137,20 @@ https://graph.microsoft.com/v1.0/groups/<group-id>/memberOf/$/Microsoft.Graph.Ad
 
 Há duas maneiras de remover um grupo de uma unidade administrativa no portal do Azure.
 
-Abra **Azure Active Directory** > **Grupos** e abra o perfil do grupo que você quer remover da unidade administrativa. Selecione **Unidades administrativas** no painel esquerdo para listar todas as unidades administrativas em que o grupo é membro. Selecione a unidade administrativa da qual você deseja remover o grupo e, em seguida, selecione **Remover da unidade administrativa**.
+- Visão geral de remover de um grupo
 
-![Remover um grupo de uma unidade administrativa](./media/roles-admin-units-add-manage-groups/group-au-remove.png)
+  1. Abra os grupos **do Azure ad**  >  **Groups** e abra o perfil do grupo que você deseja remover de uma unidade administrativa.
+  1. Selecione **Unidades administrativas** no painel esquerdo para listar todas as unidades administrativas em que o grupo é membro. Selecione a unidade administrativa da qual você deseja remover o grupo e, em seguida, selecione **Remover da unidade administrativa**.
 
-Como alternativa, você pode ir para **Azure Active Directory** > **Unidades administrativas** e selecionar a unidade administrativa da qual o grupo é membro. Selecione **Grupos** no painel esquerdo para listar os grupos de membros. Selecione o grupo a ser removido da unidade administrativa e, em seguida, selecione **Remover grupos**.
+    ![Remover um grupo de uma unidade administrativa](./media/roles-admin-units-add-manage-groups/group-au-remove.png)
 
-![Listar grupos em uma unidade administrativa](./media/roles-admin-units-add-manage-groups/list-groups-in-admin-units.png)
+- Remover de uma unidade administrativa
+
+  1. Abra as unidades administrativas **do Azure ad**  >  **Administrative units** e selecione a unidade administrativa na qual o grupo é membro.
+  1. Selecione **Grupos** no painel esquerdo para listar os grupos de membros.
+  1. Selecione o grupo a ser removido da unidade administrativa e, em seguida, selecione **Remover grupos**.
+
+    ![Listar grupos em uma unidade administrativa](./media/roles-admin-units-add-manage-groups/list-groups-in-admin-units.png)
 
 ### <a name="powershell"></a>PowerShell
 

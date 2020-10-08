@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.openlocfilehash: dd5a200d1c17f0417b2ee88f7f905ee6de3cfe62
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: efcf634c9f34fd2b479140af800bb650f66bd821
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555382"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826747"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Tutorial: Integrar o Azure Active Directory ao E Sales Manager Remix
 
@@ -56,11 +56,11 @@ O cenário descrito neste tutorial consiste em dois blocos de construção princ
 ## <a name="add-e-sales-manager-remix-from-the-gallery"></a>Adicionar o E Sales Manager Remix da galeria
 Para configurar a integração do Microsoft Azure Active Directory ao E Sales Manager Remix, adicione o E Sales Manager Remix da galeria à sua lista de aplicativos SaaS gerenciados da seguinte maneira:
 
-1. No [portal do Azure](https://portal.azure.com), no painel esquerdo, selecione **Azure Active Directory**. 
+1. No [Portal do Azure](https://portal.azure.com), no painel esquerdo, selecione **Azure Active Directory**. 
 
     ![O botão Azure Active Directory][1]
 
-1. Selecione **aplicativos empresariais**  >  **todos os aplicativos**.
+1. Selecione **Aplicativos empresariais** > **Todos os aplicativos**.
 
     ![A janela “Aplicativos empresariais”][2]
     
@@ -121,7 +121,7 @@ Habilite o logon único do Microsoft Azure Active Directory no portal do Azure e
 
 1. Em **Configuração do E Sales Manager Remix**, selecione **Configurar E Sales Manager Remix**.
 
-    ![Configuração do E Sales Manager Remix](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_configure.png) 
+    ![Captura de tela que mostra a seção "configuração do remix Sales Manager" com "configurar E Sales Manager Remix" selecionado.](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_configure.png) 
 
     A janela **Configurar logon** é aberta.
 

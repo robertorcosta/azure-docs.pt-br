@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: a7edbbb50777cc2d91332260c9ebe72be042874b
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 7ae7e20c32836d595d6e0fb4162a895407beeb5d
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91396222"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91828048"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Auditoria do banco de dados SQL do Azure e do Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -106,6 +106,7 @@ Para configurar a gravação de logs de auditoria para uma conta de armazenament
 #### <a name="remarks"></a>Comentários
 
 - Os logs de auditoria são gravados nos **Blob de acréscimo** em um armazenamento de blob do Azure em sua assinatura do Azure
+- Os logs de auditoria estão no formato. xel e podem ser abertos usando [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 - Para configurar um repositório de logs imutável para os eventos de auditoria no nível do servidor ou do banco de dados, siga as [instruções fornecidas pelo armazenamento do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage#enabling-allow-protected-append-blobs-writes). Verifique se você selecionou **permitir acréscimos adicionais** ao configurar o armazenamento de blob imutável.
 - Você pode gravar logs de auditoria em uma conta do Armazenamento do Microsoft Azure atrás de uma VNet ou um firewall. Para ver instruções específicas, consulte [Gravar auditoria em uma conta de armazenamento atrás de uma VNet e um firewall](audit-write-storage-account-behind-vnet-firewall.md).
 - Depois de definir as configurações de auditoria, você poderá ativar o novo recurso de detecção de ameaças e configurar emails para receber alertas de segurança. Ao usar a detecção de ameaças, você recebe alertas proativos sobre atividades anômalas do banco de dados que podem indicar possíveis ameaças à segurança. Para obter mais informações, consulte [Introdução à detecção de ameaças](threat-detection-overview.md).

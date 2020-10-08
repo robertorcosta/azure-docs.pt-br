@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 88cb54a7a9e20e643d9a19f57dc83d3f1ea8004d
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: f32783b18b5454164567910aa369739d025b8be0
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91761202"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826904"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>O que é uma instância de computação do Azure Machine Learning?
 
@@ -32,7 +32,7 @@ Uma instância de computação é uma estação de trabalho totalmente gerenciad
 
 |Principais benefícios|Descrição|
 |----|----|
-|Produtividade|Você pode criar e implantar modelos usando blocos de anotações integrados e as seguintes ferramentas no Azure Machine Learning Studio:<br/>-  Jupyter<br/>-  JupyterLab<br/>-RStudio (versão prévia)<br/>A instância de computação é totalmente integrada com o Azure Machine Learning Workspace e o Studio. Você pode compartilhar blocos de anotações e dados com outros cientistas de dados no espaço de trabalho. Você também pode configurar o desenvolvimento de VS Code remoto usando [SSH](how-to-set-up-vs-code-remote.md) |
+|Produtividade|Você pode criar e implantar modelos usando blocos de anotações integrados e as seguintes ferramentas no Azure Machine Learning Studio:<br/>-  Jupyter<br/>-  JupyterLab<br/>-RStudio (versão prévia)<br/>A instância de computação é totalmente integrada com o Azure Machine Learning Workspace e o Studio. Você pode compartilhar blocos de anotações e dados com outros cientistas de dados no espaço de trabalho.<br/> Você também pode usar [vs Code](https://techcommunity.microsoft.com/t5/azure-ai/power-your-vs-code-notebooks-with-azml-compute-instances/ba-p/1629630) com instâncias de computação.
 |Gerenciado e seguro|Reduza o volume de segurança e adicione conformidade com os requisitos de segurança corporativa. As instâncias de computação fornecem políticas de gerenciamento robustas e configurações de rede seguras, como:<br/><br/>-Provisionamento automático de modelos do Resource Manager ou SDK do Azure Machine Learning<br/>- [Controle de acesso baseado em função do Azure (RBAC do Azure)](/azure/role-based-access-control/overview)<br/>- [Suporte de rede virtual](how-to-enable-virtual-network.md#compute-instance)<br/>- Política SSH para habilitar/desabilitar o acesso SSH<br/>TLS 1,2 habilitado |
 |Pré-configurado &nbsp; para &nbsp; ml|Economize tempo nas tarefas de instalação com pacotes ML pré-configurados e atualizados, estruturas de aprendizado profundo, drivers de GPU.|
 |Totalmente personalizável|Amplo suporte para tipos de VM do Azure, incluindo GPUs e personalização de baixo nível persistente, como a instalação de pacotes e drivers, torna os cenários avançados muito fáceis. |
@@ -47,9 +47,11 @@ Você mesmo pode [criar uma instância de computação](how-to-create-manage-com
 
 A instância de computação do Azure Machine Learning permite que você crie, treine e implante modelos em uma experiência de notebook totalmente integrada em seu workspace.
 
+Você pode executar blocos de anotações do Jupyter no [vs Code](https://techcommunity.microsoft.com/t5/azure-ai/power-your-vs-code-notebooks-with-azml-compute-instances/ba-p/1629630) usando a instância de computação como o servidor remoto sem o ssh necessário. Você também pode habilitar a integração de VS Code por meio da [extensão SSH remota](https://devblogs.microsoft.com/python/enhance-your-azure-machine-learning-experience-with-the-vs-code-extension/).
+
 Você pode [instalar pacotes](how-to-create-manage-compute-instance.md#install-packages) e [Adicionar kernels](how-to-create-manage-compute-instance.md#add-new-kernels) à sua instância de computação.  
 
-Essas ferramentas e ambientes já estão instalados na instância de computação: 
+As ferramentas e os ambientes a seguir já estão instalados na instância de computação: 
 
 |Ferramentas gerais e ambientes|Detalhes|
 |----|:----:|
@@ -143,7 +145,7 @@ Os núcleos dedicados por região por cota da família de VMs e a cota regional 
 ### <a name="create-on-behalf-of-preview"></a>Criar em nome de (visualização)
 
 Como administrador, você pode criar uma instância de computação em nome de um cientista de dados e atribuir a instância a elas com:
-* [Modelo de Azure Resource Manager](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/preview/2020-09-01-preview/examples/createComputeInstance.json).  Para obter detalhes sobre como encontrar a Tenantid e o ObjectID necessários neste modelo, consulte [Localizar IDs de objeto de identidade para configuração de autenticação](../healthcare-apis/find-identity-object-ids.md).  Você também pode encontrar esses valores no portal de Azure Active Directory.
+* [Modelo de Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).  Para obter detalhes sobre como encontrar a Tenantid e o ObjectID necessários neste modelo, consulte [Localizar IDs de objeto de identidade para configuração de autenticação](../healthcare-apis/find-identity-object-ids.md).  Você também pode encontrar esses valores no portal de Azure Active Directory.
 * API REST
 
 O cientista de dados para o qual você cria a instância de computação precisa das seguintes permissões de RBAC: 

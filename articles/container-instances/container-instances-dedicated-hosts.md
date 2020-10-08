@@ -3,14 +3,14 @@ title: Implantar no host dedicado
 description: Use um host dedicado para obter um isolamento verdadeiro no nível de host para suas cargas de trabalho de instâncias de contêiner do Azure
 ms.topic: article
 ms.date: 01/17/2020
-author: dkkapur
-ms.author: dekapur
-ms.openlocfilehash: e9d7e2a706f65b5f2948a24400aa63ba39350661
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+author: macolso
+ms.author: macolso
+ms.openlocfilehash: 967d2da61ffdfa9d1723bcab589deb2277d4041e
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259637"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825609"
 ---
 # <a name="deploy-on-dedicated-hosts"></a>Implantar em hosts dedicados
 
@@ -31,8 +31,8 @@ O SKU dedicado é apropriado para cargas de trabalho de contêiner que exigem is
 A partir da versão de API 2019-12-01, há uma `sku` Propriedade na seção Propriedades do grupo de contêineres de um modelo de implantação, que é necessária para uma implantação do ACI. No momento, você pode usar essa propriedade como parte de um modelo de implantação Azure Resource Manager para ACI. Saiba mais sobre a implantação de recursos do ACI com um modelo no [tutorial: implantar um grupo de vários contêineres usando um modelo do Resource Manager](./container-instances-multi-container-group.md). 
 
 A `sku` propriedade pode ter um dos seguintes valores:
-* `Standard`-a opção de implantação ACI padrão, que ainda garante a segurança em nível de hipervisor 
-* `Dedicated`-usado para isolamento de nível de carga de trabalho com hosts físicos dedicados para o grupo de contêineres
+* `Standard` -a opção de implantação ACI padrão, que ainda garante a segurança em nível de hipervisor 
+* `Dedicated` -usado para isolamento de nível de carga de trabalho com hosts físicos dedicados para o grupo de contêineres
 
 ## <a name="modify-your-json-deployment-template"></a>Modificar seu modelo de implantação JSON
 

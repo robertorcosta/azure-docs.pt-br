@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2020
+ms.date: 10/07/2020
 ms.author: memildin
-ms.openlocfilehash: 66a04ebec6eb9d7219d4d5db3bdd1dfd780a730f
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 92feb159fe4c893a55d37fa90c34acf4c4c93631
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91445998"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826178"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Proteção avançada contra ameaças do Microsoft defender com a central de segurança do Azure
 
@@ -29,10 +29,10 @@ A central de segurança do Azure integra-se à [ATP (proteção avançada contra
 |Aspecto|Detalhes|
 |----|:----|
 |Estado da versão:|GA (em disponibilidade geral)|
-|Refere|Requer o [Azure defender](security-center-pricing.md)|
+|Preço:|Exige o [Azure Defender](security-center-pricing.md)|
 |Computadores com suporte:|![Sim](./media/icons/yes-icon.png) Máquinas do Azure executando o Windows<br>![Sim](./media/icons/yes-icon.png) Computadores do Arc do Azure executando o Windows|
 |Funções e permissões necessárias:|Para habilitar/desabilitar a integração: **administrador de segurança** ou **proprietário**<br>Para exibir alertas do MDATP na central de segurança: **leitor de segurança**, **leitor**, colaborador do **grupo de recursos**, proprietário do **grupo de recursos**, administrador de **segurança**, **proprietário da assinatura**ou colaborador da **assinatura**|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais.<br>![Não](./media/icons/no-icon.png) Clientes GCC executando cargas de trabalho em nuvens públicas do Azure<br>![Sim](./media/icons/yes-icon.png) Gov dos EUA<br>![Não](./media/icons/no-icon.png) China gov, outros gov|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais.<br>![Não](./media/icons/no-icon.png) Clientes GCC executando cargas de trabalho em nuvens públicas do Azure<br>![Sim](./media/icons/yes-icon.png) Gov dos EUA<br>![Não](./media/icons/no-icon.png) Governo da China e outros governos|
 |||
 
 

@@ -1,18 +1,18 @@
 ---
 title: Definições de políticas internas para a Configuração de Aplicativos do Azure
 description: Lista as definições de políticas internas do Azure Policy para a Configuração de Aplicativos do Azure. Essas definições de políticas internas fornecem abordagens comuns para gerenciar seus recursos do Azure.
-ms.date: 09/16/2020
+ms.date: 10/07/2020
 ms.topic: reference
 author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.custom: subject-policy-reference
-ms.openlocfilehash: bb0b78605d0f8015d3019e29a152a44c65331287
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 30f57594ea7366e8835ed0d7773886ed83fe622d
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90986767"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825346"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-app-configuration"></a>Definições internas do Azure Policy para a Configuração de Aplicativos do Azure
 

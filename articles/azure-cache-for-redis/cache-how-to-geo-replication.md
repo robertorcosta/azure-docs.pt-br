@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: yegu
-ms.openlocfilehash: e4739c0c550988e1639e89a647815e5dd86b17b7
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: 6203c230f7ca27b1d4b48e9f56a7f46cd5a5ce78
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91461335"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825320"
 ---
 # <a name="how-to-set-up-geo-replication-for-azure-cache-for-redis"></a>Como configurar a replicação geográfica para o cache do Azure para Redis
 
@@ -111,6 +111,7 @@ Após a configuração da replicação geográfica, as seguintes restrições se
 - [Por que a operação falhou quando tentei excluir meu cache vinculado?](#why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache)
 - [Qual região devo usar para meu cache vinculado secundário?](#what-region-should-i-use-for-my-secondary-linked-cache)
 - [Como funciona o failover para o cache vinculado secundário?](#how-does-failing-over-to-the-secondary-linked-cache-work)
+- [Posso configurar o firewall com a replicação geográfica?](#can-i-configure-a-firewall-with-geo-replication)
 
 ### <a name="can-i-use-geo-replication-with-a-standard-or-basic-tier-cache"></a>Posso usar a replicação geográfica com um cache de camada Standard ou Basic?
 
@@ -185,7 +186,12 @@ O failover automático nas regiões do Azure não tem suporte para caches com re
 
 Para iniciar um failover iniciado pelo cliente, primeiro desvincule os caches. Em seguida, altere o cliente Redis para usar o ponto de extremidade de conexão do cache secundário (anteriormente vinculado). Quando os dois caches são desvinculados, o cache secundário se torna um cache de leitura-gravação regular e aceita solicitações diretamente de clientes Redis.
 
+### <a name="can-i-configure-a-firewall-with-geo-replication"></a>Posso configurar um firewall com replicação geográfica?
+
+Sim, você pode configurar um [Firewall](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-configure#firewall) com replicação geográfica. Para que a replicação geográfica funcione junto com um firewall, verifique se o endereço IP do cache secundário foi adicionado às regras de firewall do cache primário.
+
 ## <a name="next-steps"></a>Próximas etapas
+
 Saiba mais sobre o cache do Azure para recursos do Redis.
 
 * [Cache do Azure para camadas de serviço Redis](cache-overview.md#service-tiers)

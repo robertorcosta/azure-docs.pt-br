@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/14/2020
-ms.openlocfilehash: 03b8deaa700d15a20571a8ec5f389c252c32eed2
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: b899485589f19a5b74d6d22b4e5dae5fbf3ff604
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89485712"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827530"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime no Azure Data Factory 
 
@@ -69,7 +69,7 @@ O Integration Runtime do Azure fornece a computação nativa de para mover dados
 
 A expedição de atividade é uma operação leve para rotear a atividade para o serviço de computação de destino, portanto, não é necessário escalar verticalmente o tamanho da computação para esse cenário.
 
-Para obter informações sobre como criar e configurar um Azure IR, consulte como criar e configurar Azure IR em guias de instruções. 
+Para obter informações sobre como criar e configurar um Azure IR, consulte [How to Create and configure Azure Integration Runtime](create-azure-integration-runtime.md). 
 
 > [!NOTE] 
 > O tempo de execução de integração do Azure tem propriedades relacionadas ao tempo de execução de fluxo de dados, que definem a infraestrutura de computação subjacente que seria usada para executar os fluxos de dados no. 
@@ -201,5 +201,5 @@ As atividades de fluxo de dados são executadas no tempo de execução de integr
 Veja os artigos a seguir:
 
 - [Criar tempo de execução de integração do Azure](create-azure-integration-runtime.md)
-- [Criar um Integration Runtime auto-hospedado](create-self-hosted-integration-runtime.md)
+- [Criar tempo de execução de integração auto-hospedado](create-self-hosted-integration-runtime.md)
 - [Crie um tempo de execução de integração do Azure-SSIS](create-azure-ssis-integration-runtime.md). Este artigo expande o tutorial e fornece instruções sobre como usar o SQL Instância Gerenciada e ingressar o IR em uma rede virtual. 

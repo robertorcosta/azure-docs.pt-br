@@ -4,36 +4,47 @@ description: O modelo de acesso para Azure Key Vault, incluindo os pontos de ext
 services: key-vault
 author: ShaneBala-keyvault
 manager: ravijan
-tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 10/07/2020
 ms.author: sudbalas
-ms.openlocfilehash: 9516a32e89b9ad671cf705c8f520c73e28801c19
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d110630ad3291473aee395259d1aaa623a935f5f
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320584"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825468"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Proteger o acesso a um cofre de chaves
 
 O Azure Key Vault é um serviço de nuvem que protege segredos e chaves de criptografia, como certificados, cadeias de conexão e senhas. Como esses dados são confidenciais e comercialmente críticos, é necessário proteger o acesso aos seus cofres de chaves permitindo apenas aplicativos e usuários autorizados. Este artigo fornece uma visão geral do modelo de acesso do Key Vault. Explica a autenticação e a autorização e descreve como proteger o acesso ao seus cofres de chaves.
 
+Para obter mais informações sobre o Key Vault, confira [Sobre o Azure Key Vault](overview.md); para obter mais informações sobre o que pode ser armazenado em um cofre de chaves, confira [Sobre chaves, segredos e certificados](about-keys-secrets-certificates.md).
+
 ## <a name="access-model-overview"></a>Visão geral do modelo de acesso
 
 O acesso a um cofre de chaves é controlado por meio de duas interfaces: o **plano de gerenciamento** e o **plano de dados**. É no plano de gerenciamento que você administra o cofre de chaves em si. As operações nesse plano incluem criar e excluir cofres de chaves, recuperar propriedades do Key Vault e atualizar as políticas de acesso. No plano de dados, você trabalha com os dados armazenados em um cofre de chaves. Você pode adicionar, excluir e alterar chaves, segredos e certificados.
 
-Para acessar um cofre de chaves em qualquer dos planos, todos os chamadores (usuários ou aplicativos) devem ter a autenticação e a autorização adequadas. A autenticação estabelece a identidade do chamador. A autorização determina quais operações o chamador pode executar.
+Ambos os planos usam [Azure Active Directory (AD do Azure)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) para autenticação. Para autorização, o plano de gerenciamento usa o [controle de acesso baseado em função do Azure (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) e o plano de dados usa uma [política de acesso Key Vault](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal) e o [RBAC do Azure para Key Vault operações do plano de dados (versão prévia)](https://docs.microsoft.com/azure/key-vault/general/rbac-guide).
 
-Os dois planos usam o Azure AD (Azure Active Directory) para autenticação. Para autorização, o plano de gerenciamento usa o controle de acesso baseado em função do Azure (RBAC) e o plano de dados usa uma política de acesso Key Vault e o RBAC do Azure (versão prévia).
+Para acessar um cofre de chaves em qualquer dos planos, todos os chamadores (usuários ou aplicativos) devem ter a autenticação e a autorização adequadas. A autenticação estabelece a identidade do chamador. A autorização determina quais operações o chamador pode executar. A autenticação com o Key Vault funciona em conjunto com o [Azure AD (Azure Active Directory)](/azure/active-directory/fundamentals/active-directory-whatis), que é responsável por autenticar a identidade de qualquer **entidade de segurança**.
 
-## <a name="active-directory-authentication"></a>Autenticação do Active Directory
+Uma entidade de segurança é um objeto que representa um usuário, grupo, serviço ou aplicativo que está solicitando acesso aos recursos do Azure. O Azure atribui uma **ID do objeto** exclusiva a cada entidade de segurança.
+
+* Uma entidade de segurança de **usuário** identifica um indivíduo que tem um perfil no Azure Active Directory.
+
+* Uma entidade de segurança de **grupo** identifica um conjunto de usuários criado no Azure Active Directory. Todas as funções ou permissões atribuídas ao grupo são concedidas a todos os usuários dentro do grupo.
+
+* Uma **entidade de serviço** é um tipo de entidade de segurança que identifica um aplicativo ou serviço, ou seja, um trecho de código, em vez de um usuário ou grupo. A ID do objeto de uma entidade de serviço é conhecida como a **ID do cliente** dessa entidade de serviço e atua como o nome de usuário dela. O **certificado** ou **segredo do cliente** da entidade de serviço atua como sua senha. Muitos serviços do Azure dão suporte à atribuição de [identidade gerenciada](/azure/active-directory/managed-identities-azure-resources/overview) com o gerenciamento automatizado da **ID do cliente** e do **certificado**. A identidade gerenciada é a opção mais segura e recomendada para autenticação no Azure.
+
+Para obter mais informações sobre autenticação para Key Vault, consulte [autenticar para Azure Key Vault](authentication.md)
+
+## <a name="key-vault-authentication-options"></a>Opções de autenticação Key Vault
 
 Quando você cria um cofre de chaves em uma assinatura do Azure, ele é automaticamente associado ao locatário do Azure Active Directory da assinatura. Todos os chamadores em ambos os planos devem se registrar neste locatário e se autenticar para acessar o cofre de chaves. Em ambos os casos, o aplicativo pode acessar o Key Vault de duas maneiras:
 
-- **Somente aplicativo**: o aplicativo representa um trabalho de serviço ou em segundo plano. Essa identidade é o cenário mais comum para aplicativos que periodicamente precisam acessar certificados, chaves ou segredos do cofre de chaves. Para que esse cenário funcione, o `objectId` do aplicativo deve ser especificado na política de acesso e `applicationId` _não_ deve ser especificado ou deve ser `null` .
+- **Somente aplicativo**: o aplicativo representa uma entidade de serviço ou uma identidade gerenciada. Essa identidade é o cenário mais comum para aplicativos que periodicamente precisam acessar certificados, chaves ou segredos do cofre de chaves. Para que esse cenário funcione, o `objectId` do aplicativo deve ser especificado na política de acesso e `applicationId` _não_ deve ser especificado ou deve ser `null` .
 - **Somente usuário**: o usuário acessa o cofre de chaves de qualquer aplicativo registrado no locatário. Exemplos deste tipo de acesso incluem o Azure PowerShell e o portal do Azure. Para que esse cenário funcione, o `objectId` do usuário deve ser especificado na política de acesso e `applicationId` _não_ deve ser especificado ou deve ser `null` .
 - **Application-Plus-User** (às vezes chamado de _identidade composta_): o usuário é solicitado a acessar o cofre de chaves de um aplicativo específico _e_ o aplicativo deve usar o fluxo de autenticação em nome de (obo) para representar o usuário. Para que esse cenário funcione, `applicationId` e `objectId` deve ser especificado na política de acesso. O `applicationId` identifica o aplicativo necessário e o `objectId` identifica o usuário. Atualmente, essa opção não está disponível para o Azure RBAC (visualização) do plano de dados.
 
@@ -58,7 +69,7 @@ A tabela a seguir mostra os pontos de extremidade para os planos de gerenciament
 
 ## <a name="management-plane-and-azure-rbac"></a>Plano de gerenciamento e RBAC do Azure
 
-No plano de gerenciamento, use o controle de acesso baseado em função do Azure (RBAC do Azure) para autorizar as operações que um chamador pode executar. No modelo RBAC do Azure, cada assinatura do Azure tem uma instância do Azure AD. Você pode conceder acesso a usuários, grupos e aplicativos desse diretório. O acesso é concedido para gerenciar recursos na assinatura do Azure que usa o modelo de implantação do Azure Resource Manager.
+No plano de gerenciamento, use o [controle de acesso baseado em função do Azure (RBAC do Azure)](https://docs.microsoft.com/azure/role-based-access-control/overview) para autorizar as operações que um chamador pode executar. No modelo RBAC do Azure, cada assinatura do Azure tem uma instância do Azure AD. Você pode conceder acesso a usuários, grupos e aplicativos desse diretório. O acesso é concedido para gerenciar recursos na assinatura do Azure que usa o modelo de implantação do Azure Resource Manager.
 
 Crie um cofre de chaves em um grupo de recursos e gerencie o acesso usando o Azure Active Directory. Conceda a usuários ou grupos a capacidade de gerenciar os cofres de chaves em um grupo de recursos. Conceda o acesso em um nível de escopo específico atribuindo funções apropriadas do Azure. Para conceder acesso a um usuário para gerenciar os cofres de chaves, atribua uma função `key vault Contributor` predefinida ao usuário em um escopo específico. Os seguintes níveis de escopos podem ser atribuídos a uma função do Azure:
 
@@ -66,7 +77,9 @@ Crie um cofre de chaves em um grupo de recursos e gerencie o acesso usando o Azu
 - **Grupo de recursos**: uma função do Azure atribuída no nível do grupo de recursos se aplica a todos os recursos nesse grupo de recursos.
 - **Recurso específico**: uma função do Azure atribuída a um recurso específico se aplica a esse recurso. Nesse caso, o recurso é um cofre de chaves específico.
 
-Há várias funções predefinidas. Se uma função predefinida não atender às suas necessidades, você poderá definir sua própria função. Para obter mais informações, veja [Funções internas do Azure](../../role-based-access-control/built-in-roles.md).
+Há várias funções predefinidas. Se uma função predefinida não atender às suas necessidades, você poderá definir sua própria função. Para obter mais informações, veja [Funções internas do Azure](../../role-based-access-control/built-in-roles.md). 
+
+Você precisa ter `Microsoft.Authorization/roleAssignments/write` permissões e `Microsoft.Authorization/roleAssignments/delete` , como administrador de [acesso do usuário](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles.md#user-access-administrator) ou [proprietário](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles.md#owner)
 
 > [!IMPORTANT]
 > Se um usuário tem permissões `Contributor` para um plano de gerenciamento de cofre de chaves, pode conceder a si mesmo o acesso ao plano de dados definindo a política de acesso do Key Vault. Você deve controlar rigorosamente quem tem função de acesso `Contributor` aos cofres de chaves. Certifique-se de que apenas pessoas autorizadas possam acessar e gerenciar seus cofres de chaves, chaves, segredos e certificados.
@@ -75,13 +88,15 @@ Há várias funções predefinidas. Se uma função predefinida não atender às
 <a id="data-plane-access-control"></a>
 ## <a name="data-plane-and-access-policies"></a>Políticas de acesso e plano de dados
 
-Você pode conceder acesso ao plano de dados definindo Key Vault políticas de acesso para um cofre de chaves. Para definir essas políticas de acesso, o usuário, grupo ou aplicativo deve ter permissões `Contributor` para o plano de gerenciamento desse cofre de chaves.
+Você pode conceder acesso ao plano de dados definindo Key Vault políticas de acesso para um cofre de chaves. Para definir essas políticas de acesso, o usuário, grupo ou aplicativo deve ter permissões `Key Vault Contributor` para o plano de gerenciamento desse cofre de chaves.
 
 Conceda acesso a um usuário, grupo ou aplicativo para executar operações específicas para chaves ou segredos em um cofre de chaves. O Key Vault dá suporte a até 1.024 entradas de política de acesso para um cofre de chaves. Para conceder acesso ao plano de dados a vários usuários, crie um grupo de segurança do Azure Active Directory e adicione usuários a esse grupo.
 
 Você pode ver a lista completa de operações de cofre e segredo aqui: [referência de operação de Key Vault](https://docs.microsoft.com/rest/api/keyvault/#vault-operations)
 
 <a id="key-vault-access-policies"></a> As políticas de acesso ao Key Vault concedem separadamente as permissões a chaves, segredos e certificados.  As permissões de acesso para chaves, segredos e certificados estão no nível do cofre. 
+
+Para obter mais informações sobre como usar as políticas de acesso do cofre de chaves, consulte [atribuir uma política de acesso Key Vault](assign-access-policy-portal.md)
 
 > [!IMPORTANT]
 > As políticas de acesso ao cofre de chaves aplicam-se no nível do cofre. Quando um usuário tem permissão para criar e excluir chaves, ele pode executar essas operações em todas as chaves no cofre de chaves.
@@ -92,20 +107,23 @@ As políticas de acesso do Key Vault não aceitam permissões granulares no nív
 
 O controle de acesso baseado em função do Azure é um modelo de permissão alternativo para controlar o acesso ao Azure Key Vault plano de dados, que pode ser habilitado em cofres de chaves individuais. O modelo de permissão RBAC do Azure é exclusivo e, uma vez definido, as políticas de acesso do cofre se tornaram inativas. Azure Key Vault define um conjunto de funções internas do Azure que abrangem conjuntos comuns de permissões usadas para acessar chaves, segredos ou certificados.
 
-Quando uma função do Azure é atribuída a uma entidade de segurança do Azure AD, o Azure concede acesso a esses recursos para essa entidade de segurança. O acesso pode ser definido como escopo para o nível da assinatura, o grupo de recursos, o cofre de chaves ou uma chave, segredo ou certificado individual. Uma entidade de segurança do Azure AD pode ser um usuário, um grupo, uma entidade de serviço de aplicativo ou uma [identidade gerenciada para recursos do Azure](../../active-directory/managed-identities-azure-resources/overview.md).
+Quando uma função do Azure é atribuída a uma entidade de segurança do Azure AD, o Azure concede acesso a esses recursos para essa entidade de segurança. O acesso pode ser definido para o nível da assinatura, o grupo de recursos, o cofre de chaves ou uma chave, segredo ou certificado individual. Uma entidade de segurança do Azure AD pode ser um usuário, um grupo, uma entidade de serviço de aplicativo ou uma [identidade gerenciada para recursos do Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
-Os principais benefícios do uso da permissão RBAC do Azure em políticas de acesso do cofre são o gerenciamento de controle de acesso centralizado e sua integração com o Privileged Identity Management (PIM). O Privileged Identity Management fornece ativação de função baseada em tempo e aprovação para atenuar os riscos de permissões de acesso excessivas, desnecessárias ou que foram indevidamente utilizadas em recursos importantes.
+Os principais benefícios do uso da permissão RBAC do Azure em políticas de acesso do cofre são o gerenciamento de controle de acesso centralizado e sua integração com o [Privileged Identity Management (PIM)](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure). O Privileged Identity Management fornece ativação de função baseada em tempo e aprovação para atenuar os riscos de permissões de acesso excessivas, desnecessárias ou que foram indevidamente utilizadas em recursos importantes.
 
+Para obter mais informações sobre Key Vault plano de dados com o RBAC, consulte [Key Vault chaves, certificados e segredos com um controle de acesso baseado em função do Azure (versão prévia)](rbac-guide.md)
 
 ## <a name="firewalls-and-virtual-networks"></a>Firewalls e redes virtuais
 
-Para obter uma camada adicional de segurança, você pode configurar firewalls e regras de rede virtual. Por padrão, é possível configurar redes virtuais e firewalls do Key Vault para negar acesso ao tráfego de todas as redes (incluindo o tráfego de Internet). É possível conceder acesso ao tráfego de redes virtuais específicas do Azure e intervalos de endereços IP públicos de Internet, permitindo criar um limite de rede seguro para os aplicativos.
+Para obter uma camada adicional de segurança, você pode configurar firewalls e regras de rede virtual. Por padrão, é possível configurar redes virtuais e firewalls do Key Vault para negar acesso ao tráfego de todas as redes (incluindo o tráfego de Internet). Você pode conceder acesso ao tráfego de [redes virtuais do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) específicas e intervalos de endereços IP públicos da Internet, permitindo que você crie um limite de rede seguro para seus aplicativos.
 
 Seguem alguns exemplos de como é possível usar pontos de extremidade de serviço:
 
 * Se você estiver usando o Key Vault para armazenar chaves de criptografia, segredos do aplicativo e certificados, e quer bloquear o acesso ao seu cofre de chaves da Internet pública.
 * Você quer bloquear o acesso ao seu cofre de chaves para que apenas o seu aplicativo ou uma pequena lista de hosts designados possa conectar o cofre de chaves.
 * Você tem um aplicativo executando na rede virtual do Azure e essa rede virtual é bloqueada para todo o tráfego de entrada e saída. O aplicativo ainda precisa conectar ao Key Vault para efetuar fetch de segredos ou certificados ou usar chaves de criptografia.
+
+Para obter mais informações sobre Key Vault firewall e redes virtuais, consulte [configurar Azure Key Vault firewalls e redes virtuais](network-security.md)
 
 > [!NOTE]
 > As regras da rede virtual e os firewalls do Key Vault aplicam-se somente ao plano de dados do Key Vault. Operações do plano de controle do Key Vault (como criar, excluir, modificar operações, definir políticas de acesso, configurar firewalls e regras da rede virtual) não são afetadas por regras da rede virtual e firewalls.
@@ -118,13 +136,15 @@ Cenários comuns para usar o link privado para os serviços do Azure:
 
 - **Acesse os serviços de forma privada na plataforma Azure**: Conecte sua rede virtual a serviços no Azure sem um endereço IP público na origem ou no destino. Os provedores de serviços podem renderizar seus serviços em sua rede virtual e os consumidores podem acessar esses serviços em sua rede virtual local. A plataforma de Link Privado manipulará a conectividade entre o consumidor e os serviços na rede de backbone do Azure. 
  
-- **Redes locais e emparelhadas**: Acesse serviços em execução no Azure do local por meio de emparelhamento privado do ExpressRoute, túneis de VPN e redes virtuais emparelhadas usando pontos de extremidade privados. Não é necessário configurar o emparelhamento público nem atravessar a Internet para acessar o serviço. O Link Privado fornece uma forma segura de migrar cargas de trabalho para o Azure.
+- **Redes locais e emparelhadas**: Acesse serviços em execução no Azure do local por meio de emparelhamento privado do ExpressRoute, túneis de VPN e redes virtuais emparelhadas usando pontos de extremidade privados. Não é necessário configurar o emparelhamento público ou atravessar a Internet para acessar o serviço. O Link Privado fornece uma forma segura de migrar cargas de trabalho para o Azure.
  
 - **Proteção contra vazamento de dados**: um ponto de extremidade privado é mapeado para uma instância de um recurso de PaaS em vez de todo o serviço. Os consumidores só podem se conectar ao recurso específico. O acesso a qualquer outro recurso no serviço é bloqueado. Esse mecanismo fornece proteção contra riscos de vazamento de dados. 
  
 - **Alcance Global**: Conecte-se de maneira privada aos serviços executados em outras regiões. A rede virtual do consumidor pode estar na região A e pode se conectar aos serviços por trás do Link Privado na região B.  
  
 - **Estenda para seus próprios serviços**: Habilite a mesma experiência e a mesma funcionalidade para renderizar seu serviço de maneira privada para consumidores no Azure. Colocando seu serviço atrás de um Azure Load Balancer padrão, você pode habilitá-lo para o Link Privado. O consumidor pode então se conectar diretamente ao seu serviço usando um ponto de extremidade privado em sua rede virtual. Você pode gerenciar as solicitações de conexão usando um fluxo de chamada de aprovação. O Link Privado do Azure funciona para consumidores e serviços que pertencem a locatários diferentes do Azure Active Directory. 
+
+Para obter mais informações sobre pontos de extremidade privados, consulte [Key Vault com o link privado do Azure](https://docs.microsoft.com/azure/key-vault/general/private-link-service)
 
 ## <a name="example"></a>Exemplo
 

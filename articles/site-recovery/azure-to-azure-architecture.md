@@ -8,17 +8,17 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: raynew
-ms.openlocfilehash: 08796b0a9b232c7b42b3f62fea69ab49b8957c60
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 57435e703395928c4619b7c9c6bf8614269f58a0
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322080"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825418"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Arquitetura de recuperação de desastre do Azure para o Azure
 
 
-Este artigo descreve a arquitetura, os componentes e os processos usados quando você implanta a recuperação de desastre para VMs (máquinas virtuais) do Azure usando o serviço [Azure Site Recovery](site-recovery-overview.md). Com a recuperação de desastre configurada, as VMs do Azure são replicadas de forma contínua e bidirecionalmente em outra região de destino. Se ocorrer uma interrupção, você poderá fazer failover das VMs para a região secundária e acessá-las nela. Quando tudo voltar a funcionar normalmente, você poderá fazer failback e continuar trabalhando na localização primária.
+Este artigo descreve a arquitetura, os componentes e os processos usados quando você implanta a recuperação de desastre para VMs (máquinas virtuais) do Azure usando o serviço [Azure Site Recovery](site-recovery-overview.md). Com a recuperação de desastres configurada, as VMs do Azure são replicadas continuamente para uma região de destino diferente. Se ocorrer uma interrupção, você poderá fazer failover das VMs para a região secundária e acessá-las nela. Quando tudo voltar a funcionar normalmente, você poderá fazer failback e continuar trabalhando na localização primária.
 
 
 
@@ -26,7 +26,7 @@ Este artigo descreve a arquitetura, os componentes e os processos usados quando 
 
 Os componentes envolvidos na recuperação de desastre para VMs do Azure são resumidos na tabela a seguir.
 
-**Componente** | **Requisitos**
+**Componente** | **Requirements**
 --- | ---
 **VMs na região de origem** | Uma ou mais VMs do Azure em uma [região de origem compatível](azure-to-azure-support-matrix.md#region-support).<br/><br/> As VMs podem executar qualquer [sistema operacional compatível](azure-to-azure-support-matrix.md#replicated-machine-operating-systems).
 **Armazenamento das VMs de origem** | As VMs do Azure podem ser gerenciadas ou ter discos não gerenciados distribuídos em contas de armazenamento.<br/><br/>[Saiba mais](azure-to-azure-support-matrix.md#replicated-machines---storage) sobre o armazenamento do Azure compatível.

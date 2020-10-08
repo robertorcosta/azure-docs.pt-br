@@ -5,12 +5,12 @@ ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.topic: article
 ms.date: 10/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: f239122f7178dbc244c8dc23f3f7e7647f7330da
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 933ac96d0cf98e0068575e5a70b0f42a157eb611
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91539071"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827467"
 ---
 # <a name="back-up-your-app-in-azure"></a>Fazer backup de seu aplicativo no Azure
 O recurso de Backup e Restauração no [Serviço de Aplicativo do Azure](overview.md) permite que você crie backups de aplicativos facilmente, de modo manual ou agendado. Você pode configurar os backups para que sejam mantidos até um período indefinido. Você pode restaurar o aplicativo em um instantâneo de um estado anterior, substituindo o aplicativo existente ou restaurando em outro aplicativo.
@@ -92,7 +92,7 @@ As soluções de banco de dados a seguir são compatíveis com o recurso de back
 
     Você verá uma mensagem informando o andamento do processo de backup.
 
-Após a configuração da conta de armazenamento e do contêiner, será possível iniciar um backup manual a qualquer momento.
+Após a configuração da conta de armazenamento e do contêiner, será possível iniciar um backup manual a qualquer momento. Os backups manuais são mantidos indefinidamente.
 
 <a name="automatedbackups"></a>
 

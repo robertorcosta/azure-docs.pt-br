@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/02/2020
-ms.openlocfilehash: 48d233dee063d8f9049e6e54baa2d744e1b8b058
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: ab37fcdb4012394f1c5131a23f7c67063d3d6e37
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90033448"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825767"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Visão geral dos agentes de Azure Monitor
 
@@ -135,7 +135,7 @@ Considere o seguinte ao usar o Dependency Agent:
 A extensão de Log Analytics para [Windows](../../virtual-machines/extensions/oms-windows.md) e [Linux](../../virtual-machines/extensions/oms-linux.md) instala o agente de log Analytics em máquinas virtuais do Azure. A extensão de dependência Azure Monitor para [Windows](../../virtual-machines/extensions/agent-dependency-windows.md) e [Linux](../../virtual-machines/extensions/agent-dependency-linux.md) instala o Dependency Agent em máquinas virtuais do Azure. Esses são os mesmos agentes descritos acima, mas permitem que você os gerencie por meio de [extensões de máquina virtual](../../virtual-machines/extensions/overview.md). Você deve usar extensões para instalar e gerenciar os agentes sempre que possível.
 
 
-## <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
+## <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
 As tabelas a seguir listam os sistemas operacionais que têm suporte dos agentes de Azure Monitor. Consulte a documentação de cada agente para obter considerações exclusivas e sobre o processo de instalação. Consulte a documentação do Telegraf para seus sistemas operacionais com suporte. Todos os sistemas operacionais são considerados x64. Não há suporte para x86 em nenhum sistema operacional.
 
 ### <a name="windows"></a>Windows
@@ -148,7 +148,7 @@ As tabelas a seguir listam os sistemas operacionais que têm suporte dos agentes
 | Windows Server 2012 R2                                   | X | X | X | X |
 | Windows Server 2012                                      | X | X | X | X |
 | Windows Server 2008 R2                                   |   | X | X | X |
-| Windows 10 Enterprise<br>(incluindo várias sessões) e pro  | X | X | X | X |
+| Windows 10 Enterprise<br>(incluindo várias sessões) e pro  | X | X | X | X |
 | Windows 8 Enterprise e Pro                             |   | X | X |   |
 | Windows 7 SP1                                            |   | X | X |   |
 
@@ -158,6 +158,7 @@ As tabelas a seguir listam os sistemas operacionais que têm suporte dos agentes
 | Sistema operacional | Agente do Azure Monitor | Agente do Log Analytics | Agente de dependência | Extensão de diagnóstico | 
 |:---|:---:|:---:|:---:|:---:
 | Amazon Linux 2017.09                                     |   | X |   |   |
+| CentOS Linux 8                                           |   | X |   |   |
 | CentOS Linux 7                                           | X | X |   | X |
 | CentOS Linux 7,8                                         | X | X | X | X |
 | CentOS Linux 7,6                                         | X | X | X | X |
@@ -177,6 +178,7 @@ As tabelas a seguir listam os sistemas operacionais que têm suporte dos agentes
 | Red Hat Enterprise Linux Server 6.7 +                     | X | X | X | X |
 | SUSE Linux Enterprise Server 15                          | X | X |   |   |
 | SUSE Linux Enterprise Server 12                          | X | X | X | X |
+| Ubuntu 20.04 LTS                                         |   | X |   |   |
 | Ubuntu 18.04 LTS                                         | X | X | X | X |
 | Ubuntu 16.04 LTS                                         | X | X | X | X |
 | Ubuntu 14, 4 LTS                                         | X | X |   | X |

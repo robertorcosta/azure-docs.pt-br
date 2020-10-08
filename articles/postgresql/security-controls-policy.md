@@ -1,18 +1,18 @@
 ---
 title: Controles de Conformidade Regulatória do Azure Policy para o Banco de Dados do Azure para PostgreSQL
 description: Lista os controles de Conformidade Regulatória do Azure Policy disponíveis para o Banco de Dados do Azure para PostgreSQL. Estas definições de políticas internas fornecem abordagens comuns para gerenciar a conformidade dos seus recursos do Azure.
-ms.date: 09/16/2020
+ms.date: 10/07/2020
 ms.topic: sample
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 7e72699eefce362a11a66f2547fd8c81ff1215a3
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 766c0b5090c65a048a954be8feab151f1d13ab74
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90986680"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826719"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-database-for-postgresql"></a>Controles de Conformidade Regulatória do Azure Policy para o Banco de Dados do Azure para PostgreSQL
 

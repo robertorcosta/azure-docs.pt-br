@@ -1,17 +1,17 @@
 ---
 title: Definições de política internas para o Azure Monitor
 description: Lista as definições de política internas do Azure Policy para o Azure Monitor. Essas definições de políticas internas fornecem abordagens comuns para gerenciar seus recursos do Azure.
-ms.date: 09/16/2020
+ms.date: 10/07/2020
 ms.topic: reference
 author: bwren
 ms.author: bwren
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 88a8253ae121ac671cb7f02443a1a75f43b2158f
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 05d7e2266a83c0dc0d2fe486c7ec5619c5cd7ed9
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90972826"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825698"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-monitor"></a>Definições internas do Azure Policy para o Azure Monitor
 
