@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-python
 ms.date: 04/29/2020
-ms.openlocfilehash: 09d1063f704c37eb31546be08765f2b5b6fb8632
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.openlocfilehash: a6ad1c068a41b4b865c148ebb7cdb509821609d4
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90060740"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91823420"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>Gerenciar com segurança o ambiente do Python no Azure HDInsight usando a Ação de Script
 
-O HDInsight tem duas instalações internas do Python no cluster do Spark, Anaconda Python 2.7 e Python 3.5. Talvez seja necessário que os clientes personalizem o ambiente do Python. Como instalar pacotes externos do Python ou outra versão do Python. Aqui, mostramos a melhor prática de gerenciamento seguro de ambientes do Python para clusters Apache Spark no HDInsight.
+O HDInsight tem duas instalações internas do Python no cluster do Spark, Anaconda Python 2.7 e Python 3.5. Os clientes podem precisar personalizar o ambiente do Python, como a instalação de pacotes python externos. Aqui, mostramos a melhor prática de gerenciamento seguro de ambientes do Python para clusters Apache Spark no HDInsight.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -43,7 +43,7 @@ Há dois tipos de componentes de software livre disponíveis no serviço HDInsig
 
 O cluster do HDInsight Spark é criado com a instalação do Anaconda. Há duas instalações do Python no cluster: Anaconda Python 2.7 e Python 3.5. A tabela a seguir mostra as configurações padrão do Python para Spark, Livy e Jupyter.
 
-|Setting |Python 2,7|Python 3.5|
+|Configuração |Python 2,7|Python 3.5|
 |----|----|----|
 |Caminho|/usr/bin/anaconda/bin|/usr/bin/anaconda/envs/py35/bin|
 |Versão do Spark|Padrão definido como 2.7|N/D|

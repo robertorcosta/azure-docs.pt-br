@@ -1,18 +1,18 @@
 ---
 title: Definições de políticas internas para o Azure Data Lake Analytics
 description: Lista as definições de políticas internas do Azure Policy para o Azure Data Lake Analytics. Essas definições de políticas internas fornecem abordagens comuns para gerenciar seus recursos do Azure.
-ms.date: 09/16/2020
+ms.date: 10/07/2020
 ms.topic: reference
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: data-lake-analytics
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 88554811e2adc913829de3c742f323275192e103
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: e603878484128d9d59f633b7117c755bc4965fe4
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985687"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825025"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-data-lake-analytics"></a>Definições internas do Azure Policy para o Azure Data Lake Analytics
 

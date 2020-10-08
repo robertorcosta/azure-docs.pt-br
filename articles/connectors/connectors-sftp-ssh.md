@@ -8,12 +8,12 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 10/02/2020
 tags: connectors
-ms.openlocfilehash: b832edca79cbbff39b7d526a21b1fbe95bd7a2ad
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: cb851734dc8f71347168e7ac16ac0752845dda7b
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91761117"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91823628"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitore, crie e gerencie arquivos SFTP usando SSH e os Aplicativos Lógicos do Azure
 
@@ -39,7 +39,7 @@ Você pode usar gatilhos que monitoram eventos em seu servidor SFTP e disponibil
 
 Para obter diferenças entre o conector SFTP-SSH e o conector SFTP, examine a seção [comparar SFTP-SSH versus SFTP](#comparison) mais adiante neste tópico.
 
-## <a name="limits"></a>Limites
+## <a name="limits"></a>limites
 
 * SFTP-as ações SSH que dão suporte ao [agrupamento](../logic-apps/logic-apps-handle-large-messages.md) podem manipular arquivos de até 1 GB, enquanto as ações de SFTP-SSH que não dão suporte a Agrupamento podem lidar com arquivos de até 50 MB. Embora o tamanho de parte padrão seja 15 MB, esse tamanho pode ser alterado dinamicamente, começando de 5 MB e gradualmente aumentando para o máximo de 50 MB, com base em fatores como latência de rede, tempo de resposta do servidor e assim por diante.
 
@@ -259,7 +259,7 @@ Esse erro pode ocorrer quando o aplicativo lógico não é capaz de estabelecer 
 
 1. O tempo limite da conexão é de 20 segundos. Verifique se o servidor SFTP tem um bom desempenho e dispositivos de intermidi, como firewall, não adicione muita sobrecarga. 
 
-2. Se houver um firewall envolvido, verifique se os endereços IP do **conector gerenciado** estão na lista de permissões. Você pode encontrar esses endereços IP para a região do aplicativo lógico [**aqui**] (https://docs.microsoft.com/azure/logic-apps/logic-apps-limits-and-config#multi-tenant-azure---outbound-ip-addresses)
+2. Se houver um firewall envolvido, verifique se os endereços IP do **conector gerenciado** foram adicionados à lista aprovada. Você pode encontrar esses endereços IP para a região do aplicativo lógico [**aqui**] (https://docs.microsoft.com/azure/logic-apps/logic-apps-limits-and-config#multi-tenant-azure---outbound-ip-addresses)
 
 3. Se esse for um problema intermitente, teste a configuração de repetição para ver se uma contagem de repetição maior do que o padrão 4 pode ajudar.
 
@@ -279,4 +279,3 @@ Para obter mais detalhes técnicos sobre esse conector, como gatilhos, ações e
 ## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre outros [conectores de Aplicativos Lógicos](../connectors/apis-list.md)
-

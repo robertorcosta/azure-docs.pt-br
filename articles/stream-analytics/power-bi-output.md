@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: d398cfe063dbbb2bc87a3debf1669afa6a16b43e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: aee5cb077604e5fc95647eca0e6570ea3582a785
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90891990"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91823004"
 ---
 # <a name="power-bi-output-from-azure-stream-analytics"></a>Power BI saída de Azure Stream Analytics
 
@@ -43,6 +43,9 @@ Para obter um passo a passo de configuração de uma saída e de um painel do Po
 O Stream Analytics do Azure cria um conjunto de dados do Power BI e um esquema de tabela para o usuário caso eles ainda não existam. Em todos os outros casos, a tabela é atualizada com novos valores. Atualmente, só pode existir uma tabela em um conjunto de dados. 
 
 O Power BI usa a política de retenção de PEPS (primeiro a entrar, primeiro a sair). Os dados serão coletados em uma tabela até que ela atinja 200.000 linhas.
+
+> [!NOTE]
+> Não recomendamos o uso de várias saídas para gravar no mesmo conjunto de resultados porque isso pode causar vários problemas. Cada saída tenta criar o conjunto de Power BI DataSet independentemente, o que pode resultar em vários conjuntos de valores com o mesmo nome. Além disso, se as saídas não tiverem esquemas consistentes, o conjunto de resultados alterará o esquema em cada gravação, o que leva a muitas solicitações de alteração de esquema. Mesmo que esses problemas sejam evitados, várias saídas serão menos modeladas do que uma única saída mesclada.
 
 ### <a name="convert-a-data-type-from-stream-analytics-to-power-bi"></a>Converter um tipo de dados do Stream Analytics para o Power BI
 

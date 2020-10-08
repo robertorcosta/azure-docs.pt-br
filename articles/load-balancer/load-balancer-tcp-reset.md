@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/09/2019
+ms.date: 10/07/2020
 ms.author: allensu
-ms.openlocfilehash: f77dd21a2c017ee41f955fdf5e0848df190dec2a
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: 060048bf786f424d5df6eb8fb4813877acb0fea0
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91651268"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91823219"
 ---
 # <a name="load-balancer-tcp-reset-and-idle-timeout"></a>Load Balancer o tempo limite de ociosidade e de redefinição de TCP
 
@@ -40,7 +40,11 @@ Examine cuidadosamente todo o cenário de ponta a ponta para decidir se é vanta
 
 ## <a name="configurable-tcp-idle-timeout"></a>Tempo limite de ociosidade de TCP configurável
 
-Azure Load Balancer tem uma configuração de tempo limite de ociosidade de 4 minutos a 120 minutos. Por padrão, é definido como 4 minutos. Se um período de inatividade for maior que o valor de tempo limite, não haverá nenhuma garantia de que a sessão TCP ou HTTP seja mantida entre o cliente e o serviço de nuvem.
+Azure Load Balancer tem o seguinte intervalo de tempo limite ocioso:
+-  4 minutos a 100 minutos para regras de saída
+-  4 minutos a 30 minutos para regras de Load Balancer e regras NAT de entrada
+
+Por padrão, é definido como 4 minutos. Se um período de inatividade for maior que o valor de tempo limite, não haverá nenhuma garantia de que a sessão TCP ou HTTP seja mantida entre o cliente e o serviço de nuvem.
 
 Quando a conexão estiver fechada, o aplicativo cliente poderá receber a seguinte mensagem de erro: "A conexão subjacente estava fechada: Uma conexão que deveria permanecer ativa foi fechada pelo servidor."
 

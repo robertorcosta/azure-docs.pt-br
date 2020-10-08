@@ -9,12 +9,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: sstein, vanto
 ms.date: 07/06/2020
-ms.openlocfilehash: eab9004b37da83b5d571ff700c32215354286c94
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: a3ceb78a85546e5e75c4c484f131b67ff7fc9249
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91443849"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91824152"
 ---
 # <a name="azure-sql-connectivity-settings"></a>Configurações de conectividade do SQL do Azure
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -22,7 +22,7 @@ ms.locfileid: "91443849"
 Este artigo apresenta as configurações que controlam a conectividade com o servidor para o banco de dados SQL do Azure e a análise de Synapse do Azure. Essas configurações se aplicam a **todos os** bancos de dados SQL e do Azure Synapse associados ao servidor.
 
 > [!IMPORTANT]
-> Este artigo *não* se aplica ao **Azure SQL instância gerenciada**
+> Este artigo *não* se aplica à **Instância Gerenciada de SQL do Azure**.
 
 As configurações de conectividade podem ser acessadas na tela **firewalls e redes virtuais** , conforme mostrado na seguinte captura:
 
@@ -38,6 +38,9 @@ Quando a configuração **negar acesso à rede pública** é definida como **Sim
  ![Captura de tela de conectividade com acesso negado à rede pública][2]
 
 Qualquer tentativa de definir a configuração **negar acesso à rede pública** como **Sim** sem nenhum ponto de extremidade privado existente no servidor lógico falhará com uma mensagem de erro semelhante a:  
+
+> [!NOTE]
+> Para definir regras de firewall de rede virtual em um servidor lógico que já está configurado com pontos de extremidade privados, defina **negar acesso à rede pública** como **não**.
 
 ```output
 Error 42102

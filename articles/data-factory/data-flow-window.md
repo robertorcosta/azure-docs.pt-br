@@ -1,5 +1,5 @@
 ---
-title: Mapeando a transformação da janela fluxo de dados
+title: Transformação de janela no fluxo de dados de mapeamento
 description: Transformação da janela fluxo de dados de mapeamento de Azure Data Factory
 author: kromerm
 ms.author: makromer
@@ -8,14 +8,14 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/30/2019
-ms.openlocfilehash: 1f440a5877dcefeca8c1baa82fad4299b5ce7bce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0231fc8919444558abcbc965ad127f7372eceb66
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81606233"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91823606"
 ---
-# <a name="azure-data-factory-window-transformation"></a>Transformação de janela de Azure Data Factory
+# <a name="window-transformation-in-mapping-data-flow"></a>Transformação de janela no fluxo de dados de mapeamento
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -28,7 +28,7 @@ Defina o particionamento dos dados da coluna para sua transformação de janela.
 
 ![Opções de janela](media/data-flow/windows4.png "Windows 4")
 
-## <a name="sort"></a>Classificar
+## <a name="sort"></a>Sort
 Outra parte da cláusula Over é a configuração de ```Order By```. Isso definirá a ordem de classificação dos dados. Também é possível criar uma expressão para um valor de cálculo nesse campo de coluna para classificação.
 
 ![Opções de janela](media/data-flow/windows5.png "Windows 5")

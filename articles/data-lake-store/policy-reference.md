@@ -1,18 +1,18 @@
 ---
 title: Definições de políticas internas para o Azure Data Lake Storage Gen1
 description: Lista as definições de políticas internas do Azure Policy para o Azure Data Lake Storage Gen1. Essas definições de políticas internas fornecem abordagens comuns para gerenciar seus recursos do Azure.
-ms.date: 09/16/2020
+ms.date: 10/07/2020
 ms.topic: reference
 author: twooley
 ms.author: twooley
 ms.service: data-lake-store
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 9a0c4ade1628f224f4f62a06a53fd75a7cb8af64
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: bfdbe345fb87381f52a639e517c4024042675572
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90984030"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91824945"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-data-lake-storage-gen1"></a>Definições internas do Azure Policy para o Azure Data Lake Storage Gen1
 

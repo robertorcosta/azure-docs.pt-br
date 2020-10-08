@@ -5,12 +5,12 @@ author: IngridAtMicrosoft
 ms.topic: how-to
 ms.author: inhenkel
 ms.date: 05/24/2020
-ms.openlocfilehash: bbd3cb88b017209adff58a646e274caf31ab425f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: c297a189f3b13ca8e72daf4eef009bc28fac32bf
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87486435"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91823189"
 ---
 # <a name="troubleshoot-live-video-analytics-on-iot-edge"></a>Solucionar problemas de análise de vídeo ao vivo no IoT Edge
 
@@ -18,7 +18,7 @@ Este artigo aborda as etapas de solução de problemas do LVA (análise de víde
 
 ## <a name="troubleshoot-deployment-issues"></a>Solucionar problemas de implantação
 
-### <a name="diagnostics"></a>Diagnóstico
+### <a name="diagnostics"></a>Diagnósticos
 
 Como parte de sua implantação de análise de vídeo ao vivo, você configura recursos do Azure, como o Hub IoT e dispositivos IoT Edge. Como uma primeira etapa para diagnosticar problemas, sempre verifique se o dispositivo de borda está configurado corretamente seguindo estas instruções:
 
@@ -127,7 +127,7 @@ File "/home/.azure/cliextensions/azure-cli-iot-ext/azext_iot/_factory.py", line 
 ModuleNotFoundError: No module named 'azure.mgmt.iothub.iot_hub_client'
 ```
     
-Para corrigir esse problema:
+Para resolver este problema:
 
 1. Execute o comando a seguir:
 
@@ -308,7 +308,7 @@ Para configurar a análise de vídeo ao vivo no módulo IoT Edge para gerar logs
     `/var/local/mediaservices/logs:/var/lib/azuremediaservices/logs`
 
     > [!NOTE] 
-    > Esse comando associa as pastas de logs entre o dispositivo de borda e o contêiner. Se você quiser coletar os logs em um local diferente, use o comando a seguir, substituindo **$LOG _LOCATION_ON_EDGE_DEVICE** pelo local que você deseja usar:`/var/$LOG_LOCATION_ON_EDGE_DEVICE:/var/lib/azuremediaservices/logs`
+    > Esse comando associa as pastas de logs entre o dispositivo de borda e o contêiner. Se você quiser coletar os logs em um local diferente, use o comando a seguir, substituindo **$LOG _LOCATION_ON_EDGE_DEVICE** pelo local que você deseja usar: `/var/$LOG_LOCATION_ON_EDGE_DEVICE:/var/lib/azuremediaservices/logs`
 
 1. Selecione **Atualizar**.
 1. Selecione **Examinar + criar**. Uma mensagem de validação bem-sucedida é postada em uma faixa verde.
@@ -321,9 +321,11 @@ Para configurar a análise de vídeo ao vivo no módulo IoT Edge para gerar logs
     `"DebugLogsDirectory": "/var/lib/azuremediaservices/logs"`
 
     > [!NOTE] 
-    > Esse comando associa as pastas de logs entre o dispositivo de borda e o contêiner. Se você quiser coletar os logs em um local diferente, use o comando a seguir, substituindo **$DEBUG _LOG_LOCATION_ON_EDGE_DEVICE** pelo local que você deseja usar:  
-    > `"DebugLogsDirectory": "/var/$DEBUG_LOG_LOCATION_ON_EDGE_DEVICE"`  
-
+    > Esse comando associa as pastas de logs entre o dispositivo de borda e o contêiner. Se você quiser coletar os logs em um local diferente no dispositivo:
+    > 1. Crie uma associação para o local do log de depuração na seção de **associações** , substituindo o **_LOG_LOCATION_ON_EDGE_DEVICE de $DEBUG** e **$debug _LOG_LOCATION** pelo local desejado: `/var/$DEBUG_LOG_LOCATION_ON_EDGE_DEVICE:/var/$DEBUG_LOG_LOCATION`
+    > 2. Use o comando a seguir, substituindo **$DEBUG _LOG_LOCATION** pelo local usado na etapa anterior:  
+    > `"DebugLogsDirectory": "/var/$DEBUG_LOG_LOCATION"`  
+    
     d. Clique em **Salvar**.
 
 1. Reproduza o problema.
