@@ -1,15 +1,15 @@
 ---
 title: Definições de políticas internas para o Lote do Azure
 description: Lista as definições de políticas internas do Azure Policy para o Lote do Azure. Essas definições de políticas internas fornecem abordagens comuns para gerenciar seus recursos do Azure.
-ms.date: 09/16/2020
+ms.date: 10/07/2020
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: f7be80a4caf90334181beab24248d5aa6813a4e3
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 4ddf7fa213946f6f1fead0efdf493d6e92543fd1
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90987438"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819163"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-batch"></a>Definições internas do Azure Policy para o Lote do Azure
 

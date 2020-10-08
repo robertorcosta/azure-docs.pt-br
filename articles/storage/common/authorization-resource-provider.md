@@ -9,12 +9,12 @@ ms.date: 12/12/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 162aa0c382ec22f946d20299fbb990b92481518f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e71e56b9da06bfd8f3be24481efd619b788a8839
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91714702"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91822281"
 ---
 # <a name="use-the-azure-storage-resource-provider-to-access-management-resources"></a>Usar o provedor de recursos de armazenamento do Azure para acessar recursos de gerenciamento
 
@@ -47,7 +47,7 @@ Funções internas que concedem permissões para chamar operações de gerenciam
 |    Função do Azure    |    Descrição    |    Inclui acesso a chaves de conta?    |
 |---------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|
 | **Proprietário** | Pode gerenciar todos os recursos de armazenamento e acesso aos recursos.  | Sim, fornece permissões para exibir e regenerar as chaves da conta de armazenamento. |
-| **Colaborador**  | Pode gerenciar todos os recursos de armazenamento, mas não pode gerenciar a atribuição de recursos. | Sim, fornece permissões para exibir e regenerar as chaves da conta de armazenamento. |
+| **Colaborador**  | Pode gerenciar todos os recursos de armazenamento, mas não pode gerenciar o acesso aos recursos. | Sim, fornece permissões para exibir e regenerar as chaves da conta de armazenamento. |
 | **Leitor** | Pode exibir informações sobre a conta de armazenamento, mas não pode exibir as chaves de conta. | Não. |
 | **Colaborador da Conta de Armazenamento** | Pode gerenciar a conta de armazenamento, obter informações sobre os grupos de recursos e recursos da assinatura e criar e gerenciar implantações de grupo de recursos de assinatura. | Sim, fornece permissões para exibir e regenerar as chaves da conta de armazenamento. |
 | **Administrador de Acesso do Usuário** | Pode gerenciar o acesso à conta de armazenamento.   | Sim, permite que uma entidade de segurança atribua qualquer permissão a si mesma e a outras. |

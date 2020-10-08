@@ -5,22 +5,20 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/03/2020
-ms.author: alzam
-ms.openlocfilehash: 9a98383c359135f90fd787008704d1ce389a4d57
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.date: 10/07/2020
+ms.author: cherylmc
+ms.openlocfilehash: 1305ca603aef63dafcc7b055d55e3f0fe281f4fc
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89424990"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819680"
 ---
 # <a name="create-an-active-directory-ad-tenant-for-p2s-openvpn-protocol-connections"></a>Criar um locatário Active Directory (AD) para conexões de protocolo P2S OpenVPN
 
 Ao conectar-se à sua VNet, você pode usar a autenticação baseada em certificado ou a autenticação RADIUS. No entanto, ao usar o protocolo VPN aberto, você também pode usar a autenticação Azure Active Directory. Se desejar que um conjunto diferente de usuários seja capaz de se conectar a diferentes gateways de VPN, você poderá registrar vários aplicativos no AD e vinculá-los a diferentes gateways de VPN. Este artigo ajuda você a configurar um locatário do Azure AD para autenticação P2S OpenVPN e criar e registrar vários aplicativos no Azure AD para permitir acesso diferente para diferentes usuários e grupos.
 
-> [!NOTE]
-> A Autenticação do Azure AD é compatível apenas com conexões de protocolo OpenVPN®.
->
+[!INCLUDE [Windows 10 and OpenVPN note](../../includes/vpn-gateway-openvpn-auth-include.md)]
 
 [!INCLUDE [create](../../includes/openvpn-azure-ad-tenant-multi-app.md)]
 
@@ -30,7 +28,7 @@ Nesta etapa, você habilitará a autenticação do Azure AD no gateway de VPN.
 
 1. Habilite a autenticação do Azure AD no gateway de VPN navegando para **configuração de ponto a site** e selecionando **OpenVPN (SSL)** como o **tipo de túnel**. Selecione **Azure Active Directory** como o **tipo de autenticação** e preencha as informações na seção **Azure Active Directory** .
 
-    ![VPN do Azure](./media/openvpn-azure-ad-tenant-multi-app/azure-ad-auth-portal.png)
+    ![portal do Azure exibição](./media/openvpn-azure-ad-tenant-multi-app/azure-ad-auth-portal.png)
 
     > [!NOTE]
     > Não use a ID do aplicativo do cliente de VPN do Azure: ele concederá a todos os usuários acesso ao gateway de VPN. Use a ID dos aplicativos que você registrou.

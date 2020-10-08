@@ -13,26 +13,26 @@ ms.workload: infrastructure-services
 ms.date: 06/13/2019
 ms.author: kumud
 ms.reviewer: ypitsch
-ms.openlocfilehash: 00199f81e2dc8ca699fabf312955bf7a8a2b5cbd
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 05e966d3f4631e3c344bd97c0faec99cc3c6dd66
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91398382"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819894"
 ---
 # <a name="microsoft-global-network"></a>Rede global da Microsoft
 
-A Microsoft possui e opera uma das maiores redes de backbone do mundo. Essa arquitetura global e sofisticada, abrangendo mais de 160.000 milhas, conecta nossos data centers e clientes. 
+A Microsoft possui e opera uma das maiores redes de backbone do mundo. Essa arquitetura global e sofisticada, abrangendo mais de 165.000 milhas, conecta nossos data centers e clientes. 
  
 Todos os dias, os clientes em todo o mundo se conectam e passam trilhões de solicitações para Microsoft Azure, Bing, Dynamics 365, Microsoft 365, XBox e muitos outros. Independentemente do tipo, os clientes esperam a confiabilidade e a capacidade de resposta instantâneas de nossos serviços. 
  
-A WAN ( [rede global da Microsoft](https://azure.microsoft.com/global-infrastructure/global-network/) ) é uma parte central do fornecimento de uma ótima experiência em nuvem. Conectando nossos [data centers](https://azure.microsoft.com/global-infrastructure/) da Microsoft em 54 regiões do Azure e grande malha de nós de borda, posicionados estrategicamente em todo o mundo, nossa rede global oferece a disponibilidade, a capacidade e a flexibilidade para atender a qualquer demanda.
+A WAN ( [rede global da Microsoft](https://azure.microsoft.com/global-infrastructure/global-network/) ) é uma parte central do fornecimento de uma ótima experiência em nuvem. Conectando nossos [data centers](https://azure.microsoft.com/global-infrastructure/) da Microsoft em 61 regiões do Azure e grande malha de nós de borda, posicionados estrategicamente em todo o mundo, nossa rede global oferece a disponibilidade, a capacidade e a flexibilidade para atender a qualquer demanda.
 
 ![Rede global da Microsoft](./media/microsoft-global-network/microsoft-global-wan.png)
  
 ## <a name="get-the-premium-cloud-network"></a>Obter a rede de nuvem Premium
  
-Optar pela [melhor experiência possível](https://www.sdxcentral.com/articles/news/azure-tops-aws-gcp-in-cloud-performance-says-thousandeyes/2018/11/) é fácil quando você usa o Microsoft Cloud. A partir do momento em que o tráfego do cliente entra em nossa rede global por meio de nossos nós de borda estrategicamente posicionados, seus dados viajam por rotas otimizadas perto da velocidade da luz. Isso garante a latência ideal para o melhor desempenho. Esses nós de borda, todos interconectados a mais de 3500 parceiros de Internet exclusivos (colegas) por meio de milhares de conexões em mais de 165 locais, fornecem a base de nossa estratégia de interconexão. 
+Optar pela [melhor experiência possível](https://www.sdxcentral.com/articles/news/azure-tops-aws-gcp-in-cloud-performance-says-thousandeyes/2018/11/) é fácil quando você usa o Microsoft Cloud. A partir do momento em que o tráfego do cliente entra em nossa rede global por meio de nossos nós de borda estrategicamente posicionados, seus dados viajam por rotas otimizadas perto da velocidade da luz. Isso garante a latência ideal para o melhor desempenho. Esses nós de borda, todos interconectados a mais de 4000 parceiros de Internet exclusivos (colegas) por meio de milhares de conexões em mais de 175 locais, fornecem a base de nossa estratégia de interconexão. 
  
 Se estiver se conectando de Londres a Tóquio ou de Washington DC a Los Angeles, o desempenho da rede será quantificado e afetado por coisas como latência, tremulação, perda de pacotes e taxa de transferência.  Na Microsoft, preferimos e usamos interconexões diretas em oposição aos links de trânsito, isso mantém o tráfego de resposta simétrico e ajuda a manter saltos, partes emparelhadas e caminhos o mais curto e simples possível. 
 

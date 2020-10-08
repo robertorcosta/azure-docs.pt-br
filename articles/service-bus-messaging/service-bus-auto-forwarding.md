@@ -4,12 +4,12 @@ description: Este artigo descreve como encadear uma fila ou assinatura do barram
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 34b73967813abdcb811221aa4a3a4ac96dce0664
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8f5f93f65871c0b9658a75264ab959dbae7fefe7
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333674"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819576"
 ---
 # <a name="chaining-service-bus-entities-with-autoforwarding"></a>Encadeando entidades do Barramento de Serviço com o encaminhamento automático
 
@@ -52,6 +52,8 @@ Ao encadear tópicos individuais a fim de obter um tópico composto com diversas
 O Barramento de Serviço cobra uma operação por cada mensagem encaminhada. Por exemplo, o envio de uma mensagem a um tópico com 20 assinaturas, cada uma delas configurada para encaminhar automaticamente mensagens para outra fila ou outro tópico, receberá uma cobrança por 21 operações, caso todas as assinaturas de primeiro nível recebam uma cópia da mensagem.
 
 Para criar uma assinatura encadeada a outra fila ou tópico, o criador da assinatura deve ter permissões de **Gerenciamento** na entidade de origem e de destino. O envio de mensagens para o tópico de origem exige apenas permissões para **Enviar** no tópico de origem.
+
+Não crie uma cadeia que exceda 4 saltos. Mensagens que excedem 4 saltos são inativas.
 
 ## <a name="next-steps"></a>Próximas etapas
 

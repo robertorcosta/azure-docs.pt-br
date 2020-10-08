@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: luleon, hirsin, paulgarn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3f1829127d1eaf65be586ddff3fb2615cae72c5d
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: fcdb0a571a9d6b81e25d061c33d8a3a812da189f
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88116131"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819321"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Depurar o logon único baseado em SAML para aplicativos no Azure Active Directory
 
@@ -86,7 +86,7 @@ Se nenhuma resolução for fornecida para o erro de entrada, sugerimos que você
 
 Você pode entrar com êxito e, em seguida, encontrar um erro na página do aplicativo. Isso ocorre quando o Azure AD emite um token para o aplicativo, mas o aplicativo não aceita a resposta.
 
-Para resolver o erro, siga estas etapas:
+Para resolver o erro, siga estas etapas ou assista a este [vídeo rápido sobre como usar o Azure ad para solucionar problemas de SSO do SAML](https://www.youtube.com/watch?v=poQCJK0WPUk&list=PLLasX02E8BPBm1xNMRdvP6GtA6otQUqp0&index=8):
 
 1. Se o aplicativo estiver na galeria do Azure AD, verifique se você seguiu todas as etapas para integrar o aplicativo com o Azure AD. Para obter as instruções de integração do aplicativo, confira a [lista de tutoriais de integração de aplicativos SaaS](../saas-apps/tutorial-list.md).
 1. Recupere a resposta de SAML.

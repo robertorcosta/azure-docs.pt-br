@@ -3,12 +3,12 @@ title: Visão geral do agente do Connected Machine do Windows
 description: Este artigo fornece uma visão geral detalhada do agente de servidores habilitados para Arc do Azure disponível, que dá suporte ao monitoramento de máquinas virtuais hospedadas em ambientes híbridos.
 ms.date: 09/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0fa406692ae0ff011c65a2683ea04ad969bdc3b5
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 20f56745127a5182a5dfa057a4496b127d78eac7
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91577213"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91822196"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Visão geral do agente de servidores habilitados para Arc do Azure
 
@@ -85,6 +85,7 @@ Marcas de serviço:
 
 * AzureActiveDirectory
 * AzureTrafficManager
+* AzureArcInfrastructure
 
 URLs:
 
@@ -104,7 +105,7 @@ As URLs na tabela anterior são necessárias, além das informações sobre o in
 
 ### <a name="register-azure-resource-providers"></a>Registrar provedores de recursos do Azure
 
-Os servidores habilitados para Arc do Azure dependem dos seguintes provedores de recursos do Azure em sua assinatura para usar este serviço:
+Os servidores habilitados do Azure Arc dependem dos seguintes provedores de recursos do Azure na sua assinatura para usar esse serviço:
 
 * **Microsoft.HybridCompute**
 * **Microsoft.GuestConfiguration**

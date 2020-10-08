@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 10/06/2020
 ms.author: rolyon
-ms.openlocfilehash: e5b0eb5fc9014a4f8df0f0cc363b5dddb45674af
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: 35c6d94ce69acf59ae6cd8b26b0ad75645eb526a
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/07/2020
-ms.locfileid: "91804173"
+ms.locfileid: "91819703"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Transferir uma assinatura do Azure para um diretório diferente do Azure AD
 
@@ -24,7 +24,7 @@ As organizações podem ter várias assinaturas do Azure. Cada assinatura é ass
 Este artigo descreve as etapas básicas que você pode seguir para transferir uma assinatura para um diretório diferente do Azure AD e recriar alguns dos recursos após a transferência.
 
 > [!NOTE]
-> Para assinaturas do CSP (provedores de serviços de nuvem) do Azure, não há suporte para a alteração do diretório do Azure AD para a assinatura.
+> Para assinaturas do CSP (provedores de soluções de nuvem) do Azure, não há suporte para a alteração do diretório do Azure AD para a assinatura.
 
 ## <a name="overview"></a>Visão geral
 

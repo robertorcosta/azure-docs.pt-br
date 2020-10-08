@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 159a14b30113a251c6ac61c4c04a2a3c4d69d3e5
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 132711b4a3fc584261cd577b4b8f1d4fb13da09d
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87907973"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819395"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Conceder aos usuários B2B do Microsoft Azure AD acesso aos aplicativos locais
 
@@ -41,6 +41,9 @@ Para fornecer aos usuários B2B acesso a aplicativos locais que são protegidos 
 
 - **Autenticação por meio do Proxy de Aplicativo do Azure Active Directory**. Os usuários B2B devem autenticar-se no aplicativo local. Para fazer isso, é necessário publicar o aplicativo local por meio do Proxy de Aplicativo do Azure Active Directory. Para obter mais informações, consulte [Introdução ao Proxy de Aplicativo e instalação do conector](../manage-apps/application-proxy-enable.md) e [Publicar aplicativos usando o Proxy de Aplicativo do Azure Active Directory](../manage-apps/application-proxy-publish-azure-portal.md).
 - **Autorização por meio de um objeto de usuário B2B no diretório local**. O aplicativo deve executar verificações de acesso do usuário e conceder acesso aos recursos corretos. A IWA e KCD exigem um objeto de usuário no Active Directory do Windows Server local para concluir essa autorização. Conforme descrito em [Como o logon único com KCD funciona](../manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#how-single-sign-on-with-kcd-works), o Proxy de aplicativo precisa desse objeto de usuário para representar o usuário e obter um token do Kerberos no aplicativo. 
+
+   > [!NOTE]
+   > Ao configurar o Proxy de Aplicativo do AD do Azure, verifique se a **identidade de logon delegada** está definida como **nome principal do usuário** (padrão) para logon único do Iwa.
 
    Para o cenário de usuário B2B, há dois métodos disponíveis que você pode usar para criar os objetos de usuário convidado que são necessários para autorização no diretório local:
 
