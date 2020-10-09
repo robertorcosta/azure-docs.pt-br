@@ -220,9 +220,9 @@
     - name: SDKs do Azure IoT
       items:
         - name: SDKs do Serviço de IoT
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
         - name: SDKs do dispositivo IoT
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
     - name: Monitoramento remoto
       items:
         - name: Guia de referência do desenvolvedor (.NET)
