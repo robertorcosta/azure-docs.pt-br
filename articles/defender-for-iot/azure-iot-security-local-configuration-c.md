@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 7cc6886b5341d8bc8a82288ad8a2a699381a953c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 46b3009a7a57f726457a767afe501bfb28a06606
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90932957"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843355"
 ---
 # <a name="understanding-the-localconfigurationjson-file---c-agent"></a>Noções básicas sobre o arquivo LocalConfiguration.json – agente do C
 
@@ -42,12 +42,12 @@ As alterações feitas no arquivo de configuração ocorrem quando o agente é r
 | Identidade | "DPS", "SecurityModule", "dispositivo" | Identidade de autenticação – DPS se a autenticação for feita por meio do DPS, SecurityModule se a autenticação for feita por meio de credenciais do módulo de segurança ou dispositivo se a autenticação for feita com as credenciais do dispositivo |
 | AuthenticationMethod | "SasToken", "SelfSignedCertificate" | o segredo do usuário para autenticação-escolha SasToken se o segredo de uso for uma chave simétrica, escolha certificado autoassinado se o segredo for um certificado autoassinado  |
 | FilePath | Caminho para o arquivo (cadeia de caracteres) | Caminho para o arquivo que contém o segredo de autenticação |
-| HostName | string | O nome do host do Hub IOT do Azure. geralmente <meu Hub>. azure-devices.net |
+| HostName | string | O nome do host do Hub IoT do Azure. geralmente <meu Hub>. azure-devices.net |
 | DeviceId | string | A ID do dispositivo (como registrado no Hub IoT do Azure) |
 | DPS | JsonObject | Configurações relacionadas a DPS |
 | IDScope | string | Escopo da ID do DPS |
 | RegistrationId | string  | ID de registro do dispositivo DPS |
-| Registrando em log | JsonObject | Configurações relacionadas ao agente de log |
+| Registro em log | JsonObject | Configurações relacionadas ao agente de log |
 | SystemLoggerMinimumSeverity | 0 <= número <= 4 | mensagens de log iguais e superiores a essa gravidade serão registradas em/var/log/syslog (0 é a severidade mais baixa) |
 | DiagnosticEventMinimumSeverity | 0 <= número <= 4 | as mensagens de log iguais e superiores a essa gravidade serão enviadas como eventos de diagnóstico (0 é a severidade mais baixa) |
 

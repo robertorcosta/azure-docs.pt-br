@@ -4,21 +4,21 @@ description: Saiba mais sobre o fluxo de informações no serviço Azure defende
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: elazark
 manager: rkarlin
 editor: ''
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/23/2019
-ms.author: mlottner
-ms.openlocfilehash: 3d26d9e3d686ad7c34e7493dc1413b7a9e7a2f6b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 10/08/2020
+ms.author: v-ekrieg
+ms.openlocfilehash: 3fc695770350e5a60ae3da9ab1796da5cac99370
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90933831"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843406"
 ---
 # <a name="azure-defender-for-iot-architecture"></a>Arquitetura do Azure defender para IoT
 
@@ -43,11 +43,11 @@ No modo **interno** , o defender para IOT é habilitado quando você opta por at
 
 ### <a name="enhanced"></a>Avançado
 
-No modo **avançado** , depois de ativar a opção de **segurança** em seu hub IOT e instalar o defender para agentes de dispositivo IOT em seus dispositivos, os agentes coletam, agregam e analisam eventos de segurança brutos de seus dispositivos. Os eventos de segurança brutos podem incluir conexões IP, criação de processo, logons de usuário e outras informações relevantes de segurança. Agentes de dispositivo do defender para IoT também manipulam a agregação de eventos para ajudar a evitar alta taxa de transferência de rede. Os agentes são altamente personalizáveis, permitindo que você os use para tarefas específicas, como enviar apenas informações importantes no SLA mais rápido ou para agregar informações de segurança extensivas e contexto em segmentos maiores, evitando custos de serviço mais altos.
+No modo **avançado** , depois de ativar a opção de **segurança** em seu hub IOT e instalar o defender para agentes de dispositivo IOT em seus dispositivos, os agentes coletam, agregam e analisam eventos de segurança brutos de seus dispositivos. Os eventos de segurança brutos podem incluir conexões IP, criação de processo, logons de usuário e outras informações relevantes de segurança. Os defensores de agentes de dispositivo IoT também tratam da agregação de eventos para ajudar a evitar alta taxa de transferência de rede. Os agentes são altamente personalizáveis, permitindo que você os use para tarefas específicas, como enviar apenas informações importantes no SLA mais rápido ou para agregar informações de segurança extensivas e contexto em segmentos maiores, evitando custos de serviço mais altos.
 
 ![Defender para arquitetura de IoT](./media/architecture/azure-iot-security-architecture.png)
 
-Os agentes de dispositivo e outros aplicativos usam o **SDK de mensagens de segurança do Azure Send** para enviar informações de segurança para o Hub IOT do Azure. O Hub IoT pega essas informações e as encaminha para o serviço defender para IoT.
+Os agentes de dispositivo e outros aplicativos usam o **SDK de mensagens de segurança do Azure Send** para enviar informações de segurança para o Hub IOT do Azure. O Hub IoT obtém essas informações e as encaminha para o serviço defender para IoT.
 
 Depois que o serviço do defender para IoT é habilitado, além dos dados encaminhados, o Hub IoT também envia todos os seus dados internos para análise pelo defender para IoT. Esses dados incluem logs de operação do dispositivo-nuvem, identidades do dispositivo e configuração do Hub. Todas essas informações ajudam a criar o pipeline do defender para análise de IoT.
 

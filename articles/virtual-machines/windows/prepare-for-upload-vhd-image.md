@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 09/02/2020
 ms.author: genli
-ms.openlocfilehash: 642a1937f44a608ebf235c20da060972788046a0
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 3274e45738c079c89560f546fe58163f695e12df
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89321728"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91851094"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparar um VHD ou VHDX do Windows para carregar no Azure
 
@@ -378,8 +378,8 @@ O ideal é que você mantenha o computador atualizado para o *nível de patch*, 
 |                         | tcpip.sys      | 6.1.7601.23761 – KB4022722                | 6.2.9200.22070 – KB4022724                  | 6.3.9600.18478 – KB4022726          | 10.0.14393.1358 – KB4022715                 | 10.0.15063.447             | -                                           | -                                           |
 |                         | http.sys       | 6.1.7601.23403 – KB3125574                | 6.2.9200.17285 – KB3042553                  | 6.3.9600.18574 – KB4022726          | 10.0.14393.251 – KB4022715                  | 10.0.15063.483             | -                                           | -                                           |
 |                         | vmswitch.sys   | 6.1.7601.23727 – KB4022719                | 6.2.9200.22117 – KB4022724                  | 6.3.9600.18654 – KB4022726          | 10.0.14393.1358 – KB4022715                 | 10.0.15063.138             | -                                           | -                                           |
-| Core                    | ntoskrnl.exe   | 6.1.7601.23807 – KB4022719                | 6.2.9200.22170 – KB4022718                  | 6.3.9600.18696 – KB4022726          | 10.0.14393.1358 – KB4022715                 | 10.0.15063.483             | -                                           | -                                           |
-| Serviços da área de trabalho Remota | rdpcorets.dll  | 6.2.9200.21506 – KB4022719                | 6.2.9200.22104 – KB4022724                  | 6.3.9600.18619 – KB4022726          | 10.0.14393.1198 – KB4022715                 | 10.0.15063.0               | -                                           | -                                           |
+| Núcleo                    | ntoskrnl.exe   | 6.1.7601.23807 – KB4022719                | 6.2.9200.22170 – KB4022718                  | 6.3.9600.18696 – KB4022726          | 10.0.14393.1358 – KB4022715                 | 10.0.15063.483             | -                                           | -                                           |
+| Serviços de área de trabalho remota | rdpcorets.dll  | 6.2.9200.21506 – KB4022719                | 6.2.9200.22104 – KB4022724                  | 6.3.9600.18619 – KB4022726          | 10.0.14393.1198 – KB4022715                 | 10.0.15063.0               | -                                           | -                                           |
 |                         | termsrv.dll    | 6.1.7601.23403 – KB3125574                | 6.2.9200.17048 – KB2973501                  | 6.3.9600.17415 – KB3000850          | 10.0.14393.0 – KB4022715                    | 10.0.15063.0               | -                                           | -                                           |
 |                         | termdd.sys     | 6.1.7601.23403 – KB3125574                | -                                           | -                                   | -                                           | -                          | -                                           | -                                           |
 |                         | win32k.sys     | 6.1.7601.23807 – KB4022719                | 6.2.9200.22168 – KB4022718                  | 6.3.9600.18698 – KB4022726          | 10.0.14393.594 – KB4022715                  | -                          | -                                           | -                                           |
@@ -421,6 +421,7 @@ Em particular, o Sysprep exige que as unidades sejam totalmente descriptografada
 
 1. Entre na VM Windows.
 1. Execute uma sessão do PowerShell como administrador.
+1. Exclua o diretório Panther (C:\Windows\Panther).
 1. Altere o diretório para `%windir%\system32\sysprep` . Em seguida, execute `sysprep.exe`.
 1. Na caixa de diálogo **ferramenta de preparação do sistema** , selecione entrar no **OOBE (experiência inicial do sistema)** e verifique se a caixa de seleção **generalizar** está selecionada.
 
@@ -432,7 +433,7 @@ Em particular, o Sysprep exige que as unidades sejam totalmente descriptografada
 Agora o VHD está pronto para ser carregado. Para obter mais informações sobre como criar uma VM de um disco generalizado, consulte [carregar um VHD generalizado e usá-lo para criar uma nova VM no Azure](sa-upload-generalized.md).
 
 >[!NOTE]
-> Não há suporte para um arquivo de *unattend.xml* personalizado. Embora possamos dar suporte à propriedade **additionalUnattendContent** , que fornece apenas suporte limitado para adicionar as opções [Microsoft-Windows-Shell-setup](/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup) no arquivo *unattend.xml* que o agente de provisionamento do Azure usa. Você pode usar, por exemplo, [additionalUnattendContent](/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent?view=azure-dotnet) para adicionar FirstLogonCommands e LogonCommands. Para obter mais informações, consulte [AdditionalUnattendContent FirstLogonCommands example](https://github.com/Azure/azure-quickstart-templates/issues/1407).
+> Não há suporte para um arquivo de *unattend.xml* personalizado. Embora possamos dar suporte à propriedade **additionalUnattendContent** , que fornece apenas suporte limitado para adicionar as opções [Microsoft-Windows-Shell-setup](/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup) no arquivo *unattend.xml* que o agente de provisionamento do Azure usa. Você pode usar, por exemplo, [additionalUnattendContent](/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent?view=azure-dotnet&preserve-view=true) para adicionar FirstLogonCommands e LogonCommands. Para obter mais informações, consulte [AdditionalUnattendContent FirstLogonCommands example](https://github.com/Azure/azure-quickstart-templates/issues/1407).
 
 ## <a name="convert-the-virtual-disk-to-a-fixed-size-vhd"></a>Converter o disco virtual em um VHD de tamanho fixo
 

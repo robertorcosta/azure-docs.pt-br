@@ -1,45 +1,42 @@
 ---
-title: Eventos de falha de tarefa em Lote do Azure
-description: Referência de evento de falha de tarefa de lote. Esse evento será emitido além de um evento de conclusão de tarefa e pode ser usado para detectar falha de uma tarefa.
+title: Evento de falha na agenda de tarefas do lote do Azure
+description: Referência do evento de falha na agenda de tarefas do lote. Esse evento é emitido quando uma tarefa não é agendada e tentará novamente mais tarde.
 ms.topic: reference
-ms.date: 10/08/2020
-ms.openlocfilehash: e13692b45ff5a049d0b724525ad6565d2b894a3d
+ms.date: 09/20/2020
+ms.openlocfilehash: 549281d2b2c371e8f09c584e771cf44f7abc8a00
 ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/08/2020
-ms.locfileid: "91850805"
+ms.locfileid: "91852096"
 ---
-# <a name="task-fail-event"></a>Evento de falha da tarefa
+# <a name="task-schedule-fail-event"></a>Evento de falha no agendamento da tarefa
 
- Esse evento é emitido quando uma tarefa é concluída com falha. Atualmente, todos os códigos de saída diferente de zero são considerados falhas. Esse evento será emitido *além* de um evento de conclusão de tarefa e pode ser usado para detectar falha de uma tarefa.
+ Esse evento é emitido quando uma tarefa não é agendada e será repetida mais tarde. Essa é uma falha temporária no tempo de agendamento de tarefa devido à limitação de recursos, por exemplo, não há slots suficientes disponíveis em nós para executar uma tarefa com o `requiredSlots` especificado.
 
-
- O exemplo a seguir mostra o corpo de um evento de falha da tarefa.
+ O exemplo a seguir mostra o corpo de um evento de falha de agendamento de tarefa.
 
 ```
 {
-    "jobId": "myJob",
-    "id": "myTask",
+    "jobId": "job-01",
+    "id": "task-01",
     "taskType": "User",
-    "systemTaskVersion": 0,
+    "systemTaskVersion": 665378862,
     "requiredSlots": 1,
     "nodeInfo": {
-        "poolId": "pool-001",
-        "nodeId": "tvm-257509324_1-20160908t162728z"
+        "poolId": "pool-01",
+        "nodeId": " "
     },
     "multiInstanceSettings": {
         "numberOfInstances": 1
     },
     "constraints": {
-        "maxTaskRetryCount": 2
+        "maxTaskRetryCount": 0
     },
-    "executionInfo": {
-        "startTime": "2016-09-08T16:32:23.799Z",
-        "endTime": "2016-09-08T16:34:00.666Z",
-        "exitCode": 1,
-        "retryCount": 2,
-        "requeueCount": 0
+    "schedulingError": {
+        "category": "UserError",
+        "code": "JobPreparationTaskFailed",
+        "message": "Task cannot run because the job preparation task failed on node"
     }
 }
 ```
@@ -54,7 +51,7 @@ ms.locfileid: "91850805"
 |[`nodeInfo`](#nodeInfo)|Tipo complexo|Contém informações sobre o nó de computação em que a tarefa é executada.|
 |[`multiInstanceSettings`](#multiInstanceSettings)|Tipo complexo|Especifica que a tarefa é uma tarefa com várias instâncias que precisa de vários nós de computação.  Confira [`multiInstanceSettings`](/rest/api/batchservice/get-information-about-a-task) para obter detalhes.|
 |[`constraints`](#constraints)|Tipo complexo|As restrições de execução aplicáveis a essa tarefa.|
-|[`executionInfo`](#executionInfo)|Tipo complexo|Contém informações sobre a execução da tarefa.|
+|[`schedulingError`](#schedulingError)|Tipo complexo|Contém informações sobre o erro de agendamento da tarefa.|
 
 ###  <a name="nodeinfo"></a><a name="nodeInfo"></a> nodeInfo
 
@@ -76,12 +73,10 @@ ms.locfileid: "91850805"
 |`maxTaskRetryCount`|Int32|O número máximo de vezes que a tarefa pode ser repetida. O serviço em lotes repetirá uma tarefa se seu código de saída for diferente de zero.<br /><br /> Observe que esse valor controla especificamente o número de tentativas. O serviço em lotes tentará a tarefa uma vez e, em seguida, pode tentar novamente até esse limite. Por exemplo, se a contagem máxima de repetição for 3, o lote tentará uma tarefa até 4 vezes (uma tentativa inicial e 3 repetições).<br /><br /> Se a contagem máxima de repetição for 0, o serviço em lote não tentará repetir a tarefas.<br /><br /> Se a contagem máxima de repetição for -1, o serviço em lotes repetirá as tarefas ilimitadamente.<br /><br /> O valor padrão é 0 (sem novas tentativas).|
 
 
-###  <a name="executioninfo"></a><a name="executionInfo"></a> executionInfo
+###  <a name="schedulingerror"></a><a name="schedulingError"></a> schedulingError
 
 |Nome do elemento|Type|Observações|
 |------------------|----------|-----------|
-|`startTime`|Datetime|A hora em que a tarefa começou a ser executada. “Em execução” corresponde ao estado de **execução**, portanto, se a tarefa especificar arquivos de recursos ou pacotes de aplicativos, a hora de início refletirá a hora na qual a tarefa começou a baixar ou implantar esses arquivos ou pacotes.  Se a tarefa foi reiniciada ou repetida, esta é a última vez em que a tarefa começou a ser executada.|
-|`endTime`|Datetime|A hora e conclusão da tarefa.|
-|`exitCode`|Int32|O código de saída da tarefa.|
-|`retryCount`|Int32|O número de vezes que a tarefa foi repetida pelo serviço em lotes. A tarefa será repetida se a saída tiver um código de saída diferente de zero, até a MaxTaskRetryCount especificada.|
-|`requeueCount`|Int32|O número de vezes que a tarefa foi colocada em fila novamente pelo serviço em lotes, como resultado de uma solicitação de usuário.<br /><br /> Quando o usuário remove nós de um pool (redimensionando ou reduzindo o pool) ou quando o trabalho é desabilitado, o usuário pode especificar que as tarefas em execução nos nós sejam colocadas novamente na fila de execução. Essa contagem controla quantas vezes a tarefa foi colocada novamente em fila por esses motivos.|
+|`category`|String|A categoria do erro.|
+|`code`|String|Um identificador para o erro de agendamento da tarefa. Os códigos são invariáveis e devem ser consumidos programaticamente.|
+|`message`|String|Uma mensagem que descreve o erro de agendamento da tarefa, destinada a ser adequada para exibição em uma interface do usuário.|

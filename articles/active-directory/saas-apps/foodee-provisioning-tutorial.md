@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: 1d3ea609cda37c3bb0de28d8eb1a19944809980d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 78ba57d485f9842ad8531ce22a2b932aa1a1d28b
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331147"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850414"
 ---
 # <a name="tutorial-configure-foodee-for-automatic-user-provisioning"></a>Tutorial: configurar o alimento para provisionamento automático de usuário
 
@@ -55,7 +55,7 @@ Antes de configurar o alimento para o provisionamento automático de usuário us
 
 1. Entre no [alimento](https://www.food.ee/login/)e selecione sua ID de locatário.
 
-    ![Foodee](media/Foodee-provisioning-tutorial/tenant.png)
+    :::image type="content" source="media/Foodee-provisioning-tutorial/tenant.png" alt-text="Captura de tela do menu principal do portal empresarial do alimento. Um espaço reservado de ID de locatário é visível no menu." border="false":::
 
 1. Em **Enterprise Portal**, selecione **logon único**.
 
@@ -63,7 +63,7 @@ Antes de configurar o alimento para o provisionamento automático de usuário us
 
 1. Copie o valor na caixa **token de API** para uso posterior. Você vai inseri-lo na caixa **token secreto** na guia **provisionamento** do aplicativo do alimento na portal do Azure.
 
-    ![Foodee](media/Foodee-provisioning-tutorial/token.png)
+    :::image type="content" source="media/Foodee-provisioning-tutorial/token.png" alt-text="Captura de tela do menu principal do portal empresarial do alimento. Um espaço reservado de ID de locatário é visível no menu." border="false":::
 
 ## <a name="add-foodee-from-the-gallery"></a>Adicionar o alimento da Galeria
 
@@ -71,7 +71,7 @@ Para configurar o alimento para o provisionamento automático de usuário usando
 
 Para adicionar o alimento da Galeria de aplicativos do Azure AD, faça o seguinte:
 
-1. No [portal do Azure](https://portal.azure.com), no painel esquerdo, selecione **Azure Active Directory**.
+1. No [Portal do Azure](https://portal.azure.com), no painel esquerdo, selecione **Azure Active Directory**.
 
     ![O comando Azure Active Directory](common/select-azuread.png)
 
@@ -130,20 +130,20 @@ Configure o provisionamento automático de usuário para o alimento no Azure AD 
 
 1. Em **mapeamentos**, selecione **sincronizar Azure Active Directory usuários para o alimento**.
 
-    ![Mapeamentos de usuário do alimento](media/Foodee-provisioning-tutorial/usermapping.png)
+    :::image type="content" source="media/Foodee-provisioning-tutorial/usermapping.png" alt-text="Captura de tela do menu principal do portal empresarial do alimento. Um espaço reservado de ID de locatário é visível no menu." border="false":::
 
 1. Em **mapeamentos de atributo**, examine os atributos de usuário que são sincronizados do Azure ad para o alimento. Os atributos que são selecionados como propriedades **correspondentes** são usados para corresponder as *contas de usuário* no alimento para operações de atualização. 
 
-    ![Mapeamentos de usuário do alimento](media/Foodee-provisioning-tutorial/userattribute.png)
+    :::image type="content" source="media/Foodee-provisioning-tutorial/userattribute.png" alt-text="Captura de tela do menu principal do portal empresarial do alimento. Um espaço reservado de ID de locatário é visível no menu." border="false":::
 
 1. Para confirmar suas alterações, selecione **salvar**.
 1. Em **mapeamentos**, selecione **sincronizar grupos de Azure Active Directory com o alimento**.
 
-    ![Mapeamentos de usuário do alimento](media/Foodee-provisioning-tutorial/groupmapping.png)
+    :::image type="content" source="media/Foodee-provisioning-tutorial/groupmapping.png" alt-text="Captura de tela do menu principal do portal empresarial do alimento. Um espaço reservado de ID de locatário é visível no menu." border="false":::
 
 1. Em **mapeamentos de atributo**, examine os atributos de usuário que são sincronizados do Azure ad para o alimento. Os atributos que são selecionados como propriedades **correspondentes** são usados para corresponder as *contas de grupo* no alimento para operações de atualização.
 
-    ![Mapeamentos de usuário do alimento](media/Foodee-provisioning-tutorial/groupattribute.png)
+    :::image type="content" source="media/Foodee-provisioning-tutorial/groupattribute.png" alt-text="Captura de tela do menu principal do portal empresarial do alimento. Um espaço reservado de ID de locatário é visível no menu." border="false":::
 
 1. Para confirmar suas alterações, selecione **salvar**.
 1. Configure os filtros de escopo. Para saber como, consulte as instruções no [tutorial filtro de escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).

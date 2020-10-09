@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: ee150c2fdeb29dcd01d94a335635db7e3939b59c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1db1ef3a8fa7de557444c25650410b4e84422be4
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549304"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91849275"
 ---
 # <a name="tutorial-configure-bonusly-for-automatic-user-provisioning"></a>Tutorial: Configurar o Bonusly para provisionamento automático de usuário
 
@@ -91,61 +91,61 @@ Esta seção orienta você pelas etapas de configuração do serviço de provisi
 
 3. Selecione a guia **Provisionamento**.
 
-    ![Provisionamento Bonusly](./media/bonusly-provisioning-tutorial/ProvisioningTab.png)
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/ProvisioningTab.png" alt-text="Captura de tela da guia de provisionamento de bônus. Em gerenciar, o provisionamento é realçado." border="false":::
 
 4. Defina o **Modo de Provisionamento** como **Automático**.
 
-    ![Provisionamento Bonusly](./media/bonusly-provisioning-tutorial/ProvisioningCredentials.png)
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/ProvisioningCredentials.png" alt-text="Captura de tela da guia de provisionamento de bônus. Em gerenciar, o provisionamento é realçado." border="false":::
 
 5. Na seção **Credenciais de administrador**, insira o **Token secreto** da sua conta Bonusly conforme descrito na etapa 6.
 
-    ![Provisionamento Bonusly](./media/bonusly-provisioning-tutorial/secrettoken.png)
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/secrettoken.png" alt-text="Captura de tela da guia de provisionamento de bônus. Em gerenciar, o provisionamento é realçado." border="false":::
 
 6. O **Token Secreto** da sua conta Bonusly está localizado em **Administrador > Empresa > Integrações**. Na seção **Se desejar codificar**, clique em **API > Criar novo token de acesso de API** para criar um novo token secreto.
 
-    ![Provisionamento Bonusly](./media/bonusly-provisioning-tutorial/BonuslyIntegrations.png)
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/BonuslyIntegrations.png" alt-text="Captura de tela da guia de provisionamento de bônus. Em gerenciar, o provisionamento é realçado." border="false":::
 
-    ![Provisionamento Bonusly](./media/bonusly-provisioning-tutorial/BonsulyRestApi.png)
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/BonsulyRestApi.png" alt-text="Captura de tela da guia de provisionamento de bônus. Em gerenciar, o provisionamento é realçado." border="false":::
 
-    ![Provisionamento Bonusly](./media/bonusly-provisioning-tutorial/CreateToken.png)
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/CreateToken.png" alt-text="Captura de tela da guia de provisionamento de bônus. Em gerenciar, o provisionamento é realçado." border="false":::
 
 7. Na tela seguinte, digite um nome para o token de acesso na caixa de texto fornecida e pressione **Criar chave de Api**. O novo token de acesso será exibido durante alguns segundos em uma pop-up.
 
-    ![Provisionamento Bonusly](./media/bonusly-provisioning-tutorial/Token01.png)
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/Token01.png" alt-text="Captura de tela da guia de provisionamento de bônus. Em gerenciar, o provisionamento é realçado." border="false":::
 
-    ![Provisionamento Bonusly](./media/bonusly-provisioning-tutorial/Token02.png)
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/Token02.png" alt-text="Captura de tela da guia de provisionamento de bônus. Em gerenciar, o provisionamento é realçado." border="false":::
 
 8. Ao popular os campos mostrados na Etapa 5, clique em **Testar conexão** para garantir que o Azure AD pode se conectar ao Bonusly. Se a conexão falhar, verifique se sua conta Bonusly tem permissões de administrador e tente novamente.
 
-    ![Provisionamento Bonusly](./media/bonusly-provisioning-tutorial/TestConnection.png)
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/TestConnection.png" alt-text="Captura de tela da guia de provisionamento de bônus. Em gerenciar, o provisionamento é realçado." border="false":::
 
 9. No campo **Notificação por Email**, insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e selecione a caixa de seleção **Enviar uma notificação por email quando ocorrer uma falha**.
 
-    ![Provisionamento Bonusly](./media/bonusly-provisioning-tutorial/EmailNotification.png)
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/EmailNotification.png" alt-text="Captura de tela da guia de provisionamento de bônus. Em gerenciar, o provisionamento é realçado." border="false":::
 
-10. Clique em **Save** (Salvar).
+10. Clique em **Salvar**.
 
 11. Na seção **Mapeamentos**, selecione **Sincronizar usuários do Azure Active Directory com o Bonusly**.
 
-    ![Provisionamento Bonusly](./media/bonusly-provisioning-tutorial/UserMappings.png)
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/UserMappings.png" alt-text="Captura de tela da guia de provisionamento de bônus. Em gerenciar, o provisionamento é realçado." border="false":::
 
 12. Examine os atributos de usuário que serão sincronizados do Azure AD com o Bonusly na seção **Mapeamento de atributos**. Os atributos selecionados como propriedades **Correspondentes** são usados para fazer a correspondência entre as contas de usuário no Bonusly para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
 
-    ![Provisionamento Bonusly](./media/bonusly-provisioning-tutorial/UserAttributeMapping.png)
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/UserAttributeMapping.png" alt-text="Captura de tela da guia de provisionamento de bônus. Em gerenciar, o provisionamento é realçado." border="false":::
 
 13. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 14. Para habilitar o serviço de provisionamento do Azure AD para o Bonusly, altere o **Status de Provisionamento** para **Ativado** na seção **Configurações**.
 
-    ![Provisionamento Bonusly](./media/bonusly-provisioning-tutorial/ProvisioningStatus.png)
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/ProvisioningStatus.png" alt-text="Captura de tela da guia de provisionamento de bônus. Em gerenciar, o provisionamento é realçado." border="false":::
 
 15. Defina os usuários e/ou grupos que você gostaria de provisionar no Bonusly escolhendo os valores desejados em **Escopo** na seção **Configurações**.
 
-    ![Provisionamento Bonusly](./media/bonusly-provisioning-tutorial/ScopeSync.png)
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/ScopeSync.png" alt-text="Captura de tela da guia de provisionamento de bônus. Em gerenciar, o provisionamento é realçado." border="false":::
 
 16. Quando estiver pronto para provisionar, clique em **Salvar**.
 
-    ![Provisionamento Bonusly](./media/bonusly-provisioning-tutorial/SaveProvisioning.png)
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/SaveProvisioning.png" alt-text="Captura de tela da guia de provisionamento de bônus. Em gerenciar, o provisionamento é realçado." border="false":::
 
 Essa operação inicia a sincronização inicial de todos os usuários e/ou grupos definidos no **Escopo** na seção **Configurações**. Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Microsoft Azure Active Directory esteja em execução. Use a seção **Detalhes de Sincronização** para monitorar o progresso e siga os links para o relatório de atividades de provisionamento, que descreve todas as ações executadas pelo serviço de provisionamento do Azure AD no Bonusly.
 

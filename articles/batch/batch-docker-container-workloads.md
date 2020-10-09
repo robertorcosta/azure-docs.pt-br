@@ -2,26 +2,28 @@
 title: Cargas de trabalho de contêiner
 description: Saiba como executar e dimensionar aplicativos de imagens de contêiner no Lote do Azure. Crie um pool de nós de computação que dão suporte a tarefas de contêiner em execução.
 ms.topic: how-to
-ms.date: 09/10/2020
+ms.date: 10/06/2020
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 0efc63258295ec7a7db20ec97e0ac81bd4c382f7
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 9d8776ba8e683cd14c766fead1e7238a6c24d000
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90018502"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843440"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Executar aplicativos de contêiner no Lote do Azure
 
 O Lote do Azure permite executar e dimensionar um grande número trabalhos de computação em lote no Azure. Tarefas em lote podem executar diretamente em máquinas virtuais (nós) em um pool do Lote, mas também é possível configurar um pool do Lote para executar tarefas em contêineres compatíveis com Docker nos nós. Este artigo mostra como criar um pool de nós de computação que dão suporte a tarefas de contêiner em execução e, em seguida, executar tarefas de contêiner no pool.
 
-Você deve estar familiarizado com os conceitos de contêiner e como criar um pool do Lote e um trabalho. Os exemplos de código usam SDKs para Python e .NET do Lote. Também é possível usar outras ferramentas e SDKs do Lote, incluindo o portal do Azure para criar pools do Lote habilitados para o contêiner e para executar tarefas de contêiner.
+Os exemplos de código aqui usam os SDKs .NET e Python do lote. Também é possível usar outras ferramentas e SDKs do Lote, incluindo o portal do Azure para criar pools do Lote habilitados para o contêiner e para executar tarefas de contêiner.
 
 ## <a name="why-use-containers"></a>Por que usar contêineres?
 
 O uso de contêineres fornece uma maneira fácil para executar tarefas do Lote sem a necessidade de gerenciar um ambiente e as dependências para executar aplicativos. Os contêineres implantam aplicativos como unidades leves, portáteis e autossuficientes que podem ser executadas em vários ambientes diferentes. Por exemplo, crie e teste um contêiner localmente e, em seguida, carregue a imagem do contêiner em um registro no Azure ou em outro local. O modelo de implantação do contêiner garante que o ambiente de runtime do aplicativo sempre seja instalado e configurado corretamente, independente de onde você hospeda o aplicativo. As tarefas baseadas em contêiner no Lote também podem aproveitar os recursos de tarefas que não são de contêiner, incluindo pacotes de aplicativos e o gerenciamento de arquivos de recurso e arquivos de saída.
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
+Você deve estar familiarizado com os conceitos de contêiner e como criar um pool do Lote e um trabalho.
 
 - **Versão do SDK**: Os SDKs do Lote começam a dar suporte a imagens de contêiner nas seguintes versões:
   - API REST do Lote versão 2017-09-01.6.0
@@ -282,6 +284,12 @@ Para executar uma tarefa de contêiner em um pool habilitado para contêiner, es
 - Use a propriedade `ContainerSettings` das classes de tarefa para definir configurações específicas ao contêiner. Essas configurações são definidas pela classe [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings). Observe que a opção de contêiner `--rm` não requer uma opção de `--runtime` adicional, pois o Lote cuida dela.
 
 - Se você executar tarefas em imagens de contêiner, a [tarefa nuvem](/dotnet/api/microsoft.azure.batch.cloudtask) e a [tarefa do gerenciador de trabalho](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask) exigirão configurações de contêiner. No entanto, [iniciar tarefa](/dotnet/api/microsoft.azure.batch.starttask), [tarefa de preparação de trabalho](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask) e [tarefa de liberação de trabalho](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask) não exigem configurações de contêiner (ou seja, podem ser executados em um contexto de contêiner ou diretamente no nó).
+
+- Para o Windows, as tarefas devem ser executadas com [ElevationLevel](/rest/api/batchservice/task/add#elevationlevel) definido como `admin` . 
+
+- Para o Linux, o lote mapeará a permissão de usuário/grupo para o contêiner. Se o acesso a qualquer pasta dentro do contêiner exigir permissão de administrador, talvez seja necessário executar a tarefa como escopo de pool com o nível de elevação de administrador. Isso garantirá que o lote execute a tarefa como raiz no contexto do contêiner. Caso contrário, um usuário não administrador pode não ter acesso a essas pastas.
+
+- Para pools de contêineres com hardware habilitado para GPU, o lote habilitará automaticamente a GPU para tarefas de contêiner, portanto, você não deve incluir o `–gpus` argumento.
 
 ### <a name="container-task-command-line"></a>Linha de Comando da Tarefa do Contêiner
 

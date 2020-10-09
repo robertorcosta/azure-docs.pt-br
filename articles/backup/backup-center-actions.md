@@ -3,12 +3,12 @@ title: Executar ações usando o centro de backup
 description: Este artigo explica como executar ações usando o centro de backup
 ms.topic: conceptual
 ms.date: 09/07/2020
-ms.openlocfilehash: 81c81f0e9d955e0a5243485baaedff4e6f0fc10d
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 65ac6374b1a9571d0415bc097a6ee957874d3d44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90994340"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91854419"
 ---
 # <a name="perform-actions-using-backup-center"></a>Executar ações usando o centro de backup
 
@@ -26,7 +26,7 @@ O centro de backup permite que você execute as principais ações relacionadas 
 * O centro de backup tem suporte no momento para backup de VM do Azure e backup do servidor do banco de dados do Azure para PostgreSQL.
 * Consulte a [matriz de suporte](backup-center-support-matrix.md) para obter uma lista detalhada de cenários com e sem suporte.
 
-## <a name="configure-backup"></a>Configurar o backup
+## <a name="configure-backup"></a>Configurar backup
 
 Dependendo do tipo de fonte de origem que você deseja fazer backup, siga as instruções apropriadas, conforme descrito abaixo.
 
@@ -70,7 +70,7 @@ Dependendo do tipo de fonte de origem que você deseja restaurar, siga as instru
 ### <a name="if-youre-restoring-an-azure-database-for-postgresql-server"></a>Se você estiver restaurando um banco de dados do Azure para o servidor PostgreSQL
 
 1. Navegue até o centro de backup e selecione **restaurar** na parte superior da guia **visão geral** .
-2. Selecione o tipo de fonte de dados do qual você deseja fazer backup (servidor do Azure para PostgreSQL neste caso).
+2. Selecione o tipo de fonte de dados que você deseja restaurar (servidor do Azure para PostgreSQL neste caso).
 
     ![Selecionar DataSource para banco de dados do Azure para restauração do servidor PostgreSQL](./media/backup-center-actions/restore-select-datasource-postgresql.png)
 

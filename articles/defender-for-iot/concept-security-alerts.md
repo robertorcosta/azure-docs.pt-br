@@ -4,21 +4,21 @@ description: Saiba mais sobre alertas de segurança e correção recomendada usa
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: elazark
 manager: rkarlin
 editor: ''
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/09/2020
-ms.author: mlottner
-ms.openlocfilehash: 09ee0f9d5bd6e789d8acd4c70db866983beb1119
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 10/08/2020
+ms.author: v-ekrieg
+ms.openlocfilehash: c4c92bfa25d9c43d3c654fbd1f23e242effc7577
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90933830"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91851196"
 ---
 # <a name="defender-for-iot-security-alerts"></a>Alertas de segurança do defender para IoT
 
@@ -26,13 +26,13 @@ O defender para IoT analisa continuamente sua solução de IoT usando a análise
 Além disso, você pode criar alertas personalizados com base em seu conhecimento do comportamento esperado do dispositivo.
 Um alerta atua como um indicador de possível comprometimento e deve ser investigado e corrigido.
 
-Neste artigo, você encontrará uma lista de alertas internos que podem ser disparados em seus dispositivos de Hub IoT e/ou IoT.
+Neste artigo, você encontrará uma lista de alertas internos, que podem ser disparados em seus dispositivos de Hub IoT e/ou IoT.
 Além dos alertas internos, o defender para IoT permite que você defina alertas personalizados com base no comportamento esperado do Hub IoT e/ou do dispositivo.
-Para obter mais detalhes, consulte [alertas personalizáveis](concept-customizable-security-alerts.md).
+Para obter mais informações, consulte [alertas personalizáveis](concept-customizable-security-alerts.md).
 
 ## <a name="built-in-alerts-for-iot-devices"></a>Alertas internos para dispositivos IoT
 
-| Name | Gravidade | fonte de dados | Descrição | Etapas de correção sugeridas|
+| Nome | Severity | fonte de dados | Descrição | Etapas de correção sugeridas|
 |----------|---------------|-------------|-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |Severidade **alta**|  |  |  |
 |   Linha de comando binária   | Alto | Agente | O binário de LA do Linux sendo chamado/executado na linha de comando foi detectado. Esse processo pode ser uma atividade legítima ou uma indicação de que seu dispositivo está comprometido.|   Examine o comando com o usuário que o executou e verifique se é algo que se espera que seja executado no dispositivo de forma legítima. Caso contrário, encaminhe o alerta para sua equipe de segurança de informações. |
@@ -79,7 +79,7 @@ Para obter mais detalhes, consulte [alertas personalizáveis](concept-customizab
 
 ## <a name="built-in-alerts-for-iot-hub"></a>Alertas internos para o Hub IoT
 
-| Gravidade | Name                                                                         | Descrição | Correção sugerida|
+| Severity | Nome                                                                         | Descrição | Correção sugerida|
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
 |Severidade **média**|  |  |  |
 |  Novo certificado adicionado a um hub IoT  | Médio                                     |Um certificado denominado \' % {DescCertificateName} \' foi adicionado ao Hub IOT \' % {DescIoTHubName} \' . Se essa ação foi feita por uma parte não autorizada, ela pode indicar atividade mal-intencionada.| 1. Verifique se o certificado foi adicionado por uma parte autorizada. <br> 2. se não tiver sido adicionado por uma parte autorizada, remova o certificado e encaminhe o alerta para a equipe de segurança organizacional.  |

@@ -4,12 +4,12 @@ description: Este artigo fornece informações sobre como adicionar um ponto de 
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f902c77c3c7e614247abd4f8af50b8ed37b7e574
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 1b62f69bad4484239b3a6c5d6f7ae910fbdef03f
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552978"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843372"
 ---
 # <a name="allow-access-to-azure-service-bus-namespace-from-specific-virtual-networks"></a>Permitir acesso ao namespace do barramento de serviço do Azure de redes virtuais específicas
 
@@ -54,6 +54,10 @@ As *regras da rede virtual* são o recurso de segurança do firewall que control
 Associar um namespace de Barramento de Serviço a uma rede virtual é um processo de duas etapas. Primeiro, você precisa criar um **ponto de extremidade de serviço de rede virtual** em uma sub-rede de rede virtual e habilitá-lo para **Microsoft. ServiceBus** , conforme explicado na [visão geral do ponto de extremidade de serviço][vnet-sep]. Após adicionar o ponto de extremidade de serviço, você associa o namespace de Barramento de Serviço ao ponto de extremidade com uma **regra da rede virtual**.
 
 A regra da rede virtual é uma associação do namespace de Barramento de Serviço com uma sub-rede de rede virtual. Embora a regra exista, todas as cargas de trabalho associadas à sub-rede recebem acesso ao namespace de Barramento de Serviço. Os próprios Barramentos de Serviço nunca estabelecem conexões de saída, não precisam obter acesso e, portanto, nunca recebem acesso à sub-rede habilitando essa regra.
+
+> [!NOTE]
+> Lembre-se de que um ponto de extremidade de serviço de rede fornece aplicativos em execução na rede virtual o acesso ao namespace do barramento de serviço. A rede virtual controla a acessibilidade do ponto de extremidade, mas não as operações que podem ser feitas em entidades do barramento de serviço (filas, tópicos ou assinaturas). Use Azure Active Directory (AD do Azure) para autorizar operações que os aplicativos podem executar no namespace e suas entidades. Para obter mais informações, consulte [autenticar e autorizar um aplicativo com o Azure ad para acessar entidades do barramento de serviço](authenticate-application.md).
+
 
 ## <a name="use-azure-portal"></a>Usar o portal do Azure
 Esta seção mostra como usar portal do Azure para adicionar um ponto de extremidade de serviço de rede virtual. Para limitar o acesso, você precisa integrar o ponto de extremidade de serviço de rede virtual para este namespace de hubs de eventos.

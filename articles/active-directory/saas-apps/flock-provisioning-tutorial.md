@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: bb6ad9aae5f92f03ea5bfacc028973e4c4a6dbea
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 636bb4c3340f13046706bf887119108b86b6a660
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91312527"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850856"
 ---
 # <a name="tutorial-configure-flock-for-automatic-user-provisioning"></a>Tutorial: configurar o Flock para o provisionamento automático de usuário
 
@@ -54,15 +54,15 @@ Antes de configurar o Flock para o provisionamento automático de usuário com o
 
 1. Faça logon no [Flock](https://web.flock.com/?). Clique **Settings Icon**  >  **no ícone de configurações gerenciar sua equipe**.
 
-    ![Flock](media/flock-provisioning-tutorial/icon.png)
+    :::image type="content" source="media/flock-provisioning-tutorial/icon.png" alt-text="Captura de tela do site Flock. O ícone configurações é realçado e seu menu de atalho é visível. Nesse menu, gerenciar sua equipe é realçado." border="false":::
 
 2. Selecione **autenticação e provisionamento**.
 
-    ![Flock](media/Flock-provisioning-tutorial/auth.png)
+    :::image type="content" source="media/Flock-provisioning-tutorial/auth.png" alt-text="Captura de tela do site Flock. O ícone configurações é realçado e seu menu de atalho é visível. Nesse menu, gerenciar sua equipe é realçado." border="false":::
 
 3. Copie o **token da API**. Esses valores serão inseridos no campo **token secreto** na guia provisionamento do aplicativo Flock no portal do Azure.
 
-    ![Flock](media/Flock-provisioning-tutorial/provisioning.png)
+    :::image type="content" source="media/Flock-provisioning-tutorial/provisioning.png" alt-text="Captura de tela do site Flock. O ícone configurações é realçado e seu menu de atalho é visível. Nesse menu, gerenciar sua equipe é realçado." border="false":::
 
 
 ## <a name="add-flock--from-the-gallery"></a>Adicionar o Flock da Galeria
@@ -120,7 +120,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Email de notificação](common/provisioning-notification-email.png)
 
-7. Clique em **Save** (Salvar).
+7. Clique em **Salvar**.
 
 8. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para Flock**.
 

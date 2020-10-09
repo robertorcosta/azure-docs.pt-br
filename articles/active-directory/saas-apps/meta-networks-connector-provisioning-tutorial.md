@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: Zhchia
-ms.openlocfilehash: bcddaec1660082c2d3fed42e0c10cbdde987693c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c43624b57f5a46473e8640200a7284a9fa737790
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91273510"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91849207"
 ---
 # <a name="tutorial-configure-meta-networks-connector-for-automatic-user-provisioning"></a>Tutorial: configurar o conector de metaredes para provisionamento automático de usuário
 
@@ -60,7 +60,7 @@ Antes de configurar e habilitar o provisionamento automático de usuário, você
 
 3.  Defina o **nome da chave de API** e a **Descrição da chave de API**.
 
-    ![Token de criação de conector de metaredes](media/meta-networks-connector-provisioning-tutorial/keyname.png)
+    :::image type="content" source="media/meta-networks-connector-provisioning-tutorial/keyname.png" alt-text="Captura de tela do console de administração do conector de metaredes com um nome de chave P I e os valores de descrição de chave P do Azure A D e uma chave P I." border="false":::
 
 4.  Ative os privilégios de **gravação** para **grupos** e **usuários**.
 
@@ -68,7 +68,7 @@ Antes de configurar e habilitar o provisionamento automático de usuário, você
 
 5.  Clique em **Adicionar**. Copie o **segredo** e salve-o, pois essa será a única vez que você pode exibi-lo. Esse valor será inserido no campo token secreto na guia provisionamento do aplicativo conector de metaredes na portal do Azure.
 
-    ![Token de criação de conector de metaredes](media/meta-networks-connector-provisioning-tutorial/token.png)
+    :::image type="content" source="media/meta-networks-connector-provisioning-tutorial/token.png" alt-text="Captura de tela do console de administração do conector de metaredes com um nome de chave P I e os valores de descrição de chave P do Azure A D e uma chave P I." border="false":::
 
 6.  Adicione um IdP navegando até **administração > configurações > IdP > criar novo**.
 
@@ -143,7 +143,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Email de notificação](common/provisioning-notification-email.png)
 
-7. Clique em **Save** (Salvar).
+7. Clique em **Salvar**.
 
 8. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para conector de metaredes**.
 

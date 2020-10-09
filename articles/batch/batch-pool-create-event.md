@@ -2,13 +2,13 @@
 title: Pool de criação de evento do Lote do Microsoft Azure
 description: Referência para o evento de criação do pool do Lote, o qual é emitido após a criação de um pool. O conteúdo do log expõe as informações gerais do pool.
 ms.topic: reference
-ms.date: 04/20/2017
-ms.openlocfilehash: eee512bbeed223269c43bde77435fbff2b67b533
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.date: 10/08/2020
+ms.openlocfilehash: dea0e04fa506274e645ba7a578039a0d6f021043
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86147313"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850941"
 ---
 # <a name="pool-create-event"></a>Evento de criação de pool
 
@@ -41,7 +41,7 @@ ms.locfileid: "86147313"
     "resizeTimeout": "300000",
     "targetDedicatedNodes": 2,
     "targetLowPriorityNodes": 2,
-    "maxTasksPerNode": 1,
+    "taskSlotsPerNode": 1,
     "vmFillType": "Spread",
     "enableAutoScale": false,
     "enableInterNodeCommunication": false,
@@ -64,7 +64,7 @@ ms.locfileid: "86147313"
 |`enableAutoScale`|Bool|Especifica se o tamanho do pool é ajustado automaticamente com o tempo.|
 |`enableInterNodeCommunication`|Bool|Especifica se o pool é configurado para comunicação direta entre nós.|
 |`isAutoPool`|Bool|Especifica se o pool foi criado por meio de um mecanismo de AutoPool do trabalho.|
-|`maxTasksPerNode`|Int32|O número máximo de tarefas que podem ser executadas simultaneamente em um único nó de computação no pool.|
+|`taskSlotsPerNode`|Int32|O número máximo de tarefas que podem ser executadas simultaneamente em um único nó de computação no pool.|
 |`vmFillType`|String|Define como o serviço em lotes distribui tarefas entre nós de computação no pool. Os valores válidos são Difundir ou Empacotar.|
 
 ###  <a name="cloudserviceconfiguration"></a><a name="bk_csconf"></a> cloudServiceConfiguration

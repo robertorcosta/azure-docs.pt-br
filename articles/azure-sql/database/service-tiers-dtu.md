@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
+ms.date: 10/07/2020
 ms.reviewer: ''
-ms.date: 11/26/2019
-ms.openlocfilehash: ba2170923885eac19af4bfe3ce55ea653371c0e8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8ed4edb8739758af057276bd21c4ad62bf9ab974
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91321349"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91848850"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Camadas de serviço no modelo de compra baseado em DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -40,16 +40,21 @@ Escolher uma camada de serviço depende principalmente da continuidade dos negó
 |**SLA de tempo de atividade**|99,99%|99,99%|99,99%|
 |**Retenção de backup máxima**|7 dias|35 dias|35 dias|
 |**CPU**|Baixo|Baixo, Médio, Alto|Médio, Alto|
-|**Taxa de transferência de E/S (aproximada)** |1-5 IOPS por DTU| 1-5 IOPS por DTU | 25 IOPS por DTU|
+|**IOPS (aproximado)**\* |1-5 IOPS por DTU| 1-5 IOPS por DTU | 25 IOPS por DTU|
 |**Latência de E/S (aproximada)**|5 ms (leitura), 10 ms (gravação)|5 ms (leitura), 10 ms (gravação)|2 ms (leitura/gravação)|
 |**Indexação ColumnStore** |N/D|S3 e acima|Com suporte|
 |**OLTP na memória**|N/D|N/D|Com suporte|
 
+\* Todos os IOPS de leitura e gravação em arquivos de dados, incluindo e/s em segundo plano (ponto de verificação e gravador lento)
+
 > [!IMPORTANT]
-> As camadas de serviço básico, Standard S0, S1 e S2 fornecem menos de um vCore (CPU).  Para cargas de trabalho com uso intensivo de CPU, é recomendável uma camada de serviço S3 ou superior. 
+> Os objetivos de serviço básico, S0, S1 e S2 fornecem menos de um vCore (CPU).  Para cargas de trabalho com uso intensivo de CPU, recomenda-se um objetivo de serviço S3 ou superior. 
 >
->Em relação ao armazenamento de dados, as camadas de serviço básico, Standard S0 e S1 são colocadas em blobs de páginas padrão. Os blobs de páginas padrão usam mídia de armazenamento baseada em HDD (unidade de disco rígido) e são mais adequados para desenvolvimento, teste e outras cargas de trabalho acessadas com pouca frequência que são menos sensíveis à variabilidade de desempenho.
+> Nos objetivos de serviço básico, S0 e S1, os arquivos de banco de dados são armazenados no armazenamento standard do Azure, que usa mídia de armazenamento baseada em HDD (unidade de disco rígido). Esses objetivos de serviço são mais adequados para desenvolvimento, teste e outras cargas de trabalho acessadas com pouca frequência que são menos sensíveis à variabilidade de desempenho.
 >
+
+> [!TIP]
+> Para ver os limites reais de [governança de recursos](resource-limits-logical-server.md#resource-governance) para um banco de dados ou pool elástico, consulte a exibição de [Sys.dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) .
 
 > [!NOTE]
 > Você pode obter um banco de dados gratuito no banco de dados SQL do Azure na camada de serviço básica em conjunto com uma conta gratuita do Azure para explorar o Azure. Para obter informações, consulte [Crie um banco de dados de nuvem gerenciado com sua conta gratuita do Azure](https://azure.microsoft.com/free/services/sql-database/).

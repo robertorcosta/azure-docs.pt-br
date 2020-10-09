@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/14/2019
 ms.author: Zhchia
-ms.openlocfilehash: 4b318057254688ba3060c825a7926b1c40de437c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7c81c6145aed5f45849f6f08fdd1136862c3b7d8
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91304950"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850857"
 ---
 # <a name="tutorial-configure-infor-cloudsuite-for-automatic-user-provisioning"></a>Tutorial: configurar infor CloudSuite para provisionamento automático de usuário
 
@@ -68,11 +68,11 @@ Antes de configurar e habilitar o provisionamento automático de usuário, você
     
     ![Infor CloudSuite senha](media/infor-cloudsuite-provisioning-tutorial/password.png)
 
-    ![Identificador de CloudSuite infor](media/infor-cloudsuite-provisioning-tutorial/identifier.png)
+    :::image type="content" source="media/infor-cloudsuite-provisioning-tutorial/identifier.png" alt-text="Captura de tela do console de administração do infor CloudSuite mostrando uma linha de tabela realçada. Essa linha contém um identificador de usuário, senhas e um carimbo de data/hora." border="false":::
 
 5. Para gerar o token de portador, copie o **identificador de usuário** e a **senha scim**. Cole-os no bloco de notas + + separados por dois-pontos. Codifique o valor da cadeia de caracteres navegando até **plug-ins > ferramentas MIME > codificação Basic64**. 
 
-    ![Identificador de CloudSuite infor](media/infor-cloudsuite-provisioning-tutorial/token.png)
+    :::image type="content" source="media/infor-cloudsuite-provisioning-tutorial/token.png" alt-text="Captura de tela do console de administração do infor CloudSuite mostrando uma linha de tabela realçada. Essa linha contém um identificador de usuário, senhas e um carimbo de data/hora." border="false":::
 
 3.  Copie o token de portador. Esse valor será inserido no campo token secreto na guia provisionamento do seu aplicativo infor CloudSuite no portal do Azure.
 
@@ -134,7 +134,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Email de notificação](common/provisioning-notification-email.png)
 
-7. Clique em **Save** (Salvar).
+7. Clique em **Salvar**.
 
 8. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para infor CloudSuite**.
 

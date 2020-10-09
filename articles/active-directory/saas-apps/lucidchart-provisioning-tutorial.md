@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: Zhchia
-ms.openlocfilehash: 632330d7c94e145124e202be9050e4e1beeb12b0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 43d6ac8354e992a87091bc66417f7ca88e784199
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91265449"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850652"
 ---
 # <a name="tutorial-configure-lucidchart-for-automatic-user-provisioning"></a>Tutorial: configurar o LucidChart para o provisionamento automático de usuário
 
@@ -49,11 +49,11 @@ O cenário descrito neste tutorial pressupõe que você já tem os seguintes pr�
 
 1. Faça logon no [console do administrador do LucidChart](https://www.lucidchart.com). Navegue até **Team > app Integration**.
 
-      ![LucidChart scim](./media/lucidchart-provisioning-tutorial/team1.png)
+      :::image type="content" source="./media/lucidchart-provisioning-tutorial/team1.png" alt-text="Captura de tela do console de administração do LucidChart. O menu equipe é realçado e aberto. Em admin, a integração de aplicativos é realçada." border="false":::
 
 2. Navegue até **scim**.
 
-      ![LucidChart scim](./media/lucidchart-provisioning-tutorial/scim.png)
+      :::image type="content" source="./media/lucidchart-provisioning-tutorial/scim.png" alt-text="Captura de tela do console de administração do LucidChart. O menu equipe é realçado e aberto. Em admin, a integração de aplicativos é realçada." border="false":::
 
 3. Role para baixo para ver o **token de portador** e a **URL base do LucidChart**. Copie e salve o **token de portador**. Esse valor será inserido no campo **token secreto** * na guia provisionamento do seu aplicativo LucidChart no portal do Azure. 
 

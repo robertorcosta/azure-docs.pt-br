@@ -3,15 +3,15 @@ title: Criar um pool com a criptografia de disco habilitada
 description: Saiba como usar a configuração de criptografia de disco para criptografar nós com uma chave gerenciada por plataforma.
 author: pkshultz
 ms.topic: how-to
-ms.date: 08/25/2020
+ms.date: 10/08/2020
 ms.author: peshultz
 ms.custom: references_regions
-ms.openlocfilehash: 9b0f7f9963ee0edd3986f7ec808a8a4060d857f8
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 55a7e117ebd49f268d4b075d58791df4e9223fdf
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267030"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91849255"
 ---
 # <a name="create-a-pool-with-disk-encryption-enabled"></a>Criar um pool com a criptografia de disco habilitada
 
@@ -21,7 +21,7 @@ Este artigo explica como criar um pool do lote com a criptografia de disco habil
 
 ## <a name="why-use-a-pool-with-disk-encryption-configuration"></a>Por que usar um pool com a configuração de criptografia de disco?
 
-Com um pool do lote, você pode acessar e armazenar dados no sistema operacional e nos discos temporários do nó de computação. Criptografar o disco do lado do servidor com uma chave gerenciada por plataforma protegerá esses dados com baixa sobrecarga e conveniência.  
+Com um pool do lote, você pode acessar e armazenar dados no sistema operacional e nos discos temporários do nó de computação. Criptografar o disco do lado do servidor com uma chave gerenciada por plataforma protegerá esses dados com baixa sobrecarga e conveniência.
 
 O lote aplicará uma dessas tecnologias de criptografia de disco em nós de computação, com base na configuração de pool e suporte regional.
 
@@ -35,8 +35,8 @@ O lote aplicará uma dessas tecnologias de criptografia de disco em nós de comp
 > Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Você não poderá especificar qual método de criptografia será aplicado aos nós no pool. Em vez disso, você fornece os discos de destino que deseja criptografar em seus nós e o lote pode escolher o método de criptografia apropriado, garantindo que os discos especificados sejam criptografados no nó de computação.
- 
-## <a name="azure-portal"></a>Portal do Azure 
+
+## <a name="azure-portal"></a>Portal do Azure
 
 Ao criar um pool do lote no portal do Azure, selecione **TemporaryDisk** ou **OsAndTemporaryDisk** em configuração de **criptografia de disco**.
 
@@ -44,7 +44,7 @@ Ao criar um pool do lote no portal do Azure, selecione **TemporaryDisk** ou **Os
 
 Depois que o pool é criado, você pode ver os destinos de configuração de criptografia de disco na seção de **Propriedades** do pool.
 
-:::image type="content" source="media/disk-encryption/configuration-target.png" alt-text="Captura de tela mostrando os destinos de configuração de criptografia de disco na portal do Azure.":::
+:::image type="content" source="media/disk-encryption/configuration-target.png" alt-text="Captura de tela da opção de configuração de criptografia de disco no portal do Azure.":::
 
 ## <a name="examples"></a>Exemplos
 
@@ -87,7 +87,7 @@ Corpo da solicitação:
     "resizeTimeout": "PT15M",
     "targetDedicatedNodes": 5,
     "targetLowPriorityNodes": 0,
-    "maxTasksPerNode": 3,
+    "taskSlotsPerNode": 3,
     "enableAutoScale": false,
     "enableInterNodeCommunication": false
 }

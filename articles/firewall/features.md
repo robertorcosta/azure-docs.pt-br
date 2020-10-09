@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 10/08/2020
 ms.author: victorh
-ms.openlocfilehash: 16e128fd61c8b0aeae017e5298ae1d8aed6e97e9
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.openlocfilehash: 7429be4430b2b520fb2a66b6b2c0dd138af8e501
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91408500"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850584"
 ---
 # <a name="azure-firewall-features"></a>Recursos do Firewall do Azure
 
@@ -24,7 +24,7 @@ O Firewall do Azure inclui os seguintes recursos:
 
 - [Alta disponibilidade interna](#built-in-high-availability)
 - [Zonas de Disponibilidade](#availability-zones)
-- [Escalabilidade de nuvem sem restrições](#unrestricted-cloud-scalability)
+- [Escalabilidade de nuvem irrestrita](#unrestricted-cloud-scalability)
 - [Regras de filtragem de FQDN de aplicativo](#application-fqdn-filtering-rules)
 - [Regras de filtragem de tráfego de rede](#network-traffic-filtering-rules)
 - [Marcas de FQDN](#fqdn-tags)
@@ -101,7 +101,11 @@ Isso permite os seguintes cenários:
 
 ## <a name="azure-monitor-logging"></a>Registro em log do Azure Monitor
 
-Todos os eventos são integrados ao Azure Monitor, permitindo que você arquive logs em uma conta de armazenamento, transmita eventos ao Hub de Eventos ou envie-os aos logs do Azure Monitor. Para saber mais, confira [Tutorial: Monitorar os logs e as métricas do Firewall do Azure](tutorial-diagnostics.md).
+Todos os eventos são integrados ao Azure Monitor, permitindo que você arquive logs em uma conta de armazenamento, transmita eventos ao Hub de Eventos ou envie-os aos logs do Azure Monitor. Para obter Azure Monitor exemplos de log, consulte [Azure monitor logs do firewall do Azure](log-analytics-samples.md).
+
+Para saber mais, confira [Tutorial: Monitorar os logs e as métricas do Firewall do Azure](tutorial-diagnostics.md). 
+
+A pasta de trabalho do firewall do Azure fornece uma tela flexível para análise de dados do firewall do Azure. Você pode usá-lo para criar relatórios visuais avançados dentro do portal do Azure. Para obter mais informações, consulte [monitorar logs usando a pasta de trabalho do firewall do Azure](firewall-workbook.md).
 
 ## <a name="forced-tunneling"></a>Túnel forçado
 

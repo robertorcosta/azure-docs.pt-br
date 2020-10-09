@@ -4,17 +4,17 @@ description: Use recursos como análise de armazenamento, registro em log do lad
 author: normesta
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 10/02/2020
+ms.date: 10/08/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: a63af55161c2e60724fd35987f9dcbf05b12df2e
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.openlocfilehash: 5f43654b4ff7d0e1f73bd2d83df21d7277c570d1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91667904"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91854550"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitoramento, diagnóstico e solução de problemas de Armazenamento do Microsoft Azure
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -23,8 +23,6 @@ ms.locfileid: "91667904"
 Questões de diagnóstico e de solução de problemas em um aplicativo distribuído hospedado em um ambiente de nuvem podem ser mais complexas que em ambientes tradicionais. Aplicativos podem ser implantados em uma infraestrutura PaaS ou IaaS, no local, em um dispositivo móvel ou em alguma combinação desses ambientes. Normalmente, o tráfego de rede do seu aplicativo pode passar por redes privadas e públicas e o seu aplicativo pode usar múltiplas tecnologias de armazenamento tais como: Tabelas de Armazenamento, Blobs, Filas e Arquivos do Microsoft Azure, além de outros repositórios de dados, tais como: bancos de dados de documentos e relacionais.
 
 Para gerenciar esses aplicativos com êxito, monitore-os de forma proativa e entenda todos os aspectos de como se faz o diagnóstico e a solução de problemas deles e de suas tecnologias dependentes. Como usuário dos serviços de Armazenamento do Azure, monitore continuamente o serviços de Armazenamento que o seu aplicativo utiliza para qualquer mudança inesperada em comportamento (como um tempo maior de resposta do que o normal) e faça o login para coletar mais dados detalhados para analisar o problema em profundidade. As informações de diagnósticos que você obtiver tanto do monitoramento como do registro em log irão ajudá-lo a determinar a raiz do problema que o seu aplicativo encontrou. Você poderá solucionar o problema e determinar as etapas apropriadas que você pode tomar para corrigi-lo. O Armazenamento do Azure é um serviço básico do Azure e é parte importante da maioria das soluções que os clientes implantam para a infraestrutura Azure. O Armazenamento do Azure inclui capacidades de simplificar questões de monitoramento, diagnóstico e de soluções de problemas de armazenamento em seus aplicativos em nuvem.
-
-Para obter um guia prático para solução de problemas de ponta a ponta em aplicativos de armazenamento do Azure, consulte [Solução de problemas de ponta a ponta usando métricas de armazenamento do Azure e registro em log, AzCopy e Message Analyzer](../storage-e2e-troubleshooting.md).
 
 * [Introdução]
   * [Como esse guia está organizado]
@@ -68,7 +66,6 @@ Para obter um guia prático para solução de problemas de ponta a ponta em apli
 * [Anexos]
   * [Apêndice 1: Usando o Fiddler para capturar o tráfego HTTP e HTTPS]
   * [Apêndice 2: Usando o Wireshark para capturar o tráfego de rede]
-  * [Apêndice 3: Usando o Analisador de Mensagem da Microsoft para capturar o tráfego de rede]
   * [Apêndice 4: Usando o Excel para exibir as métricas e os dados de log]
   * [Apêndice 5: Monitoramento com o Application Insights no Azure DevOps]
 
@@ -92,7 +89,7 @@ A seção "[Rastreamento de ponta a ponta]" descreve como você correlaciona as 
 
 A seção "[Diretrizes de solução de problemas]" oferece diretrizes para a solução dos problemas mais comuns relacionados a armazenamento que você possa encontrar.
 
-Os "[Anexos]" incluem informações sobre o uso de ferramentas como o Wireshark e Netmon para a análise de dados de pacote de rede, Fiddler para a análise de mensagens HTTP/HTTPS e o Microsoft Message Analyzer para correlacionar os dados de log.
+Os "[apêndices]" incluem informações sobre como usar outras ferramentas, como Wireshark e Netmon, para analisar dados de pacote de rede e o Fiddler para analisar mensagens http/https.
 
 ## <a name="monitoring-your-storage-service"></a><a name="monitoring-your-storage-service"></a>Monitoramento do seu serviço de armazenamento
 Se você está acostumado com o monitoramento de desempenho do Windows, é possível entender as Métricas de Armazenamento como equivalentes aos contadores do Monitor de Desempenho do Windows. Nas Métricas de Armazenamento, você encontrará um grupo detalhado de métricas (contadores com terminologia de Monitor de Desempenho do Windows) como disponibilidade de serviço, número total de solicitações de serviço ou percentual de êxito em solicitações de serviço. Para obter uma lista completa das métricas disponíveis, confira [Esquema da tabela de métricas da análise do armazenamento](https://msdn.microsoft.com/library/azure/hh343264.aspx). Você pode especificar se deseja que o serviço de armazenamento colete e agregue as métricas a cada hora e ou cada minuto. Para mais informações sobre como habilitar as métricas e monitorar suas contas de armazenamento, confira [Habilitação das métricas de armazenamento e exibição dos dados de métrica](https://go.microsoft.com/fwlink/?LinkId=510865).
@@ -221,10 +218,9 @@ Você pode capturar o tráfego entre o cliente e o servidor para dar informaçõ
 
 * [Fiddler](https://www.telerik.com/fiddler) é um proxy de depuração Web gratuito que permite que você examine os cabeçalhos e dados de conteúdo das solicitações HTTP e HTTPS e as mensagens de resposta. Para obter mais informações, veja o [Apêndice 1: Usando o Fiddler para capturar o tráfego HTTP e HTTPS](#appendix-1).
 * [Monitor de Rede da Microsoft (Netmon)](https://cnet-downloads.com/network-monitor) e [Wireshark](https://www.wireshark.org/) são analisadores de protocolo de rede gratuitos que permitem que você exiba informações detalhadas de pacote de uma vasta gama de protocolos de rede. Para obter mais informações sobre o Wireshark, veja o "[Apêndice 2: Usando o Wireshark para capturar o tráfego de rede](#appendix-2)".
-* O Microsoft Message Analyzer é uma ferramenta da Microsoft que substitui o Netmon e que além de capturar os dados de pacote de rede, a ajuda a exibir e analisar os dados de log capturados das outras ferramentas. Para obter mais informações, veja o "[Apêndice 3: Usando o Analisador de Mensagem da Microsoft para capturar o tráfego de rede](#appendix-3)".
 * Se você quer realizar um teste de conectividade básico para verificar que a máquina do cliente pode se conectar ao serviço de armazenamento do Azure pela rede, você não pode fazer isso usando a ferramenta padrão **ping** no cliente. Entretanto, você pode usar a [**ferramenta** tcping](https://www.elifulkerson.com/projects/tcping.php) para verificar a conectividade.
 
-Em muitos casos, os dados de log a partir do log de armazenamento e da biblioteca do cliente serão suficientes para diagnosticar um problema, porém, em alguns cenários, você poderá precisar de informações mais detalhadas que podem ser providas por essas ferramentas de log de rede. Por exemplo, usando o Fiddler para ver as mensagens HTTP e HTTPS permitem que você exiba o cabeçalho e os dados de carga enviados para e a partir dos serviços de armazenamento, o qual permite que você examine como o aplicativo do cliente repete as operações de armazenamento. Analisadores de protocolo, tais como Wireshark opera em nível de pacote permitindo que você exiba os dados TCP, os quais permitem que você solucione problemas de pacotes perdidos e problemas de conectividade. O Message Analyzer pode operar tanto em camadas HTTP como TCP.
+Em muitos casos, os dados de log a partir do log de armazenamento e da biblioteca do cliente serão suficientes para diagnosticar um problema, porém, em alguns cenários, você poderá precisar de informações mais detalhadas que podem ser providas por essas ferramentas de log de rede. Por exemplo, usando o Fiddler para ver as mensagens HTTP e HTTPS permitem que você exiba o cabeçalho e os dados de carga enviados para e a partir dos serviços de armazenamento, o qual permite que você examine como o aplicativo do cliente repete as operações de armazenamento. Analisadores de protocolo, tais como Wireshark opera em nível de pacote permitindo que você exiba os dados TCP, os quais permitem que você solucione problemas de pacotes perdidos e problemas de conectividade. 
 
 ## <a name="end-to-end-tracing"></a><a name="end-to-end-tracing"></a>Rastreamento de ponta a ponta
 O rastreamento de ponta a ponta usando uma variedade de arquivos de log é uma técnica útil para a investigação de potenciais problemas. Você pode usar as informações de dia/hora de seus dados de métrica como uma indicação de onde começar a procurar nos arquivos de log para informações mais detalhadas que irão ajudá-lo a solucionar o problema.
@@ -385,11 +381,9 @@ queueServicePoint.UseNagleAlgorithm = false;
 Verifique os logs do lado do cliente para ver quantas solicitações seu aplicativo do cliente está enviando e verifique se há gargalos gerais de desempenho relacionados ao .NET no seu cliente, tais como CPU, coleta de lixo .NET, utilização da rede ou memória. Como ponto de partida para solucionar problemas de aplicativos do cliente .NET, confira [Depuração, rastreamento e criação de perfil](https://msdn.microsoft.com/library/7fe0dd2y).
 
 #### <a name="investigating-network-latency-issues"></a>Investigando os problemas de latência de rede
-Normalmente a alta latência de ponta a ponta causada pela rede é devido a condições transitórias. Você pode investigar tantos os problemas de rede persistentes ou transitórios, tais como pacotes ignorados ao usar ferramentas, tais como Wireshark ou Microsoft Message Analyzer.
+Normalmente a alta latência de ponta a ponta causada pela rede é devido a condições transitórias. Você pode investigar problemas de rede transitórios e persistentes, como pacotes descartados usando ferramentas como o Wireshark.
 
 Para obter mais informações sobre como usar o Wireshark para solucionar problemas de rede, veja "[Apêndice 2: Usando o Wireshark para capturar o tráfego de rede]."
-
-Para obter mais informações sobre como usar o Analisador de Mensagem da Microsoft para solucionar problemas de rede, veja "[Apêndice 3: Usando o Analisador de Mensagem da Microsoft para capturar o tráfego de rede]."
 
 ### <a name="metrics-show-low-averagee2elatency-and-low-averageserverlatency-but-the-client-is-experiencing-high-latency"></a><a name="metrics-show-low-AverageE2ELatency-and-low-AverageServerLatency"></a>As métricas mostram baixa AverageE2ELatency e baixa AverageServerLatency, mas o cliente está recebendo uma latência alta
 Nesse cenário, o caso mais provável é um atraso nas solicitações de armazenamento chegando no serviço de armazenamento. Investigue porque as solicitações do cliente não estão passando pelo serviço de blob.
@@ -402,11 +396,9 @@ Verifique também se o cliente está realizando várias novas tentativas e inves
 * Examine os logs do cliente. O log detalhado indica que ocorreu uma repetição.
 * Depure seu código e verifique as propriedades do objeto **OperationContext** associado à solicitação. Se a operação foi repetida, a propriedade **RequestResults** incluirá várias IDs de solicitação de servidor exclusivas. Você também pode verificar as horas de início e término de cada solicitação. Para obter mais informações, veja o exemplo de código na seção [ID de solicitação do servidor].
 
-Se não houver problemas no cliente, investigue os possíveis problemas de rede, tais como perda de pacote. Você pode usar as ferramentas, tais como Wireshark ou Microsoft Message Analyzer para investigar os problemas de rede.
+Se não houver problemas no cliente, investigue os possíveis problemas de rede, tais como perda de pacote. Você pode usar ferramentas como o Wireshark para investigar problemas de rede.
 
 Para obter mais informações sobre como usar o Wireshark para solucionar problemas de rede, veja "[Apêndice 2: Usando o Wireshark para capturar o tráfego de rede]."
-
-Para obter mais informações sobre como usar o Analisador de Mensagem da Microsoft para solucionar problemas de rede, veja "[Apêndice 3: Usando o Analisador de Mensagem da Microsoft para capturar o tráfego de rede]."
 
 ### <a name="metrics-show-high-averageserverlatency"></a><a name="metrics-show-high-AverageServerLatency"></a>As métricas mostram alta AverageServerLatency
 No caso de alta **AverageServerLatency** para as solicitações de download de blob, você deve usar os logs de log de armazenamento para ver se há solicitações repetidas para o mesmo blob (ou para grupos de blobs). Para solicitações de carregamento de blob, você deve investigar qual tamanho de bloco o cliente está usando (por exemplo, blocos inferiores a 64 mil em tamanho podem resultar em sobrecargas ao menos que leituras também sejam inferiores a 64 mil partes) e se múltiplos clientes estiverem carregando blocos no mesmo blob em paralelo. Você também deve verificar as métricas por minuto para ver se há picos no número de solicitações que excedem as metas de escalabilidade por segundo: veja também “[As métricas mostram um aumento em PercentTimeoutError]”.
@@ -476,7 +468,7 @@ Os tempos limites indicam um problema com o serviço de armazenamento que requer
 ### <a name="metrics-show-an-increase-in-percentnetworkerror"></a><a name="metrics-show-an-increase-in-PercentNetworkError"></a>As métricas mostram um aumento em PercentNetworkError
 Suas métricas mostram um aumento em **PercentNetworkError** para um dos seus serviços de armazenamento. A métrica **PercentNetworkError** é uma agregação das seguintes métricas: **NetworkError**, **AnonymousNetworkError** e **SASNetworkError**. Eles ocorrem quando o serviço de armazenamento detecta um erro de rede quando o cliente faz uma solicitação de armazenamento.
 
-A causa mais comum desse erro é um cliente desconectando antes do tempo limite expirar no serviço de armazenamento. Investigue o código no cliente para entender porque e quando o cliente desconecta do serviço de armazenamento. Você também pode usar o Wireshark, o Microsoft Mensagem Analyzer ou o Tcping para investigar os problemas de conectividade de rede do cliente. Essas ferramentas estão descritas nos [Anexos].
+A causa mais comum desse erro é um cliente desconectando antes do tempo limite expirar no serviço de armazenamento. Investigue o código no cliente para entender porque e quando o cliente desconecta do serviço de armazenamento. Você também pode usar o Wireshark ou o Tcping para investigar problemas de conectividade de rede do cliente. Essas ferramentas estão descritas nos [Anexos].
 
 ### <a name="the-client-is-receiving-http-403-forbidden-messages"></a><a name="the-client-is-receiving-403-messages"></a>O cliente está recebendo mensagens HTTP 403 (Proibido)
 Se o seu aplicativo do cliente está emitindo erros HTTP 403 (Proibido), uma possível causa é que o cliente esteja usando uma assinatura de acesso compartilhado (SAS) expirada quando envia uma solicitação de armazenamento (embora outras causas possíveis incluem distorção de relógio, chaves inválidas e cabeçalhos vazios). Se uma chave SAS expirada for a causa, você não verá nenhuma entrada nos dados de registro de log de armazenamento do lado do servidor. A tabela a seguir mostra um exemplo de log do lado do cliente gerado pela biblioteca do cliente de armazenamento que ilustra esse problema acontecendo:
@@ -719,13 +711,11 @@ Se as seções anteriores de solução de problemas não incluem os problemas qu
 
 * Verifique as métricas para ver se há qualquer mudança de comportamento da linha de base esperada. A partir das métricas, você pode determinar se o problema é transitório ou permanente, e quais as operações de armazenamento que o problema está afetando.
 * Você pode usar as informações de métricas para ajudá-lo a procurar os dados de log do lado do servidor para obter informações mais detalhadas sobre qualquer erro que esteja ocorrendo. Essa informação pode ajudá-lo a encontrar e a solucionar o problema.
-* Se a informação nos logs do lado do servidor não forem suficientes para resolver o problema com êxito, você pode usar os logs do lado do cliente da biblioteca do cliente de armazenamento para investigar o comportamento do seu aplicativo do cliente e ferramentas, tais como Fiddler, Wireshark e Microsoft Message Analyzer para investigar a sua rede.
+* Se as informações nos logs do lado do servidor não forem suficientes para solucionar o problema com êxito, você poderá usar os logs do lado do cliente da biblioteca de cliente de armazenamento para investigar o comportamento do seu aplicativo cliente e ferramentas como o Fiddler, Wireshark para investigar sua rede.
 
 Para obter mais informações sobre como usar o Fiddler, veja o "[Apêndice 1: Usando o Fiddler para capturar o tráfego HTTP e HTTPS]".
 
 Para obter mais informações sobre como usar o Wireshark, veja o "[Apêndice 2: Usando o Wireshark para capturar o tráfego de rede]."
-
-Para obter mais informações sobre como usar o Analisador de Mensagem da Microsoft, veja o "[Apêndice 3: Usando o Analisador de Mensagem da Microsoft para capturar o tráfego de rede]."
 
 ## <a name="appendices"></a><a name="appendices"></a>Anexos
 Os anexos descrevem várias ferramentas que você pode achar úteis ao diagnosticar ou solucionar os problemas com o armazenamento do Azure (e outros serviços). Essas ferramentas não são parte do armazenamento do Azure e alguns são produtos de terceiros. Como tal, as ferramentas discutidas nesses anexos não são cobertas por nenhum contrato de suporte que você possa ter com o Microsoft Azure ou Armazenamento do Azure e, portanto, como parte de seu processo de avaliação examine as opções de licença e de suporte disponíveis pelos fornecedores dessas ferramentas.
@@ -776,40 +766,6 @@ Você também pode escolher exibir os dados de TCP conforme vistos pela camada d
 > Para saber mais sobre como usar o Wireshark, veja o [Guia de Usuários do Wireshark](https://www.wireshark.org/docs/wsug_html_chunked).
 >
 >
-
-### <a name="appendix-3-using-microsoft-message-analyzer-to-capture-network-traffic"></a><a name="appendix-3"></a>Apêndice 3: Usando o Analisador de Mensagem da Microsoft para capturar o tráfego de rede
-Você pode usar o Microsoft Message Analyzer para capturar o tráfego HTTP e HTTPS de uma forma similar ao Fiddler e capturar o tráfego de rede de uma forma similar ao Wireshark.
-
-#### <a name="configure-a-web-tracing-session-using-microsoft-message-analyzer"></a>Configure a sessão de rastreamento Web usando o Microsoft Message Analyzer
-Para configurar a sessão de rastreamento Web para tráfego HTTP e HTTPS usando o Microsoft Message Analyzer, execute o aplicativo Microsoft Message Analyzer e, no menu **Arquivo**, clique em **Capturar/Rastrear**. Na lista de cenários de rastreamento disponíveis, selecione **Proxy da Web**. Em seguida, no painel **Rastrear Configuração de Cenário**, na caixa de texto **HostnameFilter**, adicione os nomes dos pontos de extremidade de armazenamento (você pode procurar esses nomes no [Portal do Azure](https://portal.azure.com)). Por exemplo, se o nome da sua conta de armazenamento do Azure é **contosodata**, adicione a seguinte caixa de diálogo **HostnameFilter**:
-
-```
-contosodata.blob.core.windows.net contosodata.table.core.windows.net contosodata.queue.core.windows.net
-```
-
-> [!NOTE]
-> Um caractere de espaço separa o nome de host.
->
->
-
-Quando você estiver pronto para coletar os dados de rastreamento, clique no botão **Iniciar Com** .
-
-Para saber mais sobre o rastreamento de **Proxy da Web** do Microsoft Message Analyzer, consulte [Provedor Microsoft-PEF-WebProxy](https://technet.microsoft.com/library/jj674814.aspx).
-
-O rastreamento interno de **Proxy da Web** no Microsoft Message Analyzer é com base no Fiddler; ele pode capturar o tráfego do lado do cliente e exibir as mensagens HTTPS não criptografadas. O rastreamento **Proxy da Web** funciona ao configurar um proxy local para todo o tráfego HTTP e HTTPS que dá acesso às mensagens não criptografadas.
-
-#### <a name="diagnosing-network-issues-using-microsoft-message-analyzer"></a>Diagnóstico dos problemas de rede usando o Microsoft Message Analyzer
-Além de usar o rastreamento de **Proxy da Web** do Microsoft Message Analyzer para capturar detalhes do tráfego HTTP/HTTPS entre o aplicativo do cliente e o serviço de armazenamento, você pode usar também o rastreamento interno **Camada de Link Local** para capturar as informações do pacote de rede. Isso permite que você capture os dados similares aos que você pode capturar com o Wireshark e que diagnostique os problemas de rede tal como os pacotes ignorados.
-
-A seguinte captura de tela mostra um exemplo de rastreamento de **Camada de Link Local** com algumas mensagens **informativas** na coluna **DiagnosisTypes**. Clicar no ícone na coluna **DiagnosisTypes** mostra detalhes da mensagem. Neste exemplo, o servidor retransmitiu a mensagem #305 porque ela não recebeu uma confirmação do cliente:
-
-![Captura de tela que mostra um exemplo de rastreamento de camada de link local com algumas mensagens informativas na coluna DiagnosisTypes][9]
-
-Quando você cria uma sessão de rastreamento no Microsoft Message Analyzer, é possível especificar filtros para reduzir a quantidade de ruídos no rastreamento. Na página **Capturar/Rastrear** na qual você define o rastreamento, clique no link **Configurar** próximo a **Microsoft-Windows-NDIS-PacketCapture**. A seguinte captura de tela mostra a configuração que filtra o tráfego TCP para os endereços de IP de três serviços de armazenamento:
-
-![Captura de tela que mostra uma configuração que filtra o tráfego TCP para os endereços IP de três serviços de armazenamento.][10]
-
-Para obter mais informações sobre o rastreamento de Camada de Link Local do Microsoft Message Analyzer, consulte [Provedor do Microsoft-PEF-NDIS-PacketCapture](https://technet.microsoft.com/library/jj659264.aspx).
 
 ### <a name="appendix-4-using-excel-to-view-metrics-and-log-data"></a><a name="appendix-4"></a>Apêndice 4: Usando o Excel para exibir as métricas e os dados de log
 Muitas ferramentas permitem que você baixe os dados de métricas de armazenamento a partir do armazenamento de tabela do Azure em um formato delimitado que o torna fácil para se carregado no Excel para exibição e análise. Os dados de log de armazenamento do armazenamento de blob do Azure já estão em um formato delimitado que pode ser carregado no Excel. Entretanto, você precisará adicionar cabeçalhos apropriados às colunas com base na informação no [Formato de Log Analítico de Armazenamento](https://msdn.microsoft.com/library/azure/hh343259.aspx) e no [Esquema de Tabela de Métricas Analíticas de Armazenamento](https://msdn.microsoft.com/library/azure/hh343264.aspx).
@@ -897,7 +853,6 @@ Para obter mais informações sobre análise no Armazenamento do Azure, consulte
 [Anexos]: #appendices
 [Apêndice 1: Usando o Fiddler para capturar o tráfego HTTP e HTTPS]: #appendix-1
 [Apêndice 2: Usando o Wireshark para capturar o tráfego de rede]: #appendix-2
-[Apêndice 3: Usando o Analisador de Mensagem da Microsoft para capturar o tráfego de rede]: #appendix-3
 [Apêndice 4: Usando o Excel para exibir as métricas e os dados de log]: #appendix-4
 [Apêndice 5: Monitoramento com o Application Insights no Azure DevOps]: #appendix-5
 

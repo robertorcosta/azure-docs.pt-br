@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/12/2019
 ms.author: zhchia
-ms.openlocfilehash: d88b8f2a6cc66e239706677bd1ebfe01bccd49af
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f5b14ecf061e8f0c53dc1387d1581bc780d190b9
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322020"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850861"
 ---
 # <a name="tutorial-configure-figma-for-automatic-user-provisioning"></a>Tutorial: configurar o figma para o provisionamento automático de usuário
 
@@ -53,23 +53,23 @@ Antes de configurar o figma para o provisionamento automático de usuário com o
 
 1. Entre no console do [administrador do figma](https://www.Figma.com/). Clique no ícone de engrenagem ao lado de seu locatário.
 
-    ![FigmaFigma-provisão do funcionário](media/Figma-provisioning-tutorial/image0.png)
+    :::image type="content" source="media/Figma-provisioning-tutorial/image0.png" alt-text="Captura de tela do console de administração do figma. Um locatário chamado de um teste de SCIM D é visível. Ao lado do locatário, um ícone de engrenagem é realçado." border="false":::
 
 2. Navegue até **geral > atualizar log em configurações**.
 
-    ![FigmaFigma-provisão do funcionário](media/Figma-provisioning-tutorial/figma03.png)
+    :::image type="content" source="media/Figma-provisioning-tutorial/figma03.png" alt-text="Captura de tela do console de administração do figma. Um locatário chamado de um teste de SCIM D é visível. Ao lado do locatário, um ícone de engrenagem é realçado." border="false":::
 
 3. Copie a **ID do locatário**. Esse valor será usado para construir a URL do ponto de extremidade SCIM a ser inserida no campo **URL do locatário** na guia provisionamento do aplicativo Figma no portal do Azure.
 
-    ![Figma criar token](media/Figma-provisioning-tutorial/figma-tenantid.png)
+    :::image type="content" source="media/Figma-provisioning-tutorial/figma-tenantid.png" alt-text="Captura de tela do console de administração do figma. Um locatário chamado de um teste de SCIM D é visível. Ao lado do locatário, um ícone de engrenagem é realçado." border="false":::
 
 4. Role para baixo e clique em **gerar token de API**.
 
-    ![Figma criar token](media/Figma-provisioning-tutorial/token.png)
+    :::image type="content" source="media/Figma-provisioning-tutorial/token.png" alt-text="Captura de tela do console de administração do figma. Um locatário chamado de um teste de SCIM D é visível. Ao lado do locatário, um ícone de engrenagem é realçado." border="false":::
 
 5. Copie o valor do  **token de API** . Esse valor será inserido no campo **token secreto** na guia provisionamento do seu aplicativo Figma no portal do Azure. 
 
-    ![Figma criar token](media/Figma-provisioning-tutorial/figma04.png)
+    :::image type="content" source="media/Figma-provisioning-tutorial/figma04.png" alt-text="Captura de tela do console de administração do figma. Um locatário chamado de um teste de SCIM D é visível. Ao lado do locatário, um ícone de engrenagem é realçado." border="false":::
 
 ## <a name="add-figma-from-the-gallery"></a>Adicionar o figma da Galeria
 
@@ -124,7 +124,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Email de notificação](common/provisioning-notification-email.png)
 
-9. Clique em **Save** (Salvar).
+9. Clique em **Salvar**.
 
 10. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para figma**.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 06/28/2019
 ms.author: zhchia
-ms.openlocfilehash: dee9ca2879d456270cfed667b8a02a6e5c4f100b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7475ebc6dd51bbc1c30ee22623c7cbda1a5237ab
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328030"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91848952"
 ---
 # <a name="tutorial-configure-dialpad-for-automatic-user-provisioning"></a>Tutorial: configurar o teclado para o provisionamento automático de usuário
 
@@ -54,13 +54,13 @@ Antes de configurar o teclado para o provisionamento automático de usuário com
 
 1. Entre no console do [administrador do teclado](https://dialpadbeta.com/login) e selecione **configurações de administrador**. Verifique se **minha empresa** está selecionada na lista suspensa. Navegue até **autenticação > chaves de API**.
 
-    ![Teclado adicionar SCIM](media/dialpad-provisioning-tutorial/dialpad01.png)
+    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad01.png" alt-text="Captura de tela do console de administração do teclado, com o ícone de configurações, minha empresa, autenticação e as chaves P I realçadas e minha empresa selecionada." border="false":::
 
 2. Gere uma nova chave clicando em **Adicionar uma chave** e configurando as propriedades do seu token secreto.
 
-    ![Teclado adicionar SCIM](media/dialpad-provisioning-tutorial/dialpad02.png)
+    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad02.png" alt-text="Captura de tela do console de administração do teclado, com o ícone de configurações, minha empresa, autenticação e as chaves P I realçadas e minha empresa selecionada." border="false":::
 
-    ![Teclado adicionar SCIM](media/dialpad-provisioning-tutorial/dialpad03.png)
+    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad03.png" alt-text="Captura de tela do console de administração do teclado, com o ícone de configurações, minha empresa, autenticação e as chaves P I realçadas e minha empresa selecionada." border="false":::
 
 3. Clique no botão **clique para mostrar valor** para sua chave de API criada recentemente e copie o valor mostrado. Esse valor será inserido no campo **token secreto** na guia provisionamento do seu aplicativo teclado no portal do Azure. 
 
@@ -89,19 +89,19 @@ Para configurar o teclado para o provisionamento automático de usuário com o A
 
 5. Navegue até a **URL** realçada abaixo em um navegador separado. 
 
-    ![Teclado adicionar SCIM](media/dialpad-provisioning-tutorial/dialpad05.png)
+    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad05.png" alt-text="Captura de tela do console de administração do teclado, com o ícone de configurações, minha empresa, autenticação e as chaves P I realçadas e minha empresa selecionada." border="false":::
 
 6. No canto superior direito, selecione **fazer logon > usar o teclado online**.
 
-    ![Teclado adicionar SCIM](media/dialpad-provisioning-tutorial/dialpad06.png)
+    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad06.png" alt-text="Captura de tela do console de administração do teclado, com o ícone de configurações, minha empresa, autenticação e as chaves P I realçadas e minha empresa selecionada." border="false":::
 
 7. Como teclado é um aplicativo OpenIDConnect, opte por fazer logon no teclado usando sua conta corporativa da Microsoft.
 
-    ![Teclado adicionar SCIM](media/dialpad-provisioning-tutorial/loginpage.png)
+    :::image type="content" source="media/dialpad-provisioning-tutorial/loginpage.png" alt-text="Captura de tela do console de administração do teclado, com o ícone de configurações, minha empresa, autenticação e as chaves P I realçadas e minha empresa selecionada." border="false":::
 
 8. Após uma autenticação bem-sucedida, aceite a solicitação de consentimento para a página de consentimento. O aplicativo será automaticamente adicionado ao seu locatário e você será redirecionado para sua conta do teclado.
 
-    ![Teclado adicionar SCIM](media/dialpad-provisioning-tutorial/redirect.png)
+    :::image type="content" source="media/dialpad-provisioning-tutorial/redirect.png" alt-text="Captura de tela do console de administração do teclado, com o ícone de configurações, minha empresa, autenticação e as chaves P I realçadas e minha empresa selecionada." border="false":::
 
  ## <a name="configure-automatic-user-provisioning-to-dialpad"></a>Configurar o provisionamento automático de usuário para o teclado
 
@@ -133,7 +133,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Email de notificação](common/provisioning-notification-email.png)
 
-7. Clique em **Save** (Salvar).
+7. Clique em **Salvar**.
 
 8. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para teclado**.
 

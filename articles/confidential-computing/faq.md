@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.subservice: workloads
 ms.date: 4/17/2020
 ms.author: jencook
-ms.openlocfilehash: 519b5b669cfc8140b837743d694184a5cb859f20
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: cf90ff5b94eb03f76dffc8b64dd4d92a44ac20ee
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90987991"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91848901"
 ---
 # <a name="frequently-asked-questions-for-azure-confidential-computing"></a>Perguntas frequentes para a computação confidencial do Azure
 
@@ -56,6 +56,10 @@ As VMs da série DC são executadas em processadores Intel de 6 núcleos mais an
 **As máquinas virtuais DCsv2 estão disponíveis globalmente?**
 
 Não. Neste momento, essas máquinas virtuais só estão disponíveis em regiões selecionadas. Marque a página [produtos por regiões](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines) para as regiões disponíveis mais recentes. 
+
+**O hyperthreading está desativado nessas máquinas?**
+
+O hyperthreading está desabilitado para todos os clusters de computação confidencial do Azure.
 
 **Como instalo o SDK do Open enclave nas máquinas virtuais do DCsv2?**
    

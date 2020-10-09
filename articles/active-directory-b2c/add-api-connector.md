@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
-ms.openlocfilehash: 092246da4c01aa826fd4425e5a778d567b75d9d6
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 824b8f386e6bf822444450305e603e6068a34c5e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91828324"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91854351"
 ---
 # <a name="add-an-api-connector-to-a-sign-up-user-flow"></a>Adicionar um conector de API a um fluxo de usuário de inscrição
 
@@ -70,7 +70,7 @@ Content-type: application/json
 }
 ```
 
-Somente as propriedades de usuário e os atributos personalizados listados na **Azure Active Directory**  >  experiência de atributos de usuário personalizados de**identidades externas**  >  **Custom user attributes** estão disponíveis para serem enviados na solicitação.
+Somente as propriedades do usuário e os atributos personalizados listados na **Azure ad B2C**  >  experiência de**atributos de usuário** estão disponíveis para serem enviados na solicitação.
 
 Existem atributos personalizados no formato **de \<extensions-app-id> _CustomAttribute extension_**  no diretório. Sua API deve esperar receber declarações nesse mesmo formato serializado. Para obter mais informações sobre atributos personalizados, consulte [definir atributos personalizados em Azure Active Directory B2C](user-flow-custom-attributes.md).
 
@@ -294,7 +294,7 @@ Content-type: application/json
 ## <a name="best-practices-and-how-to-troubleshoot"></a>Práticas recomendadas e como solucionar problemas
 
 ### <a name="using-serverless-cloud-functions"></a>Usando funções de nuvem sem servidor
-Funções sem servidor, como gatilhos HTTP no Azure Functions, fornecem uma maneira simples de criar pontos de extremidade de API para usar com o conector de API. Você pode usar a função de nuvem sem servidor para, por exemplo, executar a lógica de validação e limitar as entradas a domínios específicos. A função de nuvem sem servidor também pode chamar e invocar outras APIs da Web, lojas de usuários e outros serviços de nuvem para cenários mais complexos.
+Funções sem servidor, como gatilhos HTTP no Azure Functions, fornecem uma maneira simples de criar pontos de extremidade de API para usar com o conector de API. Você pode usar a função de nuvem sem servidor para, [por exemplo](code-samples.md#api-connectors), executar a lógica de validação e limitar as entradas a domínios de email específicos. A função de nuvem sem servidor também pode chamar e invocar outras APIs da Web, lojas de usuários e outros serviços de nuvem para cenários mais complexos.
 
 ### <a name="best-practices"></a>Práticas recomendadas
 Verifique se:
@@ -314,4 +314,4 @@ Em geral, é útil usar as ferramentas de log habilitadas pelo serviço de API W
 
 ## <a name="next-steps"></a>Próximas etapas
 <!-- - Learn how to [add a custom approval workflow to sign-up](add-approvals.md) -->
-<!-- - Get started with our [Azure Function quickstart samples](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts). -->
+- Introdução aos nossos [exemplos de início rápido do Azure function](code-samples.md#api-connectors).

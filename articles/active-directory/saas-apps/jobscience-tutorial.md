@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 0de47cc12c461e47d8703861a99d11e7ee72d581
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 715e99f07d0fcbc77fd1769e5da1cae6b46ac97e
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547060"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850727"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscience"></a>Tutorial: Integração do Active Directory do Azure com o Jobscience
 
@@ -61,19 +61,19 @@ Para configurar a integração do Jobscience ao Azure AD, é necessário adicion
 
 1. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
-    ![Aplicativo][2]
+    ![Captura de tela mostra a portal do Azure aplicativos empresariais selecionados em gerenciar, com todos os aplicativos selecionados.][2]
     
 1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-    ![Aplicativo][3]
+    ![Captura de tela mostra novo aplicativo selecionado.][3]
 
 1. Na caixa de pesquisa, digite **Jobscience**.
 
-    ![Criação de um usuário de teste do AD do Azure](./media/jobscience-tutorial/tutorial_jobscience_search.png)
+    ![A captura de tela mostra adicionar da galeria com o jobscience inserido.](./media/jobscience-tutorial/tutorial_jobscience_search.png)
 
 1. No painel de resultados, selecione **Jobscience** e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
 
-    ![Criação de um usuário de teste do AD do Azure](./media/jobscience-tutorial/tutorial_jobscience_addfromgallery.png)
+    ![Captura de tela mostra os resultados que incluíam Jobscience.](./media/jobscience-tutorial/tutorial_jobscience_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>configurar e testar o logon único do Azure AD
 Nesta seção, você configura e testa o logon único do Azure AD com o Jobscience, com base em um usuário de teste chamado “Brenda Fernandes”.
@@ -98,15 +98,15 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
 1. No portal do Azure, na página de integração do aplicativo **Jobscience**, clique em **Logon único**.
 
-    ![Configurar o logon único][4]
+    ![Captura de tela mostra o logon único selecionado em gerenciar na portal do Azure.][4]
 
 1. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
-    ![Configurar o logon único](./media/jobscience-tutorial/tutorial_jobscience_samlbase.png)
+    ![Captura de tela mostra o modo de logon baseado em SAML selecionado.](./media/jobscience-tutorial/tutorial_jobscience_samlbase.png)
 
 1. Na seção **Domínio e URLs do Jobscience**, realize as seguintes etapas:
 
-    ![Configurar o logon único](./media/jobscience-tutorial/tutorial_jobscience_url.png)
+    ![Captura de tela mostra o U R L de logon.](./media/jobscience-tutorial/tutorial_jobscience_url.png)
 
     Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão:  `http://<company name>.my.salesforce.com`
     
@@ -115,21 +115,21 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
  
 1. Na seção **certificado de autenticação SAML** , clique em **certificado (Base64)** e, em seguida, salve o arquivo de certificado em seu computador.
 
-    ![Configurar o logon único](./media/jobscience-tutorial/tutorial_jobscience_certificate.png) 
+    ![Captura de tela mostra o painel de certificado de autenticação SAML no qual você pode baixar um certificado.](./media/jobscience-tutorial/tutorial_jobscience_certificate.png) 
 
 1. Clique no botão **Salvar** .
 
-    ![Configurar o logon único](./media/jobscience-tutorial/tutorial_general_400.png)
+    ![Captura de tela mostra o botão salvar.](./media/jobscience-tutorial/tutorial_general_400.png)
 
-1. Na seção **Configuração do Jobscience**, clique em **Configurar o Jobscience** para abrir a janela **Configurar logon**. Copie a **URL de saída, a ID da entidade SAML e a URL do serviço de logon único SAML** da **seção de referência rápida.**
+1. Na seção **Configuração do Jobscience**, clique em **Configurar o Jobscience** para abrir a janela **Configurar logon**. Copie a **URL de saída, a ID da entidade SAML e a URL do serviço de Sign-On único SAML** da **seção de referência rápida.**
 
-    ![Configurar o logon único](./media/jobscience-tutorial/tutorial_jobscience_configure.png) 
+    ![Captura de tela mostra a janela de configuração do Jobscience.](./media/jobscience-tutorial/tutorial_jobscience_configure.png) 
 
 1. Faça logon no site da sua empresa Jobscience como um administrador.
 
 1. Vá para **Configuração**.
    
-   ![Instalação](./media/jobscience-tutorial/IC784358.png "Instalação")
+   ![Captura de tela mostra o item de instalação da sua empresa.](./media/jobscience-tutorial/IC784358.png "Instalação")
 
 1. No painel de navegação à esquerda, na seção **Administrador**, clique em **Gerenciamento de Domínio** para expandir a seção correspondente e clique em **Meu Domínio** para abrir a página **Meu Domínio**. 
    
@@ -141,11 +141,11 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
 1. No site da empresa do Jobscience, clique em **Controles de Segurança** e, em seguida, clique em **Configurações de Logon Único**.
     
-    ![Controles de segurança](./media/jobscience-tutorial/ic784364.png "Controles de Segurança")
+    ![Captura de tela mostra as configurações de Sign-On único selecionadas em controles de segurança.](./media/jobscience-tutorial/ic784364.png "Controles de Segurança")
 
 1. Na seção **Configurações de Logon Único**, faça o seguinte:
     
-    ![Configurações de logon único](./media/jobscience-tutorial/ic781026.png "Configurações de logon único")
+    ![Configurações de Sign-On único](./media/jobscience-tutorial/ic781026.png "Configurações de logon único")
     
     a. Selecione **SAML Habilitado**.
 
@@ -179,15 +179,15 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
 1. Na página **Meu Domínio**, na seção **Identidade Visual da Página de Logon**, clique em **Editar**.
     
-    ![Identidade visual da página de logon](./media/jobscience-tutorial/ic767826.png "Identidade visual da página de logon")
+    ![Captura de tela mostra a seção identidade visual da página de logon com o botão Editar.](./media/jobscience-tutorial/ic767826.png "Identidade visual da página de logon")
 
 1. Na página **Identidade Visual da Página de Logon**, na seção **Serviço de Autenticação**, o nome das **Configurações de SSO do SAML** é exibido. Selecione-o e, em seguida, clique em **Salvar**.
     
-    ![Identidade visual da página de logon](./media/jobscience-tutorial/ic784366.png "Identidade visual da página de logon")
+    ![Captura de tela mostra a seção identidade visual da página de logon com PPE e salvar selecionado.](./media/jobscience-tutorial/ic784366.png "Identidade visual da página de logon")
 
 1. Para obter o logon único iniciado pelo SP, clique nas **Configurações de Logon Único** na seção do menu **Controles de Segurança**.
 
-    ![Controles de segurança](./media/jobscience-tutorial/ic784368.png "Controles de Segurança")
+    ![A captura de tela mostra administrar controles de segurança com configurações de Sign-On único selecionadas.](./media/jobscience-tutorial/ic784368.png "Controles de Segurança")
     
     Clique no perfil SSO que você criou na etapa anterior. Esta página mostra o logon único na URL para a sua empresa (por exemplo, `https://companyname.my.salesforce.com?so=companyid`.    
 
@@ -204,19 +204,19 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 1. No **portal do Azure**, no painel de navegação esquerdo, clique no ícone de **Azure Active Directory** .
 
-    ![Criação de um usuário de teste do AD do Azure](./media/jobscience-tutorial/create_aaduser_01.png) 
+    ![Captura de tela mostra o ícone do Azure A D no portal do Azure.](./media/jobscience-tutorial/create_aaduser_01.png) 
 
 1. Para exibir a lista de usuários, vá para **usuários e grupos** e clique em **todos os usuários**.
     
-    ![Criação de um usuário de teste do AD do Azure](./media/jobscience-tutorial/create_aaduser_02.png) 
+    ![Captura de tela mostra os usuários e grupos selecionados no menu gerenciar, com todos os usuários selecionados.](./media/jobscience-tutorial/create_aaduser_02.png) 
 
 1. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
  
-    ![Criação de um usuário de teste do AD do Azure](./media/jobscience-tutorial/create_aaduser_03.png) 
+    ![Captura de tela mostra o botão Adicionar para abrir a caixa de diálogo usuário.](./media/jobscience-tutorial/create_aaduser_03.png) 
 
 1. Na página do diálogo **Usuário**, execute as seguintes etapas:
  
-    ![Criação de um usuário de teste do AD do Azure](./media/jobscience-tutorial/create_aaduser_04.png) 
+    ![Captura de tela mostra a caixa de diálogo de usuário onde você pode inserir os valores nesta etapa.](./media/jobscience-tutorial/create_aaduser_04.png) 
 
     a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
 
@@ -240,7 +240,7 @@ Para permitir que os usuários do Azure AD façam logon no Jobscience, eles deve
 
 1. Vá para a Configuração.
    
-   ![Instalação](./media/jobscience-tutorial/ic784358.png "Instalação")
+   ![Captura de tela mostra o item de instalação.](./media/jobscience-tutorial/ic784358.png "Instalação")
 1. Vá para **Gerenciar Usuários \> Usuários**.
    
    ![Usuários](./media/jobscience-tutorial/ic784369.png "Usuários")
@@ -273,25 +273,25 @@ Para permitir que os usuários do Azure AD façam logon no Jobscience, eles deve
 
 Nesta seção, você permite que Brenda Fernandes use o logon único do Azure concedendo acesso ao Jobscience.
 
-![Atribuir usuário][200] 
+![Captura de tela mostra um nome de exibição da conta.][200] 
 
 **Para atribuir Brenda Fernandes ao Jobscience, realize as seguintes etapas:**
 
 1. Na portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **aplicativos empresariais** e clique em **todos os aplicativos**.
 
-    ![Atribuir usuário][201] 
+    ![Captura de tela mostra aplicativos empresariais no menu portal do Azure com todos os aplicativos selecionados.][201] 
 
 1. Na lista de aplicativos, selecione **Jobscience**.
 
-    ![Configurar o logon único](./media/jobscience-tutorial/tutorial_jobscience_app.png) 
+    ![A captura de tela mostra o Jobscience selecionado.](./media/jobscience-tutorial/tutorial_jobscience_app.png) 
 
 1. No menu à esquerda, clique em **usuários e grupos**.
 
-    ![Atribuir usuário][202] 
+    ![Captura de tela mostra os usuários e grupos selecionados no menu portal do Azure.][202] 
 
 1. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
-    ![Atribuir usuário][203]
+    ![Captura de tela mostra o botão Adicionar, usado para adicionar atribuições.][203]
 
 1. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 

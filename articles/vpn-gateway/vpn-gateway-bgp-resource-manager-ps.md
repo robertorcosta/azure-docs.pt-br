@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 5abfa26f5d897ade963253da81927a48cc65d781
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: aeb43f1b9f53a9f57cc436ced1db1bc3feed02d1
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89394067"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843253"
 ---
 # <a name="how-to-configure-bgp-on-azure-vpn-gateways-using-powershell"></a>Como configurar o BGP em Gateways de VPN do Azure usando o PowerShell
 Este artigo explica as etapas para habilitar o BGP em uma conexão de VPN Site a Site (S2S) entre locais e uma conexão de VNet para VNet usando o modelo de implantação do Resource Manager e o PowerShell.
@@ -214,7 +214,7 @@ A conexão é estabelecida após alguns minutos, e a sessão de emparelhamento v
 
 Esta seção adiciona uma conexão de VNet para VNet com BGP, conforme mostrado neste diagrama:
 
-![BGP de VNet para VNet](./media/vpn-gateway-bgp-resource-manager-ps/bgp-vnet2vnet.png)
+![Diagrama que mostra uma conexão de V net a V net.](./media/vpn-gateway-bgp-resource-manager-ps/bgp-vnet2vnet.png)
 
 As instruções a seguir continuam das etapas anteriores. Você deve concluir a [Parte 1](#enablebgp) para criar e configurar o Gateway de VPN e TestVNet1 com BGP. 
 

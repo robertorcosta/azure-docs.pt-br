@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 0af8df35bc2cc323e5165b973c889a0ab10f4cbb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: bf779918dbfb9f7b95096f3a5efcc8e64f09c403
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91304876"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850486"
 ---
 # <a name="tutorial-configure-ipass-smartconnect-for-automatic-user-provisioning"></a>Tutorial: configurar iPass SmartConnect para provisionamento automático de usuário
 
@@ -110,15 +110,15 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Email de notificação](common/provisioning-notification-email.png)
 
-7. Clique em **Save** (Salvar).
+7. Clique em **Salvar**.
 
 8. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para iPass SmartConnect**.
 
-    ![Mapeamentos de usuário do iPass SmartConnect](media/ipass-smartconnect-provisioning-tutorial/usermapping.png)
+    :::image type="content" source="media/ipass-smartconnect-provisioning-tutorial/usermapping.png" alt-text="Captura de tela da seção mapeamentos. Em nome, sincronize Azure Active Directory usuários para iPass SmartConnect está visível." border="false":::
 
 9. Examine os atributos de usuário que são sincronizados do Azure AD para iPass SmartConnect na seção **mapeamento de atributos** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder as contas de usuário no iPass SmartConnect para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
 
-    ![Mapeamentos de usuário do iPass SmartConnect](media/ipass-smartconnect-provisioning-tutorial/userattribute.png)
+    :::image type="content" source="media/ipass-smartconnect-provisioning-tutorial/userattribute.png" alt-text="Captura de tela da seção mapeamentos. Em nome, sincronize Azure Active Directory usuários para iPass SmartConnect está visível." border="false":::
 
 
 10. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).

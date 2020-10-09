@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/12/2019
 ms.author: zhchia
-ms.openlocfilehash: 336c1e78143c09e07b8f05c3dbd10ca647844242
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5596dfab98f6826cd61241441a9ddade72e36674
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91319938"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91851264"
 ---
 # <a name="tutorial-configure-federated-directory-for-automatic-user-provisioning"></a>Tutorial: configurar o diretório federado para provisionamento automático de usuário
 
@@ -53,24 +53,24 @@ Antes de configurar o diretório federado para o provisionamento automático de 
 
 1. Entre no console do [administrador do diretório federado](https://federated.directory/of)
 
-    ![Tutorial de diretório federado](media/federated-directory-provisioning-tutorial/companyname.png)
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/companyname.png" alt-text="Captura de tela do console do administrador do diretório federado mostrando um campo para inserir um nome de empresa. Os botões de entrada também estão visíveis." border="false":::
 
 2. Navegue até **diretórios > diretórios de usuário** e selecione seu locatário. 
 
-    ![diretório federado](media/federated-directory-provisioning-tutorial/ad-user-directories.png)
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/ad-user-directories.png" alt-text="Captura de tela do console do administrador do diretório federado mostrando um campo para inserir um nome de empresa. Os botões de entrada também estão visíveis." border="false":::
 
 3.  Para gerar um token de portador permanente, navegue até **chaves de diretório > criar nova chave.** 
 
-    ![diretório federado](media/federated-directory-provisioning-tutorial/federated01.png)
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/federated01.png" alt-text="Captura de tela do console do administrador do diretório federado mostrando um campo para inserir um nome de empresa. Os botões de entrada também estão visíveis." border="false":::
 
 4. Crie uma chave de diretório. 
 
-    ![diretório federado](media/federated-directory-provisioning-tutorial/federated02.png)
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/federated02.png" alt-text="Captura de tela do console do administrador do diretório federado mostrando um campo para inserir um nome de empresa. Os botões de entrada também estão visíveis." border="false":::
     
 
 5. Copie o valor de **Token de Acesso**. Esse valor será inserido no campo **token secreto** na guia provisionamento do seu aplicativo de diretório federado no portal do Azure. 
 
-    ![diretório federado](media/federated-directory-provisioning-tutorial/federated03.png)
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/federated03.png" alt-text="Captura de tela do console do administrador do diretório federado mostrando um campo para inserir um nome de empresa. Os botões de entrada também estão visíveis." border="false":::
     
 ## <a name="add-federated-directory-from-the-gallery"></a>Adicionar diretório federado da Galeria
 
@@ -96,15 +96,15 @@ Para configurar o diretório federado para o provisionamento automático de usu�
 
 5. Navegue até a **URL** realçada abaixo em um navegador separado. 
 
-    ![diretório federado](media/federated-directory-provisioning-tutorial/loginpage1.png)
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/loginpage1.png" alt-text="Captura de tela do console do administrador do diretório federado mostrando um campo para inserir um nome de empresa. Os botões de entrada também estão visíveis." border="false":::
 
 6. Clique em **fazer logon**.
 
-    ![diretório federado](media/federated-directory-provisioning-tutorial/federated04.png)
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/federated04.png" alt-text="Captura de tela do console do administrador do diretório federado mostrando um campo para inserir um nome de empresa. Os botões de entrada também estão visíveis." border="false":::
 
 7.  Como o diretório federado é um aplicativo OpenIDConnect, opte por fazer logon no diretório federado usando sua conta corporativa da Microsoft.
     
-    ![diretório federado](media/federated-directory-provisioning-tutorial/loginpage3.png)
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/loginpage3.png" alt-text="Captura de tela do console do administrador do diretório federado mostrando um campo para inserir um nome de empresa. Os botões de entrada também estão visíveis." border="false":::
  
 8. Após uma autenticação bem-sucedida, aceite a solicitação de consentimento para a página de consentimento. O aplicativo será adicionado automaticamente ao seu locatário e você será redirecionado para sua conta de diretório federado.
 
@@ -142,16 +142,16 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Email de notificação](common/provisioning-notification-email.png)
 
-9. Clique em **Save** (Salvar).
+9. Clique em **Salvar**.
 
 10. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para o diretório federado**.
 
-    ![Tutorial de diretório federado](media/federated-directory-provisioning-tutorial/user-mappings.png)
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/user-mappings.png" alt-text="Captura de tela do console do administrador do diretório federado mostrando um campo para inserir um nome de empresa. Os botões de entrada também estão visíveis." border="false":::
     
     
 11. Examine os atributos de usuário que são sincronizados do Azure AD para o diretório federado na seção **mapeamento de atributos** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder as contas de usuário no diretório federado para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
 
-    ![Tutorial de diretório federado](media/federated-directory-provisioning-tutorial/user-attributes.png)
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/user-attributes.png" alt-text="Captura de tela do console do administrador do diretório federado mostrando um campo para inserir um nome de empresa. Os botões de entrada também estão visíveis." border="false":::
     
 
 12. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).

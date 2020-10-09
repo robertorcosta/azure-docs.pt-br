@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: a6db1866c42dbb90d6ea0f288aceed4672424fe0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 56aad5ce9045ca205221ba0c56d1ea75f8f3610a
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91321961"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850482"
 ---
 # <a name="tutorial-configure-mypolicies-for-automatic-user-provisioning"></a>Tutorial: configurar mypolicies para provisionamento automático de usuário
 
@@ -114,11 +114,11 @@ Exemplo: `<demo0-qa>` . mypolicies.com.
 
     ![Email de notificação](common/provisioning-notification-email.png)
 
-8. Clique em **Save** (Salvar).
+8. Clique em **Salvar**.
 
 9. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para mypolicies**.
 
-    ![Mapeamentos de usuário mypolicies](media/mypolicies-provisioning-tutorial/usermapping.png)
+    :::image type="content" source="media/mypolicies-provisioning-tutorial/usermapping.png" alt-text="Captura de tela da seção mapeamentos. Em nome, sincronize Azure Active Directory usuários para customappsso está visível." border="false":::
 
 10. Examine os atributos de usuário que são sincronizados do Azure AD para mypolicies na seção **mapeamento de atributos** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder as contas de usuário em mypolicies para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
 
