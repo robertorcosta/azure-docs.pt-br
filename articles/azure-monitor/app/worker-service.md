@@ -4,12 +4,12 @@ description: Monitorando aplicativos .NET Core/. NET Framework não HTTP com Azu
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/11/2020
-ms.openlocfilehash: 643edf81d6a98c8f423267b657feb9dfb6da1070
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 8156541a5b04a5db5f2ce683fd0e514c81e8b53e
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91816394"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91840397"
 ---
 # <a name="application-insights-for-worker-service-applications-non-http-applications"></a>Application Insights para aplicativos de serviço de trabalho (aplicativos não HTTP)
 
@@ -333,19 +333,18 @@ Você pode personalizar o SDK do Application Insights para o serviço de trabalh
 Você pode modificar algumas configurações comuns passando `ApplicationInsightsServiceOptions` para `AddApplicationInsightsTelemetryWorkerService` , como neste exemplo:
 
 ```csharp
-    using Microsoft.ApplicationInsights.WorkerService;
+using Microsoft.ApplicationInsights.WorkerService;
 
-    public void ConfigureServices(IServiceCollection services)
-    {
-        Microsoft.ApplicationInsights.WorkerService.ApplicationInsightsServiceOptions aiOptions
-                    = new Microsoft.ApplicationInsights.WorkerService.ApplicationInsightsServiceOptions();
-        // Disables adaptive sampling.
-        aiOptions.EnableAdaptiveSampling = false;
+public void ConfigureServices(IServiceCollection services)
+{
+    var aiOptions = new ApplicationInsightsServiceOptions();
+    // Disables adaptive sampling.
+    aiOptions.EnableAdaptiveSampling = false;
 
-        // Disables QuickPulse (Live Metrics stream).
-        aiOptions.EnableQuickPulseMetricStream = false;
-        services.AddApplicationInsightsTelemetryWorkerService(aiOptions);
-    }
+    // Disables QuickPulse (Live Metrics stream).
+    aiOptions.EnableQuickPulseMetricStream = false;
+    services.AddApplicationInsightsTelemetryWorkerService(aiOptions);
+}
 ```
 
 Observe que `ApplicationInsightsServiceOptions` neste SDK está no namespace em `Microsoft.ApplicationInsights.WorkerService` vez de `Microsoft.ApplicationInsights.AspNetCore.Extensions` no SDK do ASP.NET Core.
@@ -364,7 +363,37 @@ Consulte as [configurações configuráveis `ApplicationInsightsServiceOptions` 
 
 ### <a name="sampling"></a>amostragem
 
-O SDK do Application Insights para o serviço de trabalho dá suporte à amostragem de taxa fixa e adaptável. A amostragem adaptável é habilitada por padrão. Configurar a amostragem para o serviço de trabalho é feito da mesma maneira que para [aplicativos ASP.NET Core](./sampling.md#configuring-adaptive-sampling-for-aspnet-core-applications).
+O SDK do Application Insights para o serviço de trabalho dá suporte à amostragem de taxa fixa e adaptável. A amostragem adaptável é habilitada por padrão. A amostragem pode ser desabilitada usando a `EnableAdaptiveSampling` opção em [ApplicationInsightsServiceOptions](#using-applicationinsightsserviceoptions)
+
+Para definir configurações de amostragem adicionais, o exemplo a seguir pode ser usado.
+
+```csharp
+using Microsoft.ApplicationInsights.Extensibility;
+using Microsoft.ApplicationInsights.WorkerService;
+
+public void ConfigureServices(IServiceCollection services)
+{
+    // ...
+
+    var aiOptions = new ApplicationInsightsServiceOptions();
+    
+    // Disable adaptive sampling.
+    aiOptions.EnableAdaptiveSampling = false;
+    services.AddApplicationInsightsTelemetryWorkerService(aiOptions);
+
+    // Add Adaptive Sampling with custom settings.
+    // the following adds adaptive sampling with 15 items per sec.
+    services.Configure<TelemetryConfiguration>((telemetryConfig) =>
+        {
+            var builder = telemetryConfig.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
+            builder.UseAdaptiveSampling(maxTelemetryItemsPerSecond: 15);
+            builder.Build();
+        });
+    //...
+}
+```
+
+Mais informações podem ser encontradas no documento de [amostragem](#sampling) .
 
 ### <a name="adding-telemetryinitializers"></a>Adicionando TelemetryInitializers
 
@@ -540,7 +569,9 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
 
 ## <a name="open-source-sdk"></a>SDK do código-fonte aberto
 
-[Leia e colabore para o código](https://github.com/Microsoft/ApplicationInsights-aspnetcore#recent-updates).
+* [Leia e colabore para o código](https://github.com/microsoft/ApplicationInsights-dotnet).
+
+Para obter as atualizações mais recentes e as correções de bugs, [consulte as notas de versão](./release-notes.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

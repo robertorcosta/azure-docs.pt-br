@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: yegu
-ms.openlocfilehash: 6203c230f7ca27b1d4b48e9f56a7f46cd5a5ce78
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: f6ac02f0bcd9becf5dd1ffcd600f78b848b47cda
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91825320"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839683"
 ---
 # <a name="how-to-set-up-geo-replication-for-azure-cache-for-redis"></a>Como configurar a replicação geográfica para o cache do Azure para Redis
 
@@ -73,7 +73,7 @@ Após a configuração da replicação geográfica, as seguintes restrições se
 
     Você também pode exibir o status de vinculação na folha **Visão geral** para os caches primário e secundário.
 
-    ![Status do cache](./media/cache-how-to-geo-replication/cache-geo-location-link-status.png)
+    ![Captura de tela que realça como exibir o status de vinculação para os caches primários e secundários.](./media/cache-how-to-geo-replication/cache-geo-location-link-status.png)
 
     Quando o processo de replicação é concluído, o **Status da vinculação** é alterado para **Êxito**.
 

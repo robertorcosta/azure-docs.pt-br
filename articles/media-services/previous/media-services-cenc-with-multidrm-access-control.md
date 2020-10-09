@@ -15,12 +15,12 @@ ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: kilroyh;yanmf;juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e7e63225df4e337a93912bf1e1c17eb61a6cc9e0
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: b98b66d8f0350c32e89d62d776ee1288d9271712
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89258581"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91841145"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Criação de um sistema de proteção de conteúdo com controle de acesso usando os serviços de mídia do Azure
 
@@ -153,7 +153,7 @@ A tabela abaixo mostra o mapeamento.
 | --- | --- |
 | **Jogador** |[Player de Mídia do Azure](https://azure.microsoft.com/services/media-services/media-player/) |
 | **IdP (provedor de identidade)** |Active Directory do Azure (Azure AD) |
-| **STS (serviço de token de segurança)** |Azure AD |
+| **STS (serviço de token de segurança)** |AD do Azure |
 | **Fluxo de trabalho de proteção de DRM** |Proteção dinâmica dos Serviços de Mídia |
 | **Entrega de licença do DRM** |* Entrega de licença dos Serviços de Mídia (PlayReady, Widevine, FairPlay) <br/>* Servidor de licença Axinom <br/>* Servidor de licença do PlayReady personalizado |
 | **Origem** |Ponto de extremidade de streaming dos Serviços de Mídia |
@@ -421,11 +421,11 @@ As capturas de tela a seguir mostram as diferentes páginas de entrada usadas po
 
 **Conta de domínio de locatário do Azure AD personalizado**: a página de entrada personalizada do domínio de locatário do Azure AD personalizado.
 
-![Conta de domínio do locatário do AD do Azure personalizada](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain1.png)
+![Captura de tela que mostra a página de entrada personalizada do domínio personalizado do locatário do Azure A D.](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain1.png)
 
 **Conta de domínio da Microsoft com cartão inteligente**: a página de entrada personalizada pela TI corporativa da Microsoft com autenticação de dois fatores.
 
-![Conta de domínio do locatário do AD do Azure personalizada](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain2.png)
+![Captura de tela que mostra a página de entrada personalizada pela Microsoft Corporate I com autenticação de dois fatores.](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain2.png)
 
 **Conta da Microsoft**: a página de entrada da conta da Microsoft para consumidores.
 

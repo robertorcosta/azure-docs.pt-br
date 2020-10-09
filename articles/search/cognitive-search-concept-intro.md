@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.openlocfilehash: 2195ac4e5753addaee9e13c368b6e6a1b94354ff
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 09e7a39a2d97626dd01a00fdaef9bc4d711d557b
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91363130"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91828090"
 ---
 # <a name="ai-enrichment-in-azure-cognitive-search"></a>Enriquecimento de IA no Azure Cognitive Search
 
@@ -51,7 +51,7 @@ Um [técnico](cognitive-search-defining-skillset.md) que é montado usando habil
 
 + Documentos não estruturados ou semiestruturados que contêm dados com significado ou contexto inerente, oculto dentro do documento mais amplo. 
 
-  Os BLOBs em particular geralmente contêm um grande corpo de conteúdo empacotado em um "campo" único. Ao anexar habilidades de processamento de imagem e de linguagem natural a um indexador, você pode criar novas informações que estavam contidas no conteúdo bruto, mas não eram destacadas como campos distintos. Algumas habilidades cognitivas internas prontas para uso que podem ajudar: extração de frases-chave, análise de sentimentos e reconhecimento de entidades (pessoas, organizações e locais).
+  Os BLOBs em particular geralmente contêm um grande corpo de conteúdo que é empacotado em um único "campo". Ao anexar habilidades de processamento de imagem e de linguagem natural a um indexador, você pode criar novas informações que estavam contidas no conteúdo bruto, mas não eram destacadas como campos distintos. Algumas habilidades cognitivas internas prontas para uso que podem ajudar: extração de frases-chave, análise de sentimentos e reconhecimento de entidades (pessoas, organizações e locais).
 
   Além disso, as habilidades internas podem ser usadas para reestruturar o conteúdo por meio de operações de divisão de texto, mesclagem e modelagem.
 

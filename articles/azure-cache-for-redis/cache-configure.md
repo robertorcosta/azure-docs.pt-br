@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: 1fb05b52bbe3e8f544b17537ef9070e5b2b0b77b
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: 81a65c088fd83ce179f67edd1ecdb96149dd1614
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91460162"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91840244"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Como configurar o Cache do Azure para Redis
 Este tópico descreve as configurações disponíveis para suas instâncias de Cache do Azure para Redis. Este tópico também aborda a configuração padrão do servidor Redis para instâncias do Cache do Azure para Redis.
@@ -53,7 +53,7 @@ Você pode exibir e definir as seguintes configurações usando o **Menu recurso
     * [Importar dados](#importexport)
     * [Exportar dados](#importexport)
     * [Reboot](#reboot)
-* [Monitoramento](#monitoring)
+* [Monitoring](#monitoring)
     * [Métricas do Redis](#redis-metrics)
     * [Regras de alerta](#alert-rules)
     * [Diagnóstico](#diagnostics)
@@ -169,11 +169,11 @@ Para obter mais informações, veja [Notificações de Keyspace do Redis](https:
 ## <a name="azure-cache-for-redis-advisor"></a>Assistente do Cache do Azure para Redis
 A folha **Assistente do Cache do Azure para Redis** exibe recomendações para seu cache. Durante as operações normais, nenhuma recomendação é exibida.
 
-![Recomendações](./media/cache-configure/redis-cache-no-recommendations.png)
+![Captura de tela que mostra onde as recomendações são exibidas.](./media/cache-configure/redis-cache-no-recommendations.png)
 
 Se alguma condição ocorrer durante as operações de seu cache, por exemplo, alto uso de memória, de largura de banda de rede ou de carga do servidor, um alerta será exibido na folha **Cache do Azure para Redis**.
 
-![Recomendações](./media/cache-configure/redis-cache-recommendations-alert.png)
+![Captura de tela que mostra onde os alertas são exibidos na seção cache do Azure para Redis.](./media/cache-configure/redis-cache-recommendations-alert.png)
 
 É possível encontrar mais informações na folha **Recomendações** .
 
@@ -314,7 +314,7 @@ A folha **Reinicializar** permite a reinicialização dos nós do cache. Essa fu
 
 Se tiver um cache premium com clustering habilitado, você poderá selecionar quais fragmentos do cache serão reinicializados.
 
-![Reboot](./media/cache-configure/redis-cache-reboot-cluster.png)
+![Captura de tela que mostra onde selecionar quais fragmentos do cache deve ser reinicializado.](./media/cache-configure/redis-cache-reboot-cluster.png)
 
 Para reinicializar um ou mais nós do cache, selecione os nós desejados e clique em **Reinicializar**. Se tiver um cache premium com clustering habilitado, selecione os fragmentos a serem reinicializados e clique em **Reinicializar**. Depois de alguns minutos, os nós selecionados são reinicializados e voltam a ficar online alguns minutos mais tarde.
 
@@ -474,11 +474,11 @@ Você pode emitir comandos com segurança para suas instâncias do Cache do Azur
 
 Para acessar o Console do Redis, clique em **Console** na folha **Cache do Azure para Redis**.
 
-![Console do Redis](./media/cache-configure/redis-console-menu.png)
+![Captura de tela que realça o botão do console.](./media/cache-configure/redis-console-menu.png)
 
 Para emitir comandos em sua instância de cache, digite o comando desejado no console.
 
-![Console do Redis](./media/cache-configure/redis-console.png)
+![A captura de tela thas mostra o console do Redis com o comando de entrada e os resultados.](./media/cache-configure/redis-console.png)
 
 
 ### <a name="using-the-redis-console-with-a-premium-clustered-cache"></a>Usando o Console Redis com um cache Premium clusterizado

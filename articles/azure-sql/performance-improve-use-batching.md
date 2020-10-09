@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 ms.date: 01/25/2019
-ms.openlocfilehash: 94f54e02de1b61cb05b4e41bb4c40118299cf20f
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.openlocfilehash: 487b668d9a3d934220fecf5c0896f7ef492c6775
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91618634"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91840482"
 ---
 # <a name="how-to-use-batching-to-improve-azure-sql-database-and-azure-sql-managed-instance-application-performance"></a>Como usar o envio em lote para melhorar o desempenho do banco de dados SQL do Azure e do Azure SQL Instância Gerenciada do aplicativo
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -293,7 +293,7 @@ A classe **DataAdapter** permite que você modifique um objeto **DataSet** e env
 
 ### <a name="entity-framework"></a>Entity Framework
 
-O [Entity Framework 6](https://github.com/dotnet/ef6) agora dá suporte ao envio em lote.
+O [Entity Framework Core](https://docs.microsoft.com/ef/efcore-and-ef6/#saving-data) dá suporte ao envio em lote.
 
 ### <a name="xml"></a>XML
 

@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.custom: mqtt, devx-track-java
-ms.openlocfilehash: c439f1a5aaa03774652dc815364c45633096f6de
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: b433ab29ab5a2520f503e002e630068126ddb328
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327592"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91838680"
 ---
 # <a name="get-started-with-device-twins-java"></a>Introdução ao dispositivos gêmeos (Java)
 
@@ -380,7 +380,7 @@ Agora você está pronto para executar os aplicativos de console.
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
-    ![Aplicativo de serviço do Hub IoT Java para atualizar valores de marca e executar consultas de dispositivo](./media/iot-hub-java-java-twin-getstarted/service-app-1.png)
+    ![Captura de tela que mostra a saída do comando para executar o aplicativo de serviço de consulta adicionar marcas.](./media/iot-hub-java-java-twin-getstarted/service-app-1.png)
 
     Você pode ver as marcas **planta** e **região** adicionadas ao dispositivo gêmeo. A primeira consulta retorna seu dispositivo, mas a segunda, não.
 
@@ -390,7 +390,7 @@ Agora você está pronto para executar os aplicativos de console.
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
-    ![O cliente do dispositivo adiciona a propriedade relatada **connectivityType**](./media/iot-hub-java-java-twin-getstarted/device-app-1.png)
+    ![O cliente do dispositivo adiciona a propriedade relatada tipo de conectividade](./media/iot-hub-java-java-twin-getstarted/device-app-1.png)
 
 3. Em um prompt de comando na pasta **add-tags-query**, execute o seguinte comando para executar o aplicativo de serviço **add-tags-query** uma segunda vez:
 

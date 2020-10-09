@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 4ab754cacc85bc9e7c7b850270df37290ad399b6
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: e2c071ff9cf020f99e990e670cfb29cca3c1ebbc
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91650154"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91838646"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link-public-preview"></a>Cache do Azure para Redis com o link privado do Azure (visualização pública)
 Neste artigo, você aprenderá a criar uma rede virtual e um cache do Azure para a instância Redis com um ponto de extremidade privado usando o portal do Azure. Você também aprenderá a adicionar um ponto de extremidade privado a um cache do Azure existente para a instância do Redis.
@@ -22,9 +22,8 @@ O ponto de extremidade privado do Azure é uma interface de rede que conecta voc
 * Assinatura do Azure- [crie uma gratuitamente](https://azure.microsoft.com/free/)
 
 > [!NOTE]
-> Este recurso está atualmente em visualização pública para regiões limitadas. Se você não tiver a opção de criar um ponto de extremidade privado, [entre em contato conosco](mailto:azurecache@microsoft.com). Para usar pontos de extremidade privados, seu cache do Azure para instância Redis precisa ter sido criado após 28 de julho de 2020.
+> Para usar pontos de extremidade privados, seu cache do Azure para instância Redis precisa ter sido criado após 28 de julho de 2020.
 >
-> Regiões com acesso de visualização pública atualmente: Oeste EUA Central, norte EUA Central, oeste dos EUA, oeste dos EUA 2, leste dos EUA, leste dos EUA 2, EUA Central, Sul EUA Central, leste da Noruega, oeste da Europa, oeste da Índia, leste da Ásia, sudeste da Coreia, leste do Japão, oeste do Japão, norte da Suíça, oeste da Suíça , Norte da África do Sul, sul da França, França central, leste do Canadá, Canadá central, Norte da Alemanha, Centro-oeste da Alemanha, Austrália Central, Índia ocidental, sul da Índia, leste da Austrália, sudeste do Brasil, sul do Brasil e sul do Brasil.
 >
 
 ## <a name="create-a-private-endpoint-with-a-new-azure-cache-for-redis-instance"></a>Criar um ponto de extremidade privado com um novo cache do Azure para instância Redis 

@@ -4,12 +4,12 @@ description: Configure ferramentas de análise de desempenho, de disponibilidade
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: contperfq1
-ms.openlocfilehash: 5f52f1febcc69723dae76e31d17b5a9a7e8c67bb
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.openlocfilehash: 861a9f53c2f149268e06005053206a7411e842f8
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91616747"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91838935"
 ---
 # <a name="configure-application-insights-for-your-aspnet-website"></a>Configurar Application Insights para seu site do ASP.NET
 
@@ -39,7 +39,7 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 Esta seção orientará você pela adição automática de Application Insights a um aplicativo Web ASP.NET baseado em modelo. De dentro de seu projeto de aplicativo Web ASP.NET no Visual Studio:
 
 1. Selecione **Adicionar Application insights Telemetry**  >  **Application insights SDK (local)**  >  **próximo**  >  **Finish**  >  **encerramento**final.
-2. Abra o arquivo `ApplicationInsights.config`. 
+2. Abra o arquivo `ApplicationInsights.config` . 
 3. Antes da marca de fechamento, `</ApplicationInsights>` adicione uma linha que contém a chave de instrumentação para o recurso Application insights.  Sua chave de instrumentação pode ser encontrada no painel Visão geral do recurso de Application Insights criado recentemente que você criou como parte dos pré-requisitos deste artigo.
 
     ```xml
@@ -349,6 +349,12 @@ Para adicionar o monitoramento do lado do cliente, abra o `_Layout.cshtml` arqui
 ## <a name="troubleshooting"></a>Solução de problemas
 
 Há um problema conhecido na versão atual do Visual Studio 2019 que, ao armazenar a chave de instrumentação em um segredo de usuário, é desfeito para aplicativos baseados em .NET Framework e a chave, por fim, precisa ser codificada no arquivo de applicationinsights.config para contornar esse bug. Este artigo foi projetado para evitar esse problema totalmente, não usando segredos do usuário.  
+
+## <a name="open-source-sdk"></a>SDK do código-fonte aberto
+
+* [Leia e colabore para o código](https://github.com/microsoft/ApplicationInsights-dotnet).
+
+Para obter as atualizações mais recentes e as correções de bugs, [consulte as notas de versão](./release-notes.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

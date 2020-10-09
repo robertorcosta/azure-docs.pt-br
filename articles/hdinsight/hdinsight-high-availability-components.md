@@ -6,24 +6,23 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 11/11/2019
-ms.openlocfilehash: e1da26d9067427734d407451bdb53e51ba1e6243
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 10/07/2020
+ms.openlocfilehash: ac63846e2679e9b4a51cb26b32415eb81a4b76ed
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84609158"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842573"
 ---
 # <a name="high-availability-services-supported-by-azure-hdinsight"></a>Serviços de alta disponibilidade com suporte do Azure HDInsight
 
- Para fornecer a você os níveis ideais de disponibilidade para seus componentes de análise, o HDInsight foi desenvolvido com uma arquitetura exclusiva para garantir alta disponibilidade (HA) de serviços críticos. Alguns componentes dessa arquitetura foram desenvolvidos pela Microsoft para fornecer failover automático. Outros componentes são componentes padrão do Apache que são implantados para dar suporte a serviços específicos. Este artigo explica a arquitetura do modelo de serviço de alta disponibilidade no HDInsight, como o HDInsight dá suporte a failover para serviços de HA e práticas recomendadas para recuperação de outras interrupções de serviço.
+Para fornecer a você os níveis ideais de disponibilidade para seus componentes de análise, o HDInsight foi desenvolvido com uma arquitetura exclusiva para garantir alta disponibilidade (HA) de serviços críticos. Alguns componentes dessa arquitetura foram desenvolvidos pela Microsoft para fornecer failover automático. Outros componentes são componentes padrão do Apache que são implantados para dar suporte a serviços específicos. Este artigo explica a arquitetura do modelo de serviço de alta disponibilidade no HDInsight, como o HDInsight dá suporte a failover para serviços de HA e práticas recomendadas para recuperação de outras interrupções de serviço.
  
 > [!NOTE]
-> Comunicação sem tendência
+> Comunicação livre de desvio
 >
 > A Microsoft dá suporte a um ambiente diversificado e de inclusão. Este artigo contém referências à palavra _subordinada_. O [Guia de estilo da Microsoft para comunicação sem tendência](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) reconhece isso como uma palavra de exclusão. A palavra é usada neste artigo para fins de consistência porque, atualmente, ela é a palavra que aparece no software. Quando o software for atualizado para remover a palavra, este artigo será atualizado para estar em alinhamento.
 >
-
 
 ## <a name="high-availability-infrastructure"></a>Infraestrutura de alta disponibilidade
 
@@ -57,7 +56,7 @@ A Microsoft fornece suporte para os quatro serviços Apache na tabela a seguir e
 
 | Serviço | Nós de cluster | Tipos de cluster | Finalidade |
 |---|---|---|---|
-| Servidor Apache Ambari| Cabeçalho ativo | Tudo | Monitora e gerencia o cluster.|
+| Servidor Apache Ambari| Cabeçalho ativo | Todos | Monitora e gerencia o cluster.|
 | Linha do Tempo do Aplicativo Server para Apache YARN | Cabeçalho ativo | Todos, exceto Kafka | Mantém informações de depuração sobre trabalhos do YARN em execução no cluster.|
 | Servidor de histórico de trabalho para o MapReduce do Hadoop | Cabeçalho ativo | Todos, exceto Kafka | Mantém dados de depuração para trabalhos MapReduce.|
 | Apache Livy | Cabeçalho ativo | Spark | Permite uma interação fácil com um cluster Spark em uma interface REST |
@@ -100,7 +99,7 @@ O Master-ha-Service é executado somente no cabeçalho ativo, ele interrompe os 
 
 ![processo de failover](./media/hdinsight-high-availability-components/failover-steps.png)
 
-Um monitor de integridade é executado em cada cabeçalho junto com o controlador de failover mestre para enviar notificações do pulsação para o quorum do Zookeeper. O cabeçalho é considerado um serviço de HA nesse cenário. O Health Monitor verifica se cada serviço de alta disponibilidade está íntegro e se está pronto para ingressar na eleição de liderança. Em caso afirmativo, esse cabeçalho competirá na eleição. Caso contrário, ele encerrará a eleição até que ela se torne pronta novamente.
+Um monitor de integridade é executado em cada cabeçalho junto com o controlador de failover mestre para enviar notificações de pulsação para o quorum Zookeeper. O cabeçalho é considerado um serviço de HA nesse cenário. O Health Monitor verifica se cada serviço de alta disponibilidade está íntegro e se está pronto para ingressar na eleição de liderança. Em caso afirmativo, esse cabeçalho competirá na eleição. Caso contrário, ele encerrará a eleição até que ela se torne pronta novamente.
 
 Se o cabeçalho em espera atingir a liderança e se tornar ativo (como no caso de uma falha com o nó ativo anterior), seu controlador de failover mestre iniciará todos os serviços do HDInsight HA nele. O controlador de failover mestre também irá parar esses serviços no outro cabeçalho.
 

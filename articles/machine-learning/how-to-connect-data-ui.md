@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 09/22/2020
 ms.custom: how-to
-ms.openlocfilehash: 5ddfa2adbc9ec39949d7352903445407ff8e8881
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 116dd65bf04c01f513e196a2f1b37d54aacbf1fe
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91542148"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91841349"
 ---
 # <a name="connect-to-data-with-the-azure-machine-learning-studio"></a>Conectar-se a dados com o Azure Machine Learning Studio
 
@@ -87,6 +87,7 @@ Para criar um conjunto de um DataSet no estúdio:
 1. Selecione **tabela** ou **arquivo** para o tipo de conjunto de texto.
 1. Selecione **Avançar** para abrir o formulário **repositório de armazenamento e seleção de arquivo** . Neste formulário, você seleciona onde deseja manter o conjunto de dados após a criação, bem como selecionar quais arquivos que deseja usar para o conjunto.
     1. Habilite ignorar validação se os dados estiverem em uma rede virtual. Saiba mais sobre o [isolamento e a privacidade da rede virtual](how-to-enable-virtual-network.md#machine-learning-studio).
+    1. Para conjuntos de tabelas de tabela, você pode especificar uma característica ' timeseries ' para habilitar as operações relacionadas ao tempo em seu conjunto de linhas. Saiba como [Adicionar a característica da série temporal ao seu conjunto](how-to-monitor-datasets.md#studio-dataset)de informações.
 1. Selecione **Avançar** para popular as **configurações e** os formulários de visualização e **esquema** ; Eles são populados de forma inteligente com base no tipo de arquivo e você pode configurar ainda mais seu conjunto de informações antes da criação nesses formulários. 
 1. Selecione **Avançar** para examinar o formulário **confirmar detalhes** . Verifique suas seleções e crie um perfil de dados opcional para seu conjunto de dados. Saiba mais sobre a [criação de perfil de dados](#profile).
 1. Selecione **criar** para concluir a criação do conjunto de seus conjuntos de os.

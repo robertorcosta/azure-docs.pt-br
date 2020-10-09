@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/26/2020
+ms.date: 10/07/2020
 ms.author: alkohli
-ms.openlocfilehash: b0eaa9778480a6a767a4b37bd92a395d2b1ee6cb
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 225cb9a31b73f330d8b4ed5790caacc4fa729477
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90899027"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839938"
 ---
 # <a name="technical-specifications-and-compliance-for-azure-stack-edge-pro-with-gpu"></a>Especificações técnicas e conformidade para Azure Stack o Edge pro com GPU 
 
@@ -67,7 +67,7 @@ Estes são os detalhes da placa Mellanox:
 
 | Parâmetro           | Descrição                 |
 |-------------------------|----------------------------|
-| Modelo    | Placa de interface de rede ConnectX®-4 LX                      |
+| Modelar    | Placa de interface de rede ConnectX®-4 LX                      |
 | Descrição do modelo               | 25GbE Dual-Port SFP28; PCIe 3.0 x8; R6 DE ROHS                    |
 | Número de peça do dispositivo (R640) | MCX4121A-ACAT  |
 | PSID (R640)           | MT_2420110034                         |
@@ -79,20 +79,20 @@ Para obter uma lista completa de cabos, comutadores e transceptores compatíveis
 
 ## <a name="storage-specifications"></a>Especificações do armazenamento
 
-Os dispositivos Azure Stack Edge pro têm cinco 2,5 de SSDs de P4610 do controlador de domínio NVMe, cada um com uma capacidade de 1,6 TB. A unidade de inicialização é uma SSD SATA de 240 GB. A capacidade utilizável total para o dispositivo é de aproximadamente 8,28 TB. A tabela a seguir lista a capacidade de armazenamento do dispositivo.
+Os dispositivos Azure Stack Edge pro têm cinco 2,5 de SSDs de P4610 do controlador de domínio NVMe, cada um com uma capacidade de 1,6 TB. A unidade de inicialização é uma SSD SATA de 240 GB. A capacidade utilizável total para o dispositivo é de aproximadamente 4,19 TB. A tabela a seguir lista a capacidade de armazenamento do dispositivo.
 
 |     Especificação                          |     Valor             |
 |--------------------------------------------|-----------------------|
-|    SSD (unidades de estado sólido) SATA de inicialização      |    1                  |
 |    Número de SSDs do NVMe                     |    5                  |
-|    Capacidade SSD de inicialização                       |    240 GB             |
 |    Capacidade SSD única do NVMe                |    1,6 TB             |
-|    Capacidade total                          |    8,28 TB            |
-|    Capacidade total utilizável*                  |    ~ 7,95 TB          |
+|    SSD (unidades de estado sólido) SATA de inicialização      |    1                  |
+|    Capacidade SSD de inicialização                       |    240 GB             |
+|    Capacidade total                          |    8,0 TB             |
+|    Capacidade total utilizável*                  |    ~ 4,19 TB          |
 |    Controlador SAS                          |    HBA330 12 Gbps     |
 
 
-**Algum espaço está reservado para uso interno.*
+**Após a resiliência de paridade e reserva de espaço para uso interno.*
 
 <!--Remove based on feedback from Ravi
 ## Other hardware specifications

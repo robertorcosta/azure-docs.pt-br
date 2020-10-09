@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 03/22/2018
-ms.openlocfilehash: bd2da798cae92a7e47bd879b69dd108618463402
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e8a3183e1fcac3f1a71d07835cacc37c2f57fb06
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81010759"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839037"
 ---
 # <a name="how-to-use-the-redis-command-line-tool-with-azure-cache-for-redis"></a>Como usar a ferramenta de linha de comando Redis com Cache do Azure para Redis
 
@@ -29,7 +29,7 @@ Você pode coletar as informações necessárias para acessar o cache usando tr�
 
 1. Usando a CLI do Azure [az redis list-keys](https://docs.microsoft.com/cli/azure/redis?view=azure-cli-latest#az-redis-list-keys)
 2. Com o Azure PowerShell usando [Get-AzRedisCacheKey](https://docs.microsoft.com/powershell/module/az.rediscache/Get-AzRedisCacheKey)
-3. Usando o Portal do Azure.
+3. Usando o portal do Azure.
 
 Nesta seção, você vai recuperar as chaves do Portal do Azure.
 
@@ -72,7 +72,7 @@ Ao usar stunnel, execute *redis-cli.exe* e passe apenas sua *porta* e *chave de 
 redis-cli.exe -p 6380 -a YourAccessKey
 ```
 
-![stunnel com redis-cli](media/cache-how-to-redis-cli-tool/cache-redis-cli-stunnel.png)
+![Captura de tela que mostra que a conexão com o cache foi bem-sucedida.](media/cache-how-to-redis-cli-tool/cache-redis-cli-stunnel.png)
 
 Se você estiver usando um cache de teste com a porta não TLS não **segura** , execute `redis-cli.exe` e passe seu *nome de host*, *porta*e *chave de acesso* (primário ou secundário) para se conectar ao cache de teste.
 

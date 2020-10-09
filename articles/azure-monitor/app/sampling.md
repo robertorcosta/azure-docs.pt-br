@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: bb6793bc1e3d5bb55426c1f344520ae19a22a9f9
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 151bc87bd5674a61b8652adfa70634318c405240
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549558"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839598"
 ---
 # <a name="sampling-in-application-insights"></a>Amostragem no Application Insights
 
@@ -295,9 +295,9 @@ No Metrics Explorer, as taxas como as contagens de solicitações e de exceçõe
 
         var builder = configuration.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
         // For older versions of the Application Insights SDK, use the following line instead:
-        // var builder = TelemetryConfiguration.Active.TelemetryProcessorChainBuilder;
+        // var builder = configuration.TelemetryProcessorChainBuilder;
 
-        // Using fixed rate sampling   
+        // Using fixed rate sampling
         double fixedSamplingPercentage = 10;
         builder.UseSampling(fixedSamplingPercentage);
 
@@ -482,7 +482,7 @@ As principais vantagens da amostragem são:
 
 Se as condições para usar outras formas de amostragem não se aplicarem, é recomendável a amostragem adaptável. Essa configuração é habilitada por padrão no SDK do ASP.NET/ASP.NET Core. Ele não reduzirá o tráfego até que uma determinada taxa mínima seja atingida, portanto, os sites de baixo uso provavelmente não serão amostrados.
 
-## <a name="knowing-whether-sampling-is-in-operation"></a>Sabendo se a amostragem está em operação
+## <a name="knowing-whether-sampling-is-in-operation"></a>Saber se a amostragem está em operação
 
 Para descobrir a taxa de amostragem real, independentemente de onde ela tiver sido aplicada, use uma [consulta do Analytics](../log-query/log-query-overview.md) como esta:
 

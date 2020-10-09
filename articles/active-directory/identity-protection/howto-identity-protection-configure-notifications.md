@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 06/05/2020
+ms.date: 10/07/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 291afbdd902c7563e47595132d56b354dab28a3a
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 71c786aaecd3ab2f18f242cea2f5c45838f9ecf3
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88950384"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839340"
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Notificações do Azure Active Directory Identity Protection
 
@@ -44,8 +44,8 @@ Para evitar uma sobrecarga de emails, você receberá apenas um usuário em risc
 Como administrador, você pode definir:
 
 - **O nível de risco do usuário que dispara a geração desse email** -por padrão, o nível de risco é definido como risco "alto".
-- **Os destinatários deste email** -Por padrão, os destinatários incluem todos os administradores globais. Os administradores globais também podem adicionar outros administradores globais, administradores de segurança, leitores de segurança como destinatários.
-   - Opcionalmente, você pode **Adicionar emails adicionais para receber notificações de alerta** esse recurso é uma visualização e os usuários definidos devem ter as permissões apropriadas para exibir os relatórios vinculados no portal do Azure.
+- **Os destinatários deste email** -os usuários nas funções administrador global, administrador de segurança ou leitor de segurança são adicionados automaticamente a essa lista. Tentamos enviar emails para os primeiros 20 membros de cada função. Se um usuário estiver registrado no PIM para elevar a uma dessas funções sob demanda, **ele só receberá emails se eles forem elevados no momento em que o email for enviado**.
+   - Opcionalmente, você pode **Adicionar um email personalizado aqui** os usuários definidos devem ter as permissões apropriadas para exibir os relatórios vinculados no portal do Azure.
 
 Configure os usuários em risco email no **portal do Azure** em **Azure Active Directory**  >  **segurança**  >  **identidade**do Security  >  **usuários em risco detectado alertas**.
 
@@ -60,7 +60,7 @@ Ele inclui:
 
 ![Email de resumo semanal](./media/howto-identity-protection-configure-notifications/weekly-digest-email.png)
 
-Por padrão, os destinatários incluem todos os administradores globais. Os administradores globais também podem adicionar outros administradores globais, administradores de segurança, leitores de segurança como destinatários.
+Os usuários nas funções administrador global, administrador de segurança ou leitor de segurança são adicionados automaticamente a essa lista. Tentamos enviar emails para os primeiros 20 membros de cada função. Se um usuário estiver registrado no PIM para elevar a uma dessas funções sob demanda, **ele só receberá emails se eles forem elevados no momento em que o email for enviado**
 
 ### <a name="configure-weekly-digest-email"></a>Configurar email de resumo semanal
 
@@ -68,6 +68,6 @@ Como administrador, você pode alternar o envio de um email de resumo semanal ou
 
 Configure o email de resumo semanal no **portal do Azure** em **Azure Active Directory**  >  **segurança identidade do Security**  >  **Protection**  >  **semanalmente Resumo**.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 - [Azure Active Directory Identity Protection](./overview-identity-protection.md)

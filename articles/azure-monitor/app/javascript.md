@@ -4,12 +4,12 @@ description: Obter a exibição de página e contagens de sessão, dados de clie
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: ddbdeaed1cf3f69c20c272ea3e9dde405119bc24
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5a90f0b4223d69ccb6c4def871eb9d5bf5fbc2e8
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328897"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91841434"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas da Web
 
@@ -104,7 +104,7 @@ Cada opção de configuração é mostrada acima em uma nova linha, se você nã
 
 As opções de configuração disponíveis são 
 
-| Nome | Type | Descrição
+| Nome | Tipo | Descrição
 |------|------|----------------
 | src | Cadeia de caracteres **[obrigatório]** | A URL completa para onde carregar o SDK. Esse valor é usado para o atributo "src" de um &lt; script/marca dinamicamente adicionado &gt; . Você pode usar o local da CDN pública ou sua própria hospedada de forma privada.
 | name | Cadeia de caracteres *[opcional]* | O nome global do SDK inicializado, por padrão, é `appInsights` . Portanto, ```window.appInsights``` será uma referência à instância inicializada. Observação: se você fornecer um valor de nome ou uma instância anterior parece ser atribuída (por meio do nome global appInsightsSDK), esse valor de nome também será definido no namespace global como ```window.appInsightsSDK=<name value>``` , isso é exigido pelo código de inicialização do SDK para garantir que ele esteja inicializando e atualizando o esqueleto de trecho e os métodos de proxy corretos.
@@ -218,9 +218,9 @@ Por configuração `autoTrackPageVisitTime: true` , o tempo que um usuário gast
 |---------------|
 | [React](javascript-react-plugin.md)|
 | [React Native](javascript-react-native-plugin.md)|
-| [Angular](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-angularplugin-js) |
+| [Angular](javascript-angular-plugin.md) |
 
-## <a name="correlation"></a>Correlation
+## <a name="correlation"></a>Correlação
 
 A correlação do cliente com o lado do servidor tem suporte para:
 

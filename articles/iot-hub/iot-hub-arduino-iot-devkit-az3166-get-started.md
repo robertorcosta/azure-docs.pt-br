@@ -8,13 +8,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 06/25/2019
 ms.author: wesmc
-ms.custom: mqtt
-ms.openlocfilehash: 63fa7481b96f8a606893b76b66f8c414a54cdb82
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.custom:
+- mqtt
+- 'Role: Cloud Development'
+ms.openlocfilehash: 0d3afc8d24b95f170bd22b3dc2cf29e7f97e77c3
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714807"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839547"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Como conectar o IoT DevKit AZ3166 ao Hub IoT do Azure
 
@@ -174,7 +176,7 @@ Siga estas etapas para preparar o ambiente de desenvolvimento do Kit de Desenvol
 
 4. Procure as [Ferramentas do Azure IoT](https://aka.ms/azure-iot-tools) no marketplace de extensões e instale-as.
 
-    ![Instalar as Ferramentas do Azure IoT](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-azure-iot-tools.png)
+    ![Captura de tela que mostra as ferramentas de IoT do Azure no Marketplace de extensão.](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-azure-iot-tools.png)
 
     Ou copie e cole esta URL em uma janela do navegador: `vscode:extension/vsciot-vscode.azure-iot-tools`
 
@@ -360,7 +362,7 @@ Você pode usar as [Ferramentas do Azure IoT](https://marketplace.visualstudio.c
 
 1. No painel **SAÍDA**, veja as mensagens D2C de entrada do Hub IoT.
 
-    ![Mensagem D2C](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/d2c-output.png)
+    ![Captura de tela que mostra as mensagens D2C de entrada para o Hub IoT.](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/d2c-output.png)
 
 ## <a name="review-the-code"></a>Examine o código
 

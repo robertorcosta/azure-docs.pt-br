@@ -12,12 +12,12 @@ ms.date: 06/06/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: references_regions
-ms.openlocfilehash: bb9c6dbf9984ec81fbd4b93a61552211928d0f0e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f8c6f7daecd38babaa4f2961d04a6cd4c3b4dbed
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85388707"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91840550"
 ---
 # <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C: Residência de dados e disponibilidade de região
 
@@ -45,15 +45,15 @@ A residência de dados é determinada pelo país/região que você selecionar ao
 
 Os dados residem no **Estados Unidos** para os seguintes países/regiões:
 
-> Estados Unidos, Canadá, Costa Rica, República Dominicana, El Salvador, Guatemala, México, Panamá, Porto Rico e Trinidad e Tobago
+> Estados Unidos (EUA), Canadá (CA), Costa Rica (CR), República Dominicana (DO), El Salvador (VA), Guatemala (GT), México (MX), Panamá (PA), Porto Rico (PR) e Trinidad & Tobago (TT)
 
 Os dados residem na **Europa** para os seguintes países/regiões:
 
-> Argélia, Áustria, Azerbaijão, Bahrein, Belarus, Bélgica, Bulgária, Croácia, Chipre, República Tcheca, Dinamarca, Egito, Estônia, Finlândia, França, Alemanha, Grécia, Hungria, Islândia, Irlanda, Israel, Itália, Jordânia, Cazaquistão, Quênia, Kuwait, Letônia, Líbano, Liechtenstein, Lituânia, Luxemburgo, norte da Macedônia, Malta, Montenegro, Marrocos, Holanda, Nigéria, Noruega, Omã, Paquistão, Polônia, Portugal, Catar, Romênia, Rússia, Arábia Saudita, Sérvia, Eslováquia, Eslovênia, África do Sul, Espanha, Suécia, Suíça, Tunísia, Turquia, Ucrânia, Emirados Árabes Unidos e Reino Unido.
+> Argélia (DZ), Áustria (AT), Azerbaijão (AZ), Bahrein (BH), Belarus (por), Bélgica (is), Bulgária (BG), Croácia (HR), Chipre (CY), República Tcheca (CZ), Dinamarca (DK), Egito (por exemplo), Estônia (EE), Finlândia (FT), França (FR), Alemanha (DE), Grécia (GR), Hungria (HU), Islândia (IS), Irlanda (IE), Israel (IL), Itália (IT), Jordânia (JO), Cazaquistão (KZ), Quênia (KE), Kuwait (KW), Letônia (LV), Líbano (LB), Liechtenstein (LI), Lituânia (LT) , Luxemburgo (LU), norte da Macedônia (ML), Malta (MT), Montenegro (ME), Marrocos (MA), Holanda (NL), Nigéria (NG), Noruega (não), Omã (OM), Paquistão (CP), Polônia (PL), Portugal (PT), Catar (QA), Romênia (RO), Rússia (RU), Arábia Saudita (SA), Sérvia (RS), Eslováquia (SK), Eslovênia (ST), África do Sul (ZA), Espanha (ES), Suécia (SE), Suíça (CH), Tunísia (TN), Turquia (TR), Ucrânia (UA), Emirados Árabes Unidos (AE) e Reino Unido (GB)
 
 Os dados residem em **Pacífico Asiático** para os seguintes países/regiões:
 
-> Afeganistão, RAE de Hong Kong, Índia, Indonésia, Japão, Coreia, Malásia, Filipinas, Cingapura, Sri Lanka, Taiwan e Tailândia.
+> Afeganistão (AF), Hong Kong SAR (HK), Índia (IN), Indonésia (ID), Japão (JP), Coreia (KR), Malásia (MY), Filipinas (PH), Cingapura (SG), Sri Lanka (LK), Taiwan (Taiwan) e Tailândia (TH).
 
 Os seguintes países/regiões estão no processo de serem adicionados à lista. Por enquanto, ainda é possível utilizar B2C do Azure AD, escolhendo qualquer um dos países/regiões acima.
 
