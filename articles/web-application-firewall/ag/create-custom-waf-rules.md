@@ -9,10 +9,10 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: victorh
 ms.openlocfilehash: bfa6690c636e15fa933f50698cd81359600b5c05
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77368310"
 ---
 # <a name="create-and-use-web-application-firewall-v2-custom-rules-on-application-gateway"></a>Criar e usar regras personalizadas do firewall do aplicativo Web no gateway de aplicativo
@@ -28,7 +28,7 @@ Este artigo mostra alguns exemplos de regras personalizadas que você pode criar
 
 ## <a name="example-1"></a>Exemplo 1
 
-Você sabe que há um bot chamado *evilbot* que você deseja bloquear para rastrear seu site. Nesse caso, você bloqueará o *evilbot* do agente do usuário nos cabeçalhos de solicitação.
+Você sabe que há um bot chamado *evilbot* que você deseja bloquear para rastrear seu site. Nesse caso, você bloqueará o User-Agent *evilbot* nos cabeçalhos de solicitação.
 
 Lógica: p
 
@@ -225,11 +225,11 @@ Aqui está o JSON correspondente:
   }
 ```
 
-Regra de CRS correspondente:`SecRule REMOTE_ADDR "@ipMatch 192.168.5.0/24" "id:7001,deny"`
+Regra de CRS correspondente: `SecRule REMOTE_ADDR "@ipMatch 192.168.5.0/24" "id:7001,deny"`
 
 ## <a name="example-4"></a>Exemplo 4
 
-Para este exemplo, você deseja bloquear o *evilbot*do agente do usuário e o tráfego no intervalo 192.168.5.0/24. Para fazer isso, você pode criar duas condições de correspondência separadas e colocá-las na mesma regra. Isso garante que se ambos os *evilbot* no cabeçalho do agente do usuário **e** os endereços IP do intervalo 192.168.5.0/24 forem correspondidos, a solicitação será bloqueada.
+Para este exemplo, você deseja bloquear User-Agent *evilbot*e o tráfego no intervalo 192.168.5.0/24. Para fazer isso, você pode criar duas condições de correspondência separadas e colocá-las na mesma regra. Isso garante que se ambos os *evilbot* no cabeçalho de User-Agent **e** os endereços IP do intervalo 192.168.5.0/24 forem correspondidos, a solicitação será bloqueada.
 
 Lógica: p **e** q
 

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 7/9/2019
 ms.author: victorh
 ms.openlocfilehash: db29551a8150b70e797d45fe659482470c8aca2a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67659496"
 ---
 # <a name="azure-application-gateway-resource-health-overview"></a>Visão geral do Aplicativo Azure gateway Resource Health
@@ -43,7 +43,7 @@ O Resource Health fornece detalhes adicionais sobre o evento e o processo de rec
 
 ![Status indisponível](media/resource-health-overview/unavailable.png)
 
-## <a name="unknown"></a>Unknown (desconhecido)
+## <a name="unknown"></a>Unknown
 
 O status de integridade **desconhecido** indica Resource Health não recebeu informações sobre o gateway por mais de 10 minutos. Esse status não é uma indicação definitiva do estado do gateway. Mas é um ponto de dados importante no processo de solução de problemas.
 

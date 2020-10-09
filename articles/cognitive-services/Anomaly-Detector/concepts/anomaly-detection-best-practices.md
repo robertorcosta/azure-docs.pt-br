@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: aahi
 ms.openlocfilehash: 9407f2fc9375765efb6eb9688b3ebfeef24ba90a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67721628"
 ---
 # <a name="best-practices-for-using-the-anomaly-detector-api"></a>Práticas recomendadas para usar a API do detector de anomalias
@@ -50,7 +50,7 @@ Abaixo está o mesmo conjunto de dados usando a detecção de anomalias do lote.
 
 ![Uma imagem mostrando a detecção de anomalias usando o método de lote](../media/entire.png)
 
-## <a name="data-preparation"></a>Preparação dos dados
+## <a name="data-preparation"></a>Preparação de dados
 
 A API do detector de anomalias aceita dados de série temporal formatados em um objeto de solicitação JSON. Uma série temporal pode ser qualquer dado numérico registrado ao longo do tempo em ordem sequencial. Você pode enviar o Windows dos dados de série temporal para o ponto de extremidade da API do detector de anomalias para melhorar o desempenho da API. O número mínimo de pontos de dados que você pode enviar é 12 e o máximo é de 8640 pontos. A [granularidade](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.granularity?view=azure-dotnet-preview) é definida como a taxa em que os dados são amostrados. 
 
@@ -72,7 +72,7 @@ Os pontos de dados enviados para a API do detector de anomalias devem ter um car
 }
 ```
 
-Se os dados forem amostrados em um intervalo de tempo não padrão, você poderá especificá-los adicionando `customInterval` o atributo em sua solicitação. Por exemplo, se sua série for amostrada a cada 5 minutos, você poderá adicionar o seguinte à sua solicitação JSON:
+Se os dados forem amostrados em um intervalo de tempo não padrão, você poderá especificá-los adicionando o `customInterval` atributo em sua solicitação. Por exemplo, se sua série for amostrada a cada 5 minutos, você poderá adicionar o seguinte à sua solicitação JSON:
 
 ```json
 {
@@ -93,9 +93,9 @@ A API do detector de anomalias funciona melhor em uma série temporal distribuí
 
 Se você sabe que os dados de série temporal têm um padrão sazonal (um que ocorre em intervalos regulares), você pode melhorar a precisão e o tempo de resposta da API. 
 
-A especificação `period` de um quando você constrói sua solicitação JSON pode reduzir a latência de detecção de anomalias em até 50%. O `period` é um inteiro que especifica aproximadamente quantos pontos de dados a série temporal leva para repetir um padrão. Por exemplo, uma série temporal com um ponto de dados por dia teria um `period` as `7`, e uma série temporal com um ponto por hora (com o mesmo padrão semanal) teria um `period` de. `7*24` Se você não tiver certeza dos padrões de seus dados, não precisará especificar esse parâmetro.
+A especificação de um `period` quando você constrói sua solicitação JSON pode reduzir a latência de detecção de anomalias em até 50%. O `period` é um inteiro que especifica aproximadamente quantos pontos de dados a série temporal leva para repetir um padrão. Por exemplo, uma série temporal com um ponto de dados por dia teria um `period` as `7` , e uma série temporal com um ponto por hora (com o mesmo padrão semanal) teria um `period` de  `7*24` . Se você não tiver certeza dos padrões de seus dados, não precisará especificar esse parâmetro.
 
-Para obter melhores resultados, forneça `period`um ponto de dados de 4 dias, mais um adicional. Por exemplo, dados por hora com um padrão semanal, conforme descrito acima, devem fornecer 673 pontos de dados no corpo`7 * 24 * 4 + 1`da solicitação ().
+Para obter melhores resultados, forneça `period` um ponto de dados de 4 dias, mais um adicional. Por exemplo, dados por hora com um padrão semanal, conforme descrito acima, devem fornecer 673 pontos de dados no corpo da solicitação ( `7 * 24 * 4 + 1` ).
 
 ### <a name="sampling-data-for-real-time-monitoring"></a>Dados de amostragem para monitoramento em tempo real
 
@@ -104,4 +104,4 @@ Se os dados de streaming forem amostrados em um intervalo curto (por exemplo, se
 ## <a name="next-steps"></a>Próximas etapas
 
 * [O que é a API do Detector de Anomalias?](../overview.md)
-* [Início rápido: detectar anomalias nos dados de série temporal usando a API REST do detector de anomalias](../quickstarts/detect-data-anomalies-csharp.md)
+* [Início Rápido: Detectar anomalias nos dados de série temporal usando a API REST do Detector de Anomalias](../quickstarts/detect-data-anomalies-csharp.md)
