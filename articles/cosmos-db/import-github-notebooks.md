@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.openlocfilehash: d85f020152fa3cadb1d437c125d327f5e895e14e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85262881"
 ---
 # <a name="import-notebooks-from-a-github-repo-into-azure-cosmos-db"></a>Importar notebooks de um repositório do GitHub para o Azure Cosmos DB
@@ -37,7 +37,7 @@ Você pode se conectar a seus próprios repositórios do GitHub ou a outros repo
 
 1. Após selecionar o repositório necessário, a entrada do repositório é movida da seção **Repositórios não fixados**  para a seção **Repositórios fixos**. Se necessário, você também pode escolher um branch específico desse repositório para importar os notebooks.
 
-   :::image type="content" source="./media/import-github-notebooks/choose-repo-branch.png" alt-text="Escolha um repositório e um branch":::
+   :::image type="content" source="./media/import-github-notebooks/choose-repo-branch.png" alt-text="Autorizar o acesso do Azure Cosmos DB aos seus repositórios do GitHub":::
 
 1. Selecione **OK** para concluir a operação de importação. Todos os notebooks disponíveis no branch selecionado do seu repositório são importados para sua conta do Azure Cosmos.
 
@@ -53,7 +53,7 @@ Após editar um notebook existente, selecione **Salvar**. Uma caixa de diálogo 
 
 No fluxo do GitHub regular, após confirmar as alterações, você normalmente enviará as alterações por push para um repositório remoto. No entanto, nesse caso, a opção Confirmar tem a finalidade de “preparar, confirmar e enviar por push” suas atualizações para o GitHub.
 
-:::image type="content" source="./media/import-github-notebooks/commit-changes-github.png" alt-text="Editar notebooks e confirmar alterações no GitHub":::
+:::image type="content" source="./media/import-github-notebooks/commit-changes-github.png" alt-text="Autorizar o acesso do Azure Cosmos DB aos seus repositórios do GitHub":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/16/2019
 ms.author: terrylan
 ms.openlocfilehash: 8f16105d6bda1798828bc423ec8a158d49e0cf2b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "72518363"
 ---
 # <a name="shared-responsibility-in-the-cloud"></a>Responsabilidade compartilhada na nuvem
@@ -31,7 +31,7 @@ Em um datacenter local, você possui a pilha inteira. À medida que você passa 
 
 ![Zonas de responsabilidade](./media/shared-responsibility/shared-responsibility.png)
 
-Para todos os tipos de implantação de nuvem, você possui seus dados e identidades. Você é responsável por proteger a segurança de seus dados e identidades, dos recursos locais e dos componentes da nuvem que você controla (que varia por tipo de serviço).
+Para todos os tipos de implantação de nuvem, você tem seus dados e suas identidades. Você é responsável por proteger a segurança de seus dados e identidades, dos recursos locais e dos componentes da nuvem que você controla (que varia por tipo de serviço).
 
 Independentemente do tipo de implantação, as responsabilidades a seguir são sempre retidas por você:
 

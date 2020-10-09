@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: pafarley
 ms.openlocfilehash: a9726e41a84926d00d48b51e31f534a3d8c2fe0c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "72757135"
 ---
 # <a name="create-human-reviews-rest"></a>Criar análises humanas (REST)
@@ -129,13 +129,13 @@ O corpo da solicitação padrão mostra exemplos dos diferentes tipos de revisõ
 
 ### <a name="submit-your-request"></a>Enviar a solicitação
   
-Selecione **Enviar**. Se a operação for concluída com sucesso, o status `200 OK`da **resposta** será e a caixa **conteúdo da resposta** exibirá uma ID para a revisão. Copie esta ID para usar nas etapas a seguir.
+Selecione **Enviar**. Se a operação for concluída com sucesso, o **status da resposta** será `200 OK` e a caixa **conteúdo da resposta** exibirá uma ID para a revisão. Copie esta ID para usar nas etapas a seguir.
 
 ![Análise - Criar console Caixa de conteúdo de resposta exibe a ID de análise](images/test-drive-review-2.PNG)
 
 ### <a name="examine-the-new-review"></a>Examinar a nova revisão
 
-Na [ferramenta revisão](https://contentmoderator.cognitive.microsoft.com), selecione**vídeo** de**texto**/da**imagem**/de **revisão** > (dependendo de qual conteúdo você usou). O conteúdo que você carregou deve aparecer, pronto para revisão humana.
+Na [ferramenta revisão](https://contentmoderator.cognitive.microsoft.com), selecione vídeo de texto da imagem de **revisão**  >  **Image** / **Text** / **Video** (dependendo de qual conteúdo você usou). O conteúdo que você carregou deve aparecer, pronto para revisão humana.
 
 ![Imagem da ferramenta de análise de uma bola de futebol](images/test-drive-review-5.PNG)
 
@@ -149,7 +149,7 @@ Insira os parâmetros de chamada REST como na seção acima. Para esta etapa, **
 
 ![Análise - Criar console Obter resultados](images/test-drive-review-3.PNG)
   
-Selecione **Enviar**. Se a operação for concluída com sucesso, o status `200 OK`da **resposta** será e a caixa **conteúdo da resposta** exibirá os detalhes da revisão no formato JSON, como o seguinte:
+Selecione **Enviar**. Se a operação for concluída com sucesso, o **status da resposta** será `200 OK` e a caixa **conteúdo da resposta** exibirá os detalhes da revisão no formato JSON, como o seguinte:
 
 ```json
 {  

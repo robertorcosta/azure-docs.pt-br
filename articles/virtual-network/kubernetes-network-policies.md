@@ -17,10 +17,10 @@ ms.date: 9/25/2018
 ms.author: aanandr
 ms.custom: ''
 ms.openlocfilehash: 5a6da7e65a9a3e962a2df37b062792fbb990d04d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "73159687"
 ---
 # <a name="azure-kubernetes-network-policies-overview"></a>Visão geral das políticas de rede do Kubernetes do Azure
@@ -32,7 +32,7 @@ As políticas de rede fornecem microssegmentação para pods da mesma forma que 
 As políticas de rede do Azure trabalham em conjunto com o Azure CNI, que fornece integração de VNet para contêineres. Atualmente, ele é compatível apenas com nós do Linux. As implementações configuram regras da tabela de IP do Linux com base nas políticas definidas para impor a filtragem de tráfego.
 
 ## <a name="planning-security-for-your-kubernetes-cluster"></a>Planejar a segurança para o cluster Kubernetes
-Ao implementar a segurança para o cluster, use NSGs (grupos de segurança de rede) para filtrar o tráfego Norte-Sul, ou seja, o tráfego que entra e sai da sub-rede do cluster e usa políticas de rede kubernetes para o tráfego East-West, ou seja, o tráfego entre pods no cluster.
+Ao implementar a segurança para o cluster, use NSGs (grupos de segurança de rede) para filtrar o tráfego North-South, ou seja, o tráfego que entra e sai da sub-rede do cluster e usa as políticas de rede kubernetes para o tráfego East-West, ou seja, o tráfego entre pods no cluster.
 
 ## <a name="using-azure-kubernetes-network-policies"></a>Usar as políticas de rede do Kubernetes do Azure
 As políticas de rede do Azure podem ser usadas das maneiras a seguir para fornecer microssegmentação aos pods.

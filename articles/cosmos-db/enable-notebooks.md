@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 09/22/2019
 ms.author: dech
 ms.openlocfilehash: 4c485bf6b9eb34e68e399c24e51286428f47586f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85261895"
 ---
 # <a name="enable-notebooks-for-azure-cosmos-db-accounts-preview"></a>Habilitar blocos de anotações para contas de Azure Cosmos DB (versão prévia)
@@ -22,7 +22,7 @@ Os notebooks Jupyter internos do Azure Cosmos DB permitem que você analise e vi
 
 ## <a name="enable-notebooks-in-a-new-cosmos-account"></a>Habilitar blocos de anotações em uma nova conta do cosmos
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Faça logon no [Portal do Azure](https://portal.azure.com/).
 1. Selecione **Criar um recurso** > **Bancos de dados** > **Azure Cosmos DB**.
 1. Na página **criar conta de Azure Cosmos DB** , selecione **notebooks**. 
  
@@ -31,15 +31,15 @@ Os notebooks Jupyter internos do Azure Cosmos DB permitem que você analise e vi
 1. Selecione **Examinar + criar**. Você pode ignorar a opção de **rede** e **marcas** . 
 1. Examine as configurações da conta e selecione **Criar**. São necessários alguns minutos para criar a conta. Aguarde até que a página do portal exiba **Sua implantação está concluída**. 
 
-   :::image type="content" source="media/enable-notebooks/create-new-account-with-notebooks-complete.png" alt-text="O painel Notificações do portal do Azure":::
+   :::image type="content" source="media/enable-notebooks/create-new-account-with-notebooks-complete.png" alt-text="Opção selecionar blocos de anotações na folha Azure Cosmos DB criar":::
 
 1. Selecione **Ir para recurso** para ir para a página da conta do Azure Cosmos DB.
 
-   :::image type="content" source="../../includes/media/cosmos-db-create-dbaccount/azure-cosmos-db-account-created-3.png" alt-text="A página da conta do Azure Cosmos DB":::
+   :::image type="content" source="../../includes/media/cosmos-db-create-dbaccount/azure-cosmos-db-account-created-3.png" alt-text="Opção selecionar blocos de anotações na folha Azure Cosmos DB criar":::
 
 1. Navegue até o painel de **Data Explorer** . Agora você deve ver seu espaço de trabalho de blocos de anotações.
 
-    :::image type="content" source="media/enable-notebooks/new-notebooks-workspace.png" alt-text="Espaço de trabalho novo Azure Cosmos DB blocos de anotações":::
+    :::image type="content" source="media/enable-notebooks/new-notebooks-workspace.png" alt-text="Opção selecionar blocos de anotações na folha Azure Cosmos DB criar":::
 
 ## <a name="enable-notebooks-in-an-existing-cosmos-account"></a>Habilitar blocos de anotações em uma conta existente do cosmos
 
@@ -48,7 +48,7 @@ Você também pode habilitar blocos de anotações em contas existentes. Esta et
 1. Navegue até o painel de **Data Explorer** em sua conta do cosmos.
 1. Selecione **habilitar blocos de anotações**.
 
-    :::image type="content" source="media/enable-notebooks/enable-notebooks-workspace.png" alt-text="Criar um novo espaço de trabalho de blocos de anotações no Data Explorer":::
+    :::image type="content" source="media/enable-notebooks/enable-notebooks-workspace.png" alt-text="Opção selecionar blocos de anotações na folha Azure Cosmos DB criar":::
 
 1. Isso solicitará que você crie um novo espaço de trabalho de blocos de anotações. Selecione **concluir configuração.**
 1. Sua conta agora está habilitada para usar blocos de anotações!
@@ -59,18 +59,18 @@ Para verificar se você pode usar blocos de anotações, selecione um dos blocos
 
 Neste exemplo, usaremos **gettingstarted. ipynb**. 
 
-:::image type="content" source="media/enable-notebooks/select-getting-started-notebook.png" alt-text="Exibir o GettingStarted. ipynb Notebook":::
+:::image type="content" source="media/enable-notebooks/select-getting-started-notebook.png" alt-text="Opção selecionar blocos de anotações na folha Azure Cosmos DB criar":::
 
 Para executar o bloco de anotações:
 1. Selecione a primeira célula de código que contém o código Python. 
 1. Selecione **executar** para executar a célula. Você também pode usar **Shift + Enter** para executar a célula.
 1. Atualize o painel de recursos para ver o banco de dados e o contêiner que foram criados.
 
-    :::image type="content" source="media/enable-notebooks/run-first-notebook-cell.png" alt-text="Executar o bloco de anotações de introdução":::
+    :::image type="content" source="media/enable-notebooks/run-first-notebook-cell.png" alt-text="Opção selecionar blocos de anotações na folha Azure Cosmos DB criar":::
 
 Você também pode selecionar **novo bloco de anotações** para criar um novo bloco de anotações ou carregar um arquivo de bloco de anotações (. ipynb) existente selecionando **carregar arquivo** no menu **meus blocos de anotações** . 
 
-:::image type="content" source="media/enable-notebooks/create-or-upload-new-notebook.png" alt-text="Criar ou carregar um novo bloco de anotações":::
+:::image type="content" source="media/enable-notebooks/create-or-upload-new-notebook.png" alt-text="Opção selecionar blocos de anotações na folha Azure Cosmos DB criar":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

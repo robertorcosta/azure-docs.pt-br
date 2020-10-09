@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: pafarley
 ms.openlocfilehash: 3e58be4b94457d95d28cf6528b9151e4be1802cf
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "72754178"
 ---
 # <a name="define-and-use-moderation-workflows-rest"></a>Definir e usar os fluxos de trabalho de moderação (REST)
@@ -43,7 +43,7 @@ Insira valores para **Team**, **workflowname**e **OCP-APIM-Subscription-Key**:
 
 ### <a name="enter-a-workflow-definition"></a>Inserir uma definição de fluxo de trabalho
 
-1. Edite a caixa **corpo da solicitação** para inserir a solicitação JSON com detalhes para **Descrição** e **tipo** ( `Image` ou `Text`).
+1. Edite a caixa **corpo da solicitação** para inserir a solicitação JSON com detalhes para **Descrição** e **tipo** ( `Image` ou `Text` ).
 2. Para **expressão**, copie a expressão JSON do fluxo de trabalho padrão. A cadeia de caracteres JSON final deve ter a seguinte aparência:
 
 ```json
@@ -84,7 +84,7 @@ Selecione **Enviar**. Se a operação for bem sucedida, o**Status da resposta** 
 
 ### <a name="examine-the-new-workflow"></a>Examinar o novo fluxo de trabalho
 
-Na [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com/), selecione **configurações** > **fluxos de trabalho**. Seu novo fluxo de trabalho deve aparecer na lista.
+Na [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com/), selecione **configurações**  >  **fluxos de trabalho**. Seu novo fluxo de trabalho deve aparecer na lista.
 
 ![Revisar lista de ferramentas de fluxos de trabalho](images/workflow-console-new-workflow.PNG)
 
@@ -102,7 +102,7 @@ Insira os parâmetros de chamada REST como na seção acima. Certifique-se de qu
 
 ![Obter cabeçalhos e parâmetros de consulta](images/workflow-get-default.PNG)
 
-Selecione **Enviar**. Se a operação for concluída com sucesso, o status `200 OK`da **resposta** será e a caixa **conteúdo da resposta** exibirá o fluxo de trabalho no formato JSON, como o seguinte:
+Selecione **Enviar**. Se a operação for concluída com sucesso, o **status da resposta** será `200 OK` e a caixa **conteúdo da resposta** exibirá o fluxo de trabalho no formato JSON, como o seguinte:
 
 ```json
 {

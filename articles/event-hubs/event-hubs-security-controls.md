@@ -4,10 +4,10 @@ description: Este artigo fornece uma lista de verificação de controles de segu
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: da20778f1e24372e445d635e675df6484905f195
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85315389"
 ---
 # <a name="security-controls-for-azure-event-hubs"></a>Controles de segurança para hubs de eventos do Azure
@@ -47,7 +47,7 @@ Este artigo documenta os controles de segurança criados nos hubs de eventos do 
 | Criptografia no lado do servidor em repouso: chaves gerenciadas pela Microsoft |  Sim | |  |
 | Criptografia no lado do servidor em repouso: chaves gerenciadas pelo cliente (BYOK) | Sim. Disponível para clusters dedicados. | Uma chave gerenciada pelo cliente no Azure keyvault pode ser usada para criptografar os dados em um hub de eventos em repouso. | [Configurar chaves gerenciadas pelo cliente para criptografar dados de hubs de eventos do Azure em repouso usando o portal do Azure](configure-customer-managed-key.md) |
 | Criptografia em nível de coluna (serviços de dados do Azure)| N/D | |  |
-| Criptografia em trânsito (como criptografia de ExpressRoute, criptografia de vnet e criptografia vnet)| Sim | |  |
+| Criptografia em trânsito (como criptografia de ExpressRoute, criptografia de VNet e criptografia de VNet-VNet)| Sim | |  |
 | Chamadas criptografadas à API| Sim |  |  |
 
 ## <a name="configuration-management"></a>Gerenciamento de configuração

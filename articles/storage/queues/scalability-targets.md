@@ -10,10 +10,10 @@ ms.date: 12/18/2019
 ms.author: tamram
 ms.subservice: queues
 ms.openlocfilehash: 464807a7bf4a20b540e2d5344b721c8844bd7bca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75750489"
 ---
 # <a name="scalability-and-performance-targets-for-queue-storage"></a>Metas de escalabilidade e desempenho do Armazenamento de Filas
@@ -24,7 +24,7 @@ ms.locfileid: "75750489"
 
 [!INCLUDE [storage-queues-scale-targets](../../../includes/storage-queues-scale-targets.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 - [Lista de verificação de desempenho e escalabilidade do Armazenamento de Filas](storage-performance-checklist.md)
 - [Metas de escalabilidade para contas de armazenamento Standard](../common/scalability-targets-standard-account.md)

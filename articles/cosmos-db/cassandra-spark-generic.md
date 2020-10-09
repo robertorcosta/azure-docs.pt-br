@@ -9,10 +9,10 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 09/01/2019
 ms.openlocfilehash: ffe9167bb155826eea3a1e7994469d378e5925fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85260484"
 ---
 # <a name="connect-to-azure-cosmos-db-cassandra-api-from-spark"></a>Conecte-se à API do Cassandra do Azure Cosmos DB usando o Spark
@@ -69,7 +69,7 @@ cqlsh.py YOUR-COSMOSDB-ACCOUNT-NAME.cassandra.cosmosdb.azure.com 10350 -u YOUR-C
 O artigo a seguir aborda o provisionamento do cluster do Azure Databricks, configuração do cluster para conexão à API do Cassandra do Azure Cosmos DB e vários blocos de anotações de exemplo que cobrem operações de DDL, operações de DML e muito mais.<BR>
 [Trabalhar com a API do Cassandra do Azure Cosmos DB usando o Azure Databricks](cassandra-spark-databricks.md)<BR>
   
-### <a name="2--azure-hdinsight-spark"></a>2. Azure HDInsight-Spark
+### <a name="2--azure-hdinsight-spark"></a>2. HDInsight-Spark do Azure
 O artigo a seguir aborda o serviço HDInsight-Spark, provisionamento, configuração do cluster para conexão à API do Cassandra do Azure Cosmos DB e vários blocos de anotações de exemplo que cobrem operações de DDL, operações de DML e muito mais.<BR>
 [Trabalhar com a API do Cassandra do Azure Cosmos DB usando o Azure HDInsight-Spark](cassandra-spark-hdinsight.md)
  
@@ -121,6 +121,6 @@ Os artigos a seguir demonstram a integração do Spark com a API do Cassandra do
 * [Operações de criação/inserção](cassandra-spark-create-ops.md)
 * [Operações de leitura](cassandra-spark-read-ops.md)
 * [Operações de Upsert](cassandra-spark-upsert-ops.md)
-* [Excluir operações](cassandra-spark-delete-ops.md)
+* [Operações de exclusão](cassandra-spark-delete-ops.md)
 * [Operações de agregação](cassandra-spark-aggregation-ops.md)
 * [Operações de cópia de tabela](cassandra-spark-table-copy-ops.md)

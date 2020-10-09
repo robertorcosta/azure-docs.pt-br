@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: a683ad71f5e80c91728262dc7bbabf36e9d68deb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75775219"
 ---
 # <a name="peering-policy"></a>Política de emparelhamento
@@ -44,7 +44,7 @@ Os requisitos gerais da Microsoft da sua rede são explicados nas seções a seg
 
 ## <a name="physical-connection-requirements"></a>Requisitos de conexão física
 * Os locais em que você pode se conectar à Microsoft para emparelhamento direto ou emparelhamento do Exchange estão listados em [PeeringDB](https://www.peeringdb.com/net/694)
-* **Emparelhamento do Exchange:**
+* **Emparelhamento de troca:**
     * A interconexão deve ser sobre a fibra de modo único usando a fibra óptica 10 Gbps apropriada.
     * Espera-se que os pares atualizem suas portas quando a utilização de pico exceder 50%.
 * **Emparelhamento direto:**

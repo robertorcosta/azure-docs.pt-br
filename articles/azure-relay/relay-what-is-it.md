@@ -1,16 +1,16 @@
 ---
-title: O que é Retransmissão do Azure? | Microsoft Docs
+title: O que é a Retransmissão do Azure? | Microsoft Docs
 description: Este artigo fornece uma visão geral do serviço de Retransmissão do Azure, que permite que você desenvolva aplicativos de nuvem que consomem serviços locais em execução na sua rede corporativa sem abrir uma conexão de firewall ou fazer mudanças intrusivas na sua rede infraestrutura.
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: 0c9a67bcad47ad2e7284bcf6e70914d2ffb06a8c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85322652"
 ---
-# <a name="what-is-azure-relay"></a>O que é Retransmissão do Azure?
+# <a name="what-is-azure-relay"></a>O que é a Retransmissão do Azure?
 O serviço de Retransmissão do Azure permite que você exponha com segurança os serviços que são executados na sua rede corporativa para a nuvem pública. Você pode expor os serviços sem abrir uma porta no seu firewall e realizar alterações invasivas a uma infraestrutura de rede corporativa. 
 
 O serviço de retransmissão é compatível com os seguintes cenários entre os serviços locais e aplicativos em execução na nuvem ou em outro ambiente local. 

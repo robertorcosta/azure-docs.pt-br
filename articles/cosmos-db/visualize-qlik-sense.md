@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 986db85ddbf741dc459625dbd763b9cbbba1c429
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85263340"
 ---
 # <a name="connect-qlik-sense-to-azure-cosmos-db-and-visualize-your-data"></a>Conectar o Qlik Sense ao Azure Cosmos DB e visualizar seus dados
@@ -62,15 +62,15 @@ Antes de seguir as instruções deste artigo, verifique se você tem os seguinte
 
 4. Mude para **DSN de Usuário** e escolha a conexão do ODBC criada anteriormente. Forneça um nome para a conexão e selecione **Criar**. 
 
-   :::image type="content" source="./media/visualize-qlik-sense/create-new-connection.png" alt-text="Criar uma conexão":::
+   :::image type="content" source="./media/visualize-qlik-sense/create-new-connection.png" alt-text="Criar um novo aplicativo Qlik Sense":::
 
 5. Após a criação da conexão, você pode escolher o banco de dados, a coleção onde os dados de videogame estão localizados e visualizá-la.
 
-   :::image type="content" source="./media/visualize-qlik-sense/choose-database-and-collection.png" alt-text="Escolher o banco de dados e uma coleção"::: 
+   :::image type="content" source="./media/visualize-qlik-sense/choose-database-and-collection.png" alt-text="Criar um novo aplicativo Qlik Sense"::: 
 
 6. Em seguida, selecione **Adicionar dados** para carregar os dados no Qlik Sense. Depois de carregar os dados no Qlik Sense, você pode gerar insights e realizar análise nos dados. Você pode usar os insights ou criar seu próprio aplicativo explorando as vendas de videogames. A imagem a seguir mostra 
 
-   :::image type="content" source="./media/visualize-qlik-sense/visualize-data.png" alt-text="Visualizar dados":::
+   :::image type="content" source="./media/visualize-qlik-sense/visualize-data.png" alt-text="Criar um novo aplicativo Qlik Sense":::
 
 ### <a name="limitations-when-connecting-with-odbc"></a>Limitações durante a conexão com o ODBC 
 

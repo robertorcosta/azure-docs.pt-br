@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
 ms.openlocfilehash: 0cbc57922b31f1b3879bb2cad8a988a1ba4cc368
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85307405"
 ---
 # <a name="add-language-generation-templates-for-speech-responses"></a>Adicionar modelos de geração de linguagem para respostas de fala
@@ -97,7 +97,7 @@ Edite a seção **ações** da regra de conclusão existente **ConfirmationRespo
 * Entrada: desligar as luzes de sala
 * Saída: Ok, desligando as luzes de sala
 
-## <a name="use-custom-voice"></a>Usar voz personalizada
+## <a name="use-custom-voice"></a>Usar a Voz Personalizada
 
 Outra maneira de personalizar respostas de comandos personalizados é selecionar uma voz de saída personalizada. Use as etapas a seguir para alternar a voz padrão para uma voz personalizada.
 
