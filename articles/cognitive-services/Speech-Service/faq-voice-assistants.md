@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
 ms.openlocfilehash: 8480299c2c889a243150028ac9651f4b62656aec
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74110351"
 ---
 # <a name="voice-assistants-frequently-asked-questions"></a>Perguntas frequentes sobre assistentes de voz
@@ -25,7 +25,7 @@ Se você não encontrar respostas para suas perguntas neste documento, confira [
 
 **P: o que é um assistente de voz?**
 
-**R:** Como o Cortana, um assistente de voz é uma solução que escuta o declarações falado de um usuário, analisa o conteúdo desses declarações para saber, executa uma ou mais ações em resposta à intenção do expressão e, em seguida, fornece uma resposta ao usuário que geralmente inclui um componente falado. É uma experiência de "entrada de voz e saída" para interagir com um sistema. os autores do assistente de voz criam um aplicativo no dispositivo `DialogServiceConnector` usando o no SDK de fala para se comunicar com um assistente criado usando [comandos personalizados (versão prévia)](custom-commands.md) ou o canal de [fala de linha direta](direct-line-speech.md) da estrutura de bot. Esses assistentes podem usar palavras-chave personalizadas, fala personalizada e voz personalizada para fornecer uma experiência adaptada à sua marca ou produto.
+**R:** Como o Cortana, um assistente de voz é uma solução que escuta o declarações falado de um usuário, analisa o conteúdo desses declarações para saber, executa uma ou mais ações em resposta à intenção do expressão e, em seguida, fornece uma resposta ao usuário que geralmente inclui um componente falado. É uma experiência de "entrada de voz e saída" para interagir com um sistema. os autores do assistente de voz criam um aplicativo no dispositivo usando o `DialogServiceConnector` no SDK de fala para se comunicar com um assistente criado usando [comandos personalizados (versão prévia)](custom-commands.md) ou o canal de [fala de linha direta](direct-line-speech.md) da estrutura de bot. Esses assistentes podem usar palavras-chave personalizadas, fala personalizada e voz personalizada para fornecer uma experiência adaptada à sua marca ou produto.
 
 **P: devo usar comandos personalizados (visualização) ou a fala de linha direta? Qual é a diferença?**
 
@@ -43,11 +43,11 @@ Se você não encontrar respostas para suas perguntas neste documento, confira [
 
 **P: onde está meu segredo de canal?**
 
-**R:** Se você tiver usado a versão de visualização da fala de linha direta ou estiver lendo a documentação relacionada, poderá esperar encontrar uma chave secreta na página de registro do canal de fala de linha direta. O método `FromBotSecret` de `DialogServiceConfig` fábrica v 1.7 no SDK de fala também espera esse valor.
+**R:** Se você tiver usado a versão de visualização da fala de linha direta ou estiver lendo a documentação relacionada, poderá esperar encontrar uma chave secreta na página de registro do canal de fala de linha direta. O método de `DialogServiceConfig` fábrica v 1.7 `FromBotSecret` no SDK de fala também espera esse valor.
 
-A versão mais recente da Direct line Speech simplifica o processo de contato do bot a partir de um dispositivo. Na página de registro do canal, a lista suspensa na parte superior associa seu registro de canal de fala de linha direta a um recurso de fala. Uma vez associado, o SDK de fala v 1.8 `BotFrameworkConfig::FromSubscription` inclui um método de fábrica que `DialogServiceConnector` irá configurar um para contatar o bot que você associou à sua assinatura.
+A versão mais recente da Direct line Speech simplifica o processo de contato do bot a partir de um dispositivo. Na página de registro do canal, a lista suspensa na parte superior associa seu registro de canal de fala de linha direta a um recurso de fala. Uma vez associado, o SDK de fala v 1.8 inclui um `BotFrameworkConfig::FromSubscription` método de fábrica que irá configurar um `DialogServiceConnector` para contatar o bot que você associou à sua assinatura.
 
-Se você ainda estiver migrando seu aplicativo cliente de v 1.7 para v 1.8 `DialogServiceConfig::FromBotSecret` , o pode continuar a trabalhar com um valor não vazio e não nulo para seu parâmetro secreto de canal, por exemplo, o segredo anterior que você usou. Ele simplesmente será ignorado ao usar uma assinatura de fala associada a um registro de canal mais recente. Observe que o valor _deve_ ser não nulo e não vazio, pois eles são verificados no dispositivo antes que a associação do lado do serviço seja relevante.
+Se você ainda estiver migrando seu aplicativo cliente de v 1.7 para v 1.8, o `DialogServiceConfig::FromBotSecret` pode continuar a trabalhar com um valor não vazio e não nulo para seu parâmetro secreto de canal, por exemplo, o segredo anterior que você usou. Ele simplesmente será ignorado ao usar uma assinatura de fala associada a um registro de canal mais recente. Observe que o valor _deve_ ser não nulo e não vazio, pois eles são verificados no dispositivo antes que a associação do lado do serviço seja relevante.
 
 Para obter um guia mais detalhado, consulte a [seção do tutorial](tutorial-voice-enable-your-bot-speech-sdk.md#register-the-direct-line-speech-channel) que percorre o registro do canal.
 
@@ -57,18 +57,18 @@ Para obter um guia mais detalhado, consulte a [seção do tutorial](tutorial-voi
 
 ![assinatura correta para a Direct line Speech](media/voice-assistants/faq-supported-subscription.png "exemplo de uma assinatura de fala compatível")
 
-**P: obtenho o texto de reconhecimento do meu `DialogServiceConnector`, mas vejo um erro ' 1011 ' e nada do meu bot. Por?**
+**P: obtenho o texto de reconhecimento do meu `DialogServiceConnector` , mas vejo um erro ' 1011 ' e nada do meu bot. Por?**
 
 **R:** Esse erro indica um problema de comunicação entre o assistente e o serviço de assistente de voz.
 
 - Para comandos personalizados (versão prévia), verifique se o aplicativo de comandos personalizados (versão prévia) foi publicado
 - Para a fala de linha direta, verifique se você [conectou o bot ao canal de fala de linha direta](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech), [adicionou suporte de protocolo de streaming](https://aka.ms/botframework/addstreamingprotocolsupport) ao bot (com o suporte de soquete da Web relacionado) e, em seguida, verifique se o bot está respondendo às solicitações de entrada do canal.
 
-**P: esse código ainda não funciona e/ou estou recebendo um erro diferente ao usar um `DialogServiceConnector`. O que devo fazer?**
+**P: esse código ainda não funciona e/ou estou recebendo um erro diferente ao usar um `DialogServiceConnector` . O que devo fazer?**
 
 **R:** O log baseado em arquivo fornece substancialmente mais detalhes e pode ajudar a acelerar as solicitações de suporte. Para habilitar essa funcionalidade, consulte [como usar o log de arquivos](how-to-use-logging.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Solução de problemas](troubleshooting.md)
-- [Notas de versão](releasenotes.md)
+- [Notas sobre a versão](releasenotes.md)

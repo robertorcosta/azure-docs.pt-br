@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: angle
 ms.openlocfilehash: 3e7d8ee2b156a30b11cda79798a8af8a8ecf4f64
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74776615"
 ---
 # <a name="disclosure-design-patterns"></a>Padrões de design de divulgação
@@ -62,7 +62,7 @@ Antes que a experiência de voz comece, apresente o assistente digital ao ser to
 *A voz sintética é introduzida durante a integração de um novo usuário.*
 
 Recomendações
-- Descreva que a voz é artificial (por exemplo &quot;,&quot;digital)
+- Descreva que a voz é artificial (por exemplo, &quot; digital &quot; )
 - Descrever o que o agente é capaz de fazer
 - Declarar explicitamente as origens de&#39;s de voz
 - Oferecer um ponto de entrada para saber mais sobre a voz sintética
@@ -141,7 +141,7 @@ Recomendações
 - Direcionar os pais como o público-alvo principal para divulgação
 - Incentive os pais a comunicar a divulgação para seus filhos
 - Pontos de entrada da oferta para saber mais sobre a voz sintetizada
-- Portão a experiência fazendo com que os pais &quot;tenham&quot; uma pergunta de proteção simples para mostrar que eles lerem a divulgação
+- Portão a experiência fazendo com que os pais &quot; tenham uma pergunta de proteção simples &quot; para mostrar que eles lerem a divulgação
 
 ### <a name="providing-opportunities-to-learn-more-about-how-the-voice-was-made"></a>Fornecendo oportunidades para saber mais sobre como a voz foi feita
 
@@ -193,13 +193,13 @@ Quando as conversas se enquadram em caminhos inesperados, considere a criação 
 ![Manipulando caminhos inesperados](media/responsible-ai/disclosure-patterns/conversational-transparency-1.png)<br/>
 
 <br/>
-As perguntas &quot;desligadas&quot; ou pessoais direcionadas para o agente são um bom momento para lembrar os usuários da natureza sintética do agente e direcioná-los para que se envolvam adequadamente ou Redirecione-os para uma pessoa real.
+As perguntas desligadas ou &quot; pessoais &quot; direcionadas para o agente são um bom momento para lembrar os usuários da natureza sintética do agente e direcioná-los para que se envolvam adequadamente ou Redirecione-os para uma pessoa real.
 
 ![Tratamento de perguntas de tarefas](media/responsible-ai/disclosure-patterns/conversational-transparency-2.png)<br/>
 
 ## <a name="when-to-disclose"></a>Quando divulgar
 
-Há muitas oportunidades de divulgação durante o percurso do usuário. Design para o primeiro uso, segundo uso, enésimo uso..., mas também adotar momentos de &quot;falha&quot; para realçar a transparência – como quando o sistema cometer um erro ou quando o usuário descobre uma limitação dos recursos do agente&#39;s.
+Há muitas oportunidades de divulgação durante o percurso do usuário. Design para o primeiro uso, segundo uso, enésimo uso..., mas também adotar momentos de &quot; falha &quot; para realçar a transparência – como quando o sistema cometer um erro ou quando o usuário descobre uma limitação dos recursos do agente&#39;s.
 
 ![Oportunidades de divulgação em toda a jornada do usuário](media/responsible-ai/disclosure-patterns/touchpoints.png)<br/>
 

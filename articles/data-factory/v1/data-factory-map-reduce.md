@@ -13,10 +13,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 598a16d25ba375b984a966cba190181edbda3d15
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74703147"
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>Chamar Programas MapReduce da Data Factory
@@ -181,9 +181,9 @@ O pipeline neste exemplo não tem entradas. Especifique um conjunto de dados de 
 ### <a name="pipeline"></a>Pipeline
 O pipeline neste exemplo tem apenas uma atividade que seja do tipo: HDInsightMapReduce. Algumas das propriedades importantes no JSON são: 
 
-| Property | Observações |
+| Propriedade | Observações |
 |:--- |:--- |
-| tipo |O tipo deve ser definido como **HDInsightMapReduce**. |
+| type |O tipo deve ser definido como **HDInsightMapReduce**. |
 | className |Nome da classe é: **wordcount** |
 | jarFilePath |Caminho para o arquivo jar que contém a classe. Se você copiar/colar o código a seguir, não se esqueça de alterar o nome do cluster. |
 | jarLinkedService |Serviço vinculado do Armazenamento do Azure que contém o arquivo jar. Esse serviço vinculado faz referência ao armazenamento que está associado ao cluster do HDInsight. |

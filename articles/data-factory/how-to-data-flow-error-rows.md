@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: makromer
 ms.openlocfilehash: 3f8ac2d1434019548b01d8468015a543d89d0fba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85254405"
 ---
 # <a name="handle-sql-truncation-error-rows-in-data-factory-mapping-data-flows"></a>Manipular linhas de erro de truncamento do SQL no mapeamento de Data Factory fluxos de dados
@@ -29,7 +29,7 @@ Um cenário comum no Data Factory ao usar o mapeamento de fluxos de dados é gra
 
     ![Fluxo de dados de filme 1](media/data-flow/error4.png)
     
-3. O problema é que o título do filme não se encaixa em uma coluna do coletor que pode conter apenas 5 caracteres. Ao executar esse fluxo de dados, você receberá um erro como este:```"Job failed due to reason: DF-SYS-01 at Sink 'WriteToDatabase': java.sql.BatchUpdateException: String or binary data would be truncated. java.sql.BatchUpdateException: String or binary data would be truncated."```
+3. O problema é que o título do filme não se encaixa em uma coluna do coletor que pode conter apenas 5 caracteres. Ao executar esse fluxo de dados, você receberá um erro como este: ```"Job failed due to reason: DF-SYS-01 at Sink 'WriteToDatabase': java.sql.BatchUpdateException: String or binary data would be truncated. java.sql.BatchUpdateException: String or binary data would be truncated."```
 
 Este vídeo percorre um exemplo de como configurar a lógica de tratamento de linha de erro em seu fluxo de dados:
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4uOHj]

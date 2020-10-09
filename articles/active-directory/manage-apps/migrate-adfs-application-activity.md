@@ -14,10 +14,10 @@ ms.date: 01/14/2019
 ms.author: kenwith
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 59502e01a96b603067bd80b92bcf49136f8cef4e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85339165"
 ---
 # <a name="use-the-ad-fs-application-activity-report-preview-to-migrate-applications-to-azure-ad"></a>Usar o AD FS relatório de atividade do aplicativo (versão prévia) para migrar aplicativos para o Azure AD
@@ -77,7 +77,7 @@ A tabela a seguir lista todos os testes de configuração que são executados em
 |Result  |Aprovação/aviso/falha  |Descrição  |
 |---------|---------|---------|
 |Test-ADFSRPAdditionalAuthenticationRules <br> Pelo menos uma regra não migrada foi detectada para AdditionalAuthentication.       | Aprovação/aviso          | A terceira parte confiável tem regras para solicitar a autenticação multifator (MFA). Para mudar para o Azure AD, traduza essas regras em políticas de acesso condicional. Se você estiver usando uma MFA local, recomendamos que você mude para o Azure MFA. [Saiba mais sobre o acesso condicional](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks).        |
-|Test-ADFSRPAdditionalWSFedEndpoint <br> A terceira parte confiável tem AdditionalWSFedEndpoint definido como true.       | Aprovado/Reprovado          | A terceira parte confiável no AD FS permite vários pontos de extremidade de asserção de WS-alimentados.Atualmente, o Azure AD dá suporte apenas a um.Se você tiver um cenário em que esse resultado está bloqueando a migração, [informe-nos](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/38695621-allow-multiple-ws-fed-assertion-endpoints).     |
+|Test-ADFSRPAdditionalWSFedEndpoint <br> A terceira parte confiável tem AdditionalWSFedEndpoint definido como true.       | Aprovado/Reprovado          | A terceira parte confiável no AD FS permite vários pontos de extremidade de asserção WS-Fed.Atualmente, o Azure AD dá suporte apenas a um.Se você tiver um cenário em que esse resultado está bloqueando a migração, [informe-nos](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/38695621-allow-multiple-ws-fed-assertion-endpoints).     |
 |Test-ADFSRPAllowedAuthenticationClassReferences <br> A terceira parte confiável definiu AllowedAuthenticationClassReferences.       | Aprovado/Reprovado          | Essa configuração no AD FS permite que você especifique se o aplicativo está configurado para permitir apenas determinados tipos de autenticação. É recomendável usar o acesso condicional para obter esse recurso. Se você tiver um cenário em que esse resultado está bloqueando a migração, [informe-nos](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/38695672-allow-in-azure-ad-to-specify-certain-authentication).  [Saiba mais sobre o acesso condicional](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks).          |
 |Test-ADFSRPAlwaysRequireAuthentication <br> AlwaysRequireAuthenticationCheckResult      | Aprovado/Reprovado          | Essa configuração no AD FS permite que você especifique se o aplicativo está configurado para ignorar cookies de SSO e **sempre solicitar autenticação**. No Azure AD, você pode gerenciar a sessão de autenticação usando políticas de acesso condicional para obter um comportamento semelhante. [Saiba mais sobre como configurar o gerenciamento de sessão de autenticação com acesso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime).          |
 |Test-ADFSRPAutoUpdateEnabled <br> A terceira parte confiável tem AutoUpdateEnabled definido como true       | Aprovação/aviso          | Essa configuração no AD FS permite especificar se AD FS está configurado para atualizar automaticamente o aplicativo com base nas alterações nos metadados da Federação. O Azure AD não dá suporte a isso hoje, mas não deve bloquear a migração do aplicativo para o Azure AD.           |
@@ -110,7 +110,7 @@ Se você tiver configurado uma regra de declaração para o aplicativo no AD FS,
 
 A tabela a seguir lista todos os testes de regra de declaração que são executados em AD FS aplicativos.
 
-|Property  |Descrição  |
+|Propriedade  |Descrição  |
 |---------|---------|
 |UNSUPPORTED_CONDITION_PARAMETER      | A instrução Condition usa expressões regulares para avaliar se a declaração corresponde a um determinado padrão.Para obter uma funcionalidade semelhante no Azure AD, você pode usar a transformação predefinida, como IfEmpty (), StartWith (), Contains (), entre outras. Para obter mais informações, consulte [Personalizar declarações emitidas no token SAML para aplicativos empresariais](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization).          |
 |UNSUPPORTED_CONDITION_CLASS      | A instrução Condition tem várias condições que precisam ser avaliadas antes da execução da instrução de emissão.O Azure AD pode dar suporte a essa funcionalidade com as funções de transformação da declaração, onde você pode avaliar vários valores de declaração.Para obter mais informações, consulte [Personalizar declarações emitidas no token SAML para aplicativos empresariais](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization).          |

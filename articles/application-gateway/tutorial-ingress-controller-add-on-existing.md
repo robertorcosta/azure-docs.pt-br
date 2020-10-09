@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 09/24/2020
 ms.author: caya
 ms.openlocfilehash: d0ce58c5bb6de4712117959f10b48ae3449f0b97
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91285614"
 ---
 # <a name="tutorial-enable-application-gateway-ingress-controller-add-on-for-an-existing-aks-cluster-with-an-existing-application-gateway-through-azure-cli-preview"></a>Tutorial: Habilitar o complemento Controlador de Entrada do Gateway de Aplicativo para um cluster do AKS existente com um Gateway de Aplicativo existente por meio da CLI do Azure (versão prévia)

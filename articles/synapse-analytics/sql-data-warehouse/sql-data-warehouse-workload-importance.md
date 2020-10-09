@@ -12,10 +12,10 @@ ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ms.openlocfilehash: 1b2c71d7bf9e796af77e9a2a4a3a31152f2ca884
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85212336"
 ---
 # <a name="azure-synapse-analytics-workload-importance"></a>Importância da carga de trabalho do Azure Synapse Analytics
@@ -40,7 +40,7 @@ Além do cenário de importância básica descrito acima com dados de vendas e c
 
 O acesso a bloqueios para atividade de leitura e gravação é uma área de contenção natural. Atividades como [troca de partição](sql-data-warehouse-tables-partition.md) ou [renomear objeto](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) exigem bloqueios elevados.  Sem importância de carga de trabalho, o pool SQL Synapse no Azure Synapse otimiza para a taxa de transferência. Otimizar para taxa de transferência significa que, quando as solicitações em execução e em fila tiverem as mesmas necessidades de bloqueio e os recursos estiverem disponíveis, as solicitações enfileiradas poderão ignorar as solicitações com maiores necessidades de bloqueio que chegaram na fila de solicitações anteriormente. Quando a importância da carga de trabalho é aplicada a solicitações com mais necessidades de bloqueio. A solicitação com maior importância será executada antes da solicitação com menor importância.
 
-Considere o exemplo a seguir:
+Considere o seguinte exemplo:
 
 - Q1 está executando ativamente e selecionando dados de SalesFact.
 - O Q2 está na fila aguardando a conclusão de Q1.  Ele foi enviado às 9h e está tentando particionar novos dados no SalesFact.

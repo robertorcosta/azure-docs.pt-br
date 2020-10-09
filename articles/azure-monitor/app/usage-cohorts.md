@@ -7,10 +7,10 @@ ms.author: daviste
 ms.date: 04/10/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 0c552e8f3e732c49da02b2f5704fb9cf312fb3e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77671079"
 ---
 # <a name="application-insights-cohorts"></a>Coortes do Application Insights
@@ -49,7 +49,7 @@ Sua equipe define usuário envolvido como qualquer pessoa que usar seu aplicativ
 
     Agora, essa coorte representa todas as IDs de usuários enviadas com qualquer evento personalizado ou exibição de página em 5 dias separados nos últimos 28.
 
-5. Selecione **Salvar**.
+5. Clique em **Salvar**.
 
    > [!TIP]
    > Forneça um nome à coorte, como “Usuários Envolvidos (5 ou mais dias).” Salve-a em "Meus relatórios" ou "Relatórios compartilhados", dependendo se você deseja que outras pessoas que tenham acesso a esse recurso do Application Insights visualizem essa coorte.

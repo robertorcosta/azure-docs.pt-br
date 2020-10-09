@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.openlocfilehash: 18b8bd80eaec316fbaefadad0dd7a19418bfa838
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85323176"
 ---
 # <a name="authorize-access-to-azure-event-hubs"></a>Autorizar o acesso aos Hubs de Eventos do Azure
@@ -41,7 +41,7 @@ Para obter mais informações sobre a autorização usando SAS, consulte [autori
 
 ## <a name="next-steps"></a>Próximas etapas
 - Examine os [exemplos de RBAC](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac) publicados em nosso repositório github. 
-- Veja os artigos a seguir:
+- Confira os seguintes artigos:
     - [Autenticar solicitações para hubs de eventos do Azure por meio de um aplicativo usando Azure Active Directory](authenticate-application.md)
     - [Autenticar uma identidade gerenciada com Azure Active Directory para acessar recursos de hubs de eventos](authenticate-managed-identity.md)
     - [Autenticar solicitações para hubs de eventos do Azure usando assinaturas de acesso compartilhado](authenticate-shared-access-signature.md)

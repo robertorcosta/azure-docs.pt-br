@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
 ms.openlocfilehash: 81b4ffc8f77673e52bb78f891e3de618b67e0d1b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74806055"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>Como criar transcrições com rótulo humano
@@ -76,7 +76,7 @@ Aqui estão alguns exemplos de normalização executadas automaticamente na tran
 | 104 Elm Street                         | one oh four Elm street            |
 | Tune to 102.7                          | tune to one oh two point seven    |
 | Pi is about 3.14                       | pi is about three point one four  |
-| Custos \$de ti 3,14                        | it costs three fourteen           |
+| Custos de ti \$ 3,14                        | it costs three fourteen           |
 
 ## <a name="mandarin-chinese-zh-cn"></a>Mandarim chinês (ZH-CN)
 
