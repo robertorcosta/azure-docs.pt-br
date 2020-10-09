@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: aahi
 ms.openlocfilehash: 08af17106846a0f5f7a0ccc2b01da1b2e15c1143
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80879185"
 ---
 # <a name="deploy-the-language-understanding-luis-container-to-azure-container-instances"></a>Implantar o contêiner Reconhecimento vocal (LUIS) nas instâncias de contêiner do Azure
@@ -33,7 +33,7 @@ O contêiner LUIS requer um `.gz` arquivo de modelo que é extraído no tempo de
 
 ### <a name="export-and-upload-packaged-luis-app"></a>Exportar e carregar o aplicativo LUIS empacotado
 
-Para carregar o modelo LUIS (aplicativo empacotado) no compartilhamento de arquivos do Azure, você precisará <a href="luis-container-howto.md#export-packaged-app-from-luis" target="_blank" rel="noopener">exportá-lo do portal do Luis <span class="docon docon-navigate-external x-hidden-focus"> </span>primeiro </a>. No portal do Azure, navegue até a página **visão geral** do recurso de conta de armazenamento e selecione **compartilhamentos de arquivos**. Selecione o nome do compartilhamento de arquivos que você criou recentemente e, em seguida, selecione o botão **carregar** .
+Para carregar o modelo LUIS (aplicativo empacotado) no compartilhamento de arquivos do Azure, você precisará <a href="luis-container-howto.md#export-packaged-app-from-luis" target="_blank" rel="noopener">exportá-lo do portal do Luis <span class="docon docon-navigate-external x-hidden-focus"></span> primeiro </a>. No portal do Azure, navegue até a página **visão geral** do recurso de conta de armazenamento e selecione **compartilhamentos de arquivos**. Selecione o nome do compartilhamento de arquivos que você criou recentemente e, em seguida, selecione o botão **carregar** .
 
 > [!div class="mx-imgBorder"]
 > ![Carregar no compartilhamento de arquivos](media/luis-how-to-deploy-to-aci/upload-file-share.png)

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: jingwang
 ms.openlocfilehash: b48fb28a56cdc1c836233cd2bd03a1f9e750a0a7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85249645"
 ---
 # <a name="schema-and-data-type-mapping-in-copy-activity"></a>Esquema e mapeamento de tipo de dados na atividade de cópia
@@ -47,7 +47,7 @@ Saiba mais sobre:
 
 Você pode configurar o mapeamento na interface do usuário de criação de Data Factory-> atividade de cópia-> guia mapeamento ou especificar programaticamente o mapeamento na Propriedade Copy-> `translator` . As propriedades a seguir têm suporte em `translator`  ->  `mappings` objetos de > de matriz-> `source` e `sink` , que aponta para a coluna/campo específico para mapear dados.
 
-| Property | Descrição                                                  | Obrigatório |
+| Propriedade | Descrição                                                  | Obrigatório |
 | -------- | ------------------------------------------------------------ | -------- |
 | name     | Nome do campo/coluna de origem ou de coletor. Aplicar para fonte de tabela e coletor. | Sim      |
 | ordinal  | Índice de coluna. Inicie de 1. <br>Aplica-se e é necessário ao usar texto delimitado sem linha de cabeçalho. | Não       |
@@ -58,7 +58,7 @@ Você pode configurar o mapeamento na interface do usuário de criação de Data
 
 As propriedades a seguir têm suporte em `translator` além de `mappings` :
 
-| Property            | Descrição                                                  | Obrigatório |
+| Propriedade            | Descrição                                                  | Obrigatório |
 | ------------------- | ------------------------------------------------------------ | -------- |
 | collectionReference | Aplicar ao copiar dados de fonte hierárquica, por exemplo, Cosmos DB, MongoDB ou conectores REST.<br>Se você quiser fazer uma iteração e extrair dados de objetos **dentro de um campo de matriz** com o mesmo padrão e converter para por linha por objeto, especifique o caminho JSON da matriz para realizar a aplicação cruzada. | Não       |
 
@@ -283,9 +283,9 @@ Atualmente, a atividade de cópia dá suporte aos seguintes tipos de dados provi
 
 As conversões de tipo de dados a seguir têm suporte entre os tipos provisórios da origem para o coletor.
 
-| Source\Sink | Boolean | Matriz de bytes | Decimal | Data/hora <small>(1)</small> | Ponto flutuante <small>(2)</small> | GUID | Inteiro <small>(3)</small> | String | TimeSpan |
+| Source\Sink | Booliano | Matriz de bytes | Decimal | Data/hora <small>(1)</small> | Ponto flutuante <small>(2)</small> | GUID | Inteiro <small>(3)</small> | String | TimeSpan |
 | ----------- | ------- | ---------- | ------- | ---------------------------- | ------------------------------ | ---- | -------------------------- | ------ | -------- |
-| Boolean     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
+| Booliano     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
 | Matriz de bytes  |         | ✓          |         |                              |                                |      |                            | ✓      |          |
 | Data/hora   |         |            |         | ✓                            |                                |      |                            | ✓      |          |
 | Decimal     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
@@ -307,13 +307,13 @@ As conversões de tipo de dados a seguir têm suporte entre os tipos provisório
 
 As propriedades a seguir têm suporte na atividade de cópia para conversão de tipo de dados (em `translator` seção para a criação programática):
 
-| Property                         | Descrição                                                  | Obrigatório |
+| Propriedade                         | Descrição                                                  | Obrigatório |
 | -------------------------------- | ------------------------------------------------------------ | -------- |
 | typeConversion                   | Habilite a nova experiência de conversão de tipo de dados. <br>O valor padrão é false devido à compatibilidade com versões anteriores.<br><br>Para novas atividades de cópia criadas por meio da interface do usuário de criação de Data Factory desde o final de junho de 2020, essa conversão de tipo de dados é habilitada por padrão para a melhor experiência, e você pode ver as seguintes configurações de conversão de tipo na guia atividade de cópia – mapeamento de > para cenários aplicáveis. <br>Para criar o pipeline programaticamente, você precisa definir explicitamente `typeConversion` a propriedade como true para habilitá-la.<br>Para as atividades de cópia existentes criadas antes desse recurso ser liberado, você não verá as opções de conversão de tipo na interface do usuário de criação de Data Factory para compatibilidade com versões anteriores. | Não       |
 | typeConversionSettings           | Um grupo de configurações de conversão de tipo. Aplicar quando `typeConversion` estiver definido como `true` . As propriedades a seguir estão todas sob esse grupo. | Não       |
-| *Sob`typeConversionSettings`* |                                                              |          |
+| *Sob `typeConversionSettings`* |                                                              |          |
 | allowDataTruncation              | Permitir truncamento de dados ao converter dados de origem para coletor com tipo diferente durante a cópia, por exemplo, de decimal para inteiro, de DatetimeOffset para DateTime. <br>O valor padrão é true. | Não       |
-| treatBooleanAsNumber             | Trate os valores Boolianos como números, por exemplo, true como 1.<br>O valor padrão é falso. | Não       |
+| treatBooleanAsNumber             | Trate os valores Boolianos como números, por exemplo, true como 1.<br>O valor padrão é false. | Não       |
 | dateTimeFormat                   | Cadeia de formato ao converter entre datas sem deslocamento de fuso horário e cadeias de caracteres, por exemplo, `yyyy-MM-dd HH:mm:ss.fff` .  Consulte [cadeias de caracteres de formato de data e hora personalizadas](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) para obter informações detalhadas. | Não       |
 | dateTimeOffsetFormat             | Cadeia de caracteres de formato ao converter entre datas com deslocamento e cadeias de caracteres de fuso horário, por exemplo, `yyyy-MM-dd HH:mm:ss.fff zzz` .  Consulte [cadeias de caracteres de formato de data e hora personalizadas](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) para obter informações detalhadas. | Não       |
 | timeSpanFormat                   | Cadeia de formato ao converter entre períodos de tempo e cadeias de caracteres, por exemplo, `dd\.hh\:mm` . Consulte [cadeias de caracteres de formato de TimeSpan personalizadas](https://docs.microsoft.com/dotnet/standard/base-types/custom-timespan-format-strings) para obter informações detalhadas. | Não       |
@@ -452,7 +452,7 @@ Se você está utilizando a sintaxe de `"columnMappings": "UserId: MyUserId, Gro
 
 Você pode especificar a atividade de cópia-> `translator`  ->  `schemaMapping` para mapear entre dados em formato hierárquico e dados em formato de tabela, por exemplo, copiar do MongoDB/REST para o arquivo de texto e copiar do Oracle para a API do Azure Cosmos DB para MongoDB. As propriedades a seguir têm suporte na seção `translator` da atividade de cópia:
 
-| Property            | Descrição                                                  | Obrigatório |
+| Propriedade            | Descrição                                                  | Obrigatório |
 | :------------------ | :----------------------------------------------------------- | :------- |
 | type                | A propriedade Type do tradutor de atividade de cópia deve ser definida como: **TabularTranslator** | Sim      |
 | schemaMapping       | Uma coleção de pares chave-valor, que representa a relação de mapeamento **do lado da origem para o lado do coletor**.<br/>- **Chave:** representa a origem. Para **fonte de tabela**, especifique o nome da coluna conforme definido na estrutura do conjunto de dados; para **fonte hierárquica**, especifique a expressão de caminho JSON para cada campo a ser extraído e mapeado.<br>- **Valor:** representa o coletor. Para o **coletor de tabela**, especifique o nome da coluna conforme definido na estrutura do conjunto de dados; para **coletor hierárquico**, especifique a expressão de caminho JSON para cada campo a ser extraído e mapeado. <br>No caso de dados hierárquicos, para campos em objeto raiz, o caminho JSON começa com root $; para campos dentro da matriz escolhida pela `collectionReference` propriedade, o caminho JSON é iniciado a partir do elemento da matriz. | Sim      |

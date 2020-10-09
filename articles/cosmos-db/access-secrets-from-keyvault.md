@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 50a9d5e3d3bbb608160ee160c5f1aede8f70e530
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85262660"
 ---
 # <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>Proteger chaves do Azure Cosmos usando o Azure Key Vault 
@@ -49,7 +49,7 @@ As etapas a seguir são necessárias para armazenar e ler as chaves de acesso do
 
    * Selecione **manual** para **Opções de upload**.
    * Forneça um **Nome** para seu segredo
-   * Insira a cadeia de conexão da sua conta do Cosmos DB no campo **Valor**. E, em seguida, selecione **Criar**.
+   * Insira a cadeia de conexão da sua conta do Cosmos DB no campo **Valor**. Em seguida, selecione **Criar**.
 
    :::image type="content" source="./media/access-secrets-from-keyvault/create-a-secret.png" alt-text="Criar um segredo":::
 
@@ -70,11 +70,11 @@ As etapas a seguir são necessárias para armazenar e ler as chaves de acesso do
 
 5. Depois que o aplicativo for implantado. No portal do Azure, navegue até o aplicativo Web que você implantou e habilite a **Identidade de Serviço Gerenciada** desse aplicativo.  
 
-   :::image type="content" source="./media/access-secrets-from-keyvault/turn-on-managed-service-identity.png" alt-text="Identidade de Serviço Gerenciada":::
+   :::image type="content" source="./media/access-secrets-from-keyvault/turn-on-managed-service-identity.png" alt-text="Criar um segredo":::
 
 Se você for executar o aplicativo agora, ocorrerá o seguinte erro, pois você ainda não concedeu nenhuma permissão para esse aplicativo no Key Vault.
 
-:::image type="content" source="./media/access-secrets-from-keyvault/app-deployed-without-access.png" alt-text="Aplicativo implantado sem acesso":::
+:::image type="content" source="./media/access-secrets-from-keyvault/app-deployed-without-access.png" alt-text="Criar um segredo":::
 
 ## <a name="register-the-application--grant-permissions-to-read-the-key-vault"></a>Registrar o aplicativo e conceder permissões para ler o Key Vault
 
@@ -84,11 +84,11 @@ Nesta seção, você registrará o aplicativo no Azure Active Directory e conced
 
 2. Abra **Políticas de acesso**, selecione **+Adicionar Novo**, localize o aplicativo Web implantado, escolha as permissões e selecione **OK**.  
 
-   :::image type="content" source="./media/access-secrets-from-keyvault/add-access-policy.png" alt-text="Adicionar política de acesso":::
+   :::image type="content" source="./media/access-secrets-from-keyvault/add-access-policy.png" alt-text="Criar um segredo":::
 
 Agora, ao executar o aplicativo, você poderá ler o segredo do Key Vault.
 
-:::image type="content" source="./media/access-secrets-from-keyvault/app-deployed-with-access.png" alt-text="Aplicativo implantado com o segredo":::
+:::image type="content" source="./media/access-secrets-from-keyvault/app-deployed-with-access.png" alt-text="Criar um segredo":::
  
 Da mesma forma, você pode adicionar um usuário para acessar o Key Vault. Você precisa adicionar você mesmo ao Key Vault selecionando **Políticas de Acesso**. Em seguida, conceda todas as permissões que você precisa para executar o aplicativo usando o Visual Studio. Quando esse aplicativo estiver em execução na área de trabalho, ele usará sua identidade.
 

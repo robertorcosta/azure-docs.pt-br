@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/26/2020
 ms.author: rambala
 ms.openlocfilehash: e0e5806ec59cd2d75111db213d8511488d043eec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80982847"
 ---
 # <a name="working-remotely-using-azure-networking-services"></a>Trabalhando remotamente usando os serviços de rede do Azure
@@ -64,7 +64,7 @@ Os serviços do Azure a seguir podem ajudar a permitir que os funcionários aces
 
 - **Solução baseada em VPN do Azure**: para seus funcionários remotos conectados ao Azure por meio de P2S ou VPN S2S, você pode habilitar o acesso a redes locais Configurando a VPN S2S entre suas redes locais e o gateway de VPN do Azure. Para obter mais informações, consulte [criar uma conexão site a site][S2S].
 
-- **ExpressRoute**: usando o emparelhamento privado do expressroute, você pode habilitar a conectividade privada entre as implantações do Azure e a infraestrutura local ou sua infraestrutura em uma instalação de colocalização. O ExpressRoute, por meio do emparelhamento da Microsoft, também permite acessar pontos de extremidade públicos na Microsoft a partir de sua rede local. As conexões de ExpressRoute não passam pela Internet pública. Eles oferecem conectividade segura, confiabilidade, maior taxa de transferência, com latências menores e consistentes do que conexões típicas pela Internet. Para obter mais informações, consulte [Visão geral de ExpressRoute][ExR]. Aproveitar seu provedor de rede existente que já faz parte do nosso [ecossistema de parceiros do ExpressRoute][ExR-eco] pode ajudar a reduzir o tempo de obtenção de conexões de largura de banda grande para a Microsoft.  Usando o [ExpressRoute Direct][ExR-D] , você pode conectar diretamente sua rede local ao backbone da Microsoft. O ExpressRoute Direct oferece duas opções de taxa de linha diferentes de 10 Gbps ou 100 Gbps duplos. 
+- **ExpressRoute**: usando o emparelhamento privado do expressroute, você pode habilitar a conectividade privada entre as implantações do Azure e a infraestrutura local ou sua infraestrutura em uma instalação de colocalização. O ExpressRoute, por meio do emparelhamento da Microsoft, também permite acessar pontos de extremidade públicos na Microsoft a partir de sua rede local. As conexões de ExpressRoute não passam pela Internet pública. Eles oferecem conectividade segura, confiabilidade, maior taxa de transferência, com latências menores e consistentes do que conexões típicas pela Internet. Para obter mais informações, confira [Visão geral do ExpressRoute][ExR]. Aproveitar seu provedor de rede existente que já faz parte do nosso [ecossistema de parceiros do ExpressRoute][ExR-eco] pode ajudar a reduzir o tempo de obtenção de conexões de largura de banda grande para a Microsoft.  Usando o [ExpressRoute Direct][ExR-D] , você pode conectar diretamente sua rede local ao backbone da Microsoft. O ExpressRoute Direct oferece duas opções de taxa de linha diferentes de 10 Gbps ou 100 Gbps duplos. 
 
 - **Wan virtual do Azure**: a WAN virtual do Azure permite a interoperabilidade direta entre as conexões VPN e os circuitos do ExpressRoute. Como mencionado anteriormente, a WAN virtual do Azure também oferece suporte a conexões qualquer para qualquer entre recursos em locais globais diferentes no local, em diferentes redes virtuais de Hub regional e spoke
 

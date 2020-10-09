@@ -12,10 +12,10 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: ea564eb69f102d8e548bf8ae9a626598fa264cd4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80882872"
 ---
 # <a name="desktop-app-that-calls-web-apis-move-to-production"></a>Aplicativo de área de trabalho que chama APIs da Web: mover para produção
@@ -35,8 +35,8 @@ Você não pode obter um token para vários recursos de uma vez com o ponto de e
 
 Por exemplo, você pode ter dois recursos que têm dois escopos cada:
 
-- `https://mytenant.onmicrosoft.com/customerapi`com os escopos `customer.read` e`customer.write`
-- `https://mytenant.onmicrosoft.com/vendorapi`com os escopos `vendor.read` e`vendor.write`
+- `https://mytenant.onmicrosoft.com/customerapi` com os escopos `customer.read` e `customer.write`
+- `https://mytenant.onmicrosoft.com/vendorapi` com os escopos `vendor.read` e `vendor.write`
 
 Neste exemplo, use o `.WithAdditionalPromptToConsent` modificador que tem o `extraScopesToConsent` parâmetro.
 

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 66b216e5e511d2d80378ee7e2d124dccbc7abcb7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85252705"
 ---
 # <a name="controlled-validation-of-hybrid-azure-ad-join"></a>Validação controlada de ingresso no Azure AD híbrido
@@ -102,4 +102,4 @@ Depois de verificar se tudo está funcionando conforme o esperado, você pode re
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Planejar sua implementação de ingresso no Azure Active Directory híbrido](hybrid-azuread-join-plan.md)
+[Planejar sua implementação de junção do Azure Active Directory híbrido](hybrid-azuread-join-plan.md)

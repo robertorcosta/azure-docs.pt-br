@@ -12,10 +12,10 @@ ms.date: 08/20/2019
 ms.author: negoe
 ms.custom: aaddev
 ms.openlocfilehash: eeba01a609a1a21ed564c0b9cb78a28a4ad5c95a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80882311"
 ---
 # <a name="single-page-application-acquire-a-token-to-call-an-api"></a>Aplicativo de página única: adquirir um token para chamar uma API
@@ -24,8 +24,8 @@ O padrão para adquirir tokens para APIs com MSAL.js é primeiro tentar uma soli
 
 As solicitações de token silencioso para o Azure AD podem falhar por motivos como uma sessão expirada do Azure AD ou uma alteração de senha. Nesse caso, você pode invocar um dos métodos interativos (que solicitarão o usuário) para adquirir tokens:
 
-* [Janela pop-up](#acquire-a-token-with-a-pop-up-window), usando`acquireTokenPopup`
-* [Redirecionar](#acquire-a-token-with-a-redirect), usando`acquireTokenRedirect`
+* [Janela pop-up](#acquire-a-token-with-a-pop-up-window), usando `acquireTokenPopup`
+* [Redirecionar](#acquire-a-token-with-a-redirect), usando `acquireTokenRedirect`
 
 ## <a name="choose-between-a-pop-up-or-redirect-experience"></a>Escolha entre uma experiência de pop-up ou de redirecionamento
 
@@ -70,7 +70,7 @@ userAgentApplication.acquireTokenSilent(accessTokenRequest).then(function(access
 
 O wrapper angular MSAL fornece o interceptador HTTP, que automaticamente adquirirá tokens de acesso silenciosamente e os anexará às solicitações HTTP para APIs.
 
-Você pode especificar os escopos para APIs na `protectedResourceMap` opção de configuração. `MsalInterceptor`o solicitará esses escopos ao adquirir tokens automaticamente.
+Você pode especificar os escopos para APIs na `protectedResourceMap` opção de configuração. `MsalInterceptor` o solicitará esses escopos ao adquirir tokens automaticamente.
 
 ```javascript
 // app.module.ts

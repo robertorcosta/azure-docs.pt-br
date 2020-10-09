@@ -13,10 +13,10 @@ ms.author: marsma
 ms.reviewer: ''
 ms.custom: aaddev
 ms.openlocfilehash: 7a8a1667ba1ca2a99c053c6941e3ba778299fd53
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80880743"
 ---
 # <a name="how-to-sso-between-adal-and-msal-apps-on-macos-and-ios"></a>Como: SSO entre aplicativos ADAL e MSAL no macOS e iOS
@@ -41,7 +41,7 @@ MSAL e ADAL usam identificadores de conta diferentes. A ADAL usa o UPN como seu 
 
 Quando você recebe um `MSALAccount` objeto no resultado MSAL, ele contém um identificador de conta na `identifier` propriedade. O aplicativo deve usar esse identificador para solicitações silenciosas subsequentes.
 
-Além disso `identifier` , `MSALAccount` o objeto contém um identificador de exibição chamado `username` . Isso se traduz `userId` em Adal. `username`Não é considerado um identificador exclusivo e pode ser alterado a qualquer momento, portanto, ele só deve ser usado para cenários de compatibilidade com versões anteriores com a ADAL. O MSAL dá suporte a consultas de cache usando `username` ou `identifier` , em que `identifier` é recomendado consultar por.
+Além disso `identifier` , `MSALAccount` o objeto contém um identificador de exibição chamado `username` . Isso se traduz `userId` em Adal. `username` Não é considerado um identificador exclusivo e pode ser alterado a qualquer momento, portanto, ele só deve ser usado para cenários de compatibilidade com versões anteriores com a ADAL. O MSAL dá suporte a consultas de cache usando `username` ou `identifier` , em que `identifier` é recomendado consultar por.
 
 A tabela a seguir resume as diferenças de identificador de conta entre ADAL e MSAL:
 
@@ -49,7 +49,7 @@ A tabela a seguir resume as diferenças de identificador de conta entre ADAL e M
 | --------------------------------- | ------------------------------------------------------------ | --------------- | ------------------------------ |
 | identificador de exibição            | `username`                                                   | `userId`        | `userId`                       |
 | identificador exclusivo não-reproduzido | `identifier`                                                 | `homeAccountId` | N/D                            |
-| Nenhuma ID de conta conhecida               | Consultar todas as contas por meio `allAccounts:` da API`MSALPublicClientApplication` | N/D             | N/D                            |
+| Nenhuma ID de conta conhecida               | Consultar todas as contas por meio `allAccounts:` da API `MSALPublicClientApplication` | N/D             | N/D                            |
 
 Essa é a `MSALAccount` interface que fornece esses identificadores:
 
@@ -99,9 +99,9 @@ A ADAL 2.7. x retorna o `homeAccountId` no `ADUserInformation` objeto no resulta
 @property (readonly) NSString *homeAccountId;
 ```
 
-`homeAccountId`no ADAL, é equivalente a `identifier` em MSAL. Você pode salvar esse identificador para usar no MSAL para pesquisas de conta com a `accountForIdentifier:error:` API.
+`homeAccountId` no ADAL, é equivalente a `identifier` em MSAL. Você pode salvar esse identificador para usar no MSAL para pesquisas de conta com a `accountForIdentifier:error:` API.
 
-#### <a name="adals-userid"></a>Da ADAL`userId`
+#### <a name="adals-userid"></a>Da ADAL `userId`
 
 Se `homeAccountId` o não estiver disponível ou se você tiver apenas o identificador de exibição, poderá usar a Adal `userId` para pesquisar a conta em MSAL.
 

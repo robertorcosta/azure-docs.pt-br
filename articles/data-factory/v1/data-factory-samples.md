@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: f1e861bf9c6cc2a485ac9f153a0c932ec2e6fbb2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85318902"
 ---
 # <a name="azure-data-factory---samples"></a>Azure Data Factory - Exemplos
@@ -32,7 +32,7 @@ O [repositório GitHub Azure-DataFactory](https://github.com/azure/azure-datafac
 | [Exemplos JSON](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/JSON) |Este exemplo fornece exemplos JSON para cenários comuns. |
 | [Exemplo de HTTP Data Downloader](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/HttpDataDownloaderSample) |Este exemplo apresenta o download de dados de um ponto de extremidade HTTP no Armazenamento de Blobs do Azure usando a atividade personalizada do .NET. |
 | [Exemplo de atividade AppDomain Dot Net](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/CrossAppDomainDotNetActivitySample) |Este exemplo permite que você crie uma atividade personalizada do .NET que não esteja restrita a versões de assembly usadas pelo iniciador do ADF (por exemplo, WindowsAzure.Storage v4.3.0, Newtonsoft.Json v6.0.x etc.). |
-| [Executar script R](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample) |Este exemplo inclui a atividade personalizada do Data Factory que pode ser usada para invocar RScript.exe. Esse exemplo funciona apenas no seu próprio cluster HDInsight (não sob demanda) que já tenha o R instalado nele. |
+| [Executar o script R](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample) |Este exemplo inclui a atividade personalizada do Data Factory que pode ser usada para invocar RScript.exe. Esse exemplo funciona apenas no seu próprio cluster HDInsight (não sob demanda) que já tenha o R instalado nele. |
 | [Invocar trabalhos Spark no cluster Hadoop do HDInsight](https://docs.microsoft.com/azure/data-factory/tutorial-transform-data-spark-portal) |Esse exemplo mostra como usar a atividade MapReduce para invocar um programa Spark. O programa Spark apenas copia dados de um contêiner de Blob do Azure para outro. |
 | [Análise do Twitter usando a Atividade de Pontuação em Lotes do Azure Machine Learning](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-AzureMLBatchScoringActivity) |Esse exemplo mostra como usar AzureMLBatchScoringActivity para invocar um modelo de Azure Machine Learning que executa análise de opiniões no twitter, pontuação, previsão, etc. |
 | [Análise do Twitter usando a atividade personalizada](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-CustomC%23Activity) |Esse exemplo mostra como usar uma atividade .NET personalizada para invocar um modelo de Azure Machine Learning que executa análise de opiniões no twitter, pontuação, previsão, etc. |
@@ -80,7 +80,7 @@ Você deve ter os seguintes itens instalados no seu computador:
 
 * Visual Studio 2013 ou Visual Studio 2015
 * Baixe o SDK do Azure para Visual Studio 2013 ou Visual Studio de 2015. Navegue até a [Página de Download do Azure](https://azure.microsoft.com/downloads/) e clique em **VS 2013** ou **VS 2015** na seção **.NET**.
-* Baixe o último plug-in do Azure Data Factory para o Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) ou [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Se você estiver usando Visual Studio 2013, também poderá atualizar o plug-in executando as seguintes etapas: no menu, clique em **ferramentas**  ->  **extensões e atualizações**  ->  **online**  ->  **Visual Studio Galeria**  ->  **Microsoft Azure data Factory ferramentas para Visual Studio**  ->  **atualização**.
+* Baixe o plug-in Azure Data Factory para o Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) ou [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Se você estiver usando Visual Studio 2013, também poderá atualizar o plug-in executando as seguintes etapas: no menu, clique em **ferramentas**  ->  **extensões e atualizações**  ->  **online**  ->  **Visual Studio Galeria**  ->  **Microsoft Azure data Factory ferramentas para Visual Studio**  ->  **atualização**.
 
 ### <a name="use-data-factory-templates"></a>Use modelos de Data Factory
 1. Clique em **Arquivo** no menu, aponte para **Novo** e clique em **Projeto**.
@@ -98,12 +98,12 @@ Você deve ter os seguintes itens instalados no seu computador:
     ![Caixa de diálogo Modelos de Data Factory](./media/data-factory-samples/vs-data-factory-templates-dialog.png)
 4. Na caixa de diálogo **Configuração de Data Factory**, clique em **Avançar** na página **Noções básicas de Data Factory**.
 5. Na página **Configurar data factory**, execute as seguintes etapas:
-   1. Selecione **Criar Nova Fábrica de Dados**. Você também pode selecionar **Usar data factory existente**.
-   2. Insira um **nome** para o armazenamento de dados.
+   1. Selecione **criar novo data Factory**. Você também pode selecionar **Usar data factory existente**.
+   2. Insira um **nome** para o data Factory.
    3. Escolha a **assinatura do Azure** em que você deseja que o data factory seja criado.
    4. Selecione o **grupo de recursos** para o data factory a ser criado.
    5. Selecione o **Oeste dos EUA**, **Leste dos EUA** ou **Norte da Europa** como a **região**.
-   6. Clique em **Próximo**.
+   6. Clique em **Avançar**.
 6. Na página **Configure Data Stores** , especifique um **banco de dados existente no Azure SQL Database e na** conta de **armazenamento do Azure** (ou) criar banco de dados/armazenamento e clique em Avançar.
 7. Na página **Configurar computação**, selecione os padrões e clique em **Avançar**.
 8. Na página **Resumo** examine as configurações e clique em **Avançar**.
@@ -113,7 +113,7 @@ Você deve ter os seguintes itens instalados no seu computador:
 12. Você deve ver a caixa de diálogo a seguir:
 
     ![Caixa de diálogo Publicar](./media/data-factory-build-your-first-pipeline-using-vs/publish.png)
-13. Na página **configurar data Factory** , execute as seguintes etapas:
+13. Na página **Configurar data factory**, execute as seguintes etapas:
 
     1. Confirme a opção **Usar data factory existente** .
     2. Selecione a **da data factory** que tinha selecionado ao usar o modelo.

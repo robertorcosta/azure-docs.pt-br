@@ -4,10 +4,10 @@ description: Analisa diferenças e semelhanças entre dois tipos de fila ofereci
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: a64000741de68518dd459b105a093ccf4cb6ab7b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85337642"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Filas do Armazenamento e filas do Barramento de Serviço — comparações e contrastes
@@ -44,11 +44,11 @@ Como arquiteto/desenvolvedor de soluções, **você deve considerar o uso das fi
 * Você tiver que lidar com a necessidade de fornecer um modelo de acesso baseado em função às filas e diferentes direitos/permissões para remetentes e destinatários. Para obter mais informações, consulte os seguintes artigos:
     - [Autenticar com identidades gerenciadas](service-bus-managed-service-identity.md)
     - [Autenticar a partir de um aplicativo](authenticate-application.md)
-* O tamanho da fila não for exceder 80 GB.
+* O tamanho da fila não excederá 80 GB.
 * Você desejar usar o protocolo do sistema de mensagens baseado em padrões AMQP 1.0. Para obter mais informações sobre AMQP, confira [Visão geral do AMQP do Barramento de Serviço](service-bus-amqp-overview.md).
 * Você puder prever uma migração final da comunicação ponto a ponto baseada em fila para um padrão de troca de mensagens que permita a integração perfeita de receptores (assinantes) adicionais, cada um dos quais recebe cópias independentes de algumas ou todas as mensagens enviadas à fila. O último se refere ao recurso de publicação/assinatura fornecido originalmente pelo Barramento de Serviço.
 * Sua solução de sistema de mensagens tiver que oferecer suporte à garantia de entrega "No máximo uma vez", sem a necessidade de criar componentes de infraestrutura adicional.
-* Você desejar publicar e consumir lotes de mensagens.
+* Você deseja publicar e consumir lotes de mensagens.
 
 ## <a name="comparing-storage-queues-and-service-bus-queues"></a>Comparando as filas do Armazenamento e as filas do Barramento de Serviço
 As tabelas nas seções a seguir fornecem um agrupamento lógico de recursos de fila e permitem que você compare, rapidamente, as funcionalidades disponíveis nas filas do Armazenamento do Azure e nas filas do Barramento de Serviço.

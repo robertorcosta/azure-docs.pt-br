@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: Azure, Kinect, SDK, baixar atualização, mais recente, disponível, instalar, corpo, acompanhamento
 ms.openlocfilehash: e3f8233d208e2a45c1af9a52a76b6064b15bfe4b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85276414"
 ---
 # <a name="download-azure-kinect-body-tracking-sdk"></a>Baixar o SDK de acompanhamento de corpo do Azure Kinect
@@ -109,9 +109,9 @@ Se o comando for executado com sucesso, o SDK estará pronto para uso.
 
 * [Alteração significativa] Downgrade da dependência do SDK para CUDA 10,0 (de CUDA 10,1). O tempo de execução ONNX oficialmente suporta apenas até CUDA 10,0.
 * [Alteração significativa] Alternado para o tempo de execução ONNX em vez de Tensorflow Runtime. Reduz o tempo de inicialização do primeiro quadro e o uso de memória. Ele também reduz o tamanho binário do SDK.
-* [Alteração de API] Renomeado `k4abt_tracker_queue_capture()` para`k4abt_tracker_enqueue_capture()`
-* [Alteração de API] `k4abt_frame_get_body()`Dividido em duas funções separadas: `k4abt_frame_get_body_skeleton()` e `k4abt_frame_get_body_id()` . Agora você pode consultar a ID do corpo sem sempre copiar a estrutura de esqueleto inteira.
-* [Alteração de API] `k4abt_frame_get_timestamp_usec()`Função adicionada para simplificar as etapas para que os usuários consultem o carimbo de data/hora do quadro do corpo.
+* [Alteração de API] Renomeado `k4abt_tracker_queue_capture()` para `k4abt_tracker_enqueue_capture()`
+* [Alteração de API] `k4abt_frame_get_body()` Dividido em duas funções separadas: `k4abt_frame_get_body_skeleton()` e `k4abt_frame_get_body_id()` . Agora você pode consultar a ID do corpo sem sempre copiar a estrutura de esqueleto inteira.
+* [Alteração de API]  `k4abt_frame_get_timestamp_usec()` Função adicionada para simplificar as etapas para que os usuários consultem o carimbo de data/hora do quadro do corpo.
 * Melhorou a precisão de controle e a confiabilidade do algoritmo de acompanhamento do corpo
 
 ## <a name="next-steps"></a>Próximas etapas

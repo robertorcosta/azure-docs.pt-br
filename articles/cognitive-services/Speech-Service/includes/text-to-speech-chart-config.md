@@ -11,10 +11,10 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 22168974ab8b285413b4fa6e947c05f65a73ae12
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80874323"
 ---
 ### <a name="text-to-speech-sub-chart-chartstexttospeech"></a>Conversão de texto em fala (subgráfico: gráficos/textToSpeech)
@@ -32,7 +32,7 @@ Para substituir o gráfico "abrangência", adicione o prefixo `textToSpeech.` em
 | `image.pullSecrets` | Os segredos da imagem para extrair a imagem do Docker de **conversão de texto em fala** . | |
 | `image.pullByHash`| Se a imagem do Docker é retirada por hash. Se `true` , `image.hash` for necessário. | `false` |
 | `image.hash`| O hash de imagem do Docker de **conversão de texto em fala** . Usado somente quando `image.pullByHash: true` .  | |
-| `image.args.eula` (obrigatório) | Indica que você aceitou a licença. O único valor válido é`accept` | |
+| `image.args.eula` (obrigatório) | Indica que você aceitou a licença. O único valor válido é `accept` | |
 | `image.args.billing` (obrigatório) | O valor do URI do ponto de extremidade de cobrança está disponível na página Visão geral de fala do portal do Azure. | |
 | `image.args.apikey` (obrigatório) | Usado para rastrear informações de cobrança. ||
 | `service.type` | O tipo de serviço kubernetes do serviço de **conversão de texto em fala** . Consulte as [instruções de tipos de serviço kubernetes](https://kubernetes.io/docs/concepts/services-networking/service/) para obter mais detalhes e verificar o suporte ao provedor de nuvem. | `LoadBalancer` |

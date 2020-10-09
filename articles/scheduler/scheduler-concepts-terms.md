@@ -10,10 +10,10 @@ ms.reviewer: klam, estfan
 ms.topic: conceptual
 ms.date: 08/18/2016
 ms.openlocfilehash: 100be6a4376883a4f2a91b1efd172242c1d19e19
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80878384"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Conceitos, terminologia e entidades do Agendador do Azure
@@ -38,7 +38,7 @@ A API REST do Agendador do Azure expõe e usa essas entidades principais, ou rec
 
 Em um alto nível, a API REST do Agendador expõe essas operações para gerenciar as entidades.
 
-### <a name="job-management"></a>Gerenciamento de trabalhos
+### <a name="job-management"></a>Gerenciamento de trabalho
 
 Compatível com operações para criar e editar trabalhos. Todos os trabalhos devem pertencer a uma coleção de trabalhos existente, para que não haja criação implícita. Para obter mais informações, veja [API REST do Agendador – Trabalhos](https://docs.microsoft.com/rest/api/scheduler/jobs). Aqui está o endereço URI para essas operações:
 
@@ -89,7 +89,7 @@ O trabalho também inclui os dados fornecidos pelo sistema, como tempo de execu�
 | [**errorAction**](#error-action) | Não | Os detalhes para a ação secundária que é executada se a ação principal falha |
 | [**Recurrence**](#recurrence) | Não | Os detalhes, como a frequência e o intervalo para um trabalho recorrente | 
 | [**retryPolicy**](#retry-policy) | Não | Os detalhes de quantas vezes repetir uma ação | 
-| [**state**](#state) | Sim | Os detalhes do estado atual do trabalho |
+| [**status**](#state) | Sim | Os detalhes do estado atual do trabalho |
 | [**Estado**](#status) | Sim | Os detalhes do status atual do trabalho, que é controlado pelo serviço |
 ||||
 

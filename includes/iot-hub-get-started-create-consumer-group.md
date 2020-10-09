@@ -5,10 +5,10 @@ ms.author: robinsh
 ms.topic: include
 ms.date: 05/20/2019
 ms.openlocfilehash: c164433efc6a34a3a06676a3145feb18d3de80b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "66248839"
 ---
 ## <a name="add-a-consumer-group-to-your-iot-hub"></a>Adicionar um grupo de consumidores ao hub IoT
@@ -19,6 +19,6 @@ Para adicionar um grupo de consumidores ao hub IoT, siga estas etapas:
 
 1. No [portal do Azure](https://portal.azure.com/), abra o hub IoT.
 
-2. No painel esquerdo, selecione **pontos de extremidade internos**, selecione **eventos** no painel direito e insira um nome em **grupos de consumidores**. Selecione **Salvar**.
+2. No painel esquerdo, selecione **pontos de extremidade internos**, selecione **eventos** no painel direito e insira um nome em **grupos de consumidores**. Clique em **Salvar**.
 
    ![Criar um grupo de consumidores no hub IoT](./media/iot-hub-get-started-create-consumer-group/iot-hub-create-consumer-group-azure.png)

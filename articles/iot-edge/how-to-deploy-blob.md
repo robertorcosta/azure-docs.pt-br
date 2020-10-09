@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 ms.reviewer: arduppal
 ms.openlocfilehash: da163e902d06bd98ac47a24256cb809cb222173b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80804615"
 ---
 # <a name="deploy-the-azure-blob-storage-on-iot-edge-module-to-your-device"></a>Implantar o armazenamento de Blobs do Azure no módulo IoT Edge para seu dispositivo
@@ -47,12 +47,12 @@ Um manifesto de implantação é um documento JSON que descreve quais módulos i
 
    Exemplos:
   
-   - **Nome do módulo de IOT Edge**:`azureblobstorageoniotedge`
-   - **URI da imagem**:`mcr.microsoft.com/azure-blob-storage:latest`
+   - **Nome do módulo de IOT Edge**: `azureblobstorageoniotedge`
+   - **URI da imagem**: `mcr.microsoft.com/azure-blob-storage:latest`
 
    ![Configurações de módulo de configuração](./media/how-to-deploy-blob/addmodule-tab1.png)
 
-   Não selecione **Adicionar** até que você tenha especificado valores nas guias **configurações do módulo**, opções de criação do **contêiner**e configurações do **módulo de configuração** , conforme descrito neste procedimento.
+   Não selecione **Adicionar** até que você tenha especificado valores nas guias **configurações do módulo**, opções de criação do **contêiner**e configurações do  **módulo de configuração** , conforme descrito neste procedimento.
 
    > [!IMPORTANT]
    > Azure IoT Edge diferencia maiúsculas de minúsculas quando você faz chamadas para módulos e o SDK de armazenamento também usa como padrão letras minúsculas. Embora o nome do módulo no [Azure Marketplace](how-to-deploy-modules-portal.md#deploy-modules-from-azure-marketplace) seja **AzureBlobStorageonIoTEdge**, alterar o nome para minúsculas ajuda a garantir que suas conexões com o armazenamento de BLOBs do Azure no módulo IOT Edge não sejam interrompidas.
@@ -89,7 +89,7 @@ Um manifesto de implantação é um documento JSON que descreve quais módulos i
    - Substitua `<storage mount>` de acordo com o sistema operacional do contêiner. Forneça o nome de um [volume](https://docs.docker.com/storage/volumes/) ou o caminho absoluto para um diretório existente no dispositivo IOT Edge em que o módulo de blob armazenará seus dados. A montagem de armazenamento mapeia um local em seu dispositivo que você fornece a um local definido no módulo.
 
      - Para contêineres do Linux, o formato é ** \<your storage path or volume> :/blobroot**. Por exemplo:
-         - usar [montagem de volume](https://docs.docker.com/storage/volumes/):`my-volume:/blobroot`
+         - usar [montagem de volume](https://docs.docker.com/storage/volumes/): `my-volume:/blobroot`
          - usar [montagem de associação](https://docs.docker.com/storage/bind-mounts/): `/srv/containerdata:/blobroot` . Certifique-se de seguir as etapas para [conceder acesso ao diretório para o usuário do contêiner](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux)
      - Para contêineres do Windows, o formato é ** \<your storage path or volume> : C:/BlobRoot**. Por exemplo:
          - usar [montagem de volume](https://docs.docker.com/storage/volumes/): `my-volume:C:/BlobRoot` .
@@ -201,9 +201,9 @@ O Azure IoT Edge disponibiliza modelos no Visual Studio Code para ajudar você a
 1. Substitua `<storage mount>` de acordo com o sistema operacional do contêiner. Forneça o nome de um [volume](https://docs.docker.com/storage/volumes/) ou o caminho absoluto para um diretório no dispositivo do IoT Edge no qual você quer que o módulo do blob armazene os dados. A montagem de armazenamento mapeia um local em seu dispositivo que você fornece a um local definido no módulo.  
 
      - Para contêineres do Linux, o formato é ** \<your storage path or volume> :/blobroot**. Por exemplo:
-         - usar [montagem de volume](https://docs.docker.com/storage/volumes/):`my-volume:/blobroot`
+         - usar [montagem de volume](https://docs.docker.com/storage/volumes/): `my-volume:/blobroot`
          - usar [montagem de associação](https://docs.docker.com/storage/bind-mounts/): `/srv/containerdata:/blobroot` . Certifique-se de seguir as etapas para [conceder acesso ao diretório para o usuário do contêiner](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux)
-     - Para contêineres do Windows, o formato é ** \<your storage path or volume> : C:/BlobRoot**. Por exemplo,
+     - Para contêineres do Windows, o formato é ** \<your storage path or volume> : C:/BlobRoot**. Por exemplo
          - usar [montagem de volume](https://docs.docker.com/storage/volumes/): `my-volume:C:/BlobRoot` .
          - usar [montagem de associação](https://docs.docker.com/storage/bind-mounts/): `C:/ContainerData:C:/BlobRoot` .
          - Em vez de usar sua unidade local, você pode mapear seu local de rede SMB, para obter mais informações, consulte [usando o compartilhamento SMB como seu armazenamento local](how-to-store-data-blob.md#using-smb-share-as-your-local-storage)
@@ -240,7 +240,7 @@ O Azure IoT Edge disponibiliza modelos no Visual Studio Code para ajudar você a
 
    Para obter informações sobre como configurar o deviceToCloudUploadProperties e o deviceAutoDeleteProperties depois que o módulo tiver sido implantado, consulte [Editar o módulo](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Edit-Module-Twin)... Para obter mais informações sobre opções de criação de contêiner, política de reinicialização e status desejado, consulte [EdgeAgent Desired Properties](module-edgeagent-edgehub.md#edgeagent-desired-properties).
 
-1. Salve o *deployment.template.jsno* arquivo.
+1. Salve o arquivo *deployment.template.json*.
 
 1. Clique com o botão direito do mouse em **deployment.template.json** e selecione **Gerar manifesto de implantação do IoT Edge**.
 

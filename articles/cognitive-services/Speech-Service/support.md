@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: jhakulin
 ms.openlocfilehash: d35c02386b7bcb18781dcbd8c209da43d590868c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76169521"
 ---
 # <a name="support-and-help-options"></a>Opções de Ajuda e suporte
@@ -101,7 +101,7 @@ Qual versão do SDK você está usando.
 
 O Stack Overflow é o canal preferido para o desenvolvimento de questões relacionadas. É onde os membros da comunidade e membros da equipe da Microsoft estão diretamente envolvidos em ajudá-lo a resolver seus problemas.
 
-Se você não encontrar uma resposta para o problema por meio de pesquisa, envie uma nova pergunta para Stack Overflow usando marcas [ \[de fala\]\[\]da Microsoft – cognitiva](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech).
+Se você não encontrar uma resposta para o problema por meio de pesquisa, envie uma nova pergunta para Stack Overflow usando marcas [ \[ de \] \[ fala \] da Microsoft – cognitiva](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech).
 
 > [!TIP]
 > As seguintes postagens do Stack Overflow contêm dicas sobre as perguntas de formulário e adicione o código-fonte. As diretrizes a seguir podem ajudar a aumentar as chances de os membros da comunidade avaliarem e responderem à sua pergunta rapidamente:  

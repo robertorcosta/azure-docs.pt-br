@@ -6,10 +6,10 @@ ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
 ms.openlocfilehash: 1d9b2ca163b70435a6c0e245e66492e8e2866639
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80680018"
 ---
 # <a name="texconv---texture-conversion-tool"></a>TexConv-ferramenta de conversão de textura
@@ -31,9 +31,9 @@ A linha de comando mais direta é esta:
 TexConv.exe -out D:/result.dds -in0 D:/img.jpg -rgba in0
 ```
 
-- `-out`Especifica o arquivo de saída e o formato
-- `-in0`Especifica a primeira imagem de entrada
-- `-rgba`informa que a imagem de saída deve usar todos os quatro canais e que eles devem ser levados a 1:1 da imagem de entrada
+- `-out` Especifica o arquivo de saída e o formato
+- `-in0` Especifica a primeira imagem de entrada
+- `-rgba` informa que a imagem de saída deve usar todos os quatro canais e que eles devem ser levados a 1:1 da imagem de entrada
 
 ## <a name="multiple-input-files"></a>Vários arquivos de entrada
 
@@ -68,9 +68,9 @@ A especificação do mapeamento para cada canal separadamente proporciona a maio
 As seguintes opções de mapeamento de canal estão disponíveis:
 
 - `-r`,,, `-g` `-b` `-a` : Eles especificam atribuições de canal único
-- `-rg`: Especifique as atribuições de canal vermelho e verde.
-- `-rgb`: Especifique as atribuições de canal vermelho, verde e azul.
-- `-rgba`: Especifica todas as quatro atribuições de canal.
+- `-rg` : Especifique as atribuições de canal vermelho e verde.
+- `-rgb` : Especifique as atribuições de canal vermelho, verde e azul.
+- `-rgba` : Especifica todas as quatro atribuições de canal.
 
 Mencionando apenas o canal R, RG ou RGB, instrui o TexConv a criar um arquivo de saída com apenas 1, 2 ou 3 canais, respectivamente.
 
@@ -79,13 +79,13 @@ Mencionando apenas o canal R, RG ou RGB, instrui o TexConv a criar um arquivo de
 Ao indicar qual textura de entrada deve preencher qual canal de saída, uma pode swizzle a entrada:
 
 - `-rgba in0` equivale a `-rgba in0.rgba`
-- `-rgba in0.bgra`irá swizzle os canais de entrada
-- `-rgb in0.rrr`duplicará o canal vermelho em todos os canais
+- `-rgba in0.bgra` irá swizzle os canais de entrada
+- `-rgb in0.rrr` duplicará o canal vermelho em todos os canais
 
 Um deles também pode preencher canais com preto ou branco:
 
-- `-rgb in0 -a white`criará uma textura de saída de 4 canais, mas definirá alfa como totalmente opaca
-- `-rg black -b white`criará uma textura totalmente azul
+- `-rgb in0 -a white` criará uma textura de saída de 4 canais, mas definirá alfa como totalmente opaca
+- `-rg black -b white` criará uma textura totalmente azul
 
 ## <a name="common-options"></a>Opções comuns
 
@@ -93,41 +93,41 @@ As opções mais interessantes estão listadas abaixo. Mais opções são listad
 
 ### <a name="output-type"></a>Tipo de saída
 
-- `-type 2D`: A saída será uma imagem 2D regular.
-- `-type Cubemap`: A saída será uma imagem cubemap. Com suporte apenas para arquivos de saída de DDS. Quando isso é especificado, um pode montar o cubemap de 6 imagens de entrada 2D regulares.
+- `-type 2D` : A saída será uma imagem 2D regular.
+- `-type Cubemap` : A saída será uma imagem cubemap. Com suporte apenas para arquivos de saída de DDS. Quando isso é especificado, um pode montar o cubemap de 6 imagens de entrada 2D regulares.
 
 ### <a name="image-compression"></a>Compactação de imagem
 
-- `-compression none`: A imagem de saída será descompactada.
-- `-compression medium`: Se houver suporte, a imagem de saída usará a compactação sem sacrificar muita qualidade.
-- `-compression high`: Se houver suporte, a imagem de saída usará a compactação e prejudicará a qualidade em favor de um arquivo menor.
+- `-compression none` : A imagem de saída será descompactada.
+- `-compression medium` : Se houver suporte, a imagem de saída usará a compactação sem sacrificar muita qualidade.
+- `-compression high` : Se houver suporte, a imagem de saída usará a compactação e prejudicará a qualidade em favor de um arquivo menor.
 
 ### <a name="mipmaps"></a>Mipmaps
 
 Por padrão, TexConv gera mipmaps quando o formato de saída dá suporte a ela.
 
-- `-mipmaps none`: Mipmaps não será gerado.
-- `-mipmaps Linear`: Se houver suporte, mipmaps será gerado usando um filtro de caixa.
+- `-mipmaps none` : Mipmaps não será gerado.
+- `-mipmaps Linear` : Se houver suporte, mipmaps será gerado usando um filtro de caixa.
 
 ### <a name="usage-srgb--gamma-correction"></a>Uso (correção de sRGB/gama)
 
 A `-usage` opção especifica a finalidade da saída e, portanto, informa ao TexConv se a correção gama deve ser aplicada aos arquivos de entrada e saída. O uso afeta apenas os canais RGB. O canal alfa é sempre considerado para conter valores ' lineares '. Se o uso não for especificado, o modo ' auto ' tentará detectar o uso do formato e do nome do arquivo da primeira imagem de entrada. Por exemplo, os formatos de saída de canal único e duplo são sempre lineares. Verifique a saída para ver qual decisão TexConv tomada.
 
-- `-usage Linear`: A imagem de saída contém valores que não representam cores. Normalmente, esse é o caso de texturas metálicas e de irregularidades, bem como todos os tipos de máscaras.
+- `-usage Linear` : A imagem de saída contém valores que não representam cores. Normalmente, esse é o caso de texturas metálicas e de irregularidades, bem como todos os tipos de máscaras.
 
-- `-usage Color`: A imagem de saída representa a cor, como mapas difuso/albedo. O sinalizador sRGB será definido no cabeçalho DDS de saída.
+- `-usage Color` : A imagem de saída representa a cor, como mapas difuso/albedo. O sinalizador sRGB será definido no cabeçalho DDS de saída.
 
-- `-usage HDR`: O arquivo de saída deve usar mais de 8 bits por pixel para codificação. Consequentemente, todos os valores são armazenados em espaço linear. Para texturas HDR, não importa se os dados representam cor ou outros dados.
+- `-usage HDR` : O arquivo de saída deve usar mais de 8 bits por pixel para codificação. Consequentemente, todos os valores são armazenados em espaço linear. Para texturas HDR, não importa se os dados representam cor ou outros dados.
 
-- `-usage NormalMap`: A imagem de saída representa um mapa normal de espaço tangente. Os valores serão normalizados e a computação mipmap será otimizada ligeiramente.
+- `-usage NormalMap` : A imagem de saída representa um mapa normal de espaço tangente. Os valores serão normalizados e a computação mipmap será otimizada ligeiramente.
 
-- `-usage NormalMap_Inverted`: A saída é um mapa normal de espaço tangente com Y apontando na direção oposta do que a entrada.
+- `-usage NormalMap_Inverted` : A saída é um mapa normal de espaço tangente com Y apontando na direção oposta do que a entrada.
 
 ### <a name="image-rescaling"></a>Redimensionamento de imagem
 
-- `-minRes 64`: Especifica a resolução mínima da saída. Se a imagem de entrada for menor, ela será dimensionada.
-- `-maxRes 1024`: Especifica a resolução máxima da saída. Se a imagem de entrada for maior, ela receberá downscaled.
-- `-downscale 1`: Se for maior que 0, as imagens de entrada serão divididas em uma resolução N vezes. Use isso para aplicar uma redução de qualidade geral.
+- `-minRes 64` : Especifica a resolução mínima da saída. Se a imagem de entrada for menor, ela será dimensionada.
+- `-maxRes 1024` : Especifica a resolução máxima da saída. Se a imagem de entrada for maior, ela receberá downscaled.
+- `-downscale 1` : Se for maior que 0, as imagens de entrada serão divididas em uma resolução N vezes. Use isso para aplicar uma redução de qualidade geral.
 
 ## <a name="examples"></a>Exemplos
 
