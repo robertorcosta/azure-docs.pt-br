@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: raynew
 ms.openlocfilehash: c1ae3a9ed8a775161aaf85ab2c91b1e43113d2e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "70279447"
 ---
 # <a name="assess-large-numbers-of-hyper-v-vms-for-migration-to-azure"></a>Avaliar grandes números de VMs do Hyper-V para migração para o Azure
@@ -48,7 +48,7 @@ Use os limites resumidos nesta tabela para planejamento.
 --- | --- 
 **Projetos das Migrações para Azure** | Avalie até 35.000 VMs em um projeto.
 **Dispositivo de Migrações para Azure** | Um dispositivo pode descobrir até 5000 VMs.<br/> Um dispositivo pode se conectar a até 300 hosts do Hyper-V.<br/> Um dispositivo só pode ser associado a um único projeto de migrações para Azure.<br/> Qualquer número de dispositivos pode ser associado a um único projeto de migrações para Azure. <br/><br/> 
-**Group** | Você pode adicionar até 35.000 VMs em um único grupo.
+**Grupo** | Você pode adicionar até 35.000 VMs em um único grupo.
 **Avaliação de migrações para Azure** | É possível avaliar até 35.000 VMs em uma única avaliação.
 
 

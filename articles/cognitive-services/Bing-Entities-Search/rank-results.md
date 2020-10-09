@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: aahi
 ms.openlocfilehash: 110cef117683b20170649a231226c8193496edf3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "68423909"
 ---
 # <a name="using-ranking-to-display-entity-search-results"></a>Usar a classificação para exibir os resultados da pesquisa da entidade  
@@ -72,4 +72,4 @@ Com base nessa resposta de classificação, a barra lateral exibirá os resultad
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [criar um aplicativo Web de página única](tutorial-bing-entities-search-single-page-app.md)
+> [Criar um aplicativo Web de página única](tutorial-bing-entities-search-single-page-app.md)
