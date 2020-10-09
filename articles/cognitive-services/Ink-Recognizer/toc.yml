@@ -10,11 +10,11 @@
   items:
     - name: API REST
       items:
-        - name: 'C#'
+        - name: C#
           href: quickstarts/csharp.md
         - name: Java
           href: quickstarts/java.md
-        - name: Javascript
+        - name: JavaScript
           href: quickstarts/javascript.md
 - name: Conceitos
   items:
@@ -22,9 +22,9 @@
       href: concepts/send-ink-data.md
 - name: Exemplos
   items:
-    - name: 'C# e UWP (Plataforma Universal do Windows)'
+    - name: C# e UWP (Plataforma Universal do Windows)
       href: 'https://go.microsoft.com/fwlink/?linkid=2089803'
-    - name: 'C# e WPF (Windows Presentation Foundation)'
+    - name: C# e WPF (Windows Presentation Foundation)
       href: 'https://go.microsoft.com/fwlink/?linkid=2089804'
     - name: Aplicativo de navegador da Web JavaScript
       href: 'https://go.microsoft.com/fwlink/?linkid=2089908'
