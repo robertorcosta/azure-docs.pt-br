@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
 ms.openlocfilehash: fb080858ff6be98846c542844810cf976eb3f264
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85117974"
 ---
 # <a name="azure-cosmos-db-query-cheat-sheets"></a>Folhas de referências de consulta do Azure Cosmos DB
@@ -28,7 +28,7 @@ Baixe as [Folhas de referências de consulta em tamanho carta do Azure Cosmos DB
 ## <a name="oversized-cheat-sheets"></a>Folhas de referências de tamanho grande
 Baixe as [folhas de referências de consulta tamanho A3 do Azure Cosmos DB](https://go.microsoft.com/fwlink/?linkid=870413), se você for imprimir utilizando uma plotadora ou impressora em larga escala em papel tamanho A3 (11,7" x 16,5").
 
-:::image type="content" source="./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-a3.png" alt-text="Folhas de referências de consulta do Azure Cosmos DB - tamanho A3, com consultas e funções de API de SQL, JavaScript, MongoDB, Gremlin e API de Tabela" border="false":::
+:::image type="content" source="./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-a3.png" alt-text="Folhas de referências de consulta do Azure Cosmos DB - tamanho carta, com consultas e funções de API de SQL, JavaScript, MongoDB, Gremlin e API de Tabela" border="false":::
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter mais ajuda na gravação de consultas, leia os artigos a seguir:

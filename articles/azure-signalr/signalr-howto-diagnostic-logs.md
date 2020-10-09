@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: wanl
 ms.openlocfilehash: 55482457058d01162116494b637661db40010a50
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85131952"
 ---
 # <a name="resource-logs-for-azure-signalr-service"></a>Logs de recursos do serviço de Signaler do Azure
@@ -66,7 +66,7 @@ Todos os logs são armazenados no formato JSON (JavaScript Object Notation). Cad
 
 As cadeias de caracteres JSON do log de arquivo incluem os elementos listados nas tabelas a seguir:
 
-**Formatar**
+**Formato**
 
 Nome | Descrição
 ------- | -------
@@ -84,12 +84,12 @@ properties | Propriedades detalhadas relacionadas a esse evento de log. Para obt
 Nome | Descrição
 ------- | -------
 type | Tipo do evento de log. Atualmente, fornecemos informações sobre a conectividade com o serviço de Signaler do Azure. Somente o `ConnectivityLogs` tipo está disponível
-collection | Coleção do evento de log. Os valores permitidos são: `Connection` , `Authorization` e`Throttling`
+collection | Coleção do evento de log. Os valores permitidos são: `Connection` , `Authorization` e `Throttling`
 ConnectionId | Identidade da conexão
 transportType | Tipo de transporte da conexão. Os valores permitidos são: `Websockets` \| `ServerSentEvents` \|`LongPolling`
 connectionType | Tipo da conexão. Os valores permitidos são: `Server` \| `Client`. `Server`: conexão do lado do servidor; `Client`: conexão do lado do cliente
 userId | Identidade do usuário
-message | Mensagem detalhada do evento de log
+mensagem | Mensagem detalhada do evento de log
 
 O código a seguir é um exemplo de uma cadeia de caracteres JSON do log de arquivo morto:
 
@@ -131,7 +131,7 @@ As colunas de log de arquivo incluem os elementos listados na tabela a seguir:
 Nome | Descrição
 ------- | ------- 
 TimeGenerated | Hora do evento de log
-Coleção | Coleção do evento de log. Os valores permitidos são: `Connection` , `Authorization` e`Throttling`
+Coleção | Coleção do evento de log. Os valores permitidos são: `Connection` , `Authorization` e `Throttling`
 OperationName | Nome da operação do evento
 Location | Local do serviço de Signaler do Azure
 Nível | Nível de evento de log

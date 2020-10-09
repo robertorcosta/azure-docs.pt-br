@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 03/09/2020
 ms.author: terrylan
 ms.openlocfilehash: 1b6fcf38f9f69976e6ed8d64040cfbcf44f090e1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85124044"
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Melhores práticas de segurança de dados e criptografia do Azure
@@ -37,30 +37,30 @@ Para ajudar a proteger os dados na nuvem, você precisa levar em consideração 
 
 Proteger suas chaves é essencial para proteger seus dados na nuvem.
 
-[Azure Key Vault](/azure/key-vault/key-vault-overview) ajuda a proteger chaves criptográficas e segredos usados por aplicativos e serviços de nuvem. O Cofre da Chave simplifica o processo de gerenciamento de chaves e permite que você tenha controle das chaves que acessam e criptografam seus dados. Desenvolvedores podem criar chaves para desenvolvimento e teste em minutos e depois migrá-las para chaves de produção. Administradores de segurança podem conceder (e revogar) permissão a chaves conforme for necessário.
+O [Azure Key Vault](/azure/key-vault/key-vault-overview) ajuda a proteger chaves criptográficas e segredos que aplicativos e serviços de nuvem usam. O Key Vault simplifica o processo de gerenciamento de chaves e habilita você a ter controle das chaves que acessam e criptografam seus dados. Os desenvolvedores podem criar chaves para desenvolvimento e teste em minutos e depois migrá-las para chaves de produção. Os administradores de segurança podem conceder (e revogar) permissão a chaves, conforme for necessário.
 
-Você pode usar o Key Vault para criar vários contêineres seguros, chamados de cofre. Esses cofres contam com HSMs. Os cofres ajudam a reduzir a possibilidade de perda acidental de informações de segurança pela centralização do armazenamento de segredos do aplicativo. Os Key Vaults também controlam e registram o acesso a todas as coisas armazenadas neles. O Azure Key Vault pode tratar da solicitação e renovação de certificados de Segurança de Camada de Transporte (TLS). Fornece recursos para uma solução robusta para gerenciamento de ciclo de vida do certificado.
+Você pode usar o Key Vault para criar vários contêineres seguros, chamados de cofre. Esses cofres contam com HSMs. Os cofres ajudam a reduzir a possibilidade de perda acidental de informações de segurança pela centralização do armazenamento de segredos do aplicativo. Os cofres de chaves também controlam e registram o acesso a todas as coisas armazenadas neles. O Azure Key Vault pode tratar da solicitação e renovação de certificados de Segurança de Camada de Transporte (TLS). Fornece recursos para uma solução robusta para gerenciamento de ciclo de vida do certificado.
 
 O Azure Key Vault foi projetado para dar suporte a segredos e chaves do aplicativo. O Key Vault não deve ser usado como um repositório de senhas de usuário.
 
 A seguir estão as práticas recomendadas de segurança para usar o Azure Key Vault.
 
 **Prática recomendada**: conceder acesso a usuários, grupos e aplicativos em um escopo específico.   
-**Detalhes**: usar funções predefinidas de RBAC. Por exemplo, para conceder acesso a um usuário para gerenciar os cofres de chaves, você atribuiria a função predefinida [Colaborador do Key Vault](/azure/role-based-access-control/built-in-roles) a esse usuário em um escopo específico. O escopo seria uma assinatura, um grupo de recursos ou apenas um cofre de chaves específico. Se as funções predefinidas não atendem às suas necessidades, você poderá [definir suas próprias funções](/azure/role-based-access-control/custom-roles).
+**Detalhes**: usar funções predefinidas de RBAC. Por exemplo, para conceder acesso a um usuário para gerenciar cofres de chaves, você atribuiria a função predefinida [Key Vault colaborador](/azure/role-based-access-control/built-in-roles) a esse usuário em um escopo específico. O escopo seria uma assinatura, um grupo de recursos ou apenas um cofre de chaves específico. Se as funções predefinidas não atenderem às suas necessidades, você poderá [definir suas próprias funções](/azure/role-based-access-control/custom-roles).
 
 **Prática recomendada**: controle o que os usuários têm acesso.   
-**Detalhe**: acesso a um cofre de chaves é controlado por meio de duas interfaces separadas: plano de gerenciamento e plano de dados. Os controles de acesso do plano de gerenciamento e do plano e dados funcionam de forma independente.
+**Detalhe**: acesso a um cofre de chaves é controlado por meio de duas interfaces separadas: plano de gerenciamento e plano de dados. Os controles de acesso do plano de gerenciamento e do plano de dados funcionam de forma independente.
 
-Use o RBAC para controlar quais usuários têm acesso. Por exemplo, se desejar conceder a um aplicativo acesso para usar as chaves em um cofre de chaves, você só precisará conceder permissões de acesso ao plano de dados usando políticas de acesso do cofre de chaves, e nenhum acesso do plano de gerenciamento será necessário para o aplicativo. Por outro lado, se quiser que um usuário possa ler propriedades de cofre e marcas, mas não tenha acesso a chaves, segredos ou certificados, você poderá conceder ao usuário acesso de 'leitura' usando o RBAC, e nenhum acesso a dados será necessário.
+Use o RBAC para controlar quais usuários têm acesso. Por exemplo, se desejar conceder a um aplicativo acesso para usar as chaves em um cofre de chaves, você só precisará conceder permissões de acesso ao plano de dados usando políticas de acesso do cofre de chaves, e nenhum acesso do plano de gerenciamento será necessário para o aplicativo. Por outro lado, se quiser que um usuário possa ler propriedades de cofre e marcas, mas não tenha acesso a chaves, segredos ou certificados, você poderá conceder ao usuário acesso de leitura usando o RBAC, e nenhum acesso ao plano de dados será necessário.
 
 **Prática recomendada**: armazenar certificados no cofre de chaves. Seus certificados são de alto valor. Em mãos erradas, a segurança do aplicativo ou a segurança dos seus dados pode ser comprometida.   
-**Detalhes**: O Azure Resource Manager pode implantar com segurança os certificados armazenados no Azure Key Vault para VMs do Azure quando as VMs são implantadas. Ao definir políticas de acesso apropriado para o Cofre de chaves, você também controlar quem obtém acesso ao certificado. Outro benefício é que você gerencie todos os certificados em um único lugar no Azure Key Vault. Consulte [Implantar certificados em VMs por meio de um cofre de chaves gerenciado pelo cliente](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/) para obter mais informações.
+**Detalhes**: O Azure Resource Manager pode implantar com segurança os certificados armazenados no Azure Key Vault para VMs do Azure quando as VMs são implantadas. Ao definir políticas de acesso apropriado para o cofre de chaves, você também controla quem obtém acesso ao certificado. Outro benefício é gerenciar todos os certificados em um único lugar no Azure Key Vault. Consulte [Implantar certificados em VMs por meio de um cofre de chaves gerenciado pelo cliente](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/) para obter mais informações.
 
 **Prática recomendada**: Certifique-se de que você pode recuperar uma exclusão de cofres de chaves ou objetos de cofre de chaves.   
-**Detalhes**: exclusão da chave de cofres ou objetos de cofre de chaves pode ser inadvertida ou mal-intencionada. Habilitar a exclusão reversível e limpar os recursos de proteção do cofre de chaves, especialmente para chaves que são usadas para criptografar dados em repouso. A exclusão dessas chaves é equivalente à perda de dados, para que você possa recuperar os cofres excluídos e objetos do Key Vault se necessário. Praticar as operações de recuperação de Key Vault regularmente.
+**Detalhes**: exclusão da chave de cofres ou objetos de cofre de chaves pode ser inadvertida ou mal-intencionada. Habilite a exclusão reversível e limpe os recursos de proteção do Key Vault, especialmente para chaves que são usadas para criptografar dados em repouso. A exclusão dessas chaves é equivalente à perda de dados, para que você possa recuperar os cofres excluídos e objetos de cofre, se necessário. Praticar as operações de recuperação de Key Vault regularmente.
 
 > [!NOTE]
-> Se um usuário tiver permissões de contribuidor (RBAC) para um plano de gerenciamento de cofre de chaves, poderá conceder a si mesma acesso ao plano de dados, definindo a política de acesso do cofre de chaves, que controla o acesso ao plano de dados. É recomendável controlar exatamente quem tem o acesso de colaborador para seus cofres de chaves para garantir que somente pessoas autorizadas possam acessar e gerenciar cofres de chaves, chaves, segredos e certificados.
+> Se um usuário tiver permissões de colaborador (RBAC) para um plano de gerenciamento de cofre de chaves, poderá conceder a si mesmo acesso ao plano de dados, definindo a política de acesso do cofre de chaves. É recomendável controlar exatamente quem tem o acesso de colaborador para seus cofres de chaves para garantir que somente pessoas autorizadas possam acessar e gerenciar cofres de chaves, chaves, segredos e certificados.
 >
 >
 
@@ -81,12 +81,12 @@ Uma vez que a maioria dos ataques tem o usuário final como alvo, o ponto de ext
 
 ## <a name="protect-data-at-rest"></a>Proteger dados em repouso
 
-A [criptografia de dados em repouso](https://cloudblogs.microsoft.com/microsoftsecure/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) é uma etapa obrigatória para garantir a privacidade de dados, conformidade e soberania.
+[A criptografia de dados em repouso](https://cloudblogs.microsoft.com/microsoftsecure/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) é uma etapa obrigatória para a privacidade de dados, a conformidade e a soberania de dados.
 
 **Prática recomendada**: aplicar a criptografia de disco para ajudar a proteger seus dados.   
 **Detalhe**: Use [Azure Disk Encryption](/azure/security/azure-security-disk-encryption-overview). Permite que os administradores de TI criptografem discos de VM IaaS Windows e Linux. O Disk Encryption combina o recurso BitLocker do Windows padrão do setor e o recurso dm-crypt do Linux para fornecer uma criptografia de volume para o sistema operacional e os discos de dados.
 
-Dados em repouso de armazenamento de criptografia do Armazenamento do Microsoft Azure e Banco de Dados SQL do Azure por padrão e muitos serviços oferecem criptografia como uma opção. Você pode usar o Azure Key Vault para manter o controle das chaves que acessam e criptografar seus dados. Consulte [suporte ao modelo de criptografia de provedores do recurso do Azure para saber mais](encryption-atrest.md#azure-resource-providers-encryption-model-support).
+Dados em repouso de armazenamento de criptografia do Armazenamento do Microsoft Azure e Banco de Dados SQL do Azure por padrão e muitos serviços oferecem criptografia como uma opção. Você pode usar o Azure Key Vault para manter o controle das chaves que acessam e criptografam seus dados. Consulte [suporte ao modelo de criptografia dos provedores de recursos do Azure para saber mais](encryption-atrest.md#azure-resource-providers-encryption-model-support).
 
 **Práticas recomendadas**: usar criptografia para ajudar a atenuar os riscos relacionados ao acesso não autorizado.   
 **Detalhes**: criptografe as unidades antes de gravar dados sensíveis a elas.
@@ -95,9 +95,9 @@ Organizações que não impõem criptografia de dados estão mais expostas a pro
 
 ## <a name="protect-data-in-transit"></a>Proteger dados em trânsito
 
-A proteção dos dados em trânsito deve ser parte essencial de sua estratégia de proteção de dados. Uma vez que os dados se movem de e para trás em vários locais, geralmente recomendamos que você sempre use protocolos SSL/TLS para trocar dados entre diferentes locais. Em algumas circunstâncias, convém isolar o canal de toda comunicação entre seu local e nuvem infra-estruturas usando uma VPN.
+A proteção dos dados em trânsito deve ser parte essencial de sua estratégia de proteção de dados. Como os dados estão indo e voltando de muitos locais, geralmente recomendamos que você sempre use protocolos SSL/TLS para trocar dados entre diferentes locais. Em algumas circunstâncias, talvez convenha isolar todo o canal de comunicação entre as infraestruturas locais e na nuvem usando uma VPN.
 
-Para dados que se movem entre sua infraestrutura local e o Azure, considere proteções adequadas, como HTTPS ou VPN. Ao enviar tráfego criptografado entre uma rede virtual do Azure e um local na Internet pública, use [Gateway de VPN do Azure](../../vpn-gateway/index.yml).
+Para dados que se movem entre sua infraestrutura local e o Azure, considere proteções adequadas, como HTTPS ou VPN. Ao enviar tráfego criptografado entre uma rede virtual do Azure e uma localização local pela Internet pública, use o [Gateway de VPN do Azure](../../vpn-gateway/index.yml).
 
 Estas são melhores práticas específicas para o uso de HTTPS, SSL/TLS e o Gateway de VPN do Azure.
 
@@ -113,7 +113,7 @@ Estas são melhores práticas específicas para o uso de HTTPS, SSL/TLS e o Gate
 **Prática recomendada**: interagir com o Armazenamento do Microsoft Azure por meio do portal do Azure.   
 **Detalhes**: todas as transações ocorrerão via HTTPS. Você também pode usar a [API REST de armazenamento](https://msdn.microsoft.com/library/azure/dd179355.aspx) sobre HTTPS para interagir com o [armazenamento do Azure](https://azure.microsoft.com/services/storage/).
 
-As organizações que não protegem dados em trânsito são mais suscetíveis a [ataques man-in-the-middle](https://technet.microsoft.com/library/gg195821.aspx), [espionagem](https://technet.microsoft.com/library/gg195641.aspx)e sequestro de sessão. Esses ataques podem ser a primeira etapa na obtenção de acesso a dados confidenciais.
+As organizações que não protegem os dados em trânsito são mais suscetíveis a [ataques man-in-the-Middle](https://technet.microsoft.com/library/gg195821.aspx), [espionagem](https://technet.microsoft.com/library/gg195641.aspx)e seqüestro de sessão. Esses ataques podem ser a primeira etapa na obtenção de acesso a dados confidenciais.
 
 ## <a name="secure-email-documents-and-sensitive-data"></a>Proteger emails, documentos e dados confidenciais
 
@@ -139,4 +139,4 @@ Veja [Melhores práticas e padrões de segurança do Azure](best-practices-and-p
 
 Os seguintes recursos estão disponíveis para fornecer mais informações gerais sobre a segurança do Azure e os serviços da Microsoft relacionados:
 * [Blog da equipe de segurança do Azure](https://blogs.msdn.microsoft.com/azuresecurity/) – para obter informações atualizadas sobre as últimas novidades de Segurança do Azure
-* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) – em que vulnerabilidades de segurança da Microsoft, incluindo problemas com o Azure, podem ser relatadas ou enviadas por email parasecure@microsoft.com
+* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) – em que vulnerabilidades de segurança da Microsoft, incluindo problemas com o Azure, podem ser relatadas ou enviadas por email para secure@microsoft.com

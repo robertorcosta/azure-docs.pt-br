@@ -9,10 +9,10 @@ ms.author: memildin
 author: memildin
 manager: rkarlin
 ms.openlocfilehash: 0affd1660a88421f6df24bc5ef2e00497dae32a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85119262"
 ---
 # <a name="advanced-threat-protection-for-azure-cosmos-db-preview"></a>Proteção Avançada contra Ameaças do Azure Cosmos DB (versão prévia)
@@ -81,16 +81,16 @@ Use uma Azure Policy para habilitar a Proteção Avançada contra Ameaças do Co
 
 1. Inicie a página **Política - Definições** do Azure e procure a política **Implantar a Proteção Avançada contra Ameaças do Cosmos DB**.
 
-    :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db.png" alt-text="Pesquisar política"::: 
+    :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db.png" alt-text="Configurar o ATP"::: 
 
 1. Clique na política **Implantar a Proteção Avançada contra Ameaças do CosmosDB** e em **Atribuir**.
 
-    :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db-atp-policy.png" alt-text="Selecione Assinatura ou Grupo":::
+    :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db-atp-policy.png" alt-text="Configurar o ATP":::
 
 
 1. No campo **Escopo**, clique nos três pontos, selecione uma assinatura ou grupo de recursos do Azure e clique em **Selecionar**.
 
-    :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db-atp-details.png" alt-text="Página Definições de Política":::
+    :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db-atp-details.png" alt-text="Configurar o ATP":::
 
 
 1. Insira os outros parâmetros e clique em **Atribuir**.
@@ -104,11 +104,11 @@ Quando ocorrem anomalias de atividade no Azure Cosmos DB, um alerta de seguranç
 
  Na Central de Segurança do Azure, é possível examinar e gerenciar os [alertas de segurança](../security-center/security-center-alerts-overview.md) atuais.  Clique em um determinado alerta na [Central de Segurança](https://ms.portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/0) para ver as possíveis causas e ações recomendadas para investigar e atenuar a ameaça potencial. A imagem a seguir mostra um exemplo de detalhes de alerta fornecidos na Central de Segurança.
 
- :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db-alert-details.png" alt-text="Detalhes das ameaças":::
+ :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db-alert-details.png" alt-text="Configurar o ATP":::
 
 Uma notificação por email também é enviada com os detalhes do alerta e as ações recomendadas. A imagem a seguir mostra um exemplo de um alerta de email.
 
- :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db-alert.png" alt-text="Detalhes do Alerta":::
+ :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db-alert.png" alt-text="Configurar o ATP":::
 
 ## <a name="cosmos-db-atp-alerts"></a>Alertas de ATP do Cosmos DB
 

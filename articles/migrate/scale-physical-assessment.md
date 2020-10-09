@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/19/2020
 ms.author: hamusa
 ms.openlocfilehash: b84a7b88f700e2ba8e9fbe29099dfcbce8dbf3b7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85081080"
 ---
 # <a name="assess-large-numbers-of-physical-servers-for-migration-to-azure"></a>Avaliar grandes números de servidores físicos para migração para o Azure
@@ -48,7 +48,7 @@ Use os limites resumidos nesta tabela para planejamento.
 --- | --- 
 **Projetos das Migrações para Azure** | Avalie até 35.000 servidores em um projeto.
 **Dispositivo de Migrações para Azure** | Um dispositivo pode descobrir até 1000 servidores.<br/> Um dispositivo só pode ser associado a um único projeto de migrações para Azure.<br/> Qualquer número de dispositivos pode ser associado a um único projeto de migrações para Azure. <br/><br/> 
-**Group** | Você pode adicionar até 35.000 servidores em um único grupo.
+**Grupo** | Você pode adicionar até 35.000 servidores em um único grupo.
 **Avaliação de migrações para Azure** | Você pode avaliar até 35.000 servidores em uma única avaliação.
 
 
