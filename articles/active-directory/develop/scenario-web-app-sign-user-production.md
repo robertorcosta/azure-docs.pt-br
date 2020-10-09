@@ -12,10 +12,10 @@ ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 47a45b52ac10a44b6efd54c41b3fec1e61a47a35
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82181623"
 ---
 # <a name="web-app-that-signs-in-users-move-to-production"></a>Aplicativo Web que conecta usuários: mover para produção
@@ -49,7 +49,7 @@ O pacote NuGet Microsoft. Identity. Web lida com os problemas mais comuns de Sam
 Depois que seu aplicativo Web entra em usuários, ele pode chamar APIs da Web em nome dos usuários conectados. Chamar APIs da Web do aplicativo Web é o objeto do seguinte cenário:
 
 > [!div class="nextstepaction"]
-> [Aplicativo Web que faz chamadas a APIs Web](scenario-web-app-call-api-overview.md)
+> [Aplicativo Web que chama as APIs Web](scenario-web-app-call-api-overview.md)
 
 ## <a name="deep-dive-aspnet-core-web-app-tutorial"></a>Aprofunde-se: tutorial do aplicativo Web ASP.NET Core
 

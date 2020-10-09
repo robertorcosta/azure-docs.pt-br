@@ -10,10 +10,10 @@ ms.date: 09/06/2016
 ms.author: robinsh
 ms.custom: amqp
 ms.openlocfilehash: d4916d651638f0d1dbb4f10e0e0732f5c330d300
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81767017"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>SDK do dispositivo IoT do Azure para C – mais sobre o serializador
@@ -65,7 +65,7 @@ O que não é demonstrado neste exemplo são tipos de dados adicionais que são 
 
 Os tipos de dados a seguir têm suporte em modelos criados com a biblioteca do **serializador** :
 
-| Tipo | Descrição |
+| Type | Descrição |
 | --- | --- |
 | double |número de ponto flutuante de precisão dupla |
 | INT |Inteiro de 32 bits |

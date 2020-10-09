@@ -12,10 +12,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: ac681bb13ccea49c7a2f566a6fcdb6adb8cec5bb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81683737"
 ---
 # <a name="understand-the-device-model-schema"></a>Compreender o esquema de modelo do dispositivo
@@ -82,7 +82,7 @@ A tabela a seguir descreve as entradas de esquema de nível superior:
 
 As seções a seguir descrevem as outras seções no esquema JSON:
 
-## <a name="simulation"></a>Simulation
+## <a name="simulation"></a>Simulação
 
 Na `Simulation` seção, você define o estado interno do dispositivo simulado. Todos os valores de telemetria enviados pelo dispositivo devem ser parte desse estado do dispositivo.
 

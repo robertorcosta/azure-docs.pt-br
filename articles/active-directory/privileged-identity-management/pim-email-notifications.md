@@ -17,10 +17,10 @@ ms.reviewer: hanki
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 02fbfc83c16cb13376cce820f19b247a7cd7db59
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82232301"
 ---
 # <a name="email-notifications-in-pim"></a>Notificações por email no PIM
@@ -31,10 +31,10 @@ Privileged Identity Management (PIM) permite que você saiba quando eventos impo
 
 Os emails enviados de Privileged Identity Management para as funções de recurso do Azure AD e do Azure têm o seguinte endereço de email do remetente:
 
-- Endereço de email: **Azure-noresponder \@ Microsoft.com**
+- Endereço de email:  **Azure-noresponder \@ Microsoft.com**
 - Nome de exibição: Microsoft Azure
 
-Esses emails incluem um prefixo **PIM** na linha de assunto. Aqui está um exemplo:
+Esses emails incluem um prefixo **PIM** na linha de assunto. Este é um exemplo:
 
 - PIM: Alain Charon atribuiu permanentemente a função de leitor de backup
 
@@ -68,7 +68,7 @@ Um email de resumo Privileged Identity Management semanal para funções do Azur
 
 O email inclui quatro blocos:
 
-| Bloco | Descrição |
+| Tile | Descrição |
 | --- | --- |
 | **Usuários ativados** | Número de vezes que os usuários ativaram sua função qualificada dentro da organização. |
 | **Usuários tornados permanentes** | Número de vezes que usuários com uma atribuição qualificada tornam-se permanentes. |

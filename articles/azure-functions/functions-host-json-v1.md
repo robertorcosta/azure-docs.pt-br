@@ -4,10 +4,10 @@ description: Documentação de referência para o arquivo host.json do Azure Fun
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.openlocfilehash: 36d028d09c94ae28e77404297bd576f5e20404c6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81757521"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>Referência de host.json para as funções do Azure 1.x
@@ -136,11 +136,11 @@ Definições de configuração para o [gatilho Azure Cosmos DB e associações](
 }
 ```
 
-|Property  |Padrão | Descrição |
+|Propriedade  |Padrão | Descrição |
 |---------|---------|---------|
 |GatewayMode|Gateway|O modo de conexão usado pela função ao se conectar ao serviço do Azure Cosmos DB. As opções são `Direct` e `Gateway`|
 |Protocolo|Https|O protocolo de conexão usado pela função ao se conectar ao serviço do Azure Cosmos DB.  Leia [aqui para obter uma explicação de ambos os modos](../cosmos-db/performance-tips.md#networking)|
-|leasePrefix|N/D|Prefixo de concessão a ser usado em todas as funções em um aplicativo.|
+|leasePrefix|n/a|Prefixo de concessão a ser usado em todas as funções em um aplicativo.|
 
 ## <a name="durabletask"></a>durableTask
 
@@ -186,7 +186,7 @@ Definições de configuração para [monitor de integridade de Host](https://git
 }
 ```
 
-|Property  |Padrão | Descrição |
+|Propriedade  |Padrão | Descrição |
 |---------|---------|---------| 
 |Habilitado|true|Especifica se o recurso está habilitado. | 
 |healthCheckInterval|10 segundos|O intervalo de tempo entre as verificações de integridade em segundo plano. | 
@@ -194,7 +194,7 @@ Definições de configuração para [monitor de integridade de Host](https://git
 |healthCheckThreshold|6|Número máximo de vezes que a verificação de integridade pode falhar antes de uma reciclagem de host ser iniciada.| 
 |counterThreshold|0.80|O limite no qual um contador de desempenho será considerado não íntegro.| 
 
-## <a name="http"></a>http
+## <a name="http"></a>HTTP
 
 Parâmetros de configuração para [gatilhos e associações http](functions-bindings-http-webhook.md).
 
@@ -209,7 +209,7 @@ Parâmetros de configuração para [gatilhos e associações http](functions-bin
 }
 ```
 
-|Property  |Padrão | Descrição |
+|Propriedade  |Padrão | Descrição |
 |---------|---------|---------| 
 |dynamicThrottlesEnabled|false|Quando habilitada, essa configuração faz o pipeline de processamento de solicitação verificar periodicamente os contadores de desempenho do sistema como conexões/threads/processos/memória/cpu/etc. e, se algum desses contadores tiver excedido um alto limite interno (80%), as solicitações serão rejeitadas com a resposta 429 "Muito ocupado" até que os contadores retornem aos níveis normais.|
 |maxConcurrentRequests|Não associado ( `-1` )|O número máximo de funções HTTP que serão executadas em paralelo. Isso permite controlar a simultaneidade, o que pode ajudar a gerenciar a utilização de recursos. Por exemplo, você pode ter uma função HTTP que usa muitos recursos do sistema (memória/CPU/soquetes), de modo que isso cause problemas quando a simultaneidade for muito alta. Ou talvez você tenha uma função que faça solicitações de saída a um serviço de terceiro, e essas chamadas precisem ser limitadas por taxa. Nesses casos, aplicar uma limitação aqui pode ajudar.|
@@ -247,11 +247,11 @@ Controles de filtragem de logs gravados por um [objeto ILogger](functions-monito
 }
 ```
 
-|Property  |Padrão | Descrição |
+|Propriedade  |Padrão | Descrição |
 |---------|---------|---------| 
-|categoryFilter|N/D|Especifica a filtragem por categoria| 
+|categoryFilter|n/a|Especifica a filtragem por categoria| 
 |defaultLevel|Informações|Para as categorias não especificadas na matriz `categoryLevels`, envie logs nesse nível e acima para o Application Insights.| 
-|categoryLevels|N/D|Uma matriz de categorias que especifica o nível mínimo de logs que será enviado ao Application Insights para cada categoria. A categoria especificada aqui controla todas as categorias que começam com o mesmo valor, com precedência para os valores maiores. No arquivo de exemplo *host.json* anterior, todas as categorias que começam com o log "Host.Aggregator" no nível `Information`. Todas as outras categorias que começam com o log "Host", como "Host.Executor", no nível `Error`.| 
+|categoryLevels|n/a|Uma matriz de categorias que especifica o nível mínimo de logs que será enviado ao Application Insights para cada categoria. A categoria especificada aqui controla todas as categorias que começam com o mesmo valor, com precedência para os valores maiores. No arquivo de exemplo *host.json* anterior, todas as categorias que começam com o log "Host.Aggregator" no nível `Information`. Todas as outras categorias que começam com o log "Host", como "Host.Executor", no nível `Error`.| 
 
 ## <a name="queues"></a>filas
 
@@ -269,7 +269,7 @@ Parâmetros de configuração para [gatilhos e associações de Armazenamento](f
 }
 ```
 
-|Property  |Padrão | Descrição |
+|Propriedade  |Padrão | Descrição |
 |---------|---------|---------| 
 |maxPollingInterval|60000|O intervalo máximo em milissegundos entre as votações da fila.| 
 |visibilityTimeout|0|O intervalo de tempo entre as repetições quando o processamento de uma mensagem falha.| 
@@ -288,9 +288,9 @@ Parâmetro de configuração para a [Associação de saída SendGrind](functions
     }
 ```
 
-|Property  |Padrão | Descrição |
+|Propriedade  |Padrão | Descrição |
 |---------|---------|---------| 
-|de|N/D|Endereço de email do remetente em todas as funções.| 
+|de|n/a|Endereço de email do remetente em todas as funções.| 
 
 ## <a name="servicebus"></a>serviceBus
 
@@ -306,10 +306,10 @@ Parâmetro de configuração para [gatilhos e associações do Barramento de Ser
 }
 ```
 
-|Property  |Padrão | Descrição |
+|Propriedade  |Padrão | Descrição |
 |---------|---------|---------| 
 |maxConcurrentCalls|16|O número máximo de chamadas simultâneas para o retorno de chamada que a bomba de mensagens deve iniciar. Por padrão, o runtime do Functions processa várias mensagens simultaneamente. Para direcionar o runtime para processar uma única fila ou mensagem de tópico de cada vez, defina `maxConcurrentCalls` como 1. | 
-|prefetchCount|N/D|O PrefetchCount padrão que será usado pelo MessageReceiver subjacente.| 
+|prefetchCount|n/a|O PrefetchCount padrão que será usado pelo MessageReceiver subjacente.| 
 |autoRenewTimeout|00:05:00|A duração máxima na qual o bloqueio de mensagem será renovado automaticamente.| 
 
 ## <a name="singleton"></a>singleton
@@ -328,13 +328,13 @@ Parâmetro de configuração para o comportamento de bloqueio de Singleton. Para
 }
 ```
 
-|Property  |Padrão | Descrição |
+|Propriedade  |Padrão | Descrição |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|O período em que ocorrem os bloqueios de nível de função. Os bloqueios têm renovação automática.| 
 |listenerLockPeriod|00:01:00|O período em que ocorrem os bloqueios de ouvinte.| 
 |listenerLockRecoveryPollingInterval|00:01:00|O intervalo de tempo usado para a recuperação do bloqueio de ouvinte caso não tenha sido possível adquirir um bloqueio de ouvinte durante a inicialização.| 
 |lockAcquisitionTimeout|00:01:00|A quantidade máxima de tempo em que o runtime tenta adquirir um bloqueio.| 
-|lockAcquisitionPollingInterval|N/D|O intervalo entre as tentativas de aquisição de bloqueio.| 
+|lockAcquisitionPollingInterval|n/a|O intervalo entre as tentativas de aquisição de bloqueio.| 
 
 ## <a name="tracing"></a>tracing
 
@@ -351,7 +351,7 @@ Parâmetros de configuração para logs que você cria usando um objeto `TraceWr
 }
 ```
 
-|Property  |Padrão | Descrição |
+|Propriedade  |Padrão | Descrição |
 |---------|---------|---------| 
 |consoleLevel|informações|O nível de rastreamento para o registro em log no console. As opções são: `off`, `error`, `warning`, `info` e `verbose`.|
 |fileLoggingMode|debugOnly|O nível de rastreamento para registros em log de arquivo. As opções são: `never`, `always` e `debugOnly`.| 

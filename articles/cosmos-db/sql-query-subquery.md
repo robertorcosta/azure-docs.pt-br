@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
 ms.openlocfilehash: 42d9e8b190747a3ffaf0e46ea1eddda33d09bb24
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74870557"
 ---
 # <a name="sql-subquery-examples-for-azure-cosmos-db"></a>Exemplos de subconsulta do SQL para Azure Cosmos DB
@@ -47,7 +47,7 @@ Subconsultas de vários valores retornam um conjunto de documentos e são sempre
 
 Subconsultas com vários valores podem otimizar as expressões de junção enviando predicados após cada expressão Select-many em vez de todas as junções cruzadas na cláusula WHERE.
 
-Considere a consulta a seguir:
+Considere a consulta a seguir.
 
 ```sql
 SELECT Count(1) AS Count

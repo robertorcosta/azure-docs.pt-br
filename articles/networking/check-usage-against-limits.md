@@ -13,10 +13,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2018
 ms.openlocfilehash: cffa5677c5531f3887639c049998523d7d07586a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79455555"
 ---
 # <a name="check-resource-usage-against-limits"></a>Verificar o uso de recursos em relação aos limites
@@ -27,7 +27,7 @@ Neste artigo, você aprenderá como ver o número de cada tipo de recurso de red
 
 1. Faça logon no [portal](https://portal.azure.com)do Azure.
 2. No canto superior esquerdo do portal do Azure, selecione **Todos os serviços**.
-3. Insira *Assinaturas* na caixa **Filtrar**. Quando **Assinaturas** for exibido nos resultados da pesquisa, selecione-as.
+3. Insira *Assinaturas* na caixa **Filtrar**. Quando **Assinaturas** for exibido nos resultados da pesquisa, selecione-o.
 4. Selecione o nome da assinatura para a qual você deseja exibir as informações de uso.
 5. Em **CONFIGURAÇÕES**, selecione **Uso + cota**.
 6. É possível selecionar as seguintes opções:
