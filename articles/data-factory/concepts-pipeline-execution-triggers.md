@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/05/2018
 ms.openlocfilehash: 73934521cc68dc8ec2e28f29e35df833651915d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83996968"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Gatilhos e execução de pipeline no Azure Data Factory
@@ -281,7 +281,7 @@ A tabela a seguir fornece uma visão geral de alto nível dos principais element
 
 ### <a name="schema-defaults-limits-and-examples"></a>Padrões, limites e exemplos de esquema
 
-| Propriedade JSON | Tipo | Obrigatório | Valor padrão | Valores válidos | Exemplo |
+| Propriedade JSON | Type | Obrigatório | Valor padrão | Valores válidos | Exemplo |
 | --- | --- | --- | --- | --- | --- |
 | **startTime** | string | Sim | Nenhum | Data/hora ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
 | **Recurrence** | objeto | Sim | Nenhum | Um objeto de recorrência | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
@@ -377,10 +377,10 @@ A tabela a seguir fornece uma comparação entre o gatilho de janela em cascata 
 
 | Item | Gatilho de janela em cascata | Gatilho de agendamento |
 | --- | --- | --- |
-| **Cenários de aterramento** | Com suporte. As execuções de pipeline podem ser agendadas para janelas no passado. | Sem suporte. As execuções de pipeline podem ser executadas somente em períodos de tempo atuais e no futuro. |
+| **Cenários de aterramento** | Com suporte. As execuções de pipeline podem ser agendadas para janelas no passado. | Não há suporte. As execuções de pipeline podem ser executadas somente em períodos de tempo atuais e no futuro. |
 | **Confiabilidade** | 100% de confiabilidade. As execuções de pipeline podem ser agendadas para todas as janelas de uma data de início especificada sem folgas. | Menos confiável. |
-| **Repetir o recurso** | Com suporte. As execuções de pipeline com falha têm o padrão de política de repetição como 0, ou uma política especificada pelo usuário como parte da definição do gatilho. Repete automaticamente quando o pipeline é executado com falha devido a limites de simultaneidade/servidor/limitação (ou seja, códigos de status 400: erro do usuário, 429: muitas solicitações e 500: erro interno do servidor). | Sem suporte. |
-| **Simultaneidade** | Com suporte. Os usuários podem definir explicitamente os limites de simultaneidade para o gatilho. Permite entre 1 e 50 execuções de pipeline disparadas simultaneamente. | Sem suporte. |
+| **Repetir o recurso** | Com suporte. As execuções de pipeline com falha têm o padrão de política de repetição como 0, ou uma política especificada pelo usuário como parte da definição do gatilho. Repete automaticamente quando o pipeline é executado com falha devido a limites de simultaneidade/servidor/limitação (ou seja, códigos de status 400: erro do usuário, 429: muitas solicitações e 500: erro interno do servidor). | Não há suporte. |
+| **Simultaneidade** | Com suporte. Os usuários podem definir explicitamente os limites de simultaneidade para o gatilho. Permite entre 1 e 50 execuções de pipeline disparadas simultaneamente. | Não há suporte. |
 | **Variáveis do sistema** | Juntamente com @trigger (). scheduletime e @trigger (). StartTime, ele também dá suporte ao uso das variáveis de sistema **WindowStart** e **WindowEnd** . Os usuários podem acessar `triggerOutputs().windowStartTime` e `triggerOutputs().windowEndTime` como variáveis de sistema de gatilho na definição do gatilho. Os valores são usados como hora de início e hora de término da janela, respectivamente. Por exemplo, para um gatilho de janela em cascata que é executado a cada hora, para a janela de 1h a 2h, a definição é `triggerOutputs().WindowStartTime = 2017-09-01T01:00:00Z` e `triggerOutputs().WindowEndTime = 2017-09-01T02:00:00Z`. | Dá suporte apenas a @trigger variáveis padrão (). scheduletime e @trigger (). StartTime. |
 | **Relação pipeline para gatilho** | Dá suporte a uma relação um para um. Somente um pipeline pode ser disparado. | Dá suporte a relações muitos para muitos. Vários gatilhos podem disparar um único pipeline. Um único gatilho pode disparar vários pipelines. |
 

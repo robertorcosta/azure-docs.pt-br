@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 1/29/2019
 ms.author: terrylan
 ms.openlocfilehash: 83548063a796401792bd19e7ec27be36a0efa4e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80549199"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Tecnologias e serviços de segurança disponíveis no Azure
@@ -61,7 +61,7 @@ Ao longo do tempo, essa lista será alterada e aumentará, exatamente como o Azu
 | [Criptografia de Conexão do &nbsp;SQL do &nbsp;Azure](/azure/sql-database/sql-database-control-access)|Para fornecer segurança, o Banco de Dados SQL controla o acesso com regras de firewall que limitam a conectividade por endereço IP,mecanismos de autenticação que exigem que usuários comprovem suas identidade e mecanismos de autorização que limitam os usuários a ações e dados específicos. |
 | [Criptografia sempre ativa do SQL do Azure](/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017)|Protege dados confidenciais, como números de cartão de crédito ou números de identificação nacional (por exemplo, números do seguro social dos EUA), armazenados no Banco de Dados SQL do Azure ou nos bancos de dados SQL Server.  |
 | [Transparent Data Encryption do &nbsp;SQL do &nbsp;Azure](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?view=azuresqldb-current)| Um recurso de segurança de banco de dados que criptografa o armazenamento de um banco de dados inteiro. |
-| [Auditoria do Banco de Dados SQL do Azure](/azure/sql-database/sql-database-auditing)|Um recurso de auditoria do banco de dados SQL que rastreia eventos do banco de dados e os grava em um log de auditoria em sua conta de armazenamento do Azure.  |
+| [Auditoria do banco de dados SQL do Azure](/azure/sql-database/sql-database-auditing)|Um recurso de auditoria do banco de dados SQL que rastreia eventos do banco de dados e os grava em um log de auditoria em sua conta de armazenamento do Azure.  |
 
 
 ## <a name="identity-and-access-management"></a>Gerenciamento de identidade e de acesso

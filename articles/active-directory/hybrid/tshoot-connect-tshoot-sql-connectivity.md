@@ -15,10 +15,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d5f8b87684847089a05341a5a68f6ad3e2ac86b0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85355855"
 ---
 # <a name="troubleshoot-sql-connectivity-issues-with-azure-ad-connect"></a>Solucionar problemas de conectividade de SQL com o Azure AD Connect
@@ -39,7 +39,7 @@ Import-Module "C:\Program Files\Microsoft Azure Active Directory Connect\Tools\A
 >O Módulo de Instalação requer a atualização para [PowerShell 5.0 (WMF 5.0)](https://www.microsoft.com/download/details.aspx?id=50395) ou posterior;  
 Ou instale a [Versão Prévia dos Módulos do PackageManagement PowerShell - março de 2016 para o PowerShell 3.0/4.0](/powershell/module/PackageManagement) 
 
-- **Mostrar todos os comandos**:`Get-Command -Module AdSyncTools` 
+- **Mostrar todos os comandos**: `Get-Command -Module AdSyncTools` 
 - **Execute a função do PowerShell**: `Connect-ADSyncDatabase` com os seguintes parâmetros
     - Servidor. O nome do SQL Server.
     - Instância. (Opcional) O nome da Instância do SQL Server e, opcionalmente, número de Porta que você deseja usar. Não especifique esse parâmetro para usar a instância padrão.

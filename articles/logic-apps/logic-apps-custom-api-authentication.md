@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/22/2017
 ms.openlocfilehash: 5e0dcd478c6eb6696a0e07d35d4dccddac68ac1c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80656231"
 ---
 # <a name="increase-security-for-calls-to-custom-apis-from-azure-logic-apps"></a>Aumentar a segurança para chamadas para APIs personalizadas de aplicativos lógicos do Azure
@@ -203,7 +203,7 @@ Abra a definição do aplicativo lógico na exibição de código, vá para a de
 | audiência | Sim | O GUID do recurso de destino que você deseja acessar, que é a ID do cliente da identidade de aplicativo para seu aplicativo Web ou aplicativo de API | 
 | clientId | Sim | O GUID do cliente que solicita o acesso, que é a ID do cliente da identidade do aplicativo para seu aplicativo lógico | 
 | segredo | Sim | A chave ou a senha da identidade do aplicativo para o cliente que está solicitando o token de acesso | 
-| tipo | Sim | O tipo de autenticação. Para autenticação de ActiveDirectoryOAuth, o valor é `ActiveDirectoryOAuth`. | 
+| type | Sim | O tipo de autenticação. Para autenticação de ActiveDirectoryOAuth, o valor é `ActiveDirectoryOAuth`. | 
 |||| 
 
 Por exemplo:
@@ -257,7 +257,7 @@ Na seção **autorização** , inclua estas propriedades:
 
 <a name="basic"></a>
 
-#### <a name="basic-authentication"></a>Autenticação Básica
+#### <a name="basic-authentication"></a>Autenticação básica
 
 Para validar solicitações de entrada de seu aplicativo lógico para o aplicativo Web ou aplicativo de API, você pode usar a autenticação básica, como um nome de usuário e senha. A autenticação básica é um padrão comum e você pode usar essa autenticação em qualquer linguagem usada para compilar seu aplicativo Web ou aplicativo de API.
 

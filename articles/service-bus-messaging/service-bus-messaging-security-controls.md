@@ -4,10 +4,10 @@ description: Uma lista de verificação de controles de segurança para avaliar 
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: 3130150a227076befae3f58f65e00a36578b68d5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85341629"
 ---
 # <a name="security-controls-for-azure-service-bus-messaging"></a>Controles de segurança para mensagens do barramento de serviço do Azure
@@ -47,7 +47,7 @@ Este artigo documenta os controles de segurança incorporados ao sistema de mens
 | Criptografia no lado do servidor em repouso: chaves gerenciadas pela Microsoft |  Sim, para criptografia do lado do servidor, em repouso, por padrão. |  |  |
 | Criptografia no lado do servidor em repouso: chaves gerenciadas pelo cliente (BYOK) | Sim. | Uma chave gerenciada pelo cliente no Azure keyvault pode ser usada para criptografar os dados no namespace do barramento de serviço em repouso. | [Configurar chaves gerenciadas pelo cliente para criptografar dados do barramento de serviço do Azure em repouso usando o portal do Azure](configure-customer-managed-key.md)  |
 | Criptografia em nível de coluna (serviços de dados do Azure)| N/D | |   |
-| Criptografia em trânsito (como criptografia de ExpressRoute, criptografia de vnet e criptografia vnet)| Sim | Dá suporte ao mecanismo HTTPS/TLS padrão. |   |
+| Criptografia em trânsito (como criptografia de ExpressRoute, criptografia de VNet e criptografia de VNet-VNet)| Sim | Dá suporte ao mecanismo HTTPS/TLS padrão. |   |
 | Chamadas criptografadas à API| Sim | As chamadas à API são feitas por meio de [Azure Resource Manager](../azure-resource-manager/index.yml) e HTTPS. |   |
 
 ## <a name="configuration-management"></a>Gerenciamento de configuração

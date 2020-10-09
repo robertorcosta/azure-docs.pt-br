@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 77895fd81bd37e304d422aea64da0298fc1673ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85356467"
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-with-azure-active-directory"></a>Solucionar problemas de um objeto que não está sincronizando com o Azure Active Directory
@@ -142,7 +142,7 @@ Na imagem anterior, é possível ver que na coluna **PasswordSync** o espaço co
 
 Na guia **Linhagem**, é possível acessar o metaverso clicando em [**Propriedades de Objeto do Metaverso**](#mv-attributes).
 
-### <a name="preview"></a>Visualização
+### <a name="preview"></a>Versão Prévia
 No canto inferior esquerdo da janela **Propriedades de Objeto do Espaço Conector**, veja o botão **Visualização**. Selecione esse botão para abrir a página **Visualização**, onde será possível sincronizar um único objeto. Essa página será útil se você estiver solucionando problemas de algumas regras de sincronização personalizadas e desejar ver o efeito de uma alteração em um único objeto. Você pode selecionar uma **sincronização completa** ou uma **sincronização Delta**. Você também pode selecionar **gerar visualização**, que mantém apenas a alteração na memória. Ou selecionar **Visualização de Confirmação**, o que atualiza o metaverso e prepara todas as alterações para os espaços conectores de destino.  
 
 ![Captura de tela da página Visualização, com o item Iniciar Visualização selecionado](./media/tshoot-connect-object-not-syncing/preview.png)  

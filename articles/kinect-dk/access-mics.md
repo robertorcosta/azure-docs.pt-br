@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: kinect, azure, sensor, sdk, microphone, access mics, mic data
 ms.openlocfilehash: f2e604d39bc191af095e009c50f3a93e0d695657
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85276418"
 ---
 # <a name="access-azure-kinect-dk-microphone-input-data"></a>Acessar dados de entrada do microfone do Azure Kinect DK

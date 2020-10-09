@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 04/01/2020
 ms.openlocfilehash: 265179909c8ae4a6fa630b835bc9993f042d6460
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80585706"
 ---
 # <a name="azure-monitor-log-query-language-differences"></a>Diferenças na linguagem de consulta de log do Azure Monitor
@@ -24,7 +24,7 @@ As seções a seguir descrevem os elementos da linguagem de consulta Kusto não 
 
 ### <a name="statements-not-supported-in-azure-monitor"></a>Instruções não compatíveis com o Azure Monitor
 
-* [Receber](/azure/kusto/query/aliasstatement)
+* [Alias](/azure/kusto/query/aliasstatement)
 * [Parâmetros de consulta](/azure/kusto/query/queryparametersstatement)
 
 ### <a name="functions-not-supported-in-azure-monitor"></a>Funções não compatíveis com o Azure Monitor

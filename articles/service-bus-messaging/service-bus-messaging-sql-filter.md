@@ -4,10 +4,10 @@ description: Este artigo fornece detalhes sobre a gramática do sqlfilter. Um Sq
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 8412dea583ae119b30976e53d4751411b45339a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85341601"
 ---
 # <a name="sqlfilter-syntax"></a>Sintaxe SQLFilter
@@ -49,7 +49,7 @@ Um objeto *SqlFilter* é uma instância da [classe SqlFilter](/dotnet/api/micros
   
 ## <a name="arguments"></a>Argumentos  
   
--   `<scope>` é uma cadeia de caracteres opcional que indica o escopo do `<property_name>`. Os valores válidos são `sys` ou `user`. O `sys` valor indica o escopo do sistema em que `<property_name>` é um nome de propriedade pública da [classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user`indica o escopo do usuário, em que `<property_name>` é uma chave do dicionário da [classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) . O escopo `user` será o escopo padrão se `<scope>` não for especificado.  
+-   `<scope>` é uma cadeia de caracteres opcional que indica o escopo do `<property_name>`. Os valores válidos são `sys` ou `user`. O `sys` valor indica o escopo do sistema em que `<property_name>` é um nome de propriedade pública da [classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` indica o escopo do usuário, em que `<property_name>` é uma chave do dicionário da [classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) . O escopo `user` será o escopo padrão se `<scope>` não for especificado.  
   
 ## <a name="remarks"></a>Comentários
 

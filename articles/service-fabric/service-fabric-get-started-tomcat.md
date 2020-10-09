@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 6/08/2018
 ms.author: pepogors
 ms.openlocfilehash: 1a699f3b35970270a9800162a6d8717682a168ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75614410"
 ---
 # <a name="create-service-fabric-container-running-apache-tomcat-server-on-linux"></a>Criar contêiner do Service Fabric executando o servidor Apache Tomcat no Linux
@@ -215,7 +215,7 @@ Agora que você já enviou por push a imagem do Tomcat para um registro de cont�
    * http://PublicIPorFQDN:8080/hello/sayhello
    * http://PublicIPorFQDN:8080/hello/sayhi
 
-## <a name="clean-up"></a>Limpar
+## <a name="clean-up"></a>Limpeza
 Use o script de desinstalação fornecido com o modelo para excluir a instância do aplicativo no cluster e cancelar o registro do tipo de aplicativo.
 
 ```bash

@@ -13,10 +13,10 @@ ms.date: 05/02/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: eeeb122d240d8c3eae4ebe1650f67cf0e4b9dac6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80992038"
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>Mover dados de um servidor FTP usando o Azure Data Factory
@@ -62,9 +62,9 @@ As seções que se seguem fornecem detalhes sobre as propriedades JSON que são 
 ## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
 A tabela a seguir descreve elementos JSON específicos para um serviço FTP vinculado.
 
-| Property | Descrição | Obrigatório | Padrão |
+| Propriedade | Descrição | Obrigatório | Padrão |
 | --- | --- | --- | --- |
-| tipo |Defina isso para FtpServer. |Sim |&nbsp; |
+| type |Defina isso para FtpServer. |Sim |&nbsp; |
 | host |Especifique o nome ou endereço IP do servidor FTP. |Sim |&nbsp; |
 | authenticationType |Especifique o tipo de autenticação. |Sim |Básica, Anônima |
 | Nome de Usuário |Especifique o usuário que tem acesso ao servidor FTP. |Não |&nbsp; |
@@ -152,7 +152,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 A seção **typeproperties** é diferente para cada tipo de conjunto de texto. Ela fornece informações específicas ao tipo de conjunto de dados. A seção **typeProperties** para o conjunto de dados do tipo **FileShare** tem as propriedades a seguir:
 
-| Property | Descrição | Obrigatório |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | folderPath |Subcaminho para a pasta. Use o caractere de escape ' \ ' para caracteres especiais na cadeia de caracteres. Para obter exemplos, confira Definições de conjunto de dados e serviço vinculado de exemplo.<br/><br/>Você pode combinar essa propriedade com **partitionBy** para ter caminhos de pastas com base na fatia de data/hora de início e término. |Sim |
 | fileName |Especifique o nome do arquivo no **folderPath** se deseja que a tabela se refira a um arquivo específico na pasta. Se você não especificar algum valor para essa propriedade, a tabela apontará para todos os arquivos na pasta.<br/><br/>Quando o **fileName** não for especificado para um conjunto de dados de saída, o nome do arquivo gerado será no seguinte formato: <br/><br/>`Data.<Guid>.txt` (Exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Não |
@@ -203,7 +203,7 @@ As propriedades disponíveis na seção **typeproperties** da atividade, por out
 
 Na atividade de cópia quando a fonte for do tipo **FileSystemSource**, as propriedades a seguir estarão disponíveis na seção **typeProperties**:
 
-| Property | Descrição | Valores permitidos | Obrigatório |
+| Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
 | recursiva |Indica se os dados são lidos recursivamente das subpastas ou somente da pasta especificada. |True, False (padrão) |Não |
 
