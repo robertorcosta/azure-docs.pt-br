@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 03f996f1105601dc46c81fa1a874816913e80633
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2f5b82f07ecff36ba95917a1f1b347c42ae7e074
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91716057"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856766"
 ---
 # <a name="get-started-with-azcopy"></a>Introdução ao AzCopy
 
@@ -50,7 +50,9 @@ Para ver uma lista de comandos, digite `azcopy -h` e pressione a tecla Enter.
 
 Para saber mais sobre um comando específico, apenas inclua o nome do comando (por exemplo: `azcopy list -h` ).
 
-![Ajuda embutida](media/storage-use-azcopy-v10/azcopy-inline-help.png)
+> [!div class="mx-imgBorder"]
+> ![Ajuda embutida](media/storage-use-azcopy-v10/azcopy-inline-help.png)
+
 
 Para encontrar a documentação de referência detalhada para cada comando e parâmetro de comando, consulte [azcopy](storage-ref-azcopy.md)
 

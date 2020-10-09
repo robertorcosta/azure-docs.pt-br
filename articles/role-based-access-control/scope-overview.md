@@ -7,14 +7,14 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/30/2020
+ms.date: 10/08/2020
 ms.author: rolyon
-ms.openlocfilehash: 80a05fd389ecaf504f58d12bf8efe87debd4ab86
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: ad906e3665c6ffc354cf6292c2559d1184037594
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91604221"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856136"
 ---
 # <a name="understand-scope-for-azure-rbac"></a>Entender o escopo do RBAC do Azure
 
@@ -25,6 +25,10 @@ ms.locfileid: "91604221"
 No Azure, você pode especificar um escopo em quatro níveis: [grupo de gerenciamento](../governance/management-groups/overview.md), assinatura, [grupo de recursos](../azure-resource-manager/management/overview.md#resource-groups)e recurso. Os escopos são estruturados em uma relação pai-filho. Cada nível de hierarquia torna o escopo mais específico. Você pode atribuir funções em qualquer um desses níveis de escopo. O nível selecionado determina o quanto a função é amplamente aplicada. Níveis inferiores herdam permissões de função de níveis superiores. 
 
 ![Escopo para uma atribuição de função](./media/scope-overview/rbac-scope-no-label.png)
+
+Os grupos de gerenciamento são um nível de escopo acima das assinaturas, mas os grupos de gerenciamento oferecem suporte a hierarquias mais complexas. O diagrama a seguir mostra um exemplo de uma hierarquia de grupos de gerenciamento e assinaturas que você pode definir. Para obter mais informações sobre grupos de gerenciamento, consulte [o que são grupos de gerenciamento do Azure?](../governance/management-groups/overview.md).
+
+![Hierarquia de assinatura e grupo de gerenciamento](./media/scope-overview/rbac-scope-management-groups.png)
 
 ## <a name="scope-format"></a>Formato do escopo
 
@@ -120,4 +124,4 @@ Os grupos de gerenciamento são um nível acima das assinaturas e têm o escopo 
 
 - [Etapas para adicionar uma atribuição de função](role-assignments-steps.md)
 - [Provedores de recursos para serviços do Azure](../azure-resource-manager/management/azure-services-resource-providers.md)
-- [Organizar seus recursos com grupos de gerenciamento do Azure](../governance/management-groups/overview.md)
+- [O que são grupos de gerenciamento do Azure?](../governance/management-groups/overview.md)

@@ -8,20 +8,20 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: ce1c6bdfb38e37c18a18cf970d2dd08683967da3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a866a225da87c22a3a276a5d59b8e86f1f955cae
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536741"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856187"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Comparar opções de armazenamento para uso com clusters do Azure HDInsight
 
 Você pode escolher entre alguns serviços de armazenamento do Azure diferentes ao criar clusters HDInsight:
 
-* [Armazenamento do Azure](./overview-azure-storage.md)
-* [Azure Data Lake Storage Gen2](./overview-data-lake-storage-gen2.md)
-* [Azure Data Lake Storage Gen1](./overview-data-lake-storage-gen1.md)
+* [Armazenamento de BLOBs do Azure com o HDInsight](./overview-azure-storage.md)
+* [Azure Data Lake Storage Gen2 com o HDInsight](./overview-data-lake-storage-gen2.md)
+* [Azure Data Lake Storage Gen1 com o HDInsight](./overview-data-lake-storage-gen1.md)
 
 Este artigo fornece uma visão geral desses tipos de armazenamento e de seus recursos exclusivos.
 
@@ -32,7 +32,7 @@ A tabela a seguir resume os serviços de armazenamento do Azure que têm suporte
 | Serviço de armazenamento | Tipo de conta | Tipo de namespace | Serviços com suporte | Níveis de desempenho compatíveis | Camadas de acesso compatíveis | Versão do HDInsight | Tipo de cluster |
 |---|---|---|---|---|---|---|---|
 |Azure Data Lake Storage Gen2| Uso geral V2 | Hierárquico (Filesystem) | Blob | Standard | Frequente, Esporádico, Arquivos | 3.6+ | Todos, exceto Spark 2,1 e 2,2|
-|Armazenamento do Azure| Uso geral V2 | Objeto | Blob | Standard | Frequente, Esporádico, Arquivos | 3.6+ | Tudo |
+|Armazenamento do Azure| Uso geral V2 | Objeto | Blob | Standard | Frequente, Esporádico, Arquivos | 3.6+ | Todos |
 |Armazenamento do Azure| Uso geral V1 | Objeto | Blob | Standard | N/D | Todos | Todos |
 |Armazenamento do Azure| Armazenamento de BLOBs * * | Objeto | Blob de blocos | Standard | Frequente, Esporádico, Arquivos | Todos | Todos |
 |Azure Data Lake Storage Gen1| N/D | Hierárquico (Filesystem) | N/D | N/D | N/D | apenas 3,6 | Todos, exceto HBase |
@@ -48,17 +48,17 @@ Você pode criar clusters usando combinações de serviços para armazenamento p
 | Versão do HDInsight | Armazenamento primário | Armazenamento secundário | Com suporte |
 |---|---|---|---|
 | 3,6 & 4,0 | Uso Geral v1, Uso Geral v2 | Uso Geral v1, Uso Geral v2, BlobStorage (BLOBs de blocos) | Sim |
-| 3,6 & 4,0 | Uso Geral v1, Uso Geral v2 | Data Lake Storage Gen2 | Não |
-| 3,6 & 4,0 | Data Lake Storage Gen2 * | Data Lake Storage Gen2 | Sim |
+| 3,6 & 4,0 | Uso Geral v1, Uso Geral v2 | Armazenamento do Data Lake Gen2 | Não |
+| 3,6 & 4,0 | Data Lake Storage Gen2 * | Armazenamento do Data Lake Gen2 | Sim |
 | 3,6 & 4,0 | Data Lake Storage Gen2 * | Uso Geral v1, Uso Geral v2, BlobStorage (BLOBs de blocos) | Sim |
-| 3,6 & 4,0 | Data Lake Storage Gen2 | Data Lake Storage Gen1 | Não |
-| 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen1 | Sim |
-| 3.6 | Data Lake Storage Gen1 | Uso Geral v1, Uso Geral v2, BlobStorage (BLOBs de blocos) | Sim |
-| 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen2 | Não |
+| 3,6 & 4,0 | Armazenamento do Data Lake Gen2 | Data Lake Storage Gen1 | Não |
+| 3,6 | Data Lake Storage Gen1 | Data Lake Storage Gen1 | Sim |
+| 3,6 | Data Lake Storage Gen1 | Uso Geral v1, Uso Geral v2, BlobStorage (BLOBs de blocos) | Sim |
+| 3,6 | Data Lake Storage Gen1 | Data Lake Storage Gen2 | Não |
 | 4,0 | Data Lake Storage Gen1 | Qualquer | Não |
 | 4,0 | Uso Geral v1, Uso Geral v2 | Data Lake Storage Gen1 | Não |
 
-* = Isso pode ser uma ou várias contas de Data Lake Storage Gen2, desde que todas as configurações usem a mesma identidade gerenciada para acesso ao cluster.
+* = Isso pode ser um ou vários Data Lake Storage Gen2, desde que todas as configurações usem a mesma identidade gerenciada para acesso ao cluster.
 
 > [!NOTE]
 > Não há suporte para o armazenamento primário Data Lake Storage Gen2 para clusters Spark 2,1 ou 2,2.
@@ -71,8 +71,8 @@ Você pode validar se o HDInsight está configurado corretamente para armazenar 
  
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Visão geral do Armazenamento do Azure](./overview-azure-storage.md)
-* [Visão geral do Azure Data Lake Storage Gen1](./overview-data-lake-storage-gen1.md)
-* [Visão geral do Azure Data Lake Storage Gen2](./overview-data-lake-storage-gen2.md)
+* [Visão geral do armazenamento do Azure no HDInsight](./overview-azure-storage.md)
+* [Visão geral do Azure Data Lake Storage Gen1 no HDInsight](./overview-data-lake-storage-gen1.md)
+* [Visão geral do Azure Data Lake Storage Gen2 no HDInsight](./overview-data-lake-storage-gen2.md)
 * [Introdução ao Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)
 * [Introdução ao Armazenamento do Azure](../storage/common/storage-introduction.md)

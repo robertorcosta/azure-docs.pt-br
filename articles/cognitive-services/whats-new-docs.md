@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: erhopf
 ms.service: cognitive-services
 ms.date: 10/02/2020
-ms.openlocfilehash: 73a097907a5b44c77ba5e1a9ead4cb4e3a8077c6
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 17d887f0834733fdc833bbbad66c957b057a588a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91777756"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91857802"
 ---
 # <a name="cognitive-services-docs-whats-new-for-september-1-2020---september-30-2020"></a>Documentos de serviços cognitivas: novidades para 1º de setembro de 2020 – 30 de setembro de 2020
 
@@ -22,12 +22,12 @@ Bem-vindo ao que há de novo nos documentos de serviços cognitivas de 1º de se
 
 ### <a name="updated-articles"></a>Artigos atualizados
 
-- [Início rápido: criar um recurso de serviços cognitivas usando a CLI (interface de linha de comando) do Azure](cognitive-services-apis-create-account-cli.md)
+- [Início rápido: criar um recurso de serviços cognitivas usando a CLI (interface de Command-Line do Azure)](cognitive-services-apis-create-account-cli.md)
 - [Início Rápido: Criar um recurso dos Serviços Cognitivos usando a biblioteca de clientes do Gerenciamento do Azure](cognitive-services-apis-create-account-client-library.md)
 - [Início rápido: criar um recurso de serviços cognitivas usando o portal do Azure](cognitive-services-apis-create-account.md)
 - [Início Rápido: Criar um recurso dos Serviços Cognitivos usando um modelo do ARM](create-account-resource-manager-template.md)
 
-## <a name="computer-vision"></a>Pesquisa Visual Computacional
+## <a name="computer-vision"></a>Visual Computacional
 
 ### <a name="new-articles"></a>Novos artigos
 
@@ -80,7 +80,7 @@ Bem-vindo ao que há de novo nos documentos de serviços cognitivas de 1º de se
 - [Início Rápido: Usar as APIs REST para personalizar a solução](/azure/cognitive-services/metrics-advisor/quickstarts/rest-api.md)
 - [Como: configurar alertas e obter notificações usando um gancho](/azure/cognitive-services/metrics-advisor/how-tos/alerts.md)
 
-## <a name="text-analytics"></a>Análise de Texto
+## <a name="text-analytics"></a>Análise de texto
 
 ### <a name="updated-articles"></a>Artigos atualizados
 
@@ -99,3 +99,5 @@ As pessoas a seguir contribuíram para os documentos de serviços cognitivas dur
 - [iAmBipinPaul](https://github.com/iAmBipinPaul) -Bipin Paul (1)
 - [rexwan](https://github.com/rexwan) -Rex Wang (1)
 - [rglidden](https://github.com/rglidden) -Richard Glidden (1)
+
+[!INCLUDE [Service specific updates](./includes/service-specific-updates.md)]

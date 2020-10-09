@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 964190108bb53a349fa1cb1301e2a554c1e32b26
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c35fa28457e3cb9a063fa29c20d8651fcb4eeb45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83996679"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856476"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Criar um gatilho que execute um pipeline em uma janela em cascata
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -147,7 +147,7 @@ Para usar os valores variáveis de sistema de **WindowStart** e **WindowEnd** na
 
 ### <a name="execution-order-of-windows-in-a-backfill-scenario"></a>Ordem de execução de janelas em um cenário de compensação
 
-Se o StartTime de Trigger estiver no passado, com base nessa fórmula, M = (CurrentTime-TriggerStartTime)/TriggerSliceSize, o gatilho gerará {M} aterramento (passado) é executado em paralelo, respeitando a simultaneidade do gatilho antes de executar as execuções futuras. A ordem de execução para o Windows é determinística, do mais antigo aos intervalos mais recentes. Atualmente, esse comportamento não pode ser modificado.
+Se o StartTime de Trigger estiver no passado, com base nessa fórmula, M = (CurrentTime-TriggerStartTime)/TumblingWindowSize, o gatilho gerará {M} aterramento (passado) é executado em paralelo, respeitando a simultaneidade do gatilho antes de executar as execuções futuras. A ordem de execução para o Windows é determinística, do mais antigo aos intervalos mais recentes. Atualmente, esse comportamento não pode ser modificado.
 
 ### <a name="existing-triggerresource-elements"></a>Elementos TriggerResource existentes
 

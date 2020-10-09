@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 04/29/2020
-ms.openlocfilehash: 55ffd563ea0a99d32608bd90bd53d7dc88eb4cf2
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: c8862398d5c79335e4ed59f4ca42df9abd58965e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85961805"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856578"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informações sobre o uso do HDInsight no Linux
 
@@ -101,15 +101,15 @@ Dados de exemplo e arquivos JAR podem ser encontrados no Sistema de Arquivos Dis
 
 Na maioria das distribuições do Hadoop, os dados são armazenados no HDFS. O backup do HDFS é feito pelo armazenamento local nos computadores do cluster. Utilizar armazenamento local pode ser dispendioso para uma solução baseada em nuvem onde você é cobrado por hora ou minuto por recursos de computação.
 
-Ao usar o HDInsight, os arquivos de dados são armazenados de maneira adaptável e resiliente na nuvem usando o Armazenamento de Blobs do Azure e, opcionalmente, o Azure Data Lake Storage. Esses serviços oferecem os seguintes benefícios:
+Ao usar o HDInsight, os arquivos de dados são armazenados de maneira adaptável e resiliente na nuvem usando o armazenamento de BLOBs do Azure e, opcionalmente, Azure Data Lake Storage Gen1/Gen2. Esses serviços oferecem os seguintes benefícios:
 
 * Armazenamento de longo prazo econômico.
 * Acessibilidade de serviços externos como sites, utilitários de upload/download de arquivos, vários SDKs de idioma e navegadores da Web.
 * Grande capacidade de arquivos e grande armazenamento adaptável.
 
-Para saber mais, confira [Noções básicas sobre blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) e [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/).
+Para obter mais informações, consulte [armazenamento de BLOBs do Azure](../storage/common/storage-introduction.md), [Azure data Lake Storage Gen1](../data-lake-store/data-lake-store-overview.md)ou [Azure data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md).
 
-Ao usar o Armazenamento do Azure ou o Data Lake Storage, você não precisará fazer nada especial no HDInsight para acessar os dados. Por exemplo, o comando a seguir lista os arquivos na pasta `/example/data`, caso ele esteja armazenado no Armazenamento do Azure ou no Data Lake Storage:
+Ao usar o armazenamento de BLOBs do Azure ou o Data Lake Storage Gen1/Gen2, você não precisa fazer nada especial do HDInsight para acessar os dados. Por exemplo, o comando a seguir lista os arquivos na pasta `/example/data`, caso ele esteja armazenado no Armazenamento do Azure ou no Data Lake Storage:
 
 ```console
 hdfs dfs -ls /example/data
@@ -135,7 +135,7 @@ Ao usar o [**Azure Data Lake Storage Gen2**](./hdinsight-hadoop-use-data-lake-st
 
 * `abfs://<container-name>@<account-name>.dfs.core.windows.net/`: Usado ao se comunicar com uma conta de armazenamento não padrão. Por exemplo, se você tiver uma conta de armazenamento adicional ou ao acessar dados armazenados em uma conta de armazenamento com acesso público.
 
-Ao usar o [**Azure Data Lake Storage Gen1**](./hdinsight-hadoop-use-data-lake-store.md), use um dos seguintes esquemas de URI:
+Ao usar o [**Azure Data Lake Storage Gen1**](../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen1.md), use um dos seguintes esquemas de URI:
 
 * `adl:///`: Acessar o Data Lake Storage padrão para o cluster.
 
@@ -189,7 +189,7 @@ Você também pode encontrar as informações de armazenamento usando o portal d
 
 Há várias maneiras de acessar dados de fora do cluster do HDInsight. A seguir, há alguns links para utilitários e SDKs que podem ser usados para trabalhar com seus dados:
 
-Se estiver usando o __armazenamento do Azure__, consulte os links a seguir para ver algumas maneiras de acessar os seus dados:
+Se estiver usando o __armazenamento de BLOBs do Azure__, consulte os links a seguir para obter maneiras de acessar seus dados:
 
 * [CLI do Azure](https://docs.microsoft.com/cli/azure/install-az-cli2): Comandos de interface de linha de comando para trabalhar com Azure. Depois de instalar, use o comando `az storage` para obter ajuda sobre o uso do armazenamento ou `az storage blob` para comandos específicos do blob.
 * [blobxfer.py](https://github.com/Azure/blobxfer): Um Script do Python para trabalhar com blobs no Armazenamento do Microsoft Azure.
@@ -203,7 +203,7 @@ Se estiver usando o __armazenamento do Azure__, consulte os links a seguir para 
     * [.NET](https://github.com/Azure/azure-sdk-for-net)
     * [API REST de armazenamento](https://msdn.microsoft.com/library/azure/dd135733.aspx)
 
-Se estiver usando o __Azure Data Lake Storage__, confira os links a seguir para ver algumas maneiras de acessar os seus dados:
+Se estiver usando __Azure data Lake Storage Gen1__, consulte os links a seguir para obter maneiras de acessar seus dados:
 
 * [Navegador da Web](../data-lake-store/data-lake-store-get-started-portal.md)
 * [PowerShell](../data-lake-store/data-lake-store-get-started-powershell.md)

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c65d77d2cf50a59f18f0007e809e9913c3a5ae13
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a6ccc2911312a74825b885f5f492e67774354316
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91304213"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858120"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões da função de administrador no Azure Active Directory
 
@@ -274,7 +274,7 @@ Essa função era anteriormente chamada de “Administrador de senha” no [port
 
 ### <a name="hybrid-identity-administrator"></a>[Administrador de Identidade Híbrida](#hybrid-identity-administrator-permissions)
 
-Os usuários com essa função podem habilitar, definir e gerenciar serviços e configurações relacionados à habilitação da identidade híbrida no Azure AD. Essa função concede a capacidade de configurar o Azure AD a um dos três métodos de autenticação com suporte, a saber: PHS (Sincronização de hash de senha), PTA (Autenticação de passagem) ou Federação (AD FS ou provedor de federação de terceiros), além de implantar a infraestrutura local relacionada para habilitá-los. A infraestrutura local inclui agentes de provisionamento e de PTA. Essa função concede a capacidade de habilitar o S-SSO (Logon único contínuo) para habilitar a autenticação direta em dispositivos que não usem o Windows 10 ou em computadores que não usem o Windows Server 2016. Além disso, essa função concede a capacidade de ver logs de entrada e acessar a integridade e análise para fins de monitoramento e solução de problemas. 
+Os usuários nessa função podem criar, gerenciar e implantar a configuração de provisionamento do AD para o Azure AD usando o provisionamento de nuvem, bem como gerenciar configurações de Federação. Os usuários também podem solucionar problemas e monitorar logs usando essa função.  
 
 ### <a name="insights-administrator"></a>[Administrador do insights](#insights-administrator-permissions)
 Os usuários nessa função podem acessar o conjunto completo de recursos administrativos no [aplicativo M365 insights](https://go.microsoft.com/fwlink/?linkid=2129521). Essa função tem a capacidade de ler as informações do diretório, monitorar a integridade do serviço, tíquetes de suporte de arquivo e acessar os aspectos das configurações de administrador do insights.
@@ -1216,9 +1216,6 @@ Habilite, implante, configure, gerencie, monitore e solucione problemas de provi
 | microsoft.directory/cloudProvisioning/allProperties/allTasks | Ler e configurar todas as propriedades do serviço de Provisionamento em Nuvem do Azure AD. |
 | microsoft.directory/federatedAuthentication/allProperties/allTasks | Gerenciar todos os aspectos do ADFS (Serviços de federação do Active Directory) ou do provedor de federação de terceiros no Azure AD. |
 | microsoft.directory/organization/dirSync/update | Atualize a propriedade organization.dirSync no Azure Active Directory. |
-| microsoft.directory/passwordHashSync/allProperties/allTasks | Gerenciar todos os aspectos de PHS (Sincronização de hash da senha) no Azure AD. |
-| microsoft.directory/passThroughAuthentication/allProperties/allTasks | Gerenciar todos os aspectos da PTA (Autenticação de passagem) no Azure AD. |
-| microsoft.directory/seamlessSSO/allProperties/allTasks | Gerenciar todos os aspectos de SSO (Logon único) contínuo no Azure AD. |
 | microsoft.directory/servicePrincipals/audience/update | Atualizar a propriedade servicePrincipals.audience no Azure Active Directory. |
 | microsoft.directory/servicePrincipals/authentication/update | Atualizar a propriedade servicePrincipals.authentication no Azure Active Directory. |
 | microsoft.directory/servicePrincipals/basic/update | Atualize as propriedades básicas em servicePrincipals no Active Directory do Azure. |

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: f7d2351fdc39ec4600cbca2e436cdcd527157275
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7bdb2c6ba6717624b19184ca3bcb47ee9b3da367
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91332957"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856102"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>O que é o Sincronização de Dados SQL para o Azure?
 
@@ -126,7 +126,7 @@ Provisionamento e desprovisionamento durante a criação do grupo de sincroniza�
 > - Os dados entre o Hub e o membro podem ser perdidos, embora a sincronização não relate nenhum problema.
 > - A sincronização pode falhar porque a tabela de rastreamento tem uma linha não existente da origem devido à alteração da chave primária.
 
-- O isolamento de instantâneo deve estar habilitado. Para obter mais informações, consulte [Isolamento de instantâneo no SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
+- O isolamento de instantâneo deve ser habilitado tanto para membros de sincronização quanto para o Hub. Para obter mais informações, consulte [Isolamento de instantâneo no SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
 
 ### <a name="general-limitations"></a>Limitações gerais
 
@@ -137,7 +137,7 @@ Provisionamento e desprovisionamento durante a criação do grupo de sincroniza�
 - Os nomes de objetos (bancos de dados, tabelas e colunas) não podem conter o ponto de caracteres imprimíveis (.), colchete esquerdo ([) ou colchete direito (]).
 - Não há suporte para a autenticação Azure Active Directory.
 - Não há suporte para tabelas com o mesmo nome, mas com esquema diferente (por exemplo, dbo. Customers e Sales. Customers).
-- Não há suporte para colunas com tipos de dados definidos pelo usuário
+- Não há suporte para colunas com tipos de dados User-Defined
 - Não há suporte para a movimentação de servidores entre assinaturas diferentes. 
 
 #### <a name="unsupported-data-types"></a>Tipos de dados sem suporte

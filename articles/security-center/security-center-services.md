@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 61e5c60317bf872b8e27a7bd2edea7247e01a3b8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a311439e8efc5481fbfd7431c1514ba6be576e39
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91439424"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858006"
 ---
 # <a name="feature-coverage-for-machines"></a>Cobertura de recursos para computadores
 
@@ -107,6 +107,6 @@ Para obter informações sobre quando as recomendações são geradas para cada 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba como a [Central de Segurança coleta os dados e o agente do Log Analytics](security-center-enable-data-collection.md).
+- Saiba como a [Central de Segurança coleta dados usando o Agente do Log Analytics](security-center-enable-data-collection.md).
 - Saiba como a [Central de Segurança gerencia e protege os dados](security-center-data-security.md).
 - Examine as [plataformas de que dão suporte à Central de Segurança](security-center-os-coverage.md).
