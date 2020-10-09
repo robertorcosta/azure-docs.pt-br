@@ -11,10 +11,10 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.author: pafarley
 ms.openlocfilehash: a23e6d46ee6e79fd7a5cabf4434c561f7d83b31b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76169499"
 ---
 # <a name="content-moderator-review-tool"></a>Ferramenta de revisão de Content Moderator
@@ -43,7 +43,7 @@ Na guia **painel** , você pode ver as principais métricas para revisões de co
 
 ## <a name="review-tool-credentials"></a>Examinar as credenciais da ferramenta
 
-Ao se inscrever com a [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com), você será solicitado a selecionar uma região do Azure para sua conta. Isso ocorre porque a [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com) gera uma chave de avaliação gratuita para os serviços de Content moderator do Azure; Você precisará dessa chave para acessar qualquer um dos serviços de uma chamada REST ou do SDK do cliente. Você pode exibir a URL de ponto de extremidade da API e de chave selecionando **configurações** > **credenciais**.
+Ao se inscrever com a [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com), você será solicitado a selecionar uma região do Azure para sua conta. Isso ocorre porque a [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com) gera uma chave de avaliação gratuita para os serviços de Content moderator do Azure; Você precisará dessa chave para acessar qualquer um dos serviços de uma chamada REST ou do SDK do cliente. Você pode exibir a URL de ponto de extremidade da API e de chave selecionando **configurações**  >  **credenciais**.
 
 ![Credenciais do Content Moderator](images/settings-6-credentials.png)
 

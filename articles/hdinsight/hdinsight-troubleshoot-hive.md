@@ -9,10 +9,10 @@ ms.reviewer: jasonh
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.openlocfilehash: 02247adb9852a72b386feb2ef0924b0f1b3d6277
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75895227"
 ---
 # <a name="troubleshoot-apache-hive-by-using-azure-hdinsight"></a>Solucionar problemas do Apache Hive usando o Azure HDInsight
@@ -41,7 +41,7 @@ Saiba mais sobre as principais perguntas e suas resoluções ao trabalhar com ca
 
 O código nas etapas de resolução supõe que os caminhos de dados no novo cluster sejam iguais aos caminhos de dados no cluster antigo. Se os caminhos de dados forem diferentes, você poderá editar manualmente o `alltables.sql` arquivo gerado para refletir as alterações.
 
-### <a name="additional-reading"></a>Leitura adicional
+### <a name="additional-reading"></a>Leituras adicionais
 
 - [Conectar-se a um cluster HDInsight usando SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
@@ -69,7 +69,7 @@ O código nas etapas de resolução supõe que os caminhos de dados no novo clus
    /var/log/hive/hiveserver2.log
    ```
 
-### <a name="additional-reading"></a>Leitura adicional
+### <a name="additional-reading"></a>Leituras adicionais
 
 - [Conectar-se a um cluster HDInsight usando SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
@@ -95,7 +95,7 @@ O código nas etapas de resolução supõe que os caminhos de dados no novo clus
    hive -hiveconf hive.root.logger=ALL,console
    ```
 
-### <a name="additional-reading"></a>Leitura adicional
+### <a name="additional-reading"></a>Leituras adicionais
 
 - [Propriedades de configuração do Hive](https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties)
 
@@ -132,7 +132,7 @@ O código nas etapas de resolução supõe que os caminhos de dados no novo clus
     - **TaskConcurrencyAnalyzer**: imprimir os detalhes de simultaneidade de tarefa em um DAG
     - **VertexLevelCriticalPathAnalyzer**: encontrar o caminho crítico no nível do vértice em um DAG
 
-### <a name="additional-reading"></a>Leitura adicional
+### <a name="additional-reading"></a>Leituras adicionais
 
 - [Conectar-se a um cluster HDInsight usando SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 

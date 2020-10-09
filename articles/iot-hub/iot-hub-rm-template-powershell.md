@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.openlocfilehash: a1f878361a96c5584f43b31135d79ff799f66efa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75976616"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-powershell"></a>Criar um Hub IoT usando um modelo do Azure Resource Manager (PowerShell)
@@ -29,7 +29,7 @@ O modelo do Resource Manager usado neste guia de início rápido é de [modelos 
 
 [!code-json[iothub-creation](~/quickstart-templates/101-iothub-with-consumergroup-create/azuredeploy.json)]
 
-O modelo cria um hub IOT do Azure com três pontos de extremidade (eventhub, nuvem para dispositivo e mensagens) e um grupo de consumidores. Para obter mais exemplos de modelo, consulte [modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Devices&pageNumber=1&sort=Popular). O esquema de modelo do Hub IOT pode ser encontrado [aqui](https://docs.microsoft.com/azure/templates/microsoft.devices/iothub-allversions).
+O modelo cria um hub IOT do Azure com três pontos de extremidade (eventhub, nuvem para dispositivo e mensagens) e um grupo de consumidores. Para obter mais exemplos de modelo, consulte [modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Devices&pageNumber=1&sort=Popular). O esquema de modelo do Hub IOT pode ser encontrado  [aqui](https://docs.microsoft.com/azure/templates/microsoft.devices/iothub-allversions).
 
 Há vários métodos para implantar um modelo.  Você usa Azure PowerShell neste tutorial.
 

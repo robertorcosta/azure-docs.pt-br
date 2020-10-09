@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/20/2019
 ms.openlocfilehash: 3ec50acc693452fe73d929effcea98b12fc5ff8b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75933946"
 ---
 # <a name="work-in-the-apache-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>Trabalhar no ecossistema Apache Hadoop no HDInsight por meio de um computador com Windows
@@ -90,7 +90,7 @@ Se você vir uma situação em que deve usar uma ferramenta ou tecnologia dispon
 
 ## <a name="cross-platform-tools"></a>Ferramentas de plataforma cruzada
 
-A CLI (interface de linha de comando) do Azure é a experiência da linha de comando de plataforma cruzada da Microsoft para gerenciar os recursos do Azure.  Para obter mais informações, consulte [interface de linha de comando (CLI) do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
+A CLI (interface de linha de comando) do Azure é a experiência da linha de comando de plataforma cruzada da Microsoft para gerenciar os recursos do Azure.  Para obter mais informações, consulte [interface de Command-Line do Azure (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
 ## <a name="next-steps"></a>Próximas etapas
 

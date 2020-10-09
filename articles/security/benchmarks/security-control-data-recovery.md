@@ -8,10 +8,10 @@ ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 4f3e8540902809f951a441aa2fe8d00026c44d82
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81408585"
 ---
 # <a name="security-control-data-recovery"></a>Controle de segurança: recuperação de dados
@@ -32,7 +32,7 @@ Habilite o backup do Azure e configure a fonte de backup (VMs do Azure, SQL Serv
 
 | ID do Azure | IDs de CIS | Responsabilidade |
 |--|--|--|
-| 9.2 | 10.2 | Cliente |
+| 9.2 | 10,2 | Cliente |
 
 Habilite o backup do Azure e as VMs de destino, bem como os períodos de frequência e retenção desejados. Fazer backup de chaves gerenciadas pelo cliente dentro do Azure Key Vault.
 
@@ -56,19 +56,19 @@ Garanta a capacidade de executar periodicamente a restauração de dados de cont
 
 | ID do Azure | IDs de CIS | Responsabilidade |
 |--|--|--|
-| 9.4 | 10,4 | Cliente |
+| 9.4 | 10.4 | Cliente |
 
 Para backup local, a criptografia em repouso é realizada usando a frase secreta que você fornece ao fazer backup no Azure. Para VMs do Azure, os dados são criptografados em repouso usando SSE (Criptografia do Serviço de Armazenamento). Use o controle de acesso baseado em função para proteger backups e chaves gerenciadas pelo cliente.  
 
-Habilite a proteção de exclusão e limpeza reversível no Key Vault para proteger as chaves contra exclusão acidental ou mal-intencionada.  Se o armazenamento do Azure for usado para armazenar backups, habilite a exclusão reversível para salvar e recuperar seus dados quando BLOBs ou instantâneos de blob forem excluídos. 
+Habilite a proteção de Soft-Delete e limpeza no Key Vault para proteger as chaves contra exclusão acidental ou mal-intencionada.  Se o armazenamento do Azure for usado para armazenar backups, habilite a exclusão reversível para salvar e recuperar seus dados quando BLOBs ou instantâneos de blob forem excluídos. 
 
 - [Entender o RBAC do Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
-- [Como habilitar a exclusão reversível e limpar a proteção no Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Como habilitar a proteção de Soft-Delete e limpeza no Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
 
 - [Exclusão reversível para blobs do Armazenamento do Azure ](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Consulte o próximo controle de segurança: [resposta a incidentes](security-control-incident-response.md)
+- Consulte o próximo controle de segurança:  [resposta a incidentes](security-control-incident-response.md)

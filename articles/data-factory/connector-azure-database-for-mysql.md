@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/25/2019
 ms.openlocfilehash: bbb4aed8ca10fcf7c15e7442ee7067b2e3f8087d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81410700"
 ---
 # <a name="copy-data-to-and-from-azure-database-for-mysql-using-azure-data-factory"></a>Copiar dados de e para o Azure Database para MySQL usando o Azure Data Factory
@@ -47,7 +47,7 @@ As seções que se seguem fornecem detalhes sobre as propriedades que são usada
 
 As propriedades a seguir têm suporte no serviço vinculado do Banco de Dados do Azure para MySQL:
 
-| Propriedade | Descrição | Necessária |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | type | A tipo da propriedade deve ser definida como: **AzureMySql** | Sim |
 | connectionString | Obtenha as informações de conexão necessárias para se conectar ao Banco de Dados do Azure para MySQL. <br/> Você também pode colocar uma senha no Azure Key Vault e extrair a configuração `password` da cadeia de conexão. Confira os exemplos a seguir e o artigo [Armazenar credenciais no Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. | Sim |
@@ -110,7 +110,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados de/para o Banco de Dados do Azure para MySQL, defina o tipo da propriedade do conjunto de dados como **AzureMySqlTable**. Há suporte para as seguintes propriedades:
 
-| Propriedade | Descrição | Necessária |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | type | O tipo da propriedade do conjunto de dados deve ser definida como: **AzureMySqlTable** | Sim |
 | tableName | Nome da tabela no banco de dados MySQL. | Não (se "query" na fonte da atividade for especificada) |
@@ -141,7 +141,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados do Azure Database para MySQL, há suporte para as seguintes propriedades na seção **origem** da atividade de cópia:
 
-| Propriedade | Descrição | Necessária |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade type da fonte da atividade de cópia deve ser definida como: **AzureMySqlSource** | Sim |
 | Consulta | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se "tableName" no conjunto de dados for especificado) |
@@ -183,7 +183,7 @@ Para copiar dados do Azure Database para MySQL, há suporte para as seguintes pr
 
 Para copiar dados para o banco de dado do Azure para MySQL, há suporte para as seguintes propriedades na seção **coletor** de atividade de cópia:
 
-| Propriedade | Descrição | Necessária |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade Type do coletor da atividade de cópia deve ser definida como: **AzureMySqlSink** | Sim |
 | preCopyScript | Especifique uma consulta SQL para que a atividade de cópia seja executada antes de gravar dados no banco de dado do Azure para MySQL em cada execução. Você pode usar essa propriedade para limpar os dados previamente carregados. | Não |

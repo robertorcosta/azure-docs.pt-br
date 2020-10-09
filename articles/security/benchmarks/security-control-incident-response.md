@@ -8,10 +8,10 @@ ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 993793d21e6253188dfc199d8701cbe117503517
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81408429"
 ---
 # <a name="security-control-incident-response"></a>Controle de segurança: resposta a incidentes
@@ -36,7 +36,7 @@ Crie um guia de resposta a incidentes para sua organização. Verifique se há p
 
 | ID do Azure | IDs de CIS | Responsabilidade |
 |--|--|--|
-| 10.2 | 19,8 | Cliente |
+| 10,2 | 19,8 | Cliente |
 
 A central de segurança atribui uma severidade a cada alerta para ajudá-lo a priorizar quais alertas devem ser investigados primeiro. A severidade se baseia na confiança que a Central de Segurança tem na constatação ou na análise usada para emitir o alerta, bem como no nível de confiança de que houve uma ação mal-intencionada por trás da atividade que levou ao alerta. 
 
@@ -60,7 +60,7 @@ Conduza exercícios para testar os recursos de resposta a incidentes de seus sis
 
 | ID do Azure | IDs de CIS | Responsabilidade |
 |--|--|--|
-| 10,4 | 19,5 | Cliente |
+| 10.4 | 19,5 | Cliente |
 
 As informações de contato de incidente de segurança serão usadas pela Microsoft para entrar em contato com você se o MSRC (Microsoft Security Response Center) descobre que seus dados foram acessados por uma parte ilegal ou não autorizada. Examine os incidentes após o fato para garantir que os problemas sejam resolvidos.
 

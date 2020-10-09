@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.openlocfilehash: ee2e59e794cf34a8fd5043a56867a81c2537f1ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81415319"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Atividade de função do Azure no Azure Data Factory
@@ -42,7 +42,7 @@ O tipo de retorno da função do Azure deve ser um `JObject` válido. (Lembre-se
 | **Propriedade**  | **Descrição** | **Valores permitidos** | **Necessária** |
 | --- | --- | --- | --- |
 | name  | Nome da atividade no pipeline  | String | sim |
-| tipo  | O tipo de atividade é 'AzureFunctionActivity' | String | sim |
+| type  | O tipo de atividade é 'AzureFunctionActivity' | String | sim |
 | serviço vinculado | O serviço de função do Azure vinculado para o Aplicativo de funções correspondente do Azure  | Referência de serviço vinculado | sim |
 | nome da função  | Nome da função no Aplicativo de funções do Azure que essa atividade chama | String | sim |
 | method  | Método da API REST para a chamada de função | Tipos de cadeia de caracteres com suporte: "GET", "POST", "PUT"   | sim |
@@ -54,7 +54,7 @@ Consulte o esquema da carga de solicitação na seção [esquema de carga de so
 
 ## <a name="routing-and-queries"></a>Roteamento e consultas
 
-A atividade do Azure Function dá suporte a **roteamento**. Por exemplo, se a função do Azure tiver o ponto de extremidade `https://functionAPP.azurewebsites.net/api/<functionName>/<value>?code=<secret>` , o `functionName` para usar na atividade de função do Azure é `<functionName>/<value>` . Você pode parametrizar essa função para fornecer as desejadas `functionName` em tempo de execução.
+A atividade do Azure Function dá suporte a **roteamento**. Por exemplo, se a função do Azure tiver o ponto de extremidade  `https://functionAPP.azurewebsites.net/api/<functionName>/<value>?code=<secret>` , o `functionName` para usar na atividade de função do Azure é `<functionName>/<value>` . Você pode parametrizar essa função para fornecer as desejadas `functionName` em tempo de execução.
 
 A atividade do Azure Function também dá suporte a **consultas**.  Uma consulta deve ser incluída como parte do `functionName` . Por exemplo, quando o nome da função é `HttpTriggerCSharp` e a consulta que você deseja incluir é `name=hello` , você pode construir o `functionName` na atividade de função do Azure como `HttpTriggerCSharp?name=hello` . Essa função pode ser parametrizada para que o valor possa ser determinado em tempo de execução.
 

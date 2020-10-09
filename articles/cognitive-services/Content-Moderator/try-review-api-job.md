@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
 ms.openlocfilehash: 83ee8e0c0583cba72da8702e196f0f38128f8d8a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "72935965"
 ---
 # <a name="define-and-use-moderation-jobs-rest"></a>Definir e usar trabalhos de moderação (REST)
@@ -45,13 +45,13 @@ Insira os seguintes valores para construir a chamada REST:
 
 ### <a name="fill-in-the-request-body"></a>Preencha o corpo da solicitação
 
-O corpo da sua chamada REST contém um campo, **contentvalue**. Cole o conteúdo de texto bruto se você estiver moderar texto ou insira uma imagem ou uma URL de vídeo se você estiver moderar imagem/vídeo. Você pode usar a seguinte URL de imagem de exemplo:[https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg](https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg)
+O corpo da sua chamada REST contém um campo, **contentvalue**. Cole o conteúdo de texto bruto se você estiver moderar texto ou insira uma imagem ou uma URL de vídeo se você estiver moderar imagem/vídeo. Você pode usar a seguinte URL de imagem de exemplo: [https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg](https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg)
 
 ![Trabalho - Criar parâmetros de consulta de console, cabeçalhos e caixa do corpo da solicitação](images/job-api-console-inputs.PNG)
 
 ### <a name="submit-your-request"></a>Enviar a solicitação
 
-Selecione **Enviar**. Se a operação for concluída com sucesso, o status `200 OK`da **resposta** será e a caixa **conteúdo da resposta** exibirá uma ID para o trabalho. Copie esta ID para usar nas etapas a seguir.
+Selecione **Enviar**. Se a operação for concluída com sucesso, o **status da resposta** será `200 OK` e a caixa **conteúdo da resposta** exibirá uma ID para o trabalho. Copie esta ID para usar nas etapas a seguir.
 
 ![Análise - Criar console Caixa de conteúdo de resposta exibe a ID de análise](images/test-drive-job-3.PNG)
 
@@ -61,7 +61,7 @@ Para obter o status e os detalhes de um trabalho em execução ou concluído, v�
 
 ![Trabalho-obter seleção de região](images/test-drive-region.png)
 
-Insira os parâmetros de chamada REST como na seção acima. Para esta etapa, **JobID** é a cadeia de caracteres de ID exclusiva que você recebeu quando criou o trabalho. Selecione **Enviar**. Se a operação for concluída com sucesso, o status `200 OK`da **resposta** será e a caixa **conteúdo da resposta** exibirá o trabalho no formato JSON, como o seguinte:
+Insira os parâmetros de chamada REST como na seção acima. Para esta etapa, **JobID** é a cadeia de caracteres de ID exclusiva que você recebeu quando criou o trabalho. Selecione **Enviar**. Se a operação for concluída com sucesso, o **status da resposta** será `200 OK` e a caixa **conteúdo da resposta** exibirá o trabalho no formato JSON, como o seguinte:
 
 ```json
 {  
@@ -115,7 +115,7 @@ Insira os parâmetros de chamada REST como na seção acima. Para esta etapa, **
 
 ### <a name="examine-the-new-reviews"></a>Examinar as novas revisões
 
-Se o seu trabalho de conteúdo resultou na criação de uma revisão, você poderá exibi-lo na [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com). Selecione **Review** > **vídeo** de**Text**texto/da**imagem**/de revisão (dependendo do conteúdo que você usou). O conteúdo deve aparecer, pronto para revisão humana. Depois que um moderador humano revisa as marcas e os dados de previsão atribuídos automaticamente e envia uma decisão de moderação final, a API de trabalhos envia todas essas informações para o ponto de extremidade do ponto de extremidade do retorno de chamada designado.
+Se o seu trabalho de conteúdo resultou na criação de uma revisão, você poderá exibi-lo na [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com). Selecione **Review**  >  **Image** / **Text** / **vídeo** de texto da imagem de revisão (dependendo do conteúdo que você usou). O conteúdo deve aparecer, pronto para revisão humana. Depois que um moderador humano revisa as marcas e os dados de previsão atribuídos automaticamente e envia uma decisão de moderação final, a API de trabalhos envia todas essas informações para o ponto de extremidade do ponto de extremidade do retorno de chamada designado.
 
 ## <a name="next-steps"></a>Próximas etapas
 

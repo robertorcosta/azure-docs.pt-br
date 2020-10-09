@@ -12,10 +12,10 @@ author: nabhishek
 manager: shwang
 ms.date: 03/15/2018
 ms.openlocfilehash: 6b010000a674e351051c664dd5eeacd40e802439
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81414623"
 ---
 # <a name="transform-data-by-running-a-jar-activity-in-azure-databricks"></a>Transformar dados executando uma atividade de Jar no Azure Databricks
@@ -63,7 +63,7 @@ A tabela a seguir descreve as propriedades JSON usadas na definição de JSON:
 |type|Para a Atividade do Databricks Jar, o tipo de atividade é DatabricksSparkJar.|Sim|
 |linkedServiceName|Nome do serviço vinculado ao Databricks no qual a atividade de Jar é executado. Para saber mais sobre esse serviço vinculado, consulte o artigo [Serviços vinculados de computação](compute-linked-services.md)   .|Sim|
 |mainClassName|O nome completo da classe que contém o método principal a ser executado. Essa classe deve estar contida em um JAR fornecido como uma biblioteca.|Sim|
-|parâmetros|Parâmetros que serão passados ao método principal.  Isto é uma matriz de cadeias de caracteres.|Não|
+|parameters|Parâmetros que serão passados ao método principal.  Isto é uma matriz de cadeias de caracteres.|Não|
 |bibliotecas|Uma lista de bibliotecas a serem instaladas no cluster, que executará o trabalho. Ele pode ser uma matriz de <string, object>|Sim (pelo menos um contendo o método mainClassName)|
 
 > [!NOTE]
