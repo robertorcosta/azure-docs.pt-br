@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
 ms.openlocfilehash: 32603f4ab33e020245861e5dc66d2ade545fa627
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79247482"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872129"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>Qual é o modelo de serviço de nuvem e como empacotá-lo?
 Um serviço de nuvem é criado a partir de três componentes, a definição do serviço *(.csdef)*, configuração do serviço *(.cscfg)* e pacote do serviço *(.cspkg)*. Os arquivos **ServiceDefinition.csdef** e **ServiceConfig.cscfg** são baseados no XML, descrevem a estrutura do serviço de nuvem e como ela é configurada; coletivamente são chamados de modelo. O **ServicePackage.cspkg** é um arquivo zip gerado do **ServiceDefinition.csdef** e entre outras coisas, contém todas as dependências necessárias com base no binário. O Azure cria um serviço de nuvem para o **ServicePackage.cspkg** e o **ServiceConfig.cscfg**.
@@ -103,7 +103,7 @@ Você pode consultar o [esquema de definição de serviço](/previous-versions/a
 **LocalResources**  
  contém as definições para recursos de armazenamento local. Um recurso de armazenamento local é um diretório reservado no sistema de arquivos da máquina virtual no qual uma instância de uma função está em execução.
 
-**Importações**  
+**Importar**  
  contém as definições para módulos importados. O exemplo de código anterior mostra os módulos para conexão de área de trabalho remota e Azure Connect.
 
 **Inicialização**  
@@ -136,7 +136,7 @@ O arquivo de configuração de serviço não é fornecido com o aplicativo, mas 
 
 Você pode consultar o [esquema de configuração de serviço](/previous-versions/azure/reference/ee758710(v=azure.100)) para entender melhor o esquema XML usado aqui, no entanto, eis uma breve explicação dos elementos:
 
-**Ocasiões**  
+**Instâncias**  
  configura o número de instâncias em execução para a função. Para impedir que seu serviço de nuvem fique potencialmente indisponível durante atualizações, é recomendável implantar mais de uma instância das suas funções da Web. Ao implantar mais de uma instância, você estará aderindo às diretrizes do [Contrato de nível de serviço de computação do Azure (SLA)](https://azure.microsoft.com/support/legal/sla/), que garante 99,95% de conectividade externa para funções de Internet quando duas ou mais instâncias de função são implantadas para um serviço.
 
 **ConfigurationSettings**  

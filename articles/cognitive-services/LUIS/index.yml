@@ -13,10 +13,10 @@ metadata:
   titleSuffix: Azure Cognitive Services
   description: O serviço LUIS (Serviço Inteligente de Reconhecimento Vocal) permite que o aplicativo entenda o que uma pessoa quer ao interpretar as palavras dela. O LUIS usa o aprendizado de máquina para permitir que desenvolvedores criem aplicativos que possam receber entradas do usuário em linguagem natural e extrair o significado disso.
   ms.openlocfilehash: 6e34c5e39118565e14a40765443583b0b9ed237b
-  ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 09/02/2020
+  ms.lasthandoff: 10/09/2020
   ms.locfileid: "89322476"
 landingContent:
 - title: Sobre o LUIS (Reconhecimento vocal)

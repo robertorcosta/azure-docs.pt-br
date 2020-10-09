@@ -9,12 +9,12 @@ metadata:
   author: 
   ms.author: 
   ms.date: 03/24/2020
-  ms.openlocfilehash: 461d088f85f6845dfb9204381209b477b384a0be
-  ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+  ms.openlocfilehash: 62e95192f25487be60ed0334054f200447fc64cb
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 04/28/2020
-  ms.locfileid: "82231452"
+  ms.lasthandoff: 10/09/2020
+  ms.locfileid: "91855932"
 landingContent:
 - title: Sobre o Azure DevOps Starter
   linkLists:
@@ -31,30 +31,30 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: .NET
-      url: /azure/devops-project/azure-devops-project-aspnet-core
+      url: ./azure-devops-project-aspnet-core.md
     - text: Node.js
-      url: /azure/devops-project/azure-devops-project-nodejs
+      url: ./azure-devops-project-nodejs.md
     - text: Java
-      url: /azure/devops-project/azure-devops-project-java
+      url: ./azure-devops-project-java.md
     - text: Python
-      url: /azure/devops-project/azure-devops-project-python
+      url: ./azure-devops-project-python.md
     - text: PHP
-      url: /azure/devops-project/azure-devops-project-php
+      url: ./azure-devops-project-php.md
     - text: Ruby
-      url: /azure/devops-project/azure-devops-project-ruby
+      url: ./azure-devops-project-ruby.md
     - text: Go
-      url: /azure/devops-project/azure-devops-project-go
+      url: ./azure-devops-project-go.md
 - title: Crie pipelines de lançamento
   linkLists:
   - linkListType: tutorial
     links:
     - text: Traga o seu próprio código com GitHub
       url: azure-devops-project-vms.md
-    - text: Implante seu aplicativo ASP.NET em Máquinas Virtuais do Azure
+    - text: Implante seu aplicativo ASP.NET em máquinas virtuais do Azure
       url: azure-devops-project-vms.md
-    - text: Implante seu aplicativo ASP.NET e o Banco de Dados SQL do Azure
+    - text: Implante seu aplicativo ASP.NET e o banco de dados SQL do Azure
       url: azure-devops-project-sql-database.md
     - text: Implante seu aplicativo no Serviço de Contêiner do Azure e no Kubernetes
       url: azure-devops-project-aks.md
-    - text: Implante seu aplicativo no Azure Service Fabric
+    - text: Implante seu aplicativo no Service Fabric do Azure
       url: azure-devops-project-service-fabric.md

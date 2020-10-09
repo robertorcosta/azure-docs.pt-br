@@ -8,11 +8,11 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.openlocfilehash: f0c7b966b9fa7580809d2df0f4d05a7146ca0fd1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79272195"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871959"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Solucione problemas de YARN do Apache Hadoop usando o Azure HDInsight
 
@@ -28,7 +28,7 @@ Neste exemplo, duas filas existentes (**padrão** e **thriftsvr**) são alterada
 
 | Fila | Capacity | Capacidade máxima |
 | --- | --- | --- |
-| default | 25% | 50% |
+| padrão | 25% | 50% |
 | thrftsvr | 25% | 50% |
 | spark | 50% | 50% |
 
@@ -58,7 +58,7 @@ Neste exemplo, duas filas existentes (**padrão** e **thriftsvr**) são alterada
 
 Essas alterações estarão visíveis imediatamente na interface do usuário do Agendador do YARN.
 
-### <a name="additional-reading"></a>Leitura adicional
+### <a name="additional-reading"></a>Leituras adicionais
 
 - [Apache Hadoop YARN CapacityScheduler](https://hadoop.apache.org/docs/r2.7.2/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html)
 

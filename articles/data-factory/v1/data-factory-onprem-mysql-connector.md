@@ -13,11 +13,11 @@ ms.date: 06/06/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 90fccba016a3db9ff85f8ec7c8fd426ef3c896a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79281282"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872095"
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Mover dados do MySQL usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -65,7 +65,7 @@ As seções que se seguem fornecem detalhes sobre as propriedades JSON que são 
 ## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
 A tabela a seguir fornece a descrição para elementos JSON específicos para o serviço vinculado do MySQL.
 
-| Property | Descrição | Obrigatório |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | type |A propriedade do tipo deve ser definida como: **OnPremisesMySql** |Sim |
 | Servidor |Nome do servidor MySQL. |Sim |
@@ -81,7 +81,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 A seção **typeproperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no repositório de dados. A seção typeProperties de um conjunto de dados do tipo **RelationalTable** (que inclui o conjunto de dados do MySQL) tem as propriedades a seguir
 
-| Property | Descrição | Necessária |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | tableName |Nome da tabela na instância do Banco de Dados MySQL à qual o serviço vinculado se refere. |Não (se **query** de **RelationalSource** for especificado) |
 
@@ -92,7 +92,7 @@ Por outro lado, as propriedades disponíveis na seção **typeProperties** da at
 
 Quando a origem na atividade de cópia é do tipo **RelationalSource** (que inclui o MySQL), as seguintes propriedades estão disponíveis na seção typeproperties:
 
-| Property | Descrição | Valores permitidos | Obrigatório |
+| Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
 | Consulta |Utiliza a consulta personalizada para ler os dados. |Cadeia de caracteres de consulta SQL. Por exemplo: select * from MyTable. |Não (se **tableName** de **dataset** for especificado) |
 
@@ -304,7 +304,7 @@ Ao mover dados para o MySQL os seguintes mapeamentos serão usados dos tipos do 
 | BIGINT |Int64 |
 | bit |Decimal |
 | blob |Byte[] |
-| bool |Boolean |
+| bool |Booliano |
 | char |String |
 | date |Datetime |
 | DATETIME |Datetime |
@@ -316,7 +316,7 @@ Ao mover dados para o MySQL os seguintes mapeamentos serão usados dos tipos do 
 | int unsigned |Int64 |
 | INT |Int32 |
 | integer unsigned |Int64 |
-| inteiro |Int32 |
+| Número inteiro |Int32 |
 | long varbinary |Byte[] |
 | long varchar |String |
 | longblob |Byte[] |
@@ -338,7 +338,7 @@ Ao mover dados para o MySQL os seguintes mapeamentos serão usados dos tipos do 
 | TINYINT |Int16 |
 | tinytext |String |
 | varchar |String |
-| year |Int |
+| ano |Int |
 
 ## <a name="map-source-to-sink-columns"></a>Mapear origem para colunas de coletor
 Para saber mais sobre mapeamento de colunas no conjunto de dados de origem para colunas no conjunto de dados de coletor, confira [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md) (Mapeamento de colunas de conjunto de dados no Azure Data Factory).
