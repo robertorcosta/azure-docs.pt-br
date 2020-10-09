@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 1b7b5e209329bd5dc4c95f81f61fecf48fb74e40
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: e64c5ddfafb8bc8e9041e6d6b3e473a9a20565ed
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91362102"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843117"
 ---
 # <a name="set-up-web-endpoints"></a>Configurar pontos de extremidade da Web
 
@@ -79,7 +79,7 @@ Neste artigo, você aprenderá a configurar pontos de extremidade da Web em um a
     No **Editor simples**, insira `{SubjectDevice} is {OnOff}`.
    
    > [!div class="mx-imgBorder"]
-   > ![Chamar ação dos pontos de extremidade da Web em Caso de Êxito](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-response.png)
+   > ![Captura de tela que mostra o em ação de sucesso a ser executada.](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-response.png)
 
    | Configuração | Valor sugerido | Descrição |
    | ------- | --------------- | ----------- |
@@ -107,7 +107,7 @@ Neste artigo, você aprenderá a configurar pontos de extremidade da Web em um a
 - Resposta Em Caso de Êxito:
 Salvar, treinar e testar
    > [!div class="mx-imgBorder"]
-   > ![Chamar ação dos pontos de extremidade da Web em Caso de Êxito](media/custom-commands/setup-web-endpoint-on-success-response.png)
+   > ![Captura de tela que mostra a resposta em caso de êxito.](media/custom-commands/setup-web-endpoint-on-success-response.png)
 - Resposta Em Caso de Falha:
 Remover um dos parâmetros de consulta, salvar, treinar novamente e testar
    > [!div class="mx-imgBorder"]

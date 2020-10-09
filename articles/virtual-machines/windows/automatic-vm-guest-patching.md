@@ -7,14 +7,14 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 09/09/2020
 ms.author: manayar
-ms.openlocfilehash: 47ac9fa91f391442691661a3ba03dd1f0d918601
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: 0a777b9008864368a6d1731cae0374e55a4c585f
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89669065"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842862"
 ---
-# <a name="preview-automatic-vm-guest-patching-for-windows-vms-in-azure"></a>Visualização: aplicação automática de patches de convidado de VM para VMs do Windows no Azure
+# <a name="preview-automatic-vm-guest-patching-for-windows-vms-in-azure"></a>Visualização: Aplicação de patch automática de convidado de VMs para Windows no Azure
 
 Habilitar o patch automático de convidado de VM para suas VMs do Windows ajuda a facilitar o gerenciamento de atualizações, aplicando patches de máquinas virtuais com segurança e automaticamente para manter a conformidade com a segurança.
 
@@ -67,7 +67,7 @@ Atualmente, somente as VMs criadas a partir de determinadas imagens da plataform
 
 Atualmente, há suporte para as seguintes SKUs de plataforma (e mais são adicionadas periodicamente):
 
-| Publisher               | Oferta de sistema operacional      |  Sku               |
+| Publicador               | Oferta de sistema operacional      |  Sku               |
 |-------------------------|---------------|--------------------|
 | Microsoft Corporation   | WindowsServer | 2012-R2-Datacenter |
 | Microsoft Corporation   | WindowsServer | 2016-Datacenter    |
@@ -162,7 +162,7 @@ Depois que o recurso for registrado para sua assinatura, conclua o processo de a
 ```azurecli-interactive
 az provider register --namespace Microsoft.Compute
 ```
-## <a name="enable-automatic-vm-guest-patching"></a>Habilitar aplicação automática de patch de convidado de VM
+## <a name="enable-automatic-vm-guest-patching"></a>Permitir a aplicação de patch automática de convidado de VM
 Para habilitar o patch automático de convidado de VM, verifique se a propriedade *osProfile. windowsConfiguration. enableAutomaticUpdates* está definida como *true* na definição do modelo de VM. Essa propriedade só pode ser definida ao criar a VM.
 
 ### <a name="rest-api"></a>API REST
@@ -251,8 +251,10 @@ Os resultados da instalação do patch para sua VM podem ser examinados na `last
 ## <a name="on-demand-patch-assessment"></a>Avaliação de patch sob demanda
 Se a aplicação automática de patches de convidado de VM já estiver habilitada para sua VM, uma avaliação de patch periódica será executada na VM durante os horários de fora de pico da VM. Esse processo é automático e os resultados da avaliação mais recente podem ser examinados por meio da exibição de instância da VM, conforme descrito anteriormente neste documento. Você também pode disparar uma avaliação de patch sob demanda para sua VM a qualquer momento. A avaliação de patch pode levar alguns minutos para ser concluída e o status da avaliação mais recente é atualizado na exibição de instância da VM.
 
+Habilitar a funcionalidade de visualização requer uma aceitação única para o recurso *InGuestPatchVMPreview* por assinatura. A versão prévia do recurso para avaliação de patch sob demanda pode ser habilitada seguindo o [processo de habilitação de visualização](automatic-vm-guest-patching.md#requirements-for-enabling-automatic-vm-guest-patching) descrito anteriormente para aplicação automática de patches de convidado de VM.
+
 > [!NOTE]
->A avaliação de patch sob demanda não dispara automaticamente o patch instalado. Os patches avaliados e aplicáveis para a VM serão instalados somente durante os horários de pico de disponibilidade da VM, seguindo o processo de aplicação de patch da primeira atualização descrito anteriormente neste documento.
+>A avaliação de patch sob demanda não dispara automaticamente a instalação do patch. Os patches avaliados e aplicáveis para a VM serão instalados somente durante os horários de pico de disponibilidade da VM, seguindo o processo de aplicação de patch da primeira atualização descrito anteriormente neste documento.
 
 ### <a name="rest-api"></a>API REST
 ```

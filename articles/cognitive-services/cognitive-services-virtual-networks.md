@@ -3,18 +3,18 @@ title: Redes Virtuais
 titleSuffix: Azure Cognitive Services
 description: Configure a segurança de rede em camadas para seus recursos de serviços cognitivas.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 05/26/2020
-ms.author: dapine
-ms.openlocfilehash: 808d42c821272882bbf0e01a36e49f7f10b30efa
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.date: 10/07/2020
+ms.author: aahi
+ms.openlocfilehash: d320fcd0b7f9666da39dd1208efd9cdec04ad6b5
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88505020"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843134"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Configurar redes virtuais de Serviços Cognitivos do Azure
 
@@ -40,40 +40,29 @@ As regras de rede são impostas em todos os protocolos de rede para serviços co
 
 ## <a name="supported-regions-and-service-offerings"></a>Regiões e ofertas de serviço com suporte
 
-As redes virtuais (VNETs) têm suporte em [regiões em que os serviços cognitivas estão disponíveis](https://azure.microsoft.com/global-infrastructure/services/). Se o serviço cognitiva não estiver listado, ele não oferece suporte a redes virtuais no momento.
+As redes virtuais (VNETs) têm suporte em [regiões em que os serviços cognitivas estão disponíveis](https://azure.microsoft.com/global-infrastructure/services/). Serviços cognitivas dão suporte a marcas de serviço para configuração de regras de rede. Os serviços listados abaixo estão incluídos na marca de serviço **CognitiveServicesManagement** .
 
 > [!div class="checklist"]
-> * [Detector de Anomalias](./anomaly-detector/index.yml)
-> * [Pesquisa Visual Computacional](./computer-vision/index.yml)
-> * [Content Moderator](./content-moderator/index.yml)
-> * [Visão Personalizada](./custom-vision-service/index.yml)
-> * [Detecção Facial](./face/index.yml)
-> * [Reconhecimento de Formulários](./form-recognizer/index.yml)
-> * [Reconhecimento vocal](./luis/index.yml)
-> * [Personalizador](./personalizer/index.yml)
-> * [Análise de Texto](./text-analytics/index.yml)
-> * [O QnA Maker](./qnamaker/index.yml)
-> * [Tradução de Texto](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#virtual-network-support)
-> * [Leitura Avançada](./immersive-reader/index.yml)
+> * Detector de Anomalias
+> * Visual Computacional
+> * Content Moderator
+> * Custom Vision
+> * Face
+> * Reconhecimento de Formulários
+> * Reconhecimento Vocal (LUIS)
+> * Personalizador
+> * Análise de texto
+> * QnA Maker
+> * Tradução de Texto
+> * Leitura Avançada
 
-## <a name="service-tags"></a>Marcas de serviço
+> [!NOTE]
+> Se você estiver usando LUIS, a marca **CognitiveServicesManagement** só permitirá que você use o serviço usando o SDK ou a API REST. Para acessar e usar o portal do LUIS de uma rede virtual, você precisará usar as seguintes marcas:  
+> * **AzureResourceManager** 
+> * **CognitiveServicesManagement**
+> * **AzureActiveDirectory**
+> * **AzureFrontDoor.Frontend**
 
-Serviços cognitivas dão suporte a marcas de serviço para configuração de regras de rede. Os serviços listados abaixo estão incluídos na marca de serviço **CognitiveServicesManagement** .
-
-> [!div class="checklist"]
-> * [Detector de Anomalias](./anomaly-detector/index.yml)
-> * [Pesquisa Visual Computacional](./computer-vision/index.yml)
-> * [Content Moderator](./content-moderator/index.yml)
-> * [Visão Personalizada](./custom-vision-service/index.yml)
-> * [Detecção Facial](./face/index.yml)
-> * [Reconhecimento de Formulários](./form-recognizer/index.yml)
-> * [Reconhecimento Vocal (LUIS)](./luis/index.yml)
-> * [Personalizador](./personalizer/index.yml)
-> * [Análise de Texto](./text-analytics/index.yml)
-> * [O QnA Maker](./qnamaker/index.yml)
-> * [Tradutor](./translator/index.yml)
-> * [Serviço de fala](./speech-service/index.yml)
-> * [Leitura Avançada](./immersive-reader/index.yml)
 
 ## <a name="change-the-default-network-access-rule"></a>Alterar a regra de acesso de rede padrão
 
@@ -86,7 +75,7 @@ Por padrão, os recursos de serviços cognitivas aceitam conexões de clientes e
 
 Você pode gerenciar regras de acesso de rede padrão para recursos de serviços cognitivas por meio do portal do Azure, do PowerShell ou do CLI do Azure.
 
-# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 1. Vá para o recurso de serviços cognitivas que você deseja proteger.
 
@@ -188,7 +177,7 @@ O recurso de serviços cognitivas e as redes virtuais com acesso concedido podem
 
 Você pode gerenciar regras de rede virtual para recursos de serviços cognitivas por meio do portal do Azure, do PowerShell ou do CLI do Azure.
 
-# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 1. Vá para o recurso de serviços cognitivas que você deseja proteger.
 
@@ -364,7 +353,7 @@ Se você estiver usando o [ExpressRoute](../expressroute/expressroute-introducti
 
 Você pode gerenciar regras de rede IP para recursos de serviços cognitivas por meio do portal do Azure, do PowerShell ou do CLI do Azure.
 
-# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 1. Vá para o recurso de serviços cognitivas que você deseja proteger.
 

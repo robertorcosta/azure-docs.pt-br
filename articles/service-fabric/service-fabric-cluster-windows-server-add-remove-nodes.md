@@ -1,19 +1,20 @@
 ---
 title: Adicionar ou remover nós de um cluster do Service Fabric autônomo
 description: Saiba como adicionar ou remover nós de um cluster do Azure Service Fabric em um computador físico ou virtual executando o Windows Server, que pode ser local ou em qualquer nuvem.
-author: dkkapur
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.author: dekapur
-ms.openlocfilehash: 9fa8b0970d198f9801c7661b9555db17cdf67b3c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 3e5f32274d2263bc5bf1bbec8f1626d519f8ca3f
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258727"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842913"
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>Adicionar ou remover nós de um cluster do Service Fabric autônomo em execução no Windows Server
-Depois de ter [criado seu cluster autônomo do Service Fabric em computadores com Windows Server](service-fabric-cluster-creation-for-windows-server.md), suas necessidades (ou dos seus negócios) podem mudar e talvez seja preciso adicionar ou remover nós do cluster. Este artigo fornece as etapas detalhadas para fazer isso. Observe que não há suporte para a funcionalidade de adicionar/remover nó em clusters de desenvolvimento local.
+Depois de [criar seu cluster Service Fabric autônomo em computadores Windows Server](service-fabric-cluster-creation-for-windows-server.md), suas necessidades (comerciais) poderão ser alteradas e você precisará adicionar ou remover nós do cluster, conforme descrito neste artigo.
+
+> [!NOTE]
+> Não há suporte para adição de nó e funcionalidade de remoção em clusters de desenvolvimento locais.
 
 ## <a name="add-nodes-to-your-cluster"></a>Adicionar nós ao cluster
 
@@ -29,7 +30,7 @@ Depois de ter [criado seu cluster autônomo do Service Fabric em computadores co
 
 5. Execute o PowerShell com privilégios elevados e vá para o local do pacote descompactado.
 
-6. Execute o script *AddNode.ps1* com os parâmetros que descrevem o novo nó a adicionar. O exemplo a seguir adiciona um novo nó chamado VM5, com o tipo NodeType0 e o endereço IP 182.17.34.52, em UD1 e FD:/DC1/r0. `ExistingClusterConnectionEndPoint`é um ponto de extremidade de conexão para um nó que já está no cluster existente, que pode ser o endereço IP de *qualquer* nó no cluster. 
+6. Execute o script *AddNode.ps1* com os parâmetros que descrevem o novo nó a adicionar. O exemplo a seguir adiciona um novo nó chamado VM5, com o tipo NodeType0 e o endereço IP 182.17.34.52, em UD1 e FD:/DC1/r0. `ExistingClusterConnectionEndPoint` é um ponto de extremidade de conexão para um nó que já está no cluster existente, que pode ser o endereço IP de *qualquer* nó no cluster. 
 
    Não seguro (criando protótipos):
 
@@ -95,7 +96,7 @@ Para adicionar um novo tipo de nó, modifique a configuração para incluir o no
 Um nó pode ser removido de um cluster usando uma atualização de configuração, da seguinte maneira:
 
 1. Execute [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) para obter o arquivo de configuração mais recente e *remover* o nó da seção "Nós".
-Adicione o parâmetro "NodesToBeRemoved" na seção "Configurar" dentro da seção "Configurações do Fabric". O "valor" deve ser uma lista separada por vírgulas de nomes de nó de nós que devem ser removidos.
+Adicione o parâmetro "NodesToBeRemoved" na seção "Configurar" dentro da seção "Configurações do Fabric". O "valor" deve ser uma lista separada por vírgulas de nomes de nó de nós que precisam ser removidos.
 
     ```
          "fabricSettings": [
@@ -132,7 +133,7 @@ Adicione o parâmetro "NodesToBeRemoved" na seção "Configurar" dentro da seç�
 > 
 
 ### <a name="remove-node-types-from-your-cluster"></a>Remover tipos de nó do cluster
-Antes de remover um tipo de nó, verifique novamente se há qualquer nó fazendo referência ao tipo de nó. Remova esses nós antes de remover o tipo de nó correspondente. Depois que todos os nós correspondentes são removidos, você pode remover o Tipo de Nó da configuração do cluster e começar uma configuração de atualização usando [Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps).
+Antes de remover um tipo de nó, verifique se existem nós referenciando o tipo de nó. Remova esses nós antes de remover o tipo de nó correspondente. Depois que todos os nós correspondentes são removidos, você pode remover o Tipo de Nó da configuração do cluster e começar uma configuração de atualização usando [Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps).
 
 
 ### <a name="replace-primary-nodes-of-your-cluster"></a>Substituir nós primários de seu cluster

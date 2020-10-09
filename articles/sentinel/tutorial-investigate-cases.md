@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 4ef08ac8d386bd8a28dce38cb53aed31d79b37a2
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: 648d456534e86075a243a84ac0485d95a7f28479
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566328"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843100"
 ---
 # <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>Tutorial: investigar incidentes com o Azure Sentinel
 
@@ -119,11 +119,11 @@ Depois de resolver um incidente específico (por exemplo, quando sua investigaç
 - Falsos positivos-dados incorretos
 - Indeterminado
 
-:::image type="content" source="media/tutorial-investigate-cases/closing-reasons-dropdown.png" alt-text="{Alt-Text}":::
+:::image type="content" source="media/tutorial-investigate-cases/closing-reasons-dropdown.png" alt-text="Captura de tela que realça as classificações disponíveis na lista Selecionar classificação.":::
 
 Depois de escolher a classificação apropriada, adicione um texto descritivo no campo **Comentário** . Isso será útil no caso de você precisar fazer referência a esse incidente. Clique em **aplicar** quando terminar e o incidente será fechado.
 
-:::image type="content" source="media/tutorial-investigate-cases/closing-reasons-comment-apply.png" alt-text="{Alt-Text}":::
+:::image type="content" source="media/tutorial-investigate-cases/closing-reasons-comment-apply.png" alt-text="Captura de tela que realça as classificações disponíveis na lista Selecionar classificação.":::
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste tutorial, você aprendeu como começar a investigar incidentes usando o Azure Sentinel. Continue no tutorial sobre [como responder a ameaças usando guias estratégicos automatizados](tutorial-respond-threats-playbook.md).

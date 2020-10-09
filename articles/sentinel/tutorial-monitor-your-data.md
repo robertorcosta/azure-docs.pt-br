@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/04/2020
 ms.author: yelevin
-ms.openlocfilehash: 3f59fea9f6d96f6e259a47c75bcfb0fd0be76d34
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 63a9a6dc9f052c01a7440f616f0baeaab083ad73
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91826560"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843066"
 ---
 # <a name="tutorial-visualize-and-monitor-your-data"></a>Tutorial: Visualização e monitoramento dos dados
 
@@ -62,7 +62,7 @@ Este tutorial ajuda a visualizar os dados no Azure Sentinel.
 ## <a name="create-new-workbook"></a>Criação de uma nova pasta de trabalho
 
 1. Acesse **Pastas de Trabalho** e. em seguida, selecione **Adicionar pasta de trabalho** para criar uma nova pasta de trabalho do zero.
-  ![acessar pastas de trabalho](./media/tutorial-monitor-data/create-workbook.png)
+  ![Captura de tela que mostra a nova exibição da pasta de trabalho.](./media/tutorial-monitor-data/create-workbook.png)
 
 1. Para editar a pasta de trabalho, selecione **Editar**e, em seguida, adicione texto, consultas e parâmetros conforme necessário. Para obter mais informações sobre como personalizar a pasta de trabalho, veja como [Criar relatórios interativos com as pastas de trabalho do Azure Monitor](../azure-monitor/platform/workbooks-overview.md). 
 
@@ -72,7 +72,7 @@ Este tutorial ajuda a visualizar os dados no Azure Sentinel.
 
 1. Se quiser permitir que outras pessoas em sua organização usem a pasta de trabalho, em **Salvar para** selecione **Relatórios compartilhados**. Se quiser que essa pasta de trabalho esteja disponível apenas para você, selecione **Meus relatórios**.
 
-1. Para alternar entre pastas de trabalho no workspace, selecione **Abrir** ![Alternar pastas de trabalho](./media/tutorial-monitor-data/switch.png) no painel superior de qualquer pasta de trabalho. Na janela que abre à direita, alterne entre as pastas de trabalho.
+1. Para alternar entre pastas de trabalho em seu espaço de trabalho, **Open** você pode selecionar ![ o ícone abrir para abrir uma pasta de trabalho. ](./media/tutorial-monitor-data/switch.png) no painel superior de qualquer pasta de trabalho. Na janela que abre à direita, alterne entre as pastas de trabalho.
 
    ![Alternar pastas de trabalho](./media/tutorial-monitor-data/switch-workbooks.png)
 
