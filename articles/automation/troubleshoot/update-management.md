@@ -2,15 +2,15 @@
 title: Solucionar problemas de Gerenciamento de Atualizações com a Automação do Azure
 description: Este artigo informa como solucionar problemas com o Gerenciamento de Atualizações de automação do Azure.
 services: automation
-ms.date: 09/25/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: 9f832b45b3aca11fb96a56643f2cce0228adf8ac
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c70d164325f536187c5ce99419bb41daaa9b1e88
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91713511"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858397"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Solucionar problemas do Gerenciamento de Atualizações
 
@@ -57,27 +57,25 @@ Atualizações antigas são exibidas como ausentes em uma conta de automação, 
 
 ### <a name="cause"></a>Causa
 
-As atualizações substituídas não são indicadas corretamente como recusadas para que elas possam ser consideradas não aplicáveis.
+As atualizações substituídas não são recusadas no Windows Server Update Services (WSUS) para que elas possam ser consideradas não aplicáveis.
 
 ### <a name="resolution"></a>Resolução
 
-Quando uma atualização substituída se tornar 100 por cento não aplicável, você deverá alterar o estado de aprovação dessa atualização para `Declined`. Para alterar o estado de aprovação de todas as suas atualizações:
+Quando uma atualização substituída se tornar 100 por cento não aplicável, você deverá alterar o estado de aprovação dessa atualização para `Declined` no WSUS. Para alterar o estado de aprovação de todas as suas atualizações:
 
 1. Na sua conta de Automação, selecione **Gerenciamento de Atualizações** para exibir o status dos computadores. Consulte [Exibir as avaliações de atualização](../update-management/update-mgmt-view-update-assessments.md).
 
 2. Verifique a atualização substituída para certificar-se de que é 100% não aplicável.
 
-3. Marque a atualização como recusada, a menos que você tenha uma pergunta sobre a atualização.
+3. No servidor WSUS, os computadores reportam para, [recusam a atualização](/windows-server/administration/windows-server-update-services/manage/updates-operations#declining-updates).
 
 4. Selecione **Computadores** e, na coluna **Conformidade**, force uma nova verificação de conformidade. Consulte [gerenciar atualizações para VMs](../update-management/update-mgmt-manage-updates-for-vm.md).
 
 5. Repita as etapas acima para outras atualizações substituídas.
 
-6. Execute o assistente de limpeza para excluir arquivos das atualizações recusadas. 
+6. Para Windows Server Update Services (WSUS), limpe todas as atualizações substituídas para atualizar a infraestrutura usando o [Assistente de limpeza do servidor](/windows-server/administration/windows-server-update-services/manage/the-server-cleanup-wizard)do WSUS.
 
-7. Para Windows Server Update Services (WSUS), limpe manualmente todas as atualizações substituídas para atualizar a infraestrutura.
-
-8. Repita esse procedimento regularmente para corrigir o problema de exibição e minimizar a quantidade de espaço em disco usada para o gerenciamento de atualizações.
+7. Repita esse procedimento regularmente para corrigir o problema de exibição e minimizar a quantidade de espaço em disco usada para o gerenciamento de atualizações.
 
 ## <a name="scenario-machines-dont-show-up-in-the-portal-under-update-management"></a><a name="nologs"></a>Cenário: Computadores não são exibidos sob o Gerenciamento de Atualizações
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/20/2018
-ms.openlocfilehash: 74fc317dbb97c14c27e6355e100a6e6b5e767363
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e91fd0d94d6f6d87b5e554e27bf9c2a2ba6ccabd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333005"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858465"
 ---
 # <a name="data-sync-agent-for-sql-data-sync"></a>Agente de sincronização de dados para Sincronização de Dados SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -24,11 +24,11 @@ ms.locfileid: "91333005"
 Sincronize os dados com os bancos de SQL Server Instalando e Configurando o agente de sincronização de dados para Sincronização de Dados SQL no Azure. Para obter mais informações sobre a Sincronização de Dados SQL, consulte [Sincronizar dados entre vários bancos de dados locais e de nuvem com a Sincronização de Dados SQL do Azure](sql-data-sync-data-sql-server-sql-database.md).
 
 > [!IMPORTANT]
-> O Sincronização de Dados SQL **não dá suporte ao** Azure SQL instância gerenciada no momento.
+> No momento, a Sincronização de Dados SQL **não** dá suporte à Instância Gerenciada de SQL do Azure.
 
-## <a name="download-and-install"></a>Fazer o download e instalar
+## <a name="download-and-install"></a>Baixar e instalar
 
-Para baixar o agente de sincronização de dados, vá para [sincronização de dados SQL agente](https://www.microsoft.com/download/details.aspx?id=27693).
+Para baixar o agente de sincronização de dados, vá para [sincronização de dados SQL agente](https://www.microsoft.com/download/details.aspx?id=27693). Para atualizar o agente de sincronização de dados, instale o agente no mesmo local que o agente antigo e ele substituirá o original.
 
 ### <a name="install-silently"></a>Instalar silenciosamente
 

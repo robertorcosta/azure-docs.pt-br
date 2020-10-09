@@ -8,22 +8,22 @@ ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 9475d3f000bbfd84c16efc080cbbb9df63cac608
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: 48345779ae702d854a216fcabe87d718e00f09b9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91653257"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858448"
 ---
 # <a name="hc-series"></a>Série HC
 
 As VMs da série HC são otimizadas para aplicativos orientados por computação densa, como análise implícita de elemento finito, Molecular Dynamics e química computacional. O HC VMs Feature 44 Intel Xeon Platinum 8168 núcleos de processador, 8 GB de RAM por núcleo de CPU e nenhum hyperthreading. A plataforma Intel Xeon Platinum dá suporte ao ecossistema avançado da Intel de ferramentas de software, como a biblioteca de kernels matemáticas da Intel e recursos de processamento de vetor avançado, como AVX-512.
 
-As VMs da série HC apresentam 100 GB/s Mellanox EDR InfiniBand. Essas VMs são conectadas em uma árvore Fat sem bloqueio para desempenho de RDMA otimizado e consistente. Essas VMs dão suporte ao roteamento adaptável e ao transporte conectado dinâmico (DCT, em outros transportes Standard RC e UD). Esses recursos aprimoram o desempenho, a escalabilidade e a consistência do aplicativo e o uso deles é altamente recomendável.
+As VMs da série HC apresentam 100 GB/s Mellanox EDR InfiniBand. Essas VMs são conectadas em uma árvore Fat sem bloqueio para desempenho de RDMA otimizado e consistente. Essas VMs dão suporte ao roteamento adaptável e ao transporte conectado dinâmico (DCT, em outros transportes Standard RC e UD). Esses recursos aprimoram o desempenho, a escalabilidade e a consistência do aplicativo e o uso deles é recomendado.
 
 [ACU](acu.md): 297-315<br>
-[Armazenamento Premium](premium-storage-performance.md): sem suporte<br>
-[Armazenamento em cache Premium](premium-storage-performance.md): sem suporte<br>
+[Armazenamento Premium](premium-storage-performance.md): com suporte<br>
+[Cache de armazenamento Premium](premium-storage-performance.md): com suporte<br>
 [Migração ao vivo](maintenance-and-updates.md): sem suporte<br>
 [Atualizações de preservação de memória](maintenance-and-updates.md): sem suporte<br>
 [Suporte à geração de VM](generation-2.md): geração 1 e 2<br>
@@ -48,5 +48,5 @@ As VMs da série HC apresentam 100 GB/s Mellanox EDR InfiniBand. Essas VMs são 
 
 - Saiba mais sobre como [configurar suas VMs](./workloads/hpc/configure.md), [habilitar a InfiniBand](./workloads/hpc/enable-infiniband.md), configurar a [MPI](./workloads/hpc/setup-mpi.md)e otimizar os aplicativos HPC para o Azure em cargas de [trabalho do HPC](./workloads/hpc/overview.md).
 - Leia os comunicados mais recentes e alguns exemplos e resultados da HPC nos [Blogs da Tech Community da Computação do Azure](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
-- Para uma exibição de arquitetura de alto nível da execução de cargas de trabalho do HPC, consulte [computação de alto desempenho (HPC) no Azure](/azure/architecture/topics/high-performance-computing/).
+- Para uma exibição arquitetônica de alto nível da execução de cargas de trabalho do HPC, consulte [computação de alto desempenho (HPC) no Azure](/azure/architecture/topics/high-performance-computing/).
 - Saiba mais sobre como as [ACUs (unidade de computação do Azure)](acu.md) podem ajudar você a comparar o desempenho de computação entre SKUs do Azure.
