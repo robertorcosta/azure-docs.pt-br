@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 0dd5ede110255b6e53bbc397e683e66b3beffc65
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77019614"
 ---
 # <a name="connect-from-on-premises-to-cloudsimple-using-expressroute"></a>Conectar de local para CloudSimple usando o ExpressRoute
@@ -47,7 +47,7 @@ Para estabelecer a conexão do ExpressRoute, você deve criar uma autorização 
 
 ### <a name="create-expressroute-authorization"></a>Criar autorização de ExpressRoute
 
-1. Entre no Portal do Azure.
+1. Entre no portal do Azure.
 
 2. Na barra de pesquisa superior, pesquise o **circuito do expressroute** e clique em **circuitos do expressroute** em **Serviços**.
     [![Circuitos do ExpressRoute](media/azure-expressroute-transit-search.png)](media/azure-expressroute-transit-search.png)

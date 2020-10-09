@@ -6,17 +6,17 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.openlocfilehash: 29b5e9c7673b4a730a41bf7cf2b1c4a2a86209ed
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77462098"
 ---
 # <a name="azure-functions-http-triggers-and-bindings-overview"></a>Visão geral de gatilhos e associações HTTP Azure Functions
 
 Azure Functions pode ser invocado por meio de solicitações HTTP para criar APIs sem servidor e responder a [WebHooks](https://en.wikipedia.org/wiki/Webhook).
 
-| Ação | Tipo |
+| Ação | Type |
 |---------|---------|
 | Executar uma função de uma solicitação HTTP | [Gatilho](./functions-bindings-http-webhook-trigger.md) |
 | Retornar uma resposta HTTP de uma função |[Associação de saída](./functions-bindings-http-webhook-output.md) |

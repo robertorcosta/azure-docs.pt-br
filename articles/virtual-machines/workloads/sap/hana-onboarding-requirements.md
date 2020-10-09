@@ -14,10 +14,10 @@ ms.date: 01/31/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 141a75a75a214ff4a6f136df7570d6e81f7f4e82
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77617014"
 ---
 # <a name="onboarding-requirements"></a>Requisitos de integração
@@ -70,7 +70,7 @@ Para a matriz de compatibilidade do sistema operacional e as versões de firmwar
 - Licenças e componentes de instalação de software para quaisquer aplicativos do SAP que conectam-se ao SAP HANA e contratos de suporte do SAP relacionados.
 - Licenças e os componentes de instalação de software para todos os aplicativos SAP não usado com o SAP HANA no ambiente do Azure (Instâncias Grandes) e relacionadas a contratos de suporte.
 
-**Habilidades**
+**Conhecem**
 
 - Experiência com e conhecimento da IaaS do Azure e seus componentes.
 - Experiência e conhecimento de como implantar uma carga de trabalho do SAP no Azure.

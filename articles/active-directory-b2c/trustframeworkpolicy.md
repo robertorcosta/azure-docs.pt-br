@@ -11,10 +11,10 @@ ms.date: 01/31/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 29eddbcfb7c0da98e5438f968dd3976b77a44680
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85203088"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
@@ -45,7 +45,7 @@ O elemento **TrustFrameworkPolicy** contém os seguintes atributos:
 | TenantId | Sim | O identificador exclusivo do locatário ao qual essa política pertence. |
 | PolicyId | Sim | O identificador exclusivo da política. Esse identificador deve ter o *B2C_1A_* como prefixo |
 | PublicPolicyUri | Sim | O URI para a política, o que é uma combinação de ID do locatário e ID da política. |
-| DeploymentMode | Não | Valores possíveis: `Production` , ou `Development` . O padrão é `Production`. Use essa propriedade para depurar sua política. Para obter mais informações, veja [Coleta de Logs](troubleshoot-with-application-insights.md). |
+| DeploymentMode | Não | Valores possíveis: `Production` , ou `Development` . `Production` é o padrão. Use essa propriedade para depurar sua política. Para obter mais informações, veja [Coleta de Logs](troubleshoot-with-application-insights.md). |
 | UserJourneyRecorderEndpoint | Não | O ponto de extremidade usado quando **DeploymentMode** é definido como `Development`. O valor deve ser `urn:journeyrecorder:applicationinsights`. Para obter mais informações, veja [Coleta de Logs](troubleshoot-with-application-insights.md). |
 
 

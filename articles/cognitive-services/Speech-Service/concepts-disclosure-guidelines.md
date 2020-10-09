@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: angle
 ms.openlocfilehash: fe38c6b7cfb1abbaf3f1079dd8bff66b51b98091
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74776378"
 ---
 # <a name="disclosure-design-guidelines"></a>Diretrizes de design de divulgação
@@ -56,7 +56,7 @@ Considerando o vasto corpo de diretrizes de design sobre experiências de voz, n
 3. [**Quando divulgar**](concepts-disclosure-patterns.md#when-to-disclose): um tempo ideal para divulgar durante o percurso do usuário
 
 ## <a name="disclosure-assessment"></a>Avaliação de divulgação
-Considere seus usuários&#39; expectativas sobre uma interação e o contexto no qual eles terão a voz. Se o contexto tornar claro que uma voz sintética está &quot;falando,&quot; a divulgação poderá ser mínima, momentânea ou ainda desnecessária. Os principais tipos de contexto que afetam a divulgação incluem tipo persona, tipo de cenário e nível de exposição. Também ajuda a considerar quem pode estar ouvindo.
+Considere seus usuários&#39; expectativas sobre uma interação e o contexto no qual eles terão a voz. Se o contexto tornar claro que uma voz sintética está &quot; falando, a &quot; divulgação poderá ser mínima, momentânea ou ainda desnecessária. Os principais tipos de contexto que afetam a divulgação incluem tipo persona, tipo de cenário e nível de exposição. Também ajuda a considerar quem pode estar ouvindo.
 
 ### <a name="understand-context"></a>Entender o contexto
 
