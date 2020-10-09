@@ -12,10 +12,10 @@ ms.date: 03/17/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: dbeb2540084fad2cfab3ce360dd15b60a75e5e59
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85389319"
 ---
 # <a name="azure-active-directory-b2c-enable-custom-attributes-in-a-custom-profile-policy"></a>Azure Active Directory B2C: habilitar atributos personalizados em uma política de perfil Personalizada
@@ -50,14 +50,14 @@ Os termos *propriedade de extensão*, *atributo personalizado* e *declaração p
 1. Selecione o filtro **Diretório + assinatura** no menu superior e, em seguida, selecione o diretório que contém o locatário do Azure AD B2C.
 1. No menu à esquerda, selecione **Azure AD B2C**. Ou selecione **Todos os serviços** e pesquise e selecione **Azure AD B2C**.
 1. Selecione **registros de aplicativo**e, em seguida, selecione **todos os aplicativos**.
-1. Selecione o `b2c-extensions-app. Do not modify. Used by AADB2C for storing user data.` aplicativo.
+1. Selecione o aplicativo `b2c-extensions-app. Do not modify. Used by AADB2C for storing user data.`.
 1. Copiar os identificadores a seguir para a sua área de transferência e salve-os:
     * **ID do aplicativo**. Exemplo: `11111111-1111-1111-1111-111111111111`.
     * **ID do objeto**. Exemplo: `22222222-2222-2222-2222-222222222222`.
 
 ## <a name="modify-your-custom-policy"></a>Modificar sua política personalizada
 
-Para habilitar atributos personalizados em sua política, forneça a **ID do aplicativo** e a ID de **objeto** do aplicativo nos metadados do perfil técnico comum do AAD. O perfil técnico do *AAD-comum* é encontrado na base [Azure Active Directory](active-directory-technical-profile.md) perfil técnico e fornece suporte para o gerenciamento de usuários do Azure AD. Outros perfis técnicos do Azure AD incluem o AAD-Common para aproveitar sua configuração. Substitua o perfil técnico do AAD-comum no arquivo de extensão.
+Para habilitar atributos personalizados em sua política, forneça a **ID do aplicativo** e a ID de **objeto** do aplicativo nos metadados do perfil técnico do AAD-Common. O perfil técnico do *AAD-comum* é encontrado na base [Azure Active Directory](active-directory-technical-profile.md) perfil técnico e fornece suporte para o gerenciamento de usuários do Azure AD. Outros perfis técnicos do Azure AD incluem o AAD-Common para aproveitar sua configuração. Substitua o perfil técnico AAD-Common no arquivo de extensão.
 
 1. Abra o arquivo de extensões da sua política. Por exemplo, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
 1. Localize o elemento ClaimsProviders. Adicione um novo Claimprovider ao elemento ClaimsProviders.
