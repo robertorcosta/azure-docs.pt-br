@@ -7,10 +7,10 @@ ms.date: 10/10/2019
 ms.author: azfuncdf
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 11bbc30179cc27f4799b1fd2869cb312dfa34473
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87093061"
 ---
 # <a name="zero-downtime-deployment-for-durable-functions"></a>Implantação sem tempo de inatividade para Durable Functions
@@ -162,7 +162,7 @@ O roteador monitora o status das orquestrações na versão 1.0.1 e remove os ap
 
 ### <a name="tracking-store-settings"></a>Configurações do repositório de rastreamento
 
-Cada aplicativo de funções deve usar filas de agendamento separadas, possivelmente em contas de armazenamento separadas. Se você quiser consultar todas as instâncias de orquestrações em todas as versões do seu aplicativo, você pode compartilhar instâncias e tabelas de histórico em seus aplicativos de funções. Você pode compartilhar tabelas Configurando `trackingStoreConnectionStringName` as `trackingStoreNamePrefix` configurações e no arquivo de [configuraçõeshost.js](durable-functions-bindings.md#host-json) para que todas usem os mesmos valores.
+Cada aplicativo de funções deve usar filas de agendamento separadas, possivelmente em contas de armazenamento separadas. Se você quiser consultar todas as instâncias de orquestrações em todas as versões do seu aplicativo, você pode compartilhar instâncias e tabelas de histórico em seus aplicativos de funções. Você pode compartilhar tabelas Configurando `trackingStoreConnectionStringName` as `trackingStoreNamePrefix` configurações e no arquivo de [ configuraçõeshost.js](durable-functions-bindings.md#host-json) para que todas usem os mesmos valores.
 
 Para obter mais informações, consulte [gerenciar instâncias no Durable Functions no Azure](durable-functions-instance-management.md).
 

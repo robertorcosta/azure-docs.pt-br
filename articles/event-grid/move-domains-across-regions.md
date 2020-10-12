@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 08/20/2020
 ms.openlocfilehash: fff8638a819511f84f15c52ad0695cdd5759f971
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89083041"
 ---
 # <a name="move-azure-event-grid-domains-to-another-region"></a>Mover domínios da grade de eventos do Azure para outra região
@@ -37,10 +37,10 @@ Para começar, exporte um modelo do Resource Manager para o domínio.
     :::image type="content" source="./media/move-domains-across-regions/search-domains.png" alt-text="Pesquisar e selecionar domínios de grade de eventos":::
 3. Selecione o **domínio** que você deseja exportar para um modelo do Resource Manager. 
 
-    :::image type="content" source="./media/move-domains-across-regions/select-domain.png" alt-text="Selecionar o domínio":::   
+    :::image type="content" source="./media/move-domains-across-regions/select-domain.png" alt-text="Pesquisar e selecionar domínios de grade de eventos":::   
 4. Na página **domínio da grade de eventos** , selecione **Exportar modelo** em **configurações** no menu à esquerda e, em seguida, selecione **baixar** na barra de ferramentas. 
 
-    :::image type="content" source="./media/move-domains-across-regions/export-template-download.png" alt-text="Exportar modelo-download de >" lightbox="./media/move-domains-across-regions/export-template-download.png":::   
+    :::image type="content" source="./media/move-domains-across-regions/export-template-download.png" alt-text="Pesquisar e selecionar domínios de grade de eventos" lightbox="./media/move-domains-across-regions/export-template-download.png":::   
 
     > [!IMPORTANT]
     > Os tópicos de domínio e domínio são exportados. As assinaturas para tópicos de domínio não são exportadas. Portanto, você precisa criar assinaturas para tópicos de domínio depois de mover tópicos de domínio. 
@@ -73,7 +73,7 @@ Implante o modelo para criar os tópicos de domínio e domínio na região de de
     1. Para o **nome de domínio**, insira um novo nome para o domínio. 
     1. Selecione **Examinar + criar**. 
     
-        :::image type="content" source="./media/move-domains-across-regions/deploy-template.png" alt-text="Implantar modelo":::        
+        :::image type="content" source="./media/move-domains-across-regions/deploy-template.png" alt-text="Pesquisar e selecionar domínios de grade de eventos":::        
     1. Depois que a validação do modelo for realizada com sucesso, selecione **criar** na parte inferior da página para implantar o recurso. 
     1. Depois que a implantação for realizada com sucesso, selecione **ir para o grupo de recursos** para navegar até a página do grupo de recursos. Confirme se há um domínio no grupo de recursos. Selecione o domínio. Confirme se há tópicos de domínio no domínio. 
 

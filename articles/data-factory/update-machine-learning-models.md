@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/16/2020
 ms.openlocfilehash: 83950c2d3c5439886ff787b69d9da4d0c214de31
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87092534"
 ---
 # <a name="update-azure-machine-learning-studio-classic-models-by-using-update-resource-activity"></a>Atualizar modelos de Azure Machine Learning Studio (clássico) usando atualizar atividade de recurso
@@ -63,7 +63,7 @@ O trecho JSON a seguir define uma atividade de execução de lote Azure Machine 
 | :---------------------------- | :--------------------------------------- | :------- |
 | name                          | Nome da atividade no pipeline     | Sim      |
 | descrição                   | Texto que descreve o que a atividade faz.  | Não       |
-| type                          | Para Azure Machine Learning Studio atividade de recurso de atualização (clássica), o tipo de atividade é **AzureMLUpdateResource**. | Sim      |
+| type                          | Para Azure Machine Learning Studio atividade de recurso de atualização (clássica), o tipo de atividade é  **AzureMLUpdateResource**. | Sim      |
 | linkedServiceName             | Azure Machine Learning Studio serviço vinculado (clássico) que contém a propriedade updateResourceEndpoint. | Sim      |
 | trainedModelName              | O nome do módulo de modelo treinado no teste do serviço Web a ser atualizado | Sim      |
 | trainedModelLinkedServiceName | Nome do serviço vinculado do Armazenamento do Azure mantendo o arquivo ilearner que é carregado pela operação de atualização | Sim      |

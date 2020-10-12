@@ -4,10 +4,10 @@ description: Um tutorial passo a passo que mostra como conectar uma função a u
 ms.topic: article
 ms.date: 4/23/2020
 ms.openlocfilehash: f50c923104fdfcf26f400f20f0de66a82eb3d245
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87387516"
 ---
 # <a name="tutorial-integrate-functions-with-an-azure-virtual-network"></a>Tutorial: Integrar o Functions a uma rede virtual do Azure
@@ -59,7 +59,7 @@ Em seguida, crie uma VM pré-configurada que executa o WordPress dentro de uma r
     | ------------ | ---------------- | ---------------- |
     | **Assinatura** | Sua assinatura | A assinatura na qual os recursos são criados. | 
     | **[Grupo de recursos](../azure-resource-manager/management/overview.md)**  | myResourceGroup | Escolha `myResourceGroup` ou o grupo de recursos que você criou com seu aplicativo de funções. Usar o mesmo grupo de recursos para o aplicativo de funções, a VM do WordPress e o plano de hospedagem facilita a limpeza de recursos quando você terminar este tutorial. |
-    | **Nome da máquina virtual** | VNET-WordPress | O nome da VM precisa ser exclusivo no grupo de recursos |
+    | **Nome da máquina virtual** | VNET-Wordpress | O nome da VM precisa ser exclusivo no grupo de recursos |
     | **[Região](https://azure.microsoft.com/regions/)** | Européia Europa Ocidental | Escolha uma região perto de você ou perto das funções que acessam a VM. |
     | **Tamanho** | B1s | Escolha **alterar tamanho** e, em seguida, selecione a imagem B1s padrão, que tem 1 vCPU e 1 GB de memória. |
     | **Tipo de autenticação** | Senha | Para usar a autenticação de senha, você também deve especificar um **nome de usuário**, uma **senha**segura e, em seguida, **confirmar a senha**. Para este tutorial, você não precisará entrar na VM, a menos que precise solucionar problemas. |
@@ -74,7 +74,7 @@ Em seguida, crie uma VM pré-configurada que executa o WordPress dentro de uma r
     | ------------ | ---------------- | ---------------- |
     | **Nome** | myResourceGroup-vnet | Use o nome padrão gerado para a rede virtual. |
     | **Intervalo de endereços** | 10.10.0.0/16 | Use um só intervalo de endereços para a rede virtual. |
-    | **Nome da sub-rede** | Tutorial – net | Nome da sub-rede. |
+    | **Nome da sub-rede** | Tutorial-Net | Nome da sub-rede. |
     | **Intervalo de endereços** (sub-rede) | 10.10.1.0/24   | O tamanho da sub-rede define o número de interfaces que podem ser adicionadas à sub-rede. Essa sub-rede é usada pelo site do WordPress.  Uma `/24` sub-rede fornece endereços de host de 254. |
 
 1. Selecione **OK** para criar a rede virtual.
@@ -105,7 +105,7 @@ Com um site do WordPress em execução em uma VM em uma rede virtual, agora voc�
 
 1. Na página **integração VNET** , selecione **Adicionar VNET**.
 
-    :::image type="content" source="./media/functions-create-vnet/networking-2.png" alt-text="Adicionar a visualização de integração de VNet":::
+    :::image type="content" source="./media/functions-create-vnet/networking-2.png" alt-text="Escolher rede no aplicativo de funções":::
 
 1. Em **status do recurso de rede**, use as configurações na tabela abaixo da imagem:
 
@@ -115,7 +115,7 @@ Com um site do WordPress em execução em uma VM em uma rede virtual, agora voc�
     | ------------ | ---------------- | ---------------- |
     | **Rede Virtual** | MyResource-vnet | Essa rede virtual é aquela que você criou anteriormente. |
     | **Sub-rede** | Criar nova sub-rede | Crie uma sub-rede na rede virtual para uso do seu aplicativo de funções. A integração VNet deve ser configurada para usar uma sub-rede vazia. Não importa que suas funções usem uma sub-rede diferente da VM. A rede virtual roteia automaticamente o tráfego entre as duas sub-redes. |
-    | **Nome da sub-rede** | Função-net | Nome da nova sub-rede. |
+    | **Nome da sub-rede** | Function-Net | Nome da nova sub-rede. |
     | **Bloco de endereço de rede virtual** | 10.10.0.0/16 | Escolha o mesmo bloco de endereço usado pelo site do WordPress. Você deve ter apenas um bloco de endereço definido. |
     | **Intervalo de endereços** | 10.10.2.0/24   | O tamanho da sub-rede restringe o número total de instâncias para as quais seu aplicativo de funções de plano Premium pode ser expandido. Este exemplo usa uma `/24` sub-rede com 254 endereços de host disponíveis. Essa sub-rede está excessivamente provisionada, mas fácil de calcular. |
 
@@ -127,9 +127,9 @@ O aplicativo de funções agora pode acessar a rede virtual onde o site do WordP
 
 Com a integração VNet habilitada, você pode criar um proxy em seu aplicativo de funções para encaminhar solicitações para a VM em execução na rede virtual.
 
-1. Em seu aplicativo de funções, selecione **proxies** no menu à esquerda e, em seguida, selecione **Adicionar**. Use as configurações de proxy na tabela abaixo da imagem:
+1. Em seu aplicativo de funções, selecione  **proxies** no menu à esquerda e, em seguida, selecione **Adicionar**. Use as configurações de proxy na tabela abaixo da imagem:
 
-    :::image type="content" source="./media/functions-create-vnet/create-proxy.png" alt-text="Definir as configurações de proxy":::
+    :::image type="content" source="./media/functions-create-vnet/create-proxy.png" alt-text="Escolher rede no aplicativo de funções":::
 
     | Configuração  | Valor sugerido  | Descrição      |
     | -------- | ---------------- | ---------------- |
@@ -139,7 +139,7 @@ Com a integração VNet habilitada, você pode criar um proxy em seu aplicativo 
 
 1. Selecione **criar** para adicionar o proxy ao seu aplicativo de funções.
 
-## <a name="try-it-out"></a>Experimente
+## <a name="try-it-out"></a>Experimentar
 
 1. No navegador, tente acessar a URL usada como a **URL de back-end**. Conforme esperado, a solicitação atinge o tempo limite. Um tempo limite ocorre porque o site do WordPress está conectado somente à sua rede virtual e não à Internet.
 

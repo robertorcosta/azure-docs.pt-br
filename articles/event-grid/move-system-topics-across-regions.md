@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 08/28/2020
 ms.openlocfilehash: eb6029b206e7d47789371ee81e75c4e05c69ee65
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89083035"
 ---
 # <a name="move-azure-event-grid-system-topics-to-another-region"></a>Mover tópicos do sistema de grade de eventos do Azure para outra região
@@ -35,22 +35,7 @@ Para começar, exporte um modelo do Resource Manager para o grupo de recursos qu
     :::image type="content" source="./media/move-system-topics-across-regions/resource-group-page.png" alt-text="Página grupo de recursos":::        
 3. No menu à esquerda, selecione **Exportar modelo** em **configurações**e, em seguida, selecione **baixar** na barra de ferramentas. 
 
-    :::image type="content" source="./media/move-system-topics-across-regions/export-template-menu.png" alt-text="Conta do armazenamento – exportar página de modelo":::        
-5. Localize o arquivo **. zip** que você baixou do portal e descompacte esse arquivo em uma pasta de sua escolha. Esse arquivo zip contém arquivos JSON de modelo e parâmetros. 
-1. Abra o **template.jsem** um editor de sua escolha. 
-1. A URL para o webhook não é exportada para o modelo. Então, execute as seguintes etapas:
-    1. No arquivo de modelo, pesquise **webhook**. 
-    1. Na seção **Propriedades** , adicione um caractere de vírgula ( `,` ) no final da última linha. Neste exemplo, é `"preferredBatchSizeInKilobytes": 64`. 
-    1. Adicione a `endpointUrl` propriedade com o valor definido à URL do webhook, conforme mostrado no exemplo a seguir. 
-
-        ```json
-        "destination": {
-            "properties": {
-                "maxEventsPerBatch": 1,
-                "preferredBatchSizeInKilobytes": 64,
-                "endpointUrl": "https://mysite.azurewebsites.net/api/updates"
-            },
-            "endpointType": "WebHook"
+    :::image type="content" source="./media/move-system-topics-across-regions/export-template-menu.png" alt-text="Página grupo de recursos"
         }
         ```
 
@@ -91,7 +76,7 @@ Implante o modelo para criar uma conta de armazenamento e um tópico do sistema 
     1. Para o **nome do tópico do sistema**, insira um nome para o tópico do sistema que será associado à conta de armazenamento.  
     1. Para o **nome da conta de armazenamento**, insira um nome para a conta de armazenamento a ser criada na região de destino. 
 
-        :::image type="content" source="./media/move-system-topics-across-regions/deploy-template.png" alt-text="Implantar modelo do Resource Manager":::
+        :::image type="content" source="./media/move-system-topics-across-regions/deploy-template.png" alt-text="Página grupo de recursos":::
     5. Selecione **Revisar + criar** na parte inferior da página. 
     1. Na página **revisar + criar** , examine as configurações e selecione **criar**. 
 
@@ -110,7 +95,7 @@ Para excluir um grupo de recursos (origem ou destino) usando o portal do Azure:
 1. Na janela de pesquisa na parte superior de portal do Azure, digite **grupos de recursos**e selecione **grupos de recursos** nos resultados da pesquisa. 
 2. Selecione o grupo de recursos a ser excluído e selecione **excluir** na barra de ferramentas. 
 
-    :::image type="content" source="./media/move-system-topics-across-regions/delete-resource-group-button.png" alt-text="Excluir grupo de recursos":::
+    Excluir grupo de recursos
 3. Na página confirmação, insira o nome do grupo de recursos e selecione **excluir**.  
 
 ## <a name="next-steps"></a>Próximas etapas

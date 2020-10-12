@@ -10,10 +10,10 @@ services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
 ms.openlocfilehash: dd4a02ffdc062ed1940d35ca64e02a5e0a88a248
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91333317"
 ---
 # <a name="read-and-write-spatial-data"></a>Ler e gravar dados espaciais
@@ -29,7 +29,7 @@ A tabela a seguir lista os formatos de arquivo espaciais com suporte para leitur
 | KML               | ✓  |  ✓  |
 | KMZ               | ✓  |  ✓  |
 | CSV espacial       | ✓  |  ✓  |
-| Texto bem conhecido   | ✓  |  ✓  |
+| Well-Known texto   | ✓  |  ✓  |
 
 Estas seções a seguir descrevem todas as diferentes ferramentas para leitura e gravação de dados espaciais usando o módulo de e/s espacial.
 
@@ -123,26 +123,26 @@ atlas.io.read(data, {
 );
 ```
 
-## <a name="read-and-write-well-known-text-wkt"></a>Ler e gravar texto bem conhecido (WKT)
+## <a name="read-and-write-well-known-text-wkt"></a>Ler e gravar texto de Well-Known (WKT)
 
 WKT ( [Well-Known Text](https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry) ) é um padrão de Open GEOSPATIAL CONSORTIUM (OGC) para representar geometrias espaciais como texto. Muitos sistemas geoespaciais dão suporte a WKT, como SQL Azure e Azure PostgreSQL usando o plug-in PostGIS. Como a maioria dos padrões de OGC, as coordenadas são formatadas como "latitude de longitude" para alinhar com a Convenção "x y". Por exemplo, um ponto em longitude-110 e Latitude 45 pode ser escrito como `POINT(-110 45)` usando o formato WKT.
 
 O texto bem conhecido pode ser lido usando a `atlas.io.ogc.WKT.read` função e escrito usando a `atlas.io.ogc.WKT.write` função.
 
-## <a name="examples-of-reading-and-writing-well-known-text-wkt"></a>Exemplos de leitura e gravação de texto bem conhecido (WKT)
+## <a name="examples-of-reading-and-writing-well-known-text-wkt"></a>Exemplos de leitura e gravação de texto Well-Known (WKT)
 
 O código a seguir mostra como ler a cadeia de caracteres de texto bem conhecida `POINT(-122.34009 47.60995)` e renderizá-la no mapa usando uma camada de bolha.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Ler texto bem conhecido' src='//codepen.io/azuremaps/embed/XWbabLd/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Veja a caneta <a href='https://codepen.io/azuremaps/pen/XWbabLd/'>ler o texto bem conhecido</a> pelo Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) em <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Ler Well-Known texto' src='//codepen.io/azuremaps/embed/XWbabLd/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a caneta <a href='https://codepen.io/azuremaps/pen/XWbabLd/'>ler o texto Well-Known</a> pelo Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 O código a seguir demonstra como ler e gravar texto bem conhecido de volta e para trás.
 
 <br/>
 
-<iframe height='700' scrolling='no' title='Ler e escrever texto bem conhecido' src='//codepen.io/azuremaps/embed/JjdyYav/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a caneta <a href='https://codepen.io/azuremaps/pen/JjdyYav/'>ler e escrever texto bem conhecido</a> pelo Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) em <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title='Ler e gravar texto de Well-Known' src='//codepen.io/azuremaps/embed/JjdyYav/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a caneta de <a href='https://codepen.io/azuremaps/pen/JjdyYav/'>leitura e gravação Well-Known texto</a> pelo Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="read-and-write-gml"></a>Ler e gravar GML

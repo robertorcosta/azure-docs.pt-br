@@ -4,10 +4,10 @@ description: Este artigo fornece as propriedades e o esquema para eventos do Hub
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 02ecf8d4df55aa6b4319e40892778f85f94e29a7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86113642"
 ---
 # <a name="azure-iot-hub-as-an-event-grid-source"></a>Hub IoT do Azure como uma fonte de grade de eventos
@@ -25,7 +25,7 @@ Hub IoT do Azure emite os seguintes tipos de evento:
 | Microsoft.Devices.DeviceDeleted | Publicado quando um dispositivo é excluído de um Hub IoT. | 
 | Microsoft.Devices.DeviceConnected | Publicado quando um dispositivo é conectado a um Hub IoT. |
 | Microsoft.Devices.DeviceDisconnected | Publicado quando um dispositivo é desconectado de um Hub IoT. | 
-| Microsoft. Devices. DeviceTelemetry | Publicado quando uma mensagem de telemetria é enviada a um hub IoT. |
+| Microsoft.Devices.DeviceTelemetry | Publicado quando uma mensagem de telemetria é enviada a um hub IoT. |
 
 Todos os eventos de dispositivo, exceto eventos de telemetria de dispositivo, estão geralmente disponíveis em todas as regiões com suporte na grade de eventos. O evento de telemetria do dispositivo está em visualização pública e está disponível em todas as regiões, exceto leste dos EUA, oeste dos EUA, Europa Ocidental, [Azure governamental](../azure-government/documentation-government-welcome.md), [Azure China 21Vianet](/azure/china/china-welcome)e [Azure Alemanha](https://azure.microsoft.com/global-infrastructure/germany/).
 
@@ -144,16 +144,16 @@ Todos os eventos conterão os mesmos dados de nível superior:
 | -------- | ---- | ----------- |
 | id | string | Identificador exclusivo do evento. |
 | topic | string | Caminho de recurso completo para a origem do evento. Esse campo não é gravável. Grade de Eventos fornece esse valor. |
-| subject | string | Caminho definido pelo fornecedor para o assunto do evento. |
+| subject | string | Caminho definido pelo publicador para o assunto do evento. |
 | eventType | string | Um dos tipos de evento registrados para a origem do evento. |
 | eventTime | string | A hora em que o evento é gerado com base na hora UTC do provedor. |
 | data | objeto | Dados de evento de Hub IoT.  |
-| dataVersion | string | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
-| metadataVersion | string | A versão do esquema do metadados de evento. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
+| dataVersion | string | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
+| metadataVersion | string | A versão do esquema dos metadados do evento. Grade de Eventos define o esquema de propriedades de nível superior. A Grade de Eventos fornece esse valor. |
 
 Para todos os eventos de Hub IoT, o objeto de dados contém as seguintes propriedades:
 
-| Propriedade | Type | Description |
+| Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
 | hubName | string | Nome do Hub IoT em que o dispositivo foi criado ou excluído. |
 | deviceId | string | O identificador exclusivo do dispositivo. Essa cadeia de caracteres que diferencia maiúsculas de minúsculas pode ter até 128 caracteres e suporta caracteres alfanuméricos ASCII de 7 bits, mais os caracteres especiais a seguir: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
@@ -162,7 +162,7 @@ O conteúdo do objeto de dados é diferente para cada publicador do evento.
 
 Para os eventos de Hub IoT **Dispositivo Conectado** e **Dispositivo Desconectado**, o objeto de dados contém as seguintes propriedades:
 
-| Propriedade | Type | Description |
+| Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
 | moduleId | string | O identificador exclusivo do módulo. Este campo é a saída somente para dispositivos de módulo. Essa cadeia de caracteres que diferencia maiúsculas de minúsculas pode ter até 128 caracteres e suporta caracteres alfanuméricos ASCII de 7 bits, mais os caracteres especiais a seguir: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
 | deviceConnectionStateEventInfo | objeto | Informações de evento de estado de conexão do dispositivo
@@ -170,7 +170,7 @@ Para os eventos de Hub IoT **Dispositivo Conectado** e **Dispositivo Desconectad
 
 Para o evento Hub IOT de **telemetria do dispositivo** , o objeto de dados contém a mensagem do dispositivo para a nuvem no [formato de mensagem do Hub IOT](../iot-hub/iot-hub-devguide-messages-construct.md) e tem as seguintes propriedades:
 
-| Propriedade | Type | Description |
+| Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
 | body | string | O conteúdo da mensagem do dispositivo. |
 | properties | string | Propriedades do aplicativo são cadeias de caracteres definidas pelo usuário que podem ser adicionadas à mensagem. Esses campos são opcionais. |
@@ -178,7 +178,7 @@ Para o evento Hub IOT de **telemetria do dispositivo** , o objeto de dados cont�
 
 Para os eventos de Hub IoT **Dispositivo Criado** e **Dispositivo Excluído**, o objeto de dados contém as seguintes propriedades:
 
-| Propriedade | Type | Description |
+| Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
 | gêmeos | objeto | Informações sobre o dispositivo "or", que é a representação em nuvem dos metadados do dispositivo de aplicativo. | 
 | deviceID | string | O identificador exclusivo do dispositivo gêmeo. | 
@@ -188,12 +188,12 @@ Para os eventos de Hub IoT **Dispositivo Criado** e **Dispositivo Excluído**, o
 | statusUpdateTime | string | Atualizar o carimbo de data/hora ISO 8601 da ultima atualização de status dos dispositivos gêmeos. |
 | connectionState | string | Se o dispositivo está conectado ou desconectado. | 
 | lastActivityTime | string | O carimbo de data/hora ISO8601 da última atividade. | 
-| cloudToDeviceMessageCount | inteiro | Contagem de nuvem para mensagens de dispositivo enviadas para este dispositivo. | 
+| cloudToDeviceMessageCount | Número inteiro | Contagem de nuvem para mensagens de dispositivo enviadas para este dispositivo. | 
 | authenticationType | string | Tipo de autenticação usado para este dispositivo: `SAS`, `SelfSigned`, ou `CertificateAuthority`. |
 | x509Thumbprint | string | A impressão digital é um valor exclusivo para o certificado x509, comumente usado para localizar um certificado específico em um repositório de certificados. A impressão digital é gerada dinamicamente usando o algoritmo SHA1 e não existe fisicamente no certificado. | 
 | primaryThumbprint | string | A impressão digital primária para o certificado x509. |
 | secondaryThumbprint | string | A impressão digital secundária para o certificado x509. | 
-| version | inteiro | Um inteiro que é incrementado em um cada vez que o dispositivo gêmeo é atualizado. |
+| version | Número inteiro | Um inteiro que é incrementado em um cada vez que o dispositivo gêmeo é atualizado. |
 | desejado | objeto | Uma parte das propriedades que pode ser gravada apenas pelo back-end do aplicativo e lida pelo dispositivo. | 
 | relatado | objeto | Uma parte das propriedades que pode ser gravada somente pelo dispositivo e lida pelo back-end do aplicativo. |
 | lastUpdated | string | Atualizar o carimbo de data/hora ISO 8601 da ultima atualização de propriedade dos dispositivos gêmeos. | 

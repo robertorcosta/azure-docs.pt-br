@@ -11,10 +11,10 @@ ms.author: ramakoni
 ms.reviewer: sstein,vanto
 ms.date: 01/14/2020
 ms.openlocfilehash: aa4bcee7a2eaf5e6ec11b9066ed6eca6b33bdba1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91284111"
 ---
 # <a name="troubleshooting-connectivity-issues-and-other-errors-with-azure-sql-database-and-azure-sql-managed-instance"></a>Solucionar problemas de conectividade e outros erros com o banco de dados SQL do Azure e o Azure SQL Instância Gerenciada
@@ -185,7 +185,7 @@ Para contornar esse problema, tente um dos seguintes métodos:
   > [!NOTE]
   > Essa é uma abordagem insuficiente que pode não resolver o problema.
 
-1. Execute a seguinte consulta SQL para verificar a exibição [Sys. dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) para ver todas as solicitações de bloqueio:
+1. Execute a seguinte consulta SQL para verificar a exibição de [Sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) para ver as solicitações de bloqueio:
 
    ```sql
    SELECT * FROM dm_exec_requests
@@ -250,7 +250,7 @@ As etapas a seguir podem ajudá-lo a solucionar o problema ou fornecer opções 
 
 Se você encontrar esse erro repetidamente, tente resolver o problema seguindo estas etapas:
 
-1. Verifique a exibição sys. dm_exec_requests para ver as sessões abertas que têm um valor alto para a coluna total_elapsed_time. Execute esta verificação executando o seguinte script SQL:
+1. Verifique a exibição de sys.dm_exec_requests para ver as sessões abertas que têm um valor alto para a coluna total_elapsed_time. Execute esta verificação executando o seguinte script SQL:
 
    ```sql
    SELECT * FROM dm_exec_requests

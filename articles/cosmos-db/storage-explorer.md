@@ -8,10 +8,10 @@ ms.date: 08/24/2020
 ms.author: dech
 ms.custom: seodec18, has-adal-ref
 ms.openlocfilehash: 938968599f1824416666818a46cc73a1d33c5341
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90987738"
 ---
 # <a name="manage-azure-cosmos-db-resources-by-using-azure-storage-explorer"></a>Gerenciar Azure Cosmos DB recursos usando Gerenciador de Armazenamento do Azure
@@ -38,19 +38,19 @@ Para instalar os bits de Gerenciador de Armazenamento do Azure mais recentes, co
 
 1. Selecione **Adicionar uma Conta do Azure** e, em seguida, selecione **Entrar**.
 
-   :::image type="content" source="./media/storage-explorer/connect-to-azure-subscription.png" alt-text="Captura de tela da janela conectar ao armazenamento do Azure mostrando o botão de opção Adicionar uma conta do Azure selecionado e o menu suspenso ambiente do Azure.":::
+   :::image type="content" source="./media/storage-explorer/connect-to-azure-subscription.png" alt-text="Captura de tela mostrando o ícone de plug-in no painel esquerdo.":::
 
 1. Na caixa de diálogo **logon do Azure** , selecione **entrar**e insira suas credenciais do Azure.
 
-    :::image type="content" source="./media/storage-explorer/sign-in.png" alt-text="Captura de tela da janela de entrada mostrando onde inserir suas credenciais para sua assinatura do Azure.":::
+    :::image type="content" source="./media/storage-explorer/sign-in.png" alt-text="Captura de tela mostrando o ícone de plug-in no painel esquerdo.":::
 
 1. Selecione sua assinatura na lista e, em seguida, clique em **Aplicar**.
 
-    :::image type="content" source="./media/storage-explorer/apply-subscription.png" alt-text="Captura de tela do painel gerenciamento de conta, mostrando uma lista de assinaturas e o botão Aplicar.":::
+    :::image type="content" source="./media/storage-explorer/apply-subscription.png" alt-text="Captura de tela mostrando o ícone de plug-in no painel esquerdo.":::
 
     O painel Gerenciador é atualizado e mostra as contas na assinatura selecionada.
 
-    :::image type="content" source="./media/storage-explorer/account-list.png" alt-text="Captura de tela do painel Gerenciador, atualizada para mostrar as contas na assinatura selecionada.":::
+    :::image type="content" source="./media/storage-explorer/account-list.png" alt-text="Captura de tela mostrando o ícone de plug-in no painel esquerdo.":::
 
     Sua **conta de Cosmos DB** está conectada à sua assinatura do Azure.
 
@@ -60,7 +60,7 @@ Você pode usar uma cadeia de conexão para se conectar a um Azure Cosmos DB. Es
 
 1. Localize **local e anexado** na árvore à esquerda, clique com o botão direito do mouse em **contas de Cosmos DB**e, em seguida, selecione **conectar-se a Cosmos DB**.
 
-    :::image type="content" source="./media/storage-explorer/connect-to-db-by-connection-string.png" alt-text="Captura de tela mostrando o menu suspenso depois de clicar com o botão direito do mouse, com conectar ao Azure Cosmos D B realçado.":::
+    :::image type="content" source="./media/storage-explorer/connect-to-db-by-connection-string.png" alt-text="Captura de tela mostrando o ícone de plug-in no painel esquerdo.":::
 
 2. Na janela **conectar a Cosmos DB** :
    1. Selecione a API no menu suspenso.
@@ -68,7 +68,7 @@ Você pode usar uma cadeia de conexão para se conectar a um Azure Cosmos DB. Es
    1. Insira um **rótulo de conta**e, em seguida, selecione **Avançar** para verificar o resumo.
    1. Selecione **conectar** para conectar a conta de Azure Cosmos DB.
 
-      :::image type="content" source="./media/storage-explorer/connection-string.png" alt-text="Captura de tela da janela conectar a Cosmos D B, mostrando o menu suspenso API, a caixa Cadeia de conexão e a caixa rótulo da conta.":::
+      :::image type="content" source="./media/storage-explorer/connection-string.png" alt-text="Captura de tela mostrando o ícone de plug-in no painel esquerdo.":::
 
 ## <a name="use-a-local-emulator-to-connect-to-azure-cosmos-db"></a>Usar um emulador local para se conectar ao Azure Cosmos DB
 
@@ -78,14 +78,14 @@ Use as etapas a seguir para se conectar a um Azure Cosmos DB com um emulador. Es
 
 1. Localize **local e anexado** na árvore à esquerda, clique com o botão direito do mouse em **contas de Cosmos DB**e, em seguida, selecione **conectar ao emulador de Cosmos DB**.
 
-    :::image type="content" source="./media/storage-explorer/emulator-entry.png" alt-text="Captura de tela mostrando o menu exibido depois de clicar com o botão direito do mouse, com conectar ao emulador do Azure Cosmos D B realçado.":::
+    :::image type="content" source="./media/storage-explorer/emulator-entry.png" alt-text="Captura de tela mostrando o ícone de plug-in no painel esquerdo.":::
 
 1. Na janela **conectar a Cosmos DB** :
    1. Cole a cadeia de conexão na caixa **cadeia de conexão** . Para obter informações sobre como recuperar a cadeia de conexão primária, consulte [obter a cadeia de conexão](manage-with-powershell.md#list-keys).
    1. Insira um **rótulo de conta**e, em seguida, selecione **Avançar** para verificar o resumo.
    1. Selecione **conectar** para conectar a conta de Azure Cosmos DB.
 
-      :::image type="content" source="./media/storage-explorer/emulator-dialog.png" alt-text="Captura de tela da janela conectar à Cosmos D B, mostrando a caixa Cadeia de conexão e a caixa rótulo da conta.":::
+      :::image type="content" source="./media/storage-explorer/emulator-dialog.png" alt-text="Captura de tela mostrando o ícone de plug-in no painel esquerdo.":::
 
 ## <a name="azure-cosmos-db-resource-management"></a>Gerenciamento de recursos do Azure Cosmos DB
 
@@ -105,13 +105,13 @@ Você pode clicar com o botão direito do mouse em uma assinatura no painel do E
 
 * Clique com o botão direito do mouse em uma conta ou banco de dados do Azure Cosmos DB e selecione **abrir no portal** para gerenciar o recurso no navegador no portal do Azure.
 
-  :::image type="content" source="./media/storage-explorer/open-in-portal.png" alt-text="Captura de tela mostrando o menu exibido depois de clicar com o botão direito do mouse, com abrir no portal realçado.":::
+  :::image type="content" source="./media/storage-explorer/open-in-portal.png" alt-text="Captura de tela mostrando o ícone de plug-in no painel esquerdo.":::
 
 * Clique com o botão direito do mouse em um Azure Cosmos DB conta, banco de dados ou coleção e, em seguida, selecione **Adicionar ao acesso rápido** para adicioná-lo ao menu de acesso rápido.
 
 * Selecione **Pesquisar aqui** para habilitar a pesquisa de palavra-chave no caminho selecionado.
 
-    :::image type="content" source="./media/storage-explorer/search-from-here.png" alt-text="Captura de tela mostrando a caixa de pesquisa realçada.":::
+    :::image type="content" source="./media/storage-explorer/search-from-here.png" alt-text="Captura de tela mostrando o ícone de plug-in no painel esquerdo.":::
 
 ### <a name="database-and-collection-management"></a>Gerenciamento de banco de dados e coleção
 
@@ -119,7 +119,7 @@ Você pode clicar com o botão direito do mouse em uma assinatura no painel do E
 
 1. Clique com o botão direito do mouse na conta Azure Cosmos DB e selecione **criar banco de dados**.
 
-   :::image type="content" source="./media/storage-explorer/create-database.png" alt-text="Captura de tela mostrando o menu exibido depois de clicar com o botão direito do mouse, com criar banco de dados realçado.":::
+   :::image type="content" source="./media/storage-explorer/create-database.png" alt-text="Captura de tela mostrando o ícone de plug-in no painel esquerdo.":::
 
 1. Insira o nome do banco de dados e pressione **Enter** para concluir.
 
@@ -127,28 +127,28 @@ Você pode clicar com o botão direito do mouse em uma assinatura no painel do E
 
 1. Clique com o botão direito do mouse no banco de dados e selecione **excluir banco de dados**. 
 
-   :::image type="content" source="./media/storage-explorer/delete-database1.png" alt-text="Captura de tela mostrando o menu exibido depois de clicar com o botão direito do mouse, com excluir banco de dados realçado.":::
+   :::image type="content" source="./media/storage-explorer/delete-database1.png" alt-text="Captura de tela mostrando o ícone de plug-in no painel esquerdo.":::
 
 1. Selecione **Sim** na janela pop-up. O nó do banco de dados é excluído e a conta do Azure Cosmos DB é atualizada automaticamente.
 
-   :::image type="content" source="./media/storage-explorer/delete-database2.png" alt-text="Captura de tela da janela de confirmação com o botão Sim realçado.":::
+   :::image type="content" source="./media/storage-explorer/delete-database2.png" alt-text="Captura de tela mostrando o ícone de plug-in no painel esquerdo.":::
 
 #### <a name="create-a-collection"></a>Criar uma coleção
 
 1. Clique com o botão direito do mouse no banco de dados e selecione **criar coleção**.
 
-   :::image type="content" source="./media/storage-explorer/create-collection.png" alt-text="Captura de tela mostrando o menu exibido depois de clicar com o botão direito do mouse, com CREATE Collection realçado.":::
+   :::image type="content" source="./media/storage-explorer/create-collection.png" alt-text="Captura de tela mostrando o ícone de plug-in no painel esquerdo.":::
 
-1. Na janela criar coleção, insira as informações solicitadas, como **ID da coleção** e **capacidade de armazenamento**, e assim por diante. Selecione **OK** para concluir.
+1. Na janela criar coleção, insira as informações solicitadas, como **ID da coleção** e **capacidade de armazenamento**, e assim por diante. Escolha **OK** para concluir.
 
-   :::image type="content" source="./media/storage-explorer/create-collection2.png" alt-text="Captura de tela da janela criar coleção, mostrando a caixa de coleção I e os botões de capacidade de armazenamento.":::
+   :::image type="content" source="./media/storage-explorer/create-collection2.png" alt-text="Captura de tela mostrando o ícone de plug-in no painel esquerdo.":::
 
 1. Selecione **ilimitado** para que você possa especificar uma chave de partição e, em seguida, selecione **OK** para concluir.
 
    > [!NOTE]
    > Se uma chave de partição for usada quando você criar uma coleção, depois que a criação for concluída, você não poderá alterar o valor da chave de partição na coleção.
 
-    :::image type="content" source="./media/storage-explorer/partitionkey.png" alt-text="Captura de tela da janela criar coleção, mostrando seleção ilimitada para capacidade de armazenamento e a caixa chave de partição realçada.":::
+    :::image type="content" source="./media/storage-explorer/partitionkey.png" alt-text="Captura de tela mostrando o ícone de plug-in no painel esquerdo.":::
 
 #### <a name="delete-a-collection"></a>Excluir uma coleção
 
@@ -156,7 +156,7 @@ Você pode clicar com o botão direito do mouse em uma assinatura no painel do E
 
     O nó da coleção é excluído e o banco de dados é atualizado automaticamente.
 
-    :::image type="content" source="./media/storage-explorer/delete-collection.png" alt-text="Captura de tela mostrando o menu exibido depois de clicar com o botão direito do mouse, com excluir coleção realçada.":::
+    :::image type="content" source="./media/storage-explorer/delete-collection.png" alt-text="Captura de tela mostrando o ícone de plug-in no painel esquerdo.":::
 
 ### <a name="document-management"></a>Gerenciamento de documentos
 
@@ -165,7 +165,7 @@ Você pode clicar com o botão direito do mouse em uma assinatura no painel do E
 - Abra **documentos** no painel esquerdo, selecione **novo documento**, edite o conteúdo no painel direito e, em seguida, selecione **salvar**.
 - Você também pode atualizar um documento existente e, em seguida, selecionar **salvar**. Para descartar as alterações, selecione **descartar**.
 
-  :::image type="content" source="./media/storage-explorer/document.png" alt-text="Captura de tela mostrando documentos realçados no painel esquerdo. No painel direito, novo documento, salvar e descartar são realçados.":::
+  :::image type="content" source="./media/storage-explorer/document.png" alt-text="Captura de tela mostrando o ícone de plug-in no painel esquerdo.":::
 
 #### <a name="delete-a-document"></a>Excluir um documento
 
@@ -175,7 +175,7 @@ Você pode clicar com o botão direito do mouse em uma assinatura no painel do E
 
 * Para editar o filtro de documento, insira uma [consulta SQL](how-to-sql-query.md)e, em seguida, selecione **aplicar**.
 
-  :::image type="content" source="./media/storage-explorer/document-filter.png" alt-text="Captura de tela do painel direito, mostrando os botões filtrar e aplicar, o número de ID e a caixa de consulta realçada.":::
+  :::image type="content" source="./media/storage-explorer/document-filter.png" alt-text="Captura de tela mostrando o ícone de plug-in no painel esquerdo.":::
 
 ### <a name="graph-management"></a>Gerenciamento de gráfico
 
@@ -184,7 +184,7 @@ Você pode clicar com o botão direito do mouse em uma assinatura no painel do E
 * Para criar um novo vértice, abra o **grafo** no painel esquerdo, selecione **novo vértice**, edite o conteúdo e selecione **OK**.
 * Para modificar um vértice existente, selecione o ícone de caneta no painel direito.
 
-   :::image type="content" source="./media/storage-explorer/vertex.png" alt-text="Captura de tela mostrando o gráfico selecionado no painel esquerdo e mostrando o novo vértice e o ícone de caneta realçados no painel direito.":::
+   :::image type="content" source="./media/storage-explorer/vertex.png" alt-text="Captura de tela mostrando o ícone de plug-in no painel esquerdo.":::
 
 #### <a name="delete-a-graph"></a>Excluir um gráfico
 
@@ -194,7 +194,7 @@ Você pode clicar com o botão direito do mouse em uma assinatura no painel do E
 
 * Para editar o filtro de gráfico, insira uma [consulta Gremlin](gremlin-support.md)e, em seguida, selecione **aplicar filtro**.
 
-   :::image type="content" source="./media/storage-explorer/graph-filter.png" alt-text="Captura de tela mostrando o gráfico selecionado no painel esquerdo e mostrando aplicar filtro e a caixa de consulta realçada no painel direito.":::
+   :::image type="content" source="./media/storage-explorer/graph-filter.png" alt-text="Captura de tela mostrando o ícone de plug-in no painel esquerdo.":::
 
 ### <a name="table-management"></a>Gerenciamento de tabela
 
@@ -206,7 +206,7 @@ Você pode clicar com o botão direito do mouse em uma assinatura no painel do E
    1. Selecione o botão **Adicionar Propriedade** para adicionar uma propriedade.
    1. Selecione **Inserir**.
 
-      :::image type="content" source="./media/storage-explorer/table.png" alt-text="Captura de tela mostrando entidades realçadas no painel esquerdo e mostrando adicionar, editar, adicionar propriedade e inserir realçados no painel à direita.":::
+      :::image type="content" source="./media/storage-explorer/table.png" alt-text="Captura de tela mostrando o ícone de plug-in no painel esquerdo.":::
 
 * Para modificar uma tabela, selecione **Editar**, modifique o conteúdo e, em seguida, selecione **Atualizar**.
 
@@ -217,26 +217,26 @@ Você pode clicar com o botão direito do mouse em uma assinatura no painel do E
 * Para importar, selecione o botão **importar** e, em seguida, escolha uma tabela existente.
 * Para exportar, selecione o botão **Exportar** e, em seguida, escolha um destino.
 
-   :::image type="content" source="./media/storage-explorer/table-import-export.png" alt-text="Captura de tela mostrando os botões importar e exportar realçados no painel direito.":::
+   :::image type="content" source="./media/storage-explorer/table-import-export.png" alt-text="Captura de tela mostrando o ícone de plug-in no painel esquerdo.":::
 
 #### <a name="delete-entities"></a>Excluir entidades
 
 * Selecione as entidades e, em seguida, selecione o botão **excluir** .
 
-  :::image type="content" source="./media/storage-explorer/table-delete.png" alt-text="Captura de tela mostrando o botão excluir realçado no painel direito e uma janela pop-up de confirmação com Sim realçado.":::
+  :::image type="content" source="./media/storage-explorer/table-delete.png" alt-text="Captura de tela mostrando o ícone de plug-in no painel esquerdo.":::
 
 #### <a name="query-a-table"></a>Consultar uma tabela
 
 - Selecione o botão **consulta** , insira uma condição de consulta e, em seguida, selecione o botão **Executar consulta** . Para fechar o painel de consulta, selecione o botão **fechar consulta** .
 
-  :::image type="content" source="./media/storage-explorer/table-query.png" alt-text="Captura de tela do painel direito, mostrando o botão Executar consulta e o botão fechar consulta realçado.":::
+  :::image type="content" source="./media/storage-explorer/table-query.png" alt-text="Captura de tela mostrando o ícone de plug-in no painel esquerdo.":::
 
 ### <a name="manage-stored-procedures-triggers-and-udfs"></a>Gerenciar procedimentos armazenados, gatilhos e UDFs
 
 * Para criar um procedimento armazenado:
   1. Na árvore à esquerda, clique com o botão direito do mouse em **procedimentos armazenados**e selecione **criar procedimento armazenado**.
   
-     :::image type="content" source="./media/storage-explorer/stored-procedure.png" alt-text="Captura de tela do painel esquerdo, mostrando o menu exibido depois de clicar com o botão direito do mouse, com criar procedimento armazenado realçado.":::
+     :::image type="content" source="./media/storage-explorer/stored-procedure.png" alt-text="Captura de tela mostrando o ícone de plug-in no painel esquerdo.":::
   
   1. Insira um nome à esquerda, insira os scripts de procedimento armazenado no painel direito e, em seguida, selecione **criar**.
   
@@ -296,7 +296,7 @@ Se não for possível recuperar suas assinaturas depois de entrar, tente estas s
   * .extaccounts
 * Pressione a tecla F12 para abrir o console do desenvolvedor. Observe o console para verificar se há mensagens de erro ao entrar.
 
-   :::image type="content" source="./media/storage-explorer/console.png" alt-text="Captura de tela do console de ferramentas de desenvolvedor, mostrando o console realçado.":::
+   :::image type="content" source="./media/storage-explorer/console.png" alt-text="Captura de tela mostrando o ícone de plug-in no painel esquerdo.":::
 
 #### <a name="unable-to-see-the-authentication-page"></a>Não é possível ver a página de autenticação
 
@@ -331,19 +331,19 @@ Você não pode listar Azure Cosmos DB nós na árvore à esquerda ao configurar
 
 Não há resposta depois de selecionar o nó de **desenvolvimento** no nó **local e anexado** na árvore à esquerda. O comportamento é esperado.
 
-:::image type="content" source="./media/storage-explorer/development.png" alt-text="Captura de tela mostrando o nó de desenvolvimento selecionado.":::
+:::image type="content" source="./media/storage-explorer/development.png" alt-text="Captura de tela mostrando o ícone de plug-in no painel esquerdo.":::
 
 ### <a name="attach-an-azure-cosmos-db-account-in-the-local-and-attached-node-error"></a>Anexar uma conta de Azure Cosmos DB no erro de nó **local e anexado**
 
 Se você vir o erro a seguir depois de anexar uma conta de Azure Cosmos DB no nó **local e anexado** , verifique se você está usando a cadeia de conexão correta.
 
-:::image type="content" source="./media/storage-explorer/attached-error.png" alt-text="Captura de tela da janela pop-up de erro não é possível recuperar recursos filho, indicando getaddrinfo ENOTFOUND.":::
+:::image type="content" source="./media/storage-explorer/attached-error.png" alt-text="Captura de tela mostrando o ícone de plug-in no painel esquerdo.":::
 
 ### <a name="expand-azure-cosmos-db-node-error"></a>Erro de expansão do nó do Azure Cosmos DB
 
 Você pode ver o erro a seguir ao tentar expandir os nós na árvore à esquerda.
 
-:::image type="content" source="./media/storage-explorer/expand-error.png" alt-text="Captura de tela da janela pop-up de erro não é possível recuperar recursos filho, indicando que o não pode se conectar a essa conta do cosmos D B.":::
+:::image type="content" source="./media/storage-explorer/expand-error.png" alt-text="Captura de tela mostrando o ícone de plug-in no painel esquerdo.":::
 
 Experimente estas sugestões:
 
