@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.openlocfilehash: 6f0e688f3d483536e0d82186dd8e498cdadf97da
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87563544"
 ---
 # <a name="monitor-and-alert-data-factory-by-using-azure-monitor"></a>Monitorar e alertar Data Factory usando Azure Monitor
@@ -82,7 +82,7 @@ Crie ou adicione configurações de diagnóstico para seu data factory.
     > [!NOTE]
     > Como uma tabela de log do Azure não pode ter mais de 500 colunas, é **altamente recomendável** selecionar o _modo específico do recurso_. Para obter mais informações, consulte [log Analytics limitações conhecidas](../azure-monitor/platform/resource-logs-collect-workspace.md#column-limit-in-azurediagnostics).
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 Após alguns instantes, a nova configuração aparecerá na lista de configurações dessa data factory. Os logs de diagnóstico são transmitidos para esse espaço de trabalho assim que novos dados de evento são gerados. Até 15 minutos podem decorrer entre o momento em que um evento é emitido e quando ele aparece no Log Analytics.
 
@@ -221,7 +221,7 @@ PUT
 https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnosticSettings/service?api-version={api-version}
 ```
 
-##### <a name="headers"></a>Cabeçalhos
+##### <a name="headers"></a>headers
 
 * Substitua `{api-version}` por `2016-09-01`.
 * Substitua `{resource-id}` pela ID do recurso para o qual você deseja editar as configurações de diagnóstico. Para obter mais informações, consulte [usando grupos de recursos para gerenciar seus recursos do Azure](../azure-resource-manager/management/manage-resource-groups-portal.md).
@@ -341,7 +341,7 @@ GET
 https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnosticSettings/service?api-version={api-version}
 ```
 
-##### <a name="headers"></a>Cabeçalhos
+##### <a name="headers"></a>headers
 
 * Substitua `{api-version}` por `2016-09-01`.
 * Substitua `{resource-id}` pela ID do recurso para o qual você deseja editar as configurações de diagnóstico. Para obter mais informações, consulte [usando grupos de recursos para gerenciar seus recursos do Azure](../azure-resource-manager/management/manage-resource-groups-portal.md).
@@ -451,12 +451,12 @@ Para obter mais informações, consulte [configurações de diagnóstico](https:
 |**pipelineRunId**| String| A ID da execução do pipeline. | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
 |**resourceId**| String | A ID associada ao recurso de data Factory. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |**category**| String | A categoria dos logs de diagnóstico. Defina o valor da propriedade `ActivityRuns`. | `ActivityRuns` |
-|**nível**| String | O nível dos logs de diagnóstico. Defina o valor da propriedade `Informational`. | `Informational` |
+|**level**| String | O nível dos logs de diagnóstico. Defina o valor da propriedade `Informational`. | `Informational` |
 |**operationName**| String | O nome da atividade com seu status. Se a atividade for a pulsação inicial, o valor da propriedade será `MyActivity -` . Se a atividade for a pulsação final, o valor da propriedade será `MyActivity - Succeeded` . | `MyActivity - Succeeded` |
 |**pipelineName**| String | O nome do pipeline. | `MyPipeline` |
 |**activityName**| String | O nome da atividade. | `MyActivity` |
 |**start**| String | A hora de início da atividade é executada no formato UTC de TimeSpan. | `2017-06-26T20:55:29.5007959Z`|
-|**completo**| String | A hora de término da atividade é executada no formato UTC de TimeSpan. Se o log de diagnóstico mostrar que uma atividade foi iniciada, mas ainda não terminou, o valor da propriedade será `1601-01-01T00:00:00Z` . | `2017-06-26T20:55:29.5007959Z` |
+|**end**| String | A hora de término da atividade é executada no formato UTC de TimeSpan. Se o log de diagnóstico mostrar que uma atividade foi iniciada, mas ainda não terminou, o valor da propriedade será `1601-01-01T00:00:00Z` . | `2017-06-26T20:55:29.5007959Z` |
 
 #### <a name="pipeline-run-log-attributes"></a>Atributos de log de execução de pipeline
 
@@ -496,11 +496,11 @@ Para obter mais informações, consulte [configurações de diagnóstico](https:
 |**runId**| String| A ID da execução do pipeline. | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
 |**resourceId**| String | A ID associada ao recurso de data Factory. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |**category**| String | A categoria dos logs de diagnóstico. Defina o valor da propriedade `PipelineRuns`. | `PipelineRuns` |
-|**nível**| String | O nível dos logs de diagnóstico. Defina o valor da propriedade `Informational`. | `Informational` |
+|**level**| String | O nível dos logs de diagnóstico. Defina o valor da propriedade `Informational`. | `Informational` |
 |**operationName**| String | O nome do pipeline junto com seu status. Depois que a execução do pipeline for concluída, o valor da propriedade será `Pipeline - Succeeded` . | `MyPipeline - Succeeded`. |
 |**pipelineName**| String | O nome do pipeline. | `MyPipeline` |
 |**start**| String | A hora de início da atividade é executada no formato UTC de TimeSpan. | `2017-06-26T20:55:29.5007959Z`. |
-|**completo**| String | A hora de término da atividade é executada no formato UTC de TimeSpan. Se o log de diagnóstico mostrar uma atividade iniciada mas ainda não tiver sido encerrada, o valor da propriedade será `1601-01-01T00:00:00Z` .  | `2017-06-26T20:55:29.5007959Z` |
+|**end**| String | A hora de término da atividade é executada no formato UTC de TimeSpan. Se o log de diagnóstico mostrar uma atividade iniciada mas ainda não tiver sido encerrada, o valor da propriedade será `1601-01-01T00:00:00Z` .  | `2017-06-26T20:55:29.5007959Z` |
 |**status**| String | O status final da execução do pipeline. Os valores de propriedade possíveis são `Succeeded` e `Failed` . | `Succeeded`|
 
 #### <a name="trigger-run-log-attributes"></a>Gatilho-executar atributos de log
@@ -539,7 +539,7 @@ Para obter mais informações, consulte [configurações de diagnóstico](https:
 |**triggerId**| String| A ID da execução do gatilho. | `08587023010602533858661257311` |
 |**resourceId**| String | A ID associada ao recurso de data Factory. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |**category**| String | A categoria dos logs de diagnóstico. Defina o valor da propriedade `PipelineRuns`. | `PipelineRuns` |
-|**nível**| String | O nível dos logs de diagnóstico. Defina o valor da propriedade `Informational`. | `Informational` |
+|**level**| String | O nível dos logs de diagnóstico. Defina o valor da propriedade `Informational`. | `Informational` |
 |**operationName**| String | O nome do gatilho com seu status final, que indica se o gatilho foi acionado com êxito. Se a pulsação tiver sido bem-sucedida, o valor da propriedade será `MyTrigger - Succeeded` . | `MyTrigger - Succeeded` |
 |**triggerName**| String | O nome do gatilho. | `MyTrigger` |
 |**triggerType**| String | O tipo do gatilho. Os valores de propriedade possíveis são `Manual Trigger` e `Schedule Trigger` . | `ScheduleTrigger` |
@@ -570,13 +570,13 @@ Aqui estão os atributos de log das operações de início/parada/manutenção d
 
 | Propriedade                   | Type   | Descrição                                                   | Exemplo                        |
 | -------------------------- | ------ | ------------------------------------------------------------- | ------------------------------ |
-| **time**                   | String | A hora do evento no formato UTC:`YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+| **time**                   | String | A hora do evento no formato UTC: `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 | **operationName**          | String | O nome da operação de IR do SSIS                            | `Start/Stop/Maintenance` |
 | **category**               | String | A categoria de logs de diagnóstico                               | `SSISIntegrationRuntimeLogs` |
 | **correlationId**          | String | A ID exclusiva para acompanhar uma operação específica             | `f13b159b-515f-4885-9dfa-a664e949f785Deprovision0059035558` |
 | **dataFactoryName**        | String | O nome do ADF                                          | `MyADFv2` |
 | **integrationRuntimeName** | String | O nome do seu IR do SSIS                                      | `MySSISIR` |
-| **nível**                  | String | O nível dos logs de diagnóstico                                  | `Informational` |
+| **level**                  | String | O nível dos logs de diagnóstico                                  | `Informational` |
 | **resultType**             | String | O resultado da operação de IR do SSIS                          | `Started/InProgress/Succeeded/Failed` |
 | **message**                | String | A mensagem de saída da operação de IR do SSIS                  | `The stopping of your SSIS integration runtime has succeeded.` |
 | **resourceId**             | String | A ID exclusiva do recurso do ADF                            | `/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
@@ -610,15 +610,15 @@ Aqui estão os atributos de log das condições relacionadas às mensagens de ev
 
 | Propriedade                   | Type   | Descrição                                                          | Exemplo                        |
 | -------------------------- | ------ | -------------------------------------------------------------------- | ------------------------------ |
-| **time**                   | String | A hora do evento no formato UTC:`YYYY-MM-DDTHH:MM:SS.00000Z`        | `2017-06-28T21:00:27.3534352Z` |
-| **operationName**          | String | Isso é definido como`YourSSISIRName-SSISPackageEventMessageContext`       | `mysqlmissisir-SSISPackageEventMessageContext` |
+| **time**                   | String | A hora do evento no formato UTC: `YYYY-MM-DDTHH:MM:SS.00000Z`        | `2017-06-28T21:00:27.3534352Z` |
+| **operationName**          | String | Isso é definido como `YourSSISIRName-SSISPackageEventMessageContext`       | `mysqlmissisir-SSISPackageEventMessageContext` |
 | **category**               | String | A categoria de logs de diagnóstico                                      | `SSISPackageEventMessageContext` |
 | **correlationId**          | String | A ID exclusiva para acompanhar uma operação específica                    | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
 | **dataFactoryName**        | String | O nome do ADF                                                 | `MyADFv2` |
 | **integrationRuntimeName** | String | O nome do seu IR do SSIS                                             | `MySSISIR` |
-| **nível**                  | String | O nível dos logs de diagnóstico                                         | `Informational` |
-| **operationId**            | String | A ID exclusiva para acompanhar uma operação específica no SSISDB          | `1`(1 significa operações relacionadas a pacotes **não** armazenados no SSISDB/invocado via T-SQL) |
-| **contextDepth**           | String | A profundidade do seu contexto de mensagem de evento                              | `0`(0 significa o contexto antes do início da execução do pacote, 1 significa o contexto quando ocorre um erro e aumenta à medida que o contexto está além do erro) |
+| **level**                  | String | O nível dos logs de diagnóstico                                         | `Informational` |
+| **operationId**            | String | A ID exclusiva para acompanhar uma operação específica no SSISDB          | `1` (1 significa operações relacionadas a pacotes **não** armazenados no SSISDB/invocado via T-SQL) |
+| **contextDepth**           | String | A profundidade do seu contexto de mensagem de evento                              | `0` (0 significa o contexto antes do início da execução do pacote, 1 significa o contexto quando ocorre um erro e aumenta à medida que o contexto está além do erro) |
 | **packagePath**            | String | O caminho do objeto de pacote como sua fonte de contexto de mensagem de evento      | `\Package` |
 | **contextType**            | String | O tipo de objeto de pacote como sua fonte de contexto de mensagem de evento      | `60`(veja [mais tipos de contexto](https://docs.microsoft.com/sql/integration-services/system-views/catalog-event-message-context?view=sql-server-ver15#remarks)) |
 | **contextSourceName**      | String | O nome do objeto de pacote como sua fonte de contexto de mensagem de evento      | `MyPackage` |
@@ -660,14 +660,14 @@ Aqui estão os atributos de log das mensagens de evento que são geradas pelas e
 
 | Propriedade                   | Type   | Descrição                                                        | Exemplo                        |
 | -------------------------- | ------ | ------------------------------------------------------------------ | ------------------------------ |
-| **time**                   | String | A hora do evento no formato UTC:`YYYY-MM-DDTHH:MM:SS.00000Z`      | `2017-06-28T21:00:27.3534352Z` |
-| **operationName**          | String | Isso é definido como`YourSSISIRName-SSISPackageEventMessages`           | `mysqlmissisir-SSISPackageEventMessages` |
+| **time**                   | String | A hora do evento no formato UTC: `YYYY-MM-DDTHH:MM:SS.00000Z`      | `2017-06-28T21:00:27.3534352Z` |
+| **operationName**          | String | Isso é definido como `YourSSISIRName-SSISPackageEventMessages`           | `mysqlmissisir-SSISPackageEventMessages` |
 | **category**               | String | A categoria de logs de diagnóstico                                    | `SSISPackageEventMessages` |
 | **correlationId**          | String | A ID exclusiva para acompanhar uma operação específica                  | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
 | **dataFactoryName**        | String | O nome do ADF                                               | `MyADFv2` |
 | **integrationRuntimeName** | String | O nome do seu IR do SSIS                                           | `MySSISIR` |
-| **nível**                  | String | O nível dos logs de diagnóstico                                       | `Informational` |
-| **operationId**            | String | A ID exclusiva para acompanhar uma operação específica no SSISDB        | `1`(1 significa operações relacionadas a pacotes **não** armazenados no SSISDB/invocado via T-SQL) |
+| **level**                  | String | O nível dos logs de diagnóstico                                       | `Informational` |
+| **operationId**            | String | A ID exclusiva para acompanhar uma operação específica no SSISDB        | `1` (1 significa operações relacionadas a pacotes **não** armazenados no SSISDB/invocado via T-SQL) |
 | **mensagemtime**            | String | A hora em que a mensagem de evento é criada no formato UTC          | `2017-06-28T21:00:27.3534352Z` |
 | **messageType**            | String | O tipo de sua mensagem de evento                                     | `70`(veja [mais tipos de mensagem](https://docs.microsoft.com/sql/integration-services/system-views/catalog-operation-messages-ssisdb-database?view=sql-server-ver15#remarks)) |
 | **messageSourceType**      | String | O tipo de origem da mensagem de evento                              | `20`(veja [mais tipos de origem de mensagem](https://docs.microsoft.com/sql/integration-services/system-views/catalog-operation-messages-ssisdb-database?view=sql-server-ver15#remarks)) |
@@ -678,7 +678,7 @@ Aqui estão os atributos de log das mensagens de evento que são geradas pelas e
 | **messageSourceId**        | String | A ID exclusiva do componente de pacote como sua fonte de mensagem de evento    | `{1a45a5a4-3df9-4f02-b818-ebf583829ad2}    ` |
 | **SubComponentName**       | String | O nome do componente de fluxo de dados como sua fonte de mensagem de evento       | `SSIS.Pipeline` |
 | **packagePath**            | String | O caminho do objeto de pacote como sua fonte de mensagem de evento            | `\Package\Data Flow Task` |
-| **executionPath**          | String | O caminho completo do pacote pai para o componente executado            | `\Transformation\Data Flow Task`(Esse caminho também captura iterações de componente) |
+| **executionPath**          | String | O caminho completo do pacote pai para o componente executado            | `\Transformation\Data Flow Task` (Esse caminho também captura iterações de componente) |
 | **threadId**               | String | A ID exclusiva do thread executado quando sua mensagem de evento é registrada | `{1a45a5a4-3df9-4f02-b818-ebf583829ad2}    ` |
 
 #### <a name="ssis-executable-statistics-log-attributes"></a>Atributos do log de estatísticas de executável do SSIS
@@ -709,19 +709,19 @@ Aqui estão os atributos de log das estatísticas de executável que são gerado
 
 | Propriedade                   | Type   | Descrição                                                      | Exemplo                        |
 | -------------------------- | ------ | ---------------------------------------------------------------- | ------------------------------ |
-| **time**                   | String | A hora do evento no formato UTC:`YYYY-MM-DDTHH:MM:SS.00000Z`    | `2017-06-28T21:00:27.3534352Z` |
-| **operationName**          | String | Isso é definido como`YourSSISIRName-SSISPackageExecutableStatistics`  | `mysqlmissisir-SSISPackageExecutableStatistics` |
+| **time**                   | String | A hora do evento no formato UTC: `YYYY-MM-DDTHH:MM:SS.00000Z`    | `2017-06-28T21:00:27.3534352Z` |
+| **operationName**          | String | Isso é definido como `YourSSISIRName-SSISPackageExecutableStatistics`  | `mysqlmissisir-SSISPackageExecutableStatistics` |
 | **category**               | String | A categoria de logs de diagnóstico                                  | `SSISPackageExecutableStatistics` |
 | **correlationId**          | String | A ID exclusiva para acompanhar uma operação específica                | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
 | **dataFactoryName**        | String | O nome do ADF                                             | `MyADFv2` |
 | **integrationRuntimeName** | String | O nome do seu IR do SSIS                                         | `MySSISIR` |
-| **nível**                  | String | O nível dos logs de diagnóstico                                     | `Informational` |
-| **executionId**            | String | A ID exclusiva para acompanhar uma execução específica no SSISDB      | `1`(1 significa execuções relacionadas a pacotes **não** armazenados no SSISDB/invocado via T-SQL) |
-| **executionPath**          | String | O caminho completo do pacote pai para o componente executado          | `\Transformation\Data Flow Task`(Esse caminho também captura iterações de componente) |
+| **level**                  | String | O nível dos logs de diagnóstico                                     | `Informational` |
+| **executionId**            | String | A ID exclusiva para acompanhar uma execução específica no SSISDB      | `1` (1 significa execuções relacionadas a pacotes **não** armazenados no SSISDB/invocado via T-SQL) |
+| **executionPath**          | String | O caminho completo do pacote pai para o componente executado          | `\Transformation\Data Flow Task` (Esse caminho também captura iterações de componente) |
 | **startTime**              | String | A hora em que o executável entra na fase de pré-execução no formato UTC  | `2017-06-28T21:00:27.3534352Z` |
 | **Final**                | String | A hora em que o executável entra na fase de pós-execução no formato UTC | `2017-06-28T21:00:27.3534352Z` |
 | **executionDuration**      | String | O tempo de execução do executável em milissegundos                   | `1,125` |
-| **executionResult**        | String | O resultado da execução do executável                                 | `0`(0 significa êxito, 1 significa falha, 2 significa conclusão e 3 significa cancelamento) |
+| **executionResult**        | String | O resultado da execução do executável                                 | `0` (0 significa êxito, 1 significa falha, 2 significa conclusão e 3 significa cancelamento) |
 | **executionValue**         | String | O valor definido pelo usuário retornado pela execução do executável            | `1` |
 | **resourceId**             | String | A ID exclusiva do recurso do ADF                               | `/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 
@@ -754,14 +754,14 @@ Aqui estão os atributos de log das estatísticas de tempo de execução para co
 
 | Propriedade                   | Type   | Descrição                                                         | Exemplo                        |
 | -------------------------- | ------ | ------------------------------------------------------------------- | ------------------------------ |
-| **time**                   | String | A hora do evento no formato UTC:`YYYY-MM-DDTHH:MM:SS.00000Z`       | `2017-06-28T21:00:27.3534352Z` |
-| **operationName**          | String | Isso é definido como`YourSSISIRName-SSISPackageExecutionComponentPhases` | `mysqlmissisir-SSISPackageExecutionComponentPhases` |
+| **time**                   | String | A hora do evento no formato UTC: `YYYY-MM-DDTHH:MM:SS.00000Z`       | `2017-06-28T21:00:27.3534352Z` |
+| **operationName**          | String | Isso é definido como `YourSSISIRName-SSISPackageExecutionComponentPhases` | `mysqlmissisir-SSISPackageExecutionComponentPhases` |
 | **category**               | String | A categoria de logs de diagnóstico                                     | `SSISPackageExecutionComponentPhases` |
 | **correlationId**          | String | A ID exclusiva para acompanhar uma operação específica                   | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
 | **dataFactoryName**        | String | O nome do ADF                                                | `MyADFv2` |
 | **integrationRuntimeName** | String | O nome do seu IR do SSIS                                            | `MySSISIR` |
-| **nível**                  | String | O nível dos logs de diagnóstico                                        | `Informational` |
-| **executionId**            | String | A ID exclusiva para acompanhar uma execução específica no SSISDB         | `1`(1 significa execuções relacionadas a pacotes **não** armazenados no SSISDB/invocado via T-SQL) |
+| **level**                  | String | O nível dos logs de diagnóstico                                        | `Informational` |
+| **executionId**            | String | A ID exclusiva para acompanhar uma execução específica no SSISDB         | `1` (1 significa execuções relacionadas a pacotes **não** armazenados no SSISDB/invocado via T-SQL) |
 | **packageName**            | String | O nome do arquivo de pacote executado                              | `MyPackage.dtsx` |
 | **Tarefa**               | String | O nome da tarefa de fluxo de dados executada                                 | `Data Flow Task` |
 | **SubComponentName**       | String | O nome do componente de fluxo de dados                                     | `Derived Column` |
@@ -802,14 +802,14 @@ Aqui estão os atributos de log de movimentação de dados em cada segmento de p
 
 | Propriedade                     | Type   | Descrição                                                        | Exemplo                        |
 | ---------------------------- | ------ | ------------------------------------------------------------------ | ------------------------------ |
-| **time**                     | String | A hora do evento no formato UTC:`YYYY-MM-DDTHH:MM:SS.00000Z`      | `2017-06-28T21:00:27.3534352Z` |
-| **operationName**            | String | Isso é definido como`YourSSISIRName-SSISPackageExecutionDataStatistics` | `mysqlmissisir-SSISPackageExecutionDataStatistics` |
+| **time**                     | String | A hora do evento no formato UTC: `YYYY-MM-DDTHH:MM:SS.00000Z`      | `2017-06-28T21:00:27.3534352Z` |
+| **operationName**            | String | Isso é definido como `YourSSISIRName-SSISPackageExecutionDataStatistics` | `mysqlmissisir-SSISPackageExecutionDataStatistics` |
 | **category**                 | String | A categoria de logs de diagnóstico                                    | `SSISPackageExecutionDataStatistics` |
 | **correlationId**            | String | A ID exclusiva para acompanhar uma operação específica                  | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
 | **dataFactoryName**          | String | O nome do ADF                                               | `MyADFv2` |
 | **integrationRuntimeName**   | String | O nome do seu IR do SSIS                                           | `MySSISIR` |
-| **nível**                    | String | O nível dos logs de diagnóstico                                       | `Informational` |
-| **executionId**              | String | A ID exclusiva para acompanhar uma execução específica no SSISDB        | `1`(1 significa execuções relacionadas a pacotes **não** armazenados no SSISDB/invocado via T-SQL) |
+| **level**                    | String | O nível dos logs de diagnóstico                                       | `Informational` |
+| **executionId**              | String | A ID exclusiva para acompanhar uma execução específica no SSISDB        | `1` (1 significa execuções relacionadas a pacotes **não** armazenados no SSISDB/invocado via T-SQL) |
 | **packageName**              | String | O nome do arquivo de pacote executado                             | `MyPackage.dtsx` |
 | **Tarefa**                 | String | O nome da tarefa de fluxo de dados executada                                | `Data Flow Task` |
 | **dataflowPathIdString**     | String | A ID exclusiva para acompanhar o caminho de fluxo de dados                          | `Paths[SQLDB Table3.ADO NET Source Output]` |
@@ -836,8 +836,8 @@ Log Analytics herda o esquema do monitor com as seguintes exceções:
     | $. Properties. Entrada | Entrada | Dinâmico |
     | $. Properties. Der | Saída | Dinâmico |
     | $. Properties. Erro. errorCode | ErrorCode | INT |
-    | $. Properties. Erro. mensagem | ErrorMessage | string |
-    | $. Properties. Ao | Erro | Dinâmico |
+    | $. Properties. Erro. mensagem | ErrorMessage | cadeia de caracteres |
+    | $. Properties. Ao | Erro do | Dinâmico |
     | $. Properties. Predecessores | Predecessores | Dinâmico |
     | $. Properties. Parâmetro | Parâmetros | Dinâmico |
     | US $.properties.SystemParameters | SystemParameters | Dinâmico |

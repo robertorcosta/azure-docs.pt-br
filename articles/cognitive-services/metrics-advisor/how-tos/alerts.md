@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: aahi
 ms.openlocfilehash: 870b412a1fa5d362ac7b5be1df6c92d95c2936ca
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90977786"
 ---
 # <a name="how-to-configure-alerts-and-get-notifications-using-a-hook"></a>Como: configurar alertas e obter notificações usando um gancho
@@ -36,7 +36,7 @@ Um cabo de email é o canal para que os alertas de anomalias sejam enviados aos 
 
 |Parâmetro |Descrição  |
 |---------|---------|
-| Name | Nome do gancho de email |
+| Nome | Nome do gancho de email |
 | Enviar email para| Endereços de email que enviarão alerta para|
 | Link externo | Campo opcional que habilita um redirecionamento personalizado, como para notas de solução de problemas. |
 | Título de alerta de anomalias personalizado | O modelo de título dá suporte a,,,,,,, `${severity}` `${alertSettingName}` `${datafeedName}` `${metricName}` `${detectConfigName}` `${timestamp}` `${topDimension}` `${incidentCount}` , `${anomalyCount}`
@@ -75,9 +75,9 @@ Para criar um gancho de DevOps do Azure, você precisará adicionar as informaç
 
 |Parâmetro |Descrição  |
 |---------|---------|
-| Name | Um nome para o gancho |
+| Nome | Um nome para o gancho |
 | Organização | A organização à qual seu DevOps pertence |
-| Project | O projeto específico no DevOps. |
+| Projeto | O projeto específico no DevOps. |
 | Token de acesso |  Um token para autenticação no DevOps. | 
 
 > [!Note]
@@ -88,11 +88,11 @@ Para criar um gancho de DevOps do Azure, você precisará adicionar as informaç
 Vá para a página de detalhes de métricas para localizar a seção **configurações de alerta** , no canto inferior esquerdo da página de detalhes de métricas. Ele lista todas as configurações de alerta que se aplicam à configuração de detecção selecionada. Quando uma nova configuração de detecção é criada, não há nenhuma configuração de alerta e nenhum alerta será enviado.  
 Você pode usar os ícones **Adicionar**, **Editar** e **excluir** para modificar as configurações de alerta.
 
-:::image type="content" source="../media/alerts/alert-setting.png" alt-text="Item de menu configurações de alerta.":::
+:::image type="content" source="../media/alerts/alert-setting.png" alt-text="janela de criação de gancho da Web.":::
 
 Clique nos botões **Adicionar** ou **Editar** para obter uma janela para adicionar ou editar suas configurações de alerta.
 
-:::image type="content" source="../media/alerts/edit-alert.png" alt-text="Adicionar ou editar configurações de alerta":::
+:::image type="content" source="../media/alerts/edit-alert.png" alt-text="janela de criação de gancho da Web.":::
 
 **Nome da configuração de alerta**: o nome dessa configuração de alerta. Ele será exibido no título do email de alerta.
 
@@ -134,7 +134,7 @@ O seletor de **operador** é a relação lógica de cada seção, para determina
 |AND     | Somente envie um alerta se uma série corresponder a cada seção de alerta e todos os pontos de dados forem anomalias. Se as métricas tiverem nomes de dimensão diferentes, um alerta nunca será disparado.         |
 |OU     | Envie o alerta se pelo menos uma seção contiver anomalias.         |
 
-:::image type="content" source="../media/alerts/alert-setting-operator.png" alt-text="Operador para a seção de várias configurações de alerta":::
+:::image type="content" source="../media/alerts/alert-setting-operator.png" alt-text="janela de criação de gancho da Web.":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

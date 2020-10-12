@@ -11,10 +11,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 113c11b749b42bbaf9e5e40cdf63623288997a92
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89440279"
 ---
 # <a name="agile-development-of-data-science-projects"></a>Desenvolvimento do Agile de projetos de ciência de dados
@@ -152,7 +152,7 @@ Os cientistas de dados podem se sentir mais confortáveis usando um modelo ágil
    1. Em **nome**, substitua **Epic** por *projetos TDSP*. 
    1. Em **tipos de item de trabalho neste nível de registro posterior**, selecione **novo tipo de item de trabalho**, insira *projeto TDSP*e selecione **Adicionar**. 
    1. Em **tipo de item de trabalho padrão**, menu suspenso e selecione **projeto TDSP**. 
-   1. Clique em **Salvar**.
+   1. Selecione **Salvar**.
    
    ![Definir nível de pendência de portfólio](./media/agile-development/13-rename.png)  
    

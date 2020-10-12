@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: b1836b1d0dc69a2a0b186a54974895eb0d8cd91a
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89265483"
 ---
 <!-- If you update limits in this topic, make sure to also update https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#media-services-limits -->
@@ -26,7 +26,7 @@ ms.locfileid: "89265483"
 Este artigo lista alguns dos limites de Serviços de Mídia do Microsoft Azure mais comuns, que também são chamados de cotas.
 
 > [!NOTE]
-> Para recursos que não são corrigidos, abra um tíquete de suporte para solicitar um aumento nas cotas. Não crie outras contas dos serviços de mídia do Azure em uma tentativa de obter limites mais altos.
+> Para recursos que não são corrigidos, abra um tíquete de suporte para solicitar um aumento nas cotas. Não crie contas adicionais dos Serviços de Mídia do Azure em uma tentativa de obter limites mais altos.
 
 ## <a name="account-limits"></a>Limites de conta
 
@@ -47,11 +47,11 @@ Este artigo lista alguns dos limites de Serviços de Mídia do Microsoft Azure m
 | Tamanho do arquivo| Em alguns cenários, há um limite no tamanho máximo de arquivo com suporte para o processamento nos Serviços de Mídia. <sup>(1)</sup> |
 | [Contas de armazenamento](storage-account-concept.md) | 100<sup>(2)</sup> (fixo) |
 
-<sup>1</sup> O tamanho máximo com suporte para um único blob atualmente é de até 5 TB no Azure Blob Storage. Limites adicionais se aplicam aos serviços de mídia com base nos tamanhos de VM que são usados pelo serviço. O limite de tamanho se aplica aos arquivos que você carrega e também aos arquivos que são gerados como resultado do processamento de serviços de mídia (codificação ou análise). Se o arquivo de origem for maior que 260 GB, o trabalho provavelmente falhará. 
+<sup>1</sup> O tamanho máximo com suporte para um único blob atualmente é de até 5 TB no Azure Blob Storage. Os limites adicionais aplicam-se nos Serviços de Mídia com base nos tamanhos de VM usados pelo serviço. O limite de tamanho aplica-se aos arquivos que você carrega e também aos arquivos gerados como resultado do processamento dos Serviços de Mídia (codificação ou análise). Se o arquivo de origem for maior que 260 GB, o trabalho provavelmente falhará. 
 
-A tabela a seguir mostra os limites nas unidades reservadas de mídia S1, S2 e S3. Se o arquivo de origem for maior do que os limites definidos na tabela, o trabalho de codificação falhará. Se você codificar fontes de resolução de 4K de longa duração, será necessário usar unidades reservadas de mídia S3 para atingir o desempenho necessário. Se você tiver um conteúdo de 4K maior do que o limite de 260 GB nas unidades reservadas de mídia S3, abra um tíquete de suporte.
+A tabela a seguir mostra os limites nas unidades reservada para mídia S1, S2 e S3. Se o arquivo de origem for maior do que os limites definidos na tabela, o trabalho de codificação falhará. Se você codificar fontes de resolução 4K de longa duração, deverá usar unidades reservadas para mídia S3 para alcançar o desempenho necessário. Se você tiver um conteúdo em 4K maior do que o limite de 260 GB nas unidades reservadas para mídia S3, abra um tíquete de suporte.
 
-|Tipo de unidade reservada de mídia|Tamanho máximo de entrada (GB)|
+|Tipo de unidade reservada para mídia|Tamanho máximo de entrada (GB)|
 |---|---|
 |S1 |    26|
 |S2    | 60|
