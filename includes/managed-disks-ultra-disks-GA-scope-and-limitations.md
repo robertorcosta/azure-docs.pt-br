@@ -1,6 +1,6 @@
 ---
-title: incluir arquivo
-description: incluir arquivo
+title: arquivo de inclusão
+description: arquivo de inclusão
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 09/28/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 7b41105bafedb8eeaffe5f266f5dd824957c57e0
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91441204"
 ---
 Por enquanto, ultra discos têm limitações adicionais, como a seguir:
@@ -43,7 +43,7 @@ A tabela a seguir descreve as regiões em que os ultra discos estão disponívei
 |Leste dos EUA     |Três zonas de disponibilidade          |
 |Leste dos EUA 2     |Três zonas de disponibilidade         |
 |França Central    |Duas zonas de disponibilidade        |
-|Leste do Japão    |Três zonas de disponibilidade        |
+|Japan East    |Três zonas de disponibilidade        |
 |Norte da Europa    |Três zonas de disponibilidade        |
 |Sul do Reino Unido    |Três zonas de disponibilidade        |
 |Europa Ocidental    | Três zonas de disponibilidade|

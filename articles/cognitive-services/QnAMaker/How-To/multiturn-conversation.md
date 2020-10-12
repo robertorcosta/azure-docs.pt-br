@@ -6,10 +6,10 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.openlocfilehash: 57e878f11f5857f4c5b629a8069f64de259e8e7a
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91777801"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Usar avisos de acompanhamento para criar várias rodadas de uma conversa
@@ -113,7 +113,7 @@ Adicione um aviso de acompanhamento a um par de perguntas e respostas existentes
     |Campo|Valor|
     |--|--|
     |Exibir texto|Digite desligar **o dispositivo**. Esse é o texto personalizado a ser exibido no prompt de acompanhamento.|
-    |Somente contexto| Marque essa caixa de seleção. Uma resposta será retornada somente se a pergunta especificar o contexto.|
+    |Somente contexto| Marcar essa caixa de seleção. Uma resposta será retornada somente se a pergunta especificar o contexto.|
     |Link para responder|Digite **usar a tela de entrada** para localizar o par de perguntas e respostas existente.|
 
 
@@ -150,7 +150,7 @@ Quando você adiciona um novo par de perguntas e respostas à base de dados de c
     |Campo|Valor|
     |--|--|
     |Exibir texto|*Crie uma conta do Windows*. O texto personalizado a ser exibido no aviso de acompanhamento.|
-    |Somente contexto|Marque essa caixa de seleção. Essa resposta será retornada somente se a pergunta especificar o contexto.|
+    |Somente contexto|Marcar essa caixa de seleção. Essa resposta será retornada somente se a pergunta especificar o contexto.|
     |Link para responder|Digite o seguinte texto como a resposta:<br>* [Crie](https://account.microsoft.com/) uma conta do Windows com uma conta de email nova ou existente*.<br>Quando você salvar e treinar o banco de dados, esse texto será convertido. |
     |||
 

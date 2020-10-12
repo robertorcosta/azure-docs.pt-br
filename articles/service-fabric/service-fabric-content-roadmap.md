@@ -4,10 +4,10 @@ description: Saiba mais sobre os principais conceitos e as principais áreas do 
 ms.topic: conceptual
 ms.date: 12/08/2017
 ms.openlocfilehash: d09d774ed32c98222b71423ca733f1b4294957ef
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87836693"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Então você deseja saber mais sobre o Service Fabric?
@@ -30,7 +30,7 @@ O pacote de aplicativos é um diretório de disco que contém o arquivo de Appli
 Os arquivos no diretório do pacote de aplicativos são copiados no armazenamento de imagens do cluster do Service Fabric. Assim, você pode criar um aplicativo nomeado desse tipo de aplicativo que, em seguida, é executado no cluster. Depois de criar um aplicativo nomeado, você pode criar um serviço nomeado de um dos tipos de serviço do tipo de aplicativo. 
 
 ### <a name="run-time-clusters-and-nodes-named-applications-named-services-partitions-and-replicas"></a>Tempo de execução: clusters e nós, chamados de aplicativos, chamado de serviços, partições e réplicas
-Um [cluster Service Fabric](service-fabric-deploy-anywhere.md) é um conjunto de máquinas físicas ou virtuais conectadas à rede em que seus microserviços são implantados e gerenciados. Os clusters podem ser dimensionados para milhares de máquinas.
+Um [cluster do Service Fabric](service-fabric-deploy-anywhere.md) é um conjunto de máquinas físicas ou virtuais conectadas em rede, no qual os microsserviços são implantados e gerenciados. Os clusters podem ser dimensionados para milhares de máquinas.
 
 Uma máquina ou VM que faz parte de um cluster é chamado de nó. Cada nó recebe um nome de nó (uma cadeia de caracteres). Os nós têm características como propriedades de posicionamento. Cada máquina ou VM tem um serviço do Windows de início automático, `FabricHost.exe` que começa a ser executado na inicialização e então inicia dois executáveis: `Fabric.exe` e `FabricGateway.exe`. Esses dois executáveis compõem o nó. Para cenários de desenvolvimento ou teste, você pode hospedar vários nós em um único computador ou VM executando várias instâncias de `Fabric.exe` e `FabricGateway.exe`.
 
@@ -105,7 +105,7 @@ As [Ações](service-fabric-testability-actions.md) destinam-se ao teste de um s
 * [Cenário de failover](service-fabric-testability-scenarios.md#failover-test) – uma versão do cenário de teste de caos que tem como alvo uma partição de serviço específica, deixando outros serviços não afetados.
 
 ## <a name="clusters"></a>Clusters
-Um [cluster Service Fabric](service-fabric-deploy-anywhere.md) é um conjunto de máquinas físicas ou virtuais conectadas à rede em que seus microserviços são implantados e gerenciados. Os clusters podem ser dimensionados para milhares de máquinas. Um computador ou VM que faz parte de um cluster é chamado de nó de cluster. Cada nó recebe um nome de nó (uma cadeia de caracteres). Os nós têm características como propriedades de posicionamento. Cada computador ou VM tem um serviço de início automático, `FabricHost.exe`, que começa a ser executado na inicialização e, em seguida, inicia dois executáveis: Fabric.exe e FabricGateway.exe. Esses dois executáveis compõem o nó. Para cenários de teste, você pode hospedar vários nós em um único computador ou VM, executando várias instâncias do `Fabric.exe` e do `FabricGateway.exe`.
+Um [cluster do Service Fabric](service-fabric-deploy-anywhere.md) é um conjunto de máquinas físicas ou virtuais conectadas em rede, no qual os microsserviços são implantados e gerenciados. Os clusters podem ser dimensionados para milhares de máquinas. Um computador ou VM que faz parte de um cluster é chamado de nó de cluster. Cada nó recebe um nome de nó (uma cadeia de caracteres). Os nós têm características como propriedades de posicionamento. Cada computador ou VM tem um serviço de início automático, `FabricHost.exe`, que começa a ser executado na inicialização e, em seguida, inicia dois executáveis: Fabric.exe e FabricGateway.exe. Esses dois executáveis compõem o nó. Para cenários de teste, você pode hospedar vários nós em um único computador ou VM, executando várias instâncias do `Fabric.exe` e do `FabricGateway.exe`.
 
 Os clusters do Service Fabric podem ser criados em máquinas virtuais ou computadores físicos que executam o Windows Server ou Linux. Você pode implantar e executar aplicativos do Service Fabric em qualquer ambiente em que tenha um conjunto de computadores do Windows Server ou do Linux interconectados: locais, no Microsoft Azure ou em qualquer provedor de nuvem.
 

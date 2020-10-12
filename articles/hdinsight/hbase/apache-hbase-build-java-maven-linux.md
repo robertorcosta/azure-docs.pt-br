@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seodec18, devx-track-java
 ms.date: 12/24/2019
 ms.openlocfilehash: 7cd368df1f2a94c8f49454530e7f5997f2659a32
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87323767"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Compilar aplicativos Java para Apache HBase
@@ -102,7 +102,7 @@ Esta seção indica que o projeto precisa dos componentes **hbase-client** e **p
 
 | Versão do cluster HDInsight | Apache HBase versão a ser usada |
 | --- | --- |
-| 3.6 | 1.1.2 |
+| 3,6 | 1.1.2 |
 | 4,0 | 2.0.0 |
 
 Para saber mais sobre as versões e os componentes do HDInsight, consulte [Quais são os diferentes componentes do Apache Hadoop disponíveis com o HDInsight?](../hdinsight-component-versioning.md).

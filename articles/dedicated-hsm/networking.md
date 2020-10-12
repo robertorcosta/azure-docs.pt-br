@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbaldwin
 ms.openlocfilehash: 3764b261b491c660da16d7989be20742fead1fbf
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91359147"
 ---
 # <a name="azure-dedicated-hsm-networking"></a>Rede HSM Dedicado do Azure
@@ -91,5 +91,5 @@ Para aplicativos distribuídos globalmente ou para cenários de alta disponibili
 - [Capacidade de suporte](supportability.md)
 - [Alta disponibilidade](high-availability.md)
 - [Segurança física](physical-security.md)
-- [Monitoramento](monitoring.md)
+- [Monitoring](monitoring.md)
 - [Arquitetura de implantação](deployment-architecture.md)

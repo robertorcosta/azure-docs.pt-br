@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: jingwang
 ms.openlocfilehash: e32115c590d73f5c93f322d3bd542096f2964a4c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91297599"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Obter atividade de metadados no Azure Data Factory
@@ -44,7 +44,7 @@ A atividade obter metadados usa um conjunto de dados como uma entrada e retorna 
 
 **Armazenamento de arquivos**
 
-| Conector/metadados | itemName<br>(arquivo/pasta) | itemType<br>(arquivo/pasta) | tamanho<br>(arquivo) | criado<br>(arquivo/pasta) | lastModified<br>(arquivo/pasta) |childItems<br>(pasta) |contentMD5<br>(arquivo) | estrutura<br/>(arquivo) | ColumnCount<br>(arquivo) | exists<br>(arquivo/pasta) |
+| Conector/metadados | itemName<br>(arquivo/pasta) | itemType<br>(arquivo/pasta) | size<br>(arquivo) | criado<br>(arquivo/pasta) | lastModified<br>(arquivo/pasta) |childItems<br>(pasta) |contentMD5<br>(arquivo) | estrutura<br/>(arquivo) | ColumnCount<br>(arquivo) | exists<br>(arquivo/pasta) |
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
 | [Amazon S3](connector-amazon-simple-storage-service.md) | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
 | [Google Cloud Storage](connector-google-cloud-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
@@ -80,7 +80,7 @@ Você pode especificar os seguintes tipos de metadados na lista de campos de ati
 |:--- |:--- |
 | itemName | Nome do arquivo ou pasta. |
 | itemType | Tipo do arquivo ou pasta. O valor retornado é `File` ou `Folder` . |
-| tamanho | Tamanho do arquivo, em bytes. Aplicável somente a arquivos. |
+| size | Tamanho do arquivo, em bytes. Aplicável somente a arquivos. |
 | criado | O datetime da última modificação do arquivo ou da pasta. |
 | lastModified | O datetime da última modificação do arquivo ou da pasta. |
 | childItems | Lista de subpastas e arquivos na pasta especificada. Aplicável somente a pastas. Valor retornado é uma lista do nome e do tipo de cada item filho. |

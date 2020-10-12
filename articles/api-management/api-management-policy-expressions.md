@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
 ms.openlocfilehash: 7117ffcbaf4eba8d83a6e968f4fed7422673610b
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87844233"
 ---
 # <a name="api-management-policy-expressions"></a>Expressões de política de Gerenciamento de API
@@ -205,7 +205,7 @@ A tabela a seguir lista os tipos do .NET Framework e seus membros permitidos em 
 |System.Xml.Linq.XText|Todos|
 |System.Xml.XmlNodeType|Todos|
 
-## <a name="context-variable"></a><a name="ContextVariables"></a>Variável de contexto
+## <a name="context-variable"></a><a name="ContextVariables"></a> Variável de contexto
 Uma variável chamada `context` está implicitamente disponível em cada [expressão](api-management-policy-expressions.md#Syntax) de política. Seus membros fornecem informações pertinentes para `\request`. Todos os membros de `context` são somente leitura.
 
 |Variável de contexto|Valores de métodos, propriedades e parâmetros permitidos|

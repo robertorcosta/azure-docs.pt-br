@@ -10,15 +10,15 @@ ms.topic: how-to
 ms.date: 09/11/2020
 ms.author: pafarley
 ms.openlocfilehash: f4d9cc4c02ab062c73e9dbd977d9ea9e6ccdb60d
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90532597"
 ---
 # <a name="integrate-azure-storage-for-notifications-and-backup"></a>Integrar o armazenamento do Azure para notificações e backup
 
-Você pode integrar seu projeto Visão Personalizada com uma fila de armazenamento de BLOBs do Azure para obter notificações por push de atividade de treinamento/exportação do projeto e cópias de backup de modelos publicados. Esse recurso é útil para evitar a sondagem contínua do serviço em busca de resultados quando operações longas estiverem em execução. Em vez disso, você pode integrar as notificações de fila de armazenamento em seu fluxo de trabalho.
+Você pode integrar seu projeto de Visão Personalizada a uma fila de armazenamento de blobs do Azure para receber notificações por push de uma atividade de treinamento/exportação de projetos e cópias de backup de modelos publicados. Esse recurso é útil para evitar a sondagem contínua do serviço em busca de resultados quando operações longas estão em execução. Em vez disso, você pode integrar as notificações de fila de armazenamento ao seu fluxo de trabalho.
 
 Este guia mostra como usar essas APIs REST com a rotação. Você também pode usar um serviço de solicitação HTTP como o postmaster para emitir as solicitações.
 

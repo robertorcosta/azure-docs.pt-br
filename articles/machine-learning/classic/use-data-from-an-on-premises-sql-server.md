@@ -10,15 +10,15 @@ ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/13/2017
 ms.openlocfilehash: 695539e4739002480b3622eb217ef920d4cb34e2
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91357481"
 ---
 # <a name="perform-analytics-with-azure-machine-learning-studio-classic-using-a-sql-server-database"></a>Executar análise com Azure Machine Learning Studio (clássico) usando um banco de dados SQL Server
 
-**aplica-se a:** ![ Aplica-se a. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) não ![ se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**APLICA-SE A:**  ![Aplica-se a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clássico) ![Não se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
 
 
 Muitas vezes, empresas que trabalham com dados locais gostariam de aproveitar a escala e a agilidade da nuvem para sua cargas de trabalho de aprendizado de máquina. Mas elas não querem interromper seus fluxos de trabalho e processos de negócios atuais, movendo seus dados locais para a nuvem. Azure Machine Learning Studio (clássico) agora dá suporte à leitura de seus dados de um banco de SQL Server e, em seguida, ao treinamento e à pontuação de um modelo com esses dados. Você não precisa mais copiar manualmente e sincronizar os dados entre a nuvem e o servidor local. Em vez disso, o módulo **importar dados** no Azure Machine Learning Studio (clássico) agora pode ler diretamente do seu banco de SQL Server para seus trabalhos de treinamento e pontuação.

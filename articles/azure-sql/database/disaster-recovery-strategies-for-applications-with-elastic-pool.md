@@ -12,10 +12,10 @@ ms.author: sashan
 ms.reviewer: sstein
 ms.date: 01/25/2019
 ms.openlocfilehash: 0463d11466859c0f30901a0afd960bdc7b2599a5
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91357772"
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-azure-sql-database-elastic-pools"></a>Estratégias de recuperação de desastre para aplicativos usando pools elásticos do banco de dados SQL do Azure
@@ -186,7 +186,7 @@ Este artigo aborda as estratégias de recuperação de desastres para a camada d
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para saber mais sobre backups automatizados do banco de dados SQL do Azure, consulte [backups automatizados do banco de dados SQL](automated-backups-overview.md)
-* Para obter uma visão geral e cenários de continuidade de negócios, consulte [visão geral da continuidade de negócios](business-continuity-high-availability-disaster-recover-hadr-overview.md)
+* Para obter uma visão geral e os cenários de continuidade dos negócios, consulte [Visão geral da continuidade dos negócios](business-continuity-high-availability-disaster-recover-hadr-overview.md).
 * Para saber mais sobre como usar backups automatizados para recuperação, consulte [restaurar um banco de dados dos backups iniciados pelo serviço](recovery-using-backups.md).
 * Para saber mais sobre opções de recuperação mais rápidas, consulte [Replicação geográfica ativa](active-geo-replication-overview.md) e [Grupos de failover automático](auto-failover-group-overview.md).
 * Para saber mais sobre como usar backups automatizados para arquivamento, confira [Cópia de banco de dados](database-copy.md).

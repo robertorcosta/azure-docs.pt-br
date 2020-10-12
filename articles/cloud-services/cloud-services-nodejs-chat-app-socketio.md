@@ -11,10 +11,10 @@ ms.date: 08/17/2017
 ms.author: tagore
 ms.custom: devx-track-js
 ms.openlocfilehash: a3f661aa31511c5f1cf35d2e3c0429af6ab0c997
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91327520"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Criar um aplicativo de bate-papo Node.js com Socket.IO em um serviço de nuvem do Azure
@@ -29,7 +29,7 @@ Abaixo, uma captura de tela do aplicativo concluído:
 Verifique se os seguintes produtos e versões estão instalados para concluir com êxito o exemplo deste artigo:
 
 * Instalar o [Visual Studio](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx)
-* Instalar [Node.js](https://nodejs.org/download/)
+* Instale o [Node.js](https://nodejs.org/download/)
 * Instale o [Python versão 2.7.10](https://www.python.org/)
 
 ## <a name="create-a-cloud-service-project"></a>Criar um projeto de Serviço de Nuvem

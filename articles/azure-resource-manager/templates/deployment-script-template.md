@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/24/2020
 ms.author: jgao
 ms.openlocfilehash: fb6d1c9e0e2ca545be850af22df15b342cf8d82c
-ms.sourcegitcommit: 0194a29a960e3615f96a2d9d8a7e681cf3e8f9ab
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89667506"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Usar scripts de implantação em modelos (versão prévia)
@@ -325,7 +325,7 @@ O script do usuário, os resultados da execução e o arquivo stdout são armaze
 
 A pasta de saída contém um **executionresult.json** e o arquivo de saída de script. Você pode ver a mensagem de erro de execução do script em **executionresult.json**. O arquivo de saída é criado somente quando o script é executado com êxito. A pasta de entrada contém um arquivo de script do PowerShell do sistema e os arquivos de script da implantação do usuário. Você pode substituir o arquivo de script de implantação do usuário por um revisado e executar novamente o script de implantação da instância de contêiner do Azure.
 
-### <a name="use-the-azure-portal"></a>Use o Portal do Azure
+### <a name="use-the-azure-portal"></a>Usar o portal do Azure
 
 Depois de implantar um recurso de script de implantação, o recurso é listado no grupo de recursos no portal do Azure. A captura de tela a seguir mostra a página de visão geral de um recurso de script de implantação:
 
@@ -344,7 +344,7 @@ Usando Azure PowerShell, você pode gerenciar scripts de implantação na assina
 - [Remove-AzDeploymentScript](/powershell/module/az.resources/remove-azdeploymentscript): Remove um script de implantação e seus recursos associados.
 - [Save-AzDeploymentScriptLog](/powershell/module/az.resources/save-azdeploymentscriptlog): salva o log de uma execução de script de implantação em disco.
 
-A saída Get-AzDeploymentScript é semelhante a:
+A saída de Get-AzDeploymentScript é semelhante a:
 
 ```output
 Name                : runPowerShellInlineWithOutput

@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/16/2020
 ms.author: sedusch
 ms.openlocfilehash: 4494af89ac35a391f7dc6097b14d135a911d99dd
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91359601"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Implantação de Máquinas Virtuais do Azure para SAP NetWeaver
@@ -1057,7 +1057,7 @@ A nova extensão de VM para SAP usa uma identidade gerenciada atribuída à VM p
    az login
    ```
 
-1. Siga as etapas em [Configurar identidades gerenciadas para recursos do Azure em uma VM do Azure usando CLI do Azure][qs-configure-cli-windows-vm] artigo para habilitar uma identidade gerenciada atribuída pelo sistema para a VM. Não há suporte para identidades gerenciadas atribuídas pelo usuário pela extensão de VM para SAP. No entanto, você pode habilitar tanto uma identidade atribuída pelo sistema quanto uma de usuário.
+1. Siga as etapas em [Configurar identidades gerenciadas para recursos do Azure em uma VM do Azure usando CLI do Azure][qs-configure-cli-windows-vm] artigo para habilitar uma identidade de System-Assigned gerenciada para a VM. User-Assigned identidades gerenciadas não são suportadas pela extensão de VM para SAP. No entanto, você pode habilitar tanto uma identidade atribuída pelo sistema quanto uma de usuário.
 
    Exemplo:
    ```azurecli

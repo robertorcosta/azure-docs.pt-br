@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 50e202d26574c0fc8adfeb7f73eb150ebb1781af
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89663599"
 ---
 # <a name="troubleshoot-self-service-password-reset-writeback-in-azure-active-directory"></a>Solucionar problemas de write-back de redefinição de senha Azure Active Directory de autoatendimento
@@ -104,29 +104,29 @@ Azure AD Connect requer AD DS permissão de **redefinição de senha** para exec
 1. Faça o logon no servidor do Azure AD Connect e inicie o **Synchronization Service Manager** selecionando **Iniciar** > **Serviço de Sincronização**.
 1. Na guia **Conectores**, selecione o conector do **Active Directory Domain Services** local e selecione **Propriedades**.
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/synchronization-service-manager.png" alt-text="Synchronization Service Manager mostrando como editar propriedades" border="false":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/synchronization-service-manager.png" alt-text="Reiniciar o serviço Azure AD Sync usando a GUI" border="false":::
   
 1. Na janela pop-up, selecione **Conectar-se à Floresta do Active Directory** e anote a propriedade **User name**. Essa propriedade é a conta de AD DS usada pelo Azure AD Connect para executar a sincronização de diretório.
 
     Para que o Azure AD Connect execute o write-back de senha, a conta do AD DS deve ter permissão para redefinir senha. Você verifica as permissões nessa conta de usuário nas etapas a seguir.
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/synchronization-service-manager-properties.png" alt-text="Localizar a conta de usuário do Active Directory do serviço de sincronização" border="false":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/synchronization-service-manager-properties.png" alt-text="Reiniciar o serviço Azure AD Sync usando a GUI" border="false":::
   
 1. Entre em um controlador de domínio local e inicie o aplicativo **Usuários e Computadores do Active Directory**.
 1. Selecione **Exibir** e verifique se a opção **Recursos Avançados** está habilitada.  
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-advanced-features.png" alt-text="Computadores e usuários do Active Directory mostram recursos avançados" border="false":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-advanced-features.png" alt-text="Reiniciar o serviço Azure AD Sync usando a GUI" border="false":::
   
 1. Procure a conta de usuário AD DS que você deseja verificar. Clique com o botão direito do mouse na conta e selecione **Propriedades**.  
 1. Na janela pop-up, vá para a guia **Segurança** e selecione **Avançado**.  
 1. Na janela **Configurações de segurança Avançadas para o Administrador**, vá para a guia **Acesso Efetivo**.
 1. Escolha **selecionar um usuário**, selecione a conta de AD DS usada pelo Azure ad Connect e, em seguida, selecione **exibir acesso efetivo**.
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-effective-access.png" alt-text="Guia Acesso Efetivo mostrando a conta de sincronização" border="false":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-effective-access.png" alt-text="Reiniciar o serviço Azure AD Sync usando a GUI" border="false":::
   
 1. Role para baixo e procure **Redefinir senha**. Se a entrada tem uma marca de seleção, a conta do AD DS tem permissão para redefinir a senha da conta de usuário do Active Directory selecionada.  
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/check-permissions.png" alt-text="Verificar se a conta de sincronização tem a permissão Redefinir senha" border="false":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/check-permissions.png" alt-text="Reiniciar o serviço Azure AD Sync usando a GUI" border="false":::
 
 ## <a name="common-password-writeback-errors"></a>Erros comuns de write-back de senha
 
@@ -217,7 +217,7 @@ Para uma assistência adequada, solicitamos que você forneça o máximo de deta
 * **Código de suporte**: Qual foi o código de suporte gerado quando o usuário viu o erro?
    * Para encontrar o código, reproduza o erro, selecione o link **Código de Suporte** na parte inferior da tela e envie o GUID resultante ao engenheiro de suporte.
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-support-code.png" alt-text="O código de suporte está localizado na parte inferior direita da janela do navegador da Web.":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-support-code.png" alt-text="Reiniciar o serviço Azure AD Sync usando a GUI":::
 
   * Se você estiver em uma página sem um código de suporte na parte inferior, selecione F12 para o SID e o CID e envie esses dois resultados para o engenheiro de suporte.
 * **Data, hora e fuso horário**: Inclua a data e a hora exatas *com o fuso horário* em que ocorreu o erro.

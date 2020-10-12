@@ -11,10 +11,10 @@ ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
 ms.openlocfilehash: ee55e0a66a0487291233713498f6eb541980dbba
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90004265"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Migração de tráfego do banco de dados SQL do Azure para gateways mais recentes
@@ -95,7 +95,7 @@ Esses gateways do SQL devem começar a aceitar o tráfego do cliente em 10 de ag
 - Norte da Europa
 - Centro-Norte dos EUA
 - Oeste do Japão
-- Leste do Japão
+- Japan East
 - Leste dos EUA 2
 - Leste da Ásia
 
