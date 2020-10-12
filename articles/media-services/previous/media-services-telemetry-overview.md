@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 0701e9c6428283d45cf4b4a2e24c8de99d9a286b
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89265891"
 ---
 # <a name="azure-media-services-telemetry"></a>Telemetria dos Serviços de Mídia do Azure  
@@ -79,8 +79,8 @@ Propriedade|Valor|Exemplos/notas
 ---|---|---
 PartitionKey|{account ID}_{entity ID}|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66<br/<br/>A ID da conta está incluída na chave de partição para simplificar os fluxos de trabalho nos quais várias contas dos Serviços de Mídia gravam na mesma conta de armazenamento.
 RowKey|{seconds to midnight}_{random value}|01688_00199<br/><br/>A chave de linha começa com o número de segundos para meia-noite a fim de permitir n consultas de estilo superior dentro de uma partição. Para saber mais, confira [este artigo](../../cosmos-db/table-storage-design-guide.md#log-tail-pattern). 
-Timestamp|Data/hora|Carimbo de hora automática da tabela do Azure 2016-09-09T22:43:42.241Z
-Tipo|O tipo de entidade que fornece dados de telemetria|Channel/StreamingEndpoint/Archive<br/><br/>Tipo de evento é apenas um valor de cadeia de caracteres.
+Timestamp|Data/Hora|Carimbo de hora automática da tabela do Azure 2016-09-09T22:43:42.241Z
+Type|O tipo de entidade que fornece dados de telemetria|Channel/StreamingEndpoint/Archive<br/><br/>Tipo de evento é apenas um valor de cadeia de caracteres.
 Nome|O nome do evento de telemetria|ChannelHeartbeat/StreamingEndpointRequestLog
 ObservedTime|A hora na qual o evento de telemetria ocorreu (UTC)|2016-09-09T22:42:36.924Z<br/><br/>A hora observada é fornecida pela entidade que envia a telemetria (por exemplo, um canal). Pode haver problemas de sincronização de hora entre os componentes para que esse valor seja aproximado
 ServiceID|{service ID}|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
@@ -101,7 +101,7 @@ Propriedade|Valor|Exemplos
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
 Timestamp|Timestamp|Carimbo de hora automática da Tabela do Azure 2016-09-09T22:43:42.241Z
-Tipo|Tipo|StreamingEndpoint
+Type|Type|StreamingEndpoint
 Nome|Nome|StreamingEndpointRequestLog
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
 ServiceID|ID do Serviço|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
@@ -120,7 +120,7 @@ Propriedade|Valor|Exemplos/notas
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
 Timestamp|Timestamp|Carimbo de hora automática da tabela do Azure 2016-09-09T22:43:42.241Z
-Tipo|Tipo|Canal
+Type|Type|Canal
 Nome|Nome|ChannelHeartbeat
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
 ServiceID|ID do Serviço|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
@@ -133,10 +133,10 @@ OverlapCount|Sobreposição na ingestão|0
 DiscontinuityCount|Descontinuidade para controle|0
 LastTimestamp|Carimbo de hora dos últimos dados ingeridos|1800488800
 NonincreasingCount|Contagem de fragmentos descartados devido a um carimbo de data e hora estático|2
-UnalignedKeyFrames|Se recebemos fragmentos (em níveis de qualidade) quando os quadros-chave não estão alinhados |Verdadeiro
-UnalignedPresentationTime|Se recebemos fragmentos (em níveis/controle de qualidade) quando o tempo de apresentação não estiver alinhado|Verdadeiro
-UnexpectedBitrate|True, se a taxa de bits calculada/real para controle de áudio/vídeo for maior do que 40.000 bps, e IncomingBitrate == 0 OU IncomingBitrate e actualBitrate diferirem em 50% |Verdadeiro
-Íntegros|True, se <br/>overlapCount, <br/>DiscontinuityCount, <br/>NonIncreasingCount, <br/>UnalignedKeyFrames, <br/>UnalignedPresentationTime, <br/>UnexpectedBitrate<br/> são todos 0|Verdadeiro<br/><br/>Healthy é uma função composta que retorna falso quando qualquer uma das seguintes condições contiverem:<br/><br/>- OverlapCount > 0<br/>- DiscontinuityCount > 0<br/>- NonincreasingCount > 0<br/>- UnalignedKeyFrames == True<br/>- UnalignedPresentationTime == True<br/>- UnexpectedBitrate == True
+UnalignedKeyFrames|Se recebemos fragmentos (em níveis de qualidade) quando os quadros-chave não estão alinhados |True
+UnalignedPresentationTime|Se recebemos fragmentos (em níveis/controle de qualidade) quando o tempo de apresentação não estiver alinhado|True
+UnexpectedBitrate|True, se a taxa de bits calculada/real para controle de áudio/vídeo for maior do que 40.000 bps, e IncomingBitrate == 0 OU IncomingBitrate e actualBitrate diferirem em 50% |True
+Íntegros|True, se <br/>overlapCount, <br/>DiscontinuityCount, <br/>NonIncreasingCount, <br/>UnalignedKeyFrames, <br/>UnalignedPresentationTime, <br/>UnexpectedBitrate<br/> são todos 0|True<br/><br/>Healthy é uma função composta que retorna falso quando qualquer uma das seguintes condições contiverem:<br/><br/>- OverlapCount > 0<br/>- DiscontinuityCount > 0<br/>- NonincreasingCount > 0<br/>- UnalignedKeyFrames == True<br/>- UnalignedPresentationTime == True<br/>- UnexpectedBitrate == True
 
 **Arquivamento dinâmico**
 
@@ -145,7 +145,7 @@ Propriedade|Valor|Exemplos/notas
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
 Timestamp|Timestamp|Carimbo de hora automática da tabela do Azure 2016-09-09T22:43:42.241Z
-Tipo|Tipo|Archive
+Type|Type|Archive
 Nome|Nome|ArchiveHeartbeat
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
 ServiceID|ID do Serviço|f70bd731-691d-41c6-8f2d-671d0bdc9c7e

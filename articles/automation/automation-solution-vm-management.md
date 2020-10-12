@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 09/22/2020
 ms.topic: conceptual
 ms.openlocfilehash: 236b4f47894db8aa8880b7535b6ee0921802a31c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91317354"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>Visão geral do recurso Iniciar/Parar VMs fora do horário comercial
@@ -78,7 +78,7 @@ Para habilitar as VMs para o recurso Iniciar/Parar VMs fora do horário comercia
 
 Você pode habilitar VMs para o recurso Iniciar/Parar VMs fora do horário comercial usando uma nova conta de Automação e um novo workspace do Log Analytics. Nesse caso, você precisa das permissões definidas na seção anterior, bem como das permissões definidas nesta seção. Você também precisa das seguintes funções:
 
-- Coadministrador na assinatura. Essa função é necessária para criar a conta Executar como clássica se você pretende gerenciar VMs clássicas. [Contas Executar como clássicas](automation-create-standalone-account.md#create-a-classic-run-as-account) não são mais criadas por padrão.
+- Co-Administrator na assinatura. Essa função é necessária para criar a conta Executar como clássica se você pretende gerenciar VMs clássicas. [Contas Executar como clássicas](automation-create-standalone-account.md#create-a-classic-run-as-account) não são mais criadas por padrão.
 - Associação na função de Desenvolvedor de Aplicativo do [Azure AD](../active-directory/users-groups-roles/directory-assign-admin-roles.md). Para obter mais informações sobre contas Executar como, confira [Permissões para configurar contas Executar como](manage-runas-account.md#permissions).
 - Colaborador na assinatura ou as permissões a seguir.
 

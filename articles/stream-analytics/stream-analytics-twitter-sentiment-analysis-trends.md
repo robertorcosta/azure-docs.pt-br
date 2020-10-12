@@ -9,10 +9,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 02/10/2020
 ms.openlocfilehash: 5569e7e3a33c4f1bbbd3214e742b0cb889c65e31
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86040768"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Análise de sentimento do Twitter em tempo real no Stream Analytics do Azure
@@ -159,7 +159,7 @@ Agora que os eventos de Tweets estão sendo transmitidos em tempo real do Twitte
    |**Configuração**  |**Valor sugerido**  |**Descrição**  |
    |---------|---------|---------|
    |Alias de entrada| *TwitterStream* | Especifique um alias para a entrada. |
-   |Subscription  | \<Your subscription\> |  Selecione a assinatura do Azure que você deseja usar. |
+   |Subscription  | \<Your subscription\> |  Selecione a assinatura do Azure que deseja usar. |
    |Namespace do Hub de Eventos | *asa-Twitter-eventhub* |
    |Nome do Hub de Eventos | *socialtwitter-eh* | Escolha *Usar existente*. Em seguida, selecione o Hub de Eventos que você acabou de criar.|
    |Tipo de compactação do evento| GZip | O tipo de compactação de dados.|

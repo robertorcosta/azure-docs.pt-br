@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: a541e1b068ec3667120bbb31e65ca7bc35febadb
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89265908"
 ---
 # <a name="streaming-endpoints-overview"></a>Visão geral dos pontos de extremidade de streaming  
@@ -52,9 +52,9 @@ Para pontos de extremidade adicionais: `{EndpointName}-{AccountName}.streaming.m
 A partir da versão de janeiro de 2017 dos serviços de mídia, você tem dois tipos de streaming: **Standard** (visualização) e **Premium**. Esses tipos fazem parte da versão do ponto de extremidade de streaming “2.0”.
 
 
-|Tipo|Descrição|
+|Type|Descrição|
 |--------|--------|  
-|**Standard**|O ponto de extremidade de streaming padrão é um tipo **padrão** , pode ser alterado para o tipo Premium, ajustando as unidades de streaming.|
+|**Padrão**|O ponto de extremidade de streaming padrão é um tipo **padrão** , pode ser alterado para o tipo Premium, ajustando as unidades de streaming.|
 |**Premium** |Esta opção é adequada para cenários profissionais que exigem maior escala ou controle. Você passa para um tipo **Premium** ajustando unidades de streaming.<br/>Os pontos de extremidade de streaming dedicados residem em um ambiente isolado e não conpetem por recursos.|
 
 Para clientes que procuram fornecer conteúdo a grandes públicos da Internet, recomendamos que você habilite a CDN no ponto de extremidade de streaming.
@@ -77,11 +77,11 @@ Se seu ponto de extremidade de streaming **versão “1.0”** tiver >=1 SU (uni
 
 ### <a name="versions"></a>Versões
 
-|Tipo|StreamingEndpointVersion|ScaleUnits|CDN|Cobrança|
+|Type|StreamingEndpointVersion|ScaleUnits|CDN|Cobrança|
 |--------------|----------|-----------------|-----------------|-----------------|
-|Clássico|1.0|0|NA|Gratuita|
+|Clássico|1,0|0|NA|Grátis|
 |Ponto de extremidade de streaming padrão (visualização)|2,0|0|Sim|Pago|
-|Unidades de Streaming Premium|1.0|>0|Sim|Pago|
+|Unidades de Streaming Premium|1,0|>0|Sim|Pago|
 |Unidades de Streaming Premium|2,0|>0|Sim|Pago|
 
 ### <a name="features"></a>Recursos

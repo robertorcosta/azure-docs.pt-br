@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 06/19/2020
 ms.openlocfilehash: bd3b77f80a414dd3db1d5106929fa0e215e34c1f
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88121860"
 ---
 # <a name="what-is-a-test-drive"></a>O que é um test drive?
@@ -24,7 +24,7 @@ Como Publicador, você gerencia e define as configurações de test drive no Par
 
 Os clientes potenciais detectam seu test drive no mercado comercial. Eles fornecem suas informações de contato e concordam com os termos e a política de privacidade da sua oferta e, em seguida, acessam seu ambiente pré-configurado para testá-lo por um período de tempo fixo. Os clientes recebem uma avaliação prática e Autoguiada dos principais recursos e benefícios do seu produto e você recebe um líder valioso.
 
-## <a name="how-does-it-work"></a>Como ela funciona?
+## <a name="how-does-it-work"></a>Como ele funciona?
 
 Como Publicador, você gerencia e define as configurações de test drive no Partner Center. Após a instalação, ele se torna uma instância gerenciada que será implantada sob demanda para o cliente que a solicita. Depois que uma instância de test drive for atribuída, ela estará disponível para uso por um determinado período de tempo e, em seguida, excluída para criar espaço para outro cliente.
 

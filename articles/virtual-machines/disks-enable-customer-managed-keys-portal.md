@@ -8,10 +8,10 @@ ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
 ms.openlocfilehash: 1b40eef0a4cae8fa68631426ff72003db43d7530
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88817311"
 ---
 # <a name="use-the-azure-portal-to-enable-server-side-encryption-with-customer-managed-keys-for-managed-disks"></a>Usar o portal do Azure para habilitar a criptografia do lado do servidor com chaves gerenciadas pelo cliente para discos gerenciados
@@ -72,7 +72,7 @@ O processo de implantação de VM é semelhante ao processo de implantação pad
     ![Captura de tela de sua VM de exemplo, com a folha discos aberta. O disco do sistema operacional é realçado, como um disco de exemplo para você selecionar.](media/virtual-machines-disk-encryption-portal/server-side-encryption-existing-disk-select.png)
 
 1. Selecione **criptografia** e selecione **criptografia em repouso com uma chave gerenciada pelo cliente** e, em seguida, selecione o conjunto de criptografia de disco na lista suspensa.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
     ![Captura de tela do seu exemplo de disco do so. A folha criptografia está aberta, a criptografia em repouso com uma chave gerenciada pelo cliente é selecionada, bem como seu Azure Key Vault de exemplo. Depois de fazer essas seleções, o botão salvar é selecionado.](media/virtual-machines-disk-encryption-portal/server-side-encryption-encrypt-existing-disk-customer-managed-key.png)
 

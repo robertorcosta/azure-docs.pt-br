@@ -4,10 +4,10 @@ description: Saiba como fazer backup do estado do sistema de computadores Window
 ms.topic: conceptual
 ms.date: 05/23/2018
 ms.openlocfilehash: 1b3573d757d2f7b1ffec9ae718aa791488960f3b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91332875"
 ---
 # <a name="back-up-windows-system-state-to-azure"></a>Fazer backup de estado do sistema para o Windows Azure
@@ -86,7 +86,7 @@ Agora que você criou um cofre, configure-o para fazer backup do Estado do Siste
 
     ![baixar as credenciais do cofre](./media/backup-try-azure-backup-in-10-mins/download-vault-credentials.png)
 
-    As credenciais do cofre são baixadas para a pasta **downloads** . Depois que as credenciais do cofre terminarem de baixar, você verá um pop-up perguntando se deseja abrir ou salvar as credenciais. Clique em **Salvar**. Se você selecionar acidentalmente **abrir**, permita que a caixa de diálogo que tenta abrir as credenciais do cofre falhe. Você não poderá abrir as credenciais do cofre. Prossiga para a próxima etapa. As credenciais do cofre estão na pasta **downloads** .
+    As credenciais do cofre são baixadas para a pasta **downloads** . Depois que as credenciais do cofre terminarem de baixar, você verá um pop-up perguntando se deseja abrir ou salvar as credenciais. Selecione **Salvar**. Se você selecionar acidentalmente **abrir**, permita que a caixa de diálogo que tenta abrir as credenciais do cofre falhe. Você não poderá abrir as credenciais do cofre. Prossiga para a próxima etapa. As credenciais do cofre estão na pasta **downloads** .
 
     ![o download das credenciais do cofre foi concluído](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
    > [!NOTE]

@@ -17,10 +17,10 @@ ms.date: 08/04/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3a6d3d4c791cebdee02d7d2c739be3b32b8086ec
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87760882"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Instalar alta disponibilidade do SAP NetWeaver em um cluster de failover do Windows e compartilhamento de arquivos para instâncias ASCS/SCS do SAP no Azure
@@ -317,7 +317,7 @@ Instale uma instância do SAP ASCS/SCS no segundo nó do cluster. Para instalar 
 Atualize os parâmetros no perfil de instância do SAP ASCS/SCS \<SID> _ASCS \<Nr> /SCS_ \<Host> .
 
 
-| Nome do parâmetro | Valor de parâmetro |
+| Nome do parâmetro | Valor do parâmetro |
 | --- | --- |
 | gw/netstat_once | **0** |
 | enque/encni/set_so_keepalive  | **true** |

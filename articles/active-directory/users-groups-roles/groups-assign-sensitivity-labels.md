@@ -15,10 +15,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3179bb294678ee030218e67dafa1c69dcf5d77a0
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90056261"
 ---
 # <a name="assign-sensitivity-labels-to-microsoft-365-groups-in-azure-active-directory"></a>Atribuir rótulos de sensibilidade a grupos de Microsoft 365 no Azure Active Directory
@@ -114,7 +114,7 @@ A opção de rótulo de sensibilidade só é exibida para grupos quando todas as
 
 1. Os rótulos são publicados no centro de conformidade Microsoft 365 para esta organização do Azure AD.
 1. O recurso está habilitado, EnableMIPLabels é definido como true no do módulo do PowerShell do Azure AD.
-1. Os rótulos são sincronizados com o Azure AD com o cmdlet execute-AzureAdLabelSync no módulo Security & Compliance PowerShell.
+1. Os rótulos são sincronizados com o Azure AD com o cmdlet Execute-AzureAdLabelSync no módulo Security & Compliance PowerShell.
 1. O grupo é um grupo de Microsoft 365.
 1. A organização tem uma licença do Active Azure Active Directory Premium P1.
 1. O usuário conectado atual tem privilégios suficientes para atribuir rótulos. O usuário deve ser um administrador global, administrador de grupo ou o proprietário do grupo.
@@ -136,7 +136,7 @@ Os rótulos podem ser trocados a qualquer momento usando as mesmas etapas que at
 1. Selecione **Grupos**.
 1. Na página **todos os grupos** , selecione o grupo que você deseja rotular.
 1. Na página do grupo selecionado, selecione **Propriedades** e selecione um novo rótulo de sensibilidade na lista.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 ### <a name="group-setting-changes-to-published-labels-are-not-updated-on-the-groups"></a>As alterações de configuração de grupo em rótulos publicados não são atualizadas nos grupos
 

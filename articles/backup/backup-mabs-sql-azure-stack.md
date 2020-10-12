@@ -4,10 +4,10 @@ description: Neste artigo, saiba como configurar o servidor de Backup do Microso
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.openlocfilehash: 80de7913b010fca69c3703e423109f2ede653590
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91332807"
 ---
 # <a name="back-up-sql-server-on-azure-stack"></a>Fazer backup do SQL Server no Azure Stack
@@ -76,7 +76,7 @@ O gerenciamento de backup do banco de dados SQL Server no Azure e a recuperaçã
 
     ![Método de proteção de dados – disco de curto prazo e Azure Online](./media/backup-azure-backup-sql/pg-name.png)
 
-6. Na tela **especificar objetivos de curto prazo** , inclua as entradas necessárias para criar pontos de backup no disco e selecione **Avançar**.
+6. Na tela **especificar metas de Short-Term** , inclua as entradas necessárias para criar pontos de backup em disco e selecione **Avançar**.
 
     No exemplo, o **Intervalo de retenção** é de **5 dias**, a **Frequência de sincronização** é de uma vez a cada **15 minutos**, que é a frequência de backup. **Backup Completo Expresso** é definido como **20h**.
 

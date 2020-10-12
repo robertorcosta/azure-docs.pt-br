@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 08/04/2020
 ms.author: radeltch
 ms.openlocfilehash: 6d61bd2c45cc1ba9cd9494750b793d7321288224
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87797739"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configuração do Pacemaker no SUSE Linux Enterprise Server no Azure
@@ -419,7 +419,7 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    </code></pre>
 
    >[!IMPORTANT]
-   > A versão instalada do limite do pacote **-agentes** deve ser pelo menos **4.4.0** para se beneficiar dos tempos de failover mais rápidos com o agente de isolamento do Azure, se um nó de cluster precisar ser degradedo. Recomendamos que você atualize o pacote, se estiver executando uma versão inferior.  
+   > A versão instalada do limite do pacote **-agentes** deve ser pelo menos **4.4.0**  para se beneficiar dos tempos de failover mais rápidos com o agente de isolamento do Azure, se um nó de cluster precisar ser degradedo. Recomendamos que você atualize o pacote, se estiver executando uma versão inferior.  
 
 
 1. **[A]** instalar o SDK do Python do Azure 

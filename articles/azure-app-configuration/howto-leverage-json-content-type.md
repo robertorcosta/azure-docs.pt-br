@@ -1,5 +1,5 @@
 ---
-title: Usar tipo de conteúdo JSON para valores de chave
+title: Usar o tipo de conteúdo JSON para pares chave-valor
 titleSuffix: Azure App Configuration
 description: Saiba como usar o tipo de conteúdo JSON para valores de chave
 services: azure-app-configuration
@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 08/03/2020
 ms.author: avgupta
 ms.openlocfilehash: 725beb50e55852e35ee4434539ff158f082059df
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88121977"
 ---
 # <a name="leverage-content-type-to-store-json-key-values-in-app-configuration"></a>Aproveitar o tipo de conteúdo para armazenar valores de chave JSON na configuração do aplicativo
@@ -47,7 +47,7 @@ Alguns exemplos de valores JSON válidos são:
 - "John Doe"
 - 723
 - false
-- nulo
+- null
 - "2020-01-01T12:34:56.789 Z"
 - [1, 2, 3, 4]
 - {"Objectsetting": {"direcionamento": {"default": true, "Level": "Information"}}}
@@ -55,7 +55,7 @@ Alguns exemplos de valores JSON válidos são:
 > [!NOTE]
 > Para o restante deste artigo, qualquer valor de chave na configuração de aplicativo que tenha um tipo de conteúdo JSON válido e um valor JSON válido será referido como **chave-valor JSON**. 
 
-Neste tutorial, você aprenderá a:
+Neste tutorial, você aprenderá como:
 > [!div class="checklist"]
 > * Criar valores de chave JSON na configuração do aplicativo.
 > * Importar valores de chave JSON de um arquivo JSON.
@@ -89,7 +89,7 @@ Navegue até o repositório de configuração do aplicativo e selecione **Config
 | Configurações: BackgroundColor | Amarela | aplicativo/json |
 | Configurações: FontSize | 24 | aplicativo/json |
 | Configurações: UseDefaultRouting | false | aplicativo/json |
-| Configurações: BlockedUsers | nulo | aplicativo/json |
+| Configurações: BlockedUsers | null | aplicativo/json |
 | Configurações: liberadas | "2020-08-04T12:34:56.789 Z" | aplicativo/json |
 | Configurações: RolloutPercentage | [25, 50, 75100] | aplicativo/json |
 | Configurações: registro em log | {"Test": {"Level": "debug"}, "Prod": {"nível": "Warning"}} | aplicativo/json |

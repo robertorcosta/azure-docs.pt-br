@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/03/2020
 ms.openlocfilehash: 07cbb28b98fcbac1932424c1c72f388813ec2400
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86037555"
 ---
 # <a name="autoscale-stream-analytics-jobs-using-azure-automation"></a>Autoescala Stream Analytics trabalhos usando a automação do Azure
@@ -29,7 +29,7 @@ Antes de começar a configurar o dimensionamento automático para seu trabalho, 
 ### <a name="configure-variables"></a>Configurar variáveis
 Adicione as seguintes variáveis dentro da conta de automação do Azure. Essas variáveis serão usadas nos runbooks descritos nas próximas etapas.
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | --- | --- | --- |
 | **jobName** | String | Nome do seu trabalho de Stream Analytics que você deseja fazer o dimensionamento automático. |
 | **resourceGroupName** | String | Nome do grupo de recursos no qual seu trabalho está presente. |
@@ -43,7 +43,7 @@ Adicione as seguintes variáveis dentro da conta de automação do Azure. Essas 
 
 ### <a name="create-runbooks"></a>Criar runbooks
 A próxima etapa é criar dois runbooks do PowerShell. Um para escalar verticalmente e outro para operações de redução vertical.
-1. Em sua conta de automação do Azure, vá para **Runbooks** em **automação de processo** e selecione **criar runbook**.
+1. Em sua conta de automação do Azure, vá para **Runbooks** em **automação de processo**  e selecione **criar runbook**.
 2. Nomeie o primeiro runbook *ScaleUpRunbook* com o tipo definido como PowerShell. Use o [script do PowerShell do ScaleUpRunbook](https://github.com/Azure/azure-stream-analytics/blob/master/Autoscale/ScaleUpRunbook.ps1) disponível no github. Salve e publique-o.
 3. Crie outro runbook chamado *ScaleDownRunbook* com o tipo PowerShell. Use o [script do PowerShell do ScaleDownRunbook](https://github.com/Azure/azure-stream-analytics/blob/master/Autoscale/ScaleDownRunbook.ps1) disponível no github. Salve e publique-o.
 

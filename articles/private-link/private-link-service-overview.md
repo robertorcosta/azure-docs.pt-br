@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: sumi
 ms.openlocfilehash: a6bbb2abe24eba96fd2c55b7aaf15ccd8ae33530
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87760933"
 ---
 # <a name="what-is-azure-private-link-service"></a>O que é o serviço de vínculo privado do Azure?
@@ -91,7 +91,7 @@ O alias é composto por três partes: *prefixo*. *GUID*. *Sufixo*
 - O GUID será fornecido pela plataforma. Isso ajuda a tornar o nome globalmente exclusivo. 
 - O sufixo é acrescentado pelo Azure: *Region*. Azure. privatelinkservice 
 
-Alias completo: *prefixo*. {GUID}. *Region*. Azure. privatelinkservice  
+Alias completo:  *prefixo*. {GUID}. *Region*. Azure. privatelinkservice  
 
 ## <a name="control-service-exposure"></a>Controlar a exposição do serviço
 
