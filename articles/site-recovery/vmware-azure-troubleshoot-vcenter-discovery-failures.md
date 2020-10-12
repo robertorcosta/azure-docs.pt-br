@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/29/2019
 ms.author: mayg
 ms.openlocfilehash: d333972ea5f74d1676e5e4b4e1417c6bf5d87b79
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86135349"
 ---
 # <a name="troubleshoot-vcenter-server-discovery-failures"></a>Solucionar problemas vCenter Server falhas de descoberta
@@ -20,7 +20,7 @@ Este artigo ajuda você a solucionar problemas que ocorrem devido a falhas de de
 
 ## <a name="non-numeric-values-in-the-maxsnapshots-property"></a>Valores não numéricos na propriedade maxSnapShots
 
-Nas versões anteriores à 9,20, o vCenter se desconecta quando recupera um valor não numérico para a `snapshot.maxSnapShots` Propriedade Property em uma VM.
+Nas versões anteriores à 9,20, o vCenter se desconecta quando recupera um valor não numérico para a  `snapshot.maxSnapShots` Propriedade Property em uma VM.
 
 Esse problema é identificado pela ID de erro 95126.
 
@@ -32,7 +32,7 @@ System.FormatException: Input string was not in a correct format.
     at VMware.VSphere.Management.InfraContracts.VirtualMachineInfo.get_MaxSnapshots()
 ```
 
-Como resolver o problema:
+Para resolver o problema:
 
 - Identifique a VM e defina o valor como um valor numérico (configurações de edição de VM no vCenter).
 
@@ -52,7 +52,7 @@ As seguintes situações ocorrem quando esse problema é encontrado:
 - O servidor do vCenter \<vCenter> não está acessível devido ao erro: o servidor remoto retornou um erro: não é possível conectar-se ao servidor remoto.
 - Não é possível conectar-se ao servidor vCenter/ESXi.
 
-Como resolver o problema:
+Para resolver o problema:
 
 Baixe a [ferramenta PsExec](https://aka.ms/PsExec). 
 

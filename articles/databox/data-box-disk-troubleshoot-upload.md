@@ -10,10 +10,10 @@ ms.topic: troubleshooting
 ms.date: 06/17/2019
 ms.author: alkohli
 ms.openlocfilehash: 7225b04908753bb7c07ac89510859bac9db5b89c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85565025"
 ---
 # <a name="understand-logs-to-troubleshoot-data-upload-issues-in-azure-data-box-disk"></a>Entenda os logs para solucionar problemas de carregamento de dados no Disco do Azure Data Box
@@ -30,7 +30,7 @@ O log detalhado contém informações completas sobre o status da operação de 
 
 O log de erros tem a mesma estrutura que o log detalhado, mas filtra as operações bem-sucedidas.
 
-## <a name="download-logs"></a>baixar logs
+## <a name="download-logs"></a>Baixar logs
 
 Execute as etapas a seguir para localizar os logs de carregamento.
 

@@ -7,10 +7,10 @@ ms.date: 09/04/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 7c4bda1ecf28e964db6ba672157790114affe650
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89462217"
 ---
 # <a name="customize-remote-desktop-protocol-rdp-properties-for-a-host-pool"></a>Personalizar as propriedades de protocolo RDP (RDP) para um pool de hosts
@@ -28,7 +28,7 @@ Os arquivos RDP têm as seguintes propriedades por padrão:
 
 |Propriedade RDP|Na área de trabalho|Como um RemoteApp|
 |---|---|---|
-|Modo de vários monitores|habilitado|N/D|
+|Modo de vários monitores|Habilitada|N/D|
 |Redirecionamentos de unidade habilitados|Unidades, área de transferência, impressoras, portas COM, dispositivos USB e cartões inteligentes|Unidades, área de transferência e impressoras|
 |Modo de áudio remoto|Reproduzir localmente|Reproduzir localmente|
 
