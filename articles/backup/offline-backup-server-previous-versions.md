@@ -4,10 +4,10 @@ description: Com o backup do Azure, você pode enviar dados da rede usando o ser
 ms.topic: conceptual
 ms.date: 06/08/2020
 ms.openlocfilehash: b747fd3c682dc1caf7312ba7279470a1e6b38bd5
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88890086"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-previous-versions"></a>Fluxo de trabalho de backup offline para o DPM e o Servidor de Backup do Azure (versões anteriores)
@@ -99,8 +99,8 @@ Verifique se os pré-requisitos a seguir foram atendidos antes de iniciar o flux
 
 Siga estas etapas para carregar manualmente o certificado de backup offline para um aplicativo de Azure Active Directory criado anteriormente destinado ao backup offline.
 
-1. Entre no Portal do Azure.
-1. Vá para **Azure Active Directory**  >  **registros de aplicativo**.
+1. Entre no portal do Azure.
+1. Acesse **Azure Active Directory** > **Registros de aplicativo**.
 1. Na guia **aplicativos de propriedade** , localize um aplicativo com o formato de nome de exibição `AzureOfflineBackup _<Azure User Id` .
 
     ![Guia Localizar aplicativo em aplicativos de propriedade](./media/offline-backup-dpm-mabs-previous-versions/owned-applications.png)
@@ -115,7 +115,7 @@ Siga estas etapas para carregar manualmente o certificado de backup offline para
     ![Carregar o certificado](./media/offline-backup-dpm-mabs-previous-versions/upload-certificate.png)
 
 1. No servidor, abra o registro digitando **regedit** na janela Executar.
-1. Vá para o computador de entrada do registro *\ HKEY_LOCAL_MACHINE \Software\microsoft\windows Azure Backup\Config\CloudBackupProvider*.
+1. Acesse a entrada do registro *Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider*.
 1. Clique com o botão direito do mouse em **CloudBackupProvider**e adicione um novo valor de cadeia de caracteres com o nome `AzureADAppCertThumbprint_<Azure User Id>` .
 
     >[!NOTE]

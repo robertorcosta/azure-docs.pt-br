@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 07/27/2020
 ms.openlocfilehash: 252ea54cf6be9dd381648d67e56a7a5ff2c7acc6
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91542281"
 ---
 # <a name="execute-r-script-module"></a>Executar módulo de script R
@@ -418,7 +418,7 @@ Os seguintes pacotes de R pré-instalados estão disponíveis no momento:
 | iterators    | 1.0.10     | 
 | jsonlite     | 1.6        | 
 | KernSmooth   | 2.23-15    | 
-| knitr        | 1.23       | 
+| knitr        | 1,23       | 
 | labeling     | 0.3        | 
 | lattice      | 0,20-38    | 
 | lava         | 1.6.5      | 

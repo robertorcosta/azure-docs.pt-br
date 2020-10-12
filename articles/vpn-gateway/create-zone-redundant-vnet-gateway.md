@@ -9,15 +9,15 @@ ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: cherylmc
 ms.openlocfilehash: 2eaf1470e2d861ecfc1c1bc96f6040a1c3e0a644
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89425221"
 ---
 # <a name="create-a-zone-redundant-virtual-network-gateway-in-azure-availability-zones"></a>Criar um gateway de rede virtual com redundância de zona em Zonas de Disponibilidade do Azure
 
-Você pode implantar gateways VPN e ExpressRoute nas zonas de disponibilidade do Azure. Isso traz resiliência, escalabilidade e maior disponibilidade para gateways de rede virtual. A implantação de gateways em Zonas de Disponibilidade do Azure separa de forma física e lógica os gateways em uma região, enquanto protege a conectividade de rede local com o Azure de falhas no nível na zona. Para obter informações, veja [Sobre gateways de rede virtual com redundância de zona](about-zone-redundant-vnet-gateways.md) e [Sobre Zonas de Disponibilidade do Azure](../availability-zones/az-overview.md).
+Você pode implantar gateways VPN e ExpressRoute nas zonas de disponibilidade do Azure. Isso traz resiliência, escalabilidade e maior disponibilidade para os gateways de rede virtual. A implantação de gateways em Zonas de Disponibilidade do Azure separa de forma física e lógica os gateways em uma região, enquanto protege a conectividade de rede local com o Azure contra falhas no nível da zona. Para obter informações, veja [Sobre gateways de rede virtual com redundância de zona](about-zone-redundant-vnet-gateways.md) e [Sobre Zonas de Disponibilidade do Azure](../availability-zones/az-overview.md).
 
 ## <a name="before-you-begin"></a>Antes de começar
 

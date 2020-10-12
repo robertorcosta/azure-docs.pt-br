@@ -16,10 +16,10 @@ ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 611edb06762b96ded7671b70ec0f5d4f07f51848
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87829077"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Recursos e extensões da máquina virtual para Windows
@@ -254,7 +254,7 @@ A movimentação da propriedade **comando para execução** para a configuraçã
 
 Em uma VM IaaS do Azure que usa extensões, no console certificados, você pode ver certificados que têm o assunto **_gerador de certificado do Microsoft Azure CRP_**. Em uma VM RDFE clássica, esses certificados têm o nome da entidade **_Gerenciamento de serviços do Windows Azure para extensões_**.
 
-Esses certificados protegem a comunicação entre a VM e seu host durante a transferência de configurações protegidas (senha, outras credenciais) usadas pelas extensões. Os certificados são criados pelo controlador de malha do Azure e passados para o agente de VM. Se você parar e iniciar a VM todos os dias, um novo certificado poderá ser criado pelo controlador de malha. O certificado é armazenado no repositório de certificados pessoais do computador. Esses certificados podem ser excluídos. O agente de VM recria certificados se necessário.
+Esses certificados protegem a comunicação entre a VM e seu host durante a transferência de configurações protegidas (senha, outras credenciais) usadas pelas extensões. Os certificados são criados pelo controlador de malha do Azure e passados para o agente de VM. Se você parar e iniciar a VM todos os dias, um novo certificado poderá ser criado pelo controlador de malha. O certificado será armazenado no repositório de certificados pessoais do computador. Esses certificados podem ser excluídos. O agente de VM recria certificados se necessário.
 
 ### <a name="how-do-agents-and-extensions-get-updated"></a>Como agentes e extensões são atualizados?
 

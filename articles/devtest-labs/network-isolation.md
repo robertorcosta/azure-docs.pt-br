@@ -4,10 +4,10 @@ description: Saiba mais sobre o isolamento de rede no Azure DevTest Labs.
 ms.topic: article
 ms.date: 08/25/2020
 ms.openlocfilehash: fbd2725cd3677e03cadbe0ae1f060b141f5d212b
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88875579"
 ---
 # <a name="network-isolation-in-devtest-labs"></a>Isolamento de rede no DevTest Labs
@@ -38,7 +38,7 @@ Examine também os seguintes artigos:
 1. Se você optar por isolar os recursos de laboratório (conta de armazenamento de laboratório e cofre de chaves) para a rede padrão, nenhuma ação adicional será necessária e o laboratório tratará do isolamento de recursos no futuro.
  
     > [!div class="mx-imgBorder"]
-    > ![Isolamento da rede](./media/network-isolation/isolate-lab-resources.png)
+    > ![Isolamento de rede](./media/network-isolation/isolate-lab-resources.png)
 1. Se você optar por isolar os recursos do laboratório (conta de armazenamento do laboratório e cofre de chaves) em uma rede existente selecionada, será necessário concluir as etapas a seguir após a criação do laboratório para garantir que o laboratório continue a funcionar no modo isolado. 
  
     > [!div class="mx-imgBorder"]

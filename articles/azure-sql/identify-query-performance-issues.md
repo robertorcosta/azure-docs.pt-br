@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: jrasnick, sstein
 ms.date: 03/10/2020
 ms.openlocfilehash: afc142ec9de0e275d505276d959cfac3e652c55d
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91619756"
 ---
 # <a name="detectable-types-of-query-performance-bottlenecks-in-azure-sql-database"></a>Tipos detectáveis de gargalos de desempenho de consulta no Banco de Dados SQL do Azure
@@ -153,8 +153,8 @@ O desempenho de consulta lento não relacionado a planos de consulta de qualidad
 - Detectando limites de recursos usando [Intelligent insights](database/intelligent-insights-troubleshoot-performance.md#reaching-resource-limits)
 - Detectando problemas de recursos usando [DMVs](database/monitoring-with-dmvs.md):
 
-  - O DMV [Sys. dm_db_resource_stats](database/monitoring-with-dmvs.md#monitor-resource-use) retorna CPU, e/s e consumo de memória para o banco de dados. Existe uma linha para cada intervalo de 15 segundos, mesmo que não haja atividade no banco de dados. Dados do histórico são mantidos por uma hora.
-  - A DMV [Sys. resource_stats](database/monitoring-with-dmvs.md#monitor-resource-use) retorna o uso de CPU e dados de armazenamento para o banco de dado SQL do Azure. Os dados são coletados e agregados em intervalos de cinco minutos.
+  - A DMV [Sys.dm_db_resource_stats](database/monitoring-with-dmvs.md#monitor-resource-use) retorna CPU, e/s e consumo de memória para o banco de dados. Existe uma linha para cada intervalo de 15 segundos, mesmo que não haja atividade no banco de dados. Dados do histórico são mantidos por uma hora.
+  - A DMV [Sys.resource_stats](database/monitoring-with-dmvs.md#monitor-resource-use) retorna o uso da CPU e os dados de armazenamento para o Azure SQL Database. Os dados são coletados e agregados em intervalos de cinco minutos.
   - [Muitas consultas individuais que consomem cumulativamente alta utilização da CPU](database/monitoring-with-dmvs.md#many-individual-queries-that-cumulatively-consume-high-cpu)
 
 Se você identificar o problema como recurso insuficiente, poderá atualizar os recursos para aumentar a capacidade de seu banco de dados para absorver os requisitos de CPU. Para obter mais informações, consulte [dimensionar recursos de banco de dados individual no banco de dados SQL do Azure](database/single-database-scale.md) e [dimensionar recursos de pool elástico no banco de dados SQL do Azure](database/elastic-pool-scale.md). Para obter informações sobre como dimensionar uma instância gerenciada, consulte [limites de recursos da camada de serviço](managed-instance/resource-limits.md#service-tier-characteristics)
@@ -203,16 +203,16 @@ Depois de ter eliminado um plano de qualidade inferior e problemas *relacionados
 Esses métodos são comumente usados para mostrar as principais categorias de tipos de espera:
 
 - Use Intelligent Insights para identificar consultas com degradação de desempenho devido a [maiores esperas](database/intelligent-insights-troubleshoot-performance.md#increased-wait-statistic)
-- Use [repositório de consultas](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) para localizar estatísticas de espera para cada consulta ao longo do tempo. No Repositório de Consultas, aguarde os tipos de espera combinados em categorias de espera. Você pode encontrar o mapeamento de categorias de espera para esperar tipos em [Sys. query_store_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql#wait-categories-mapping-table).
-- Use [Sys. dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) para retornar informações sobre todas as esperas encontradas por threads executados durante uma operação de consulta. Você pode usar essa exibição agregada para diagnosticar problemas de desempenho com o banco de dados SQL do Azure e também com consultas e lotes específicos. As consultas podem estar aguardando recursos, esperas de fila ou esperas externas.
-- Use [Sys. dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) para retornar informações sobre a fila de tarefas que estão aguardando algum recurso.
+- Use [repositório de consultas](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) para localizar estatísticas de espera para cada consulta ao longo do tempo. No Repositório de Consultas, aguarde os tipos de espera combinados em categorias de espera. Você pode encontrar o mapeamento de categorias de espera para esperar tipos em [Sys.query_store_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql#wait-categories-mapping-table).
+- Use [Sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) para retornar informações sobre todas as esperas encontradas por threads executados durante uma operação de consulta. Você pode usar essa exibição agregada para diagnosticar problemas de desempenho com o banco de dados SQL do Azure e também com consultas e lotes específicos. As consultas podem estar aguardando recursos, esperas de fila ou esperas externas.
+- Use [Sys.dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) para retornar informações sobre a fila de tarefas que estão aguardando algum recurso.
 
 Em cenários de alta CPU, Repositório de Consultas e estatísticas de espera podem não refletir o uso da CPU se:
 
 - As consultas de alto consumo de CPU ainda estão em execução.
 - As consultas de alto consumo de CPU estavam sendo executadas quando um failover ocorreu.
 
-DMVs que rastreiam Repositório de Consultas e estatísticas de espera mostram resultados somente para consultas concluídas com êxito e tempo limite. Eles não mostram dados para instruções atualmente em execução até que as instruções sejam concluídas. Use a exibição de gerenciamento dinâmico [Sys. dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) para controlar as consultas em execução no momento e a hora de trabalho associada.
+DMVs que rastreiam Repositório de Consultas e estatísticas de espera mostram resultados somente para consultas concluídas com êxito e tempo limite. Eles não mostram dados para instruções atualmente em execução até que as instruções sejam concluídas. Use o [Sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) de exibição de gerenciamento dinâmico para controlar as consultas em execução no momento e a hora de trabalho associada.
 
 > [!TIP]
 > Ferramentas adicionais:

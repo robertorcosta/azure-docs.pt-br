@@ -9,10 +9,10 @@ ms.date: 3/27/2020
 ms.topic: conceptual
 ms.service: iot-edge
 ms.openlocfilehash: 823b16dcaf113136b10fdaa054da20840b99f02d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91297038"
 ---
 # <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge"></a>Use o Visual Studio 2019 para desenvolver e depurar módulos para Azure IoT Edge
@@ -232,7 +232,7 @@ O artigo de início rápido que você usou para configurar seu dispositivo do Io
 
 ## <a name="view-generated-data"></a>Exibir os dados gerados
 
-1. Para monitorar a mensagem D2C para um dispositivo IoT Edge específico, selecione-o no Hub IoT no **Cloud Explorer** e clique em **Iniciar Monitoramento de ponto de extremidade de evento interno** na janela **ação** .
+1. Para monitorar a mensagem D2C para um dispositivo IoT-Edge específico, selecione-o no Hub IoT no **Cloud Explorer** e clique em **Iniciar Monitoramento de ponto de extremidade de evento interno** na janela **ação** .
 
 1. Para interromper o monitoramento de dados, selecione **parar monitoramento de ponto de extremidade de evento interno** na janela **ação** .
 

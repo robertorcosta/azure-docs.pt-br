@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: jasonh
 ms.openlocfilehash: 6526119a8b20a7c60879fe690aefe96159b062a7
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91409758"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Modelagem de dados de grafo da API do Gremlin do Azure Cosmos DB
@@ -51,9 +51,9 @@ Estas são as melhores práticas para as propriedades nos objetos de grafo:
 | Vértice | label | String | Essa propriedade é usada para definir o tipo de entidade representado pelo vértice. Se um valor não for fornecido, um valor padrão "vértice" será usado. |
 | Vértice | properties | Cadeia de caracteres, booliano, numérico | Uma lista de propriedades separadas armazenadas como pares chave-valor em cada vértice. |
 | Vértice | partition key | Cadeia de caracteres, booliano, numérico | Essa propriedade define em que local o vértice e suas bordas de saída serão armazenados. Leia mais sobre o [particionamento de grafo](graph-partitioning.md). |
-| Microsoft Edge | ID | String | Imposto com exclusividade por partição. Gerado automaticamente por padrão. Geralmente, as bordas não precisam ser recuperadas exclusivamente por uma ID. |
-| Microsoft Edge | label | String | Essa propriedade é usada para definir o tipo de relação existente entre dois vértices. |
-| Microsoft Edge | properties | Cadeia de caracteres, booliano, numérico | Uma lista de propriedades separadas armazenadas como pares chave-valor em cada borda. |
+| Edge | ID | String | Imposto com exclusividade por partição. Gerado automaticamente por padrão. Geralmente, as bordas não precisam ser recuperadas exclusivamente por uma ID. |
+| Edge | label | String | Essa propriedade é usada para definir o tipo de relação existente entre dois vértices. |
+| Edge | properties | Cadeia de caracteres, booliano, numérico | Uma lista de propriedades separadas armazenadas como pares chave-valor em cada borda. |
 
 > [!NOTE]
 > As bordas não exigem um valor de chave de partição, pois seu valor é atribuído automaticamente com base no vértice de origem. Saiba mais no artigo [Particionamento de grafo](graph-partitioning.md).
@@ -105,7 +105,7 @@ O uso de rótulos de relação descritivos pode melhorar a eficiência das opera
 * Use termos não genéricos para rotular uma relação.
 * Associe o rótulo do vértice de origem ao rótulo do vértice de destino com o nome da relação.
 
-:::image type="content" source="./media/graph-modeling/graph-modeling-3.png" alt-text="Exemplos de rotulagem de relação." border="false":::
+:::image type="content" source="./media/graph-modeling/graph-modeling-3.png" alt-text="Modelo de entidade com vértices para propriedades." border="false":::
 
 Quanto mais específico o rótulo que o atravessador usará para filtrar as bordas, melhor. Essa decisão também pode ter um impacto significativo no custo da consulta. Você pode avaliar o custo da consulta a qualquer momento [usando a etapa executionProfile](graph-execution-profile.md).
 

@@ -4,10 +4,10 @@ description: Saiba mais sobre o dispositivo de replicação de migração do Azu
 ms.topic: conceptual
 ms.date: 01/30/2020
 ms.openlocfilehash: af9e45e47c2f0645d81a571161f15f7d69cfec61
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90532113"
 ---
 # <a name="replication-appliance"></a>Dispositivo de replicação
@@ -24,7 +24,7 @@ O dispositivo de replicação é implantado quando você configura a migração 
     - **Gateway de replicação**: ele atua como um gateway de replicação. Ele recebe dados de replicação de computadores habilitados para replicação. Ele otimiza os dados de replicação com caching, compactação e criptografia e os envia para o Azure.
     - **Instalador do agente**: executa uma instalação por push do serviço de mobilidade. Esse serviço deve ser instalado e executado em cada computador local que você deseja replicar para a migração.
 
-## <a name="appliance-deployment"></a>Implantação de dispositivo
+## <a name="appliance-deployment"></a>Implantação do dispositivo
 
 **Usadas para** | **Detalhes**
 --- |  ---
@@ -88,7 +88,7 @@ O dispositivo de replicação precisa de acesso a essas URLs na nuvem pública d
 https:\//management.azure.com | Usado para operações de gerenciamento de replicação e coordenação
 *.services.visualstudio.com | Usado para fins de telemetria (é opcional)
 time.windows.com | Usados para verificar a sincronização de horário entre a hora do sistema e a hora global.
-https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https: \/ /login.Live.com <br/> https: \/ /Graph.Windows.net <br/> https:\//login.windows.net <br/> https: \/ /www.Live.com <br/> https: \/ /www.Microsoft.com  | A instalação do dispositivo precisa de acesso a essas URLs. Elas são usadas pelo Azure Active Directory para o gerenciamento de identidade e controle de acesso
+https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.live.com <br/> https:\//graph.windows.net <br/> https:\//login.windows.net <br/> https:\//www.live.com <br/> https:\//www.microsoft.com  | A instalação do dispositivo precisa de acesso a essas URLs. Elas são usadas pelo Azure Active Directory para o gerenciamento de identidade e controle de acesso
 https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | Para concluir o download do MySQL. Em algumas regiões, o download pode ser redirecionado para a URL da CDN. Verifique se a URL da CDN também é permitida, se necessário.
 
 
@@ -105,7 +105,7 @@ O dispositivo de replicação precisa de acesso a essas URLs no Azure governamen
 https:\//management.usgovcloudapi.net | Usado para operações de gerenciamento de replicação e coordenação
 *.services.visualstudio.com | Usado para fins de telemetria (é opcional)
 time.nist.gov | Usados para verificar a sincronização de horário entre a hora do sistema e a hora global.
-https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https: \/ /login.Live.com <br/> https: \/ /Graph.Windows.net <br/> https:\//login.windows.net <br/> https: \/ /www.Live.com <br/> https: \/ /www.Microsoft.com  | A instalação do dispositivo com OVA precisa de acesso a essas URLs. Eles são usados para controle de acesso e gerenciamento de identidade por Azure Active Directory.
+https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.live.com <br/> https:\//graph.windows.net <br/> https:\//login.windows.net <br/> https:\//www.live.com <br/> https:\//www.microsoft.com  | A instalação do dispositivo com OVA precisa de acesso a essas URLs. Eles são usados para controle de acesso e gerenciamento de identidade por Azure Active Directory.
 https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | Para concluir o download do MySQL. Em algumas regiões, o download pode ser redirecionado para a URL da CDN. Verifique se a URL da CDN também é permitida, se necessário.
 
 ## <a name="port-access"></a>Acesso à porta
