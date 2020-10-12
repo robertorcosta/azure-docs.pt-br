@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
 ms.openlocfilehash: a692f4dd86d110f7f0a91a862a7b16ac28345de5
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86084521"
 ---
 # <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Use os cadernos Apache Zeppelin com o cluster do Apache Spark no HDInsight do Azure
@@ -159,7 +159,7 @@ Conforme observado acima, o `%sh` intérprete não tem suporte do HDInsight 4,0 
 
 Os usuários de domínio com privilégios podem usar o `Shiro.ini` arquivo para controlar o acesso à interface do usuário do interpretador. Somente esses usuários podem criar novos `%sh` interpretadores e definir permissões em cada `%sh` intérprete novo. Para controlar o acesso usando o `shiro.ini` arquivo, use as seguintes etapas:
 
-1. Defina uma nova função usando um nome de grupo de domínio existente. No exemplo a seguir, `adminGroupName` é um grupo de usuários privilegiados no AAD. Não use caracteres especiais ou espaços em branco no nome do grupo. Os caracteres depois `=` fornecem as permissões para essa função. `*`significa que o grupo tem permissões completas.
+1. Defina uma nova função usando um nome de grupo de domínio existente. No exemplo a seguir, `adminGroupName` é um grupo de usuários privilegiados no AAD. Não use caracteres especiais ou espaços em branco no nome do grupo. Os caracteres depois `=` fornecem as permissões para essa função. `*` significa que o grupo tem permissões completas.
 
     ```
     [roles]

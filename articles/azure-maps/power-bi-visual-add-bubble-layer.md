@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 ms.custom: ''
 ms.openlocfilehash: 4443b0f479079a4722a5d62fea40afcb4a58632d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86261608"
 ---
 # <a name="add-a-bubble-layer"></a>Adicionar uma camada de bolha
@@ -49,7 +49,7 @@ Se um campo for passado para o Bucket de **tamanho** do painel **campos** , as b
 |---------------------|--------------|
 | Tamanho mínimo            | Tamanho mínimo da bolha ao dimensionar os dados.|
 | Tamanho máx.            | Tamanho máximo da bolha ao dimensionar os dados.|
-| Método de dimensionamento de tamanho | Algoritmo de dimensionamento usado para determinar o tamanho relativo da bolha.<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;• Intervalo linear de dados de entrada mapeados linearmente para o tamanho mínimo e máximo. (padrão)<br/>&nbsp;&nbsp;&nbsp;&nbsp;• Intervalo de log dos dados de entrada logaritmicamente mapeados para o tamanho mínimo e máximo.<br/>&nbsp;&nbsp;&nbsp;&nbsp;• Cubic-Bezier-especifique X1, y1, X2, Y2 valores de uma curva de Bezier cubica para criar um método de dimensionamento personalizado. |
+| Método de dimensionamento de tamanho | Algoritmo de dimensionamento usado para determinar o tamanho relativo da bolha.<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;• Intervalo linear de dados de entrada mapeados linearmente para o tamanho mínimo e máximo. (padrão)<br/>&nbsp;&nbsp;&nbsp;&nbsp;• Intervalo de log dos dados de entrada logaritmicamente mapeados para o tamanho mínimo e máximo.<br/>&nbsp;&nbsp;&nbsp;&nbsp;• Cubic-Bezier-especifique os valores X1, y1, X2, Y2 de uma curva de Cubic-Bezier para criar um método de dimensionamento personalizado. |
 
 Quando o **método de dimensionamento de tamanho** for definido como **log**, as opções a seguir serão disponibilizadas.
 
@@ -67,7 +67,7 @@ Quando o **método de dimensionamento de tamanho** for definido como **Bezier c�
 | S2      | Parâmetro Y2 de uma curva Bézier cúbica. |
 
 > [!TIP]
-> [https://cubic-bezier.com/](https://cubic-bezier.com/)tem uma ferramenta útil para criar os parâmetros para curvas de Bezier cubica.
+> [https://cubic-bezier.com/](https://cubic-bezier.com/) tem uma ferramenta útil para criar os parâmetros para Cubic-Bezier curvas.
 
 ## <a name="next-steps"></a>Próximas etapas
 

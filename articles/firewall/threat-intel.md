@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/12/2020
 ms.author: victorh
 ms.openlocfilehash: e51cc8905a7b4a88bb7f7dabaf24bb30159ff86c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83655074"
 ---
 # <a name="azure-firewall-threat-intelligence-based-filtering"></a>Filtragem baseada em inteligência contra ameaças do Firewall do Azure
@@ -27,7 +27,7 @@ Você pode optar por apenas registrar um alerta quando uma regra é disparada ou
 
 Por padrão, a filtragem baseada em inteligência contra ameaças está habilitada no modo de alerta. Não é possível desativar esse recurso ou alterar o modo até que a interface do portal esteja disponível em sua região.
 
-:::image type="content" source="media/threat-intel/threat-intel-ui.png" alt-text="Interface do portal de filtragem baseada em inteligência contra ameaças":::
+:::image type="content" source="media/threat-intel/threat-intel-ui.png" alt-text="Inteligência contra ameaças do firewall":::
 
 ## <a name="logs"></a>Logs
 

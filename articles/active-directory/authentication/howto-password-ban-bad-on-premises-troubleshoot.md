@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 25199aeb7a3ed6332e74ad05835a8c4fca763c00
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88116454"
 ---
 # <a name="troubleshoot-on-premises-azure-ad-password-protection"></a>Solução de problemas: proteção de senha do Azure AD local
@@ -50,7 +50,7 @@ O principal sintoma desse problema é 30018 eventos no log de eventos do adminis
 
 1. Verifique se a floresta e todos os servidores proxy estão registrados no mesmo locatário do Azure.
 
-   Você pode verificar esse requisito executando os `Get-AzureADPasswordProtectionProxy` cmdlets do e do `Get-AzureADPasswordProtectionDCAgent` PowerShell e, em seguida, comparar a `AzureTenant` propriedade de cada item retornado. Para a operação correta, o nome do locatário relatado deve ser o mesmo em todos os agentes de DC e servidores proxy.
+   Você pode verificar esse requisito executando os  `Get-AzureADPasswordProtectionProxy` cmdlets do e do `Get-AzureADPasswordProtectionDCAgent` PowerShell e, em seguida, comparar a `AzureTenant` propriedade de cada item retornado. Para a operação correta, o nome do locatário relatado deve ser o mesmo em todos os agentes de DC e servidores proxy.
 
    Se houver uma condição de incompatibilidade de registro de locatário do Azure, esse problema poderá ser corrigido executando os `Register-AzureADPasswordProtectionProxy` cmdlets do PowerShell e/ou `Register-AzureADPasswordProtectionForest` conforme necessário, certificando-se de usar credenciais do mesmo locatário do Azure para todos os registros.
 

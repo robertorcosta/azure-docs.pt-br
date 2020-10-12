@@ -4,10 +4,10 @@ description: Saiba como o barramento de serviço do Azure dá suporte a Advanced
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: c91c7965b94216f3f3bcb47e0cb652ce22a0217a
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88066331"
 ---
 # <a name="amqp-10-support-in-service-bus"></a>Suporte ao AMQP 1.0 no Barramento de Serviço
@@ -60,7 +60,7 @@ O diagrama a seguir ilustra um exemplo de implantação no qual clientes Java em
 
 Neste momento, as seguintes bibliotecas de cliente são conhecidas para trabalhar com o Service Bus:
 
-| Idioma | Biblioteca |
+| Linguagem | Biblioteca |
 | --- | --- |
 | Java |Cliente do Apache Qpid Java Message Service (JMS)<br/>Cliente Java IIT Software SwiftMQ |
 | C |Apache Qpid Proton-C |

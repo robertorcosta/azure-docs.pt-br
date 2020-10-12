@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/13/2020
 ms.author: trbye
 ms.openlocfilehash: 1b54d0059e68c7e06904155fdd1a70782e07f493
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91376439"
 ---
 Um dos principais recursos do serviço de fala é a capacidade de reconhecer a fala humana e traduzi-la para outras linguagens. Neste início rápido, você aprende a usar o SDK de fala em seus aplicativos e produtos para executar a tradução de fala de alta qualidade. Este guia de início rápido aborda os tópicos, incluindo:
@@ -17,9 +17,9 @@ Um dos principais recursos do serviço de fala é a capacidade de reconhecer a f
 * Convertendo a fala em vários idiomas de destino
 * Executando a conversão direta de fala em fala
 
-## <a name="skip-to-samples-on-github"></a>Pular para exemplos no GitHub
+## <a name="skip-to-samples-on-github"></a>Pular para os exemplos no GitHub
 
-Se você quiser pular diretamente para o código de exemplo, consulte os [exemplos de início rápido do C++](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp/windows/translate-speech-to-text) no github.
+Se você quiser pular diretamente para o código de exemplo, confira os [exemplos do guia de início rápido do C++](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp/windows/translate-speech-to-text) no GitHub.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

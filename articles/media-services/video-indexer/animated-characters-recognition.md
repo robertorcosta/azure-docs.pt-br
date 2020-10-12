@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 11/19/2019
 ms.author: juliako
 ms.openlocfilehash: 3b449f68b25fce19dc034d2a0db0ae5ce8a28ec7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87047488"
 ---
 # <a name="animated-character-detection-preview"></a>Detecção de caracteres animados (versão prévia)
@@ -44,7 +44,7 @@ Dependendo de um tipo de sua conta de Video Indexer, diferentes conjuntos de rec
 |---|---|---|
 |Conta de Visão Personalizada|Gerenciado por trás dos bastidores por Video Indexer. |Sua conta de Visão Personalizada está conectada ao Video Indexer.|
 |Número de modelos de animação|Um|Até 100 modelos por conta (limitação de Visão Personalizada).|
-|Treinamento do modelo|Video Indexer treina o modelo para obter novos exemplos de caracteres adicionais de caracteres existentes.|O proprietário da conta treina o modelo quando eles estão prontos para fazer alterações.|
+|Como treinar o modelo|Video Indexer treina o modelo para obter novos exemplos de caracteres adicionais de caracteres existentes.|O proprietário da conta treina o modelo quando eles estão prontos para fazer alterações.|
 |Opções avançadas no Visão Personalizada|Sem acesso ao portal de Visão Personalizada.|Você pode ajustar os modelos por conta própria no portal de Visão Personalizada.|
 
 ## <a name="use-the-animated-character-detection-with-portal"></a>Usar a detecção de caracteres animados com o portal 
@@ -208,7 +208,7 @@ Consulte os caracteres animados no arquivo JSON gerado.
 
 ## <a name="limitations"></a>Limitações
 
-* Atualmente, a funcionalidade de "identificação de animação" não tem suporte na região leste-Ásia.
+* Atualmente, não há suporte para a funcionalidade de "identificação de animação" na região East-Asia.
 * Os caracteres que parecem ser pequenos ou distantes no vídeo podem não ser identificados corretamente se a qualidade do vídeo for ruim.
 * A recomendação é usar um modelo por conjunto de caracteres animados (por exemplo, por uma série animada).
 

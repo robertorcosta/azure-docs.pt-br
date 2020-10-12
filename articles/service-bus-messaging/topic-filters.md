@@ -4,10 +4,10 @@ description: Este artigo explica como os assinantes podem definir quais mensagen
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: 5df343ff63c01a7cf10315b758e3d6fba8ac5674
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88066739"
 ---
 # <a name="topic-filters-and-actions"></a>Ações e filtros de tópico
@@ -25,7 +25,7 @@ O Barramento de Serviço dá suporte a três condições de filtro:
 -   *Filtros de correlação* – um **CorrelationFilter** contém um conjunto de condições que são comparadas com uma ou mais das propriedades do sistema e do usuário de uma mensagem recebida. Um uso comum é fazer a correspondência com a propriedade **CorrelationId** , mas o aplicativo também pode optar por corresponder às seguintes propriedades:
 
     - **ContentType**
-     - **Rotular**
+     - **Chamada**
      - **MessageId**
      - **ReplyTo**
      - **ReplyToSessionId**

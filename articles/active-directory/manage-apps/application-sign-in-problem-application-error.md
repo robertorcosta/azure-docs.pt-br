@@ -17,10 +17,10 @@ ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c826a679c1c64e113beb6b2cc5ffd29f82b55a3b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84759531"
 ---
 # <a name="an-app-page-shows-an-error-message-after-the-user-signs-in"></a>Uma página de aplicativo mostra uma mensagem de erro após o usuário entrar
@@ -62,7 +62,7 @@ Para adicionar um atributo na configuração do Azure AD que será enviada na re
 
    1. Selecione **Adicionar atributo**. Insira o **nome**e selecione o **valor** na lista suspensa.
 
-   1.  Selecione **Salvar**. Você verá o novo atributo na tabela.
+   1.  Clique em **Salvar**. Você verá o novo atributo na tabela.
 
 9. Salve a configuração.
 
@@ -124,7 +124,7 @@ Para alterar quais partes do token SAML são assinadas digitalmente pelo Azure A
 
 7. Depois que o aplicativo for carregado, selecione **logon único** no painel de navegação.
 
-8. Em **certificado de autenticação SAML**, selecione **Mostrar configurações avançadas de assinatura de certificado**.
+8. Em **certificado de autenticação SAML**, selecione  **Mostrar configurações avançadas de assinatura de certificado**.
 
 9. Selecione a **opção de assinatura** que o aplicativo espera entre estas opções:
 

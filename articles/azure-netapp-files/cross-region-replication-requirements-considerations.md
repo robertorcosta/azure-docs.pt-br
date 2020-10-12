@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 09/16/2020
 ms.author: b-juche
 ms.openlocfilehash: f2a50872fdb71419a0c3f068712ec67523a098e0
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90708517"
 ---
 # <a name="requirements-and-considerations-for-using-cross-region-replication"></a>Requisitos e considerações para usar a replicação entre regiões 
@@ -40,10 +40,10 @@ Observe os seguintes requisitos e considerações sobre [o uso da funcionalidade
 * Você pode excluir instantâneos manuais no volume de origem de um relacionamento de replicação quando a relação de replicação estiver ativa ou interrompida e também depois que a relação de replicação for excluída. Você não pode excluir instantâneos manuais para o volume de destino até que a relação de replicação seja interrompida.
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Criar emparelhamento de replicação](cross-region-replication-create-peering.md)
-* [Exibir status de integridade da relação de replicação](cross-region-replication-display-health-status.md)
+* [Criar um emparelhamento de replicação](cross-region-replication-create-peering.md)
+* [Exibir o status de integridade da relação de replicação](cross-region-replication-display-health-status.md)
 * [Gerenciar recuperação de desastre](cross-region-replication-manage-disaster-recovery.md)
 * [Métricas de replicação de volume](azure-netapp-files-metrics.md#replication)
-* [Solução de problemas de replicação entre regiões](troubleshoot-cross-region-replication.md)
+* [Solucionar problemas de replicação entre regiões](troubleshoot-cross-region-replication.md)
 
 
