@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 01/09/2020
 ms.author: cherylmc
 ms.openlocfilehash: f68631771b8f86d995108112b1243ab38bf826bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84984787"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>Configurar uma conexão ponto a site usando a autenticação de certificado (clássico)
@@ -93,7 +93,7 @@ Se você ainda não tiver uma VNet (rede virtual), crie uma. Capturas de tela s�
 
 5. Selecione a **Assinatura** que deseja usar na lista suspensa.
 
-6. Selecione um **Grupo de Recursos** existente. Ou crie um novo grupo de recursos selecionando **Criar novo** e inserindo um nome. Se estiver criando um novo grupo de recursos, dê o nome a ele de acordo com os valores de configuração planejados. Para obter mais informações sobre grupos de recursos, consulte [Azure Resource Manager visão geral](../azure-resource-manager/management/overview.md#resource-groups).
+6. Selecione um **grupo de recursos**existente. Ou crie um novo grupo de recursos selecionando **Criar novo** e inserindo um nome. Se estiver criando um novo grupo de recursos, dê o nome a ele de acordo com os valores de configuração planejados. Para saber mais sobre os grupos de recursos, confira [Visão geral do Azure Resource Manager](../azure-resource-manager/management/overview.md#resource-groups).
 
 7. Selecione uma **Localização** para a VNet. Essa configuração determina a localização geográfica dos recursos que você implanta nessa VNet.
 
@@ -146,7 +146,7 @@ Se você usa certificados autoassinados, eles devem ser criados usando parâmetr
 
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-p2s-rootcert-include.md)]
 
-### <a name="generate-a-client-certificate"></a>Gerar um certificado de cliente
+### <a name="generate-a-client-certificate"></a>Gerar um certificado do cliente
 
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-p2s-clientcert-include.md)]
 
@@ -272,7 +272,7 @@ Você pode revogar um certificado de cliente adicionando a impressão digital à
 3. Vá para a rede virtual clássica. Selecione **Conexão VPN de ponto a site** e **Gerenciar certificado** para abrir a página **Certificados**.
 4. Selecione **Lista de revogação** para abrir a página **Lista de revogação**. 
 5. Selecione **Adicionar certificado** para abrir a página **Adicionar certificado à lista de revogação**.
-6. Na **Impressão digital**, cole a impressão digital do certificado como uma linha contínua de texto, sem espaços. Selecione **OK** para concluir.
+6. Na **Impressão digital**, cole a impressão digital do certificado como uma linha contínua de texto, sem espaços. Escolha **OK** para concluir.
 
 Após a conclusão da atualização, o certificado não poderá mais ser usado para se conectar. Os clientes que tentam se conectar usando este certificado recebem uma mensagem informando que o certificado não é mais válido.
 

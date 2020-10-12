@@ -9,16 +9,16 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 365cb0912d84f0664b2a5432cd54cd553df62466
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91282016"
 ---
 # <a name="build-and-deploy-the-opc-vault-certificate-management-service"></a>Compilar e implantar o serviço de gerenciamento de certificados do compartimento OPC
 
 > [!IMPORTANT]
-> Enquanto atualizamos este artigo, confira [IOT do Azure industrial](https://azure.github.io/Industrial-IoT/) para obter o conteúdo mais atualizado.
+> Enquanto atualizamos este artigo, confira [IoT Industrial do Azure](https://azure.github.io/Industrial-IoT/) para obter o conteúdo mais atualizado.
 
 Este artigo explica como implantar o serviço de gerenciamento de certificados do Vault do OPC no Azure.
 
@@ -97,7 +97,7 @@ Faça assim:
 2. Vá para o grupo de recursos no qual o serviço foi implantado.
 3. Selecione **Excluir grupo de recursos** e confirme.
 4. Após alguns instantes, todos os componentes de serviço implantados são excluídos.
-5. Vá para **Azure Active Directory**  >  **registros de aplicativo**.
+5. Acesse **Azure Active Directory** > **Registros de aplicativo**.
 6. Deve haver três registros listados para cada grupo de recursos implantado. Os registros têm os seguintes nomes: `resourcegroup-client` , `resourcegroup-module` , `resourcegroup-service` . Exclua cada registro separadamente.
 
 Agora todos os componentes implantados são removidos.

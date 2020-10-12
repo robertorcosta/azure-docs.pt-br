@@ -4,10 +4,10 @@ description: Saiba como criptografar discos de sistema operacional (SO) usando c
 ms.topic: article
 ms.date: 09/01/2020
 ms.openlocfilehash: 257894c6318c9ca083c72daf3c888f7d509ae683
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89489793"
 ---
 # <a name="encrypt-operating-system-os-disks-using-customer-managed-keys-in-azure-devtest-labs"></a>Criptografar discos do sistema operacional (SO) usando chaves gerenciadas pelo cliente no Azure DevTest Labs
@@ -39,14 +39,14 @@ A seção a seguir mostra como um proprietário de laboratório pode configurar 
     1. Na página **conjunto de criptografia de disco** , selecione **controle de acesso (iam)** no menu à esquerda. 
     1. Selecione **+ Adicionar** na barra de ferramentas e selecione **Adicionar uma atribuição de função**.  
 
-        :::image type="content" source="./media/encrypt-disks-customer-managed-keys/add-role-management-menu.png" alt-text="Adicionar gerenciamento de função-menu":::
+        :::image type="content" source="./media/encrypt-disks-customer-managed-keys/add-role-management-menu.png" alt-text="Chaves gerenciadas":::
     1. Na página **Adicionar atribuição de função** , selecione a função **leitor** ou uma função que permita mais acesso. 
     1. Digite o nome do laboratório para o qual o conjunto de criptografia de disco será usado e selecione o nome do laboratório (identidade atribuída pelo sistema para o laboratório) na lista suspensa. 
     
-        :::image type="content" source="./media/encrypt-disks-customer-managed-keys/select-lab.png" alt-text="Selecione a identidade gerenciada pelo sistema do laboratório":::        
+        :::image type="content" source="./media/encrypt-disks-customer-managed-keys/select-lab.png" alt-text="Chaves gerenciadas":::        
     1. Selecione **Salvar** na barra de ferramentas. 
 
-        :::image type="content" source="./media/encrypt-disks-customer-managed-keys/save-role-assignment.png" alt-text="Salvar atribuição de função":::
+        :::image type="content" source="./media/encrypt-disks-customer-managed-keys/save-role-assignment.png" alt-text="Chaves gerenciadas":::
 3. Adicione a **identidade atribuída pelo sistema** do laboratório à função **colaborador da máquina virtual** usando a **Subscription**  ->  página**iam (controle de acesso à assinatura)** . As etapas são semelhantes àquelas nas etapas anteriores. 
 
     
@@ -54,7 +54,7 @@ A seção a seguir mostra como um proprietário de laboratório pode configurar 
     1. Selecione **IAM (Controle de acesso)** . 
     1. Selecione **+ Adicionar** na barra de ferramentas e selecione **Adicionar uma atribuição de função**. 
     
-        :::image type="content" source="./media/encrypt-disks-customer-managed-keys/subscription-access-control-page.png" alt-text="Assinatura – página IAM (controle de acesso de >)":::
+        :::image type="content" source="./media/encrypt-disks-customer-managed-keys/subscription-access-control-page.png" alt-text="Chaves gerenciadas":::
     1. Na página **Adicionar atribuição de função** , selecione **colaborador de máquina virtual** para a função.
     1. Digite o nome do laboratório e selecione o **nome do laboratório** (identidade atribuída pelo sistema para o laboratório) na lista suspensa. 
     1. Selecione **Salvar** na barra de ferramentas. 
@@ -64,12 +64,12 @@ A seção a seguir mostra como um proprietário de laboratório pode configurar 
 1. Na home page de seu laboratório na portal do Azure, selecione **configuração e políticas** no menu à esquerda. 
 1. Na página **configuração e políticas** , selecione **discos (versão prévia)** na seção **criptografia** . Por padrão, o **tipo de criptografia** é definido como **criptografia em repouso com uma chave gerenciada por plataforma**.
 
-    :::image type="content" source="./media/encrypt-disks-customer-managed-keys/disks-page.png" alt-text="Guia discos da página configuração e políticas":::
+    :::image type="content" source="./media/encrypt-disks-customer-managed-keys/disks-page.png" alt-text="Chaves gerenciadas":::
 1. Para **tipo de criptografia**, selecione **criptografia em repouso com uma chave gerenciada pelo cliente** na lista suspensa. 
 1. Para **conjunto de criptografia de disco**, selecione o conjunto de criptografia de disco que você criou anteriormente. É o mesmo conjunto de criptografia de disco que a identidade atribuída pelo sistema do laboratório pode acessar.
 1. Selecione **Salvar** na barra de ferramentas. 
 
-    :::image type="content" source="./media/encrypt-disks-customer-managed-keys/disk-encryption-set.png" alt-text="Habilitar a criptografia com a chave gerenciada pelo cliente":::
+    :::image type="content" source="./media/encrypt-disks-customer-managed-keys/disk-encryption-set.png" alt-text="Chaves gerenciadas":::
 1. Na caixa de mensagem com o seguinte texto: *essa configuração será aplicada a máquinas recém-criadas no laboratório. O disco do sistema operacional antigo permanecerá criptografado com o antigo conjunto de criptografia de disco*, selecione **OK**. 
 
     Uma vez configurado, os discos do sistema operacional de laboratório serão criptografados com a chave gerenciada pelo cliente fornecida usando o conjunto de criptografia de disco. 
@@ -79,15 +79,15 @@ A seção a seguir mostra como um proprietário de laboratório pode configurar 
 1. Vá para uma máquina virtual de laboratório criada depois de habilitar a criptografia de disco com uma chave gerenciada pelo cliente no laboratório.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/encrypt-disks-customer-managed-keys/enabled-encryption-vm.png" alt-text="VM com criptografia de disco habilitada":::
+    > :::image type="content" source="./media/encrypt-disks-customer-managed-keys/enabled-encryption-vm.png" alt-text="Chaves gerenciadas":::
 1. Clique no grupo de recursos da VM e clique no disco do sistema operacional.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/encrypt-disks-customer-managed-keys/vm-resource-group.png" alt-text="Grupo de recursos da VM":::
+    > :::image type="content" source="./media/encrypt-disks-customer-managed-keys/vm-resource-group.png" alt-text="Chaves gerenciadas":::
 1. Acesse criptografia e valide se a criptografia está definida como chave gerenciada pelo cliente com o conjunto de criptografia de disco selecionado.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/encrypt-disks-customer-managed-keys/validate-encryption.png" alt-text="Validar criptografia":::
+    > :::image type="content" source="./media/encrypt-disks-customer-managed-keys/validate-encryption.png" alt-text="Chaves gerenciadas":::
   
 ## <a name="next-steps"></a>Próximas etapas
 

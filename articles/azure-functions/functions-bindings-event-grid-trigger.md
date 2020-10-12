@@ -7,10 +7,10 @@ ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python
 ms.openlocfilehash: 96daa93c28617bd34f263b11afcd244e3b7bacf0
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88214128"
 ---
 # <a name="azure-event-grid-trigger-for-azure-functions"></a>Gatilho da Grade de Eventos do Azure para o Azure Functions
@@ -407,7 +407,7 @@ Para as funções que você desenvolve no portal do Azure com o gatilho de Grade
 
 Ao selecionar esse link, o portal abrirá a página **Criar Assinatura de Evento**  com o ponto de extremidade de gatilho atual já definido.
 
-:::image type="content" source="media/functions-bindings-event-grid/endpoint-url.png" alt-text="Criar assinatura de evento com ponto de extremidade de função já definido" :::
+:::image type="content" source="media/functions-bindings-event-grid/endpoint-url.png" alt-text="Conecte uma nova assinatura de evento para disparar no portal." :::
 
 Para obter mais informações sobre como criar assinaturas usando o Portal do Azure, consulte [Criar evento personalizado - Portal do Azure](../event-grid/custom-event-quickstart-portal.md) na documentação da Grade de Eventos.
 

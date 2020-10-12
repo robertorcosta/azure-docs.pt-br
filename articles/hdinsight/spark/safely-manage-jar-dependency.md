@@ -9,13 +9,13 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 02/05/2020
 ms.openlocfilehash: b5b8c014a7150ad83875b9fd361c3538d865d153
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90064091"
 ---
-# <a name="safely-manage-jar-dependencies"></a>Gerenciar com segurança dependências de jar
+# <a name="safely-manage-jar-dependencies"></a>Gerenciar dependências do JAR com segurança
 
 Os componentes instalados em clusters HDInsight têm dependências em bibliotecas de terceiros. Normalmente, uma versão específica de módulos comuns, como guava, é referenciada por esses componentes internos. Quando você envia um aplicativo com suas dependências, ele pode causar um conflito entre versões diferentes do mesmo módulo. Se a versão do componente que você referencia no classpath primeiro, os componentes internos podem gerar exceções devido à incompatibilidade de versão. No entanto, se os componentes internos injetarem suas dependências primeiro ao classpath, seu aplicativo poderá gerar erros como `NoSuchMethod` .
 
@@ -27,7 +27,7 @@ O sombreamento fornece uma maneira de incluir e renomear dependências. Ele real
 ## <a name="how-to-shade-a-package"></a>Como sombrear um pacote?
 
 ### <a name="use-uber-jar"></a>Usar Uber-jar
-Uber-jar é um único arquivo JAR que contém o JAR do aplicativo e suas dependências. As dependências em Uber-jar são, por padrão, não sombreadas. Em alguns casos, isso poderá introduzir conflito de versão se outros componentes ou aplicativos fizerem referência a uma versão diferente dessas bibliotecas. Para evitar isso, você pode criar um arquivo Uber-jar com algumas (ou todas) das dependências sombreadas.
+Uber-jar é um único arquivo JAR que contém o JAR do aplicativo e suas dependências. As dependências em Uber-jar são, por padrão, não sombreadas. Em alguns casos, isso poderá introduzir conflito de versão se outros componentes ou aplicativos fizerem referência a uma versão diferente dessas bibliotecas. Para evitar isso, você pode criar um arquivo de Uber-Jar com algumas (ou todas) das dependências sombreadas.
 
 ### <a name="shade-package-using-maven"></a>Sombrear pacote usando o Maven
 O Maven pode criar aplicativos escritos em Java e escalares. O plug-in Maven-Shad-plugin pode ajudá-lo a criar facilmente um Uber-jar sombreado.

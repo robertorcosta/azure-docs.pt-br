@@ -12,10 +12,10 @@ ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: devx-track-js
 ms.openlocfilehash: 4a63a54f5ad4d1bcccecb1d1a4892ef55c238b92
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91319173"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>Configurar a experiência de interface do usuário hospedada
@@ -135,7 +135,7 @@ As configurações a seguir serão mostradas se você clicar em **Mostrar config
 |Espaço reservado para texto de caixa de pesquisa   | Texto exibido na caixa de pesquisa antes da entrada.        |
 |URL do link de título    |Destino para o link do título.         |
 |URL do logotipo     | Imagem exibida ao lado do título.         |
-|Ícone favorito    | Ícone exibido na barra de título do navegador.          |
+|Favicon    | Ícone exibido na barra de título do navegador.          |
 
 As configurações a seguir serão aplicáveis somente se você consumir a interface do usuário hospedada pelo ponto de extremidade HTML (não serão aplicáveis se você usar o snippet de JavaScript).
 

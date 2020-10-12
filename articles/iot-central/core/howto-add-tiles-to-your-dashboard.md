@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.openlocfilehash: beeb771ea5053dd0ad867a7568aa64bbb2d0b4ed
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90985294"
 ---
 # <a name="configure-the-application-dashboard"></a>Configurar o painel de aplicativo
@@ -33,7 +33,7 @@ Depois de selecionar **Editar** ou **novo**, o painel estará no modo de *ediç�
 1. Selecione um ou mais dispositivos no menu suspenso **dispositivos** para mostrar no bloco. Agora você verá a telemetria, as propriedades e os comandos disponíveis dos dispositivos.
 1. Selecione **temperatura** na seção telemetria e, em seguida, selecione **Adicionar bloco**. O bloco agora aparece no painel em que você pode alterar a visualização, redimensionar o bloco e configurá-lo:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/device-details.png" alt-text="Adicionar um bloco de telemetria de temperatura ao painel":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/device-details.png" alt-text="Painel para aplicativos com base no modelo de aplicativo personalizado":::
 
 Quando terminar de adicionar e personalizar blocos no painel, selecione **salvar**.
 
@@ -75,23 +75,23 @@ Para blocos que exibem valores de agregação, selecione o ícone de engrenagem 
 
 Para gráficos de linhas, gráficos de barras e gráficos de pizza, você pode personalizar a cor dos diferentes valores de telemetria. Selecione o ícone de paleta ao lado da telemetria que você deseja personalizar:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/color-customization.png" alt-text="Alterar a cor de um valor de telemetria":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/color-customization.png" alt-text="Painel para aplicativos com base no modelo de aplicativo personalizado":::
 
 Para blocos que mostram Propriedades de cadeia de caracteres ou valores de telemetria, você pode escolher como exibir o texto. Por exemplo, se o dispositivo armazenar uma URL em uma propriedade de cadeia de caracteres, você poderá exibi-la como um link clicável. Se a URL fizer referência a uma imagem, você poderá renderizar a imagem em um último valor conhecido ou bloco de propriedade. Para alterar a forma como uma cadeia de caracteres é exibida, na configuração de bloco, selecione o ícone de engrenagem ao lado da propriedade ou tipo de telemetria:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/string-customization.png" alt-text="Alterar como uma cadeia de caracteres é exibida em um bloco":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/string-customization.png" alt-text="Painel para aplicativos com base no modelo de aplicativo personalizado":::
 
 Para o **KPI**numérico, o **último valor conhecido**e os blocos de **Propriedade** , você pode usar a formatação condicional para personalizar a cor do bloco com base em seu valor atual. Para adicionar formatação condicional, selecione **Configurar** no bloco e, em seguida, selecione o ícone de **formatação condicional** ao lado do valor a ser personalizado:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-1.png" alt-text="Captura de tela mostrando como localizar a opção configurar para um bloco e, em seguida, o ícone de formatação condicional":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-1.png" alt-text="Painel para aplicativos com base no modelo de aplicativo personalizado":::
 
 Adicione suas regras de formatação condicional:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-2.png" alt-text="Captura de tela mostrando regras de formatação condicional para o fluxo médio. Há três regras-menos de Tha 20 é verde, menos de 50 é amarelo e qualquer coisa acima de 50 é vermelho":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-2.png" alt-text="Painel para aplicativos com base no modelo de aplicativo personalizado":::
 
 A captura de tela a seguir mostra o efeito da regra de formatação condicional:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-3.png" alt-text="Captura de tela mostrando a cor do plano de fundo amarelo no bloco de fluxo de água médio. O número no bloco é 40,84":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-3.png" alt-text="Painel para aplicativos com base no modelo de aplicativo personalizado":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

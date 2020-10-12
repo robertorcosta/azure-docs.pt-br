@@ -10,10 +10,10 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 07/20/2020
 ms.openlocfilehash: d50f577a7170982be004cc8957114f79675fbc6e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87078618"
 ---
 # <a name="manage-logic-apps-in-the-azure-portal"></a>Gerenciar aplicativos lógicos no portal do Azure
@@ -86,7 +86,7 @@ Desabilitar seu aplicativo lógico afeta suas instâncias de fluxo de trabalho e
 
   1. Edite qualquer parte do gatilho do aplicativo lógico.
 
-  1. Salve as alterações. Esta etapa redefine o estado atual do gatilho.
+  1. Salve suas alterações. Esta etapa redefine o estado atual do gatilho.
 
   1. [Habilite novamente seu aplicativo lógico](#disable-enable-single-logic-app).
 
