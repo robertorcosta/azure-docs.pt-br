@@ -12,10 +12,10 @@ ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: b16ee98b44e52482423229a0940c8927a94d4c83
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88118664"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>Aplicativo Web que assina usuários: registro de aplicativo
@@ -50,7 +50,7 @@ Você pode usar esses links para inicializar a criação de seu aplicativo Web:
 1. Quando a página **Registrar um aplicativo** for exibida, insira as informações de registro do aplicativo:
    1. Escolha os tipos de conta com suporte para seu aplicativo. (Consulte [tipos de conta com suporte](./v2-supported-account-types.md).)
    1. Na seção **Nome**, insira um nome de aplicativo relevante que será exibido aos usuários do aplicativo. Por exemplo, digite **AspNetCore-webapp**.
-   1. Para **URI de redirecionamento**, adicione o tipo de aplicativo e o destino do URI que aceitará respostas de token retornadas após a autenticação bem-sucedida. Por exemplo, digite **https://localhost:44321** . Em seguida, selecione **registrar**.
+   1. Para **URI de redirecionamento**, adicione o tipo de aplicativo e o destino do URI que aceitará respostas de token retornadas após a autenticação bem-sucedida. Por exemplo, digite **https://localhost:44321** . Em seguida, selecione **Registrar**.
    ![registration](media/scenario-webapp/scenario-webapp-app-registration-1.png)
 1. Selecione o menu **Autenticação** e, em seguida, adicione as seguintes informações:
    1. Para **URL de resposta**, adicione **https://localhost:44321/signin-oidc** do tipo **Web**.
@@ -68,7 +68,7 @@ Você pode usar esses links para inicializar a criação de seu aplicativo Web:
 1. Selecione **Registrar** para criar o aplicativo.
 1. Selecione o menu **autenticação** .
 1. Na seção **Advanced settings**de  |  **concessão implícita** configurações avançadas, selecione **tokens de ID**. Este exemplo requer que o [fluxo de concessão implícita](v2-oauth2-implicit-grant-flow.md) seja habilitado para conectar o usuário.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 # <a name="java"></a>[Java](#tab/java)
 

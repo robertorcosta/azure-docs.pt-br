@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2020
 ms.author: juergent
 ms.openlocfilehash: 183273e6f93bbfda8ed4e5fe913192994a0b6ce2
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87833378"
 ---
 # <a name="sap-hana-azure-backup-on-file-level"></a>Backup do Azure do SAP HANA no nível do arquivo
@@ -43,7 +43,7 @@ Para obter mais segurança, use uma conta de armazenamento com replicação geog
 
 ## <a name="azure-blobxfer-utility-details"></a>Detalhes do utilitário blobxfer do Azure
 
-Para armazenar diretórios e arquivos no armazenamento do Azure, é possível usar a CLI ou o PowerShell, ou desenvolver uma ferramenta usando um dos [SDKs do Azure](https://azure.microsoft.com/downloads/). Também há um utilitário pronto para uso, AzCopy, para copiar dados para o armazenamento do Azure. (consulte [transferir dados com o utilitário de linha de comando AzCopy](../../../storage/common/storage-use-azcopy-v10.md)).
+Para armazenar diretórios e arquivos no armazenamento do Azure, é possível usar a CLI ou o PowerShell, ou desenvolver uma ferramenta usando um dos [SDKs do Azure](https://azure.microsoft.com/downloads/). Também há um utilitário pronto para uso, AzCopy, para copiar dados para o armazenamento do Azure. (consulte [transferir dados com o utilitário AzCopy Command-Line](../../../storage/common/storage-use-azcopy-v10.md)).
 
 Portanto, o blobxfer foi usado para copiar arquivos de backup do SAP HANA. Ele é um software livre, usado por muitos clientes em ambientes de produção e disponível no [GitHub](https://github.com/Azure/blobxfer). Essa ferramenta permite a cópia dos dados diretamente no Armazenamento de Blobs do Azure ou no compartilhamento de arquivos do Azure. Ele também oferece uma variedade de recursos úteis, como o hash MD5, ou paralelismo automático ao copiar um diretório com vários arquivos.
 

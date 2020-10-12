@@ -4,10 +4,10 @@ description: Descreve as abordagens recomendadas para a criação de modelos do 
 ms.topic: conceptual
 ms.date: 07/10/2020
 ms.openlocfilehash: 1121c66e0bcd7de39afd5bea85866fd9ad007ce4
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87809248"
 ---
 # <a name="arm-template-best-practices"></a>Práticas recomendadas do modelo ARM
@@ -28,7 +28,7 @@ Você também está limitado a:
 
 Você pode exceder alguns limites de modelo usando um modelo aninhado. Para saber mais, confira [Uso de modelos vinculados ao implantar recursos do Azure](linked-templates.md). Para reduzir o número de parâmetros, variáveis ou saídas, você pode combinar vários valores em um objeto. Para saber mais, veja [Objetos como parâmetros](/azure/architecture/building-blocks/extending-templates/objects-as-parameters).
 
-## <a name="resource-group"></a>Grupo de recursos
+## <a name="resource-group"></a>Resource group
 
 Quando você implanta recursos em um grupo de recursos, o grupo de recursos armazena metadados sobre os recursos. Os metadados são armazenados no local do grupo de recursos.
 
@@ -44,7 +44,7 @@ As informações nesta seção podem ser úteis quando você trabalha com [parâ
 
 * Use minúsculas concatenadas para nomes de parâmetro.
 
-* Use parâmetros para as configurações que variam de acordo com o ambiente, como o SKU, tamanho ou capacidade.
+* Use parâmetros para configurações que variam de acordo com o ambiente, como o SKU, o tamanho ou a capacidade.
 
 * Use parâmetros para nomes de recurso que queira especificar para fácil identificação.
 

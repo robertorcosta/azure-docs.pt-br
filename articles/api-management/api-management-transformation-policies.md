@@ -13,16 +13,16 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
 ms.openlocfilehash: 0182c3aa9095ad6f7bf3d8d86f115517e9efb020
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86249596"
 ---
 # <a name="api-management-transformation-policies"></a>Políticas de transformação de Gerenciamento de API
 Este tópico fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](https://go.microsoft.com/fwlink/?LinkID=398186).
 
-##  <a name="transformation-policies"></a><a name="TransformationPolicies"></a>Políticas de transformação
+##  <a name="transformation-policies"></a><a name="TransformationPolicies"></a> Políticas de transformação
 
 -   [Converter JSON para XML](api-management-transformation-policies.md#ConvertJSONtoXML) – converte o corpo da solicitação ou da resposta de JSON para XML.
 
@@ -44,7 +44,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 
 -   [Transformar XML usando um XSLT](api-management-transformation-policies.md#XSLTransform) – aplica uma transformação XSL para XML no corpo da solicitação ou resposta.
 
-##  <a name="convert-json-to-xml"></a><a name="ConvertJSONtoXML"></a>Converter JSON em XML
+##  <a name="convert-json-to-xml"></a><a name="ConvertJSONtoXML"></a> Converter JSON em XML
  A política `json-to-xml` converte o corpo da solicitação ou da resposta de JSON para XML.
 
 ### <a name="policy-statement"></a>Declaração de política
@@ -88,7 +88,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 
 -   **Escopos da política:** todos os escopos
 
-##  <a name="convert-xml-to-json"></a><a name="ConvertXMLtoJSON"></a>Converter XML em JSON
+##  <a name="convert-xml-to-json"></a><a name="ConvertXMLtoJSON"></a> Converter XML em JSON
  A política `xml-to-json` converte o corpo da solicitação ou da resposta de XML para JSON. Esta política pode ser usada para modernizar APIs baseadas em serviços Web de back-end somente XML.
 
 ### <a name="policy-statement"></a>Declaração de política
@@ -132,7 +132,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 
 -   **Escopos da política:** todos os escopos
 
-##  <a name="find-and-replace-string-in-body"></a><a name="Findandreplacestringinbody"></a>Localizar e substituir cadeia de caracteres no corpo
+##  <a name="find-and-replace-string-in-body"></a><a name="Findandreplacestringinbody"></a> Localizar e substituir cadeia de caracteres no corpo
  A política `find-and-replace` Encontra uma subcadeia de caracteres de uma solicitação ou resposta e a substitui por outra subcadeia de caracteres.
 
 ### <a name="policy-statement"></a>Declaração de política
@@ -157,8 +157,8 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 
 |Nome|Descrição|Obrigatório|Padrão|
 |----------|-----------------|--------------|-------------|
-|de|A cadeia a ser pesquisada.|Sim|N/D|
-|como|A cadeia de caracteres substituta. Especifique uma cadeia de substituição de comprimento zero para remover a cadeia de caracteres de pesquisa.|Sim|N/D|
+|de|A cadeia de caracteres a ser pesquisada.|Sim|N/D|
+|para|A cadeia de caracteres substituta. Especifique uma cadeia de substituição de comprimento zero para remover a cadeia de caracteres de pesquisa.|Sim|N/D|
 
 ### <a name="usage"></a>Uso
  Essa política pode ser usada nas [seções](./api-management-howto-policies.md#sections) e nos [escopos](./api-management-howto-policies.md#scopes) da política a seguir.
@@ -167,7 +167,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 
 -   **Escopos da política:** todos os escopos
 
-##  <a name="mask-urls-in-content"></a><a name="MaskURLSContent"></a>Mascarar URLs no conteúdo
+##  <a name="mask-urls-in-content"></a><a name="MaskURLSContent"></a> Mascarar URLs no conteúdo
  A política `redirect-content-urls` reescreve (mascara) os links no corpo da resposta para que eles apontem para o link equivalente por meio do gateway. Use na seção de saída para regravar links de corpo da resposta para que apontem para o gateway. Use na seção de entrada para obter um efeito oposto.
 
 > [!NOTE]
@@ -198,7 +198,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 
 -   **Escopos da política:** todos os escopos
 
-##  <a name="set-backend-service"></a><a name="SetBackendService"></a>Definir serviço de back-end
+##  <a name="set-backend-service"></a><a name="SetBackendService"></a> Definir serviço de back-end
  Use a política `set-backend-service` para redirecionar uma solicitação de entrada para um back-end diferente daquele especificado nas configurações de API para essa operação. Essa política altera a URL base do serviço de back-end da solicitação de entrada para aquele especificado na política.
 
 ### <a name="policy-statement"></a>Declaração de política
@@ -283,7 +283,7 @@ Neste exemplo, a política encaminha a solicitação para um back-end de Service
 
 -   **Escopos da política:** todos os escopos
 
-##  <a name="set-body"></a><a name="SetBody"></a>Definir corpo
+##  <a name="set-body"></a><a name="SetBody"></a> Definir corpo
  Use a política `set-body` para definir o corpo da mensagem para solicitações de entrada e saída. Para acessar o corpo da mensagem, você pode usar a propriedade `context.Request.Body` ou a `context.Response.Body`, dependendo da seção em que a política está: de entrada ou de saída.
 
 > [!IMPORTANT]
@@ -453,7 +453,7 @@ OriginalUrl.
 
 -   **Escopos da política:** todos os escopos
 
-##  <a name="set-http-header"></a><a name="SetHTTPheader"></a>Definir cabeçalho HTTP
+##  <a name="set-http-header"></a><a name="SetHTTPheader"></a> Definir cabeçalho HTTP
  A política `set-header` atribui um valor a uma resposta e/ou cabeçalho de resposta existente ou adiciona uma nova resposta e/ou cabeçalho de resposta.
 
  Insere uma lista de cabeçalhos HTTP em uma mensagem HTTP. Quando colocada em um pipeline de entrada, esta política define os cabeçalhos HTTP para a solicitação que está sendo passada para o serviço alvo. Quando colocada em um pipeline de saída, esta política define os cabeçalhos HTTP para a resposta que está sendo passada para o cliente do gateway.
@@ -497,14 +497,14 @@ OriginalUrl.
  Para obter mais informações, veja [Expressões de política](api-management-policy-expressions.md) e [Variável de contexto](api-management-policy-expressions.md#ContextVariables).
 
 > [!NOTE]
-> Vários valores de um cabeçalho são concatenados a uma cadeia de caracteres CSV, por exemplo:`headerName: value1,value2,value3`
+> Vários valores de um cabeçalho são concatenados a uma cadeia de caracteres CSV, por exemplo: `headerName: value1,value2,value3`
 >
 > As exceções incluem cabeçalhos padronizados, cujos valores:
 > - podem conter vírgulas (`User-Agent`, `WWW-Authenticate`, `Proxy-Authenticate`),
 > - podem conter a data (`Cookie`, `Set-Cookie`, `Warning`),
 > - contêm a data (`Date`, `Expires`, `If-Modified-Since`, `If-Unmodified-Since`, `Last-Modified`, `Retry-After`).
 >
-> No caso dessas exceções, vários valores de cabeçalho não serão concatenados em uma cadeia de caracteres e serão passados como cabeçalhos separados, por exemplo:`User-Agent: value1`
+> No caso dessas exceções, vários valores de cabeçalho não serão concatenados em uma cadeia de caracteres e serão passados como cabeçalhos separados, por exemplo: `User-Agent: value1`
 >`User-Agent: value2`
 >`User-Agent: value3`
 
@@ -529,7 +529,7 @@ OriginalUrl.
 
 -   **Escopos da política:** todos os escopos
 
-##  <a name="set-query-string-parameter"></a><a name="SetQueryStringParameter"></a>Definir parâmetro de cadeia de caracteres de consulta
+##  <a name="set-query-string-parameter"></a><a name="SetQueryStringParameter"></a> Definir parâmetro de cadeia de caracteres de consulta
  A política `set-query-parameter` adiciona, substitui o valor ou exclui parâmetros de cadeias de consulta de solicitação. Pode ser usada para transmitir parâmetros de consulta esperados pelo serviço de back-end que são opcionais ou nunca estão presentes na solicitação.
 
 ### <a name="policy-statement"></a>Declaração de política
@@ -584,7 +584,7 @@ OriginalUrl.
 
 -   **Escopos da política:** todos os escopos
 
-##  <a name="rewrite-url"></a><a name="RewriteURL"></a>Reescrever URL
+##  <a name="rewrite-url"></a><a name="RewriteURL"></a> Reescrever URL
  A política `rewrite-uri` converte a URL de uma solicitação de sua forma pública para a forma esperada pelo serviço Web, conforme mostrado no exemplo a seguir.
 
 - URL pública – `http://api.example.com/storenumber/ordernumber`
@@ -662,7 +662,7 @@ OriginalUrl.
 
 -   **Escopos da política:** todos os escopos
 
-##  <a name="transform-xml-using-an-xslt"></a><a name="XSLTransform"></a>Transformar XML usando um XSLT
+##  <a name="transform-xml-using-an-xslt"></a><a name="XSLTransform"></a> Transformar XML usando um XSLT
  A política `Transform XML using an XSLT` aplica uma transformação XSL para XML no corpo da solicitação ou da resposta.
 
 ### <a name="policy-statement"></a>Declaração de política

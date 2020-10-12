@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 978f8ff5e57a5a9a1df10152713c8c42901b3b6f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88545853"
 ---
 # <a name="tutorial-configure-zscaler-one-for-automatic-user-provisioning"></a>Tutorial: configurar o Zscaler One para o provisionamento automático de usuário
@@ -106,7 +106,7 @@ Esta seção aborda as etapas para configurar o serviço de provisionamento do A
 
     ![Zscaler um configurar SAML](./media/zscaler-one-provisioning-tutorial/secret-token-2.png)
 
-    b. Selecione **habilitar provisionamento baseado em scim** para obter as configurações na URL de **base** e no **token de portador**. Em seguida, salve as configurações. Copie a configuração da **URL base** para a **URL do locatário** no portal do Azure. Copie a configuração de **token de portador** para o **token secreto** no portal do Azure.
+    b. Selecione **habilitar provisionamento de SCIM-Based** para obter as configurações na **URL de base** e no token de **portador**. Em seguida, salve as configurações. Copie a configuração da **URL base** para a **URL do locatário** no portal do Azure. Copie a configuração de **token de portador** para o **token secreto** no portal do Azure.
 
 7. Depois de preencher as caixas mostradas na etapa 5, selecione **testar conexão** para garantir que o Azure ad possa se conectar ao Zscaler One. Se a conexão falhar, verifique se o Zscaler uma conta tem permissões de administrador e tente novamente.
 
@@ -116,7 +116,7 @@ Esta seção aborda as etapas para configurar o serviço de provisionamento do A
 
     ![Zscaler um email de notificação](./media/zscaler-one-provisioning-tutorial/notification.png)
 
-9. Clique em **Salvar**.
+9. Selecione **Salvar**.
 
 10. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para Zscaler um**.
 

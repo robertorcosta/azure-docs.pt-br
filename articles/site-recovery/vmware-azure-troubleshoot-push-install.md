@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.author: ramamill
 ms.date: 04/03/2020
 ms.openlocfilehash: 8ee6449f357a578b30809bb03723ac1556e4f459
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88816146"
 ---
 # <a name="troubleshoot-mobility-service-push-installation"></a>Solucionar problemas de instalação por push do serviço de mobilidade
@@ -347,7 +347,7 @@ Use o procedimento a seguir para determinar a causa do erro.
     - Exit code: 802
     ```
 
-Como resolver o problema:
+Para resolver o problema:
 
 Contate a [equipe da plataforma Microsoft Windows](https://aka.ms/Windows_Support) para obter assistência com a resolução do problema DCOM.
 
@@ -394,7 +394,7 @@ No log localizado no servidor de configuração em _C:\ProgramData\ASRSetupLogs\
 COM+ was unable to talk to the Microsoft Distributed Transaction Coordinator (Exception from HRESULT: 0x8004E00F)
 ```
 
-Como resolver o problema:
+Para resolver o problema:
 
 1. Verifique se este computador é um computador não clusterizado e se os componentes do cluster não estão sendo usados.
 1. Se os componentes não estiverem sendo usados, remova os componentes do cluster do computador.
@@ -403,7 +403,7 @@ Como resolver o problema:
 
 Se a instalação do agente de mobilidade falhar, examine os logs em _C:\ProgramData\ASRSetupLogs_ para determinar se alguns dos drivers necessários estão ausentes em alguns conjuntos de controle.
 
-Como resolver o problema:
+Para resolver o problema:
 
 1. Usando um editor de registro como `regedit.msc` , abra o registro.
 1. Abra o `HKEY_LOCAL_MACHINE\SYSTEM` nó.

@@ -9,10 +9,10 @@ ms.subservice: security-develop
 ms.topic: article
 ms.date: 01/15/2019
 ms.openlocfilehash: 780ddc614feef492dafa54862abbea9552496274
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87539808"
 ---
 # <a name="threat-modeling-tool-ga-release-71509112---9122018"></a>Versão 7.1.50911.2 da Threat Modeling Tool de disponibilidade geral – 12/09/2018
@@ -79,7 +79,7 @@ Sim, você pode. O [conjunto de estênceis do Azure está disponível no GitHub]
 
 ![Atualizações de estêncil do Azure no cliente de 2016](./media/threat-modeling-tool-releases-71509112/tmt_azure_stencils-300x212.png)
 
-## <a name="system-requirements"></a>Requisitos do sistema
+## <a name="system-requirements"></a>Requisitos de sistema
 
 - Sistemas operacionais com suporte
   - Microsoft Windows 10

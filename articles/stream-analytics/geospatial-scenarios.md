@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 04/02/2019
 ms.openlocfilehash: 9792641da4b3aebad047179e2c02dad757027801
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86045256"
 ---
 # <a name="geofencing-and-geospatial-aggregation-scenarios-with-azure-stream-analytics"></a>Cenários geoespaciais e de agregação geoespacial com Azure Stream Analytics
@@ -70,7 +70,7 @@ O dispositivo "C" está localizado dentro da ID de compilação 2, o que não é
 
 ### <a name="site-with-multiple-allowed-devices"></a>Site com vários dispositivos permitidos
 
-Se um site permitir vários dispositivos, uma matriz de IDs de dispositivo poderá ser definida no `AllowedDeviceID` e uma função definida pelo usuário poderá ser usada na `WHERE` cláusula para verificar se a ID do dispositivo de fluxo corresponde a qualquer ID de dispositivo nessa lista. Para obter mais informações, veja o tutorial do [JavaScript UDF](stream-analytics-javascript-user-defined-functions.md) para trabalhos de nuvem e o tutorial [UDF do C#](stream-analytics-edge-csharp-udf.md) para trabalhos do Edge.
+Se um site permitir vários dispositivos, uma matriz de IDs de dispositivo poderá ser definida no `AllowedDeviceID` e uma função User-Defined poderá ser usada na `WHERE` cláusula para verificar se a ID do dispositivo de fluxo corresponde a qualquer ID de dispositivo nessa lista. Para obter mais informações, veja o tutorial do [JavaScript UDF](stream-analytics-javascript-user-defined-functions.md) para trabalhos de nuvem e o tutorial [UDF do C#](stream-analytics-edge-csharp-udf.md) para trabalhos do Edge.
 
 ## <a name="geospatial-aggregation"></a>Agregação geoespacial
 

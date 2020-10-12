@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: iainfou
 ms.openlocfilehash: 6e2b3badcda872db3ddb1d237b813615a1332ad0
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91396324"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-active-directory-domain-services"></a>Considerações de design de rede virtual e opções de configuração para Azure Active Directory Domain Services
@@ -104,7 +104,7 @@ Um domínio gerenciado cria alguns recursos de rede durante a implantação. Ess
 
 ## <a name="network-security-groups-and-required-ports"></a>Grupos de segurança de rede e portas necessárias
 
-Um [NSG (grupo de segurança de rede)](../virtual-network/security-overview.md) contém uma lista de regras que permitem ou negam o tráfego de rede para o tráfego em uma rede virtual do Azure. Um grupo de segurança de rede é criado quando você implanta um domínio gerenciado que contém um conjunto de regras que permitem que o serviço forneça funções de autenticação e gerenciamento. Esse grupo de segurança de rede padrão é associado à sub-rede da rede virtual em que seu domínio gerenciado está implantado.
+Um [NSG (grupo de segurança de rede)](../virtual-network/security-overview.md) contém uma lista de regras que permitem ou negam o tráfego de rede para o tráfego na rede virtual do Azure. Um grupo de segurança de rede é criado quando você implanta um domínio gerenciado que contém um conjunto de regras que permitem que o serviço forneça funções de autenticação e gerenciamento. Esse grupo de segurança de rede padrão é associado à sub-rede da rede virtual em que seu domínio gerenciado está implantado.
 
 As regras do grupo de segurança de rede a seguir são necessárias para que o domínio gerenciado forneça serviços de autenticação e gerenciamento. Não edite ou exclua essas regras de grupo de segurança de rede para a sub-rede da rede virtual em que seu domínio gerenciado está implantado.
 

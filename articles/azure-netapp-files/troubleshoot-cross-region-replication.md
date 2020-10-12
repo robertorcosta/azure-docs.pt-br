@@ -15,13 +15,13 @@ ms.topic: troubleshooting
 ms.date: 09/16/2020
 ms.author: b-juche
 ms.openlocfilehash: 3aaa5d2bc6fdbda0d1db212539c719aa65cae61b
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90708574"
 ---
-# <a name="troubleshoot-cross-region-replication"></a>Solução de problemas de replicação entre regiões
+# <a name="troubleshoot-cross-region-replication"></a>Solucionar problemas de replicação entre regiões
 
 Este artigo descreve as mensagens de erro e as resoluções que podem ajudá-lo a solucionar problemas de replicação entre regiões para Azure NetApp Files. 
 
@@ -68,7 +68,7 @@ Este artigo descreve as mensagens de erro e as resoluções que podem ajudá-lo 
 
 * [Replicação entre regiões](cross-region-replication-introduction.md)
 * [Requisitos e considerações para usar a replicação entre regiões](cross-region-replication-requirements-considerations.md)
-* [Criar emparelhamento de replicação](cross-region-replication-create-peering.md)
-* [Exibir status de integridade da relação de replicação](cross-region-replication-display-health-status.md)
+* [Criar um emparelhamento de replicação](cross-region-replication-create-peering.md)
+* [Exibir o status de integridade da relação de replicação](cross-region-replication-display-health-status.md)
 * [Gerenciar recuperação de desastre](cross-region-replication-manage-disaster-recovery.md)
-* [Solução de problemas de replicação entre regiões](troubleshoot-cross-region-replication.md)
+* [Solucionar problemas de replicação entre regiões](troubleshoot-cross-region-replication.md)

@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.openlocfilehash: 0c5abf345fda9db4cc5123360245e42ea0ef40e1
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88115026"
 ---
 # <a name="whats-new-for-authentication"></a>Quais são as novidades para autenticação?
@@ -69,9 +69,9 @@ Os usuários com senhas com mais de 256 caracteres que entram diretamente no Azu
 
 O erro nos logs de entrada será AADSTS 50052: InvalidPasswordExceedsMaxLength
 
-Mensagem:`The password entered exceeds the maximum length of 256. Please reach out to your admin to reset the password.`
+Mensagem: `The password entered exceeds the maximum length of 256. Please reach out to your admin to reset the password.`
 
-Corre
+Correção:
 
 O usuário não pode fazer logon porque sua senha excede o comprimento máximo permitido. Eles devem contatar seu administrador para redefinir a senha. Se o SSPR estiver habilitado para seu locatário, ele poderá redefinir sua senha seguindo o link "esqueceu sua senha".
 
@@ -127,7 +127,7 @@ Para corrigir esse problema, use a experiência de consentimento do administrado
 
 #### <a name="example-request"></a>Solicitação de exemplo
 
-`https://login.microsoftonline.com/contoso.com/oauth2/authorize?resource=https://gateway.contoso.com/api&response_type=token&client_id=14c88eee-b3e2-4bb0-9233-f5e3053b3a28&...`Neste exemplo, o locatário (autoridade) do recurso é contoso.com, o aplicativo de recurso é um aplicativo de locatário único chamado `gateway.contoso.com/api` para o locatário da Contoso e o aplicativo cliente é `14c88eee-b3e2-4bb0-9233-f5e3053b3a28` .  Se o aplicativo cliente tiver uma entidade de serviço dentro de Contoso.com, essa solicitação poderá continuar.  No entanto, se isso não acontecer, a solicitação falhará com o erro acima.
+`https://login.microsoftonline.com/contoso.com/oauth2/authorize?resource=https://gateway.contoso.com/api&response_type=token&client_id=14c88eee-b3e2-4bb0-9233-f5e3053b3a28&...` Neste exemplo, o locatário (autoridade) do recurso é contoso.com, o aplicativo de recurso é um aplicativo de locatário único chamado `gateway.contoso.com/api` para o locatário da Contoso e o aplicativo cliente é `14c88eee-b3e2-4bb0-9233-f5e3053b3a28` .  Se o aplicativo cliente tiver uma entidade de serviço dentro de Contoso.com, essa solicitação poderá continuar.  No entanto, se isso não acontecer, a solicitação falhará com o erro acima.
 
 No entanto, se o aplicativo de gateway da Contoso fosse de vários locatários, a solicitação continuaria independentemente do aplicativo cliente ter uma entidade de serviço em Contoso.com.
 

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: 171aaeb624bfedb9aa7408a736c11faca316b392
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87322628"
 ---
 # <a name="applicationinsightsloggerprovider-for-net-core-ilogger-logs"></a>ApplicationInsightsLoggerProvider para logs do ILogger do .NET Core
@@ -210,7 +210,7 @@ Você ainda pode usar o provedor antigo. (Ele será removido somente em uma alte
 - O provedor anterior não tem suporte para [escopos de log](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.2#log-scopes). No novo provedor, as propriedades do escopo são adicionadas automaticamente como propriedades personalizadas à telemetria coletada.
 - Os logs agora podem ser capturados muito antes no pipeline de inicialização do aplicativo. Os logs do **programa** e das classes de **inicialização** agora podem ser capturados.
 - Com o novo provedor, a filtragem é feita no próprio nível da estrutura. Você pode filtrar os logs para o provedor de Application Insights da mesma maneira que para outros provedores, incluindo provedores internos como console, depuração e assim por diante. Você também pode aplicar os mesmos filtros a vários provedores.
-- No ASP.NET Core (2,0 e posterior), a maneira recomendada para [habilitar os provedores de log](https://github.com/aspnet/Announcements/issues/255) é usando métodos de extensão em ILoggingBuilder no próprio **Program.cs** .
+- No ASP.NET Core (2,0 e posterior), a maneira recomendada para  [habilitar os provedores de log](https://github.com/aspnet/Announcements/issues/255) é usando métodos de extensão em ILoggingBuilder no próprio **Program.cs** .
 
 > [!Note]
 > O novo provedor está disponível para aplicativos direcionados para o netstandard 2.0 ou posterior. No [SDK Microsoft. ApplicationInsights. AspNet](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) versão 2.14.0 em diante, o novo provedor também está disponível para aplicativos direcionados .NET Framework NET461 ou posterior. Se seu aplicativo se destina a versões mais antigas do .NET Core, como o .NET Core 1,1, ou se ele se destina ao .NET Framework menos de NET46, continue a usar o provedor antigo.
@@ -378,7 +378,7 @@ A duplicação poderá ocorrer se você tiver a versão mais antiga (agora obsol
  }
 ```
 
-Se você tiver um log duplo ao depurar do Visual Studio, defina `EnableDebugLogger` como *false* no código que habilita Application insights, da seguinte maneira. Essa duplicação e correção só é relevante quando você está depurando o aplicativo.
+Se você tiver um log duplo ao depurar do Visual Studio, defina `EnableDebugLogger` como  *false* no código que habilita Application insights, da seguinte maneira. Essa duplicação e correção só é relevante quando você está depurando o aplicativo.
 
 ```csharp
  public void ConfigureServices(IServiceCollection services)
@@ -444,7 +444,7 @@ public class MyController : ApiController
 
 O ApplicationInsightsLoggerProvider captura logs do ILogger e cria TraceTelemetry a partir deles. Se um objeto de exceção for passado para o método **log ()** em ILogger, *ExceptionTelemetry* será criado em vez de TraceTelemetry. Esses itens de telemetria podem ser encontrados nos mesmos locais que qualquer outro TraceTelemetry ou ExceptionTelemetry para Application Insights, incluindo o portal, a análise ou o depurador local do Visual Studio.
 
-Se você preferir sempre enviar TraceTelemetry, use este trecho de código:```builder.AddApplicationInsights((opt) => opt.TrackExceptionsAsExceptionTelemetry = false);```
+Se você preferir sempre enviar TraceTelemetry, use este trecho de código: ```builder.AddApplicationInsights((opt) => opt.TrackExceptionsAsExceptionTelemetry = false);```
 
 ### <a name="i-dont-have-the-sdk-installed-and-i-use-the-azure-web-apps-extension-to-enable-application-insights-for-my-aspnet-core-applications-how-do-i-use-the-new-provider"></a>Não tenho o SDK instalado e uso a extensão de aplicativos Web do Azure para habilitar Application Insights para meus aplicativos ASP.NET Core. Como fazer usar o novo provedor? 
 

@@ -8,10 +8,10 @@ ms.date: 06/19/2020
 ms.author: keferna
 author: keferna
 ms.openlocfilehash: 92fd4d629585ed465e2891be2dce1c1bdc8c88e6
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87287939"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager test drive
@@ -42,7 +42,7 @@ Um modelo de implantação contém todos os recursos do Azure que compõem sua s
 
 Depois de criar o pacote de recursos desejado, grave e crie o modelo de test drive ARM. Como test drive executa implantações em um modo totalmente automatizado, os modelos de test drive têm algumas restrições:
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
 A maioria dos modelos tem um conjunto de parâmetros que definem nomes de recursos, tamanhos de recursos (como tipos de contas de armazenamento ou tamanhos de máquina virtual), nomes de usuário e senhas, nomes DNS e assim por diante. Quando você implanta soluções usando o portal do Azure, pode preencher manualmente todos esses parâmetros, escolher nomes de DNS disponíveis ou nomes de conta de armazenamento e assim por diante.
 
@@ -72,10 +72,10 @@ Você pode usar qualquer nome válido para seus parâmetros; test drive reconhec
 
 | Tipo de metadados   | Tipo de parâmetro  | Descrição     | Valor de exemplo    |
 |---|---|---|---|
-| **baseuri**     | cadeia de caracteres          | URI base do seu pacote de implantação| `https:\//\<\..\>.blob.core.windows.net/\<\..\>` |
-| **usu**    | cadeia de caracteres          | Novo nome de usuário aleatório.| admin68876      |
+| **baseuri**     | string          | URI base do seu pacote de implantação| `https:\//\<\..\>.blob.core.windows.net/\<\..\>` |
+| **username**    | string          | Novo nome de usuário aleatório.| admin68876      |
 | **password**    | cadeia de caracteres segura    | Nova senha aleatória | Lp!ACS\^2kh     |
-| **ID da sessão**   | cadeia de caracteres          | ID de sessão de test drive exclusiva (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
+| **ID da sessão**   | string          | ID de sessão de test drive exclusiva (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
 
 #### <a name="baseuri"></a>baseuri
 
@@ -122,7 +122,7 @@ Test Drive inicializa esse parâmetro com um novo nome de usuário aleatório:
 }
 ```
 
-Valor de exemplo:`admin68876`
+Valor de exemplo: `admin68876`
 
 É possível usar nomes de usuário aleatórios ou constantes para sua solução.
 
@@ -144,7 +144,7 @@ Test Drive inicializa esse parâmetro com uma nova senha aleatória:
 }
 ```
 
-Valor de exemplo:`Lp!ACS^2kh`
+Valor de exemplo:  `Lp!ACS^2kh`
 
 É possível usar senhas aleatórias ou constantes para sua solução.
 
@@ -166,7 +166,7 @@ Test Drive inicializa esse parâmetro com um GUID exclusivo que representa a ID 
 }
 ```
 
-Valor de exemplo:`b8c8693e-5673-449c-badd-257a405a6dee`
+Valor de exemplo: `b8c8693e-5673-449c-badd-257a405a6dee`
 
 Você pode usar esse parâmetro para identificar exclusivamente a sessão de test drive, se for necessário.
 
@@ -266,7 +266,7 @@ Exemplo:
 
 ### <a name="subscription-limits"></a>Limites de assinatura
 
-Não se esqueça da assinatura e dos limites de serviço. Por exemplo, se você quiser implantar até dez máquinas virtuais de 4 núcleos, precisará garantir que a assinatura usada para seu laboratório permite que você use núcleos de 40. Para obter mais informações sobre os limites de serviço e assinatura do Azure, consulte [assinatura do Azure e limites de serviço, cotas e restrições](../azure-resource-manager/management/azure-subscription-service-limits.md). Como várias unidades de teste podem ser obtidas ao mesmo tempo, verifique se sua assinatura pode lidar com o número de núcleos multiplicado pelo número total de unidades de teste simultâneas que podem ser executadas.
+Não se esqueça da assinatura e dos limites de serviço. Por exemplo, se você quiser implantar até 10 4 máquinas virtuais de núcleo, precisará garantir que a assinatura usada para seu laboratório permite que você use núcleos de 40. Para obter mais informações sobre os limites de serviço e assinatura do Azure, consulte [assinatura do Azure e limites de serviço, cotas e restrições](../azure-resource-manager/management/azure-subscription-service-limits.md). Como várias unidades de teste podem ser obtidas ao mesmo tempo, verifique se sua assinatura pode lidar com o número de núcleos multiplicado pelo número total de unidades de teste simultâneas que podem ser executadas.
 
 ### <a name="what-to-upload"></a>O que deve ser transferido por upload
 

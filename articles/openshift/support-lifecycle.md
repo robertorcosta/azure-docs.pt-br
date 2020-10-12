@@ -7,13 +7,13 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 08/11/2020
 ms.openlocfilehash: c066931cece60d14767b86254020ea5ba4bad1be
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88854508"
 ---
-# <a name="support-lifecycle-for-azure-red-hat-openshift-4"></a>Ciclo de vida de suporte para o Azure Red Hat OpenShift 4
+# <a name="support-lifecycle-for-azure-red-hat-openshift-4"></a>Dar suporte ao ciclo de vida para Red Hat OpenShift no Azure 4
 
 O Red Hat lança versões secundárias da OpenShift (plataforma de contêiner do Red Hat) aproximadamente a cada três meses. Essas versões incluem novos recursos e melhorias. As versões de patch são mais frequentes (geralmente semanalmente) e são destinadas apenas a correções de bugs críticos em uma versão secundária. Essas versões de patch podem incluir correções para vulnerabilidades de segurança ou principais bugs.
 

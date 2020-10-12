@@ -5,10 +5,10 @@ ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
 ms.openlocfilehash: 39bc6178d0cabf6c0220d2c54e0c532a6f9a5aa2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91316725"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Solucionando problemas de falhas de backup em máquinas virtuais do Azure
@@ -132,7 +132,7 @@ Solução:
 - Altere a política de backup para executar backups fora do horário de pico, quando a carga na VM for a mais baixa.
 - Atualize os discos do Azure para dar suporte a IOPs mais altos. [Saiba mais aqui](https://docs.microsoft.com/azure/virtual-machines/disks-types)
 
-### <a name="extensionfailedvssserviceinbadstate---snapshot-operation-failed-due-to-vss-volume-shadow-copy-service-in-bad-state"></a>Falha na operação ExtensionFailedVssServiceInBadState-snapshot devido ao serviço VSS (cópia de sombra de volume) em estado inadequado
+### <a name="extensionfailedvssserviceinbadstate---snapshot-operation-failed-due-to-vss-volume-shadow-copy-service-in-bad-state"></a>ExtensionFailedVssServiceInBadState – Falha na operação de instantâneo devido ao serviço VSS (cópia de sombra de volume) em estado inadequado
 
 Código de erro: ExtensionFailedVssServiceInBadState <br/>
 Mensagem de erro: falha na operação de instantâneo devido ao serviço VSS (cópia de sombra de volume) em estado inadequado.
