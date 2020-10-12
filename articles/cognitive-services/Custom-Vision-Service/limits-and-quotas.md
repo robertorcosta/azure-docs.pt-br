@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: pafarley
 ms.openlocfilehash: b79bf5e8ead16bbdf9c69e8d7faae43fa778ab3e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91316572"
 ---
 # <a name="limits-and-quotas"></a>Limites e cotas
@@ -26,7 +26,7 @@ Espera-se que o número de imagens de treinamento por projeto e tags por projeto
 |Fator|**F0**|**S0**|
 |-----|-----|-----|
 |Projetos|2|100|
-|Imagens de treinamento por projeto |5\.000|100,000|
+|Imagens de treinamento por projeto |5\.000|100.000|
 |Previsões/mês|10.000 |Ilimitado|
 |Marcas/projeto|50|500|
 |Iterações |10|10|

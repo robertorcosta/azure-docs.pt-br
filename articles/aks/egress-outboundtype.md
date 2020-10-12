@@ -7,13 +7,13 @@ ms.author: juluk
 ms.date: 06/29/2020
 author: jluk
 ms.openlocfilehash: d8ae03d52691a6c30f78439a579e7e7c136dda76
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90975289"
 ---
-# <a name="customize-cluster-egress-with-a-user-defined-route"></a>Personalizar a saída do cluster com uma rota definida pelo usuário
+# <a name="customize-cluster-egress-with-a-user-defined-route"></a>Personalizar a saída do cluster com uma rota de User-Defined
 
 A saída de um cluster AKS pode ser personalizada para se ajustar a cenários específicos. Por padrão, o AKS provisionará uma Load Balancer SKU padrão a ser configurada e usada para saída. No entanto, a configuração padrão poderá não cumprir os requisitos de todos os cenários se IPs públicos não forem permitidos ou saltos adicionais forem necessários para saída.
 

@@ -18,10 +18,10 @@ ms.date: 02/07/2019
 ms.author: kumud
 ms.custom: ''
 ms.openlocfilehash: ced76b73a8a08e6886cf0cef04c74a82d05c75dd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84708120"
 ---
 # <a name="create-a-virtual-machine-with-a-static-private-ip-address-using-powershell"></a>Criar uma máquina virtual com um endereço IP privado estático usando o PowerShell
@@ -99,7 +99,7 @@ Você pode concluir as etapas a seguir no seu computador local ou usando o Shell
 > [!IMPORTANT]
 > Para acessar a VM da Internet, você deve atribuir um endereço IP público à VM. Você também pode alterar uma atribuição de endereço IP privado dinâmico para uma atribuição estática. Para obter detalhes, consulte [Adicionar ou alterar endereços IP](virtual-network-network-interface-addresses.md). Além disso, é recomendável limitar o tráfego de rede à sua VM associando um grupo de segurança de rede ao adaptador de rede, a sub-rede na qual você criou o adaptador de rede ou ambos. Para obter detalhes, consulte [gerenciar grupos de segurança de rede](manage-network-security-group.md).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não for mais necessário, você poderá usar [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos e todos os recursos que ele contém:
 

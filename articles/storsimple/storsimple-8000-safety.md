@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/04/2017
 ms.author: alkohli
 ms.openlocfilehash: 556a84acb3461fb39b3eb0390b54878254bafabf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85514545"
 ---
 # <a name="safely-install-and-operate-your-storsimple-device"></a>Instalar e operar seu dispositivo StorSimple com segurança
@@ -30,7 +30,7 @@ Leia todas as informações de segurança e integridade neste artigo, que aplica
 ## <a name="safety-icon-conventions"></a>Convenções de ícones de segurança
 Estes são os ícones que você encontrará ao ler as precauções de segurança a serem observadas ao configurar e executar seu dispositivo Microsoft Azure StorSimple.
 
-| Ícone | Descrição |
+| ícone | Descrição |
 |:--- |:--- |
 | ![Ícone de perigo](./media/storsimple-safety/IC740879.png) **PERIGO!** |Indica uma situação perigosa que, se não for evitada, resultará em morte ou lesões graves. Essa palavra limitas-e às situações mais graves. |
 | ![Aviso de ícone de aviso ](./media/storsimple-safety/IC740879.png) **!** |Indica uma situação perigosa que, se não for evitada, pode causar lesões graves ou de morte. |
@@ -148,7 +148,7 @@ Para reduzir o risco de curto, incêndio, explosão, lesões ou morte:
 
 ![Ícone de observação](./media/storsimple-safety/IC740881.png) **OBSERVAÇÃO:**
 
-Ao enviar ou transportar de outra forma as baterias por ar, siga o documento de diretrizes de bateria de lítio IATA disponível em[https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx)
+Ao enviar ou transportar de outra forma as baterias por ar, siga o documento de diretrizes de bateria de lítio IATA disponível em [https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx)
 
 Depois de revisar esses avisos de segurança, as próximas etapas serão desembalar, montar no rack e cabear o dispositivo.
 

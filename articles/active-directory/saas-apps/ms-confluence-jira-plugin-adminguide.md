@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 11/19/2018
 ms.author: jeedes
 ms.openlocfilehash: 07bd9353f08e9440e495dfa92c608b4d6f70f5cf
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88543975"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Guia de administração do Atlassian Jira e Confluence para Azure Active Directory
@@ -24,7 +24,7 @@ ms.locfileid: "88543975"
 
 O plug-in de logon único (SSO) do Azure Active Directory (AD do Azure) permite que os clientes do Microsoft Azure Active Directory usem sua conta corporativa ou de estudante para entrar no Atlassian Jira e produtos com base em Confluence Server. Ele implementa SSO baseado em SAML 2.0.
 
-## <a name="how-it-works"></a>Como isso funciona
+## <a name="how-it-works"></a>Como ele funciona
 
 Quando os usuários desejam entrar no aplicativo Atlassian Jira ou Confluence, eles veem o botão **Logon com Microsoft Azure AD** na página de entrada. Quando eles o selecionam, precisam entrar usando a página de entrada da organização do Microsoft Azure AD (ou seja, sua conta corporativa ou de estudante).
 

@@ -8,10 +8,10 @@ ms.date: 09/01/2019
 ms.author: thweiss
 ms.custom: devx-track-js
 ms.openlocfilehash: 81660bee32cace458424c9975c74ca7980148e29
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91316181"
 ---
 # <a name="find-the-request-unit-charge-in-azure-cosmos-db"></a>Encontrar o preço de Unidade de Solicitação no Azure Cosmos DB
@@ -22,7 +22,7 @@ Este artigo apresenta as diferentes maneiras de encontrar o consumo de [RU](requ
 
 Se você estiver usando a API do SQL, terá várias opções para encontrar o consumo de RU para uma operação em um contêiner do Azure Cosmos.
 
-### <a name="use-the-azure-portal"></a>Use o Portal do Azure
+### <a name="use-the-azure-portal"></a>Usar o portal do Azure
 
 Atualmente, você pode encontrar o preço de solicitação no portal do Azure somente para uma consulta SQL.
 
@@ -172,7 +172,7 @@ Para obter mais informações, consulte [início rápido: criar um aplicativo Py
 
 O preço de RU é exposto por um [comando de banco de dados](https://docs.mongodb.com/manual/reference/command/) personalizado chamado `getLastRequestStatistics`. O comando retorna um documento que contém o nome da última operação executada, seu preço de solicitação e sua duração. Se você usar a API do Azure Cosmos DB para MongoDB, você terá várias opções para recuperar o preço de RU.
 
-### <a name="use-the-azure-portal"></a>Use o Portal do Azure
+### <a name="use-the-azure-portal"></a>Usar o portal do Azure
 
 Atualmente, você pode encontrar o preço de solicitação no portal do Azure somente para uma consulta.
 
@@ -188,7 +188,7 @@ Atualmente, você pode encontrar o preço de solicitação no portal do Azure so
 
 1. Selecione **Estatísticas da Consulta** para exibir o preço de solicitação real da solicitação executada.
 
-:::image type="content" source="./media/find-request-unit-charge/portal-mongodb-query.png" alt-text="Captura de tela do preço de solicitação de consulta MongoDB no portal do Azure":::
+:::image type="content" source="./media/find-request-unit-charge/portal-mongodb-query.png" alt-text="Captura de tela do preço de solicitação de uma consulta SQL no portal do Azure":::
 
 ### <a name="use-the-mongodb-net-driver"></a>Usar o driver do .NET do MongoDB
 

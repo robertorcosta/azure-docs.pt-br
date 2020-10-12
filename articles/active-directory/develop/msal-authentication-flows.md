@@ -13,17 +13,17 @@ ms.date: 07/08/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.openlocfilehash: 4a902ed53e92cd073d81626e80bdb3c8629ad072
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89437863"
 ---
 # <a name="authentication-flows"></a>Fluxos de autenticação
 
 A MSAL (biblioteca de autenticação da Microsoft) dá suporte a vários fluxos de autenticação para uso em diferentes cenários de aplicativo.
 
-| Flow | Descrição | Usado em |
+| Fluxo | Descrição | Usado em |
 |--|--|--|
 | [Código de autorização](#authorization-code) | Usado em aplicativos instalados em um dispositivo para obter acesso a recursos protegidos, como APIs Web. Permite que você adicione entrada e acesso à API aos seus aplicativos móveis e de área de trabalho. | [Aplicativos da área de trabalho](scenario-desktop-overview.md), [Aplicativos móveis](scenario-mobile-overview.md), [Aplicativos Web](scenario-web-app-call-api-overview.md) |
 | [Credenciais do cliente](#client-credentials) | Permite acessar recursos hospedados na Web com a identidade de um aplicativo. Normalmente é usado para interações de servidor para servidor que devem ser executadas em segundo plano, sem interação imediata com um usuário. | [Aplicativos daemon](scenario-daemon-overview.md) |
@@ -136,7 +136,7 @@ O fluxo de [concessão implícita do OAuth 2](v2-oauth2-implicit-grant-flow.md) 
 
 Muitos aplicativos Web modernos são criados como cliente, aplicativos de página única (SPA) escritos em JavaScript ou em uma estrutura SPA, como angular, Vue.js e React.js. Esses aplicativos são executados em um navegador da Web e têm características de autenticação diferentes dos aplicativos Web do lado do servidor tradicionais. A plataforma de identidade da Microsoft permite que aplicativos de página única conectem usuários e obtenham tokens para acessar serviços de back-end ou APIs Web usando o fluxo de concessão implícita. O fluxo implícito permite que o aplicativo obtenha tokens de ID para representar o usuário autenticado e também os tokens de acesso necessários para chamar APIs protegidas.
 
-Esse fluxo de autenticação não inclui cenários de aplicativo que usam estruturas JavaScript de plataforma cruzada, como o uso de aplicativos de informações nativas ou de reagir, porque exigem mais recursos para a interação com as plataformas nativas.
+Esse fluxo de autenticação não inclui cenários de aplicativo que usam estruturas JavaScript de plataforma cruzada, como o uso de aplicativos de informações de irestas ou React-Native, porque exigem mais recursos para interação com as plataformas nativas.
 
 Tokens emitidos por meio do modo de fluxo implícito têm uma **limitação de comprimento** porque são retornados ao navegador pela URL (onde `response_mode` é `query` ou `fragment` ). Alguns navegadores limitam o comprimento da URL na barra do navegador e falham quando é muito longo. Portanto, esses tokens de fluxo implícitos não contêm `groups` ou `wids` declarações.
 

@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2020
 ms.author: radeltch
 ms.openlocfilehash: 21d4af6985dbe246e60fe95f8f03de7f8aa0501b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91314055"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-suse-linux-enterprise-server"></a>Implantar um sistema de expansão SAP HANA com o nó em espera em VMs do Azure usando Azure NetApp Files no SUSE Linux Enterprise Server 
@@ -248,7 +248,7 @@ As próximas instruções pressupõem que você já criou o grupo de recursos, a
 
     d. Selecione **rede**e, em seguida, anexe a interface de rede. Na lista suspensa **anexar interface de rede** , selecione as interfaces de rede já criadas para as `storage` sub-redes e `hana` .  
     
-    e. Clique em **Salvar**. 
+    e. Selecione **Salvar**. 
  
     f. Repita as etapas b a e para as máquinas virtuais restantes (em nosso exemplo,  **hanadb2** e **hanadb3**).
  

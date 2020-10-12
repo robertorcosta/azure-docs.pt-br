@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/22/2020
 ms.openlocfilehash: 92cc94170a01aceaa3e6bd058f4ae6628db04f18
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87529578"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Copiar dados do SAP HANA usando o Azure Data Factory
@@ -189,7 +189,7 @@ Para copiar dados de SAP HANA, as propriedades a seguir têm suporte na seção 
 |:--- |:--- |:--- |
 | type | A propriedade Type da fonte da atividade de cópia deve ser definida como: **SapHanaSource** | Sim |
 | Consulta | Especifica a consulta SQL para ler dados da instância do SAP HANA. | Sim |
-| partitionOptions | Especifica as opções de particionamento de dados usadas para ingerir dados de SAP HANA. Saiba mais na seção [cópia paralela de SAP Hana](#parallel-copy-from-sap-hana) .<br>Permitir valores são: **nenhum**   (padrão), **PhysicalPartitionsOfTable**, **SapHanaDynamicRange**. Saiba mais na seção [cópia paralela de SAP Hana](#parallel-copy-from-sap-hana) . `PhysicalPartitionsOfTable`Só pode ser usado ao copiar dados de uma tabela, mas não de uma consulta. <br>Quando uma opção de partição é habilitada (ou seja, não `None` ), o grau de paralelismo para carregar dados simultaneamente de SAP Hana é controlado pela [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) configuração na atividade de cópia. | Falso |
+| partitionOptions | Especifica as opções de particionamento de dados usadas para ingerir dados de SAP HANA. Saiba mais na seção  [cópia paralela de SAP Hana](#parallel-copy-from-sap-hana) .<br>Permitir valores são: **nenhum**   (padrão), **PhysicalPartitionsOfTable**, **SapHanaDynamicRange**. Saiba mais na seção  [cópia paralela de SAP Hana](#parallel-copy-from-sap-hana) . `PhysicalPartitionsOfTable` Só pode ser usado ao copiar dados de uma tabela, mas não de uma consulta. <br>Quando uma opção de partição é habilitada (ou seja, não `None` ), o grau de paralelismo para carregar dados simultaneamente de SAP Hana é controlado pela [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) configuração na atividade de cópia. | Falso |
 | partitionSettings | Especifique o grupo de configurações para o particionamento de dados.<br>Aplicar quando a opção de partição for `SapHanaDynamicRange`. | Falso |
 | partitionColumnName | Especifique o nome da coluna de origem que será usada pela partição para cópia paralela. Se não for especificado, o índice ou a chave primária da tabela será detectado automaticamente e usado como a coluna de partição.<br>Aplicar quando a opção de partição for  `SapHanaDynamicRange` . Se você usar uma consulta para recuperar os dados de origem, conecte-se à  `?AdfHanaDynamicRangePartitionCondition` cláusula WHERE. Consulte o exemplo em [cópia paralela da seção SAP Hana](#parallel-copy-from-sap-hana) . | Sim ao usar a `SapHanaDynamicRange` partição. |
 | packetSize | Especifica o tamanho do pacote de rede (em kilobytes) para dividir os dados em vários blocos. Se você tiver uma grande quantidade de dados a serem copiados, aumentar o tamanho do pacote poderá aumentar a velocidade de leitura de SAP HANA na maioria dos casos. O teste de desempenho é recomendado ao ajustar o tamanho do pacote. | Não.<br>O valor padrão é 2048 (2MB). |
@@ -271,28 +271,28 @@ Ao copiar dados do SAP HANA, os seguintes mapeamentos são usados de tipos de da
 
 | Tipo de dados do SAP HANA | Tipo de dados provisório do Data Factory |
 | ------------------ | ------------------------------ |
-| ALPHANUM           | String                         |
+| ALPHANUM           | Cadeia de caracteres                         |
 | bigint             | Int64                          |
 | BINARY             | Byte[]                         |
-| Bintext            | String                         |
+| Bintext            | Cadeia de caracteres                         |
 | BLOB               | Byte[]                         |
 | BOOL               | Byte                           |
-| CLOB               | String                         |
+| CLOB               | Cadeia de caracteres                         |
 | DATE               | Datetime                       |
 | DECIMAL            | Decimal                        |
 | DOUBLE             | Double                         |
 | FLOAT              | Double                         |
 | INTEGER            | Int32                          |
-| NCLOB              | String                         |
-| NVARCHAR           | String                         |
+| NCLOB              | Cadeia de caracteres                         |
+| NVARCHAR           | Cadeia de caracteres                         |
 | real               | Single                         |
 | SECONDDATE         | Datetime                       |
-| SHORTTEXT          | String                         |
+| SHORTTEXT          | Cadeia de caracteres                         |
 | SMALLDECIMAL       | Decimal                        |
 | SMALLINT           | Int16                          |
 | STGEOMETRYTYPE     | Byte[]                         |
 | Ponto de extremidade        | Byte[]                         |
-| TEXT               | String                         |
+| TEXT               | Cadeia de caracteres                         |
 | TIME               | TimeSpan                       |
 | TINYINT            | Byte                           |
 | VARCHAR            | String                         |

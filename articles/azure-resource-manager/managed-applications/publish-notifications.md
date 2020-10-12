@@ -6,10 +6,10 @@ ms.author: ilahat
 author: ilahat
 ms.date: 11/01/2019
 ms.openlocfilehash: 3632a34678c7a0f0e6fa93e5ce8000b07bb413a6
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86054518"
 ---
 # <a name="azure-managed-applications-with-notifications"></a>Aplicativos gerenciados do Azure com notificações
@@ -71,11 +71,11 @@ EventType | ProvisioningState | Gatilho para notificação
 ---|---|---
 PUT | Aceito | O grupo de recursos gerenciados foi criado e projetado com êxito após o aplicativo ser colocado (antes de a implantação dentro do grupo de recursos gerenciado ser inicializada).
 PUT | Êxito | O provisionamento completo do aplicativo gerenciado foi bem-sucedido após um PUT.
-PUT | Falhou | Falha ao colocar o provisionamento da instância do aplicativo em qualquer ponto.
+PUT | Failed (Falha) | Falha ao colocar o provisionamento da instância do aplicativo em qualquer ponto.
 PATCH | Êxito | Após um PATCH bem-sucedido na instância do aplicativo gerenciado para atualizar marcas, política de acesso JIT ou identidade gerenciada.
-Delete (excluir) | Excluindo | Assim que o usuário inicia uma exclusão de uma instância de aplicativo gerenciado.
+Delete (excluir) | Excluir | Assim que o usuário inicia uma exclusão de uma instância de aplicativo gerenciado.
 Delete (excluir) | Excluído | Após a exclusão completa e bem-sucedida do aplicativo gerenciado.
-Delete (excluir) | Falhou | Após qualquer erro durante o processo de desprovisionamento que bloqueia a exclusão.
+Delete (excluir) | Failed (Falha) | Após qualquer erro durante o processo de desprovisionamento que bloqueia a exclusão.
 ## <a name="notification-schema"></a>Esquema de notificação
 Ao criar o ponto de extremidade do webhook para lidar com notificações, você precisará analisar a carga para obter propriedades importantes e, em seguida, agir sobre a notificação. As notificações do catálogo de serviços e do aplicativo gerenciado do Azure Marketplace fornecem muitas das mesmas propriedades. Duas pequenas diferenças são descritas na tabela que segue os exemplos.
 
@@ -182,7 +182,7 @@ eventType | O tipo de evento que disparou a notificação. (Por exemplo, PUT, PA
 applicationId | O identificador de recurso totalmente qualificado do aplicativo gerenciado para o qual a notificação foi disparada.
 eventTime | O carimbo de data/hora do evento que disparou a notificação. (Data e hora no formato UTC ISO 8601.)
 provisioningState | O estado de provisionamento da instância do aplicativo gerenciado. (Por exemplo, com êxito, com falha, excluindo, excluiu.)
-erro | *Especificado somente quando ProvisioningState falhou*. Contém o código de erro, a mensagem e os detalhes do problema que causou a falha.
+error | *Especificado somente quando ProvisioningState falhou*. Contém o código de erro, a mensagem e os detalhes do problema que causou a falha.
 applicationDefinitionId | *Especificado somente para aplicativos gerenciados do catálogo de serviços*. Representa o identificador de recurso totalmente qualificado da definição de aplicativo para a qual a instância do aplicativo gerenciado foi provisionada.
 plan | *Especificado somente para aplicativos gerenciados do Azure Marketplace*. Representa o editor, a oferta, a SKU e a versão da instância do aplicativo gerenciado.
 billingDetails | *Especificado somente para aplicativos gerenciados do Azure Marketplace.* Os detalhes de cobrança da instância do aplicativo gerenciado. Contém o resourceUsageId que você pode usar para consultar o Azure Marketplace para obter detalhes de uso.

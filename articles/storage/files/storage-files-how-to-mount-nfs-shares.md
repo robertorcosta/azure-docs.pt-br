@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
 ms.openlocfilehash: 530ae82720e6b4eb6a3e4d1021c0b37b9f4dbf5c
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90707434"
 ---
 # <a name="how-to-mount-an-nfs-file-share"></a>Como montar um compartilhamento de arquivos NFS
@@ -45,7 +45,7 @@ ms.locfileid: "90707434"
 1. Entre no portal do Azure e acesse a conta de armazenamento que contém o compartilhamento NFS que você criou.
 1. Selecione **Configuração**.
 1. Selecione **desabilitado** para **transferência segura necessária**.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
     :::image type="content" source="media/storage-files-how-to-mount-nfs-shares/storage-account-disable-secure-transfer.png" alt-text="Captura de tela de configuração da conta de armazenamento com transferência segura desabilitada.":::
 
@@ -55,7 +55,7 @@ ms.locfileid: "90707434"
 1. Insira o caminho de montagem que você deseja usar e copie o script.
 1. Conecte-se ao seu cliente e use o script de montagem fornecido.
 
-    :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/mount-nfs-file-share-script.png" alt-text="Captura de tela da folha conexão de compartilhamento de arquivos":::
+    :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/mount-nfs-file-share-script.png" alt-text="Captura de tela de configuração da conta de armazenamento com transferência segura desabilitada.":::
 
 Agora você montou seu compartilhamento NFS.
 

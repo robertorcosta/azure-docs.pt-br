@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.openlocfilehash: e64de987bd82f6b93350cdd706fc1a243d2855b1
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90977835"
 ---
 # <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication"></a>Configurar um cliente VPN para conexões de protocolo P2S OpenVPN: Autenticação do Azure AD
@@ -98,23 +98,23 @@ Quando tiver um perfil de trabalho e precisar distribuí-lo para outros usuário
 
 1. Na página, selecione **+** e **+ Adicionar**.
 
-    ![conexão](./media/openvpn-azure-ad-client/create/create1.jpg)
+    ![connection](./media/openvpn-azure-ad-client/create/create1.jpg)
 
 2. Preencha as informações de conexão. Se você não tiver certeza dos valores, contate o administrador. Depois de preencher os valores, selecione **salvar**.
 
-    ![conexão](./media/openvpn-azure-ad-client/create/create2.jpg)
+    ![connection](./media/openvpn-azure-ad-client/create/create2.jpg)
 
 3. Selecione **Conectar** para se conectar à VPN.
 
-    ![conexão](./media/openvpn-azure-ad-client/create/create3.jpg)
+    ![connection](./media/openvpn-azure-ad-client/create/create3.jpg)
 
 4. Selecione as credenciais apropriadas e, em seguida, selecione **continuar**.
 
-    ![conexão](./media/openvpn-azure-ad-client/create/create4.jpg)
+    ![connection](./media/openvpn-azure-ad-client/create/create4.jpg)
 
 5. Uma vez conectado com êxito, o ícone ficará verde e informará **conectado**.
 
-    ![conexão](./media/openvpn-azure-ad-client/create/create5.jpg)
+    ![connection](./media/openvpn-azure-ad-client/create/create5.jpg)
 
 ### <a name="to-connect-automatically"></a><a name="autoconnect"></a>Para se conectar automaticamente
 
@@ -252,7 +252,7 @@ Você pode modificar o arquivo XML do perfil baixado e adicionar ** \<excluderou
 ```
 ### <a name="can-i-import-the-profile-from-a-command-line-prompt"></a>Posso importar o perfil de um prompt de linha de comando?
 
-Você pode importar o perfil de um prompt de linha de comando colocando o arquivo **azurevpnconfig.xml** baixado na pasta **%USERPROFILE%\appdata\local\packages\microsoft. AzureVpn_8wekyb3d8bbwe \localstate** e executando o seguinte comando:
+Você pode importar o perfil de um prompt de linha de comando colocando o arquivo **azurevpnconfig.xml** baixado na pasta **%USERPROFILE%\appdata\local\packages\ Microsoft.AzureVpn_8wekyb3d8bbwe \localstate** e executando o seguinte comando:
 
 ```
 azurevpn -i azurevpnconfig.xml 

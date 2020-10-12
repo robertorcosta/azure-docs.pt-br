@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
 ms.openlocfilehash: fbd4c4ecfa2be9815e5d301a02460dc28171716a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91329254"
 ---
 # <a name="public-ip-addresses"></a>Endereços IP públicos
@@ -184,7 +184,7 @@ A tabela a seguir mostra a propriedade por meio da qual um IP público pode ser 
 | Gateway de Aplicativo |Configuração de front-end |Sim (apenas V1) |Sim (apenas V2) |
 | Firewall do Azure | Configuração de front-end | Não | Sim|
 
-## <a name="limits"></a>Limites
+## <a name="limits"></a>limites
 
 Os limites para o endereçamento IP são listados no conjunto completo de [limites para rede](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) no Azure. 
 

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/26/2019
 ms.openlocfilehash: ea7aa7758b5ccf7be02fa8d450ce710dcbef86a4
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86087377"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Use o Apache Kafka no HDInsight com o Microsoft Azure Hub IoT
@@ -85,7 +85,7 @@ Em sua conexão SSH com o nó de borda, use as seguintes etapas para configurar 
     export password='PASSWORD'
     ```
 
-1. Instale o utilitário [JQ](https://stedolan.github.io/jq/) . JQ torna mais fácil processar documentos JSON retornados de consultas Ambari. Insira o seguinte comando:
+1. Instale o utilitário [JQ](https://stedolan.github.io/jq/) . JQ torna mais fácil processar documentos JSON retornados de consultas Ambari. Digite o seguinte comando:
 
     ```bash
     sudo apt -y install jq
@@ -123,7 +123,7 @@ Em sua conexão SSH com o nó de borda, use as seguintes etapas para configurar 
     |`bootstrap.servers=localhost:9092`|Substitua o `localhost:9092` valor pelos hosts do agente da etapa anterior|Define a configuração autônoma para o nó de borda para localizar os agentes Kafka.|
     |`key.converter=org.apache.kafka.connect.json.JsonConverter`|`key.converter=org.apache.kafka.connect.storage.StringConverter`|Essa alteração permite que você teste usando o produtor do console incluído com Kafka. Talvez seja necessário conversores diferentes para outros produtores e consumidores. Para obter informações sobre como usar outros valores de conversor, consulte [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md) .|
     |`value.converter=org.apache.kafka.connect.json.JsonConverter`|`value.converter=org.apache.kafka.connect.storage.StringConverter`|Mesmo que acima.|
-    |N/D|`consumer.max.poll.records=10`|Adicionar ao final do arquivo. Essa alteração é evitar os tempos limite no conector do coletor limitando a 10 registros por vez. Para obter mais informações, consulte [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).|
+    |N/D|`consumer.max.poll.records=10`|Adicionar ao final do arquivo. Essa alteração é evitar os tempos limite no conector do coletor limitando a 10 registros por vez. Para obter mais informações, confira [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).|
 
 1. Para salvar o arquivo, use __Ctrl + X__, __Y__ e, em seguida, __Enter__.
 

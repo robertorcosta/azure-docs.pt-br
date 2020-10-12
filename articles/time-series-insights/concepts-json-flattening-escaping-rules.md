@@ -10,10 +10,10 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/28/2020
 ms.openlocfilehash: a1f633548ed36320f40e485f540923c8e3045a99
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91460859"
 ---
 # <a name="json-flattening-escaping-and-array-handling"></a>Nivelamento, escape e matriz de JSON
@@ -87,7 +87,7 @@ ID da série temporal na raiz do objeto e no carimbo de data/hora aninhado \
 **Resultado no arquivo parquet:**\
 A configuração e a carga acima produzirão três colunas e quatro eventos
 
-| timestamp  | id_string | valores. value_double
+| timestamp  | id_string | values.value_double
 | ---- | ---- | ---- |
 | `2020-05-01T00:59:59.000Z` | `caaae533-1d6c-4f58-9b75-da102bcc2c8c`| ``25.6073`` |
 | `2020-05-01T01:00:29.000Z` |`caaae533-1d6c-4f58-9b75-da102bcc2c8c` | ``43.9077`` |
@@ -145,7 +145,7 @@ ID da série temporal composta com uma propriedade aninhada \
 **Resultado no arquivo parquet:**\
 A configuração e a carga acima produzirão quatro colunas e seis eventos
 
-| timestamp  | plantId_string | telemetria. tagId_string | telemetria. value_double
+| timestamp  | plantId_string | telemetry.tagId_string | telemetry.value_double
 | ---- | ---- | ---- | ---- |
 | `2020-01-22T16:38:09Z` | `9336971`| ``100231-A-A6`` |  -31,149018 |
 | `2020-01-22T16:38:09Z` |`9336971` | ``100231-A-A1`` | 20,560796 |

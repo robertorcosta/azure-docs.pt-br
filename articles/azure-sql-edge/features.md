@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/03/2020
 ms.openlocfilehash: 646ce94587a9aa1bb8fd20a28b84658994b25cf1
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90886532"
 ---
 # <a name="supported-features-of-azure-sql-edge"></a>Recursos com suporte do Azure SQL Edge 
@@ -52,7 +52,7 @@ O Azure SQL Edge só dá suporte ao mecanismo de banco de dados. Ele não inclui
 Além de dar suporte a um subconjunto de recursos do SQL Server em Linux, o Azure SQL Edge inclui suporte para os seguintes novos recursos: 
 
 - O streaming do SQL, que se baseia no mesmo mecanismo que dá Azure Stream Analytics, fornece recursos de streaming de dados em tempo real no Azure SQL Edge. 
-- A função T-SQL chamada `Date_Bucket` para análise de dados de série temporal.
+- A função T-SQL chamada `Date_Bucket` para análise de dados de Time-Series.
 - Recursos de aprendizado de máquina por meio do tempo de execução do ONNX, incluídos no mecanismo do SQL.
 
 ## <a name="unsupported-features"></a>Recursos sem suporte

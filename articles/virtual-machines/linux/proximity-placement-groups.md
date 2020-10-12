@@ -3,18 +3,18 @@ title: Usar grupos de posicionamento de proximidade
 description: Saiba mais sobre como criar e usar grupos de posicionamento de proximidade para máquinas virtuais no Azure.
 author: cynthn
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 10/30/2019
 ms.author: cynthn
-ms.openlocfilehash: f89b28e7a3c29e45efa2796788e27325c01d7098
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ee172203d6aa54b4b539356835f8a6bf2d21bad3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81759258"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "87288413"
 ---
-# <a name="deploy-vms-to-proximity-placement-groups-using-azure-cli"></a>Implantar VMs em grupos de posicionamento de proximidade usando CLI do Azure
+# <a name="deploy-vms-to-proximity-placement-groups-using-azure-cli"></a>Implantar VMs em grupos de posicionamento por proximidade usando a CLI do Azure
 
 Para obter as VMs o mais próximo possível, alcançando a menor latência possível, você deve implantá-las em um [grupo de posicionamento de proximidade](co-location.md#proximity-placement-groups).
 

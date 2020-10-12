@@ -16,10 +16,10 @@ ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: milanga;cenkdin
 ms.openlocfilehash: c68bedb37722fb6a8b7ad9dccdeaaaa4fab9d020
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89264123"
 ---
 # <a name="update-media-services-after-rolling-storage-access-keys"></a>Atualizar os Serviços de Mídia após implantar chaves de acesso de armazenamento
@@ -47,7 +47,7 @@ Os Serviços de Mídia dependem de uma chave de armazenamento fornecida a eles. 
 ## <a name="steps-to-rotate-storage-keys"></a>Etapas para revezar as chaves de armazenamento 
  
  1. Altere a Chave primária da conta de armazenamento por meio do cmdlet do powershell ou do Portal do [Azure](https://portal.azure.com/).
- 2. Chame o cmdlet Sync-AzMediaServiceStorageKeys com os parâmetros apropriados para forçar a conta de mídia a escolher as chaves da conta de armazenamento
+ 2. Chame o cmdlet Sync-AzMediaServiceStorageKeys com os parâmetros apropriados para forçar a conta de mídia a obter as chaves da conta de armazenamento
  
     O exemplo a seguir mostra como sincronizar chaves para contas de armazenamento.
   
@@ -55,7 +55,7 @@ Os Serviços de Mídia dependem de uma chave de armazenamento fornecida a eles. 
   
  3. Aguarde uma hora mais ou menos. Verifique se os cenários de transmissão estão funcionando.
  4. Altere a chave secundária da conta de armazenamento por meio do cmdlet do powershell ou do portal do Azure.
- 5. Chame Sync-AzMediaServiceStorageKeys PowerShell com os parâmetros apropriados para forçar a conta de mídia a escolher novas chaves de conta de armazenamento. 
+ 5. Chame Sync-AzMediaServiceStorageKeys PowerShell com os parâmetros apropriados para forçar a conta de mídia a obter novas chaves de conta de armazenamento. 
  6. Aguarde uma hora mais ou menos. Verifique se os cenários de transmissão estão funcionando.
  
 ### <a name="a-powershell-cmdlet-example"></a>Um exemplo de cmdlet do powershell 

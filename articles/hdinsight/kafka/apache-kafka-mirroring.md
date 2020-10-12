@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
 ms.openlocfilehash: 278fbdf7010fe7b14488bb021ab8a366393ad512
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86087355"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>Use MirrorMaker para replicar tópicos do Apache Kafka com Kafka no HDInsight
@@ -92,7 +92,7 @@ Configure o anúncio de IP para permitir que um cliente se conecte usando endere
 
 1. Vá para o painel do Ambari para o cluster primário: `https://PRIMARYCLUSTERNAME.azurehdinsight.net` .
 1. Selecione **Serviços**  >  **Kafka**. CliSelectck a guia **configurações** .
-1. Adicione as seguintes linhas de configuração à seção de **modelo Kafka-env** inferior. Selecione **Salvar**.
+1. Adicione as seguintes linhas de configuração à seção de **modelo Kafka-env** inferior. Clique em **Salvar**.
 
     ```
     # Configure Kafka to advertise IP addresses instead of FQDN
@@ -112,7 +112,7 @@ Configure o anúncio de IP para permitir que um cliente se conecte usando endere
 ### <a name="configure-kafka-to-listen-on-all-network-interfaces"></a>Configure o Kafka para escutar em todas as interfaces de rede.
     
 1. Permaneça na guia **configurações** em **Serviços**  >  **Kafka**. Na seção **agente Kafka** , defina a propriedade **Listeners** como `PLAINTEXT://0.0.0.0:9092` .
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 1. Selecione **reiniciar**e **confirme reiniciar tudo**.
 
 ### <a name="record-broker-ip-addresses-and-zookeeper-addresses-for-primary-cluster"></a>Endereços IP do agente de registro e endereços Zookeeper para o cluster primário.
