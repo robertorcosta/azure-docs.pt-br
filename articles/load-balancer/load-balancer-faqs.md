@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/22/2020
 ms.author: errobin
 ms.openlocfilehash: 2b547dbc8671481275952f4c3eae5683e9e3a06c
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86207537"
 ---
 # <a name="load-balancer-frequently-asked-questions"></a>Load Balancer perguntas frequentes
@@ -25,7 +25,7 @@ Para ambos os tipos, o Azure oferece uma SKU básica e uma SKU standard que têm
 Consulte o artigo [Atualizar do básico para o padrão](upgrade-basic-standard.md) para um script automatizado e orientação sobre como atualizar um SKU Load Balancer.
 
  ## <a name="what-are-the-different-load-balancing-options-in-azure"></a>Quais são as diferentes opções de balanceamento de carga no Azure?
-Consulte o [Guia de tecnologia do balanceador de carga](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview) para obter os serviços de balanceamento de carga disponíveis e os usos recomendados para cada um.
+Consulte o [Guia de tecnologia do balanceador de carga](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview)  para obter os serviços de balanceamento de carga disponíveis e os usos recomendados para cada um.
 
 ## <a name="where-can-i-find-load-balancer-arm-templates"></a>Onde posso encontrar Load Balancer modelos de ARM?
 Consulte a [lista de modelos de início rápido de Azure Load Balancer](https://docs.microsoft.com/azure/templates/microsoft.network/loadbalancers#quickstart-templates) para modelos de ARM de implantações comuns.

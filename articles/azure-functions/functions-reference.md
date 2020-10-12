@@ -5,10 +5,10 @@ ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
 ms.date: 10/12/2017
 ms.openlocfilehash: 9a3c0643f4fc965ff64106758320aeb445aaf9ae
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85921741"
 ---
 # <a name="azure-functions-developer-guide"></a>Guia do desenvolvedor do Azure Functions
@@ -40,7 +40,7 @@ Para obter mais informações, consulte [Azure Functions os conceitos de gatilho
 
 A propriedade `bindings` é onde você configura gatilhos e associações. Cada binding compartilha algumas configurações comuns e outras que são específicas para um determinado tipo de binding. Todas as associações exigem as seguintes configurações:
 
-| Property | Valores/Tipos | Comentários |
+| Propriedade | Valores/Tipos | Comentários |
 | --- | --- | --- |
 | `type` |string |Tipo de binding. Por exemplo, `queueTrigger`. |
 | `direction` |'in', 'out' |Indica se a associação é para receber dados na função ou enviar dados a partir da função. |
@@ -82,8 +82,8 @@ O código para o Azure Functions é software livre e é armazenado em repositór
 * [Host Azure Functions](https://github.com/Azure/azure-functions-host/)
 * [portal das Azure Functions](https://github.com/azure/azure-functions-ux)
 * [Modelos do Azure Functions](https://github.com/azure/azure-functions-templates)
-* [SDK WebJobs do Azure](https://github.com/Azure/azure-webjobs-sdk/)
-* [Extensões do SDK WebJobs do Azure](https://github.com/Azure/azure-webjobs-sdk-extensions/)
+* [SDK do Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk/)
+* [Extensões do SDK do Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk-extensions/)
 
 ## <a name="bindings"></a>Associações
 Veja uma tabela de todas as associações com suporte.

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: tisande
 ms.openlocfilehash: c4ae66884602989284a427bdc33de7612bd9a8df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84484332"
 ---
 # <a name="order-by-clause-in-azure-cosmos-db"></a>Cláusula ORDER BY no Azure Cosmos DB
@@ -45,7 +45,7 @@ ORDER BY <sort_specification>
   
 - `ASC | DESC`  
   
-   Define que os valores na coluna especificada devem ser classificados em ordem crescente ou decrescente. `ASC`classifica do valor mais baixo para o valor mais alto. `DESC`classifica do valor mais alto para o valor mais baixo. `ASC`é a ordem de classificação padrão. Valores nulos são tratados como os menores valores possíveis.  
+   Define que os valores na coluna especificada devem ser classificados em ordem crescente ou decrescente. `ASC` classifica do valor mais baixo para o valor mais alto. `DESC` classifica do valor mais alto para o valor mais baixo. `ASC` é a ordem de classificação padrão. Valores nulos são tratados como os menores valores possíveis.  
   
 ## <a name="remarks"></a>Comentários  
   
@@ -102,7 +102,7 @@ Os resultados são:
     ]
 ```
 
-Além disso, você pode ordenar por várias propriedades. Uma consulta que ordena por várias propriedades requer um [índice composto](index-policy.md#composite-indexes). Considere a consulta a seguir:
+Além disso, você pode ordenar por várias propriedades. Uma consulta que ordena por várias propriedades requer um [índice composto](index-policy.md#composite-indexes). Considere a consulta a seguir.
 
 ```sql
     SELECT f.id, f.creationDate

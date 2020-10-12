@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 07/20/2020
 ms.author: mbaldwin
 ms.openlocfilehash: e5cc3b5fb7ca38df196119de12d346f5d0346b58
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91340983"
 ---
 # <a name="virtualization-based-security-vbs-attestation-protocol"></a>Protocolo de atestado de segurança baseada em virtualização (VBS) 
@@ -22,7 +22,7 @@ Para Microsoft Azure atestado para fornecer fortes garantias de segurança de qu
 
 ### <a name="init-message"></a>Mensagem de inicialização
 
-#### <a name="direction"></a>Direção
+#### <a name="direction"></a>Direction
 
 Cliente-> atestado do Azure
 
@@ -38,7 +38,7 @@ Cliente-> atestado do Azure
 
 ### <a name="challenge-message"></a>Mensagem de desafio
 
-#### <a name="direction"></a>Direção
+#### <a name="direction"></a>Direction
 
 Atestado do Azure-cliente >
 
@@ -61,7 +61,7 @@ Atestado do Azure-cliente >
 
 ### <a name="request-message"></a>Mensagem de solicitação
 
-#### <a name="direction"></a>Direção
+#### <a name="direction"></a>Direction
 
 Cliente-> atestado do Azure 
 
@@ -234,7 +234,7 @@ Exemplo de VBS
 
 ### <a name="report-message"></a>Mensagem de relatório
 
-#### <a name="direction"></a>Direção
+#### <a name="direction"></a>Direction
 
 Atestado do Azure-cliente >
 

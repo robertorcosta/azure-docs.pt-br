@@ -12,10 +12,10 @@ ms.date: 04/05/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 67ea7324419d86fa5b5c23a2f0aa5f8c057495d1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85385970"
 ---
 # <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>Rastrear o comportamento do usuário no Azure Active Directory B2C usando o Application Insights
@@ -29,7 +29,7 @@ O Azure Active Directory B2C (Azure AD B2C) dá suporte ao envio de dados de eve
 * Medir o desempenho.
 * Criar notificações do Application Insights.
 
-## <a name="how-it-works"></a>Como funciona
+## <a name="how-it-works"></a>Como ele funciona
 
 O perfil técnico [Application insights](application-insights-technical-profile.md) define um evento de Azure ad B2C. O perfil especifica o nome do evento, as reivindicações registradas e a chave de instrumentação. Para postar um evento, o perfil técnico é adicionado como uma etapa de orquestração em uma [jornada do usuário](userjourneys.md).
 
@@ -106,9 +106,9 @@ Perfis técnicos podem ser considerados funções na Estrutura de Experiência d
 
 | Perfil técnico | Tarefa |
 | ----------------- | -----|
-| AppInsights – comum | O conjunto comum de parâmetros a ser incluído em todos os perfis técnicos do Azure insights. |
+| AppInsights-Common | O conjunto comum de parâmetros a ser incluído em todos os perfis técnicos do Azure insights. |
 | AppInsights-SignInRequest | Registra um `SignInRequest` evento com um conjunto de declarações quando uma solicitação de entrada é recebida. |
-| AppInsights-usersignup | Registra um `UserSignUp` evento quando o usuário aciona a opção de inscrição em uma jornada de inscrição/entrada. |
+| AppInsights-UserSignUp | Registra um `UserSignUp` evento quando o usuário aciona a opção de inscrição em uma jornada de inscrição/entrada. |
 | AppInsights-SignInComplete | Registra um `SignInComplete` evento após a conclusão bem-sucedida de uma autenticação, quando um token foi enviado para o aplicativo de terceira parte confiável. |
 
 Adicione os perfis para o *trustframeworkextensions. XML* arquivo do starter pack. Adicione esses elementos para o **ClaimsProviders** elemento:
@@ -227,7 +227,7 @@ Faça upload do arquivo *TrustFrameworkExtensions.xml* no seu locatário. Em seg
 
 ## <a name="optional-collect-more-data"></a>Adicional Coletar mais dados
 
-Adicione tipos de declarações e eventos ao percurso do usuário para ajustar às suas necessidades. Você pode usar [resolvedores de declaração](claim-resolver-overview.md) ou qualquer tipo de declaração de cadeia de caracteres, adicionar as declarações adicionando um elemento de **declaração de entrada** ao evento Application insights ou ao perfil técnico AppInsights-comum.
+Adicione tipos de declarações e eventos ao percurso do usuário para ajustar às suas necessidades. Você pode usar [resolvedores de declaração](claim-resolver-overview.md) ou qualquer tipo de declaração de cadeia de caracteres, adicionar as declarações adicionando um elemento de **declaração de entrada** ao evento Application insights ou ao perfil técnico AppInsights-Common.
 
 - **ClaimTypeReferenceId** é a referência a um tipo de declaração.
 - **PartnerClaimType** é o nome da propriedade que é exibido no Azure Insights. Use a sintaxe da `{property:NAME}`, onde `NAME` é a propriedade que está sendo adicionada ao evento.

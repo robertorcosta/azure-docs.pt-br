@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: eed1b0e1b01d5d13330b927429eca9a28ff80658
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88009249"
 ---
 # <a name="tenant-and-host-pool-creation-in-windows-virtual-desktop-classic"></a>Criação de locatários e pool de hosts na área de trabalho virtual do Windows (clássico)
@@ -51,7 +51,7 @@ Contact your IT Admin to review the configuration of your service subscriptions.
 
 **Correção:** [siga este guia](https://docs.microsoft.com/azure/virtual-desktop/virtual-desktop-fall-2019/tenant-setup-azure-active-directory#grant-permissions-to-windows-virtual-desktop) para conceder consentimento.
 
-### <a name="error-the-user-isnt-authorized-to-query-the-management-service"></a>Erro: o usuário não está autorizado a consultar o serviço de gerenciamento
+### <a name="error-the-user-isnt-authorized-to-query-the-management-service"></a>Erro: O usuário não está autorizado a consultar o serviço de gerenciamento
 
 > [!div class="mx-imgBorder"]
 > ![Captura de tela da janela do PowerShell na qual um usuário não está autorizado a consultar o serviço de gerenciamento.](../media/UserNotAuthorizedNewTenant.png)
@@ -177,7 +177,7 @@ Para corrigir isso, faça o seguinte:
 3. O menu servidores DNS deve aparecer no lado direito da tela. Nesse menu, selecione **personalizado**.
 4. Verifique se os servidores DNS listados em Personalizar correspondem ao seu controlador de domínio ou Active Directory domínio. Se você não vir o servidor DNS, poderá adicioná-lo inserindo seu valor no campo **Adicionar servidor DNS** .
 
-### <a name="error-your-deployment-failedunauthorized"></a>Erro: falha na implantação. ..\Unauthorized
+### <a name="error-your-deployment-failedunauthorized"></a>Erro: Falha na implantação...\Não autorizada
 
 ```Error
 {"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.","details":[{"code":"Unauthorized","message":"{\r\n \"Code\": \"Unauthorized\",\r\n \"Message\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\",\r\n \"Target\": null,\r\n \"Details\": [\r\n {\r\n \"Message\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\"\r\n },\r\n {\r\n \"Code\": \"Unauthorized\"\r\n },\r\n {\r\n \"ErrorEntity\": {\r\n \"ExtendedCode\": \"52020\",\r\n \"MessageTemplate\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\",\r\n \"Parameters\": [\r\n \"default\"\r\n ],\r\n \"Code\": \"Unauthorized\",\r\n \"Message\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\"\r\n }\r\n }\r\n ],\r\n \"Innererror\": null\r\n}"}]}
@@ -198,7 +198,7 @@ Para corrigir isso, faça o seguinte:
 
 **Correção:** Confirme se o ambiente de área de trabalho virtual do Windows está íntegro ao entrar usando o PowerShell. Conclua o registro da VM manualmente em [criar um pool de hosts com o PowerShell](create-host-pools-powershell-2019.md).
 
-### <a name="error-the-admin-username-specified-isnt-allowed"></a>Erro: o nome de usuário do administrador especificado não é permitido
+### <a name="error-the-admin-username-specified-isnt-allowed"></a>Erro: O nome de usuário administrador especificado não é permitido
 
 > [!div class="mx-imgBorder"]
 > ![A captura de tela de sua implantação falhou na qual um administrador especificado não é permitido.](../media/f2b3d3700e9517463ef88fa41875bac9.png)
@@ -218,7 +218,7 @@ Exemplo de erro bruto:
 
 **Correção:** Atualize o nome de usuário ou use usuários diferentes.
 
-### <a name="error-vm-has-reported-a-failure-when-processing-extension"></a>Erro: a VM relatou uma falha ao processar a extensão
+### <a name="error-vm-has-reported-a-failure-when-processing-extension"></a>Erro: A VM relatou uma falha durante o processamento da extensão
 
 > [!div class="mx-imgBorder"]
 > ![Falha na captura de tela da operação de recurso concluída com o estado de provisionamento de terminal em sua implantação.](../media/49c4a1836a55d91cd65125cf227f411f.png)
@@ -351,7 +351,7 @@ the VM.\\\"
 
 **Correção:** Remova a rota estática de bloqueio, a regra de firewall ou NSG. Opcionalmente, abra o arquivo JSON do modelo de Azure Resource Manager em um editor de texto, leve o link para o arquivo zip e baixe o recurso para um local permitido.
 
-### <a name="error-the-user-isnt-authorized-to-query-the-management-service"></a>Erro: o usuário não está autorizado a consultar o serviço de gerenciamento
+### <a name="error-the-user-isnt-authorized-to-query-the-management-service"></a>Erro: O usuário não está autorizado a consultar o serviço de gerenciamento
 
 Exemplo de erro bruto:
 
@@ -375,7 +375,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 New-RdsRoleAssignment -TenantName <Windows Virtual Desktop tenant name> -RoleDefinitionName "RDS Contributor" -SignInName <UPN>
 ```
 
-### <a name="error-user-requires-azure-multi-factor-authentication-mfa"></a>Erro: o usuário requer a MFA (autenticação multifator) do Azure
+### <a name="error-user-requires-azure-multi-factor-authentication-mfa"></a>Erro: O usuário precisa ter a MFA (Autenticação Multifator) do Azure
 
 > [!div class="mx-imgBorder"]
 > ![Falha na captura de tela de sua implantação devido à falta de autenticação multifator (MFA)](../media/MFARequiredError.png)

@@ -4,10 +4,10 @@ description: Crie um token com permissões com escopo para repositórios especí
 ms.topic: article
 ms.date: 05/27/2020
 ms.openlocfilehash: 8661ff2e320788d3899ae16dd3bee7d3ff662caa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84509399"
 ---
 # <a name="create-a-token-with-repository-scoped-permissions"></a>Criar um token com permissões no escopo do repositório
@@ -159,7 +159,7 @@ O exemplo a seguir cria um token e cria um mapa de escopo com as seguintes permi
     1. Insira um nome e descrição para o mapa de escopo. 
     1. Em **Repositórios**, insira `samples/hello-world` e, em **Permissões**, selecione `content/read` e `content/write`. Em seguida, selecione **+Adicionar**.  
 
-        :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-scope-map-add.png" alt-text="Criar mapa de escopo no portal":::
+        :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-scope-map-add.png" alt-text="Criar token no portal":::
 
     1. Depois de adicionar repositórios e permissões, selecione **Adicionar** para adicionar o mapa de escopo.
 1. Aceite o **Status** de token padrão de **Habilitado** e, em seguida, selecione **Criar**.
@@ -176,7 +176,7 @@ Para usar um token criado no portal, você deve gerar uma senha. Você pode gera
 1. Na tela da senha, defina uma data de validade para a senha, se quiser, e selecione **Gerar**. É recomendável definir uma data de expiração.
 1. Depois de gerar uma senha, copie-a e salve-a em um local seguro. Não é possível recuperar uma senha gerada após fechar a tela, mas você pode gerar uma nova.
 
-    :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-token-password.png" alt-text="Criar senha de token no portal":::
+    :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-token-password.png" alt-text="Criar token no portal":::
 
 ## <a name="authenticate-with-token"></a>Autenticar com token
 

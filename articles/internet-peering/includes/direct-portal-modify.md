@@ -1,7 +1,7 @@
 ---
-title: incluir arquivo
+title: arquivo de inclusão
 titleSuffix: Azure
-description: incluir arquivo
+description: arquivo de inclusão
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 3894bf046ed4ee3f068e43dbc5bc5b7f2a1002b4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81681062"
 ---
 Esta seção descreve como executar as seguintes operações de modificação para emparelhamento direto.

@@ -8,10 +8,10 @@ ms.date: 08/21/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 581e30508b508d5a36f2d5695043ac7bd782a2d5
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89394373"
 ---
 # <a name="azure-security-baseline-for-event-grid"></a>Linha de base de segurança do Azure para a grade de eventos
@@ -70,7 +70,7 @@ submeti.
 
 Você pode configurar pontos de extremidade privados para restringir o acesso somente de redes virtuais selecionadas.
 
-Habilite a proteção contra DDoS Standard nessas redes virtuais para proteger contra ataques de DDoS (negação de serviço distribuído). Use a inteligência contra ameaças integrada da Central de Segurança do Azure para negar comunicações com endereços IP da Internet maliciosos conhecidos ou não usados. Para obter mais informações, confira os seguintes artigos: 
+Habilite a proteção contra DDoS Standard nessas redes virtuais para proteger contra ataques de DDoS (negação de serviço distribuído). Use a inteligência contra ameaças integrada da Central de Segurança do Azure para negar comunicações com endereços IP da Internet maliciosos conhecidos ou não usados. Para obter mais informações, consulte os seguintes artigos: 
 
 - [Como configurar pontos de extremidade privados para os tópicos ou domínios da grade de eventos do Azure](configure-private-endpoints.md)
 

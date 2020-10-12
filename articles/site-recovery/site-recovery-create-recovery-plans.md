@@ -4,10 +4,10 @@ description: Saiba como criar e personalizar planos de recuperação para recupe
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.openlocfilehash: 0dcde98e8dcaef12896c18c25429f0ba7b1b27d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84485332"
 ---
 # <a name="create-and-customize-recovery-plans"></a>Criar e personalizar planos de recuperação
@@ -20,7 +20,7 @@ Este artigo descreve como criar e personalizar um plano de recuperação para fa
 2. Em **Criar plano de recuperação**, especifique um nome para o plano.
 3. Escolha uma fonte e destino com base nos computadores do plano e selecione **Gerenciador de Recursos** para o modelo de implantação. O local de origem deve ter computadores habilitados para failover e recuperação. 
 
-    **Failover** | **Origem** | **Destino** 
+    **Failover** | **Origem** | **Target (destino)** 
    --- | --- | ---
    Azure para o Azure | Selecione a região do Azure | Selecione a região do Azure
    VMware no Azure | Selecionar o servidor de configuração | Selecionar o Azure

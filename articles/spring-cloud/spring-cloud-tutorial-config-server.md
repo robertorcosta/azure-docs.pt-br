@@ -8,15 +8,15 @@ author: bmitchell287
 ms.date: 10/18/2019
 ms.custom: devx-track-java
 ms.openlocfilehash: 2f788452455bfbbc47f0a48689ccf3344515fdae
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90904247"
 ---
 # <a name="set-up-a-spring-cloud-config-server-instance-for-your-service"></a>Configurar uma instância do Servidor de Configuração do Spring Cloud para seu serviço
 
-**Este artigo aplica-se a:** ✔️ Java ✔️ C #
+**Este artigo aplica-se a:** ✔️ Java ✔️ C#
 
 Este artigo mostra como conectar uma instância do Servidor de Configuração do Spring Cloud ao seu serviço do Azure Spring Cloud.
 

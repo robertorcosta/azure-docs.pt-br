@@ -8,10 +8,10 @@ ms.date: 06/14/2020
 ms.author: jpalma
 author: palma21
 ms.openlocfilehash: a58b00018f6ac89f024661d8d3f50ea5249e620b
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89182115"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>Usar um Standard Load Balancer público no AKS (serviço kubernetes do Azure)
@@ -317,7 +317,7 @@ spec:
 
 Abaixo está uma lista de anotações com suporte para serviços kubernetes com tipo `LoadBalancer` , estas anotações se aplicam somente a fluxos de **entrada** :
 
-| Anotação | Valor | Descrição
+| Annotation | Valor | Descrição
 | ----------------------------------------------------------------- | ------------------------------------- | ------------------------------------------------------------ 
 | `service.beta.kubernetes.io/azure-load-balancer-internal`         | `true` ou `false`                     | Especifique se o balanceador de carga deve ser interno. O padrão é público se não estiver definido.
 | `service.beta.kubernetes.io/azure-load-balancer-internal-subnet`  | Nome da sub-rede                    | Especifique a qual sub-rede o balanceador de carga interno deve ser associado. O padrão é a sub-rede configurada no arquivo de configuração de nuvem se não estiver definida.

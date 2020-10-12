@@ -6,10 +6,10 @@ ms.topic: conceptual
 description: Saiba como usar comandos kubectl em um espaço de desenvolvimento em um cluster do serviço kubernetes do Azure com Azure Dev Spaces habilitado
 keywords: 'Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s '
 ms.openlocfilehash: 7530cde68b2ce8d06fb7b16a9a147f0f0bc8645c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75438358"
 ---
 # <a name="use-kubectl-with-an-azure-dev-space"></a>Usar kubectl com um Azure Dev Space
@@ -21,5 +21,5 @@ Executar o comando `az aks use-dev-spaces` adicionará automaticamente um contex
 - Listar todos os contextos disponíveis: `kubectl config get-contexts`. 
 - Alterar contexto: `kubectl config use-context <context-name>`
 - Exiba o painel do Kubernetes: execute `kubectl proxy` e, em seguida, abra o navegador no endereço que este comando emitir (acrescente `/ui` à URL para navegar até o painel do Kubernetes).
-- Liste os serviços em execução no espaço de Azure Dev Spaces padrão denominado *padrão*:`kubectl get services --namespace=default`
+- Liste os serviços em execução no espaço de Azure Dev Spaces padrão denominado *padrão*: `kubectl get services --namespace=default`
 

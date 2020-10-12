@@ -8,10 +8,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/01/2020
 ms.openlocfilehash: c82f98df8fb79fa10f2e30b219c1a02bb646e2de
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85937483"
 ---
 # <a name="managing-public-network-access-for-your-iot-hub"></a>Gerenciando o acesso à rede pública para o Hub IoT
@@ -24,7 +24,7 @@ Para restringir o acesso somente ao [ponto de extremidade privado para o Hub IOT
 2. Navegue até o seu Hub IoT.
 3. Selecione **rede** no menu do lado esquerdo.
 4. Em "permitir acesso de rede pública a", selecione **desabilitado**
-5. Selecione **Salvar**.
+5. Clique em **Salvar**.
 
 :::image type="content" source="media/iot-hub-publicnetworkaccess/turn-off-public-network-access.png" alt-text="Imagem mostrando portal do Azure onde desativar o acesso à rede pública" lightbox="media/iot-hub-publicnetworkaccess/turn-off-public-network-access.png":::
 

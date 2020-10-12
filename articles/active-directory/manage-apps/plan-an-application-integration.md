@@ -16,10 +16,10 @@ ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cc691148723e610f0885f7c20fd8684f11a81dc0
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89182319"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Guia de introdução: integrando o Active Directory do Azure com aplicativos
@@ -42,10 +42,10 @@ Antes de ir para a integração de aplicativos com o Azure AD, é importante sab
 ### <a name="user-and-group-inventory"></a>Inventário de usuários e grupos
 * Onde residem suas contas de usuário?
   * Active Directory local
-  * Azure AD
+  * AD do Azure
   * Em um banco de dados de aplicativo separado que você possui
   * Em aplicativos não autorizados
-  * Todas as anteriores
+  * Todas as opções acima
 * Quais permissões e atribuições de função os usuários individuais têm atualmente? Você precisa examinar seu acesso ou tem certeza de que o acesso do usuário e as atribuições de função são apropriadas agora?
 * Os grupos já estão estabelecidos em seu Active Directory local?
   * Como os grupos são organizados?

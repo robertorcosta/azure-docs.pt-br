@@ -5,10 +5,10 @@ ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
 ms.openlocfilehash: e5fc26231cc5d3ad412371c2f8c187b2d0033ee4
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89182030"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solucionar problemas de falha do Backup do Azure: problemas com o agente ou a extensão
@@ -249,10 +249,10 @@ Se você precisar de log detalhado para waagent, siga estas etapas:
 2. Altere o valor **Logs.Verbose** de *n* para *s*.
 3. Salve a alteração e, em seguida, reinicie o waagent, completando as etapas descritas anteriormente nesta seção.
 
-### <a name="vm-agent-configuration-options-are-not-set-for-linux-vms"></a>As opções de configuração do agente de VM não estão definidas (para VMs do Linux)
+### <a name="vm-agent-configuration-options-are-not-set-for-linux-vms"></a>VM-Agent opções de configuração não estão definidas (para VMs do Linux)
 
 Um arquivo de configuração (/ etc/waagent.conf) controla as ações de waagent. Extensões de opções de arquivo de configuração **. habilitar** deve ser definido como **s** e **provisionamento. o agente** deve ser definido como **auto** para que o backup funcione.
-Para obter uma lista completa das opções de arquivo de configuração do agente de VM, consulte <https://github.com/Azure/WALinuxAgent#configuration-file-options>
+Para obter uma lista completa das opções de arquivo de configuração VM-Agent, consulte <https://github.com/Azure/WALinuxAgent#configuration-file-options>
 
 ### <a name="application-control-solution-is-blocking-iaasbcdrextensionexe"></a>A solução de controle de aplicativo está bloqueando IaaSBcdrExtension.exe
 

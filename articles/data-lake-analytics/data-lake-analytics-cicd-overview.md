@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.workload: big-data
 ms.date: 09/14/2018
 ms.openlocfilehash: 3517938ae0e08af62a6fcf0d3d0a43a5eaee48dd
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87496110"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Como configurar um pipeline de IC / CD para o Azure Data Lake Analytics  
@@ -455,33 +455,33 @@ Execute as etapas a seguir para configurar uma tarefa de implantação de banco 
 
 #### <a name="common-parameters"></a>Parâmetros comuns
 
-| Parâmetro | Descrição | Valor Padrão | Obrigatório |
+| Parâmetro | Descrição | Valor padrão | Obrigatório |
 |---------|-----------|-------------|--------|
-|Pacote|O caminho do pacote de implantação do banco de dados U-SQL a ser implantado.|nulo|true|
+|Pacote|O caminho do pacote de implantação do banco de dados U-SQL a ser implantado.|null|true|
 |Banco de dados|O nome do banco de dados a ser implantado ou criado.|master|false|
-|LogFile|O caminho do arquivo para registro. Padrão para saída padrão (console).|nulo|false|
+|LogFile|O caminho do arquivo para registro. Padrão para saída padrão (console).|null|false|
 |LogLevel|Nível de registro: Verbose, Normal, Aviso ou Erro.|LogLevel.Normal|false|
 
 #### <a name="parameter-for-local-deployment"></a>Parâmetro para implantação local
 
-|Parâmetro|Descrição|Valor Padrão|Obrigatório|
+|Parâmetro|Descrição|Valor padrão|Obrigatório|
 |---------|-----------|-------------|--------|
-|DataRoot|O caminho da pasta raiz de dados local.|nulo|true|
+|DataRoot|O caminho da pasta raiz de dados local.|null|true|
 
 #### <a name="parameters-for-azure-data-lake-analytics-deployment"></a>Parâmetros para a implantação do Azure Data Lake Analytics
 
-|Parâmetro|Descrição|Valor Padrão|Obrigatório|
+|Parâmetro|Descrição|Valor padrão|Obrigatório|
 |---------|-----------|-------------|--------|
-|Conta|Especifica qual conta do Azure Data Lake Analytics será implantada pelo nome da conta.|nulo|true|
-|ResourceGroup|O nome do grupo de recursos do Azure para a conta do Azure Data Lake Analytics.|nulo|true|
-|SubscriptionId|O ID de assinatura do Azure para a conta do Azure Data Lake Analytics.|nulo|true|
-|Locatário|O nome do inquilino é o nome de domínio do Azure AD (Azure Active Directory). Encontre-o na página de gerenciamento de assinaturas no portal do Azure.|nulo|true|
-|AzureSDKPath|Encontre-o na página de gerenciamento de assinaturas no portal do Azure.|nulo|true|
+|Conta|Especifica qual conta do Azure Data Lake Analytics será implantada pelo nome da conta.|null|true|
+|ResourceGroup|O nome do grupo de recursos do Azure para a conta do Azure Data Lake Analytics.|null|true|
+|SubscriptionId|O ID de assinatura do Azure para a conta do Azure Data Lake Analytics.|null|true|
+|Locatário|O nome do inquilino é o nome de domínio do Azure AD (Azure Active Directory). Encontre-o na página de gerenciamento de assinaturas no portal do Azure.|null|true|
+|AzureSDKPath|Encontre-o na página de gerenciamento de assinaturas no portal do Azure.|null|true|
 |Interativo|Se deve ou não usar o modo interativo para autenticação.|false|false|
-|ClientId|O ID do aplicativo do Azure AD necessário para autenticação não interativa.|nulo|Obrigatório para autenticação não interativa.|
-|Secrete|O segredo ou senha para autenticação não interativa. Deve ser usado apenas em um ambiente confiável e seguro.|nulo|Necessário para autenticação não interativa; caso contrário, use o SecreteFile.|
-|SecreteFile|O arquivo salva o segredo ou a senha para autenticação não interativa. Certifique-se de mantê-lo legível apenas pelo usuário atual.|nulo|Necessário para autenticação não interativa ou use o segredo.|
-|CertFile|O arquivo salva a certificação X.509 para autenticação não interativa. O padrão é usar a autenticação de segredo do cliente.|nulo|false|
+|ClientId|O ID do aplicativo do Azure AD necessário para autenticação não interativa.|null|Obrigatório para autenticação não interativa.|
+|Secrete|O segredo ou senha para autenticação não interativa. Deve ser usado apenas em um ambiente confiável e seguro.|null|Necessário para autenticação não interativa; caso contrário, use o SecreteFile.|
+|SecreteFile|O arquivo salva o segredo ou a senha para autenticação não interativa. Certifique-se de mantê-lo legível apenas pelo usuário atual.|null|Necessário para autenticação não interativa ou use o segredo.|
+|CertFile|O arquivo salva a certificação X.509 para autenticação não interativa. O padrão é usar a autenticação de segredo do cliente.|null|false|
 | JobPrefix | O prefixo para a implementação do banco de dados de um trabalho DDL do U-SQL. | Deploy_ + DateTime.Now | false |
 
 ## <a name="next-steps"></a>Próximas etapas

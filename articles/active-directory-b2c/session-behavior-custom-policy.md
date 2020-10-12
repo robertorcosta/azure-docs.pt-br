@@ -11,10 +11,10 @@ ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: a2f20a4521efe2806c4bc66e4612b99caf84382a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85385256"
 ---
 # <a name="configure-session-behavior-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar o comportamento da sessão usando políticas personalizadas no Azure Active Directory B2C
@@ -59,7 +59,7 @@ Quando você redireciona o usuário para o ponto de extremidade de saída do Azu
 
 Para dar suporte ao logout único, os perfis técnicos do emissor do token para JWT e SAML devem especificar:
 
-- O nome do protocolo, como`<Protocol Name="OpenIdConnect" />`
+- O nome do protocolo, como `<Protocol Name="OpenIdConnect" />`
 - A referência ao perfil técnico da sessão, como `UseTechnicalProfileForSessionManagement ReferenceId="SM-OAuth-issuer" />` .
 
 O exemplo a seguir ilustra os emissores JWT e token SAML com Logout único:
