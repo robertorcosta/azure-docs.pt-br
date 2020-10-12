@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 6e3118814eacc6cc63b5db59bd7f1877c1d347dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77025258"
 ---
 # <a name="configure-a-high-availability-connection-from-on-premises-to-cloudsimple-vpn-gateway"></a>Configurar uma conexão de alta disponibilidade do gateway de VPN local para CloudSimple
@@ -44,7 +44,7 @@ Para habilitar a fase 1 (IKEv1) na interface externa, insira o comando da CLI a 
 
 ### <a name="2-create-an-ikev1-policy"></a>2. criar uma política IKEv1
 
-Crie uma política IKEv1 que defina os algoritmos e métodos a serem usados para hash, autenticação, grupo Diffie-Hellman, tempo de vida e criptografia.
+Crie uma política IKEv1 que define os algoritmos e métodos a serem usados para hash, autenticação, Diffie-Hellman grupo, tempo de vida e criptografia.
 
 ```
 crypto ikev1 policy 1

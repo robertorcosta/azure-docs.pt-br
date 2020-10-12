@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
 ms.openlocfilehash: 9303d84b2862b556a9ccc286ffa118bf1e52b715
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84034647"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Mover dados entre bancos de dados na nuvem escalados horizontalmente
@@ -53,7 +53,7 @@ A ferramenta de divisão/mesclagem é executada como um serviço Web do Azure. U
 
 - **Mesclar para reduzir**
 
-  A capacidade precisa ser reduzida devido à natureza sazonal de um negócio. A ferramenta permite reduzir verticalmente para menos unidades quando o negócio desacelera. O recurso de ' mesclagem ' no serviço de divisão/mesclagem de escala elástica aborda esse requisito.
+  A capacidade precisa ser reduzida devido à natureza sazonal de um negócio. A ferramenta permite reduzir verticalmente para menos unidades quando o negócio desacelera. O recurso de "mesclagem" na escala elástica Split-Merge serviço abrange esse requisito.
 
 - **Gerenciar pontos de acesso movendo shardlets**
 

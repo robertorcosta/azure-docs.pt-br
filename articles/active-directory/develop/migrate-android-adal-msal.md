@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: shoatman
 ms.custom: aaddev
 ms.openlocfilehash: 21866bb7dab3d5a093ffc4655161b80853eadfc5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77084063"
 ---
 # <a name="adal-to-msal-migration-guide-for-android"></a>Guia de migração do ADAL para MSAL para Android
@@ -46,8 +46,8 @@ A API pública do MSAL introduz alterações importantes, incluindo:
   - As autoridades não são mais validadas em tempo de execução. Em vez disso, o desenvolvedor declara uma lista de "autoridades conhecidas" durante o desenvolvimento.
 - Alterações de API de token:
   - No ADAL, `AcquireToken()` o primeiro faz uma solicitação silenciosa. Falhando, isso faz uma solicitação interativa. Esse comportamento resultou em alguns desenvolvedores que confiam apenas em `AcquireToken` , o que resultou na inesperação de credenciais do usuário em momentos. O MSAL exige que os desenvolvedores sejam intencionais sobre quando o usuário recebe um prompt de interface de usuário.
-    - `AcquireTokenSilent`sempre resulta em uma solicitação silenciosa que seja bem-sucedida ou falhe.
-    - `AcquireToken`sempre resulta em uma solicitação que solicita ao usuário por meio da IU.
+    - `AcquireTokenSilent` sempre resulta em uma solicitação silenciosa que seja bem-sucedida ou falhe.
+    - `AcquireToken` sempre resulta em uma solicitação que solicita ao usuário por meio da IU.
 - O MSAL dá suporte à entrada de um navegador padrão ou de uma exibição da Web inserida:
   - Por padrão, o navegador padrão no dispositivo é usado. Isso permite que o MSAL use o estado de autenticação (cookies) que pode já estar presente para uma ou mais contas conectadas. Se nenhum estado de autenticação estiver presente, a autenticação durante a autorização por meio de MSAL resultará na criação de um estado de autenticação (cookies) para o benefício de outros aplicativos Web que serão usados no mesmo navegador.
 - Novo modelo de exceção:
@@ -146,11 +146,11 @@ Considere uma conta bancária. Você pode ter mais de uma conta em mais de uma i
 
 Por analogia, como contas em uma instituição financeira, as contas na plataforma Microsoft Identity são acessadas usando credenciais. Essas credenciais são registradas com o, ou emitidas pela Microsoft. Ou pela Microsoft em nome de uma organização.
 
-Onde a plataforma de identidade da Microsoft difere de uma instituição financeira, nessa analogia, é que a plataforma de identidade da Microsoft fornece uma estrutura que permite que um usuário use uma conta e suas credenciais associadas para acessar recursos que pertencem a vários indivíduos e organizações. Isso é como ser capaz de usar um cartão emitido por um banco, no entanto, em outra instituição financeira. Isso funciona porque todas as organizações em questão estão usando a plataforma de identidade da Microsoft, que permite que uma conta seja usada em várias organizações. Aqui está um exemplo:
+Onde a plataforma de identidade da Microsoft difere de uma instituição financeira, nessa analogia, é que a plataforma de identidade da Microsoft fornece uma estrutura que permite que um usuário use uma conta e suas credenciais associadas para acessar recursos que pertencem a vários indivíduos e organizações. Isso é como ser capaz de usar um cartão emitido por um banco, no entanto, em outra instituição financeira. Isso funciona porque todas as organizações em questão estão usando a plataforma de identidade da Microsoft, que permite que uma conta seja usada em várias organizações. Este é um exemplo:
 
 O Sam funciona para Contoso.com, mas gerencia as máquinas virtuais do Azure que pertencem ao Fabrikam.com. Para que o Sam gerencie as máquinas virtuais da Fabrikam, ele precisa estar autorizado a acessá-las. Esse acesso pode ser concedido adicionando a conta de Sam ao Fabrikam.com e concedendo a ela uma função que permita que ele trabalhe com as máquinas virtuais. Isso seria feito com o portal do Azure.
 
-Adicionar a conta Contoso.com do Sam como um membro de Fabrikam.com resultaria na criação de um novo registro na Azure Active Directory da Fabrikam. com para Sam. O registro de Sam no Azure Active Directory é conhecido como um objeto de usuário. Nesse caso, esse objeto de usuário apontaria de volta para o objeto de usuário do Sam em Contoso.com. O objeto de usuário da Fabrikam Sam é a representação local do Sam e seria usado para armazenar informações sobre a conta associada ao Sam no contexto de Fabrikam.com. No Contoso.com, o título de Sam é consultor sênior de DevOps. Na Fabrikam, o título do Sam é contratado-máquinas virtuais. No Contoso.com, Sam não é responsável, nem autorizado, a gerenciar máquinas virtuais. No Fabrikam.com, essa é sua única função de trabalho. No entanto, o Sam ainda tem apenas um conjunto de credenciais para controlar, que são as credenciais emitidas pelo Contoso.com.
+Adicionar a conta Contoso.com do Sam como um membro de Fabrikam.com resultaria na criação de um novo registro na Azure Active Directory da Fabrikam. com para Sam. O registro de Sam no Azure Active Directory é conhecido como um objeto de usuário. Nesse caso, esse objeto de usuário apontaria de volta para o objeto de usuário do Sam em Contoso.com. O objeto de usuário da Fabrikam Sam é a representação local do Sam e seria usado para armazenar informações sobre a conta associada ao Sam no contexto de Fabrikam.com. No Contoso.com, o título de Sam é consultor sênior de DevOps. Na Fabrikam, o título de Sam é Contractor-Virtual computadores. No Contoso.com, Sam não é responsável, nem autorizado, a gerenciar máquinas virtuais. No Fabrikam.com, essa é sua única função de trabalho. No entanto, o Sam ainda tem apenas um conjunto de credenciais para controlar, que são as credenciais emitidas pelo Contoso.com.
 
 Quando uma `acquireToken` chamada bem-sucedida for feita, você verá uma referência a um `IAccount` objeto que pode ser usado em solicitações posteriores `acquireTokenSilent` .
 

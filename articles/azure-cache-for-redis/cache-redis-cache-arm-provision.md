@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: subject-armqs
 ms.date: 08/18/2020
 ms.openlocfilehash: a2ab400158f77af7934ca3f9f7c811d5fe2bd340
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89461231"
 ---
 # <a name="create-an-azure-cache-for-redis-using-a-resource-manager-template"></a>Criar um cache do Azure para Redis usando um modelo do Resource Manager
@@ -59,7 +59,7 @@ Para verificar os modelos mais recentes, consulte [Modelos de início rápido do
     * **Grupo de recursos**: selecione **Criar** para criar um grupo de recursos ou selecione um existente.
     * **Local**: selecione um local para o grupo de recursos. A conta de armazenamento e o cache Redis devem estar na mesma região. Por padrão, o cache Redis usa o mesmo local que o grupo de recursos. Portanto, especifique o mesmo local que a conta de armazenamento.
     * **Nome do cache Redis**: Insira um nome para o cache Redis.
-    * **Conta de armazenamento de diagnóstico existente**: Insira a ID de recurso de uma conta de armazenamento. A sintaxe é **/SUBSCRIPTIONS/ &lt; ID da assinatura>/resourcegroups/ &lt; nome do grupo de recursos do/Providers/Microsoft.Storage/storageaccounts/> nome da conta de &lt; armazenamento>**.
+    * **Conta de armazenamento de diagnóstico existente**: Insira a ID de recurso de uma conta de armazenamento. A sintaxe é **/SUBSCRIPTIONS/ &lt; ID da assinatura>/resourceGroups/ &lt; nome do grupo de recursos do/Providers/Microsoft.Storage/storageAccounts/>nome da conta de &lt; armazenamento>**.
 
     Use o valor padrão para o restante das configurações.
 1. Selecione **Concordo com os termos e condições declarados acima** e selecione **Comprar**.

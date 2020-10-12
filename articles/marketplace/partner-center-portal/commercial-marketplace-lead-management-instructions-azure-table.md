@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 08/25/2020
 ms.openlocfilehash: 2dca0ae02f2d079e98b51e1222114db1f2104b96
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90030790"
 ---
 # <a name="use-azure-table-storage-to-manage-commercial-marketplace-leads"></a>Usar o armazenamento de tabela do Azure para gerenciar clientes potenciais do Marketplace comercial
@@ -38,7 +38,7 @@ Se o sistema de gerenciamento de relacionamentos com o cliente (CRM) não for ex
 
 1. Na **Home** page do portal do Azure, selecione **Ver todos os seus recursos** para acessar sua conta de armazenamento. Você também pode selecionar **Todos os recursos** na barra de menus à esquerda da portal do Azure.
 
-    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-access.png" alt-text="Acesse sua conta de armazenamento do Azure.":::
+    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-access.png" alt-text="Etapas para criar uma conta de armazenamento do Azure.":::
 
 1. No painel da sua conta de armazenamento, selecione **Chaves de acesso** e copie o valor da **cadeia de conexão** para a chave. Salve esse valor, pois ele é o valor da **Cadeia de conexão da conta de armazenamento** que você precisará fornecer ao portal de publicação para receber clientes potenciais para sua oferta no Azure Marketplace.
 
@@ -48,7 +48,7 @@ Se o sistema de gerenciamento de relacionamentos com o cliente (CRM) não for ex
     DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.screens.net
     ```
 
-    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-keys.png" alt-text="Chave de armazenamento do Azure.":::
+    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-keys.png" alt-text="Etapas para criar uma conta de armazenamento do Azure.":::
 
 
 1. No painel da sua conta de armazenamento, escolha **Tabelas**e **+ Tabela** para criar uma tabela. Insira um nome para a tabela e selecione **OK**. Salve esse valor, pois você precisará dele se quiser configurar um fluxo para receber notificações por email quando os clientes potenciais forem recebidos.
@@ -185,7 +185,7 @@ Quando estiver pronto para configurar as informações de gerenciamento de clien
 
 1. Na seção **Clientes potenciais**, selecione **Conectar**.
 
-    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-azure-table/customer-leads.png" alt-text="Clientes potenciais":::
+    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-azure-table/customer-leads.png" alt-text="Etapas para criar uma conta de armazenamento do Azure.":::
 
 1. Na janela pop-up **Detalhes da Conexão**, selecione **Tabela do Azure** para o **Destino de Clientes Potenciais**. 
      ![Gerenciamento de clientes potenciais, Detalhes da conexão](./media/commercial-marketplace-lead-management-instructions-azure-table/connection-details.png)

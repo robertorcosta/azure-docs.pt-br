@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
 ms.openlocfilehash: 4c3a141525f650d6e254f79ce9e3396f2c35a95f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84040877"
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Diretrizes gerais para trabalhar com aplicativos SaaS de exemplo do Wingtip Tickets
@@ -32,13 +32,13 @@ Conteúdos executáveis (scripts, dlls) podem ser bloqueados pelo Windows quando
     - [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant)
     - [WingtipTicketsSaaS-MultiTenantDb](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb)
 2. Clique em **Clonar ou baixar**.
-3. Clique em **Baixar zip** e salve o arquivo.
+3. Clique em **baixar zip** e salve o arquivo.
 4. Clique com o botão direito do mouse no arquivo zip e selecione **Propriedades**. O nome do arquivo zip corresponderá com o nome do repositório. (ex. _WingtipTicketsSaaS-DbPerTenant-master.zip_)
 5. Na guia **geral**, selecione **Desbloquear**.
 6. Clique em **OK**.
 7. Extraia os arquivos.
 
-Os scripts estão localizados no *.. \\ *Pasta de módulos de aprendizado.
+Os scripts estão localizados no *.. \\ * Pasta de módulos de aprendizado.
 
 
 ## <a name="working-with-the-wingtip-tickets-powershell-scripts"></a>Trabalhando com scripts do PowerShell do Wingtip Tickets

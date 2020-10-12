@@ -10,10 +10,10 @@ ms.workload: infrastructure
 ms.date: 04/05/2020
 ms.author: haroldw
 ms.openlocfilehash: 0c60fdfda0c18f5a8feb11c3d9c5a386025670cd
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87368142"
 ---
 # <a name="deploy-openshift-container-platform-311-in-azure"></a>Implantar a plataforma de contêiner OpenShift 3,11 no Azure
@@ -276,14 +276,14 @@ Versões diferentes podem ter parâmetros diferentes. Portanto, verifique os par
 | `keyVaultName` | O nome da Key Vault que você criou |  |  |
 | `enableAzure` | Habilitar o provedor de nuvem do Azure | true <br> false | true |
 | `aadClientId` | Azure Active Directory ID do cliente também conhecida como ID do aplicativo para a entidade de serviço |  |  |
-| `domainName` | Nome do nome de domínio personalizado a ser usado (se aplicável). Defina como "nenhum" se não estiver implantando um cluster totalmente privado |  | nenhuma |
+| `domainName` | Nome do nome de domínio personalizado a ser usado (se aplicável). Defina como "nenhum" se não estiver implantando um cluster totalmente privado |  | nenhum |
 | `masterClusterDnsType` | Tipo de domínio do console Web do OpenShift. ' default ' usará o rótulo DNS do IP de infraestrutura principal. ' Custom ' permite que você defina seu próprio nome | padrão <br> custom | padrão |
-| `masterClusterDns` | O nome DNS personalizado a ser usado para acessar o console Web OpenShift se você selecionou ' Custom ' para`masterClusterDnsType` |  | console.contoso.com |
+| `masterClusterDns` | O nome DNS personalizado a ser usado para acessar o console Web OpenShift se você selecionou ' Custom ' para `masterClusterDnsType` |  | console.contoso.com |
 | `routingSubDomainType` | Se definido como ' nipio ', `routingSubDomain` usará Nip.IO.  Use ' Custom ' se você tiver seu próprio domínio que deseja usar para roteamento | nipio <br> custom | nipio |
-| `routingSubDomain` | O nome DNS do curinga que você deseja usar para roteamento se você selecionou ' personalizado ' para`routingSubDomainType` |  | apps.contoso.com |
+| `routingSubDomain` | O nome DNS do curinga que você deseja usar para roteamento se você selecionou ' personalizado ' para `routingSubDomainType` |  | apps.contoso.com |
 | `virtualNetworkNewOrExisting` | Selecione se deseja usar uma rede virtual existente ou criar uma nova rede virtual | pré-existente <br> novo | novo |
-| `virtualNetworkResourceGroupName` | Nome do grupo de recursos para a nova rede virtual se você selecionou ' novo ' para`virtualNetworkNewOrExisting` |  | resourcegroup (). Name |
-| `virtualNetworkName` | O nome da nova rede virtual a ser criada se você selecionou ' novo ' para`virtualNetworkNewOrExisting` |  | openshiftvnet |
+| `virtualNetworkResourceGroupName` | Nome do grupo de recursos para a nova rede virtual se você selecionou ' novo ' para `virtualNetworkNewOrExisting` |  | resourcegroup (). Name |
+| `virtualNetworkName` | O nome da nova rede virtual a ser criada se você selecionou ' novo ' para `virtualNetworkNewOrExisting` |  | openshiftvnet |
 | `addressPrefixes` | Prefixo de endereço da nova rede virtual |  | 10.0.0.0/14 |
 | `masterSubnetName` | O nome da sub-rede mestre |  | mastersubnet |
 | `masterSubnetPrefix` | CIDR usado para a sub-rede mestre-precisa ser um subconjunto do addressPrefix |  | 10.1.0.0/16 |
@@ -295,9 +295,9 @@ Versões diferentes podem ter parâmetros diferentes. Portanto, verifique os par
 | `existingInfraSubnetReference` | Referência completa à sub-rede existente para nós de infraestrutura. Não é necessário se estiver criando uma nova vNet/sub-rede |  |  |
 | `existingCnsSubnetReference` | Referência completa para a sub-rede existente para nós do CNS. Não é necessário se estiver criando uma nova vNet/sub-rede |  |  |
 | `existingNodeSubnetReference` | Referência completa para a sub-rede existente para nós de computação. Não é necessário se estiver criando uma nova vNet/sub-rede |  |  |
-| `masterClusterType` | Especifique se o cluster usa nós mestres privados ou públicos. Se privado for escolhido, os nós mestres não serão expostos à Internet por meio de um IP público. Em vez disso, ele usará o IP privado especificado no`masterPrivateClusterIp` | público <br> particulares | público |
+| `masterClusterType` | Especifique se o cluster usa nós mestres privados ou públicos. Se privado for escolhido, os nós mestres não serão expostos à Internet por meio de um IP público. Em vez disso, ele usará o IP privado especificado no `masterPrivateClusterIp` | públicos <br> particulares | públicos |
 | `masterPrivateClusterIp` | Se nós mestres privados forem selecionados, um endereço IP privado deverá ser especificado para ser usado pelo balanceador de carga interno para nós mestres. Esse IP estático deve estar dentro do bloco CIDR para a sub-rede mestre e ainda não está em uso. Se os nós mestres públicos forem selecionados, esse valor não será usado, mas ainda deverá ser especificado |  | 10.1.0.200 |
-| `routerClusterType` | Especifique se o cluster usa nós de infraestrutura privada ou pública. Se privado for escolhido, os nós de infra-estrutura não serão expostos à Internet por meio de um IP público. Em vez disso, ele usará o IP privado especificado no`routerPrivateClusterIp` | público <br> particulares | público |
+| `routerClusterType` | Especifique se o cluster usa nós de infraestrutura privada ou pública. Se privado for escolhido, os nós de infra-estrutura não serão expostos à Internet por meio de um IP público. Em vez disso, ele usará o IP privado especificado no `routerPrivateClusterIp` | públicos <br> particulares | públicos |
 | `routerPrivateClusterIp` | Se os nós de infraestrutura privada forem selecionados, um endereço IP privado deverá ser especificado para ser usado pelo balanceador de carga interno para os nós de infraestrutura. Esse IP estático deve estar dentro do bloco CIDR para a sub-rede de infraestrutura e ainda não está em uso. Se os nós de infraestrutura pública forem selecionados, esse valor não será usado, mas ainda deverá ser especificado |  | 10.2.0.200 |
 | `routingCertType` | Usar certificado personalizado para o domínio de roteamento ou o certificado autoassinado padrão-siga as instruções na seção de **certificados personalizados** | selfsigned <br> custom | selfsigned |
 | `masterCertType` | Usar certificado personalizado para o domínio mestre ou o certificado autoassinado padrão-siga as instruções na seção de **certificados personalizados** | selfsigned <br> custom | selfsigned |

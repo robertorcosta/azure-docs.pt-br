@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: xujing
 ms.openlocfilehash: 3cbab09c6b50abb590cfe9f2720713a8fa547aa7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75646465"
 ---
 # <a name="troubleshooting-with-azure-iot-hub-device-provisioning-service"></a>Solução de problemas com o serviço de provisionamento de dispositivos no Hub IoT do Azure
@@ -27,7 +27,7 @@ O procedimento a seguir descreve como exibir e configurar o alerta na métrica d
 
 2. Navegue até o serviço de provisionamento de dispositivos do Hub IoT.
 
-3. Selecione **métricas**.
+3. Selecione **Métricas**.
 
 4. Selecione a métrica desejada. 
    <br />Atualmente, há três métricas para o DPS:
@@ -82,4 +82,4 @@ Use esta tabela para entender e resolver erros comuns.
 | 404 | A instância do serviço de provisionamento de dispositivos ou um recurso (por exemplo, um registro) não existe. |404 Não Encontrado |
 | 412 | A ETag na solicitação não corresponde à ETag do recurso existente, de acordo com o RFC7232. | 412 falha na pré-condição |
 | 429 | As operações estão sendo limitadas pelo serviço. Para limites de serviço específicos, consulte [limites do serviço de provisionamento de dispositivos no Hub IOT](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#iot-hub-device-provisioning-service-limits). | 429 número excessivo de solicitações |
-| 500 | Ocorreu um erro interno. | 500 Erro Interno do Servidor|
+| 500 | Ocorreu um erro interno. | Erro interno de servidor 500|

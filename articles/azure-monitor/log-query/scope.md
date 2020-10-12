@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 09/09/2020
 ms.openlocfilehash: 2036505dea134a59e7dc0c75a030175b15dac0b5
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90031935"
 ---
 # <a name="log-query-scope-and-time-range-in-azure-monitor-log-analytics"></a>Escopo de consulta de log e intervalo de tempo em Azure Monitor Log Analytics
@@ -31,10 +31,10 @@ O escopo é determinado pelo método usado para iniciar Log Analytics e, em algu
 
 | Escopo da consulta | Registros no escopo | Como selecionar | Alterando o escopo |
 |:---|:---|:---|:---|
-| Workspace do Log Analytics | Todos os registros no espaço de trabalho Log Analytics. | Selecione **logs** no menu **Azure monitor** ou no menu **log Analytics espaços de trabalho** .  | Pode alterar o escopo para qualquer outro tipo de recurso. |
+| Espaço de trabalho do Log Analytics | Todos os registros no espaço de trabalho Log Analytics. | Selecione **logs** no menu **Azure monitor** ou no menu **log Analytics espaços de trabalho** .  | Pode alterar o escopo para qualquer outro tipo de recurso. |
 | Aplicativo do Application Insights | Todos os registros no aplicativo Application Insights. | Selecione **logs** no menu **Application insights** para o aplicativo. | Só é possível alterar o escopo para outro aplicativo Application Insights. |
-| Grupo de recursos | Registros criados por todos os recursos no grupo de recursos. Pode incluir dados de vários espaços de trabalho do Log Analytics. | Selecione **logs** no menu grupo de recursos. | Não é possível alterar o escopo.|
-| Assinatura | Registros criados por todos os recursos na assinatura. Pode incluir dados de vários espaços de trabalho do Log Analytics. | Selecione **logs** no menu assinatura.   | Não é possível alterar o escopo. |
+| Resource group | Registros criados por todos os recursos no grupo de recursos. Pode incluir dados de vários espaços de trabalho do Log Analytics. | Selecione **logs** no menu grupo de recursos. | Não é possível alterar o escopo.|
+| Subscription | Registros criados por todos os recursos na assinatura. Pode incluir dados de vários espaços de trabalho do Log Analytics. | Selecione **logs** no menu assinatura.   | Não é possível alterar o escopo. |
 | Outros recursos do Azure | Registros criados pelo recurso. Pode incluir dados de vários espaços de trabalho do Log Analytics.  | Selecione **logs** no menu de recursos.<br>OU<br>Selecione **logs** no menu **Azure monitor** e, em seguida, selecione um novo escopo. | Só é possível alterar o escopo para o mesmo tipo de recurso. |
 
 ### <a name="limitations-when-scoped-to-a-resource"></a>Limitações no escopo de um recurso
@@ -68,14 +68,14 @@ Sua consulta será impedida de ser executada se o escopo incluir espaços de tra
 ## <a name="time-range"></a>Intervalo de horas
 O intervalo de tempo especifica o conjunto de registros que são avaliados para a consulta com base em quando o registro foi criado. Isso é definido por uma coluna padrão em cada registro no espaço de trabalho ou aplicativo, conforme especificado na tabela a seguir.
 
-| Local | Coluna |
+| Localização | Coluna |
 |:---|:---|
-| Workspace do Log Analytics          | TimeGenerated |
+| Espaço de trabalho do Log Analytics          | TimeGenerated |
 | Aplicativo do Application Insights | timestamp     |
 
 Defina o intervalo de tempo selecionando-o no seletor de tempo na parte superior da janela de Log Analytics.  Você pode selecionar um período predefinido ou selecionar **personalizado** para especificar um intervalo de tempo específico.
 
-![Seletor de hora](media/scope/time-picker.png)
+![Seletor de tempo](media/scope/time-picker.png)
 
 Se você definir um filtro na consulta que usa a coluna hora padrão, conforme mostrado na tabela acima, o seletor de tempo será alterado para **definido em consulta**e o seletor de hora será desabilitado. Nesse caso, é mais eficiente colocar o filtro na parte superior da consulta para que qualquer processamento subsequente só precise trabalhar com os registros filtrados.
 

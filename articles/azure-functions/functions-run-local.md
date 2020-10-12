@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: devx-track-csharp, 80e4ff38-5174-43
 ms.openlocfilehash: 8dfc1471955a6d10199a078922151ff3aeda4294
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88929475"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Trabalhar com o Azure Functions Core Tools
@@ -194,7 +194,7 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 
 `func init` o oferece suporte às seguintes opções, que são a versão 3. x/2. x-only, salvo indicação em contrário:
 
-| Opção     | DESCRIÇÃO                            |
+| Opção     | Descrição                            |
 | ------------ | -------------------------------------- |
 | **`--csx`** | Cria funções do .NET como script C#, que é o comportamento da versão 1. x. Válido somente com `--worker-runtime dotnet` . |
 | **`--docker`** | Cria um Dockerfile para um contêiner usando uma imagem base com base no escolhido `--worker-runtime` . Use esta opção quando planejar publicar em um contêiner do Linux personalizado. |
@@ -377,7 +377,7 @@ npm start
 
 `func start` dá suporte para as seguintes opções:
 
-| Opção     | DESCRIÇÃO                            |
+| Opção     | Descrição                            |
 | ------------ | -------------------------------------- |
 | **`--no-build`** | Não compile o projeto atual antes da execução. Somente para projetos dotnet. O padrão é definido como false. Sem suporte para a versão 1. x. |
 | **`--cors-credentials`** | Permitir solicitações autenticadas entre origens (ou seja, cookies e o cabeçalho de autenticação) sem suporte para a versão 1. x. |
@@ -486,7 +486,7 @@ Na versão 1. x, você também pode invocar uma função diretamente usando `fun
 
 `func run` dá suporte para as seguintes opções:
 
-| Opção     | DESCRIÇÃO                            |
+| Opção     | Descrição                            |
 | ------------ | -------------------------------------- |
 | **`--content`**, **`-c`** | Conteúdo embutido. |
 | **`--debug`**, **`-d`** | Anexe um depurador ao processo de host antes de executar a função.|
@@ -528,14 +528,14 @@ Esse comando publica a um aplicativo de funções existente no Azure. Você rece
 
 As seguintes opções de publicação se aplicam a todas as versões:
 
-| Opção     | DESCRIÇÃO                            |
+| Opção     | Descrição                            |
 | ------------ | -------------------------------------- |
 | **`--publish-local-settings -i`** |  Configurações de publicação em local.settings.json do Azure, a solicitação para substituir se a configuração já existe. Se você estiver usando a Emulador de Armazenamento do Microsoft Azure, primeiro altere a configuração do aplicativo para uma [conexão de armazenamento real](#get-your-storage-connection-strings). |
 | **`--overwrite-settings -y`** | Suprima o prompt para substituir as configurações do aplicativo quando `--publish-local-settings -i` for usado.|
 
 As opções de publicação a seguir têm suporte apenas para a versão 2. x e versões posteriores:
 
-| Opção     | DESCRIÇÃO                            |
+| Opção     | Descrição                            |
 | ------------ | -------------------------------------- |
 | **`--publish-settings-only`**, **`-o`** |  Somente publicar as configurações e ignorar o conteúdo. O padrão é solicitado. |
 |**`--list-ignored-files`** | Exibe uma lista de arquivos que são ignorados durante a publicação, que é baseada no arquivo .funcignore. |
@@ -559,7 +559,7 @@ func deploy
 
 As seguintes opções de implantação de contêiner personalizado estão disponíveis:
 
-| Opção     | DESCRIÇÃO                            |
+| Opção     | Descrição                            |
 | ------------ | -------------------------------------- |
 | **`--registry`** | O nome de um Registro do Docker ao qual o usuário atual está conectado. |
 | **`--platform`** | A plataforma de hospedagem do aplicativo de funções. As opções válidas são `kubernetes` |

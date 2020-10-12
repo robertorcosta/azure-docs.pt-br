@@ -9,10 +9,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/10/2020
 ms.openlocfilehash: 97d899d73359cc45daf88940b815ed262c3b4766
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89290830"
 ---
 # <a name="azure-hdinsight-double-encryption-for-data-at-rest"></a>Criptografia dupla do Azure HDInsight para dados em repouso
@@ -71,7 +71,7 @@ Consulte [criar uma identidade gerenciada atribuída pelo usuário](../active-di
 
 ### <a name="create-azure-key-vault"></a>Criar Azure Key Vault
 
-Criar um cofre de chaves. Consulte [criar Azure Key Vault](../key-vault/secrets/quick-create-portal.md) para obter etapas específicas.
+Crie um cofre da chave. Consulte [criar Azure Key Vault](../key-vault/secrets/quick-create-portal.md) para obter etapas específicas.
 
 O HDInsight é compatível apenas com o Azure Key Vault. Se você tiver seu próprio cofre de chaves, poderá importar suas chaves para o Azure Key Vault. Lembre-se de que o cofre de chaves deve ter a **exclusão reversível** habilitada. Para obter mais informações sobre como importar as chaves existentes, visite [Sobre chaves, segredos e certificados](../key-vault/about-keys-secrets-and-certificates.md).
 

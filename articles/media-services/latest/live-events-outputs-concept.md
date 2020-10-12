@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: 9a32cd4db9a4c4dbd2b5f36c16feef4717790c3c
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89291459"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Eventos ao vivo e saídas ao vivo nos serviços de mídia
@@ -60,7 +60,7 @@ Veja um exemplo de código do .NET no [MediaV3LiveApp](https://github.com/Azure-
 
 ![diagrama de exemplo de codificação ativa com os serviços de mídia](./media/live-streaming/live-encoding.svg)
 
-Ao usar a codificação ativa com os serviços de mídia, você configura seu codificador ao vivo local para enviar um vídeo de taxa de bits única como o feed de contribuição para o evento ao vivo (usando o protocolo RTMP ou MP4 fragmentado). Em seguida, você configura um evento ao vivo para que ele codifique que o fluxo de taxa de bits única de entrada para um [fluxo de vídeo de várias taxas de bits](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)e disponibiliza a saída para a entrega para reproduzir dispositivos por meio de protocolos como MPEG-Dash, HLS e Smooth streaming.
+Ao usar a codificação ativa com os serviços de mídia, você configura seu codificador ao vivo local para enviar um vídeo de taxa de bits única como o feed de contribuição para o evento ao vivo (usando o protocolo RTMP ou Fragmented-Mp4). Em seguida, você configura um evento ao vivo para que ele codifique que o fluxo de taxa de bits única de entrada para um [fluxo de vídeo de várias taxas de bits](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)e disponibiliza a saída para a entrega para reproduzir dispositivos por meio de protocolos como MPEG-Dash, HLS e Smooth streaming.
 
 Ao usar a codificação ativa, você pode enviar o feed de contribuição somente em resoluções até a resolução de uma taxa de quadros de 30 quadros/segundo, com H. 264/AVC Video Codec e o codec de áudio AAC (AAC-LC, HE-AACv1 ou HE-AACv2). Observe que os eventos ao vivo de passagem podem dar suporte a resoluções de até 4K em 60 quadros/segundo. Para obter mais informações, consulte [comparação de tipos de eventos ao vivo](live-event-types-comparison.md).
 
@@ -124,7 +124,7 @@ Você pode usar URLs intuitivas ou não intuitivas.
 
     Use as seguintes APIs para habilitar a URL intuitivo e definir o token de acesso para um GUID válido (por exemplo, `"accessToken": "1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"` ).  
 
-    |Idioma|Habilitar URL intuitivo|Definir token de acesso|
+    |Linguagem|Habilitar URL intuitivo|Definir token de acesso|
     |---|---|---|
     |REST|[Properties. vanityUrl](/rest/api/media/liveevents/create#liveevent)|[LiveEventInput. accessToken](/rest/api/media/liveevents/create#liveeventinput)|
     |CLI|[--intuitivo-URL](/cli/azure/ams/live-event?view=azure-cli-latest#az-ams-live-event-create)|[--Access-token](/cli/azure/ams/live-event?view=azure-cli-latest#optional-parameters)|

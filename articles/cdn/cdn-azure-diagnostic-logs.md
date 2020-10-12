@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 07/15/2020
 ms.author: allensu
 ms.openlocfilehash: 164560fff27adc2d4e63cc8471a26d1d710b89a5
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88191281"
 ---
 # <a name="diagnostic-logs---azure-content-delivery-network"></a>Logs de diagnóstico-rede de distribuição de conteúdo do Azure
@@ -25,7 +25,7 @@ ms.locfileid: "88191281"
 Com os logs de diagnóstico do Azure, é possível exibir análises de núcleo e salvá-las em um ou mais destinos, incluindo:
 
 * Conta de Armazenamento do Azure
-* Workspace do Log Analytics
+* Espaço de trabalho do Log Analytics
 * Hubs de eventos do Azure
 
 Este recurso está disponível em pontos de extremidade CDN para todos os tipos de preço. 
@@ -52,7 +52,7 @@ Siga estas etapas habilitar o registro em log para o ponto de extremidade da CDN
 
 3. Selecione **logs de diagnóstico** na seção **monitoramento** :
 
-    :::image type="content" source="./media/cdn-diagnostics-log/03_diagnostics-logs-options.png" alt-text="Selecione logs de diagnóstico." border="true":::
+    :::image type="content" source="./media/cdn-diagnostics-log/03_diagnostics-logs-options.png" alt-text="Selecione ponto de extremidade CDN." border="true":::
 
 ### <a name="enable-logging-with-azure-storage"></a>Habilitar registro em log com o Armazenamento do Azure
 
@@ -69,7 +69,7 @@ Para usar uma conta de armazenamento para armazenar os logs, siga estas etapas:
 
 4. Selecione a assinatura e a conta de armazenamento para os logs.
 
-    :::image type="content" source="./media/cdn-diagnostics-log/04_diagnostics-logs-storage.png" alt-text="Logs de diagnóstico-armazenamento." border="true":::
+    :::image type="content" source="./media/cdn-diagnostics-log/04_diagnostics-logs-storage.png" alt-text="Selecione ponto de extremidade CDN." border="true":::
 
 3. Selecione **Salvar**.
 
@@ -86,7 +86,7 @@ Para usar Log Analytics para os logs, siga estas etapas:
 
 3. Selecione a assinatura e Log Analytics espaço de trabalho para os logs.
 
-   :::image type="content" source="./media/cdn-diagnostics-log/05-la-workspace.png" alt-text="Logs de diagnóstico-Log Analytics." border="true":::
+   :::image type="content" source="./media/cdn-diagnostics-log/05-la-workspace.png" alt-text="Selecione ponto de extremidade CDN." border="true":::
 
 4. Selecione **Salvar**.
 
@@ -103,7 +103,7 @@ Para usar um hub de eventos para os logs, siga estas etapas:
 
 3. Selecione a assinatura e o namespace do hub de eventos para os logs.
 
-   :::image type="content" source="./media/cdn-diagnostics-log/06-eventhub-namespace.png" alt-text="Logs de diagnóstico-Hub de eventos." border="true":::
+   :::image type="content" source="./media/cdn-diagnostics-log/06-eventhub-namespace.png" alt-text="Selecione ponto de extremidade CDN." border="true":::
 
 4. Selecione **Salvar**.
 
@@ -211,7 +211,7 @@ Os logs de análise de núcleo são gerados a cada hora e os dados são coletado
 |Nome do perfil |Nome do perfil CDN|
 |Nome do Ponto de Extremidade |Nome do ponto de extremidade da CDN|
 |Ano|  Representação de quatro dígitos do ano, por exemplo, 2017|
-|Month| Representação de dois dígitos do número do mês. 01 = Janeiro... 12 = dezembro|
+|Mês| Representação de dois dígitos do número do mês. 01 = Janeiro... 12 = dezembro|
 |Dia|   Representação de dois dígitos do dia do mês|
 |PT1H.json| Arquivo JSON real em que os dados da análise são armazenados|
 
@@ -265,7 +265,7 @@ Nem todas as métricas estão disponíveis de todos os provedores, embora essas 
 | RequestCountCacheHit | Contagem de todas as solicitações que resultaram em um hit do Cache. O ativo foi servido diretamente do POP para o cliente. | Sim | Sim | Não  |
 | RequestCountCacheMiss | Contagem de todas as solicitações que resultaram em uma Perda do Cache. Um erro de cache significa que o ativo não foi encontrado no POP mais próximo ao cliente e foi recuperado da origem. | Sim | Sim | Não |
 | RequestCountCacheNoCache | Contagem de todas as solicitações para um ativo que são impedidas de serem armazenadas em cache devido a uma configuração de usuário na borda. | Sim | Sim | Não |
-| RequestCountCacheUncacheable | Contagem de todas as solicitações para ativos que são impedidas de serem armazenadas em cache pelos cabeçalhos cache-control e Expires do ativo. Essa contagem indica que ela não deve ser armazenada em cache em um POP ou pelo cliente HTTP. | Sim | Sim | Não |
+| RequestCountCacheUncacheable | Contagem de todas as solicitações para ativos que são impedidas de serem armazenadas em cache pelos cabeçalhos Cache-Control e Expires do ativo. Essa contagem indica que ela não deve ser armazenada em cache em um POP ou pelo cliente HTTP. | Sim | Sim | Não |
 | RequestCountCacheOthers | Contagem de todas as solicitações com o status de cache não cobertas pelos itens acima. | Não | Sim | Não  |
 | EgressTotal | Transferência de dados de saída em GB | Sim |Sim |Sim |
 | EgressHttpStatus2xx | Transferência de dados de saída* para respostas com códigos de status HTTP 2xx em GB. | Sim | Sim | Não  |
@@ -276,7 +276,7 @@ Nem todas as métricas estão disponíveis de todos os provedores, embora essas 
 | EgressCacheHit | Transferência de dados de saída para respostas que foram entregues diretamente do cache da CDN nos POPs/Bordas da CDN. | Sim | Sim | Não |
 | EgressCacheMiss. | Transferência de dados de saída para respostas que não foram encontradas no servidor POP mais próximo e recuperadas do servidor de origem. | Sim | Sim | Não |
 | EgressCacheNoCache | Transferência de dados de saída para ativos que são impedidos de serem armazenados em cache devido a uma configuração de usuário na borda. | Sim | Sim | Não |
-| EgressCacheUncacheable | Transferência de dados de saída para ativos que são impedidos de serem armazenados em cache pelos cabeçalhos cache-control e ou Expires do ativo. Indica que ele não deve ser armazenado em cache em um POP ou pelo cliente HTTP. | Sim | Sim | Não |
+| EgressCacheUncacheable | Transferência de dados de saída para ativos que são impedidos de serem armazenados em cache pelo Cache-Control do ativo e, ou expiram cabeçalhos. Indica que ele não deve ser armazenado em cache em um POP ou pelo cliente HTTP. | Sim | Sim | Não |
 | EgressCacheOthers | Transferências de dados de saída para outros cenários de cache. | Não | Sim | Não |
 
 * Transferência de dados de saída refere-se ao tráfego entregue de servidores POP da CDN para o cliente.

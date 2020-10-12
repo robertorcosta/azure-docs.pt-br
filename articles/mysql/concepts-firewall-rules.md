@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.openlocfilehash: 63b3fd64526f45994919267a2f4ddc730d0b2fd7
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90882664"
 ---
 # <a name="azure-database-for-mysql-server-firewall-rules"></a>Regras de firewall do Banco de Dados do Azure para servidor MySQL
@@ -43,7 +43,7 @@ Se um endereço IP de saída fixo não estiver disponível para seu serviço do 
 > A opção **permitir acesso aos serviços do Azure** configura o firewall para permitir todas as conexões do Azure, incluindo conexões das assinaturas de outros clientes. Ao selecionar essa opção, verifique se as permissões de logon e de usuário limitam o acesso somente a usuários autorizados.
 > 
 
-:::image type="content" source="./media/concepts-firewall-rules/allow-azure-services.png" alt-text="Configurar Permitir o acesso aos serviços do Azure":::
+:::image type="content" source="./media/concepts-firewall-rules/allow-azure-services.png" alt-text="Fluxo de exemplo de como funciona o firewall":::
 
 ### <a name="connecting-from-a-vnet"></a>Conectando de uma VNet
 Para se conectar com segurança ao banco de dados do Azure para servidor MySQL de uma VNet, considere o uso de [pontos de extremidade de serviço de VNet](./concepts-data-access-and-security-vnet.md). 

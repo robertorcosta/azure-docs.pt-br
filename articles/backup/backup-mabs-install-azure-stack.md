@@ -4,10 +4,10 @@ description: Neste artigo, saiba como usar o Servidor de Backup do Azure para pr
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.openlocfilehash: 7153e2ff03a4f78ee1cc92ca04054fb2955d11a5
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90970240"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Instalar Servidor de Backup do Azure no Azure Stack
@@ -255,7 +255,7 @@ O Servidor de Backup do Azure compartilha código com o Data Protection Manager.
    > É recomendável fazer o Windows Update ser redirecionado para o Microsoft Update, que oferece segurança e atualizações importantes para o Windows e outros produtos, como o Servidor de Backup do Microsoft Azure.
    >
 
-    ![Microsoft Update tela de aceitação](./media/backup-mabs-install-azure-stack/mabs-install-wizard-update-13.png)
+    ![Tela de Opt-In de Microsoft Update](./media/backup-mabs-install-azure-stack/mabs-install-wizard-update-13.png)
 
 8. Examine o *Resumo das configurações* e selecione **instalar**.
 

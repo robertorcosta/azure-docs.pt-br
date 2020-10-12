@@ -8,10 +8,10 @@ ms.date: 09/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: fd68f720f372ee61f7c441ea83bd365bc2a6f36a
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90032734"
 ---
 # <a name="azure-security-baseline-for-azure-monitor"></a>Linha de base de segurança do Azure para Azure Monitor
@@ -687,13 +687,13 @@ Use a detecção de ameaças da central de segurança do Azure para serviços de
 
 **Diretrizes**: Use o DevOps do Azure para armazenar e gerenciar com segurança seu código, como políticas personalizadas do azure, Azure Resource Manager modelos. Para proteger os recursos que você gerencia no Azure DevOps, você pode conceder ou negar permissões a usuários específicos, grupos de segurança internos ou grupos definidos no Azure Active Directory (AD do Azure), se integrados ao Azure DevOps, ou Active Directory se integrado ao TFS.   Use o controle de acesso baseado em função para proteger chaves gerenciadas pelo cliente. 
 
-Além disso, habilite a proteção de exclusão e limpeza reversível no Key Vault para proteger as chaves contra exclusão acidental ou mal-intencionada. Se o armazenamento do Azure for usado para armazenar Azure Resource Manager backups de modelo, habilite a exclusão reversível para salvar e recuperar seus dados quando BLOBs ou instantâneos de blob forem excluídos. 
+Além disso, habilite a proteção de Soft-Delete e limpeza no Key Vault para proteger as chaves contra exclusão acidental ou mal-intencionada. Se o armazenamento do Azure for usado para armazenar Azure Resource Manager backups de modelo, habilite a exclusão reversível para salvar e recuperar seus dados quando BLOBs ou instantâneos de blob forem excluídos. 
 
 - [Como armazenar código no Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
 - [Sobre permissões e grupos no Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
-- [Como habilitar a exclusão reversível e limpar a proteção no Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Como habilitar a proteção de Soft-Delete e limpeza no Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
 
 - [Exclusão reversível para blobs do Armazenamento do Azure ](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
 

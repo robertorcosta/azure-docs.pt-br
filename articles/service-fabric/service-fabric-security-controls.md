@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
 ms.openlocfilehash: a8bb49e20ec5812a4882966c6918cf2bd59f36a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75645422"
 ---
 # <a name="security-controls-for-azure-service-fabric"></a>Controles de segurança para o Azure Service Fabric
@@ -49,7 +49,7 @@ Este artigo documenta os controles de segurança criados no Azure Service Fabric
 | Criptografia no lado do servidor em repouso: chaves gerenciadas pela Microsoft | Sim | O cliente possui o cluster e o conjunto de dimensionamento de máquinas virtuais no qual o cluster foi criado. A criptografia de disco do Azure pode ser habilitada no conjunto de dimensionamento de máquinas virtuais. |
 | Criptografia no lado do servidor em repouso: chaves gerenciadas pelo cliente (BYOK) | Sim | O cliente possui o cluster e o conjunto de dimensionamento de máquinas virtuais no qual o cluster foi criado. A criptografia de disco do Azure pode ser habilitada no conjunto de dimensionamento de máquinas virtuais. |
 | Criptografia em nível de coluna (serviços de dados do Azure)| N/D |  |
-| Criptografia em trânsito (como criptografia de ExpressRoute, criptografia de vnet e criptografia vnet)| Sim |  |
+| Criptografia em trânsito (como criptografia de ExpressRoute, criptografia de VNet e criptografia de VNet-VNet)| Sim |  |
 | Chamadas criptografadas à API| Sim | Chamadas à API do Service Fabric são feitas por meio do Azure Resource Manager. Um JWT (token Web JSON) válido é necessário. |
 
 ## <a name="configuration-management"></a>Gerenciamento de configuração

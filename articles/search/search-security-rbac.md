@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.openlocfilehash: f0c8fe6b8df5efef0cf3948c8d628d20c79502ff
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88928674"
 ---
 # <a name="set-azure-roles-for-administrative-access-to-azure-cognitive-search"></a>Definir funções do Azure para acesso administrativo ao Azure Pesquisa Cognitiva
@@ -54,4 +54,4 @@ A tabela a seguir resume as operações permitidas no Azure Pesquisa Cognitiva e
 
 + [Gerenciar usando o PowerShell](search-manage-powershell.md) 
 + [Desempenho e otimização no Azure Pesquisa Cognitiva](search-performance-optimization.md)
-+ [Introdução ao controle de acesso baseado em função no portal do Azure](../role-based-access-control/overview.md).
++ [Introdução ao controle de acesso do Role-Based no portal do Azure](../role-based-access-control/overview.md).

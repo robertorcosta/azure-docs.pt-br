@@ -10,10 +10,10 @@ ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 11/20/2019
 ms.openlocfilehash: c0efdda24ae47ae65f0d469b50feaefdf6350678
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84022207"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: perguntas frequentes
@@ -190,7 +190,7 @@ Para requisitos de auditoria, a Microsoft recomenda Habilitar logs de Azure Moni
 
 ### <a name="can-i-disable-clamscan-on-my-cluster"></a>Posso desabilitar `Clamscan` o no meu cluster?
 
-`Clamscan`é o software antivírus executado no cluster HDInsight e é usado pela segurança do Azure (azsecd) para proteger seus clusters contra ataques de vírus. A Microsoft recomenda enfaticamente que os usuários evitem fazer alterações na configuração padrão `Clamscan` .
+`Clamscan` é o software antivírus executado no cluster HDInsight e é usado pela segurança do Azure (azsecd) para proteger seus clusters contra ataques de vírus. A Microsoft recomenda enfaticamente que os usuários evitem fazer alterações na configuração padrão `Clamscan` .
 
 Esse processo não interfere nem demora nenhum ciclo para outros processos. Ele sempre resultará em outro processo. Os picos de CPU `Clamscan` devem ser vistos somente quando o sistema estiver ocioso.  
 

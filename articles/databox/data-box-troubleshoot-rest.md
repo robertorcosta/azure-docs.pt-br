@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 04/19/2019
 ms.author: alkohli
 ms.openlocfilehash: b950f80ba8c2bdbaf7a515dc1ce127b934723177
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85558555"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-blob-storage"></a>Solucionar problemas relacionados ao armazenamento de BLOBs Azure Data Box
@@ -26,7 +26,7 @@ Esta seção detalha alguns dos problemas enfrentados ao usar Gerenciador de Arm
 |Mensagem de erro  |Ação recomendada |
 |---------|---------|
 |Não é possível recuperar recursos filho. O valor de um dos cabeçalhos HTTP não está no formato correto.|No menu **Editar** , selecione **Azure Stack APIs de destino**. <br>Reinicie Gerenciador de Armazenamento do Azure.|
-|`getaddrinfo ENOTFOUND <accountname>.blob.<serialnumber>.microsoftdatabox.com` |Verifique se o nome do ponto de extremidade `<accountname>.blob.<serialnumber>.microsoftdatabox.com` foi adicionado ao arquivo de hosts neste caminho: <li>`C:\Windows\System32\drivers\etc\hosts`no Windows ou </li><li> `/etc/hosts`no Linux.</li>|
+|`getaddrinfo ENOTFOUND <accountname>.blob.<serialnumber>.microsoftdatabox.com` |Verifique se o nome do ponto de extremidade `<accountname>.blob.<serialnumber>.microsoftdatabox.com` foi adicionado ao arquivo de hosts neste caminho: <li>`C:\Windows\System32\drivers\etc\hosts` no Windows ou </li><li> `/etc/hosts` no Linux.</li>|
 |Não é possível recuperar recursos filho. <br>Detalhes: certificado autoassinado |Importe o certificado TLS/SSL para o seu dispositivo no Gerenciador de Armazenamento do Azure: <li>Baixe o certificado do portal do Azure. Para obter mais informações, acesse [baixar o certificado](data-box-deploy-copy-data-via-rest.md#download-certificate).</li><li>No menu **Editar** , selecione **certificados SSL** e, em seguida, selecione **importar certificados**.</li>|
 
 ## <a name="errors-seen-in-azcopy-for-windows"></a>Erros vistos no AzCopy para Windows
@@ -35,7 +35,7 @@ Esta seção detalha alguns dos problemas enfrentados ao usar o AzCopy para Wind
 
 |Mensagem de erro  |Ação recomendada |
 |---------|---------|
-|O comando AzCopy parece parar de responder por um minuto antes de exibir este erro: <br>Falha ao enumerar o diretório https://... O nome remoto não pôde ser resolvido`<accountname>.blob.<serialnumber>.microsoftdatabox.com`|Verifique se o nome do ponto de extremidade `<accountname>.blob.<serialnumber>.microsoftdatabox.com` foi adicionado ao arquivo de hosts em: `C:\Windows\System32\drivers\etc\hosts` .|
+|O comando AzCopy parece parar de responder por um minuto antes de exibir este erro: <br>Falha ao enumerar o diretório https://... O nome remoto não pôde ser resolvido `<accountname>.blob.<serialnumber>.microsoftdatabox.com`|Verifique se o nome do ponto de extremidade `<accountname>.blob.<serialnumber>.microsoftdatabox.com` foi adicionado ao arquivo de hosts em: `C:\Windows\System32\drivers\etc\hosts` .|
 |O comando AzCopy parece parar de responder por um minuto antes de exibir este erro: <br>Erro ao analisar o local de origem. A conexão subjacente foi fechada: não foi possível estabelecer uma relação de confiança para o canal seguro de SSL/TLS.|Importe o certificado TLS/SSL para seu dispositivo no repositório de certificados do sistema. Para obter mais informações, acesse [baixar o certificado](data-box-deploy-copy-data-via-rest.md#download-certificate).|
 
 

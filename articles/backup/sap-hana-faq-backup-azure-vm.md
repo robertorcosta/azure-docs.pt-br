@@ -4,10 +4,10 @@ description: Neste artigo, descubra respostas a perguntas comuns sobre como faze
 ms.topic: conceptual
 ms.date: 11/7/2019
 ms.openlocfilehash: dcbf1bf6b39b2afa3fb5aaf2a7f18c5d0e8e4afb
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86513499"
 ---
 # <a name="frequently-asked-questions--back-up-sap-hana-databases-on-azure-vms"></a>Perguntas frequentes – Fazer backup de bancos de dados SAP HANA em VMs do Azure
@@ -77,7 +77,7 @@ No momento, não temos a capacidade de configurar a solução apenas em um IP vi
 
 Atualmente, o backup do Azure não tem a capacidade de entender uma configuração HSR. Isso significa que os nós primários e secundários do HSR serão tratados como duas VMs individuais não relacionadas. Primeiro, você precisará configurar o backup no nó primário. Quando ocorre um failover, o backup deve ser configurado no nó secundário (que agora se torna o nó primário). Não há nenhum failover automático de backup para o outro nó.
 
-Para fazer backup de dados do nó ativo (primário) em qualquer momento determinado, você pode alternar a **proteção** para o nó secundário, que agora se tornará o primário após o failover.
+Para fazer backup de dados do nó ativo (primário) em qualquer momento determinado, você pode alternar a **proteção**  para o nó secundário, que agora se tornará o primário após o failover.
 
 Para executar essa **proteção de comutador**, siga estas etapas:
 

@@ -6,10 +6,10 @@ manager: rochakm
 ms.topic: troubleshooting
 ms.date: 04/03/2020
 ms.openlocfilehash: dc14334668b76ee8cbb81e48abfe1eecf17fa138
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86130402"
 ---
 # <a name="troubleshoot-replication-in-azure-vm-disaster-recovery"></a>Solucionar problemas de replicação na recuperação de desastre de VM do Azure
@@ -35,7 +35,7 @@ Você deve ver a taxa de alteração de dados do evento **além dos limites com 
 
 Se você selecionar o evento, deverá ver as informações exatas do disco:
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/data_change_event2.png" alt-text="Página que mostra os detalhes do evento de taxa de alteração de dados.":::
+:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/data_change_event2.png" alt-text="Azure Site Recovery página que mostra uma alta taxa de alteração de dados que é muito alta.":::
 
 ### <a name="azure-site-recovery-limits"></a>Limites da Azure Site Recovery
 
@@ -56,7 +56,7 @@ Disco Premium P20 ou P30 ou P40 ou P50 | 16 KB ou maior |20 MB/s | 1\.684 GB por
 
 Azure Site Recovery tem limites de taxas de alteração de dados, dependendo do tipo de disco. Para ver se esse problema é recorrente ou temporário, localize a taxa de alteração de dados da máquina virtual afetada. Acesse a máquina virtual de origem, localize as métricas em **Monitoramento** e adicione-as conforme mostrado nesta captura de tela:
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/churn.png" alt-text="Página que mostra o processo de três etapas para localizar a taxa de alteração de dados.":::
+:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/churn.png" alt-text="Azure Site Recovery página que mostra uma alta taxa de alteração de dados que é muito alta.":::
 
 1. Selecione **Adicionar métrica** e adicione **Bytes de gravação de disco do sistema operacional/s** e **Bytes de gravação de disco de dados/s**.
 1. Monitore o pico, conforme mostrado na captura de tela.
@@ -65,7 +65,7 @@ Azure Site Recovery tem limites de taxas de alteração de dados, dependendo do 
 Um pico na taxa de alteração de dados pode vir de uma intermitência de dados ocasional. Se a taxa de alteração de dados for maior que 10 MB/s (para Premium) ou 2 MB/s (para o padrão) e ficar inativa, a replicação será atualizada. Se a rotatividade estiver consistentemente bem além do limite com suporte, considere uma destas opções:
 
 - Exclua o disco que está causando uma alta taxa de alteração de dados: primeiro, desabilite a replicação. Em seguida, você pode excluir o disco usando o [PowerShell](azure-to-azure-exclude-disks.md).
-- Alterar a camada do disco de armazenamento de recuperação de desastre: essa opção só será possível se a variação de dados do disco for menor que 20 MB/s. Por exemplo, uma VM com um disco P10 tem uma variação de dados maior que 8 MB/s, mas menos de 10 MB/s. Se o cliente puder usar um disco P30 para o armazenamento de destino durante a proteção, o problema poderá ser resolvido. Esta solução só é possível para computadores que usam o Managed Disks Premium. Siga estas etapas:
+- Alterar a camada do disco de armazenamento de recuperação de desastre: essa opção só será possível se a variação de dados do disco for menor que 20 MB/s. Por exemplo, uma VM com um disco P10 tem uma variação de dados maior que 8 MB/s, mas menos de 10 MB/s. Se o cliente puder usar um disco P30 para o armazenamento de destino durante a proteção, o problema poderá ser resolvido. Essa solução só é possível para computadores que estejam usando discos Premium-Managed. Siga estas etapas:
 
   1. Vá para **discos** do computador replicado afetado e copie o nome do disco de réplica.
   1. Vá para esta réplica do disco gerenciado.
