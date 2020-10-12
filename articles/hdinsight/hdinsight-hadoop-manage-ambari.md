@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/16/2020
 ms.openlocfilehash: ce078a3dad645f592bb33ed55ce508f68ce8f30a
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87281372"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Gerenciar clusters HDInsight usando a interface do usuário da Web do Apache Ambari
@@ -58,7 +58,7 @@ Quando a página se abrir, observe a barra na parte superior. Essa barra contém
 |Serviços|Informações e definições de configuração para os serviços no cluster.|
 |Hosts|Informações e definições de configuração para os nós no cluster.|
 |Alertas|Um log de informações, avisos e alertas críticos.|
-|Admin|Pilha de software/serviços que estão instalados no cluster, informações de conta de serviço e segurança Kerberos.|
+|Administrador|Pilha de software/serviços que estão instalados no cluster, informações de conta de serviço e segurança Kerberos.|
 |Botão administrador|Gerenciamento de Ambari, configurações de usuário e sair.|
 
 ## <a name="monitoring"></a>Monitoramento
@@ -161,7 +161,7 @@ A página **Hosts** lista todos os hosts no cluster. Para gerenciar hosts, siga 
     |Reiniciar todos os componentes|Pare e inicie todos os componentes no host.|
     |Ativar o modo de manutenção|Suprime alertas para o host. Esse modo deve ser habilitado se você estiver fazendo ações que geram alertas. Por exemplo, parar e iniciar um serviço.|
     |Desligar o modo de manutenção|Retorna o host para alertas normais.|
-    |Stop|Interrompe datanode ou NodeManagers no host.|
+    |Parar|Interrompe datanode ou NodeManagers no host.|
     |Iniciar|Inicia datanode ou NodeManagers no host.|
     |Reiniciar|Para e inicia o datanode ou NodeManagers no host.|
     |Desprogramar|Remove um host do cluster. **Não use essa ação em clusters HDInsight.**|

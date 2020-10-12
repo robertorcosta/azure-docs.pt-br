@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 922cea49179e63e2481a7f15b1e78bd8bf6c4848
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91773919"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Opções de autenticação com senha para Azure Active Directory
@@ -28,13 +28,13 @@ Recursos como a MFA (autenticação multifator) são uma ótima maneira de prote
 
 Cada organização tem necessidades diferentes quando se trata de autenticação. A Microsoft oferece as seguintes três opções de autenticação sem senha que se integram ao Azure Active Directory (Azure AD):
 
-- Windows Hello for Business
+- Windows Hello para Empresas
 - Aplicativo Microsoft Authenticator
 - Chaves de segurança FIDO2
 
 ![Autenticação: segurança versus conveniência](./media/concept-authentication-passwordless/passwordless-convenience-security.png)
 
-## <a name="windows-hello-for-business"></a>Windows Hello for Business
+## <a name="windows-hello-for-business"></a>Windows Hello para Empresas
 
 O Windows Hello para empresas é ideal para operadores de informações que têm seu próprio computador Windows designado. As credenciais biométricas e de PIN estão diretamente ligadas ao computador do usuário, o que impede o acesso de qualquer pessoa que não seja o proprietário. Com a integração de PKI (infraestrutura de chave pública) e suporte interno para SSO (logon único), o Windows Hello para empresas fornece um método conveniente para acessar diretamente os recursos corporativos locais e na nuvem.
 
@@ -164,7 +164,7 @@ A escolha entre essas três opções de senha depende dos requisitos de seguran�
 
 Aqui estão alguns fatores a serem considerados ao escolher a tecnologia com senha da Microsoft:
 
-||**Windows Hello for Business**|**Entrada sem senha com o aplicativo Microsoft Authenticator**|**Chaves de segurança FIDO2**|
+||**Windows Hello para empresas**|**Entrada sem senha com o aplicativo Microsoft Authenticator**|**Chaves de segurança FIDO2**|
 |:-|:-|:-|:-|
 |**Pré-requisito**| Windows 10, versão 1809 ou posterior<br>Azure Active Directory| Aplicativo Microsoft Authenticator<br>Telefone (dispositivos iOS e Android que executam o Android 6,0 ou superior.)|Windows 10, versão 1903 ou posterior<br>Azure Active Directory|
 |**Modo**|Plataforma|Software|Hardware|

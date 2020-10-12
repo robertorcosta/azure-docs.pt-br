@@ -8,10 +8,10 @@ ms.assetid: ad14d53c-fed4-478d-ab4b-6d2e14ff2097
 ms.topic: how-to
 ms.date: 06/29/2018
 ms.openlocfilehash: 70a251db6c08f353f9c50512c41551e7a909a059
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87125608"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Gerenciar a Análise Azure Data Lake usando o Azure PowerShell
@@ -116,7 +116,7 @@ Get-AdlAnalyticsAccount -Name $adla
 Test-AdlAnalyticsAccount -Name $adla
 ```
 
-## <a name="manage-data-sources"></a>Gerenciar fontes de dados
+## <a name="manage-data-sources"></a>Gerenciar as fontes de dados
 No momento, o Azure Data Lake Analytics dá suporte às seguintes fontes de dados:
 
 * [Repositório Azure Data Lake](../data-lake-store/data-lake-store-overview.md)
@@ -241,9 +241,9 @@ Get-AdlJob -Account $adla -State Accepted,Compiling,New,Paused,Scheduling,Start
 Utilize o parâmetro `-Result` para detectar se os trabalhos finalizados foram concluídos com êxito. O parâmetro possui esses valores:
 
 * Cancelado
-* Com falha
+* Failed (Falha)
 * Nenhum
-* Com sucesso
+* Êxito
 
 ``` powershell
 # List Successful jobs.

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a59939fc7988e1a94bdfb9fac2d77011422e4983
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87274673"
 ---
 # <a name="conditional-access-grant"></a>Acesso condicional: Grant
@@ -30,7 +30,7 @@ O bloco leva em conta quaisquer atribuições e impede o acesso com base na conf
 
 O bloco é um controle poderoso que deve ser atraente com o conhecimento apropriado. Políticas com instruções de bloco podem ter efeitos colaterais indesejados. Os testes e a validação adequados são vitais antes de habilitar em escala. Os administradores devem utilizar ferramentas como o [modo somente de relatório de acesso condicional](concept-conditional-access-report-only.md) e [a ferramenta de What If no acesso condicional](what-if-tool.md) ao fazer alterações.
 
-## <a name="grant-access"></a>Permitir acesso
+## <a name="grant-access"></a>Conceder acesso
 
 Os administradores podem optar por impor um ou mais controles ao conceder acesso. Esses controles incluem as seguintes opções: 
 

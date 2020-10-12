@@ -11,17 +11,17 @@ ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
 ms.openlocfilehash: 0ed8b04353c50bff53d074ebdb1efa2a286c8e59
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90086565"
 ---
 # <a name="prevent-anonymous-public-read-access-to-containers-and-blobs"></a>Impedir acesso de leitura público anônimo a contêineres e blobs
 
-O acesso de leitura público anônimo a contêineres e blobs no armazenamento do Azure é uma maneira conveniente de compartilhar dados, mas também pode representar um risco de segurança. É importante gerenciar o acesso anônimo criteriosamente e entender como avaliar o acesso anônimo aos seus dados. A complexidade operacional, erro humano ou ataque mal-intencionado contra dados acessíveis publicamente pode resultar em violações de dados dispendiosas. A Microsoft recomenda que você habilite o acesso anônimo somente quando necessário para o cenário do aplicativo.
+O acesso de leitura público anônimo a contêineres e blobs no Armazenamento do Azure é uma forma conveniente de compartilhar dados, mas também pode representar um risco de segurança. É importante gerenciar o acesso anônimo criteriosamente e entender como avaliar o acesso anônimo aos seus dados. A complexidade operacional, erro humano ou ataque mal-intencionado contra dados acessíveis publicamente pode resultar em violações de dados dispendiosas. A Microsoft recomenda que você habilite o acesso anônimo somente quando necessário para o cenário do aplicativo.
 
-Por padrão, o acesso público aos dados de blob é sempre proibido. No entanto, a configuração padrão para uma conta de armazenamento permite que um usuário com permissões apropriadas configure o acesso público a contêineres e blobs em uma conta de armazenamento. Para aumentar a segurança, você pode proibir todo o acesso público à conta de armazenamento, independentemente da configuração de acesso público para um contêiner individual. A despermissão do acesso público à conta de armazenamento impede que um usuário habilite o acesso público para um contêiner na conta. A Microsoft recomenda que você não permita o acesso público a uma conta de armazenamento, a menos que seu cenário exija isso. A despermissão de acesso público ajuda a evitar violações de dados causadas por acesso anônimo indesejado.
+Por padrão, o acesso público aos dados de blob é sempre proibido. No entanto, a configuração padrão para uma conta de armazenamento permite que um usuário com permissões apropriadas configure o acesso público a contêineres e blobs em uma conta de armazenamento. Para aumentar a segurança, você pode proibir todo o acesso público à conta de armazenamento, independentemente da configuração de acesso público para um contêiner individual. Não permitir o acesso público à conta de armazenamento impede que um usuário habilite o acesso público para um contêiner na conta. A Microsoft recomenda que você não permita o acesso público a uma conta de armazenamento, a menos que seu cenário exija isso. Não permitir o acesso público ajuda a evitar violações de dados causadas por acesso anônimo indesejado.
 
 Quando você não permite acesso de blob público para a conta de armazenamento, o armazenamento do Azure rejeita todas as solicitações anônimas para essa conta. Depois que o acesso público não é permitido para uma conta, os contêineres nessa conta não podem ser subseqüentemente configurados para acesso público. Todos os contêineres que já foram configurados para acesso público não aceitarão mais solicitações anônimas. Para obter mais informações, consulte [Configurar acesso de leitura público anônimo para contêineres e blobs](anonymous-read-access-configure.md).
 
@@ -59,7 +59,7 @@ Siga estas etapas para criar uma métrica que rastreia solicitações anônimas:
 
 Depois de configurar a métrica, as solicitações anônimas começarão a aparecer no grafo. A imagem a seguir mostra solicitações anônimas agregadas nos últimos trinta minutos.
 
-:::image type="content" source="media/anonymous-read-access-prevent/metric-anonymous-blob-requests.png" alt-text="Captura de tela mostrando solicitações anônimas agregadas no armazenamento de BLOBs":::
+:::image type="content" source="media/anonymous-read-access-prevent/metric-anonymous-blob-requests.png" alt-text="Captura de tela mostrando como configurar a métrica para somar transações de BLOB":::
 
 Você também pode configurar uma regra de alerta para notificá-lo quando um determinado número de solicitações anônimas for feito em sua conta de armazenamento. Para obter mais informações, confira [Criar, exibir e gerenciar alertas de métrica usando o Azure Monitor](../../azure-monitor/platform/alerts-metric.md).
 
@@ -85,7 +85,7 @@ Para registrar dados do armazenamento do Azure com Azure Monitor e analisá-los 
 1. Em **detalhes da categoria**, na seção **log** , escolha quais tipos de solicitações registrar em log. Todas as solicitações anônimas serão solicitações de leitura, portanto, selecione **StorageRead** para capturar solicitações anônimas.
 1. Em **detalhes de destino**, selecione **Enviar para log Analytics**. Selecione sua assinatura e o espaço de trabalho Log Analytics criado anteriormente, conforme mostrado na imagem a seguir.
 
-    :::image type="content" source="media/anonymous-read-access-prevent/create-diagnostic-setting-logs.png" alt-text="Captura de tela mostrando como criar uma configuração de diagnóstico para solicitações de log":::
+    :::image type="content" source="media/anonymous-read-access-prevent/create-diagnostic-setting-logs.png" alt-text="Captura de tela mostrando como configurar a métrica para somar transações de BLOB":::
 
 Depois de criar a configuração de diagnóstico, as solicitações para a conta de armazenamento são registradas subsequentemente de acordo com essa configuração. Para obter mais informações, consulte [criar configuração de diagnóstico para coletar logs de recursos e métricas no Azure](../../azure-monitor/platform/diagnostic-settings.md).
 
@@ -241,7 +241,7 @@ Para exibir o relatório de conformidade no portal do Azure, siga estas etapas:
 1. Filtre os resultados para o nome da atribuição de política que você criou na etapa anterior. O relatório mostra quantos recursos não estão em conformidade com a política.
 1. Você pode fazer uma busca detalhada no relatório para obter detalhes adicionais, incluindo uma lista de contas de armazenamento que não estão em conformidade.
 
-    :::image type="content" source="media/anonymous-read-access-prevent/compliance-report-policy-portal.png" alt-text="Captura de tela mostrando o relatório de conformidade para a política de auditoria para acesso público ao blob":::
+    :::image type="content" source="media/anonymous-read-access-prevent/compliance-report-policy-portal.png" alt-text="Captura de tela mostrando como configurar a métrica para somar transações de BLOB":::
 
 ## <a name="use-azure-policy-to-enforce-authorized-access"></a>Usar Azure Policy para impor o acesso autorizado
 
@@ -277,7 +277,7 @@ Depois de criar a política com o efeito de negação e atribuí-la a um escopo,
 
 A imagem a seguir mostra o erro que ocorre se você tentar criar uma conta de armazenamento que permita acesso público (o padrão para uma nova conta) quando uma política com um efeito de negação exigir que o acesso público não seja permitido.
 
-:::image type="content" source="media/anonymous-read-access-prevent/deny-policy-error.png" alt-text="Captura de tela mostrando o erro que ocorre ao criar uma conta de armazenamento em violação de política":::
+:::image type="content" source="media/anonymous-read-access-prevent/deny-policy-error.png" alt-text="Captura de tela mostrando como configurar a métrica para somar transações de BLOB":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

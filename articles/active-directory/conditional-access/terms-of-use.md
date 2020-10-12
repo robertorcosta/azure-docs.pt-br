@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 19c6bf058af62f830c825eef900bff712ba07181
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90085902"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory termos de uso
@@ -59,7 +59,7 @@ Para usar e configurar os termos de uso do Azure AD, você deve ter:
 - Assinatura do Azure AD Premium P1, P2, EMS E3 ou EMS E5.
    - Se você não tiver uma dessas assinaturas, poderá [obter o Azure AD Premium](../fundamentals/active-directory-get-started-premium.md) ou [habilitar a avaliação do Azure AD Premium](https://azure.microsoft.com/trial/get-started-active-directory/).
 - Uma das seguintes contas de administrador para o diretório que você deseja configurar:
-   - Administrador Global
+   - Administrador global
    - Administrador de Segurança
    - Administrador de acesso condicional
 
@@ -253,7 +253,7 @@ A configuração **exigir que os usuários consentim em cada dispositivo** permi
 Segue uma lista dos softwares e plataformas com suporte.
 
 > [!div class="mx-tableFixed"]
-> |  | iOS | Android | Windows 10 | Outro |
+> |  | iOS | Android | Windows 10 | Outros |
 > | --- | --- | --- | --- | --- |
 > | **Aplicativo nativo** | Sim | Sim | Sim |  |
 > | **Microsoft Edge** | Sim | Sim | Sim |  |
