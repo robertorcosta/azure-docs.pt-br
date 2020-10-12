@@ -8,10 +8,10 @@ ms.date: 05/26/2020
 author: mingshen-ms
 ms.author: mingshen
 ms.openlocfilehash: ac48973653e89d43521979a5606a8a3a3c2e1346
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87319976"
 ---
 # <a name="marketplace-metered-billing-apis"></a>APIs de cobrança limitada do Marketplace
@@ -65,7 +65,7 @@ Somente um evento de uso pode ser emitido para cada hora de um dia de calendári
 ```
 
 >[!NOTE]
->`resourceId`tem significado diferente para o aplicativo SaaS e para o aplicativo gerenciado que emite o medidor personalizado. 
+>`resourceId` tem significado diferente para o aplicativo SaaS e para o aplicativo gerenciado que emite o medidor personalizado. 
 
 Para planos de Aplicativos Gerenciados do Aplicativo Azure, a `resourceId` é a `resourceUsageId` encontrada no `billingDetails` do objeto de metadados do Aplicativo Gerenciado. Um script de exemplo para buscá-los pode ser encontrado em [usando o token de identidades gerenciadas pelo Azure](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
 
@@ -95,7 +95,7 @@ Código: 400 <br>
 Solicitação inválida.
 
 * Dados de solicitação ausentes ou inválidos fornecidos.
-* `effectiveStartTime`Há mais de 24 horas no passado. O evento expirou.
+* `effectiveStartTime` Há mais de 24 horas no passado. O evento expirou.
 * A assinatura SaaS não está no status assinado.
 
 Exemplo de carga de resposta: 
@@ -189,7 +189,7 @@ A API de evento de uso do lote permite que você emita eventos de uso para mais 
 ```
 
 >[!NOTE]
->`resourceId`tem significado diferente para o aplicativo SaaS e para o aplicativo gerenciado que emite o medidor personalizado. 
+>`resourceId` tem significado diferente para o aplicativo SaaS e para o aplicativo gerenciado que emite o medidor personalizado. 
 
 Para planos de Aplicativos Gerenciados do Aplicativo Azure, a `resourceId` é a `resourceUsageId` encontrada no `billingDetails` do objeto de metadados do Aplicativo Gerenciado. Um script de exemplo para buscá-los pode ser encontrado em [usando o token de identidades gerenciadas pelo Azure](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
 

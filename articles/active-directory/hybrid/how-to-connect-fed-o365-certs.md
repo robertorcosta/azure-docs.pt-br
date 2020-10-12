@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 78dcd9d020923251439a05316569b559c19057d1
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89661444"
 ---
 # <a name="renew-federation-certificates-for-microsoft-365-and-azure-active-directory"></a>Renovar certificados de Federação para Microsoft 365 e Azure Active Directory
@@ -167,7 +167,7 @@ Atualize Microsoft 365 com os novos certificados de assinatura de token a serem 
 
 1. Abra o Módulo Microsoft Azure Active Directory para Windows PowerShell.
 2. Execute $cred = Get-Credential. Quando este cmdlet solicitar credenciais, digite as credenciais da conta de administrador de serviços de nuvem.
-3. Execute Connect-MsolService – Credential $cred. Esse cmdlet conecta você ao serviço de nuvem. A criação de um contexto que conecta você ao serviço de nuvem é necessária antes de executar qualquer um dos cmdlets adicionais instalados pela ferramenta.
+3. Execute Connect-MsolService – $cred de credenciais. Esse cmdlet conecta você ao serviço de nuvem. A criação de um contexto que conecta você ao serviço de nuvem é necessária antes de executar qualquer um dos cmdlets adicionais instalados pela ferramenta.
 4. Se estiver executando esses comandos em um computador que não seja o servidor de federação AD FS primário, execute o &lt;servidor AD FS primário&gt; Set-MSOLAdfscontext -Computer, onde &lt;servidor AD FS primário&gt; é o nome FQDN interno do servidor AD FS primário. Esse cmdlet cria um contexto que conecta você ao AD FS.
 5. Execute o &lt;domínio&gt; Update-MSOLFederatedDomain –DomainName. Esse cmdlet atualiza as configurações do AD FS no serviço de nuvem e configura a relação de confiança entre os dois.
 

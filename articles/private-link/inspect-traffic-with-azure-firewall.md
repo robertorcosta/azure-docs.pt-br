@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: allensu
 ms.openlocfilehash: 734d52dadbb849925303febb0d3d1195bbddb0df
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89236593"
 ---
 # <a name="use-azure-firewall-to-inspect-traffic-destined-to-a-private-endpoint"></a>Usar o Firewall do Azure para inspecionar o tráfego destinado a um ponto de extremidade privado
@@ -55,7 +55,7 @@ Para obter mais informações sobre encargos relacionados a conexões com redes 
 
 ## <a name="scenario-2-hub-and-spoke-architecture---shared-virtual-network-for-private-endpoints-and-virtual-machines"></a>Cenário 2: arquitetura de Hub e spoke-rede virtual compartilhada para pontos de extremidade privados e máquinas virtuais
 
-:::image type="content" source="./media/inspect-traffic-using-azure-firewall/shared-spoke.png" alt-text="Pontos de extremidade privados e máquinas virtuais na mesma rede virtual" border="true":::
+:::image type="content" source="./media/inspect-traffic-using-azure-firewall/shared-spoke.png" alt-text="Rede virtual dedicada para pontos de extremidade privados" border="true":::
 
 Esse cenário é implementado quando:
 
@@ -78,7 +78,7 @@ Para obter mais informações sobre encargos relacionados a conexões com redes 
 
 ## <a name="scenario-3-single-virtual-network"></a>Cenário 3: rede virtual única
 
-:::image type="content" source="./media/inspect-traffic-using-azure-firewall/single-vnet.png" alt-text="Rede virtual única" border="true":::
+:::image type="content" source="./media/inspect-traffic-using-azure-firewall/single-vnet.png" alt-text="Rede virtual dedicada para pontos de extremidade privados" border="true":::
 
 Há algumas limitações na implementação: uma migração para uma arquitetura de Hub e spoke não é possível. As mesmas considerações, conforme o cenário 2, se aplicam. Nesse cenário, os encargos de emparelhamento de rede virtual não se aplicam.
 
@@ -87,7 +87,7 @@ Há algumas limitações na implementação: uma migração para uma arquitetura
 
 ## <a name="scenario-4-on-premises-traffic-to-private-endpoints"></a>Cenário 4: tráfego local para pontos de extremidade privados
 
-:::image type="content" source="./media/inspect-traffic-using-azure-firewall/on-premises.png" alt-text="Tráfego local para pontos de extremidade privados" border="true":::
+:::image type="content" source="./media/inspect-traffic-using-azure-firewall/on-premises.png" alt-text="Rede virtual dedicada para pontos de extremidade privados" border="true":::
 
 Essa arquitetura pode ser implementada se você tiver configurado a conectividade com sua rede local usando: 
 
@@ -255,9 +255,9 @@ Nesta seção, você habilita os logs no firewall.
     | log | Selecione **AzureFirewallApplicationRule** e **AzureFirewallNetworkRule**. |
     | Detalhes do destino | Selecione **Enviar para o Log Analytics**. |
     | Subscription | Selecione sua assinatura. |
-    | Workspace do Log Analytics | Selecione seu espaço de trabalho do Log Analytics. |
+    | Espaço de trabalho do Log Analytics | Selecione seu espaço de trabalho do Log Analytics. |
 
-6. Clique em **Salvar**.
+6. Selecione **Salvar**.
 
 ## <a name="create-azure-sql-database"></a>Criar um Banco de Dados SQL do Azure
 
@@ -332,7 +332,7 @@ Nesta seção, você cria um ponto de extremidade privado para o banco de dados 
     | **Rede** | |
     | Rede virtual | Selecione **myPEVnet**. |
     | Sub-rede | Selecione **PrivateEndpointSubnet**. |
-    | **Integração do DNS privado** | |
+    | **Integração de DNS privado** | |
     | Integrar com a zona DNS privado | Selecione **Sim** na barra superior. |
     | Subscription | Selecione sua assinatura. |
     | Zonas de DNS privado | Deixe o **privatelink.Database.Windows.net**padrão. |
@@ -345,7 +345,7 @@ Nesta seção, você cria um ponto de extremidade privado para o banco de dados 
 
 13. Em **firewalls e redes virtuais**, selecione **Sim** ao lado de **permitir que os serviços e recursos do Azure acessem este servidor**.
 
-14. Clique em **Salvar**.
+14. Selecione **Salvar**.
 
 ## <a name="connect-the-virtual-networks-using-virtual-network-peering"></a>Conectar as redes virtuais usando o emparelhamento de rede virtual
 
@@ -366,7 +366,7 @@ Nesta seção, conectaremos as redes virtuais **myVMVNet** e **myPEVNet** ao **m
     | Subscription | Selecione sua assinatura.    |
     | Rede virtual | Selecione **myVMVNet**. |
     | Nome do emparelhamento da rede virtual remota para myAzFwVNet    |    Insira **myVMVNet-to-myAzFwVNet**.    |
-    | **Configuração** | |
+    | **Configuration** | |
     | **Definir configurações de acesso à rede virtual** | |
     | Permitir acesso à rede virtual de myAzFwVNet para rede virtual remota | Deixe o padrão **Habilitado**.    |
     | Permitir o acesso à rede virtual da rede virtual remota para myAzFwVNet    | Deixe o padrão **Habilitado**.    |
@@ -374,7 +374,7 @@ Nesta seção, conectaremos as redes virtuais **myVMVNet** e **myPEVNet** ao **m
     | Permitir tráfego encaminhado da rede virtual remota para myAzFwVNet    | Selecione **Habilitado**. |
     | Permitir tráfego encaminhado de myAzFwVNet para rede virtual remota | Selecione **Habilitado**. |
     | **Definir configurações de trânsito de gateway** | |
-    | Permitir trânsito de gateway | Deixar desmarcado |
+    | Permitir trânsito de gateway | Deixe essa opção desmarcada |
     |||
 
 4. Selecione **OK**.
@@ -392,7 +392,7 @@ Nesta seção, conectaremos as redes virtuais **myVMVNet** e **myPEVNet** ao **m
     | Subscription | Selecione sua assinatura.    |
     | Rede virtual | Selecione **myPEVNet**. |
     | Nome do emparelhamento da rede virtual remota para myAzFwVNet    |    Insira **myPEVNet-to-myAzFwVNet**.    |
-    | **Configuração** | |
+    | **Configuration** | |
     | **Definir configurações de acesso à rede virtual** | |
     | Permitir acesso à rede virtual de myAzFwVNet para rede virtual remota | Deixe o padrão **Habilitado**.    |
     | Permitir o acesso à rede virtual da rede virtual remota para myAzFwVNet    | Deixe o padrão **Habilitado**.    |
@@ -400,7 +400,7 @@ Nesta seção, conectaremos as redes virtuais **myVMVNet** e **myPEVNet** ao **m
     | Permitir tráfego encaminhado da rede virtual remota para myAzFwVNet    | Selecione **Habilitado**. |
     | Permitir tráfego encaminhado de myAzFwVNet para rede virtual remota | Selecione **Habilitado**. |
     | **Definir configurações de trânsito de gateway** | |
-    | Permitir trânsito de gateway | Deixar desmarcado |
+    | Permitir trânsito de gateway | Deixe essa opção desmarcada |
 
 7. Selecione **OK**.
 
@@ -604,7 +604,7 @@ Nesta seção, você se conectará de modo privado ao banco de dados SQL usando 
 
 6. Na saída da consulta de log, verifique se **MyDBServer.Database.Windows.net** está listado em **FQDN** e **SQLPrivateEndpoint** está listado em **RuleCollection**.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando você terminar de usar os recursos, exclua o grupo de recursos e todos os recursos que ele contém:
 

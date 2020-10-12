@@ -19,10 +19,10 @@ ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 4353ed5413f76b13425a59d31bb6108542e3bd23
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89231122"
 ---
 # <a name="azure-ad-powershell-cmdlets-for-reporting"></a>Cmdlets do PowerShell do Azure AD para relatórios
@@ -54,7 +54,7 @@ Você obtém acesso aos logs de auditoria usando o cmdlet ' Get-AzureADAuditDire
 | Nome de exibição do aplicativo      | Get-AzureADAuditDirectoryLogs-filtrar "initiatedBy/app/displayName EQ ' sincronização de nuvem do Azure AD '" |
 | Categoria                      | Get-AzureADAuditDirectoryLogs-filtrar "category EQ ' ApplicationManagement '" |
 | Data e hora da atividade            | Get-AzureADAuditDirectoryLogs-filtro "activityDateTime gt 2019-04-18" |
-| Todas as anteriores              | Get-AzureADAuditDirectoryLogs-filtrar "initiatedBy/app/displayName EQ ' Azure AD Cloud Sync ' e Category EQ ' ApplicationManagement ' e activityDateTime gt 2019-04-18"|
+| Todas as opções acima              | Get-AzureADAuditDirectoryLogs-filtrar "initiatedBy/app/displayName EQ ' Azure AD Cloud Sync ' e Category EQ ' ApplicationManagement ' e activityDateTime gt 2019-04-18"|
 
 
 A imagem a seguir mostra um exemplo desse comando. 
@@ -75,8 +75,8 @@ Você obtém acesso aos logs de entrada usando o cmdlet ' Get-AzureADAuditSignIn
 | Nome de exibição do usuário             | Get-AzureADAuditSignInLogs-filtro "UserDisplayName EQ ' Timothy Perkins '" |
 | Criar data e hora              | Get-AzureADAuditSignInLogs-Filter "createdDateTime gt 2019-04-18T17:30:00.0 Z" (tudo desde 5:30 PM em 4/18) |
 | Status                        | Get-AzureADAuditSignInLogs-Filter "status/errorCode EQ 50105" |
-| Nome de exibição do aplicativo      | Get-AzureADAuditSignInLogs-filtrar "appDisplayName EQ ' StoreFrontStudio [WSFED habilitado] '" |
-| Todas as anteriores              | Get-AzureADAuditSignInLogs-filtro "UserDisplayName EQ ' Timothy Perkins ' e status/errorCode ne 0 e appDisplayName EQ ' StoreFrontStudio [WSFED Enabled] '" |
+| Nome de exibição do aplicativo      | Get-AzureADAuditSignInLogs-filtro "appDisplayName EQ ' StoreFrontStudio [WSFED Enabled] '" |
+| Todas as opções acima              | Get-AzureADAuditSignInLogs-filtro "UserDisplayName EQ ' Timothy Perkins ' e status/errorCode ne 0 e appDisplayName EQ ' StoreFrontStudio [WSFED Enabled] '" |
 
 
 A imagem a seguir mostra um exemplo desse comando. 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 09/21/2018
 ms.author: akjosh
 ms.openlocfilehash: 9391bb4867717b6780b50cf90b998254227d2310
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87082606"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>Extensão para VM do Chef para Linux e Windows
@@ -70,7 +70,7 @@ O JSON a seguir mostra o esquema para a extensão para VM do Chef. A extensão e
 | Nome | Valor/Exemplo | Tipo de Dados
 | ---- | ---- | ----
 | apiVersion | `2017-12-01` | string (date) |
-| publicador | `Chef.Bootstrap.WindowsAzure` | string |
+| editor | `Chef.Bootstrap.WindowsAzure` | string |
 | type | `LinuxChefClient` (Linux), `ChefClient` (Windows) | string |
 | typeHandlerVersion | `1210.13` | string (double) |
 

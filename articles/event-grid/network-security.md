@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: vkukke
 ms.openlocfilehash: 81544d71db5131f76dc2f9a613b6fd89ed57d076
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91326449"
 ---
 # <a name="network-security-for-azure-event-grid-resources"></a>Segurança de rede para recursos da grade de eventos do Azure
@@ -33,7 +33,7 @@ Você pode usar marcas de serviço para definir os controles de acesso à rede e
 ## <a name="ip-firewall"></a>Firewall de IP 
 A grade de eventos do Azure dá suporte a controles de acesso baseados em IP para publicação em tópicos e domínios. Com controles baseados em IP, você pode limitar os editores a um tópico ou domínio a apenas um conjunto de computadores e serviços de nuvem aprovados. Esse recurso complementa os [mecanismos de autenticação](security-authentication.md) com suporte na grade de eventos.
 
-Por padrão, o tópico e o domínio podem ser acessados pela Internet, desde que a solicitação venha com autenticação e autorização válidas. Com o firewall de IP, você pode restringir ainda mais a um conjunto de endereços IP ou intervalos de endereços IP na notação [CIDR (roteamento entre domínios sem classificação)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) . Os Publicadores provenientes de qualquer outro endereço IP serão rejeitados e receberão uma resposta 403 (proibido).
+Por padrão, o tópico e o domínio podem ser acessados pela Internet, desde que a solicitação venha com autenticação e autorização válidas. Com o firewall de IP, você pode restringir ainda mais a um conjunto de endereços IP ou intervalos de endereços IP na notação [CIDR (roteamento Inter-Domain sem classe)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) . Os Publicadores provenientes de qualquer outro endereço IP serão rejeitados e receberão uma resposta 403 (proibido).
 
 Para obter instruções detalhadas sobre como configurar o firewall de IP para tópicos e domínios, consulte [Configurar o firewall de IP](configure-firewall.md).
 

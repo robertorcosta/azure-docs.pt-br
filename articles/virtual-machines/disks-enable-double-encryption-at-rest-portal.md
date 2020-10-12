@@ -9,10 +9,10 @@ ms.service: virtual-machines-linux
 ms.subservice: disks
 ms.custom: references_regions
 ms.openlocfilehash: bf2531536796965f145a9ac3e6a23cbb6634852a
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88817322"
 ---
 # <a name="use-the-azure-portal-to-enable-double-encryption-at-rest-for-managed-disks"></a>Usar o portal do Azure para habilitar a criptografia dupla em repouso para discos gerenciados
@@ -39,7 +39,7 @@ O Armazenamento em Disco do Azure dá suporte à criptografia dupla em repouso p
 
 1. Selecione **+ Adicionar**.
 
-    :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-add-disk-encryption-set.png" alt-text="Captura de tela da folha do conjunto de criptografia de disco, + adicionar é realçada.":::
+    :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-add-disk-encryption-set.png" alt-text="Captura de tela da portal do Azure principal, os conjuntos de criptografia de disco são realçados na barra de pesquisa.":::
 
 1. Selecione uma das regiões com suporte.
 1. Para **tipo de criptografia**, selecione **criptografia dupla com chaves**gerenciadas por plataforma e gerenciadas pelo cliente.
@@ -49,19 +49,19 @@ O Armazenamento em Disco do Azure dá suporte à criptografia dupla em repouso p
 
 1. Preencha as informações restantes.
 
-    :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-create-disk-encryption-set-blade.png" alt-text="A captura de tela da folha de criação do conjunto de criptografia de disco, as regiões e a criptografia dupla com chaves gerenciadas por plataforma e gerenciadas pelo cliente são realçadas.":::
+    :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-create-disk-encryption-set-blade.png" alt-text="Captura de tela da portal do Azure principal, os conjuntos de criptografia de disco são realçados na barra de pesquisa.":::
 
 1. Selecione um Azure Key Vault e uma chave ou crie um novo, se necessário.
 
     > [!NOTE]
     > Se você criar uma instância de Key Vault, deverá habilitar a exclusão reversível e limpar a proteção. Essas configurações são obrigatórias ao usar um Key Vault para criptografar discos gerenciados e protegê-lo contra a perda de dados devido à exclusão acidental.
 
-    :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-select-key-vault.png" alt-text="Captura de tela da folha de criação de Key Vault.":::
+    :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-select-key-vault.png" alt-text="Captura de tela da portal do Azure principal, os conjuntos de criptografia de disco são realçados na barra de pesquisa.":::
 
 1. Selecione **Criar**.
 1. Navegue até o conjunto de criptografia de disco que você criou e selecione o erro que é exibido. Isso irá configurar o conjunto de criptografia de disco para funcionar.
 
-    :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-disk-set-error.png" alt-text="Captura de tela do erro de conjunto de criptografia de disco exibido; o texto de erro é: para associar um disco, uma imagem ou um instantâneo com esse conjunto de criptografia de disco, você deve conceder permissões ao cofre de chaves.":::
+    :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-disk-set-error.png" alt-text="Captura de tela da portal do Azure principal, os conjuntos de criptografia de disco são realçados na barra de pesquisa.":::
 
     Uma notificação deve aparecer e ter sucesso. Isso permitirá que você use o conjunto de criptografia de disco com o cofre de chaves.
     
@@ -73,7 +73,7 @@ O Armazenamento em Disco do Azure dá suporte à criptografia dupla em repouso p
 1. Selecione o conjunto de criptografia de disco.
 1. Selecione **Salvar**.
 
-    :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-enable-disk-blade.png" alt-text="Captura de tela da folha criptografia do disco gerenciado, o tipo de criptografia mencionado anteriormente é realçado.":::
+    :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-enable-disk-blade.png" alt-text="Captura de tela da portal do Azure principal, os conjuntos de criptografia de disco são realçados na barra de pesquisa.":::
 
 Agora você habilitou a criptografia dupla em repouso no disco gerenciado.
 

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: absha
 ms.openlocfilehash: e18288dbc2a09c7e9dd5b0c0e96dfd04ec192596
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89595896"
 ---
 # <a name="create-an-application-gateway-and-rewrite-http-headers"></a>Criar um gateway de aplicativo e reescrever cabeçalhos HTTP
@@ -165,7 +165,7 @@ Get-AzPublicIPAddress -ResourceGroupName $rg -Name AppGwVIP
 
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Primeiro, explore os recursos criados com o gateway de aplicativo. Em seguida, quando não for mais necessário, você pode usar o comando `Remove-AzResourceGroup` para remover o grupo de recursos, o gateway de aplicativo e todos os recursos relacionados.
 

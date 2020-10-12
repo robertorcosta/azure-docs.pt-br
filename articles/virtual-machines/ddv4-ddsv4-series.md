@@ -9,16 +9,16 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: 5f09ed7aeb6e8b60093681abb16923ec23fd7f57
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: 5743ad48d288757d554548ac431773347d4b120d
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91652985"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945882"
 ---
 # <a name="ddv4-and-ddsv4-series"></a>Séries Ddv4 e Ddsv4
 
-As séries Ddv4 e Ddsv4 são executadas nos processadores Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) em uma configuração hyper-threaded, fornecendo uma proposta de valor melhor para as cargas de trabalho de uso geral. Elas apresentam uma velocidade de clock Turbo sustentável em todos os núcleos de 3,4 GHz, com Tecnologia [Intel&reg; Turbo Boost 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Tecnologia Intel&reg; Hyper-Threading](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) e [Intel&reg; Advanced Vector Extensions 512 (Intel&reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). Eles também dão suporte ao [ &reg; aumento de aprendizado profundo da Intel](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html). Esses novos tamanhos de VM terão um armazenamento local 50% maior, bem como um melhor IOPS de disco local para leitura e gravação em comparação com os tamanhos [Dv3/Dsv3](./dv3-dsv3-series.md) com [VMs Gen2](./linux/generation-2.md).
+As séries Ddv4 e Ddsv4 são executadas nos processadores Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) em uma configuração hyper-threaded, fornecendo uma proposta de valor melhor para as cargas de trabalho de uso geral. Ele apresenta toda a velocidade do relógio Turbo principal de 3,4 GHz, a [ &reg; tecnologia Intel Turbo Boost 2,0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), a [ &reg; tecnologia Intel Hyper-Threading](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) e [ &reg; as extensões de vetor avançadas Intel 512 (Intel &reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). Eles também dão suporte ao [ &reg; aumento de aprendizado profundo da Intel](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html). Esses novos tamanhos de VM terão um armazenamento local 50% maior, bem como um melhor IOPS de disco local para leitura e gravação em comparação com os tamanhos [Dv3/Dsv3](./dv3-dsv3-series.md) com [VMs Gen2](./linux/generation-2.md).
 
 Os casos de uso da série D incluem aplicativos de nível empresarial, bancos de dados relacionais, cache em memória e análises.
 

@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 08/20/2019
 ms.openlocfilehash: e37b35e3473b2da397904d01be5e65cf8cafbbe5
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91541111"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Usar o Gerenciador de Tráfego do Microsoft Azure para gerenciar a cota do ponto de extremidade entre chaves
@@ -366,7 +366,7 @@ Para gerenciar o tráfego entre pontos de extremidade, é necessário inserir um
 
 Habilitar [logs de diagnóstico](../../traffic-manager/traffic-manager-diagnostic-logs.md) do Gerenciador de Tráfego para ver por que o status do ponto de extremidade está degradado.
 
-## <a name="clean-up"></a>Limpar
+## <a name="clean-up"></a>Limpeza
 Remova as duas chaves de ponto de extremidade de LUIS, os três perfis do Gerenciador de Tráfego e o grupo de recursos que continha esses cinco recursos. Isso é feito no portal do Azure. Exclua os cinco recursos da lista de recursos. Em seguida, exclua o grupo de recursos.
 
 ## <a name="next-steps"></a>Próximas etapas

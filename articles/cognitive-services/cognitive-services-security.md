@@ -11,10 +11,10 @@ ms.date: 08/28/2020
 ms.author: erhopf
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 ms.openlocfilehash: 9b90d886923f4bbdab3715130bde15ecb5921636
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91326806"
 ---
 # <a name="azure-cognitive-services-security"></a>Segurança de serviços cognitivas do Azure
@@ -197,7 +197,7 @@ NSString* value =
 
 ## <a name="customer-lockbox"></a>Sistema de Proteção de Dados do Cliente
 
-[Sistema de proteção de dados do cliente para Microsoft Azure](../security/fundamentals/customer-lockbox-overview.md) fornece uma interface para os clientes revisarem e aprovarem ou rejeitarem solicitações de acesso a dados do cliente. Ele é usado nos casos em que um engenheiro da Microsoft precisa acessar os dados do cliente durante uma solicitação de suporte. Para obter informações sobre como Sistema de Proteção de Dados do Cliente solicitações são iniciadas, controladas e armazenadas para revisões e auditorias posteriores, consulte [sistema de proteção de dados do cliente](../security/fundamentals/customer-lockbox-overview.md). 
+[Sistema de proteção de dados do cliente para Microsoft Azure](../security/fundamentals/customer-lockbox-overview.md) fornece uma interface para os clientes revisarem e aprovarem ou rejeitarem solicitações de acesso a dados do cliente. Ele é usado quando um engenheiro da Microsoft precisa acessar os dados do cliente durante uma solicitação de suporte. Para obter informações sobre como Sistema de Proteção de Dados do Cliente solicitações são iniciadas, controladas e armazenadas para revisões e auditorias posteriores, consulte [sistema de proteção de dados do cliente](../security/fundamentals/customer-lockbox-overview.md). 
 
 Sistema de Proteção de Dados do Cliente está disponível para este serviço cognitiva:
 

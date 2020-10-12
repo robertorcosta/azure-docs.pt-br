@@ -4,10 +4,10 @@ description: Resume o suporte para recuperação de desastre de VMs VMware e ser
 ms.topic: conceptual
 ms.date: 07/14/2020
 ms.openlocfilehash: 81cab05b9ad8d6d2bb7f37bc743b5237a4dd6d68
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91323610"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de suporte para recuperação de desastre de VMs VMware e servidores físicos para o Azure
@@ -29,7 +29,7 @@ Recuperação de desastre de servidores físicos | Replicação de servidores f�
 
 ## <a name="on-premises-virtualization-servers"></a>Servidores de virtualização locais
 
-**Servidor** | **Requisitos** | **Detalhes**
+**Servidor** | **Requirements** | **Detalhes**
 --- | --- | ---
 vCenter Server | A versão 7,0 & atualizações subsequentes nesta versão, 6,7, 6,5, 6,0 ou 5,5 | Recomendamos que você use um servidor vCenter em sua implantação de recuperação de desastre.
 Hosts vSphere | A versão 7,0 & atualizações subsequentes nesta versão, 6,7, 6,5, 6,0 ou 5,5 | Recomendamos que os hosts vSphere e os servidores vCenter estejam localizados na mesma rede que o servidor de processo. Por padrão, o servidor de processo é executado no servidor de configuração. [Saiba mais](vmware-physical-azure-config-process-server-overview.md).
@@ -41,7 +41,7 @@ O servidor de configuração é um computador local que executa componentes do S
 - Para VMs VMware, você define o servidor de configuração baixando um modelo OVF para criar uma VM VMware.
 - Para servidores físicos, você configura manualmente o computador do servidor de configuração.
 
-**Componente** | **Requisitos**
+**Componente** | **Requirements**
 --- |---
 Núcleos de CPU | 8
 RAM | 16 GB
@@ -275,7 +275,7 @@ Discos gerenciados | Sim
 
 As VMs locais replicadas para o Azure devem atender aos requisitos de VM do Azure resumidos nesta tabela. Quando Site Recovery executar uma verificação de pré-requisitos para replicação, a verificação falhará se alguns dos requisitos não forem atendidos.
 
-**Componente** | **Requisitos** | **Detalhes**
+**Componente** | **Requirements** | **Detalhes**
 --- | --- | ---
 Sistema operacional convidado | Verificar [sistemas operacionais com suporte](#replicated-machines) para computadores replicados. | A verificação falha se não tiver suporte.
 Arquitetura do sistema operacional convidado | 64 bits. | A verificação falha se não tiver suporte.

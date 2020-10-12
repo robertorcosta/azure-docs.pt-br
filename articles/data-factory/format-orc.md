@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: jingwang
-ms.openlocfilehash: 9e6b8511164cd7e9a855a70d9edba4ce6492c3a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a25a1ec5f2d650501a7c5da8bb1c60f57ad549d
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91404707"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945780"
 ---
 # <a name="orc-format-in-azure-data-factory"></a>Formato ORC no Azure Data Factory
 
@@ -59,7 +59,7 @@ Veja abaixo um exemplo de conjunto de ORC no armazenamento de BLOBs do Azure:
 
 Observe os seguintes pontos:
 
-* Não há suporte para tipos de dados complexos (STRUCT, MAP, LIST e UNION).
+* Os tipos de dados complexos (por exemplo, mapa, lista, STRUCT) atualmente têm suporte apenas em fluxos de dados, não na atividade de cópia. Para usar tipos complexos em fluxos de dados, não importe o esquema de arquivo no conjunto de dados, deixando o esquema em branco no conjunto de dado. Em seguida, na transformação origem, importe a projeção.
 * Não há suporte para o espaço em branco no nome da coluna.
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
@@ -105,16 +105,16 @@ A tabela abaixo lista as propriedades com suporte de uma fonte ORC. Você pode e
 
 Ao usar o conjunto de linhas embutido, você verá configurações de arquivo adicionais, que são iguais às propriedades descritas na seção [Propriedades do conjunto](#dataset-properties) de cores.
 
-| Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
+| Nome | Descrição | Necessária | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Formatar | O formato deve ser `orc` | sim | `orc` | format |
-| Caminhos curinga | Todos os arquivos correspondentes ao caminho curinga serão processados. Substitui a pasta e o caminho do arquivo definido no conjunto de um. | não | String[] | wildcardPaths |
-| Caminho raiz da partição | Para dados de arquivo particionados, você pode inserir um caminho raiz de partição para ler pastas particionadas como colunas | não | String | partitionRootPath |
-| Lista de arquivos | Se sua fonte está apontando para um arquivo de texto que lista os arquivos a serem processados | não | `true` ou `false` | File |
-| Coluna para armazenar o nome do arquivo | Criar uma nova coluna com o nome e o caminho do arquivo de origem | não | String | rowUrlColumn |
-| Após a conclusão | Exclua ou mova os arquivos após o processamento. O caminho do arquivo inicia a partir da raiz do contêiner | não | Excluir: `true` ou `false` <br> Prosseguir `[<from>, <to>]` | purgeFiles <br> MoveFile |
-| Filtrar por última modificação | Escolher filtrar arquivos com base na última alteração | não | Timestamp | modifiedAfter <br> modifiedBefore |
-| Não permitir nenhum arquivo encontrado | Se for true, um erro não será gerado se nenhum arquivo for encontrado | não | `true` ou `false` | ignoreNoFilesFound |
+| Caminhos curinga | Todos os arquivos correspondentes ao caminho curinga serão processados. Substitui a pasta e o caminho do arquivo definido no conjunto de um. | no | String[] | wildcardPaths |
+| Caminho raiz da partição | Para dados de arquivo particionados, você pode inserir um caminho raiz de partição para ler pastas particionadas como colunas | no | String | partitionRootPath |
+| Lista de arquivos | Se sua fonte está apontando para um arquivo de texto que lista os arquivos a serem processados | no | `true` ou `false` | File |
+| Coluna para armazenar o nome do arquivo | Criar uma nova coluna com o nome e o caminho do arquivo de origem | no | String | rowUrlColumn |
+| Após a conclusão | Exclua ou mova os arquivos após o processamento. O caminho do arquivo inicia a partir da raiz do contêiner | no | Excluir: `true` ou `false` <br> Prosseguir `[<from>, <to>]` | purgeFiles <br> MoveFile |
+| Filtrar por última modificação | Escolher filtrar arquivos com base na última alteração | no | Timestamp | modifiedAfter <br> modifiedBefore |
+| Não permitir nenhum arquivo encontrado | Se for true, um erro não será gerado se nenhum arquivo for encontrado | no | `true` ou `false` | ignoreNoFilesFound |
 
 ### <a name="source-example"></a>Exemplo de origem
 
@@ -133,11 +133,11 @@ A tabela abaixo lista as propriedades com suporte de um coletor ORC. Você pode 
 
 Ao usar o conjunto de linhas embutido, você verá configurações de arquivo adicionais, que são iguais às propriedades descritas na seção [Propriedades do conjunto](#dataset-properties) de cores.
 
-| Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
+| Nome | Descrição | Necessária | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Formatar | O formato deve ser `orc` | sim | `orc` | format |
-| Limpar a pasta | Se a pasta de destino for limpa antes da gravação | não | `true` ou `false` | truncate |
-| Opção de nome de arquivo | O formato de nomenclatura dos dados gravados. Por padrão, um arquivo por partição no formato `part-#####-tid-<guid>` | não | Padrão: cadeia de caracteres <br> Por partição: cadeia de caracteres [] <br> Como dados na coluna: String <br> Saída para arquivo único: `['<fileName>']` | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames |
+| Limpar a pasta | Se a pasta de destino for limpa antes da gravação | no | `true` ou `false` | truncate |
+| Opção de nome de arquivo | O formato de nomenclatura dos dados gravados. Por padrão, um arquivo por partição no formato `part-#####-tid-<guid>` | no | Padrão: cadeia de caracteres <br> Por partição: cadeia de caracteres [] <br> Como dados na coluna: String <br> Saída para arquivo único: `['<fileName>']` | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames |
 
 ### <a name="sink-example"></a>Exemplo de coletor
 

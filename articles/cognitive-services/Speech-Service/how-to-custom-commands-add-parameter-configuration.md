@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: sausin
 ms.openlocfilehash: 45dba3b7f46ec558c46b8505da26fd3ef4de4cbc
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87284176"
 ---
 # <a name="add-configurations-to-commands-parameters"></a>Adicionar configurações aos parâmetros de comandos
@@ -84,7 +84,7 @@ Em seguida, selecione **Salvar**.
 > [!IMPORTANT]
 > Você não verá uma opção para configurar um parâmetro para aceitar entradas de um catálogo externo, a menos que tenha o ponto de extremidade da Web definido na seção **ponto de extremidade da Web** no painel esquerdo.
 
-### <a name="try-it-out"></a>Experimente
+### <a name="try-it-out"></a>Experimentar
 
 Selecione **treinar** e aguarde a conclusão do treinamento. Quando o treinamento for concluído, selecione **testar** e tente algumas interações.
 
@@ -103,7 +103,7 @@ Selecione **treinar** e aguarde a conclusão do treinamento. Quando o treinament
 Teste validações usando o comando **settemperaturas** . Use as etapas a seguir para adicionar uma validação para o parâmetro de **temperatura** .
 
 1. Selecione o comando **settemperaturas** no painel esquerdo.
-1. Selecione **temperatura** no painel central.
+1. Selecione  **temperatura** no painel central.
 1. Selecione **Adicionar uma validação** presente no painel direito.
 1. Na janela **nova validação** , configure a validação da seguinte maneira e selecione **criar**.
 
@@ -112,12 +112,12 @@ Teste validações usando o comando **settemperaturas** . Use as etapas a seguir
     | ---- | ---- | ---- |
     | Valor mínimo | `60` | Para parâmetros numéricos, o valor mínimo que esse parâmetro pode assumir |
     | Valor máximo | `80` | Para parâmetros numéricos, o valor máximo que esse parâmetro pode assumir |
-    | Resposta de falha |  Editor simples > primeira > de variação`Sorry, I can only set temperature between 60 and 80 degrees. What temperature do you want?` | Solicitar um novo valor se a validação falhar |
+    | Resposta de falha |  Editor simples > primeira > de variação `Sorry, I can only set temperature between 60 and 80 degrees. What temperature do you want?` | Solicitar um novo valor se a validação falhar |
 
     > [!div class="mx-imgBorder"]
     > ![Adicionar uma validação de intervalo](media/custom-commands/add-validations-temperature.png)
 
-### <a name="try-it-out"></a>Experimente
+### <a name="try-it-out"></a>Experimentar
 
 1. Selecione o ícone de **treinamento** presente na parte superior do painel direito.
 

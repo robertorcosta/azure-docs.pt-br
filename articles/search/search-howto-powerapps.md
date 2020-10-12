@@ -10,10 +10,10 @@ ms.devlang: rest-api
 ms.topic: tutorial
 ms.date: 08/21/2020
 ms.openlocfilehash: fd74bfca73323209012dfd1fda61bbaada84092f
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90530685"
 ---
 # <a name="tutorial-query-a-cognitive-search-index-from-power-apps"></a>Tutorial: Consultar um índice do Cognitive Search por meio do Power Apps
@@ -49,7 +49,7 @@ Um conector no Power Apps é uma conexão de fonte de dados. Nesta etapa, você 
 
 1. Selecione **+ Novo conector personalizado** e, em seguida, selecione **Criar do zero**.
 
-    :::image type="content" source="./media/search-howto-powerapps/1-3-create-blank.png" alt-text="Menu Criar do zero" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-3-create-blank.png" alt-text="Menu do conector personalizado" border="true":::
 
 1. Dê um nome ao seu conector personalizado (por exemplo, *AzureSearchQuery*) e, em seguida, clique em **Continuar**.
 
@@ -60,15 +60,15 @@ Um conector no Power Apps é uma conexão de fonte de dados. Nesta etapa, você 
    * No host, será necessário inserir a URL do serviço de pesquisa (como `<yourservicename>.search.windows.net`)
    * Para a URL base, basta inserir "/"
 
-    :::image type="content" source="./media/search-howto-powerapps/1-5-general-info.png" alt-text="Caixa de diálogo Informações Gerais" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-5-general-info.png" alt-text="Menu do conector personalizado" border="true":::
 
 1. Na Página Segurança, defina *Chave da API* como o **Tipo de Autenticação**, defina o rótulo do parâmetro e o nome do parâmetro para *api-key*. Para **Localização do parâmetro**, selecione *Cabeçalho* conforme mostrado abaixo.
 
-    :::image type="content" source="./media/search-howto-powerapps/1-6-authentication-type.png" alt-text="Opção de tipo de autenticação" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-6-authentication-type.png" alt-text="Menu do conector personalizado" border="true":::
 
 1. Na página Definições, selecione **+ Nova Ação** para criar uma ação que consultará o índice. Insira o valor "Consulta" para o resumo e o nome da ID da operação. Insira uma descrição como *"Consulta o índice de pesquisa"* .
 
-    :::image type="content" source="./media/search-howto-powerapps/1-7-new-action.png" alt-text="Opções da nova ação" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-7-new-action.png" alt-text="Menu do conector personalizado" border="true":::
 
 1. Role para baixo. Em solicitações, selecione **+ Importar do exemplo** para configurar uma solicitação de consulta para o serviço de pesquisa:
 
@@ -80,23 +80,23 @@ Um conector no Power Apps é uma conexão de fonte de dados. Nesta etapa, você 
 
      O **Power Apps** usará a sintaxe para extrair parâmetros da consulta. Observe que definimos o campo de pesquisa explicitamente. 
 
-       :::image type="content" source="./media/search-howto-powerapps/1-8-1-import-from-sample.png" alt-text="Importar do exemplo" border="true":::
+       :::image type="content" source="./media/search-howto-powerapps/1-8-1-import-from-sample.png" alt-text="Menu do conector personalizado" border="true":::
 
 1. Clique em **Importar** para preencher automaticamente a solicitação. Conclua a configuração dos metadados do parâmetro clicando no símbolo **...** ao lado de cada um dos parâmetros. Clique em **Voltar** para retornar à página de solicitação após cada atualização de parâmetro.
 
-   :::image type="content" source="./media/search-howto-powerapps/1-8-2-import-from-sample.png" alt-text="Importar da caixa de diálogo de exemplo" border="true":::
+   :::image type="content" source="./media/search-howto-powerapps/1-8-2-import-from-sample.png" alt-text="Menu do conector personalizado" border="true":::
 
 1. Para *pesquisar*: Defina `*` como o **valor padrão**, defina **necessário** como *Falso* e defina **visibilidade** para *nenhuma*. 
 
-    :::image type="content" source="./media/search-howto-powerapps/1-10-1-parameter-metadata-search.png" alt-text="Metadados de parâmetro de pesquisa" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-10-1-parameter-metadata-search.png" alt-text="Menu do conector personalizado" border="true":::
 
 1. Para *selecionar*: Defina `HotelName,Description,Address/City` como o **valor padrão**, defina **necessário** como *Falso* e defina **visibilidade** para *nenhuma*.  
 
-    :::image type="content" source="./media/search-howto-powerapps/1-10-4-parameter-metadata-select.png" alt-text="Selecionar metadados de parâmetro" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-10-4-parameter-metadata-select.png" alt-text="Menu do conector personalizado" border="true":::
 
 1. Para *api-version*: Defina `2020-06-30` como o **valor padrão**, defina **necessário** como *Verdadeiro* e defina **visibilidade** para *interna*.  
 
-    :::image type="content" source="./media/search-howto-powerapps/1-10-2-parameter-metadata-version.png" alt-text="Metadados de parâmetro de versão" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-10-2-parameter-metadata-version.png" alt-text="Menu do conector personalizado" border="true":::
 
 1. Para *Content-Type*: Defina como `application/json`.
 
@@ -158,7 +158,7 @@ Você precisará de uma [chave de API de consulta](search-security-api-keys.md#f
 
 1. Selecione o conector, expanda a lista de ações e selecione **Exibir Propriedades**.
 
-    :::image type="content" source="./media/search-howto-powerapps/1-11-1-test-connector.png" alt-text="Exibir propriedades" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-11-1-test-connector.png" alt-text="Menu do conector personalizado" border="true":::
 
 1. Selecione **Editar** no canto superior direito.
 
@@ -170,7 +170,7 @@ Você precisará de uma [chave de API de consulta](search-security-api-keys.md#f
 
 1. Em Operações, clique no botão **Operação de teste**. Se você tiver êxito, verá um status de 200 e, no corpo da resposta, deverá ver o JSON que descreve os resultados da pesquisa.
 
-    :::image type="content" source="./media/search-howto-powerapps/1-11-2-test-connector.png" alt-text="Resposta JSON" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-11-2-test-connector.png" alt-text="Menu do conector personalizado" border="true":::
 
 ## <a name="3---visualize-results"></a>3 – Visualizar os resultados
 
@@ -178,7 +178,7 @@ Nesta etapa, crie um Power App com uma caixa de pesquisa, um botão de pesquisa 
 
 1. À esquerda, expanda **Aplicativos** >  **+ Novo aplicativo** > **Tela**.
 
-    :::image type="content" source="./media/search-howto-powerapps/2-1-create-canvas.png" alt-text="Criar aplicativo de tela" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/2-1-create-canvas.png" alt-text="Menu do conector personalizado" border="true":::
 
 1. Selecione o tipo de aplicativo. Para este tutorial, crie um **Aplicativo em Branco** com o **Layout para Telefone**. O **Power Apps Studio** será exibido.
 
@@ -186,13 +186,13 @@ Nesta etapa, crie um Power App com uma caixa de pesquisa, um botão de pesquisa 
 
    Insira a chave de API de consulta.
 
-    :::image type="content" source="./media/search-howto-powerapps/2-3-connect-connector.png" alt-text="conectar conector" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/2-3-connect-connector.png" alt-text="Menu do conector personalizado" border="true":::
 
     Agora o *AzureSearchQuery* é uma fonte de dados que está disponível para ser usada em seu aplicativo.
 
 1. Na **guia Inserir**, adicione alguns controles à tela.
 
-    :::image type="content" source="./media/search-howto-powerapps/2-4-add-controls.png" alt-text="Inserir controles" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/2-4-add-controls.png" alt-text="Menu do conector personalizado" border="true":::
 
 1. Insira os seguintes elementos:
 
@@ -203,7 +203,7 @@ Nesta etapa, crie um Power App com uma caixa de pesquisa, um botão de pesquisa 
 
     A tela deverá ter aparência semelhante à seguinte:
 
-    :::image type="content" source="./media/search-howto-powerapps/2-5-controls-layout.png" alt-text="Layout de controles" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/2-5-controls-layout.png" alt-text="Menu do conector personalizado" border="true":::
 
 1. Para fazer com que o **botão Pesquisar** emita uma consulta, cole a seguinte ação em **OnSelect**:
 
@@ -214,7 +214,7 @@ Nesta etapa, crie um Power App com uma caixa de pesquisa, um botão de pesquisa 
 
    A captura de tela a seguir mostra a barra de fórmulas para a ação **OnSelect**.
 
-    :::image type="content" source="./media/search-howto-powerapps/2-6-search-button-event.png" alt-text="OnSelect do botão" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/2-6-search-button-event.png" alt-text="Menu do conector personalizado" border="true":::
 
    Essa ação fará com que o botão atualize uma nova coleção chamada *azResult* com o resultado da consulta de pesquisa, usando o texto na caixa de texto *txtQuery* como o termo de consulta.
 
@@ -236,17 +236,17 @@ Nesta etapa, crie um Power App com uma caixa de pesquisa, um botão de pesquisa 
 
     Já que fornecemos um exemplo de resultado quando definimos o conector, o aplicativo está ciente dos campos disponíveis no índice.
     
-    :::image type="content" source="./media/search-howto-powerapps/2-7-gallery-select-fields.png" alt-text="Campos da galeria" border="true":::   
+    :::image type="content" source="./media/search-howto-powerapps/2-7-gallery-select-fields.png" alt-text="Menu do conector personalizado" border="true":::   
  
 1. Pressione **F5** para visualizar o aplicativo.  
 
-    :::image type="content" source="./media/search-howto-powerapps/2-8-3-final.png" alt-text="Aplicativo final" border="true":::    
+    :::image type="content" source="./media/search-howto-powerapps/2-8-3-final.png" alt-text="Menu do conector personalizado" border="true":::    
 
 <!--     Remember that the fields can be set to calculated values.
 
     For the example, setting using the *"Image, Title and Subtitle"* layout and specifying the *Image* function as the concatenation of the root path for the data and the file name (for instance, `"https://mystore.blob.core.windows.net/multilang/" & ThisItem.metadata_storage_name`) will produce the result below.
 
-    :::image type="content" source="./media/search-howto-powerapps/2-8-2-final.png" alt-text="Final app" border="true":::         -->
+    :::image type="content" source="./media/search-howto-powerapps/2-8-2-final.png" alt-text="Menu do conector personalizado" border="true":::         -->
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

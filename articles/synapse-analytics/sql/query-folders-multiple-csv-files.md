@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
 ms.openlocfilehash: 54ef116878dee2ed1c351fac3dacdf359abbe574
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91288334"
 ---
 # <a name="query-folders-and-multiple-files"></a>Consultar pastas e vários arquivos  
@@ -24,7 +24,7 @@ O SQL sob demanda dá suporte à leitura de vários arquivos/pastas usando curin
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Sua primeira etapa é **criar um banco de dados** no qual você executará as consultas. Em seguida, inicialize os objetos executando o [script de instalação](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) nesse banco de dados. Esse script de instalação criará as fontes de dados, as credenciais no escopo do banco de dados e os formatos de arquivo externos que são usados nessas amostras.
+A primeira etapa é **criar um banco de dados** no qual você executará as consultas. Em seguida, inicialize os objetos executando o [script de instalação](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) nesse banco de dados. Esse script de instalação criará as fontes de dados, as credenciais no escopo do banco de dados e os formatos de arquivo externos que são usados nessas amostras.
 
 Você usará a pasta *CSV/táxi* para seguir as consultas de exemplo. Ele contém dados de NYC táxi-amarelo de táxi, de julho de 2016 a junho de 2018. Os arquivos em *CSV/táxi* são nomeados após o ano e o mês usando o seguinte padrão: yellow_tripdata_ <year> - <month> . csv
 

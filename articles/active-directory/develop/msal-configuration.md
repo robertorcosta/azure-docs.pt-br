@@ -14,10 +14,10 @@ ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
 ms.openlocfilehash: f5950347fff380fcfbaa89834407ff5f497a9719
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88854912"
 ---
 # <a name="android-microsoft-authentication-library-configuration-file"></a>Arquivo de configuração da biblioteca de autenticação do Android da Microsoft
@@ -134,7 +134,7 @@ Um booliano que indica se você está usando um URI de redirecionamento no agent
 
 Se você estiver usando a autoridade do AAD com o público definido como `"MicrosoftPersonalAccount"` , o agente não será usado.
 
-### <a name="http"></a>http
+### <a name="http"></a>HTTP
 
 Defina configurações globais para tempos limite de HTTP, como:
 

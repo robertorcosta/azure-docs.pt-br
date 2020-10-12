@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 14e0b86f11c3eabf93e7d4f0ebf563e59c0c21e9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87081858"
 ---
 # <a name="orchestrator-function-code-constraints"></a>Restrições de código de função do Orchestrator
@@ -35,7 +35,7 @@ A tabela a seguir mostra exemplos de APIs que você deve evitar porque elas *nã
 | Números aleatórios | As APIs que retornam números aleatórios são não determinísticas porque o valor gerado é diferente para cada repetição. | Use uma função de atividade para retornar números aleatórios para uma orquestração. Os valores de retorno das funções de atividade são sempre seguros para reprodução. |
 | Associações | As associações de entrada e saída normalmente fazem e/s e não são determinísticas. Uma função de orquestrador não deve usar diretamente as associações [cliente de orquestração](durable-functions-bindings.md#orchestration-client) e [cliente de entidade](durable-functions-bindings.md#entity-client) . | Use associações de entrada e saída dentro de funções de cliente ou atividade. |
 | Rede | As chamadas de rede envolvem sistemas externos e não são determinísticas. | Use funções de atividade para fazer chamadas de rede. Se você precisar fazer uma chamada HTTP de sua função de orquestrador, também poderá usar as [APIs de http duráveis](durable-functions-http-features.md#consuming-http-apis). |
-| APIs de bloqueio | APIs de bloqueio como `Thread.Sleep` no .net e APIs semelhantes podem causar problemas de desempenho e escala para funções de orquestrador e devem ser evitadas. No plano de consumo de Azure Functions, eles podem até mesmo resultar em encargos de tempo de execução desnecessários. | Use alternativas para bloquear APIs quando elas estiverem disponíveis. Por exemplo, use `CreateTimer` para introduzir atrasos na execução de orquestração. Os atrasos de [temporizadores duráveis](durable-functions-timers.md) não contam para o tempo de execução de uma função de orquestrador. |
+| APIs de bloqueio | APIs de bloqueio como `Thread.Sleep` no .net e APIs semelhantes podem causar problemas de desempenho e escala para funções de orquestrador e devem ser evitadas. No plano de consumo de Azure Functions, eles podem até mesmo resultar em encargos de tempo de execução desnecessários. | Use alternativas para bloquear APIs quando elas estiverem disponíveis. Por exemplo, use  `CreateTimer` para introduzir atrasos na execução de orquestração. Os atrasos de [temporizadores duráveis](durable-functions-timers.md) não contam para o tempo de execução de uma função de orquestrador. |
 | APIs assíncronas | O código do Orchestrator nunca deve iniciar nenhuma operação assíncrona, exceto usando a `IDurableOrchestrationContext` API ou a `context.df` API do objeto. Por exemplo, você não pode usar `Task.Run` , `Task.Delay` e `HttpClient.SendAsync` no .net ou `setTimeout` `setInterval` em JavaScript. O Framework de tarefa durável executa o código do Orchestrator em um único thread. Ele não pode interagir com nenhum outro thread que possa ser chamado por outras APIs assíncronas. | Uma função de orquestrador deve fazer apenas chamadas assíncronas duráveis. As funções de atividade devem fazer outras chamadas de API assíncronas. |
 | Funções assíncronas de JavaScript | Não é possível declarar funções de orquestrador JavaScript `async` porque o tempo de execução de node.js não garante que as funções assíncronas sejam determinísticas. | Declare as funções de orquestrador JavaScript como funções de gerador síncrono. |
 | APIs de Threading | O Framework de tarefa durável executa o código do Orchestrator em um único thread e não pode interagir com outros threads. A introdução de novos threads à execução de uma orquestração pode resultar em execução não determinística ou deadlocks. | Funções de orquestrador quase nunca devem usar APIs de Threading. Por exemplo, no .NET, evite usar `ConfigureAwait(continueOnCapturedContext: false)` ; isso garante que as continuações de tarefa sejam executadas no original da função de orquestrador `SynchronizationContext` . Se essas APIs forem necessárias, limite seu uso apenas às funções de atividade. |

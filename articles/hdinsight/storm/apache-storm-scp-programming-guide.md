@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 01/13/2020
 ms.openlocfilehash: d54a06c457451fc5323ae37b34b53411cdd6abda
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89000134"
 ---
 # <a name="scp-programming-guide-for-apache-storm-in-azure-hdinsight"></a>Guia de programação do SCP para Apache Storm no Azure HDInsight
@@ -201,7 +201,7 @@ public Dictionary<string, Object> stormConf { get; set; }
 public Dictionary<string, Object> pluginConf { get; set; }  
 ```
 
-A parte **stormConf** é parâmetros definidos pelo Storm, e a parte **pluginConf** é parâmetros definidos pelo SCP. Veja um exemplo:
+A parte **stormConf** é parâmetros definidos pelo Storm, e a parte **pluginConf** é parâmetros definidos pelo SCP. Aqui está um exemplo:
 
 ```csharp
 public class Constants
@@ -217,7 +217,7 @@ public class Constants
 }
 ```
 
-O tipo **TopologyContext** Obtém o contexto de topologia. É mais útil para vários componentes paralelos. Veja um exemplo:
+O tipo **TopologyContext** Obtém o contexto de topologia. É mais útil para vários componentes paralelos. Aqui está um exemplo:
 
 ```csharp
 //demo how to get TopologyContext info
@@ -549,7 +549,7 @@ O código do Storm nativo é escrito em Java. O SCP.NET tem um Storm aprimorado 
 
 ### <a name="specify-java-spoutbolt-in-a-specification-file"></a>Especificar Spout/parafuso do Java em um arquivo de especificação
 
-Você pode usar o **SCP-Spout** e o **SCP-raio** em um arquivo de especificação para especificar esgotamentos e parafusos de Java. Veja um exemplo:
+Você pode usar o **SCP-Spout** e o **SCP-raio** em um arquivo de especificação para especificar esgotamentos e parafusos de Java. Aqui está um exemplo:
 
 ```csharp
 (spout-spec 
@@ -561,7 +561,7 @@ Aqui `microsoft.scp.example.HybridTopology.Generator` está o nome da classe Jav
 
 ### <a name="specify-the-java-classpath-in-a-runspec-command"></a>Especificar o classpath Java em um comando runSpec
 
-Se você quiser enviar uma topologia que contenha esgotamentos ou parafusos de Java, primeiro compile-os para produzir arquivos JAR. Em seguida, especifique o classpath Java que contém os arquivos JAR ao enviar a topologia. Veja um exemplo:
+Se você quiser enviar uma topologia que contenha esgotamentos ou parafusos de Java, primeiro compile-os para produzir arquivos JAR. Em seguida, especifique o classpath Java que contém os arquivos JAR ao enviar a topologia. Aqui está um exemplo:
 
 ```csharp
 bin\runSpec.cmd examples\HybridTopology\HybridTopology.spec specs examples\HybridTopology\net\Target -cp examples\HybridTopology\java\target\*

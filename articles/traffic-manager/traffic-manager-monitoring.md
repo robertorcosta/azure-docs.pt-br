@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: duau
 ms.openlocfilehash: 78a1681c743f65081b30657f4fd747ff8aaef5f5
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89392826"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Monitoramento de ponto de extremidade do Gerenciador de Tráfego
@@ -88,10 +88,10 @@ O status do monitor de perfil é uma combinação dos valores do status do perfi
 | Status do perfil (conforme configurado) | Status do monitor de ponto de extremidade | Status do monitor de perfil | Observações |
 | --- | --- | --- | --- |
 | Desabilitado |&lt;qualquer&gt; ou um perfil sem pontos de extremidade definidos. |Desabilitado |O perfil foi desabilitado. |
-| habilitado |O status de pelo menos um ponto de extremidade é Degradado. |Degradado |Revise os valores de status do ponto de extremidade individual para determinar quais pontos de extremidade exigem mais atenção. |
-| habilitado |O status de pelo menos um ponto de extremidade é Online. Nenhum ponto de extremidade tem o status Degradado. |Online |O serviço está aceitando tráfego. Nenhuma ação do usuário é necessária. |
-| habilitado |O status de pelo menos um ponto de extremidade é CheckingEndpoint. Nenhum ponto de extremidade tem status Online ou Degradado. |Verificando pontos de extremidade |Esse estado de transição ocorre quando um perfil é criado ou habilitado. A integridade do ponto de extremidade está sendo verificada pela primeira vez. |
-| habilitado |O status de todos os pontos de extremidade no perfil é Desabilitado ou Parado, ou o perfil não tem nenhum ponto de extremidade definido. |Inativo |Nenhum ponto de extremidade está ativo, mas o perfil ainda está habilitado. |
+| Habilitada |O status de pelo menos um ponto de extremidade é Degradado. |Degradado |Revise os valores de status do ponto de extremidade individual para determinar quais pontos de extremidade exigem mais atenção. |
+| Habilitada |O status de pelo menos um ponto de extremidade é Online. Nenhum ponto de extremidade tem o status Degradado. |Online |O serviço está aceitando tráfego. Nenhuma ação do usuário é necessária. |
+| Habilitada |O status de pelo menos um ponto de extremidade é CheckingEndpoint. Nenhum ponto de extremidade tem status Online ou Degradado. |Verificando pontos de extremidade |Esse estado de transição ocorre quando um perfil é criado ou habilitado. A integridade do ponto de extremidade está sendo verificada pela primeira vez. |
+| Habilitada |O status de todos os pontos de extremidade no perfil é Desabilitado ou Parado, ou o perfil não tem nenhum ponto de extremidade definido. |Inativo |Nenhum ponto de extremidade está ativo, mas o perfil ainda está habilitado. |
 
 ## <a name="endpoint-failover-and-recovery"></a>Failover e recuperação do ponto de extremidade
 

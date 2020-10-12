@@ -9,23 +9,23 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 6/8/2020
-ms.openlocfilehash: 97d3b87edad56394d42daca19cdb8dbf962fade9
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: 2c6540513c46307e4bd51b163dd77984395006c5
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91649500"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945423"
 ---
 # <a name="ev4-and-esv4-series"></a>Séries Ev4 e Esv4
 
-As Ev4 e a série Esv4 são executadas nos &reg; processadores Intel Xeon &reg; Platinum 8272CL (cascadey Lake) em uma configuração de hiperthread, são ideais para vários aplicativos empresariais com uso intensivo de memória e recursos até 504GIB de RAM. Ele apresenta uma velocidade de clock de Turbo principal de 3,4 GHz.
+As Ev4 e a série Esv4 são executadas nos &reg; processadores Intel Xeon &reg; Platinum 8272CL (cascadey Lake) em uma configuração de hiperthread, são ideais para vários aplicativos empresariais com uso intensivo de memória e recursos até 504GIB de RAM. Ele apresenta toda a velocidade do relógio Turbo principal de 3,4 GHz.
 
 > [!NOTE]
 > Para perguntas frequentes, consulte  [tamanhos de VM do Azure sem disco temporário local](azure-vms-no-temp-disk.md).
 
 ## <a name="ev4-series"></a>Série Ev4
 
-Os tamanhos da série Ev4 são executados no Intel Xeon &reg; Platinum 8272CL (cascadey Lake). As instâncias da série Ev4 são ideais para aplicativos empresariais com uso intensivo de memória. As VMs da série Ev4 apresentam &reg; a tecnologia Intel Hyper-Threading.
+Os tamanhos da série Ev4 são executados no Intel Xeon &reg; Platinum 8272CL (cascadey Lake). As instâncias da série Ev4 são ideais para aplicativos empresariais com uso intensivo de memória. As VMs da série Ev4 apresentam a &reg; tecnologia Intel Hyper-Threading.
 
 O armazenamento em disco de dados remotos é cobrado separadamente das máquinas virtuais. Para usar discos de armazenamento Premium, use os tamanhos de Esv4. Os medidores de cobrança e preço para os tamanhos de Esv4 são os mesmos que os da série Ev4.
 
@@ -51,7 +51,7 @@ O armazenamento em disco de dados remotos é cobrado separadamente das máquinas
 
 ## <a name="esv4-series"></a>Série Esv4
 
-Os tamanhos da série Esv4 são executados no Intel &reg; Xeon &reg; Platinum 8272CL (cascadey Lake). As instâncias da série Esv4 são ideais para aplicativos empresariais com uso intensivo de memória. As VMs da série Evs4 apresentam &reg; a tecnologia Intel Hyper-Threading. O armazenamento em disco de dados remotos é cobrado separadamente das máquinas virtuais.
+Os tamanhos da série Esv4 são executados no Intel &reg; Xeon &reg; Platinum 8272CL (cascadey Lake). As instâncias da série Esv4 são ideais para aplicativos empresariais com uso intensivo de memória. As VMs da série Evs4 apresentam a &reg; tecnologia Intel Hyper-Threading. O armazenamento em disco de dados remotos é cobrado separadamente das máquinas virtuais.
 
 [ACU](acu.md): 195-210<br>
 [Armazenamento Premium](premium-storage-performance.md): com suporte<br>

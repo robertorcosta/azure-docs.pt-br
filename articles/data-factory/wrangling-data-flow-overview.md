@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
 ms.openlocfilehash: 5d0393ab5f2582efa2a4b727543bc799cdb1143e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87082844"
 ---
 # <a name="what-are-wrangling-data-flows"></a>O que são fluxos de dados Wrangling?
@@ -46,13 +46,13 @@ Examine visualmente seus dados de forma livre de código para remover exceções
 
 ## <a name="supported-sources"></a>Fontes compatíveis
 
-| Conector | Formato de dados | Tipo de autenticação |
+| Connector | Formato de dados | Tipo de autenticação |
 | -- | -- | --|
 | [Armazenamento de Blobs do Azure](connector-azure-blob-storage.md) | CSV, parquet | Chave de conta |
 | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | CSV | Entidade de Serviço |
 | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | CSV, parquet | Chave de conta, entidade de serviço |
-| [Banco de Dados SQL do Azure](connector-azure-sql-database.md) | - | Autenticação do SQL |
-| [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md) | - | Autenticação do SQL |
+| [Banco de Dados SQL do Azure](connector-azure-sql-database.md) | - | Autenticação SQL |
+| [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md) | - | Autenticação SQL |
 
 ## <a name="the-mashup-editor"></a>O editor de mashup
 

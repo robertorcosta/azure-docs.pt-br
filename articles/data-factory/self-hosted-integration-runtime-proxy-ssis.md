@@ -13,10 +13,10 @@ manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 09/09/2020
 ms.openlocfilehash: d135320d8dd9f86fbc313b17b8b55ed3c609e9dc
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89595012"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Configurar um IR auto-hospedado como um proxy para um Azure-SSIS IR no Azure Data Factory
@@ -72,7 +72,7 @@ Tendo preparado seu serviço vinculado do IR e do armazenamento de BLOBs do Azur
 
 1. Na seção **Configurações avançadas** , faça o seguinte:
 
-   1. Marque a caixa de seleção **configurar Integration Runtime auto-hospedados como um proxy para seu Azure-SSIS Integration Runtime** . 
+   1. Marque a caixa de seleção **configurar Self-Hosted Integration Runtime como um proxy para seu Azure-SSIS Integration Runtime** . 
 
    1. Na lista suspensa **Integration Runtime auto-hospedado** , selecione o ir auto-hospedado existente como um proxy para o Azure-SSIS ir.
 

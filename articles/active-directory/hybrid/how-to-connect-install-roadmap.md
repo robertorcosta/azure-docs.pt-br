@@ -14,10 +14,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 244456298e9a85f7cf7a5bdc175f1df5397ca207
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89662143"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Roteiro de instalação do Azure AD Connect e do Azure AD Connect Health
@@ -32,7 +32,7 @@ Você pode encontrar o download para o Azure AD Connect no [Centro de Download d
 | Solução | Cenário |
 | --- | --- |
 | Antes de iniciar: [Hardware e pré-requisitos](how-to-connect-install-prerequisites.md) |<li>Etapas a serem concluídas antes de começar a instalar o Azure AD Connect.</li> |
-| [Configurações expressas](how-to-connect-install-express.md) |<li>Se você tiver uma única floresta do AD, então, essa será a opção recomendada para usar.</li> <li>Entrada do usuário com a mesma senha usando a sincronização de senha.</li> |
+| [Configurações Expressas](how-to-connect-install-express.md) |<li>Se você tiver uma única floresta do AD, então, essa será a opção recomendada para usar.</li> <li>Entrada do usuário com a mesma senha usando a sincronização de senha.</li> |
 | [Configurações personalizadas](how-to-connect-install-custom.md) |<li>Usadas quando você tem várias florestas. Dá suporte a várias [topologias](plan-connect-topologies.md) locais.</li> <li>Personalize sua opção de entrada, como a autenticação de passagem, o ADFS para federação ou use um provedor de identidade de terceiros.</li> <li>Personalize os recursos de sincronização, como filtragem e write-back.</li> |
 | [Atualizar do DirSync](how-to-dirsync-upgrade-get-started.md) |<li>Usado quando você tem um servidor DirSync existente já em execução.</li> |
 | [Atualizar do Azure AD Sync ou do Azure AD Connect](how-to-upgrade-previous-version.md) |<li>Há vários métodos diferentes, dependendo de sua preferência.</li> |
@@ -165,14 +165,14 @@ O portal do Azure AD Connect Health mostra exibições de alertas, monitoramento
 * **Active Directory Domain Services**: essa opção mostra todas as florestas do AD DS que o Azure AD Connect Health está monitorando no momento. Quando você seleciona uma floresta, a folha abre mostra informações sobre essa floresta. As informações incluem uma visão geral de informações essenciais, o painel de Controladores de Domínio, o painel de Status de Replicação, alertas e monitoramento. Leia mais sobre os recursos em [usando o Azure AD Connect Health com o AD DS](how-to-connect-health-adds.md).
 * **Configurar**: Esta seção inclui opções para ativar ou desativar o seguinte:
 
-   - A **atualização automática** do agente de Azure ad Connect Health para a versão mais recente: o agente de Azure ad Connect Health é atualizado automaticamente sempre que novas versões estão disponíveis. Por padrão, essa opção é ativada.
+   - A **atualização automática** do agente de Azure ad Connect Health para a versão mais recente: o agente de Azure ad Connect Health é atualizado automaticamente sempre que novas versões estão disponíveis. Essa opção é habilitada por padrão.
    - **Acesso a dados** da integridade de diretório do Azure ad pela Microsoft apenas para fins de solução de problemas: se essa opção estiver habilitada, a Microsoft poderá acessar os mesmos dados exibidos pelo usuário. Essas informações podem ser úteis para solução de problemas e para fornecer a assistência necessária. Esta opção está desabilitada por padrão
 * **Controle de acesso baseado em função (IAM)** é a seção para gerenciar o acesso aos dados do Connect Health na base de funções. 
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Pré-requisitos e hardware](how-to-connect-install-prerequisites.md) 
-- [Configurações expressas](how-to-connect-install-express.md)
+- [Configurações Expressas](how-to-connect-install-express.md)
 - [Configurações personalizadas](how-to-connect-install-custom.md)
 - [Sincronização de hash de senha](how-to-connect-password-hash-synchronization.md)|
 - [Autenticação de passagem](how-to-connect-pta.md)
