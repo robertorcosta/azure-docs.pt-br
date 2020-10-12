@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: 30c2da4ac750375c66b92cdca552e1a51a8dbc40
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90933734"
 ---
 # <a name="limits-in-azure-database-for-postgresql---flexible-server"></a>Limites no banco de dados do Azure para PostgreSQL – servidor flexível
@@ -75,7 +75,7 @@ Uma conexão PostgreSQL, mesmo ociosa, pode ocupar cerca de 10 MB de memória. A
 
 ### <a name="high-availability"></a>Alta disponibilidade
 
-- Atualmente, não há suporte para HA com redundância de zona para servidores com intermitência.
+- No momento, não há suporte para a HA Zone-Redundant para servidores com intermitência.
 - O endereço IP do servidor de banco de dados é alterado quando o servidor executa o failover para o modo de espera de alta disponibilidade. Certifique-se de usar o registro DNS em vez do endereço IP do servidor.
 
 ### <a name="availability-zones"></a>Zonas de disponibilidade

@@ -11,15 +11,15 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 4e8813647211e0adbfe43a45ae0d19dc12a4a165
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90933224"
 ---
-# <a name="set-the-database-engine-settings-for-azure-arc-enabled-postgresql-hyperscale"></a>Definir as configurações do mecanismo de banco de dados para a hiperescala PostgreSQL habilitada para Arc do Azure
+# <a name="set-the-database-engine-settings-for-azure-arc-enabled-postgresql-hyperscale"></a>Definir as configurações do mecanismo de banco de dados da Hiperescala PostgreSQL habilitada para o Azure Arc
 
-Este documento descreve as etapas para definir as configurações do mecanismo de banco de dados do seu grupo de servidores de hiperescala do PostgreSQL para valores personalizados (não padrão). Para obter detalhes sobre quais parâmetros do mecanismo de banco de dados podem ser definidos e qual é o valor padrão, consulte a documentação do PostgreSQL [aqui](https://www.postgresql.org/docs/current/runtime-config.html).
+Este documento descreve as etapas para definir as configurações do mecanismo de banco de dados do grupo de servidores de Hiperescala PostgreSQL como valores personalizados (não padrão). Para obter detalhes sobre quais parâmetros do mecanismo de banco de dados podem ser definidos e qual é o valor padrão, consulte a documentação do PostgreSQL [aqui](https://www.postgresql.org/docs/current/runtime-config.html).
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 

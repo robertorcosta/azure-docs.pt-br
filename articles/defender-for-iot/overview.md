@@ -14,15 +14,15 @@ ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
 ms.openlocfilehash: 434a977a6d8c5b2243996063f758f409c20723fb
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90933820"
 ---
 # <a name="introducing-azure-defender-for-iot"></a>Apresentando o Azure defender para IoT
 
-Unifique o gerenciamento de segurança e habilite a detecção e análise de ameaças de ponta a ponta em cargas de trabalho de nuvem híbrida e sua solução de IoT do Azure.
+Unifique o gerenciamento de segurança e habilite a detecção e a análise de ameaças de ponta a ponta nas cargas de trabalho de nuvem híbrida e na sua solução de IoT do Azure.
 
 ## <a name="secure-your-entire-iot-solution-from-iot-devices-to-azure-cloud"></a>Proteja toda a sua solução IoT de dispositivos IoT para a nuvem do Azure
 
@@ -36,7 +36,7 @@ O defender para IoT simplifica a proteção de carga de trabalho híbrida, forne
 
 ### <a name="unified-visibility-and-control"></a>Visibilidade e controle unificados
 
-Obtenha uma exibição unificada de segurança em todas as suas cargas de trabalho locais e na nuvem, incluindo sua solução de IoT do Azure. Integre novos dispositivos e aplique políticas de segurança em suas cargas de trabalho (dispositivos folha, dispositivos Microsoft Edge, Hub IoT) para garantir a conformidade com os padrões de segurança e a postura de segurança aprimorada.
+Obtenha uma exibição unificada de segurança em todas as suas cargas de trabalho locais e na nuvem, incluindo sua solução de IoT do Azure. Integre novos dispositivos e aplique políticas de segurança nas suas cargas de trabalho (dispositivos folha, dispositivos Microsoft Edge, Hub IoT) para garantir a conformidade com os padrões de segurança e a postura de segurança aprimorada.
 
 ### <a name="adaptive-threat-prevention"></a>Prevenção de ameaças adaptável
 

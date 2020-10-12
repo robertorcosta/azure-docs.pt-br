@@ -7,10 +7,10 @@ ms.subservice: language-understanding
 ms.date: 08/07/2020
 ms.custom: cog-serv-seo-aug-2020
 ms.openlocfilehash: 2586bf2d31ef28c662ad88bde3718541bb21a31c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91327197"
 ---
 # <a name="artificial-intelligence-in-language-understanding-luis"></a>Inteligência artificial em Reconhecimento vocal (LUIS)
@@ -39,7 +39,7 @@ O processamento de idioma natural está disponível para seu aplicativo LUIS das
     * [Geração de tokens](luis-language-support.md#tokenization)
     * Morphology por meio de diacríticos, pontuação e configurações de [API](luis-reference-application-settings.md) de formulários do Word
 * Pré ou pós-processamento do expressão de consulta fornecido por outros [Serviços cognitivas](../Welcome.md) , como:
-    * [Transferência](../translator/translator-info-overview.md)
+    * [Tradução](../translator/translator-info-overview.md)
 
 ## <a name="natural-language-understanding-nlu"></a>NLU (Reconhecimento de idioma natural)
 

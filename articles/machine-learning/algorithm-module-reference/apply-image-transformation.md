@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
 ms.openlocfilehash: a64d5cebfd8e70e2f54a66193a7041c47887c54a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90898910"
 ---
 # <a name="apply-image-transformation"></a>Aplicar Transformação de Imagem 
@@ -47,7 +47,7 @@ Você precisa conectar um módulo de [transformação de imagem inicial](init-im
 
 ### <a name="module-parameters"></a>Parâmetros do módulo
 
-| Name | Intervalo | Type | Padrão                   | Descrição                              |
+| Nome | Intervalo | Type | Padrão                   | Descrição                              |
 | ---- | ----- | ---- | ------------------------- | ---------------------------------------- |
 | Mode | Qualquer   | Modo | (Exigir que o usuário especifique) | Para qual finalidade você usa a transformação de entrada. Você deve excluir operações de transformação ' Random ' na inferência, mas mantê-las em treinamento |
 
@@ -58,7 +58,7 @@ Você precisa conectar um módulo de [transformação de imagem inicial](init-im
 | Transformação imagem de entrada | TransformationDirectory | Transformação imagem de entrada        |
 | Diretório da imagem de entrada      | ImageDirectory          | Diretório de imagem a ser transformado |
 
-### <a name="outputs"></a>Saídas  
+### <a name="outputs"></a>outputs  
 
 | Nome                   | Tipo           | Descrição            |
 | ---------------------- | -------------- | ---------------------- |

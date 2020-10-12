@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/17/2020
 ms.author: victorh
 ms.openlocfilehash: 784459282007edab599d54edff0d2b38eed07b34
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91320635"
 ---
 # <a name="monitor-azure-firewall-logs-and-metrics"></a>Monitorar os logs e as métricas do Firewall do Azure
@@ -48,7 +48,7 @@ Pode levar alguns minutos até que os dados sejam exibidos em seus logs depois d
 6. Em **log**, selecione **AzureFirewallApplicationRule**, **AzureFirewallNetworkRule**, **AzureFirewallThreatIntelLog**e **AzureFirewallDnsProxy** para coletar os logs.
 7. Selecione **Enviar para log Analytics** para configurar seu espaço de trabalho.
 8. Selecione sua assinatura.
-9. Clique em **Salvar**.
+9. Selecione **Salvar**.
 
 ## <a name="enable-logging-with-powershell"></a>Habilitar o registro em log com o PowerShell
 

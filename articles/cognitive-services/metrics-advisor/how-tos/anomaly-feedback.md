@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/10/2020
 ms.author: aahi
 ms.openlocfilehash: 50d422edf1a4b45132d0b86eac9d4947cef5e5bf
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90933001"
 ---
 # <a name="adjust-anomaly-detection-using-feedback"></a>Ajustar a detecção de anomalias usando os comentários
@@ -37,19 +37,19 @@ Com o modo de anotação de comentários ativado, clique em um ponto para abrir 
 
 Considere deixar um comentário na caixa de texto de **Comentário** ao mesmo tempo e clique em **salvar** para salvar seus comentários.
 
-:::image type="content" source="../media/feedback/feedback-menu.png" alt-text="Menu de comentários.":::
+:::image type="content" source="../media/feedback/feedback-menu.png" alt-text="Modo de anotação de comentários.":::
 
 ## <a name="give-feedback-for-multiple-continuous-points"></a>Fornecer comentários para vários pontos contínuos
 
 Você pode fornecer comentários para vários pontos contínuos ao mesmo tempo clicando em baixo e arrastando o mouse sobre os pontos que deseja anotar. Você verá o mesmo menu de comentários acima. Os mesmos comentários serão aplicados a todos os pontos escolhidos depois que você clicar em **salvar**.
 
-:::image type="content" source="../media/feedback/continuous-points.png" alt-text="Escolher vários pontos":::
+:::image type="content" source="../media/feedback/continuous-points.png" alt-text="Modo de anotação de comentários.":::
 
 ## <a name="how-to-view-my-feedback"></a>Como exibir meus comentários
 
 Para ver se a detecção de anomalias de um ponto foi alterada, passe o mouse sobre o ponto. A dica de ferramenta mostrará os **comentários afetados: verdadeiro** se a detecção tiver sido alterada. Se ele exibir **false**, o cálculo de comentários foi feito no ponto, mas o resultado da detecção de anomalias não foi alterado.
 
-:::image type="content" source="../media/feedback/affected-point.png" alt-text="Ponto afetado por comentários":::
+:::image type="content" source="../media/feedback/affected-point.png" alt-text="Modo de anotação de comentários.":::
 
 ## <a name="when-should-i-annotate-an-anomaly-as-normal"></a>Quando devo anotar uma anomalia como "normal"
 

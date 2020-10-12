@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
 ms.openlocfilehash: f3a58a6766c42385dd6611c2014ba36fd1078710
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90933241"
 ---
 # <a name="monitor-azure-database-for-mysql-flexible-servers-with-built-in-metrics"></a>Monitorar servidores flexíveis do banco de dados do Azure para MySQL com métricas internas
@@ -31,7 +31,7 @@ Todas as métricas do Azure têm uma frequência de um minuto e cada uma delas f
 ### <a name="list-of-metrics"></a>Lista de métricas
 Essas métricas estão disponíveis para o Banco de Dados do Azure para MySQL:
 
-|Nome de exibição da métrica|Métrica|Unidade|Descrição|
+|Nome de exibição da métrica|Métrica|Unit|Descrição|
 |---|---|---|---|
 |Porcentagem de CPU do host|cpu_percent|Porcentagem|A porcentagem de utilização da CPU no servidor, incluindo a utilização da CPU dos processos de carga de trabalho do cliente e MySQL do Azure|
 |Rede de host em |network_bytes_ingress|Bytes|Tráfego de rede de entrada no servidor, incluindo o tráfego do banco de dados do cliente e recursos do Azure MySQL, como replicação, monitoramento, logs etc.|

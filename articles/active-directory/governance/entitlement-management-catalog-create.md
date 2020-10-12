@@ -17,10 +17,10 @@ ms.author: barclayn
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cf6e02ebad2ac5150be4775ad0ff6069fe3db89f
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90980047"
 ---
 # <a name="create-and-manage-a-catalog-of-resources-in-azure-ad-entitlement-management"></a>Criar e gerenciar um catálogo de recursos no gerenciamento de direitos do Azure AD
@@ -138,7 +138,7 @@ Você pode editar o nome e a descrição de um catálogo. Os usuários veem essa
 
     ![Editar configurações do catálogo](./media/entitlement-management-shared/catalog-edit.png)
 
-1. Clique em **Save** (Salvar).
+1. Clique em **Salvar**.
 
 ## <a name="delete-a-catalog"></a>Excluir um catálogo
 

@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 03/04/2020
 ms.author: mlottner
 ms.openlocfilehash: 5a5b9182081e267f8e20cb0818202b9cb5ecd904
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90933289"
 ---
 # <a name="defender-for-iot-customizable-security-alerts"></a>Alertas de segurança personalizáveis do defender para IoT
@@ -30,7 +30,7 @@ A lista de alertas do defender for IoT a seguir é definida por você com base n
 
 ## <a name="iot-hub-alerts-available-for-customization"></a>Alertas do Hub IoT disponíveis para personalização
 
-| Gravidade | Nome do alerta | Fonte de dados | Descrição | Correção sugerida|
+| Severity | Nome do alerta | Fonte de dados | Descrição | Correção sugerida|
 |---|---|---|---|---|
 | Baixo      | Alerta personalizado – o número de mensagens da nuvem para o dispositivo no protocolo AMQP está fora do intervalo permitido          | Hub IoT     | O número de mensagens de nuvem para dispositivo (protocolo AMQP) em uma janela de tempo específica está fora do intervalo atualmente configurado e permitido.||
 | Baixo      | Alerta personalizado – o número de mensagens da nuvem para o dispositivo rejeitadas no protocolo AMQP está fora do intervalo permitido | Hub IoT     | O número de mensagens de nuvem para dispositivo (protocolo AMQP) rejeitadas pelo dispositivo em uma janela de tempo específica está fora do intervalo atualmente configurado e permitido.||
@@ -50,7 +50,7 @@ A lista de alertas do defender for IoT a seguir é definida por você com base n
 
 ## <a name="agent-alerts-available-for-customization"></a>Alertas de agente disponíveis para personalização
 
-| Gravidade | Nome do alerta | Fonte de dados | Descrição | Correção sugerida|
+| Severity | Nome do alerta | Fonte de dados | Descrição | Correção sugerida|
 |---|---|---|---|---|
 | Baixo      | Alerta poersonalizado – o número de conexões ativas está fora do intervalo permitido  | Agente       | O número de conexões ativas em uma janela de tempo específica está fora do intervalo atualmente configurado e permitido.|  Investigue os logs do dispositivo. Saiba onde a conexão foi originada e determine se ela é benigna ou mal-intencionada. Se for mal-intencionada, remova o possível malware e entenda a origem. Se for benigna, adicione a origem à lista de conexões permitidas.  |
 | Baixo      | Alerta personalizado – uma conexão de saída foi criada para um IP que não é permitido                             | Agente       | Uma conexão de saída foi criada para um IP que está fora da sua lista de IPs permitidos. |Investigue os logs do dispositivo. Saiba onde a conexão foi originada e determine se ela é benigna ou mal-intencionada. Se for mal-intencionada, remova o possível malware e entenda a origem. Se for benigna, adicione a origem à lista de IPs permitidos.                        |

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: aahi
 ms.openlocfilehash: 343db078880f55701730e096c3da85a6a7e5428a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91324460"
 ---
 # <a name="add-data-feeds-from-different-data-sources-to-metrics-advisor"></a>Adicionar feeds de dados de diferentes fontes de dados ao orientador de métricas
@@ -40,10 +40,10 @@ Use este artigo para encontrar as configurações e os requisitos para conectar 
 |[**Azure Application Insights**](#appinsights)|  Basic |
 |[**Armazenamento de BLOBs do Azure (JSON)**](#blob) | Basic<br>ManagedIdentity|
 |[**Azure Cosmos DB (SQL)**](#cosmosdb) | Basic |
-|[**Data Explorer do Azure (Kusto)**](#kusto) | Basic<br>ManagedIdentity|
+|[**Azure Data Explorer (Kusto)**](#kusto) | Basic<br>ManagedIdentity|
 |[**Azure Data Lake Storage Gen2**](#adl) | Basic<br>DataLakeGen2SharedKey<br>Entidade de serviço<br>Entidade de serviço do Key Vault<br> |
 |[**Banco de dados SQL/SQL Server do Azure**](#sql) | Basic<br>ManagedIdentity<br>Entidade de serviço<br>Entidade de serviço do Key Vault<br>AzureSQLConnectionString
-|[**Armazenamento de Tabelas do Azure**](#table) | Basic | 
+|[**Armazenamento de tabelas do Azure**](#table) | Basic | 
 |[**ElasticSearch**](#es) | Basic |
 |[**Solicitação http**](#http) | Basic | 
 |[**InfluxDB (InfluxQL)**](#influxdb) | Basic |
@@ -131,7 +131,7 @@ Somente um carimbo de data/hora é permitido por arquivo JSON.
     select StartDate, JobStatusId, COUNT(*) AS JobNumber from IngestionJobs WHERE and StartDate = '2019-12-12 00:00:00'
     ```
 
-## <a name="span-idkustoazure-data-explorer-kustospan"></a><span id="kusto">Data Explorer do Azure (Kusto)</span>
+## <a name="span-idkustoazure-data-explorer-kustospan"></a><span id="kusto">Azure Data Explorer (Kusto)</span>
 
 * **Cadeia de conexão**: consulte [Exibir e copiar uma cadeia de conexão](https://docs.microsoft.com/azure/data-explorer/kusto/api/connection-strings/kusto) para obter informações sobre como recuperar a cadeia de conexão do data Explorer do Azure (Kusto).
 

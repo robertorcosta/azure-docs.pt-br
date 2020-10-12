@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: 13d78110f50d6ce72b8525914ed0e91dfcadd2cc
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90933083"
 ---
 # <a name="manage-an-azure-database-for-postgresql---flexible-server-using-the-azure-portal"></a>Gerenciar um banco de dados do Azure para PostgreSQL – servidor flexível usando o portal do Azure
@@ -52,7 +52,7 @@ Você pode alterar a senha da função de administrador usando o portal do Azure
 2. Insira uma nova senha e confirme-a. A caixa de texto solicitará os requisitos de complexidade de senha.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/howto-manage-server-portal/reset-password.png" alt-text="redefinir sua senha para o servidor flexível":::
+> :::image type="content" source="./media/howto-manage-server-portal/reset-password.png" alt-text="dimensionamento do servidor flexível de armazenamento":::
 
 3. Selecione **salvar** para salvar a nova senha.
 
@@ -63,7 +63,7 @@ Você pode excluir o servidor se não precisar mais dele.
 1. Selecione o servidor na portal do Azure. Na janela **visão geral** , selecione **excluir**.
 2. Digite o nome do servidor na caixa de entrada para confirmar que você deseja excluir o servidor.
 
-   :::image type="content" source="./media/howto-manage-server-portal/delete-server.png" alt-text="excluir o servidor flexível":::
+   :::image type="content" source="./media/howto-manage-server-portal/delete-server.png" alt-text="dimensionamento do servidor flexível de armazenamento":::
 
    > [!IMPORTANT]
    > A exclusão de um servidor é irreversível.

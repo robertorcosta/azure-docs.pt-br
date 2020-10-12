@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
 ms.openlocfilehash: 7a01863b3a0c29e94550be67ca957655cff32660
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90932883"
 ---
 # <a name="manage-an-azure-database-for-mysql---flexible-server-preview-using-azure-portal"></a>Gerenciar um banco de dados do Azure para MySQL-servidor flexível (versão prévia) usando o portal do Azure
@@ -50,7 +50,7 @@ Você pode alterar a senha da função de administrador usando o portal do Azure
 2. Insira uma nova senha e confirme-a. A caixa de texto solicitará os requisitos de complexidade de senha.
 
    > [!div class="mx-imgBorder"]
-   > :::image type="content" source="./media/howto-manage-server-portal/reset-password.png" alt-text="redefinir sua senha para o servidor flexível":::
+   > :::image type="content" source="./media/howto-manage-server-portal/reset-password.png" alt-text="dimensionamento do servidor flexível de armazenamento":::
 
 3. Selecione **salvar** para salvar a nova senha.
 
@@ -63,7 +63,7 @@ Você pode excluir o servidor se não precisar mais dele.
 2. Digite o nome do servidor na caixa de entrada para confirmar que você deseja excluir o servidor.
 
    > [!div class="mx-imgBorder"]
-   > :::image type="content" source="./media/howto-manage-server-portal/delete-server.png" alt-text="excluir o servidor flexível":::
+   > :::image type="content" source="./media/howto-manage-server-portal/delete-server.png" alt-text="dimensionamento do servidor flexível de armazenamento":::
 
    > [!NOTE]
    > A exclusão de um servidor é irreversível.

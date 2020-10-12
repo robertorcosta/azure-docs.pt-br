@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 09/18/2019
 ms.author: allensu
 ms.openlocfilehash: eb3605249578b15d67bdd9764490d61812b21c18
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84808440"
 ---
 # <a name="move-azure-internal-load-balancer-to-another-region-using-the-azure-portal"></a>Mover o Load Balancer interno do Azure para outra região usando o portal do Azure
@@ -393,7 +393,7 @@ As etapas a seguir mostram como preparar o balanceador de carga interno para a m
 
 Se você quiser descartar a rede virtual de destino e o balanceador de carga interno, exclua o grupo de recursos que contém a rede virtual de destino e o balanceador de carga interno.  Para fazer isso, selecione o grupo de recursos do seu painel no portal e selecione **excluir** na parte superior da página Visão geral.
 
-## <a name="clean-up"></a>Limpar
+## <a name="clean-up"></a>Limpeza
 
 Para confirmar as alterações e concluir a movimentação da rede virtual e do balanceador de carga interno, exclua a rede virtual de origem e o balanceador de carga interno ou grupo de recursos. Para fazer isso, selecione a rede virtual e o balanceador de carga interno ou grupo de recursos do seu painel no portal e selecione **excluir** na parte superior de cada página.
 

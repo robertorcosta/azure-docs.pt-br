@@ -8,10 +8,10 @@ ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.openlocfilehash: bb5ff0bf7347b87fdc3a103a03f9ff58279a367d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91320755"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-cli"></a>Configurar uma instância e autenticação do gêmeos digital do Azure (CLI)
@@ -78,7 +78,7 @@ O resultado desse comando são informações de saída sobre a atribuição de f
 >
 > Use a [página portal do Azure de Azure Active Directory usuários](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) para selecionar a conta de usuário e abrir seus detalhes. Copie o *ObjectID*do usuário:
 >
-> :::image type="content" source="media/includes/user-id.png" alt-text="Exibição da página do usuário no portal do Azure realçando o GUID no campo ' ID do objeto '" lightbox="media/includes/user-id.png":::
+> :::image type="content" source="media/includes/user-id.png" alt-text="janela Comando com a criação bem-sucedida do grupo de recursos e a instância do gêmeos digital do Azure" lightbox="media/includes/user-id.png":::
 >
 > Em seguida, repita o comando da lista de atribuição de função usando a *ID de objeto* do usuário para o `assignee` parâmetro acima.
 
@@ -115,7 +115,7 @@ Salve este arquivo como _**manifest.jsem**_.
 
 Em seguida, você carregará esse arquivo para Cloud Shell. Na janela Cloud Shell, clique no ícone "carregar/baixar arquivos" e escolha "carregar".
 
-:::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Janela Cloud Shell mostrando a seleção da opção carregar":::
+:::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="janela Comando com a criação bem-sucedida do grupo de recursos e a instância do gêmeos digital do Azure":::
 Navegue até o *manifest.jsem* que você acabou de criar e pressione "abrir".
 
 Em seguida, execute o seguinte comando para criar um registro de aplicativo, com uma URL de resposta *cliente público/nativo (mobile & Desktop)* de `http://localhost` . Substitua os espaços reservados conforme necessário:
@@ -126,7 +126,7 @@ az ad app create --display-name <name-for-your-app-registration> --native-app --
 
 Aqui está um trecho da saída deste comando, mostrando informações sobre o registro que você criou:
 
-:::image type="content" source="media/how-to-set-up-instance/cloud-shell/new-app-registration.png" alt-text="Cloud Shell a saída do novo registro de aplicativo do Azure AD":::
+:::image type="content" source="media/how-to-set-up-instance/cloud-shell/new-app-registration.png" alt-text="janela Comando com a criação bem-sucedida do grupo de recursos e a instância do gêmeos digital do Azure":::
 
 ### <a name="verify-success"></a>Verificar êxito
 
@@ -140,7 +140,7 @@ Em seguida, verifique se as configurações de seu *manifest.jscarregado em* for
 
 Em seguida, selecione *visão geral* na barra de menus para ver os detalhes do registro do aplicativo:
 
-:::image type="content" source="media/how-to-set-up-instance/portal/app-important-values.png" alt-text="Exibição do portal dos valores importantes para o registro do aplicativo":::
+:::image type="content" source="media/how-to-set-up-instance/portal/app-important-values.png" alt-text="janela Comando com a criação bem-sucedida do grupo de recursos e a instância do gêmeos digital do Azure":::
 
 Anote a ID do *aplicativo (cliente)* e a *ID do diretório (locatário)* mostradas **na página.** Esses valores serão necessários posteriormente para [autenticar um aplicativo cliente em relação às APIs do gêmeos digital do Azure](how-to-authenticate-client.md). Se você não for a pessoa que vai escrever código para tais aplicativos, precisará compartilhar esses valores com a pessoa que será.
 

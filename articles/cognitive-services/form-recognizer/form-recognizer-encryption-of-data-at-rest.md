@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: egeaney
 ms.openlocfilehash: c959231826125349ecd6a62afe529248f7ac2eec
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91326789"
 ---
 # <a name="form-recognizer-encryption-of-data-at-rest"></a>Criptografia do reconhecedor de formulário de dados em repouso
@@ -29,5 +29,5 @@ O reconhecedor do Azure Form criptografa automaticamente seus dados ao mantê-lo
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Formulário de solicitação de chave gerenciada pelo cliente do reconhecedor de formulário](https://aka.ms/cogsvc-cmk)
+* [Formulário de solicitação de chave Customer-Managed reconhecedor de formulário](https://aka.ms/cogsvc-cmk)
 * [Saiba mais sobre o Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)

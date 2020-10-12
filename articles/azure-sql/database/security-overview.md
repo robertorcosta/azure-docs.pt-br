@@ -13,10 +13,10 @@ ms.author: jaszymas
 ms.reviewer: vanto, emlisa
 ms.date: 09/21/2020
 ms.openlocfilehash: f0ebd511d0b706d1d2066ea87f45c89ae536da69
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91321417"
 ---
 # <a name="an-overview-of-azure-sql-database-and-sql-managed-instance-security-capabilities"></a>Uma visão geral do banco de dados SQL do Azure e recursos de segurança do SQL Instância Gerenciada
@@ -75,9 +75,9 @@ Como prática recomendada, crie funções personalizadas quando necessário. Adi
 
 ### <a name="row-level-security"></a>Segurança em nível de linha
 
-A segurança em nível de linha permite aos clientes controlar o acesso às linhas em uma tabela de banco de dados com base nas características do usuário executando uma consulta (por exemplo, associação a grupo ou contexto de execução). A segurança em nível de linha também pode ser usada para implementar conceitos de segurança personalizados baseados em rótulo. Para obter mais informações, consulte [segurança em nível de linha](/sql/relational-databases/security/row-level-security).
+A segurança em nível de linha permite aos clientes controlar o acesso às linhas em uma tabela de banco de dados com base nas características do usuário executando uma consulta (por exemplo, associação a grupo ou contexto de execução). Row-Level segurança também pode ser usada para implementar conceitos de segurança personalizados baseados em rótulo. Para obter mais informações, consulte [segurança em nível de linha](/sql/relational-databases/security/row-level-security).
 
-![O diagrama que mostra essa segurança em nível de linha protege as linhas individuais de um banco de dados SQL do Access por usuários por meio de um aplicativo cliente.](./media/security-overview/azure-database-rls.png)
+![Diagrama mostrando que Row-Level segurança protege as linhas individuais de um banco de dados SQL do Access por usuários por meio de um aplicativo cliente.](./media/security-overview/azure-database-rls.png)
 
 ## <a name="threat-protection"></a>Proteção contra ameaças
 

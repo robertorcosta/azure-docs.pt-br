@@ -10,15 +10,15 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: d876862d8f41ab8df646bef051629fd45c4d4601
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90933305"
 ---
 # <a name="view-logs-and-metrics-using-kibana-and-grafana"></a>Exibir logs e métricas usando Kibana e Grafana
 
-Os painéis da Web Kibana e Grafana são fornecidos para trazer Insight e clareza para os namespaces do kubernetes que estão sendo usados pelos serviços de dados habilitados para o Arc do Azure.
+Os painéis da Web Kibana e Grafana são fornecidos para trazer insight e clareza para os namespaces do Kubernetes que estão sendo usados pelos serviços de dados habilitados para o Azure Arc.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -28,7 +28,7 @@ Para acessar os painéis, você precisará recuperar o endereço IP do cluster. 
 
 ### <a name="azure-virtual-machine"></a>Máquina virtual do Azure
 
-Para recuperar o endereço IP público, use o seguinte comando:
+Para recuperar o endereço IP público, use o comando a seguir:
 
 ```console
 az network public-ip list -g azurearcvm-rg --query "[].{PublicIP:ipAddress}" -o table

@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 86563b0a44bade2cedaf76af3c247821756111fe
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90933306"
 ---
 # <a name="migrate-sql-server-to-azure-arc-enabled-sql-managed-instance"></a>Migrar: SQL Server para o SQL habilitado para Arc do Azure Instância Gerenciada
@@ -192,6 +192,6 @@ GO
 
 [Saiba mais sobre os recursos e as funcionalidades do SQL Instância Gerenciada habilitado para o Arc do Azure](managed-instance-features.md)
 
-[Comece criando um controlador de dados](create-data-controller.md)
+[Comece criando um Controlador de Dados](create-data-controller.md)
 
 [Já criou um controlador de dados? Criar um SQL Instância Gerenciada habilitado para Arc do Azure](create-sql-managed-instance.md)

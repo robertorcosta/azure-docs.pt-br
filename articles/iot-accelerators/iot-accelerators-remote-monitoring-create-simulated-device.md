@@ -10,10 +10,10 @@ ms.date: 03/08/2019
 ms.topic: conceptual
 ms.custom: mqtt, devx-track-js
 ms.openlocfilehash: 21d0587b951d909f0091eccf9a7f86a484bc5051
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91324025"
 ---
 # <a name="create-and-test-a-new-simulated-device"></a>Criar e testar um novo dispositivo simulado
@@ -33,8 +33,8 @@ No segundo cenário, a Contoso deseja testar um novo dispositivo de lâmpada int
 
 | Nome                     | Valores                      |
 | ------------------------ | --------------------------- |
-| Cor                    | White, Red, Blue            |
-| Brilho               | 0 a 100                    |
+| Color                    | White, Red, Blue            |
+| Brightness               | 0 a 100                    |
 | Vida útil restante estimada | Contagem regressiva de 10.000 horas |
 
 *Telemetria*
@@ -65,7 +65,7 @@ A tabela a seguir mostra o status inicial do dispositivo:
 
 | Nome                     | Valores |
 | ------------------------ | -------|
-| Cor inicial            | Branca  |
+| Cor inicial            | Branco  |
 | Brilho inicial       | 75     |
 | Vida útil restante inicial   | 10.000 |
 | Status de telemetria inicial | "on"   |
@@ -465,7 +465,7 @@ Para configurar o Postman:
 
 1. Clique em **Arquivo > Importar**. Em seguida, clique em **Escolher Arquivos**.
 
-1. Navegue até a pasta **device-simulation-dotnet-master/docs/postman**. Selecione **acelerador de solução de simulação de dispositivo IOT do Azure. postman_collection** e **acelerador de solução de simulação de dispositivo IOT do Azure. postman_environment** e clique em **abrir**.
+1. Navegue até a pasta **device-simulation-dotnet-master/docs/postman**. Selecione a **solução de simulação de dispositivo IOT do azure Accelerator.postman_collection** e a **solução de simulação de dispositivo iot do Azure Accelerator.postman_environment** e clique em **abrir**.
 
 1. Expanda o **acelerador da solução Simulação de Dispositivo IoT do Azure** para as solicitações que você pode enviar.
 

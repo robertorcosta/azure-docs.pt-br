@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 05/20/2020
 ms.author: v-demjoh
 ms.openlocfilehash: bb904482f3cb5900b724803816269f1b10ab3720
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83727873"
 ---
-# <a name="improve-custom-speech-accuracy"></a>Melhorar a precisão de Fala Personalizada
+# <a name="improve-custom-speech-accuracy"></a>Aprimorar a precisão da Fala Personalizada
 
 Neste artigo, você aprenderá a melhorar a qualidade de seu modelo personalizado adicionando áudio, transcrições com rótulo humano e texto relacionado.
 
@@ -38,7 +38,7 @@ Diferentes cenários produzem resultados de qualidade diferentes. A tabela a seg
 |----------|----------------------------|------------------|-----------------|---------------------|
 | Call center | Médio (< 30% WER) | Baixo, exceto quando outras pessoas falam em segundo plano | Pode ser alto. As centrais de chamadas podem ser ruidosas e os alto-falantes sobrepostos podem confundir o modelo | Média. Os nomes de produtos e pessoas podem causar esses erros |
 | Assistente de voz | Alta (pode ser < de 10% WER) | Baixo | Baixo | Médio, devido a títulos de música, nomes de produtos ou locais |
-| Ditado | Alta (pode ser < de 10% WER) | Baixo | Baixo | Alta |
+| Ditado | Alta (pode ser < de 10% WER) | Baixo | Baixo | Alto |
 | Legenda codificada em vídeo | Depende do tipo de vídeo (pode ser < 50% WER) | Baixo | Pode ser alto devido a música, ruídos, qualidade do microfone | O jargão pode causar esses erros |
 
 A determinação dos componentes do WER (número de erros de inserção, exclusão e substituição) ajuda a determinar o tipo de dados a ser adicionado para melhorar o modelo. Use o [portal de fala personalizada](https://speech.microsoft.com/customspeech) para exibir a qualidade de um modelo de linha de base. O portal relata as taxas de erro de inserção, substituição e exclusão combinadas na taxa de qualidade do WER.
