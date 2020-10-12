@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
 ms.openlocfilehash: 0029f3fbcf96036a247356042e4c39d59f86a224
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88208353"
 ---
-# <a name="automation-guidelines-for-virtual-wan-partners"></a>Diretrizes de automação para parceiros de WAN virtual
+# <a name="automation-guidelines-for-virtual-wan-partners"></a>Diretrizes de automação para parceiros da WAN Virtual
 
 Este artigo ajuda a entender como configurar o ambiente de automação para conectar e configurar um dispositivo de branch (um dispositivo de VPN local do cliente ou CPE SDWAN) para WAN Virtual do Azure. Se você é um provedor que fornece dispositivos de branch que podem acomodar conectividade de VPN sobre IPsec/IKEv2 ou IPsec/IKEv1, este artigo é para você.
 

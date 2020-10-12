@@ -9,16 +9,16 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: e95edf21b7d6dce29b31220533269439fac120e4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91281942"
 ---
 # <a name="use-the-opc-vault-certificate-management-service"></a>Usar o serviço de gerenciamento de certificados do cofre OPC
 
 > [!IMPORTANT]
-> Enquanto atualizamos este artigo, confira [IOT do Azure industrial](https://azure.github.io/Industrial-IoT/) para obter o conteúdo mais atualizado.
+> Enquanto atualizamos este artigo, confira [IoT Industrial do Azure](https://azure.github.io/Industrial-IoT/) para obter o conteúdo mais atualizado.
 
 Este artigo explica como registrar aplicativos e como emitir certificados de aplicativo assinados para seus dispositivos OPC UA.
 

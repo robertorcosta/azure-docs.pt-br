@@ -7,10 +7,10 @@ ms.date: 03/20/2020
 ms.reviewer: dariac
 ms.custom: seodec18
 ms.openlocfilehash: b7730558e2a660b0cf00a5b6962d1e2275dd472c
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90984405"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Implantação contínua no Serviço de Aplicativo do Azure
@@ -114,7 +114,7 @@ Para Azure App serviço para criar a entrega contínua usando Azure Pipelines, s
    
 1. Na página **provedor de compilação** , selecione **Azure pipelines (versão prévia)** e, em seguida, selecione **continuar**.
 
-    :::image type="content" source="media/app-service-continuous-deployment/select-build-provider.png" alt-text="Captura de tela mostrando a página da central de implantação com Azure Pipelines (versão prévia) selecionada.":::
+    :::image type="content" source="media/app-service-continuous-deployment/select-build-provider.png" alt-text="Captura de tela da página do centro de implantação do serviço de aplicativo.":::
    
 1. Na página **Configurar** , na seção **código** , selecione a **organização**, o **repositório**e a **ramificação** que você deseja implantar continuamente e selecione **continuar**.
      
@@ -123,11 +123,11 @@ Para Azure App serviço para criar a entrega contínua usando Azure Pipelines, s
        
     Na seção **Build** , especifique a organização de DevOps do Azure, o projeto, a estrutura de linguagem que Azure pipelines deve usar para executar tarefas de compilação e, em seguida, selecione **continuar**.
 
-   :::image type="content" source="media/app-service-continuous-deployment/build-configure.png" alt-text="Captura de tela da seção de compilação com texto de exemplo nos campos.":::
+   :::image type="content" source="media/app-service-continuous-deployment/build-configure.png" alt-text="Captura de tela da página do centro de implantação do serviço de aplicativo.":::
 
 1. Depois de configurar o provedor de compilação, examine as configurações na página **Resumo** e selecione **concluir**.
 
-   :::image type="content" source="media/app-service-continuous-deployment/summary.png" alt-text="Captura de tela da página da central de implantação mostrando as confirmações e implantações com o botão atualizar realçado.":::
+   :::image type="content" source="media/app-service-continuous-deployment/summary.png" alt-text="Captura de tela da página do centro de implantação do serviço de aplicativo.":::
    
 1. Novas confirmações no repositório e Branch selecionados agora são implantadas continuamente em seu serviço de aplicativo. Você pode acompanhar as confirmações e implantações na página do **Centro de Implantação**.
    
@@ -141,11 +141,11 @@ Para Azure App serviço para criar a entrega contínua usando Azure Pipelines, s
 
 1. Selecione **Azure Repos** como o provedor de controle do código-fonte na página **centro de implantação** e selecione **continuar**.
 
-    :::image type="content" source="media/app-service-continuous-deployment/deployment-center-src-control.png" alt-text="Captura de tela da página da central de implantação mostrando as seleções de CI/CD (implantação contínua).":::
+    :::image type="content" source="media/app-service-continuous-deployment/deployment-center-src-control.png" alt-text="Captura de tela da página do centro de implantação do serviço de aplicativo.":::
 
 1. Na página **provedor de compilação** , selecione **Azure pipelines (versão prévia)** e, em seguida, selecione **continuar**.
 
-    :::image type="content" source="media/app-service-continuous-deployment/azure-pipelines.png" alt-text="Captura de tela da central de implantação mostrando Azure Pipelines (versão prévia).":::
+    :::image type="content" source="media/app-service-continuous-deployment/azure-pipelines.png" alt-text="Captura de tela da página do centro de implantação do serviço de aplicativo.":::
 
 1. Na página **Configurar** , na seção **código** , selecione a **organização**, o **repositório**e a **ramificação** que você deseja implantar continuamente e selecione **continuar**.
 
@@ -154,11 +154,11 @@ Para Azure App serviço para criar a entrega contínua usando Azure Pipelines, s
 
    Na seção **Build** , especifique a organização de DevOps do Azure, o projeto, a estrutura de linguagem que Azure pipelines deve usar para executar tarefas de compilação e, em seguida, selecione **continuar**.
 
-   :::image type="content" source="media/app-service-continuous-deployment/build-configure.png" alt-text="Captura de tela da seção Build mostrando a organização DevOps do Azure e os campos de projeto preenchidos com exemplos.":::
+   :::image type="content" source="media/app-service-continuous-deployment/build-configure.png" alt-text="Captura de tela da página do centro de implantação do serviço de aplicativo.":::
 
 1. Depois de configurar o provedor de compilação, examine as configurações na página **Resumo** e selecione **concluir**.  
      
-   :::image type="content" source="media/app-service-continuous-deployment/summary-azure-pipelines.png" alt-text="Captura de tela mostrando as configurações selecionadas na página Resumo.":::
+   :::image type="content" source="media/app-service-continuous-deployment/summary-azure-pipelines.png" alt-text="Captura de tela da página do centro de implantação do serviço de aplicativo.":::
 
 1. Novas confirmações no repositório e Branch selecionados agora são implantadas continuamente em seu serviço de aplicativo. Você pode acompanhar as confirmações e implantações na página do **Centro de Implantação**.
 

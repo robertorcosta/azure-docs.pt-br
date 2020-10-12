@@ -6,17 +6,17 @@ ms.author: mbullwin
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.openlocfilehash: aab2d1ec5a6c3e046840e736ced0993e560c4661
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91333334"
 ---
 # <a name="migrate-to-workspace-based-application-insights-resources"></a>Migrar para recursos de Application Insights baseados em espaço de trabalho
 
 Este guia explicará o processo de migração de um recurso de Application Insights clássico para um recurso baseado em espaço de trabalho. Os recursos baseados em espaço de trabalho dão suporte à integração completa entre Application Insights e Log Analytics. Os recursos baseados em espaço de trabalho enviam Application Insights telemetria para um espaço de trabalho Log Analytics comum, que permite que você acesse [os recursos mais recentes do Azure monitor](#new-capabilities) ao mesmo tempo em que mantém os logs de aplicativos, infraestrutura e plataforma em um único local consolidado.
 
-Os recursos baseados em espaço de trabalho permitem o RBAC (controle de acesso baseado em função) comum em seus recursos e elimina a necessidade de consultas entre aplicativos/espaços de trabalho.
+Os recursos baseados em espaço de trabalho permitem o RBAC (controle de acesso Role-Based comum) em seus recursos e elimina a necessidade de consultas entre aplicativos/espaços de trabalho.
 
 **Os recursos baseados em espaço de trabalho estão disponíveis atualmente em todas as regiões comerciais e no governo dos EUA do Azure**
 

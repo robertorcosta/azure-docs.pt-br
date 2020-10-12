@@ -9,10 +9,10 @@ ms.date: 11/13/2019
 ms.author: absha
 ms.custom: mvc
 ms.openlocfilehash: 4626d40acc9ae84e7fcc5da16add0de7ffe6ffcc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84807891"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-portal"></a>Reescrever cabeçalhos de solicitação e resposta HTTP com Aplicativo Azure gateway-portal do Azure
@@ -91,7 +91,7 @@ Neste exemplo, modificaremos uma URL de redirecionamento regravando o cabeçalho
 
    - Na lista **tipo de cabeçalho** , selecione **resposta**.
 
-   - Como neste exemplo estamos avaliando o cabeçalho de local, que é um cabeçalho comum, selecione o **cabeçalho comum** sob **nome do cabeçalho**.
+   - Como neste exemplo estamos avaliando o cabeçalho de local, que é um cabeçalho comum, selecione o  **cabeçalho comum** sob **nome do cabeçalho**.
 
    - Na lista **cabeçalho comum** , selecione **local**.
 
@@ -99,7 +99,7 @@ Neste exemplo, modificaremos uma URL de redirecionamento regravando o cabeçalho
 
    - Na lista **operador** , selecione **igual (=)**.
 
-   - Insira um padrão de expressão regular. Neste exemplo, vamos usar o padrão `(https?):\/\/.*azurewebsites\.net(.*)$` .
+   - Insira um padrão de expressão regular. Neste exemplo, vamos usar o padrão  `(https?):\/\/.*azurewebsites\.net(.*)$` .
 
    - Selecione **OK**.
 

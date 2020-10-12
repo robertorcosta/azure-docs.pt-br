@@ -4,10 +4,10 @@ description: Este artigo descreve como você pode solucionar e resolver problema
 ms.topic: conceptual
 ms.date: 07/21/2020
 ms.openlocfilehash: fcd799c63e4afb68d96f67d1c03016a4d3b10f34
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87092823"
 ---
 # <a name="troubleshooting-azure-monitor-for-containers"></a>Solução de problemas do Azure Monitor para contêineres
@@ -23,7 +23,7 @@ Durante a integração ou o processo de atualização, é tentada a concessão d
 Você também pode conceder manualmente essa função da portal do Azure executando as seguintes etapas:
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-2. No portal do Azure, clique em **Todos os serviços**, encontrado no canto superior esquerdo. Na lista de recursos, digite **kubernetes**. À medida que você começa a digitar, a lista filtra com base em sua entrada. Selecione **Azure kubernetes**.
+2. No portal do Azure, clique em **Todos os serviços**, encontrado no canto superior esquerdo. Na lista de recursos, digite **kubernetes**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Azure kubernetes**.
 3. Na lista de clusters kubernetes, selecione um na lista.
 2. No menu à esquerda, clique em **controle de acesso (iam)**.
 3. Selecione **+ Adicionar** para adicionar uma atribuição de função e selecione a função de **Editor de métricas de monitoramento** e, na caixa **selecionar** , digite **AKs** para filtrar os resultados em apenas as entidades de serviço de clusters definidas na assinatura. Selecione aquele na lista específica para esse cluster.

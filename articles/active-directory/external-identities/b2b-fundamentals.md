@@ -13,10 +13,10 @@ ms.reviewer: elisol
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 54f5721ef606b6ea916f5a00031c58f5e2adeb0e
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87908086"
 ---
 # <a name="azure-active-directory-b2b-best-practices"></a>Práticas recomendadas do Azure Active Directory B2B
@@ -28,7 +28,7 @@ Este artigo contém recomendações e práticas recomendadas para colaboração 
 ## <a name="b2b-recommendations"></a>Recomendações B2B
 | Recomendação | Comentários |
 | --- | --- |
-| Para obter uma experiência de entrada ideal, federar com provedores de identidade | Sempre que possível, agrupe-se diretamente com os provedores de identidade para permitir que os usuários convidados façam logon em seus aplicativos e recursos compartilhados sem precisar criar contas da Microsoft (MSAs) ou do Azure AD. Você pode usar o [recurso Google Federation](google-federation.md) para permitir que usuários convidados B2B entrem com suas contas do Google. Ou, você pode usar o [recurso de Federação direta (versão prévia)](direct-federation.md) para configurar a Federação direta com qualquer organização cujo IDP (provedor de identidade) dê suporte ao protocolo SAML 2,0 ou WS-encaminhar. |
+| Para obter uma experiência de entrada ideal, federar com provedores de identidade | Sempre que possível, agrupe-se diretamente com os provedores de identidade para permitir que os usuários convidados façam logon em seus aplicativos e recursos compartilhados sem precisar criar contas da Microsoft (MSAs) ou do Azure AD. Você pode usar o [recurso Google Federation](google-federation.md) para permitir que usuários convidados B2B entrem com suas contas do Google. Ou, você pode usar o [recurso Federação direta (versão prévia)](direct-federation.md) para configurar a Federação direta com qualquer organização cujo IDP (provedor de identidade) dê suporte ao protocolo SAML 2,0 ou WS-Fed. |
 | Use o recurso de senha de uso único de email (versão prévia) para convidados B2B que não podem ser autenticados por outros meios | O recurso de [senha de uso único de email (versão prévia)](one-time-passcode.md) autentica os usuários convidados B2B quando eles não podem ser autenticados por outros meios, como o Azure AD, um conta Microsoft (MSA) ou Google Federation. Quando o usuário convidado resgata um convite ou acessa um recurso compartilhado, ele pode solicitar um código temporário, que é enviado para seu endereço de email. Em seguida, ele digita esse código para continuar o processo de entrada. |
 | Adicionar identidade visual da empresa à página de entrada | Você pode personalizar sua página de entrada para que ela seja mais intuitiva para seus usuários convidados B2B. Veja como [Adicionar identidade visual da empresa às páginas de entrada e do painel de acesso](../fundamentals/customize-branding.md). |
 | Adicione sua declaração de privacidade à experiência de resgate do usuário convidado B2B | Você pode adicionar a URL da política de privacidade da sua organização ao processo de resgate de convite pela primeira vez para que um usuário convidado precise consentir seus termos de privacidade para continuar. Consulte [como: adicionar as informações de privacidade de sua organização em Azure Active Directory](https://aka.ms/adprivacystatement). |

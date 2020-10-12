@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/22/2020
 ms.openlocfilehash: 1fb5b78f210a9bd817a2987dcb30fa25d156d5d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82780429"
 ---
 # <a name="cluster-creation-fails-with-invalidnetworkconfigurationerrorcode-in-azure-hdinsight"></a>Falha na criação do cluster com InvalidNetworkConfigurationErrorCode no Azure HDInsight
@@ -54,7 +54,7 @@ A descrição do erro contém "falha ao se conectar à conta de armazenamento do
 
 ### <a name="cause"></a>Causa
 
-O armazenamento do Azure e o SQL não têm endereços IP fixos, portanto, precisamos permitir conexões de saída para todos os IPs para permitir o acesso a esses serviços. As etapas exatas de resolução dependem se você configurou um NSG (grupo de segurança de rede) ou UDR (regras definidas pelo usuário). Consulte a seção sobre como [controlar o tráfego de rede com o HDInsight com grupos de segurança de rede e rotas definidas pelo usuário](../control-network-traffic.md) para obter detalhes sobre essas configurações.
+O armazenamento do Azure e o SQL não têm endereços IP fixos, portanto, precisamos permitir conexões de saída para todos os IPs para permitir o acesso a esses serviços. As etapas exatas de resolução dependem de se você configurou um NSG (grupo de segurança de rede) ou UDR (regras de User-Defined). Consulte a seção sobre como [controlar o tráfego de rede com o HDInsight com grupos de segurança de rede e rotas definidas pelo usuário](../control-network-traffic.md) para obter detalhes sobre essas configurações.
 
 ### <a name="resolution"></a>Resolução
 
@@ -101,7 +101,7 @@ Valide se 168.63.129.16 está na cadeia DNS personalizada. Os servidores DNS em 
     cat /etc/resolv.conf | grep nameserver*
     ```
 
-    Você deverá ver algo assim:
+    Você deverá ver algo como:
 
     ```output
     nameserver 168.63.129.16

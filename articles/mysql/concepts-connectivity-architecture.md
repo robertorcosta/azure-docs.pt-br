@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.openlocfilehash: 73178a9707d35fe7337210b11e76504794bc93ed
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90896393"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mysql"></a>Arquitetura de conectividade no banco de dados do Azure para MySQL
@@ -50,7 +50,7 @@ A tabela a seguir lista os IPs primários e secundários do banco de dados do Az
 | Centro da Índia | 104.211.96.159     |
 | Sul da Índia | 104.211.224.146  |
 | Oeste da Índia | 104.211.160.80    |
-| Leste do Japão | 13.78.61.196, 191.237.240.43  |
+| Japan East | 13.78.61.196, 191.237.240.43  |
 | Oeste do Japão | 104.214.148.156, 191.238.68.11, 40.74.96.6, 40.74.96.7    |
 | Coreia Central | 52.231.32.42   |
 | Sul da Coreia | 52.231.200.86    |

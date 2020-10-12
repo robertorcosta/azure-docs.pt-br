@@ -12,10 +12,10 @@ ms.date: 10/17/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
 ms.openlocfilehash: 24de1b2cfc5e0804039923f23b6a5cd9f6c6fb80
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88235684"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planejar uma implantação de provisionamento do usuário automática
@@ -26,7 +26,7 @@ O provisionamento automático de usuário do Azure Active Directory (AD do Azure
 
 Consulte [automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com Azure Active Directory](../app-provisioning/user-provisioning.md) para entender melhor a funcionalidade.
 
-## <a name="learn"></a>Learn
+## <a name="learn"></a>Saiba mais
 
 O provisionamento de usuário cria uma base para o controle de identidade contínuo e aprimora a qualidade dos processos de negócios que dependem de dados de identidade autoritativa.
 
@@ -69,7 +69,7 @@ Este artigo usa os seguintes termos:
 | Recursos| Link e descrição |
 | - | - |
 | Webinars sob demanda| [Gerenciar seus aplicativos empresariais com o Azure AD](https://info.microsoft.com/CO-AZUREPLAT-WBNR-FY18-03Mar-06-ManageYourEnterpriseApplicationsOption1-MCW0004438_02OnDemandRegistration-ForminBody.html)<br>Saiba como o Azure AD pode ajudá-lo a obter o SSO para seus aplicativos SaaS corporativos e as práticas recomendadas para controlar o acesso. |
-| Vídeos| [O que é o provisionamento de usuário no diretório ativo do Azure?](https://youtu.be/_ZjARPpI6NI) <br> [Como implantar o provisionamento de usuário no diretório ativo do Azure?](https://youtu.be/pKzyts6kfrw) <br> [Integrando o Salesforce ao Azure AD: como automatizar o provisionamento de usuários](https://azure.microsoft.com/resources/videos/integrating-salesforce-with-azure-ad-how-to-automate-user-provisioning/) |
+| vídeos| [O que é o provisionamento de usuário no diretório ativo do Azure?](https://youtu.be/_ZjARPpI6NI) <br> [Como implantar o provisionamento de usuário no diretório ativo do Azure?](https://youtu.be/pKzyts6kfrw) <br> [Integrando o Salesforce ao Azure AD: como automatizar o provisionamento de usuários](https://azure.microsoft.com/resources/videos/integrating-salesforce-with-azure-ad-how-to-automate-user-provisioning/) |
 | Cursos online| SkillUp online:  [Gerenciando identidades](https://skillup.online/courses/course-v1:Microsoft+AZ-100.5+2018_T3/about) <br> Saiba como integrar o Azure AD com muitos aplicativos SaaS e proteger o acesso do usuário a esses aplicativos. |
 | Manuais| [Autenticação moderna com Azure Active Directory para aplicativos Web (referência do desenvolvedor) 1ª edição](https://www.amazon.com/Authentication-Directory-Applications-Developer-Reference/dp/0735696942/ref=sr_1_fkmr0_1?keywords=Azure+multifactor+authentication&qid=1550168894&s=gateway&sr=8-1-fkmr0).  <br> Este é um guia autoritativo e aprofundado para a criação de soluções de autenticação Active Directory para esses novos ambientes. |
 | Tutoriais| Consulte a [lista de tutoriais sobre como integrar aplicativos SaaS com o Azure ad](../saas-apps/tutorial-list.md). |
@@ -83,7 +83,7 @@ O serviço de provisionamento do Azure AD provisiona usuários para aplicativos 
 
 Neste exemplo, os usuários e grupos são criados em um banco de dados de RH conectado a um diretório local. O serviço de provisionamento do Azure AD gerencia o provisionamento automático de usuário para os aplicativos SaaS de destino.
 
- ![provisionamento de usuário](./media/plan-auto-user-provisioning/hybridprovisioning.png)
+ ![provisionamento do usuário](./media/plan-auto-user-provisioning/hybridprovisioning.png)
 
 **Descrição do fluxo de trabalho:**
 
@@ -207,7 +207,7 @@ Para implementar o provisionamento automático de usuário, você precisa defini
 
 O Azure AD dá suporte ao mapeamento direto de atributo para atributo, fornecendo valores constantes ou [gravando expressões para mapeamentos de atributo](../app-provisioning/functions-for-customizing-application-data.md). Essa flexibilidade lhe dá um controle fino do que será populado no atributo do sistema de destino. Você pode usar [Microsoft Graph API](../app-provisioning/export-import-provisioning-configuration.md) e o explorador do Graph para exportar os mapeamentos e o esquema de atributo de provisionamento de usuário para um arquivo JSON e importá-los de volta para o Azure AD.
 
-Para obter mais informações, consulte [Personalizando o atributo de provisionamento de usuário-mapeamentos para aplicativos SaaS no Azure Active Directory](../app-provisioning/customize-application-attributes.md).
+Para obter mais informações, consulte [Personalizando o provisionamento de usuário Attribute-Mappings para aplicativos SaaS no Azure Active Directory](../app-provisioning/customize-application-attributes.md).
 
 ### <a name="special-considerations-for-user-provisioning"></a>Considerações especiais para provisionamento de usuário
 

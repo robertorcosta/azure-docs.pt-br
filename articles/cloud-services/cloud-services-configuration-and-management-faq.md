@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
 ms.openlocfilehash: 477f38e18f1bee881e4a9df23dd37048f39549be
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87092738"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de configuração e gerenciamento para Serviços de Nuvem do Azure: perguntas frequentes
@@ -55,7 +55,7 @@ Este artigo inclui perguntas frequentes sobre a configuração e o gerenciamento
 - [Os engenheiros internos da Microsoft podem tornar o desktop remoto para instâncias de serviço de nuvem sem permissão?](#can-microsoft-internal-engineers-remote-desktop-to-cloud-service-instances-without-permission)
 - [Não consigo a área de trabalho remota para a VM do serviço de nuvem usando o arquivo RDP. Obtenho o seguinte erro: ocorreu um erro de autenticação (código: 0x80004005)](#i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005)
 
-**Scaling**
+**Dimensionamento**
 
 - [Não consigo dimensionar além de X instâncias](#i-cannot-scale-beyond-x-instances)
 - [Como posso configurar o dimensionamento automático com base nas métricas de memória?](#how-can-i-configure-auto-scale-based-on-memory-metrics)
@@ -113,7 +113,7 @@ Você pode automatizar essa tarefa usando um script de inicialização (lote/cmd
 
 Este certificado é usado para encriptar chaves de máquina em Funções de Web do Azure. Para saber mais, confira [este comunicado](https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731).
 
-Para obter mais informações, confira os seguintes artigos:
+Para obter mais informações, consulte os seguintes artigos:
 - [Como configurar e executar tarefas de inicialização para um serviço de nuvem](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)
 - [Tarefas de inicialização comuns do Serviço de Nuvem](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks-common)
 

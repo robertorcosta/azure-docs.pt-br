@@ -9,10 +9,10 @@ ms.devlang: dotnet
 ms.topic: how-to
 ms.date: 07/16/2020
 ms.openlocfilehash: 84c2ad3a24d944db6a55f3f21e8a2a0c4084d033
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87096115"
 ---
 # <a name="create-alerts-for-azure-cosmos-db-using-azure-monitor"></a>Criar alertas para Azure Cosmos DB usando Azure Monitor
@@ -83,7 +83,7 @@ Esta seção mostra como criar um alerta quando você recebe um código de statu
 
    * Forneça um nome para a ação e selecione **email/mensagem SMS/Push/voz** como o **tipo de ação**. A captura de tela a seguir mostra os detalhes do tipo de ação:
 
-     :::image type="content" source="./media/create-alerts/configure-alert-action-type.png" alt-text="Configurar o tipo de ação, como notificação por email, para receber o alerta":::
+     :::image type="content" source="./media/create-alerts/configure-alert-action-type.png" alt-text="Configurar a lógica para receber alertas para solicitações de taxa limitada/429":::
 
 1. Preencha a seção **detalhes da regra de alerta** :
 

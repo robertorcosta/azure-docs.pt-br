@@ -7,10 +7,10 @@ ms.date: 02/24/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
 ms.openlocfilehash: 6a75b0c5b30f60afe51eebc395d21b7c05e8af7f
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88212764"
 ---
 # <a name="azure-cosmos-db-output-binding-for-azure-functions-2x-and-higher"></a>Azure Cosmos DB Associação de saída para Azure Functions 2. x e superior
@@ -569,7 +569,7 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 |**tipo**     | n/d | Deve ser definido como `cosmosDB`.        |
 |**direction**     | n/d | Deve ser definido como `out`.         |
 |**name**     | n/d | Nome do parâmetro de associação que representa o documento na função.  |
-|**NomeDoBancoDeDados** | **DatabaseName**|O banco de dados que contém a coleção na qual o documento será criado.     |
+|**databaseName** | **DatabaseName**|O banco de dados que contém a coleção na qual o documento será criado.     |
 |**collectionName** |**CollectionName**  | O nome da coleção na qual o documento será criado. |
 |**createIfNotExists**  |**CreateIfNotExists**    | É um valor booliano para indicar se a coleção será criada quando não existir. O padrão é *false* porque as novas coleções são criadas com a taxa de transferência reservada, o que tem implicações de preço. Para saber mais, confira a [página de preço](https://azure.microsoft.com/pricing/details/cosmos-db/).  |
 |**partitionKey**|**PartitionKey** |Quando `CreateIfNotExists` é verdadeiro, ele define o caminho de chave de partição para a coleção criada.|
@@ -618,7 +618,7 @@ Esta seção descreve as definições de configuração globais disponíveis par
 |---------|---------|---------|
 |GatewayMode|Gateway|O modo de conexão usado pela função ao se conectar ao serviço do Azure Cosmos DB. As opções são `Direct` e `Gateway`|
 |Protocolo|Https|O protocolo de conexão usado pela função ao se conectar ao serviço do Azure Cosmos DB.  Leia [aqui para obter uma explicação de ambos os modos](../cosmos-db/performance-tips.md#networking)|
-|leasePrefix|N/D|Prefixo de concessão a ser usado em todas as funções em um aplicativo.|
+|leasePrefix|n/a|Prefixo de concessão a ser usado em todas as funções em um aplicativo.|
 
 ## <a name="next-steps"></a>Próximas etapas
 

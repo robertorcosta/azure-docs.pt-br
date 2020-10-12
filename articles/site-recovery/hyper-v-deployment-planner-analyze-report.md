@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/21/2019
 ms.author: mayg
 ms.openlocfilehash: b2bb351de292ff2015cdcbd388155063a86a7359
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88653572"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Analise o relatório do Planejador de Implantações do Azure Site Recovery
@@ -99,7 +99,7 @@ Para entender por que o espaço livre é necessário para a replicação, confir
 ### <a name="maximum-copy-frequency"></a>Frequência máxima de cópia
 A frequência máxima de cópia recomendada deve ser definida para que a replicação alcance o RPO desejado. O padrão é de cinco minutos. Você pode definir a frequência de cópia para 30 segundos a fim de alcançar um RPO melhor.
 
-### <a name="what-if-analysis"></a>Teste de hipóteses
+### <a name="what-if-analysis"></a>Análise de hipóteses
 ![Teste de hipóteses](media/hyper-v-deployment-planner-analyze-report/what-if-analysis-h2a.png) Essa análise descreve quantas violações poderiam ocorrer durante o período de criação de perfil quando você define uma largura de banda menor para que o RPO desejado seja atingido somente 90% do tempo. Uma ou mais violações de RPO podem ocorrer em qualquer dia. O grafo mostra o pico de RPO do dia. Com base nesta análise, você pode decidir se o número de violações de RPO em todos os dias e o pico de ocorrências de RPO por dia são aceitáveis com a menor largura de banda especificada. Se for aceitável, você poderá alocar menos largura de banda para replicação. Se for inaceitável, aloque maior largura de banda como sugerido para atender ao RPO desejado 100% do tempo. 
 
 ### <a name="recommendation-for-successful-initial-replication"></a>Recomendação para a replicação inicial com êxito

@@ -10,10 +10,10 @@ ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 51480a49aab2c1277eeb846c593fcb2bc858d1f0
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90983715"
 ---
 # <a name="about-virtual-hub-routing"></a>Sobre o roteamento de hub virtual
@@ -55,7 +55,7 @@ As conexões propagam dinamicamente as rotas para uma tabela de rotas. Com uma c
 
 Uma **tabela de rota None** também está disponível para cada Hub virtual. A propagação para a tabela de rotas None implica que nenhuma rota deve ser propagada da conexão. As conexões VPN, ExpressRoute e VPN de usuário propagam rotas para o mesmo conjunto de tabelas de rotas.
 
-:::image type="content" source="./media/about-virtual-hub-routing/concepts-propagation.png" alt-text="Propagação":::
+:::image type="content" source="./media/about-virtual-hub-routing/concepts-propagation.png" alt-text="Associação":::
 
 ### <a name="labels"></a><a name="static"></a>Rótulos
 Os rótulos fornecem um mecanismo para agrupar logicamente as tabelas de rotas. Isso é especialmente útil durante a propagação de rotas de conexões com várias tabelas de rotas. Por exemplo, a tabela de rotas padrão tem um rótulo interno chamado ' default '. Quando os usuários propagam rotas de conexão para o rótulo ' default ', ele se aplica automaticamente a todas as tabelas de rotas padrão em todos os hubs na WAN virtual. 

@@ -12,10 +12,10 @@ ms.date: 12/14/2017
 ms.author: swmachan
 ROBOTS: NOINDEX
 ms.openlocfilehash: 1fe370070aa97befb418d27def32725bf0a148b3
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83592671"
 ---
 # <a name="how-to-return-n-best-translations"></a>Como retornar traduções N-Best
@@ -34,12 +34,12 @@ A assinatura é:
 |:---|
 | GetTranslationsResponse Microsoft.Translator.GetTranslations(appId, text, from, to, maxTranslations, options); |
 
-**Parameters**
+**Parâmetros**
 
 | Parâmetro | Descrição |
 |:---|:---|
 | appId | **Obrigatório** Se o cabeçalho de Autorização for usado, deixe o campo appid vazio, caso contrário, especifique uma cadeia de caracteres contendo "token de portador" + " " + token de acesso.|
-| texto | **Necessário** Uma cadeia de caracteres que representa o texto a ser traduzido. O tamanho do texto não deve exceder dez mil caracteres.|
+| text | **Necessário** Uma cadeia de caracteres que representa o texto a ser traduzido. O tamanho do texto não deve exceder dez mil caracteres.|
 | de | **Necessário** Uma cadeia de caracteres que representa o código de idioma do texto a ser traduzido. |
 | para | **Necessário** Uma cadeia de caracteres que representa o código de idioma para o qual o texto será traduzido. |
 | maxTranslations | **Necessário** Um inteiro que representa o número máximo de traduções para retornar. |

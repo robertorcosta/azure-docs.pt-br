@@ -4,10 +4,10 @@ description: Saiba como integrar os Hubs de Eventos do Azure com o Serviço de L
 ms.date: 08/22/2020
 ms.topic: article
 ms.openlocfilehash: 59167635cfc0d8c1123a47410c87d6b9151f6f62
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91334235"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-via-private-endpoints"></a>Permitir acesso aos namespaces dos hubs de eventos do Azure por meio de pontos de extremidade privados 
@@ -26,7 +26,7 @@ Para obter mais informações, confira [O que é o Link Privado do Azure?](../pr
 >
 > - Rotas do Hub IoT do Azure
 > - Device Explorer do Azure IoT
-> - A Grade de Eventos do Azure
+> - Grade de Eventos do Azure
 > - Azure Monitor (configurações de diagnóstico)
 >
 > Como exceção, você pode permitir o acesso a recursos de hubs de eventos de determinados serviços confiáveis, mesmo quando os pontos de extremidade privados estiverem habilitados. Para obter uma lista de serviços confiáveis, consulte [serviços confiáveis](#trusted-microsoft-services).
@@ -64,7 +64,7 @@ Se você já tem um namespace do Hubs de Eventos, crie uma conexão de link priv
 1. Selecione a guia **Conexões de ponto de extremidade privado** na parte superior da página. 
 1. Selecione o botão **+ Ponto de Extremidade Privado**, na parte superior da página.
 
-    :::image type="content" source="./media/private-link-service/private-link-service-3.png" alt-text="Página rede – guia conexões de ponto de extremidade privado – adicionar link de ponto de extremidade privado":::
+    :::image type="content" source="./media/private-link-service/private-link-service-3.png" alt-text="Guia redes – opção redes selecionadas":::
 7. Na página **Básico**, siga estas etapas: 
     1. Selecione a **Assinatura do Azure** na qual você quer criar o ponto de extremidade privado. 
     2. Selecione o **grupo de recursos** para o recurso de ponto de extremidade privado.

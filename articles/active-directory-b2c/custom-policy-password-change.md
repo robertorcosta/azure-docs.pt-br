@@ -12,10 +12,10 @@ ms.date: 12/13/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 6faf9fb3d15709d3897db9a77bf14ebf238e8fbf
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87116362"
 ---
 # <a name="configure-password-change-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar a alteração da senha usando políticas personalizadas no Azure Active Directory B2C
@@ -156,7 +156,7 @@ Conclua as etapas em [Introdução às políticas personalizadas no Active Direc
 5. Copie o arquivo *ProfileEdit.xml* que você baixou com o pacote de início e nomeie-o *ProfileEditPasswordChange.xml*.
 6. Abra o novo arquivo e atualize o atributo **PolicyId** com um valor exclusivo. Esse valor é o nome da sua política. Por exemplo, *B2C_1A_profile_edit_password_change*.
 7. Modifique o atributo **ReferenceId** em `<DefaultUserJourney>` para corresponder à ID do novo percurso do usuário criado. Por exemplo, *PasswordChange*.
-8. Salve as alterações.
+8. Salve suas alterações.
 
 Você pode encontrar a política de exemplo [aqui](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/password-change).
 

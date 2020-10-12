@@ -1,5 +1,5 @@
 ---
-title: Conectores dos Aplicativos Lógicos do Azure
+title: Conectores de Aplicativos Lógicos do Azure
 description: Automatizar fluxos de trabalho com conectores para aplicativos lógicos do Azure, como o interno, gerenciado, local, conta de integração, ISE e conectores empresariais
 services: logic-apps
 ms.suite: integration
@@ -7,13 +7,13 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 06/11/2020
 ms.openlocfilehash: 23e6834f4850cc8f44f563a12f4704fec2e13ef7
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91400801"
 ---
-# <a name="connectors-for-azure-logic-apps"></a>Conectores dos Aplicativos Lógicos do Azure
+# <a name="connectors-for-azure-logic-apps"></a>Conectores de Aplicativos Lógicos do Azure
 
 Os conectores fornecem acesso rápido do Aplicativos Lógicos do Azure a eventos, dados e ações entre outros aplicativos, serviços, sistemas, protocolos e plataformas. Ao usar conectores em seus aplicativos lógicos, você expande os recursos para seus aplicativos na nuvem e locais para executar tarefas com os dados que você cria e já tem.
 
@@ -66,7 +66,7 @@ Para aplicativos lógicos que precisam de acesso direto a recursos em uma rede v
 > [!NOTE]
 > Os aplicativos lógicos que são executados em um ISE e seus conectores, independentemente de onde esses conectores são executados, seguem um plano de preços fixo versus o plano de preços baseado em consumo. Para obter mais informações, consulte [modelo de preços dos aplicativos lógicos](../logic-apps/logic-apps-pricing.md) e [detalhes de preços dos aplicativos lógicos](https://azure.microsoft.com/pricing/details/logic-apps/).
 
-| Rótulo | Exemplo | Descrição |
+| Label | Exemplo | Descrição |
 |-------|---------|-------------|
 | **CORE** | ![Conector principal de exemplo](./media/apis-list/example-core-connector.png) | Gatilhos e ações internos com esse rótulo são executados no mesmo ISE que seus aplicativos lógicos. |
 | **ISE** | ![Conector do ISE de exemplo](./media/apis-list/example-ise-connector.png) | Conectores gerenciados com esse rótulo são executados no mesmo ISE que seus aplicativos lógicos. Se você tiver um sistema local conectado a uma rede virtual do Azure, um ISE permitirá que seus aplicativos lógicos acessem diretamente esse sistema sem o [Gateway de dados local](../logic-apps/logic-apps-gateway-connection.md). Em vez disso, você pode usar o conector do **ISE** do sistema, se disponível, uma ação http ou um [conector personalizado](#custom). Para sistemas locais que não têm conectores do **ISE** , use o gateway de dados local. Para examinar os conectores do ISE disponíveis, consulte [conectores do ISE](#ise-connectors). |

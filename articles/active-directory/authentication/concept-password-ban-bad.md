@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 68419c33286457a770a9988f1f00cc0b5e1f91bc
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88235291"
 ---
 # <a name="eliminate-bad-passwords-using-azure-active-directory-password-protection"></a>Eliminar senhas ruins usando Azure Active Directory proteção por senha
@@ -125,7 +125,7 @@ A normalização tem as duas partes a seguir:
    | $               | s                  |
    | \@              | um                  |
 
-Considere o exemplo a seguir:
+Considere o seguinte exemplo:
 
 * A senha "blank" é banida.
 * Um usuário tenta alterar sua senha para " Bl@nK ".
@@ -140,7 +140,7 @@ Uma senha é examinada para outro comportamento de correspondência e uma pontua
 
 Correspondência difusa é usada na senha normalizada para identificar se ela contém uma senha encontrada na lista de senhas banidas global ou personalizada. O processo de correspondência baseia-se em uma distância de edição de comparação de um (1).
 
-Considere o exemplo a seguir:
+Considere o seguinte exemplo:
 
 * A senha "abcdef" é banida.
 * Um usuário tenta alterar sua senha para um dos seguintes:
@@ -161,7 +161,7 @@ A correspondência de subcadeia de caracteres é usada na senha normalizada para
 > [!IMPORTANT]
 > A correspondência de subcadeia de caracteres é imposta somente para nomes e outros termos, que têm pelo menos quatro caracteres de comprimento.
 
-Considere o exemplo a seguir:
+Considere o seguinte exemplo:
 
 * Um usuário chamado Poll que deseja redefinir sua senha para "p0LL23fb".
 * Após a normalização, essa senha se tornaria "poll23fb".

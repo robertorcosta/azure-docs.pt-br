@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: aahi
 ms.openlocfilehash: 3cd6febfc774b214a8c1ae8553e6c127c4f452fa
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91319071"
 ---
 # <a name="batch-processing-kit-for-speech-containers"></a>Kit de processamento em lote para contêineres de fala
@@ -118,7 +118,7 @@ O kit de processamento em lote oferece três modos, usando o `--run-mode` parâm
 
 `ONESHOT` o modo transcreve um único lote de arquivos de áudio (de um diretório de entrada e uma lista de arquivos opcionais) para uma pasta de saída.
 
-:::image type="content" source="media/containers/batch-oneshot-mode.png" alt-text="Um diagrama que mostra o contêiner do kit do lote Processando arquivos no modo oneshot.":::
+:::image type="content" source="media/containers/batch-oneshot-mode.png" alt-text="Um diagrama mostrando um exemplo de fluxo de trabalho de contêiner do kit de lote.":::
 
 1. Defina os pontos de extremidade do contêiner de fala que serão usados pelo cliente do lote no `config.yaml` arquivo. 
 2. Coloque os arquivos de áudio para transcrição em um diretório de entrada.  
@@ -133,7 +133,7 @@ O kit de processamento em lote oferece três modos, usando o `--run-mode` parâm
 
 `DAEMON` o modo transcreve os arquivos existentes em uma determinada pasta e, continuamente, transcreve novos arquivos de áudio à medida que eles são adicionados.          
 
-:::image type="content" source="media/containers/batch-daemon-mode.png" alt-text="Um diagrama que mostra o contêiner do kit do lote Processando arquivos no modo daemon.":::
+:::image type="content" source="media/containers/batch-daemon-mode.png" alt-text="Um diagrama mostrando um exemplo de fluxo de trabalho de contêiner do kit de lote.":::
 
 1. Defina os pontos de extremidade do contêiner de fala que serão usados pelo cliente do lote no `config.yaml` arquivo. 
 2. Invocar o contêiner em um diretório de entrada. O cliente do lote começará a monitorar o diretório em busca de arquivos de entrada. 
@@ -146,7 +146,7 @@ O kit de processamento em lote oferece três modos, usando o `--run-mode` parâm
 
 `REST` Mode é um modo de servidor de API que fornece um conjunto básico de pontos de extremidade HTTP para envio de lote de arquivos de áudio, verificação de status e sondagem longa. Também habilita o consumo programático usando uma extensão de módulo python ou a importação como um submódulo.
 
-:::image type="content" source="media/containers/batch-rest-api-mode.png" alt-text="Um diagrama que mostra o contêiner do kit do lote Processando arquivos no modo daemon.":::
+:::image type="content" source="media/containers/batch-rest-api-mode.png" alt-text="Um diagrama mostrando um exemplo de fluxo de trabalho de contêiner do kit de lote.":::
 
 1. Defina os pontos de extremidade do contêiner de fala que serão usados pelo cliente do lote no `config.yaml` arquivo. 
 2. Envie uma solicitação de solicitação HTTP para um dos pontos de extremidade do servidor de API. 
@@ -163,7 +163,7 @@ O kit de processamento em lote oferece três modos, usando o `--run-mode` parâm
 
 ---
 
-## <a name="logging"></a>Registro em log
+## <a name="logging"></a>Registrando em log
 
 > [!NOTE]
 > O cliente do lote pode substituir o arquivo *Run. log* periodicamente se ele ficar muito grande.

@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: damendo
 ms.openlocfilehash: 62f4a06ec729d896dc11a290bc7a5ccc7c321683
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90984051"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Gerenciar e analisar os logs de fluxo do grupo de segurança de rede no Azure usando o Observador de Rede e o Graylog
@@ -212,7 +212,7 @@ Por padrão, todos os campos de mensagem são incluídos na pesquisa se você n�
 
 Agora que o Graylog está configurado e em execução, você pode usar algumas das suas funcionalidades para entender melhor os dados de log do fluxo. Um modo é usar os painéis para criar exibições específicas de seus dados.
 
-### <a name="create-a-dashboard"></a>Criar um painel
+### <a name="create-a-dashboard"></a>Criar um dashboard
 
 1. Na barra de navegação superior, selecione **Painéis** ou navegue até `http://<graylog-server-ip>:9000/dashboards/`
 

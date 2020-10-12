@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/27/2020
 ms.author: azfuncdf
 ms.openlocfilehash: 01c400f51cce85ef39e9d39bcad1221253c6942d
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89071203"
 ---
 # <a name="disaster-recovery-and-geo-distribution-in-azure-durable-functions"></a>Recuperação de desastre e distribuição geográfica no Azure Durable Functions
@@ -20,7 +20,7 @@ Em Durable Functions, todos os Estados são persistidos no armazenamento do Azur
 
 Orquestrações e entidades podem ser disparadas usando [funções de cliente](durable-functions-types-features-overview.md#client-functions) que são disparadas via http ou um dos outros tipos de gatilho de Azure Functions com suporte. Eles também podem ser disparados usando [APIs http internas](durable-functions-http-features.md#built-in-http-apis). Para simplificar, este artigo se concentrará em cenários que envolvem o armazenamento do Azure e gatilhos de função baseados em HTTP e opções para aumentar a disponibilidade e minimizar o tempo de inatividade durante as atividades de recuperação de desastre Outros tipos de gatilho, como o barramento de serviço ou gatilhos de Cosmos DB, não serão explicitamente cobertos.
 
-Os cenários a seguir se baseiam em configurações ativas/passivas, pois são guiados pelo uso do armazenamento do Azure. Esse padrão consiste em implantar um aplicativo de função (passivo) de backup em uma região diferente. O Gerenciador de tráfego monitorará o aplicativo de funções primário (ativo) para disponibilidade de HTTP. Ele fará failover para o aplicativo de função de backup se o principal falhar. Para obter mais informações, consulte [método de roteamento de tráfego de prioridade](../../traffic-manager/traffic-manager-routing-methods.md#priority-traffic-routing-method) do [Gerenciador de tráfego do Azure](https://azure.microsoft.com/services/traffic-manager/).
+Os cenários a seguir se baseiam em configurações de Active-Passive, já que elas são guiadas pelo uso do armazenamento do Azure. Esse padrão consiste em implantar um aplicativo de função (passivo) de backup em uma região diferente. O Gerenciador de tráfego monitorará o aplicativo de funções primário (ativo) para disponibilidade de HTTP. Ele fará failover para o aplicativo de função de backup se o principal falhar. Para obter mais informações, consulte o método de [Traffic-Routing de prioridade](../../traffic-manager/traffic-manager-routing-methods.md#priority-traffic-routing-method) do [Gerenciador de tráfego do Azure](https://azure.microsoft.com/services/traffic-manager/).
 
 > [!NOTE]
 > - A configuração ativa-passiva proposta garante que um cliente sempre possa disparar novas orquestrações por meio de HTTP. No entanto, como consequência de ter dois aplicativos de função compartilhando o mesmo Hub de tarefas no armazenamento, algumas transações de armazenamento em segundo plano serão distribuídas entre ambos. Portanto, essa configuração incorre em alguns custos de saída adicionais para o aplicativo de funções secundário.

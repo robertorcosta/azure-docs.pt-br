@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
 ms.openlocfilehash: 3747033fcaf65e0c6da07e9f1bb625771958bb4f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91319054"
 ---
 # <a name="create-a-custom-voice"></a>Criar uma Voz Personalizada
@@ -46,7 +46,7 @@ A tabela a seguir mostra os estados de processamento dos conjuntos de dados impo
 
 | Estado | Significado |
 | ----- | ------- |
-| Processando | Seu conjunto de seus foi recebido e está sendo processado. |
+| Processing | Seu conjunto de seus foi recebido e está sendo processado. |
 | Êxito | Seu conjunto de um foi validado e agora pode ser usado para criar um modelo de voz. |
 | Failed (Falha) | O conjunto de dados falhou durante o processamento devido a vários motivos, por exemplo, erros de arquivo, problemas de dados ou problemas de rede. |
 
@@ -88,7 +88,7 @@ O status mostrado reflete o processo de conversão do conjunto de seus conjuntos
 
 | Estado | Significado |
 | ----- | ------- |
-| Processando | Seu modelo de voz está sendo criado. |
+| Processing | Seu modelo de voz está sendo criado. |
 | Êxito | Seu modelo de voz foi criado e pode ser implantado. |
 | Failed (Falha) | O seu modelo de voz falhou no treinamento devido a vários motivos, por exemplo, problemas de dados ou problemas de rede não vistos. |
 

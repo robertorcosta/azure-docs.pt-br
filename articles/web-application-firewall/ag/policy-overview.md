@@ -8,10 +8,10 @@ ms.service: web-application-firewall
 ms.date: 02/01/2020
 ms.author: victorh
 ms.openlocfilehash: 10a90a7f94633fac52086953697eb90a98d9509d
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86143834"
 ---
 # <a name="azure-web-application-firewall-waf-policy-overview"></a>Visão geral da política do firewall do aplicativo Web do Azure (WAF)
@@ -33,9 +33,9 @@ Se desejar que uma única política se aplique a todos os sites, você poderá a
 
 ## <a name="per-site-waf-policy"></a>Política de WAF por site
 
-Com as políticas de WAF por site, você pode proteger vários sites com diferentes necessidades de segurança por trás de um único WAF usando políticas por site. Por exemplo, se houver cinco sites por trás de seu WAF, você poderá ter cinco políticas WAF separadas (uma para cada ouvinte) para personalizar as exclusões, regras personalizadas, conjuntos de regras gerenciadas e todas as outras configurações de WAF para cada site.
+Com as políticas de WAF por site, você pode proteger vários sites com diferentes necessidades de segurança por trás de um único WAF usando as políticas por site. Por exemplo, se houver cinco sites por trás de seu WAF, você poderá ter cinco políticas WAF separadas (uma para cada ouvinte) para personalizar as exclusões, as regras personalizadas, os conjuntos de regras gerenciadas e todas as outras configurações de WAF para cada site.
 
-Digamos que o seu gateway de aplicativo tenha uma política global aplicada a ele. Em seguida, aplique uma política diferente a um ouvinte nesse gateway de aplicativo. A política do ouvinte agora entra em vigor apenas para esse ouvinte. A política global do gateway de aplicativo ainda se aplica a todos os outros ouvintes e regras baseadas em caminho que não têm uma política específica atribuída a eles.
+Digamos que o seu gateway de aplicativo tenha uma política global aplicada a ele. Em seguida, aplique uma política diferente a um ouvinte nesse gateway de aplicativo. A política do ouvinte agora entra em vigor apenas para esse ouvinte. A política global do gateway de aplicativo ainda se aplica a todos os outros ouvintes e a todas as outras regras baseadas em caminho que não têm uma política específica atribuída a eles.
 
 ## <a name="per-uri-policy"></a>Política por URI
 

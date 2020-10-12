@@ -6,10 +6,10 @@ ms.topic: conceptual
 description: Saiba como Visual Studio Code e Azure Dev Spaces ajudá-lo a depurar e iterar rapidamente seus aplicativos kubernetes
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres
 ms.openlocfilehash: decf61bd55ed15182f030bb02a2fe9c959749556
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88209880"
 ---
 # <a name="how-visual-studio-code-works-with-azure-dev-spaces"></a>Como Visual Studio Code funciona com Azure Dev Spaces
@@ -45,7 +45,7 @@ Depois de iniciar o projeto, você pode depurar os serviços Java, Node.js e .NE
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre como Azure Dev Spaces funciona.
+Saiba mais sobre como funciona o Azure Dev Spaces.
 
 > [!div class="nextstepaction"]
 > [Como o Azure Dev Spaces funciona](how-dev-spaces-works.md)

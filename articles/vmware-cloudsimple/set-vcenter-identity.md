@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: f6f3b10219775adb02d47a91da2573ea99f30ac0
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88212256"
 ---
 # <a name="set-up-vcenter-identity-sources-to-use-active-directory"></a>Configurar fontes de identidade do vCenter para usar Active Directory
@@ -45,9 +45,9 @@ Antes de [Adicionar uma fonte de identidade](#add-an-identity-source-on-vcenter)
 > [!IMPORTANT]
 > **Não há suporte para Active Directory (autenticação integrada do Windows).** Há suporte apenas para a opção Active Directory sobre LDAP como uma origem de identidade.
 
-## <a name="add-on-premises-active-directory-as-a-single-sign-on-identity-source"></a>Adicionar Active Directory local como uma fonte de identidade de logon único
+## <a name="add-on-premises-active-directory-as-a-single-sign-on-identity-source"></a>Adicionar Active Directory local como uma única fonte de identidade de Sign-On
 
-Para configurar seu Active Directory local como uma fonte de identidade de logon único, você precisa:
+Para configurar seu Active Directory local como uma única fonte de identidade de Sign-On, você precisa:
 
 * [Conexão VPN site a site](vpn-gateway.md#set-up-a-site-to-site-vpn-gateway) do seu datacenter local para sua nuvem privada.
 * IP do servidor DNS local adicionado ao vCenter e ao PSC (controlador de serviços de plataforma).
@@ -67,10 +67,10 @@ Use as informações na tabela a seguir ao configurar seu domínio de Active Dir
 | **Nome de usuário** | ID de um usuário no domínio que tem um mínimo de acesso somente leitura ao DN base para usuários e grupos. |
 | **Senha** | Senha do usuário que é especificada pelo nome de usuário. |
 
-Quando tiver as informações na tabela anterior, você poderá adicionar seu Active Directory local como uma fonte de identidade de logon único no vCenter.
+Quando tiver as informações na tabela anterior, você poderá adicionar seu Active Directory local como uma única fonte de identidade de Sign-On no vCenter.
 
 > [!TIP]
-> Você encontrará mais informações sobre as fontes de identidade de logon único na [página de documentação do VMware](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.psc.doc/GUID-B23B1360-8838-4FF2-B074-71643C4CB040.html).
+> Você encontrará mais informações sobre fontes de identidade de Sign-On único na [página de documentação do VMware](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.psc.doc/GUID-B23B1360-8838-4FF2-B074-71643C4CB040.html).
 
 ## <a name="set-up-new-active-directory-on-a-private-cloud"></a>Configurar novos Active Directory em uma nuvem privada
 
@@ -103,9 +103,9 @@ Depois de configurar o domínio de Active Directory, você pode [Adicionar uma f
 
 ## <a name="set-up-active-directory-on-azure"></a>Configurar Active Directory no Azure
 
-Active Directory em execução no Azure é semelhante a Active Directory em execução no local.  Para configurar Active Directory em execução no Azure como uma fonte de identidade de logon único no vCenter, o servidor vCenter e o PSC devem ter conectividade de rede com a rede virtual do Azure em que Active Directory serviços estão em execução.  Você pode estabelecer essa conectividade usando a [conexão de rede virtual do Azure usando o ExpressRoute](azure-expressroute-connection.md) da rede virtual do Azure onde os serviços Active Directory estão sendo executados para a nuvem privada do CloudSimple.
+Active Directory em execução no Azure é semelhante a Active Directory em execução no local.  Para configurar Active Directory em execução no Azure como uma única fonte de identidade de Sign-On no vCenter, o servidor vCenter e o PSC devem ter conectividade de rede com a rede virtual do Azure em que os serviços Active Directory estão em execução.  Você pode estabelecer essa conectividade usando a [conexão de rede virtual do Azure usando o ExpressRoute](azure-expressroute-connection.md) da rede virtual do Azure onde os serviços Active Directory estão sendo executados para a nuvem privada do CloudSimple.
 
-Depois que a conexão de rede for estabelecida, siga as etapas em [adicionar Active Directory local como uma origem de identidade de logon único](#add-on-premises-active-directory-as-a-single-sign-on-identity-source) para adicioná-la como uma fonte de identidade.  
+Depois que a conexão de rede for estabelecida, siga as etapas em [adicionar Active Directory local como uma única fonte de identidade de Sign-On](#add-on-premises-active-directory-as-a-single-sign-on-identity-source) para adicioná-la como uma fonte de identidade.  
 
 ## <a name="add-an-identity-source-on-vcenter"></a>Adicionar uma fonte de identidade no vCenter
 

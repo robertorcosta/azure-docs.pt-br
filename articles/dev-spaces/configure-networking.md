@@ -6,10 +6,10 @@ ms.topic: conceptual
 description: Descreve os requisitos de rede para executar o Azure Dev Spaces nos serviços Kubernetess do Azure
 keywords: Azure Dev Spaces, espaços de desenvolvimento, Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, CNI, kubenet, SDN, rede
 ms.openlocfilehash: 0d9ebbec3e3c07a466acb58e88b67e6a32a20edb
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88214176"
 ---
 # <a name="configure-networking-for-azure-dev-spaces-in-different-network-topologies"></a>Configurar a rede para Azure Dev Spaces em topologias de rede diferentes
@@ -87,7 +87,7 @@ Azure Dev Spaces usa ferramentas do lado do cliente, como a extensão da CLI do 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre como Azure Dev Spaces funciona.
+Saiba mais sobre como funciona o Azure Dev Spaces.
 
 > [!div class="nextstepaction"]
 > [Como o Azure Dev Spaces funciona](how-dev-spaces-works.md)

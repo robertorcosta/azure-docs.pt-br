@@ -7,10 +7,10 @@ ms.author: regutier
 ms.date: 04/14/2020
 ms.reviewer: mbullwin
 ms.openlocfilehash: 719f0cfa0a1f80568acf3231ce3ffab441e5f6b7
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87117384"
 ---
 # <a name="configure-bring-your-own-storage-byos-for-application-insights-profiler-and-snapshot-debugger"></a>Configure o BYOS (Traga seu próprio armazenamento) para Application Insights Profiler e Depurador de Instantâneos
@@ -23,7 +23,7 @@ Com o traga seu próprio armazenamento, esses artefatos são carregados em uma c
 > [!NOTE]
 > Se você estiver habilitando o link privado, traga seu próprio armazenamento é um requisito. Para obter mais informações sobre o link privado para Application Insights, [consulte a documentação.](../platform/private-link-security.md)
 >
-> Se você estiver habilitando chaves gerenciadas pelo cliente, traga seu próprio armazenamento é um requisito. Para obter mais informações sobre chaves gerenciadas pelo cliente para Application Insights, [consulte a documentação.](../platform/customer-managed-keys.md)
+> Se você estiver habilitando Customer-Managed chaves, traga seu próprio armazenamento é um requisito. Para obter mais informações sobre Customer-Managed chaves para Application Insights, [consulte a documentação.](../platform/customer-managed-keys.md)
 
 ## <a name="how-will-my-storage-account-be-accessed"></a>Como minha conta de armazenamento será acessada?
 1. Os agentes em execução em suas máquinas virtuais ou no serviço de aplicativo carregarão artefatos (perfis, instantâneos e símbolos) para contêineres de BLOB em sua conta. Esse processo envolve entrar em contato com o serviço de Application Insights Profiler ou Depurador de Instantâneos para obter um token SAS (assinatura de acesso compartilhado) para um novo BLOB em sua conta de armazenamento.
@@ -231,7 +231,7 @@ Para configurar o BYOS para diagnósticos de nível de código (criador de perfi
 
 ## <a name="troubleshooting"></a>Solução de problemas
 ### <a name="template-schema-schema_uri-isnt-supported"></a>Não há suporte para o esquema de modelo ' {schema_uri} '.
-* Verifique se a `$schema` Propriedade do modelo é válida. Ele deve seguir o seguinte padrão:`https://schema.management.azure.com/schemas/{schema_version}/deploymentTemplate.json#`
+* Verifique se a `$schema` Propriedade do modelo é válida. Ele deve seguir o seguinte padrão: `https://schema.management.azure.com/schemas/{schema_version}/deploymentTemplate.json#`
 * Verifique se o `schema_version` do modelo está dentro dos valores válidos: `2014-04-01-preview, 2015-01-01, 2018-05-01, 2019-04-01, 2019-08-01` .
     Mensagem de erro:
     ```powershell
@@ -276,17 +276,17 @@ Para solucionar problemas gerais do criador de perfil, consulte a [documentaçã
 
 Para obter uma solução de problemas de Depurador de Instantâneos geral, consulte a [documentação de solução de problemas do depurador de instantâneos](snapshot-debugger-troubleshoot.md). 
 
-## <a name="faqs"></a>Perguntas Frequentes
+## <a name="faqs"></a>Perguntas frequentes
 * Se eu tiver o criador de perfil ou o instantâneo habilitado e, em seguida, eu habilitar o BYOS, meus dados serão migrados para minha conta de armazenamento?
     _Não, não vai._
 
-* BYOS trabalhará com criptografia em repouso e chave gerenciada pelo cliente?
-    _Sim, para ser preciso, o BYOS é um requisito para ter o criador de perfil/depurador habilitado com as chaves do gerente do cliente._
+* O BYOS funcionará com a criptografia em repouso e a chave Customer-Managed?
+    _Sim, para ser preciso, BYOS é um requisito para ter o criador de perfil/depurador habilitado com chaves de Customer-Manager._
 
 * O BYOS funcionará em um ambiente isolado da Internet?
     _Ok. Na verdade, o BYOS é um requisito para cenários de rede isolada._
 
-* O BYOS funcionará quando as chaves gerenciadas pelo cliente e o link privado estiverem habilitados? 
+* O BYOS funcionará quando, Customer-Managed chaves e o link privado estiverem habilitados? 
     _Sim, pode ser possível._
 
 * Se eu tiver habilitado BYOS, posso voltar a usar as contas de armazenamento de serviços de diagnóstico para armazenar meus dados coletados? 
