@@ -13,10 +13,10 @@ ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 04/16/2019
 ms.openlocfilehash: 208793d3ba8c3463abe892b368beb41d4b79f214
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91617444"
 ---
 # <a name="azure-sql-managed-instance-content-reference"></a>Referência de conteúdo do Azure SQL Instância Gerenciada
@@ -67,7 +67,7 @@ Neste artigo, você pode encontrar uma referência de conteúdo para vários gui
 - [Usar Repositório de Consultas para monitorar o desempenho](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store#Insight)
 - [Solucionar problemas de desempenho com o Intelligent Insights](../database/intelligent-insights-troubleshoot-performance.md)
 - [Usar o log de diagnóstico Intelligent Insights](../database/intelligent-insights-use-diagnostics-log.md)
-- [Monitorar o espaço OLTP na memória](../in-memory-oltp-monitor-space.md)
+- [Monitorar In-Memory espaço OLTP](../in-memory-oltp-monitor-space.md)
 
 ### <a name="extended-events"></a>Eventos estendidos
 
@@ -79,7 +79,7 @@ Neste artigo, você pode encontrar uma referência de conteúdo para vários gui
 
 - [Criar alertas na instância gerenciada](alerts-create.md)
 
-## <a name="operations"></a>Operations
+## <a name="operations"></a>Operações
 
 - [Failover manual iniciado pelo usuário no SQL Instância Gerenciada](user-initiated-failover.md)
 

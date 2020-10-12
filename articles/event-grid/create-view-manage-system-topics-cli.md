@@ -4,10 +4,10 @@ description: Este artigo mostra como usar CLI do Azure para criar, exibir e excl
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 354afb89b145e288f525e40ad700e8f8a67c6dad
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86115036"
 ---
 # <a name="create-view-and-manage-event-grid-system-topics-using-azure-cli"></a>Criar, exibir e gerenciar tópicos do sistema de grade de eventos usando CLI do Azure
@@ -18,14 +18,14 @@ Para Azure CLI, é necessária a [extensão da Grade de Eventos](/cli/azure/azur
 
 Em Cloud Shell:
 
-- Se você instalou a extensão anteriormente, atualize-a:`az extension update -n eventgrid`
-- Se você ainda não instalou a extensão, instale-a:`az extension add -n eventgrid`
+- Se você instalou a extensão anteriormente, atualize-a: `az extension update -n eventgrid`
+- Se você ainda não instalou a extensão, instale-a:  `az extension add -n eventgrid`
 
 Para uma instalação local:
 
 1. [Instale a CLI do Azure](/cli/azure/install-azure-cli). Certifique-se de você tem a versão mais recente, verificando com o `az --version`.
-2. Desinstalar versões anteriores da extensão:`az extension remove -n eventgrid`
-3. Instalar a extensão eventgrid com`az extension add -n eventgrid`
+2. Desinstalar versões anteriores da extensão: `az extension remove -n eventgrid`
+3. Instalar a extensão eventgrid com `az extension add -n eventgrid`
 
 ## <a name="create-a-system-topic"></a>Criar um tópico do sistema
 
@@ -60,7 +60,7 @@ Para uma instalação local:
             -g rg1 --system-topic-name <SYSTEM TOPIC NAME> \
             --endpoint <ENDPOINT URL>         
         ```
-- Para criar um tópico do sistema (implicitamente) ao criar uma assinatura de evento para uma origem do Azure, use o método [AZ eventgrid Event-Subscription Create](/cli/azure/ext/eventgrid/eventgrid/event-subscription?view=azure-cli-latest#ext-eventgrid-az-eventgrid-event-subscription-create) . Aqui está um exemplo:
+- Para criar um tópico do sistema (implicitamente) ao criar uma assinatura de evento para uma origem do Azure, use o método [AZ eventgrid Event-Subscription Create](/cli/azure/ext/eventgrid/eventgrid/event-subscription?view=azure-cli-latest#ext-eventgrid-az-eventgrid-event-subscription-create) . Este é um exemplo:
     
     ```azurecli-interactive
     storageid=$(az storage account show --name <AZURE STORAGE ACCOUNT NAME> --resource-group <AZURE RESOURCE GROUP NAME> --query id --output tsv)

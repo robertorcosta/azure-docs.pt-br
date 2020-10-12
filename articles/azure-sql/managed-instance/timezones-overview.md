@@ -12,10 +12,10 @@ ms.author: mlandzic
 ms.reviewer: ''
 ms.date: 05/25/2020
 ms.openlocfilehash: fc1532fab23ec520722ea71d814496e786b91651
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91617887"
 ---
 # <a name="time-zones-in-azure-sql-managed-instance"></a>Fusos horários no Azure SQL Instância Gerenciada
@@ -34,7 +34,7 @@ Um conjunto de fusos horários com suporte é herdado do sistema operacional sub
 
 A [política de horário de verão e alterações de fuso horário](https://aka.ms/time) garante a precisão histórica de 2010 para frente.
 
-Uma lista com nomes dos fusos horários com suporte é exposta por meio da exibição do sistema [Sys. time_zone_info](/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql) .
+Uma lista com nomes dos fusos horários com suporte é exposta por meio da exibição do sistema [Sys.time_zone_info](/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql) .
 
 ## <a name="set-a-time-zone"></a>Definir um fuso horário
 
@@ -144,7 +144,7 @@ Usar o mesmo fuso horário em uma instância primária e secundária em um grupo
 | Horário padrão de Saint Pierre | (UTC-03:00) São Pedro e Miquelon |
 | Hora padrão de Bahia | (UTC-03:00) Salvador |
 | UTC-02 | (UTC-02:00) Tempo universal coordenado-02 |
-| Horário padrão do Atlântico Médio | (UTC-02:00) Meados do Atlântico-antigo |
+| Mid-Atlantic hora padrão | (UTC-02:00) Mid-Atlantic-antigo |
 | Hora padrão de Açores | (UTC-01:00) Açore |
 | Hora oficial do cabo verde | (UTC-01:00) Ilha de cabo verde |
 | UTC | (UTC) Tempo Universal Coordenado |
@@ -199,7 +199,7 @@ Usar o mesmo fuso horário em uma instância primária e secundária em um grupo
 | Hora padrão de Omsk | (UTC + 06:00) Omsk |
 | Hora oficial de Myanmar | (UTC + 06:30) Yangon (Rangoon) |
 | Hora padrão do Sudeste Asiático | (UTC + 07:00) Bancoc, Hanói, Jacarta |
-| Hora padrão de Altai | (UTC + 07:00) Barnaul, Gorno-Altaisk |
+| Hora padrão de Altai | (UTC + 07:00) Barnaul, Gorno-Altaysk |
 | W. Hora padrão da Mongólia | (UTC + 07:00) Hovd |
 | Hora oficial do norte da Ásia | (UTC + 07:00) Krasnoyarsk |
 | N. Hora oficial da Ásia Central | (UTC + 07:00) Novosibirsk |
@@ -246,4 +246,4 @@ Usar o mesmo fuso horário em uma instância primária e secundária em um grupo
 - [CURRENT_TIMEZONE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql)
 - [CURRENT_TIMEZONE_ID (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-id-transact-sql)
 - [AT TIME ZONE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone-transact-sql)
-- [sys. time_zone_info (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql)
+- [sys.time_zone_info (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql)

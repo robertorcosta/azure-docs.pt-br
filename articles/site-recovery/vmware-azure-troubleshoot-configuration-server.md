@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
 ms.openlocfilehash: b60a53b05c0d2c80c36c94e27e4d00952b5af954
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86113064"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Solucionar problemas do servidor de configuração
@@ -97,7 +97,7 @@ Execute o comando a seguir no computador de origem:
   UnifiedAgentConfigurator.exe  /CSEndPoint <configuration server IP address> /PassphraseFilePath <passphrase file path>
 ```
 
-Configuração | Detalhes
+Setting | Detalhes
 --- | ---
 Uso | UnifiedAgentConfigurator.exe  /CSEndPoint <endereço IP do servidor de configuração\> /PassphraseFilePath <caminho do arquivo de frase secreta\>
 Logs de configuração do agente | Localizado em %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log.
@@ -112,7 +112,7 @@ Execute o comando a seguir no computador de origem:
   /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <configuration server IP address> -P /var/passphrase.txt
   ```
 
-Configuração | Detalhes
+Setting | Detalhes
 --- | ---
 Uso | cd /usr/local/ASR/Vx/bin<br /><br /> UnifiedAgentConfigurator.sh -i <endereço IP do servidor de configuração\> -P <caminho do arquivo de frase secreta\>
 -i | Parâmetro obrigatório. Especifica o endereço de IP do servidor de configuração. Use qualquer endereço de IP válido.
@@ -175,7 +175,7 @@ Para identificar o problema, navegue até C:\ProgramData\ASRSetupLogs\CX_TP_Inst
 2018-06-28 14:38:12.971   Upgrade has failed.
 ```
 
-Como resolver o problema:
+Para resolver o problema:
 
 Interrompa manualmente os seguintes serviços:
 
@@ -220,7 +220,7 @@ Se você encontrar rastreamentos semelhantes aos seguintes nos logs do agente de
  
 Esse erro pode ser encontrado quando outros aplicativos também estão usando a porta 443 ou devido a uma configuração de firewall que bloqueia a porta.
 
-Como resolver o problema:
+Para resolver o problema:
 
 - Verifique se a porta 443 não está bloqueada pelo firewall.
 - Se a porta estiver inacessível por estar sendo usada por outro aplicativo, pare e desinstale o aplicativo.
@@ -232,7 +232,7 @@ Como resolver o problema:
 
 Esse erro pode ocorrer quando há várias entradas UUID da instância do servidor de configuração (CS) no banco de dados. O problema geralmente ocorre quando você clona a máquina virtual do servidor de configuração.
 
-Como resolver o problema:
+Para resolver o problema:
 
 1. Remova a máquina virtual do CS obsoleto/antigo do vCenter. Para obter mais informações, confira [Remover servidores e desabilitar a proteção](site-recovery-manage-registration-and-protection.md).
 2. Entre na VM do servidor de configuração e conecte-se ao banco de dados svsdb1 do MySQL. 
@@ -255,7 +255,7 @@ Depois de inserir o nome de usuário e a senha corretos no OVF do servidor de co
 
 Esse problema pode ocorrer quando a hora do sistema está incorreta.
 
-Como resolver o problema:
+Para resolver o problema:
 
 Defina a hora correta no computador e tente entrar novamente. 
  

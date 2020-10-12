@@ -15,10 +15,10 @@ ms.date: 01/22/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 76b41e25a95f23b66edfbd4715037074537221f9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87076447"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Administradores da assinatura clássica do Azure
@@ -38,7 +38,7 @@ Este artigo descreve como adicionar ou alterar as funções Administrador de Ser
 
     Coadministradores somente podem ser atribuídos no escopo da assinatura.
 
-1. Clique em **IAM (Controle de Acesso)**.
+1. Clique em **Controle de acesso (IAM)** .
 
 1. Clique na guia **Administradores clássicos**.
 
@@ -52,7 +52,7 @@ Este artigo descreve como adicionar ou alterar as funções Administrador de Ser
 
     ![Captura de tela que adiciona o coadministrador](./media/classic-administrators/add-coadmin.png)
 
-## <a name="add-a-guest-user-as-a-co-administrator"></a>Adicionar um usuário convidado como um coadministrador
+## <a name="add-a-guest-user-as-a-co-administrator"></a>Adicionar um usuário convidado como um Co-Administrator
 
 Para adicionar um usuário convidado como um coadministrador, siga as mesmas etapas da seção [Adicionar um coadministrador](#add-a-co-administrator) anterior. O usuário convidado deve atender aos seguintes critérios:
 
@@ -62,7 +62,7 @@ Para obter mais informações, sobre como adicionar um usuário convidado ao seu
 
 ### <a name="differences-for-guest-users"></a>Diferenças para usuários convidados
 
-Os usuários convidados que receberam a função de coadministrador podem ver algumas diferenças em comparação com os usuários Membros com a função de coadministrador. Considere o cenário a seguir.
+Os usuários convidados aos quais foi atribuída a função Co-Administrator podem ver algumas diferenças em comparação com os usuários Membros com a função Co-Administrator. Considere o cenário a seguir.
 
 - O usuário A com uma conta do Azure AD (conta corporativa ou de estudante) é um administrador de serviço para uma assinatura do Azure.
 - O usuário B tem uma conta da Microsoft.
@@ -83,7 +83,7 @@ Para obter informações que comparam usuários Membros e usuários convidados, 
 
 1. Abra [Assinaturas](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) e selecione a assinatura.
 
-1. Clique em **IAM (Controle de Acesso)**.
+1. Clique em **Controle de acesso (IAM)** .
 
 1. Clique na guia **Administradores clássicos**.
 
