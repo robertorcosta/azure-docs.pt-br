@@ -1,7 +1,7 @@
 ---
-title: 'Árvore de decisão aumentada de duas classes: referência de módulo'
+title: 'Árvore de decisão aumentada Two-Class: referência de módulo'
 titleSuffix: Azure Machine Learning
-description: Saiba como usar o módulo árvore de decisão aumentada de duas classes no Azure Machine Learning para criar um modelo de aprendizado de máquina baseado no algoritmo árvores de decisão aumentada.
+description: Saiba como usar o módulo árvore de decisão ampliada Two-Class no Azure Machine Learning para criar um modelo de aprendizado de máquina baseado no algoritmo árvores de decisão aumentada.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,13 @@ author: likebupt
 ms.author: keli19
 ms.date: 08/24/2020
 ms.openlocfilehash: 833caa0cf264fb49d8b32255f429132cd888c6c0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90907740"
 ---
-# <a name="two-class-boosted-decision-tree-module"></a>Módulo de árvore de decisão aumentada de duas classes
+# <a name="two-class-boosted-decision-tree-module"></a>Módulo de árvore de decisão aumentada Two-Class
 
 Este artigo descreve um módulo no designer de Azure Machine Learning.
 

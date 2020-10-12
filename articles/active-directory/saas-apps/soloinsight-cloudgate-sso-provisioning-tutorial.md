@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: configurar o SSO do Soloinsight-CloudGate para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
-description: Saiba como configurar Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário para o SSO do Soloinsight-CloudGate.
+title: 'Tutorial: configurar o SSO Soloinsight-CloudGate para o provisionamento automático de usuário com Azure Active Directory | Microsoft Docs'
+description: Saiba como configurar Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário para Soloinsight-CloudGate SSO.
 services: active-directory
 author: zchia
 writer: zchia
@@ -12,15 +12,15 @@ ms.topic: article
 ms.date: 10/14/2019
 ms.author: Zhchia
 ms.openlocfilehash: aa9ed0954cbfa2d83eeed1c70f40beedcf4f44cd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91285889"
 ---
-# <a name="tutorial-configure-soloinsight-cloudgate-sso-for-automatic-user-provisioning"></a>Tutorial: configurar o SSO do Soloinsight-CloudGate para o provisionamento automático de usuário
+# <a name="tutorial-configure-soloinsight-cloudgate-sso-for-automatic-user-provisioning"></a>Tutorial: configurar o SSO Soloinsight-CloudGate para o provisionamento automático de usuário
 
-O objetivo deste tutorial é demonstrar as etapas a serem executadas em Soloinsight-CloudGate SSO e Azure Active Directory (Azure AD) para configurar o Azure AD para provisionar e desprovisionar automaticamente usuários e/ou grupos para o SSO Soloinsight-CloudGate.
+O objetivo deste tutorial é demonstrar as etapas a serem executadas em Soloinsight-CloudGate SSO e Azure Active Directory (AD do Azure) para configurar o Azure AD para provisionar e desprovisionar automaticamente usuários e/ou grupos para Soloinsight-CloudGate SSO.
 
 > [!NOTE]
 > Este tutorial descreve um conector compilado na parte superior do Serviço de Provisionamento de Usuário do Microsoft Azure AD. Para detalhes importantes sobre o que esse serviço faz, como funciona e as perguntas frequentes, consulte [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](../app-provisioning/user-provisioning.md).
@@ -32,41 +32,41 @@ O objetivo deste tutorial é demonstrar as etapas a serem executadas em Soloinsi
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes pré-requisitos:
 
 * Um locatário do Azure AD
-* [Um locatário de SSO Soloinsight-CloudGate](https://www.soloinsight.com/)
-* Uma conta de usuário no SSO Soloinsight-CloudGate com permissões de administrador.
+* [Um locatário Soloinsight-CloudGate SSO](https://www.soloinsight.com/)
+* Uma conta de usuário no Soloinsight-CloudGate SSO com permissões de administrador.
 
-## <a name="assigning-users-to-soloinsight-cloudgate-sso"></a>Atribuindo usuários ao SSO do Soloinsight-CloudGate
+## <a name="assigning-users-to-soloinsight-cloudgate-sso"></a>Atribuindo usuários ao Soloinsight-CloudGate SSO
 
 O Azure Active Directory usa um conceito chamado *atribuições* para determinar quais usuários devem receber acesso aos aplicativos selecionados. No contexto do provisionamento automático de usuário, somente os usuários e/ou grupos que foram atribuídos a um aplicativo no Azure AD são sincronizados.
 
-Antes de configurar e habilitar o provisionamento automático de usuário, você deve decidir quais usuários e/ou grupos no Azure AD precisam de acesso ao SSO Soloinsight-CloudGate. Depois de decidir, você pode atribuir esses usuários e/ou grupos ao SSO do Soloinsight-CloudGate seguindo as instruções aqui:
+Antes de configurar e habilitar o provisionamento automático de usuário, você deve decidir quais usuários e/ou grupos no Azure AD precisam de acesso a Soloinsight-CloudGate SSO. Depois de decidir, você pode atribuir esses usuários e/ou grupos para Soloinsight-CloudGate SSO seguindo as instruções aqui:
 * [Atribuir um usuário ou um grupo a um aplicativo empresarial](../manage-apps/assign-user-or-group-access-portal.md)
 
-## <a name="important-tips-for-assigning-users-to-soloinsight-cloudgate-sso"></a>Dicas importantes para atribuir usuários ao SSO do Soloinsight-CloudGate
+## <a name="important-tips-for-assigning-users-to-soloinsight-cloudgate-sso"></a>Dicas importantes para atribuir usuários ao Soloinsight-CloudGate SSO
 
-* É recomendável que um único usuário do Azure AD seja atribuído ao SSO do Soloinsight-CloudGate para testar a configuração automática de provisionamento de usuário. Outros usuários e/ou grupos podem ser atribuídos mais tarde.
+* É recomendável que um único usuário do Azure AD seja atribuído ao Soloinsight-CloudGate SSO para testar a configuração automática de provisionamento de usuário. Outros usuários e/ou grupos podem ser atribuídos mais tarde.
 
-* Ao atribuir um usuário ao SSO do Soloinsight-CloudGate, você deve selecionar qualquer função específica do aplicativo válida (se disponível) na caixa de diálogo de atribuição. Usuários com a função **Acesso padrão** são excluídos do provisionamento.
+* Ao atribuir um usuário ao Soloinsight-CloudGate SSO, você deve selecionar qualquer função específica do aplicativo válida (se disponível) na caixa de diálogo de atribuição. Usuários com a função **Acesso padrão** são excluídos do provisionamento.
 
-## <a name="set-up-soloinsight-cloudgate-sso-for-provisioning"></a>Configurar o SSO do Soloinsight-CloudGate para provisionamento
+## <a name="set-up-soloinsight-cloudgate-sso-for-provisioning"></a>Configurar o SSO Soloinsight-CloudGate para provisionamento
 
 1. Entre em seu [console de administrador do SSO do Soloinsight-CloudGate](https://soloinsight.sigateway.com/login). Navegue até **administração > configurações do sistema**.
 
-    ![Console de administração de SSO do Soloinsight-CloudGate](media/soloinsight-cloudgate-sso-provisioning-tutorial/admin.png)
+    ![Console de administração do Soloinsight-CloudGate SSO](media/soloinsight-cloudgate-sso-provisioning-tutorial/admin.png)
 
 2.  Navegue para **geral**.
 
-    ![Soloinsight-CloudGate SSO Add SCIM](media/soloinsight-cloudgate-sso-provisioning-tutorial/config.png)
+    ![Adicionar SCIM de SSO Soloinsight-CloudGate](media/soloinsight-cloudgate-sso-provisioning-tutorial/config.png)
 
-3.  Role para baixo até o final da página para obter a **URL do locatário** e o **token secreto**. Copie o **token secreto**. Esse valor será inserido no campo token secreto na guia provisionamento do seu aplicativo de SSO Soloinsight-CloudGate no portal do Azure.
+3.  Role para baixo até o final da página para obter a **URL do locatário** e o **token secreto**. Copie o **token secreto**. Esse valor será inserido no campo token secreto na guia provisionamento do seu aplicativo Soloinsight-CloudGate SSO no portal do Azure.
 
-    ![Token de criação de SSO do Soloinsight-CloudGate](media/soloinsight-cloudgate-sso-provisioning-tutorial/token.png)
+    ![Soloinsight-CloudGate o token de criação do SSO](media/soloinsight-cloudgate-sso-provisioning-tutorial/token.png)
 
-## <a name="add-soloinsight-cloudgate-sso-from-the-gallery"></a>Adicionar o SSO do Soloinsight-CloudGate da Galeria
+## <a name="add-soloinsight-cloudgate-sso-from-the-gallery"></a>Adicionar Soloinsight-CloudGate SSO da Galeria
 
-Antes de configurar o SSO do Soloinsight-CloudGate para o provisionamento automático de usuário com o Azure AD, você precisará adicionar o SSO do Soloinsight-CloudGate da Galeria de aplicativos do Azure AD à sua lista de aplicativos SaaS gerenciados.
+Antes de configurar Soloinsight-CloudGate SSO para o provisionamento automático de usuário com o Azure AD, você precisará adicionar Soloinsight-CloudGate SSO da Galeria de aplicativos do Azure AD à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o SSO do Soloinsight-CloudGate da Galeria de aplicativos do Azure AD, execute as seguintes etapas:**
+**Para adicionar Soloinsight-CloudGate SSO da Galeria de aplicativos do Azure AD, execute as seguintes etapas:**
 
 1. No **[portal do Azure](https://portal.azure.com)**, no painel de navegação à esquerda, selecione **Azure Active Directory**.
 
@@ -84,14 +84,14 @@ Antes de configurar o SSO do Soloinsight-CloudGate para o provisionamento autom�
 
     ![Soloinsight-CloudGate SSO na lista de resultados](common/search-new-app.png)
 
-## <a name="configuring-automatic-user-provisioning-to-soloinsight-cloudgate-sso"></a>Configurando o provisionamento automático de usuário para o SSO do Soloinsight-CloudGate 
+## <a name="configuring-automatic-user-provisioning-to-soloinsight-cloudgate-sso"></a>Configurando o provisionamento automático de usuário para Soloinsight-CloudGate SSO 
 
-Esta seção orienta você pelas etapas para configurar o serviço de provisionamento do Azure AD para criar, atualizar e desabilitar usuários e/ou grupos em Soloinsight-CloudGate SSO com base em atribuições de usuário e/ou grupo no Azure AD.
+Esta seção orienta você pelas etapas para configurar o serviço de provisionamento do Azure AD para criar, atualizar e desabilitar usuários e/ou grupos no Soloinsight-CloudGate SSO com base em atribuições de usuário e/ou grupo no Azure AD.
 
 > [!TIP]
-> Você também pode optar por habilitar o logon único baseado em SAML para o SSO do Soloinsight-CloudGate, seguindo as instruções fornecidas no [tutorial de logon único do SSO do Soloinsight-CloudGate](https://docs.microsoft.com/azure/active-directory/saas-apps/soloinsight-cloudgate-sso-tutorial). O logon único pode ser configurado independentemente do provisionamento automático de usuário, embora esses dois recursos se complementem uns aos outros
+> Você também pode optar por habilitar o logon único baseado em SAML para Soloinsight-CloudGate SSO, seguindo as instruções fornecidas no tutorial de [logon único do SSO do Soloinsight-CloudGate](https://docs.microsoft.com/azure/active-directory/saas-apps/soloinsight-cloudgate-sso-tutorial). O logon único pode ser configurado independentemente do provisionamento automático de usuário, embora esses dois recursos se complementem uns aos outros
 
-### <a name="to-configure-automatic-user-provisioning-for-soloinsight-cloudgate-sso-in-azure-ad"></a>Para configurar o provisionamento automático de usuário para o SSO do Soloinsight-CloudGate no Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-soloinsight-cloudgate-sso-in-azure-ad"></a>Para configurar o provisionamento automático de usuário para Soloinsight-CloudGate SSO no Azure AD:
 
 1. Entre no [portal do Azure](https://portal.azure.com). Selecione **Aplicativos Empresariais** e **Todos os Aplicativos**.
 
@@ -109,7 +109,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Captura de tela da lista suspensa modo de provisionamento com a opção automática chamada out.](common/provisioning-automatic.png)
 
-5. Na seção **credenciais de administrador** , insira `https://sigateway.com/scim/v2/sync/serviceproviderconfig` a **URL de locatário**. Insira o valor do **token de autenticação scim** recuperado anteriormente no **token secreto**. Clique em **testar conexão** para garantir que o Azure ad possa se conectar ao SSO do Soloinsight-CloudGate. Se a conexão falhar, verifique se sua conta de SSO do Soloinsight-CloudGate tem permissões de administrador e tente novamente.
+5. Na seção **credenciais de administrador** , insira `https://sigateway.com/scim/v2/sync/serviceproviderconfig` a **URL de locatário**. Insira o valor do **token de autenticação scim** recuperado anteriormente no **token secreto**. Clique em **testar conexão** para garantir que o Azure ad possa se conectar ao Soloinsight-CloudGate SSO. Se a conexão falhar, verifique se sua conta de Soloinsight-CloudGate SSO tem permissões de administrador e tente novamente.
 
     ![URL do locatário + token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -117,31 +117,31 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Email de notificação](common/provisioning-notification-email.png)
 
-7. Clique em **Save** (Salvar).
+7. Clique em **Salvar**.
 
-8. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para o SSO Soloinsight-CloudGate**.
+8. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para Soloinsight-CloudGate SSO**.
 
-    ![Mapeamentos de usuário do SSO Soloinsight-CloudGate](media/soloinsight-cloudgate-sso-provisioning-tutorial/usermappings.png)
+    ![Mapeamentos de usuário Soloinsight-CloudGate SSO](media/soloinsight-cloudgate-sso-provisioning-tutorial/usermappings.png)
 
-9. Examine os atributos de usuário que são sincronizados do Azure AD para o SSO do Soloinsight-CloudGate na seção **mapeamento de atributos** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder as contas de usuário no SSO Soloinsight-CloudGate para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
+9. Examine os atributos de usuário que são sincronizados do Azure AD para Soloinsight-CloudGate SSO na seção **mapeamento de atributos** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder as contas de usuário no SSO Soloinsight-CloudGate para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
 
-    ![Atributos de usuário de SSO Soloinsight-CloudGate](media/soloinsight-cloudgate-sso-provisioning-tutorial/userattributes.png)
+    ![Soloinsight-CloudGate atributos de usuário do SSO](media/soloinsight-cloudgate-sso-provisioning-tutorial/userattributes.png)
 
-10. Na seção **mapeamentos** , selecione **sincronizar grupos de Azure Active Directory para o SSO Soloinsight-CloudGate**.
+10. Na seção **mapeamentos** , selecione **sincronizar grupos de Azure Active Directory para Soloinsight-CloudGate SSO**.
 
-    ![Mapeamentos de grupo de SSO do Soloinsight-CloudGate](media/soloinsight-cloudgate-sso-provisioning-tutorial/groupmappings.png)
+    ![Mapeamentos de grupo de SSO Soloinsight-CloudGate](media/soloinsight-cloudgate-sso-provisioning-tutorial/groupmappings.png)
 
-11. Examine os atributos de grupo que são sincronizados do Azure AD para o SSO do Soloinsight-CloudGate na seção **mapeamento de atributos** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder os grupos no SSO Soloinsight-CloudGate para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
+11. Examine os atributos de grupo que são sincronizados do Azure AD para Soloinsight-CloudGate SSO na seção **mapeamento de atributos** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder os grupos no Soloinsight-CloudGate SSO para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
 
-    ![Atributos do grupo de SSO Soloinsight-CloudGate](media/soloinsight-cloudgate-sso-provisioning-tutorial/groupattributes.png)
+    ![Soloinsight-CloudGate atributos de grupo de SSO](media/soloinsight-cloudgate-sso-provisioning-tutorial/groupattributes.png)
 
 12. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. Para habilitar o serviço de provisionamento do Azure AD para o SSO do Soloinsight-CloudGate, altere o **status de provisionamento** para **ativado** na seção **configurações** .
+13. Para habilitar o serviço de provisionamento do Azure AD para Soloinsight-CloudGate SSO, altere o **status de provisionamento** para **ativado** na seção **configurações** .
 
     ![Status do provisionamento ativado](common/provisioning-toggle-on.png)
 
-14. Defina os usuários e/ou grupos que você deseja provisionar para o SSO do Soloinsight-CloudGate escolhendo os valores desejados no **escopo** na seção **configurações** .
+14. Defina os usuários e/ou grupos que você deseja provisionar para Soloinsight-CloudGate SSO escolhendo os valores desejados no **escopo** na seção **configurações** .
 
     ![Escopo de provisionamento](common/provisioning-scope.png)
 
@@ -149,7 +149,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Salvando a configuração de provisionamento](common/provisioning-configuration-save.png)
 
-Essa operação inicia a sincronização inicial de todos os usuários e/ou grupos definidos no **Escopo** na seção **Configurações**. Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Microsoft Azure Active Directory esteja em execução. Você pode usar a seção **detalhes de sincronização** para monitorar o progresso e seguir os links para o relatório de atividade de provisionamento, que descreve todas as ações executadas pelo serviço de provisionamento do Azure AD no SSO do Soloinsight-CloudGate.
+Essa operação inicia a sincronização inicial de todos os usuários e/ou grupos definidos no **Escopo** na seção **Configurações**. Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Microsoft Azure Active Directory esteja em execução. Você pode usar a seção **detalhes de sincronização** para monitorar o progresso e seguir os links para o relatório de atividade de provisionamento, que descreve todas as ações executadas pelo serviço de provisionamento do Azure AD no Soloinsight-CloudGate SSO.
 
 Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte [Relatórios sobre o provisionamento automático de contas de usuário](../app-provisioning/check-status-user-account-provisioning.md).
 

@@ -11,10 +11,10 @@ ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 0e8802d612f2497cc58c90856e9a5a5572a142f1
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87482831"
 ---
 # <a name="secure-an-azure-api-management-api-with-azure-ad-b2c"></a>Proteger uma API de Gerenciamento de API do Azure com Azure AD B2C
@@ -60,7 +60,7 @@ Para registrar um aplicativo no locatário do Azure AD B2C, você pode usar a no
 Em seguida, obtenha a URL de configuração conhecida para um dos seus fluxos de usuário do Azure AD B2C. Você também precisa do URI do ponto de extremidade do emissor do token para o qual você deseja dar suporte no Gerenciamento de API do Azure.
 
 1. Navegue até seu locatário do Azure AD B2C no [portal do Azure](https://portal.azure.com).
-1. Em **políticas**, selecione **fluxos de usuário**.
+1. Em **Políticas**, selecione **Fluxos dos usuários**.
 1. Selecione uma política existente, por exemplo *B2C_1_signupsignin1* e, em seguida, selecione **Executar fluxo de usuário**.
 1. Registre a URL no hiperlink exibido no título **Executar fluxo de usuário** próximo à parte superior da página. Essa URL é o ponto de extremidade de descoberta conhecido do OpenID Connect para o fluxo do usuário, e você o usará na próxima seção ao configurar a política de entrada no Gerenciamento de API do Azure.
 
@@ -126,7 +126,7 @@ Para chamar a API, você precisa de um token de acesso emitido por Azure AD B2C 
 Primeiro, você precisa de um token emitido pelo Azure AD B2C para usar no cabeçalho `Authorization` no Postman. Você pode obter um usando o recurso **Executar agora** do fluxo de usuários de inscrição/entrada que você deve ter criado como um dos pré-requisitos.
 
 1. Navegue até seu locatário do Azure AD B2C no [portal do Azure](https://portal.azure.com).
-1. Em **políticas**, selecione **fluxos de usuário**.
+1. Em **Políticas**, selecione **Fluxos dos usuários**.
 1. Selecione um fluxo de usuários de inscrição/entrada existente, por exemplo, *B2C_1_signupsignin1*.
 1. Para **Aplicativo**, selecione *webapp1*.
 1. Para **URL de resposta**, escolha `https://jwt.ms`.

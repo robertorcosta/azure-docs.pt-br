@@ -9,10 +9,10 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
 ms.openlocfilehash: 98f8554d6313147c03d4a0bec74e36043cdce342
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87285264"
 ---
 # <a name="azcopy-login"></a>azcopy login
@@ -95,7 +95,7 @@ azcopy login --service-principal --certificate-path /path/to/my/cert --applicati
 
 Tratar `/path/to/my/cert` como um caminho para um arquivo PEM ou PKCS12. AzCopy não chega ao repositório de certificados do sistema para obter seu certificado.
 
-`--certificate-path`é obrigatório ao fazer autenticação de entidade de serviço baseada em certificado.
+`--certificate-path` é obrigatório ao fazer autenticação de entidade de serviço baseada em certificado.
 
 ## <a name="options"></a>Opções
 
@@ -105,7 +105,7 @@ Tratar `/path/to/my/cert` como um caminho para um arquivo PEM ou PKCS12. AzCopy 
 
 **--** caminho da cadeia de caracteres do caminho do certificado para o certificado para autenticação SPN. Necessário para autenticação de entidade de serviço baseada em certificado.
 
-**--** ajuda ajuda para o `azcopy login` comando.
+**--**   ajuda ajuda para o `azcopy login` comando.
 
 **--identidade**   Faça logon usando a identidade da máquina virtual, também conhecida como MSI (identidade de serviço gerenciada).
 

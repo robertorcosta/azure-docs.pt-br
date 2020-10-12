@@ -8,17 +8,17 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 07/15/2020
 ms.openlocfilehash: f2752e5ab2bf7c2926ec9e2c0e4929eab91ed377
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88530963"
 ---
 # <a name="configure-virtual-network-service-endpoint-policies-for-azure-hdinsight"></a>Configurar políticas de ponto de extremidade de serviço de rede virtual para o Azure HDInsight
 
 Este artigo fornece informações sobre como implementar políticas de ponto de extremidade de serviço em redes virtuais com o Azure HDInsight.
 
-## <a name="background"></a>Segundo plano
+## <a name="background"></a>Tela de fundo
 
 O Azure HDInsight permite que você crie clusters em sua própria rede virtual. Se você precisar permitir o tráfego de saída de sua rede virtual para outros serviços do Azure, como contas de armazenamento, poderá criar [políticas de ponto de extremidade de serviço](../virtual-network/virtual-network-service-endpoint-policies-overview.md). As políticas de ponto de extremidade de serviço criadas por meio do portal do Azure, no entanto, só permitem que você crie uma política para uma única conta, todas as contas em uma assinatura ou todas as contas em um grupo de recursos.
 

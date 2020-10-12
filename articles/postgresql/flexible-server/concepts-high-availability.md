@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: 7db9ac0eb624c2732295639d65e0311fcf459f71
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90932836"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-postgresql---flexible-server"></a>Conceitos de alta disponibilidade no banco de dados do Azure para PostgreSQL – servidor flexível
@@ -26,7 +26,7 @@ A configuração com redundância de zona habilita o recurso de failover automá
 
 ## <a name="zone-redundant-high-availability-architecture"></a>Arquitetura de alta disponibilidade com redundância de zona
 
-Você pode escolher a região e a zona de disponibilidade para implantar o servidor de banco de dados primário. Um servidor de réplica em espera é provisionado em uma zona de disponibilidade diferente com a mesma configuração que o servidor primário, incluindo a camada de computação, o tamanho da computação, o tamanho do armazenamento e a configuração de rede. Os logs de transações são replicados no modo síncrono para a réplica em espera usando replicação de streaming PostgreSQL. Os backups automáticos são executados periodicamente a partir do servidor de banco de dados primário, enquanto os logs de transações são arquivados continuamente no armazenamento de backup da réplica em espera. 
+Você pode escolher a região e a zona de disponibilidade para implantar o servidor de banco de dados primário. Um servidor de réplica em espera é provisionado em uma zona de disponibilidade diferente com a mesma configuração do servidor primário, incluindo a camada de computação, o tamanho da computação, o tamanho do armazenamento e a configuração da rede. Os logs de transações são replicados no modo síncrono para a réplica em espera usando replicação de streaming PostgreSQL. Os backups automáticos são executados periodicamente a partir do servidor de banco de dados primário, enquanto os logs de transações são arquivados continuamente no armazenamento de backup da réplica em espera. 
 
 A integridade da configuração de alta disponibilidade é monitorada e relatada continuamente no Portal. Os status de alta disponibilidade com redundância de zona são listados abaixo:
 
@@ -43,7 +43,7 @@ A integridade da configuração de alta disponibilidade é monitorada e relatada
 
 Os aplicativos cliente PostgreSQL estão conectados ao servidor primário usando o nome do servidor de BD. As leituras de aplicativo são servidas diretamente do servidor primário, enquanto as confirmações e as gravações são confirmadas para o aplicativo somente depois que os dados são persistidos no servidor primário e na réplica em espera. Devido a esse requisito adicional de ida e volta, os aplicativos podem esperar uma latência elevada para gravações e confirmações. Você pode monitorar a integridade da alta disponibilidade no Portal.
 
-:::image type="content" source="./media/business-continuity/concepts-high-availability-steady-state.png" alt-text="alta disponibilidade redundante de zona-estado estável"::: 
+:::image type="content" source="./media/business-continuity/concepts-high-availability-steady-state.png" alt-text="alta disponibilidade com redundância de zona"::: 
 
 1. Os clientes se conectam ao servidor flexível e executam operações de gravação.
 2. As alterações são replicadas para o site em espera.
@@ -64,7 +64,7 @@ Para outras operações iniciadas pelo usuário, como escala de computação ou 
 
 Interrupções não planejadas incluem bugs de software ou falhas de componentes de infraestrutura que afetam a disponibilidade do banco de dados. No caso da indisponibilidade do servidor ser detectada pelo sistema de monitoramento, a replicação para a réplica em espera é severa e a réplica em espera é ativada para ser o servidor de banco de dados primário. Os clientes podem se reconectar ao servidor de banco de dados usando a mesma cadeia de conexão e retomar suas operações. Espera-se que o tempo de failover geral tenha 60 120s. No entanto, dependendo da atividade no servidor de banco de dados primário no momento do failover, como transações grandes e tempo de recuperação, o failover pode levar mais tempo.
 
-:::image type="content" source="./media/business-continuity/concepts-high-availability-failover-state.png" alt-text="alta disponibilidade redundante de zona-failover"::: 
+:::image type="content" source="./media/business-continuity/concepts-high-availability-failover-state.png" alt-text="alta disponibilidade com redundância de zona"::: 
 
 1. O servidor de banco de dados primário está inoperante e os clientes perdem a conectividade do banco de dados. 
 2. O servidor em espera é ativado para se tornar o novo servidor primário. O cliente se conecta ao novo servidor primário usando a mesma cadeia de conexão. Ter o aplicativo cliente na mesma zona que o servidor de banco de dados primário reduz a latência e melhora o desempenho.
@@ -111,7 +111,7 @@ Os servidores flexíveis configurados com alta disponibilidade, replicam dados e
 
 -   Configurar tarefas de gerenciamento iniciadas pelo cliente não pode ser agendado durante a janela de manutenção gerenciada.
 
--   Eventos planejados, como escala de computação e armazenamento de escala, ocorrem em espera primeiro e, em seguida, no servidor primário. O serviço não passou por failover. 
+-   Eventos planejados, como dimensionamento de computação e de armazenamento, ocorrem em espera primeiro e, em seguida, no servidor primário. O serviço não passou por failover. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

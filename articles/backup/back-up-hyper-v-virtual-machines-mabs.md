@@ -4,10 +4,10 @@ description: Este artigo contém os procedimentos para fazer backup e recuperaç
 ms.topic: conceptual
 ms.date: 07/18/2019
 ms.openlocfilehash: fc4e34e11e2474521082b1c23f600e9a5ca7a9fe
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89377991"
 ---
 # <a name="back-up-hyper-v-virtual-machines-with-azure-backup-server"></a>Fazer backup de máquinas virtuais do Hyper-V com Servidor de Backup do Azure
@@ -84,7 +84,7 @@ Estes são os pré-requisitos para fazer backup de máquinas virtuais do Hyper-V
 
 5. Na página **Selecionar Método de Proteção de Dados**, especifique um nome do grupo de proteção. Selecione **Desejo proteção de curto prazo usando disco** e selecione **Desejo proteção online** se você deseja fazer backup de dados no Azure usando o serviço de Backup do Azure.
 
-6. Em **especificar objetivos de curto prazo**  >  **período de retenção**, especifique quanto tempo deseja manter os dados do disco. Em **frequência de sincronização**, especifique com que frequência os backups incrementais dos dados devem ser executados. Como alternativa, em vez de selecionar um intervalo para backups incrementais, você pode habilitar **Logo antes de um ponto de recuperação**. Com essa configuração habilitada, o MABS executará um backup completo expresso antes de cada ponto de recuperação agendado.
+6. Em **especificar Short-Term metas**de  >  **período de retenção**, especifique por quanto tempo deseja manter os dados do disco. Em **frequência de sincronização**, especifique com que frequência os backups incrementais dos dados devem ser executados. Como alternativa, em vez de selecionar um intervalo para backups incrementais, você pode habilitar **Logo antes de um ponto de recuperação**. Com essa configuração habilitada, o MABS executará um backup completo expresso antes de cada ponto de recuperação agendado.
 
     > [!NOTE]
     >

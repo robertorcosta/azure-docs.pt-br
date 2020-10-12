@@ -4,10 +4,10 @@ description: Este artigo fornece informações conceituais sobre os logs de diag
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: c8f6734d9d43887d0eb0bb90bb08f727732feac3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86116736"
 ---
 #  <a name="diagnostic-logs-for-azure-event-grid-topicsdomains"></a>Logs de diagnóstico para tópicos/domínios da grade de eventos do Azure
@@ -18,7 +18,7 @@ As configurações de diagnóstico permitem que os usuários da grade de eventos
 
 | Nome da propriedade | Tipo de dados | Descrição |
 | ------------- | --------- | ----------- | 
-| Hora | Datetime | A hora em que a entrada de log foi gerada <p>**Valor de exemplo:** 01-29-2020 09:52:02.700</p> |
+| Hora | Datetime | A hora em que a entrada de log foi gerada <p>**Valor de exemplo:**  01-29-2020 09:52:02.700</p> |
 | EventSubscriptionName | String | O nome da assinatura do evento <p>**Valor de exemplo:** "EVENTSUB1"</p> <p>Essa propriedade existe somente para logs de falha de entrega.</p>  |
 | Categoria | String | O nome da categoria de log. <p>**Valores de exemplo:** "DeliveryFailures" ou "PublishFailures" | 
 | OperationName | String | O nome da operação executada ao encontrar a falha.<p>**Valores de exemplo:** "Entregar" para falhas de entrega. |

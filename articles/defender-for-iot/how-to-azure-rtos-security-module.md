@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
 ms.openlocfilehash: 9106e00fe2146978f97b480e3afd3b7ed58c9130
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90932956"
 ---
 # <a name="configure-and-customize-security-module-for-azure-rtos-preview"></a>Configurar e personalizar o módulo de segurança para RTOS do Azure (versão prévia)
@@ -49,10 +49,10 @@ Para personalizar a configuração de atividade de rede do coletor, use o seguin
 
 | Nome | Type | Padrão | Detalhes |
 | - | - | - | - |
-| ASC_COLLECTOR_NETWORK_ACTIVITY_TCP_DISABLED | Booliano | false | Filtrar `TCP` atividade de rede |
-| ASC_COLLECTOR_NETWORK_ACTIVITY_UDP_DISABLED | Booliano | false | Filtrar `UDP` eventos de atividade de rede |
-| ASC_COLLECTOR_NETWORK_ACTIVITY_ICMP_DISABLED | Booliano | false | Filtrar `ICMP` eventos de atividade de rede |
-| ASC_COLLECTOR_NETWORK_ACTIVITY_CAPTURE_UNICAST_ONLY | Booliano | true | Capturar somente pacotes de entrada unicast, quando definido como falso captura também difusão e multicast |
+| ASC_COLLECTOR_NETWORK_ACTIVITY_TCP_DISABLED | Boolean | false | Filtrar `TCP` atividade de rede |
+| ASC_COLLECTOR_NETWORK_ACTIVITY_UDP_DISABLED | Boolean | false | Filtrar `UDP` eventos de atividade de rede |
+| ASC_COLLECTOR_NETWORK_ACTIVITY_ICMP_DISABLED | Boolean | false | Filtrar `ICMP` eventos de atividade de rede |
+| ASC_COLLECTOR_NETWORK_ACTIVITY_CAPTURE_UNICAST_ONLY | Boolean | true | Capturar somente pacotes de entrada unicast, quando definido como falso captura também difusão e multicast |
 | ASC_COLLECTOR_NETWORK_ACTIVITY_MAX_IPV4_OBJECTS_IN_CACHE | Número | 64 | Número máximo de eventos de rede IPv4 a serem armazenados na memória |
 | ASC_COLLECTOR_NETWORK_ACTIVITY_MAX_IPV6_OBJECTS_IN_CACHE | Número | 64  | Número máximo de eventos de rede IPv6 a serem armazenados na memória |
 
@@ -63,9 +63,9 @@ Os sinalizadores de compilação permitem que você substitua as configurações
 ### <a name="collectors"></a>Coletores
 | Nome | Type | Padrão | Detalhes |
 | - | - | - | - |
-| collector_heartbeat_enabled | Booliano | ATIVADO | Habilitar o coletor de pulsação |
-| collector_network_activity_enabled | Booliano | ATIVADO | Habilitar o coletor de atividades de rede |
-| collector_system_information_enabled | Booliano | ATIVADO | Habilitar o coletor de informações do sistema |
+| collector_heartbeat_enabled | Boolean | ATIVADO | Habilitar o coletor de pulsação |
+| collector_network_activity_enabled | Boolean | ATIVADO | Habilitar o coletor de atividades de rede |
+| collector_system_information_enabled | Boolean | ATIVADO | Habilitar o coletor de informações do sistema |
 
 ## <a name="supported-security-alerts-and-recommendations"></a>Recomendações e alertas de segurança com suporte
 

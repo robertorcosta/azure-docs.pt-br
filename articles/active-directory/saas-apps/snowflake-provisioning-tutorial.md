@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
 ms.openlocfilehash: f4c6eb8ad8e3d69d2b3545bc5754e1a632f5cc8c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91285784"
 ---
 # <a name="tutorial-configure-snowflake-for-automatic-user-provisioning"></a>Tutorial: configurar o floco de neve para provisionamento automático de usuário
@@ -107,7 +107,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Email de notificação](common/provisioning-notification-email.png)
 
-8. Clique em **Save** (Salvar).
+8. Clique em **Salvar**.
 
 9. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para floco de neve**.
 
@@ -121,8 +121,8 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
    |userName|String|
    |name.givenName|String|
    |name.familyName|String|
-   |urn: IETF: params: SCIM: esquemas: extensão: Enterprise: 2.0: User: defaultrole|String|
-   |urn: IETF: params: SCIM: esquemas: extensão: Enterprise: 2.0: User: defaultwarehouse|String|
+   |urn: IETF: params: SCIM: esquemas: extensão: Enterprise: 2.0: User: defaultrole|Cadeia de caracteres|
+   |urn: IETF: params: SCIM: esquemas: extensão: Enterprise: 2.0: User: defaultwarehouse|Cadeia de caracteres|
 
 11. Na seção **mapeamentos** , selecione **sincronizar grupos de Azure Active Directory para floco de neve**.
 
