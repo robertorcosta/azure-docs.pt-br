@@ -9,17 +9,17 @@ ms.author: mlearned
 description: Use o Azure Policy para aplicar configurações de cluster em escala
 keywords: Kubernetes, Arc, Azure, K8s, containers
 ms.openlocfilehash: e4279f3d89376320116067bf191e3196271918ce
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87050039"
 ---
 # <a name="use-azure-policy-to-apply-cluster-configurations-at-scale-preview"></a>Use o Azure Policy para aplicar configurações de cluster em escala (versão prévia)
 
 ## <a name="overview"></a>Visão geral
 
-Use Azure Policy para impor que cada recurso `Microsoft.Kubernetes/connectedclusters` ou recurso habilitado para operações de git `Microsoft.ContainerService/managedClusters` tenha sido `Microsoft.KubernetesConfiguration/sourceControlConfigurations` aplicado especificamente. Para usar o Azure Policy, selecione uma definição de política existente e crie uma atribuição de política. Ao criar a atribuição de política, você define o escopo para a atribuição: será um grupo de recursos ou uma assinatura do Azure. Também é possível definir os parâmetros para o `sourceControlConfiguration` que será criado. Depois que a atribuição for criada, o mecanismo de política identificará todos os recursos `connectedCluster` ou `managedCluster` que estão localizados dentro do escopo e aplicará o `sourceControlConfiguration` a cada um.
+Use Azure Policy para impor que cada recurso `Microsoft.Kubernetes/connectedclusters` ou Git-Ops `Microsoft.ContainerService/managedClusters` recurso habilitado tenha uma `Microsoft.KubernetesConfiguration/sourceControlConfigurations` aplicação específica. Para usar o Azure Policy, selecione uma definição de política existente e crie uma atribuição de política. Ao criar a atribuição de política, você define o escopo para a atribuição: será um grupo de recursos ou uma assinatura do Azure. Também é possível definir os parâmetros para o `sourceControlConfiguration` que será criado. Depois que a atribuição for criada, o mecanismo de política identificará todos os recursos `connectedCluster` ou `managedCluster` que estão localizados dentro do escopo e aplicará o `sourceControlConfiguration` a cada um.
 
 Se estiver usando vários repositórios Git como as fontes de verdade para cada cluster (por exemplo, um repositório para o operador central de TI/cluster e outros repositórios para equipes de aplicativos), você pode habilitar isso usando várias atribuições de política, cada atribuição de política configurada para usar um repositório Git diferente.
 

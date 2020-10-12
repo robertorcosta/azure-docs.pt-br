@@ -1,6 +1,6 @@
 ---
-title: incluir arquivo
-description: incluir arquivo
+title: arquivo de inclusão
+description: arquivo de inclusão
 services: iot-central
 author: dominicbetts
 ms.service: iot-central
@@ -9,10 +9,10 @@ ms.date: 02/11/2020
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: 182296793b46f1900744bf629625906b2d6e9b2a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91376311"
 ---
 **Modelos de aplicativo**
@@ -26,7 +26,7 @@ ms.locfileid: "91376311"
 | IOTC-inventário           | Gerenciamento de inventário inteligente | Cria um aplicativo para automatizar o recebimento, movimentação de produtos, contagem de ciclos e acompanhamento. |
 | IOTC-logística           | Logística conectada | Cria um aplicativo para acompanhar suas remessas em tempo real entre ar, água e terreno com monitoramento de local e condição. |
 | IOTC-medidor               | Análise de medidor inteligente | Cria um aplicativo para monitorar o consumo de energia, o status da rede e identificar tendências para melhorar o atendimento ao cliente e o gerenciamento de medidor inteligente.  |
-| IOTC-MFC                 | Centro de microatendimento | Cria um aplicativo para se conectar digitalmente e gerenciar um centro de preenchimento totalmente automatizado. |
+| IOTC-MFC                 | Microcentral de atendimento | Cria um aplicativo para se conectar digitalmente e gerenciar um centro de preenchimento totalmente automatizado. |
 | IOTC-Video-Analytics-OM  | Análise de vídeo – detecção de objetos e de movimento | Use câmeras como um sensor em soluções de análise de vídeo inteligentes alimentadas por Azure IoT Edge, ia e serviços de mídia do Azure. |
 | IOTC-paciente             | Monitoramento contínuo do paciente | Cria um aplicativo para estender o atendimento ao paciente, reduzir as readmissão e gerenciar doenças. |
 | IOTC-potência               | Monitoramento de energia solar | Cria um aplicativo para monitorar as tendências de status do painel solar e geração de energia. |

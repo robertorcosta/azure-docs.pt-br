@@ -8,10 +8,10 @@ ms.date: 06/01/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: 6632d65fa07788e35b24c2f957e713f824f6b091
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87542731"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks---azure-portal"></a>Encontrar e excluir discos gerenciados e não gerenciados desanexados do Azure – portal do Azure
@@ -45,17 +45,17 @@ Se você tiver discos não gerenciados que não estão anexados a uma VM, não p
 
     Você verá uma lista de todos os discos não gerenciados. Qualquer disco que tenha " **-** " na coluna **Anexado a** é um disco desanexado.
 
-    :::image type="content" source="media/disks-find-unattached-portal/unmanaged-disk-unattached-attached-to.png" alt-text="Captura de tela da folha de discos não gerenciados. Os discos desta folha que têm - na coluna Anexada a estão desanexados.":::
+    :::image type="content" source="media/disks-find-unattached-portal/unmanaged-disk-unattached-attached-to.png" alt-text="Captura de tela de uma folha de discos gerenciados individuais. Essa folha mostrará desanexado no estado do disco se ele estiver desanexado. Exclua esse disco se não precisar mais preservar os dados dele":::
 
 1. Selecione o disco desanexado que deseja excluir; isso abrirá a folha do disco.
 
 1. Na folha do disco, confirme se ele está desanexado, pois o estado **Anexado a** ainda estará **-** .
 
-    :::image type="content" source="media/disks-find-unattached-portal/unmanaged-disk-unattached-select-blade.png" alt-text="Captura de tela da folha de um disco não gerenciado individual. Ele terá um - como o valor Anexado a se ele estiver desanexado. Se você não precisar mais dos dados desse discos, exclua-os.":::
+    :::image type="content" source="media/disks-find-unattached-portal/unmanaged-disk-unattached-select-blade.png" alt-text="Captura de tela de uma folha de discos gerenciados individuais. Essa folha mostrará desanexado no estado do disco se ele estiver desanexado. Exclua esse disco se não precisar mais preservar os dados dele":::
 
 1. Selecione **Excluir**.
 
-    :::image type="content" source="media/disks-find-unattached-portal/delete-unmanaged-disk-unattached.png" alt-text="Captura de tela da folha de um disco não gerenciado individual, realçando Excluir.":::
+    :::image type="content" source="media/disks-find-unattached-portal/delete-unmanaged-disk-unattached.png" alt-text="Captura de tela de uma folha de discos gerenciados individuais. Essa folha mostrará desanexado no estado do disco se ele estiver desanexado. Exclua esse disco se não precisar mais preservar os dados dele":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

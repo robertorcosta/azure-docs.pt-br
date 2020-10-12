@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 9c258d8d0a7aa26c96ab4f64017770ebdd153e60
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86257508"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Recuperação de desastre no Azure Service Fabric
@@ -151,7 +151,7 @@ Se você descobrir que as réplicas restantes são insuficientes para continuar 
 > [!NOTE]
 > Os serviços do sistema também podem sofrer perda de quorum. O impacto é específico para o serviço em questão. Por exemplo, a perda de quorum no serviço de nomenclatura afeta a resolução de nomes, enquanto que a perda de quorum no serviço de Gerenciador de Failover bloqueia novos failovers e criação de serviço. 
 > 
-> Os serviços do sistema Service Fabric seguem o mesmo padrão que seus serviços de gerenciamento de estado, mas não recomendamos que você tente movê-los para fora da perda de quorum e para uma possível perda de dados. Em vez disso, recomendamos que você [procure o suporte](service-fabric-support.md) para encontrar uma solução que seja destinada à sua situação. Geralmente é preferível simplesmente esperar até que as réplicas inativas sejam retornadas.
+> Os serviços do sistema Service Fabric seguem o mesmo padrão que seus serviços de gerenciamento de estado, mas não recomendamos que você tente movê-los para fora da perda de quorum e para uma possível perda de dados. Em vez disso, recomendamos que você  [procure o suporte](service-fabric-support.md) para encontrar uma solução que seja destinada à sua situação. Geralmente é preferível simplesmente esperar até que as réplicas inativas sejam retornadas.
 >
 
 #### <a name="troubleshooting-quorum-loss"></a>Solucionando problemas de perda de quorum

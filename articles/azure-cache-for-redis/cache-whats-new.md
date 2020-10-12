@@ -7,10 +7,10 @@ ms.topic: reference
 ms.date: 09/28/2020
 ms.author: yegu
 ms.openlocfilehash: b30e83b89b25e6400b8c7e0419406631fa1edcd0
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91492371"
 ---
 # <a name="whats-new-in-azure-cache-for-redis"></a>O que há de novo no cache do Azure para Redis
@@ -32,8 +32,8 @@ A tabela a seguir fornece informações sobre os certificados que estão sendo r
 
 | Tipo de AC | Current | Após a reversão (12 de outubro de 2020) | Ação |
 | ----- | ----- | ----- | ----- |
-| Root | Impressão digital: d4de20d05e66fc53fe1a50882c78db2852cae474<br><br> Expiração: segunda-feira, 12 de maio de 2025, 4:59:00 PM<br><br> Nome da Entidade:<br> CN = Baltimore CyberTrust root<br> OU = CyberTrust<br> O = Baltimore<br> C = IE | Não alterando | Nenhum |
-| Intermediário | Impressões digitais<br> CN = Microsoft IT TLS CA 1<br> Impressão digital: 417e225037fbfaa4f95761d5ae729e1aea7e3a42<br><br> CN = Microsoft TLS AC CA 2<br> Impressão digital: 54d9d20239080c32316ed9ff980a48988f4adf2d<br><br> CN = Microsoft TLS CA AC 4<br> Impressão digital: 8a38755d0996823fe8fa3116a277ce446eac4e99<br><br> CN = Microsoft IT TLS CA 5<br> Impressão digital: Ad898ac73df333eb60ac1f5fc6c4b2219ddb79b7<br><br> Expiração: sexta-feira, 20 de maio de 2024 5:52:38<br><br> Nome da Entidade:<br> OU = ti da Microsoft<br> O = Microsoft Corporation<br> L = Redmond<br> S = Washington<br> C = US<br> | Impressões digitais<br> CN = Microsoft RSA TLS CA 01<br> Impressão digital: 703d7a8f0ebf55aaa59f98eaf4a206004eb2516a<br><br> CN = Microsoft RSA TLS CA 02<br> Impressão digital: b0c2d2d13cdd56cdaa6ab6e2c04440be4a429c75<br><br> Expiração: terça-feira, 8 de outubro de 2024 12:00:00 AM;<br><br> Nome da Entidade:<br> O = Microsoft Corporation<br> C = US<br> | Necessária |
+| Root | Impressão digital: d4de20d05e66fc53fe1a50882c78db2852cae474<br><br> Expiração: segunda-feira, 12 de maio de 2025, 4:59:00 PM<br><br> Nome da entidade:<br> CN = Baltimore CyberTrust root<br> OU = CyberTrust<br> O = Baltimore<br> C = IE | Não alterando | Nenhum |
+| Intermediário | Impressões digitais<br> CN = Microsoft IT TLS CA 1<br> Impressão digital: 417e225037fbfaa4f95761d5ae729e1aea7e3a42<br><br> CN = Microsoft TLS AC CA 2<br> Impressão digital: 54d9d20239080c32316ed9ff980a48988f4adf2d<br><br> CN = Microsoft TLS CA AC 4<br> Impressão digital: 8a38755d0996823fe8fa3116a277ce446eac4e99<br><br> CN = Microsoft IT TLS CA 5<br> Impressão digital: Ad898ac73df333eb60ac1f5fc6c4b2219ddb79b7<br><br> Expiração: sexta-feira, 20 de maio de 2024 5:52:38<br><br> Nome da entidade:<br> OU = ti da Microsoft<br> O = Microsoft Corporation<br> L = Redmond<br> S = Washington<br> C = US<br> | Impressões digitais<br> CN = Microsoft RSA TLS CA 01<br> Impressão digital: 703d7a8f0ebf55aaa59f98eaf4a206004eb2516a<br><br> CN = Microsoft RSA TLS CA 02<br> Impressão digital: b0c2d2d13cdd56cdaa6ab6e2c04440be4a429c75<br><br> Expiração: terça-feira, 8 de outubro de 2024 12:00:00 AM;<br><br> Nome da entidade:<br> O = Microsoft Corporation<br> C = US<br> | Obrigatório |
 
 ### <a name="what-actions-should-i-take"></a>Quais ações devo tomar?
 

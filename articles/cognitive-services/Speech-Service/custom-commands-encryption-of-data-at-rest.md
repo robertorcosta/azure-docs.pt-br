@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/05/2020
 ms.author: sausin
 ms.openlocfilehash: 83b6e6be8764a86c41bd9156cc96f8a594dbe1e9
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87293959"
 ---
 # <a name="custom-commands-encryption-of-data-at-rest"></a>Criptografia de comandos personalizados de dados em repouso
@@ -25,7 +25,7 @@ Os comandos personalizados criptografam automaticamente os dados quando eles sã
 > O serviço de comandos personalizados não habilita automaticamente a criptografia para os recursos LUIS associados ao seu aplicativo. Se necessário, você deve habilitar a criptografia para o recurso LUIS [aqui](./../LUIS/luis-encryption-of-data-at-rest.md).
 
 ## <a name="about-cognitive-services-encryption"></a>Sobre a criptografia de serviços cognitivas
-Os dados são criptografados e descriptografados usando [a criptografia AES de 256 bits em](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) conformidade com [FIPS 140-2](https://en.wikipedia.org/wiki/FIPS_140-2) . A criptografia e a descriptografia são transparentes, o que significa que a criptografia e o acesso são gerenciados para você. Os dados são seguros por padrão e você não precisa modificar seu código ou aplicativos para tirar proveito da criptografia.
+Os dados são criptografados e descriptografados usando [a criptografia AES de 256 bits em](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) conformidade com [FIPS 140-2](https://en.wikipedia.org/wiki/FIPS_140-2) . A criptografia e a descriptografia são transparentes, o que significa que a criptografia e o acesso são gerenciados para você. Como os dados são protegidos por padrão, você não precisa modificar seu código ou seus aplicativos para aproveitar a criptografia.
 
 ## <a name="about-encryption-key-management"></a>Sobre o gerenciamento de chaves de criptografia
 
@@ -33,13 +33,13 @@ Quando você usar comandos personalizados, o serviço de fala armazenará os seg
 * Configuração JSON por trás do aplicativo de comandos personalizados
 * Chave de criação e previsão do LUIS
 
-Por padrão, sua assinatura usa chaves de criptografia gerenciadas pela Microsoft. No entanto, você também pode gerenciar sua assinatura com suas próprias chaves de criptografia. As chaves gerenciadas pelo cliente (CMK), também conhecidas como traga sua própria chave (BYOK), oferecem maior flexibilidade para criar, girar, desabilitar e revogar controles de acesso. Você também pode auditar as chaves de criptografia usadas para proteger seus dados.
+Por padrão, sua assinatura usa chaves de criptografia gerenciadas pela Microsoft. No entanto, você também pode gerenciar sua assinatura com suas próprias chaves de criptografia. As Chaves Gerenciadas pelo Cliente (CMK), também conhecidas como Bring Your Own Key (BYOK), oferecem maior flexibilidade para criar, girar, desabilitar e revogar controles de acesso. Você também pode auditar as chaves de criptografia usadas para proteger seus dados.
 
 
 > [!IMPORTANT]
 > As chaves gerenciadas pelo cliente só são recursos disponíveis criados após 27 de junho de 2020. Para usar o CMK com os serviços de fala, será necessário criar um novo recurso de fala. Depois que o recurso for criado, você poderá usar Azure Key Vault para configurar sua identidade gerenciada.
 
-Para solicitar a capacidade de usar chaves gerenciadas pelo cliente, preencha e envie o formulário de solicitação de chave gerenciada pelo cliente. Levará aproximadamente 3-5 dias úteis para que o status da solicitação seja reproduzido. Dependendo da demanda, você pode ser colocado em uma fila e aprovado, pois o espaço se torna disponível. Depois de aprovado para usar o CMK com os serviços de fala, você precisará criar um novo recurso de fala do portal do Azure.
+Para solicitar a capacidade de usar chaves gerenciadas pelo cliente, preencha e envie Customer-Managed formulário de solicitação de chave. Levará aproximadamente 3-5 dias úteis para que o status da solicitação seja reproduzido. Dependendo da demanda, você pode ser colocado em uma fila e aprovado, pois o espaço se torna disponível. Depois de aprovado para usar o CMK com os serviços de fala, você precisará criar um novo recurso de fala do portal do Azure.
    > [!NOTE]
    > **As chaves gerenciadas pelo cliente (CMK) têm suporte apenas para comandos personalizados.**
    >
@@ -151,7 +151,7 @@ Quando você desabilita chaves gerenciadas pelo cliente, seu recurso de fala é 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Formulário de solicitação de chave gerenciada pelo cliente de fala](https://aka.ms/cogsvc-cmk)
+* [Formulário de solicitação de chave de Customer-Managed de fala](https://aka.ms/cogsvc-cmk)
 * [Saiba mais sobre o Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
 * [O que são identidades gerenciadas](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 
