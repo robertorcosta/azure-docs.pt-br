@@ -8,10 +8,10 @@ ms.date: 08/28/2020
 ms.author: victorh
 ms.topic: how-to
 ms.openlocfilehash: c720d7c261421ade9dfce01f0b116123dcab1e55
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89071696"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-powershell"></a>Implantar e configurar o Firewall do Azure usando o Azure PowerShell
@@ -87,7 +87,7 @@ $testVnet = New-AzVirtualNetwork -Name Test-FW-VN -ResourceGroupName Test-FW-RG 
 Agora crie as máquinas virtuais de jump e carga de trabalho e coloque-as nas sub-redes apropriadas.
 Quando solicitado, digite um nome de usuário e senha da máquina virtual.
 
-Crie a máquina virtual SRV-salto.
+Crie o Srv-Jump máquina virtual.
 
 ```azurepowershell
 New-AzVm `
@@ -231,7 +231,7 @@ Agora teste o firewall para confirmar se ele funciona conforme o esperado.
 
    Os dois comandos devem retornar respostas, mostrando que as consultas DNS estão passando pelo firewall.
 
-1. Execute os seguintes comandos:
+1. Execute os comandos a seguir:
 
    ```
    Invoke-WebRequest -Uri https://www.google.com

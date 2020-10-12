@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: 8a515f01bfa9f8ec579c51b806c997d79b629250
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77670314"
 ---
 # <a name="creating-charts-and-diagrams-from-azure-monitor-log-queries"></a>Criar gráficos e diagramas a partir de consultas de log do Azure Monitor
@@ -52,7 +52,7 @@ Perf
 
 Selecione a opção de exibição de gráfico de **linhas** :
 
-![Gráfico de Linhas](media/charts/charts-and-diagrams-multiSeries.png)
+![Gráfico de linhas](media/charts/charts-and-diagrams-multiSeries.png)
 
 ### <a name="reference-line"></a>Linha de referência
 

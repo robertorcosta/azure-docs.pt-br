@@ -4,10 +4,10 @@ description: Você pode usar Azure Data Box para propagar dados de backup inicia
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.openlocfilehash: 2fd8a137abf8b76d1587894bfa3fe8447e0d646b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91271487"
 ---
 # <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs-preview"></a>Propagação offline usando Azure Data Box para o DPM e MABS (visualização)
@@ -26,7 +26,7 @@ O backup offline baseado no Azure Data Box fornece duas vantagens distintas em r
 
 - O Backup do Azure (Agente MARS) pode gravar dados de backup diretamente nos SKUs compatíveis do Azure Data Box. Essa funcionalidade elimina a necessidade de provisionar um local de preparo para os dados do backup inicial. Também não é necessário usar utilitários para formatar e copiar esses dados nos discos.
 
-## <a name="supported-platforms"></a>Plataformas compatíveis
+## <a name="supported-platforms"></a>Plataformas com suporte
 
 As seguintes plataformas são compatíveis:
 

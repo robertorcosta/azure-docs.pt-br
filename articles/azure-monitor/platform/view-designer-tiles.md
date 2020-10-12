@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/17/2018
 ms.openlocfilehash: 0320be3a2cfbb96367799577a6e56bcf5da87dcb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77658499"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-azure-monitor"></a>Guia de referência para exibir blocos do designer no Azure Monitor
@@ -24,7 +24,7 @@ Para obter mais informações sobre o Designer de Exibição, consulte:
 
 Os blocos do Designer de Modos de Exibição disponíveis são descritos na tabela a seguir:  
 
-| Bloco | Descrição |
+| Tile | Descrição |
 |:--- |:--- |
 | [Número](#number-tile) |A contagem de registros de uma consulta. |
 | [Dois números](#two-numbers-tile) |As contagens de registros de duas consultas diferentes. |
@@ -43,11 +43,11 @@ O bloco **Número** exibe a contagem de registros de uma consulta de log e um r�
 
 ![Bloco Número](media/view-designer-tiles/tile-number.png)
 
-| Setting | Descrição |
+| Configuração | Descrição |
 |:--- |:--- |
 | Nome |O texto que é exibido na parte superior do bloco. |
 | Descrição |O texto que é exibido sob o nome do bloco. |
-| **Bloco** | |
+| **Tile** | |
 | Legenda |O texto que é exibido sob o valor. |
 | Consulta |A consulta que é executada. A contagem de registros que são retornados pela consulta é exibida. |
 | **Avançado** |**> Verificação do fluxo de dados** |
@@ -61,7 +61,7 @@ Este bloco exibe a contagem de registros de duas consultas de log diferentes e u
 
 ![Bloco Dois Números](media/view-designer-tiles/tile-two-numbers.png)
 
-| Setting | Descrição |
+| Configuração | Descrição |
 |:--- |:--- |
 | Nome |O texto que é exibido na parte superior do bloco. |
 | Descrição |O texto que é exibido sob o nome do bloco. |
@@ -82,7 +82,7 @@ O bloco **Rosca** exibe um único número que resume uma coluna de valor em uma 
 
 ![Bloco Rosca](media/view-designer-tiles/tile-donut.png)
 
-| Setting | Descrição |
+| Configuração | Descrição |
 |:--- |:--- |
 | Nome |O texto que é exibido na parte superior do bloco. |
 | Descrição |O texto que é exibido sob o nome do bloco. |
@@ -106,7 +106,7 @@ Este bloco é um gráfico de linhas que exibe várias séries de uma consulta de
 
 ![Bloco gráfico de linhas e balão](media/view-designer-tiles/tile-line-chart.png)
 
-| Setting | Descrição |
+| Configuração | Descrição |
 |:--- |:--- |
 | Nome |O texto que é exibido na parte superior do bloco. |
 | Descrição |O texto que é exibido sob o nome do bloco. |
@@ -127,7 +127,7 @@ Este bloco tem um gráfico de linhas que exibe várias séries de uma consulta d
 
 ![Bloco gráfico de linhas e balão](media/view-designer-tiles/tile-line-chart-callout.png)
 
-| Setting | Descrição |
+| Configuração | Descrição |
 |:--- |:--- |
 | Nome |O texto que é exibido na parte superior do bloco. |
 | Descrição |O texto que é exibido sob o nome do bloco. |
@@ -152,18 +152,18 @@ O bloco **Duas linhas do tempo** exibe os resultados das duas consultas de log a
 
 ![Bloco Duas linhas do tempo](media/view-designer-tiles/tile-two-timelines.png)
 
-| Setting | Descrição |
+| Configuração | Descrição |
 |:--- |:--- |
 | Nome |O texto que é exibido na parte superior do bloco. |
 | Descrição |O texto que é exibido sob o nome do bloco. |
 | Primeiro Gráfico | |
 | Legenda |O texto que é exibido sob o balão para a primeira série. |
-| Cor |A cor que é usada para as colunas na primeira série. |
+| Color |A cor que é usada para as colunas na primeira série. |
 | Consulta de gráfico |A consulta que é executada para a primeira série. A contagem dos registros em cada intervalo de tempo são representada pelas colunas do gráfico. |
 | Operação |A operação que é executada na propriedade de valor para resumi-la como um único valor para o balão.<ul><li>Média: a média do valor de todos os registros.</li><li>Contagem: a contagem de registros que são retornados pela consulta.</li><li>Última amostra: o valor do último intervalo que é incluído no gráfico.</li><li>Máx.: o valor máximo dos intervalos que são incluídos no gráfico.</li></ul> |
 | **Segundo gráfico** | |
 | Legenda |O texto que é exibido sob o balão para a segunda série. |
-| Cor |A cor que é usada para as colunas na segunda série. |
+| Color |A cor que é usada para as colunas na segunda série. |
 | Consulta de Gráfico |A consulta que é executada para a segunda série. A contagem dos registros em cada intervalo de tempo são representada pelas colunas do gráfico. |
 | Operação |A operação que é executada na propriedade de valor para resumi-la como um único valor para o balão.<ul><li>Média: a média do valor de todos os registros.</li><li>Contagem: a contagem de registros que são retornados pela consulta.</li><li>Última amostra: o valor do último intervalo que é incluído no gráfico.</li><li>Máx.: o valor máximo dos intervalos que são incluídos no gráfico. |
 | **Avançado** |**> Verificação do fluxo de dados** |

@@ -12,17 +12,17 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: scottwhi
 ms.openlocfilehash: 7ee8d05a542c6906d4ebe70f7e2a461752c6e3f3
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85609445"
 ---
 # <a name="upgrade-from-bing-web-search-api-v5-to-v7"></a>Atualizar a API de Pesquisa na Web do Bing da v5 para v7
 
 Este guia de atualização identifica as alterações entre a versão 5 e a versão 7 da API de Pesquisa na Web do Bing. Use este guia para ajudá-lo a identificar as partes do aplicativo que você precisa atualizar para usar a versão 7.
 
-## <a name="breaking-changes"></a>Alterações da falha
+## <a name="breaking-changes"></a>Alterações de quebra
 
 ### <a name="endpoints"></a>Pontos de extremidade
 
@@ -73,7 +73,7 @@ Bloqueado|InvalidRequest.Blocked
 
 ## <a name="non-breaking-changes"></a>Alterações não relacionadas à falha  
 
-### <a name="headers"></a>headers
+### <a name="headers"></a>Cabeçalhos
 
 - Adição do cabeçalho de solicitação [Pragma](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#pragma) opcional. Por padrão, o Bing retorna o conteúdo armazenado em cache se disponível. Para impedir que o Bing retorne o conteúdo armazenado em cache, defina o cabeçalho Pragma como no-cache (por exemplo, Pragma: no-cache).
 

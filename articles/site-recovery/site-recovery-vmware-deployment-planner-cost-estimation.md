@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 7/29/2019
 ms.author: mayg
 ms.openlocfilehash: d7ee72b5f6441f2b3b3ea9a7eaa41a3e1b650745
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86528954"
 ---
 # <a name="review-cost-estimations-in-the-vmware-deployment-planner"></a>Examinar estimativas de custo no Planejador de Implantações VMware 
@@ -150,7 +150,7 @@ eastus, eastus2, westus, centralus, northcentralus, southcentralus, northeurope,
 ## <a name="supported-currencies"></a>Moedas com suporte
 O Planejador de Implantações do Azure Site Recovery pode gerar o relatório de custo com qualquer uma das moedas a seguir.
 
-|Currency|Nome|Currency|Nome|Currency|Nome|
+|Moeda|Nome|Moeda|Nome|Moeda|Nome|
 |---|---|---|---|---|---|---|---|
 |ARS|Peso argentino ($)|AUD|Dólar australiano ($)|BRL|Real brasileiro (R$)|
 |CAD|Dólar canadense ($)|CHF|Franco suíço. (chf)|DKK|Coroa dinamarquesa (kr)|

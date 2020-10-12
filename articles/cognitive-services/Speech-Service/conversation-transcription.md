@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: trbye
 ms.openlocfilehash: dcc7721aec067c4de309e3fdd926245a9d240f0d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81402507"
 ---
 # <a name="what-is-conversation-transcription-in-meetings-preview"></a>O que é a transcrição de conversa em reuniões (versão prévia)?
@@ -44,7 +44,7 @@ Para tornar as reuniões inclusivas para todos, como participantes que são surd
 
 Os participantes da reunião podem se concentrar na reunião e deixar de fazer anotações para a transcrição da conversa. Os participantes podem envolver ativamente a reunião e acompanhar rapidamente as próximas etapas, usando a transcrição em vez de fazer anotações e possivelmente perder alguma coisa durante a reunião.
 
-## <a name="how-it-works"></a>Como isso funciona
+## <a name="how-it-works"></a>Como ele funciona
 
 Esta é uma visão geral de alto nível de como funciona a transcrição de conversa.
 
@@ -63,7 +63,7 @@ A transcrição de conversa oferece três modos de transcrição:
 
 Os dados de áudio são processados ao vivo para retornar o identificador do orador + transcrição. Selecione esse modo se seu requisito de solução de transcrição for fornecer aos participantes da conversa uma exibição dinâmica de sua conversa em andamento. Por exemplo, criar um aplicativo para tornar as reuniões mais acessíveis os participantes surdos e difíceis de ouvir são um caso de uso ideal para a transcrição em tempo real.
 
-### <a name="asynchronous"></a>Assíncrona
+### <a name="asynchronous"></a>Assíncronos
 
 Os dados de áudio são processados em lote para retornar o identificador do orador e a transcrição. Selecione este modo se seu requisito de solução de transcrição for fornecer maior precisão sem a exibição dinâmica de transcrição. Por exemplo, se você quiser criar um aplicativo para permitir que os participantes da reunião se acompanhem facilmente em reuniões perdidas, use o modo de transcrição assíncrona para obter resultados de transcrição de alta precisão.
 

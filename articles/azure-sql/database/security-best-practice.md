@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 09/21/2020
 ms.reviewer: ''
 ms.openlocfilehash: e418e64fe9fbe98fbd8da4e75a81c05d5e3d118d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90885182"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Guia estratégico para tratar dos requisitos de segurança comuns com o banco de dados SQL do Azure e o Azure SQL Instância Gerenciada
@@ -228,12 +228,12 @@ Atribua apenas as [permissões](https://docs.microsoft.com/sql/relational-databa
 - Em bancos de dados SQL:
   - Use permissões granulares e funções de banco de dados definidas pelo usuário (ou funções de servidor no Instância Gerenciada):
     1. Criar as funções necessárias
-       - [CRIAR FUNÇÃO](https://docs.microsoft.com/sql/t-sql/statements/create-role-transact-sql)
+       - [CREATE ROLE](https://docs.microsoft.com/sql/t-sql/statements/create-role-transact-sql)
        - [CREATE SERVER ROLE](https://docs.microsoft.com/sql/t-sql/statements/create-server-role-transact-sql)
     1. Criar usuários necessários
        - [CRIAR USUÁRIO](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql)
     1. Adicionar usuários como membros a funções
-       - [ALTER ROLE](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql)
+       - [ALTER_ROLE](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql)
        - [ALTERAR FUNÇÃO DE SERVIDOR](https://docs.microsoft.com/sql/t-sql/statements/alter-server-role-transact-sql)
     1. Em seguida, atribua permissões a funções.
        - [GRANT](https://docs.microsoft.com/sql/t-sql/statements/grant-transact-sql)
@@ -461,7 +461,7 @@ Ao usar CLE:
 
 - Proteja chaves simétricas com chaves/certificados assimétricos (não senhas) para evitar o uso do 3DES.
 
-- Tenha cuidado ao migrar um banco de dados usando a criptografia em nível de célula por meio de exportação/importação (arquivos bacpac).
+- Tenha cuidado ao migrar um banco de dados usando a criptografia Cell-Level por meio de exportação/importação (arquivos bacpac).
   - Confira o artigo [recomendações para usar a criptografia em nível de célula no banco de dados SQL do Azure](https://blogs.msdn.microsoft.com/sqlsecurity/2015/05/12/recommendations-for-using-cell-level-encryption-in-azure-sql-database/) sobre como evitar a perda de chaves ao migrar e para outras diretrizes de práticas recomendadas.
 
 Tenha em mente que Always Encrypted é projetado principalmente para proteger dados confidenciais em uso de usuários de alto privilégio do banco de dados SQL do Azure (operadores de nuvem, DBAs) – consulte [proteger dados confidenciais em uso de usuários com alto privilégio e não autorizados](#protect-sensitive-data-in-use-from-high-privileged-unauthorized-users). Esteja atento aos seguintes desafios ao usar Always Encrypted para proteger dados de usuários de aplicativos:

@@ -13,10 +13,10 @@ ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
 ms.openlocfilehash: b5bb505df3cad7856e0b08f04949c2e56ccec1ca
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89295607"
 ---
 # <a name="how-to-encode-with-a-custom-transform---net"></a>Como codificar com uma transformação personalizada-.NET
@@ -36,7 +36,7 @@ Ao criar predefinições personalizadas, as seguintes considerações se aplicam
 
 [Criar uma conta dos Serviços de Mídia](./create-account-howto.md)
 
-## <a name="download-the-sample"></a>Baixar o exemplo
+## <a name="download-the-sample"></a>Baixe o exemplo
 
 Clone um repositório do GitHub que contém o exemplo de .NET Core completo em sua máquina usando o comando a seguir:  
 

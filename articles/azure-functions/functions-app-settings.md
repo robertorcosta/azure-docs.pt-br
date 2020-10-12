@@ -4,10 +4,10 @@ description: Documentação de referência para as configurações de aplicativo
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.openlocfilehash: b17db828aeb19c3347c0db4babf0eee2b9d5f280
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88589293"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referência de configurações de aplicativo para Azure Functions
@@ -44,7 +44,7 @@ Por padrão, os [proxies do Functions](functions-proxies.md) usam um atalho para
 |Chave|Valor|Descrição|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Chamadas com uma URL de back-end apontando para uma função no aplicativo de função local não serão enviadas diretamente para a função. Em vez disso, as solicitações são direcionadas de volta para o front-end HTTP para o aplicativo de funções.|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Chamadas com uma URL de back-end apontando para uma função no aplicativo de funções local são encaminhadas diretamente para a função. Este é o valor padrão. |
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Chamadas com uma URL de back-end apontando para uma função no aplicativo de funções local são encaminhadas diretamente para a função. Esse é o valor padrão. |
 
 ## <a name="azure_function_proxy_backend_url_decode_slashes"></a>AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES
 

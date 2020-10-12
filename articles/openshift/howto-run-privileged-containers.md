@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/05/2019
 keywords: toa, openshift, aquasec, Twistlock, Red Hat
 ms.openlocfilehash: e1c1dd9f27a207f78dd22e271f6b070c7f92f622
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "78271370"
 ---
 # <a name="run-privileged-containers-in-an-azure-red-hat-openshift-cluster"></a>Executar contêineres privilegiados em um cluster do Red Hat OpenShift no Azure
@@ -115,7 +115,7 @@ Defina os seguintes campos ao implantar os imforçadores:
 | -------------- | ------------- |
 | Orchestrator   | OpenShift     |
 | ServiceAccount | água-conta  |
-| Project        | água-segurança |
+| Projeto        | água-segurança |
 
 ## <a name="product-specific-steps-for-prisma-cloud--twistlock"></a>Etapas específicas do produto para prisma Cloud/Twistlock
 
@@ -169,7 +169,7 @@ em seguida, execute:
 oc create -f twistlock_route.yaml
 ```
 
-Você pode obter a URL atribuída ao console do Twistlock com este comando:`oc get route twistlock-console -n twistlock`
+Você pode obter a URL atribuída ao console do Twistlock com este comando: `oc get route twistlock-console -n twistlock`
 
 ### <a name="configure-console"></a>Configurar console
 

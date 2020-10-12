@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet, devx-track-azurepowershell
 ms.date: 04/22/2019
 ms.openlocfilehash: 1da4154530f823d391aea779011a34a35edfd070
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89071152"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guia do desenvolvedor do PowerShell do Azure Functions
@@ -145,7 +145,7 @@ Os seguintes parâmetros comuns também têm suporte:
 
 Para obter mais informações, consulte [sobre CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
-#### <a name="push-outputbinding-example-http-responses"></a>Exemplo de push-OutputBinding: respostas HTTP
+#### <a name="push-outputbinding-example-http-responses"></a>Exemplo de Push-OutputBinding: respostas HTTP
 
 Um gatilho HTTP retorna uma resposta usando uma associação de saída denominada `response` . No exemplo a seguir, a associação de saída de `response` tem o valor de "saída #1":
 
@@ -174,7 +174,7 @@ PS >Push-OutputBinding -Name response -Value ([HttpResponseContext]@{
 }) -Clobber
 ```
 
-#### <a name="push-outputbinding-example-queue-output-binding"></a>Exemplo de push-OutputBinding: Associação de saída da fila
+#### <a name="push-outputbinding-example-queue-output-binding"></a>Exemplo de Push-OutputBinding: Associação de saída de fila
 
 `Push-OutputBinding` é usado para enviar dados para associações de saída, como uma [Associação de saída do armazenamento de filas do Azure](functions-bindings-storage-queue-output.md). No exemplo a seguir, a mensagem gravada na fila tem um valor de "saída #1":
 
@@ -233,7 +233,7 @@ O registro em log nas funções do PowerShell funciona como log normal do PowerS
 
 | Nível de log de funções | Cmdlet de registro em log |
 | ------------- | -------------- |
-| Erro | **`Write-Error`** |
+| Erro do | **`Write-Error`** |
 | Aviso | **`Write-Warning`**  | 
 | Informação | **`Write-Information`** <br/> **`Write-Host`** <br /> **`Write-Output`**      | Informação | Grava no log do nível de _informações_ . |
 | Depurar | **`Write-Debug`** |

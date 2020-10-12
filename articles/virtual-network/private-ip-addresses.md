@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
 ms.openlocfilehash: 13688b73c0cd73e13e407f1b75beb8dda61a754f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84172251"
 ---
 # <a name="private-ip-addresses"></a>Endereços IP privados
@@ -28,7 +28,7 @@ Os recursos podem ser:
 * Serviços do Azure, como:
     * Interfaces de rede de máquina virtual
     * ILBs (balanceadores de carga internos)
-    * Application gateways
+    * Gateways de aplicativo
 * Em uma [rede virtual](virtual-networks-overview.md).
 * Rede local por meio de um gateway de VPN ou circuito de ExpressRoute.
 
@@ -97,7 +97,7 @@ Os métodos de alocação possíveis que podem ser usados também são exibidos:
 
 | Recurso de nível superior | Associação de Endereço IP | Dinâmico | Estático |
 | --- | --- | --- | --- |
-| Máquina virtual |interface de rede |Sim |Sim |
+| Máquina virtual |Adaptador de rede |Sim |Sim |
 | Balanceador de carga |Configuração de front-end |Sim |Sim |
 | Gateway de Aplicativo |Configuração de front-end |Sim |Sim |
 

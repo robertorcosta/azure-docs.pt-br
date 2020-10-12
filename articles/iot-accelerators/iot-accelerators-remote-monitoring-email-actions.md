@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 11/12/2018
 ms.topic: conceptual
 ms.openlocfilehash: c192ba73da0cfaf1832b6a1e572bd71b250a976b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74168371"
 ---
 # <a name="add-an-email-action"></a>Adicionar uma ação de e-mail
@@ -132,7 +132,7 @@ As etapas a seguir ajudam você a fazer login e configurar ações de e-mail:
 
 1. Clique em **Autorizar**. Você é solicitado a fazer login. A conta que você usa para fazer login deve ser o endereço de e-mail que o aplicativo usa para enviar notificações por e-mail:
 
-1. Clique em **Save** (Salvar). Volte para o acelerador de solução e atualize a página.
+1. Clique em **Salvar**. Volte para o acelerador de solução e atualize a página.
 
 1. Se você configurou com sucesso a notificação por e-mail, verá esta mensagem:
 

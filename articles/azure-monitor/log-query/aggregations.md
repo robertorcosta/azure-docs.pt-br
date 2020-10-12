@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: d164c53e7e2be55f3cede389901a256ba388808d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77670297"
 ---
 # <a name="aggregations-in-azure-monitor-log-queries"></a>Agregações nas consultas de log do Azure Monitor
@@ -83,9 +83,9 @@ Heartbeat
 |RemoteIPCountry  | distinct_computers  |
 ------------------|---------------------|
 |Estados Unidos    | 19                  |
-|Canadá           | 3                   |
+|Canada           | 3                   |
 |Irlanda          | 0                   |
-|Reino Unido   | 0                   |
+|United Kingdom   | 0                   |
 |Países Baixos      | 2                   |
 
 
@@ -121,7 +121,7 @@ Perf
 
 Isso pode mostrar que algumas CPUs de computadores têm valores medianos semelhantes, mas enquanto algumas estão em torno da mediana, outros computadores relataram valores de CPU muito menores e mais altos, o que significa que experimentaram picos.
 
-### <a name="variance"></a>Variance
+### <a name="variance"></a>Variância
 Para avaliar diretamente a variância de um valor, use os métodos de desvio padrão e variância:
 
 ```Kusto

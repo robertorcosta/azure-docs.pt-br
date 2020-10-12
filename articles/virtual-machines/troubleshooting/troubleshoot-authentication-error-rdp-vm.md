@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
 ms.openlocfilehash: cc1ad3104596cc7ad4bb48f88e4c8312bc833371
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87088556"
 ---
 # <a name="troubleshoot-authentication-errors-when-you-use-rdp-to-connect-to-azure-vm"></a>Solucionar problemas de erros de autenticação quando você usa o RDP para se conectar à VM do Azure
@@ -161,7 +161,7 @@ Reset-ComputerMachinePassword -Server "<COMPUTERNAME>" -Credential <DOMAIN CREDE
 
 Se a comunicação entre o DC e a VM for boa, mas o DC não estiver íntegro o suficiente para abrir uma sessão do RDP, você poderá tentar reiniciar o controlador de domínio.
 
-Se os comandos anteriores não consertar o problema de comunicação com o domínio, você poderá reingressar essa VM no domínio. Para fazer isso, siga estas etapas:
+Se os comandos anteriores não consertar o problema de comunicação com o domínio, você poderá reingressar essa VM no domínio. Para fazer isso, execute estas etapas:
 
 1. Crie um script chamado Unjoin.ps1 usando o seguinte conteúdo e, em seguida, implante o script como uma Extensão de Script Personalizado no portal do Azure:
 

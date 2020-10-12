@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2018
 ms.author: akjosh
 ms.openlocfilehash: 5914947bd994ee405f253e34c3dd919dd6561898
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87088845"
 ---
 # <a name="stackify-retrace-linux-agent-extension"></a>Extensão do Agente Linux de Stackify Retrace
@@ -191,7 +191,7 @@ az vm extension set --publisher 'Stackify.LinuxAgent.Extension' --version 1.0 --
 | 40 | Erro de instalação | activationKey é obrigatório |
 | 51 | Erro de instalação | Distribuição de sistema operacional não compatível |
 | 60 | Erro de instalação | ambiente é obrigatório |
-| 70 | Erro de instalação | Desconhecido |
+| 70 | Erro de instalação | Unknown |
 | 80 | Ero de habilitação | Falha na configuração de serviço |
 | 90 | Ero de habilitação | Falha na configuração de serviço |
 | 100 | Desabilitar o erro | Falha na interrupção do serviço |

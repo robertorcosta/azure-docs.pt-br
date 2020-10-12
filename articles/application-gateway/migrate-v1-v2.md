@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 03/31/2020
 ms.author: victorh
 ms.openlocfilehash: 653e432ca445451fc9da7155137052b9916d0d92
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91311590"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Migrar Aplicativo Azure gateway e firewall do aplicativo Web da v1 para a v2
@@ -37,7 +37,7 @@ Há um script de Azure PowerShell disponível que faz o seguinte:
 * O novo gateway V2 tem novos endereços IP públicos e privados. Não é possível mover os endereços IP associados ao gateway v1 existente diretamente para a v2. No entanto, você pode alocar um endereço IP público ou privado existente (não alocado) para o novo gateway v2.
 * Você deve fornecer um espaço de endereço IP para outra sub-rede em sua rede virtual onde o gateway v1 está localizado. O script não pode criar o gateway V2 em nenhuma sub-rede existente que já tenha um gateway v1. No entanto, se a sub-rede existente já tiver um gateway v2, isso ainda poderá funcionar, desde que haja espaço de endereço IP suficiente.
 * Se você tiver um grupo de segurança de rede ou rotas definidas pelo usuário associadas à sub-rede de gateway v2, verifique se eles aderem aos requisitos de [NSG](../application-gateway/configuration-infrastructure.md#network-security-groups) e [requisitos de UDR](../application-gateway/configuration-infrastructure.md#supported-user-defined-routes) para uma migração bem-sucedida
-* Atualmente, não há suporte para [políticas de ponto de extremidade de serviço de rede virtual](../virtual-network/virtual-network-service-endpoint-policies-overview.md) em uma sub-rede de gateway de aplicativo.
+* [As políticas de ponto de extremidade de serviço de rede virtual](../virtual-network/virtual-network-service-endpoint-policies-overview.md) atualmente não têm suporte em uma sub-rede do Gateway de Aplicativo.
 * Para migrar uma configuração de TLS/SSL, você deve especificar todos os certificados TLS/SSL usados no seu gateway v1.
 * Se você tiver o modo FIPS habilitado para o seu gateway v1, ele não será migrado para seu novo gateway v2. O modo FIPS não tem suporte na v2.
 * v2 não dá suporte a IPv6, portanto, os gateways v1 habilitados para IPv6 não são migrados. Se você executar o script, ele poderá não ser concluído.
@@ -57,7 +57,7 @@ Há duas opções para você dependendo da configuração e das preferências do
 
 Para determinar se você tem os módulos AZ do Azure instalados, execute `Get-InstalledModule -Name az` . Se você não vir nenhum módulo AZ instalado, poderá usar o `Install-Script` método.
 
-### <a name="install-using-the-install-script-method"></a>Instalar usando o método Install-Script
+### <a name="install-using-the-install-script-method"></a>Instalar usando o método de Install-Script
 
 Para usar essa opção, você não deve ter os módulos AZ do Azure instalados no seu computador. Se eles estiverem instalados, o comando a seguir exibirá um erro. Você pode desinstalar os módulos AZ do Azure ou usar a outra opção para baixar o script manualmente e executá-lo.
   

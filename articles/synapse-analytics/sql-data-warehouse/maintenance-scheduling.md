@@ -11,10 +11,10 @@ ms.date: 02/02/2019
 ms.author: anvang
 ms.reviewer: jrasnick
 ms.openlocfilehash: 1c5bc4400e99fb1c24e321e623aaee523b9c7383
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85210976"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Use agendas de manutenção para gerenciar atualizações e manutenção de serviços
@@ -88,7 +88,7 @@ Durante a visualização, algumas regiões podem ainda não dar suporte ao conju
 
    A área do **Resumo de agendamento** na parte inferior da folha é atualizada com base nos valores que você selecionou.
   
-5. Selecione **Salvar**. Será exibida uma mensagem confirmando que seu novo agendamento agora está ativo.
+5. Clique em **Salvar**. Será exibida uma mensagem confirmando que seu novo agendamento agora está ativo.
 
    Se você estiver salvando um agendamento em uma região que não dá suporte a agendamento de manutenção, a seguinte mensagem será exibida. As configurações são salvas e se tornam ativas quando o recurso estiver disponível em sua região selecionada.
 

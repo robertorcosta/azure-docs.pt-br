@@ -9,10 +9,10 @@ ms.date: 02/26/2020
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: 422b814f1d9738ca4f03d08dfecc6761b764f997
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "78196018"
 ---
 # <a name="open-source-platforms-that-support-azure-data-lake-storage-gen2"></a>Plataformas de software livre compatíveis com o Azure Data Lake Storage Gen2
@@ -29,7 +29,7 @@ Esta tabela lista as plataformas de software livre que dão suporte ao Data Lake
 | Plataforma |  Versão ou versões com suporte | Mais informações |
 | --- | --- | --- |
 | [HDInsight](https://azure.microsoft.com/services/hdinsight/) | 3.6+ | [Quais são os componentes e versões do Apache Hadoop disponíveis com o HDInsight?](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning?toc=%2Fazure%2Fhdinsight%2Fstorm%2FTOC.json&bc=%2F2Fazure%2Fbread%2Ftoc.json)
-| [O Hadoop](https://hadoop.apache.org/) | 3.2+ | [Arquivo de versões do Apache Hadoop](https://hadoop.apache.org/release.html) |
+| [Hadoop](https://hadoop.apache.org/) | 3.2+ | [Arquivo de versões do Apache Hadoop](https://hadoop.apache.org/release.html) |
 | [Cloudera](https://www.cloudera.com/) | 6.1+ | [Notas sobre a versão do Cloudera Enterprise 6.x](https://www.cloudera.com/documentation/enterprise/6/release-notes/topics/rg_cdh_6_release_notes.html) |
 | [Azure Databricks](https://azure.microsoft.com/services/databricks/) | 5.1+ | [Versão do Databricks Runtime](https://docs.databricks.com/release-notes/runtime/databricks-runtime-ver.html) |
 |[Hortonworks](https://hortonworks.com/)| 3.1.x++ | [Configurar o acesso de dados de nuvem](https://docs.hortonworks.com/HDPDocuments/Cloudbreak/Cloudbreak-2.9.0/cloud-data-access/content/cb_configuring-access-to-adls2.html) |
