@@ -8,10 +8,10 @@ ms.date: 09/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 16ee5fb59741d57f47083a0c5db852872ceb91d0
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89296083"
 ---
 # <a name="azure-security-baseline-for-logic-apps"></a>Linha de base de segurança do Azure para aplicativos lógicos
@@ -1190,13 +1190,13 @@ Teste a restauração de chaves de backup gerenciadas pelo cliente. Observe que 
 
 Proteja as chaves gerenciadas pelo cliente com backup. Observe que isso se aplica a aplicativos lógicos executados somente em ambientes de serviço de integração (ISE).
 
-Habilite a proteção de exclusão e limpeza reversível no Key Vault para proteger as chaves contra exclusão acidental ou mal-intencionada.
+Habilite a proteção de Soft-Delete e limpeza no Key Vault para proteger as chaves contra exclusão acidental ou mal-intencionada.
 
 - [Saiba mais sobre continuidade de negócios e recuperação de desastre para aplicativos lógicos do Azure](business-continuity-disaster-recovery-guidance.md)
 
 - [Configurar chaves gerenciadas pelo cliente para criptografar dados em repouso para ambientes de serviço de integração (ISEs) em aplicativos lógicos do Azure](customer-managed-keys-integration-service-environment.md)
 
-- [Como habilitar a exclusão reversível e limpar a proteção no Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Como habilitar a proteção de Soft-Delete e limpeza no Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 

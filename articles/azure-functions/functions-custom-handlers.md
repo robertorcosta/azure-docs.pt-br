@@ -6,10 +6,10 @@ ms.author: antchu
 ms.date: 8/18/2020
 ms.topic: article
 ms.openlocfilehash: f3106553def982eb90ccc90822206e75a11ce354
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89294587"
 ---
 # <a name="azure-functions-custom-handlers-preview"></a>Azure Functions manipuladores personalizados (versão prévia)
@@ -191,7 +191,7 @@ Por convenção, as respostas de função são formatadas como pares de chave/va
 | ------------- | --------- | ------------------------------------------------------------ |
 | `Outputs`     | objeto    | Mantém valores de resposta conforme definidos pela `bindings` matriz no *function.jsem*.<br /><br />Por exemplo, se uma função for configurada com uma associação de saída de fila chamada "myQueueOutput", `Outputs` conterá uma chave chamada `myQueueOutput` , que é definida pelo manipulador personalizado para as mensagens que são enviadas para a fila. |
 | `Logs`        | matriz     | As mensagens aparecem nos logs de invocação de funções.<br /><br />Ao executar no Azure, as mensagens aparecem no Application Insights. |
-| `ReturnValue` | string    | Usado para fornecer uma resposta quando uma saída é configurada como `$return` na *function.jsno* arquivo. |
+| `ReturnValue` | cadeia de caracteres    | Usado para fornecer uma resposta quando uma saída é configurada como `$return` na *function.jsno* arquivo. |
 
 Este é um exemplo de uma carga de resposta.
 
@@ -578,7 +578,7 @@ Você também pode usar essa estratégia em seus pipelines de CI/CD para executa
 
 Os manipuladores personalizados são executados no mesmo ambiente que um aplicativo Azure Functions típico. Teste seu manipulador para garantir que o ambiente contenha todas as dependências necessárias para executar. Para aplicativos que exigem dependências adicionais, talvez seja necessário executá-los usando uma [imagem de contêiner personalizada](functions-create-function-linux-custom-image.md) hospedada no [plano Azure Functions Premium](functions-premium-plan.md).
 
-### <a name="get-support"></a>Obtenha suporte
+### <a name="get-support"></a>Obter suporte
 
 Se precisar de ajuda em um aplicativo de funções com manipuladores personalizados, você poderá enviar uma solicitação por meio de canais de suporte regular. No entanto, devido à grande variedade de linguagens possíveis usadas para criar aplicativos de manipuladores personalizados, o suporte não é ilimitado.
 

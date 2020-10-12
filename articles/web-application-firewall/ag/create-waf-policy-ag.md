@@ -8,10 +8,10 @@ ms.service: web-application-firewall
 ms.date: 02/08/2020
 ms.author: victorh
 ms.openlocfilehash: 5705eedfb919c792c558384f6309325dcded4b43
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86146604"
 ---
 # <a name="create-web-application-firewall-policies-for-application-gateway"></a>Criar políticas de firewall do aplicativo Web para o gateway de aplicativo
@@ -23,7 +23,7 @@ Você pode fazer quantas políticas desejar. Depois de criar uma política, ela 
 Se o gateway de aplicativo tiver uma política aplicada e você aplicar uma política diferente a um ouvinte nesse gateway de aplicativo, a política do ouvinte entrará em vigor, mas apenas para os ouvintes aos quais eles estão atribuídos. A política de gateway de aplicativo ainda se aplica a todos os outros ouvintes que não têm uma política específica atribuída a eles. 
 
    > [!NOTE]
-   > As políticas WAF por URI estão em visualização pública. Isso significa que esse recurso está sujeito aos Termos de Uso Suplementares da Microsoft. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+   > As políticas de WAF por URI estão em versão prévia pública. Isso significa que esse recurso está sujeito aos Termos de Uso Suplementares da Microsoft. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
    > [!NOTE]
    > Depois que uma política de firewall é associada a um WAF, sempre deve haver uma política associada a esse WAF. Você pode substituir essa política, mas desassociar uma política do WAF totalmente não é suportado. 
 

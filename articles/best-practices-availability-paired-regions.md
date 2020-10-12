@@ -9,10 +9,10 @@ ms.date: 03/03/2020
 ms.author: barbkess
 ms.custom: references_regions
 ms.openlocfilehash: b720d9dd824018d885ccc9860ee9fd8a90a46051
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84194327"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuidade dos negócios e recuperação de desastres (BCDR): Regiões Emparelhadas do Azure
@@ -49,7 +49,7 @@ Não. Os clientes podem aproveitar os serviços do Azure para arquitetar um serv
 
 | painel Geografia do app&#39;s selecionado | Par regional A | Par regional B  |
 |:--- |:--- |:--- |
-| Pacífico Asiático |Ásia Oriental (Hong Kong) | Sudeste Asiático (Cingapura) |
+| Asia-Pacific |Ásia Oriental (Hong Kong) | Sudeste Asiático (Cingapura) |
 | Austrália |Leste da Austrália |Sudeste da Austrália |
 | Austrália |Austrália Central |Austrália Central 2 |
 | Brasil |Sul do Brasil |Centro-Sul dos Estados Unidos |
@@ -104,7 +104,7 @@ Como mencionado na Figura 2.
 
 5. **Isolamento físico** – quando possível, o Azure prefere pelo menos 300 milhas de separação entre data centers em um par regional, embora isso não seja prático ou possível em todas as regiões geográficas. A separação de data center físico reduz a probabilidade de desastres naturais, conflitos civis, quedas de energia ou interrupções de rede física que afetem as duas regiões ao mesmo tempo. Isolamento está sujeito às restrições dentro da região geográfica (tamanho da região geográfica, disponibilidade da infraestrutura de rede/alimentação, normas, etc.).  
 
-6. **Replicação fornecida pela plataforma** -alguns serviços, como o armazenamento com redundância geográfica, fornecem replicação automática para a região emparelhada.
+6. **Replicação fornecida pela plataforma** -alguns serviços como o armazenamento de Geo-Redundant fornecem replicação automática para a região emparelhada.
 
 7. **Ordem de recuperação de região** – no caso de uma interrupção ampla, a recuperação de uma região é priorizada de cada par. Os aplicativos que são implantados em regiões emparelhadas são garantidos para terem uma das regiões recuperadas com prioridade. Se um aplicativo é implantado em regiões que não são emparelhadas, pode haver um atraso na recuperação – no pior caso, as regiões escolhidas podem ser as duas últimas a serem recuperadas.
 

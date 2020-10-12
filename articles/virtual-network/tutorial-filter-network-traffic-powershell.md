@@ -18,10 +18,10 @@ ms.date: 03/30/2018
 ms.author: kumud
 ms.custom: mvc, devx-track-azurepowershell
 ms.openlocfilehash: c0b0d366518b786b33048d2d2f182abd787856ad
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89075096"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-powershell"></a>Filtrar tráfego com um grupo de segurança de rede utilizando o PowerShell
@@ -35,7 +35,7 @@ ms.locfileid: "89075096"
 * Implantar VMs (máquinas virtuais) em uma sub-rede
 * Testar filtros de tráfego
 
-Caso não tenha uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

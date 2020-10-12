@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 12/19/2016
 ms.author: stewu
 ms.openlocfilehash: 71207509f20c80cf85311cba7b647aaca0a49e42
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88192809"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Diretrizes para o Storm no HDInsight e Azure Data Lake armazenamento Gen1 de ajuste de desempenho
@@ -89,7 +89,7 @@ Em topologias com uso intensivo de E/S, é recomendável fazer com que cada thre
 
 No Storm, um spout permanece com uma tupla até que ela seja explicitamente confirmada pelo bolt. Se uma tupla tiver sido lida pelo parafuso, mas ainda não tiver sido confirmada, o bico pode não ter persistido no back end do Data Lake Storage Gen1. Após a confirmação da tupla, o spout pode ter sua persistência garantida pelo bolt e, em seguida, pode excluir os dados de origem de qualquer fonte da qual esteja lendo.  
 
-Para melhor desempenho no Data Lake armazenamento Gen1, ter o bolt do buffer de 4 MB de dados de tupla. Em seguida, grave no back-end de Data Lake Storage Gen1 como uma gravação de 4 MB. Depois que os dados tiverem sido gravados com êxito no repositório (chamando hflush()), o bolt poderá confirmar os dados de volta para o spout. É isso que o bolt de exemplo fornecido aqui faz. Também é aceitável manter um número maior de tuplas antes de fazer a chamada de hflush() e confirmar as tuplas. No entanto, isso aumenta o número de tuplas em voo que o spout precisa armazenar e, portanto, aumenta a quantidade de memória exigida por JVM.
+Para melhor desempenho no Data Lake armazenamento Gen1, ter o bolt do buffer de 4 MB de dados de tupla. Em seguida, grave no back-end de Data Lake Storage Gen1 como 1 4 MB de gravação. Depois que os dados tiverem sido gravados com êxito no repositório (chamando hflush()), o bolt poderá confirmar os dados de volta para o spout. É isso que o bolt de exemplo fornecido aqui faz. Também é aceitável manter um número maior de tuplas antes de fazer a chamada de hflush() e confirmar as tuplas. No entanto, isso aumenta o número de tuplas em voo que o spout precisa armazenar e, portanto, aumenta a quantidade de memória exigida por JVM.
 
 > [!NOTE]
 > Determinados aplicativos podem ter um requisito de confirmar tuplas com maior frequência (em tamanhos de dados menores que 4 MB), por motivos não relacionados a desempenho. No entanto, isso pode afetar a taxa de transferência de E/S para o back-end de armazenamento. Avalie com cuidado essa compensação em relação ao desempenho de E/S do bolt.

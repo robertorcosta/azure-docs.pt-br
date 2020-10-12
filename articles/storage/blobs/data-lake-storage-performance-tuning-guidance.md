@@ -9,10 +9,10 @@ ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: a1ae0971b016ed226351167cfabfca7d3cafd19f
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87905398"
 ---
 # <a name="optimize-azure-data-lake-storage-gen2-for-performance"></a>Otimizar Azure Data Lake Storage Gen2 para desempenho
@@ -46,7 +46,7 @@ Depois que você tiver resolvido os gargalos de hardware de origem e conectivida
 | Ferramenta               | Configurações     | Mais detalhes                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
 | DistCp            | -m (mapper)   | [Link](data-lake-storage-use-distcp.md#performance-considerations-while-using-distcp)                             |
-| Fábrica de dados do Azure| parallelCopies    | [Link](../../data-factory/copy-activity-performance.md)                          |
+| Azure Data Factory| parallelCopies    | [Link](../../data-factory/copy-activity-performance.md)                          |
 | Sqoop           | fs.azure.block.size, -m (mapper)    |   [Link](https://docs.microsoft.com/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs)        |
 
 ## <a name="structure-your-data-set"></a>Estruturar seu conjunto de dados

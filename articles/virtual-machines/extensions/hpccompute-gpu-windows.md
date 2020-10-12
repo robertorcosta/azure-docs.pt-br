@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: akjosh
 ms.openlocfilehash: 4491171062e582db8388c3eff380d67ea1a0c51c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87085649"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>Extensão de Driver NVIDIA GPU para Windows
@@ -76,7 +76,7 @@ O JSON a seguir mostra o esquema para a extensão.
 | apiVersion | 2015-06-15 | date |
 | publicador | Microsoft.HpcCompute | string |
 | type | NvidiaGpuDriverWindows | string |
-| typeHandlerVersion | 1.3 | INT |
+| typeHandlerVersion | 1,3 | INT |
 
 
 ## <a name="deployment"></a>Implantação
@@ -157,7 +157,7 @@ A saída de execução da extensão é registrada no seguinte local:
 C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverWindows\
 ```
 
-### <a name="error-codes"></a>Códigos de erro
+### <a name="error-codes"></a>Códigos do Erro
 
 | Código do Erro | Significado | Ação possível |
 | :---: | --- | --- |

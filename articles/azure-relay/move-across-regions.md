@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 09/03/2020
 ms.custom: subject-moving-resources
 ms.openlocfilehash: 60a182764639341fcda159356dd9fe6c65cfabd9
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89463437"
 ---
 # <a name="move-an-azure-relay-namespace-to-another-region"></a>Mover um namespace de retransmissão do Azure para outra região
@@ -39,7 +39,7 @@ Para começar, exporte um modelo do Resource Manager. Este modelo contém config
 1. Procure `location` e substitua o valor da propriedade pelo novo nome da região. Para obter códigos de localização, consulte [locais do Azure](https://azure.microsoft.com/global-infrastructure/locations/). O código de uma região é o nome da região sem espaços, por exemplo, `West US` é igual a `westus` .
 1. Remover definições de recursos **dinâmicos de retransmissão do WCF** (tipo: `Microsoft.Relay/namespaces/WcfRelays` ). As retransmissões dinâmicas do WCF são aquelas que têm a propriedade **IsDynamic** definida como **true** na página **retransmissões** . No exemplo a seguir, **echoservice** é uma retransmissão dinâmica do WCF e sua definição deve ser removida do modelo. 
 
-    :::image type="content" source="./media/move-across-regions/dynamic-relays.png" alt-text="Retransmissões dinâmicas":::
+    :::image type="content" source="./media/move-across-regions/dynamic-relays.png" alt-text="Baixar modelo do Resource Manager":::
 
 ## <a name="move"></a>Mover
 Implante o modelo para criar um namespace de retransmissão na região de destino. 
@@ -47,19 +47,19 @@ Implante o modelo para criar um namespace de retransmissão na região de destin
 1. Na portal do Azure, selecione **criar um recurso**.
 2. Em **Pesquisar no Marketplace**, digite **implantação de modelo** para o texto de pesquisa, selecione **implantação de modelo (implantar usando modelos personalizados)** e pressione **Enter**.
 
-    :::image type="content" source="./media/move-across-regions/new-template-deployment.png" alt-text="Nova implantação de modelo":::    
+    :::image type="content" source="./media/move-across-regions/new-template-deployment.png" alt-text="Baixar modelo do Resource Manager":::    
 1. Na página **implantação de modelo** , selecione **criar**.
 
-    :::image type="content" source="./media/move-across-regions/template-deployment-create-button.png" alt-text="Novo modelo implantação-botão criar":::        
+    :::image type="content" source="./media/move-across-regions/template-deployment-create-button.png" alt-text="Baixar modelo do Resource Manager":::        
 1. Na página **implantação personalizada** , selecione **criar seu próprio modelo no editor**.
 
-    :::image type="content" source="./media/move-across-regions/build-template-link.png" alt-text="Crie seu próprio modelo no editor – link":::            
+    :::image type="content" source="./media/move-across-regions/build-template-link.png" alt-text="Baixar modelo do Resource Manager":::            
 1. Na página **Editar modelo** , selecione **carregar arquivo** na barra de ferramentas e siga as instruções para carregar o **template.jsno** arquivo que você baixou na última seção.
 
-    :::image type="content" source="./media/move-across-regions/select-template.png" alt-text="Selecionar modelo":::                
+    :::image type="content" source="./media/move-across-regions/select-template.png" alt-text="Baixar modelo do Resource Manager":::                
 1. Selecione **salvar** para salvar o modelo. 
 
-    :::image type="content" source="./media/move-across-regions/save-template.png" alt-text="Salvar modelo":::                    
+    :::image type="content" source="./media/move-across-regions/save-template.png" alt-text="Baixar modelo do Resource Manager":::                    
 1. Na página **implantação personalizada** , siga estas etapas: 
     1. Selecione uma **assinatura**do Azure. 
     2. Selecione um **grupo de recursos** existente ou crie um. 
@@ -67,16 +67,16 @@ Implante o modelo para criar um namespace de retransmissão na região de destin
     4. Insira um novo **nome para o namespace**.
     1. Selecione **Examinar + criar**. 
 
-        :::image type="content" source="./media/move-across-regions/deploy-template.png" alt-text="Implantar modelo do Resource Manager":::
+        :::image type="content" source="./media/move-across-regions/deploy-template.png" alt-text="Baixar modelo do Resource Manager":::
     1. Na página **revisar + criar** , selecione **criar** na parte inferior da página. 
     
 ## <a name="verify"></a>Verificar
 1. Depois que a implantação for bem-sucedida, selecione **ir para o grupo de recursos**.
 
-    :::image type="content" source="./media/move-across-regions/resource-group-navigation-link.png" alt-text="Ir para o link do grupo de recursos":::    
+    :::image type="content" source="./media/move-across-regions/resource-group-navigation-link.png" alt-text="Baixar modelo do Resource Manager":::    
 1. Na página **grupo de recursos** , selecione o namespace de retransmissão do Azure. 
 
-    :::image type="content" source="./media/move-across-regions/select-namespace.png" alt-text="Selecionar namespace de retransmissão do Azure":::    
+    :::image type="content" source="./media/move-across-regions/select-namespace.png" alt-text="Baixar modelo do Resource Manager":::    
 1. Na página **namespace de retransmissão do Azure** , selecione **conexões híbridas** ou **retransmissões do WCF** no menu à esquerda para verificar se as conexões híbridas e as retransmissões do WCF foram criadas. Se você se esqueceu de excluir definições para retransmissões dinâmicas do WCF antes de importar o modelo, exclua-as na página **retransmissões do WCF** . As retransmissões dinâmicas do WCF são criadas automaticamente quando os clientes se conectam ao namespace de retransmissão. 
 
 ## <a name="discard-or-clean-up"></a>Descartar ou limpar

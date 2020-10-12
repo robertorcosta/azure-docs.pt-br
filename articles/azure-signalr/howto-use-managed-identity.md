@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 06/8/2020
 ms.author: chenyl
 ms.openlocfilehash: abe7503e7eb73d533ae901af21de001960173fb0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85559411"
 ---
 # <a name="managed-identities-for-azure-signalr-service"></a>Identidades gerenciadas para o serviço de Signaler do Azure
@@ -28,7 +28,7 @@ Para configurar uma identidade gerenciada no portal do Azure, primeiro você cri
 
 2. Selecionar **Identidade**.
 
-4. Na guia **atribuído pelo sistema** , alterne o **status** para **ativado**. Selecione **Salvar**.
+4. Na guia **atribuído pelo sistema** , alterne o **status** para **ativado**. Clique em **Salvar**.
 
     :::image type="content" source="media/signalr-howto-use-managed-identity/system-identity-portal.png" alt-text="Adicionar uma identidade atribuída pelo sistema no portal":::
 
@@ -46,7 +46,7 @@ A criação de uma instância do serviço de Signaler do Azure com uma identidad
 
 5. Pesquise a identidade que você criou anteriormente e selecione-a. Selecione **Adicionar**.
 
-    :::image type="content" source="media/signalr-howto-use-managed-identity/user-identity-portal.png" alt-text="Adicionar uma identidade atribuída pelo usuário no portal":::
+    :::image type="content" source="media/signalr-howto-use-managed-identity/user-identity-portal.png" alt-text="Adicionar uma identidade atribuída pelo sistema no portal":::
 
 ## <a name="use-a-managed-identity-in-serverless-scenarios"></a>Usar uma identidade gerenciada em cenários sem servidor
 

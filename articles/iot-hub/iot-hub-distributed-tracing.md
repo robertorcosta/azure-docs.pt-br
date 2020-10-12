@@ -14,10 +14,10 @@ ms.custom:
 - fasttrack-edit
 - iot
 ms.openlocfilehash: 3e3dd49c622c1a35571fdb53af470789dc9a26bb
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89462026"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Rastrear mensagens de dispositivo para a nuvem do IoT do Azure com o rastreamento distribuído (versão prévia)
@@ -169,7 +169,7 @@ Essas instruções servem para compilar o exemplo no Windows. Para outros ambien
     cmake --build . --target iothub_ll_telemetry_sample --config Debug
     ```
 
-1. Execute o aplicativo. O dispositivo envia telemetria que dá suporte ao rastreamento distribuído.
+1. Executar o aplicativo. O dispositivo envia telemetria que dá suporte ao rastreamento distribuído.
 
     ```cmd
     Debug/iothub_ll_telemetry_sample.exe

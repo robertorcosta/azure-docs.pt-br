@@ -13,10 +13,10 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: f6521efe024ba0ea29ae427aeaf06ca0e5fa8dd7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84194909"
 ---
 # <a name="push-data-to-an-azure-cognitive-search-index-by-using-azure-data-factory"></a>Enviar dados por push para um índice de Pesquisa Cognitiva do Azure usando Azure Data Factory
@@ -55,7 +55,7 @@ As seções a seguir fornecem detalhes sobre as propriedades JSON que são usada
 
 A tabela a seguir fornece descrições para elementos JSON que são específicos para o serviço vinculado do Azure Pesquisa Cognitiva.
 
-| Property | Descrição | Obrigatório |
+| Propriedade | Descrição | Obrigatório |
 | -------- | ----------- | -------- |
 | type | A propriedade Type deve ser definida como: **AzureSearch**. | Sim |
 | url | URL para o serviço de pesquisa. | Sim |
@@ -65,7 +65,7 @@ A tabela a seguir fornece descrições para elementos JSON que são específicos
 
 Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, veja o artigo [Criando conjuntos de dados](data-factory-create-datasets.md) . As seções como structure, availability e policy de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados. A seção **typeproperties** é diferente para cada tipo de conjunto de texto. A seção typeProperties para um conjunto de dados do tipo **AzureSearchIndex** tem as propriedades a seguir:
 
-| Property | Descrição | Obrigatório |
+| Propriedade | Descrição | Obrigatório |
 | -------- | ----------- | -------- |
 | type | A propriedade type deve ser definida como: **AzureSearchIndex**.| Sim |
 | indexName | Nome do índice de pesquisa. O Data Factory não cria o índice. O índice deve existir no Pesquisa Cognitiva do Azure. | Sim |
@@ -76,7 +76,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Na Atividade de Cópia, quando o coletor é do tipo **AzureSearchIndexSink**, as seguintes propriedades estão disponíveis na seção typeProperties:
 
-| Property | Descrição | Valores permitidos | Obrigatório |
+| Propriedade | Descrição | Valores permitidos | Obrigatório |
 | -------- | ----------- | -------------- | -------- |
 | WriteBehavior | Especifica se deve mesclar ou substituir quando já existe um documento no índice. Veja a [propriedade WriteBehavior](#writebehavior-property).| Merge (padrão)<br/>Carregar| Não |
 | WriteBatchSize | Carrega dados no índice de pesquisa quando o tamanho do buffer atinge writeBatchSize. Veja a [propriedade WriteBatchSize](#writebatchsize-property) para obter detalhes. | 1 a 1.000. O valor padrão é 1000. | Não |
@@ -103,7 +103,7 @@ A tabela a seguir especifica se um tipo de dados do Azure Pesquisa Cognitiva tem
 | Int32 | S |
 | Int64 | S |
 | Double | S |
-| Boolean | S |
+| Booliano | S |
 | DataTimeOffset | S |
 | Matriz de cadeia de caracteres | N |
 | GeographyPoint | N |

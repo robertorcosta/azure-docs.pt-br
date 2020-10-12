@@ -12,10 +12,10 @@ ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
 ms.openlocfilehash: 28bbe1432777e9e15ae625fb9788f9182495bd66
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87845078"
 ---
 # <a name="web-app-that-signs-in-users-sign-in-and-sign-out"></a>Aplicativo Web que conecta usuários: entrar e sair
@@ -108,7 +108,7 @@ def index():
 
 ---
 
-### <a name="signin-action-of-the-controller"></a>`SignIn`ação do controlador
+### <a name="signin-action-of-the-controller"></a>`SignIn` ação do controlador
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
@@ -221,7 +221,7 @@ Para saber mais, consulte a seção [Enviar uma solicitação de saída](v2-prot
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Durante o registro do aplicativo, você registra um URI de pós-logout. Em nosso tutorial, você se registrou `https://localhost:44321/signout-oidc` no campo **URL de logout** da seção **Configurações avançadas** na página **autenticação** . Para obter detalhes, consulte [registrar o aplicativo webApp](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-1-MyOrg#register-the-webapp-app-webapp).
+Durante o registro do aplicativo, você registra um URI de pós-logout. Em nosso tutorial, você se registrou `https://localhost:44321/signout-oidc` no campo **URL de logout** da seção **Configurações avançadas** na página **autenticação** . Para obter detalhes, consulte [ registrar o aplicativo webApp](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-1-MyOrg#register-the-webapp-app-webapp).
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
@@ -325,7 +325,7 @@ No início rápido do Python, o botão de saída está localizado no arquivo [te
 
 ---
 
-### <a name="signout-action-of-the-controller"></a>`SignOut`ação do controlador
+### <a name="signout-action-of-the-controller"></a>`SignOut` ação do controlador
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
