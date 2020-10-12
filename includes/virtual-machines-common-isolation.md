@@ -1,6 +1,6 @@
 ---
-title: incluir arquivo
-description: incluir arquivo
+title: arquivo de inclusão
+description: arquivo de inclusão
 services: virtual-machines
 author: ayshakeen
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 09/18/2019
 ms.author: azcspmt;ayshak;cynthn
 ms.custom: include file
 ms.openlocfilehash: 4f6a6dd28662c98c89dad39da3fd5c967f227dc3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87084035"
 ---
 A Computação do Azure oferece tamanhos de máquina virtual Isolada, para um tipo de hardware específico e dedicada a um único cliente. Os tamanhos isolados residem e operam em uma geração de hardware específica e serão preteridos quando a geração de hardware for desativada.
@@ -41,7 +41,7 @@ Como os tamanhos de VM isoladas são os tamanhos de hardware associados, o Azure
 | Standard_DS15_v2<sup>1</sup> | 15 de maio de 2020 |
 | Standard_D15_v2<sup>1</sup>  | 15 de maio de 2020 |
 
-<sup>1</sup> para obter detalhes sobre o Standard_DS15_v2 e Standard_D15_v2 programa de desativação de isolamento, consulte FAQs
+<sup>1</sup>  para obter detalhes sobre o Standard_DS15_v2 e Standard_D15_v2 programa de desativação de isolamento, consulte FAQs
 
 
 ## <a name="faq"></a>Perguntas frequentes

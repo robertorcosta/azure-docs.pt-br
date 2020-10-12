@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/23/2018
 ms.custom: devx-track-python
 ms.openlocfilehash: 5dd51f7bcaaa876285f6f514ea98603ff28e7ffa
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87872592"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Criar um gatilho que executa um pipeline com base em um agendamento
@@ -320,7 +320,7 @@ A seguinte definição de JSON mostra como criar um gatilho de agendamento com o
 ### <a name="schema-overview"></a>Visão geral do esquema
 A seguinte tabela fornece uma visão geral de alto nível dos principais elementos de esquema relacionados à recorrência e ao agendamento de um gatilho:
 
-| Propriedade JSON | Descrição |
+| Propriedade JSON | DESCRIÇÃO |
 |:--- |:--- |
 | **startTime** | Um valor de Data/Hora. Para agendamentos simples, o valor da propriedade **startTime** aplica-se à primeira ocorrência. Para agendamentos complexos, o gatilho não é iniciado antes do valor de **startTime** especificado. |
 | **Final** | A data e a hora de início do gatilho. O gatilho não é executado após a data e a hora de término especificadas. O valor da propriedade não pode estar no passado. Essa propriedade é opcional. |
@@ -367,7 +367,7 @@ Se vários elementos **schedule** forem especificados, a ordem de avaliação se
 A seguinte tabela descreve elementos **schedule** em detalhes:
 
 
-| Elemento JSON | Descrição | Valores válidos |
+| Elemento JSON | DESCRIÇÃO | Valores válidos |
 |:--- |:--- |:--- |
 | **alguns** | Minutos da hora em que o gatilho será executado. | <ul><li>Integer</li><li>Matriz de inteiros</li></ul>
 | **duração** | As horas do dia em que o gatilho será executado. | <ul><li>Integer</li><li>Matriz de inteiros</li></ul> |
@@ -381,7 +381,7 @@ Esta seção fornece exemplos de agendamentos de recorrência e se concentra no 
 
 Os exemplos pressupõem que o valor de **interval** seja 1 e que o valor de **frequency** esteja correto de acordo com a definição de agendamento. Por exemplo, não é possível ter um valor de **frequency** igual a "day" e também ter uma modificação de "monthDays" no objeto **schedule**. Restrições desse tipo são mencionadas na tabela na seção anterior.
 
-| Exemplo | Descrição |
+| Exemplo | DESCRIÇÃO |
 |:--- |:--- |
 | `{"hours":[5]}` | Executar às 5h todos os dias. |
 | `{"minutes":[15], "hours":[5]}` | Executar às 5h15 todos os dias. |

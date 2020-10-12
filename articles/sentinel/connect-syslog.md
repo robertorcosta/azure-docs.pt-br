@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
 ms.openlocfilehash: 7670d00a2dd25961a51d18c50c102e0f92b30975
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88566141"
 ---
 # <a name="collect-data-from-linux-based-sources-using-syslog"></a>Coletar dados de fontes baseadas em Linux usando syslog
@@ -30,7 +30,7 @@ Você pode transmitir eventos de computadores com suporte do syslog, baseados em
 >
 > - Log Analytics dá suporte à coleta de mensagens enviadas pelos daemons **rsyslog** ou **syslog-ng** , em que rsyslog é o padrão. O daemon de syslog padrão na versão 5 de Red Hat Enterprise Linux (RHEL), CentOS e versão de Oracle Linux (**sysklog**) não tem suporte para a coleta de eventos de syslog. Para coletar dados de syslog nessa versão das distribuições, o daemon rsyslog deverá ser instalado e configurado para substituir sysklog.
 
-## <a name="how-it-works"></a>Como isso funciona
+## <a name="how-it-works"></a>Como ele funciona
 
 O **syslog** é um protocolo de log de eventos comum ao Linux. Quando o **agente de log Analytics para Linux** é instalado em sua VM ou dispositivo, a rotina de instalação configura o daemon do syslog local para encaminhar mensagens para o agente na porta TCP 25224. Em seguida, o agente envia a mensagem para seu espaço de trabalho Log Analytics por HTTPS, onde é analisado em uma entrada de log de eventos na tabela syslog no **Azure Sentinel > logs**.
 
@@ -77,7 +77,7 @@ Para obter mais informações, consulte [syslog Data Sources in Azure monitor](.
 
 1. Depois de adicionar todos os recursos que você deseja monitorar e ajustar as opções de severidade para cada um deles, marque a caixa de seleção **aplicar a configuração abaixo a meus computadores**.
 
-1. Clique em **Salvar**. 
+1. Selecione **Salvar**. 
 
 1. Em sua VM ou dispositivo, certifique-se de que você está enviando os recursos que você especificou.
 

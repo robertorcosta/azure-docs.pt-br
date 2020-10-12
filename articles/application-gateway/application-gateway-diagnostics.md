@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/22/2019
 ms.author: victorh
 ms.openlocfilehash: f752604b86634948954dd670d0b7f4edb5b3e2be
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86517868"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Integridade de back-end e logs de diagnóstico para o gateway de aplicativo
@@ -307,7 +307,7 @@ O log de firewall é gerado apenas se você o habilitou em cada gateway de aplic
 |ruleSetType     | Tipo de conjunto de regras. O valor disponível é OWASP.        |
 |ruleSetVersion     | Versão utilizada do conjunto de regras. Os valores disponíveis são 2.2.9 e 3.0.     |
 |ruleId     | ID da Regra do evento de gatilho.        |
-|message     | Mensagem amigável para o evento de gatilho. Mais detalhes são fornecidos na seção de detalhes.        |
+|mensagem     | Mensagem amigável para o evento de gatilho. Mais detalhes são fornecidos na seção de detalhes.        |
 |ação     |  Ação executada na solicitação. Os valores disponíveis são MATCHED e blocked.      |
 |site     | Site para o qual o log foi gerado. No momento, somente Global é listado porque as regras são globais.|
 |detalhes     | Detalhes do evento de gatilho.        |

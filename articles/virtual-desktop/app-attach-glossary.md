@@ -9,10 +9,10 @@ ms.date: 08/17/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: f3cc8495f673c8b428aa9e6ace2747a70c5b0847
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88556206"
 ---
 # <a name="msix-app-attach-glossary"></a>Glossário de anexação de aplicativo MSIX
@@ -71,7 +71,7 @@ Na área de trabalho virtual do Windows, a publicação de um pacote MSIX vincul
 
 Na área de trabalho virtual do Windows, um pacote MSIX publicado deve ser atribuído a um usuário ou grupo de usuários do Domínio do Active Directory (AD DS) ou Azure Active Directory (Azure AD).
 
-## <a name="staging"></a>Preparo
+## <a name="staging"></a>Staging
 
 O preparo envolve duas coisas:
 
@@ -106,7 +106,7 @@ A desmontagem notifica o sistema operacional que um pacote ou aplicativo MSIX qu
 
 . CIM é uma nova extensão de arquivo associada ao CimFS (Composite Image Files System). Montar e desmontar arquivos CIM é mais rápido que os arquivos VHD. O CIM também consome menos CPU e memória do que o VHD.
 
-A tabela a seguir é uma comparação de desempenho entre VHD e CimFS. Esses números foram o resultado de uma execução de teste com arquivos de 800 MB em cada formato executado em um computador DSv4.
+A tabela a seguir é uma comparação de desempenho entre VHD e CimFS. Esses números foram o resultado de uma execução de teste com arquivos de 500 300 MB em cada formato executado em um computador DSv4.
 
 |  Especificações                          | VHD                     | CimFS   |
 |---------------------------------|--------------------------|-----------|

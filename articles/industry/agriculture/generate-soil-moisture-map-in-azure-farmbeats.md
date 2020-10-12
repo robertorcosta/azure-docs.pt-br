@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: a2115e9c1601c86cce8857c10baf12b91cc2b997
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75482563"
 ---
 # <a name="generate-soil-moisture-heatmap"></a>Gerar calor de umidade de solo
@@ -81,7 +81,7 @@ Esta etapa é criar um trabalho ou uma operação de execução longa que irá g
 
 ### <a name="download-the-soil-moisture-heatmap"></a>Baixe o calor de umidade de solo
 
-Use as etapas a seguir:
+Use as seguintes etapas:
 
 1. Na página **trabalhos** , verifique o **status do trabalho** que você criou no último procedimento.
 2. Quando o status do trabalho for exibido com **êxito**, selecione **mapas** no menu.

@@ -7,10 +7,10 @@ ms.date: 12/03/2018
 ms.author: asnegi
 ms.custom: mvc, devcenter
 ms.openlocfilehash: f26fe70afe7d9e2872f06ac6da7143556278b1b0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75497960"
 ---
 # <a name="mount-highly-available-service-fabric-reliable-disk-based-volume-in-a-service-fabric-mesh-application"></a>Monte o volume baseado em Disco Confiável do Microsoft Azure Service Fabric altamente disponível em um aplicativo de Malha do Service Fabric 
@@ -60,7 +60,7 @@ az group deployment show --name counter.sfreliablevolume.linux --resource-group 
 
 Observe o nome do recurso de gateway que tem o recurso de tipo como `Microsoft.ServiceFabricMesh/gateways`. Isso será usado na obtenção do endereço IP público do aplicativo.
 
-## <a name="open-the-application"></a>Abra o aplicativo
+## <a name="open-the-application"></a>Abrir o aplicativo
 
 Depois que o aplicativo é implantado com êxito, obtenha o endereço IP do recurso de gateway para o aplicativo. Use o nome do gateway observado na seção acima.
 ```azurecli-interactive

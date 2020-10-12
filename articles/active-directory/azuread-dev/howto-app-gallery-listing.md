@@ -14,10 +14,10 @@ ms.reviewer: jeedes
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 40d299049a0a1bbff81c412a5beb84f28e64ff46
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90706295"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Listar seu aplicativo na galeria de aplicativos do Azure Active Directory
@@ -101,7 +101,7 @@ Para listar um aplicativo na galeria de aplicativos do Azure Active Directory, p
 
 - **Saml 2,0** ou **WS-alimentado**: se seu aplicativo der suporte a SAML 2,0, você poderá integrá-lo diretamente com um locatário do Azure ad seguindo as [instruções para adicionar um aplicativo personalizado](../manage-apps/view-applications-portal.md).
 
-  ![Listando um aplicativo SAML 2,0 ou WS-enalimentado na Galeria](./media/howto-app-gallery-listing/saml.png)
+  ![Listando um aplicativo SAML 2,0 ou WS-Fed na Galeria](./media/howto-app-gallery-listing/saml.png)
 
   * Se você quiser adicionar seu aplicativo para listar na Galeria usando o **saml 2,0** ou o **WS-enalimentado**, selecione **SAML 2.0/WS-alimentado** , conforme mostrado.
 
@@ -146,7 +146,7 @@ Este é o fluxo de aplicativos solicitados pelo cliente.
 
 ## <a name="timelines"></a>Linhas do tempo
 
-A linha do tempo para o processo de listagem de um aplicativo SAML 2,0 ou WS-enalimentado na galeria é de 7 a 10 dias úteis.
+A linha do tempo para o processo de listagem de um aplicativo SAML 2,0 ou WS-Fed na galeria é de 7 a 10 dias úteis.
 
   ![Linha do tempo para listar um aplicativo SAML na Galeria](./media/howto-app-gallery-listing/timeline.png)
 

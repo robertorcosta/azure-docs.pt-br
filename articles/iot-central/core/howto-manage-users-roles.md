@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: corywink
 ms.openlocfilehash: c00f9d8baa55ef0d0cf6322ee71f22e739e6acdc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80365510"
 ---
 # <a name="manage-users-and-roles-in-your-iot-central-application"></a>Gerenciar usuários e funções em seu aplicativo IoT Central
@@ -95,18 +95,18 @@ Ao definir uma função personalizada, você escolhe o conjunto de permissões q
 
 | Nome | Dependências |
 | ---- | -------- |
-| Exibir | Não     |
-| Gerenciar | Exibir <br/> Outras dependências: exibir instâncias de dispositivo  |
+| Visualizar | Nenhum     |
+| Gerenciar | Visualizar <br/> Outras dependências: exibir instâncias de dispositivo  |
 | Controle Total | Exibir, gerenciar <br/> Outras dependências: exibir instâncias de dispositivo |
 
 **Permissões de instância de dispositivo**
 
 | Nome | Dependências |
 | ---- | -------- |
-| Exibir | Não <br/> Outras dependências: exibir modelos de dispositivo e grupos de dispositivos |
-| Atualização | Exibir <br/> Outras dependências: exibir modelos de dispositivo e grupos de dispositivos  |
+| Visualizar | Nenhum <br/> Outras dependências: exibir modelos de dispositivo e grupos de dispositivos |
+| Atualizar | Visualizar <br/> Outras dependências: exibir modelos de dispositivo e grupos de dispositivos  |
 | Criar | Visualizar <br/> Outras dependências: exibir modelos de dispositivo e grupos de dispositivos  |
-| Excluir | Exibir <br/> Outras dependências: exibir modelos de dispositivo e grupos de dispositivos  |
+| Excluir | Visualizar <br/> Outras dependências: exibir modelos de dispositivo e grupos de dispositivos  |
 | Executar comandos | Atualizar, exibir <br/> Outras dependências: exibir modelos de dispositivo e grupos de dispositivos  |
 | Controle Total | Exibir, atualizar, criar, excluir, executar comandos <br/> Outras dependências: exibir modelos de dispositivo e grupos de dispositivos  |
 
@@ -114,19 +114,19 @@ Ao definir uma função personalizada, você escolhe o conjunto de permissões q
 
 | Nome | Dependências |
 | ---- | -------- |
-| Exibir | Não <br/> Outras dependências: exibir modelos de dispositivo e instâncias de dispositivo |
-| Atualização | Exibir <br/> Outras dependências: exibir modelos de dispositivo e instâncias de dispositivo   |
+| Visualizar | Nenhum <br/> Outras dependências: exibir modelos de dispositivo e instâncias de dispositivo |
+| Atualizar | Visualizar <br/> Outras dependências: exibir modelos de dispositivo e instâncias de dispositivo   |
 | Criar | Exibir, atualizar <br/> Outras dependências: exibir modelos de dispositivo e instâncias de dispositivo   |
-| Excluir | Exibir <br/> Outras dependências: exibir modelos de dispositivo e instâncias de dispositivo   |
+| Excluir | Visualizar <br/> Outras dependências: exibir modelos de dispositivo e instâncias de dispositivo   |
 | Controle Total | Exibir, atualizar, criar, excluir <br/> Outras dependências: exibir modelos de dispositivo e instâncias de dispositivo |
 
 **Permissões de gerenciamento de conectividade do dispositivo**
 
 | Nome | Dependências |
 | ---- | -------- |
-| Ler instância | Não <br/> Outras dependências: exibir modelos de dispositivo, grupos de dispositivos, instâncias de dispositivo |
-| Gerenciar instância | Não |
-| Ler global | Não   |
+| Ler instância | Nenhum <br/> Outras dependências: exibir modelos de dispositivo, grupos de dispositivos, instâncias de dispositivo |
+| Gerenciar instância | Nenhum |
+| Ler global | Nenhum   |
 | Gerenciar global | Ler global |
 | Controle Total | Ler instância, gerenciar instância, ler global, gerenciar global. <br/> Outras dependências: exibir modelos de dispositivo, grupos de dispositivos, instâncias de dispositivo |
 
@@ -134,21 +134,21 @@ Ao definir uma função personalizada, você escolhe o conjunto de permissões q
 
 | Nome | Dependências |
 | ---- | -------- |
-| Exibir | Não <br/> Outras dependências: exibir modelos de dispositivo, instâncias de dispositivo e grupos de dispositivos |
-| Atualização | Exibir <br/> Outras dependências: exibir modelos de dispositivo, instâncias de dispositivo e grupos de dispositivos |
+| Visualizar | Nenhum <br/> Outras dependências: exibir modelos de dispositivo, instâncias de dispositivo e grupos de dispositivos |
+| Atualizar | Visualizar <br/> Outras dependências: exibir modelos de dispositivo, instâncias de dispositivo e grupos de dispositivos |
 | Criar | Exibir, atualizar <br/> Outras dependências: exibir modelos de dispositivo, instâncias de dispositivo e grupos de dispositivos |
-| Excluir | Exibir <br/> Outras dependências: exibir modelos de dispositivo, instâncias de dispositivo e grupos de dispositivos |
-| Execute (executar) | Exibir <br/> Outras dependências: exibir modelos de dispositivo, instâncias de dispositivo e grupos de dispositivos; Atualizar instâncias de dispositivo; Executar comandos em instâncias de dispositivo |
+| Excluir | Visualizar <br/> Outras dependências: exibir modelos de dispositivo, instâncias de dispositivo e grupos de dispositivos |
+| Execute (executar) | Visualizar <br/> Outras dependências: exibir modelos de dispositivo, instâncias de dispositivo e grupos de dispositivos; Atualizar instâncias de dispositivo; Executar comandos em instâncias de dispositivo |
 | Controle Total | Exibir, atualizar, criar, excluir, executar <br/> Outras dependências: exibir modelos de dispositivo, instâncias de dispositivo e grupos de dispositivos; Atualizar instâncias de dispositivo; Executar comandos em instâncias de dispositivo |
 
 **Permissões de regras**
 
 | Nome | Dependências |
 | ---- | -------- |
-| Exibir | Não <br/> Outras dependências: exibir modelos de dispositivo |
-| Atualização | Exibir <br/> Outras dependências: exibir modelos de dispositivo |
+| Visualizar | Nenhum <br/> Outras dependências: exibir modelos de dispositivo |
+| Atualizar | Visualizar <br/> Outras dependências: exibir modelos de dispositivo |
 | Criar | Exibir, atualizar <br/> Outras dependências: exibir modelos de dispositivo |
-| Excluir | Exibir <br/> Outras dependências: exibir modelos de dispositivo |
+| Excluir | Visualizar <br/> Outras dependências: exibir modelos de dispositivo |
 | Controle Total | Exibir, atualizar, criar, excluir <br/> Outras dependências: exibir modelos de dispositivo |
 
 #### <a name="managing-the-app"></a>Gerenciando o aplicativo
@@ -157,25 +157,25 @@ Ao definir uma função personalizada, você escolhe o conjunto de permissões q
 
 | Nome | Dependências |
 | ---- | -------- |
-| Exibir | Não     |
-| Atualização | Exibir   |
-| Copiar | Exibir <br/> Outras dependências: exibir modelos de dispositivo, instâncias de dispositivo, grupos de dispositivos, painéis, exportação de dados, identidade visual, links de ajuda, funções personalizadas, regras |
-| Excluir | Exibir   |
+| Visualizar | Nenhum     |
+| Atualizar | Visualizar   |
+| Copiar | Visualizar <br/> Outras dependências: exibir modelos de dispositivo, instâncias de dispositivo, grupos de dispositivos, painéis, exportação de dados, identidade visual, links de ajuda, funções personalizadas, regras |
+| Excluir | Visualizar   |
 | Controle Total | Exibir, atualizar, copiar, excluir <br/> Outras dependências: exibir modelos de dispositivo, grupos de dispositivos, painéis de aplicativos, exportação de dados, identidade visual, links de ajuda, funções personalizadas, regras |
 
 **Permissões de exportação de modelo de aplicativo**
 
 | Nome | Dependências |
 | ---- | -------- |
-| Exibir | Não     |
-| Exportar | Exibir <br/> Outras dependências: exibir modelos de dispositivo, instâncias de dispositivo, grupos de dispositivos, painéis, exportação de dados, identidade visual, links de ajuda, funções personalizadas, regras |
+| Visualizar | Nenhum     |
+| Exportação | Visualizar <br/> Outras dependências: exibir modelos de dispositivo, instâncias de dispositivo, grupos de dispositivos, painéis, exportação de dados, identidade visual, links de ajuda, funções personalizadas, regras |
 | Controle Total | Exibir, exportar <br/> Outras dependências: exibir modelos de dispositivo, grupos de dispositivos, painéis de aplicativos, exportação de dados, identidade visual, links de ajuda, funções personalizadas, regras |
 
 **Permissões de cobrança**
 
 | Nome | Dependências |
 | ---- | -------- |
-| Gerenciar | Não     |
+| Gerenciar | Nenhum     |
 | Controle Total | Gerenciar |
 
 #### <a name="managing-users-and-roles"></a>Gerenciando usuários e funções
@@ -184,19 +184,19 @@ Ao definir uma função personalizada, você escolhe o conjunto de permissões q
 
 | Nome | Dependências |
 | ---- | -------- |
-| Exibir | Não |
-| Atualização | Exibir |
+| Visualizar | Nenhum |
+| Atualizar | Visualizar |
 | Criar | Exibir, atualizar |
-| Excluir | Exibir |
+| Excluir | Visualizar |
 | Controle Total | Exibir, atualizar, criar, excluir |
 
 **Permissões de gerenciamento do usuário**
 
 | Nome | Dependências |
 | ---- | -------- |
-| Exibir | Não <br/> Outras dependências: exibir funções personalizadas |
-| Adicionar | Exibir <br/> Outras dependências: exibir funções personalizadas |
-| Excluir | Exibir <br/> Outras dependências: exibir funções personalizadas |
+| Visualizar | Nenhum <br/> Outras dependências: exibir funções personalizadas |
+| Adicionar | Visualizar <br/> Outras dependências: exibir funções personalizadas |
+| Excluir | Visualizar <br/> Outras dependências: exibir funções personalizadas |
 | Controle Total | Exibir, adicionar, excluir <br/> Outras dependências: exibir funções personalizadas |
 
 > [!NOTE]
@@ -208,36 +208,36 @@ Ao definir uma função personalizada, você escolhe o conjunto de permissões q
 
 | Nome | Dependências |
 | ---- | -------- |
-| Exibir | Não     |
-| Atualização | Exibir   |
+| Visualizar | Nenhum     |
+| Atualizar | Visualizar   |
 | Criar | Exibir, atualizar |
-| Excluir | Exibir   |
+| Excluir | Visualizar   |
 | Controle Total | Exibir, atualizar, criar, excluir |
 
 **Permissões de painéis pessoais**
 
 | Nome | Dependências |
 | ---- | -------- |
-| Exibir | Não     |
-| Atualização | Exibir   |
+| Visualizar | Nenhum     |
+| Atualizar | Visualizar   |
 | Criar | Exibir, atualizar   |
-| Excluir | Exibir   |
+| Excluir | Visualizar   |
 | Controle Total | Exibir, atualizar, criar, excluir |
 
 **Permissões de identidade visual, favicon e cores**
 
 | Nome | Dependências |
 | ---- | -------- |
-| Exibir | Não     |
-| Atualização | Exibir   |
+| Visualizar | Nenhum     |
+| Atualizar | Visualizar   |
 | Controle Total | Exibir, atualizar |
 
 **Permissões de links de ajuda**
 
 | Nome | Dependências |
 | ---- | -------- |
-| Exibir | Não     |
-| Atualização | Exibir   |
+| Visualizar | Nenhum     |
+| Atualizar | Visualizar   |
 | Controle Total | Exibir, atualizar |
 
 #### <a name="extending-the-app"></a>Estendendo o aplicativo
@@ -246,19 +246,19 @@ Ao definir uma função personalizada, você escolhe o conjunto de permissões q
 
 | Nome | Dependências |
 | ---- | -------- |
-| Exibir | Não     |
-| Atualização | Exibir   |
+| Visualizar | Nenhum     |
+| Atualizar | Visualizar   |
 | Criar | Exibir, atualizar  |
-| Excluir | Exibir   |
+| Excluir | Visualizar   |
 | Controle Total | Exibir, atualizar, criar, excluir |
 
 **Permissões de token de API**
 
 | Nome | Dependências |
 | ---- | -------- |
-| Exibir | Não     |
+| Visualizar | Nenhum     |
 | Criar | Visualizar   |
-| Excluir | Exibir   |
+| Excluir | Visualizar   |
 | Controle Total | Exibir, criar, excluir |
 
 ## <a name="next-steps"></a>Próximas etapas

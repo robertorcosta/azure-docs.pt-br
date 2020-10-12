@@ -6,10 +6,10 @@ services: container-service
 ms.topic: article
 ms.date: 08/17/2020
 ms.openlocfilehash: be4856beac69d11de12ec764f313fa59f3b24e9f
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89290541"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>Crie um controlador de entrada com um endereço IP público estático no AKS (Serviço de Kubernetes do Azure)
@@ -18,7 +18,7 @@ Um controlador de entrada é uma parte do software que fornece proxy reverso, ro
 
 Este artigo mostra como implantar o [controlador de ingresso NGINX][nginx-ingress] em um Cluster do Serviço de Kubernetes do Azure (AKS0) O controlador de entrada é configurado com um endereço IP público estático. O projeto [cert-manager][cert-manager] é usado para gerar e configurar automaticamente certificados [Vamos Criptografar][lets-encrypt]. Finalmente, dois aplicativos são executados no cluster do AKS, cada um dos quais é acessível em um único endereço IP.
 
-Você também pode:
+Também é possível:
 
 - [Criar um controlador de entrada básico com conectividade de rede externa][aks-ingress-basic]
 - [Habilitar o complemento de roteamento de aplicativo HTTP][aks-http-app-routing]
@@ -382,7 +382,7 @@ Agora, adicione o caminho */hello-world-two* para o FQDN, como *`https://demo-ak
 
 ![Exemplo de aplicativo dois](media/ingress/app-two.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Este artigo usou o Helm para instalar os componentes de ingresso, os certificados e os aplicativos de exemplo. Quando você implanta um gráfico Helm, vários recursos do Kubernetes são criados. Esses recursos incluem pods, implantações e serviços. Para limpar esses recursos, você pode excluir o namespace de exemplo inteiro ou os recursos individuais.
 
@@ -449,7 +449,7 @@ Este artigo incluído alguns componentes externos no AKS. Para saber mais sobre 
 - [Controlador de entrada NGINX ][nginx-ingress]
 - [cert-manager][cert-manager]
 
-Você também pode:
+Também é possível:
 
 - [Criar um controlador de entrada básico com conectividade de rede externa][aks-ingress-basic]
 - [Habilitar o complemento de roteamento de aplicativo HTTP][aks-http-app-routing]

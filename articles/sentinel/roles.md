@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 06/28/2020
 ms.author: yelevin
 ms.openlocfilehash: b48ff1043ae8128a5cbfdcbba0548d89b5af2624
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88565835"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Permissões no Azure Sentinel
@@ -80,7 +80,7 @@ Por exemplo, um usuário ao qual é atribuída a função **leitor de sentinela 
 
 A tabela a seguir resume as funções e as ações permitidas no Azure Sentinel. 
 
-| Função | Criar e executar guias estratégicos| Criar e editar pastas de trabalho, regras analíticas e outros recursos do Azure Sentinel | Gerenciar incidentes (ignorar, atribuir, etc.) | Exibir dados, incidentes, pastas de trabalho e outros recursos do Azure Sentinel |
+| Função | Criar e executar guias estratégicos| Crie e edite pastas de trabalho, regras analíticas e outros recursos do Azure Sentinel | Gerenciar incidentes (ignorar, atribuir, etc.) | Exibir dados, incidentes, pastas de trabalho e outros recursos do Azure Sentinel |
 |---|---|---|---|---|
 | Leitor do Azure Sentinel | -- | -- | -- | &#10003; |
 | Respondente do Azure Sentinel | -- | -- | &#10003; | &#10003; |

@@ -11,10 +11,10 @@ author: djpmsft
 manager: anandsub
 ms.date: 07/16/2020
 ms.openlocfilehash: 7239c1516c4a04b57249ea4f39bff4aec9156d72
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87337680"
 ---
 # <a name="execute-azure-machine-learning-pipelines-in-azure-data-factory"></a>Executar pipelines de Azure Machine Learning no Azure Data Factory
@@ -59,7 +59,7 @@ mlPipelineId | ID do pipeline de Azure Machine Learning publicado | Cadeia de ca
 experimentoname | Nome de teste de execução do histórico da execução do pipeline de Machine Learning | Cadeia de caracteres (ou expressão com um resultType de cadeia de caracteres) | Não
 mlPipelineParameters | Pares de chave, valor a serem passados para o ponto de extremidade do pipeline de Azure Machine Learning publicado. As chaves devem corresponder aos nomes dos parâmetros de pipeline definidos no pipeline de Machine Learning publicado | Objeto com pares chave-valor (ou expressão com o objeto ResultType) | Não
 mlParentRunId | A ID de execução do pipeline Azure Machine Learning pai | Cadeia de caracteres (ou expressão com um resultType de cadeia de caracteres) | Não
-continueOnStepFailure | Se deseja continuar a execução de outras etapas no pipeline de Machine Learning executar se uma etapa falhar | boolean | Não
+continueOnStepFailure | Se deseja continuar a execução de outras etapas no pipeline de Machine Learning executar se uma etapa falhar | booleano | Não
 
 > [!NOTE]
 > Para preencher os itens suspensos em Machine Learning nome e ID do pipeline, o usuário precisa ter permissão para listar pipelines ML. O ADF UX chama as APIs do AzureMLService diretamente usando as credenciais do usuário conectado.  

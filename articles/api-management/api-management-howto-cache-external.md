@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/26/2020
 ms.author: apimpm
 ms.openlocfilehash: cfb7dd7a3831d90235b25af9598cfbc137ffcb3d
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87904948"
 ---
 # <a name="use-an-external-redis-compatible-cache-in-azure-api-management"></a>Usar um cache externo compatível com Redis no gerenciamento de API do Azure
@@ -43,7 +43,7 @@ O que você aprenderá:
 
 Para concluir este tutorial, você precisará:
 
-+ [Criar uma instância de gerenciamento de API do Azure](get-started-create-service-instance.md)
++ [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md)
 + Entender o [cache no Gerenciamento de API do Azure](api-management-howto-cache.md)
 
 ## <a name="create-azure-cache-for-redis"></a><a name="create-cache"> </a> Criar cache do Azure para Redis

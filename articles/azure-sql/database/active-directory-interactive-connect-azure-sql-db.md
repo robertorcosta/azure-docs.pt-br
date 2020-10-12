@@ -12,10 +12,10 @@ ms.author: MirekS
 ms.reviewer: vanto
 ms.date: 04/23/2020
 ms.openlocfilehash: 147b73b6772675d5143e41ddfff030614e393b95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84031727"
 ---
 # <a name="connect-to-azure-sql-database-with-azure-multi-factor-authentication"></a>Conectar-se ao banco de dados SQL do Azure com a autenticação multifator do Azure
@@ -62,13 +62,13 @@ Para registrar e definir as permissões necessárias para seu aplicativo:
 
 1. Na portal do Azure, selecione **Azure Active Directory**  >  **registros de aplicativo**  >  **novo registro**.
 
-    ![Registro de aplicativo](./media/active-directory-interactive-connect-azure-sql-db/image1.png)
+    ![Registro do aplicativo](./media/active-directory-interactive-connect-azure-sql-db/image1.png)
 
     Depois que o registro do aplicativo é criado, o valor da **ID do aplicativo** é gerado e exibido.
 
     ![ID do aplicativo exibida](./media/active-directory-interactive-connect-azure-sql-db/image2.png)
 
-2. Selecione **permissões**  >  **de API adicionar uma permissão**.
+2. Selecione **Permissões de API** > **Adicionar uma permissão**.
 
     ![Configurações de permissões do aplicativo registrado](./media/active-directory-interactive-connect-azure-sql-db/sshot-registered-app-settings-required-permissions-add-api-access-c32.png)
 
