@@ -5,10 +5,10 @@ ms.subservice: logs
 ms.topic: reference
 ms.date: 06/03/2020
 ms.openlocfilehash: 81f79b81c03e7996d7f6d45b002d8160740c3c14
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87318293"
 ---
 # <a name="supported-categories-for-azure-resource-logs"></a>Categorias com suporte para logs de recursos do Azure
@@ -347,7 +347,7 @@ Se ainda houver algo ausente, você poderá abrir um comentário do GitHub na pa
 |---|---|
 |ArchiveLogs|Logs de arquivo|
 |AutoScaleLogs|Logs de Escala Automática|
-|CustomerManagedKeyUserLogs|Logs de chave gerenciados pelo cliente|
+|CustomerManagedKeyUserLogs|Customer-Managed logs de chave|
 |EventHubVNetConnectionEvent|Logs de conexão de filtragem de VNet/IP|
 |KafkaCoordinatorLogs|Logs do coordenador de Kafka|
 |KafkaUserErrorLogs|Logs de erros do usuário Kafka|
@@ -603,7 +603,7 @@ Se ainda houver algo ausente, você poderá abrir um comentário do GitHub na pa
 
 |Categoria|Nome de exibição da categoria|
 |---|---|
-|Erros|Erros|
+|Errors|Errors|
 |QueryStoreRuntimeStatistics|Estatísticas de Runtime do Repositório de Consultas|
 |QueryStoreWaitStatistics|Estatísticas de Espera do Repositório de Consultas|
 |SQLInsights|Insights do SQL|
@@ -619,7 +619,7 @@ Se ainda houver algo ausente, você poderá abrir um comentário do GitHub na pa
 |Deadlocks|Deadlocks|
 |DevOpsOperationsAudit|Logs de auditoria de operações do DevOps|
 |DmsWorkers|Trabalhos DMS|
-|Erros|Erros|
+|Errors|Errors|
 |ExecRequests|Solicitações de Exec|
 |QueryStoreRuntimeStatistics|Estatísticas de Runtime do Repositório de Consultas|
 |QueryStoreWaitStatistics|Estatísticas de Espera do Repositório de Consultas|

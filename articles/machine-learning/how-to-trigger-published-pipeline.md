@@ -12,10 +12,10 @@ ms.date: 02/07/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4
 ms.openlocfilehash: 2e3544bee5158a855467f8cb142f176df2187ef5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91318289"
 ---
 # <a name="trigger-a-run-of-a-machine-learning-pipeline-from-a-logic-app"></a>Disparar uma execução de um pipeline de Machine Learning de um aplicativo lógico
@@ -37,7 +37,7 @@ Dispare a execução do seu pipeline de Azure Machine Learning quando novos dado
 * [Armazenamento de BLOBs do Azure](../storage/blobs/storage-blobs-overview.md) para armazenar seus dados.
 * [Um repositório de armazenamento](how-to-access-data.md) em seu espaço de trabalho que contém os detalhes da sua conta de armazenamento de BLOBs.
 
-## <a name="create-a-logic-app"></a>Criar um Aplicativo Lógico
+## <a name="create-a-logic-app"></a>Criar um aplicativo lógico
 
 Agora, crie uma instância [do aplicativo lógico do Azure](../logic-apps/logic-apps-overview.md) . Se desejar, [use um ISE (ambiente do serviço de integração)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) e [Configure uma chave gerenciada pelo cliente](../logic-apps/customer-managed-keys-integration-service-environment.md) para ser usada pelo seu aplicativo lógico.
 

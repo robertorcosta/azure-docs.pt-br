@@ -17,10 +17,10 @@ ms.date: 04/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 217d5b060ca1b7d32cd334049db9b7c68b7949a0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87065086"
 ---
 # <a name="what-sap-software-is-supported-for-azure-deployments"></a>Quais programas de software SAP são compatíveis com as implantações do Azure
@@ -117,7 +117,7 @@ Para VMs do Azure, esses números de produtividade de SAPS são documentados no 
 
 Olhando para a [Nota de suporte SAP #1928533](https://launchpad.support.sap.com/#/notes/1928533), os seguintes comentários se aplicam:
 
-- **Para VMs do Azure da série M e VMs do Azure da série Mv2, versões mínimas de so diferentes se aplicam do que para outros tipos de VM do Azure**. O requisito para versões mais recentes do sistema operacional é baseado em alterações que os diferentes fornecedores de sistemas operacionais tinham que fornecer em suas versões de sistema operacional para habilitar seus sistemas operacionais em execução nos tipos específicos de VM do Azure ou otimizar o desempenho e a taxa de transferência da carga de trabalho do SAP nesses tipos de VM
+- **Para VMs do Azure da série M e Mv2-Series VMs do Azure, versões mínimas do sistema operacional diferentes se aplicam em outros tipos de VM do Azure**. O requisito para versões mais recentes do sistema operacional é baseado em alterações que os diferentes fornecedores de sistemas operacionais tinham que fornecer em suas versões de sistema operacional para habilitar seus sistemas operacionais em execução nos tipos específicos de VM do Azure ou otimizar o desempenho e a taxa de transferência da carga de trabalho do SAP nesses tipos de VM
 - Há duas tabelas que especificam diferentes tipos de VM. A segunda tabela especifica a taxa de transferência de SAPS para tipos de VM do Azure que dão suporte apenas ao armazenamento standard do Azure. Não há suporte para a implantação de DBMS nas unidades especificadas na segunda tabela da observação
 
 

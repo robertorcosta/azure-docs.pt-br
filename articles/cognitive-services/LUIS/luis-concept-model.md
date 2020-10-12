@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.openlocfilehash: 576ba945018d13db9cd24888f3c41a2215857694
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91316504"
 ---
 # <a name="design-with-intent-and-entity-models"></a>Design com intenção e modelos de entidade
@@ -65,7 +65,7 @@ O LUIS dá suporte à _decomposição de modelo_ com as APIs de criação, divid
 
 A decomposição do modelo tem as seguintes partes:
 
-* [intenções](#intents-classify-utterances)
+* [tentativas](#intents-classify-utterances)
     * [Features](#features)
 * [entidades de machine learning](reference-entity-machine-learned-entity.md)
     * subentidades (também entidades de aprendizado de máquina)

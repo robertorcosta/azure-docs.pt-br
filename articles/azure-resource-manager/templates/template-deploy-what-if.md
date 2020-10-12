@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: tomfitz
 ms.openlocfilehash: 27efe1e03b8a0d373d566106a53a41007731973e
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87810064"
 ---
 # <a name="arm-template-deployment-what-if-operation-preview"></a>Operação de hipóteses de implantação de modelo ARM (versão prévia)
@@ -110,18 +110,18 @@ Resource changes: 1 to modify.
 
 Para visualizar as alterações antes de implantar um modelo, use [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) ou [New-AzSubscriptionDeployment](/powershell/module/az.resources/new-azdeployment). Adicione o `-Whatif` parâmetro de opção ao comando de implantação.
 
-* `New-AzResourceGroupDeployment -Whatif`para implantações de grupo de recursos
-* `New-AzSubscriptionDeployment -Whatif`e `New-AzDeployment -Whatif` para implantações em nível de assinatura
+* `New-AzResourceGroupDeployment -Whatif` para implantações de grupo de recursos
+* `New-AzSubscriptionDeployment -Whatif` e `New-AzDeployment -Whatif` para implantações em nível de assinatura
 
 Você pode usar o `-Confirm` parâmetro switch para visualizar as alterações e receber uma solicitação para continuar com a implantação.
 
-* `New-AzResourceGroupDeployment -Confirm`para implantações de grupo de recursos
-* `New-AzSubscriptionDeployment -Confirm`e `New-AzDeployment -Confirm` para implantações em nível de assinatura
+* `New-AzResourceGroupDeployment -Confirm` para implantações de grupo de recursos
+* `New-AzSubscriptionDeployment -Confirm` e `New-AzDeployment -Confirm` para implantações em nível de assinatura
 
 Os comandos anteriores retornam um resumo de texto que você pode inspecionar manualmente. Para obter um objeto que você pode inspecionar para alterações programaticamente, use [Get-AzResourceGroupDeploymentWhatIfResult](/powershell/module/az.resources/get-azresourcegroupdeploymentwhatifresult) ou [Get-AzSubscriptionDeploymentWhatIfResult](/powershell/module/az.resources/get-azdeploymentwhatifresult).
 
-* `$results = Get-AzResourceGroupDeploymentWhatIfResult`para implantações de grupo de recursos
-* `$results = Get-AzSubscriptionDeploymentWhatIfResult`ou `$results = Get-AzDeploymentWhatIfResult` para implantações de nível de assinatura
+* `$results = Get-AzResourceGroupDeploymentWhatIfResult` para implantações de grupo de recursos
+* `$results = Get-AzSubscriptionDeploymentWhatIfResult` ou `$results = Get-AzDeploymentWhatIfResult` para implantações de nível de assinatura
 
 ### <a name="azure-cli"></a>CLI do Azure
 

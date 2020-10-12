@@ -16,10 +16,10 @@ ms.date: 06/26/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 37fad118fe314b1392c31906a3f0a0989e39d876
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90969413"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-rest-api-calls"></a>Criar, listar ou excluir uma identidade gerenciada atribuída pelo usuário usando chamadas à API REST
@@ -34,8 +34,8 @@ Neste artigo, você aprenderá como criar, listar e excluir uma identidade geren
 
 - Se você não estiver familiarizado com identidades gerenciadas para recursos do Azure, confira a [seção de visão geral](overview.md). **Revise a [diferença entre uma identidade gerenciada atribuída ao sistema e atribuída ao usuário](overview.md#managed-identity-types)**.
 - Se você ainda não tiver uma conta do Azure, [inscreva-se em uma conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
-- Você pode executar todos os comandos neste artigo na nuvem ou localmente:
-    - Para executar na nuvem, use o [Azure cloud Shell](../../cloud-shell/overview.md).
+- Você pode executar todos os comandos deste artigo na nuvem ou localmente:
+    - Para executar na nuvem, use o [Azure Cloud Shell](../../cloud-shell/overview.md).
     - Para executar localmente, instale a [rotação](https://curl.haxx.se/download.html) e a [CLI do Azure](/cli/azure/install-azure-cli).
 
 ## <a name="obtain-a-bearer-access-token"></a>Obter um token de acesso de portador
@@ -78,9 +78,9 @@ s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<U
 
 **Corpo da solicitação**
 
-|Name  |Descrição  |
+|Nome  |Descrição  |
 |---------|---------|
-|local     | Necessário. Local do recurso.        |
+|local     | Obrigatórios. Local do recurso.        |
 
 ## <a name="list-user-assigned-managed-identities"></a>Listar identidades gerenciadas atribuídas ao usuário
 

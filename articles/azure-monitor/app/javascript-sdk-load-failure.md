@@ -7,10 +7,10 @@ ms.author: newylie
 ms.date: 06/05/2020
 ms.custom: devx-track-js
 ms.openlocfilehash: 30c7caef4143b1a7cdba959971ff7689f986cb9e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91333249"
 ---
 # <a name="troubleshooting-sdk-load-failure-for-javascript-web-apps"></a>Solucionando problemas de falha de carregamento do SDK para aplicativos Web JavaScript
@@ -64,7 +64,7 @@ O mesmo também é verdadeiro ao usar o SDK por meio da solução de pacotes NPM
 
 Você também pode tentar usar [pacotes NPM](#use-npm-packages-to-embed-the-application-insight-sdk) para inserir o SDK do Application insights.
 
-Para minimizar a falha de conectividade de rede intermitente, implementamos cabeçalhos de controle de cache em todos os arquivos CDN para que, depois que o navegador do usuário final tenha baixado a versão atual do SDK, ele não precise baixar novamente e o navegador reutilizará a cópia obtida anteriormente (veja [como funciona o Caching](../../cdn/cdn-how-caching-works.md)). Se a verificação de cache falhar ou tiver havido uma nova versão, o navegador do usuário final precisará baixar a versão atualizada. Portanto, você pode ver um nível de plano de fundo de _"ruído"_ no cenário de falha de verificação ou um pico temporário quando uma nova versão ocorre e é disponibilizada de forma geral (implantada na CDN).
+Para minimizar a falha de conectividade de rede intermitente, implementamos Cache-Control cabeçalhos em todos os arquivos CDN para que, depois que o navegador do usuário final tenha baixado a versão atual do SDK, ele não precise baixar novamente e o navegador reutilizará a cópia obtida anteriormente (veja [como funciona o Caching](../../cdn/cdn-how-caching-works.md)). Se a verificação de cache falhar ou tiver havido uma nova versão, o navegador do usuário final precisará baixar a versão atualizada. Portanto, você pode ver um nível de plano de fundo de _"ruído"_ no cenário de falha de verificação ou um pico temporário quando uma nova versão ocorre e é disponibilizada de forma geral (implantada na CDN).
  
 ## <a name="application-insights-cdn-outage"></a>Interrupção Application Insights CDN
 

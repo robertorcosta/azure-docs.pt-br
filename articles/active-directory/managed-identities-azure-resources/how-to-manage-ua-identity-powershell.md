@@ -16,10 +16,10 @@ ms.date: 04/16/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8649c9faf3905e69232cdc15bbba6607abe3e9c4
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90969502"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-azure-powershell"></a>Criar, listar ou excluir uma identidade gerenciada atribuída pelo usuário usando Azure PowerShell
@@ -37,12 +37,12 @@ Neste artigo, você aprenderá a criar, listar e excluir uma identidade gerencia
 - Se você não estiver familiarizado com identidades gerenciadas para recursos do Azure, confira a [seção de visão geral](overview.md). **Revise a [diferença entre uma identidade gerenciada atribuída ao sistema e atribuída ao usuário](overview.md#managed-identity-types)**.
 - Se você ainda não tiver uma conta do Azure, [inscreva-se em uma conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
 - Para executar os scripts de exemplo, você tem duas opções:
-    - Use o [Azure cloud Shell](../../cloud-shell/overview.md), que você pode abrir usando o botão **experimentar** no canto superior direito dos blocos de código.
-    - Execute scripts localmente com Azure PowerShell, conforme descrito na próxima seção.
+    - Use o [Azure Cloud Shell](../../cloud-shell/overview.md), que você pode abrir usando o botão **Experimentar** no canto superior direito dos blocos de código.
+    - Executar os scripts localmente com o Azure PowerShell, conforme descrito na próxima seção.
 
-### <a name="configure-azure-powershell-locally"></a>Configurar Azure PowerShell localmente
+### <a name="configure-azure-powershell-locally"></a>Configurar o Azure PowerShell localmente
 
-Para usar Azure PowerShell localmente para este artigo (em vez de usar Cloud Shell), conclua as seguintes etapas:
+Para usar o Azure PowerShell localmente para este artigo (em vez de usar o Cloud Shell), realize as seguintes etapas:
 
 1. Instale [a versão mais recente do Azure PowerShell](/powershell/azure/install-az-ps) se ainda não o fez.
 
@@ -58,9 +58,9 @@ Para usar Azure PowerShell localmente para este artigo (em vez de usar Cloud She
     Install-Module -Name PowerShellGet -AllowPrerelease
     ```
 
-    Talvez seja necessário `Exit` sair da sessão atual do PowerShell depois de executar esse comando para a próxima etapa.
+    Talvez seja necessário `Exit` da sessão atual do PowerShell depois de executar esse comando para a próxima etapa.
 
-1. Instale a versão de pré-lançamento do `Az.ManagedServiceIdentity` módulo para executar as operações de identidade gerenciadas atribuídas pelo usuário neste artigo:
+1. Instale a versão de pré-lançamento do módulo `Az.ManagedServiceIdentity` para executar as operações de identidade gerenciada atribuídas ao usuário neste artigo:
 
     ```azurepowershell
     Install-Module -Name Az.ManagedServiceIdentity -AllowPrerelease

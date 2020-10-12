@@ -8,10 +8,10 @@ ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.openlocfilehash: 58bbe01c8de0bbe606f4fc428032cd213f05d386
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88068072"
 ---
 # <a name="configure-azure-image-builder-service-permissions-using-azure-cli"></a>Configurar permissões de serviço do construtor de imagem do Azure usando CLI do Azure
@@ -234,7 +234,7 @@ Substitua as seguintes configurações de espaço reservado:
 | \<Storage account container\> | Nome do contêiner da conta de armazenamento |
 | \<Subscription ID\> | Assinatura do Azure |
 
-Para obter mais informações sobre como usar uma identidade gerenciada atribuída pelo usuário, consulte [criar uma imagem personalizada que usará uma identidade gerenciada atribuída pelo usuário do Azure para arquivos de acesso do Conecte armazenamento do Azure](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage#create-a-custom-image-that-will-use-an-azure-user-assigned-managed-identity-to-seemlessly-access-files-azure-storage). O guia de início rápido explica como criar e configurar a identidade gerenciada atribuída pelo usuário para acessar uma conta de armazenamento.
+Para obter mais informações sobre como usar uma identidade gerenciada atribuída pelo usuário, consulte [criar uma imagem personalizada que usará uma identidade gerenciada do azure User-Assigned para arquivos do Conecte Access do armazenamento do Azure](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage#create-a-custom-image-that-will-use-an-azure-user-assigned-managed-identity-to-seemlessly-access-files-azure-storage). O guia de início rápido explica como criar e configurar a identidade gerenciada atribuída pelo usuário para acessar uma conta de armazenamento.
 
 ## <a name="next-steps"></a>Próximas etapas
 

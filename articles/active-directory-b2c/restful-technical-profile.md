@@ -12,10 +12,10 @@ ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 172824a2215e8a102ad4c284c847072960344549
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88041520"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico RESTful em uma política personalizada do Azure Active Directory B2C
@@ -60,7 +60,7 @@ Para enviar uma carga JSON complexa:
 1. Crie sua carga JSON com a transformação declarações [GenerateJson](json-transformations.md) .
 1. No perfil técnico da API REST:
     1. Adicione uma transformação de declarações de entrada com uma referência à `GenerateJson` transformação declarações.
-    1. Defina a `SendClaimsIn` opção de metadados como`body`
+    1. Defina a `SendClaimsIn` opção de metadados como `body`
     1. Defina a `ClaimUsedForRequestPayload` opção de metadados como o nome da declaração que contém a carga JSON.
     1. Na declaração de entrada, adicione uma referência à declaração de entrada que contém a carga JSON.
 

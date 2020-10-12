@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 08/12/2019
 ms.openlocfilehash: 7cf4be078a7bee0bedbeac4326acb9ca290cde88
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91331974"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory-legacy"></a>Copiar dados do MongoDB usando Azure Data Factory (Herdado)
@@ -180,7 +180,7 @@ Ao copiar dados do MongoDB, os seguintes mapeamentos são usados de tipos de dad
 | Tipo de dados do MongoDB | Tipo de dados provisório do Data Factory |
 |:--- |:--- |
 | Binário |Byte[] |
-| Booliano |Booliano |
+| Booliano |Boolean |
 | Data |Datetime |
 | NumberDouble |Double |
 | NumberInt |Int32 |
@@ -232,7 +232,7 @@ As tabelas a seguir mostram as tabelas virtuais que representam as matrizes orig
 | --- | --- | --- | --- | --- | --- |
 | 1111 |0 |123 |torradeira |456 |0,2 |
 | 1111 |1 |124 |forno |1235 |0,2 |
-| 2222 |0 |135 |geladeira |12543 |0,0 |
+| 2222 |0 |135 |geladeira |12543 |0.0 |
 
 **Tabela “ExampleTable_Ratings":**
 

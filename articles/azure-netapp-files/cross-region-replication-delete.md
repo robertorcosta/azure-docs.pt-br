@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: b-juche
 ms.openlocfilehash: 0904ac36a9453e51dbb1efc50eee2b9bf3c669c7
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90708524"
 ---
 # <a name="delete-replications"></a>Excluir replicações
@@ -39,6 +39,6 @@ Você pode encerrar a conexão de replicação entre os volumes de origem e de d
 
 * [Replicação entre regiões](cross-region-replication-introduction.md)
 * [Requisitos e considerações para usar a replicação entre regiões](cross-region-replication-requirements-considerations.md)
-* [Exibir status de integridade da relação de replicação](cross-region-replication-display-health-status.md)
+* [Exibir o status de integridade da relação de replicação](cross-region-replication-display-health-status.md)
 * [Solucionar problemas de replicação entre regiões](troubleshoot-cross-region-replication.md)
 

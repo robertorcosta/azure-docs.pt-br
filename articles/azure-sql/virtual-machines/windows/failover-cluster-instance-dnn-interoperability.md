@@ -13,10 +13,10 @@ ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
 ms.openlocfilehash: ca782e9949f990857db408919cac342d7f712d2b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91272609"
 ---
 # <a name="feature-interoperability-with-sql-server-fci--dnn"></a>Interoperabilidade de recursos com SQL Server FCI & DNN
@@ -86,7 +86,7 @@ Por exemplo, suponha que você tenha um Publicador configurado como um FCI usand
 
 Use o nome completo da instância para uma instância nomeada, como o exemplo de imagem a seguir: 
 
-:::image type="content" source="media/failover-cluster-instance-dnn-interoperability/alias-named-instance-configuration-manager.png" alt-text="Use o nome de instância completo ao configurar um alias de rede para uma instância nomeada." :::
+:::image type="content" source="media/failover-cluster-instance-dnn-interoperability/alias-named-instance-configuration-manager.png" alt-text="Configure o nome DNS DNN como o alias de rede usando SQL Server Configuration Manager." :::
 
 ## <a name="database-mirroring"></a>Espelhamento de banco de dados
 
