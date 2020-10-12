@@ -12,10 +12,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 2b7a81357cc6ee2608d2acd3051dcac3e5d0e07e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87023459"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossário de termos do Hub IoT
@@ -286,11 +286,11 @@ No contexto de um [dispositivo gêmeo](iot-hub-devguide-device-twins.md), a conf
 
 No contexto de um [dispositivo gêmeo](iot-hub-devguide-device-twins.md), as propriedades relatadas compõem uma subseção do dispositivo gêmeo usado com [propriedades desejadas](#desired-properties) para sincronizar a configuração ou a condição do dispositivo. As propriedades relatadas só podem ser definidas pelo [aplicativo de dispositivo](#device-app) e podem ser lidas e consultadas pelo [aplicativo de back-end](#back-end-app).
 
-## <a name="resource-group"></a>Grupo de recursos
+## <a name="resource-group"></a>Resource group
 
 O [Azure Resource Manager](#azure-resource-manager) usa grupos de recursos para agrupar recursos relacionados. Você pode usar um grupo de recursos para executar operações em todos os recursos no grupo simultaneamente.
 
-## <a name="retry-policy"></a>Política de repetição
+## <a name="retry-policy"></a>Política de Repetição
 
 Use uma política de repetição para tratar [erros transitórios](/azure/architecture/best-practices/transient-faults) quando você se conectar a um serviço de nuvem.
 

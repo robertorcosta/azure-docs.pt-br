@@ -7,10 +7,10 @@ ms.date: 04/15/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
 ms.openlocfilehash: 51c611b2565ae0a5a054a45f0aedcb039351b46b
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88208365"
 ---
 # <a name="monitoring-azure-functions-with-azure-monitor-logs"></a>Azure Functions de monitoramento com logs de Azure Monitor
@@ -38,7 +38,7 @@ O Azure Monitor usa uma versão da [linguagem de consulta Kusto](/azure/kusto/qu
 
 1. Insira um **nome de configurações de diagnóstico**e, em seguida, selecione **salvar**.
 
-   :::image type="content" source="media/functions-monitor-log-analytics/choose-table.png" alt-text="Adicionar uma configuração de diagnóstico":::
+   :::image type="content" source="media/functions-monitor-log-analytics/choose-table.png" alt-text="Selecionar configurações de diagnóstico":::
 
 ## <a name="user-generated-logs"></a>Logs gerados pelo usuário
 
@@ -89,7 +89,7 @@ Para consultar os logs gerados:
 
    Azure Functions grava todos os logs na tabela **FunctionAppLogs** em **LogManagement**. 
 
-   :::image type="content" source="media/functions-monitor-log-analytics/querying.png" alt-text="Janela de consulta no espaço de trabalho Log Analytics":::
+   :::image type="content" source="media/functions-monitor-log-analytics/querying.png" alt-text="Selecionar configurações de diagnóstico":::
 
 Aqui estão algumas consultas de exemplo:
 

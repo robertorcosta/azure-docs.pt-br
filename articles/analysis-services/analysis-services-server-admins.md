@@ -8,10 +8,10 @@ ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: bc17d27837d5b96f06b5172fb019db873418db94
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87922924"
 ---
 # <a name="manage-server-administrators"></a>Gerenciar administradores de servidor
@@ -54,4 +54,4 @@ Use [Atualizar](https://docs.microsoft.com/rest/api/analysisservices/servers/upd
 
 [Autenticação e permissões de usuário](analysis-services-manage-users.md)  
 [Gerenciar usuários e funções de banco de dados](analysis-services-database-users.md)  
-[Controle de acesso baseado em função do Azure (RBAC do Azure)](../role-based-access-control/overview.md)  
+[RBAC do Azure (controle de acesso baseado em função do Azure)](../role-based-access-control/overview.md)  

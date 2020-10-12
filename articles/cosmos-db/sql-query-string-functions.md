@@ -8,10 +8,10 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 192f015b37eadb57b8e4a5c83ce3adf94c8bf038
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85549507"
 ---
 # <a name="string-functions-azure-cosmos-db"></a>Funções de cadeia de caracteres (Azure Cosmos DB)
@@ -30,9 +30,9 @@ As seguintes funções escalares executam uma operação em um valor de entrada 
 * [COMPRIMENTO](sql-query-length.md)
 * [LOWER](sql-query-lower.md)
 * [LTRIM](sql-query-ltrim.md)
-* [Substitua](sql-query-replace.md)
+* [REPLACE](sql-query-replace.md)
 * [REPLICATE](sql-query-replicate.md)
-* [ORDEM](sql-query-reverse.md)
+* [REVERSE](sql-query-reverse.md)
 * [RIGHT](sql-query-right.md)
 * [RTRIM](sql-query-rtrim.md)
 * [STARTSWITH](sql-query-startswith.md)
@@ -41,7 +41,7 @@ As seguintes funções escalares executam uma operação em um valor de entrada 
 * [StringToNull](sql-query-stringtonull.md)
 * [StringToNumber](sql-query-stringtonumber.md)
 * [StringToObject](sql-query-stringtoobject.md)
-* [SUBCADEIA](sql-query-substring.md)
+* [SUBSTRING](sql-query-substring.md)
 * [ToString](sql-query-tostring.md)
 * [TRIM](sql-query-trim.md)
 * [UPPER](sql-query-upper.md)

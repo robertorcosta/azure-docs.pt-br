@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/01/2020
 ms.openlocfilehash: ffc8fcf734877f55210507310849a5746a280c3d
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89504342"
 ---
 # <a name="deep-dive---advanced-analytics"></a>Mergulho profundo – Análise avançada
@@ -42,7 +42,7 @@ Além de selecionar os algoritmos mais adequados, você precisa considerar se pr
 * Não supervisionado-o algoritmo não requer dados de treinamento
 * Reforço – o algoritmo usa os agentes do software para determinar o comportamento ideal em um contexto específico (geralmente usado em robótica)
 
-| Categoria de algoritmo| Use | Tipo de aprendizado | Algoritmos |
+| Categoria de algoritmo| Uso | Tipo de aprendizado | Algoritmos |
 | --- | --- | --- | -- |
 | classificação | Classificar pessoas ou coisas em grupos | Supervisionado | Árvores de decisão, Regressão logística, redes neurais |
 | Clustering | Dividir um conjunto de exemplos em grupos homogêneos | Não supervisionado | Modelo de cluster K-means |

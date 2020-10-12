@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.openlocfilehash: 1a99a91152f8308af122677ad3b8df3fb5005dbb
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90896169"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-portal"></a>Criar e gerenciar um link privado para o banco de dados do Azure para MySQL usando o portal
@@ -41,8 +41,8 @@ Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM us
     | Espaço de endereço | Insira *10.1.0.0/16*. |
     | Subscription | Selecione sua assinatura.|
     | Resource group | Selecione **Criar novo** e insira *myResourceGroup*, depois selecione **OK**. |
-    | Location | Selecione **Europa Ocidental**.|
-    | Sub-rede – Nome | Insira *mySubnet*. |
+    | Localização | Selecione **Europa Ocidental**.|
+    | Sub-rede – Nome | Insira *mysubnet*. |
     | Sub-rede – Intervalo de endereços | Insira *10.1.0.0/24*. |
     |||
 3. Deixe o restante com os valores padrão e selecione **Criar**.
@@ -178,7 +178,7 @@ Nesta seção, você criará um servidor MySQL e adicionará um ponto de extremi
 1. Selecione **Examinar + criar**. Você é levado até a página **Examinar + criar**, na qual o Azure valida sua configuração. 
 2. Quando vir a mensagem **Validação aprovada**, selecione **Criar**. 
 
-    :::image type="content" source="media/concepts-data-access-and-security-private-link/show-mysql-private-link.png" alt-text="Link privado criado":::
+    :::image type="content" source="media/concepts-data-access-and-security-private-link/show-mysql-private-link.png" alt-text="Visão geral do link privado":::
 
     > [!NOTE] 
     > O FQDN na configuração de DNS do cliente não é resolvido para o IP privado configurado. Você precisará configurar uma zona DNS para o FQDN configurado, conforme mostrado [aqui](../dns/dns-operations-recordsets-portal.md).

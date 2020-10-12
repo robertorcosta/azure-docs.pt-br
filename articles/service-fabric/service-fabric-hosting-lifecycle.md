@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 05/1/2020
 ms.author: tugup
 ms.openlocfilehash: a39aecf16d1c3303c0a590b389ba2aa69d4472f2
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87405119"
 ---
 # <a name="azure-service-fabric-hosting-lifecycle"></a>Ciclo de vida de hospedagem Service Fabric do Azure
@@ -58,7 +58,7 @@ Quando uma falha CodePackage, o Service Fabric usa um back-off para iniciá-lo n
 O valor de retirada sempre é mín. (RetryTime, **ActivationMaxRetryInterval**) e esse valor pode ser constante, linear ou exponencial com base na configuração de **ActivationRetryBackoffExponentiationBase** .
 
 - Constante: se **ActivationRetryBackoffExponentiationBase** = = 0, tente novamente = **ActivationRetryBackoffInterval**;
-- Linear: se **ActivationRetryBackoffExponentiationBase** = = 0, tente novamente = ContinuousFailureCount * **ActivationRetryBackoffInterval** , em que ContinousFailureCount é o número de vezes que um CodePackage falha ou falha ao ser ativado.
+- Linear: se  **ActivationRetryBackoffExponentiationBase** = = 0, tente novamente = ContinuousFailureCount * **ActivationRetryBackoffInterval** , em que ContinousFailureCount é o número de vezes que um CodePackage falha ou falha ao ser ativado.
 - Exponencial: RetryTime = (**ActivationRetryBackoffInterval** em segundos) * (**ActivationRetryBackoffExponentiationBase** ^ ContinuousFailureCount);
     
 Você pode controlar o comportamento conforme desejar, como reinícios rápidos. Vamos falar sobre linear. Isso significa que, se um CodePackage falhar, o intervalo de início será após 10, 20, 30 40 s até que o CodePackage seja desativado. 
@@ -81,7 +81,7 @@ Service Fabric sempre usa um retirada linear quando encontra um erro durante o d
 > [!NOTE]
 > Antes de alterar as configurações, aqui estão alguns exemplos que você deve ter em mente.
 
-* Se o CodePackage continuar falhando e fizer o logoff, o ServiceType será desabilitado. Mas se a configuração de ativações for tal que ela tenha uma reinicialização rápida, o CodePackage poderá chegar algumas vezes antes de poder ver o desativação do ServiceType. Por exemplo: Suponha que seu CodePackage apareça, registra o ServiceType com Service Fabric e, em seguida, falha. Nesse caso, uma vez que a hospedagem recebe um registro de tipo, o período de **ServiceTypeDisableGraceInterval** é cancelado. E isso pode ser repetido até que o CodePackage faça o backup de um valor maior que **ServiceTypeDisableGraceInterval** e, depois, o ServiceType será desabilitado no nó. Portanto, pode ser um pouco antes de o ServiceType estar desabilitado no nó.
+* Se o CodePackage continuar falhando e fizer o logoff, o ServiceType será desabilitado. Mas se a configuração de ativações for tal que ela tenha uma reinicialização rápida, o CodePackage poderá chegar algumas vezes antes de poder ver o desativação do ServiceType. Por exemplo: Suponha que seu CodePackage apareça, registra o ServiceType com Service Fabric e, em seguida, falha. Nesse caso, uma vez que a hospedagem recebe um registro de tipo, o período de **ServiceTypeDisableGraceInterval** é cancelado. E isso pode ser repetido até que o CodePackage faça o backup de um valor maior que  **ServiceTypeDisableGraceInterval** e, depois, o ServiceType será desabilitado no nó. Portanto, pode ser um pouco antes de o ServiceType estar desabilitado no nó.
 
 * No caso de ativações, quando Service Fabric sistema precisa posicionar uma réplica em um nó, a RA (ReconfigurationAgent) solicita que o subsistema de hospedagem ative o aplicativo e repete a solicitação de ativação a cada 15 segundos (**RAPMessageRetryInterval**). Para Service Fabric sistema saber que o ServiceType foi desabilitado, a operação de ativação na hospedagem precisa residir por um período mais longo do que o intervalo de repetição e **ServiceTypeDisableGraceInterval**. Por exemplo: Deixe que o cluster tenha as configurações **ActivationMaxFailureCount** definidas como 5 e **ActivationRetryBackoffInterval** definidas como 1 s. Isso significa que a operação de ativação será exibida após (0 + 1 + 2 + 3 + 4) = 10 s (primeira repetição é imediata) e, depois disso, a hospedagem será repetida. Nesse caso, a operação de ativação será concluída e não tentará novamente após 15 segundos. Isso aconteceu porque Service Fabric esgotou todas as repetições dentro de 15 segundos. Assim, todas as tentativas do ReconfigurationAgent criarão uma nova operação de ativação no subsistema de hospedagem e o padrão continuará repetindo e o ServiceType nunca será desabilitado no nó. Como o ServiceType não será desabilitado no nó, a FM (Failovermanager) do componente do sistema da it não moverá a réplica para um nó diferente.
 > 
@@ -128,23 +128,23 @@ Configurações com padrões que afetam a ativação/decativation.
 
 ### <a name="servicetype"></a>ServiceType
 **ServiceTypeDisableFailureThreshold**: padrão 1. O limite para a contagem de falhas após o qual o FM (Failovermanager) é notificado para desabilitar o tipo de serviço nesse nó e tentar um nó diferente para posicionamento.
-**ServiceTypeDisableGraceInterval**: padrão de 30 s. intervalo de tempo após o qual o tipo de serviço pode ser desabilitado.
+**ServiceTypeDisableGraceInterval**: padrão de 30 s. Intervalo de tempo após o qual o tipo de serviço pode ser desabilitado.
 **ServiceTypeRegistrationTimeout**: padrão de 300 s. O tempo limite para o ServiceType se registrar com Service Fabric.
 
 ### <a name="activation"></a>Ativação
-**ActivationRetryBackoffInterval**: intervalo de retirada de 10 segundos padrão em cada falha de ativação.
+**ActivationRetryBackoffInterval**: padrão de 10 segundos Intervalo de retirada em todas as falhas de ativação.
 **ActivationMaxFailureCount**: padrão 20. Contagem máxima para a qual o sistema tentará novamente a ativação com falha antes de desistir. 
 **ActivationRetryBackoffExponentiationBase**: padrão 1,5.
-**ActivationMaxRetryInterval**: padrão de retirada máx. de 3600 s para ativação em falhas.
+**ActivationMaxRetryInterval**: padrão de 3600 s. Retirada máxima para ativação em caso de falhas.
 **CodePackageContinuousExitFailureResetInterval**: padrão de 300 s. O tempo limite para redefinir a contagem de falhas de saída contínua para CodePackage.
 
 ### <a name="download"></a>Baixar
 **DeploymentRetryBackoffInterval**: o padrão é 10. Intervalo de retirada da falha de implantação.
-**DeploymentMaxRetryInterval**: a retirada de 3600 s. máx. máxima para a implantação em falhas.
+**DeploymentMaxRetryInterval**: padrão de 3600 s. Retirada máxima para a implantação em falhas.
 **DeploymentMaxFailureCount**: padrão 20. A implantação de aplicativo será repetida por DeploymentMaxFailureCount vezes antes que a implantação desse aplicativo no nó falhe.
 
 ### <a name="deactivation"></a>Desativação
-**DeactivationScanInterval**: padrão de 600 s. tempo mínimo dado ao pacote de pacotes para hospedar uma réplica se nunca tiver hospedado nenhuma réplica, ou seja, Se não for usado.
+**DeactivationScanInterval**: padrão de 600 s. Tempo mínimo dado ao pacote de pacotes para hospedar uma réplica se nunca tiver hospedado nenhuma réplica, ou seja, Se não for usado.
 **DeactivationGraceInterval**: padrão de 60 s. O tempo dado a um pacote de pacotes para hospedar novamente outra réplica depois de ter hospedado qualquer réplica no caso do modelo de processo **compartilhado** .
 **ExclusiveModeDeactivationGraceInterval**: padrão 1 s. O tempo dado a um pacote de pacotes para hospedar novamente outra réplica depois de ter hospedado qualquer réplica no caso de um modelo de processo **exclusivo** .
 

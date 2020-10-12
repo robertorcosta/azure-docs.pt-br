@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: damendo
 ms.openlocfilehash: 5ec4b9343efab9ae501b2b3dcc606e6e3f5fe826
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91399679"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-using-network-watcher-and-grafana"></a>Gerenciar e analisar os logs de fluxo do Grupo de Segurança de Rede usando o Observador de Rede e o Grafana
@@ -191,7 +191,7 @@ Em seguida, você precisa adicionar o índice do ElasticSearch que contém os lo
 
 ![Adicionar fonte de dados](./media/network-watcher-nsg-grafana/network-watcher-nsg-grafana-fig2.png)
 
-#### <a name="create-a-dashboard"></a>Criar um painel
+#### <a name="create-a-dashboard"></a>Criar um dashboard
 
 Agora que você configurou com êxito o Grafana para ler o índice do ElasticSearch que contém os logs de fluxo do NSG, você poderá criar e personalizar os painéis. Para criar um novo painel, selecione **Criar seu primeiro painel**. A configuração de exemplo de grafo a seguir mostra os fluxos segmentados por regra do NSG:
 

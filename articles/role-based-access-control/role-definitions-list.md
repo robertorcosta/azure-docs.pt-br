@@ -15,10 +15,10 @@ ms.date: 06/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 9819b90ba390e8601cc33a17338ce9b16bf3b3cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84982485"
 ---
 # <a name="list-azure-role-definitions"></a>Listar definições de função do Azure
@@ -344,7 +344,7 @@ Para listar definições de função, use as [definições de função-lista](/r
 1. Dentro do URI, substitua *{Scope}* pelo escopo para o qual você deseja listar as definições de função.
 
     > [!div class="mx-tableFixed"]
-    > | Escopo | Tipo |
+    > | Escopo | Type |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Grupo de gerenciamento |
     > | `subscriptions/{subscriptionId1}` | Subscription |
@@ -429,7 +429,7 @@ Para listar os detalhes de uma função específica, use as [definições de fun
 1. Dentro do URI, substitua *{Scope}* pelo escopo para o qual você deseja listar a definição de função.
 
     > [!div class="mx-tableFixed"]
-    > | Escopo | Tipo |
+    > | Escopo | Type |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Grupo de gerenciamento |
     > | `subscriptions/{subscriptionId1}` | Subscription |

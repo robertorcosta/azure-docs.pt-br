@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: alsin
 ms.openlocfilehash: d62eaf96354627e0c1e4e0a31bb16fb3265f66ac
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91279766"
 ---
 # <a name="preview-azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Visualização: Benefício Híbrido do Azure – como ele se aplica ao Máquinas Virtuais do Linux
@@ -150,7 +150,7 @@ R: pode levar algum tempo para que o registro da assinatura do Red Hat Cloud Acc
 ## <a name="common-errors"></a>Erros comuns
 Esta seção contém uma lista de erros comuns e etapas para mitigação.
 
-| Erro | Atenuação |
+| Erro do | Atenuação |
 | ----- | ---------- |
 | "A assinatura não está registrada para a versão prévia do Linux do Benefício Híbrido do Azure. Para obter instruções passo a passo, consulte https://aka.ms/ahb-linux " | Preencha o formulário em https://aka.ms/ahb-linux-form para registrar-se para a versão prévia do Linux do benefício híbrido do Azure.
 | "A ação não pôde ser concluída porque nossos registros mostram que você não habilitou com êxito o acesso à nuvem Red Hat em sua assinatura do Azure...." | Para usar o benefício com VMs RHEL, você deve primeiro registrar suas assinaturas do Azure com acesso à nuvem Red Hat. Visite este link para saber mais sobre como registrar suas assinaturas do Azure para acesso à nuvem Red Hat

@@ -14,10 +14,10 @@ ms.topic: how-to
 ms.date: 03/19/2019
 ms.author: allensu
 ms.openlocfilehash: 1f30943eb0cc72f677785d1228b47b65764c1e7d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84887863"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-caching-rules"></a>Controlar o comportamento de cache da CDN do Azure com regras de cache
@@ -113,7 +113,7 @@ Quando essas regras são definidas, uma solicitação para o _ &lt; nome &gt; do
 > - Para perfis da **CDN Standard do Azure da Verizon**, a propagação geralmente é concluída em 10 minutos.  
 >
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 - [Como funciona o cache](cdn-how-caching-works.md)
 - [Tutorial: definir regras de cache da CDN do Azure](cdn-caching-rules-tutorial.md)

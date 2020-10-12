@@ -10,10 +10,10 @@ ms.date: 11/09/2018
 ms.topic: conceptual
 ms.custom: devx-track-js
 ms.openlocfilehash: 2789ed642979616a4491a61d146d8468552ec2e5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91318442"
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>Personalizar o acelerador da solução de Monitoramento Remoto
@@ -284,7 +284,7 @@ As etapas a seguir descrevem como duplicar um painel existente, modificá-lo e u
 
 Agora você substituiu o painel de **alertas** original por uma cópia chamada **CustAlerts**. Esta cópia é igual à original. Agora você pode modificar a cópia. Por exemplo, para alterar a ordenação das colunas no painel **alertas**:
 
-1. Abra o arquivo `src/components/pages/dashboard/panels/cust_alerts/alertsPanel.js`.
+1. Abra o arquivo `src/components/pages/dashboard/panels/cust_alerts/alertsPanel.js` .
 
 1. Modifique as definições de coluna conforme mostrado no seguinte snippet de código:
 
@@ -338,7 +338,7 @@ O gráfico de telemetria agora mostra os cinco minutos de dados de telemetria:
 
 A página **Painel** exibe KPIs no painel **Analytics**. Esses KPIs são calculados no arquivo `src/components/pages/dashboard/dashboard.js`. Os KPIs são renderizados pelo arquivo `src/components/pages/dashboard/panels/analytics/analyticsPanel.js`. As etapas a seguir descrevem como calcular e processar um novo valor de KPI na página **Painel**. O exemplo mostrado é para adicionar uma nova alteração percentual ao KPI de alarmes de aviso:
 
-1. Abra o arquivo `src/components/pages/dashboard/dashboard.js`. Modifique o objeto **initialState** para incluir uma propriedade **warningAlertsChange** da seguinte forma:
+1. Abra o arquivo `src/components/pages/dashboard/dashboard.js` . Modifique o objeto **initialState** para incluir uma propriedade **warningAlertsChange** da seguinte forma:
 
     ```javascript
     const initialState = {

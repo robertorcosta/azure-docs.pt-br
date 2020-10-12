@@ -10,10 +10,10 @@ ms.author: rolyon
 ms.date: 09/22/2020
 ms.custom: generated
 ms.openlocfilehash: ade4a6b791a8aca963a056800bd8c58767aeb766
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91400087"
 ---
 # <a name="azure-resource-provider-operations"></a>Operações do provedor de recursos do Azure
@@ -22,7 +22,7 @@ Esta seção lista as operações para provedores de recursos do Azure, que são
 
 Clique no nome do provedor de recursos na tabela a seguir para ver a lista de operações.
 
-## <a name="all"></a>Tudo
+## <a name="all"></a>Todos
 
 | Geral |
 | --- |
@@ -1421,7 +1421,7 @@ Serviço do Azure: [Azure data Box](../databox/index.yml)
 > | Microsoft. Data Box/operações/leitura | Listar ou obter as operações |
 > | **DataAction** | **Descrição** |
 > | Microsoft.DataBox/register/action | Registra o Provedor Microsoft.Databox |
-> | Microsoft. Data Box/cancelar registro/ação | Provedor de cancelamento de registro Microsoft. Data Box |
+> | Microsoft. Data Box/cancelar registro/ação | Provedor de Un-Register Microsoft. Data Box |
 > | Microsoft.DataBox/jobs/cancel/action | Cancela um pedido em andamento. |
 > | Microsoft.DataBox/jobs/bookShipmentPickUp/action | Permite agendar uma retirada para remessas de devolução. |
 > | Microsoft.DataBox/jobs/listCredentials/action | Lista as credenciais não criptografadas relacionadas ao pedido. |
@@ -5667,7 +5667,7 @@ Serviço do Azure: [Gerenciamento de API](../api-management/index.yml)
 > | Microsoft. ApiManagement/Service/policyDescriptions/Read | Lista todas as descrições de política. |
 > | Microsoft.ApiManagement/service/policySnippets/read | Lista todos os trechos de política. |
 > | Microsoft. ApiManagement/Service/portalSettings/Read | Lista uma coleção de configurações do Portal. ou obter configurações de entrada para o portal ou obter configurações de inscrição para o portal ou obter configurações de delegação para o Portal. |
-> | Microsoft. ApiManagement/Service/portalSettings/Write | Atualize as configurações de entrada. ou criar ou atualizar configurações de entrada. ou atualize as configurações de inscrição ou atualize as configurações de inscrição ou atualize as configurações de delegação. ou criar ou atualizar configurações de delegação. |
+> | Microsoft. ApiManagement/Service/portalSettings/Write | Atualizar Sign-In configurações. ou criar ou atualizar configurações de Sign-In. ou atualize as configurações de inscrição ou atualize as configurações de inscrição ou atualize as configurações de delegação. ou criar ou atualizar configurações de delegação. |
 > | Microsoft. ApiManagement/Service/portalSettings/listSecrets/Action | Obtém a chave de validação das configurações de delegação do Portal. ou obtenha o URI do contêiner de blob de conteúdo de mídia. |
 > | Microsoft.ApiManagement/service/products/read | Lista uma coleção de produtos na instância de serviço especificada. ou obtém os detalhes do produto especificado por seu identificador. |
 > | Microsoft.ApiManagement/service/products/write | Cria ou atualiza um produto. ou atualize os detalhes do produto existente. |
@@ -6287,8 +6287,8 @@ Serviço do Azure: Azure Active Directory
 > | microsoft.aadiam/diagnosticsettings/read | Leitura de uma configuração de diagnóstico |
 > | microsoft.aadiam/diagnosticsettings/delete | Exclusão de uma configuração de diagnóstico |
 > | microsoft.aadiam/diagnosticsettingscategories/read | Leitura de uma categoria de configuração de diagnóstico |
-> | Microsoft. aadiam/metricDefinitions/Read | Lendo definições de métrica no nível do locatário |
-> | Microsoft. aadiam/métricas/leitura | Lendo métricas no nível do locatário |
+> | Microsoft. aadiam/metricDefinitions/Read | Lendo definições de métricas de Tenant-Level |
+> | Microsoft. aadiam/métricas/leitura | Lendo métricas de Tenant-Level |
 > | Microsoft. aadiam/privateLinkForAzureAD/Read | Ler definição de política de link privado |
 > | Microsoft. aadiam/privateLinkForAzureAD/Write | Criar e atualizar definição de política de link privado |
 > | Microsoft. aadiam/privateLinkForAzureAD/Delete | Excluir definição de política de link privado |
@@ -9429,7 +9429,7 @@ Serviço do Azure: insights de monitoramento da Microsoft
 > | Microsoft.Intune/diagnosticsettings/delete | Exclusão de uma configuração de diagnóstico |
 > | Microsoft.Intune/diagnosticsettingscategories/read | Leitura de uma categoria de configuração de diagnóstico |
 
-## <a name="other"></a>Outro
+## <a name="other"></a>Outros
 
 ### <a name="microsoftbingmaps"></a>Microsoft.BingMaps
 

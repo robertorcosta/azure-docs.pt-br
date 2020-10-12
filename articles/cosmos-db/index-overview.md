@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: tisande
 ms.openlocfilehash: 3d07657fc3345ddd8dfadd163dc3c9f957d77af3
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90068380"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Gerenciar indexação no Azure Cosmos DB – Visão geral
@@ -180,7 +180,7 @@ Os caminhos extraídos ao indexar dados facilitam a pesquisa do índice durante 
 
 Por exemplo, considere a consulta abaixo: `SELECT location FROM location IN company.locations WHERE location.country = 'France'`. O predicado de consulta (filtragem em itens, onde qualquer local tenha "França" como seu país/região) corresponderia ao caminho realçado em vermelho abaixo:
 
-:::image type="content" source="./media/index-overview/matching-path.png" alt-text="Correspondência de um caminho específico em uma árvore" border="false":::
+:::image type="content" source="./media/index-overview/matching-path.png" alt-text="O item anterior representado como uma árvore" border="false":::
 
 > [!NOTE]
 > Uma cláusula `ORDER BY` ordenada por uma única propriedade *sempre* precisa de um índice de intervalo e falhará se o caminho que ele referencia não tiver um. Da mesma forma, uma consulta `ORDER BY` ordenada por várias propriedades *sempre* precisa de um índice composto.

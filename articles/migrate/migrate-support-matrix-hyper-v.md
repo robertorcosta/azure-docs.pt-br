@@ -4,10 +4,10 @@ description: Saiba mais sobre o suporte à avaliação do Hyper-V com a avaliaç
 ms.topic: conceptual
 ms.date: 06/14/2020
 ms.openlocfilehash: 16eeb0822a8d598c74ab5118fbd39bda84186db0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91318170"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Matriz de suporte para avaliação do Hyper-V
@@ -23,7 +23,7 @@ Para configurar a avaliação de VM do Hyper-V, você cria um projeto de migraç
 --- | ---
 **Limites de avaliação** | Você pode descobrir e avaliar até 35.000 VMs do Hyper-V em um único [projeto de migrações para Azure](migrate-support-matrix.md#azure-migrate-projects).
 **Limites do projeto** | Você pode criar vários projetos em uma assinatura do Azure. Além das VMs do Hyper-V, um projeto pode incluir VMs VMware e servidores físicos, até os limites de avaliação de cada um.
-**Descoberta** | O dispositivo de migrações para Azure pode descobrir até 5000 VMs do Hyper-V.<br/><br/> O dispositivo pode se conectar a até 300 hosts Hyper-V.
+**Discovery** | O dispositivo de migrações para Azure pode descobrir até 5000 VMs do Hyper-V.<br/><br/> O dispositivo pode se conectar a até 300 hosts Hyper-V.
 **Avaliação** | Você pode adicionar até 35.000 computadores em um único grupo.<br/><br/> Você pode avaliar até 35.000 VMs em uma única avaliação para um grupo.
 
 [Saiba mais](concepts-assessment-calculation.md) sobre as avaliações.

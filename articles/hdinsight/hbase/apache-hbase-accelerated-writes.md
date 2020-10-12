@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/24/2020
 ms.openlocfilehash: 99253aa2e7e2e1f3f58f2ab7d5c40a695c2b9690
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88654847"
 ---
 # <a name="azure-hdinsight-accelerated-writes-for-apache-hbase"></a>Gravações aceleradas do Azure HDInsight para Apache HBase
@@ -32,7 +32,7 @@ Se um **RegionServer** falhar ou ficar indisponível antes de o MemStore ser lib
 
 ## <a name="accelerated-writes-feature-in-azure-hdinsight-for-apache-hbase"></a>Recurso de gravações aceleradas no Azure HDInsight para Apache HBase
 
-O recurso de gravações aceleradas resolve o problema de latências de gravação mais altas causadas pelo uso de logs write-ahead que estão no armazenamento em nuvem.  O recurso de gravações aceleradas para clusters do Apache HBase do HDInsight, anexa discos gerenciados por SSD Premium a cada RegionServer (nó de trabalho). Os logs write-ahead são gravados no sistema de arquivos do Hadoop (HDFS) montado nesses discos gerenciados Premium em vez do armazenamento em nuvem.  Os discos gerenciados Premium usam SSDs (discos de estado sólido) e oferecem excelente desempenho de e/s com tolerância a falhas.  Diferentemente dos discos não gerenciados, se uma unidade de armazenamento falhar, ela não afetará outras unidades de armazenamento no mesmo conjunto de disponibilidade.  Como resultado, os discos gerenciados fornecem baixa latência de gravação e melhor resiliência para seus aplicativos. Para saber mais sobre os discos gerenciados do Azure, confira [introdução aos Azure Managed disks](../../virtual-machines/managed-disks-overview.md).
+O recurso de gravações aceleradas resolve o problema de latências de gravação mais altas causadas pelo uso de logs write-ahead que estão no armazenamento em nuvem.  O recurso de gravações aceleradas para clusters do Apache HBase do HDInsight, anexa discos gerenciados por SSD Premium a cada RegionServer (nó de trabalho). Os logs write-ahead são gravados no sistema de arquivos do Hadoop (HDFS) montado nesses discos gerenciados Premium em vez do armazenamento em nuvem.  Os discos gerenciados Premium usam SSDs (discos de Solid-State) e oferecem excelente desempenho de e/s com tolerância a falhas.  Diferentemente dos discos não gerenciados, se uma unidade de armazenamento falhar, ela não afetará outras unidades de armazenamento no mesmo conjunto de disponibilidade.  Como resultado, os discos gerenciados fornecem baixa latência de gravação e melhor resiliência para seus aplicativos. Para saber mais sobre os discos gerenciados do Azure, confira [introdução aos Azure Managed disks](../../virtual-machines/managed-disks-overview.md).
 
 ## <a name="how-to-enable-accelerated-writes-for-hbase-in-hdinsight"></a>Como habilitar gravações aceleradas para o HBase no HDInsight
 

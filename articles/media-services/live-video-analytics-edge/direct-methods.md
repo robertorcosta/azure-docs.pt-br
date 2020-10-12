@@ -4,10 +4,10 @@ description: A análise de vídeo ao vivo em IoT Edge expõe vários métodos di
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: ed7cec7b8513044c2bf9b24600b8d9f42a485aae
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87091820"
 ---
 # <a name="direct-methods"></a>Métodos diretos
@@ -143,9 +143,9 @@ Esse método direto recupera uma única topologia de grafo.
 |Condição  |Código de status    |Código de erro detalhado|
 |---|---|---|
 |Entidade encontrada|  200 |N/D
-|Erros gerais do usuário    |intervalo de 400  ||
+|Erros gerais do usuário    |Intervalo de 400  ||
 |Entidade não encontrada   |404        ||
-|Erros gerais do servidor| intervalo de 500       ||
+|Erros gerais do servidor| Intervalo de 500       ||
 
 ### <a name="graphtopologyset"></a>GraphTopologySet
 
@@ -195,10 +195,10 @@ Principais aspectos:
 |---|---|---|
 Entidade existente atualizada |200|   N/D|
 Nova entidade criada  |201|   N/D|
-Erros gerais do usuário |intervalo de 400  ||
+Erros gerais do usuário |Intervalo de 400  ||
 Erros de validação de grafo |400    |GraphValidationError|
 Erros de validação de módulo|   400 |ModuleValidationError|
-Erros gerais do servidor   |intervalo de 500  ||
+Erros gerais do servidor   |Intervalo de 500  ||
 
 ### <a name="graphtopologydelete"></a>GraphTopologyDelete
 
@@ -231,9 +231,9 @@ Exclui uma única topologia de grafo.
 |---|---|---|
 |Entidade excluída|    200|    N/D|
 |Entidade não encontrada|  204|    N/D|
-|Erros gerais do usuário|   intervalo de 400   ||
+|Erros gerais do usuário|   Intervalo de 400   ||
 |A topologia de grafo está sendo referenciada por uma ou mais instâncias de grafo| 409 |GraphTopologyInUse|
-|Erros gerais do servidor| intervalo de 500   ||
+|Erros gerais do servidor| Intervalo de 500   ||
 
 ### <a name="graphtopologylist"></a>GraphTopologyList
 
@@ -287,9 +287,9 @@ Recupera uma lista de todas as topologias de grafo que correspondem aos critéri
 
 |Condição  |Código de status    |Código de erro detalhado|
 |---|---|---|
-|Êxito|   200 |N/D|
-|Erros gerais do usuário|   intervalo de 400   ||
-|Erros gerais do servidor| intervalo de 500   ||
+|Sucesso|   200 |N/D|
+|Erros gerais do usuário|   Intervalo de 400   ||
+|Erros gerais do servidor| Intervalo de 500   ||
 
 ### <a name="graphinstanceget"></a>GraphInstanceGet
 
@@ -326,9 +326,9 @@ Recupera uma única instância de grafo:
 |Condição  |Código de status    |Código de erro detalhado|
 |---|---|---|
 |Entidade encontrada   |200|   N/D|
-|Erros gerais do usuário|   intervalo de 400   ||
+|Erros gerais do usuário|   Intervalo de 400   ||
 |Entidade não encontrada|  404 ||
-|Erros gerais do servidor| intervalo de 500   ||
+|Erros gerais do servidor| Intervalo de 500   ||
 
 ### <a name="graphinstanceset"></a>GraphInstanceSet
 
@@ -377,11 +377,11 @@ Principais aspectos:
 |---|---|---|
 |Entidade existente atualizada    |200    |N/D|
 |Nova entidade criada|    201 |N/D|
-|Erros gerais do usuário|   intervalo de 400   ||
+|Erros gerais do usuário|   Intervalo de 400   ||
 |Erros de validação de grafo    |400|   GraphValidationError|
 |Erros de validação de módulo|  400 |ModuleValidationError|
 |Erros de validação de recurso |409    |ResourceValidationError|
-|Erros gerais do servidor  |intervalo de 500||    
+|Erros gerais do servidor  |Intervalo de 500||    
 
 ### <a name="graphinstancedelete"></a>GraphInstanceDelete
 
@@ -418,9 +418,9 @@ Principais aspectos:
 |---|---|---|
 |Grafo excluído com êxito|    200|    N/D|
 |Grafo não encontrado|   204|    N/D|
-|Erros gerais do usuário    |intervalo de 400  ||
+|Erros gerais do usuário    |Intervalo de 400  ||
 |O grafo não está no estado "parado"    |409    |OperationNotAllowedInState|
-|Erros gerais do servidor| intervalo de 500   ||
+|Erros gerais do servidor| Intervalo de 500   ||
 
 ### <a name="graphinstancelist"></a>GraphInstanceList
 
@@ -474,9 +474,9 @@ Recupera uma lista de todas as instâncias de grafos que correspondem aos crité
 
 |Condição  |Código de status    |Código de erro detalhado|
 |---|---|---|
-|Êxito    |200    |N/D|
-|Erros gerais do usuário|   intervalo de 400   ||
-|Erros gerais do servidor| intervalo de 500   ||
+|Sucesso    |200    |N/D|
+|Erros gerais do usuário|   Intervalo de 400   ||
+|Erros gerais do servidor| Intervalo de 500   ||
 
 ### <a name="graphinstanceactivate"></a>GraphInstanceActivate
 
@@ -520,11 +520,11 @@ Principais aspectos
 |---|---|---|
 |Grafo ativado com êxito   |200    |N/D|
 |Nova entidade criada |201|   N/D|
-|Erros gerais do usuário    |intervalo de 400  ||
+|Erros gerais do usuário    |Intervalo de 400  ||
 |Erros de validação de módulo   |400|   ModuleValidationError|
 |Erros de validação de recurso|    409|    ResourceValidationError|
 |O grafo está no estado de desativação |409    |OperationNotAllowedInState|
-|Erros gerais do servidor| intervalo de 500   ||
+|Erros gerais do servidor| Intervalo de 500   ||
 
 ### <a name="graphinstancedeactivate"></a>GraphInstanceDeactivate
 
@@ -569,10 +569,10 @@ Principais aspectos:
 |---|---|---|
 |Grafo ativado com êxito   |200|   N/D|
 |Nova entidade criada |201|   N/D|
-|Erros gerais do usuário    |intervalo de 400  ||
+|Erros gerais do usuário    |Intervalo de 400  ||
 |O grafo está no estado de ativação   |409|   OperationNotAllowedInState|
-|Erros gerais do servidor  |intervalo de 500  ||
+|Erros gerais do servidor  |Intervalo de 500  ||
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Esquema de configuração do módulo.](module-twin-configuration-schema.md)
+[Esquema de configuração do Módulo Gêmeo](module-twin-configuration-schema.md)

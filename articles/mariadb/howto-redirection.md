@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/8/2020
 ms.openlocfilehash: 45d93797b72b3b35dd44cddc22124acb73eb3454
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86121088"
 ---
 # <a name="connect-to-azure-database-for-mariadb-with-redirection"></a>Conectar-se ao banco de dados do Azure para MariaDB com redirecionamento
@@ -58,7 +58,7 @@ As seções subsequentes do documento descrevem como instalar a extensão `mysql
 - PHP versões 7.2.15+ e 7.3.2+
 - PHP PEAR 
 - php-mysql
-- Banco de dados do Azure para MariaDB
+- Banco de dados do Azure para servidor MariaDB
 
 1. Instale [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) com [PECL](https://pecl.php.net/package/mysqlnd_azure). É recomendável usar a versão 1.1.0+.
 
@@ -96,7 +96,7 @@ As seções subsequentes do documento descrevem como instalar a extensão `mysql
 #### <a name="prerequisites"></a>Pré-requisitos 
 - PHP versões 7.2.15+ e 7.3.2+
 - php-mysql
-- Banco de dados do Azure para MariaDB
+- Banco de dados do Azure para servidor MariaDB
 
 1. Determine se você está executando uma versão x64 ou x86 do PHP, executando o comando a seguir:
 

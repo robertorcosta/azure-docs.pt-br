@@ -4,10 +4,10 @@ description: Este artigo mostra como você pode usar atualizar automaticamente a
 ms.topic: how-to
 ms.date: 09/15/2020
 ms.openlocfilehash: 0a72cc991e768a7bed01762d984cc56238ae0ad0
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90984747"
 ---
 # <a name="automatically-update-messaging-units-of-an-azure-service-bus-namespace"></a>Atualizar automaticamente as unidades do sistema de mensagens de um namespace do Barramento de Serviço do Azure 
@@ -45,7 +45,7 @@ Essa configuração permite que você defina um número fixo de unidades de mens
 1. Para configuração de **unidades de mensagens** , selecione o número de unidades de mensagens na lista suspensa.
 1. Selecione **salvar** na barra de ferramentas para salvar a configuração. 
 
-    :::image type="content" source="./media/automate-update-messaging-units/manual-scale.png" alt-text="Dimensionar manualmente unidades de mensagens":::       
+    :::image type="content" source="./media/automate-update-messaging-units/manual-scale.png" alt-text="Namespace do barramento de serviço – página escala":::       
 
 
 ## <a name="custom-autoscale---default-condition"></a>Autoescala personalizada-condição padrão
@@ -64,14 +64,14 @@ O procedimento a seguir mostra como adicionar uma condição para aumentar autom
 1. Selecione **escala com base em uma métrica para o** **modo de escala**. 
 1. Selecione **+ Adicionar uma regra**. 
 
-    :::image type="content" source="./media/automate-update-messaging-units/default-scale-metric-add-rule-link.png" alt-text="Padrão-escala com base em uma métrica":::    
+    :::image type="content" source="./media/automate-update-messaging-units/default-scale-metric-add-rule-link.png" alt-text="Namespace do barramento de serviço – página escala":::    
 1. Na página **regra de dimensionamento** , siga estas etapas:
     1. Selecione uma métrica na lista suspensa **nome da métrica** . Neste exemplo, é **CPU**. 
     1. Selecione um operador e valores de limite. Neste exemplo, eles são **maiores que** e **75** para o **limite de métrica para disparar a ação de escala**. 
     1. Selecione uma **operação** na seção **ação** . Neste exemplo, ele está definido para **aumentar**. 
     1. Em seguida, selecione **Adicionar**
     
-        :::image type="content" source="./media/automate-update-messaging-units/scale-rule-cpu-75.png" alt-text="Padrão-escalar horizontalmente se o uso da CPU for maior que 75%":::       
+        :::image type="content" source="./media/automate-update-messaging-units/scale-rule-cpu-75.png" alt-text="Namespace do barramento de serviço – página escala":::       
 
         > [!NOTE]
         > O recurso de dimensionamento automático aumentará as unidades de mensagens para o namespace se o uso geral da CPU ficar acima de 75% neste exemplo. Os incrementos são feitos de 1 a 2, de 2 a 4 e de 4 a 8. 
@@ -81,13 +81,13 @@ O procedimento a seguir mostra como adicionar uma condição para aumentar autom
     1. Selecione uma **operação** na seção **ação** . Neste exemplo, é definido como **diminuir**. 
     1. Em seguida, selecione **Adicionar** 
 
-        :::image type="content" source="./media/automate-update-messaging-units/scale-rule-cpu-25.png" alt-text="Padrão-Dimensionar em se o uso da CPU for inferior a 25%":::       
+        :::image type="content" source="./media/automate-update-messaging-units/scale-rule-cpu-25.png" alt-text="Namespace do barramento de serviço – página escala":::       
 
         > [!NOTE]
         > O recurso de dimensionamento automático diminuirá as unidades de mensagens para o namespace se o uso geral da CPU ficar abaixo de 25% neste exemplo. Os decrementos são feitos de 8 a 4, 4 a 2 e 2 a 1. 
 1. Defina o número **mínimo** e **máximo** e **padrão** de unidades de mensagens.
 
-    :::image type="content" source="./media/automate-update-messaging-units/default-scale-metric-based.png" alt-text="Regra padrão com base em uma métrica":::
+    :::image type="content" source="./media/automate-update-messaging-units/default-scale-metric-based.png" alt-text="Namespace do barramento de serviço – página escala":::
 1. Selecione **salvar** na barra de ferramentas para salvar a configuração de dimensionamento automático. 
         
 ### <a name="scale-to-specific-number-of-messaging-units"></a>Dimensionar para um número específico de unidades de mensagens
@@ -98,7 +98,7 @@ Siga estas etapas para configurar a regra para dimensionar o namespace para usar
 1. Selecione **Dimensionar para unidades de mensagens específicas** para o **modo de escala**. 
 1. Para **unidades de mensagens**, selecione o número de unidades de mensagens padrão. 
 
-    :::image type="content" source="./media/automate-update-messaging-units/default-scale-messaging-units.png" alt-text="Padrão-Dimensionar para unidades de mensagens específicas":::       
+    :::image type="content" source="./media/automate-update-messaging-units/default-scale-messaging-units.png" alt-text="Namespace do barramento de serviço – página escala":::       
 
 ## <a name="custom-autoscale---additional-conditions"></a>Dimensionamento automático personalizado-condições adicionais
 A seção anterior mostra como adicionar uma condição padrão para a configuração de dimensionamento automático. Esta seção mostra como adicionar mais condições à configuração de dimensionamento automático. Para essas condições não padrão adicionais, você pode definir uma agenda com base em dias específicos de uma semana ou um intervalo de datas. 
@@ -107,7 +107,7 @@ A seção anterior mostra como adicionar uma condição padrão para a configura
 1. Na página **configuração de dimensionamento automático** , selecione **dimensionamento automático personalizado** para a opção **escolher como dimensionar seu recurso** . 
 1. Selecione **Adicionar uma condição de escala** no bloco **padrão** . 
 
-    :::image type="content" source="./media/automate-update-messaging-units/add-scale-condition-link.png" alt-text="Personalizado-adicionar um link de condição de escala":::    
+    :::image type="content" source="./media/automate-update-messaging-units/add-scale-condition-link.png" alt-text="Namespace do barramento de serviço – página escala":::    
 1. Especifique um **nome** para a condição. 
 1. Confirme se a opção **escala baseada em uma métrica** está selecionada. 
 1. Selecione **+ Adicionar uma regra** para adicionar uma regra para aumentar as unidades de mensagens quando o uso geral da CPU ficar acima de 75%. Siga as etapas da seção [condição padrão](#custom-autoscale---default-condition) . 
@@ -115,26 +115,26 @@ A seção anterior mostra como adicionar uma condição padrão para a configura
 6. Você também pode definir uma **agenda** em uma condição personalizada (mas não na condição padrão). Você pode especificar as datas de início e de término da condição (ou) selecionar dias específicos (segunda-feira, terça-feira, etc.) de uma semana. 
     1. Se você selecionar **especificar datas de início/término**, selecione o **fuso horário**, **data e hora de início** e **data e hora de término** (conforme mostrado na imagem a seguir) para que a condição esteja em vigor. 
 
-       :::image type="content" source="./media/automate-update-messaging-units/custom-min-max-default.png" alt-text="Valores mínimo, máximo e padrão para o número de unidades de mensagens":::
+       :::image type="content" source="./media/automate-update-messaging-units/custom-min-max-default.png" alt-text="Namespace do barramento de serviço – página escala":::
     1. Se você selecionar **repetir dias específicos**, selecione os dias da semana, o fuso horário, a hora de início e a hora de término em que a condição deve ser aplicada. 
 
-        :::image type="content" source="./media/automate-update-messaging-units/repeat-specific-days.png" alt-text="Repetir dias específicos":::
+        :::image type="content" source="./media/automate-update-messaging-units/repeat-specific-days.png" alt-text="Namespace do barramento de serviço – página escala":::
   
 ### <a name="scale-to-specific-number-of-messaging-units"></a>Dimensionar para um número específico de unidades de mensagens
 1. Na página **configuração de dimensionamento automático** , selecione **dimensionamento automático personalizado** para a opção **escolher como dimensionar seu recurso** . 
 1. Selecione **Adicionar uma condição de escala** no bloco **padrão** . 
 
-    :::image type="content" source="./media/automate-update-messaging-units/add-scale-condition-link.png" alt-text="Personalizado-adicionar um link de condição de escala":::    
+    :::image type="content" source="./media/automate-update-messaging-units/add-scale-condition-link.png" alt-text="Namespace do barramento de serviço – página escala":::    
 1. Especifique um **nome** para a condição. 
 2. Selecione **a opção Dimensionar para unidades de mensagens específicas** para o **modo de escala**. 
 1. Selecione o número de **unidades de mensagens** na lista suspensa. 
 6. Para o **agendamento**, especifique as datas de início e término para a condição (ou) selecione dias específicos (segunda-feira, terça-feira, etc.) de uma semana e horas. 
     1. Se você selecionar **especificar datas de início/término**, selecione o **fuso horário**, **data e hora de início** e **data e hora de término** para que a condição esteja em vigor. 
     
-    :::image type="content" source="./media/automate-update-messaging-units/scale-specific-messaging-units-start-end-dates.png" alt-text="dimensionar para unidades de mensagens específicas-datas de início e término":::        
+    :::image type="content" source="./media/automate-update-messaging-units/scale-specific-messaging-units-start-end-dates.png" alt-text="Namespace do barramento de serviço – página escala":::        
     1. Se você selecionar **repetir dias específicos**, selecione os dias da semana, o fuso horário, a hora de início e a hora de término em que a condição deve ser aplicada.
     
-    :::image type="content" source="./media/automate-update-messaging-units/repeat-specific-days-2.png" alt-text="dimensionar para unidades de mensagens específicas – repetir dias específicos":::
+    :::image type="content" source="./media/automate-update-messaging-units/repeat-specific-days-2.png" alt-text="Namespace do barramento de serviço – página escala":::
 
 > [!IMPORTANT]
 > Para saber mais sobre como funcionam as configurações de dimensionamento automático, especialmente como ela escolhe um perfil ou condição e avalia várias regras, consulte [entender as configurações de dimensionamento automático](../azure-monitor/platform/autoscale-understanding-settings.md).          

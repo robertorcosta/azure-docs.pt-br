@@ -13,10 +13,10 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 68df5256949db44b2b347002570c64d1aa0d55ea
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89297953"
 ---
 # <a name="streaming-locators"></a>Localizadores de Streaming
@@ -91,7 +91,7 @@ Confira [Filtragem, classificação, paginação de entidades dos Serviços de M
 
 Para obter localizadores de streaming com base no nome do ativo associado, use as seguintes operações:
 
-|Idioma|API|
+|Language|API|
 |---|---|
 |REST|[liststreaminglocators](/rest/api/media/assets/liststreaminglocators)|
 |CLI|[AZ AMS Asset List – streaming-Locators](/cli/azure/ams/asset?view=azure-cli-latest#az-ams-asset-list-streaming-locators)|

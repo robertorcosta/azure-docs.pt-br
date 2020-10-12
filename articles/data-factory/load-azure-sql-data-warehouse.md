@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/08/2020
 ms.openlocfilehash: c90590ac4c47f6ac8d51273fecfb653dfe056b1d
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89485763"
 ---
 # <a name="load-data-into-azure-synapse-analytics-by-using-azure-data-factory"></a>Carregar dados no Azure Synapse Analytics usando Azure Data Factory
@@ -45,7 +45,7 @@ Este artigo mostra como usar a ferramenta de Copiar Dados de Data Factory para _
 * Banco de dados SQL do Azure: Este tutorial copia o DataSet do exemplo Adventure Works LT no banco de dado SQL do Azure. Você pode criar esse banco de dados de exemplo no banco de dados SQL seguindo as instruções em [criar um banco de dados de exemplo no banco de dados SQL do Azure](../azure-sql/database/single-database-create-quickstart.md).
 * Conta de armazenamento do Azure: armazenamento do Azure é usado como _blob_ de processo de reparo na operação de cópia em massa. Se você não tiver uma conta de armazenamento do Azure, consulte as instruções em [criar uma conta de armazenamento](../storage/common/storage-account-create.md).
 
-## <a name="create-a-data-factory"></a>Criar uma data factory
+## <a name="create-a-data-factory"></a>Criar um data factory
 
 1. No menu à esquerda, selecione **Criar um recurso** > **Dados + Análise** > **Data Factory**:
 

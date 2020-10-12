@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: 29457f2f5021fed9d8785f5764c4119de4be1fa9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87089542"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Relatório de estimativa de custo do Planejador de Implantações do Azure Site Recovery 
@@ -115,7 +115,7 @@ Para adicionar manualmente as máquinas virtuais:
 
     d. **Tamanho total de armazenamento da VM (GB)**
 
-    e. **Número de análises de recuperação de desastre em um ano**
+    e. **Número de DR-Drills em um ano**
 
     f. **Duração de cada análise de recuperação de desastre (Dias)**
 
@@ -167,7 +167,7 @@ eastus, eastus2, westus, centralus, northcentralus, southcentralus, northeurope,
 ## <a name="supported-currencies"></a>Moedas com suporte
 O Planejador de Implantações do Site Recovery pode gerar o relatório de custo com qualquer uma das moedas a seguir.
 
-|Currency|Nome|Currency|Nome|Currency|Nome|
+|Moeda|Nome|Moeda|Nome|Moeda|Nome|
 |---|---|---|---|---|---|---|---|
 |ARS|Peso argentino ($)|AUD|Dólar australiano ($)|BRL|Real brasileiro (R$)|
 |CAD|Dólar canadense ($)|CHF|Franco suíço (chf)|DKK|Coroa dinamarquesa (kr)|

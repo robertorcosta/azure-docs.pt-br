@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 09/14/2020
 ms.author: abnarain
 ms.openlocfilehash: 1a68263598cb2cba8cc0853f5dd1be7c62dc062e
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90069468"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Solução de problemas do runtime de integração auto-hospedada
@@ -636,7 +636,7 @@ Para obter mais ajuda com a solução de problemas, experimente os seguintes rec
 *  [Blog de Data Factory](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 *  [Solicitações de recurso do Data Factory](https://feedback.azure.com/forums/270578-data-factory)
 *  [Vídeos do Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
-*  [Página de perguntas e respostas da Microsoft](https://docs.microsoft.com/answers/topics/azure-data-factory.html)
+*  [Página de P e R da Microsoft](https://docs.microsoft.com/answers/topics/azure-data-factory.html)
 *  [Fórum do Stack Overflow para Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Informações do Twitter sobre o Data Factory](https://twitter.com/hashtag/DataFactory)
 *  [Guia de desempenho de fluxos de dados de mapeamento](concepts-data-flow-performance.md)
