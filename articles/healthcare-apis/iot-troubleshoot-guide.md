@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 09/16/2020
 ms.author: jasteppe
 ms.openlocfilehash: 64056ef2f63331686553c52040af9e10ee0ac468
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90982985"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-troubleshooting-guide"></a>Guia de solução de problemas do conector do Azure IoT para FHIR (versão prévia)
@@ -33,12 +33,12 @@ Nesta seção, você aprenderá sobre o processo de validação que o conector I
 
 |Elemento|Obrigatório|
 |:-------|:------|
-|TypeName|verdadeiro|
-|TypeMatchExpression|verdadeiro|
-|DeviceIdExpression|verdadeiro|
-|Carimbo de data/hora|verdadeiro|
-|Valores []. ValueName|verdadeiro|
-|Valores []. Valor da|verdadeiro|
+|TypeName|True|
+|TypeMatchExpression|True|
+|DeviceIdExpression|True|
+|Carimbo de data/hora|True|
+|Valores []. ValueName|True|
+|Valores []. Valor da|True|
 
 > [!NOTE]
 > Valores []. ValueName e valores []. Valor da
@@ -49,7 +49,7 @@ Nesta seção, você aprenderá sobre o processo de validação que o conector I
 
 |Elemento|Obrigatório|
 |:------|:-------|
-|TypeName|verdadeiro|
+|TypeName|True|
 
 > [!NOTE]
 > Esse é o único elemento de mapeamento FHIR necessário validado neste momento.
@@ -99,18 +99,18 @@ As cópias de arquivos de mapeamento devem ser fornecidas ao suporte técnico do
 
 2. Selecione o **"conector"** do qual você copiará o mapeamento de conversão JSON.
 
-   :::image type="content" source="media/iot-troubleshoot/map-files-select-connector-with-box.png" alt-text="Connector2 IoT" lightbox="media/iot-troubleshoot/map-files-select-connector-with-box.png":::
+   :::image type="content" source="media/iot-troubleshoot/map-files-select-connector-with-box.png" alt-text="Connector1 IoT" lightbox="media/iot-troubleshoot/map-files-select-connector-with-box.png":::
 
 > [!NOTE]
 > Esse processo também pode ser usado para copiar e salvar o conteúdo do JSON **"Configurar mapeamento de FHIR"** .
 
 3. Selecione **"Configurar mapeamento de dispositivo"**.
 
-    :::image type="content" source="media/iot-troubleshoot/map-files-select-device-with-box.png" alt-text="Connector3 IoT" lightbox="media/iot-troubleshoot/map-files-select-device-with-box.png":::
+    :::image type="content" source="media/iot-troubleshoot/map-files-select-device-with-box.png" alt-text="Connector1 IoT" lightbox="media/iot-troubleshoot/map-files-select-device-with-box.png":::
 
 4. Selecione o conteúdo do JSON e faça uma operação de cópia (por exemplo: selecione CTRL + c). 
 
-   :::image type="content" source="media/iot-troubleshoot/map-files-select-device-json-with-box.png" alt-text="Connector4 IoT" lightbox="media/iot-troubleshoot/map-files-select-device-json-with-box.png":::
+   :::image type="content" source="media/iot-troubleshoot/map-files-select-device-json-with-box.png" alt-text="Connector1 IoT" lightbox="media/iot-troubleshoot/map-files-select-device-json-with-box.png":::
 
 5. Faça uma operação de colagem (por exemplo: selecione CTRL + v) em um novo arquivo dentro de um editor (por exemplo: Visual Studio Code, bloco de notas) e salve o arquivo com uma extensão *. JSON.
 

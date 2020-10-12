@@ -11,10 +11,10 @@ ms.subservice: common
 services: storage
 tags: ''
 ms.openlocfilehash: efae9cd2a73bf6df89007ac313ca6dfe6efe6ddd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87075957"
 ---
 # <a name="troubleshoot-latency-using-storage-analytics-logs"></a>Solucionar problemas de latência usando logs da Análise de Armazenamento
@@ -87,11 +87,11 @@ As etapas a seguir demonstram como identificar e solucionar problemas de latênc
 
    A latência de ponta a ponta é calculada usando a seguinte equação:
 
-   * Latência de ponta a ponta = latência de servidor + latência de cliente
+   * Latência de ponta a ponta = Server-Latency + latência de cliente
 
    Calcule a latência do cliente usando a entrada de log:
 
-   * Latência de cliente = latência de ponta a ponta – latência de servidor
+   * Latência de cliente = latência de ponta a ponta – Server-Latency
 
         Exemplo: 8453 – 391 = 8062ms
 
@@ -111,10 +111,10 @@ As etapas a seguir demonstram como identificar e solucionar problemas de latênc
 Verifique os valores a seguir, conforme mencionado na etapa 5 da seção "etapas recomendadas":
 
 * Latência de ponta a ponta
-* Latência de servidor
-* Latência do cliente
+* Server-Latency
+* Client-Latency
 
-Em uma **operação getBlob** com **RequestStatus = Success**, se o **tempo máximo** for gasto na **latência do cliente**, isso indica que o armazenamento do Azure está gastando um grande volume de tempo gravando dados no cliente. Esse atraso indica um problema do lado do cliente.
+Em uma **operação getBlob** com **RequestStatus = Success**, se o **tempo máximo** for gasto na **latência do cliente**, isso indica que o armazenamento do Azure está gastando um grande volume de tempo gravando dados no cliente. Esse atraso indica um problema de Client-Side.
 
 **Recomendação:**
 
@@ -126,8 +126,8 @@ Em uma **operação getBlob** com **RequestStatus = Success**, se o **tempo máx
 Verifique os valores a seguir, conforme mencionado na etapa 5 da seção "etapas recomendadas":
 
 * Latência de ponta a ponta
-* Latência de servidor
-* Latência do cliente
+* Server-Latency
+* Client-Latency
 
 Em uma **operação getBlob** com **REQUESTSTATUS = (SAS) NetworkError**, se o **tempo máximo** for gasto na **latência do cliente**, o problema mais comum é que o cliente está desconectando antes que o tempo limite expire no serviço de armazenamento.
 
@@ -141,10 +141,10 @@ Em uma **operação getBlob** com **REQUESTSTATUS = (SAS) NetworkError**, se o *
 Verifique os valores a seguir, conforme mencionado na etapa 5 da seção "etapas recomendadas":
 
 * Latência de ponta a ponta
-* Latência de servidor
-* Latência do cliente
+* Server-Latency
+* Client-Latency
 
-Em uma **operação Put** com **RequestStatus = Success**, se o **tempo máximo** for gasto na **latência do cliente**, isso indica que o cliente está demorando mais tempo para enviar dados para o armazenamento do Azure. Esse atraso indica um problema do lado do cliente.
+Em uma **operação Put** com **RequestStatus = Success**, se o **tempo máximo** for gasto na **latência do cliente**, isso indica que o cliente está demorando mais tempo para enviar dados para o armazenamento do Azure. Esse atraso indica um problema de Client-Side.
 
 **Recomendação:**
 
@@ -156,8 +156,8 @@ Em uma **operação Put** com **RequestStatus = Success**, se o **tempo máximo*
 Verifique os valores a seguir, conforme mencionado na etapa 5 da seção "etapas recomendadas":
 
 * Latência de ponta a ponta
-* Latência de servidor
-* Latência do cliente
+* Server-Latency
+* Client-Latency
 
 Em uma **operação PutBlob** com **REQUESTSTATUS = (SAS) NetworkError**, se o **tempo máximo** for gasto na **latência do cliente**, o problema mais comum é que o cliente está desconectando antes que o tempo limite expire no serviço de armazenamento.
 

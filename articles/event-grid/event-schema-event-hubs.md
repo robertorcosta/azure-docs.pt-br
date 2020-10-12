@@ -4,10 +4,10 @@ description: Descreve as propriedades que são fornecidas para eventos de hubs d
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 960aa1fe7184e1d02d28fdc135907119fee8f123
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86113676"
 ---
 # <a name="azure-event-hubs-as-an-event-grid-source"></a>Hubs de eventos do Azure como uma fonte de grade de eventos
@@ -56,25 +56,25 @@ Um evento tem os seguintes dados de nível superior:
 | Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
 | topic | string | Caminho de recurso completo para a origem do evento. Esse campo não é gravável. Grade de Eventos fornece esse valor. |
-| subject | string | Caminho definido pelo fornecedor para o assunto do evento. |
+| subject | string | Caminho definido pelo publicador para o assunto do evento. |
 | eventType | string | Um dos tipos de evento registrados para a origem do evento. |
 | eventTime | string | A hora em que o evento é gerado com base na hora UTC do provedor. |
 | id | string | Identificador exclusivo do evento. |
 | data | objeto | Dados de evento de hub de eventos. |
-| dataVersion | string | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
-| metadataVersion | string | A versão do esquema do metadados de evento. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
+| dataVersion | string | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
+| metadataVersion | string | A versão do esquema dos metadados do evento. Grade de Eventos define o esquema de propriedades de nível superior. A Grade de Eventos fornece esse valor. |
 
 O objeto de dados tem as seguintes propriedades:
 
-| Propriedade | Type | Description |
+| Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
 | fileUrl | string | O caminho para o arquivo de captura. |
 | FileType | string | O tipo de arquivo para o arquivo de captura. |
 | partitionId | string | A ID de fragmento. |
-| sizeInBytes | inteiro | Tamanho do arquivo. |
-| eventCount | inteiro | O número de eventos no arquivo. |
-| firstSequenceNumber | inteiro | O menor número de sequência da fila. |
-| lastSequenceNumber | inteiro | O último número de sequência da fila. |
+| sizeInBytes | Número inteiro | Tamanho do arquivo. |
+| eventCount | Número inteiro | O número de eventos no arquivo. |
+| firstSequenceNumber | Número inteiro | O menor número de sequência da fila. |
+| lastSequenceNumber | Número inteiro | O último número de sequência da fila. |
 | firstEnqueueTime | string | A primeira vez da fila. |
 | lastEnqueueTime | string | A última vez da fila. |
 

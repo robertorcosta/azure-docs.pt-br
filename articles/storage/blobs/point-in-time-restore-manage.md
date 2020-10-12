@@ -10,10 +10,10 @@ ms.date: 09/23/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: 828b5c34aaccf2a53aa197f921a8ef02d46821ae
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91280463"
 ---
 # <a name="perform-a-point-in-time-restore-on-block-blob-data"></a>Executar uma restauração pontual em dados de blob de blocos
@@ -44,7 +44,7 @@ Para configurar a restauração pontual com o portal do Azure, siga estas etapas
 1. Em **configurações**, escolha **proteção de dados**.
 1. Selecione **ativar a restauração pontual** . Quando você seleciona essa opção, a exclusão reversível para BLOBs, controle de versão e feed de alteração também são habilitadas.
 1. Defina o ponto de restauração máximo para a restauração pontual, em dias. Esse número deve ser pelo menos um dia menor que o período de retenção especificado para exclusão reversível do blob.
-1. Salve as alterações.
+1. Salve suas alterações.
 
 A imagem a seguir mostra uma conta de armazenamento configurada para a restauração pontual com um ponto de restauração de sete dias atrás e um período de retenção para exclusão reversível de blob de 14 dias.
 
@@ -122,7 +122,7 @@ Para restaurar todos os contêineres e blobs na conta de armazenamento com o por
 1. Confirme que você deseja continuar marcando a caixa.
 1. Selecione **restaurar** para iniciar a operação de restauração.
 
-    :::image type="content" source="media/point-in-time-restore-manage/restore-all-containers-portal.png" alt-text="Captura de tela mostrando como restaurar todos os contêineres para um ponto de restauração especificado":::
+    :::image type="content" source="media/point-in-time-restore-manage/restore-all-containers-portal.png" alt-text="Captura de tela mostrando como configurar a restauração pontual no portal do Azure":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -169,14 +169,14 @@ Para restaurar um intervalo de BLOBs em um ou mais contêineres com o portal do 
 1. Especifique os intervalos a serem restaurados. Use uma barra (/) para delinear o nome do contêiner do prefixo do blob.
 1. Por padrão, o painel **restaurar contêineres selecionados** especifica um intervalo que inclui todos os BLOBs no contêiner. Exclua esse intervalo se você não quiser restaurar todo o contêiner. O intervalo padrão é mostrado na imagem a seguir.
 
-    :::image type="content" source="media/point-in-time-restore-manage/delete-default-blob-range.png" alt-text="Captura de tela mostrando o intervalo de BLOBs padrão a ser excluído antes de especificar o intervalo personalizado":::
+    :::image type="content" source="media/point-in-time-restore-manage/delete-default-blob-range.png" alt-text="Captura de tela mostrando como configurar a restauração pontual no portal do Azure":::
 
 1. Confirme que você deseja continuar marcando a caixa.
 1. Selecione **restaurar** para iniciar a operação de restauração.
 
 A imagem a seguir mostra uma operação de restauração em um conjunto de intervalos.
 
-:::image type="content" source="media/point-in-time-restore-manage/restore-multiple-container-ranges-portal.png" alt-text="Captura de tela mostrando como restaurar intervalos de BLOBs em um ou mais contêineres":::
+:::image type="content" source="media/point-in-time-restore-manage/restore-multiple-container-ranges-portal.png" alt-text="Captura de tela mostrando como configurar a restauração pontual no portal do Azure":::
 
 A operação de restauração mostrada na imagem executa as seguintes ações:
 
@@ -249,5 +249,5 @@ Para executar a operação de restauração de forma síncrona e bloquear a exec
 
 - [Restauração pontual para BLOBs de blocos](point-in-time-restore-overview.md)
 - [Exclusão reversível](soft-delete-overview.md)
-- [Feed de alteração](storage-blob-change-feed.md)
+- [Feed de alterações](storage-blob-change-feed.md)
 - [Controle de versão de BLOB](versioning-overview.md)

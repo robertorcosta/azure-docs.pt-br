@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.custom: fasttrack-edit
 ms.date: 06/14/2020
 ms.openlocfilehash: 95456298b3275c83152115d700a4539cab2d2a67
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91318153"
 ---
 # <a name="support-matrix-for-physical-server-migration"></a>Matriz de suporte para migração de servidor físico
@@ -73,7 +73,7 @@ Se você configurar o dispositivo de replicação manualmente em um servidor fí
 
 Todas as VMs locais replicadas para o Azure devem atender aos requisitos de VM do Azure resumidos nesta tabela. Quando Site Recovery executar uma verificação de pré-requisitos para replicação, a verificação falhará se alguns dos requisitos não forem atendidos.
 
-**Componente** | **Requisitos** | **Detalhes**
+**Componente** | **Requirements** | **Detalhes**
 --- | --- | ---
 Sistema operacional convidado | Verifica os sistemas operacionais com suporte.<br/> Você pode migrar qualquer carga de trabalho em execução em um sistema operacional com suporte. | A verificação falha se não tiver suporte.
 Arquitetura do sistema operacional convidado | 64 bits. | A verificação falha se não tiver suporte.

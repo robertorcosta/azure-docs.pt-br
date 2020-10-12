@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 68459253114e97c5e113b863a075c210ef50bf2e
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89441112"
 ---
 # <a name="data-management-gateway"></a>Gateway de gerenciamento de dados
@@ -307,7 +307,7 @@ Você pode habilitar/desabilitar o recurso de atualização automática seguindo
     .\IntegrationRuntimeAutoUpdateToggle.ps1 -on -AuthKey <your auth key>
     ```
 
-## <a name="configuration-manager"></a>Gerenciador de Configurações
+## <a name="configuration-manager"></a>Configuration Manager
 Depois de instalar o gateway, você pode iniciar o Gerenciador de Configuração de Gateway de Gerenciamento de Dados de uma das seguintes maneiras:
 
 1. Na janela **Search**, digite **Gateway de Gerenciamento de Dados** para acessar esse utilitário.
@@ -422,7 +422,7 @@ Esta seção fornece etapas para movimentação do cliente do gateway de um comp
     ![Configurar página](./media/data-factory-data-management-gateway/ConfigureBlade.png)
 5. Mantenha o **Gerenciador de Configuração de Gateway do Gerenciamento de Dados da Microsoft**
 
-    ![Gerenciador de Configurações](./media/data-factory-data-management-gateway/ConfigurationManager.png)
+    ![Configuration Manager](./media/data-factory-data-management-gateway/ConfigurationManager.png)
 6. Na página **Configurar no portal**, clique em **Recriar chave** na barra de comandos e clique em **Sim** para a mensagem de aviso. Clique no **botão copiar** ao lado do texto da chave, que copia a chave para a área de transferência. O gateway no computador antigo deixa de funcionar assim que você recria a chave.
 
     ![Recriar a chave 2](./media/data-factory-data-management-gateway/RecreateKey.png)

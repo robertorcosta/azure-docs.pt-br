@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 10476544e513b52567eb0ca0182039f2c5f482c3
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89441622"
 ---
 # <a name="repeatable-copy-in-azure-data-factory"></a>Cópia repetida no Azure Data Factory
@@ -110,7 +110,7 @@ O segundo mecanismo para atingir a capacidade de repetição é ter uma coluna d
 
 Essa coluna é usada pelo Azure Data Factory para fins de capacidade de repetição e, no processo, o Azure Data Factory não faz nenhuma alteração de esquema na tabela. Modo de usar essa abordagem:
 
-1. Defina uma coluna do tipo **binário (32)** na tabela SQL de destino. Não deve haver nenhuma restrição nessa coluna. Vamos nomear esta coluna como AdfSliceIdentifier para este exemplo.
+1. Defina uma coluna do tipo **binary (32)** na tabela SQL de destino. Não deve haver nenhuma restrição nessa coluna. Vamos nomear esta coluna como AdfSliceIdentifier para este exemplo.
 
 
     Tabela de origem:

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: ambapat
 ms.openlocfilehash: 2100572c0bcf5bf65fe5a70ab9e552c2d7f72934
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90983256"
 ---
 # <a name="authentication-requests-and-responses"></a>Autenticação, solicitações e respostas
@@ -23,12 +23,12 @@ Azure Key Vault fornece dois tipos de contêineres para armazenar e gerenciar se
 
 |Tipo de contêiner|Tipos de objeto com suporte|Ponto de extremidade do plano de dados|
 |--|--|--|
-| **Cofres**|<ul><li>Chaves protegidas por software</li><li>Chaves protegidas por HSM (com SKU Premium)</li><li>Certificados</li><li>Chaves de conta de armazenamento</li></ul> | https://{Vault-Name}. Vault. Azure. net
-|**HSM gerenciado** |<ul><li>Chaves protegidas por HSM</li></ul> | https://{HSM-Name}. managedhsm. Azure. net
+| **Cofres**|<ul><li>Chaves protegidas por software</li><li>Chaves protegidas por HSM (com SKU Premium)</li><li>Certificados</li><li>Chaves de conta de armazenamento</li></ul> | https://{vault-name}.vault.azure.net
+|**HSM Gerenciado** |<ul><li>Chaves protegidas por HSM</li></ul> | https://{hsm-name}.managedhsm.azure.net
 
 Aqui estão os sufixos de URL usados para acessar cada tipo de objeto
 
-|Tipo de objeto|Sufixo da URL|
+|Tipo de objeto|Sufixo de URL|
 |--|--|
 |Chaves protegidas por software| /keys |
 |Chaves protegidas por HSM| /keys |
@@ -41,7 +41,7 @@ O Azure Key Vault oferece suporte a solicitações e respostas no formato JSON. 
 
 Este tópico aborda informações específicas para o serviço do Azure Key Vault. Para obter informações gerais sobre o uso de interfaces de REST do Azure, incluindo autenticação/autorização e como adquirir um token de acesso, consulte a [Referência da API REST do Azure](https://docs.microsoft.com/rest/api/azure).
 
-## <a name="request-url"></a>URL da solicitação  
+## <a name="request-url"></a>URL de Solicitação  
  As principais operações de gerenciamento usam HTTP DELETE, GET, PATCH, PUT e HTTP POST e operações criptográficas em relação a objetos de chave existentes usam HTTP POST. Os clientes que não suportam verbos HTTP específicos também podem usar HTTP POST usando o cabeçalho X-HTTP-REQUEST para especificar o verbo pretendido; solicitações que normalmente não exigem um corpo devem incluir um corpo vazio quando usando HTTP POST, por exemplo, ao usar POST em vez de DELETE.  
 
  Para trabalhar com objetos no Azure Key Vault, a seguir estão exemplos de URLs:  

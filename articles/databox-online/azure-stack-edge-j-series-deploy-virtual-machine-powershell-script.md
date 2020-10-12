@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
 ms.openlocfilehash: 5ed6de28f1e1b0545ebd675c30249e2f2b4747e9
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90890640"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-azure-powershell-script"></a>Implantar VMs em seu dispositivo Azure Stack Edge pro GPU via script Azure PowerShell
@@ -27,7 +27,7 @@ Antes de começar a criar e gerenciar uma VM em seu dispositivo Azure Stack Edge
 
 ### <a name="for-azure-stack-edge-pro-device-via-the-local-web-ui"></a>Para Azure Stack dispositivo pro Edge por meio da interface do usuário da Web local
 
-1. Você concluiu as configurações de rede em seu dispositivo Azure Stack Edge pro, conforme descrito na [etapa 1: configurar Azure Stack dispositivo pro Edge](azure-stack-edge-j-series-connect-resource-manager.md#step-1-configure-azure-stack-edge-pro-device).
+1. Você concluiu as configurações de rede no dispositivo Azure Stack Edge Pro, conforme descrito na [Etapa 1: Configurar o dispositivo Azure Stack Edge Pro](azure-stack-edge-j-series-connect-resource-manager.md#step-1-configure-azure-stack-edge-pro-device).
 
 2. Você habilitou um adaptador de rede para computação. Esse IP do adaptador de rede é usado para criar um comutador virtual para a implantação da VM. As seguintes etapas descreverão o processo:
 
@@ -36,7 +36,7 @@ Antes de começar a criar e gerenciar uma VM em seu dispositivo Azure Stack Edge
         > [!IMPORTANT] 
         > Você só pode configurar uma porta para computação.
 
-    2. Habilite a computação no adaptador de rede. Azure Stack o Edge pro cria e gerencia um comutador virtual correspondente a esse adaptador de rede.
+    2. Habilite a computação no adaptador de rede. O Azure Stack Edge Pro criará e gerenciará um comutador virtual correspondente a esse adaptador de rede.
 
 3. Você criou e instalou todos os certificados em seu dispositivo Azure Stack Edge pro e no repositório de raiz confiável do seu cliente. Siga o procedimento descrito na [Etapa 2: Criar e instalar certificados](azure-stack-edge-j-series-connect-resource-manager.md#step-2-create-and-install-certificates).
 

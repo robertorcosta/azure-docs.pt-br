@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: snehaa
 ms.openlocfilehash: c354c1c9dfacfcb6bf84f1140b58deca60c1874e
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86109834"
 ---
 # <a name="scale-migration-of-vms"></a>Dimensionar a migração de VMs 
@@ -23,7 +23,7 @@ Site Recovery scripts estão disponíveis para download em Azure PowerShell repo
 - Compatível com especificação do endereço IP estático somente para o NIC principal da VM de destino
 - Os scripts não terão o Benefício Híbrido do Azure relacionados às entradas, você precisará atualizar manualmente as propriedades da VM replicada no portal
 
-## <a name="how-does-it-work"></a>Como isso funciona?
+## <a name="how-does-it-work"></a>Como ele funciona?
 
 ### <a name="prerequisites"></a>Pré-requisitos
 Antes de começar, você precisa realizar as seguintes etapas:
