@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 08/30/2020
 ms.author: yelevin
 ms.openlocfilehash: ba872f221f3bde29f0bb48b04dc2259d3ab4938a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90906291"
 ---
 # <a name="advanced-multistage-attack-detection-in-azure-sentinel"></a>Detecção avançada de ataques de multiestágio no Azure Sentinel
@@ -40,7 +40,7 @@ Essa detecção é habilitada por padrão no Azure Sentinel. Para verificar o st
 
 1. Selecione **regras ativas**e localize **detecção avançada de ataque** de várias etapas na coluna **nome** filtrando a lista para o tipo de regra de **fusão** . Verifique a coluna **status** para confirmar se essa detecção está habilitada ou desabilitada.
 
-    :::image type="content" source="./media/fusion/selecting-fusion-rule-type.png" alt-text="{Alt-Text}":::
+    :::image type="content" source="./media/fusion/selecting-fusion-rule-type.png" alt-text="{alt-text}":::
 
 1. Para alterar o status, selecione essa entrada e, na folha **detecção avançada de ataques de multiestágio** , selecione **Editar**.
 
@@ -422,7 +422,7 @@ Este cenário está atualmente em **Visualização pública**.
 
 **Táticas de Mitre ATT&CK:** Acesso inicial, execução, movimentação lateral, elevação de privilégio
 
-**Técnicas Mitre ATT&CK:** Explorar o aplicativo voltado para o público (T1190), a exploração de execução de cliente (T1203), a exploração de serviços remotos (T1210), a exploração de elevação de privilégio (T1068)
+**Técnicas Mitre ATT&CK:** Exploração de Public-Facing aplicativo (T1190), exploração de execução de cliente (T1203), exploração de serviços remotos (T1210), exploração de elevação de privilégio (T1068)
 
 **Fontes do conector de dados:** Microsoft defender para ponto de extremidade (anteriormente MDATP), Palo Alto Networks 
 

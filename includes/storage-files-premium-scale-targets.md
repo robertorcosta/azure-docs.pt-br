@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/10/2020
 ms.author: rogarana
 ms.openlocfilehash: d704c6026e9d007a7365a3b72649ca509585da4d
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88057830"
 ---
 #### <a name="additional-premium-file-share-level-limits"></a>Limites de nível de compartilhamento de arquivo Premium adicionais
@@ -30,4 +30,4 @@ ms.locfileid: "88057830"
 |Identificadores simultâneos     |2\.000         |2\.000         |
 |Saída     |Consulte valores de taxa de transferência de arquivo padrão         |300 MiB/s         |
 |Entrada     |Consulte valores de taxa de transferência de arquivo padrão         |200 MiB/segundo         |
-|Taxa de transferência     |Até 60 MiB/s         |Consulte valores de entrada/saída do arquivo Premium         |
+|Produtividade     |Até 60 MiB/s         |Consulte valores de entrada/saída do arquivo Premium         |

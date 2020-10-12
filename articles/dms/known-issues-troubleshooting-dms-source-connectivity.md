@@ -13,10 +13,10 @@ ms.custom: seo-lt-2019
 ms.topic: troubleshooting
 ms.date: 02/20/2020
 ms.openlocfilehash: 2db941edef93b1e836e82753a6d6016adb977e65
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91322590"
 ---
 # <a name="troubleshoot-dms-errors-when-connecting-to-source-databases"></a>Solucionar problemas de erros de DMS ao se conectar a bancos de dados de origem
@@ -27,7 +27,7 @@ O artigo a seguir fornece detalhes sobre como resolver possíveis problemas que 
 
 Os possíveis problemas associados à conexão a um banco de dados de SQL Server de origem e como solucioná-los são fornecidos na tabela a seguir.
 
-| Erro         | Detalhes de causa e solução de problemas |
+| Erro do         | Detalhes de causa e solução de problemas |
 | ------------- | ------------- |
 | Falha na conexão SQL. Ocorreu um erro relacionado à rede ou específico da instância ao estabelecer uma conexão com o SQL Server. O servidor não foi encontrado ou não estava acessível. Verifique se o nome da instância está correto e se SQL Server está configurado para permitir conexões remotas.<br> | Esse erro ocorrerá se o serviço não puder localizar o servidor de origem. Para resolver o problema, consulte o artigo [erro ao conectar-se ao SQL Server de origem ao usar a porta dinâmica ou a instância nomeada](https://docs.microsoft.com/azure/dms/known-issues-troubleshooting-dms#error-connecting-to-source-sql-server-when-using-dynamic-port-or-named-instance). |
 | **Erro 53** -falha na conexão do SQL. (Também, para os códigos de erro 1, 2, 5, 53, 233, 258, 1225, 11001)<br><br> | Esse erro ocorrerá se o serviço não puder se conectar ao servidor de origem. Para resolver o problema, consulte os recursos a seguir e tente novamente. <br><br>  [Guia do usuário interativo para solucionar o problema de conectividade](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server)<br><br> [Pré-requisitos para migração do SQL Server para o Banco de Dados SQL do Azure](https://docs.microsoft.com/azure/dms/pre-reqs#prerequisites-for-migrating-sql-server-to-azure-sql-database) <br><br> [Pré-requisitos para migrar SQL Server para um SQL do Azure Instância Gerenciada](https://docs.microsoft.com/azure/dms/pre-reqs#prerequisites-for-migrating-sql-server-to-an-azure-sql-database-managed-instance) |
@@ -38,7 +38,7 @@ Os possíveis problemas associados à conexão a um banco de dados de SQL Server
 
 Os possíveis problemas associados à conexão a um banco de dados do AWS RDS MySQL de origem e como solucioná-los são fornecidos na tabela a seguir.
 
-| Erro         | Detalhes de causa e solução de problemas |
+| Erro do         | Detalhes de causa e solução de problemas |
 | ------------- | ------------- |
 | **Erro [2003]**[HY000]-falha na conexão. ERRO [HY000] [MySQL] [ODBC x. x (w) Driver] não é possível conectar ao servidor MySQL em ' {Server} ' (10060) | Esse erro ocorrerá se o driver ODBC do MySQL não puder se conectar ao servidor de origem. Para resolver o problema, consulte os documentos de solução de problemas listados na observação abaixo desta tabela e tente novamente.<br> |
 | **Erro [2005]**[HY000]-falha na conexão. ERRO [HY000] [MySQL] [ODBC x. x (w) Driver] host do MySQL Server desconhecido ' {Server} ' | Esse erro ocorrerá se o serviço não conseguir localizar o host de origem no RDS. O problema pode ser porque a fonte listada não existe ou há um problema com a infraestrutura do RDS. Para resolver o problema, consulte os documentos de solução de problemas listados na observação abaixo desta tabela e tente novamente.<br> |
@@ -55,10 +55,10 @@ Os possíveis problemas associados à conexão a um banco de dados do AWS RDS My
 
 Os possíveis problemas associados à conexão a um banco de dados do AWS RDS de origem e como solucioná-los são fornecidos na tabela a seguir.
 
-| Erro         | Detalhes de causa e solução de problemas |
+| Erro do         | Detalhes de causa e solução de problemas |
 | ------------- | ------------- |
 | **Erro [101]**[08001]-falha na conexão. ERRO [08001] tempo limite expirado. | Esse erro ocorrerá se o driver postgres não puder se conectar ao servidor de origem. Para resolver o problema, consulte os documentos de solução de problemas listados na observação abaixo desta tabela e tente novamente. |
-| **Erro: o parâmetro wal_level tem o valor ' {value} '. Altere-o para ' lógico ' para permitir a replicação.** | Esse erro ocorrerá se o parâmetro wal_level tiver o valor incorreto. Para resolver o problema, altere o RDS. logical_replication no grupo de parâmetros para 1 e, em seguida, reinicialize a instância. Para obter mais informações, consulte [pré-requisitos para migrar para o PostgreSQL do Azure usando DMS](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#prerequisites) ou [POSTGRESQL no Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html). |
+| **Erro: o parâmetro wal_level tem o valor ' {value} '. Altere-o para ' lógico ' para permitir a replicação.** | Esse erro ocorrerá se o parâmetro wal_level tiver o valor incorreto. Para resolver o problema, altere o rds.logical_replication no grupo de parâmetros para 1 e, em seguida, reinicialize a instância. Para obter mais informações, consulte [pré-requisitos para migrar para o PostgreSQL do Azure usando DMS](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#prerequisites) ou [POSTGRESQL no Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html). |
 
 > [!NOTE]
 > Para obter mais informações sobre como solucionar problemas relacionados à conexão a um banco de dados do AWS do RDS de origem, consulte os seguintes recursos:
@@ -69,7 +69,7 @@ Os possíveis problemas associados à conexão a um banco de dados do AWS RDS de
 
 Os possíveis problemas associados à conexão a um banco de dados AWS SQL Server RDS de origem e como solucioná-los são fornecidos na tabela a seguir.
 
-| Erro         | Detalhes de causa e solução de problemas |
+| Erro do         | Detalhes de causa e solução de problemas |
 | ------------- | ------------- |
 | **Erro 53** -falha na conexão do SQL. Ocorreu um erro relacionado à rede ou específico da instância ao estabelecer uma conexão com o SQL Server. O servidor não foi encontrado ou não estava acessível. Verifique se o nome da instância está correto e se SQL Server está configurado para permitir conexões remotas. (provedor: provedor de pipes nomeados, erro: 40-não foi possível abrir uma conexão com SQL Server | Esse erro ocorrerá se o serviço não puder se conectar ao servidor de origem. Para resolver o problema, consulte os documentos de solução de problemas listados na observação abaixo desta tabela e tente novamente. |
 | **Erro 18456** -falha no logon. Falha de logon do usuário ' {user} ' | Esse erro ocorrerá se o serviço não puder se conectar ao banco de dados de origem com as credenciais de T-SQL fornecidas. Para resolver o problema, verifique as credenciais inseridas. Você também pode se referir a [MSSQLSERVER_18456](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error?view=sql-server-2017) ou aos documentos de solução de problemas listados na observação abaixo desta tabela e tentar novamente. |

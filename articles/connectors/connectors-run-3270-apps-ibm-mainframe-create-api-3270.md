@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 03/06/2019
 tags: connectors
 ms.openlocfilehash: 41e3f1ff430293ebc7b3828a0fd7090923fc209c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87281473"
 ---
 # <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>Integre aplicativos baseados na tela 3270 em mainframes IBM com o Azure usando os Aplicativos Lógicos do Azure e o conector IBM 3270
@@ -366,7 +366,7 @@ Ao concluir todas essas etapas, você pode usar a ação que você cria em seu a
    | **Servidor** | Sim | <*TN3270-nome-do-servidor*> | O nome do servidor para o serviço TN3270 |
    | **Porta** | Não | <*TN3270-servidor-porta*> | A porta usada pelo servidor TN3270. Se for deixado em branco, o conector usará `23` como o valor padrão. |
    | **Tipo de Dispositivo** | Não | <*IBM-terminal-Model*> | O nome do modelo ou o número do terminal IBM a ser emulado. Se for deixado em branco, o conector usará valores padrão. |
-   | **Página de código** | Não | <*código-página-número*> | O número da página de código para o host. Se for deixado em branco, o conector usará `37` como o valor padrão. |
+   | **Página de Código** | Não | <*código-página-número*> | O número da página de código para o host. Se for deixado em branco, o conector usará `37` como o valor padrão. |
    | **Nome da unidade lógica** | Não | <*nome da unidade lógica*> | O nome da unidade lógica específica a ser solicitada do host |
    | **Habilitar SSL?** | Não | Ativar ou desativar | Ative ou desative a criptografia TLS. |
    | **Validar o certificado SSL do host?** | Não | Ativar ou desativar | Ative ou desative a validação para o certificado do servidor. |

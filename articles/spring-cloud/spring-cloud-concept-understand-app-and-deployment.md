@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/23/2020
 ms.custom: devx-track-java
 ms.openlocfilehash: c053a7830e02eb7c460bd030ca3c6a10c00ea78a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91323630"
 ---
 # <a name="understand-app-and-deployment-in-azure-spring-cloud"></a>Entender o aplicativo e a implantação no Azure Spring Cloud
@@ -55,7 +55,7 @@ Os seguintes recursos/propriedades são definidos no nível de implantação e s
 
 * **Um aplicativo deve ter uma implantação de produção**: a exclusão de uma implantação de produção é bloqueada pela API. Ele deve ser trocado para preparo antes da exclusão.
 * **Um aplicativo pode ter no máximo duas implantações**: a criação de mais de duas implantações é bloqueada pela API. Implante seu novo binário para a implantação existente ou para preparo de produção.
-* O **Gerenciamento de implantação não está disponível na camada básica**: Use a camada Standard para o recurso de implantação azul-verde.
+* O **Gerenciamento de implantação não está disponível na camada básica**: Use a camada Standard para Blue-Green recurso de implantação.
 
 ## <a name="see-also"></a>Confira também
 * [Configurar um ambiente de preparo no Azure Spring Cloud](spring-cloud-howto-staging-environment.md)

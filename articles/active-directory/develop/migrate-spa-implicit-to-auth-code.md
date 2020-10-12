@@ -13,10 +13,10 @@ ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev
 ms.openlocfilehash: b7316756aab7875dce50a3783cb95ca42676b970
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
-ms.translationtype: HT
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87027080"
 ---
 # <a name="migrate-a-javascript-single-page-app-from-implicit-grant-to-auth-code-flow"></a>Migrar um aplicativo de página única do JavaScript da concessão implícita para o fluxo do código de autorização
@@ -48,11 +48,11 @@ Siga estas etapas para os registros de aplicativo que estão configurados atualm
     :::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-01-implicit-warning-banner.png" alt-text="Faixa de aviso de fluxo implícito no bloco do aplicativo Web no portal do Azure":::
 1. Selecione *apenas* os URIs de redirecionamento cujos aplicativos usarão MSAL.js 2.x e, em seguida, selecione **Configurar**.
 
-    :::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-02-select-redirect-uri.png" alt-text="Selecione o painel de URI de redirecionamento no painel do SPA do portal do Azure":::
+    :::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-02-select-redirect-uri.png" alt-text="Faixa de aviso de fluxo implícito no bloco do aplicativo Web no portal do Azure":::
 
 Esses URIs de redirecionamento agora devem aparecer no bloco da plataforma **aplicativo de página única**, mostrando que o suporte a CORS com o fluxo do código de autorização e o PKCE está habilitado para esses URIs.
 
-:::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-03-spa-redirect-uri-tile.png" alt-text="Bloco de aplicativo de página única no registro de aplicativos do portal do Azure":::
+:::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-03-spa-redirect-uri-tile.png" alt-text="Faixa de aviso de fluxo implícito no bloco do aplicativo Web no portal do Azure":::
 
 Você também pode [criar um registro de aplicativo](scenario-spa-app-registration.md) em vez de atualizar os URIs de redirecionamento em seu registro existente.
 

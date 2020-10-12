@@ -9,10 +9,10 @@ ms.date: 01/09/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 4b61caecd67881eb08c82ea0c26522c63c3e8396
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84712047"
 ---
 # <a name="update-3-release-notes-for-your-storsimple-8000-series-device"></a>Notas de versão da Atualização 3 para seu dispositivo StorSimple série 8000
@@ -48,7 +48,7 @@ A tabela a seguir fornece um resumo dos problemas que foram corrigidos na Atuali
 | 3 |Monitoramento |Havia vários problemas relacionados a unidades de emissão de relatórios e monitoramento, bem como gráficos de painel de dispositivos em que informações incorretas foram exibidas para volumes fixos localmente. Esses problemas foram corrigidos nesta versão. |Sim |Não |
 | 4 |Gravações pesadas E/S |Ao usar o StorSimple para cargas de trabalho que envolvem gravações pesadas, o usuário encontraria um bug não muito frequente em que o conjunto de trabalho estava sendo colocado em camadas na nuvem. Esse bug foi corrigido nesta versão. |Sim |Sim |
 | 5 |Backup |Em determinadas instâncias raras, nas versões anteriores do software, quando o usuário realizou um backup de um clone remoto, ele teria erros de nuvem e a operação geraria um erro. Nesta versão, o problema é corrigido e a operação é concluída com êxito. |Sim |Sim |
-| 6 |Política do backup |Em certos casos raros, nas versões anteriores do software, havia um bug relacionado à exclusão da política de backup. Esse problema foi corrigido nesta versão. |Sim |Sim |
+| 6 |Política de backup |Em certos casos raros, nas versões anteriores do software, havia um bug relacionado à exclusão da política de backup. Esse problema foi corrigido nesta versão. |Sim |Sim |
 
 ## <a name="known-issues-in-update-3"></a>Problemas conhecidos na Atualização 3
 A tabela a seguir fornece um resumo dos problemas conhecidos nesta versão.

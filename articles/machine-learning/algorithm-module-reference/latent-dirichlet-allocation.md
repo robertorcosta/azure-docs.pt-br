@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 06/05/2020
 ms.openlocfilehash: f9f239ea69aaf71e591a447feb300c13a45ba1a4
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90907860"
 ---
 # <a name="latent-dirichlet-allocation-module"></a>Módulo de alocação de Dirichlet latente
@@ -181,7 +181,7 @@ Depois que os índices de termo são computados, uma medida de similaridade base
 
 ###  <a name="module-parameters"></a>Parâmetros do módulo
 
-|Nome|Tipo|Intervalo|Opcional|Padrão|Descrição|  
+|Nome|Type|Intervalo|Opcional|Padrão|Descrição|  
 |----------|----------|-----------|--------------|-------------|-----------------|  
 |Coluna(s) de destino|Seleção de coluna||Obrigatório|StringFeature|Nome ou índice da coluna de destino.|  
 |Número de tópicos a serem modelados|Inteiro|[1; 1000]|Obrigatório|5|Modele a distribuição de documentos em relação a N tópicos.|  
@@ -193,12 +193,12 @@ Depois que os índices de termo são computados, uma medida de similaridade base
 |Número estimado de documentos|Inteiro|[1;int.MaxValue]|Aplica quando a caixa de seleção **Mostrar todas as opções** está marcada|1000|Número estimado de documentos. Corresponde ao `total_samples` parâmetro.|  
 |Tamanho do lote|Inteiro|[1; 1024]|Aplica quando a caixa de seleção **Mostrar todas as opções** está marcada|32|Tamanho do lote.|  
 |Valor inicial da iteração usada no agendamento de atualização da taxa de aprendizagem|Inteiro|[0; int. MaxValue|Aplica quando a caixa de seleção **Mostrar todas as opções** está marcada|0|Valor inicial que downweights a taxa de aprendizagem para iterações iniciais. Corresponde ao `learning_offset` parâmetro.|  
-|Energia aplicada à iteração durante as atualizações|Float|[0,0; 1,0]|Aplica quando a caixa de seleção **Mostrar todas as opções** está marcada|0,5|Energia aplicada à contagem de iteração para controlar a taxa de aprendizado. Corresponde ao `learning_decay` parâmetro. |  
+|Energia aplicada à iteração durante as atualizações|Float|[0,0; 1,0]|Aplica quando a caixa de seleção **Mostrar todas as opções** está marcada|0.5|Energia aplicada à contagem de iteração para controlar a taxa de aprendizado. Corresponde ao `learning_decay` parâmetro. |  
 |Número de iterações de treinamento|Inteiro|[1; 1024]|Aplica quando a caixa de seleção **Mostrar todas as opções** está marcada|25|Número de iterações de treinamento.|  
-|Criar dicionário de ngrams|Booliano|Verdadeiro ou Falso|Aplica-se quando a caixa de seleção **Mostrar todas as opções** *não* está marcada|verdadeiro|Cria um dicionário de ngrams antes de computar LDA. Útil para inspeção e interpretação de modelo.|  
+|Criar dicionário de ngrams|Booliano|Verdadeiro ou Falso|Aplica-se quando a caixa de seleção **Mostrar todas as opções** *não* está marcada|True|Cria um dicionário de ngrams antes de computar LDA. Útil para inspeção e interpretação de modelo.|  
 |Tamanho máximo do dicionário ngram|Inteiro|[1;int.MaxValue]|Aplica-se quando o **dicionário de compilação de opção de ngrams** é **verdadeiro**|20000|Tamanho máximo do dicionário ngrams. Se o número de tokens na entrada exceder esse tamanho, poderão ocorrer colisões.|  
 |Número de bits a serem usados para o hash de recurso.|Inteiro|[1; 31]|Aplica quando a caixa de seleção **Mostrar todas as opções** *não* está marcada e o **dicionário de compilação de ngrams** é **false**|12|Número de bits a serem usados para o hash de recurso.| 
-|Criar dicionário de ngrams antes de LDA|Booliano|Verdadeiro ou Falso|Aplica quando a caixa de seleção **Mostrar todas as opções** está marcada|verdadeiro|Cria um dicionário de ngrams antes de LDA. Útil para inspeção e interpretação de modelo.|  
+|Criar dicionário de ngrams antes de LDA|Booliano|Verdadeiro ou Falso|Aplica quando a caixa de seleção **Mostrar todas as opções** está marcada|True|Cria um dicionário de ngrams antes de LDA. Útil para inspeção e interpretação de modelo.|  
 |Número máximo de ngrams no dicionário|Inteiro|[1;int.MaxValue]|Aplica-se quando a caixa de seleção **Mostrar todas as opções** está marcada e a opção o **dicionário de compilação de ngrams** é **true**|20000|Tamanho máximo do dicionário. Se o número de tokens na entrada exceder esse tamanho, poderão ocorrer colisões.|  
 |Número de bits de hash|Inteiro|[1; 31]|Aplica-se quando a caixa de seleção **Mostrar todas as opções** está marcada e a opção o **dicionário de compilação de ngrams** é **false**|12|Número de bits a serem usados durante o hash de recurso.|   
 

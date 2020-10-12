@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.openlocfilehash: aa7d67cd6bd1bd422bd257b75ac5bde3bd534d7e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85481826"
 ---
 # <a name="partitioning-in-azure-cosmos-db"></a>Particionamento no BD Cosmos do Azure
@@ -48,7 +48,7 @@ A seleção de sua chave de partição é uma opção de design simples, mas imp
 Para **todos os** contêineres, sua chave de partição deve:
 
 * Ser uma propriedade que tem um valor que não é alterado. Se uma propriedade for sua chave de partição, você não poderá atualizar o valor dessa propriedade.
-* Ter uma alta cardinalidade. Em outras palavras, a propriedade deve ter uma ampla variedade de valores possíveis.
+* Tenha uma alta cardinalidade. Em outras palavras, a propriedade deve ter uma ampla variedade de valores possíveis.
 * Armazenamento de dados e consumo de RU (unidade de solicitação de espalhamento) uniformemente em todas as partições lógicas. Isso garante o consumo até a RU e a distribuição de armazenamento em suas partições físicas.
 
 Se você precisar de [Transações ACID com vários itens](database-transactions-optimistic-concurrency.md#multi-item-transactions) no Azure Cosmos DB, será necessário usar [procedimentos armazenados ou gatilhos](how-to-write-stored-procedures-triggers-udfs.md#stored-procedures). Todos os procedimentos armazenados e gatilhos baseados em JavaScript têm como escopo uma única partição lógica.

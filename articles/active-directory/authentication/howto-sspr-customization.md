@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8690b1a4b8527a397fcf4c04892e167b5332358d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87035393"
 ---
 # <a name="customize-the-user-experience-for-azure-active-directory-self-service-password-reset"></a>Personalizar a experiência do usuário para Azure Active Directory redefinição de senha de autoatendimento
@@ -67,8 +67,8 @@ Os gráficos que escolher são mostrados nas seguintes circunstâncias:
 
 * Depois que um usuário inserir seu nome de usuário
 * Se o usuário acessar a URL personalizada:
-   * Passando o `whr` parâmetro para a página de redefinição de senha, como`https://login.microsoftonline.com/?whr=contoso.com`
-   * Passando o `username` parâmetro para a página de redefinição de senha, como`https://login.microsoftonline.com/?username=admin@contoso.com`
+   * Passando o `whr` parâmetro para a página de redefinição de senha, como `https://login.microsoftonline.com/?whr=contoso.com`
+   * Passando o `username` parâmetro para a página de redefinição de senha, como `https://login.microsoftonline.com/?username=admin@contoso.com`
 
 ### <a name="directory-name"></a>Nome do diretório
 

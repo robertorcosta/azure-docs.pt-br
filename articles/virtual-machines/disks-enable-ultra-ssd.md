@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
 ms.openlocfilehash: e57317dce64b58e5c92684152d840955a30df660
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91441205"
 ---
 # <a name="using-azure-ultra-disks"></a>Usando os ultra discos do Azure
@@ -241,7 +241,7 @@ Como alternativa, se sua VM existente estiver em uma zona de região/disponibili
 
 ![Captura de tela de habilitar a compatibilidade de ultra Disk.](media/virtual-machines-disks-getting-started-ultra-ssd/ultra-options-yes-enable.png)
 
-- Clique em **Salvar**.
+- Selecione **Salvar**.
 - Selecione **adicionar disco de dados** e, em seguida, no menu suspenso para **nome** , selecione **criar disco**.
 
 ![Captura de tela da folha de disco, adicionando um novo disco.](media/virtual-machines-disks-getting-started-ultra-ssd/create-and-attach-new-ultra-disk.png)
@@ -378,7 +378,7 @@ Ultra disks oferece um recurso exclusivo que permite que você ajuste seu desemp
 ![Captura de tela da folha discos em sua VM, o ultra Disk está realçado.](media/virtual-machines-disks-getting-started-ultra-ssd/selecting-ultra-disk-to-modify.png)
 
 - Selecione **configuração** e faça suas modificações.
-- Clique em **Salvar**.
+- Selecione **Salvar**.
 
 ![Captura de tela da folha de configuração em seu ultra disco, tamanho do disco, IOPS e taxa de transferência são realçados, salvar é realçado.](media/virtual-machines-disks-getting-started-ultra-ssd/configuring-ultra-disk-performance-and-size.png)
 

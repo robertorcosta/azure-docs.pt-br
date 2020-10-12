@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/30/2019
 ms.subservice: alerts
 ms.openlocfilehash: 868a8eb6cf38d471eb9dc1f47c903404d05ffc0c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91294505"
 ---
 # <a name="upgrade-to-the-current-log-alerts-api-from-legacy-log-analytics-alert-api"></a>Atualizar para a API de alertas de log atual da API de alerta de Log Analytics herdado
@@ -23,7 +23,7 @@ ms.locfileid: "91294505"
 
 No passado, os usuários usaram a [API de alerta de log Analytics herdado](api-alerts.md) para gerenciar as regras de alerta de log. Os espaços de trabalho atuais usam a [API ScheduledQueryRules](/rest/api/monitor/scheduledqueryrules). Este artigo descreve os benefícios e o processo de alternar da API herdada para a API atual.
 
-## <a name="benefits"></a>Benefícios
+## <a name="benefits"></a>Vantagens
 
 - Modelo único para criação de regras de alerta (anteriormente necessários três modelos separados).
 - API única para Log Analytics espaços de trabalho ou recursos de Application Insights.
