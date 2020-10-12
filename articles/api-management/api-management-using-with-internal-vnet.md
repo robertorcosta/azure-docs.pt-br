@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/31/2019
 ms.author: apimpm
 ms.openlocfilehash: ac9554ae5ca151a377395d3b16598f7070c87d10
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87386037"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Usar o serviço de Gerenciamento de API do Azure com rede virtual interna
@@ -131,7 +131,7 @@ Se você usar um servidor DNS personalizado em uma rede virtual, também poderá
 * Os endereços IP atribuídos para acesso público e privado poderão ser alterados se o serviço for removido do e, em seguida, adicionado novamente à rede virtual. Se isso acontecer, pode ser necessário atualizar os registros de DNS, as regras de roteamento e as listas de restrição de IP dentro da rede virtual.
 
 ## <a name="related-content"></a><a name="related-content"> </a>Conteúdo relacionado
-Para saber mais, leia os seguintes artigos:
+Confira os seguintes artigos para saber mais:
 * [Problemas comuns de configuração de rede ao configurar o Gerenciamento de API do Azure em uma rede virtual][Common network configuration problems]
 * [Perguntas frequentes sobre rede virtual](../virtual-network/virtual-networks-faq.md)
 * [Criando um registro no DNS](/previous-versions/windows/it-pro/windows-2000-server/bb727018(v=technet.10))

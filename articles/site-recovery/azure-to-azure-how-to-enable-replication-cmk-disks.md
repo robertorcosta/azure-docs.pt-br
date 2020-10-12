@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 07/10/2020
 ms.author: mayg
 ms.openlocfilehash: 2dc7bbd060d77b8f90d16e2a336edc1eb6dbf651
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86528988"
 ---
-# <a name="replicate-machines-with-customer-managed-keys-cmk-enabled-disks"></a>Replicar máquinas com discos habilitados para CMK (chaves gerenciadas pelo cliente)
+# <a name="replicate-machines-with-customer-managed-keys-cmk-enabled-disks"></a>Replicar máquinas com discos habilitados para Chaves Gerenciadas pelo Cliente (CMK)
 
-Este artigo descreve como replicar VMs do Azure com CMK (chaves gerenciadas pelo cliente) com discos gerenciados habilitados, de uma região do Azure para outra.
+Este artigo descreve como replicar VMs do Azure com CMK (chaves de Customer-Managed) habilitadas para discos gerenciados, de uma região do Azure para outra.
 
 ## <a name="prerequisite"></a>Pré-requisito
 Você deve criar os conjuntos de criptografia de disco na região de destino para a assinatura de destino antes de habilitar a replicação para suas máquinas virtuais que têm discos gerenciados habilitados para CMK.
@@ -70,9 +70,9 @@ Siga estas etapas para modificar as Site Recovery configurações de destino pad
 ![Habilitar a replicação para computador com discos habilitados para CMK](./media/azure-to-azure-how-to-enable-replication-cmk-disks/cmk-customize-target-disk-properties.png)
 
 >[!NOTE]
->Durante a replicação inicial, o status pode levar algum tempo para ser atualizado, sem um progresso aparente. Clique em **Atualizar** para obter o status mais recente.
+>Durante a replicação inicial, o status pode levar algum tempo para ser atualizado, sem um progresso aparente. Clique em **Atualizar**  para obter o status mais recente.
 
-## <a name="faqs"></a>Perguntas Frequentes
+## <a name="faqs"></a>Perguntas frequentes
 
 * Eu habilitei o CMK em um item replicado existente, como posso garantir que o CMK também seja aplicado na região de destino?
 

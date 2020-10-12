@@ -8,10 +8,10 @@ ms.date: 07/09/2020
 ms.author: tisande
 ms.custom: query-reference
 ms.openlocfilehash: b90b45072128252e8abc22d3422c84c813808119
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87446374"
 ---
 # <a name="datetimediff-azure-cosmos-db"></a>DateTimeDiff (Azure Cosmos DB)
@@ -31,8 +31,8 @@ DateTimeDiff (<DateTimePart> , <StartDate> , <EndDate>)
 
 | DateTimePart | abreviações        |
 | ------------ | -------------------- |
-| Ano         | "Year", "yyyy", "AA" |
-| Month        | "month", "mm", "m"   |
+| Year         | "Year", "yyyy", "AA" |
+| Mês        | "month", "mm", "m"   |
 | Dia          | "Day", "dd", "d"     |
 | Hora         | "hora", "HH"         |
 | Minuto       | "minuto", "mi", "n"  |
@@ -59,7 +59,7 @@ DateTimeDiff (<DateTimePart> , <StartDate> , <EndDate>)
   Para obter mais informações sobre o formato ISO 8601, consulte [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)
 
 *Término*  
-   Valor de cadeia de caracteres UTC de data e hora do ISO 8601 no formato`YYYY-MM-DDThh:mm:ss.fffffffZ`
+   Valor de cadeia de caracteres UTC de data e hora do ISO 8601 no formato `YYYY-MM-DDThh:mm:ss.fffffffZ`
 
 ## <a name="return-types"></a>Tipos de retorno
 

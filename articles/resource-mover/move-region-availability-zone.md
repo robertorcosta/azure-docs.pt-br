@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: raynew
 ms.openlocfilehash: 315ea9b683ccd583f5c29c7527013f0d924336f4
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90061862"
 ---
 # <a name="move-azure-vms-to-an-availability-zone-in-another-region"></a>Mover VMs do Azure para uma zona de disponibilidade em outra região
@@ -26,7 +26,7 @@ As [zonas de disponibilidade do Azure](../availability-zones/az-overview.md#avai
 
 
 > [!IMPORTANT]
-> O Azure Resource mover está atualmente em visualização pública.
+> O Azure Resource Mover está em versão prévia pública no momento.
 
 Se você quiser mover VMs para uma zona de disponibilidade diferente na mesma região, [Leia este artigo](../site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md).
 
@@ -34,35 +34,35 @@ Se você quiser mover VMs para uma zona de disponibilidade diferente na mesma re
 
 - Acesso de *proprietário* na assinatura na qual os recursos que você deseja mover estão localizados.
     - Na primeira vez que você adicionar um recurso para um mapeamento de origem e destino específico em uma assinatura do Azure, o Resource mover criará uma [identidade gerenciada atribuída pelo sistema](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (anteriormente conhecida como MSI (identificador de serviço gerenciado)) que é confiável para a assinatura.
-    - Para criar a identidade e atribuir a ela a função necessária (colaborador ou administrador de acesso do usuário na assinatura de origem), a conta usada para adicionar recursos precisa de permissões de *proprietário* na assinatura. [Saiba mais](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) sobre as funções do Azure.
+    - Para criar a identidade e atribuir a ela a função necessária (colaborador ou administrador de acesso do usuário na assinatura de origem), a conta usada para adicionar recursos precisa de permissões de *Proprietário* na assinatura. [Saiba mais](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) sobre as funções do Azure.
 - A assinatura precisa de cota suficiente para criar os recursos de origem na região de destino. Caso contrário, solicite limites adicionais. [Saiba mais](/azure/azure-resource-manager/management/azure-subscription-service-limits).
-- Verifique os preços e os encargos associados à região de destino para a qual você está movendo as VMs. Use a [calculadora de preços](https://azure.microsoft.com/pricing/calculator/) para ajudá-lo.
+- Verifique os preços e os encargos associados à região de destino para a qual você está movendo as VMs. Use a [calculadora de preços](https://azure.microsoft.com/pricing/calculator/) para obter ajuda.
     
 
 
 ## <a name="check-vm-requirements"></a>Verificar os requisitos da VM
 
-1. Verifique se as VMs que você deseja mover têm suporte.
+1. Verifique se as VMs que você deseja mover são compatíveis.
 
-    - [Verifique](support-matrix-move-region-azure-vm.md#windows-vm-support) as VMs do Windows com suporte.
-    - [Verifique](support-matrix-move-region-azure-vm.md#linux-vm-support) as VMs do Linux e as versões do kernel com suporte.
-    - Verifique as configurações de [computação](support-matrix-move-region-azure-vm.md#supported-vm-compute-settings), [armazenamento](support-matrix-move-region-azure-vm.md#supported-vm-storage-settings)e [rede](support-matrix-move-region-azure-vm.md#supported-vm-networking-settings) com suporte.
+    - [Verifique](support-matrix-move-region-azure-vm.md#windows-vm-support) as VMs do Windows compatíveis.
+    - [Verifique](support-matrix-move-region-azure-vm.md#linux-vm-support) as VMs do Linux e as versões de Kernel compatíveis.
+    - Verifique as configurações de [computação](support-matrix-move-region-azure-vm.md#supported-vm-compute-settings), [armazenamento](support-matrix-move-region-azure-vm.md#supported-vm-storage-settings) e [rede](support-matrix-move-region-azure-vm.md#supported-vm-networking-settings) compatíveis.
 2. Verifique se as VMs que você deseja mover estão ativadas.
 3. Verifique se as VMs têm os certificados raiz confiáveis mais recentes e uma CRL (lista de certificados revogados) atualizada. 
     - Em VMs do Azure que executam o Windows, instale as atualizações mais recentes do Windows.
     - Em VMs que executam o Linux, siga as diretrizes do distribuidor do Linux para garantir que o computador tenha os certificados e a CRL mais recentes. 
-4. Permitir conectividade de saída de VMs:
-    - Se você estiver usando um proxy de firewall baseado em URL para controlar a conectividade de saída, permita o acesso a essas [URLs](support-matrix-move-region-azure-vm.md#url-access)
-    - Se você estiver usando regras de NSG (grupo de segurança de rede) para controlar a conectividade de saída, crie essas [regras de marca de serviço](support-matrix-move-region-azure-vm.md#nsg-rules).
+4. Permitir conectividade de saída das VMs:
+    - Caso esteja usando um proxy de firewall baseado em URL para controlar a conectividade de saída, permita acesso a estas [URLs](support-matrix-move-region-azure-vm.md#url-access)
+    - Caso esteja usando regras de NSG (grupo de segurança de rede) para controlar a conectividade de saída, crie essas [regras de marcação de serviço](support-matrix-move-region-azure-vm.md#nsg-rules).
 
 ## <a name="select-resources-to-move"></a>Selecionar os recursos a serem movidos
 
-Selecione os recursos que você deseja mover.
+Selecione os recursos que deseja mover.
 
 - Você pode selecionar qualquer tipo de recurso com suporte nos grupos de recursos na região de origem selecionada.
 - Você move os recursos para uma região de destino na assinatura da região de origem. Se você quiser alterar a assinatura, poderá fazer isso depois que os recursos forem movidos.
 
-1. Na portal do Azure, pesquise por Resource mover. Em seguida, em **Serviços**, selecione **Azure Resource mover**.
+1. No portal do Azure, pesquise por Resource Mover. Em seguida, em **Serviços**, selecione o **Azure Resource Mover**.
 
     ![Pesquisar o movimentador de recursos](./media/move-region-availability-zone/search.png)
 
@@ -70,21 +70,21 @@ Selecione os recursos que você deseja mover.
 
     ![Botão para começar](./media/move-region-availability-zone/get-started.png)
 
-3. Em **mover recursos**  >  **origem + destino**, selecione a assinatura e a região de origem.
-4. Em **destino**, selecione a região para a qual você deseja mover as VMs. Em seguida, clique em **Próximo**.
+3. Em **Mover recursos** > **Origem + Destino**, selecione a assinatura e a região de origem.
+4. Em **Destino**, selecione a região para a qual deseja mover as VMs. Em seguida, clique em **Próximo**.
 
      ![Página para preencher a assinatura/região de origem e de destino](./media/move-region-availability-zone/source-target.png)
 
-6. Em **recursos a serem movidos**, clique em **selecionar recursos**.
-7. Em **selecionar recursos**, selecione a VM. Você só pode adicionar recursos com suporte para movimentação. Em seguida, clique em **concluído**. Em **recursos a serem movidos**, clique em **Avançar**.
+6. Em **Recursos a serem movidos**, clique em **Selecionar recursos**.
+7. Em **Selecionar recursos**, selecione a VM desejada. Você só pode adicionar recursos compatíveis para movimentação. Em seguida, clique em **Concluído**. Em **Recursos a serem movidos**, clique **Próximo**.
 
     ![Página para selecionar as VMs a serem movidas](./media/move-region-availability-zone/select-vm.png)
-8. Em **examinar + adicionar**, verifique as configurações de origem e destino.
+8. Em **Examinar + Adicionar**, verifique as configurações de origem e destino.
 
-    ![Página para revisar as configurações e prosseguir com a movimentação](./media/move-region-availability-zone/review.png)
+    ![Página para examinar as configurações e prosseguir com a movimentação](./media/move-region-availability-zone/review.png)
 
-9. Clique em **continuar**para começar a adicionar os recursos.
-10. Depois que o processo de adição for concluído com êxito, clique em **Adicionar recursos para mover** no ícone de notificação.
+9. Clique em **Prosseguir**, para começar a adicionar os recursos.
+10. Depois que o processo de adição for concluído com sucesso, clique em **Adicionando recursos a serem movidos** no ícone de notificação.
 
     ![Mensagem em notificações](./media/move-region-availability-zone/notification.png)
 
@@ -92,13 +92,13 @@ Depois de clicar na notificação, os recursos aparecem na página **entre regi�
 
 > [!NOTE]
 > Depois de clicar na notificação, os recursos aparecem na página **entre regiões** , em um estado de *preparação pendente* .
-> - Se você quiser remover um recurso de uma coleção de movimentação, o método para fazer isso dependerá de onde você está no processo de movimentação. [Saiba mais](remove-move-resources.md).
+> - Se você quiser remover um recurso de uma coleção de movimentação, o método para fazer isso dependerá do ponto do processo de movimentação em que você se encontra. [Saiba mais](remove-move-resources.md).
 
 ## <a name="resolve-dependencies"></a>Resolver dependências
 
-1. Se os recursos mostrarem uma mensagem *validar dependências* na coluna **problemas** , clique no botão **validar dependências** . O processo de validação se seres.
+1. Se os recursos mostrarem uma mensagem *Validar dependências* na coluna **Problemas**, clique no botão **Validar dependências**. O processo de validação se seres.
 2. Se forem encontradas dependências, clique em **Adicionar dependências**. 
-3. Em **Adicionar dependências**, selecione os recursos dependentes > **Adicionar dependências**. Monitorar o progresso nas notificações.
+3. Em **Adicionar dependências**, selecione os recursos dependentes > **Adicionar dependências**. Monitore o progresso nas notificações.
 
     ![Botão para adicionar dependências](./media/move-region-availability-zone/add-dependencies.png)
 
@@ -106,7 +106,7 @@ Depois de clicar na notificação, os recursos aparecem na página **entre regi�
 
     ![Página para adicionar dependências adicionais](./media/move-region-availability-zone/add-additional-dependencies.png)
 
-4. Na página **entre regiões** , verifique se os recursos estão agora em um estado de *preparação pendente* , sem problemas.
+4. Na página **Entre regiões**, verifique se os recursos estão agora no estado de *Preparação pendente*, sem problemas.
 
     ![Página mostrando recursos no estado de preparação pendente](./media/move-region-availability-zone/prepare-pending.png)
 
@@ -118,15 +118,15 @@ Antes de você poder preparar e mover VMs, o grupo de recursos de origem deve es
 
 Prepare da seguinte maneira:
 
-1. Em **várias regiões**, selecione o grupo de recursos de origem > **preparar**.
-2. Em **preparar recursos**, clique em **preparar**.
+1. Em **Entre regiões**, selecione o grupo de recursos de origem > **Preparar**.
+2. Em **Preparar recursos**, clique em **Preparar**.
 
     ![Botão para preparar o grupo de recursos de origem](./media/move-region-availability-zone/prepare-resource-group.png)
 
-    Durante o processo de preparação, o Resource mover gera modelos de Azure Resource Manager (ARM) usando as configurações do grupo de recursos. Os recursos dentro do grupo de recursos não são afetados.
+    Durante o processo de Preparação, o Resource Mover gera modelos do ARM (Azure Resource Manager) usando as configurações do grupo de recursos. Os recursos dentro do grupo de recursos não são afetados.
 
 > [!NOTE]
->  Depois de preparar o grupo de recursos, ele está no estado *Iniciar movimentação pendente* . 
+>  Após preparar o grupo de recursos, ele estará no estado de *Iniciar movimentação pendente*. 
 
 ![Status mostrando o estado de início pendente](./media/move-region-availability-zone/initiate-resource-group-pending.png)
 
@@ -134,19 +134,19 @@ Prepare da seguinte maneira:
 
 Inicie a movimentação da seguinte maneira:
 
-1. Em **várias regiões**, selecione o grupo de recursos > **Iniciar movimentação**
-2. ln **mover recursos**, clique em **Iniciar movimentação**. O grupo de recursos se move para um estado *de movimentação inicial em andamento* .
-3. Depois de iniciar a movimentação, o grupo de recursos de destino é criado, com base no modelo ARM gerado. O grupo de recursos de origem se move para um estado de *movimentação pendente de confirmação* .
+1. Em **Entre regiões**, selecione o grupo de recursos > **Iniciar movimentação**
+2. Em **Mover recursos**, clique em **Iniciar movimentação**. O grupo de recursos passa para o estado de *Iniciar movimentação em andamento*.
+3. Após iniciar a movimentação, o grupo de recursos de destino é criado, com base no modelo ARM gerado. O grupo de recursos de origem passa para o estado de *Confirmar movimentação pendente*.
 
 ![Status mostrando a movimentação de confirmação](./media/move-region-availability-zone/commit-move-pending.png)
 
 Para confirmar e concluir o processo de movimentação:
 
 1. Em **várias regiões**, selecione o grupo de recursos > **confirmar movimentação**
-2. ln **mover recursos**, clique em **confirmar**.
+2. Em **Mover recursos**, clique em **Confirmar**.
 
 > [!NOTE]
-> Depois de confirmar a movimentação, o grupo de recursos de origem estará em um estado *excluir origem pendente* .
+> Após confirmar a movimentação, o grupo de recursos de origem estará no estado de *Excluir origem pendente*.
 
 
 ## <a name="add-a-target-availability-zone"></a>Adicionar uma zona de disponibilidade de destino
@@ -172,39 +172,39 @@ Antes de movermos o restante dos recursos, definiremos uma zona de disponibilida
     ![Configurações da VM](./media/move-region-availability-zone/vm-settings.png)
 
 
-## <a name="prepare-resources-to-move"></a>Preparar os recursos para mover
+## <a name="prepare-resources-to-move"></a>Preparar os recursos a serem movidos
 
 Agora que o grupo de recursos de origem foi movido, você pode se preparar para mover os outros recursos.
 
-1. Em **várias regiões**, selecione os recursos que você deseja preparar. 
+1. Em **Entre regiões**, selecione os recursos que deseja preparar. 
 
-    ![Página para selecionar preparar para outros recursos](./media/move-region-availability-zone/prepare-other.png)
+    ![Página para selecionar Preparar para outros recursos](./media/move-region-availability-zone/prepare-other.png)
 
-2. Selecione **preparar**. 
+2. Selecione **Preparar**. 
 
 > [!NOTE]
 > - Durante o processo de preparação, o agente de mobilidade Azure Site Recovery é instalado em VMs, para replicação.
-> - Os dados da VM são replicados periodicamente para a região de destino. Isso não afeta a VM de origem.
-> - A movimentação de recursos gera modelos de ARM para os outros recursos de origem.
-> - Depois de preparar os recursos, eles estão em um estado *Iniciar movimentação pendente* .
+> - Os dados das VMs são replicados periodicamente para a região de destino. Isso não afeta as VMs de origem.
+> - A Movimentação de Recursos gera modelos ARM para os outros recursos de origem.
+> - Após preparar os recursos, eles estarão no estado de *Iniciar movimentação pendente*.
 
-![Página mostrando recursos no estado iniciar movimentação pendente](./media/move-region-availability-zone/initiate-move-pending.png)
+![Página mostrando recursos no estado de Iniciar movimentação pendente](./media/move-region-availability-zone/initiate-move-pending.png)
 
-## <a name="initiate-the-move"></a>Iniciar a movimentação
+## <a name="initiate-the-move"></a>Inicie a movimentação
 
 Com os recursos preparados, agora você pode iniciar a movimentação. 
 
-1. Em **várias regiões**, selecione recursos com o estado *Iniciar movimentação pendente*. Em seguida, clique em **Iniciar movimentação**
-2. Em **mover recursos**, clique em **Iniciar mover**.
+1. Em **Entre regiões**, selecione recursos com o estado de *Iniciar movimentação pendente*. Em seguida, clique em **Iniciar movimentação**
+2. Em **Mover recursos**, clique em **Iniciar movimentação**.
 
     ![Página para iniciar a movimentação de recursos](./media/move-region-availability-zone/initiate-move.png)
 
-3. Acompanhe o progresso da movimentação na barra de notificações.
+3. Monitore o progresso da movimentação na barra de notificações.
 
 
 > [!NOTE]
-> - Para VMs, as VMs de réplica são criadas na região de destino. A VM de origem é desligada e ocorre algum tempo de inatividade (geralmente minutos).
-> - O movimentador de recursos recria outros recursos usando os modelos ARM que foram preparados. Geralmente, não há nenhum tempo de inatividade.
+> - Para as VMs, são criadas réplicas delas na região de destino. A VM de origem é desligada e ocorre algum tempo de inatividade (geralmente minutos).
+> - O Resource Mover recria outros recursos usando os modelos ARM que foram preparados. Geralmente, não há tempo de inatividade.
 > - Depois de preparar os recursos, eles estão em um estado de *movimentação pendente de confirmação* .
 
 
@@ -214,16 +214,16 @@ Com os recursos preparados, agora você pode iniciar a movimentação.
 
 Após a movimentação inicial, você pode decidir se deseja confirmar a movimentação ou descartá-la. 
 
-- **Descartar**: você pode descartar uma movimentação se estiver testando e não deseja realmente mover o recurso de origem. Descartar a movimentação retorna o recurso para um estado de *Iniciar movimentação pendente*.
-- **Confirmar**: a confirmação conclui a movimentação para a região de destino. Após a confirmação, um recurso de origem estará em um estado de *exclusão de origem pendente*e você poderá decidir se deseja excluí-lo.
+- **Descartar**: talvez você descarte uma movimentação se estiver apenas testando e não quiser realmente mover o recurso de origem. Descartar a movimentação retorna o recurso para o estado de *Iniciar movimentação pendente*.
+- **Confirmar**: a confirmação conclui a movimentação para a região de destino. Após a confirmação, o recurso de origem estará no estado de *Excluir origem pendente* e você poderá decidir se deseja excluí-lo.
 
 ## <a name="discard-the-move"></a>Descartar a movimentação 
 
 Você pode descartar a movimentação da seguinte maneira:
 
-1. Em **várias regiões**, selecione recursos com o estado *confirmação de movimentação pendente*e clique em **descartar movimentação**.
-2. Em **descartar movimentação**, clique em **descartar**.
-3. Acompanhe o progresso da movimentação na barra de notificações.
+1. Em **Entre regiões**, selecione recursos com o estado de *Confirmar movimentação pendente* e clique em **Descartar movimentação**.
+2. Em **Descartar movimentação**, clique em **Descartar**.
+3. Monitore o progresso da movimentação na barra de notificações.
  
 
 > [!NOTE]
@@ -233,48 +233,48 @@ Você pode descartar a movimentação da seguinte maneira:
 
 Se você quiser concluir o processo de movimentação, confirme a movimentação. 
 
-1. Em **várias regiões**, selecione recursos com o estado *confirmação de movimentação pendente*e clique em **confirmar movimentação**.
-2. Em **confirmar recursos**, clique em **confirmar**.
+1. Em **Entre regiões**, selecione recursos com o estado de *Confirmar movimentação pendente* e clique em **Confirmar movimentação**.
+2. Em **Confirmar recursos**, clique em **Confirmar**.
 
-    ![Página para confirmar os recursos para finalizar movimentação](./media/move-region-availability-zone/commit-resources.png)
+    ![Página para confirmar os recursos a fim de finalizar a movimentação](./media/move-region-availability-zone/commit-resources.png)
 
-3. Acompanhe o andamento da confirmação na barra de notificações.
+3. Monitore o progresso da confirmação na barra de notificações.
 
 > [!NOTE]
-> - Depois de confirmar a movimentação, as VMs param de replicar. A VM de origem não é afetada pela confirmação.
+> - Após confirmar a movimentação, a réplica das VMs é interrompida. A VM de origem não é afetada pela confirmação.
 > - A confirmação não afeta os recursos de rede de origem.
-> - Depois de confirmar a movimentação, os recursos estão em um estado *excluir origem pendente* .
+> - Após confirmar a movimentação, os recursos estarão no estado de *Excluir origem pendente*.
 
-![Página mostrando recursos no * estado * excluir origem pendente *](./media/move-region-availability-zone/delete-source-pending.png)
+![Página mostrando recursos no estado de "Excluir origem pendente"](./media/move-region-availability-zone/delete-source-pending.png)
 
 ## <a name="configure-settings-after-the-move"></a>Definir as configurações após a movimentação
 
-O serviço de mobilidade não é desinstalado automaticamente das VMs. Desinstale-o manualmente ou deixe-o se você planeja mover o servidor novamente.
+O serviço Mobilidade não é desinstalado automaticamente das VMs. Desinstale-o manualmente ou deixe-o instalado caso planeje mover o servidor novamente.
 
 
-## <a name="delete-source-resources-after-commit"></a>Excluir recursos de origem após confirmação
+## <a name="delete-source-resources-after-commit"></a>Excluir recursos de origem após a confirmação
 
-Após a movimentação, você pode opcionalmente excluir recursos na região de origem.
+Após a movimentação, você terá a opção de excluir os recursos da região de origem.
 
-1. Em **várias regiões**, clique no nome de cada recurso de origem que você deseja excluir.
-2. Na página Propriedades de cada recurso, selecione **excluir**.
+1. Em **Entre regiões**, clique no nome de cada recurso de origem que deseja excluir.
+2. Na página de propriedades de cada recurso, selecione **Excluir**.
 
-## <a name="delete-additional-resources-created-for-move"></a>Excluir recursos adicionais criados para movimentação
+## <a name="delete-additional-resources-created-for-move"></a>Excluir recursos adicionais criados para a movimentação
 
-Após a movimentação, você pode excluir manualmente a coleção de movimentação e Site Recovery recursos que foram criados.
+Após a movimentação, você poderá excluir manualmente a coleção da movimentação e os recursos do Site Recovery que foram criados.
 
-- A coleção move fica oculta por padrão. Para vê-lo, você precisa ativar os recursos ocultos.
-- O armazenamento em cache tem um bloqueio que deve ser excluído antes que possa ser excluído.
+- A coleção da movimentação fica oculta por padrão. Para vê-la, você precisará ativar os recursos ocultos.
+- O armazenamento em cache tem um bloqueio que precisa ser liberado antes que o cache possa ser excluído.
 
 Exclua da seguinte maneira: 
 
-1. Localize os recursos no grupo de recursos ```RegionMoveRG-<sourceregion>-<target-region>``` .
-2. Verifique se toda a VM e outros recursos de origem na região de origem foram movidos ou excluídos. Isso garante que não haja recursos pendentes usando-os.
+1. Localize os recursos no grupo de recursos ```RegionMoveRG-<sourceregion>-<target-region>```.
+2. Verifique se toda a VM e os outros recursos de origem da região de origem foram movidos ou excluídos. Isso verifica se não há recursos pendentes usando-os.
 2. Exclua os recursos:
 
-    - O nome da coleção de movimentação é ```movecollection-<sourceregion>-<target-region>``` .
+    - O nome da coleção da movimentação é ```movecollection-<sourceregion>-<target-region>```.
     - O nome da conta de armazenamento em cache é ```resmovecache<guid>```
-    - O nome do cofre é ```ResourceMove-<sourceregion>-<target-region>-GUID``` .
+    - O nome do cofre é ```ResourceMove-<sourceregion>-<target-region>-GUID```.
 
 ## <a name="next-steps"></a>Próximas etapas
 

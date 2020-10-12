@@ -6,10 +6,10 @@ services: container-service
 ms.topic: article
 ms.date: 07/29/2020
 ms.openlocfilehash: df9a4dd546ddc5944d9a282e74c2444a5161b862
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87927540"
 ---
 # <a name="frequently-asked-questions-for-windows-server-node-pools-in-aks"></a>Perguntas frequentes sobre pools de nós do Windows Server no AKS
@@ -58,7 +58,7 @@ Clusters AKS com pools de nós do Windows devem usar o modelo de rede CNI do Azu
 
 Neste momento, não há suporte para a [preservação do IP de origem do cliente][client-source-ip] com nós do Windows.
 
-## <a name="can-i-change-the-max--of-pods-per-node"></a>Posso alterar o máximo. n º de pods por nó?
+## <a name="can-i-change-the-max--of-pods-per-node"></a>Posso alterar o Max. # de pods por nó?
 
 Sim. Para as implicações e opções disponíveis, consulte [número máximo de pods][maximum-number-of-pods].
 

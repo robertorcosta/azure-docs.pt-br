@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 03/31/2020
 ms.author: sunasing
 ms.openlocfilehash: 35acf4e9bd338a0e67b046a59d8884df0626e516
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87429263"
 ---
 # <a name="get-weather-data-from-weather-partners"></a>Obter dados meteorológicos de parceiros meteorológicos
@@ -216,7 +216,7 @@ Para solucionar problemas de falhas de trabalho, [Verifique os logs de trabalho]
 
 ## <a name="appendix"></a>Apêndice
 
-|        Partner (parceiro)   |  Detalhes   |
+|        Parceiro   |  Detalhes   |
 | ------- | -------             |
 |     DockerDetails-imageName         |          Nome da imagem do Docker. Por exemplo, docker.io/mydockerimage (imagem em hub.docker.com) ou myazureacr.azurecr.io/mydockerimage (imagem no registro de contêiner do Azure) e assim por diante. Se nenhum registro for fornecido, o padrão será hub.docker.com.      |
 |          DockerDetails - imageTag             |         Nome da marca da imagem do Docker. O padrão é "mais recente".     |

@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1ec5757b41da630c4cb09ad0c096aee87572615d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91319887"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-microsoft-365-resources"></a>Sincronização de Azure Active Directory Connect: configurar o local de dados preferencial para recursos de Microsoft 365
@@ -53,7 +53,7 @@ Os áreas geográficas em Microsoft 365 disponíveis para várias regiões geogr
 | África do Sul | ZAF |
 | Suíça | CHE |
 | Emirados Árabes Unidos | ARE |
-| Reino Unido | GBR |
+| United Kingdom | GBR |
 | Estados Unidos | NAM |
 
 * Se uma área geográfica não estiver listada nesta tabela, por exemplo, América do Sul, ela não poderá ser usada para Multi-Geo.

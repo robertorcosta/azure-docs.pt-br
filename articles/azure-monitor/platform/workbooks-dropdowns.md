@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: 73b6029dfe52a4b32c9a8ce092fcd284ac1ec0e7
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85965020"
 ---
 # <a name="workbook-drop-down-parameters"></a>Parâmetros de menu suspenso da pasta de trabalho
@@ -28,11 +28,11 @@ A maneira mais fácil de especificar um menu suspenso é fornecendo uma lista es
 2. Escolha _adicionar parâmetros_ nos links na pasta de trabalho.
 3. Clique no botão azul _Adicionar parâmetro_ .
 4. No novo painel de parâmetros que aparece, digite:
-    1. Nome do parâmetro:`Environment`
-    2. Tipo de parâmetro:`Drop down`
-    3. Necessário:`checked`
-    4. Permitir `multiple selection` :`unchecked`
-    5. Obter dados de:`JSON`
+    1. Nome do parâmetro: `Environment`
+    2. Tipo de parâmetro: `Drop down`
+    3. Necessário: `checked`
+    4. Permitir `multiple selection` : `unchecked`
+    5. Obter dados de: `JSON`
 5. No bloco de texto de entrada JSON, insira este trecho de JSON:
     ```json
     [
@@ -70,11 +70,11 @@ Se o resultado da consulta/JSON contiver um campo "grupo", a lista suspensa exib
 2. Escolha _adicionar parâmetros_ nos links na pasta de trabalho.
 3. Clique no botão azul _Adicionar parâmetro_ .
 4. No novo painel de parâmetros que aparece, digite:
-    1. Nome do parâmetro:`RequestName`
-    2. Tipo de parâmetro:`Drop down`
-    3. Necessário:`checked`
-    4. Permitir `multiple selection` :`unchecked`
-    5. Obter dados de:`Query`
+    1. Nome do parâmetro: `RequestName`
+    2. Tipo de parâmetro: `Drop down`
+    3. Necessário: `checked`
+    4. Permitir `multiple selection` : `unchecked`
+    5. Obter dados de: `Query`
 5. No bloco de texto de entrada JSON, insira este trecho de JSON:
 
     ```kusto

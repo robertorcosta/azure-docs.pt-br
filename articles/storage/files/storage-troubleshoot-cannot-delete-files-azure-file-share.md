@@ -11,10 +11,10 @@ ms.subservice: files
 services: storage
 tags: ''
 ms.openlocfilehash: 1c50f54491e0284005c4b762b0c4b35a8460f5ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85511969"
 ---
 # <a name="azure-file-share--failed-to-delete-files-from-azure-file-share"></a>Compartilhamento de arquivo do Azure – Falha ao excluir arquivos do compartilhamento de arquivo do Azure
@@ -44,7 +44,7 @@ Reduza o número de identificadores abertos simultâneos fechando alguns identif
 
 ### <a name="install-the-latest-azure-powershell-module"></a>Instalar o módulo de Azure PowerShell mais recente
 
-* [Instalar módulo do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)
+* [Instalar o módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)
 
 ### <a name="connect-to-azure"></a>Conectar-se ao Azure:
 

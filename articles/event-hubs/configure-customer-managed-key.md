@@ -4,10 +4,10 @@ description: Este artigo fornece informações sobre como configurar sua própri
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: 18a59b74897b074fea9ee56947c78635f2a3509d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86537251"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Configurar chaves gerenciadas pelo cliente para criptografar dados de hubs de eventos do Azure em repouso usando o portal do Azure
@@ -26,7 +26,7 @@ Você pode usar Azure Key Vault para gerenciar suas chaves e auditar o uso da ch
 Este artigo mostra como configurar um cofre de chaves com chaves gerenciadas pelo cliente usando o portal do Azure. Para saber como criar um cofre de chaves usando o portal do Azure, consulte [início rápido: definir e recuperar um segredo de Azure Key Vault usando o portal do Azure](../key-vault/secrets/quick-create-portal.md).
 
 > [!IMPORTANT]
-> O uso de chaves gerenciadas pelo cliente com os hubs de eventos do Azure requer que o cofre de chaves tenha duas propriedades necessárias configuradas. Eles são: **exclusão reversível** e **não limpeza**. Essas propriedades são habilitadas por padrão quando você cria um novo cofre de chaves no portal do Azure. No entanto, se você precisar habilitar essas propriedades em um cofre de chaves existente, deverá usar o PowerShell ou CLI do Azure.
+> O uso de chaves gerenciadas pelo cliente com os hubs de eventos do Azure requer que o cofre de chaves tenha duas propriedades necessárias configuradas. Eles são:  **exclusão reversível** e **não limpeza**. Essas propriedades são habilitadas por padrão quando você cria um novo cofre de chaves no portal do Azure. No entanto, se você precisar habilitar essas propriedades em um cofre de chaves existente, deverá usar o PowerShell ou CLI do Azure.
 
 ## <a name="enable-customer-managed-keys"></a>Habilitar chaves gerenciadas pelo cliente
 Para habilitar as chaves gerenciadas pelo cliente no portal do Azure, siga estas etapas:
@@ -103,9 +103,9 @@ Todos os logs são armazenados no formato JSON (JavaScript Object Notation). Cad
 | keyVault | Nome completo do cofre de chaves. |
 | chave | O nome da chave que é usado para criptografar o namespace de hubs de eventos. |
 | version | A versão da chave que está sendo usada. |
-| operação | A operação executada na chave em seu cofre de chaves. Por exemplo, desabilitar/habilitar a chave, encapsular ou desencapsular |
+| operation | A operação executada na chave em seu cofre de chaves. Por exemplo, desabilitar/habilitar a chave, encapsular ou desencapsular |
 | code | O código associado à operação. Exemplo: código de erro 404 significa que a chave não foi encontrada. |
-| message | Qualquer mensagem de erro associada à operação |
+| mensagem | Qualquer mensagem de erro associada à operação |
 
 Aqui está um exemplo do log para uma chave gerenciada pelo cliente:
 
@@ -223,9 +223,9 @@ Esta seção mostra como criar um namespace de hubs de eventos do Azure com a id
 
     > [!NOTE]
     > Substitua os seguintes valores: 
-    > - `<EventHubsClusterName>`-Nome do seu cluster de hubs de eventos    
-    > - `<EventHubsNamespaceName>`-Nome do seu namespace de hubs de eventos
-    > - `<Location>`-Localização do seu namespace de hubs de eventos
+    > - `<EventHubsClusterName>` -Nome do seu cluster de hubs de eventos    
+    > - `<EventHubsNamespaceName>` -Nome do seu namespace de hubs de eventos
+    > - `<Location>` -Localização do seu namespace de hubs de eventos
 
     ```json
     {
@@ -360,11 +360,11 @@ Nesta etapa, você atualizará o namespace de hubs de eventos com informações 
 
     > [!NOTE]
     > Substitua os seguintes valores: 
-    > - `<EventHubsClusterName>`-Nome do seu cluster de hubs de eventos.        
-    > - `<EventHubsNamespaceName>`-Nome do seu namespace de hubs de eventos
-    > - `<Location>`-Localização do seu namespace de hubs de eventos
-    > - `<KeyVaultName>`-Nome do cofre de chaves
-    > - `<KeyName>`-Nome da chave no cofre de chaves
+    > - `<EventHubsClusterName>` -Nome do seu cluster de hubs de eventos.        
+    > - `<EventHubsNamespaceName>` -Nome do seu namespace de hubs de eventos
+    > - `<Location>` -Localização do seu namespace de hubs de eventos
+    > - `<KeyVaultName>` -Nome do cofre de chaves
+    > - `<KeyName>` -Nome da chave no cofre de chaves
 
     ```json
     {

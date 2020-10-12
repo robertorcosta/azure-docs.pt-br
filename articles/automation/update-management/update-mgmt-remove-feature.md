@@ -6,10 +6,10 @@ ms.date: 07/28/2020
 ms.topic: conceptual
 ms.custom: mvc
 ms.openlocfilehash: 4b4946da9f63299c7ba2b383d6c153673595a1ab
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87449843"
 ---
 # <a name="remove-update-management-from-automation-account"></a>Remover Gerenciamento de Atualizações da conta de automação
@@ -30,7 +30,7 @@ Para poder desvincular a conta de automação do espaço de trabalho, você prec
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 
-2. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite **Log Analytics**. Conforme você começa a digitar, a lista filtra as sugestões com base em sua entrada. Selecione **log Analytics**.
+2. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite **Log Analytics**. Conforme você começa a digitar, a lista filtra as sugestões com base em sua entrada. Selecione o **Log Analytics**.
 
 3. Na lista de espaços de trabalho do Log Analytics, selecione o espaço de trabalho que você escolheu quando habilitou Gerenciamento de Atualizações.
 
@@ -65,7 +65,7 @@ Enquanto tenta desvincular a conta de automação, você pode acompanhar o progr
 Se Gerenciamento de Atualizações tiver sido configurado para dar suporte a versões anteriores do monitoramento do SQL do Azure, a instalação do recurso poderá ter criado ativos de automação que devem ser removidos. Para o Gerenciamento de Atualizações, convém remover os seguintes itens que não são mais necessários:
 
    * Atualizar agendamentos - cada um tem um nome que corresponde à implantação de atualização que você criou.
-   * Grupos de Hybrid Worker criados para Gerenciamento de Atualizações-cada é nomeado de forma semelhante a *machine1. contoso. com_9ceb8108-26c9-4051-b6b3-227600d715c8)*.
+   * Grupos de Hybrid Worker criados para Gerenciamento de Atualizações-cada é nomeado de forma semelhante a *machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8)*.
 
 ## <a name="next-steps"></a>Próximas etapas
 

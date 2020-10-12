@@ -11,10 +11,10 @@ ms.date: 07/10/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 611d676f5f588ff32f981692456160e269642a43
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87428123"
 ---
 # <a name="localization-string-ids"></a>IDs de cadeia de caracteres de localização
@@ -239,10 +239,10 @@ A seguir estão as IDs para mensagens de erro de [perfil técnico do serviço RE
 
 | ID | Valor padrão |
 | -- | ------------- |
-|DefaultUserMessageIfRequestFailed | Falha ao estabelecer conexão com o ponto de extremidade do serviço RESTful. URL do serviço RESTful:{0} |
-|UserMessageIfCircuitOpen | {0}URL do serviço RESTful:{1} |
-|UserMessageIfDnsResolutionFailed | Falha ao resolver o nome de host do ponto de extremidade do serviço RESTful. URL do serviço RESTful:{0} |
-|UserMessageIfRequestTimeout | Falha ao estabelecer conexão com o ponto de extremidade do serviço RESTful dentro do tempo limite em {0} segundos. URL do serviço RESTful:{1} |
+|DefaultUserMessageIfRequestFailed | Falha ao estabelecer conexão com o ponto de extremidade do serviço RESTful. URL do serviço RESTful: {0} |
+|UserMessageIfCircuitOpen | {0} URL do serviço RESTful: {1} |
+|UserMessageIfDnsResolutionFailed | Falha ao resolver o nome de host do ponto de extremidade do serviço RESTful. URL do serviço RESTful: {0} |
+|UserMessageIfRequestTimeout | Falha ao estabelecer conexão com o ponto de extremidade do serviço RESTful dentro do tempo limite em {0} segundos. URL do serviço RESTful: {1} |
 
 
 ### <a name="example"></a>Exemplo

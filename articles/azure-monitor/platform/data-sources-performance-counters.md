@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
 ms.openlocfilehash: 49f944aa98bf0bf8090b10d2feeb50af4a2d42b2
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85955481"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Fontes de dados de desempenho do Windows e do Linux no Azure Monitor
@@ -121,10 +121,10 @@ A tabela a seguir lista os objetos e contadores que você pode especificar no ar
 | Disco Físico | Média de segundos/Transferência do Disco |
 | Disco Físico | Média de segundos/Gravação do Disco |
 | Disco Físico | Bytes/s do Disco Físico |
-| Processar | % de Tempo Privilegiado |
-| Processar | % de Tempo do Usuário |
-| Processar | KBytes de Memória Usada |
-| Processar | Memória Virtual Compartilhada |
+| Processo | % de Tempo Privilegiado |
+| Processo | % de Tempo do Usuário |
+| Processo | KBytes de Memória Usada |
+| Processo | Memória Virtual Compartilhada |
 | Processador | % de Tempo de DPC |
 | Processador | % de Tempo Ocioso |
 | Processador | % de Tempo de Interrupção |
@@ -133,13 +133,13 @@ A tabela a seguir lista os objetos e contadores que você pode especificar no ar
 | Processador | % de Tempo Privilegiado |
 | Processador | % Tempo do Processador |
 | Processador | % de Tempo do Usuário |
-| Sistema | Memória Física Livre |
-| Sistema | Espaço Livre em Arquivos de Paginação |
-| Sistema | Memória Virtual Livre |
-| Sistema | Processos |
-| Sistema | Tamanho Armazenado em Arquivos de Paginação |
-| Sistema | Tempo de atividade |
-| Sistema | Usuários |
+| System (sistema) | Memória Física Livre |
+| System (sistema) | Espaço Livre em Arquivos de Paginação |
+| System (sistema) | Memória Virtual Livre |
+| System (sistema) | Processos |
+| System (sistema) | Tamanho Armazenado em Arquivos de Paginação |
+| System (sistema) | Tempo de atividade |
+| System (sistema) | Usuários |
 
 
 A seguir está a configuração padrão para as métricas de desempenho.
@@ -184,7 +184,7 @@ O Azure Monitor coleta todos os contadores de desempenho especificados em seu in
 ## <a name="performance-record-properties"></a>Propriedades do registro de desempenho
 Os registros de desempenho têm um tipo de **Perf** e têm as propriedades na tabela a seguir.
 
-| Property | Descrição |
+| Propriedade | Descrição |
 |:--- |:--- |
 | Computador |Computador do qual o evento foi coletado. |
 | CounterName |Nome do contador de desempenho |

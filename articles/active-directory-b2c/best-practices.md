@@ -12,10 +12,10 @@ ms.date: 06/06/2020
 ms.author: vigunase
 ms.subservice: B2C
 ms.openlocfilehash: c8739da859c00a9caf08ac833f7b4ae7ae52e392
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90084304"
 ---
 # <a name="recommendations-and-best-practices-for-azure-active-directory-b2c"></a>Recomendações e práticas recomendadas para Azure Active Directory B2C
@@ -56,7 +56,7 @@ Durante a fase de implementação, considere as recomendações a seguir.
 | Saiba como solucionar problemas Azure AD B2C | Saiba como [solucionar problemas de políticas personalizadas](https://docs.microsoft.com/azure/active-directory-b2c/troubleshoot-custom-policies?tabs=applications) durante o desenvolvimento. Saiba o que é um fluxo de autenticação normal e use as ferramentas para descobrir erros e anomalias. Por exemplo, use [Application insights](troubleshoot-with-application-insights.md) para examinar os logs de saída de percursos do usuário. |
 | Aproveite nossa biblioteca de padrões de política personalizada comprovada | Encontre [exemplos](https://github.com/azure-ad-b2c/samples) de vários percursos de usuário do CIAM (gerenciamento de identidade e acesso) de clientes Azure ad B2C aprimorados. |
 
-## <a name="testing"></a>Testes
+## <a name="testing"></a>Testando
 
 Teste e automatize sua implementação de Azure AD B2C.
 

@@ -12,10 +12,10 @@ ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: b90f86576928e44e00c548f4f3ad3c22c27b8bb3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85829425"
 ---
 # <a name="split-merge-security-configuration"></a>Configuração de segurança da divisão e mesclagem
@@ -59,8 +59,8 @@ Um certificado TLS/SSL é necessário para criptografar a comunicação e autent
 
 ### <a name="create-a-new-self-signed-certificate"></a>Criar um Novo certificado autoassinado
 
-1. [Criar um certificado autoassinado](#create-a-self-signed-certificate)
-2. [Criar arquivo PFX para certificado TLS/SSL autoassinado](#create-pfx-file-for-self-signed-tlsssl-certificate)
+1. [Criar um certificado Self-Signed](#create-a-self-signed-certificate)
+2. [Criar arquivo PFX para Self-Signed certificado TLS/SSL](#create-pfx-file-for-self-signed-tlsssl-certificate)
 3. [Carregar o certificado TLS/SSL para o serviço de nuvem](#upload-tlsssl-certificate-to-cloud-service)
 4. [Atualizar o certificado TLS/SSL no arquivo de configuração de serviço](#update-tlsssl-certificate-in-service-configuration-file)
 5. [Importar autoridade de certificação TLS/SSL](#import-tlsssl-certification-authority)
@@ -105,7 +105,7 @@ Acesso aos pontos de extremidade de serviço pode ser restrito a intervalos espe
 É necessário um certificado para criptografar as credenciais que são armazenadas no repositório de metadados. Escolha um dos três cenários abaixo mais aplicável e execute todas as suas etapas:
 
 ### <a name="use-a-new-self-signed-certificate"></a>Usar um novo certificado autoassinado
-1. [Criar um certificado autoassinado](#create-a-self-signed-certificate)
+1. [Criar um certificado Self-Signed](#create-a-self-signed-certificate)
 2. [Criar arquivo PFX de certificado de criptografia autoassinado](#create-pfx-file-for-self-signed-tlsssl-certificate)
 3. [Carregar o certificado de criptografia para o serviço de nuvem](#upload-encryption-certificate-to-cloud-service)
 4. [Atualizar o certificado de criptografia no arquivo de configuração de serviço](#update-encryption-certificate-in-service-configuration-file)
@@ -454,14 +454,14 @@ Siga estas etapas:
 ## <a name="export-certificate"></a>Exportar o certificado
 No **Assistente para Exportação de Certificados**:
 
-1. Clique em **Próximo**.
+1. Clique em **Avançar**.
 2. Selecione **Sim** e **Exportar a chave privada**.
-3. Clique em **Próximo**.
+3. Clique em **Avançar**.
 4. Selecione o formato de arquivo de saída desejado.
 5. Marque as opções desejadas.
 6. Marque a **Senha**.
 7. Digite uma senha forte e confirme-a.
-8. Clique em **Próximo**.
+8. Clique em **Avançar**.
 9. Digite ou procure um nome de arquivo onde o certificado deverá ser armazenado (use uma extensão .PFX).
 10. Clique em **Próximo**.
 11. Clique em **Concluir**.
@@ -474,7 +474,7 @@ No Assistente para importação de certificados:
    
    * Selecione **Usuário Atual** somente se processos em execução no atual usuário acessarão o serviço
    * Selecione **Computador Local** se outros processos no computador acessarão o serviço
-2. Clique em **Próximo**.
+2. Clique em **Avançar**.
 3. Se estiver importando um arquivo, verifique seu caminho.
 4. Se estiver importando um arquivo .PFX:
    1. Digite a senha que protege as informações da chave privada

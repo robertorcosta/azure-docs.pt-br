@@ -12,10 +12,10 @@ ms.date: 07/05/2019
 ms.author: amishu
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: 4863ccff5807420315f04b1b454b4ed78e5c8ae3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91282877"
 ---
 # <a name="enable-logging-in-the-speech-sdk"></a>Habilitar o registro em log no SDK de fala
@@ -58,7 +58,7 @@ Você pode criar um reconhecedor a partir do objeto de configuração. Isso habi
 
 Para Windows ou Linux, o arquivo de log pode estar em qualquer caminho para o qual o usuário tenha permissão de gravação. As permissões de gravação para locais do sistema de arquivos em outros sistemas operacionais podem ser limitadas ou restritas por padrão.
 
-### <a name="universal-windows-platform-uwp"></a>Plataforma Universal do Windows (UWP)
+### <a name="universal-windows-platform-uwp"></a>UWP (Plataforma Universal do Windows)
 
 Os aplicativos UWP precisam ser colocados nos arquivos de log em um dos locais de dados do aplicativo (local, móvel ou temporário). Um arquivo de log pode ser criado na pasta do aplicativo local:
 

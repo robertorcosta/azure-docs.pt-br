@@ -4,10 +4,10 @@ description: Saiba como estimar os custos para orçar os preços do Backup do Az
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.openlocfilehash: 03ec0076d3089562ddaace6db413fb3f1ba949a6
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
-ms.translationtype: HT
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88654524"
 ---
 # <a name="azure-backup-pricing"></a>Preços do Backup do Azure

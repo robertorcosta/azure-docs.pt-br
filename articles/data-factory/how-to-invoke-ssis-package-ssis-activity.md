@@ -15,10 +15,10 @@ manager: mflasko
 ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.date: 07/20/2020
 ms.openlocfilehash: 901693c512ddfcf5d3c4dafaec71b1606b5dc5f1
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89077839"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Executar um pacote SSIS com a atividade Executar pacote SSIS no Azure Data Factory
@@ -251,7 +251,7 @@ Na guia **gerenciadores de conexões** da atividade executar pacote SSIS, conclu
 
       Por exemplo, sem modificar seu pacote original no SSDT, você pode converter seus fluxos de dados locais para locais em execução em SQL Server em fluxos de dados locais para a nuvem em execução no SSIS IR no ADF, substituindo os valores das propriedades **ConnectByProxy**, **ConnectionString**e **ConnectUsingManagedIdentity** em gerenciadores de conexões existentes em tempo de execução.
       
-      Essas substituições de tempo de execução podem habilitar o SHIR (infravermelho auto-hospedado) como um proxy para o IR do SSIS ao acessar dados locais, consulte [Configurando o SHIR como um proxy para o ir do SSIS](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis)e conexões de instância gerenciada do Azure SQL, consulte [Configurando a autenticação Azure Active Directory do AAD com a identidade gerenciada do ADF para conexões OLEDB](https://docs.microsoft.com/sql/integration-services/connection-manager/ole-db-connection-manager?view=sql-server-ver15#managed-identities-for-azure-resources-authentication).
+      Essas substituições de tempo de execução podem habilitar Self-Hosted IR (SHIR) como um proxy para o IR do SSIS ao acessar dados no local, consulte [Configurando o SHIR como um proxy para o ir do SSIS](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis)e conexões de instância gerenciada/banco de dados SQL do Azure usando o driver MSOLEDBSQL mais recente que, por sua vez, habilita a [autenticação do Azure Active Directory](https://docs.microsoft.com/sql/integration-services/connection-manager/ole-db-connection-manager?view=sql-server-ver15#managed-identities-for-azure-resources-authentication)(AAD) com a identidade gerenciada do ADF
 
       ![Definir propriedades de SSDT na guia gerenciadores de conexões](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers2.png)
    

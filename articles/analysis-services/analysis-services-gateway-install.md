@@ -8,10 +8,10 @@ ms.date: 07/29/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 1d090070dd7b2afe5ea1ece9b5da8b8b5b7b0780
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87438966"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Instalar e configurar um gateway de dados local
@@ -27,7 +27,7 @@ Para saber mais sobre como Azure Analysis Services funciona com o gateway, consu
 * .NET 4.5 Framework
 * versão de 64 bits do Windows 8/Windows Server 2012 R2 (ou posterior)
 
-**Aconselhável**
+**Recomendado:**
 
 * CPU de 8 núcleos
 * Memória de 8 GB
@@ -67,20 +67,20 @@ Para saber mais sobre como Azure Analysis Services funciona com o gateway, consu
    > [!NOTE]
    > Se você entrar com uma conta de domínio, ela será mapeada para sua conta organizacional no Azure AD. Sua conta organizacional é usada como administrador do gateway.
 
-## <a name="register"></a>Registre-se
+## <a name="register"></a>Registrar
 
 Para criar um recurso de gateway no Azure, você precisa registrar a instância local que instalou com o Serviço de Nuvem do Gateway. 
 
 1.  Selecione **Registrar um novo gateway neste computador**.
 
-    ![Registre-se](media/analysis-services-gateway-install/aas-gateway-register-new.png)
+    ![Registrar](media/analysis-services-gateway-install/aas-gateway-register-new.png)
 
 2. Digite um nome e uma chave de recuperação para o gateway. Por padrão, o gateway usa a região padrão de sua assinatura. Se precisar selecionar uma região diferente, selecione **Alterar Região**.
 
     > [!IMPORTANT]
     > Salve sua chave de recuperação em um local seguro. A chave de recuperação é necessária para controlar, migrar ou restaurar um gateway. 
 
-   ![Registre-se](media/analysis-services-gateway-install/aas-gateway-register-name.png)
+   ![Registrar](media/analysis-services-gateway-install/aas-gateway-register-name.png)
 
 
 ## <a name="create-an-azure-gateway-resource"></a>Criar um recurso de gateway do Azure
