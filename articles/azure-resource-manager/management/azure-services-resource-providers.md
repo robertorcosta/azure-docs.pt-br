@@ -4,10 +4,10 @@ description: Lista todos os namespaces do provedor de recursos para Azure Resour
 ms.topic: conceptual
 ms.date: 09/04/2020
 ms.openlocfilehash: b740c8ee7c28bfeeaecc42121d0c7ce4a323ab3e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91330818"
 ---
 # <a name="resource-providers-for-azure-services"></a>Provedores de recursos para serviços do Azure
@@ -56,12 +56,12 @@ Este artigo mostra como os namespaces do provedor de recursos são mapeados para
 | Microsoft.CognitiveServices | [Serviços Cognitivos](../../cognitive-services/index.yml) |
 | Microsoft. Commerce<sup>1</sup> | core |
 | Microsoft.Compute | [Máquinas virtuais](../../virtual-machines/index.yml)<br />[Conjuntos de Escala de Máquina Virtual](../../virtual-machine-scale-sets/index.yml) |
-| Microsoft. consumo<sup>1</sup> | [Gerenciamento de Custos](/azure/cost-management/) |
+| Microsoft. consumo<sup>1</sup> | [Gerenciamento de custos](/azure/cost-management/) |
 | Microsoft.ContainerInstance | [Instâncias de Contêiner](../../container-instances/index.yml) |
 | Microsoft.ContainerRegistry | [Registro de Contêiner](../../container-registry/index.yml) |
 | Microsoft.ContainerService | [AKS (Serviço de Kubernetes do Azure)](../../aks/index.yml) |
-| Microsoft. CostManagement<sup>1</sup> | [Gerenciamento de Custos](/azure/cost-management/) |
-| Microsoft.CostManagementExports | [Gerenciamento de Custos](/azure/cost-management/) |
+| Microsoft. CostManagement<sup>1</sup> | [Gerenciamento de custos](/azure/cost-management/) |
+| Microsoft.CostManagementExports | [Gerenciamento de custos](/azure/cost-management/) |
 | Microsoft.CustomerLockbox | [Sistema de Proteção de Dados do Cliente para Microsoft Azure](../../security/fundamentals/customer-lockbox-overview.md) |
 | Microsoft.CustomProviders | [Provedores Personalizados do Azure](../custom-providers/overview.md) |
 | Microsoft.DataBox | [Azure Data Box](../../databox/index.yml) |
@@ -81,7 +81,7 @@ Este artigo mostra como os namespaces do provedor de recursos são mapeados para
 | Microsoft.DesktopVirtualization | [Área de Trabalho Virtual do Windows](../../virtual-desktop/index.yml) |
 | Microsoft.Devices | [Hub IoT do Azure](../../iot-hub/index.yml)<br />[Serviço de Provisionamento de Dispositivos no Hub IoT do Azure](../../iot-dps/index.yml) |
 | Microsoft.DevOps | [Azure DevOps](/azure/devops/) |
-| Microsoft.DevSpaces | [Espaços de Desenvolvimento do Azure](../../dev-spaces/index.yml) |
+| Microsoft.DevSpaces | [Azure Dev Spaces](../../dev-spaces/index.yml) |
 | Microsoft.DevTestLab | [Azure Lab Services](../../lab-services/index.yml) |
 | Microsoft.DigitalTwins | [Gêmeos Digitais do Azure](../../digital-twins/overview.md) |
 | Microsoft.DocumentDB | [Azure Cosmos DB](../../cosmos-db/index.yml) |
@@ -96,7 +96,7 @@ Este artigo mostra como os namespaces do provedor de recursos são mapeados para
 | Microsoft.HardwareSecurityModules | [HSM Dedicado do Azure](../../dedicated-hsm/index.yml) |
 | Microsoft.HDInsight | [HDInsight](../../hdinsight/index.yml) |
 | Microsoft.HealthcareApis | [API do Azure para FHIR](../../healthcare-apis/index.yml) |
-| Microsoft.HybridCompute | [Azure Arc](../../azure-arc/index.yml) |
+| Microsoft.HybridCompute | [Arco do Azure](../../azure-arc/index.yml) |
 | Microsoft.HybridData | [StorSimple](../../storsimple/index.yml) |
 | Microsoft. HybridNetwork  | [Zonas de borda privada](../../networking/edge-zones-overview.md) |
 | Microsoft.ImportExport | [Importação/Exportação do Azure](../../storage/common/storage-import-export-service.md) |

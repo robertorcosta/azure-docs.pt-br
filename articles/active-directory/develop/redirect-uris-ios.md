@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: jak
 ms.custom: aaddev
 ms.openlocfilehash: 95bd7b5ac325ef5484bd01284c46489acb919a32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: HT
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85830342"
 ---
 # <a name="using-redirect-uris-with-the-microsoft-authentication-library-for-ios-and-macos"></a>Usar URIs de redirecionamento com a biblioteca de autenticação da Microsoft para iOS e macOS
@@ -41,7 +41,7 @@ Os URIs de redirecionamento precisam ser diferentes para cada aplicativo iOS. Is
 Considerando o registro de aplicativo a seguir no portal do Azure:
 
 * ID do cliente: `ABCDE-12345` (essa é uma ID de cliente único)
-* RedirectUris: `msauth.com.contoso.app1://auth` , `msauth.com.contoso.app2://auth` ,`msauth.com.contoso.app3://auth`
+* RedirectUris: `msauth.com.contoso.app1://auth` , `msauth.com.contoso.app2://auth` , `msauth.com.contoso.app3://auth`
 
 App1 usa Redirect `msauth.com.contoso.app1://auth` . \
 App2 usa `msauth.com.contoso.app2://auth` . \

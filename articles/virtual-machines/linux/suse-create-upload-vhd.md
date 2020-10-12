@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 03/12/2018
 ms.author: guybo
 ms.openlocfilehash: 73e07c612486d5f48b1ad3eca8044a561549092b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87292117"
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Preparar uma máquina virtual do SLES ou openSUSE para o Azure
@@ -133,11 +133,11 @@ Como alternativa à criação de seu próprio VHD, o SUSE também publica imagen
 2. Clique em **Conectar** para abrir a janela da máquina virtual.
 3. No shell, execute o comando '`zypper lr`'. Se este comando retornar uma saída semelhante à seguinte, os repositórios estarão configurados conforme o esperado – nenhum ajuste é necessário (observe que os números de versão podem variar):
 
-   | # | Alias                 | Nome                  | habilitado | Atualizar
+   | # | Alias                 | Nome                  | Habilitada | Atualizar
    | - | :-------------------- | :-------------------- | :------ | :------
    | 1 | Nuvem: Tools_13.1      | Nuvem: Tools_13.1      | Sim     | Sim
-   | 2 | openSUSE_13.1_OSS     | openSUSE_13.1_OSS     | Sim     | Sim
-   | 3 | openSUSE_13.1_Updates | openSUSE_13.1_Updates | Sim     | Sim
+   | 2 | openSUSE_13 openSUSE_13.1_OSS     | openSUSE_13 openSUSE_13.1_OSS     | Sim     | Sim
+   | 3 | openSUSE_13 openSUSE_13.1_Updates | openSUSE_13 openSUSE_13.1_Updates | Sim     | Sim
 
     Se o comando retornar "Nenhum repositório definido...", use os seguintes comandos para adicionar esses repositórios:
 

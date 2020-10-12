@@ -8,10 +8,10 @@ ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
 ms.openlocfilehash: 5821a1d1f6713ef39d7475fb004164e7c0fd71ec
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87062058"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Entenda o gêmeos digital e seu gráfico de entrelaçamento
@@ -21,7 +21,7 @@ Em uma solução de gêmeos digital do Azure, as entidades em seu ambiente são 
 > [!TIP]
 > "Azure digital gêmeos" refere-se a esse serviço do Azure como um todo. "Cópia digital (ões)" ou apenas ""/s "" refere-se a nós de cópia individual na sua instância do serviço.
 
-## <a name="digital-twins"></a>Gêmeos digital
+## <a name="digital-twins"></a>Gêmeos Digitais
 
 Antes de criar uma cópia digital em sua instância do gêmeos digital do Azure, você precisa ter um *modelo* carregado para o serviço. Um modelo descreve o conjunto de propriedades, mensagens de telemetria e relações que uma mensagem de grupo pode ter em particular, entre outras coisas. Para os tipos de informações que são definidas em um modelo, consulte [*conceitos: modelos personalizados*](concepts-models.md).
 
@@ -120,7 +120,7 @@ Quando representado como um objeto JSON, uma pesquisa digital exibirá os seguin
 | `$metadata.{propertyName}.ackDescription` | [Somente para propriedades graváveis] A `ack` Descrição retornada pelo aplicativo de dispositivo que implementa o teledigital |
 | `{componentName}` | Um objeto JSON que contém os valores de propriedade e metadados do componente, semelhantes aos do objeto raiz. Esse objeto existe mesmo que o componente não tenha nenhuma propriedade. |
 | `{componentName}.{propertyName}` | O valor da Propriedade do componente em JSON ( `string` , tipo de número ou objeto) |
-| `{componentName}.$metadata` | As informações de metadados para o componente, semelhante ao nível raiz`$metadata` |
+| `{componentName}.$metadata` | As informações de metadados para o componente, semelhante ao nível raiz `$metadata` |
 
 Aqui está um exemplo de um filetreme digital formatado como um objeto JSON:
 

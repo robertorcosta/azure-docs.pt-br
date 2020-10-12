@@ -17,10 +17,10 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 42dd979f6e069addc1067d0018390c358e79a7b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84764529"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Habilitar acesso remoto ao SharePoint com o Proxy de Aplicativo do Azure AD
@@ -47,9 +47,9 @@ Configurar o SharePoint com o proxy de aplicativo requer duas URLs:
 > - No sistema de nomes de domínio corporativo (DNS), crie um host (A) para apontar para o WFE do SharePoint (ou balanceador de carga) e não para um alias (CName).
 
 Este artigo usa os seguintes valores:
-- URL interna:`https://sharepoint`
-- URL externa:`https://spsites-demo1984.msappproxy.net/`
-- Conta do pool de aplicativos para o aplicativo Web do SharePoint:`Contoso\spapppool`
+- URL interna: `https://sharepoint`
+- URL externa: `https://spsites-demo1984.msappproxy.net/`
+- Conta do pool de aplicativos para o aplicativo Web do SharePoint: `Contoso\spapppool`
 
 ## <a name="step-1-configure-an-application-in-azure-ad-that-uses-application-proxy"></a>Etapa 1: configurar um aplicativo no Azure AD que usa o proxy de aplicativo
 

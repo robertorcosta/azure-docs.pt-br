@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
 ms.openlocfilehash: d0e13f8e66e6035c22c9c2323b9653c5c4a81671
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85514674"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-modify-your-storsimple-device-configuration"></a>Usar o serviço Gerenciador de Dispositivos do StorSimple para modificar a configuração do dispositivo StorSimple
@@ -44,7 +44,7 @@ A seção **Configurações de dispositivo** do Portal do Azure na folha **Confi
 
 Um dispositivo StorSimple conectado ao serviço do Gerenciador de Dispositivos do StorSimple foi atribuído a um nome padrão. O nome padrão normalmente reflete o número de série do dispositivo. Por exemplo, um nome de dispositivo padrão que é de 15 caracteres, como 8600-SHX0991003G44HT, indica o seguinte:
 
-* **8600** – indica o modelo do dispositivo.
+* **8600**  – indica o modelo do dispositivo.
 * **SHX** – Indica o site de produção.
 * **0991003** – Indica um produto específico.
 * **G44HT** – Os últimos cinco dígitos são incrementados para criar os números de série exclusivos. Isso pode não ser um conjunto sequencial.

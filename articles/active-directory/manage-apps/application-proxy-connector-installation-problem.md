@@ -17,10 +17,10 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 602ca070bcaefd20585681e409ab85e9d455160a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84764682"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problema ao instalar o conector de agente de Application Proxy
@@ -103,7 +103,7 @@ Siga as etapas para verificar o certificado:
 
 Se um conector não estiver conectado ao serviço por vários meses, seus certificados poderão estar desatualizados. A falha da renovação do certificado leva a um certificado expirado. Isso faz com que o serviço do conector pare de funcionar. O evento 1000 é registrado no log do administrador do conector:
 
-"Falha no novo registro do conector: o certificado de confiança do conector expirou. Execute o cmdlet do PowerShell Register-AppProxyConnector no computador no qual o conector está sendo executado para registrar novamente seu conector.
+"Falha no novo registro do conector: o certificado de confiança do conector expirou. Execute o cmdlet do PowerShell Register-AppProxyConnector no computador no qual o conector está sendo executado para registrar novamente o conector. "
 
 Nesse caso, desinstale e reinstale o conector para disparar o registro ou você poderá executar os seguintes comandos do PowerShell:
 

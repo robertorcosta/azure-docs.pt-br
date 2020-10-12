@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
 ms.openlocfilehash: 4c88791815d248cc20546d7942e7b0f107071186
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90018570"
 ---
 # <a name="enforce-a-minimum-required-version-of-transport-layer-security-tls-for-requests-to-a-storage-account"></a>Impor uma versão mínima necessária da TLS (segurança da camada de transporte) para solicitações a uma conta de armazenamento
@@ -69,7 +69,7 @@ StorageBlobLogs
 
 Os resultados mostram a contagem do número de solicitações feitas com cada versão do TLS:
 
-:::image type="content" source="media/transport-layer-security-configure-minimum-version/log-analytics-query-version.png" alt-text="Captura de tela mostrando os resultados da consulta do log Analytics para retornar a versão do TLS":::
+:::image type="content" source="media/transport-layer-security-configure-minimum-version/log-analytics-query-version.png" alt-text="Captura de tela mostrando como criar uma configuração de diagnóstico para solicitações de log":::
 
 ### <a name="query-logged-requests-by-caller-ip-address-and-user-agent-header"></a>Consultar solicitações registradas por endereço IP do chamador e cabeçalho do agente do usuário
 
@@ -104,7 +104,7 @@ Para configurar a versão mínima do TLS para uma conta de armazenamento existen
 1. Selecione a definição de **configuração** .
 1. Em **versão mínima do TLS**, use a lista suspensa para selecionar a versão mínima do TLS necessária para acessar os dados nessa conta de armazenamento, conforme mostrado na imagem a seguir.
 
-    :::image type="content" source="media/transport-layer-security-configure-minimum-version/configure-minimum-version-portal.png" alt-text="Captura de tela mostrando como configurar a versão mínima do TLS no portal do Azure":::
+    :::image type="content" source="media/transport-layer-security-configure-minimum-version/configure-minimum-version-portal.png" alt-text="Captura de tela mostrando como criar uma configuração de diagnóstico para solicitações de log":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -307,7 +307,7 @@ Para exibir o relatório de conformidade no portal do Azure, siga estas etapas:
 1. Filtre os resultados para o nome da atribuição de política que você criou na etapa anterior. O relatório mostra quantos recursos não estão em conformidade com a política.
 1. Você pode fazer uma busca detalhada no relatório para obter detalhes adicionais, incluindo uma lista de contas de armazenamento que não estão em conformidade.
 
-    :::image type="content" source="media/transport-layer-security-configure-minimum-version/compliance-report-policy-portal.png" alt-text="Captura de tela mostrando o relatório de conformidade para a política de auditoria para a versão mínima do TLS":::
+    :::image type="content" source="media/transport-layer-security-configure-minimum-version/compliance-report-policy-portal.png" alt-text="Captura de tela mostrando como criar uma configuração de diagnóstico para solicitações de log":::
 
 ## <a name="use-azure-policy-to-enforce-the-minimum-tls-version"></a>Usar Azure Policy para impor a versão mínima do TLS
 
@@ -343,7 +343,7 @@ Depois de criar a política com o efeito de negação e atribuí-la a um escopo,
 
 A imagem a seguir mostra o erro que ocorre se você tentar criar uma conta de armazenamento com a versão mínima do TLS definida como TLS 1,0 (o padrão para uma nova conta) quando uma política com um efeito de negação exigir que a versão mínima do TLS seja definida como TLS 1,2.
 
-:::image type="content" source="media/transport-layer-security-configure-minimum-version/deny-policy-error.png" alt-text="Captura de tela mostrando o erro que ocorre ao criar uma conta de armazenamento em violação de política":::
+:::image type="content" source="media/transport-layer-security-configure-minimum-version/deny-policy-error.png" alt-text="Captura de tela mostrando como criar uma configuração de diagnóstico para solicitações de log":::
 
 ## <a name="network-considerations"></a>Considerações de rede
 

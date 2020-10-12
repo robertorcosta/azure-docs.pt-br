@@ -9,10 +9,10 @@ manager: gwallace
 description: Saiba como configurar a integração contínua/implantação contínua usando o Azure DevOps com o Azure Dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Contêiner do Azure, contêineres
 ms.openlocfilehash: c7b3eba0bea85082dbb4e39d108af9471d5dc45e
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88080259"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Usar CI/CD com o Azure Dev Spaces
@@ -160,7 +160,7 @@ A versão é feita quando todas as tarefas são concluídas.
 
 O estágio de _produção_ do pipeline de CI/CD usa um balanceador de carga em vez do controlador de entrada de espaços de desenvolvimento para fornecer acesso aos serviços de _produção_ . Os serviços implantados no estágio de _produção_ são acessíveis como endereços IP em vez de nomes DNS. Em um ambiente de produção, você pode optar por criar seu próprio controlador de entrada para hospedar seus serviços com base em sua própria configuração de DNS.
 
-Para determinar o IP do serviço de WebFrontEnd, clique na etapa **Imprimir IP público do WebFrontEnd** para expandir a saída do log. Use o IP exibido na saída de log para acessar o aplicativo de **front-end** .
+Para determinar o IP do serviço de WebFrontEnd, clique na etapa  **Imprimir IP público do WebFrontEnd** para expandir a saída do log. Use o IP exibido na saída de log para acessar o aplicativo de **front-end** .
 
 ```cmd
 ...
@@ -185,7 +185,7 @@ Aqui está um exemplo de estrutura de namespace que dá suporte ao desenvolvimen
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre como Azure Dev Spaces funciona.
+Saiba mais sobre como funciona o Azure Dev Spaces.
 
 > [!div class="nextstepaction"]
 > [Como o Azure Dev Spaces funciona](../how-dev-spaces-works.md)

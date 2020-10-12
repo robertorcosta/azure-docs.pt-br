@@ -4,10 +4,10 @@ description: Como criar e gerenciar seu perfil de usuário e a ID de usuário co
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.openlocfilehash: 9a1ff7f92faec21f537f068f0a33473700ddfed8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85831345"
 ---
 # <a name="your-profile-and-user-id-for-azure-notebooks-preview"></a>Seu perfil e ID de usuário para Azure Notebooks versão prévia
@@ -61,4 +61,4 @@ Para editar seu perfil, use o comando **Editar Informações de Perfil** na sua 
 ## <a name="next-steps"></a>Próximas etapas  
 
 > [!div class="nextstepaction"]
-> [Tutorial: criar e executar um bloco de anotações Jupyter para fazer regressão linear](tutorial-create-run-jupyter-notebook.md)
+> [Tutorial: criar e executar um Jupyter Notebook para fazer uma regressão linear](tutorial-create-run-jupyter-notebook.md)

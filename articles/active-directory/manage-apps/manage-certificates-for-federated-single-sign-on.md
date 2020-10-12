@@ -16,10 +16,10 @@ ms.author: kenwith
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1731d5ea5d8db9ea1c5855a32d2daca0387c0bf5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84763203"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Gerenciar certificados para logon único federado no Azure Active Directory
@@ -59,12 +59,12 @@ Primeiro, crie e salve o novo certificado com uma data de expiração diferente:
 1. Selecione o aplicativo afetado. Uma página de visão geral do aplicativo é exibida.
 1. No painel esquerdo da página Visão geral do aplicativo, selecione **logon único**.
 1. Se a página **selecionar um método de logon único** for exibida, selecione **SAML**.
-1. Na página **Configurar logon único com SAML-Preview** , localize o cabeçalho do certificado de **autenticação SAML** e selecione o ícone de **edição** (um lápis). A página **certificado de autenticação SAML** é exibida, que exibe o status (**ativo** ou **inativo**), a data de expiração e a impressão digital (uma cadeia de caracteres de hash) de cada certificado.
+1. Na página **configurar Sign-On único com SAML-Preview** , localize o cabeçalho do **certificado de autenticação SAML** e selecione o ícone de **edição** (um lápis). A página **certificado de autenticação SAML** é exibida, que exibe o status (**ativo** ou **inativo**), a data de expiração e a impressão digital (uma cadeia de caracteres de hash) de cada certificado.
 1. Selecione **novo certificado**. Uma nova linha é exibida abaixo da lista de certificados, em que a data de expiração padrão é exatamente três anos após a data atual. (Suas alterações ainda não foram salvas, portanto, você ainda pode modificar a data de validade.)
 1. Na nova linha de certificado, passe o mouse sobre a coluna data de expiração e selecione o ícone **selecionar data** (um calendário). Um controle de calendário é exibido, exibindo os dias de um mês da data de validade atual da nova linha.
 1. Use o controle Calendar para definir uma nova data. Você pode definir qualquer data entre a data atual e três anos após a data atual.
-1. Selecione **Salvar**. O novo certificado agora aparece com um status **inativo**, a data de validade que você escolheu e uma impressão digital.
-1. Selecione o **X** para retornar à página **Configurar logon único com SAML-Preview** .
+1. Clique em **Salvar**. O novo certificado agora aparece com um status **inativo**, a data de validade que você escolheu e uma impressão digital.
+1. Selecione o **X** para retornar à página **Configurar Sign-On única com SAML-Preview** .
 
 ### <a name="upload-and-activate-a-certificate"></a>Carregar e ativar um certificado
 
@@ -88,7 +88,7 @@ O Azure AD enviará uma notificação por email 60, 30 e 7 dias antes que o cert
 1. Abaixo do endereço de email final, digite o endereço de email que deve receber o aviso de expiração do certificado e pressione Enter.
 1. Repita a etapa anterior para cada endereço de email que você deseja adicionar.
 1. Para cada endereço de email que você deseja excluir, selecione o ícone **excluir** (um lixo pode) ao lado do endereço de email.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 Você receberá o email de notificação de aadnotification@microsoft.com. Para evitar que o email vá para seu local de spam, adicione este email aos seus contatos.
 
@@ -110,5 +110,5 @@ Se um certificado estiver prestes a expirar, você poderá renová-lo usando um 
 
 - [Tutoriais para a integração de aplicativos SaaS ao Azure Active Directory](../saas-apps/tutorial-list.md)
 - [Gerenciamento de aplicativos com o Azure Active Directory](what-is-application-management.md)
-- [Logon único para aplicativos no Azure Active Directory](what-is-single-sign-on.md)
+- [Logon único em aplicativos no Azure Active Directory](what-is-single-sign-on.md)
 - [Depurar o logon único baseado em SAML para aplicativos no Azure Active Directory](../azuread-dev/howto-v1-debug-saml-sso-issues.md)

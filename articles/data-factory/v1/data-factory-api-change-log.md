@@ -13,10 +13,10 @@ ms.topic: conceptual
 robots: noindex
 ms.date: 01/22/2018
 ms.openlocfilehash: b7936fcd1e4a629a813c4266920f6c34a15cf9b4
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89438935"
 ---
 # <a name="azure-data-factory---net-api-change-log"></a>Azure Data Factory - Log de alterações da API .NET
@@ -135,7 +135,7 @@ Adições de Recursos:
   * [AzureDataLakeStoreSink](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestoresink.aspx)
 
 ## <a name="version-401"></a>Versão 4.0.1
-### <a name="breaking-changes"></a>Alterações da falha
+### <a name="breaking-changes"></a>Alterações de quebra
 As seguintes classes foram renomeadas. Os novos nomes eram os nomes das classes originais antes da versão 4.0.0.
 
 | Nome no 4.0.0 | Nome no 4.0.1 |
@@ -148,7 +148,7 @@ As seguintes classes foram renomeadas. Os novos nomes eram os nomes das classes 
 | SqlServerDataset |[SqlServerTableDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.sqlservertabledataset.aspx) |
 
 ## <a name="version-400"></a>Versão 4.0.0
-### <a name="breaking-changes"></a>Alterações da falha
+### <a name="breaking-changes"></a>Alterações de quebra
 * As seguintes classes/interfaces foram renomeadas.
 
 | Nome antigo | Novo nome |

@@ -13,10 +13,10 @@ ms.custom:
 - 'Role: Technical Support'
 - devx-track-csharp
 ms.openlocfilehash: 100f87b8a13fb424706c3b5ec13268cd3ba42bbe
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89438391"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Monitorar a integridade do Hub IoT do Azure e diagnosticar problemas rapidamente
@@ -352,9 +352,9 @@ O Hub IoT registra esse log quando uma mensagem que contém propriedades de rast
 
 Aqui, `durationMs` não é calculado, uma vez que o relógio do Hub IoT não pode ser sincronizado com o relógio do dispositivo e, portanto, um cálculo de duração pode ser enganoso. Recomendamos gravar escrever lógica usando carimbos de data/hora na seção `properties` para capturar os picos na latência de dispositivo para nuvem.
 
-| Propriedade | Type | Descrição |
+| Propriedade | Tipo | Descrição |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **messageSize** | Integer | O tamanho da mensagem de dispositivo para nuvem em bytes |
+| **messageSize** | Inteiro | O tamanho da mensagem de dispositivo para nuvem em bytes |
 | **deviceId** | Cadeia de caracteres alfanumérica ASCII de 7 bits | A identidade do dispositivo |
 | **callerLocalTimeUtc** | Carimbo de data/hora UTC | A hora de criação da mensagem conforme relatada pelo relógio local do dispositivo |
 | **calleeLocalTimeUtc** | Carimbo de data/hora UTC | A hora de chegada da mensagem no gateway do Hub IoT conforme relatado pelo relógio do lado do serviço de Hub IoT |
@@ -386,10 +386,10 @@ O Hub IoT registra esse log quando a mensagem que contém as propriedades de ras
 
 Na `properties` seção, esse log contém informações adicionais sobre a entrada da mensagem.
 
-| Propriedade | Type | Descrição |
+| Propriedade | Tipo | Descrição |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **isRoutingEnabled** | String | Verdadeiro ou falso, indica se o roteamento de mensagens está ou não habilitado no Hub IoT |
-| **parentSpanId** | String | A [ID do span](https://w3c.github.io/trace-context/#parent-id) da mensagem pai, que seria, neste caso, o rastreamento de mensagens D2C |
+| **isRoutingEnabled** | Cadeia de caracteres | Verdadeiro ou falso, indica se o roteamento de mensagens está ou não habilitado no Hub IoT |
+| **parentSpanId** | Cadeia de caracteres | A [ID do span](https://w3c.github.io/trace-context/#parent-id) da mensagem pai, que seria, neste caso, o rastreamento de mensagens D2C |
 
 ##### <a name="iot-hub-egress-logs"></a>Logs de saída do Hub IoT
 
@@ -418,11 +418,11 @@ O Hub IoT registra esse log quando [roteamento](iot-hub-devguide-messages-d2c.md
 
 Na `properties` seção, esse log contém informações adicionais sobre a entrada da mensagem.
 
-| Propriedade | Type | Descrição |
+| Propriedade | Tipo | Descrição |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **endpointName** | String | O nome do ponto de extremidade de roteamento |
-| **endpointType** | String | O tipo de roteamento o ponto de extremidade |
-| **parentSpanId** | String | A [ID do span](https://w3c.github.io/trace-context/#parent-id) da mensagem pai, que seria, neste caso, o rastreamento de mensagens de entrada do Hub IoT |
+| **endpointName** | Cadeia de caracteres | O nome do ponto de extremidade de roteamento |
+| **endpointType** | Cadeia de caracteres | O tipo de roteamento o ponto de extremidade |
+| **parentSpanId** | Cadeia de caracteres | A [ID do span](https://w3c.github.io/trace-context/#parent-id) da mensagem pai, que seria, neste caso, o rastreamento de mensagens de entrada do Hub IoT |
 
 #### <a name="configurations"></a>Configurações
 
@@ -478,7 +478,7 @@ Algumas operações retornam uma `sdkVersion` propriedade em seu `properties` ob
 
 A tabela a seguir mostra o nome do SDK usado para SDKs diferentes do Azure IoT:
 
-| Nome do SDK na propriedade sdkVersion | Idioma |
+| Nome do SDK na propriedade sdkVersion | Linguagem |
 |----------|----------|
 | .NET | .NET (C#) |
 | Microsoft. Azure. Devices | SDK do serviço .NET (C#) |

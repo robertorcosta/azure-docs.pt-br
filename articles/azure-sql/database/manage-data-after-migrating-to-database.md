@@ -13,10 +13,10 @@ ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
 ms.openlocfilehash: 016bb1e4a0844be2a137108d673159bd041cd351
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89439768"
 ---
 # <a name="new-dba-in-the-cloud--managing-azure-sql-database-after-migration"></a>Novo DBA na nuvem – Gerenciando o banco de dados SQL do Azure após a migração
@@ -174,7 +174,7 @@ Para proteger dados confidenciais em trânsito e em repouso, o Banco de Dados SQ
 |**Expansão de criptografia**|Ponta a ponta|Dados em repouso|
 |**O servidor pode acessar dados confidenciais**|Não|Sim, desde que a criptografia seja para os dados em repouso|
 |**Operações de T-SQL permitidas**|Comparação de igualdade|Toda a área de superfície do T-SQL está disponível|
-|**Alterações de aplicativo necessárias para usar o recurso**|Minimal|Muito Mínimo|
+|**Alterações de aplicativo necessárias para usar o recurso**|Mínimo|Muito Mínimo|
 |**Granularidade de criptografia**|Nível de coluna|Nível de banco de dados|
 ||||
 
@@ -293,7 +293,7 @@ Sua abordagem para solucionar problemas de desempenho pode se beneficiar bastant
 
 Com a solução de problemas do desempenho, é importante identificar se é apenas o aplicativo ou o banco de dados de backup que está afetando o desempenho do seu aplicativo. Geralmente, o problema de desempenho está na camada de aplicativo. Ele pode estar na arquitetura ou no padrão de acesso a dados. Por exemplo, considere que você tem um aplicativo de conversação que é sensível a latência de rede. Nesse caso, o aplicativo é prejudicado porque deve haver muitas solicitações curtas indo e vindo ("tagarelas") entre o aplicativo e o servidor e em uma rede congestionada, essas idas e voltas se acumulam rapidamente. Para melhorar o desempenho nesse caso, você pode usar [Consultas em lote](performance-guidance.md#batch-queries). Usar lotes ajuda muito porque agora as suas solicitações são processadas em um lote; ajudando, assim, a reduzir a latência de ida e volta e a melhorar o desempenho do seu aplicativo.
 
-Além disso, se você observar uma degradação no desempenho geral do seu banco de dados, poderá monitorar as exibições de gerenciamento dinâmico [Sys. dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) e [Sys. resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) para entender o consumo de CPU, e/s e memória. Seu desempenho pode estar sendo afetado porque o banco de dados está sem recursos. Talvez seja necessário alterar o tamanho da computação e/ou a camada de serviço com base nas demandas de carga de trabalho crescentes e decrescentes.
+Além disso, se você observar uma degradação no desempenho geral do seu banco de dados, poderá monitorar as exibições [Sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) e [Sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) de gerenciamento dinâmico para entender o consumo de CPU, e/s e memória. Seu desempenho pode estar sendo afetado porque o banco de dados está sem recursos. Talvez seja necessário alterar o tamanho da computação e/ou a camada de serviço com base nas demandas de carga de trabalho crescentes e decrescentes.
 
 Para um conjunto abrangente de recomendações de ajuste dos problemas de desempenho, confira: [Ajustar seu desempenho](performance-guidance.md#tune-your-database).
 
