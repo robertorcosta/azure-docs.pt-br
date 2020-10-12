@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/26/2020
 ms.author: yelevin
 ms.openlocfilehash: e04d7fa1f319ca3969d8acdc0235e2838bb3a88d
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90994322"
 ---
 # <a name="import-threat-intelligence-into-azure-sentinel"></a>Importar inteligência contra ameaças para o Azure Sentinel
@@ -78,7 +78,7 @@ Essas informações sempre vêm do Azure Active Directory por meio de um process
 
 1. Escolha um nome para o registro do aplicativo, selecione o botão de opção de **locatário único** e selecione **registrar**.
 
-    :::image type="content" source="media/import-threat-intelligence/threat-intel-register-application.png" alt-text="Registrar um aplicativo":::
+    :::image type="content" source="media/import-threat-intelligence/threat-intel-register-application.png" alt-text="Caminho de importação de inteligência contra ameaças":::
 
 1. Na tela resultante, copie os valores de ID do **aplicativo (cliente)** e de **ID do diretório (locatário)** . Essas são as duas primeiras informações que você precisará mais tarde para configurar sua dica ou solução personalizada para enviar indicadores de ameaça para o Azure Sentinel.
 
@@ -96,13 +96,13 @@ Essas informações sempre vêm do Azure Active Directory por meio de um process
 
 1. Selecione **ThreatIndicators. ReadWrite. OwnedBy** e selecione **adicionar permissões** para adicionar essa permissão à lista de permissões do seu aplicativo.
 
-    :::image type="content" source="media/import-threat-intelligence/threat-intel-api-permissions-1.png" alt-text="Especificar permissões":::
+    :::image type="content" source="media/import-threat-intelligence/threat-intel-api-permissions-1.png" alt-text="Caminho de importação de inteligência contra ameaças":::
 
 **Obter consentimento da sua organização para conceder essas permissões**
 
 1. Para conceder consentimento, você precisa de um administrador global Azure Active Directory para selecionar o botão **conceder consentimento de administrador para seu locatário** na página permissões de API do aplicativo. Se você não tiver a função de administrador global em sua conta, esse botão não estará disponível e você precisará solicitar a um administrador global da sua organização para executar essa etapa.
 
-    :::image type="content" source="media/import-threat-intelligence/threat-intel-api-permissions-2.png" alt-text="Conceder consentimento":::
+    :::image type="content" source="media/import-threat-intelligence/threat-intel-api-permissions-2.png" alt-text="Caminho de importação de inteligência contra ameaças":::
 
 1. Depois que o consentimento tiver sido concedido ao seu aplicativo, você deverá ver uma marca de seleção verde em **status**.
  
@@ -114,7 +114,7 @@ Agora que seu aplicativo foi registrado e as permissões foram concedidas, você
 
 1. Selecione **certificados & segredos** no menu e clique no botão **novo segredo do cliente** para obter um segredo (chave de API) para seu aplicativo.
 
-    :::image type="content" source="media/import-threat-intelligence/threat-intel-client-secret.png" alt-text="Obter segredo do cliente":::
+    :::image type="content" source="media/import-threat-intelligence/threat-intel-client-secret.png" alt-text="Caminho de importação de inteligência contra ameaças":::
 
 1. Clique no botão **Adicionar** e **certifique-se de copiar o segredo do cliente**, pois você não poderá recuperar esse segredo novamente se sair dessa página. Você precisará desse valor ao configurar sua dica ou solução personalizada.
 
@@ -145,7 +145,7 @@ Em alguns minutos, os indicadores de ameaça devem começar a fluir para este es
 
 O padrão do setor mais amplamente adotado para a transmissão de inteligência contra ameaças é uma [combinação do formato de dados Stix e do protocolo táxii](https://oasis-open.github.io/cti-documentation/). Se sua organização obtiver indicadores de ameaça de soluções que dão suporte à versão atual do STIX/táxi (2,0 ou 2,1), você poderá usar o conector de dados de **inteligência contra ameaças-táxii** para trazer seus indicadores de ameaça para o Azure Sentinel. O conector de dados de inteligência contra ameaças – TÁXIi permite que um cliente de TÁXIs interno no Azure Sentinel importe a inteligência contra ameaças de servidores TÁXIi 2. x.
 
-:::image type="content" source="media/import-threat-intelligence/threat-intel-taxii-import-path.png" alt-text="Caminho de importação de TÁXIi":::
+:::image type="content" source="media/import-threat-intelligence/threat-intel-taxii-import-path.png" alt-text="Caminho de importação de inteligência contra ameaças":::
  
 Siga estas etapas para importar os indicadores de ameaça formatados STIX para o Azure Sentinel de um servidor táxi:
 
@@ -287,7 +287,7 @@ Para importar indicadores de ameaça para o Azure Sentinel de um servidor de tá
 
 1. Digite um **nome** para essa coleção de servidores de táxii, **URL raiz da API**, **ID da coleção**, **nome de usuário** (se necessário) e **senha** (se necessário) e clique no botão **Adicionar** .
 
-    :::image type="content" source="media/import-threat-intelligence/threat-intel-configure-taxii-servers.png" alt-text="Configurar servidores de TÁXIi":::
+    :::image type="content" source="media/import-threat-intelligence/threat-intel-configure-taxii-servers.png" alt-text="Caminho de importação de inteligência contra ameaças":::
  
 Você deve receber a confirmação de que uma conexão com o servidor de TÁXIs foi estabelecida com êxito e pode repetir a etapa (4) acima quantas vezes desejar para se conectar a várias coleções do mesmo servidor ou de servidores de TÁXIs diferentes.
 
@@ -307,7 +307,7 @@ Agora que você importou com êxito os indicadores de ameaça para o Azure Senti
 
 Os resultados devem ser semelhantes ao indicador de ameaça de exemplo mostrado abaixo:
 
-:::image type="content" source="media/import-threat-intelligence/threat-intel-sample-query.png" alt-text="Dados de consulta de exemplo":::
+:::image type="content" source="media/import-threat-intelligence/threat-intel-sample-query.png" alt-text="Caminho de importação de inteligência contra ameaças":::
  
 ## <a name="manage-your-threat-indicators-in-the-new-threat-intelligence-area-of-azure-sentinel"></a>Gerencie seus indicadores de ameaça na nova área de inteligência contra ameaças do Azure Sentinel
 
@@ -322,15 +322,15 @@ Vamos examinar duas das tarefas mais comuns, criar novos indicadores de ameaça 
 
 1. Selecione o botão **Adicionar novo** no menu superior da página.
 
-    :::image type="content" source="media/import-threat-intelligence/threat-intel-add-new-indicator.png" alt-text="Adicionar um novo indicador de ameaça" lightbox="media/import-threat-intelligence/threat-intel-add-new-indicator.png":::
+    :::image type="content" source="media/import-threat-intelligence/threat-intel-add-new-indicator.png" alt-text="Caminho de importação de inteligência contra ameaças" lightbox="media/import-threat-intelligence/threat-intel-add-new-indicator.png":::
 
 1. Escolha o tipo de indicador e preencha os campos obrigatórios marcados com um asterisco vermelho (*) no **novo painel indicador** .
 
-1. Selecione **Aplicar**. O indicador é adicionado à grade de indicadores e também é enviado para a tabela ThreatIntelligenceIndicator em **logs**.
+1. Escolha **Aplicar**. O indicador é adicionado à grade de indicadores e também é enviado para a tabela ThreatIntelligenceIndicator em **logs**.
 
 A marcação de indicadores de ameaça é uma maneira fácil de agrupá-los para facilitar sua localização. Normalmente, você pode aplicar uma marca a indicadores relacionados a um incidente específico ou a indicadores que representam ameaças de um ator conhecido específico ou uma campanha de ataque bem conhecida. Você pode marcar os indicadores de ameaça individualmente ou indicadores de seleção múltipla e marcá-los todos de uma vez. Mostrado abaixo está um exemplo de marcação de vários indicadores com uma ID de incidente. Como a marcação é de forma livre, uma prática recomendada é criar convenções de nomenclatura padrão para as marcas de indicador de ameaça. Você pode aplicar várias marcas a cada indicador.
 
-:::image type="content" source="media/import-threat-intelligence/threat-intel-tagging-indicators.png" alt-text="Aplicar marcas a indicadores de ameaça" lightbox="media/import-threat-intelligence/threat-intel-tagging-indicators.png":::
+:::image type="content" source="media/import-threat-intelligence/threat-intel-tagging-indicators.png" alt-text="Caminho de importação de inteligência contra ameaças" lightbox="media/import-threat-intelligence/threat-intel-tagging-indicators.png":::
 
 ## <a name="analytics-puts-your-threat-indicators-to-work-detecting-potential-threats"></a>A análise coloca seus indicadores de ameaça para trabalhar na detecção de possíveis ameaças
 
@@ -350,11 +350,11 @@ Vamos dar uma olhada em um desses modelos de regra e explicar como habilitar e c
 
 1. Navegue até a regra denominada **entidade de IP do mapa de ti para AzureActivity** e verifique se você conectou todas as fontes de dados necessárias, conforme mostrado abaixo.
 
-    :::image type="content" source="media/import-threat-intelligence/threat-intel-required-data-sources.png" alt-text="Fontes de dados necessárias":::
+    :::image type="content" source="media/import-threat-intelligence/threat-intel-required-data-sources.png" alt-text="Caminho de importação de inteligência contra ameaças":::
 
 1. Selecione essa regra e selecione o botão **criar regra** . Isso abre um assistente para configurar a regra. Conclua as configurações aqui e selecione o botão **Avançar: definir a lógica de regra >** .
 
-    :::image type="content" source="media/import-threat-intelligence/threat-intel-create-analytics-rule.png" alt-text="Criar regra de análise":::
+    :::image type="content" source="media/import-threat-intelligence/threat-intel-create-analytics-rule.png" alt-text="Caminho de importação de inteligência contra ameaças":::
 
 1. A parte lógica da regra do assistente contém:
     - A consulta que será usada na regra.
@@ -397,7 +397,7 @@ Vamos examinar como encontrar a pasta de trabalho de inteligência contra ameaç
 
 1. Navegue até a pasta de trabalho intitulada **inteligência contra ameaças** e verifique se você tem dados na tabela **ThreatIntelligenceIndicator** , conforme mostrado abaixo.
 
-    :::image type="content" source="media/import-threat-intelligence/threat-intel-verify-data.png" alt-text="Verificar os dados":::
+    :::image type="content" source="media/import-threat-intelligence/threat-intel-verify-data.png" alt-text="Caminho de importação de inteligência contra ameaças":::
  
 1. Selecione o botão **salvar** e escolha um local do Azure para armazenar a pasta de trabalho. Essa etapa será necessária se você for modificar a pasta de trabalho de qualquer forma e salvar suas alterações.
 
@@ -417,7 +417,7 @@ Vamos examinar como encontrar a pasta de trabalho de inteligência contra ameaç
 
 1. Selecione o botão **edição concluído** . Você criou um novo gráfico para a pasta de trabalho.
 
-    :::image type="content" source="media/import-threat-intelligence/threat-intel-bar-chart.png" alt-text="Gráfico de barras":::
+    :::image type="content" source="media/import-threat-intelligence/threat-intel-bar-chart.png" alt-text="Caminho de importação de inteligência contra ameaças":::
 
 As pastas de trabalho fornecem painéis interativos avançados que fornecem informações sobre todos os aspectos do Azure Sentinel. Há muito que você pode fazer com pastas de trabalho e, embora os modelos fornecidos sejam um ótimo ponto de partida, você provavelmente desejará se aprofundar e personalizar esses modelos ou criar novos painéis combinando várias fontes de dados diferentes, para que você possa visualizar seus dados de maneiras exclusivas. Como as pastas de trabalho do Azure Sentinel são baseadas em pastas de trabalho Azure Monitor, já existe uma ampla documentação disponível e muitos outros modelos. Um ótimo lugar para começar é o artigo sobre como [criar relatórios interativos com Azure monitor pastas de trabalho](../azure-monitor/platform/workbooks-overview.md). 
 

@@ -6,10 +6,10 @@ services: container-service
 ms.topic: article
 ms.date: 07/21/2020
 ms.openlocfilehash: 2845a091c8a89f22e8892141dd2dad26d6049447
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88006835"
 ---
 # <a name="control-access-to-cluster-resources-using-role-based-access-control-and-azure-active-directory-identities-in-azure-kubernetes-service"></a>Controlar o acesso a recursos de cluster usando o controle de acesso baseado em função e identidades de Azure Active Directory no serviço kubernetes do Azure
@@ -164,7 +164,7 @@ Em seguida, obtenha a ID do recurso para o grupo *AppDev* usando o comando [AZ a
 az ad group show --group appdev --query objectId -o tsv
 ```
 
-Agora, crie uma Rolebinding para o grupo *AppDev* para usar a função criada anteriormente para acesso de namespace. Crie um arquivo chamado `rolebinding-dev-namespace.yaml` e cole o manifesto YAML a seguir. Na última linha, substitua *groupObjectId* pela saída de ID de objeto de grupo do comando anterior:
+Agora, crie uma Rolebinding para o grupo *AppDev* para usar a função criada anteriormente para acesso de namespace. Crie um arquivo chamado `rolebinding-dev-namespace.yaml` e cole o manifesto YAML a seguir. Na última linha, substitua *groupObjectId*  pela saída de ID de objeto de grupo do comando anterior:
 
 ```yaml
 kind: RoleBinding
@@ -229,7 +229,7 @@ Obtenha a ID do recurso para o grupo *opssre* usando o comando [AZ ad Group show
 az ad group show --group opssre --query objectId -o tsv
 ```
 
-Crie uma Rolebinding para o grupo *opssre* para usar a função criada anteriormente para acesso de namespace. Crie um arquivo chamado `rolebinding-sre-namespace.yaml` e cole o manifesto YAML a seguir. Na última linha, substitua *groupObjectId* pela saída de ID de objeto de grupo do comando anterior:
+Crie uma Rolebinding para o grupo *opssre* para usar a função criada anteriormente para acesso de namespace. Crie um arquivo chamado `rolebinding-sre-namespace.yaml` e cole o manifesto YAML a seguir. Na última linha, substitua *groupObjectId*  pela saída de ID de objeto de grupo do comando anterior:
 
 ```yaml
 kind: RoleBinding
@@ -367,7 +367,7 @@ $ kubectl run nginx-sre --image=nginx --namespace dev
 Error from server (Forbidden): pods is forbidden: User "akssre@contoso.com" cannot create pods in the namespace "dev"
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Neste artigo, você criou recursos no cluster AKS e usuários e grupos no Azure AD. Para limpar todos esses recursos, execute os seguintes comandos:
 

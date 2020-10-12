@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: charwen
 ms.openlocfilehash: a69aa8d8a6dc324d6fe28219316c36ac2ec816a5
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90987706"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>Trabalhando com acesso NSG e bastiões do Azure
@@ -42,7 +42,7 @@ A bastiões do Azure é implantada especificamente para ***AzureBastionSubnet***
    * **Tráfego de entrada do plano de controle de bastiões do Azure:** Para conectividade do plano de controle, habilite a porta 443 de entrada da marca de serviço do **gatewaymanager** . Isso permite que o plano de controle, ou seja, o Gerenciador de gateway seja capaz de se comunicar com a bastiões do Azure.
 
 
-   :::image type="content" source="./media/bastion-nsg/inbound.png" alt-text="Captura de tela mostra regras de segurança de entrada para conectividade de bastiões do Azure.":::
+   :::image type="content" source="./media/bastion-nsg/inbound.png" alt-text="NSG":::
 
 * **Tráfego de saída:**
 
@@ -50,7 +50,7 @@ A bastiões do Azure é implantada especificamente para ***AzureBastionSubnet***
    * **Tráfego de saída para outros pontos de extremidade públicos no Azure:** A bastiões do Azure precisa ser capaz de se conectar a vários pontos de extremidade públicos no Azure (por exemplo, para armazenar logs de diagnóstico e logs de medição). Por esse motivo, a bastiões do Azure precisa de saída para 443 para a marca de serviço **AzureCloud** .
 
 
-   :::image type="content" source="./media/bastion-nsg/outbound.png" alt-text="Captura de tela mostra regras de segurança de saída para conectividade de bastiões do Azure.":::
+   :::image type="content" source="./media/bastion-nsg/outbound.png" alt-text="NSG":::
 
 ### <a name="target-vm-subnet"></a>Sub-rede VM de destino
 Essa é a sub-rede que contém a máquina virtual de destino para a qual você deseja RDP/SSH.

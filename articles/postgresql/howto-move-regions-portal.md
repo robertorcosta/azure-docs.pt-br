@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/29/2020
 ms.openlocfilehash: 0eaac8ac65b490e1b8de716d79bd36d2f7a7567c
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91707652"
 ---
 # <a name="move-an-azure-database-for-azure-database-for-postgresql---single-server-to-another-region-by-using-the-azure-portal"></a>Mover um banco de dados do Azure para o banco de dados do Azure para PostgreSQL-servidor único para outra região usando o portal do Azure
@@ -33,7 +33,7 @@ Você pode usar uma [réplica de leitura entre regiões](concepts-read-replicas.
 
 Para preparar o servidor de origem para replicação usando o portal do Azure, use as seguintes etapas: 
 
-1. Faça logon no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [Portal do Azure](https://portal.azure.com/).
 1. Selecione o servidor do banco de dados do Azure para PostgreSQL existente que você deseja usar como o servidor de origem. Essa ação abre a página **Visão geral** do runbook.
 1. No menu do servidor, selecione **replicação**. Se o suporte à replicação do Azure for definido como pelo menos **réplica**, você poderá criar réplicas de leitura. 
 1. Se o suporte à replicação do Azure não estiver definido como pelo menos **réplica**, defina-o. Selecione **Salvar**.

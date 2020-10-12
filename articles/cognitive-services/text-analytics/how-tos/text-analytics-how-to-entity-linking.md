@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 09/24/2020
 ms.author: aahi
 ms.openlocfilehash: d6820e890607ff16230ecf48e8318e6d1119a3a2
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91707499"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Como usar o reconhecimento de entidade nomeada no Análise de Texto
@@ -197,7 +197,7 @@ Exemplo de uma resposta geral do NER:
   "modelVersion": "2020-04-01"
 }
 ```
-#### <a name="version-31-preview"></a>[Versão 3,1-visualização](#tab/version-3-preview)
+#### <a name="version-31-preview"></a>[Versão 3.1 – versão prévia](#tab/version-3-preview)
 
 Exemplo de uma resposta de PII:
 ```json

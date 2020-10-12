@@ -4,10 +4,10 @@ description: Fornece uma visão geral das opções para migrar VMs VMware para o
 ms.topic: conceptual
 ms.date: 06/08/2020
 ms.openlocfilehash: e62b9cea80f1ed7f672135b93e52ba606a717a6c
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88950214"
 ---
 # <a name="select-a-vmware-migration-option"></a>Selecione uma opção de migração do VMware
@@ -26,7 +26,7 @@ Use essas comparações selecionadas para ajudá-lo a decidir qual método usar.
 --- | --- | ---
 **Permissões do Azure** | Você precisa de permissões para criar um projeto de migrações para Azure e registrar os aplicativos do Azure AD criados ao implantar o dispositivo de migrações para Azure. | Você precisa de permissões de colaborador na assinatura do Azure. 
 **Replicação** | Um máximo de 300 VMs pode ser replicado simultaneamente de um vCenter Server.<br/> Se você tiver mais de 50 VMs para migração, crie vários lotes de VMs.<br/> Replicar mais em uma única vez afetará o desempenho.<br/><br/> No portal, você pode selecionar até 10 computadores ao mesmo tempo para replicação. Para replicar mais computadores, adicione lotes de 10.| A capacidade de replicação aumenta com a expansão do dispositivo de replicação.
-**Implantação de dispositivo** | O [dispositivo migrações para Azure](migrate-appliance.md) é implantado localmente. | O [dispositivo de replicação de migrações para Azure](migrate-replication-appliance.md) é implantado localmente.
+**Implantação do dispositivo** | O [dispositivo migrações para Azure](migrate-appliance.md) é implantado localmente. | O [dispositivo de replicação de migrações para Azure](migrate-replication-appliance.md) é implantado localmente.
 **Compatibilidade Site Recovery** | Compatíveis. | Você não poderá replicar com a migração de servidor de migrações para Azure se tiver configurado a replicação para um computador usando Site Recovery.
 **Disco de destino** | Discos gerenciados | Discos gerenciados
 **Limites de disco** | Disco do sistema operacional: 2 TB<br/><br/> Disco de dados: 8 TB<br/><br/> Máximo de discos: 60 | Disco do sistema operacional: 2 TB<br/><br/> Disco de dados: 8 TB<br/><br/> Máximo de discos: 63
@@ -43,8 +43,8 @@ Depois de revisar as limitações, entender as etapas envolvidas na implantaçã
 **Usar a ferramenta de avaliação do servidor** | Avaliar computadores com a ferramenta migrações para Azure: Server Assessment. | Você pode avaliar as máquinas antes de migrá-las, mas não é necessário. | A avaliação é opcional | A avaliação é opcional.
 **Usar a ferramenta de migração de servidor** | Adicione a ferramenta de migração de servidor de migrações para Azure no projeto de migrações para Azure. | Obrigatório | Obrigatório
 **Preparar o VMware para migração** | Defina as configurações em servidores VMware e VMs. | Obrigatório | Obrigatório
-**Instalar o serviço de mobilidade em VMs** | O serviço de mobilidade é executado em cada VM que você deseja replicar | Não obrigatório | Obrigatório
-**Implantar o dispositivo de replicação** | O [dispositivo de replicação](migrate-replication-appliance.md) é usado para a migração baseada em agente. Ele se conecta entre o serviço de mobilidade em execução em VMs e a migração de servidor. | Não obrigatório | Obrigatório
+**Instalar o serviço de mobilidade em VMs** | O serviço de mobilidade é executado em cada VM que você deseja replicar | Não é necessária | Obrigatório
+**Implantar o dispositivo de replicação** | O [dispositivo de replicação](migrate-replication-appliance.md) é usado para a migração baseada em agente. Ele se conecta entre o serviço de mobilidade em execução em VMs e a migração de servidor. | Não é necessária | Obrigatório
 **Replicar VMs**. Habilitar a replicação de VM. | Definir as configurações de replicação e selecionar as VMs a serem replicadas | Obrigatório | Obrigatório
 **Execute um teste de migração** | Executar uma migração de teste para verificar se tudo está funcionando conforme o esperado. | Obrigatório | Obrigatório
 **Executar uma migração completa** | Migre as VMs. | Obrigatório | Obrigatório

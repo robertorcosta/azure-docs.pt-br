@@ -12,10 +12,10 @@ ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 0991992a6138d263dfb4d200c9555a8d53366d70
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90993883"
 ---
 # <a name="configure-encryption-with-customer-managed-keys-stored-in-azure-key-vault"></a>Configurar a criptografia com chaves gerenciadas pelo cliente armazenadas no Azure Key Vault
@@ -190,7 +190,7 @@ Para configurar chaves gerenciadas pelo cliente com a atualização automática 
 
 Depois de especificar a chave, o portal do Azure indica que a atualização automática da versão de chave está habilitada e exibe a versão de chave atualmente em uso para criptografia.
 
-:::image type="content" source="media/customer-managed-keys-configure-key-vault/portal-auto-rotation-enabled.png" alt-text="Captura de tela mostrando a atualização automática da versão de chave habilitada":::
+:::image type="content" source="media/customer-managed-keys-configure-key-vault/portal-auto-rotation-enabled.png" alt-text="Captura de tela mostrando como habilitar a proteção de limpeza ao criar um cofre de chaves":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 

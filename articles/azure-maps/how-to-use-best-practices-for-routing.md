@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 1c108c79cafb591dced6f6be0dd5c1b353ddac45
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90086395"
 ---
 # <a name="best-practices-for-azure-maps-route-service"></a>Práticas recomendadas para o serviço de rota do Azure Maps
@@ -60,7 +60,7 @@ Aqui está uma comparação para mostrar alguns recursos das direções de rota 
 
 | API do Azure Maps | Número máximo de consultas na solicitação | Evitar áreas | Roteamento de caminhão e de veículo elétrico | Marcos e otimização de vendas de viagens | Pontos de suporte |
 | :--------------: |  :--------------: |  :--------------: | :--------------: | :--------------: | :--------------: |
-| Obter direções de rota | 1 | | X | X | |
+| Obter Trajeto de Rota | 1 | | X | X | |
 | Pós-direções de rota | 1 | X | X | X | X |
 | Postar o lote de direções do roteiro | 700 | | X | X | |
 | Matrix de rota POST | 700 | | X | | |
@@ -282,7 +282,7 @@ O SDK da Web do Azure Maps fornece um [módulo de serviço](https://docs.microso
 Para saber mais, consulte:
 
 > [!div class="nextstepaction"]
-> [Serviço de rota do Azure Maps](https://docs.microsoft.com/rest/api/maps/route)
+> [Serviço Roteiros do Azure Mapas](https://docs.microsoft.com/rest/api/maps/route)
 
 > [!div class="nextstepaction"]
 > [Como usar o módulo de serviço](https://docs.microsoft.com/azure/azure-maps/how-to-use-services-module)

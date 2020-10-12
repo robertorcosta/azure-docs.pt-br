@@ -4,10 +4,10 @@ description: Use a Pontuação do supervisor para aproveitar ao máximo o Azure
 ms.topic: article
 ms.date: 09/09/2020
 ms.openlocfilehash: 29d8480f501a78c1668b52034f439f998419f9d9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91335612"
 ---
 # <a name="optimize-azure-workloads-using-advisor-score"></a>Otimizar cargas de trabalho do Azure usando a Pontuação do supervisor
@@ -17,11 +17,11 @@ ms.locfileid: "91335612"
 O Azure Advisor fornece recomendações de práticas recomendadas para suas cargas de trabalho. Essas recomendações são personalizadas e acionáveis para ajudá-lo a:
 * Melhorar a postura de suas cargas de trabalho e otimizar suas implantações do Azure
 * Impeça proativamente os principais problemas seguindo as práticas recomendadas
-* Avalie suas cargas de trabalho do Azure em relação aos cinco pilares da [estrutura de Microsoft Azure bem projetada](https://docs.microsoft.com/azure/architecture/framework/)
+* Avalie suas cargas de trabalho do Azure em relação aos cinco pilares do [Microsoft Azure Well-Architected Framework](https://docs.microsoft.com/azure/architecture/framework/)
 
 Como um recurso fundamental do Advisor, a **Pontuação do consultor** é criada para ajudá-lo a atingir essas metas com eficiência e eficiência. 
 
-Para tirar o máximo proveito do Azure, é crucial entender onde você está em sua jornada de otimização da carga de trabalho, quais serviços/recursos são consumidos bem e quais não são. Além disso, você desejará saber como priorizar suas ações, com base nas recomendações, para maximizar o resultado. Também é importante acompanhar e relatar o progresso que você está fazendo nesta jornada de otimização. Com a **Pontuação do supervisor**, você pode facilmente fazer todas essas coisas com nossa nova experiência de Gamificação. Como seu consultor de nuvem personalizado, o Azure Advisor avalia continuamente a telemetria de uso e a configuração de recursos para verificar as práticas recomendadas do setor. O Advisor, em seguida, agrega suas descobertas em uma única Pontuação para que você possa perceber, rapidamente, se você está realizando as etapas necessárias para criar soluções confiáveis, seguras e econômicas. A Pontuação do supervisor consiste em uma pontuação geral, que pode ser dividida em cinco pontuações de categoria, uma para cada categoria do Azure Advisor que representa os cinco pilares da estrutura bem arquitetada. Você pode acompanhar o progresso feito ao longo do tempo exibindo a pontuação geral e a pontuação da categoria com a tendência diária, semanal e mensal, e pode definir benchmarks para ajudá-lo a atingir suas metas. 
+Para tirar o máximo proveito do Azure, é crucial entender onde você está em sua jornada de otimização da carga de trabalho, quais serviços/recursos são consumidos bem e quais não são. Além disso, você desejará saber como priorizar suas ações, com base nas recomendações, para maximizar o resultado. Também é importante acompanhar e relatar o progresso que você está fazendo nesta jornada de otimização. Com a **Pontuação do supervisor**, você pode facilmente fazer todas essas coisas com nossa nova experiência de Gamificação. Como seu consultor de nuvem personalizado, o Azure Advisor avalia continuamente a telemetria de uso e a configuração de recursos para verificar as práticas recomendadas do setor. O Advisor, em seguida, agrega suas descobertas em uma única Pontuação para que você possa perceber, rapidamente, se você está realizando as etapas necessárias para criar soluções confiáveis, seguras e econômicas. A Pontuação do supervisor consiste em uma pontuação geral, que pode ser dividida em cinco pontuações de categoria, uma para cada categoria do supervisor do Azure que representa os cinco pilares da estrutura de Well-Architected. Você pode acompanhar o progresso feito ao longo do tempo exibindo a pontuação geral e a pontuação da categoria com a tendência diária, semanal e mensal, e pode definir benchmarks para ajudá-lo a atingir suas metas. 
 
  ![Experiência de Pontuação do supervisor](./media/advisor-score-1.png)
 

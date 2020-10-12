@@ -13,10 +13,10 @@ ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ms.openlocfilehash: f991e38c184fe44f63af63809deb14eda22f8f4c
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88716717"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Resolver mensagens de erro da extensão NPS da Autenticação Multifator do Azure
@@ -101,7 +101,7 @@ Se os usuários estiverem [tendo problemas com a verificação em duas etapas](.
 
 O [script de verificação de integridade da extensão NPS do Azure MFA](/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/) executa uma verificação de integridade básica ao solucionar problemas de extensão do NPS. Execute o script e escolha a opção 3.
 
-### <a name="contact-microsoft-support"></a>Contatar Suporte da Microsoft
+### <a name="contact-microsoft-support"></a>Entrar em contato com o suporte da Microsoft
 
 Caso você precise de mais ajuda, contate um profissional de suporte por meio do [suporte do Servidor de Autenticação Multifator do Azure](https://support.microsoft.com/oas/default.aspx?prid=14947). Ao entrar em contato conosco, é útil incluir o máximo possível de informações sobre o problema. As informações que você pode fornecer incluem a página em que viu o erro, o código de erro específico, a ID da sessão específica, a ID do usuário que viu o erro e os logs de depuração.
 

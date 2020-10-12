@@ -4,10 +4,10 @@ description: Descreve as propriedades que são fornecidas para eventos de Worksp
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: fb8cd76829622962b642580bbda7f2a655604c2f
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87458035"
 ---
 # <a name="azure-machine-learning-as-an-event-grid-source"></a>Azure Machine Learning como uma fonte de grade de eventos
@@ -186,7 +186,7 @@ Esta seção mostra um exemplo de como os dados seriam para cada evento.
 
 Um evento tem os seguintes dados de nível superior:
 
-| Propriedade | Tipo | Description |
+| Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
 | topic | string | Caminho de recurso completo para a origem do evento. Esse campo não é gravável. Grade de Eventos fornece esse valor. |
 | subject | string | Caminho definido pelo publicador para o assunto do evento. |
@@ -201,37 +201,37 @@ O objeto de dados tem as seguintes propriedades para cada tipo de evento:
 
 ### <a name="microsoftmachinelearningservicesmodelregistered"></a>Microsoft. MachineLearningServices. ModelRegistered
 
-| Propriedade | Tipo | Description |
+| Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
 | ModelName | string | O nome do modelo que foi registrado. |
 | ModelVersion | string | A versão do modelo que foi registrado. |
-| ModelTags | object | As marcas do modelo que foi registrado. |
-| Modelproperties | object | As propriedades do modelo que foi registrado. |
+| ModelTags | objeto | As marcas do modelo que foi registrado. |
+| Modelproperties | objeto | As propriedades do modelo que foi registrado. |
 
 ### <a name="microsoftmachinelearningservicesmodeldeployed"></a>Microsoft. MachineLearningServices. ModelDeployed
 
-| Propriedade | Tipo | Description |
+| Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
 | ServiceName | string | O nome do serviço implantado. |
 | Filecomputetype | string | O tipo de computação (por exemplo, ACI, AKS) do serviço implantado. |
   | ModelIds | string | Uma lista separada por vírgulas de IDs de modelo. As IDs dos modelos implantados no serviço. |
-| Crachás | object | As marcas do serviço implantado. |
-| ServiceProperties | object | As propriedades do serviço implantado. |
+| Crachás | objeto | As marcas do serviço implantado. |
+| ServiceProperties | objeto | As propriedades do serviço implantado. |
 
 ### <a name="microsoftmachinelearningservicesruncompleted"></a>Microsoft. MachineLearningServices. RunCompleted
 
-| Propriedade | Tipo | Description |
+| Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
 | experimentoid | string | A ID do experimento ao qual a execução pertence. |
 | experimentoname | string | O nome do experimento ao qual a execução pertence. |
 | runId | string | A ID da execução que foi concluída. |
 | runType | string | O tipo de execução da execução concluída. |
-| runTags | object | As marcas da execução concluída. |
-| runProperties | object | As propriedades da execução concluída. |
+| runTags | objeto | As marcas da execução concluída. |
+| runProperties | objeto | As propriedades da execução concluída. |
 
 ### <a name="microsoftmachinelearningservicesdatasetdriftdetected"></a>Microsoft. MachineLearningServices. DatasetDriftDetected
 
-| Propriedade | Tipo | Description |
+| Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
 | Onficaid | string | A ID do monitor de descompasso de dados que disparou o evento. |
 | Datalogoffname | string | O nome do monitor de descompasso de dados que disparou o evento. |
@@ -244,14 +244,14 @@ O objeto de dados tem as seguintes propriedades para cada tipo de evento:
 
 ### <a name="microsoftmachinelearningservicesrunstatuschanged"></a>Microsoft. MachineLearningServices. RunStatusChanged
 
-| Propriedade | Tipo | Description |
+| Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
 | experimentoid | string | A ID do experimento ao qual a execução pertence. |
 | experimentoname | string | O nome do experimento ao qual a execução pertence. |
 | runId | string | A ID da execução que foi concluída. |
 | runType | string | O tipo de execução da execução concluída. |
-| runTags | object | As marcas da execução concluída. |
-| runProperties | object | As propriedades da execução concluída. |
+| runTags | objeto | As marcas da execução concluída. |
+| runProperties | objeto | As propriedades da execução concluída. |
 | runStatus | string | O status da execução. |
 
 ## <a name="tutorials-and-how-tos"></a>Tutoriais e instruções

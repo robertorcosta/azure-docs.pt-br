@@ -14,10 +14,10 @@ ms.date: 08/07/2020
 ms.author: amverma
 ms.reviewer: cynthn
 ms.openlocfilehash: d4661c0819d214a2c750eb1582559f8d8a5959ed
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88006597"
 ---
 # <a name="configure-and-optimize-vms"></a>Configurar e otimizar VMs
@@ -118,6 +118,6 @@ Opcionalmente, o WALinuxAgent pode ser desabilitado como uma etapa de pré-traba
 
 - Saiba mais sobre como [habilitar o InfiniBand](enable-infiniband.md) nas VMs da série [H](../../sizes-hpc.md) e da [série N](../../sizes-gpu.md) habilitada para InfiniBand.
 - Saiba mais sobre como instalar várias [bibliotecas MPI com suporte](setup-mpi.md) e sua configuração ideal nas VMs.
-- Examine as visão geral da série [HB](hb-series-overview.md) e [HC-Series](hc-series-overview.md) para saber mais sobre como configurar de forma ideal as cargas de trabalho para desempenho e escalabilidade.
-- Leia sobre os comunicados mais recentes e alguns exemplos e resultados do HPC nos [Blogs da comunidade de computação técnica do Azure](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
-- Para uma exibição de arquitetura de nível superior da execução de cargas de trabalho do HPC, consulte [computação de alto desempenho (HPC) no Azure](/azure/architecture/topics/high-performance-computing/).
+- Examine a [visão geral da série HB](hb-series-overview.md) e a [visão geral da série HC](hc-series-overview.md) para saber mais sobre como configurar de maneira ideal as cargas de trabalho para desempenho e escalabilidade.
+- Leia os comunicados mais recentes e alguns exemplos e resultados da HPC nos [Blogs da Tech Community da Computação do Azure](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- Para obter uma visão de nível superior da arquitetura de execução de cargas de trabalho de HPC, confira [HPC (computação de alto desempenho) no Azure](/azure/architecture/topics/high-performance-computing/).
