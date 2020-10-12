@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 04/30/2020
 ms.author: apimpm
 ms.openlocfilehash: ac147863fe54be3343eda653fc863ebd08dac54d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86254496"
 ---
 # <a name="configure-local-metrics-and-logs-for-azure-api-management-self-hosted-gateway"></a>Configurar métricas locais e logs para o gateway auto-hospedado do gerenciamento de API do Azure
@@ -152,9 +152,9 @@ Agora que ambas as estatísticas e Prometheus foram implantadas, podemos atualiz
 | Campo  | Padrão | Descrição |
 | ------------- | ------------- | ------------- |
 | telemetria. métricas. local  | `none` | Habilita o registro em log por meio de estatísticas. O valor pode ser `none` , `statsd` . |
-| telemetria. métricas. local. stats. EndPoint  | N/D | Especifica o ponto de extremidade com estatísticas. |
-| telemetria. métricas. local. stats. amostragem  | N/D | Especifica a taxa de amostragem de métricas. O valor pode estar entre 0 e 1. por exemplo,`0.5`|
-| telemetria. Metrics. local. stated. Tag-Format  | N/D | [Formato de marcação](https://github.com/prometheus/statsd_exporter#tagging-extensions)de exportador com estatísticas. O valor pode ser `none` , `librato` , `dogStatsD` , `influxDB` . |
+| telemetria. métricas. local. stats. EndPoint  | n/a | Especifica o ponto de extremidade com estatísticas. |
+| telemetria. métricas. local. stats. amostragem  | n/a | Especifica a taxa de amostragem de métricas. O valor pode estar entre 0 e 1. por exemplo, `0.5`|
+| telemetria. Metrics. local. stated. Tag-Format  | n/a | [Formato de marcação](https://github.com/prometheus/statsd_exporter#tagging-extensions)de exportador com estatísticas. O valor pode ser `none` , `librato` , `dogStatsD` , `influxDB` . |
 
 Aqui está uma configuração de exemplo:
 
@@ -210,13 +210,13 @@ O gateway auto-hospedado também dá suporte a vários protocolos `localsyslog` 
 
 | Campo  | Padrão | Descrição |
 | ------------- | ------------- | ------------- |
-| telemetria. logs. STD  | `text` | Habilita o registro em log para fluxos padrão. O valor pode ser `none` , `text` ,`json` |
-| telemetria. logs. local  | `none` | Habilita o log local. O valor pode ser `none` , `auto` ,, `localsyslog` `rfc5424` ,`journal`  |
-| telemetria. logs. local. localsyslog. EndPoint  | N/D | Especifica o ponto de extremidade localsyslog.  |
-| telemetria. logs. local. localsyslog. Facility  | N/D | Especifica o [código de instalação](https://en.wikipedia.org/wiki/Syslog#Facility)localsyslog. por exemplo,`7` 
-| telemetria. logs. local. rfc5424. EndPoint  | N/D | Especifica o ponto de extremidade rfc5424.  |
-| telemetria. logs. local. rfc5424. Facility  | N/D | Especifica o código de instalação por [rfc5424](https://tools.ietf.org/html/rfc5424). por exemplo,`7`  |
-| telemetria. logs. local. Journal. EndPoint  | N/D | Especifica o ponto de extremidade do diário.  |
+| telemetria. logs. STD  | `text` | Habilita o registro em log para fluxos padrão. O valor pode ser `none` , `text` , `json` |
+| telemetria. logs. local  | `none` | Habilita o log local. O valor pode ser `none` , `auto` ,, `localsyslog` `rfc5424` , `journal`  |
+| telemetria. logs. local. localsyslog. EndPoint  | n/a | Especifica o ponto de extremidade localsyslog.  |
+| telemetria. logs. local. localsyslog. Facility  | n/a | Especifica o [código de instalação](https://en.wikipedia.org/wiki/Syslog#Facility)localsyslog. por exemplo, `7` 
+| telemetria. logs. local. rfc5424. EndPoint  | n/a | Especifica o ponto de extremidade rfc5424.  |
+| telemetria. logs. local. rfc5424. Facility  | n/a | Especifica o código de instalação por [rfc5424](https://tools.ietf.org/html/rfc5424). por exemplo, `7`  |
+| telemetria. logs. local. Journal. EndPoint  | n/a | Especifica o ponto de extremidade do diário.  |
 
 Aqui está um exemplo de configuração de log local:
 

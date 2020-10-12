@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
 ms.openlocfilehash: d166257dd28773d89a4f1fd56de3cb1a22242523
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87284159"
 ---
 # <a name="create-application-with-simple-commands"></a>Criar aplicativo com comandos simples
@@ -85,7 +85,7 @@ Em seguida, o comando precisa ter uma regra de conclusão. Essa regra informa ao
     | ---------- | ---------------------------------------- | -------------------------------------------------- |
     | **Nome**       | ConfirmationResponse                  | Um nome que descreve a finalidade da regra          |
     | **Condições** | Nenhum                                     | Condições que determinam quando a regra pode ser executada    |
-    | **Ações**    | Enviar resposta de fala > editor simples > primeira variação >`Ok, turning the tv on` | A ação a ser tomada quando a condição da regra for verdadeira |
+    | **Ações**    | Enviar resposta de fala > editor simples > primeira variação > `Ok, turning the tv on` | A ação a ser tomada quando a condição da regra for verdadeira |
     
 
 
@@ -100,7 +100,7 @@ Em seguida, o comando precisa ter uma regra de conclusão. Essa regra informa ao
     > [!NOTE]
     > Não é necessário usar a regra de conclusão padrão que vem com o comando. Se necessário, você pode excluir a regra de conclusão padrão existente e adicionar sua própria regra.
 
-### <a name="try-it-out"></a>Experimente
+### <a name="try-it-out"></a>Experimentar
 
 Testar o comportamento usando o painel testar chat
 1. Selecione o ícone de **treinamento** presente na parte superior do painel direito.
@@ -127,7 +127,7 @@ Em seguida, edite as regras de conclusão **realizadas** existentes da seguinte 
 | ---------- | ---------------------------------------- |
 | Nome  | ConfirmationResponse                  |
 | Condições | Nenhum                                     |
-| Ações    | Enviar resposta de fala > editor simples > primeira variação >`Ok, setting temperature to 40 degrees` |
+| Ações    | Enviar resposta de fala > editor simples > primeira variação > `Ok, setting temperature to 40 degrees` |
 
 Selecione **salvar** para salvar todas as alterações no comando.
 
@@ -142,7 +142,7 @@ Crie um novo comando **setAlarm** usando a sentença de exemplo "**set a Alarm f
 
 Selecione **salvar** para salvar todas as alterações no comando.
 
-## <a name="try-it-out"></a>Experimente
+## <a name="try-it-out"></a>Experimentar
 
 Testar o comportamento usando o painel testar chat
 1. Selecione **Treinar**. Após o êxito do treinamento, selecione **teste** e experimente:

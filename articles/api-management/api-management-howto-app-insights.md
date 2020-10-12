@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
 ms.openlocfilehash: 8c9df3393a0554d2e65b3918c6760885f89e11ed
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86254735"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Como integrar o Gerenciamento de API do Azure ao Azure Application Insights
@@ -79,7 +79,7 @@ Para que você possa usar as informações do Azure Application Insights, primei
 | Amostragem (%)                        | decimal                           | Valores de 0 a 100 (porcentagem). <br/> Especifica o percentual de solicitações que será registrada no Azure Application Insights. A amostragem de 0% significa zero solicitações registradas, enquanto a amostragem de 100% significa que todas as solicitações foram registradas. <br/> Essa configuração é usada para reduzir as implicações no desempenho das solicitações de registro no Azure Application Insights (confira a seção abaixo). |
 | Sempre registrar erros                   | booleano                           | Se essa configuração for selecionada, todas as falhas serão registradas no Azure Application Insights, independentemente da configuração de **Amostragem**.                                                                                                                                                                                                                  |
 | Opções básicas: cabeçalhos              | list                              | Especifica os cabeçalhos que serão registrados no Azure Application Insights para solicitações e respostas.  Padrão: nenhum cabeçalho é registrado.                                                                                                                                                                                                             |
-| Opções básicas: primeiros bytes do corpo  | inteiro                           | Especifica quantos primeiros bytes do corpo são registrados no Azure Application Insights para solicitações e respostas.  Padrão: o corpo não é registrado.                                                                                                                                                                                                    |
+| Opções básicas: primeiros bytes do corpo  | Número inteiro                           | Especifica quantos primeiros bytes do corpo são registrados no Azure Application Insights para solicitações e respostas.  Padrão: o corpo não é registrado.                                                                                                                                                                                                    |
 | Opções avançadas: detalhes         |                                   | Especifica o nível de verbosidade. Somente rastreamentos personalizados com nível de severidade mais alto serão registrados. Padrão: informações.                                                                                                                                                                                                                               |
 | Opções avançadas: solicitação de front-end  |                                   | Especifica se e como as *solicitações de front-end* serão registradas no Azure Application Insights. A *solicitação de front-end* é uma solicitação recebida no serviço de Gerenciamento de API do Azure.                                                                                                                                                                        |
 | Opções avançadas: resposta de front-end |                                   | Especifica se e como as *respostas de front-end* serão registradas no Azure Application Insights. A *resposta de front-end* é uma resposta de saída no serviço de Gerenciamento de API do Azure.                                                                                                                                                                   |

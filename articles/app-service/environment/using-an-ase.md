@@ -8,10 +8,10 @@ ms.date: 5/10/2020
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: ca333115b8a0588f781b93e0d8a9279ab9c7928c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91255155"
 ---
 # <a name="use-an-app-service-environment"></a>Usar um Ambiente do Serviço de Aplicativo
@@ -122,9 +122,9 @@ A URL do SCM é usada para acessar o console do kudu ou para publicar seu aplica
 
 ### <a name="dns-configuration"></a>Configuração de DNS 
 
-Quando você usa um ASE externo, os aplicativos feitos em seu ASE são registrados com o DNS do Azure. Não há etapas adicionais em um ASE externo para que seus aplicativos estejam publicamente disponíveis. Com um ASE ILB, você deve gerenciar seu próprio DNS. Você pode fazer isso em seu próprio servidor DNS ou em zonas privadas do DNS do Azure.
+Quando você usa um ASE Externo, os aplicativos criados no ASE são registrados com o DNS do Azure. Não há etapas adicionais em um ASE Externo para os aplicativos fiquem disponíveis publicamente. Com um ASE do ILB, você precisa gerenciar seu DNS. Você pode fazer isso em seu servidor DNS ou em Zonas Privadas do DNS do Azure.
 
-Para configurar o DNS em seu próprio servidor DNS com o ASE ILB:
+Para configurar o DNS em seu servidor DNS com o ASE do ILB:
 
 1. crie uma zona para &lt;nome do ASE&gt;.appserviceenvironment.net
 1. crie um registro A nessa zona que aponte * para o endereço IP do ILB
@@ -132,16 +132,16 @@ Para configurar o DNS em seu próprio servidor DNS com o ASE ILB:
 1. crie uma zona em &lt;nome do ASE&gt;.appserviceenvironment.net chamada scm
 1. crie um registro A na zona scm que aponte * para o endereço IP do ILB
 
-Para configurar o DNS nas zonas privadas do DNS do Azure:
+Para configurar o DNS em Zonas Privadas do DNS do Azure:
 
 1. Crie uma zona privada de DNS do Azure denominada &lt; ase name &gt; . appserviceenvironment.net
 1. crie um registro A nessa zona que aponte * para o endereço IP do ILB
 1. crie um registro A nessa zona que aponte @ para o endereço IP do ILB
-1. Crie um registro A nessa zona que aponte para *. SCM para o endereço IP ILB
+1. crie um registro A nessa zona que aponte *.scm para o endereço IP do ILB
 
-As configurações de DNS para o sufixo de domínio padrão do ASE não restringem seus aplicativos a serem acessados apenas por esses nomes. Você pode definir um nome de domínio personalizado sem qualquer validação em seus aplicativos em um ASE ILB. Se você quiser criar uma zona chamada *contoso.net*, poderá fazer isso e apontar para o endereço IP ILB. O nome de domínio personalizado funciona para solicitações de aplicativo, mas não para o site do SCM. O site do SCM está disponível somente em * &lt; AppName &gt; . SCM. &lt; asename &gt; . appserviceenvironment.net*. 
+As configurações de DNS do sufixo de domínio padrão do ASE não restringem seus aplicativos a serem acessados apenas por esses nomes. Você pode definir um nome de domínio personalizado sem nenhuma validação em seus aplicativos em um ASE do ILB. Se você quiser criar uma zona chamada *contoso.net*, poderá fazer isso e apontar para o endereço IP ILB. O nome de domínio personalizado funciona para solicitações de aplicativo, mas não para o site do scm. O site do SCM está disponível somente em * &lt; AppName &gt; . SCM. &lt; asename &gt; . appserviceenvironment.net*. 
 
-A zona chamada *. &lt; asename &gt; . appserviceenvironment.net* é globalmente exclusivo. Antes de 2019 de maio, os clientes conseguiram especificar o sufixo de domínio do ASE ILB. Se você quisesse usar *. contoso.com* para o sufixo de domínio, você poderia fazer isso e isso incluiria o site do SCM. Há desafios com esse modelo, incluindo; Gerenciamento do certificado SSL padrão, falta de logon único com o site do SCM e a necessidade de usar um certificado curinga. O processo de atualização de certificado padrão do ASE ILB também foi interrompido e causou a reinicialização do aplicativo. Para resolver esses problemas, o comportamento do ASE ILB foi alterado para usar um sufixo de domínio com base no nome do ASE e com um sufixo de propriedade da Microsoft. A alteração no comportamento do ASE ILB afeta apenas o ILB ASEs feito após 2019 de maio. ILB ASEs preexistente ainda deve gerenciar o certificado padrão do ASE e sua configuração de DNS.
+A zona chamada *. &lt; asename &gt; . appserviceenvironment.net* é globalmente exclusivo. Antes de maio de 2019, os usuários podiam especificar o sufixo de domínio do ASE do ILB. Se você quisesse usar *. contoso.com* para o sufixo de domínio, você poderia fazer isso e isso incluiria o site do SCM. Havia desafios com esse modelo, incluindo o gerenciamento do certificado SSL padrão, a falta de logon único com o site do scm e a necessidade de usar um certificado curinga. O processo de atualização de certificado padrão do ASE do ILB também era problemático e causava a reinicialização do aplicativo. Para resolver esses problemas, o comportamento do ASE do ILB foi alterado de maneira a passar a usar um sufixo de domínio baseado no nome do ASE e com um sufixo de propriedade da Microsoft. A alteração no comportamento do ASE do ILB afeta apenas o ASEs do ILB criados após maio de 2019. ASEs do ILB preexistente ainda precisam gerenciar o certificado padrão do ASE e sua configuração de DNS.
 
 ## <a name="publishing"></a>Publicando
 
@@ -165,7 +165,7 @@ Os pontos de extremidade de publicação para aplicativos em um ASE ILB usam o d
 
 Um ASE tem 1 TB de armazenamento para todos os aplicativos no ASE. Um plano do serviço de aplicativo no SKU de preços isolado tem um limite de 250 GB. Em um ASE, 250 GB de armazenamento são adicionados por plano do serviço de aplicativo até o limite de 1 TB. Você pode ter mais planos do serviço de aplicativo do que apenas quatro, mas não há mais armazenamento adicionado além do limite de 1 TB.
 
-## <a name="logging"></a>Registro em log
+## <a name="logging"></a>Registrando em log
 
 Você pode integrar seu ASE com Azure Monitor para enviar logs sobre o ASE para o armazenamento do Azure, hubs de eventos do Azure ou Log Analytics. Estes itens estão registrados hoje:
 

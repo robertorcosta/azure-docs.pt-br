@@ -4,10 +4,10 @@ description: Este artigo fornece informações sobre como autenticar um aplicati
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: b12f2f294a66159a7035240c361ab93f9f84718e
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88064818"
 ---
 # <a name="authenticate-and-authorize-an-application-with-azure-active-directory-to-access-azure-service-bus-entities"></a>Autenticar e autorizar um aplicativo com Azure Active Directory para acessar entidades do barramento de serviço do Azure
@@ -153,7 +153,7 @@ Ao executar o aplicativo de console, você será solicitado a selecionar um cen�
 - Para saber mais sobre o RBAC do Azure, confira [o que é o Azure RBAC (controle de acesso baseado em função)](../role-based-access-control/overview.md)?
 - Para saber como atribuir e gerenciar atribuições de função do Azure com Azure PowerShell, CLI do Azure ou a API REST, consulte estes artigos:
     - [Adicionar ou remover atribuições de função do Azure usando o Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)  
-    - [Adicionar ou remover atribuições de função do Azure usando CLI do Azure](../role-based-access-control/role-assignments-cli.md)
+    - [Adicionar ou remover atribuições de função do Azure usando a CLI do Azure](../role-based-access-control/role-assignments-cli.md)
     - [Adicionar ou remover atribuições de função do Azure usando a API REST](../role-based-access-control/role-assignments-rest.md)
     - [Adicionar ou remover atribuições de função do Azure usando modelos de Azure Resource Manager](../role-based-access-control/role-assignments-template.md)
 

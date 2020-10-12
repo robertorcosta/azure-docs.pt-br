@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 4d606e6cd035d4dae388d8559d100988a46e8203
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89010011"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-event-hubs-resources"></a>Autenticar uma identidade gerenciada com Azure Active Directory para acessar recursos de hubs de eventos
@@ -60,14 +60,14 @@ Para atribuir uma função aos recursos dos hubs de eventos, navegue até esse r
 4.  Na página **Adicionar atribuição de função** , selecione as funções de hubs de eventos que você deseja atribuir. Em seguida, pesquise para localizar a identidade do serviço que você registrou para atribuir a função.
     
     ![Página Adicionar atribuição de função](./media/authenticate-managed-identity/add-role-assignment-page.png)
-5.  Clique em **Salvar**. A identidade à qual você atribuiu a função aparece listada sob essa função. Por exemplo, a imagem a seguir mostra que a identidade de serviço tem proprietário de dados de hubs de eventos.
+5.  Selecione **Salvar**. A identidade à qual você atribuiu a função aparece listada sob essa função. Por exemplo, a imagem a seguir mostra que a identidade de serviço tem proprietário de dados de hubs de eventos.
     
     ![Identidade atribuída a uma função](./media/authenticate-managed-identity/role-assigned.png)
 
 Depois de atribuir a função, o aplicativo Web terá acesso aos recursos dos hubs de eventos no escopo definido. 
 
 ### <a name="test-the-web-application"></a>Testar o aplicativo Web
-1. Crie um namespace de hubs de eventos e um hub de eventos. 
+1. Criar um namespace de Hubs de Eventos e um hub de eventos. 
 2. Implante o aplicativo Web no Azure. Consulte a seguinte seção com guias para obter links para o aplicativo Web no GitHub. 
 3. Verifique se o SendReceive. aspx está definido como o documento padrão para o aplicativo Web. 
 3. Habilite a **identidade** para o aplicativo Web. 

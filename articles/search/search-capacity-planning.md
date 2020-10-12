@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.openlocfilehash: 76084a9ddd6842194bb4c6b25d62e62c2ed2d4a8
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89660316"
 ---
 # <a name="adjust-the-capacity-of-an-azure-cognitive-search-service"></a>Ajustar a capacidade de um serviço de Pesquisa Cognitiva do Azure
@@ -36,7 +36,7 @@ A capacidade é expressa *em unidades de pesquisa* que podem ser alocadas em com
 
 O diagrama a seguir mostra a relação entre réplicas, partições, fragmentos e unidades de pesquisa. Ele mostra um exemplo de como um único índice é estendido em quatro unidades de pesquisa em um serviço com duas réplicas e duas partições. Cada uma das quatro unidades de pesquisa armazena apenas metade dos fragmentos do índice. As unidades de pesquisa na coluna esquerda armazenam a primeira metade dos fragmentos, que compõem a primeira partição, enquanto aquelas na coluna direita armazenam a segunda metade dos fragmentos, que compõem a segunda partição. Como há duas réplicas, há duas cópias de cada fragmento de índice. As unidades de pesquisa na linha superior armazenam uma cópia, que inclui a primeira réplica, enquanto aquelas na linha inferior armazenam outra cópia, compostando a segunda réplica.
 
-:::image type="content" source="media/search-capacity-planning/shards.png" alt-text="Os índices de pesquisa são fragmentados entre partições.":::
+:::image type="content" source="media/search-capacity-planning/shards.png" alt-text="Os índices de pesquisa são fragmentados entre partições.&quot;:::
 
 O diagrama acima é apenas um exemplo. Muitas combinações de partições e réplicas são possíveis, até um máximo de 36 unidades de pesquisa de total.
 
@@ -44,7 +44,7 @@ No Pesquisa Cognitiva, o gerenciamento de fragmentos é um detalhe de implementa
 
 + A classificação de anomalias: as pontuações de pesquisa são calculadas primeiro no nível do fragmento e, em seguida, agregadas em um único conjunto de resultados. Dependendo das características do conteúdo do fragmento, as correspondências de um fragmento podem ter uma classificação maior do que as correspondências em outra. Se você observar classificações não intuitivas nos resultados da pesquisa, isso provavelmente ocorrerá devido aos efeitos da fragmentação, especialmente se os índices forem pequenos. Você pode evitar essas anomalias de classificação escolhendo [calcular pontuações globalmente em todo o índice](index-similarity-and-scoring.md#scoring-statistics-and-sticky-sessions), mas isso incorrerá em uma penalidade de desempenho.
 
-+ Anomalias de preenchimento automático: consultas de preenchimento automático, em que as correspondências são feitas nos primeiros vários caracteres de um termo parcialmente inserido, aceitam um parâmetro difuso que Forgives pequenos desvios na grafia. Para preenchimento automático, a correspondência difusa é restrita a termos dentro do fragmento atual. Por exemplo, se um fragmento contiver "Microsoft" e um termo parcial de "Micor" for inserido, o mecanismo de pesquisa corresponderá em "Microsoft" nesse fragmento, mas não em outros fragmentos que contenham as partes restantes do índice.
++ Anomalias de preenchimento automático: consultas de preenchimento automático, em que as correspondências são feitas nos primeiros vários caracteres de um termo parcialmente inserido, aceitam um parâmetro difuso que Forgives pequenos desvios na grafia. Para preenchimento automático, a correspondência difusa é restrita a termos dentro do fragmento atual. Por exemplo, se um fragmento contiver &quot;Microsoft&quot; e um termo parcial de &quot;Micor&quot; for inserido, o mecanismo de pesquisa corresponderá em &quot;Microsoft" nesse fragmento, mas não em outros fragmentos que contenham as partes restantes do índice.
 
 ## <a name="when-to-add-nodes"></a>Quando adicionar nós
 

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 95f4221b390071ad149699608d3937b9af4e1d5d
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90526996"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Planejar uma implantação de autenticação com senha no Azure Active Directory
@@ -51,7 +51,7 @@ A Microsoft oferece três opções de autenticação com senha que abrangem muit
 
 Os métodos de autenticação com senha da Microsoft permitem diferentes cenários. Considere suas necessidades organizacionais, pré-requisitos e os recursos de cada método de autenticação para selecionar sua estratégia de autenticação com senha. Recomendamos que todas as organizações que usam dispositivos Windows 10 usem o Windows Hello para empresas. Em seguida, adicione uma entrada do telefone (com o aplicativo Microsoft Authenticator) ou chaves de segurança para cenários adicionais.
 
-| Cenário | Autenticação por telefone | Chaves de segurança | Windows Hello for Business |
+| Cenário | Autenticação por telefone | Chaves de segurança | Windows Hello para Empresas |
 | --- | --- | --- | --- |
 | **Entrada do computador**: <br> Do dispositivo Windows 10 atribuído | **Não** | **Sim** <br> Com biométrica, PIN | **Sim**<br>com reconhecimento biométrico e PIN |
 | **Entrada do computador**: <br> Do dispositivo Windows 10 compartilhado | **Não** | **Sim** <br> Com biométrica, PIN  | **Não** |
@@ -118,7 +118,7 @@ Suas comunicações com os usuários finais devem incluir as seguintes informaç
 - [Registrando no aplicativo Microsoft Authenticator](howto-authentication-passwordless-phone.md)
 - [Entrar com seu telefone](../user-help/user-help-auth-app-sign-in.md)
 
-A Microsoft fornece [modelos de comunicação](https://aka.ms/mfatemplates)da autenticação multifator, [modelos de comunicação](https://www.microsoft.com/download/details.aspx?id=56768)de autoatendimento de redefinição de senha (SSPR) e [documentação do usuário final](../user-help/security-info-setup-signin.md) para ajudar a rascunhar suas comunicações. Você pode enviar usuários para [https://myprofile.microsoft.com](https://myprofile.microsoft.com/) a fim de que se registrem diretamente, selecionando os links de **Informações de Segurança** nessa página.
+A Microsoft fornece [modelos de comunicação](https://aka.ms/mfatemplates)de autenticação multifator, [modelos de comunicação](https://www.microsoft.com/download/details.aspx?id=56768)Self-Service SSPR (redefinição de senha) e [documentação do usuário final](../user-help/security-info-setup-signin.md) para ajudar a rascunhar suas comunicações. Você pode enviar usuários para [https://myprofile.microsoft.com](https://myprofile.microsoft.com/) a fim de que se registrem diretamente, selecionando os links de **Informações de Segurança** nessa página.
 
 ### <a name="plan-to-pilot"></a>Planejar para o piloto
 
@@ -294,7 +294,7 @@ Siga as etapas alinhadas ao método escolhido abaixo.
 
 | Função do Azure AD | Descrição |
 | --- | --- |
-| Administrador Global|Função menos privilegiada capaz de implementar a experiência de registro combinada. |
+| Administrador global|Função menos privilegiada capaz de implementar a experiência de registro combinada. |
 | Administrador de Autenticação | Função menos privilegiada capaz de implementar e gerenciar métodos de autenticação. |
 | Usuário | Função com privilégios mínimos para configurar o aplicativo autenticador no dispositivo ou para registrar o dispositivo de chave de segurança para entrada na Web ou no Windows 10. |
 

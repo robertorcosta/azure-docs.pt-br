@@ -16,10 +16,10 @@ ms.topic: troubleshooting
 ms.date: 10/18/2019
 ms.author: b-juche
 ms.openlocfilehash: 870caffe2bd286c2eec3390915bc5e64e0103a07
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85483458"
 ---
 # <a name="troubleshoot-azure-netapp-files-resource-provider-errors"></a>Solucionar problemas de erros do Provedor de Recursos do Azure NetApp Files 
@@ -126,7 +126,7 @@ Você pode substituir um sublinhado por um hífen ou usar maiúsculas e minúscu
 Esse erro ocorre quando você tenta alterar `FileSystemId` .  `FileSystemdId`A alteração não é uma operação com suporte. 
 
 * Causa:   
-A ID do sistema de arquivos é definida quando o volume é criado. `FileSystemId`Não pode ser alterado subsequentemente.
+A ID do sistema de arquivos é definida quando o volume é criado. `FileSystemId` Não pode ser alterado subsequentemente.
 * Solução:   
 Não inclua `FileSystemId` em uma solicitação de patch e atualização (put).  Como alternativa, verifique se `FileSystemId` é o mesmo na solicitação.
 
@@ -439,7 +439,7 @@ Nenhum.  Consulte a solução acima.
 
 ***Sub-redeid não pode ser alterada.***
 
-Esse erro ocorre quando você tenta alterar o `subnetId` depois que o volume é criado.  `SubnetId`deve ser definido quando o volume é criado e não pode ser alterado posteriormente.
+Esse erro ocorre quando você tenta alterar o `subnetId` depois que o volume é criado.  `SubnetId` deve ser definido quando o volume é criado e não pode ser alterado posteriormente.
 
 * Causa:   
 Você está tentando alterar o `subnetId` depois que o volume foi criado, o que não é uma operação com suporte. 

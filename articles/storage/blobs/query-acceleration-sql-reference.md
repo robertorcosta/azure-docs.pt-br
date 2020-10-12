@@ -11,10 +11,10 @@ ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: ereilebr
 ms.openlocfilehash: affddf7367f58107106ae07a07b8baedac73e251
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89659568"
 ---
 # <a name="query-acceleration-sql-language-reference"></a>Referência da linguagem SQL de aceleração de consulta
@@ -61,7 +61,7 @@ SELECT sys.split(split_size)FROM BlobStorage
 |FLOAT    |ponto flutuante de 64 bits ("precisão dupla").|
 |STRING   |Cadeia de caracteres Unicode de comprimento variável.            |
 |timestamp|Um ponto no tempo.                           |
-|BOOLEAN  |Verdadeiro ou falso.                             |
+|BOOLEAN  |True ou false.                             |
 
 Ao ler valores de dados formatados em CSV, todos os valores são lidos como cadeias de caracteres.  Valores de cadeia de caracteres podem ser convertidos em outros tipos usando expressões de conversão.  Os valores podem ser convertidos implicitamente em outros tipos, dependendo do contexto. para obter mais informações, consulte [precedência de tipo de dados (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-precedence-transact-sql).
 
@@ -94,7 +94,7 @@ Há suporte para os seguintes operadores SQL padrão:
 |[AND](https://docs.microsoft.com/sql/t-sql/language-elements/bitwise-and-transact-sql)    |Executa uma operação lógica AND bit a bit entre dois valores inteiros.|
 |[OR](https://docs.microsoft.com/sql/t-sql/language-elements/bitwise-or-transact-sql)    |Executa uma operação OR lógica em bits entre dois valores inteiros especificados como convertido em expressões binárias dentro de instruções Transact-SQL.|
 |[NOT](https://docs.microsoft.com/sql/t-sql/language-elements/not-transact-sql)    |Nega uma entrada booliana.|
-|[CAST](https://docs.microsoft.com/sql/t-sql/functions/cast-and-convert-transact-sql)    |Converte uma expressão de um tipo de dados para outro.|
+|[CAST](https://docs.microsoft.com/sql/t-sql/functions/cast-and-convert-transact-sql)    |Converte uma expressão de um tipo de dados em outro.|
 |[BETWEEN](https://docs.microsoft.com/sql/t-sql/language-elements/between-transact-sql)    |Especifica um intervalo a ser testado.|
 |[IN](https://docs.microsoft.com/sql/t-sql/language-elements/in-transact-sql)    |Determina se um valor especificado corresponde a qualquer valor em uma subconsulta ou uma lista.|
 |[NULLIF](https://docs.microsoft.com/sql/t-sql/language-elements/nullif-transact-sql)    |Retorna um valor nulo se as duas expressões especificadas forem iguais.|

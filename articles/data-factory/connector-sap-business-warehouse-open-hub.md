@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/12/2020
 ms.openlocfilehash: 930c7e7881a00cd0cb1f4abc6b219c0fbdeebac5
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87533403"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Copiar dados do SAP Business Warehouse via Open Hub com o Azure Data Factory
@@ -56,7 +56,7 @@ O SAP BW OHD (Destino de Open Hub) define o destino ao qual os dados do SAP são
 
 O ADF SAP BW Open Hub Connector oferece duas propriedades opcionais: `excludeLastRequest` e `baseRequestId` que podem ser usadas para lidar com a carga Delta do Open Hub. 
 
-- **excludeLastRequestId**: se os registros da última solicitação devem ser excluídos. O valor padrão é True. 
+- **excludeLastRequestId**: se os registros da última solicitação devem ser excluídos. O valor padrão é true. 
 - **baseRequestId**: a ID da solicitação de carregamento Delta. Depois que ele for definido, somente os dados com requestId maior do que o valor dessa propriedade serão recuperados. 
 
 Em geral, a extração do SAP InfoProviders para Azure Data Factory (ADF) consiste em duas etapas: 
@@ -236,14 +236,14 @@ Ao copiar dados do SAP BW Open Hub, os seguintes mapeamentos são usados de tipo
 
 | Tipo SAP ABAP | Tipo de dados provisório do Data Factory |
 |:--- |:--- |
-| C (Cadeia de caracteres) | String |
+| C (Cadeia de caracteres) | Cadeia de caracteres |
 | I (inteiro) | Int32 |
 | F (Flutuante) | Double |
-| D (Data) | String |
-| T (Hora) | String |
+| D (Data) | Cadeia de caracteres |
+| T (Hora) | Cadeia de caracteres |
 | P (BCD Empacotado, Moeda, Decimal, Qtd) | Decimal |
-| N (Numc) | String |
-| X (Binário e Bruto) | String |
+| N (Numc) | Cadeia de caracteres |
+| X (Binário e Bruto) | Cadeia de caracteres |
 
 ## <a name="lookup-activity-properties"></a>Pesquisar propriedades de atividade
 

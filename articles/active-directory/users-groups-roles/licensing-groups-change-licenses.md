@@ -17,10 +17,10 @@ ms.reviewer: sumitp
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 94c0d1efa83af53804be89a9e86f4cafd5bc0ae0
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86057748"
 ---
 # <a name="change-license-assignments-for-a-user-or-group-in-azure-active-directory"></a>Alterar as atribuições de licença para um usuário ou grupo no Azure Active Directory
@@ -54,7 +54,7 @@ Na página **Atualizar atribuições de licença** , se você vir que algumas ca
 
     ![página de atribuições de licença para um usuário mostrando o Office 365 E1 limpo e o Office 365 E3 selecionado](media/licensing-groups-change-licenses/update-user-license-assignments.png)
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 O Azure AD aplica as novas licenças e remove as licenças antigas simultaneamente para fornecer continuidade de serviço.
 
@@ -69,7 +69,7 @@ O Azure AD aplica as novas licenças e remove as licenças antigas simultaneamen
 
     ![Selecione o comando atribuições em uma página licenças de usuário ou grupo](media/licensing-groups-change-licenses/update-group-license-assignments.png)
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 Para fornecer continuidade de serviço, o Azure AD aplica as novas licenças e remove as licenças antigas simultaneamente para todos os usuários no grupo.
 

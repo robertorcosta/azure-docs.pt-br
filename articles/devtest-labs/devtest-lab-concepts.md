@@ -4,10 +4,10 @@ description: Aprenda os conceitos básicos do DevTest Labs e como ele pode facil
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 43d62d637686a785cafd29aa311ccf20cb942721
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87283836"
 ---
 # <a name="devtest-labs-concepts"></a>Conceitos dos Laboratórios de Desenvolvimento/Teste
@@ -52,7 +52,7 @@ Com fórmulas, VMs com o mesmo conjunto de propriedades - como a imagem de base,
 ## <a name="policies"></a>Políticas
 Políticas ajudam no controle de custos em seu laboratório. Por exemplo, você pode criar uma política para desligar automaticamente máquinas virtuais com base em uma agenda definida.
 
-## <a name="caps"></a>Limites
+## <a name="caps"></a>Bonés
 Limites são um mecanismo usado para minimizar o desperdício em seu laboratório. Por exemplo, você pode definir um limite para restringir o número de VMs que podem ser criados por usuário ou em um laboratório.
 
 ## <a name="security-levels"></a>Níveis de segurança

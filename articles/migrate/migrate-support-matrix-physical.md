@@ -4,10 +4,10 @@ description: Saiba mais sobre o suporte para avaliação de servidor físico com
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.openlocfilehash: dffa95fe717f8588f56b9dee60ede8bbf44aceb9
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89660338"
 ---
 # <a name="support-matrix-for-physical-server-assessment"></a>Matriz de suporte para avaliação do servidor físico 
@@ -24,7 +24,7 @@ Para avaliar servidores físicos, você cria um projeto de migrações para Azur
 --- | ---
 **Limites de avaliação** | Você pode descobrir e avaliar até 35.000 servidores físicos em um único [projeto de migrações para Azure](migrate-support-matrix.md#azure-migrate-projects).
 **Limites do projeto** | Você pode criar vários projetos em uma assinatura do Azure. Além dos servidores físicos, um projeto pode incluir VMs VMware e VMs do Hyper-V, até os limites de avaliação de cada uma.
-**Descoberta** | O dispositivo de migrações para Azure pode descobrir até 1000 servidores físicos.
+**Discovery** | O dispositivo de migrações para Azure pode descobrir até 1000 servidores físicos.
 **Avaliação** | Você pode adicionar até 35.000 computadores em um único grupo.<br/><br/> Você pode avaliar até 35.000 computadores em uma única avaliação.
 
 [Saiba mais](concepts-assessment-calculation.md) sobre as avaliações.
@@ -34,7 +34,7 @@ Para avaliar servidores físicos, você cria um projeto de migrações para Azur
 | **Suporte**                | **Detalhes**               
 | :-------------------       | :------------------- |
 | **Implantação do servidor físico**       | O servidor físico pode ser autônomo ou implantado em um cluster. |
-| **Permissões**           | **Windows:** Use uma conta de domínio para computadores ingressados no domínio e uma conta local para computadores que não são ingressados no domínio. A conta de usuário deve ser adicionada a estes grupos: Usuários de Gerenciamento Remoto, Usuários do Monitor de Desempenho e Usuários do Log de Desempenho. <br/><br/> **Linux:** Você precisa de uma conta raiz nos servidores Linux que deseja descobrir. <br/> Como alternativa, verifique se os recursos necessários estão definidos usando os comandos a seguir. <br/> setcap CAP_DAC_READ_SEARCH + EIP/usr/sbin/fdisk <br/> setcap CAP_DAC_READ_SEARCH + EIP/sbin/fdisk (se/usr/sbin/fdisk não estiver presente) <br/> setcap "cap_dac_override, cap_dac_read_search, cap_fowner, cap_fsetid, cap_setuid, cap_setpcap, cap_net_bind_service, cap_net_admin, cap_sys_chroot, cap_sys_admin, cap_sys_resource, cap_audit_control, cap_setfcap = + EIP"/sbin/LVM <br/> setcap CAP_DAC_READ_SEARCH + EIP/usr/sbin/dmidecode <br/> chmod a + r/sys/Class/DMI/ID/product_uuid
+| **Permissões**           | **Windows:** Use uma conta de domínio para computadores ingressados no domínio e uma conta local para computadores que não são ingressados no domínio. A conta de usuário deve ser adicionada a estes grupos: Usuários de Gerenciamento Remoto, Usuários do Monitor de Desempenho e Usuários do Log de Desempenho. <br/><br/> **Linux:** Você precisa de uma conta raiz nos servidores Linux que deseja descobrir. <br/> Como alternativa, verifique se os recursos necessários estão definidos usando os comandos a seguir. <br/> setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/fdisk <br/> setcap CAP_DAC_READ_SEARCH+eip /sbin/fdisk (se /usr/sbin/fdisk não estiver presente) <br/> setcap "cap_dac_override, cap_dac_read_search, cap_fowner, cap_fsetid, cap_setuid, cap_setpcap, cap_net_bind_service, cap_net_admin, cap_sys_chroot, cap_sys_admin, cap_sys_resource, cap_audit_control, cap_setfcap = + EIP"/sbin/LVM <br/> setcap CAP_DAC_READ_SEARCH + EIP/usr/sbin/dmidecode <br/> chmod a + r/sys/Class/DMI/ID/product_uuid
 | **Sistema operacional** | Todos os sistemas operacionais Windows e Linux podem ser avaliados quanto à migração. |
 
 

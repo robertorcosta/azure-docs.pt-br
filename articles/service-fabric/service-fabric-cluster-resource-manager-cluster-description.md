@@ -7,10 +7,10 @@ ms.date: 08/18/2017
 ms.author: masnider
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 5ec5db2b2fefeba3bffb7e30a77850b30dccf95e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89005625"
 ---
 # <a name="describe-a-service-fabric-cluster-by-using-cluster-resource-manager"></a>Descrever um Cluster Service Fabric usando o Gerenciador de recursos de cluster
@@ -376,7 +376,7 @@ O valor especificado na propriedade node pode ser uma cadeia de caracteres, um b
 
 * Verificações condicionais para a criação de instruções específicas:
 
-  | de | Sintaxe |
+  | Instrução | Sintaxe |
   | --- |:---:|
   | "igual a" | "==" |
   | "diferente de" | "!=" |
@@ -387,7 +387,7 @@ O valor especificado na propriedade node pode ser uma cadeia de caracteres, um b
 
 * Instruções booleanas para Agrupamento e operações lógicas:
 
-  | de | Sintaxe |
+  | Instrução | Sintaxe |
   | --- |:---:|
   | "e" | "&&" |
   | "ou" | "&#124;&#124;" |

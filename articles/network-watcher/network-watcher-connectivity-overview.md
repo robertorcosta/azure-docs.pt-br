@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: damendo
 ms.openlocfilehash: cae3072a3468b232e95d7c1949948b71059695ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84708936"
 ---
 # <a name="introduction-to-connection-troubleshoot-in-azure-network-watcher"></a>Introdução à solução de problemas de conexão no Observador de Rede do Azure
@@ -29,7 +29,7 @@ O recurso de solução de problemas de conexão do Observador de Rede fornece a 
 
 A tabela a seguir mostra as propriedades retornadas quando a solução de problemas de conexão conclui a execução.
 
-|Property  |Descrição  |
+|Propriedade  |Descrição  |
 |---------|---------|
 |ConnectionStatus     | O status da verificação de conectividade. Os resultados possíveis são **Acessível** e **Inacessível**.        |
 |AvgLatencyInMs     | Latência média durante a verificação de conectividade em milissegundos. (Exibido somente se a verificação de status estiver acessível)        |
@@ -72,7 +72,7 @@ O seguinte é um exemplo de um problema encontrado em um salto.
 
 A solução de problemas de conexão retorna tipos de falha sobre a conexão. A tabela a seguir fornece uma lista dos tipos de falhas atuais retornados.
 
-|Tipo  |Description  |
+|Type  |Descrição  |
 |---------|---------|
 |CPU     | Alta utilização da CPU.       |
 |Memória     | Alta utilização de memória.       |

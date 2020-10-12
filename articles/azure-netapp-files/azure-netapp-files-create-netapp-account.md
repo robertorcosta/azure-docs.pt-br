@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 03/28/2018
 ms.author: b-juche
 ms.openlocfilehash: e5e0c43aa8c4fbf0db89065e0fab93ee174a4ede
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85483662"
 ---
 # <a name="create-a-netapp-account"></a>Criar uma conta do NetApp
@@ -31,7 +31,7 @@ Você também deve ter registrado sua assinatura para usar o provedor de recurso
 
 ## <a name="steps"></a>Etapas 
 
-1. Entre no Portal do Azure. 
+1. Entre no portal do Azure. 
 2. Acesse a folha Azure NetApp Files usando um dos seguintes métodos:  
    * Procure os **Azure NetApp Files** na caixa de pesquisa do portal do Azure.  
    * Clique em **Todos os serviços** na navegação e, em seguida, filtre para o Azure NetApp Files.  

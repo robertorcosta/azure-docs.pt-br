@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: arvinh
 ms.openlocfilehash: 58b991f5b229d924bc933ff34987db24bc895e10
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88529858"
 ---
 # <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>Tutorial: Configurar o Cerner Central para provisionamento automático de usuário
@@ -52,7 +52,7 @@ Antes de configurar e habilitar o serviço de provisionamento, você precisa dec
 Esta seção ensina como conectar o seu Azure AD à Lista do Usuário do Cerner Central à API de provisionamento de conta de usuário do SCIM do Cerner Central e também pela configuração do serviço de provisionamento, a fim de criar, atualizar e desabilitar contas de usuário atribuídas no Cerner Central com base na atribuição de usuário e de grupo do Azure AD.
 
 > [!TIP]
-> Você também pode optar por habilitar o logon único baseado em SAML para o Cerner central, seguindo as instruções fornecidas em [portal do Azure](https://portal.azure.com). O logon único pode ser configurado independentemente do provisionamento automático, embora esses dois recursos sejam complementares. Para obter mais informações, consulte o [Tutorial de logon único do Cerner Central](cernercentral-tutorial.md).
+> Você também pode optar por habilitar o Sign-On único baseado em SAML para o Cerner central, seguindo as instruções fornecidas em [portal do Azure](https://portal.azure.com). O logon único pode ser configurado independentemente do provisionamento automático, embora esses dois recursos sejam complementares. Para obter mais informações, consulte o [Tutorial de logon único do Cerner Central](cernercentral-tutorial.md).
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-cerner-central-in-azure-ad"></a>Para configurar o provisionamento automático de usuário para o Cerner Central no Azure AD:
 
@@ -106,13 +106,13 @@ Para provisionar contas de usuário no Cerner Central, você precisará solicita
 
 1. Insira o endereço de email de uma pessoa ou grupo que deve receber notificações de erro de provisionamento no campo **Email de Notificação** e marque a caixa de seleção abaixo.
 
-1. Clique em **Save** (Salvar).
+1. Clique em **Salvar**.
 
 1. Na seção **Mapeamentos de Atributo**, examine os atributos de usuário e grupo que serão sincronizados do Azure AD para o Cerner Central. Os atributos selecionados como propriedades **Correspondentes** são usados para corresponder as contas de usuário e grupos no Cerner Central para operações de atualização. Selecione o botão Salvar para confirmar as alterações.
 
 1. Para habilitar o serviço de provisionamento do Azure AD para o Cerner Central, altere o **Status de Provisionamento** para **Ativado** na seção **Configurações**
 
-1. Clique em **Save** (Salvar).
+1. Clique em **Salvar**.
 
 Isso inicia a sincronização inicial de todos os usuários e/ou grupos atribuídos ao Cerner Central na seção Usuários e Grupos. Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Microsoft Azure Active Directory esteja em execução. Use a seção **Detalhes de Sincronização** para monitorar o progresso e siga os links para os logs de atividade de provisionamento, que descrevem todas as ações executadas pelo serviço de provisionamento em seu aplicativo Cerner Central.
 
