@@ -1,6 +1,6 @@
 ---
-title: incluir arquivo
-description: incluir arquivo
+title: arquivo de inclusão
+description: arquivo de inclusão
 services: virtual-machines
 author: msmbaldwin
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 10/06/2019
 ms.author: mbaldwin
 ms.custom: include file
 ms.openlocfilehash: 05794a046fdcb15a91145a75717a6a454d15a8da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "72511442"
 ---
 O Azure Disk Encryption pode ser habilitado e gerenciado por meio da [CLI do Azure](/cli/azure) e do [Azure PowerShell](/powershell/azure/new-azureps-module-az). Para fazer isso, você deve instalar as ferramentas localmente e conectar-se à sua assinatura do Azure.

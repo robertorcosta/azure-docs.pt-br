@@ -11,13 +11,13 @@ ms.workload: iaas-sql-server
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: e1a9d2722987464b1bb3c8b1489a2d1258a41d15
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91273073"
 ---
-# <a name="provision-a-linux-virtual-machine-running-sql-server-in-the-azure-portal"></a>Provisionar uma máquina virtual Linux executando SQL Server no portal do Azure
+# <a name="provision-a-linux-virtual-machine-running-sql-server-in-the-azure-portal"></a>Provisionar uma máquina virtual Linux executando o SQL Server no portal do Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "91273073"
 Neste tutorial de início rápido, você usará o portal do Azure para criar uma máquina virtual do Linux com o SQL Server 2017 instalado. Você aprenderá o seguinte: 
 
 
-* [Criar uma VM Linux executando o SQL Server da Galeria](#create)
+* [Criar uma VM Linux executando o SQL Server da galeria](#create)
 * [Conectar-se à nova VM com SSH](#connect)
 * [Alterar a senha SA](#password)
 * [Configurar para conexões remotas](#remote)
@@ -72,7 +72,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 1. Em seguida, digite ou selecione os seguintes valores:
    * **Região**: Selecione a região do Azure ideal para você.
    * **Opções de disponibilidade**: Escolha a opção de disponibilidade e redundância que é melhor para seus aplicativos e seus dados.
-   * **Alterar tamanho**: Selecione essa opção para escolher um tamanho de computador e, quando terminar, escolha **Selecionar**. Para obter mais informações sobre tamanhos de máquina VM, consulte [tamanhos de VM](../../../virtual-machines/sizes.md).
+   * **Alterar tamanho**: Selecione essa opção para escolher um tamanho de computador e, quando terminar, escolha **Selecionar**. Para saber mais sobre os tamanhos de VMs, confira [tamanhos de VMs](../../../virtual-machines/sizes.md).
 
      ![Escolher um tamanho de VM](./media/sql-vm-create-portal-quickstart/vmsizes.png)
 

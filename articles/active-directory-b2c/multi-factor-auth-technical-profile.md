@@ -12,10 +12,10 @@ ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 71040f831ed7a64f2bc7be7f3a75218976fc2559
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85385936"
 ---
 # <a name="define-an-azure-mfa-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Definir um perfil técnico do Azure MFA em uma política personalizada de Azure AD B2C
@@ -62,7 +62,7 @@ O elemento **InputClaims** contém uma lista de declarações a serem enviadas p
 | userPrincipalName | Sim | O identificador do usuário que possui o número de telefone. |
 | phoneNumber | Sim | O número de telefone para o qual enviar um código SMS. |
 | companyName | Não |O nome da empresa no SMS. Se não for fornecido, o nome do seu aplicativo será usado. |
-| localidade | Não | A localidade do SMS. Se não for fornecido, a localidade do navegador do usuário será usada. |
+| locale | Não | A localidade do SMS. Se não for fornecido, a localidade do navegador do usuário será usada. |
 
 O elemento **InputClaimsTransformations** pode conter uma coleção de elementos **InputClaimsTransformation** que são usados para modificar as declarações de entrada ou gerar novas antes de enviar para o serviço do Azure MFA.
 
@@ -111,7 +111,7 @@ O exemplo a seguir mostra um perfil técnico do Azure MFA que é usado para envi
 </TechnicalProfile>
 ```
 
-## <a name="verify-code"></a>Verificar código
+## <a name="verify-code"></a>Verificar o código
 
 O segundo modo desse perfil técnico é verificar um código. As opções a seguir podem ser configuradas para esse modo.
 

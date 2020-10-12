@@ -1,7 +1,7 @@
 ---
 title: Transmitir conteúdo com integração CDN
 titleSuffix: Azure Media Services
-description: Saiba mais sobre o conteúdo de streaming com a integração da CDN, bem como pré-busca e pré-busca e assistência CDN-prefetch.
+description: Saiba mais sobre o conteúdo de streaming com a integração da CDN, bem como para buscar e Origin-Assist a pré-busca de CDN.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: e1ea0a43783fb7abdc17655e3a3431d125d426f8
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89291272"
 ---
 # <a name="stream-content-with-cdn-integration"></a>Transmitir conteúdo com integração CDN
@@ -67,7 +67,7 @@ A integração dos Serviços de Mídia do Azure à CDN do Azure é implementada 
 
 Você pode determinar se a alteração de DNS foi feita em um ponto de extremidade de streaming (o tráfego está sendo direcionado para a CDN do Azure) usando <https://www.digwebinterface.com> . Se você vir os nomes de domínio azureedge.net nos resultados, o tráfego agora está sendo apontado para a CDN.
 
-## <a name="origin-assist-cdn-prefetch"></a>Origem-auxiliar CDN-pré-busca
+## <a name="origin-assist-cdn-prefetch"></a>Origin-Assist CDN-Prefetch
 
 O cache da CDN é um processo reativo. Se a CDN puder prever o que o próximo objeto será solicitado, a CDN poderá solicitar e armazenar em cache o próximo objeto de forma proativa. Com esse processo, você pode obter um pressionamento de cache para todos (ou a maior parte) dos objetos, o que melhora o desempenho.
 
@@ -78,7 +78,7 @@ Para atingir essa meta, um ponto de extremidade de streaming (origem) e a CDN pr
 - A origem dos serviços de mídia precisa ter a "inteligência" (assistência de origem) para informar à CDN o próximo objeto a prefetch.
 - A CDN faz a pré-busca e o cache (parte da pré-busca da CDN). A CDN também precisa ter a "inteligência" para informar a origem se é uma pré-busca ou uma busca regular, manipular as respostas de 404 e uma maneira de evitar um loop de pré-busca infinito.
 
-### <a name="benefits"></a>Benefícios
+### <a name="benefits"></a>Vantagens
 
 Os benefícios do recurso de *ajuda da CDN-Assist de origem* incluem:
 
@@ -125,11 +125,11 @@ O `Origin-Assist CDN-Prefetch` recurso dá suporte aos seguintes protocolos de s
 
     Não, CDN-prefetch é feito somente após uma solicitação/resposta iniciada pelo cliente. CDN-a pré-busca nunca é disparada por uma pré-busca, para evitar um loop de pré-busca.
 
-* É a origem-auxiliar CDN-recurso de pré-busca AlwaysOn? Como é possível ativar/desativar?
+* Origin-Assist está CDN-Prefetch recurso AlwaysOn? Como é possível ativar/desativar?
 
     Esse recurso está desativado por padrão. Os clientes precisam ativá-lo por meio da API da Akamai.
 
-* Para transmissão ao vivo, o que aconteceria-ajudar se o próximo segmento ou fragmento ainda não estiver disponível?
+* Para transmissão ao vivo, o que aconteceria Origin-Assist se o próximo segmento ou fragmento ainda não estiver disponível?
 
     Nesse caso, a origem dos serviços de mídia não fornecerá `CDN-Origin-Assist-Prefetch-Path` cabeçalho e a CDN-prefetch não ocorrerá.
 

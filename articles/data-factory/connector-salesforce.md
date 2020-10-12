@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/13/2020
 ms.openlocfilehash: 292d80f7fad796b2ee4f80478c55099148d7f855
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87086686"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Copiar dados de e para Salesforce usando o Azure Data Factory
@@ -71,7 +71,7 @@ As propriedades a seguir têm suporte para o serviço vinculado do Salesforce.
 |:--- |:--- |:--- |
 | type |A propriedade type deve ser definida para **Salesforce**. |Sim |
 | environmentUrl | Especifique a URL da instância do Salesforce. <br> – O padrão é `"https://login.salesforce.com"`. <br> – Para copiar dados da área restrita, especifique `"https://test.salesforce.com"`. <br> – Para copiar dados do domínio personalizado, especifique, por exemplo, `"https://[domain].my.salesforce.com"`. |Não |
-| nome de usuário |Especifique um nome de usuário para a conta de usuário. |Sim |
+| Nome de Usuário |Especifique um nome de usuário para a conta de usuário. |Sim |
 | password |Especifique um senha para a conta de usuário.<br/><br/>Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
 | securityToken |Especifique um token de segurança para a conta de usuário. <br/><br/>Para saber mais sobre os tokens de segurança em geral, veja [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm) (Segurança e a API). O token de segurança só poderá ser ignorado se você adicionar o IP do Integration Runtime à [lista de endereços IP confiáveis](https://developer.salesforce.com/docs/atlas.en-us.securityImplGuide.meta/securityImplGuide/security_networkaccess.htm) no Salesforce. Ao usar Azure IR, consulte [Azure Integration Runtime endereços IP](azure-integration-runtime-ip-addresses.md).<br/><br/>Para obter instruções sobre como obter e redefinir um token de segurança, consulte [obter um token de segurança](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm). Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Não |
 | apiVersion | Especifique a versão de API em massa/REST do Salesforce a ser usada, por exemplo, `48.0` . Por padrão, o conector usa [V45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) para copiar dados do Salesforce e usa o [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) para copiar dados para o Salesforce. | Não |
@@ -300,19 +300,19 @@ Ao copiar dados do Salesforce, é possível usar a consulta SOQL ou a consulta S
 
 | Sintaxe | Modo SOQL | Modo SQL |
 |:--- |:--- |:--- |
-| Seleção de coluna | É necessário enumerar os campos a serem copiados na consulta, por exemplo,`SELECT field1, filed2 FROM objectname` | `SELECT *` tem suporte além da seleção de colunas. |
+| Seleção de coluna | É necessário enumerar os campos a serem copiados na consulta, por exemplo, `SELECT field1, filed2 FROM objectname` | `SELECT *` tem suporte além da seleção de colunas. |
 | Aspas | Nomes de campos/objetos não podem ser entre aspas. | Nomes de campos/objetos podem ser entre aspas, p. ex. `SELECT "id" FROM "Account"` |
 | Formato de data/hora |  Consulte os detalhes [aqui](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_dateformats.htm) e exemplos na próxima seção. | Consulte os detalhes [aqui](https://docs.microsoft.com/sql/odbc/reference/develop-app/date-time-and-timestamp-literals?view=sql-server-2017) e exemplos na próxima seção. |
 | Valores boolianos | Representado como `False` e `True`, p. ex. `SELECT … WHERE IsDeleted=True`. | Representado como 0 ou 1, p. ex. `SELECT … WHERE IsDeleted=1`. |
-| Renomeação de coluna | Sem suporte. | Com suporte, p. ex.: `SELECT a AS b FROM …`. |
-| Relação | Com suporte, p. ex. `Account_vod__r.nvs_Country__c`. | Sem suporte. |
+| Renomeação de coluna | Não há suporte. | Com suporte, p. ex.: `SELECT a AS b FROM …`. |
+| Relationship | Com suporte, p. ex. `Account_vod__r.nvs_Country__c`. | Não há suporte. |
 
 ### <a name="retrieve-data-by-using-a-where-clause-on-the-datetime-column"></a>Recuperar dados usando um onde cláusula na coluna DateTime
 
 Ao especificar a consulta SQL ou SOQL, preste atenção à diferença de formato DateTime. Por exemplo:
 
-* **Exemplo de SOQL**:`SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
-* **Exemplo de SQL**:`SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}`
+* **Exemplo de SOQL**: `SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
+* **Exemplo de SQL**: `SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}`
 
 ### <a name="error-of-malformed_query-truncated"></a>Erro de MALFORMED_QUERY: truncado
 
@@ -324,25 +324,25 @@ Ao copiar dados do Salesforce, os seguintes mapeamentos são usados de tipos de 
 
 | Tipo de dados do Salesforce | Tipo de dados provisório do Data Factory |
 |:--- |:--- |
-| Numeração automática |Cadeia de caracteres |
-| Caixa de seleção |Boolean |
-| Currency |Decimal |
+| Numeração automática |String |
+| Caixa de seleção |Booliano |
+| Moeda |Decimal |
 | Data |Datetime |
-| Date/time |Datetime |
-| Email |Cadeia de caracteres |
-| ID |Cadeia de caracteres |
-| Relação de pesquisa |Cadeia de caracteres |
-| Lista de seleção múltipla |Cadeia de caracteres |
+| Data/hora |Datetime |
+| Email |String |
+| ID |String |
+| Relação de pesquisa |String |
+| Lista de seleção múltipla |String |
 | Número |Decimal |
 | Porcentagem |Decimal |
-| Telefone |Cadeia de caracteres |
-| Lista de seleção |Cadeia de caracteres |
+| Telefone |String |
+| Lista de seleção |String |
 | Texto |Cadeia de caracteres |
-| Área de texto |Cadeia de caracteres |
-| Área de texto (longo) |Cadeia de caracteres |
-| Área de texto (Rich) |Cadeia de caracteres |
-| Texto (criptografado) |Cadeia de caracteres |
-| URL |Cadeia de caracteres |
+| Área de texto |String |
+| Área de texto (longo) |String |
+| Área de texto (Rich) |String |
+| Texto (criptografado) |String |
+| URL |String |
 
 ## <a name="lookup-activity-properties"></a>Pesquisar propriedades de atividade
 

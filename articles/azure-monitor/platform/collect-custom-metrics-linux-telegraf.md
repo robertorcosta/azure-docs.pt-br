@@ -8,10 +8,10 @@ ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: b80f27e490dd3b1890eab7740fb4650ba4280abb
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88207799"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Coletar métricas personalizadas para uma VM do Linux com o Agente InfluxData Telegraf
@@ -111,7 +111,7 @@ Agora o agente coletará as métricas de cada um dos plug-ins de entrada especif
 
 ## <a name="plot-your-telegraf-metrics-in-the-azure-portal"></a>Plotar as métricas do Telegraf no portal do Azure 
 
-1. Abra o [portal do Azure](https://portal.azure.com). 
+1. Abra o [Portal do Azure](https://portal.azure.com). 
 
 1. Navegue até a nova guia **Monitor** . Em seguida, selecione **métricas**.  
 
@@ -131,7 +131,7 @@ O guia de explicação anterior fornece informações sobre como configurar o ag
 
 Além disso, neste passo a passo, você usou o agente Telegraf para emitem métricas sobre o agente é implantado na VM. O agente Telegraf também pode ser usado como um coletor e encaminhador de métricas para outros recursos. Para saber como configurar o agente para emitir métricas para outros recursos do Azure, consulte [Saída de Métrica Personalizada do Azure Monitor para Telegraf](https://github.com/influxdata/telegraf/blob/fb704500386214655e2adb53b6eb6b15f7a6c694/plugins/outputs/azure_monitor/README.md).  
 
-## <a name="clean-up-resources"></a>Limpar os recursos 
+## <a name="clean-up-resources"></a>Limpar recursos 
 
 Quando o grupo de recursos, a máquina virtual e todos os recursos relacionados não forem mais necessários, exclua-os. Para fazer isso, selecione o grupo de recursos para a máquina virtual e selecione **excluir**. Em seguida, confirme o nome do grupo de recursos para excluir. 
 

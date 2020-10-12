@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 5/12/2020
 ms.openlocfilehash: 7aefa6cd048c41feb1535f2ae7fa5c87bf628b2d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90884903"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mysql"></a>Análise de Desempenho de Consultas no Banco de Dados do Azure para MySQL
@@ -64,7 +64,7 @@ Selecione a guia das **Estatísticas de Espera** guia para exibir as visualizaç
 
 As consultas exibidas na visualização de estatísticas de espera são agrupadas pelas consultas que exibem as maiores esperas durante o intervalo de tempo especificado.
 
-:::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png" alt-text="Estatísticas de esperas de Análise de Desempenho de Consultas":::
+:::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png" alt-text="Consultas de execução longa da Análise de Desempenho de Consultas":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

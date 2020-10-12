@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: sunasing
 ms.openlocfilehash: f15bee7e802b04d04a3c87d7f84fc975b88bf260
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86536565"
 ---
 # <a name="azure-farmbeats-apis"></a>APIs FarmBeats do Azure
@@ -23,7 +23,7 @@ Este artigo descreve as APIs FarmBeats do Azure. As APIs do Azure FarmBeats forn
 - Agregações de sequência de tempo geradas automaticamente para criação rápida de modelos.
 - O mecanismo de Azure Data Factory integrado para criar facilmente pipelines de processamento de dados personalizados.
 
-## <a name="application-development"></a>Desenvolvimento do aplicativo
+## <a name="application-development"></a>Desenvolvimento de aplicativo
 
 As APIs FarmBeats contêm documentação técnica do Swagger. Para obter informações sobre todas as APIs e suas solicitações ou respostas correspondentes, consulte [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
 
@@ -40,7 +40,7 @@ Telemetria  | A telemetria fornece a capacidade de ler mensagens de telemetria p
 Trabalho  | O trabalho corresponde a qualquer Workflow de atividades executadas no sistema FarmBeats para obter uma saída desejada. Cada trabalho é associado a uma ID de trabalho e tipo de trabalho.
 JobType  | JobType corresponde a diferentes tipos de trabalho com suporte no sistema. Os tipos de trabalho definidos pelo sistema e definidos pelo usuário estão incluídos.
 ExtendedType  | O extendetype corresponde à lista de tipos definidos pelo usuário e pelo sistema no sistema. O Extended ajuda a configurar um novo tipo de arquivo de sensor, cena ou cena no sistema FarmBeats.
-Partner (parceiro)  | O parceiro corresponde ao parceiro de integração de sensor e imagens para FarmBeats.
+Parceiro  | O parceiro corresponde ao parceiro de integração de sensor e imagens para FarmBeats.
 Cena  | A cena corresponde a qualquer saída gerada no contexto de um farm. Cada cena tem uma ID de cena, origem da cena, tipo de cena e ID de farm associada a ela. Cada ID de cena pode ter vários arquivos de cena associados a ela.
 Scenefile |O scenefile corresponde a todos os arquivos que são gerados para uma única cena. Uma única ID de cena pode ter várias IDs de Scenefile associadas a ela.
 Regra  |A regra corresponde a uma condição para que os dados relacionados ao farm disparem um alerta. Cada regra está no contexto dos dados de um farm.

@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 6/24/2020
 ms.openlocfilehash: 7c9d59eee1e1ce69394301023b108952eaf46790
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85362417"
 ---
 # <a name="audit-logs-in-azure-database-for-mariadb"></a>Logs de auditoria no banco de dados do Azure para MariaDB
@@ -31,7 +31,7 @@ Outros parâmetros que você pode ajustar incluem:
 - `audit_log_exclude_users`: MariaDB os usuários a serem excluídos do registro em log. Permite no máximo quatro usuários. O comprimento máximo do parâmetro é de 256 caracteres.
 
 > [!Note]
-> `audit_log_include_users`tem prioridade mais alta `audit_log_exclude_users` . Por exemplo, se `audit_log_include_users`  =  `demouser` e `audit_log_exclude_users`  =  `demouser` , o usuário será incluído nos logs de auditoria porque `audit_log_include_users` tem prioridade mais alta.
+> `audit_log_include_users` tem prioridade mais alta `audit_log_exclude_users` . Por exemplo, se `audit_log_include_users`  =  `demouser` e `audit_log_exclude_users`  =  `demouser` , o usuário será incluído nos logs de auditoria porque `audit_log_include_users` tem prioridade mais alta.
 
 | **Evento** | **Descrição** |
 |---|---|
@@ -71,7 +71,7 @@ As seções a seguir descrevem o que é resultado de logs de auditoria do MariaD
 | `event_class_s` | `connection_log` |
 | `event_subclass_s` | `CONNECT`, `DISCONNECT` |
 | `connection_id_d` | ID de conexão exclusiva gerada por MariaDB |
-| `host_s` | Em Branco |
+| `host_s` | Em branco |
 | `ip_s` | Endereço IP do cliente que se conecta ao MariaDB |
 | `user_s` | Nome do usuário executando a consulta |
 | `db_s` | Nome do banco de dados conectado a |
@@ -102,9 +102,9 @@ O esquema a seguir se aplica aos tipos de evento geral, DML_SELECT, DML_NONSELEC
 | `event_class_s` | `general_log` |
 | `event_subclass_s` | `LOG`, `ERROR`, `RESULT` |
 | `event_time` | Segundos de início de consulta no carimbo de data/hora UNIX |
-| `error_code_d` | Código de erro se a consulta falhar. `0`significa nenhum erro |
+| `error_code_d` | Código de erro se a consulta falhar. `0` significa nenhum erro |
 | `thread_id_d` | ID do thread que executou a consulta |
-| `host_s` | Em Branco |
+| `host_s` | Em branco |
 | `ip_s` | Endereço IP do cliente que se conecta ao MariaDB |
 | `user_s` | Nome do usuário executando a consulta |
 | `sql_text_s` | Texto de consulta completo |

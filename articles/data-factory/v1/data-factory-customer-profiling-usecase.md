@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 5436e50a23b73e1a10cf42b3dd8790c5b0620ac3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84021884"
 ---
 # <a name="use-case---customer-profiling"></a>Caso de uso - Criação de perfil de cliente
@@ -63,6 +63,6 @@ Esta figura mostra como os pipelines de dados são exibidos no Portal do Azure a
 
 Neste exemplo, o Data Factory é usado para coordenar as atividades que copiam dados de entrada, transformam e processam os dados e fazem a saída de dados final para um Banco de Dados SQL do Azure.  Você também pode visualizar a rede de pipelines de dados, gerenciá-los e monitorar o status da interface do usuário.
 
-## <a name="benefits"></a>Benefícios
+## <a name="benefits"></a>Vantagens
 Ao otimizar suas análises de perfil do usuário e o alinhamento com as metas de negócios, a empresa de jogos é capaz coletar rapidamente os padrões de uso e analisar a eficácia de suas campanhas de marketing.
 

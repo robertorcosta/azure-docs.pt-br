@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 2a322de383194f131395629d33456d7561397eb9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91310978"
 ---
 # <a name="search-for-a-location-using-azure-maps-search-services"></a>Pesquisar um local usando os serviços de pesquisa do Azure Maps
@@ -95,7 +95,7 @@ Neste exemplo, usaremos a pesquisa difusa para pesquisar o mundo inteiro `pizza`
 
 4. O comportamento padrão é Pesquisar o mundo inteiro, potencialmente retornando resultados desnecessários. Em seguida, Pesquisaremos apenas a Estados Unidos de pizza. Adicione a `countrySet` chave à seção **params** e defina seu valor como `US` . Definir a `countrySet` chave como `US` vinculará os resultados ao Estados Unidos.
 
-    :::image type="content" source="./media/how-to-search-for-address/search-fuzzy-country.png" alt-text="Pesquisar pizza na Estados Unidos":::
+    :::image type="content" source="./media/how-to-search-for-address/search-fuzzy-country.png" alt-text="Pesquisar endereço":::
 
     Os resultados agora são limitados pelo código do país e a consulta retorna as pizzarias no Brasil.
 
@@ -143,13 +143,13 @@ Neste exemplo, vamos fazer pesquisas inversas usando alguns dos parâmetros opci
     | returnRoadUse | true | Retorna os tipos de uso de estrada no endereço. Para todos os tipos de uso de estrada possíveis, consulte [tipos de uso de estrada](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#uri-parameters).|
     | returnMatchType | true| Retorna o tipo de correspondência. Para todos os valores possíveis, consulte [resultados da pesquisa de endereço reverso](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#searchaddressreverseresult)
 
-   :::image type="content" source="./media/how-to-search-for-address/search-reverse.png" alt-text="Pesquisar inversa.":::
+   :::image type="content" source="./media/how-to-search-for-address/search-reverse.png" alt-text="Pesquisar endereço":::
 
 5. Clique em **Enviar**e examine o corpo da resposta.
 
 6. Em seguida, adicionaremos a `entityType` chave e definiremos seu valor como `Municipality` . A `entityType` chave substituirá a `returnMatchType` chave na etapa anterior. Também precisaremos remover `returnSpeedLimit` e `returnRoadUse` , como estamos solicitando informações sobre o município.  Para todos os tipos de entidade possíveis, consulte [tipos de entidade](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#entitytype).
 
-    :::image type="content" source="./media/how-to-search-for-address/search-reverse-entity-type.png" alt-text="Pesquisar entityType inverso.":::
+    :::image type="content" source="./media/how-to-search-for-address/search-reverse-entity-type.png" alt-text="Pesquisar endereço":::
 
 7. Clique em **Enviar**. Compare os resultados com os resultados retornados na etapa 5.  Como o tipo de entidade solicitado agora é `municipality` , a resposta não inclui informações de endereço de rua. Além disso, o retornado `geometryId` pode ser usado para solicitar o polígono de limite por meio do Azure Maps obter [API de polígono de pesquisa](https://docs.microsoft.com/rest/api/maps/search/getsearchpolygon).
 
@@ -168,7 +168,7 @@ Neste exemplo, Pesquisaremos uma cruz com base nas coordenadas de um endereço.
    https://atlas.microsoft.com/search/address/reverse/crossstreet/json?&api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}&language=en-US&query=47.591180,-122.332700
     ```
 
-    :::image type="content" source="./media/how-to-search-for-address/search-address-cross.png" alt-text="Pesquisar entre as ruas.":::
+    :::image type="content" source="./media/how-to-search-for-address/search-address-cross.png" alt-text="Pesquisar endereço":::
   
 3. Clique em **Enviar**e examine o corpo da resposta. Você observará que a resposta contém um `crossStreet` valor de `Occidental Avenue South` .
 

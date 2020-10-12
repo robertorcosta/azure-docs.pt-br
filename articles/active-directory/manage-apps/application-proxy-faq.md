@@ -12,10 +12,10 @@ ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.openlocfilehash: edf51dad768e8d8b5ea5dc6c1eff88f43f0f6b70
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88589156"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Perguntas frequentes sobre o proxy de aplicativo Active Directory (Azure AD)
@@ -141,7 +141,7 @@ Não, esse cenário não tem suporte porque o proxy de aplicativo encerrará o t
 
 Consulte [publicar área de trabalho remota com o proxy de aplicativo do AD do Azure](application-proxy-integrate-with-remote-desktop-services.md).
 
-### <a name="can-i-use-kerberos-constrained-delegation-single-sign-on---windows-integrated-authentication-in-the-remote-desktop-gateway-publishing-scenario"></a>Posso usar a delegação restrita de Kerberos (logon único-autenticação integrada do Windows) no cenário de publicação Área de Trabalho Remota gateway?
+### <a name="can-i-use-kerberos-constrained-delegation-single-sign-on---windows-integrated-authentication-in-the-remote-desktop-gateway-publishing-scenario"></a>Posso usar a delegação restrita de Kerberos (autenticação única Sign-On integrada do Windows) no cenário de publicação de gateway Área de Trabalho Remota?
 
 Não, esse cenário não tem suporte.  
 

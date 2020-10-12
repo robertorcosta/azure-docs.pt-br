@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 08/06/2020
 ms.openlocfilehash: 1ba2f5e4b88ae6ae0ed15dbfbbc4fa5c55c45a77
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87874020"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Criar clusters baseados em Linux no HDInsight usando o portal do Azure
@@ -25,7 +25,7 @@ O portal do Azure é uma ferramenta de gerenciamento baseada na Web para serviç
 
 O portal do Azure expõe a maioria das propriedades do cluster. Usando modelos do Azure Resource Manager, é possível ocultar muitos detalhes. Para obter mais informações, consulte [Criar clusters Apache Hadoop no HDInsight usando modelos do Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
-Caso não tenha uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="create-clusters"></a>Criar clusters
 
@@ -39,7 +39,7 @@ Caso não tenha uma assinatura do Azure, crie uma [conta gratuita](https://azure
 
 1. Selecione **Análise** > **Azure HDInsight** para acessar a página **Criar cluster HDInsight**.
 
-## <a name="basics"></a>Básico
+## <a name="basics"></a>Noções básicas
 
 ![Conceitos básicos de criação de cluster do HDInsight](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-basics.png "Criando um novo cluster no portal do Azure")
 
@@ -59,7 +59,7 @@ Na guia **Informações Básicas**, forneça as seguintes informações:
 |Nome de usuário do Secure Shell (SSH)|Forneça o nome de usuário, o padrão é **sshuser**|
 |Usar senha de logon do cluster para SSH|Se você quiser a mesma senha SSH que a senha de administrador especificada anteriormente, marque a caixa de seleção **usar senha de logon do cluster para SSH** . Caso contrário, forneça uma **SENHA** ou **CHAVE PÚBLICA** para autenticar o usuário SSH. Uma chave pública é a abordagem recomendada. Escolha **Selecionar** na parte inferior para salvar a configuração das credenciais.  Para saber mais, confira [Conectar ao HDInsight (Apache Hadoop) usando SSH](hdinsight-hadoop-linux-use-ssh-unix.md).|
 
-Selecione **Avançar: >>de armazenamento** para avançar para a próxima guia.
+Selecione **Avançar: >>de armazenamento ** para avançar para a próxima guia.
 
 ## <a name="storage"></a>Armazenamento
 
@@ -97,7 +97,7 @@ Selecione **Avançar: segurança + rede >>** para avançar para a próxima guia.
 
 Na guia **segurança + rede** , forneça as seguintes informações:
 
-|Propriedade |Descrição |
+|Propriedade |DESCRIÇÃO |
 |---|---|
 |Pacote de segurança empresarial|Opcional: marque a caixa de seleção para usar **Enterprise Security Package**. Para obter mais informações, consulte [configurar um cluster HDInsight com Enterprise Security Package usando Azure Active Directory Domain Services](./domain-joined/apache-domain-joined-configure-using-azure-adds.md).|
 |TLS|Opcional: selecione uma versão de TLS na lista suspensa. Para obter mais informações, confira [Protocolo TLS](./transport-layer-security.md).|
@@ -114,7 +114,7 @@ Selecione **Avançar: configuração + preço >>** para avançar para a próxima
 
 Na guia **configuração + preços** , forneça as seguintes informações:
 
-|Propriedade |Descrição |
+|Propriedade |DESCRIÇÃO |
 |---|---|
 |+ Adicionar aplicativo|Opcional: selecione os aplicativos desejados. Você, a Microsoft ou os fornecedores independentes de software (ISVs)  podem desenvolver esses aplicativos. Para obter mais informações, consulte [Instalar aplicativos durante a criação do cluster](hdinsight-apps-install-applications.md#install-applications-during-cluster-creation).|
 |Tamanho do nó|Opcional: selecione um nó de tamanho diferente.|

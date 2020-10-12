@@ -1,17 +1,17 @@
 ---
-title: Desenvolva Azure Functions usando Visual Studio Code
+title: Desenvolver o Azure Functions usando o Visual Studio Code
 description: Saiba como desenvolver e testar Azure Functions usando a extensão Azure Functions para Visual Studio Code.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/21/2019
 ms.openlocfilehash: 610c80dc5552eae4f2ad8442fa11b85f2eab35eb
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88206744"
 ---
-# <a name="develop-azure-functions-by-using-visual-studio-code"></a>Desenvolva Azure Functions usando Visual Studio Code
+# <a name="develop-azure-functions-by-using-visual-studio-code"></a>Desenvolver o Azure Functions usando o Visual Studio Code
 
 A [extensão Azure Functions para Visual Studio Code] permite que você desenvolva localmente funções e as implante no Azure. Se esta for sua primeira experiência com o Azure Functions, você pode aprender mais em [Uma introdução ao Azure Functions](functions-overview.md).
 
@@ -191,7 +191,7 @@ Veja a seguir exemplos de prompts para definir uma nova associação de saída d
 | -------- | ----- | ----------- |
 | **Selecionar direção de associação** | `out` | A associação é uma associação de saída. |
 | **Selecionar associação com direção** | `Azure Queue Storage` | A associação é uma associação de fila do Armazenamento do Azure. |
-| **O nome usado para identificar essa associação em seu código** | `msg` | Nome que identifica o parâmetro de associação referenciado em seu código. |
+| **O nome usado para identificar essa associação no seu código** | `msg` | Nome que identifica o parâmetro de associação referenciado em seu código. |
 | **A fila à qual a mensagem será enviada** | `outqueue` | O nome da fila na qual a associação escreve. Quando o *queueName* não existe, a associação o cria no primeiro uso. |
 | **Selecione configuração em "local.settings.js"** | `MyStorageConnection` | O nome de uma configuração de aplicativo que contém a cadeia de conexão para a conta de armazenamento. A `AzureWebJobsStorage` configuração contém a cadeia de conexão para a conta de armazenamento que você criou com o aplicativo de funções. |
 
@@ -294,7 +294,7 @@ Para executar o projeto do Functions localmente, você deve atender a estes requ
 
 * Instale os requisitos específicos para a linguagem de programação escolhida:
 
-    | Idioma | Requisito |
+    | Language | Requisito |
     | -------- | --------- |
     | **C#** | [Extensão C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)<br/>[Ferramentas da CLI do .NET Core](/dotnet/core/tools/?tabs=netcore2x)   |
     | **Java** | [Depurador para extensão Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br/>[Java 8](https://aka.ms/azure-jdks)<br/>[Maven 3 ou posterior](https://maven.apache.org/) |

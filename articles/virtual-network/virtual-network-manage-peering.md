@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: altambaw
 ms.openlocfilehash: 41cc2bfa39160d26b5c5f09687ddf1fef9ec5803
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89290167"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Criar, alterar ou excluir um emparelhamento da rede virtual
@@ -86,7 +86,7 @@ Antes de alterar um emparelhamento, familiarize-se com os requisitos e restriç�
 3. Em **CONFIGURAÇÕES**, selecione **Emparelhamentos**.
 4. Selecione o emparelhamento que você deseja exibir ou alterar as configurações.
 5. Altere a configuração apropriada. Leia sobre as opções para cada configuração na [etapa 5](#add-peering) de criar um emparelhamento.
-6. Clique em **Salvar**.
+6. Selecione **Salvar**.
 
 **Comandos**
 
@@ -159,7 +159,7 @@ Se sua conta não está atribuída a uma das funções anteriores, ela deve ser 
 
 - Um emparelhamento de rede virtual é criado entre redes virtuais criadas com modelos de implantação iguais ou diferentes que existem nas mesmas assinaturas ou em assinaturas diferentes. Conclua um tutorial para um dos seguintes cenários:
 
-  |Modelo de implantação do Azure             | Assinatura  |
+  |Modelo de implantação do Azure             | Subscription  |
   |---------                          |---------|
   |Ambos Resource Manager              |[Idêntico](tutorial-connect-virtual-networks-portal.md)|
   |                                   |[Diferente](create-peering-different-subscriptions.md)|
