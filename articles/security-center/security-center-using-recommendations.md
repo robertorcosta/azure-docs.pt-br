@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
 ms.openlocfilehash: 4c6b8b0bfa78dca5ca32c8c72edcc463ebb9057a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91322131"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Usar as recomendações da Central de Segurança do Azure para aprimorar a segurança
@@ -70,7 +70,7 @@ Jeff continua a seguir as recomendações de alta e média prioridade, tomando d
 
 ### <a name="enforce-recommendations-to-prevent-security-misconfigurations"></a>Impor recomendações para impedir configurações incorretas de segurança
 
-Para garantir que os usuários não criem recursos que afetam negativamente a pontuação de Jeff, eles configuram as opções de aplicação e negação nas recomendações mais importantes para elas. Saiba mais em [evitar configurações incorretas com recomendações de aplicação/negação](prevent-misconfigurations.md).
+Para garantir que os usuários não criem recursos que afetam negativamente a pontuação de Jeff, eles configuram as opções de aplicação e negação nas recomendações mais importantes para elas. Saiba mais em [Impedir configurações incorretas com as recomendações de Impor/Negar](prevent-misconfigurations.md).
 
 
 ## <a name="conclusion"></a>Conclusão

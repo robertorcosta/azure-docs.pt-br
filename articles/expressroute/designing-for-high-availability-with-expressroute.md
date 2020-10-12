@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 06/28/2019
 ms.author: duau
 ms.openlocfilehash: d6e63ad5781b0b8d6f46aee1cb88373721bb9dfc
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89397892"
 ---
 # <a name="designing-for-high-availability-with-expressroute"></a>Projetando para alta disponibilidade com o ExpressRoute
@@ -54,7 +54,7 @@ Como alternativa, executar as conexões primária e secundária de um circuito d
 
 O emparelhamento da Microsoft foi projetado para comunicação entre pontos de extremidade públicos. Normalmente, os pontos de extremidade privados locais são endereços de rede traduzidos (NATed) com IP público no cliente ou na rede de parceiros antes de se comunicarem por emparelhamento da Microsoft. Supondo que você use as conexões primária e secundária no modo ativo-ativo, onde e como o NAT tem um impacto sobre a rapidez de recuperação após uma falha em uma das conexões do ExpressRoute. Duas opções de NAT diferentes são ilustradas na figura a seguir:
 
-[![3]][3]
+[![Beta]][3]
 
 Na opção 1, o NAT é aplicado após a divisão do tráfego entre as conexões primárias e secundárias do ExpressRoute. Para atender aos requisitos de estado do NAT, os pools de NAT independentes são usados entre os dispositivos primário e secundário para que o tráfego de retorno chegue ao mesmo dispositivo de borda por meio do qual o fluxo foi enviado.
 

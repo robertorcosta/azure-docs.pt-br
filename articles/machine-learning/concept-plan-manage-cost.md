@@ -11,10 +11,10 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.openlocfilehash: 031ec44cec473d9f2b2f05669aa3fc18084985f2
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91704721"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Planejar e gerenciar custos para Azure Machine Learning
@@ -109,11 +109,11 @@ Aqui estão algumas opções que você tem:
 
 ## <a name="use-low-priority-vms"></a><a id="low-pri-vm"></a> Usar VMs de baixa prioridade
 
-O Azure permite que você use o excesso de capacidade não utilizada como VMs de baixa prioridade entre conjuntos de dimensionamento de máquinas virtuais, lote e o serviço de Machine Learning. Essas alocações são emptible, mas vêm a um preço reduzido em comparação com as VMs dedicadas. Em geral, é recomendável usar VMs de baixa prioridade para cargas de trabalho do lote. Você também deve usá-los onde as interrupções são recuperáveis por meio de reenvios (para inferência de lote) ou por meio de reinicializações (para treinamento de aprendizado profundo com ponto de verificação).
+O Azure permite que você use o excesso de capacidade inutilizável que Low-Priority VMs entre conjuntos de dimensionamento de máquinas virtuais, lote e o serviço de Machine Learning. Essas alocações são emptible, mas vêm a um preço reduzido em comparação com as VMs dedicadas. Em geral, é recomendável usar VMs Low-Priority para cargas de trabalho do lote. Você também deve usá-los onde as interrupções são recuperáveis por meio de reenvios (para inferência de lote) ou por meio de reinicializações (para treinamento de aprendizado profundo com ponto de verificação).
 
-As VMs de baixa prioridade têm uma única cota separada do valor de cota dedicado, que é por família de VM. Saiba [mais sobre as cotas do AmlCompute](how-to-manage-quotas.md).
+Low-Priority VMs têm uma única cota separada do valor de cota dedicado, que é por família de VM. Saiba [mais sobre as cotas do AmlCompute](how-to-manage-quotas.md).
 
- VMs de baixa prioridade não funcionam para instâncias de computação, pois precisam dar suporte a experiências interativas de notebook.
+ Low-Priority VMs não funcionam para instâncias de computação, pois precisam dar suporte a experiências interativas de notebook.
 
 ## <a name="use-reserved-instances"></a>Usar instâncias reservadas
 

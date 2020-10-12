@@ -10,10 +10,10 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
 ms.openlocfilehash: 3b1e71a5aadbe9e6a4fa89d4b3ec0fb6b1d9e6ce
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90530447"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Pontos de extremidade de serviço de rede virtual para o Azure Key Vault
@@ -76,7 +76,7 @@ Segue uma lista de serviços confiáveis que poderão acessar um cofre de chaves
 |Repositório Azure Data Lake|[Criptografia de dados no Azure Data Lake Store](../../data-lake-store/data-lake-store-encryption.md) com uma chave gerenciada pelo cliente.|
 |Azure Databricks|[Serviço de análise rápida, fácil e colaborativa, com base no Apache Spark](../../azure-databricks/what-is-azure-databricks.md)|
 |Gerenciamento de API do Azure|[Implantar certificados para o domínio personalizado de Key Vault usando o MSI](../../api-management/api-management-howto-use-managed-service-identity.md#use-ssl-tls-certificate-from-azure-key-vault)|
-|Fábrica de dados do Azure|[Buscar credenciais de armazenamento de dados no Key Vault de Data Factory](https://go.microsoft.com/fwlink/?linkid=2109491)|
+|Azure Data Factory|[Buscar credenciais de armazenamento de dados no Key Vault de Data Factory](https://go.microsoft.com/fwlink/?linkid=2109491)|
 |Hubs de eventos do Azure|[Permitir o acesso a um cofre de chaves para o cenário de chaves gerenciadas pelo cliente](https://docs.microsoft.com/azure/event-hubs/configure-customer-managed-key)|
 |Barramento de Serviço do Azure|[Permitir o acesso a um cofre de chaves para o cenário de chaves gerenciadas pelo cliente](https://docs.microsoft.com/azure/service-bus-messaging/configure-customer-managed-key)|
 |Importação/Exportação do Azure| [Usar chaves gerenciadas pelo cliente no Azure Key Vault para o serviço de importação/exportação](https://docs.microsoft.com/azure/storage/common/storage-import-export-encryption-key-portal)

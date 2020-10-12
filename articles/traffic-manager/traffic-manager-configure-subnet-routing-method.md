@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: duau
 ms.openlocfilehash: b1901ddce2eb9c8ff5ec9ac90a56379e74c11aa6
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89401360"
 ---
 # <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Tráfego direto para pontos de extremidade específicos com base na sub-rede do usuário usando o Gerenciador de Tráfego
@@ -49,19 +49,19 @@ Nesta seção, você cria duas VMs *myEndpointVMEastUS* e *myEndpointVMWEurope* 
 1. No canto superior esquerdo da portal do Azure, selecione **criar um recurso**  >  **computação**  >  **VM do Windows Server 2016**.
 2. Insira, ou selecione, as informações a seguir para **Princípios básicos**, aceite os padrões para as configurações restantes e, em seguida, selecione **Criar**:
 
-    |Setting|Valor|
+    |Configuração|Valor|
     |---|---|
     |Nome|myIISVMEastUS|
     |Nome de usuário| Insira um nome de usuário de sua escolha.|
     |Senha| Insira uma senha de sua escolha. A senha deve ter no mínimo 12 caracteres e atender a [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    |Grupo de recursos| Selecione **Novo**e digite *myResourceGroupTM1*.|
+    |Resource group| Selecione **Novo**e digite *myResourceGroupTM1*.|
     |Location| Selecione **Leste dos EUA**.|
     |||
 
 4. Selecione um tamanho da VM em **Escolher um tamanho**.
 5. Selecione os seguintes valores para **Configurações** e selecione **OK**:
     
-    |Setting|Valor|
+    |Configuração|Valor|
     |---|---|
     |Rede virtual| Selecione **Rede Virtual**, em **Criar rede virtual**, para **Nome**, insira *myVNet1*, para a sub-rede, insira *mySubnet*.|
     |Grupo de Segurança de Rede|Selecione **Básico**, e na lista **Selecionar as portas de entrada públicas**, selecione **HTTP** e **RDP** |
@@ -72,9 +72,9 @@ Nesta seção, você cria duas VMs *myEndpointVMEastUS* e *myEndpointVMWEurope* 
 
 7. Conclua as etapas 1 a 6 novamente, com as seguintes alterações:
 
-    |Setting|Valor|
+    |Configuração|Valor|
     |---|---|
-    |Grupo de recursos | Selecione **Novo**e digite *myResourceGroupTM2*|
+    |Resource group | Selecione **Novo**e digite *myResourceGroupTM2*|
     |Location|Europa Ocidental|
     |Nome da VM | myIISVMWEurope|
     |Rede virtual | Selecione **Rede Virtual**, em **Criar rede virtual**, para **Nome**, insira *myVNet2*, para a sub-rede, insira *mySubnet*.|
@@ -135,18 +135,18 @@ Nesta seção, você pode criar uma VM (*mVMEastUS* e *myVMWestEurope*) em cada 
 1. No canto superior esquerdo da portal do Azure, selecione **criar um recurso**  >  **computação**  >  **VM do Windows Server 2016**.
 2. Insira, ou selecione, as informações a seguir para **Princípios básicos**, aceite os padrões para as configurações restantes e, em seguida, selecione **Criar**:
 
-    |Setting|Valor|
+    |Configuração|Valor|
     |---|---|
     |Nome|myVMEastUS|
     |Nome de usuário| Insira um nome de usuário de sua escolha.|
     |Senha| Insira uma senha de sua escolha. A senha deve ter no mínimo 12 caracteres e atender a [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    |Grupo de recursos| Selecione **Existente** e *myResourceGroupTM1*.|
+    |Resource group| Selecione **Existente** e *myResourceGroupTM1*.|
     |||
 
 4. Selecione um tamanho da VM em **Escolher um tamanho**.
 5. Selecione os seguintes valores para **Configurações** e selecione **OK**:
 
-    |Setting|Valor|
+    |Configuração|Valor|
     |---|---|
     |Rede virtual| Selecione **Rede virtual**, em **Criar rede virtual**, para **Nome**, insira *myVNet3*, para sub-rede, insira *mySubnet3*.|
     |Grupo de Segurança de Rede|Selecione **Básico**, e na lista **Selecionar as portas de entrada públicas**, selecione **HTTP** e **RDP** |
@@ -157,10 +157,10 @@ Nesta seção, você pode criar uma VM (*mVMEastUS* e *myVMWestEurope*) em cada 
 
 7. Conclua as etapas 1 a 5 novamente, com as seguintes alterações:
 
-    |Setting|Valor|
+    |Configuração|Valor|
     |---|---|
     |Nome da VM | *myVMWEurope*|
-    |Grupo de recursos | Selecione **Existente** e em seguida, digite *myResourceGroupTM2*|
+    |Resource group | Selecione **Existente** e em seguida, digite *myResourceGroupTM2*|
     |Rede virtual | Selecione **Rede virtual**, em **Criar rede virtual**, para **Nome**, insira *myVNet4*, para sub-rede, insira *mySubnet4*.|
     |||
 
@@ -172,7 +172,7 @@ Crie um perfil de Gerenciador de Tráfego que permite que você retorne pontos d
 1. No canto superior esquerdo da tela, selecione **criar um recurso**  >  **rede**  >  **perfil do Gerenciador de tráfego**  >  **criar**.
 2. No **perfil Criar Gerenciador de Tráfego**, insira ou selecione as informações a seguir, aceite os padrões para as configurações restantes e selecione **Criar**:
 
-    | Setting                 | Valor                                              |
+    | Configuração                 | Valor                                              |
     | ---                     | ---                                                |
     | Nome                   | Esse nome deve ser exclusivo na zona trafficmanager.net e resulta no nome DNS, trafficmanager.net, que é usado para acessar o seu perfil do Gerenciador de Tráfego.                                   |
     | Método de roteamento          | Selecione o método de roteamento **Sub-rede**.                                       |
@@ -193,7 +193,7 @@ Adicione as duas VMs que executam os servidores IIS- *myIISVMEastUS*  &  *myIISV
 
     | Configuração                 | Valor                                              |
     | ---                     | ---                                                |
-    | Type                    | Ponto de extremidade do Azure                                   |
+    | Tipo                    | Ponto de extremidade do Azure                                   |
     | Nome           | myTestWebSiteEndpoint                                        |
     | Tipo de recurso de destino           | Endereço IP público                          |
     | Recurso de destino          | **Escolha um endereço IP Público** para mostrar a lista de recursos com endereços IP públicos na mesma assinatura. Em **Recursos**, selecione o endereço IP público denominado *myIISVMEastUS-ip*. Isso é o endereço IP público do servidor IIS VM no Leste dos EUA.|

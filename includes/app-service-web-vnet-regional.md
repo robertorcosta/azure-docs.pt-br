@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 06/08/2020
 ms.author: ccompy
 ms.openlocfilehash: 9259e3d3e41a5ba4986fbef48e745210f80e6093
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91255225"
 ---
 O uso da integração de VNet regional permite que seu aplicativo acesse:
@@ -34,7 +34,7 @@ Por padrão, seu aplicativo roteia apenas o tráfego RFC1918 para sua VNet. Se v
    ![Fornecer configuração de aplicativo][4]
 
 1. Selecione **OK**.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 Se você rotear todo o tráfego de saída para sua VNet, ele estará sujeito aos NSGs e UDRs que são aplicados à sua sub-rede de integração. Quando você roteia todo o tráfego de saída para sua VNet, seus endereços de saída ainda são os endereços de saída listados nas propriedades do aplicativo, a menos que você forneça rotas para enviar o tráfego em outro lugar.
 

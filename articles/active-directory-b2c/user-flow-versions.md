@@ -11,10 +11,10 @@ ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 67949c31c710d88a05e1e110860fe703caf66d04
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87481318"
 ---
 # <a name="user-flow-versions-in-azure-active-directory-b2c"></a>Versões no fluxo de usuário no Azure Active Directory B2C
@@ -22,7 +22,7 @@ ms.locfileid: "87481318"
 O usuário flui em Azure Active Directory B2C (Azure AD B2C) ajuda a configurar políticas comuns que descrevem totalmente [as](user-flow-overview.md) experiências de identidade do cliente. Essas experiências incluem inscrição, entrada, redefinição de senha ou edição de perfil. As tabelas a seguir descrevem os fluxos de usuário que estão disponíveis no Azure AD B2C.
 
 > [!IMPORTANT]
-> Alteramos a maneira como fazemos referência às versões de fluxo do usuário. Anteriormente, oferecimos versões V1 (prontas para produção) e versões V 1.1 e v2 (versão prévia). Agora, consolidamos os fluxos de usuário em duas versões:
+> Alteramos a maneira como fazemos referência às versões de fluxo do usuário. Anteriormente, oferecíamos versões V1 (prontas para produção) e versões V1.1 e V2 (versão prévia). Agora, consolidamos os fluxos de usuário em duas versões:
 >
 >- Os fluxos de usuário **recomendados** são as novas versões prévias dos fluxos de usuário. Eles são totalmente testados e combinam todos os recursos das versões herdadas **v2** e **v 1.1** . No futuro, os novos fluxos de usuário recomendados serão mantidos e atualizados. Depois de mover para esses novos fluxos de usuário recomendados, você terá acesso aos novos recursos à medida que eles forem lançados.
 >- Os fluxos de usuário **padrão** , anteriormente conhecidos como **v1**, estão geralmente disponíveis e fluxos de usuário prontos para produção. Se seus fluxos de usuário forem de missão crítica e dependerem de versões altamente estáveis, você poderá continuar a usar fluxos de usuário padrão, percebendo que essas versões não serão mantidas e atualizadas.

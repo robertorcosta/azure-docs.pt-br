@@ -4,10 +4,10 @@ description: Use o Backup do Azure para fazer backup e recuperar aplicativos e a
 ms.topic: conceptual
 ms.date: 06/05/2018
 ms.openlocfilehash: cae95c10c510969cc0553a54a506789d6be427d7
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89180976"
 ---
 # <a name="back-up-files-and-applications-on-azure-stack"></a>Fazer backup de arquivos e aplicativos no Azure Stack
@@ -89,7 +89,7 @@ Para configurar o Servidor de Backup do Azure para proteger máquinas virtuais d
 
 Use o console do Servidor de Backup do Azure para recuperar dados para sua máquina virtual.
 
-1. No console do Servidor de Backup do Azure, na barra de navegação, selecione **recuperação** e procure os dados que você deseja recuperar. No painel de resultados, selecione os dados.
+1. No console do Servidor de Backup do Azure, na barra de navegação, selecione **recuperação** e procure os dados que você deseja recuperar. No painel Resultados, selecione os dados.
 
 2. No calendário da seção de pontos de recuperação, as datas em negrito indicam que os pontos de recuperação estão disponíveis. Selecione a data para recuperar.
 
@@ -97,17 +97,17 @@ Use o console do Servidor de Backup do Azure para recuperar dados para sua máqu
 
 4. No painel **ações** , selecione **recuperar** para abrir o assistente de recuperação.
 
-5. Você pode recuperar dados da seguinte maneira:
+5. Você pode recuperar os dados da seguinte maneira:
 
     * **Recuperar para o local original** – se o computador cliente estiver conectado através de VPN, essa opção não funcionará. Em vez disso, use um local alternativo e, em seguida, copie os dados desse local.
-    * **Recuperar para um local alternativo**
+    * **Recuperar em um local alternativo**
 
 6. Especifique as opções de recuperação:
 
     * Para **Comportamento de recuperação da versão existente**, selecione **Criar cópia**, **Ignorar** ou **Substituir**. Substituir está disponível somente ao recuperar para o local original.
     * Para **Restaurar segurança**, escolha **Aplicar as configurações do computador de destino** ou **Aplicar as configurações de segurança da versão do ponto de recuperação**.
     * Para **limitação do uso de largura de banda**, selecione **Modificar** para habilitar a limitação do uso de largura de banda da rede.
-    * **Notificação** do Selecione **enviar um email quando a recuperação for concluída**e especifique os destinatários que receberão a notificação. Separe os endereços de email com vírgulas.
+    * **Notificação** do Selecione **enviar um email quando a recuperação for concluída**e especifique os destinatários que receberão a notificação. Separe os endereços de email por vírgulas.
     * Depois de fazer as seleções, selecione **Avançar**
 
 7. Examine as configurações de recuperação e selecione **recuperar**.

@@ -11,10 +11,10 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 07/28/2020
 ms.openlocfilehash: d43f94d3555a660d6b7c8f755eebfec253d31dc2
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89322861"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Noções básicas sobre o uso de máquina virtual do Azure
@@ -59,7 +59,7 @@ Para algumas imagens na galeria do Azure, o tipo de imagem é preenchido no camp
 - Versão prévia do Windows Server 
 
 ## <a name="service-type"></a>Tipo de Serviço
-O campo de tipo de serviço no campo Informações Adicionais corresponde ao tamanho exato da VM implantada. VMs de armazenamento Premium (baseadas em SSD) e VMs de armazenamento não Premium (baseadas em HDD) possuem o mesmo preço. Se você implantar um tamanho baseado em SSD, como \_ o Standard DS2 \_ v2, verá o tamanho não SSD ( `Standard\_D2\_v2 VM` ) na coluna de subcategoria do medidor e o tamanho do SSD ( `Standard\_DS2\_v2` ) no campo informações adicionais.
+O campo de tipo de serviço no campo Informações Adicionais corresponde ao tamanho exato da VM implantada. VMs de armazenamento Premium (baseadas em SSD) e VMs de armazenamento não Premium (baseadas em HDD) possuem o mesmo preço. Se você implantar um tamanho baseado em SSD, como \_ o Standard DS2 \_ v2, verá o tamanho não SSD ( `Standard\_D2\_v2 VM` ) na coluna Sub-Category do medidor e o tamanho SSD ( `Standard\_DS2\_v2` ) no campo informações adicionais.
 
 ## <a name="region-names"></a>Nomes de região
 O nome da região preenchido no campo Local do Recurso nos detalhes de uso varia do nome de região utilizado no Azure Resource Manager. Aqui está um mapeamento entre os valores de região:

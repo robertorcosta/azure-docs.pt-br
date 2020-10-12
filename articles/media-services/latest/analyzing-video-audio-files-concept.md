@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: 29d80d2c6dc4e090e30d7a90460dc970ff4d8ca9
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89320674"
 ---
 # <a name="analyze-video-and-audio-files-with-azure-media-services"></a>Analisar arquivos de vídeo e áudio com os serviços de mídia do Azure
@@ -74,7 +74,7 @@ A saída inclui um arquivo JSON (insights.jsem) com todas as informações encon
 |Nome|Descrição|
 |---|---|
 |id|A ID da linha.|
-|texto|A própria transcrição.|
+|text|A própria transcrição.|
 |Linguagem|O idioma da transcrição. Tem o objetivo dar suporte à transcrição na qual cada linha pode ter um idioma diferente.|
 |instances|Uma lista com os intervalos de tempo nos quais essa linha apareceu. Se a instância for transcrita, ela terá apenas 1 instância.|
 
@@ -112,7 +112,7 @@ Exemplo:
 |Nome|Descrição|
 |---|---|
 |id|A ID da linha de OCR.|
-|texto|O texto de OCR.|
+|text|O texto de OCR.|
 |confidence|A confiança do reconhecimento.|
 |Linguagem|O idioma do OCR.|
 |instances|Uma lista de intervalos de tempo nos quais essa OCR apareceu (o mesmo OCR pode aparecer várias vezes).|
@@ -363,7 +363,7 @@ Os sentimentos são agregadas de acordo com seu campo sentimentType (Positivo/Ne
 |Nome|Descrição|
 |---|---|
 |id|A ID da palavra-chave.|
-|texto|O texto da palavra-chave.|
+|text|O texto da palavra-chave.|
 |confidence|A confiança do reconhecimento da palavra-chave.|
 |Linguagem|O idioma da palavra-chave (quando traduzida).|
 |instances|Uma lista de intervalos de tempo nos quais essa palavra-chave apareceu (uma palavra-chave pode aparecer várias vezes).|

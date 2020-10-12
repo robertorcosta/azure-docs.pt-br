@@ -14,10 +14,10 @@ ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
 ms.openlocfilehash: d55f52b5e99a7a617e2bec8bea4d6e6ef687730a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91336523"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Balanceador de carga entre regiões (visualização)
@@ -55,7 +55,7 @@ Se uma região falhar, o tráfego será roteado para o balanceador de carga regi
 
 A investigação de integridade do balanceador de carga entre regiões coleta informações sobre a disponibilidade a cada 20 segundos. Se um balanceador de carga regional descartar sua disponibilidade para 0, o balanceador de carga entre regiões detectará a falha. O balanceador de carga regional é então retirado da rotação. 
 
-:::image type="content" source="./media/cross-region-overview/global-region-view.png" alt-text="Diagrama da exibição de tráfego de região global." border="true":::
+:::image type="content" source="./media/cross-region-overview/global-region-view.png" alt-text="Diagrama de balanceador de carga entre regiões." border="true":::
 
 ### <a name="ultra-low-latency"></a>Latência ultra baixa
 
@@ -126,10 +126,10 @@ O balanceador de carga entre regiões roteia o tráfego para o balanceador de ca
 * Sul do Reino Unido 
 * Sudeste Asiático 
 * Centro-Norte dos EUA 
-* Leste do Japão 
+* Japan East 
 * Leste da Ásia 
 * Centro-Oeste dos EUA 
-* Sudeste da Austrália 
+* Australia Southeast 
 * Leste da Austrália 
 * Índia Central 
 

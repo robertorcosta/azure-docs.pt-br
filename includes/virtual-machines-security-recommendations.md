@@ -1,6 +1,6 @@
 ---
-title: incluir arquivo
-description: incluir arquivo
+title: arquivo de inclusão
+description: arquivo de inclusão
 services: virtual-machines
 author: msmbaldwin
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 11/13/2019
 ms.author: mbaldwin
 ms.custom: include file
 ms.openlocfilehash: e64e6b6abc921b1db6614ed36ba2e9c04fc86b1f
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87451153"
 ---
 Este artigo contém recomendações de segurança para máquinas virtuais do Azure. Siga estas recomendações para ajudar a atender as obrigações de segurança descritas em nosso modelo para responsabilidade compartilhada. As recomendações também ajudarão você a melhorar a segurança geral para suas soluções de aplicativo Web. Para obter mais informações sobre o que a Microsoft faz para atender às responsabilidades do provedor de serviços, consulte [responsabilidades compartilhadas para computação em nuvem](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91).
@@ -29,7 +29,7 @@ Para obter informações gerais sobre a central de segurança do Azure, consulte
 | manter as VMs atualizadas. | Você pode usar a solução [Gerenciamento de atualizações](../articles/automation/update-management/update-mgmt-overview.md) na automação do Azure para gerenciar atualizações do sistema operacional para seus computadores Windows e Linux no Azure. | [Sim](../articles/security-center/security-center-apply-system-updates.md) |
 | Faça backup de suas VMs. | O [backup do Azure](../articles/backup/backup-overview.md) ajuda a proteger os dados do aplicativo e tem custos operacionais mínimos. Erros de aplicativo podem corromper seus dados e erros humanos podem introduzir bugs em seus aplicativos. O backup do Azure protege suas VMs que executam Windows e Linux. | - |
 | Use várias VMs para obter maior resiliência e disponibilidade. | Se sua VM executar aplicativos que devem ser altamente disponíveis, use várias VMs ou [conjuntos de disponibilidade](../articles/virtual-machines/windows/manage-availability.md). | - |
-| Adote uma estratégia de BCDR (continuidade dos negócios e recuperação de desastre). | Azure Site Recovery permite que você escolha entre diferentes opções criadas para dar suporte à continuidade dos negócios. Ele dá suporte a diferentes cenários de replicação e failover. Para obter mais informações, consulte [About site Recovery](../articles/site-recovery/site-recovery-overview.md). | - |
+| Adote uma estratégia de BCDR (continuidade dos negócios e recuperação de desastre). | Azure Site Recovery permite que você escolha entre diferentes opções criadas para dar suporte à continuidade dos negócios. Ele dá suporte a diferentes cenários de replicação e failover. Para obter mais informações, consulte  [About site Recovery](../articles/site-recovery/site-recovery-overview.md). | - |
 
 ## <a name="data-security"></a>Segurança de dados
 

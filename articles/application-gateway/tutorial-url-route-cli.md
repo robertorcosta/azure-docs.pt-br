@@ -9,10 +9,10 @@ ms.date: 08/01/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: 4aee41bc0188676ac0bd168474f1842199af9620
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89595216"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Rotear o tráfego da Web baseado na URL usando a CLI do Azure
@@ -255,7 +255,7 @@ Altere a URL para http:// &lt; IP-address &gt; : 8080/vídeo/test.html, substitu
 
 ![Testar a URL de vídeo no gateway de aplicativo](./media/tutorial-url-route-cli/application-gateway-nginx-video.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não forem mais necessários, remova o grupo de recursos, o gateway de aplicativo e todos os recursos relacionados.
 

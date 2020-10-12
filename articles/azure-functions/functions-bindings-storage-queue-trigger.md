@@ -7,10 +7,10 @@ ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
 ms.openlocfilehash: 01021530c491fd25a199f32475c031a0e7f6cd0b
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89376631"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Gatilho de armazenamento de filas do Azure para Azure Functions
@@ -363,7 +363,7 @@ A anotação [QueueTrigger](/java/api/com.microsoft.azure.functions.annotation.q
 
 O gatilho de fila fornece várias propriedades de [metadados](./functions-bindings-expressions-patterns.md#trigger-metadata). Essas propriedades podem ser usadas como parte de expressões de associação em outras associações ou como parâmetros em seu código. As propriedades são membros da classe [CloudQueueMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) .
 
-|Propriedade|Type|Descrição|
+|Propriedade|Tipo|Descrição|
 |--------|----|-----------|
 |`QueueTrigger`|`string`|Conteúdo da fila (se for uma cadeia de caracteres válida). Se a carga da mensagem da fila for uma cadeia de caracteres, `QueueTrigger` o terá o mesmo valor que a variável nomeada pela `name` propriedade em *function.js*.|
 |`DequeueCount`|`int`|O número de vezes que essa mensagem foi removida da fila.|
@@ -402,7 +402,7 @@ O tamanho do lote e o limite para obtenção de um novo lote são configuráveis
 
 O gatilho de fila impede automaticamente que uma função processe uma mensagem da fila várias vezes simultaneamente.
 
-## <a name="hostjson-properties"></a>host.jsem Propriedades
+## <a name="hostjson-properties"></a>Propriedades de host.json
 
 O arquivo [host.json](functions-host-json.md#queues) contém configurações que controlam o comportamento de gatilho de fila. Consulte a [host.jsna seção Configurações](functions-bindings-storage-queue-output.md#hostjson-settings) para obter detalhes sobre as configurações disponíveis.
 

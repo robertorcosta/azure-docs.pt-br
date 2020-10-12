@@ -8,10 +8,10 @@ ms.topic: guide
 ms.date: 09/22/2020
 ms.author: jasonh
 ms.openlocfilehash: c6369be39d0a964f07c64083e3269bb1c0c49c7f
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91409656"
 ---
 # <a name="upgrade-the-mongodb-wire-protocol-version-of-your-azure-cosmos-dbs-api-for-mongodb-account"></a>Atualizar a versão do protocolo de transmissão do MongoDB da conta da API para MongoDB do Azure Cosmos DB
@@ -62,27 +62,27 @@ Você precisa substituir o ponto de extremidade existente em seus aplicativos e 
 
 2. Nas opções à esquerda, selecione a `Features` folha. Isso revelará os recursos de nível de conta que estão disponíveis para sua conta de banco de dados.
 
-    :::image type="content" source="./media/mongodb-version-upgrade/2.png" alt-text="portal do Azure visão geral da conta do MongoDB com a folha recursos realçada" border="false":::
+    :::image type="content" source="./media/mongodb-version-upgrade/2.png" alt-text="Visão geral da conta do portal do Azure com MongoDB" border="false":::
 
 3. Clique na `Upgrade to Mongo server version 3.6` linha. Se você não vir essa opção, sua conta poderá não estar qualificada para esta atualização. Registre [um tíquete de suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) se esse for o caso.
 
-    :::image type="content" source="./media/mongodb-version-upgrade/3.png" alt-text="Recursos folha com opções." border="false":::
+    :::image type="content" source="./media/mongodb-version-upgrade/3.png" alt-text="Visão geral da conta do portal do Azure com MongoDB" border="false":::
 
 4. Examine as informações exibidas sobre essa atualização específica. Observe que a atualização só será concluída até que seus aplicativos usem o ponto de extremidade atualizado, conforme destacado nesta seção. Clique em assim que `Enable` estiver pronto para iniciar o processo.
 
-    :::image type="content" source="./media/mongodb-version-upgrade/4.png" alt-text="Diretrizes de atualização expandidas." border="false":::
+    :::image type="content" source="./media/mongodb-version-upgrade/4.png" alt-text="Visão geral da conta do portal do Azure com MongoDB" border="false":::
 
 5. Depois de iniciar o processo, o `Features` menu mostrará o status da atualização. O status vai de `Pending` , para `In Progress` , para `Upgraded` . Esse processo não afetará a funcionalidade ou as operações existentes da conta do banco de dados.
 
-    :::image type="content" source="./media/mongodb-version-upgrade/5.png" alt-text="Status da atualização após o início." border="false":::
+    :::image type="content" source="./media/mongodb-version-upgrade/5.png" alt-text="Visão geral da conta do portal do Azure com MongoDB" border="false":::
 
 6. Quando a atualização for concluída, o status será exibido como `Upgraded` . Clique nele para saber mais sobre as próximas etapas e ações que você precisa executar para finalizar o processo. [Entre em contato com o suporte](https://azure.microsoft.com/en-us/support/create-ticket/) se houvesse um problema ao processar sua solicitação.
 
-    :::image type="content" source="./media/mongodb-version-upgrade/6.png" alt-text="Status da conta atualizado." border="false":::
+    :::image type="content" source="./media/mongodb-version-upgrade/6.png" alt-text="Visão geral da conta do portal do Azure com MongoDB" border="false":::
 
 7. **Para começar a usar a versão atualizada da sua conta de banco de dados**, volte para a `Overview` folha e copie a nova cadeia de conexão a ser usada em seu aplicativo. Os aplicativos começarão a usar a versão atualizada assim que se conectarem ao novo ponto de extremidade. As conexões existentes não serão interrompidas e poderão ser atualizadas à sua conveniência. Para garantir uma experiência consistente, todos os seus aplicativos devem usar o novo ponto de extremidade.
 
-    :::image type="content" source="./media/mongodb-version-upgrade/7.png" alt-text="Nova folha de visão geral." border="false":::
+    :::image type="content" source="./media/mongodb-version-upgrade/7.png" alt-text="Visão geral da conta do portal do Azure com MongoDB" border="false":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

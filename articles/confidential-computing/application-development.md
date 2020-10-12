@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: JenCook
 ms.openlocfilehash: 6bb3b8dbc7887419f7901a52b56c25f60c869abb
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90994362"
 ---
 # <a name="application-development-on-intel-sgx"></a>Desenvolvimento de aplicativos no Intel SGX 
@@ -59,5 +59,5 @@ Essa estrutura de código-fonte aberto permite uma alta confidencialidade refina
 
 
 ## <a name="next-steps"></a>Próximas etapas 
-- [Implantar uma máquina virtual de computação confidencial DCsv2-Series](quick-create-portal.md)
+- [Implantar uma computação confidencial DCsv2-Series máquina virtual](quick-create-portal.md)
 - [Baixe e instale o SDK do OE e comece a desenvolver aplicativos](https://github.com/openenclave/openenclave)

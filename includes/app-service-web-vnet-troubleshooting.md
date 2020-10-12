@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 02/27/2020
 ms.author: ccompy
 ms.openlocfilehash: b62e5057d8f144fc56d0e35927d17de27a1c8863
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91255224"
 ---
 O recurso é fácil de configurar, mas isso não significa que sua experiência estará livre de problemas. Se você encontrar problemas para acessar o ponto de extremidade desejado, há alguns utilitários que podem ser usados para testar a conectividade no console do aplicativo. Há dois consoles que você pode usar. Um é o console do Kudu e o outro é o console do na portal do Azure. Para acessar o console do kudu do seu aplicativo, acesse **ferramentas**  >  **kudu**. Você também pode acessar o console do Kudo em [SiteName]. SCM. azurewebsites. net. Depois que o site for carregado, vá para a guia **console de depuração** . Para acessar o console do portal do Azure hospedado do seu aplicativo, vá para o **Tools**  >  **console**de ferramentas.
