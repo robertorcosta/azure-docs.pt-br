@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 05/01/2020
 ms.openlocfilehash: 8e88e5e8a9fbe1881959c5183dc01b11ac681bdf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82780361"
 ---
 # <a name="parameterizing-mapping-data-flows"></a>Parametrizando os fluxos de dados de mapeamento
@@ -67,7 +67,7 @@ Ao atribuir um parâmetro de expressão de pipeline do tipo cadeia de caracteres
 Se `stringParam` o parâmetro de fluxo de dados fizer referência a um parâmetro de pipeline com valor `upper(column1)` . 
 
 - Se expression estiver marcado, será `$stringParam` avaliado como o valor de Coluna1 todas as letras maiúsculas.
-- Se a expressão não estiver marcada (comportamento padrão), será `$stringParam` avaliada como`'upper(column1)'`
+- Se a expressão não estiver marcada (comportamento padrão), será  `$stringParam` avaliada como `'upper(column1)'`
 
 #### <a name="passing-in-timestamps"></a>Passando carimbos de data/hora
 
@@ -84,7 +84,7 @@ Digamos que você tenha um parâmetro inteiro `intParam` que faça referência a
 
 ![Definindo um parâmetro de fluxo de dados](media/data-flow/parameter-pipeline-2.png "Definindo um parâmetro de fluxo de dados")
 
-`@pipeline.parameters.pipelineParam`é atribuído um valor de `abs(1)` em tempo de execução.
+`@pipeline.parameters.pipelineParam` é atribuído um valor de `abs(1)` em tempo de execução.
 
 ![Definindo um parâmetro de fluxo de dados](media/data-flow/parameter-pipeline-4.png "Definindo um parâmetro de fluxo de dados")
 

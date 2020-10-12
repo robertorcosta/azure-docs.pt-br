@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 840c371e63aacf8ef410cbf84cc9f68137dd77df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85477576"
 ---
 # <a name="pass-custom-state-in-authentication-requests-using-msaljs"></a>Passar o estado personalizado em solicitações de autenticação usando MSAL.js
@@ -46,7 +46,7 @@ export type AuthenticationParameters = {
 
 > [!Note]
 > Se você quiser ignorar um token em cache e ir para o servidor, passe o booliano para `forceRefresh` o objeto AuthenticationParameters usado para fazer uma solicitação de logon/token.
-> `forceRefresh`Não deve ser usado por padrão, devido ao impacto no desempenho em seu aplicativo.
+> `forceRefresh` Não deve ser usado por padrão, devido ao impacto no desempenho em seu aplicativo.
 > Depender do cache dará aos seus usuários uma experiência melhor.
 > Ignorar o cache só deve ser usado em cenários em que você saiba que os dados atualmente armazenados em cache não têm informações atualizadas.
 > Como uma ferramenta de administração que adiciona funções a um usuário que precisa obter um novo token com funções atualizadas.

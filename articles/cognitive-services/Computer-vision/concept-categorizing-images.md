@@ -12,10 +12,10 @@ ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 477349f1addf71a30e8ecb179266d8eac5510887
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80244743"
 ---
 # <a name="categorize-images-by-subject-matter"></a>Categorizar imagens por assunto
@@ -53,7 +53,7 @@ A resposta JSON a seguir ilustra o que a Computer Vision retorna ao categorizar 
 
 A tabela a seguir ilustra um conjunto de imagens típico e a categoria retornada pelo Computer Vision para cada imagem.
 
-| Image | Categoria |
+| Imagem | Categoria |
 |-------|----------|
 | ![Quatro pessoas posando juntas como uma família](./Images/family_photo.png) | people_group |
 | ![Um filhote de cão sentado em um gramado](./Images/cute_dog.png) | animal_dog |
@@ -62,7 +62,7 @@ A tabela a seguir ilustra um conjunto de imagens típico e a categoria retornada
 
 ## <a name="use-the-api"></a>Usar a API
 
-O recurso de categorização faz parte da API de [análise de imagem](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) . Você pode chamar essa API por meio de um SDK nativo ou por meio de chamadas REST. Inclua `Categories` no parâmetro de consulta **visualFeatures** . Em seguida, quando você obtém a resposta JSON completa, simplesmente analise a cadeia de caracteres para o `"categories"` conteúdo da seção.
+O recurso de categorização faz parte da API de [análise de imagem](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) . Você pode chamar essa API por meio de um SDK nativo ou por meio de chamadas REST. Inclua `Categories` no parâmetro de consulta **visualFeatures** . Em seguida, quando você obtém a resposta JSON completa, simplesmente analise a cadeia de caracteres para o conteúdo da `"categories"` seção.
 
 * [Início rápido: SDK do .NET Pesquisa Visual Computacional](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
 * [Início rápido: analisar uma imagem (API REST)](./quickstarts/csharp-analyze.md)

@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 05/19/2020
 ms.openlocfilehash: 9a2e21696409c320b89d1fed54fefad953b955e1
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90886404"
 ---
 # <a name="algorithm--module-reference-for-azure-machine-learning-designer"></a>Referência de módulo de & de algoritmo para o designer de Azure Machine Learning
@@ -56,7 +56,7 @@ Para obter ajuda com a escolha de algoritmos, consulte
 | Linguagem Python | Grave o código e incorpore-o em um módulo para integrar o Python ao seu pipeline. | [Criar Modelo Python](create-python-model.md) <br/> [Executar Script do Python](execute-python-script.md) |
 | Linguagem R | Grave o código e incorpore-o em um módulo para integrar o R ao seu pipeline. | [Executar Script R](execute-r-script.md) |
 | Análise de texto | Disponibilize ferramentas computacionais especializadas para trabalhar com texto estruturado e não estruturado. |  [Converter Palavra em Vetor](convert-word-to-vector.md) <br/> [Extrair Recursos N-Gram do Texto](extract-n-gram-features-from-text.md) <br/> [Hash de Recursos](feature-hashing.md) <br/> [Pré-processar Texto](preprocess-text.md) <br/> [Alocação de Dirichlet Latente](latent-dirichlet-allocation.md) <br/> [Pontuar o modelo Vowpal Wabbit](score-vowpal-wabbit-model.md) <br/> [Treinar o modelo Vowpal Wabbit](train-vowpal-wabbit-model.md)|
-| Pesquisa Visual Computacional | Módulos relacionados ao pré-processamento de dados de imagem e ao reconhecimento de imagem. |  [Aplicar Transformação de Imagem](apply-image-transformation.md) <br/> [Converter em Diretório de Imagem](convert-to-image-directory.md) <br/> [Transformação da Imagem de Inicialização](init-image-transformation.md) <br/> [Dividir Diretório de Imagens](split-image-directory.md) <br/> [DenseNet](densenet.md) <br/> [ResNet](resnet.md) |
+| Visual Computacional | Módulos relacionados ao pré-processamento de dados de imagem e ao reconhecimento de imagem. |  [Aplicar Transformação de Imagem](apply-image-transformation.md) <br/> [Converter em Diretório de Imagem](convert-to-image-directory.md) <br/> [Transformação da Imagem de Inicialização](init-image-transformation.md) <br/> [Dividir Diretório de Imagens](split-image-directory.md) <br/> [DenseNet](densenet.md) <br/> [ResNet](resnet.md) |
 | Recomendação | Criar modelos de recomendação. | [Avaliar o Sistema de Recomendação](evaluate-recommender.md) <br/> [Pontuar o Sistema de Recomendação SVD](score-svd-recommender.md) <br/> [Pontuar o sistema de recomendação grande e profundo](score-wide-and-deep-recommender.md)<br/> [Treinar o Sistema de Recomendação SVD](train-SVD-recommender.md) <br/> [Treinar o sistema de recomendação grande e profundo](train-wide-and-deep-recommender.md)|
 | Detecção de anomalias | Modelos de detecção de anomalias treinados. | [Detecção de Anomalias Baseada em PCA](pca-based-anomaly-detection.md) <br/> [Treinar um Modelo de Detecção de Anomalias](train-anomaly-detection-model.md) |
 

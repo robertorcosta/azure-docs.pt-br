@@ -12,10 +12,10 @@ ms.author: bonova
 ms.reviewer: ''
 ms.date: 07/11/2019
 ms.openlocfilehash: a33ff6b927045389c3692201fa70839c6a466ede
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90887661"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-managed-instance"></a>Migração de instância de SQL Server para o SQL do Azure Instância Gerenciada
@@ -70,7 +70,7 @@ Alguns dos parâmetros que você precisa medir em sua instância de SQL Server s
 
 - [Monitore o uso da CPU em sua instância do SQL Server](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Monitor-CPU-usage-on-SQL-Server/ba-p/680777#M131) e registre o uso médio e máximo da CPU.
 - [Monitore o uso de memória em sua instância do SQL Server](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-memory-usage) e determine a quantidade de memória usada por diferentes componentes, como pool de buffers, cache de planos, pool de repositório de coluna, [OLTP na memória](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage?view=sql-server-2017), etc. Além disso, você deve encontrar os valores médio e de pico do contador de desempenho de memória expectativa de vida da página.
-- Monitore o uso de e/s do disco na instância de SQL Server de origem usando a exibição [Sys. dm_io_virtual_file_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) ou os [contadores de desempenho](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-disk-usage).
+- Monitore o uso de e/s de disco na instância de SQL Server de origem usando [Sys.dm_io_virtual_file_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) exibição ou [contadores de desempenho](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-disk-usage).
 - Monitore a carga de trabalho e o desempenho de consulta ou sua instância de SQL Server examinando exibições de gerenciamento dinâmico ou Repositório de Consultas se você estiver migrando de uma versão do SQL Server 2016 +. Identifique a duração média e o uso da CPU das consultas mais importantes em sua carga de trabalho para compará-las com as consultas em execução na instância gerenciada.
 
 > [!Note]
@@ -139,7 +139,7 @@ A tabela a seguir fornece mais informações sobre os métodos que podem ser uti
 
 > [!IMPORTANT]
 >
-> - Quando você estiver migrando um banco de dados protegido por [Transparent Data Encryption](../database/transparent-data-encryption-tde-overview.md) para uma instância gerenciada usando a opção de restauração nativa, o certificado correspondente da VM local ou do Azure SQL Server precisa ser migrado antes da restauração do banco de dados. Para obter etapas detalhadas, consulte [migrar um certificado TDE para uma instância gerenciada](tde-certificate-migrate.md).
+> - Quando você estiver migrando um banco de dados protegido por [Transparent Data Encryption](../database/transparent-data-encryption-tde-overview.md) para uma instância gerenciada usando a opção de restauração nativa, o certificado correspondente da VM local ou do Azure SQL Server precisa ser migrado antes da restauração do banco de dados. Para obter as etapas detalhadas, confira [Migrar um certificado TDE para uma instância gerenciada](tde-certificate-migrate.md).
 > - Não há suporte para restauração de bancos de dados do sistema. Para migrar objetos de nível de instância (armazenados em bancos de dados mestre ou msdb), é recomendável criar scripts para eles e executar scripts T-SQL na instância de destino.
 
 Para obter um Início Rápido que mostra como restaurar um backup de banco de dados em uma instância gerenciada usando uma credencial SAS, confira [Restauração do backup para uma instância gerenciada](restore-sample-database-quickstart.md).

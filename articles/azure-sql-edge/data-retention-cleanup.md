@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/04/2020
 ms.openlocfilehash: 45ce874ffb626f63b2239c66afdefd091114cbd2
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90888134"
 ---
 # <a name="manage-historical-data-with-retention-policy"></a>Gerenciar dados históricos com a política de retenção
@@ -70,7 +70,7 @@ As operações de limpeza da política de retenção de dados podem ser monitora
 
 Os seis eventos estendidos a seguir ajudam a acompanhar o estado das operações de limpeza. 
 
-| Name | Descrição |
+| Nome | Descrição |
 |------| ------------|
 | data_retention_task_started  | Ocorre quando uma tarefa em segundo plano para limpeza de tabelas com a política de retenção é iniciada. |
 | data_retention_task_completed  | Ocorre quando a tarefa em segundo plano para limpeza de tabelas com política de retenção termina. |
@@ -79,7 +79,7 @@ Os seis eventos estendidos a seguir ajudam a acompanhar o estado das operações
 | data_retention_cleanup_exception  | Ocorre falha no processo de limpeza da tabela com a política de retenção. |
 | data_retention_cleanup_completed  | Ocorre quando o processo de limpeza da tabela com a política de retenção de dados termina. |  
 
-Além disso, um novo tipo de buffer de anéis chamado `RING_BUFFER_DATA_RETENTION_CLEANUP` foi adicionado à exibição de gerenciamento dinâmico sys. dm_os_ring_buffers. Este modo de exibição pode ser usado para monitorar as operações de limpeza de retenção de dados. 
+Além disso, um novo tipo de buffer de anéis chamado `RING_BUFFER_DATA_RETENTION_CLEANUP` foi adicionado ao sys.dm_os_ring_buffers exibição de gerenciamento dinâmico. Este modo de exibição pode ser usado para monitorar as operações de limpeza de retenção de dados. 
 
 
 ## <a name="next-steps"></a>Próximas etapas

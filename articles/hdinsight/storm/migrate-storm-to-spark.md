@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/16/2019
 ms.openlocfilehash: e1262a4699bc42cb5b9a4398be2254854c5d5ff2
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86081189"
 ---
 # <a name="migrate-azure-hdinsight-36-apache-storm-to-hdinsight-40-apache-spark"></a>Migrar Apache Storm do Azure HDInsight 3,6 para o HDInsight 4,0 Apache Spark
@@ -33,20 +33,20 @@ Este documento fornece um guia para migração de Apache Storm para Spark stream
 
 ## <a name="comparison-between-apache-storm-and-spark-streaming-spark-structured-streaming"></a>Comparação entre Apache Storm e o streaming do Spark, streaming estruturado do Spark
 
-O Apache Storm pode oferecer diferentes níveis de processamento de mensagem garantido. Por exemplo, um aplicativo básico Storm pode garantir um processamento pelo menos uma vez e o [Trident](https://storm.apache.org/releases/current/Trident-API-Overview.html) pode garantir o processamento exatamente uma vez. O streaming do Spark e o streaming estruturado do Spark garantem que qualquer evento de entrada seja processado exatamente uma vez, mesmo se ocorrer uma falha de nó. O Storm tem um modelo que processa cada evento único, e você também pode usar o modelo micro batch com o Trident. O streaming do Spark e o streaming estruturado do Spark fornecem o modelo de processamento micro-Batch.
+O Apache Storm pode oferecer diferentes níveis de processamento de mensagem garantido. Por exemplo, um aplicativo básico Storm pode garantir um processamento pelo menos uma vez e o [Trident](https://storm.apache.org/releases/current/Trident-API-Overview.html) pode garantir o processamento exatamente uma vez. O streaming do Spark e o streaming estruturado do Spark garantem que qualquer evento de entrada seja processado exatamente uma vez, mesmo se ocorrer uma falha de nó. O Storm tem um modelo que processa cada evento único, e você também pode usar o modelo micro batch com o Trident. O streaming do Spark e o streaming estruturado do Spark fornecem Micro-Batch modelo de processamento.
 
 |  |Storm |Streaming do Spark | Streaming estruturado do Spark|
 |---|---|---|---|
 |**Garantia de processamento de eventos**|Pelo menos uma vez <br> Exatamente uma vez (Trident) |[Exatamente uma vez](https://spark.apache.org/docs/latest/streaming-programming-guide.html)|[Exatamente uma vez](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html)|
 |**Modelo de processamento**|Tempo real <br> Micro batch (Trident) |Micro batch |Micro batch |
 |**Suporte ao horário do evento**|[Sim](https://storm.apache.org/releases/2.0.0/Windowing.html)|Não|[Sim](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html)|
-|**Linguagens**|Java, etc.|Escala, Java, Python|Python, R, escalar, Java, SQL|
+|**Idiomas**|Java, etc.|Escala, Java, Python|Python, R, escalar, Java, SQL|
 
 ### <a name="spark-streaming-vs-spark-structured-streaming"></a>Streaming do Spark versus streaming estruturado do Spark
 
 O streaming estruturado do Spark está substituindo o streaming do Spark (DStreams). O streaming estruturado continuará a receber melhorias e manutenção, enquanto o DStreams estará apenas no modo de manutenção. **Observação: é necessário ter links para enfatizar este ponto**. O streaming estruturado não tem tantos recursos quanto DStreams para as fontes e coletores que ele dá suporte pronto para uso, portanto, avalie seus requisitos para escolher a opção de processamento de fluxo Spark apropriada.
 
-## <a name="streaming-single-event-processing-vs-micro-batch-processing"></a>Processamento de streaming (único evento) versus processamento micro batch
+## <a name="streaming-single-event-processing-vs-micro-batch-processing"></a>Processamento de streaming (único evento) versus processamento de Micro-Batch
 
 O Storm fornece um modelo que processa cada único evento. Isso significa que todos os registros de entrada serão processados assim que eles chegarem. Os aplicativos Spark Streaming precisam aguardar uma fração de segundo para coletar cada microlote de eventos antes de enviar esse lote para processamento. Por outro lado, um aplicativo controlado por evento processa cada evento imediatamente. A latência do Spark Streaming normalmente fica abaixo de alguns segundos. Os benefícios da abordagem de microlote são um processamento de dados mais eficiente e cálculos de agregação mais simples.
 

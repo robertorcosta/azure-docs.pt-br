@@ -13,10 +13,10 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: 5366da1048e7c6d9612ad8b6b1f1694068bb35fb
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87543020"
 ---
 # <a name="onboarding-and-installing"></a>Integração e instalação
@@ -48,9 +48,9 @@ Se você atender às qualificações acima, entre em contato com um parceiro na 
 
 >**Parceiros**
 
-- Zonas – detalhes de contato:cloudsupport@zones.com
-- Wortell – detalhes de contato:info@wortell.nl
-- Logicalis – detalhes de contato:logicalisleads@us.logicalis.com
+- Zonas – detalhes de contato: cloudsupport@zones.com
+- Wortell – detalhes de contato: info@wortell.nl
+- Logicalis – detalhes de contato: logicalisleads@us.logicalis.com
 
 ### <a name="become-a-partner"></a>Torne-se um parceiro
 

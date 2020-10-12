@@ -12,10 +12,10 @@ ms.date: 04/14/2020
 ms.author: trbye
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 6b852186834fba858e8a049a8230b38f3d69164d
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88067419"
 ---
 # <a name="what-is-the-speech-cli"></a>O que é a CLI de Fala?
@@ -48,5 +48,5 @@ Para começar a usar a CLI de fala, consulte o [artigo básico](spx-basics.md). 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Noções básicas da CLI de Fala](spx-basics.md)
+- [Noções básicas da CLI de fala](spx-basics.md)
 - Se o seu caso de uso for mais complexo, [obtenha o SDK de fala](speech-sdk.md)

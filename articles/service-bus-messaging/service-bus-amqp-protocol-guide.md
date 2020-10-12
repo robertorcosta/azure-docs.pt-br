@@ -4,10 +4,10 @@ description: Guia de protocolo para expressões e a descrição do AMQP 1.0 no B
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: ffccd49d37dbf2a8fc404e9895b648e53007675c
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88064529"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 no guia de protocolo do Barramento de Serviço e dos Hubs de Eventos do Azure
@@ -73,7 +73,7 @@ As conexões, os canais e as sessões são efêmeros. Se a conexão subjacente f
 
 ### <a name="amqp-outbound-port-requirements"></a>Requisitos de porta de saída do AMQP
 
-Os clientes que usam conexões AMQP sobre TCP exigem que as portas 5671 e 5672 sejam abertas no firewall local. Junto com essas portas, pode ser necessário abrir portas adicionais se o recurso [EnableLinkRedirect](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.enablelinkredirect?view=azure-dotnet) estiver habilitado. `EnableLinkRedirect`é um novo recurso de mensagens que ajuda a ignorar um salto durante o recebimento de mensagens, ajudando a aumentar a taxa de transferência. O cliente começaria a se comunicar diretamente com o serviço de back-end por meio do intervalo de portas 104XX, conforme mostrado na imagem a seguir. 
+Os clientes que usam conexões AMQP sobre TCP exigem que as portas 5671 e 5672 sejam abertas no firewall local. Junto com essas portas, pode ser necessário abrir portas adicionais se o recurso [EnableLinkRedirect](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.enablelinkredirect?view=azure-dotnet) estiver habilitado. `EnableLinkRedirect` é um novo recurso de mensagens que ajuda a ignorar um salto durante o recebimento de mensagens, ajudando a aumentar a taxa de transferência. O cliente começaria a se comunicar diretamente com o serviço de back-end por meio do intervalo de portas 104XX, conforme mostrado na imagem a seguir. 
 
 ![Lista de portas de destino][4]
 
@@ -223,7 +223,7 @@ Toda propriedade que o aplicativo precisa definir deve ser mapeada para o mapa d
 | message-id |Identificador de forma livre definido pelo aplicativo para esta mensagem. Usado para detecção de duplicidade. |[MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | user-id |Identificador de usuário definido pelo aplicativo, não interpretado pelo Barramento de Serviço. |Não é acessível por meio da API do Barramento de Serviço. |
 | para |Identificador de destino definido pelo aplicativo, não é interpretado pelo Barramento de Serviço. |[Para](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
-| subject |Identificador de finalidade de mensagem definido pelo aplicativo, não é interpretado pelo Barramento de Serviço. |[Rotular](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| subject |Identificador de finalidade de mensagem definido pelo aplicativo, não é interpretado pelo Barramento de Serviço. |[Chamada](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | reply-to |Identificador reply-path definido pelo aplicativo, não é interpretado pelo Barramento de Serviço. |[ReplyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | correlation-id |Identificador de correlação definido pelo aplicativo, não é interpretado pelo Barramento de Serviço. |[CorrelationId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | content-type |Identificador content-type definido pelo aplicativo para o corpo, não é interpretado pelo Barramento de Serviço. |[ContentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
@@ -264,7 +264,7 @@ Cada conexão tem que iniciar seu próprio link de controle para poder iniciar e
 
 Para iniciar o trabalho transacional. o controlador precisa obter um `txn-id` do coordenador. Ele faz isso enviando uma mensagem do tipo `declare`. Se a declaração for bem-sucedida, o coordenador responderá com um resultado de disposição que contém o `txn-id` atribuído.
 
-| Cliente (controlador) | Direção | Barramento de Serviço (coordenador) |
+| Cliente (controlador) | Direction | Barramento de Serviço (coordenador) |
 | :--- | :---: | :--- |
 | attach(<br/>name={link name},<br/>... ,<br/>role=**sender**,<br/>target=**Coordinator**<br/>) | ------> |  |
 |  | <------ | attach(<br/>name={link name},<br/>... ,<br/>target=Coordinator()<br/>) |
@@ -277,7 +277,7 @@ O controlador conclui o trabalho transacional enviando uma mensagem `discharge` 
 
 > Observação: fail=true refere-se à reversão de uma transação e fail=false refere-se à confirmação.
 
-| Cliente (controlador) | Direção | Barramento de Serviço (coordenador) |
+| Cliente (controlador) | Direction | Barramento de Serviço (coordenador) |
 | :--- | :---: | :--- |
 | transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}| ------> |  |
 |  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction ID}<br/>))|
@@ -289,7 +289,7 @@ O controlador conclui o trabalho transacional enviando uma mensagem `discharge` 
 
 Todo o trabalho transacional é feito com o estado de entrega transacional `transactional-state` que transporta o TXN. No caso de envio de mensagens, o estado transacional é executado pelo quadro de transferência da mensagem. 
 
-| Cliente (controlador) | Direção | Barramento de Serviço (coordenador) |
+| Cliente (controlador) | Direction | Barramento de Serviço (coordenador) |
 | :--- | :---: | :--- |
 | transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}| ------> |  |
 |  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction ID}<br/>))|
@@ -300,7 +300,7 @@ Todo o trabalho transacional é feito com o estado de entrega transacional `tran
 
 A disposição da mensagem inclui operações como `Complete` / `Abandon` / `DeadLetter` / `Defer`. Para executar essas operações em uma transação, passe o `transactional-state` com a disposição.
 
-| Cliente (controlador) | Direção | Barramento de Serviço (coordenador) |
+| Cliente (controlador) | Direction | Barramento de Serviço (coordenador) |
 | :--- | :---: | :--- |
 | transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}| ------> |  |
 |  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction ID}<br/>))|
@@ -359,10 +359,10 @@ A mensagem de solicitação tem as seguintes propriedades de aplicativo:
 
 | Chave | Opcional | Tipo de valor | Conteúdo de valor |
 | --- | --- | --- | --- |
-| operação |Não |string |**put-token** |
+| operation |Não |string |**put-token** |
 | type |Não |string |O tipo do token colocado. |
 | name |Não |string |O "público" ao qual o token se aplica. |
-| expiração |Sim |timestamp |A hora de expiração do token. |
+| expiração |Sim | timestamp |A hora de expiração do token. |
 
 A propriedade *name* identifica a entidade à qual o token deve ser associado. No Barramento de Serviço, é o caminho para a fila ou tópico/assinatura. A propriedade *type* identifica o tipo de token:
 
@@ -378,7 +378,7 @@ A mensagem de resposta tem os seguintes valores de *application-properties*
 
 | Chave | Opcional | Tipo de valor | Conteúdo de valor |
 | --- | --- | --- | --- |
-| status-code |Não |int |Código de resposta HTTP **[RFC2616]**. |
+| status-code |Não |INT |Código de resposta HTTP **[RFC2616]**. |
 | status-description |Sim |string |A descrição do status. |
 
 O cliente pode chamar *put-token* repetidamente e para qualquer entidade na infraestrutura de mensagens. Os tokens estão no escopo do cliente atual e ancorados na conexão atual, o que significa que o servidor cancela todos os tokens retidos quando a conexão cair.
@@ -399,7 +399,7 @@ Com essa funcionalidade, você pode criar um remetente e estabelecer o link com 
 
 > Observação: a autenticação deve ser executada para *via-entity* e para *destination-entity* antes do estabelecimento desse link.
 
-| Cliente | Direção | Barramento de Serviço |
+| Cliente | Direction | Barramento de Serviço |
 | :--- | :---: | :--- |
 | attach(<br/>name={link name},<br/>role=sender,<br/>source={client link ID},<br/>destino =**{via-Entity}**,<br/>**properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )]** ) | ------> | |
 | | <------ | attach(<br/>name={link name},<br/>role=receiver,<br/>source={client link ID},<br/>target={via-entity},<br/>properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )] ) |

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 09/10/2020
 ms.author: raynew
 ms.openlocfilehash: 7a71502ec361004079e0962d8bc6433316a4ba81
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90007631"
 ---
 # <a name="moving-azure-resources-across-regions"></a>Movendo recursos do Azure entre regiões
@@ -22,23 +22,23 @@ Regiões geográficas, região e zonas de disponibilidade do Azure formam a base
 Depois de implantar recursos em uma região específica do Azure, há vários motivos pelos quais você pode querer mover recursos para uma região diferente.
 
 - **Alinhar a uma região de lançamento**: Mova seus recursos para uma região do Azure introduzida recentemente que não estava disponível anteriormente.
-- **Alinhar para serviços/recursos**: Mova os recursos para aproveitar os serviços ou recursos que estão disponíveis em uma região específica.
-- **Responder a desenvolvimentos de negócios**: mover recursos para uma região em resposta a alterações comerciais, como fusões ou aquisições.
-- **Alinhar**-se à proximidade: Mova os recursos para uma região local para sua empresa.
+- **Fazer o alinhamento de serviços/recursos**: mover recursos para aproveitar os serviços ou recursos que estão disponíveis em uma região específica.
+- **Dar uma resposta aos desenvolvimentos de negócios**: mover recursos para uma região em resposta a alterações comerciais, como fusões ou aquisições.
+- **Fazer o alinhamento para proximidade**: mover recursos para uma região local para sua empresa.
 - **Atender aos requisitos de dados**: Mova os recursos para se alinhar aos requisitos de residência de dados ou às necessidades de classificação de dados. [Saiba mais](https://azure.microsoft.com/mediahandler/files/resourcefiles/achieving-compliant-data-residency-and-security-with-azure/Achieving_Compliant_Data_Residency_and_Security_with_Azure.pdf).
-- **Responder aos requisitos de implantação**: mover os recursos que foram implantados com erro ou mover-se em resposta às necessidades de capacidade. 
+- **Dar uma resposta aos requisitos de implantação**: mover os recursos que foram implantados com erro ou migre em resposta às necessidades de capacidade. 
 - **Responder ao encerramento**: mover recursos devido ao encerramento de regiões.
 
 ## <a name="move-resources-with-resource-mover"></a>Mover recursos com o movimentador de recursos
 
-Você pode mover recursos para uma região diferente com o [Azure Resource mover](../../resource-mover/overview.md). O movimentador de recursos fornece:
+Você pode mover recursos para uma região diferente com o [Azure Resource mover](../../resource-mover/overview.md). O Resource Mover fornece:
 
-- Um único Hub para mover recursos entre regiões.
-- Redução do tempo e da complexidade do movimento. Tudo o que você precisa está em um único local.
-- Uma experiência simples e consistente para mover diferentes tipos de recursos do Azure.
-- Uma maneira fácil de identificar dependências entre os recursos que você deseja mover. Isso ajuda a mover os recursos relacionados juntos, para que tudo funcione conforme o esperado na região de destino, após a movimentação.
-- Limpeza automática de recursos na região de origem, se você quiser excluí-los após a movimentação.
-- Testado. Você pode experimentar uma movimentação e descartá-la se não quiser fazer uma movimentação completa.
+- Um único hub para mover recursos entre regiões.
+- Tempo e complexidade de movimentação reduzidos. Tudo o que você precisa está em um único local.
+- Uma experiência simples e consistente para mover os diferentes tipos de recursos do Azure.
+- Uma maneira fácil de identificar dependências entre os recursos que você deseja mover. Isso ajuda a mover os recursos relacionados em conjunto, para que tudo funcione conforme o esperado na região de destino após a movimentação.
+- Se você quiser excluí-los após a movimentação, realize a limpeza automática de recursos na região de origem.
+- Testes. Você pode experimentar uma movimentação e depois descartá-la caso não queira fazer uma movimentação completa.
 
 Você pode mover recursos para outra região usando dois métodos diferentes:
 
@@ -55,7 +55,7 @@ No momento, você pode usar o movimentador de recursos para mover esses recursos
 - Conjuntos de disponibilidade
 - Redes virtuais do Azure
 - Endereços IP públicos
-- NSGs (grupos de segurança de rede)
+- Grupos de segurança de rede (NSGs):
 - Balanceadores de carga internos e públicos
 - Bancos de dados SQL do Azure e pools elásticos
 
