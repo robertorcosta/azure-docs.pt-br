@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
 ms.openlocfilehash: 05b47a786fe845460177b66b5bd54cdb140c246e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87289423"
 ---
 # <a name="create-a-voice-assistant-using-custom-commands"></a>Criar um assistente de voz usando comandos personalizados
@@ -25,7 +25,7 @@ Neste guia de início rápido, você cria e testa um aplicativo básico de coman
 Neste momento, os comandos personalizados dão suporte a assinaturas de fala criadas nessas regiões:
 * Oeste dos EUA
 * Oeste dos EUA 2
-* East US
+* Leste dos EUA
 * Leste dos EUA 2
 * Norte da Europa
 * Europa Ocidental
@@ -66,7 +66,7 @@ Neste momento, os comandos personalizados dão suporte a assinaturas de fala cri
     > [!div class="mx-imgBorder"]
     > ![Criar um projeto](media/custom-commands/import-project.png)
 
-1.  Na lista de **recursos de criação do Luis** , selecione um recurso de criação. Se não houver recursos de criação válidos, crie um selecionando **criar novo recurso de criação de Luis**.
+1.  Na lista de **recursos de criação do Luis** , selecione um recurso de criação. Se não houver recursos de criação válidos, crie um selecionando  **criar novo recurso de criação de Luis**.
 
     > [!div class="mx-imgBorder"]
     > ![Criar um recurso](media/custom-commands/create-new-luis-resource.png)
@@ -101,7 +101,7 @@ Antes de poder acessar esse aplicativo de fora do Speech Studio, você precisa p
 ### <a name="update-prediction-luis-resource"></a>Atualizar recurso de LUIS de previsão
 
 
-1. Selecione **configurações** no painel esquerdo e selecione **recursos do Luis** no painel central.
+1. Selecione **configurações** no painel esquerdo e selecione  **recursos do Luis** no painel central.
 1. Selecione um recurso de previsão ou crie um selecionando **criar novo recurso**.
 1. Clique em **Salvar**.
     
@@ -113,7 +113,7 @@ Antes de poder acessar esse aplicativo de fora do Speech Studio, você precisa p
 
 ### <a name="publish-the-application"></a>Publicar o aplicativo
 
-Selecione **publicar** na parte superior do painel direito. Quando a publicação for concluída, uma nova janela será exibida. Anote a **ID do aplicativo** e o valor da chave de **recurso de fala** a partir dela. Você precisará desses dois valores para poder acessar o aplicativo de fora do Speech Studio.
+Selecione  **publicar** na parte superior do painel direito. Quando a publicação for concluída, uma nova janela será exibida. Anote a **ID do aplicativo** e o valor da chave de **recurso de fala** a partir dela. Você precisará desses dois valores para poder acessar o aplicativo de fora do Speech Studio.
 
 Como alternativa, você também pode obter esses valores selecionando **configurações**  >  seção**geral** .
 

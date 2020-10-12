@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.subservice: alerts
 ms.openlocfilehash: 7b5332f68bb35e3c9b9ed82bb7bed2908e744e9f
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88065855"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Criar, exibir e gerenciar alertas de métrica usando o Azure Monitor
@@ -74,7 +74,7 @@ O procedimento a seguir descreve como criar uma regra de alerta de métrica no p
 
 2. Clique em **Alertas** e **Gerenciar regras**
 
-3. Na folha **Gerenciar regras**, você pode exibir todas as regras de alertas configuradas em suas assinaturas. Você pode filtrar ainda mais as regras usando o **grupo de recursos**, o **tipo de recurso**e o **recurso**. Se quiser ver somente os alertas de métrica, selecione Métricas como o **Tipo de sinal**.
+3. Na folha **Gerenciar regras**, você pode exibir todas as regras de alertas configuradas em suas assinaturas. Você pode filtrar ainda mais as regras usando o  **grupo de recursos**, o **tipo de recurso**e o **recurso**. Se quiser ver somente os alertas de métrica, selecione Métricas como o **Tipo de sinal**.
 
     > [!TIP]
     > Na folha **Gerenciar regras**, você pode selecionar várias regras de alerta e habilitar ou desabilitá-las. Isso poderá ser útil quando for necessário colocar determinados recursos de destino em manutenção.

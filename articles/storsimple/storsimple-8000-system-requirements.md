@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
 ms.openlocfilehash: 3032585c6f0a5cc6143eee06b12b6def50cd7cd0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80297716"
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>Requisitos de software, de alta disponibilidade e de rede do StorSimple série 8000
@@ -91,7 +91,7 @@ Os administradores de rede geralmente podem configurar regras avançadas de fire
 É recomendável que você defina suas regras de firewall para tráfego de saída, com base nos endereços IP fixos do StorSimple e, na maioria dos casos, de modo flexível. No entanto, você pode usar as informações a seguir para definir regras avançadas de firewall que são necessárias para criar ambientes seguros.
 
 > [!NOTE]
-> Os IPs do dispositivo (de origem) sempre devem ser configurados para todas as interfaces de rede habilitadas. Os IPs de destino devem ser configurados como [Intervalos de IP do datacenter do Azure](https://www.microsoft.com/en-us/download/confirmation.aspx?id=41653).
+> Os IPs do dispositivo (de origem) sempre devem ser configurados para todas as interfaces de rede habilitadas. Os IPs de destino devem ser definidos para [intervalos de IP do datacenter do Azure](https://www.microsoft.com/en-us/download/confirmation.aspx?id=41653).
 
 
 #### <a name="url-patterns-for-azure-portal"></a>Padrões de URL para o Portal do Azure
@@ -129,7 +129,7 @@ O algoritmo da métrica de roteamento usado para a Atualização 2 e versões po
 * Um conjunto de valores predeterminados foi atribuído a interfaces de rede.
 * Considere uma tabela de exemplo mostrada abaixo, com valores atribuídos às várias interfaces de rede quando são habilitadas ou desabilitadas para a nuvem, mas com um gateway configurado. Observe que os valores atribuídos aqui são apenas exemplos.
 
-    | interface de rede | Habilitado para nuvem | Desabilitado para a nuvem com o gateway |
+    | Adaptador de rede | Habilitado para nuvem | Desabilitado para a nuvem com o gateway |
     |-----|---------------|---------------------------|
     | Dados 0  | 1            | -                        |
     | Dados 1  | 2            | 20                       |

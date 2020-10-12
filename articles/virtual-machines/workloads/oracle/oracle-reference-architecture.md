@@ -13,10 +13,10 @@ ms.date: 12/13/2019
 ms.author: kegorman
 ms.custom: ''
 ms.openlocfilehash: 2bbc78f9a5569c8446743980cdea153883c19d4d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91274428"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Arquiteturas de referência para Oracle Database Enterprise Edition no Azure
@@ -71,7 +71,7 @@ Ao usar o Oracle Data Guard, você também pode abrir seu banco de dados secund�
 > O Active Data Guard requer licenciamento adicional. Essa licença também é necessária para usar o recurso de sincronização distante. Conecte-se com seu representante da Oracle para discutir as implicações de licenciamento.
 
 #### <a name="oracle-data-guard-with-fsfo"></a>Oracle Data Guard com FSFO
-O Oracle Data Guard com failover de início rápido (FSFO) pode fornecer resiliência adicional Configurando o agente em um computador separado. O agente do Data Guard e o banco de dados secundário executam o observador e observam o banco de dados primário quanto ao tempo de inatividade. Isso também permite a redundância na configuração do observador do Data Guard. 
+O Oracle Data Guard com failover de Fast-Start (FSFO) pode fornecer resiliência adicional Configurando o agente em um computador separado. O agente do Data Guard e o banco de dados secundário executam o observador e observam o banco de dados primário quanto ao tempo de inatividade. Isso também permite a redundância na configuração do observador do Data Guard. 
 
 Com Oracle Database versão 12,2 e superior, também é possível configurar vários observadores com uma única configuração do agente do Oracle Data Guard. Essa configuração fornece disponibilidade adicional, no caso de um observador e o tempo de inatividade secundário da experiência do banco de dados. O agente do Data Guard é leve e pode ser hospedado em uma máquina virtual relativamente pequena. Para saber mais sobre o agente do Data Guard e suas vantagens, visite a [documentação do Oracle](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/dgbkr/oracle-data-guard-broker-concepts.html) sobre este tópico.
 
@@ -152,7 +152,7 @@ A fragmentação do Oracle consiste principalmente nos seguintes componentes. Ma
 
 - **Serviço global** -o serviço global é semelhante ao serviço de banco de dados regular. Além de todas as propriedades de um serviço de banco de dados, um serviço global tem propriedades para bancos de dados fragmentados, como afinidade de região entre clientes, fragmentação e tolerância de atraso de replicação. Somente um serviço global precisa ser criado para ler/gravar dados de/para um banco de dado fragmentado. Ao usar o Active Data Guard e configurar réplicas somente leitura dos fragmentos, você pode criar outro serviço gGobal para cargas de trabalho somente leitura. O cliente pode usar esses serviços globais para se conectar ao banco de dados.
 
-- **Bancos de dados de fragmentos** -os bancos de dados de fragmentos são seus bancos de dados Oracle. Cada banco de dados é replicado usando o Oracle Data Guard em uma configuração de agente com failover de início rápido (FSFO) habilitado. Você não precisa configurar o failover do Data Guard e a replicação em cada fragmento. Isso é automaticamente configurado e implantado quando o banco de dados compartilhado é criado. Se um fragmento específico falhar, o compartilhamento Oracle fará failover automaticamente das conexões de banco de dados do primário para o em espera.
+- **Bancos de dados de fragmentos** -os bancos de dados de fragmentos são seus bancos de dados Oracle. Cada banco de dados é replicado usando o Oracle Data Guard em uma configuração de agente com failover de Fast-Start (FSFO) habilitado. Você não precisa configurar o failover do Data Guard e a replicação em cada fragmento. Isso é automaticamente configurado e implantado quando o banco de dados compartilhado é criado. Se um fragmento específico falhar, o compartilhamento Oracle fará failover automaticamente das conexões de banco de dados do primário para o em espera.
 
 Você pode implantar e gerenciar bancos de dados fragmentados da Oracle com duas interfaces: GUI do controle de nuvem do Oracle Enterprise Manager e/ou o `GDSCTL` Utilitário de linha de comando. Você pode até monitorar os diferentes fragmentos para disponibilidade e desempenho usando o controle de nuvem. O `GDSCTL DEPLOY` comando cria automaticamente os fragmentos e seus respectivos ouvintes. Além disso, esse comando implanta automaticamente a configuração de replicação usada para alta disponibilidade no nível de fragmento especificada pelo administrador.
 
@@ -232,6 +232,6 @@ Examine os seguintes artigos de referência do Oracle que se aplicam ao seu cen�
 
 - [Introdução ao Oracle Data Guard](https://docs.oracle.com/en/database/oracle/oracle-database/18/sbydb/introduction-to-oracle-data-guard-concepts.html#GUID-5E73667D-4A56-445E-911F-1E99092DD8D7)
 - [Conceitos do agente do Oracle Data Guard](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/dgbkr/oracle-data-guard-broker-concepts.html)
-- [Configurando o Oracle GoldenGate para alta disponibilidade ativa-ativa](https://docs.oracle.com/goldengate/1212/gg-winux/GWUAD/wu_bidirectional.htm#GWUAD282)
+- [Configurando o Oracle GoldenGate para Active-Active alta disponibilidade](https://docs.oracle.com/goldengate/1212/gg-winux/GWUAD/wu_bidirectional.htm#GWUAD282)
 - [Visão geral da fragmentação do Oracle](https://docs.oracle.com/en/database/oracle/oracle-database/19/shard/sharding-overview.html)
 - [A Oracle active Data Guard está sincronizada com zero perda de dados a qualquer distância](https://www.oracle.com/technetwork/database/availability/farsync-2267608.pdf)

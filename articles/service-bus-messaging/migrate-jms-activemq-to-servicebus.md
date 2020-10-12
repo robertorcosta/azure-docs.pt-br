@@ -15,10 +15,10 @@ ms.date: 07/07/2020
 ms.author: aschhab
 ms.custom: devx-track-java
 ms.openlocfilehash: 1b07faa5b2540aafafc27a51192d824d4445ce35
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88067147"
 ---
 # <a name="migrate-existing-java-message-service-jms-20-applications-from-apache-activemq-to-azure-service-bus"></a>Migrar aplicativos Java Message Service (JMS) 2,0 do Apache ActiveMQ para o barramento de serviço do Azure
@@ -73,7 +73,7 @@ Você usa os seguintes componentes e versões enquanto está gravando os aplicat
 | Componente | Versão |
 |---|---|
 | API do Java Message Service (JMS) | 1,1 ou superior |
-| Protocolo AMQP | 1.0 |
+| Protocolo AMQP | 1,0 |
 
 ### <a name="ensure-that-amqp-ports-are-open"></a>Verifique se as portas AMQP estão abertas
 
@@ -116,7 +116,7 @@ Você pode correlacionar quais métricas do ActiveMQ MAP para quais métricas no
 |Agente|`CurrentConnectionsCount`|`activeConnections`|
 |Agente|`EstablishedConnectionsCount`|`activeConnections` + `connectionsClosed`|
 |Agente|`InactiveDurableTopicSubscribersCount`|Usar métricas de assinatura|
-|Agente|`TotalMessageCount`|Usar nível de fila/tópico/assinatura`activeMessages`|
+|Agente|`TotalMessageCount`|Usar nível de fila/tópico/assinatura `activeMessages`|
 |Fila/tópico|`EnqueueCount`|`incomingMessages`|
 |Fila/tópico|`DequeueCount`|`outgoingMessages`|
 |Fila|`QueueSize`|`sizeBytes`|
@@ -266,7 +266,7 @@ connection.start();
 
 ```
 
-## <a name="post-migration"></a>Pós-migração
+## <a name="post-migration"></a>Após a migração
 
 Agora que você modificou o aplicativo para começar a enviar e receber mensagens do barramento de serviço, você deve verificar se ele funciona conforme o esperado. Quando isso for feito, você poderá continuar refinando e modernizando sua pilha de aplicativos.
 

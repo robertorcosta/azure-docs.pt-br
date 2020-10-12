@@ -12,10 +12,10 @@ ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
 ms.openlocfilehash: bffbf32cf5faa936a00444f1f39facaf226b8ef2
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90885968"
 ---
 # <a name="enable-logging-in-azure-machine-learning-designer-pipelines"></a>Habilitar o log em pipelines do designer de Azure Machine Learning
@@ -59,7 +59,7 @@ O exemplo a seguir mostra como registrar em log o erro de quadrado médio de doi
         return dataframe1,
     ```
     
-Esse código usa o SDK do Python Azure Machine Learning para registrar valores. Ele usa Run. get_context () para obter o contexto da execução atual. Em seguida, ele registra valores nesse contexto com o método Run. Parent. log (). Ele usa `parent` para registrar valores na execução do pipeline pai em vez da execução do módulo.
+Esse código usa o SDK do Python Azure Machine Learning para registrar valores. Ele usa Run.get_context () para obter o contexto da execução atual. Em seguida, ele registra valores nesse contexto com o método Run. Parent. log (). Ele usa `parent` para registrar valores na execução do pipeline pai em vez da execução do módulo.
 
 Para obter mais informações sobre como usar o SDK do Python para registrar valores, consulte [habilitar o registro em log nas execuções de treinamento do Azure ml](how-to-track-experiments.md).
 

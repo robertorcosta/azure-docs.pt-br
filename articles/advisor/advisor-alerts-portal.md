@@ -4,10 +4,10 @@ description: Criar alertas do Assistente do Azure para novas recomendações
 ms.topic: article
 ms.date: 09/09/2019
 ms.openlocfilehash: 837f12a12e532902ee76e345afa430f758f79c10
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90973661"
 ---
 # <a name="create-azure-advisor-alerts-on-new-recommendations-using-the-azure-portal"></a>Criar alertas do supervisor do Azure sobre novas recomendações usando o portal do Azure 
@@ -187,11 +187,11 @@ No Azure Advisor, você pode editar, excluir ou desabilitar e habilitar seus ale
 
 1. No **portal**, selecione **Azure Advisor**.
 
-    :::image type="content" source="./media/advisor-alerts/create1.png" alt-text="Captura de tela do menu portal do Azure mostrando o supervisor do Azure selecionado.":::
+    :::image type="content" source="./media/advisor-alerts/create1.png" alt-text="Captura de tela da seção detalhes do alerta.":::
 
 2. Na seção **monitoramento** do menu à esquerda, selecione **alertas**.
 
-    :::image type="content" source="./media/advisor-alerts/create2.png" alt-text="Captura de tela do menu portal do Azure mostrando os alertas selecionados.":::
+    :::image type="content" source="./media/advisor-alerts/create2.png" alt-text="Captura de tela da seção detalhes do alerta.":::
 
 3. Para editar um alerta, clique no nome do alerta para abrir o alerta e editar os campos que você deseja editar.
 

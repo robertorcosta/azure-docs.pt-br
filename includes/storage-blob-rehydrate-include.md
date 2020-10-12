@@ -1,6 +1,6 @@
 ---
-title: incluir arquivo
-description: incluir arquivo
+title: arquivo de inclusão
+description: arquivo de inclusão
 services: storage
 author: mhopkins-msft
 ms.author: mhopkins
@@ -11,10 +11,10 @@ ms.topic: include
 ms.reviewer: hux
 ms.custom: include file
 ms.openlocfilehash: 53d2d47143c5a2cefbd50faca9a02af18ffae315
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84754671"
 ---
 Para ler dados no armazenamento de arquivo morto, primeiro você deve alterar a camada do blob para quente ou fria. Esse processo é conhecido como reidratação e pode levar horas para ser concluído. Recomendamos tamanhos de blob grandes para o desempenho ideal de reidratação. Reidratar vários blobs pequenos simultaneamente pode inserir um tempo adicional. Atualmente, há duas prioridades de reidratar, alta e padrão, que podem ser definidas por meio da propriedade *x-MS-reidratar-Priority* opcional em uma operação de [camada de blob](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) ou de [cópia](https://docs.microsoft.com/rest/api/storageservices/copy-blob) de conjunto.

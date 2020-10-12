@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 04/15/2020
 ms.author: gsilva
 ms.openlocfilehash: fd50af98fe0d7f20273c45e2b86c18215a3626f0
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87289616"
 ---
 # <a name="create-a-windows-vm-with-accelerated-networking-using-azure-powershell"></a>Criar uma VM do Windows com rede acelerada usando o Azure PowerShell
@@ -41,7 +41,7 @@ Com a rede acelerada, o tráfego de rede chega à NIC (interface de rede) da VM 
 
 Os benefícios da rede acelerada só se aplicam à VM em que ela está habilitada. Para obter os melhores resultados, habilite esse recurso em pelo menos duas VMs conectadas à mesma rede virtual do Azure. Ao se comunicar entre redes virtuais ou conectar-se localmente, esse recurso tem um impacto mínimo sobre a latência geral.
 
-## <a name="benefits"></a>Benefícios
+## <a name="benefits"></a>Vantagens
 
 - **Latência mais baixa/pacotes maiores por segundo (PPS)**: a eliminação do comutador virtual do caminho de dados remove o tempo que os pacotes gastam no host para o processamento da política. Ele também aumenta o número de pacotes que podem ser processados dentro da VM.
 

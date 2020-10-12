@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 10/07/2019
 ms.author: Zhchia
 ms.openlocfilehash: 19767503769fe1a1e64d6ab137b811899adb29c3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91312302"
 ---
 # <a name="tutorial-configure-zscaler-private-access-zpa-for-automatic-user-provisioning"></a>Tutorial: configurar o ZPA (Zscaler Private Access) para o provisionamento automático de usuário
@@ -145,7 +145,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Email de notificação](common/provisioning-notification-email.png)
 
-7. Clique em **Save** (Salvar).
+7. Clique em **Salvar**.
 
 8. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para o ZPA (Zscaler Private Access)**.
 

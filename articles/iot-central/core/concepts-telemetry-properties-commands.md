@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.openlocfilehash: 554079ddec3332ced2817d18ea55ce1260d68817
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87291616"
 ---
-# <a name="telemetry-property-and-command-payloads"></a>Telemetria, propriedade e cargas de comando
+# <a name="telemetry-property-and-command-payloads"></a>Telemetria, propriedade e payloads de comando
 
 _Este artigo se aplica a desenvolvedores de dispositivos._
 
@@ -47,7 +47,7 @@ IoT Central permite exibir os dados brutos que um dispositivo envia para um apli
 
     :::image type="content" source="media/concepts-telemetry-properties-commands/raw-data.png" alt-text="Exibição de dados brutos":::
 
-    Nessa exibição, você pode selecionar as colunas a serem exibidas e definir um intervalo de tempo para exibição. A coluna **dados não modelados** mostra dados do dispositivo que não correspondem a nenhuma definição de propriedade ou telemetria no modelo de dispositivo.
+    Nessa exibição, você pode selecionar as colunas a serem exibidas e definir um intervalo de tempo para exibição. A coluna **Dados não modelados** mostra dados do dispositivo que não correspondem a nenhuma propriedade ou definição de telemetria no modelo de dispositivo.
 
 ## <a name="telemetry"></a>Telemetria
 
@@ -347,7 +347,7 @@ O trecho a seguir de um DCM mostra a definição de um `Object` tipo de telemetr
 }
 ```
 
-Um cliente de dispositivo deve enviar a telemetria como JSON semelhante ao exemplo a seguir. `DateTime`os tipos devem ser compatíveis com ISO 8061. Os valores possíveis para `Property3` são `0` , `1` , e são exibidos em IOT central como `Item1` , `Item2` e `Item3` :
+Um cliente de dispositivo deve enviar a telemetria como JSON semelhante ao exemplo a seguir. `DateTime` os tipos devem ser compatíveis com ISO 8061. Os valores possíveis para `Property3` são `0` , `1` , e são exibidos em IOT central como `Item1` , `Item2` e `Item3` :
 
 ```json
 {
@@ -531,7 +531,7 @@ O trecho a seguir de um DCM mostra a definição de um `date` tipo de propriedad
 }
 ```
 
-Um cliente de dispositivo deve enviar uma carga JSON semelhante ao exemplo a seguir como uma propriedade relatada no dispositivo. `Date`os tipos devem ser compatíveis com ISO 8061:
+Um cliente de dispositivo deve enviar uma carga JSON semelhante ao exemplo a seguir como uma propriedade relatada no dispositivo. `Date` os tipos devem ser compatíveis com ISO 8061:
 
 ```json
 { "DateProperty": "2020-05-17" }
@@ -766,18 +766,18 @@ Esta seção mostra exemplos de tipos de propriedades graváveis que um disposit
 
 IoT Central espera uma resposta do dispositivo para atualizações de propriedade gravável. A mensagem de resposta deve incluir `ac` os `av` campos e. O campo `ad` é opcional. Consulte os trechos de código a seguir para obter exemplos.
 
-`ac`é um campo numérico que usa os valores na tabela a seguir:
+`ac` é um campo numérico que usa os valores na tabela a seguir:
 
-| Valor | Rótulo | Descrição |
+| Valor | Rotular | Descrição |
 | ----- | ----- | ----------- |
 | `'ac': 200` | Concluído | A operação de alteração de propriedade foi concluída com êxito. |
-| `'ac': 202`or`'ac': 201` | Pendente | A operação de alteração de propriedade está pendente ou em andamento |
-| `'ac': 4xx` | Erro | A alteração de propriedade solicitada não era válida ou teve um erro |
-| `'ac': 5xx` | Erro | O dispositivo apresentou um erro inesperado ao processar a alteração solicitada. |
+| `'ac': 202`  or `'ac': 201` | Pending (Pendente) | A operação de alteração de propriedade está pendente ou em andamento |
+| `'ac': 4xx` | Erro do | A alteração de propriedade solicitada não era válida ou teve um erro |
+| `'ac': 5xx` | Erro do | O dispositivo apresentou um erro inesperado ao processar a alteração solicitada. |
 
-`av`é o número de versão enviado ao dispositivo.
+`av` é o número de versão enviado ao dispositivo.
 
-`ad`é uma descrição de cadeia de caracteres de opção.
+`ad` é uma descrição de cadeia de caracteres de opção.
 
 O trecho a seguir de um DCM mostra a definição de um `string` tipo de propriedade gravável:
 

@@ -14,10 +14,10 @@ ms.author: kenwith
 ms.reviewer: paulgarn
 ms.custom: aaddev
 ms.openlocfilehash: 6dda32bb2bab4123ede0133b31625c499380fd59
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90705700"
 ---
 # <a name="saml-token-claims-reference"></a>Referência de declarações de token SAML
@@ -27,7 +27,7 @@ A plataforma de identidade da Microsoft emite vários tipos de tokens de seguran
 ## <a name="claims-in-saml-tokens"></a>Declarações em tokens SAML
 
 > [!div class="mx-codeBreakAll"]
-> | Name | Declaração JWT Equivalente | Descrição | Exemplo |
+> | Nome | Declaração JWT Equivalente | Descrição | Exemplo |
 > | --- | --- | --- | ------------|
 > |Público | `aud` |O destinatário pretendido do token. O aplicativo que recebe o token deve verificar se o valor de público-alvo está correto e rejeitar quaisquer tokens destinados a um público-alvo diferente. | `<AudienceRestriction>`<br>`<Audience>`<br>`https://contoso.com`<br>`</Audience>`<br>`</AudienceRestriction>`  |
 > | Instante da autenticação | |Registra a data e o horário em que ocorreu a autenticação. | `<AuthnStatement AuthnInstant="2011-12-29T05:35:22.000Z">` |
@@ -39,7 +39,7 @@ A plataforma de identidade da Microsoft emite vários tipos de tokens de seguran
 > |IssuedAt | `iat` |Armazena a hora em que o token foi emitido. Ela geralmente é usada para mensurar o quanto o token é recente. | `<Assertion ID="_d5ec7a9b-8d8f-4b44-8c94-9812612142be" IssueInstant="2014-01-06T20:20:23.085Z" Version="2.0" xmlns="urn:oasis:names:tc:SAML:2.0:assertion">` |
 > |Emissor | `iss` |Identifica o STS (serviço de token de segurança) que constrói e retorna o token. Nos tokens que o AD do Azure retorna, o emissor é sts.windows.net. A GUID no valor de declaração do emissor é a ID do locatário do diretório do AD do Azure. A ID do locatário é um identificador imutável e confiável do diretório. | `<Issuer>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/</Issuer>` |
 > |Sobrenome | `family_name` |Fornece o último nome, o sobrenome ou o nome da família do usuário conforme definido no objeto de usuário do Azure AD. | `<Attribute Name=" http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname">`<br>`<AttributeValue>Miller<AttributeValue>` |
-> |Name | `unique_name` |Fornece um valor legível que identifica a entidade do token. Não há garantia de que esse valor seja exclusivo dentro de um locatário e ele é projetado para ser usado apenas para fins de exibição. | `<Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name">`<br>`<AttributeValue>frankm@contoso.com<AttributeValue>`|
+> |Nome | `unique_name` |Fornece um valor legível que identifica a entidade do token. Não há garantia de que esse valor seja exclusivo dentro de um locatário e ele é projetado para ser usado apenas para fins de exibição. | `<Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name">`<br>`<AttributeValue>frankm@contoso.com<AttributeValue>`|
 > |ID de objeto | `oid` |Contém um identificador único de um objeto no Azure AD. Esse valor é imutável e não pode ser reatribuído nem reutilizado. Use a ID de objeto para identificar um objeto em consultas ao AD do Azure. | `<Attribute Name="http://schemas.microsoft.com/identity/claims/objectidentifier">`<br>`<AttributeValue>528b2ac2-aa9c-45e1-88d4-959b53bc7dd0<AttributeValue>` |
 > |Funções | `roles` |Representa todas as funções de aplicativo que a entidade recebeu direta e indiretamente por meio da associação a um grupo e pode ser usado para impor o controle de acesso baseado em função. As funções de aplicativo são definidas segundo o aplicativo, por meio da propriedade `appRoles` do manifesto do aplicativo. A propriedade `value` de cada função de aplicativo é o valor que aparece na declaração de funções. | `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/role">`|
 > |Assunto | `sub` |Identifica o item mais importante sobre o qual o token declara informações, como o usuário de um aplicativo. Esse valor é imutável e não pode ser reatribuído ou reutilizado, então ele pode ser usado para executar verificações de autorização com segurança. Como o assunto está sempre presente nos tokens emitidos pelo Azure AD, é recomendável usar esse valor em um sistema de autorização de uso geral. <br> `SubjectConfirmation` não é uma declaração. Ele descreve como o assunto do token é verificado. `Bearer` indica que o assunto é confirmado pela posse do token. | `<Subject>`<br>`<NameID>S40rgb3XjhFTv6EQTETkEzcgVmToHKRkZUIsJlmLdVc</NameID>`<br>`<SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer" />`<br>`</Subject>`|
@@ -156,5 +156,5 @@ Este é um exemplo de um token SAML típico.
 
 * Para saber mais sobre como gerenciar a política de tempo de vida de token usando a API de Microsoft Graph, consulte [visão geral de recursos de política do Azure ad](/graph/api/resources/policy).
 * Adicione [declarações opcionais e personalizadas](active-directory-optional-claims.md) para os tokens do aplicativo.
-* Use [SSO (logon único) com SAML](single-sign-on-saml-protocol.md).
-* Usar o [protocolo SAML de logout único do Azure](single-sign-out-saml-protocol.md)
+* Use [Sign-On único (SSO) com SAML](single-sign-on-saml-protocol.md).
+* Usar o [protocolo SAML de Sign-Out único do Azure](single-sign-out-saml-protocol.md)

@@ -9,17 +9,17 @@ ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.date: 02/14/2020
 ms.openlocfilehash: c678372fbd54e528a8a16eacc601e815cfd32e58
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86082226"
 ---
 # <a name="add-custom-apache-hive-libraries-when-creating-your-hdinsight-cluster"></a>Adicionar bibliotecas Apache Hive personalizadas ao criar seu cluster HDInsight
 
 Saiba como carregar previamente [Apache Hive](https://hive.apache.org/) bibliotecas no HDInsight. Este documento contém informações sobre como usar uma Ação de script para pré-carregar bibliotecas durante a criação do cluster. As bibliotecas adicionadas usando as etapas deste documento estão globalmente disponíveis no hive – não há necessidade de usar [Add jar](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli) para carregá-las.
 
-## <a name="how-it-works"></a>Como funciona
+## <a name="how-it-works"></a>Como ele funciona
 
 Ao criar um cluster, você pode usar uma ação de script para modificar nós de cluster à medida que eles são criados. O script neste documento aceita um único parâmetro, que é a localização das bibliotecas. Essa localização deve estar em uma conta de Armazenamento do Azure e as bibliotecas devem ser armazenadas como arquivos jar.
 

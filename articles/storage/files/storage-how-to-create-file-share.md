@@ -10,10 +10,10 @@ ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, references_regions
 ms.openlocfilehash: 15f9387aac909c0245d25b3a208ed24444b2b343
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91329375"
 ---
 # <a name="create-an-azure-file-share"></a>Criar um compartilhamento de arquivos do Azure
@@ -166,7 +166,7 @@ Depois de criar sua conta de armazenamento, tudo o que resta é criar o comparti
 Os compartilhamentos de arquivos padrão podem ser implantados em uma das camadas padrão: transações otimizadas (padrão), quente ou fria. Essa é uma camada de compartilhamento por arquivo que não é afetada pela **camada de acesso de blob** da conta de armazenamento (essa propriedade está relacionada apenas ao armazenamento de BLOBs do Azure-ela não está relacionada aos arquivos do Azure). Você pode alterar a camada do compartilhamento a qualquer momento após sua implantação. Os compartilhamentos de arquivos Premium não podem ser convertidos diretamente em compartilhamentos de arquivos padrão em qualquer camada padrão.
 
 > [!Important]  
-> Você pode mover compartilhamentos de arquivos entre camadas nos tipos de conta de armazenamento GPv2 (transação otimizada, quente e fria). As movimentações de compartilhamento entre as camadas provocam transações: a mudança de uma camada mais quente para uma camada mais fria incorrerá na cobrança da transação de gravação da camada mais fria para cada arquivo no compartilhamento, enquanto uma mudança de uma camada mais fria para uma camada mais quente incorrerá na cobrança da transação de leitura da camada fria para cada arquivo compartilhado.
+> Você pode mover compartilhamentos de arquivo entre camadas dentro de tipos de conta de armazenamento GPv2 (transação otimizada, quente e fria). Movimentações de compartilhamento entre camadas incorrem transações: mover de uma camada mais quente para uma camada mais fria incorrerá na cobrança da transação de gravação da camada mais fria para cada arquivo no compartilhamento, enquanto uma movimentação de uma camada mais fria para uma camada mais quente incorrerá na cobrança da transação de leitura da camada fria para cada arquivo no compartilhamento.
 
 A propriedade **quota** significa algo ligeiramente diferente entre compartilhamentos de arquivos Premium e Standard:
 

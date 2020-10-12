@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
 ms.openlocfilehash: 9fc0a965869207ba8d1b4eb6f45e878ae4b93c3a
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88079015"
 ---
 # <a name="set-up-a-lab-to-manage-and-develop-with-sql-server"></a>Configurar um laboratório para gerenciar e desenvolver com SQL Server
@@ -93,10 +93,10 @@ O Visual Studio dá suporte a várias cargas de trabalho, incluindo cargas do & 
 O [Azure Data Studio](https://github.com/microsoft/azuredatastudio) é um ambiente de área de trabalho multiplataforma entre plataformas para profissionais de dados que usam a família de plataformas de dados locais e na nuvem no Windows, no MacOS e no Linux.
 
 1. Baixe o [instalador do *sistema* Azure Data Studio para Windows](https://go.microsoft.com/fwlink/?linkid=2127432). Para localizar instaladores para outros sistemas operacionais com suporte, vá para a página de download do [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download) .
-2. Na página **contrato de licença** , selecione **aceito o contrato**. Clique em **Próximo**.
+2. Na página **contrato de licença** , selecione **aceito o contrato**. Clique em **Avançar**.
 3. Na página **Selecionar Local de Destino**, clique em **Avançar**.
 4. Na página **Selecionar Pasta do Menu Iniciar**, clique em **Avançar**.
-5. Na página **selecionar tarefas adicionais** , marque **criar um ícone de área de trabalho** se desejar um ícone de área de trabalho.  Clique em **Próximo**.
+5. Na página **selecionar tarefas adicionais** , marque **criar um ícone de área de trabalho** se desejar um ícone de área de trabalho.  Clique em **Avançar**.
 6. Em **pronto para instalar**, clique em **Avançar**.
 7. Aguarde a execução do instalador.  Clique em **Concluir**.
 

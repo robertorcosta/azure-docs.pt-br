@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/04/2020
 ms.openlocfilehash: 33c2ee7bc477d3c9d3823642dbdd974650017822
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86084351"
 ---
 # <a name="optimize-apache-hive-with-apache-ambari-in-azure-hdinsight"></a>Otimizar Apache Hive com o Apache Ambari no Azure HDInsight
@@ -233,7 +233,7 @@ O tipo de junção padrão no Hive é a *junção em ordem aleatória*. No Hive,
 
 Recomendações adicionais para otimizar o mecanismo de execução do Hive:
 
-| Setting | Recomendado | Padrão do HDInsight |
+| Configuração | Recomendadas | Padrão do HDInsight |
 | --- | --- | --- |
 | `hive.mapjoin.hybridgrace.hashtable` | True = mais seguro, mais lento; false = mais rápido | false |
 | `tez.am.resource.memory.mb` | limite superior de 4 GB para a maioria dos | Ajustado automaticamente |

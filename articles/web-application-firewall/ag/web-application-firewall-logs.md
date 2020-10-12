@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/25/2019
 ms.author: victorh
 ms.openlocfilehash: a84e48c7fbb6d63a4bf8946b66bd35f354643ccb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84753596"
 ---
 # <a name="resource-logs-for-azure-web-application-firewall"></a>Logs de recursos para o Firewall do aplicativo Web do Azure
@@ -191,7 +191,7 @@ O log de desempenho é gerado apenas se você o habilitou em cada instância do 
 |healthyHostCount     | Número de hosts íntegros no pool de back-end.        |
 |unHealthyHostCount     | Número de hosts não íntegros no pool de back-end.        |
 |requestCount     | Número de solicitações atendidas.        |
-|latency | Latência média (em milissegundos) de solicitações da instância para o back-end que atende às solicitações. |
+|latência | Latência média (em milissegundos) de solicitações da instância para o back-end que atende às solicitações. |
 |failedRequestCount| Número de solicitações com falha.|
 |throughput| Vazão de dados média desde o último log, medida em bytes por segundo.|
 
@@ -231,7 +231,7 @@ O log de firewall é gerado apenas se você o habilitou em cada gateway de aplic
 |ruleSetType     | Tipo de conjunto de regras. O valor disponível é OWASP.        |
 |ruleSetVersion     | Versão utilizada do conjunto de regras. Os valores disponíveis são 2.2.9 e 3.0.     |
 |ruleId     | ID da Regra do evento de gatilho.        |
-|message     | Mensagem amigável para o evento de gatilho. Mais detalhes são fornecidos na seção de detalhes.        |
+|mensagem     | Mensagem amigável para o evento de gatilho. Mais detalhes são fornecidos na seção de detalhes.        |
 |ação     |  Ação executada na solicitação. Os valores disponíveis são Bloqueada e Permitida.      |
 |site     | Site para o qual o log foi gerado. No momento, somente Global é listado porque as regras são globais.|
 |detalhes     | Detalhes do evento de gatilho.        |

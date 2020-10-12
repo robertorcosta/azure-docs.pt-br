@@ -11,17 +11,17 @@ ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
 ms.openlocfilehash: 8b811c57eb163931c39a311418ac9f1513e9393a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83592246"
 ---
 # <a name="translator-30-transliterate"></a>Tradutor 3,0: transliteração
 
 Converte texto em um idioma de um script em outro script.
 
-## <a name="request-url"></a>URL da solicitação
+## <a name="request-url"></a>URL de Solicitação
 
 Envie uma solicitação `POST` para:
 
@@ -60,7 +60,7 @@ Os cabeçalhos de solicitação incluem:
   <th width="20%">Cabeçalhos</th>
   <th>Descrição</th>
   <tr>
-    <td>Cabeçalho (s) de autenticação</td>
+    <td>Cabeçalhos de autenticação</td>
     <td><em>Cabeçalho de solicitação obrigatório</em>.<br/>Veja <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">Opções disponíveis para autenticação</a>.</td>
   </tr>
   <tr>

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: erhopf
 ms.openlocfilehash: c7dd916b27cd8005162c09f7e6a090293e336719
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83590631"
 ---
 # <a name="custom-subdomain-names-for-cognitive-services"></a>Nomes de subdomínio personalizados para serviços cognitivas
@@ -68,7 +68,7 @@ Sim. Esta é uma lista de pontos de extremidade regionais que você pode usar co
 > [!NOTE]
 > O serviço do tradutor e APIs de Pesquisa do Bing usar pontos de extremidade globais.
 
-| Tipo de ponto de extremidade | Região | Ponto de Extremidade |
+| Tipo de ponto de extremidade | Região | Ponto de extremidade |
 |---------------|--------|----------|
 | Público | Global (tradutor & Bing) | `https://api.cognitive.microsoft.com` |
 | | Leste da Austrália | `https://australiaeast.api.cognitive.microsoft.com` |
@@ -80,7 +80,7 @@ Sim. Esta é uma lista de pontos de extremidade regionais que você pode usar co
 | | Leste dos EUA 2 | `https://eastus2.api.cognitive.microsoft.com` |
 | | França Central | `https://francecentral.api.cognitive.microsoft.com` |
 | | Centro da Índia | `https://centralindia.api.cognitive.microsoft.com` |
-| | Leste do Japão | `https://japaneast.api.cognitive.microsoft.com` |
+| | Japan East | `https://japaneast.api.cognitive.microsoft.com` |
 | | Coreia Central | `https://koreacentral.api.cognitive.microsoft.com` |
 | | Centro-Norte dos EUA | `https://northcentralus.api.cognitive.microsoft.com` |
 | | Norte da Europa | `https://northeurope.api.cognitive.microsoft.com` |

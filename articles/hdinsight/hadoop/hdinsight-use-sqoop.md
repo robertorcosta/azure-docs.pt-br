@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/06/2019
 ms.openlocfilehash: 165b7d00c3cf307e7996e84a35bb2a202f448cc0
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86076871"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>Usar Apache Sqoop com o Hadoop no HDInsight
@@ -95,7 +95,7 @@ O cluster, o banco de dados SQL e outros objetos são criados por meio do portal
     |Nome do arquivo Bacpac |Use o valor padrão, a menos que você queira usar seu próprio arquivo bacpac.|
     |Location |Use o valor padrão.|
 
-    O nome [lógico do SQL Server](../../azure-sql/database/logical-servers.md) será `<ClusterName>dbserver` . O nome do banco de dados será `<ClusterName>db` . O nome da conta de armazenamento padrão será `e6qhezrh2pdqu` .
+    O nome [lógico do SQL Server](../../azure-sql/database/logical-servers.md) será  `<ClusterName>dbserver` . O nome do banco de dados será `<ClusterName>db` . O nome da conta de armazenamento padrão será `e6qhezrh2pdqu` .
 
 3. Selecione **Concordo com os termos e as condições declarados acima**.
 

@@ -9,10 +9,10 @@ ms.date: 07/17/2020
 ms.author: bwren
 ms.custom: subject-monitoring
 ms.openlocfilehash: 21e1d93e206751b5a55b0b3549e8bd566612ddbe
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88080446"
 ---
 # <a name="azure-cosmos-db-monitoring-data-reference"></a>Referência de dados de monitoramento do Azure Cosmos DB
@@ -28,8 +28,8 @@ A tabela a seguir lista as propriedades dos logs de recursos no Azure Cosmos DB.
 | **time** | **TimeGenerated** | A data e hora (UTC) em que a operação ocorreu. |
 | **resourceId** | **Recurso** | A conta do Azure Cosmos DB na qual os logs estão habilitados.|
 | **category** | **Categoria** | Para Azure Cosmos DB, **DataPlaneRequests**, **MongoRequests**, **QueryRuntimeStatistics**, **PartitionKeyStatistics**, **PartitionKeyRUConsumption**, **ControlPlaneRequests** são os tipos de log disponíveis. |
-| **operationName** | **OperationName** | Nome da operação. O nome da operação pode ser,,,,,,, `Create` `Update` ,,,, `Read` `ReadFeed` `Delete` `Replace` `Execute` `SqlQuery` `Query` `JSQuery` `Head` `HeadFeed` ou `Upsert` .   |
-| **properties** | N/D | O conteúdo desse campo é descrito nas linhas a seguir. |
+| **operationName** | **OperationName** | Nome da operação. O nome da operação pode ser,,,,,,,  `Create` `Update` ,,,, `Read` `ReadFeed` `Delete` `Replace` `Execute` `SqlQuery` `Query` `JSQuery` `Head` `HeadFeed` ou `Upsert` .   |
+| **properties** | n/a | O conteúdo desse campo é descrito nas linhas a seguir. |
 | **activityId** | **activityId_g** | O GUID exclusivo da operação registrada. |
 | **userAgent** | **userAgent_s** | Uma cadeia de caracteres que especifica o agente de usuário do cliente do qual a solicitação foi enviada. O formato do agente do usuário é `{user agent name}/{version}` .|
 | **requestResourceType** | **requestResourceType_s** | O tipo do recurso acessado. Esse valor pode ser banco de dados, contêiner, documento, anexo, usuário, permissão, procedimento armazenado, gatilho, função definida pelo usuário ou uma oferta. |

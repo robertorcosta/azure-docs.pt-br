@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/29/2020
 ms.author: aahi
 ms.openlocfilehash: 12f3ce506d8b4588dc9c670e49cabd3bc7767566
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91460264"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>O que há de novo na API de Análise de Texto?
@@ -171,7 +171,7 @@ Tipos de entidade adicionais agora estão disponíveis no serviço de visualiza�
     * Habilidade
 
 * Reconhecimento dos seguintes tipos de entidade de informações pessoais (somente em inglês):
-    * Pessoa
+    * Person
     * Organização
     * Idade como um subtipo em quantidade
     * Data como um subtipo em DateTime
@@ -194,7 +194,7 @@ Tipos de entidade adicionais agora estão disponíveis no serviço de visualiza�
 * [Versão do modelo](concepts/model-versioning.md) `2019-10-01` , que inclui:
     * Detecção expandida e categorização de entidades encontradas no texto. 
     * Reconhecimento dos seguintes novos tipos de entidade:
-        * Número do telefone
+        * Número de telefone
         * Endereço IP
 
 A vinculação de entidades dá suporte a inglês e espanhol. O suporte ao idioma NER varia de acordo com o tipo de entidade.
