@@ -11,10 +11,10 @@ ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 05/08/2018
 ms.openlocfilehash: 69d6b8abc99863f29f82abcb44e18b426c5a456c
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85959136"
 ---
 # <a name="set-up-a-common-identity-on-a-data-science-virtual-machine"></a>Configurar uma identidade comum em um Máquina Virtual de Ciência de Dados
@@ -55,7 +55,7 @@ O Azure AD DS simplifica o gerenciamento de identidades, fornecendo um serviço 
     
    1. Distribua com segurança a senha gerada para o novo usuário para que ele possa entrar.
 
-1. Crie uma instância do Azure AD DS. Siga as instruções em [habilitar Azure Active Directory Domain Services usando o portal do Azure](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started) (a seção "criar uma instância e definir configurações básicas"). É importante atualizar as senhas de usuários existentes no Active Directory para que a senha do Azure AD DS fique sincronizada. Também é importante adicionar o DNS ao Azure AD DS, conforme descrito em "concluir os campos na janela noções básicas do portal do Azure para criar uma instância de AD DS do Azure" nessa seção.
+1. Crie uma instância do Azure AD DS. Siga as instruções em  [habilitar Azure Active Directory Domain Services usando o portal do Azure](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started) (a seção "criar uma instância e definir configurações básicas"). É importante atualizar as senhas de usuários existentes no Active Directory para que a senha do Azure AD DS fique sincronizada. Também é importante adicionar o DNS ao Azure AD DS, conforme descrito em "concluir os campos na janela noções básicas do portal do Azure para criar uma instância de AD DS do Azure" nessa seção.
 
 1. Crie uma sub-rede DSVM separada na rede virtual criada na seção "criar e configurar a rede virtual" da etapa anterior.
 1. Crie uma ou mais instâncias DSVM na sub-rede DSVM.

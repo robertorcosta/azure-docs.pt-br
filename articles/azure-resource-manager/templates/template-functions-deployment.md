@@ -4,10 +4,10 @@ description: Descreve as funções a serem usadas em um modelo do Resource Manag
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: e8240c05cba82d5563c4b327ecbc65a9c358720f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84677807"
 ---
 # <a name="deployment-functions-for-arm-templates"></a>Funções de implantação para modelos ARM
@@ -27,7 +27,7 @@ Para obter valores de recursos, de grupos de recursos ou de assinaturas, veja [F
 
 Retorna informações sobre a operação de implantação atual.
 
-### <a name="return-value"></a>Retornar valor
+### <a name="return-value"></a>Valor retornado
 
 Essa função retorna o objeto que é passado durante a implantação. As propriedades no objeto retornado diferem se você for:
 
@@ -158,13 +158,13 @@ O exemplo anterior retorna o seguinte objeto:
 }
 ```
 
-## <a name="environment"></a>environment
+## <a name="environment"></a>ambiente
 
 `environment()`
 
 Retorna informações sobre o ambiente do Azure usado para implantação.
 
-### <a name="return-value"></a>Retornar valor
+### <a name="return-value"></a>Valor retornado
 
 Essa função retorna propriedades para o ambiente atual do Azure. O exemplo a seguir mostra as propriedades do Azure global. Nuvens soberanas podem retornar Propriedades ligeiramente diferentes.
 
@@ -256,7 +256,7 @@ O exemplo anterior retorna o seguinte objeto quando implantado no Azure global:
 }
 ```
 
-## <a name="parameters"></a>parâmetros
+## <a name="parameters"></a>parameters
 
 `parameters(parameterName)`
 
@@ -264,7 +264,7 @@ Retorna um valor de parâmetro. O nome do parâmetro especificado deve ser defin
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Digite | Descrição |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | parameterName |Sim |string |O nome do parâmetro a retornar. |
 
@@ -351,7 +351,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | stringOutput | String | opção 1 |
 | intOutput | Int | 1 |
@@ -369,11 +369,11 @@ Retorna o valor da variável. O nome do parâmetro especificado deve ser definid
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Digite | Descrição |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | variableName |Sim |String |O nome da variável a retornar. |
 
-### <a name="return-value"></a>Retornar valor
+### <a name="return-value"></a>Valor retornado
 
 O valor da variável especificada.
 
@@ -443,7 +443,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | exampleOutput1 | String | myVariable |
 | exampleOutput2 | Array | [1, 2, 3, 4] |

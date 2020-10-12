@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 03/26/2020
 ms.author: tyao
 ms.openlocfilehash: f41dc688996b2431060a3cde209ca1ed4a21fe8c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87005609"
 ---
 # <a name="configure-an-ip-restriction-rule-with-a-web-application-firewall-for-azure-front-door"></a>Configurar uma regra de restrição de IP com um firewall do aplicativo Web para a porta frontal do Azure
 
 Este artigo mostra como configurar regras de restrição de IP em um WAF (firewall do aplicativo Web) para a porta frontal do Azure usando o portal do Azure, CLI do Azure, Azure PowerShell ou um modelo Azure Resource Manager.
 
-Uma regra de controle de acesso baseada em endereço IP é uma regra de WAF personalizada que permite controlar o acesso aos seus aplicativos Web. Ele faz isso especificando uma lista de endereços IP ou intervalos de endereços IP em formato CIDR (roteamento entre domínios sem classificação).
+Uma regra de controle de acesso baseada em endereço IP é uma regra de WAF personalizada que permite controlar o acesso aos seus aplicativos Web. Ele faz isso especificando uma lista de endereços IP ou intervalos de endereços IP no formato CIDR (roteamento sem classe Inter-Domain).
 
 Por padrão, seu aplicativo Web pode ser acessado pela Internet. Se você quiser limitar o acesso a clientes de uma lista de endereços IP conhecidos ou intervalos de endereços IP, você poderá criar uma regra de correspondência de IP que contenha a lista de endereços IP como valores correspondentes e definir operador como "Not" (negar é verdadeiro) e a ação a ser **bloqueada**. Depois que uma regra de restrição de IP é aplicada, as solicitações originadas de endereços fora dessa lista de permissão recebem uma resposta de 403 Proibido.
 
@@ -30,7 +30,7 @@ Crie um perfil de porta frontal do Azure seguindo as instruções descritas em [
 
 ### <a name="create-a-waf-policy"></a>Criar uma política de WAF
 
-1. Na portal do Azure, selecione **criar um recurso**, digite **Firewall do aplicativo Web** na caixa de pesquisa e, em seguida, selecione **Firewall do aplicativo Web (WAF)**.
+1. Na portal do Azure, selecione **criar um recurso**, digite  **Firewall do aplicativo Web** na caixa de pesquisa e, em seguida, selecione **Firewall do aplicativo Web (WAF)**.
 2. Selecione **Criar**.
 3. Na página **criar uma política de WAF** , use os seguintes valores para concluir a guia **noções básicas** :
    
@@ -40,7 +40,7 @@ Crie um perfil de porta frontal do Azure seguindo as instruções descritas em [
    |Assinatura     |Selecionar sua assinatura|
    |Grupo de recursos     |Selecione o grupo de recursos onde está a sua porta frontal.|
    |Nome de política     |Digite um nome para a política|
-   |Estado da política     |habilitado|
+   |Estado da política     |Habilitada|
 
    Selecione **Avançar: configurações de política**
 
@@ -53,8 +53,8 @@ Crie um perfil de porta frontal do Azure seguindo as instruções descritas em [
    |Configuração  |Valor  |
    |---------|---------|
    |Nome da regra personalizada     |FdWafCustRule|
-   |Status     |habilitado|
-   |Tipo de regra     |Correspondência|
+   |Status     |Habilitada|
+   |Tipo de regra     |Corresponder a|
    |Prioridade    |100|
    |Tipo de correspondência     |Endereço IP|
    |Variável de correspondência|RemoteAddr|
@@ -76,7 +76,7 @@ Crie um perfil de porta frontal do Azure seguindo as instruções descritas em [
 1. Depois que a implantação da política do WAF for concluída, navegue até o nome do host de front-end da porta frontal.
 2. Você deve ver sua mensagem de bloco personalizada.
 
-   :::image type="content" source="../media/waf-front-door-configure-ip-restriction/waf-rule-test.png" alt-text="Teste de regra WAF":::
+   :::image type="content" source="../media/waf-front-door-configure-ip-restriction/waf-rule-test.png" alt-text="Regra personalizada":::
 
    > [!NOTE]
    > Um endereço IP privado foi usado intencionalmente na regra personalizada para garantir que a regra seja disparada. Em uma implantação real, crie regras de *permissão* e *negação* usando endereços IP para sua situação específica.

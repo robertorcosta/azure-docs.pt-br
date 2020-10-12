@@ -8,10 +8,10 @@ ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 9054fa72ee4204d7a09e6ce8de4fe6d4ed4dac81
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89227705"
 ---
 # <a name="azure-security-baseline-for-service-fabric"></a>Linha de base de segurança do Azure para Service Fabric
@@ -1038,7 +1038,7 @@ Confira a documentação sobre antimalware para obter as regras de configuraçã
 
 **Orientação**: backups de Service Fabric serviço de restauração de backup usam uma conta de armazenamento do Azure em sua assinatura. O Armazenamento do Azure criptografa todos os dados em uma conta de armazenamento em repouso. Por padrão, os dados são criptografados com chaves gerenciadas pela Microsoft. Para obter mais controle sobre as chaves de criptografia, você pode fornecer chaves gerenciadas pelo cliente para criptografia de dados de armazenamento.
 
-Se você estiver usando chaves gerenciadas pelo cliente, verifique se a exclusão reversível no Key Vault está habilitada para proteger as chaves contra exclusão acidental ou mal-intencionada.
+Se você estiver usando chaves gerenciadas pelo cliente, verifique se Soft-Delete no Key Vault está habilitada para proteger as chaves contra exclusão acidental ou mal-intencionada.
 
 * [Criptografia do Armazenamento do Azure em repouso](../storage/common/storage-service-encryption.md)
 

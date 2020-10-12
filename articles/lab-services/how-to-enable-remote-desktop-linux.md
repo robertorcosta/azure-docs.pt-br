@@ -4,10 +4,10 @@ description: Saiba como usar a área de trabalho remota para máquinas virtuais 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: b8db01ca57d90739a57cd9bbb3caf63ada5f26fe
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91251602"
 ---
 # <a name="enable-graphical-remote-desktop-for-linux-virtual-machines-in-azure-lab-services"></a>Habilitar a área de trabalho remota gráfica para máquinas virtuais do Linux no Azure Lab Services

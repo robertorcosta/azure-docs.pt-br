@@ -6,10 +6,10 @@ ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
 ms.openlocfilehash: a1fedb637bee9d98fb09d8fc3fa133b2992ce86e
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89613665"
 ---
 # <a name="pbr-materials"></a>Materiais de PBR
@@ -76,7 +76,7 @@ A ideia principal da renderização com base fisicamente é usar as propriedades
 
 ## <a name="technical-details"></a>Detalhes técnicos
 
-A renderização remota do Azure usa o Torrance micro-faceta BRDF com GGX NDF, Schlick Fresnel e um termo de visibilidade correlacionado de GGX Smith com um termo difuso de Lambert. Esse modelo é o padrão do setor de fato no momento. Para obter detalhes mais detalhados, consulte este artigo: [processamento com base fisicamente em Torrance de cookie](http://www.codinglabs.net/article_physically_based_rendering_cook_torrance.aspx)
+A renderização remota do Azure usa o Cook-Torrance micro-faceta BRDF com GGX NDF, Schlick Fresnel e um termo de visibilidade correlacionado de GGX Smith com um termo difuso Lambert. Esse modelo é o padrão do setor de fato no momento. Para obter detalhes mais detalhados, consulte este artigo: [processamento com base fisicamente em Torrance de cookie](http://www.codinglabs.net/article_physically_based_rendering_cook_torrance.aspx)
 
  Uma alternativa para o modelo de PBR de realce de *metal* usado na renderização remota do Azure é o modelo de PBR *de glossários de especulação* . Esse modelo pode representar uma gama mais ampla de materiais. No entanto, ele é mais caro e geralmente não funciona bem para casos em tempo real.
 Nem sempre é possível converter de glossários de *especulação* para a *irregularidade* , pois há pares de valores *(difuso, especular)* que não podem ser convertidos em *(BaseColor, metalness)*. A conversão na outra direção é mais simples e mais precisa, já que todos os pares *(BaseColor, metal)* correspondem aos pares bem definidos *(difuso, especular)* .

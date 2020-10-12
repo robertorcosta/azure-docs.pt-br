@@ -4,10 +4,10 @@ description: Saiba mais sobre os conceitos de identidade e acesso da solução d
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.openlocfilehash: 9d5b7b4c7c2e0d55cffc99a3f371494f40320a16
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88750578"
 ---
 # <a name="azure-vmware-solution-identity-concepts"></a>Conceitos de identidade da solução VMware do Azure
@@ -24,7 +24,7 @@ Os privilégios CloudAdmin e CloudGlobalAdmin são mostrados na tabela a seguir.
 
 |  Conjunto de privilégios           | CloudAdmin | CloudGlobalAdmin | Comentário |
 | :---                     |    :---:   |       :---:      |   :--:  |
-|  Alarmes                  | Um usuário CloudAdmin tem todos os privilégios para alarmes no Compute-ResourcePool e nas VMs.     |          --        |  -- |
+|  Alarmes                  | Um usuário CloudAdmin tem todos os privilégios de alarmes no Compute-ResourcePool e nas VMs.     |          --        |  -- |
 |  Implantação automática             |  --  |        --        |  A Microsoft faz o gerenciamento de hosts.  |
 |  Certificados            |  --  |        --       |  A Microsoft faz o gerenciamento de certificados.  |
 |  Biblioteca de conteúdo         | Um usuário CloudAdmin tem privilégios para criar e usar arquivos em uma biblioteca de conteúdo.    |         Habilitado com SSO.         |  A Microsoft distribuirá arquivos na biblioteca de conteúdo para hosts ESXi.  |

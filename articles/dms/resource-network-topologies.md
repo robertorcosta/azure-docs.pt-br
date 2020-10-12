@@ -13,10 +13,10 @@ ms.custom: seo-lt-2019
 ms.topic: reference
 ms.date: 01/08/2020
 ms.openlocfilehash: 5839de1fde8e4a4d5e661d232ae91099a9483bcb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91291564"
 ---
 # <a name="network-topologies-for-azure-sql-managed-instance-migrations-using-azure-database-migration-service"></a>Topologias de rede para Azure SQL Instância Gerenciada migrações usando o serviço de migração de banco de dados do Azure
@@ -29,7 +29,7 @@ Use essa topologia se o Azure SQL Instância Gerenciada estiver conectado à sua
 
 ![Topologia de rede para cargas de trabalho híbridas](media/resource-network-topologies/hybrid-workloads.png)
 
-**Requisitos**
+**Requirements**
 
 - Nesse cenário, o SQL Instância Gerenciada e a instância do serviço de migração de banco de dados do Azure são criados na mesma Rede Virtual do Microsoft Azure, mas usam sub-redes diferentes.  
 - A rede virtual usada neste cenário também está conectada à rede local usando o [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou a [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
@@ -44,7 +44,7 @@ Use essa topologia de rede se o ambiente exigir um ou mais dos seguintes cenári
 
 ![Topologia de rede da Instância Gerenciada isolada da rede local](media/resource-network-topologies/mi-isolated-workload.png)
 
-**Requisitos**
+**Requirements**
 
 - A rede virtual que o serviço de migração de banco de dados do Azure usa para esse cenário também deve estar conectada à rede local usando o ( https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 - Configure o [emparelhamento de rede VNet](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) entre a rede virtual usada para o SQL instância gerenciada e o serviço de migração de banco de dados do Azure.
@@ -55,7 +55,7 @@ Use essa topologia se o SQL Server de origem estiver hospedado em uma VM do Azur
 
 ![Topologia de rede para migrações de nuvem para nuvem com uma VNet compartilhada](media/resource-network-topologies/cloud-to-cloud.png)
 
-**Requisitos**
+**Requirements**
 
 - Nenhum requisito adicional.
 
@@ -69,7 +69,7 @@ Use essa topologia de rede se o ambiente exigir um ou mais dos seguintes cenári
 
 ![Topologia de rede para migrações de nuvem para nuvem com uma VNet isolada](media/resource-network-topologies/cloud-to-cloud-isolated.png)
 
-**Requisitos**
+**Requirements**
 
 - Configure o [emparelhamento de rede VNet](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) entre a rede virtual usada para o SQL instância gerenciada e o serviço de migração de banco de dados do Azure.
 

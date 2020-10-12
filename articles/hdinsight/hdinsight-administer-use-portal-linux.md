@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/24/2020
 ms.openlocfilehash: 05d057be76a1b468f892b3123080e32a948153ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82598491"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gerenciar clusters do Apache Hadoop no HDInsight usando o portal do Azure
@@ -29,7 +29,7 @@ Um cluster existente do Apache Hadoop no HDInsight.  Consulte [Criar clusters ba
 
 Entre em [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="list-and-show-clusters"></a><a name="showClusters"></a>Listar e mostrar clusters
+## <a name="list-and-show-clusters"></a><a name="showClusters"></a> Listar e mostrar clusters
 
 A página **Clusters do HDInsight** lista os clusters existentes.  Do portal:
 1. Selecione **Todos os serviços** no menu esquerdo.
@@ -60,7 +60,7 @@ Selecione o nome do cluster na página [**clusters HDInsight**](#showClusters) .
     |Controle de acesso (IAM)|Utiliza as atribuições de função.  Consulte [Usar as atribuições de função para gerenciar o acesso aos recursos de assinatura do Azure](../role-based-access-control/role-assignments-portal.md).|
     |Marcações|Permite estabelecer pares de chave/valor para definir uma taxonomia personalizada dos serviços de nuvem. Por exemplo, você pode criar uma chave chamada **projeto**e usar um valor comum para todos os serviços associados a um projeto específico.|
     |Diagnosticar e resolver problemas|Exibe informações sobre solução de problemas.|
-    |Início Rápido|Exibe informações que ajudam você a começar a usar o HDInsight.|
+    |Guia de Início Rápido|Exibe informações que ajudam você a começar a usar o HDInsight.|
     |Ferramentas|Informações de ajuda para ferramentas relacionadas ao HDInsight.|
 
   - **Menu Configurações**  
@@ -69,7 +69,7 @@ Selecione o nome do cluster na página [**clusters HDInsight**](#showClusters) .
     |---|---|
     |Tamanho do cluster|Verifique, aumente e diminua o número de nós do trabalhador do cluster. Ver [Dimensionar clusters](hdinsight-administer-use-portal-linux.md#scale-clusters).|
     |Limites de cota|Exibe os núcleos usados e disponíveis para sua assinatura.|
-    |SSH + logon no cluster|Mostra as instruções para se conectar ao cluster usando uma conexão Secure Shell (SSH). Para obter mais informações, consulte [usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).|
+    |SSH + logon no cluster|Mostra as instruções para se conectar ao cluster usando uma conexão Secure Shell (SSH). Para obter mais informações, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).|
     |Data Lake Storage Gen1|Configura o acesso ao Data Lake Storage Gen1.  Consulte [Início rápido: Configurar clusters no HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).|
     |Contas de armazenamento|Exibe as contas de armazenamento e as chaves. As contas de armazenamento são configuradas durante o processo de criação do cluster.|
     |Aplicativos|Adicionar/remove aplicativos do HDInsight.  Consulte [Instalar aplicativos personalizados do HDInsight](hdinsight-apps-install-custom-applications.md).|
@@ -96,7 +96,7 @@ Selecione o nome do cluster na página [**clusters HDInsight**](#showClusters) .
     |Integridade de recursos|Confira [Visão geral do Azure Resource Health](../service-health/resource-health-overview.md).|
     |Nova solicitação de suporte|Permite criar um tíquete de suporte com o suporte da Microsoft.|
 
-## <a name="cluster-properties"></a><a name="properties"></a>Propriedades do cluster
+## <a name="cluster-properties"></a><a name="properties"></a> Propriedades do cluster
 
 Na [página inicial do cluster](#homePage), em **Configurações**, selecione **Propriedades**.
 
@@ -266,7 +266,7 @@ O bloco **tamanho do cluster** do [Home Page de cluster](#homePage) exibe o núm
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você aprendeu algumas funções administrativas básicas. Para saber mais, leia os seguintes artigos:
+Neste artigo, você aprendeu algumas funções administrativas básicas. Confira os seguintes artigos para saber mais:
 
 - [Administrar o HDInsight usando o PowerShell do Azure](hdinsight-administer-use-powershell.md)
 - [Administrar o HDInsight usando a CLI do Azure](hdinsight-administer-use-command-line.md)

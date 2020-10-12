@@ -4,10 +4,10 @@ description: Descreve as funções a serem usadas em um modelo de Azure Resource
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: 4d4ee96888aee5421d88b5371ac25a69c0af4fd7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84677841"
 ---
 # <a name="array-functions-for-arm-templates"></a>Funções de matriz para modelos ARM
@@ -40,11 +40,11 @@ Converte o valor em uma matriz.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Digite | Descrição |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | convertToArray |Sim |int, string, array ou object |O valor a ser convertido em uma matriz. |
 
-### <a name="return-value"></a>Retornar valor
+### <a name="return-value"></a>Valor retornado
 
 Uma matriz .
 
@@ -91,7 +91,7 @@ O seguinte [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | intOutput | Array |  [1] |
 | stringOutput | Array | ["efgh"] |
@@ -105,14 +105,14 @@ Combina várias matrizes e retorna a matriz concatenada, ou combina vários valo
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Digite | Descrição |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |matriz ou cadeia de caracteres |A primeira matriz ou cadeia de caracteres para concatenação. |
 | argumentos adicionais |Não |matriz ou cadeia de caracteres |Matrizes ou cadeias de caractere adicionais em ordem sequencial para concatenação. |
 
 Essa função pode conter qualquer número de argumentos e pode aceitar cadeias de caracteres ou matrizes como parâmetros. No entanto, você não pode fornecer matrizes e cadeias de caracteres para parâmetros. As matrizes são concatenadas apenas com outras matrizes.
 
-### <a name="return-value"></a>Retornar valor
+### <a name="return-value"></a>Valor retornado
 
 Uma cadeia de caracteres ou matriz de valores concatenados.
 
@@ -155,7 +155,7 @@ O próximo [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | return | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
@@ -183,11 +183,11 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | concatOutput | String | prefix-5yj4yjf5mbg72 |
 
-## <a name="contains"></a>contém
+## <a name="contains"></a>contains
 
 `contains(container, itemToFind)`
 
@@ -195,12 +195,12 @@ Verifica se uma matriz contém um valor, um objeto contém uma chave ou uma cade
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Digite | Descrição |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | contêiner |Sim |matriz, objeto ou cadeia de caracteres |O valor que contém o valor a ser encontrado. |
 | itemToFind |Sim |cadeia de caracteres ou inteiro |O valor a ser encontrado. |
 
-### <a name="return-value"></a>Retornar valor
+### <a name="return-value"></a>Valor retornado
 
 **True** se o item for encontrado; caso contrário, **False**.
 
@@ -259,7 +259,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | stringTrue | Bool | True |
 | stringFalse | Bool | Falso |
@@ -276,12 +276,12 @@ Cria uma matriz de parâmetros.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Digite | Descrição |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |String, Inteiro, Matriz ou Objeto |O primeiro valor na matriz. |
 | argumentos adicionais |Não |String, Inteiro, Matriz ou Objeto |Valores adicionais na matriz. |
 
-### <a name="return-value"></a>Retornar valor
+### <a name="return-value"></a>Valor retornado
 
 Uma matriz .
 
@@ -328,14 +328,14 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | stringArray | Array | ["a", "b", "c"] |
 | intArray | Array | [1, 2, 3] |
 | objectArray | Array | [{"one": "a", "two": "b", "three": "c"}] |
 | arrayArray | Array | [["one", "two", "three"]] |
 
-## <a name="empty"></a>empty
+## <a name="empty"></a>vazio
 
 `empty(itemToTest)`
 
@@ -343,11 +343,11 @@ Determina se uma matriz, objeto ou uma cadeia de caracteres está vazio.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Digite | Descrição |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | itemToTest |Sim |matriz, objeto ou cadeia de caracteres |O valor a ser verificado, caso esteja vazio. |
 
-### <a name="return-value"></a>Retornar valor
+### <a name="return-value"></a>Valor retornado
 
 Retorna **True** se o valor é vazio; caso contrário, **False**.
 
@@ -394,7 +394,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | arrayEmpty | Bool | True |
 | objectEmpty | Bool | True |
@@ -408,11 +408,11 @@ Retorna o primeiro elemento da matriz ou o primeiro caractere da cadeia de carac
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Digite | Descrição |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |matriz ou cadeia de caracteres |O valor para recuperar o primeiro elemento ou caractere. |
 
-### <a name="return-value"></a>Retornar valor
+### <a name="return-value"></a>Valor retornado
 
 O tipo (cadeia de caracteres, inteiro, matriz ou objeto) do primeiro elemento em uma matriz ou o primeiro caractere de uma cadeia de caracteres.
 
@@ -447,7 +447,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | arrayOutput | String | one |
 | stringOutput | String | O |
@@ -460,13 +460,13 @@ Retorna uma única matriz ou objeto com os elementos comuns dos parâmetros.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Digite | Descrição |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |objeto ou matriz |O primeiro valor a ser usado para localizar elementos comuns. |
 | arg2 |Sim |objeto ou matriz |O segundo valor a ser usado para localizar elementos comuns. |
 | argumentos adicionais |Não |objeto ou matriz |Os valores adicionais a serem usados para localizar elementos comuns. |
 
-### <a name="return-value"></a>Retornar valor
+### <a name="return-value"></a>Valor retornado
 
 Uma matriz ou objeto com os elementos comuns.
 
@@ -513,7 +513,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | objectOutput | Objeto | {"one": "a", "three": "c"} |
 | arrayOutput | Array | ["two", "three"] |
@@ -526,11 +526,11 @@ Retorna o último elemento da matriz ou o último caractere da cadeia de caracte
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Digite | Descrição |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |matriz ou cadeia de caracteres |O valor para recuperar o último elemento ou caractere. |
 
-### <a name="return-value"></a>Retornar valor
+### <a name="return-value"></a>Valor retornado
 
 O tipo (cadeia de caracteres, inteiro, matriz ou objeto) do último elemento em uma matriz ou o último caractere de uma cadeia de caracteres.
 
@@ -565,7 +565,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | arrayOutput | String | três |
 | stringOutput | String | e |
@@ -578,11 +578,11 @@ Retorna o número de elementos em uma matriz, caracteres em uma cadeia de caract
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Digite | Descrição |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |matriz, Cadeia de caracteres ou objeto |A matriz a ser usada para obter o número de elementos, a cadeia de caracteres a ser usada para obter o número de caracteres ou o objeto a ser usado para obter o número de propriedades no nível raiz. |
 
-### <a name="return-value"></a>Retornar valor
+### <a name="return-value"></a>Valor retornado
 
 Um inteiro.
 
@@ -640,7 +640,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | arrayLength | Int | 3 |
 | stringLength | Int | 13 |
@@ -665,11 +665,11 @@ Retorna o valor máximo de uma matriz de inteiros ou uma lista de inteiros separ
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Digite | Descrição |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |matriz de inteiros ou lista de inteiros separados por vírgulas |A coleção para obtenção do valor máximo. |
 
-### <a name="return-value"></a>Retornar valor
+### <a name="return-value"></a>Valor retornado
 
 Um inteiro que representa o valor máximo.
 
@@ -703,12 +703,12 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | arrayOutput | Int | 5 |
 | intOutput | Int | 5 |
 
-## <a name="min"></a>min
+## <a name="min"></a>Min
 
 `min(arg1)`
 
@@ -716,11 +716,11 @@ Retorna o valor mínimo de uma matriz de inteiros ou uma lista de inteiros separ
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Digite | Descrição |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |matriz de inteiros ou lista de inteiros separados por vírgulas |A coleção para obtenção do valor mínimo. |
 
-### <a name="return-value"></a>Retornar valor
+### <a name="return-value"></a>Valor retornado
 
 Um inteiro que representa o valor mínimo.
 
@@ -754,7 +754,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | arrayOutput | Int | 0 |
 | intOutput | Int | 0 |
@@ -767,12 +767,12 @@ Cria uma matriz de inteiros a partir de um inteiro inicial e contendo um número
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Digite | Descrição |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | startIndex |Sim |INT |O primeiro inteiro na matriz. A soma de startIndex e Count não deve ser maior que 2147483647. |
 | count |Sim |INT |O número de inteiros na matriz. Deve ser um inteiro não negativo de até 10000. |
 
-### <a name="return-value"></a>Retornar valor
+### <a name="return-value"></a>Valor retornado
 
 Uma matriz de inteiros.
 
@@ -806,7 +806,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | rangeOutput | Array | [5, 6, 7] |
 
@@ -818,12 +818,12 @@ Retorna uma matriz com todos os elementos após o número especificado na matriz
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Digite | Descrição |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | originalValue |Sim |matriz ou cadeia de caracteres |A matriz ou cadeia de caracteres a ser usada para ignorar. |
 | numberToSkip |Sim |INT |O número de elementos ou caracteres a ser ignorado. Se esse valor for 0 ou menos, todos os elementos ou caracteres no valor serão retornados. Se for maior que o tamanho da matriz ou cadeia de caracteres, uma matriz ou cadeia de caracteres vazia será retornada. |
 
-### <a name="return-value"></a>Retornar valor
+### <a name="return-value"></a>Valor retornado
 
 Uma matriz ou cadeia de caracteres.
 
@@ -873,7 +873,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | arrayOutput | Array | ["three"] |
 | stringOutput | String | two three |
@@ -886,12 +886,12 @@ Retorna uma matriz com o número especificado de elementos desde o início da ma
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Digite | Descrição |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | originalValue |Sim |matriz ou cadeia de caracteres |A matriz ou cadeia de caracteres da qual extrair os elementos. |
 | numberToTake |Sim |INT |O número de elementos ou caracteres a ser extraído. Se esse valor for 0 ou menos, uma matriz ou cadeia de caracteres vazia será retornada. Se for maior que o tamanho da matriz ou cadeia de caracteres especificada, todos os elementos da matriz ou cadeia de caracteres serão retornados. |
 
-### <a name="return-value"></a>Retornar valor
+### <a name="return-value"></a>Valor retornado
 
 Uma matriz ou cadeia de caracteres.
 
@@ -941,7 +941,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | arrayOutput | Array | ["one", "two"] |
 | stringOutput | String | on |
@@ -954,13 +954,13 @@ Retorna uma única matriz ou objeto com todos os elementos dos parâmetros. Valo
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Digite | Descrição |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |objeto ou matriz |O primeiro valor a ser usado para unir elementos. |
 | arg2 |Sim |objeto ou matriz |O segundo valor a ser usado para unir elementos. |
 | argumentos adicionais |Não |objeto ou matriz |Valores adicionais a serem usados para unir elementos. |
 
-### <a name="return-value"></a>Retornar valor
+### <a name="return-value"></a>Valor retornado
 
 Uma matriz ou objeto.
 
@@ -1007,7 +1007,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | objectOutput | Objeto | {"one": "a", "two": "b", "three": "c2", "four": "d", "five": "e"} |
 | arrayOutput | Array | ["one", "two", "three", "four"] |

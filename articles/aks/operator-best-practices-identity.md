@@ -8,10 +8,10 @@ ms.date: 07/07/2020
 ms.author: jpalma
 author: palma21
 ms.openlocfilehash: 0e11f345bfed287be3170df38a909ed24149b754
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88010252"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para autenticação e autorização no Azure Kubernetes Service (AKS)
@@ -39,7 +39,7 @@ Com os clusters integrados do Microsoft Azure Active Directory no AKS, você cri
 
 1. O desenvolvedor autentica com o Microsoft Azure Active Directory.
 1. O ponto de extremidade de emissão de token do Azure AD emite o token de acesso.
-1. O desenvolvedor realiza uma ação usando o token do Azure AD, como`kubectl create pod`
+1. O desenvolvedor realiza uma ação usando o token do Azure AD, como `kubectl create pod`
 1. O Kubernetes valida o token com o Azure Active Directory Domain Services e busca as associações de grupo do desenvolvedor.
 1. O controle de acesso baseado em função do Kubernetes (RBAC) e as políticas de cluster são aplicados.
 1. A solicitação do desenvolvedor foi bem-sucedida ou não com base na validação anterior da associação do grupo do Microsoft Azure Active Directory e do Kubernetes RBAC e políticas.

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 08/21/2020
 ms.custom: contperfq1
 ms.openlocfilehash: f6d8f804fa26383435d191af27289ffd2ecb3e0b
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88755085"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Usar o cliente Apache Beeline com Apache Hive
@@ -107,7 +107,7 @@ Este exemplo se baseia no uso do cliente beeline de uma conexão SSH.
 
     Essas instruções realizam as seguintes ações:
 
-    |de |Descrição |
+    |Instrução |Descrição |
     |---|---|
     |DROP TABLE|Se a tabela existir, ela será excluída.|
     |CREATE EXTERNAL TABLE|Cria uma tabela **externa** no hive. Tabelas externas só armazenam a definição da tabela no Hive. Os dados são mantidos no local original.|
@@ -172,7 +172,7 @@ Este exemplo é uma continuação do exemplo anterior. Use as etapas a seguir pa
 
     Essas instruções realizam as seguintes ações:
 
-    |de |Descrição |
+    |Instrução |Descrição |
     |---|---|
     |CREATE TABLE SE NÃO EXISTIR|Se a tabela ainda não existir, ela será criada. Como a palavra-chave **external** não é usada, essa instrução cria uma tabela interna. As tabelas internas são armazenadas no data warehouse do Hive e totalmente gerenciadas por ele.|
     |ARMAZENADO COMO ORC|Armazena os dados no formato OCR (Optimized Row Columnar). O formato ORC é altamente otimizado e eficiente para o armazenamento de dados do Hive.|

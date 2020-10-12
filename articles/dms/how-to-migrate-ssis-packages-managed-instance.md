@@ -13,10 +13,10 @@ ms.custom: seo-lt-2019
 ms.topic: how-to
 ms.date: 02/20/2020
 ms.openlocfilehash: 7f7bc16658733a7200d29fae22d96a2157b73065
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91292125"
 ---
 # <a name="migrate-sql-server-integration-services-packages-to-an-azure-sql-managed-instance"></a>Migrar pacotes SQL Server Integration Services para um SQL do Azure Instância Gerenciada
@@ -37,8 +37,8 @@ Neste artigo, você aprenderá como:
 
 Para concluir essas etapas, você precisa:
 
-* Para criar um Rede Virtual do Microsoft Azure para o serviço de migração de banco de dados do Azure usando o modelo de implantação Azure Resource Manager, que fornece conectividade site a site para seus servidores de origem locais usando o [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Para obter mais informações, consulte o artigo [topologias de rede para SQL instância gerenciada migrações usando o serviço de migração de banco de dados do Azure]( https://aka.ms/dmsnetworkformi). Para obter mais informações sobre como criar uma rede virtual, consulte a [documentação da rede virtual](https://docs.microsoft.com/azure/virtual-network/)e especialmente os artigos de início rápido com detalhes passo a passo.
-* Para garantir que suas regras de grupo de segurança de rede de rede virtual não bloqueiem as seguintes portas de comunicação de entrada para o serviço de migração de banco de dados do Azure: 443, 53, 9354, 445, 12000. Para obter mais detalhes sobre a filtragem de tráfego NSG de rede virtual, consulte o artigo [filtrar o tráfego de rede com grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm).
+* Para criar um Rede Virtual do Microsoft Azure para o serviço de migração de banco de dados do Azure usando o modelo de implantação Azure Resource Manager, que fornece conectividade site a site para seus servidores de origem locais usando o [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Para obter mais informações, consulte o artigo [topologias de rede para SQL instância gerenciada migrações usando o serviço de migração de banco de dados do Azure]( https://aka.ms/dmsnetworkformi). Para obter mais informações sobre como criar uma rede virtual, confira a [Documentação da Rede Virtual](https://docs.microsoft.com/azure/virtual-network/) e, especificamente, os artigos de Início Rápido com detalhes passo a passo.
+* Para garantir que suas regras de grupo de segurança de rede de rede virtual não bloqueiem as seguintes portas de comunicação de entrada para o serviço de migração de banco de dados do Azure: 443, 53, 9354, 445, 12000. Para obter mais detalhes sobre a filtragem de tráfego do NSG da rede virtual, confira o artigo [Filtrar o tráfego de rede com grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm).
 * Para configurar o [Firewall do Windows para acesso ao mecanismo de banco de dados de origem](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access?view=sql-server-2017).
 * Para abrir o Firewall do Windows para permitir que o serviço de migração de banco de dados do Azure acesse o SQL Server de origem, que por padrão é a porta TCP 1433.
 * Caso esteja executando várias instâncias nomeadas do SQL Server usando portas dinâmicas, talvez seja preciso habilitar o serviço do SQL Browser e permitir o acesso à porta UDP 1434 por meio de seus firewalls para que o Serviço de Migração de Banco de Dados do Azure possa se conectar a uma instância nomeada em seu servidor de origem.
@@ -67,7 +67,7 @@ Embora a avaliação da origem SSISDB ainda não esteja integrada ao DMA (Assist
 
 ## <a name="create-an-azure-database-migration-service-instance"></a>Criar uma instância do Serviço de Migração de Banco de Dados do Azure
 
-1. Na portal do Azure, selecione + **criar um recurso**, procure serviço de **migração de banco de dados do Azure**e selecione **serviço de migração de banco de dados do Azure** na lista suspensa.
+1. No portal do Azure, selecione + **Criar um recurso**, pesquise **Serviço de Migração de Banco de Dados do Azure** e, em seguida, selecione **Serviço de Migração de Banco de Dados do Azure** na lista suspensa.
 
      ![Azure Marketplace](media/how-to-migrate-ssis-packages-mi/portal-marketplace.png)
 
@@ -83,7 +83,7 @@ Embora a avaliação da origem SSISDB ainda não esteja integrada ao DMA (Assist
 
     A rede virtual fornece o serviço de migração de banco de dados do Azure com acesso ao SQL Server de origem e ao Instância Gerenciada de destino do Azure SQL.
 
-    Para obter mais informações sobre como criar uma rede virtual no portal do Azure, consulte o artigo [criar uma rede virtual usando o portal do Azure](https://aka.ms/DMSVnet).
+    Para obter mais informações sobre como criar uma rede virtual no portal do Azure, confira o artigo [Criar uma rede virtual usando o portal do Azure](https://aka.ms/DMSVnet).
 
     Para obter detalhes adicionais, consulte o artigo [topologias de rede para Azure SQL instância gerenciada migrações usando o serviço de migração de banco de dados do Azure](https://aka.ms/dmsnetworkformi).
 
@@ -103,7 +103,7 @@ Depois que uma instância do serviço é criada, localize-a no portal do Azure, 
 
     ![Crie uma instância do Serviço de Migração de Banco de Dados do Azure](media/how-to-migrate-ssis-packages-mi/dms-search.png)
 
-2. Na tela **serviço de migração de banco de dados do Azure** , procure o nome da instância que você criou e, em seguida, selecione a instância.
+2. Na tela **Serviço de Migração de Banco de Dados do Azure**, procure o nome da instância que você criou e, em seguida, selecione-a.
 
 3. Selecione + **Novo Projeto de Migração**.
 
@@ -122,7 +122,7 @@ Depois que uma instância do serviço é criada, localize-a no portal do Azure, 
     Quando não houver um certificado confiável instalado, o SQL Server gerará um certificado autoassinado quando a instância for iniciada. Esse certificado é usado para criptografar as credenciais das conexões de cliente.
 
     > [!CAUTION]
-    > As conexões TLS que são criptografadas usando um certificado autoassinado não fornecem segurança forte. Elas são suscetíveis a ataques “man-in-the-middle”. Você não deve confiar no TLS usando certificados autoassinados em um ambiente de produção ou em servidores conectados à Internet.
+    > As conexões TLS que são criptografadas usando um certificado autoassinado não fornecem alta segurança. Elas são suscetíveis a ataques “man-in-the-middle”. Você não deve confiar no TLS usando certificados autoassinados em um ambiente de produção, nem em servidores conectados à Internet.
 
    ![Detalhes da origem](media/how-to-migrate-ssis-packages-mi/dms-source-details1.png)
 

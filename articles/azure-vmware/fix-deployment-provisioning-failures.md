@@ -4,10 +4,10 @@ description: Como obter as informações de que você precisa de sua nuvem priva
 ms.topic: how-to
 ms.date: 06/09/2020
 ms.openlocfilehash: 63d5440a9e2b15463e465e1d32762889508feca1
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88752226"
 ---
 # <a name="get-help-with-azure-vmware-solution-deployment-or-provisioning-failures"></a>Obtenha ajuda com a implantação de solução do Azure VMware ou falhas de provisionamento
@@ -29,7 +29,7 @@ Copie e salve essa ID de correlação para incluir na solicitação de serviço.
 
 Se a falha ocorrer nos estágios de validação prévia, antes da implantação de uma nuvem privada, nenhuma ID de correlação será gerada. Nesse caso, você pode simplesmente fornecer as informações que usou ao criar a nuvem privada da solução Azure VMware, incluindo:
 
-- Local
+- Location
 - Resource group
 - Nome do recurso
  
@@ -37,7 +37,7 @@ Se a falha ocorrer nos estágios de validação prévia, antes da implantação 
 
 Os detalhes de qualquer erro também podem ser úteis para resolver o problema. Na tela anterior, selecione **clique aqui para obter detalhes** (realçado) e um resumo de erros será aberto, conforme mostrado na captura de tela a seguir.
  
- :::image type="content" source="media/fix-deployment-provisioning-failures/summary-of-errors.png" alt-text="Resumo de erros.":::
+ :::image type="content" source="media/fix-deployment-provisioning-failures/summary-of-errors.png" alt-text="Falha na implantação de nuvem privada com ID de correlação.":::
 
 Novamente, copie e salve esse Resumo para incluir no SR.
  
@@ -45,15 +45,15 @@ Novamente, copie e salve esse Resumo para incluir no SR.
 
 Você pode recuperar as implantações anteriores, incluindo as que falharam, pesquisando no log de atividades de implantação acessado selecionando o ícone de notificações.
 
-:::image type="content" source="media/fix-deployment-provisioning-failures/open-notifications.png" alt-text="Abra notificações.":::
+:::image type="content" source="media/fix-deployment-provisioning-failures/open-notifications.png" alt-text="Falha na implantação de nuvem privada com ID de correlação.":::
 
 Em notificações, selecione **mais eventos no log de atividades**.
 
-:::image type="content" source="media/fix-deployment-provisioning-failures/more-events-in-activity-log.png" alt-text="Link: mais eventos no log de atividades.":::
+:::image type="content" source="media/fix-deployment-provisioning-failures/more-events-in-activity-log.png" alt-text="Falha na implantação de nuvem privada com ID de correlação.":::
 
 Em seguida, pesquise o nome do recurso ou em outra informação exclusiva usada na criação do recurso, para localizar a implantação com falha e sua ID de correlação. O exemplo a seguir mostra os resultados da pesquisa em um recurso de nuvem privada (pc03).
  
-:::image type="content" source="media/fix-deployment-provisioning-failures/find-past-deployments.png" alt-text="Encontre as implantações da solução Azure VMware com falha.":::
+:::image type="content" source="media/fix-deployment-provisioning-failures/find-past-deployments.png" alt-text="Falha na implantação de nuvem privada com ID de correlação.":::
  
 Selecionar o nome da operação da implantação com falha abre uma janela com detalhes. Selecione a guia JSON e procure CorrelationId. Copie e inclua no SR. 
  
@@ -63,7 +63,7 @@ Talvez você já tenha uma nuvem privada e ocorra uma falha quando estiver tenta
 
 Ao exibir uma nuvem privada no portal, selecione **conectividade > ExpressRoute** e copie a **ID do expressroute** para a área de transferência.
  
-:::image type="content" source="media/fix-deployment-provisioning-failures/expressroute-id.png" alt-text="Copie a ID do ExpressRoute para a área de transferência."::: 
+:::image type="content" source="media/fix-deployment-provisioning-failures/expressroute-id.png" alt-text="Falha na implantação de nuvem privada com ID de correlação."::: 
  
 Cole a ID do ExpressRoute no campo apropriado na nova solicitação de suporte. Para obter mais informações, consulte a seção a seguir, [criar sua solicitação de suporte](#create-your-support-request).
  
@@ -78,7 +78,7 @@ Aqui estão as diretrizes adicionais específicas para a criação de uma implan
 
 1. Selecione o ícone de **ajuda** e **+ nova solicitação de suporte**.
 
-    :::image type="content" source="media/fix-deployment-provisioning-failures/open-sr-on-avs.png" alt-text="Colete uma ID do ExpressRoute para seu SR.":::
+    :::image type="content" source="media/fix-deployment-provisioning-failures/open-sr-on-avs.png" alt-text="Falha na implantação de nuvem privada com ID de correlação.":::
 
 2. Preencha todos os campos obrigatórios e na guia **noções básicas** :
 

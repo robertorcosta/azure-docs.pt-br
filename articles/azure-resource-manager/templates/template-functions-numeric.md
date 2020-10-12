@@ -4,10 +4,10 @@ description: Descreve as funções a serem usadas em um modelo do Resource Manag
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: 00b44d971a487a0bbec27f3fc2d0746cedd6f874
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84677909"
 ---
 # <a name="numeric-functions-for-arm-templates"></a>Funções numéricas para modelos de ARM
@@ -25,7 +25,7 @@ O Gerenciador de recursos fornece as seguintes funções para trabalhar com inte
 * [mul](#mul)
 * [sub](#sub)
 
-## <a name="add"></a>add
+## <a name="add"></a>adicionar
 
 `add(operand1, operand2)`
 
@@ -33,12 +33,12 @@ Retorna a soma dos dois inteiros fornecidos.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Digite | Descrição |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 |operand1 |Sim |INT |Primeiro número a ser adicionado. |
 |operand2 |Sim |INT |Segundo número a ser adicionado. |
 
-### <a name="return-value"></a>Retornar valor
+### <a name="return-value"></a>Valor retornado
 
 Um inteiro que contém a soma dos parâmetros.
 
@@ -79,7 +79,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | addResult | Int | 8 |
 
@@ -91,7 +91,7 @@ Retorna o índice de um loop de iteração.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Digite | Descrição |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | loopName | Não | string | O nome do loop para obter a iteração. |
 | deslocamento |Não |INT |O número a ser adicionado ao valor de iteração com base em zero. |
@@ -144,7 +144,7 @@ O exemplo a seguir mostra um loop de cópia e o valor de índice incluído no no
 }
 ```
 
-### <a name="return-value"></a>Retornar valor
+### <a name="return-value"></a>Valor retornado
 
 Um inteiro que representa o índice atual da iteração.
 
@@ -156,12 +156,12 @@ Retorna a divisão de inteiros dos dois inteiros fornecidos.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Digite | Descrição |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | operand1 |Sim |INT |O número que está sendo dividido. |
 | operand2 |Sim |INT |O número usado para dividir. Não pode ser 0. |
 
-### <a name="return-value"></a>Retornar valor
+### <a name="return-value"></a>Valor retornado
 
 Um inteiro que representa a divisão.
 
@@ -202,7 +202,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | divResult | Int | 2 |
 
@@ -214,11 +214,11 @@ Converte o valor em um número de ponto flutuante. Você só usa essa função a
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Digite | Descrição |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |cadeia de caracteres ou inteiro |O valor a ser convertido em um número de ponto flutuante. |
 
-### <a name="return-value"></a>Retornar valor
+### <a name="return-value"></a>Valor retornado
 
 Um número de ponto flutuante.
 
@@ -248,11 +248,11 @@ Converte o valor especificado em um inteiro.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Digite | Descrição |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | valueToConvert |Sim |cadeia de caracteres ou inteiro |O valor a ser convertido em um inteiro. |
 
-### <a name="return-value"></a>Retornar valor
+### <a name="return-value"></a>Valor retornado
 
 Um inteiro do valor convertido.
 
@@ -283,7 +283,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | intResult | Int | 4 |
 
@@ -295,11 +295,11 @@ Retorna o valor máximo de uma matriz de inteiros ou uma lista de inteiros separ
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Digite | Descrição |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |matriz de inteiros ou lista de inteiros separados por vírgulas |A coleção para obtenção do valor máximo. |
 
-### <a name="return-value"></a>Retornar valor
+### <a name="return-value"></a>Valor retornado
 
 Um inteiro que representa o valor máximo da coleção.
 
@@ -333,12 +333,12 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | arrayOutput | Int | 5 |
 | intOutput | Int | 5 |
 
-## <a name="min"></a>min
+## <a name="min"></a>Min
 
 `min (arg1)`
 
@@ -346,11 +346,11 @@ Retorna o valor mínimo de uma matriz de inteiros ou uma lista de inteiros separ
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Digite | Descrição |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |matriz de inteiros ou lista de inteiros separados por vírgulas |A coleção para obtenção do valor mínimo. |
 
-### <a name="return-value"></a>Retornar valor
+### <a name="return-value"></a>Valor retornado
 
 Um inteiro que representa o valor mínimo da coleção.
 
@@ -384,7 +384,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | arrayOutput | Int | 0 |
 | intOutput | Int | 0 |
@@ -397,12 +397,12 @@ Retorna o restante da divisão de inteiros usando os dois inteiros fornecidos.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Digite | Descrição |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | operand1 |Sim |INT |O número que está sendo dividido. |
 | operand2 |Sim |INT |O número que é usado para dividir, não pode ser 0. |
 
-### <a name="return-value"></a>Retornar valor
+### <a name="return-value"></a>Valor retornado
 
 Um inteiro que representa o resto.
 
@@ -443,7 +443,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | modResult | Int | 1 |
 
@@ -455,12 +455,12 @@ Retorna a multiplicação de dois inteiros fornecidos.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Digite | Descrição |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | operand1 |Sim |INT |Primeiro número a ser multiplicado. |
 | operand2 |Sim |INT |Segundo número a ser multiplicado. |
 
-### <a name="return-value"></a>Retornar valor
+### <a name="return-value"></a>Valor retornado
 
 Um inteiro que representa a multiplicação.
 
@@ -501,7 +501,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | mulResult | Int | 15 |
 
@@ -513,12 +513,12 @@ Retorna a subtração dos dois inteiros fornecidos.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Digite | Descrição |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | operand1 |Sim |INT |O número do qual é subtraído. |
 | operand2 |Sim |INT |O número subtraído. |
 
-### <a name="return-value"></a>Retornar valor
+### <a name="return-value"></a>Valor retornado
 
 Um inteiro que representa a subtração.
 
@@ -559,7 +559,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | subResult | Int | 4 |
 

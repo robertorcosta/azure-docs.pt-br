@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 4ee89f4bba70bb5e81eef21247d556f65a2a1f16
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80065201"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Gateway de Gerenciamento de Dados – alta disponibilidade e escalabilidade (versão prévia)
@@ -185,7 +185,7 @@ Você pode habilitar as **Configurações Avançadas** na página **Gateway** pa
 
 Propriedade de monitoramento | Descrição
 :------------------ | :---------- 
-Name | Nome do gateway lógico e nós associada ao gateway.  
+Nome | Nome do gateway lógico e nós associada ao gateway.  
 Status | Status do gateway lógico e dos nós de gateway. Exemplo: online/offline/Limited/etc. Para obter informações sobre esses status, consulte a seção [status do gateway](#gateway-status) . 
 Versão | Mostra a versão do gateway lógico e cada nó do gateway. A versão do gateway lógico é determinada com base na versão da maioria dos nós no grupo. Se não há nós com versões diferentes na configuração do gateway lógico, somente os nós com o mesmo número de versão que o gateway lógico funcionam corretamente. Os outros estão no modo limitado e precisam ser atualizados manualmente (somente caso a atualização automática falhe). 
 Memória disponível | Memória disponível em um nó do gateway. Esse valor é um instantâneo quase em tempo real. 
@@ -227,7 +227,7 @@ O Portal do Azure fornece uma experiência de monitoramento de pipeline com deta
 
 ## <a name="scale-considerations"></a>Considerações de escala
 
-### <a name="scale-out"></a>Expansão
+### <a name="scale-out"></a>Escalar horizontalmente
 Quando a **memória disponível está baixa** e o **uso de CPU é alto**, adicionar um novo nó ajuda a escalar horizontalmente a carga entre computadores. Se as atividades estão falhando devido a tempo limite atingido ou ao nó do gateway ficar offline, ajuda adicionar um nó ao gateway.
  
 ### <a name="scale-up"></a>Escalar verticalmente

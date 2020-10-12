@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/29/2020
 ms.author: pafarley
 ms.openlocfilehash: d6bcb5485833fbfaa3eb72191ee54b1ee69bab04
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82594288"
 ---
 # <a name="use-an-onnx-model-from-custom-vision-with-windows-ml-preview"></a>Usar um modelo ONNX do Serviço de Visão Personalizada com Windows ML (versão prévia)
@@ -25,7 +25,7 @@ Neste guia, você aprenderá a usar um arquivo ONNX exportado do Serviço de Vis
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Windows 10 versão 1809 ou superior
+* Windows 10 versão 1809 ou superior
 * SDK do Windows build 17763 ou superior
 * Visual Studio 2017 versão 15.7 ou posterior com a carga de trabalho __Desenvolvimento com a Plataforma Universal do Windows__ habilitada.
 * Modo de desenvolvedor habilitado em seu PC. Para obter mais informações, consulte [habilitar seu dispositivo para desenvolvimento](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development).
@@ -55,7 +55,7 @@ Para usar seu próprio modelo classificador de imagem, siga estas etapas:
 1. Em Gerenciador de Soluções, clique com o botão direito do mouse no arquivo ONNX e selecione **Propriedades**. Altere as seguintes propriedades para o arquivo:
    * __Ação de Compilação__ -> __Conteúdo__
    * __Copiar para Diretório de Saída__ -> __Copiar se mais recente__
-1. Em seguida, abra _MainPage.XAML.cs_ e altere o `_ourOnnxFileName` valor de para o nome do seu arquivo ONNX.
+1. Em seguida, abra _MainPage.XAML.cs_ e altere o valor de `_ourOnnxFileName` para o nome do seu arquivo ONNX.
 1. Use o `F5` para compilar e executar o projeto.
 1. Clique no botão para selecionar a imagem a ser avaliada.
 

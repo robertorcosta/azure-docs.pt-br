@@ -12,10 +12,10 @@ ms.date: 02/11/2020
 ms.author: nacanuma
 ms.custom: aaddev
 ms.openlocfilehash: b42d720a425b92ec9002f7c2b9797a91f70dafe2
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89003016"
 ---
 # <a name="single-page-application-code-configuration"></a>Aplicativo de página única: configuração de código
@@ -26,7 +26,7 @@ Saiba como configurar o código para seu aplicativo de página única (SPA).
 
 A plataforma de identidade da Microsoft fornece a seguinte biblioteca de autenticação da Microsoft para JavaScript (MSAL.js) para dar suporte ao fluxo implícito e ao fluxo de código de autorização com o PKCE usando práticas de segurança recomendadas do setor:
 
-| Biblioteca MSAL | Flow | Descrição |
+| Biblioteca MSAL | Fluxo | Descrição |
 |--------------|------|-------------|
 | ![MSAL.js](media/sample-v2-code/logo_js.png) <br/> [MSAL.js (2. x)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser) | Fluxo de código de autorização (PKCE) | Biblioteca JavaScript simples para uso em qualquer aplicativo Web do lado do cliente criado por meio de estruturas JavaScript ou SPA, como angular, Vue.js e React.js. |
 | ![MSAL.js](media/sample-v2-code/logo_js.png) <br/> [MSAL.js (1. x)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core) | Fluxo implícito | Biblioteca JavaScript simples para uso em qualquer aplicativo Web do lado do cliente criado por meio de estruturas JavaScript ou SPA, como angular, Vue.js e React.js. |

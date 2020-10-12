@@ -4,10 +4,10 @@ description: Use a operação de cópia em um modelo de Azure Resource Manager p
 ms.topic: conceptual
 ms.date: 04/17/2020
 ms.openlocfilehash: 50c4b4b8f301ad88d3dfde98ace1aed4431693db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82583417"
 ---
 # <a name="output-iteration-in-arm-templates"></a>Iteração de saída em modelos ARM
@@ -16,7 +16,7 @@ Este artigo mostra como criar mais de um valor para uma saída em seu modelo de 
 
 Você também pode usar copiar com [recursos](copy-resources.md), [Propriedades em um recurso](copy-properties.md)e [variáveis](copy-variables.md).
 
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>Sintaxe
 
 O elemento Copy tem o seguinte formato geral:
 

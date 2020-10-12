@@ -7,10 +7,10 @@ ms.date: 12/03/2018
 ms.reviewer: dariac
 ms.custom: seodec18
 ms.openlocfilehash: 693e552c8743b435fac6fda9d5ab023be5d9adeb
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86221129"
 ---
 # <a name="sync-content-from-a-cloud-folder-to-azure-app-service"></a>Sincronizar o conteúdo de uma pasta de nuvem para o Serviço de Aplicativo do Azure
@@ -32,8 +32,8 @@ Você só precisa autorizar uma vez com o OneDrive ou Dropbox. Se você já tive
 
 Na página **Configurar**, selecione a pasta que deseja sincronizar. Esta pasta é criada no seguinte caminho de conteúdo designado no OneDrive ou Dropbox. 
    
-* **Onedrive**:`Apps\Azure Web Apps`
-* **Dropbox**:`Apps\Azure`
+* **Onedrive**: `Apps\Azure Web Apps`
+* **Dropbox**: `Apps\Azure`
 
 Ao terminar, clique em **Continuar**.
 

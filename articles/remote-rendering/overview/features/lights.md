@@ -6,10 +6,10 @@ ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
 ms.openlocfilehash: 2ddce7e2f073914e9393eabf12e8b0f4ef347828
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89613647"
 ---
 # <a name="scene-lighting"></a>Iluminação de cena
@@ -66,7 +66,7 @@ O `DirectionalLightComponent` simula uma fonte de luz que está infinitamente di
 
 Não há nenhuma propriedade adicional.
 
-## <a name="performance-considerations"></a>Considerações sobre desempenho
+## <a name="performance-considerations"></a>Considerações sobre o desempenho
 
 Fontes de luz têm um impacto significativo no desempenho de renderização. Use-os com cuidado e apenas se exigido pelo aplicativo. Qualquer condição de iluminação global estática, incluindo um componente direcional estático, pode ser obtida com uma [textura céu personalizada](sky.md), sem custo de renderização adicional.
 

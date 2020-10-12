@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: trbye
 ms.openlocfilehash: 72fecbdc173a6174e54a28e48f983965f397ba6a
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86224580"
 ---
 # <a name="improve-synthesis-with-the-audio-content-creation-tool"></a>Melhorar a síntese com a ferramenta de criação de conteúdo de áudio
@@ -25,7 +25,7 @@ A ferramenta de criação de conteúdo de áudio baseia-se na [SSML (linguagem d
 
 Consulte o [tutorial em vídeo](https://www.youtube.com/watch?v=O1wIJ7mts_w) para a criação de conteúdo de áudio.
 
-## <a name="how-does-it-work"></a>Como ela funciona?
+## <a name="how-does-it-work"></a>Como ele funciona?
 
 Este diagrama mostra as etapas necessárias para ajustar as saídas de conversão de texto em fala. Use os links abaixo para saber mais sobre cada etapa.
 
@@ -68,7 +68,7 @@ Há duas maneiras de colocar seu conteúdo na ferramenta de criação de conteú
    |----------|---------------|
    | Formato de arquivo | Texto sem formatação (.txt)<br/> Texto de SSML (. txt)<br/> Não há suporte para arquivos zip |
    | Formato de codificação | UTF-8 |
-   | Nome do Arquivo | Cada arquivo deve ter um nome exclusivo. Não há suporte para duplicatas. |
+   | Nome do arquivo | Cada arquivo deve ter um nome exclusivo. Não há suporte para duplicatas. |
    | Comprimento do texto | Os arquivos de texto não devem exceder 20.000 caracteres. |
    | Restrições de SSML | Cada arquivo SSML pode conter apenas uma única parte de SSML. |
 
@@ -105,7 +105,7 @@ Depois de revisar sua saída de áudio e ficar satisfeito com seu ajuste e ajust
 | WAV | riff-16kHz-16 bits-mono-PCM | riff-24kHz-16 bits-mono-PCM |
 | mp3 | Audio-16kHz-128kbitrate-mono-mp3 | Audio-24kHz-160kbitrate-mono-mp3 |
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 * [API de áudio longo](https://aka.ms/long-audio-api)
 

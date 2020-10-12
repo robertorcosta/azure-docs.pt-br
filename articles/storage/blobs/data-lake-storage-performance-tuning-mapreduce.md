@@ -9,10 +9,10 @@ ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: e9d638a7ed17d08b585c71b1dac4a0177f4a2939
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88030513"
 ---
 # <a name="tune-performance-mapreduce-hdinsight--azure-data-lake-storage-gen2"></a>Ajustar o desempenho: MapReduce, & HDInsight Azure Data Lake Storage Gen2
@@ -40,7 +40,7 @@ Ao executar trabalhos do MapReduce, aqui estão os parâmetros que você pode co
 
 **Mapreduce.job.maps / Mapreduce.job.reduces** Isso determinará o número máximo de mapeadores ou redutores a serem criados.  O número de divisões determinará quantas mapeadores serão criados para o trabalho MapReduce.  Portanto, você poderá obter menos mapeadores que o solicitado se houver menos divisões do que o número de mapeadores solicitado.       
 
-## <a name="guidance"></a>Orientação
+## <a name="guidance"></a>Diretrizes
 
 > [!NOTE]
 > As diretrizes neste documento pressupõem que seu aplicativo é o único aplicativo em execução no cluster.
@@ -65,7 +65,7 @@ Se você estiver usando um cluster vazio, a memória poderá ser a memória YARN
 
 Contêineres YARN determinam a quantidade de simultaneidade disponível para o trabalho.  Pegar a memória YARN total e divida-a por mapreduce.map.memory.  
 
-\#de contêineres YARN = total de memória YARN/MapReduce. map. Memory
+\# de contêineres YARN = total de memória YARN/MapReduce. map. Memory
 
 **Etapa 5: definir mapreduce.job.maps/mapreduce.job.reduces**
 
@@ -93,7 +93,7 @@ A memória total do cluster é de 8 nós * 96 GB da memória YARN para um D14 = 
 
 **Etapa 4: calcular o número de contêineres YARN**
 
-\#de contêineres YARN = 768GB de memória disponível/3 GB de memória = 256
+\# de contêineres YARN = 768GB de memória disponível/3 GB de memória = 256
 
 **Etapa 5: definir mapreduce.job.maps/mapreduce.job.reduces**
 

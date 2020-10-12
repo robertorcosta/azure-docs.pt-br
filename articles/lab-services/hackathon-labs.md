@@ -4,10 +4,10 @@ description: Este artigo descreve como usar Azure Lab Services para criar labora
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 8727fad6f37d1365983127a1a514e87e3a5003b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85445875"
 ---
 # <a name="use-azure-lab-services-for-your-next-hackathon"></a>Usar Azure Lab Services para seu próximo Hackathon
@@ -49,7 +49,7 @@ Para usar os serviços de laboratório para seu Hackathon, certifique-se de que 
 
     **Cota**: a [cota](how-to-configure-student-usage.md#set-quotas-for-users) controla o número de horas que os participantes terão acesso a uma máquina virtual fora das horas agendadas. Se a cota for atingida enquanto um participante a estiver usando, a máquina será desligada automaticamente e o participante não poderá reiniciá-la, a menos que a cota seja aumentada. Por padrão, quando você cria um laboratório, a cota é definida como 10 horas. Novamente, você deve ter certeza de definir a cota para que ela permita tempo suficiente para o Hackathon, o que é especialmente importante se você não tiver criado uma agenda.
 
-    **Desligamento**automático: quando habilitado, a configuração de [desligamento](how-to-enable-shutdown-disconnect.md) automática faz com que as máquinas virtuais do Windows sejam desligadas automaticamente após um determinado período de tempo quando um aluno se desconectar da sessão RDP. Por padrão, essa configuração é desabilitada.
+    **Desligamento**automático: quando habilitado, a configuração de [desligamento](how-to-enable-shutdown-disconnect.md) automática faz com que as máquinas virtuais do Windows sejam desligadas automaticamente após um determinado período de tempo quando um aluno se desconectar da sessão RDP. Por padrão, essa configuração está desabilitada.
 
 - **Defina as configurações de firewall para permitir conexões com VMs de laboratório**. 
 

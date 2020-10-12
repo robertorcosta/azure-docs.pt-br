@@ -8,10 +8,10 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 03/01/2017
 ms.openlocfilehash: daf72fcf7baba289b4145d06d878c8a7232f1c6a
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87132408"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Executar e testar U-SQL com o SDK do U-SQL do Azure Data Lake
@@ -35,7 +35,7 @@ O SDK para U-SQL do Data Lake exige as seguintes dependências:
 
     ![SDK para Windows 10 da execução local das Ferramentas do Data Lake para Visual Studio](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-for-visual-studio-local-run-windows-10-sdk.png)
 
-  - Instalar [Ferramentas do Data Lake para Visual Studio](https://aka.ms/adltoolsvs). Você pode encontrar os arquivos de Visual C++ e SDK do Windows predefinidos em`C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK.`
+  - Instalar [Ferramentas do Data Lake para Visual Studio](https://aka.ms/adltoolsvs). Você pode encontrar os arquivos de Visual C++ e SDK do Windows predefinidos em `C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK.`
 
     Nesse caso, o compilador local U-SQL não pode localizar as dependências automaticamente. Você precisa especificar o caminho CppSDK para ele. Você pode copiar os arquivos para outro local ou usá-los como estão.
 
@@ -337,7 +337,7 @@ public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
 ### <a name="properties"></a>Propriedades
 
-|Propriedade|Tipo|Descrição|
+|Propriedade|Type|Descrição|
 |--------|----|-----------|
 |AlgebraPath|string|O caminho para o arquivo de álgebra (o arquivo de álgebra é um dos resultados da compilação)|
 |CodeBehindReferences|string|Se o script tiver referências code-behind adicionais, especifique os caminhos separados por “;”|

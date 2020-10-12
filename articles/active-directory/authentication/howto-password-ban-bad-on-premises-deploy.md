@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b773fb887d3663a2af2e340912e378c7fccaba4a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89003534"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>Planejar e implantar a proteção de senha do Azure Active Directory local
@@ -76,7 +76,7 @@ O design do software do agente DC de proteção de senha do Azure AD atenua os p
 
 Uma frequência de atualização razoável para diretivas de senha em uma implantação grande geralmente é dias, não horas ou menos. Portanto, poucas interrupções dos servidores proxy não afetam significativamente a proteção de senha do Azure AD.
 
-## <a name="deployment-requirements"></a>Requisitos de implantação
+## <a name="deployment-requirements"></a>Requisitos para implantação
 
 Para obter informações sobre licenciamento, consulte [requisitos de licenciamento da proteção por senha do Azure ad](concept-password-ban-bad.md#license-requirements).
 

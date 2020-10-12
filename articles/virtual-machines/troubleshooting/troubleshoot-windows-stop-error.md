@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 06/26/2020
 ms.author: v-mibufo
 ms.openlocfilehash: 33b4c59e14301e496d0eddafa7bdfdf201b7aa29
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87005898"
 ---
 # <a name="windows-stop-error---status-no-memory"></a>Erro de parada do Windows – Status sem memória
@@ -143,7 +143,7 @@ Antes de executar qualquer etapa, você deve criar uma cópia da pasta **\Window
    1. Navegue até **HKEY_LOCAL_MACHINE >> BROKENSYSTEM >> selecione**.
    1. Nas chaves listadas, observe o valor de dados de atual. Por exemplo, se esse valor for **1** ou **0x00000001 (1)**, o conjunto de controle será ControlSet001.
 1. Verifique o local onde a criação do arquivo de paginação está configurada.
-   1. Enquanto estiver em HKEY_LOCAL_MACHINE \BROKENSYSTEM, expanda o diretório que corresponde ao número de ControlSet identificado na etapa 4, como **ControlSet001**.
+   1. Enquanto estiver em HKEY_LOCAL_MACHINE\BROKENSYSTEM, expanda o diretório que corresponde ao número de ControlSet identificado na etapa 4, como **ControlSet001**.
    1. Navegue até **controle >> Gerenciador de sessão >> gerenciamento de memória** e anote o local da chave **ExistingPageFiles** .
    1. Essa chave deve estar no local do Azure padrão da unidade temporária. Se não estiver lá e estiver em um VHD em outro local, como a unidade de disco de dados ou a unidade do sistema operacional, será necessário excluí-la.
    1. Navegue até esse local no explorador de arquivos e exclua o arquivo de **pagefile.sys** .
