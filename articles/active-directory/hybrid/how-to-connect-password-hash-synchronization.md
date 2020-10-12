@@ -16,10 +16,10 @@ search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c16882f35c9ca79644cd2b51ce4cd88bba516ed2
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89652079"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implemente a sincronização de hash de senha com a sincronização do Azure AD Connect
@@ -113,7 +113,7 @@ Uma vez habilitado, o Azure AD não vai para cada usuário sincronizado para rem
 
 É recomendável habilitar EnforceCloudPasswordPolicyForPasswordSyncedUsers, antes de habilitar a sincronização de hash de senha, para que a sincronização inicial de hashes de senha não adicione o `DisablePasswordExpiration` valor ao atributo PasswordPolicies para os usuários.
 
-A política de senha padrão do Azure AD exige que os usuários alterem suas senhas a cada 90 dias. Se sua política no AD também for de 90 dias, as duas políticas deverão corresponder. No entanto, se a política do AD não for de 90 dias, você poderá atualizar a política de senha do Azure AD para fazer a correspondência usando o comando do PowerShell Set-MsolPasswordPolicy.
+A política de senha padrão do Azure AD exige que os usuários alterem suas senhas a cada 90 dias. Se sua política no AD também for de 90 dias, as duas políticas deverão corresponder. No entanto, se a política do AD não for de 90 dias, você poderá atualizar a política de senha do Azure AD para fazer a correspondência usando o comando Set-MsolPasswordPolicy PowerShell.
 
 O Azure AD dá suporte a uma política de expiração de senha separada por domínio registrado.
 
@@ -122,7 +122,7 @@ ADVERTÊNCIA: se houver contas sincronizadas que precisam ter senhas que não ex
 `Set-AzureADUser -ObjectID <User Object ID> -PasswordPolicies "DisablePasswordExpiration"`
 
 > [!NOTE]
-> O comando do PowerShell Set-MsolPasswordPolicy não funcionará em domínios federados. 
+> O comando Set-MsolPasswordPolicy PowerShell não funcionará em domínios federados. 
 
 #### <a name="synchronizing-temporary-passwords-and-force-password-change-on-next-logon"></a>Sincronizar senhas temporárias e "forçar alteração de senha no próximo logon"
 
@@ -214,7 +214,7 @@ Se o servidor tiver sido bloqueado de acordo com o FIPS (Federal Information Pro
 2. Abra miiserver.exe.config.
 3. Acesse o nó configuração/runtime no fim do arquivo.
 4. Adicione o seguinte nó: `<enforceFIPSPolicy enabled="false"/>`
-5. Salve as alterações.
+5. Salve suas alterações.
 
 Para referência, esse snippet mostra como deve ser a aparência:
 

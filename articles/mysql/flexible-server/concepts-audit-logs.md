@@ -6,20 +6,17 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: 00d0808e83a888a39f9268328feb209167c9b644
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e630ccec744c4edf0dc80d374ecc93526f960d44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91295982"
 ---
 # <a name="track-database-activity-with-audit-logs-in-azure-database-for-mysql-flexible-server"></a>Acompanhar atividade do banco de dados com logs de auditoria no banco de dados do Azure para MySQL servidor flexível
 
 > [!IMPORTANT] 
 > Atualmente, o Servidor Flexível do Banco de Dados do Azure para MySQL está em versão prévia pública
-
-> [!NOTE]
-> A integração com as configurações de diagnóstico Azure Monitor para acessar logs está no processo de implantação e a funcionalidade completa estará disponível em breve.
 
 O banco de dados do Azure para MySQL servidor flexível fornece aos usuários a capacidade de configurar logs de auditoria. Os logs de auditoria podem ser usados para acompanhar a atividade no nível do banco de dados, incluindo eventos de conexão, administração, DDL e DML. Esses tipos de logs são comumente usados para fins de conformidade.
 
@@ -52,9 +49,6 @@ Outros parâmetros que você pode ajustar para controlar o comportamento do log 
 | `TABLE_ACCESS` | -Disponível somente para MySQL 5,7 <br> -Instruções de leitura de tabela, como selecionar ou inserir em... Não <br> -Instruções DELETE de tabela, como DELETE ou TRUNCATE TABLE <br> -Instruções INSERT de tabela, como INSERT ou REPLACE <br> -Instruções de atualização de tabela, como UPDATE |
 
 ## <a name="access-audit-logs"></a>Acesse os logs de auditoria
-
-> [!NOTE]
-> A integração com as configurações de diagnóstico Azure Monitor para acessar logs está no processo de implantação e a funcionalidade completa estará disponível em breve.
 
 Os logs de auditoria são integrados às configurações de diagnóstico Azure Monitor. Depois de habilitar os logs de auditoria no servidor flexível do MySQL, você pode emiti-los para Azure Monitor logs, hubs de eventos ou armazenamento do Azure. Para saber mais sobre as configurações de diagnóstico, consulte a [documentação dos logs de diagnóstico](../../azure-monitor/platform/platform-logs-overview.md). Para saber mais sobre como habilitar as configurações de diagnóstico no portal do Azure, consulte o [artigo portal de log de auditoria](how-to-configure-audit-logs-portal.md#set-up-diagnostics).
 

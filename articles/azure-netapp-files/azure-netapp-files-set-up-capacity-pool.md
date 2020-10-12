@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: b-juche
 ms.openlocfilehash: 2b52ad50854092cddd7b9e79cbeebd4a83017081
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91325396"
 ---
 # <a name="set-up-a-capacity-pool"></a>Configurar um pool de capacidade
@@ -60,7 +60,7 @@ Você já deve ter criado uma conta do NetApp.
 
      > [!IMPORTANT] 
      > A configuração do **tipo de QoS** como **manual** é permanente. Não é possível converter um pool de capacidade de QoS manual para usar a QoS automática. No entanto, você pode converter um pool de capacidade de QoS automático para usar a QoS manual. Consulte [alterar um pool de capacidade para usar a QoS manual](manage-manual-qos-capacity-pool.md#change-to-qos).   
-     > O uso do tipo de QoS manual para um pool de capacidade requer o registro. Consulte [gerenciar um pool de capacidade de QoS manual](manage-manual-qos-capacity-pool.md#register-the-feature). 
+     > O uso do tipo de QoS manual para um pool de capacidade requer um registro. Confira [Gerenciar um pool de capacidade com QoS manual](manage-manual-qos-capacity-pool.md#register-the-feature). 
 
     ![Novo pool de capacidade](../media/azure-netapp-files/azure-netapp-files-new-capacity-pool.png)
 

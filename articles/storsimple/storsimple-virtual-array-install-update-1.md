@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 11/02/2017
 ms.author: alkohli
 ms.openlocfilehash: 5bb6b61bb7d9392984bf5c308ce7ee039234461e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91295559"
 ---
 # <a name="install-update-10-on-your-storsimple-virtual-array"></a>Instalar a Atualização 1.0 em seu StorSimple Virtual Array
@@ -37,7 +37,7 @@ Este artigo descreve as etapas necessárias para instalar a Atualização 1.0 no
 >
 > - A Atualização 1 estará disponível no Portal do Azure somente se a matriz virtual estiver executando a Atualização 0.6. Para matrizes virtuais que executam versões de pré-Atualização 0.6, você deve primeiro instalar a Atualização 0.6 e depois instalar a Atualização 1.
 
-## <a name="use-the-azure-portal"></a>Use o Portal do Azure
+## <a name="use-the-azure-portal"></a>Usar o portal do Azure
 
 Caso esteja executando a Atualização 0.2 ou posterior, é recomendável que você instale atualizações por meio do portal do Azure. O procedimento do portal requer que o usuário verifique, baixe e instale as atualizações. Dependendo da versão de software que a matriz virtual está executando, a aplicação da atualização por meio do Portal do Azure é diferente.
 

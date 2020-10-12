@@ -7,10 +7,10 @@ ms.date: 04/27/2020
 ms.author: mahender
 ms.custom: mvc
 ms.openlocfilehash: 440eb1f39284f8d99a8d6b9067b018c4a54fcd27
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87083014"
 ---
 # <a name="customize-an-http-endpoint-in-azure-functions"></a>Personalizar um ponto de extremidade HTTP no Azure Functions
@@ -112,13 +112,13 @@ Repita as etapas para [Criar um aplicativo de função](./functions-create-first
     | URL do back-end | https://%HELLO_HOST%/api/hello | Especifica o ponto de extremidade ao qual a solicitação deve ser transmitida por proxy |
 
     
-    :::image type="content" source="./media/functions-create-serverless-api/creating-proxy.png" alt-text="Criação de um proxy":::
+    :::image type="content" source="./media/functions-create-serverless-api/creating-proxy.png" alt-text="Personalizar uma função HTTP":::
 
     Proxies do Azure Functions não fornece o `/api` prefixo de caminho base, que deve ser incluído no modelo de rota. A `%HELLO_HOST%` sintaxe faz referência à configuração do aplicativo que você criou anteriormente. A URL resolvida apontará para sua função original.
 
 1. Experimente seu novo proxy copiando a URL do proxy e testando-a no navegador ou com seu cliente HTTP favorito:
-    - Para uma função anônima, use: `https://YOURPROXYAPP.azurewebsites.net/api/remotehello?name="Proxies"` .
-    - Para uma função com autorização, use: `https://YOURPROXYAPP.azurewebsites.net/api/remotehello?code=YOURCODE&name="Proxies"` .
+    - Para uma função anônima, use:   `https://YOURPROXYAPP.azurewebsites.net/api/remotehello?name="Proxies"` .
+    - Para uma função com autorização, use:   `https://YOURPROXYAPP.azurewebsites.net/api/remotehello?code=YOURCODE&name="Proxies"` .
 
 ## <a name="create-a-mock-api"></a>Criar uma API de simulação
 

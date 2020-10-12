@@ -7,10 +7,10 @@ ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
 ms.openlocfilehash: 88048c3328114f17b30859efb41bb9f059b71439
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91296358"
 ---
 # <a name="feature-list"></a>Lista de recursos #
@@ -59,7 +59,7 @@ Aqui está a lista de recursos testados e recursos sem suporte:
 | Análise                               |        | X                |          |             | O AMP fornece a capacidade de ouvir eventos de diagnóstico e análise para enviar para um back-end de análise de sua escolha.  Todos os eventos e propriedades não estão disponíveis em Techs devido a limitações da plataforma.                                                                            |
 | Aparências personalizadas                            |        |                  | X        |             | Esse cenário pode ser obtido ao desativar a definição de controles como false no AMP e usando seu próprio HTML e CSS.           |
 | Depuração da barra de busca                      |        |                  |          | X           |                                                                                                                      |
-| Rodada-brincar                              |        |                  |          | X           |                                                                                                                      |
+| Trick-Play                              |        |                  |          | X           |                                                                                                                      |
 | Somente áudio                              | X      |                  |          |           | Com suporte no AzureHtml5JS. A reprodução de MP3 progressivo pode funcionar com o HTML5 Tech se a plataforma oferecer suporte a ele.                                                                                                        |
 | Somente vídeo                              | X      |                  |          |           | Com suporte no AzureHtml5JS.                                                                                                        |
 | Apresentação de vários períodos               |        |                  |          | X                                                                                                                                  |

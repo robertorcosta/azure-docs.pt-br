@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: victorh
 ms.openlocfilehash: ba9f42bc932a37e1052f17db2ae00413e0769d59
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91355730"
 ---
 # <a name="azure-application-gateway-features"></a>Recursos de gateway de Aplicativo Azure
@@ -155,7 +155,7 @@ Para obter uma lista completa de limites do gateway de aplicativo, consulte [Lim
 
 A tabela a seguir mostra uma produtividade de desempenho médio para cada instância do Gateway de Aplicativo v1 com o descarregamento SSL habilitado:
 
-| Tamanho médio de resposta de página de back-end | Pequeno | Médio | Grande |
+| Tamanho médio de resposta de página de back-end | Pequena | Médio | grande |
 | --- | --- | --- | --- |
 | 6 KB |7,5 Mbps |13 Mbps |50 Mbps |
 | 100 KB |35 Mbps |100 Mbps |200 Mbps |

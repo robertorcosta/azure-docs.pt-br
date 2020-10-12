@@ -7,28 +7,35 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: raynew
-ms.openlocfilehash: 241ccbda67f7a2518d0c44a0d362673922ad4284
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 38a633a7a11ac29271231679e7075920e1f33a70
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89652764"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945936"
 ---
-# <a name="remove-resources-from-a-move-collection"></a>Remover recursos de uma coleção de movimentação
+# <a name="manage-move-collections-and-resource-groups"></a>Gerenciar coleções de movimentação e grupos de recursos
 
-Este artigo descreve como remover recursos de uma coleção de movimentação no [Azure Resource mover](overview.md). As coleções de movimentação são usadas ao mover os recursos do Azure entre regiões do Azure.
+Este artigo descreve como remover recursos de uma coleção de movimentação ou remover um grupo de recursos/coleção de movimentação, no [Azure Resource mover](overview.md). As coleções de movimentação são usadas ao mover os recursos do Azure entre regiões do Azure.
 
 ## <a name="remove-a-resource-portal"></a>Remover um recurso (Portal)
 
-Remova no portal do Resource mover da seguinte maneira:
+Você pode remover recursos em uma coleção de movimentação, no portal do Resource mover, da seguinte maneira:
 
-1. Em **várias regiões**, selecione os recursos que você deseja remover da coleção > **remover**.
+1. Em **várias regiões**, selecione todos os recursos que você deseja remover da coleção e selecione **remover**. 
 
     ![Botão para selecionar a remoção](./media/remove-move-resources/portal-select-resources.png)
 
-1. Em **remover recursos**, clique em **remover**.
+2. Em **remover recursos**, clique em **remover**.
 
     ![Botão para selecionar para remover recursos de uma coleção de movimentação](./media/remove-move-resources/remove-portal.png)
+
+## <a name="remove-a-move-collectionresource-group-portal"></a>Remover uma coleção de movimentação/grupo de recursos (Portal)
+
+Você pode remover um grupo de recursos/coleção de movimentação no Portal.
+
+1. Siga as instruções no procedimento acima para remover os recursos da coleção. Se você estiver removendo um grupo de recursos, verifique se ele não contém nenhum recurso.
+2. Exclua a coleção de movimentação ou o grupo de recursos.  
 
 ## <a name="remove-a-resource-powershell"></a>Remover um recurso (PowerShell)
 
@@ -41,16 +48,20 @@ Remove-AzResourceMoverMoveResource -SubscriptionId  <subscription-id> -ResourceG
 **Expected output** 
  Saída ![ esperada Texto de saída após a remoção de um recurso de uma coleção de movimentação](./media/remove-move-resources/remove-resource.png)
 
+
+
 ## <a name="remove-a-collection-powershell"></a>Remover uma coleção (PowerShell)
 
 Remova uma coleção de movimentação inteira usando o PowerShell, da seguinte maneira:
 
-```azurepowershell-interactive
-# Remove a resource using the resource ID
-Remove-AzResourceMoverMoveResource -SubscriptionId  <subscription-id> -ResourceGroupName RegionMoveRG-centralus-westcentralus  -MoveCollectionName MoveCollection-centralus-westcentralus 
-```
-**Expected output** 
- Saída ![ esperada Texto de saída após a remoção de uma coleção de movimentação](./media/remove-move-resources/remove-collection.png)
+1. Siga as instruções acima para remover recursos na coleção usando o PowerShell.
+2. Execute:
+
+    ```azurepowershell-interactive
+    # Remove a resource using the resource ID
+    Remove-AzResourceMoverMoveResource -SubscriptionId  <subscription-id> -ResourceGroupName RegionMoveRG-centralus-westcentralus  -MoveCollectionName MoveCollection-centralus-westcentralus 
+    ```
+    **Saída** ![ esperada Texto de saída após a remoção de uma coleção de movimentação](./media/remove-move-resources/remove-collection.png)
 
 ## <a name="vm-resource-state-after-removing"></a>Estado do recurso da VM após a remoção
 

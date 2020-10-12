@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 08/21/2020
 ms.custom: seodec18
 ms.openlocfilehash: 1fe035d99f8a5962406d5aae3f093d71d432b310
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88860712"
 ---
 # <a name="run-azure-stream-analytics-on-azure-stack-preview"></a>Executar Azure Stream Analytics em Azure Stack (versão prévia)
@@ -47,7 +47,7 @@ Além de ter acesso à rede para os recursos do Hub Azure Stack, o dispositivo I
 Os guias a seguir mostram como configurar o tempo de execução de IoT Edge em seu dispositivo ou VM:
 
 * [Instalar o runtime do Azure IoT Edge no Windows](../iot-edge/how-to-install-iot-edge-windows.md)
-* [Instalar o runtime do Azure IoT Edge em sistemas Linux baseados em Debian](../iot-edge/how-to-install-iot-edge-linux.md)
+* [Instalar o tempo de execução de Azure IoT Edge em sistemas Linux baseados em Debian](../iot-edge/how-to-install-iot-edge-linux.md)
 
 
 ## <a name="create-an-azure-stream-analytics-edge-job"></a>Criar um trabalho de borda Azure Stream Analytics
@@ -128,7 +128,7 @@ Depois que o trabalho do Stream Analytics for criado no portal do Azure, você p
    > [!div class="mx-imgBorder"]
    > [![Entrada ](media/on-azure-stack/iot-hub-input.png) do Hub IOT](media/on-azure-stack/iot-hub-input.png#lightbox)
 
-6. Use os valores padrão para os outros campos e selecione Salvar.
+6. Mantenha os valores padrão para os outros campos e selecione Salvar.
 7. Em Topologia do Trabalho, abra Saídas e, em seguida, selecione Adicionar.
 8. Escolha armazenamento de BLOBs, Hub de eventos ou Hub do Edge na lista suspensa.
 9. Se a saída for um hub de eventos ou um armazenamento de BLOBs em uma assinatura de Hub de Azure Stack, forneça informações manualmente, conforme mostrado abaixo.

@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 06/3/2019
 ms.author: jeedes
 ms.openlocfilehash: 8fdb89e4e85e18e00179b894f2587bcf4127dc22
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91255817"
 ---
 # <a name="tutorial-configure-proxyclick-for-automatic-user-provisioning"></a>Tutorial: configurar o Proxyclick para o provisionamento automático de usuário
@@ -132,7 +132,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Email de notificação](common/provisioning-notification-email.png)
 
-9. Clique em **Save** (Salvar).
+9. Clique em **Salvar**.
 
 10. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para Proxyclick**.
 

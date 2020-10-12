@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/03/2020
 ms.openlocfilehash: e9c8c58c6be8d2c2a85e56690903e6b54f0e4a0d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91293893"
 ---
 # <a name="sql-database-dacpac-and-bacpac-packages-in-sql-edge"></a>Pacotes DACPAC e BACPAC do banco de dados SQL no SQL Edge
@@ -55,7 +55,7 @@ Para implantar (ou importar) um pacote de DAC do banco de dados SQL `(*.dacpac)`
 
     6. No painel **atualizar IOT Edge módulo** , selecione **variáveis de ambiente**. Adicione a `MSSQL_PACKAGE` variável de ambiente e especifique a URL SAS gerada na etapa 3 acima como o valor para a variável de ambiente. 
 
-    7. Selecione **Atualização**.
+    7. Selecione **Atualizar**.
 
     8. Na página **definir módulos** , selecione **revisar + criar**.
 

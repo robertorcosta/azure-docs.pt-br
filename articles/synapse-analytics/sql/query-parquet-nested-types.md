@@ -10,10 +10,10 @@ ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
 ms.openlocfilehash: 08502704515c791bf63f4803b7446a0471c0a869
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91288249"
 ---
 # <a name="query-nested-types-in-parquet-and-json-files-by-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Consultar tipos aninhados em arquivos parquet e JSON usando o SQL sob demanda (versão prévia) na análise de Synapse do Azure
@@ -117,7 +117,7 @@ FROM
 
 O resultado é mostrado na tabela a seguir:
 
-|title  | first_author_name | body_text | complex_column |
+|título  | first_author_name | body_text | complex_column |
 | --- | --- | --- | --- |
 | Informações complementares de um epidemiolo de eco... | Julien   | -Figura S1: Phylogeny de... | `{    "paper_id": "000b7d1517ceebb34e1e3e817695b6de03e2fa78",    "metadata": {        "title": "Supplementary Information An eco-epidemiological study of Morbilli-related paramyxovirus infection in Madagascar bats reveals host-switching as the dominant macro-evolutionary mechanism",        "authors": [            {                "first": "Julien"` |
 
