@@ -7,10 +7,10 @@ ms.date: 11/02/2017
 ms.author: vturecek
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 24a411403fc139a7e7fa6644690c57a3b2729bf5
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89002276"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Guia de conversão de funções de trabalho e Web em serviços sem estado do Service Fabric
@@ -43,7 +43,7 @@ As APIs de função de trabalho e do Service Fabric oferecem pontos de entrada s
 
 | **Entry Point** | **Função de trabalho** | **Serviço Service Fabric** |
 | --- | --- | --- |
-| Processando |`Run()` |`RunAsync()` |
+| Processing |`Run()` |`RunAsync()` |
 | Iniciar VM |`OnStart()` |N/D |
 | Parar VM |`OnStop()` |N/D |
 | Abrir escuta para solicitações de cliente |N/D |<ul><li> `CreateServiceInstanceListener()` para serviços sem estado</li><li>`CreateServiceReplicaListener()` para serviços com estado</li></ul> |

@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 7/22/2020
 ms.author: baanders
 ms.openlocfilehash: c2668bdda5002ebd2a34b8a2ffa5885263aec0c9
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88009623"
 ---
 É possível que sua organização exija ações adicionais de proprietários/administradores de assinatura para configurar com êxito um registro de aplicativo (e, portanto, para concluir a configuração de uma instância de gêmeos digital do Azure utilizável). As etapas necessárias podem variar dependendo das configurações específicas da sua organização.

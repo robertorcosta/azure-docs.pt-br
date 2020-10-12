@@ -14,10 +14,10 @@ ms.date: 07/04/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8485f3474da18e052bc0eab6c053be084ef884a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82192409"
 ---
 # <a name="operating-system-upgrade"></a>Atualização do Sistema Operacional
@@ -95,7 +95,7 @@ O SAP no Azure HANA em instâncias grandes (tipo I) pode estar em um estado não
 
 
 *   Execute o `multipath -ll` comando.
-*   Obtenha a ID do LUN cujo tamanho é aproximadamente 50G ou use o comando:`fdisk -l | grep mapper`
+*   Obtenha a ID do LUN cujo tamanho é aproximadamente 50G ou use o comando: `fdisk -l | grep mapper`
 *   Atualize o `/etc/default/grub_installdevice` arquivo com a linha `/dev/mapper/<LUN ID>` . Exemplo:/dev/mapper/3600a09803830372f483f495242534a56
 >[!NOTE]
 >A ID do LUN varia de servidor para servidor.
@@ -110,7 +110,7 @@ O SAP no Azure HANA em instâncias grandes (tipo I) pode estar em um estado não
 ```
 lsmod | grep -i edac 
 ```
-* Desabilite os módulos acrescentando as seguintes linhas ao arquivo`/etc/modprobe.d/blacklist.conf`
+* Desabilite os módulos acrescentando as seguintes linhas ao arquivo `/etc/modprobe.d/blacklist.conf`
 ```
 blacklist sb_edac
 blacklist edac_core
@@ -121,8 +121,8 @@ Uma reinicialização é necessária para fazer alterações no local. Execute `
 ### <a name="kernel-parameters"></a>Parâmetros de kernel
    Certifique-se de que a configuração correta para `transparent_hugepage` , `numa_balancing` , `processor.max_cstate` `ignore_ce` e `intel_idle.max_cstate` seja aplicada.
 
-* intel_idle. max_cstate = 1
-* Processor. max_cstate = 1
+* intel_idle intel_idle.max_cstate = 1
+* processor.max_cstate = 1
 * transparent_hugepage = nunca
 * numa_balancing = desabilitar
 * MCE = ignore_ce
@@ -130,7 +130,7 @@ Uma reinicialização é necessária para fazer alterações no local. Execute `
 
 #### <a name="execution-steps"></a>Etapas de execução
 
-* Adicionar esses parâmetros à `GRB_CMDLINE_LINUX` linha no arquivo`/etc/default/grub`
+* Adicionar esses parâmetros à `GRB_CMDLINE_LINUX` linha no arquivo `/etc/default/grub`
 ```
 intel_idle.max_cstate=1 processor.max_cstate=1 transparent_hugepage=never numa_balancing=disable mce=ignore_ce
 ```

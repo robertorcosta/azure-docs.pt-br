@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/28/2020
 ms.author: jeedes
 ms.openlocfilehash: c72ca7cb521c5c7e7ed33e9a0539de0df252ac92
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91321889"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Tutorial: configurar o Workplace by Facebook para provisionamento automático de usuários
@@ -131,9 +131,9 @@ No Azure AD, é possível definir quem estará no escopo de provisionamento com 
    |urn:scim:schemas:extension:enterprise:1.0.organization|String|
    |urn:scim:schemas:extension:enterprise:1.0.costCenter|String|
    |urn:scim:schemas:extension:enterprise:1.0.employeeNumber|String|
-   |urn: SCIM: esquemas: extensão: Facebook: auth_method: 1.0: auth_method|String|
-   |urn: SCIM: esquemas: extensão: Facebook: frente: 1.0. is_frontline|Booliano|
-   |urn: SCIM: esquemas: extensão: Facebook: starttermdates: 1.0. startDate|Integer|
+   |urn: SCIM: esquemas: extensão: Facebook: auth_method: 1.0: auth_method|Cadeia de caracteres|
+   |urn: SCIM: esquemas: extensão: Facebook: frente: 1.0.is_frontline|Booliano|
+   |urn: SCIM: esquemas: extensão: Facebook: starttermdates: 1.0. startDate|Inteiro|
 
 
 10. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).

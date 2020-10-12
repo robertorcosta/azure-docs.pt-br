@@ -1,6 +1,6 @@
 ---
-title: incluir arquivo
-description: incluir arquivo
+title: arquivo de inclusão
+description: arquivo de inclusão
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -9,10 +9,10 @@ ms.date: 10/07/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: e2a950037aed2a8ded4d4e55920721285cbfc05c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82204671"
 ---
 Ao trabalhar com políticas IPsec personalizadas, tenha em mente os seguintes requisitos:
@@ -26,7 +26,7 @@ Ao trabalhar com políticas IPsec personalizadas, tenha em mente os seguintes re
 
 **Configurações e parâmetros disponíveis**
 
-| Setting | Parâmetros |
+| Configuração | Parâmetros |
 |--- |--- |
 | Criptografia IKE | GCMAES256, GCMAES128, AES256, AES128 |
 | Integridade do IKE | SHA384, SHA256 |

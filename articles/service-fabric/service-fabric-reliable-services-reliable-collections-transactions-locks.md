@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 5/1/2017
 ms.custom: sfrev
 ms.openlocfilehash: d1094462ebabcea1fbead3d5b30fdfb8dda6463a
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87500275"
 ---
 # <a name="transactions-and-lock-modes-in-azure-service-fabric-reliable-collections"></a>Transações e modos de bloqueio em Coleções Confiáveis do Azure Service Fabric
@@ -49,7 +49,7 @@ A seguir está a tabela que descreve os padrões de nível de isolamento para op
 O dicionário confiável e a fila confiável dão suporte à *leitura de suas gravações*.
 Em outras palavras, qualquer gravação em uma transação será visível para uma leitura seguinte que pertence à mesma transação.
 
-## <a name="locks"></a>Bloqueios
+## <a name="locks"></a>Locks
 
 Nas Coleções Confiáveis, todas as transações implementam um bloqueio de duas fases rigoroso: uma transação não libera os bloqueios que adquiriu até que a transação seja encerrada com uma confirmação ou anulação.
 
@@ -68,9 +68,9 @@ Um Bloqueio de atualização é um bloqueio assimétrico usado para evitar uma f
 
 A matriz de compatibilidade de bloqueio pode ser encontrada na tabela a seguir:
 
-| Solicitação\concedida | Nenhum | Compartilhada | Atualizar | Exclusivo |
+| Solicitação\concedida | Nenhum | Compartilhado | Atualizar | Exclusivo |
 | --- |:--- |:--- |:--- |:--- |
-| Compartilhada |Sem conflito |Sem conflito |Conflito |Conflito |
+| Compartilhado |Sem conflito |Sem conflito |Conflito |Conflito |
 | Atualizar |Sem conflito |Sem conflito |Conflito |Conflito |
 | Exclusivo |Sem conflito |Conflito |Conflito |Conflito |
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/05/2019
 ms.author: duau
 ms.openlocfilehash: 24057de44f3d28df96bcb93e89af9c3afa6fa3c6
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89394900"
 ---
 # <a name="security-controls-for-azure-expressroute"></a>Controles de segurança para o Azure ExpressRoute
@@ -51,7 +51,7 @@ Este artigo documenta os controles de segurança internos do Azure ExpressRoute.
 | Criptografia no lado do servidor em repouso: chaves gerenciadas pela Microsoft |  N/D | O ExpressRoute não armazena dados do cliente. |
 | Criptografia no lado do servidor em repouso: chaves gerenciadas pelo cliente (BYOK) | N/D |  |
 | Criptografia em nível de coluna (serviços de dados do Azure)| N/D | |
-| Criptografia em trânsito (como criptografia de ExpressRoute, criptografia de vnet e criptografia vnet)| Não | |
+| Criptografia em trânsito (como criptografia de ExpressRoute, criptografia de VNet e criptografia de VNet-VNet)| Não | |
 | Chamadas criptografadas à API| Sim | Por meio de [Azure Resource Manager](../azure-resource-manager/index.yml) e HTTPS. |
 
 

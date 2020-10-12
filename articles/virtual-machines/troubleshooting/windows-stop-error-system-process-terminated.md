@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 09/21/2020
 ms.author: v-mibufo
 ms.openlocfilehash: b07033f96402edc24edd51de57661603e57472bc
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91341752"
 ---
 # <a name="windows-stop-error---0xc000021a-status-system-process-terminated"></a>Erro de parada do Windows-o processo do sistema de status 0xC000021A foi encerrado
@@ -37,7 +37,7 @@ Quando você usa o [diagnóstico de inicialização](https://docs.microsoft.com/
 
 O erro 0xC000021A significa **STATUS_SYSTEM_PROCESS_TERMINATED**.
 
-Esse erro ocorre quando um processo crítico, como WinLogon (winlogon.exe) ou o subsistema de tempo de execução (csrss.exe) do servidor cliente falha. Depois que o kernel detecta que qualquer um desses serviços foi interrompido, ele gera o erro **Stop 0xC000021A** . Esse erro pode ter várias causas, incluindo:
+Esse erro ocorre quando um processo crítico, como WinLogon (winlogon.exe) ou o subsistema de Run-Time do servidor cliente (csrss.exe) falha. Depois que o kernel detecta que qualquer um desses serviços foi interrompido, ele gera o erro **Stop 0xC000021A** . Esse erro pode ter várias causas, incluindo:
 
 - Arquivos do sistema incompatíveis foram instalados.
 - Falha em uma instalação de atualização do Service Pack ou do KB.

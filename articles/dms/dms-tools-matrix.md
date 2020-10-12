@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.topic: reference
 ms.date: 03/03/2020
 ms.openlocfilehash: cdd08742e6aad956325508046a182674ec1bb1ea
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91292006"
 ---
 # <a name="services-and-tools-available-for-data-migration-scenarios"></a>Serviços e ferramentas disponíveis para cenários de migração de dados
@@ -47,7 +47,7 @@ As tabelas a seguir identificam os serviços e as ferramentas que você pode usa
 | PostgreSQL | BD do Azure para PostgreSQL-<br/>Servidor único | [Migrações para Azure](https://azure.microsoft.com/services/azure-migrate/) |  | [Calculadora de TCO](https://azure.microsoft.com/pricing/tco/calculator/) |
 | PostgreSQL para RDS | BD do Azure para PostgreSQL-<br/>Servidor único |  |  | [Calculadora de TCO](https://azure.microsoft.com/pricing/tco/calculator/) |
 | DB2 | SQL do Azure para BD, MI, VM | [Migrações para Azure](https://azure.microsoft.com/services/azure-migrate/) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |  |
-| Access | SQL do Azure para BD, MI, VM | [Migrações para Azure](https://azure.microsoft.com/services/azure-migrate/) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |  |
+| Acesso | SQL do Azure para BD, MI, VM | [Migrações para Azure](https://azure.microsoft.com/services/azure-migrate/) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |  |
 | Sybase-SAP ASE | SQL do Azure para BD, MI, VM | [Migrações para Azure](https://azure.microsoft.com/services/azure-migrate/) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |  |
 | Sybase-SAP IQ | SQL do Azure para BD, MI, VM |  |  |  |
 | | | | | |
@@ -72,7 +72,7 @@ As tabelas a seguir identificam os serviços e as ferramentas que você pode usa
 | PostgreSQL | BD do Azure para PostgreSQL-<br/>Servidor único |  |  |  |
 | PostgreSQL para RDS | BD do Azure para PostgreSQL-<br/>Servidor único |  |  |  |
 | DB2 | SQL do Azure para BD, MI, VM | [DAMT](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit)  /  [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |  |
-| Access | SQL do Azure para BD, MI, VM |  | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |  |
+| Acesso | SQL do Azure para BD, MI, VM |  | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |  |
 | Sybase-SAP ASE | SQL do Azure para BD, MI, VM | [DAMT](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit)  /  [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |  |
 | Sybase-SAP IQ | SQL do Azure para BD, MI, VM |  | |  |
 | | | | | |
@@ -97,7 +97,7 @@ As tabelas a seguir identificam os serviços e as ferramentas que você pode usa
 | PostgreSQL | BD do Azure para PostgreSQL-<br/>Servidor único | [Despejo do PG*](https://www.postgresql.org/docs/11/static/app-pgdump.html) |  | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Attunity](https://www.attunity.com/products/replicate/)<br/>[Striim*](https://www.striim.com/partners/striim-for-microsoft-azure/) |
 | PostgreSQL para RDS | BD do Azure para PostgreSQL-<br/>Servidor único | [Despejo do PG*](https://www.postgresql.org/docs/11/static/app-pgdump.html) |  | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Attunity](https://www.attunity.com/products/replicate/)<br/>[Striim*](https://www.striim.com/partners/striim-for-microsoft-azure/) |
 | DB2 | SQL do Azure para BD, MI, VM | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017)<br/>[*](https://www.ispirer.com/solutions) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017)<br/>[*](https://www.ispirer.com/solutions) | [Attunity](https://www.attunity.com/products/replicate/)<br/>[Striim*](https://www.striim.com/partners/striim-for-microsoft-azure/) |
-| Access | SQL do Azure para BD, MI, VM | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |
+| Acesso | SQL do Azure para BD, MI, VM | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |
 | Sybase-SAP ASE | SQL do Azure para BD, MI, VM | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017)<br/>[*](https://www.ispirer.com/solutions) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017)<br/>[*](https://www.ispirer.com/solutions) | [Attunity](https://www.attunity.com/products/replicate/)<br/>[Striim*](https://www.striim.com/partners/striim-for-microsoft-azure/) |
 | Sybase-SAP IQ | SQL do Azure para BD, MI, VM | [*](https://www.ispirer.com/solutions) | [*](https://www.ispirer.com/solutions) | |
 | | | | | |
@@ -122,7 +122,7 @@ As tabelas a seguir identificam os serviços e as ferramentas que você pode usa
 | PostgreSQL | BD do Azure para PostgreSQL-<br/>Servidor único |  |
 | PostgreSQL para RDS | BD do Azure para PostgreSQL-<br/>Servidor único |  |
 | DB2 | SQL do Azure para BD, MI, VM |  |
-| Access | SQL do Azure para BD, MI, VM |  |
+| Acesso | SQL do Azure para BD, MI, VM |  |
 | Sybase-SAP ASE | SQL do Azure para BD, MI, VM |  |
 | Sybase-SAP IQ | SQL do Azure para BD, MI, VM |  |
 | | | |

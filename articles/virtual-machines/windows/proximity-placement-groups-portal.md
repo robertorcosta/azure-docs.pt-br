@@ -1,5 +1,5 @@
 ---
-title: Criar um grupo de posicionamento de proximidade usando o portal
+title: Criar um grupo de posicionamento por proximidade usando o portal
 description: Saiba como criar um grupo de posicionamento de proximidade usando o portal do Azure.
 author: cynthn
 ms.service: virtual-machines
@@ -8,13 +8,13 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2020
 ms.author: cynthn
 ms.openlocfilehash: 6a14e2bd7385430c3d0fbec06259a876af556e38
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82190394"
 ---
-# <a name="create-a-proximity-placement-group-using-the-portal"></a>Criar um grupo de posicionamento de proximidade usando o portal
+# <a name="create-a-proximity-placement-group-using-the-portal"></a>Criar um grupo de posicionamento por proximidade usando o portal
 
 Para obter as VMs o mais próximo possível, alcançando a menor latência possível, você deve implantá-las em um [grupo de posicionamento de proximidade](co-location.md#proximity-placement-groups).
 
@@ -58,7 +58,7 @@ Se a VM fizer parte do conjunto de disponibilidade, você precisará adicionar o
 1. No [portal](https://portal.azure.com) , pesquise por *conjuntos de disponibilidade* e selecione seu conjunto de disponibilidade nos resultados.
 1. Stop\deallocate cada VM no conjunto de disponibilidade selecionando a VM, em seguida, selecionando **parar** na página da VM e, em seguida, selecione **OK** para interromper a VM.
 1. Na página de seu conjunto de disponibilidade, verifique se todas as VMs têm o **status** listado como **parado (desalocado)**.
-1. No menu à esquerda, selecione **configuração**.
+1. No menu à esquerda, selecione **Configuração**.
 1. Em **grupo de posicionamento de proximidade**, selecione um grupo de posicionamento na lista suspensa e, em seguida, selecione **salvar**.
 1. Selecione **visão geral** no menu à esquerda para ver a lista de VMs novamente. 
 1. Selecione cada VM no conjunto de disponibilidade e, em seguida, selecione **Iniciar** na página para cada VM. 

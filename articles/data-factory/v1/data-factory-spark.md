@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 3ea719a26f47da98e80abd9e3fcd1785ed8efa69
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82185584"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Invocar programas Spark dos pipelines do Azure Data Factory
@@ -273,7 +273,7 @@ Como getDebugInfo é definido como **Sempre**, você vê uma subpasta log na pas
 Para obter uma solução de problemas adicional, execute as seguintes etapas:
 
 
-1. Ir para `https://<CLUSTERNAME>.azurehdinsight.net/yarnui/hn/cluster`.
+1. Acesse `https://<CLUSTERNAME>.azurehdinsight.net/yarnui/hn/cluster`.
 
     ![Aplicativo de interface do usuário do YARN](media/data-factory-spark/yarnui-application.png)
 
