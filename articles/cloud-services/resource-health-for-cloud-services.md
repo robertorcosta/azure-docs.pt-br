@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 9/1/2020
 ms.author: tagore
 ms.openlocfilehash: ea25695ddc36571bef3ff61df7de3e71f6f939ca
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90056040"
 ---
 # <a name="resource-health-check-rhc-support-for-azure-cloud-services-classic"></a>Suporte à verificação de Resource Health (RHC) para serviços de nuvem do Azure (clássico)
@@ -45,7 +45,7 @@ Desconhecido significa que a integridade agregada da implantação do serviço d
 Como as instâncias de função são basicamente VMs e a verificação de integridade para VMs é reutilizada para instâncias de função, o termo da VM é usado para representar instâncias de função. 
 
 ## <a name="cloud-services-deployment-level-annotations--their-meanings"></a>Anotações de serviços de nuvem (nível de implantação) & seus significados
-| Anotação | Descrição | 
+| Annotation | Descrição | 
 | --- | --- | 
 | Disponível| Não há nenhum problema conhecido da plataforma Azure afetando esta implantação do serviço de nuvem |
 | Unknown | No momento, não é possível determinar a integridade desta implantação do serviço de nuvem | 
@@ -58,7 +58,7 @@ Como as instâncias de função são basicamente VMs e a verificação de integr
 | Desconhecido e talvez afetado | No momento, não é possível determinar a integridade dessa implantação do serviço de nuvem. Isso pode ser causado por uma interrupção de serviço do Azure em andamento que pode estar afetando essa máquina virtual, que será automaticamente recuperada quando a interrupção for resolvida |
 
 ## <a name="cloud-services-role-instance-level-annotations--their-meanings"></a>Anotações de serviços de nuvem (nível de instância de função) & seus significados
-| Anotação | Descrição | 
+| Annotation | Descrição | 
 | --- | --- | 
 | Disponível | Não há nenhum problema conhecido da plataforma Azure afetando esta máquina virtual | 
 | Unknown | No momento, não é possível determinar a integridade desta máquina virtual |

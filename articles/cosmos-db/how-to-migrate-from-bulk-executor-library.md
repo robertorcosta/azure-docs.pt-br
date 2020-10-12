@@ -8,10 +8,10 @@ ms.date: 04/24/2020
 ms.author: maquaran
 ms.custom: devx-track-dotnet
 ms.openlocfilehash: 8f573a3e851fe428c66066e36a913d6580cabd51
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89022472"
 ---
 # <a name="migrate-from-the-bulk-executor-library-to-the-bulk-support-in-azure-cosmos-db-net-v3-sdk"></a>Migrar da biblioteca de executores em massa para o suporte em massa em Azure Cosmos DB SDK do .NET v3
@@ -88,7 +88,7 @@ Para suporte em massa no SDK do .NET, não há nenhum comportamento oculto. Voc�
 > [!NOTE]
 > Nos casos em que as unidades de solicitação provisionadas são muito menores do que o esperado com base na quantidade de dados, talvez você queira considerar defini-los como valores altos. A operação em massa levará mais tempo, mas terá uma chance maior de ser concluída com sucesso devido às mais altas tentativas.
 
-## <a name="performance-improvements"></a>Aprimoramentos de desempenho
+## <a name="performance-improvements"></a>Melhorias de desempenho
 
 Assim como acontece com outras operações com o SDK do .NET, o uso das APIs de fluxo resulta em um melhor desempenho e evita qualquer serialização desnecessária. 
 

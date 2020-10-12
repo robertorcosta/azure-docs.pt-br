@@ -9,10 +9,10 @@ ms.custom:
 - references_regions
 - fasttrack-edit
 ms.openlocfilehash: a037c903a72ba79b79c7e6b011fe025aefd7b51d
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91578029"
 ---
 # <a name="azure-functions-premium-plan"></a>Azure Functions plano Premium
@@ -146,7 +146,7 @@ Veja a disponibilidade regional completa das funções aqui: [Azure.com](https:/
 |Austrália Central| 100 | Não disponível |
 |Austrália Central 2| 100 | Não disponível |
 |Leste da Austrália| 100 | 20 |
-|Sudeste da Austrália | 100 | 20 |
+|Australia Southeast | 100 | 20 |
 |Sul do Brasil| 100 | 20 |
 |Canadá Central| 100 | 20 |
 |Centro dos EUA| 100 | 20 |
@@ -157,7 +157,7 @@ Veja a disponibilidade regional completa das funções aqui: [Azure.com](https:/
 |Leste dos EUA 2| 100 | 20 |
 |França Central| 100 | 20 |
 |Centro-Oeste da Alemanha| 100 | Não disponível |
-|Leste do Japão| 100 | 20 |
+|Japan East| 100 | 20 |
 |Oeste do Japão| 100 | 20 |
 |Coreia Central| 100 | 20 |
 |Sul da Coreia| Não disponível | 20 |

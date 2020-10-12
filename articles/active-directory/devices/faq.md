@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c8d03b8f13a016dc21e37b82f66abc8050ef17d8
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89266775"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Perguntas frequentes sobre o gerenciamento de dispositivos do Azure Active Directory
@@ -82,14 +82,14 @@ Veja abaixo como essas ações podem ser corrigidas.
       Para registrar novamente os dispositivos Windows 10 e Windows Server 2016/2019 ingressados no Azure AD, execute as seguintes etapas:
 
       1. Abra o prompt de comando como administrador.
-      1. Digite `dsregcmd.exe /debug /leave`.
+      1. Insira `dsregcmd.exe /debug /leave`.
       1. Saia e entre para disparar a tarefa agendada que registra o dispositivo com o Azure AD novamente. 
 
       Para versões de sistema operacional Windows de nível inferior associadas ao Azure AD híbrido, execute as seguintes etapas:
 
       1. Abra o prompt de comando como administrador.
-      1. Digite `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`.
-      1. Digite `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.
+      1. Insira `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`.
+      1. Insira `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.
 
       Para dispositivos ingressados no Azure AD dispositivos Windows 10, execute as seguintes etapas:
 

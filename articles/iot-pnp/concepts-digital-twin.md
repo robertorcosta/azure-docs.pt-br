@@ -1,5 +1,5 @@
 ---
-title: Entender o gêmeos digital de IoT Plug and Play
+title: Entender os gêmeos digitais de IoT Plug and Play
 description: Entenda como o Plug and Play IoT usa o gêmeos digital
 author: prashmo
 ms.author: prashmo
@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: 5d5ffe4e7d92530f18e278382ab3637c3326e57c
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91578046"
 ---
-# <a name="understand-iot-plug-and-play-digital-twins"></a>Entender o gêmeos digital de IoT Plug and Play
+# <a name="understand-iot-plug-and-play-digital-twins"></a>Entender os gêmeos digitais de IoT Plug and Play
 
 Um dispositivo de Plug and Play IoT implementa um modelo descrito pelo esquema [DTDL (digital gêmeos Definition Language)](https://github.com/Azure/opendigitaltwins-dtdl) . Um modelo descreve o conjunto de componentes, propriedades, comandos e mensagens de telemetria que um dispositivo específico pode ter. Um dispositivo r e um FileUp digital são inicializados na primeira vez que um dispositivo IoT Plug and Play se conecta a um hub IoT.
 
@@ -22,7 +22,7 @@ O IoT Plug and Play usa a versão 2 do DTDL. Para obter mais informações sobre
 
 DTDL não é exclusivo para Plug and Play de IoT. Outros serviços de IoT, como o [Azure digital gêmeos](../digital-twins/overview.md), o usam para representar ambientes inteiros, como edifícios e redes de energia. Para saber mais, confira [entender os modelos de entrelaçamento no Azure digital gêmeos](../digital-twins/concepts-models.md).
 
-Este artigo descreve como os componentes e as propriedades são representados nas seções *desejadas* e *relatadas* de um dispositivo. Ele também descreve como esses conceitos são mapeados para o teledigital correspondente.
+Este artigo descreve como os componentes e as propriedades são representados nas seções *desejadas* e *relatadas* de um dispositivo. Ele também descreve como esses conceitos são mapeados para o gêmeo digital correspondente.
 
 O dispositivo Plug and Play do IoT neste artigo que implementa o [modelo do controlador de temperatura](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) com o componente [termostato](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) .
 
@@ -311,7 +311,7 @@ O Azure digital gêmeos vem equipado com **Get digital**up, **Update digital de 
 
 ## <a name="digital-twin-change-events"></a>Eventos de alteração de gêmeo digital
 
-Quando os eventos de alteração de troca digital são habilitados, um evento é disparado sempre que o valor atual ou o desejado do componente ou da propriedade é alterado. Os eventos de alteração de troca digital são gerados no formato de [patch JSON](http://jsonpatch.com/) . Os eventos correspondentes serão gerados no formato de dispositivo de troca se os eventos de alteração de entrelaçamento estiverem habilitados.
+Quando os eventos de alteração do gêmeo digital são habilitados, um evento é disparado sempre que o valor atual ou o desejado do componente ou da propriedade é alterado. Os eventos de alteração de troca digital são gerados no formato de [patch JSON](http://jsonpatch.com/) . Os eventos correspondentes serão gerados no formato de dispositivo de troca se os eventos de alteração de entrelaçamento estiverem habilitados.
 
 Para saber como habilitar o roteamento para eventos de dispositivo e de mensagens digitais, consulte [usar o roteamento de mensagem do Hub IOT para enviar mensagens do dispositivo para a nuvem a diferentes pontos de extremidade](../iot-hub/iot-hub-devguide-messages-d2c.md#non-telemetry-events). Para entender o formato da mensagem, consulte [criar e ler mensagens do Hub IOT](../iot-hub/iot-hub-devguide-messages-construct.md).
 

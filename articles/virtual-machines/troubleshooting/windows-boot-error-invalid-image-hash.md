@@ -16,10 +16,10 @@ ms.topic: troubleshooting
 ms.date: 09/03/2020
 ms.author: v-miegge
 ms.openlocfilehash: f607ebb64b27c45ec696d7fcd431a0ba2342697f
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89447737"
 ---
 # <a name="windows-boot-manager-error---0xc0000428-status-invalid-image-hash"></a>Erro do Gerenciador de inicialização do Windows-hash de imagem inválido do status 0xC0000428
@@ -58,7 +58,7 @@ As imagens de visualização têm um ciclo de vida designado e a captura de tela
 
 `a699494373c04fc0bc8f2bb1389d6106__Windows-Server-Technical-Preview-201505.01-en.us-127GB.vhd`
 
-Você não pode estender a data de validade de uma imagem de visualização. Quando a visualização tiver expirado, a VM não poderá mais ser inicializada.
+Você não pode estender a data de validade de uma imagem de versão prévia. Quando a versão prévia tiver expirado, a VM não poderá mais ser inicializada.
 
 - Dependendo do produto, o período de avaliação pode variar. Por exemplo, as imagens da versão prévia do Windows têm um período de avaliação de 180 dias.
 

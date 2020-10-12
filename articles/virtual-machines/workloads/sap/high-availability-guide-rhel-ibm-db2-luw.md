@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 02/13/2020
 ms.author: juergent
 ms.openlocfilehash: 527d9e2e43a4003dd5300c26fc58b1e456186351
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87077397"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-red-hat-enterprise-linux-server"></a>Alta disponibilidade do IBM Db2 LUW nas VMs do Azure no Red Hat Enterprise Linux Server
@@ -41,7 +41,7 @@ Antes de iniciar uma instalação, consulte as seguintes notas e documentação 
 | [2191498] | SAP no Linux com o Azure: monitoramento aprimorado |
 | [2243692] | VM do Linux no Azure (IaaS): problemas de licença do SAP |
 | [2002167] | Red Hat Enterprise Linux 7.x: Instalação e atualização |
-| [2694118] | Red Hat Enterprise Linux o complemento de alta disponibilidade no Azure |
+| [2694118] | Add-On do Red Hat Enterprise Linux HA no Azure |
 | [1999351] | Solução de problemas de monitoramento aprimorado do Azure para SAP |
 | [2233094] | DB6: aplicativos SAP no Azure que usam IBM DB2 para Linux, UNIX e Windows-informações adicionais |
 | [1612105] | DB6: perguntas frequentes sobre DB2 com HADR |
@@ -54,7 +54,7 @@ Antes de iniciar uma instalação, consulte as seguintes notas e documentação 
 | [Implantação de máquinas virtuais do Azure para SAP no Linux][deployment-guide] (este artigo) |
 | [Implantação do sistema de gerenciamento de banco de dados (DBMS) de máquinas virtuais do Azure para SAP no Linux][dbms-guide] |
 | [Lista de verificação de planejamento e implantação de carga de trabalho SAP no Azure][azr-sap-plancheck] |
-| [Visão geral do complemento de alta disponibilidade para o Red Hat Enterprise Linux 7][rhel-ha-addon] |
+| [Visão geral do Add-On de alta disponibilidade para o Red Hat Enterprise Linux 7][rhel-ha-addon] |
 | [Administração de complemento de alta disponibilidade][rhel-ha-admin] |
 | [Referência de complemento de alta disponibilidade][rhel-ha-ref] |
 | [Políticas de suporte para clusters de alta disponibilidade do RHEL - máquinas virtuais do Microsoft Azure como membros de cluster][rhel-azr-supp]

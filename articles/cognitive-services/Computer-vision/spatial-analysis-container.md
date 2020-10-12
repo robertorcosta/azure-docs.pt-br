@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: aahi
 ms.openlocfilehash: 52df2ad0dc4c60c24e341a9765e31bcf9776bf5e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91277284"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>Instalar e executar o contêiner de análise espacial (versão prévia)
@@ -65,7 +65,7 @@ Neste artigo, você baixará e instalará os seguintes pacotes de software. O co
 
 | Requisito | Descrição |
 |--|--|
-| Câmera | O contêiner de análise espacial não está vinculado a uma marca de câmera específica. O dispositivo de câmera precisa: dar suporte ao protocolo RTSP (streaming em tempo real) e à codificação H. 264, ser acessível ao computador host e ser capaz de fazer streaming em 15FPS e na resolução de 1080p. |
+| Câmera | O contêiner de análise espacial não está vinculado a uma marca de câmera específica. O dispositivo de câmera precisa: suporte para o protocolo RTSP (Real-Time Streaming Protocol) e a codificação H. 264, ser acessível ao computador host e ser capaz de fazer streaming em 15FPS e na resolução de 1080p. |
 | Sistema operacional Linux | O [Ubuntu Desktop 18, 4 LTS](http://releases.ubuntu.com/18.04/) deve ser instalado no computador host.  |
 
 

@@ -17,10 +17,10 @@ ms.date: 06/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 819ac1f01cc182c79571de35ec0753f694dc7722
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88653606"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>Tipos de Armazenamento do Azure para carga de trabalho SAP
@@ -134,7 +134,7 @@ O Azure tem um SLA de VM de instância única de 99,9% que está vinculado ao us
 
 A matriz de recursos para a carga de trabalho do SAP é semelhante a:
 
-| Recurso| Comentário| Observações/links | 
+| Funcionalidade| Comentário| Observações/links | 
 | --- | --- | --- | 
 | VHD de base do so | apropriados | todos os sistemas |
 | Disco de dados | apropriados | todos os sistemas – [especialmente para SAP Hana](../../how-to-enable-write-accelerator.md) |
@@ -192,7 +192,7 @@ O custo de um único disco é determinado pelas três dimensões que você pode 
 
 A matriz de recursos para a carga de trabalho do SAP é semelhante a:
 
-| Recurso| Comentário| Observações/links | 
+| Funcionalidade| Comentário| Observações/links | 
 | --- | --- | --- | 
 | VHD de base do so | Não funciona | - |
 | Disco de dados | apropriados | todos os sistemas  |
@@ -247,7 +247,7 @@ Como já no armazenamento Premium do Azure, um tamanho de taxa de transferência
 
 A matriz de recursos para a carga de trabalho do SAP é semelhante a:
 
-| Recurso| Comentário| Observações/links | 
+| Funcionalidade| Comentário| Observações/links | 
 | --- | --- | --- | 
 | VHD de base do so | Não funciona | - |
 | Disco de dados | apropriados | Somente SAP HANA  |
@@ -280,7 +280,7 @@ Funcionalidade interna adicional do armazenamento seja:
 ## <a name="azure-standard-ssd-storage"></a>Armazenamento SSD standard do Azure
 Em comparação com o armazenamento HDD standard do Azure, o armazenamento SSD standard do Azure oferece melhor disponibilidade, consistência, confiabilidade e latência. Ele é otimizado para cargas de trabalho que precisam de desempenho consistente em níveis de IOPS inferiores. Esse armazenamento é o armazenamento mínimo usado para sistemas SAP que não são de produção que têm baixa IOPS e demandas de taxa de transferência. A matriz de recursos para a carga de trabalho do SAP é semelhante a:
 
-| Recurso| Comentário| Observações/links | 
+| Funcionalidade| Comentário| Observações/links | 
 | --- | --- | --- | 
 | VHD de base do so | restrito adequado | sistemas de não produção |
 | Disco de dados | restrito adequado | alguns sistemas que não são de produção com baixas demandas de IOPS e latência |
@@ -307,7 +307,7 @@ Em comparação com o armazenamento HDD standard do Azure, o armazenamento SSD s
 ## <a name="azure-standard-hdd-storage"></a>Armazenamento HDD standard do Azure
 O armazenamento de HDD Standard do Azure era o único tipo de armazenamento quando a infraestrutura do Azure obteve a certificação para a carga de trabalho do SAP NetWeaver no ano de 2014. No ano 2014, as máquinas virtuais do Azure eram pequenas e baixas na taxa de transferência de armazenamento. Portanto, esse tipo de armazenamento foi capaz de apenas acompanhar as demandas. O armazenamento é ideal para cargas de trabalho sem distinção de latência, que você dificilmente experimenta no espaço SAP. Com a crescente taxa de transferência de VMs do Azure e a maior carga de trabalho que essas VMs estão produzindo, esse tipo de armazenamento não é mais considerado para o uso com cenários SAP. A matriz de recursos para a carga de trabalho do SAP é semelhante a:
 
-| Recurso| Comentário| Observações/links | 
+| Funcionalidade| Comentário| Observações/links | 
 | --- | --- | --- | 
 | VHD de base do so | Não é adequado | - |
 | Disco de dados | Não é adequado | - |

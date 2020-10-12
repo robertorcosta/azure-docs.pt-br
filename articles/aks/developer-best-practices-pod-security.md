@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: zarhoads
 ms.openlocfilehash: fab4943cad1a87bda70a4c4332ab6135ed99bf1b
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89022268"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Práticas recomendadas de segurança do pod no Serviço de Kubernetes do Azure (AKS)
@@ -97,7 +97,7 @@ O uso do projeto de identidade do pod habilita a autenticação no suporte aos s
 
 Quando os aplicativos precisam de uma credencial, eles se comunicam com o cofre digital, recuperam o conteúdo secreto mais recente e, em seguida, conectam-se ao serviço necessário. O Azure Key Vault pode ser este cofre digital. O fluxo de trabalho simplificado para recuperar uma credencial de Cofre de Chaves do Azure usando identidades gerenciadas de pod é mostrado no diagrama a seguir:
 
-:::image type="content" source="media/developer-best-practices-pod-security/basic-key-vault.svg" alt-text="Identidade do fluxo de trabalho simplificado para recuperar uma credencial de Cofre de Chaves usando uma identidade gerenciada de pod":::
+:::image type="content" source="media/developer-best-practices-pod-security/basic-key-vault.svg" alt-text="Fluxo de trabalho simplificado para pod gerenciado de identidade no Azure":::
 
 Com o Azure Key Vault, você pode armazenar e regularmente girar segredos, como certificados, chaves de conta de armazenamento ou as credenciais. Você pode integrar o Azure Key Vault com um cluster AKS usando o [Provedor do Azure Key Vault para o driver do CSI de armazenamento de segredos](https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage). O driver do CSI de armazenamento de segredos permite que o cluster AKS recupere nativamente o conteúdo secreto do cofre de chaves e os forneça com segurança apenas para o pod solicitante. Trabalhe com seu operador de cluster para implantar o driver do CSI de armazenamento de segredos nos nós de trabalho do AKS. Você pode usar uma identidade gerenciada de pod para solicitar acesso ao cofre de chaves e recuperar o conteúdo secreto necessário através do driver do CSI de armazenamento de segredos.
 

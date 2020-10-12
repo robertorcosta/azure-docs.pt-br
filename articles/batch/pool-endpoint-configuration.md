@@ -4,10 +4,10 @@ description: Como configurar ou desabilitar o acesso a portas SSH ou RDP em nós
 ms.topic: how-to
 ms.date: 02/13/2018
 ms.openlocfilehash: 1713637a9aba937525e64e1c4146589fca443461
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83780300"
 ---
 # <a name="configure-or-disable-remote-access-to-compute-nodes-in-an-azure-batch-pool"></a>Configurar ou desabilitar o acesso remoto a nós de computação em um pool do Lote do Azure

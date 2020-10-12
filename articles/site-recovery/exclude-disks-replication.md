@@ -4,10 +4,10 @@ description: Como excluir discos da replicação para o Azure com o Azure Site R
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.openlocfilehash: 15989fbfd65f758eb777c5170c217aba8707e0be
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91333657"
 ---
 # <a name="exclude-disks-from-disaster-recovery"></a>Excluir discos a partir da recuperação de desastre
