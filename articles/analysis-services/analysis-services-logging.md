@@ -8,10 +8,10 @@ ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 7e1eab20a8e315b977c21de46dd4f6ea2fec9f5d
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83701481"
 ---
 # <a name="setup-diagnostic-logging"></a>Configurar o log de diagnósticos
@@ -90,7 +90,7 @@ Os logs da categoria de métricas registra as [métricas de servidor](analysis-s
 
 3. Clique em **Save** (Salvar).
 
-    Se você receber um erro que diga "Falha ao atualizar o diagnóstico para \<nome do workspace&gt;. A assinatura \<id da assinatura> não está registrada para usar o microsoft.insights." siga as instruções para [Solucionar Problemas de Diagnóstico do Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) para registrar a conta, então repita este procedimento.
+    Se você receber um erro que diz "falha ao atualizar o diagnóstico para o \<workspace name> . A assinatura \<subscription id> não está registrada para usar o Microsoft. insights. " siga as instruções para [Solucionar Problemas de Diagnóstico do Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) para registrar a conta, então repita este procedimento.
 
     Sempre que você quiser alterar como os seus logs de recursos são salvos, retorne a esta página para modificar as configurações.
 

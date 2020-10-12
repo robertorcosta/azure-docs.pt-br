@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 05/10/2018
 ms.reviewer: sdash
 ms.openlocfilehash: f84e1065f93fc2cca950f12d5df537b931faac8d
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90987157"
 ---
 # <a name="monitor-performance-in-web-applications"></a>Monitore o desempenho em aplicativos da web
@@ -68,7 +68,7 @@ Clique no bloco para obter tempos para URLs específicas.
 
 Mostra quais solicitações podem precisar de sintonização de desempenho.
 
-### <a name="failed-requests"></a>Solicitações com falha
+### <a name="failed-requests"></a>Solicitações falhas
 ![Captura de tela de um grafo de linha ao longo do tempo do número de solicitações com falha; ou seja, as solicitações que geraram exceções não capturadas.](./media/web-monitor-performance/appinsights-46failed.png)
 
 Uma contagem de solicitações que gerou exceções não capturadas.

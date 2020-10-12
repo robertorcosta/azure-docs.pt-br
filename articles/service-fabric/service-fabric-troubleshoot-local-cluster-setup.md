@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: mikhegn
 ms.openlocfilehash: 76ca0bb7b81b3896538f08ff2ef52ed1ac6b363f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87091599"
 ---
 # <a name="troubleshoot-your-local-development-cluster-setup"></a>Solucionar problemas de configuração do cluster de desenvolvimento local
@@ -72,5 +72,5 @@ Verifique se você não possui um projeto de serviço definido como projeto de i
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Entender e solucionar problemas de cluster com relatórios de integridade do sistema](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
-* [Visualizando o cluster com o Explorador do Service Fabric](service-fabric-visualizing-your-cluster.md)
+* [Visualizando o cluster com o Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
 

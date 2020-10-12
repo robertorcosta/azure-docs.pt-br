@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 06/14/2019
 ms.author: alkohli
 ms.openlocfilehash: 1c1b38c4021660b9f59098f8442d16bfd0ecc582
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87925535"
 ---
 # <a name="use-logs-to-troubleshoot-validation-issues-in-azure-data-box-disk"></a>Use logs para solucionar problemas de validação no Disco do Azure Data Box
@@ -21,7 +21,7 @@ Este artigo se aplica a Microsoft Azure Disco do Data Box. O artigo descreve com
 
 ## <a name="validation-tool-log-files"></a>Arquivos de log da ferramenta de validação
 
-Quando você valida os dados nos discos usando a [ferramenta de validação](data-box-disk-deploy-copy-data.md#validate-data), um *error.xml* é gerado para registrar quaisquer erros. O arquivo de log está localizado na `Drive:\DataBoxDiskImport\logs` pasta da unidade. Um link para o log de erros é fornecido quando você executa a validação.
+Quando você valida os dados nos discos usando a [ferramenta de validação](data-box-disk-deploy-copy-data.md#validate-data), um *error.xml* é gerado para registrar quaisquer erros. O arquivo de log está localizado na  `Drive:\DataBoxDiskImport\logs` pasta da unidade. Um link para o log de erros é fornecido quando você executa a validação.
 
 <!--![Validation tool with link to error log](media/data-box-disk-troubleshoot/validation-tool-link-error-log.png)-->
 

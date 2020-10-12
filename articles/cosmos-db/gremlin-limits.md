@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 10/04/2019
 ms.author: sngun
 ms.openlocfilehash: 4ac5222e735e0699e507ca1392dc5dd42fc77105
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91400461"
 ---
 # <a name="azure-cosmos-db-gremlin-limits"></a>Limites do Gremlin do Azure Cosmos DB
@@ -19,7 +19,7 @@ Este artigo fala sobre os limites do mecanismo de Azure Cosmos DB Gremlin e expl
 
 Cosmos DB Gremlin é criado sobre a infraestrutura de Cosmos DB. Devido a isso, todos os limites explicados em [Azure Cosmos DB limites de serviço](https://docs.microsoft.com/azure/cosmos-db/concepts-limits) ainda se aplicam.
 
-## <a name="limits"></a>Limites
+## <a name="limits"></a>limites
 
 Quando o limite de Gremlin é atingido, a passagem é cancelada com um **x-MS-status-código** de 429 indicando um erro de limitação. Consulte [cabeçalhos de resposta do servidor Gremlin](gremlin-limits.md) para obter mais informações.
 

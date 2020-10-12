@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/25/2019
 ms.openlocfilehash: 1e73c403a03eef9a47bc0550b37769db302a599c
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89504411"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>Operacionalize um pipeline de análise de dados
@@ -244,8 +244,8 @@ Em seguida, atualize os valores para seu ambiente específico. A tabela abaixo d
     | hiveDataFolder | O caminho no Armazenamento do Azure até os dados contidos na tabela de preparo. |
     | sqlDatabaseConnectionString | A cadeia de conexão da sintaxe JDBC para o seu Banco de Dados SQL do Azure. |
     | sqlDatabaseTableName | O nome da tabela no Banco de Dados SQL do Azure na qual os resumos de linha são inseridos. Deixe como `dailyflights`. |
-    | year | O componente ano do dia para o qual os resumos de voo são computados. Deixe como está. |
-    | month | O componente mês do dia para o qual os resumos de voo são computados. Deixe como está. |
+    | ano | O componente ano do dia para o qual os resumos de voo são computados. Deixe como está. |
+    | mês | O componente mês do dia para o qual os resumos de voo são computados. Deixe como está. |
     | dia | O componente dia do mês do dia para o qual os resumos de voo são computados. Deixe como está. |
 
 1. Na estação de trabalho local, crie um arquivo chamado `hive-load-flights-partition.hql` . Use o código abaixo como o conteúdo para o arquivo.

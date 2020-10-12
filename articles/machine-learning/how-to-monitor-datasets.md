@@ -12,10 +12,10 @@ ms.date: 06/25/2020
 ms.topic: conceptual
 ms.custom: how-to
 ms.openlocfilehash: 8f54ece9a932ed4cc0adc29747e1c58ee22646c8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91333861"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>Detectar descompasso de dados (versão prévia) em conjuntos
@@ -145,7 +145,7 @@ Nas configurações de **esquema** , especifique a coluna timestamp de uma colun
 
 Se os dados forem particionados por data, como é o caso aqui, você também poderá especificar o partition_timestamp.  Isso permite um processamento mais eficiente de datas.
 
-:::image type="content" source="media/how-to-monitor-datasets/timeseries-partitiontimestamp.png" alt-text="Carimbo de hora da partição":::
+:::image type="content" source="media/how-to-monitor-datasets/timeseries-partitiontimestamp.png" alt-text="Definir o carimbo de data/hora":::
 
 
 ## <a name="create-dataset-monitors"></a>Criar monitores de conjuntos de conjunto
@@ -213,7 +213,7 @@ Para obter um exemplo completo de como configurar um `timeseries` conjunto de da
 
 1. Clique no botão **+ criar monitor** e prossiga com o assistente clicando em **Avançar**.  
 
-:::image type="content" source="media/how-to-monitor-datasets/wizard.png" alt-text="Criar um assistente de monitor":::
+:::image type="content" source="media/how-to-monitor-datasets/wizard.png" alt-text="Definir o carimbo de data/hora":::
 
 * **Selecione DataSet de destino**.  O conjunto de dados de destino é um conjunto de dados de tabela com a coluna timestamp especificada, que será analisada para descompasso. O conjunto de dados de destino deve ter recursos em comum com o conjunto de dados de linha de base, e deve ser um `timeseries` conjunto de dados para o qual são anexados novos. Os dados de histórico no DataSet de destino podem ser analisados ou novos dados podem ser monitorados.
 
@@ -240,7 +240,7 @@ Esta seção mostra os resultados do monitoramento de um conjunto de um DataSet,
 
 Comece com as informações de nível superior sobre a magnitude da descompasso de dados e um realce dos recursos a serem investigados.
 
-:::image type="content" source="media/how-to-monitor-datasets/drift-overview.png" alt-text="Visão geral do descompasso":::
+:::image type="content" source="media/how-to-monitor-datasets/drift-overview.png" alt-text="Definir o carimbo de data/hora":::
 
 
 | Métrica | Descrição | 
@@ -253,7 +253,7 @@ Comece com as informações de nível superior sobre a magnitude da descompasso 
 
 Veja como o conjunto de pontos difere do conjunto de entrada de destino no período de tempo especificado.  Quanto mais perto de 100%, mais dois conjuntos de valores diferem.
 
-:::image type="content" source="media/how-to-monitor-datasets/drift-magnitude.png" alt-text="Tendência de magnitude de descompasso":::
+:::image type="content" source="media/how-to-monitor-datasets/drift-magnitude.png" alt-text="Definir o carimbo de data/hora":::
 
 ### <a name="drift-magnitude-by-features"></a>Magnitude de descompasso por recursos
 
@@ -263,7 +263,7 @@ O conjunto de ponto de origem de destino também é criado com o passar do tempo
 
 No Azure Machine Learning Studio, clique em uma barra no grafo para ver os detalhes de nível de recurso dessa data. Por padrão, você vê a distribuição do conjunto de linhas de base e a distribuição da execução mais recente do mesmo recurso.
 
-:::image type="content" source="media/how-to-monitor-datasets/drift-by-feature.gif" alt-text="Magnitude de descompasso por recursos":::
+:::image type="content" source="media/how-to-monitor-datasets/drift-by-feature.gif" alt-text="Definir o carimbo de data/hora":::
 
 Essas métricas também podem ser recuperadas no SDK do Python por meio do `get_metrics()` método em um `DataDriftDetector` objeto.
 
@@ -271,7 +271,7 @@ Essas métricas também podem ser recuperadas no SDK do Python por meio do `get_
 
 Por fim, role para baixo para exibir detalhes de cada recurso individual.  Use as listas suspensas acima do gráfico para selecionar o recurso e, além disso, selecione a métrica que você deseja exibir.
 
-:::image type="content" source="media/how-to-monitor-datasets/numeric-feature.gif" alt-text="Grafo de recursos numéricos e comparação":::
+:::image type="content" source="media/how-to-monitor-datasets/numeric-feature.gif" alt-text="Definir o carimbo de data/hora":::
 
 As métricas no gráfico dependem do tipo de recurso.
 
@@ -293,7 +293,7 @@ As métricas no gráfico dependem do tipo de recurso.
 
 Neste gráfico, selecione uma única data para comparar a distribuição de recursos entre o destino e essa data para o recurso exibido. Para recursos numéricos, isso mostra duas distribuições de probabilidade.  Se o recurso for numérico, um gráfico de barras será mostrado.
 
-:::image type="content" source="media/how-to-monitor-datasets/select-date-to-compare.gif" alt-text="Selecione uma data para comparar com o destino":::
+:::image type="content" source="media/how-to-monitor-datasets/select-date-to-compare.gif" alt-text="Definir o carimbo de data/hora":::
 
 ## <a name="metrics-alerts-and-events"></a>Métricas, alertas e eventos
 

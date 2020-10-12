@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/19/2019
 ms.openlocfilehash: d752b747a0156bcef587f81ee421c55a6de81e17
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89079465"
 ---
 # <a name="transform-data-securely-by-using-mapping-data-flow"></a>Transformar dados com segurança usando o fluxo de dados de mapeamento
@@ -39,15 +39,15 @@ Neste tutorial, você executa as seguintes etapas:
 
 O arquivo que iremos transformar neste tutorial é moviesDB.csv, que pode ser encontrado neste [site de conteúdo do GitHub](https://raw.githubusercontent.com/djpmsft/adf-ready-demo/master/moviesDB.csv). Para recuperar o arquivo do GitHub, copie o conteúdo para um editor de texto de sua escolha para salvá-lo localmente como um arquivo. csv. Para carregar o arquivo em sua conta de armazenamento, consulte [carregar BLOBs com o portal do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal). Os exemplos referenciarão um contêiner denominado **Data-Sample**.
 
-## <a name="create-a-data-factory"></a>Criar uma data factory
+## <a name="create-a-data-factory"></a>Criar um data factory
 
 Nesta etapa, você cria um data factory e abre a interface do usuário do Data Factory para criar um pipeline no data factory.
 
-1. Abra o Microsoft Edge ou Google Chrome. Atualmente, somente os navegadores da Web do Microsoft Edge e do Google Chrome dão suporte à interface do usuário do Data Factory.
+1. Abra o Microsoft Edge ou Google Chrome. Atualmente apenas os navegadores da Web Microsoft Edge e Google Chrome são compatíveis com a interface do usuário do Data Factory.
 1. No menu à esquerda, selecione **Criar um recurso** > **Analytics** > **Data Factory**.
 1. Na página **Novo data factory**, em **Nome**, insira **ADFTutorialDataFactory**.
 
-   O nome do data factory deve ser *globalmente exclusivo*. Se você receber uma mensagem de erro sobre o valor do nome, insira um nome diferente para a data factory (por exemplo, yournameADFTutorialDataFactory). Para ver as regras de nomenclatura para artefatos do Data Factory, confira [Data Factory – Regras de nomenclatura](naming-rules.md).
+   O nome do data factory deve ser *globalmente exclusivo*. Se você receber uma mensagem de erro sobre o valor do nome, insira um nome diferente para o data factory (por exemplo, yournameADFTutorialDataFactory). Para ver as regras de nomenclatura para artefatos do Data Factory, confira [Data Factory – Regras de nomenclatura](naming-rules.md).
 
 1. Selecione a **assinatura** do Azure na qual deseja criar o data factory.
 1. Em **Grupo de Recursos**, use uma das seguintes etapas:
@@ -57,10 +57,10 @@ Nesta etapa, você cria um data factory e abre a interface do usuário do Data F
          
     Para saber mais sobre grupos de recursos, confira [Usar grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/management/overview.md). 
 1. Em **Versão**, selecione **V2**.
-1. Em **Local**, informe uma localização para o data factory. Somente os locais com suporte aparecem na lista suspensa. Os armazenamentos de dados (por exemplo, o armazenamento do Azure e o Azure SQL Database) e as computações (por exemplo, Azure HDInsight) usados pelo data factory podem estar em outras regiões.
+1. Em **Local**, informe uma localização para o data factory. Apenas os locais com suporte aparecem na lista suspensa. Os armazenamentos de dados (por exemplo, o armazenamento do Azure e o Azure SQL Database) e as computações (por exemplo, Azure HDInsight) usados pelo data factory podem estar em outras regiões.
 
 1. Selecione **Criar**.
-1. Depois que a criação for concluída, você verá o aviso no centro de notificações. Selecione **ir para o recurso** para ir para a página de **Data Factory** .
+1. Depois que a criação for concluída, você verá o aviso no Centro de notificações. Selecione **Ir para o recurso** para ir até a página do **Data Factory**.
 1. Clique em **Criar e Monitorar** para iniciar a IU do Azure Data Factory em uma guia separada.
 
 ## <a name="create-an-azure-ir-in-data-factory-managed-virtual-network"></a>Criar um Azure IR em Data Factory rede virtual gerenciada
@@ -73,7 +73,7 @@ Nesta etapa, você cria um Azure IR e habilita Data Factory rede virtual gerenci
 
    ![Captura de tela que mostra um novo Azure IR.](./media/tutorial-copy-data-portal-private/azure-ir.png)
 
-1. Em **configuração de rede virtual (versão prévia)**, selecione **habilitar**.
+1. Em **Configuração de rede virtual (versão prévia)** , selecione **Habilitar**.
 
    ![Captura de tela que mostra a habilitação de uma nova Azure IR.](./media/tutorial-copy-data-portal-private/enable-managed-vnet.png)
 
@@ -119,17 +119,17 @@ Nesta etapa, você configura Data Lake Storage Gen2 como uma origem.
 
 1. Na tela de criação de serviço vinculado, nomeie seu Data Lake Storage Gen2 serviço vinculado **ADLSGen2** e especifique o método de autenticação. Em seguida, insira suas credenciais de conexão. Neste tutorial, estamos usando a **chave de conta** para se conectar à nossa conta de armazenamento. 
 
-1. Certifique-se de habilitar a **criação interativa**. Pode levar um minuto para ser habilitado.
+1. Habilite a **Criação interativa**. Pode levar um minuto para ser habilitado.
 
-    ![Captura de tela que mostra a criação interativa.](./media/tutorial-data-flow-private/interactive-authoring.png)
+    ![Captura de tela que mostra a Criação interativa.](./media/tutorial-data-flow-private/interactive-authoring.png)
 
 1. Selecione **Testar conexão**. Ele deve falhar porque a conta de armazenamento não habilita o acesso a ele sem a criação e a aprovação de um ponto de extremidade privado. Na mensagem de erro, você verá um link para criar um ponto de extremidade privado que poderá seguir para criar um ponto de extremidade privado gerenciado. Uma alternativa é ir diretamente para a guia **gerenciar** e seguir as instruções nesta [seção](#create-a-managed-private-endpoint) para criar um ponto de extremidade privado gerenciado.
 
-1. Mantenha a caixa de diálogo aberta e, em seguida, vá para sua conta de armazenamento.
+1. Mantenha a caixa de diálogo aberta e acesse sua conta de armazenamento.
 
 1. Siga as instruções [desta seção](#approval-of-a-private-link-in-a-storage-account) para aprovar o link privado.
 
-1. Volte à caixa de diálogo. Selecione **testar conexão** novamente e selecione **criar** para implantar o serviço vinculado.
+1. Volte à caixa de diálogo. Selecione novamente **Testar conectividade** e selecione **Criar** para implantar o serviço vinculado.
 
 1. Na tela de criação do conjunto de arquivos, insira onde o arquivo está localizado no campo **caminho do arquivo** . Neste tutorial, o arquivo moviesDB.csv está localizado no contêiner **Sample-data**. Como o arquivo tem cabeçalhos, marque a caixa de seleção **primeira linha como cabeçalho** . Selecione **do repositório/conexão** para importar o esquema de cabeçalho diretamente do arquivo no armazenamento. Selecione **OK** quando tiver terminado.
 
@@ -141,36 +141,36 @@ Nesta etapa, você configura Data Lake Storage Gen2 como uma origem.
 
 #### <a name="create-a-managed-private-endpoint"></a>Criar um ponto de extremidade privado gerenciado
 
-Se você não usou o hiperlink ao testar a conexão anterior, siga o caminho. Agora, você precisa criar um ponto de extremidade privado gerenciado que se conectará ao serviço vinculado que você criou.
+Se você não usou o hiperlink ao testar a conexão anterior, siga o caminho. Agora você precisará criar um ponto de extremidade privado gerenciado que será conectado ao serviço vinculado que você criou.
 
-1. Vá para a guia **gerenciar** .
+1. Acesse a guia **Gerenciar**.
 
    > [!NOTE]
-   > A guia **gerenciar** pode não estar disponível para todas as instâncias de data Factory. Se você não o vir, poderá acessar pontos de extremidade privados selecionando **criar**  >  **conexões**ponto de  >  **extremidades particular**.
+   > É possível que a guia **Gerenciar** não fique disponível para todas as instâncias do Data Factory. Se você não a vir, acesse os pontos de extremidade privados selecionando **Criação** > **Conexões** > **Ponto de Extremidade Privado**.
 
-1. Vá para a seção **pontos de extremidade privados gerenciados** .
-1. Selecione **+ novo** em **pontos de extremidade privados gerenciados**.
+1. Acesse a seção **Pontos de extremidade privados** gerenciados.
+1. Selecione **+ Novo** em **Pontos de extremidade privados gerenciados**.
 
-    ![Captura de tela que mostra o novo botão pontos de extremidade privados gerenciados.](./media/tutorial-data-flow-private/new-managed-private-endpoint.png) 
+    ![Captura de tela que mostra o novo botão Pontos de extremidade privados gerenciados.](./media/tutorial-data-flow-private/new-managed-private-endpoint.png) 
 
 1. Selecione o bloco **Azure data Lake Storage Gen2** na lista e selecione **continuar**.
 1. Insira o nome da conta de armazenamento criada.
 1. Selecione **Criar**.
 1. Depois de alguns segundos, você verá que o link privado criado precisa de uma aprovação.
-1. Selecione o ponto de extremidade privado que você criou. Você pode ver um hiperlink que irá levá-lo a aprovar o ponto de extremidade privado no nível da conta de armazenamento.
+1. Selecione o ponto de extremidade privado que você criou. Você verá um hiperlink que vai levar você à aprovação do ponto de extremidade privado no nível da conta de armazenamento.
 
     ![Captura de tela que mostra o painel gerenciar ponto de extremidade privado.](./media/tutorial-data-flow-private/manage-private-endpoint.png) 
 
 #### <a name="approval-of-a-private-link-in-a-storage-account"></a>Aprovação de um link privado em uma conta de armazenamento
 
-1. Na conta de armazenamento, vá para **conexões de ponto de extremidade privado** na seção **configurações** .
+1. Na conta de armazenamento, acesse **Conexões do ponto de extremidade privado** na seção **Configurações**.
 
 1. Marque a caixa de seleção pelo ponto de extremidade privado que você criou e selecione **aprovar**.
 
     ![Captura de tela que mostra o botão de aprovação do ponto de extremidade privado.](./media/tutorial-data-flow-private/approve-private-endpoint.png)
 
-1. Adicione uma descrição e selecione **Sim**.
-1. Volte para a seção **pontos de extremidade privados gerenciados** da guia **gerenciar** em data Factory.
+1. Adicione uma descrição e selecione **sim**.
+1. Volte à seção **Pontos de extremidade privados gerenciados** da guia **Gerenciar** no Data Factory.
 1. Após cerca de um minuto, você deve ver que a aprovação é exibida para seu ponto de extremidade particular.
 
 ### <a name="add-the-filter-transformation"></a>Adicionar a transformação de filtro

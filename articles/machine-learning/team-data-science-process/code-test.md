@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
 ms.openlocfilehash: fc837405e03ffac41d216a5ba18384208b07aaf1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87090290"
 ---
 # <a name="data-science-code-testing-on-azure-with-the-team-data-science-process-and-azure-devops-services"></a>Teste de código de ciência de dados no Azure com o Processo de Ciência de Dados da Equipe e o Azure DevOps Services
@@ -24,10 +24,10 @@ Este artigo oferece diretrizes preliminares para testar o código em um fluxo de
 ## <a name="introduction-on-code-testing"></a>Introdução ao teste de código
 "Teste de unidade" é uma prática permanente no desenvolvimento de software. Mas, para a ciência de dados, muitas vezes não está claro o que significa "teste de unidade" e como você deve testar o código para diferentes estágios de um ciclo de vida de ciência de dados, como:
 
-* Preparação dos dados
+* Preparação de dados
 * Análise da qualidade dos dados
 * Modelagem
-* Implantação de modelo 
+* Implantação de modelos 
 
 Este artigo substitui o termo "teste de unidade" por "teste do código". Ele se refere a teste como as funções que ajudam a avaliar se o código de uma determinada etapa de um ciclo de vida de ciência de dados está produzindo resultados "esperados". A pessoa que está escrevendo o teste define o que é o "esperado", dependendo do resultado da função, por exemplo, verificação de qualidade de dados ou modelagem.
 

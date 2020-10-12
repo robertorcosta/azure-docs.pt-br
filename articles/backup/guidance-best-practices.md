@@ -4,10 +4,10 @@ description: Descubra as práticas recomendadas e as diretrizes para fazer backu
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.openlocfilehash: f999c568dda6eae60f3060cc4672eccaf06541c1
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90985526"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>Fazer backup de cargas de trabalho locais e na nuvem para a nuvem
@@ -132,7 +132,7 @@ Considere as seguintes diretrizes ao criar a política de backup:
   * Não é possível excluir seletivamente pontos de recuperação específicos.
   * Não é possível desabilitar completamente o backup agendado e manter a fonte de dados em um estado protegido. O backup menos frequente que você pode configurar com a política é ter um backup semanal agendado. Uma alternativa seria interromper a proteção com a retenção de dados e habilitar a proteção sempre que você quiser fazer um backup, fazer um backup sob demanda e desativar a proteção, mas manter os dados de backup. [Saiba mais aqui](backup-azure-manage-vms.md#stop-protecting-a-vm).
 
-## <a name="security-considerations"></a>Considerações sobre segurança
+## <a name="security-considerations"></a>Considerações de segurança
 
 Para ajudá-lo a proteger seus dados de backup e atender às necessidades de segurança de seus negócios, o backup do Azure fornece garantia de confidencialidade, integridade e disponibilidade contra ataques deliberados e abuso de seus dados e sistemas valiosos. Considere as seguintes diretrizes de segurança para sua solução de backup do Azure:
 

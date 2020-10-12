@@ -7,10 +7,10 @@ ms.custom: devx-track-csharp
 ms.date: 05/11/2020
 ms.author: chenyl
 ms.openlocfilehash: e2651afbcdc3bae71bb531aa0e821f83264c295d
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88212585"
 ---
 # <a name="signalr-service-trigger-binding-for-azure-functions"></a>Associação de gatilho de serviço signalr para Azure Functions
@@ -191,13 +191,13 @@ InvocationContext contém todo o conteúdo da mensagem enviar do serviço Signal
 |Propriedade em InvocationContext | Descrição|
 |------------------------------|------------|
 |Argumentos| Disponível para a categoria de *mensagens* . Contém *argumentos* na [mensagem de invocação](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocation-message-encoding)|
-|Erro| Disponível para evento *desconectado* . Ele poderá ficar vazio se a conexão for fechada sem erro ou contiver as mensagens de erro.|
+|Erro do| Disponível para evento *desconectado* . Ele poderá ficar vazio se a conexão for fechada sem erro ou contiver as mensagens de erro.|
 |Hub| O nome do Hub ao qual a mensagem pertence.|
 |Categoria| A categoria da mensagem.|
 |Evento| O evento da mensagem.|
 |ConnectionId| A ID de conexão do cliente que envia a mensagem.|
 |UserId| A identidade do usuário do cliente que envia a mensagem.|
-|Cabeçalhos| Os cabeçalhos da solicitação.|
+|headers| Os cabeçalhos da solicitação.|
 |Consulta| A consulta da solicitação quando os clientes se conectam ao serviço.|
 |Declarações| As declarações do cliente.|
 

@@ -14,10 +14,10 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: aa10cb207011051c30866a3a3ed693e7113b5882
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89297695"
 ---
 # <a name="configure-postman-for-media-services-v3-rest-api-calls"></a>Configurar o postmaster para chamadas da API REST dos serviços de mídia v3
@@ -49,7 +49,7 @@ Clone um repositório GitHub que contenha os arquivos do ambiente e coleção Po
 
 ## <a name="configure-postman"></a>Configurar Postman
 
-### <a name="configure-the-environment"></a>Configurar o ambiente 
+### <a name="configure-the-environment"></a>Configure o ambiente 
 
 1. Abra o aplicativo do **postmaster** .
 2. À direita da tela, selecione a opção **Gerenciar ambiente**.
