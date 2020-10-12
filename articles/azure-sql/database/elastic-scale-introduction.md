@@ -10,10 +10,10 @@ author: stevestein
 ms.author: sstein
 ms.date: 01/25/2019
 ms.openlocfilehash: 1ec9884dbb8c3d02caaa7d8621905a32e7b1e36a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84034677"
 ---
 # <a name="scaling-out-with-azure-sql-database"></a>Escalando horizontalmente com o Banco de Dados SQL do Azure
@@ -67,7 +67,7 @@ A maioria dos aplicativos de banco de dados de escala de nuvem usa uma combinaç
 
 ## <a name="sharding"></a>Fragmentação
 
-*Fragmentação* é uma técnica para distribuir grandes quantidades de dados estruturados de forma idêntica entre vários bancos de dados independentes. É especialmente popular com desenvolvedores de nuvem que estão criando ofertas de SaaS (software como serviço) para clientes finais ou empresas. Esses clientes finais costumam ser chamados de "locatários". Fragmentação pode ser necessária por vários motivos:  
+A *fragmentação* é uma técnica para distribuir grandes quantidades de dados estruturados de forma idêntica entre vários bancos de dado independentes. É especialmente popular com desenvolvedores de nuvem que estão criando ofertas de SaaS (software como serviço) para clientes finais ou empresas. Esses clientes finais costumam ser chamados de "locatários". Fragmentação pode ser necessária por vários motivos:  
 
 * A quantidade total de dados é muito grande para caber dentro das restrições de um banco de dados individual
 * A taxa de transferência de transação da carga de trabalho geral excede as capacidades de um banco de dados individual

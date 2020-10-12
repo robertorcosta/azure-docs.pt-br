@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 4bd667a2302136b5e12d2e4e548c9e8863715621
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81415273"
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>Atividade de execução de pipeline no Azure Data Factory
@@ -69,8 +69,8 @@ Propriedade | Descrição | Valores permitidos | Obrigatório
 name | Nome da atividade de execução de pipeline. | String | Sim
 type | Deve ser definido como: **ExecutePipeline**. | String | Sim
 pipeline | Referência de pipeline para o pipeline dependente que invoca esse pipeline. Um objeto de referência do pipeline tem duas propriedades: **referenceName** e **type**. A propriedade referenceName especifica o nome do pipeline de referência. A propriedade type deve ser definida como PipelineReference. | PipelineReference | Sim
-parâmetros | Parâmetros a serem passados para o pipeline invocado | Um objeto JSON que mapeia os nomes de parâmetro para os valores de argumento | Não
-waitOnCompletion | Define se a atividade de execução aguarda a execução do pipeline dependente ser concluída. O padrão é false. | Boolean | Não
+parameters | Parâmetros a serem passados para o pipeline invocado | Um objeto JSON que mapeia os nomes de parâmetro para os valores de argumento | Não
+waitOnCompletion | Define se a atividade de execução aguarda a execução do pipeline dependente ser concluída. O padrão é false. | Booliano | Não
 
 ## <a name="sample"></a>Amostra
 Este cenário tem dois pipelines:

@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/26/2019
 ms.openlocfilehash: 4535e6bf11f8c2abf20b1b323925c3fc3299d362
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90971791"
 ---
 # <a name="create-azure-resource-manager-templates-to-automate-deployment-for-azure-logic-apps"></a>Criar modelos do Azure Resource Manager para automatizar a implantação para Aplicativos Lógicos do Azure
@@ -122,7 +122,7 @@ Get-ParameterTemplate -TemplateFile $filename -KeyVault Static | Out-File $fileN
 | Parâmetros | Obrigatório | Descrição |
 |------------|----------|-------------|
 | TemplateFile | Sim | O caminho do arquivo para o arquivo de modelo |
-| KeyVault | No | Uma enumeração que descreve como lidar com possíveis valores de cofre de chaves. O padrão é `None`. |
+| KeyVault | Não | Uma enumeração que descreve como lidar com possíveis valores de cofre de chaves. O padrão é `None`. |
 ||||
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: zhchia
 ms.openlocfilehash: 9be2205ad0664d58c7a2ef0c07481b1c7aa02402
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91273340"
 ---
 # <a name="tutorial-configure-merchlogix-for-automatic-user-provisioning"></a>Tutorial: configurar o MerchLogix para o provisionamento automático de usuário
@@ -100,7 +100,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 7. No campo **Notificação por Email**, insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e selecione a caixa de seleção - **Enviar uma notificação por email quando ocorrer uma falha**.
 
-8. Clique em **Save** (Salvar).
+8. Clique em **Salvar**.
 
 9. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para MerchLogix**.
 

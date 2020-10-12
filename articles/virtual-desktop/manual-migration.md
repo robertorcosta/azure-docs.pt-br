@@ -7,10 +7,10 @@ ms.date: 09/11/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 74527f57340f850b60dd00dcd054992c423a49c7
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90038963"
 ---
 # <a name="migrate-manually-from-windows-virtual-desktop-classic"></a>Migrar manualmente da área de trabalho virtual do Windows (clássico)
@@ -35,7 +35,7 @@ Apesar da complicação, a migração para fora da versão clássica ainda é im
 - Gerencie a área de trabalho virtual do Windows por meio do portal do Azure.
 - Atribuir grupos de usuários Azure Active Directory (AD) a grupos de aplicativos.
 - Use o recurso de Log Analytics aprimorado para solucionar problemas de implantação.
-- Use controles de acesso com base em função do Azure nativo para gerenciar o acesso administrativo.
+- Use controles de acesso de Role-Based nativos do Azure para gerenciar o acesso administrativo.
 
 ## <a name="when-should-i-migrate"></a>Quando devo migrar?
 

@@ -16,10 +16,10 @@ ms.date: 03/18/2019
 ms.author: allensu
 ms.custom: ''
 ms.openlocfilehash: b55e418393d6d446ae0d3557f2d1f4cf98d89293
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88192505"
 ---
 # <a name="set-up-failover-across-multiple-azure-cdn-endpoints-with-azure-traffic-manager"></a>Configurar o failover em vários pontos de extremidade de CDN do Azure com o Gerenciador de Tráfego do Azure
@@ -68,7 +68,7 @@ Depois de configurar seus perfis do CDN e do Gerenciador de Tráfego, siga estas
 
     b. Para a segunda entrada CNAME, mapeie seu domínio personalizado, sem o subdomínio cdnverify, para o seu ponto de extremidade CDN. Essa entrada mapeia o domínio personalizado ao Gerenciador de Tráfego. 
 
-      Por exemplo:  
+      Por exemplo: 
       
       `cdndemo101.dustydogpetcare.online  CNAME  cdndemo101.trafficmanager.net`   
 
@@ -87,7 +87,7 @@ Depois de configurar seus perfis do CDN e do Gerenciador de Tráfego, siga estas
 
 3.  Retorne ao site do provedor de domínio do seu domínio personalizado e atualize o primeiro mapeamento de DNS criado para que o domínio personalizado seja mapeado para o segundo ponto de extremidade do CDN.
                              
-    Por exemplo:  
+    Por exemplo: 
 
     `cdnverify.cdndemo101.dustydogpetcare.online  CNAME  cdnverify.cdndemo101verizon.azureedge.net`  
 

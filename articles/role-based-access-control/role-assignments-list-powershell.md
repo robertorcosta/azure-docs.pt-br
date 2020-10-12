@@ -11,19 +11,19 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/10/2020
+ms.date: 07/28/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 4ee6a3c09d24d6968227ef4215000888c5f4af05
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e27fe0589498de13f5eb6e17f8869bb9d7352a09
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791003"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "87372069"
 ---
 # <a name="list-azure-role-assignments-using-azure-powershell"></a>Listar atribuições de função do Azure usando Azure PowerShell
 
-[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)]Este artigo descreve como listar atribuições de função usando Azure PowerShell.
+[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)] Este artigo descreve como listar atribuições de função usando Azure PowerShell.
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
@@ -106,7 +106,7 @@ Get-AzRoleAssignment -SignInName <email_or_userprincipalname> -ExpandPrincipalGr
 Get-AzRoleAssignment -SignInName isabella@example.com -ExpandPrincipalGroups | FL DisplayName, RoleDefinitionName, Scope
 ```
 
-## <a name="list-role-assignments-for-a-resource-group"></a>Listar as atribuições para um grupo de recursos
+## <a name="list-role-assignments-for-a-resource-group"></a>Listar as atribuições de função para um grupo de recursos
 
 Para listar todas as atribuições de função em um escopo de grupo de recursos, use [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
 
@@ -140,6 +140,26 @@ Get-AzRoleAssignment -Scope /providers/Microsoft.Management/managementGroups/<gr
 
 ```Example
 PS C:\> Get-AzRoleAssignment -Scope /providers/Microsoft.Management/managementGroups/marketing-group
+```
+
+## <a name="list-role-assignments-for-a-resource"></a>Listar atribuições de função para um recurso
+
+Para listar as atribuições de função para um recurso específico, use [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) e o `-Scope` parâmetro. O escopo será diferente dependendo do recurso. Para obter o escopo, você pode executar `Get-AzRoleAssignment` sem parâmetros para listar todas as atribuições de função e, em seguida, localizar o escopo que você deseja listar.
+
+```azurepowershell
+Get-AzRoleAssignment -Scope "/subscriptions/<subscription_id>/resourcegroups/<resource_group_name>/providers/<provider_name>/<resource_type>/<resource>
+```
+
+Este exemplo a seguir mostra como listar as atribuições de função para uma conta de armazenamento. Observe que esse comando também lista as atribuições de função em escopos mais altos, como grupos de recursos e assinaturas, que se aplicam a essa conta de armazenamento.
+
+```Example
+PS C:\> Get-AzRoleAssignment -Scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/storage-test-rg/providers/Microsoft.Storage/storageAccounts/storagetest0122"
+```
+
+Se você quiser apenas listar as atribuições de função que são atribuídas diretamente em um recurso, você pode usar o comando [Where-Object](/powershell/module/microsoft.powershell.core/where-object) para filtrar a lista.
+
+```Example
+PS C:\> Get-AzRoleAssignment | Where-Object {$_.Scope -eq "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/storage-test-rg/providers/Microsoft.Storage/storageAccounts/storagetest0122"}
 ```
 
 ## <a name="list-role-assignments-for-classic-service-administrator-and-co-administrators"></a>Listar atribuições de função para administradores e coadministradores de serviços clássicos

@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 06/12/2020
 ms.author: apimpm
 ms.openlocfilehash: 8a7fa295bdc8881c0c1ba58c95872a9380231b81
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85558039"
 ---
 # <a name="use-managed-identities-in-azure-api-management"></a>Usar identidades gerenciadas no gerenciamento de API do Azure
@@ -35,7 +35,7 @@ Para configurar uma identidade gerenciada no portal do Azure, primeiro você cri
 
 1. Crie uma instância de Gerenciamento de API no portal, como você faria normalmente. Navegue até ele no Portal.
 2. Selecione **identidades gerenciadas**.
-3. Na guia **atribuído pelo sistema** , alterne o **status** para **ativado**. Selecione **Salvar**.
+3. Na guia **atribuído pelo sistema** , alterne o **status** para **ativado**. Clique em **Salvar**.
 
     :::image type="content" source="./media/api-management-msi/enable-system-msi.png" alt-text="Seleções para habilitar uma identidade gerenciada atribuída pelo sistema" border="true":::
 
@@ -281,7 +281,7 @@ Para configurar uma identidade gerenciada no portal, primeiro você criará uma 
 3. Na guia **atribuído pelo usuário** , selecione **Adicionar**.
 4. Pesquise a identidade que você criou anteriormente e selecione-a. Selecione **Adicionar**.
 
-   :::image type="content" source="./media/api-management-msi/enable-user-assigned-msi.png" alt-text="Seleções para habilitar uma identidade gerenciada atribuída pelo usuário" border="true":::
+   :::image type="content" source="./media/api-management-msi/enable-user-assigned-msi.png" alt-text="Seleções para habilitar uma identidade gerenciada atribuída pelo sistema" border="true":::
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 

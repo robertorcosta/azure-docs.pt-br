@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 06/30/2020
 ms.author: victorh
 ms.openlocfilehash: 9c7182205df8d276bece4758d6d4430864883d32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85610635"
 ---
 # <a name="azure-firewall-dns-settings-preview"></a>Configurações de DNS do firewall do Azure (versão prévia)
@@ -30,7 +30,7 @@ Um servidor DNS mantém e resolve nomes de domínio para endereços IP. Por padr
 
 1. Em **configurações**do firewall do Azure, selecione **configurações de DNS**.
 2. Em **servidores DNS**, você pode digitar ou adicionar servidores DNS existentes que foram especificados anteriormente em sua rede virtual.
-3. Selecione **Salvar**.
+3. Clique em **Salvar**.
 4. O firewall agora direciona o tráfego DNS para os servidores DNS especificados para a resolução de nomes.
 
 :::image type="content" source="media/dns-settings/dns-servers.png" alt-text="Servidores DNS":::
@@ -56,7 +56,7 @@ Para configurar o proxy DNS, você deve definir a configuração de servidores D
 2. Em **Configurações**, selecione **Servidores DNS**.
 3. Selecione **personalizado** em **servidores DNS**.
 4. Insira o endereço IP privado do firewall.
-5. Selecione **Salvar**.
+5. Clique em **Salvar**.
 
 #### <a name="enable-dns-proxy-preview"></a>Habilitar proxy DNS (visualização)
 
@@ -64,9 +64,9 @@ Para configurar o proxy DNS, você deve definir a configuração de servidores D
 2. Em **configurações**, selecione **configurações de DNS**.
 3. Por padrão, o **proxy DNS** está desabilitado. Quando habilitado, o firewall escuta na porta 53 e encaminha as solicitações de DNS para os servidores DNS configurados.
 4. Examine a configuração dos **servidores DNS** para certificar-se de que as configurações são apropriadas para o seu ambiente.
-5. Selecione **Salvar**.
+5. Clique em **Salvar**.
 
-:::image type="content" source="media/dns-settings/dns-proxy.png" alt-text="Proxy DNS":::
+:::image type="content" source="media/dns-settings/dns-proxy.png" alt-text="Servidores DNS":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

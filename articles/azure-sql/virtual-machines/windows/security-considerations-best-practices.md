@@ -15,13 +15,13 @@ ms.date: 03/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 04634a6efb6c17a823532a29ec273b088a4ad843
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91272388"
 ---
-# <a name="security-considerations-for-sql-server-on-azure-virtual-machines"></a>Considerações de segurança para SQL Server em máquinas virtuais do Azure
+# <a name="security-considerations-for-sql-server-on-azure-virtual-machines"></a>Considerações sobre Segurança para SQL Server em Máquinas Virtuais do Microsoft Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Este tópico inclui diretrizes gerais de segurança que ajudam a estabelecer o acesso seguro a instâncias do SQL Server em uma VM (máquina virtual) do Azure.
@@ -59,7 +59,7 @@ Por fim, considere a possibilidade de habilitar as conexões criptografadas na i
 
 ## <a name="encryption"></a>Criptografia
 
-O Managed disks oferece criptografia do lado do servidor e Azure Disk Encryption. A [criptografia do lado do servidor](/azure/virtual-machines/windows/disk-encryption) fornece criptografia em repouso e protege seus dados para atender aos compromissos de conformidade e segurança da organização. O [Azure Disk Encryption](/azure/security/fundamentals/azure-disk-encryption-vms-vmss) usa a tecnologia BitLocker ou DM-Crypt e integra-se com o Azure Key Vault para criptografar o sistema operacional e os discos de dados. 
+O Managed disks oferece Server-Side criptografia e Azure Disk Encryption. A [criptografia do lado do servidor](/azure/virtual-machines/windows/disk-encryption) fornece criptografia em repouso e protege seus dados para atender aos compromissos de conformidade e segurança da organização. O [Azure Disk Encryption](/azure/security/fundamentals/azure-disk-encryption-vms-vmss) usa a tecnologia BitLocker ou DM-Crypt e integra-se com o Azure Key Vault para criptografar o sistema operacional e os discos de dados. 
 
 ## <a name="use-a-non-default-port"></a>Usar uma porta não padrão
 

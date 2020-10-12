@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: inhenkel
 ms.openlocfilehash: 9f17e8a09715ce9ff51715f17a449ec0a5b3f770
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89297188"
 ---
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Pontos de extremidade de streaming (origem) nos serviços de mídia do Azure
@@ -53,7 +53,7 @@ A tabela descreve os tipos:
 
 |Type|Unidades de escala|Descrição|
 |--------|--------|--------|  
-|**Standard**|0|O ponto de extremidade de streaming padrão é um tipo **padrão** — ele pode ser alterado para o tipo Premium ajustando `scaleUnits` .|
+|**Padrão**|0|O ponto de extremidade de streaming padrão é um tipo **padrão** — ele pode ser alterado para o tipo Premium ajustando `scaleUnits` .|
 |**Premium**|>0|**Premium** Os pontos de extremidade de streaming são adequados para cargas de trabalho avançadas e para fornecer capacidade de largura de banda dedicada e escalonável. Você passa para um tipo **Premium** ajustando `scaleUnits` (unidades de streaming). `scaleUnits` fornece capacidade de saída dedicada que pode ser comprada em incrementos de 200 Mbps. Ao usar o tipo **Premium** , cada unidade habilitada fornece capacidade de largura de banda adicional para o aplicativo. |
 
 > [!NOTE]
@@ -156,7 +156,7 @@ Um único ponto de extremidade de streaming pode transmitir vídeos ao vivo e so
     
 ## <a name="scaling-streaming-with-cdn"></a>Dimensionando o streaming com CDN
 
-Veja os artigos a seguir:
+Confira os seguintes artigos:
 
 - [Visão geral da CDN](../../cdn/cdn-overview.md)
 - [Dimensionando o streaming com CDN](scale-streaming-cdn.md)

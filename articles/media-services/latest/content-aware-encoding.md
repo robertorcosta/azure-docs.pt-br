@@ -13,10 +13,10 @@ ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 5d08e09905841f6068f2bac45680a8e5a011c158
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89297358"
 ---
 # <a name="use-the-content-aware-encoding-preset-to-find-the-optimal-bitrate-value-for-a-given-resolution"></a>Usar a predefinição de codificação com reconhecimento de conteúdo para localizar o valor de taxa de bits ideal para uma determinada resolução
@@ -86,5 +86,5 @@ TransformOutput[] output = new TransformOutput[]
 * [Tutorial: carregar, codificar e transmitir vídeos com os serviços de mídia v3](stream-files-tutorial-with-api.md)
 * [Tutorial: Codificar um arquivo remoto baseado em URL e transmitir o vídeo – REST](stream-files-tutorial-with-rest.md)
 * [Tutorial: codificar um arquivo remoto com base na URL e transmitir a video-CLI](stream-files-cli-quickstart.md)
-* [Tutorial: codificar um arquivo remoto com base na URL e transmitir o vídeo-.NET](stream-files-dotnet-quickstart.md)
-* [Tutorial: codificar um arquivo remoto com base na URL e transmitir o vídeo-Node.js](stream-files-nodejs-quickstart.md)
+* [Tutorial: Codificar um arquivo remoto baseado em URL e transmitir o vídeo – .NET](stream-files-dotnet-quickstart.md)
+* [Tutorial: Codificar um arquivo remoto baseado em URL e transmitir o vídeo – Node.js](stream-files-nodejs-quickstart.md)

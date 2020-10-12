@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 06/23/2020
 ms.author: victorh
 ms.openlocfilehash: c3ae62bf5b4f0b4796cac2e7079c8a09116d4895
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85602526"
 ---
 # <a name="create-ip-groups"></a>Criar grupos de IPs
@@ -27,7 +27,7 @@ Os grupos de IPS permitem que você agrupe e gerencie endereços IP para regras 
 5. Selecione um grupo de recursos ou crie um novo.
 6. Digite um nome exclusivo para o grupo de IPS e selecione uma região.
 
-6. Selecione **Avançar: endereços IP**.
+6. Selecione **Avançar: Endereços IP**.
 7. Digite um endereço IP, vários endereços IP ou intervalos de endereços IP.
 
    Há duas maneiras de inserir endereços IP:

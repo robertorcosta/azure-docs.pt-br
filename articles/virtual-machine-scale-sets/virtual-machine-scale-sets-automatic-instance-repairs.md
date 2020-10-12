@@ -10,10 +10,10 @@ ms.date: 02/28/2020
 ms.reviewer: jushiman
 ms.custom: avverma
 ms.openlocfilehash: 45c316c1d1dd56f6d920423a725b2488df1a5032
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86527414"
 ---
 # <a name="automatic-instance-repairs-for-azure-virtual-machine-scale-sets"></a>Reparos automáticos de instância para conjuntos de dimensionamento de máquinas virtuais do Azure
@@ -56,7 +56,7 @@ Atualmente, não há suporte para este recurso em conjuntos de dimensionamento d
 
 O recurso de reparo automático de instância depende do monitoramento de integridade de instâncias individuais em um conjunto de dimensionamento. As instâncias de VM em um conjunto de dimensionamento podem ser configuradas para emitir o status de integridade do aplicativo usando a [extensão de integridade do aplicativo](./virtual-machine-scale-sets-health-extension.md) ou as investigações de integridade do [balanceador de carga](../load-balancer/load-balancer-custom-probe-overview.md). Se uma instância for considerada não íntegra, o conjunto de dimensionamento executará a ação de reparo excluindo a instância não íntegra e criando uma nova para substituí-la. O modelo de conjunto de dimensionamento de máquinas virtuais mais recente é usado para criar a nova instância. Esse recurso pode ser habilitado no modelo do conjunto de dimensionamento de máquinas virtuais usando o objeto *automaticRepairsPolicy* .
 
-### <a name="batching"></a>Separação em lotes
+### <a name="batching"></a>Envio em lote
 
 As operações automáticas de reparo de instância são executadas em lotes. Em um determinado momento, não mais do que 5% das instâncias no conjunto de dimensionamento são reparadas por meio da política de reparos automáticas. Isso ajuda a evitar a exclusão simultânea e a recriação de um grande número de instâncias, se elas não estiverem íntegras ao mesmo tempo.
 
@@ -287,7 +287,7 @@ Get-AzVmss `
     -InstanceView
 ```
 
-Use o cmdlet Set-AzVmssOrchestrationServiceState para atualizar o *ServiceState* para reparos automáticos de instância. Depois que o conjunto de dimensionamento for aceito no recurso de reparo automático, você poderá usar este cmdlet para suspender ou retomar os reparos automáticos para o conjunto de dimensionamento.
+Use Set-AzVmssOrchestrationServiceState cmdlet para atualizar o *ServiceState* para reparos automáticos de instância. Depois que o conjunto de dimensionamento for aceito no recurso de reparo automático, você poderá usar este cmdlet para suspender ou retomar os reparos automáticos para o conjunto de dimensionamento.
 
 ```azurepowershell-interactive
 Set-AzVmssOrchestrationServiceState `

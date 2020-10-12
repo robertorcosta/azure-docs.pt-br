@@ -8,10 +8,10 @@ ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.openlocfilehash: 82003ef84571c8e07982826124b33763c0e53194
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88205556"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Como configurar suporte de Rede Virtual para um Cache do Azure Premium para Redis
@@ -100,7 +100,7 @@ Quando o Cache do Azure para Redis for hospedado em uma VNet, serão usadas as p
 
 Há nove requisitos de porta de saída. As solicitações de saída nesses intervalos são de saída para outros serviços necessários para que o cache funcione ou seja interno à sub-rede Redis para comunicação entre nós. Para a replicação geográfica, existem outros requisitos de saída para a comunicação entre as sub-redes do cache primário e de réplica.
 
-| Porta(s) | Direção | Protocolo de Transporte | Finalidade | IP local | IP remoto |
+| Porta(s) | Direction | Protocolo de Transporte | Finalidade | IP local | IP remoto |
 | --- | --- | --- | --- | --- | --- |
 | 80, 443 |Saída |TCP |Dependências de Redis no Armazenamento do Azure/PKI (Internet) | (Sub-rede Redis) |* |
 | 443 | Saída | TCP | Dependência Redis em Azure Key Vault | (Sub-rede Redis) | AzureKeyVault <sup>1</sup> |
@@ -109,7 +109,7 @@ Há nove requisitos de porta de saída. As solicitações de saída nesses inter
 | 10221-10231 |Saída |TCP |Comunicações internas para Redis | (Sub-rede Redis) | (Sub-rede Redis) |
 | 20226 |Saída |TCP |Comunicações internas para Redis | (Sub-rede Redis) |(Sub-rede Redis) |
 | 13000-13999 |Saída |TCP |Comunicações internas para Redis | (Sub-rede Redis) |(Sub-rede Redis) |
-| 15000-15999 |Saída |TCP |Comunicações internas para Redis e replicação geográfica | (Sub-rede Redis) |(Sub-rede Redis) (Sub-rede par de réplica geográfica) |
+| 15000-15999 |Saída |TCP |Comunicações internas para Redis e Geo-Replication | (Sub-rede Redis) |(Sub-rede Redis) (Sub-rede par de réplica geográfica) |
 | 6379-6380 |Saída |TCP |Comunicações internas para Redis | (Sub-rede Redis) |(Sub-rede Redis) |
 
 <sup>1</sup> você pode usar a marca de serviço ' AzureKeyVault ' com grupos de segurança de rede do Resource Manager.
@@ -126,14 +126,14 @@ Se você estiver usando a replicação geográfica entre caches em redes virtuai
 
 Há oito requisitos de intervalo de portas de entrada. As solicitações de entrada nesses intervalos são recebidas de outros serviços hospedados na mesma VNET ou internas para as comunicações de sub-rede Redis.
 
-| Porta(s) | Direção | Protocolo de Transporte | Finalidade | IP local | IP remoto |
+| Porta(s) | Direction | Protocolo de Transporte | Finalidade | IP local | IP remoto |
 | --- | --- | --- | --- | --- | --- |
 | 6379, 6380 |Entrada |TCP |Comunicação do cliente com o Redis, Balanceamento de Carga do Azure | (Sub-rede Redis) | (Sub-rede Redis), rede virtual, Azure Load Balancer <sup>1</sup> |
 | 8443 |Entrada |TCP |Comunicações internas para Redis | (Sub-rede Redis) |(Sub-rede Redis) |
 | 8500 |Entrada |TCP/UDP |Balanceamento de Carga do Azure | (Sub-rede Redis) |Azure Load Balancer |
 | 10221-10231 |Entrada |TCP |Comunicações internas para Redis | (Sub-rede Redis) |(Sub-rede Redus), Azure Load Balancer |
 | 13000-13999 |Entrada |TCP |Comunicação do cliente com Clusters Redis, Balanceamento de Carga do Azure | (Sub-rede Redis) |Rede virtual, Azure Load Balancer |
-| 15000-15999 |Entrada |TCP |Comunicação de cliente com clusters Redis, balanceamento de carga do Azure e replicação geográfica | (Sub-rede Redis) |Rede virtual, Azure Load Balancer (sub-rede par de réplica geográfica) |
+| 15000-15999 |Entrada |TCP |Comunicação de cliente com clusters Redis, balanceamento de carga do Azure e Geo-Replication | (Sub-rede Redis) |Rede virtual, Azure Load Balancer (sub-rede par de réplica geográfica) |
 | 16001 |Entrada |TCP/UDP |Balanceamento de Carga do Azure | (Sub-rede Redis) |Azure Load Balancer |
 | 20226 |Entrada |TCP |Comunicações internas para Redis | (Sub-rede Redis) |(Sub-rede Redis) |
 

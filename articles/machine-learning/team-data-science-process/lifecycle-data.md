@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 85d7159edb1bc8608165264578d77519bf09efc2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84195078"
 ---
 # <a name="data-acquisition-and-understanding-stage-of-the-team-data-science-process"></a>Aquisição de dados e etapa de entendimento do Processo de Ciência de Dados de Equipe
@@ -23,7 +23,7 @@ ms.locfileid: "84195078"
 Este artigo descreve as metas, as tarefas e os resultados associados ao estágio de aquisição de dados e entendimento do TDSP (Processo de Ciência de Dados da Equipe). Esse processo fornece um ciclo de vida recomendado que você pode usar para estruturar seus projetos de ciência de dados. O ciclo de vida descreve os estágios principais que os projetos normalmente executam, com frequência de modo iterativo:
 
    1. **Noções básicas sobre negócios**
-   2. **Compreensão e aquisição de dados**
+   2. **Aquisição e compreensão de dados**
    3. **Modelagem**
    4. **Implantação**
    5. **Aceitação do cliente**
@@ -75,7 +75,7 @@ Veja a seguir os resultados deste estágio:
 Aqui estão os links para cada etapa do ciclo de vida do TDSP:
 
    1. [Noções básicas sobre negócios](lifecycle-business-understanding.md)
-   2. [Compreensão e aquisição de dados](lifecycle-data.md)
+   2. [Aquisição e compreensão de dados](lifecycle-data.md)
    3. [Modelagem](lifecycle-modeling.md)
    4. [Implantação](lifecycle-deployment.md)
    5. [Aceitação do cliente](lifecycle-acceptance.md)
