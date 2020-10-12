@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: blehr
 ms.openlocfilehash: 49a89ee90d28c9c7a3f59424b773ee0f221381e4
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89301335"
 ---
 # <a name="quickstart-create-a-public-ip-address-using-the-azure-portal"></a>Início rápido: criar um endereço IP público usando o portal do Azure
@@ -32,7 +32,7 @@ Use as etapas a seguir para criar um endereço IP público com redundância de z
 4. Nos resultados da pesquisa, selecione **Endereço IP público**. Em seguida, na página **Endereço IP público**, selecione **Criar**.
 5. Na página **criar endereço IP público** , insira ou selecione as seguintes informações: 
 
-    | Setting                 | Valor                       |
+    | Configuração                 | Valor                       |
     | ---                     | ---                         |
     | Versão IP              | Selecionar IPv4                 |    
     | SKU                     | Selecione **Standard**         |
@@ -42,7 +42,7 @@ Use as etapas a seguir para criar um endereço IP público com redundância de z
     | Rótulo do nome DNS          | Deixe o valor em branco    |
     | Subscription            | Selecione sua assinatura.   |
     | Resource group          | Selecione **criar novo** , insira MyResource e, em seguida, selecione **OK** |
-    | Local                | Selecione **leste dos EUA 2**      |
+    | Localização                | Selecione **leste dos EUA 2**      |
     | Zona de disponibilidade       | Selecione **com redundância de zona** ou selecione uma zona específica (veja a observação abaixo) |
 
 Observe que essas são apenas seleções válidas em regiões com [zonas de disponibilidade](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones).  (Você também pode selecionar uma zona específica nessas regiões, embora ela não seja resiliente a falhas zonais.)
@@ -57,7 +57,7 @@ Use as etapas a seguir para criar um endereço IP público padrão como um recur
 4. Nos resultados da pesquisa, selecione **Endereço IP público**. Em seguida, na página **Endereço IP público**, selecione **Criar**.
 5. Na página **criar endereço IP público** , insira ou selecione as seguintes informações: 
 
-    | Setting                 | Valor                       |
+    | Configuração                 | Valor                       |
     | ---                     | ---                         |
     | Versão IP              | Selecionar IPv4                 |    
     | SKU                     | Selecione **Standard**         |
@@ -67,7 +67,7 @@ Use as etapas a seguir para criar um endereço IP público padrão como um recur
     | Rótulo do nome DNS          | Deixe o valor em branco    |
     | Subscription            | Selecione sua assinatura.   |
     | Resource group          | Selecione **criar novo** , insira MyResource e, em seguida, selecione **OK** |
-    | Local                | Selecione **leste dos EUA 2**      |
+    | Localização                | Selecione **leste dos EUA 2**      |
     | Zona de disponibilidade       | Selecione **sem zona** (e veja a observação abaixo) |
 
 Essa seleção é válida em todas as regiões e é a seleção padrão para endereços IP públicos padrão em regiões sem sem [zonas de disponibilidade](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones).
@@ -82,7 +82,7 @@ Use as etapas a seguir para criar um endereço IP público estático básico cha
 4. Nos resultados da pesquisa, selecione **Endereço IP público**. Em seguida, na página **Endereço IP público**, selecione **Criar**.
 5. Na página **criar endereço IP público** , insira ou selecione as seguintes informações: 
 
-    | Setting                 | Valor                       |
+    | Configuração                 | Valor                       |
     | ---                     | ---                         |
     | Versão IP              | Selecionar IPv4                 |    
     | SKU                     | Selecione **Standard**         |
@@ -92,7 +92,7 @@ Use as etapas a seguir para criar um endereço IP público estático básico cha
     | Rótulo do nome DNS          | Deixe o valor em branco    |
     | Subscription            | Selecione sua assinatura.   |
     | Resource group          | Selecione **criar novo** , insira MyResource e, em seguida, selecione **OK** |
-    | Local                | Selecione **leste dos EUA 2**      |
+    | Localização                | Selecione **leste dos EUA 2**      |
 
 Se for aceitável que o endereço IP seja alterado ao longo do tempo, a atribuição de IP **dinâmico** poderá ser selecionada.
 

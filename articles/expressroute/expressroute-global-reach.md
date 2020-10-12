@@ -9,10 +9,10 @@ ms.date: 09/18/2020
 ms.author: duau
 ms.custom: references_regions
 ms.openlocfilehash: e3f9105037c049a53f1b7b99da96dd857070fcc7
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90987618"
 ---
 # <a name="expressroute-global-reach"></a>Alcance Global do ExpressRoute
@@ -36,7 +36,7 @@ O ExpressRoute Alcance Global tem suporte nos seguintes locais.
 > Para habilitar o ExpressRoute Alcance Global entre [regiões geopolítica diferentes](expressroute-locations-providers.md#locations), seus circuitos devem ser **SKU Premium**.
 
 * Austrália
-* Canadá
+* Canada
 * França
 * Alemanha
 * RAE de Hong Kong
@@ -49,7 +49,7 @@ O ExpressRoute Alcance Global tem suporte nos seguintes locais.
 * Singapura
 * Suécia
 * Suíça
-* Reino Unido
+* United Kingdom
 * Estados Unidos
 
 ## <a name="next-steps"></a>Próximas etapas

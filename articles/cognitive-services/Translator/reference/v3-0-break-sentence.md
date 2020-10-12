@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 08/06/2020
 ms.author: swmachan
 ms.openlocfilehash: 340b0ed02821fb98f271539ac39e0ccad8581082
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87903996"
 ---
 # <a name="translator-30-breaksentence"></a>Tradutor 3,0: BreakSentence
@@ -43,9 +43,9 @@ Os cabeçalhos de solicitação incluem:
 
 | Cabeçalhos | Descrição |
 | ------- | ----------- |
-| Cabeçalho (s) de autenticação <img width=200/>  | **Cabeçalho de solicitação necessário**.<br/>Veja <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">Opções disponíveis para autenticação</a>. |
-| Tipo de conteúdo | **Cabeçalho de solicitação necessário**.<br/>Especifica o tipo de conteúdo da carga. Os valores possíveis são: `application/json`. |
-| Content-Length    | **Cabeçalho de solicitação necessário**.<br/>O tamanho do corpo da solicitação.  | 
+| Cabeçalhos de autenticação <img width=200/>  | **Cabeçalho de solicitação obrigatório**.<br/>Veja <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">Opções disponíveis para autenticação</a>. |
+| Tipo de conteúdo | **Cabeçalho de solicitação obrigatório**.<br/>Especifica o tipo de conteúdo da carga. Os valores possíveis são: `application/json`. |
+| Content-Length    | **Cabeçalho de solicitação obrigatório**.<br/>O tamanho do corpo da solicitação.  | 
 | X-ClientTraceId   | **Opcional**.<br/>Um GUID gerado pelo cliente para identificar exclusivamente a solicitação. Observe que você poderá omitir esse cabeçalho se incluir a ID de rastreamento na cadeia de caracteres de consulta usando um parâmetro de consulta nomeado `ClientTraceId`.  | 
 
 ## <a name="request-body"></a>Corpo da solicitação

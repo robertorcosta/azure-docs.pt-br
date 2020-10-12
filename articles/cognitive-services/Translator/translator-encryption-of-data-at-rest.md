@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: egeaney
 ms.openlocfilehash: ce7ff6ae134835de23a0d2670e8b4f44783654f8
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89079193"
 ---
 # <a name="translator-encryption-of-data-at-rest"></a>Criptografia do tradutor de dados em repouso
@@ -37,7 +37,7 @@ Para assinaturas que dão suporte apenas a chaves de criptografia gerenciadas pe
 Por padrão, sua assinatura usa chaves de criptografia gerenciadas pela Microsoft. Também há a opção de gerenciar sua assinatura com suas próprias chaves chamadas CMK (chaves gerenciadas pelo cliente). O CMK oferece maior flexibilidade para criar, girar, desabilitar e revogar controles de acesso. Você também pode auditar as chaves de criptografia usadas para proteger seus dados. Se o CMK estiver configurado para sua assinatura, a criptografia dupla será fornecida, que oferece uma segunda camada de proteção, permitindo que você controle a chave de criptografia por meio de seu Azure Key Vault.
 
 > [!IMPORTANT]
-> As chaves gerenciadas pelo cliente estão disponíveis para todos os tipos de preço do serviço do tradutor. Para solicitar a capacidade de usar chaves gerenciadas pelo cliente, preencha e envie o [formulário de solicitação de chave gerenciada pelo cliente do tradutor](https://aka.ms/cogsvc-cmk) , será necessário cerca de 3-5 dias úteis para o retorno do status de sua solicitação. Dependendo da demanda, você pode ser colocado em uma fila e aprovado, pois o espaço se torna disponível. Depois de aprovado para usar o CMK com o serviço de tradutor, você precisará criar um novo recurso de tradutor. Depois que o recurso do tradutor for criado, você poderá usar Azure Key Vault para configurar sua identidade gerenciada.
+> As chaves gerenciadas pelo cliente estão disponíveis para todos os tipos de preço do serviço do tradutor. Para solicitar a capacidade de usar chaves gerenciadas pelo cliente, preencha e envie o [tradutor Customer-Managed formulário de solicitação de chave](https://aka.ms/cogsvc-cmk) , levará aproximadamente 3-5 dias úteis para receber o status de sua solicitação. Dependendo da demanda, você pode ser colocado em uma fila e aprovado, pois o espaço se torna disponível. Depois de aprovado para usar o CMK com o serviço de tradutor, você precisará criar um novo recurso de tradutor. Depois que o recurso do tradutor for criado, você poderá usar Azure Key Vault para configurar sua identidade gerenciada.
 
 Siga estas etapas para habilitar chaves gerenciadas pelo cliente para o Tradutor:
 
@@ -47,7 +47,7 @@ Siga estas etapas para habilitar chaves gerenciadas pelo cliente para o Tradutor
 
 ### <a name="enable-customer-managed-keys"></a>Habilitar chaves gerenciadas pelo cliente
 
-Você deve usar Azure Key Vault para armazenar as chaves gerenciadas pelo cliente. Você pode criar suas próprias chaves e armazená-las em um cofre de chaves ou pode usar as APIs do Azure Key Vault para gerar chaves. O recurso de serviços cognitivas e o cofre de chaves devem estar na mesma região e no mesmo locatário Azure Active Directory (Azure AD), mas podem estar em assinaturas diferentes. Para obter mais informações sobre Azure Key Vault, consulte [o que é Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
+Você precisa usar o Azure Key Vault para armazenar as chaves gerenciadas pelo cliente. Você pode criar suas próprias chaves e armazená-las em um cofre de chaves ou pode usar as APIs do Azure Key Vault para gerar chaves. O recurso de serviços cognitivas e o cofre de chaves devem estar na mesma região e no mesmo locatário Azure Active Directory (Azure AD), mas podem estar em assinaturas diferentes. Para obter mais informações sobre Azure Key Vault, consulte [o que é Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
 
 Um novo recurso de serviços cognitivas é sempre criptografado usando chaves gerenciadas pela Microsoft. Não é possível habilitar chaves gerenciadas pelo cliente no momento em que o recurso é criado. As chaves gerenciadas pelo cliente são armazenadas em Azure Key Vault, e o cofre de chaves deve ser provisionado com políticas de acesso que concedem permissões de chave para a identidade gerenciada associada ao recurso de serviços cognitivas. A identidade gerenciada está disponível assim que o recurso é criado.
 

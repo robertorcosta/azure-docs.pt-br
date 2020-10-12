@@ -12,10 +12,10 @@ ms.author: sashan
 ms.reviewer: sstein
 ms.date: 09/03/2020
 ms.openlocfilehash: bd393a897052dd0bd49851eee424c99ad1fcfb1f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91319418"
 ---
 # <a name="use-read-only-replicas-to-offload-read-only-query-workloads"></a>Usar réplicas somente leitura para descarregar cargas de trabalho de consulta somente leitura
@@ -89,14 +89,14 @@ As exibições comumente usadas são:
 |:---|:---|
 |[sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Fornece métricas de utilização de recursos para a última hora, incluindo CPU, e/s de dados e utilização de gravação de log em relação aos limites de objetivo de serviço.|
 |[sys.dm_os_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql)| Fornece estatísticas de espera agregada para a instância do mecanismo de banco de dados. |
-|[sys. dm_database_replica_states](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database)| Fornece estatísticas de sincronização e estado de integridade da réplica. O tamanho da fila de restauração e a taxa de restauração funcionam como indicadores de latência de dados na réplica somente leitura. |
+|[sys.dm_database_replica_states](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database)| Fornece estatísticas de sincronização e estado de integridade da réplica. O tamanho da fila de restauração e a taxa de restauração funcionam como indicadores de latência de dados na réplica somente leitura. |
 |[sys.dm_os_performance_counters](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-performance-counters-transact-sql)| Fornece contadores de desempenho do mecanismo de banco de dados.|
 |[sys.dm_exec_query_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-stats-transact-sql)| Fornece estatísticas de execução por consulta, como o número de execuções, o tempo de CPU usado, etc.|
-|[sys. dm_exec_query_plan ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-transact-sql)| Fornece planos de consulta em cache. |
-|[sys. dm_exec_sql_text ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sql-text-transact-sql)| Fornece o texto de consulta para um plano de consulta em cache.|
+|[sys.dm_exec_query_plan ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-transact-sql)| Fornece planos de consulta em cache. |
+|[sys.dm_exec_sql_text ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sql-text-transact-sql)| Fornece o texto de consulta para um plano de consulta em cache.|
 |[sys.dm_exec_query_profiles](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-stats-transact-sql)| Fornece o progresso de consulta em tempo real enquanto as consultas estão em execução.|
-|[sys. dm_exec_query_plan_stats ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-stats-transact-sql)| Fornece o último plano de execução real conhecido, incluindo estatísticas de tempo de execução para uma consulta.|
-|[sys. dm_io_virtual_file_stats ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql)| Fornece IOPS de armazenamento, taxa de transferência e estatísticas de latência para todos os arquivos de banco de dados. |
+|[sys.dm_exec_query_plan_stats ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-stats-transact-sql)| Fornece o último plano de execução real conhecido, incluindo estatísticas de tempo de execução para uma consulta.|
+|[sys.dm_io_virtual_file_stats ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql)| Fornece IOPS de armazenamento, taxa de transferência e estatísticas de latência para todos os arquivos de banco de dados. |
 
 > [!NOTE]
 > As `sys.resource_stats` `sys.elastic_pool_resource_stats` DMVs e no banco de dados mestre lógico retornam os dados de utilização de recursos da réplica primária.
@@ -123,7 +123,7 @@ Se uma consulta de execução longa em uma réplica somente leitura causar esse 
 > Se você receber o erro 3961 ou o erro 1219 ao executar consultas em uma réplica somente leitura, repita a consulta.
 
 > [!TIP]
-> Nas camadas de serviço Premium e Comercialmente Crítico, quando conectado a uma réplica somente leitura, as `redo_queue_size` colunas e `redo_rate` na DMV [Sys. dm_database_replica_states](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database) podem ser usadas para monitorar o processo de sincronização de dados, servindo como indicadores de latência de dados na réplica somente leitura.
+> Nas camadas de serviço Premium e Comercialmente Crítico, quando conectado a uma réplica somente leitura, as `redo_queue_size` colunas e `redo_rate` no [Sys.dm_database_replica_states](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database) DMV podem ser usadas para monitorar o processo de sincronização de dados, servindo como indicadores de latência de dados na réplica somente leitura.
 > 
 
 ## <a name="enable-and-disable-read-scale-out"></a>Habilitar e desabilitar a expansão de leitura

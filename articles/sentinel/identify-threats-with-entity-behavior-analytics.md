@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/19/2020
 ms.author: yelevin
 ms.openlocfilehash: 6597baa67bcd2e26f3b8aeaa98c1776b5fc47430
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90994072"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Identificar ameaças avançadas com UEBA (análise de comportamentos de usuário e entidade) no Azure Sentinel
@@ -47,15 +47,13 @@ Inspirado pelo paradigma da Gartner para soluções UEBAs, o Azure Sentinel forn
 
 - **Análise:** Usando vários algoritmos de ML (aprendizado de máquina), o Azure Sentinel identifica atividades anormais e apresenta evidências claramente e concisos na forma de aprimoramentos contextuais, alguns exemplos dos quais aparecem abaixo.
 
-    :::image type="content" source="media/identify-threats-with-entity-behavior-analytics/behavior-analytics-top-down.png" alt-text="Abordagem de análise de comportamento fora de entrada":::
-
-O Azure Sentinel apresenta artefatos que ajudam os analistas de segurança a obter uma compreensão clara das atividades anormais no contexto e em comparação com o perfil de linha de base do usuário. As ações executadas por um usuário (ou um host ou um endereço) são avaliadas contextualmente, em que um resultado "verdadeiro" indica uma anomalia identificada:
+    :::image type="content" source="media/identify-threats-with-entity-behavior-analytics/behavior-analytics-top-down.png" alt-text="Arquitetura de análise de comportamento de entidade" indica uma anomalia identificada:
 - em locais geográficos, dispositivos e ambientes.
 - em horizontes de tempo e frequência (em comparação com o próprio histórico do usuário).
 - em comparação com o comportamento de pares.
 - em comparação com o comportamento da organização.
 
-    :::image type="content" source="media/identify-threats-with-entity-behavior-analytics/context.png" alt-text="Contexto de entidade":::
+    :::image type="content" source="media/identify-threats-with-entity-behavior-analytics/context.png" alt-text="Arquitetura de análise de comportamento de entidade":::
 
 
 ### <a name="scoring"></a>Pontuação
@@ -79,7 +77,7 @@ As páginas de entidade consistem em três partes:
 
 ### <a name="the-timeline"></a>A linha do tempo
 
-:::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/entity-pages-timeline.png" alt-text="Linha do tempo das páginas da entidade":::
+:::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/entity-pages-timeline.png" alt-text="Arquitetura de análise de comportamento de entidade":::
 
 A linha do tempo é uma parte importante da contribuição da página de entidade para análise de comportamento no Azure Sentinel. Ele apresenta uma história sobre eventos relacionados a entidades, ajudando você a entender a atividade da entidade em um período de tempo específico.
 
@@ -107,7 +105,7 @@ As informações de entidade são consultas definidas pelos pesquisadores de seg
 
 As páginas de entidade são projetadas para fazer parte de vários cenários de uso e podem ser acessadas do gerenciamento de incidentes, do grafo de investigação, de indicadores ou diretamente da página de pesquisa de entidade em **análise de comportamento de entidade** no menu principal do Sentinela do Azure.
 
-:::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/entity-pages-use-cases.png" alt-text="Casos de uso de página de entidade":::
+:::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/entity-pages-use-cases.png" alt-text="Arquitetura de análise de comportamento de entidade":::
 
 
 ## <a name="data-schema"></a>Esquema de dados
@@ -156,7 +154,7 @@ Os metadados de pares de usuários fornecem um contexto importante em detecçõe
 
 O Azure Sentinel calcula e classifica os pares de um usuário, com base na associação do grupo de segurança do Azure AD, na lista de endereçamento, no et etc e armazena os pares classificados como 1-20 na tabela **UserPeerAnalytics** . A captura de tela abaixo mostra o esquema da tabela UserPeerAnalytics e exibe os oito principais pares classificados do usuário Kendall Collins. O Azure Sentinel usa o algoritmo Frequency-IDF ( *frequência de documentos inversos* ) para normalizar a ponderação para calcular a classificação: quanto menor o grupo, maior o peso. 
 
-:::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/user-peers-metadata.png" alt-text="Captura de tela da tabela de metadados de pares do usuário":::
+:::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/user-peers-metadata.png" alt-text="Arquitetura de análise de comportamento de entidade":::
 
 Você pode usar o [Notebook Jupyter](https://github.com/Azure/Azure-Sentinel-Notebooks/tree/master/BehaviorAnalytics/UserSecurityMetadata) fornecido no repositório GitHub do Azure Sentinel para visualizar os metadados de pares do usuário. Para obter instruções detalhadas sobre como usar o bloco de anotações, consulte [análise guiada-notebook de metadados de segurança do usuário](https://github.com/Azure/Azure-Sentinel-Notebooks/blob/master/BehaviorAnalytics/UserSecurityMetadata/Guided%20Analysis%20-%20User%20Security%20Metadata.ipynb) .
 
@@ -166,7 +164,7 @@ A análise de permissões ajuda a determinar o impacto potencial da comprometent
 
 O Azure Sentinel determina os direitos de acesso direto e transitório mantidos por um determinado usuário aos recursos do Azure, avaliando as assinaturas do Azure que o usuário pode acessar diretamente ou por meio de grupos ou entidades de serviço. Essas informações, bem como a lista completa da associação do grupo de segurança do Azure AD do usuário, são armazenadas na tabela **UserAccessAnalytics** . A captura de tela abaixo mostra uma linha de exemplo na tabela UserAccessAnalytics para o usuário Alex Johnson. A **entidade de origem** é a conta de usuário ou entidade de serviço, e a entidade de **destino** é o recurso ao qual a entidade de origem tem acesso. Os valores de **nível de acesso** e **tipo de acesso** dependem do modelo de controle de acesso da entidade de destino. Você pode ver que Alex tem acesso de colaborador ao locatário de *hotéis da Contoso*da assinatura do Azure. O modelo de controle de acesso da assinatura é RBAC.   
 
-:::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/user-access-analytics.png" alt-text="Captura de tela da tabela de análise de acesso do usuário":::
+:::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/user-access-analytics.png" alt-text="Arquitetura de análise de comportamento de entidade":::
 
 Você pode usar o [Notebook Jupyter](https://github.com/Azure/Azure-Sentinel-Notebooks/tree/master/BehaviorAnalytics/UserSecurityMetadata) (o mesmo bloco de anotações mencionado acima) do repositório GitHub do Azure Sentinel para visualizar os dados de análise de permissão. Para obter instruções detalhadas sobre como usar o bloco de anotações, consulte [análise guiada-notebook de metadados de segurança do usuário](https://github.com/Azure/Azure-Sentinel-Notebooks/blob/master/BehaviorAnalytics/UserSecurityMetadata/Guided%20Analysis%20-%20User%20Security%20Metadata.ipynb) .
 

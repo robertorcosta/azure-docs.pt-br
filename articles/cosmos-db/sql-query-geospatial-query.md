@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
 ms.openlocfilehash: bbfc31e810e2c11cde4907c9d5120b66195191af
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84764971"
 ---
 # <a name="querying-geospatial-data-with-azure-cosmos-db"></a>Consultando dados geoespaciais com Azure Cosmos DB
@@ -49,7 +49,7 @@ As funções espaciais podem ser usadas para executar consultas de proximidade e
 
 Se você incluir a indexação espacial em sua política de indexação, as "consultas de distância" serão servidas com eficiência por meio do índice. Para obter mais informações sobre a indexação espacial, consulte [indexação geoespacial](sql-query-geospatial-index.md). Se você não tiver um índice espacial para os caminhos especificados, a consulta fará uma verificação do contêiner.
 
-`ST_WITHIN`pode ser usado para verificar se um ponto está dentro de um polígono. Normalmente, os Polígonos são usados para representar limites como códigos postais, fronteiras de estado ou formações naturais. Novamente, se você incluir a indexação espacial em sua política de indexação, as consultas "internas" serão servidas com eficiência por meio do índice.
+`ST_WITHIN` pode ser usado para verificar se um ponto está dentro de um polígono. Normalmente, os Polígonos são usados para representar limites como códigos postais, fronteiras de estado ou formações naturais. Novamente, se você incluir a indexação espacial em sua política de indexação, as consultas "internas" serão servidas com eficiência por meio do índice.
 
 Os argumentos Polygon no `ST_WITHIN` podem conter apenas um único anel, ou seja, os polígonos não devem conter buracos neles.
 
@@ -99,7 +99,7 @@ O Azure Cosmos DB também dá suporte à execução de consultas inversas, ou se
     }]
 ```
 
-`ST_ISVALID`e `ST_ISVALIDDETAILED` pode ser usado para verificar se um objeto espacial é válido. Por exemplo, a consulta a seguir verifica a validade de um ponto com um valor de latitude fora do intervalo (-132,8). `ST_ISVALID`retorna apenas um valor booliano e `ST_ISVALIDDETAILED` retorna o booliano e uma cadeia de caracteres que contém o motivo pelo qual ele é considerado inválido.
+`ST_ISVALID` e `ST_ISVALIDDETAILED` pode ser usado para verificar se um objeto espacial é válido. Por exemplo, a consulta a seguir verifica a validade de um ponto com um valor de latitude fora do intervalo (-132,8). `ST_ISVALID` retorna apenas um valor booliano e `ST_ISVALIDDETAILED` retorna o booliano e uma cadeia de caracteres que contém o motivo pelo qual ele é considerado inválido.
 
 **Consulta**
 

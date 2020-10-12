@@ -9,10 +9,10 @@ ms.author: jasondel
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc
 ms.openlocfilehash: 11343ba668a4b74c436313f0abd4daed577c36d4
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89505328"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-private-cluster"></a>Criar um cluster privado do Red Hat OpenShift 4 no Azure
@@ -29,25 +29,25 @@ Se você optar por instalar e usar a CLI localmente, este tutorial exigirá a ex
 
 ### <a name="register-the-resource-providers"></a>Registrar os provedores de recursos
 
-1. Se você tiver várias assinaturas do Azure, especifique a ID de assinatura relevante:
+1. Se você tem várias assinaturas do Azure, especifique a ID de assinatura relevante:
 
     ```azurecli-interactive
     az account set --subscription <SUBSCRIPTION ID>
     ```
 
-1. Registrar o `Microsoft.RedHatOpenShift` provedor de recursos:
+1. Registre o provedor de recursos `Microsoft.RedHatOpenShift`:
 
     ```azurecli-interactive
     az provider register -n Microsoft.RedHatOpenShift --wait
     ```
 
-1. Registrar o `Microsoft.Compute` provedor de recursos:
+1. Registre o provedor de recursos `Microsoft.Compute`:
 
     ```azurecli-interactive
     az provider register -n Microsoft.Compute --wait
     ```
 
-1. Registrar o `Microsoft.Storage` provedor de recursos:
+1. Registre o provedor de recursos `Microsoft.Storage`:
 
     ```azurecli-interactive
     az provider register -n Microsoft.Storage --wait

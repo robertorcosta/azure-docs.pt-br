@@ -13,10 +13,10 @@ ms.author: urmilano
 ms.reviewer: sstein, bonova, MashaMSFT
 ms.date: 09/03/2020
 ms.openlocfilehash: bdb021bc0247972fa29975c62bc9214e3b474e2c
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90994021"
 ---
 # <a name="monitoring-azure-sql-managed-instance-management-operations"></a>Monitorando operações de gerenciamento de Instância Gerenciada do SQL do Azure
@@ -46,7 +46,7 @@ A tabela a seguir compara as opções de monitoramento da operação de gerencia
 | Opção | Retenção | Dá suporte a cancelar | Criar | Atualizar | Excluir | Cancelar | Etapas |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Implantações de grupo de recursos | Infinito<sup>1</sup> | Não<sup>2</sup> | Visible | Visible | Não visível | Visible | Não visível |
-| Log de atividades | 90 dias | No | Visible | Visible | Visible | Visible |  Não visível |
+| Log de atividades | 90 dias | Não | Visible | Visible | Visible | Visible |  Não visível |
 | API de operações de instância gerenciada | 24 horas | [Sim](management-operations-cancel.md) | Visible | Visible | Visible | Visible | Visible |
 |  |  |  |  |  |  |  | |
 
@@ -114,8 +114,8 @@ Para obter uma explicação detalhada de comandos, consulte [AZ SQL mi op](https
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para saber como criar sua primeira instância gerenciada, consulte [Guia de início rápido](instance-create-quickstart.md).
+- Para saber como criar sua primeira instância gerenciada, confira o [Guia de início rápido](instance-create-quickstart.md).
 - Para obter uma lista de recursos e comparação, consulte [recursos comuns do SQL](../database/features-comparison.md).
-- Para obter mais informações sobre a configuração da VNet, consulte [configuração da vnet do SQL instância gerenciada](connectivity-architecture-overview.md).
-- Para obter um início rápido que cria uma instância gerenciada e restaura um banco de dados de um arquivo de backup, consulte [criar uma instância gerenciada](instance-create-quickstart.md).
-- Para obter um tutorial sobre como usar o serviço de migração de banco de dados do Azure para migração, consulte [migração de SQL instância gerenciada usando o serviço de migração de banco](../../dms/tutorial-sql-server-to-managed-instance.md)
+- Para obter mais informações sobre a configuração de VNet, confira [Configuração de VNet de Instância Gerenciada de SQL](connectivity-architecture-overview.md).
+- Para obter um início rápido que cria uma instância gerenciada e restaura um banco de dados de um arquivo de backup, confira [Criar uma instância gerenciada](instance-create-quickstart.md).
+- Para obter um tutorial sobre como usar o Serviço de Migração de Banco de Dados do Azure para migração, confira [Migração de Instância Gerenciada de SQL usando o Serviço de Migração de Banco de Dados](../../dms/tutorial-sql-server-to-managed-instance.md).

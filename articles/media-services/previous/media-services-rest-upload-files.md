@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: bc0369e99552859393da206e791477040681ccc4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91281041"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Carregar arquivos em uma conta dos Serviços de Mídia usando o REST
@@ -72,7 +72,7 @@ Para obter etapas sobre como configurar o Postman para este tutorial, consulte [
 
     Para obter valores para as primeiras cinco variáveis, consulte [Acessar a API dos Serviços de Mídia do Azure com a autenticação do Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
-    ![Carregar um arquivo](./media/media-services-rest-upload-files/postman-import-env.png)
+    ![Fazer upload de um arquivo](./media/media-services-rest-upload-files/postman-import-env.png)
 2. Especifique o valor para a variável de ambiente **NomeDoArquivoDeMídia**.
 
     Especifique o nome do arquivo de mídia que você pretende carregar. Neste exemplo, vamos carregar o arquivo BigBuckBunny.mp4. 
@@ -94,7 +94,7 @@ Para obter etapas sobre como configurar o Postman para este tutorial, consulte [
 
     A parte da URL é preenchida com a variável de ambiente **AzureADSTSEndpoint** (anteriormente no tutorial, você define os valores das variáveis de ambiente que oferecem suporte à coleção).
 
-    ![Carregar um arquivo](./media/media-services-rest-upload-files/postment-get-token.png)
+    ![Fazer upload de um arquivo](./media/media-services-rest-upload-files/postment-get-token.png)
 
 5. Pressione **Enviar**.
 
@@ -116,7 +116,7 @@ Antes de carregar todos os arquivos no armazenamento de blobs, defina os direito
 1. Selecione **AccessPolicy**  ->  **criar AccessPolicy para carregar**.
 2. Pressione **Enviar**.
 
-    ![Carregar um arquivo](./media/media-services-rest-upload-files/postman-access-policy.png)
+    ![Fazer upload de um arquivo](./media/media-services-rest-upload-files/postman-access-policy.png)
 
     O script de "teste" obtém a Id de AccessPolicy e define a variável de ambiente apropriada.
 
@@ -137,7 +137,7 @@ Neste exemplo, estamos criando um ativo não criptografado.
 1. Selecione **ativos**  ->  **criar ativo**.
 2. Pressione **Enviar**.
 
-    ![Carregar um arquivo](./media/media-services-rest-upload-files/postman-create-asset.png)
+    ![Fazer upload de um arquivo](./media/media-services-rest-upload-files/postman-create-asset.png)
 
     O script de "teste" obtém a Id do ativo e define a variável de ambiente apropriada.
 
@@ -170,7 +170,7 @@ Algumas considerações se aplicam:
 
     O script de "teste" cria a "URL de carregamento" com base no nome do arquivo de mídia especificado as informações de localizador SAS e define a variável de ambiente apropriada.
 
-    ![Carregar um arquivo](./media/media-services-rest-upload-files/postman-create-sas-locator.png)
+    ![Fazer upload de um arquivo](./media/media-services-rest-upload-files/postman-create-sas-locator.png)
 
 ## <a name="upload-a-file-to-blob-storage-using-the-upload-url"></a>Carregar um arquivo para o armazenamento de blob usando a URL de carregamento
 
@@ -197,7 +197,7 @@ Criar e configurar uma nova solicitação:
 4. Escolha o arquivo com o nome que você especificou na variável de ambiente **NomeDoArquivoDeMídia**.
 5. Pressione **Enviar**.
 
-    ![Carregar um arquivo](./media/media-services-rest-upload-files/postman-upload-file.png)
+    ![Fazer upload de um arquivo](./media/media-services-rest-upload-files/postman-upload-file.png)
 
 ##  <a name="create-a-metadata-in-the-asset"></a>Criar um metadados no ativo
 
@@ -206,7 +206,7 @@ Depois que o arquivo foi carregado, você precisa criar um metadados no ativo pa
 1. Selecione **AssetFiles**  ->  **createfileinfos**.
 2. Pressione **Enviar**.
 
-    ![Carregar um arquivo](./media/media-services-rest-upload-files/postman-create-file-info.png)
+    ![Fazer upload de um arquivo](./media/media-services-rest-upload-files/postman-create-file-info.png)
 
 O arquivo deve ser carregado e seus metadados definidos.
 

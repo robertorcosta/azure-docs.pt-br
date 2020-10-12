@@ -4,10 +4,10 @@ description: Este artigo descreve como você pode exibir e analisar o desempenho
 ms.topic: conceptual
 ms.date: 03/26/2020
 ms.openlocfilehash: 888853f0e9e7634cafa5e480752371c501376158
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90988136"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Monitorar o desempenho do cluster kubernetes com Azure Monitor para contêineres
@@ -34,8 +34,8 @@ Para exibir o status de integridade de todos os clusters do kubernetes implantad
 
 Você pode fazer o escopo dos resultados apresentados na grade para mostrar os clusters que são:
 
-* Clusters **do Azure** -AKS e AKs-Engine hospedados no serviço kubernetes do Azure
-* **Azure Stack (visualização)** -clusters de AKs do mecanismo hospedados em Azure Stack
+* Clusters **do Azure** -AKS e AKS-Engine hospedados no serviço kubernetes do Azure
+* **Azure Stack (versão prévia)** – clusters AKS-Engine hospedados no Azure Stack
 * Clusters **não Azure (visualização)** -kubernetes hospedados localmente
 * **Todos** -exibe todos os clusters kubernetes hospedados no Azure, Azure Stack e ambientes locais que são integrados a Azure monitor para contêineres
 
@@ -189,9 +189,9 @@ Essas informações podem ajudá-lo a identificar rapidamente se você tem um eq
 
 As informações apresentadas quando você exibe a guia **nós** é descrita na tabela a seguir.
 
-| Column | Descrição |
+| Coluna | Descrição |
 |--------|-------------|
-| Name | O nome do host. |
+| Nome | O nome do host. |
 | Status | Exibição de Kubernetes do status do nó. |
 | Min &nbsp; %, AVG &nbsp; %, 50 º &nbsp; %, 90 º &nbsp; %, 95 º &nbsp; %, Max&nbsp;%  | Percentual médio de nós com base no percentil pela duração selecionada. |
 | Min, AVG, 50 º, 90 º, 95 º, Max | Valor real dos nós médios com base no percentil durante o tempo de duração selecionado. O valor médio é medido do limite de CPU/memória definido para um nó. Para pods e contêineres, é o valor médio relatado pelo host. |
@@ -232,9 +232,9 @@ Selecione o valor na coluna **nó** para o controlador específico.
 
 As informações exibidas quando você exibe controladores são descritas na tabela a seguir.
 
-| Column | Descrição |
+| Coluna | Descrição |
 |--------|-------------|
-| Name | O nome do controlador.|
+| Nome | O nome do controlador.|
 | Status | O status de rollup dos contêineres após a conclusão da execução com status, como *OK*, *encerrado*, *com falha*, *parado*ou em *pausa*. Se o contêiner estiver em execução, mas o status não tiver sido exibido corretamente ou não tiver sido selecionado pelo agente e não tiver respondido por mais de 30 minutos, o status será *desconhecido*. Detalhes adicionais do ícone de status são fornecidos na tabela a seguir.|
 | Min &nbsp; %, AVG &nbsp; %, 50 º &nbsp; %, 90 º &nbsp; %, 95 º &nbsp; %, Max&nbsp;%| Média de rollup do percentual médio de cada entidade para a métrica e o percentil selecionados. |
 | Min, AVG, 50 º, 90 º, 95 º, Max  | Rollup da média de milinúcleo de CPU ou desempenho da memória do contêiner para o percentil selecionado. O valor médio é medido usando o limite de CPU/memória definido para um pod. |
@@ -269,9 +269,9 @@ Em um contêiner, você pode fazer drill down até um pod ou nó para exibir dad
 
 As informações exibidas quando você exibe contêineres são descritas na tabela a seguir.
 
-| Column | Descrição |
+| Coluna | Descrição |
 |--------|-------------|
-| Name | O nome do controlador.|
+| Nome | O nome do controlador.|
 | Status | Status dos contêineres, se houver. Detalhes adicionais do ícone de status são fornecidos na tabela a seguir.|
 | Min &nbsp; %, AVG &nbsp; %, 50 º &nbsp; %, 90 º &nbsp; %, 95 º &nbsp; %, Max&nbsp;% | O rollup do percentual médio de cada entidade para a métrica e o percentil selecionados. |
 | Min, AVG, 50 º, 90 º, 95 º, Max | O rollup da média do desempenho de memória ou do milinúcleo da CPU do contêiner para o percentual selecionado. O valor médio é medido usando o limite de CPU/memória definido para um pod. |

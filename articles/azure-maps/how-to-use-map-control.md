@@ -10,10 +10,10 @@ services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
 ms.openlocfilehash: 19db4fb0d75369a0f272eef1180e86f47d45d284
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91335323"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Usar o controle de mapeamento do Azure Mapas
@@ -254,12 +254,12 @@ Se acessar diretamente os serviços REST do Azure Maps, altere o domínio da URL
 
 ## <a name="javascript-frameworks"></a>Estruturas do JavaScript
 
-Se estiver desenvolvendo usando uma estrutura JavaScript, um dos seguintes projetos de código-fonte aberto pode ser útil:
+Se você estiver desenvolvendo com uma estrutura JavaScript, um dos seguintes projetos open-source pode ser útil:
 
-- [ng-Azure-Maps](https://github.com/arnaudleclerc/ng-azure-maps) -wrapper angular 10 em volta do Azure Maps.
-- [AzureMapsControl. Components](https://github.com/arnaudleclerc/AzureMapsControl.Components) – um componente mais econômico do Azure Maps.
-- [Componente reagir do Azure Maps](https://github.com/WiredSolutions/react-azure-maps) – um wrapper reajam para o controle de mapas do Azure.
-- [Vue Azure Maps](https://github.com/rickyruiz/vue-azure-maps) -um componente do Azure Maps para o aplicativo Vue.
+- [ng-azure-maps](https://github.com/arnaudleclerc/ng-azure-maps) – um wrapper Angular 10 alternativo nos mapas do Azure.
+- [AzureMapsControl.Components](https://github.com/arnaudleclerc/AzureMapsControl.Components) – um componente Blazor dos Azure Mapas.
+- [Componente React do Azure Mapas](https://github.com/WiredSolutions/react-azure-maps) – um wrapper React para o controle dos Azure Mapas.
+- [Vue Azure Mapas](https://github.com/rickyruiz/vue-azure-maps) – um componente dos Azure Mapas para o aplicativo Vue.
 
 ## <a name="next-steps"></a>Próximas etapas
 

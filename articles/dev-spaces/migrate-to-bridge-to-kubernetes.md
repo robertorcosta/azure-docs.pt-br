@@ -1,18 +1,18 @@
 ---
-title: Migrando para o Bridge para o kubernetes
+title: Migração para o Bridge to Kubernetes
 services: azure-dev-spaces
 ms.date: 09/21/2020
 ms.topic: conceptual
 description: Descreve os processos que o Power Azure Dev Spaces
 keywords: Azure Dev Spaces, espaços de desenvolvimento, Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, ponte para kubernetes
 ms.openlocfilehash: b585ee20efb7b377a041152996ef41d8c59c539e
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90994076"
 ---
-# <a name="migrating-to-bridge-to-kubernetes"></a>Migrando para o Bridge para o kubernetes
+# <a name="migrating-to-bridge-to-kubernetes"></a>Migração para o Bridge to Kubernetes
 
 A ponte para o kubernetes fornece uma alternativa de peso mais leve a muitos dos cenários de desenvolvimento que funcionam com Azure Dev Spaces. A ponte para o kubernetes é uma experiência somente no lado do cliente usando extensões no [Visual Studio][vs]   e [Visual Studio Code][vsc].  
 
@@ -34,7 +34,7 @@ A ponte para o kubernetes permite que os desenvolvedores trabalhem diretamente e
 
 Azure Dev Spaces e Bridge para kubernetes têm recursos semelhantes, eles também são diferentes em várias áreas:
 
-| Requisito  | Azure Dev Spaces  | Ponte para kubernetes  |
+| Requisito  | Azure Dev Spaces  | Bridge to Kubernetes  |
 |---------------|-------------------|--------------------------------|
 | Serviço de Kubernetes do Azure | Em 15 regiões do Azure | Qualquer região de serviço do AKS    |
 | **Segurança** |
@@ -120,7 +120,7 @@ Se você quiser experimentar a ponte para o kubernetes antes de desabilitar Azur
 Saiba mais sobre como a ponte para kubernetes funciona.
 
 > [!div class="nextstepaction"]
-> [Como o Bridge to kubernetes funciona][how-it-works-bridge-to-kubernetes]
+> [Como funciona a Ponte para Kubernetes][how-it-works-bridge-to-kubernetes]
 
 
 [azds-delete]: how-to/install-dev-spaces.md#remove-azure-dev-spaces-using-the-cli

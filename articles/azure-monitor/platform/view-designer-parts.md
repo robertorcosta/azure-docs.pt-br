@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/12/2018
 ms.openlocfilehash: 1e674bf157d55c9b5f7cf49e8df5e17acb99ee3a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86539390"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Guia de referência para exibir partes de visualização do designer no Azure Monitor
@@ -77,7 +77,7 @@ O cabeçalho exibe um único número que mostra uma contagem de registros de uma
 | Consulta |A consulta a ser executada para a lista. As duas primeiras propriedades para os dez primeiros registros nos resultados são exibidas. A primeira propriedade é um valor de texto e a segunda é um valor numérico. As barras são criadas automaticamente com base no valor relativo da coluna numérica.<br><br>Use o comando `Sort` na consulta para classificar os registros na lista. Para executar a consulta e retornar todos os registros você pode selecionar **Ver tudo**. |
 | Ocultar grafo |Selecione este link para desabilitar o grafo à direita da coluna numérica. |
 | Habilitar minigráficos |Selecione este link para exibir um minigráfico em vez de uma barra horizontal. Para saber mais, veja [Configurações comuns](#sparklines). |
-| Cor |A cor das barras ou minigráficos. |
+| Color |A cor das barras ou minigráficos. |
 | Separador de valor e nome |O delimitador de caractere único a ser usado para analisar a próxima propriedade em vários valores. Para saber mais, veja [Configurações comuns](#sparklines). |
 | Navegação clickthrough | Ação executada quando você clica em um item na lista.  Para saber mais, veja [Configurações comuns](#click-through-navigation). |
 | **Lista** |**> Títulos de coluna** |
@@ -107,7 +107,7 @@ O cabeçalho tem dois números que exibem uma contagem de registros de consultas
 | Consulta |A consulta a ser executada para a lista. As duas primeiras propriedades para os dez primeiros registros nos resultados são exibidas. A primeira propriedade é um valor de texto e a segunda é um valor numérico. As barras são criadas automaticamente com base no valor relativo da coluna numérica.<br><br>Use o comando `Sort` na consulta para classificar os registros na lista. Para executar a consulta e retornar todos os registros você pode selecionar **Ver tudo**. |
 | Ocultar grafo |Selecione este link para desabilitar o grafo à direita da coluna numérica. |
 | Habilitar minigráficos |Selecione este link para exibir um minigráfico em vez de uma barra horizontal. Para saber mais, veja [Configurações comuns](#sparklines). |
-| Cor |A cor das barras ou minigráficos. |
+| Color |A cor das barras ou minigráficos. |
 | Operação |A operação a ser executada para o minigráfico. Para saber mais, veja [Configurações comuns](#sparklines). |
 | Separador de valor e nome |O delimitador de caractere único a ser usado para analisar a próxima propriedade em vários valores. Para saber mais, veja [Configurações comuns](#sparklines). |
 | Navegação clickthrough | Ação executada quando você clica em um item na lista.  Para saber mais, veja [Configurações comuns](#click-through-navigation). |
@@ -143,12 +143,12 @@ O cabeçalho exibe um único número que resume uma coluna de valor em uma consu
 | Cor 1<br>Cor 2<br>Cor 3 |Selecione a cor de cada um dos valores que são exibidos na rosca. |
 | **Opções adicionais** |**> Mapeamento de cores avançado** |
 | Valor do campo |Digite o nome de um campo para exibi-lo como uma cor diferente se ele estiver incluído na rosca. |
-| Cor |Selecione a cor do campo exclusivo. |
+| Color |Selecione a cor do campo exclusivo. |
 | **Lista** | |
 | Consulta |A consulta a ser executada para a lista. A contagem de registros que são retornados pela consulta é exibida. |
 | Ocultar grafo |Selecione este link para desabilitar o grafo à direita da coluna numérica. |
 | Habilitar minigráficos |Selecione este link para exibir um minigráfico em vez de uma barra horizontal. Para saber mais, veja [Configurações comuns](#sparklines). |
-| Cor |A cor das barras ou minigráficos. |
+| Color |A cor das barras ou minigráficos. |
 | Operação |A operação a ser executada para o minigráfico. Para saber mais, veja [Configurações comuns](#sparklines). |
 | Separador de valor e nome |O delimitador de caractere único a ser usado para analisar a próxima propriedade em vários valores. Para saber mais, veja [Configurações comuns](#sparklines). |
 | Navegação clickthrough | Ação executada quando você clica em um item na lista.  Para saber mais, veja [Configurações comuns](#click-through-navigation). |
@@ -174,14 +174,14 @@ O cabeçalho exibe os resultados de duas consultas de log ao longo do tempo como
 | Navegação clickthrough | Ação executada quando você clica no cabeçalho.  Para saber mais, veja [Configurações comuns](#click-through-navigation). |
 | **Primeiro gráfico<br>Segundo gráfico** | |
 | Legenda |O texto que é exibido sob o balão para a primeira série. |
-| Cor |A cor a ser usada para as colunas na série. |
+| Color |A cor a ser usada para as colunas na série. |
 | Consulta |A consulta a executar para a primeira série. A contagem de registros em cada intervalo de tempo são representada pelas colunas do gráfico. |
 | Operação |A operação a executar na propriedade de valor a resumir como um único valor para o balão.<ul><li>Soma: a soma dos valores de todos os registros.</li><li>Média: a média do valor de todos os registros.</li><li>Última amostra: o valor do último intervalo que é incluído no gráfico.</li><li>Primeira amostra: o valor do primeiro intervalo que é incluído no gráfico.</li><li>Contagem: a contagem de registros que são retornados pela consulta.</li></ul> |
 | **Lista** | |
 | Consulta |A consulta a ser executada para a lista. A contagem de registros que são retornados pela consulta é exibida. |
 | Ocultar grafo |Selecione este link para desabilitar o grafo à direita da coluna numérica. |
 | Habilitar minigráficos |Selecione este link para exibir um minigráfico em vez de uma barra horizontal. Para saber mais, veja [Configurações comuns](#sparklines). |
-| Cor |A cor das barras ou minigráficos. |
+| Color |A cor das barras ou minigráficos. |
 | Operação |A operação a ser executada para o minigráfico. Para saber mais, veja [Configurações comuns](#sparklines). |
 | Navegação clickthrough | Ação executada quando você clica em um item na lista.  Para saber mais, veja [Configurações comuns](#click-through-navigation). |
 | **Lista** |**> Títulos de coluna** |
@@ -200,7 +200,7 @@ O cabeçalho exibe texto estático e um link opcional. A lista exibe um ou mais 
 | **Geral** | |
 | Título do Grupo |O texto que é exibido na parte superior do bloco. |
 | Novo Grupo |Selecione este link para criar um novo grupo na exibição, iniciando na exibição atual. |
-| Cor |A cor da tela de fundo do cabeçalho. |
+| Color |A cor da tela de fundo do cabeçalho. |
 | **Cabeçalho** | |
 | Imagem |O arquivo de imagem que é exibido no cabeçalho. |
 | Rotular |O texto que é exibido no cabeçalho. |
@@ -241,7 +241,7 @@ O cabeçalho exibe um gráfico de linhas com várias séries de uma consulta de 
 | Consulta |A consulta a ser executada para a lista. A contagem de registros que são retornados pela consulta é exibida. |
 | Ocultar grafo |Selecione este link para desabilitar o grafo à direita da coluna numérica. |
 | Habilitar minigráficos |Selecione este link para exibir um minigráfico em vez de uma barra horizontal. Para saber mais, veja [Configurações comuns](#sparklines). |
-| Cor |A cor das barras ou minigráficos. |
+| Color |A cor das barras ou minigráficos. |
 | Operação |A operação a ser executada para o minigráfico. Para saber mais, veja [Configurações comuns](#sparklines). |
 | Separador de valor e nome |O delimitador de caractere único a ser usado para analisar a próxima propriedade em vários valores. Para saber mais, veja [Configurações comuns](#sparklines). |
 | Navegação clickthrough | Ação executada quando você clica em um item na lista.  Para saber mais, veja [Configurações comuns](#click-through-navigation). |
@@ -277,7 +277,7 @@ O cabeçalho exibe um gráfico de linhas com várias séries de uma consulta de 
 | Consulta |A consulta a ser executada para a lista. A contagem de registros que são retornados pela consulta é exibida. |
 | Ocultar grafo |Selecione este link para desabilitar o grafo à direita da coluna numérica. |
 | Habilitar minigráficos |Selecione este link para exibir um minigráfico em vez de uma barra horizontal. Para saber mais, veja [Configurações comuns](#sparklines). |
-| Cor |A cor das barras ou minigráficos. |
+| Color |A cor das barras ou minigráficos. |
 | Operação |A operação a ser executada para o minigráfico. Para saber mais, veja [Configurações comuns](#sparklines). |
 | Separador de valor e nome |O delimitador de caractere único a ser usado para analisar a próxima propriedade em vários valores. Para saber mais, veja [Configurações comuns](#sparklines). |
 | Navegação clickthrough | Ação executada quando você clica em um item na lista.  Para saber mais, veja [Configurações comuns](#click-through-navigation). |
@@ -326,7 +326,7 @@ A tabela a seguir descreve as configurações de navegação clickthrough.
 |:--|:--|
 | Pesquisa de Logs (Automática) | Consulta de log a ser executada quando você seleciona um item de cabeçalho.  Essa é a mesma consulta de log na qual o item se baseia.
 | Pesquisa de log        | Consulta de log a ser executada quando você seleciona um item em uma lista.  Digite a consulta na caixa **Consulta de navegação**.   Use *{selected item}* para incluir a sintaxe para o item selecionado pelo usuário.  Por exemplo, se a consulta tiver uma coluna denominada *Computer* e a consulta de navegação for *{selected item}*, uma consulta como *Computer="MyComputer"* é executada quando você seleciona um computador. Se a consulta de navegação for do tipo *Type=Event {selected item}*, a consulta *Type=Event Computer="MyComputer"* é executada. |
-| Visualizar              | Modo de exibição para abrir quando você seleciona um item de cabeçalho ou um item em uma lista.  Selecione o nome de uma exibição no seu workspace na caixa **Nome de exibição**. |
+| Exibir              | Modo de exibição para abrir quando você seleciona um item de cabeçalho ou um item em uma lista.  Selecione o nome de uma exibição no seu workspace na caixa **Nome de exibição**. |
 
 
 
@@ -354,7 +354,7 @@ A tabela a seguir descreve as configurações de limites:
 | Habilitar limites |Clique neste link para exibir um ícone de cor à esquerda de cada valor. O ícone indica a integridade do valor em relação a limites especificados. |
 | Nome |O nome do valor limite. |
 | Limite |O valor para o limite. A cor de integridade para cada item de lista é definida como a cor do maior valor limite que é excedido pelo valor do item. Se nenhum valor limite for excedido, será usada uma cor padrão. |
-| Cor |A cor que indica o valor limite. |
+| Color |A cor que indica o valor limite. |
 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre [consultas de log](../log-query/log-query-overview.md) para dar suporte às consultas em partes de visualização.
