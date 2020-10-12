@@ -9,12 +9,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: isacabe
-ms.openlocfilehash: 6e9f9c89cf2e5e40d37a1532e688490aae294181
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ed14d4cb79cb5794fa666f1bb96e062d69128d0f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73888857"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "87337663"
 ---
 # <a name="connect-an-iot-devkit-device-to-the-remote-monitoring-solution-accelerator"></a>Conecte um dispositivo IoT DevKit ao acelerador de solução de monitoramento remoto
 
@@ -49,7 +49,7 @@ Para configurar a cadeia de conexão do dispositivo Hub IoT no seu dispositivo D
 1. Alternar o IoT DevKit no **modo de configuração**:
 
     * Mantenha pressionado o botão **A**.
-    * Pressione e solte a o botão**Reiniciar**.
+    * Enviar por push e liberar o botão de **reinicialização** .
 
 1. A tela exibe a ID do DevKit e `Configuration`.
 
@@ -109,7 +109,7 @@ Para alterar a cor de um dos LEDs do DevKit, use o método **LedColor**:
 
     ![LED vermelho do Kit de Desenvolvimento da IoT](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-devkit-led.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você planeja passar para outros tutoriais, deixe o acelerador de solução de Monitoramento Remoto implantado.
 
@@ -130,4 +130,3 @@ Agora que você aprendeu como conectar um dispositivo DevKit ao seu acelerador d
 
 * [Visão geral dos aceleradores de solução do Azure IoT](https://docs.microsoft.com/azure/iot-accelerators/)
 * [Personalizar a interface do usuário](iot-accelerators-remote-monitoring-customize.md)
-* [Conectar o kit de desenvolvimento de IoT ao aplicativo Azure IoT Central](../iot-central/core/howto-connect-devkit.md)

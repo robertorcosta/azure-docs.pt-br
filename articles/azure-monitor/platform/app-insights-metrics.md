@@ -8,10 +8,10 @@ ms.date: 07/03/2019
 ms.author: vitalyg
 ms.subservice: application-insights
 ms.openlocfilehash: 9ea98df4b6cd8572412e7082b451feac3736919c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87327065"
 ---
 # <a name="application-insights-log-based-metrics"></a>Application Insights métricas baseadas em log
@@ -49,7 +49,7 @@ A métrica de *disponibilidade* mostra a porcentagem de execuções de teste na 
 
 |Unidade de medida|Agregações com suporte|Dimensões com suporte|
 |---|---|---|---|---|---|
-|Porcentagem|Média|Local de execução, nome do teste|
+|Percentual|Média|Local de execução, nome do teste|
 
 ```Kusto
 availabilityResults 
@@ -224,7 +224,7 @@ exceptions
 
 ### <a name="failed-requests-requestsfailed"></a>Solicitações com falha (solicitações/falha)
 
-A contagem de solicitações de servidor rastreadas que foram marcadas como *com falha*. Por padrão, o SDK do Application Insights marca automaticamente cada solicitação do servidor que retornou o código de resposta HTTP 5xx ou 4xx como uma solicitação com falha. Você pode personalizar essa lógica modificando a propriedade *Success* do item telemetria de solicitação em um [inicializador de telemetria personalizado](../app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer).
+A contagem de solicitações de servidor rastreadas que foram marcadas como *com falha*. Por padrão, o SDK do Application Insights marca automaticamente cada solicitação do servidor que retornou o código de resposta HTTP 5xx ou 4xx como uma solicitação com falha. Você pode personalizar essa lógica modificando a propriedade  *Success* do item telemetria de solicitação em um [inicializador de telemetria personalizado](../app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer).
 
 |Unidade de medida|Agregações com suporte|Dimensões previamente agregadas|Observações|
 |---|---|---|---|
@@ -312,7 +312,7 @@ A métrica mostra quanto da capacidade total do processador é consumida pelo pr
 
 |Unidade de medida|Agregações com suporte|Dimensões com suporte|
 |---|---|---|
-|Porcentagem|Média, mín., máx.|Instância de função de nuvem
+|Percentual|Média, mín., máx.|Instância de função de nuvem
 
 ```Kusto
 performanceCounters
@@ -358,10 +358,10 @@ Consumo de CPU por *todos os* processos em execução na instância do servidor 
 
 |Unidade de medida|Agregações com suporte|Dimensões com suporte|
 |---|---|---|
-|Porcentagem|Média, mín., máx.|Instância de função de nuvem
+|Percentual|Média, mín., máx.|Instância de função de nuvem
 
 >[!NOTE]
-> A métrica de tempo do processador não está disponível para os aplicativos hospedados nos serviços de Azure App. Use a métrica [processar CPU](#process-cpu-performancecountersprocesscpupercentage) para acompanhar a utilização da CPU dos aplicativos Web hospedados nos serviços de aplicativos.
+> A métrica de tempo do processador não está disponível para os aplicativos hospedados nos serviços de Azure App. Use a métrica  [processar CPU](#process-cpu-performancecountersprocesscpupercentage) para acompanhar a utilização da CPU dos aplicativos Web hospedados nos serviços de aplicativos.
 
 ```Kusto
 performanceCounters

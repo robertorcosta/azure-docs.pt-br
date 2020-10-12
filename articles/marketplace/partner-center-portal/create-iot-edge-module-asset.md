@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 04/03/2020
 ms.openlocfilehash: dec0711c4763983e520d247fd8b775b1810e0479
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87324634"
 ---
 # <a name="prepare-your-iot-edge-module-technical-assets"></a>Prepare seus recursos técnicos do módulo IoT Edge
@@ -130,7 +130,7 @@ Os parceiros são notificados sempre que há uma alteração significativa que a
 
 - Matriz de suporte de so/Arch da camada 1 com suporte pelo IoT Edge
 - Módulo do IoT do SDK
-- Runtime do IoT Edge
+- runtime do IoT Edge
 - Diretrizes de certificação de módulo IoT Edge
 
 Os parceiros devem atualizar e recertificar suas ofertas, publicando-as novamente no [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace).

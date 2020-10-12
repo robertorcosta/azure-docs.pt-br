@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
 ms.openlocfilehash: 91bc7adaf7829766c471056c50c1c3abd70dda63
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87828771"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Notas sobre a versão do Gerenciador de Armazenamento do Microsoft Azure
@@ -78,7 +78,7 @@ Para baixar versões anteriores do Gerenciador de Armazenamento, você pode visi
 * Ao copiar, carregar ou baixar discos grandes, Gerenciador de Armazenamento às vezes falharia em revogar o acesso aos discos envolvidos na operação. Esse problema foi corrigido. #2048
 * As estatísticas de tabela falharam ao exibir uma consulta de chave de partição. Esse problema foi corrigido. #1886
 
-### <a name="known-issues"></a>Problemas Conhecidos
+### <a name="known-issues"></a>Problemas conhecidos
 * Gerenciador de Armazenamento 1.11.0 agora requer um ponto de extremidade DFS (como "myaccount.dfs.core.windows.net") para anexar a contêineres de ADLS Gen2. As versões anteriores do Gerenciador de Armazenamento permitiam que você usa um ponto de extremidade de BLOB. Esses anexos podem não funcionar mais após a atualização para o 1.11.0. Se você encontrar esse problema, anexe novamente usando o ponto de extremidade do DFS.
 * As configurações numéricas não são verificadas se se encontram em um intervalo válido. #2140
 * A cópia de contêineres de blob de uma conta de armazenamento para outra no modo de exibição de árvore pode falhar. Estamos investigando o problema. #2124
@@ -195,7 +195,7 @@ O carregamento, o download e a cópia entre regiões de discos são alimentados 
 * Se uma conta de armazenamento em uma nuvem soberanas foi anexada usando o nome e a chave, AzCopy não funcionaria. Esse problema foi corrigido. #1544
 * Ao anexar por meio de uma cadeia de conexão, Gerenciador de Armazenamento agora removerá espaços à direita. #1387
 
-### <a name="known-issues"></a>Problemas Conhecidos
+### <a name="known-issues"></a>Problemas conhecidos
 * A configuração de atualização automática ainda não afeta todas as operações no Gerenciador de BLOBs.
 * Os recursos de disco gerenciado não têm suporte no Azure Stack.
 * Se um upload ou uma colagem do disco falhar e um novo disco tiver sido criado antes da falha, Gerenciador de Armazenamento não excluirá o disco para você.
@@ -269,7 +269,7 @@ O carregamento, o download e a cópia entre regiões de discos são alimentados 
 * Se uma conta de armazenamento em uma nuvem soberanas foi anexada usando o nome e a chave, AzCopy não funcionaria. Esse problema foi corrigido. [#1544](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1544)
 * Ao anexar por meio de uma cadeia de conexão, Gerenciador de Armazenamento agora removerá espaços à direita. [#1387](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1387)
 
-### <a name="known-issues"></a>Problemas Conhecidos
+### <a name="known-issues"></a>Problemas conhecidos
 
 * A configuração de atualização automática ainda não afeta todas as operações no Gerenciador de BLOBs.
 * Os recursos de disco gerenciado não têm suporte no Azure Stack.
@@ -331,7 +331,7 @@ O carregamento, o download e a cópia entre regiões de discos são alimentados 
 * "Cancelar" fixo não está funcionando ao abrir um blob. [#1464](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1464)
 * Correção de vários problemas de ortografia e dica de ferramenta em todo o produto. Muitos agradecimentos a todos os que relataram esses problemas! [#1303](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1303), [#1328](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1328), [#1329](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1329), [#1331](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1331), [#1336](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1336), [#1352](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1352), [#1368](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1368), [#1395](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1395)
 
-### <a name="known-issues"></a>Problemas Conhecidos
+### <a name="known-issues"></a>Problemas conhecidos
 
 * Ao executar um download de BLOB não AzCopy, o MD5 para arquivos grandes não está sendo verificado. Isso ocorre devido a um bug no SDK de armazenamento. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
 * Ao usar o RBAC, Gerenciador de Armazenamento requer algumas permissões de camada de gerenciamento para acessar os recursos de armazenamento. Consulte o [Guia de solução de problemas](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) para obter mais informações.
@@ -388,7 +388,7 @@ O carregamento, o download e a cópia entre regiões de discos são alimentados 
 * A cópia de um contêiner de BLOB que utiliza um nome de exibição falharia. Agora, o nome real do contêiner de BLOBs é usado. [#1166](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1166)
 * A tentativa de executar determinadas ações em uma pasta ADLS Gen2 que tinha caracteres Unicode em seu nome falharia. Todas as ações agora devem funcionar. [#980](https://www.github.com/Microsoft/AzureStorageExplorer/issues/980)
 
-### <a name="known-issues"></a>Problemas Conhecidos
+### <a name="known-issues"></a>Problemas conhecidos
 
 * Ao executar um download de BLOB não AzCopy, o MD5 para arquivos grandes não está sendo verificado. Isso ocorre devido a um bug no SDK de armazenamento. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
 * Ao usar o RBAC, Gerenciador de Armazenamento requer algumas permissões de camada de gerenciamento para acessar os recursos de armazenamento. Consulte o [Guia de solução de problemas](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) para obter mais informações.
@@ -440,7 +440,7 @@ O carregamento, o download e a cópia entre regiões de discos são alimentados 
 * A cópia de um contêiner de BLOB que utiliza um nome de exibição falharia. Agora, o nome real do contêiner de BLOBs é usado. [#1166](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1166)
 * A tentativa de executar determinadas ações em uma pasta ADLS Gen2 que tinha caracteres Unicode em seu nome falharia. Todas as ações agora devem funcionar. [#980](https://www.github.com/Microsoft/AzureStorageExplorer/issues/980)
 
-### <a name="known-issues"></a>Problemas Conhecidos
+### <a name="known-issues"></a>Problemas conhecidos
 
 * Ao executar um download de BLOB não AzCopy, o MD5 para arquivos grandes não está sendo verificado. Isso ocorre devido a um bug no SDK de armazenamento. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
 * Ao usar o RBAC, Gerenciador de Armazenamento requer algumas permissões de camada de gerenciamento para acessar os recursos de armazenamento. Consulte o [Guia de solução de problemas](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) para obter mais informações.
@@ -497,7 +497,7 @@ O carregamento, o download e a cópia entre regiões de discos são alimentados 
 * No painel Propriedades, a camada de SKU de uma conta de armazenamento estava sendo mostrada como a espécie da conta. Esse problema foi corrigido. #654
 * Às vezes, era impossível interromper a concessão de um blob, mesmo se você inseriu o nome do blob corretamente. Esse problema foi corrigido. #1070
 
-### <a name="known-issues"></a>Problemas Conhecidos
+### <a name="known-issues"></a>Problemas conhecidos
 
 * Ao usar o RBAC, Gerenciador de Armazenamento requer algumas permissões de camada de gerenciamento para acessar os recursos de armazenamento. Consulte o [Guia de solução de problemas](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) para obter mais informações.
 * A tentativa de acessar BLOBs ADLS Gen2 quando por trás de um proxy pode falhar.
@@ -571,7 +571,7 @@ O carregamento, o download e a cópia entre regiões de discos são alimentados 
     Outros recursos típicos de Blob, como a exclusão reversível e instantâneos, não estão disponíveis no momento. Gerenciando permissões também só está disponível quando conectado. Além disso, ao trabalhar em uma conta de armazenamento do ADLS Gen2, o Gerenciador de Armazenamento usará o AzCopy para todos os carregamentos, downloads e padrões usando o nome e as credenciais de chave para todas as operações, se disponível.
 * Depois de comentários do usuário de alta segurança, interromper a concessão mais uma vez pode ser usado para interromper as concessões em vários blobs ao mesmo tempo.
 
-### <a name="known-issues"></a>Problemas Conhecidos
+### <a name="known-issues"></a>Problemas conhecidos
 
 * Ao fazer o download de uma conta de armazenamento do ADLS Gen2 se um dos arquivos que estão sendo transferidos já existir, o AzCopy irá falhar algumas vezes. Isso será corrigido em um hotfix futuro.
 * Desanexar de um recurso anexado por meio de URI de SAS, como um contêiner de blob, pode causar um erro que impede que outros anexos apareçam corretamente. Para contornar esse problema, basta atualizar o nó do grupo. Para obter mais informações, veja #537.
@@ -640,7 +640,7 @@ O carregamento, o download e a cópia entre regiões de discos são alimentados 
     Outros recursos típicos de Blob, como a exclusão reversível e instantâneos, não estão disponíveis no momento. Gerenciando permissões também só está disponível quando conectado. Além disso, ao trabalhar em uma conta de armazenamento do ADLS Gen2, o Gerenciador de Armazenamento usará o AzCopy para todos os carregamentos, downloads e padrões usando o nome e as credenciais de chave para todas as operações, se disponível.
 * Depois de comentários do usuário de alta segurança, interromper a concessão mais uma vez pode ser usado para interromper as concessões em vários blobs ao mesmo tempo.
 
-### <a name="known-issues"></a>Problemas Conhecidos
+### <a name="known-issues"></a>Problemas conhecidos
 
 * Ao fazer o download de uma conta de armazenamento do ADLS Gen2 se um dos arquivos que estão sendo transferidos já existir, o AzCopy irá falhar algumas vezes. Isso será corrigido em um hotfix futuro.
 * Desanexar de um recurso anexado por meio de URI de SAS, como um contêiner de blob, pode causar um erro que impede que outros anexos apareçam corretamente. Para contornar esse problema, basta atualizar o nó do grupo. Para obter mais informações, veja #537.
@@ -695,7 +695,7 @@ O carregamento, o download e a cópia entre regiões de discos são alimentados 
     Outros recursos típicos de Blob, como a exclusão reversível e instantâneos, não estão disponíveis no momento. Gerenciando permissões também só está disponível quando conectado. Além disso, ao trabalhar em uma conta de armazenamento do ADLS Gen2, o Gerenciador de Armazenamento usará o AzCopy para todos os carregamentos, downloads e padrões usando o nome e as credenciais de chave para todas as operações, se disponível.
 * Depois de comentários do usuário de alta segurança, interromper a concessão mais uma vez pode ser usado para interromper as concessões em vários blobs ao mesmo tempo.
 
-### <a name="known-issues"></a>Problemas Conhecidos
+### <a name="known-issues"></a>Problemas conhecidos
 
 * Ao fazer o download de uma conta de armazenamento do ADLS Gen2 se um dos arquivos que estão sendo transferidos já existir, o AzCopy irá falhar algumas vezes. Isso será corrigido em um hotfix futuro.
 * Desanexar de um recurso anexado por meio de URI de SAS, como um contêiner de blob, pode causar um erro que impede que outros anexos apareçam corretamente. Para contornar esse problema, basta atualizar o nó do grupo. Para obter mais informações, veja #537.
@@ -753,14 +753,14 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 * Quebrar concessões agora só pode ser executado em um blob de cada vez. Além disso, você tem que digitar o nome do blob cujo aluguel você está quebrando. Essa alteração foi feita para reduzir a probabilidade de quebra acidental de uma concessão, especialmente para VMs. #394
 * Se você encontrar problemas de login, poderá tentar redefinir a autenticação. Vá para o menu "Ajuda" e clique em "Redefinir" para acessar essa funcionalidade. #419
 
-### <a name="fix"></a>Correção
+### <a name="fix"></a>Fix
 
 * Após um forte feedback do usuário, o nó do emulador padrão foi reativado. Você ainda pode adicionar mais conexões de emulador por meio da caixa de diálogo Conectar, mas se o emulador estiver configurado para usar as portas padrão, você também poderá usar o nó "Emulator * Default Ports" em "Contas locais e anexadas / armazenamento". #669
 * O Storage Explorer não permitirá mais que você defina valores de metadados de blob com espaço em branco à esquerda ou à direita. #760
 * O botão "Entrar" sempre foi ativado nas mesmas páginas da caixa de diálogo Conectar. Agora ela é desabilitada quando apropriado. #761
 * O Acesso Rápido não gerará mais um erro no console quando nenhum item de Acesso Rápido for adicionado.
 
-### <a name="known-issues"></a>Problemas Conhecidos
+### <a name="known-issues"></a>Problemas conhecidos
 
 * Desanexar de um recurso anexado por meio de URI de SAS, como um contêiner de blob, pode causar um erro que impede que outros anexos apareçam corretamente. Para contornar esse problema, basta atualizar o nó do grupo. Para obter mais informações, veja #537.
 * Se você usar o VS para Mac e já tiver criado uma configuração do AAD personalizada, talvez não consiga se conectar. Para contornar o problema, exclua o conteúdo de ~/.IdentityService/AadConfigurations. Se isso não desbloquear você, comente sobre este assunto.
@@ -821,7 +821,7 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 * Agora a ação "Definir a camada de acesso padrão" está disponível para contas do Armazenamento de Blob e GPV2 que foram fixadas no Acesso Rápido. [#229](https://github.com/Microsoft/AzureStorageExplorer/issues/229)
 * Às vezes, o Gerenciador de Armazenamento poderia falhar ao mostrar as contas de Armazenamento Clássicas. [#323](https://github.com/Microsoft/AzureStorageExplorer/issues/323)
 
-### <a name="known-issues"></a>Problemas Conhecidos
+### <a name="known-issues"></a>Problemas conhecidos
 * Ao usar emuladores, como o emulador de armazenamento do Azure ou Azurite, você precisará tê-los a escutar conexões de suas portas padrão. Caso contrário, o Gerenciador de armazenamento não poderá se conectar a eles.
 * Se você usar o VS para Mac e já tiver criado uma configuração do AAD personalizada, talvez não consiga se conectar. Para contornar o problema, exclua o conteúdo de ~/.IdentityService/AadConfigurations. Se, ao fazer isso, você não for desbloqueado, comente sobre [esse problema](https://github.com/Microsoft/AzureStorageExplorer/issues/97).
 * O Azurite ainda não implementou totalmente todas as APIs de Armazenamento. Por causa disso, pode haver um comportamento ou erros inesperados ao usar o Azurite para armazenamento de desenvolvimento.
@@ -877,7 +877,7 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 * Agora a ação "Definir a camada de acesso padrão" está disponível para contas do Armazenamento de Blob e GPV2 que foram fixadas no Acesso Rápido. [#229](https://github.com/Microsoft/AzureStorageExplorer/issues/229)
 * Às vezes, o Gerenciador de Armazenamento poderia falhar ao mostrar as contas de Armazenamento Clássicas. [#323](https://github.com/Microsoft/AzureStorageExplorer/issues/323)
 
-### <a name="known-issues"></a>Problemas Conhecidos
+### <a name="known-issues"></a>Problemas conhecidos
 * Ao usar emuladores, como o emulador de armazenamento do Azure ou Azurite, você precisará tê-los a escutar conexões de suas portas padrão. Caso contrário, o Gerenciador de armazenamento não poderá se conectar a eles.
 * Se você usar o VS para Mac e já tiver criado uma configuração do AAD personalizada, talvez não consiga se conectar. Para contornar o problema, exclua o conteúdo de ~/.IdentityService/AadConfigurations. Se, ao fazer isso, você não for desbloqueado, comente sobre [esse problema](https://github.com/Microsoft/AzureStorageExplorer/issues/97).
 * O Azurite ainda não implementou totalmente todas as APIs de Armazenamento. Por causa disso, pode haver um comportamento ou erros inesperados ao usar o Azurite para armazenamento de desenvolvimento.
@@ -932,7 +932,7 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 * Agora a ação "Definir a camada de acesso padrão" está disponível para contas do Armazenamento de Blob e GPV2 que foram fixadas no Acesso Rápido. [#229](https://github.com/Microsoft/AzureStorageExplorer/issues/229)
 * Às vezes, o Gerenciador de Armazenamento poderia falhar ao mostrar as contas de Armazenamento Clássicas. [#323](https://github.com/Microsoft/AzureStorageExplorer/issues/323)
 
-### <a name="known-issues"></a>Problemas Conhecidos
+### <a name="known-issues"></a>Problemas conhecidos
 * Ao usar emuladores, como o emulador de armazenamento do Azure ou Azurite, você precisará tê-los a escutar conexões de suas portas padrão. Caso contrário, o Gerenciador de armazenamento não poderá se conectar a eles.
 * Se você usar o VS para Mac e já tiver criado uma configuração do AAD personalizada, talvez não consiga se conectar. Para contornar o problema, exclua o conteúdo de ~/.IdentityService/AadConfigurations. Se, ao fazer isso, você não for desbloqueado, comente sobre [esse problema](https://github.com/Microsoft/AzureStorageExplorer/issues/97).
 * O Azurite ainda não implementou totalmente todas as APIs de Armazenamento. Por causa disso, pode haver um comportamento ou erros inesperados ao usar o Azurite para armazenamento de desenvolvimento.
@@ -992,7 +992,7 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 * Agora a ação "Definir a camada de acesso padrão" está disponível para contas do Armazenamento de Blob e GPV2 que foram fixadas no Acesso Rápido. [#229](https://github.com/Microsoft/AzureStorageExplorer/issues/229)
 * Às vezes, o Gerenciador de Armazenamento poderia falhar ao mostrar as contas de Armazenamento Clássicas. [#323](https://github.com/Microsoft/AzureStorageExplorer/issues/323)
 
-### <a name="known-issues"></a>Problemas Conhecidos
+### <a name="known-issues"></a>Problemas conhecidos
 * Ao usar emuladores, como o emulador de armazenamento do Azure ou Azurite, você precisará tê-los a escutar conexões de suas portas padrão. Caso contrário, o Gerenciador de armazenamento não poderá se conectar a eles.
 * Se você usar o VS para Mac e já tiver criado uma configuração do AAD personalizada, talvez não consiga se conectar. Para contornar o problema, exclua o conteúdo de ~/.IdentityService/AadConfigurations. Se, ao fazer isso, você não for desbloqueado, comente sobre [esse problema](https://github.com/Microsoft/AzureStorageExplorer/issues/97).
 * O Azurite ainda não implementou totalmente todas as APIs de Armazenamento. Por causa disso, pode haver um comportamento ou erros inesperados ao usar o Azurite para armazenamento de desenvolvimento.
@@ -1046,7 +1046,7 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 * Acessibilidade: as guias Ações e Propriedades com vários valores aria ausentes que resultavam em uma experiência de leitor de tela ruim. Agora os valores aria ausentes foram adicionados. [Nº 316](https://github.com/Microsoft/AzureStorageExplorer/issues/316)
 * Acessibilidade: os três nós recolhidos do lado esquerdo não receberam um valor aria expandido de falso. Esse problema foi corrigido. [#352](https://github.com/Microsoft/AzureStorageExplorer/issues/352)
 
-### <a name="known-issues"></a>Problemas Conhecidos
+### <a name="known-issues"></a>Problemas conhecidos
 * Desanexar de um recurso anexado por meio de URI de SAS, como um contêiner de blob, pode causar um erro que impede que outros anexos apareçam corretamente. Para contornar esse problema, basta atualizar o nó do grupo. Consulte [esse problema](https://github.com/Microsoft/AzureStorageExplorer/issues/537) para obter mais informações.
 * Se você usar o VS para Mac e já tiver criado uma configuração do AAD personalizada, talvez não consiga se conectar. Para contornar o problema, exclua o conteúdo de ~/.IdentityService/AadConfigurations. Se, ao fazer isso, você não for desbloqueado, comente sobre [esse problema](https://github.com/Microsoft/AzureStorageExplorer/issues/97).
 * O Azurite ainda não implementou totalmente todas as APIs de Armazenamento. Por causa disso, pode haver um comportamento ou erros inesperados ao usar o Azurite para armazenamento de desenvolvimento.
@@ -1106,7 +1106,7 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 * Na caixa de diálogo Adicionar Entidade, VoiceOver não foi anunciando de que coluna um elemento de entrada fazia parte. O nome da coluna atual agora está incluído na descrição do elemento. [#206](https://github.com/Microsoft/AzureStorageExplorer/issues/206)
 * Caixas de seleção e botões de opção não tem uma borda visível quando focalizados. Esse problema foi corrigido. [#237](https://github.com/Microsoft/AzureStorageExplorer/issues/237)
 
-### <a name="known-issues"></a>Problemas Conhecidos
+### <a name="known-issues"></a>Problemas conhecidos
 * Ao usar emuladores, como o emulador de armazenamento do Azure ou Azurite, você precisará tê-los a escutar conexões de suas portas padrão. Caso contrário, o Gerenciador de armazenamento não poderá se conectar a eles.
 * Se você usar o VS para Mac e já tiver criado uma configuração do AAD personalizada, talvez não consiga se conectar. Para contornar o problema, exclua o conteúdo de ~/.IdentityService/AadConfigurations. Se, ao fazer isso, você não for desbloqueado, comente sobre [esse problema](https://github.com/Microsoft/AzureStorageExplorer/issues/97).
 * O Azurite ainda não implementou totalmente todas as APIs de Armazenamento. Por causa disso, pode haver um comportamento ou erros inesperados ao usar o Azurite para armazenamento de desenvolvimento.
@@ -1161,7 +1161,7 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 * As maiúsculas e minúsculas de "Resolver automaticamente" para ações no log de atividades estava errado. Agora isso está correto. [#51](https://github.com/Microsoft/AzureStorageExplorer/issues/51)
 * Ao excluir uma entidade de uma tabela, a caixa de diálogo que solicita sua confirmação exibia um ícone de erro. Agora a caixa de diálogo usa um ícone de aviso. [#148](https://github.com/Microsoft/AzureStorageExplorer/issues/148)
 
-### <a name="known-issues"></a>Problemas Conhecidos
+### <a name="known-issues"></a>Problemas conhecidos
 * Se você usar o VS para Mac e já tiver criado uma configuração do AAD personalizada, talvez não consiga se conectar. Para contornar o problema, exclua o conteúdo de ~/.IdentityService/AadConfigurations. Se, ao fazer isso, você não for desbloqueado, comente sobre [esse problema](https://github.com/Microsoft/AzureStorageExplorer/issues/97).
 * O Azurite ainda não implementou totalmente todas as APIs de Armazenamento. Por causa disso, pode haver um comportamento ou erros inesperados ao usar o Azurite para armazenamento de desenvolvimento.
 * Em casos raros, o foco da árvore pode ficar preso no Acesso Rápido. Para liberar o foco, você pode Atualizar Tudo.
@@ -1230,7 +1230,7 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 * A ordem dos botões em várias caixas de diálogo foi revertida. Esse problema foi corrigido.
 * Diversas correções relacionadas à segurança.
 
-### <a name="known-issues"></a>Problemas Conhecidos
+### <a name="known-issues"></a>Problemas conhecidos
 * Em casos raros, o foco da árvore pode ficar preso no Acesso Rápido. Para liberar o foco, você pode Atualizar Tudo.
 * Pode ocorrer uma falha ao carregar certos arquivos como blobs acrescentados durante o direcionamento para o Azure Stack.
 * Depois de clicar em "Cancelar" em uma tarefa, talvez demore algum tempo para a tarefa ser cancelada. Isso ocorre porque estamos usando a solução alternativa de filtro de cancelamento descrita aqui.
@@ -1266,7 +1266,7 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 * Um problema impediu que os blobs/arquivos esperados fossem listados no editor. Esse problema foi corrigido.
 * Um problema causou a alternância entre as exibições de instantâneos para exibir itens incorretamente. Esse problema foi corrigido.
 
-### <a name="known-issues"></a>Problemas Conhecidos
+### <a name="known-issues"></a>Problemas conhecidos
 * O Gerenciador de Armazenamento não dá suporte a contas do AD FS.
 * Pode ocorrer uma falha ao carregar certos arquivos como blobs acrescentados durante o direcionamento para o Azure Stack.
 * Depois de clicar em "Cancelar" em uma tarefa, talvez demore algum tempo para a tarefa ser cancelada. Isso ocorre porque estamos usando a solução alternativa de filtro de cancelamento descrita [aqui](https://github.com/Azure/azure-storage-node/issues/317).
@@ -1315,7 +1315,7 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 * Melhorias de desempenho da inicialização.
 * Várias correções de bugs.
 
-### <a name="known-issues"></a>Problemas Conhecidos
+### <a name="known-issues"></a>Problemas conhecidos
 * O Gerenciador de Armazenamento não dá suporte a contas do AD FS.
 * Pode ocorrer uma falha ao carregar certos arquivos como blobs acrescentados durante o direcionamento para o Azure Stack.
 * Depois de clicar em "Cancelar" em uma tarefa, talvez demore algum tempo para a tarefa ser cancelada. Isso ocorre porque estamos usando a solução alternativa de filtro de cancelamento descrita aqui.
@@ -1361,7 +1361,7 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 * Atividades antigas estavam sendo limpas adequadamente. Isso afetou o desempenho dos trabalhos de longa execução. Agora, elas estão sendo limpas corretamente.
 * Ações que envolvem grandes números de arquivos e diretórios podem causar, ocasionalmente, o congelamento do Gerenciador de Armazenamento. As solicitações para o Azure para compartilhamentos de arquivos agora são estranguladas para limitar o uso de recursos do sistema.
 
-### <a name="known-issues"></a>Problemas Conhecidos
+### <a name="known-issues"></a>Problemas conhecidos
 * O Gerenciador de Armazenamento não dá suporte a contas do AD FS.
 * As teclas de atalho para a “Exibir Gerenciador” e “Exibir Gerenciamento de Conta” deverão ser Ctrl/Cmd+Shift+E e Ctrl/Cmd+Shift+A, respectivamente.
 * Pode ocorrer uma falha ao carregar certos arquivos como blobs acrescentados durante o direcionamento para o Azure Stack.
@@ -1425,7 +1425,7 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 * O suporte para várias formas de cadeias de conexão e URIs de SAS voltou. Resolvemos todos os problemas conhecidos, mas envie-nos comentários se você encontrar outros problemas.
 * A notificação de atualização foi interrompida para alguns usuários em 0.9.0. Esse problema foi corrigido e, para aqueles afetados pelo bug, é possível baixar manualmente a versão mais recente do Gerenciador de Armazenamento [aqui](https://azure.microsoft.com/features/storage-explorer/).
 
-### <a name="known-issues"></a>Problemas Conhecidos
+### <a name="known-issues"></a>Problemas conhecidos
 * O Gerenciador de Armazenamento não dá suporte a contas do AD FS.
 * As teclas de atalho para a “Exibir Gerenciador” e “Exibir Gerenciamento de Conta” deverão ser Ctrl/Cmd+Shift+E e Ctrl/Cmd+Shift+A, respectivamente.
 * Pode ocorrer uma falha ao carregar certos arquivos como blobs acrescentados durante o direcionamento para o Azure Stack.
@@ -1481,7 +1481,7 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 * O suporte para várias formas de cadeias de conexão e URIs de SAS voltou. Resolvemos todos os problemas conhecidos, mas envie-nos comentários se você encontrar outros problemas.
 * A notificação de atualização foi interrompida para alguns usuários em 0.9.0. Esse problema foi corrigido e, para aqueles afetados pelo Bug, você pode baixar manualmente a versão mais recente do Gerenciador de Armazenamento [aqui](https://azure.microsoft.com/features/storage-explorer/)
 
-### <a name="known-issues"></a>Problemas Conhecidos
+### <a name="known-issues"></a>Problemas conhecidos
 * O Gerenciador de Armazenamento não dá suporte a contas do AD FS.
 * As teclas de atalho para a “Exibir Gerenciador” e “Exibir Gerenciamento de Conta” deverão ser Ctrl/Cmd+Shift+E e Ctrl/Cmd+Shift+A, respectivamente.
 * Pode ocorrer uma falha ao carregar certos arquivos como blobs acrescentados durante o direcionamento para o Azure Stack.
@@ -1527,7 +1527,7 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 * O Gerenciador de Armazenamento estava gerando incorretamente os carimbos de data/hora para assinaturas de acesso compartilhadas e consultas de tabela.
 
 
-### <a name="known-issues"></a>Problemas Conhecidos
+### <a name="known-issues"></a>Problemas conhecidos
 * Usar uma cadeia de conexão de nome e chave não funciona atualmente. Isso será corrigido na próxima versão. Até lá, você pode usar anexar com o nome e chave.
 * Se você tentar abrir um arquivo com um nome de arquivo inválido do Windows, o download resultará em um erro de Arquivo não encontrado.
 * Depois de clicar em "Cancelar" em uma tarefa, talvez demore algum tempo para a tarefa ser cancelada. Esta é uma limitação da biblioteca de Nós de Armazenamento do Azure.
@@ -1561,7 +1561,7 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 * [Guia][2] de solução de problemas do Gerenciador de Armazenamento
 * [Instruções][3] sobre como se conectar a uma assinatura do Azure Stack
 
-### <a name="known-issues"></a>Problemas Conhecidos
+### <a name="known-issues"></a>Problemas conhecidos
 
 * Os botões na caixa de diálogo de confirmação de exclusão de pasta não registram com os cliques do mouse no Linux. A solução alternativa é usar a tecla Enter
 * Se você escolher o PIN/Certificado de cartão inteligente incorreto, será necessário reiniciar para que o Gerenciador de Armazenamento se esqueça dessa decisão
@@ -1595,7 +1595,7 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 * Corrigido: selecionar tudo foi desabilitado ao gerenciar instantâneos
 * Corrigido: os metadados do blob de base podem ser substituídos após a exibição das propriedades de seus instantâneos
 
-#### <a name="known-issues"></a>Problemas Conhecidos
+#### <a name="known-issues"></a>Problemas conhecidos
 
 * Se você escolher o PIN/Certificado de cartão inteligente incorreto, será necessário reiniciar para que o Gerenciador de Armazenamento se esqueça dessa decisão
 * Durante a ampliação ou a redução do zoom, o nível do zoom pode ser redefinido momentaneamente para o nível padrão
@@ -1638,7 +1638,7 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 * Corrigido: o carregamento de blobs que exigem resoluções de conflitos pode falhar – corrigido no 0.8.11
 * Corrigido: o envio de comentários foi interrompido no 0.8.11 – corrigido no 0.8.12
 
-#### <a name="known-issues"></a>Problemas Conhecidos
+#### <a name="known-issues"></a>Problemas conhecidos
 
 * Após a atualização para 0.8.10, você precisará atualizar todas as suas credenciais.
 * Durante a ampliação ou redução do zoom, o nível do zoom pode ser redefinido momentaneamente para o nível padrão.
@@ -1682,7 +1682,7 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 * Corrigido: o carregamento em um compartilhamento de arquivos continuava indefinidamente se o diretório de destino ainda não existisse
 * Corrigido: mais estabilidade para downloads e uploads longos
 
-#### <a name="known-issues"></a>Problemas Conhecidos
+#### <a name="known-issues"></a>Problemas conhecidos
 
 * Durante a ampliação ou redução do zoom, o nível do zoom pode ser redefinido momentaneamente para o nível padrão.
 * O Acesso Rápido só funciona com itens baseados em assinatura. Recursos locais ou conectados por meio de chave ou o token SAS de recursos não têm suporte nesta versão.
@@ -1710,7 +1710,7 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 * Corrigido: o tamanho da janela da última sessão fechada agora é retido
 * Corrigido: você pode abrir várias guias para o mesmo recurso usando o menu de contexto
 
-#### <a name="known-issues"></a>Problemas Conhecidos
+#### <a name="known-issues"></a>Problemas conhecidos
 
 * O Acesso Rápido só funciona com itens baseados em assinatura. Recursos locais ou conectados por meio de chave ou o token SAS de recursos não têm suporte nesta versão
 * Acesso rápido pode demorar um pouco para navegar para o recurso de destino, dependendo de quantos recursos
@@ -1747,7 +1747,7 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 * Corrigido: aumento do número de recursos carregados de 50 para 100 ao clicar em "Carregar Mais"
 * Corrigido: agora, na primeira execução, se uma conta for conectada, selecionamos todas as assinaturas para essa conta por padrão
 
-#### <a name="known-issues"></a>Problemas Conhecidos
+#### <a name="known-issues"></a>Problemas conhecidos
 
 * Esta versão do Gerenciador de Armazenamento não é executada no Ubuntu 14.04
 * Para abrir várias guias para o mesmo recurso, não clique continuamente no mesmo recurso. Clique em outro recurso e, depois, volte e clique no recurso original para abri-lo novamente em outra guia
@@ -1772,7 +1772,7 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
     * Às vezes, a chave de partição e chave de linha eram invertidas
     * Não é possível ler as Chaves de Partição "nulas"
 
-#### <a name="known-issues"></a>Problemas Conhecidos
+#### <a name="known-issues"></a>Problemas conhecidos
 
 * Identificadores de pesquisa pesquisar em nós aproximadamente 50.000 – depois disso, o desempenho pode ser afetado
 * O Azure Stack atualmente não dá suporte a Arquivos, então tentar expandir o Arquivos resultará em um erro
@@ -1794,7 +1794,7 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 
 * Corrigido: não é possível editar entidades de tabela se elas contiverem propriedades boolianas ou binárias
 
-#### <a name="known-issues"></a>Problemas Conhecidos
+#### <a name="known-issues"></a>Problemas conhecidos
 
 * Identificadores de pesquisa pesquisar em nós aproximadamente 50.000 – depois disso, o desempenho pode ser afetado
 
@@ -1815,7 +1815,7 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 
 * Corrigido: as Contas da Microsoft exigem reautenticação a cada 8 a 12 horas
 
-#### <a name="known-issues"></a>Problemas Conhecidos
+#### <a name="known-issues"></a>Problemas conhecidos
 
 * Às vezes, a interface do usuário pode parecer congelada – maximizar a janela ajuda a resolver esse problema
 * A instalação do macOS pode exigir permissões elevadas
@@ -1843,7 +1843,7 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 * Corrigido: tabelas $metrics não são exibidas para contas de Armazenamento de Blobs
 * Corrigido: o nó tabelas não funciona para o armazenamento local (Desenvolvimento)
 
-#### <a name="known-issues"></a>Problemas Conhecidos
+#### <a name="known-issues"></a>Problemas conhecidos
 
 * A instalação do macOS pode exigir permissões elevadas
 
@@ -1871,7 +1871,7 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 * Corrigido: edição, adição ou importação de uma entidade com um valor de cadeia de caracteres numérico ("1") converterá esse valor em duplo
 * Corrigido: não é possível expandir o nó Tabela no ambiente de desenvolvimento local
 
-#### <a name="known-issues"></a>Problemas Conhecidos
+#### <a name="known-issues"></a>Problemas conhecidos
 
 * As tabelas $metrics não são visíveis para contas de Armazenamento de Blobs
 * Mensagens em fila adicionadas por meio de programação podem não ser exibidas corretamente se as mensagens forem codificadas usando a codificação Base64
@@ -1887,7 +1887,7 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 
 * Correção de bug no qual as mensagens da Barra de Informações às vezes não apareciam quando as credenciais de entrada eram exigidas
 
-#### <a name="known-issues"></a>Problemas Conhecidos
+#### <a name="known-issues"></a>Problemas conhecidos
 
 * Tabelas: adição, edição ou importação de uma entidade que tem uma propriedade com um valor numérico ambíguo, como "1" ou "1.0", e o usuário tenta enviá-lo como um `Edm.String`, o valor voltará por meio da API do cliente como um Edm.Double
 
@@ -1950,7 +1950,7 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 * O armazenamento local continua disponível mesmo se as credenciais do usuário tiverem expirado
 * Quando um contêiner de blob aberto for excluído, o gerenciador de blob no lado direito será fechado
 
-#### <a name="known-issues"></a>Problemas Conhecidos
+#### <a name="known-issues"></a>Problemas conhecidos
 
 * A instalação do Linux precisa da versão de gcc atualizada ou com upgrade – veja abaixo as etapas para o upgrade:
     * `sudo add-apt-repository ppa:ubuntu-toolchain-r/test`
@@ -1978,7 +1978,7 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 * Procure blobs pelo prefixo
 * Arraste e solte arquivos para carregar ou baixar
 
-#### <a name="known-issues"></a>Problemas Conhecidos
+#### <a name="known-issues"></a>Problemas conhecidos
 
 * Ao definir o nível de acesso público do contêiner de blob, o novo valor não é atualizado até que você defina novamente o foco no contêiner
 * Quando você abre a caixa de diálogo para definir o nível de acesso público, ela sempre mostra "Nenhum acesso público" como o padrão, e não o valor real atual

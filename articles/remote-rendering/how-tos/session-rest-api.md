@@ -6,10 +6,10 @@ ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: article
 ms.openlocfilehash: 0af9d6906e038a4b9285a2c302fc0c98345fdbd9
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90023747"
 ---
 # <a name="use-the-session-management-rest-api"></a>Usar a API REST de gerenciamento de sessão
@@ -79,7 +79,7 @@ Este comando cria uma sessão. Ele retorna a ID da nova sessão. Você precisa d
 
 | Código de status | conteúdo JSON | Comentários |
 |-----------|:-----------|:-----------|
-| 202 | -sessionId: GUID | Sucesso |
+| 202 | -sessionId: GUID | Êxito |
 
 ### <a name="example-script-create-a-session"></a>Script de exemplo: criar uma sessão
 
@@ -265,7 +265,7 @@ Esse comando para uma sessão. A VM alocada será recuperada logo após.
 
 | Código de status | conteúdo JSON | Comentários |
 |-----------|:-----------|:-----------|
-| 204 | | Sucesso |
+| 204 | | Êxito |
 
 ### <a name="example-script-stop-a-session"></a>Script de exemplo: parar uma sessão
 

@@ -7,17 +7,17 @@ ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
 ms.openlocfilehash: 6446e138df1fe744d70be085d0aecac58e2c1c45
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91255291"
 ---
 # <a name="configure-an-aks-cluster"></a>Configurar um cluster do AKS
 
 Como parte da criação de um cluster do AKS, talvez seja necessário personalizar a configuração do cluster para atender às suas necessidades. Este artigo apresenta algumas opções para personalizar o cluster do AKS.
 
-## <a name="os-configuration"></a>Configuração do so
+## <a name="os-configuration"></a>Configuração do SO
 
 O AKS agora dá suporte ao Ubuntu 18, 4 como o sistema operacional do nó (SO) em disponibilidade geral para clusters em versões do kubernetes superiores a 1.18.8. Para as versões abaixo de 18E. x, o AKS Ubuntu 16, 4 ainda é a imagem base padrão. Do kubernetes v 18E. x e em diante, a base padrão é AKS Ubuntu 18, 4.
 
@@ -211,7 +211,7 @@ Para instalar a extensão da CLI AKs-Preview, use os seguintes comandos de CLI d
 az extension add --name aks-preview
 ```
 
-Para atualizar a extensão da CLI AKs-Preview, use os seguintes comandos de CLI do Azure:
+Para atualizar a extensão aks-preview da CLI, use os seguintes comandos da CLI do Azure:
 
 ```azurecli
 az extension update --name aks-preview
@@ -270,7 +270,7 @@ Para instalar a extensão da CLI AKs-Preview, use os seguintes comandos de CLI d
 az extension add --name aks-preview
 ```
 
-Para atualizar a extensão da CLI AKs-Preview, use os seguintes comandos de CLI do Azure:
+Para atualizar a extensão aks-preview da CLI, use os seguintes comandos da CLI do Azure:
 
 ```azurecli
 az extension update --name aks-preview

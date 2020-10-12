@@ -7,10 +7,10 @@ ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 175b2268727364040640b319c24019bdf9b48df9
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89433697"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Preparar e personalizar uma imagem de VHD mestre
@@ -125,7 +125,7 @@ reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fEnab
 
 ### <a name="disable-storage-sense"></a>Desabilitar o sensor de armazenamento
 
-Para o host de sessão de área de trabalho virtual do Windows que usa o Windows 10 Enterprise ou Windows 10 Enterprise Multi-Session, é recomendável desabilitar o sensor de armazenamento. Você pode desabilitar o sensor de armazenamento no menu configurações, em **armazenamento**, conforme mostrado na seguinte captura de tela:
+Para o host de sessão de Área de Trabalho Virtual do Windows que usa multisseção do Windows 10 Enterprise ou Windows 10 Enterprise, é recomendável desabilitar o sensor de armazenamento. Você pode desabilitar o sensor de armazenamento no menu configurações, em **armazenamento**, conforme mostrado na seguinte captura de tela:
 
 > [!div class="mx-imgBorder"]
 > ![Uma captura de tela do menu armazenamento em configurações. A opção "sensor de armazenamento" está desativada.](media/storagesense.png)
@@ -138,7 +138,7 @@ reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\StorageSense\Parameters\
 
 ### <a name="include-additional-language-support"></a>Incluir suporte a idiomas adicionais
 
-Este artigo não aborda como configurar o suporte a idiomas e regionais. Para obter mais informações, confira os seguintes artigos:
+Este artigo não aborda como configurar o suporte a idiomas e regionais. Para obter mais informações, consulte os seguintes artigos:
 
 - [Adicionar idiomas a imagens do Windows](/windows-hardware/manufacture/desktop/add-language-packs-to-windows/)
 - [Recursos sob demanda](/windows-hardware/manufacture/desktop/features-on-demand-v2--capabilities/)

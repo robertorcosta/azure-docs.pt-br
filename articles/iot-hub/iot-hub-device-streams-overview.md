@@ -12,10 +12,10 @@ ms.custom:
 - 'Role: IoT Device'
 - 'Role: Technical Support'
 ms.openlocfilehash: 4a13d1ff030a63d3ccf33297f215909f5920e16a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87327677"
 ---
 # <a name="iot-hub-device-streams-preview"></a>Fluxos de dispositivos do Hub IoT (versão prévia)
@@ -26,7 +26,7 @@ Os *fluxos de dispositivos* do Hub IoT do Azure facilitam a criação de túneis
 
 Ao usar os fluxos de dispositivos do Hub IoT, os dispositivos permanecem seguros e só precisarão abrir as conexões de TCP de saída para o ponto de extremidade de streaming do Hub IoT pela porta 443. Quando um fluxo é estabelecido, os aplicativos do lado do serviço e do lado do dispositivo têm acesso via programação a um objeto de cliente do WebSocket para enviar e receber os bytes brutos entre si. As garantias de confiabilidade e ordenação fornecidas por esse túnel são similares àquelas oferecidas por TCP.
 
-## <a name="benefits"></a>Benefícios
+## <a name="benefits"></a>Vantagens
 
 Os fluxos de dispositivos do Hub IoT oferecem os seguintes benefícios:
 
@@ -172,7 +172,7 @@ Aqui estão os exemplos de eco:
 
 * [Programa de serviço e serviço C#](quickstart-device-streams-echo-csharp.md)
 
-* [Programa de serviço deNode.js](quickstart-device-streams-echo-nodejs.md)
+* [ Programa de serviço deNode.js](quickstart-device-streams-echo-nodejs.md)
 
 * [Programa de dispositivo C](quickstart-device-streams-echo-c.md)
 
@@ -208,7 +208,7 @@ Use os links abaixo para obter instruções sobre como executar os programas de 
 
 * [Programa de serviço e serviço C#](quickstart-device-streams-proxy-csharp.md)
 
-* [Programa de serviço deNode.js](quickstart-device-streams-proxy-nodejs.md)
+* [ Programa de serviço deNode.js](quickstart-device-streams-proxy-nodejs.md)
 
 * [Programa de dispositivo C](quickstart-device-streams-proxy-c.md)
 

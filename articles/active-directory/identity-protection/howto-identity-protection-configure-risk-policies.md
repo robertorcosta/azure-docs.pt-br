@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e134c2e49df5b53ed37acddd86e41af17f43a048
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 54a6c455f3702433398035a2eb6398c39b609ce9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84464157"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "87337442"
 ---
 # <a name="how-to-configure-and-enable-risk-policies"></a>Como configurar e habilitar políticas de risco
 
@@ -55,7 +55,7 @@ Para habilitar o risco do usuário e as políticas de risco de entrada, conclua 
 
 1. Navegue até o [Portal do Azure](https://portal.azure.com).
 1. Navegue até **Azure Active Directory**  >  **Security**  >  **Identity Protection**  >  **visão geral**da proteção de identidade de segurança.
-1. Selecione **Configurar política de risco do usuário**.
+1. Selecione a **política de risco do usuário**.
    1. Em **atribuições**
       1. **Usuários** – escolha **todos os usuários** ou **selecione indivíduos e grupos** se limitar a distribuição.
          1. Opcionalmente, você pode optar por excluir usuários da política.
@@ -64,7 +64,7 @@ Para habilitar o risco do usuário e as políticas de risco de entrada, conclua 
       1. **Acesso** -a recomendação da Microsoft é **permitir o acesso** e **exigir alteração de senha**.
    1. **Impor política**  -  **Em**
    1. **Salvar** – esta ação retornará à página **visão geral** .
-1. Selecione **Configurar política de risco de entrada**.
+1. Selecione **a política de risco de entrada**.
    1. Em **atribuições**
       1. **Usuários** – escolha **todos os usuários** ou **selecione indivíduos e grupos** se limitar a distribuição.
          1. Opcionalmente, você pode optar por excluir usuários da política.

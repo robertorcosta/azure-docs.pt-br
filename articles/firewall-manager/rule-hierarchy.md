@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 08/26/2020
 ms.author: victorh
 ms.openlocfilehash: c290904c9f4bc7dba70dad9351dc45b676e0c236
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88893654"
 ---
 # <a name="use-azure-firewall-policy-to-define-a-rule-hierarchy"></a>Usar a política de firewall do Azure para definir uma hierarquia de regra
@@ -48,7 +48,7 @@ Crie políticas para cada uma das equipes de aplicativos:
 - Uma política de firewall de banco de dados. A política de firewall de banco de dados herda a política de firewall base.
 - Uma política de firewall de engenharia. A política de firewall de engenharia também herda a política base de firewall.
 
-:::image type="content" source="media/rule-hierarchy/policy-hierarchy.png" alt-text="Hierarquia de política" border="false":::
+:::image type="content" source="media/rule-hierarchy/policy-hierarchy.png" alt-text="Equipes e requisitos" border="false":::
 
 ### <a name="create-custom-roles-to-access-the-rule-collection-groups"></a>Criar funções personalizadas para acessar os grupos de coleção de regras 
 
@@ -134,9 +134,9 @@ Para listar todas as funções personalizadas, você pode usar o comando Get-AzR
 
 Você também pode ver as funções personalizadas na portal do Azure. Acesse sua assinatura, selecione **controle de acesso (iam)**, **funções**.
 
-:::image type="content" source="media/rule-hierarchy/sales-app-policy.png" alt-text="SalesAppPolicy":::
+:::image type="content" source="media/rule-hierarchy/sales-app-policy.png" alt-text="Equipes e requisitos":::
 
-:::image type="content" source="media/rule-hierarchy/sales-app-policy-read.png" alt-text="Permissão de leitura de SalesAppPolicy":::
+:::image type="content" source="media/rule-hierarchy/sales-app-policy-read.png" alt-text="Equipes e requisitos":::
 
 Para obter mais informações, consulte [tutorial: criar uma função personalizada do Azure usando Azure PowerShell](../role-based-access-control/tutorial-custom-role-powershell.md).
 

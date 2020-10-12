@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/29/2020
 ms.author: alkohli
 ms.openlocfilehash: 7a534f794f7ab5323ad46ebc555e42b2514e94e2
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91542335"
 ---
 # <a name="update-your-azure-stack-edge-pro-gpu"></a>Atualizar sua GPU do Azure Stack Edge pro 
@@ -46,7 +46,7 @@ Cada uma dessas etapas é descrita nas seções a seguir.
     
     Para obter mais informações, acesse [Windows Server Update Services (WSUS)](https://docs.microsoft.com/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus)
 
-## <a name="use-the-azure-portal"></a>Use o Portal do Azure
+## <a name="use-the-azure-portal"></a>Usar o portal do Azure
 
 Recomendamos que você instale as atualizações por meio do portal do Azure. O dispositivo verifica automaticamente se há atualizações uma vez por dia. Depois que as atualizações estiverem disponíveis, você verá uma notificação no Portal. Em seguida, você pode baixar e instalar as atualizações. 
 
@@ -188,7 +188,7 @@ Esse procedimento leva cerca de 20 minutos para ser concluído. Execute as etapa
 
    ![atualizar dispositivo](./media/azure-stack-edge-gpu-install-update/local-ui-update-3a.png)
 
-3. Selecione **Aplicar**. 
+3. Escolha **Aplicar**. 
 
    ![atualizar dispositivo](./media/azure-stack-edge-gpu-install-update/local-ui-update-4.png)
 
@@ -206,7 +206,7 @@ Esse procedimento leva cerca de 20 minutos para ser concluído. Execute as etapa
 
    <!--![update device](./media/azure-stack-edge-gpu-install-update/local-ui-update-7.png)--> 
 
-8. Selecione **Aplicar**. 
+8. Escolha **Aplicar**. 
 
    ![atualizar dispositivo](./media/azure-stack-edge-gpu-install-update/local-ui-update-8.png)
 

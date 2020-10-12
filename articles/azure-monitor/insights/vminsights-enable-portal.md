@@ -1,5 +1,5 @@
 ---
-title: Habilitar Azure Monitor para uma única máquina virtual ou conjunto de dimensionamento de máquinas virtuais no portal do Azure
+title: Habilitar o Azure Monitor para uma única máquina virtual ou para um conjunto de dimensionamento de máquinas virtuais no portal do Azure
 description: Saiba como habilitar Azure Monitor para VMs em uma única máquina virtual do Azure ou conjunto de dimensionamento de máquinas virtuais usando o portal do Azure.
 ms.subservice: ''
 ms.topic: conceptual
@@ -7,13 +7,13 @@ author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
 ms.openlocfilehash: ba6ae9262fb0e55c53e1b1421c075e555fae8d98
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87328103"
 ---
-# <a name="enable-azure-monitor-for-single-virtual-machine-or-virtual-machine-scale-set-in-the-azure-portal"></a>Habilitar Azure Monitor para uma única máquina virtual ou conjunto de dimensionamento de máquinas virtuais no portal do Azure
+# <a name="enable-azure-monitor-for-single-virtual-machine-or-virtual-machine-scale-set-in-the-azure-portal"></a>Habilitar o Azure Monitor para uma única máquina virtual ou para um conjunto de dimensionamento de máquinas virtuais no portal do Azure
 Este artigo descreve como habilitar Azure Monitor para VMs para uma máquina virtual ou um conjunto de dimensionamento de máquinas virtuais usando o portal do Azure. Esse procedimento pode ser usado para o seguinte:
 
 - Máquina virtual do Azure
@@ -36,7 +36,7 @@ Se a máquina virtual ainda não estiver conectada a um espaço de trabalho Log 
 > [!NOTE]
 > Se você selecionar um espaço de trabalho que não foi configurado anteriormente para Azure Monitor para VMs, o pacote de gerenciamento *VMInsights* será adicionado a esse espaço de trabalho. Isso será aplicado a qualquer agente já conectado ao espaço de trabalho, independentemente de estar habilitado ou não por Azure Monitor para VMs. Os dados de desempenho serão coletados dessas máquinas virtuais e armazenados na tabela *InsightsMetrics* .
 
-![Selecione workspace](media/vminsights-configure-workspace/select-workspace.png)
+![Selecione o workspace](media/vminsights-configure-workspace/select-workspace.png)
 
 Você receberá mensagens de status conforme a configuração é executada.
 

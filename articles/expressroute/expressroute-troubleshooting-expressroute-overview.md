@@ -9,10 +9,10 @@ ms.date: 10/31/2019
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 5689bf60144cf3d66335eb4d77a96d29d8cdcc96
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89401734"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Verificando a conectividade do ExpressRoute
@@ -50,10 +50,10 @@ No diagrama acima, os números indicam os principais pontos de rede. Esses ponto
 
 Se os modelos de colocalização de troca de nuvem, Ethernet ponto a ponto ou de conectividade direta forem usados, CEs (2) estabelecerá o emparelhamento via protocolo BGP com MSEEs (5). 
 
-Se o modelo de conectividade de qualquer para qualquer (IPVPN) for usado, o PE-MSEEs (4) estabelecerá o emparelhamento via protocolo BGP com MSEEs (5). PE-MSEEs propagar as rotas recebidas da Microsoft de volta para a rede do cliente por meio da rede do provedor de serviços do IPVPN.
+Se o modelo de conectividade de qualquer para qualquer (IPVPN) for usado, PE-MSEEs (4) estabelecer o emparelhamento via protocolo BGP com MSEEs (5). PE-MSEEs propagar as rotas recebidas da Microsoft de volta para a rede do cliente por meio da rede do provedor de serviços do IPVPN.
 
 > [!NOTE]
->Para alta disponibilidade, a Microsoft estabelece uma conectividade paralela totalmente redundante entre pares de MSEEs (5) e PE-MSEEs (4). Um caminho de rede paralelo totalmente redundante também é incentivado entre A rede do cliente e o par PE-CEs. Para obter mais informações sobre a alta disponibilidade, consulte o artigo [projetando para alta disponibilidade com o ExpressRoute][HA]
+>Para alta disponibilidade, a Microsoft estabelece uma conectividade paralela totalmente redundante entre pares de MSEEs (5) e PE-MSEEs (4). Um caminho de rede paralelo totalmente redundante também é incentivado entre A rede do cliente e o par de PE-CEs. Para obter mais informações sobre a alta disponibilidade, consulte o artigo [projetando para alta disponibilidade com o ExpressRoute][HA]
 >
 >
 

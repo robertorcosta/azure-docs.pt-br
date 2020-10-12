@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
 ms.openlocfilehash: 75aac74ae5ccf5b52234f1b554dc2a5edefcf32d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91260403"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Usar o servidor de histórico de Apache Spark estendido para depurar e diagnosticar Apache Spark aplicativos
@@ -120,12 +120,12 @@ O nó do grafo exibe as cores mostradas na legenda calor.
 
 Para reproduzir o trabalho, selecione **reprodução**. Você pode selecionar **parar** a qualquer momento para parar. As cores da tarefa mostram status diferentes ao executar novamente:
 
-|Cor|Significado|
+|Color|Significado|
 |-|-|
 |Verde|Êxito: o trabalho foi concluído com êxito.|
 |Laranja|Repetidas: instâncias de tarefas que falharam, mas não afetam o resultado final do trabalho. Essas tarefas tiveram instâncias duplicadas ou repetidas que poderão ser bem-sucedidas mais tarde.|
 |Azul|Em execução: a tarefa está em execução.|
-|Branca|Aguardando ou ignorado: a tarefa está aguardando para ser executada ou o estágio foi ignorado.|
+|Branco|Aguardando ou ignorado: a tarefa está aguardando para ser executada ou o estágio foi ignorado.|
 |Vermelho|Falha: a tarefa falhou.|
 
 A imagem a seguir mostra as cores de status verde, laranja e azul.

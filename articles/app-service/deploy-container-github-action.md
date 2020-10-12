@@ -7,12 +7,12 @@ ms.date: 10/03/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: github-actions-azure
-ms.openlocfilehash: dc8b5e75b4feed886f843e7a516cc18429afec11
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.openlocfilehash: 3a5e319115c124551c05f2ac5aa393ba19596d0d
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91728481"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91893349"
 ---
 # <a name="deploy-a-custom-container-to-app-service-using-github-actions"></a>Implantar um contêiner personalizado no serviço de aplicativo usando as ações do GitHub
 
@@ -138,10 +138,6 @@ Defina os segredos a serem usados com a ação de logon do Docker.
 
 O exemplo a seguir mostra parte do fluxo de trabalho que cria um Node.JS imagem do Docker. Use o [logon do Docker](https://github.com/azure/docker-login) para fazer logon em um registro de contêiner privado. Este exemplo usa o registro de contêiner do Azure, mas a mesma ação funciona para outros registros. 
 
-# <a name="publish-profile"></a>[Perfil de publicação](#tab/publish-profile)
-
-Este exemplo mostra como criar um Node.JS imagem do Docker usando um perfil de publicação para autenticação.
-
 
 ```yaml
 name: Linux Container Node Workflow
@@ -191,41 +187,6 @@ jobs:
         docker build . -t mycontainer.azurecr.io/myapp:${{ github.sha }}
         docker push mycontainer.azurecr.io/myapp:${{ github.sha }}     
 ```
-# <a name="service-principal"></a>[Entidade de serviço](#tab/service-principal)
-
-Este exemplo mostra como criar um Node.JS imagem do Docker usando uma entidade de serviço para autenticação. 
-
-```yaml
-on: [push]
-
-name: Linux_Container_Node_Workflow
-
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-    steps:
-    # checkout the repo
-    - name: 'Checkout GitHub Action' 
-      uses: actions/checkout@master
-
-    - name: 'Login via Azure CLI'
-      uses: azure/login@v1
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}   
-    - uses: azure/docker-login@v1
-      with:
-        login-server: mycontainer.azurecr.io
-        username: ${{ secrets.REGISTRY_USERNAME }}
-        password: ${{ secrets.REGISTRY_PASSWORD }}  
-    - run: |
-        docker build . -t mycontainer.azurecr.io/myapp:${{ github.sha }}
-        docker push mycontainer.azurecr.io/myapp:${{ github.sha }}      
-    - name: Azure logout
-      run: |
-        az logout
-```
-
----
 
 ## <a name="deploy-to-an-app-service-container"></a>Implantar em um contêiner do serviço de aplicativo
 
@@ -237,7 +198,7 @@ Para implantar a imagem em um contêiner personalizado no serviço de aplicativo
 | **publish-profile** | (Opcional) Publique o conteúdo do arquivo de perfil com os segredos da Implantação da Web |
 | **images** | Nome da (s) imagem (ns) do contêiner totalmente qualificado. Por exemplo, ' myregistry.azurecr.io/nginx:latest ' ou ' Python: 3.7.2-Alpine/'. Para cenários de vários contêineres, vários nomes de imagem de contêiner podem ser fornecidos (separados por várias linhas) |
 | **slot-name** | (Opcional) Insira um slot existente que não seja o slot de produção |
-| **arquivo de configuração** | Adicional Caminho do arquivo Docker-Compose |
+| **arquivo de configuração** | Adicional Caminho do arquivo de Docker-Compose |
 
 # <a name="publish-profile"></a>[Perfil de publicação](#tab/publish-profile)
 
