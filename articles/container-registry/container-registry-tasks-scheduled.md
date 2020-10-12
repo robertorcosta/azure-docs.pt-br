@@ -4,10 +4,10 @@ description: Neste tutorial, saiba como executar uma tarefa de registro de cont�
 ms.topic: article
 ms.date: 06/27/2019
 ms.openlocfilehash: 3202b5d8c426165d81129f1affa69b3a3d515ce9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "78402872"
 ---
 # <a name="run-an-acr-task-on-a-defined-schedule"></a>Executar uma tarefa ACR em um agendamento definido
@@ -178,7 +178,7 @@ O fuso horário usado com as expressões cron é UTC (tempo Universal Coordenado
 
 Cada campo pode ter um dos seguintes tipos de valores:
 
-|Tipo  |Exemplo  |Quando disparado  |
+|Type  |Exemplo  |Quando disparado  |
 |---------|---------|---------|
 |Um valor específico |<nobr>`"5 * * * *"`</nobr>|a cada hora às 5 minutos após a hora|
 |Todos os valores (`*`)|<nobr>`"* 5 * * *"`</nobr>|a cada minuto da hora começando em 5:00 UTC (60 vezes por dia)|
@@ -200,7 +200,7 @@ Cada campo pode ter um dos seguintes tipos de valores:
 |`"30 9 * * 1-5"`|às 9:30 UTC a cada dia da semana|
 |`"30 9 * Jan Mon"`|às 9:30 UTC a cada segunda-feira em janeiro|
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para remover todos os recursos que você criou nesta série de tutoriais, incluindo o registro de contêiner ou registros, a instância de contêiner, o cofre de chaves e a entidade de serviço, emita os seguintes comandos:
 

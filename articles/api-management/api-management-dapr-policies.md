@@ -7,10 +7,10 @@ ms.date: 9/13/2020
 ms.topic: article
 ms.service: api-management
 ms.openlocfilehash: d537040be4ed4cbf961a4621980d3d290e306359
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91340794"
 ---
 # <a name="api-management-dapr-integration-policies"></a>Políticas de integração do Dapr de gerenciamento de API
@@ -37,7 +37,7 @@ template:
 ```
 
 
-## <a name="distributed-application-runtime-dapr-integration-policies"></a>Políticas de integração do Dapr (Distributed Application Runtime)
+## <a name="distributed-application-runtime-dapr-integration-policies"></a>Políticas de integração do Dapr (Distributed Apps Runtime)
 
 -  [Enviar solicitação para um serviço](api-management-dapr-policies.md#invoke): usa o tempo de execução Dapr para localizar e se comunicar de forma confiável com um microserviço Dapr. Para saber mais sobre a invocação de serviço no Dapr, consulte a descrição neste arquivo [Leiame](https://github.com/dapr/docs/blob/master/concepts/service-invocation/README.md#service-invocation) .
 -  [Enviar mensagem para o tópico pub/sub](api-management-dapr-policies.md#pubsub): usa o tempo de execução Dapr para publicar uma mensagem em um tópico de publicação/assinatura. Para saber mais sobre as mensagens de publicação/assinatura no Dapr, consulte a descrição neste arquivo [Leiame](https://github.com/dapr/docs/blob/master/concepts/publish-subscribe-messaging/README.md) .
@@ -236,7 +236,7 @@ A seção "back-end" está vazia e a solicitação não é encaminhada para o ba
 |---------------------|--------------|----------|
 | Invoke-dapr-Binding | Elemento raiz | Sim      |
 | metadata            | Associação de metadados específicos na forma de pares de chave/valor. Mapeia para a propriedade de [metadados](https://github.com/dapr/docs/blob/master/reference/api/bindings_api.md#invoking-output-bindings) em Dapr. | Não |
-| data            | O conteúdo da mensagem. Mapeia para a propriedade [Data](https://github.com/dapr/docs/blob/master/reference/api/bindings_api.md#invoking-output-bindings) em Dapr. | Não |
+| Dados            | O conteúdo da mensagem. Mapeia para a propriedade [Data](https://github.com/dapr/docs/blob/master/reference/api/bindings_api.md#invoking-output-bindings) em Dapr. | Não |
 
 
 ### <a name="attributes"></a>Atributos

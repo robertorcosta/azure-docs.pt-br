@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f5db99f5e8ed2ea5844acba5500bc94d8fb0db2b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85358337"
 ---
 # <a name="disable-pta-when-using-azure-ad-connect-do-not-configure"></a>Desabilitar PTA ao usar Azure AD Connect "não configurar"
@@ -41,7 +41,7 @@ Os seguintes pré-requisitos são necessários:
 
 ## <a name="to-disable-pta"></a>Para desabilitar o PTA
 Em uma sessão do PowerShell, use o seguinte para desabilitar o PTA:
-1. PS C:\Arquivos de Programas\microsoft Azure AD Connect agente de autenticação>`Import-Module .\Modules\PassthroughAuthPSModule`
+1. PS C:\Arquivos de Programas\microsoft Azure AD Connect agente de autenticação> `Import-Module .\Modules\PassthroughAuthPSModule`
 2. `Get-PassthroughAuthenticationEnablementStatus -Feature PassthroughAuth` ou `Get-PassthroughAuthenticationEnablementStatus -Feature PassthroughAuth -EnvironmentName <identifier>`
 3. `Disable-PassthroughAuthentication  -Feature PassthroughAuth` ou `Disable-PassthroughAuthentication -Feature PassthroughAuth -EnvironmentName <identifier>`
 
@@ -50,7 +50,7 @@ Em uma sessão do PowerShell, use o seguinte para desabilitar o PTA:
 Se você não tiver um computador agente, poderá usar o comando a seguir para instalar um agente.
 
 1. Baixe o agente de autenticação mais recente de portal.azure.com.
-2. Instalar o recurso: `.\AADConnectAuthAgentSetup.exe` ou`.\AADConnectAuthAgentSetup.exe ENVIRONMENTNAME=<identifier>`
+2. Instalar o recurso: `.\AADConnectAuthAgentSetup.exe` ou `.\AADConnectAuthAgentSetup.exe ENVIRONMENTNAME=<identifier>`
 
 
 ## <a name="next-steps"></a>Próximas etapas

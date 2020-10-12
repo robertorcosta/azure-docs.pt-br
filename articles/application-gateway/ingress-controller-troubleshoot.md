@@ -8,17 +8,17 @@ ms.topic: troubleshooting
 ms.date: 06/18/2020
 ms.author: caya
 ms.openlocfilehash: 0fdfa6265b81140fa6536082fe7ad4c5fa687fc4
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86207152"
 ---
 # <a name="troubleshoot-common-questions-or-issues-with-ingress-controller"></a>Solucionar problemas ou perguntas comuns com controlador de entrada
 
 [Azure cloud Shell](https://shell.azure.com/) é a maneira mais conveniente para solucionar problemas com a instalação do AKs e do AGIC. Inicie o Shell a partir de [shell.Azure.com](https://shell.azure.com/) ou clicando no link:
 
-[![Lançamento de inserção](https://shell.azure.com/images/launchcloudshell.png "Iniciar o Azure Cloud Shell")](https://shell.azure.com)
+[![Inserir inicialização](https://shell.azure.com/images/launchcloudshell.png "Iniciar o Azure Cloud Shell")](https://shell.azure.com)
 
 
 ## <a name="test-with-a-simple-kubernetes-app"></a>Teste com um aplicativo kubernetes simples
@@ -95,7 +95,7 @@ Obtenha a lista de insere: `kubectl get ingress` . Esperamos que um recurso de e
 
 ![Pods](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-ingress.png)
 
-Um dos pods será AGIC. `kubectl get pods`mostrará uma lista de pods, uma das quais começará com ' Ingres-Azure '. Obtenha todos os logs desse Pod com `kubectl logs <name-of-ingress-controller-pod>` para verificar se tivemos uma implantação bem-sucedida. Uma implantação bem-sucedida teria adicionado as seguintes linhas ao log:
+Um dos pods será AGIC. `kubectl get pods` mostrará uma lista de pods, uma das quais começará com ' Ingres-Azure '. Obtenha todos os logs desse Pod com `kubectl logs <name-of-ingress-controller-pod>` para verificar se tivemos uma implantação bem-sucedida. Uma implantação bem-sucedida teria adicionado as seguintes linhas ao log:
 ```
 I0927 22:34:51.281437       1 process.go:156] Applied Application Gateway config in 20.461335266s
 I0927 22:34:51.281585       1 process.go:165] cache: Updated with latest applied config.
@@ -118,7 +118,7 @@ O gateway de aplicativo terá a seguinte configuração aplicada:
 Por fim, podemos usar o `cURL` comando de dentro de [Cloud Shell](https://shell.azure.com/) para estabelecer uma conexão HTTP com o aplicativo implantado recentemente:
 
 1. Use `kubectl get ingress` para obter o endereço IP público do gateway de aplicativo
-2. Usar `curl -I -H 'test.agic.contoso.com' <publitc-ip-address-from-previous-command>`
+2. Use `curl -I -H 'test.agic.contoso.com' <publitc-ip-address-from-previous-command>`.
 
 ![Pods](./media/application-gateway-ingress-controller-troubleshooting/tsg--curl.png)
 
@@ -142,7 +142,7 @@ O seguinte deve estar em vigor para que o AGIC funcione conforme o esperado:
      ```
 
   2. Um ou mais **Serviços**, fazendo referência aos pods acima por meio de `selector` Rótulos correspondentes.
-     Verifique isso em [Cloud Shell](https://shell.azure.com/) com`kubectl get services -o wide`
+     Verifique isso em [Cloud Shell](https://shell.azure.com/) com `kubectl get services -o wide`
      ```bash
      delyan@Azure:~$ kubectl get services -o wide --show-labels
 
@@ -150,7 +150,7 @@ O seguinte deve estar em vigor para que o AGIC funcione conforme o esperado:
      aspnetapp           ClusterIP   10.2.63.254    <none>        80/TCP    17h   app=aspnetapp   <none>     
      ```
 
-  3. **Entrada**, anotada com `kubernetes.io/ingress.class: azure/application-gateway` , fazendo referência ao serviço acima, verifique isso de [Cloud Shell](https://shell.azure.com/) com`kubectl get ingress -o wide --show-labels`
+  3. **Entrada**, anotada com `kubernetes.io/ingress.class: azure/application-gateway` , fazendo referência ao serviço acima, verifique isso de [Cloud Shell](https://shell.azure.com/) com `kubectl get ingress -o wide --show-labels`
      ```bash
      delyan@Azure:~$ kubectl get ingress -o wide --show-labels
 
@@ -199,9 +199,9 @@ O seguinte deve estar em vigor para que o AGIC funcione conforme o esperado:
 
 
 * Se o Pod AGIC não estiver íntegro (a `STATUS` coluna do comando acima não é `Running` ):
-  - obter logs para entender o porquê:`kubectl logs <pod-name>`
-  - para a instância anterior do pod:`kubectl logs <pod-name> --previous`
-  - Descreva o pod para obter mais contexto:`kubectl describe pod <pod-name>`
+  - obter logs para entender o porquê: `kubectl logs <pod-name>`
+  - para a instância anterior do pod: `kubectl logs <pod-name> --previous`
+  - Descreva o pod para obter mais contexto: `kubectl describe pod <pod-name>`
 
 
 * Você tem um [serviço](https://kubernetes.io/docs/concepts/services-networking/service/) kubernetes e recursos de [entrada](https://kubernetes.io/docs/concepts/services-networking/ingress/) ?
@@ -224,7 +224,7 @@ O seguinte deve estar em vigor para que o AGIC funcione conforme o esperado:
 
 
 * AGIC emite eventos kubernetes para determinados erros críticos. Você pode exibi-los:
-  - em seu terminal via`kubectl get events --sort-by=.metadata.creationTimestamp`
+  - em seu terminal via `kubectl get events --sort-by=.metadata.creationTimestamp`
   - em seu navegador usando a [interface do usuário da Web do amKubernetes (Dashboard)](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/)
 
 
@@ -245,7 +245,7 @@ A Comunidade kubernetes estabeleceu nove níveis de registro em log para a ferra
 
 Os níveis de detalhamento são ajustáveis por meio da `verbosityLevel` variável no arquivo [Helm-config. YAML](#sample-helm-config-file) . Aumente o nível de detalhes para `5` para que a configuração JSON seja expedida para o [ARM](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview):
   - Adicionar `verbosityLevel: 5` em uma linha por si só em [Helm-config. YAML](#sample-helm-config-file) e reinstalar
-  - obter logs com`kubectl logs <pod-name>`
+  - obter logs com `kubectl logs <pod-name>`
 
 ### <a name="sample-helm-config-file"></a>Arquivo de configuração Helm de exemplo
 ```yaml

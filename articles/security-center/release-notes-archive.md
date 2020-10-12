@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 05/11/2020
 ms.author: memildin
 ms.openlocfilehash: 09b23e9951c6da597b82d2e012a57f2c93410a5d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91289796"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Arquivos de novidades na Central de Segurança do Azure?
@@ -265,7 +265,7 @@ Com essa nova experiência, os usuários poderão integrar um servidor WAC à Ce
 
 ## <a name="september-2019"></a>Setembro de 2019
 
-As atualizações em setembro incluem:
+As atualizações de setembro incluem:
 
  - [Gerenciar regras com aprimoramentos de controles de aplicativos adaptáveis](#managing-rules-with-adaptive-application-controls-improvements)
  - [Controlar a recomendação de segurança do contêiner usando Azure Policy](#control-container-security-recommendation-using-azure-policy)
@@ -286,7 +286,7 @@ Para exibir as políticas de segurança habilitadas, na Central de Segurança, a
 
 ## <a name="august-2019"></a>Agosto de 2019
 
-As atualizações em agosto incluem:
+As atualizações de agosto incluem:
 
  - [Acesso à VM just-in-time (JIT) para o Firewall do Azure](#just-in-time-jit-vm-access-for-azure-firewall)
  - [Correção com um só clique para impulsionar sua postura de segurança (versão preliminar)](#single-click-remediation-to-boost-your-security-posture-preview)

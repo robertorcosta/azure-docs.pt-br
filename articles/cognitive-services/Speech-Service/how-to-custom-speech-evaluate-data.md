@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
 ms.openlocfilehash: cadbe79bbe0af2b5cebacb3d0c7c4e910fc7dbb8
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85856839"
 ---
 # <a name="evaluate-custom-speech-accuracy"></a>Avaliar a precisão da Fala Personalizada
@@ -33,7 +33,7 @@ Palavras incorretamente identificadas se enquadram em três categorias:
 * Exclusão (D): palavras que não são detectadas na transcrição da hipótese
 * Substituição (ões): palavras que foram substituídas entre referência e hipótese
 
-Aqui está um exemplo:
+Este é um exemplo:
 
 ![Exemplo de palavras identificadas incorretamente](./media/custom-speech/custom-speech-dis-words.png)
 

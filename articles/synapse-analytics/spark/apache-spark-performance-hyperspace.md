@@ -11,10 +11,10 @@ ms.author: euang
 ms.reviewer: euang
 zone_pivot_groups: programming-languages-spark-all-minus-sql
 ms.openlocfilehash: f25aae64e117452cd689b68c5478e7431d1a21bf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91249358"
 ---
 # <a name="hyperspace-an-indexing-subsystem-for-apache-spark"></a>Hiperespaciai: um subsistema de indexação para Apache Spark
@@ -90,7 +90,7 @@ res3: org.apache.spark.sql.SparkSession = org.apache.spark.sql.SparkSession@297e
 -1
 ```
 
-## <a name="data-preparation"></a>Preparação dos dados
+## <a name="data-preparation"></a>Preparação de dados
 
 Para preparar seu ambiente, você criará registros de dados de exemplo e os salvará como arquivos de dados do parquet. Parquet é usado para ilustração, mas você também pode usar outros formatos, como CSV. Nas células subsequentes, você verá como é possível criar vários índices hiperespaciais neste conjunto de exemplo e fazer com que o Spark os use ao executar consultas.
 

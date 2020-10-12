@@ -14,10 +14,10 @@ ms.workload: big-data
 ms.date: 10/09/2018
 ms.author: elsung
 ms.openlocfilehash: 9066c53fce750b1c8402c5a0ccbd10debd5ec431
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85855705"
 ---
 # <a name="virtual-network-integration-for-azure-data-lake-storage-gen1"></a>Integração de rede virtual para o Azure Data Lake Storage Gen1
@@ -128,7 +128,7 @@ Algumas opções disponíveis:
 
     ![Escolher a rede virtual e as sub-redes](media/data-lake-store-network-security/config-adls-3.png)
 
-6.  Verifique se as redes virtuais e sub-redes aparecem corretamente na lista. Selecione **Salvar**.
+6.  Verifique se as redes virtuais e sub-redes aparecem corretamente na lista. Clique em **Salvar**.
 
     ![Salvar a nova regra](media/data-lake-store-network-security/config-adls-4.png)
 

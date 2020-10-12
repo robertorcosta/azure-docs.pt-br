@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
 ms.openlocfilehash: e63c3f329cb9c1fd5ca91274540f5145c3ad098a
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85921544"
 ---
 # <a name="transformation-functions-in-wrangling-data-flow"></a>Funções de transformação no fluxo de dados Wrangling
@@ -68,15 +68,15 @@ As seguintes funções M adicionam ou transformam colunas: [Table. AddColumn](ht
 ----------------------
 * Power Query irá gerar uma junção aninhada (Table. NestedJoin; os usuários também podem gravar manualmente [Table. AddJoinColumn](https://docs.microsoft.com/powerquery-m/table-addjoincolumn)).
     Os usuários devem expandir a coluna de junção aninhada para uma junção não aninhada (Table. ExpandTableColumn, sem suporte em nenhum outro contexto).
-* A tabela de função M [. Join](https://docs.microsoft.com/powerquery-m/table-join) pode ser gravada diretamente para evitar a necessidade de uma etapa de expansão adicional, mas o usuário deve garantir que não haja nenhum nome de coluna duplicado entre as tabelas unidas
-* Tipos de junção com suporte: [interno](https://docs.microsoft.com/powerquery-m/joinkind-inner), [LeftOuter](https://docs.microsoft.com/powerquery-m/joinkind-leftouter), [RightOuter](https://docs.microsoft.com/powerquery-m/joinkind-rightouter), [FullOuter](https://docs.microsoft.com/powerquery-m/joinkind-fullouter)
-* Ambos os [valores. Equals](https://docs.microsoft.com/powerquery-m/value-equals) e [Value. NullableEquals](https://docs.microsoft.com/powerquery-m/value-nullableequals) têm suporte como comparadores de igualdade de chave
+* A tabela de função M   [. Join](https://docs.microsoft.com/powerquery-m/table-join) pode ser gravada diretamente para evitar a necessidade de uma etapa de expansão adicional, mas o usuário deve garantir que não haja nenhum nome de coluna duplicado entre as tabelas unidas
+* Tipos de junção com suporte:   [interno](https://docs.microsoft.com/powerquery-m/joinkind-inner),   [LeftOuter](https://docs.microsoft.com/powerquery-m/joinkind-leftouter),   [RightOuter](https://docs.microsoft.com/powerquery-m/joinkind-rightouter),   [FullOuter](https://docs.microsoft.com/powerquery-m/joinkind-fullouter)
+* Ambos os   [valores. Equals](https://docs.microsoft.com/powerquery-m/value-equals) e   [Value. NullableEquals](https://docs.microsoft.com/powerquery-m/value-nullableequals) têm suporte como comparadores de igualdade de chave
 
 ## <a name="group-by"></a>Agrupar por
 
 Use [Table. Group](https://docs.microsoft.com/powerquery-m/table-group) para agregar valores.
 * Deve ser usado com uma função de agregação
-* Funções de agregação com suporte: [tabela. RowCount](https://docs.microsoft.com/powerquery-m/table-rowcount), [lista. soma](https://docs.microsoft.com/powerquery-m/list-sum), [lista. contagem](https://docs.microsoft.com/powerquery-m/list-count), [lista. média](https://docs.microsoft.com/powerquery-m/list-average), [lista. mín](https://docs.microsoft.com/powerquery-m/list-min)., [lista. máx](https://docs.microsoft.com/powerquery-m/list-max). [lista. i](https://docs.microsoft.com/powerquery-m/list-standarddeviation), lista. [primeiro](https://docs.microsoft.com/powerquery-m/list-first), lista [. último](https://docs.microsoft.com/powerquery-m/list-last)
+* Funções de agregação com suporte:   [tabela. RowCount](https://docs.microsoft.com/powerquery-m/table-rowcount),   [lista. soma](https://docs.microsoft.com/powerquery-m/list-sum),   [lista. contagem](https://docs.microsoft.com/powerquery-m/list-count),   [lista. média](https://docs.microsoft.com/powerquery-m/list-average),   [lista. mín](https://docs.microsoft.com/powerquery-m/list-min).,   [lista. máx](https://docs.microsoft.com/powerquery-m/list-max).   [lista. i](https://docs.microsoft.com/powerquery-m/list-standarddeviation), lista.   [primeiro](https://docs.microsoft.com/powerquery-m/list-first), lista   [. último](https://docs.microsoft.com/powerquery-m/list-last)
 
 ## <a name="sorting"></a>Classificação
 
@@ -90,7 +90,7 @@ Manter e remover Top, manter o intervalo (funções de M correspondentes, soment
 
 | Função | Status |
 | -- | -- |
-| Table.PromoteHeaders | Sem suporte. O mesmo resultado pode ser obtido com a configuração "primeira linha como cabeçalho" no conjunto de resultados. |
+| Table.PromoteHeaders | Não há suporte. O mesmo resultado pode ser obtido com a configuração "primeira linha como cabeçalho" no conjunto de resultados. |
 | Table.CombineColumns | Esse é um cenário comum que não tem suporte direto, mas pode ser obtido com a adição de uma nova coluna que concatena duas colunas especificadas.  Por exemplo, Table. AddColumn (RemoveEmailColumn, "Name", cada [FirstName] & "" & [LastName]) |
 | Table.TransformColumnTypes | Isso tem suporte na maioria dos casos. Os cenários a seguir não têm suporte: transformando cadeia de caracteres para tipo de moeda, transformando cadeia de caracteres em tipo de hora, transformando cadeia de caracteres para tipo de porcentagem. |
 | Table.NestedJoin | Apenas fazer uma junção resultará em um erro de validação. As colunas devem ser expandidas para que funcionem. |

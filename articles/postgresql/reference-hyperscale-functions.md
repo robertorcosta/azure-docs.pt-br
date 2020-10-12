@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: reference
 ms.date: 08/10/2020
 ms.openlocfilehash: 16c3a45e0d88a0546772b3fdc855c90f2e450d14
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91250324"
 ---
 # <a name="functions-in-the-hyperscale-citus-sql-api"></a>Funções na API do SQL de hiperescala (Citus)
@@ -44,7 +44,7 @@ Tenha em mente que o valor padrão de `colocate_with` é a colocalização impl�
 
 Se uma nova tabela distribuída não estiver relacionada a outras tabelas, será melhor especificar `colocate_with => 'none'` .
 
-#### <a name="return-value"></a>Valor retornado
+#### <a name="return-value"></a>Valor de retorno
 
 N/D
 
@@ -68,7 +68,7 @@ A \_ função criar tabela de referência \_ () é usada para definir uma pequen
 
 **nome da tabela \_ :** o nome da dimensão pequena ou da tabela de referência que precisa ser distribuída.
 
-#### <a name="return-value"></a>Valor retornado
+#### <a name="return-value"></a>Valor de retorno
 
 N/D
 
@@ -88,7 +88,7 @@ A \_ função atualizar para a \_ \_ tabela de referência () usa uma tabela dis
 
 **nome da tabela \_ :** o nome da tabela distribuída (com contagem de fragmentos = 1) que será distribuído como uma tabela de referência.
 
-#### <a name="return-value"></a>Valor retornado
+#### <a name="return-value"></a>Valor de retorno
 
 N/D
 
@@ -124,7 +124,7 @@ ERROR:  XX000: cannot colocate tables apples and oranges
 DETAIL:  Distribution column types don't match for apples and oranges.
 ```
 
-#### <a name="return-value"></a>Valor retornado
+#### <a name="return-value"></a>Valor de retorno
 
 N/D
 
@@ -150,7 +150,7 @@ O caminho de pesquisa do postgres não é propagado do coordenador para trabalha
 
 **colocar \_ com:** (opcional) quando a função distribuída lê ou grava em uma tabela distribuída (ou, mais geralmente, grupo de colocalização), certifique-se de nomear essa tabela usando o `colocate_with` parâmetro. Em seguida, cada invocação da função será executada no nó de trabalho que contém os fragmentos relevantes.
 
-#### <a name="return-value"></a>Valor retornado
+#### <a name="return-value"></a>Valor de retorno
 
 N/D
 
@@ -188,7 +188,7 @@ A \_ função mestra obter \_ metadados da tabela \_ () pode ser usada para reto
 
 **nome da tabela \_ :** o nome da tabela distribuída para a qual você deseja buscar metadados.
 
-#### <a name="return-value"></a>Valor retornado
+#### <a name="return-value"></a>Valor de retorno
 
 Uma tupla que contém as seguintes informações:
 
@@ -228,7 +228,7 @@ O Citus (subscale) atribui todas as linhas de uma tabela distribuída a um fragm
 
 **valor de distribuição \_ :** o valor da coluna de distribuição.
 
-#### <a name="return-value"></a>Valor retornado
+#### <a name="return-value"></a>Valor de retorno
 
 O Citus (ID de fragmento) associa o valor da coluna de distribuição para a tabela especificada.
 
@@ -255,7 +255,7 @@ Para obter uma discussão mais detalhada, consulte [escolhendo uma coluna de dis
 
 **texto de variável de coluna \_ \_ :** o valor de `partkey` na `pg_dist_partition` tabela.
 
-#### <a name="return-value"></a>Valor retornado
+#### <a name="return-value"></a>Valor de retorno
 
 O nome da `table_name` coluna de distribuição.
 
@@ -288,7 +288,7 @@ O espaço em disco inclui o tamanho da \" bifurcação principal, \" mas exclui 
 
 **logicalrelid:** o nome de uma tabela distribuída.
 
-#### <a name="return-value"></a>Valor retornado
+#### <a name="return-value"></a>Valor de retorno
 
 Tamanho em bytes como um bigint.
 
@@ -312,7 +312,7 @@ Obtenha o espaço em disco usado por todos os fragmentos da tabela distribuída 
 
 **logicalrelid:** o nome de uma tabela distribuída.
 
-#### <a name="return-value"></a>Valor retornado
+#### <a name="return-value"></a>Valor de retorno
 
 Tamanho em bytes como um bigint.
 
@@ -336,7 +336,7 @@ Obtenha o total de espaço em disco usado por todos os fragmentos da tabela dist
 
 **logicalrelid:** o nome de uma tabela distribuída.
 
-#### <a name="return-value"></a>Valor retornado
+#### <a name="return-value"></a>Valor de retorno
 
 Tamanho em bytes como um bigint.
 
@@ -361,7 +361,7 @@ Essa função funciona independentemente do `pg_stat_statements_reset()` . Para 
 
 N/D
 
-#### <a name="return-value"></a>Valor retornado
+#### <a name="return-value"></a>Valor de retorno
 
 Nenhum
 
@@ -385,7 +385,7 @@ Para reparar um fragmento, a função primeiro descarta o posicionamento do frag
 
 **porta do nó de destino \_ \_ :** a porta no nó de trabalho de destino no qual o servidor de banco de dados está escutando.
 
-#### <a name="return-value"></a>Valor retornado
+#### <a name="return-value"></a>Valor de retorno
 
 N/D
 
@@ -425,7 +425,7 @@ Após uma operação de movimentação bem-sucedida, os fragmentos no nó de ori
 > -   `force_logical`: Use a replicação lógica, mesmo se a tabela não tiver uma identidade de réplica. Quaisquer instruções de atualização/exclusão simultâneas à tabela falharão durante a replicação.
 > -   `block_writes`: Use cópia (bloqueio de gravações) para tabelas que não têm a chave primária ou a identidade da réplica.
 
-#### <a name="return-value"></a>Valor retornado
+#### <a name="return-value"></a>Valor de retorno
 
 N/D
 
@@ -475,7 +475,7 @@ Especificamente, o rebalanceador de fragmentos tentará convergir a utilização
 **estratégia de rebalanceamento \_ :** (opcional) o nome de uma estratégia em [pg_dist_rebalance_strategy](reference-hyperscale-metadata.md#rebalancer-strategy-table).
 Se esse argumento for omitido, a função escolherá a estratégia padrão, conforme indicado na tabela.
 
-#### <a name="return-value"></a>Valor retornado
+#### <a name="return-value"></a>Valor de retorno
 
 N/D
 
@@ -502,7 +502,7 @@ Embora seja improvável, \_ \_ o plano obter os fragmentos de tabela de rebalanc
 
 Os mesmos argumentos que reequilibram \_ fragmentos de tabela \_ : relação, limite, máximo de \_ \_ movimentações de fragmentos, \_ lista de fragmentos excluídos \_ e \_ somente dreno. Consulte a documentação dessa função para obter o significado dos argumentos.
 
-#### <a name="return-value"></a>Valor retornado
+#### <a name="return-value"></a>Valor de retorno
 
 Tuplas que contêm estas colunas:
 
@@ -522,7 +522,7 @@ Quando um rebalanceamento de fragmentos começa, a `get_rebalance_progress()` fu
 
 N/D
 
-#### <a name="return-value"></a>Valor retornado
+#### <a name="return-value"></a>Valor de retorno
 
 Tuplas que contêm estas colunas:
 
@@ -573,7 +573,7 @@ Para obter mais informações sobre esses argumentos, consulte os valores de col
 
 ** \_ limite mínimo:** (opcional) uma coluna de salvaguarda que contém o valor mínimo permitido para o argumento de limite de reequilibrar \_ fragmentos de tabela \_ (). Seu valor padrão é 0
 
-#### <a name="return-value"></a>Valor retornado
+#### <a name="return-value"></a>Valor de retorno
 
 N/D
 
@@ -585,7 +585,7 @@ Atualize a tabela [pg_dist_rebalance_strategy](reference-hyperscale-metadata.md#
 
 **nome:** o nome da estratégia na estratégia de \_ rebalanceamento de dist do PG \_ \_
 
-#### <a name="return-value"></a>Valor retornado
+#### <a name="return-value"></a>Valor de retorno
 
 N/D
 
@@ -635,7 +635,7 @@ A \_ função de \_ nó () de dreno mestre move fragmentos para fora do nó desi
 **estratégia de rebalanceamento \_ :** (opcional) o nome de uma estratégia em [pg_dist_rebalance_strategy](reference-hyperscale-metadata.md#rebalancer-strategy-table).
 Se esse argumento for omitido, a função escolherá a estratégia padrão, conforme indicado na tabela.
 
-#### <a name="return-value"></a>Valor retornado
+#### <a name="return-value"></a>Valor de retorno
 
 N/D
 
@@ -685,7 +685,7 @@ A \_ função replicar \_ fragmentos de tabela () replica os fragmentos em repli
 
 ** \_ lista de fragmentos excluídos \_ :** (opcional) identificadores de fragmentos que não devem ser copiados durante a operação de replicação.
 
-#### <a name="return-value"></a>Valor retornado
+#### <a name="return-value"></a>Valor de retorno
 
 N/D
 
@@ -715,7 +715,7 @@ Essa função cria um novo fragmento para armazenar linhas com um único valor e
 
 **opção CASCADE \_ :** (opcional) quando definida como \" Cascade, \" também isola um fragmento de todas as tabelas no [grupo de colocalização](concepts-hyperscale-colocation.md)da tabela atual.
 
-#### <a name="return-value"></a>Valor retornado
+#### <a name="return-value"></a>Valor de retorno
 
 **ID do fragmento \_ :** a função retorna a ID exclusiva atribuída ao fragmento recém-criado.
 

@@ -4,10 +4,10 @@ description: Este artigo mostra como mover um cluster dedicado de hubs de evento
 ms.topic: how-to
 ms.date: 09/01/2020
 ms.openlocfilehash: 94be44ee8f9442a3a65e899d7a58524b2570f194
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89380578"
 ---
 # <a name="move-an-azure-event-hubs-dedicated-cluster-to-another-region"></a>Mover um cluster dedicado de hubs de eventos do Azure para outra região
@@ -50,7 +50,7 @@ Implante o modelo para criar um cluster de hubs de eventos dedicado na região d
     4. Na seção **configurações** , execute as seguintes etapas:    
         1. Insira o nome do novo **cluster**. 
 
-            :::image type="content" source="./media/move-cluster-across-regions/deploy-template.png" alt-text="Implantar modelo do Resource Manager":::
+            :::image type="content" source="./media/move-cluster-across-regions/deploy-template.png" alt-text="Baixar modelo do Resource Manager":::
     5. Selecione **Revisar + criar** na parte inferior da página. 
     1. Na página **revisar + criar** , examine as configurações e, em seguida, selecione **criar**.  
 

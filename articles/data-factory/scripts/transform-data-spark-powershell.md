@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/12/2017
 ms.openlocfilehash: c09d0532b845472d0ccaac1ad57e3772630bb5c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74932058"
 ---
 # <a name="powershell-script---transform-data-in-cloud-using-azure-data-factory"></a>Script do PowerShell – transformar dados na nuvem usando o Azure Data Factory
@@ -61,7 +61,7 @@ Este script do PowerShell de exemplo cria um pipeline que transforma os dados na
 6. Carregue o arquivo **WordCount_Spark.py** na subpasta **script**. 
 
 
-### <a name="upload-the-input-file"></a>Carregue o arquivo de entrada
+### <a name="upload-the-input-file"></a>Carregar o arquivo de entrada
 1. Crie um arquivo chamado **minecraftstory.txt** com um pouco de texto. O programa Spark conta o número de palavras no texto. 
 2. Crie uma subpasta chamada `inputfiles` na pasta `spark` do contêiner de blobs. 
 3. Carregue o `minecraftstory.txt` na subpasta `inputfiles`. 

@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: a394fee7178b2e3e167c8bd905ab175b25d1d813
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75397465"
 ---
 # <a name="work-with-strings-in-azure-monitor-log-queries"></a>Trabalhe com cadeias de caracteres nas consultas de log no Azure Monitor
@@ -48,9 +48,9 @@ print @"C:\backslash\not\escaped\with @ prefix"
 
 Operador       |Descrição                         |Diferencia maiúsculas de minúsculas|Exemplo (suspende `true`)
 ---------------|------------------------------------|--------------|-----------------------
-`==`           |Igual a                              |Sim           |`"aBc" == "aBc"`
+`==`           |É igual a                              |Sim           |`"aBc" == "aBc"`
 `!=`           |Diferente de                          |Sim           |`"abc" != "ABC"`
-`=~`           |Igual a                              |Não            |`"abc" =~ "ABC"`
+`=~`           |É igual a                              |Não            |`"abc" =~ "ABC"`
 `!~`           |Diferente de                          |Não            |`"aBc" !~ "xyz"`
 `has`          |O lado direito é um termo completo no lado esquerdo |Não|`"North America" has "america"`
 `!has`         |O lado direito não é um termo completo no lado esquerdo       |Não            |`"North America" !has "amer"` 
@@ -85,7 +85,7 @@ Operador       |Descrição                         |Diferencia maiúsculas de m
 
 Conta as ocorrências de uma subcadeia de caracteres em uma cadeia de caracteres. Pode corresponder cadeias de caracteres sem formatação ou usar regex. As correspondências de cadeia de caracteres sem formatação podem se sobrepor, enquanto as correspondências de regex não podem.
 
-### <a name="syntax"></a>Syntax
+### <a name="syntax"></a>Sintaxe
 ```
 countof(text, search [, kind])
 ```
@@ -174,7 +174,7 @@ print Duration_seconds =  extract("Duration=([0-9.]+)", 1, Trace, typeof(real)) 
 - *isempty* retorna true se o argumento for uma cadeia de caracteres vazia ou nulo (Consulte também *isnull*).
 - *isnotempty* retorna true se o argumento não for uma cadeia de caracteres vazia ou um nulo (Consulte também *isnull*). alias: *notempty*.
 
-### <a name="syntax"></a>Syntax
+### <a name="syntax"></a>Sintaxe
 
 ```Kusto
 isempty(value)
@@ -200,7 +200,7 @@ Heartbeat | where isnotempty(ComputerIP) | take 1  // return 1 Heartbeat record 
 
 Divide uma URL em suas partes (protocolo, host, porta, etc.) e retorna um objeto de dicionário que contém as partes como cadeias de caracteres.
 
-### <a name="syntax"></a>Syntax
+### <a name="syntax"></a>Sintaxe
 
 ```
 parseurl(urlstring)
@@ -262,11 +262,11 @@ Atividade                                        |replaced
 4663 - Foi feita uma tentativa de acessar um objeto  |ID da Atividade 4663: Foi feita uma tentativa de acessar um objeto.
 
 
-## <a name="split"></a>split
+## <a name="split"></a>divisão
 
 Divide uma determinada cadeia de caracteres de acordo com um delimitador especificado e retorna uma matriz de subcadeias de caracteres resultantes.
 
-### <a name="syntax"></a>Syntax
+### <a name="syntax"></a>Sintaxe
 ```
 split(source, delimiter [, requestedIndex])
 ```
@@ -293,7 +293,7 @@ print split("aabbcc", "bb");        // result: ["aa","cc"]
 
 Concatena os argumentos de cadeia de caracteres (dá suporte para 1 a 16 argumentos).
 
-### <a name="syntax"></a>Syntax
+### <a name="syntax"></a>Sintaxe
 ```
 strcat("string1", "string2", "string3")
 ```
@@ -308,7 +308,7 @@ print strcat("hello", " ", "world") // result: "hello world"
 
 Retorna o comprimento de uma cadeia de caracteres.
 
-### <a name="syntax"></a>Syntax
+### <a name="syntax"></a>Sintaxe
 ```
 strlen("text_to_evaluate")
 ```
@@ -323,7 +323,7 @@ print strlen("hello")   // result: 5
 
 Extrai uma subcadeia de caracteres a partir de uma determinada cadeia de caracteres de origem, começando pelo índice especificado. Opcionalmente, é possível especificar o comprimento da subcadeia de caracteres solicitada.
 
-### <a name="syntax"></a>Syntax
+### <a name="syntax"></a>Sintaxe
 ```
 substring(source, startingIndex [, length])
 ```
@@ -347,7 +347,7 @@ print substring("ABCD", 0, 2);  // result: "AB"
 
 Converte uma determinada cadeia de caracteres em todas as letras minúsculas ou maiúsculas.
 
-### <a name="syntax"></a>Syntax
+### <a name="syntax"></a>Sintaxe
 ```
 tolower("value")
 toupper("value")

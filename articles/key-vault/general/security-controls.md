@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
 ms.openlocfilehash: cd6602f68b63e2c236e7f3905d33b88fbda36ed2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81429857"
 ---
 # <a name="security-controls-for-azure-key-vault"></a>Controles de segurança para Azure Key Vault
@@ -52,7 +52,7 @@ Este artigo documenta os controles de segurança internos do Azure Key Vault.
 | Criptografia no lado do servidor em repouso: chaves gerenciadas pela Microsoft | Sim | Todos os objetos são criptografados. |
 | Criptografia no lado do servidor em repouso: chaves gerenciadas pelo cliente (BYOK) | Sim | O cliente controla todas as chaves em seu Key Vault. Quando as chaves com suporte ao módulo de segurança de hardware (HSM) são especificadas, um HSM de nível 2 do FIPS protege a chave, o certificado ou o segredo. |
 | Criptografia em nível de coluna (serviços de dados do Azure)| N/D |  |
-| Criptografia em trânsito (como criptografia de ExpressRoute, criptografia de vnet e criptografia vnet)| Sim | Toda a comunicação é por meio de chamadas à API criptografadas |
+| Criptografia em trânsito (como criptografia de ExpressRoute, criptografia de VNet e criptografia de VNet-VNet)| Sim | Toda a comunicação é por meio de chamadas à API criptografadas |
 | Chamadas criptografadas à API| Sim | Usar HTTPS. |
 
 ## <a name="access-controls"></a>Controles de acesso

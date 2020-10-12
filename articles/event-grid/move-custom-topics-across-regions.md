@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 08/28/2020
 ms.openlocfilehash: d0656a4f6ec1c7431cf7111f786b0f1d779166e3
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89145325"
 ---
 # <a name="move-azure-event-grid-custom-topics-to-another-region"></a>Mover tópicos personalizados da grade de eventos do Azure para outra região
@@ -38,22 +38,10 @@ Para começar, exporte um modelo do Resource Manager para o tópico personalizad
     :::image type="content" source="./media/move-custom-topics-across-regions/search-topics.png" alt-text="Pesquisar e selecionar tópicos de grade de eventos":::
 3. Selecione o **tópico** que você deseja exportar para um modelo do Resource Manager. 
 
-    :::image type="content" source="./media/move-custom-topics-across-regions/select-custom-topic.png" alt-text="Selecione o tópico personalizado":::   
+    :::image type="content" source="./media/move-custom-topics-across-regions/select-custom-topic.png" alt-text="Pesquisar e selecionar tópicos de grade de eventos":::   
 4. Na página **tópico da grade de eventos** , selecione **Exportar modelo** em **configurações** no menu à esquerda e, em seguida, selecione **baixar** na barra de ferramentas. 
 
-    :::image type="content" source="./media/move-custom-topics-across-regions/export-template-download.png" alt-text="Exportar modelo-download de >":::   
-
-    > [!IMPORTANT]
-    > Somente o tópico é exportado para o modelo. As assinaturas do tópico não são exportadas. Portanto, você precisa criar assinaturas para o tópico depois de mover o tópico para a região de destino. 
-5. Localize o arquivo **. zip** que você baixou do portal e descompacte esse arquivo em uma pasta de sua escolha. Esse arquivo zip contém arquivos JSON de modelo e parâmetros. 
-1. Abra o **template.jsem** um editor de sua escolha. 
-8. Atualize `location` o recurso de **tópico** para a região ou local de destino. Para obter códigos de localização, consulte [locais do Azure](https://azure.microsoft.com/global-infrastructure/locations/). O código de uma região é o nome da região sem espaços, por exemplo, `West US` é igual a `westus` .
-
-    ```json
-    "type": "Microsoft.EventGrid/topics",
-    "apiVersion": "2020-06-01",
-    "name": "[parameters('topics_mytopic0130_name')]",
-    "location": "westus"
+    :::image type="content" source="./media/move-custom-topics-across-regions/export-template-download.png" alt-text="Pesquisar e selecionar tópicos de grade de eventos"
     ```
 1. **Salve** o modelo. 
 
@@ -74,14 +62,14 @@ Implante o modelo para criar um tópico personalizado na região de destino.
     1. Para o **nome do tópico**, insira um novo nome para o tópico. 
     1. Selecione **Revisar + criar** na parte inferior da página. 
     
-        :::image type="content" source="./media/move-custom-topics-across-regions/deploy-template.png" alt-text="Implantação personalizada":::
+        :::image type="content" source="./media/move-custom-topics-across-regions/deploy-template.png" alt-text="Pesquisar e selecionar tópicos de grade de eventos":::
     1. Na página **revisar + criar** , examine as configurações e selecione **criar**. 
 
 ## <a name="verify"></a>Verificar
 
 1. Depois que a implantação for realizada com sucesso, selecione **ir para o recurso**. 
 
-    :::image type="content" source="./media/move-custom-topics-across-regions/navigate-custom-topic.png" alt-text="Acessar recurso":::
+    :::image type="content" source="./media/move-custom-topics-across-regions/navigate-custom-topic.png" alt-text="Pesquisar e selecionar tópicos de grade de eventos":::
 1. Confirme que você vê a página de **tópico da grade de eventos** para o tópico personalizado.   
 1. Siga as etapas em [rotear eventos personalizados para um ponto de extremidade da Web](custom-event-quickstart-portal.md#send-an-event-to-your-topic) para enviar eventos para o tópico. Verifique se o manipulador de eventos de webhook é invocado. 
 
