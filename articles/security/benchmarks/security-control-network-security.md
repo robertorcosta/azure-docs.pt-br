@@ -8,10 +8,10 @@ ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: dad01212be3589af7167082ff22c624fa776772a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82193115"
 ---
 # <a name="security-control-network-security"></a>Controle de segurança: segurança de rede
@@ -56,7 +56,7 @@ Use a central de segurança do Azure e siga as recomendações de proteção de 
 
 | ID do Azure | IDs de CIS | Responsabilidade |
 |--|--|--|
-| 1.3 | 9,5 | Cliente |
+| 1,3 | 9,5 | Cliente |
 
 Implante o WAF (firewall do aplicativo Web) do Azure na frente de aplicativos Web críticos para inspeção adicional do tráfego de entrada. Habilite a configuração de diagnóstico para WAF e ingerir logs em uma conta de armazenamento, Hub de eventos ou espaço de trabalho de Log Analytics.
 
@@ -144,7 +144,7 @@ Você também pode usar grupos de segurança de aplicativo para ajudar a simplif
 
 | ID do Azure | IDs de CIS | Responsabilidade |
 |--|--|--|
-| 1.9 | 11,1 | Cliente |
+| 1,9 | 11,1 | Cliente |
 
 Defina e implemente configurações de segurança padrão para recursos de rede com Azure Policy.
 

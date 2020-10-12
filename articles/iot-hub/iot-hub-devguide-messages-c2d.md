@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 03/15/2018
 ms.custom: mqtt
 ms.openlocfilehash: 307ab47c1f7498f71e61108a616d35ef1d4f61c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81730007"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>Enviar mensagens da nuvem para o dispositivo de um hub IoT
@@ -85,7 +85,7 @@ Se o valor de **ACK** estiver *cheio*e você não receber uma mensagem de coment
 
 Conforme explicado em [pontos](iot-hub-devguide-endpoints.md)de extremidade, o Hub IOT entrega comentários por meio de um ponto de extremidades voltado para o serviço, */messages/servicebound/feedback*, como mensagens. A semântica de recebimento dos comentários é a mesma das mensagens da nuvem para o dispositivo. Sempre que possível, os comentários de mensagem são feitos em lotes em uma única mensagem, com o seguinte formato:
 
-| Property     | Descrição |
+| Propriedade     | Descrição |
 | ------------ | ----------- |
 | EnqueuedTime | Um carimbo de data/hora que indica quando a mensagem de comentário foi recebida pelo Hub |
 | UserId       | `{iot hub name}` |
@@ -93,7 +93,7 @@ Conforme explicado em [pontos](iot-hub-devguide-endpoints.md)de extremidade, o H
 
 O corpo é uma matriz de registros serializada em JSON, cada um com as seguintes propriedades:
 
-| Property           | Descrição |
+| Propriedade           | Descrição |
 | ------------------ | ----------- |
 | EnqueuedTimeUtc    | Um carimbo de data/hora que indica quando o resultado da mensagem ocorreu (por exemplo, o Hub recebeu a mensagem de comentário ou a mensagem original expirou) |
 | OriginalMessageId  | A *MessageId* da mensagem da nuvem para o dispositivo à qual essas informações de comentários se relacionam |
@@ -133,7 +133,7 @@ Você pode resolver esse comportamento aguardando um período de tempo para que 
 
 Cada Hub IoT expõe as seguintes opções de configuração para mensagens de nuvem para o dispositivo:
 
-| Property                  | Descrição | Intervalo e padrão |
+| Propriedade                  | Descrição | Intervalo e padrão |
 | ------------------------- | ----------- | ----------------- |
 | defaultTtlAsIso8601       | TTL padrão para mensagens da nuvem para o dispositivo | Intervalo de ISO_8601 de até 2 dias (mínimo de 1 minuto); padrão: 1 hora |
 | maxDeliveryCount          | Contagem máxima de entregas para filas de nuvem para dispositivo por dispositivo | 1 a 100; padrão: 10 |

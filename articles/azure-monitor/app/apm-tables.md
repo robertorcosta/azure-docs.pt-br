@@ -6,10 +6,10 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/09/2020
 ms.openlocfilehash: 1d7275c928b4d25e200a3a8d3d690c7575c056e7
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87323172"
 ---
 # <a name="workspace-based-resource-changes-preview"></a>Alterações de recursos com base no espaço de trabalho (versão prévia)
@@ -45,43 +45,43 @@ Tabela herdada: disponibilidade
 
 |ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
-|appId|cadeia de caracteres|\_ResourceGUID|cadeia de caracteres|
-|application_Version|cadeia de caracteres|AppVersion|cadeia de caracteres|
-|appName|cadeia de caracteres|\_ResourceId|cadeia de caracteres|
-|client_Browser|cadeia de caracteres|ClientBrowser|cadeia de caracteres|
-|client_City|cadeia de caracteres|ClientCity|cadeia de caracteres|
-|client_CountryOrRegion|cadeia de caracteres|ClientCountryOrRegion|cadeia de caracteres|
-|client_IP|cadeia de caracteres|ClientIP|cadeia de caracteres|
-|client_Model|cadeia de caracteres|ClientModel|cadeia de caracteres|
-|client_OS|cadeia de caracteres|ClientOS|cadeia de caracteres|
-|client_StateOrProvince|cadeia de caracteres|ClientStateOrProvince|cadeia de caracteres|
-|client_Type|cadeia de caracteres|Clientetype|cadeia de caracteres|
-|cloud_RoleInstance|cadeia de caracteres|AppRoleInstance|cadeia de caracteres|
-|cloud_RoleName|cadeia de caracteres|AppRoleName|cadeia de caracteres|
+|appId|string|\_ResourceGUID|string|
+|application_Version|string|AppVersion|string|
+|appName|string|\_ResourceId|string|
+|client_Browser|string|ClientBrowser|string|
+|client_City|string|ClientCity|string|
+|client_CountryOrRegion|string|ClientCountryOrRegion|string|
+|client_IP|string|ClientIP|string|
+|client_Model|string|ClientModel|string|
+|client_OS|string|ClientOS|string|
+|client_StateOrProvince|string|ClientStateOrProvince|string|
+|client_Type|string|Clientetype|string|
+|cloud_RoleInstance|string|AppRoleInstance|string|
+|cloud_RoleName|string|AppRoleName|string|
 |customDimensions|dinâmico|Propriedades|Dinâmico|
 |customMeasurements|dinâmico|Medidas|Dinâmico|
 |duration|real|DurationMs|real|
-|`id`|cadeia de caracteres|`Id`|cadeia de caracteres|
-|iKey|cadeia de caracteres|IKey|cadeia de caracteres|
+|`id`|string|`Id`|string|
+|iKey|string|IKey|string|
 |itemCount|INT|ItemCount|INT|
-|itemId|cadeia de caracteres|\_ItemId|cadeia de caracteres|
-|itemType|cadeia de caracteres|Type|String|
-|local|cadeia de caracteres|Location|cadeia de caracteres|
-|message|string|Mensagem|cadeia de caracteres|
-|name|cadeia de caracteres|Nome|cadeia de caracteres|
-|operation_Id|cadeia de caracteres|OperationId|cadeia de caracteres|
-|operation_Name|cadeia de caracteres|OperationName|cadeia de caracteres|
-|operation_ParentId|cadeia de caracteres|OperationParentId|cadeia de caracteres|
-|operation_SyntheticSource|cadeia de caracteres|OperationSyntheticSource|cadeia de caracteres|
-|performanceBucket|cadeia de caracteres|PerformanceBucket|cadeia de caracteres|
-|sdkVersion|cadeia de caracteres|SdkVersion|cadeia de caracteres|
-|session_Id|cadeia de caracteres|SessionId|cadeia de caracteres|
-|tamanho|real|Tamanho|real|
-|sucesso|cadeia de caracteres|Sucesso|Bool|
+|itemId|string|\_ItemId|string|
+|itemType|string|Type|String|
+|local|string|Location|string|
+|message|string|Mensagem|string|
+|name|string|Nome|cadeia de caracteres|
+|operation_Id|string|OperationId|string|
+|operation_Name|string|OperationName|string|
+|operation_ParentId|string|OperationParentId|string|
+|operation_SyntheticSource|string|OperationSyntheticSource|string|
+|performanceBucket|string|PerformanceBucket|string|
+|sdkVersion|string|SdkVersion|string|
+|session_Id|string|SessionId|string|
+|size|real|Tamanho|real|
+|sucesso|string|Êxito|Bool|
 |timestamp|DATETIME|TimeGenerated|DATETIME|
-|user_AccountId|cadeia de caracteres|UserAccountId|cadeia de caracteres|
-|user_AuthenticatedId|cadeia de caracteres|UserAuthenticatedId|cadeia de caracteres|
-|user_Id|cadeia de caracteres|UserId|cadeia de caracteres|
+|user_AccountId|string|UserAccountId|string|
+|user_AuthenticatedId|string|UserAuthenticatedId|string|
+|user_Id|string|UserId|string|
 
 ### <a name="appbrowsertimings"></a>AppBrowserTimings
 
@@ -89,43 +89,43 @@ Tabela herdada: browserTimings
 
 |ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
-|appId|cadeia de caracteres|\_ResourceGUID|cadeia de caracteres|
-|application_Version|cadeia de caracteres|AppVersion|cadeia de caracteres|
-|appName|cadeia de caracteres|\_ResourceId|cadeia de caracteres|
-|client_Browser|cadeia de caracteres|ClientBrowser|cadeia de caracteres|
-|client_City|cadeia de caracteres|ClientCity|cadeia de caracteres|
-|client_CountryOrRegion|cadeia de caracteres|ClientCountryOrRegion|cadeia de caracteres|
-|client_IP|cadeia de caracteres|ClientIP|cadeia de caracteres|
-|client_Model|cadeia de caracteres|ClientModel|cadeia de caracteres|
-|client_OS|cadeia de caracteres|ClientOS|cadeia de caracteres|
-|client_StateOrProvince|cadeia de caracteres|ClientStateOrProvince|cadeia de caracteres|
-|client_Type|cadeia de caracteres|Clientetype|cadeia de caracteres|
-|cloud_RoleInstance|cadeia de caracteres|AppRoleInstance|cadeia de caracteres|
-|cloud_RoleName|cadeia de caracteres|AppRoleName|cadeia de caracteres|
+|appId|string|\_ResourceGUID|string|
+|application_Version|string|AppVersion|string|
+|appName|string|\_ResourceId|string|
+|client_Browser|string|ClientBrowser|string|
+|client_City|string|ClientCity|string|
+|client_CountryOrRegion|string|ClientCountryOrRegion|string|
+|client_IP|string|ClientIP|string|
+|client_Model|string|ClientModel|string|
+|client_OS|string|ClientOS|string|
+|client_StateOrProvince|string|ClientStateOrProvince|string|
+|client_Type|string|Clientetype|string|
+|cloud_RoleInstance|string|AppRoleInstance|string|
+|cloud_RoleName|string|AppRoleName|string|
 |customDimensions|dinâmico|Propriedades|Dinâmico|
 |customMeasurements|dinâmico|Medidas|Dinâmico|
-|iKey|cadeia de caracteres|IKey|cadeia de caracteres|
+|iKey|string|IKey|string|
 |itemCount|INT|ItemCount|INT|
-|itemId|cadeia de caracteres|\_ItemId|cadeia de caracteres|
-|itemType|cadeia de caracteres|Type|cadeia de caracteres|
+|itemId|string|\_ItemId|string|
+|itemType|string|Type|string|
 |name|string|Nome|DATETIME|
 |networkDuration|real|NetworkDurationMs|real|
-|operation_Id|cadeia de caracteres|OperationId|cadeia de caracteres|
-|operation_Name|cadeia de caracteres|OperationName|cadeia de caracteres|
-|operation_ParentId|cadeia de caracteres|OperationParentId|cadeia de caracteres|
-|operation_SyntheticSource|cadeia de caracteres|OperationSyntheticSource|cadeia de caracteres|
-|performanceBucket|cadeia de caracteres|PerformanceBucket|cadeia de caracteres|
+|operation_Id|string|OperationId|string|
+|operation_Name|string|OperationName|string|
+|operation_ParentId|string|OperationParentId|string|
+|operation_SyntheticSource|string|OperationSyntheticSource|string|
+|performanceBucket|string|PerformanceBucket|string|
 |processingDuration|real|ProcessingDurationMs|real|
 |receiveDuration|real|ReceiveDurationMs|real|
-|sdkVersion|cadeia de caracteres|SdkVersion|cadeia de caracteres|
+|sdkVersion|string|SdkVersion|string|
 |sendDuration|real|SendDurationMs|real|
-|session_Id|cadeia de caracteres|SessionId|cadeia de caracteres|
+|session_Id|string|SessionId|string|
 |timestamp|DATETIME|TimeGenerated|DATETIME|
 |totalDuration|real|TotalDurationMs|real|
-|url|string|Url|cadeia de caracteres|
-|user_AccountId|cadeia de caracteres|UserAccountId|cadeia de caracteres|
-|user_AuthenticatedId|cadeia de caracteres|UserAuthenticatedId|cadeia de caracteres|
-|user_Id|cadeia de caracteres|UserId|cadeia de caracteres|
+|url|string|Url|string|
+|user_AccountId|string|UserAccountId|string|
+|user_AuthenticatedId|string|UserAuthenticatedId|string|
+|user_Id|string|UserId|string|
 
 ### <a name="appdependencies"></a>AppDependencies
 
@@ -133,44 +133,44 @@ Tabela herdada: dependências
 
 |ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
-|appId|cadeia de caracteres|\_ResourceGUID|cadeia de caracteres|
-|application_Version|cadeia de caracteres|AppVersion|cadeia de caracteres|
-|appName|cadeia de caracteres|\_ResourceId|cadeia de caracteres|
-|client_Browser|cadeia de caracteres|ClientBrowser|cadeia de caracteres|
-|client_City|cadeia de caracteres|ClientCity|cadeia de caracteres|
-|client_CountryOrRegion|cadeia de caracteres|ClientCountryOrRegion|cadeia de caracteres|
-|client_IP|cadeia de caracteres|ClientIP|cadeia de caracteres|
-|client_Model|cadeia de caracteres|ClientModel|cadeia de caracteres|
-|client_OS|cadeia de caracteres|ClientOS|cadeia de caracteres|
-|client_StateOrProvince|cadeia de caracteres|ClientStateOrProvince|cadeia de caracteres|
-|client_Type|cadeia de caracteres|Clientetype|cadeia de caracteres|
-|cloud_RoleInstance|cadeia de caracteres|AppRoleInstance|cadeia de caracteres|
-|cloud_RoleName|cadeia de caracteres|AppRoleName|cadeia de caracteres|
+|appId|string|\_ResourceGUID|string|
+|application_Version|string|AppVersion|string|
+|appName|string|\_ResourceId|string|
+|client_Browser|string|ClientBrowser|string|
+|client_City|string|ClientCity|string|
+|client_CountryOrRegion|string|ClientCountryOrRegion|string|
+|client_IP|string|ClientIP|string|
+|client_Model|string|ClientModel|string|
+|client_OS|string|ClientOS|string|
+|client_StateOrProvince|string|ClientStateOrProvince|string|
+|client_Type|string|Clientetype|string|
+|cloud_RoleInstance|string|AppRoleInstance|string|
+|cloud_RoleName|string|AppRoleName|string|
 |customDimensions|dinâmico|Propriedades|Dinâmico|
 |customMeasurements|dinâmico|Medidas|Dinâmico|
-|data|cadeia de caracteres|Dados|cadeia de caracteres|
+|Dados|string|Dados|string|
 |duration|real|DurationMs|real|
-|`id`|cadeia de caracteres|`Id`|cadeia de caracteres|
-|iKey|cadeia de caracteres|IKey|cadeia de caracteres|
+|`id`|string|`Id`|string|
+|iKey|string|IKey|string|
 |itemCount|INT|ItemCount|INT|
-|itemId|cadeia de caracteres|\_ItemId|cadeia de caracteres|
-|itemType|cadeia de caracteres|Type|String|
+|itemId|string|\_ItemId|string|
+|itemType|string|Type|String|
 |name|string|Nome|cadeia de caracteres|
-|operation_Id|cadeia de caracteres|OperationId|cadeia de caracteres|
-|operation_Name|cadeia de caracteres|OperationName|cadeia de caracteres|
-|operation_ParentId|cadeia de caracteres|OperationParentId|cadeia de caracteres|
-|operation_SyntheticSource|cadeia de caracteres|OperationSyntheticSource|cadeia de caracteres|
-|performanceBucket|cadeia de caracteres|PerformanceBucket|cadeia de caracteres|
-|resultCode|cadeia de caracteres|ResultCode|cadeia de caracteres|
-|sdkVersion|cadeia de caracteres|SdkVersion|cadeia de caracteres|
-|session_Id|cadeia de caracteres|SessionId|cadeia de caracteres|
-|sucesso|cadeia de caracteres|Sucesso|Bool|
-|destino|cadeia de caracteres|Destino|cadeia de caracteres|
+|operation_Id|string|OperationId|string|
+|operation_Name|string|OperationName|string|
+|operation_ParentId|string|OperationParentId|string|
+|operation_SyntheticSource|string|OperationSyntheticSource|string|
+|performanceBucket|string|PerformanceBucket|string|
+|resultCode|string|ResultCode|string|
+|sdkVersion|string|SdkVersion|string|
+|session_Id|string|SessionId|string|
+|sucesso|string|Êxito|Bool|
+|destino|string|Destino|string|
 |timestamp|DATETIME|TimeGenerated|DATETIME|
-|type|cadeia de caracteres|DependencyType|cadeia de caracteres|
-|user_AccountId|cadeia de caracteres|UserAccountId|cadeia de caracteres|
-|user_AuthenticatedId|cadeia de caracteres|UserAuthenticatedId|cadeia de caracteres|
-|user_Id|cadeia de caracteres|UserId|cadeia de caracteres|
+|type|string|DependencyType|string|
+|user_AccountId|string|UserAccountId|string|
+|user_AuthenticatedId|string|UserAuthenticatedId|string|
+|user_Id|string|UserId|string|
 
 ### <a name="appevents"></a>AppEvents
 
@@ -178,36 +178,36 @@ Tabela herdada: customEvents
 
 |ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
-|appId|cadeia de caracteres|\_ResourceGUID|cadeia de caracteres|
-|application_Version|cadeia de caracteres|AppVersion|cadeia de caracteres|
-|appName|cadeia de caracteres|\_ResourceId|cadeia de caracteres|
-|client_Browser|cadeia de caracteres|ClientBrowser|cadeia de caracteres|
-|client_City|cadeia de caracteres|ClientCity|cadeia de caracteres|
-|client_CountryOrRegion|cadeia de caracteres|ClientCountryOrRegion|cadeia de caracteres|
-|client_IP|cadeia de caracteres|ClientIP|cadeia de caracteres|
-|client_Model|cadeia de caracteres|ClientModel|cadeia de caracteres|
-|client_OS|cadeia de caracteres|ClientOS|cadeia de caracteres|
-|client_StateOrProvince|cadeia de caracteres|ClientStateOrProvince|cadeia de caracteres|
-|client_Type|cadeia de caracteres|Clientetype|cadeia de caracteres|
-|cloud_RoleInstance|cadeia de caracteres|AppRoleInstance|cadeia de caracteres|
-|cloud_RoleName|cadeia de caracteres|AppRoleName|cadeia de caracteres|
+|appId|string|\_ResourceGUID|string|
+|application_Version|string|AppVersion|string|
+|appName|string|\_ResourceId|string|
+|client_Browser|string|ClientBrowser|string|
+|client_City|string|ClientCity|string|
+|client_CountryOrRegion|string|ClientCountryOrRegion|string|
+|client_IP|string|ClientIP|string|
+|client_Model|string|ClientModel|string|
+|client_OS|string|ClientOS|string|
+|client_StateOrProvince|string|ClientStateOrProvince|string|
+|client_Type|string|Clientetype|string|
+|cloud_RoleInstance|string|AppRoleInstance|string|
+|cloud_RoleName|string|AppRoleName|string|
 |customDimensions|dinâmico|Propriedades|Dinâmico|
 |customMeasurements|dinâmico|Medidas|Dinâmico|
-|iKey|cadeia de caracteres|IKey|cadeia de caracteres|
+|iKey|string|IKey|string|
 |itemCount|INT|ItemCount|INT|
-|itemId|cadeia de caracteres|\_ItemId|cadeia de caracteres|
-|itemType|cadeia de caracteres|Type|cadeia de caracteres|
+|itemId|string|\_ItemId|string|
+|itemType|string|Type|string|
 |name|string|Nome|cadeia de caracteres|
-|operation_Id|cadeia de caracteres|OperationId|cadeia de caracteres|
-|operation_Name|cadeia de caracteres|OperationName|cadeia de caracteres|
-|operation_ParentId|cadeia de caracteres|OperationParentId|cadeia de caracteres|
-|operation_SyntheticSource|cadeia de caracteres|OperationSyntheticSource|cadeia de caracteres|
-|sdkVersion|cadeia de caracteres|SdkVersion|cadeia de caracteres|
-|session_Id|cadeia de caracteres|SessionId|cadeia de caracteres|
+|operation_Id|string|OperationId|string|
+|operation_Name|string|OperationName|string|
+|operation_ParentId|string|OperationParentId|string|
+|operation_SyntheticSource|string|OperationSyntheticSource|string|
+|sdkVersion|string|SdkVersion|string|
+|session_Id|string|SessionId|string|
 |timestamp|DATETIME|TimeGenerated|DATETIME|
-|user_AccountId|cadeia de caracteres|UserAccountId|cadeia de caracteres|
-|user_AuthenticatedId|cadeia de caracteres|UserAuthenticatedId|cadeia de caracteres|
-|user_Id|cadeia de caracteres|UserId|cadeia de caracteres|
+|user_AccountId|string|UserAccountId|string|
+|user_AuthenticatedId|string|UserAuthenticatedId|string|
+|user_Id|string|UserId|string|
 
 ### <a name="appmetrics"></a>AppMetrics
 
@@ -215,35 +215,35 @@ Tabela herdada: customMetrics
 
 |ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
-|appId|cadeia de caracteres|\_ResourceGUID|cadeia de caracteres|
-|application_Version|cadeia de caracteres|AppVersion|cadeia de caracteres|
-|appName|cadeia de caracteres|\_ResourceId|cadeia de caracteres|
-|client_Browser|cadeia de caracteres|ClientBrowser|cadeia de caracteres|
-|client_City|cadeia de caracteres|ClientCity|cadeia de caracteres|
-|client_CountryOrRegion|cadeia de caracteres|ClientCountryOrRegion|cadeia de caracteres|
-|client_IP|cadeia de caracteres|ClientIP|cadeia de caracteres|
-|client_Model|cadeia de caracteres|ClientModel|cadeia de caracteres|
-|client_OS|cadeia de caracteres|ClientOS|cadeia de caracteres|
-|client_StateOrProvince|cadeia de caracteres|ClientStateOrProvince|cadeia de caracteres|
-|client_Type|cadeia de caracteres|Clientetype|cadeia de caracteres|
-|cloud_RoleInstance|cadeia de caracteres|AppRoleInstance|cadeia de caracteres|
-|cloud_RoleName|cadeia de caracteres|AppRoleName|cadeia de caracteres|
+|appId|string|\_ResourceGUID|string|
+|application_Version|string|AppVersion|string|
+|appName|string|\_ResourceId|string|
+|client_Browser|string|ClientBrowser|string|
+|client_City|string|ClientCity|string|
+|client_CountryOrRegion|string|ClientCountryOrRegion|string|
+|client_IP|string|ClientIP|string|
+|client_Model|string|ClientModel|string|
+|client_OS|string|ClientOS|string|
+|client_StateOrProvince|string|ClientStateOrProvince|string|
+|client_Type|string|Clientetype|string|
+|cloud_RoleInstance|string|AppRoleInstance|string|
+|cloud_RoleName|string|AppRoleName|string|
 |customDimensions|dinâmico|Propriedades|Dinâmico|
-|iKey|cadeia de caracteres|IKey|cadeia de caracteres|
-|itemId|cadeia de caracteres|\_ItemId|cadeia de caracteres|
-|itemType|cadeia de caracteres|Type|cadeia de caracteres|
+|iKey|string|IKey|string|
+|itemId|string|\_ItemId|string|
+|itemType|string|Type|string|
 |name|string|Nome|cadeia de caracteres|
-|operation_Id|cadeia de caracteres|OperationId|cadeia de caracteres|
-|operation_Name|cadeia de caracteres|OperationName|cadeia de caracteres|
-|operation_ParentId|cadeia de caracteres|OperationParentId|cadeia de caracteres|
-|operation_SyntheticSource|cadeia de caracteres|OperationSyntheticSource|cadeia de caracteres|
-|sdkVersion|cadeia de caracteres|SdkVersion|cadeia de caracteres|
-|session_Id|cadeia de caracteres|SessionId|cadeia de caracteres|
+|operation_Id|string|OperationId|string|
+|operation_Name|string|OperationName|string|
+|operation_ParentId|string|OperationParentId|string|
+|operation_SyntheticSource|string|OperationSyntheticSource|string|
+|sdkVersion|string|SdkVersion|string|
+|session_Id|string|SessionId|string|
 |timestamp|DATETIME|TimeGenerated|DATETIME|
-|user_AccountId|cadeia de caracteres|UserAccountId|cadeia de caracteres|
-|user_AuthenticatedId|cadeia de caracteres|UserAuthenticatedId|cadeia de caracteres|
-|user_Id|cadeia de caracteres|UserId|cadeia de caracteres|
-|valor|real|removido||
+|user_AccountId|string|UserAccountId|string|
+|user_AuthenticatedId|string|UserAuthenticatedId|string|
+|user_Id|string|UserId|string|
+|value|real|removido||
 |valueCount|INT|ValueCount|INT|
 |valueMax|real|ValueMax|real|
 |valueMin|real|ValueMin|real|
@@ -256,40 +256,40 @@ Tabela herdada: pageViews
 
 |ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
-|appId|cadeia de caracteres|\_ResourceGUID|cadeia de caracteres|
-|application_Version|cadeia de caracteres|AppVersion|cadeia de caracteres|
-|appName|cadeia de caracteres|\_ResourceId|cadeia de caracteres|
-|client_Browser|cadeia de caracteres|ClientBrowser|cadeia de caracteres|
-|client_City|cadeia de caracteres|ClientCity|cadeia de caracteres|
-|client_CountryOrRegion|cadeia de caracteres|ClientCountryOrRegion|cadeia de caracteres|
-|client_IP|cadeia de caracteres|ClientIP|cadeia de caracteres|
-|client_Model|cadeia de caracteres|ClientModel|cadeia de caracteres|
-|client_OS|cadeia de caracteres|ClientOS|cadeia de caracteres|
-|client_StateOrProvince|cadeia de caracteres|ClientStateOrProvince|cadeia de caracteres|
-|client_Type|cadeia de caracteres|Clientetype|cadeia de caracteres|
-|cloud_RoleInstance|cadeia de caracteres|AppRoleInstance|cadeia de caracteres|
-|cloud_RoleName|cadeia de caracteres|AppRoleName|cadeia de caracteres|
+|appId|string|\_ResourceGUID|string|
+|application_Version|string|AppVersion|string|
+|appName|string|\_ResourceId|string|
+|client_Browser|string|ClientBrowser|string|
+|client_City|string|ClientCity|string|
+|client_CountryOrRegion|string|ClientCountryOrRegion|string|
+|client_IP|string|ClientIP|string|
+|client_Model|string|ClientModel|string|
+|client_OS|string|ClientOS|string|
+|client_StateOrProvince|string|ClientStateOrProvince|string|
+|client_Type|string|Clientetype|string|
+|cloud_RoleInstance|string|AppRoleInstance|string|
+|cloud_RoleName|string|AppRoleName|string|
 |customDimensions|dinâmico|Propriedades|Dinâmico|
 |customMeasurements|dinâmico|Medidas|Dinâmico|
 |duration|real|DurationMs|real|
-|`id`|cadeia de caracteres|`Id`|cadeia de caracteres|
-|iKey|cadeia de caracteres|IKey|cadeia de caracteres|
+|`id`|string|`Id`|string|
+|iKey|string|IKey|string|
 |itemCount|INT|ItemCount|INT|
-|itemId|cadeia de caracteres|\_ItemId|cadeia de caracteres|
-|itemType|cadeia de caracteres|Type|String|
+|itemId|string|\_ItemId|string|
+|itemType|string|Type|String|
 |name|string|Nome|cadeia de caracteres|
-|operation_Id|cadeia de caracteres|OperationId|cadeia de caracteres|
-|operation_Name|cadeia de caracteres|OperationName|cadeia de caracteres|
-|operation_ParentId|cadeia de caracteres|OperationParentId|cadeia de caracteres|
-|operation_SyntheticSource|cadeia de caracteres|OperationSyntheticSource|cadeia de caracteres|
-|performanceBucket|cadeia de caracteres|PerformanceBucket|cadeia de caracteres|
-|sdkVersion|cadeia de caracteres|SdkVersion|cadeia de caracteres|
-|session_Id|cadeia de caracteres|SessionId|cadeia de caracteres|
+|operation_Id|string|OperationId|string|
+|operation_Name|string|OperationName|string|
+|operation_ParentId|string|OperationParentId|string|
+|operation_SyntheticSource|string|OperationSyntheticSource|string|
+|performanceBucket|string|PerformanceBucket|string|
+|sdkVersion|string|SdkVersion|string|
+|session_Id|string|SessionId|string|
 |timestamp|DATETIME|TimeGenerated|DATETIME|
-|url|cadeia de caracteres|Url|cadeia de caracteres|
-|user_AccountId|cadeia de caracteres|UserAccountId|cadeia de caracteres|
-|user_AuthenticatedId|cadeia de caracteres|UserAuthenticatedId|cadeia de caracteres|
-|user_Id|cadeia de caracteres|UserId|cadeia de caracteres|
+|url|string|Url|string|
+|user_AccountId|string|UserAccountId|string|
+|user_AuthenticatedId|string|UserAuthenticatedId|string|
+|user_Id|string|UserId|string|
 
 ### <a name="appperformancecounters"></a>AppPerformanceCounters
 
@@ -297,38 +297,38 @@ Tabela herdada: performanceCounters
 
 |ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
-|appId|cadeia de caracteres|\_ResourceGUID|cadeia de caracteres|
-|application_Version|cadeia de caracteres|AppVersion|cadeia de caracteres|
-|appName|cadeia de caracteres|\_ResourceId|cadeia de caracteres|
-|category|string|Categoria|cadeia de caracteres|
-|client_Browser|cadeia de caracteres|ClientBrowser|cadeia de caracteres|
-|client_City|cadeia de caracteres|ClientCity|cadeia de caracteres|
-|client_CountryOrRegion|cadeia de caracteres|ClientCountryOrRegion|cadeia de caracteres|
-|client_IP|cadeia de caracteres|ClientIP|cadeia de caracteres|
-|client_Model|cadeia de caracteres|ClientModel|cadeia de caracteres|
-|client_OS|cadeia de caracteres|ClientOS|cadeia de caracteres|
-|client_StateOrProvince|cadeia de caracteres|ClientStateOrProvince|cadeia de caracteres|
-|client_Type|cadeia de caracteres|Clientetype|cadeia de caracteres|
-|cloud_RoleInstance|cadeia de caracteres|AppRoleInstance|cadeia de caracteres|
-|cloud_RoleName|cadeia de caracteres|AppRoleName|cadeia de caracteres|
-|contador|cadeia de caracteres|removido||
+|appId|string|\_ResourceGUID|string|
+|application_Version|string|AppVersion|string|
+|appName|string|\_ResourceId|string|
+|category|string|Categoria|string|
+|client_Browser|string|ClientBrowser|string|
+|client_City|string|ClientCity|string|
+|client_CountryOrRegion|string|ClientCountryOrRegion|string|
+|client_IP|string|ClientIP|string|
+|client_Model|string|ClientModel|string|
+|client_OS|string|ClientOS|string|
+|client_StateOrProvince|string|ClientStateOrProvince|string|
+|client_Type|string|Clientetype|string|
+|cloud_RoleInstance|string|AppRoleInstance|string|
+|cloud_RoleName|string|AppRoleName|string|
+|contador|string|removido||
 |customDimensions|dinâmico|Propriedades|Dinâmico|
-|iKey|cadeia de caracteres|IKey|cadeia de caracteres|
-|instance|cadeia de caracteres|Instância|cadeia de caracteres|
-|itemId|cadeia de caracteres|\_ItemId|cadeia de caracteres|
-|itemType|cadeia de caracteres|Type|cadeia de caracteres|
+|iKey|string|IKey|string|
+|instance|string|Instância|string|
+|itemId|string|\_ItemId|string|
+|itemType|string|Type|string|
 |name|string|Nome|cadeia de caracteres|
-|operation_Id|cadeia de caracteres|OperationId|cadeia de caracteres|
-|operation_Name|cadeia de caracteres|OperationName|cadeia de caracteres|
-|operation_ParentId|cadeia de caracteres|OperationParentId|cadeia de caracteres|
-|operation_SyntheticSource|cadeia de caracteres|OperationSyntheticSource|cadeia de caracteres|
-|sdkVersion|cadeia de caracteres|SdkVersion|cadeia de caracteres|
-|session_Id|cadeia de caracteres|SessionId|cadeia de caracteres|
+|operation_Id|string|OperationId|string|
+|operation_Name|string|OperationName|string|
+|operation_ParentId|string|OperationParentId|string|
+|operation_SyntheticSource|string|OperationSyntheticSource|string|
+|sdkVersion|string|SdkVersion|string|
+|session_Id|string|SessionId|string|
 |timestamp|DATETIME|TimeGenerated|DATETIME|
-|user_AccountId|cadeia de caracteres|UserAccountId|cadeia de caracteres|
-|user_AuthenticatedId|cadeia de caracteres|UserAuthenticatedId|cadeia de caracteres|
-|user_Id|cadeia de caracteres|UserId|cadeia de caracteres|
-|valor|real|Valor|real|
+|user_AccountId|string|UserAccountId|string|
+|user_AuthenticatedId|string|UserAuthenticatedId|string|
+|user_Id|string|UserId|string|
+|value|real|Valor|real|
 
 ### <a name="apprequests"></a>AppRequests
 
@@ -336,43 +336,43 @@ Tabela herdada: solicitações
 
 |ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
-|appId|cadeia de caracteres|\_ResourceGUID|cadeia de caracteres|
-|application_Version|cadeia de caracteres|AppVersion|cadeia de caracteres|
-|appName|cadeia de caracteres|\_ResourceId|cadeia de caracteres|
-|client_Browser|cadeia de caracteres|ClientBrowser|cadeia de caracteres|
-|client_City|cadeia de caracteres|ClientCity|cadeia de caracteres|
-|client_CountryOrRegion|cadeia de caracteres|ClientCountryOrRegion|cadeia de caracteres|
-|client_IP|cadeia de caracteres|ClientIP|cadeia de caracteres|
-|client_Model|cadeia de caracteres|ClientModel|cadeia de caracteres|
-|client_OS|cadeia de caracteres|ClientOS|cadeia de caracteres|
-|client_StateOrProvince|cadeia de caracteres|ClientStateOrProvince|cadeia de caracteres|
-|client_Type|cadeia de caracteres|Clientetype|cadeia de caracteres|
-|cloud_RoleInstance|cadeia de caracteres|AppRoleInstance|cadeia de caracteres|
-|cloud_RoleName|cadeia de caracteres|AppRoleName|cadeia de caracteres|
+|appId|string|\_ResourceGUID|string|
+|application_Version|string|AppVersion|string|
+|appName|string|\_ResourceId|string|
+|client_Browser|string|ClientBrowser|string|
+|client_City|string|ClientCity|string|
+|client_CountryOrRegion|string|ClientCountryOrRegion|string|
+|client_IP|string|ClientIP|string|
+|client_Model|string|ClientModel|string|
+|client_OS|string|ClientOS|string|
+|client_StateOrProvince|string|ClientStateOrProvince|string|
+|client_Type|string|Clientetype|string|
+|cloud_RoleInstance|string|AppRoleInstance|string|
+|cloud_RoleName|string|AppRoleName|string|
 |customDimensions|dinâmico|Propriedades|Dinâmico|
 |customMeasurements|dinâmico|Medidas|Dinâmico|
 |duration|real|DurationMs|Real|
-|`id`|cadeia de caracteres|`Id`|Cadeia de caracteres|
-|iKey|cadeia de caracteres|IKey|cadeia de caracteres|
+|`id`|string|`Id`|String|
+|iKey|string|IKey|string|
 |itemCount|INT|ItemCount|INT|
-|itemId|cadeia de caracteres|\_ItemId|cadeia de caracteres|
-|itemType|cadeia de caracteres|Type|String|
-|name|cadeia de caracteres|Nome|Cadeia de caracteres|
-|operation_Id|cadeia de caracteres|OperationId|cadeia de caracteres|
-|operation_Name|cadeia de caracteres|OperationName|cadeia de caracteres|
-|operation_ParentId|cadeia de caracteres|OperationParentId|cadeia de caracteres|
-|operation_SyntheticSource|cadeia de caracteres|OperationSyntheticSource|cadeia de caracteres|
-|performanceBucket|cadeia de caracteres|PerformanceBucket|Cadeia de caracteres|
-|resultCode|cadeia de caracteres|ResultCode|Cadeia de caracteres|
-|sdkVersion|cadeia de caracteres|SdkVersion|cadeia de caracteres|
-|session_Id|cadeia de caracteres|SessionId|cadeia de caracteres|
-|source|string|Fonte|Cadeia de caracteres|
-|sucesso|cadeia de caracteres|Sucesso|Bool|
+|itemId|string|\_ItemId|string|
+|itemType|string|Type|String|
+|name|string|Nome|String|
+|operation_Id|string|OperationId|string|
+|operation_Name|string|OperationName|string|
+|operation_ParentId|string|OperationParentId|string|
+|operation_SyntheticSource|string|OperationSyntheticSource|string|
+|performanceBucket|string|PerformanceBucket|String|
+|resultCode|string|ResultCode|String|
+|sdkVersion|string|SdkVersion|string|
+|session_Id|string|SessionId|string|
+|source|string|Fonte|String|
+|sucesso|string|Êxito|Bool|
 |timestamp|DATETIME|TimeGenerated|DATETIME|
-|url|cadeia de caracteres|Url|Cadeia de caracteres|
-|user_AccountId|cadeia de caracteres|UserAccountId|cadeia de caracteres|
-|user_AuthenticatedId|cadeia de caracteres|UserAuthenticatedId|cadeia de caracteres|
-|user_Id|cadeia de caracteres|UserId|cadeia de caracteres|
+|url|string|Url|String|
+|user_AccountId|string|UserAccountId|string|
+|user_AuthenticatedId|string|UserAuthenticatedId|string|
+|user_Id|string|UserId|string|
 
 ### <a name="appsystemevents"></a>AppSystemEvents
 
@@ -380,51 +380,51 @@ Tabela herdada: exceções
 
 |ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
-|appId|cadeia de caracteres|\_ResourceGUID|cadeia de caracteres|
-|application_Version|cadeia de caracteres|AppVersion|cadeia de caracteres|
-|appName|cadeia de caracteres|\_ResourceId|cadeia de caracteres|
-|assembly|cadeia de caracteres|Assembly|cadeia de caracteres|
-|client_Browser|cadeia de caracteres|ClientBrowser|cadeia de caracteres|
-|client_City|cadeia de caracteres|ClientCity|cadeia de caracteres|
-|client_CountryOrRegion|cadeia de caracteres|ClientCountryOrRegion|cadeia de caracteres|
-|client_IP|cadeia de caracteres|ClientIP|cadeia de caracteres|
-|client_Model|cadeia de caracteres|ClientModel|cadeia de caracteres|
-|client_OS|cadeia de caracteres|ClientOS|cadeia de caracteres|
-|client_StateOrProvince|cadeia de caracteres|ClientStateOrProvince|cadeia de caracteres|
-|client_Type|cadeia de caracteres|Clientetype|cadeia de caracteres|
-|cloud_RoleInstance|cadeia de caracteres|AppRoleInstance|cadeia de caracteres|
-|cloud_RoleName|cadeia de caracteres|AppRoleName|cadeia de caracteres|
+|appId|string|\_ResourceGUID|string|
+|application_Version|string|AppVersion|string|
+|appName|string|\_ResourceId|string|
+|assembly|string|Assembly|string|
+|client_Browser|string|ClientBrowser|string|
+|client_City|string|ClientCity|string|
+|client_CountryOrRegion|string|ClientCountryOrRegion|string|
+|client_IP|string|ClientIP|string|
+|client_Model|string|ClientModel|string|
+|client_OS|string|ClientOS|string|
+|client_StateOrProvince|string|ClientStateOrProvince|string|
+|client_Type|string|Clientetype|string|
+|cloud_RoleInstance|string|AppRoleInstance|string|
+|cloud_RoleName|string|AppRoleName|string|
 |customDimensions|dinâmico|Propriedades|dinâmico|
 |customMeasurements|dinâmico|Medidas|dinâmico|
 |detalhes|dinâmico|Detalhes|dinâmico|
-|handledAt|cadeia de caracteres|HandledAt|cadeia de caracteres|
-|iKey|cadeia de caracteres|IKey|cadeia de caracteres|
-|innermostAssembly|cadeia de caracteres|InnermostAssembly|cadeia de caracteres|
-|innermostMessage|cadeia de caracteres|InnermostMessage|cadeia de caracteres|
-|innermostMethod|cadeia de caracteres|InnermostMethod|cadeia de caracteres|
-|mais interno|cadeia de caracteres|Mais interno|cadeia de caracteres|
+|handledAt|string|HandledAt|string|
+|iKey|string|IKey|string|
+|innermostAssembly|string|InnermostAssembly|string|
+|innermostMessage|string|InnermostMessage|string|
+|innermostMethod|string|InnermostMethod|string|
+|mais interno|string|Mais interno|string|
 |itemCount|INT|ItemCount|INT|
-|itemId|cadeia de caracteres|\_ItemId|cadeia de caracteres|
-|itemType|cadeia de caracteres|Type|cadeia de caracteres|
-|message|string|Mensagem|cadeia de caracteres|
-|method|cadeia de caracteres|Método|cadeia de caracteres|
-|operation_Id|cadeia de caracteres|OperationId|cadeia de caracteres|
-|operation_Name|cadeia de caracteres|OperationName|cadeia de caracteres|
-|operation_ParentId|cadeia de caracteres|OperationParentId|cadeia de caracteres|
-|operation_SyntheticSource|cadeia de caracteres|OperationSyntheticSource|cadeia de caracteres|
-|outerAssembly|cadeia de caracteres|OuterAssembly|cadeia de caracteres|
-|outerMessage|cadeia de caracteres|OuterMessage|cadeia de caracteres|
-|outerMethod|cadeia de caracteres|OuterMethod|cadeia de caracteres|
-|outertype|cadeia de caracteres|Outertype|cadeia de caracteres|
-|problemid|cadeia de caracteres|Problemid|cadeia de caracteres|
-|sdkVersion|cadeia de caracteres|SdkVersion|cadeia de caracteres|
-|session_Id|cadeia de caracteres|SessionId|cadeia de caracteres|
+|itemId|string|\_ItemId|string|
+|itemType|string|Type|string|
+|message|string|Mensagem|string|
+|method|string|Método|string|
+|operation_Id|string|OperationId|string|
+|operation_Name|string|OperationName|string|
+|operation_ParentId|string|OperationParentId|string|
+|operation_SyntheticSource|string|OperationSyntheticSource|string|
+|outerAssembly|string|OuterAssembly|string|
+|outerMessage|string|OuterMessage|string|
+|outerMethod|string|OuterMethod|string|
+|outertype|string|Outertype|string|
+|problemid|string|Problemid|string|
+|sdkVersion|string|SdkVersion|string|
+|session_Id|string|SessionId|string|
 |Nível|INT|SeverityLevel|INT|
 |timestamp|DATETIME|TimeGenerated|DATETIME|
-|type|cadeia de caracteres|ExceptionType|cadeia de caracteres|
-|user_AccountId|cadeia de caracteres|UserAccountId|cadeia de caracteres|
-|user_AuthenticatedId|cadeia de caracteres|UserAuthenticatedId|cadeia de caracteres|
-|user_Id|cadeia de caracteres|UserId|cadeia de caracteres|
+|type|string|ExceptionType|string|
+|user_AccountId|string|UserAccountId|string|
+|user_AuthenticatedId|string|UserAuthenticatedId|string|
+|user_Id|string|UserId|string|
 
 ### <a name="apptraces"></a>AppTraces
 
@@ -432,37 +432,37 @@ Tabela herdada: rastreamentos
 
 |ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
-|appId|cadeia de caracteres|\_ResourceGUID|cadeia de caracteres|
-|application_Version|cadeia de caracteres|AppVersion|cadeia de caracteres|
-|appName|cadeia de caracteres|\_ResourceId|cadeia de caracteres|
-|client_Browser|cadeia de caracteres|ClientBrowser|cadeia de caracteres|
-|client_City|cadeia de caracteres|ClientCity|cadeia de caracteres|
-|client_CountryOrRegion|cadeia de caracteres|ClientCountryOrRegion|cadeia de caracteres|
-|client_IP|cadeia de caracteres|ClientIP|cadeia de caracteres|
-|client_Model|cadeia de caracteres|ClientModel|cadeia de caracteres|
-|client_OS|cadeia de caracteres|ClientOS|cadeia de caracteres|
-|client_StateOrProvince|cadeia de caracteres|ClientStateOrProvince|cadeia de caracteres|
-|client_Type|cadeia de caracteres|Clientetype|cadeia de caracteres|
-|cloud_RoleInstance|cadeia de caracteres|AppRoleInstance|cadeia de caracteres|
-|cloud_RoleName|cadeia de caracteres|AppRoleName|cadeia de caracteres|
+|appId|string|\_ResourceGUID|string|
+|application_Version|string|AppVersion|string|
+|appName|string|\_ResourceId|string|
+|client_Browser|string|ClientBrowser|string|
+|client_City|string|ClientCity|string|
+|client_CountryOrRegion|string|ClientCountryOrRegion|string|
+|client_IP|string|ClientIP|string|
+|client_Model|string|ClientModel|string|
+|client_OS|string|ClientOS|string|
+|client_StateOrProvince|string|ClientStateOrProvince|string|
+|client_Type|string|Clientetype|string|
+|cloud_RoleInstance|string|AppRoleInstance|string|
+|cloud_RoleName|string|AppRoleName|string|
 |customDimensions|dinâmico|Propriedades|dinâmico|
 |customMeasurements|dinâmico|Medidas|dinâmico|
-|iKey|cadeia de caracteres|IKey|cadeia de caracteres|
+|iKey|string|IKey|string|
 |itemCount|INT|ItemCount|INT|
-|itemId|cadeia de caracteres|\_ItemId|cadeia de caracteres|
-|itemType|cadeia de caracteres|Type|cadeia de caracteres|
-|message|string|Mensagem|cadeia de caracteres|
-|operation_Id|cadeia de caracteres|OperationId|cadeia de caracteres|
-|operation_Name|cadeia de caracteres|OperationName|cadeia de caracteres|
-|operation_ParentId|cadeia de caracteres|OperationParentId|cadeia de caracteres|
-|operation_SyntheticSource|cadeia de caracteres|OperationSyntheticSource|cadeia de caracteres|
-|sdkVersion|cadeia de caracteres|SdkVersion|cadeia de caracteres|
-|session_Id|cadeia de caracteres|SessionId|cadeia de caracteres|
+|itemId|string|\_ItemId|string|
+|itemType|string|Type|string|
+|message|string|Mensagem|string|
+|operation_Id|string|OperationId|string|
+|operation_Name|string|OperationName|string|
+|operation_ParentId|string|OperationParentId|string|
+|operation_SyntheticSource|string|OperationSyntheticSource|string|
+|sdkVersion|string|SdkVersion|string|
+|session_Id|string|SessionId|string|
 |Nível|INT|SeverityLevel|INT|
 |timestamp|DATETIME|TimeGenerated|DATETIME|
-|user_AccountId|cadeia de caracteres|UserAccountId|cadeia de caracteres|
-|user_AuthenticatedId|cadeia de caracteres|UserAuthenticatedId|cadeia de caracteres|
-|user_Id|cadeia de caracteres|UserId|cadeia de caracteres|
+|user_AccountId|string|UserAccountId|string|
+|user_AuthenticatedId|string|UserAuthenticatedId|string|
+|user_Id|string|UserId|string|
 
 ## <a name="next-steps"></a>Próximas etapas
 

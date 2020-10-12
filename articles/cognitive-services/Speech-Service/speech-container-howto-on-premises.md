@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/29/2020
 ms.author: aahi
 ms.openlocfilehash: aa1cb6e9fdd504622b2f444d511a8dd0e5fc1ca8
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82608364"
 ---
 # <a name="use-speech-service-containers-with-kubernetes-and-helm"></a>Usar contêineres de serviço de fala com kubernetes e Helm
@@ -31,7 +31,7 @@ Os seguintes pré-requisitos antes de usar os contêineres de fala locais:
 | Acesso ao registro de contêiner | Para que o kubernetes pegue as imagens do Docker no cluster, ele precisará de acesso ao registro de contêiner. |
 | CLI do kubernetes | A [CLI do kubernetes][kubernetes-cli] é necessária para gerenciar as credenciais compartilhadas do registro de contêiner. O kubernetes também é necessário antes de Helm, que é o Gerenciador de pacotes do kubernetes. |
 | CLI do Helm | Instale a [CLI do Helm][helm-install], que é usada para instalar um gráfico do Helm (definição de pacote de contêiner). |
-|Recurso de fala |Para usar esses contêineres, será necessário ter:<br><br>Um recurso do Azure de _fala_ para obter a chave de cobrança associada e o URI do ponto de extremidade de cobrança. Ambos os valores estão disponíveis nas páginas de visão geral de **fala** e chaves do portal do Azure e são necessários para iniciar o contêiner.<br><br>**{Api_key}**: chave de recurso<br><br>**{ENDPOINT_URI}**: o exemplo de URI do ponto de extremidade é:`https://westus.api.cognitive.microsoft.com/sts/v1.0`|
+|Recurso de fala |Para usar esses contêineres, será necessário ter:<br><br>Um recurso do Azure de _fala_ para obter a chave de cobrança associada e o URI do ponto de extremidade de cobrança. Ambos os valores estão disponíveis nas páginas de visão geral de **fala** e chaves do portal do Azure e são necessários para iniciar o contêiner.<br><br>**{Api_key}**: chave de recurso<br><br>**{ENDPOINT_URI}**: o exemplo de URI do ponto de extremidade é: `https://westus.api.cognitive.microsoft.com/sts/v1.0`|
 
 ## <a name="the-recommended-host-computer-configuration"></a>A configuração do computador host recomendado
 
@@ -266,7 +266,7 @@ Os gráficos Helm são hierárquicos. Ser hierárquico permite a herança de gr�
 Para obter mais detalhes sobre como instalar aplicativos com o Helm no AKS (serviço kubernetes do Azure), [visite aqui][installing-helm-apps-in-aks].
 
 > [!div class="nextstepaction"]
-> [Contêineres de serviços cognitivas][cog-svcs-containers]
+> [Contêineres de Serviços Cognitivos][cog-svcs-containers]
 
 <!-- LINKS - external -->
 [free-azure-account]: https://azure.microsoft.com/free
