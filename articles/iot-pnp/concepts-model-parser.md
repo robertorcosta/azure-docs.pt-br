@@ -10,13 +10,13 @@ ms.service: iot-pnp
 services: iot-pnp
 manager: peterpr
 ms.openlocfilehash: 20c4452a32c791f33e08c883d8cec89a345ab188
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87352107"
 ---
-# <a name="understand-the-digital-twins-model-parser"></a>Entender o analisador do modelo digital gêmeos
+# <a name="understand-the-digital-twins-model-parser"></a>Entender o analisador do modelo dos Gêmeos Digitais
 
 A DTDL (digital gêmeos Definition Language) é descrita na [especificação DTDL](https://github.com/Azure/opendigitaltwins-dtdl). Os usuários podem usar o pacote NuGet do _digital gêmeos Model Parser_ para validar e consultar um modelo definido em vários arquivos.
 

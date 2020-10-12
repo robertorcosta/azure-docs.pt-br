@@ -4,10 +4,10 @@ description: Saiba como configurar logs de atividade e de diagnóstico para Hubs
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: ccd38d8924765df7bfd91b4fc26bb5304f6f180d
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88927724"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configurar logs de diagnóstico para um hub de eventos do Azure
@@ -97,7 +97,7 @@ O código a seguir é um exemplo de uma cadeia de caracteres JSON do log de arqu
 
 As cadeias de caracteres JSON do log operacional incluem os elementos listados na seguinte tabela:
 
-Nome | Descrição
+Nome | DESCRIÇÃO
 ------- | -------
 `ActivityId` | ID interna, usada para acompanhamento |
 `EventName` | Nome da operação |
@@ -129,7 +129,7 @@ Example:
 ## <a name="autoscale-logs-schema"></a>Esquema dos logs de dimensionamento automático
 O JSON do log de dimensionamento automático incluem os elementos listados na seguinte tabela:
 
-| Nome | Descrição |
+| Nome | DESCRIÇÃO |
 | ---- | ----------- | 
 | `TrackingId` | ID interna, que é usada para fins de rastreamento |
 | `ResourceId` | ID do Recurso do Azure Resource Manager. |
@@ -148,14 +148,14 @@ Veja um exemplo de evento de dimensionamento automático:
 ## <a name="kafka-coordinator-logs-schema"></a>Esquema de logs do coordenador de Kafka
 O JSON do log do coordenador de Kafka inclui os elementos listados na seguinte tabela:
 
-| Nome | Descrição |
+| Nome | DESCRIÇÃO |
 | ---- | ----------- | 
 | `RequestId` | ID de solicitação, que é usada para fins de rastreamento |
 | `ResourceId` | ID de recurso do Azure Resource Manager |
 | `Operation` | Nome da operação que é feita durante a coordenação do grupo |
 | `ClientId` | ID do Cliente |
 | `NamespaceName` | Nome do Namespace | 
-| `SubscriptionId` | ID de assinatura do Azure |
+| `SubscriptionId` | ID da assinatura do Azure |
 | `Message` | Mensagem informativa ou de aviso, que fornece detalhes sobre as ações feitas durante a coordenação do grupo. |
 
 ### <a name="example"></a>Exemplo
@@ -193,7 +193,7 @@ O evento JSON de conexão de VNet (rede virtual) dos Hubs de Eventos inclui elem
 
 | Nome | Descrição |
 | ---  | ----------- | 
-| `SubscriptionId` | ID de assinatura do Azure |
+| `SubscriptionId` | ID da assinatura do Azure |
 | `NamespaceName` | Nome do Namespace |
 | `IPAddress` | Endereço IP de um cliente que se conecta ao serviço de Hubs de Eventos |
 | `Action` | Ação feita pelo serviço de Hubs de Eventos ao avaliar solicitações de conexão. As ações com suporte são **Aceitar conexão** e **Negar conexão**. |
@@ -219,7 +219,7 @@ O evento JSON de conexão de VNet (rede virtual) dos Hubs de Eventos inclui elem
 ## <a name="customer-managed-key-user-logs"></a>Logs de usuário de chave gerenciada pelo cliente
 O JSON do log de usuário gerenciada pelo cliente inclui os elementos listados na seguinte tabela:
 
-| Nome | Descrição |
+| Nome | DESCRIÇÃO |
 | ---- | ----------- | 
 | `Category` | Tipo de categoria para uma mensagem. É um dos seguintes valores: **error** e **info** |
 | `ResourceId` | ID de recurso interno, que inclui a ID da assinatura do Azure e o nome do namespace |

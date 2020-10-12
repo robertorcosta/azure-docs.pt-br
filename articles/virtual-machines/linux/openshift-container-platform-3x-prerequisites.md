@@ -10,10 +10,10 @@ ms.workload: infrastructure
 ms.date: 10/23/2019
 ms.author: haroldw
 ms.openlocfilehash: 68bd748e890659e4b79d76e4ccab038f251a937a
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87368176"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-container-platform-311-in-azure"></a>Pré-requisitos comuns para implantar a plataforma de contêiner do OpenShift 3,11 no Azure
@@ -173,4 +173,4 @@ Este artigo abordou os seguintes tópicos:
 Agora, implante um cluster de OpenShift:
 
 - [Implantar a plataforma de contêiner do OpenShift](./openshift-container-platform-3x.md)
-- [Implantar a oferta do Marketplace autogerenciado da plataforma de contêiner do OpenShift](./openshift-container-platform-3x-marketplace-self-managed.md)
+- [Implantar a plataforma de contêiner OpenShift Self-Managed oferta do Marketplace](./openshift-container-platform-3x-marketplace-self-managed.md)

@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev, devx-track-python
 ms.openlocfilehash: 2d41b48613ef7ba883a6a51b0fa67407fb730719
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87846217"
 ---
 # <a name="logging-in-msal-applications"></a>Registrando em log em aplicativos MSAL
@@ -48,10 +48,10 @@ Para obter detalhes sobre o registro em log do MSAL em um idioma específico, es
 
 Na MSAL 3.x, o registro em log é definido por aplicativo na criação do aplicativo usando o modificador de construtor `.WithLogging`. Esse método usa parâmetros opcionais:
 
-- `Level`permite que você decida qual nível de log você deseja. Configurá-lo como Erros só registrará erros
-- `PiiLoggingEnabled`permite que você registre dados pessoais e organizacionais se definido como true. Por padrão, ele fica definido como false, para que seu aplicativo não registre dados pessoais.
-- `LogCallback`é definido como um delegado que faz o registro em log. Se `PiiLoggingEnabled` for true, esse método receberá as mensagens duas vezes: uma vez com o `containsPii` parâmetro igual a false e a mensagem sem dados pessoais, e uma segunda vez com o `containsPii` parâmetro igual a true e a mensagem poderá conter dados pessoais. Em alguns casos (quando a mensagem não contém dados pessoais), a mensagem será a mesma.
-- `DefaultLoggingEnabled`habilita o log padrão para a plataforma. Por padrão, é false. Se você defini-lo como true, ele usará o rastreamento de eventos em aplicativos de área de trabalho/UWP, NSLog no iOS e logcat no Android.
+- `Level` permite que você decida qual nível de log você deseja. Configurá-lo como Erros só registrará erros
+- `PiiLoggingEnabled` permite que você registre dados pessoais e organizacionais se definido como true. Por padrão, ele fica definido como false, para que seu aplicativo não registre dados pessoais.
+- `LogCallback` é definido como um delegado que faz o registro em log. Se `PiiLoggingEnabled` for true, esse método receberá as mensagens duas vezes: uma vez com o `containsPii` parâmetro igual a false e a mensagem sem dados pessoais, e uma segunda vez com o `containsPii` parâmetro igual a true e a mensagem poderá conter dados pessoais. Em alguns casos (quando a mensagem não contém dados pessoais), a mensagem será a mesma.
+- `DefaultLoggingEnabled` habilita o log padrão para a plataforma. Por padrão, é false. Se você defini-lo como true, ele usará o rastreamento de eventos em aplicativos de área de trabalho/UWP, NSLog no iOS e logcat no Android.
 
 ```csharp
 class Program
@@ -86,10 +86,10 @@ class Program
 
 Ative o logon na criação do aplicativo Criando um retorno de chamada de log. O retorno de chamada usa estes parâmetros:
 
-- `tag`é uma cadeia de caracteres passada para o retorno de chamada pela biblioteca. Ele é associado à entrada de log e pode ser usado para classificar mensagens de registro em log.
-- `logLevel`permite que você decida qual nível de log você deseja. Os níveis de log com suporte são: `Error` , `Warning` , `Info` e `Verbose` .
-- `message`é o conteúdo da entrada de log.
-- `containsPII`Especifica se as mensagens que contêm dados pessoais ou dados organizacionais são registradas. Por padrão, isso é definido como false, para que seu aplicativo não Registre dados pessoais. Se `containsPII` for `true` , esse método receberá as mensagens duas vezes: uma vez com o `containsPII` parâmetro definido como `false` e o `message` sem dados pessoais, e uma segunda vez com o `containsPii` parâmetro definido como `true` e a mensagem poderá conter dados pessoais. Em alguns casos (quando a mensagem não contém dados pessoais), a mensagem será a mesma.
+- `tag` é uma cadeia de caracteres passada para o retorno de chamada pela biblioteca. Ele é associado à entrada de log e pode ser usado para classificar mensagens de registro em log.
+- `logLevel` permite que você decida qual nível de log você deseja. Os níveis de log com suporte são: `Error` , `Warning` , `Info` e `Verbose` .
+- `message` é o conteúdo da entrada de log.
+- `containsPII` Especifica se as mensagens que contêm dados pessoais ou dados organizacionais são registradas. Por padrão, isso é definido como false, para que seu aplicativo não Registre dados pessoais. Se `containsPII` for `true` , esse método receberá as mensagens duas vezes: uma vez com o `containsPII` parâmetro definido como `false` e o `message` sem dados pessoais, e uma segunda vez com o `containsPii` parâmetro definido como `true` e a mensagem poderá conter dados pessoais. Em alguns casos (quando a mensagem não contém dados pessoais), a mensagem será a mesma.
 
 ```java
 private StringBuilder mLogs;
@@ -129,9 +129,9 @@ Logger.getInstance().setEnableLogcatLog(true);
  Habilite o logon MSAL.js (JavaScript) passando um objeto do agente durante a configuração para criar uma `UserAgentApplication` instância. O objeto logger tem as seguintes propriedades:
 
 - `localCallback`: uma instância de retorno de chamada que pode ser fornecida pelo desenvolvedor para consumir e publicar logs de maneira personalizada. Implemente o método localCallback, dependendo de como você deseja redirecionar os logs.
-- `level`(opcional): o nível de log configurável. Os níveis de log com suporte são: `Error` , `Warning` , `Info` e `Verbose` . O padrão é `Info`.
-- `piiLoggingEnabled`(opcional): se definido como true, registra dados pessoais e organizacionais. Por padrão, isso é falso para que seu aplicativo não Registre dados pessoais. Logs de dados pessoais nunca são gravados em saídas padrão como Console, Logcat ou NSLog.
-- `correlationId`(opcional): um identificador exclusivo, usado para mapear a solicitação com a resposta para fins de depuração. O padrão é guid RFC4122 versão 4 (128 bits).
+- `level` (opcional): o nível de log configurável. Os níveis de log com suporte são: `Error` , `Warning` , `Info` e `Verbose` . O padrão é `Info`.
+- `piiLoggingEnabled` (opcional): se definido como true, registra dados pessoais e organizacionais. Por padrão, isso é falso para que seu aplicativo não Registre dados pessoais. Logs de dados pessoais nunca são gravados em saídas padrão como Console, Logcat ou NSLog.
+- `correlationId` (opcional): um identificador exclusivo, usado para mapear a solicitação com a resposta para fins de depuração. O padrão é guid RFC4122 versão 4 (128 bits).
 
 ```javascript
 function loggerCallback(logLevel, message, containsPii) {
@@ -214,7 +214,7 @@ Para definir o nível de log ao fazer logon usando o MSAL para iOS e macOS, use 
 |---------|---------|
 | `MSALLogLevelNothing`| Desabilitar todo o log |
 | `MSALLogLevelError` | Nível padrão, imprime informações somente quando ocorrem erros |
-| `MSALLogLevelWarning` | Avisos |
+| `MSALLogLevelWarning` | Warnings |
 | `MSALLogLevelInfo` |  Pontos de entrada de biblioteca, com parâmetros e várias operações de conjunto de chaves |
 |`MSALLogLevelVerbose`     |  Rastreamento de API |
 
@@ -226,7 +226,7 @@ MSALGlobalConfig.loggerConfig.logLevel = MSALLogLevelVerbose;
 
  ### <a name="log-message-format"></a>Formato de mensagem de log
 
-A parte da mensagem das mensagens de log MSAL está no formato de`TID = <thread_id> MSAL <sdk_ver> <OS> <OS_ver> [timestamp - correlation_id] message`
+A parte da mensagem das mensagens de log MSAL está no formato de `TID = <thread_id> MSAL <sdk_ver> <OS> <OS_ver> [timestamp - correlation_id] message`
 
 Por exemplo:
 
@@ -291,7 +291,7 @@ Para definir o nível de log ao fazer logon usando o MSAL para iOS e macOS, use 
 |---------|---------|
 | `MSALLogLevelNothing`| Desabilitar todo o log |
 | `MSALLogLevelError` | Nível padrão, imprime informações somente quando ocorrem erros |
-| `MSALLogLevelWarning` | Avisos |
+| `MSALLogLevelWarning` | Warnings |
 | `MSALLogLevelInfo` |  Pontos de entrada de biblioteca, com parâmetros e várias operações de conjunto de chaves |
 |`MSALLogLevelVerbose`     |  Rastreamento de API |
 
@@ -303,7 +303,7 @@ MSALGlobalConfig.loggerConfig.logLevel = .verbose
 
 ### <a name="log-message-format"></a>Formato de mensagem de log
 
-A parte da mensagem das mensagens de log MSAL está no formato de`TID = <thread_id> MSAL <sdk_ver> <OS> <OS_ver> [timestamp - correlation_id] message`
+A parte da mensagem das mensagens de log MSAL está no formato de `TID = <thread_id> MSAL <sdk_ver> <OS> <OS_ver> [timestamp - correlation_id] message`
 
 Por exemplo:
 
@@ -389,6 +389,6 @@ O MSAL para Python não registra dados pessoais ou dados organizacionais. Não h
 
 Você pode usar o registro em log do Python padrão para registrar o que desejar, mas você é responsável por lidar com segurança dados confidenciais e seguindo os requisitos regulatórios.
 
-Para obter mais informações sobre como registrar em log em Python, consulte o [registro em log](https://docs.python.org/3/howto/logging.html#logging-basic-tutorial)do Python.
+Para obter mais informações sobre como registrar em log em Python, consulte o  [registro em log](https://docs.python.org/3/howto/logging.html#logging-basic-tutorial)do Python.
 
 ---

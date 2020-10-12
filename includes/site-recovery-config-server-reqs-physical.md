@@ -1,6 +1,6 @@
 ---
-title: incluir arquivo
-description: incluir arquivo
+title: arquivo de inclusão
+description: arquivo de inclusão
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -10,10 +10,10 @@ ms.date: 09/03/2018
 ms.author: raynew
 ms.custom: include file
 ms.openlocfilehash: afeae4af9b41bf434b26833a3bd927118a4697ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67172148"
 ---
 **Requisitos do servidor de Configuração/Processo para replicação de servidor físico**
@@ -37,14 +37,14 @@ Tipo de endereço IP | Estático
 | 
 **CONFIGURAÇÕES DE ACESSO** | 
 MySQL | O MySQL deve ser instalado no servidor de configuração. Você pode instalar manualmente, ou o Azure Site Recovery pode instalá-lo durante a implantação. Para o Azure Site Recovery realizar a instalação, verifique se o computador pode acessar http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi.
-URLs | O servidor de configuração precisa ter acesso a estas URLs (diretamente ou via proxy):<br/><br/> Microsoft Azure AD: `login.microsoftonline.com`; `login.microsoftonline.us`; `*.accesscontrol.windows.net`<br/><br/> Transferência de dados de replicação: `*.backup.windowsazure.com`; `*.backup.windowsazure.us`<br/><br/> Gerenciamento de replicação: `*.hypervrecoverymanager.windowsazure.com`; `*.hypervrecoverymanager.windowsazure.us`; `https://management.azure.com`; `*.services.visualstudio.com`<br/><br/> Acesso de armazenamento: `*.blob.core.windows.net`; `*.blob.core.usgovcloudapi.net`<br/><br/> Sincronização de horário: `time.nist.gov` ;`time.windows.com`<br/><br/> Telemetria (opcional):`dc.services.visualstudio.com`
+URLs | O servidor de configuração precisa ter acesso a estas URLs (diretamente ou via proxy):<br/><br/> Microsoft Azure AD: `login.microsoftonline.com`; `login.microsoftonline.us`; `*.accesscontrol.windows.net`<br/><br/> Transferência de dados de replicação: `*.backup.windowsazure.com`; `*.backup.windowsazure.us`<br/><br/> Gerenciamento de replicação: `*.hypervrecoverymanager.windowsazure.com`; `*.hypervrecoverymanager.windowsazure.us`; `https://management.azure.com`; `*.services.visualstudio.com`<br/><br/> Acesso de armazenamento: `*.blob.core.windows.net`; `*.blob.core.usgovcloudapi.net`<br/><br/> Sincronização de horário: `time.nist.gov` ; `time.windows.com`<br/><br/> Telemetria (opcional): `dc.services.visualstudio.com`
 Firewall | As regras de firewall baseadas em endereço IP devem permitir a comunicação com as URLs do Azure. Para simplificar e limitar os intervalos de IP, recomendamos usar a filtragem de URL.<br/><br/>**Para IPs comerciais:**<br/><br/>- Permita os [Intervalos de IP do datacenter do Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) e a porta HTTPS (443).<br/><br/> -Permita os intervalos de endereços IP para o Oeste dos EUA (usados para Controle de Acesso e Gerenciamento de Identidade).<br/><br/> - Permita que os intervalos de endereços IP para a região do Azure de sua assinatura deem suporte ao Azure Active Directory, ao backup, à replicação e ao armazenamento.<br/><br/> **Para IPs de governo:**<br/><br/> - Permita os Intervalos de IP do Datacenter do Azure Governamental a porta HTTPS (443).<br/><br/> - Permita os intervalos de endereços IP para todas as Regiões do Gov (US) (Virgínia, Texas, Arizona e Iowa) para dar suporte ao Azure Active Directory, ao backup, à replicação e ao armazenamento.
 Portas | Permitir 443 (orquestração do canal de controle)<br/><br/> Permitir 9443 (transporte de dados) 
 
 
 **Requisitos de dimensionamento do servidor de processo/configuração**
 
-**CPU** | **Memória** | **Disco de cache** | **Taxa de alteração de dados** | **Computadores replicados**
+**CPU** | **Memória** | **Cache de disco** | **Taxa de alteração de dados** | **Computadores replicados**
 --- | --- | --- | --- | ---
 8 vCPUs<br/><br/> 2 soquetes * 4 núcleos \@ 2,5 GHz | 16 GB | 300 GB | 500 GB ou menos | < 100 computadores
 12 vCPUs<br/><br/> 2 soquetes  * 6 núcleos \@ 2,5 GHz | 18 GB | 600 GB | 500 GB -1 TB | 100 a 150 computadores

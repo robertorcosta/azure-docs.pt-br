@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: 953430421bd30aaa1df352451b549994aeaa1a70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85556164"
 ---
 # <a name="enable-multiple-namespace-support-in-an-aks-cluster-with-application-gateway-ingress-controller"></a>Habilitar o suporte a vários namespaces em um cluster AKS com o controlador de entrada do gateway de aplicativo
@@ -29,11 +29,11 @@ Para habilitar o suporte a vários namespaces:
    - Exclua a `watchNamespace` chave inteiramente de [Helm-config. YAML](#sample-helm-config-file) -AGIC irá observar todos os namespaces
    - definido `watchNamespace` como uma cadeia de caracteres vazia-AGIC observará todos os namespaces
    - adicionar vários namespaces separados por uma vírgula ( `watchNamespace: default,secondNamespace` )-AGIC irá observar esses namespaces exclusivamente
-2. aplicar alterações do modelo Helm com:`helm install -f helm-config.yaml application-gateway-kubernetes-ingress/ingress-azure`
+2. aplicar alterações do modelo Helm com: `helm install -f helm-config.yaml application-gateway-kubernetes-ingress/ingress-azure`
 
 Uma vez implantado com a capacidade de observar vários namespaces, o AGIC irá:
   - listar recursos de entrada de todos os namespaces acessíveis
-  - filtrar os recursos de entrada anotados com`kubernetes.io/ingress.class: azure/application-gateway`
+  - filtrar os recursos de entrada anotados com `kubernetes.io/ingress.class: azure/application-gateway`
   - compor [configuração do gateway de aplicativo](https://github.com/Azure/azure-sdk-for-go/blob/37f3f4162dfce955ef5225ead57216cf8c1b2c70/services/network/mgmt/2016-06-01/network/models.go#L1710-L1744) combinado
   - aplicar a configuração ao gateway de aplicativo associado por meio do [ARM](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)
 
@@ -84,11 +84,11 @@ spec:
 
 Apesar dos dois recursos de entrada que exigem tráfego para serem `www.contoso.com` roteados para os respectivos namespaces do kubernetes, somente um back-end pode atender ao tráfego. O AGIC criaria uma configuração na base "primeira vez, servida" para um dos recursos. Se dois recursos de insere forem criados ao mesmo tempo, aquele anterior no alfabeto terá precedência. No exemplo acima, só será possível criar configurações para a `production` entrada. O gateway de aplicativo será configurado com os seguintes recursos:
 
-  - Listener`fl-www.contoso.com-80`
-  - Regra de roteamento:`rr-www.contoso.com-80`
-  - Pool de back-end:`pool-production-contoso-web-service-80-bp-80`
-  - Configurações de HTTP:`bp-production-contoso-web-service-80-80-websocket-ingress`
-  - Investigação de integridade:`pb-production-contoso-web-service-80-websocket-ingress`
+  - Listener `fl-www.contoso.com-80`
+  - Regra de roteamento: `rr-www.contoso.com-80`
+  - Pool de back-end: `pool-production-contoso-web-service-80-bp-80`
+  - Configurações de HTTP: `bp-production-contoso-web-service-80-80-websocket-ingress`
+  - Investigação de integridade: `pb-production-contoso-web-service-80-websocket-ingress`
 
 Observe que, exceto para o *ouvinte* e a *regra de roteamento*, os recursos do gateway de aplicativo criados incluem o nome do namespace ( `production` ) para o qual foram criados.
 

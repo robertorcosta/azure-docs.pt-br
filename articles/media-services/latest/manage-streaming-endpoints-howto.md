@@ -16,10 +16,10 @@ ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli, devx-track-csharp
 ms.openlocfilehash: 8d3835d78ec55f120f6b9439aea9c29434e6bd47
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89289470"
 ---
 # <a name="manage-streaming-endpoints-with--media-services-v3"></a>Gerenciar pontos de extremidade de streaming com os serviços de mídia v3
@@ -55,7 +55,7 @@ Para obter mais informações, consulte:
     Para obter informações sobre como monitorar operações de execução longa, consulte [operações de execução longa](media-services-apis-overview.md).
 * Esta [coleção do postmaster](https://github.com/Azure-Samples/media-services-v3-rest-postman/blob/master/Postman/Media%20Services%20v3.postman_collection.json) contém exemplos de várias operações REST, incluindo como iniciar um ponto de extremidade de streaming.
 
-## <a name="use-the-azure-portal"></a>Use o Portal do Azure 
+## <a name="use-the-azure-portal"></a>Usar o portal do Azure 
  
 1. Entre no [portal do Azure](https://portal.azure.com/).
 1. Vá para sua conta dos serviços de mídia do Azure.

@@ -4,10 +4,10 @@ description: Saiba como enviar uma solicitação de suporte para habilitar o rec
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.openlocfilehash: 72a7aca97067ce4e9ed0e901e4016c82b3549eb1
-ms.sourcegitcommit: 0fd1f3fe7817ad44d878d580ec167e1508051795
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90817888"
 ---
 # <a name="how-to-enable-azure-vmware-solution-resource"></a>Como habilitar o recurso da solução Azure VMware
@@ -20,7 +20,7 @@ Saiba como enviar uma solicitação de suporte para habilitar o recurso de solu�
 
 
 ## <a name="enable-azure-vmware-solution-resource"></a>Habilitar recurso da solução Azure VMware
-Antes de criar o recurso de solução do Azure VMware, você precisará enviar um tíquete de suporte para que seus nós sejam alocados. Depois que a equipe de suporte receber sua solicitação, levará até cinco dias úteis para confirmar sua solicitação e alocar seus nós. Se você tiver uma nuvem privada da solução Azure VMware existente e quiser mais nós alocados, você passará pelo mesmo processo.
+Antes de criar o recurso da Solução VMware no Azure, você precisará enviar um tíquete de suporte para que os nós sejam alocados. Depois que a equipe de suporte receber sua solicitação, levará até cinco dias úteis para confirmar a solicitação e alocar os nós. Se você tiver uma nuvem privada da Solução VMware no Azure existente e quiser mais nós alocados, deverá passar pelo mesmo processo.
 
 
 1. Em seu portal do Azure, em **ajuda + suporte**, crie uma **[nova solicitação de suporte](https://rc.portal.azure.com/#create/Microsoft.Support)** e forneça as seguintes informações para o tíquete:

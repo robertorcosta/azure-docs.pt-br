@@ -11,10 +11,10 @@ ms.date: 08/29/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: 95f712f196c37650b52220c9e34f6cb6b50bff23
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89460602"
 ---
 # <a name="design-decisions-and-coding-techniques-for-a-synapse-sql-pool-in-azure-synapse-analytics"></a>Decisões de design e técnicas de codificação para um pool SQL Synapse no Azure Synapse Analytics 
@@ -24,7 +24,7 @@ ms.locfileid: "89460602"
 Os artigos a seguir destacam os conceitos e as decisões de design para o desenvolvimento de um data warehouse distribuído usando o recurso de pool do SQL no Azure Synapse:
 
 * [conexões](../sql/connect-overview.md)
-* [corrente](resource-classes-for-workload-management.md)
+* [concurrency](resource-classes-for-workload-management.md)
 * [transações](sql-data-warehouse-develop-transactions.md)
 * [esquemas definidos pelo usuário](sql-data-warehouse-develop-user-defined-schemas.md)
 * [distribuição de tabela](sql-data-warehouse-tables-distribute.md)

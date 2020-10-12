@@ -7,10 +7,10 @@ ms.date: 10/09/2019
 ms.author: mahender
 ms.custom: seodec18
 ms.openlocfilehash: 5b76c940066539995dbefa76d503b5412ce0c359
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85557907"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>Usar referências de Key Vault para o serviço de aplicativo e Azure Functions
@@ -191,7 +191,7 @@ Você também pode usar um dos detectores internos para obter informações adic
 ### <a name="using-the-detector-for-app-service"></a>Usando o detector para o serviço de aplicativo
 
 1. No portal, navegue até seu aplicativo.
-2. Selecione **Diagnóstico e solução de problemas**.
+2. Selecione **Diagnosticar e solucionar problemas**.
 3. Escolha **disponibilidade e desempenho** e selecione **aplicativo Web inativo.**
 4. Encontre **Key Vault diagnóstico de configurações do aplicativo** e clique em **mais informações**.
 
@@ -200,6 +200,6 @@ Você também pode usar um dos detectores internos para obter informações adic
 
 1. No portal, navegue até seu aplicativo.
 2. Navegue até **recursos da plataforma.**
-3. Selecione **Diagnóstico e solução de problemas**.
+3. Selecione **Diagnosticar e solucionar problemas**.
 4. Escolha **disponibilidade e desempenho** e selecione **aplicativo de funções ou relatando erros.**
 5. Clique em **Key Vault configurações do aplicativo diagnósticos.**

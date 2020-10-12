@@ -8,10 +8,10 @@ ms.date: 08/06/2020
 ms.topic: how-to
 ms.service: iot-central
 ms.openlocfilehash: 6b717fd15b25ae4abd2af3520dba2e72f8f9f3a4
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88556209"
 ---
 # <a name="upload-files-from-your-devices-to-the-cloud"></a>Carregar arquivos de seus dispositivos para a nuvem
@@ -38,7 +38,7 @@ Para configurar carregamentos de arquivos do dispositivo:
 
 1. Se necessário, ajuste o tempo limite de carregamento que define por quanto tempo uma solicitação de upload permanece válida para. Os valores válidos são de 1 a 24 horas.
 
-1. Clique em **Salvar**. Quando o status mostrar **configurado**, você estará pronto para carregar arquivos de dispositivos.
+1. Selecione **Salvar**. Quando o status mostrar **configurado**, você estará pronto para carregar arquivos de dispositivos.
 
 :::image type="content" source="media/howto-configure-file-uploads/file-upload-configuration.png" alt-text="Configurar upload de arquivo no aplicativo":::
 

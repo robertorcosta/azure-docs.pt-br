@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: arvinh
 ms.openlocfilehash: 29e28e20bd9b471604a450ddb36ef867f0608e06
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88553755"
 ---
 # <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>Tutorial: Configurar Pingboard para provisionamento automático de usuário
@@ -79,7 +79,7 @@ Esta seção orienta você sobre como conectar o Azure AD à API de provisioname
 
 1. Insira o endereço de email de uma pessoa ou grupo que você deseja receber notificações de erro de provisionamento no **email de notificação**. Marque a caixa de seleção logo abaixo.
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 1. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para Pingboard**.
 

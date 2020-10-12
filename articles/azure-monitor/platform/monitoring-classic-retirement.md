@@ -8,10 +8,10 @@ ms.date: 2/7/2019
 ms.author: yalavi
 ms.subservice: alerts
 ms.openlocfilehash: 720a0e25f3486f32ffed897e54033fd4b68dace4
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87848118"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>O alerta e monitoramento unificados no Monitor do Azure substituem o alerta e monitoramento clássicos
@@ -54,7 +54,7 @@ Como mencionado anteriormente, monitoramento clássico e alertas mais antigos s�
 - Plataformas e métricas personalizadas (clássicas) mais antigas para o Application Insights, bem como alertas sobre elas, como estão atualmente disponíveis na seção [Alertas (clássico)](./alerts-classic.overview.md) do portal do Azure e acessível como recurso de [microsoft.insights / alertrules](/rest/api/monitor/alertrules)
 - Mais antiga alerta anomalias de falha (clássica) está disponível como [detecção inteligente no Application Insights](../app/proactive-diagnostics.md) no portal do Azure; com alertas configurados mostrado na [alertas (clássica) seção](./alerts-classic.overview.md) do Azure Portal
 
-Isso significa:
+Isso significa que:
 
 - O serviço de monitoramento e alertas clássicos será desativado e não estará mais disponível para a criação de novas regras de alerta.
 - Qualquer regra de alerta que continue a existir em alertas (clássico) continuará a executar e acionar notificações.
