@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: yushwang
 ms.openlocfilehash: 499d184d373b896ba7bffcf990693ef5e6ac466b
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88032417"
 ---
 # <a name="about-cryptographic-requirements-and-azure-vpn-gateways"></a>Sobre os requisitos criptográficos e os gateways de VPN do Azure
@@ -36,7 +36,7 @@ A política padrão definida para o gateway de VPN do Azure está listada no art
 
 Para comunicações que exigem algoritmos ou parâmetros criptográficos específicos, normalmente devido a requisitos de conformidade ou de segurança, agora você pode configurar seus gateways de VPN do Azure para usar uma política de IPsec/IKE personalizada com algoritmos de criptografia e forças de chave específicos, em vez dos conjuntos de políticas padrão do Azure.
 
-Por exemplo, as políticas de modo principal IKEv2 para gateways de VPN do Azure utilizam apenas o grupo Diffie-Hellman 2 (1024 bits), enquanto talvez seja necessário especificar grupos mais fortes a serem usados no IKE, como o grupo 14 (2048 bits), o grupo 24 (grupo de MODP bits de 2048 bits) ou ECP (grupos de curva elíptica) 256 ou 384 bit (grupo 19 e grupo 20 Requisitos semelhantes aplicam-se também às políticas de modo rápido do IPsec.
+Por exemplo, as políticas de modo principal IKEv2 para gateways de VPN do Azure utilizam apenas Diffie-Hellman grupo 2 (1024 bits), enquanto talvez seja necessário especificar grupos mais fortes a serem usados no IKE, como o grupo 14 (2048 bits), o grupo 24 (grupo de MODP bits de 2048 bits) ou ECP (grupos de curva elíptica) 256 ou 384 bit (grupo 19 e grupo 20 Requisitos semelhantes aplicam-se também às políticas de modo rápido do IPsec.
 
 ## <a name="custom-ipsecike-policy-with-azure-vpn-gateways"></a>Política de IPsec/IKE personalizada com gateways de VPN do Azure
 

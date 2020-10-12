@@ -8,10 +8,10 @@ ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.openlocfilehash: 8549fba2071ce98b206b3babe073137817aa3145
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91252826"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Gerenciar pontos de extremidade e rotas no gêmeos digital do Azure (Portal)
@@ -37,7 +37,7 @@ Você pode encontrar esses detalhes no [portal do Azure](https://portal.azure.co
 
 Selecione sua instância nos resultados para ver a página de detalhes da sua instância:
 
-:::image type="content" source="media/how-to-manage-routes-portal/instance-details.png" alt-text="Captura de tela dos detalhes da instância de ADT." border="false":::
+:::image type="content" source="media/how-to-manage-routes-portal/instance-details.png" alt-text="Captura de tela da barra de pesquisa portal do Azure." border="false":::
 
 ## <a name="create-an-endpoint-for-azure-digital-twins"></a>Criar um ponto de extremidade para o gêmeos digital do Azure
 
@@ -62,11 +62,11 @@ Na página *criar um ponto de extremidade* que é aberta, você pode criar um po
 
 Em seguida, crie seu ponto de extremidade ao pressionar _salvar_.
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-grid.png" alt-text="Captura de tela da criação de um ponto de extremidade do tipo grade de eventos.":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-grid.png" alt-text="Captura de tela da barra de pesquisa portal do Azure.":::
 
 Você pode verificar se o ponto de extremidade foi criado com êxito verificando o ícone de notificação na barra de portal do Azure superior: 
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-notifications.png" alt-text="Captura de tela de notificação para verificar a criação do ponto de extremidade." border="false":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-notifications.png" alt-text="Captura de tela da barra de pesquisa portal do Azure." border="false":::
 
 Você também pode exibir o ponto de extremidade que foi criado de volta na página *pontos de extremidade* para sua instância do gêmeos digital do Azure.
 
@@ -88,7 +88,7 @@ Na página *criar um ponto de extremidade* que é aberta, você pode criar um po
 
 Em seguida, crie seu ponto de extremidade ao pressionar _salvar_.
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-hub.png" alt-text="Captura de tela da criação de um ponto de extremidade do tipo hubs de eventos.":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-hub.png" alt-text="Captura de tela da barra de pesquisa portal do Azure.":::
 
 Você pode verificar se o ponto de extremidade foi criado com êxito verificando o ícone de notificação na barra de portal do Azure superior. 
 
@@ -110,7 +110,7 @@ Na página *criar um ponto de extremidade* que é aberta, você pode criar um po
 
 Em seguida, crie seu ponto de extremidade ao pressionar _salvar_.
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-service-bus.png" alt-text="Captura de tela da criação de um ponto de extremidade do tipo barramento de serviço.":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-service-bus.png" alt-text="Captura de tela da barra de pesquisa portal do Azure.":::
 
 Você pode verificar se o ponto de extremidade foi criado com êxito verificando o ícone de notificação na barra de portal do Azure superior. 
 
@@ -149,7 +149,7 @@ Na página *criar uma rota de eventos* que é aberta, escolha no mínimo:
 
 Para que a rota seja habilitada, você também deve **Adicionar um filtro de rota de evento** de pelo menos `true` . (Deixar o valor padrão de `false` criará a rota, mas nenhum evento será enviado a ela). Para fazer isso, alterne a opção do _Editor avançado_ para habilitá-lo e escreva `true` na caixa de *filtro* .
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-event-route-no-filter.png" alt-text="Captura de tela da criação de rota de evento para sua instância." lightbox="media/how-to-manage-routes-portal/create-event-route-no-filter.png":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-event-route-no-filter.png" alt-text="Captura de tela da barra de pesquisa portal do Azure." lightbox="media/how-to-manage-routes-portal/create-event-route-no-filter.png":::
 
 Quando terminar, pressione o botão _salvar_ para criar a rota de eventos.
 
@@ -175,7 +175,7 @@ Para usar os filtros básicos, expanda a opção _tipos de evento_ e marque as c
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-1.png" alt-text="Captura de tela da criação de uma rota de eventos com um filtro básico. Marcando as caixas de seleção dos eventos.":::
+        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-1.png" alt-text="Captura de tela da barra de pesquisa portal do Azure.":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -185,7 +185,7 @@ Isso irá preencher automaticamente a caixa de texto de filtro com o texto do fi
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-2.png" alt-text="Captura de tela da criação de uma rota de eventos com um filtro básico. Mostrando o texto do filtro preenchido automaticamente após a seleção dos eventos.":::
+        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-2.png" alt-text="Captura de tela da barra de pesquisa portal do Azure.":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -199,7 +199,7 @@ Para criar uma rota de eventos com opções de filtro avançadas, alterne a opç
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-advanced.png" alt-text="Captura de tela da criação de uma rota de evento com um filtro avançado.":::
+        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-advanced.png" alt-text="Captura de tela da barra de pesquisa portal do Azure.":::
     :::column-end:::
     :::column:::
     :::column-end:::

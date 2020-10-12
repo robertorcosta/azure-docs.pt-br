@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 08/31/2019
 ms.author: allensu
 ms.openlocfilehash: a22dc6dc0c4fc199d3f262b18aeeae5090a06dce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84689309"
 ---
 # <a name="move-azure-network-security-group-nsg-to-another-region-using-the-azure-portal"></a>Mover o NSG (grupo de segurança de rede) do Azure para outra região usando o portal do Azure
@@ -169,7 +169,7 @@ As etapas a seguir mostram como preparar o grupo de segurança de rede para a co
 
 Se você quiser descartar o NSG de destino, exclua o grupo de recursos que contém o NSG de destino.  Para fazer isso, selecione o grupo de recursos do seu painel no portal e selecione **excluir** na parte superior da página Visão geral.
 
-## <a name="clean-up"></a>Limpar
+## <a name="clean-up"></a>Limpeza
 
 Para confirmar as alterações e concluir a movimentação do NSG, exclua o NSG de origem ou o grupo de recursos. Para fazer isso, selecione o grupo de segurança de rede ou grupo de recursos no painel no portal e selecione **excluir** na parte superior de cada página.
 

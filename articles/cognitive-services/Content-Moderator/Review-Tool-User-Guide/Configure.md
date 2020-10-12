@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pafarley
 ms.openlocfilehash: 2d685683bdc359b31a5a6c550c19e8c0d858f12a
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84689836"
 ---
 # <a name="configure-the-review-tool"></a>Configurar a ferramenta de análise
@@ -95,9 +95,9 @@ O conector padrão quando você cria um fluxo de trabalho é o conector de Conte
 A [ferramenta de revisão](./human-in-the-loop.md) inclui os seguintes conectores:
 
 - Emoção
-- Detecção Facial
+- Face
 - Serviço de nuvem PhotoDNA
-- Análise de Texto
+- Análise de texto
 
 ### <a name="add-a-connector"></a>Adicionar um conexão
 

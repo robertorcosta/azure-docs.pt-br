@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
 ms.openlocfilehash: b9882168cd063cb4448269cc6a4949778fe93fb1
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88509851"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>Conceder acesso limitado aos recursos de armazenamento do Azure usando SAS (assinaturas de acesso compartilhado)
@@ -80,7 +80,7 @@ O token SAS é uma cadeia de caracteres que você gera no lado do cliente, por e
 
 Quando um aplicativo cliente fornece um URI de SAS para o armazenamento do Azure como parte de uma solicitação, o serviço verifica os parâmetros SAS e a assinatura para verificar se ele é válido para autorizar a solicitação. Se o serviço verificar que a assinatura é válida, a solicitação será autorizada. Caso contrário, a solicitação será recusada com o código de erro 403 (proibido).
 
-Aqui está um exemplo de um URI de SAS de serviço, mostrando o URI de recurso e o token SAS:
+Veja um exemplo de um URI de SAS de serviço, mostrando o URI de recurso e o token SAS:
 
 ![Componentes de um URI de SAS de serviço](./media/storage-sas-overview/sas-storage-uri.png)
 

@@ -16,10 +16,10 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 4e544d135883d0c936b3f23b3e50e385268c992c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87006289"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>Implantar o StorSimple Virtual Array — configurar como um servidor de arquivos por meio do portal do Azure
@@ -33,7 +33,7 @@ Este artigo descreve como executar a configuração inicial, registrar o servido
 
 O processo de preparação e configuração pode levar aproximadamente 10 minutos para ser concluído. As informações neste artigo se aplicam apenas à implantação da Matriz Virtual StorSimple. Para a implantação de dispositivos da série StorSimple 8000, vá para: [Implantar seu dispositivo da série StorSimple 8000 com a Atualização 2](storsimple-deployment-walkthrough-u2.md).
 
-## <a name="setup-prerequisites"></a>Pré-requisitos de configuração
+## <a name="setup-prerequisites"></a>Setup prerequisites
 Antes de configurar e de instalar a Matriz Virtual StorSimple, verifique se:
 
 * Você provisionou uma matriz virtual e se conectou a ela conforme detalhado em [Provisionar uma Matriz Virtual StorSimple no Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) ou [Provisionar uma Matriz Virtual StorSimple no VMware](storsimple-virtual-array-deploy2-provision-vmware.md).
@@ -124,7 +124,7 @@ Use as instruções passo a passo a seguir para preparar e configurar sua Matriz
 Execute as etapas a seguir no [portal do Azure](https://portal.azure.com/) para concluir a configuração obrigatória do dispositivo.
 
 #### <a name="to-configure-the-device-as-file-server"></a>Para configurar o dispositivo como servidor de arquivos
-1. Vá para o serviço de Device Manager do StorSimple e vá para **gerenciamento > dispositivos**. Na folha **Dispositivos** , selecione o dispositivo que você acabou de criar. Este dispositivo deve ser mostrado como **Pronto para configurar**.
+1. Vá para o serviço de Device Manager do StorSimple e vá para  **gerenciamento > dispositivos**. Na folha **Dispositivos** , selecione o dispositivo que você acabou de criar. Este dispositivo deve ser mostrado como **Pronto para configurar**.
    
    ![Configurar um servidor de arquivos](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs2m.png) 
 2. Clique no dispositivo e você verá uma mensagem de cabeçalho indicando que o dispositivo está pronto para a instalação.

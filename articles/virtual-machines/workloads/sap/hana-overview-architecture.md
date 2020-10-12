@@ -14,10 +14,10 @@ ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: e1575ee02a520fd39a1c659eadaeda5822207539
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87171136"
 ---
 #  <a name="what-is-sap-hana-on-azure-large-instances"></a>O que é SAP HANA no Azure (Instâncias Grandes)?
@@ -39,7 +39,7 @@ A partir de julho de 2019, diferenciamos entre duas revisões diferentes de cari
 - "Revisão 3" (Rev. 3): os carimbos que foram disponibilizados para que o cliente seja implantado antes de julho de 2019
 - "Revisão 4" (Rev 4): novo design de carimbo que é implantado em proximidade com hosts de VM do Azure e que até o momento são lançados nas regiões do Azure de:
     -  Oeste dos EUA 2 
-    -  East US 
+    -  Leste dos EUA 
     -  Europa Ocidental
     -  Norte da Europa
 
@@ -56,7 +56,7 @@ Os diferentes documentos de diretrizes de Instância grande do HANA abordam as s
 - [Solução de problemas e monitoramento do SAP HANA (Instâncias Grandes) do Azure](troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Configuração de alta disponibilidade no SUSE usando STONITH](./ha-setup-with-stonith.md)
 - [Backup e restauração do so para SKUs do tipo II de carimbos de revisão 3](./os-backup-type-ii-skus.md)
-- [Salvar em SAP HANA em Instâncias Grandes com uma reserva do Azure](../../../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md)
+- [Economizar com o SAP HANA em Instâncias Grandes com uma reserva do Azure](../../../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md)
 
 **Próximas etapas**
 - Veja [Conhecer os termos](hana-know-terms.md)
