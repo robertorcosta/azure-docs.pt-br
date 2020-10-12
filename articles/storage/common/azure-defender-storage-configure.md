@@ -11,10 +11,10 @@ ms.date: 09/22/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.openlocfilehash: c7e0c9aee1ce6b4a2524ac756673784b63be3b31
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91289762"
 ---
 # <a name="configure-azure-defender-for-storage"></a>Configurar o Azure defender para armazenamento
@@ -57,7 +57,7 @@ Quando você assina a camada Standard na central de segurança do Azure, o Azure
 1. Selecione a assinatura para a qual você deseja habilitar ou desabilitar o Azure defender.
 1. Selecione **Azure defender ativado** para habilitar o Azure defender para a assinatura.
 1. Em **selecionar plano do Azure defender por tipo de recurso**, localize a linha de **armazenamento** e selecione **habilitado** na coluna **plano** .
-1. Salve as alterações.
+1. Salve suas alterações.
 
     :::image type="content" source="media/azure-defender-storage-configure/enable-azure-defender-security-center.png" alt-text="Captura de tela mostrando como habilitar o Azure defender para armazenamento na central de segurança":::
 
@@ -69,7 +69,7 @@ O Azure defender agora está habilitado para todas as contas de armazenamento ne
 1. Navegue para sua conta de armazenamento. Em **configurações**, selecione **segurança avançada**.
 1. Selecione **habilitar Azure defender para armazenamento**.
 
-    :::image type="content" source="media/azure-defender-storage-configure/enable-azure-defender-portal.png" alt-text="Captura de tela mostrando como habilitar o Azure defender para uma conta de armazenamento do Azure":::
+    :::image type="content" source="media/azure-defender-storage-configure/enable-azure-defender-portal.png" alt-text="Captura de tela mostrando como habilitar o Azure defender para armazenamento na central de segurança":::
 
 O Azure defender agora está habilitado para esta conta de armazenamento.
 
@@ -84,15 +84,15 @@ Use um Azure Policy para habilitar o Azure defender entre contas de armazenament
 1. Inicie a página de **definições de política** do Azure.
 1. Procure a política **implantar Azure defender em contas de armazenamento** .
 
-    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy-definitions.png" alt-text="Aplicar política para habilitar o Azure defender para contas de armazenamento":::
+    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy-definitions.png" alt-text="Captura de tela mostrando como habilitar o Azure defender para armazenamento na central de segurança":::
 
 1. Selecione uma assinatura do Azure ou um grupo de recursos.
 
-    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy2.png" alt-text="Selecionar assinatura ou grupo de recursos para o escopo da política ":::
+    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy2.png" alt-text="Captura de tela mostrando como habilitar o Azure defender para armazenamento na central de segurança":::
 
 1. Atribua a política.
 
-    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy1.png" alt-text="Atribuir política para habilitar o Azure defender para armazenamento":::
+    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy1.png" alt-text="Captura de tela mostrando como habilitar o Azure defender para armazenamento na central de segurança":::
 
 ### <a name="rest-api"></a>[REST API](#tab/rest-api)
 
@@ -125,11 +125,11 @@ Quando ocorrerem anomalias na atividade de armazenamento, você receberá uma no
 
 O email também inclui detalhes sobre possíveis causas e ações recomendadas para investigar e atenuar a ameaça potencial.
 
-:::image type="content" source="media/azure-defender-storage-configure/storage-advanced-threat-protection-alert-email.png" alt-text="Email de alerta do Azure defender para armazenamento":::
+:::image type="content" source="media/azure-defender-storage-configure/storage-advanced-threat-protection-alert-email.png" alt-text="Captura de tela mostrando como habilitar o Azure defender para armazenamento na central de segurança":::
 
 Você pode examinar e gerenciar seus alertas de segurança atuais no [bloco alertas de segurança](../../security-center/security-center-managing-and-responding-alerts.md)da central de segurança do Azure. Clicar em um alerta específico fornece detalhes e ações para investigar a ameaça atual e corrigir ameaças futuras.
 
-:::image type="content" source="media/azure-defender-storage-configure/storage-advanced-threat-protection-alert.png" alt-text="Alerta do Azure defender para armazenamento":::
+:::image type="content" source="media/azure-defender-storage-configure/storage-advanced-threat-protection-alert.png" alt-text="Captura de tela mostrando como habilitar o Azure defender para armazenamento na central de segurança":::
 
 ## <a name="security-alerts"></a>Alertas de segurança
 

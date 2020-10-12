@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
 ms.openlocfilehash: 83725a3839d36fc753bb43803e67acaca7571a6e
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85851829"
 ---
 # <a name="custom-commands-concepts-and-definitions"></a>Conceitos e definições de comandos personalizados
@@ -49,7 +49,7 @@ Essa caixa de seleção indica se o escopo desse parâmetro é compartilhado ent
 ### <a name="required"></a>Obrigatório
 Essa caixa de seleção indica se um valor para esse parâmetro é necessário para preenchimento ou conclusão de comando. Você deve configurar as respostas para solicitar que o usuário forneça um valor se um parâmetro for marcado como obrigatório.
 
-### <a name="type"></a>Tipo
+### <a name="type"></a>Type
 Os comandos personalizados oferecem suporte aos seguintes tipos de parâmetro:
 
 * Datetime

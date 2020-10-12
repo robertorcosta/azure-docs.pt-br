@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 06/30/2020
 ms.author: mblythe
 ms.openlocfilehash: f3b4806bf46750d74a54f68bd2ab58e402e75091
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85852210"
 ---
 # <a name="manage-an-azure-support-request"></a>Gerenciar uma solicitação de suporte do Azure
@@ -45,17 +45,17 @@ Nessa página, você pode pesquisar, filtrar e classificar solicitações de sup
 
 1. Na página **solicitação de suporte** , selecione **alterar**.
 
-    :::image type="content" source="media/how-to-manage-azure-support-request/change-severity.png" alt-text="Alterar severidade da solicitação de suporte":::
+    :::image type="content" source="media/how-to-manage-azure-support-request/change-severity.png" alt-text="Todas as solicitações de suporte":::
 
 1. O portal do Azure mostra uma das duas telas, dependendo se sua solicitação já está atribuída a um engenheiro de suporte:
 
     - Se sua solicitação não tiver sido atribuída, você verá uma tela semelhante à seguinte. Selecione um novo nível de severidade e selecione **alterar**.
 
-        :::image type="content" source="media/how-to-manage-azure-support-request/unassigned-can-change-severity.png" alt-text="Selecione um novo nível de severidade":::
+        :::image type="content" source="media/how-to-manage-azure-support-request/unassigned-can-change-severity.png" alt-text="Todas as solicitações de suporte":::
 
     - Se sua solicitação tiver sido atribuída, você verá uma tela semelhante à seguinte. Selecione **OK**e, em seguida, crie uma [nova mensagem](#send-a-message) para solicitar uma alteração no nível de severidade.
 
-        :::image type="content" source="media/how-to-manage-azure-support-request/assigned-cant-change-severity.png" alt-text="Não é possível selecionar um novo nível de severidade":::
+        :::image type="content" source="media/how-to-manage-azure-support-request/assigned-cant-change-severity.png" alt-text="Todas as solicitações de suporte":::
 
 ## <a name="share-diagnostic-information-with-azure-support"></a>Compartilhar informações de diagnóstico com o suporte do Azure
 
@@ -69,7 +69,7 @@ Quando você cria uma solicitação de suporte, por padrão, a opção **compart
     
     1. Na página **solicitação de suporte** , selecione **conceder permissão**e, em seguida, selecione **Sim** e **OK**.
     
-        :::image type="content" source="media/how-to-manage-azure-support-request/grant-permission-manage.png" alt-text="Conceder permissões para informações de diagnóstico":::
+        :::image type="content" source="media/how-to-manage-azure-support-request/grant-permission-manage.png" alt-text="Todas as solicitações de suporte":::
 
 ## <a name="upload-files"></a>Carregar arquivos
 
@@ -79,7 +79,7 @@ Você pode usar a opção de carregamento de arquivo para carregar arquivos de d
 
 1. Na página **solicitação de suporte** , procure localizar o arquivo e, em seguida, selecione **carregar**. Repita o processo se você tiver vários arquivos.
 
-    :::image type="content" source="media/how-to-manage-azure-support-request/file-upload.png" alt-text="Carregar arquivo":::
+    :::image type="content" source="media/how-to-manage-azure-support-request/file-upload.png" alt-text="Todas as solicitações de suporte":::
 
 ### <a name="file-upload-guidelines"></a>Diretrizes de upload de arquivo
 

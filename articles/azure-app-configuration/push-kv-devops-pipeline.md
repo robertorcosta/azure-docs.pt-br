@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: lcozzens
 ms.openlocfilehash: c1142ef7b37dee916118964778f6c1db2a65d591
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88719612"
 ---
 # <a name="push-settings-to-app-configuration-with-azure-pipelines"></a>Configurações de push para configuração de aplicativo com Azure Pipelines
@@ -87,7 +87,7 @@ Os parâmetros a seguir são usados pela tarefa de push de configuração de apl
 - **Rótulo**: uma cadeia de caracteres que é adicionada a cada chave-valor como o rótulo no repositório de configuração do aplicativo.
 - **Tipo de conteúdo**: uma cadeia de caracteres que é adicionada a cada chave-valor como o tipo de conteúdo no repositório de configuração do aplicativo.
 - **Marcas**: um objeto JSON no formato de `{"tag1":"val1", "tag2":"val2"}` , que define as marcas que são adicionadas a cada chave-valor enviado por push para o repositório de configurações do aplicativo.
-- **Exclua todos os outros valores de chave no repositório com o prefixo e rótulo especificados**: o valor padrão está **desmarcado**.
+- **Exclua todas as outras Key-Values no repositório com o prefixo e o rótulo especificados: o**valor padrão está **desmarcado**.
   - **Marcado**: Remove todos os valores de chave no repositório de configuração de aplicativo que correspondem ao prefixo e ao rótulo especificados antes de enviar por push novos valores de chave do arquivo de configuração.
   - **Desmarcado**: envia por push todos os valores de chave do arquivo de configuração para o repositório de configuração do aplicativo e deixa tudo o mais no repositório de configuração do aplicativo intacto.
 

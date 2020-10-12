@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: mjbrown
 ms.openlocfilehash: 38e80f1597a08b8db7cbfa852d1bcf38ac768b1f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74871135"
 ---
 # <a name="joins-in-azure-cosmos-db"></a>Junções no Azure Cosmos DB
@@ -19,7 +19,7 @@ Em um banco de dados relacional, as junções entre as tabelas são o registro l
 
 Junções internas resultam em um produto completo cruzando os conjuntos associados à junção. O resultado de uma junção de N maneiras é um conjunto de tuplas com N elementos, em que cada valor na tupla é associado ao alias do conjunto membro da junção e pode ser acessado pela referência desse alias em outras cláusulas.
 
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>Sintaxe
 
 O idioma dá suporte à sintaxe `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>` . Essa consulta retorna um conjunto de tuplas com `N` valores. Cada tupla possui valores produzidos pela iteração de todos os aliases de contêiner sobre seus respectivos conjuntos. 
 
@@ -224,7 +224,7 @@ A seguinte extensão do exemplo anterior executa uma junção dupla. Você pode 
     }
 ```
 
-`AndersenFamily`tem um filho que tem um animal de estimação, portanto, o produto cruzado produz uma linha (1 \* 1 \* 1) dessa família. `WakefieldFamily`tem dois filhos, apenas um de quem tem animais de estimação, mas esse filho tem dois animais de estimação. O produto cruzado para esta família gera 1 \* 1 \* 2 = 2 linhas.
+`AndersenFamily` tem um filho que tem um animal de estimação, portanto, o produto cruzado produz uma linha (1 \* 1 \* 1) dessa família. `WakefieldFamily` tem dois filhos, apenas um de quem tem animais de estimação, mas esse filho tem dois animais de estimação. O produto cruzado para esta família gera 1 \* 1 \* 2 = 2 linhas.
 
 No próximo exemplo, há um filtro adicional em `pet` , que exclui todas as tuplas em que o nome do animal de estimação não é `Shadow` . Você pode criar tuplas de matrizes, filtrar em qualquer um dos elementos da tupla e projetar qualquer combinação dos elementos.
 

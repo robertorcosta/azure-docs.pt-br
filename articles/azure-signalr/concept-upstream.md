@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 06/11/2020
 ms.author: chenyl
 ms.openlocfilehash: c3e317a87ba888fac3c069cc5327bd89c859e9de
-ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89514230"
 ---
 # <a name="upstream-settings"></a>Configurações de upstream
@@ -82,7 +82,7 @@ Ao selecionar `ManagedIdentity` , você deve habilitar uma identidade gerenciada
 3. Adicione URLs sob o **padrão de URL upstream**. Em seguida, as configurações como **regras de Hub** mostrarão o valor padrão.
 4. Para definir configurações para **regras de Hub**, **regras de evento**, **regras de categoria**e autenticação de **upstream**, selecione o valor de **regras de Hub**. É exibida uma página que permite que você edite as configurações:
 
-    :::image type="content" source="media/concept-upstream/upstream-detail-portal.png" alt-text="Detalhes da configuração upstream":::
+    :::image type="content" source="media/concept-upstream/upstream-detail-portal.png" alt-text="Configurações de upstream":::
 
 5. Para definir a **autenticação upstream**, verifique se você habilitou uma identidade gerenciada primeiro. Em seguida, selecione **usar identidade gerenciada**. De acordo com suas necessidades, você pode escolher qualquer opção em **ID do recurso de autenticação**. Consulte [identidades gerenciadas para o serviço de signaler do Azure](howto-use-managed-identity.md) para obter detalhes.
 
@@ -145,15 +145,15 @@ Content-Type: application/json
 
 Tipo de conteúdo: `application/json`
 
-|Nome  |Type  |Descrição  |
+|Nome  |Tipo  |Descrição  |
 |---------|---------|---------|
-|Erro |string |A mensagem de erro de uma conexão fechada. Vazio quando as conexões fecham sem erros.|
+|Erro do |string |A mensagem de erro de uma conexão fechada. Vazio quando as conexões fecham sem erros.|
 
 #### <a name="invocation-message"></a>Mensagem de invocação
 
 Tipo de conteúdo: `application/json` ou `application/x-msgpack`
 
-|Nome  |Type  |Descrição  |
+|Nome  |Tipo  |Descrição  |
 |---------|---------|---------|
 |InvocationId |string | Uma cadeia de caracteres opcional que representa uma mensagem de invocação. Encontre detalhes em [invocações](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocations).|
 |Destino |string | O mesmo que o evento e o mesmo que o destino em uma [mensagem de invocação](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocation-message-encoding). |

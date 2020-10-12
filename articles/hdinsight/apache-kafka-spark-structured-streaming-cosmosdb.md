@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/18/2019
 ms.openlocfilehash: 0a2e69a220f6752e5f0392c345b02967e2e76beb
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86203464"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>Use o Streaming Estruturado do Apache Spark com o Apache Kafka e o Azure Cosmos DB
@@ -66,8 +66,8 @@ Enquanto você pode criar uma rede virtual do Azure, Kafka e clusters de Spark m
 
     |Propriedade |Valor |
     |---|---|
-    |Assinatura|Selecione sua assinatura do Azure.|
-    |Grupo de recursos|Crie um grupo ou selecione um existente. Esse grupo contém o cluster HDInsight.|
+    |Subscription|Selecione sua assinatura do Azure.|
+    |Resource group|Crie um grupo ou selecione um existente. Esse grupo contém o cluster HDInsight.|
     |Nome da conta de Cosmos DB|este valor é usado como o nome da conta do Cosmos DB. O nome pode conter apenas letras minúsculas, números e o caractere de hífen (-). Ela deve ter entre 3 e 31 caracteres.|
     |Nome do cluster de base|Esse valor é usado como o nome de base dos clusters Spark e Kafka. Por exemplo, inserir **myhdi** cria um cluster Spark chamado__spark-myhdi__ e um cluster Kafka chamado **kafka-myhdi**.|
     |Versão do cluster|a versão do cluster do HDInsight. Este exemplo é testado com 3.6 HDInsight e pode não funcionar com outros tipos de cluster.|
@@ -78,7 +78,7 @@ Enquanto você pode criar uma rede virtual do Azure, Kafka e clusters de Spark m
 
     ![Valores de implantação personalizada do HDInsight](./media/apache-kafka-spark-structured-streaming-cosmosdb/hdi-custom-parameters.png)
 
-1. Leia os **termos e condições**e, em seguida, selecione **concordo com os termos e condições declarados acima**.
+1. Leia **Termos e Condições**, e depois selecione **Concordo com os termos e condições declarados acima**.
 
 1. Por fim, selecione **Comprar**. A criação dos clusters, da rede virtual e da conta do Cosmos DB pode levar até 45 minutos.
 
@@ -162,4 +162,4 @@ Agora que você aprendeu a usar Apache Spark streaming estruturado, consulte os 
 
 * [Como usar o fluxo do Apache Spark (DStream) com o Apache Kafka](hdinsight-apache-spark-with-kafka.md).
 * [Iniciar com o Jupyter Notebook e Apache Spark no HDInsight](spark/apache-spark-jupyter-spark-sql.md)
-* [Bem-vindo ao Azure Cosmos DB](../cosmos-db/introduction.md)
+* [Bem-vindo(a) ao Azure Cosmos DB](../cosmos-db/introduction.md)

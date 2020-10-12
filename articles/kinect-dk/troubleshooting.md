@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: solução de problemas, atualização, Bug, Kinect, comentários, recuperação, registro em log, dicas
 ms.openlocfilehash: 2db7b17ffc8b6595107dbc52fae719aa9f2d15db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85276420"
 ---
 # <a name="azure-kinect-known-issues-and-troubleshooting"></a>Problemas conhecidos e solução de problemas do Azure Kinect
@@ -134,7 +134,7 @@ Caso contrário, execute uma [redefinição de fábrica](https://support.microso
 - Para compartilhar problemas de qualidade de imagem com a equipe, você pode:
 
 1) Faça uma pausa na exibição do [Azure Kinect Viewer](azure-kinect-viewer.md) e faça uma captura de tela ou
-2) Faça a gravação usando o [gravador de Kinect do Azure](azure-kinect-recorder.md), por exemplo,`k4arecorder.exe -l 5 -r 5 output.mkv`
+2) Faça a gravação usando o [gravador de Kinect do Azure](azure-kinect-recorder.md), por exemplo, `k4arecorder.exe -l 5 -r 5 output.mkv`
 
 ## <a name="inconsistent-or-unexpected-device-timestamps"></a>Carimbos de data/hora de dispositivo inconsistentes ou inesperados
 

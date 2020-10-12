@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja
 ms.custom: aaddev
 ms.openlocfilehash: 73c4931533e3926086320531a0800a572d13808c
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89535765"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Como: configurar os termos de serviço e a política de privacidade para um aplicativo
@@ -62,7 +62,7 @@ Siga estas etapas na portal do Azure.
 2. Navegue até a seção **Registros de aplicativo** e selecione seu aplicativo.
 3. Abra o painel de **identidade visual** .
 4. Preencha os campos da **URL de termos de serviço** e **Política de privacidade**.
-5. Salve as alterações.
+5. Salve suas alterações.
 
     ![As propriedades do aplicativo contêm termos de serviço e URLs de política de privacidade](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
 
@@ -73,7 +73,7 @@ Se preferir modificar diretamente o objeto JSON do aplicativo, você poderá usa
 1. Navegando até a seção **registros de aplicativo** e selecionando seu aplicativo.
 2. Abra o painel **manifesto** .
 3. Ctrl + F, pesquise "informationalUrls". Preencha as informações.
-4. Salve as alterações.
+4. Salve suas alterações.
 
 ```json
     "informationalUrls": { 

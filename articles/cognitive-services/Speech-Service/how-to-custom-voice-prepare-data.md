@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
 ms.openlocfilehash: 5427e9f996fb77d455aa8064fc7cb1c65e1fcf7e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74805970"
 ---
 # <a name="prepare-data-to-create-a-custom-voice"></a>Preparar dados para criar uma voz personalizada
@@ -53,7 +53,7 @@ Para produzir uma boa fonte de voz, crie as gravações em uma sala silenciosa c
 
 ### <a name="audio-files"></a>Arquivos de áudio
 
-Cada arquivo de áudio deve conter um único expressão (uma única frase ou uma única rodada de um sistema de caixa de diálogo), com menos de 15 segundos de comprimento. Todos os arquivos devem estar no mesmo idioma falado. Não há suporte para vozes de conversão de texto em fala personalizadas em vários idiomas, com exceção do idioma inglês chinês-inglês. Cada arquivo de áudio deve ter um nome de arquivo numérico exclusivo com a extensão de nome de arquivo. wav.
+Cada arquivo de áudio deve conter um único expressão (uma única frase ou uma única rodada de um sistema de caixa de diálogo), com menos de 15 segundos de comprimento. Todos os arquivos devem estar no mesmo idioma falado. Não há suporte para vozes de conversão de texto em fala personalizadas em vários idiomas, com exceção do Chinese-English multilíngüe. Cada arquivo de áudio deve ter um nome de arquivo numérico exclusivo com a extensão de nome de arquivo. wav.
 
 Siga estas diretrizes ao preparar o áudio.
 
@@ -62,7 +62,7 @@ Siga estas diretrizes ao preparar o áudio.
 | Formato de arquivo | RIFF (. wav), agrupado em um arquivo. zip |
 | Taxa de amostragem | Pelo menos 16.000 Hz |
 | Formato de exemplo | PCM, 16 bits |
-| Nome do Arquivo | Numeric, com extensão. wav. Nenhum nome de arquivo duplicado é permitido. |
+| Nome do arquivo | Numeric, com extensão. wav. Nenhum nome de arquivo duplicado é permitido. |
 | Comprimento do áudio | Menos de 15 segundos |
 | Formato de arquivo | .zip |
 | Tamanho máximo de arquivo | 2\.048 MB |
@@ -107,12 +107,12 @@ Siga estas diretrizes ao preparar o áudio para segmentação.
 | Propriedade | Valor |
 | -------- | ----- |
 | Formato de arquivo | RIFF (. wav) com uma taxa de amostragem de pelo menos 16 kHz-16 bits em PCM ou. mp3 com uma taxa de bits de pelo menos 256 KBps, agrupados em um arquivo. zip |
-| Nome do Arquivo | Caracteres ASCII e Unicode com suporte. Nenhum nome duplicado é permitido. |
+| Nome do arquivo | Caracteres ASCII e Unicode com suporte. Nenhum nome duplicado é permitido. |
 | Comprimento do áudio | Mais de 20 segundos |
 | Formato de arquivo | .zip |
 | Tamanho máximo de arquivo | 2\.048 MB |
 
-Todos os arquivos de áudio devem ser agrupados em um arquivo zip. É OK colocar arquivos. wav e arquivos. mp3 em um zip de áudio. Por exemplo, você pode carregar um arquivo ZIP contendo um arquivo de áudio chamado ' kingstory. wav ', 45-Second-Long e outro áudio chamado ' queenstory. mp3 ', 200-Second-Long. Todos os arquivos. mp3 serão transformados no formato. wav após o processamento.
+Todos os arquivos de áudio devem ser agrupados em um arquivo zip. É OK colocar arquivos. wav e arquivos. mp3 em um zip de áudio. Por exemplo, você pode carregar um arquivo ZIP contendo um arquivo de áudio chamado ' kingstory. wav ', 45-Second-Long e outro áudio chamado ' queenstory.mp3 ', 200-Second-Long. Todos os arquivos. mp3 serão transformados no formato. wav após o processamento.
 
 ### <a name="transcripts"></a>Transcrições
 
@@ -121,12 +121,12 @@ Transcrições devem estar preparados para as especificações listadas nesta ta
 | Propriedade | Valor |
 | -------- | ----- |
 | Formato de arquivo | Texto sem formatação (. txt), agrupado em um. zip |
-| Nome do Arquivo | Usar o mesmo nome que o arquivo de áudio correspondente |
+| Nome do arquivo | Usar o mesmo nome que o arquivo de áudio correspondente |
 | Formato de codificação | UTF-8-somente BOM |
 | Nº de enunciados por linha | Sem limite |
 | Tamanho máximo do arquivo | 2\.048 MB |
 
-Todos os arquivos de transcrições nesse tipo de dados devem ser agrupados em um arquivo zip. Por exemplo, você carregou um arquivo ZIP contendo um arquivo de áudio chamado ' kingstory. wav ', 45 segundos de comprimento e outro chamado ' queenstory. mp3 ', 200 segundos de comprimento. Será necessário carregar outro arquivo ZIP contendo duas transcrições, uma denominada ' kingstory. txt ', a outra ' queenstory. txt '. Em cada arquivo de texto sem formatação, você fornecerá a transcrição correta completa para o áudio correspondente.
+Todos os arquivos de transcrições nesse tipo de dados devem ser agrupados em um arquivo zip. Por exemplo, você carregou um arquivo ZIP contendo um arquivo de áudio chamado ' kingstory. wav ', 45 segundos de comprimento e outro chamado ' queenstory.mp3 ', 200 segundos de comprimento. Você precisará carregar outro arquivo ZIP contendo duas transcrições, uma denominada ' kingstory.txt ', a outra ' queenstory.txt '. Em cada arquivo de texto sem formatação, você fornecerá a transcrição correta completa para o áudio correspondente.
 
 Depois que o conjunto de acordo for carregado com êxito, iremos ajudá-lo a segmentar o arquivo de áudio no declarações com base na transcrição fornecida. Você pode verificar o declarações segmentado e as transcrições correspondentes baixando o conjunto de um. As IDs exclusivas serão atribuídas ao declarações segmentado automaticamente. É importante garantir que as transcrições fornecidas sejam 100% precisas. Os erros nas transcrições podem reduzir a precisão durante a segmentação de áudio e apresentar ainda mais perda de qualidade na fase de treinamento que vem depois.
 
@@ -142,7 +142,7 @@ Siga estas diretrizes ao preparar o áudio.
 | Propriedade | Valor |
 | -------- | ----- |
 | Formato de arquivo | RIFF (. wav) com uma taxa de amostragem de pelo menos 16 kHz-16 bits em PCM ou. mp3 com uma taxa de bits de pelo menos 256 KBps, agrupados em um arquivo. zip |
-| Nome do Arquivo | Caracteres ASCII e Unicode com suporte. Nenhum nome duplicado é permitido. |
+| Nome do arquivo | Caracteres ASCII e Unicode com suporte. Nenhum nome duplicado é permitido. |
 | Comprimento do áudio | Mais de 20 segundos |
 | Formato de arquivo | .zip |
 | Tamanho máximo de arquivo | 2\.048 MB |
