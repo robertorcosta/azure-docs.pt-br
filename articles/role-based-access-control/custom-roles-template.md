@@ -11,10 +11,10 @@ ms.workload: identity
 ms.date: 06/25/2020
 ms.author: rolyon
 ms.openlocfilehash: bcf1966ffc326291448cb611d99390fe0d652151
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85397908"
 ---
 # <a name="create-an-azure-custom-role-using-an-azure-resource-manager-template"></a>Criar uma função personalizada do Azure usando um modelo de Azure Resource Manager
@@ -118,7 +118,7 @@ Siga estas etapas para verificar se a função personalizada foi criada.
     Get-AzRoleDefinition "Custom Role - RG Reader" | ConvertTo-Json
     ```
 
-    Será exibida uma saída semelhante à seguinte:
+    Você deverá ver uma saída semelhante à seguinte:
 
     ```azurepowershell
     {
@@ -151,7 +151,7 @@ Siga estas etapas para verificar se a função personalizada foi criada.
 
    ![Nova função personalizada no portal do Azure](./media/custom-roles-template/custom-role-template-portal.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para remover a função personalizada, siga estas etapas.
 

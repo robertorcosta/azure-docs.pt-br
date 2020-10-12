@@ -11,10 +11,10 @@ ms.date: 08/08/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: d230bc8a1e9bf388e1cca4e3a3a691223146d734
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85387976"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-qq-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e entrada com a conta do QQ usando o Azure Active Directory B2C
@@ -35,7 +35,7 @@ Para usar uma conta do QQ como um provedor de identidade no Azure Active Directo
 
 ### <a name="register-a-qq-application"></a>Registrar um aplicativo do QQ
 
-1. Vá para [https://connect.qq.com/index.html](https://connect.qq.com/index.html).
+1. Acesse [https://connect.qq.com/index.html](https://connect.qq.com/index.html).
 1. Selecione **应用管理**(gerenciamento de aplicativos).
 1. Selecione **创建应用** (criar aplicativo) e insira as informações necessárias.
 1. Insira `https://your-tenant-name.b2clogin.com/your-tenant-name}.onmicrosoft.com/oauth2/authresp` em **授权回调域** (URL de retorno de chamada). Por exemplo, se `tenant_name` for contoso, defina a URL para ser `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`.

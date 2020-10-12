@@ -10,10 +10,10 @@ services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
 ms.openlocfilehash: 75b193017bbfccbae0f299c0a1db2fe0e34f1810
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91321791"
 ---
 # <a name="add-a-simple-data-layer"></a>Adicionar uma camada de dados simples
@@ -114,7 +114,7 @@ Se um recurso for um `Point` ou a `MultiPoint` , e o recurso não tiver uma `ima
 
 Os clusters também são renderizados usando a camada de bolha. Por padrão, o raio de um cluster é definido como `16` . A cor do cluster varia dependendo do número de pontos no cluster, conforme definido abaixo:
 
-| n º de pontos | Cor    |
+| n º de pontos | Color    |
 |-------------|----------|
 | &gt;= 100   | `red`    |
 | &gt;= 10    | `yellow` |

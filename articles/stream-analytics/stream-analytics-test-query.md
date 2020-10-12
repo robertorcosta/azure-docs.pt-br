@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 3/6/2020
 ms.custom: seodec18
 ms.openlocfilehash: deaa52494fce387bde2b105de7d34e8a4f0c5c2f
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89612154"
 ---
 # <a name="test-an-azure-stream-analytics-job-in-the-portal"></a>Testar um trabalho de Azure Stream Analytics no portal
@@ -23,7 +23,7 @@ No Azure Stream Analytics, você pode testar sua consulta sem iniciar ou parar s
 
 Azure Stream Analytics busca automaticamente eventos de suas entradas de streaming. Você pode executar consultas no exemplo padrão ou definir um intervalo de tempo específico para o exemplo.
 
-1. Entre no Portal do Azure.
+1. Entre no portal do Azure.
 
 2. Localize e selecione seu trabalho de Stream Analytics existente.
 
@@ -71,7 +71,7 @@ Azure Stream Analytics busca automaticamente eventos de suas entradas de streami
 
 Em vez de usar dados dinâmicos, você pode usar dados de exemplo de um arquivo local para testar sua consulta de Azure Stream Analytics.
 
-1. Entre no Portal do Azure.
+1. Entre no portal do Azure.
    
 2. Localize o trabalho existente do Stream Analytics e selecione-o.
 

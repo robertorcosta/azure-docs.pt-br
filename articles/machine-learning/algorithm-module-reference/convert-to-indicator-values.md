@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
 ms.openlocfilehash: f1b194f2c65f95ad4daff0353d05ca589db9ce51
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79477656"
 ---
 # <a name="convert-to-indicator-values"></a>Converter em valores de indicador
@@ -49,7 +49,7 @@ Suponha que você tenha uma coluna com pontuações que indicam se um servidor t
 | --------- | ------------- |
 | 10301     | Baixo           |
 | 10302     | Médio        |
-| 10303     | Alta          |
+| 10303     | Alto          |
 
 Quando você aplica **converter a valores de indicador**, o designer converte uma única coluna de rótulos em várias colunas contendo valores Boolianos:  
 
@@ -98,7 +98,7 @@ Esta seção contém detalhes de implementação, dicas e respostas para pergunt
 
 -   Somente as colunas que são marcadas como categóricas podem ser convertidas em colunas de indicador. Se você vir o erro a seguir, é provável que uma das colunas selecionadas não seja categórica:  
 
-     Erro 0056: a coluna com \<column name> o nome não está em uma categoria permitida.  
+     Erro 0056: a coluna com  \<column name> o nome não está em uma categoria permitida.  
 
      Por padrão, a maioria das colunas de cadeia de caracteres são tratadas como recursos de cadeia de caracteres, portanto, você deve marcá-las explicitamente como categóricos usando [Editar metadados](edit-metadata.md).  
 

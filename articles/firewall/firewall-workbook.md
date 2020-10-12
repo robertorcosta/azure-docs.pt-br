@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: victorh
 ms.openlocfilehash: dabe154535d2bd3ae5550d4bbbafa75adc5ae2c0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91341207"
 ---
 # <a name="monitor-logs-using-azure-firewall-workbook"></a>Monitorar logs usando a pasta de trabalho do firewall do Azure
@@ -38,23 +38,23 @@ A página Visão geral fornece uma maneira de filtrar entre espaços de trabalho
 
 Esta página mostra fontes exclusivas de endereço IP ao longo do tempo, uso de contagem de regras de aplicativo, FQDN negado/permitido ao longo do tempo e dados filtrados. Você pode filtrar dados com base no endereço IP.
 
-:::image type="content" source="./media/firewall-workbook/firewall-workbook-application-rule.png" alt-text="Log de regras do aplicativo de pasta de trabalho do firewall":::
+:::image type="content" source="./media/firewall-workbook/firewall-workbook-application-rule.png" alt-text="Visão geral da pasta de trabalho do Azure firewall":::
 
 ## <a name="network-rule-log-statistics"></a>Estatísticas de log de regra de rede
 
 Esta página fornece uma ação de exibição por regra – permitir/negar, porta de destino por IP e DNAT ao longo do tempo. Você também pode filtrar por ação, porta e tipo de destino.
 
-:::image type="content" source="./media/firewall-workbook/firewall-workbook-network-rule.png" alt-text="Log de regra de rede da pasta de trabalho do Azure firewall":::
+:::image type="content" source="./media/firewall-workbook/firewall-workbook-network-rule.png" alt-text="Visão geral da pasta de trabalho do Azure firewall":::
 
 Você também pode filtrar logs com base na janela de tempo:
 
-:::image type="content" source="./media/firewall-workbook/firewall-workbook-network-rule-time.png" alt-text="Janela de tempo de log da regra de rede do Azure firewall":::
+:::image type="content" source="./media/firewall-workbook/firewall-workbook-network-rule-time.png" alt-text="Visão geral da pasta de trabalho do Azure firewall":::
 
 ## <a name="investigations"></a>Investigações
 
 Você pode examinar os logs e entender mais sobre o recurso com base no endereço IP de origem. Você pode obter informações como nome da máquina virtual e nome da interface de rede. É simples filtrar para o recurso dos logs.
 
-:::image type="content" source="./media/firewall-workbook/firewall-workbook-investigation.png" alt-text="Investigação da pasta de trabalho do firewall do Azure":::
+:::image type="content" source="./media/firewall-workbook/firewall-workbook-investigation.png" alt-text="Visão geral da pasta de trabalho do Azure firewall":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

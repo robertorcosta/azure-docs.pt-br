@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 95f8991d5ba9efb8e3223dd44a8d037acf2de849
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88009555"
 ---
 # <a name="delegate-access-to-privileged-identity-management"></a>Delegar acesso a Privileged Identity Management
@@ -46,7 +46,7 @@ Certifique-se de que haja sempre pelo menos dois usuários em uma função de Ad
 
     ![Administrador com Função com Privilégios - Membros](./media/pim-how-to-give-access-to-pim/pim-pra-members.png)
 
-1. Selecione **Adicionar membro** para abrir o painel **adicionar membros gerenciados** .
+1. Selecione **Adicionar membro**  para abrir o painel **adicionar membros gerenciados** .
 
 1. Selecione **selecionar Membros** para abrir o painel **selecionar Membros** .
 

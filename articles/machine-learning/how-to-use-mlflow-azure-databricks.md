@@ -12,10 +12,10 @@ ms.date: 09/22/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
 ms.openlocfilehash: c6bcf6f228049c4f5c4d1cd0d22cb69fb9677c1a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91341150"
 ---
 # <a name="track-azure-databricks-ml-experiments-with-mlflow-and-azure-machine-learning-preview"></a>Acompanhe os experimentos Azure Databricks ML com MLflow e Azure Machine Learning (visualização)
@@ -172,7 +172,7 @@ mlflow.sklearn.log_model(model, artifact_path = "model",
 
 Quando você estiver pronto para criar um ponto de extremidade para seus modelos de ML. Você pode implantar como, 
 
-* Um serviço Web de solicitação-resposta Azure Machine Learning para Pontuação interativa. Essa implantação permite aproveitar e aplicar o gerenciamento de modelos de Azure Machine Learning e os recursos de detecção de descompasso de dados para seus modelos de produção. 
+* Um Azure Machine Learning Request-Response Web Service para Pontuação interativa. Essa implantação permite aproveitar e aplicar o gerenciamento de modelos de Azure Machine Learning e os recursos de detecção de descompasso de dados para seus modelos de produção. 
 
 * Objetos de modelo MLFlow, que podem ser usados em pipelines de streaming ou lote como funções Python ou pandas UDFs no espaço de trabalho Azure Databricks.
 

@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 10/16/2019
 ms.author: billmath
 ms.openlocfilehash: 3aa1571b46938b03f556fa124d3f0a2a70f2c5c3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79504346"
 ---
 ## <a name="steps-to-enable-single-sign-on"></a>Etapas para habilitar o logon único
@@ -18,7 +18,7 @@ O provisionamento de nuvem funciona com o logon único.  No momento, não há um
 ### <a name="step-1-download-and-extract-azure-ad-connect-files"></a>Etapa 1: baixar e extrair Azure AD Connect arquivos
 1.  Primeiro, baixe a versão mais recente do [Azure ad Connect](https://www.microsoft.com/download/details.aspx?id=47594)
 2.  Abra um prompt de comando usando privilégios administrativos e navegue até o MSI que você acabou de baixar.
-3.  Execute o seguinte:`msiexec /a C:\filepath\AzureADConnect.msi /qb TARGETDIR=C:\filepath\extractfolder`
+3.  Execute o seguinte:  `msiexec /a C:\filepath\AzureADConnect.msi /qb TARGETDIR=C:\filepath\extractfolder`
 4. Altere FilePath e extractfolder para corresponder ao caminho do arquivo e ao nome da sua pasta de extração.  O conteúdo agora deve estar na pasta de extração.
 
 ### <a name="step-2-import-the-seamless-sso-powershell-module"></a>Etapa 2: importar o módulo do PowerShell de SSO contínuo

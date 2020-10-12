@@ -15,10 +15,10 @@ ms.author: kenwith
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8f520141d36726e94dc8d49d7e5aa95bb35d5484
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85956229"
 ---
 # <a name="create-collections-on-the-my-apps-portal"></a>Criar coleções no portal Meus Aplicativos
@@ -65,7 +65,7 @@ Para criar uma coleção, você deve ter uma licença Azure AD Premium P1 ou P2.
 
 7. Selecione a guia **proprietários** . Selecione **+ Adicionar usuários e grupos**e, em seguida, na página **Adicionar usuários e grupos** , selecione os usuários ou grupos aos quais você deseja atribuir a propriedade. Quando você terminar de selecionar usuários e grupos, escolha **selecionar**.
 
-9. Selecione a guia **usuários e grupos** . Selecione **+ Adicionar usuários e grupos**e, na página **Adicionar usuários e grupos** , selecione os usuários ou grupos aos quais você deseja atribuir a coleção. Ou use a caixa de **pesquisa** para localizar usuários ou grupos. Quando você terminar de selecionar usuários e grupos, escolha **selecionar**.
+9. Selecione a guia **usuários e grupos** . Selecione **+ Adicionar usuários e grupos**e, em seguida, na página **Adicionar usuários e grupos** , selecione os usuários ou grupos aos quais você deseja atribuir a coleção. Ou use a caixa de **pesquisa** para localizar usuários ou grupos. Quando você terminar de selecionar usuários e grupos, escolha **selecionar**.
 
    ![Adicionar usuários e grupos](media/acces-panel-collections/add-users-and-groups.png)
 

@@ -11,10 +11,10 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.openlocfilehash: c7880fd7fb687483409ce591059e0f5b2d2e2991
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84659701"
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Como criar e configurar o Integration Runtime do Azure
@@ -90,6 +90,6 @@ Depois de criar um IR do Azure, você pode referenciá-lo em sua definição de 
 ## <a name="next-steps"></a>Próximas etapas
 Consulte os artigos a seguir para criar outros tipos de runtimes de integração:
 
-- [Criar um Integration Runtime auto-hospedado](create-self-hosted-integration-runtime.md)
+- [Criar tempo de execução de integração auto-hospedado](create-self-hosted-integration-runtime.md)
 - [Criar o Integration Runtime do Azure-SSIS](create-azure-ssis-integration-runtime.md)
  

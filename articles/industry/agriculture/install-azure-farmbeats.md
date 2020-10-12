@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 1/17/2020
 ms.author: atinb
 ms.openlocfilehash: 0761db6b73c6fcfeb1ef6fda729a68c9644bbc72
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79479552"
 ---
 # <a name="install-azure-farmbeats"></a>Instalar o Azure FarmBeats
@@ -148,7 +148,7 @@ Seu processo de registro foi concluído. Anote seu **nome de usuário do Sentine
 
 Agora você está pronto para instalar o FarmBeats. Siga as etapas abaixo para iniciar a instalação:
 
-1. Entre no Portal do Azure. Selecione sua conta no canto superior direito e alterne para o locatário do Azure AD no qual você deseja instalar o Azure FarmBeats.
+1. Entre no portal do Azure. Selecione sua conta no canto superior direito e alterne para o locatário do Azure AD no qual você deseja instalar o Azure FarmBeats.
 
 2. Vá para o Azure Marketplace no portal e pesquise **FarmBeats do Azure** no Marketplace.
 

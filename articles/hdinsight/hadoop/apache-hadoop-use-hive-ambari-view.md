@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
 ms.openlocfilehash: cc04a891bb32ede6c7bb72a339b728642cf343ed
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86207827"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Use o Apache Ambari Hive View com o Apache Hadoop no HDInsight
@@ -60,7 +60,7 @@ Um cluster Hadoop no HDInsight. Consulte [Introdução ao HDInsight no Linux](./
 
     Essas instruções realizam as seguintes ações:
 
-    |de | Descrição |
+    |Instrução | Descrição |
     |---|---|
     |DROP TABLE|Exclui a tabela e o arquivo de dados, caso a tabela já exista.|
     |CREATE EXTERNAL TABLE|Cria uma nova tabela "externa" no Hive. As tabelas externas armazenam apenas a definição da tabela no Hive. Os dados são mantidos no local original.|
@@ -83,7 +83,7 @@ Um cluster Hadoop no HDInsight. Consulte [Introdução ao HDInsight no Linux](./
     Você pode usar a guia **log** para exibir as informações de log criadas pelo trabalho.
 
    > [!TIP]  
-   > Baixe ou salve os resultados na caixa de diálogo suspensa **ações** na guia **resultados** .
+   > Baixe ou salve os resultados na caixa de diálogo suspensa **ações** na guia  **resultados** .
 
 ### <a name="visual-explain"></a>Explicação visual
 

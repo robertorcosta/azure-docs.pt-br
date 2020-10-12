@@ -10,10 +10,10 @@ ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
 ms.openlocfilehash: 133c7e95e620bfea51d1d6c9f6fd1d2946eeca33
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91341188"
 ---
 # <a name="get-started-with-azure-machine-learning-studio-classic-in-r"></a>Introdução ao Azure Machine Learning Studio (clássico) em R
@@ -160,7 +160,7 @@ Agora que temos alguns dados em Machine Learning Studio (clássico), precisamos 
 1. Na caixa **Pesquisar itens de teste** na parte superior do painel esquerdo, digite [Executar script R][execute-r-script]. O módulo aparece na lista de pesquisa.
 1. Arraste o módulo [Executar script R][execute-r-script] para o seu palete.
 1. Conecte a saída do ** conjunto** de dadoscsdairydata.csv à entrada mais à esquerda (**dataSet1**) de [Executar script R][execute-r-script].
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 Neste ponto, seu experimento deve ser semelhante a este exemplo.
 
@@ -241,7 +241,7 @@ Já discutimos o carregamento de DataSets em [Load the DataSet](#loading). Depoi
 
 1. Insira a `source()` função com o nome do arquivo zip na janela de código do módulo [Executar script R][execute-r-script] . Nesse caso, inserimos `source("src/simpleplot.R")` .
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 Depois que essas etapas forem concluídas, o módulo [Executar script r][execute-r-script] executará o script r no arquivo zip quando o experimento for executado. Neste ponto, seu experimento deve ser semelhante a este exemplo.
 

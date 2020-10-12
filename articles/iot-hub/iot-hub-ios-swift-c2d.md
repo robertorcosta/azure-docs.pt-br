@@ -9,10 +9,10 @@ ms.date: 04/19/2018
 ms.author: kgremban
 ms.custom: mqtt
 ms.openlocfilehash: d8552391e8e8c389a44174595305b8f28224a833
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81732531"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-ios"></a>Enviar mensagens de nuvem para dispositivo com Hub IoT (iOS)
@@ -100,7 +100,7 @@ Além de instalar os pods necessários para o projeto, o comando de instalação
 
 5. Salve suas alterações. 
 
-6. Execute o projeto no Device Emulator com o botão de **compilação e execução** ou o comando de combinação de teclas **+ r**.
+6. Execute o projeto no emulador de dispositivo com o botão **Compilar e executar** ou a combinação de teclas **Command + R**.
 
    ![Executar o projeto](media/iot-hub-ios-swift-c2d/run-sample.png)
 
@@ -152,7 +152,7 @@ Além de instalar os pods necessários para o projeto, o comando de instalação
 
    ![Alterar o dispositivo de emulador](media/iot-hub-ios-swift-c2d/change-device.png)
 
-7. Execute o projeto no emulador de dispositivo com o botão **Compilar e executar** ou a combinação de teclas **Comando + r**.
+7. Execute o projeto no Device Emulator com o botão de **compilação e execução** ou o comando de combinação de teclas **+ r**.
 
    ![Executar o projeto](media/iot-hub-ios-swift-c2d/run-app.png)
 

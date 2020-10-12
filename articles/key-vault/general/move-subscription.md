@@ -12,10 +12,10 @@ ms.date: 05/05/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to move my vault to another subscription.
 ms.openlocfilehash: e6ab37539d00b6748d0e63a3f559bf70f493cf42
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89394725"
 ---
 # <a name="moving-an-azure-key-vault-to-another-subscription"></a>Movendo um Azure Key Vault para outra assinatura
@@ -72,7 +72,7 @@ Certifique-se de ir para a página Azure Policy na portal do Azure e examine as 
 
 ### <a name="additional-steps-if-you-moved-key-vault-to-a-subscription-in-a-new-tenant"></a>Etapas adicionais se você moveu o cofre de chaves para uma assinatura em um novo locatário
 
-Se você moveu o cofre de chaves para uma assinatura em um novo locatário, precisa atualizar manualmente a ID do locatário e remover políticas de acesso antigas. Aqui estão os tutoriais para essas etapas no PowerShell e CLI do Azure. Se você estiver usando o PowerShell, talvez seja necessário executar o comando clear-AzContext documentado abaixo para permitir que você veja os recursos fora do escopo atual selecionado. 
+Se você moveu o cofre de chaves para uma assinatura em um novo locatário, precisa atualizar manualmente a ID do locatário e remover políticas de acesso antigas. Aqui estão os tutoriais para essas etapas no PowerShell e CLI do Azure. Se você estiver usando o PowerShell, talvez seja necessário executar o comando Clear-AzContext documentado abaixo para permitir que você veja os recursos fora do escopo selecionado atual. 
 
 ```azurepowershell
 Select-AzSubscription -SubscriptionId <your-subscriptionId>                # Select your Azure Subscription

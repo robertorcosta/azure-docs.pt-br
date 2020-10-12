@@ -11,10 +11,10 @@ ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: de5dd051804f3a0a7d1b0d32b998262af13e8926
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85389183"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Habilitar o KMSI (Mantenha-me conectado) no Azure Active Directory B2C
@@ -90,9 +90,9 @@ Atualize o arquivo de RP (terceira parte confiável) que iniciará o percurso do
     </UserJourneyBehaviors>
     ```
 
-    - **SessionExpiryType** -indica como a sessão é estendida pelo tempo especificado em `SessionExpiryInSeconds` e `KeepAliveInDays` . O `Rolling` valor (padrão) indica que a sessão é estendida toda vez que o usuário executa a autenticação. O `Absolute` valor indica que o usuário é forçado a autenticar novamente após o período de tempo especificado.
+    - **SessionExpiryType** -indica como a sessão é estendida pelo tempo especificado em `SessionExpiryInSeconds` e  `KeepAliveInDays` . O `Rolling` valor (padrão) indica que a sessão é estendida toda vez que o usuário executa a autenticação. O `Absolute` valor indica que o usuário é forçado a autenticar novamente após o período de tempo especificado.
 
-    - **SessionExpiryInSeconds** -o tempo de vida de cookies de sessão quando se *mantém conectado* não está habilitado, ou se um usuário não seleciona *manter-me conectado*. A sessão expira após `SessionExpiryInSeconds` ter passado ou o navegador é fechado.
+    - **SessionExpiryInSeconds**  -o tempo de vida de cookies de sessão quando se *mantém conectado* não está habilitado, ou se um usuário não seleciona *manter-me conectado*. A sessão expira após `SessionExpiryInSeconds` ter passado ou o navegador é fechado.
 
     - **KeepAliveInDays** -o tempo de vida de cookies de sessão quando se *mantém conectado* está habilitado e o usuário seleciona *Mantenha-me conectado*.  O valor de `KeepAliveInDays` tem precedência sobre o `SessionExpiryInSeconds` valor e determina o tempo de expiração da sessão. Se um usuário fechar o navegador e abri-lo novamente mais tarde, ele ainda poderá entrar silenciosamente, desde que esteja dentro do período de tempo KeepAliveInDays.
 

@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 12/16/2019
 ms.author: juliako
 ms.openlocfilehash: 5b9ec1c04dd90af9d9380a1f4d30386c8f9cc3ed
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79499658"
 ---
 # <a name="manage-a-video-indexer-account-connected-to-azure"></a>Gerenciar uma conta do Video Indexer conectada ao Azure
@@ -54,14 +54,14 @@ Se sua conta precisar de alguns ajustes, você verá erros relevantes e avisos s
 
 Na caixa de diálogo **atualizar conexão com os serviços de mídia do Azure** da página [Video indexer](https://www.videoindexer.ai/) , você será solicitado a fornecer valores para as seguintes configurações:
 
-|Setting|Descrição|
+|Configuração|Descrição|
 |---|---|
-|ID de assinatura do Azure|O ID da assinatura pode ser recuperado no portal do Azure. Clique em **todos os serviços** no painel esquerdo e pesquise por "assinaturas". Selecione **Assinaturas** e escolha a ID desejada na lista das assinaturas.|
+|ID da assinatura do Azure|O ID da assinatura pode ser recuperado no portal do Azure. Clique em **todos os serviços** no painel esquerdo e pesquise por "assinaturas". Selecione **Assinaturas** e escolha a ID desejada na lista das assinaturas.|
 |Nome do grupo de recursos dos Serviços de Mídia do Azur.|O nome do grupo de recursos no qual você criou a conta de Serviços de Mídia.|
 |ID do aplicativo|A ID do aplicativo do Azure AD (com permissões para a conta de serviços de mídia especificada) que você criou para esta Video Indexer conta. <br/><br/>Para obter a ID do aplicativo, navegue até portal do Azure. Na conta dos serviços de mídia, escolha sua conta e acesse **acesso à API**. Selecione **conectar-se à API dos serviços de mídia com a entidade de serviço**  ->  **aplicativo Azure ad**. Copie os parâmetros relevantes.|
 |Chave do aplicativo|A chave de aplicativo do Azure AD associada à sua conta dos serviços de mídia especificada acima. <br/><br/>Para obter a chave do aplicativo, navegue até portal do Azure. Na conta dos serviços de mídia, escolha sua conta e acesse **acesso à API**. Selecione **conectar-se à API dos serviços de mídia com entidade de serviço**  ->  **gerenciar certificados de aplicativo**  ->  **& segredos**. Copie os parâmetros relevantes.|
 
-## <a name="autoscale-reserved-units"></a>Unidades reservadas de dimensionamento automático
+## <a name="autoscale-reserved-units"></a>Fazer o dimensionamento automático de unidades reservadas
 
 A página **configurações** permite que você defina o dimensionamento automático de ru (unidades reservadas de mídia). Se a opção estiver **Ativa**, você poderá alocar o número máximo de RUs e garantir que o Video Indexer iniciará/parará RUs automaticamente. Com essa opção, você não paga dinheiro extra por tempo ocioso, mas também não espera que os trabalhos de indexação sejam concluídos muito tempo quando a carga de indexação é alta.
 
@@ -81,7 +81,7 @@ Se sua conta precisar de alguns ajustes, você verá avisos e erros relevantes s
 
     Verifique se a conta de Serviços de Mídia subjacente tem o padrão **Ponto de Extremidade de Streaming** em um estado iniciado. Caso contrário, você não poderá assistir a vídeos desta conta de serviços de mídia ou em Video Indexer.
 
-* Unidades reservadas de mídia
+* Unidades reservadas para mídia
 
     Você deve alocar unidades reservadas de mídia em seu recurso de serviço de mídia para indexar vídeos. Para obter o desempenho ideal da indexação, é recomendável alocar pelo menos 10 Unidades Reservadas S3. Para obter informações de preço, consulte a seção Perguntas frequentes da página [Preços dos Serviços de Mídia](https://azure.microsoft.com/pricing/details/media-services/).
 

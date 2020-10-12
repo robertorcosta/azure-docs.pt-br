@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: tisande
 ms.openlocfilehash: dd1652781d7eae8beb400c52137a8f16891e2b2a
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87498830"
 ---
 # <a name="operators-in-azure-cosmos-db"></a>Operadores no Azure Cosmos DB
@@ -53,9 +53,9 @@ Retorna `true` quando uma das condições é `true` .
 
 |  | **Verdadeiro** | **Falso** | **Indefinido** |
 | --- | --- | --- | --- |
-| **Verdadeiro** |Verdadeiro |True |True |
-| **Falso** |Verdadeiro |Falso |Indefinido |
-| **Indefinido** |Verdadeiro |Indefinido |Indefinido |
+| **Verdadeiro** |True |True |True |
+| **Falso** |True |Falso |Indefinido |
+| **Indefinido** |True |Indefinido |Indefinido |
 
 **Operador AND**
 
@@ -63,7 +63,7 @@ Retorna `true` quando ambas as expressões são `true` .
 
 |  | **Verdadeiro** | **Falso** | **Indefinido** |
 | --- | --- | --- | --- |
-| **Verdadeiro** |Verdadeiro |Falso |Indefinido |
+| **Verdadeiro** |True |Falso |Indefinido |
 | **Falso** |Falso |Falso |Falso |
 | **Indefinido** |Indefinido |Falso |Indefinido |
 
@@ -74,7 +74,7 @@ Reverte o valor de qualquer expressão booleana.
 |  | **NOT** |
 | --- | --- |
 | **Verdadeiro** |Falso |
-| **Falso** |Verdadeiro |
+| **Falso** |True |
 | **Indefinido** |Indefinido |
 
 **Precedência de operador**
@@ -84,12 +84,12 @@ Os operadores lógicos `OR` , `AND` e `NOT` têm o nível de precedência mostra
 | **Operador** | **Prioridade** |
 | --- | --- |
 | **NOT** |1 |
-| **E** |2 |
+| **AND** |2 |
 | **OR** |3 |
 
 ## <a name="-operator"></a>Operador *
 
-O operador especial * projeta o item inteiro como está. Quando usado, ele deve ser o único campo projetado. Uma consulta como `SELECT * FROM Families f` é válida, mas `SELECT VALUE * FROM Families f` `SELECT *, f.id FROM Families f` não é válida.
+O operador especial * projeta o item inteiro como está. Quando usado, ele deve ser o único campo projetado. Uma consulta como `SELECT * FROM Families f` é válida, mas `SELECT VALUE * FROM Families f`  `SELECT *, f.id FROM Families f` não é válida.
 
 ## <a name="-and--operators"></a>? e?? operadores
 
