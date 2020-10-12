@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 08/29/2019
 ms.author: allensu
 ms.openlocfilehash: 23fe515ddfdecb9ef168dd662e3fa2d91ece688f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84711469"
 ---
 # <a name="move-azure-public-ip-configuration-to-another-region-using-the-azure-portal"></a>Mover a configuração de IP público do Azure para outra região usando o portal do Azure
@@ -156,7 +156,7 @@ As etapas a seguir mostram como preparar o IP público para a configuração mov
 
 Se você quiser descartar o IP público de destino, exclua o grupo de recursos que contém o IP público de destino.  Para fazer isso, selecione o grupo de recursos do seu painel no portal e selecione **excluir** na parte superior da página Visão geral.
 
-## <a name="clean-up"></a>Limpar
+## <a name="clean-up"></a>Limpeza
 
 Para confirmar as alterações e concluir a movimentação do IP público, exclua o IP público de origem ou o grupo de recursos. Para fazer isso, selecione o IP público ou o grupo de recursos do seu painel no portal e selecione **excluir** na parte superior de cada página.
 

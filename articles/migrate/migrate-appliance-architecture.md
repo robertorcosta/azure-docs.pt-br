@@ -4,10 +4,10 @@ description: Fornece uma visão geral do dispositivo de Migrações para Azure u
 ms.topic: conceptual
 ms.date: 06/09/2020
 ms.openlocfilehash: 028e0e5b0bbf83c08b5f9cd6d24d7914513ae89a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91322250"
 ---
 # <a name="azure-migrate-appliance-architecture"></a>Arquitetura do dispositivo de Migrações para Azure
@@ -38,7 +38,7 @@ O dispositivo tem vários componentes.
 
 
 
-## <a name="appliance-deployment"></a>Implantação de dispositivo
+## <a name="appliance-deployment"></a>Implantação do dispositivo
 
 - O dispositivo de migrações para Azure pode ser configurado usando um modelo para [Hyper-v](how-to-set-up-appliance-hyper-v.md) ou [VMware](how-to-set-up-appliance-vmware.md) ou usando um instalador de script do PowerShell para [VMware/Hyper-V](deploy-appliance-script.md)e para [servidores físicos](how-to-set-up-appliance-physical.md). 
 - Os requisitos de suporte do dispositivo e os pré-requisitos de implantação são resumidos na [matriz de suporte do dispositivo](migrate-appliance.md).
@@ -85,7 +85,7 @@ O dispositivo se comunica com servidores vCenter e hosts/cluster do Hyper-V usan
 
 O dispositivo é atualizado conforme os agentes de Migrações para Azure em execução no dispositivo são atualizados. Isso ocorre automaticamente porque a atualização automática está habilitada no dispositivo por padrão. Você pode alterar essa configuração padrão para atualizar os agentes manualmente.
 
-Desative a atualização automática no registro definindo a chave HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\AzureAppliance "AutoUpdate" como 0 (DWORD).
+Desative a atualização automática no registro definindo a chave "AutoUpdate" do HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance como 0 (DWORD).
 
 
 ## <a name="next-steps"></a>Próximas etapas

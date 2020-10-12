@@ -8,10 +8,10 @@ ms.date: 03/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: f47e9cb93b90c8a2401d1dfe6c0ff7800b0bcf27
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89401122"
 ---
 # <a name="azure-security-baseline-for-event-hubs"></a>Linha de base de segurança do Azure para hubs de eventos
@@ -970,7 +970,7 @@ Entenda a recuperação de desastres geograficamente para os hubs de eventos do 
 
 **Diretrizes**: os hubs de eventos do Azure fornecem a criptografia de dados em repouso com Azure criptografia do serviço de armazenamento (Azure SSE). Os hubs de eventos dependem do armazenamento do Azure para armazenar os dados e, por padrão, todos os dados armazenados com o armazenamento do Azure são criptografados usando chaves gerenciadas pela Microsoft. Se você usar Azure Key Vault para armazenar chaves gerenciadas pelo cliente, garanta backups automatizados regulares de suas chaves.
 
-Garanta backups automatizados regulares de seus segredos do Key Vault com o seguinte comando do PowerShell: backup-AzKeyVaultSecret
+Garanta backups automatizados regulares de seus segredos de Key Vault com o seguinte comando do PowerShell: Backup-AzKeyVaultSecret
 
 Como configurar chaves gerenciadas pelo cliente para criptografar dados de hubs de eventos do Azure em repouso: https://docs.microsoft.com/azure/event-hubs/configure-customer-managed-key
 

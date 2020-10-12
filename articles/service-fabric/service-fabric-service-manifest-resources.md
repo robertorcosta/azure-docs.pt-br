@@ -4,10 +4,10 @@ description: Como descrever os recursos de ponto de extremidade em um manifesto 
 ms.topic: conceptual
 ms.date: 09/16/2020
 ms.openlocfilehash: c0c3c45c47447390901e5e0d60e77ab6b85a6a0d
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91354752"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Especificar recursos em um manifesto do serviço
@@ -220,7 +220,7 @@ Se estiver no ServiceManifest especificado
 
 Suponha que o valor de Port1 e Protocol1 para parâmetros de aplicativo seja nulo ou vazio. A porta será decidida pelo ServicePortal e o protocolo será TCP.
 
-Vamos supor que você especifica um valor incorreto. Digamos, para a porta, que você especificou um valor de cadeia de caracteres "foo" em vez de um int.  O comando New-ServiceFabricApplication falhará com um erro: `The override parameter with name 'ServiceEndpoint1' attribute 'Port1' in section 'ResourceOverrides' is invalid. The value specified is 'Foo' and required is 'int'.`
+Vamos supor que você especifica um valor incorreto. Digamos, para a porta, que você especificou um valor de cadeia de caracteres "foo" em vez de um int.  New-ServiceFabricApplication comando falhará com um erro: `The override parameter with name 'ServiceEndpoint1' attribute 'Port1' in section 'ResourceOverrides' is invalid. The value specified is 'Foo' and required is 'int'.`
 
 ## <a name="next-steps"></a>Próximas etapas
 

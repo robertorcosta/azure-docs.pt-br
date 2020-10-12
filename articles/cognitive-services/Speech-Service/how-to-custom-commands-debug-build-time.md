@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
 ms.openlocfilehash: 9c84b35318637f5b89e6c88c0ebb3fd6616533fc
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86023118"
 ---
 # <a name="debug-errors-when-authoring-a-custom-commands-application"></a>Erros de depuração ao criar um aplicativo de comandos personalizados
@@ -48,7 +48,7 @@ Você não tem permissão para excluir um parâmetro quando ele está sendo usad
 Você não tem permissão para excluir um ponto de extremidade da Web quando ele está sendo usado. Remova qualquer ação de **ponto de extremidade Web de chamada** que usa esse ponto de extremidade da Web antes de remover um ponto de extremidade da Web
 
 ## <a name="errors-when-training-an-application"></a>Erros ao treinar um aplicativo
-### <a name="built-in-intents"></a>Propósitos internos
+### <a name="built-in-intents"></a>Built-In tentativas
 LUIS tem intenções internas Sim/não. Ter frases de amostra com apenas "Sim", "não", falharia no treinamento. 
 
 | Palavra-chave | Variações | 

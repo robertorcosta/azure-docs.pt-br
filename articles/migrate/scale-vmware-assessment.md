@@ -4,10 +4,10 @@ description: Descreve como avaliar grandes números de VMs VMware para migraçã
 ms.topic: how-to
 ms.date: 03/23/2020
 ms.openlocfilehash: 6490a5448bb68dcccd61784d149e9765107400c2
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87171909"
 ---
 # <a name="assess-large-numbers-of-vmware-vms-for-migration-to-azure"></a>Avalie grandes números de VMs VMware para migração para o Azure
@@ -37,7 +37,7 @@ Ao planejar a avaliação de um grande número de VMs VMware, há algumas coisas
 - **Planejar contas para descoberta**: o dispositivo de migrações para Azure usa uma conta com acesso a vCenter Server para descobrir VMs para avaliação e migração. Se você estiver descobrindo mais de 10.000 VMs, configure várias contas, pois elas são necessárias não há nenhuma sobreposição entre VMs descobertas de dois dispositivos em um projeto. 
 
 > [!NOTE]
-> Se você estiver configurando vários dispositivos, verifique se não há nenhuma sobreposição entre as VMs nas contas do vCenter fornecidas. Uma descoberta com tal sobreposição é um cenário sem suporte. Se uma VM for descoberta por mais de um dispositivo, isso resultará em duplicatas na descoberta e em problemas, permitindo, ao mesmo tempo, a replicação para a VM usando a portal do Azure na migração de servidor.
+> Se você estiver configurando vários dispositivos, verifique se não há nenhuma sobreposição entre as VMs nas contas do vCenter fornecidas. Uma descoberta com essa sobreposição é um cenário sem suporte. Se uma VM for descoberta por mais de um dispositivo, isso resultará em duplicatas na descoberta e em problemas, permitindo, ao mesmo tempo, a replicação para a VM usando a portal do Azure na migração de servidor.
 
 ## <a name="planning-limits"></a>Limites de planejamento
  
@@ -56,9 +56,9 @@ Com esses limites em mente, aqui estão alguns exemplos de implantações:
 **servidor vCenter** | **VMs no servidor** | **Recomendação** | **Ação**
 ---|---|---|---
 Um | < 10.000 | Um projeto de migrações para Azure.<br/> Um dispositivo.<br/> Uma conta do vCenter para descoberta. | Configure o dispositivo, conecte-se a vCenter Server com uma conta.
-Um | > 10.000 | Um projeto de migrações para Azure.<br/> Vários dispositivos.<br/> Várias contas do vCenter. | Configure o dispositivo para cada 10.000 VMs.<br/><br/> Configure as contas do vCenter e divida o inventário para limitar o acesso de uma conta a menos de 10.000 VMs.<br/> Conecte cada dispositivo ao vCenter Server com uma conta.<br/> Você pode analisar dependências entre computadores que são descobertos com dispositivos diferentes. <br/> <br/> Verifique se não há nenhuma sobreposição entre as VMs nas contas do vCenter fornecidas. Uma descoberta com tal sobreposição é um cenário sem suporte. Se uma VM for descoberta por mais de um dispositivo, isso resultará em duplicatas na descoberta e em problemas, permitindo, ao mesmo tempo, a replicação para a VM usando a portal do Azure na migração de servidor.
+Um | > 10.000 | Um projeto de migrações para Azure.<br/> Vários dispositivos.<br/> Várias contas do vCenter. | Configure o dispositivo para cada 10.000 VMs.<br/><br/> Configure as contas do vCenter e divida o inventário para limitar o acesso de uma conta a menos de 10.000 VMs.<br/> Conecte cada dispositivo ao vCenter Server com uma conta.<br/> Você pode analisar dependências entre computadores que são descobertos com dispositivos diferentes. <br/> <br/> Verifique se não há nenhuma sobreposição entre as VMs nas contas do vCenter fornecidas. Uma descoberta com essa sobreposição é um cenário sem suporte. Se uma VM for descoberta por mais de um dispositivo, isso resultará em duplicatas na descoberta e em problemas, permitindo, ao mesmo tempo, a replicação para a VM usando a portal do Azure na migração de servidor.
 Vários | < 10.000 |  Um projeto de migrações para Azure.<br/> Vários dispositivos.<br/> Uma conta do vCenter para descoberta. | Configurar dispositivos, conecte-se a vCenter Server com uma conta.<br/> Você pode analisar dependências entre computadores que são descobertos com dispositivos diferentes.
-Vários | > 10.000 | Um projeto de migrações para Azure.<br/> Vários dispositivos.<br/> Várias contas do vCenter. | Se vCenter Server descoberta < VMs 10.000, configure um dispositivo para cada vCenter Server.<br/><br/> Se vCenter Server descoberta > VMs 10.000, configure um dispositivo para cada 10.000 VMs.<br/> Configure as contas do vCenter e divida o inventário para limitar o acesso de uma conta a menos de 10.000 VMs.<br/> Conecte cada dispositivo ao vCenter Server com uma conta.<br/> Você pode analisar dependências entre computadores que são descobertos com dispositivos diferentes. <br/><br/> Verifique se não há nenhuma sobreposição entre as VMs nas contas do vCenter fornecidas. Uma descoberta com tal sobreposição é um cenário sem suporte. Se uma VM for descoberta por mais de um dispositivo, isso resultará em duplicatas na descoberta e em problemas, permitindo, ao mesmo tempo, a replicação para a VM usando a portal do Azure na migração de servidor.
+Vários | > 10.000 | Um projeto de migrações para Azure.<br/> Vários dispositivos.<br/> Várias contas do vCenter. | Se vCenter Server descoberta < VMs 10.000, configure um dispositivo para cada vCenter Server.<br/><br/> Se vCenter Server descoberta > VMs 10.000, configure um dispositivo para cada 10.000 VMs.<br/> Configure as contas do vCenter e divida o inventário para limitar o acesso de uma conta a menos de 10.000 VMs.<br/> Conecte cada dispositivo ao vCenter Server com uma conta.<br/> Você pode analisar dependências entre computadores que são descobertos com dispositivos diferentes. <br/><br/> Verifique se não há nenhuma sobreposição entre as VMs nas contas do vCenter fornecidas. Uma descoberta com essa sobreposição é um cenário sem suporte. Se uma VM for descoberta por mais de um dispositivo, isso resultará em duplicatas na descoberta e em problemas, permitindo, ao mesmo tempo, a replicação para a VM usando a portal do Azure na migração de servidor.
 
 
 

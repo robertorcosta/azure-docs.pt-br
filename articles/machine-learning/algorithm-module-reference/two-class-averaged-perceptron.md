@@ -1,7 +1,7 @@
 ---
-title: 'Média de duas classes perceptron: referência de módulo'
+title: 'Two-Class média de perceptron: referência de módulo'
 titleSuffix: Azure Machine Learning
-description: Saiba como usar o módulo perceptron médio de duas classes no Azure Machine Learning para criar um modelo de aprendizado de máquina com base no algoritmo de média de perceptron.
+description: Saiba como usar o módulo Two-Class Averageed perceptron no Azure Machine Learning para criar um modelo de aprendizado de máquina com base no algoritmo de média de perceptron.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,13 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ms.openlocfilehash: 3e5351ed2d400e0b1a10a913bb62391851030053
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90907743"
 ---
-# <a name="two-class-averaged-perceptron-module"></a>Módulo perceptron médio de duas classes
+# <a name="two-class-averaged-perceptron-module"></a>Two-Class módulo de média de perceptron
 
 Este artigo descreve um módulo no designer de Azure Machine Learning.
 
@@ -30,7 +30,7 @@ O *Método Average perceptron* é uma versão inicial e simples de uma rede neur
 
 Os modelos perceptron mais simples são adequados ao aprendizado de padrões separáveis linearmente, enquanto as redes neurais (especialmente redes neurais profundas) podem modelar limites de classe mais complexos. No entanto, os perceptrons são mais rápidos e conforme eles processem casos em série, podem ser usados com treinamento contínuo.
 
-## <a name="how-to-configure-two-class-averaged-perceptron"></a>Como configurar o perceptron médio de duas classes
+## <a name="how-to-configure-two-class-averaged-perceptron"></a>Como configurar Two-Class médias de perceptron
 
 1.  Adicione o módulo **perceptron médio de duas classes** ao seu pipeline.  
 

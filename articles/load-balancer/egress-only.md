@@ -1,5 +1,5 @@
 ---
-title: Configuração de balanceador de carga somente de saída
+title: Configuração do balanceador de carga somente de saída
 titleSuffix: Azure Load Balancer
 description: Com este artigo, saiba mais sobre como criar um balanceador de carga interno com NAT de saída
 services: load-balancer
@@ -14,13 +14,13 @@ ms.workload: infrastructure-services
 ms.date: 08/07/2020
 ms.author: allensu
 ms.openlocfilehash: b44f626546b313299701687157b37b7df021bd61
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88038164"
 ---
-# <a name="outbound-only-load-balancer-configuration"></a>Configuração de balanceador de carga somente de saída
+# <a name="outbound-only-load-balancer-configuration"></a>Configuração do balanceador de carga somente de saída
 
 Use uma combinação de balanceadores de carga padrão internos e externos para criar conectividade de saída para VMs por trás de um balanceador de carga interno. 
 
@@ -63,50 +63,50 @@ Crie uma máquina virtual na nova rede virtual.
 
 1. [Entre](https://portal.azure.com) no portal do Azure.
 
-2. No lado superior esquerdo da tela, selecione **criar um recurso > rede > rede virtual** ou pesquise pela **rede virtual** na caixa de pesquisa.
+2. No canto superior esquerdo da tela, selecione **Criar um recurso > Rede > Rede virtual** ou pesquise por **Rede virtual** na caixa de pesquisa.
 
-2. Em **criar rede virtual**, insira ou selecione essas informações na guia **noções básicas** :
+2. Em **Criar rede virtual**, insira ou selecione estas informações na guia **Básico**:
 
     | **Configuração**          | **Valor**                                                           |
     |------------------|-----------------------------------------------------------------|
     | **Detalhes do projeto**  |                                                                 |
     | Subscription     | Selecionar sua assinatura do Azure                                  |
-    | Grupo de recursos   | Selecione **Criar novo**. </br> Insira **myResourceGroupLB**. </br> Selecione **OK**. |
+    | Grupo de recursos   | Selecione **Criar**. </br> Insira **myResourceGroupLB**. </br> Selecione **OK**. |
     | **Detalhes da instância** |                                                                 |
     | Nome             | Insira **myVNet**                                    |
     | Região           | Selecione **leste dos EUA 2** |
 
-3. Selecione a guia **endereços IP** ou selecione o botão **Avançar: endereços IP** na parte inferior da página.
+3. Selecione a guia **Endereços IP** ou selecione o botão **Avançar: Endereços IP** na parte inferior da página.
 
-4. Na guia **endereços IP** , insira estas informações:
+4. Na guia **Endereços IP**, insira estas informações:
 
-    | Setting            | Valor                      |
+    | Configuração            | Valor                      |
     |--------------------|----------------------------|
-    | Espaço de endereço IPv4 | Digite **10.1.0.0/16** |
+    | Espaço de endereço IPv4 | Insira **10.1.0.0/16** |
 
-5. Em **nome da sub-rede**, selecione a palavra **padrão**.
+5. Em **Nome da sub-rede**, selecione a palavra **padrão**.
 
 6. Em **Editar sub-rede**, insira estas informações:
 
-    | Setting            | Valor                      |
+    | Configuração            | Valor                      |
     |--------------------|----------------------------|
     | Nome da sub-rede | Insira **myBackendSubnet** |
     | Intervalo de endereços da sub-rede | Insira **10.1.0.0/24** |
 
-7. Selecione **Salvar**.
+7. Clique em **Salvar**.
 
 8. Selecione a guia **Segurança**.
 
-9. Em **BastionHost**, selecione **habilitar**. Insira estas informações:
+9. Em **BastionHost**, selecione **Habilitar**. Insira estas informações:
 
-    | Setting            | Valor                      |
+    | Configuração            | Valor                      |
     |--------------------|----------------------------|
-    | Nome de bastiões | Insira **myBastionHost** |
-    | Espaço de endereço AzureBastionSubnet | Insira **10.1.1.0/24** |
-    | Endereço IP público | Selecione **Criar novo**. </br> Para **nome**, insira **myBastionIP**. </br> Selecione **OK**. |
+    | Nome do bastion | Insira **myBastionHost** |
+    | Espaço de endereço da AzureBastionSubnet | Insira **10.1.1.0/24** |
+    | Endereço IP público | Selecione **Criar novo**. </br> Em **Nome**, insira **myBastionIP**. </br> Selecione **OK**. |
 
 
-8. Selecione a guia **revisar + criar** ou selecione o botão **revisar + criar** .
+8. Selecione a guia **Revisar + criar** ou o botão **Revisar + criar**.
 
 9. Selecione **Criar**.
 
@@ -116,7 +116,7 @@ Crie uma máquina virtual na nova rede virtual.
    
 2. Em **Criar uma máquina virtual**, digite ou selecione os valores na guia **Informações Básicas**:
 
-    | Setting | Valor                                          |
+    | Configuração | Valor                                          |
     |-----------------------|----------------------------------|
     | **Detalhes do projeto** |  |
     | Subscription | Selecionar sua assinatura do Azure |
@@ -124,7 +124,7 @@ Crie uma máquina virtual na nova rede virtual.
     | **Detalhes da instância** |  |
     | Nome da máquina virtual | Insira **myVM** |
     | Região | Selecione **leste dos EUA 2** |
-    | Opções de disponibilidade | Selecione **nenhuma redundância de infraestrutura necessária** |
+    | Opções de disponibilidade | Selecione **Nenhuma redundância infraestrutura necessária** |
     | Imagem | Selecione **Windows Server 2019 Datacenter** |
     | Instância do Azure Spot | Selecione **Não** |
     | Tamanho | Escolha o tamanho da VM ou use a configuração padrão |
@@ -140,20 +140,20 @@ Crie uma máquina virtual na nova rede virtual.
   
 4. Na guia Rede, selecione ou insira:
 
-    | Setting | Valor |
+    | Configuração | Valor |
     |-----|------------|
     | **Interface de rede** |  |
     | Rede virtual | **myVNet** |
     | Sub-rede | **myBackendSubnet** |
     | IP público | Selecione **Nenhum**. |
-    | Grupo de segurança de rede da NIC | Selecionar **nenhum**|
+    | Grupo de segurança de rede da NIC | Selecione **Nenhum**|
     | Coloque esta máquina virtual por trás de uma solução de balanceamento de carga existente? | Selecione **Não** |
    
 5. Selecione a guia **Gerenciamento** ou selecione **Avançar** > **Gerenciamento**.
 
 6. Na guia **Gerenciamento**, selecione ou insira:
     
-    | Setting | Valor |
+    | Configuração | Valor |
     |-|-|
     | **Monitoring** |  |
     | Diagnóstico de inicialização | Selecione **Desativado** |
@@ -177,7 +177,7 @@ Adicione sua VM criada ao pool de back-end de cada.  Em seguida, você definirá
 
 2. Na guia **Informações Básicas** da página **Criar balanceador de carga**, insira ou selecione as seguintes informações: 
 
-    | Setting                 | Valor                                              |
+    | Configuração                 | Valor                                              |
     | ---                     | ---                                                |
     | Subscription               | Selecione sua assinatura.    |    
     | Resource group         | Selecione **myResourceGroupLB** criado na etapa anterior.|
@@ -185,9 +185,9 @@ Adicione sua VM criada ao pool de back-end de cada.  Em seguida, você definirá
     | Região         | Selecione **Leste dos EUA 2**.                                        |
     | Type          | selecione **Interno**.                                        |
     | SKU           | Selecione **Standard** |
-    | Rede virtual | Selecione **myVNet** criado na etapa anterior. |
-    | Sub-rede  | Selecione **myBackendSubnet** criado na etapa anterior. |
-    | Atribuição de endereço IP | Selecione **dinâmico**. |
+    | Rede virtual | Selecione **myVNet** criada na etapa anterior. |
+    | Sub-rede  | Selecione **myBackendSubnet** criada na etapa anterior. |
+    | Atribuição de endereço IP | selecione **Dinâmico**. |
 
 3. Aceite os padrões para as demais configurações e selecione **Examinar + criar**.
 
@@ -199,7 +199,7 @@ Adicione sua VM criada ao pool de back-end de cada.  Em seguida, você definirá
 
 2. Na guia **Informações Básicas** da página **Criar balanceador de carga**, insira ou selecione as seguintes informações: 
 
-    | Setting                 | Valor                                              |
+    | Configuração                 | Valor                                              |
     | ---                     | ---                                                |
     | Subscription               | Selecione sua assinatura.    |    
     | Resource group         | Selecione **Criar** e insira **myResourceGroupLB** na caixa de texto.|
@@ -209,7 +209,7 @@ Adicione sua VM criada ao pool de back-end de cada.  Em seguida, você definirá
     | SKU           | Selecione **Standard** |
     | Endereço IP público | Selecione **Criar novo**. |
     | Nome do endereço IP público | Insira **myFrontendIP** na caixa de texto.|
-    | Zona de disponibilidade | Selecionar **com redundância de zona** |
+    | Zona de disponibilidade | Selecione **Com redundância de zona** |
     | Adicionar um endereço IPv6 público | Selecione **Não**. |
 
 3. Aceite os padrões para as demais configurações e selecione **Examinar + criar**.
@@ -252,9 +252,9 @@ Crie o pool de endereços de back-end **myPublicBackendPool**:
 
 1. Selecione **todos os serviços** no menu à esquerda, selecione **todos os recursos**e, em seguida, na lista recursos, selecione **myVM** que está localizado no grupo de recursos **myResourceGroupLB** .
 
-2. Na página **visão geral** , selecione **conectar**e, em seguida, **bastiões**.
+2. Na página **Visão Geral**, selecione **Conectar** e **Bastion**.
 
-4. Insira o nome de usuário e a senha digitados durante a criação da VM.
+4. Insira o nome de usuário e a senha fornecidos durante a criação da VM.
 
 5. Selecione **Conectar**.
 
@@ -287,9 +287,9 @@ Crie o pool de endereços de back-end **myPublicBackendPool**:
 
 1. Selecione **todos os serviços** no menu à esquerda, selecione **todos os recursos**e, em seguida, na lista recursos, selecione **myVM** que está localizado no grupo de recursos **myResourceGroupLB** .
 
-2. Na página **visão geral** , selecione **conectar**e, em seguida, **bastiões**.
+2. Na página **Visão Geral**, selecione **Conectar** e **Bastion**.
 
-4. Insira o nome de usuário e a senha digitados durante a criação da VM.
+4. Insira o nome de usuário e a senha fornecidos durante a criação da VM.
 
 5. Selecione **Conectar**.
 

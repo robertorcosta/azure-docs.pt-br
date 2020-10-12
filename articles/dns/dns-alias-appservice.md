@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 08/10/2019
 ms.author: rohink
 ms.openlocfilehash: e7c4db7a2fc3ba931415e3b167f7fe72ee2b3980
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84710534"
 ---
 # <a name="host-load-balanced-azure-web-apps-at-the-zone-apex"></a>Hospedar aplicativos da web do Azure com carga balanceada no apex da zona
@@ -60,8 +60,8 @@ Crie dois aplicativos da web, um em cada plano do Serviço de Aplicativo.
 
    |Nome<br>(deve ser exclusivo dentro do. azurewebsites.net)|Grupo de recursos |Pilha de runtime|Região|Plano do serviço de aplicativo/localização
    |---------|---------|-|-|-------|
-   |App-01|Uso existente<br>Selecione o grupo de recursos|.NET Core 2.2|Leste dos EUA|ASP-01 (D1)|
-   |App-02|Uso existente<br>Selecione o grupo de recursos|.NET Core 2.2|Centro dos EUA|ASP-02 (D1)|
+   |App-01|Usar existente<br>Selecione o grupo de recursos|.NET Core 2.2|Leste dos EUA|ASP-01 (D1)|
+   |App-02|Usar existente<br>Selecione o grupo de recursos|.NET Core 2.2|Centro dos EUA|ASP-02 (D1)|
 
 ### <a name="gather-some-details"></a>Reúna alguns detalhes
 
@@ -104,7 +104,7 @@ Quando você adiciona um nome de host personalizado aos seus aplicativos Web, el
 2. Escolha **Conjunto de registros**.
 3. Adicione o conjunto de registros usando a tabela a seguir. Para o valor, use a URL do aplicativo Web real que você gravou anteriormente:
 
-   |Nome  |Tipo  |Valor|
+   |Nome  |Type  |Valor|
    |---------|---------|-|
    |@     |TXT|App-01.azurewebsites.net|
 
@@ -132,7 +132,7 @@ Agora, adicione um registro de alias para o Apex da zona.
 2. Escolha **Conjunto de registros**.
 3. Adicione o registro definido usando a tabela a seguir:
 
-   |Nome  |Tipo  |Conjunto de registros de alias  |Tipo de alias  |Recursos do Azure|
+   |Nome  |Type  |Conjunto de registros de alias  |Tipo de alias  |Recursos do Azure|
    |---------|---------|---------|---------|-----|
    |@     |Um|Sim|Recursos do Azure|Gerenciador de tráfego - seu perfil|
 

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 03/09/2020
 ms.openlocfilehash: 78ff8adcc2b50f89daa37112b14d219233559dab
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86075563"
 ---
 # <a name="monitor-cluster-performance-in-azure-hdinsight"></a>Monitorar o desempenho do cluster no Azure HDInsight
@@ -27,7 +27,7 @@ Os clusters do Hadoop podem oferecer o desempenho mais ideal quando a carga no c
 
 Para obter uma visão de alto nível dos nós do cluster e do seu carregamento, entre na [interface do usuário da Web do AmAmbari](hdinsight-hadoop-manage-ambari.md)e selecione a guia **hosts** . Seus hosts são listados por seus nomes de domínio totalmente qualificados. O status operacional de cada host é mostrado por um indicador de integridade colorido:
 
-| Cor | Descrição |
+| Color | DESCRIÇÃO |
 | --- | --- |
 | Vermelho | Pelo menos um componente mestre no host está inoperante. Passe o mouse para ver uma dica de ferramenta que lista os componentes afetados. |
 | Laranja | Pelo menos um componente secundário no host está inoperante. Passe o mouse para ver uma dica de ferramenta que lista os componentes afetados. |
@@ -84,7 +84,7 @@ Se o armazenamento de backup do seu cluster for Azure Data Lake Storage (ADLS), 
 
 ## <a name="troubleshoot-sluggish-node-performance"></a>Solucionar problemas de desempenho de nó lento
 
-Em alguns casos, a economia pode ocorrer devido a pouco espaço em disco no cluster. Investigue com estas etapas:
+Em alguns casos, a lentidão pode ocorrer devido a pouco espaço em disco no cluster. Investigue com estas etapas:
 
 1. Use o [comando ssh](./hdinsight-hadoop-linux-use-ssh-unix.md) para se conectar a cada um dos nós.
 
@@ -97,7 +97,7 @@ Em alguns casos, a economia pode ocorrer devido a pouco espaço em disco no clus
 
 1. Examine a saída e verifique a presença de arquivos grandes na `mnt` pasta ou em outras pastas. Normalmente, as `usercache` pastas e `appcache` (mnt/Resource/Hadoop/yarn/local/usercache/Hive/AppCache/) contêm arquivos grandes.
 
-1. Se houver arquivos grandes, um trabalho atual está causando o crescimento do arquivo ou um trabalho anterior com falha pode ter contribuído para esse problema. Para verificar se esse comportamento é causado por um trabalho atual, execute o seguinte comando:
+1. Se houver arquivos grandes, um trabalho atual está causando o crescimento do arquivo ou um trabalho anterior com falha pode ter contribuído para esse problema. Para verificar se esse comportamento está sendo causado por um trabalho atual, execute o seguinte comando: 
 
     ```bash
     sudo du -h --max-depth=1 /mnt/resource/hadoop/yarn/local/usercache/hive/appcache/

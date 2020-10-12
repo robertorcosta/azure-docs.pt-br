@@ -7,10 +7,10 @@ ms.date: 10/18/2019
 ms.author: alehall
 ms.custom: mvc
 ms.openlocfilehash: 074e3db3234794aa891d5452b0c19060193c6d0c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86243963"
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>Executar trabalhos do Apache Spark no AKS
@@ -29,7 +29,7 @@ Para concluir as etapas deste artigo, você precisa dos itens a seguir.
 * SBT ([Ferramenta de Compilação Scala][sbt-install]) instalada no sistema.
 * Ferramentas de linha de comando do Git instaladas no sistema.
 
-## <a name="create-an-aks-cluster"></a>Criar um cluster do AKS
+## <a name="create-an-aks-cluster"></a>Criar um cluster AKS
 
 O Spark é utilizado para processamento de dados em grande escala e exige que os nós de Kubernetes sejam dimensionados para atender aos requisitos dos recursos do Spark. É recomendável um tamanho mínimo de `Standard_D3_v2` para os nós do AKS (Serviço de Kubernetes do Azure).
 

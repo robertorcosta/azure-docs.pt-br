@@ -4,10 +4,10 @@ description: Saiba mais sobre o mecanismo de atualização de uma atribuição d
 ms.date: 08/27/2020
 ms.topic: how-to
 ms.openlocfilehash: ddaac8110885d817bc96745965c1af7e522b1919
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89651372"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Como atualizar uma atribuição de blueprint existente
@@ -32,11 +32,11 @@ Quando um blueprint é atribuído, a atribuição pode ser atualizada. Há vári
 
 1. Na página de detalhes de atribuição atualizada, veja o novo status. Neste exemplo, adicionamos **Bloqueio** à atribuição.
 
-   :::image type="content" source="../media/update-existing-assignments/updated-assignment.png" alt-text="Captura de tela de uma atribuição de plano gráfico atualizada mostrando o modo de bloqueio alterado." border="false":::
+   :::image type="content" source="../media/update-existing-assignments/updated-assignment.png" alt-text="Captura de tela da página de atribuição do Blueprint com o botão ' atualizar atribuição ' realçado." border="false":::
 
 1. Explore os detalhes sobre outras **operações de atribuição** usando a lista suspensa. A tabela de atualizações de **recursos gerenciados** por operação de atribuição selecionada.
 
-   :::image type="content" source="../media/update-existing-assignments/assignment-operations.png" alt-text="Captura de tela de uma atribuição de plano gráfico atualizada mostrando as operações de atribuição e seu status." border="false":::
+   :::image type="content" source="../media/update-existing-assignments/assignment-operations.png" alt-text="Captura de tela da página de atribuição do Blueprint com o botão ' atualizar atribuição ' realçado." border="false":::
 
 ## <a name="rules-for-updating-assignments"></a>Regras para atualizar atribuições
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 1/10/2019
 ms.author: aahi
 ms.openlocfilehash: d15058126f43fff328acfc563ffd081164a69a90
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84710551"
 ---
 # <a name="language-and-region-support-for-the-bing-news-search-api"></a>Idiomas e regiões compatíveis com a API de Pesquisa de Notícias do Bing
@@ -31,15 +31,15 @@ Para o ponto de extremidade `/news/search`, a tabela a seguir lista os valores d
 
 Para obter uma lista de códigos de país/região que podem ser especificados no parâmetro de consulta `cc`, consulte [Códigos do País](#countrycodes).  
 
-|País/Região|Idioma|Código de mercado|  
+|País/Região|Linguagem|Código de mercado|  
 |---------------------|--------------|-----------------|
 |Dinamarca|Dinamarquês|da-DK|
 |Áustria|Alemão|de-AT|
 |Suíça|Alemão|de-CH|
 |Alemanha|Alemão|de-DE|
 |Austrália|Inglês|en-AU|
-|Canadá|Inglês|en-CA|
-|Reino Unido|Inglês|en-GB|
+|Canada|Inglês|en-CA|
+|United Kingdom|Inglês|en-GB|
 |Indonésia|Inglês|en-ID|
 |Irlanda|Inglês|en-IE|
 |Índia|Inglês|en-IN|
@@ -59,7 +59,7 @@ Para obter uma lista de códigos de país/região que podem ser especificados no
 |Espanhol|geral|es-XL|
 |Finlândia|Finlandês|fi-FI|  
 |França|Francês|fr-BE|
-|Canadá|Francês|fr-CA|
+|Canada|Francês|fr-CA|
 |Bélgica|Holandês|nl-BE|
 |Suíça|Francês|fr-CH|
 |França|Francês|fr-FR|  
@@ -80,19 +80,19 @@ Para o ponto de extremidade `/news`, a tabela a seguir lista os valores de códi
 
 Para obter uma lista de códigos de país/região que podem ser especificados no parâmetro de consulta `cc`, consulte [Códigos do País](#countrycodes).  
 
-|País/Região|Idioma|Código de mercado|  
+|País/Região|Linguagem|Código de mercado|  
 |---------------------|--------------|-----------------|
 |Dinamarca|Dinamarquês|da-DK|
 |Alemanha|Alemão|de-DE|
 |Austrália|Inglês|en-AU|
-|Reino Unido|Inglês|en-GB|
+|United Kingdom|Inglês|en-GB|
 |Estados Unidos|Inglês|pt-BR|
 |Inglês|geral|en-WW|
 |Chile|Espanhol|es-CL|
 |México|Espanhol|es-MX|
 |Estados Unidos|Espanhol|es-US|
 |Finlândia|Finlandês|fi-FI|  
-|Canadá|Francês|fr-CA|
+|Canada|Francês|fr-CA|
 |França|Francês|fr-FR|  
 |Itália|Italiano|it-IT|
 |Brasil|Português|pt-BR|
@@ -103,16 +103,16 @@ Para o ponto de extremidade `/news/trendingtopics`, a tabela a seguir lista os v
 
 Para obter uma lista de códigos de país/região que podem ser especificados no parâmetro de consulta `cc`, consulte [Códigos do País](#countrycodes).  
 
-|País/Região|Idioma|Código de mercado|  
+|País/Região|Linguagem|Código de mercado|  
 |---------------------|--------------|-----------------|
 |Alemanha|Alemão|de-DE|
 |Austrália|Inglês|en-AU|
-|Reino Unido|Inglês|en-GB|
+|United Kingdom|Inglês|en-GB|
 |Estados Unidos|Inglês|pt-BR|
-|Canadá|Inglês|en-CA|
+|Canada|Inglês|en-CA|
 |Índia|Inglês|en-IN|
 |França|Francês|fr-FR|
-|Canadá|Francês|fr-CA|
+|Canada|Francês|fr-CA|
 |Brasil|Português|pt-BR|
 |República Popular da China|Chinês|zh-CN|
 

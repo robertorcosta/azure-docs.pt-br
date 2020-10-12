@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/23/2020
 ms.author: victorh
 ms.openlocfilehash: df92e08e91761d77c606ccb5389eee7dc219c101
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91323355"
 ---
 # <a name="configure-app-service-with-application-gateway"></a>Configurar Serviço de Aplicativo com Gateway de Aplicativo
@@ -46,7 +46,7 @@ Neste artigo, você aprenderá como:
    
    > [!NOTE]
    > A lista suspensa popula apenas os serviços de aplicativo que estão na mesma assinatura que o seu gateway de aplicativo. Se você quiser usar um serviço de aplicativo que esteja em uma assinatura diferente daquela em que o gateway de aplicativo está, em vez de escolher **serviços de aplicativos** na lista suspensa **destinos** , escolha **endereço IP ou** opção de nome de host e insira o nome do host (exemplo. azurewebsites.net) do serviço de aplicativo.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 ## <a name="edit-http-settings-for-app-service"></a>Editar configurações de HTTP para o serviço de aplicativo
 
@@ -54,9 +54,9 @@ Neste artigo, você aprenderá como:
 
 2. Em **substituir por um novo nome de host**, selecione **Sim**.
 3. Em **substituição do nome do host**, selecione **escolher nome do host do destino de back-end**.
-4. Clique em **Salvar**.
+4. Selecione **Salvar**.
 
-   :::image type="content" source="./media/configure-web-app-portal/http-settings.png" alt-text="Escolha o nome do host nas configurações de http de back-end":::
+   :::image type="content" source="./media/configure-web-app-portal/http-settings.png" alt-text="Back-end do serviço de aplicativo":::
 
 ## <a name="additional-configuration-in-case-of-redirection-to-app-services-relative-path"></a>Configuração adicional no caso de redirecionamento para o caminho relativo do serviço de aplicativo
 
