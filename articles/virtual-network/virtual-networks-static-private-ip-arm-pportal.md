@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/07/2020
 ms.author: kumud
 ms.openlocfilehash: c8fdba59a8d31c064745c7a1904204359b386a7f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84707847"
 ---
 # <a name="configure-a-private-ip-address-for-a-vm-using-the-azure-portal"></a>Configurar um endereço IP privado para uma VM usando o portal do Azure
@@ -30,7 +30,7 @@ ms.locfileid: "84707847"
 
 As etapas de exemplo a seguir esperam que um ambiente simples já seja criado. Se você quiser executar as etapas conforme elas são exibidas neste documento, primeiro [crie uma rede virtual](quick-create-portal.md#create-a-virtual-network). No entanto, na etapa 3, use estes valores:
 
-| Setting | Valor |
+| Configuração | Valor |
 | ------- | ----- |
 | Nome | *TestVNet* |
 | Espaço de endereço | *192.168.0.0/16* |
@@ -43,7 +43,7 @@ Quando você cria uma VM no modo de implantação do Gerenciador de recursos, n�
 
 Para criar uma VM denominada *DNS01* na sub-rede *frontend* de uma rede virtual denominada *TestVNet*, siga estas etapas:
 
-1. No menu [portal do Azure](https://portal.azure.com) , selecione **criar um recurso**.
+1. No menu do [portal do Azure](https://portal.azure.com), selecione **Criar um recurso**.
 
     ![Criar um recurso, portal do Azure](./media/virtual-networks-static-ip-arm-pportal/create-a-resource.png)
 2. Selecione **Compute**  >  **máquina virtual**de computação.
@@ -56,8 +56,8 @@ Para criar uma VM denominada *DNS01* na sub-rede *frontend* de uma rede virtual 
     | **Assinatura** | Sua assinatura atual |
     | **Grupo de recursos** | **TestRG** (selecione na lista suspensa) |
     | **Nome da máquina virtual** | *DNS01* |
-    | **Região** | **EUA (Leste dos EUA)** |
-    | **Imagem** | **Windows Server 2019 Datacenter** |
+    | **Região** | **(EUA) Leste dos EUA** |
+    | **Imagem** | **Windows Server 2019 Datacenter** |
     | **Tamanho** | **Tamanho da VM** de **B1ls**, **oferta** do **padrão** |
     | **Nome de usuário** | O nome de usuário da sua conta de administrador |
     | **Senha** | A senha do nome de usuário da sua conta de administrador |

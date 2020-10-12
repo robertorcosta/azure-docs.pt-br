@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
 ms.openlocfilehash: 13923596b7ad0f6d3fdef24e847f469645b448ee
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88119922"
 ---
 # <a name="migrate-applications-to-msal-for-ios-and-macos"></a>Migrar aplicativos para o MSAL para iOS e macOS
@@ -53,7 +53,7 @@ A API pública do MSAL reflete algumas diferenças importantes entre o Azure AD 
 
 ### <a name="msalpublicclientapplication-instead-of-adauthenticationcontext"></a>MSALPublicClientApplication em vez de ADAuthenticationContext
 
-`ADAuthenticationContext`é o primeiro objeto criado por um aplicativo ADAL. Representa uma instanciação da ADAL. Os aplicativos criam uma nova instância do `ADAuthenticationContext` para cada combinação de Azure Active Directory nuvem e locatário (autoridade). O mesmo `ADAuthenticationContext` pode ser usado para obter tokens para vários aplicativos cliente públicos.
+`ADAuthenticationContext` é o primeiro objeto criado por um aplicativo ADAL. Representa uma instanciação da ADAL. Os aplicativos criam uma nova instância do `ADAuthenticationContext` para cada combinação de Azure Active Directory nuvem e locatário (autoridade). O mesmo `ADAuthenticationContext` pode ser usado para obter tokens para vários aplicativos cliente públicos.
 
 No MSAL, a principal interação é por meio de um `MSALPublicClientApplication` objeto, que é modelado após o [cliente público OAuth 2,0](https://tools.ietf.org/html/rfc6749#section-2.1). Uma instância do `MSALPublicClientApplication` pode ser usada para interagir com várias nuvens do AAD e locatários, sem a necessidade de criar uma nova instância para cada autoridade. Para a maioria dos aplicativos, uma `MSALPublicClientApplication` instância é suficiente.
 
@@ -83,7 +83,7 @@ Você pode ler mais informações sobre como usar o escopo "/.default" [aqui](./
 
 A ADAL só dá suporte a UIWebView/WKWebView para iOS e WebView para macOS. O MSAL para iOS dá suporte a mais opções para exibir o conteúdo da Web ao solicitar um código de autorização e não dá mais suporte `UIWebView` a; o que pode melhorar a experiência e a segurança do usuário.
 
-Por padrão, o MSAL no iOS usa o [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession?language=objc), que é o componente da Web que a Apple recomenda para autenticação em dispositivos IOS + +. Ele oferece benefícios de SSO (logon único) por meio do compartilhamento de cookies entre aplicativos e o navegador Safari.
+Por padrão, o MSAL no iOS usa o [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession?language=objc), que é o componente da Web que a Apple recomenda para autenticação em dispositivos IOS + +. Ele fornece benefícios únicos de Sign-On (SSO) por meio do compartilhamento de cookies entre aplicativos e o navegador Safari.
 
 Você pode optar por usar um componente da Web diferente dependendo dos requisitos do aplicativo e da experiência do usuário final que desejar. Consulte [tipos de exibição da Web com suporte](customize-webviews.md) para obter mais opções.
 

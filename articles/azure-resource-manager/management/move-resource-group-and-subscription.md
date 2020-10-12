@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 09/15/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: cd05fe045532ee1b1f1fb88e502d786daabf9365
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91319547"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou uma nova assinatura
@@ -178,11 +178,11 @@ Quando você exibe o grupo de recursos, a opção mover é desabilitada.
 
 Para habilitar a opção mover, selecione os recursos que você deseja mover. Para selecionar todos os recursos, marque a caixa de seleção na parte superior da lista. Ou selecione recursos individualmente. Depois de selecionar os recursos, a opção mover é habilitada.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/select-resources.png" alt-text="selecionar recursos":::
+:::image type="content" source="./media/move-resource-group-and-subscription/select-resources.png" alt-text="opção de movimentação desabilitada":::
 
 Selecione o botão **mover** .
 
-:::image type="content" source="./media/move-resource-group-and-subscription/move-options.png" alt-text="opções de movimentação":::
+:::image type="content" source="./media/move-resource-group-and-subscription/move-options.png" alt-text="opção de movimentação desabilitada":::
 
 Esse botão oferece três opções:
 
@@ -194,11 +194,11 @@ Selecione se você está movendo os recursos para um novo grupo de recursos ou u
 
 Selecione o grupo de recursos de destino. Confirme que você precisa atualizar scripts para esses recursos e selecione **OK**. Se você optou por mover para uma nova assinatura, também deverá selecionar a assinatura de destino.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/move-destination.png" alt-text="Selecionar destino":::
+:::image type="content" source="./media/move-resource-group-and-subscription/move-destination.png" alt-text="opção de movimentação desabilitada":::
 
 Depois de validar que os recursos podem ser movidos, você verá uma notificação informando que a operação de movimentação está em execução.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/move-notification.png" alt-text="Notification":::
+:::image type="content" source="./media/move-resource-group-and-subscription/move-notification.png" alt-text="opção de movimentação desabilitada":::
 
 Quando for concluída, você será notificado sobre o resultado.
 

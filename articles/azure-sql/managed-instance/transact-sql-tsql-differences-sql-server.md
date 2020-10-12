@@ -12,10 +12,10 @@ ms.reviewer: sstein, bonova, danil
 ms.date: 06/02/2020
 ms.custom: seoapril2019, sqldbrb=1
 ms.openlocfilehash: 1298a1676d7a7ac0321ae768c3e596f481e80a8a
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91617852"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Diferenças de T-SQL entre SQL Server & SQL do Azure Instância Gerenciada
@@ -165,7 +165,7 @@ O SQL Instância Gerenciada não pode acessar arquivos, portanto, os provedores 
     - Exportar um banco de dados do SQL Instância Gerenciada e importar para o banco de dados SQL dentro do mesmo domínio do Azure AD. 
     - Exporte um banco de dados do banco de dados SQL e importe para o SQL Instância Gerenciada no mesmo domínio do Azure AD.
     - Exporte um banco de dados do SQL Instância Gerenciada e importe para SQL Server (versão 2012 ou posterior).
-      - Nessa configuração, todos os usuários do Azure AD são criados como SQL Server entidades de banco de dados (usuários) sem logons. Os tipos de usuários são listados como `SQL` e são visíveis como `SQL_USER` em sys. database_principals). Suas permissões e funções permanecem nos metadados do banco de dados do SQL Server e podem ser usadas para representação. No entanto, eles não podem ser usados para acessar e fazer logon no SQL Server usando suas credenciais.
+      - Nessa configuração, todos os usuários do Azure AD são criados como SQL Server entidades de banco de dados (usuários) sem logons. Os tipos de usuários são listados como `SQL` e são visíveis como `SQL_USER` em sys.database_principals). Suas permissões e funções permanecem nos metadados do banco de dados do SQL Server e podem ser usadas para representação. No entanto, eles não podem ser usados para acessar e fazer logon no SQL Server usando suas credenciais.
 
 - Somente o logon da entidade de segurança no nível do servidor, que é criado pelo processo de provisionamento do SQL Instância Gerenciada, os membros das funções de servidor, como `securityadmin` ou ou `sysadmin` outros logons com a permissão ALTER ANY login no nível do servidor, podem criar entidades de segurança do Azure Ad Server (logons) no banco de dados mestre para SQL instância gerenciada.
 - Se o logon for uma entidade de segurança SQL, somente os logons que fizerem parte da função `sysadmin` poderão usar o comando create para criar logons para uma conta do Azure AD.

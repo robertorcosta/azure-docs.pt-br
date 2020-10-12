@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
 ms.openlocfilehash: 161272fe35ee9ea1e0880b991273e5d1a79eafb4
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90987322"
 ---
 # <a name="author-graphical-runbooks-in-azure-automation"></a>Criar runbooks gráficos na Automação do Azure
@@ -95,7 +95,7 @@ Quando você habilita a repetição de uma atividade, é possível definir um at
 
 A condição de repetição é uma expressão do PowerShell que é avaliada sempre após a execução da atividade. Se a expressão for resolvida como True, a atividade será executada novamente. Se a expressão for resolvida como False, a atividade não será executada novamente, e o runbook passará para a próxima atividade.
 
-:::image type="content" source="media/automation-graphical-authoring-intro/retry-condition.png" alt-text="Captura de tela mostrando o campo repetir até que esse critério seja verdadeiro e exemplos de expressões do PowerShell que podem ser usadas na condição de repetição.":::
+:::image type="content" source="media/automation-graphical-authoring-intro/retry-condition.png" alt-text="Captura de tela das configurações Habilitar recurso de repetição.":::
 
 A condição de repetição pode usar uma variável chamada `RetryData` que fornece acesso às informações sobre as repetições de atividade. Essa variável tem as propriedades na tabela a seguir:
 

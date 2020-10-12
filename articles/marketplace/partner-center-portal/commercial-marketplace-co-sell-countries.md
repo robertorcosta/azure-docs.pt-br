@@ -8,13 +8,13 @@ author: palanis-MSFT
 ms.author: palanis
 ms.date: 08/27/2019
 ms.openlocfilehash: e8d952c76fa71cb57d2edd7c9aa361c7249e0622
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86105125"
 ---
-# <a name="co-sell-country-and-region-codes"></a>Co-vender códigos de país e região
+# <a name="co-sell-country-and-region-codes"></a>Códigos de país e de região para venda conjunta
 
 Use esses códigos de país/região de duas letras ao [fornecer informações de contato na página de venda de sua oferta](commercial-marketplace-co-sell.md).
 
@@ -236,7 +236,7 @@ Se um contato abranger mais de um país/região, insira cada um dos dois código
 | Espanha                               | ES        |
 | Sri Lanka                           | LK        |
 | Santa Helena, Ascensão e Tristão da Cunha | SH     |
-| Sudão                               | SD        |
+| Sudão                               | DP        |
 | Suriname                            | SR        |
 | Svalbard                            | SJ        |
 | Suécia                              | SE        |

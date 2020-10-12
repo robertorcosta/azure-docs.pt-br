@@ -8,10 +8,10 @@ ms.date: 10/17/2018
 ms.author: cynthn
 ms.custom: legacy
 ms.openlocfilehash: c7d93ee928653cc1656e3e9a7cdb0d2fd6d7094b
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88654405"
 ---
 # <a name="create-a-copy-of-a-linux-vm-by-using-azure-cli-and-managed-disks"></a>Criar uma cópia da sua VM Linux usando a CLI do Azure e Managed Disks
@@ -22,7 +22,7 @@ Você também pode [carregar e criar uma VM com base em um VHD](upload-vhd.md?to
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
--   Instale o [CLI do Azure](/cli/azure/install-az-cli2).
+-   Instale a [CLI do Azure](/cli/azure/install-az-cli2).
 
 -   Entre em uma conta do Azure com [az login](/cli/azure/reference-index#az-login).
 

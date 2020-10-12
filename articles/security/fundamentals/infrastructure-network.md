@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/08/2020
 ms.author: terrylan
 ms.openlocfilehash: 3b047489f9cfa3623c11e324cf58114b707c10b7
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89567853"
 ---
 # <a name="azure-network-architecture"></a>Arquitetura de rede do Azure
@@ -61,7 +61,7 @@ Os componentes de rede acima foram projetados para fornecer disponibilidade máx
 ## <a name="datacenter-network-resiliency"></a>Resiliência de rede do datacenter
 Vamos ilustrar o princípio de design de resiliência usando a rede do datacenter.
 
-A rede do datacenter é uma versão modificada de uma [rede FEC](https://en.wikipedia.org/wiki/Clos_network), fornecendo alta largura de banda de alto nível para o tráfego de escala de nuvem. A rede é construída usando um grande número de dispositivos de mercadoria para reduzir o impacto causado por uma falha de hardware individual. Esses dispositivos estão estrategicamente localizados em locais físicos diferentes com um domínio de energia e resfriamento separado para reduzir o impacto de um evento de ambiente.  No plano de controle, todos os dispositivos de rede estão sendo executados como o modo de roteamento da camada 3 do modelo OSI, o que elimina a questão histórica do loop de tráfego. Todos os caminhos entre diferentes camadas estão ativos para fornecer alta redundância e largura de banda usando o roteamento de ECMP (vários caminhos de custo igual).
+A rede do datacenter é uma versão modificada de uma [rede FEC](https://en.wikipedia.org/wiki/Clos_network), fornecendo alta largura de banda de alto nível para o tráfego de escala de nuvem. A rede é construída usando um grande número de dispositivos de mercadoria para reduzir o impacto causado por uma falha de hardware individual. Esses dispositivos estão estrategicamente localizados em locais físicos diferentes com um domínio de energia e resfriamento separado para reduzir o impacto de um evento de ambiente.  No plano de controle, todos os dispositivos de rede estão sendo executados como o modo de roteamento da camada 3 do modelo OSI, o que elimina a questão histórica do loop de tráfego. Todos os caminhos entre diferentes camadas estão ativos para fornecer alta redundância e largura de banda usando o roteamento de Equal-Cost vários caminhos (ECMP).
 
 O diagrama a seguir demonstra que a rede do datacenter é construída por diferentes camadas de dispositivos de rede. As barras no diagrama representam grupos de dispositivos de rede que fornecem conectividade de alta largura de banda e redundância.
 
