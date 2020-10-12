@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.openlocfilehash: 9b773eee27cd72562999e468f90dd87907cf9677
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91776180"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-studio-classic-and-azure-data-factory"></a>Criar pipelines preditivas usando Azure Machine Learning Studio (clássico) e Azure Data Factory
@@ -44,7 +44,7 @@ ms.locfileid: "91776180"
 2. **Convertê-lo em um teste preditivo**. Quando o modelo foi treinado com dados existentes e você estiver pronto para usá-lo para pontuar novos dados, você preparará e simplificará seu teste para a pontuação.
 3. **Implantá-lo como um serviço da Web**. Você pode publicar seu experimento de pontuação como um serviço Web do Azure. Você pode enviar dados ao seu modelo por desse ponto de extremidade de serviço Web e receber previsões de resultado do modelo.
 
-### <a name="azure-data-factory"></a>Fábrica de dados do Azure
+### <a name="azure-data-factory"></a>Azure Data Factory
 Data Factory é um serviço de integração de dados baseado em nuvem que orquestra e automatiza a **movimentação** e a **transformação** de dados. Você pode criar soluções de integração de dados usando o Azure Data Factory que podem ingerir dados de vários repositórios de dados, transformar/processar os dados e publicar os dados resultantes nos repositórios de dados.
 
 O serviço Data Factory permite criar pipelines de dados que movem e transformam dados e depois executar os pipelines em um agendamento especificado (por hora, diariamente, semanalmente, etc.). Ele também fornece visualizações avançadas para exibir a linhagem e as dependências entre os pipelines de dados e monitorar todos os seus pipelines de dados em uma única exibição unificada, a fim de identificar os problemas e configurar alertas de monitoramento facilmente.

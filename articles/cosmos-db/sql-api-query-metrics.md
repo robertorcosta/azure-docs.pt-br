@@ -9,10 +9,10 @@ ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: devx-track-csharp
 ms.openlocfilehash: ec98d194921cd9a7eced06ccee20a3375e8c8a82
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89008685"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Ajustando o desempenho de consulta com o Azure Cosmos DB
@@ -238,7 +238,7 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 
 ```
 
-| Métrica | Unidade | Descrição | 
+| Métrica | Unit | Descrição | 
 | ------ | -----| ----------- |
 | `totalExecutionTimeInMs` | milissegundos | Tempo de execução da consulta | 
 | `queryCompileTimeInMs` | milissegundos | Tempo de compilação de consulta  | 

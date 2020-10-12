@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.openlocfilehash: acacf617d3f1d9ab891d08b32fc2dfb14deb64a4
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91540516"
 ---
 # <a name="pii-detection-cognitive-skill"></a>Habilidade cognitiva de detecção de PII
@@ -57,7 +57,7 @@ Os parâmetros diferenciam maiúsculas de minúsculas e todos são opcionais.
 
 | Nome de saída      | Descrição                   |
 |---------------|-------------------------------|
-| `piiEntities` | Uma matriz de tipos complexos que contêm os seguintes campos: <ul><li>texto (a PII real como extraída)</li> <li>tipo</li><li>Subtipo</li><li>Score (maior valor significa que é mais provável que seja uma entidade real)</li><li>deslocamento (no texto de entrada)</li><li>comprimento</li></ul> </br> [Possíveis tipos e subtipos podem ser encontrados aqui.](../cognitive-services/text-analytics/named-entity-types.md?tabs=personal) |
+| `piiEntities` | Uma matriz de tipos complexos que contêm os seguintes campos: <ul><li>texto (a PII real como extraída)</li> <li>type</li><li>Subtipo</li><li>Score (maior valor significa que é mais provável que seja uma entidade real)</li><li>deslocamento (no texto de entrada)</li><li>comprimento</li></ul> </br> [Possíveis tipos e subtipos podem ser encontrados aqui.](../cognitive-services/text-analytics/named-entity-types.md?tabs=personal) |
 | `maskedText` | Se `maskingMode` for definido como um valor diferente de `none` , essa saída será o resultado da cadeia de caracteres do mascaramento executado no texto de entrada, conforme descrito pelo selecionado `maskingMode` .  Se `maskingMode` for definido como `none` , essa saída não estará presente. |
 
 ## <a name="sample-definition"></a>Definição de exemplo

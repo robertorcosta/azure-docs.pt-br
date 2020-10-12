@@ -7,13 +7,13 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: ffee15776a48b6495f78b6becf81c620e1dc4d69
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91336302"
 ---
-# <a name="scheduled-maintenance-in-azure-database-for-postgresql--flexible-server"></a>Manutenção agendada no banco de dados do Azure para PostgreSQL – servidor flexível
+# <a name="scheduled-maintenance-in-azure-database-for-postgresql--flexible-server"></a>Manutenção agendada no Banco de Dados do Azure para PostgreSQL – Servidor Flexível
  
 Banco de dados do Azure para PostgreSQL-o servidor flexível executa manutenção periódica para manter seu banco de dados gerenciado seguro, estável e atualizado. Durante a manutenção, o servidor Obtém novos recursos, atualizações e patches.
  

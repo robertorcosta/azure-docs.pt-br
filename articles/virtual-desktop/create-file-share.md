@@ -7,10 +7,10 @@ ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 583384d6f0ec71dc724868db61ee07ead7269607
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91287314"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-ad-ds"></a>Criar um contêiner de perfil com arquivos do Azure e AD DS
@@ -102,7 +102,7 @@ Para atribuir permissões de RBAC (controle de acesso baseado em função):
 
      Para atribuir permissões de usuários nos seus perfis do FSLogix, siga estas mesmas instruções. No entanto, quando chegar à etapa 5, selecione **Storage File data colaborador de compartilhamento SMB** .
 
-7. Clique em **Salvar**.
+7. Selecione **Salvar**.
 
 ## <a name="assign-users-permissions-on-the-azure-file-share"></a>Atribuir permissões de usuários no compartilhamento de arquivos do Azure
 

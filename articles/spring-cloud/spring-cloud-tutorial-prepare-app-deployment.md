@@ -9,10 +9,10 @@ ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
 ms.openlocfilehash: ff0582e3c4f654ed2a7f5efdc9ce8fd7a226595a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90906832"
 ---
 # <a name="prepare-an-application-for-deployment-in-azure-spring-cloud"></a>Preparar um aplicativo para implantação no Azure Spring Cloud
@@ -23,7 +23,7 @@ O Azure Spring Cloud fornece serviços robustos para hospedar, monitorar, dimens
 Este artigo explica as dependências, a configuração e o código necessários para executar um aplicativo Steeltoe do .NET Core no Azure Spring Cloud. Para obter informações sobre como implantar um aplicativo no Azure Spring Cloud, consulte [implantar seu primeiro aplicativo do Azure Spring Cloud](spring-cloud-quickstart.md).
 
 >[!Note]
-> O suporte do Steeltoe para o Azure Spring Cloud é oferecido atualmente como uma visualização pública. As ofertas de visualização pública permitem que os clientes experimentem os novos recursos antes do lançamento oficial.  Os serviços e recursos de visualização pública não são destinados ao uso em produção.  Para obter mais informações sobre o suporte durante as visualizações, consulte as [perguntas frequentes](https://azure.microsoft.com/support/faq/) ou arquivo a [solicitação de suporte](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+> O suporte do Steeltoe para o Azure Spring Cloud é oferecido atualmente como uma versão prévia pública. As ofertas de visualização pública permitem que os clientes experimentem os novos recursos antes do lançamento oficial.  Os serviços e recursos de visualização pública não são destinados ao uso em produção.  Para obter mais informações sobre o suporte durante as versões prévias, confira as [perguntas frequentes](https://azure.microsoft.com/support/faq/) ou registre uma [Solicitação de suporte](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
 ##  <a name="supported-versions"></a>Versões com suporte
 
@@ -91,7 +91,7 @@ Antes de executar este exemplo, experimente o [guia de início rápido básico](
 
 Outros exemplos explicam como implantar um aplicativo no Azure Spring Cloud quando o arquivo POM é configurado. 
 * [Iniciar seu primeiro aplicativo](spring-cloud-quickstart.md)
-* [Criar e executar microsserviços](spring-cloud-quickstart-sample-app-introduction.md)
+* [Compilar e executar microserviços](spring-cloud-quickstart-sample-app-introduction.md)
 
 Este artigo explica as dependências necessárias e como adicioná-las ao arquivo POM.
 
@@ -198,8 +198,8 @@ A tabela a seguir lista as versões corretas do Azure Spring Cloud para o aplica
 Versão do Spring Boot | Versão do Spring Cloud | Versão inicial do cliente do Azure Spring Cloud
 ---|---|---
 2.1.x | Greenwich.RELEASE | 2.1.2
-2.2. x | Hoxton.SR8 | Não necessária
-2.3. x | Hoxton.SR8 | Não necessária
+2.2. x | Hoxton.SR8 | Não é necessário
+2.3. x | Hoxton.SR8 | Não é necessário
 
 Inclua o seguinte dependenciy no arquivo de pom.xml se você estiver usando o Spring boot 2,1.
 

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 0c1d83c2dac0163cd9b9cbc07969103381e85471
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88855388"
 ---
 # <a name="deploy-iot-edge-modules-at-scale-using-the-azure-portal"></a>Implantar módulos IoT Edge em escala usando o portal do Azure
@@ -183,7 +183,7 @@ Quando você modifica uma implantação, as alterações são replicadas imediat
 
 1. No Hub IoT, selecione **IOT Edge** no menu do painel esquerdo.
 1. Selecione a guia **implantações IOT Edge** e, em seguida, selecione a implantação que deseja configurar.
-1. Selecione a guia **condição de destino** . Altere a condição de **destino** para direcionar os dispositivos pretendidos. Você também pode ajustar a **prioridade**.  Selecione **Salvar**.
+1. Selecione a guia **condição de destino** . Altere a **condição de destino** para direcionar os dispositivos pretendidos. Você também pode ajustar a **prioridade**.  Selecione **Salvar**.
 
     Se você atualizar a condição de destino, ocorrerão as seguintes atualizações:
 

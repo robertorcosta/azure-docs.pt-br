@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: swmachan
 ms.openlocfilehash: dff69f00833cc3f8004befd330d144f4da0e332d
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89566578"
 ---
 # <a name="request-limits-for-translator"></a>Limites de solicitação para o tradutor
@@ -64,7 +64,7 @@ O tradutor tem uma latência máxima de 15 segundos usando modelos padrão e 120
 
 Ao usar a função [BreakSentence](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence), o comprimento da sentença é limitado a 275 caracteres. Existem exceções para esses idiomas:
 
-| Idioma | Código | Limite de caracteres |
+| Linguagem | Código | Limite de caracteres |
 |----------|------|-----------------|
 | Chinês | zh | 166 |
 | Alemão | de | 800 |

@@ -9,12 +9,12 @@ ms.reviewer: dineshm
 ms.date: 09/04/2020
 ms.subservice: blobs
 ms.custom: devx-track-js
-ms.openlocfilehash: 27ea88ad4d349d6a7aedd4e1e3bc8dc804683292
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 952d0acb00a25fe7d84738825cbad017e5b18029
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91326075"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91892686"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hospedagem de site estático no Armazenamento do Microsoft Azure
 
@@ -60,7 +60,7 @@ Os usuários podem exibir o conteúdo do site de um navegador usando a URL públ
 Se o servidor retornar um erro 404 e você não tiver especificado um documento de erro ao habilitar o site, uma página 404 padrão será retornada ao usuário.
 
 > [!NOTE]
-> Não há suporte para [CORS](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) com site estático.
+> O [suporte ao compartilhamento de recursos entre origens (CORS) para o armazenamento do Azure](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) não tem suporte com o site estático.
 
 ### <a name="regional-codes"></a>Códigos regionais
 

@@ -8,10 +8,10 @@ ms.date: 10/30/2019
 ms.author: chlound
 ms.custom: references_regions
 ms.openlocfilehash: c4908373035b1a3148cd77db513f4e6bd23a50d7
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91540720"
 ---
 # <a name="refresh-with-logic-apps"></a>Atualizar com Aplicativos Lógicos
@@ -67,7 +67,7 @@ Configure a atividade HTTP da seguinte maneira:
 |---------|---------|
 |**Método**     |POST         |
 |**URI**     | https://*sua região do servidor*/Servers/*AAS nome do servidor*/Models/*nome do seu banco de dados*/refreshes <br /> <br /> Por exemplo: https: \/ /westus.asazure.Windows.net/servers/MyServer/Models/AdventureWorks/refreshes|
-|**Cabeçalhos**     |   Tipo de conteúdo, aplicativo/JSON <br /> <br />  ![Cabeçalhos](./media/analysis-services-async-refresh-logic-app/6.png)    |
+|**Cabeçalhos**     |   Tipo de conteúdo, aplicativo/JSON <br /> <br />  ![headers](./media/analysis-services-async-refresh-logic-app/6.png)    |
 |**Corpo**     |   Para saber mais sobre como formar o corpo da solicitação, consulte [atualização assíncrona com a API REST – post/refreshes](analysis-services-async-refresh.md#post-refreshes). |
 |**Autenticação**     |Active Directory OAuth         |
 |**Locatário**     |Preencha seu Azure Active Directory Tenantid         |

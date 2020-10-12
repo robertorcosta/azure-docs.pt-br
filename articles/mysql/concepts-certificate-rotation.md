@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/02/2020
 ms.openlocfilehash: 437fe4636fd5b93656758c9fa55f2b18d64a4b6b
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91540686"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mysql"></a>Compreendendo as alterações na autoridade de certificação raiz para o banco de dados do Azure para MySQL
@@ -138,7 +138,7 @@ Se você estiver usando a [replicação de dados em](concepts-data-in-replicatio
 
     Se você vir o certificado fornecido para o CA_file, SSL_Cert e SSL_Key, será necessário atualizar o arquivo adicionando o [novo certificado](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem).
 
-*   Se a replicação de dados estiver entre dois bancos de dado do Azure para MySQL, será necessário redefinir a réplica executando **Call MySQL. az_replication_change_master** e fornecer o novo certificado raiz duplo como o último parâmetro [master_ssl_ca](howto-data-in-replication.md#link-source-and-replica-servers-to-start-data-in-replication)
+*   Se a replicação de dados estiver entre dois bancos de dado do Azure para MySQL, você precisará redefinir a réplica executando **chamar MySQL.az_replication_change_master** e fornecer o novo certificado raiz duplo como o último parâmetro [master_ssl_ca](howto-data-in-replication.md#link-source-and-replica-servers-to-start-data-in-replication)
 
 ### <a name="13-do-we-have-server-side-query-to-verify-if-ssl-is-being-used"></a>13. temos uma consulta do lado do servidor para verificar se o SSL está sendo usado?
 Para verificar se você está usando a conexão SSL para se conectar ao servidor, consulte [verificação de SSL](howto-configure-ssl.md#step-4-verify-the-ssl-connection).

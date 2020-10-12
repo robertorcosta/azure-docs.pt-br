@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.openlocfilehash: c7c4e1cc854fdd2fbf03d2274992bbc4a3bb93af
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88717890"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>Implantar a ferramenta de rotulagem de exemplos
@@ -80,7 +80,7 @@ Siga estas etapas para criar um novo recurso usando o portal do Azure:
    * Implantação contínua – defina como **ativado** se você quiser receber atualizações automáticas quando a equipe de desenvolvimento fizer alterações na ferramenta de rotulagem de exemplo.
    * Comando de inicialização – defina como `./run.sh eula=accept`
 
-    # <a name="v21-preview"></a>[versão prévia do v 2.1](#tab/v2-1) 
+    # <a name="v21-preview"></a>[Versão prévia v2.1](#tab/v2-1) 
    * Opções-selecione **um único contêiner**
    * Origem da imagem – selecionar **registro privado** 
    * URL do servidor-defina como `https://mcr.microsoft.com`
@@ -129,7 +129,7 @@ az container create \
   --memory 8 \
   --command-line "./run.sh eula=accept"
 ``` 
-# <a name="v21-preview"></a>[versão prévia do v 2.1](#tab/v2-1)    
+# <a name="v21-preview"></a>[Versão prévia v2.1](#tab/v2-1)    
 ```azurecli
 DNS_NAME_LABEL=aci-demo-$RANDOM
 

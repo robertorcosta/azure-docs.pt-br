@@ -9,10 +9,10 @@ ms.date: 09/11/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 6628d693a8df3614097e23785ac234a451565ca3
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91777098"
 ---
 # <a name="overview-of-the-azure-security-benchmark-v2"></a>Visão geral do benchmark de segurança do Azure (v2)
@@ -22,7 +22,7 @@ O ASB (benchmark de segurança do Azure) fornece recomendações e práticas rec
 Esse parâmetro de comparação faz parte de um conjunto de diretrizes de segurança holísticas que também incluem:
 
 - **Estrutura de adoção de nuvem** – orientação sobre segurança, incluindo [estratégia](/azure/cloud-adoption-framework/strategy/define-security-strategy), [funções e responsabilidades](/azure/cloud-adoption-framework/organize/cloud-security), [as 10 melhores práticas de segurança](/azure/cloud-adoption-framework/get-started/security#step-1-establish-essential-security-practices)e implementação de [referência](/azure/cloud-adoption-framework/ready/enterprise-scale/)do Azure.
-- **Estrutura bem projetada do Azure** – diretrizes sobre como [proteger suas cargas de trabalho](https://docs.microsoft.com/assessments/?mode=pre-assessment&session=local) no Azure.
+- **Estrutura de Well-Architected do Azure** – diretrizes sobre como [proteger suas cargas de trabalho](https://docs.microsoft.com/assessments/?mode=pre-assessment&session=local) no Azure.
 - **Práticas recomendadas de segurança da Microsoft** – [recomendações](/security/compass/microsoft-security-compass-introduction) com exemplos no Azure.
 
  O benchmark de segurança do Azure concentra-se em áreas de controle centradas na nuvem. Esses controles são consistentes com benchmarks de segurança conhecidos, como os descritos pelos controles do CIS (Center for Internet Security), versão 7,1 e National Institute of Standards and Technology (NIST) SP800-53.
@@ -58,7 +58,7 @@ Cada recomendação inclui as seguintes informações:
 
 Agradecemos seus comentários detalhados e sua participação ativa no esforço de benchmark de segurança do Azure. Se você quiser fornecer a entrada direta da equipe de benchmark de segurança do Azure, preencha o formulário em https://aka.ms/AzSecBenchmark
 
-## <a name="download"></a>Download
+## <a name="download"></a>Baixar
 
 Você pode baixar o benchmark de segurança do Azure no [formato de planilha](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Security%20Benchmark).
 

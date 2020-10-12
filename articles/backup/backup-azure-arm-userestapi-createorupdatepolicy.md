@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
 ms.openlocfilehash: e4e6f5b5cf28c3830a91a494ea60680eee1546f6
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89179599"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>Criar políticas de backup de serviços de recuperação do Azure usando a API REST
@@ -31,7 +31,7 @@ Por exemplo, para criar uma política para o backup de VM do Azure, a seguir est
 
 |Nome  |Obrigatório  |Type  |Descrição  |
 |---------|---------|---------|---------|
-|properties     |   Verdadeiro      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | Propriedades de ProtectionPolicyResource        |
+|properties     |   True      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | Propriedades de ProtectionPolicyResource        |
 |marcas     |         | Objeto        |  Marcações de recursos       |
 
 Para obter a lista completa de definições no corpo da solicitação, consulte o [documento da API REST da política de backup](/rest/api/backup/protectionpolicies/createorupdate).

@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 1947e57a5f200521fe57c6aaf41e9d57c1085592
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 618e9586e9824e6cea592ff78a1fbd3b991abd83
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90888706"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945389"
 ---
 # <a name="azure-spring-cloud-faq"></a>FAQ do Azure Spring Cloud
 
@@ -45,7 +45,7 @@ Leste dos EUA, leste dos EUA 2, EUA Central, Sul EUA Central, oeste dos EUA 2, E
 O Azure Spring Cloud tem as seguintes limitações conhecidas:
     
 * `spring.application.name` será substituído pelo nome do aplicativo usado para criar cada aplicativo.
-* `server.port` o padrão é a porta 1025. Se qualquer outro valor for aplicado, ele será substituído para 1025.
+* `server.port` o padrão é a porta 1025. Se qualquer outro valor for aplicado, ele será substituído. Além disso, respeita essa configuração e não especifica a porta do servidor em seu código.
 * Os modelos portal do Azure e Azure Resource Manager não dão suporte ao carregamento de pacotes de aplicativos. Você pode carregar pacotes de aplicativos somente implantando o aplicativo por meio do CLI do Azure.
 
 ### <a name="what-pricing-tiers-are-available"></a>Quais tipos de preço estão disponíveis? 

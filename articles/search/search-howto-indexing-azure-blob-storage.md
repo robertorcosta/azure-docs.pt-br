@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.openlocfilehash: e3419711c9a7358914f85574f6dbd5af29def1cf
-ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91403596"
 ---
 # <a name="how-to-configure-a-blob-indexer-in-azure-cognitive-search"></a>Como configurar um indexador de blob no Azure Pesquisa Cognitiva
@@ -315,7 +315,7 @@ Por exemplo, para indexar apenas os metadados de armazenamento, use:
 
 Os parâmetros de configuração descritos acima se aplicam a todos os blobs. Às vezes, você pode desejar controlar como *blobs individuais* são indexados. Faça isso adicionando as seguintes propriedades de metadados de blob e valores:
 
-| Property name | Valor da propriedade | Explicação |
+| Nome da propriedade | Valor da propriedade | Explicação |
 | --- | --- | --- |
 | AzureSearch_Skip |"true" |Instrui o indexador de blobs a ignorar o blob por completo. Não há nenhuma tentativa de extração de metadados nem de conteúdo. Isso é útil quando um blob específico falha repetidamente e interrompe o processo de indexação. |
 | AzureSearch_SkipContent |"true" |Isso é equivalente à configuração `"dataToExtract" : "allMetadata"` descrita [acima](#PartsOfBlobToIndex), no escopo de um blob específico. |

@@ -9,10 +9,10 @@ ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
 ms.openlocfilehash: 4b533fa23d3c128b5f9f75737fb88d39aec94905
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88950061"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption-with-azure-ad-previous-release-for-linux-vms"></a>Criando e configurando um cofre de chaves para Azure Disk Encryption com o Azure AD (versão anterior) para VMs do Linux
@@ -220,7 +220,7 @@ Use [atualização de keyvault az](/cli/azure/keyvault#az-keyvault-update) para 
 1. Selecione sua keyvault, vá para **Access Policies** e **Clique para mostrar as políticas de acesso avançadas**.
 2. Selecione a caixa rotulada **habilitar o acesso ao Azure Disk Encryption para criptografia de volume**.
 3. Selecione **habilitar o acesso às máquinas virtuais do Azure para implantação** e/ou **habilitar acesso ao Azure Resource Manager para implantação de modelo**, se necessário. 
-4. Clique em **Save** (Salvar).
+4. Clique em **Salvar**.
 
 ![Cofre de chaves do Azure, políticas de acesso avançadas](./media/disk-encryption/keyvault-portal-fig4.png)
 

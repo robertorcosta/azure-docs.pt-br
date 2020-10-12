@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: joncole
 ms.openlocfilehash: 7e6afd40266d280ae872d24b1828b6feadbee17e
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88007906"
 ---
 # <a name="best-practices-for-azure-cache-for-redis"></a>Melhores práticas para o Cache do Azure para Redis 
@@ -74,14 +74,14 @@ Se você quiser testar como o código funciona em condições de erro, considere
  * **É recomendável usar a série de VMs Dv2** para seu cliente, pois eles têm um hardware melhor e fornecerão os melhores resultados.
  * Verifique se a VM do cliente que você usa tem **pelo menos tanto de computação quanto de largura de banda* quanto o cache que está sendo testado. 
  * **Habilite o VRSS** no computador cliente se você estiver no Windows.  [Consulte aqui para obter detalhes](https://technet.microsoft.com/library/dn383582(v=ws.11).aspx).  Exemplo de script do PowerShell:
-     >PowerShell-ExecutionPolicy irrestrito-NetAdapterRSS-Name (Get-netadapter). Nomes 
+     >PowerShell-ExecutionPolicy irrestrito Enable-NetAdapterRSS-Name (Get-netadapter). Nomes 
      
  * **Considere o uso de instâncias de Redis da camada Premium**.  Esses tamanhos de cache terão melhor latência de rede e taxa de transferência, pois estão em execução em hardware melhor para CPU e rede.
  
      > [!NOTE]
      > Nossos resultados de desempenho observados são [publicados aqui](cache-planning-faq.md#azure-cache-for-redis-performance) para sua referência.   Além disso, lembre-se de que o SSL/TLS adiciona alguma sobrecarga, de modo que você poderá obter latências e/ou taxa de transferência diferentes se estiver usando a criptografia de transporte.
  
-### <a name="redis-benchmark-examples"></a>Redis-exemplos de benchmark
+### <a name="redis-benchmark-examples"></a>Exemplos de Redis-Benchmark
 **Configuração de pré-teste**: Prepare a instância de cache com os dados necessários para os comandos de teste de latência e taxa de transferência listados abaixo.
 > Redis-benchmark-h yourcache.redis.cache.windows.net-a Suachavedeacesso-t SET-n 10-d 1024 
 

@@ -1,5 +1,5 @@
 ---
-title: Usar ações do GitHub para implantar um site estático no armazenamento do Azure
+title: Usar o GitHub Actions para implantar um site estático no Armazenamento do Azure
 description: Hospedagem de sites estáticos do armazenamento do Azure com ações do GitHub
 author: juliakm
 ms.service: storage
@@ -10,10 +10,10 @@ ms.date: 09/11/2020
 ms.subservice: blobs
 ms.custom: devx-track-javascript, github-actions-azure
 ms.openlocfilehash: 919fa0d7b6dff0361e4439b442bcfe9648ed8677
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91776384"
 ---
 # <a name="set-up-a-github-actions-workflow-to-deploy-your-static-website-in-azure-storage"></a>Configurar um fluxo de trabalho de ações do GitHub para implantar seu site estático no armazenamento do Azure
@@ -262,7 +262,7 @@ No exemplo acima, substitua os espaços reservados por sua ID de assinatura e o 
             inlineScript: |
             az cdn endpoint purge --content-paths  &quot;/*&quot; --profile-name &quot;CDN_PROFILE_NAME&quot; --name &quot;CDN_ENDPOINT&quot; --resource-group &quot;RESOURCE_GROUP":::
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando seu site estático do Azure e o repositório não forem mais necessários, limpe os recursos implantados excluindo o grupo de recursos e seu repositório do GitHub. 
 

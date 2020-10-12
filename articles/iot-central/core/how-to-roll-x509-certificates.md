@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.openlocfilehash: 76e2b9542d20b5788a2875dec89d447ce38276a0
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88121981"
 ---
 # <a name="how-to-roll-x509-device-certificates-in-iot-central-application"></a>Como distribuir certificados de dispositivo X. 509 no aplicativo IoT Central
@@ -30,7 +30,7 @@ Você pode criar seus próprios certificados X. 509 usando uma ferramenta como o
 
 Para atualizar um registro de grupo em resposta a uma violação de segurança, você deve usar a seguinte abordagem que atualiza o certificado atual imediatamente:
 
-1. Navegue até **Administração** no painel esquerdo e clique em **conexão do dispositivo**.
+1. Navegue até **Administração**  no painel esquerdo e clique em **conexão do dispositivo**.
 
 2. Clique em **Grupos de Registro**e, em seguida, clique no nome de grupo na lista.
 
@@ -52,7 +52,7 @@ Para atualizar um registro de grupo em resposta a uma violação de segurança, 
 
 Se você estiver sem interrupção de certificados para lidar com expirações de certificado, use a seguinte abordagem para atualizar o certificado atual imediatamente:
 
-1. Navegue até **Administração** no painel esquerdo e clique em **conexão do dispositivo**. 
+1. Navegue até **Administração**  no painel esquerdo e clique em **conexão do dispositivo**. 
 
 2. Clique em **Grupos de Registro**e, em seguida, clique no nome de grupo na lista.
 
@@ -82,7 +82,7 @@ Se você estiver sem interrupção de certificados em resposta a uma violação 
 
     ![Gerenciar registros individuais](./media/how-to-roll-x509-certificates/certificate-update.png)
 
-4. Para atualização de certificado, clique no ícone de pasta para selecionar o novo certificado a ser carregado para a entrada de registro. Clique em **Save** (Salvar).
+4. Para atualização de certificado, clique no ícone de pasta para selecionar o novo certificado a ser carregado para a entrada de registro. Clique em **Salvar**.
 
     Conclua estas etapas para os certificados primários e secundários, se ambos estiverem comprometidos
 
@@ -102,7 +102,7 @@ Mais tarde quando o certificado secundário também se aproximar da expiração 
 
     ![Gerenciar registros individuais](./media/how-to-roll-x509-certificates/certificate-update.png)
 
-4. Para atualização de certificado secundário, clique no ícone de pasta para selecionar o novo certificado a ser carregado para a entrada de registro. Clique em **Save** (Salvar).
+4. Para atualização de certificado secundário, clique no ícone de pasta para selecionar o novo certificado a ser carregado para a entrada de registro. Clique em **Salvar**.
 
 
 5. Posteriormente, quando o certificado primário tiver expirado, volte e atualize esse certificado primário.

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 1ee38196f0b1a6e00d385dc0d2c88d45a4291d3b
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90087429"
 ---
 # <a name="monitoring-key-vault-with-azure-event-grid"></a>Monitoramento do Key Vault com a Grade de Eventos do Azure
@@ -42,9 +42,9 @@ Os aplicativos que manipulam eventos do Key Vault devem seguir algumas práticas
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Visão geral de Azure Key Vault](overview.md)
+- [Visão geral do Azure Key Vault](overview.md)
 - [Visão geral da Grade de Eventos do Azure](../../event-grid/overview.md)
 - Como: [rotear eventos de Key Vault para o runbook de automação](event-grid-tutorial.md).
 - Como fazer: [Receber emails quando o status do cofre de chaves secreto é alterado](event-grid-logicapps.md)
-- [Esquema de evento da grade de eventos do Azure para Azure Key Vault](../../event-grid/event-schema-key-vault.md)
+- [Esquema de eventos da Grade de Eventos do Azure para o Azure Key Vault](../../event-grid/event-schema-key-vault.md)
 - [Visão geral da Automação do Azure](../../automation/index.yml)

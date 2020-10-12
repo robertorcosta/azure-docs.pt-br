@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.openlocfilehash: 37a3725fb7684a9e87f1936ef0ce8cc79de03894
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89594655"
 ---
 # <a name="change-iot-central-application-settings"></a>Alterar IoT Central configurações do aplicativo
@@ -49,7 +49,7 @@ Você pode encontrar exemplos de como usar os SDKs de Azure Resource Manager em 
 
 Para saber mais, confira os seguintes repositórios e pacotes do GitHub:
 
-| Idioma | Repositório | Pacote |
+| Linguagem | Repositório | Pacote |
 | ---------| ---------- | ------- |
 | Nó | [https://github.com/Azure/azure-sdk-for-node](https://github.com/Azure/azure-sdk-for-node) | [https://www.npmjs.com/package/azure-arm-iotcentral](https://www.npmjs.com/package/azure-arm-iotcentral)
 | Python |[https://github.com/Azure/azure-sdk-for-python](https://github.com/Azure/azure-sdk-for-python) | [https://pypi.org/project/azure-mgmt-iotcentral](https://pypi.org/project/azure-mgmt-iotcentral)

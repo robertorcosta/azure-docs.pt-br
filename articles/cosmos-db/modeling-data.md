@@ -8,10 +8,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.openlocfilehash: a34544eb29f0a1417d10955bba755fb4f9965320
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88136032"
 ---
 # <a name="data-modeling-in-azure-cosmos-db"></a>Modelagem de dados no Azure Cosmos DB
@@ -299,7 +299,7 @@ No exemplo acima, tiramos a coleção ilimitada do documento da editora. Em vez 
 Em um banco de dados relacional, relações *muitos:muitos* frequentemente são modeladas com tabelas de junção, que simplesmente reúnem os registros de outras tabelas.
 
 
-:::image type="content" source="./media/sql-api-modeling-data/join-table.png" alt-text="Associar tabelas" border="false":::
+:::image type="content" source="./media/sql-api-modeling-data/join-table.png" alt-text="Modelo de banco de dados relacional" border="false":::
 
 Você pode ficar tentado a fazer a mesma coisa usando documentos e produzir um modelo de dados semelhante ao seguinte.
 
@@ -442,4 +442,4 @@ Para saber mais sobre o Azure Cosmos DB, consulte a página de [documentação](
 
 Para entender como fragmentar seus dados em várias partições, consulte [Particionando dados no Azure Cosmos DB](sql-api-partition-data.md).
 
-Para saber como modelar e particionar dados em Azure Cosmos DB usando um exemplo do mundo real, consulte [modelagem e particionamento de dados – um exemplo do mundo real](how-to-model-partition-example.md).
+Para saber como modelar e particionar dados em Azure Cosmos DB usando um exemplo do mundo real, consulte [ modelagem de dados e particionamento – um exemplo de Real-World](how-to-model-partition-example.md).

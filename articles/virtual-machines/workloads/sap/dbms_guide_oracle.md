@@ -16,10 +16,10 @@ ms.date: 09/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: f953d87c53bc13af623c2bfd49ceb953280f8f2a
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91540703"
 ---
 # <a name="azure-virtual-machines-oracle-dbms-deployment-for-sap-workload"></a>Implantação do Oracle DBMS de máquinas virtuais do Azure para carga de trabalho do SAP
@@ -380,7 +380,7 @@ A configuração mínima é a seguinte:
 | \oracle\<SID>\origlogaB e mirrlogA | Premium ou ultra Disk | Nenhum | Não é necessário |
 | \oracle\<SID>\sapdata1...n | Premium ou ultra Disk | Somente leitura | Pode ser usado para Premium |
 | \oracle\<SID>\oraarch | Standard | Nenhum | Não é necessário |
-| Página inicial da Oracle, `saptrace` ,... | Disco do sistema operacional (Premium) | | Não necessária |
+| Página inicial da Oracle, `saptrace` ,... | Disco do sistema operacional (Premium) | | Não é necessário |
 
 
 A seleção de discos para hospedar logs de refazer online deve ser orientada por requisitos de IOPS. É possível armazenar todos os sapdata1... n (espaços de tabela) em um único disco montado, desde que o tamanho, o IOPS e a taxa de transferência atendam aos requisitos. 

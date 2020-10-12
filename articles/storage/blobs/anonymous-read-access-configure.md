@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
 ms.openlocfilehash: 3a585bc2bf3872a21bde9be036628922ee5743fa
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90087347"
 ---
 # <a name="configure-anonymous-public-read-access-for-containers-and-blobs"></a>Configurar acesso de leitura público anônimo para contêineres e blobs
@@ -58,7 +58,7 @@ Para permitir ou impedir o acesso público para uma conta de armazenamento, conf
 >
 > Atualmente, a propriedade **AllowBlobPublicAccess** está disponível somente para contas de armazenamento na nuvem pública do Azure.
 
-# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 Para permitir ou impedir o acesso público para uma conta de armazenamento no portal do Azure, siga estas etapas:
 
@@ -193,7 +193,7 @@ Quando o acesso público é permitido para uma conta de armazenamento, você pod
 
 Você não pode alterar o nível de acesso público para um blob individual. O nível de acesso público é definido somente no nível de contêiner. Você pode definir o nível de acesso público do contêiner ao criar o contêiner ou pode atualizar a configuração em um contêiner existente.
 
-# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 Para atualizar o nível de acesso público para um ou mais contêineres existentes no portal do Azure, siga estas etapas:
 
@@ -207,7 +207,7 @@ Para atualizar o nível de acesso público para um ou mais contêineres existent
 
 Quando o acesso público não é permitido para a conta de armazenamento, o nível de acesso público de um contêiner não pode ser definido. Se você tentar definir o nível de acesso público do contêiner, verá que a configuração está desabilitada porque o acesso público não é permitido para a conta.
 
-:::image type="content" source="media/anonymous-read-access-configure/container-public-access-blocked.png" alt-text="A captura de tela mostrando que a configuração do nível de acesso público do contêiner é bloqueada quando o acesso público não é permitido":::
+:::image type="content" source="media/anonymous-read-access-configure/container-public-access-blocked.png" alt-text="Captura de tela mostrando como permitir ou não o acesso público de BLOB para a conta":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 

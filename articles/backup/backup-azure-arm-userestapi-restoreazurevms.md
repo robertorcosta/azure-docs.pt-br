@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 09/12/2018
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
 ms.openlocfilehash: ad60436d82ccc8049a4509ba5bf1e244bee150ea
-ms.sourcegitcommit: 655e4b75fa6d7881a0a410679ec25c77de196ea3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89506670"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Restaurar máquinas virtuais do Azure usando a API REST
@@ -31,7 +31,7 @@ O URI *GET* tem todos os parâmetros necessários. Não há necessidade de um co
 
 ### <a name="responses"></a>Respostas
 
-|Nome  |Type  |Descrição  |
+|Nome  |Tipo  |Descrição  |
 |---------|---------|---------|
 |200 OK     |   [RecoveryPointResourceList](/rest/api/backup/recoverypoints/list#recoverypointresourcelist)      |       OK  |
 
@@ -144,7 +144,7 @@ O disparo de qualquer operação de restauração é uma [operação assíncrona
 
 Ele retorna duas respostas: 202 (Aceito) quando outra operação é criada e, em seguida, 200 (OK) quando a operação é concluída.
 
-|Nome  |Type  |Descrição  |
+|Nome  |Tipo  |Descrição  |
 |---------|---------|---------|
 |202 Aceito     |         |     Aceito    |
 
@@ -216,7 +216,7 @@ Se houver a necessidade de personalizar a criação de uma VM a partir dos dados
 
 Para acionar uma restauração de disco a partir de um backup de VM do Azure, a seguir estão os componentes do corpo da solicitação.
 
-|Nome  |Type  |Descrição  |
+|Nome  |Tipo  |Descrição  |
 |---------|---------|---------|
 |properties     | [IaaSVMRestoreRequest](/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
 
@@ -278,7 +278,7 @@ Enquanto os discos de restauração criam discos do ponto de recuperação, o Re
 
 Para disparar uma substituição de disco de um backup de VM do Azure, estes são os componentes do corpo da solicitação.
 
-|Nome  |Type  |Descrição  |
+|Nome  |Tipo  |Descrição  |
 |---------|---------|---------|
 |properties     | [IaaSVMRestoreRequest](/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
 

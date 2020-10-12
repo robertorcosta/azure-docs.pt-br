@@ -14,10 +14,10 @@ ms.reviewer: kexia
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 04e1d35ab17a49dd1c4e9bd2bd19289de2b8658a
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89565847"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Adicionar identidade visual à página de entrada de sua empresa no Azure Active Directory
@@ -113,7 +113,7 @@ Após criar a identidade visual personalizada, você poderá retornar e fazer to
 
 3. Na página **Configurar a identidade visual da empresa**, adicione, remova ou altere qualquer informação, com base nas descrições na seção [Personalizar a página de entrada do Azure AD](#customize-your-azure-ad-sign-in-page) deste artigo.
 
-4. Clique em **Salvar**.
+4. Selecione **Salvar**.
 
    Pode demorar até uma hora para que apareçam todas as alterações feitas à identidade visual da página de entrada.
 
@@ -130,7 +130,7 @@ Não é possível alterar o idioma da configuração original do idioma padrão.
 
 3. Na página **Configurar a identidade visual da empresa**, selecione o idioma (por exemplo, francês) e adicione as informações traduzidas, com base nas descrições na seção [Personalizar a página de entrada do Azure AD](#customize-your-azure-ad-sign-in-page) deste artigo.
 
-4. Clique em **Salvar**.
+4. Selecione **Salvar**.
 
     A página **Contoso – Identidade visual da empresa** é atualizada para mostrar a nova configuração em francês.
 

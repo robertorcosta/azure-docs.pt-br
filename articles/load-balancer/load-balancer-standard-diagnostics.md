@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: allensu
 ms.openlocfilehash: 97541a4f8d86b90bf6045fc2a9e5abbe86aee5cd
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88717329"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Diagnóstico do Standard Load Balancer com métricas, alertas e integridade de recursos
@@ -200,7 +200,7 @@ Use **Total** como a agregação para a maioria dos cenários.
 
 Para obter estatísticas de contagem de bytes ou de pacotes:
 1. Selecione o tipo de métrica **Contagem de Bytes** e/ou **Contagem de Pacotes** com **Méd** como a agregação. 
-2. Execute um destes procedimentos:
+2. Siga um destes procedimentos:
    * Aplique um filtro em um IP de front-end específico, em uma porta de front-end, em um IP de back-end ou em uma porta de back-end.
    * Obtenha estatísticas gerais para seu recurso de balanceador de carga sem nenhuma filtragem.
 
