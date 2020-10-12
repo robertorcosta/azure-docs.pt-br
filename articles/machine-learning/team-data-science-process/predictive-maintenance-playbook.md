@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: previous-author=fboylu, previous-ms.author=fboylu
 ms.openlocfilehash: 2961ffb21a1f34ca677e0aede5170689f4e38dca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84267964"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guia de IA do Azure para soluções de manutenção preditiva
@@ -362,7 +362,7 @@ Muitos problemas PdM enfrentam tais conjuntos de dados desequilibrados, em que u
 
 No caso de desequilíbrio de classe, o desempenho da maioria dos algoritmos de aprendizado padrão fica comprometido, já que eles tentam minimizar a taxa de erro geral. Para um conjunto de dados com exemplos positivo de % 1 e 99% negativo, um modelo pode ser mostrado com precisão de 99% rotulando todas as instâncias como negativo. Mas o modelo será classificado incorretamente todos os exemplos positivos; portanto, mesmo se a precisão for alta, o algoritmo não é útil. Consequentemente, as métricas de avaliação convencional, como _a precisão geral na taxa de erro_, não são suficientes em caso de aprendizado em desequilíbrio. Ao se deparar com conjuntos de dados desequilibrados, outras métricas são usadas para avaliação do modelo:
 - Precisão
-- Recuperação
+- Chamar de volta
 - Pontuações F1
 - Custo ajustado ROC (características operacionais do destinatário)
 
@@ -384,7 +384,7 @@ Na PdM, falhas que constituem a classe minoritária são mais relevantes que exe
 
 Há várias maneiras de alcançar esse equilíbrio. Para mitigar o problema de perda desigual, atribua um custo de classificação incorreta de classe minoritária e tente minimizar o custo geral. Algoritmos como _SVMs (suporte a máquinas de vetor)_ adotam esse método inerentemente, permitindo que o custo dos exemplos positivos e negativos para ser especificado durante o treinamento. Da mesma forma, métodos de estímulo como _árvores de decisão impulsionada_ geralmente mostram um bom desempenho com dados desequilibrados.
 
-## <a name="model-evaluation"></a>Avaliação do modelo
+## <a name="model-evaluation"></a>Avaliação de modelos
 A classificação incorreta é um problema significativo para cenários PdM em que o custo de alarmes falsos para os negócios é alto. Por exemplo, a decisão de um avião com base em uma previsão incorreta de falha do mecanismo de plano de fundo pode interromper agendamentos e planos de viagem. Colocar uma máquina offline em uma linha de montagem pode levar à perda de receita. Portanto a avaliação do modelo com as métricas de desempenho à direita em relação aos novos dados de teste é fundamental.
 
 Métricas de desempenho comuns usadas para avaliar modelos PdM são discutidas abaixo:
@@ -409,7 +409,7 @@ O benefício é o exercício de ciência de dados realizado somente quando o mod
 O processo acima é declarado de muitas maneiras na literatura acadêmica e do setor. Mas todas as instruções a seguir têm o mesmo significado:
 - _Pontuar novos dados_ usando o modelo
 - _Aplicar o modelo_ aos novos dados
-- _Operacionalizar_ o modelo
+- Colocar o modelo em _operação_
 - _Implantar_ o modelo
 - _Executar o modelo_ em dados novos
 

@@ -12,10 +12,10 @@ ms.author: mimart
 ms.subservice: B2C
 ms.date: 02/10/2020
 ms.openlocfilehash: 3106e5a640ed66828558078e6986979ad7195450
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85386208"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Monitorar Azure AD B2C com Azure Monitor
@@ -200,7 +200,7 @@ Depois de implantar o modelo e ter aguardado alguns minutos para que a projeçã
 1. **Saia** do portal do Azure se você estiver conectado no momento. Isso e a etapa a seguir são feitas para atualizar suas credenciais na sessão do Portal.
 1. Entre no [portal do Azure](https://portal.azure.com) com sua conta administrativa do Azure ad B2C.
 1. Selecione o ícone **Diretório + Assinatura** na barra de ferramentas do portal.
-1. Selecione o diretório que contém sua assinatura.
+1. Selecione o diretório que contém a assinatura.
 
     ![Mudar diretório](./media/azure-monitor/azure-monitor-portal-03-select-subscription.png)
 1. Verifique se você selecionou o diretório e a assinatura corretos. Neste exemplo, todos os diretórios e assinaturas são selecionados.
@@ -234,7 +234,7 @@ Para definir configurações de monitoramento para Azure AD B2C logs de atividad
 1. Dê um nome à sua configuração se ela ainda não tiver uma.
 1. Marque a caixa para cada destino para enviar os logs. Selecione **Configurar** para especificar suas configurações, conforme descrito na tabela a seguir.
 
-    | Setting | Descrição |
+    | Configuração | Descrição |
     |:---|:---|
     | Arquivar em uma conta de armazenamento | Nome da conta de armazenamento. |
     | Transmitir para um hub de eventos | O namespace em que o Hub de eventos é criado (se esta for a primeira vez que os logs de streaming) ou transmitido (se já houver recursos que estão transmitindo essa categoria de log para esse namespace).

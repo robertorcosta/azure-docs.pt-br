@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: aahi
 ms.openlocfilehash: 004bd973651d5903db4254a8883be2c8a83d9b38
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84310573"
 ---
 # <a name="language-and-region-support-for-the-bing-custom-search-api"></a>Suporte de idioma e região para a API de Pesquisa Personalizada do Bing
@@ -29,14 +29,14 @@ O cabeçalho `Accept-Language` e o parâmetro de consulta `setLang` são mutuame
 
 ## <a name="countriesregions"></a>Países/regiões
 
-|País/região|Código|
+|País/Região|Código|
 |-------|----|
 |Argentina|AR|
 |Austrália|AU|
 |Áustria|AT|
 |Bélgica|BE|
 |Brasil|BR|
-|Canadá|CA|
+|Canada|CA|
 |Chile|CL|
 |Dinamarca|DK|
 |Finlândia|FI|
@@ -45,7 +45,7 @@ O cabeçalho `Accept-Language` e o parâmetro de consulta `setLang` são mutuame
 |RAE de Hong Kong|HK|
 |Índia|IN|
 |Indonésia|ID|
-|Itália|TI|
+|Itália|IT|
 |Japão|JP|
 |Coreia do Sul|KR|
 |Malásia|MY|
@@ -65,13 +65,13 @@ O cabeçalho `Accept-Language` e o parâmetro de consulta `setLang` são mutuame
 |Suíça|CH|
 |Taiwan|TW|
 |Turquia|TR|
-|Reino Unido|GB|
+|United Kingdom|GB|
 |Estados Unidos|EUA|
 
 
 ## <a name="markets"></a>Mercados
 
-|País/região|Language|Código de mercado|
+|País/Região|Linguagem|Código de mercado|
 |-------|--------|-----------|
 |Argentina|Espanhol|es-AR|
 |Austrália|Inglês|en-AU|
@@ -79,8 +79,8 @@ O cabeçalho `Accept-Language` e o parâmetro de consulta `setLang` são mutuame
 |Bélgica|Holandês|nl-BE|
 |Bélgica|Francês|fr-BE|
 |Brasil|Português|pt-BR|
-|Canadá|Inglês|en-CA|
-|Canadá|Francês|fr-CA|
+|Canada|Inglês|en-CA|
+|Canada|Francês|fr-CA|
 |Chile|Espanhol|es-CL|
 |Dinamarca|Dinamarquês|da-DK|
 |Finlândia|Finlandês|fi-FI|
@@ -110,6 +110,6 @@ O cabeçalho `Accept-Language` e o parâmetro de consulta `setLang` são mutuame
 |Suíça|Alemão|de-CH|
 |Taiwan|Chinês tradicional|zh-TW|
 |Turquia|Turco|tr-TR|
-|Reino Unido|Inglês|en-GB|
+|United Kingdom|Inglês|en-GB|
 |Estados Unidos|Inglês|pt-BR|
 |Estados Unidos|Espanhol|es-US|

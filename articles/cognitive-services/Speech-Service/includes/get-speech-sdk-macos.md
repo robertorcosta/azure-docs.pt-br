@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
 ms.openlocfilehash: 82c45919892721d689bd90b7480158c4eea16c03
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87375661"
 ---
 Ao desenvolver para macOS, há três SDKs de fala disponíveis.
@@ -20,7 +20,7 @@ Ao desenvolver para macOS, há três SDKs de fala disponíveis.
 > [!TIP]
 > Para obter detalhes sobre como usar o SDK de fala do Objective-C com Swift, consulte <a href="https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_objective-c_into_swift" target="_blank">importando Objective-c para Swift <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 
-### <a name="system-requirements"></a>Requisitos de sistema
+### <a name="system-requirements"></a>Requisitos do sistema
 
 - Um macOS versão 10,13 ou posterior
 
@@ -71,5 +71,5 @@ end
 
 #### <a name="additional-resources"></a>Recursos adicionais
 
-- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/objectivec/macos" target="_blank">Guia de início rápido do SDK de fala do macOS-C código-fonte<span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift/macos" target="_blank">código-fonte do QuickStart Swift do SDK de fala do macOS<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/objectivec/macos" target="_blank">Guia de início rápido do SDK de fala do macOS-C código-fonte <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift/macos" target="_blank">código-fonte do QuickStart Swift do SDK de fala do macOS <span class="docon docon-navigate-external x-hidden-focus"></span></a>

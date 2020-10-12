@@ -9,10 +9,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/04/2020
 ms.openlocfilehash: 5a09105dac89f3dc241140f16f3d4be72cc97493
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89483619"
 ---
 # <a name="azure-ad-and-transactable-saas-offers-in-the-commercial-marketplace"></a>Ofertas do Azure AD e SaaS transactáveis no Marketplace comercial
@@ -45,7 +45,7 @@ As seções a seguir fornecem detalhes sobre os requisitos para cada etapa do pr
 
 Esta figura mostra as quatro etapas do processo para o gerenciamento de compras.
 
-:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-1-4.png" alt-text="Ilustra as quatro etapas de processo para o gerenciamento de compras.":::
+:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-1-4.png" alt-text="Ilustra as etapas de processo de gerenciamento de compra, gerenciamento de assinaturas e gerenciamento de usuário opcional.":::
 
 Esta tabela fornece detalhes para as etapas do processo de gerenciamento de compras.
 
@@ -61,7 +61,7 @@ Esta tabela fornece detalhes para as etapas do processo de gerenciamento de comp
 
 Esta figura mostra as duas etapas de processo para o gerenciamento de assinatura.
 
-:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-5-6.png" alt-text="Ilustra as duas etapas de processo para o gerenciamento de assinatura.":::
+:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-5-6.png" alt-text="Ilustra as etapas de processo de gerenciamento de compra, gerenciamento de assinaturas e gerenciamento de usuário opcional.":::
 
 Esta tabela descreve os detalhes sobre as etapas do processo de gerenciamento de assinaturas.
 
@@ -75,7 +75,7 @@ Esta tabela descreve os detalhes sobre as etapas do processo de gerenciamento de
 
 Esta figura mostra as três etapas de processo para o gerenciamento de usuários.
 
-:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-7-9.png" alt-text="Ilustra as três etapas de processo opcionais para o gerenciamento de usuários.":::
+:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-7-9.png" alt-text="Ilustra as etapas de processo de gerenciamento de compra, gerenciamento de assinaturas e gerenciamento de usuário opcional.":::
 
 As etapas de processo 7 a 9 são etapas opcionais do processo de gerenciamento de usuário. Eles fornecem benefícios adicionais para Publicadores que dão suporte ao SSO (logon único) do Azure AD. Esta tabela descreve os detalhes sobre as etapas do processo de gerenciamento de usuário.
 

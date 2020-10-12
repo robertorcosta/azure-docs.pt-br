@@ -1,6 +1,6 @@
 ---
 title: Políticas no Gerenciamento de API do Azure | Microsoft Docs
-description: Aprenda a criar, editar e configurar políticas de Gerenciamento de API. Consulte exemplos de código e exiba recursos adicionais disponíveis.
+description: Aprenda a criar, editar e configurar políticas de Gerenciamento de API. Confira exemplos de código e exiba recursos adicionais disponíveis.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: apimpm
 ms.openlocfilehash: a0786c1ce5d3a693dabe422b65af7177e16c20b9
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87905509"
 ---
 # <a name="policies-in-azure-api-management"></a>Políticas do Gerenciamento de API do Azure

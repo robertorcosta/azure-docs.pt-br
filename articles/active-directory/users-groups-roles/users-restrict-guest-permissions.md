@@ -14,10 +14,10 @@ ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 418be35cb7996acaa7f11f37627d065451c9c7c6
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90055207"
 ---
 # <a name="restrict-guest-access-permissions-preview-in-azure-active-directory"></a>Restringir as permissões de acesso de convidado (versão prévia) no Azure Active Directory
@@ -47,7 +47,7 @@ Fizemos alterações nos controles de portal do Azure existentes para permissõe
 
     ![Página de configurações de colaboração externa do Azure AD](./media/users-restrict-guest-permissions/external-collaboration-settings.png)
 
-1. Clique em **Salvar**. As alterações podem levar até 15 minutos para entrar em vigor para os usuários convidados.
+1. Selecione **Salvar**. As alterações podem levar até 15 minutos para entrar em vigor para os usuários convidados.
 
 ## <a name="update-with-the-microsoft-graph-api"></a>Atualizar com a API de Microsoft Graph
 
@@ -103,7 +103,7 @@ Resposta de exemplo:
 
 Com esse recurso, adicionamos a capacidade de configurar as permissões restritas por meio de cmdlets do PowerShell v2. O cmdlet Get e set do PowerShell foram publicados na versão 2.0.2.85.
 
-### <a name="get-command-get-azureadmsauthorizationpolicy"></a>Obter comando: Get-AzureADMSAuthorizationPolicy
+### <a name="get-command-get-azureadmsauthorizationpolicy"></a>Comando Get: Get-AzureADMSAuthorizationPolicy
 
 Exemplo:
 
@@ -147,10 +147,10 @@ O serviço sem suporte atual pode ter problemas de compatibilidade com a nova co
 - Formulários
 - Planejador nas equipes
 - Aplicativo do Planner
-- Project
+- Projeto
 - Yammer
 
-## <a name="frequently-asked-questions-faq"></a>Perguntas frequentes (FAQ)
+## <a name="frequently-asked-questions-faq"></a>Perguntas frequentes
 
 Pergunta | Resposta
 -------- | ------

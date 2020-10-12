@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: rdhillon
 ms.openlocfilehash: 1e5253d617c87d5869cebc817da6d265ebfdfa7e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77539460"
 ---
 # <a name="troubleshoot-azure-private-link-connectivity-problems"></a>Solucionar problemas de conectividade do Link Privado do Azure
@@ -81,7 +81,7 @@ Se você tiver problemas de conectividade com a configuração de link privado, 
 
        ![Verificar informações de visibilidade](./media/private-link-tsg/pls-overview-pane-visibility.png)
 
-    (por exemplo, Examine as informações do **balanceador de carga** na guia **visão geral** .
+    g. Examine as informações do **balanceador de carga** na guia **visão geral** .
      - Você pode ir para o balanceador de carga selecionando o link do balanceador de carga.
 
        ![Verificar informações do balanceador de carga](./media/private-link-tsg/pls-overview-pane-ilb.png)
