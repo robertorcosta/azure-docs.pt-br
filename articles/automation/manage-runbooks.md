@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 06/10/2020
 ms.topic: conceptual
 ms.openlocfilehash: 023864e23c0cd23df0de603e76acac651bd2458e
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90987582"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Gerenciar runbooks na Automação do Azure
@@ -301,7 +301,7 @@ Você pode filtrar a lista de trabalhos selecionando **Filtrar trabalhos**. Filt
 
 Como alternativa, você pode exibir detalhes de resumo do trabalho para um runbook específico selecionando esse runbook na página Runbooks da sua conta da Automação e selecionando **Trabalhos**. Essa ação apresenta a página Trabalhos. A partir daqui, você pode clicar em um registro de trabalho para exibir seus detalhes e saída.
 
-:::image type="content" source="./media/manage-runbooks/automation-runbook-job-summary-blade.png" alt-text="Captura de tela da página trabalhos com o botão erros realçado.":::
+:::image type="content" source="./media/manage-runbooks/automation-runbook-job-summary-blade.png" alt-text="Captura de tela da página trabalhos.":::
 
 ### <a name="retrieve-job-statuses-using-powershell"></a>Recuperar status de trabalho usando o PowerShell
 

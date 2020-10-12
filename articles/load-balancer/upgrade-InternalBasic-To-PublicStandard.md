@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
 ms.openlocfilehash: 225252f2cd47c36de2c7eed4ed1e5dae3ebd81b2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87078761"
 ---
 # <a name="upgrade-azure-internal-load-balancer---outbound-connection-required"></a>Atualização de Load Balancer interno do Azure-conexão de saída necessária
@@ -42,7 +42,7 @@ Há um script de Azure PowerShell disponível que faz o seguinte:
 
 ## <a name="download-the-script"></a>Baixar o script
 
-Baixe o script de migração do [Galeria do PowerShell](https://www.powershellgallery.com/packages/AzureLBUpgrade/2.0).
+Baixe o script de migração do  [Galeria do PowerShell](https://www.powershellgallery.com/packages/AzureLBUpgrade/2.0).
 ## <a name="use-the-script"></a>Usar o script
 
 Há duas opções para você dependendo da configuração e das preferências do ambiente do PowerShell local:
@@ -52,7 +52,7 @@ Há duas opções para você dependendo da configuração e das preferências do
 
 Para determinar se você tem os módulos AZ do Azure instalados, execute `Get-InstalledModule -Name az` . Se você não vir nenhum módulo AZ instalado, poderá usar o `Install-Script` método.
 
-### <a name="install-using-the-install-script-method"></a>Instalar usando o método Install-Script
+### <a name="install-using-the-install-script-method"></a>Instalar usando o método de Install-Script
 
 Para usar essa opção, você não deve ter os módulos AZ do Azure instalados no seu computador. Se eles estiverem instalados, o comando a seguir exibirá um erro. Você pode desinstalar os módulos AZ do Azure ou usar a outra opção para baixar o script manualmente e executá-lo.
   

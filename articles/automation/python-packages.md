@@ -7,10 +7,10 @@ ms.date: 02/25/2019
 ms.topic: conceptual
 ms.custom: devx-track-python
 ms.openlocfilehash: 1ab0b2def1a22470c1d0b6339e1525cd683b4a0b
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90987567"
 ---
 # <a name="manage-python-2-packages-in-azure-automation"></a>Gerenciar pacotes do Python 2 no Automação do Azure
@@ -25,11 +25,11 @@ Na sua conta de Automação, selecione **Pacotes do Python 2** em **Recursos Com
 
 Na página Adicionar Pacote Python 2, selecione um pacote local para carregar. O pacote pode ser um arquivo **.whl** ou **.tar.gz**. Quando o pacote for selecionado, clique em **OK** para carregá-lo.
 
-:::image type="content" source="media/python-packages/upload-package.png" alt-text="Captura de tela mostra a página Adicionar pacote Python 2 com um arquivo tar. gz carregado selecionado.":::
+:::image type="content" source="media/python-packages/upload-package.png" alt-text="A captura de tela da página de pacotes do Python 2 mostra pacotes python 2 no menu à esquerda e adiciona um pacote Python 2 realçado.":::
 
 Depois que um pacote tiver sido importado, ele será listado na página de pacotes do Python 2 na sua conta de Automação. Se você precisar remover um pacote, selecione o pacote e clique em **Excluir**.
 
-:::image type="content" source="media/python-packages/package-list.png" alt-text="Captura de tela mostra a página de pacotes do Python 2 depois que um pacote é importado.":::
+:::image type="content" source="media/python-packages/package-list.png" alt-text="A captura de tela da página de pacotes do Python 2 mostra pacotes python 2 no menu à esquerda e adiciona um pacote Python 2 realçado.":::
 
 ## <a name="import-packages-with-dependencies"></a>Importar pacotes com dependências
 
@@ -54,7 +54,7 @@ Depois que os pacotes forem baixados, você poderá importá-los para sua conta 
 * -a \<automationAccount\>
 * -m \<modulePackage\>
 
-:::image type="content" source="media/python-packages/import-python-runbook.png" alt-text="Captura de tela mostra a página Visão geral de import_py2package_from_pypi com o painel Iniciar runbook no lado direito.":::
+:::image type="content" source="media/python-packages/import-python-runbook.png" alt-text="A captura de tela da página de pacotes do Python 2 mostra pacotes python 2 no menu à esquerda e adiciona um pacote Python 2 realçado.":::
 
 O runbook permite que você especifique qual pacote baixar. Por exemplo, o uso do parâmetro `Azure` baixa todos os módulos do Azure e todas as dependências (cerca de 105).
 

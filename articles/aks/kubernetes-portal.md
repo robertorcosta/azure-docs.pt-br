@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 09/21/2020
 ms.author: lahugh
 ms.openlocfilehash: 6a9567669445cb5aa94c1108051c961a216fabad
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91335595"
 ---
 # <a name="access-kubernetes-resources-from-the-azure-portal-preview"></a>Acessar recursos do kubernetes da portal do Azure (versão prévia)
@@ -48,19 +48,19 @@ Neste exemplo, usaremos nosso cluster AKS de exemplo para implantar o aplicativo
 
 Depois que o arquivo YAML for adicionado, o Visualizador de recursos mostrará os dois serviços do kubernetes que foram criados: o serviço interno (Azure-vote-back) e o serviço externo (Azure-vote-Front) para acessar o aplicativo Azure vote. O serviço externo inclui um endereço IP externo vinculado para que você possa exibir facilmente o aplicativo em seu navegador.
 
-:::image type="content" source="media/kubernetes-portal/portal-services.png" alt-text="Informações do aplicativo de voto do Azure exibidas no portal do Azure." lightbox="media/kubernetes-portal/portal-services.png":::
+:::image type="content" source="media/kubernetes-portal/portal-services.png" alt-text="Informações de Pod kubernetes exibidas no portal do Azure." lightbox="media/kubernetes-portal/portal-services.png":::
 
 ### <a name="monitor-deployment-insights"></a>Monitorar informações de implantação
 
 Os clusters AKS com [Azure monitor para contêineres][enable-monitor] habilitados podem exibir rapidamente as informações de implantação. Na exibição de recursos do kubernetes, os usuários podem ver o status ao vivo de implantações individuais, incluindo o uso de CPU e memória, bem como a transição para o Azure monitor para obter informações mais detalhadas. Aqui está um exemplo de informações de implantação de um cluster AKS de exemplo:
 
-:::image type="content" source="media/kubernetes-portal/deployment-insights.png" alt-text="Informações de implantação exibidas no portal do Azure." lightbox="media/kubernetes-portal/deployment-insights.png":::
+:::image type="content" source="media/kubernetes-portal/deployment-insights.png" alt-text="Informações de Pod kubernetes exibidas no portal do Azure." lightbox="media/kubernetes-portal/deployment-insights.png":::
 
 ## <a name="edit-yaml"></a>Editar YAML
 
 A exibição de recursos kubernetes também inclui um editor de YAML. Um editor YAML interno significa que você pode atualizar ou criar serviços e implantações de dentro do portal e aplicar as alterações imediatamente.
 
-:::image type="content" source="media/kubernetes-portal/service-editor.png" alt-text="Editor de YAML para um serviço kubernetes exibido no portal do Azure.":::
+:::image type="content" source="media/kubernetes-portal/service-editor.png" alt-text="Informações de Pod kubernetes exibidas no portal do Azure.":::
 
 Depois de editar o YAML, as alterações são aplicadas selecionando **revisar + salvar**, confirmando as alterações e salvando novamente.
 
@@ -82,7 +82,7 @@ Para acessar os recursos do kubernetes, você deve ter acesso ao cluster do AKS,
 
 Para os clusters existentes, talvez seja necessário habilitar a exibição de recursos kubernetes. Para habilitar o modo de exibição de recursos, siga os prompts no portal para o cluster.
 
-:::image type="content" source="media/kubernetes-portal/enable-resource-view.png" alt-text="Portal do Azure mensagem para habilitar a exibição de recursos kubernetes." lightbox="media/kubernetes-portal/enable-resource-view.png":::
+:::image type="content" source="media/kubernetes-portal/enable-resource-view.png" alt-text="Informações de Pod kubernetes exibidas no portal do Azure." lightbox="media/kubernetes-portal/enable-resource-view.png":::
 
 > [!TIP]
 > O recurso AKS para [**intervalos de IP autorizados do servidor de API**](api-server-authorized-ip-ranges.md) pode ser adicionado para limitar o acesso do servidor de API somente ao ponto de extremidade público do firewall. Outra opção para esses clusters é atualizar `--api-server-authorized-ip-ranges` para incluir o acesso a um computador cliente local ou intervalo de endereços IP (do qual o portal está sendo procurado). Para permitir esse acesso, você precisa do endereço IPv4 público do computador. Você pode encontrar esse endereço com o comando abaixo ou pesquisando "o que é meu endereço IP" em um navegador da Internet.

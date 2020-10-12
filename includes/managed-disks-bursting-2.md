@@ -1,6 +1,6 @@
 ---
-title: incluir arquivo
-description: incluir arquivo
+title: arquivo de inclusão
+description: arquivo de inclusão
 services: virtual-machines
 author: albecker1
 ms.service: virtual-machines
@@ -9,15 +9,15 @@ ms.date: 04/27/2020
 ms.author: albecker1
 ms.custom: include file
 ms.openlocfilehash: cc0dd5e76227c0814659b74afc2ac46c8ca4de73
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87102435"
 ---
 ## <a name="common-scenarios"></a>Cenários comuns
 Os cenários a seguir podem se beneficiar muito da intermitência:
-- **Melhorando os tempos de inicialização** – com a intermitência, sua instância será inicializada a uma taxa significativamente mais rápida. Por exemplo, o disco do sistema operacional padrão para VMs com habilitação Premium é o disco P4, que é um desempenho provisionado de até 120 IOPS e 25 MB/s. Com a intermitência, o P4 pode ir até 3500 IOPS e 170 MB/s, permitindo um tempo de inicialização para acelerar por 6 vezes.
+- **Melhorando os tempos de inicialização**  – com a intermitência, sua instância será inicializada a uma taxa significativamente mais rápida. Por exemplo, o disco do sistema operacional padrão para VMs com habilitação Premium é o disco P4, que é um desempenho provisionado de até 120 IOPS e 25 MB/s. Com a intermitência, o P4 pode ir até 3500 IOPS e 170 MB/s, permitindo um tempo de inicialização para acelerar por 6 vezes.
 - **Manipulação de trabalhos em lotes** – algumas cargas de trabalho do aplicativo são cíclicas por natureza e exigem um desempenho de linha de base para a maioria do tempo e exigem um desempenho maior por um curto período de tempo. Um exemplo disso é um programa de contabilidade que processa transações diárias que exigem uma pequena quantidade de tráfego de disco. No final do mês, o reconcilia os relatórios que precisam de uma quantidade muito maior de tráfego de disco.
 - **Preparação para picos de tráfego** – os servidores Web e seus aplicativos podem enfrentar sobretensões de tráfego a qualquer momento. Se o seu servidor Web for apoiado por VMs ou discos que usam intermitência, os servidores serão mais bem equipados para lidar com picos de tráfego. 
 

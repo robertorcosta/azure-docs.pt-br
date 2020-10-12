@@ -4,10 +4,10 @@ description: Descreve as propriedades que são fornecidas para eventos dos Servi
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: c1c5953cae7364131eefcec97d3375404c85e963
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86105924"
 ---
 # <a name="azure-media-services-as-an-event-grid-source"></a>Serviços de mídia do Azure como uma fonte de grade de eventos
@@ -434,7 +434,7 @@ O objeto de dados tem as seguintes propriedades:
 | -------- | ---- | ----------- |
 | trackType | string | Tipo de faixa (Áudio/Vídeo). |
 | trackName | string | Nome da faixa. |
-| taxa de bits | inteiro | Taxa de bits da faixa. |
+| taxa de bits | Número inteiro | Taxa de bits da faixa. |
 | timestamp | string | O carimbo de data/hora da parte de dados é descartado. |
 | escala de tempo | string | Escala de tempo do carimbo de data/hora. |
 | resultCode | string | Motivo do descarte da parte de dados. **FragmentDrop_OverlapTimestamp** ou **FragmentDrop_NonIncreasingTimestamp**. |
@@ -474,7 +474,7 @@ O objeto de dados tem as seguintes propriedades:
 | -------- | ---- | ----------- |
 | trackType | string | Tipo de faixa (Áudio/Vídeo). |
 | trackName | string | Nome da faixa (fornecido pelo codificador ou, no caso de RTMP, o servidor gera no formato *TrackType_Bitrate*). |
-| taxa de bits | inteiro | Taxa de bits da faixa. |
+| taxa de bits | Número inteiro | Taxa de bits da faixa. |
 | IngestUrl | string | URL de ingestão fornecida pelo evento ao vivo. |
 | encoderIp | string  | IP do codificador. |
 | encoderPort | string | Porta do codificador de onde vem esse fluxo. |
@@ -591,13 +591,13 @@ O objeto de dados tem as seguintes propriedades:
 | -------- | ---- | ----------- |
 | trackType | string | Tipo de faixa (Áudio/Vídeo). |
 | trackName | string | Nome da faixa (fornecido pelo codificador ou, no caso de RTMP, o servidor gera no formato *TrackType_Bitrate*). |
-| taxa de bits | inteiro | Taxa de bits da faixa. |
-| incomingBitrate | inteiro | Taxa de bits calculada com base nas partes de dados provenientes do codificador. |
+| taxa de bits | Número inteiro | Taxa de bits da faixa. |
+| incomingBitrate | Número inteiro | Taxa de bits calculada com base nas partes de dados provenientes do codificador. |
 | lastTimestamp | string | Carimbo de data/hora mais recente recebido para uma faixa nos últimos 20 segundos. |
 | escala de tempo | string | Escala de tempo na qual os carimbos de data/hora são expressos. |
-| overlapCount | inteiro | O número de partes de dados que sobrepôs os carimbos de data/hora nos últimos 20 segundos. |
-| discontinuityCount | inteiro | Número do descontinuidades observadas nos últimos 20 segundos. |
-| nonIncreasingCount | inteiro | Número de partes de dados com os carimbos de data/hora no passado recebidas nos últimos 20 segundos. |
+| overlapCount | Número inteiro | O número de partes de dados que sobrepôs os carimbos de data/hora nos últimos 20 segundos. |
+| discontinuityCount | Número inteiro | Número do descontinuidades observadas nos últimos 20 segundos. |
+| nonIncreasingCount | Número inteiro | Número de partes de dados com os carimbos de data/hora no passado recebidas nos últimos 20 segundos. |
 | unexpectedBitrate | bool | Se as taxas de bits esperadas e reais apresentarem diferença superior ao limite permitido nos últimos 20 segundos. É true se e somente se, IncomingBitrate >= 2* taxa de bits OU IncomingBitrate <= taxa de bits/2 OU IncomingBitrate = 0. |
 | state | string | Estado do evento ao vivo. |
 | Healthy | bool | Indica se a ingestão está íntegra com base nas contagens e nos sinalizadores. Healthy será true se OverlapCount = 0 && DiscontinuityCount = 0 && NonIncreasingCount = 0 && UnexpectedBitrate = false. |
@@ -635,7 +635,7 @@ O objeto de dados tem as seguintes propriedades:
 | -------- | ---- | ----------- |
 | trackType | string | Tipo de faixa (Áudio/Vídeo). |
 | trackName | string | Nome da faixa (fornecido pelo codificador ou, no caso de RTMP, o servidor gera no formato *TrackType_Bitrate*). |
-| taxa de bits | inteiro | Taxa de bits da faixa. |
+| taxa de bits | Número inteiro | Taxa de bits da faixa. |
 | PreviousTimestamp | string | Carimbo de data/hora do fragmento anterior. |
 | NewTimestamp | string | Carimbo de data/hora do fragmento atual. |
 | discontinuityGap | string | Lacuna entre os dois carimbos de data/hora acima. |
@@ -653,8 +653,8 @@ Um evento tem os seguintes dados de nível superior:
 | eventTime | string | A hora em que o evento é gerado com base na hora UTC do provedor. |
 | id | string | Identificador exclusivo do evento. |
 | data | objeto | Dados de eventos dos Serviços de Mídia. |
-| dataVersion | string | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
-| metadataVersion | string | A versão do esquema do metadados de evento. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
+| dataVersion | string | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
+| metadataVersion | string | A versão do esquema dos metadados do evento. Grade de Eventos define o esquema de propriedades de nível superior. A Grade de Eventos fornece esse valor. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

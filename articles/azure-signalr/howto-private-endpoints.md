@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/06/2020
 ms.author: dayshen
 ms.openlocfilehash: 645b2c643c1c1d4fe82eb5998a35ccc48536603e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84302138"
 ---
 # <a name="use-private-endpoints-for-azure-signalr-service"></a>Usar pontos de extremidade privados para o serviço de Signaler do Azure
@@ -57,7 +57,7 @@ Quando você resolve o nome de domínio do serviço de Signaler do Azure de fora
 
 Para o exemplo ilustrado acima, os registros de recurso de DNS para o serviço de Signaler do Azure ' foobar ', quando resolvidos de fora da VNet que hospeda o ponto de extremidade privado, serão:
 
-| Nome                                                  | Tipo  | Valor                                                 |
+| Nome                                                  | Type  | Valor                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``foobar.service.signalr.net``                        | CNAME | ``foobar.privatelink.service.signalr.net``            |
 | ``foobar.privatelink.service.signalr.net``            | Um     | \<Azure SignalR Service public IP address\>           |
@@ -66,7 +66,7 @@ Como mencionado anteriormente, você pode negar ou controlar o acesso para clien
 
 Os registros de recurso DNS para ' foobar ', quando resolvidos por um cliente na VNet que hospeda o ponto de extremidade privado, serão:
 
-| Nome                                                  | Tipo  | Valor                                                 |
+| Nome                                                  | Type  | Valor                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``foobar.service.signalr.net``                        | CNAME | ``foobar.privatelink.service.signalr.net``            |
 | ``foobar.privatelink.service.signalr.net``            | Um     | 10.1.1.5                                              |
@@ -89,7 +89,7 @@ Para obter mais informações sobre como configurar seu próprio servidor DNS pa
 
 ### <a name="create-a-private-endpoint-along-with-a-new-azure-signalr-service-in-the-azure-portal"></a>Criar um ponto de extremidade privado junto com um novo serviço de Signaler do Azure no portal do Azure
 
-1. Ao criar um novo serviço de Signaler do Azure, selecione a guia **rede** . escolha **ponto de extremidade privado** como método de conectividade.
+1. Ao criar um novo serviço de Signaler do Azure, selecione a guia **rede** . Escolha **ponto de extremidade privado** como método de conectividade.
 
     ![Criar serviço do Azure Signalr – guia rede](media/howto-private-endpoints/portal-create-blade-networking-tab.png)
 

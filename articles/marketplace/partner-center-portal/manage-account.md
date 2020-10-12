@@ -8,10 +8,10 @@ author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 08/27/2020
 ms.openlocfilehash: a2d2c4d29a6af073e3e4e6a74c257cb864b8a78c
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91400682"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>Gerenciar sua conta do marketplace comercial no Partner Center
@@ -237,7 +237,7 @@ Para adicionar um grupo totalmente novo à sua conta do Partner Center:
 4. Especifique as funções ou as permissões personalizadas para o grupo. Todos os membros do grupo poderão acessar sua conta do Partner Center com as permissões que você aplicar aqui, independentemente das funções/permissões associadas a cada conta individual.
 5. Selecione usuário(s) para o novo grupo na lista que aparecerá. Você pode usar a caixa de pesquisa para procurar usuários específicos.
 6. Quando terminar de selecionar usuários, selecione **Adicionar selecionado** para adicioná-los ao novo grupo.
-7. Clique em **Salvar**.
+7. Selecione **Salvar**.
 
 Esse novo grupo será criado na conta corporativa da sua organização (locatário do Azure AD) também, não apenas na sua conta do Partner Center.
 

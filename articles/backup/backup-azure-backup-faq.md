@@ -4,10 +4,10 @@ description: 'Respostas para perguntas comuns sobre: recursos de Backup do Azure
 ms.topic: conceptual
 ms.date: 07/07/2019
 ms.openlocfilehash: 26d833dfea214c5f29b77c2ac34a5f8863c7fbc0
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90986415"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Backup do Azure — Perguntas frequentes
@@ -120,7 +120,7 @@ A tabela a seguir explica como cada tamanho de fonte de dados é determinado.
 **Fonte de dados** | **Detalhes**
 --- | ---
 Volume |A quantidade de dados incluída no backup da VM de volume único que está sendo submetida a backup.
-Banco de dados SQL Server |Tamanho do tamanho do banco de dados individual cujo backup está sendo feito.
+Banco de dados do SQL Server |Tamanho do tamanho do banco de dados individual cujo backup está sendo feito.
 SharePoint | A soma dos bancos de dados de conteúdo e de configuração em um farm do SharePoint do qual está sendo feito o backup.
 Exchange |Soma de todos os bancos de dados do Exchange em um servidor Exchange do qual está sendo feito o backup.
 Estado do sistema/BMR |Cada cópia individual do BMR ou do estado do sistema da máquina da qual está sendo feito o backup.

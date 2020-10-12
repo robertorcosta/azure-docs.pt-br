@@ -9,10 +9,10 @@ ms.date: 06/01/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: c06bbc412a51fc919b862aeb3f62ec58feec89cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84259194"
 ---
 # <a name="optimize-costs-for-blob-storage-with-reserved-capacity"></a>Otimizar custos para o armazenamento de blobs com capacidade reservada
@@ -123,7 +123,7 @@ Quando uma reserva expira, qualquer capacidade de armazenamento do Azure que voc
 
 Você receberá uma notificação por email 30 dias antes da expiração da reserva e novamente na data de validade. Para continuar aproveitando a economia de custos que uma reserva fornece, renove-a não depois da data de expiração.
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco
 
 Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
 

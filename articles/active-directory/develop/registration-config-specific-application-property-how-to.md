@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: ryanwi
 ms.openlocfilehash: 1469fcfa68b10353b78d31ccc758c61bf7746692
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88120687"
 ---
 # <a name="azure-portal-registration-fields-for-custom-developed-apps"></a>Campos de registro do portal do Azure para aplicativos personalizados
@@ -37,7 +37,7 @@ Este artigo oferece uma breve descrição de todos os campos disponíveis no for
 | Campo            | Descrição                                                                              |
 |------------------|------------------------------------------------------------------------------------------|
 | Nome             | O nome do aplicativo. Ele deve ter um mínimo de quatro caracteres.                |
-| Tipos de conta compatíveis| Selecione as contas às quais você deseja que seu aplicativo dê suporte: contas neste diretório organizacional somente, contas em qualquer diretório organizacional ou contas em qualquer diretório organizacional e contas pessoais da Microsoft.  |
+| Tipos de conta com suporte| Selecione as contas às quais você deseja que seu aplicativo dê suporte: contas neste diretório organizacional somente, contas em qualquer diretório organizacional ou contas em qualquer diretório organizacional e contas pessoais da Microsoft.  |
 | URI de redirecionamento (opcional) | Selecione o tipo de aplicativo que você está criando, cliente **Web** ou **público (Mobile & Desktop)** e, em seguida, insira o URI de redirecionamento (ou URL de resposta) para seu aplicativo. Para aplicativos Web, informe a URL base do aplicativo. Por exemplo, http://localhost:31544 pode ser uma URL para um aplicativo Web em execução no seu computador local. Os usuários usariam essa URL para entrar em um aplicativo cliente Web. Para aplicativos cliente públicos, informe o URI usado pelo Azure AD para retornar respostas de token. Insira um valor específico para seu aplicativo, como myapp://auth. Para ver exemplos específicos para aplicativos Web ou aplicativos nativos, Confira nossos [guias de início rápido](./index.yml).|
 
 Depois de preencher os campos acima, o aplicativo será registrado na portal do Azure e você será redirecionado para a página Visão geral do aplicativo. As páginas de configurações no painel esquerdo em **gerenciar** têm mais campos para personalizar seu aplicativo. As tabelas a seguir descrevem todos os campos. Você só veria um subconjunto desses campos, dependendo se você criou um aplicativo Web ou um aplicativo cliente público.
@@ -61,7 +61,7 @@ Depois de preencher os campos acima, o aplicativo será registrado na portal do 
 | Campo           | Descrição        |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | URL de logoff      | Esta é a URL de logoff de logoff único. O Azure AD envia uma solicitação de logoff para essa URL quando o usuário limpa a sessão com o Azure AD usando qualquer outro aplicativo registrado.|
-| Tipos de conta compatíveis  | Esta opção especifica se o aplicativo pode ser usado por vários locatários. Normalmente, isso significa que organizações externas podem usar seu aplicativo registrando-o em seu locatário e concedendo acesso aos dados da organização.|
+| Tipos de conta com suporte  | Esta opção especifica se o aplicativo pode ser usado por vários locatários. Normalmente, isso significa que organizações externas podem usar seu aplicativo registrando-o em seu locatário e concedendo acesso aos dados da organização.|
 | URLs de redirecionamento      | As URLs de redirecionamento, ou de resposta são os pontos de extremidade onde o Azure AD retorna quaisquer tokens que seu aplicativo solicita. Para aplicativos nativos, é para onde o usuário é enviado após uma autorização bem-sucedida. O Azure AD verifica se o URI de redirecionamento que seu aplicativo fornece na solicitação OAuth 2,0 corresponde a um dos valores registrados no Portal.|
 
 ### <a name="certificates-and-secrets"></a>Certificados e segredos

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: aahi
 ms.openlocfilehash: 3d35a1f6913d0b657956489d0e57836a05f9eb1d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90900042"
 ---
 # <a name="azure-cognitive-services-containers-frequently-asked-questions-faq"></a>Perguntas frequentes sobre os contêineres de serviços cognitivas do Azure
@@ -37,14 +37,14 @@ ms.locfileid: "90900042"
 
 **R:** Gostaríamos de disponibilizar serviços mais cognitivas como ofertas de contêiner. Entre em contato com seu Gerenciador de conta Microsoft local para obter atualizações sobre novas versões de contêiner e outros anúncios de serviços cognitivas.
 
-**P: qual será o SLA (contrato de nível de serviço) para os contêineres de serviços cognitivas?**
+**P: qual será o SLA (contrato de Service-Level) para os contêineres de serviços cognitivas?**
 
 **R:** Os contêineres de serviços cognitivas não têm um SLA.
 
 As configurações de contêiner de serviços cognitivas de recursos são controladas pelos clientes, portanto, a Microsoft não oferecerá um SLA para GA (disponibilidade geral). Os clientes são livres para implantar contêineres no local, portanto, eles definem os ambientes de host.
 
 > [!IMPORTANT]
-> Para saber mais sobre os contratos de nível de serviço de serviços cognitivas, [visite nossa página de SLA](https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/).
+> Para saber mais sobre os contratos de Service-Level de serviços cognitivas, [visite nossa página de SLA](https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/).
 
 **P: esses contêineres estão disponíveis em nuvens soberanas?**
 
@@ -127,7 +127,7 @@ Explore as seguintes marcas para obter possíveis perguntas e respostas que se a
 * [Pesquisa Visual Computacional][cv-containers-billing]
 * [Detecção Facial][fa-containers-billing]
 * [Reconhecimento de Formulários][fr-containers-billing]
-* [Reconhecimento vocal (LUIS)][lu-containers-billing]
+* [Reconhecimento Vocal (LUIS)][lu-containers-billing]
 * [API do Serviço de Fala][sp-containers-billing]
 * [Análise de Texto][ta-containers-billing]
 
@@ -154,7 +154,7 @@ Explore as seguintes marcas para obter possíveis perguntas e respostas que se a
 * [Pesquisa Visual Computacional][cv-containers-recommendations]
 * [Detecção Facial][fa-containers-recommendations]
 * [Reconhecimento de Formulários][fr-containers-recommendations]
-* [Reconhecimento vocal (LUIS)][lu-containers-recommendations]
+* [Reconhecimento Vocal (LUIS)][lu-containers-recommendations]
 * [API do Serviço de Fala][sp-containers-recommendations]
 * [Análise de Texto][ta-containers-recommendations]
  

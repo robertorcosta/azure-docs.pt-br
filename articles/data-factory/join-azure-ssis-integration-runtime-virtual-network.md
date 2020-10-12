@@ -12,10 +12,10 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
 ms.openlocfilehash: 50abe5071ef424b03d92522e01477d1152930b2e
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86187805"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Unir o runtime de integração do Azure-SSIS a uma rede virtual
@@ -105,7 +105,7 @@ Este diagrama mostra as conexões necessárias para seu Azure-SSIS IR:
 
 ![IR Azure-SSIS](media/join-azure-ssis-integration-runtime-virtual-network/azure-ssis-ir.png)
 
-### <a name="set-up-permissions"></a><a name="perms"></a>Configurar permissões
+### <a name="set-up-permissions"></a><a name="perms"></a> Configurar permissões
 
 O usuário que cria a Azure-SSIS IR deve ter as seguintes permissões:
 
@@ -141,7 +141,7 @@ Se você quiser colocar seus próprios endereços IP públicos estáticos para A
 
 - Eles e a rede virtual devem estar na mesma assinatura e na mesma região.
 
-### <a name="set-up-the-dns-server"></a><a name="dns_server"></a>Configurar o servidor DNS 
+### <a name="set-up-the-dns-server"></a><a name="dns_server"></a> Configurar o servidor DNS 
 Se você precisar usar seu próprio servidor DNS em uma rede virtual unida pelo seu Azure-SSIS IR para resolver o nome do host privado, verifique se ele também pode resolver nomes de host do Azure globais (por exemplo, um blob de armazenamento do Azure denominado `<your storage account>.blob.core.windows.net` ). 
 
 Uma abordagem recomendada é a seguinte: 
@@ -153,7 +153,7 @@ Para obter mais informações, consulte [resolução de nomes que usa seu própr
 > [!NOTE]
 > Use um FQDN (nome de domínio totalmente qualificado) para o nome do host privado, por exemplo, use `<your_private_server>.contoso.com` em vez de `<your_private_server>` , pois Azure-SSIS ir não acrescentará automaticamente seu próprio sufixo DNS.
 
-### <a name="set-up-an-nsg"></a><a name="nsg"></a>Configurar um NSG
+### <a name="set-up-an-nsg"></a><a name="nsg"></a> Configurar um NSG
 Se você precisar implementar um NSG para a sub-rede usada pelo seu Azure-SSIS IR, permita o tráfego de entrada e de saída por meio das seguintes portas: 
 
 -   **Requisito de entrada de Azure-SSIS IR**
@@ -175,7 +175,7 @@ Se você precisar implementar um NSG para a sub-rede usada pelo seu Azure-SSIS I
 | Saída | TCP | VirtualNetwork | * | Armazenamento | 445 | (Opcional) Esta regra é necessária apenas quando você deseja executar o pacote SSIS armazenado nos Arquivos do Azure. |
 ||||||||
 
-### <a name="use-azure-expressroute-or-udr"></a><a name="route"></a>Usar o Azure ExpressRoute ou UDR
+### <a name="use-azure-expressroute-or-udr"></a><a name="route"></a> Usar o Azure ExpressRoute ou UDR
 Se você quiser inspecionar o tráfego de saída de Azure-SSIS IR, poderá rotear o tráfego iniciado de Azure-SSIS IR para o dispositivo de firewall local por meio do túnel de força [do ExpressRoute do Azure](https://azure.microsoft.com/services/expressroute/) (anunciando uma rota BGP, 0.0.0.0/0, para a rede virtual) ou para a NVA (solução de virtualização de rede) como um firewall ou [Firewall do Azure](https://docs.microsoft.com/azure/firewall/) por meio de [UDRs](../virtual-network/virtual-networks-udr-overview.md). 
 
 ![Cenário de NVA para Azure-SSIS IR](media/join-azure-ssis-integration-runtime-virtual-network/azure-ssis-ir-nva.png)
@@ -279,7 +279,7 @@ Se você não precisar da capacidade de inspecionar o tráfego de saída de Azur
 > [!NOTE]
 > Especificar a rota com o próximo salto tipo **Internet** não significa que todo o tráfego passará pela Internet. Desde que o endereço de destino seja para um dos serviços do Azure, o Azure roteia o tráfego diretamente para o serviço pela rede de backbone do Azure, em vez de rotear o tráfego para a Internet.
 
-### <a name="set-up-the-resource-group"></a><a name="resource-group"></a>Configurar o grupo de recursos
+### <a name="set-up-the-resource-group"></a><a name="resource-group"></a> Configurar o grupo de recursos
 
 O Azure-SSIS IR precisa criar determinados recursos de rede no mesmo grupo de recursos que a rede virtual. Esses recursos incluem:
 - Um Azure Load Balancer, com o nome * \<Guid> -azurebatch-cloudserviceloadbalancer*.
@@ -426,7 +426,7 @@ Depois de configurar sua rede virtual Azure Resource Manager ou rede virtual cl�
 
    ![Lista de fábricas de dados](media/join-azure-ssis-integration-runtime-virtual-network/data-factories-list.png)
 
-1. Selecione o data factory com o Azure-SSIS IR na lista. Você verá a home page do seu data factory. Selecione o bloco **criar & monitor** . Você visualiza a interface do usuário do Data Factory em uma guia separada. 
+1. Selecione o data factory com o Azure-SSIS IR na lista. Você verá a home page do seu data factory. Selecione o bloco **Criar e Monitorar**. Você visualiza a interface do usuário do Data Factory em uma guia separada. 
 
    ![Página inicial do data factory](media/join-azure-ssis-integration-runtime-virtual-network/data-factory-home-page.png)
 

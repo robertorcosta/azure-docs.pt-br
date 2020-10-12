@@ -13,10 +13,10 @@ ms.author: bonova
 ms.reviewer: sstein
 ms.date: 09/05/2019
 ms.openlocfilehash: 5798220ad92a99f32f757ffa20f9233b8c79151b
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91617427"
 ---
 # <a name="deploy-azure-sql-managed-instance-to-an-instance-pool"></a>Implantar o Azure SQL Instância Gerenciada em um pool de instâncias
@@ -259,5 +259,5 @@ Se houver vários bancos de dados, repita o processo para cada um.
 - Para obter mais informações sobre a configuração de VNet, confira [Configuração de VNet de Instância Gerenciada de SQL](connectivity-architecture-overview.md).
 - Para obter um início rápido que cria uma instância gerenciada e restaura um banco de dados de um arquivo de backup, confira [Criar uma instância gerenciada](instance-create-quickstart.md).
 - Para obter um tutorial sobre como usar o Serviço de Migração de Banco de Dados do Azure para migração, confira [Migração de Instância Gerenciada de SQL usando o Serviço de Migração de Banco de Dados](../../dms/tutorial-sql-server-to-managed-instance.md).
-- Para o monitoramento avançado do desempenho do banco de dados do SQL Instância Gerenciada com inteligência de solução de problemas interna, consulte [monitorar o instância gerenciada SQL do Azure usando o análise de SQL do Azure](../../azure-monitor/insights/azure-sql.md).
+- Para obter o monitoramento avançado do desempenho de banco de dados da Instância Gerenciada de SQL com inteligência de solução de problemas interna, confira [Monitorar a Instância Gerenciada de SQL do Azure usando a Análise de SQL do Azure](../../azure-monitor/insights/azure-sql.md).
 - Para obter informações sobre preços, consulte [preços do SQL instância gerenciada](https://azure.microsoft.com/pricing/details/sql-database/managed/).
