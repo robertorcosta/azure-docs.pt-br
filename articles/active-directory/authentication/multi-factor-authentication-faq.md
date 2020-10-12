@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 57325363909664bb527c2e2101505641858c4285
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90706261"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Perguntas frequentes sobre a Autenticação Multifator do Azure
@@ -182,7 +182,7 @@ A entrega de mensagens SMS não é garantida porque existem fatores não control
 
 Os aplicativos de segurança de terceiros também podem bloquear a mensagem de texto do código de verificação ou a chamada telefônica. Se estiver usando um aplicativo de segurança de terceiros, tente desabilitar a proteção e, em seguida, solicite outro código de verificação de MFA.
 
-Se os usuários costumam ter problemas com o recebimento confiável de mensagens de texto, solicite que eles usem o método de chamada de telefone ou aplicativo Microsoft Authenticator em vez disso. O Microsoft Authenticator pode receber notificações por conexões de rede celular e Wi-Fi. Além disso, o aplicativo móvel pode gerar códigos de verificação mesmo quando o dispositivo não tem sinal. O aplicativo Microsoft Authenticator está disponível para [Android](https://go.microsoft.com/fwlink/?Linkid=825072), [Ios](https://go.microsoft.com/fwlink/?Linkid=825073)e [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6).
+Se os usuários costumam ter problemas com o recebimento confiável de mensagens de texto, solicite que eles usem o método de chamada de telefone ou aplicativo Microsoft Authenticator em vez disso. O Microsoft Authenticator pode receber notificações em conexões celular e de Wi-Fi. Além disso, o aplicativo móvel pode gerar códigos de verificação mesmo quando o dispositivo não tem sinal. O aplicativo Microsoft Authenticator está disponível para [Android](https://go.microsoft.com/fwlink/?Linkid=825072), [Ios](https://go.microsoft.com/fwlink/?Linkid=825073)e [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6).
 
 ### <a name="can-i-change-the-amount-of-time-my-users-have-to-enter-the-verification-code-from-a-text-message-before-the-system-times-out"></a>Posso alterar a quantidade de tempo que meus usuários precisam inserir o código de verificação de uma mensagem de texto antes do sistema expira?
 
@@ -190,7 +190,7 @@ Em alguns casos, Sim.
 
 Para o SMS unidirecional com o Servidor MFA v7.0 ou posterior do Azure, você pode configurar o tempo limite de configuração definindo uma chave do registro. Depois que o serviço de nuvem MFA envia a mensagem de texto, o código de verificação (ou a senha de uso único) é retornada para o Servidor MFA. O Servidor MFA armazena o código na memória para 300 segundos por padrão. Se o usuário insere seu código depois de 300 segundos, a autenticação será negada. Siga estas etapas para alterar a configuração de tempo limite padrão:
 
-1. Ir para `HKLM\Software\Wow6432Node\Positive Networks\PhoneFactor`.
+1. Acesse `HKLM\Software\Wow6432Node\Positive Networks\PhoneFactor`.
 2. Crie uma chave de registro **DWORD** chamada *pfsvc_pendingSmsTimeoutSeconds* e defina o tempo em segundos que você deseja que o servidor do Azure MFA armazene senhas de uso único.
 
 >[!TIP]

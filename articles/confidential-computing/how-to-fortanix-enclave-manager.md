@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 8/12/2020
 ms.author: JenCook
 ms.openlocfilehash: 235f4eb236e144d41ffb9958b09dab0cf5c269b6
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89462421"
 ---
 # <a name="how-to-run-an-application-with-fortanix-enclave-manager"></a>Como executar um aplicativo com o Fortanix enclave Manager 
@@ -28,7 +28,7 @@ O Fortanix é um fornecedor de software de terceiros com produtos e serviços cr
 
 
 
-Este tutorial mostra como converter a imagem do aplicativo em uma imagem confidencial protegida por computação. Esse ambiente usa o software [Fortanix](https://www.fortanix.com/) , da plataforma de máquinas virtuais do DCsv2 com Intel SGX habilitado para o Azure. Essa solução orquestra políticas de segurança críticas, como verificação de identidade e controle de acesso a dados.
+Este tutorial mostra como converter a imagem do aplicativo em uma imagem confidencial protegida por computação. Esse ambiente usa o software [Fortanix](https://www.fortanix.com/) , da plataforma DCsv2-Series máquinas virtuais habilitadas para SGX Intel do Azure. Essa solução orquestra políticas de segurança críticas, como verificação de identidade e controle de acesso a dados.
 
  Para obter suporte específico a Fortanix, junte-se à [comunidade de margem de atraso Fortanix](https://fortanix.com/community/) e use o canal #enclavemanager.
 
@@ -117,10 +117,10 @@ A criação de um agente de nó Fortanix implantará uma máquina virtual, uma i
      ![pesquisar no Marketplace](media/how-to-fortanix-enclave-manager/search-fortanix-marketplace.png)
 1. Selecione **obter agora**, preencha suas informações, se necessário, e selecione **continuar**. Você será redirecionado para a portal do Azure. 
 1. Selecione **criar** para inserir a página de implantação do agente de nó de computação confidencial do Fortanix.
-1. Nessa página, você inserirá informações para implantar uma máquina virtual. Especificamente, essa VM é uma máquina virtual DCsv2 Intel com SGX habilitada para o Microsoft Azure com o software de agente de nó do Fortanix instalado. O agente de nó permitirá que a imagem convertida seja executada com segurança em nós de SGX Intel no Azure.  Selecione a **assinatura** e o **grupo de recursos** em que você deseja implantar a máquina virtual e os recursos associados. 
+1. Nessa página, você inserirá informações para implantar uma máquina virtual. Especificamente, essa VM é uma DCsv2-Series máquina virtual habilitada para o Intel SGX do Azure com o software do agente de nó do Fortanix instalado. O agente de nó permitirá que a imagem convertida seja executada com segurança em nós de SGX Intel no Azure.  Selecione a **assinatura** e o **grupo de recursos** em que você deseja implantar a máquina virtual e os recursos associados. 
  
     > [!NOTE]
-    > Há restrições ao implantar máquinas virtuais da série DCsv2 no Azure. Talvez seja necessário solicitar uma cota para núcleos adicionais. Leia sobre [soluções de computação confidencial em VMs do Azure](https://docs.microsoft.com/azure/confidential-computing/virtual-machine-solutions) para obter mais informações. 
+    > Há restrições ao implantar máquinas virtuais DCsv2-Series no Azure. Talvez seja necessário solicitar uma cota para núcleos adicionais. Leia sobre [soluções de computação confidencial em VMs do Azure](https://docs.microsoft.com/azure/confidential-computing/virtual-machine-solutions) para obter mais informações. 
 
 1. Selecione uma região disponível.
 1. Insira um nome para sua máquina virtual no campo **nome do nó** . 
@@ -158,7 +158,7 @@ onde:
 1. Verifique se há um aplicativo em execução com um nó de computação associado
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não for mais necessário, você poderá excluir o grupo de recursos, a máquina virtual e os recursos associados. A exclusão do grupo de recursos cancelará o registro dos nós associados à imagem convertida. 
 

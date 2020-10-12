@@ -7,10 +7,10 @@ ms.author: yalavi
 author: yalavi
 ms.subservice: alerts
 ms.openlocfilehash: 52a74593fcfbdc2c1e464077e4ae460f6a5a9c39
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87852388"
 ---
 # <a name="understand-migration-options-to-newer-alerts"></a>Entender as opções de migração para alertas mais recentes
@@ -150,11 +150,11 @@ Para serviços de conta de armazenamento como BLOB, tabela, arquivo e fila, as m
 | SASSuccess | Métrica de transações com dimensões "ResponseType" = "êxito" e "autenticação" = "SAS" | |
 | ServerOtherError | Métrica de transações com dimensões "ResponseType" = "ServerOtherError" | |
 | ServerTimeOutError | Métrica de transações com dimensões "ResponseType" = "ServerTimeOutError"  | |
-| Sucesso | Métrica de transações com dimensões "ResponseType" = "êxito" | |
-| TotalBillableRequests| Transações | |
+| Êxito | Métrica de transações com dimensões "ResponseType" = "êxito" | |
+| TotalBillableRequests| Transactions | |
 | TotalEgress | Saída | |
 | TotalIngress | Entrada | |
-| TotalRequests | Transações | |
+| TotalRequests | Transactions | |
 
 ### <a name="microsoftinsightscomponents"></a>Microsoft. insights/Components
 
@@ -171,16 +171,16 @@ Por Application Insights, as métricas equivalentes são mostradas abaixo:
 | clientPerformance. receiveRequest. Value | browserTimings/receiveDuration| Multiplique o limite original por 1000, pois as unidades para métrica clássica estão em segundos e para uma nova em milissegundos.  |
 | clientPerformance. sendRequest. Value | browserTimings/sendDuration| Multiplique o limite original por 1000, pois as unidades para métrica clássica estão em segundos e para uma nova em milissegundos.  |
 | clientPerformance. total. Value | browserTimings/totalDuration| Multiplique o limite original por 1000, pois as unidades para métrica clássica estão em segundos e para uma nova em milissegundos.  |
-| performanceCounter. available_bytes. Value | performanceCounters/memoryAvailableBytes|   |
-| performanceCounter. io_data_bytes_per_sec. Value | performanceCounters/processIOBytesPerSecond|   |
-| performanceCounter. number_of_exceps_thrown_per_sec. Value | performanceCounters/exceptionsPerSecond|   |
-| performanceCounter. percentage_processor_time_normalized. Value | performanceCounters/processCpuPercentage|   |
-| performanceCounter. percentage_processor_time. Value | performanceCounters/processCpuPercentage| O limite precisará ser modificado adequadamente, pois a métrica original foi feita em todos os núcleos e a nova métrica é normalizada para um núcleo. A ferramenta de migração não altera os limites.  |
-| performanceCounter. percentage_processor_total. Value | performanceCounters/processorCpuPercentage|   |
-| performanceCounter. process_private_bytes. Value | performanceCounters/processPrivateBytes|   |
-| performanceCounter. request_execution_time. Value | performanceCounters/requestExecutionTime|   |
-| performanceCounter. requests_in_application_queue. Value | performanceCounters/requestsInQueue|   |
-| performanceCounter. requests_per_sec. Value | performanceCounters/requestsPerSecond|   |
+| performanceCounter.available_bytes. Value | performanceCounters/memoryAvailableBytes|   |
+| performanceCounter.io_data_bytes_per_sec. Value | performanceCounters/processIOBytesPerSecond|   |
+| performanceCounter.number_of_exceps_thrown_per_sec. Value | performanceCounters/exceptionsPerSecond|   |
+| performanceCounter.percentage_processor_time_normalized. Value | performanceCounters/processCpuPercentage|   |
+| performanceCounter.percentage_processor_time. Value | performanceCounters/processCpuPercentage| O limite precisará ser modificado adequadamente, pois a métrica original foi feita em todos os núcleos e a nova métrica é normalizada para um núcleo. A ferramenta de migração não altera os limites.  |
+| performanceCounter.percentage_processor_total. Value | performanceCounters/processorCpuPercentage|   |
+| performanceCounter.process_private_bytes. Value | performanceCounters/processPrivateBytes|   |
+| performanceCounter.request_execution_time. Value | performanceCounters/requestExecutionTime|   |
+| performanceCounter.requests_in_application_queue. Value | performanceCounters/requestsInQueue|   |
+| performanceCounter.requests_per_sec. Value | performanceCounters/requestsPerSecond|   |
 | duração da solicitação | requests/duration| Multiplique o limite original por 1000, pois as unidades para métrica clássica estão em segundos e para uma nova em milissegundos.  |
 | solicitação. taxa | solicitações/taxa|   |
 | contagem de requestFailed. | requests/failed| Use `aggregationType` ' count ' em vez de ' Sum '.   |
@@ -262,4 +262,4 @@ Como parte da migração, novos alertas de métrica e novos grupos de ação ser
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Como usar a ferramenta de migração](alerts-using-migration-tool.md)
-- [Preparar a migração](alerts-prepare-migration.md)
+- [Preparar para a migração](alerts-prepare-migration.md)

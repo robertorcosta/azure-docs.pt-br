@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/13/2019
 ms.author: allensu
 ms.openlocfilehash: bd6b4831b29a99ed6694f75e64202f339385b7ea
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88191155"
 ---
 # <a name="understanding-azure-cdn-billing"></a>Noções básicas sobre a cobrança da rede de distribuição de conteúdo do Azure
@@ -106,7 +106,7 @@ Se você usar um dos seguintes serviços do Azure como sua origem de CDN, não s
 - Azure Bastion
 - Serviço de Aplicativo do Azure
 - Funções do Azure
-- Fábrica de dados do Azure
+- Azure Data Factory
 - Gerenciamento de API do Azure
 - Lote do Azure 
 - Azure Data Explorer
@@ -116,7 +116,7 @@ Se você usar um dos seguintes serviços do Azure como sua origem de CDN, não s
 - Azure Machine Learning 
 - Banco de Dados SQL do Azure
 - Instância Gerenciada do Azure SQL
-- Cache do Azure para Redis
+- Cache Redis do Azure
 
 ## <a name="how-do-i-manage-my-costs-most-effectively"></a>Como gerencio meus custos com mais eficiência?
 Defina a vida útil mais longa possível em seu conteúdo. 

@@ -8,16 +8,16 @@ ms.author: helohr
 ms.custom: devx-track-azurepowershell
 manager: lizross
 ms.openlocfilehash: d7219751d584eb458cded9f4e30cccb1439dfa1b
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89069010"
 ---
 # <a name="deploy-a-windows-virtual-desktop-classic-management-tool-with-powershell"></a>Implantar uma ferramenta de gerenciamento de área de trabalho virtual do Windows (clássico) com o PowerShell
 
 >[!IMPORTANT]
->Este conteúdo se aplica à Área de Trabalho Virtual do Windows (clássica), que não dá suporte a objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager.
+>Este conteúdo se aplica à Área de Trabalho Virtual do Windows (clássica), que não é compatível com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager.
 
 Este artigo mostrará como implantar a ferramenta de gerenciamento usando o PowerShell.
 
@@ -60,7 +60,7 @@ Comece entrando no módulo do PowerShell AZ e Azure AD. Veja como entrar:
     Connect-AzureAD
     ```
 
-4. Depois disso, navegue até a pasta em que você salvou os dois scripts do PowerShell do repositório GitHub de modelos de RDS.
+4. Depois disso, navegue até a pasta em que você salvou os dois scripts do PowerShell do repositório GitHub RDS-Templates.
 
 Mantenha a janela do PowerShell que você usou para entrar em aberto para executar cmdlets do PowerShell adicionais enquanto estiver conectado.
 

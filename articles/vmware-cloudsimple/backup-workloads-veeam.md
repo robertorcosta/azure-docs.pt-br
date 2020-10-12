@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: e661485e58c7e00c4eee41d808f727153a7761c9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86525034"
 ---
 # <a name="back-up-workload-vms-on-cloudsimple-private-cloud-using-veeam-br"></a>Fazer backup de VMs de carga de trabalho na nuvem privada do CloudSimple usando o Veeam B&R
@@ -54,7 +54,7 @@ Para ambientes com menos de 30 TB para backup, o CloudSimple recomenda a seguint
 
 * Servidor de backup do Veeam e servidor proxy instalados na mesma VM na nuvem privada.
 * Um repositório de backup primário baseado em Linux no Azure configurado como um destino para trabalhos de backup.
-* `azcopy`usado para copiar os dados do repositório de backup primário para um contêiner de blob do Azure que é replicado para outra região.
+* `azcopy` usado para copiar os dados do repositório de backup primário para um contêiner de blob do Azure que é replicado para outra região.
 
 ![Cenários de implantação básica](media/veeam-basicdeployment.png)
 
@@ -65,7 +65,7 @@ Para ambientes com mais de 30 TB para fazer backup, o CloudSimple recomenda a se
 * Um servidor proxy por nó no cluster vSAN, conforme recomendado pelo Veeam.
 * Repositório de backup primário baseado no Windows na nuvem privada para armazenar em cache cinco dias de dados para restaurações rápidas.
 * Repositório de backup do Linux no Azure como um destino para trabalhos de cópia de backup para retenção de duração mais longa. Esse repositório deve ser configurado como um repositório de backup de expansão.
-* `azcopy`usado para copiar os dados do repositório de backup primário para um contêiner de blob do Azure que é replicado para outra região.
+* `azcopy` usado para copiar os dados do repositório de backup primário para um contêiner de blob do Azure que é replicado para outra região.
 
 ![Cenários de implantação básica](media/veeam-advanceddeployment.png)
 

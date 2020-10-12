@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: b3f9451a5ffd13c67232107d8db1e2da4a3891ec
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86524736"
 ---
 # <a name="using-the-azure-maps-drawing-error-visualizer"></a>Usando o Visualizador de Erros de Desenho do Azure Mapas
@@ -82,11 +82,11 @@ Depois de iniciar a ferramenta Visualizador de Erros de Desenho, você verá a p
 
 O arquivo _ConversionWarningsAndErrors.json_ foi colocado na raiz do diretório baixado. Para carregar o _ConversionWarningsAndErrors.json_ você pode arrastar e soltar o arquivo na caixa ou clicar na caixa, localizar o arquivo na caixa de diálogo do Explorador de Arquivos e, em seguida, carregar o arquivo.
 
-:::image type="content" source="./media/drawing-errors-visualizer/loading-data.gif" alt-text="Aplicativo Visualizador de Erros de Desenho — arrastar e soltar para carregar dados":::
+:::image type="content" source="./media/drawing-errors-visualizer/loading-data.gif" alt-text="Aplicativo Visualizador de Erros de Desenho — Página Inicial":::
 
 Depois que o arquivo _ConversionWarningsAndErrors.json_ for carregado, você verá uma lista de erros e avisos do pacote de desenho. Cada erro ou aviso é especificado pela camada, nível e uma mensagem detalhada. Para exibir informações detalhadas sobre um erro ou aviso, clique no link **detalhes** . Uma seção inmanejável será exibida abaixo da lista. Agora você pode navegar por cada erro para saber mais detalhes sobre como resolver o erro.
 
-:::image type="content" source="./media/drawing-errors-visualizer/errors.png" alt-text="Aplicativo Visualizador de Erros de Desenho — erros e avisos":::
+:::image type="content" source="./media/drawing-errors-visualizer/errors.png" alt-text="Aplicativo Visualizador de Erros de Desenho — Página Inicial":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

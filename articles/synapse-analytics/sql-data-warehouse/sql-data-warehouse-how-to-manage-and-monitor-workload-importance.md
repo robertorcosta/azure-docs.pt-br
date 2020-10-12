@@ -12,10 +12,10 @@ ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ms.openlocfilehash: 43006456142728287ddf4adba1fbb9b45f5ccc89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85211962"
 ---
 # <a name="manage-and-monitor-workload-importance-in-azure-synapse-analytics"></a>Gerenciar e monitorar a importância da carga de trabalho no Azure Synapse Analytics
@@ -24,7 +24,7 @@ Gerencie e monitore a importância do nível de solicitação SQL do Synapse no 
 
 ## <a name="monitor-importance"></a>Importância do monitor
 
-Monitore a importância usando a nova coluna importância na exibição de gerenciamento dinâmico [Sys. dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) .
+Monitore a importância usando a coluna nova importância na exibição de gerenciamento dinâmico [Sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) .
 A consulta de monitoramento abaixo mostra o tempo de envio e a hora de início das consultas. Examine a hora de envio e a hora de início junto com a importância para ver como a importância influencia o agendamento.
 
 ```sql
@@ -39,7 +39,7 @@ Para ver mais detalhadamente como as consultas estão sendo agendadas, use as ex
 
 ## <a name="manage-importance-with-catalog-views"></a>Gerenciar importância com exibições de catálogo
 
-A exibição de catálogo sys. workload_management_workload_classifiers contém informações sobre classificadores. Para excluir os classificadores definidos pelo sistema que são mapeados para classes de recurso, execute o seguinte código:
+A exibição de catálogo sys.workload_management_workload_classifiers contém informações sobre classificadores. Para excluir os classificadores definidos pelo sistema que são mapeados para classes de recurso, execute o seguinte código:
 
 ```sql
 SELECT *
@@ -47,7 +47,7 @@ SELECT *
   WHERE classifier_id > 12
 ```
 
-A exibição de catálogo, [Sys. workload_management_workload_classifier_details](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifier-details-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), contém informações sobre os parâmetros usados na criação do classificador.  A consulta abaixo mostra que ExecReportsClassifier foi criado no ```membername``` parâmetro para valores com ExecutiveReports:
+A exibição de catálogo, [Sys.workload_management_workload_classifier_details](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifier-details-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), contém informações sobre os parâmetros usados na criação do classificador.  A consulta abaixo mostra que ExecReportsClassifier foi criado no ```membername``` parâmetro para valores com ExecutiveReports:
 
 ```sql
 SELECT c.name,cd.classifier_type, classifier_value
