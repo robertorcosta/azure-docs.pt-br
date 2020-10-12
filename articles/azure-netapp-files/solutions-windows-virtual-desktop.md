@@ -15,13 +15,13 @@ ms.topic: conceptual
 ms.date: 08/13/2020
 ms.author: b-juche
 ms.openlocfilehash: a003090fd610f2ac75895cccbf97750adbd4cfcd
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88258327"
 ---
-# <a name="benefits-of-using-azure-netapp-files-with-windows-virtual-desktop"></a>Benefícios do uso do Azure NetApp Files com a área de trabalho virtual do Windows 
+# <a name="benefits-of-using-azure-netapp-files-with-windows-virtual-desktop"></a>Benefícios de usar o Azure NetApp Files com a Área de Trabalho Virtual do Windows 
 
 Este artigo fornece orientações de práticas recomendadas sobre a implantação da área de trabalho virtual do Windows (WVD) com o Azure NetApp Files.
 
@@ -35,7 +35,7 @@ Os seguintes planos gráficos de exemplo mostram a integração da área de trab
 
 Para o cenário em pool, a equipe de área de trabalho virtual do Windows [recomenda](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/virtual-machine-recs#multi-session-recommendations) as seguintes diretrizes por conta de usuário para vCPU. Observe que nenhum tamanho de máquina virtual é especificado nesta recomendação.
 
-|     Tipo de carga de trabalho     |     Claro    |     Média    |     Intenso    |
+|     Tipo de carga de trabalho     |     Claro    |     Médio    |     Intenso    |
 |-----------------------|--------------|---------------|--------------|
 |     Usuários por vCPU    |     6        |     4         |     2        |
 

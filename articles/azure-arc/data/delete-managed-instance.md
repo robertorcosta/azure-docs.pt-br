@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: e531349e8f404380d9f0601caa3b66557c297062
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90933809"
 ---
 # <a name="delete-azure-arc-enabled-sql-managed-instance"></a>Excluir o SQL Instância Gerenciada habilitado para Arc do Azure
@@ -52,7 +52,7 @@ Deleted demo-mi from namespace arc
 
 ## <a name="reclaim-the-kubernetes-persistent-volume-claims-pvcs"></a>Recuperar as kubernetes de declarações de volume persistentes (PVCs)
 
-A exclusão de um Instância Gerenciada SQL não remove seus [PVCs](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)associados. Isso ocorre por design. A intenção é ajudar o usuário a acessar os arquivos de banco de dados, caso a exclusão da instância tenha sido acidental. A exclusão de PVCs não é obrigatória. No entanto, é recomendável. Se você não recuperar esses PVCs, eventualmente acabará com erros, pois o cluster kubernetes ficará sem espaço em disco. Para recuperar os PVCs, execute as seguintes etapas:
+A exclusão de um Instância Gerenciada SQL não remove seus [PVCs](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)associados. Isso ocorre por design. A intenção é ajudar o usuário a acessar os arquivos do banco de dados, se a exclusão da instância foi acidental. A exclusão de PVCs não é obrigatória. No entanto, é recomendada. Se você não recuperar esses PVCs, eventualmente acabará com erros, pois o cluster kubernetes ficará sem espaço em disco. Para recuperar os PVCs, siga estas etapas:
 
 ### <a name="1-list-the-pvcs-for-the-server-group-you-deleted"></a>1. liste os PVCs para o grupo de servidores que você excluiu
 Para listar os PVCs, execute o seguinte comando:
@@ -102,6 +102,6 @@ persistentvolumeclaim "logs-demo-mi-0" deleted
 
 Saiba mais sobre [Recursos e funcionalidades da Instância Gerenciada de SQL habilitada para Azure Arc](managed-instance-features.md)
 
-[Comece criando um controlador de dados](create-data-controller.md)
+[Comece criando um Controlador de Dados](create-data-controller.md)
 
-Já criou um controlador de dados? [Criar uma Instância Gerenciada de SQL habilitada para Azure Arc](create-sql-managed-instance.md)
+Já criou um Controlador de Dados? [Criar uma Instância Gerenciada de SQL habilitada para Azure Arc](create-sql-managed-instance.md)

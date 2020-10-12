@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d5bcb63a325ca6bbf464faf9c5f9934879ccf9a3
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88949653"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-20"></a>Configurar o Servidor de Autenticação Multifator do Azure para trabalhar com o AD FS 2.0
@@ -45,10 +45,10 @@ Para proteger o AD FS 2.0 com um proxy, instale o Servidor de Autenticação Mul
 
    ![Janela de autenticação IIS do servidor MFA](./media/howto-mfaserver-adfs-2/setup1.png)
 
-4. Para detectar o nome de usuário, a senha e as variáveis de domínio automaticamente, insira a URL de logon (como `https://sso.contoso.com/adfs/ls` ) na caixa de diálogo Configurar automaticamente site baseado em formulário e clique em **OK**.
+4. Para detectar o nome de usuário, a senha e as variáveis de domínio automaticamente, insira a URL de logon (como `https://sso.contoso.com/adfs/ls` ) na caixa de diálogo Configurar automaticamente Form-Based site e clique em **OK**.
 5. Marque a caixa correspondente a **Exigir correspondência de usuário de Autenticação Multifator do Microsoft Azure** se todos os usuários tiverem sido ou forem importados para o servidor e estiverem sujeitos à verificação em duas etapas. Se um número significativo de usuários ainda não tiver sido importado no Servidor e/ou for isentado da verificação em duas etapas, deixe a caixa desmarcada.
 6. Se as variáveis de página não puderem ser detectadas automaticamente, clique no botão **Especificar Manualmente...** na caixa de diálogo Configurar Automaticamente Site Baseado em Formulário.
-7. Na caixa de diálogo Adicionar site baseado em formulário, digite a URL para a página de logon AD FS no campo URL de envio (como `https://sso.contoso.com/adfs/ls` ) e insira um nome de aplicativo (opcional). O nome do aplicativo aparece nos relatórios da Autenticação Multifator do Azure e pode ser exibido nas mensagens de autenticação por SMS ou Aplicativo Móvel.
+7. Na caixa de diálogo Adicionar Form-Based site, digite a URL para a página de logon do AD FS no campo URL de envio (como `https://sso.contoso.com/adfs/ls` ) e insira um nome de aplicativo (opcional). O nome do aplicativo aparece nos relatórios da Autenticação Multifator do Azure e pode ser exibido nas mensagens de autenticação por SMS ou Aplicativo Móvel.
 8. Defina o formato da solicitação como **POST ou GET**.
 9. Insira a variável do Nome do usuário (ctl00$ContentPlaceHolder1$UsernameTextBox) e a variável da Senha (ctl00$ContentPlaceHolder1$PasswordTextBox). Se a página de logon baseada em formulário exibir uma caixa de texto de domínio, insira a variável do domínio também. Para localizar os nomes das caixas de entrada na página de logon, vá até a página de logon em um navegador da Web, clique com o botão direito do mouse na página e selecione **Exibir Fonte**.
 10. Marque a caixa correspondente a **Exigir correspondência de usuário de Autenticação Multifator do Microsoft Azure** se todos os usuários tiverem sido ou forem importados para o servidor e estiverem sujeitos à verificação em duas etapas. Se um número significativo de usuários ainda não tiver sido importado no Servidor e/ou for isentado da verificação em duas etapas, deixe a caixa desmarcada.
@@ -61,7 +61,7 @@ Para proteger o AD FS 2.0 com um proxy, instale o Servidor de Autenticação Mul
     - Armazenar em cache as autenticações bem-sucedidas no site usando cookies
     - Selecionar como deseja autenticar as credenciais principais
 
-12. Como não há probabilidade de o servidor proxy do AD FS se unir ao domínio, você pode usar LDAP para se conectar ao seu controlador de domínio para importação de usuário e pré-autenticação. Na caixa de diálogo site baseado em formulário avançado, clique na guia **autenticação primária** e selecione **Associação LDAP** para o tipo de autenticação pré-autenticação.
+12. Como não há probabilidade de o servidor proxy do AD FS se unir ao domínio, você pode usar LDAP para se conectar ao seu controlador de domínio para importação de usuário e pré-autenticação. Na caixa de diálogo site Form-Based avançado, clique na guia **autenticação primária** e selecione **Associação LDAP** para o tipo de autenticação pré-autenticação.
 13. Ao concluir, clique em **OK** para retornar à caixa de diálogo Adicionar Site Baseado em Formulário.
 14. Clique em **OK** para fechar a caixa de diálogo.
 15. Depois que as variáveis de URL e página forem detectadas ou inseridas, os dados do site serão exibidos no painel Baseado em Formulário.

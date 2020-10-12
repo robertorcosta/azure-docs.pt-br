@@ -5,17 +5,17 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions
 ms.openlocfilehash: 19b1c930ffc0e4b519c25f421662547a4d8dcde6
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91773358"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Mover um cofre dos serviços de recuperação entre assinaturas e grupos de recursos do Azure
 
 Este artigo explica como mover um cofre dos Serviços de Recuperação configurado para Backup do Azure entre assinaturas do Azure ou para outro grupo de recursos na mesma assinatura. Você pode usar o portal do Azure ou o PowerShell para mover um cofre dos Serviços de Recuperação.
 
-## <a name="supported-regions"></a>Regiões compatíveis
+## <a name="supported-regions"></a>Regiões com suporte
 
 A movimentação de recursos para o cofre dos serviços de recuperação é suportada no leste da Austrália, leste da Austrália, Canadá central, leste do Canadá, Sul Ásia Oriental, Ásia Oriental, EUA Central, norte EUA Central, leste dos EUA, leste dos Estados Unidos, Sul EUA Central, Oeste EUA Central, oeste dos EUA, oeste do Japão, oeste da Coreia, sul da Coreia , Europa Setentrional, Europa Ocidental, norte da África do Sul, oeste da África do Sul, Sul do Reino Unido e Oeste do Reino Unido.
 

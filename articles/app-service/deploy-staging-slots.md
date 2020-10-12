@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 04/30/2020
 ms.custom: fasttrack-edit
 ms.openlocfilehash: b12b85a2248d7709066ba3218327e0a5d52a0192
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88962155"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurar ambientes de preparo no Serviço de Aplicativo do Azure
@@ -238,7 +238,7 @@ Para rotear o tráfego de produção automaticamente:
 
 1. Vá para a página de recursos do aplicativo e selecione **Slots de implantação**.
 
-2. Na coluna **% do Tráfego** do slot para o qual você deseja rotear, especifique um percentual (entre 0 e 100) para representar a quantidade de tráfego total que deseja rotear. Clique em **Salvar**.
+2. Na coluna **% do Tráfego** do slot para o qual você deseja rotear, especifique um percentual (entre 0 e 100) para representar a quantidade de tráfego total que deseja rotear. Selecione **Salvar**.
 
     ![Definindo um percentual de tráfego](./media/web-sites-staged-publishing/RouteTraffic.png)
 
@@ -262,7 +262,7 @@ Para permitir que os usuários recusem seu aplicativo beta, por exemplo, você p
 
 A cadeia de caracteres `x-ms-routing-name=self` especifica o local de produção. Depois que o navegador do cliente acessa o link, ele é redirecionado para o slot de produção. Cada solicitação subsequente tem o `x-ms-routing-name=self` cookie que fixa a sessão ao slot de produção.
 
-Para permitir que os usuários aceitem seu aplicativo beta, defina o mesmo parâmetro de consulta como o nome do slot de não produção. Veja um exemplo:
+Para permitir que os usuários aceitem seu aplicativo beta, defina o mesmo parâmetro de consulta como o nome do slot de não produção. Aqui está um exemplo:
 
 ```
 <webappname>.azurewebsites.net/?x-ms-routing-name=staging

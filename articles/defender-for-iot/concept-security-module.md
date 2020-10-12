@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 07/24/2019
 ms.author: mlottner
 ms.openlocfilehash: a5382313c837482f116f498f3a05c36447062b0a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90933825"
 ---
 # <a name="security-module"></a>Módulo de segurança
@@ -28,7 +28,7 @@ Este artigo explica como o defender para IoT usa dispositivos gêmeos e módulos
 
 Para soluções de IoT criadas no Azure, dispositivos gêmeos desempenham um papel fundamental tanto no gerenciamento do dispositivo quanto na automação do processo.
 
-O defender para IoT oferece integração total com sua plataforma de gerenciamento de dispositivo IoT existente, permitindo que você gerencie o status de segurança do dispositivo e use os recursos de controle de dispositivo existentes. A integração é obtida por meio do uso do mecanismo de entrelaçamento do Hub IoT.
+O Defender para IoT oferece integração completa à plataforma de gerenciamento de dispositivos IoT que você já tem, permitindo gerenciar seu status de segurança de dispositivo e fazer uso das funcionalidades existentes de controle de dispositivo. A integração é obtida por meio do uso do mecanismo de entrelaçamento do Hub IoT.
 
 Saiba mais sobre o conceito de [dispositivo gêmeos](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins) no Hub IOT do Azure.
 

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 06/06/2020
 ms.author: absha
 ms.openlocfilehash: ce349a0539986d88f689c53fc2099877df8030bf
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87424385"
 ---
 # <a name="metrics-for-application-gateway"></a>Métricas para o gateway de aplicativo
@@ -121,7 +121,7 @@ Para o Gateway de Aplicativo, as seguintes métricas estão disponíveis:
 
    Número de bytes por segundo atendidos pelo Gateway de Aplicativo
 
-- **Total de Solicitações**
+- **Total de solicitações**
 
    Contagem de solicitações bem-sucedidas que o gateway de aplicativo serviu. A contagem de solicitações pode ser filtrada para mostrar a contagem por cada/pool de back-end específico-combinação de configurações de http.
 
@@ -172,7 +172,7 @@ Para o Gateway de Aplicativo, as seguintes métricas estão disponíveis:
 
   Número de bytes por segundo atendidos pelo Gateway de Aplicativo
 
-- **Total de Solicitações**
+- **Total de solicitações**
 
   Contagem de solicitações bem-sucedidas que o gateway de aplicativo serviu. A contagem de solicitações pode ser filtrada para mostrar a contagem por cada/pool de back-end específico-combinação de configurações de http.
 

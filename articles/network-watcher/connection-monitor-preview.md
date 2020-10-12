@@ -16,10 +16,10 @@ ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
 ms.openlocfilehash: 31733abc945fe7c751f786649fb05b753a7c243d
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91408786"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor-preview"></a>Monitoramento de conectividade de rede com o monitor de conexão (versão prévia)
@@ -199,7 +199,7 @@ Você pode filtrar uma lista com base em:
 * **Filtros baseados em estado** – filtre pelo estado do monitor de conexão, do grupo de teste ou do teste. Consulte a caixa 2 na imagem a seguir.
 * **Filtro baseado em alerta** – filtrar por alertas acionados no recurso de monitor de conexão. Consulte a caixa 3 na imagem a seguir.
 
-  :::image type="content" source="./media/connection-monitor-2-preview/cm-view.png" alt-text="Captura de tela mostrando como filtrar exibições de monitores de conexão, grupos de teste e testes no monitor de conexão (versão prévia)" lightbox="./media/connection-monitor-2-preview/cm-view.png":::
+  :::image type="content" source="./media/connection-monitor-2-preview/cm-view.png" alt-text="Captura de tela mostrando monitores de conexão que foram criados no monitor de conexão (versão prévia)" lightbox="./media/connection-monitor-2-preview/cm-view.png":::
     
 Por exemplo, para examinar todos os testes no monitor de conexão (versão prévia) em que o IP de origem é 10.192.64.56:
 1. Altere a exibição para **teste**.
@@ -218,16 +218,16 @@ Para mostrar apenas os testes com falha no monitor de conexão (versão prévia)
 1. No campo de pesquisa, digite *Outlook.office365.com*
 1. Em **escopo** no filtro de nível superior, selecione **destinos**.
   
-  :::image type="content" source="./media/connection-monitor-2-preview/tests-view.png" alt-text="Captura de tela mostrando uma exibição filtrada para mostrar apenas os testes com falha para o destino Outlook.Office365.com" lightbox="./media/connection-monitor-2-preview/tests-view.png":::
+  :::image type="content" source="./media/connection-monitor-2-preview/tests-view.png" alt-text="Captura de tela mostrando monitores de conexão que foram criados no monitor de conexão (versão prévia)" lightbox="./media/connection-monitor-2-preview/tests-view.png":::
 
 Para saber o motivo da falha de um monitor de conexão ou de um grupo de teste ou teste, clique na coluna denominada razão.  Isso informa qual limite (verificação de falha% ou RTT) foi violado e mensagens de diagnóstico relacionadas
   
-  :::image type="content" source="./media/connection-monitor-2-preview/cm-reason-of-failure.png" alt-text="Captura de tela mostrando o motivo da falha para um monitor de conexão, teste ou grupo de teste" lightbox="./media/connection-monitor-2-preview/cm-reason-of-failure.png":::
+  :::image type="content" source="./media/connection-monitor-2-preview/cm-reason-of-failure.png" alt-text="Captura de tela mostrando monitores de conexão que foram criados no monitor de conexão (versão prévia)" lightbox="./media/connection-monitor-2-preview/cm-reason-of-failure.png":::
     
 Para exibir as tendências em RTT e a porcentagem de verificações com falha para um monitor de conexão:
 1. Selecione o monitor de conexão que você deseja investigar.
 
-    :::image type="content" source="./media/connection-monitor-2-preview/cm-drill-landing.png" alt-text="Captura de tela mostrando métricas para um monitor de conexão, exibido pelo grupo de teste" lightbox="./media/connection-monitor-2-preview/cm-drill-landing.png":::
+    :::image type="content" source="./media/connection-monitor-2-preview/cm-drill-landing.png" alt-text="Captura de tela mostrando monitores de conexão que foram criados no monitor de conexão (versão prévia)" lightbox="./media/connection-monitor-2-preview/cm-drill-landing.png":::
 
 1. Você verá as seções a seguir  
     1. Essentials-propriedades específicas do recurso do monitor de conexão selecionado 
@@ -237,7 +237,7 @@ Para exibir as tendências em RTT e a porcentagem de verificações com falha pa
     1. Guias para grupos de teste, fontes, destinos e configurações de teste – lista os grupos de teste, origens ou destinos no monitor de conexão. Falha em testes de verificação, RTT de agregação e verificações de% valores com falha.  Você também pode voltar no tempo para exibir dados. 
     1. Problemas-problemas no nível de salto para cada teste no monitor de conexão. 
 
-    :::image type="content" source="./media/connection-monitor-2-preview/cm-drill-landing-2.png" alt-text="Captura de tela mostrando métricas para um monitor de conexão, exibido por grupo de teste parte 2" lightbox="./media/connection-monitor-2-preview/cm-drill-landing-2.png":::
+    :::image type="content" source="./media/connection-monitor-2-preview/cm-drill-landing-2.png" alt-text="Captura de tela mostrando monitores de conexão que foram criados no monitor de conexão (versão prévia)" lightbox="./media/connection-monitor-2-preview/cm-drill-landing-2.png":::
 
 1. É possível
     * Clique em Exibir todos os testes-para exibir todos os testes no monitor de conexão
@@ -247,7 +247,7 @@ Para exibir as tendências em RTT e a porcentagem de verificações com falha pa
 1. Na exibição exibir todos os testes, você pode:
     * Selecione testes e clique em comparar.
     
-    :::image type="content" source="./media/connection-monitor-2-preview/cm-compare-test.png" alt-text="Captura de tela mostrando a comparação de dois testes" lightbox="./media/connection-monitor-2-preview/cm-compare-test.png":::
+    :::image type="content" source="./media/connection-monitor-2-preview/cm-compare-test.png" alt-text="Captura de tela mostrando monitores de conexão que foram criados no monitor de conexão (versão prévia)" lightbox="./media/connection-monitor-2-preview/cm-compare-test.png":::
     
     * Use o cluster para expandir recursos compostos como VNET, sub-redes para seus recursos filho
     * Exiba a topologia para qualquer teste clicando em topologia.
@@ -259,7 +259,7 @@ Para exibir as tendências em RTT e a porcentagem de verificações com falha pa
 Para exibir as tendências em RTT e a porcentagem de verificações com falha para um teste:
 1. Selecione o teste que você deseja investigar. Você verá a topologia de rede e os gráficos de tendência de ponta a ponta para cheques com falha% e tempo de viagem de ida e volta. Para ver os problemas identificados, na topologia, selecione qualquer salto no caminho. (Esses saltos são recursos do Azure.) Essa funcionalidade não está disponível atualmente para redes locais
 
-  :::image type="content" source="./media/connection-monitor-2-preview/cm-test-topology.png" alt-text="Captura de tela mostrando a exibição de topologia de um teste" lightbox="./media/connection-monitor-2-preview/cm-test-topology.png":::
+  :::image type="content" source="./media/connection-monitor-2-preview/cm-test-topology.png" alt-text="Captura de tela mostrando monitores de conexão que foram criados no monitor de conexão (versão prévia)" lightbox="./media/connection-monitor-2-preview/cm-test-topology.png":::
 
 #### <a name="log-queries-in-log-analytics"></a>Consultas de log em Log Analytics
 
@@ -269,11 +269,11 @@ Use Log Analytics para criar exibições personalizadas de seus dados de monitor
 
 Nos monitores de conexão que foram criados antes da experiência do monitor de conexão (versão prévia), todas as quatro métricas estão disponíveis:% investigações com falha, AverageRoundtripMs, ChecksFailedPercent (versão prévia) e RoundTripTimeMs (versão prévia). Nos monitores de conexão que foram criados na experiência do monitor de conexão (versão prévia), os dados estão disponíveis apenas para as métricas que são marcadas com *(versão prévia)*.
 
-  :::image type="content" source="./media/connection-monitor-2-preview/monitor-metrics.png" alt-text="Captura de tela mostrando métricas no monitor de conexão (visualização)" lightbox="./media/connection-monitor-2-preview/monitor-metrics.png":::
+  :::image type="content" source="./media/connection-monitor-2-preview/monitor-metrics.png" alt-text="Captura de tela mostrando monitores de conexão que foram criados no monitor de conexão (versão prévia)" lightbox="./media/connection-monitor-2-preview/monitor-metrics.png":::
 
 Ao usar as métricas, defina o tipo de recurso como Microsoft. Network/networkWatchers/connectionMonitors
 
-| Métrica | Nome para exibição | Unidade | Tipo de agregação | Descrição | Dimensões |
+| Métrica | Nome de exibição | Unit | Tipo de agregação | Descrição | Dimensões |
 | --- | --- | --- | --- | --- | --- |
 | ProbesFailedPercent | Porcentagem de investigações com falha | Percentual | Média | Falha na porcentagem de investigações de monitoramento de conectividade. | Sem dimensões |
 | AverageRoundtripMs | Média Tempo de ida e volta (ms) | Milissegundos | Média | RTT de rede médio para investigações de monitoramento de conectividade enviadas entre a origem e o destino. |             Sem dimensões |
@@ -300,7 +300,7 @@ Você pode criar alertas de métrica em monitores de conexão usando os métodos
     1. Forneça detalhes do alerta.
     1. Criar a regra de alerta.
 
-  :::image type="content" source="./media/connection-monitor-2-preview/mdm-alerts.jpg" alt-text="Captura de tela mostrando a área criar regra no Azure Monitor. O endereço de origem e o nome do ponto de extremidade de origem são" lightbox="./media/connection-monitor-2-preview/mdm-alerts.jpg":::
+  :::image type="content" source="./media/connection-monitor-2-preview/mdm-alerts.jpg" alt-text="Captura de tela mostrando monitores de conexão que foram criados no monitor de conexão (versão prévia)" lightbox="./media/connection-monitor-2-preview/mdm-alerts.jpg":::
 
 ## <a name="diagnose-issues-in-your-network"></a>Diagnosticar problemas em sua rede
 

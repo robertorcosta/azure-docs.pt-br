@@ -12,10 +12,10 @@ ms.author: bonova
 ms.reviewer: sstein
 ms.date: 09/25/2018
 ms.openlocfilehash: 1d68163a9fba3ba3bcd4c0c0f3fb5f442296e781
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91619382"
 ---
 # <a name="manage-historical-data-in-temporal-tables-with-retention-policy"></a>Gerenciar dados históricos em tabelas temporais com política de retenção
@@ -120,7 +120,7 @@ A tarefa de limpeza para tabelas com um índice clusterizado de rowstore requer 
 
 É importante observar que a tabela de histórico padrão criada pelo banco de dados SQL do Azure e o Azure SQL Instância Gerenciada já tem um índice clusterizado, que é compatível com a política de retenção. Se você tentar remover o índice em uma tabela com o período de retenção finito, a operação falhará com o seguinte erro:
 
-*MSG 13766, nível 16, estado 1 <br> </br> não é possível descartar o índice clusterizado ' WebsiteUserInfoHistory. IX_WebsiteUserInfoHistory ' porque ele está sendo usado para limpeza automática de dados antigos. Considere definir HISTORY_RETENTION_PERIOD como infinito na tabela temporal com versão do sistema correspondente se você precisar descartar esse índice.*
+*MSG 13766, nível 16, estado 1 <br> </br> não é possível descartar o índice clusterizado ' WebsiteUserInfoHistory.IX_WebsiteUserInfoHistory ' porque ele está sendo usado para limpeza automática de dados antigos. Considere definir HISTORY_RETENTION_PERIOD como infinito na tabela temporal com versão do sistema correspondente se você precisar descartar esse índice.*
 
 A limpeza no índice columnstore clusterizado funciona de maneira ideal se as linhas históricas forem inseridas em ordem crescente (ordenadas no final da coluna do período), que sempre será o caso quando a tabela de histórico for populada exclusivamente pelo mecanismo SYSTEM_VERSIONIOING. Se as linhas da tabela de histórico não forem ordenadas pelo final da coluna do período (o que pode ser o caso se você migrar dados históricos existentes), você deverá recriar o índice columnstore clusterizado além do índice rowstore de árvore B ordenado corretamente para obter o desempenho ideal.
 

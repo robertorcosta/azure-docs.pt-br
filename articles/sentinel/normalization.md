@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: yelevin
 ms.openlocfilehash: 0c6129a24e6ed083114971df5f254eca54924400
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90933636"
 ---
 # <a name="normalization-in-azure-sentinel"></a>Normalização no Azure Sentinel
@@ -97,7 +97,7 @@ Os analisadores de tempo de consulta disponíveis estão disponíveis no [reposi
 
     1. **Categoria**: você pode selecionar uma categoria existente ou criar uma nova categoria (como *NormalizedNetworkSessionsParsers*)
     
-        :::image type="content" source="./media/normalization/save-new-parser.png" alt-text="Salvar o analisador":::
+        :::image type="content" source="./media/normalization/save-new-parser.png" alt-text="Instalar um novo analisador":::
 
 Para usar corretamente os analisadores, você também deve instalar o analisador de esquema de rede vazio (que cria uma exibição tabular vazia de todos os campos de esquema de sessões de rede) e o metaanalisador de rede (que une todos os analisadores habilitados para criar uma única exibição de dados de várias fontes no esquema de rede). A instalação desses dois analisadores é feita de maneira semelhante às etapas mencionadas anteriormente.
 
@@ -107,15 +107,13 @@ Ao salvar uma função de consulta, pode ser necessário fechar o Gerenciador de
 
 Uma vez habilitado, você pode usar o metaanalisador para consultar uma exibição unificada em todos os analisadores atualmente habilitados. Para fazer isso, vá para a página de logs do Sentinel e consulte o metaanalisador:
 
-:::image type="content" source="./media/normalization/query-parser.png" alt-text="Consultar o analisador":::
+:::image type="content" source="./media/normalization/query-parser.png" alt-text="Instalar um novo analisador":::
  
 Você também pode acessar o metaanalisador ou os analisadores individuais usando o Gerenciador de consultas na página de logs do Sentinel clicando em ' Gerenciador de consultas ':
 
-:::image type="content" source="./media/normalization/query-explorer.png" alt-text="Gerenciador de consultas":::
+:::image type="content" source="./media/normalization/query-explorer.png" alt-text="Instalar um novo analisador" e localize a pasta ' NormalizedNetworkParsers ' (ou o nome da categoria que você escolheu ao criar os analisadores):
 
-No painel à direita, expanda a seção "consultas salvas" e localize a pasta ' NormalizedNetworkParsers ' (ou o nome da categoria que você escolheu ao criar os analisadores):
-
-:::image type="content" source="./media/normalization/find-parser.png" alt-text="Localizar seu analisador":::
+:::image type="content" source="./media/normalization/find-parser.png" alt-text="Instalar um novo analisador":::
 
 Você pode clicar em cada analisador individual e ver a função subjacente que ele usa e executá-lo (ou acessá-lo diretamente por seu alias, conforme descrito acima). Observe que alguns analisadores podem reter os campos originais lado a lado para os campos normalizados para sua conveniência. Isso pode ser facilmente editado na consulta do analisador.
 
@@ -124,11 +122,9 @@ Você pode clicar em cada analisador individual e ver a função subjacente que 
 Você pode repetir as etapas acima (localizando o analisador no Gerenciador de consultas), clicar no analisador relevante e ver sua implementação de função.
 Por exemplo, você pode optar por editar o metaanalisador para adicionar/remover analisadores individuais.
 
-:::image type="content" source="./media/normalization/customize-parser.png" alt-text="Personalizar o analisador":::
- 
-Quando a função for alterada, clique em "salvar" novamente e use o mesmo nome, alias e categoria. Uma caixa de diálogo de substituição será aberta – pressione "OK":
+:::image type="content" source="./media/normalization/customize-parser.png" alt-text="Instalar um novo analisador" novamente e use o mesmo nome, alias e categoria. Uma caixa de diálogo de substituição será aberta – pressione "OK":
 
-:::image type="content" source="./media/normalization/are-you-sure.png" alt-text="Tem certeza":::
+:::image type="content" source="./media/normalization/are-you-sure.png" alt-text="Instalar um novo analisador":::
 
 #### <a name="additional-information"></a>Informações adicionais
 

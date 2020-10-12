@@ -5,10 +5,10 @@ ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/22/2019
 ms.openlocfilehash: 7c8e68da1c5da7b25d1385a82bf7dcc2f876306d
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89376274"
 ---
 # <a name="troubleshoot-system-state-backup"></a>Solucionar problemas de backup do estado do sistema
@@ -68,7 +68,7 @@ Para instalar Backup do Windows Server usando Gerenciador do Servidor, execute a
 
 1. Em **Gerenciador de servidores**, selecione **adicionar funções e recursos**. O **Assistente Adicionar funções e recursos** é exibido.
 
-    ![Dashboard](./media/backup-azure-system-state-troubleshoot/server_management.jpg)
+    ![Painel](./media/backup-azure-system-state-troubleshoot/server_management.jpg)
 
 2. Selecione o **tipo de instalação** e selecione **Avançar**.
 

@@ -14,10 +14,10 @@ ms.author: curtand
 ms.reviewer: kexia
 metadata ms.custom: contperfq1
 ms.openlocfilehash: 3d95ad4aa100b0a185bde015dfe34d747fc77ec9
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89322595"
 ---
 # <a name="common-problems-with-two-factor-verification-and-your-work-or-school-account"></a>Problemas comuns com a verificação de dois fatores e sua conta corporativa ou de estudante
@@ -109,7 +109,7 @@ Etapas opcionais:
 
 ## <a name="im-having-problems-signing-in-on-my-mobile-device-while-traveling"></a>Estou tendo problemas para entrar no meu dispositivo móvel quando viajo
 
-Você pode achar mais complicado usar um método de verificação relacionado a dispositivos móveis, como uma mensagem de texto, quando está fora do seu país. Também é possível que seu dispositivo móvel gere a cobrança de tarifas de roaming. Para essa situação, recomendamos que você use o aplicativo Microsoft Authenticator, com a opção de conectar-se a um ponto de acesso Wi-Fi. Para obter mais informações sobre como configurar o aplicativo Microsoft Authenticator em seu dispositivo móvel, consulte o artigo [baixar e instalar o aplicativo Microsoft Authenticator](user-help-auth-app-download-install.md) .
+Você pode achar mais complicado usar um método de verificação relacionado a dispositivos móveis, como uma mensagem de texto, quando está fora do seu país. Também é possível que seu dispositivo móvel gere a cobrança de tarifas de roaming. Para essa situação, recomendamos que você use o aplicativo Microsoft Authenticator, com a opção de se conectar a um ponto de acesso Wi-Fi. Para obter mais informações sobre como configurar o aplicativo Microsoft Authenticator em seu dispositivo móvel, consulte o artigo [baixar e instalar o aplicativo Microsoft Authenticator](user-help-auth-app-download-install.md) .
 
 ## <a name="i-cant-get-my-app-passwords-to-work"></a>Não consigo fazer com que minhas senhas de aplicativo funcionem
 

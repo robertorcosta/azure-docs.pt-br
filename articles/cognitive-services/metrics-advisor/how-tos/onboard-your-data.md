@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: aahi
 ms.openlocfilehash: 83ff710804b43837657ea0da7c8f44c245017c7e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90933689"
 ---
 # <a name="how-to-onboard-your-metric-data-to-metrics-advisor"></a>Como: carregar seus dados de métrica para o assistente de métricas
@@ -82,7 +82,7 @@ Se o carimbo de data/hora de um ponto de dados for omitido, o supervisor de mét
 
 Se você quiser ignorar colunas, é recomendável atualizar sua consulta ou fonte de dados para excluir essas colunas. Você também pode ignorar colunas usando **ignorar colunas** e, em seguida, **ignorar** nas colunas específicas. Se uma coluna deve ser uma dimensão e é definida erroneamente como *ignorada*, o Orientador de métrica pode acabar ingerindo dados parciais. Por exemplo, suponha que os dados da consulta sejam os seguintes:
 
-| ID da linha | Timestamp | País | Idioma | Receita |
+| ID da linha | Timestamp | País | Linguagem | Receita |
 | --- | --- | --- | --- | --- |
 | 1 | 2019/11/10 | China | ZH-CN | 10000 |
 | 2 | 2019/11/10 | China | EN-US | 1000 |
@@ -99,7 +99,7 @@ Se *Country* for uma dimensão e o *idioma* for definido como *ignorado*, a prim
 
 O assistente de métricas pode executar automaticamente a agregação (por exemplo, SUM, MAX, MIN) em cada dimensão durante a ingestão e cria uma hierarquia que será usada na análise de caso raiz e outros recursos de diagnóstico. 
 
-Considere os seguintes cenários:
+Considere os seguintes cenário:
 
 * *Não preciso incluir a análise de acúmulo para meus dados.*
 
@@ -109,7 +109,7 @@ Considere os seguintes cenários:
 
     Essa opção significa que o Orientador de métricas não precisa acumular os dados porque as linhas já estão somadas. Por exemplo, se você selecionar *somente nulo*, a segunda linha de dados no exemplo abaixo será vista como uma agregação de todos os países e idiomas *en-US*; a quarta linha de dados que tem um valor vazio para *Country* , no entanto, será vista como uma linha comum que pode indicar dados incompletos.
     
-    | País | Idioma | Receita |
+    | País | Linguagem | Receita |
     |---------|----------|--------|
     | China   | ZH-CN    | 10000  |
     | NULO  | EN-US    | 999999 |
@@ -188,7 +188,7 @@ Para verificar os detalhes da falha de ingestão:
 2. Clique em **status** e escolha **falha** ou **erro**.
 3. Focalize uma falha de ingestão e exiba a mensagem de detalhes que aparece.
 
-:::image type="content" source="../media/datafeeds/check-failed-ingestion.png" alt-text="Verificar a ingestão com falha":::
+:::image type="content" source="../media/datafeeds/check-failed-ingestion.png" alt-text="Barra de progresso da ingestão":::
 
 Um status de *falha* indica que a ingestão dessa fonte de dados será repetida mais tarde.
 Um status de *erro* indica que o supervisor de métrica não tentará novamente a fonte de dados. Para recarregar os dados, você precisa disparar um aterramento/recarregamento manualmente.

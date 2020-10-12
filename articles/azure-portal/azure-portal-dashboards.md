@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 03/23/2020
 ms.author: mblythe
 ms.openlocfilehash: 06cf0a5692b3d80a07c305f53c9e3801cbdb5110
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84764002"
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>Criar e compartilhar painéis no Portal do Azure
@@ -142,7 +142,7 @@ Para usar um painel existente como modelo para um novo painel, siga estas etapas
 
 ## <a name="publish-and-share-a-dashboard"></a>Publicar e compartilhar um painel
 
-Quando você cria um painel, ele é privado por padrão, o que significa que você é o único que pode vê-lo. Para disponibilizar os painéis para outras pessoas, você pode publicá-los e compartilhá-los. Para obter mais informações, consulte [compartilhar painéis do Azure usando o controle de acesso baseado em função](azure-portal-dashboard-share-access.md).
+Quando você cria um painel, ele é privado por padrão, o que significa que você é o único que pode vê-lo. Para disponibilizar os painéis para outras pessoas, você pode publicá-los e compartilhá-los. Para obter mais informações, consulte [compartilhar painéis do Azure usando o controle de acesso Role-Based](azure-portal-dashboard-share-access.md).
 
 ### <a name="open-a-shared-dashboard"></a>Abrir um painel compartilhado
 
