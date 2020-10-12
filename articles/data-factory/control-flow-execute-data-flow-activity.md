@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.author: makromer
 ms.date: 04/30/2020
 ms.openlocfilehash: 5593b0d633b133c8a8295634b674218d5e6c6daf
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89485030"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Atividade de fluxo de dados no Azure Data Factory
@@ -61,7 +61,7 @@ integrationRuntime | O ambiente de computação no qual o fluxo de dados é exec
 Compute. coreCount | O número de núcleos usados no cluster do Spark. Só poderá ser especificado se a resolução automática do tempo de execução de integração do Azure for usada | 8, 16, 32, 48, 80, 144, 272 | Não
 Compute. computetype | O tipo de computação usado no cluster do Spark. Só poderá ser especificado se a resolução automática do tempo de execução de integração do Azure for usada | "Geral", "ComputeOptimized", "MemoryOptimized" | Não
 preparo. linkedService | Se você estiver usando uma origem ou coletor do Azure Synapse Analytics, a conta de armazenamento usada para preparo do polybase | LinkedServiceReference | Somente se o fluxo de dados lê ou grava em uma análise de Synapse do Azure
-preparo. folderPath | Se você estiver usando uma origem ou coletor do Azure Synapse Analytics, o caminho da pasta na conta de armazenamento de BLOBs usada para preparo do polybase | String | Somente se o fluxo de dados lê ou grava no Azure Synapse Analytics
+preparo. folderPath | Se você estiver usando uma origem ou coletor do Azure Synapse Analytics, o caminho da pasta na conta de armazenamento de BLOBs usada para preparo do polybase | Cadeia de caracteres | Somente se o fluxo de dados lê ou grava no Azure Synapse Analytics
 
 ![Executar fluxo de dados](media/data-flow/activity-data-flow.png "Executar fluxo de dados")
 

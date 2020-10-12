@@ -14,10 +14,10 @@ ms.date: 06/25/2020
 ms.author: kumud
 ms.reviewer: anavin
 ms.openlocfilehash: 88e576231e0231a105cd9ec303f63307b5eaff89
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87051626"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Criar um emparelhamento de rede virtual – modelos de implantação e assinaturas diferentes
@@ -57,7 +57,7 @@ Este tutorial usa contas diferentes para cada assinatura. Se você estiver usand
 6. Na folha **myVnetA – Controle de acesso (IAM)** exibida, clique em **+ Adicionar atribuição de função**.
 7. Na folha **Adicionar atribuição de função** exibida, selecione **Colaborador de rede** na caixa **Função**.
 8. Na caixa **selecionar** , selecione UserB ou digite o endereço de email de UserB para procurá-lo. A lista de usuários mostrada é do mesmo locatário do Azure Active Directory da rede virtual para a qual você está configurando o emparelhamento. Clique em UserB quando ele aparecer na lista.
-9. Clique em **Save** (Salvar).
+9. Clique em **Salvar**.
 10. Faça logoff do portal como UserA e faça logon como UserB.
 11. Clique em **+ Novo**, digite *Rede virtual* na caixa **Pesquisar no Marketplace** e, em seguida, clique em **Rede Virtual** nos resultados da pesquisa.
 12. Na folha **Rede Virtual** exibida, selecione **Clássico** na caixa **Selecionar um modelo de implantação** e clique em **Criar**.
@@ -72,7 +72,7 @@ Este tutorial usa contas diferentes para cada assinatura. Se você estiver usand
     - **Localização**: *Leste dos EUA*
 
 14. Na caixa **Pesquisar recursos** na parte superior do portal, digite *myVnetB*. Clique em **myVnetB** quando ele for exibido nos resultados da pesquisa. Uma folha é exibida para a rede virtual **myVnetB**.
-15. Na folha **myVnetB** exibida, clique em **Propriedades** na lista vertical de opções no lado esquerdo da folha. Copie a **ID DE RECURSO**, que é usada em uma etapa posterior. A ID do recurso é semelhante ao exemplo a seguir:`/subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB`
+15. Na folha **myVnetB** exibida, clique em **Propriedades** na lista vertical de opções no lado esquerdo da folha. Copie a **ID DE RECURSO**, que é usada em uma etapa posterior. A ID do recurso é semelhante ao exemplo a seguir: `/subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB`
 16. Conclua as etapas 5 a 9 para myVnetB, inserindo **UserA** na etapa 8.
 17. Faça logoff do portal como UserB e faça logon como UserA.
 18. Na caixa **Pesquisar recursos** na parte superior do portal, digite *myVnetA*. Clique em **myVnetA** quando ele for exibido nos resultados da pesquisa. Uma folha é exibida para a rede virtual **myVnet**.

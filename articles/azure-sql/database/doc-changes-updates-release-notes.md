@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
 ms.openlocfilehash: 0e44280c0a6c0d39c98e3aeecd5e9a3707332e81
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88236566"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>O que há de novo no banco de dados SQL do Azure & SQL Instância Gerenciada?

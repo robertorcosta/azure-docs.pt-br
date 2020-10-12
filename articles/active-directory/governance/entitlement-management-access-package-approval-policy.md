@@ -17,10 +17,10 @@ ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2e36b2d4576b43544bec89efd326363344b35be9
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90994062"
 ---
 # <a name="change-approval-and-requestor-information-preview-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Alterar as configurações de aprovação e do solicitante (versão prévia) para um pacote de acesso no gerenciamento de direitos do Azure AD
@@ -154,7 +154,7 @@ Por exemplo, se você tiver listado Alice e Bob como os primeiros Aprovadores, l
 
     ![Pacote de acesso-configuração de política de habilitação de política](./media/entitlement-management-access-package-approval-policy/enable-requests.png)
 
-1. Clique em **Próximo**.
+1. Clique em **Avançar**.
 
 ## <a name="collect-additional-requestor-information-for-approval-preview"></a>Coletar informações adicionais do solicitante para aprovação (versão prévia)
 

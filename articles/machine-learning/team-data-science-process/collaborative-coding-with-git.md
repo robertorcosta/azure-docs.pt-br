@@ -11,10 +11,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 739be373992fcd994f085f8571675779e450bfee
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87090205"
 ---
 # <a name="collaborative-coding-with-git"></a>Codificação colaborativa com o Git
@@ -49,7 +49,7 @@ git checkout <working branch name>
 
 Depois de alternar para o Branch de trabalho, você pode começar a desenvolver o código ou artefatos de documentação para concluir o item de trabalho. Executar `git checkout master` o comutador de volta para a `master` ramificação.
 
-É uma boa prática criar uma ramificação git para cada item de trabalho de história de usuário. Em seguida, para cada item de trabalho de tarefa, você pode criar uma ramificação com base na ramificação de história de usuário. Organize as ramificações em uma hierarquia que corresponde à relação de tarefa de história de usuário quando você tem várias pessoas trabalhando em histórias de usuário diferentes para o mesmo projeto ou em tarefas diferentes para a mesma história de usuário. Você pode minimizar conflitos fazendo com que cada membro da equipe trabalhe em uma ramificação diferente ou em código diferente ou em outros artefatos ao compartilhar uma ramificação. 
+É uma boa prática criar uma ramificação git para cada item de trabalho de história de usuário. Em seguida, para cada item de trabalho de tarefa, você pode criar uma ramificação com base na ramificação de história de usuário. Organize as ramificações em uma hierarquia que corresponde à relação de Story-Task de usuário quando você tem várias pessoas trabalhando em histórias de usuário diferentes para o mesmo projeto ou em tarefas diferentes para a mesma história de usuário. Você pode minimizar conflitos fazendo com que cada membro da equipe trabalhe em uma ramificação diferente ou em código diferente ou em outros artefatos ao compartilhar uma ramificação. 
 
 O diagrama a seguir mostra a estratégia de ramificação recomendada para TDSP. Talvez você não precise de tantas ramificações quantas forem mostradas aqui, especialmente quando apenas uma ou duas pessoas trabalham em um projeto ou apenas uma pessoa trabalha em todas as tarefas de uma história de usuário. Mas separar a ramificação de desenvolvimento da ramificação primária é sempre uma boa prática e pode ajudar a impedir que o Branch de lançamento seja interrompido pelas atividades de desenvolvimento. Para obter uma descrição completa do modelo de ramificação git, consulte [um modelo de ramificação git bem-sucedido](https://nvie.com/posts/a-successful-git-branching-model/).
 

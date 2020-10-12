@@ -4,16 +4,16 @@ description: Saiba como configurar um cluster do Service Fabric seguro no Azure 
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.openlocfilehash: fd2c472d24f305e42f1706e5fc49168ccde2a580
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86258756"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Criar um cluster do Service Fabric usando o Azure Resource Manager 
 > [!div class="op_single_selector"]
 > * [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
-> * [Portal do Azure](service-fabric-cluster-creation-via-portal.md)
+> * [Azure portal](service-fabric-cluster-creation-via-portal.md)
 >
 >
 

@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.openlocfilehash: 52230d6b13c4210e0ff8e85d0a3efe39af55f6e2
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88935051"
 ---
 # <a name="collect-and-analyze-log-data-for-azure-cognitive-search"></a>Coletar e analisar dados de log para o Azure Pesquisa Cognitiva
@@ -23,7 +23,7 @@ O log de diagnóstico é habilitado por meio da integração com o [Azure monito
 
 Ao configurar o log de diagnóstico, você será solicitado a especificar um mecanismo de armazenamento. A tabela a seguir enumera as opções para coletar e manter dados.
 
-| Recurso | Usado para |
+| Recurso | Usada para |
 |----------|----------|
 | [Enviar para o workspace do Log Analytics](../azure-monitor/learn/tutorial-resource-logs.md) | Os eventos e as métricas são enviados para um espaço de trabalho Log Analytics, que pode ser consultado no portal para retornar informações detalhadas. Para obter uma introdução, consulte Introdução [aos logs de Azure monitor](../azure-monitor/log-query/get-started-portal.md) |
 | [Arquivar com armazenamento de BLOBs](../storage/blobs/storage-blobs-overview.md) | Os eventos e as métricas são arquivados em um contêiner de BLOB e armazenados em arquivos JSON. Os logs podem ser bastante granulares (por hora/minuto), úteis para pesquisar um incidente específico, mas não para investigação aberta. Use um editor de JSON para exibir um arquivo de log bruto ou Power BI para agregar e Visualizar dados de log.|
@@ -45,13 +45,13 @@ As configurações de diagnóstico especificam como os eventos registrados e as 
 
 1. Em **Monitoramento**, selecione **Configurações de diagnóstico**.
 
-   ![Configurações de diagnóstico](./media/search-monitor-usage/diagnostic-settings.png "Configurações de diagnóstico")
+   ![Configurações de Diagnóstico](./media/search-monitor-usage/diagnostic-settings.png "Configurações de Diagnóstico")
 
 1. Selecione **+ Adicionar configuração de diagnóstico**
 
 1. Marque **log Analytics**, selecione seu espaço de trabalho e selecione **OperationLogs** e **biométricas**.
 
-   ![Configurar coleta de dados](./media/search-monitor-usage/configure-storage.png "Configurar a coleta de dados")
+   ![Configurar a coleta de dados](./media/search-monitor-usage/configure-storage.png "Configurar a coleta de dados")
 
 1. Salve a configuração.
 
@@ -120,7 +120,7 @@ AzureDiagnostics
 
 Os eventos registrados pelo Azure Monitor incluem aqueles relacionados à indexação e consultas. A tabela **AzureDiagnostics** no log Analytics coleta dados operacionais relacionados a consultas e indexação.
 
-| OperationName | DESCRIÇÃO |
+| OperationName | Descrição |
 |---------------|-------------|
 | Perstats | Essa operação é uma chamada de rotina para [obter estatísticas de serviço](/rest/api/searchservice/get-service-statistics), chamadas direta ou implicitamente para preencher uma página de visão geral do portal quando ela é carregada ou atualizada. |
 | Consulta. Search |  Solicitações de consulta em um índice consulte [monitorar consultas](search-monitor-queries.md) para obter informações sobre consultas registradas.|

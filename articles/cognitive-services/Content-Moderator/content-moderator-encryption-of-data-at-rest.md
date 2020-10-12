@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: egeaney
 ms.openlocfilehash: 38fc21ee45db25f015a6b8b534b0d922efa636f2
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84310539"
 ---
 # <a name="content-moderator-encryption-of-data-at-rest"></a>Content Moderator criptografia de dados em repouso
@@ -23,7 +23,7 @@ Content Moderator criptografa automaticamente seus dados quando eles são persis
 [!INCLUDE [cognitive-services-about-encryption](../includes/cognitive-services-about-encryption.md)]
 
 > [!IMPORTANT]
-> As chaves gerenciadas pelo cliente estão disponíveis somente no tipo de preço E0. Para solicitar a capacidade de usar chaves gerenciadas pelo cliente, preencha e envie o [formulário Content moderator solicitação de chave gerenciada pelo cliente](https://aka.ms/cogsvc-cmk). Levará aproximadamente 3-5 dias úteis para que o status da solicitação seja reproduzido. Dependendo da demanda, você pode ser colocado em uma fila e aprovado, pois o espaço se torna disponível. Depois de aprovado para usar o CMK com o serviço Content Moderator, você precisará criar um novo recurso de Content Moderator e selecionar E0 como o tipo de preço. Depois que o recurso de Content Moderator com o tipo de preço E0 for criado, você poderá usar Azure Key Vault para configurar sua identidade gerenciada.
+> As chaves gerenciadas pelo cliente estão disponíveis somente no tipo de preço E0. Para solicitar a capacidade de usar chaves gerenciadas pelo cliente, preencha e envie o [Content Moderator Customer-Managed formulário de solicitação de chave](https://aka.ms/cogsvc-cmk). Levará aproximadamente 3-5 dias úteis para que o status da solicitação seja reproduzido. Dependendo da demanda, você pode ser colocado em uma fila e aprovado, pois o espaço se torna disponível. Depois de aprovado para usar o CMK com o serviço Content Moderator, você precisará criar um novo recurso de Content Moderator e selecionar E0 como o tipo de preço. Depois que o recurso de Content Moderator com o tipo de preço E0 for criado, você poderá usar Azure Key Vault para configurar sua identidade gerenciada.
 
 [!INCLUDE [cognitive-services-cmk](../includes/cognitive-services-cmk-regions.md)]
 
@@ -40,5 +40,5 @@ Para habilitar a criptografia de dados para sua equipe de revisão de Content Mo
 
 * Para obter uma lista completa de serviços que dão suporte a CMK, consulte [chaves gerenciadas pelo cliente para serviços cognitivas](../encryption/cognitive-services-encryption-keys-portal.md)
 * [O que é Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?
-* [Formulário de solicitação de chave gerenciada pelo cliente de serviços cognitivas](https://aka.ms/cogsvc-cmk)
+* [Customer-Managed formulário de solicitação de chave de serviços cognitivas](https://aka.ms/cogsvc-cmk)
 

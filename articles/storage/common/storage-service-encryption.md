@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.openlocfilehash: 19f0027b506b78ef81f9acc25a94ef9ab74643e2
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90985758"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Criptografia do Armazenamento do Azure para dados em repouso
@@ -46,7 +46,7 @@ A tabela a seguir compara as principais opções de gerenciamento de criptografi
 | Parâmetro de gerenciamento de chaves | Chaves gerenciadas pela Microsoft | Chaves gerenciadas pelo cliente | Chaves fornecidas pelo cliente |
 |--|--|--|--|
 | Operações de criptografia/descriptografia | Azure | Azure | Azure |
-| Serviços de armazenamento do Azure com suporte | Tudo | Armazenamento de BLOBs, arquivos do Azure<sup>1, 2</sup> | Armazenamento de blob |
+| Serviços de armazenamento do Azure com suporte | Todos | Armazenamento de BLOBs, arquivos do Azure<sup>1, 2</sup> | Armazenamento de blobs |
 | Armazenamento de chave | Repositório de chaves da Microsoft | Azure Key Vault ou Key Vault HSM | Repositório de chaves próprio do cliente |
 | Responsabilidade de rotação de chave | Microsoft | Cliente | Cliente |
 | Controle de chave | Microsoft | Cliente | Cliente |

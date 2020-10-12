@@ -4,10 +4,10 @@ description: Este artigo fornece orientação sobre como configurar e implantar 
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: c34e05e184cfa6f0933701a76177fae3eed70c0a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87071937"
 ---
 # <a name="production-readiness-and-best-practices"></a>Preparação para produção e práticas recomendadas
@@ -152,7 +152,7 @@ A VM Linux que você está usando como um dispositivo de borda pode deixar de re
 1. `sudo apt-get autoremove1`
 
     A opção de remoção automática remove pacotes que foram instalados automaticamente porque algum outro pacote os exigiu, mas com esses outros pacotes removidos, eles não são mais necessários
-1. `sudo docker image ls`– Fornece uma lista de imagens do Docker no sistema de borda
+1. `sudo docker image ls` – Fornece uma lista de imagens do Docker no sistema de borda
 1. `sudo docker system prune `
 
     O Docker usa uma abordagem conservadora para limpar objetos não utilizados (geralmente chamados de "coleta de lixo"), como imagens, contêineres, volumes e redes: esses objetos geralmente não são removidos, a menos que você solicite explicitamente o Docker para fazer isso. Isso pode fazer com que o Docker use espaço em disco extra. Para cada tipo de objeto, o Docker fornece um comando de remoção. Além disso, você pode usar a remoção do sistema Docker para limpar vários tipos de objetos ao mesmo tempo. Para obter mais informações, consulte [remover objetos do Docker não utilizados](https://docs.docker.com/config/pruning/).

@@ -4,10 +4,10 @@ description: Este artigo fornece configurações de Apache Kafka recomendadas pa
 ms.topic: reference
 ms.date: 07/20/2020
 ms.openlocfilehash: f9a03d1d3433461a575b32cd69893408a8b0ef97
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87095622"
 ---
 # <a name="recommended-configurations-for-apache-kafka-clients"></a>Configurações recomendadas para clientes Apache Kafka
@@ -60,8 +60,8 @@ Propriedade | Valores recomendados | Intervalo permitido | Observações
 Propriedade | Valores recomendados | Intervalo permitido | Observações
 ---|---:|-----:|---
 `retries` | > 0 | | O padrão é 2. Recomendamos que você mantenha esse valor. 
-`request.timeout.ms` | 30000.. 60000 | > 20000| O EH será padronizado internamente para um mínimo de 20.000 MS.  `librdkafka`o valor padrão é 5000, que pode ser problemático. *Embora as solicitações com valores de tempo limite inferiores sejam aceitas, o comportamento do cliente não é garantido.*
-`partitioner` | `consistent_random` | Consulte a documentação do librdkafka | `consistent_random`é padrão e melhor.  As chaves vazias e nulas são manipuladas idealmente para a maioria dos casos.
+`request.timeout.ms` | 30000.. 60000 | > 20000| O EH será padronizado internamente para um mínimo de 20.000 MS.  `librdkafka` o valor padrão é 5000, que pode ser problemático. *Embora as solicitações com valores de tempo limite inferiores sejam aceitas, o comportamento do cliente não é garantido.*
+`partitioner` | `consistent_random` | Consulte a documentação do librdkafka | `consistent_random` é padrão e melhor.  As chaves vazias e nulas são manipuladas idealmente para a maioria dos casos.
 `enable.idempotence` | false | | Idempotência não tem suporte no momento.
 `compression.codec` | `none` || Não há suporte para a compactação no momento.
 

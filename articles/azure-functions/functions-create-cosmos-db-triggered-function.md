@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.date: 04/28/2020
 ms.custom: cc996988-fb4f-47
 ms.openlocfilehash: c7dc18d8186d7262154cc0718bb6ad77ebbb5d2e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85829832"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Criar uma função disparada pelo Azure Cosmos DB
@@ -50,7 +50,7 @@ Em seguida, crie uma nova função no novo aplicativo de funções.
 
 1. Na página **Nova Função**, insira `cosmos` no campo de pesquisa e, em seguida, escolha o modelo **gatilho do Azure Cosmos DB**.
 
-   :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-choose-cosmos.png" alt-text="Página de funções no portal do Azure":::
+   :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-choose-cosmos.png" alt-text="Código do Azure Cosmos DB":::
 
 
 1. Configure o novo gatilho com as configurações conforme especificado na seguinte tabela:
@@ -64,7 +64,7 @@ Em seguida, crie uma nova função no novo aplicativo de funções.
     | **Nome da coleção para concessões** | concessões | O nome da coleção para armazenar as concessões. |
     | **Criar coleção de concessões se ela não existir** | Sim | Verifica a existência da coleção de concessões e cria-a automaticamente. |
 
-    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/functions-cosmosdb-trigger-settings.png" alt-text="Criar a função disparada do Azure Cosmos DB":::
+    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/functions-cosmosdb-trigger-settings.png" alt-text="Código do Azure Cosmos DB":::
 
 1. Selecione **Criar Função**. 
 
@@ -72,7 +72,7 @@ Em seguida, crie uma nova função no novo aplicativo de funções.
 
 1. Para exibir o código de função baseado em modelo, selecione **Código + Teste**.
 
-    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-cosmosdb-template.png" alt-text="Modelo de função do Cosmos DB em C#":::
+    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-cosmosdb-template.png" alt-text="Código do Azure Cosmos DB":::
 
     Esse modelo de função grava o número de documentos e a primeira ID de documento para os logs.
 
@@ -111,15 +111,7 @@ Depois que o contêiner especificado na associação de função existir, você 
 
 1. Expanda o novo contêiner **Itens** no Data Explorer, escolha **Itens** e selecione **Novo Item**.
 
-    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/create-item-in-container.png" alt-text="Criar um item no contêiner Itens":::
-
-1. Substitua o conteúdo do novo item pelo conteúdo a seguir e então escolha **Salvar**.
-
-    ```yaml
-    {
-        "id": "task1",
-        "category": "general",
-        "description": "some task"
+    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/create-item-in-container.png" alt-text="Código do Azure Cosmos DB"
     }
     ```
 

@@ -14,10 +14,10 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: ac9264ea8d6cc71d19d2c9bbd23b2123bdf1f924
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88224349"
 ---
 # <a name="migrate-applications-to-microsoft-authentication-library-msal"></a>Migrar aplicativos para a biblioteca de autenticação da Microsoft (MSAL)
@@ -49,7 +49,7 @@ Os artigos a seguir podem ajudá-lo a migrar para o MSAL:
 - [Migrar para a MSAL Python](migrate-python-adal-msal.md)
 - [Migrar aplicativos Xamarin usando agentes para o MSAL.NET](msal-net-migration-ios-broker.md)
 
-## <a name="frequently-asked-questions-faq"></a>Perguntas frequentes (FAQ)
+## <a name="frequently-asked-questions-faq"></a>Perguntas frequentes
 
 __P: a ADAL está sendo preterida?__  
 A: Sim. A partir de 30 de junho de 2020, não adicionaremos mais novos recursos à ADAL. Continuaremos adicionando correções de segurança críticas à ADAL até 30 de junho de 2022. Após essa data, seus aplicativos que usam a ADAL continuarão a funcionar, mas é recomendável atualizar para o MSAL para aproveitar os recursos mais recentes e permanecer seguro.

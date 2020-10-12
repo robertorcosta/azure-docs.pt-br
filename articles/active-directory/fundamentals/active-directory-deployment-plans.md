@@ -13,10 +13,10 @@ ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 75081c218536d17798d1ffa788f79130211f72d3
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89318420"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Planos de implantação do Azure Active Directory
@@ -88,7 +88,7 @@ Ampliar a distribuição para grupos maiores de usuários deve ser executado aum
 
 | Funcionalidade | Descrição|
 | -| -|
-| [Provisionamento do usuário](../app-provisioning/plan-auto-user-provisioning.md)| O Azure AD ajuda a automatizar a criação, a manutenção e a remoção de identidades de usuário em aplicativos em nuvem (SaaS) como Dropbox, Salesforce, ServiceNow e outros. |
+| [Provisionamento de usuário](../app-provisioning/plan-auto-user-provisioning.md)| O Azure AD ajuda a automatizar a criação, a manutenção e a remoção de identidades de usuário em aplicativos em nuvem (SaaS) como Dropbox, Salesforce, ServiceNow e outros. |
 | [Provisionamento de usuário de RH na nuvem](../app-provisioning/plan-cloud-hr-provision.md)| O provisionamento de usuário de RH na nuvem para Active Directory cria uma base para governança de identidade contínua e aprimora a qualidade dos processos de negócios que dependem de dados de identidade autoritativa. Usando esse recurso com seu produto de RH de nuvem, como workday ou Successfactors, você pode gerenciar o ciclo de vida de identidade de funcionários e trabalhos contingentes Configurando regras que mapeiam processos de movimentação de União-movimento (como novas contratações, término e transferência) para ações de provisionamento de ti (como criar, habilitar, desabilitar) |
 
 ## <a name="deploy-governance-and-reporting"></a>Implantar governança e relatórios

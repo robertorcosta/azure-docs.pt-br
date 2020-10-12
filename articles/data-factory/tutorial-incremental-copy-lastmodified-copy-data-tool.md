@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 6/10/2020
 ms.openlocfilehash: 402214da75bffd278e12db94f089d64acd62221e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84730129"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>Copiar arquivos novos e alterados incrementalmente com base em LastModifiedDate usando a ferramenta de Copiar Dados
@@ -104,7 +104,7 @@ Prepare o armazenamento de BLOBs para o tutorial ao concluir estas etapas:
 
 3. Na página **armazenamento de dados de origem** , conclua estas etapas:
 
-    a. Selecione **criar nova conexão** para adicionar uma conexão.
+    a. Selecione  **criar nova conexão** para adicionar uma conexão.
 
     b. Selecione **armazenamento de BLOBs do Azure** na galeria e selecione **continuar**:
 

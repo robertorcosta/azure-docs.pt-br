@@ -13,10 +13,10 @@ ms.author: bonova
 ms.reviewer: sstein, jovanpop, sachinp
 ms.date: 09/14/2020
 ms.openlocfilehash: 71392b652f305f085e8eddbfe75e0585a756bc4a
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91618107"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Visão geral dos limites de recursos do Azure SQL Instância Gerenciada
@@ -36,7 +36,7 @@ O SQL Instância Gerenciada tem características e limites de recursos que depen
 | **Hardware** | Processadores Intel® E5-2673 v3 (Haswell) 2,4 GHz, vCore de SSD anexado = 1 PP (núcleo físico) | Intel® E5-2673 V4 (Broadwell) 2,3 GHz, processadores Intel® SP-8160 (Skylake) e Intel® 8272CL (Cascadey Lake) 2,5 GHz, SSD Fast NVMe, vCore = 1 LP (Hyper-thread) |
 | **Número de vCores** | 8, 16, 24 vCores | 4, 8, 16, 24, 32, 40, 64, 80 vCores |
 | **Memória máxima (taxa de memória/núcleo)** | 7 GB por vCore<br/>Adicione mais vCores para obter mais memória. | 5.1 GB por vCore<br/>Adicione mais vCores para obter mais memória. |
-| **Memória máxima OLTP na memória** | Limite de instância: 1 a 1,5 GB por vCore| Limite de instância: 0,8 a 1,65 GB por vCore |
+| **Memória máxima do OLTP In-Memory** | Limite de instância: 1 a 1,5 GB por vCore| Limite de instância: 0,8 a 1,65 GB por vCore |
 | **Armazenamento reservado de instância máx.** |  Uso Geral: 8 TB<br/>Comercialmente Crítico: 1 TB | Uso Geral: 8 TB<br/> Comercialmente Crítico 1 TB, 2 TB ou 4 TB, dependendo do número de núcleos |
 
 > [!IMPORTANT]
@@ -90,7 +90,7 @@ O SQL Instância Gerenciada tem duas camadas de serviço: [uso geral](../databas
 Algumas considerações adicionais: 
 
 - O **tamanho do armazenamento de instância disponível no momento** é a diferença entre o tamanho da instância reservada e o espaço de armazenamento usado.
-- Os dados e o tamanho do arquivo de log nos bancos de dado do usuário e do sistema são incluídos no tamanho do armazenamento da instância que é comparado com o limite de tamanho máximo de armazenamento. Use a exibição do sistema [Sys. master_files](/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql) para determinar o total de espaço usado por bancos de dados. Logs de erros não são persistentes e não são incluídos no tamanho. Backups não são incluídos no tamanho de armazenamento.
+- Os dados e o tamanho do arquivo de log nos bancos de dado do usuário e do sistema são incluídos no tamanho do armazenamento da instância que é comparado com o limite de tamanho máximo de armazenamento. Use a exibição do sistema [Sys.master_files](/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql) para determinar o total de espaço usado por bancos de dados. Logs de erros não são persistentes e não são incluídos no tamanho. Backups não são incluídos no tamanho de armazenamento.
 - A taxa de transferência e o IOPS na camada de Uso Geral também dependem do [tamanho do arquivo](#file-io-characteristics-in-general-purpose-tier) que não é explicitamente limitado pelo instância gerenciada do SQL.
   Você pode criar outra réplica legível em uma região diferente do Azure usando [grupos de failover automático](../database/auto-failover-group-configure.md)
 - IOPS de instância máxima dependem do layout do arquivo e da distribuição da carga de trabalho. Por exemplo, se você criar arquivos de 7 x 1 TB com 5K IOPS máximos cada e 7 arquivos pequenos (menores que 128 GB) com 500 IOPS cada, poderá obter 38500 IOPS por instância (7x5000 + 7x500) se sua carga de trabalho puder usar todos os arquivos. Observe que alguns IOPS também são usados para backups automáticos.
@@ -110,7 +110,7 @@ Se você notar alta latência de e/s em algum arquivo de banco de dados ou se pe
 
 Também há um limite no nível de instância da taxa de transferência de gravação de log máxima (que é de 22 MB/s), portanto, talvez você não consiga acessar o arquivo máximo no arquivo de log porque está atingindo o limite de taxa de transferência da instância.
 
-## <a name="supported-regions"></a>Regiões compatíveis
+## <a name="supported-regions"></a>Regiões com suporte
 
 O SQL Instância Gerenciada pode ser criado somente em [regiões com suporte](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Para criar um Instância Gerenciada SQL em uma região que não tem suporte no momento, você pode [Enviar uma solicitação de suporte por meio do portal do Azure](../database/quota-increase-request.md).
 

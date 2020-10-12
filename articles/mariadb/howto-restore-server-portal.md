@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/30/2020
 ms.openlocfilehash: 6d050a8bd351617a6ab567243c5b1ef8d9f93ded
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86115903"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-portal"></a>Como fazer backup e restaurar um servidor no Banco de Dados do Azure para MariaDB usando o Portal do Azure
@@ -37,7 +37,7 @@ Ao criar um servidor por meio do portal do Azure, a janela **Tipo de Preço** é
 Para saber mais sobre como definir esses valores de durante a criação, confira [início rápido do servidor do Banco de Dados do Azure para MariaDB](quickstart-create-mariadb-server-database-using-azure-portal.md).
 
 O período de retenção de backup pode ser alterado em um servidor por meio das seguintes etapas:
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Faça logon no [Portal do Azure](https://portal.azure.com/).
 
 2. Selecione o servidor do Banco de Dados do Azure para MariaDB. Essa ação abre a página **Visão geral** do runbook.
 
@@ -81,7 +81,7 @@ O servidor criado durante uma restauração não tem o ponto de extremidade de s
 
 Se você configurou seu servidor para backups com redundância geográfica, um novo servidor pode ser criado do backup do servidor existente. Esse novo servidor pode ser criado em qualquer região em que o Banco de Dados do Azure para MariaDB está disponível.  
 
-1. Selecione o botão **criar um recurso** (+) no canto superior esquerdo do Portal. Selecione **bancos**  >  **de dados Azure Database para MariaDB**.
+1. Selecione o botão **Criar um recurso** (+) no canto superior esquerdo do portal. Selecione **Bancos de Dados** > **Banco de Dados do Azure para MariaDB**.
 
    :::image type="content" source="./media/howto-restore-server-portal/2_navigate-to-mariadb.png" alt-text="Navegue até o banco de dados do Azure para MariaDB.":::
  
@@ -89,7 +89,7 @@ Se você configurou seu servidor para backups com redundância geográfica, um n
 
 3. Selecione **backup** como a **fonte de dados**. Essa ação carrega um menu suspenso que fornece uma lista de servidores que têm backups com redundância geográfica habilitada.
    
-   :::image type="content" source="./media/howto-restore-server-portal/3-geo-restore.png" alt-text="Selecione a fonte de dados.":::
+   :::image type="content" source="./media/howto-restore-server-portal/3-geo-restore.png" alt-text="Navegue até o banco de dados do Azure para MariaDB.":::
     
    > [!NOTE]
    > Quando um servidor é criado pela primeira vez, talvez não fique imediatamente disponível para restauração geográfica. Pode demorar algumas horas para que os metadados necessários sejam preenchidos.
@@ -97,21 +97,21 @@ Se você configurou seu servidor para backups com redundância geográfica, um n
 
 4. Selecione o menu suspenso **backup** .
    
-   :::image type="content" source="./media/howto-restore-server-portal/4-geo-restore-backup.png" alt-text="Selecione lista suspensa de backup.":::
+   :::image type="content" source="./media/howto-restore-server-portal/4-geo-restore-backup.png" alt-text="Navegue até o banco de dados do Azure para MariaDB.":::
 
 5. Selecione o servidor de origem do qual restaurar.
    
-   :::image type="content" source="./media/howto-restore-server-portal/5-select-backup.png" alt-text="Selecione backup.":::
+   :::image type="content" source="./media/howto-restore-server-portal/5-select-backup.png" alt-text="Navegue até o banco de dados do Azure para MariaDB.":::
 
 6. O servidor usará como padrão os valores para o número de **vCores**, o **período de retenção de backup**, a opção de redundância de **backup**, a **versão do mecanismo**e **as credenciais de administrador**. Selecione **Continuar**. 
    
-   :::image type="content" source="./media/howto-restore-server-portal/6-accept-backup.png" alt-text="Continue com o backup.":::
+   :::image type="content" source="./media/howto-restore-server-portal/6-accept-backup.png" alt-text="Navegue até o banco de dados do Azure para MariaDB.":::
 
 7. Preencha o restante do formulário com suas preferências. Você pode selecionar qualquer **Local**.
 
     Depois de selecionar o local, você pode selecionar **Configurar servidor** para atualizar **a geração de computação** (se disponível na região que você escolheu), o número de **VCores**, o período de retenção de **backup**e a opção de **redundância de backup**. Não há suporte para a alteração do **Tipo de Preço** (Básico, Uso Geral ou Otimizado para Memória) ou do tamanho de **Armazenamento** durante a restauração.
 
-   :::image type="content" source="./media/howto-restore-server-portal/7-create.png" alt-text="Preencher formulário."::: 
+   :::image type="content" source="./media/howto-restore-server-portal/7-create.png" alt-text="Navegue até o banco de dados do Azure para MariaDB."::: 
 
 8. Selecione **Revisar + criar** para revisar suas seleções. 
 

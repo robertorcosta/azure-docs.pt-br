@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/17/2020
 ms.author: ambapat
 ms.openlocfilehash: ce275674704cd7538f25a2d3f31d0e65aecd7925
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91320601"
 ---
 # <a name="import-hsm-protected-keys-to-managed-hsm-byok"></a>Importar chaves protegidas por HSM para HSM gerenciado (BYOK)
@@ -45,8 +45,8 @@ Eis uma visão geral do processo. As etapas específicas a serem concluídas ser
 Para usar comandos da CLI do Azure neste artigo, você deve ter os seguintes itens:
 
 * Uma assinatura do Microsoft Azure. Se você não tiver uma, pode se inscrever e fazer uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial).
-* O CLI do Azure versão 2.12.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
-* Um HSM gerenciado a [lista de HSMs com suporte](#supported-hsms) na sua assinatura. Consulte [início rápido: provisionar e ativar um HSM gerenciado usando CLI do Azure](quick-create-cli.md) para provisionar e ativar um HSM gerenciado.
+* A CLI do Azure versão 2.12.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+* Um HSM gerenciado a [lista de HSMs com suporte](#supported-hsms) na sua assinatura. Confira [Início Rápido: Provisione e ative um HSM gerenciado usando a CLI do Azure](quick-create-cli.md) para provisionar e ativar um HSM gerenciado.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 

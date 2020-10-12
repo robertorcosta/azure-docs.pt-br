@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: tomfitz
 ms.openlocfilehash: 327fa1d7eb73d8e65bb4f81c1dff0fe2bec2913b
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89319553"
 ---
 # <a name="createuidefinitionjson-for-azure-managed-applications-create-experience"></a>CreateUiDefinition.json para a experiência de criação do aplicativo gerenciado do Azure
@@ -129,7 +129,7 @@ Para `location` , especifique as propriedades para o controle de localização q
 
 A etapa **básico** é a primeira etapa gerada quando o portal do Azure analisa o arquivo. Por padrão, a etapa básico permite que os usuários escolham a assinatura, o grupo de recursos e o local para implantação.
 
-:::image type="content" source="./media/create-uidefinition-overview/basics.png" alt-text="Noções básicas padrão":::
+:::image type="content" source="./media/create-uidefinition-overview/basics.png" alt-text="Assistente de guia":::
 
 Você pode adicionar mais elementos nesta seção. Quando possível, adicione elementos que consultam parâmetros de toda a implantação, como o nome de um cluster ou credenciais de administrador.
 
@@ -164,7 +164,7 @@ A propriedade Steps contém zero ou mais etapas adicionais a serem exibidas apó
 ]
 ```
 
-## <a name="outputs"></a>Saídas
+## <a name="outputs"></a>outputs
 
 O portal do Azure usa a propriedade `outputs` para mapear os elementos de `basics` e `steps` para os parâmetros do modelo de implantação do Azure Resource Manager. As chaves do dicionário são os nomes dos parâmetros do modelo, e os valores são propriedades dos objetos da saída dos elementos referenciados.
 

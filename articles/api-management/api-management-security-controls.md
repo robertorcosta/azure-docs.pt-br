@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/23/2019
 ms.author: vlvinogr
 ms.openlocfilehash: a147179f7b55e43379b3c3fa3a7a0767cc97b198
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87902568"
 ---
 # <a name="security-controls-for-api-management"></a>Controles de segurança para o gerenciamento de API
@@ -52,7 +52,7 @@ Este artigo documenta os controles de segurança incorporados ao gerenciamento d
 | Criptografia no lado do servidor em repouso: chaves gerenciadas pela Microsoft | Sim | Dados confidenciais, como certificados, chaves e valores nomeados por segredo, são criptografados com chaves gerenciadas por serviço, por chave de instância de serviço. |  |
 | Criptografia no lado do servidor em repouso: chaves gerenciadas pelo cliente (BYOK) | Não | Todas as chaves de criptografia são por instância de serviço e gerenciadas pelo serviço. |  |
 | Criptografia em nível de coluna (serviços de dados do Azure)| N/D | |  |
-| Criptografia em trânsito (como criptografia de ExpressRoute, criptografia de vnet e criptografia vnet)| Sim | A criptografia de [rota expressa](../expressroute/index.yml) e VNet é fornecida pela [rede do Azure](../virtual-network/index.yml). |  |
+| Criptografia em trânsito (como criptografia de ExpressRoute, criptografia de VNet e criptografia de VNet-VNet)| Sim | A criptografia de [rota expressa](../expressroute/index.yml) e VNet é fornecida pela [rede do Azure](../virtual-network/index.yml). |  |
 | Chamadas criptografadas à API| Sim | As chamadas do plano de gerenciamento são feitas por meio de [Azure Resource Manager](../azure-resource-manager/index.yml) sobre TLS. Um JWT (token Web JSON) válido é necessário.  As chamadas de plano de dados podem ser protegidas com TLS e um dos mecanismos de autenticação com suporte (por exemplo, certificado de cliente ou JWT). |   |
  |
 

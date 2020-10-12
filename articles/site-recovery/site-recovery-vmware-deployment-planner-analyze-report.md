@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/4/2019
 ms.author: mayg
 ms.openlocfilehash: 901f4a9d4fd53f665c3d078f5e463dcde2af1882
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88654864"
 ---
 # <a name="analyze-the-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Analisar o relatório de Planejador de Implantações para a recuperação de desastres do VMware para o Azure
@@ -106,7 +106,7 @@ Esse valor é o número total de servidores de configuração e servidores de pr
 
 ![Infraestrutura local necessária no planejador de implantação](media/site-recovery-vmware-deployment-planner-analyze-report/required-on-premises-components-v2a.png)
 
-### <a name="what-if-analysis"></a>Teste de hipóteses
+### <a name="what-if-analysis"></a>Análise de hipóteses
 Essa análise descreve quantas violações podem ocorrer durante o período de criação de perfil quando você define menos largura de banda para que o RPO desejado seja atingido somente 90% do tempo. Uma ou mais violações de RPO podem ocorrer em qualquer dia. O grafo mostra o pico de RPO do dia.
 Com base nesta análise, você pode decidir se o número de violações de RPO em todos os dias e o pico de ocorrências de RPO por dia são aceitáveis com a menor largura de banda especificada. Se for aceitável, você poderá alocar menos largura de banda para replicação. Caso contrário, aloque a maior largura de banda sugerida para atender ao RPO desejado 100% do tempo.
 

@@ -4,10 +4,10 @@ description: Como usar identidades gerenciadas no Azure Service Fabric código d
 ms.topic: article
 ms.date: 10/09/2019
 ms.openlocfilehash: 07f960c01367ab42a434a8c2e1e276d9c5f7bd11
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86253636"
 ---
 # <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services"></a>Como aproveitar a identidade gerenciada de um aplicativo Service Fabric para acessar os serviços do Azure
@@ -336,7 +336,7 @@ Se ocorrer um erro, o corpo da resposta HTTP correspondente conterá um objeto J
 | ------- | ----------- |
 | code | Código do erro. |
 | correlationId | Uma ID de correlação que pode ser usada para depuração. |
-| message | Descrição detalhada do erro. **As descrições de erro podem ser alteradas a qualquer momento. Não dependa da própria mensagem de erro.**|
+| mensagem | Descrição detalhada do erro. **As descrições de erro podem ser alteradas a qualquer momento. Não dependa da própria mensagem de erro.**|
 
 Erro de exemplo:
 ```json
