@@ -13,10 +13,10 @@ ms.date: 09/15/2020
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 06900483598e1c03bd56cd8ac8c905f885012f08
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91395882"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Armazenamento de dados de identidade para os clientes europeus no Azure Active Directory
@@ -36,7 +36,7 @@ Para a autenticação multifator do Azure baseada em nuvem, a autenticação é 
 
 Para obter mais informações sobre quais informações do usuário são coletadas pelo Azure Servidor de Autenticação Multifator (servidor MFA) e pela MFA do Azure baseada em nuvem, consulte [coleta de dados do usuário da autenticação multifator do Azure](../authentication/howto-mfa-reporting-datacollection.md).
 
-## <a name="password-based-single-sign-on-for-enterprise-applications"></a>Logon único baseado em senha para aplicativos empresariais
+## <a name="password-based-single-sign-on-for-enterprise-applications"></a>Sign-On único com base em senha para aplicativos empresariais
  
 Se um cliente criar um novo aplicativo empresarial (seja por meio da galeria do Azure AD ou não da Galeria) e habilitar o SSO baseado em senha, a URL de entrada do aplicativo e os campos de entrada de captura personalizada serão armazenados no Estados Unidos. Para obter mais informações sobre esse recurso, consulte [Configurar logon único baseado em senha](../manage-apps/configure-password-single-sign-on-non-gallery-applications.md)
 

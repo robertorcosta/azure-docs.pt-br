@@ -14,10 +14,10 @@ ms.workload: NA
 ms.date: 04/19/2019
 ms.author: alkohli
 ms.openlocfilehash: 5d656fd8757580b8ce96acf168e92fc847d400ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85514060"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-azure-file-sync"></a>Migrar dados do StorSimple séries 5000-7000 para a Sincronização de Arquivos do Azure
@@ -56,7 +56,7 @@ Aqui você encontrará os pré-requisitos de migração para seu dispositivo her
 - Volumes do StorSimple são montados no host e contêm compartilhamentos de arquivos.
 - O host tem armazenamento local suficiente para armazenar os dados armazenados em cache localmente.
 - Acesso de nível proprietário à assinatura do Azure que será usada para implantar Sincronização de Arquivos do Azure. Você pode enfrentar problemas ao criar um ponto de extremidade de nuvem para seu grupo de sincronização se você não tiver permissões de nível de administrador ou proprietário.
-- Acesso a uma [conta de armazenamento v2 de uso geral](https://docs.microsoft.com/azure/storage/common/storage-account-overview) com um compartilhamento de arquivos do Azure ao qual você deseja sincronizar. Para obter mais informações, consulte [criar uma conta de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
+- Acesso a uma [conta de armazenamento v2 de uso geral](https://docs.microsoft.com/azure/storage/common/storage-account-overview) com um compartilhamento de arquivos do Azure ao qual você deseja sincronizar. Para obter mais informações, consulte [Criar uma conta de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
   - Como [Criar um Compartilhamento de Arquivos do Azure](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 
 ## <a name="migration-process"></a>Processo de migração
@@ -73,8 +73,8 @@ Execute as etapas a seguir para migrar o compartilhamento de arquivos do Windows
     - [Instale o agente de sincronização de arquivos do Azure](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#install-the-azure-file-sync-agent).
     - [Implante o serviço de sincronização de armazenamento](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#deploy-the-storage-sync-service). 
     - [Registre o Windows Server com o serviço de sincronização de armazenamento](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#register-windows-server-with-storage-sync-service). 
-    - [Criar um grupo de sincronização e um ponto de extremidade de nuvem](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#create-a-sync-group-and-a-cloud-endpoint). É necessário fazer grupos de sincronização para cada compartilhamento de arquivos do Windows que precisa ser migrado do host.
-    - [Criar um ponto de extremidade de servidor](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal#create-a-server-endpoint). Especifique o caminho como o caminho do volume do StorSimple que contém os dados de compartilhamento de arquivos. Por exemplo, se o volume do StorSimple for a unidade `J` e os dados residirem em `J:/<myafsshare>`, inclua esse caminho como um ponto de extremidade de servidor. Deixe a **Camada** como **Desabilitado**.
+    - [Crie um grupo de sincronização e um ponto de extremidade de nuvem](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#create-a-sync-group-and-a-cloud-endpoint). É necessário fazer grupos de sincronização para cada compartilhamento de arquivos do Windows que precisa ser migrado do host.
+    - [Criar um ponto de extremidade do servidor](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal#create-a-server-endpoint). Especifique o caminho como o caminho do volume do StorSimple que contém os dados de compartilhamento de arquivos. Por exemplo, se o volume do StorSimple for a unidade `J` e os dados residirem em `J:/<myafsshare>`, inclua esse caminho como um ponto de extremidade de servidor. Deixe a **Camada** como **Desabilitado**.
 2.  Aguarde até que a sincronização do servidor de arquivos esteja concluída. Para cada servidor em um determinado grupo de sincronização, verifique se:
     - Os timestamps da última tentativa de sincronização para upload e download são recentes.
     - O status é verde para carregamento e download.

@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 03/19/2020
 ms.author: mimart
 ms.openlocfilehash: 9b660bf20c90a84780175e70573c96a0ce1b0b7d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91376998"
 ---
 ## <a name="use-custom-page-content"></a>Usar conteúdo de página personalizado
@@ -159,7 +159,7 @@ Configure o armazenamento de BLOB para compartilhamento de recursos entre origen
 1. Para **cabeçalhos permitidos**, digite um asterisco (*).
 1. Para **cabeçalhos expostos**, digite um asterisco (*).
 1. Para **Idade máxima de**, insira 200.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 #### <a name="31-test-cors"></a>CORS de teste 3,1
 

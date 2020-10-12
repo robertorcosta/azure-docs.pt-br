@@ -12,10 +12,10 @@ ms.date: 11/22/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
 ms.openlocfilehash: 3a3f461941bfcd5091ebb14818bac05d6844b3fe
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90706347"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planejar o aplicativo de RH de nuvem para Azure Active Directory provisionamento de usuário
@@ -52,7 +52,7 @@ A integração do aplicativo de RH de nuvem com o provisionamento de usuário do
 - Exigir ingressar, mover e deixar os usuários serem sincronizados com um ou mais Active Directory florestas, domínios e UOs com base apenas nas informações de alteração detectadas no aplicativo de RH de nuvem.
 - Use Microsoft 365 para email.
 
-## <a name="learn"></a>Learn
+## <a name="learn"></a>Saiba mais
 
 O provisionamento de usuário cria uma base para a governança de identidade contínua. Ele aprimora a qualidade dos processos de negócios que dependem de dados de identidade autoritativa.
 
@@ -92,7 +92,7 @@ Você também precisa de uma licença de assinatura Azure AD Premium P1 ou super
 
 | **Recursos** | **Link e descrição** |
 |:-|:-|
-| Vídeos | [O que é o provisionamento de usuário no diretório ativo do Azure?](https://youtu.be/_ZjARPpI6NI) |
+| vídeos | [O que é o provisionamento de usuário no diretório ativo do Azure?](https://youtu.be/_ZjARPpI6NI) |
 | | [Como implantar o provisionamento de usuário no Active Directory do Azure](https://youtu.be/pKzyts6kfrw) |
 | Tutoriais | [Lista de tutoriais sobre como integrar aplicativos SaaS ao Azure AD](../saas-apps/tutorial-list.md) |
 | | [Tutorial: Configurar o Workday para provisionamento automático do usuário](../saas-apps/workday-inbound-tutorial.md#frequently-asked-questions-faq) |
@@ -255,9 +255,9 @@ Você também pode [Personalizar os mapeamentos de atributo padrão](../app-prov
 
 Por padrão, o aplicativo do conector de provisionamento mapeia o status do perfil de usuário de RH para o status da conta de usuário no Active Directory ou no Azure AD para determinar se a conta de usuário deve ser habilitada ou desabilitada.
 
-Quando você inicia o processo dos emissores-periões, reúna os seguintes requisitos.
+Ao iniciar o processo de Joiners-Leavers, reúna os seguintes requisitos.
 
-| Processar | Requisitos |
+| Processo | Requisitos |
 | - | - |
 | **Entradas** | De uma perspectiva do ciclo de vida da identidade, como lidar com recontratações? As recontratações mantêm suas IDs de funcionário antigas? |
 | | Você processa contratações no futuro e cria Active Directory contas com antecedência? Essas contas são criadas em um estado habilitado ou desabilitado? |
@@ -276,7 +276,7 @@ Cada aplicativo de RH na nuvem é fornecido com o aplicativo de RH de nuvem padr
 
 Ao iniciar o processo de Complementos-movimentadores-periões, reúna os seguintes requisitos.
 
-| Processar | Requisitos |
+| Processo | Requisitos |
 | - | - |
 | **Entradas** | O processo de criação de conta Active Directory manual, automatizado ou parcialmente automatizado? |
 | | Você planeja propagar atributos personalizados do aplicativo de RH de nuvem para Active Directory? |

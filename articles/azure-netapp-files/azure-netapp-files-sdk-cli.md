@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: b-juche
 ms.openlocfilehash: 54c85fb778d1794f9aeba2eba5ed459292636e35
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87513614"
 ---
 # <a name="azure-netapp-files-sdks-and-cli-tools"></a>SDKs do Azure NetApp Files e ferramentas da CLI
@@ -29,13 +29,13 @@ Este artigo lista os SDKs e as ferramentas de linha de comando (CLI) com suporte
 
 A tabela a seguir lista os SDKs com suporte.  Você pode encontrar detalhes sobre os SDKs com suporte em seus locais publicados no GitHub.  
 
-|    Idioma    |    Local publicado do SDK no GitHub    |
+|    Linguagem    |    Local publicado do SDK no GitHub    |
 |------------------|--------------------------------------------------------------|
 |    .NET  |    [Azure/Azure-SDK-para-rede](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/netapp)    |
 |    Python  |  [Azure/Azure-SDK-para-Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/netapp)    |
 |    Go    |    [Azure/Azure-SDK-para-go](https://github.com/Azure/azure-sdk-for-go/tree/master/services/netapp)       |
 |    Java |     [Azure/Azure-SDK-para-Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/netapp) |
-|    JavaScript    |    [Azure/Azure-SDK-para-JS](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/netapp/arm-netapp)    |
+|    JavaScript    |    [Azure/azure-sdk-for-js](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/netapp/arm-netapp)    |
 |    Ruby   |    [Azure/Azure-SDK-para-Ruby](https://github.com/Azure/azure-sdk-for-ruby/tree/master/management/azure_mgmt_netapp)    |
 
 ## <a name="cli-tools"></a>Ferramentas da CLI

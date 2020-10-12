@@ -9,10 +9,10 @@ ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
 ms.openlocfilehash: 4844f3e34a6b49559affbb4d4ed7bc5b5e38e538
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87050365"
 ---
 # <a name="move-analysis-services-to-a-different-region"></a>Mover Analysis Services para uma região diferente
@@ -278,9 +278,9 @@ Opcional: depois de restaurar o banco de dados modelo, processe o modelo e as ta
 
 Opcional: o [Alm Toolkit](http://alm-toolkit.com/) é uma *ferramenta de software* livre para comparar e gerenciar conjuntos de dados Power bi e Analysis Services bancos de dados *de* modelo de tabela. Use o kit de ferramentas para se conectar aos bancos de dados do servidor de origem e de destino e comparar. Se a migração do banco de dados for bem-sucedida, os objetos de modelo terão a mesma definição. 
 
-:::image type="content" source="media/move-between-regions/alm-toolkit.png" alt-text="Kit de ferramentas ALM":::
+:::image type="content" source="media/move-between-regions/alm-toolkit.png" alt-text="Obter SAS":::
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Depois de verificar se os aplicativos cliente podem se conectar ao novo servidor e todos os scripts de automação estiverem sendo executados corretamente, exclua o servidor de origem. 
 

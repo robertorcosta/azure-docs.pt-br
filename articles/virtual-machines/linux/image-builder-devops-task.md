@@ -8,10 +8,10 @@ ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.openlocfilehash: 9f948fcc8ad36f8bef8b1ab6a1b74131faea9bd3
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88068084"
 ---
 # <a name="azure-image-builder-service-devops-task"></a>Tarefa DevOps do serviço do construtor de imagem do Azure
@@ -69,7 +69,7 @@ Selecione no menu suspenso a assinatura que você deseja que o construtor de ima
 
 Use o grupo de recursos em que o artefato do modelo de imagem temporária será armazenado. Ao criar um artefato de modelo, um grupo de recursos de construtor de imagem temporário adicional `IT_<DestinationResourceGroup>_<TemplateName>_guid` é criado. O grupo de recursos temporários armazena os metadados da imagem, como scripts. No final da tarefa, o artefato do modelo de imagem e o grupo de recursos do construtor de imagem temporário são excluídos.
  
-### <a name="location"></a>Location
+### <a name="location"></a>Localização
 
 O local é a região em que o construtor de imagem será executado. Há suporte apenas para um número definido de [regiões](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview#regions) . As imagens de origem devem estar presentes neste local. Por exemplo, se você estiver usando a Galeria de imagens compartilhadas, uma réplica deverá existir nessa região.
 
@@ -139,12 +139,12 @@ Selecione o botão **Compilar caminho** para escolher a pasta de Build que você
 
 O exemplo a seguir explica como isso funciona:
 
-:::image type="content" source="./media/image-builder-devops-task/build-artifacts.png" alt-text="Uma estrutura de diretório que mostra A hierarquia.":::
+:::image type="content" source="./media/image-builder-devops-task/build-artifacts.png" alt-text="Selecionando Adicionar um artefato no pipeline de lançamento.":::
 
 
 * Os arquivos do Windows existem no `C:\` . Um diretório chamado `buildArtifacts` é criado, o que inclui o `webapp` diretório.
 
-* Linux-os arquivos existem no `/tmp` . O `webapp` diretório é criado, o que inclui todos os arquivos e diretórios. Você deve mover os arquivos deste diretório. Caso contrário, eles serão excluídos, pois estão no diretório temporário.
+* Linux-os arquivos existem no  `/tmp` . O `webapp` diretório é criado, o que inclui todos os arquivos e diretórios. Você deve mover os arquivos deste diretório. Caso contrário, eles serão excluídos, pois estão no diretório temporário.
 
 #### <a name="inline-customization-script"></a>Script de personalização embutido
 
@@ -314,7 +314,7 @@ Se houver uma falha de compilação, a tarefa DevOps não excluirá o grupo de r
 
 Você verá um erro no log do DevOps para a tarefa do construtor de imagens de VM e verá o local de personalização. log. Por exemplo:
 
-:::image type="content" source="./media/image-builder-devops-task/devops-task-error.png" alt-text="Exemplo de erro de tarefa DevOps que mostra uma falha.":::
+:::image type="content" source="./media/image-builder-devops-task/devops-task-error.png" alt-text="Selecionando Adicionar um artefato no pipeline de lançamento.":::
 
 Para obter mais informações sobre solução de problemas, consulte [solucionar problemas do serviço do construtor de imagem do Azure](image-builder-troubleshoot.md). 
 

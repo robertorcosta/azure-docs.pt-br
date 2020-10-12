@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/02/2019
 ms.openlocfilehash: c2ddcd8ea3524b4afdfa7f70d21f0cba96975f72
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86085354"
 ---
 # <a name="query-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Consulta logs do Azure Monitor para monitorar clusters do HDInsight
@@ -33,7 +33,7 @@ Você deve ter configurado um cluster HDInsight para usar logs de Azure Monitor 
 Saiba como procurar métricas específicas para seu cluster HDInsight.
 
 1. Abra o espaço de trabalho do Log Analytics que está associado ao seu cluster HDInsight do portal do Azure.
-1. Em **geral**, selecione **logs**.
+1. Em **Geral**, selecione **Logs**.
 1. Digite a consulta a seguir na caixa de pesquisa para procurar todas as métricas de todas as métricas disponíveis para todos os clusters HDInsight configurados para usar logs de Azure Monitor e, em seguida, selecione **executar**. Revise os resultados.
 
     ```kusto
@@ -94,7 +94,7 @@ search in (metrics_resourcemanager_queue_root_default_CL) *
 A primeira etapa para criar um alerta é chegar a uma consulta com base na qual o alerta é disparado. É possível usar qualquer consulta que você desejar para criar um alerta.
 
 1. Abra o espaço de trabalho do Log Analytics que está associado ao seu cluster HDInsight do portal do Azure.
-1. Em **geral**, selecione **logs**.
+1. Em **Geral**, selecione **Logs**.
 1. Execute a consulta a seguir na qual você deseja criar um alerta e, em seguida, selecione **executar**.
 
     ```kusto
@@ -127,7 +127,7 @@ A primeira etapa para criar um alerta é chegar a uma consulta com base na qual 
 
 Para obter mais informações, confira [Criar, exibir e gerenciar alertas de métrica usando o Azure Monitor](../azure-monitor/platform/alerts-metric.md).
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 * [Introdução às consultas de log no Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 * [Criar exibições personalizadas usando o designer de exibição no Azure Monitor](../azure-monitor/platform/view-designer.md)

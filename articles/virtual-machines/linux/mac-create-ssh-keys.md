@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 12/06/2019
 ms.author: cynthn
 ms.openlocfilehash: 33ba816227db4cf958fd30c9dac1a0745505c504
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87513682"
 ---
 # <a name="quick-steps-create-and-use-an-ssh-public-private-key-pair-for-linux-vms-in-azure"></a>Etapas rápidas: Criar e usar um par de chaves SSH pública e privada para VMs Linux no Azure
@@ -37,7 +37,7 @@ O seguinte comando cria um par de chaves SSH usando a criptografia RSA e o taman
 ssh-keygen -m PEM -t rsa -b 4096
 ```
 
-Ao usar a [CLI do Azure](/cli/azure) para criar a VM com o comando [az vm create](/cli/azure/vm#az-vm-create), opcionalmente, você pode gerar arquivos de chave SSH pública e privada executando a opção `--generate-ssh-keys`. Os arquivos de chave são armazenados no diretório ~/.ssh, a menos que você especifique outro local com a opção `--ssh-dest-key-path`. Se um par de chaves SSH já existir e a `--generate-ssh-keys` opção for usada, um novo par de chaves não será gerado, mas em vez disso, o par de chaves existente será usado. No comando a seguir, substitua *VMname* e *RGname* pelos seus próprios valores:
+Ao usar a [CLI do Azure](/cli/azure) para criar a VM com o comando [az vm create](/cli/azure/vm#az-vm-create), opcionalmente, você pode gerar arquivos de chave SSH pública e privada executando a opção `--generate-ssh-keys`. Os arquivos de chave são armazenados no diretório ~/.ssh, a menos que você especifique outro local com a opção `--ssh-dest-key-path`. Se um par de chaves SSH já existir e a  `--generate-ssh-keys` opção for usada, um novo par de chaves não será gerado, mas em vez disso, o par de chaves existente será usado. No comando a seguir, substitua *VMname* e *RGname* pelos seus próprios valores:
 
 ```azurecli
 az vm create --name VMname --resource-group RGname --image UbuntuLTS --generate-ssh-keys 

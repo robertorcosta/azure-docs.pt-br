@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 09/09/2020
 ms.author: amverma
 ms.openlocfilehash: 34e9ef3ab46f2ce11500aa87db9676635d3e9b4f
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90016275"
 ---
 # <a name="hb-series-virtual-machine-sizes"></a>Tamanhos de máquina virtual da série HB
@@ -22,7 +22,7 @@ Vários testes de desempenho foram executados em tamanhos da série HB. A seguir
 | Carga de trabalho                                        | HB                    |
 |-------------------------------------------------|-----------------------|
 | Tríade de fluxo                                    | 260 GB/s (32-33 GB/s por CCX)  |
-| Linpack de alto desempenho (HPL)                  | 1.000 GigaFLOPS (Rpeak), 860 GigaFLOPS (RMAX) |
+| High-Performance Linpack (HPL)                  | 1.000 GigaFLOPS (Rpeak), 860 GigaFLOPS (RMAX) |
 | Largura de banda de & de latência RDMA                        | 1,27 microssegundos, 99,1 GB/s   |
 | FIO no SSD de NVMe local                           | 1,7 GB/s leituras, 1,0 GB/s gravações      |  
 | IOR em 4 * SSD Premium do Azure (p30 Managed Disks, RAID0) * *  | 725 MB/s leituras, 780 MB/gravações   |
@@ -46,7 +46,7 @@ O teste de largura de banda MPI do OSU MicroBenchMark Suite é executado. Os scr
 ./mvapich2-2.3.install/bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./mvapich2-2.3/osu_benchmarks/mpi/pt2pt/osu_bw
 ```
 
-:::image type="content" source="./media/bandwidth-hb.png" alt-text="Largura de banda MPI no Azure HB.":::
+:::image type="content" source="./media/bandwidth-hb.png" alt-text="Latência MPI no Azure HB.":::
 
 
 ## <a name="mellanox-perftest"></a>Adaptador Mellanox Perftest

@@ -4,10 +4,10 @@ description: Este artigo descreve como habilitar a identidade do serviço gerenc
 ms.topic: how-to
 ms.date: 07/07/2020
 ms.openlocfilehash: 7eaa3ddd43cc68a99ad7c2bab66630f30d4960c9
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87534236"
 ---
 # <a name="event-delivery-with-a-managed-identity"></a>Entrega de eventos com uma identidade gerenciada
@@ -21,7 +21,7 @@ Aqui estão as etapas abordadas em detalhes neste artigo:
 ## <a name="create-a-topic-or-domain-with-an-identity"></a>Criar um tópico ou domínio com uma identidade
 Primeiro, vamos dar uma olhada em como criar um tópico ou domínio com uma identidade gerenciada pelo sistema.
 
-### <a name="use-the-azure-portal"></a>Use o Portal do Azure
+### <a name="use-the-azure-portal"></a>Usar o portal do Azure
 Você pode habilitar a identidade atribuída pelo sistema para um tópico ou domínio enquanto o cria no portal do Azure. A imagem a seguir mostra como habilitar uma identidade gerenciada pelo sistema para um tópico. Basicamente, você seleciona a opção **Habilitar identidade atribuída pelo sistema** na página **Avançado** do assistente de criação de tópico. Você também verá essa opção na página **avançado** do assistente de criação de domínio. 
 
 ![Habilitar identidade ao criar um tópico](./media/managed-service-identity/create-topic-identity.png)
@@ -39,10 +39,10 @@ Da mesma forma, você pode usar o comando `az eventgrid domain create` para cria
 ## <a name="enable-an-identity-for-an-existing-topic-or-domain"></a>Habilitar uma identidade para um tópico ou domínio existente
 Na seção anterior, você aprendeu como habilitar uma identidade gerenciada pelo sistema enquanto você criou um tópico ou um domínio. Nesta seção, você aprenderá a habilitar uma identidade gerenciada pelo sistema para um tópico ou domínio existente. 
 
-### <a name="use-the-azure-portal"></a>Use o Portal do Azure
+### <a name="use-the-azure-portal"></a>Usar o portal do Azure
 O procedimento a seguir mostra como habilitar a identidade gerenciada pelo sistema para um tópico. As etapas para habilitar uma identidade para um domínio são semelhantes. 
 
-1. Vá para o [portal do Azure](https://portal.azure.com).
+1. Vá para o [Portal do Azure](https://portal.azure.com).
 2. Procure **Tópicos da grade de eventos** na barra de pesquisa na parte superior.
 3. Selecione o **tópico** para o qual deseja habilitar a identidade gerenciada. 
 4. Alterne para a guia **Identidade**. 
@@ -78,7 +78,7 @@ Atualmente, a grade de eventos do Azure dá suporte a tópicos ou domínios conf
 ## <a name="add-an-identity-to-azure-roles-on-destinations"></a>Adicionar uma identidade às funções do Azure em destinos
 Esta seção descreve como adicionar a identidade do seu tópico ou domínio a uma função do Azure. 
 
-### <a name="use-the-azure-portal"></a>Use o Portal do Azure
+### <a name="use-the-azure-portal"></a>Usar o portal do Azure
 Você pode usar a portal do Azure para atribuir o tópico ou a identidade de domínio a uma função apropriada para que o tópico ou domínio possa encaminhar eventos para o destino. 
 
 O exemplo a seguir adiciona uma identidade gerenciada para um tópico da grade de eventos chamado **msitesttopic** à função **Remetente de dados do Barramento de Serviço do Azure** para um namespace do Barramento de Serviço que contém um recurso de fila ou tópico. Quando você adiciona à função no nível de namespace, o tópico pode encaminhar eventos para todas as entidades no namespace. 
@@ -137,7 +137,7 @@ az role assignment create --role "$role" --assignee "$topic_pid" --scope "$sbust
 ## <a name="create-event-subscriptions-that-use-an-identity"></a>Criar assinaturas de evento que usam uma identidade
 Depois que você tiver um tópico ou um domínio com uma identidade gerenciada pelo sistema e tiver adicionado a identidade à função apropriada no destino, você estará pronto para criar assinaturas que usam a identidade. 
 
-### <a name="use-the-azure-portal"></a>Use o Portal do Azure
+### <a name="use-the-azure-portal"></a>Usar o portal do Azure
 Ao criar uma assinatura de evento, você verá uma opção para habilitar o uso de uma identidade atribuída pelo sistema para um ponto de extremidade na seção **detalhes do ponto de extremidade** . 
 
 ![Habilitar identidade ao criar uma assinatura de evento para uma fila do barramento de serviço](./media/managed-service-identity/service-bus-queue-subscription-identity.png)

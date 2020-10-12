@@ -17,10 +17,10 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cccabaf069a3027e615892e36e218f865a6c983a
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90706652"
 ---
 # <a name="compare-remote-access-solutions"></a>Comparar as soluções de acesso remoto
@@ -38,17 +38,17 @@ Use essa tabela para entender a comparação entre o Threat Management Gateway (
 | Publicar seletivamente os aplicativos de navegador | Sim | Sim | Sim | Sim |
 | Pré-autenticação e logon único | Sim | Sim | Sim | Sim | 
 | Firewall de Camada 2/3 | Sim | Sim | - | - |
-| Recursos de proxy de encaminhamento | Yes | - | - | - |
+| Recursos de proxy de encaminhamento | Sim | - | - | - |
 | Funcionalidades de VPN | Sim | Sim | - | - |
-| Suporte avançado a protocolo | - | Yes | Sim, se estiver em execução sobre HTTP | Sim, se a execução for feita via HTTP ou por meio do Gateway de Área de Trabalho Remota |
+| Suporte avançado a protocolo | - | Sim | Sim, se estiver em execução sobre HTTP | Sim, se a execução for feita via HTTP ou por meio do Gateway de Área de Trabalho Remota |
 | Atua como um servidor proxy do ADFS | - | Sim | Sim | - |
 | Um portal para acesso de aplicativo | - | Sim | - | Sim |
 | Conversão de link de corpo de resposta | Sim | Sim | - | Sim | 
-| Autenticação com cabeçalhos | - | Yes | - | Sim, com PingAccess | 
-| Segurança em escala de nuvem | - | - | - | Yes | 
+| Autenticação com cabeçalhos | - | Sim | - | Sim, com PingAccess | 
+| Segurança em escala de nuvem | - | - | - | Sim | 
 | Acesso Condicional | - | Sim | - | Sim |
-| Nenhum componente na zona desmilitarizada (DMZ) | - | - | - | Yes |
-| Nenhuma conexão de entrada | - | - | - | Yes |
+| Nenhum componente na zona desmilitarizada (DMZ) | - | - | - | Sim |
+| Nenhuma conexão de entrada | - | - | - | Sim |
 
 Para a maioria dos cenários, recomendamos o Azure Proxy de Aplicativo do AD como a solução moderna. P Proxy de Aplicativo Web é preferencial apenas em cenários que exigem um servidor proxy para o AD FS e não pode usar domínios personalizados no Azure Active Directory. 
 

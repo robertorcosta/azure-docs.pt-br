@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/06/2020
 ms.openlocfilehash: 87feba3bc79e39f1379a25fa55fe0186d5605e4a
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86085541"
 ---
 # <a name="run-apache-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>Executar consultas do Apache Hive com o Apache Hadoop no HDInsight usando a REST
@@ -48,7 +48,7 @@ Edite o script a seguir substituindo `PASSWORD` pela sua senha real.  Em seguida
 export password='PASSWORD'
 ```  
 
-**B. o PowerShell** executa o código abaixo e insere suas credenciais na janela pop-up:
+**B. PowerShell** Execute o código abaixo e insira suas credenciais na janela pop-up:
 
 ```powershell
 $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
@@ -146,7 +146,7 @@ $clusterName
 
    Essas instruções executam as seguintes ações:
 
-   * `DROP TABLE`-Se a tabela já existir, ela será excluída.
+   * `DROP TABLE` -Se a tabela já existir, ela será excluída.
    * `CREATE EXTERNAL TABLE` - Cria uma nova tabela ‘externa’ no Hive. As tabelas externas armazenam apenas a definição da tabela no Hive. Os dados são mantidos no local original.
 
      > [!NOTE]  
@@ -155,8 +155,8 @@ $clusterName
      > Remover uma tabela externa **não** exclui os dados, somente a definição de tabela.
 
    * `ROW FORMAT` – o modo como os dados são formatados. Os campos em cada log são separados por um espaço.
-   * `STORED AS TEXTFILE LOCATION`-Onde os dados são armazenados (o diretório de exemplo/dados) e que são armazenados como texto.
-   * `SELECT`– Seleciona uma contagem de todas as linhas em que a coluna **T4** contém o valor **[ERROR]**. Essa instrução retorna um valor de **3**, visto que há três linhas que contêm esse valor.
+   * `STORED AS TEXTFILE LOCATION` -Onde os dados são armazenados (o diretório de exemplo/dados) e que são armazenados como texto.
+   * `SELECT` – Seleciona uma contagem de todas as linhas em que a coluna **T4** contém o valor **[ERROR]**. Essa instrução retorna um valor de **3**, visto que há três linhas que contêm esse valor.
 
      > [!NOTE]  
      > Observe que os espaços entre as instruções HiveQL são substituídos pelo caractere `+` quando usados com o Curl. Os valores entre aspas que contêm um espaço, como o delimitador, não devem ser substituídos por `+`.

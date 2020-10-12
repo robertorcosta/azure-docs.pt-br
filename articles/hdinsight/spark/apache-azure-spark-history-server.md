@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/25/2019
 ms.openlocfilehash: d8dd9aaeaadf13fa48577cf2853e7bcf58badb41
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86079285"
 ---
 # <a name="use-the-extended-features-of-the-apache-spark-history-server-to-debug-and-diagnose-spark-applications"></a>Usar os recursos estendidos do servidor de histórico de Apache Spark para depurar e diagnosticar aplicativos Spark
@@ -26,7 +26,7 @@ O servidor de histórico do Spark é a interface do usuário da Web para aplicat
 ### <a name="open-the-spark-history-server-web-ui-from-the-azure-portal"></a>Abra a interface do usuário da Web do servidor de histórico do Spark no portal do Azure
 
 1. No [portal do Azure](https://portal.azure.com/), abra o cluster Spark. Para obter mais informações, consulte [Listar e mostrar clusters](../hdinsight-administer-use-portal-linux.md#showClusters).
-2. Em **painéis de cluster**, selecione **servidor de histórico do Spark**. Quando solicitado, insira as credenciais de administrador para o cluster Spark.
+2. Em **painéis de cluster**, selecione  **servidor de histórico do Spark**. Quando solicitado, insira as credenciais de administrador para o cluster Spark.
 
     ![Inicie o servidor de histórico do Spark por meio do portal do Azure.](./media/apache-azure-spark-history-server/azure-portal-dashboard-spark-history.png "Servidor de Histórico do Spark")
 
@@ -97,7 +97,7 @@ Selecione a ID do trabalho e, em seguida, selecione **dados** no menu ferramenta
    ![O mapa de calor no aplicativo Spark & página grafo de trabalho.](./media/apache-azure-spark-history-server/sparkui-graph-heatmap.png)
 
 
-    |Cor |Descrição |
+    |Color |DESCRIÇÃO |
     |---|---|
     |Verde|o trabalho foi concluído com êxito.|
     |Laranja|A tarefa falhou, mas isso não afeta o resultado final do trabalho. Essas tarefas têm instâncias duplicadas ou repetidas que podem ter sucesso mais tarde.|

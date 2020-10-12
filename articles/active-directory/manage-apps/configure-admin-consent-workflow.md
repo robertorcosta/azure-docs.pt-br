@@ -13,10 +13,10 @@ ms.author: kenwith
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e4871af354d68a8d6dcaf3170271959146f57cba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84763611"
 ---
 # <a name="configure-the-admin-consent-workflow-preview"></a>Configurar o fluxo de trabalho de consentimento do administrador (versão prévia)
@@ -33,7 +33,7 @@ Para aprovar solicitações, um revisor deve ser um administrador global, um adm
 
 Para habilitar o fluxo de trabalho de consentimento do administrador e escolher revisores:
 
-1. Entre no [portal do Azure](https://portal.azure.com) como um administrador global.
+1. Entre no [Portal do Azure](https://portal.azure.com) como administrador global.
 2. Clique em **Todos os serviços** na parte superior do menu de navegação à esquerda. A **Extensão do Active Directory do Azure** é aberta.
 3. Na caixa de pesquisa de filtro, digite "**Azure Active Directory**" e selecione **o item de Azure Active Directory** .
 4. No menu de navegação, clique em **Aplicativos corporativos**. 
@@ -49,7 +49,7 @@ Para habilitar o fluxo de trabalho de consentimento do administrador e escolher 
    * **Os usuários selecionados receberão lembretes de expiração de solicitação**. Habilitar ou desabilitar notificações de email de lembrete para os revisores quando uma solicitação estiver prestes a expirar.  
    * A **solicitação de consentimento expira após (dias)**. Especifique por quanto tempo as solicitações permanecem válidas.
 
-7. Selecione **Salvar**. Pode levar até uma hora para que o recurso fique habilitado.
+7. Clique em **Salvar**. Pode levar até uma hora para que o recurso fique habilitado.
 
 > [!NOTE]
 > Você pode adicionar ou remover revisores para este fluxo de trabalho modificando a lista **selecionar revisores de solicitações de consentimento de administrador** . Observe que uma limitação atual desse recurso é que os revisores podem reter a capacidade de revisar solicitações feitas enquanto foram designadas como um revisor.

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/01/2020
 ms.subservice: metrics
 ms.openlocfilehash: 73c9b2bf8cf88ca5e8576c451c9d9ac5f0eae8a3
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88639895"
 ---
 # <a name="custom-metrics-in-azure-monitor-preview"></a>Métricas personalizadas no Azure Monitor (versão prévia)
@@ -177,7 +177,7 @@ Depois que as métricas personalizadas são enviadas ao Monitor do Azure, você 
 > Você precisa ser uma função de leitor ou colaborador para exibir métricas personalizadas.
 
 ### <a name="browse-your-custom-metrics-via-the-azure-portal"></a>Procurar suas métricas personalizadas no portal do Azure
-1.    Vá para o [portal do Azure](https://portal.azure.com).
+1.    Vá para o [Portal do Azure](https://portal.azure.com).
 2.    Selecione o painel **Monitor**.
 3.    Selecione **Métricas**.
 4.    Selecione um recurso em que você emitiu métricas personalizadas.
@@ -208,7 +208,7 @@ Durante a pré-visualização pública, a capacidade de publicar métricas perso
 | **Ásia** | |
 |Índia Central | https: \/ /centralindia.Monitoring.Azure.com |
 |Leste da Austrália | https: \/ /australiaeast.Monitoring.Azure.com |
-|Leste do Japão | https: \/ /japaneast.Monitoring.Azure.com |
+|Japan East | https: \/ /japaneast.Monitoring.Azure.com |
 |Sudeste Asiático  | https: \/ /southeastasia.Monitoring.Azure.com |
 |Leste da Ásia | https: \/ /eastasia.Monitoring.Azure.com |
 |Coreia Central   | https: \/ /koreacentral.Monitoring.Azure.com |
