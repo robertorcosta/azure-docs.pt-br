@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 08/11/2020
 ms.author: yelevin
 ms.openlocfilehash: 9d8d0fc46a463bda31595988d807854ef146d333
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88761706"
 ---
 # <a name="manage-your-soc-better-with-incident-metrics"></a>Gerenciar melhor seu SOC com métricas de incidentes
@@ -80,11 +80,11 @@ Para complementar a tabela **SecurityIncidents** , fornecemos um modelo de pasta
 - Atividades recentes 
 - Classificações de fechamento recentes  
 
-Você pode encontrar esse novo modelo de pasta de trabalho escolhendo **pastas de trabalho** no menu de navegação do Sentinela do Azure e selecionando a guia **modelos** . escolha a **eficiência das operações de segurança** na galeria e clique em um dos botões **Exibir pasta de trabalho salva** e **Exibir modelo** .
+Você pode encontrar esse novo modelo de pasta de trabalho escolhendo **pastas de trabalho** no menu de navegação do Azure Sentinel e selecionando a guia **modelos** . Escolha a **eficiência das operações de segurança** na galeria e clique em um dos botões **Exibir pasta de trabalho salva** e **Exibir modelo** .
 
-:::image type="content" source="./media/manage-soc-with-incident-metrics/security-incidents-workbooks-gallery.png" alt-text="Galeria de pastas de trabalho de incidentes de segurança":::
+:::image type="content" source="./media/manage-soc-with-incident-metrics/security-incidents-workbooks-gallery.png" alt-text="Tabela de incidentes de segurança":::
 
-:::image type="content" source="./media/manage-soc-with-incident-metrics/security-operations-workbook-1.png" alt-text="Pasta de trabalho incidentes de segurança concluída":::
+:::image type="content" source="./media/manage-soc-with-incident-metrics/security-operations-workbook-1.png" alt-text="Tabela de incidentes de segurança":::
 
 Você pode usar o modelo para criar suas próprias pastas de trabalho personalizadas adaptadas às suas necessidades específicas.
 

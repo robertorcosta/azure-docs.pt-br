@@ -10,10 +10,10 @@ ms.date: 10/23/2019
 ms.reviewer: jushiman
 ms.custom: mimckitt
 ms.openlocfilehash: eb7d4d8a6f1c1ee55601cdd839e330147e60bcc7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87011066"
 ---
 # <a name="orchestration-modes-preview"></a>Modos de orquestração (versão prévia)
@@ -51,14 +51,14 @@ Os conjuntos de dimensionamento de máquinas virtuais oferecerão suporte a dois
 | Ciclo de vida da instância (criação por meio de exclusão) | As VMs e seus artefatos (como discos e NICs) podem ser gerenciados de forma independente. | Instâncias e seus artefatos (como discos e NICs) são implícitos para as instâncias do conjunto de dimensionamento que os criam. Eles não podem ser desanexados ou gerenciados separadamente fora do conjunto de dimensionamento |
 | Domínios de falha               | Pode definir domínios de falha. 2 ou 3 com base no suporte regional e 5 para a zona de disponibilidade. | Pode definir domínios de falha indo de 1 a 5 |
 | Atualizar domínios              | Os domínios de atualização são mapeados automaticamente para domínios de falha | Os domínios de atualização são mapeados automaticamente para domínios de falha |
-| Zonas de Disponibilidade          | Dá suporte à implantação regional ou a VMs em uma zona de disponibilidade | Dá suporte à implantação regional ou a vários Zonas de Disponibilidade; Pode definir a estratégia de balanceamento de zona |
+| Zonas de Disponibilidades          | Dá suporte à implantação regional ou a VMs em uma zona de disponibilidade | Dá suporte à implantação regional ou a vários Zonas de Disponibilidade; Pode definir a estratégia de balanceamento de zona |
 | Autoescala                   | Sem suporte                              | Com suporte |
 | Atualização do so                  | Sem suporte                              | Com suporte |
 | Atualizações de modelo               | Sem suporte                              | Com suporte |
 | Controle de instância            | Controle de VM completo. As VMs têm um URI totalmente qualificado que oferece suporte a toda a gama de recursos de gerenciamento de VM do Azure (como Azure Policy, backup do Azure e Azure Site Recovery) | As VMs são recursos dependentes do conjunto de dimensionamento. As instâncias podem ser acessadas para gerenciamento somente por meio do conjunto de dimensionamento. |
 | Modelo de instância              | Definição do modelo Microsoft. Compute/VirtualMachines. | Definição do modelo Microsoft. Compute/VirtualMachineScaleSets/VirtualMachines. |
 | Capacity                    | Um conjunto de dimensionamento vazio pode ser criado; até 200 VMs podem ser adicionadas ao conjunto de dimensionamento | Os conjuntos de dimensionamento podem ser definidos com uma contagem de instâncias 0-1000 |
-| Mover                        | Suportado                                  | Suportado |
+| Mover                        | Com suporte                                  | Com suporte |
 | Grupo de posicionamento único = = falso | Sem suporte                          | Com suporte |
 
 

@@ -10,10 +10,10 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 07/12/2019
 ms.openlocfilehash: 052b12817b788ff38f0fab72a5420896b062c732
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82857424"
 ---
 # <a name="failure-spark-job-debugging-with-azure-toolkit-for-intellij-preview"></a>Falha na depuração do trabalho Spark com Azure Toolkit for IntelliJ (versão prévia)
@@ -30,7 +30,7 @@ Este artigo fornece orientações passo a passo sobre como usar as ferramentas d
 
 * Conecte-se ao cluster HDInsight. Consulte [conectar-se ao seu cluster HDInsight](apache-spark-intellij-tool-plugin.md).
 
-* Gerenciador do Armazenamento do Microsoft Azure. Consulte [baixar Gerenciador de armazenamento do Microsoft Azure](https://azure.microsoft.com/features/storage-explorer/).
+* Gerenciador de Armazenamento do Microsoft Azure. Consulte [baixar Gerenciador de armazenamento do Microsoft Azure](https://azure.microsoft.com/features/storage-explorer/).
 
 ## <a name="create-a-project-with-debugging-template"></a>Criar um projeto com o modelo de depuração
 
@@ -72,7 +72,7 @@ Crie um aplicativo do Spark escala/Java e execute o aplicativo em um cluster Spa
 
    ![IntelliJ Adicionar nova configuração](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-configuraion-01.png)
 
-3. Alterne para **execução remota na guia cluster** . Insira informações para **nome**, **cluster Spark**e **nome de classe principal**. Nossas ferramentas oferecem suporte à depuração com **Executores**. O **numExectors**, o valor padrão é 5, e você melhor não definiu mais que 3. Para reduzir o tempo de execução, você pode adicionar **Spark. yarn. maxAppAttempts** às **configurações de trabalho** e definir o valor como 1. Clique no botão **OK** para salvar a configuração.
+3. Alterne para **execução remota na guia cluster** . Insira informações para **nome**, **cluster do Spark**e **nome da classe principal**. Nossas ferramentas oferecem suporte à depuração com **Executores**. O **numExectors**, o valor padrão é 5, e você melhor não definiu mais que 3. Para reduzir o tempo de execução, você pode adicionar **Spark. yarn. maxAppAttempts** às **configurações de trabalho** e definir o valor como 1. Clique no botão **OK** para salvar a configuração.
 
    ![IntelliJ executar configurações de depuração novas](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-configuraion-002.png)
 

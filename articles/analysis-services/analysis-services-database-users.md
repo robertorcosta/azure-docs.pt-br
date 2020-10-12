@@ -9,10 +9,10 @@ ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
 ms.openlocfilehash: 8ccd9120937148043590d30232acd6b556b09dc6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87015265"
 ---
 # <a name="manage-database-roles-and-users"></a>Gerenciar usuários e funções de banco de dados
@@ -135,7 +135,7 @@ Os filtros de linha podem ser definidos somente para funções com as permissõe
   
  Os filtros de linha exigem uma fórmula DAX, que deve ser avaliada como um valor TRUE/FALSE, para definir as linhas que podem ser consultadas por membros daquela função específica. Não é possível consultar linhas não incluídas na fórmula DAX. Por exemplo, a tabela Customers com a seguinte expressão de filtros de linha, *= Customers [Country] = "usa"*, os membros da função Sales só podem ver os clientes nos EUA.  
   
-Os filtros de linha são aplicados às linhas especificadas e às linhas relacionadas. Quando uma tabela tiver várias relações, os filtros aplicam segurança para a relação que está ativa. Os filtros de linha são interseccionados com outros filtros de linha definidos para tabelas relacionadas, por exemplo:  
+Os filtros de linha são aplicados às linhas especificadas e às linhas relacionadas. Quando uma tabela tem várias relações, os filtros aplicam segurança para a relação ativa. Os filtros de linha são interseccionados com outros filtros de linha definidos para tabelas relacionadas, por exemplo:  
   
 |Tabela|Expressão DAX|  
 |-----------|--------------------|  

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a41a5828a82d81c5e7e8749fee70cd15e17bb9d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84697683"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Melhore o desempenho e a confiabilidade do Azure Functions
@@ -44,7 +44,7 @@ Hubs de eventos são úteis para oferecer suporte a comunicações de alto volum
 
 ### <a name="write-functions-to-be-stateless"></a>Grave funções para serem sem estado 
 
-As funções devem ser sem estado e idempotentes se possível. Associe quaisquer informações de estado necessárias a seus dados. Por exemplo, um pedido sendo processado provavelmente teria um membro `state` associado. Uma função pode processar um pedido com base no estado enquanto a função em si permanece sem estado. 
+As funções devem ser sem estado e idempotentes se possível. Associe informações de estado necessárias aos seus dados. Por exemplo, um pedido sendo processado provavelmente teria um membro `state` associado. Uma função pode processar um pedido com base no estado enquanto a função em si permanece sem estado. 
 
 Funções de idempotentes são recomendadas especialmente com gatilhos de timer. Por exemplo, se você tiver algo que absolutamente deve ser executado uma vez por dia, grave-o para que ele possa ser executado a qualquer momento durante o dia com os mesmos resultados. A função pode sair quando não há trabalho para um dia específico. Também se uma execução anterior tiver falhado ao concluir, a próxima execução deve continuar de onde a anterior parou.
 
@@ -114,7 +114,7 @@ O arquivo `host.json` no aplicativo de funções permite configurar os comportam
 
 As configurações na host.jsno arquivo se aplicam a todas as funções dentro do aplicativo, dentro de uma *única instância* da função. Por exemplo, se você tivesse um aplicativo de funções com duas funções e [`maxConcurrentRequests`](functions-bindings-http-webhook-output.md#hostjson-settings) solicitações HTTP definidas como 25, uma solicitação para o gatilho http contaria para as 25 solicitações simultâneas compartilhadas.  Quando esse aplicativo de funções é dimensionado para 10 instâncias, as duas funções permitem efetivamente 250 solicitações simultâneas (10 instâncias * 25 solicitações simultâneas por instância). 
 
-Outras opções de configuração de host são encontradas no [artigohost.jsno Configuration](functions-host-json.md).
+Outras opções de configuração de host são encontradas no [ artigohost.jsno Configuration](functions-host-json.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

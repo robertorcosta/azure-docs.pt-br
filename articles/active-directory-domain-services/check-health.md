@@ -12,10 +12,10 @@ ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: iainfou
 ms.openlocfilehash: 34f4ecfd4cc3432babbd26d65bd37ea4d1fb882c
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86040411"
 ---
 # <a name="check-the-health-of-an-azure-active-directory-domain-services-managed-domain"></a>Verificar a integridade de um domínio gerenciado Azure Active Directory Domain Services
@@ -28,7 +28,7 @@ Este artigo mostra como exibir o status de integridade do AD DS do Azure e enten
 
 O status de integridade de um domínio gerenciado é exibido usando o portal do Azure. As informações sobre o último backup e a sincronização com o Azure AD podem ser vistas, junto com todos os alertas que indicam um problema com a integridade do domínio gerenciado. Para exibir o status de integridade de um domínio gerenciado, conclua as seguintes etapas:
 
-1. Na portal do Azure, procure e selecione **Azure AD Domain Services**.
+1. No portal do Azure, pesquise e selecione **Azure AD Domain Services**.
 1. Selecione seu domínio gerenciado, como *aaddscontoso.com*.
 1. No lado esquerdo da janela de recursos do AD DS do Azure, selecione **integridade**. A captura de tela de exemplo a seguir mostra um domínio gerenciado íntegro e o status do último backup e a sincronização do AD do Azure:
 
@@ -38,7 +38,7 @@ O carimbo de data/hora *último avaliado* da página de integridade mostra quand
 
 O status no canto superior direito indica a integridade geral do domínio gerenciado. O status considera todos os alertas existentes em seu domínio. A tabela a seguir detalha os indicadores de status disponíveis:
 
-| Status | Ícone | Explicação |
+| Status | ícone | Explicação |
 | --- | :----: | --- |
 | Executando | <img src= "./media/active-directory-domain-services-alerts/running-icon.png" width = "15" alt="Green check mark for running"> | O domínio gerenciado está sendo executado corretamente e não tem nenhum alerta crítico ou de aviso. O domínio pode ter alertas informativos. |
 | Requer atenção (aviso) | <img src= "./media/active-directory-domain-services-alerts/warning-icon.png" width = "15" alt="Yellow exclamation mark for warning"> | Não há alertas críticos no domínio gerenciado, mas há um ou mais alertas de aviso que devem ser resolvidos. |

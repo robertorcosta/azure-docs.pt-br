@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: aahi
 ms.openlocfilehash: f85a7e2acf911772ecc6562217918352e909fcbb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91254067"
 ---
 # <a name="telemetry-and-troubleshooting"></a>Telemetria e solução de problemas
@@ -229,7 +229,7 @@ Os logs são carregados sob demanda com o `getRTCVLogs` método IOT Edge, no `di
 >[!NOTE]
 > Invocar o `getRTCVLogs` método com uma carga vazia retornará uma lista de todos os contêineres implantados no dispositivo. O nome do método diferencia maiúsculas de minúsculas. Você receberá um erro 501 se um nome de método incorreto for fornecido.
 
-:::image type="content" source="./media/spatial-analysis/direct-log-collection.png" alt-text="Invocando o método getRTCVLogs ":::
+:::image type="content" source="./media/spatial-analysis/direct-log-collection.png" alt-text="Relatório de telemetria Azure Monitor":::
 ![página de método direto do getRTCVLogs](./media/spatial-analysis/direct-log-collection.png)
 
  

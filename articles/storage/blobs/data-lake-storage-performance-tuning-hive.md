@@ -9,10 +9,10 @@ ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: fb908fe94f940073753ea8e1cde3da2b2a0c4b6b
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88034763"
 ---
 # <a name="tune-performance-hive-hdinsight--azure-data-lake-storage-gen2"></a>Ajustar o desempenho: Hive, & HDInsight Azure Data Lake Storage Gen2
@@ -47,7 +47,7 @@ Aqui estão as configurações mais importantes para melhorar o desempenho do Da
 
 **hive.exec.reducer.bytes.per.reducer** – esse parâmetro define o tamanho de cada redutor.  Por padrão, o tamanho de cada redutor é de 256 MB.  
 
-## <a name="guidance"></a>Orientação
+## <a name="guidance"></a>Diretrizes
 
 **Definir hive.exec.reducer.bytes.per.reducer** – o valor padrão funciona bem quando os dados são descompactados.  Para dados compactados, você deve reduzir o tamanho do redutor.  
 
@@ -58,7 +58,7 @@ As cargas de trabalho que usam muita E/S podem se beneficiar de mais paralelismo
 O número simultâneo de tarefas em execução ou de paralelismo será limitado pela memória YARN total.  O número de contêineres YARN ditará quantas tarefas simultâneas podem ser executadas.  Para localizar a memória YARN por nó, você pode ir para o Ambari.  Navegue até YARN e exiba a guia Configurações.  A memória YARN é exibida nesta janela.  
 
 - Memória total YARN = Nodes * YARN de memória por nó
-- \#de contêineres YARN = tamanho total do contêiner YARN de memória/tez
+- \# de contêineres YARN = tamanho total do contêiner YARN de memória/tez
 
 A chave para melhorar o desempenho usando o Data Lake Storage Gen2 é aumentar a simultaneidade o máximo possível.  O Tez calcula automaticamente o número de tarefas que devem ser criadas, de modo que você não precisa defini-lo.   
 
@@ -68,7 +68,7 @@ Digamos que você tenha um cluster D14 de 8 nós.
 
 - Memória total YARN = Nodes * YARN de memória por nó
 - Memória total do YARN = 8 nós * 96 GB = 768GB
-- \#de contêineres YARN = 768GB/3072MB = 256
+- \# de contêineres YARN = 768GB/3072MB = 256
 
 ## <a name="further-information-on-hive-tuning"></a>Mais informações sobre o ajuste do Hive
 

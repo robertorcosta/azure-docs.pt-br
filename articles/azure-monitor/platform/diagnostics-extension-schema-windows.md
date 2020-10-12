@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/20/2020
 ms.openlocfilehash: d2b1afea746410e966b43bef01a039a8471d4ae7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87007921"
 ---
 # <a name="windows-diagnostics-extension-schema"></a>Esquema de extensão de diagnóstico do Windows
@@ -85,7 +85,7 @@ O elemento de nível superior do arquivo de configuração de diagnóstico.
 |--------------------|-----------------|  
 |**CrashDumps**|Veja a descrição em outro lugar nesta página.|  
 |**DiagnosticInfrastructureLogs**|Habilite a coleta de logs gerados pelo Diagnóstico do Azure. Os logs de infraestrutura de diagnóstico são úteis para solucionar problemas de sistema de diagnóstico. Os atributos opcionais são:<br /><br /> - **scheduledTransferLogLevelFilter** - configura o nível de severidade mínimo dos logs coletados.<br /><br /> - **scheduledTransferPeriod** -o intervalo entre as transferências agendadas para o armazenamento arredondado para o minuto mais próximo. O valor é um [XML "Tipo de Dados de Duração".](https://www.w3schools.com/xml/schema_dtypes_date.asp) |  
-|**Diretórios**|Veja a descrição em outro lugar nesta página.|  
+|**Listas**|Veja a descrição em outro lugar nesta página.|  
 |**EtwProviders**|Veja a descrição em outro lugar nesta página.|  
 |**Métricas**|Veja a descrição em outro lugar nesta página.|  
 |**PerformanceCounters**|Veja a descrição em outro lugar nesta página.|  
@@ -120,7 +120,7 @@ O elemento de nível superior do arquivo de configuração de diagnóstico.
 |--------------------|-----------------|  
 |**IISLogs**|A inclusão deste elemento na configuração habilita a coleta de logs do IIS:<br /><br /> **containerName** - o nome do contêiner de blobs na sua conta do Armazenamento do Azure a ser usado para armazenar os logs do IIS.|   
 |**FailedRequestLogs**|A inclusão desse elemento na configuração habilita a coleta de logs sobre solicitações com falha para um site ou aplicativo do IIS. Você também deve habilitar as opções de rastreamento em **system.WebServer** em **Web.config**.|  
-|**Fontes**|Uma lista de diretórios para monitorar.|
+|**DataSources**|Uma lista de diretórios para monitorar.|
 
 
 
@@ -223,7 +223,7 @@ O elemento de nível superior do arquivo de configuração de diagnóstico.
 
 |Elemento filho|Descrição|  
 |-------------------|-----------------|  
-|**Fonte**|Os logs de Eventos do Windows a serem coletados. Atributo obrigatório:<br /><br /> **name** - a consulta XPath que descreve os eventos do windows a serem coletados. Por exemplo:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Para coletar todos os eventos, especifique "*" |
+|**DataSource**|Os logs de Eventos do Windows a serem coletados. Atributo obrigatório:<br /><br /> **name** - a consulta XPath que descreve os eventos do windows a serem coletados. Por exemplo:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Para coletar todos os eventos, especifique "*" |
 |**coletores** | Adicionado em 1.5. Opcional. Aponta para um local do coletor para também enviar dados de diagnóstico para todos os elementos filho que são suporte a coletores. Exemplo de coletor é Application Insights ou Hubs de Eventos.|  
 
 
@@ -266,7 +266,7 @@ O elemento de nível superior do arquivo de configuração de diagnóstico.
 
  Define os locais para os quais os dados de diagnóstico devem ser enviados. Por exemplo, o serviço Application Insights.  
 
-|Atributo|Tipo|Descrição|  
+|Atributo|Type|Descrição|  
 |---------------|----------|-----------------|  
 |**name**|string|Uma cadeia de caracteres que identifica o nome do coletor.|  
 
@@ -293,7 +293,7 @@ O elemento de nível superior do arquivo de configuração de diagnóstico.
 
  Define os locais para os quais os dados de diagnóstico devem ser enviados. Por exemplo, o serviço Application Insights.  
 
-|Atributos|Tipo|Descrição|  
+|Atributos|Type|Descrição|  
 |----------------|----------|-----------------|  
 |**logLevel**|**cadeia de caracteres**|Especifica o nível de severidade mínimo para as entradas de log transferidas. O valor padrão é **Indefinido**, que transfere todos os logs. Outros possíveis valores (na ordem de mais informações para menos) são **Detalhado**, **Informações**, **Aviso**, **Erro**, e **Crítico**.|  
 |**name**|**cadeia de caracteres**|Um nome exclusivo do canal que será mencionado|  

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/28/2020
 ms.reviewer: sunayv
 ms.openlocfilehash: 7d968c62afbfc92952f747e1e7627c98fe07436d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87015078"
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Exportando uma API hospedada no Azure para o PowerApps e o Microsoft Flow
@@ -103,7 +103,7 @@ Para importar a definição de API para o PowerApps e o Microsoft Flow, siga est
 
 4. Na guia **Geral**, revise as informações provenientes da definição de OpenAPI.
 
-5. Na guia **Segurança**, se for solicitado que você forneça detalhes de autenticação, insira os valores corretos para o tipo de autenticação. Clique em **Continue**.
+5. Na guia **Segurança**, se for solicitado que você forneça detalhes de autenticação, insira os valores corretos para o tipo de autenticação. Clique em **Continuar**.
 
     ![Guia Segurança](media/app-service-export-api-to-powerapps-and-flow/tab-security.png)
 

@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.openlocfilehash: a1b66528bee63fb123271e4277e122603ced2e75
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90906507"
 ---
 # <a name="choose-the-right-mysql-server-option-in-azure"></a>Escolha a opção de servidor MySQL correta no Azure
@@ -40,7 +40,7 @@ Ao tomar sua decisão, considere as duas opções a seguir:
 As diferenças principais entre essas opções estão listadas na tabela a seguir:
 
 
-| Atributo          | Banco de Dados do Azure para MySQL<br/>Servidor único |Banco de Dados do Azure para MySQL<br/>Servidor Flexível  |MySQL em VMs do Azure                      |
+| Atributo          | Banco de Dados do Azure para MySQL<br/>Servidor único |Banco de Dados do Azure para MySQL<br/>Servidor flexível  |MySQL em VMs do Azure                      |
 |:-------------------|:-------------------------------------------|:---------------------------------------------|:---------------------------------------|
 | Suporte à versão do MySQL | 5,6, 5,7 & 8,0| 5.7 | Qualquer versão|
 | Dimensionamento de computação | Com suporte (não há suporte para dimensionar de e para a camada básica)| Com suporte | Com suporte|
@@ -48,7 +48,7 @@ As diferenças principais entre essas opções estão listadas na tabela a segui
 | Dimensionamento de armazenamento online | Com suporte| Com suporte| Sem suporte|
 | Dimensionamento automático do armazenamento | Com suporte| Sem suporte na visualização| Sem suporte|
 | Conectividade de rede | -Pontos de extremidade públicos com o Firewall do servidor.<br/> -Acesso privado com suporte a link privado.|-Pontos de extremidade públicos com o Firewall do servidor.<br/> -Acesso privado com integração de rede virtual.| -Pontos de extremidade públicos com o Firewall do servidor.<br/> -Acesso privado com suporte a link privado.|
-| SLA (contrato de nível de serviço) | SLA de disponibilidade de 99,99% |Nenhum SLA na versão prévia| 99,99% usando Zonas de Disponibilidade|
+| SLA (Contrato de Nível de Serviço) | SLA de disponibilidade de 99,99% |Nenhum SLA na versão prévia| 99,99% usando Zonas de Disponibilidade|
 | Aplicação de patch do sistema operacional| Automática  | Automático com controle de janela de manutenção personalizada | Gerenciado por usuários finais |
 | Aplicação de patch do MySQL     | Automática  | Automático com controle de janela de manutenção personalizada | Gerenciado por usuários finais |
 | Alta disponibilidade | HA interna dentro da zona de disponibilidade única| HA interna dentro e entre zonas de disponibilidade | Gerenciados personalizados usando clustering, replicação etc|
@@ -131,4 +131,4 @@ Como não há necessidade de alterar as camadas de apresentação, aplicativo e 
 ## <a name="next-steps"></a>Próximas etapas
 
 * Consulte [preços do banco de dados do Azure para MySQL](https://azure.microsoft.com/pricing/details/MySQL/).
-* Comece [criando seu primeiro servidor](https://docs.microsoft.com/azure/MySQL/quickstart-create-MySQL-server-database-using-azure-portal).
+* Comece com a [criação do seu primeiro servidor](https://docs.microsoft.com/azure/MySQL/quickstart-create-MySQL-server-database-using-azure-portal).

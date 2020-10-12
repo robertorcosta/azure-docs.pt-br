@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: aakapo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ecab82e43bff6c0d1d83c9c1cdc38cafd809e277
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89236587"
 ---
 # <a name="troubleshooting-for-hybrid-deployments-of-fido2-security-keys-in-azure-ad-preview"></a>Solução de problemas para implantações híbridas de chaves de segurança do FIDO2 no Azure AD (versão prévia)
@@ -46,7 +46,7 @@ Para começar a usar as chaves de segurança do FIDO2 e o acesso híbrido a recu
 
 O Windows Hello face é a melhor experiência pretendida para um dispositivo em que um usuário está registrado. As chaves de segurança FIDO2 devem ser usadas em dispositivos compartilhados ou onde o registro do Windows Hello para empresas é uma barreira.
 
-Se o rosto do Windows Hello impedir que os usuários experimentem o cenário de entrada da chave de segurança do FIDO2, os usuários poderão desativar a entrada do Hello face removendo o registro de face nas **configurações > opções de entrada**.
+Se o rosto do Windows Hello impedir que os usuários experimentem o cenário de entrada da chave de segurança do FIDO2, os usuários poderão desativar a entrada do Hello face removendo o registro facial nas **configurações > Sign-In opções**.
 
 ### <a name="users-arent-able-to-use-fido2-security-keys-immediately-after-they-create-a-hybrid-azure-ad-joined-machine"></a>Os usuários não podem usar chaves de segurança FIDO2 imediatamente depois de criarem um computador ingressado no Azure AD híbrido
 
@@ -62,7 +62,7 @@ Certifique-se de que os DCs suficientes sejam corrigidos para responder no tempo
 
 Se você conseguir ver um controlador de domínio com esse recurso, a senha do usuário pode ter sido alterada desde que se conectou ou há outro problema. Colete logs conforme detalhado na seção a seguir para a equipe de suporte da Microsoft para depurar.
 
-## <a name="troubleshoot"></a>Solução de problemas
+## <a name="troubleshoot"></a>Solucionar problemas
 
 Há duas áreas para solucionar problemas de [clientes da janela](#windows-client-issues)ou [problemas de implantação](#deployment-issues).
 
@@ -86,9 +86,9 @@ Os seguintes logs de eventos e as informações da chave do registro são coleta
 
 **Chaves do Registro**
 
-* *HKEY_LOCAL_MACHINE \SOFTWARE\Policies\Microsoft\FIDO [ \* ]*
-* *HKEY_LOCAL_MACHINE \SOFTWARE\Policies\Microsoft\PasswordForWork \* [ \* ]*
-* *HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Policies\PasswordForWork \* [ \* ]*
+* *HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\FIDO [ \* ]*
+* *HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\PasswordForWork\* [ \* ]*
+* *HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Policies\PasswordForWork\* [ \* ]*
 
 **Informações de diagnóstico**
 

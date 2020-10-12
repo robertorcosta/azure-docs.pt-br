@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e523f8cc3aa9ab2f42d2d28909c9dec2dad30b43
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90526945"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>Habilitar entrada de chave de segurança sem senha (versão prévia)
@@ -59,7 +59,7 @@ Os recursos de registro para métodos de autenticação com senha contam com o r
 
 ## <a name="user-registration-and-management-of-fido2-security-keys"></a>Registro de usuário e gerenciamento de chaves de segurança FIDO2
 
-1. Navegue até [https://myprofile.microsoft.com](https://myprofile.microsoft.com) .
+1. Navegue até [https://myprofile.microsoft.com](https://myprofile.microsoft.com).
 1. Entrar se ainda não estiver.
 1. Clique em **informações de segurança**.
    1. Se o usuário já tiver pelo menos um método de autenticação multifator do Azure registrado, ele poderá registrar imediatamente uma chave de segurança FIDO2.

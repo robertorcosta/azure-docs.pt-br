@@ -9,10 +9,10 @@ ms.date: 11/06/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 0d5947f669b600b544cd7e5265e2cce8de118374
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82788971"
 ---
 ## <a name="create-an-image-gallery"></a>Criar uma galeria de imagens
@@ -30,7 +30,7 @@ O exemplo a seguir cria uma galeria chamada *myGallery* no grupo de recursos *my
 1. Deixe o padrão para **região**.
 1. Você pode digitar uma breve descrição da galeria, como *minha galeria de imagens para teste.* e, em seguida, clique em **revisar + criar**.
 1. Depois que a validação for aprovada, selecione **criar**.
-1. Quando a implantação for concluída, selecione **ir para o recurso**.
+1. Depois que a implantação for concluída, selecione **Ir para o recurso**.
 
 
 ## <a name="create-an-image-definition"></a>Criar uma definição de imagem 
@@ -50,7 +50,7 @@ Crie a definição de imagem da Galeria dentro da sua galeria. Neste exemplo, a 
 1. Para **SKU**, digite *mySKU*.
 1. Quando terminar, selecione **revisar + criar**.
 1. Após a definição da imagem passar na validação, selecione **criar**.
-1. Quando a implantação for concluída, selecione **ir para o recurso**.
+1. Depois que a implantação for concluída, selecione **Ir para o recurso**.
 
 
 ## <a name="create-an-image-version"></a>Criar uma versão de imagem
@@ -72,7 +72,7 @@ As etapas para criar uma versão de imagem são um pouco diferentes, dependendo 
 1. Em **replicação**, deixe a **contagem de réplicas padrão** como 1. Você precisa replicar para a região de origem, portanto, deixe a primeira réplica como padrão e, em seguida, escolha uma segunda região de réplica como *leste dos EUA*.
 1. Quando terminar, selecione **Revisar + criar**. O Azure validará a configuração.
 1. Quando a versão da imagem passar na validação, selecione **criar**.
-1. Quando a implantação for concluída, selecione **ir para o recurso**.
+1. Depois que a implantação for concluída, selecione **Ir para o recurso**.
 
 Pode levar algum tempo para replicar a imagem para todas as regiões de destino.
 
@@ -87,7 +87,7 @@ Pode levar algum tempo para replicar a imagem para todas as regiões de destino.
 1. Em **replicação**, deixe a **contagem de réplicas padrão** como 1. Você precisa replicar para a região de origem, portanto, deixe a primeira réplica como padrão e, em seguida, escolha uma segunda região de réplica como *leste dos EUA*.
 1. Quando terminar, selecione **Revisar + criar**. O Azure validará a configuração.
 1. Quando a versão da imagem passar na validação, selecione **criar**.
-1. Quando a implantação for concluída, selecione **ir para o recurso**.
+1. Depois que a implantação for concluída, selecione **Ir para o recurso**.
 
 ## <a name="share-the-gallery"></a>Compartilhar a galeria
 

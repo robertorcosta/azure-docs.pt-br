@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 06/12/2020
 ms.author: apimpm
 ms.openlocfilehash: 4d077f6b3c84b0279a7a1c99243240192c2b45d1
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86243708"
 ---
 # <a name="api-management-authentication-policies"></a>Políticas de autenticação de Gerenciamento de API
 Este tópico fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](https://go.microsoft.com/fwlink/?LinkID=398186).
 
-##  <a name="authentication-policies"></a><a name="AuthenticationPolicies"></a>Políticas de autenticação
+##  <a name="authentication-policies"></a><a name="AuthenticationPolicies"></a> Políticas de autenticação
 
 -   [Autenticar com o Basic](api-management-authentication-policies.md#Basic) - Autenticar com um serviço de back-end usando a autenticação Básica.
 
@@ -56,7 +56,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 
 |Nome|Descrição|Obrigatório|Padrão|
 |----------|-----------------|--------------|-------------|
-|nome de usuário|Especifica o nome de usuário da credencial do Basic.|Sim|N/D|
+|Nome de Usuário|Especifica o nome de usuário da credencial do Basic.|Sim|N/D|
 |password|Especifica a senha da credencial do Basic.|Sim|N/D|
 
 ### <a name="usage"></a>Uso
@@ -117,7 +117,7 @@ Neste exemplo, o certificado do cliente é definido na política em vez de ser r
   
 -   **Escopos da política:** todos os escopos  
 
-##  <a name="authenticate-with-managed-identity"></a><a name="ManagedIdentity"></a>Autenticar com identidade gerenciada  
+##  <a name="authenticate-with-managed-identity"></a><a name="ManagedIdentity"></a> Autenticar com identidade gerenciada  
  Use a `authentication-managed-identity` política para autenticar com um serviço de back-end usando a identidade gerenciada. Essa política usa basicamente a identidade gerenciada para obter um token de acesso de Azure Active Directory para acessar o recurso especificado. Depois de obter o token com êxito, a política definirá o valor do token no `Authorization` cabeçalho usando o `Bearer` esquema.
 
 Tanto a identidade atribuída pelo sistema quanto qualquer uma das várias identidades atribuídas pelo usuário podem ser usadas para solicitar o token. Se `client-id` não for fornecida, a identidade atribuída pelo sistema será assumida. Se a `client-id` variável for fornecida, o token será solicitado para essa identidade atribuída pelo usuário de Azure Active Directory
@@ -182,9 +182,9 @@ Tanto a identidade atribuída pelo sistema quanto qualquer uma das várias ident
   
 |Nome|Descrição|Obrigatório|Padrão|  
 |----------|-----------------|--------------|-------------|  
-|recurso|Cadeia de caracteres. A ID do aplicativo da API Web de destino (recurso protegido) em Azure Active Directory.|Sim|N/D|
-|ID do cliente|Cadeia de caracteres. A ID do aplicativo da identidade atribuída pelo usuário no Azure Active Directory.|Não|identidade atribuída pelo sistema|
-|saída-token-variável-nome|Cadeia de caracteres. Nome da variável de contexto que receberá o valor de token como um tipo de objeto `string` . |Não|N/D|  
+|recurso|Cadeia. A ID do aplicativo da API Web de destino (recurso protegido) em Azure Active Directory.|Sim|N/D|
+|ID do cliente|Cadeia. A ID do aplicativo da identidade atribuída pelo usuário no Azure Active Directory.|Não|identidade atribuída pelo sistema|
+|saída-token-variável-nome|Cadeia. Nome da variável de contexto que receberá o valor de token como um tipo de objeto `string` . |Não|N/D|  
 |ignore-error|Booliano. Se definido como `true` , o pipeline de política continuará a ser executado mesmo se um token de acesso não for obtido.|Não|false|  
   
 ### <a name="usage"></a>Uso  

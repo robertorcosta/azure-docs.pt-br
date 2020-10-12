@@ -11,10 +11,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 01/16/2018
 ms.author: menchi
 ms.openlocfilehash: 88c3d1f4213b161d5e322349a7f0e1bc1dd952e7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80239652"
 ---
 # <a name="use-the-iot-extension-for-azure-cli-for-azure-iot-hub-device-management"></a>Use a extensão de IoT da CLI do Azure para gerenciamento de dispositivo Hub IoT do Azure

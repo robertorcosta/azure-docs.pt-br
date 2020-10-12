@@ -18,10 +18,10 @@ ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 3d795d30e3ad420e0fed002baddf37469ddcf995
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89004555"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Estrutura de segurança: Segurança de comunicações | Atenuações 
@@ -32,7 +32,7 @@ ms.locfileid: "89004555"
 | **Azure Data Factory** | <ul><li>[Usar o gateway de gerenciamento de dados ao conectar SQL Server locais a Azure Data Factory](#sqlserver-factory)</li></ul> |
 | **Servidor de identidade** | <ul><li>[Verifique se todo o tráfego para o servidor de identidade está por conexão HTTPS](#identity-https)</li></ul> |
 | **Aplicativo Web** | <ul><li>[Verifique os certificados X. 509 usados para autenticar conexões SSL, TLS e DTLS](#x509-ssltls)</li><li>[Configurar o certificado TLS/SSL para o domínio personalizado no serviço de Azure App](#ssl-appservice)</li><li>[Forçar todo o tráfego para o Serviço de Aplicativo do Azure pela conexão HTTPS](#appservice-https)</li><li>[Habilitar HSTS (Segurança de Transporte Estrito HTTP)](#http-hsts)</li></ul> |
-| **Banco de dados** | <ul><li>[Garantir a criptografia de conexão do SQL Server e a validação de certificado](#sqlserver-validation)</li><li>[Forçar a comunicação criptografada com o SQL Server](#encrypted-sqlserver)</li></ul> |
+| **Backup de banco de dados** | <ul><li>[Garantir a criptografia de conexão do SQL Server e a validação de certificado](#sqlserver-validation)</li><li>[Forçar a comunicação criptografada com o SQL Server](#encrypted-sqlserver)</li></ul> |
 | **Armazenamento do Azure** | <ul><li>[Garantir que a comunicação com o armazenamento do Azure seja por HTTPS](#comm-storage)</li><li>[Validar o hash MD5 depois de baixar o blob se o HTTPS não puder ser habilitado](#md5-https)</li><li>[Usar o cliente compatível com SMB 3,0 para garantir a criptografia de dados em trânsito para compartilhamentos de arquivos do Azure](#smb-shares)</li></ul> |
 | **Cliente móvel** | <ul><li>[Implementar a anexação de certificado](#cert-pinning)</li></ul> |
 | **WCF** | <ul><li>[Habilitar HTTPS - proteger o canal de transporte](#https-transport)</li><li>[WCF: definir o nível de proteção da segurança de mensagens como EncryptAndSign](#message-protection)</li><li>[WCF: use uma conta com privilégios mínimos para executar o serviço WCF](#least-account-wcf)</li></ul> |
@@ -67,7 +67,7 @@ ms.locfileid: "89004555"
 
 | Title                   | Detalhes      |
 | ----------------------- | ------------ |
-| **Componente**               | Fábrica de dados do Azure | 
+| **Componente**               | Azure Data Factory | 
 | **Fase do SDL**               | Implantação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | Tipos de serviço vinculados-Azure e local |

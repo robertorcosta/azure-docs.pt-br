@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: eliotga
 ms.openlocfilehash: f67ed44fffe6bd690d6bd76fcefa19d9ee23e52b
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90529381"
 ---
 # <a name="how-to-provision-devices-using-symmetric-key-enrollment-groups"></a>Como provisionar dispositivos usando grupos de registro de chave simétrica
@@ -289,7 +289,7 @@ Entenda que isso deixa a chave de dispositivo derivada incluída como parte da i
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para saber mais sobre o reprovisionamento, consulte [conceitos de reprovisionamento de dispositivo do Hub IOT](concepts-device-reprovision.md) 
-* [Início Rápido: provisionar um dispositivo simulado com chaves simétricas](quick-create-simulated-device-symm-key.md)
+* [Início rápido: Provisionar um dispositivo simulado com chaves simétricas](quick-create-simulated-device-symm-key.md)
 * Para saber mais sobre desprovisionamento, confira [como desprovisionar dispositivos que foram previamente provisionados automaticamente](how-to-unprovision-devices.md) 
 
 

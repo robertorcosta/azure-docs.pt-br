@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f4253fe52346890eaa993a18e8e9bc9b270bffd7
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89229847"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Logs de atividades do Azure AD no Azure Monitor
@@ -55,7 +55,7 @@ Para usar esse recurso, você precisa de:
 * Uma assinatura do Azure. Se não tiver uma assinatura do Azure, você poderá [inscrever-se em uma avaliação gratuita](https://azure.microsoft.com/free/).
 * [Licença](https://azure.microsoft.com/pricing/details/active-directory/) do Azure AD Gratuito, Básico, Premium 1 ou Premium 2 para acessar os logs de auditoria do Azure AD no portal do Azure. 
 * Um locatário do Azure AD.
-* Um usuário que é um **administrador global** ou **administrador de segurança** para o locatário do Azure AD.
+* Um usuário que seja **administrador global** ou **administrador de segurança** do locatário do Azure AD.
 * [Licença](https://azure.microsoft.com/pricing/details/active-directory/) do Azure AD Premium 1, Premium 2, para acessar os logs de entrada do Azure AD no portal do Azure. 
 
 Dependendo do destino de encaminhamento dos dados da trilha de auditoria, você precisa do seguinte:

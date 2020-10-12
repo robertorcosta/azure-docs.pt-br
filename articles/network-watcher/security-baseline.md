@@ -8,10 +8,10 @@ ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 28b3bc5adfc3c2e83de658947193b6046a455c32
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89231496"
 ---
 # <a name="azure-security-baseline-for-network-watcher"></a>Linha de base de segurança do Azure para observador de rede
@@ -743,7 +743,7 @@ Use o grafo de recursos do Azure para consultar e descobrir recursos em suas ass
 
 * [Implantar o observador de rede quando redes virtuais são criadas](https://github.com/Azure/azure-policy/blob/master/samples/built-in-policy/deploy-network-watcher-in-vnet-regions/README.md)
 
-Veja também:
+Consulte também:
 
 * [Como configurar e gerenciar o Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 

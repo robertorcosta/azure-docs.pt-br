@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 96bd6b461a5374b5f5bc578c5f58dbcd09cd7087
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84699287"
 ---
 # <a name="develop-your-own-iot-edge-modules"></a>Desenvolva seus próprios módulos do IoT Edge
@@ -51,7 +51,7 @@ Para simplificar a criação de rotas, o IoT Edge inclui o conceito de pontos de
 
 Por fim, as mensagens de dispositivo para nuvem tratadas pelo hub do Edge são marcadas com as seguintes propriedades de sistema:
 
-| Property | Descrição |
+| Propriedade | Descrição |
 | -------- | ----------- |
 | $connectionDeviceId | A ID do dispositivo do cliente que enviou a mensagem |
 | $connectionDeviceId | A ID do módulo que enviou a mensagem |

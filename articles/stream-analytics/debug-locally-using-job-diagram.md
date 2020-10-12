@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.openlocfilehash: 86367f1dce3cc8040555827935e9ca2f9f9fb4c5
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86045392"
 ---
 # <a name="debug-azure-stream-analytics-queries-locally-using-job-diagram-in-visual-studio"></a>Depurar Azure Stream Analytics consultas localmente usando o diagrama de trabalho no Visual Studio
@@ -55,14 +55,14 @@ Nesta seção, você explora as métricas disponíveis para cada parte do diagra
 |Métrica|Descrição|
 |-|-|
 |**TaxiRide**| Nome da entrada.|
-|**Hub de evento** | Tipo de fonte de entrada.|
+|**Hub de Evento** | Tipo de fonte de entrada.|
 |**Eventos**|O número de eventos lidos.|
 |**Fontes de evento de registro posterior**|Quantas mensagens mais precisam ser lidas para os hubs de eventos e entradas do Hub IoT.|
 |**Eventos em bytes**|O número de bytes lidos.|
 | **Eventos degradados**|A contagem de eventos que tiveram um problema diferente de desserialização.|
 |**Eventos antecipados**| O número de eventos que têm um carimbo de data/hora do aplicativo antes da marca d' água alta.|
 |**Eventos atrasados**| O número de eventos que têm um carimbo de data/hora do aplicativo após a marca d' água alta.|
-|**Origens do evento**| O número de unidades de dados lidas. Por exemplo, o número de blobs.|
+|**Origens do Evento**| O número de unidades de dados lidas. Por exemplo, o número de blobs.|
 
 #### <a name="input-sources-local-input"></a>Fontes de entrada (entrada local)
 
@@ -71,7 +71,7 @@ Nesta seção, você explora as métricas disponíveis para cada parte do diagra
 |Métrica|Descrição|
 |-|-|
 |**TaxiRide**| Nome da entrada.|
-|**Contagem de linhas**| O número de linhas geradas a partir da etapa.|
+|**Contagem de Linhas**| O número de linhas geradas a partir da etapa.|
 |**Tamanho dos dados**| O tamanho dos dados gerados nesta etapa.|
 |**Entrada local**| Use dados locais como entrada.|
 
@@ -82,7 +82,7 @@ Nesta seção, você explora as métricas disponíveis para cada parte do diagra
 |Métrica|Descrição|
 |-|-|
 |**TripData**|O nome do conjunto de resultados temporário.|
-|**Contagem de linhas**| O número de linhas geradas a partir da etapa.|
+|**Contagem de Linhas**| O número de linhas geradas a partir da etapa.|
 |**Tamanho dos dados**| O tamanho dos dados gerados nesta etapa.|
   
 #### <a name="output-sinks-live-output"></a>Coletores de saída (saída ao vivo)
@@ -102,7 +102,7 @@ Nesta seção, você explora as métricas disponíveis para cada parte do diagra
 |-|-|
 |**regionaggEH**|Nome da saída.|
 |**Saída local**| Saída de resultado para um arquivo local.|
-|**Contagem de linhas**| O número de linhas de saída para o arquivo local.|
+|**Contagem de Linhas**| O número de linhas de saída para o arquivo local.|
 |**Tamanho dos dados**| O tamanho da saída de dados para o arquivo local.|
 
 ### <a name="close-job-diagram"></a>Fechar diagrama de trabalho

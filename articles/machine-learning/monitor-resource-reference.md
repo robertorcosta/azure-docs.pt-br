@@ -11,10 +11,10 @@ ms.author: aashishb
 author: aashishb
 ms.date: 04/27/2020
 ms.openlocfilehash: 405b0aa051d0d1142d7dd4ccbf2bca4ef9cc3545
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89650585"
 ---
 # <a name="azure-machine-learning-monitoring-data-reference"></a>Referência de dados de monitoramento do Azure Machine Learning
@@ -73,7 +73,7 @@ A tabela a seguir lista as propriedades de Azure Machine Learning logs de recurs
 | MinimumNodeCount | Contagem mínima de nós do cluster |
 | MaximumNodeCount | Contagem máxima de nós do cluster |
 | NodeDeallocationOption | Como o nó deve ser desalocado |
-| Publisher | Editor do tipo de cluster |
+| Publicador | Editor do tipo de cluster |
 | Oferta | Oferta com a qual o cluster é criado |
 | Sku | SKU do nó/VM criado dentro do cluster |
 | Versão | Versão da imagem usada enquanto o nó/VM é criado |
@@ -109,7 +109,7 @@ A tabela a seguir lista as propriedades de Azure Machine Learning logs de recurs
 | VmSize | Tamanho da VM do nó |
 | VmFamilyName | Família de VMs à qual o nó pertence |
 | VmPriority | Prioridade do nó criado dedicado/LowPriority |
-| Publisher | Editor da imagem da VM, por exemplo, Microsoft-dsvm |
+| Publicador | Editor da imagem da VM, por exemplo, Microsoft-dsvm |
 | Oferta | Oferta associada à criação da VM |
 | Sku | SKU do nó/VM criado |
 | Versão | Versão da imagem usada enquanto o nó/VM é criado |
@@ -128,7 +128,7 @@ As tabelas a seguir listam as métricas de plataforma coletadas para Azure Machi
 
 **Deprecia**
 
-| Métrica | Unidade | Descrição |
+| Métrica | Unit | Descrição |
 | ----- | ----- | ----- |
 | Falha na implantação do modelo | Contagem | O número de implantações de modelo que falharam. |
 | Implantação de modelo iniciada | Contagem | O número de implantações de modelo iniciadas. |
@@ -140,7 +140,7 @@ As tabelas a seguir listam as métricas de plataforma coletadas para Azure Machi
 
 As informações de cota são apenas para Azure Machine Learning computação.
 
-| Métrica | Unidade | Descrição |
+| Métrica | Unit | Descrição |
 | ----- | ----- | ----- |
 | Núcleos ativos | Contagem | O número de núcleos de computação ativos. |
 | Nós ativos | Contagem | O número de nós ativos. |
@@ -166,7 +166,7 @@ Veja a seguir as dimensões que podem ser usadas para filtrar as métricas de co
 
 **Recurso**
 
-| Métrica | Unidade | Descrição |
+| Métrica | Unit | Descrição |
 | ----- | ----- | ----- |
 | CpuUtilization | Porcentagem | Quanto percentual de CPU foi utilizado para um determinado nó durante uma execução/trabalho. Essa métrica é publicada somente quando um trabalho está em execução em um nó. Um trabalho pode usar um ou mais nós. Essa métrica é publicada por nó. |
 | GpuUtilization | Porcentagem | Quanto percentual de GPU foi utilizado para um determinado nó durante uma execução/trabalho. Um nó pode ter uma ou mais GPUs. Essa métrica é publicada por GPU por nó. |
@@ -184,7 +184,7 @@ Veja a seguir as dimensões que podem ser usadas para filtrar as métricas de re
 
 Informações sobre execuções de treinamento.
 
-| Métrica | Unidade | Descrição |
+| Métrica | Unit | Descrição |
 | ----- | ----- | ----- |
 | Execuções concluídas | Contagem | O número de execuções concluídas. |
 | Execuções com falha | Contagem | O número de execuções com falha. |
