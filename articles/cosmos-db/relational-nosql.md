@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 50d077c1d7c9e4e421a43a4e0379b57608d1192c
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91361759"
 ---
 # <a name="understanding-the-differences-between-nosql-and-relational-databases"></a>Compreendendo as diferenças entre o NoSQL e os bancos de dados relacionais
@@ -39,7 +39,7 @@ No entanto, hoje a popularidade dos bancos de dados em estilo de documento cresc
 
 O surgimento do [design orientado a objeto](https://en.wikipedia.org/wiki/Object-oriented_design)e a [incompatibilidade de impedância](https://en.wikipedia.org/wiki/Object-relational_impedance_mismatch) que surge ao combiná-lo com modelos relacionais, também realça um antipadrão em bancos de dados relacionais para determinados casos de uso. Os custos de manutenção ocultos, mas geralmente podem surgir como resultado. Embora as [abordagens de ORM](https://en.wikipedia.org/wiki/Object-relational_mapping) tenham evoluído para reduzir parcialmente isso, os bancos de dados orientados a documentos, apesar de serem Unidos muito melhor com abordagens orientadas a objeto. Com essa abordagem, os desenvolvedores não são forçados a serem confirmados em drivers de ORM ou [mecanismos de banco de dados OO](https://en.wikipedia.org/wiki/Object_database)específicos à linguagem do bespoke. Se seus dados contiverem muitas relações pai-filho e níveis mais amplos de hierarquia, convém considerar o uso de um banco de dados de documento NoSQL, como o [Azure Cosmos DB API do SQL](https://docs.microsoft.com/azure/cosmos-db/introduction).
 
-:::image type="content" source="./media/relational-or-nosql/order-orderdetails.jpg" alt-text="OrderDetails":::
+:::image type="content" source="./media/relational-or-nosql/order-orderdetails.jpg" alt-text="Back-end":::
 
 ## <a name="complex-networks-and-relationships"></a>Redes e relacionamentos complexos
 
@@ -49,7 +49,7 @@ Várias formas de bancos de dados de "rede" surgiram durante o tempo de surgimen
 
 Se você estiver mantendo uma rede complexa de relações em seu banco de dados, convém considerar um banco de dados de grafo, como a [API do Azure Cosmos DB Gremlin](https://docs.microsoft.com/azure/cosmos-db/graph-introduction) para o gerenciamento desse dado.
 
-:::image type="content" source="./media/relational-or-nosql/graph.png" alt-text="Diagrama de banco de dados mostra vários funcionários e departamentos conectados entre si.":::
+:::image type="content" source="./media/relational-or-nosql/graph.png" alt-text="Back-end":::
 
 Azure Cosmos DB é um serviço de banco de dados multimodelo, que oferece uma projeção de API para todos os principais tipos de modelo NoSQL; Coluna-família, documento, gráfico e valor-chave. As camadas de API do documento [Gremlin (grafo)](https://docs.microsoft.com/azure/cosmos-db/gremlin-support) e SQL (núcleo) são totalmente interoperáveis. Isso tem benefícios para alternar entre modelos diferentes no nível de programação. Os repositórios de grafo podem ser consultados em termos de atravessamentos de rede complexos, bem como transações modeladas como registros de documento no mesmo armazenamento.
 
@@ -76,9 +76,7 @@ Embora haja algumas vantagens claras ao implementar bancos de dados NoSQL, tamb�
 
 Observando o primeiro desafio, a regra de Thumb nos bancos de dados NoSQL geralmente é desnormalização, que, como articulada anteriormente, produz leituras mais eficientes em um sistema distribuído. No entanto, há alguns desafios de design que entram em cena com essa abordagem. Vejamos um exemplo de um produto relacionado a uma categoria e a várias marcas:
 
-:::image type="content" source="./media/relational-or-nosql/many-joins.png" alt-text="Junções":::
-
-Uma abordagem de prática recomendada em um banco de dados de documentos NoSQL seria desnormalizar o nome da categoria e os nomes de marca diretamente em um "documento do produto". No entanto, para manter categorias, marcas e produtos em sincronia, as opções de design para facilitar isso têm complexidade de manutenção adicional, pois os dados são duplicados em vários registros no produto, em vez de serem uma atualização simples em uma relação de "um para muitos" e uma junção para recuperar os dados. 
+:::image type="content" source="./media/relational-or-nosql/many-joins.png" alt-text="Back-end" e uma junção para recuperar os dados. 
 
 A desvantagem é que as leituras são mais eficientes no registro desnormalizado e tornam-se cada vez mais eficientes à medida que o número de entidades Unidas conceituais aumenta. No entanto, assim como a eficiência de leitura aumenta com o aumento de números de entidades Unidas em um registro de desnormalização, também faz a complexidade da manutenção de manter as entidades em sincronia. Uma maneira de mitigar essa desvantagem é criar um [modelo de dados híbrido](https://docs.microsoft.com/azure/cosmos-db/modeling-data#hybrid-data-models).
 

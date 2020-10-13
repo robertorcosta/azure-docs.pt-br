@@ -8,26 +8,26 @@ ms.date: 4/24/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-js
-ms.openlocfilehash: 1ccbe6cb332f357eeef02dff22b8a4be328b8de0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 53887b7487c3f0bb70c9f8cc7cd61246fabc0b37
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91324222"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970122"
 ---
 # <a name="create-custom-sdks-for-azure-digital-twins-using-autorest"></a>Criar SDKs personalizados para o gêmeos digital do Azure usando o REST
 
 No momento, os únicos SDKs de plano de dados publicados para interagir com as APIs do Azure digital gêmeos são para .NET (C#), JavaScript e Java. Você pode ler sobre esses SDKs e as APIs em geral, em [*How-to: Use the Azure digital gêmeos APIs and SDKs*](how-to-use-apis-sdks.md). Se você estiver trabalhando em outra linguagem, este artigo mostrará como gerar seu próprio SDK do plano de dados no idioma de sua escolha, usando o REST.
 
 >[!NOTE]
-> Você também pode usar o autorest para gerar um SDK do plano de controle, se desejar. Para fazer isso, conclua as etapas neste artigo usando o [arquivo Swagger (openapi) do plano de controle](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/preview/2020-03-01-preview) em vez do plano de dados um.
+> Você também pode usar o autorest para gerar um SDK do plano de controle, se desejar. Para fazer isso, conclua as etapas neste artigo usando o arquivo **Swagger** (openapi) mais recente do plano de controle da [pasta Swagger do plano de controle]] ( https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/) em vez do plano de dados um.
 
 ## <a name="set-up-your-machine"></a>Configurar seu computador
 
 Para gerar um SDK, será necessário:
 * O [REST](https://github.com/Azure/autorest), versão 2.0.4413 (versão 3 não tem suporte no momento)
 * [Node.js](https://nodejs.org) como um pré-requisito para o REST
-* O [arquivo Swagger (openapi)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins/preview/2020-05-31-preview) do Azure digital gêmeos data Plane é intitulado *digitaltwins.jsem*e sua pasta de exemplos que o acompanha. Baixe o arquivo do Swagger e sua pasta de exemplos em seu computador local.
+* O arquivo Swagger (openapi) do Azure digital gêmeos **Data plano** mais recente da [pasta Swagger do plano de dados](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins)e sua pasta de exemplos que o acompanha.  Baixe o arquivo do Swagger *digitaltwins.jsem* e sua pasta de exemplos em seu computador local.
 
 Depois que o computador estiver equipado com tudo, na lista acima, você estará pronto para usar o REST para criar o SDK.
 

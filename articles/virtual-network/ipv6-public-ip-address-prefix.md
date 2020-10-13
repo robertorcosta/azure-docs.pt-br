@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
 ms.openlocfilehash: ff33bf771065e7af209934a5c54b6f8f2e34835e
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91666776"
 ---
 # <a name="reserved-public-ipv6-address-prefix"></a>Prefixo de endereço IPv6 público reservado
@@ -38,7 +38,7 @@ Os seguintes tamanhos de prefixo IP público estão disponíveis:
 -  Tamanho mínimo do prefixo IPv6:/127 = 2 endereços
 -  Tamanho máximo de prefixo IPv6:/124 = 16 endereços
 
-O tamanho do prefixo é especificado como um tamanho de máscara CIDR (roteamento entre domínios sem classificação). Por exemplo, uma máscara de/128 representa um endereço IPv6 individual, pois os endereços IPv6 são compostos de 128 bits.
+O tamanho do prefixo é especificado como um tamanho de máscara CIDR (roteamento sem classe Inter-Domain). Por exemplo, uma máscara de/128 representa um endereço IPv6 individual, pois os endereços IPv6 são compostos de 128 bits.
 
 ## <a name="pricing"></a>Preços
  

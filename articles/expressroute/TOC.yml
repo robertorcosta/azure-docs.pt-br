@@ -4,7 +4,7 @@
   items:
     - name: O que é ExpressRoute?
       href: expressroute-introduction.md
-- name: Guia de Início Rápido
+- name: Inícios rápidos
   items:
     - name: Criar um circuito do ExpressRoute – Portal
       href: expressroute-howto-circuit-portal-resource-manager.md

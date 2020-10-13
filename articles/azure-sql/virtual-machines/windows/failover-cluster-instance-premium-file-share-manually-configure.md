@@ -14,10 +14,10 @@ ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
 ms.openlocfilehash: 1b10489ef74e681eab59694d24c4babc3ce69163
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91298704"
 ---
 # <a name="create-an-fci-with-a-premium-file-share-sql-server-on-azure-vms"></a>Criar um FCI com um compartilhamento de arquivos Premium (SQL Server em VMs do Azure)
@@ -96,17 +96,7 @@ Para validar o cluster usando a interface do usuário, faça o seguinte em uma d
 1. Selecione **Avançar**.
 1. Em **Seleção de Teste**, selecione todos os testes, exceto **Armazenamento** e **Espaços de Armazenamento Diretos**, conforme mostrado aqui:
 
-   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/cluster-validation.png" alt-text="Selecionar testes de validação de cluster":::
-
-1. Selecione **Avançar**.
-1. Em **Confirmação**, selecione **Avançar**.
-
-O assistente para **validar uma configuração** executa os testes de validação.
-
-Para validar o cluster usando o PowerShell, execute o seguinte script em uma sessão de administrador do PowerShell em uma das máquinas virtuais:
-
-   ```powershell
-   Test-Cluster –Node ("<node1>","<node2>") –Include "Inventory", "Network", "System Configuration"
+   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/cluster-validation.png" alt-text="Copiar os dois comandos do PowerShell do portal de conexão do compartilhamento de arquivo"
    ```
 
 Depois de validar o cluster, crie o cluster de failover.
@@ -151,7 +141,7 @@ Configure a solução de quorum mais adequada às suas necessidades de negócios
 
 Teste o failover do cluster. Em **Gerenciador de cluster de failover**, clique com o botão direito do mouse no cluster, selecione **mais ações**  >  **mover recurso de cluster principal**  >  **selecione nó**e, em seguida, selecione o outro nó do cluster. Mova o recurso principal de cluster para cada nó do cluster e mova-o novamente para o nó primário. Se você puder mover o cluster para cada nó com êxito, estará pronto para instalar o SQL Server.  
 
-:::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/test-cluster-failover.png" alt-text="Testar o failover de cluster movendo o recurso principal para os outros nós":::
+:::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/test-cluster-failover.png" alt-text="Copiar os dois comandos do PowerShell do portal de conexão do compartilhamento de arquivo":::
 
 
 ## <a name="create-sql-server-fci"></a>Criar a FCI do SQL Server
@@ -172,7 +162,7 @@ Depois de configurar o cluster de failover, crie a FCI do SQL Server.
 
    Os diretórios de dados da FCI precisam estar no compartilhamento de arquivo premium. Insira o caminho completo do compartilhamento, neste formato: `\\storageaccountname.file.core.windows.net\filesharename\foldername` . Um aviso será exibido, informando que você especificou um servidor de arquivos como o diretório de dados. Esse aviso é esperado. Verifique se a conta de usuário usada para acessar a VM via RDP ao persistir o compartilhamento de arquivos é a mesma conta que o serviço de SQL Server usa para evitar possíveis falhas.
 
-   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/use-file-share-as-data-directories.png" alt-text="Usar o compartilhamento de arquivo como diretórios de dados do SQL":::
+   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/use-file-share-as-data-directories.png" alt-text="Copiar os dois comandos do PowerShell do portal de conexão do compartilhamento de arquivo":::
 
 1. Depois que você concluir as etapas no assistente, a Instalação instalará uma FCI do SQL Server no primeiro nó.
 

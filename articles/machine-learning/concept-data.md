@@ -12,10 +12,10 @@ ms.author: nibaccam
 ms.date: 08/31/2020
 ms.custom: devx-track-python
 ms.openlocfilehash: a36c7076de0c4db64b67f4eba38de4daf4213bca
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91446687"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Proteger o acesso a dados no Azure Machine Learning
@@ -65,7 +65,7 @@ Serviços de armazenamento baseados em nuvem com suporte no Azure que podem ser 
 + Sistema de arquivos do Databricks
 + Banco de Dados do Azure para MySQL
 
-## <a name="datasets"></a>Conjunto de dados
+## <a name="datasets"></a>Conjuntos de dados
 
 Os conjuntos de dados Azure Machine Learning não são cópias de seu dado. Com a criação de um conjunto de dados, você cria uma referência a eles em seu serviço de armazenamento, juntamente com uma cópia de seus metadados. 
 

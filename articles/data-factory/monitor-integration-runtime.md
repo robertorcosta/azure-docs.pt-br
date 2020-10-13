@@ -11,10 +11,10 @@ author: djpmsft
 ms.author: daperlov
 manager: anandsub
 ms.openlocfilehash: 4a0c2813a45fab497173d0101f87b30288e93884
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91568918"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitorar um runtime de integração no Azure Data Factory
@@ -193,7 +193,7 @@ A tabela a seguir fornece descrições das propriedades retornadas pelo cmdlet a
 | VNetId                       | A ID de recurso de rede virtual para seu Azure-SSIS IR ingressar. |
 | Sub-rede                       | O nome da sub-rede para o Azure-SSIS IR ingressar. |
 | ID                           | A ID de recurso do seu Azure-SSIS IR. |
-| Tipo                         | O tipo de IR (gerenciado/auto-hospedado) do seu Azure-SSIS IR. |
+| Type                         | O tipo de IR (gerenciado/auto-hospedado) do seu Azure-SSIS IR. |
 | ResourceGroupName            | O nome do grupo de recursos do Azure, no qual o ADF e o Azure-SSIS IR foram criados. |
 | DataFactoryName              | O nome do ADF. |
 | Nome                         | O nome do seu Azure-SSIS IR. |
@@ -246,7 +246,7 @@ Se você usar o modelo de implantação de projeto em que os pacotes são armaze
 
 #### <a name="proxy--staging-tile"></a>Bloco PROXY/preparo
 
-Se você baixar, instalar e configurar o SHIR (infravermelho auto-hospedado) como um proxy para o Azure-SSIS IR acessar dados localmente, você verá o bloco **proxy/preparo** na sua página de monitoramento de Azure-SSIS ir (consulte [Configurando o SHIR como um proxy para seu Azure-SSIS ir](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis)). Nesse bloco, você pode selecionar um link que designa seu SHIR para abrir sua página de monitoramento. Você também pode selecionar outro link designando o armazenamento de BLOBs do Azure para preparo para reconfigurar seu serviço vinculado.
+Se você baixar, instalar e configurar Self-Hosted IR (SHIR) como um proxy para o Azure-SSIS IR acessar dados no local, você verá o bloco **proxy/preparo** na sua página de monitoramento de Azure-SSIS ir (consulte [Configurando SHIR como um proxy para o Azure-SSIS ir](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis)). Nesse bloco, você pode selecionar um link que designa seu SHIR para abrir sua página de monitoramento. Você também pode selecionar outro link designando o armazenamento de BLOBs do Azure para preparo para reconfigurar seu serviço vinculado.
 
 #### <a name="validate-vnet--subnet-tile"></a>VALIDAR bloco de VNET/sub-rede
 

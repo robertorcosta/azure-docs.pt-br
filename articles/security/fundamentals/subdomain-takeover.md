@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 09/29/2020
 ms.author: memildin
 ms.openlocfilehash: bde4b21f9dfff62ef43afc9c9d8e5a858631d304
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91447372"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>Impedir entradas DNS pendente e evitar subdomínio tomada
@@ -86,7 +86,7 @@ Se os CNAMEs estiverem em outros serviços DNS e apontarem para recursos do Azur
 A ferramenta dá suporte aos recursos do Azure listados na tabela a seguir. A ferramenta extrai ou usa como entradas, todos os CNAMEs do locatário.
 
 
-| Serviço                   | Tipo                                        | FQDNproperty                               | Exemplo                         |
+| Serviço                   | Type                                        | FQDNproperty                               | Exemplo                         |
 |---------------------------|---------------------------------------------|--------------------------------------------|---------------------------------|
 | Porta da frente do Azure          | microsoft.network/frontdoors                | Properties. cName                           | `abc.azurefd.net`               |
 | Armazenamento do Blobs do Azure        | microsoft.storage/storageaccounts           | Propriedades. primaryEndpoints. blob           | `abc. blob.core.windows.net`    |
@@ -95,7 +95,7 @@ A ferramenta dá suporte aos recursos do Azure listados na tabela a seguir. A fe
 | Gerenciador de Tráfego do Azure     | microsoft.network/trafficmanagerprofiles    | Properties. dnsConfig. FQDN                  | `abc.trafficmanager.net`        |
 | Azure Container Instance  | microsoft.containerinstance/containergroups | Propriedades. ipAddress. FQDN                  | `abc.EastUs.azurecontainer.io`  |
 | Gerenciamento de API do Azure      | microsoft.apimanagement/service             | Propriedades. hostnameConfigurations. hostName | `abc.azure-api.net`             |
-| Serviço de Aplicativo do Azure         | microsoft.web/sites                         | Propriedades. DefaultHostName                 | `abc.azurewebsites.net`         |
+| Serviço de aplicativo do Azure         | microsoft.web/sites                         | Propriedades. DefaultHostName                 | `abc.azurewebsites.net`         |
 | Azure App slots de serviço | microsoft.web/sites/slots                   | Propriedades. DefaultHostName                 | `abc-def.azurewebsites.net`     |
 
 

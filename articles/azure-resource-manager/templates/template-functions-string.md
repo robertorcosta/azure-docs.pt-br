@@ -3,12 +3,12 @@ title: Funções de modelo – cadeia de caracteres
 description: Descreve as funções a serem usadas em um modelo do Azure Resource Manager para trabalhar com cadeias de caracteres.
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: 42df0317658971b9e9bf3fb805c9a5ff44efaf45
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0733ffc790854c60dca46da3f763738b7820215
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "85962060"
+ms.locfileid: "91874706"
 ---
 # <a name="string-functions-for-arm-templates"></a>Funções de cadeia de caracteres para modelos ARM
 
@@ -27,6 +27,7 @@ O Gerenciador de recursos fornece as seguintes funções para trabalhar com cade
 * [format](#format)
 * [guid](#guid)
 * [indexOf](#indexof)
+* [json](#json)
 * [last](#last)
 * [lastIndexOf](#lastindexof)
 * [length](#length)
@@ -895,6 +896,12 @@ A saída do exemplo anterior com os valores padrão é:
 | lastString | Int | 0 |
 | NotFound | Int | -1 |
 
+## <a name="json"></a>json
+
+`json(arg1)`
+
+Converte uma cadeia de caracteres JSON válida em um tipo de dados JSON. Para obter mais informações, consulte [JSON function](template-functions-object.md#json).
+
 ## <a name="last"></a>last
 
 `last (arg1)`
@@ -1137,7 +1144,7 @@ A saída do exemplo anterior varia de acordo com cada implantação, mas será s
 
 | Nome | Type | Valor |
 | ---- | ---- | ----- |
-| guidOutput | string | b76a51fc-bd72-4a77-b9a2-3c29e7d2e551 |
+| guidOutput | cadeia de caracteres | b76a51fc-bd72-4a77-b9a2-3c29e7d2e551 |
 
 O exemplo a seguir usa a função newGuid para criar um nome exclusivo para uma conta de armazenamento. Esse modelo pode funcionar para o ambiente de teste em que a conta de armazenamento existe por um curto período e não é reimplantada.
 
@@ -1180,7 +1187,7 @@ A saída do exemplo anterior varia de acordo com cada implantação, mas será s
 
 | Nome | Type | Valor |
 | ---- | ---- | ----- |
-| nameOutput | string | storagenziwvyru7uxie |
+| nameOutput | cadeia de caracteres | storagenziwvyru7uxie |
 
 
 ## <a name="padleft"></a>padLeft

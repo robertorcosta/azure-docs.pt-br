@@ -3,12 +3,12 @@ title: Perguntas frequentes sobre fazer backup de Arquivos do Azure
 description: Neste artigo, descubra respostas para perguntas comuns sobre como proteger seus compartilhamentos de arquivo do Azure com o serviço de Backup do Azure.
 ms.date: 04/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 74d8cc9cdb1d9c01c8238f205ae485b61d665cd7
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.openlocfilehash: e2b6afb25e189ee2848f25c0ba59d843baf37090
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91729059"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940828"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Perguntas sobre como fazer backup de Arquivos do Azure
 
@@ -78,20 +78,20 @@ Todos os instantâneos feitos pelo Backup do Azure podem ser acessados exibindo 
 
 ### <a name="what-happens-after-i-move-a-backed-up-file-share-to-a-different-subscription"></a>O que acontece depois de mover um compartilhamento de arquivos de backup para uma assinatura diferente?
 
-Quando um compartilhamento de arquivos é movido para uma assinatura diferente, ele é considerado um novo compartilhamento de arquivos pelo backup do Azure. Abaixo estão as etapas recomendadas:
+Quando um compartilhamento de arquivos é movido para uma assinatura diferente, ele é considerado um novo compartilhamento de arquivos pelo backup do Azure. Estas são as etapas recomendadas:
  
-Cenário: digamos que você tenha um compartilhamento de arquivos FS1 na assinatura s1 e ele seja protegido usando o cofre v1. Agora você deseja mover o compartilhamento de arquivos para a assinatura S2.
+Cenário: digamos que você tenha um compartilhamento de arquivos *FS1* na assinatura *S1* e ele seja protegido usando o cofre *v1* . Agora você deseja mover o compartilhamento de arquivos para a assinatura *S2*.
  
-1.  Mova a conta de armazenamento e o compartilhamento de arquivos (FS1) desejados para uma assinatura diferente (S2).
-2.  No cofre v1, dispare interromper proteção com operação excluir dados para o FS1.
+1.  Mova a conta de armazenamento e o compartilhamento de arquivos (FS1) desejados para a assinatura diferente (S2).
+2.  No cofre v1, dispare a operação parar proteção com excluir dados para o FS1.
 3.  Cancele o registro da conta de armazenamento que hospeda o FS1 do cofre v1.
 4.  Reconfigure o backup para o FS1, agora movido para S2, com um cofre (v2) na assinatura S2. 
  
-Observe que, após reconfigurar o backup com o v2, os instantâneos que foram feitos com v1 não serão mais gerenciados pelo backup do Azure e, portanto, você precisará excluir esses instantâneos manualmente de acordo com seu requisito.
+Observe que depois de reconfigurar o backup com o v2, os instantâneos que foram feitos com v1 não serão mais gerenciados pelo backup do Azure. Portanto, você precisará excluir esses instantâneos manualmente de acordo com suas necessidades.
 
 ### <a name="can-i-move-my-backed-up-file-share-to-a-different-resource-group"></a>Posso mover meu compartilhamento de arquivos de backup para um grupo de recursos diferente?
  
-Sim, você pode mover o compartilhamento de arquivos de backup para um grupo de recursos diferente. No entanto, será necessário reconfigurar o backup para o compartilhamento de arquivos, pois ele seria tratado como um novo recurso pelo backup do Azure. Além disso, os instantâneos criados antes da movimentação do grupo de recursos não serão mais gerenciados pelo backup do Azure. Portanto, você precisará excluir esses instantâneos manualmente de acordo com seu requisito.
+Sim, você pode mover o compartilhamento de arquivos de backup para um grupo de recursos diferente. No entanto, você precisará reconfigurar o backup para o compartilhamento de arquivos, pois ele será tratado como um novo recurso pelo backup do Azure. Além disso, os instantâneos criados antes da movimentação do grupo de recursos não serão mais gerenciados pelo backup do Azure. Portanto, você precisará excluir esses instantâneos manualmente de acordo com suas necessidades.
 
 ### <a name="what-is-the-maximum-retention-i-can-configure-for-backups"></a>Qual é a retenção máxima que posso configurar para backups?
 

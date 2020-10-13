@@ -9,10 +9,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.openlocfilehash: 2679d24a9e8c821dae73114f32adbeb3d22a1458
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91708893"
 ---
 # <a name="how-to-create-a-saas-offer-in-the-commercial-marketplace"></a>Como criar uma oferta de SaaS no Marketplace comercial
@@ -64,7 +64,7 @@ Uma test drive é uma ótima maneira de demonstrar sua oferta a clientes potenci
 1.  Em **testar unidade**, marque a caixa de seleção **habilitar um test drive** .
 1.  Selecione o tipo de test drive na lista que aparece.
 
-### <a name="configure-lead-management"></a>Configurar gerenciamento de leads
+### <a name="configure-lead-management"></a>Configurar o gerenciamento de clientes potenciais
 
 Conecte seu sistema de CRM (gerenciamento de relacionamento com o cliente) com sua oferta de Marketplace comercial para que você possa receber informações de contato do cliente quando um cliente expressar o interesse ou implantar seu produto. Você pode modificar essa conexão a qualquer momento durante ou depois de criar a oferta.
 
