@@ -11,12 +11,12 @@ ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
 ms.custom: how-to, seodec18
-ms.openlocfilehash: d36c0ab78f9f96a051e6cb0a53b756c7409ca142
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: ab94af9ec172a3e88d523024c1e00d3a0d944798
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90893409"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91873074"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gerenciar acesso a um workspace do Azure Machine Learning
 
@@ -133,16 +133,16 @@ A tabela a seguir é um resumo de Azure Machine Learning atividades e as permiss
 
 | Atividade | Escopo de nível de assinatura | Escopo no nível do grupo de recursos | Escopo no nível do espaço de trabalho |
 | ----- | ----- | ----- | ----- |
-| Criar novo workspace | Não obrigatório | Proprietário ou colaborador | N/A (torna-se proprietário ou herda uma função de escopo maior após a criação) |
+| Criar novo workspace | Não é necessária | Proprietário ou colaborador | N/A (torna-se proprietário ou herda uma função de escopo maior após a criação) |
 | Solicitar cota de Amlcompute de nível de assinatura ou definir cota de nível de espaço de trabalho | Proprietário, ou colaborador, ou função personalizada </br>permitindo que `/locations/updateQuotas/action`</br> no escopo da assinatura | Não autorizado | Não autorizado |
-| Criar novo cluster de computação | Não obrigatório | Não obrigatório | Proprietário, colaborador ou função personalizada, permitindo: `/workspaces/computes/write` |
-| Criar nova instância de computação | Não obrigatório | Não obrigatório | Proprietário, colaborador ou função personalizada, permitindo: `/workspaces/computes/write` |
-| Enviando qualquer tipo de execução | Não obrigatório | Não obrigatório | Proprietário, colaborador ou função personalizada, permitindo: `"/workspaces/*/read", "/workspaces/environments/write", "/workspaces/experiments/runs/write", "/workspaces/metadata/artifacts/write", "/workspaces/metadata/snapshots/write", "/workspaces/environments/build/action", "/workspaces/experiments/runs/submit/action", "/workspaces/environments/readSecrets/action"` |
-| Publicando um ponto de extremidade de pipeline | Não obrigatório | Não obrigatório | Proprietário, colaborador ou função personalizada, permitindo: `"/workspaces/pipelines/write", "/workspaces/endpoints/pipelines/*", "/workspaces/pipelinedrafts/*", "/workspaces/modules/*"` |
-| Implantando um modelo registrado em um recurso AKS/ACI | Não obrigatório | Não obrigatório | Proprietário, colaborador ou função personalizada, permitindo: `"/workspaces/services/aks/write", "/workspaces/services/aci/write"` |
-| Pontuação em relação a um ponto de extremidade AKS implantado | Não obrigatório | Não obrigatório | Proprietário, colaborador ou função personalizada, permitindo: `"/workspaces/services/aks/score/action", "/workspaces/services/aks/listkeys/action"` (quando você não estiver usando Azure Active Directory autenticação) ou `"/workspaces/read"` (quando estiver usando a autenticação de token) |
-| Acessando o armazenamento usando blocos de anotações interativos | Não obrigatório | Não obrigatório | Proprietário, colaborador ou função personalizada, permitindo: `"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*"` |
-| Criar nova função personalizada | Proprietário, colaborador ou função personalizada que permite `Microsoft.Authorization/roleDefinitions/write` | Não obrigatório | Proprietário, colaborador ou função personalizada, permitindo: `/workspaces/computes/write` |
+| Criar novo cluster de computação | Não é necessária | Não é necessária | Proprietário, colaborador ou função personalizada, permitindo: `/workspaces/computes/write` |
+| Criar nova instância de computação | Não é necessária | Não é necessária | Proprietário, colaborador ou função personalizada, permitindo: `/workspaces/computes/write` |
+| Enviando qualquer tipo de execução | Não é necessária | Não é necessária | Proprietário, colaborador ou função personalizada, permitindo: `"/workspaces/*/read", "/workspaces/environments/write", "/workspaces/experiments/runs/write", "/workspaces/metadata/artifacts/write", "/workspaces/metadata/snapshots/write", "/workspaces/environments/build/action", "/workspaces/experiments/runs/submit/action", "/workspaces/environments/readSecrets/action"` |
+| Publicando um ponto de extremidade de pipeline | Não é necessária | Não é necessária | Proprietário, colaborador ou função personalizada, permitindo: `"/workspaces/pipelines/write", "/workspaces/endpoints/pipelines/*", "/workspaces/pipelinedrafts/*", "/workspaces/modules/*"` |
+| Implantando um modelo registrado em um recurso AKS/ACI | Não é necessária | Não é necessária | Proprietário, colaborador ou função personalizada, permitindo: `"/workspaces/services/aks/write", "/workspaces/services/aci/write"` |
+| Pontuação em relação a um ponto de extremidade AKS implantado | Não é necessária | Não é necessária | Proprietário, colaborador ou função personalizada, permitindo: `"/workspaces/services/aks/score/action", "/workspaces/services/aks/listkeys/action"` (quando você não estiver usando Azure Active Directory autenticação) ou `"/workspaces/read"` (quando estiver usando a autenticação de token) |
+| Acessando o armazenamento usando blocos de anotações interativos | Não é necessária | Não é necessária | Proprietário, colaborador ou função personalizada, permitindo: `"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*", "/workspaces/listKeys/action"` |
+| Criar nova função personalizada | Proprietário, colaborador ou função personalizada que permite `Microsoft.Authorization/roleDefinitions/write` | Não é necessária | Proprietário, colaborador ou função personalizada, permitindo: `/workspaces/computes/write` |
 
 > [!TIP]
 > Se você receber uma falha ao tentar criar um espaço de trabalho pela primeira vez, certifique-se de que sua função permite `Microsoft.MachineLearningServices/register/action` . Essa ação permite que você registre o provedor de recursos Azure Machine Learning com sua assinatura do Azure.

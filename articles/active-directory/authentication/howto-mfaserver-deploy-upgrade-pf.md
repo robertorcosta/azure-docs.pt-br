@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 23e485c55ab591bcccdc32818839a8d484a6c3af
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88919532"
 ---
 # <a name="upgrade-the-phonefactor-agent-to-azure-multi-factor-authentication-server"></a>Atualizar o PhoneFactor Agent para o Servidor de Autenticação Multifator do Azure
@@ -70,7 +70,7 @@ O caminho de instalação é obtido do registro da instalação anterior do Phon
 
    2. Para instalar o Portal do Usuário no servidor Web, abra um prompt de comando como administrador e execute MultiFactorAuthenticationUserPortalSetupXX.msi.
 
-      O nome do diretório virtual padrão agora é **MultiFactorAuth** em vez de **PhoneFactor**. Se quiser usar o nome anterior, você deve alterar o nome do diretório virtual durante a instalação. Caso contrário, se você permitir que a instalação use o novo nome padrão, clique no ícone do portal do usuário na Servidor de Autenticação Multifator e atualize a URL do portal do usuário na guia Configurações. os usuários existentes precisam ser informados sobre a nova URL.
+      O nome do diretório virtual padrão agora é **MultiFactorAuth** em vez de **PhoneFactor**. Se quiser usar o nome anterior, você deve alterar o nome do diretório virtual durante a instalação. Caso contrário, se você permitir que a instalação use o novo nome padrão, clique no ícone do portal do usuário na Servidor de Autenticação Multifator e atualize a URL do portal do usuário na guia Configurações. Os usuários existentes precisam ser informados sobre a nova URL.
 
    3. Vá para o local de instalação do Portal do Usuário (por exemplo, C:\inetpub\wwwroot\MultiFactorAuth) e edite o arquivo web.config. Copie os valores nas seções appSettings e applicationSettings do arquivo web.config original que foi salvo em backup antes da atualização para o novo arquivo web.config. Se o novo nome do diretório virtual padrão foi mantido ao instalar o SDK do Serviço Web, altere a URL na seção applicationSettings para apontar para o local correto. Se outros padrões foram alterados no arquivo web.config anterior, aplique as mesmas alterações ao novo arquivo web.config.
 

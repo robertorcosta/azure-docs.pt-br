@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
 ms.openlocfilehash: 03c783b5a475f0a49fe94d33aa866654e9c9f5f1
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91397820"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Configurar políticas do Apache Hive no HDInsight com o Enterprise Security Package
@@ -92,7 +92,7 @@ As instruções podem ser encontradas em [Criar fonte de dados ODBC do Hive](../
  | Tipo de servidor Hive | Selecione **Servidor Hive 2** |
  | Mecanismo | Selecione **Serviço do Azure HDInsight** |
  | Caminho HTTP | Deixe em branco. |
- | Nome do Usuário | Digite hiveuser1@contoso158.onmicrosoft.com. Atualize o nome de domínio se ele for diferente. |
+ | Nome do Usuário | Insira hiveuser1@contoso158.onmicrosoft.com. Atualize o nome de domínio se ele for diferente. |
  | Senha | Digite a senha para hiveuser1. |
 
 Clique em **Testar** antes de salvar a fonte de dados.

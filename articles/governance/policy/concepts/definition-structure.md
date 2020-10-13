@@ -1,14 +1,14 @@
 ---
 title: Detalhes da estrutura de definição de política
 description: Descreve como as definições de política são usadas para estabelecer convenções para os recursos do Azure na sua organização.
-ms.date: 09/22/2020
+ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: f9b64255723c6e53a6d8fe945bf19506ba30644e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2db91bd1968f816eb2a9320ee81019aeec5d2449
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330274"
+ms.locfileid: "91873992"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição da Política do Azure
 
@@ -104,7 +104,7 @@ Por exemplo, o recurso `Microsoft.Network/routeTables` dá suporte às marcas e 
 
 ### <a name="resource-provider-modes"></a>Modos de provedor de recursos
 
-O seguinte nó do provedor de recursos tem suporte total:
+O seguinte modo de provedor de recursos tem suporte completo:
 
 - `Microsoft.Kubernetes.Data` para gerenciar seus clusters Kubernetes no Azure ou fora dele. As definições que usam esse modo de provedor de recursos usam efeitos de _auditoria_, _negação_e _desabilitação_. O uso do efeito [EnforceOPAConstraint](./effects.md#enforceopaconstraint) foi _preterido_.
 
@@ -226,7 +226,7 @@ No **, em seguida,** bloco, você define o efeito que acontecerá quando o **se*
         <condition> | <logical operator>
     },
     "then": {
-        "effect": "deny | audit | append | auditIfNotExists | deployIfNotExists | disabled"
+        "effect": "deny | audit | modify | append | auditIfNotExists | deployIfNotExists | disabled"
     }
 }
 ```

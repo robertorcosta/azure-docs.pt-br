@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.author: a-sakand
 author: skandil
 ms.openlocfilehash: 22f5ab332c52a3b567b37089def6e4a494a15d29
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91309465"
 ---
 # <a name="sign-in-to-luis-portal"></a>Entrar no portal do LUIS
@@ -36,7 +36,7 @@ Uma conta, que não está associada a uma assinatura do Azure, tem o ícone do A
 
 Uma conta associada a uma assinatura do Azure permite que você selecione sua assinatura e o recurso a serem usados.
 
-:::image type="content" source="media/sign-in/resource-selection.png" alt-text="Captura de tela parcial do portal do LUIS com caixas de seleção suspensas de seleção de recursos.":::
+:::image type="content" source="media/sign-in/resource-selection.png" alt-text="Captura de tela parcial da barra de navegação do LUIS com o ícone do Azure.":::
 
 ## <a name="sign-in-with-account-associated-with-an-azure-subscription"></a>Entrar com uma conta associada a uma assinatura do Azure
 
@@ -50,11 +50,11 @@ Uma conta associada a uma assinatura do Azure permite que você selecione sua as
 
     [Saiba mais sobre criação e chaves de início](luis-how-to-azure-subscription.md#luis-resources). Ambos os recursos fornecem 1 milhão transações de criação gratuitas e 1000 transações de ponto de extremidade de previsão gratuita.
 
-    :::image type="content" source="media/sign-in/signup-landing-page.png" alt-text="Captura de tela parcial para escolher um tipo de Reconhecimento vocal recurso de criação.":::
+    :::image type="content" source="media/sign-in/signup-landing-page.png" alt-text="Captura de tela parcial da barra de navegação do LUIS com o ícone do Azure.":::
 
 1. Usar um recurso de criação existente
 
-    :::image type="content" source="media/sign-in/signup-choose-resource.png" alt-text="Escolher recurso de criação":::
+    :::image type="content" source="media/sign-in/signup-choose-resource.png" alt-text="Captura de tela parcial da barra de navegação do LUIS com o ícone do Azure.":::
 
     Se você já tiver recursos de criação de LUIS em sua assinatura e associar um à sua conta do LUIS durante a entrada, escolha a opção **usar recurso de criação existente** e forneça as seguintes informações:
 
@@ -67,7 +67,7 @@ Uma conta associada a uma assinatura do Azure permite que você selecione sua as
 
 1. Criar um novo recurso de criação
 
-    :::image type="content" source="media/sign-in/signup-create-resource.png" alt-text="Criar recurso de criação":::
+    :::image type="content" source="media/sign-in/signup-create-resource.png" alt-text="Captura de tela parcial da barra de navegação do LUIS com o ícone do Azure.":::
 
     Ao **criar um novo recurso de criação**, forneça as seguintes informações:
 
@@ -78,7 +78,7 @@ Uma conta associada a uma assinatura do Azure permite que você selecione sua as
 
 1. Depois de escolher seu caminho, pode levar alguns segundos até que um sinal que diga "sua conta foi migrada com êxito seja exibido. Conclua selecionando **continuar**.
 
-    :::image type="content" source="media/sign-in/signup-confirm-2.png" alt-text="Confirmar recurso de criação":::
+    :::image type="content" source="media/sign-in/signup-confirm-2.png" alt-text="Captura de tela parcial da barra de navegação do LUIS com o ícone do Azure.":::
 
     > [!Note]
     > Se você tiver uma assinatura e pelo menos um recurso de criação na região igual à que está se inscrevendo no portal, você poderá entrar automaticamente no LUIS migrado e associado a um recurso sem a necessidade de escolher em qual caminho ir.
@@ -90,7 +90,7 @@ Uma conta associada a uma assinatura do Azure permite que você selecione sua as
 
 1. Conclua selecionando **continuar**. Você fará logon automaticamente com uma chave de avaliação/início. Isso significa que, eventualmente, você será solicitado a [migrar sua conta](luis-migration-authoring.md#migration-steps) e vincular seus aplicativos a um recurso de criação. Para passar no processo de migração, você precisará entrar para uma [avaliação gratuita do Azure](https://azure.microsoft.com/free/).
 
-    :::image type="content" source="media/sign-in/signup-no-subscription.png" alt-text="Nenhum cenário de assinatura":::
+    :::image type="content" source="media/sign-in/signup-no-subscription.png" alt-text="Captura de tela parcial da barra de navegação do LUIS com o ícone do Azure.":::
 
 ## <a name="troubleshooting"></a>Solução de problemas
 

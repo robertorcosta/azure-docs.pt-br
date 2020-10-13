@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/30/2020
+ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f2d6d00ea06bb362d82b5fbdff658b729eed17cd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 091704fabb7b50a0c83625c6ae46d9a807f01ffc
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91258977"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961027"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Configurar o comportamento da sessão no Azure Active Directory B2C
 
@@ -45,7 +45,25 @@ Você pode usar as seguintes propriedades para gerenciar sessões de aplicativos
 
     ![Configurações de propriedade de comportamento de sessão no portal do Azure](./media/session-behavior/session-behavior.png)
 
-8. Clique em **Save** (Salvar).
+8. Clique em **Salvar**.
+
+## <a name="configure-sign-out-behavior"></a>Configurar comportamento de saída
+
+### <a name="secure-your-logout-redirect"></a>Proteger seu redirecionamento de logout
+
+Após o logout, o usuário é redirecionado para o URI especificado no `post_logout_redirect_uri` parâmetro, independentemente das URLs de resposta que foram especificadas para o aplicativo. No entanto, se um valor válido `id_token_hint` for passado e o **token de ID necessário em solicitações de logout** estiver ativado, Azure ad B2C verificará se o valor de `post_logout_redirect_uri` corresponde a um dos URIs de redirecionamento configurados do aplicativo antes de executar o redirecionamento. Se nenhuma URL de resposta correspondente tiver sido configurada para o aplicativo, uma mensagem de erro será exibida e o usuário não será redirecionado. Para exigir um token de ID em solicitações de logout:
+
+1. Entre no [portal do Azure](https://portal.azure.com).
+1. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C selecionando o **diretório +** filtro de assinatura no menu superior e escolhendo o diretório que contém o locatário Azure ad B2C.
+1. Escolha **Todos os serviços** no canto superior esquerdo do Portal do Azure, pesquise **Azure AD B2C** e selecione-o.
+1. Escolha **Fluxos de usuário**.
+1. Abra o fluxo de usuários criado anteriormente.
+1. Selecione **Propriedades**.
+1. Habilite o **token de ID de solicitação em solicitações de logout**.
+1. Volte para  **Azure ad B2C**.
+1. Selecione **registros de aplicativo**e, em seguida, selecione seu aplicativo.
+1. Selecione **Autenticação**.
+1. Na caixa de texto **URL de logout** , digite o URI de redirecionamento de logout de postagem e, em seguida, selecione **salvar**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

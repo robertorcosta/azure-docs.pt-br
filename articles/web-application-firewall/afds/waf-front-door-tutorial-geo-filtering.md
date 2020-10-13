@@ -1,6 +1,6 @@
 ---
 title: Configurar a política de firewall do aplicativo Web de filtragem geográfica para o Azure Front Door Service
-description: Neste tutorial, você aprenderá a criar uma política de filtragem geográfica e a associar a política ao host de front-end da porta frontal existente.
+description: Neste tutorial, você aprenderá a criar uma política de filtragem geográfica e associá-la ao host de front-end existente do Front Door.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
@@ -9,10 +9,10 @@ ms.date: 03/10/2020
 ms.author: victorh
 ms.reviewer: tyao
 ms.openlocfilehash: a7ab7debffc8e88f385fbba6ae52af74ef98b25f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91266933"
 ---
 # <a name="set-up-a-geo-filtering-waf-policy-for-your-front-door"></a>Configurar uma política de filtragem geográfica WAF para o Front Door

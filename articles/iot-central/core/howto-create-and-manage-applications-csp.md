@@ -9,10 +9,10 @@ ms.date: 08/23/2019
 ms.topic: how-to
 manager: philmea
 ms.openlocfilehash: e000e2979436605b9274792ad3dde8eb1fa80976
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91653342"
 ---
 # <a name="create-and-manage-an-azure-iot-central-application-from-the-csp-portal"></a>Criar e gerenciar um aplicativo de IoT Central do Azure no portal do CSP
@@ -73,7 +73,7 @@ Se você não tiver uma assinatura do Azure, poderá criar uma no Microsoft Part
 
 Para saber mais, consulte [Assinaturas do Azure](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing).
 
-## <a name="location"></a>Location
+## <a name="location"></a>Localização
 
 **Local** é a [geografia](https://azure.microsoft.com/global-infrastructure/geographies/) onde você gostaria de criar o aplicativo. Normalmente, você deve escolher a localização fisicamente mais próxima de seus dispositivos para obter um desempenho ideal. No momento, você pode criar um aplicativo IoT Central nas regiões da **Austrália**, **Pacífico Asiático**, **Europa**, **Estados Unidos**, **Reino Unido**e **Japão** . Depois de escolher uma localização, você não poderá mover o aplicativo posteriormente para outra localização.
 

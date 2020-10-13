@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 08/26/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: df13042656aa077b30bf144aab0a47d9fc0a0662
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91263922"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Rastreamento de dependência no insights Aplicativo Azure 
@@ -144,7 +144,7 @@ Clique no botão **amostras** azuis na parte inferior direita e, em seguida, em 
 
 Não sabe para onde o tempo vai? O [criador de perfil Application insights](../../azure-monitor/app/profiler.md) RASTREIA chamadas http para seu site ativo e mostra as funções em seu código que levaram a hora mais longa.
 
-## <a name="failed-requests"></a>Solicitações com falha
+## <a name="failed-requests"></a>Solicitações falhas
 
 As solicitações com falha também podem ser associadas a chamadas com falha para as dependências.
 

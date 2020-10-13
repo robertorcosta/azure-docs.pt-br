@@ -12,10 +12,10 @@ ms.date: 09/24/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.openlocfilehash: 6a716aef65cc81c5558a214c1ee5f93180810977
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91266676"
 ---
 # <a name="application-provisioning-in-quarantine-status"></a>Provisionamento de aplicativo no status de quarentena
@@ -49,7 +49,7 @@ Há três maneiras de verificar se um aplicativo está em quarentena:
 
 ## <a name="why-is-my-application-in-quarantine"></a>Por que meu aplicativo está em quarentena?
 
-|Descrição|Ação recomendada|
+|DESCRIÇÃO|Ação recomendada|
 |---|---|
 |**Problema de conformidade do scim:** Uma resposta HTTP/404 não encontrada foi retornada em vez da resposta HTTP/200 OK esperada. Nesse caso, o serviço de provisionamento do Azure AD fez uma solicitação para o aplicativo de destino e recebeu uma resposta inesperada.|Verifique a seção credenciais de administrador para ver se o aplicativo requer a especificação da URL do locatário e se a URL está correta. Se você não vir um problema, entre em contato com o desenvolvedor do aplicativo para garantir que seu serviço esteja em conformidade com o SCIM. https://tools.ietf.org/html/rfc7644#section-3.4.2 |
 |**Credenciais inválidas:** Ao tentar autorizar o acesso ao aplicativo de destino, recebemos uma resposta do aplicativo de destino que indica que as credenciais fornecidas são inválidas.|Navegue até a seção credenciais de administrador da interface do usuário de configuração de provisionamento e autorize o acesso novamente com credenciais válidas. Se o aplicativo estiver na Galeria, examine o tutorial de configuração do aplicativo para obter as etapas adicionais necessárias.|

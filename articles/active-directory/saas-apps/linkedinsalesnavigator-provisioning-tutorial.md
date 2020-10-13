@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: arvinh
 ms.openlocfilehash: e908c8d19a4640995c536580b6584558212ada3e
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91361561"
 ---
 # <a name="tutorial-configure-linkedin-sales-navigator-for-automatic-user-provisioning"></a>Tutorial: Configurar LinkedIn Sales Navigator para provisionamento automático de usuário
@@ -102,7 +102,7 @@ A primeira etapa é recuperar o token de acesso do LinkedIn. Se você for um adm
 
 12. Insira o endereço de email de uma pessoa ou grupo que deve receber notificações de erro de provisionamento no campo **Email de Notificação** e marque a caixa de seleção abaixo.
 
-13. Clique em **Save** (Salvar).
+13. Clique em **Salvar**.
 
 14. Na seção **Mapeamentos de Atributo**, examine os atributos de usuário e grupo que serão sincronizados do Azure AD para o LinkedIn Sales Navigator. Observe que os atributos selecionados como propriedades **Correspondentes** serão usados para corresponder as contas de usuário e grupos no LinkedIn Sales Navigator para operações de atualização. Selecione o botão Salvar para confirmar as alterações.
 
@@ -110,7 +110,7 @@ A primeira etapa é recuperar o token de acesso do LinkedIn. Se você for um adm
 
 15. Para habilitar o serviço de provisionamento do Azure AD para o LinkedIn Sales Navigator, altere o **Status de Provisionamento** para **Ativado** na seção **Configurações**
 
-16. Clique em **Save** (Salvar).
+16. Clique em **Salvar**.
 
 Isso iniciará a sincronização inicial de todos os usuários e/ou grupos atribuídos ao LinkedIn Sales Navigator na seção Usuários e Grupos. Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço esteja em execução. Use a seção **Detalhes de Sincronização** para monitorar o progresso e siga os links para os logs de atividade de provisionamento, que descrevem todas as ações executadas pelo serviço de provisionamento em seu aplicativo LinkedIn Sales Navigator.
 

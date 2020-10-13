@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/07/2020
-ms.openlocfilehash: 6bcb1ea6c16fd387dfb7f15f909d1908c20a44d7
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: 4189aadb6e37fc70bcaeecca2110d6fcc3959dd3
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91710899"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939861"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Visão geral da continuidade de negócios com o banco de dados do Azure para PostgreSQL-servidor único
 
@@ -29,10 +29,9 @@ A tabela a seguir compara RTO e RPO em um cenário típico:
 | :------------: | :-------: | :-----------------: | :------------------: |
 | Recuperação Pontual do backup | Qualquer ponto de restauração dentro do período de retenção | Qualquer ponto de restauração dentro do período de retenção | Qualquer ponto de restauração dentro do período de retenção |
 | Restauração geográfica de backups replicados geograficamente | Sem suporte | RTO – varia <br/>RPO < 1 h | RTO – varia <br/>RPO < 1 h |
-| Réplicas de leitura | RTO-minutos <br/>RPO < 5 min | RTO-minutos <br/>RPO < 5 min| RTO-minutos <br/>RPO < 5 min|
+| Réplicas de leitura | RTO-minutos <br/>RPO < 5 min * | RTO-minutos <br/>RPO < 5 min *| RTO-minutos <br/>RPO < 5 min *|
 
-> [!IMPORTANT]
-> O RTO e RPO esperado mencionados aqui são apenas para fins de referência. Nenhum SLA é oferecido para essas métricas.
+\* O RPO pode ser maior em alguns casos, dependendo de vários fatores, incluindo a carga de trabalho do banco de dados primário e a latência entre regiões. 
 
 ## <a name="recover-a-server-after-a-user-or-application-error"></a>Recuperar um servidor após um erro de aplicativo ou usuário
 

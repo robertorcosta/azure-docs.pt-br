@@ -9,10 +9,10 @@ ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
 ms.openlocfilehash: 7f274827e646ea0a7c0fd103983cfc566d699228
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91596788"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Quais tipos de disco estão disponíveis no Azure?
@@ -23,7 +23,7 @@ Atualmente, o Azure Managed disks oferece quatro tipos de disco, cada tipo desti
 
 A tabela a seguir fornece uma comparação de ultra discos, unidades de estado sólido Premium (SSD), SSD padrão e unidades de disco rígido padrão (HDD) para discos gerenciados para ajudá-lo a decidir o que usar.
 
-| Detalhe | Disco Ultra | SSD Premium | SSD Standard | HDD Standard |
+| Detalhes | Disco Ultra | SSD Premium | SSD Standard | HDD Standard |
 | ------ | ---------- | ----------- | ------------ | ------------ |
 |Tipo de disco   |SSD   |SSD   |SSD   |HDD   |
 |Cenário   |Cargas de trabalho com uso intensivo de e/s, como [SAP Hana](workloads/sap/hana-vm-operations-storage.md), bancos de dados de camada superior (por exemplo, SQL, Oracle) e outras cargas de trabalho de transações pesadas.   |Cargas de trabalho sensíveis à produção e ao desempenho   |Servidores Web, aplicativos empresariais pouco usados e desenvolvimento/teste   |Backup, não crítico, acesso não frequente   |
@@ -54,10 +54,10 @@ Alguns dos principais recursos dos ultra discos são:
 |8     |2.400         |600         |
 |16     |4.800         |1.200         |
 |32     |9.600         |2.000         |
-|64     |19.200         |2.000         |
+|64     |19.200         |2\.000         |
 |128     |38.400         |2.000         |
 |256     |76.800         |2.000         |
-|512     |153.600         |2.000         |
+|512     |153.600         |2\.000         |
 |1.024 a 65.536 (os tamanhos nesse intervalo aumentam em incrementos de 1 TiB)     |160.000         |2.000         |
 
 ### <a name="ga-scope-and-limitations"></a>Limitações e escopo de GA

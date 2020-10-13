@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: 2d0ee0e4c5cf3f7c2f4b623f0270ecf5eb01fc36
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: 124034fc6c999c37c6e79547b062508c957d1bac
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91710508"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939827"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Ler réplicas no banco de dados do Azure para PostgreSQL-servidor único
 
@@ -126,7 +126,7 @@ Saiba como [interromper a replicação para uma réplica](howto-read-replicas-po
 ## <a name="failover"></a>Failover
 Não há nenhum failover automatizado entre os servidores primário e de réplica. 
 
-Como a replicação é assíncrona, há um atraso entre o primário e a réplica. A quantidade de latência pode ser influenciada por vários fatores, como a intensidade da carga de trabalho em execução no servidor primário e a latência entre os data centers. Na maioria dos casos, o atraso da réplica varia entre alguns segundos e alguns minutos. Você pode acompanhar o retardo de replicação real usando o *retardo de réplica*de métrica, que está disponível para cada réplica. Essa métrica mostra o tempo desde a última transação reproduzida. É recomendável que você identifique o que é o retardo médio, observando o atraso da réplica em um período de tempo. Você pode definir um alerta na latência de réplica, de modo que, se ele ficar fora do intervalo esperado, você poderá executar uma ação.
+Como a replicação é assíncrona, há um atraso entre o primário e a réplica. A quantidade de latência pode ser influenciada por vários fatores, como a intensidade da carga de trabalho em execução no servidor primário e a latência entre os data centers. Em casos típicos, intervalos de latência de réplicas entre alguns segundos e alguns minutos. No entanto, nos casos em que o primário executa cargas de trabalho muito pesadas e a réplica não está se acumulando rápido o suficiente, a latência pode ser maior. Você pode acompanhar o retardo de replicação real usando o *retardo de réplica*de métrica, que está disponível para cada réplica. Essa métrica mostra o tempo desde a última transação reproduzida. É recomendável que você identifique o que é o retardo médio, observando o atraso da réplica em um período de tempo. Você pode definir um alerta na latência de réplica, de modo que, se ele ficar fora do intervalo esperado, você poderá executar uma ação.
 
 > [!Tip]
 > Se você realizar o failover para a réplica, o retardo no momento em que você desvincular a réplica da primária indicará a quantidade de dados perdida.

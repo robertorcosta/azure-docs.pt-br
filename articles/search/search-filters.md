@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 6c46dfb3f36c3ef7f67ce2f3b52c2ffe4c805a61
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91534787"
 ---
 # <a name="filters-in-azure-cognitive-search"></a>Filtros no Azure Pesquisa Cognitiva 
@@ -196,7 +196,7 @@ search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=
 
 Para trabalhar com mais exemplos, consulte [Sintaxe de expressão de filtro OData > Exemplos](./search-query-odata-filter.md#examples).
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 + [Como funciona a pesquisa de texto completo no Azure Cognitive Search](search-lucene-query-architecture.md)
 + [API REST para pesquisar documentos](/rest/api/searchservice/search-documents)

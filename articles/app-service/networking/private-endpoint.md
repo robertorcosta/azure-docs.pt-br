@@ -4,19 +4,22 @@ description: Conecte-se em particular a um aplicativo Web usando o Ponto de extr
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 10/07/2020
+ms.date: 10/09/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 855cbe3d2926a04af773aa32ea0ab63bde89491c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c4b6377d28339b0b4953cd908f4964b64dab4fe
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91857258"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91873091"
 ---
 # <a name="using-private-endpoints-for-azure-web-app"></a>Usando pontos de extremidade privados para o aplicativo Web do Azure
+
+> [!IMPORTANT]
+> O ponto de extremidade privado está disponível para aplicativos Web do Windows e Linux, em contêineres ou não, hospedados nesses planos do serviço de aplicativo: aplicativos **isolados**, **PremiumV2**, **PremiumV3**, **funções Premium** (às vezes chamados de plano Premium elástico). 
 
 Você pode usar o Ponto de extremidade privado para o Azure Web App para permitir que os clientes localizados na sua rede privada acessem o aplicativo com segurança pelo link privado. O ponto de extremidade privado usa um endereço IP do espaço de endereço da VNet do Azure. O tráfego de rede entre um cliente em sua rede privada e o Web App atravessa a VNet e um Link Privado na rede principal da Microsoft, eliminando a exposição da Internet pública.
 
@@ -91,7 +94,7 @@ Por exemplo, a resolução de nome será:
 |mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|
 |mywebapp.privatelink.azurewebsites.net|Um|10.10.10.8|<--você gerencia essa entrada em seu sistema DNS para apontar para seu endereço IP do ponto de extremidade privado|
 
-Após essa configuração de DNS, você pode acessar seu aplicativo Web de forma privada com o nome padrão mywebappname.azurewebsites.net.
+Após essa configuração de DNS, você pode acessar seu aplicativo Web de forma privada com o nome padrão mywebappname.azurewebsites.net. Você deve usar esse nome, pois o certificado padrão é emitido para *. azurewebsites.net.
 
 
 Se você precisar usar um nome DNS personalizado, deverá adicionar o nome personalizado em seu aplicativo Web. O nome personalizado deve ser validado como qualquer nome personalizado, usando a resolução de DNS público. Para mais informações, consulte [validação DNS personalizada][dnsvalidation].
@@ -115,9 +118,9 @@ Ao usar a Função do Azure no Elastic Premium Plan com ponto de extremidade pri
 
 Você pode se conectar até 100 ponto de extremidade privado para um aplicativo Web específico.
 
-A funcionalidade de depuração remota não está disponível quando o ponto de extremidade privado está habilitado para o aplicativo Web. A recomendação é implantar o código em um slot e depurá-lo remotamente.
+Os slots não podem usar o ponto de extremidade privado.
 
-O ponto de extremidade privado está disponível para aplicativos Web PremiumV2, PremiumV3, Windows e Linux, em contêineres ou não, e o plano Azure Functions Premium (às vezes chamado de plano Premium elástico). 
+A funcionalidade de depuração remota não está disponível quando o ponto de extremidade privado está habilitado para o aplicativo Web. A recomendação é implantar o código em um slot e depurá-lo remotamente.
 
 Estamos melhorando o recurso de link privado e o ponto de extremidade privado regularmente, marque [este artigo][pllimitations] para obter informações atualizadas sobre as limitações.
 

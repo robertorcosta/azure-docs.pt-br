@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 01/16/2020
 ms.author: Zhchia
 ms.openlocfilehash: 665e4870619751bbda062473d0c2549b26352d94
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91361595"
 ---
 # <a name="tutorial-configure-oracle-cloud-infrastructure-console-for-automatic-user-provisioning"></a>Tutorial: configurar o console de infraestrutura de nuvem da Oracle para provisionamento automático de usuário
@@ -142,8 +142,8 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
       |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|String|
       |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Referência|
       |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|String|
-      |urn: IETF: params: SCIM: schemas: Oracle: IDCs: Extension: User: User: bypassNotification|Booliano|
-      |urn: IETF: params: SCIM: schemas: Oracle: IDCs: Extension: User: User: isFederatedUser|Booliano|
+      |urn: IETF: params: SCIM: schemas: Oracle: IDCs: Extension: User: User: bypassNotification|Boolean|
+      |urn: IETF: params: SCIM: schemas: Oracle: IDCs: Extension: User: User: isFederatedUser|Boolean|
 
 10. Na seção **mapeamentos** , selecione **sincronizar grupos de Azure Active Directory para o console de infraestrutura de nuvem da Oracle**.
 

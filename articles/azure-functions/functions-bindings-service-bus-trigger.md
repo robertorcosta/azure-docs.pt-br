@@ -8,10 +8,10 @@ ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
 ms.openlocfilehash: cd0b73dd22e5e2cab720bb1a33e58e25e517b1f6
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90604977"
 ---
 # <a name="azure-service-bus-trigger-for-azure-functions"></a>Gatilho do barramento de serviço do Azure para Azure Functions
@@ -359,7 +359,7 @@ O `maxAutoRenewDuration` pode ser configurado no *host.json*, que mapeia para [O
 
 O gatilho Barramento de Serviço fornece várias propriedades de [metadados](./functions-bindings-expressions-patterns.md#trigger-metadata). Essas propriedades podem ser usadas como parte de expressões de associação em outras associações ou como parâmetros em seu código. Essas propriedades são membros da classe de [mensagem](/dotnet/api/microsoft.azure.servicebus.message?view=azure-dotnet) .
 
-|Propriedade|Tipo|Descrição|
+|Propriedade|Type|Descrição|
 |--------|----|-----------|
 |`ContentType`|`string`|Um identificador de tipo de conteúdo utilizado pelo remetente e pelo destinatário para lógica específica do aplicativo.|
 |`CorrelationId`|`string`|ID de correlação.|

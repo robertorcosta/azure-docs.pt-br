@@ -8,10 +8,10 @@ author: vamahtan
 ms.author: vamahtan
 ms.date: 09/23/2020
 ms.openlocfilehash: f0996ba6cd914043ad31500934141ad8770a1c50
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91268716"
 ---
 # <a name="co-sell-partner-engagement"></a>Participação de parceiros de venda conjunta
@@ -44,7 +44,7 @@ A tabela a seguir lista as etapas e os requisitos para que seu Marketplace ofere
 
 |Etapa    |Tipo de oferta    |Requisitos    |Status de venda conjunta    |
 |----    |-------------    |------------    |---------------   |
-|<ol start=1><li> Crie uma conta no Partner Center e publique sua oferta no Marketplace comercial.</li>|Tudo|<li>A oferta atende aos requisitos de publicação do Marketplace comercial.</li><li>Você tem um perfil comercial completo no Partner Center.</li>|Não está pronto.|
+|<ol start=1><li> Crie uma conta no Partner Center e publique sua oferta no Marketplace comercial.</li>|Todos|<li>A oferta atende aos requisitos de publicação do Marketplace comercial.</li><li>Você tem um perfil comercial completo no Partner Center.</li>|Não está pronto.|
 |<ol start=2><li>Envie materiais de venda necessários.</li>|Ofertas de IP *com a* [opção de venda conjunta no Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell)|[Carregar materiais necessários no Partner Center](#how-to-submit-co-sell-materials-in-partner-center): <ul><li>Contato de vendas para cada país qualificado.</li><li>Lista de materiais: cliente One-pager, baralho de apresentação do cliente (opcional), URL da página de aterrissagem da solução, URL do canal de mídia social ou outro (por exemplo, um estudo de caso).|Co-venda pronta|
 ||Ofertas de IP *sem* [a opção de venda conjunta no Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell)|<li>Solicite [o trabalho com um especialista em nuvem](https://partner.microsoft.com/campaigns/ced-nomination-form/) para fornecer a documentação de venda necessária.|Co-venda pronta|
 ||Serviços de Consultoria|<li>Solicite [o trabalho com um especialista em nuvem](https://partner.microsoft.com/campaigns/ced-nomination-form/) para fornecer a documentação de venda necessária.</li><li>Competência do Gold ativa.</li>|Co-venda pronta|

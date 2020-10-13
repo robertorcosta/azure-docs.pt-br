@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
 ms.openlocfilehash: 79a0db3b9f81368fbdaace5be3fd94ad29649291
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91532594"
 ---
 # <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>Usar o Azure defender para registros de contêiner para verificar se há vulnerabilidades em suas imagens
@@ -27,14 +27,14 @@ Quando o verificador relata vulnerabilidades à central de segurança, a central
 |Aspecto|Detalhes|
 |----|:----|
 |Estado da versão:|GA (em disponibilidade geral)|
-|Refere|O **Azure defender para registros de contêiner** é cobrado conforme mostrado na [página de preços](security-center-pricing.md)|
+|Preço:|O **Azure defender para registros de contêiner** é cobrado conforme mostrado na [página de preços](security-center-pricing.md)|
 |Registros e imagens com suporte:|![Sim ](./media/icons/yes-icon.png) registros de ACR hospedados pelo Linux que são acessíveis pela Internet pública e fornecem acesso ao shell.<br>![Não há ](./media/icons/no-icon.png) registros de ACR hospedados pelo Windows.<br>![Nenhum ](./media/icons/no-icon.png) registro ' particular '-a central de segurança exige que seus registros sejam acessíveis pela Internet pública. A central de segurança não pode se conectar ou verificar registros com acesso limitado com um firewall, um ponto de extremidade de serviço ou pontos de extremidades privados, como o link privado do Azure.<br>![Não há imagens de super nada, como imagens de ](./media/icons/no-icon.png) [rascunho do Docker](https://hub.docker.com/_/scratch/) ou imagens "Distroless" que contenham apenas um aplicativo e suas dependências de tempo de execução sem um Gerenciador de pacotes, Shell ou sistema operacional.|
 |Funções e permissões necessárias:|**Leitor de segurança** e [função de leitor do registro de contêiner do Azure](https://docs.microsoft.com/azure/container-registry/container-registry-roles)|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) National/soberanas (US Gov, China gov, outros gov)|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) Nacionais/soberanas (US Gov, China Gov, outros Gov)|
 |||
 
 
-## <a name="identify-vulnerabilities-in-images-in-azure-container-registries"></a>Identificar vulnerabilidades em imagens em registros de contêiner do Azure 
+## <a name="identify-vulnerabilities-in-images-in-azure-container-registries"></a>Identificar as vulnerabilidades em imagens em registros de contêiner do Azure 
 
 1. Para habilitar verificações de vulnerabilidade de imagens armazenadas em seu registro de contêiner do Azure baseado em Azure Resource Manager:
 
@@ -115,9 +115,9 @@ Quando o verificador relata vulnerabilidades à central de segurança, a central
 
 ## <a name="disable-specific-findings-preview"></a>Desabilitar descobertas específicas (versão prévia)
 
-Se você tiver uma necessidade organizacional para ignorar uma localização, em vez de corrigi-la, você pode opcionalmente desabilitá-la. As conclusões desabilitadas não afetam sua pontuação segura ou geram ruído indesejado.
+Caso você tenha uma necessidade organizacional para ignorar uma descoberta, em vez de corrigi-la, você pode opcionalmente desabilitá-la. As descobertas desabilitadas não afetam sua classificação de segurança nem geram um ruído indesejado.
 
-Quando uma localização corresponde aos critérios que você definiu em suas regras de desabilitação, ela não aparecerá na lista de conclusões. Os cenários típicos incluem:
+Quando uma descoberta corresponde aos critérios definidos nas regras de desabilitação, ela não será exibida na lista de descobertas. Os cenários típicos incluem:
 
 - Desabilitar conclusões com severidade abaixo da média
 - Desabilitar conclusões que não são patches
@@ -135,7 +135,7 @@ Você pode usar qualquer um dos seguintes critérios:
 - Categoria
 - Verificação de segurança 
 - Pontuações do CVSS v3
-- Severidade 
+- Severity 
 - Status de patch 
 
 Para criar uma regra:
@@ -157,4 +157,4 @@ Para criar uma regra:
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre o Azure defender](azure-defender.md)
+> [Saiba mais sobre o Azure Defender](azure-defender.md)

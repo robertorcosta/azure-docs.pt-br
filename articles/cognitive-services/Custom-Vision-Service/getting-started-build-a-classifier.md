@@ -1,26 +1,27 @@
 ---
-title: Início Rápido Criar um classificador – Serviço de Visão Personalizada
+title: 'Início Rápido: Criar um classificador com o site da Visão Personalizada'
 titleSuffix: Azure Cognitive Services
-description: Neste início rápido, você aprenderá a usar o site Visão Personalizada para criar um modelo de classificação de imagem.
+description: Neste início rápido, você aprenderá a usar o site da Visão Personalizada para criar, treinar e testar um modelo de classificação de imagem.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 09/15/2020
+ms.date: 09/29/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: c8b5d3f58f11e85c6e77ce0cbf0c6d435f570ade
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+keywords: reconhecimento de imagem, aplicativo de reconhecimento de imagem, visão personalizada
+ms.openlocfilehash: b57720b9d8fb05a605b9eace279b70b060c18450
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91277335"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91596866"
 ---
-# <a name="quickstart-how-to-build-a-classifier-with-custom-vision"></a>Início Rápido: Como compilar um classificador com Visão Personalizada
+# <a name="quickstart-build-a-classifier-with-the-custom-vision-website"></a>Início Rápido: Criar um classificador com o site da Visão Personalizada
 
-Neste início rápido, você aprenderá a criar um classificador de imagens usando o site Visão Personalizada. Depois de criar um modelo, você poderá testá-lo com novas imagens e, por fim, integrá-lo ao próprio software de reconhecimento de imagem.
+Neste início rápido, você aprenderá a usar o site Visão Personalizada para criar um modelo de classificação de imagem. Depois de criar um modelo, você poderá testá-lo com novas imagens e, eventualmente, integrá-lo ao próprio aplicativo de reconhecimento de imagem.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar.
 
@@ -46,7 +47,7 @@ No navegador da Web, navegue até o [site Visão Personalizada](https://customvi
 1. Insira um nome e uma descrição para o projeto. Selecione um Grupo de Recursos. Se a sua conta conectada estiver associada a uma conta do Azure, a lista suspensa Grupo de Recursos exibirá todos os seus Grupos de Recursos do Azure que contêm um Recurso do Serviço de Visão Personalizada. 
 
    > [!NOTE]
-   > Se nenhum grupo de recursos estiver disponível, confirme se você fez logon em [customvision.ai](https://customvision.ai) com a mesma conta que foi usada para fazer logon no [portal do Azure](https://portal.azure.com/). Além disso, confirme se você selecionou o mesmo "Diretório" no site da Visão Personalizada que o diretório no portal do Azure em que os recursos da Visão Personalizada estão localizados. Em ambos os sites, é possível selecionar seu diretório no menu suspenso de conta no canto superior direito da tela. 
+   > Se nenhum grupo de recursos estiver disponível, confirme se você fez logon em [customvision.ai](https://customvision.ai) com a mesma conta que foi usada para fazer logon no [portal do Azure](https://portal.azure.com/). Além disso, confirme se você selecionou o mesmo "Diretório" no site da Visão Personalizada como o diretório no portal do Azure em que os recursos da Visão Personalizada estão localizados. Em ambos os sites, é possível selecionar seu diretório no menu suspenso de conta no canto superior direito da tela. 
 
 1. Selecione __Classificação__ em __Tipos de Projeto__. Em __Tipos de Classificação__, escolha **Multirótulo** ou **Multiclasse**, dependendo do seu caso de uso. A classificação multirótulo aplica qualquer número de marcas a uma imagem (zero ou mais), enquanto a classificação multiclasse agrupa as imagens em categorias únicas (cada imagem enviada será classificada de acordo com a marca mais provável). Você poderá alterar o tipo de classificação posteriormente, se quiser.
 

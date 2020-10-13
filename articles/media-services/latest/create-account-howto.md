@@ -15,10 +15,10 @@ ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 93f5e4d659b94bd79345a5e687de14ab6a5e8ba6
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89267948"
 ---
 # <a name="create-a-media-services-account"></a>Criar uma conta de Serviços de Mídia
@@ -36,7 +36,7 @@ Para iniciar a criptografia, codificação, analise, gerenciamento e streaming d
 
 ## <a name="portal"></a>[Portal](#tab/portal/)
 
-## <a name="use-the-azure-portal"></a>Use o Portal do Azure
+## <a name="use-the-azure-portal"></a>Usar o portal do Azure
 
 <!-- Move this section. This section should be moved to conceptual.  It doesn't belong in task based -->
 O portal do Azure fornece uma maneira de criar rapidamente uma conta dos serviços de mídia do Azure. Você pode usar sua conta para acessar os Serviços de Mídia que permitem que você armazene, criptografe, codifique, gerencie e transmita conteúdo de mídia no Azure.
