@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e5ca792c6dbc3c08847315b916913e8c38909a7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d3adc3dd0e0b7e9f964326f5e637b0fefb2cd173
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91637049"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91938452"
 ---
 # <a name="azure-security-baseline-for-azure-kubernetes-service"></a>Linha de base de segurança do Azure para o serviço kubernetes do Azure
 
@@ -20,7 +20,7 @@ A linha de base de segurança do Azure para o serviço kubernetes do Azure cont�
 
 A linha de base para esse serviço é extraída do [Azure Security Benchmark versão 1.0](../security/benchmarks/overview.md), que fornece recomendações sobre como proteger suas soluções de nuvem no Azure com nossas diretrizes de melhores práticas.
 
-Para obter mais informações, consulte [Visão geral sobre linhas de base de segurança do Azure](/azure/security/benchmarks/security-baselines-overview-v1).
+Para obter mais informações, consulte [Visão geral sobre linhas de base de segurança do Azure](/azure/security/benchmarks/security-baselines-overview).
 
 ## <a name="network-security"></a>Segurança de rede
 

@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9e3925d2c14d51785ed4fe00a508ea353490e1cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4159b464493a34e17a04f17540b3f9c7a20f4740
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89669036"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91971788"
 ---
 # <a name="manage-certificates-on-an-iot-edge-device"></a>Gerenciar certificados em um dispositivo IoT Edge
 
@@ -33,10 +33,13 @@ Para saber mais sobre os diferentes tipos de certificados e suas funções, cons
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-* Um dispositivo IoT Edge, em execução no [Windows](how-to-install-iot-edge-windows.md) ou no [Linux](how-to-install-iot-edge-linux.md).
+* Um dispositivo IoT Edge.
+
+  Se você não tiver um dispositivo IoT Edge configurado, poderá criar um em uma máquina virtual do Azure. Siga as etapas em um dos artigos de início rápido para [criar um dispositivo Linux Virtual](quickstart-linux.md) ou [criar um dispositivo virtual do Windows](quickstart.md).
+
 * Ter um certificado de AC (autoridade de certificação) raiz, autoassinado ou comprado de uma autoridade de certificação comercial confiável, como Baltimore, Verisign, DigiCert ou GlobalSign.
 
-Se você ainda não tiver uma autoridade de certificação raiz, mas quiser experimentar IoT Edge recursos que exigem certificados de produção (como cenários de gateway), poderá [criar certificados de demonstração para testar IOT Edge recursos de dispositivo](how-to-create-test-certificates.md).
+  Se você ainda não tiver uma autoridade de certificação raiz, mas quiser experimentar IoT Edge recursos que exigem certificados de produção (como cenários de gateway), poderá [criar certificados de demonstração para testar IOT Edge recursos de dispositivo](how-to-create-test-certificates.md).
 
 ### <a name="create-production-certificates"></a>Criar certificados de produção
 

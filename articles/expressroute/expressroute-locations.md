@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/29/2020
 ms.author: duau
-ms.openlocfilehash: 706a16eaaab113aab879b828e851191b4d3954dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a99aa53e954fe0b2822628ff91989e0b618028ae
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91566152"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91938399"
 ---
 # <a name="expressroute-connectivity-partners-and-peering-locations"></a>Locais de emparelhamento e parceiros de conectividade do ExpressRoute
 
@@ -90,7 +90,7 @@ A tabela a seguir mostra locais pelo provedor de serviços. Se você quiser exib
 | **[C3ntro](https://www.c3ntro.com/data1/express-route1.php)** |Com suporte |Com suporte |Miami |
 | **CDC** | Com suporte | Com suporte | Canberra, Canberra2 |
 | **[CenturyLink Cloud Connect](https://www.centurylink.com/cloudconnect)** |Com suporte |Com suporte |Amsterdam2, Chicago, Dublin, Frankfurt, Hong Kong, Las Vegas, London2, Nova York, Paris, San Antonio, vale do silício, Tóquio, Toronto, Washington, d.c., Washington DC2 |
-| **[Chief Telecom](https://www.chief.com.tw/dispPageBox/ct.aspx?ddsPageID=ENCLOUDSERVICE&dbid=4852937342)** |Com suporte |Com suporte |Hong Kong, Taipé |
+| **[Chief Telecom](https://www.chief.com.tw/)** |Com suporte |Com suporte |Hong Kong, Taipé |
 | **China Mobile International** |Com suporte |Com suporte | Hong Kong, Hong Kong2, Cingapura |
 | **China Telecom Global** |Com suporte |Com suporte |Hong Kong, Hong Kong2 |
 | **China Unicom Global** |Com suporte |Com suporte | Singapura 2 |
@@ -253,10 +253,10 @@ Se você estiver em trabalho remoto e não tiver conectividade de fibra ou se qu
 | **[Axtel](https://alestra.mx/landing/expressrouteazure/)** |Equinix |Dallas|
 | **[Beanfield Metroconnect](https://www.beanfield.com/business/cloud-exchange)** |Megaport |Toronto|
 | **[Bezeq International Ltd.](https://www.bezeqint.net/english)** | euNetworks | London |
-| **[BICS](https://bics.com/bics-solutions-suite/cloud-connect/)** | Equinix | Amsterdã, Frankfurt, Londres, Singapura, Washington D.C. |
+| **[BICS](https://bics.com/bics-solutions-suite/cloud-connect/)** | Equinix | Amsterdã, Frankfurt, Londres, Singapura, Washington D.C. |https://www.chief.com.tw/
 | **[BroadBand Tower, Inc.](https://www.bbtower.co.jp/product-service/data-center/network/dcconnect-for-azure/)** | Equinix | Tóquio |
 | **[C3ntro Telecom](https://www.c3ntro.com/data/express-route)** | Equinix, Megaport | Dallas |
-| **[Chief](https://www.chief.com.tw/dispPageBox/ct.aspx?ddsPageID=ENCLOUDSERVICE&dbid=4852937342)** | Equinix | RAE de Hong Kong |
+| **[Chief]()** | Equinix | RAE de Hong Kong |
 | **[Cinia](https://www.cinia.fi/en/services/connectivity-services/direct-public-cloud-connection.html)** | Equinix, Megaport | Frankfurt, Hamburgo |
 | **[CloudXpress](https://www2.telenet.be/fr/business/produits-services/internet/cloudxpress/)** | Equinix | Amsterdã | 
 | **[CMC Telecom](https://cmctelecom.vn/san-pham/value-added-service-and-it/cmc-telecom-cloud-express-en/)** | Equinix | Singapura | 

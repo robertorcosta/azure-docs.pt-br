@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/28/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d0df2199a2afdbea1ee1c6c543df324e9fe3cc3e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02755c164e72e3149497ee8e3c1fdc19141fd54f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450686"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973624"
 ---
 # <a name="nfs-v41-volumes-on-azure-netapp-files-for-sap-hana"></a>Volumes NFS v4.1 no Azure NetApp Files para SAP HANA
 
@@ -131,7 +131,7 @@ O mesmo se aplica ao volume que você usa para gravar backups completos do banco
  
 
 ## <a name="backup"></a>Backup
-Além dos backups de streaming e do serviço de back do Azure fazendo backup SAP HANA bancos de dados, conforme descrito no artigo [Guia de backup para SAP Hana em máquinas virtuais do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide), Azure NetApp files abre a possibilidade de executar backups de instantâneo baseados em armazenamento. 
+Além dos backups de streaming e do serviço de back do Azure fazendo backup SAP HANA bancos de dados, conforme descrito no artigo [Guia de backup para SAP Hana em máquinas virtuais do Azure](./sap-hana-backup-guide.md), Azure NetApp files abre a possibilidade de executar backups de instantâneo baseados em armazenamento. 
 
 O SAP HANA dá suporte a:
 
@@ -195,4 +195,4 @@ root # > azcopy sync '/hana/data/SID/mnt00001/.snapshot' 'https://azacsnaptmytes
 ## <a name="next-steps"></a>Próximas etapas
 Leia o artigo:
 
-- [Alta disponibilidade do SAP HANA para máquinas virtuais do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview)
+- [Alta disponibilidade do SAP HANA para máquinas virtuais do Azure](./sap-hana-availability-overview.md)

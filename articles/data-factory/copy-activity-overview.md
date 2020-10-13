@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 10/12/2020
 ms.author: jingwang
-ms.openlocfilehash: 8e1a08af1be3d9b5cfb011516d00a8c0548994bf
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 5eade0ad48dcdd1f0c18ef6e65e498a7b9c79c15
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946155"
+ms.locfileid: "91951666"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Atividade de cópia no Azure Data Factory
 
@@ -186,10 +186,11 @@ Consulte [mapeamento de tipo de dados e esquema](copy-activity-schema-and-type-m
 Além de copiar dados do armazenamento de dados de origem para o coletor, você também pode configurar o para adicionar colunas de dados adicionais para copiar junto com o coletor. Por exemplo:
 
 - Ao copiar da fonte baseada em arquivo, armazene o caminho relativo do arquivo como uma coluna adicional para rastrear de qual arquivo os dados vêm.
+- Duplicar a coluna de origem especificada como outra coluna. 
 - Adicione uma coluna com a expressão do ADF para anexar variáveis de sistema do ADF, como nome do pipeline/ID do pipeline, ou armazenar outro valor dinâmico da saída da atividade upstream.
 - Adicione uma coluna com valor estático para atender à necessidade de consumo downstream.
 
-Você pode encontrar a seguinte configuração na guia origem da atividade de cópia: 
+Você pode encontrar a seguinte configuração na guia origem da atividade de cópia. Você também pode mapear essas colunas adicionais no [mapeamento de esquema](copy-activity-schema-and-type-mapping.md#schema-mapping) da atividade de cópia como de costume usando os nomes de coluna definidos. 
 
 ![Adicionar colunas adicionais na atividade de cópia](./media/copy-activity-overview/copy-activity-add-additional-columns.png)
 
@@ -200,7 +201,7 @@ Para configurá-lo programaticamente, adicione a `additionalColumns` propriedade
 
 | Propriedade | Descrição | Necessária |
 | --- | --- | --- |
-| additionalColumns | Adicione colunas de dados adicionais para copiar para o coletor.<br><br>Cada objeto sob a `additionalColumns` matriz representa uma coluna extra. O `name` define o nome da coluna e `value` indica o valor de dados dessa coluna.<br><br>Os valores de dados permitidos são:<br>- **`$$FILEPATH`** -uma variável reservada indica armazenar o caminho relativo dos arquivos de origem para o caminho da pasta especificado no conjunto de uma. Aplicar à fonte baseada em arquivo.<br>- **Expressão**<br>- **Valor estático** | Não |
+| additionalColumns | Adicione colunas de dados adicionais para copiar para o coletor.<br><br>Cada objeto sob a `additionalColumns` matriz representa uma coluna extra. O `name` define o nome da coluna e `value` indica o valor de dados dessa coluna.<br><br>Os valores de dados permitidos são:<br>- **`$$FILEPATH`** -uma variável reservada indica armazenar o caminho relativo dos arquivos de origem para o caminho da pasta especificado no conjunto de uma. Aplicar à fonte baseada em arquivo.<br>- **$ $Column: <source_column_name>** -um padrão de variável reservada indica a duplicação da coluna de origem especificada como outra coluna<br>- **Expressão**<br>- **Valor estático** | Não |
 
 **Exemplo:**
 
@@ -218,6 +219,10 @@ Para configurá-lo programaticamente, adicione a `additionalColumns` propriedade
                     {
                         "name": "filePath",
                         "value": "$$FILEPATH"
+                    },
+                    {
+                        "name": "newColName",
+                        "value": "$$COLUMN:SourceColumnA"
                     },
                     {
                         "name": "pipelineName",

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: alsin
-ms.openlocfilehash: d62eaf96354627e0c1e4e0a31bb16fb3265f66ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da17122de8db41b6ba9ae9597d52bc3e1d8d0062
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91279766"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962387"
 ---
 # <a name="preview-azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Visualização: Benefício Híbrido do Azure – como ele se aplica ao Máquinas Virtuais do Linux
 
@@ -126,7 +126,7 @@ az vm get-instance-view -g MyResourceGroup -n MyVm
 
 ### <a name="azure-instance-metadata-service"></a>Serviço de metadados de instância do Azure
 
-De dentro da própria VM, você pode consultar os metadados atestados do IMDS para determinar o LicenseType da VM. Um valor de LicenseType de ' RHEL_BYOS ' ou ' SLES_BYOS ' indicará que sua VM tem o benefício habilitado. Saiba mais sobre os metadados atestados [aqui](https://docs.microsoft.com/azure/virtual-machines/linux/instance-metadata-service#attested-data)
+De dentro da própria VM, você pode consultar os metadados atestados do IMDS para determinar o LicenseType da VM. Um valor de LicenseType de ' RHEL_BYOS ' ou ' SLES_BYOS ' indicará que sua VM tem o benefício habilitado. Saiba mais sobre os metadados atestados [aqui](./instance-metadata-service.md#attested-data)
 
 ## <a name="compliance"></a>Conformidade
 

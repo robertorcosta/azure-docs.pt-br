@@ -5,12 +5,12 @@ author: sebastianpick
 ms.author: sepick
 ms.date: 02/04/2020
 ms.topic: article
-ms.openlocfilehash: 8d42087008f1812bc3713456025ed3be351d0917
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad9d135df428c79df745ad24d9e7382e06599168
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "84022173"
+ms.locfileid: "91893196"
 ---
 # <a name="late-stage-reprojection"></a>Reprojeção de fase tardia
 
@@ -34,7 +34,9 @@ Se for, seu aplicativo usará LSR de profundidade, caso contrário, ele usará o
 
 Para que a LSR de profundidade funcione, o aplicativo cliente deve fornecer um buffer de profundidade válido que contenha toda a geometria relevante a ser considerada durante o LSR.
 
-Profundidade LSR tenta estabilizar o quadro de vídeo com base no conteúdo do buffer de profundidade fornecido. Como consequência, o conteúdo que não foi renderizado para ele, como objetos transparentes, não pode ser ajustado por LSR e pode mostrar artefatos de instabilidade e de Reprojeção.
+Profundidade LSR tenta estabilizar o quadro de vídeo com base no conteúdo do buffer de profundidade fornecido. Como consequência, o conteúdo que não foi renderizado para ele, como objetos transparentes, não pode ser ajustado por LSR e pode mostrar artefatos de instabilidade e de Reprojeção. 
+
+Para reduzir a instabilidade de Reprojeção para objetos transparentes, você pode forçar a gravação de buffer de profundidade. Consulte o sinalizador de material *TransparencyWritesDepth* para os materiais de [cor](color-materials.md) e [PBR](pbr-materials.md) . No entanto, observe que a qualidade visual da interação do objeto transparente/opaco pode ser prejudicada ao habilitar esse sinalizador.
 
 ## <a name="planar-lsr"></a>LSR planar
 

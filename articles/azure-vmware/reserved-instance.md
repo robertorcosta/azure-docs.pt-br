@@ -3,12 +3,12 @@ title: Economize custos com a instância reservada da solução Azure VMware
 description: Saiba como comprar uma instância reservada para a solução do Azure VMware.
 ms.topic: how-to
 ms.date: 10/02/2020
-ms.openlocfilehash: a477b1730d70ec729a2be333b545b6faeb009998
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa354d4fbfef868ea1e6783656be7871669f200d
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91492363"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951410"
 ---
 # <a name="save-costs-with-azure-vmware-solution"></a>Economize custos com a solução Azure VMware
 
@@ -22,7 +22,7 @@ As instâncias reservadas estão disponíveis com algumas exceções.
 
 -   **Cota**   insuficiente -Uma reserva com escopo para uma assinatura única/compartilhada deve ter a cota de hosts disponível na assinatura para a nova instância reservada. Você pode [criar uma solicitação de aumento de cota](enable-azure-vmware-solution.md) para resolver esse problema.
 
--   **Qualificação da oferta**-você precisará de um [ea (Enterprise Agreement do Azure)](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-agreements)   com a Microsoft.
+-   **Qualificação da oferta**-você precisará de um [ea (Enterprise Agreement do Azure)](../cost-management-billing/manage/ea-portal-agreements.md)   com a Microsoft.
 
 -   **Restrições**   de capacidade -Em raras circunstâncias, o Azure limita a compra de novas reservas para SKUs do host de solução do Azure VMware, devido à baixa capacidade em uma região.
 
@@ -83,7 +83,7 @@ Você também pode dividir uma reserva em partes menores ou reservas de mesclage
 > - Uma região de reserva existente
 > - SKU
 > - Quantidade
-> - Duration
+> - Duração
 >
 >No entanto, você pode *trocar*   uma reserva se desejar fazer alterações.
 

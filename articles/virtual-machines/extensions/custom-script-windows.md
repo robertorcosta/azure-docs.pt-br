@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/31/2020
 ms.author: robreed
-ms.openlocfilehash: e50c0b0fcb883b43650a5d99cea5aa39bae1cd94
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0bb1e4cb9b24c9b46f623e1604930367b82a47eb
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89426258"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973811"
 ---
 # <a name="custom-script-extension-for-windows"></a>Extensão de script personalizado para o Windows
 
@@ -48,7 +48,7 @@ Você pode configurar a extensão para usar suas credenciais do Armazenamento de
 
 ### <a name="internet-connectivity"></a>Conectividade com a Internet
 
-Se você precisar fazer o download um script externamente, como do GitHub ou do Armazenamento do Azure, será necessário abrir portas adicionais do firewall e do Grupo de Segurança de Rede. Por exemplo, se o script estiver localizado no Armazenamento do Azure, você poderá permitir acesso usando Marcas de Serviço do NSG do Azure para [Armazenamento](../../virtual-network/security-overview.md#service-tags).
+Se você precisar fazer o download um script externamente, como do GitHub ou do Armazenamento do Azure, será necessário abrir portas adicionais do firewall e do Grupo de Segurança de Rede. Por exemplo, se o script estiver localizado no Armazenamento do Azure, você poderá permitir acesso usando Marcas de Serviço do NSG do Azure para [Armazenamento](../../virtual-network/network-security-groups-overview.md#service-tags).
 
 Se o script estiver em um servidor local, ainda poderá ser necessário abrir portas adicionais do firewall e do Grupo de Segurança de Rede.
 

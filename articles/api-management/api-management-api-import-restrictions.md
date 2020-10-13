@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/02/2020
 ms.author: apimpm
-ms.openlocfilehash: 86ed7f3941965bcac525a2ba71786d20a4753489
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a53cc2b2ec6d46b4bde54af58b4e5542ff6cf79
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335493"
+ms.locfileid: "91932627"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>Restrições de importação de API e problemas conhecidos
 
@@ -42,6 +42,7 @@ Caso esteja recebendo erros ao importar seu documento da OpenAPI, verifique se v
 -   As definições de segurança são ignoradas.
 -   Não há suporte para definições de esquema embutidas para operações de API. As definições de esquema são definidas no escopo da API e podem ser referenciadas em escopos de resposta ou solicitação de operações de API.
 -   Um parâmetro de URL definido precisa fazer parte do modelo de URL.
+-   `server` Não há suporte para o objeto no nível de operação da API.
 -   `Produces` a palavra-chave, que descreve os tipos MIME retornados por uma API, não tem suporte. 
 
 ### <a name="openapi-version-2"></a><a name="open-api-v2"> </a>OpenAPI versão 2

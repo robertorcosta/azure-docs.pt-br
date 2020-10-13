@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 94ba4b159e0a7e52603e7c200c11828f996cf6d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b45eea7a6c4bccbdc6669752255469174493ab55
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90090509"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91938331"
 ---
 # <a name="azure-maps-community---open-source-projects"></a>Comunidade do Azure Maps – projetos de código aberto
 
@@ -39,8 +39,10 @@ Veja a seguir uma lista de projetos de software livre que ampliam os recursos do
 |-|-|
 | [Módulo de animação do Azure Maps](https://github.com/Azure-Samples/azure-maps-animations) | Uma biblioteca avançada de animações para uso com o SDK da Web do Azure Maps. |
 | [Módulo de controle de geolocalização do Azure Maps](https://github.com/Azure-Samples/azure-maps-geolocation-control) | Um módulo SDK para Web do Azure Maps que fornece um controle que usa a API de geolocalização do navegador para localizar o usuário no mapa. |
+| [Módulo de fonte de dados matriciais do Azure Maps](https://github.com/Azure-Samples/azure-maps-gridded-data-source) | Um módulo para o SDK da Web do Azure Maps que fornece uma fonte de dados que agrupa pontos de dados em células de uma área de grade. Essa operação também é conhecida por muitos nomes, como mosaicos, data compartimentalização ou compartimentos hexadecimais.  |
 | [Módulo de controle de tela inteira do Azure Maps](https://github.com/Azure-Samples/azure-maps-fullscreen-control) | Um módulo SDK para Web do Azure Maps que fornece um controle para exibir o mapa no modo de tela inteira. |
 | [Módulo de controle de seleção do Azure Maps](https://github.com/Azure-Samples/azure-maps-selection-control) | Um módulo SDK para Web do Azure Maps que fornece controles para selecionar dados em uma fonte de dados usando ferramentas de desenho ou solicitando um polígono de intervalo de rota. |
+| [Módulo de mapa de deslize do Azure Maps](https://github.com/Azure-Samples/azure-maps-swipe-map) | Um módulo para o SDK da Web do Azure Maps que permite o passar o dedo entre dois mapas sobrepostos, ideal para comparar dois conjuntos de dados sobrepostos. |
 | [Módulo de mapa de sincronização do Azure Maps](https://github.com/Azure-Samples/azure-maps-sync-maps) | Um módulo SDK para Web do Azure Maps que sincroniza as câmeras de dois ou mais mapas. |
 | [Módulo de interface do usuário dos serviços do Azure Maps](https://github.com/Azure-Samples/azure-maps-services-ui) | Um conjunto de controles de interface do usuário da Web que encapsulam os serviços REST do Azure Maps. |
 

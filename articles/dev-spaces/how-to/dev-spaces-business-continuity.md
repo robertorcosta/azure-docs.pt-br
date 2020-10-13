@@ -8,14 +8,16 @@ ms.topic: conceptual
 description: Aprenda a usar o Azure Dev Spaces e os serviços Kubernetess do Azure para fornecer continuidade dos negócios e se preparar para a recuperação de desastres
 keywords: 'Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s '
 manager: gwallace
-ms.openlocfilehash: 4e47d4b05dedb981d55c527f76ae1c3a120f23d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 824eb1e65e7da5736080e47509aa163a868d8ec9
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86232416"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973123"
 ---
 # <a name="business-continuity-and-disaster-recovery-in-azure-dev-spaces"></a>Continuidade dos negócios e recuperação de desastres no Azure Dev Spaces
+
+[!INCLUDE [Azure Dev Spaces deprecation](../../../includes/dev-spaces-deprecation.md)]
 
 ## <a name="review-disaster-recovery-guidance-for-azure-kubernetes-service-aks"></a>Examinar as diretrizes de recuperação de desastres para o AKS (Serviço de Kubernetes do Azure)
 

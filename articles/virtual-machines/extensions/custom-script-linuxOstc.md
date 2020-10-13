@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: danis
-ms.openlocfilehash: 1fe915fd58f60e4ad5b1e28b51911678ef2f866c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b2099a6a48c9393b6e9e8b983a4acac2933bf06
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87085700"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973828"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>Usar a Versão 1 da Extensão de Script Personalizado do Azure com máquinas virtuais do Linux
 
@@ -58,7 +58,7 @@ Você pode utilizar a extensão para usar suas credenciais do Armazenamento de B
 
 ### <a name="internet-connectivity"></a>Conectividade com a Internet
 
-Se você precisar fazer o download um script externamente, como do GitHub ou do Armazenamento do Azure, será necessário abrir portas adicionais do firewall ou do Grupo de Segurança de Rede. Por exemplo, se o seu script estiver localizado no armazenamento do Azure, você poderá permitir o acesso usando as marcas do serviço NSG do Azure para [armazenamento](../../virtual-network/security-overview.md#service-tags).
+Se você precisar fazer o download um script externamente, como do GitHub ou do Armazenamento do Azure, será necessário abrir portas adicionais do firewall ou do Grupo de Segurança de Rede. Por exemplo, se o seu script estiver localizado no armazenamento do Azure, você poderá permitir o acesso usando as marcas do serviço NSG do Azure para [armazenamento](../../virtual-network/network-security-groups-overview.md#service-tags).
 
 Se o script estiver em um servidor local, ainda poderá ser necessário abrir portas adicionais do firewall ou do Grupo de Segurança de Rede.
 
@@ -125,7 +125,7 @@ Esses itens devem ser tratados como dados confidenciais e especificados na confi
 | type | CustomScriptForLinux | string |
 | typeHandlerVersion | 1.5 | INT |
 | fileUris (por exemplo) | `https://github.com/MyProject/Archive/MyPythonScript.py` | matriz |
-| commandToExecute (por exemplo) | MyPythonScript.py Python \<my-param1\> | string |
+| commandToExecute (por exemplo) | MyPythonScript.py Python \<my-param1\> | cadeia de caracteres |
 | enableInternalDNSCheck | true | booleano |
 | storageAccountName (por exemplo) | examplestorageacct | string |
 | storageAccountKey (por exemplo) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |

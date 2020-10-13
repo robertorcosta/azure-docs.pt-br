@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 08/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8884711bbb32054ca1d8e4d9f9e7dee753f0c629
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63378369b9924f01c5d0217746a8a2c330c88631
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361918"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970598"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Planejamento e implementação de Máquinas Virtuais do Azure para SAP NetWeaver
 
@@ -486,18 +486,18 @@ Como modelo de preços, você tem várias opções de preços diferentes, listad
 O preço de cada uma das diferentes ofertas com diferentes ofertas de serviço em relação a sistemas operacionais e variadas regiões está disponível no site [Preços de Máquinas Virtuais do Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) e [Preços de Máquinas Virtuais do Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). Para obter informações e a flexibilidade de instâncias reservadas de um ano e de três anos, confira estes artigos:
 
 - [O que são Reservas do Azure?](../../../cost-management-billing/reservations/save-compute-costs-reservations.md)
-- [Flexibilidade de tamanho de máquina virtual com instâncias de VM reservadas](../../windows/reserved-vm-instance-size-flexibility.md)
+- [Flexibilidade de tamanho de máquina virtual com instâncias de VM reservadas](../../reserved-vm-instance-size-flexibility.md)
 - [Como o desconto de reserva do Azure é aplicado a máquinas virtuais](../../../cost-management-billing/manage/understand-vm-reservation-charges.md)
 
 Para obter mais informações sobre preços de spot, leia o artigo [Máquinas virtuais spot do Azure](https://azure.microsoft.com/pricing/spot/). Os preços do mesmo tipo de VM também podem variar entre regiões diferentes do Azure. Para alguns clientes, vale a pena implantar em uma região do Azure menos dispendiosa.
 
-Além disso, o Azure oferece o conceito de host dedicado. Esse conceito proporciona mais controle sobre os ciclos de aplicação de patches feitos pelo Azure. Você pode cronometrar a aplicação de patch de acordo com sua programação. Essa oferta destina-se especificamente a clientes com uma carga de trabalho que pode não seguir o ciclo normal de cargas de trabalho. Para saber sobre os conceitos de ofertas de hosts dedicados do Azure, leia o artigo [Host Dedicado do Azure](../../windows/dedicated-hosts.md). O uso dessa oferta tem suporte na carga de trabalho do SAP e é empregado por vários clientes do SAP que desejam ter mais controle sobre a aplicação de patches de infraestrutura e eventuais planos de manutenção da Microsoft. Para obter mais informações sobre como a Microsoft mantém e corrige a infraestrutura do Azure que hospeda máquinas virtuais, leia o artigo [Manutenção para máquinas virtuais no Azure](../../maintenance-and-updates.md).
+Além disso, o Azure oferece o conceito de host dedicado. Esse conceito proporciona mais controle sobre os ciclos de aplicação de patches feitos pelo Azure. Você pode cronometrar a aplicação de patch de acordo com sua programação. Essa oferta destina-se especificamente a clientes com uma carga de trabalho que pode não seguir o ciclo normal de cargas de trabalho. Para saber sobre os conceitos de ofertas de hosts dedicados do Azure, leia o artigo [Host Dedicado do Azure](../../dedicated-hosts.md). O uso dessa oferta tem suporte na carga de trabalho do SAP e é empregado por vários clientes do SAP que desejam ter mais controle sobre a aplicação de patches de infraestrutura e eventuais planos de manutenção da Microsoft. Para obter mais informações sobre como a Microsoft mantém e corrige a infraestrutura do Azure que hospeda máquinas virtuais, leia o artigo [Manutenção para máquinas virtuais no Azure](../../maintenance-and-updates.md).
 
 #### <a name="generation-1-and-generation-2-virtual-machines"></a>Máquinas virtuais de Geração 1 e de Geração 2.
-O hipervisor da Microsoft é capaz de lidar com duas gerações diferentes de máquinas virtuais. Esses formatos são chamados **Geração 1** e **Geração 2**. A **Geração 2** foi introduzida no ano de 2012 com o hipervisor do Windows Server 2012. O Azure começou a usar máquinas virtuais de Geração 1. À medida que você implanta máquinas virtuais do Azure, o padrão ainda é usar o formato de Geração 1. Enquanto isso, você também pode implantar formatos de VM de Geração 2. O artigo [Suporte para VMs de Geração 2 no Azure](../../windows/generation-2.md) lista as famílias de VM do Azure que podem ser implantadas como VM de Geração 2. Este artigo também lista as diferenças funcionais importantes das máquinas virtuais de geração 2, pois elas podem ser executadas na nuvem privada do Hyper-V e no Azure. E o mais importante: este artigo também lista as diferenças funcionais entre máquinas virtuais de Geração 1 e VMs de Geração 2, já que elas são executadas no Azure.
+O hipervisor da Microsoft é capaz de lidar com duas gerações diferentes de máquinas virtuais. Esses formatos são chamados **Geração 1** e **Geração 2**. A **Geração 2** foi introduzida no ano de 2012 com o hipervisor do Windows Server 2012. O Azure começou a usar máquinas virtuais de Geração 1. À medida que você implanta máquinas virtuais do Azure, o padrão ainda é usar o formato de Geração 1. Enquanto isso, você também pode implantar formatos de VM de Geração 2. O artigo [Suporte para VMs de Geração 2 no Azure](../../generation-2.md) lista as famílias de VM do Azure que podem ser implantadas como VM de Geração 2. Este artigo também lista as diferenças funcionais importantes das máquinas virtuais de geração 2, pois elas podem ser executadas na nuvem privada do Hyper-V e no Azure. E o mais importante: este artigo também lista as diferenças funcionais entre máquinas virtuais de Geração 1 e VMs de Geração 2, já que elas são executadas no Azure.
 
 > [!NOTE]
-> Há diferenças funcionais de VMs de Geração 1 e Geração 2 em execução no Azure. Leia o artigo [Suporte para VMs de Geração 2 no Azure](../../windows/generation-2.md) para ver uma lista dessas diferenças.
+> Há diferenças funcionais de VMs de Geração 1 e Geração 2 em execução no Azure. Leia o artigo [Suporte para VMs de Geração 2 no Azure](../../generation-2.md) para ver uma lista dessas diferenças.
 
 Não é possível mover uma VM existente de uma geração para outra. Para alterar a geração da máquina virtual, você precisa implantar uma nova VM da geração que deseja e reinstalar o software que está executando na máquina virtual da geração. Essa alteração afeta apenas a imagem VHD base da VM e não afeta os discos de dados ou os compartilhamentos de NFS ou SMB conectados. Discos de dados, NFS ou compartilhamentos SMB que originalmente foram atribuídos, por exemplo, em uma VM de geração 1.
 
@@ -767,7 +767,7 @@ O Microsoft Azure oferece várias maneiras de implantar VMs e discos associados.
 
 Você planeja mover um sistema SAP específico do local para o Azure. Isso pode ser feito carregando, no Azure, o VHD que contém os binários do sistema operacional, os binários da SAP e os binários do DBMS, além dos VHDs com os arquivos de dados e arquivos de log do DBMS. Ao contrário do que ocorre no [cenário nº 2 abaixo][planning-guide-5.1.2], você mantém o nome de host, a SID do SAP e as contas de usuário do SAP na VM do Azure, já que eles foram configurados no ambiente local. Portanto, não é necessário generalizar a imagem. Confira os capítulos [Preparação para mover uma VM do local para o Azure com um disco não generalizado][planning-guide-5.2.1] deste documento para obter as etapas de preparação local e de carregamento de VMs ou VHDs não generalizados para o Azure. Leia o capítulo [Cenário 3: mover uma VM do local usando um VHD do Azure não generalizado com SAP][deployment-guide-3.4] no [Guia de implantação][deployment-guide] para obter etapas detalhadas de implantação de uma imagem desse tipo no Azure.
 
-Outra opção que não discutiremos detalhadamente neste guia é usar Azure Site Recovery para replicar servidores de aplicativos SAP NetWeaver e serviços centrais do SAP NetWeaver para o Azure. Não recomendamos usar Azure Site Recovery para a camada de banco de dados e, em vez disso, usar mecanismos de replicação específicos de banco de dados, como a replicação de sistema do HANA. Para obter mais informações, consulte o capítulo [proteger o SAP](https://docs.microsoft.com/azure/site-recovery/site-recovery-workload#protect-sap) do guia [sobre recuperação de desastres para aplicativos locais](https://docs.microsoft.com/azure/site-recovery/site-recovery-workload) .
+Outra opção que não discutiremos detalhadamente neste guia é usar Azure Site Recovery para replicar servidores de aplicativos SAP NetWeaver e serviços centrais do SAP NetWeaver para o Azure. Não recomendamos usar Azure Site Recovery para a camada de banco de dados e, em vez disso, usar mecanismos de replicação específicos de banco de dados, como a replicação de sistema do HANA. Para obter mais informações, consulte o capítulo [proteger o SAP](../../../site-recovery/site-recovery-workload.md#protect-sap) do guia [sobre recuperação de desastres para aplicativos locais](../../../site-recovery/site-recovery-workload.md) .
 
 #### <a name="deploying-a-vm-with-a-customer-specific-image"></a><a name="e18f7839-c0e2-4385-b1e6-4538453a285c"></a>Implantando uma VM com uma imagem específica do cliente
 
@@ -1805,7 +1805,7 @@ Há dois tipos de eventos de plataforma do Azure que podem afetar a disponibilid
 * Eventos de manutenção planejada são atualizações periódicas feitas pela Microsoft na plataforma subjacente do Azure para melhorara a confiabilidade, o desempenho e a segurança geral da infraestrutura da plataforma na qual suas máquinas virtuais são executadas.
 * Eventos de manutenção não planejada ocorrem quando o hardware ou a infraestrutura física subjacente à sua máquina virtual apresenta algum tipo de falha. Isso inclui falhas na rede local, falhas no disco local ou outras falhas no nível de rack. Quando tal falha é detectada, a plataforma do Azure migrará automaticamente sua máquina virtual do servidor físico não íntegro hospedando sua máquina virtual para um servidor físico íntegro. Esses eventos são raros, mas podem também reinicializar a sua máquina virtual.
 
-Para obter mais detalhes, consulte [disponibilidade de máquinas virtuais do Windows no Azure](../../windows/manage-availability.md) e [disponibilidade de máquinas virtuais do Linux no Azure](../../linux/manage-availability.md).
+Para obter mais detalhes, consulte [disponibilidade de máquinas virtuais do Windows no Azure](../../manage-availability.md) e [disponibilidade de máquinas virtuais do Linux no Azure](../../manage-availability.md).
 
 #### <a name="azure-storage-redundancy"></a>Redundância de Armazenamento do Azure
 
