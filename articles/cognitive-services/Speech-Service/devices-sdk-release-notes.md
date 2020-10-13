@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: wellsi
 ms.openlocfilehash: a2fe1c7c1ac8799d615c26fdaee40b92bf3e294b
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85212489"
 ---
 # <a name="release-notes-speech-devices-sdk"></a>Notas de versão: SDK de dispositivos de fala
@@ -82,7 +82,7 @@ As seções a seguir listam as alterações nas versões mais recentes.
 
 - [A instalação de uma palavra-chave](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws) foi simplificada, agora faz parte do aplicativo e não precisa de instalação separada no dispositivo.
 - O reconhecimento de palavra-chave foi alterado e há suporte para dois eventos.
-  - `RecognizingKeyword,`indica que o resultado de fala contém o texto da palavra-chave (não verificado).
+  - `RecognizingKeyword,` indica que o resultado de fala contém o texto da palavra-chave (não verificado).
   - `RecognizedKeyword`, indica que o reconhecimento de palavra-chave foi concluído reconhecendo a palavra-chave fornecida.
 
 ## <a name="speech-devices-sdk-110-2018-nov-release"></a>SDK 1.1.0 de dispositivos de fala: 2018 – versão de novembro

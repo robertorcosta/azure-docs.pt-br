@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: jingwang
 ms.openlocfilehash: a19f81fab525b44f0b55244281930977e0e1f476
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85254609"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory-legacy"></a>Formatos de arquivo com suporte e codecs de compactação no Azure Data Factory (Herdado)
@@ -25,21 +25,21 @@ ms.locfileid: "85254609"
 >[!IMPORTANT]
 >Data Factory introduziu um novo modelo de conjunto de informações baseado em formato, consulte o artigo de formato correspondente com detalhes: <br>- [Formato Avro](format-avro.md)<br>- [Formato binário](format-binary.md)<br>- [Formato de texto delimitado](format-delimited-text.md)<br>- [Formato JSON](format-json.md)<br>- [Formato ORC](format-orc.md)<br>- [Formato parquet](format-parquet.md)<br>As configurações REST mencionadas neste artigo ainda têm suporte no estado em que se encontram para compabitility para trás. Você é sugerido para usar o novo modelo no futuro. 
 
-## <a name="text-format-legacy"></a><a name="text-format"></a>Formato de texto (Herdado)
+## <a name="text-format-legacy"></a><a name="text-format"></a> Formato de texto (Herdado)
 
 >[!NOTE]
 >Conheça o artigo novo modelo de [formato de texto delimitado](format-delimited-text.md) . As configurações a seguir no conjunto de dados de armazenamento com base em arquivo ainda têm suporte no estado em que se encontram para compabitility para trás. Você é sugerido para usar o novo modelo no futuro.
 
 Se você quiser ler um arquivo de texto ou gravar em um arquivo de texto, defina a propriedade `type` na seção `format` do conjunto de dados para **TextFormat**. Você também pode especificar as seguintes propriedades **opcionais** na seção `format`. Veja a seção [Exemplo de TextFormat](#textformat-example) sobre a configuração.
 
-| Property | Descrição | Valores permitidos | Obrigatório |
+| Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
 | columnDelimiter |O caractere usado para separar as colunas em um arquivo. Você pode considerar o uso de um caractere não imprimível raro que não exista em seus dados. Por exemplo, especifique "\u0001", que representa o SOH (início do título). |É permitido somente um caractere. O valor **padrão** é **vírgula (', ')**. <br/><br/>Para usar um caractere Unicode, consulte [Caracteres Unicode](https://en.wikipedia.org/wiki/List_of_Unicode_characters) para obter o código correspondente. |Não |
 | rowDelimiter |o caractere usado para separar linhas em um arquivo. |É permitido somente um caractere. O valor **padrão** é qualquer um dos seguintes valores na leitura: **["\r\n", "\r", "\n"]** e **"\r\n"** na gravação. |Não |
 | escapeChar |o caractere especial usado para escapar um delimitador de coluna no conteúdo do arquivo de entrada. <br/><br/>Não é possível especificar escapeChar e quoteChar para uma tabela. |É permitido somente um caractere. Sem valor padrão. <br/><br/>Exemplo: se você tiver vírgula (', ') como o delimitador de coluna, mas quiser ter o caractere de vírgula no texto (exemplo: "Olá, mundo"), poderá definir ' $ ' como o caractere de escape e usar a cadeia de caracteres "Olá $, mundo" na origem. |Não |
 | quoteChar |o caractere usado para colocar um valor de cadeia de caracteres entre aspas. Os delimitadores de coluna e linha que ficam dentro dos caracteres de aspas seriam tratados como parte do valor da cadeia de caracteres. Essa propriedade se aplica aos conjuntos de dados de entrada e de saída.<br/><br/>Não é possível especificar escapeChar e quoteChar para uma tabela. |É permitido somente um caractere. Sem valor padrão. <br/><br/>Por exemplo, se tiver a vírgula (,) como o delimitador de coluna, mas quiser ter o caractere de vírgula no texto (exemplo: <Hello, world>), você poderá definir " (aspas duplas) como o caractere de citação e usar a cadeia de caracteres "Hello, world" na origem. |Não |
 | nullValue |um ou mais caracteres usados para representar um valor nulo. |Um ou mais caracteres. Os valores **padrão** são **"\n" e "NULL"** na leitura e **"\n"** na gravação. |Não |
-| encodingName |especifica o nome de codificação. |Um nomes de codificação válido. Consulte [Propriedade Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Por exemplo: windows-1250 ou shift_jis. O valor **padrão** é **UTF-8**. |Não |
+| encodingName |especifica o nome de codificação. |Um nomes de codificação válido. consulte [codificação. EncodingName Propriedade](https://msdn.microsoft.com/library/system.text.encoding.aspx). Por exemplo: windows-1250 ou shift_jis. O valor **padrão** é **UTF-8**. |Não |
 | firstRowAsHeader |Especifica se a primeira linha será considerada como cabeçalho. Para um conjunto de dados de entrada, o Data Factory lê a primeira linha como cabeçalho. Para um conjunto de dados de saída, o Data Factory lê a primeira linha como cabeçalho. <br/><br/>Veja [Cenários para usar o `firstRowAsHeader` e o `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) para cenários de exemplo. |True<br/><b>False (padrão)</b> |Não |
 | skipLineCount |Indica o número de linhas **não vazias** a serem ignoradas ao ler dados de arquivos de entrada. Se skipLineCount e firstRowAsHeader forem especificados, primeiro as linhas serão ignoradas e, em seguida, as informações de cabeçalho serão lidas no arquivo de entrada. <br/><br/>Veja [Cenários para usar o `firstRowAsHeader` e o `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) para cenários de exemplo. |Integer |Não |
 | treatEmptyAsNull |especifica se é necessário tratar uma cadeia de caracteres nula ou vazia como um valor nulo ao ler dados de um arquivo de entrada. |**True (padrão)**<br/>Falso |Não |
@@ -79,7 +79,7 @@ Para usar um `escapeChar` em vez de `quoteChar`, substitua a linha com `quoteCha
 * Você está copiando de um arquivo de texto contendo uma linha de cabeçalho para um coletor que não é em arquivo e gostaria de remover essa linha. Especifique `firstRowAsHeader` como true no conjunto de dados de entrada.
 * Você está copiando de um arquivo de texto e deseja ignorar algumas linhas no início que não são informações de dados nem de cabeçalho. Especifique `skipLineCount` para indicar o número de linhas a serem ignoradas. Se o restante do arquivo contiver uma linha de cabeçalho, você também poderá especificar `firstRowAsHeader`. Se `skipLineCount` e `firstRowAsHeader` forem especificados, as linhas serão ignoradas pela primeira vez e, em seguida, as informações de cabeçalho serão lidas do arquivo de entrada
 
-## <a name="json-format-legacy"></a><a name="json-format"></a>Formato JSON (Herdado)
+## <a name="json-format-legacy"></a><a name="json-format"></a> Formato JSON (Herdado)
 
 >[!NOTE]
 >Conheça o artigo novo modelo do [formato JSON](format-json.md) . As configurações a seguir no conjunto de dados de armazenamento com base em arquivo ainda têm suporte no estado em que se encontram para compabitility para trás. Você é sugerido para usar o novo modelo no futuro.
@@ -88,7 +88,7 @@ Para **importar/exportar um arquivo JSON no estado em que se encontra de/para o 
 
 Se você quiser analisar os arquivos de JSON ou gravar os dados no formato JSON, defina a propriedade `type` na seção `format` como **JsonFormat**. Você também pode especificar as seguintes propriedades **opcionais** na seção `format`. Veja a seção [Exemplo de JsonFormat](#jsonformat-example) sobre como configurar.
 
-| Property | Descrição | Obrigatório |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | filePattern |Indique o padrão de dados armazenados em cada arquivo JSON. Os valores permitidos são: **setOfObjects** e **arrayOfObjects**. O valor **padrão** é **setOfObjects**. Veja a seção [Padrões de arquivo JSON](#json-file-patterns) para obter detalhes sobre esses padrões. |Não |
 | jsonNodeReference | Se você quiser fazer uma iteração e extrair dados de objetos dentro de um campo de matriz com o mesmo padrão, especifique o caminho JSON da matriz. Esta propriedade só terá suporte na cópia de dados **de** arquivos JSON. | Não |
@@ -406,7 +406,7 @@ O conjunto de dados de saída com o tipo **JsonFormat** é definido da seguinte 
 }
 ```
 
-## <a name="parquet-format-legacy"></a><a name="parquet-format"></a>Formato parquet (Herdado)
+## <a name="parquet-format-legacy"></a><a name="parquet-format"></a> Formato parquet (Herdado)
 
 >[!NOTE]
 >Aprenda o novo modelo no artigo [formato parquet](format-parquet.md) . As configurações a seguir no conjunto de dados de armazenamento com base em arquivo ainda têm suporte no estado em que se encontram para compabitility para trás. Você é sugerido para usar o novo modelo no futuro.
@@ -466,7 +466,7 @@ Exemplo: defina a variável `_JAVA_OPTIONS` com o valor `-Xms256m -Xmx16g`. O si
 | Char | Binário | Utf8 | Utf8 |
 | CharArray | Sem suporte | N/D | N/D |
 
-## <a name="orc-format-legacy"></a><a name="orc-format"></a>Formato ORC (Herdado)
+## <a name="orc-format-legacy"></a><a name="orc-format"></a> Formato ORC (Herdado)
 
 >[!NOTE]
 >Aprenda o novo modelo no artigo [formato Orc](format-orc.md) . As configurações a seguir no conjunto de dados de armazenamento com base em arquivo ainda têm suporte no estado em que se encontram para compabitility para trás. Você é sugerido para usar o novo modelo no futuro.
@@ -518,7 +518,7 @@ Para a cópia em execução no IR auto-hospedado com a serialização/desseriali
 | Guid | String |
 | Char | Char(1) |
 
-## <a name="avro-format-legacy"></a><a name="avro-format"></a>Formato AVRO (Herdado)
+## <a name="avro-format-legacy"></a><a name="avro-format"></a> Formato AVRO (Herdado)
 
 >[!NOTE]
 >Conheça o artigo novo modelo do [formato Avro](format-avro.md) . As configurações a seguir no conjunto de dados de armazenamento com base em arquivo ainda têm suporte no estado em que se encontram para compabitility para trás. Você é sugerido para usar o novo modelo no futuro.
@@ -538,7 +538,7 @@ Observe os seguintes pontos:
 
 * Não há suporte para [tipos de dados complexos](https://avro.apache.org/docs/current/spec.html#schema_complex) (registros, enumerações, matrizes, mapas, uniões e fixos).
 
-## <a name="compression-support-legacy"></a><a name="compression-support"></a>Suporte à compactação (Herdado)
+## <a name="compression-support-legacy"></a><a name="compression-support"></a> Suporte à compactação (Herdado)
 
 O Azure Data Factory dá suporte para compactar/descompactar dados durante a cópia. Quando você especifica a propriedade `compression` em um conjunto de dados de entrada, a atividade de cópia lê os dados compactados da origem e descompacta-os e, quando você especifica a propriedade em um conjunto de dados de saída, a atividade de cópia compacta e grava os dados no coletor. Aqui estão alguns exemplos de cenários:
 

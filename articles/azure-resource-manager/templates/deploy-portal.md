@@ -4,10 +4,10 @@ description: Use portal do Azure e o gerenciamento de recursos do Azure para imp
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.openlocfilehash: 31f80eb617820def871633dac1541c7dc3bed691
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85255255"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-portal"></a>Implantar recursos com modelos ARM e portal do Azure
@@ -110,7 +110,7 @@ Se quiser executar uma implantação, mas não usar nenhum dos modelos no Market
     "storageAccountName": "[concat('azstore', uniquestring(resourceGroup().id))]"
     ```
 
-1. Selecione **Salvar**. Agora você vê a interface de implantação de modelo do Portal. Observe os dois parâmetros que você definiu no modelo.
+1. Clique em **Salvar**. Agora você vê a interface de implantação de modelo do Portal. Observe os dois parâmetros que você definiu no modelo.
 1. Insira ou selecione os valores de propriedade:
 
     - **Assinatura**: Selecione uma assinatura do Azure.

@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/15/2020
 ms.openlocfilehash: 3aa4a1917711f8997c282ba577c33e7a7f94472b
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88932875"
 ---
 # <a name="create-a-basic-search-index-in-azure-cognitive-search"></a>Criar um índice de pesquisa básica no Azure Pesquisa Cognitiva
@@ -169,7 +169,7 @@ Os campos têm um nome, um tipo que classifica os dados armazenados e atributos 
 
 ### <a name="data-types"></a>Tipos de dados
 
-| Type | Descrição |
+| Tipo | Descrição |
 |------|-------------|
 | Edm.String |O texto que opcionalmente pode ser indexado para a pesquisa de texto completo (separação de palavras, derivação e assim por diante). |
 | Collection(Edm.String) |Uma lista de cadeias de caracteres que opcionalmente podem ser indexadas para a pesquisa de texto completo. Não há nenhum limite teórico superior no número de itens em uma coleção, mas o limite superior de 16 MB no tamanho da carga se aplica às coleções. |
