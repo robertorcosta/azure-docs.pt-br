@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 3deb7c0802dbfcdb65bcff6cb2653e73017651f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be79f7bd6687b2e53e6abe19dc0a20999942071d
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89536448"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974951"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Gerenciar modelos de gêmeos digitais do Azure
 
@@ -148,19 +148,19 @@ Aqui estão algumas chamadas de exemplo:
 // 'client' is a valid DigitalTwinsClient object
 
 // Get a single model, metadata and data
-ModelData md1 = client.GetModel(id);
+DigitalTwinsModelData md1 = client.GetModel(id);
 
 // Get a list of the metadata of all available models
-Pageable<ModelData> pmd2 = client.GetModels();
+Pageable<DigitalTwinsModelData> pmd2 = client.GetModels();
 
 // Get a list of metadata and full model definitions
-Pageable<ModelData> pmd3 = client.GetModels(null, true);
+Pageable<DigitalTwinsModelData> pmd3 = client.GetModels(null, true);
 
 // Get models and metadata for a model ID, including all dependencies (models that it inherits from, components it references)
-Pageable<ModelData> pmd4 = client.GetModels(new string[] { modelId }, true);
+Pageable<DigitalTwinsModelData> pmd4 = client.GetModels(new string[] { modelId }, true);
 ```
 
-As chamadas à API para recuperar modelos todos os objetos de retorno `ModelData` . `ModelData` contém metadados sobre o modelo armazenado na instância do gêmeos digital do Azure, como nome, DTMI e data de criação do modelo. O `ModelData` objeto também inclui, opcionalmente, o próprio modelo. Dependendo dos parâmetros, você pode, portanto, usar as chamadas de recuperação para recuperar apenas os metadados (o que é útil em cenários em que você deseja exibir uma lista de interfaces do usuário de ferramentas disponíveis, por exemplo) ou todo o modelo.
+As chamadas à API para recuperar modelos todos os objetos de retorno `DigitalTwinsModelData` . `DigitalTwinsModelData` contém metadados sobre o modelo armazenado na instância do gêmeos digital do Azure, como nome, DTMI e data de criação do modelo. O `DigitalTwinsModelData` objeto também inclui, opcionalmente, o próprio modelo. Dependendo dos parâmetros, você pode, portanto, usar as chamadas de recuperação para recuperar apenas os metadados (o que é útil em cenários em que você deseja exibir uma lista de interfaces do usuário de ferramentas disponíveis, por exemplo) ou todo o modelo.
 
 A `RetrieveModelWithDependencies` chamada retorna não apenas o modelo solicitado, mas também todos os modelos dos quais o modelo solicitado depende.
 
@@ -224,7 +224,7 @@ client.DecommissionModel(dtmiOfPlanetInterface);
 //...
 ```
 
-O status de descomissionamento de um modelo é incluído nos `ModelData` registros retornados pelas APIs de recuperação de modelo.
+O status de descomissionamento de um modelo é incluído nos `DigitalTwinsModelData` registros retornados pelas APIs de recuperação de modelo.
 
 #### <a name="deletion"></a>Exclusão
 
