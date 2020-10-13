@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: davidspo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4f4d9d1a2a4c88601e7dd7e0d6f56025b79aaac1
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90705360"
 ---
 # <a name="rapidly-respond-to-secure-identities-with-azure-ad"></a>Responder rapidamente a identidades seguras com o Azure AD
@@ -50,7 +50,7 @@ Há várias recomendações que Azure AD Gratuito, o Office 365 ou os clientes d
 - Microsoft 365 (Business Basic, aplicativos para empresas, Standard Business, Business Premium, a1)
 - Azure AD Gratuito (incluído no Azure, Dynamics 365, Intune e Power Platform)
 
-| Ação recomendada | Detalhe |
+| Ação recomendada | Detalhes |
 | --- | --- |
 | [Habilitar padrões de segurança](concept-fundamentals-security-defaults.md) | Proteger todas as identidades de usuário e aplicativos habilitando a MFA e bloqueando a autenticação herdada |
 | [Habilitar a sincronização de hash de senha](../hybrid/how-to-connect-password-hash-synchronization.md) (se estiver usando identidades híbridas) | Fornecer redundância para autenticação e melhorar a segurança (incluindo o bloqueio inteligente, o bloqueio de IP e a capacidade de descobrir credenciais vazadas.) |
@@ -73,7 +73,7 @@ A tabela a seguir destina-se a destacar as principais ações para as seguintes 
 - Enterprise Mobility + Security (EMS E3)
 - Microsoft 365 (M365 E3, a3, F1, F3)
 
-| Ação recomendada | Detalhe |
+| Ação recomendada | Detalhes |
 | --- | --- |
 | [Habilitar a experiência de registro combinado para o Azure MFA e o SSPR para simplificar a experiência de registro do usuário](../authentication/howto-registration-mfa-sspr-combined.md) | Permita que os usuários se registrem de uma experiência comum na Autenticação Multifator do Microsoft Azure e no autoatendimento de redefinição de senha. |
 | [Definir configurações de MFA para sua organização](../authentication/howto-mfa-getstarted.md) | Verifique se as contas estão protegidas de serem comprometidas com a autenticação multifator |
@@ -103,7 +103,7 @@ A tabela a seguir destina-se a destacar as principais ações para as seguintes 
 - Enterprise Mobility + Security (EMS E5)
 - Microsoft 365 (M365 e5, a5)
 
-| Ação recomendada | Detalhe |
+| Ação recomendada | Detalhes |
 | --- | --- |
 | [Habilitar a experiência de registro combinado para o Azure MFA e o SSPR para simplificar a experiência de registro do usuário](../authentication/howto-registration-mfa-sspr-combined.md) | Permita que os usuários se registrem de uma experiência comum na Autenticação Multifator do Microsoft Azure e no autoatendimento de redefinição de senha. |
 | [Definir configurações de MFA para sua organização](../authentication/howto-mfa-getstarted.md) | Verifique se as contas estão protegidas de serem comprometidas com a autenticação multifator |

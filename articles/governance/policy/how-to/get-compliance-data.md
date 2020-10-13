@@ -1,14 +1,14 @@
 ---
 title: Obter dados de conformidade da política
 description: Efeitos e avaliações do Azure Policy determinam a conformidade. Saiba como obter os detalhes de conformidade dos seus recursos do Azure.
-ms.date: 09/22/2020
+ms.date: 10/05/2020
 ms.topic: how-to
-ms.openlocfilehash: 2b4db7daf75f153cadb03e5dd028084e311bb874
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 186312ae91c3545a7aac1a9c7a108e2197f3fa8a
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91596040"
+ms.locfileid: "91873618"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Obter dados de conformidade de recursos do Azure
 
@@ -161,14 +161,15 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 
 Em uma atribuição, um recurso não é **compatível** se não seguir as regras de política ou de iniciativa e não estiver _isento_. A tabela a seguir mostra como os diferentes efeitos da política funcionam com a avaliação da condição para o estado de conformidade resultante:
 
-| Estado do recurso | Efeito | Avaliação da política | Estado de conformidade |
+| Estado do Recurso | Efeito | Avaliação da política | Estado de conformidade |
 | --- | --- | --- | --- |
-| Exists | Negar, Auditoria, Acrescentar\*, DeployIfNotExist\*, AuditIfNotExist\* | True | Sem conformidade |
-| Exists | Negar, Auditoria, Acrescentar\*, DeployIfNotExist\*, AuditIfNotExist\* | Falso | Em conformidade |
-| Novo | Auditoria, AuditIfNotExist\* | True | Sem conformidade |
-| Novo | Auditoria, AuditIfNotExist\* | Falso | Em conformidade |
+| Novo ou atualizado | Auditar, modificar, AuditIfNotExist | True | Sem conformidade |
+| Novo ou atualizado | Auditar, modificar, AuditIfNotExist | Falso | Em conformidade |
+| Exists | Negar, auditar, acrescentar, modificar, DeployIfNotExist, AuditIfNotExist | True | Sem conformidade |
+| Exists | Negar, auditar, acrescentar, modificar, DeployIfNotExist, AuditIfNotExist | Falso | Em conformidade |
 
-\* Os efeitos Modify, Append, DeployIfNotExist e AuditIfNotExist exigem que a instrução IF seja verdadeira. Os efeitos também exigem que a condição de existência seja FALSE para não estar em conformidade. Quando TRUE, a condição IF dispara a avaliação da condição de existência para os recursos relacionados.
+> [!NOTE]
+> Os efeitos DeployIfNotExist e AuditIfNotExist exigem que a instrução IF seja verdadeira e a condição de existência seja falsa para não estar em conformidade. Quando TRUE, a condição IF dispara a avaliação da condição de existência para os recursos relacionados.
 
 Por exemplo, suponha que você tenha um grupo de recursos – ContsoRG, com algumas contas de armazenamento (realçadas em vermelho) que são expostas para redes públicas.
 
@@ -189,7 +190,7 @@ Além de serem **compatíveis** e **não compatíveis**, as políticas e os recu
 - **Não foi iniciado**: O ciclo de avaliação não foi iniciado para a política ou o recurso.
 - **Não registrado**: o Provedor de Recursos do Azure Policy não foi registrado ou a conta conectada não tem permissão para ler dados de conformidade.
 
-O Azure Policy usa os campos **tipo** e **nome** na definição para determinar se um recurso é uma correspondência. Quando o recurso corresponde, ele é considerado aplicável e tem um status de em **conformidade**, **não compatível**ou **isento**. Se o **tipo** ou o **nome** for a única propriedade na definição, todos os recursos incluídos e não isentos serão considerados aplicáveis e serão avaliados.
+Azure Policy usa os campos **tipo**, **nome**ou **tipo** na definição para determinar se um recurso é uma correspondência. Quando o recurso corresponde, ele é considerado aplicável e tem um status de em **conformidade**, **não compatível**ou **isento**. Se o **tipo**, o **nome**ou o **tipo** for a única propriedade na definição, todos os recursos incluídos e não isentos serão considerados aplicáveis e serão avaliados.
 
 A porcentagem de conformidade é determinada pela divisão de recursos em **conformidade** e **isentos** pelo _total de recursos_. _O total de recursos_ é definido como a soma dos recursos **compatíveis**, **não compatíveis**, **isentos**e **conflitantes** . Os números de conformidade geral são a soma de recursos distintos que são **compatíveis** ou **isentos** divididos pela soma de todos os recursos distintos. Na imagem abaixo, existem 20 recursos distintos que são aplicáveis e apenas um é **Não compatível**.
 A conformidade geral do recurso é 95 (19 de 20).
@@ -210,14 +211,14 @@ Como uma política ou iniciativa pode ser atribuída a escopos diferentes, a tab
 :::image type="content" source="../media/getting-compliance-data/compliance-details.png" alt-text="Diagrama de contas de armazenamento expostas a redes públicas no grupo de recursos contoso R G." border="false":::
 
 A lista de recursos na guia **Conformidade de recursos** mostra o status de avaliação de recursos existentes para a atribuição atual. O padrão da guia é **Não compatível**, mas pode ser filtrado.
-Os eventos (acrescentar, auditar, negar, implantar) disparados pela solicitação para criar um recurso são mostrados na guia **Eventos**.
+Os eventos (acrescentar, auditar, negar, implantar, modificar) disparados pela solicitação para criar um recurso são mostrados na guia **eventos** .
 
 > [!NOTE]
 > Para uma política de mecanismo AKS, o recurso mostrado é o grupo de recursos.
 
 :::image type="content" source="../media/getting-compliance-data/compliance-events.png" alt-text="Diagrama de contas de armazenamento expostas a redes públicas no grupo de recursos contoso R G." border="false":::
 
-Para os recursos do [modo de Provedor de recursos](../concepts/definition-structure.md#resource-provider-modes), na guia **Conformidade de recursos**, selecionar o recurso ou clicar com o botão direito do mouse na linha e selecionar **Exibir detalhes de conformidade** abre os detalhes de conformidade do componente. Esta página também oferece guias para ver as políticas que são atribuídas a esse recurso, eventos, eventos de componente e histórico de alterações.
+<a name="component-compliance"></a> Para recursos do [modo provedor de recursos](../concepts/definition-structure.md#resource-provider-modes) , na guia **conformidade de recursos** , selecionar o recurso ou clicar com o botão direito do mouse na linha e selecionar **Exibir detalhes de conformidade** abre os detalhes de conformidade do componente. Esta página também oferece guias para ver as políticas que são atribuídas a esse recurso, eventos, eventos de componente e histórico de alterações.
 
 :::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="Diagrama de contas de armazenamento expostas a redes públicas no grupo de recursos contoso R G." border="false":::
 

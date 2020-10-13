@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
 ms.openlocfilehash: db1b73e36a4917f1a10754424b472284094b563e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90894573"
 ---
 # <a name="working-with-security-policies"></a>Trabalhar com políticas de segurança
@@ -86,7 +86,7 @@ Para exibir suas políticas de segurança na Central de Segurança:
 
 Você pode editar as políticas de segurança no portal Azure Policy usando a API REST ou o Windows PowerShell.
 
-A central de segurança usa o RBAC (controle de acesso baseado em função), que fornece funções internas que você pode atribuir a usuários, grupos e serviços do Azure. Quando os usuários abrem a central de segurança, eles veem apenas as informações relacionadas aos recursos que eles podem acessar. Isso significa que os usuários recebem a função de *proprietário*, *colaborador*ou *leitor* para a assinatura do recurso. Há também duas funções específicas da central de segurança:
+A central de segurança usa o RBAC (controle de acesso Role-Based), que fornece funções internas que você pode atribuir a usuários, grupos e serviços do Azure. Quando os usuários abrem a central de segurança, eles veem apenas as informações relacionadas aos recursos que eles podem acessar. Isso significa que os usuários recebem a função de *proprietário*, *colaborador*ou *leitor* para a assinatura do recurso. Há também duas funções específicas da central de segurança:
 
 - **Leitor de segurança**: tem direitos para exibir itens da central de segurança, como recomendações, alertas, política e integridade. Não é possível fazer alterações.
 - **Administrador de segurança**: tem os mesmos direitos de exibição que o *leitor de segurança*. Também é possível atualizar a política de segurança e ignorar os alertas.
@@ -121,7 +121,7 @@ Para obter mais informações sobre recomendações, consulte [Gerenciando recom
 
    ![desabilitar política](./media/tutorial-security-policy/disable-policy.png)
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
    > [!NOTE]
    > As alterações de política de desabilitação podem levar até 12 horas para entrar em vigor.

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/05/2019
 ms.author: rohink
 ms.openlocfilehash: 9d183f2da7b916b1547fa1f81aa877b1b5488b41
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91308428"
 ---
 # <a name="azure-private-dns-faq"></a>Perguntas frequentes sobre o DNS privado do Azure
@@ -20,7 +20,7 @@ Veja a seguir as perguntas frequentes sobre o DNS privado do Azure.
 
 ## <a name="does-azure-dns-support-private-domains"></a>O DNS do Azure oferece suporte a domínios particulares?
 
-Os domínios privados têm suporte usando o recurso zonas do Azure DNS privado. DNS privado zonas podem ser resolvidas somente de redes virtuais especificadas. Para mais informações, consulte a [visão geral](private-dns-overview.md).
+Os domínios privados têm suporte usando o recurso zonas do Azure DNS privado. DNS privado zonas podem ser resolvidas somente de redes virtuais especificadas. Para obter mais informações, consulte a [visão geral](private-dns-overview.md).
 
 Para obter informações sobre outras opções de DNS interno no Azure, consulte [resolução de nomes para VMs e instâncias de função](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 

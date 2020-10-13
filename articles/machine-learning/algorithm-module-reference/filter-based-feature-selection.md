@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
 ms.openlocfilehash: 1afa5df20c9bcbf63f8ad9f527e54f622eba3d19
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90893791"
 ---
 # <a name="filter-based-feature-selection"></a>Seleção de recursos baseada em filtro
@@ -36,7 +36,7 @@ Normalmente, você usa apenas as colunas com as melhores pontuações para criar
 
 ## <a name="how-to-choose-a-feature-selection-metric"></a>Como escolher uma métrica de seleção de recursos
 
-O módulo seleção de recursos baseada em filtro fornece uma variedade de métricas para avaliar o valor das informações em cada coluna. Esta seção fornece uma descrição geral de cada métrica e como ela é aplicada. Você pode encontrar requisitos adicionais para usar cada métrica nas [notas técnicas](#technical-notes) e nas [instruções](#how-to-configure-filter-based-feature-selection) para configurar cada módulo.
+O módulo seleção de recursos Filter-Based fornece uma variedade de métricas para avaliar o valor das informações em cada coluna. Esta seção fornece uma descrição geral de cada métrica e como ela é aplicada. Você pode encontrar requisitos adicionais para usar cada métrica nas [notas técnicas](#technical-notes) e nas [instruções](#how-to-configure-filter-based-feature-selection) para configurar cada módulo.
 
 -   **Correlação de Pearson**  
 
@@ -52,11 +52,11 @@ O módulo seleção de recursos baseada em filtro fornece uma variedade de métr
 > [!TIP]
 > Se você precisar de uma opção diferente para o método de seleção de recurso personalizado, use o módulo [Executar script R](execute-r-script.md) . 
 
-## <a name="how-to-configure-filter-based-feature-selection"></a>Como configurar a seleção de recursos com base em filtro
+## <a name="how-to-configure-filter-based-feature-selection"></a>Como configurar Filter-Based seleção de recursos
 
 Você escolhe uma métrica estatística padrão. O módulo computa a correlação entre um par de colunas: a coluna de rótulo e uma coluna de recurso.
 
-1.  Adicione o módulo seleção de recursos baseada em filtro ao seu pipeline. Você pode encontrá-lo na categoria **seleção de recursos** no designer.
+1.  Adicione o módulo seleção de recursos Filter-Based ao seu pipeline. Você pode encontrá-lo na categoria **seleção de recursos** no designer.
 
 2. Conecte um conjunto de dados de entrada que contenha pelo menos duas colunas que são recursos potenciais.  
 

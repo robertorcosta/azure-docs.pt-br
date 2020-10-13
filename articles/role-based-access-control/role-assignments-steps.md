@@ -10,10 +10,10 @@ ms.workload: identity
 ms.date: 09/30/2020
 ms.author: rolyon
 ms.openlocfilehash: badf10da8af0ed3829deb2498b51b5d5c8ce6a93
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91604224"
 ---
 # <a name="steps-to-add-a-role-assignment"></a>Etapas para adicionar uma atribuição de função
@@ -87,7 +87,7 @@ Confira os artigos a seguir para obter as etapas detalhadas de como adicionar at
 
 - [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](role-assignments-portal.md)
 - [Adicionar ou remover atribuições de função do Azure usando o Azure PowerShell](role-assignments-powershell.md)
-- [Adicionar ou remover atribuições de função do Azure usando CLI do Azure](role-assignments-cli.md)
+- [Adicionar ou remover atribuições de função do Azure usando a CLI do Azure](role-assignments-cli.md)
 - [Adicionar ou remover atribuições de função do Azure usando a API REST](role-assignments-rest.md)
 
 ## <a name="next-steps"></a>Próximas etapas
