@@ -12,10 +12,10 @@ ms.date: 02/21/2020
 ms.author: kenwith
 ms.reviewer: luleon
 ms.openlocfilehash: f49377743521e27c2312e95491762ca48d8448c4
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90604318"
 ---
 # <a name="manage-user-assignment-for-an-app-in-azure-active-directory"></a>Gerenciar a atribuição de usuário para um aplicativo no Azure Active Directory
@@ -28,7 +28,7 @@ Para maior controle, determinados tipos de aplicativos empresariais podem ser co
 > Quando você atribuir um grupo a um aplicativo, somente os usuários no grupo terão acesso. A atribuição não se propaga para grupos aninhados.
 
 > [!NOTE]
-> A atribuição baseada em grupo exige o Azure Active Directory Premium edição P1 ou P2. A atribuição baseada em grupo é compatível somente com os grupos de segurança. No momento, não há suporte para associações de grupo aninhadas e grupos de Microsoft 365. Para ver mais requisitos de licenciamento dos recursos discutidos neste artigo, confira a [página de preços do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory). 
+> A atribuição baseada em grupo exige o Azure Active Directory Premium edição P1 ou P2. A atribuição baseada em grupo é compatível somente com os grupos de segurança. Atualmente, não há compatibilidade com associações de grupo aninhado e grupos do Microsoft 365. Para ver mais requisitos de licenciamento dos recursos discutidos neste artigo, confira a [página de preços do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory). 
 
 ## <a name="configure-an-application-to-require-user-assignment"></a>Configurar um aplicativo para exigir a atribuição de usuários
 

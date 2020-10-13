@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.openlocfilehash: fd79568944d81e267a45287104bd0fa9698df2fb
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89648696"
 ---
 # <a name="hdinsight-cluster-management-best-practices"></a>Práticas recomendadas de gerenciamento de cluster HDInsight
@@ -23,7 +23,7 @@ Conheça as práticas recomendadas para o gerenciamento de clusters HDInsight.
 
 | Opção | Documentos |
 |---|---|
-| Fábrica de dados do Azure | [Criar clusters do Apache Hadoop sob demanda no HDInsight usando o Azure Data Factory](./hdinsight-hadoop-create-linux-clusters-adf.md) |
+| Azure Data Factory | [Criar clusters do Apache Hadoop sob demanda no HDInsight usando o Azure Data Factory](./hdinsight-hadoop-create-linux-clusters-adf.md) |
 | Modelo personalizado do Resource Manager | [Criar clusters Apache Hadoop no HDInsight usando modelos do Resource Manager](./hdinsight-hadoop-create-linux-clusters-arm-templates.md) |
 | Modelos de início rápido | [Modelos de início rápido do HDInsight](https://azure.microsoft.com/resources/templates/?term=hdinsight) |
 | Exemplos do Azure | [Exemplos do HDInsight no Azure](https://docs.microsoft.com/samples/browse/?products=azure-hdinsight) |
@@ -47,7 +47,7 @@ Conheça as práticas recomendadas para o gerenciamento de clusters HDInsight.
 
 ## <a name="what-are-some-errors-i-might-face-when-creating-clusters"></a>Quais são alguns erros que eu poderia enfrentar ao criar clusters?
 
-| Erro | Mais informações |
+| Erro do | Mais informações |
 |---|---|
 | Sem cota | Há cotas para o número de cotas que você pode criar em sua assinatura em cada região. Para obter mais informações, consulte [planejamento de capacidade: cotas](./hdinsight-capacity-planning.md). |
 | Não há mais endereços IP disponíveis | Cada VNet tem um número limitado de endereços IP. Quando você cria um cluster HDInsight, cada nó (incluindo Zookeeper e nós de gateway) usa alguns desses endereços IP alocados. Quando todos os endereços IP estiverem em uso, você encontrará esse erro.  |

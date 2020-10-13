@@ -14,10 +14,10 @@ ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ms.openlocfilehash: 87d455a77096a2ae9339c578f3405c629d79fa76
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90603332"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Planejar uma implantação de logon único
@@ -158,8 +158,8 @@ A seção a seguir detalha os requisitos para configurar seu aplicativo específ
 Para todos os aplicativos SaaS previamente integrados, a Microsoft fornece um tutorial e você não precisará dessas informações. Se o aplicativo não estiver em nosso Marketplace/Galeria de aplicativos, talvez seja necessário coletar os seguintes dados:
 
 - **Provedor de identidade atual o aplicativo usa para SSO, se aplicável** , por exemplo: AD FS, PingFederate, Okta
-- **Protocolos com suporte no aplicativo de destino** -por exemplo, SAML 2,0, OpenID Connect, OAuth, autenticação baseada em formulários, WS-enalimentado, WS-Trust
-- **Protocolo que está sendo configurado com o Azure ad** -por exemplo, SAML 2,0 ou 1,1, OpenID Connect, OAuth, baseado em formulários, WS-alimentado
+- **Protocolos com suporte no aplicativo de destino** -por exemplo, SAML 2,0, OpenID Connect, OAuth, Forms-Based auth, WS-target, WS-Trust
+- **Protocolo que está sendo configurado com o Azure ad** – por exemplo, SAML 2,0 ou 1,1, OpenID Connect, OAuth, baseado em formulários, WS-Fed
 
 ### <a name="attribute-requirements"></a>Requisitos de atributo
 
@@ -317,7 +317,7 @@ Os links a seguir apresentam cenários de solução de problemas. Talvez você q
 
 [B2B do Azure ad](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b) (para usuários externos, como parceiros e fornecedores)
 
-[Acesso condicional do Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)
+[Acesso Condicional do Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)
 
 [Proteção de identidade do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)
 

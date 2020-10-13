@@ -4,10 +4,10 @@ description: Este artigo fornece uma lista de perguntas frequentes (FAQ) para os
 ms.topic: article
 ms.date: 09/16/2020
 ms.openlocfilehash: 65b6fd40c66ec055a5b80ccea9d2dd9ba1510d54
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91729093"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Perguntas frequentes sobre os Hubs de Eventos
@@ -274,9 +274,9 @@ Para saber mais sobre nosso SLA, veja a página [Contratos de Nível de Serviço
 ## <a name="azure-stack-hub"></a>Azure Stack Hub
 
 ### <a name="how-can-i-target-a-specific-version-of-azure-storage-sdk-when-using-azure-blob-storage-as-a-checkpoint-store"></a>Como é possível direcionar uma versão específica do SDK do armazenamento do Azure ao usar o armazenamento de BLOBs do Azure como um armazenamento de ponto de verificação?
-Se você executar esse código no Hub Azure Stack, haverá erros de tempo de execução, a menos que você direcione uma versão de API de armazenamento específica. Isso ocorre porque o SDK dos hubs de eventos usa a API de armazenamento do Azure mais recente disponível no Azure que pode não estar disponível em sua plataforma de Hub de Azure Stack. O Hub de Azure Stack pode dar suporte a uma versão diferente do SDK do blob de armazenamento do que aquelas normalmente disponíveis no Azure. Se você estiver usando o armazenamento de blog do Azure como um armazenamento de ponto de verificação, verifique a [versão da API de armazenamento do Azure com suporte para a compilação do hub de Azure Stack](/azure-stack/user/azure-stack-acs-differences?#api-version) e direcione essa versão em seu código. 
+Se executar esse código no Azure Stack Hub, você verá erros de runtime, a menos que direcione uma versão de API de Armazenamento específica. Isso ocorre porque o SDK dos Hubs de Eventos usa a API do Armazenamento do Microsoft Azure mais recente disponível no Azure, que pode não estar disponível em sua plataforma do Azure Stack Hub. O Azure Stack Hub pode dar suporte a uma versão diferente do SDK do Armazenamento de Blobs do que aquelas normalmente disponíveis no Azure. Se estiver usando o Armazenamento de Blobs do Azure como um armazenamento de ponto de verificação, verifique a [versão da API do Armazenamento do Azure com suporte de seu build do Azure Stack Hub](/azure-stack/user/azure-stack-acs-differences?#api-version) e tenha como destino essa versão em seu código. 
 
-Por exemplo, se você estiver executando o Azure Stack Hub versão 2005, a versão mais alta disponível para o serviço de armazenamento é a versão 2019-02-02. Por padrão, a biblioteca de cliente do SDK dos hubs de eventos usa a versão mais alta disponível no Azure (2019-07-07 no momento do lançamento do SDK). Nesse caso, além das etapas a seguir nesta seção, você também precisará adicionar o código para direcionar a versão 2019-02-02 da API do serviço de armazenamento. Para obter um exemplo de como direcionar uma versão de API de armazenamento específica, consulte os exemplos a seguir para C#, Java, Python e JavaScript/TypeScript.  
+Por exemplo, se a execução estiver sendo feita no Azure Stack Hub versão 2005, a versão mais alta disponível para o serviço de Armazenamento será a versão 2019-02-02. Por padrão, a biblioteca de clientes do SDK dos Hubs de Eventos usa a versão mais alta disponível no Azure (2019-07-07 no momento do lançamento do SDK). Nesse caso, além de seguir as etapas desta seção, você também precisará adicionar o código para ter como destino a versão de API 2019-02-02 do serviço de Armazenamento. Para obter um exemplo de como direcionar uma versão de API de armazenamento específica, consulte os exemplos a seguir para C#, Java, Python e JavaScript/TypeScript.  
 
 Para obter um exemplo de como direcionar uma versão de API de armazenamento específica do seu código, consulte os seguintes exemplos no GitHub: 
 

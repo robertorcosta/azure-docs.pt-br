@@ -13,13 +13,13 @@ ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 ms.openlocfilehash: 036c40395e5da5ebc09a87e420893d7dbd2ec668
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88116794"
 ---
-# <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>Práticas recomendadas e recomendações da plataforma Microsoft Identity
+# <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>Melhores práticas e recomendações da plataforma de identidade da Microsoft
 
 Este artigo destaca as práticas recomendadas, recomendações e supervisões comuns ao integrar com a plataforma de identidade da Microsoft.  Esta lista de verificação orientará você para uma integração segura e de alta qualidade. Revise essa lista regularmente para garantir que você mantenha a qualidade e a segurança da integração do seu aplicativo com a plataforma de identidade. A lista de verificação não se destina a examinar todo o aplicativo. O conteúdo da lista de verificação está sujeito a alterações à medida que fizermos melhorias na plataforma.
 
@@ -30,7 +30,7 @@ Use a seguinte lista de verificação para garantir que seu aplicativo seja efet
 > [!TIP]
 > O *Assistente de integração* no portal do Azure pode ajudá-lo a aplicar muitas dessas práticas recomendadas e recomendações. Selecione qualquer um dos seus [registros de aplicativo](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) no portal do Azure e, em seguida, selecione o item de menu assistente de **integração (versão prévia)** para começar a usar o assistente.
 
-## <a name="basics"></a>Básico
+## <a name="basics"></a>Noções básicas
 
 ![caixa ](./media/active-directory-integration-checklist/checkbox-two.svg) de seleção ler e entender as [políticas da plataforma Microsoft](https://go.microsoft.com/fwlink/?linkid=2090497&clcid=0x409). Verifique se seu aplicativo segue os termos descritos como foram projetados para proteger os usuários e a plataforma.
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: daperlov
 ms.openlocfilehash: 483e26cf4044b909c8d7923cfd74bd6fcf871e2a
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87905254"
 ---
 # <a name="common-data-model-format-in-azure-data-factory"></a>Formato de modelo de dados comuns no Azure Data Factory
@@ -35,22 +35,22 @@ O Common Data Service está disponível como um [conjunto de dados embutido](dat
 
 A tabela abaixo lista as propriedades com suporte por uma fonte CDM. Você pode editar essas propriedades na guia **Opções de origem** .
 
-| Nome | Descrição | Necessária | Valores permitidos | Propriedade de script de fluxo de dados |
+| Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Formatar | O formato deve ser`cdm` | sim | `cdm` | format |
+| Formatar | O formato deve ser `cdm` | sim | `cdm` | format |
 | Formato de metadados | Onde a referência de entidade para os dados está localizada. Se estiver usando o CDM versão 1,0, escolha manifesto. Se estiver usando uma versão do CDM anterior a 1,0, escolha model.jsem. | Sim | `'manifest'` ou `'model'` | manifestatype |
 | Local raiz: contêiner | Nome do contêiner da pasta CDM | sim | String | fileSystem |
 | Local raiz: caminho da pasta | Local da pasta raiz da pasta CDM | sim | String | folderPath |
-| Arquivo de manifesto: caminho da entidade | Caminho da pasta da entidade na pasta raiz | no | String | entityPath |
+| Arquivo de manifesto: caminho da entidade | Caminho da pasta da entidade na pasta raiz | não | String | entityPath |
 | Arquivo de manifesto: nome do manifesto | Nome do arquivo de manifesto. O valor padrão é ' default '  | Não | String | manifestName |
-| Filtrar por última modificação | Escolher filtrar arquivos com base na última alteração | no | Timestamp | modifiedAfter <br> modifiedBefore | 
+| Filtrar por última modificação | Escolher filtrar arquivos com base na última alteração | não | Timestamp | modifiedAfter <br> modifiedBefore | 
 | Serviço vinculado de esquema | O serviço vinculado em que o corpus está localizado | Sim, se estiver usando o manifesto | `'adlsgen2'` ou `'github'` | corpusStore | 
 | Contêiner de referência de entidade | O contêiner Corpus está em | Sim, se estiver usando Manifest e corpus no ADLS Gen2 | String | adlsgen2_fileSystem |
 | Repositório de referência de entidade | Nome do repositório GitHub | Sim, se estiver usando o manifesto e o corpus no GitHub | String | github_repository |
 | Ramificação de referência de entidade | Branch do repositório do GitHub | Sim, se estiver usando o manifesto e o corpus no GitHub | String |  github_branch |
 | Pasta Corpus | o local raiz do corpus | Sim, se estiver usando o manifesto | String | corpusPath |
 | Entidade Corpus | Caminho para referência de entidade | sim | String | entidade |
-| Não permitir nenhum arquivo encontrado | Se for true, um erro não será gerado se nenhum arquivo for encontrado | no | `true` ou `false` | ignoreNoFilesFound |
+| Não permitir nenhum arquivo encontrado | Se for true, um erro não será gerado se nenhum arquivo for encontrado | não | `true` ou `false` | ignoreNoFilesFound |
 
 ### <a name="sink-settings"></a>Configurações do coletor
 
@@ -112,12 +112,12 @@ source(output(
 
 A tabela abaixo lista as propriedades com suporte de um coletor CDM. Você pode editar essas propriedades na guia **configurações** .
 
-| Nome | Descrição | Necessária | Valores permitidos | Propriedade de script de fluxo de dados |
+| Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Formatar | O formato deve ser`cdm` | sim | `cdm` | format |
+| Formatar | O formato deve ser `cdm` | sim | `cdm` | format |
 | Local raiz: contêiner | Nome do contêiner da pasta CDM | sim | String | fileSystem |
 | Local raiz: caminho da pasta | Local da pasta raiz da pasta CDM | sim | String | folderPath |
-| Arquivo de manifesto: caminho da entidade | Caminho da pasta da entidade na pasta raiz | no | String | entityPath |
+| Arquivo de manifesto: caminho da entidade | Caminho da pasta da entidade na pasta raiz | não | String | entityPath |
 | Arquivo de manifesto: nome do manifesto | Nome do arquivo de manifesto. O valor padrão é ' default ' | Não | String | manifestName |
 | Serviço vinculado de esquema | O serviço vinculado em que o corpus está localizado | sim | `'adlsgen2'` ou `'github'` | corpusStore | 
 | Contêiner de referência de entidade | O contêiner Corpus está em | Sim, se corpus em ADLS Gen2 | String | adlsgen2_fileSystem |
@@ -125,11 +125,11 @@ A tabela abaixo lista as propriedades com suporte de um coletor CDM. Você pode 
 | Ramificação de referência de entidade | Branch do repositório do GitHub | Sim, se corpus no GitHub | String |  github_branch |
 | Pasta Corpus | o local raiz do corpus | sim | String | corpusPath |
 | Entidade Corpus | Caminho para referência de entidade | sim | String | entidade |
-| Caminho da partição | Local onde a partição será gravada | no | String | partitionPath |
-| Limpar a pasta | Se a pasta de destino for limpa antes da gravação | no | `true` ou `false` | truncate |
-| Tipo de formato | Escolha para especificar o formato parquet | no | `parquet`Se especificado | subformat |
+| Caminho da partição | Local onde a partição será gravada | não | String | partitionPath |
+| Limpar a pasta | Se a pasta de destino for limpa antes da gravação | não | `true` ou `false` | truncate |
+| Tipo de formato | Escolha para especificar o formato parquet | não | `parquet` Se especificado | subformat |
 | Delimitador de coluna | Se estiver gravando em DelimitedText, como delimitar colunas | Sim, se estiver gravando em DelimitedText | String | columnDelimiter |
-| Primeira linha como cabeçalho | Se estiver usando DelimitedText, se os nomes de coluna são adicionados como um cabeçalho | no | `true` ou `false` | columnNamesAsHeader |
+| Primeira linha como cabeçalho | Se estiver usando DelimitedText, se os nomes de coluna são adicionados como um cabeçalho | não | `true` ou `false` | columnNamesAsHeader |
 
 ### <a name="cdm-sink-data-flow-script-example"></a>Exemplo de script de fluxo de dados do coletor CDM
 

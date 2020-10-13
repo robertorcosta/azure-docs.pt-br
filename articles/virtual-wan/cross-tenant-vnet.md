@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: wellee
 ms.openlocfilehash: 881f955014032d18fec447784a879fbf4f0e24fa
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91571290"
 ---
 # <a name="connect-cross-tenant-vnets-to-a-virtual-wan-hub"></a>Conectar VNets de locatário cruzado a um hub de WAN virtual

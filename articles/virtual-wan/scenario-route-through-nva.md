@@ -10,10 +10,10 @@ ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
 ms.openlocfilehash: d44964b5aed55e2ee70d18e6be5d632b652956e1
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90976248"
 ---
 # <a name="scenario-route-traffic-through-an-nva"></a>Cenário: rotear o tráfego por meio de um NVA
@@ -99,7 +99,7 @@ Na **Figura 2**, há dois hubs; **Hub1** e **HUB2**.
 
 **Figura 2**
 
-:::image type="content" source="./media/routing-scenarios/nva/nva.png" alt-text="Figura 2" lightbox="./media/routing-scenarios/nva/nva.png":::
+:::image type="content" source="./media/routing-scenarios/nva/nva.png" alt-text="Figura 1" lightbox="./media/routing-scenarios/nva/nva.png":::
 
 ## <a name="scenario-workflow"></a><a name="workflow"></a>Fluxo de trabalho do cenário
 
@@ -117,7 +117,7 @@ A WAN virtual não oferece suporte a um cenário em que o VNets 5, 6 Conecte-se 
 
 2. Adicione uma entrada de rota estática agregada para VNets 2, 5, 6 à tabela de rotas padrão do hub 1.
 
-   :::image type="content" source="./media/routing-scenarios/nva/nva-static-expand.png" alt-text="Exemplo":::
+   :::image type="content" source="./media/routing-scenarios/nva/nva-static-expand.png" alt-text="Figura 1":::
 
 3. Configure uma rota estática para o VNets 5, 6 na conexão de rede virtual da VNet 2. Para configurar a configuração de roteamento para uma conexão de rede virtual, consulte [Roteamento de Hub virtual](how-to-virtual-hub-routing.md#routing-configuration).
 
@@ -129,7 +129,7 @@ Isso resultará nas alterações de configuração de roteamento, conforme mostr
 
 **Figura 3**
 
-   :::image type="content" source="./media/routing-scenarios/nva/nva-result.png" alt-text="Figura 3" lightbox="./media/routing-scenarios/nva/nva-result.png":::
+   :::image type="content" source="./media/routing-scenarios/nva/nva-result.png" alt-text="Figura 1" lightbox="./media/routing-scenarios/nva/nva-result.png":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

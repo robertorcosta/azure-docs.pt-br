@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
 ms.openlocfilehash: 3578562839069eb4b9c99b16d938efe48821fcec
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91631300"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Como: entrar em qualquer usuário do Azure Active Directory usando o padrão de aplicativo de vários inquilinos
@@ -190,7 +190,7 @@ Os aplicativos multilocatários também podem obter tokens de acesso para chamar
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você aprendeu a criar um aplicativo que pode conectar um usuário por meio de qualquer locatário do Azure AD. Depois de habilitar o SSO (logon único) entre seu aplicativo e o Azure AD, você também pode atualizar seu aplicativo para acessar as APIs expostas por recursos da Microsoft, como Microsoft 365. Portanto, é possível oferecer uma experiência personalizada no aplicativo, por exemplo, mostrando informações contextuais para os usuários, como suas imagens de perfil ou seus próximos compromissos no calendário. Para saber mais sobre como fazer chamadas à API para o Azure AD e Microsoft 365 serviços como o Exchange, SharePoint, OneDrive, OneNote e muito mais, visite [Microsoft Graph API][MSFT-Graph-overview].
+Neste artigo, você aprendeu a criar um aplicativo que pode conectar um usuário por meio de qualquer locatário do Azure AD. Depois de habilitar o SSO (Sign-On único) entre seu aplicativo e o Azure AD, você também pode atualizar seu aplicativo para acessar as APIs expostas por recursos da Microsoft, como Microsoft 365. Portanto, é possível oferecer uma experiência personalizada no aplicativo, por exemplo, mostrando informações contextuais para os usuários, como suas imagens de perfil ou seus próximos compromissos no calendário. Para saber mais sobre como fazer chamadas à API para o Azure AD e Microsoft 365 serviços como o Exchange, SharePoint, OneDrive, OneNote e muito mais, visite [Microsoft Graph API][MSFT-Graph-overview].
 
 <!--Reference style links IN USE -->
 [AAD-Access-Panel]:  https://myapps.microsoft.com

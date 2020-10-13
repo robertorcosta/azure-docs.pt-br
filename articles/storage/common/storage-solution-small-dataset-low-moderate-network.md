@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: alkohli
 ms.openlocfilehash: 4f21e7f64338b7d50ca401081bf73ca0c1a1c88f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85504296"
 ---
 # <a name="data-transfer-for-small-datasets-with-low-to-moderate-network-bandwidth"></a>Transferência de dados para conjuntos de dados pequenos com largura de banda de rede baixa a moderada
@@ -51,7 +51,7 @@ A tabela a seguir resume as diferenças nas principais funcionalidades.
 
 | Recurso | Gerenciador de Armazenamento do Azure | Portal do Azure | AzCopy<br>Azure PowerShell<br>CLI do Azure | SDKs ou APIs REST do Armazenamento do Azure |
 |---------|------------------------|--------------|-----------------------------------------|---------------------------------|
-| Disponibilidade | Fazer o download e instalar <br>Ferramenta autônoma | Ferramentas de exploração baseadas na Web no portal do Azure | Ferramenta de linha de comando |Interfaces programáveis em .NET, Java, Python, JavaScript, C++, Go, Ruby e PHP |
+| Disponibilidade | Baixar e instalar <br>Ferramenta autônoma | Ferramentas de exploração baseadas na Web no portal do Azure | Ferramenta de linha de comando |Interfaces programáveis em .NET, Java, Python, JavaScript, C++, Go, Ruby e PHP |
 | Interface gráfica | Sim | Sim | Não | Não |
 | Plataformas com suporte | Windows, Mac, Linux | Baseado na Web |Windows, Mac, Linux |Todas as plataformas |
 | Operações de Armazenamento de Blobs permitidas<br>para blobs e pastas | Carregar<br>Baixar<br>Gerenciar | Carregar<br>Baixar<br>Gerenciar |Carregar<br>Baixar<br>Gerenciar | Sim, personalizável |

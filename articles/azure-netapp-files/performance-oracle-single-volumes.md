@@ -15,13 +15,13 @@ ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: b-juche
 ms.openlocfilehash: c6cdf2f6dada0aa4dea2f70f18237b7ee39e3ea1
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91571269"
 ---
-# <a name="oracle-database-performance-on-azure-netapp-files-single-volumes"></a>Desempenho do banco de dados Oracle em Azure NetApp Files volumes únicos
+# <a name="oracle-database-performance-on-azure-netapp-files-single-volumes"></a>Desempenho do Oracle Database em volumes únicos do Azure NetApp Files
 
 Este artigo aborda os seguintes tópicos sobre Oracle na nuvem. Esses tópicos podem ser de interesse particular para um administrador de banco de dados, arquiteto de nuvem ou arquiteto de armazenamento:   
 
@@ -89,7 +89,7 @@ As variáveis SLOB usadas nos testes são descritas nas seções a seguir.
 `REDO_STRESS=LITE`   
 `LOAD_PARALLEL_DEGREE=12`   
 
-### <a name="database"></a>Banco de Dados
+### <a name="database"></a>Banco de dados
 
 A versão do Oracle usada para os testes é Oracle Database Enterprise Edition 19.3.0.0.
 

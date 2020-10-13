@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
 ms.openlocfilehash: e3eb6b750c805951a67a2e869c862f1285a342a8
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448321"
 ---
 # <a name="respond-to-azure-defender-for-key-vault-alerts"></a>Responder a alertas do Azure Defender para Key Vault
@@ -70,6 +70,6 @@ Quando você compilou sua lista de segredos, chaves e certificados que foram ace
 
 Esta página explicou o processo de responder a um alerta do Azure defender para Key Vault. Para obter informações relacionadas, consulte as seguintes páginas:
 
-- [Introdução ao Azure defender para Key Vault](defender-for-key-vault-introduction.md)
-- [Suprimir alertas do Azure defender](alerts-suppression-rules.md)
+- [Introdução ao Azure Defender para Key Vault](defender-for-key-vault-introduction.md)
+- [Suprimir alertas do Azure Defender](alerts-suppression-rules.md)
 - [Exportar alertas de segurança](continuous-export.md)

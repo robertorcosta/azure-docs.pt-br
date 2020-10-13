@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
 ms.openlocfilehash: cd1dc953c35233010250bf7f959c94d1de50fe4a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91319785"
 ---
 # <a name="application-gateway-infrastructure-configuration"></a>Configuração de infraestrutura do gateway de aplicativo
@@ -23,7 +23,7 @@ A infraestrutura do gateway de aplicativo inclui a rede virtual, as sub-redes, o
 Um gateway de aplicativo é uma implantação dedicada em sua rede virtual. Em sua rede virtual, uma sub-rede dedicada é necessária para o gateway de aplicativo. Você pode ter várias instâncias de uma determinada implantação do gateway de aplicativo em uma sub-rede. Você também pode implantar outros gateways de aplicativo na sub-rede. Mas você não pode implantar nenhum outro recurso na sub-rede do gateway de aplicativo. Você não pode misturar Standard_v2 e o gateway de Aplicativo Azure padrão na mesma sub-rede.
 
 > [!NOTE]
-> Atualmente, não há suporte para [políticas de ponto de extremidade de serviço de rede virtual](../virtual-network/virtual-network-service-endpoint-policies-overview.md) em uma sub-rede de gateway de aplicativo.
+> [As políticas de ponto de extremidade de serviço de rede virtual](../virtual-network/virtual-network-service-endpoint-policies-overview.md) atualmente não têm suporte em uma sub-rede do Gateway de Aplicativo.
 
 ### <a name="size-of-the-subnet"></a>Tamanho da sub-rede
 

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 01/09/2019
 ms.author: alkohli
 ms.openlocfilehash: a4ac56a4d588071f599f62e6de94d9ec7367a1ae
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87924746"
 ---
 # <a name="use-azure-portal-to-administer-your-data-box-disk"></a>Usar o portal do Azure para administrar o Data Box Disk
@@ -119,7 +119,7 @@ Execute as etapas a seguir para editar os detalhes de notificação.
 
 ## <a name="view-order-status"></a>Exibir status do pedido
 
-|Status do pedido |Descrição |
+|Status do pedido |DESCRIÇÃO |
 |---------|---------|
 |Encomendado     | Pedido feito com êxito. <br> Se os discos não estiverem disponíveis, você receberá uma notificação. <br>Se os discos estiverem disponíveis, a Microsoft identificará um disco para remessa e preparará o pacote de disco.        |
 |Processado     | O processamento de pedidos foi concluído. <br> Durante o processamento do pedido, as seguintes ações ocorrem:<li>Os discos são criptografados usando a criptografia BitLocker AES-128. </li> <li>Os Azure Data Box Disk estão bloqueados para impedir acesso não autorizado.</li><li>A chave de acesso que desbloqueia os discos é gerada durante esse processo.</li>        |

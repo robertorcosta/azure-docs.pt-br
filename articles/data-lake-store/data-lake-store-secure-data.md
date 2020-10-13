@@ -13,10 +13,10 @@ ms.topic: how-to
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: 2dc802166b605ad7853c0910f1bab2a51f1f7297
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91574136"
 ---
 # <a name="securing-data-stored-in-azure-data-lake-storage-gen1"></a>Protegendo Dados Armazenados no Armazenamento de Data Lake do Azure Gen1
@@ -74,7 +74,7 @@ Quando você atribui usuários ou grupos de segurança a contas do Data Lake Sto
    
     ![Adicionar um grupo de segurança](./media/data-lake-store-secure-data/adl.add.user.2.png "Adicionar um grupo de segurança")
    
-5. Clique em **Save** (Salvar). O grupo de segurança deve ter sido adicionado, como exibido abaixo.
+5. Clique em **Salvar**. O grupo de segurança deve ter sido adicionado, como exibido abaixo.
    
     ![Grupo de segurança adicionado](./media/data-lake-store-secure-data/adl.add.user.3.png "Grupo de segurança adicionado")
 
