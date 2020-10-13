@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/11/2020
-ms.openlocfilehash: 4f7db88da646c9787c70d04ff7e3478a27a09275
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9e52d931f8873cebf42534fd6bf03b144e61e23
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89401632"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974661"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>Endereços IP de gerenciamento do HDInsight
 
@@ -76,7 +76,7 @@ Permita o tráfego dos endereços IP listados para os serviços de integridade e
 | &nbsp; | Oeste do Japão | 40.74.125.69</br>138.91.29.150 | \*: 443 | Entrada |
 | Coreia do Sul | Coreia Central | 52.231.39.142</br>52.231.36.209 | \*: 443 | Entrada |
 | &nbsp; | Sul da Coreia | 52.231.203.16</br>52.231.205.214 | \*: 443 | Entrada
-| United Kingdom | Oeste do Reino Unido | 51.141.13.110</br>51.141.7.20 | \*: 443 | Entrada |
+| Reino Unido | Oeste do Reino Unido | 51.141.13.110</br>51.141.7.20 | \*: 443 | Entrada |
 | &nbsp; | Sul do Reino Unido | 51.140.47.39</br>51.140.52.16 | \*: 443 | Entrada |
 | Estados Unidos | Centro dos EUA | 13.89.171.122</br>13.89.171.124 | \*: 443 | Entrada |
 | &nbsp; | Leste dos EUA | 13.82.225.233</br>40.71.175.99 | \*: 443 | Entrada |
@@ -85,6 +85,7 @@ Permita o tráfego dos endereços IP listados para os serviços de integridade e
 | &nbsp; | Oeste dos EUA | 13.64.254.98</br>23.101.196.19 | \*: 443 | Entrada |
 | &nbsp; | Oeste dos EUA 2 | 52.175.211.210</br>52.175.222.222 | \*: 443 | Entrada |
 | &nbsp; | Norte dos EAU | 65.52.252.96</br>65.52.252.97 | \*: 443 | Entrada |
+| &nbsp; | EAU Central | 20.37.76.96</br>20.37.76.99 | \*: 443 | Entrada |
 
 Para obter informações sobre os endereços IP a serem usados para o Azure Governamental, consulte o documento [Inteligência + Análise do Azure Governamental](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics).
 

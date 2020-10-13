@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: rogarana
 ms.openlocfilehash: 03b569422b6ce9e74f77637a514c1c0b28011bed
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91761134"
 ---
 # <a name="part-three-configure-directory-and-file-level-permissions-over-smb"></a>Parte três: configurar permissões de diretório e de nível de arquivo sobre SMB 
@@ -104,7 +104,7 @@ Use o explorador de arquivos do Windows para conceder permissão total a todos o
 1. Na janela de prompt para adicionar novos usuários, insira o nome de usuário de destino ao qual você deseja conceder permissões na caixa **Inserir os nomes de objeto a serem selecionados** e selecione **verificar nomes** para localizar o nome UPN completo do usuário de destino.
 1.    Selecione **OK**.
 1.    Na guia **segurança** , selecione todas as permissões que você deseja conceder ao novo usuário.
-1.    Selecione **Aplicar**.
+1.    Escolha **Aplicar**.
 
 ### <a name="configure-windows-acls-with-icacls"></a>Configurar ACLs do Windows com icacls
 

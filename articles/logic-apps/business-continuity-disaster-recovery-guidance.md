@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.openlocfilehash: 0a36cb468ebcb77c0614bffd0afc392df3655c20
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89658205"
 ---
 # <a name="business-continuity-and-disaster-recovery-for-azure-logic-apps"></a>Continuidade dos negócios e recuperação de desastre para aplicativos lógicos do Azure
@@ -341,7 +341,7 @@ Você pode configurar o registro em log para suas execuções de aplicativo lóg
 
 * Se desejar usar esses dados com o Azure Log Analytics, você poderá disponibilizar os dados para os locais primários e secundários definindo **as configurações de diagnóstico** do aplicativo lógico e enviando os dados para vários espaços de trabalho do log Analytics. Para obter mais informações, consulte [Configurar Logs de Azure monitor e coletar dados de diagnóstico para aplicativos lógicos do Azure](../logic-apps/monitor-logic-apps-log-analytics.md).
 
-* Se desejar enviar os dados para o armazenamento do Azure ou hubs de eventos do Azure, você poderá disponibilizar os dados para os locais primários e secundários Configurando a redundância geográfica. Para obter mais informações, confira estes tópicos:<p>
+* Se desejar enviar os dados para o armazenamento do Azure ou hubs de eventos do Azure, você poderá disponibilizar os dados para os locais primários e secundários Configurando a redundância geográfica. Para obter mais informações, consulte estes artigos:<p>
 
   * [Recuperação de desastre do armazenamento de BLOBs do Azure e failover de conta](../storage/common/storage-disaster-recovery-guidance.md)
   * [Recuperação de desastre geográfica dos hubs de eventos do Azure](../event-hubs/event-hubs-geo-dr.md)

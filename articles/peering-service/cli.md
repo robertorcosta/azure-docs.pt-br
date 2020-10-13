@@ -11,15 +11,15 @@ ms.workload: Infrastructure-services
 ms.date: 05/2/2020
 ms.author: derekol
 ms.openlocfilehash: ef573817927cf732da3426d802f8f26e2e9cd4ec
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91398982"
 ---
 # <a name="register-a-peering-service-connection-by-using-the-azure-cli"></a>Registrar uma conexão de serviço de emparelhamento usando o CLI do Azure
 
-O serviço de emparelhamento do Azure é um serviço de rede que aprimora a conectividade do cliente com os serviços de nuvem da Microsoft, como Microsoft 365, Dynamics 365, serviços de SaaS (software como serviço), Azure ou qualquer serviço da Microsoft acessível por meio da Internet pública. Neste artigo, você aprenderá a registrar uma conexão de serviço de emparelhamento usando o CLI do Azure.
+O Serviço de Emparelhamento do Azure é um serviço de rede que aprimora a conectividade do cliente com os serviços em nuvem da Microsoft, como o Microsoft 365, o Dynamics 365, os serviços de SaaS (software como serviço), o Azure ou qualquer serviço da Microsoft acessível por meio da Internet pública. Neste artigo, você aprenderá a registrar uma conexão de serviço de emparelhamento usando o CLI do Azure.
 
 Caso não tenha uma assinatura do Azure, crie uma [conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) agora.
 

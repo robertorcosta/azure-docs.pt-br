@@ -4,10 +4,10 @@ description: Fornece um resumo do suporte para o dispositivo de migrações para
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.openlocfilehash: ac3c90f1c09d290d5112a0e0d7abc5218788caf7
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91450035"
 ---
 # <a name="azure-migrate-appliance"></a>Dispositivo de Migrações para Azure
@@ -85,7 +85,7 @@ A tabela a seguir resume os requisitos do dispositivo de Migrações para Azure 
 **Suporte de projeto** |  Um dispositivo pode ser associado a um único projeto. <br/> Qualquer quantidade de dispositivos pode ser associada a um único projeto.<br/> 
 **Limites de descoberta** | Um dispositivo pode descobrir até 1000 servidores físicos.
 **Script do PowerShell** | Baixe o script (AzureMigrateInstaller.ps1) em uma pasta compactada do portal ou [aqui](https://go.microsoft.com/fwlink/?linkid=2140334). [Saiba mais](tutorial-discover-physical.md).<br/><br/> O tamanho do download é 85,8 MB.
-**Software/hardware** |  O dispositivo deve ser executado no computador com o Windows Server 2016, 16 GB de RAM, 8 vCPUs, cerca de 80 GB de armazenamento em disco.<br/> O dispositivo precisa de um endereço IP estático ou dinâmico e requer acesso à Internet, diretamente ou por meio de um proxy.<br/><br/> Se você executar o dispositivo em um computador físico, verifique se ele está executando o Windows Server 2016 e se atende aos requisitos de hardware.<br/>_(Atualmente, a implantação do dispositivo só tem suporte no Windows Server 2016.)_
+**Software/hardware** |  O dispositivo deve ser executado no computador com o Windows Server 2016, 16 GB de RAM, 8 vCPUs, cerca de 80 GB de armazenamento em disco.<br/> O dispositivo precisa de um endereço IP estático ou dinâmico e requer acesso à Internet, diretamente ou por meio de um proxy.<br/><br/> Se você executar o dispositivo em um computador físico, verifique se ele está executando o Windows Server 2016 e se atende aos requisitos de hardware.<br/>_(Atualmente, a implantação do dispositivo tem suporte apenas no Windows Server 2016.)_
 **Valor de hash** | [Verifique](tutorial-discover-physical.md#verify-security) os valores de hash de script do PowerShell.
 
 ## <a name="url-access"></a>acesso à URL
@@ -215,11 +215,11 @@ A descoberta de aplicativos coleta aplicativos instalados e dados do sistema ope
 
 Aqui estão os dados de aplicativo instalados que o dispositivo coleta de cada VM habilitada para descoberta de aplicativos. Estes dados são enviados para o Azure.
 
-**Dados** | **Local do Registro** | **Chave**
+**Dados** | **Local do Registro** | **Key**
 --- | --- | ---
 Nome do Aplicativo  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\* <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayName
 Versão  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayVersion 
-Provedor  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | Publisher
+Provedor  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | Publicador
 
 #### <a name="windows-vm-features-data"></a>Dados de recursos de VM do Windows
 
@@ -235,7 +235,7 @@ Pai  | Get-WindowsFeature  | Pai
 
 Aqui estão os metadados do SQL Server que o dispositivo coleta de VMs que executam o Microsoft SQL Server habilitado para descoberta de aplicativos. Estes dados são enviados para o Azure.
 
-**Dados**  | **Local do Registro**  | **Chave**
+**Dados**  | **Local do Registro**  | **Key**
 --- | --- | ---
 Nome  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL servidor \ instância Names\SQL  | installedInstance
 Edition  | HKLM: \ \\ SOFTWARE\Microsoft\Microsoft SQL Server \% \<InstanceName>  | Edition 

@@ -7,12 +7,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 07/20/2019
 ms.author: mimckitt
-ms.openlocfilehash: 2db83b643ec3000c5b86388f4b603bba32f2a9a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ef2c9ef4e2a2296ceb214c89bb6e3fb98dcb26f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91855768"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974899"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Visão geral do Agente de Máquina Virtual do Azure
 O Agente de VM (Máquina Virtual) do Microsoft Azure é um processo seguro e leve que gerencia a interação da máquina virtual (VM) com o Controlador de Malha do Azure. O Agente de VM tem uma função fundamental na habilitação e execução de extensões de máquina virtual do Azure. Extensões de VM habilitam a configuração de VM pós-implantação, como instalação e configuração de software. Extensões de VM também habilitam os recursos de recuperação como redefinir a senha administrativa de uma VM. Sem o Agente de VM do Azure, não é possível executar extensões da VM.
@@ -68,7 +68,7 @@ $vm | Update-AzVM
 
 - Verifique se sua VM tem acesso ao endereço IP 168.63.129.16. Para obter mais informações, consulte [o que é o endereço IP 168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md).
 
-- Verifique se o DHCP está habilitado dentro da VM convidada. Isso é necessário para obter o endereço de host ou de malha do DHCP para que o agente de VM IaaS e as extensões funcionem. Se você precisar de um IP privado estático, deverá configurá-lo por meio do portal do Azure ou do PowerShell e certificar-se de que a opção DHCP dentro da VM esteja habilitada. [Saiba mais](https://docs.microsoft.com/azure/virtual-network/virtual-networks-static-private-ip-arm-ps#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) sobre como configurar um endereço IP estático com o PowerShell.
+- Verifique se o DHCP está habilitado dentro da VM convidada. Isso é necessário para obter o endereço de host ou de malha do DHCP para que o agente de VM IaaS e as extensões funcionem. Se você precisar de um IP privado estático, deverá configurá-lo por meio do portal do Azure ou do PowerShell e certificar-se de que a opção DHCP dentro da VM esteja habilitada. [Saiba mais](../../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) sobre como configurar um endereço IP estático com o PowerShell.
 
 
 ## <a name="detect-the-vm-agent"></a>Detectar o Agente de VM
@@ -120,7 +120,7 @@ Para remover permanentemente um certificado, você precisará removê-lo do `OSP
 
 Para uma máquina virtual, use [Remove-AzVMSecret]() para remover certificados do `OSProfile` .
 
-Para obter mais informações sobre os certificados do conjunto de dimensionamento de máquinas virtuais, consulte [conjuntos de dimensionamento de máquinas virtuais-como fazer remover certificados preteridos?](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-faq#how-do-i-remove-deprecated-certificates)
+Para obter mais informações sobre os certificados do conjunto de dimensionamento de máquinas virtuais, consulte [conjuntos de dimensionamento de máquinas virtuais-como fazer remover certificados preteridos?](../../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.md#how-do-i-remove-deprecated-certificates)
 
 
 ## <a name="next-steps"></a>Próximas etapas

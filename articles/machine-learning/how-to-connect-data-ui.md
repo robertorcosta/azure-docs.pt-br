@@ -12,10 +12,10 @@ ms.reviewer: nibaccam
 ms.date: 09/22/2020
 ms.custom: how-to
 ms.openlocfilehash: 116dd65bf04c01f513e196a2f1b37d54aacbf1fe
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91841349"
 ---
 # <a name="connect-to-data-with-the-azure-machine-learning-studio"></a>Conectar-se a dados com o Azure Machine Learning Studio
@@ -27,7 +27,7 @@ A tabela a seguir define e resume os benefícios de armazenamentos e conjuntos d
 |Objeto|Descrição| Benefícios|   
 |---|---|---|
 |Armazenamentos de dados| Conecte-se com segurança ao seu serviço de armazenamento no Azure, armazenando as informações de conexão, como sua ID de assinatura e autorização de token em seu [Key Vault](https://azure.microsoft.com/services/key-vault/) associado ao espaço de trabalho | Como suas informações são armazenadas com segurança, você <br><br> <li> Não &nbsp; Coloque &nbsp; &nbsp; as credenciais de autenticação &nbsp; ou as &nbsp; &nbsp; fontes de dados originais em risco. <li> Não é mais necessário embuti-los em código em seus scripts.
-|Conjunto de dados| Ao criar um conjunto de dados, você cria uma referência para o local da fonte de dados com uma cópia de seus metadados. Com conjuntos de os, você pode, <br><br><li> Acesse dados durante o treinamento do modelo.<li> Compartilhe dados e colabore com outros usuários.<li> Aproveite as bibliotecas de software livre, como o pandas, para a exploração de dados. | Como os conjuntos de dados são avaliados lentamente, e eles permanecem em seu local existente, você <br><br><li>Mantenha uma única cópia de dados em seu armazenamento.<li> Não incorrer nenhum custo de armazenamento extra <li> Não arrisque a alteração acidental de suas fontes de dados originais.<li>Melhorar as velocidades de desempenho de fluxo de trabalho ML. 
+|Conjuntos de dados| Ao criar um conjunto de dados, você cria uma referência para o local da fonte de dados com uma cópia de seus metadados. Com conjuntos de os, você pode, <br><br><li> Acesse dados durante o treinamento do modelo.<li> Compartilhe dados e colabore com outros usuários.<li> Aproveite as bibliotecas de software livre, como o pandas, para a exploração de dados. | Como os conjuntos de dados são avaliados lentamente, e eles permanecem em seu local existente, você <br><br><li>Mantenha uma única cópia de dados em seu armazenamento.<li> Não incorrer nenhum custo de armazenamento extra <li> Não arrisque a alteração acidental de suas fontes de dados originais.<li>Melhorar as velocidades de desempenho de fluxo de trabalho ML. 
 
 Para entender onde os armazenamentos e conjuntos de dados se ajustam no fluxo de trabalho geral de acesso a data do Azure Machine Learning, consulte o artigo [dados de acesso seguro](concept-data.md#data-workflow) .
 

@@ -3,12 +3,12 @@ title: Aprenda a auditar o conteúdo de máquinas virtuais
 description: Saiba como o Azure Policy usa o agente de Configuração de Convidado para auditar as configurações dentro de máquinas virtuais.
 ms.date: 08/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: 951960793ebda50fdb87d266c4dc8561f2fcd70f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d396403f23df1e0c48ea66e0c2a23866f790d3c5
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88756683"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974712"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Entender a Configuração de Convidado do Azure Policy
 
@@ -116,9 +116,7 @@ As políticas de configuração de convidado usam o efeito **AuditIfNotExists** 
 As políticas de **AuditIfNotExists** não retornarão resultados de conformidade até que todos os requisitos sejam atendidos no computador. As exigências são descritas na seção [implantar requisitos para máquinas virtuais do Azure](#deploy-requirements-for-azure-virtual-machines)
 
 > [!IMPORTANT]
-> Em uma versão anterior da configuração de convidado, era necessária uma iniciativa para combinar as definições **DeployIfNoteExists** e **AuditIfNotExists** . As definições de **DeployIfNotExists** não são mais necessárias. As definições e intiaitives são rotuladas `[Deprecated]` , mas as atribuições existentes continuarão a funcionar.
->
-> Uma etapa manual é necessária. Se você tiver atribuído anteriormente as iniciativas de política na categoria `Guest Configuration` , exclua a atribuição de política e atribua a nova definição. As políticas de configuração de convidado têm um padrão de nome da seguinte maneira: `Audit <Windows/Linux> machines that <non-compliant condition>`
+> Em uma versão anterior da configuração de convidado, era necessária uma iniciativa para combinar as definições **DeployIfNoteExists** e **AuditIfNotExists** . As definições de **DeployIfNotExists** não são mais necessárias. As definições e intiaitives são rotuladas `[Deprecated]` , mas as atribuições existentes continuarão a funcionar. Para obter informações, consulte a postagem no blog: [alteração importante liberada para políticas de auditoria de configuração de convidado](https://techcommunity.microsoft.com/t5/azure-governance-and-management/important-change-released-for-guest-configuration-audit-policies/ba-p/1655316)
 
 Azure Policy usa a propriedade **complianceStatus** do provedor de recursos de configuração do convidado para relatar a conformidade no nó **conformidade** . Para obter mais informações, confira [Obtendo dados de conformidade](../how-to/get-compliance-data.md).
 

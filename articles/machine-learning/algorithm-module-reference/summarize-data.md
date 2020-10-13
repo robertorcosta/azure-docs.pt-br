@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 01/27/2020
 ms.openlocfilehash: 5206565b85d1551e5e551f1dfe75d28c93bc53f0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90898219"
 ---
 # <a name="summarize-data"></a>Resumir dados
@@ -57,10 +57,10 @@ O relatório do módulo pode incluir as estatísticas a seguir.
 |**Mean**|Média de todos os valores de coluna|
 |**Desvio médio**|Desvio médio de valores de coluna|
 |**Primeiro quartil**|Valor no primeiro quartil|
-|**Mediana**|Valor da coluna mediana|
+|**Cuja**|Valor da coluna mediana|
 |**Terceiro quartil**|Valor no terceiro quartil|
 |**Modo**|Modo de valores de coluna|
-|**Range**|Inteiro que representa o número de valores entre os valores máximo e mínimo|
+|**Intervalo**|Inteiro que representa o número de valores entre os valores máximo e mínimo|
 |**Variação de amostra**|Variação para a coluna; consulte a observação|
 |**Desvio padrão de exemplo**|Desvio padrão para a coluna; consulte a observação|
 |**Distorção de exemplo**|Distorção para a coluna; consulte a observação|

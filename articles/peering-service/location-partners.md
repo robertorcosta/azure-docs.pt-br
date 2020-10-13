@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 09/24/2020
 ms.author: derekol
-ms.openlocfilehash: 4b034c2657cd1bddd696b40738d51c8a3e6c9798
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6318fc4fc0dc9ded093bdf9d19b9079208556de
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91355245"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939929"
 ---
 # <a name="peering-service-partners"></a>Parceiros de serviço de emparelhamento
 
@@ -38,7 +38,7 @@ A tabela neste artigo fornece informações sobre os parceiros de conectividade 
 | [IIJ](https://www.iij.ad.jp/en/) | Japão |
 | [InterCloud](https://intercloud.com/microsoft-saas-applications/)|Europa  |
 | [Kordia](https://www.kordia.co.nz/cloudconnect) |Oceania  |
-| [Liquid Telecom](https://liquidcloud.africa/365-direct) | África  |
+| [Liquid Telecom](https://liquidcloud.africa/) | África  |
 | [NTT Communications](https://www.ntt.com/en/services/network/software-defined-network.html) | Japão |
 | [PCCW](https://www.pccwglobal.com/en/enterprise/products/network/ep-global-internet-access) |Ásia |
 | [Singtel](https://www.singtel.com/business/campaign/singnet-cloud-connect-microsoft-direct) |Ásia |

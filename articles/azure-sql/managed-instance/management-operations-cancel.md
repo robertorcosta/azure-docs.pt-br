@@ -13,10 +13,10 @@ ms.author: urmilano
 ms.reviewer: sstein, bonova, MashaMSFT
 ms.date: 09/03/2020
 ms.openlocfilehash: 4ec999cc35e7d18287679c74c6d45a5aa2ecb9e7
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90994088"
 ---
 # <a name="canceling-azure-sql-managed-instance-management-operations"></a>Cancelando operações de gerenciamento de Instância Gerenciada do SQL do Azure
@@ -39,13 +39,13 @@ A tabela a seguir resume as operações de gerenciamento, se você pode ou não 
 Categoria  |Operação  |Cancelável  |Duração estimada de cancelamento  |
 |---------|---------|---------|---------|
 |Implantação |Criação de instância |Sim |90% das operações são concluídas em 5 minutos. |
-|Atualizar |Expansão/redução do armazenamento de instância (Uso Geral) |No |  |
+|Atualizar |Expansão/redução do armazenamento de instância (Uso Geral) |Não |  |
 |Atualizar |Expansão/redução do armazenamento de instância (Comercialmente Crítico) |Sim |90% das operações são concluídas em 5 minutos. |
-|Atualizar |Expansão e redução da vCores (computação de instância) (Uso Geral) |Sim |90% das operações são concluídas em 5 minutos. |
-|Atualizar |Expansão e redução da vCores (computação de instância) (Comercialmente Crítico) |Sim |90% das operações são concluídas em 5 minutos. |
+|Atualizar |Expansão e redução verticais de computação de instância (vCores) (Uso Geral) |Sim |90% das operações são concluídas em 5 minutos. |
+|Atualizar |Expansão e redução verticais de computação de instância (vCores) (Comercialmente Crítico) |Sim |90% das operações são concluídas em 5 minutos. |
 |Atualizar |Alteração da camada de serviço de instância (Uso Geral para Comercialmente Crítico e vice-versa) |Sim |90% das operações são concluídas em 5 minutos. |
-|Excluir |Exclusão da instância |No |  |
-|Excluir |Exclusão de cluster virtual (como operação iniciada pelo usuário) |No |  |
+|Excluir |Exclusão da instância |Não |  |
+|Excluir |Exclusão de cluster virtual (como operação iniciada pelo usuário) |Não |  |
 
 ## <a name="cancel-management-operation"></a>Cancelar operação de gerenciamento
 
@@ -61,7 +61,7 @@ Para cancelar as operações de gerenciamento usando o portal do Azure, siga est
 
 1. Selecione **cancelar a operação** na parte inferior da página. 
 
-   :::image type="content" source="media/management-operations-cancel/cancel-operation.png" alt-text="Selecione Cancelar para cancelar a operação.":::
+   :::image type="content" source="media/management-operations-cancel/cancel-operation.png" alt-text="Selecione a caixa operação em andamento para abrir a página operação em andamento.":::
 
 1. Confirme que você deseja cancelar a operação. 
 
@@ -131,8 +131,8 @@ As instâncias que falharam ao criar ainda estão presentes como um recurso e:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para saber como criar sua primeira instância gerenciada, consulte [Guia de início rápido](instance-create-quickstart.md).
-- Para obter uma lista de recursos e comparação, consulte [recursos comuns do SQL](../database/features-comparison.md).
-- Para obter mais informações sobre a configuração da VNet, consulte [configuração da vnet do SQL instância gerenciada](connectivity-architecture-overview.md).
-- Para obter um início rápido que cria uma instância gerenciada e restaura um banco de dados de um arquivo de backup, consulte [criar uma instância gerenciada](instance-create-quickstart.md).
-- Para obter um tutorial sobre como usar o serviço de migração de banco de dados do Azure para migração, consulte [migração de SQL instância gerenciada usando o serviço de migração de banco](../../dms/tutorial-sql-server-to-managed-instance.md)
+- Para saber como criar sua primeira instância gerenciada, confira o [Guia de início rápido](instance-create-quickstart.md).
+- Para obter uma lista de recursos e de comparação, confira [Recursos comuns do SQL](../database/features-comparison.md).
+- Para obter mais informações sobre a configuração de VNet, confira [Configuração de VNet de Instância Gerenciada de SQL](connectivity-architecture-overview.md).
+- Para obter um início rápido que cria uma instância gerenciada e restaura um banco de dados de um arquivo de backup, confira [Criar uma instância gerenciada](instance-create-quickstart.md).
+- Para obter um tutorial sobre como usar o Serviço de Migração de Banco de Dados do Azure para migração, confira [Migração de Instância Gerenciada de SQL usando o Serviço de Migração de Banco de Dados](../../dms/tutorial-sql-server-to-managed-instance.md).

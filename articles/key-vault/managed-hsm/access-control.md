@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: ambapat
 ms.openlocfilehash: a21d0db383e8c563f0b187061a95ac818dd2a4f0
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90994025"
 ---
-# <a name="managed-hsm-access-control"></a>Controle de acesso HSM gerenciado
+# <a name="managed-hsm-access-control"></a>Controle de acesso ao HSM Gerenciado
 
 > [!NOTE]
 > Key Vault provedor de recursos dá suporte a dois tipos de recursos: **cofres** e **HSMs gerenciados**. O controle de acesso descrito neste artigo se aplica somente a **HSMs gerenciados**. Para saber mais sobre o controle de acesso para HSM gerenciado, consulte [fornecer acesso a Key Vault chaves, certificados e segredos com um controle de acesso baseado em função do Azure](../general/rbac-guide.md).
 
-Azure Key Vault HSM gerenciado é um serviço de nuvem que protege as chaves de criptografia. Como esses dados são confidenciais e críticos para os negócios, você precisa proteger o acesso aos HSMs gerenciados permitindo que somente aplicativos e usuários autorizados o acessem. Este artigo fornece uma visão geral do modelo de controle de acesso HSM gerenciado. Ele explica a autenticação e a autorização e descreve como proteger o acesso aos HSMs gerenciados.
+O HSM gerenciado do Azure Key Vault é um serviço de nuvem que protege as chaves de criptografia. Como esses dados são confidenciais e comercialmente críticos, é necessário proteger o acesso aos seus HSMs gerenciados permitindo que apenas aplicativos e usuários autorizados os acessem. Este artigo apresenta uma visão geral do modelo de controle de acesso do HSM gerenciado. Explica a autenticação e a autorização e descreve como proteger o acesso ao seus HSMs gerenciados.
 
 ## <a name="access-control-model"></a>Modelo de controle de acesso
 
@@ -87,6 +87,6 @@ Você concede um acesso de entidade de segurança para executar operações de c
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter um tutorial de introdução para um administrador, consulte [o que é o HSM gerenciado?](overview.md).
+- Para ver um tutorial de introdução para um administrador, consulte [O que é o HSM gerenciado?](overview.md).
 - Para um tutorial de gerenciamento de função, consulte [RBAC local HSM gerenciado](role-management.md)
-- Para obter mais informações sobre o log de uso do log HSM gerenciado, consulte [log HSM gerenciado](logging.md).
+- Para obter mais informações sobre o registro em log do uso para o registro em log do HSM gerenciado, confira [Registro em log do HSM gerenciado](logging.md).

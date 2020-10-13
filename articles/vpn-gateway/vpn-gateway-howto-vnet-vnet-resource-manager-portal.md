@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: cherylmc
 ms.openlocfilehash: 12ab54e51b26c4b3d77f5518d4e4f44efe34affd
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90983305"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Configurar uma conexão de gateway de VPN de VNet para VNet usando o portal do Azure
@@ -148,7 +148,7 @@ Quando os gateways de rede virtual para VNet1 e VNet4 tiverem sido concluídos, 
    ![Página conexões](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connections.png "Página conexões")
 2. Selecione **+ Adicionar** para abrir a página **Adicionar conexão** .
 
-   ![Adicionar conexão](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet1-vnet4-connection.png "Adicionar um conexão")
+   ![Adicionar Conexão](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet1-vnet4-connection.png "Adicionar um conexão")
 3. Na página **Adicionar conexão**, preencha os valores para sua conexão:
 
    - **Nome**: Insira um nome para a conexão. Por exemplo, *VNet1toVNet4*.

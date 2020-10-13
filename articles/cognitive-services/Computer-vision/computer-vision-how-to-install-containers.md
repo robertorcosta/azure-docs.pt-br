@@ -13,10 +13,10 @@ ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: local, OCR, Docker, contêiner
 ms.openlocfilehash: acf6a391965dcba20a2dabc18648076b88c5e7c5
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91536368"
 ---
 # <a name="install-read-ocr-docker-containers-preview"></a>Instalar contêineres de Docker do OCR de leitura (versão prévia) 
@@ -51,7 +51,7 @@ Ao considerar qual versão de contêiner usar, observe que v 3.1-Preview está e
 
 Você deve atender aos seguintes pré-requisitos antes de usar os contêineres:
 
-|Necessária|Finalidade|
+|Obrigatório|Finalidade|
 |--|--|
 |Mecanismo do Docker| É necessário ter o Mecanismo Docker instalado em um [computador host](#the-host-computer). O Docker fornece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para instruções sobre conceitos básicos do Docker e de contêiner, consulte a [visão geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os contêineres conectem-se e enviem dados de cobrança para o Azure. <br><br> **No Windows**, o Docker também deve ser configurado para dar suporte a contêineres do Linux.<br><br>|
 |Familiaridade com o Docker | É necessário ter uma compreensão básica de conceitos do Docker, como registros, repositórios, contêineres e imagens de contêiner, bem como conhecimento dos comandos básicos do `docker`.| 
@@ -93,14 +93,14 @@ As imagens de contêiner para leitura estão disponíveis.
 | Contêiner | Registro de contêiner/repositório/nome da imagem |
 |-----------|------------|
 | Leia 2,0-visualização | `mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview` |
-| Leia 3,0-visualização | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.0-preview` |
-| Leia 3,1-visualização | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview` |
+| Leitura 3.0 – versão prévia | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.0-preview` |
+| Leitura 3.1 – versão prévia | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview` |
 
 Use o [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) comando para baixar uma imagem de contêiner.
 
 ### <a name="docker-pull-for-the-read-container"></a>Pull do Docker para o contêiner de leitura
 
-# <a name="version-31-preview"></a>[Versão 3,1-visualização](#tab/version-3-1)
+# <a name="version-31-preview"></a>[Versão 3.1 – versão prévia](#tab/version-3-1)
 
 ```bash
 docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview
@@ -135,7 +135,7 @@ Use o comando [docker run](https://docs.docker.com/engine/reference/commandline/
 
 [Exemplos](computer-vision-resource-container-config.md#example-docker-run-commands) do `docker run` comando estão disponíveis.
 
-# <a name="version-31-preview"></a>[Versão 3,1-visualização](#tab/version-3-1)
+# <a name="version-31-preview"></a>[Versão 3.1 – versão prévia](#tab/version-3-1)
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
@@ -215,7 +215,7 @@ Para localizar a cadeia de conexão:
 
 O contêiner fornece APIs de ponto de extremidade de previsão de consulta baseadas em REST. 
 
-# <a name="version-31-preview"></a>[Versão 3,1-visualização](#tab/version-3-1)
+# <a name="version-31-preview"></a>[Versão 3.1 – versão prévia](#tab/version-3-1)
 
 Use o host, `http://localhost:5000`, para as APIs do contêiner. Você pode exibir o caminho do Swagger em: `http://localhost:5000/swagger/vision-v3.1-preview-read/swagger.json` .
 
@@ -232,7 +232,7 @@ Use o host, `http://localhost:5000`, para as APIs do contêiner. Você pode exib
 ### <a name="asynchronous-read"></a>Leitura assíncrona
 
 
-# <a name="version-31-preview"></a>[Versão 3,1-visualização](#tab/version-3-1)
+# <a name="version-31-preview"></a>[Versão 3.1 – versão prévia](#tab/version-3-1)
 
 Você pode usar as `POST /vision/v3.1/read/analyze` `GET /vision/v3.1/read/operations/{operationId}` operações e em conjunto para ler de forma assíncrona uma imagem, semelhante a como o serviço de pesquisa Visual computacional usa as operações REST correspondentes. O método POST assíncrono retornará um `operationId` que é usado como o identificador para a solicitação HTTP Get.
 
@@ -449,7 +449,7 @@ O `operation-location` é a URL totalmente qualificada e é acessado por meio de
 
 Você pode usar a operação a seguir para ler de forma síncrona uma imagem. 
 
-# <a name="version-31-preview"></a>[Versão 3,1-visualização](#tab/version-3-1)
+# <a name="version-31-preview"></a>[Versão 3.1 – versão prévia](#tab/version-3-1)
 
 `POST /vision/v3.1/read/syncAnalyze` 
 
