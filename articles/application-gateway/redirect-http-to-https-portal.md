@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
 ms.openlocfilehash: 07689f7d16cd1df451fdab28f188e5c4a324486e
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89594808"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>Criar um gateway de aplicativo com HTTP para redirecionamento HTTPS usando o portal do Azure
@@ -156,13 +156,13 @@ A interface do usuário do portal do conjunto de dimensionamento de máquinas vi
 3. Selecione **Pools de back-end**.
 4. Selecione **myAppGatewaymyvmss**.
 5. Selecione **Remover todos os destinos do pool de back-end**.
-6. Clique em **Salvar**.
+6. Selecione **Salvar**.
 7. Depois que esse processo for concluído, selecione o pool de back-end **myAppGatewaymyvmss**, selecione **Excluir** e **OK** para confirmar.
 8. Selecione **appGatewayBackendPool**.
 9. Em **Destinos**, selecione **VMSS**.
 10. Em **VMSS**, selecione **myvmss**.
 11. Em **Configurações do Adaptador de Rede**, selecione **myvmssNic**.
-12. Clique em **Salvar**.
+12. Selecione **Salvar**.
 
 ### <a name="upgrade-the-scale-set"></a>Atualizar o conjunto de dimensionamento
 

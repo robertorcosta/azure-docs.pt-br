@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.openlocfilehash: c7c43e02e6bdf75c9551ccdbb9dd8f75bf37a806
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91534974"
 ---
 # <a name="text-to-speech-rest-api"></a>API REST conversão de texto em fala
@@ -55,7 +55,7 @@ O `voices/list` ponto de extremidade permite obter uma lista completa de vozes p
 | Leste dos EUA 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | França Central | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Centro da Índia | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Leste do Japão | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Japan East | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Coreia Central | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Centro-Norte dos EUA | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Norte da Europa | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
@@ -72,7 +72,7 @@ Esta tabela lista os cabeçalhos obrigatórios e opcionais para solicitações d
 
 | Cabeçalho | Descrição | Obrigatório/Opcional |
 |--------|-------------|---------------------|
-| `Authorization` | Um token de autorização precedido pela palavra `Bearer`. Para obter mais informações, consulte [Autenticação](#authentication). | Necessária |
+| `Authorization` | Um token de autorização precedido pela palavra `Bearer`. Para obter mais informações, consulte [Autenticação](#authentication). | Obrigatório |
 
 ### <a name="request-body"></a>Corpo da solicitação
 
@@ -172,10 +172,10 @@ Esta tabela lista os cabeçalhos obrigatórios e opcionais para solicitações d
 
 | Cabeçalho | Descrição | Obrigatório/Opcional |
 |--------|-------------|---------------------|
-| `Authorization` | Um token de autorização precedido pela palavra `Bearer`. Para obter mais informações, consulte [Autenticação](#authentication). | Necessária |
-| `Content-Type` | Especifica o tipo de conteúdo para o texto fornecido. Aceita o valor: `application/ssml+xml`. | Necessária |
-| `X-Microsoft-OutputFormat` | Especifica o formato de saída de áudio. Para obter uma lista completa dos valores aceitos, consulte [saídas de áudio](#audio-outputs). | Necessária |
-| `User-Agent` | O nome do aplicativo. O valor fornecido deve ter menos de 255 caracteres. | Necessária |
+| `Authorization` | Um token de autorização precedido pela palavra `Bearer`. Para obter mais informações, consulte [Autenticação](#authentication). | Obrigatório |
+| `Content-Type` | Especifica o tipo de conteúdo para o texto fornecido. Aceita o valor: `application/ssml+xml`. | Obrigatório |
+| `X-Microsoft-OutputFormat` | Especifica o formato de saída de áudio. Para obter uma lista completa dos valores aceitos, consulte [saídas de áudio](#audio-outputs). | Obrigatório |
+| `User-Agent` | O nome do aplicativo. O valor fornecido deve ter menos de 255 caracteres. | Obrigatório |
 
 ### <a name="audio-outputs"></a>Saídas de áudio
 

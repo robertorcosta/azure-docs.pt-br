@@ -17,10 +17,10 @@ ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 14ffcbf2e111e052f4b45259b0b25664049d3b3d
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88855379"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>Preparar a infraestrutura do Azure para alta disponibilidade do SAP usando um cluster de failover do Windows e compartilhamento de arquivos para instâncias ASCS/SCS do SAP
@@ -218,8 +218,8 @@ Antes de iniciar a instalação, leia este artigo:
 | --- | --- | --- | --- |
 | Primeiro cluster ASCS/SCS do nó de cluster | ascs-1 | 10.0.6.4 | ascs-as |
 | Segundo cluster ASCS/SCS do nó de cluster | ascs-2 | 10.0.6.5 | ascs-as |
-| Nome da rede de clusters |ascs-cl | 10.0.6.6 | N/D |
-| Nome da rede de clusters SAP PR1 ASCS |pr1-ascs | 10.0.6.7 | N/D |
+| Nome da rede de clusters |ascs-cl | 10.0.6.6 | n/a |
+| Nome da rede de clusters SAP PR1 ASCS |pr1-ascs | 10.0.6.7 | n/a |
 
 
 **Tabela 1**: Cluster do ASCS/SCS
@@ -236,8 +236,8 @@ Antes de iniciar a instalação, leia este artigo:
 | Primeiro nó de cluster | sofs-1 | 10.0.6.10 | sofs-as |
 | Segundo nó de cluster | sofs-2 | 10.0.6.11 | sofs-as |
 | Terceiro nó de cluster | sofs-3 | 10.0.6.12 | sofs-as |
-| Nome da rede de clusters | sofs-cl | 10.0.6.13 | N/D |
-| Nome de host global do SAP | sapglobal | Usar IPs de todos os nós de cluster | N/D |
+| Nome da rede de clusters | sofs-cl | 10.0.6.13 | n/a |
+| Nome de host global do SAP | sapglobal | Usar IPs de todos os nós de cluster | n/a |
 
 **Tabela 3**: Cluster de Servidor de Arquivos de Escalabilidade Horizontal
 
@@ -312,7 +312,7 @@ Recomendamos o uso de Discos Gerenciados.
 
 ![Figura 1: Tela de interface do usuário do modelo do Resource Manager de Servidor de Arquivos de Escalabilidade Horizontal com discos gerenciados][sap-ha-guide-figure-8010]
 
-_**Figura 1**: tela de interface do usuário para servidor de arquivos de escalabilidade horizontal modelo do Resource Manager com Managed disks_
+_**Figura 1**: tela de interface do usuário para Scale-Out modelo do Gerenciador de recursos do servidor de arquivos com Managed disks_
 
 No modelo, faça o seguinte:
 1. Na caixa **Contagem de Vm**, digite uma contagem mínima de **2**.
@@ -326,13 +326,13 @@ O modelo do Azure Resource Manager para implantação do Servidor de Arquivos de
 
 ![Figura 2: Tela de interface do usuário do modelo do Azure Resource Manager para o Servidor de Arquivos de Escalabilidade Horizontal sem discos gerenciados][sap-ha-guide-figure-8011]
 
-_**Figura 2**: tela de interface do usuário para o modelo de Azure Resource Manager de servidor de arquivos de escalabilidade horizontal sem Managed disks_
+_**Figura 2**: tela de interface do usuário para o Scale-Out servidor de arquivos Azure Resource Manager modelo sem Managed disks_
 
 Na caixa **Tipo de Conta de Armazenamento**, selecione **Armazenamento Premium**. Todas as outras configurações são iguais às dos discos gerenciados.
 
 ## <a name="adjust-cluster-timeout-settings"></a>Ajustar as configurações de tempo limite do cluster
 
-Depois de instalar com êxito o cluster do Windows Servidor de Arquivos de Escalabilidade Horizontal, adapte os limites de tempo limite para detecção de failover em condições no Azure. Os parâmetros a serem alterados estão documentados no blog [Ajustar os limites de rede de cluster de failover][tuning-failover-cluster-network-thresholds]. Supondo que as VMs clusterizadas estejam na mesma sub-rede, altere os seguintes parâmetros para estes valores:
+Depois de instalar com êxito o cluster do servidor de arquivos do Windows Scale-Out, adapte os limites de tempo limite para detecção de failover em condições no Azure. Os parâmetros a serem alterados estão documentados no blog [Ajustar os limites de rede de cluster de failover][tuning-failover-cluster-network-thresholds]. Supondo que as VMs clusterizadas estejam na mesma sub-rede, altere os seguintes parâmetros para estes valores:
 
 - SameSubNetDelay = 2000
 - SameSubNetThreshold = 15

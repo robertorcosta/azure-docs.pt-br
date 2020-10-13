@@ -12,10 +12,10 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: fecb78b240f5c983580d4bdb34535a879ffe3e2e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91289269"
 ---
 # <a name="maximize-rowgroup-quality-for-columnstore-index-performance"></a>Maximizar a qualidade do rowgroup para o desempenho do índice columnstore
@@ -42,7 +42,7 @@ Para obter mais informações sobre o carregamento em massa, consulte [Carregame
 
 ## <a name="how-to-monitor-rowgroup-quality"></a>Como monitorar a qualidade do grupo de linhas
 
-O DMV sys. dm_pdw_nodes_db_column_store_row_group_physical_stats ([Sys. dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) contém a definição de exibição correspondente ao banco de dados SQL) que expõe informações úteis, como o número de linhas em RowGroups e o motivo para aparar se houver corte. Você pode criar a exibição a seguir como uma maneira útil consultar essa DMV para obter informações sobre a fragmentação do grupo de linhas.
+O sys.dm_pdw_nodes_db_column_store_row_group_physical_stats DMV ([Sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) contém a definição da exibição correspondente ao banco de dados SQL) que expõe informações úteis, como o número de linhas em RowGroups, e o motivo para corte, se houver corte. Você pode criar a exibição a seguir como uma maneira útil consultar essa DMV para obter informações sobre a fragmentação do grupo de linhas.
 
 ```sql
 create view dbo.vCS_rg_physical_stats

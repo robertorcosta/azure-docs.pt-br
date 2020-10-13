@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/15/2020
+ms.date: 10/09/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 48831a9482087dbeed0952cc30fcbc9c14fbaed0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0e42c8e22d004b574e65442f0fbdfce1c9bcabd7
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91715637"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939402"
 ---
 # <a name="configure-object-replication-for-block-blobs"></a>Configurar a replicação de objeto para BLOBs de blocos
 
@@ -345,6 +345,40 @@ az storage account or-policy create \
     -resource-group <resource-group> \
     --source-account <source-account-name> \
     --policy @policy.json
+```
+
+---
+
+## <a name="check-the-replication-status-of-a-blob"></a>Verificar o status de replicação de um blob
+
+Você pode verificar o status de replicação de um blob na conta de origem usando o portal do Azure, o PowerShell ou o CLI do Azure. As propriedades de replicação de objeto não são populadas até que a replicação seja concluída ou falhou.
+
+# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+
+Para verificar o status de replicação de um blob na conta de origem no portal do Azure, siga estas etapas:
+
+1. Navegue até a conta de origem no portal do Azure.
+1. Localize o contêiner que inclui o blob de origem.
+1. Selecione o blob para exibir suas propriedades. Se o blob tiver sido replicado com êxito, você verá na seção **replicação de objeto** que o status está definido como *concluído*. A ID da política de replicação e a ID da regra que governa a replicação de objeto para esse contêiner também são listadas.
+
+:::image type="content" source="media/object-replication-configure/check-replication-status-source.png" alt-text="Captura de tela mostrando regras de replicação no portal do Azure":::
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+N/D
+
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+Para verificar o status de replicação de um blob na conta de origem com CLI do Azure, obtenha o valor da propriedade **status** de replicação do objeto, conforme mostrado no exemplo a seguir:
+
+```azurecli
+az storage blob show \
+    --account-name <source-account-name> \
+    --container-name <source-container-name> \
+    --name <source-blob-name> \
+    --query 'objectReplicationSourceProperties[].rules[].status' \
+    --output tsv \
+    --auth-mode login
 ```
 
 ---

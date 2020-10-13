@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8c68be4e46693621f77cb25dd8f34f8e0b7d75dd
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89278404"
 ---
 # <a name="determine-incident-response-requirements-for-your-hybrid-identity-solution"></a>Determinar requisitos de resposta a incidentes para sua solução de identidade híbrida
@@ -52,7 +52,7 @@ O sistema de gerenciamento de identidade deve ajudar os administradores de TI a 
 * Sua empresa precisa auditar o acesso e a ação do usuário?
 * Sua empresa precisa saber quando um usuário redefine sua senha?
 
-## <a name="policy-enforcement"></a>Imposição de política
+## <a name="policy-enforcement"></a>Aplicação de políticas
 Durante o controle de danos e a fase de redução de riscos, é importante reduzir os efeitos reais e possíveis de um ataque rapidamente. Essa ação que você tomará agora pode fazer a diferença entre ataques de pequenas e grandes proporções. A resposta exata dependerá de sua organização e da natureza do ataque enfrentado. Se a avaliação inicial concluiu que uma conta foi comprometida, você precisará aplicar políticas para bloquear essa conta. Isso é apenas um exemplo em que o sistema de gerenciamento de identidade será utilizado. Use as perguntas a seguir para ajudá-lo a desenvolver a sua solução de identidade híbrida levando em conta como as políticas serão impostas na reação de um incidente em andamento:
 
 * Sua empresa tem políticas in-loco para impedir que os usuários acessem a rede se necessário?

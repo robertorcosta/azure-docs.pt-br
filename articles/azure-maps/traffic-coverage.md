@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: 3b1b86e47164ce4c1a13a3dfe037c0ecc659fbee
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91310026"
 ---
 # <a name="azure-maps-traffic-coverage"></a>Cobertura de tráfego dos Mapas do Azure
@@ -23,7 +23,7 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 
 ## <a name="americas"></a>Américas
 
-|País/Região  |Incidentes  |Flow  |
+|País/Região  |Incidentes  |Fluxo  |
 |---------|:---------:|:---------:|
 |Argentina      |✓         |✓         |
 |Brasil     |✓         |✓         |
@@ -39,7 +39,7 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 
 ## <a name="asia-pacific"></a>Pacífico Asiático
 
-|País/Região   |Incidentes  |Flow  |
+|País/Região   |Incidentes  |Fluxo  |
 |---------|:---------:|:---------:|
 |Austrália     |✓         |✓        |
 |Brunei   |✓         |✓        |
@@ -59,7 +59,7 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 
 ## <a name="europe"></a>Europa
 
-|País/Região   |Incidentes  |Flow  |
+|País/Região   |Incidentes  |Fluxo  |
 |---------|:---------:|:---------:|
 |Andorra   |✓         |✓         |
 |Áustria     |✓         |✓         |
@@ -108,7 +108,7 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 |Suíça     |✓         |✓        |
 |Turquia     |✓         |✓         |
 |Ucrânia     |✓         |✓         |
-|Reino Unido     |✓         |✓         |
+|United Kingdom     |✓         |✓         |
 |+Gibraltar     |✓         |✓         |
 |+ Guernsey & Jersey     |✓         |✓         |
 |+ Ilha de Man     |✓         |✓         |
@@ -117,7 +117,7 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 
 ## <a name="middle-east-and-africa"></a>Oriente Médio e África
 
-|País/Região |Incidentes  |Flow  |
+|País/Região |Incidentes  |Fluxo  |
 |---------|:---------:|:---------:|
 |Bahrein     |✓         |✓         |
 |Egito     |✓         |✓         |

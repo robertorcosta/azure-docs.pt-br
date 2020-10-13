@@ -9,10 +9,10 @@ ms.date: 09/22/2020
 ms.author: scottnap
 Customer intent: As someone with a networking background, I want to learn about Network Virtual Appliances in the Virtual WAN hub.
 ms.openlocfilehash: 1e4b8a2d801d7d7eccfaf558c3926ead1ab0a953
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91313766"
 ---
 # <a name="about-network-virtual-appliance-in-an-azure-virtual-wan-hub-preview"></a>Sobre a solução de virtualização de rede em um hub de WAN virtual do Azure (versão prévia)
@@ -50,7 +50,7 @@ Os parceiros de NVA podem criar recursos diferentes dependendo de sua implantaç
 * **Grupo de recursos do cliente** -isso conterá um espaço reservado do aplicativo para o aplicativo gerenciado. Os parceiros podem usar isso para expor quaisquer propriedades de cliente que escolherem aqui.
 * **Grupo de recursos gerenciado** -os clientes não podem configurar ou alterar recursos nesse grupo de recursos diretamente, pois isso é controlado pelo editor do aplicativo gerenciado. Esse grupo de recursos conterá o recurso **NetworkVirtualAppliances** .
 
-:::image type="content" source="./media/about-nva-hub/managed-app.png" alt-text="Grupos de recursos de aplicativo gerenciado":::
+:::image type="content" source="./media/about-nva-hub/managed-app.png" alt-text="Visão geral do processo":::
 
 ### <a name="nva-infrastructure-units"></a><a name="units"></a>Unidades de infraestrutura NVA
 
@@ -82,7 +82,7 @@ NVA no Hub virtual está disponível para visualização nas seguintes regiões:
 | América do Sul | Sul do Brasil |
 | Europa | Europa Ocidental, Sul do Reino Unido|
 |  Oriente Médio | Norte dos EAU |
-| Ásia | Leste do Japão |
+| Ásia | Japan East |
 | Austrália | Leste da Austrália |
 
 ## <a name="faq"></a>Perguntas frequentes

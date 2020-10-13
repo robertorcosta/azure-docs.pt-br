@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/03/2020
 ms.author: v-miegge
-ms.openlocfilehash: f607ebb64b27c45ec696d7fcd431a0ba2342697f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e58e349d7b7385ec913986c39462c17deadcb61d
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89447737"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969595"
 ---
 # <a name="windows-boot-manager-error---0xc0000428-status-invalid-image-hash"></a>Erro do Gerenciador de inicialização do Windows-hash de imagem inválido do status 0xC0000428
 
@@ -28,7 +28,7 @@ Este artigo fornece etapas para resolver problemas em que uma imagem de visualiz
 
 ## <a name="symptom"></a>Sintoma
 
-Quando você usar o [diagnóstico de inicialização](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) para exibir a captura de tela da VM, verá que a captura de tela exibe o Gerenciador de inicialização do Windows com a mensagem:
+Quando você usar o [diagnóstico de inicialização](./boot-diagnostics.md) para exibir a captura de tela da VM, verá que a captura de tela exibe o Gerenciador de inicialização do Windows com a mensagem:
 
   `File: \windows\system32\boot\winload.exe`
 
@@ -66,7 +66,7 @@ Você não pode estender a data de validade de uma imagem de versão prévia. Qu
 
 ## <a name="solution"></a>Solução
 
-Se a imagem for uma imagem de visualização, não será possível estender a data de expiração da imagem usada, você precisará [implantar uma nova VM](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) usando uma imagem que não seja de visualização. As etapas a seguir ajudarão você a identificar se você usou uma imagem de visualização, bem como fornecer recursos para ajudá-lo a transferir dados dessa VM para uma nova VM. Se você identificou positivamente a imagem como uma imagem de visualização, a imagem não será recuperável, pois agora ela expirou.
+Se a imagem for uma imagem de visualização, não será possível estender a data de expiração da imagem usada, você precisará [implantar uma nova VM](../windows/quick-create-portal.md) usando uma imagem que não seja de visualização. As etapas a seguir ajudarão você a identificar se você usou uma imagem de visualização, bem como fornecer recursos para ajudá-lo a transferir dados dessa VM para uma nova VM. Se você identificou positivamente a imagem como uma imagem de visualização, a imagem não será recuperável, pois agora ela expirou.
 
 Dependendo da sua preferência, você pode usar Azure PowerShell ou CLI do Azure para consultar sua imagem para determinar se ela é uma imagem de visualização. Você pode usar esses comandos para confirmar que a imagem é uma imagem de visualização.
 
@@ -103,7 +103,7 @@ Dependendo da sua preferência, você pode usar Azure PowerShell ou CLI do Azure
 
 ### <a name="query-using-the-azure-cli"></a>Consultar usando o CLI do Azure
 
-1. Se ainda não tiver feito isso, será necessário [instalar o CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+1. Se ainda não tiver feito isso, será necessário [instalar o CLI do Azure](/cli/azure/install-azure-cli).
 1. Depois de baixado, use o prompt de comando ou o PowerShell para inserir o `az login` comando e, em seguida, entre com suas credenciais de conta.
 1. Depois de conectado, insira os seguintes comandos:
 

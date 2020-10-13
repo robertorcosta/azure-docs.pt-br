@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.author: inhenkel
 ms.date: 05/24/2020
 ms.openlocfilehash: c297a189f3b13ca8e72daf4eef009bc28fac32bf
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91823189"
 ---
 # <a name="troubleshoot-live-video-analytics-on-iot-edge"></a>Solucionar problemas de análise de vídeo ao vivo no IoT Edge
@@ -326,7 +326,7 @@ Para configurar a análise de vídeo ao vivo no módulo IoT Edge para gerar logs
     > 2. Use o comando a seguir, substituindo **$DEBUG _LOG_LOCATION** pelo local usado na etapa anterior:  
     > `"DebugLogsDirectory": "/var/$DEBUG_LOG_LOCATION"`  
     
-    d. Clique em **Salvar**.
+    d. Selecione **Salvar**.
 
 1. Reproduza o problema.
 1. Conecte-se à máquina virtual na página do **Hub IOT** no Portal.

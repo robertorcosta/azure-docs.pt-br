@@ -10,13 +10,13 @@ ms.topic: article
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.openlocfilehash: cbc79261035ef0f8671b9e43e1332ad68d1c9d39
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91654099"
 ---
-# <a name="azure-tls-certificate-changes"></a>Alterações de certificado do Azure TLS  
+# <a name="azure-tls-certificate-changes"></a>Alterações no certificado TLS do Azure  
 
 A Microsoft está atualizando os serviços do Azure para que eles usem certificados TLS de outro conjunto de ACs (autoridades de certificação) raiz. Essa alteração está sendo feita porque os Certificados de Autoridade de Certificação atuais não estão em conformidade com um dos requisitos de linha de base do fórum do navegador/da AC.
 

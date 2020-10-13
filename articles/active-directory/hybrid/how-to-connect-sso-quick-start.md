@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: logon único contínuo-início rápido | Microsoft Docs'
+title: 'Azure AD Connect: Sign-On simples contínuo-início rápido | Microsoft Docs'
 description: Este artigo descreve como começar a usar o Logon Único Contínuo do Azure Active Directory
 services: active-directory
 keywords: o que é o Azure AD Connect, instalar o Active Directory, componentes necessários do Azure AD, SSO, Logon Único
@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fde2052078e0131e720411f91aa8ae7484338252
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91295015"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Azure Active Directory logon único contínuo: início rápido

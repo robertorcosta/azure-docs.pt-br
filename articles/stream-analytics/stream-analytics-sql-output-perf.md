@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.openlocfilehash: b760ad03318b3c31b39b6470251847150dc5a70a
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88869415"
 ---
 # <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Saída do Azure Stream Analytics para Banco de Dados SQL do Azure
@@ -48,7 +48,7 @@ A inserção em massa de dados é muito mais rápida do que carregar dados com i
 
 Se a taxa de eventos de entrada for baixa, ela poderá criar facilmente tamanhos de lote inferiores a 100 linhas, o que tornará a inserção em massa ineficiente e usará muito espaço em disco. Para contornar essa limitação, você pode executar uma destas ações:
 * Crie um [gatilho](/sql/t-sql/statements/create-trigger-transact-sql) instead of para usar Insert simples para cada linha.
-* Use uma tabela temporária na memória, conforme descrito na seção anterior.
+* Use uma In-Memory tabela temporária, conforme descrito na seção anterior.
 
 Outro cenário desse tipo ocorre ao gravar em um índice columnstore não clusterizado (NCCI), em que inserções em massa menores podem criar muitos segmentos, que podem falhar o índice. Nesse caso, a recomendação é usar um índice Columnstore clusterizado.
 

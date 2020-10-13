@@ -7,10 +7,10 @@ ms.date: 08/21/2020
 ms.author: jpalma
 author: palma21
 ms.openlocfilehash: 4dfaa329dd0472b52de2d3306e6a3b61f660e666
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89443051"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>Usar GPUs para cargas de trabalho de computação intensiva no AKS (Serviço de Kubernetes do Azure)
@@ -32,13 +32,13 @@ Você também precisa do CLI do Azure versão 2.0.64 ou posterior instalada e co
 
 Se você precisar de um cluster do AKS que atenda aos requisitos mínimos (nó habilitado para GPU e Kubernetes versão 1.10 ou posterior), conclua as etapas a seguir. Se você já tiver um cluster AKS que atenda a esses requisitos, [pule para a próxima seção](#confirm-that-gpus-are-schedulable).
 
-Primeiro, crie um grupo de recursos para o cluster usando o comando [az group create][az-group-create]. O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na região *eastus*:
+Primeiro, crie um grupo de recursos para o cluster usando o comando [AZ Group Create][az-group-create] . O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na região *eastus*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Agora, crie um cluster do AKS usando o comando [az aks create][az-aks-create]. O exemplo a seguir cria um cluster com um único nó de tamanho `Standard_NC6` :
+Agora, crie um cluster AKS usando o comando [AZ AKs Create][az-aks-create] . O exemplo a seguir cria um cluster com um único nó de tamanho `Standard_NC6` :
 
 ```azurecli-interactive
 az aks create \
@@ -48,7 +48,7 @@ az aks create \
     --node-count 1
 ```
 
-Obtenha as credenciais do seu cluster do AKS usando o comando [az aks get-credentials][az-aks-get-credentials]:
+Obtenha as credenciais para o cluster AKS usando o comando [AZ AKs Get-Credentials][az-aks-get-credentials] :
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -152,7 +152,7 @@ Para instalar a extensão da CLI AKs-Preview, use os seguintes comandos de CLI d
 az extension add --name aks-preview
 ```
 
-Para atualizar a extensão da CLI AKs-Preview, use os seguintes comandos de CLI do Azure:
+Para atualizar a extensão aks-preview da CLI, use os seguintes comandos da CLI do Azure:
 
 ```azurecli
 az extension update --name aks-preview
@@ -386,7 +386,7 @@ Accuracy at step 490: 0.9494
 Adding run metadata for 499
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para remover os objetos de Kubernetes associados criados neste artigo, use o comando [kubectl delete job][kubectl delete] da seguinte maneira:
 
