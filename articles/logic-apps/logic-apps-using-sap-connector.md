@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 07/21/2020
 tags: connectors
 ms.openlocfilehash: 4afd6f0cc3b4b5e135d80b420d8260c50d9ca46c
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89488840"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Conectar aos sistemas SAP a partir do Aplicativos Lógicos do Azure
@@ -516,7 +516,7 @@ Para enviar IDocs do SAP para seu aplicativo lógico, você precisará da seguin
     
     * Na guia **Unicode** , para **tipo de comunicação com sistema de destino**, selecione **Unicode**.
 
-1. Salve as alterações.
+1. Salve suas alterações.
 
 1. Registre sua nova **ID de programa** com os aplicativos lógicos do Azure.
 
@@ -530,7 +530,7 @@ Para enviar IDocs do SAP para seu aplicativo lógico, você precisará da seguin
 
 1. Para **destino RFC**, insira o identificador para [o sistema SAP de teste](#create-rfc-destination).
 
-1. Salve as alterações.
+1. Salve suas alterações.
 
 1. Para testar sua conexão, selecione **teste de conexão**.
 
@@ -540,11 +540,11 @@ Para enviar IDocs do SAP para seu aplicativo lógico, você precisará da seguin
 
 1. Selecione **porta**de  >  **criação RFC transacional**  >  **Create**.
 
-1. Na caixa configurações que é aberta, selecione o **próprio nome de porta**. Para sua porta de teste, insira um **nome**. Salve as alterações.
+1. Na caixa configurações que é aberta, selecione o **próprio nome de porta**. Para sua porta de teste, insira um **nome**. Salve suas alterações.
 
 1. Nas configurações de sua nova porta do destinatário, para **destino RFC**, insira o identificador para [o destino RFC de teste](#create-rfc-destination).
 
-1. Salve as alterações.
+1. Salve suas alterações.
 
 #### <a name="create-sender-port"></a>Criar porta do remetente
 
@@ -552,11 +552,11 @@ Para enviar IDocs do SAP para seu aplicativo lógico, você precisará da seguin
 
 1. Selecione **porta**de  >  **criação RFC transacional**  >  **Create**.
 
-1. Na caixa configurações que é aberta, selecione o **próprio nome de porta**. Para sua porta de teste, insira um **nome** que comece com **SAP**. Todos os nomes de porta de remetente devem começar com as letras **SAP**, por exemplo, **SAPTEST**. Salve as alterações.
+1. Na caixa configurações que é aberta, selecione o **próprio nome de porta**. Para sua porta de teste, insira um **nome** que comece com **SAP**. Todos os nomes de porta de remetente devem começar com as letras **SAP**, por exemplo, **SAPTEST**. Salve suas alterações.
 
 1. Nas configurações de sua nova porta de remetente, para **destino RFC**, insira o identificador para [sua conexão ABAP](#create-abap-connection).
 
-1. Salve as alterações.
+1. Salve suas alterações.
 
 #### <a name="create-logical-system-partner"></a>Criar parceiro de sistema lógico
 
@@ -566,7 +566,7 @@ Para enviar IDocs do SAP para seu aplicativo lógico, você precisará da seguin
 
 1. Acima da lista que mostra os sistemas lógicos existentes, selecione **novas entradas**.
 
-1. Para seu novo sistema lógico, insira um **Log.Sys** identificador de tem e uma descrição de **nome** curta. Salve as alterações.
+1. Para seu novo sistema lógico, insira um **Log.Sys** identificador de tem e uma descrição de **nome** curta. Salve suas alterações.
 
 1. Quando o **prompt do Workbench** for exibido, crie uma nova solicitação fornecendo uma descrição ou, se você já tiver criado uma solicitação, ignore esta etapa.
 
@@ -588,7 +588,7 @@ Para ambientes de produção, você deve criar dois perfis de parceiro. O primei
 
     * Para o **Agent**, insira o identificador da conta de usuário SAP a ser usado ao registrar identificadores de programa para aplicativos lógicos do Azure ou outros sistemas não SAP.
 
-1. Salve as alterações. Se você não [criou o parceiro do sistema lógico](#create-logical-system-partner), você obtém o erro, **Insira um número de parceiro válido**.
+1. Salve suas alterações. Se você não [criou o parceiro do sistema lógico](#create-logical-system-partner), você obtém o erro, **Insira um número de parceiro válido**.
 
 1. Nas configurações de seu perfil de parceiro, em **parmtrs de saída.**, selecione **criar parâmetro de saída**.
 
@@ -600,7 +600,7 @@ Para ambientes de produção, você deve criar dois perfis de parceiro. O primei
 
     * Insira um tamanho de IDoc para o **pacote. Tamanho**. Ou, para [Enviar IDocs um de cada vez do SAP](#receive-idoc-packets-from-sap), selecione **Pass IDOC imediatamente**.
 
-1. Salve as alterações.
+1. Salve suas alterações.
 
 #### <a name="test-sending-messages"></a>Testar mensagens de envio
 

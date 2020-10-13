@@ -8,10 +8,10 @@ ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.openlocfilehash: ad0111f9be8c0b981093618be7296d0ec7f90e30
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91326534"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Gerenciar um grafo de gêmeos digital usando relações
@@ -237,7 +237,7 @@ Em casos de uso prático, muitas vezes, as hierarquias de entrelaçamento serão
 
 Considere a tabela de dados a seguir, descrevendo um conjunto de gêmeos e relações digitais a serem criadas.
 
-| Modelo    | ID | Pai | Nome da Relação | Outros dados |
+| Modelar    | ID | Pai | Nome da Relação | Outros dados |
 | --- | --- | --- | --- | --- |
 | floor    | Floor01 | | | … |
 | quarto    | Room10 | Floor01 | contains | … |

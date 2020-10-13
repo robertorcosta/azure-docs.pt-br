@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: 954962d4f0f16cb35035527d4cb81d0e13495a86
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 189d6a57a17172f181e7375265960fe4f25f8ed1
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91631827"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940235"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de versão do Azure Machine Learning
 
@@ -90,7 +90,7 @@ Veja [a lista de problemas conhecidos](resource-known-issues.md) para aprender s
     + Documentação atualizada do AzureML MLflow e exemplos de notebook 
     + Novo suporte para projetos MLflow com back-end do AzureML
     + Suporte ao registro de modelo MLflow
-    + Adicionado suporte a RBAC para operações do AzureML-MLflow 
+    + Adicionado suporte a RBAC para operações de AzureML-MLflow 
     
   + **azureml-pipeline-core**
     + A documentação dos métodos PipelineOutputFileDataset.parse_ * foi aprimorada.
@@ -311,7 +311,7 @@ Veja [a lista de problemas conhecidos](resource-known-issues.md) para aprender s
     + Para Datastore.register_azure_blob_container e Datastore.register_azure_file_share (somente opções que dão suporte ao token SAS), atualizamos as cadeias de caracteres de documento para o `sas_token` campo para incluir requisitos mínimos de permissões para cenários de leitura e gravação típicos.
     + Preterindo _with_auth param no ws.get_mlflow_tracking_uri ()
   + **azureml-mlflow**
-    + Adicionar suporte para a implantação de modelos de file://locais com o AzureML-MLflow
+    + Adicionar suporte para a implantação de modelos de file://locais com AzureML-MLflow
     + Preterindo _with_auth param no ws.get_mlflow_tracking_uri ()
   + **azureml-opendatasets**
     + Os conjuntos de Covid de controle de acompanhamento recentemente publicados agora estão disponíveis com o SDK
@@ -1785,7 +1785,7 @@ No momento desta versão, há suporte para os seguintes navegadores: Chrome, Fir
 + **Novos recursos**
   + O Machine Learning automatizado agora dá suporte a modelos de ONNX de treinamento no destino de computação remota
   + Azure Machine Learning agora fornece a capacidade de retomar o treinamento de arquivos de execução, ponto de verificação ou modelo anteriores.
-    + Saiba como [usar os estimadores para retomar o treinamento de uma execução anterior](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/tensorflow/training/train-tensorflow-resume-training/train-tensorflow-resume-training.ipynb)
+    + Saiba como [usar os estimadores para retomar o treinamento de uma execução anterior](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/tensorflow/train-tensorflow-resume-training/train-tensorflow-resume-training.ipynb)
 
 + **Correções de bugs e melhorias**
   + **azure-cli-ml**
@@ -2046,7 +2046,7 @@ O [`PipelineEndpoint`](https://docs.microsoft.com/python/api/azureml-pipeline-co
 
 + **Novos recursos**
   + Azure Machine Learning agora fornece suporte de primeira classe para o DNN Framework popular. Usar [`Chainer`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py&preserve-view=true) usuários de classe pode facilmente treinar e implantar modelos de encadeamento.
-    + Saiba como [executar o treinamento distribuído com o ChainerMN](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/chainer/training/distributed-chainer/distributed-chainer.ipynb)
+    + Saiba como [executar o treinamento distribuído com o ChainerMN](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/chainer/distributed-chainer/distributed-chainer.ipynb)
     + Saiba como [executar o ajuste de hiperparâmetro com o encadeamento usando hyperdrive](https://github.com/Azure/MachineLearningNotebooks/blob/b881f78e4658b4e102a72b78dbd2129c24506980/how-to-use-azureml/ml-frameworks/chainer/deployment/train-hyperparameter-tune-deploy-with-chainer/train-hyperparameter-tune-deploy-with-chainer.ipynb)
   + Azure Machine Learning pipelines adicionou a capacidade de disparar uma execução de pipeline com base nas modificações do repositório de armazenamento. O [notebook de agendamento](https://aka.ms/pl-schedule) de pipeline é atualizado para demonstrar esse recurso.
 

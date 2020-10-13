@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: 3b7c9b51bad45bb348f70c8b0e433404b49b5aac
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91761355"
 ---
 # <a name="set-up-your-environment-for-the-iot-plug-and-play-quickstarts-and-tutorials"></a>Configurar seu ambiente para os guias de início rápido e tutoriais do IoT Plug and Play
@@ -83,8 +83,8 @@ Crie cinco variáveis de ambiente para configurar os exemplos nos guias de iníc
 
 Os exemplos de serviço precisam das seguintes variáveis de ambiente para identificar o Hub e o dispositivo aos quais se conectar:
 
-* **IOTHUB_CONNECTION_STRING**: a cadeia de conexão do Hub IOT anotada anteriormente.
-* **IOTHUB_DEVICE_ID**: `my-pnp-device` .
+* **IOTHUB_CONNECTION_STRING**: a cadeia de conexão do hub IoT anotada anteriormente.
+* **IOTHUB_DEVICE_ID**: `my-pnp-device`.
 
 Por exemplo, em um shell bash do Linux:
 
@@ -128,7 +128,7 @@ Na primeira vez que você executar a ferramenta, você será solicitado a fornec
 
 Configure a ferramenta para usar os arquivos de modelo que você baixou anteriormente. Na home page da ferramenta, selecione configurações de **IoT plug and Play**e, em seguida, **+ Adicionar > pasta local**. Selecione a pasta *modelos* que você criou anteriormente. Em seguida, selecione **salvar** para salvar as configurações.
 
-Para saber mais, consulte [instalar e usar o Azure IOT Explorer](howto-use-iot-explorer.md).
+Para saber mais, confira [Instalar e usar o Azure IoT Explorer](howto-use-iot-explorer.md).
 
 ## <a name="remove-the-resources"></a>Remover os recursos
 

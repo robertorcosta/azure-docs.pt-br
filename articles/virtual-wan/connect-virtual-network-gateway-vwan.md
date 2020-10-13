@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.openlocfilehash: 29f5b549bd5f5dbc421487739bb1eb8c7f120bb0
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91441031"
 ---
 # <a name="connect-a-vpn-gateway-virtual-network-gateway-to-virtual-wan"></a>Conectar um gateway de VPN (gateway de rede virtual) à WAN virtual
@@ -119,7 +119,7 @@ Nesta seção, você cria uma conexão entre os gateways de rede local do gatewa
 3. Clique em **OK** para criar sua conexão.
 4. Você pode exibir a conexão na página **Conexões** do seu gateway de rede virtual.
 
-   ![Conexão](./media/connect-virtual-network-gateway-vwan/connect.png "conexão")
+   ![Conexão](./media/connect-virtual-network-gateway-vwan/connect.png "connection")
 5. Repita as etapas anteriores para criar uma segunda conexão. Para a segunda conexão, selecione o outro gateway de rede local que você criou.
 6. Se as conexões estiverem acima do BGP, depois de criar as conexões, navegue até uma conexão e selecione **configuração**. Na página **configuração** , para **BGP**, selecione **habilitado**. Em seguida, clique em **Salvar**. Repita para a segunda conexão.
 

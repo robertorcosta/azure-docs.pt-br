@@ -4,12 +4,12 @@ description: Saiba mais sobre as políticas de suporte do AKS (Serviço de Kuber
 services: container-service
 ms.topic: article
 ms.date: 09/18/2020
-ms.openlocfilehash: 188416d9ef6f8e7568b10e8ccbb405be0bff315d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86b1c0bba30b41a2ee17cfbdf05286c4d2b3fb8a
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "90888984"
+ms.locfileid: "91892703"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Políticas de suporte para o Serviço de Kubernetes do Azure
 
@@ -130,8 +130,7 @@ Você só pode personalizar o NSGs em sub-redes personalizadas. Você não pode 
 
 ## <a name="stopped-or-de-allocated-clusters"></a>Clusters interrompidos ou desalocados
 
-De acordo com a desalocação manual de todos os nós de cluster por meio das APIs/CLI/portal de IaaS, o cluster não oferece suporte.
-A única maneira com suporte para parar/desalocar todos os nós é [parar o cluster AKs, o que preservará o estado do cluster por até 12 meses.
+Como mencionado anteriormente, a desalocação manual de todos os nós de cluster por meio de APIs/CLI/portal de IaaS renderiza o cluster fora do suporte. A única maneira com suporte para parar/desalocar todos os nós é [parar o cluster AKs](start-stop-cluster.md#stop-an-aks-cluster), que preserva o estado do cluster por até 12 meses.
 
 Os clusters que são interrompidos por mais de 12 meses não preservarão mais o estado. 
 

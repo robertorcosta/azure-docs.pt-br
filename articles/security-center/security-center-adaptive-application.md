@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
 ms.openlocfilehash: 12140b71f8ef720a9e48b486a43e683b5766d102
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91439009"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Use controles de aplicativo adaptáveis para reduzir as superfícies de ataque de suas máquinas
@@ -31,7 +31,7 @@ Os controles de aplicativo adaptáveis são uma solução inteligente e automati
 
 Muitas vezes, as organizações têm coleções de computadores que executam rotineiramente os mesmos processos. A central de segurança usa o aprendizado de máquina para analisar os aplicativos em execução em seus computadores e criar uma lista de softwares conhecidos. As listas de permissões são baseadas em suas cargas de trabalho específicas do Azure e você pode personalizar ainda mais as recomendações usando as instruções abaixo.
 
-Quando você tiver habilitado e configurado controles de aplicativo adaptáveis, obterá alertas de segurança se qualquer aplicativo for executado além daqueles que você definiu como seguro.
+Quando você habilitar e configurar os controles de aplicativo adaptáveis, obterá alertas de segurança se qualquer aplicativo for executado além daqueles que você definiu como seguros.
 
 
 ## <a name="what-are-the-benefits-of-adaptive-application-controls"></a>Quais são os benefícios dos controles de aplicativo adaptáveis?
@@ -51,10 +51,10 @@ Definindo listas de aplicativos conhecidos e gerando alertas quando qualquer out
 |Aspecto|Detalhes|
 |----|:----|
 |Estado da versão:|GA (em disponibilidade geral)|
-|Refere|Requer o [Azure defender para servidores](defender-for-servers-introduction.md)|
+|Preço:|Requer [Azure Defender para Servidores](defender-for-servers-introduction.md)|
 |Computadores com suporte:|![Sim ](./media/icons/yes-icon.png) computadores Azure e não Azure executando Windows e Linux<br>![Sim, ](./media/icons/yes-icon.png) computadores [do Arc do Azure](https://docs.microsoft.com/azure/azure-arc/)|
 |Funções e permissões necessárias:|O **leitor de segurança** e as funções de **leitor** podem exibir grupos e as listas de aplicativos conhecidos confiáveis<br>As funções de administrador de **colaborador** e de **segurança** podem editar grupos e as listas de aplicativos conhecidos confiáveis|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) National/soberanas (US Gov, China gov, outros gov)|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Nacionais/soberanas (US Gov, China Gov, outros Gov)|
 |||
 
 

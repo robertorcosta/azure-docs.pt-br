@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/15/2020
-ms.openlocfilehash: b524b0d8f24f011065772495bc2bb283a3c90d4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/08/2020
+ms.openlocfilehash: 06b92d982b42d97849994b4a21696b72461efe1f
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760246"
+ms.locfileid: "91893757"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Perguntas frequentes sobre o Azure Monitor
 
@@ -322,7 +322,6 @@ Procuramos o endereço IP (IPv4 ou IPv6) do cliente Web usando [GeoLite2](https:
 * Telemetria do servidor: O módulo Application Insights coleta o endereço IP do cliente. Ele não será coletado se `X-Forwarded-For` estiver configurado.
 * Para saber mais sobre como o endereço IP e os dados de localização geográfica são coletados no Application Insights consulte este [artigo](./app/ip-collection.md).
 
-
 É possível configurar o `ClientIpHeaderTelemetryInitializer` para coletar o endereço IP de um cabeçalho diferente. Em alguns sistemas, por exemplo, ele é movido por um proxy, balanceador de carga ou CDN para `X-Originating-IP`. [Saiba mais](https://apmtips.com/posts/2016-07-05-client-ip-address/).
 
 É possível [usar o Power BI](app/export-power-bi.md ) para exibir sua telemetria de solicitação em um mapa.
@@ -398,6 +397,29 @@ Cada item transmitido carrega uma propriedade `itemCount` que mostra quantos eve
     requests | summarize original_events = sum(itemCount), transmitted_events = count()
 ```
 
+### <a name="how-do-i-move-an-application-insights-resource-to-a-new-region"></a>Como fazer mover um recurso de Application Insights para uma nova região?
+
+**Não há suporte**para a movimentação de recursos de Application insights existentes de uma região para outra no momento. Os dados históricos que você coletou **não podem ser migrados** para uma nova região. A única solução parcial é:
+
+1. Crie um recurso novo Application Insights ([clássico](app/create-new-resource.md) ou [baseado em espaço de trabalho](/app/create-workspace-resource.md)) na nova região.
+2. Recrie todas as personalizações exclusivas específicas para o recurso original no novo recurso.
+3. Modifique seu aplicativo para usar a [chave de instrumentação](app/create-new-resource.md#copy-the-instrumentation-key) ou a cadeia de [conexão](app/sdk-connection-string.md)do novo recurso de região.  
+4. Teste para confirmar se tudo está continuando a funcionar conforme o esperado com o novo recurso Application Insights. 
+5. Neste ponto, você pode excluir o recurso original, o que resultará na **perda de todos os dados históricos**. Ou manter o recurso original para fins de relatórios históricos durante as suas configurações de retenção de dados.
+
+Personalizações exclusivas que normalmente precisam ser recriadas ou atualizadas manualmente para o recurso na nova região incluem, mas não estão limitadas a:
+
+- Recrie painéis e pastas de trabalho personalizados. 
+- Recrie ou atualize o escopo de qualquer alerta de log/métrica personalizado. 
+- Recrie alertas de disponibilidade.
+- Recrie qualquer configuração de RBAC (controle de acesso Role-Based) personalizada que seja necessária para que os usuários acessem o novo recurso. 
+- Replique as configurações que envolvem amostragem de ingestão, retenção de dados, limite diário e habilitação de métricas personalizadas. Essas configurações são controladas por meio do painel **uso e custos estimados** .
+- Qualquer integração que dependa de chaves de API, como [anotações de versão](/app/annotations.md), o canal de [controle seguro de métricas ao vivo](app/live-stream.md#secure-the-control-channel) , etc. Será necessário gerar novas chaves de API e atualizar a integração associada. 
+- A exportação contínua em recursos clássicos precisaria ser configurada novamente.
+- As configurações de diagnóstico em recursos baseados em espaço de trabalho precisariam ser configuradas novamente.
+
+> [!NOTE]
+> Se o recurso que você está criando em uma nova região estiver substituindo um recurso clássico, recomendamos explorar os benefícios de [criar um novo recurso baseado em espaço de trabalho](app/create-workspace-resource.md) ou [migrar de forma alternativa o recurso existente para o baseado em espaço de trabalho](app/convert-classic-resource.md). 
 
 ### <a name="automation"></a>Automação
 
