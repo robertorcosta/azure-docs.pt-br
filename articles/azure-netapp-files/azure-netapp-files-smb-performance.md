@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: b-juche
-ms.openlocfilehash: 6a7bf07359344e26280021a6a55eecc5b96b7a86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a07c6ae48cdca68a95db7770d90076eb8f10f95
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653682"
+ms.locfileid: "91929449"
 ---
 # <a name="faqs-about-smb-performance-for-azure-netapp-files"></a>Perguntas frequentes sobre o desempenho do SMB para Azure NetApp Files
 
@@ -39,7 +39,7 @@ Com o SMB multicanal habilitado, um cliente SMB3 estabelece várias conexões TC
 
 ## <a name="which-windows-versions-support-smb-multichannel"></a>Quais versões do Windows oferecem suporte a SMB Multichannel?
 
-O Windows tem suporte para o SMB Multichannel desde o Windows 2012 para permitir o melhor desempenho.  Consulte [implantar o SMB multicanal](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn610980(v%3Dws.11)) e [os fundamentos do SMB Multichannel](https://blogs.technet.microsoft.com/josebda/2012/06/28/the-basics-of-smb-multichannel-a-feature-of-windows-server-2012-and-smb-3-0/) para obter detalhes. 
+O Windows tem suporte para o SMB Multichannel desde o Windows 2012 para permitir o melhor desempenho.  Consulte [implantar o SMB multicanal](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn610980(v%3Dws.11)) e [os fundamentos do SMB Multichannel](/archive/blogs/josebda/the-basics-of-smb-multichannel-a-feature-of-windows-server-2012-and-smb-3-0) para obter detalhes. 
 
 
 ## <a name="does-my-azure-virtual-machine-support-rss"></a>Minha máquina virtual do Azure dá suporte a RSS?
@@ -132,7 +132,7 @@ Depois de ter o tráfego de dados em execução em seus volumes, você pode moni
 
 ## <a name="is-accelerated-networking-recommended"></a>A rede acelerada é recomendada?
 
-Para obter o máximo de desempenho, é recomendável configurar a [rede acelerada](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell) sempre que possível. Tenha em mente as seguintes considerações:  
+Para obter o máximo de desempenho, é recomendável configurar a [rede acelerada](../virtual-network/create-vm-accelerated-networking-powershell.md) sempre que possível. Tenha em mente as seguintes considerações:  
 
 * O portal do Azure habilita a rede acelerada por padrão para máquinas virtuais que dão suporte a esse recurso.  No entanto, outros métodos de implantação, como Ansible e ferramentas de configuração semelhantes, podem não.  A falha ao habilitar a rede acelerada pode hobble o desempenho de um computador.  
 * Se a rede acelerada não estiver habilitada na interface de rede de uma máquina virtual devido à falta de suporte para um tipo ou tamanho de instância, ela permanecerá desabilitada com tipos de instância maiores. Você precisará de intervenção manual nesses casos.

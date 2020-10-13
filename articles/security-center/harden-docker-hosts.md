@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
 ms.openlocfilehash: 500fa45db7e0e6bffb587d9d352ee1ab49f14703
-ms.sourcegitcommit: 5b69ba21787c07547edfbfd5254eaf34315cfadd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91712265"
 ---
 # <a name="harden-your-docker-hosts"></a>Proteger os hosts do Docker
 
-A central de segurança do Azure identifica contêineres não gerenciados hospedados em VMs do Linux IaaS ou em outros computadores Linux que executam contêineres do Docker. A central de segurança avalia continuamente as configurações desses contêineres. Em seguida, ele os compara com o [benchmark do Docker do CIS (Center for Internet Security)](https://www.cisecurity.org/benchmark/docker/).
+A Central de Segurança do Azure identifica contêineres não gerenciados hospedados em VMs IaaS do Linux ou em outros computadores Linux que executam contêineres do Docker. A Central de Segurança avalia continuamente as configurações desses contêineres. Em seguida, ela as compara com o [benchmark do CIS (Center for Internet Security) do Docker](https://www.cisecurity.org/benchmark/docker/).
 
-A central de segurança inclui o conjunto de regras inteiro do parâmetro de comparação do Docker do CIS e o alerta se os contêineres não atenderem a nenhum dos controles. Quando ele encontra configurações incorretas, a central de segurança gera recomendações de segurança. Use a **página recomendações** da central de segurança para exibir recomendações e corrigir problemas.
+A Central de Segurança inclui todo o conjunto de regras do benchmark do CIS do Docker e alerta você se os contêineres não atendem a nenhum dos controles. Quando encontra configurações incorretas, a Central de Segurança gera recomendações de segurança. Use a **página recomendações** da Central de Segurança para exibir recomendações e corrigir problemas.
 
 Quando as vulnerabilidades são encontradas, elas são agrupadas dentro de uma única recomendação.
 
@@ -30,9 +30,9 @@ Quando as vulnerabilidades são encontradas, elas são agrupadas dentro de uma �
 |Aspecto|Detalhes|
 |----|:----|
 |Estado da versão:|GA (em disponibilidade geral)|
-|Preço:|Requer o [Azure defender para servidores](defender-for-servers-introduction.md)|
+|Preço:|Requer [Azure Defender para Servidores](defender-for-servers-introduction.md)|
 |Funções e permissões necessárias:|**Leitor** no espaço de trabalho ao qual o host se conecta|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) National/soberanas (US Gov, China gov, outros gov)|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Nacionais/soberanas (US Gov, China Gov, outros Gov)|
 |||
 
 ## <a name="identify-and-remediate-security-vulnerabilities-in-your-docker-configuration"></a>Identificar e corrigir vulnerabilidades de segurança na configuração do Docker

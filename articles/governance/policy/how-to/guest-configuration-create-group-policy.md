@@ -3,12 +3,12 @@ title: Como criar definições de política de configuração de convidado da li
 description: Saiba como converter Política de Grupo da linha de base de segurança do Windows Server 2019 em uma definição de política.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 58fe4fa3e5056192fa5febe4883a1457d130871b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dce22885981ab01fe37fac8588899d12a5afb87d
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "88547761"
+ms.locfileid: "91893366"
 ---
 # <a name="how-to-create-guest-configuration-policy-definitions-from-group-policy-baseline-for-windows"></a>Como criar definições de política de configuração de convidado da linha de base de Política de Grupo para Windows
 
@@ -87,7 +87,7 @@ Em seguida, convertemos a linha de base do servidor baixado 2019 em um pacote de
 
 ## <a name="create-azure-policy-guest-configuration"></a>Criar Azure Policy configuração de convidado
 
-A próxima etapa é publicar o arquivo no armazenamento de blobs. 
+A próxima etapa é publicar o arquivo no armazenamento de BLOBs do Azure. 
 
 1. O script a seguir contém uma função que pode ser usada para automatizar essa tarefa. Observe que os comandos usados na `publish` função exigem o `Az.Storage` módulo.
 

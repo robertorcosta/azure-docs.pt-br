@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/04/2020
 ms.author: jushiman
 ms.openlocfilehash: 377677c9e5e81487059241db68baff639a3de033
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91715035"
 ---
 # <a name="create-a-custom-preference-in-azure-automanage-for-vms"></a>Criar uma preferência personalizada no autogerenciamento do Azure para VMs
@@ -66,8 +66,8 @@ Entre no [portal do Azure](https://portal.azure.com/).
 6. No perfil escolhido, em **preferências de configuração** , há uma lista suspensa onde você pode ajustar para determinados serviços.
     1. Clique em **criar novas preferências**.
     1. Na folha **criar uma preferência de configuração** , preencha a guia noções básicas:
-        1. Assinatura
-        1. Grupo de recursos
+        1. Subscription
+        1. Resource group
         1. Nome da preferência
         1. Região
 

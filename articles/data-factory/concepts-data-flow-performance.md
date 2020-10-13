@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.custom: seo-lt-2019
 ms.date: 08/12/2020
 ms.openlocfilehash: 4a78e966d420591ebe7a9607777158cf17ddf698
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91370871"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guia de desempenho e ajuste de fluxos de dados de mapeamento
@@ -173,7 +173,7 @@ Embora os fluxos de dados ofereçam suporte a uma variedade de tipos de arquivo,
 
 Se você estiver executando o mesmo fluxo de dados em um conjunto de arquivos, recomendamos a leitura de uma pasta, o uso de caminhos curinga ou a leitura de uma lista de arquivos. Uma execução de atividade de fluxo de dados único pode processar todos os arquivos no lote. Mais informações sobre como definir essas configurações podem ser encontradas na documentação do conector, como [armazenamento de BLOBs do Azure](connector-azure-blob-storage.md#source-transformation).
 
-Se possível, evite usar a atividade for-each para executar fluxos de dados em um conjunto de arquivos. Isso fará com que cada iteração do para-cada para criar seu próprio cluster Spark, que geralmente não é necessário e pode ser caro. 
+Se possível, evite usar a atividade For-Each para executar fluxos de dados em um conjunto de arquivos. Isso fará com que cada iteração do para-cada para criar seu próprio cluster Spark, que geralmente não é necessário e pode ser caro. 
 
 ## <a name="optimizing-sinks"></a>Otimizando coletores
 

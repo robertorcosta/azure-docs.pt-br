@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/03/2020
+ms.date: 09/28/2020
 ms.author: jingwang
-ms.openlocfilehash: 3a1e5ed7d9ca14c03483cb6afe6b6318c6a90764
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e1a08af1be3d9b5cfb011516d00a8c0548994bf
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440585"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91946155"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Atividade de cópia no Azure Data Factory
 
@@ -129,7 +129,7 @@ O modelo a seguir de uma atividade de cópia contém uma lista completa de propr
 
 | Propriedade | Descrição | Necessário? |
 |:--- |:--- |:--- |
-| type | Para uma atividade de cópia, defina como `Copy` | Sim |
+| tipo | Para uma atividade de cópia, defina como `Copy` | Sim |
 | entradas | Especifique o conjunto de dados que você criou que aponta para a origem. A atividade de cópia dá suporte a apenas uma única entrada. | Sim |
 | outputs | Especifique o conjunto de dados que você criou que aponta para o coletor. A atividade de cópia dá suporte a apenas uma única saída. | Sim |
 | typeProperties | Especifique as propriedades para configurar a atividade de cópia. | Sim |
@@ -198,7 +198,7 @@ Você pode encontrar a seguinte configuração na guia origem da atividade de c�
 
 Para configurá-lo programaticamente, adicione a `additionalColumns` propriedade em sua fonte de atividade de cópia:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessária |
 | --- | --- | --- |
 | additionalColumns | Adicione colunas de dados adicionais para copiar para o coletor.<br><br>Cada objeto sob a `additionalColumns` matriz representa uma coluna extra. O `name` define o nome da coluna e `value` indica o valor de dados dessa coluna.<br><br>Os valores de dados permitidos são:<br>- **`$$FILEPATH`** -uma variável reservada indica armazenar o caminho relativo dos arquivos de origem para o caminho da pasta especificado no conjunto de uma. Aplicar à fonte baseada em arquivo.<br>- **Expressão**<br>- **Valor estático** | Não |
 
@@ -247,7 +247,7 @@ Ao copiar os dados para o SQL Database/Azure Synapse Analytics, se a tabela de d
 
 Esse recurso tem suporte ao copiar dados de qualquer fonte nos armazenamentos de dados do coletor a seguir. Você pode encontrar a opção na *interface do usuário de criação do ADF* – opção > o *coletor de atividade de cópia* – > *tabela* – > *criação automática de tabela*ou por meio `tableOption` da propriedade na carga do coletor da atividade de cópia.
 
-- [Banco de Dados SQL do Azure](connector-azure-sql-database.md)
+- [Banco de dados SQL do Azure](connector-azure-sql-database.md)
 - [Instância Gerenciada do Banco de Dados SQL do Azure](connector-azure-sql-managed-instance.md)
 - [Azure Synapse Analytics (antigo SQL Data Warehouse)](connector-azure-sql-data-warehouse.md)
 - [SQL Server](connector-sql-server.md)

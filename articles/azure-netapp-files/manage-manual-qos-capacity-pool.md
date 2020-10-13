@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: b-juche
-ms.openlocfilehash: d2abb66684738e97ade2a2e67309a4e7b53c4734
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e44c2cfc81256a8715c7c625648b6ec25bcd319
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91442081"
+ms.locfileid: "91929210"
 ---
 # <a name="manage-a-manual-qos-capacity-pool"></a>Gerenciar um pool de capacidade de QoS manual
 
@@ -44,7 +44,7 @@ O recurso de tipo de QoS manual está atualmente em visualização. Se você est
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFFlexPool
     ```
-Você também pode usar [comandos de CLI do Azure](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest&preserve-view=true) `az feature register` e `az feature show` para registrar o recurso e exibir o status do registro. 
+Você também pode usar [comandos de CLI do Azure](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` e `az feature show` para registrar o recurso e exibir o status do registro. 
 
 ## <a name="set-up-a-new-manual-qos-capacity-pool"></a>Configurar um novo pool de capacidade de QoS manual 
 
@@ -97,5 +97,3 @@ Se um volume estiver contido em um pool de capacidade de QoS manual, você poder
 * [Criar um volume NFS](azure-netapp-files-create-volumes.md)
 * [Criar um volume SMB](azure-netapp-files-create-volumes-smb.md)
 * [Criar um volume de protocolo duplo](create-volumes-dual-protocol.md)
-
-

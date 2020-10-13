@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 09/18/2020
 ms.author: mjbrown
 ms.openlocfilehash: 98210f26072504c129ba32f765cf6bab74fef604
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91570724"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Gerenciar uma conta do Azure Cosmos
@@ -31,7 +31,7 @@ Consulte [criar uma conta de Azure Cosmos DB com CLI do Azure](manage-with-cli.m
 
 Consulte [criar uma conta de Azure Cosmos DB com o PowerShell](manage-with-powershell.md#create-account)
 
-### <a name="azure-resource-manager-template"></a><a id="create-database-account-via-arm-template"></a>Modelo de Azure Resource Manager
+### <a name="azure-resource-manager-template"></a><a id="create-database-account-via-arm-template"></a>Modelo do Azure Resource Manager
 
 Consulte [criar conta de Azure Cosmos DB com modelos de Azure Resource Manager](manage-sql-with-resource-manager.md)
 
@@ -153,7 +153,7 @@ A opção Failover automático permite que o Azure Cosmos DB faça failover para
 
 3. No painel **Failover Automático**, verifique se a opção **Habilitar Failover Automático** está definida como **ATIVADO**. 
 
-4. Clique em **Salvar**.
+4. Selecione **Salvar**.
 
    :::image type="content" source="./media/how-to-manage-database-account/automatic-failover.png" alt-text="Adicionar ou remover o menu de regiões":::
 
@@ -184,7 +184,7 @@ Depois que uma conta do Cosmos for configurada para failover automático, a prio
 
 4. Para modificar a prioridade de failover, arraste as regiões de leitura nos três pontos à esquerda da linha que aparecem quando o mouse é passado sobre ela.
 
-5. Clique em **Salvar**.
+5. Selecione **Salvar**.
 
    :::image type="content" source="./media/how-to-manage-database-account/automatic-failover.png" alt-text="Adicionar ou remover o menu de regiões":::
 

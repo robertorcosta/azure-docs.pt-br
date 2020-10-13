@@ -12,10 +12,10 @@ ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 31d98e0d37da1b957d86e425e01fe04de842f532
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91715135"
 ---
 # <a name="use-azure-cli-to-assign-an-azure-role-for-access-to-blob-and-queue-data"></a>Use CLI do Azure para atribuir uma função do Azure para acesso aos dados de BLOB e de fila
@@ -24,7 +24,7 @@ O Azure Active Directory (AD do Azure) autoriza os direitos de acesso a recursos
 
 Quando uma função do Azure é atribuída a uma entidade de segurança do Azure AD, o Azure concede acesso a esses recursos para essa entidade de segurança. O escopo do acesso pode ser definido para o nível de assinatura, o grupo de recursos, a conta de armazenamento ou um contêiner ou fila individual. Uma entidade de segurança do Azure AD pode ser um usuário, um grupo, uma entidade de serviço de aplicativo ou uma [identidade gerenciada para recursos do Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
-Este artigo descreve como usar CLI do Azure para listar funções internas do Azure e atribuí-las aos usuários. Para obter mais informações sobre como usar CLI do Azure, consulte [interface de linha de comando (CLI) do Azure](/cli/azure).
+Este artigo descreve como usar CLI do Azure para listar funções internas do Azure e atribuí-las aos usuários. Para obter mais informações sobre como usar CLI do Azure, consulte [CLI (interface de Command-Line do Azure)](/cli/azure).
 
 ## <a name="azure-roles-for-blobs-and-queues"></a>Funções do Azure para BLOBs e filas
 

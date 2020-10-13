@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: vinigam
 ms.openlocfilehash: b783a1434ebf6f8e1ad645d69f9f54a4c9c03e7f
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91362859"
 ---
 # <a name="create-a-connection-monitor-preview-using-the-azure-portal"></a>Criar um monitor de conexão (versão prévia) usando o portal do Azure

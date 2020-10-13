@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 06/22/2018
 ms.openlocfilehash: d428382493e15d2e0571f4cb4b6f090cf9056fe4
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91449312"
 ---
 # <a name="filters-in-azure-monitor-views"></a>Filtros em exibições de Azure Monitor
@@ -50,8 +50,8 @@ A tabela a seguir inclui alguns exemplos de filtros comuns.
 | Nome do campo | Consulta de valores | Marca |
 |:--|:--|:--|
 | Computador   | Heartbeat &#124; distinct Computer &#124; sort by Computer asc | Computadores |
-| EventLevelName | Event &#124; distinct EventLevelName | Severidade |
-| SeverityLevel | Syslog &#124; distinct SeverityLevel | Severidade |
+| EventLevelName | Event &#124; distinct EventLevelName | Severity |
+| SeverityLevel | Syslog &#124; distinct SeverityLevel | Severity |
 | SvcChangeType | ConfigurationChange &#124; distinct svcChangeType | ChangeType |
 
 

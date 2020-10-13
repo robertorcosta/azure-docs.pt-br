@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 ms.custom: ''
 ms.openlocfilehash: aecda5ed9b87ba2345a52923a574919d6a08594f
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91362664"
 ---
 # <a name="getting-started-with-the-azure-maps-power-bi-visual"></a>Introdução ao Visual do Azure Maps Power BI
@@ -110,7 +110,7 @@ A seção **configurações do mapa** do painel Formatar fornece opções para p
 | Quebra automática de mundo          | Permite ao usuário deslocar o mapa horizontalmente infinitamente. |
 | Seletor de estilo        | Adiciona um botão ao mapa que permite que os leitores de relatório alterem o estilo do mapa. |
 | Controles de navegação | Adiciona botões ao mapa como outro método para permitir que os leitores de relatório apliquem zoom, giram e alterem o timbre do mapa. Para obter mais informações, consulte este documento sobre como [navegar no mapa](map-accessibility.md#navigating-the-map) para obter detalhes sobre todas as diferentes maneiras que os usuários podem navegar no mapa. |
-| Estilo do mapa           | O estilo do mapa. Para obter mais informações, consulte este documento para obter mais informações sobre os [estilos de mapa com suporte](supported-map-styles.md). |
+| Estilo de mapa           | O estilo do mapa. Para obter mais informações, consulte este documento para obter mais informações sobre os [estilos de mapa com suporte](supported-map-styles.md). |
 
 ### <a name="map-view-settings"></a>Configurações de exibição do mapa
 
