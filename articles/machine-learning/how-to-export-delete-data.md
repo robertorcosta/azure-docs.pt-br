@@ -12,10 +12,10 @@ ms.date: 04/24/2020
 ms.topic: conceptual
 ms.custom: how-to
 ms.openlocfilehash: e847f62c2ae3d1d68c39685a38b67e1d0ada8c2f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91251007"
 ---
 # <a name="export-or-delete-your-machine-learning-service-workspace-data"></a>Exportar ou excluir dados do workspace no serviço do Machine Learning
@@ -50,7 +50,7 @@ Esses recursos podem ser excluídos selecionando-os na lista e escolhendo **excl
 
 Os documentos de histórico de execução, que podem conter informações pessoais do usuário, são armazenados na conta de armazenamento no armazenamento de BLOBs, em subpastas do `/azureml` . Você pode baixar e excluir os dados do Portal.
 
-:::image type="content" source="media/how-to-export-delete-data/storage-account-folders.png" alt-text="Captura de tela do diretório do azureml na conta de armazenamento, dentro do portal":::
+:::image type="content" source="media/how-to-export-delete-data/storage-account-folders.png" alt-text="Captura de tela do portal, com o ícone Excluir realçado":::
 
 ## <a name="export-and-delete-machine-learning-resources-using-azure-machine-learning-studio"></a>Exportar e excluir recursos de aprendizado de máquina usando o Azure Machine Learning Studio
 
@@ -62,7 +62,7 @@ Você pode baixar os artefatos de treinamento de execuções experimentais usand
 
 Você pode baixar um modelo registrado navegando até o **modelo** desejado e escolhendo **baixar**. 
 
-:::image type="contents" source="media/how-to-export-delete-data/model-download.png" alt-text="Captura de tela da página modelo do estúdio com a opção de download realçada":::
+:::image type="contents" source="media/how-to-export-delete-data/model-download.png" alt-text="Captura de tela do portal, com o ícone Excluir realçado":::
 
 ## <a name="export-and-delete-resources-using-the-python-sdk"></a>Exportar e excluir recursos usando o SDK do Python
 

@@ -10,10 +10,10 @@ ms.date: 08/18/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
 ms.openlocfilehash: f0cb3d5f9184bacef42a0258add6dd2461a71dd7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91326653"
 ---
 # <a name="spring-data-azure-cosmos-db-v3-for-core-sql-api-release-notes-and-resources"></a>Spring data Azure Cosmos DB V3 para a API de núcleo (SQL): notas de versão e recursos
@@ -27,7 +27,7 @@ ms.locfileid: "91326653"
 > * [SDK do Java Assíncrono v2](sql-api-sdk-async-java.md)
 > * [SDK do Java Síncrono v2](sql-api-sdk-java.md)
 > * [Spring data v2](sql-api-sdk-java-spring-v2.md)
-> * [Spring data v3](sql-api-sdk-java-spring-v3.md)
+> * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
 > * [Conector do Spark](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
@@ -45,19 +45,19 @@ O [Spring Framework](https://spring.io/projects/spring-framework) é um modelo d
 Você pode usar o Spring data Azure Cosmos DB em seus aplicativos de [nuvem Spring do Azure](https://azure.microsoft.com/services/spring-cloud/) .
 
 > [!IMPORTANT]  
-> Estas notas de versão são para a versão 3 do Spring data Azure Cosmos DB. Você pode encontrar [notas de versão para a versão 2 aqui](sql-api-sdk-java-spring-v2.md). 
+> Estas notas sobre a versão são para a versão 3 do Spring Data Azure Cosmos DB. Você pode encontrar as [notas sobre a versão 2 aqui](sql-api-sdk-java-spring-v2.md). 
 >
-> O Spring data Azure Cosmos DB dá suporte apenas à API do SQL.
+> O Spring Data Azure Cosmos DB é compatível apenas com a API do SQL.
 >
-> Consulte estes artigos para obter informações sobre o Spring data em outras APIs de Azure Cosmos DB:
-> * [Spring data para Apache Cassandra com Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db)
-> * [Spring data MongoDB com Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db)
-> * [Gremlin de Spring data com Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db)
+> Confira estes artigos para obter informações sobre o Spring Data em outras APIs do Azure Cosmos DB:
+> * [Spring Data para Apache Cassandra com Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db)
+> * [Spring Data MongoDB com Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db)
+> * [Spring Data Gremlin com Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db)
 >
 
 ## <a name="start-here"></a>Comece por aqui
 
-# <a name="explore"></a>[Explorar](#tab/explore)
+# <a name="explore"></a>[Apresenta](#tab/explore)
 
 <img src="media/sql-api-sdk-java-spring-v3/up-arrow.png" alt="explore the tabs above" width="80"/>
 

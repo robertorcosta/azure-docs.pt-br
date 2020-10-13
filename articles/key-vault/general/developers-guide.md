@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a04435b1e2feb537231bb80d2777b9ea2599c241
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6564804b7003b5e1c166868dae1bfaac7bd28fa5
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91812396"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940457"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guia do desenvolvedor do Cofre da Chave do Azure
 
@@ -52,17 +52,27 @@ Para obter mais informações sobre Key Vault plano de gerenciamento, consulte [
 Key Vault está usando a autenticação do Azure AD que requer que a entidade de segurança do Azure AD conceda acesso. Uma entidade de segurança do Azure AD pode ser um usuário, uma entidade de serviço de aplicativo, uma [identidade gerenciada para recursos do Azure](../../active-directory/managed-identities-azure-resources/overview.md)ou um grupo de qualquer tipo de entidades de segurança.
 
 ### <a name="authentication-best-practices"></a>Práticas recomendadas de autenticação
+
 É recomendável usar a identidade gerenciada para aplicativos implantados no Azure. Se você usar os serviços do Azure, que não dão suporte à identidade gerenciada ou se os aplicativos forem implantados no local, a [entidade de serviço com um certificado](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) será uma alternativa possível. Nesse cenário, o certificado deve ser armazenado em Key Vault e girado com frequência. A entidade de serviço com segredo pode ser usada para ambientes de desenvolvimento e teste e localmente ou em Cloud Shell usando a entidade de usuário é recomendada.
 
-Os cenários de autenticações acima têm suporte da biblioteca de clientes de identidade do Azure e são integrados a SDKs de Key Vault. A biblioteca de identidades do Azure pode ser usada em diferentes ambientes e plataformas sem alterar seu código. A identidade do Azure também recuperará automaticamente o token de autenticação do conectado ao usuário do Azure com CLI do Azure, Visual Studio, Visual Studio Code e outros. 
+Entidades de segurança recomendadas por ambiente:
+- **Ambiente de produção**:
+  - Identidade gerenciada ou entidade de serviço com um certificado
+- **Ambientes de teste e desenvolvimento**:
+  - Identidade gerenciada, entidade de serviço com certificado ou entidade de serviço com segredo
+- **Desenvolvimento local**:
+  - Entidade de usuário ou entidade de serviço com segredo
 
-Para obter mais informações, consulte: 
+Os cenários de autenticações acima têm suporte da **biblioteca de clientes de identidade do Azure** e são integrados a SDKs de Key Vault. A biblioteca de identidades do Azure pode ser usada em diferentes ambientes e plataformas sem alterar seu código. A identidade do Azure também recuperará automaticamente o token de autenticação do conectado ao usuário do Azure com CLI do Azure, Visual Studio, Visual Studio Code e outros. 
 
+Para obter mais informações sobre o Libarary do cliente de identidade do Azure, consulte:
+
+### <a name="azure-identity-client-libraries"></a>Bibliotecas de cliente de identidade do Azure
 | .NET | Python | Java | JavaScript |
 |--|--|--|--|
 |[SDK .NET do Azure Identity](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme)|[Python do SDK do Azure Identity](https://docs.microsoft.com/python/api/overview/azure/identity-readme)|[SDK do Azure Identity do Java](https://docs.microsoft.com/java/api/overview/azure/identity-readme)|[JavaScript do SDK de identidade do Azure](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme)|     
 
-Autenticar para Key Vault em aplicativos:
+Para obter tutoriais sobre como se autenticar no Key Vault em aplicativos, consulte:
 - [Autenticar para Key Vault no aplicativo hospedado na VM no .NET](https://docs.microsoft.com/azure/key-vault/general/tutorial-net-virtual-machine)
 - [Autenticar para Key Vault no aplicativo hospedado na VM no Python](https://docs.microsoft.com/azure/key-vault/general/tutorial-python-virtual-machine)
 - [Autenticar para Key Vault com o serviço de aplicativo](https://docs.microsoft.com/azure/key-vault/general/tutorial-net-create-vault-azure-web-app)

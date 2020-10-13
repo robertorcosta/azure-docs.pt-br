@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: cf15898a7077f08ff4ab337cf5ad77ebcd2f3f1a
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91708094"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-postgresql-server-using-powershell"></a>Como fazer backup e restaurar um servidor do Banco de Dados do Azure para PostgreSQL usando o PowerShell
@@ -121,7 +121,7 @@ O conjunto de parâmetros **Georestore** do `Restore-AzPostgreSqlServer` cmdlet 
 | --- | --- | --- |
 |ResourceGroupName | myresourcegroup | O nome do grupo de recursos ao qual o novo servidor pertence.|
 |Nome | mydemoserver-georestored | O nome do novo servidor. |
-|Location | eastus | A localização do novo servidor. |
+|Localização | eastus | A localização do novo servidor. |
 |UseGeoRestore | `<SwitchParameter>` | Use o modo geográfico para restaurar. |
 
 Ao criar um novo servidor usando a restauração geográfica, ele herda o mesmo tamanho de armazenamento e tipo de preço do servidor de origem, a menos que o parâmetro **SKU** seja especificado.

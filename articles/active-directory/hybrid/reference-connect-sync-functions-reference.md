@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6d8ec8eec28d66cf93608393ddca45f78460d831
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89279764"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect Sync: referência de funções
@@ -135,7 +135,7 @@ As funções com os tipos **mvbin**, **mvstr** e **mvref** funcionam somente nos
   * [Mantida](#left)
   * [Len](#len)
   * [LTrim](#ltrim)
-  * [Mid](#mid)
+  * [Meio](#mid)
   * [PadLeft preenche](#padleft)
   * [PadRight](#padright)
   * [PCase](#pcase)
@@ -509,7 +509,7 @@ Converte o valor de uma matriz de inteiros em sua representação equivalente de
  retorna 48656C6C6F20776F726C6421
 
 ---
-### <a name="count"></a>Contagem
+### <a name="count"></a>Count
 **Descrição:**  
  a função Count retorna o número de elementos em um atributo de valores múltiplos
 
@@ -625,7 +625,7 @@ Se dn for "cn=Joe,ou=Atlanta,ou=GA,ou=US, dc=contoso,dc=com" então
  ambos retornam US.
 
 ---
-### <a name="error"></a>Erro
+### <a name="error"></a>Erro do
 **Descrição:**  
  a função Error é usada para retornar um erro personalizado.
 
@@ -913,7 +913,7 @@ Se o índice estiver fora dos limites, retornará um valor Null.
 `str Join(mvstr attribute, str Delimiter)`
 
 * attribute: um atributo de valores múltiplos contendo cadeias de caracteres a serem unidas.
-* delimiter: qualquer cadeia de caracteres usada para separar as subcadeias de caracteres na cadeia de caracteres retornada. Se omitido, o caractere de espaço (" ") é usado. Se o Delimitador é uma cadeia de caracteres de comprimento zero ("") ou Nada, todos os itens na lista são concatenados sem delimitadores.
+* delimiter: qualquer cadeia de caracteres usada para separar as subcadeias de caracteres na cadeia de caracteres retornada. Se omitido, o caractere de espaço (" ") será usado. Se o Delimitador é uma cadeia de caracteres de comprimento zero ("") ou Nada, todos os itens na lista são concatenados sem delimitadores.
 
 **Comentários**  
  há paridade entre as funções Join e Split. A função Join pega uma matriz de cadeias de caracteres e une-as usando uma cadeia de caracteres do delimitador, para retornar uma única cadeia de caracteres. A função Split pega uma cadeia de caracteres e a separa no delimitador, para retornar uma matriz de cadeias de caracteres. No entanto, uma diferença importante é que a Join pode concatenar cadeias de caracteres com qualquer cadeia de caracteres delimitadora, enquanto Split só pode separar cadeias de caracteres usando um único caractere delimitador.
@@ -1275,7 +1275,7 @@ Retorna todos os valores no atributo de valores múltiplos otherPhone depois que
 `str StringFromSid(bin ObjectSID)`  
 
 ---
-### <a name="switch"></a>Comutador
+### <a name="switch"></a>Opção
 **Descrição:**  
  a função Switch é usada para retornar um único valor com base nas condições avaliadas.
 

@@ -8,15 +8,15 @@ ms.date: 01/06/2020
 ms.author: brendm
 ms.custom: devx-track-java
 ms.openlocfilehash: ce8dbe017e3cc80588cd1aa37ad02a82199ccc10
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90892569"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>Analisar logs e métricas com configurações de diagnóstico
 
-**Este artigo aplica-se a:** ✔️ Java ✔️ C #
+**Este artigo aplica-se a:** ✔️ Java ✔️ C#
 
 Usando a funcionalidade de diagnóstico do Azure Spring Cloud, você pode analisar os logs e as métricas com qualquer um dos seguintes serviços:
 
@@ -52,7 +52,7 @@ Para começar, habilite um desses serviços para receber os dados. Para saber ma
     * **Enviar para o Log Analytics**
 
 1. Escolha qual categoria de log e categoria de métrica você deseja monitorar e, em seguida, especifique o tempo de retenção (em dias). O tempo de retenção se aplica somente à conta de armazenamento.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 > [!NOTE]
 > 1. Pode haver um intervalo de até 15 minutos entre o momento em que os logs ou as métricas são emitidos e quando aparecem na sua conta de armazenamento, no Hub de eventos ou Log Analytics.

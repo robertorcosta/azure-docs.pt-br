@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: kumud
 ms.openlocfilehash: 221f7577b3181b1535ab9f544073dac4d031fe66
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89319433"
 ---
 # <a name="resource-logging-for-a-network-security-group"></a>Log de recursos para um grupo de segurança de rede
@@ -45,7 +45,7 @@ Você pode usar o [portal do Azure](#azure-portal), o [PowerShell](#powershell)o
 
 5. Em ** Configurações de diagnóstico **, insira ou selecione as seguintes informações e, em seguida, selecione ** Salvar **:
 
-    | Setting                                                                                     | Valor                                                          |
+    | Configuração                                                                                     | Valor                                                          |
     | ---------                                                                                   |---------                                                       |
     | Nome                                                                                        | Um nome de sua escolha.  Por exemplo: *myNsgDiagnostics*      |
     | **Arquivo para uma conta de armazenamento**, **fluxo para um hub de eventos**, e **enviar para análise de Log** | Você pode selecionar quantas destinos que escolher. Para saber mais sobre cada um, consulte [destinos de Log](#log-destinations).                                                                                                                                           |

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: jingwang
 ms.openlocfilehash: 7b6fa2395e81089e8b4523929a4a7a583b0788a2
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91360762"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Copiar dados de um ponto de extremidade REST usando o Azure Data Factory
@@ -412,7 +412,7 @@ O modelo define dois parâmetros:
     |:--- |:--- |:--- |
     | URL |Especifique a URL da qual recuperar o token de portador OAuth. por exemplo, no exemplo, ele é https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token |. 
     | Método | O método HTTP. Os valores permitidos são **post** e **Get**. | 
-    | Cabeçalhos | O cabeçalho é definido pelo usuário, que faz referência a um nome de cabeçalho na solicitação HTTP. | 
+    | headers | O cabeçalho é definido pelo usuário, que faz referência a um nome de cabeçalho na solicitação HTTP. | 
     | Corpo | O corpo da solicitação HTTP. | 
 
     ![Pipeline](media/solution-template-copy-from-rest-or-http-using-oauth/web-settings.png)

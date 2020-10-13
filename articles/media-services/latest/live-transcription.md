@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: c3465e294af104c4d9c3b34960f5e95cf41e7cb8
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89291408"
 ---
 # <a name="live-transcription-preview"></a>Transcrição ao vivo (versão prévia)
@@ -42,7 +42,7 @@ A transcrição ao vivo está disponível nas seguintes regiões:
 - Centro dos EUA
 - Centro-Sul dos Estados Unidos
 - Oeste dos EUA 2
-- Brazil South
+- Sul do Brasil
 
 Esta é a lista de idiomas disponíveis que podem ser transcritas, use o código de idioma na API.
 

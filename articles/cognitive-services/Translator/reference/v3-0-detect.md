@@ -11,17 +11,17 @@ ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
 ms.openlocfilehash: eb20fe91a54007f24c56a95e67942728674471ea
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89566629"
 ---
 # <a name="translator-30-detect"></a>Tradutor 3,0: detectar
 
 Identifica o idioma de uma parte do texto.
 
-## <a name="request-url"></a>URL da solicitação
+## <a name="request-url"></a>URL de Solicitação
 
 Envie uma solicitação `POST` para:
 
@@ -48,16 +48,16 @@ Os cabeçalhos de solicitação incluem:
   <th width="20%">Cabeçalhos</th>
   <th>Descrição</th>
   <tr>
-    <td>Cabeçalho (s) de autenticação</td>
-    <td><em>Cabeçalho de solicitação necessário</em>.<br/>Veja <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">Opções disponíveis para autenticação</a>.</td>
+    <td>Cabeçalhos de autenticação</td>
+    <td><em>Cabeçalho de solicitação obrigatório</em>.<br/>Veja <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">Opções disponíveis para autenticação</a>.</td>
   </tr>
   <tr>
     <td>Tipo de conteúdo</td>
-    <td>*Cabeçalho de solicitação necessário*.<br/>Especifica o tipo de conteúdo da carga. Os valores possíveis são: `application/json`.</td>
+    <td>*Cabeçalho de solicitação obrigatório*.<br/>Especifica o tipo de conteúdo da carga. Os valores possíveis são: `application/json`.</td>
   </tr>
   <tr>
     <td>Content-Length</td>
-    <td>*Cabeçalho de solicitação necessário*.<br/>O tamanho do corpo da solicitação.</td>
+    <td>*Cabeçalho de solicitação obrigatório*.<br/>O tamanho do corpo da solicitação.</td>
   </tr>
   <tr>
     <td>X-ClientTraceId</td>

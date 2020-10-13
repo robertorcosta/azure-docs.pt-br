@@ -16,10 +16,10 @@ ms.date: 09/02/2020
 ms.author: kirpas
 ms.subservice: disks
 ms.openlocfilehash: b739bb94911e24002b359aabfa23583ecfc9de85
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91335996"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>Como expandir a unidade do sistema operacional de uma máquina virtual
@@ -45,11 +45,11 @@ Quando você cria uma nova VM (máquina virtual) em um grupo de recursos implant
  
 3. Em **nome do disco**, selecione o disco que você deseja redimensionar.
 
-    :::image type="content" source="./media/expand-os-disk/disk-name.png" alt-text="Captura de tela que mostra o painel discos com um nome de disco selecionado.":::
+    :::image type="content" source="./media/expand-os-disk/disk-name.png" alt-text="Captura de tela que mostra a opção discos selecionada na seção Configurações do menu.":::
 
 4. No menu à esquerda em **configurações**, selecione **configuração**.
 
-    :::image type="content" source="./media/expand-os-disk/configuration.png" alt-text="Captura de tela que mostra a opção de configuração selecionada na seção Configurações do menu.":::
+    :::image type="content" source="./media/expand-os-disk/configuration.png" alt-text="Captura de tela que mostra a opção discos selecionada na seção Configurações do menu.":::
 
 5. Em **tamanho (GIB)**, selecione o tamanho do disco desejado.
    
@@ -57,11 +57,11 @@ Quando você cria uma nova VM (máquina virtual) em um grupo de recursos implant
    > O novo tamanho deve ser maior que o tamanho do disco existente. O máximo permitido é de 2.048 GB para discos do sistema operacional. (É possível expandir o blob VHD para além desse tamanho, mas o sistema operacional funciona apenas com os primeiros 2.048 GB de espaço.)
    > 
 
-    :::image type="content" source="./media/expand-os-disk/size.png" alt-text="Captura de tela que mostra o painel de configuração com o tamanho do disco selecionado.":::
+    :::image type="content" source="./media/expand-os-disk/size.png" alt-text="Captura de tela que mostra a opção discos selecionada na seção Configurações do menu.":::
 
-6. Clique em **Salvar**.
+6. Selecione **Salvar**.
 
-    :::image type="content" source="./media/expand-os-disk/save.png" alt-text="Captura de tela que mostra o painel de configuração com o botão salvar selecionado.":::
+    :::image type="content" source="./media/expand-os-disk/save.png" alt-text="Captura de tela que mostra a opção discos selecionada na seção Configurações do menu.":::
 
 
 ## <a name="resize-a-managed-disk-by-using-powershell"></a>Redimensionar um disco gerenciado usando o PowerShell

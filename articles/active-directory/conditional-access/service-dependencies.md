@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c6592add5e33ba240c0f1d9fdbd23d82adfe5229
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91258601"
 ---
 # <a name="what-are-service-dependencies-in-azure-active-directory-conditional-access"></a>O que são dependências de serviço no Azure Active Directory acesso condicional? 
@@ -27,7 +27,7 @@ Quando você acessa um site ou serviço diretamente, o impacto de uma política 
 > [!TIP]
 > Usar o aplicativo do [office 365](concept-conditional-access-cloud-apps.md#office-365) direcionará todos os aplicativos do Office para evitar problemas com dependências de serviço na pilha do Office.
 
-## <a name="policy-enforcement"></a>Imposição de política 
+## <a name="policy-enforcement"></a>Aplicação de políticas 
 
 Se você tiver uma dependência de serviço configurada, a política poderá ser aplicada usando a aplicação de ligação antecipada ou de associação tardia. 
 
@@ -60,7 +60,7 @@ A tabela abaixo lista as dependências de serviço adicionais, onde os aplicativ
 |                     | SharePoint                                  | Associação antecipada |
 | PowerApps           | Gerenciamento de Microsoft Azure (portal e API) | Associação antecipada |
 |                     | Windows Azure Active Directory              | Associação antecipada |
-| Project             | Dynamics CRM                                | Associação antecipada |
+| Projeto             | Dynamics CRM                                | Associação antecipada |
 | Skype for Business  | Exchange                                    | Associação antecipada |
 | Visual Studio       | Gerenciamento de Microsoft Azure (portal e API) | Associação antecipada |
 | Microsoft Forms     | Exchange                                    | Associação antecipada |

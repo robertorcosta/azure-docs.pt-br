@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: contperfq1
 ms.date: 10/2/2020
 ms.openlocfilehash: 5f109ad719ada9728938f6e37d4ec854d3950a24
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91708428"
 ---
 # <a name="outputs-from-azure-stream-analytics"></a>Saídas de Azure Stream Analytics
@@ -26,7 +26,7 @@ Alguns tipos de saídas dão suporte a [particionamento](#partitioning) e os [ta
 | Tipo de saída | Particionamento | Segurança | 
 |-------------|--------------|----------|
 |[Azure Data Lake Storage Gen 1](azure-data-lake-storage-gen1-output.md)|Sim|Usuário do Active Directory do Azure </br> MSI|
-|[Banco de Dados SQL do Azure](sql-database-output.md)|Sim, opcional.|Autenticação de usuário do SQL </br> MSI (versão prévia)|
+|[Banco de dados SQL do Azure](sql-database-output.md)|Sim, opcional.|Autenticação de usuário do SQL </br> MSI (versão prévia)|
 |[Azure Synapse Analytics](azure-synapse-analytics-output.md)|Sim|Autenticação de usuário do SQL|
 |[Armazenamento de BLOBs e Azure Data Lake Gen 2](blob-storage-azure-data-lake-gen2-output.md)|Sim|MSI </br> Chave de acesso|
 |[Hubs de eventos do Azure](event-hubs-output.md)|Sim, é necessário definir a coluna de chave de partição na configuração de saída.|Chave de acesso|

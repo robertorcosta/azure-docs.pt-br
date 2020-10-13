@@ -10,17 +10,17 @@ services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
 ms.openlocfilehash: 61ea102d0e020f7890da1ae86cdfbb5c3db8f51b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91335289"
 ---
 # <a name="how-to-use-the-azure-maps-spatial-io-module"></a>Como usar o módulo e/s espacial do mapas do Azure
 
 O SDK da Web do Azure Maps fornece o **módulo de e/s espacial**, que integra dados espaciais com o SDK da Web do Azure Maps usando JavaScript ou TypeScript. Os recursos robustos deste módulo permitem aos desenvolvedores:
 
-- [Ler e gravar arquivos de dados espaciais comuns](spatial-io-read-write-spatial-data.md). Os formatos de arquivo com suporte incluem os arquivos: KML, KMZ, GPX, GeoRSS, GML, geojson e CSV contendo colunas com informações espaciais. Também dá suporte a texto bem conhecido (WKT).
+- [Ler e gravar arquivos de dados espaciais comuns](spatial-io-read-write-spatial-data.md). Os formatos de arquivo com suporte incluem os arquivos: KML, KMZ, GPX, GeoRSS, GML, geojson e CSV contendo colunas com informações espaciais. Também dá suporte a texto de Well-Known (WKT).
 - [Conecte-se aos serviços do Open Geospatial Consortium (OGC) e integre-o ao SDK da Web do Azure Maps. Sobreponha os serviços de mapa da Web (WMS) e os serviços de bloco do mapa da Web (WMTS) como camadas no mapa](spatial-io-add-ogc-map-layer.md).
 - [Consultar dados em um serviço de recurso da Web (WFS)](spatial-io-connect-wfs-service.md).
 - [Sobreponha conjuntos de dados complexos que contêm informações de estilo e faça com que eles sejam renderizados automaticamente usando o código mínimo](spatial-io-add-simple-data-layer.md).
