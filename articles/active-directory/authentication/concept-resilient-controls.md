@@ -13,10 +13,10 @@ ms.date: 06/08/2020
 ms.author: martinco
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f58e5a07348dfde4e4618eb58746f08016c55ed6
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89049563"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Criar uma estratégia de gerenciamento de controle de acesso resiliente com o Azure Active Directory
@@ -215,13 +215,13 @@ Se você tiver implantado a extensão NPS do Azure AD MFA para proteger recursos
 Nesse caso, você pode desabilitar a extensão NPS, como resultado, o servidor NPS verificará somente a autenticação primária e não impedirá a MFA nos usuários.
 
 Desabilitar extensão NPS: 
--   Exporte a chave do registro HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Services\AuthSrv\Parameters como um backup. 
+-   Exporte a chave do registro HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\AuthSrv\Parameters como um backup. 
 -   Exclua os valores de registro para "AuthorizationDLLs" e "ExtensionDLLs", não para a chave de parâmetros. 
 -   Reinicie o serviço de serviço de diretiva de rede (IAS) para que as alterações entrem em vigor 
 -   Determine se a autenticação primária para VPN foi bem-sucedida.
 
 Depois que o serviço for recuperado e você estiver pronto para impor o MFA aos usuários novamente, habilite a extensão do NPS: 
--   Importar a chave do registro do backup HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Services\AuthSrv\Parameters 
+-   Importar a chave do registro do backup HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\AuthSrv\Parameters 
 -   Reinicie o serviço de serviço de diretiva de rede (IAS) para que as alterações entrem em vigor 
 -   Determine se a autenticação primária, bem como a autenticação secundária para VPN, foi bem-sucedida.
 -   Examine o servidor NPS e o log de VPN para determinar quais usuários entraram durante a janela de emergência.

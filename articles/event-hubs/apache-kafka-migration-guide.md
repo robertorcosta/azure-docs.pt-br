@@ -4,10 +4,10 @@ description: Este artigo explica como migrar clientes do Apache Kafka para os hu
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: d9f3775a85df5a881c2c38566628e4e1d4d8c40e
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90061437"
 ---
 # <a name="migrate-to-azure-event-hubs-for-apache-kafka-ecosystems"></a>Migrar para os Hubs de Eventos do Azure para os Ecossistemas Apache Kafka
@@ -16,7 +16,7 @@ Os hubs de eventos do Azure expõem um ponto de extremidade Apache Kafka, que pe
 ## <a name="pre-migration"></a>Pré-migração 
 
 ### <a name="create-an-azure-account"></a>Criar uma conta do Azure
-Caso não tenha uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 
 ### <a name="create-an-event-hubs-namespace"></a>Criar um namespace de Hubs de Eventos
 Siga as instruções passo a passo no artigo [criar um hub de eventos](event-hubs-create.md) para criar um namespace de hubs de eventos e um hub de eventos. 

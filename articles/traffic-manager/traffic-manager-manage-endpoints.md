@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: duau
 ms.openlocfilehash: fc6e8bcda17f9d788a430ed763bd9f8702eaf250
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89392911"
 ---
 # <a name="add-disable-enable-or-delete-endpoints"></a>Adicionar, desabilitar, habilitar ou excluir pontos de extremidade
@@ -29,7 +29,7 @@ Você também pode desabilitar pontos de extremidade individuais que fazem parte
 
 ## <a name="to-add-a-cloud-service-or-an-app-service-endpoint-to-a-traffic-manager-profile"></a>Para adicionar um serviço de nuvem ou um ponto de extremidade de serviço de Aplicativo a um perfil do Gerenciador de Tráfego
 
-1. Em um navegador, entre no [portal do Azure](https://portal.azure.com).
+1. Usando um navegador, entre no [portal do Azure](https://portal.azure.com).
 2. Na barra de pesquisa do portal, pesquise o nome do **perfil do Gerenciador de tráfego** que você deseja modificar e, em seguida, clique no perfil do Gerenciador de tráfego nos resultados exibidos.
 3. Na folha **Perfil do Gerenciador de Tráfego**, na seção **Configurações**, clique em **Pontos de Extremidade**.
 4. Na folha **Pontos de Extremidade** que é exibida, clique em **Adicionar**.
@@ -49,7 +49,7 @@ Você também pode desabilitar pontos de extremidade individuais que fazem parte
 
 ## <a name="to-disable-an-endpoint"></a>Para desabilitar um ponto de extremidade
 
-1. Em um navegador, entre no [portal do Azure](https://portal.azure.com).
+1. Usando um navegador, entre no [portal do Azure](https://portal.azure.com).
 2. Na barra de pesquisa do portal, pesquise o nome do **perfil do Gerenciador de Tráfego** que você deseja modificar e clique no perfil do Gerenciador de Tráfego nos resultados exibidos.
 3. Na folha **Perfil do Gerenciador de Tráfego**, na seção **Configurações**, clique em **Pontos de Extremidade**. 
 4. Clique no ponto de extremidade que você deseja desabilitar.
@@ -58,7 +58,7 @@ Você também pode desabilitar pontos de extremidade individuais que fazem parte
 
 ## <a name="to-enable-an-endpoint"></a>Para habilitar um ponto de extremidade
 
-1. Em um navegador, entre no [portal do Azure](https://portal.azure.com).
+1. Usando um navegador, entre no [portal do Azure](https://portal.azure.com).
 2. Na barra de pesquisa do portal, pesquise o nome do **perfil do Gerenciador de Tráfego** que você deseja modificar e clique no perfil do Gerenciador de Tráfego nos resultados exibidos.
 3. Na folha **Perfil do Gerenciador de Tráfego**, na seção **Configurações**, clique em **Pontos de Extremidade**. 
 4. Clique no ponto de extremidade que você deseja habilitar.
@@ -67,7 +67,7 @@ Você também pode desabilitar pontos de extremidade individuais que fazem parte
 
 ## <a name="to-delete-an-endpoint"></a>Como excluir um ponto de extremidade
 
-1. Em um navegador, entre no [portal do Azure](https://portal.azure.com).
+1. Usando um navegador, entre no [portal do Azure](https://portal.azure.com).
 2. Na barra de pesquisa do portal, pesquise o nome do **perfil do Gerenciador de Tráfego** que você deseja modificar e clique no perfil do Gerenciador de Tráfego nos resultados exibidos.
 3. Na folha **Perfil do Gerenciador de Tráfego**, na seção **Configurações**, clique em **Pontos de Extremidade**. 
 4. Clique no ponto de extremidade que você deseja excluir.

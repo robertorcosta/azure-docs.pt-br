@@ -13,10 +13,10 @@ ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ms.openlocfilehash: ec59c07d66150bf7b184c149a9b1ed9015c17645
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89433646"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Solução de problemas do Azure Active Directory híbrido ingressado em dispositivos
@@ -29,7 +29,7 @@ Este artigo pressupõe que você tenha [dispositivos configurados e ingressados 
 
 - Acesso Condicional baseado no dispositivo
 - [Roaming corporativo de configurações](./enterprise-state-roaming-overview.md)
-- [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-identity-verification)
+- [Windows Hello para empresas](/windows/security/identity-protection/hello-for-business/hello-identity-verification)
 
 Este documento fornece diretrizes de solução de problemas para resolver possíveis problemas.
 
@@ -246,7 +246,7 @@ Aplicável somente para contas de domínio federado.
 Motivos da falha:
 
 - Não é possível obter um token de acesso silenciosamente para o recurso DRS.
-   - Os dispositivos Windows 10 adquirem o token de autenticação do serviço de Federação usando a autenticação integrada do Windows para um ponto de extremidade WS-Trust ativo. Detalhes: [configuração de serviço de Federação](hybrid-azuread-join-manual.md#set-up-issuance-of-claims)
+   - Os dispositivos Windows 10 adquirem o token de autenticação do serviço de Federação usando a autenticação integrada do Windows para um ponto de extremidade ativo de WS-Trust. Detalhes: [configuração de serviço de Federação](hybrid-azuread-join-manual.md#set-up-issuance-of-claims)
 
 **Códigos de erro comuns:**
 
@@ -261,13 +261,13 @@ Use os logs de Visualizador de Eventos para localizar o código de erro, o códi
 
 - **ERROR_ADAL_PROTOCOL_NOT_SUPPORTED** (0xcaa90017/-894894057)
    - Motivo: o protocolo de autenticação não é WS-Trust.
-   - Resolução: o provedor de identidade local deve oferecer suporte a WS-Trust
+   - Resolução: o provedor de identidade local deve dar suporte a WS-Trust
 - **ERROR_ADAL_FAILED_TO_PARSE_XML** (0xcaa9002c/-894894036)
    - Motivo: o serviço de federação local não retornou uma resposta XML.
    - Resolução: Verifique se o ponto de extremidade MEX está retornando um XML válido. Verifique se o proxy não está interferindo e retornando respostas não XML.
 - **ERROR_ADAL_COULDNOT_DISCOVER_USERNAME_PASSWORD_ENDPOINT** (0xcaa90023/-894894045)
    - Motivo: não foi possível descobrir o ponto de extremidade para a autenticação de nome de usuário/senha.
-   - Resolução: Verifique as configurações do provedor de identidade local. Verifique se os pontos de extremidade WS-Trust estão habilitados e certifique-se de que a resposta MEX contenha esses pontos de extremidade corretos.
+   - Resolução: Verifique as configurações do provedor de identidade local. Verifique se os pontos de extremidade de WS-Trust estão habilitados e se a resposta MEX contém esses pontos de extremidade corretos.
 
 ##### <a name="network-errors"></a>Erros de rede
 
@@ -290,7 +290,7 @@ Use os logs de Visualizador de Eventos para localizar o código de erro, o códi
    - Motivo: o token SAML do provedor de identidade local não foi aceito pelo Azure AD.
    - Resolução: Verifique as configurações do servidor de Federação. Procure o código de erro do servidor nos logs de autenticação.
 - **ERROR_ADAL_WSTRUST_REQUEST_SECURITYTOKEN_FAILED** (0xcaa90014/-894894060)
-   - Motivo: a resposta do WS-Trust do servidor relatou uma exceção de falha e falhou ao obter a asserção
+   - Motivo: o servidor WS-Trust resposta relatou uma exceção de falha e falhou ao obter a asserção
    - Resolução: Verifique as configurações do servidor de Federação. Procure o código de erro do servidor nos logs de autenticação.
 - **ERROR_ADAL_WSTRUST_TOKEN_REQUEST_FAIL** (0xcaa90006/-894894074)
    - Motivo: erro recebido ao tentar obter o token de acesso do ponto de extremidade do token.

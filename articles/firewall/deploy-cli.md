@@ -8,10 +8,10 @@ ms.date: 08/29/2019
 ms.author: victorh
 ms.topic: how-to
 ms.openlocfilehash: 7f00b57edb37cc5bb5c8340663d619e526c2eacb
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89075419"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-cli"></a>Implantar e configurar o Firewall do Azure usando o CLI do Azure
@@ -105,7 +105,7 @@ az network vnet subnet create \
 Agora crie as máquinas virtuais de jump e carga de trabalho e coloque-as nas sub-redes apropriadas.
 Quando solicitado, digite uma senha para a máquina virtual.
 
-Crie a máquina virtual SRV-salto.
+Crie o Srv-Jump máquina virtual.
 
 ```azurecli-interactive
 az vm create \
@@ -121,7 +121,7 @@ az vm open-port --port 3389 --resource-group Test-FW-RG --name Srv-Jump
 
 
 
-Crie uma NIC para SRV-trabalhe com endereços IP específicos do servidor DNS e nenhum endereço IP público com o qual testar.
+Crie uma NIC para Srv-Work com endereços IP específicos do servidor DNS e nenhum endereço IP público para o qual testar.
 
 ```azurecli-interactive
 az network nic create \
@@ -273,7 +273,7 @@ Agora teste o firewall para confirmar se ele funciona conforme o esperado.
 
    Os dois comandos devem retornar respostas, mostrando que as consultas DNS estão passando pelo firewall.
 
-1. Execute os seguintes comandos:
+1. Execute os comandos a seguir:
 
    ```
    Invoke-WebRequest -Uri https://www.google.com

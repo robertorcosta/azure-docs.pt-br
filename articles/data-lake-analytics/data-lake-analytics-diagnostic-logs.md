@@ -6,10 +6,10 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 02/12/2018
 ms.openlocfilehash: f1f4320f0bfb924883eb7ae4807dcb714cd89983
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91331923"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Acessando os logs de diagnóstico do Azure Data Lake Analytics
@@ -43,7 +43,7 @@ O registro em log de diagnóstico permite que você colete as trilhas de auditor
 
    * Para __Arquivar para uma conta de armazenamento__, especifique o número de dias a reter os dados.
 
-   * Clique em __Save__ (Salvar).
+   * Clique em __Salvar__.
 
         > [!NOTE]
         > Selecione __Arquivar em uma conta de armazenamento__, __Transmitir para um Hub de Eventos__ ou __Enviar para o Log Analytics__ antes de clicar no botão __Salvar__.
@@ -126,7 +126,7 @@ Aqui está um exemplo de entrada no log de solicitação formatado em JSON. Cada
 
 #### <a name="request-log-schema"></a>Esquema do log de solicitação
 
-| Nome | Type | Descrição |
+| Nome | Type | DESCRIÇÃO |
 | --- | --- | --- |
 | time |String |O carimbo de data/hora (em UTC) do log |
 | resourceId |String |O identificador do recurso em que a operação ocorreu |
@@ -140,7 +140,7 @@ Aqui está um exemplo de entrada no log de solicitação formatado em JSON. Cada
 
 #### <a name="request-log-properties-schema"></a>Esquema de propriedades do log de solicitação
 
-| Nome | Type | Descrição |
+| Nome | Type | DESCRIÇÃO |
 | --- | --- | --- |
 | HttpMethod |String |O método HTTP usado para a operação. Por exemplo, GET. |
 | Caminho |String |O caminho em que a operação foi executada |
@@ -176,7 +176,7 @@ Aqui está um exemplo de entrada no log de auditoria formatado em JSON. Cada blo
 
 #### <a name="audit-log-schema"></a>Esquema do log de auditoria
 
-| Nome | Type | Descrição |
+| Nome | Type | DESCRIÇÃO |
 | --- | --- | --- |
 | time |String |O carimbo de data/hora (em UTC) do log |
 | resourceId |String |O identificador do recurso em que a operação ocorreu |
@@ -194,7 +194,7 @@ Aqui está um exemplo de entrada no log de auditoria formatado em JSON. Cada blo
 
 #### <a name="audit-log-properties-schema"></a>Esquema de propriedades do log de auditoria
 
-| Nome | Type | Descrição |
+| Nome | Type | DESCRIÇÃO |
 | --- | --- | --- |
 | JobId |String |A ID atribuída ao trabalho |
 | JobName |String |O nome fornecido para o trabalho |

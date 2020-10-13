@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 000bc150b1a4addb4b68bd86b8d72524ec1015fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 457910f30830db06f148282a32551a400255f7e1
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450417"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91965906"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>O que é um Token de atualização principal?
 
-Um PRT (Token de atualização principal) é um importante artefato da autenticação do Azure AD em dispositivos Windows 10, iOS e Android. Trata-se de um JWT (Token Web JSON) emitido especialmente para agentes de token de terceiros da Microsoft para habilitar o SSO (logon único) nos aplicativos usados nesses dispositivos. Neste artigo, serão fornecidos detalhes sobre a emissão, o uso e a proteção de um PRT em dispositivos Windows 10.
+Um PRT (token de atualização principal) é um artefato importante da autenticação do Azure AD no Windows 10, Windows Server 2016 e versões posteriores, iOS e dispositivos Android. Trata-se de um JWT (Token Web JSON) emitido especialmente para agentes de token de terceiros da Microsoft para habilitar o SSO (logon único) nos aplicativos usados nesses dispositivos. Neste artigo, serão fornecidos detalhes sobre a emissão, o uso e a proteção de um PRT em dispositivos Windows 10.
 
 Este artigo pressupõe que você já tenha entendido os diferentes estados de dispositivo disponíveis no Azure AD e como o SSO funciona no Windows 10. Para obter mais informações sobre dispositivos no Azure AD, consulte o artigo [O que é o gerenciamento de dispositivos no Azure Active Directory?](overview.md)
 
