@@ -16,10 +16,10 @@ ms.date: 04/02/2019
 ms.author: rimayber
 ms.reviewer: dgoddard, stegag, steveesp, minale, btalb, prachank
 ms.openlocfilehash: 67b635f09cb9407279e89b5f7b8526dab3c08946
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87068513"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>Ajuste de desempenho de TCP/IP para VMs do Azure
@@ -164,7 +164,7 @@ Esta tabela mostra a taxa de transferência máxima de megabytes/por segundo de 
 | Tamanho da janela TCP (bytes) | Latência de RTT (MS) | Taxa de transferência máxima de megabytes/segundo | Taxa de transferência máxima de megabits/segundo |
 | ----------------------- | ---------------- | ---------------------------------- | --------------------------------- |
 |65.535|1|65,54|524,29|
-|65.535|30|2,18|17,48|
+|65.535|30|2.18|17,48|
 |65.535|60|1.09|8,74|
 |65.535|90|.73|5,83|
 |65.535|120|.55|4.37|
@@ -179,7 +179,7 @@ Esta tabela ilustra essas relações:
 
 | Tamanho da janela TCP (bytes) | Latência de RTT (MS) | Taxa de transferência máxima de megabytes/segundo | Taxa de transferência máxima de megabits/segundo |
 | ----------------------- | ---------------- | ---------------------------------- | --------------------------------- |
-|65.535|30|2,18|17,48|
+|65.535|30|2.18|17,48|
 |131.070|30|4.37|34,95|
 |262.140|30|8,74|69,91|
 |524.280|30|17,48|139,81|
@@ -210,7 +210,7 @@ Você pode usar o `Get-NetTCPSetting` comando do PowerShell para exibir os valor
 Get-NetTCPSetting
 ```
 
-Você pode definir o tamanho inicial da janela TCP e o fator de dimensionamento TCP no Windows usando o `Set-NetTCPSetting` comando do PowerShell. Para obter mais informações, consulte [set-NetTCPSetting](https://docs.microsoft.com/powershell/module/nettcpip/set-nettcpsetting?view=win10-ps).
+Você pode definir o tamanho inicial da janela TCP e o fator de dimensionamento TCP no Windows usando o `Set-NetTCPSetting` comando do PowerShell. Para obter mais informações, consulte  [set-NetTCPSetting](https://docs.microsoft.com/powershell/module/nettcpip/set-nettcpsetting?view=win10-ps).
 
 ```powershell
 Set-NetTCPSetting
@@ -221,7 +221,7 @@ Essas são as configurações de TCP efetivas para `AutoTuningLevel` :
 | AutoTuningLevel | Fator de dimensionamento | Multiplicador de dimensionamento | Fórmula para<br/>calcular o tamanho máximo da janela |
 | --------------- | -------------- | ------------------ | -------------------------------------------- |
 |Desabilitado|Nenhum|Nenhum|Tamanho da janela|
-|Restritos|4|2 ^ 4|Tamanho da janela * (2 ^ 4)|
+|Restrito|4|2 ^ 4|Tamanho da janela * (2 ^ 4)|
 |Altamente restrito|2|2 ^ 2|Tamanho da janela * (2 ^ 2)|
 |Normal|8|2 ^ 8|Tamanho da janela * (2 ^ 8)|
 |Habilitação|14|2 ^ 14|Tamanho da janela * (2 ^ 14)|
@@ -355,7 +355,7 @@ NTttcp é uma ferramenta para testar o desempenho de TCP de uma VM Linux ou Wind
 
 Você pode testar o desempenho de diferentes tipos de VM, rede acelerada e assim por diante, usando uma ferramenta chamada iPerf. o iPerf também está disponível no Linux e no Windows. iPerf pode usar TCP ou UDP para testar a taxa de transferência geral da rede. os testes de taxa de transferência TCP do iPerf são influenciados pelos fatores discutidos neste artigo (como latência e RTT). Portanto, o UDP poderá produzir resultados melhores se você quiser apenas testar a taxa de transferência máxima.
 
-Para obter mais informações, confira estes tópicos:
+Para obter mais informações, consulte estes artigos:
 
 - [Solucionando problemas de desempenho de rede do Expressroute](https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-network-performance)
 

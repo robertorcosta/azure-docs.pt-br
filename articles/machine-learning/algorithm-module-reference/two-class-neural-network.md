@@ -1,7 +1,7 @@
 ---
-title: 'Rede neural de duas classes: referência de módulo'
+title: 'Two-Class rede neural: referência de módulo'
 titleSuffix: Azure Machine Learning
-description: Saiba como usar o módulo rede neural de duas classes no Azure Machine Learning para criar um modelo de rede neural que pode ser usado para prever um destino que tem apenas dois valores.
+description: Saiba como usar o módulo de rede neural Two-Class no Azure Machine Learning para criar um modelo de rede neural que pode ser usado para prever um destino que tem apenas dois valores.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,13 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ms.openlocfilehash: 2ad4fc575a6e9d07e4e24c2d570f68edbbea46c3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90907676"
 ---
-# <a name="two-class-neural-network-module"></a>Módulo de rede neural de duas classes
+# <a name="two-class-neural-network-module"></a>Two-Class módulo de rede neural
 
 Este artigo descreve um módulo no designer de Azure Machine Learning.
 

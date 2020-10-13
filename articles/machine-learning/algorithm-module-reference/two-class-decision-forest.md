@@ -1,7 +1,7 @@
 ---
-title: 'Floresta de decisão de duas classes: referência de módulo'
+title: 'Floresta de decisão de Two-Class: referência de módulo'
 titleSuffix: Azure Machine Learning
-description: Saiba como usar o módulo floresta de decisão de duas classes em Azure Machine Learning para criar um modelo de aprendizado de máquina com base no algoritmo florestas de decisão.
+description: Saiba como usar o módulo de floresta de decisão Two-Class no Azure Machine Learning para criar um modelo de aprendizado de máquina com base no algoritmo de florestas de decisão.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,13 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/03/2020
 ms.openlocfilehash: 9870b5366ac629fe1b10cfde15a58b85c7c6fbc3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90907720"
 ---
-# <a name="two-class-decision-forest-module"></a>Módulo de floresta de decisão de duas classes
+# <a name="two-class-decision-forest-module"></a>Módulo de floresta de decisão Two-Class
 
 Este artigo descreve um módulo no designer de Azure Machine Learning.
 

@@ -9,10 +9,10 @@ ms.date: 09/04/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 5681228e5da2708912d69f16a4b09a4a93d8bb04
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89500293"
 ---
 # <a name="supported-authentication-methods"></a>Métodos de autenticação com suporte
@@ -27,7 +27,7 @@ Estes são os métodos de entrada com suporte no momento:
 
 - Cliente de Área de Trabalho do Windows
     - Nome de usuário e senha
-    - Cartão inteligente
+    - Smartcard
     - Windows Hello
 - Cliente para Microsoft Store
     - Nome de usuário e senha
@@ -47,7 +47,7 @@ Estes são os métodos de entrada com suporte no momento:
 
 A área de trabalho virtual do Windows dá suporte a [identidades híbridas](../active-directory/hybrid/whatis-hybrid-identity.md) por meio do Azure Active Directory (AD), incluindo aquelas que usam serviços de Federação do Active Directory (AD FS) (ADFS). Como os usuários devem ser detectáveis por meio do Azure AD, a área de trabalho virtual do Windows não dá suporte a implantações Active Directory autônomas com o ADFS.
 
-## <a name="single-sign-on-sso"></a>Logon único (SSO)
+## <a name="single-sign-on-sso"></a>SSO (logon único)
 
 A área de trabalho virtual do Windows atualmente não dá suporte a Serviços de Federação do Active Directory (AD FS) (ADFS) para SSO.
 

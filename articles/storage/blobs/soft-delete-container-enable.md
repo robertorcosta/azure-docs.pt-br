@@ -10,10 +10,10 @@ ms.date: 08/10/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: 4b25458cc934097b5477c174ae7ecc47762e2929
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91280293"
 ---
 # <a name="enable-and-manage-soft-delete-for-containers-preview"></a>Habilitar e gerenciar a exclusão reversível para contêineres (visualização)
@@ -36,7 +36,7 @@ Para habilitar a exclusão reversível de contêiner para sua conta de armazenam
 1. Localize as configurações de **proteção de dados** em **serviço blob**.
 1. Defina a propriedade **exclusão reversível do contêiner** como *habilitada*.
 1. Em **políticas de retenção**, especifique por quanto tempo os contêineres de exclusão reversível são retidos pelo armazenamento do Azure.
-1. Salve as alterações.
+1. Salve suas alterações.
 
 :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-configure.png" alt-text="Captura de tela mostrando como habilitar a exclusão reversível de contêiner no portal do Azure":::
 
@@ -86,7 +86,7 @@ Para exibir contêineres excluídos de modo reversível no portal do Azure, siga
 1. Navegue até sua conta de armazenamento no portal do Azure e exiba a lista de seus contêineres.
 1. Alterne a opção Mostrar contêineres excluídos para incluir contêineres excluídos na lista.
 
-    :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-list.png" alt-text="Captura de tela mostrando como exibir contêineres com exclusão reversível no portal do Azure":::
+    :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-list.png" alt-text="Captura de tela mostrando como habilitar a exclusão reversível de contêiner no portal do Azure":::
 
 ## <a name="restore-a-soft-deleted-container"></a>Restaurar um contêiner excluído por software
 
@@ -95,7 +95,7 @@ Você pode restaurar um contêiner excluído de maneira reversível e seu conte�
 1. Navegue até sua conta de armazenamento no portal do Azure e exiba a lista de seus contêineres.
 1. Exiba o menu de contexto do contêiner que você deseja restaurar e escolha **Cancelar exclusão** no menu.
 
-    :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-restore.png" alt-text="Captura de tela mostrando como restaurar um contêiner excluído de forma reversível no portal do Azure":::
+    :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-restore.png" alt-text="Captura de tela mostrando como habilitar a exclusão reversível de contêiner no portal do Azure":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

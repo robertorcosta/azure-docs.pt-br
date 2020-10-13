@@ -11,10 +11,10 @@ ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: d02bc8d97b65f4ea2c2585201654899a63d3229b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85201354"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
@@ -66,12 +66,12 @@ PredicateValidationReference| 0:1 | Uma referência a um elemento **PredicateVal
 
 O elemento **DataType** dá suporte aos seguintes valores:
 
-| Tipo | Description |
+| Type | Descrição |
 | ------- | ----------- |
 |booleano|Representa um valor booliano (`true` ou `false`).|
 |date| Representa um instante no tempo, normalmente expresso como uma data de um dia. O valor da data segue a Convenção ISO 8601.|
 |dateTime|Representa um momento no tempo, geralmente expresso como uma data e hora do dia. O valor da data segue a Convenção ISO 8601.|
-|duration|Representa um intervalo de tempo em anos, meses, dias, horas, minutos e segundos. O formato de é `PnYnMnDTnHnMnS` , onde `P` indica positivo ou `N` para um valor negativo. `nY`é o número de anos seguido por um literal `Y` . `nMo`é o número de meses seguido por um literal `Mo` . `nD`é o número de dias seguido por um literal `D` . Exemplos: `P21Y` representa 21 anos. `P1Y2Mo`representa um ano e dois meses. `P1Y2Mo5D`representa um ano, dois meses e cinco dias.  `P1Y2M5DT8H5M620S`representa um ano, dois meses, cinco dias, oito horas, cinco minutos e vinte segundos.  |
+|duration|Representa um intervalo de tempo em anos, meses, dias, horas, minutos e segundos. O formato de é `PnYnMnDTnHnMnS` , onde `P` indica positivo ou `N` para um valor negativo. `nY` é o número de anos seguido por um literal `Y` . `nMo` é o número de meses seguido por um literal `Mo` . `nD` é o número de dias seguido por um literal `D` . Exemplos: `P21Y` representa 21 anos. `P1Y2Mo` representa um ano e dois meses. `P1Y2Mo5D` representa um ano, dois meses e cinco dias.  `P1Y2M5DT8H5M620S` representa um ano, dois meses, cinco dias, oito horas, cinco minutos e vinte segundos.  |
 |phoneNumber|Representa um número de telefone. |
 |INT| Representa o número entre-2.147.483.648 e 2.147.483.647|
 |long| Representa o número entre-9.223.372.036.854.775.808 e 9.223.372.036.854.775.807 |

@@ -4,10 +4,10 @@ description: Use o Azure Advisor para garantir e melhorar a confiabilidade em im
 ms.topic: article
 ms.date: 09/27/2020
 ms.openlocfilehash: 1e256d99f8d78ddff318f963dcb21e9b4537f110
-ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91405183"
 ---
 # <a name="improve-the-reliability-of-your-application-by-using-azure-advisor"></a>Melhorar a confiabilidade do seu aplicativo usando o Azure Advisor
@@ -113,7 +113,7 @@ As máquinas virtuais que não têm replicação habilitada para outra região n
 O [agente do computador conectado do Azure](https://docs.microsoft.com/azure/azure-arc/servers/manage-agent) é atualizado regularmente com correções de bugs, aprimoramentos de estabilidade e novas funcionalidades. Identificamos os recursos que não estão funcionando na versão mais recente do agente do computador e essa recomendação do Advisor irá sugerir que você atualize seu agente para a versão mais recente para a melhor experiência de Arc do Azure.
 
 ## <a name="do-not-override-hostname-to-ensure-website-integrity"></a>Não substitua o nome do host para garantir a integridade do site
-O Advisor recomenda tentar evitar a substituição do nome do host ao configurar o gateway de aplicativo. Ter um domínio diferente no front-end do gateway de aplicativo do que o usado para acessar o back-end pode levar a uma interrupção de cookies ou redirecionar URLs. Observe que esse pode não ser o caso em todas as situações e determinadas categorias de back-ends (como API REST) em geral são menos sensíveis a isso. Verifique se o back-end é capaz de lidar com isso ou atualizar a configuração do gateway de aplicativo para que o nome do host não precise ser substituído em direção ao back-end. Quando usado com o serviço de aplicativo, anexe um nome de domínio personalizado ao aplicativo Web e evite usar o *nome de host. azurewebsites.net em direção ao back-end.* [Saiba mais sobre o domínio personalizado](https://aka.ms/appgw-advisor-usecustomdomain).
+O Advisor recomenda tentar evitar a substituição do nome do host ao configurar o gateway de aplicativo. Ter um domínio diferente no front-end do Gateway de Aplicativo do que o usado para acessar o back-end pode levar a uma interrupção de cookies ou do redirecionamento de URLs. Observe que esse pode não ser o caso em todas as situações, e determinadas categorias de back-ends (como API REST) em geral são menos sensíveis a isso. Verifique se o back-end é capaz de lidar com isso ou atualize a configuração do Gateway de Aplicativo para que o nome do host não precise ser substituído para o back-end. Quando usado com o serviço de aplicativo, anexe um nome de domínio personalizado ao aplicativo Web e evite usar o *nome de host. azurewebsites.net em direção ao back-end.* [Saiba mais sobre o domínio personalizado](https://aka.ms/appgw-advisor-usecustomdomain).
 
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Como acessar as recomendações de alta disponibilidade no Advisor
 

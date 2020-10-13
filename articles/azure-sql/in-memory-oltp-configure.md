@@ -1,6 +1,6 @@
 ---
-title: O OLTP na memória melhora o desempenho do SQL TXN
-description: Adote o OLTP na memória para melhorar o desempenho transacional em um banco de dados existente no banco de dados SQL do Azure e no Azure SQL Instância Gerenciada.
+title: In-Memory OLTP melhora o desempenho do SQL TXN
+description: Adote In-Memory OLTP para melhorar o desempenho transacional em um banco de dados existente no banco de dados SQL do Azure e no SQL Instância Gerenciada do Azure.
 services: sql-database
 ms.service: sql-database
 ms.custom: sqldbrb=2
@@ -11,13 +11,13 @@ ms.author: sstein
 ms.reviewer: MightyPen
 ms.date: 11/07/2018
 ms.openlocfilehash: e17e98e784b7453c87814c5cce5c03568f66b1cb
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91619739"
 ---
-# <a name="use-in-memory-oltp-to-improve-your-application-performance-in-azure-sql-database-and-azure-sql-managed-instance"></a>Use o OLTP na memória para melhorar o desempenho do aplicativo no banco de dados SQL do Azure e no Azure SQL Instância Gerenciada
+# <a name="use-in-memory-oltp-to-improve-your-application-performance-in-azure-sql-database-and-azure-sql-managed-instance"></a>Use In-Memory OLTP para melhorar o desempenho do aplicativo no banco de dados SQL do Azure e no SQL do Azure Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
 O [OLTP in-memory](in-memory-oltp-overview.md) pode ser usado para melhorar o desempenho do processamento de transações, a ingestão de dados e os cenários de dados transitórios, em bancos de dados das [camadas Premium e Comercialmente Crítico](database/service-tiers-vcore.md) sem aumentar o tipo de preço.
@@ -83,8 +83,8 @@ Para usar essa opção de migração:
 3. No assistente, clique em **Validação de migração** (ou no botão **Avançar**) para ver se a tabela tem algum recurso sem suporte nas tabelas com otimização de memória. Para obter mais informações, consulte:
 
    * A *lista de verificação de otimização de memória* no [Supervisor de Otimização de Memória](/sql/relational-databases/in-memory-oltp/memory-optimization-advisor).
-   * [Construções Transact-SQL sem suporte pelo OLTP na memória](/sql/relational-databases/in-memory-oltp/transact-sql-constructs-not-supported-by-in-memory-oltp).
-   * [Migrando para o OLTP na memória](/sql/relational-databases/in-memory-oltp/plan-your-adoption-of-in-memory-oltp-features-in-sql-server).
+   * [Construções Transact-SQL sem suporte pelo OLTP In-Memory](/sql/relational-databases/in-memory-oltp/transact-sql-constructs-not-supported-by-in-memory-oltp).
+   * [Migrando para In-Memory OLTP](/sql/relational-databases/in-memory-oltp/plan-your-adoption-of-in-memory-oltp-features-in-sql-server).
 4. Se a tabela não tiver recursos sem suporte, o supervisor poderá executar o esquema e a migração de dados reais para você.
 
 ### <a name="manual-t-sql"></a>T-SQL Manual
@@ -172,7 +172,7 @@ Para minimizar a latência de rede, execute o teste na mesma região geográfica
 
 Considere monitorar os efeitos de desempenho de  suas implementações de Na Memória em produção:
 
-* [Monitorar o armazenamento na memória](in-memory-oltp-monitor-space.md).
+* [Monitorar In-Memory armazenamento](in-memory-oltp-monitor-space.md).
 * [Monitorando usando exibições de gerenciamento dinâmico](database/monitoring-with-dmvs.md)
 
 ## <a name="related-links"></a>Links relacionados

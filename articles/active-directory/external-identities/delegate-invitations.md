@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bb0147af559d9de4a8589344d61b06368086dd20
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91278780"
 ---
 # <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>Habilitar a Colaboração B2B externa e gerenciar quem pode enviar convites
@@ -61,7 +61,7 @@ Por padrão, todos os usuários, incluindo convidados, podem enviar convites.
 
    - **Convidados podem convidar**: Para permitir que convidados convidem outros convidados, defina essa política como **Sim**.
 
-   - **Habilitar a senha de uso único de email para convidados (versão prévia)**: para obter mais informações sobre o recurso de senha de uso único, consulte [autenticação de senha de uso único de email (versão prévia)](one-time-passcode.md).
+   - **Habilitar email One-Time senha para convidados (visualização)**: para obter mais informações sobre o recurso de senha de uso único, consulte [autenticação de senha de uso único de email (versão prévia)](one-time-passcode.md).
 
    - **Habilitar inscrição de autoatendimento de convidado por meio de fluxos de usuário (visualização)**: para obter mais informações sobre essa configuração, consulte [Adicionar um fluxo de usuário de inscrição de autoatendimento a um aplicativo (versão prévia)](self-service-sign-up-user-flow.md).
 

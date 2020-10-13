@@ -12,10 +12,10 @@ ms.author: srinia
 ms.reviewer: sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: 2aa2c0c8cbd8b826444dc5420685aaa9731cddab
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91409571"
 ---
 # <a name="create-configure-and-manage-elastic-jobs-preview"></a>Criar, configurar e gerenciar trabalhos elásticos (visualização)
@@ -58,7 +58,7 @@ A imagem a seguir foi criada para ajudar na compreensão e na configuração das
 
 ![Credenciais de trabalhos elásticos](./media/elastic-jobs-overview/job-credentials.png)
 
-## <a name="security-best-practices"></a>Práticas recomendadas de segurança
+## <a name="security-best-practices"></a>Melhores práticas de segurança
 
 Algumas considerações sobre melhores práticas para usar trabalhos elásticos:
 
