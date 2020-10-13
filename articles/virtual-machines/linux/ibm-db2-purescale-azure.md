@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/09/2018
 ms.author: edprice
-ms.openlocfilehash: 0b032f48e18651af7f360471cc2834a5c45acc56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0297c8674cc47a1d5f59fef196a60175244eaae2
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87831406"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978315"
 ---
 # <a name="ibm-db2-purescale-on-azure"></a>IBM DB2 pureScale no Azure
 
@@ -86,7 +86,7 @@ Essa arquitetura executa os níveis de aplicativo, armazenamento e dados nas má
 
 ### <a name="storage-considerations"></a>Considerações de armazenamento
 
-Como o Oracle RAC, o DB2 pureScale é um banco de dados de expansão de E/S de bloco de alto desempenho. Recomendamos o uso da maior opção de [SSD Premium do Azure](disks-types.md) que atenda às suas necessidades. Opções de armazenamento menores podem ser adequadas para ambientes de desenvolvimento e teste, enquanto ambientes de produção geralmente precisam de maior capacidade de armazenamento. A arquitetura de exemplo usa [P30](https://azure.microsoft.com/pricing/details/managed-disks/) devido à sua proporção de IOPS para tamanho e preço. Independentemente do tamanho, use o Armazenamento Premium para obter o melhor desempenho.
+Como o Oracle RAC, o DB2 pureScale é um banco de dados de expansão de E/S de bloco de alto desempenho. Recomendamos o uso da maior opção de [SSD Premium do Azure](../disks-types.md) que atenda às suas necessidades. Opções de armazenamento menores podem ser adequadas para ambientes de desenvolvimento e teste, enquanto ambientes de produção geralmente precisam de maior capacidade de armazenamento. A arquitetura de exemplo usa [P30](https://azure.microsoft.com/pricing/details/managed-disks/) devido à sua proporção de IOPS para tamanho e preço. Independentemente do tamanho, use o Armazenamento Premium para obter o melhor desempenho.
 
 O DB2 pureScale usa uma arquitetura de tudo compartilhado, na qual todos os dados são acessíveis de todos os nós do cluster. O armazenamento Premium deve ser compartilhado entre várias instâncias, seja sob demanda ou em instâncias dedicadas.
 

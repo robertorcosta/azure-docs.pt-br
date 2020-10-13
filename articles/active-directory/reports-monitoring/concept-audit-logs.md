@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 994fe6c5005eeeab1399091dca5f72024fdd7262
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91812583"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividades de auditoria no portal do Azure Active Directory 
@@ -99,7 +99,7 @@ O filtro de **serviço** permite que você selecione em uma lista suspensa dos s
 - Proxy do Aplicativo
 - Métodos de autenticação
 - B2C
-- Acesso condicional
+- Acesso Condicional
 - Diretório principal
 - Gerenciamento de direitos
 - Autenticação híbrida
@@ -127,7 +127,7 @@ O filtro **categoria** permite que você selecione um dos seguintes filtros:
 - GroupManagement
 - KerberosDomain
 - KeyManagement
-- Rotular
+- Label
 - Outros
 - PermissionGrantPolicy
 - Política

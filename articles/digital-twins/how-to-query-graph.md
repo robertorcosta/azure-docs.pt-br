@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 3e3dce20f447b47ad78deea617b513c50f552733
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: 24229c331d0c7c4b2327e8e609e9d75b6654868f
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893621"
+ms.locfileid: "91931965"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Consultar o grafo gêmeos do Azure digital
 
@@ -47,14 +47,14 @@ WHERE ...
 
 ### <a name="count-items"></a>Contar itens
 
-Você pode contar o número de gêmeos em um conjunto de resultados usando a `Select COUNT` cláusula:
+Você pode contar o número de itens em um conjunto de resultados usando a `Select COUNT` cláusula:
 
 ```sql
 SELECT COUNT() 
 FROM DIGITALTWINS
 ``` 
 
-Adicione uma `WHERE` cláusula para contar o número de gêmeos que atendem a determinados critérios. Aqui estão alguns exemplos de contagem com um filtro aplicado com base no tipo de modelo de entrelaçamento (para obter mais informações sobre essa sintaxe, consulte [*consulta por modelo*](#query-by-model) abaixo):
+Adicione uma `WHERE` cláusula para contar o número de itens que atendem a um determinado critério. Aqui estão alguns exemplos de contagem com um filtro aplicado com base no tipo de modelo de entrelaçamento (para obter mais informações sobre essa sintaxe, consulte [*consulta por modelo*](#query-by-model) abaixo):
 
 ```sql
 SELECT COUNT() 
@@ -68,7 +68,7 @@ WHERE IS_OF_MODEL('dtmi:sample:Room;1') AND c.Capacity > 20
 Você também pode usar `COUNT` o junto com a `JOIN` cláusula. Aqui está uma consulta que conta todas as lâmpadas contidas nos painéis leves das salas 1 e 2:
 
 ```sql
-SELECT COUNT(LightBulb)  
+SELECT COUNT()  
 FROM DIGITALTWINS Room  
 JOIN LightPanel RELATED Room.contains  
 JOIN LightBulb RELATED LightPanel.contains  

@@ -9,13 +9,13 @@ ms.date: 09/10/2020
 ms.service: security-center
 ms.topic: how-to
 ms.openlocfilehash: c4eb30df74e2a8d6748ede987df0b1c41cff0ca3
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448471"
 ---
-# <a name="suppress-alerts-from-azure-defender"></a>Suprimir alertas do Azure defender
+# <a name="suppress-alerts-from-azure-defender"></a>Suprimir alertas do Azure Defender
 
 Esta página explica como você pode usar as regras de supressão de alertas para suprimir falsos positivos ou outros alertas de segurança indesejados do Azure defender.
 
@@ -24,9 +24,9 @@ Esta página explica como você pode usar as regras de supressão de alertas par
 |Aspecto|Detalhes|
 |----|:----|
 |Estado da versão:|Versão Prévia|
-|Refere|Gratuita<br>(A maioria dos alertas de segurança só está disponível com o Azure defender)|
+|Preço:|Gratuita<br>(A maioria dos alertas de segurança só está disponível com o Azure defender)|
 |Funções e permissões necessárias:|**Administrador de segurança** e **proprietário** podem criar/excluir regras.<br>O **Leitor de segurança** e o **Leitor** podem exibir regras.|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) National/soberanas (US Gov, China gov, outros gov)|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Nacionais/soberanas (US Gov, China Gov, outros Gov)|
 |||
 
 

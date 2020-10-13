@@ -8,10 +8,10 @@ ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 75344204e03920c96d0868ad584b8701813fabf0
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91569523"
 ---
 # <a name="azure-security-baseline-for-cosmos-db"></a>Linha de base de segurança do Azure para Cosmos DB
@@ -334,7 +334,7 @@ Como acessar de forma programática as chaves usando Azure Active Directory: htt
 
 ### <a name="34-use-single-sign-on-sso-with-azure-active-directory"></a>3.4: usar o SSO (logon único) com o Azure Active Directory
 
-**Diretrizes**: o Azure Cosmos DB usa dois tipos de chaves para autorizar usuários e não oferece suporte ao SSO (logon único) no nível do plano de dados. O acesso ao plano de controle para Cosmos DB está disponível por meio da API REST e dá suporte a SSO. Para autenticar, defina o cabeçalho de autorização para suas solicitações como um Token Web JSON que você obtém no Azure Active Directory.
+**Diretrizes**: Azure Cosmos DB usa dois tipos de chaves para autorizar usuários e não oferece suporte a Sign-On único (SSO) no nível do plano de dados. O acesso ao plano de controle para Cosmos DB está disponível por meio da API REST e dá suporte a SSO. Para autenticar, defina o cabeçalho de autorização para suas solicitações como um Token Web JSON que você obtém no Azure Active Directory.
 
 Entender o banco de dados do Azure para Cosmos DB API REST: https://docs.microsoft.com/rest/api/cosmos-db/
 
@@ -1017,7 +1017,7 @@ Habilite a exclusão reversível no Key Vault para proteger chaves contra exclus
 
 Entender a criptografia de dados no Azure Cosmos DB: https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest
 
-Como habilitar a exclusão reversível no Key Vault: https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
+Como habilitar Soft-Delete no Key Vault: https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 

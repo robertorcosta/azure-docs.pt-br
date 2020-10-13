@@ -10,13 +10,13 @@ ms.topic: reference
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
-ms.date: 05/25/2020
-ms.openlocfilehash: fc1532fab23ec520722ea71d814496e786b91651
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/12/2020
+ms.openlocfilehash: 7b95ddfdb75dd5e5951a9c95442798692582fe6a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617887"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978349"
 ---
 # <a name="time-zones-in-azure-sql-managed-instance"></a>Fusos horários no Azure SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -95,7 +95,7 @@ Usar o mesmo fuso horário em uma instância primária e secundária em um grupo
 
 ## <a name="limitations"></a>Limitações
 
-- O fuso horário da instância gerenciada existente não pode ser alterado.
+- O fuso horário da instância gerenciada existente não pode ser alterado. Como alternativa, crie uma nova instância gerenciada com o fuso horário adequado e, em seguida, execute um backup e uma restauração manuais, ou o que recomendamos, execute uma [restauração pontual de instância cruzada](https://docs.microsoft.com/azure/azure-sql/managed-instance/point-in-time-restore?tabs=azure-portal#restore-an-existing-database).
 - Os processos externos iniciados por meio dos trabalhos de SQL Server Agent não observam o fuso horário da instância.
 
 ## <a name="list-of-supported-time-zones"></a>Lista de fusos horários com suporte
@@ -241,7 +241,7 @@ Usar o mesmo fuso horário em uma instância primária e secundária em um grupo
 | Hora oficial de Samoa | (UTC + 13:00) Samoa |
 | Hora oficial das ilhas de linha | (UTC + 14:00) Ilha Kiritimati |
 
-## <a name="see-also"></a>Confira também 
+## <a name="see-also"></a>Veja também 
 
 - [CURRENT_TIMEZONE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql)
 - [CURRENT_TIMEZONE_ID (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-id-transact-sql)

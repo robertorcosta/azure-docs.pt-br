@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 06/22/2020
-ms.openlocfilehash: 149a82526263f5e372db81b5a92a9ee90a2c76f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2177e74bd627e80ea1afbcacaf85baf4e030834c
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "90089965"
+ms.locfileid: "91928972"
 ---
 # <a name="reboot-vms-for-hdinsight-clusters"></a>Reinicializar VMs para clusters HDInsight
 
@@ -31,8 +31,8 @@ Quando um nó é reinicializado, o cluster pode se tornar não íntegro e os tra
 - O disco temporário está cheio no nó.
 - A tabela de processo na VM tem muitas entradas em que o processo foi concluído, mas está listado com "estado encerrado".
 
-> [!WARNING]
-> Tenha cuidado ao reinicializar VMs para clusters **HBase** e **Kafka** porque a reinicialização pode fazer com que os dados sejam perdidos.
+> [!NOTE]
+> Não há suporte para a reinicialização de VMs em clusters **HBase** e **Kafka** porque a reinicialização pode fazer com que os dados sejam perdidos.
 
 ## <a name="use-powershell-to-reboot-vms"></a>Usar o PowerShell para reinicializar VMs
 

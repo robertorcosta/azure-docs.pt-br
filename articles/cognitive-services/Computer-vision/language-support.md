@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 844ef8c09f10e1df888ef4990db22be8705d5c01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5c263506db68ea62b0d65b7b866cfab33a36236
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530192"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91976871"
 ---
 # <a name="language-support-for-computer-vision"></a>Suporte a idiomas para Pesquisa Visual Computacional
 
@@ -25,7 +25,7 @@ Alguns recursos do Pesquisa Visual Computacional dão suporte a vários idiomas;
 
 As APIs de OCR do Pesquisa Visual Computacional dão suporte a vários idiomas. Eles não exigem que você especifique um código de idioma. Consulte [OCR (reconhecimento óptico de caracteres)](concept-recognizing-text.md) para obter mais informações.
 
-|Linguagem| Código de idioma | API DE OCR | Leia v 3.0 | Leia a visualização pública do v 3.1 |
+|Linguagem| Código de idioma | API DE OCR | Leia v 3.1 | Leia v 3.1-Preview. 2 |
 |:-----|:----:|:-----:|:---:|:---:|
 |Árabe | `ar`|✔ | | |
 |Chinês (Simplificado) | `zh-Hans`|✔ | |✔ |

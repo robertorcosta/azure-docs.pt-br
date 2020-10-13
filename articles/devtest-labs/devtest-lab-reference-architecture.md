@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: e0791fb6c4de3da8108ffbd296c681f993c6b6cb
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91367743"
 ---
 # <a name="azure-devtest-labs-reference-architecture-for-enterprises"></a>Arquitetura de referência de Azure DevTest Labs para empresas
@@ -59,7 +59,7 @@ O DevTest Labs tem uma ótima interface de usuário administrativa para trabalha
 
 É importante observar que o DevTest Labs usa os recursos subjacentes do Azure que são gerenciados da mesma maneira: rede, discos, computação e assim por diante. Por exemplo, Azure Policy se aplica a máquinas virtuais que são criadas em um laboratório. A central de segurança do Azure pode relatar a conformidade da VM. E o serviço de backup do Azure pode fornecer backups regulares para as VMs no laboratório.
 
-## <a name="security-considerations"></a>Considerações sobre segurança
+## <a name="security-considerations"></a>Considerações de segurança
 Azure DevTest Labs usa recursos existentes no Azure (computação, rede e assim por diante). Portanto, ele se beneficia automaticamente com os recursos de segurança criados na plataforma. Por exemplo, para exigir que as conexões de área de trabalho remota de entrada sejam originadas somente da rede corporativa, basta adicionar um grupo de segurança de rede à rede virtual no gateway de área de trabalho remota. A única consideração de segurança adicional é o nível de permissões que você concede aos membros da equipe que usam os laboratórios diariamente. As permissões mais comuns são [ *proprietário* e *usuário*](devtest-lab-add-devtest-user.md). Para obter mais informações sobre essas funções, consulte [Adicionar proprietários e usuários no Azure DevTest Labs](devtest-lab-add-devtest-user.md).
 
 ## <a name="next-steps"></a>Próximas etapas

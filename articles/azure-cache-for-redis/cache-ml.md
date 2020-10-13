@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.openlocfilehash: 54109d5889ae2c08f444a3a089386d413bf4262b
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91650180"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-with-azure-cache-for-redis"></a>Implantar um modelo de aprendizado de máquina para Azure Functions com o cache do Azure para Redis 
@@ -45,7 +45,7 @@ Você poderá implantar um modelo de aprendizado de máquina para Azure Function
    
 1. Na página **Novo**, selecione **Bancos de dados** e, em seguida, **Cache do Azure para Redis**.
 
-    :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Selecione cache do Azure para Redis.":::
+    :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Selecionar o Cache do Azure para Redis.":::
    
 1. Na página **Novo Cache Redis**, defina as configurações para o novo cache.
    
@@ -57,25 +57,25 @@ Você poderá implantar um modelo de aprendizado de máquina para Azure Function
    | **Localidade** | Clique na lista suspensa e selecione uma localização. | Selecione uma [região](https://azure.microsoft.com/regions/) perto de outros serviços que usarão o cache. |
    | **Tipo de preços** | Clique na lista suspensa e selecione um [Tipo de preço](https://azure.microsoft.com/pricing/details/cache/). |  O tipo de preço determina o tamanho, o desempenho e os recursos disponíveis para o cache. Para obter mais informações, confira [Visão geral do Cache do Azure para Redis](cache-overview.md). |
 
-1. Selecione a guia **rede** ou clique no botão **rede** na parte inferior da página.
+1. Selecione a guia **Rede** ou clique no botão **Rede** na parte inferior da página.
 
-1. Na guia **rede** , selecione o método de conectividade.
+1. Na guia **Rede**, escolha o método de conectividade.
 
-1. Selecione a **próxima guia: avançado** ou clique no botão **Avançar: avançado** na parte inferior da página.
+1. Selecione **Próximo: Avançado** ou clique no botão **Próximo: Avançado** na parte inferior da página.
 
-1. Na guia **avançado** de uma instância de cache básica ou Standard, selecione Habilitar alternância se você quiser habilitar uma porta não TLS.
+1. Na guia **Avançado** de uma instância de cache Básico ou Standard, selecione a alternância Habilitar se desejar habilitar uma porta não TLS.
 
-1. Na guia **avançado** da instância de cache Premium, defina as configurações para porta não TLS, clustering e persistência de dados.
+1. Na guia **Avançado** de uma instância de cache Premium, defina as configurações da porta não TLS, do clustering e da persistência de dados.
 
-1. Selecione a **próxima: guia marcas** ou clique no botão **próximo: marcas** na parte inferior da página.
+1. Selecione **Próximo: Marcas** ou clique no botão **Próximo: Botão** Categorias na parte inferior da página.
 
-1. Opcionalmente, na guia **marcas** , digite o nome e o valor se desejar categorizar o recurso. 
+1. Opcionalmente, na guia **Marcas**, insira o nome e o valor caso deseje categorizar o recurso. 
 
-1. Selecione  **Analisar + criar**. Você é levado para a guia revisar + criar, na qual o Azure valida sua configuração.
+1. Selecione  **Analisar + criar**. Você será levado para a guia Examinar + criar, na qual o Azure validará a configuração.
 
-1. Depois que a mensagem de validação verde aprovada for exibida, selecione **criar**.
+1. Depois que a mensagem em verde Validação aprovada for exibida, selecione **Criar**.
 
-A criação do cache demora um pouco. Você pode monitorar o progresso na página de **visão geral**do cache do Azure para Redis   . Quando o **status**   é mostrado como **em execução**, o cache está pronto para uso. 
+A criação do cache demora um pouco. Monitore o progresso na página  **Visão Geral**  do Cache do Azure para Redis. Quando o  **Status**  for mostrado como  **Em execução**, o cache estará pronto para uso. 
 
 ## <a name="prepare-for-deployment"></a>Preparar para a implantação
 
@@ -294,7 +294,7 @@ Agora, executaremos e testaremos nosso gatilho HTTP da função do Azure.
 
 Agora você implantou com êxito um modelo de Azure Machine Learning como um aplicativo de funções usando um cache do Azure para a instância Redis. Saiba mais sobre o cache do Azure para Redis navegando até os links na seção abaixo.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se você pretende continuar até o próximo tutorial, pode manter os recursos criados neste início rápido e reutilizá-los.
 

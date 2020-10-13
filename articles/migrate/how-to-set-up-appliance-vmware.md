@@ -4,10 +4,10 @@ description: Saiba como configurar um dispositivo de migrações para Azure para
 ms.topic: article
 ms.date: 04/16/2020
 ms.openlocfilehash: 9a4e652180b236262ea57ae49d35410ebfbdc927
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448645"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>Configurar um dispositivo para VMs VMware
@@ -26,11 +26,11 @@ Depois de criar o dispositivo, você verifica se é possível conectá-lo ao Mig
 
 ## <a name="appliance-deployment-ova"></a>Implantação de dispositivo (OVA)
 
-Para configurar o dispositivo usando um modelo OVA, você:
-- Forneça um nome de dispositivo e gere uma chave de projeto de migrações para Azure no portal
+Para configurar o dispositivo usando um modelo OVA, siga as etapas abaixo:
+- Forneça um nome de dispositivo e gere uma chave de projeto das Migrações para Azure no portal
 - Baixe um arquivo de modelo OVA e importe-o para o vCenter Server.
 - Crie o dispositivo e verifique se ele pode se conectar à Avaliação de Servidor das Migrações para Azure.
-- Configure o dispositivo pela primeira vez e registre-o com o projeto de migrações para Azure usando a chave de projeto migrações para Azure.
+- Configure o dispositivo pela primeira vez e registre-o no projeto das Migrações para Azure usando a chave de projeto das Migrações para Azure.
 
 ### <a name="generate-the-azure-migrate-project-key"></a>Gerar a chave do projeto das Migrações para Azure
 
@@ -66,7 +66,7 @@ Verifique se o arquivo OVA é seguro antes de implantá-lo.
 
 Importe o arquivo baixado e crie uma VM.
 
-1. No console do cliente do vSphere, clique em **arquivo**  >  **implantar o modelo OVF**.
+1. No console do cliente do vSphere, clique em **Arquivo** > **Implantar o Modelo de OVF**.
 ![Comando de menu para implantar um modelo de OVF](./media/tutorial-assess-vmware/deploy-ovf.png)
 
 2. No Assistente do Modelo de Implantação de OVF > **Origem**, especifique o local do arquivo OVA.
@@ -74,7 +74,7 @@ Importe o arquivo baixado e crie uma VM.
 5. Em **Host/Cluster**, especifique o host ou o cluster no qual a VM será executada.
 6. Em **Armazenamento**, especifique o destino de armazenamento para a VM.
 7. Em **Formato de Disco**, especifique o tipo e o tamanho do disco.
-8. Em **mapeamento de rede**, especifique a rede à qual a VM será conectada. A rede precisa ter conectividade com a Internet para enviar metadados para a Avaliação de Servidor das Migrações para Azure.
+8. Em **Mapeamento de Rede**, especifique a rede à qual a VM se conectará. A rede precisa ter conectividade com a Internet para enviar metadados para a Avaliação de Servidor das Migrações para Azure.
 9. Revise e confirme as configurações e clique em **Concluir**.
 
 

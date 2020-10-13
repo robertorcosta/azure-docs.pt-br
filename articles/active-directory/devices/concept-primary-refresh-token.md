@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 000bc150b1a4addb4b68bd86b8d72524ec1015fc
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91450417"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>O que é um Token de atualização principal?
@@ -87,7 +87,7 @@ Um PRT é renovado por meio de dois métodos:
    * Um aplicativo solicita o WAM a um token de acesso silenciosamente, mas não há um token de atualização disponível para esse aplicativo. Nesse caso, o WAM usa o PRT para solicitar um token para o aplicativo e retorna um novo PRT na resposta.
    * Um aplicativo solicita o WAM a um token de acesso, mas o PRT é inválido ou o Azure AD requer autorização adicional (por exemplo, Autenticação Multifator do Microsoft Azure). Nesse cenário, o WAM inicia um logon interativo que requer que o usuário seja reautenticado ou forneça uma verificação adicional, e um novo PRT é emitido na autenticação bem-sucedida.
 
-Em um ambiente do ADFS, a linha de visão direta para o controlador de domínio não é necessária para renovar o PRT. A renovação de PRT requer apenas pontos de extremidade/ADFS/Services/Trust/2005/usernamemixed e/ADFS/Services/Trust/13/usernamemixed habilitados no proxy usando o protocolo WS-Trust.
+Em um ambiente do ADFS, a linha de visão direta para o controlador de domínio não é necessária para renovar o PRT. A renovação de PRT requer apenas pontos de extremidade/ADFS/Services/Trust/2005/usernamemixed e/ADFS/Services/Trust/13/usernamemixed habilitados no proxy usando WS-Trust protocolo.
 
 Os pontos de extremidade de transporte do Windows são necessários para a autenticação de senha somente quando uma senha é alterada, não para a renovação de PRT.
 

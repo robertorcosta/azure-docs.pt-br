@@ -11,10 +11,10 @@ ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
 ms.openlocfilehash: d2885c6cc259cba74ab991ecf5046856984824f1
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91631232"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Criar e gerenciar workspaces do Azure Machine Learning no portal do Azure
@@ -149,7 +149,7 @@ Na [portal do Azure](https://portal.azure.com/), selecione **excluir**  na parte
 
 :::image type="content" source="./media/how-to-manage-workspace/delete-workspace.png" alt-text="Seleção de ponto de extremidade particular":::
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 

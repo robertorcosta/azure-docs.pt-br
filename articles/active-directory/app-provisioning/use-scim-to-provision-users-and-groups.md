@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 59c899d2450e9d439426239384945258e8df694a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd534443c56612d0c0d67c228cba154fb1db18c3
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91266642"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91967045"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Criar um ponto de extremidade SCIM e configurar o provisionamento de usuários com o Azure AD
 
@@ -747,7 +747,7 @@ Barra mínima dos conjuntos de criptografia TLS 1.2:
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 
 ### <a name="ip-ranges"></a>Intervalos de IP
-O serviço de provisionamento do Azure AD opera atualmente nos intervalos de IP para AzureActiveDirectory, conforme listado [aqui](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all). Você pode adicionar os intervalos de IP listados na marca AzureActiveDirectory para permitir o tráfego do serviço de provisionamento do Azure AD para seu aplicativo. 
+O serviço de provisionamento do Azure AD opera atualmente nos intervalos de IP para AzureActiveDirectory, conforme listado [aqui](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all). Você pode adicionar os intervalos de IP listados na marca AzureActiveDirectory para permitir o tráfego do serviço de provisionamento do Azure AD para seu aplicativo. Observe que você precisará examinar cuidadosamente a lista de intervalos de IP para endereços computados. Um endereço como ' 40.126.25.32 ' poderia ser representado na lista de intervalos de IP como ' 40.126.0.0/18 '. Você também pode recuperar de forma programática a lista de intervalos de IP usando a [API](https://docs.microsoft.com/rest/api/virtualnetwork/servicetags/list)a seguir.
 
 ## <a name="step-3-build-a-scim-endpoint"></a>Etapa 3: Crie um ponto de extremidade do SCIM
 

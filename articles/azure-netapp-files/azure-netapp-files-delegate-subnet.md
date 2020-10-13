@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: b-juche
-ms.openlocfilehash: bed1375631c017d23ed53b6102c424533237099e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb3d1fd49c2623ff6dcbe8a19ae8c8ca3b46425a
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447565"
+ms.locfileid: "91930621"
 ---
 # <a name="delegate-a-subnet-to-azure-netapp-files"></a>Delegar uma sub-rede ao Azure NetApp Files 
 
@@ -33,7 +33,7 @@ ms.locfileid: "91447565"
    Você pode ter apenas uma única sub-rede delegada em uma VNet. Uma conta do NetApp pode implantar volumes em vários VNets, cada um com sua própria sub-rede delegada.  
 * Não é possível designar um grupo de segurança de rede nem um ponto de extremidade de serviço na sub-rede delegada. Fazer isso causa a falha da delegação da sub-rede.
 * Atualmente, não há suporte para o acesso a um volume de uma rede virtual emparelhada globalmente.
-* Não há suporte para UDRs ( [rotas definidas pelo usuário](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes) ) e NSGs (grupos de segurança de rede) em sub-redes delegadas para Azure NetApp files. No entanto, você pode aplicar UDRs e NSGs a outras sub-redes, mesmo na mesma VNet que a sub-rede delegada para Azure NetApp Files.  
+* Não há suporte para UDRs ( [rotas definidas pelo usuário](../virtual-network/virtual-networks-udr-overview.md#custom-routes) ) e NSGs (grupos de segurança de rede) em sub-redes delegadas para Azure NetApp files. No entanto, você pode aplicar UDRs e NSGs a outras sub-redes, mesmo na mesma VNet que a sub-rede delegada para Azure NetApp Files.  
    Azure NetApp Files cria uma rota do sistema para a sub-rede delegada. A rota será mostrada em **rotas efetivas** na tabela de rotas se você precisar dela para solução de problemas.
 
 ## <a name="steps"></a>Etapas
@@ -54,6 +54,4 @@ Também é possível criar e delegar uma sub-rede quando você [cria um volume d
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Criar um volume para Azure NetApp Files](azure-netapp-files-create-volumes.md)
-* [Saiba mais sobre a integração de rede virtual para os serviços do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)
-
-
+* [Saiba mais sobre a integração de rede virtual para os serviços do Azure](../virtual-network/virtual-network-for-azure-services.md)

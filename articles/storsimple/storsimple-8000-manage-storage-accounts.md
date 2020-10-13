@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.openlocfilehash: 306d3a14d759ac73e78626a4c2ec6abc69d3df85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a0ea8a2f07ef596cd80e9165eedb2b98dab0bfa
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85515028"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978706"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-storage-account-credentials"></a>Usar o serviço do Gerenciador de Dispositivos do StorSimple para gerenciar as credenciais da sua conta de armazenamento
 
@@ -33,7 +33,7 @@ A seção **Configuração** da folha do serviço do Gerenciador de Dispositivos
 
 Este tutorial explica como adicionar, editar ou excluir as credenciais da conta de armazenamento ou girar entre as chaves de segurança para uma conta de armazenamento.
 
- ![Lista de credenciais de conta de armazenamento](./media/storsimple-8000-manage-storage-accounts/createnewstorageacct6.png)  
+ ![Lista de credenciais de conta de armazenamento 1](./media/storsimple-8000-manage-storage-accounts/createnewstorageacct6.png)  
 
 As contas de armazenamento contém as credenciais que o dispositivo StorSimple usa para acessar sua conta de armazenamento com seu provedor de serviços de nuvem. Para contas de armazenamento do Microsoft Azure, essas credenciais podem ser o nome da conta e a chave de acesso primário, por exemplo. 
 
@@ -102,7 +102,7 @@ Você pode editar uma conta de armazenamento usada por um contêiner de volume. 
 
 1. Vá até o seu serviço do Gerenciador de Dispositivos StorSimple. Na seção **Configuração**, clique em **Credenciais da conta de armazenamento**.
 
-    ![Credenciais da conta de armazenamento](./media/storsimple-8000-manage-storage-accounts/editstorageacct1.png)
+    ![Credenciais da conta de armazenamento 2](./media/storsimple-8000-manage-storage-accounts/editstorageacct1.png)
 
 2. Na folha **Credenciais da conta de armazenamento**, na lista de credenciais de conta de armazenamento, selecione e clique naquela que você deseja editar. 
 
@@ -159,11 +159,11 @@ Para informar o serviço do Gerenciador de Dispositivos do StorSimple da altera�
 
 3. Clique em **...Mais** e selecione **Sincronizar chave de acesso para girar**.   
 
-    ![sincronizar chaves](./media/storsimple-8000-manage-storage-accounts/syncaccesskey2.png)
+    ![sincronizar chaves 2](./media/storsimple-8000-manage-storage-accounts/syncaccesskey2.png)
 
 4. No serviço Gerenciador de Dispositivos StorSimple, você precisa atualizar a chave que foi alterada anteriormente no serviço Armazenamento do Microsoft Azure. Se a chave de acesso primária tiver sido alterada (gerada novamente), selecione a chave **primária**. Se a chave secundária tiver sido alterada, selecione a chave **secundária**. Clique em **Sincronizar chave**.
       
-      ![sincronizar chaves](./media/storsimple-8000-manage-storage-accounts/syncaccesskey3.png)
+      ![sincronizar chaves 3](./media/storsimple-8000-manage-storage-accounts/syncaccesskey3.png)
 
 Você será notificado depois que a chave tiver sido sincronizada com êxito.
 

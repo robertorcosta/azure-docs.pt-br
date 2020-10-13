@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 9/24/2020
 ms.author: mnanda
-ms.openlocfilehash: 3bd19f301b1afd7dd1c35f03f6f6131a26b00708
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ffac5ac4d1a8143590e1d72aaafc8a02d6ab04ca
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91596830"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977248"
 ---
 # <a name="troubleshoot-high-cpu-issues-for-azure-windows-virtual-machines"></a>Solucionar problemas de alta utilização de CPU para máquinas virtuais do Windows do Azure
 
@@ -90,11 +90,11 @@ PerfInsights é a ferramenta recomendada do suporte do Azure para problemas de d
 
 #### <a name="run-perfinsights"></a>Executar PerfInsights
 
-O PerfInsights está disponível para o sistema operacional [Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) e [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux) . Para o Windows, aqui estão as opções.
+O PerfInsights está disponível para o sistema operacional [Windows](./how-to-use-perfinsights.md) e [Linux](./how-to-use-perfinsights-linux.md) . Para o Windows, aqui estão as opções.
 
 #### <a name="run-and-analyze-reports-through-azure-portal"></a>Executar e analisar relatórios por meio de portal do Azure
 
-Quando [instalado por meio da portal do Azure](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/performance-diagnostics), na verdade, instala uma extensão na VM. Os usuários também podem instalar o PerfInsights como uma extensão indo diretamente para [extensões na folha da VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/performance-diagnostics-vm-extension)e, em seguida, escolhendo uma opção de diagnóstico de desempenho.
+Quando [instalado por meio da portal do Azure](./performance-diagnostics.md), na verdade, instala uma extensão na VM. Os usuários também podem instalar o PerfInsights como uma extensão indo diretamente para [extensões na folha da VM](./performance-diagnostics-vm-extension.md)e, em seguida, escolhendo uma opção de diagnóstico de desempenho.
 
 #### <a name="azure-portal-option-1"></a>Opção de portal do Azure 1
 
@@ -132,7 +132,7 @@ O relatório é armazenado em uma das contas de armazenamento em sua assinatura.
 
 #### <a name="run-perfinsights-from-within-the-vm"></a>Executar PerfInsights de dentro da VM
 
-Esse método pode ser usado se você pretende executar PerfInsights por durações mais longas. O [artigo PerfInsights](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights#how-do-i-run-perfinsights) fornece uma explicação detalhada dos diferentes comandos e sinalizadores necessários para executar o PerfInsights como um executável. Para fins de uso de alta utilização de CPU, você precisará de um dos seguintes modos:
+Esse método pode ser usado se você pretende executar PerfInsights por durações mais longas. O [artigo PerfInsights](./how-to-use-perfinsights.md#how-do-i-run-perfinsights) fornece uma explicação detalhada dos diferentes comandos e sinalizadores necessários para executar o PerfInsights como um executável. Para fins de uso de alta utilização de CPU, você precisará de um dos seguintes modos:
 
 - Cenário avançado
 
@@ -289,7 +289,7 @@ Depois que as configurações estiverem habilitadas, você poderá exibir esses 
 
   ![Namespace de métricas](./media/troubleshoot-high-cpu-issues-azure-windows-vm/19-metrics-namespace.png)
 
-Para obter mais informações sobre como usar o Azure monitor para gerenciar VMs do Azure, consulte [monitorando máquinas virtuais do Azure com Azure monitor](https://docs.microsoft.com/azure/azure-monitor/insights/monitor-vm-azure).
+Para obter mais informações sobre como usar o Azure monitor para gerenciar VMs do Azure, consulte [monitorando máquinas virtuais do Azure com Azure monitor](../../azure-monitor/insights/monitor-vm-azure.md).
 
 ### <a name="reactive-troubleshooting"></a>Solução de problemas reativa
 
@@ -311,7 +311,7 @@ O comando do **contador Create do logman** é usado para executar a coleta Perfm
 
 Logman.exe também pode ser iniciado em um computador de VM do Azure par na mesma VNET.
 
-Para saber mais sobre esses parâmetros, consulte [logman Create Counter](https://docs.microsoft.com/windows-server/administration/windows-commands/logman-create-counter).
+Para saber mais sobre esses parâmetros, consulte [logman Create Counter](/windows-server/administration/windows-commands/logman-create-counter).
 
 Depois que os dados de Perfmon são coletados enquanto o problema está ocorrendo, as etapas restantes para analisar os dados são as mesmas descritas anteriormente.
 

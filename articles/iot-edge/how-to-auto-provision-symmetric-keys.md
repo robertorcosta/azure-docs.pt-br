@@ -9,12 +9,12 @@ ms.date: 4/3/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4c44ad91b4fb8581a67ea67e09faca4a9d96df91
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 791aadf349654e1e62c3ac2b98a955de7b46c0b7
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447758"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91966110"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>Criar e provisionar um dispositivo IoT Edge usando o atestado de chave simétrica
 
@@ -156,7 +156,13 @@ Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 
 O runtime do IoT Edge é implantado em todos os dispositivos IoT Edge. Seus componentes são executados em contêineres e permitem implantar contêineres adicionais no dispositivo para que você possa executar o código na borda.
 
-Você precisará das seguintes informações ao provisionar seu dispositivo:
+Siga as etapas em [instalar o Azure IOT Edge Runtime](how-to-install-iot-edge.md)e, em seguida, retorne a este artigo para provisionar o dispositivo.
+
+## <a name="configure-the-device-with-provisioning-information"></a>Configurar o dispositivo com informações de provisionamento
+
+Depois que o tempo de execução for instalado em seu dispositivo, configure o dispositivo com as informações que ele usa para se conectar ao serviço de provisionamento de dispositivos e ao Hub IoT.
+
+Tenha as seguintes informações prontas:
 
 * O valor de **escopo da ID** de DPS
 * A **ID de registro** do dispositivo que você criou
@@ -167,50 +173,49 @@ Você precisará das seguintes informações ao provisionar seu dispositivo:
 
 ### <a name="linux-device"></a>Dispositivo Linux
 
-Siga as instruções para a arquitetura do dispositivo. Certifique-se de configurar o runtime do IoT Edge para provisionamento automático, não manual.
+1. Abra o arquivo de configuração no dispositivo IoT Edge.
 
-[Instalar o runtime do Azure IoT Edge no Linux](how-to-install-iot-edge-linux.md)
+   ```bash
+   sudo nano /etc/iotedge/config.yaml
+   ```
 
-A seção no arquivo de configuração para provisionamento de chave simétrica tem esta aparência:
+1. Localize a seção Configurações de provisionamento do arquivo. Remova os comentários das linhas para o provisionamento de chave simétrica do DPS e verifique se todas as outras linhas de provisionamento foram comentadas.
 
-```yaml
-# DPS symmetric key provisioning configuration
-provisioning:
-   source: "dps"
-   global_endpoint: "https://global.azure-devices-provisioning.net"
-   scope_id: "<SCOPE_ID>"
-   attestation:
-      method: "symmetric_key"
-      registration_id: "<REGISTRATION_ID>"
-      symmetric_key: "<SYMMETRIC_KEY>"
-```
+   A `provisioning:` linha não deve ter nenhum espaço em branco anterior e itens aninhados devem ser recuados em dois espaços.
 
-Substitua os valores de espaço reservado para `<SCOPE_ID>` , `<REGISTRATION_ID>` e `<SYMMETRIC_KEY>` pelos dados coletados anteriormente. Verifique se o **provisionamento:** linha não tem espaço em branco precedente e se os itens aninhados são recuados em dois espaços.
+   ```yml
+   # DPS TPM provisioning configuration
+   provisioning:
+     source: "dps"
+     global_endpoint: "https://global.azure-devices-provisioning.net"
+     scope_id: "<SCOPE_ID>"
+     attestation:
+       method: "symmetric_key"
+       registration_id: "<REGISTRATION_ID>"
+       symmetric_key: "<SYMMETRIC_KEY>"
+   ```
+
+1. Atualize os valores de `scope_id` , `registration_id` e `symmetric_key` com suas informações de dispositivo e DPS.
+
+1. Reinicie o runtime do IoT Edge para que ele pega todas as alterações de configuração feitas no dispositivo.
+
+   ```bash
+   sudo systemctl restart iotedge
+   ```
 
 ### <a name="windows-device"></a>Dispositivo Windows
 
-Instale o IoT Edge tempo de execução no dispositivo para o qual você gerou uma chave de dispositivo derivada. Você configurará o tempo de execução de IoT Edge para o provisionamento automático, não manual.
-
-Para obter informações mais detalhadas sobre como instalar o IoT Edge no Windows, incluindo pré-requisitos e instruções para tarefas como gerenciar contêineres e atualizar IoT Edge, consulte [instalar o Azure IOT Edge tempo de execução no Windows](how-to-install-iot-edge-windows.md).
-
 1. Abra uma janela do PowerShell no modo de administrador. Certifique-se de usar uma sessão AMD64 do PowerShell ao instalar o IoT Edge, não o PowerShell (x86).
 
-1. O comando **Deploy-IoTEdge** verifica se o computador Windows está em uma versão com suporte, ativa o recurso de contêineres e, em seguida, baixa o tempo de execução do Moby e o tempo de execução do IOT Edge. O padrão do comando é usar contêineres do Windows.
-
-   ```powershell
-   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-   Deploy-IoTEdge
-   ```
-
-1. Neste ponto, os dispositivos IoT Core podem ser reiniciados automaticamente. Outros dispositivos Windows 10 ou Windows Server podem solicitar a reinicialização. Nesse caso, reinicie o dispositivo agora. Quando o dispositivo estiver pronto, execute o PowerShell como administrador novamente.
-
-1. O comando **Initialize-IoTEdge** configura o runtime do IoT Edge em seu computador. O comando usa como padrão o provisionamento manual com contêineres do Windows, a menos que você use o `-Dps` sinalizador para usar o provisionamento automático.
+1. O comando **Initialize-IoTEdge** configura o runtime do IoT Edge em seu computador. O comando usa como padrão o provisionamento manual com contêineres do Windows; portanto, use o `-DpsSymmetricKey` sinalizador para usar o provisionamento automático com a autenticação de chave simétrica.
 
    Substitua os valores de espaço reservado para `{scope_id}` , `{registration_id}` e `{symmetric_key}` pelos dados coletados anteriormente.
 
+   Adicione o `-ContainerOs Linux` parâmetro se você estiver usando contêineres do Linux no Windows.
+
    ```powershell
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-   Initialize-IoTEdge -Dps -ScopeId {scope ID} -RegistrationId {registration ID} -SymmetricKey {symmetric key}
+   Initialize-IoTEdge -DpsSymmetricKey -ScopeId {scope ID} -RegistrationId {registration ID} -SymmetricKey {symmetric key}
    ```
 
 ## <a name="verify-successful-installation"></a>Verifique se a instalação bem-sucedida

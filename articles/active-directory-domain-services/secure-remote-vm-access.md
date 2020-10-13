@@ -2,20 +2,20 @@
 title: Proteger o acesso remoto à VM no Azure AD Domain Services | Microsoft Docs
 description: Saiba como proteger o acesso remoto a VMs usando o NPS (servidor de diretivas de rede) e a autenticação multifator do Azure com uma implantação Serviços de Área de Trabalho Remota em um domínio Azure Active Directory Domain Services gerenciado.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
-ms.author: iainfou
-ms.openlocfilehash: 462e0ff8ef8baadf40ba81ed2ae137d8904fbf7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: 2964ca74a05ccbc61646f8a289fc950b46cdad47
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88722510"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91967776"
 ---
 # <a name="secure-remote-access-to-virtual-machines-in-azure-active-directory-domain-services"></a>Proteger o acesso remoto a máquinas virtuais no Azure Active Directory Domain Services
 

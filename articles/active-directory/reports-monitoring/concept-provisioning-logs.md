@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6109f35c42d4b4a44430eeb99ec115f4cdc1a619
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91812549"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Provisionando relatórios no portal de Azure Active Directory (versão prévia)
@@ -61,7 +61,7 @@ Os logs de provisionamento fornecem respostas para as seguintes perguntas:
 
 Você pode acessar os logs de provisionamento selecionando **logs de provisionamento** na seção **monitoramento** da folha **Azure Active Directory** na [portal do Azure](https://portal.azure.com). Pode levar até duas horas para que alguns registros de provisionamento sejam exibidos no Portal.
 
-![Provisionando logs](./media/concept-provisioning-logs/access-provisioning-logs.png "Provisionando logs")
+![Logs de provisionamento](./media/concept-provisioning-logs/access-provisioning-logs.png "Provisionando logs")
 
 
 Um log de provisionamento tem uma exibição de lista padrão que mostra:
