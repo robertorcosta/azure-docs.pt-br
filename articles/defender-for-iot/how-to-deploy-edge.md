@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 1/30/2020
 ms.author: mlottner
 ms.openlocfilehash: 06836673f1a567f64217d49cf8e0ca82e132111f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90933053"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Implantar um módulo de segurança em seu dispositivo IoT Edge
@@ -107,7 +107,7 @@ Conclua cada etapa para concluir a implantação do IoT Edge para o defender par
     
    Para obter mais informações sobre como configurar o agente, consulte [Configurar agentes de segurança](https://docs.microsoft.com/azure/defender-for-iot/how-to-agent-configuration).
 
-1. Selecione **Atualização**.
+1. Selecione **Atualizar**.
 
 #### <a name="step-2-runtime-settings"></a>Etapa 2: configurações de tempo de execução
 
@@ -139,7 +139,7 @@ Conclua cada etapa para concluir a implantação do IoT Edge para o defender par
     }
     ```
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 1. Selecione **Avançar**.
 
@@ -175,7 +175,7 @@ Se você encontrar um problema, os logs de contêiner serão a melhor maneira de
 
 1. Verifique se os seguintes contêineres estão em execução:
 
-   | Name | IMAGEM |
+   | Nome | IMAGEM |
    | --- | --- |
    | azureiotsecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:1.0.2 |
    | edgeHub | mcr.microsoft.com/azureiotedge-hub:1.0.8.3 |

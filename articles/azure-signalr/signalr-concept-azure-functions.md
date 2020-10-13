@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.openlocfilehash: cbb1fcf320a78f11045bf9627ffcc438af3e388a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74157610"
 ---
 # <a name="build-real-time-apps-with-azure-functions-and-azure-signalr-service"></a>Crie aplicativos em tempo real com o Azure Functions e o serviço de Signaler do Azure
@@ -73,5 +73,5 @@ Para obter detalhes completos sobre como usar o Azure Functions e o serviço Sig
 
 Siga um destes inícios rápidos para saber mais.
 
-* [Início Rápido do Serviço do Azure SignalR sem servidor – C#](signalr-quickstart-azure-functions-csharp.md)
+* [Guia de início rápido sem servidor do serviço de Signaler do Azure-C #](signalr-quickstart-azure-functions-csharp.md)
 * [Início rápido sem servidor do serviço de Signaler do Azure-JavaScript](signalr-quickstart-azure-functions-javascript.md)

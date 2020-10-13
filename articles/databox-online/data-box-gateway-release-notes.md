@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: alkohli
 ms.openlocfilehash: 1a8a9840cc6e1f3627c5fbd30e0b7432db0f16e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82561041"
 ---
 # <a name="azure-data-box-edgeazure-data-box-gateway-general-availability-release-notes"></a>Notas de versão de disponibilidade geral do Azure Data Box Edge/Gateway do Azure Data Box
@@ -33,7 +33,7 @@ A versão GA corresponde às versões de software:
 
 - **Novas imagens de disco virtual** – agora, há um novo VHDX e VMDK disponíveis no portal do Azure. Baixe essas imagens para provisionar, configurar e implantar novos dispositivos Gateway do Data Box GA. Os dispositivos do Data Box Gateway criados em versões prévias anteriores não podem ser atualizados para esta versão. Para saber mais, acesse [Preparar para implantar o Azure Data Box Gateway](data-box-gateway-deploy-prep.md).
 - **Suporte a NFS** -o suporte a NFS está atualmente em visualização e disponível para clientes v 3.0 e v 4.1 que acessam os dispositivos Data Box Edge e gateway do data box.
-- **Resiliência de armazenamento** -seu dispositivo de data Box Edge pode resistir à falha de um disco de dados com o recurso de resiliência de armazenamento. Esse recurso atualmente está em versão prévia. Você pode habilitar a resiliência de armazenamento selecionando a opção **resiliente** nas **configurações de armazenamento** na interface do usuário da Web local.
+- **Resiliência de armazenamento** -seu dispositivo de data Box Edge pode resistir à falha de um disco de dados com o recurso de resiliência de armazenamento. Esse recurso está atualmente na visualização. Você pode habilitar a resiliência de armazenamento selecionando a opção **resiliente** nas **configurações de armazenamento** na interface do usuário da Web local.
 
 
 ## <a name="known-issues-in-ga-release"></a>Problemas conhecidos na versão GA

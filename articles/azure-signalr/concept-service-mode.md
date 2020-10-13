@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: kenchen
 ms.openlocfilehash: 2cdce64b0ff03521a5848e2b4fd6e01431b5cc16
-ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89514779"
 ---
 # <a name="service-mode-in-azure-signalr-service"></a>Modo de serviço no serviço de Signaler do Azure
@@ -21,7 +21,7 @@ O modo de serviço é um conceito importante no serviço de Signaler do Azure. A
 
 Você também pode alterá-lo posteriormente no menu configurações:
 
-:::image type="content" source="media/concept-service-mode/update.png" alt-text="Atualizar modo de serviço":::
+:::image type="content" source="media/concept-service-mode/update.png" alt-text="Escolher modo de serviço ao criar":::
 
 O serviço do Azure Signalr atualmente dá suporte a três modos de serviço: **padrão**, sem **servidor** e **clássico**. O recurso do Signalr se comportará de forma diferente em modos diferentes. Neste artigo, você aprenderá suas diferenças e como escolher o modo de serviço correto com base em seu cenário.
 
@@ -29,7 +29,7 @@ O serviço do Azure Signalr atualmente dá suporte a três modos de serviço: **
 
 O modo padrão é o valor padrão para o modo de serviço quando você cria um novo recurso de Signalr. Nesse modo, o aplicativo funciona como um aplicativo Signaler típico ASP.NET Core (ou ASP.NET), em que você tem um servidor Web que hospeda um Hub (chamado de servidor Hub doravante) e os clientes podem ter a comunicação duplex com o servidor Hub. A única diferença é, em vez de conectar o cliente e o servidor diretamente, o cliente e o servidor se conectam ao serviço do Signalr e usam o serviço como um proxy. Veja abaixo um diagrama que ilustra a estrutura típica do aplicativo no modo padrão:
 
-:::image type="content" source="media/concept-service-mode/default.png" alt-text="Estrutura do aplicativo no modo padrão":::
+:::image type="content" source="media/concept-service-mode/default.png" alt-text="Escolher modo de serviço ao criar":::
 
 Portanto, se você tiver um aplicativo Signalr e quiser integrá-lo com o serviço Signalr, o modo padrão deverá ser a escolha certa para a maioria dos casos.
 
@@ -59,7 +59,7 @@ Para obter mais informações sobre como configurar upstream, consulte este [doc
 
 Veja abaixo um diagrama que ilustra como funciona o modo sem servidor:
 
-:::image type="content" source="media/concept-service-mode/serverless.png" alt-text="Estrutura do aplicativo no modo sem servidor":::
+:::image type="content" source="media/concept-service-mode/serverless.png" alt-text="Escolher modo de serviço ao criar":::
 
 > [!NOTE]
 > Observe que, no modo padrão, você também pode usar a associação de função/SDK de gerenciamento/API REST para enviar mensagens diretamente para o cliente se não quiser passar pelo servidor de Hub. Mas, no modo padrão, as conexões de cliente ainda são tratadas por servidores de Hub e upstream não funcionará nesse modo.

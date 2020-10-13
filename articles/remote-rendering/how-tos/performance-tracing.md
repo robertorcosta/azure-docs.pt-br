@@ -6,10 +6,10 @@ ms.author: flborn
 ms.date: 12/11/2019
 ms.topic: conceptual
 ms.openlocfilehash: 2a10558e76a6e9af7c7571dc4ba3d063ce3e2286
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84021153"
 ---
 # <a name="create-client-side-performance-traces"></a>Criar rastreamentos de desempenho do lado do cliente
@@ -81,7 +81,7 @@ Para registrar um rastreamento em um HoloLens, inicialize seu dispositivo e insi
 
 1. À esquerda, navegue até *desempenho > rastreamento de desempenho*.
 1. Selecionar **perfis personalizados**
-1. Selecione**:::no-loc text="Browse...":::**
+1. Selecione **:::no-loc text="Browse...":::**
 1. Selecione o arquivo *AzureRemoteRenderingNetworkProfiling. wprp*. Você pode encontrar esse arquivo no SDK do ARR em *Tools/ETLProfiles*.
 1. Clique em **Iniciar rastreamento**
 1. Agora, o HoloLens está gravando um rastreamento. Certifique-se de disparar os problemas de desempenho que você deseja investigar. Em seguida, clique em **parar rastreamento**.

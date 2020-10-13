@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: raynew
 ms.openlocfilehash: ee45d2f489b23289e4f92a544590a510e77ece13
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91627941"
 ---
 # <a name="azure-migrate-support-matrix"></a>Matriz de suporte das Migrações para Azure
@@ -21,7 +21,7 @@ A tabela resume os cenários de descoberta, avaliação e migração com suporte
 
 **Implantação** | **Detalhes** 
 --- | --- 
-**Descoberta** | Você pode descobrir metadados do computador e dados de desempenho dinâmicos.
+**Discovery** | Você pode descobrir metadados do computador e dados de desempenho dinâmicos.
 **Descoberta de aplicativo** | Você pode descobrir aplicativos, funções e recursos em execução em VMs do VMware. Atualmente, esse recurso está limitado apenas à descoberta. A avaliação está atualmente no nível do computador. Ainda não oferecemos aplicativos, funções ou avaliações baseadas em recursos. 
 **Avaliação** | Avalie cargas de trabalho locais e dados em execução em VMs do VMware, VMs do Hyper-V e servidores físicos. Avalie usando a avaliação do servidor de migrações para Azure, Assistente de Migração de Dados da Microsoft (DMA), bem como outras ferramentas e ofertas de ISV.
 **Migração** | Migre cargas de trabalho e dados em execução em servidores físicos, VMs do VMware, VMs do Hyper-V, servidores físicos e VMS baseadas em nuvem para o Azure. Use a Avaliação de Servidor de Migrações para Azure e o Serviço de Migração de Banco de Dados do Azure (DMS), além de outras ferramentas e ofertas de ISV, para migração.

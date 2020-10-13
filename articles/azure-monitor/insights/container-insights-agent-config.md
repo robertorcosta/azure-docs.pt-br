@@ -4,10 +4,10 @@ description: Este artigo descreve como você pode configurar o Azure Monitor par
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.openlocfilehash: 039c6355bef638aae0b2ef074f006aabc04185c4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84299274"
 ---
 # <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>Configurar a coleta de dados do agente para Azure Monitor para contêineres
@@ -38,8 +38,8 @@ A seguir estão as configurações que podem ser definidas para controlar a cole
 | `[log_collection_settings.stdout] enabled =` | Boolean | true ou false | Isso controla se a coleta de log de contêiner stdout está habilitada. Quando definido como `true` e nenhum namespace é excluído para coleta de log de stdout<br> ( `log_collection_settings.stdout.exclude_namespaces` Configurando abaixo), os logs de stdout serão coletados de todos os contêineres em todos os pods/nós no cluster. Se não for especificado em ConfigMaps,<br> o valor padrão é `enabled = true` . |
 | `[log_collection_settings.stdout] exclude_namespaces =` | String | Matriz separada por vírgulas | Matriz de namespaces kubernetes para os quais os logs de stdout não serão coletados. Essa configuração só será eficaz se<br> `log_collection_settings.stdout.enabled`<br> é definido como `true`.<br> Se não for especificado em ConfigMap, o valor padrão será<br> `exclude_namespaces = ["kube-system"]`. |
 | `[log_collection_settings.stderr] enabled =` | Boolean | true ou false | Isso controla se a coleta de log de contêiner stderr está habilitada.<br> Quando definido como `true` e nenhum namespace é excluído para coleta de log de stdout<br> ( `log_collection_settings.stderr.exclude_namespaces` configuração), os logs de stderr serão coletados de todos os contêineres em todos os pods/nós no cluster.<br> Se não for especificado em ConfigMaps, o valor padrão será<br> `enabled = true`. |
-| `[log_collection_settings.stderr] exclude_namespaces =` | String | Matriz separada por vírgulas | Matriz de namespaces kubernetes para os quais os logs de stderr não serão coletados.<br> Essa configuração só será eficaz se<br> `log_collection_settings.stdout.enabled` está definido como `true`.<br> Se não for especificado em ConfigMap, o valor padrão será<br> `exclude_namespaces = ["kube-system"]`. |
-| `[log_collection_settings.env_var] enabled =` | Boolean | true ou false | Essa configuração controla a coleção de variáveis de ambiente<br> em todos os pods/nós no cluster<br> e o padrão é `enabled = true` quando não especificado<br> em ConfigMaps.<br> Se a coleção de variáveis de ambiente for habilitada globalmente, você poderá desabilitá-la para um contêiner específico<br> definindo a variável de ambiente<br> `AZMON_COLLECT_ENV`para **false** com uma configuração Dockerfile ou no [arquivo de configuração para o Pod](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/) na seção **env:** .<br> Se a coleção de variáveis de ambiente for desabilitada globalmente, você não poderá habilitar a coleta para um contêiner específico (ou seja, a única substituição que pode ser aplicada no nível de contêiner será desabilitar a coleta quando ela já estiver habilitada globalmente.). |
+| `[log_collection_settings.stderr] exclude_namespaces =` | String | Matriz separada por vírgulas | Matriz de namespaces kubernetes para os quais os logs de stderr não serão coletados.<br> Essa configuração só será eficaz se<br> `log_collection_settings.stdout.enabled` é definido como `true`.<br> Se não for especificado em ConfigMap, o valor padrão será<br> `exclude_namespaces = ["kube-system"]`. |
+| `[log_collection_settings.env_var] enabled =` | Boolean | true ou false | Essa configuração controla a coleção de variáveis de ambiente<br> em todos os pods/nós no cluster<br> e o padrão é `enabled = true` quando não especificado<br> em ConfigMaps.<br> Se a coleção de variáveis de ambiente for habilitada globalmente, você poderá desabilitá-la para um contêiner específico<br> definindo a variável de ambiente<br> `AZMON_COLLECT_ENV` para **false** com uma configuração Dockerfile ou no [arquivo de configuração para o Pod](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/) na seção **env:** .<br> Se a coleção de variáveis de ambiente for desabilitada globalmente, você não poderá habilitar a coleta para um contêiner específico (ou seja, a única substituição que pode ser aplicada no nível de contêiner será desabilitar a coleta quando ela já estiver habilitada globalmente.). |
 | `[log_collection_settings.enrich_container_logs] enabled =` | Boolean | true ou false | Essa configuração controla o enriquecimento do log de contêiner para popular os valores de propriedade Name e Image<br> para cada registro de log gravado na tabela ContainerLog para todos os logs de contêiner no cluster.<br> O padrão é `enabled = false` quando não especificado em ConfigMap. |
 | `[log_collection_settings.collect_all_kube_events]` | Boolean | true ou false | Essa configuração permite a coleta de eventos Kube de todos os tipos.<br> Por padrão, os eventos de Kube com tipo *normal* não são coletados. Quando essa configuração é definida como `true` , os eventos *normais* não são mais filtrados e todos os eventos são coletados.<br> Por padrão, ele é definido como `false`. |
 
@@ -115,7 +115,7 @@ A alteração de configuração pode levar alguns minutos para ser concluída an
 
 ## <a name="verifying-schema-version"></a>Verificando a versão do esquema
 
-As versões de esquema de configuração com suporte estão disponíveis como uma anotação de Pod (versões de esquema) no pod omsagent. Você pode vê-los com o seguinte comando kubectl:`kubectl describe pod omsagent-fdf58 -n=kube-system`
+As versões de esquema de configuração com suporte estão disponíveis como uma anotação de Pod (versões de esquema) no pod omsagent. Você pode vê-los com o seguinte comando kubectl: `kubectl describe pod omsagent-fdf58 -n=kube-system`
 
 A saída será exibida de forma semelhante à seguinte com a anotação Schema-Versions:
 

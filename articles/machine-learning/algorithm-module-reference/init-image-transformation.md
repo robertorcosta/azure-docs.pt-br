@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
 ms.openlocfilehash: aa81987f9214870e248ef9b625e6afcd1093fe5d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90907879"
 ---
 # <a name="init-image-transformation"></a>Transformação da Imagem de Inicialização
@@ -67,7 +67,7 @@ Consulte [https://pytorch.org/docs/stable/torchvision/transforms.html](https://p
 
 ###  <a name="module-parameters"></a>Parâmetros do módulo  
 
-| Name                    | Intervalo   | Type    | Padrão | Descrição                              |
+| Nome                    | Intervalo   | Type    | Padrão | Descrição                              |
 | ----------------------- | ------- | ------- | ------- | ---------------------------------------- |
 | Redimensionar                  | Qualquer     | Booliano | verdadeiro    | Redimensionar a imagem PIL de entrada para o tamanho determinado |
 | Tamanho                    | >= 1     | Inteiro | 256     | Especificar o tamanho de saída desejado          |
@@ -93,7 +93,7 @@ Consulte [https://pytorch.org/docs/stable/torchvision/transforms.html](https://p
 
 ###  <a name="output"></a>Saída  
 
-| Nome                        | Tipo                    | Descrição                              |
+| Nome                        | Type                    | Descrição                              |
 | --------------------------- | ----------------------- | ---------------------------------------- |
 | Transformação de imagem de saída | TransformationDirectory | Transformação imagem de saída que pode ser conectada ao módulo **aplicar transformação de imagem** . |
 
