@@ -8,12 +8,12 @@ ms.date: 04/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: contperfq1
-ms.openlocfilehash: 773c5f95cdbec6961b063720106794e6ec00451d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb310861edc2ba1ee183bc6f996cb1593457e3c7
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89299925"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972026"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Introdução aos discos gerenciados do Azure
 
@@ -35,7 +35,7 @@ Usando discos gerenciados, é possível criar até 50 mil **discos** de VM de um
 
 ### <a name="integration-with-availability-sets"></a>Integração com conjuntos de disponibilidade
 
-Os discos gerenciados são integrados a conjuntos de disponibilidade para garantir que os discos de [VMs em um conjunto de disponibilidade](windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) estejam suficientemente isolados entre si para evitar pontos únicos de falha. Os discos são automaticamente colocados em unidades de escala de armazenamento diferentes (carimbos). Se um carimbo falhar devido a uma falha de hardware ou de software, somente as instâncias da VM com discos nesses carimbos falharão. Por exemplo, vamos supor que você tenha um aplicativo em execução em cinco VMs, e que as VMs estejam em um Conjunto de Disponibilidade. Os discos dessas VMs não serão armazenados no mesmo stamp, portanto, se um stamp ficar inativo, as outras instâncias do aplicativo continuarão em execução.
+Os discos gerenciados são integrados a conjuntos de disponibilidade para garantir que os discos de [VMs em um conjunto de disponibilidade](./manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) estejam suficientemente isolados entre si para evitar pontos únicos de falha. Os discos são automaticamente colocados em unidades de escala de armazenamento diferentes (carimbos). Se um carimbo falhar devido a uma falha de hardware ou de software, somente as instâncias da VM com discos nesses carimbos falharão. Por exemplo, vamos supor que você tenha um aplicativo em execução em cinco VMs, e que as VMs estejam em um Conjunto de Disponibilidade. Os discos dessas VMs não serão armazenados no mesmo stamp, portanto, se um stamp ficar inativo, as outras instâncias do aplicativo continuarão em execução.
 
 ### <a name="integration-with-availability-zones"></a>Integração com as Zonas de Disponibilidade
 
@@ -47,7 +47,7 @@ Para proteger contra desastres regionais, o [Backup do Azure](../backup/backup-o
 
 ### <a name="granular-access-control"></a>Controle de acesso granular
 
-Use o [RBAC (controle de acesso baseado em função) do Azure](../role-based-access-control/overview.md) para atribuir permissões específicas em um disco gerenciado a um ou mais usuários. Os discos gerenciados expõem uma variedade de operações, incluindo leitura, gravação (criar/atualizar), exclusão e recuperação de um [URI de SAS (assinatura de acesso compartilhado)](../storage/common/storage-dotnet-shared-access-signature-part-1.md) para o disco. Conceda acesso somente às operações que uma pessoa necessita para executar seu trabalho. Por exemplo, se não quiser que uma pessoa copie um disco gerenciado em uma conta de armazenamento, opte por não conceder acesso à ação de exportação para esse disco gerenciado. Da mesma forma, se não quiser que uma pessoa use um URI de SAS para copiar um disco gerenciado, opte por não conceder essa permissão ao disco gerenciado.
+Use o [RBAC (controle de acesso baseado em função) do Azure](../role-based-access-control/overview.md) para atribuir permissões específicas em um disco gerenciado a um ou mais usuários. Os discos gerenciados expõem uma variedade de operações, incluindo leitura, gravação (criar/atualizar), exclusão e recuperação de um [URI de SAS (assinatura de acesso compartilhado)](../storage/common/storage-sas-overview.md) para o disco. Conceda acesso somente às operações que uma pessoa necessita para executar seu trabalho. Por exemplo, se não quiser que uma pessoa copie um disco gerenciado em uma conta de armazenamento, opte por não conceder acesso à ação de exportação para esse disco gerenciado. Da mesma forma, se não quiser que uma pessoa use um URI de SAS para copiar um disco gerenciado, opte por não conceder essa permissão ao disco gerenciado.
 
 ### <a name="upload-your-vhd"></a>Faça upload do seu VHD
 
@@ -96,7 +96,7 @@ Esse disco tem uma capacidade máxima de 4.095 GiB.
 
 ### <a name="temporary-disk"></a>Disco temporário
 
-A maioria das VMs contém um disco temporário, que não é um disco gerenciado. O disco temporário fornece armazenamento de curto prazo para aplicativos e processos e destina-se apenas a armazenar dados como arquivos de página ou de permuta. Os dados no disco temporário podem ser perdidos durante um [evento de manutenção](windows/manage-availability.md?toc=/azure/virtual-machines/windows/toc.json#understand-vm-reboots---maintenance-vs-downtime) ou durante a [reimplantação de uma VM](troubleshooting/redeploy-to-new-node-windows.md?toc=/azure/virtual-machines/windows/toc.json). Durante uma reinicialização padrão bem-sucedida da VM, os dados no disco temporário serão mantidos. Para obter mais informações sobre VMs sem discos temporários, consulte [tamanhos de VM do Azure sem disco temporário local](azure-vms-no-temp-disk.md).
+A maioria das VMs contém um disco temporário, que não é um disco gerenciado. O disco temporário fornece armazenamento de curto prazo para aplicativos e processos e destina-se apenas a armazenar dados como arquivos de página ou de permuta. Os dados no disco temporário podem ser perdidos durante um [evento de manutenção](./manage-availability.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json#understand-vm-reboots---maintenance-vs-downtime) ou durante a [reimplantação de uma VM](troubleshooting/redeploy-to-new-node-windows.md?toc=/azure/virtual-machines/windows/toc.json). Durante uma reinicialização padrão bem-sucedida da VM, os dados no disco temporário serão mantidos. Para obter mais informações sobre VMs sem discos temporários, consulte [tamanhos de VM do Azure sem disco temporário local](azure-vms-no-temp-disk.md).
 
 Em VMs do Linux do Azure, o disco temporário é normalmente /dev/sdb e em VMs do Windows, o disco temporário é D: por padrão. O disco temporário não é criptografado pela criptografia do servidor, a menos que você habilite a criptografia no host.
 
@@ -104,7 +104,7 @@ Em VMs do Linux do Azure, o disco temporário é normalmente /dev/sdb e em VMs d
 
 Um instantâneo de disco gerenciado é uma cópia completa consistente com falhas e somente leitura de um disco gerenciado que, por padrão, é armazenada como um disco gerenciado padrão. Com os instantâneos, você pode fazer backup de seus discos gerenciados a qualquer momento. Esses instantâneos existem independentemente do disco de origem e podem ser usados para criar novos discos gerenciados. 
 
-Os instantâneos são cobrados com base no tamanho utilizado. Por exemplo, se você criar um instantâneo de um disco gerenciado com capacidade provisionada de 64 GiB e tamanho real de dados usados de 10 GiB, esse instantâneo será cobrado apenas pelo tamanho de dados usados de 10 GiB. Você poderá ver o tamanho utilizado dos instantâneos examinando o [relatório de uso do Azure](https://docs.microsoft.com/azure/billing/billing-understand-your-bill). Por exemplo, se o tamanho dos dados de um snapshot usado for 10 GiB, o relatório de uso **diário** mostrará 10 GiB/(31 dias) = 0,3226 como a quantidade consumida.
+Os instantâneos são cobrados com base no tamanho utilizado. Por exemplo, se você criar um instantâneo de um disco gerenciado com capacidade provisionada de 64 GiB e tamanho real de dados usados de 10 GiB, esse instantâneo será cobrado apenas pelo tamanho de dados usados de 10 GiB. Você poderá ver o tamanho utilizado dos instantâneos examinando o [relatório de uso do Azure](../cost-management-billing/understand/review-individual-bill.md). Por exemplo, se o tamanho dos dados de um snapshot usado for 10 GiB, o relatório de uso **diário** mostrará 10 GiB/(31 dias) = 0,3226 como a quantidade consumida.
 
 Para saber mais sobre como criar instantâneos para discos gerenciados, confira os seguintes recursos:
 

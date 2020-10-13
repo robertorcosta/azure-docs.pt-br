@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 09/29/2020
 ms.author: kumud
 ms.openlocfilehash: 791a248c8fb10bc4db483451971d452a359c8a07
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91569255"
 ---
 # <a name="azure-networking-services-overview"></a>Visão geral dos serviços de rede do Azure
@@ -116,7 +116,7 @@ A [proteção contra DDoS do Azure](../virtual-network/manage-ddos-protection.md
 
 :::image type="content" source="./media/networking-overview/ddos-protection.png" alt-text="Azure ExpressRoute":::
 
-### <a name="web-application-firewall"></a><a name="waf"></a>Firewall do Aplicativo Web
+### <a name="web-application-firewall"></a><a name="waf"></a>Firewall do aplicativo Web
 
 O WAF ( [Firewall do aplicativo Web](../web-application-firewall/overview.md) ) do Azure fornece proteção aos seus aplicativos Web contra explorações e vulnerabilidades comuns da Web, como injeção de SQL e script entre sites. O Azure WAF fornece proteção pronta para uso das 10 principais vulnerabilidades do OWASP por meio de regras gerenciadas. Além disso, os clientes também podem configurar regras personalizadas, que são regras gerenciadas pelo cliente para fornecer proteção adicional com base no intervalo de IP de origem e atributos de solicitação, como cabeçalhos, cookies, campos de dados de formulário ou parâmetros de cadeia de caracteres de consulta.
 
@@ -183,7 +183,7 @@ A imagem a seguir mostra um aplicativo de várias camadas voltado para a Interne
 
 :::image type="content" source="./media/networking-overview/load-balancer.png" alt-text="Azure ExpressRoute":::
 
-### <a name="application-gateway"></a><a name="applicationgateway"></a>Gateway de Aplicativo
+### <a name="application-gateway"></a><a name="applicationgateway"></a>Gateway de aplicativo
 O Gateway de Aplicativo do Azure é um balanceador de carga do tráfego da Web que permite que você gerencie o tráfego para seus aplicativos Web. É um ADC (controlador de entrega de aplicativos) como um serviço, oferecendo vários recursos de balanceamento de carga de camada 7 para seus aplicativos. Para obter mais informações, consulte [o que é aplicativo Azure gateway?](../application-gateway/overview.md).
 
 O diagrama a seguir mostra o roteamento baseado em caminho de URL com o gateway de aplicativo.
@@ -195,7 +195,7 @@ Esta seção descreve os serviços de rede no Azure que ajudam a monitorar seus 
 
 |Serviço|Por que usar?|Cenário|
 |---|---|---|
-|[Observador de Rede](#networkwatcher)|Ajuda a monitorar e solucionar problemas de conectividade, ajuda a diagnosticar problemas de VPN, NSG e roteamento, capturar pacotes em sua VM, automatiza o disparo de ferramentas de diagnóstico usando Azure Functions e aplicativos lógicos|<p>[Diagnosticar problema de filtro de tráfego da VM](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md)</p><p>[Diagnosticar problemas de roteamento de VM](../network-watcher/diagnose-vm-network-routing-problem.md)</p><p>[Monitorar comunicações entre VMs](../network-watcher/connection-monitor.md)</p><p>[Diagnosticar um problema de comunicação entre redes](../network-watcher/diagnose-communication-problem-between-networks.md)</p><p>[Registrar em log o tráfego de rede bidirecionalmente em uma VM](../network-watcher/network-watcher-nsg-flow-logging-portal.md)</p>|
+|[Observador de Rede](#networkwatcher)|Ajuda a monitorar e solucionar problemas de conectividade, ajuda a diagnosticar problemas de VPN, NSG e roteamento, capturar pacotes em sua VM, automatiza o disparo de ferramentas de diagnóstico usando Azure Functions e aplicativos lógicos|<p>[Diagnosticar problema de filtro de tráfego da VM](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md)</p><p>[Diagnosticar problemas de roteamento de VM](../network-watcher/diagnose-vm-network-routing-problem.md)</p><p>[Monitorar comunicações entre VMs](../network-watcher/connection-monitor.md)</p><p>[Diagnosticar um problema de comunicação entre redes](../network-watcher/diagnose-communication-problem-between-networks.md)</p><p>[Registrar o tráfego de rede de e para uma VM](../network-watcher/network-watcher-nsg-flow-logging-portal.md)</p>|
 |[Monitor do ExpressRoute](#expressroutemonitor)|Fornece monitoramento em tempo real de desempenho, disponibilidade e utilização de rede, ajuda com a descoberta automática de topologia de rede, fornece um isolamento de falhas mais rápido, detecta problemas de rede transitórios, ajuda a analisar as características históricas de desempenho de rede, dá suporte a várias assinaturas|<p>[Configurar o Monitor de Desempenho de Rede para ExpressRoute](../expressroute/how-to-npm.md)</p><p>[Monitoramento, alertas e métricas do ExpressRoute](../expressroute/expressroute-monitoring-metrics-alerts.md)</p>|
 |[Azure Monitor](#azuremonitor)|Ajuda a entender como os aplicativos estão sendo executados e identifica de forma proativa os problemas que os afetam e os recursos dos quais eles dependem.|<p>[Alertas e métricas do Gerenciador de Tráfego](../traffic-manager/traffic-manager-metrics-alerts.md)</p><p>[Diagnóstico do Azure monitor para Standard Load Balancer](../load-balancer/load-balancer-standard-diagnostics.md)</p><p>[Monitorar os logs e as métricas do Firewall do Azure](../firewall/tutorial-diagnostics.md)</p><p>[Firewall do aplicativo web do Azure de monitoramento e registro em log](../frontdoor/waf-front-door-monitor.md)</p>|
 |[TOQUE da rede virtual](#vnettap)|Fornece streaming contínuo de tráfego de rede de máquina virtual para coletor de pacotes, permite soluções de gerenciamento de desempenho de aplicativos e de rede e ferramentas de análise de segurança|[Criar um recurso de toque de VNet](../virtual-network/tutorial-tap-virtual-network-cli.md)|

@@ -10,22 +10,22 @@ ms.topic: include
 ms.date: 05/13/2020
 ms.author: aahi
 ms.openlocfilehash: 630f04bf2cc9e7de6331f9d25754a20fe2327d76
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91779267"
 ---
 As categorias de entidade a seguir são retornadas ao enviar solicitações para o `/entities/recognition/general` ponto de extremidade.
 
 | Categoria   | Subcategoria | Descrição                          | Iniciando versão do modelo                                                    | Observações |
 |------------|-------------|--------------------------------------|-------------------------------------------------------------|--------------------------------------|
-| Pessoa     | N/D         | Nomes de pessoas.  | `2019-10-01`  | Também retornado pelo NER v 2.1 |
+| Person     | N/D         | Nomes de pessoas.  | `2019-10-01`  | Também retornado pelo NER v 2.1 |
 | Persontype | N/D         | Tipos de trabalho ou funções mantidas por uma pessoa. | `2020-02-01` | |
-|Local    | N/D         | Pontos de referência naturais e humanos, estruturas, recursos geográficos e entidades geopolítica     |  `2019-10-01` | Também retornado pelo NER v 2.1 |
-|Local     | Entidade geopolítica (GPE)        | Cidades, países/regiões, Estados.      | `2020-02-01` | |
-|Local     | Visualização                       | Estruturas artificiais. | `2020-04-01` | |
-|Local     | Geográfico       | Recursos geográficos e naturais, como rios, oceanos e desertos. |  `2020-04-01` | |
+|Localização    | N/D         | Pontos de referência naturais e humanos, estruturas, recursos geográficos e entidades geopolítica     |  `2019-10-01` | Também retornado pelo NER v 2.1 |
+|Localização     | Entidade geopolítica (GPE)        | Cidades, países/regiões, Estados.      | `2020-02-01` | |
+|Localização     | Visualização                       | Estruturas artificiais. | `2020-04-01` | |
+|Localização     | Geográfico       | Recursos geográficos e naturais, como rios, oceanos e desertos. |  `2020-04-01` | |
 |Organização  | N/D | Empresas, grupos políticos, faixas musicais, clubes esporte, órgãos governamentais e organizações públicas.  | `2019-10-01` | As nacionalidades e Religions não são incluídas nesse tipo de entidade. Também retornado pelo NER v 2.1 |
 |Organização | Médicos | Empresas e grupos médicos. | `2020-04-01` |  |
 |Organização | Troca de estoque | Grupos de troca de estoque. | `2020-04-01` | |

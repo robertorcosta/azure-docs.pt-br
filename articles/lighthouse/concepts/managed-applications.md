@@ -3,12 +3,12 @@ title: Azure Lighthouse e aplicativos gerenciados do Azure
 description: Entenda como o Azure Lighthouse e os aplicativos gerenciados do Azure podem ajudar a habilitar cenários diferentes e como eles podem ser usados juntos.
 ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7fd8801fc714a0f0c245d27462e368602dc41eb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 078361ba3cff80a5fff03e3d9ca767afcc3ca029
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89483840"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970751"
 ---
 # <a name="azure-lighthouse-and-azure-managed-applications"></a>Azure Lighthouse e aplicativos gerenciados do Azure
 
@@ -35,7 +35,7 @@ Em um aplicativo gerenciado, os recursos usados pelo aplicativo são agrupados e
 
 Os aplicativos gerenciados dão suporte a [experiências personalizadas de portal do Azure](../../azure-resource-manager/managed-applications/concepts-view-definition.md) e [integração com provedores personalizados](../../azure-resource-manager/managed-applications/tutorial-create-managed-app-with-custom-provider.md). Essas opções podem ser usadas para fornecer uma experiência mais personalizada e integrada, facilitando para os clientes a execução de algumas tarefas de gerenciamento.
 
-Os aplicativos gerenciados podem ser [publicados no Azure Marketplace](../../azure-resource-manager/managed-applications/publish-marketplace-app.md), seja como uma oferta privada para uso específico do cliente ou como ofertas públicas que vários clientes podem comprar. Eles também podem ser entregues aos usuários em sua organização [Publicando aplicativos gerenciados em seu catálogo de serviços](../../azure-resource-manager/managed-applications/publish-service-catalog-app.md). Você pode implantar as instâncias do catálogo de serviços e do Marketplace usando modelos do ARM, que podem incluir um identificador exclusivo do parceiro do Marketplace comercial para controlar a [atribuição de uso do cliente](../../marketplace/azure-partner-customer-usage-attribution.md).
+Os aplicativos gerenciados podem ser [publicados no Azure Marketplace](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md), seja como uma oferta privada para uso específico do cliente ou como ofertas públicas que vários clientes podem comprar. Eles também podem ser entregues aos usuários em sua organização [Publicando aplicativos gerenciados em seu catálogo de serviços](../../azure-resource-manager/managed-applications/publish-service-catalog-app.md). Você pode implantar as instâncias do catálogo de serviços e do Marketplace usando modelos do ARM, que podem incluir um identificador exclusivo do parceiro do Marketplace comercial para controlar a [atribuição de uso do cliente](../../marketplace/azure-partner-customer-usage-attribution.md).
 
 Os aplicativos gerenciados do Azure normalmente são usados para uma necessidade específica do cliente que pode ser obtida por meio de uma solução prontamente gerenciada pelo provedor de serviços.
 

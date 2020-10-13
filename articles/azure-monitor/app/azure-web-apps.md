@@ -4,12 +4,12 @@ description: Monitoramento do desempenho de aplicativos para serviços de aplica
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: 36f6ad4c248b3de54de5de0893410e9b13df0c26
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e326f9764147b882a5009c53b9f13a3c3bd0bfc1
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91759451"
+ms.locfileid: "91875596"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorar o desempenho do Serviço de Aplicativo do Azure
 
@@ -75,7 +75,7 @@ Há duas maneiras de habilitar o monitoramento de aplicativos para aplicativos h
 
 # <a name="net-core"></a>[.NET Core](#tab/netcore)
 
-Há suporte para as seguintes versões do .NET Core: ASP.NET Core 2,0, ASP.NET Core 2,1, ASP.NET Core 2,2 ASP.NET Core 3,0
+Há suporte para as seguintes versões do .NET Core: ASP.NET Core 2,1, ASP.NET Core 2,2, ASP.NET Core 3,0 ASP.NET Core 3,1
 
 No momento, **não há suporte para** a estrutura completa do .NET Core, implantação independente e aplicativos baseados em Linux com monitoramento baseado em agente/extensão. (A[Instrumentação manual](./asp-net-core.md) por meio de código funcionará em todos os cenários anteriores.)
 
@@ -90,7 +90,7 @@ No momento, **não há suporte para** a estrutura completa do .NET Core, implant
 
      ![Instrumentar seu aplicativo Web](./media/azure-web-apps/create-resource-01.png)
 
-2. Depois de especificar qual recurso usar, você pode escolher como deseja que Application Insights colete dados por plataforma para seu aplicativo. O .NET Core oferece uma **coleção recomendada** ou **desabilitada** para o .net Core 2,0, 2,1, 2,2 e 3,0.
+2. Depois de especificar qual recurso usar, você pode escolher como deseja que Application Insights colete dados por plataforma para seu aplicativo. O .NET Core oferece uma **coleção recomendada** ou **desabilitada** para ASP.NET Core 2,1, 2,2, 3,0 e 3,1.
 
     ![Escolha as opções por plataforma](./media/azure-web-apps/choose-options-new-net-core.png)
 
@@ -359,8 +359,8 @@ Abaixo está nosso guia de solução de problemas passo a passo para o monitoram
 
     ![Captura de tela da https://yoursitename.scm.azurewebsites/applicationinsights página de resultados](./media/azure-web-apps/app-insights-sdk-status.png)
 
-    * Confirme se o `Application Insights Extension Status` é `Pre-Installed Site Extension, version 2.8.12.1527, is running.`
-        * Se não estiver em execução, siga as [instruções de monitoramento habilitar Application insights](#enable-application-insights)
+    * Confirme se o `Application Insights Extension Status` é `Pre-Installed Site Extension, version 2.8.12.1527, is running.` 
+    * Se não estiver em execução, siga as [instruções de monitoramento habilitar Application insights](#enable-application-insights)
 
     * Confirme se a origem do status existe e se tem a seguinte aparência: `Status source D:\home\LogFiles\ApplicationInsights\status\status_RD0003FF0317B6_4248_1.json`
         * Se um valor semelhante não estiver presente, significa que o aplicativo não está em execução no momento ou não tem suporte. Para garantir que o aplicativo esteja em execução, tente visitar manualmente os pontos de extremidade do aplicativo/URL do aplicativo, o que permitirá que as informações de tempo de execução fiquem disponíveis.
@@ -406,6 +406,10 @@ Não há suporte para sites PHP e WordPress. Atualmente, não há um SDK/agente 
 ### <a name="connection-string-and-instrumentation-key"></a>Cadeia de conexão e chave de instrumentação
 
 Quando o monitoramento sem código está sendo usado, somente a cadeia de conexão é necessária. No entanto, ainda recomendamos definir a chave de instrumentação para preservar a compatibilidade com versões anteriores do SDK quando a instrumentação manual está sendo executada.
+
+## <a name="release-notes"></a>Notas de versão
+
+Para obter as atualizações mais recentes e as correções de bugs, [consulte as notas de versão](./web-app-extension-release-notes.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Executar o criador de perfil em seu aplicativo ativo](./profiler.md).

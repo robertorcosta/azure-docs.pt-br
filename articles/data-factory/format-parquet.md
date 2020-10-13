@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/27/2020
 ms.author: jingwang
-ms.openlocfilehash: 13a0966413519e56199cfce150d9dd7973d634ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c99225b53266fc74ea357151de824cd8d8ed2088
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91404708"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91946137"
 ---
 # <a name="parquet-format-in-azure-data-factory"></a>Formato parquet no Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -99,16 +99,16 @@ No mapeamento de fluxos de dados, você pode ler e gravar no formato parquet nos
 
 A tabela abaixo lista as propriedades com suporte por uma fonte parquet. Você pode editar essas propriedades na guia **Opções de origem** .
 
-| Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
+| Nome | Descrição | Necessária | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Formatar | O formato deve ser `parquet` | sim | `parquet` | format |
-| Caminhos curinga | Todos os arquivos correspondentes ao caminho curinga serão processados. Substitui a pasta e o caminho do arquivo definido no conjunto de um. | não | String[] | wildcardPaths |
-| Caminho raiz da partição | Para dados de arquivo particionados, você pode inserir um caminho raiz de partição para ler pastas particionadas como colunas | não | String | partitionRootPath |
-| Lista de arquivos | Se sua fonte está apontando para um arquivo de texto que lista os arquivos a serem processados | não | `true` ou `false` | File |
-| Coluna para armazenar o nome do arquivo | Criar uma nova coluna com o nome e o caminho do arquivo de origem | não | String | rowUrlColumn |
-| Após a conclusão | Exclua ou mova os arquivos após o processamento. O caminho do arquivo inicia a partir da raiz do contêiner | não | Excluir: `true` ou `false` <br> Prosseguir `[<from>, <to>]` | purgeFiles <br> MoveFile |
-| Filtrar por última modificação | Escolher filtrar arquivos com base na última alteração | não | Timestamp | modifiedAfter <br> modifiedBefore |
-| Não permitir nenhum arquivo encontrado | Se for true, um erro não será gerado se nenhum arquivo for encontrado | não | `true` ou `false` | ignoreNoFilesFound |
+| Caminhos curinga | Todos os arquivos correspondentes ao caminho curinga serão processados. Substitui a pasta e o caminho do arquivo definido no conjunto de um. | no | String[] | wildcardPaths |
+| Caminho raiz da partição | Para dados de arquivo particionados, você pode inserir um caminho raiz de partição para ler pastas particionadas como colunas | no | String | partitionRootPath |
+| Lista de arquivos | Se sua fonte está apontando para um arquivo de texto que lista os arquivos a serem processados | no | `true` ou `false` | File |
+| Coluna para armazenar o nome do arquivo | Criar uma nova coluna com o nome e o caminho do arquivo de origem | no | String | rowUrlColumn |
+| Após a conclusão | Exclua ou mova os arquivos após o processamento. O caminho do arquivo inicia a partir da raiz do contêiner | no | Excluir: `true` ou `false` <br> Prosseguir `[<from>, <to>]` | purgeFiles <br> MoveFile |
+| Filtrar por última modificação | Escolher filtrar arquivos com base na última alteração | no | Timestamp | modifiedAfter <br> modifiedBefore |
+| Não permitir nenhum arquivo encontrado | Se for true, um erro não será gerado se nenhum arquivo for encontrado | no | `true` ou `false` | ignoreNoFilesFound |
 
 ### <a name="source-example"></a>Exemplo de origem
 
@@ -129,11 +129,11 @@ source(allowSchemaDrift: true,
 
 A tabela abaixo lista as propriedades com suporte de um coletor parquet. Você pode editar essas propriedades na guia **configurações** .
 
-| Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
+| Nome | Descrição | Necessária | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Formatar | O formato deve ser `parquet` | sim | `parquet` | format |
-| Limpar a pasta | Se a pasta de destino for limpa antes da gravação | não | `true` ou `false` | truncate |
-| Opção de nome de arquivo | O formato de nomenclatura dos dados gravados. Por padrão, um arquivo por partição no formato `part-#####-tid-<guid>` | não | Padrão: cadeia de caracteres <br> Por partição: cadeia de caracteres [] <br> Como dados na coluna: String <br> Saída para arquivo único: `['<fileName>']` | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames |
+| Limpar a pasta | Se a pasta de destino for limpa antes da gravação | no | `true` ou `false` | truncate |
+| Opção de nome de arquivo | O formato de nomenclatura dos dados gravados. Por padrão, um arquivo por partição no formato `part-#####-tid-<guid>` | no | Padrão: cadeia de caracteres <br> Por partição: cadeia de caracteres [] <br> Como dados na coluna: String <br> Saída para arquivo único: `['<fileName>']` | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames |
 
 ### <a name="sink-example"></a>Exemplo de coletor
 
@@ -156,7 +156,7 @@ ParquetSource sink(
 
 ## <a name="data-type-support"></a>Suporte do tipo de dados
 
-Atualmente, não há suporte para tipos de dados complexos do parquet (por exemplo, mapa, lista, STRUCT).
+Os tipos de dados complexos parquet (por exemplo, mapa, lista, STRUCT) atualmente têm suporte apenas em fluxos de dados, não na atividade de cópia. Para usar tipos complexos em fluxos de dados, não importe o esquema de arquivo no conjunto de dados, deixando o esquema em branco no conjunto de dado. Em seguida, na transformação origem, importe a projeção.
 
 ## <a name="using-self-hosted-integration-runtime"></a>Usando Integration Runtime auto-hospedados
 

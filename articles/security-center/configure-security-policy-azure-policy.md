@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 11/04/2019
 ms.author: memildin
 ms.openlocfilehash: 6fcfed585aece4fd57c085e0c9f6fdcd6cbeae74
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448356"
 ---
 # <a name="configure-a-security-policy-in-azure-policy-using-the-rest-api"></a>Configurar uma política de segurança no Azure Policy usando a API REST
@@ -127,8 +127,8 @@ Este exemplo mostra como remover uma atribuição:
 |Controles de aplicativo adaptáveis |Monitorar possíveis listas de permissões de aplicativo na central de segurança do Azure |adaptiveApplicationControlsMonitoringEffect|
 |Grupos de segurança de rede |monitora o acesso permissivo à rede na Central de Segurança do Azure |networkSecurityGroupsMonitoringEffect| 
 |Configurações de segurança |monitora a vulnerabilidades do sistema operacional na Central de Segurança do Azure |systemConfigurationsMonitoringEffect| 
-|Endpoint Protection |Monitorar o Endpoint Protection ausente na Central de Segurança do Azure |endpointProtectionMonitoringEffect |
-|Criptografia de disco |monitora discos não criptografados da VM na Central de Segurança do Azure |diskEncryptionMonitoringEffect|
+|Endpoint Protection |monitora o Endpoint Protection ausente na Central de Segurança do Azure |endpointProtectionMonitoringEffect |
+|Criptografia do disco |monitora discos não criptografados da VM na Central de Segurança do Azure |diskEncryptionMonitoringEffect|
 |Avaliação de vulnerabilidade |monitora vulnerabilidades de máquinas virtuais na Central de Segurança do Azure |vulnerabilityAssessmentMonitoringEffect|
 |Firewall do aplicativo Web |monitora o aplicativo Web desprotegido na Central de Segurança do Azure |webApplicationFirewallMonitoringEffect |
 |Firewall da próxima geração |monitora pontos de extremidade de rede desprotegidos na Central de Segurança do Azure| |

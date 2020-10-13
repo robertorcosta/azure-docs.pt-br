@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: seodec18
 ms.openlocfilehash: a61dd6c17ad4d11c6dd7294c9a4f96270748c16a
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91630654"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-gen2"></a>Modelo de série temporal no Azure Time Series Insights Gen2
@@ -102,7 +102,7 @@ As instâncias são definidas por **Timeseriesid**, **typeId**, **Name**, **Desc
 | Série temporal | A ID exclusiva da série temporal à qual a instância está associada. Na maioria dos casos, as instâncias são identificadas exclusivamente por uma propriedade como DeviceID ou AssetID. Em alguns casos, uma ID de composição mais específica que combina até três propriedades pode ser usada. |
 | Identificação | A ID de cadeia de caracteres exclusiva que diferencia maiúsculas de minúsculas do tipo de modelo de série temporal ao qual a instância está associada. Por padrão, todas as novas instâncias descobertas são associadas a um tipo padrão.
 | name | A propriedade **Name** é opcional e diferencia maiúsculas de minúsculas. Se o **nome** não estiver disponível, o padrão será **timeseriesid**. Se um nome for fornecido, **Timeseriesid** ainda estará disponível no [bem](time-series-insights-update-explorer.md#4-time-series-well). |
-| description | Uma descrição de texto da instância. |
+| descrição | Uma descrição de texto da instância. |
 | hierarchyIds | Define a quais hierarquias a instância pertence. |
 | instanceFields | As propriedades de uma instância e quaisquer dados estáticos que definem uma instância. Elas definem os valores das propriedades hierárquicas e não hierárquicas e também dão suporte à indexação para executar operações de pesquisa. |
 
@@ -241,7 +241,7 @@ Os tipos de modelo de série temporal são definidos por **ID**, **nome**, **Des
 | ---| ---|
 | id | A ID de cadeia de caracteres exclusiva que diferencia maiúsculas de minúsculas para o tipo. |
 | name | Uma cadeia de caracteres usada para fornecer um nome para o tipo. |
-| description | Uma descrição de cadeia de caracteres para o tipo. |
+| descrição | Uma descrição de cadeia de caracteres para o tipo. |
 | variáveis | Especifique as variáveis associadas ao tipo. |
 
 Os tipos estão em conformidade com o seguinte exemplo de JSON:

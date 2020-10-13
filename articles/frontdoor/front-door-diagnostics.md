@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: a1e77b5f669d1b492f2d71063a6c77bec1178696
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: d533b8fed47b1790cc35429613179f440f1fac51
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91449270"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961741"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door"></a>Monitoramento de métricas e logs na porta frontal do Azure
 
@@ -29,12 +29,12 @@ Usando a porta frontal do Azure, você pode monitorar os recursos das seguintes 
 
 As métricas são um recurso para determinados recursos do Azure que permitem Exibir contadores de desempenho no Portal. A seguir estão as métricas de porta frontal disponíveis:
 
-| Métrica | Nome de exibição da métrica | Unidade | Dimensões | Descrição |
+| Métrica | Nome de exibição da métrica | Unit | Dimensões | Descrição |
 | --- | --- | --- | --- | --- |
 | RequestCount | Contagem de solicitações | Contagem | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | O número de solicitações de cliente atendidas pelo Front Door.  |
 | RequestSize | Tamanho da solicitação | Bytes | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | O número de bytes enviados como solicitações de clientes para o Front Door. |
 | ResponseSize | Tamanho da resposta | Bytes | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | O número de bytes enviados como respostas do Front Door para clientes. |
-| TotalLatency | Latência total | Milissegundos | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | O tempo calculado a partir da solicitação do cliente recebida pela porta frontal até que o cliente confirme o último byte de resposta da porta frontal. |
+| TotalLatency | Latência total | Milissegundos | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | O tempo total da solicitação do cliente recebida pela porta frontal até o último byte de resposta enviado de AFD ao cliente. |
 | BackendRequestCount | Contagem de solicitações de back-end | Contagem | HttpStatus</br>HttpStatusGroup</br>Back-end | O número de solicitações enviadas do Front Door aos back-ends. |
 | BackendRequestLatency | Latência de solicitação de back-end | Milissegundos | Back-end | O tempo calculado de quando a solicitação foi enviada pelo Front Door ao back-end até o Front Door receber o último byte de resposta do back-end. |
 | BackendHealthPercentage | Percentual de integridade do back-end | Porcentagem | Back-end</br>BackendPool | O percentual de investigações de integridade bem-sucedidas do Front Door aos back-ends. |
@@ -75,7 +75,7 @@ Atualmente, a porta frontal fornece logs de diagnóstico (em lote). Os logs de d
 
 | Propriedade  | Descrição |
 | ------------- | ------------- |
-| BackendHostname | Se a solicitação estava sendo encaminhada para um back-end, esse campo representa o nome do host do back-end. Esse campo ficará em branco se a solicitação tiver sido redirecionada ou encaminhada para um cache regional (quando o Caching estiver habilitado para a regra de roteamento). |
+| BackendHostname | Se a solicitação estava sendo encaminhada para um back-end, esse campo representa o nome do host do back-end. Esse campo ficará em branco se a solicitação for redirecionada ou encaminhada para um cache regional (quando o Caching for habilitado para a regra de roteamento). |
 | CacheStatus | Para cenários de cache, esse campo define o impacto/perda do cache no POP |
 | ClientIp | Endereço IP do cliente que fez a solicitação. Se houver um cabeçalho X-Forwardd-for na solicitação, o IP do cliente será escolhido do mesmo. |
 | ClientPort | A porta IP do cliente que fez a solicitação. |
@@ -90,19 +90,49 @@ Atualmente, a porta frontal fornece logs de diagnóstico (em lote). Os logs de d
 | RoutingRuleName | O nome da regra de roteamento com a qual a solicitação foi correspondida. |
 | RulesEngineMatchNames | Os nomes das regras que a solicitação correspondeu. |
 | SecurityProtocol | A versão do protocolo TLS/SSL usada pela solicitação ou NULL se não houver criptografia. |
-| SentToOriginShield | Campo booliano que representa se houve uma perda de cache no primeiro ambiente e a solicitação foi enviada para o cache regional. Ignore este campo se a regra de roteamento for um redirecionamento ou quando o cache não estiver habilitado. |
+| SentToOriginShield </br> (preterido) * **Veja observações sobre a reprovação na seção a seguir.**| Se for verdadeiro, significa que a solicitação foi respondida do cache da blindagem de origem em vez do pop de borda. A blindagem de origem é um cache pai usado para melhorar a taxa de acertos do cache. |
+| isReceivedFromClient | Se for true, significa que a solicitação veio do cliente. Se for false, a solicitação será um erro na borda (POP filho) e será respondida do escudo de origem (POP pai). 
 | TimeTaken | O período de tempo do primeiro byte de solicitação na porta frontal até o último byte de resposta, em segundos. |
 | TrackingReference | A cadeia de caracteres de referência exclusiva que identifica uma solicitação atendida pela Front Door, também enviada como o cabeçalho X-Azure-Ref para o cliente. Necessário para pesquisar detalhes nos logs de acesso para uma solicitação específica. |
 | UserAgent | O tipo de navegador que o cliente usou. |
 
-**Observação:** Para várias configurações de roteamento e comportamentos de tráfego, alguns dos campos como backendHostname, cacheStatus, sentToOriginShield e POP Field podem responder com valores diferentes. A tabela abaixo explica os valores diferentes, que esses campos terão para vários cenários:
+### <a name="sent-to-origin-shield-deprecation"></a>Enviado à substituição da blindagem de origem
+A propriedade de log bruto **isSentToOriginShield** foi preterida e substituída por um novo campo **isReceivedFromClient**. Use o novo campo se você já estiver usando o campo preterido. 
 
-| Cenários | Contagem de entradas de log | POP | BackendHostname | SentToOriginShield | CacheStatus |
+Os logs brutos incluem logs gerados a partir da borda da CDN (POP filho) e da blindagem de origem. A blindagem de origem se refere a nós pai que estão estrategicamente localizados em todo o mundo. Esses nós se comunicam com servidores de origem e reduzem a carga de tráfego na origem. 
+
+Para cada solicitação que vai para a blindagem de origem, há duas entradas de log:
+
+* Um para nós de borda
+* Uma para a blindagem de origem. 
+
+Para diferenciar a saída ou as respostas dos nós de borda versus a blindagem de origem, você pode usar o campo **isReceivedFromClient** para obter os dados corretos. 
+
+Se o valor for false, isso significa que a solicitação é respondida da blindagem de origem para nós de borda. Essa abordagem é eficaz para comparar logs brutos com dados de cobrança. Os encargos não são incorridos para a saída da blindagem de origem para os nós de borda. Os encargos são incorridos para a saída dos nós de borda para os clientes. 
+
+**Exemplo de consulta Kusto para excluir logs gerados no escudo de origem no Log Analytics.**
+
+`AzureDiagnostics 
+| where Category == "FrontdoorAccessLog" and isReceivedFromClient_b == true`
+
+> [!NOTE]
+> Para várias configurações de roteamento e comportamentos de tráfego, alguns dos campos como backendHostname, cacheStatus, isReceivedFromClient e POP Field podem responder com valores diferentes. A tabela abaixo explica os diferentes valores que esses campos terão para vários cenários:
+
+| Cenários | Contagem de entradas de log | POP | BackendHostname | isReceivedFromClient | CacheStatus |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
-| Regra de roteamento sem Caching habilitado | 1 | Código POP do Edge | Back-end em que a solicitação foi encaminhada | Falso | CONFIG_NOCACHE |
-| Regra de roteamento com Caching habilitado. Cache atingido no POP de borda | 1 | Código POP do Edge | Vazio | Falso | CONTADOR |
-| Regra de roteamento com Caching habilitado. Erro de cache no POP de borda, mas acesso ao cache no POP do cache pai | 2 | 1. código POP de borda</br>2. código POP do cache pai | 1. nome do host POP do cache pai</br>2. vazio | 1. verdadeiro</br>2. false | 1. PERDA</br>2. PARTIAL_HIT |
-| Regra de roteamento com Caching habilitado. Perda de cache na borda e no POP de cache pai | 2 | 1. código POP de borda</br>2. código POP do cache pai | 1. nome do host POP do cache pai</br>2. back-end que ajuda a preencher o cache | 1. verdadeiro</br>2. false | 1. PERDA</br>2. PERDA |
+| Regra de roteamento sem Caching habilitado | 1 | Código POP do Edge | Back-end em que a solicitação foi encaminhada | True | CONFIG_NOCACHE |
+| Regra de roteamento com Caching habilitado. Cache atingido no POP de borda | 1 | Código POP do Edge | Vazio | True | CONTADOR |
+| Regra de roteamento com Caching habilitado. Erro de cache no POP de borda, mas acesso ao cache no POP do cache pai | 2 | 1. código POP de borda</br>2. código POP do cache pai | 1. nome do host POP do cache pai</br>2. vazio | 1. verdadeiro</br>2. false | 1. PERDA</br>2. ATINGIR |
+| Regra de roteamento com Caching habilitado. Erro de cache no POP de borda, mas o impacto parcial do cache no POP do cache pai | 2 | 1. código POP de borda</br>2. código POP do cache pai | 1. nome do host POP do cache pai</br>2. back-end que ajuda a preencher o cache | 1. verdadeiro</br>2. false | 1. PERDA</br>2. PARTIAL_HIT |
+| Regra de roteamento com Caching habilitado. Cache PARTIAL_HIT no POP de borda, mas acesso ao cache no POP do cache pai | 2 | 1. código POP de borda</br>2. código POP do cache pai | 1. código POP de borda</br>2. código POP do cache pai | 1. verdadeiro</br>2. false | 1. PARTIAL_HIT</br>2. ATINGIR |
+| Regra de roteamento com Caching habilitado. Perda de cache na borda e no pop-up de cache pai | 2 | 1. código POP de borda</br>2. código POP do cache pai | 1. código POP de borda</br>2. código POP do cache pai | 1. verdadeiro</br>2. false | 1. PERDA</br>2. PERDA |
+
+> [!NOTE]
+> Para cenários de cache, o valor do status do cache será partial_hit quando alguns dos bytes de uma solicitação forem atendidos do cache da borda da porta frontal ou da blindagem de origem, enquanto alguns dos bytes são atendidos da origem para objetos grandes.
+
+O Front Door usa uma técnica chamada agrupamento de objeto. Quando um arquivo grande é solicitado, a porta frontal recupera partes menores do arquivo da origem. Depois que o servidor POP de porta frontal recebe um intervalo de bytes completo ou de byte do arquivo solicitado, o servidor de borda da porta frontal solicita o arquivo da origem em partes de 8 MB.
+
+Depois que a parte chega à borda da porta frontal, ela é armazenada em cache e imediatamente fornecida ao usuário. Em seguida, a porta frontal antecipa a próxima parte em paralelo. Essa pré-busca garante que o conteúdo permaneça uma parte à frente do usuário, o que reduz a latência. Esse processo continua até que todo o arquivo seja baixado (se solicitado), todos os intervalos de bytes estão disponíveis (se solicitado) ou o cliente fecha a conexão. Para obter mais informações sobre a solicitação de intervalo de bytes, consulte RFC 7233. A porta frontal armazena em cache todas as partes conforme elas são recebidas. O arquivo inteiro não precisa ser armazenado em cache no cache da porta frontal. As solicitações fornecidas para os intervalos de arquivo ou de bytes são servidas do cache de porta frontal. Se nem todas as partes forem armazenadas em cache na porta da frente, a pré-busca será usada para solicitar partes da origem. Essa otimização se baseia na capacidade do servidor de origem de dar suporte a solicitações de intervalo de bytes. Se o servidor de origem não dá suporte a solicitações de intervalo de bytes, essa otimização não é eficaz.
 
 ## <a name="next-steps"></a>Próximas etapas
 

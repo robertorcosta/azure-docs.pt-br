@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 16bdb0d8ed421763895e61a6e1173fc7c5a48d4d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4f381e2f2e9f85422bd5f4fb89ec684f4bc99f91
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91297939"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970802"
 ---
 # <a name="whats-new-in-form-recognizer"></a>O que há de novo no Reconhecimento de Formulários?
 
@@ -53,7 +53,7 @@ o **v 2.0** inclui a seguinte atualização:
 
 ### <a name="new-features"></a>Novos recursos
 
-* **referência v 2.0 disponível** Exiba a [referência da API v 2.0](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) e os SDKs atualizados para [.net](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme-pre?view=azure-dotnet), [python](https://docs.microsoft.com/python/api/overview/azure/?view=azure-python), [Java](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme-pre?view=azure-java-preview)e [JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/?view=azure-node-latest).
+* **referência v 2.0 disponível** Exiba a [referência da API v 2.0](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) e os SDKs atualizados para [.net](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet), [python](https://docs.microsoft.com/python/api/overview/azure/?view=azure-python), [Java](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview)e [JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/?view=azure-node-latest).
 * Aprimoramentos **de tabela e aprimoramentos de extração** incluem melhorias de precisão e aprimoramentos de extrações de tabela, especificamente, a capacidade de aprender cabeçalhos e estruturas de tabelas em _treinamento personalizado sem rótulos_. 
 
 * **Suporte de moeda** Detecção e extração de símbolos de moeda global.
@@ -78,10 +78,10 @@ o **v 2.0** inclui a seguinte atualização:
 
 ### <a name="new-features"></a>Novos recursos
 * **Suporte do SDK para a visualização pública da API v 2.0 do Forms Recognizer** Este mês, expandimos nosso suporte de serviço para incluir um SDK de visualização para o formulário Recognizer v 2.0 (versão prévia). Use os links abaixo para começar a usar o idioma de sua escolha: 
-   * [SDK .NET](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme-pre?view=azure-dotnet)
-   * [Java SDK](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme-pre?view=azure-java-preview)
-   * [SDK do Python](https://docs.microsoft.com/python/api/overview/azure/ai-formrecognizer-readme-pre?view=azure-python-preview)
-   * [SDK do JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/ai-form-recognizer-readme-pre?view=azure-node-preview)
+   * [SDK .NET](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet)
+   * [Java SDK](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview)
+   * [SDK do Python](https://docs.microsoft.com/python/api/overview/azure/ai-formrecognizer-readme?view=azure-python-preview)
+   * [SDK do JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/ai-form-recognizer-readme?view=azure-node-preview)
 
   O novo SDK dá suporte a todos os recursos da API REST v 2.0 para o reconhecedor de formulário. Por exemplo, você pode treinar um modelo com ou sem rótulos e extrair texto, pares chave-valor e tabelas de seus formulários, extrair dados de recibos com o serviço de recebimentos pré-criados e extrair texto e tabelas com o serviço de layout de seus documentos. Você pode compartilhar seus comentários sobre os SDKs por meio do [formulário de comentários do SDK](https://aka.ms/FR_SDK_v1_feedback).
  
@@ -177,7 +177,7 @@ As respostas JSON para todas as chamadas de API têm novos formatos. Algumas cha
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Conclua um guia de [início rápido da biblioteca de cliente](quickstarts/client-library.md) para começar a escrever um aplicativo de processamento de formulários com o reconhecedor de formulário no idioma de sua escolha.
+Conclua um [início rápido da biblioteca de clientes](quickstarts/client-library.md) para começar a escrever um aplicativo de processamento de formulários com o Reconhecimento de Formulários no idioma de sua escolha.
 
 ## <a name="see-also"></a>Confira também
 

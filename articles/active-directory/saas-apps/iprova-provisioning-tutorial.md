@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 10/29/2019
 ms.author: Zhchia
 ms.openlocfilehash: 1dd89198fd1c494ef3002fdc222683f56f2d7e3a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91304671"
 ---
 # <a name="tutorial-configure-iprova-for-automatic-user-provisioning"></a>Tutorial: configurar o iProva para o provisionamento automático de usuário
@@ -110,7 +110,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Email de notificação](common/provisioning-notification-email.png)
 
-7. Clique em **Save** (Salvar).
+7. Clique em **Salvar**.
 
 8. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para iProva**.
 
@@ -138,7 +138,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
    |phoneNumbers[type eq "mobile"].value|String|
    |phoneNumbers[type eq "work"].value|String|
    |externalId|String|
-   |funções [EQ principal "true"]. display|String|
+   |funções [EQ principal "true"]. display|Cadeia de caracteres|
    |funções [EQ principal "true"]. Type|String|
    |roles[primary eq "True"].value|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|

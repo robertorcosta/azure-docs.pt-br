@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: e2c071ff9cf020f99e990e670cfb29cca3c1ebbc
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91838646"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link-public-preview"></a>Cache do Azure para Redis com o link privado do Azure (visualização pública)
@@ -57,7 +57,7 @@ Nesta seção, você criará um novo cache do Azure para a instância Redis com 
 
 8. No painel **Editar sub-rede** , especifique um **nome de sub-rede** , bem como o **intervalo de endereços de sub-rede**. O intervalo de endereços da sub-rede deve estar na notação CIDR (por exemplo, 192.168.1.0/24). Ele deve estar contido no espaço de endereço da rede virtual.
 
-9. Clique em **Salvar**.
+9. Selecione **Salvar**.
 
 10. Selecione a guia **revisar + criar** ou clique no botão **revisar + criar** .
 
@@ -82,7 +82,7 @@ Para criar uma instância de cache, siga estas etapas.
    | **Localidade** | Clique na lista suspensa e selecione uma localização. | Selecione uma [região](https://azure.microsoft.com/regions/) perto de outros serviços que usarão o cache. |
    | **Tipo de preços** | Clique na lista suspensa e selecione um [Tipo de preço](https://azure.microsoft.com/pricing/details/cache/). |  O tipo de preço determina o tamanho, o desempenho e os recursos disponíveis para o cache. Para obter mais informações, confira [Visão geral do Cache do Azure para Redis](cache-overview.md). |
 
-1. Selecione a guia **rede** ou clique no botão **rede** na parte inferior da página.
+1. Selecione a guia **Rede** ou clique no botão **Rede** na parte inferior da página.
 
 1. Na guia **rede** , selecione **ponto de extremidade privado** para o método de conectividade.
 
@@ -92,22 +92,22 @@ Para criar uma instância de cache, siga estas etapas.
 
 1. Na página **criar um ponto de extremidade privado** , defina as configurações para seu ponto de extremidade privado com a rede virtual e a sub-rede que você criou na última seção e selecione **OK**. 
 
-1. Selecione a **próxima guia: avançado** ou clique no botão **Avançar: avançado** na parte inferior da página.
+1. Selecione **Próximo: Avançado** ou clique no botão **Próximo: Avançado** na parte inferior da página.
 
-1. Na guia **avançado** de uma instância de cache básica ou Standard, selecione Habilitar alternância se você quiser habilitar uma porta não TLS.
+1. Na guia **Avançado** de uma instância de cache Básico ou Standard, selecione a alternância Habilitar se desejar habilitar uma porta não TLS.
 
-1. Na guia **avançado** da instância de cache Premium, defina as configurações para porta não TLS, clustering e persistência de dados.
+1. Na guia **Avançado** de uma instância de cache Premium, defina as configurações da porta não TLS, do clustering e da persistência de dados.
 
 
-1. Selecione a **próxima: guia marcas** ou clique no botão **próximo: marcas** na parte inferior da página.
+1. Selecione **Próximo: Marcas** ou clique no botão **Próximo: Botão** Categorias na parte inferior da página.
 
-1. Opcionalmente, na guia **marcas** , digite o nome e o valor se desejar categorizar o recurso. 
+1. Opcionalmente, na guia **Marcas**, insira o nome e o valor caso deseje categorizar o recurso. 
 
-1. Selecione  **Analisar + criar**. Você é levado para a guia revisar + criar, na qual o Azure valida sua configuração.
+1. Selecione  **Analisar + criar**. Você será levado para a guia Examinar + criar, na qual o Azure validará a configuração.
 
-1. Depois que a mensagem de validação verde aprovada for exibida, selecione **criar**.
+1. Depois que a mensagem em verde Validação aprovada for exibida, selecione **Criar**.
 
-A criação do cache demora um pouco. Você pode monitorar o progresso na página de **visão geral**do cache do Azure para Redis   . Quando o **status**   é mostrado como **em execução**, o cache está pronto para uso. 
+A criação do cache demora um pouco. Monitore o progresso na página  **Visão Geral**  do Cache do Azure para Redis. Quando o  **Status**  for mostrado como  **Em execução**, o cache estará pronto para uso. 
     
 
 ## <a name="create-a-private-endpoint-with-an-existing-azure-cache-for-redis-instance"></a>Criar um ponto de extremidade privado com um cache do Azure existente para a instância do Redis 
@@ -140,7 +140,7 @@ Para criar uma rede virtual, siga estas etapas.
 
 8. No painel **Editar sub-rede** , especifique um **nome de sub-rede** , bem como o **intervalo de endereços de sub-rede**. O intervalo de endereços da sub-rede deve estar na notação CIDR (por exemplo, 192.168.1.0/24). Ele deve estar contido no espaço de endereço da rede virtual.
 
-9. Clique em **Salvar**.
+9. Selecione **Salvar**.
 
 10. Selecione a guia **revisar + criar** ou clique no botão **revisar + criar** .
 
@@ -181,7 +181,7 @@ Para criar um ponto de extremidade privado, siga estas etapas.
 
 10. Clique no botão **próximo: marcas** na parte inferior da página.
 
-11. Opcionalmente, na guia **marcas** , digite o nome e o valor se desejar categorizar o recurso.
+11. Opcionalmente, na guia **Marcas**, insira o nome e o valor caso deseje categorizar o recurso.
 
 12. Selecione  **Analisar + criar**. Você é levado para a guia **revisar + criar**,   na qual o Azure valida sua configuração.
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/07/2019
 ms.openlocfilehash: 0119d134861b54ac14c6fe22b638ab459344c5ec
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91569882"
 ---
 # <a name="transform-data-using-mapping-data-flows"></a>Transformar dados usando o mapeamento de fluxos de dados
@@ -38,7 +38,7 @@ Neste tutorial, você executa as seguintes etapas:
 
 O arquivo que estamos transformando neste tutorial é MoviesDB.csv, que pode ser encontrado [aqui](https://raw.githubusercontent.com/djpmsft/adf-ready-demo/master/moviesDB.csv). Para recuperar o arquivo do GitHub, copie o conteúdo para um editor de texto de sua escolha para salvar localmente como um arquivo. csv. Para carregar o arquivo em sua conta de armazenamento, consulte [carregar BLOBs com o portal do Azure](../storage/blobs/storage-quickstart-blobs-portal.md). Os exemplos referenciarão um contêiner chamado ' sample-data '.
 
-## <a name="create-a-data-factory"></a>Criar uma data factory
+## <a name="create-a-data-factory"></a>Criar um data factory
 
 Nesta etapa, você cria um data factory e abre o Data Factory UX para criar um pipeline no data factory.
 
@@ -109,7 +109,7 @@ Depois de criar o fluxo de dados, você será enviado automaticamente para a tel
     ![Serviço vinculado](media/tutorial-data-flow/ls1.png)
 1. Depois de voltar à tela de criação do conjunto de arquivos, insira onde o arquivo está localizado no campo **caminho do arquivo** . Neste tutorial, o arquivo moviesDB.csv está localizado em contêiner-dados de exemplo. Como o arquivo tem cabeçalhos, marque **a primeira linha como cabeçalho**. Selecione **do repositório/conexão** para importar o esquema de cabeçalho diretamente do arquivo no armazenamento. Toque em OK quando terminar.
 
-    ![Conjunto de dados](media/tutorial-data-flow/dataset4.png)
+    ![Conjuntos de dados](media/tutorial-data-flow/dataset4.png)
 1. Se o cluster de depuração for iniciado, vá para a guia **visualização de dados** da transformação origem e clique em **Atualizar** para obter um instantâneo dos dados. Você pode usar a visualização de dados para verificar se a transformação está configurada corretamente.
 
     ![Captura de tela que mostra onde você pode visualizar seus dados para verificar se a transformação está configurada corretamente.](media/tutorial-data-flow/dataflow4.png)
