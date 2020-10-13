@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 2a931b1a3c3f88af1abec4fd1810aae09c849c48
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90933810"
 ---
 # <a name="create-an-azure-sql-managed-instance-on-azure-arc"></a>Criar uma instância gerenciada do SQL do Azure no arco do Azure
@@ -62,7 +62,7 @@ azdata arc sql mi create -n sqldemo --storage-class-data managed-premium --stora
 >
 >  Ao especificar a alocação de memória e a alocação vCore, use esta fórmula para garantir que a criação seja bem-sucedida-para cada 1 vCore, você precisará de, pelo menos, 4 GB de RAM de capacidade disponível no nó kubernetes em que o Pod da instância gerenciada do SQL será executado.
 >
->  Ao criar uma instância do SQL, não use maiúsculas no nome se estiver Provisionando no Azure
+>  Ao criar uma instância SQL, não use letras maiúsculas no nome, se estiver provisionando no Azure
 >
 >  Para listar as classes de armazenamento disponíveis em sua execução do cluster kubernetes `kubectl get storageclass` 
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: alexeyo
 ms.openlocfilehash: 7e22b772ec35ff9b63c99acd81ad6bb5abe328a0
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91567155"
 ---
 # <a name="speech-services-quotas-and-limits"></a>Cotas e limites de serviços de fala
@@ -86,7 +86,7 @@ O aumento do limite de solicitações simultâneas **não** afeta diretamente os
 
 Os limites de solicitações simultâneas para modelos **básicos** e **personalizados** precisam ser ajustados **separadamente**.
 
-O valor existente do parâmetro de limite de solicitação simultâneo **não** é visível via portal do Azure, ferramentas de linha de comando ou solicitações de API. Para verificar o valor existente, crie uma solicitação de suporte do Azure.
+O valor existente do parâmetro de limite de solicitação simultânea **não** é visível por meio de portal do Azure, Command-Line ferramentas ou solicitações de API. Para verificar o valor existente, crie uma solicitação de suporte do Azure.
 
 >[!NOTE]
 >Os [contêineres de fala](speech-container-howto.md) não exigem aumentos do limite de solicitações simultâneas, pois os contêineres são restritos apenas pelas CPUs do hardware em que estão hospedados.
@@ -152,7 +152,7 @@ Por padrão, o número de solicitações simultâneas para um ponto de extremida
 
 O aumento do limite de solicitações simultâneas **não** afeta diretamente os custos. Os serviços de fala usam o modelo "pagar apenas pelo que usar". O limite define o quão alto o serviço pode ser dimensionado antes de começar a limitar suas solicitações.
 
-O valor existente do parâmetro de limite de solicitação simultâneo **não** é visível via portal do Azure, ferramentas de linha de comando ou solicitações de API. Para verificar o valor existente, crie uma solicitação de suporte do Azure.
+O valor existente do parâmetro de limite de solicitação simultânea **não** é visível por meio de portal do Azure, Command-Line ferramentas ou solicitações de API. Para verificar o valor existente, crie uma solicitação de suporte do Azure.
 
 >[!NOTE]
 >Os [contêineres de fala](speech-container-howto.md) não exigem aumentos do limite de solicitações simultâneas, pois os contêineres são restritos apenas pelas CPUs do hardware em que estão hospedados.

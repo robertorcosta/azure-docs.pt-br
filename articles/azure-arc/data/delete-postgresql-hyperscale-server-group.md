@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: dcabe4b1520c66b8d5bfa398dc1248972587cd32
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90933801"
 ---
 # <a name="delete-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Excluir um grupo de servidores de hiperescala PostgreSQL habilitado para o Azure Arc
@@ -49,7 +49,7 @@ azdata arc postgres server delete -n postgres01
 
 ## <a name="reclaim-the-kubernetes-persistent-volume-claims-pvcs"></a>Recuperar as kubernetes de declarações de volume persistentes (PVCs)
 
-A exclusão de um grupo de servidores não remove seus [PVCs](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)associados. Isso ocorre por design. A intenção é ajudar o usuário a acessar os arquivos de banco de dados, caso a exclusão da instância tenha sido acidental. A exclusão de PVCs não é obrigatória. No entanto, é recomendável. Se você não recuperar esses PVCs, eventualmente acabará com erros, uma vez que o cluster kubernetes achará que está ficando sem espaço em disco. Para recuperar os PVCs, execute as seguintes etapas:
+A exclusão de um grupo de servidores não remove seus [PVCs](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)associados. Isso ocorre por design. A intenção é ajudar o usuário a acessar os arquivos do banco de dados, se a exclusão da instância foi acidental. A exclusão de PVCs não é obrigatória. No entanto, é recomendada. Se você não recuperar esses PVCs, haverá erros, pois o cluster do Kubernetes vai entender que está ficando sem espaço em disco. Para recuperar os PVCs, siga estas etapas:
 
 ### <a name="1-list-the-pvcs-for-the-server-group-you-deleted"></a>1. liste os PVCs para o grupo de servidores que você excluiu
 Para listar os PVCs, execute este comando:

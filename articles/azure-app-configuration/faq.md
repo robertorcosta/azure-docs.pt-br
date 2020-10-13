@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: lcozzens
 ms.openlocfilehash: ef4633953f7ac03737608124309d94e436913794
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91715435"
 ---
 # <a name="azure-app-configuration-faq"></a>Perguntas frequentes sobre configuração do Azure App
@@ -111,7 +111,7 @@ Quando um repositório atingir seu limite, ele retornará o código de status HT
 
 Se seu aplicativo experimenta regularmente as respostas do código de status HTTP 429, considere recriá-lo para reduzir o número de solicitações feitas. Para obter mais informações, consulte [reduzir solicitações feitas à configuração do aplicativo](./howto-best-practices.md#reduce-requests-made-to-app-configuration)
 
-## <a name="my-application-receives-http-status-code-429-responses-why"></a>Meu aplicativo recebe respostas de código de status HTTP 429. Por quê?
+## <a name="my-application-receives-http-status-code-429-responses-why"></a>Meu aplicativo recebe respostas de código de status HTTP 429. Por que?
 
 Você receberá uma resposta de código de status HTTP 429 nessas circunstâncias:
 

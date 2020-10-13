@@ -12,10 +12,10 @@ ms.date: 12/14/2017
 ms.author: swmachan
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 68b0de40940fa75dd4eb4e1572405f31ce1c22b8
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88934371"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>Como usar o relatório do CTF (Collaborative Translation Framework)
@@ -30,7 +30,7 @@ A API de Relatório do CTF (Collaborative Translation Framework) retorna estatí
 * Retorna o conteúdo traduzido e a contagem total sem exigir uma correspondência da sentença de origem.
 * Não retorna a tradução automática (tradução por computador).
 
-## <a name="endpoint"></a>Ponto de Extremidade
+## <a name="endpoint"></a>Ponto de extremidade
 O ponto de extremidade da API de relatório do CTF é https://api.microsofttranslator.com/v2/beta/ctfreporting.svc .
 
 ## <a name="methods"></a>Métodos
@@ -72,12 +72,12 @@ Esse método obtém a contagem de traduções criadas pelo usuário. Ele fornece
 
 **Parâmetros**
 
-| Parâmetro | DESCRIÇÃO |
+| Parâmetro | Descrição |
 |:---|:---|
 | appId | **Obrigatório** Se o cabeçalho de Autorização for usado, deixe o campo appid vazio, caso contrário, especifique uma cadeia de caracteres contendo "token de portador" + " " + token de acesso.|
 | uriPrefix | **Opcional** Uma cadeia de caracteres contendo o prefixo de URI da tradução.|
 | de | **Opcional** Uma cadeia de caracteres representando o código de idioma do texto da tradução. |
-| como | **Opcional** Uma cadeia de caracteres representando o código de idioma para traduzir o texto.|
+| para | **Opcional** Uma cadeia de caracteres representando o código de idioma para traduzir o texto.|
 | minRating| **Opcional** Um valor inteiro representando a classificação de qualidade mínima para o texto traduzido. O valor válido é entre -10 e 10. O valor padrão é 1.|
 | maxRating| **Opcional** Um valor inteiro representando a classificação máxima de qualidade para o texto traduzido. O valor válido é entre -10 e 10. O valor padrão é 1.|
 | usuário | **Opcional** Uma cadeia de caracteres usada para filtrar o resultado com base no originador do envio. |
@@ -94,7 +94,7 @@ Esse método obtém a contagem de traduções criadas pelo usuário. Ele fornece
 
 O conjunto de resultados contém uma matriz do **UserTranslationCount**. Cada UserTranslationCount possui os seguintes elementos:
 
-| Campo | DESCRIÇÃO |
+| Campo | Descrição |
 |:---|:---|
 | Contagem| O número de resultados recuperados|
 | De | O idioma de origem|
@@ -143,12 +143,12 @@ Esse método recupera as traduções criadas pelo usuário. Ele fornece as tradu
 
 **Parâmetros**
 
-| Parâmetro | DESCRIÇÃO |
+| Parâmetro | Descrição |
 |:---|:---|
 | appId | **Obrigatório** Se o cabeçalho de Autorização for usado, deixe o campo appid vazio, caso contrário, especifique uma cadeia de caracteres contendo "token de portador" + " " + token de acesso.|
 | uriPrefix| **Opcional** Uma cadeia de caracteres contendo o prefixo de URI da tradução.|
 | de| **Opcional** Uma cadeia de caracteres representando o código de idioma do texto da tradução.|
-| como| **Opcional** Uma cadeia de caracteres representando o código de idioma para traduzir o texto.|
+| para| **Opcional** Uma cadeia de caracteres representando o código de idioma para traduzir o texto.|
 | minRating| **Opcional** Um valor inteiro representando a classificação de qualidade mínima para o texto traduzido. O valor válido é entre -10 e 10. O valor padrão é 1.|
 | maxRating| **Opcional** Um valor inteiro representando a classificação máxima de qualidade para o texto traduzido. O valor válido é entre -10 e 10. O valor padrão é 1.|
 | usuário| **Adicional. Uma cadeia de caracteres que é usada para filtrar o resultado com base no originador do envio**|
@@ -165,7 +165,7 @@ Esse método recupera as traduções criadas pelo usuário. Ele fornece as tradu
 
 O conjunto de resultados contém a matriz do **UserTranslation**. Cada UserTranslation possui os elementos a seguir:
 
-| Campo | DESCRIÇÃO |
+| Campo | Descrição |
 |:---|:---|
 | CreatedDateUtc| A data de criação da entrada usando AddTranslation()|
 | De| O idioma de origem|

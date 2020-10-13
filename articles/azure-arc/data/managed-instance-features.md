@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 810a08d2f72359b385d2a7567b796aa222c6ab14
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90933797"
 ---
 # <a name="features-and-capabilities-of-azure-arc-enabled-sql-managed-instance"></a>Recursos e funcionalidades do SQL Instância Gerenciada habilitado para Arc do Azure
@@ -33,7 +33,7 @@ O SQL Instância Gerenciada habilitado para arco do Azure compartilham uma base 
 
 ###  <a name="rdbms-high-availability"></a><a name="RDBMSHA"></a> Alta disponibilidade de RDBMS  
   
-|Recurso|SQL Instância Gerenciada habilitado para Arc do Azure|
+|Recurso|Instância Gerenciada de SQL habilitada para Azure Arc|
 |-------------|----------------|
 |Envio de logs|Sim| 
 |Compactação de backup|Sim|
@@ -59,7 +59,7 @@ O SQL Instância Gerenciada habilitado para arco do Azure compartilham uma base 
 
 ###  <a name="rdbms-scalability-and-performance"></a><a name="RDBMSSP"></a> Escalabilidade e desempenho do RDBMS  
 
-|Recurso|SQL Instância Gerenciada habilitado para Arc do Azure|
+|Recurso|Instância Gerenciada de SQL habilitada para Azure Arc|
 |-------------|----------------|
 |columnstore|   Sim|
 |Binários de objeto grandes em índices columnstore clusterizados|    Sim|
@@ -80,11 +80,11 @@ O SQL Instância Gerenciada habilitado para arco do Azure compartilham uma base 
 |Aprimoramentos de inserção em massa   |Sim|
 
 ###  <a name="rdbms-security"></a><a name="RDBMSS"></a> Segurança do RDBMS  
-|Recurso|SQL Instância Gerenciada habilitado para Arc do Azure|
+|Recurso|Instância Gerenciada de SQL habilitada para Azure Arc|
 |-------------|----------------|
 |Segurança em nível de linha|    Sim|
 |Always Encrypted|  Sim|
-|Always Encrypted com enclaves seguros| No|
+|Always Encrypted com enclaves seguros| Não|
 |Mascaramento de dados dinâmicos|  Sim|
 |Auditoria básica|    Sim|
 |Auditoria refinada| Sim|
@@ -95,7 +95,7 @@ O SQL Instância Gerenciada habilitado para arco do Azure compartilham uma base 
 
 ###  <a name="rdbms-manageability"></a><a name="RDBMSM"></a> Gerenciamento de RDBMS  
 
-|Recurso|SQL Instância Gerenciada habilitado para Arc do Azure|
+|Recurso|Instância Gerenciada de SQL habilitada para Azure Arc|
 |-------------|----------------|
 |Conexão dedicada de administrador|    Sim|
 |Suporte de scripts PowerShell|  Sim|
@@ -114,7 +114,7 @@ O SQL Instância Gerenciada habilitado para arco do Azure compartilham uma base 
 
 ### <a name="programmability"></a><a name="Programmability"></a> Programmability  
 
-|Recurso|SQL Instância Gerenciada habilitado para Arc do Azure|
+|Recurso|Instância Gerenciada de SQL habilitada para Azure Arc|
 |-------------|----------------|
 |JSON|  Sim |       |
 |Repositório de Consultas    |Sim    |       
@@ -124,23 +124,23 @@ O SQL Instância Gerenciada habilitado para arco do Azure compartilham uma base 
 |Funcionalidades MERGE e UPSERT|   Sim |       
 |Tipos de dados de Data e Hora    |Sim    |       
 |Suporte à internacionalização|  Sim |       
-|Pesquisa semântica e de texto completo |    No      |
+|Pesquisa semântica e de texto completo |    Não      |
 |Especificação de idioma em consulta |Sim        |   
 |Service Broker (mensagens)|    Sim     |   
 |pontos de extremidade Transact-SQL|    Sim |       
 |Grafo| Sim |   
-|Serviços de Machine Learning| No  |   
-|PolyBase| No   |
+|Serviços de Machine Learning| Não  |   
+|PolyBase| Não   |
 
 
 ### <a name="tools"></a>Ferramentas
 
 O SQL Instância Gerenciada habilitado para Arc do Azure oferece suporte a várias ferramentas de dados que podem ajudá-lo a gerenciar seus dados.
 
-| **Ferramenta** | SQL Instância Gerenciada habilitado para Arc do Azure|
+| **Ferramenta** | Instância Gerenciada de SQL habilitada para Azure Arc|
 | --- | --- | --- |
-| Portal do Azure <sup>1</sup> | No |
-| CLI do Azure | No |
+| Portal do Azure <sup>1</sup> | Não |
+| CLI do Azure | Não |
 | [Azure Data Studio](/sql/azure-data-studio/what-is) | Sim |
 | Azure PowerShell | Sim |
 | [Arquivo BACPAC (exportação)](/sql/relational-databases/data-tier-applications/export-a-data-tier-application) | Sim |
