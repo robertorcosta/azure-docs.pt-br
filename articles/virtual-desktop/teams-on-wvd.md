@@ -7,10 +7,10 @@ ms.date: 07/28/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 049b962740abc98a6ac7d029c1419d40aa722165
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88922558"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Usar o Microsoft Teams na área de trabalho virtual do Windows
@@ -42,10 +42,10 @@ Esta seção mostrará a você como instalar o aplicativo de área de trabalho d
 
 Para habilitar a otimização de mídia para equipes, defina a seguinte chave do registro no host:
 
-1. No menu Iniciar, execute **regedit** como administrador. Navegue até **HKEY_LOCAL_MACHINE \software\microsoft\teams**.
+1. No menu Iniciar, execute **regedit** como administrador. Navegue até **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Teams**.
 2. Crie o seguinte valor para a chave de equipes:
 
-| Nome             | Type   | Dados/valor  |
+| Nome             | Tipo   | Dados/valor  |
 |------------------|--------|-------------|
 | IsWVDEnvironment | DWORD  | 1           |
 
@@ -94,7 +94,7 @@ Você pode implantar o aplicativo de área de trabalho de equipes usando uma ins
 
         Isso instala as equipes na pasta arquivos de programas (x86) em um sistema operacional de 64 bits e na pasta arquivos de programas em um sistema operacional de 32 bits. Neste ponto, a configuração da imagem dourada foi concluída. A instalação de equipes por máquina é necessária para configurações não persistentes.
 
-        Há dois sinalizadores que podem ser definidos ao instalar equipes, **usuário = 1** e **AllUsers = 1**. É importante entender a diferença entre esses parâmetros. O parâmetro de **usuário = 1** é usado somente em ambientes de VDI para especificar uma instalação por computador. O parâmetro **AllUsers = 1** pode ser usado em ambientes não VDI e VDI. Quando você define esse parâmetro, o instalador de todo o computador é exibido em programas e recursos no painel de controle, bem como aplicativos & recursos nas configurações do Windows. Todos os usuários com credenciais de administrador no computador podem desinstalar as equipes.
+        Há dois sinalizadores que podem ser definidos ao instalar equipes, **usuário = 1** e **AllUsers = 1**. É importante entender a diferença entre esses parâmetros. O parâmetro de **usuário = 1** é usado somente em ambientes de VDI para especificar uma instalação por computador. O parâmetro **AllUsers = 1** pode ser usado em ambientes não VDI e VDI. Quando você define esse parâmetro, o Team Machine-Wide Installer aparece em programa e recursos no painel de controle, bem como aplicativos & recursos nas configurações do Windows. Todos os usuários com credenciais de administrador no computador podem desinstalar as equipes.
 
         > [!NOTE]
         > Os usuários e administradores não podem desabilitar o lançamento automático para equipes durante a entrada no momento.

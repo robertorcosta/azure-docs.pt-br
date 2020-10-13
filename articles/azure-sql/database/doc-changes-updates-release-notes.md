@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: 0e44280c0a6c0d39c98e3aeecd5e9a3707332e81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3950cc16cd8661ee4e509cf14d12f561cb29c4ea
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88236566"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940698"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>O que há de novo no banco de dados SQL do Azure & SQL Instância Gerenciada?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -39,14 +39,14 @@ Esta tabela fornece uma comparação rápida para a alteração na terminologia:
 |**Termo novo**  | **Termo anterior**  |**Explicação** |
 |---------|---------|---------|
 |**Instância Gerenciada do SQL do Azure** | *Instância gerenciada* do banco de dados SQL do Azure| O Azure SQL Instância Gerenciada é seu próprio produto na família SQL do Azure, em vez de apenas uma opção de implantação no banco de dados SQL do Azure. | 
-|**Banco de Dados SQL do Azure**|Banco de dados *individual* do banco de dados SQL do Azure| A menos que seja especificado explicitamente de outra forma, o nome do produto banco de dados SQL do Azure inclui bancos e dados individuais implantados em um pool elástico. |
-|**Banco de Dados SQL do Azure**|*Pool elástico* do banco de dados SQL do Azure| A menos que seja especificado explicitamente de outra forma, o nome do produto banco de dados SQL do Azure inclui bancos e dados individuais implantados em um pool elástico.  |
-|**Banco de Dados SQL do Azure** |Banco de Dados SQL do Azure | Embora o termo permaneça o mesmo, ele só se aplica a implantações de banco de dados único e de pool elástico e não inclui a instância gerenciada. |
+|**Banco de dados SQL do Azure**|Banco de dados *individual* do banco de dados SQL do Azure| A menos que seja especificado explicitamente de outra forma, o nome do produto banco de dados SQL do Azure inclui bancos e dados individuais implantados em um pool elástico. |
+|**Banco de dados SQL do Azure**|*Pool elástico* do banco de dados SQL do Azure| A menos que seja especificado explicitamente de outra forma, o nome do produto banco de dados SQL do Azure inclui bancos e dados individuais implantados em um pool elástico.  |
+|**Banco de dados SQL do Azure** |Banco de Dados SQL do Azure | Embora o termo permaneça o mesmo, ele só se aplica a implantações de banco de dados único e de pool elástico e não inclui a instância gerenciada. |
 | **SQL do Azure**| N/D | Isso se refere à família de SQL Server de produtos do mecanismo de banco de dados que estão disponíveis no Azure: banco de dados SQL do Azure, SQL Instância Gerenciada do Azure e SQL Server em VMs do Azure. | 
 
 ## <a name="features-in-public-preview"></a>Inclui versão prévia pública
 
-### <a name="azure-sql-database"></a>[Banco de Dados SQL do Azure](#tab/single-database)
+### <a name="azure-sql-database"></a>[Banco de dados SQL do Azure](#tab/single-database)
 
 | Recurso | Detalhes |
 | ---| --- |
@@ -72,7 +72,7 @@ Esta tabela fornece uma comparação rápida para a alteração na terminologia:
 
 ---
 
-## <a name="sql-managed-instance-new-features-and-known-issues"></a>SQL Instância Gerenciada novos recursos e problemas conhecidos
+## <a name="new-features"></a>Novos recursos
 
 ### <a name="sql-managed-instance-h2-2019-updates"></a>Atualizações do SQL Instância Gerenciada H2 2019
 
@@ -93,10 +93,11 @@ Os seguintes recursos estão habilitados no modelo de implantação do SQL Inst�
   - A nova [função de colaborador de instância](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-managed-instance-contributor) interna permite a conformidade de SoD (separação de imposto) com princípios de segurança e conformidade com os padrões corporativos.
   - O SQL Instância Gerenciada está disponível nas seguintes regiões do Azure governamental para GA (US Gov Texas, US Gov Arizona), bem como no Norte da China 2 e no Leste da China 2. Ele também está disponível nas seguintes regiões públicas: Austrália Central, Austrália Central 2, sul do Brasil, sul da França, EAU Central, Norte dos EAU, norte da África do Sul, oeste da África do Sul.
 
-### <a name="known-issues"></a>Problemas conhecidos
+## <a name="known-issues"></a>Problemas conhecidos
 
 |Problema  |Data descoberta  |Status  |Data resolvida  |
 |---------|---------|---------|---------|
+|[BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql) no SQL do Azure e `BACKUP` / `RESTORE` na instrução no instância gerenciada não é possível usar o Azure ad gerenciar identidade para autenticar no armazenamento do Azure|Setembro de 2020|Tem solução alternativa||
 |[A entidade de serviço não pode acessar o Azure AD e o AKV](#service-principal-cannot-access-azure-ad-and-akv)|2020 de agosto|Tem solução alternativa||
 |[A restauração do backup manual sem soma de verificação pode falhar](#restoring-manual-backup-without-checksum-might-fail)|Maio de 2020|Resolvido|Junho de 2020|
 |[O Agent não responde na modificação, desabilitação ou habilitação de trabalhos existentes](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|Maio de 2020|Resolvido|Junho de 2020|
@@ -124,6 +125,21 @@ Os seguintes recursos estão habilitados no modelo de implantação do SQL Inst�
 |A restauração de banco de dados pontual da camada comercialmente crítica para Uso Geral não terá sucesso se o banco de dados de origem contiver objetos OLTP na memória.||Resolvido|Out 2019|
 |Recurso Database Mail com servidores de email externos (não Azure) usando conexão segura||Resolvido|Out 2019|
 |Bancos de dados independentes sem suporte no SQL Instância Gerenciada||Resolvido|Ago 2019|
+
+### <a name="bulk-insert-and-backuprestore-statements-cannot-use-managed-identity-to-access-azure-storage"></a>Instruções BULK INSERT e BACKUP/RESTOre não podem usar identidade gerenciada para acessar o armazenamento do Azure
+
+A instrução BULK INSERT não pode usar `DATABASE SCOPED CREDENTIAL` com identidade gerenciada para autenticar no armazenamento do Azure. Como alternativa, mude para autenticação de assinatura de acesso compartilhado. O exemplo a seguir não funcionará no Azure SQL (banco de dados e Instância Gerenciada):
+
+```sql
+CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Identity';
+GO
+CREATE EXTERNAL DATA SOURCE MyAzureBlobStorage
+  WITH ( TYPE = BLOB_STORAGE, LOCATION = 'https://****************.blob.core.windows.net/curriculum', CREDENTIAL= msi_cred );
+GO
+BULK INSERT Sales.Invoices FROM 'inv-2017-12-08.csv' WITH (DATA_SOURCE = 'MyAzureBlobStorage');
+```
+
+**Solução alternativa**: use [a assinatura de acesso compartilhado para autenticar no armazenamento](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql?view=sql-server-ver15#f-importing-data-from-a-file-in-azure-blob-storage).
 
 ### <a name="service-principal-cannot-access-azure-ad-and-akv"></a>A entidade de serviço não pode acessar o Azure AD e o AKV
 

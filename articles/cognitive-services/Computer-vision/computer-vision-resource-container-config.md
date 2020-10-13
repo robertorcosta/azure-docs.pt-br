@@ -12,10 +12,10 @@ ms.date: 09/03/2020
 ms.author: aahi
 ms.custom: seodec18
 ms.openlocfilehash: 00c96333e612c7f92d7c53630eaa006b060986ad
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91536232"
 ---
 # <a name="configure-read-ocr-docker-containers"></a>Configurar contêineres de Docker de OCR de leitura
@@ -31,7 +31,7 @@ Você configura o ambiente de tempo de execução do contêiner de OCR de Pesqui
 
 O contêiner também tem as seguintes definições de configuração específicas de contêiner:
 
-|Necessária|Configuração|Finalidade|
+|Obrigatório|Configuração|Finalidade|
 |--|--|--|
 |Não|ReadEngineConfig:ResultExpirationPeriod| somente contêineres v 2.0. Período de expiração do resultado em horas. O padrão é 48 horas. A configuração especifica quando o sistema deve limpar os resultados de reconhecimento. Por exemplo, se `resultExpirationPeriod=1` o sistema limpar o resultado de reconhecimento 1 hora após o processo. Se `resultExpirationPeriod=0` , o sistema limpará o resultado de reconhecimento depois que o resultado for recuperado.|
 |Não|Cache: Redis| somente contêineres v 2.0. Habilita o armazenamento Redis para armazenar os resultados. Um cache será *necessário* se vários contêineres de leitura forem colocados atrás de um balanceador de carga.|
@@ -62,7 +62,7 @@ Essa configuração pode ser localizada no seguinte local:
 
 Lembre-se de adicionar o `vision/v1.0` Roteamento ao URI do ponto de extremidade, conforme mostrado na tabela a seguir. 
 
-|Necessária| Nome | Tipo de dados | Descrição |
+|Obrigatório| Nome | Tipo de dados | Descrição |
 |--|------|-----------|-------------|
 |Sim| `Billing` | String | URI do ponto de extremidade de cobrança<br><br>Exemplo:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
 
@@ -120,7 +120,7 @@ Substitua {_argument_name_} pelos seus próprios valores:
 Os exemplos do Docker a seguir são para o contêiner de leitura.
 
 
-# <a name="version-31-preview"></a>[Versão 3,1-visualização](#tab/version-3-1)
+# <a name="version-31-preview"></a>[Versão 3.1 – versão prévia](#tab/version-3-1)
 
 ### <a name="basic-example"></a>Exemplo básico
 
