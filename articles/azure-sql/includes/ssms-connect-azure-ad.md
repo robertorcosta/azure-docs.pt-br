@@ -6,10 +6,10 @@ author: markingmyname
 ms.author: maghan
 ms.reviewer: drskwier
 ms.openlocfilehash: e22049ef2acfd952689e386ff75b9a8a73658365
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91596123"
 ---
 > [!NOTE]

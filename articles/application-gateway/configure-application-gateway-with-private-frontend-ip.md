@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 04/16/2020
 ms.author: victorh
 ms.openlocfilehash: 64dfe284772faf2a345b7959f1a1bd6f474cd1bf
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90562478"
 ---
 # <a name="configure-an-application-gateway-with-an-internal-load-balancer-ilb-endpoint"></a>Configurar um gateway de aplicativo com um ponto de extremidade de ILB (balanceador de carga interno)
@@ -73,7 +73,7 @@ Para que o Azure se comunique entre os recursos que você cria, ele precisa de u
 24. Para **porta de back-end**, digite *80*.
 25. Aceite os padrões restantes e selecione **Adicionar**.
 26. Na página **Adicionar uma regra de roteamento** , selecione **Adicionar**.
-27. Selecione **Avançar: marcas**.
+27. Selecione **Avançar: Marcas**.
 28. Selecione **Avançar: Revisar + criar**.
 29. Examine as configurações na página Resumo e, em seguida, selecione **criar** para criar os recursos de rede e o gateway de aplicativo. Pode levar vários minutos para criar o gateway de aplicativo. Aguarde até que a implantação seja concluída com êxito antes de passar para a próxima seção.
 

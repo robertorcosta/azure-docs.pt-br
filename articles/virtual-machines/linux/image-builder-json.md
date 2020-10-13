@@ -9,10 +9,10 @@ ms.service: virtual-machines
 ms.subservice: imaging
 ms.reviewer: cynthn
 ms.openlocfilehash: 43f33093010aa6a70d02c58e9faa34f7f0e2dfee
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91307272"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Visualização: Criar um modelo do Construtor de Imagens do Azure 
@@ -120,7 +120,7 @@ Para obter mais informações, confira [Definir dependências de recurso](../../
 
 ## <a name="identity"></a>Identidade
 
-Necessário-para o construtor de imagem ter permissões para ler/gravar imagens, leia em scripts do armazenamento do Azure você deve criar uma identidade atribuída pelo usuário do Azure, que tenha permissões para os recursos individuais. Para obter detalhes sobre como as permissões do Image Builder funcionam e as etapas relevantes, consulte a [documentação](image-builder-user-assigned-identity.md).
+Necessário-para o construtor de imagem ter permissões para ler/gravar imagens, leia em scripts do armazenamento do Azure você deve criar uma identidade de User-Assigned do Azure, que tem permissões para os recursos individuais. Para obter detalhes sobre como as permissões do Image Builder funcionam e as etapas relevantes, consulte a [documentação](image-builder-user-assigned-identity.md).
 
 
 ```json
@@ -133,7 +133,7 @@ Necessário-para o construtor de imagem ter permissões para ler/gravar imagens,
 ```
 
 
-Suporte ao construtor de imagem para uma identidade atribuída pelo usuário:
+Suporte ao construtor de imagem para uma identidade de User-Assigned:
 * Dá suporte apenas a uma única identidade
 * Não dá suporte a nomes de domínio personalizados
 

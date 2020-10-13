@@ -9,10 +9,10 @@ ms.date: 05/17/2018
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 8110b98c055a211203fb937990e860fc8dea74f4
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88520455"
 ---
 # <a name="view-the-status-of-azure-importexport-jobs"></a>Exibir o status de trabalhos de Importação/Exportação do Azure
@@ -28,7 +28,7 @@ Você pode acompanhar o status de seus trabalhos de importação ou exportação
 
 Você verá um dos seguintes status de trabalho, dependendo de onde a unidade está no processo.
 
-| Status do Trabalho | Descrição |
+| Status do Trabalho | DESCRIÇÃO |
 |:--- |:--- |
 | Criando | Após a criação de um trabalho, seu estado será definido como **Criando**. Enquanto o trabalho está no estado **criando** , o serviço de importação/exportação assume que as unidades não foram enviadas para o Data Center. Um trabalho pode permanecer nesse estado por até duas semanas, após o qual ele é excluído automaticamente pelo serviço. |
 | Remessa | Depois que você enviar seu pacote, atualize as informações de rastreamento no Portal do Azure.  Fazer isso transforma o trabalho em estado de **envio** . O trabalho permanece no estado **Enviando** por até duas semanas. 
@@ -44,7 +44,7 @@ A tabela a seguir descreve o ciclo de vida de uma unidade individual conforme el
 
 A tabela a seguir descreve cada estado pelo qual cada unidade em um trabalho pode passar.
 
-| Estado da unidade | Descrição |
+| Estado da unidade | DESCRIÇÃO |
 |:--- |:--- |
 | Especificado | Para um trabalho de importação, quando o trabalho é criado no Portal do Azure, o estado inicial de uma unidade é **Especificado**. Para um trabalho de exportação, como nenhuma unidade é especificada quando o trabalho é criado, o estado inicial da unidade é **Recebido**. |
 | Recebido | A unidade passa para o estado **Recebido** quando o serviço de Importação/Exportação tiver processado as unidades que foram recebidas da empresa transportadora para um trabalho de importação. Para um trabalho de exportação, o estado inicial da unidade é o estado **Recebido**. |

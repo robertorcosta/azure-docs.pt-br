@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 4/28/2020
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 5571d5a937fc48030c38ebe78c86ef27d6727a67
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87837265"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-mysql-server-using-powershell"></a>Como fazer backup e restaurar um banco de dados do Azure para o servidor MySQL usando o PowerShell
@@ -133,4 +133,4 @@ O servidor criado durante uma restauração não tem o ponto de extremidade de s
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Como gerar uma cadeia de conexão do banco de dados do Azure para MySQL com o PowerShell](howto-connection-string-powershell.md)
+> [Como gerar uma cadeia de conexão do Banco de Dados do Azure para MySQL com o PowerShell](howto-connection-string-powershell.md)

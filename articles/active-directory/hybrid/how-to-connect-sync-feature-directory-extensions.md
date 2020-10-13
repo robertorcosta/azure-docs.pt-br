@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4a0765f5279eb41324691c431c5973bb55a8b52d
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89662494"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Sincronização do Azure AD Connect: extensões do Directory
@@ -87,7 +87,7 @@ Um dos cenários mais úteis é usar esses atributos em grupos de segurança din
 
    ![Captura de tela com novos atributos exibidos na interface do usuário](./media/how-to-connect-sync-feature-directory-extensions/dynamicgroup3.png)
 
-   Conclua a expressão para atender às suas necessidades. Em nosso exemplo, a regra é definida como **(User. extension_9d98ed114c4840d298fad781915f27e4_division-EQ "Sales and marketing")**.
+   Conclua a expressão para atender às suas necessidades. Em nosso exemplo, a regra é definida como **(User.extension_9d98ed114c4840d298fad781915f27e4_division-EQ "vendas e marketing")**.
 
 4. Depois que o grupo tiver sido criado, dê ao Azure AD algum tempo para preencher os membros e, em seguida, examine os membros.
 

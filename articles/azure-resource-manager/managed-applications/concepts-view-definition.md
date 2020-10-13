@@ -6,10 +6,10 @@ ms.author: lazinnat
 author: lazinnat
 ms.date: 06/12/2019
 ms.openlocfilehash: bff846b4b64778d5e40ea7f08f88faf3dde81d9e
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91371602"
 ---
 # <a name="view-definition-artifact-in-azure-managed-applications"></a>Exibir artefato de definição em aplicativos gerenciados do Azure
@@ -128,7 +128,7 @@ Quando você fornece esse modo de exibição no **viewDefinition.jsno**, ele sub
 |Propriedade|Obrigatório|Descrição|
 |---------|---------|---------|
 |header|Não|O cabeçalho da página de visão geral.|
-|description|Não|A descrição do seu aplicativo gerenciado.|
+|descrição|Não|A descrição do seu aplicativo gerenciado.|
 |comandos|Não|A matriz de botões adicionais da barra de ferramentas da página Visão geral, consulte [comandos](#commands).|
 
 ![Captura de tela mostra a visão geral de um aplicativo gerenciado com um controle de ação de teste para executar um aplicativo de demonstração.](./media/view-definition/overview.png)

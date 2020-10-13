@@ -14,10 +14,10 @@ ms.author: curtand
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
 ms.openlocfilehash: da358ecb126dda21d18120bbe698fec234c85e4f
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88798951"
 ---
 # <a name="manage-your-users-with-my-staff-preview"></a>Gerenciar seus usuários com minha equipe (versão prévia)
@@ -69,7 +69,7 @@ Você pode proteger o portal minha equipe usando a política de acesso condicion
 ### <a name="apply-a-conditional-access-policy-to-my-staff"></a>Aplicar uma política de acesso condicional à minha equipe
 
 1. Instale os [cmdlets do PowerShell do Microsoft Graph beta](https://github.com/microsoftgraph/msgraph-sdk-powershell/blob/dev/samples/0-InstallModule.ps1).
-1. Execute os seguintes comandos:
+1. Execute os comandos a seguir:
 
    ```powershell
    Connect-Graph -Scopes "Directory.AccessAsUser.All"
@@ -91,7 +91,7 @@ As seguintes funções têm permissão para redefinir a senha de um usuário:
 - [Administrador de autenticação privilegiada](directory-assign-admin-roles.md#privileged-authentication-administrator)
 - [Administrador global](directory-assign-admin-roles.md#global-administrator--company-administrator)
 - [Administrador de assistência técnica](directory-assign-admin-roles.md#helpdesk-administrator)
-- [Administrador de usuários](directory-assign-admin-roles.md#user-administrator)
+- [Administrador do usuário](directory-assign-admin-roles.md#user-administrator)
 - [Administrador de senhas](directory-assign-admin-roles.md#password-administrator)
 
 Na **minha equipe**, abra o perfil de um usuário. Selecione **Redefinir senha**.
@@ -119,7 +119,7 @@ Para gerenciar o número de telefone de um usuário, você deve receber uma das 
 - [Administrador de autenticação privilegiada](directory-assign-admin-roles.md#privileged-authentication-administrator)
 - [Administrador global](directory-assign-admin-roles.md#global-administrator--company-administrator)
 
-## <a name="search"></a>Pesquisar
+## <a name="search"></a>Search
 
 Você pode pesquisar a AUs e os usuários em sua organização usando a barra de pesquisa na minha equipe. Você pode pesquisar em toda a AUs e todos os usuários em sua organização, mas só pode fazer alterações aos usuários que estão em uma AU sobre a qual você recebeu permissões de administrador.
 
