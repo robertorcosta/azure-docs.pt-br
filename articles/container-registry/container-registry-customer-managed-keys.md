@@ -4,12 +4,12 @@ description: Saiba mais sobre a criptografia em repouso do registro de contêine
 ms.topic: article
 ms.date: 09/30/2020
 ms.custom: ''
-ms.openlocfilehash: 7b4b3fd21421ba1e371bd27d8224c1f2aa34b7be
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.openlocfilehash: 6eaae5266277a6a65c7cecaa761b75e3a41ebe87
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91620334"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940660"
 ---
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>Criptografar o Registro usando uma chave gerenciada pelo cliente
 
@@ -114,7 +114,7 @@ az keyvault set-policy \
   --key-permissions get unwrapKey wrapKey
 ```
 
-Como alternativa, use o [RBAC do Azure para Key Vault](../key-vault/general/rbac-guide.md) (versão prévia) para atribuir permissões à identidade para acessar o cofre de chaves. Por exemplo, atribua a função de criptografia do serviço de criptografia Key Vault à identidade usando o comando [AZ role Assignment Create](/cli/azure/az/role/assigment#az-role-assignment-create) :
+Como alternativa, use o [RBAC do Azure para Key Vault](../key-vault/general/rbac-guide.md) (versão prévia) para atribuir permissões à identidade para acessar o cofre de chaves. Por exemplo, atribua a função de criptografia do serviço de criptografia Key Vault à identidade usando o comando [AZ role Assignment Create](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) :
 
 ```azurecli 
 az role assignment create --assignee $identityPrincipalID \

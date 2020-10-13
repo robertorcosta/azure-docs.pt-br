@@ -9,10 +9,10 @@ ms.date: 05/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
 ms.openlocfilehash: ac7879590424fa921425dcd077503733affeb634
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91361740"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-sync-java-sdk-v2"></a>Dicas de desempenho para o SDK do Java Assíncrono v2 do Azure Cosmos DB
@@ -72,7 +72,7 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
 
     Quando possível, coloque aplicativos que chamam o Azure Cosmos DB na mesma região do banco de dados do Azure Cosmos. Para obter uma comparação aproximada, as chamadas para o Azure Cosmos DB na mesma região são concluídas de 1 a 2 ms, mas a latência entre a Costa Leste e a Oeste dos EUA é maior que 50 ms. Provavelmente, essa latência pode variar entre as solicitações dependendo da rota seguida pela solicitação conforme ela passa do cliente para o limite de datacenter do Azure. A menor latência possível é alcançada garantindo que o aplicativo de chamada está localizado na mesma região do Azure do ponto de extremidade do Azure Cosmos DB provisionado. Para obter uma lista de regiões disponíveis, consulte [Regiões do Azure](https://azure.microsoft.com/regions/#services).
 
-    :::image type="content" source="./media/performance-tips/same-region.png" alt-text="O diagrama mostra solicitações e respostas em duas regiões, em que os computadores se conectam a uma conta do cosmos D por meio de serviços de camada intermediária." border="false":::
+    :::image type="content" source="./media/performance-tips/same-region.png" alt-text="O diagrama mostra a política de conexão do Azure Cosmos D B." border="false":::
    
 ## <a name="sdk-usage"></a>Uso do SDK
 1. **Instalar o SDK mais recente**

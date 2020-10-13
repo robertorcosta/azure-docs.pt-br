@@ -1,20 +1,20 @@
 ---
 title: Criar uma floresta de recursos de Azure AD Domain Services usando Azure PowerShell | Microsoft Docs
 description: Neste artigo, saiba como criar e configurar uma floresta de recursos Azure Active Directory Domain Services e uma floresta de saída para um ambiente de Active Directory Domain Services local usando o Azure PowerShell.
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.author: iainfou
-ms.openlocfilehash: 893085179c27ce88c3e310170715e2f83a59ddc7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: e914c273adc632449ed31915127fe6d261a8d56c
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88723156"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91960942"
 ---
 # <a name="create-an-azure-active-directory-domain-services-resource-forest-and-outbound-forest-trust-to-an-on-premises-domain-using-azure-powershell"></a>Criar uma floresta de recursos de Azure Active Directory Domain Services e uma relação de confiança de floresta de saída para um domínio local usando Azure PowerShell
 
@@ -106,7 +106,7 @@ Para criar uma floresta de recursos de domínio gerenciado, use o `New-AzureAadd
     |:-----------------------------|---------------------------|:------------|
     | Subscription                 | *-azureSubscriptionId*    | ID da assinatura usada para a cobrança do AD DS do Azure. Você pode obter a lista de assinaturas usando o cmdlet [Get-AzureRMSubscription][Get-AzureRMSubscription] . |
     | Grupo de recursos               | *-aaddsResourceGroupName* | Nome do grupo de recursos para o domínio gerenciado e recursos associados. |
-    | Location                     | *-aaddsLocation*          | A região do Azure para hospedar seu domínio gerenciado. Para as regiões disponíveis, consulte [regiões com suporte para o AD DS do Azure.](https://azure.microsoft.com/global-infrastructure/services/?products=active-directory-ds&regions=all) |
+    | Localização                     | *-aaddsLocation*          | A região do Azure para hospedar seu domínio gerenciado. Para as regiões disponíveis, consulte [regiões com suporte para o AD DS do Azure.](https://azure.microsoft.com/global-infrastructure/services/?products=active-directory-ds&regions=all) |
     | Administrador de AD DS do Azure    | *-aaddsAdminUser*         | O nome principal do usuário do primeiro administrador de domínio gerenciado. Essa conta deve ser uma conta de usuário de nuvem existente no seu Azure Active Directory. O usuário e o usuário que executa o script são adicionados ao grupo de *Administradores de DC do AAD* . |
     | Nome de domínio do AD DS do Azure      | *-aaddsDomainName*        | O FQDN do domínio gerenciado, com base nas diretrizes anteriores sobre como escolher um nome de floresta. |
 

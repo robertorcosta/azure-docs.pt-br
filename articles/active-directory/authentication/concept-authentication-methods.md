@@ -12,10 +12,10 @@ manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
 ms.openlocfilehash: c331334df64ea1bea45949152a34241a73fa5bb9
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91666153"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Quais métodos de autenticação e verificação estão disponíveis no Azure Active Directory?
@@ -38,7 +38,7 @@ A tabela a seguir descreve as considerações de segurança para os métodos de 
 
 | Método de autenticação          | Segurança | Usabilidade | Disponibilidade |
 |--------------------------------|:--------:|:---------:|:------------:|
-| Windows Hello for Business     | Alta     | Alta      | Alta         |
+| Windows Hello para Empresas     | Alta     | Alta      | Alta         |
 | Aplicativo Microsoft Authenticator    | Alta     | Alta      | Alta         |
 | Chave de segurança do FIDO2 (versão prévia)   | Alta     | Alta      | Alta         |
 | Tokens de hardware OATH (versão prévia) | Médio   | Médio    | Alta         |
@@ -60,7 +60,7 @@ A tabela a seguir descreve quando um método de autenticação pode ser usado du
 
 | Método                         | Autenticação primária | Autenticação secundária  |
 |--------------------------------|:----------------------:|:-------------------------:|
-| Windows Hello for Business     | Sim                    | MFA                       |
+| Windows Hello para Empresas     | Sim                    | MFA                       |
 | Aplicativo Microsoft Authenticator    | Sim (versão prévia)          | MFA e o SSPR              |
 | Chave de segurança do FIDO2 (versão prévia)   | Sim                    | MFA                       |
 | Tokens de hardware OATH (versão prévia) | Não                     | MFA                       |
@@ -73,7 +73,7 @@ Todos esses métodos de autenticação podem ser configurados no portal do Azure
 
 Para saber mais sobre como funciona cada método de autenticação, consulte os seguintes artigos conceituais separados:
 
-* [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview)
+* [Windows Hello para empresas](/windows/security/identity-protection/hello-for-business/hello-overview)
 * [Aplicativo Microsoft Authenticator](concept-authentication-authenticator-app.md)
 * [Chave de segurança do FIDO2 (versão prévia)](concept-authentication-passwordless.md#fido2-security-keys)
 * [Tokens de hardware OATH (versão prévia)](concept-authentication-oath-tokens.md#oath-hardware-tokens-preview)

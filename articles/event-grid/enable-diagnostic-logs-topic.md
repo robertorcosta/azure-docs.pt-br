@@ -4,10 +4,10 @@ description: Este artigo fornece instruções passo a passo sobre como habilitar
 ms.topic: how-to
 ms.date: 07/07/2020
 ms.openlocfilehash: 2d76d3ededd6d241197b26ac357c3b5406f43f02
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91297514"
 ---
 #  <a name="enable-diagnostic-logs-for-azure-event-grid-topics-or-domains"></a>Habilitar os logs de diagnóstico para os tópicos ou domínios da grade de eventos do Azure
@@ -47,7 +47,7 @@ As configurações de diagnóstico permitem que os usuários da grade de eventos
         ![Captura de tela que mostra a página "configurações de diagnóstico" com "fluxo para um hub de eventos" marcado.](./media/enable-diagnostic-logs-topic/archive-event-hub.png)
     - Se você selecionar **Enviar para log Analytics**, selecione o espaço de trabalho log Analytics.
         ![Captura de tela que mostra a página "configurações de diagnóstico" com "enviar para Log Analytics" marcada.](./media/enable-diagnostic-logs-topic/send-log-analytics.png)
-8. Clique em **Salvar**. Em seguida, selecione **X** no canto direito para fechar a página. 
+8. Selecione **Salvar**. Em seguida, selecione **X** no canto direito para fechar a página. 
 9. Agora, de volta à página **configurações de diagnóstico** , confirme se você vê uma nova entrada na tabela configurações de **diagnóstico** . 
     ![Captura de tela que mostra a página "configurações de diagnóstico" com uma nova entrada realçada na tabela "configurações de diagnóstico".](./media/enable-diagnostic-logs-topic/diagnostic-setting-list.png)
 
@@ -77,7 +77,7 @@ As configurações de diagnóstico permitem que os usuários da grade de eventos
         ![Arquivar em uma conta de armazenamento do Azure](./media/enable-diagnostic-logs-topic/system-topic-select-storage-account.png)
     - Se você selecionar **fluxo para um hub de eventos**, selecione **Hub de eventos-configurar**e, em seguida, selecione o namespace de hubs de eventos, o Hub de eventos e a política de acesso. 
         ![Transmitir para um hub de eventos](./media/enable-diagnostic-logs-topic/system-topic-select-event-hub.png)
-8. Clique em **Salvar**. Em seguida, selecione **X** no canto direito para fechar a página. 
+8. Selecione **Salvar**. Em seguida, selecione **X** no canto direito para fechar a página. 
 9. Agora, de volta à página **configurações de diagnóstico** , confirme se você vê uma nova entrada na tabela configurações de **diagnóstico** . 
     ![Configuração de diagnóstico na lista](./media/enable-diagnostic-logs-topic/system-topic-diagnostic-settings-targets.png)
 

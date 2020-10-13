@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 0f9a8a1c4631fc667d0dd31ae62f7d57aefccc90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ccbf7e8aaab5463abf8fa9e129ba9f0ea8599c4e
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855847"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969833"
 ---
 # <a name="frequently-asked-questions-about-classic-to-azure-resource-manager-migration"></a>Perguntas frequentes sobre a migração clássica para a migração do Azure Resource Manager
 
@@ -26,7 +26,7 @@ A palavra "clássico" na VM IaaS (clássica) refere-se a VMs gerenciadas pelo AS
 
 ## <a name="what-is-azure-resource-manager"></a>O que é o Azure Resource Manager?
 
-[Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) é o plano de controle mais recente do Azure responsável por criar, gerenciar, excluir VMs e executar outras operações de plano de controle. 
+[Azure Resource Manager](../azure-resource-manager/management/overview.md) é o plano de controle mais recente do Azure responsável por criar, gerenciar, excluir VMs e executar outras operações de plano de controle. 
 
 ## <a name="what-is-the-time-required-for-migration"></a>Qual é o tempo necessário para a migração?
 
@@ -42,7 +42,7 @@ Os clientes que tinham VMs de IaaS (clássicas) ativas ou paradas, mas alocadas,
 
 ## <a name="why-am-i-getting-an-error-stating-newclassicvmcreationnotallowedforsubscription"></a>Por que estou recebendo um erro informando "NewClassicVMCreationNotAllowedForSubscription"?
 
-Como parte do processo de desativação, a VM de IaaS (clássica) não está mais disponível para novos clientes. Identificamos você como novo cliente e, portanto, sua operação não foi autorizada. É altamente recomendável usar [Máquinas Virtuais do Azure usando o ARM](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell). Se você não puder usar VMs do Azure usando o ARM, entre em contato com o suporte para adicionar sua assinatura à lista de permissões.
+Como parte do processo de desativação, a VM de IaaS (clássica) não está mais disponível para novos clientes. Identificamos você como novo cliente e, portanto, sua operação não foi autorizada. É altamente recomendável usar [Máquinas Virtuais do Azure usando o ARM](./windows/quick-create-powershell.md). Se você não puder usar VMs do Azure usando o ARM, entre em contato com o suporte para adicionar sua assinatura à lista de permissões.
 
 ## <a name="does-this-migration-plan-affect-any-of-my-existing-services-or-applications-that-run-on-azure-virtual-machines"></a>Este plano de migração afeta qualquer um de meus serviços existentes ou aplicativos executados em máquinas virtuais do Azure? 
 
@@ -105,7 +105,7 @@ Sim. Na opção de migração com suporte de plataforma, a primeira etapa para p
 
 ## <a name="how-do-i-report-an-issue"></a>Como faço para relatar um problema? 
 
-Poste suas perguntas e dúvidas sobre migração em nossa [Página de P e R da Microsoft para VM](https://docs.microsoft.com/answers/topics/azure-virtual-machines.html), com a palavra-chave ClassicIaaSMigration. É recomendável postar todas as suas dúvidas neste fórum. Caso você tenha um contrato de suporte, será possível registrar um tíquete de suporte.
+Poste suas perguntas e dúvidas sobre migração em nossa [Página de P e R da Microsoft para VM](/answers/topics/azure-virtual-machines.html), com a palavra-chave ClassicIaaSMigration. É recomendável postar todas as suas dúvidas neste fórum. Caso você tenha um contrato de suporte, será possível registrar um tíquete de suporte.
 
 ## <a name="what-if-i-dont-like-the-names-of-the-resources-that-the-platform-chose-during-migration"></a>E se eu não gostar dos nomes dos recursos que a plataforma escolheu durante a migração? 
 

@@ -8,12 +8,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: ab89e0da3d4512cef9741ec97e9d772c852beb4b
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: 1e7a58ba5e858b44f137834b2e1ab5472b9d0965
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91804088"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970071"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Extensão da máquina virtual de Key Vault para Windows
 
@@ -31,6 +31,11 @@ A extensão de VM Key Vault dá suporte a versões anteriores do Windows:
 
 - PKCS #12
 - PEM
+
+## <a name="prerequisities"></a>Pré-requisitos
+  - Key Vault instância com certificado. Consulte [criar um Key Vault](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal)
+  - VM/VMSS devem ter uma [identidade gerenciada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) atribuída
+  - A política de acesso de Key Vault deve ser definida com segredos `get` e `list` permissão para a identidade gerenciada VM/VMSS para recuperar a parte de um segredo do certificado. Consulte [como autenticar para Key Vault](/azure/key-vault/general/authentication) e [atribuir uma política de acesso de Key Vault](/azure/key-vault/general/assign-access-policy-cli).
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
@@ -92,8 +97,8 @@ O JSON a seguir mostra o esquema para a extensão da VM de Key Vault. A extensã
 | certificateStoreLocation  | LocalMachine ou CurrentUser (diferencia maiúsculas de minúsculas) | string |
 | requiredInitialSync | true | booleano |
 | observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | Matriz de cadeia de caracteres
-| msiEndpoint | http://169.254.169.254/metadata/identity | string |
-| msiClientId | c7373ae5-91c2-4165-8ab6-7381d6e75619 | string |
+| msiEndpoint | http://169.254.169.254/metadata/identity | cadeia de caracteres |
+| msiClientId | c7373ae5-91c2-4165-8ab6-7381d6e75619 | cadeia de caracteres |
 
 
 ## <a name="template-deployment"></a>Implantação de modelo
@@ -206,8 +211,7 @@ A CLI do Azure pode ser usada para implantar a extensão da VM do Key Vault em u
 Por favor esteja ciente das seguintes restrições/exigências:
 - Restrições de Key Vault:
   - Ele deve existir no momento da implantação 
-  - A política de acesso de Key Vault deve ser definida para a identidade VM/VMSS usando uma identidade gerenciada. Consulte [como autenticar para Key Vault](/azure/key-vault/general/authentication) e [atribuir uma política de acesso de Key Vault](/azure/key-vault/general/assign-access-policy-cli).
-
+  - A política de acesso de Key Vault deve ser definida para a identidade VM/VMSS usando uma identidade gerenciada. Consulte [como autenticar para Key Vault](../../key-vault/general/authentication.md) e [atribuir uma política de acesso de Key Vault](../../key-vault/general/assign-access-policy-cli.md).
 
 ## <a name="troubleshoot-and-support"></a>Solução de problemas e suporte
 
