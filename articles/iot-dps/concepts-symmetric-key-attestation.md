@@ -10,10 +10,10 @@ services: iot-dps
 manager: philmea
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 994c2c3124d6822f047af942268ad7a401d5a976
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90531552"
 ---
 # <a name="symmetric-key-attestation"></a>Atestado de chave simétrica
@@ -115,6 +115,6 @@ Se as chaves de dispositivo não estiverem instaladas no alocador, um [HSM de m�
 
 Agora que você já entende um pouco sobre atestado de chave simétrica, confira os artigos a seguir para saber mais:
 
-* [Início Rápido: provisionar um dispositivo simulado com chaves simétricas](quick-create-simulated-device-symm-key.md)
+* [Início rápido: Provisionar um dispositivo simulado com chaves simétricas](quick-create-simulated-device-symm-key.md)
 * [Saiba mais sobre os conceitos de provisionamento](about-iot-dps.md#provisioning-process)
 * [Introdução ao uso do provisionamento automático](./quick-setup-auto-provision.md) 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/09/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 836e01d3cd8fb25dda1616803d8b6f3e9ff4e06f
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89645749"
 ---
 # <a name="data-encryption-models"></a>Modelos de criptografia de dados
@@ -143,7 +143,7 @@ Quando a criptografia do lado do servidor usando chaves gerenciadas pelo serviç
 ## <a name="supporting-services"></a>Serviços de suporte
 Os serviços do Azure que oferecem suporte a cada modelo de criptografia:
 
-| Produto, recurso ou serviço | Lado do servidor usando chave de serviço gerenciado   | Lado do servidor usando chave gerenciada pelo cliente | Lado do cliente usando chave gerenciada pelo cliente  |
+| Produto, recurso ou serviço | Lado do servidor usando chave de serviço gerenciado   | Server-Side usando Customer-Managed chave | Client-Side usando Client-Managed chave  |
 |----------------------------------|--------------------|-----------------------------------------|--------------------|
 | **IA e Machine Learning**      |                    |                    |                    |
 | Pesquisa Cognitiva do Azure           | Sim                | Sim                | -                  |
@@ -151,7 +151,7 @@ Os serviços do Azure que oferecem suporte a cada modelo de criptografia:
 | Azure Machine Learning           | Sim                | Sim                | -                  |
 | Azure Machine Learning Studio    | Sim                | Versão prévia, RSA de 2048 bits | -               |
 | Content Moderator                | Sim                | Sim                | -                  |
-| Detecção Facial                             | Sim                | Sim                | -                  |
+| Face                             | Sim                | Sim                | -                  |
 | Reconhecimento Vocal           | Sim                | Sim                | -                  |
 | Personalizador                     | Sim                | Sim                | -                  |
 | QnA Maker                        | Sim                | Sim                | -                  |
@@ -168,7 +168,7 @@ Os serviços do Azure que oferecem suporte a cada modelo de criptografia:
 | Azure Monitor Application Insights | Sim                | Sim                | -                  |
 | Azure Monitor Log Analytics      | Sim                | Sim                | -                  |
 | Azure Data Explorer              | Sim                | Sim                | -                  |
-| Fábrica de dados do Azure               | Sim                | Sim                | -                  |
+| Azure Data Factory               | Sim                | Sim                | -                  |
 | Repositório Azure Data Lake            | Sim                | Sim, RSA 2048-bit  | -                  |
 | **Contêineres**                   |                    |                    |                    |
 | Serviço de Kubernetes do Azure         | Sim                | Sim                | -                  |
@@ -187,7 +187,7 @@ Os serviços do Azure que oferecem suporte a cada modelo de criptografia:
 | Barramento de Serviço                      | Sim                | Sim                | -                  |
 | Site Recovery                    | Sim                | Sim                | -                  |
 | **Bancos de dados**                    |                    |                    |                    |
-| SQL Server em Máquinas Virtuais   | Sim                | Sim                | Sim                |
+| SQL Server em máquinas virtuais   | Sim                | Sim                | Sim                |
 | Banco de Dados SQL do Azure               | Sim                | Sim, RSA 3072 bits  | Sim                |
 | Banco de dados SQL do Azure para MariaDB   | Sim                | -                  | -                  |
 | Banco de dados SQL do Azure para MySQL     | Sim                | Sim                | -                  |
@@ -222,7 +222,7 @@ Os serviços do Azure que oferecem suporte a cada modelo de criptografia:
 | **Storage**                      |                    |                    |                    |
 | Armazenamento de Blobs                     | Sim                | Sim                | Sim                |
 | Armazenamento de blob Premium             | Sim                | Sim                | Sim                |
-| Armazenamento em Disco                     | Sim                | Sim                | -                  |
+| Armazenamento em disco                     | Sim                | Sim                | -                  |
 | Ultra Armazenamento em Disco               | Sim                | Sim                | -                  |
 | Armazenamento em Disco gerenciados             | Sim                | Sim                | -                  |
 | Armazenamento de Arquivos                     | Sim                | Sim                | -                  |
@@ -240,7 +240,7 @@ Os serviços do Azure que oferecem suporte a cada modelo de criptografia:
 
 \* Esse serviço não mantém os dados. Os caches transitórios, se houver, são criptografados com uma chave da Microsoft.
 
-\*\* Esse serviço oferece suporte ao armazenamento de dados em seu próprio Key Vault, conta de armazenamento ou outros serviços de persistência de dados que já dão suporte à criptografia do lado do servidor com a chave gerenciada pelo cliente.
+\*\* Esse serviço oferece suporte ao armazenamento de dados em seu próprio Key Vault, conta de armazenamento ou outros serviços de persistência de dados que já dão suporte à criptografia de Server-Side com Customer-Managed chave.
 
 ## <a name="next-steps"></a>Próximas etapas
 

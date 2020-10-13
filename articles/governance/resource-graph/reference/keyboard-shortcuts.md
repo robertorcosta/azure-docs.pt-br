@@ -5,10 +5,10 @@ ms.date: 08/25/2020
 ms.topic: reference
 ms.custom: accessibility
 ms.openlocfilehash: 02471a6efc4ac4d002ca641b792c1c721ffeb3f7
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89146429"
 ---
 # <a name="keyboard-shortcuts-for-azure-resource-graph-explorer"></a>Atalhos de teclado para o Gerenciador de gráficos de recursos do Azure
@@ -19,13 +19,13 @@ Este artigo lista os atalhos de teclado que funcionam na página do Gerenciador 
 
 | Ação | Atalho do Windows | Atalho do Mac |
 |---|---|---|
-|Inserir/remover comentário |<kbd>TECLAS</kbd>+<kbd>/</kbd> | <kbd>Cmd</kbd>+<kbd>/</kbd> |
+|Inserir/remover comentário |<kbd>CTRL</kbd>+<kbd>/</kbd> | <kbd>Cmd</kbd>+<kbd>/</kbd> |
 |Diminuir recuo |<kbd>Ctrl</kbd> + <kbd>[</kbd> |<kbd>Cmd</kbd> + <kbd>[</kbd> |
-|Aumentar recuo |<kbd>Ctrl</kbd> + <kbd>]</kbd> |<kbd>Cmd</kbd> + <kbd>]</kbd> |
+|Aumentar recuo |<kbd>CTRL</kbd>+<kbd>]</kbd> |<kbd>Cmd</kbd> + <kbd>]</kbd> |
 |Mover a linha para baixo |<kbd>ALT</kbd> + <kbd>↓</kbd> |<kbd>Opção</kbd> + <kbd>↓</kbd> |
 |Mover a linha para cima |<kbd>ALT</kbd> + <kbd>↑</kbd> |<kbd>Opção</kbd> + <kbd>↑</kbd> |
-|Substitua |<kbd>Ctrl</kbd> + <kbd>F</kbd> |<kbd>Cmd</kbd> + <kbd>ALT</kbd> + <kbd>F</kbd> |
-|Selecionar tudo |<kbd>Ctrl</kbd> + <kbd>Um</kbd> |<kbd>Cmd</kbd> + <kbd>Um</kbd> |
+|Substitua |<kbd>CTRL</kbd>+<kbd>F</kbd> |<kbd>Cmd</kbd> + <kbd>ALT</kbd> + <kbd>F</kbd> |
+|Selecionar tudo |<kbd>CTRL</kbd>+<kbd>A</kbd> |<kbd>Cmd</kbd> + <kbd>Um</kbd> |
 |Selecionar para baixo |<kbd>Shift</kbd> + <kbd>↓</kbd> |<kbd>Shift</kbd> + <kbd>↓</kbd> |
 |Selecionar à direita |<kbd>Shift</kbd> + <kbd>→</kbd> |<kbd>Shift</kbd> + <kbd>→</kbd> |
 |Selecionar esquerda |<kbd>Shift</kbd> + <kbd>←</kbd> |<kbd>Shift</kbd> + <kbd>←</kbd> |
@@ -40,11 +40,11 @@ Este artigo lista os atalhos de teclado que funcionam na página do Gerenciador 
 | Ação | Atalho do Windows | Atalho do Mac |
 |---|---|---|
 |Executar consulta selecionada no momento |<kbd>Shift</kbd> + <kbd>Insira</kbd> | <kbd>Shift</kbd> + <kbd>Insira</kbd> |
-|Cancelar consulta em execução |<kbd>Esc</kbd> | <kbd>Esc</kbd> |
+|Cancelar consulta em execução |<kbd>ESC</kbd> | <kbd>ESC</kbd> |
 |Abrir nova guia de consulta |<kbd>Ctrl</kbd> + <kbd>ALT</kbd> + <kbd>N</kbd> | <kbd>Cmd</kbd> + <kbd>Opção</kbd> + <kbd>N</kbd> |
 |Fechar a guia consulta ativa |<kbd>Ctrl</kbd> + <kbd>ALT</kbd> + <kbd>W</kbd> | <kbd>Cmd</kbd> + <kbd>Opção</kbd> + <kbd>W</kbd> |
-|Salvar consulta atual |<kbd>Ctrl</kbd> + <kbd>S</kbd> | <kbd>Cmd</kbd> + <kbd>S</kbd> |
-|Abrir uma consulta salva |<kbd>Ctrl</kbd> + <kbd>O</kbd> | <kbd>Cmd</kbd> + <kbd>O</kbd> |
+|Salvar consulta atual |<kbd>CTRL</kbd>+<kbd>S</kbd> | <kbd>Cmd</kbd> + <kbd>S</kbd> |
+|Abrir uma consulta salva |<kbd>CTRL</kbd>+<kbd>O</kbd> | <kbd>Cmd</kbd> + <kbd>O</kbd> |
 |Alternar para guia de consulta (1-9) |<kbd>Ctrl</kbd> + <kbd>(1-9)</kbd> | <kbd>Cmd</kbd> + <kbd>(1-9)</kbd> |
 |Ir para a próxima guia de consulta |<kbd>Ctrl</kbd> + <kbd>↓</kbd> | <kbd>Cmd</kbd> + <kbd>↓</kbd> |
 |Ir para a guia consulta anterior |<kbd>Ctrl</kbd> + <kbd>↑</kbd> | <kbd>Cmd</kbd> + <kbd>↑</kbd> |

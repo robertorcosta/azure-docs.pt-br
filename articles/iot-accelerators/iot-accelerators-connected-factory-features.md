@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: dobett
 ms.openlocfilehash: 3a294368e82bcd00f98c26504b3141e8f39fe0c4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91261593"
 ---
 # <a name="what-is-connected-factory-iot-solution-accelerator"></a>O que é um acelerador da solução de IoT Fábrica Conectada?
 
 > [!IMPORTANT]
-> Enquanto atualizamos este artigo, confira [IOT do Azure industrial](https://azure.github.io/Industrial-IoT/) para obter o conteúdo mais atualizado.
+> Enquanto atualizamos este artigo, confira [IoT Industrial do Azure](https://azure.github.io/Industrial-IoT/) para obter o conteúdo mais atualizado.
 
 Fábrica Conectada é uma implementação da arquitetura de referência de IoT Industrial do Microsoft Azure, empacotada como uma solução de software livre. É possível utilizá-la como ponto de partida para um produto comercial. Você pode implantar uma versão de pré-build da solução de Fábrica Conectada na sua assinatura do Azure por meio dos [aceleradores de solução do Azure IoT](https://www.azureiotsolutions.com/#solutions/types/CF).
 

@@ -7,10 +7,10 @@ author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
 ms.openlocfilehash: 95ea8b61b01b17512d99d0316073835326e6d7bd
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87927157"
 ---
 # <a name="manage-site-recovery-access-with-role-based-access-control-rbac"></a>Gerenciar o acesso de recuperação do site com controle de acesso baseado em função (RBAC)
@@ -41,7 +41,7 @@ Um usuário precisa das seguintes permissões para concluir a replicação de um
 > [!NOTE]
 > Se você estiver habilitando a replicação para uma VM do Azure e quiser permitir que Site Recovery gerencie atualizações, ao mesmo tempo em que permite a replicação, você também pode querer criar uma nova conta de automação, caso em que você precisará de permissão para criar uma conta de automação na mesma assinatura que o cofre também.
 
-| **Tipo de recurso** | **Modelo de implantação** | **Permissão** |
+| **Tipo de recurso** | **Modelo de Implantação** | **Permissão** |
 | --- | --- | --- |
 | Computação | Gerenciador de Recursos | Microsoft.Compute/availabilitySets/read |
 |  |  | Microsoft.Compute/virtualMachines/read |

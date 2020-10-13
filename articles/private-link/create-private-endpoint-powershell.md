@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
 ms.openlocfilehash: 0c6fc36be101679cea3a770f311005f63c3f0d66
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84737369"
 ---
 # <a name="create-a-private-endpoint-using-azure-powershell"></a>Criar um ponto de extremidade privado usando Azure PowerShell
@@ -190,7 +190,7 @@ mstsc /v:<publicIpAddress>
 ## <a name="access-sql-database-privately-from-the-vm"></a>Acessar o Banco de Dados SQL no modo privado da VM
 
 1. Na Área de Trabalho Remota do myVM, abra o PowerShell.
-2. Digite `nslookup myserver.database.windows.net`. Lembre-se de substituir `myserver` pelo nome do SQL Server.
+2. Insira `nslookup myserver.database.windows.net`. Lembre-se de substituir `myserver` pelo nome do SQL Server.
 
     Você receberá uma mensagem semelhante a esta:
     
@@ -219,7 +219,7 @@ mstsc /v:<publicIpAddress>
 7. (Opcionalmente) Crie ou consulte informações no mydatabase.
 8. Feche a conexão de área de trabalho remota para *myVM*. 
 
-## <a name="clean-up-resources"></a>Limpar recursos 
+## <a name="clean-up-resources"></a>Limpar os recursos 
 Quando você terminar de usar o ponto de extremidade privado, o banco de dados SQL e a VM, use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos e todos os recursos que ele tem:
 
 ```azurepowershell-interactive

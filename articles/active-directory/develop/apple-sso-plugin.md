@@ -14,10 +14,10 @@ ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.openlocfilehash: ec0ab4601e15129ecd8917e0e750a3e1661dc558
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91530690"
 ---
 # <a name="microsoft-enterprise-sso-plug-in-for-apple-devices-preview"></a>Plug-in do SSO corporativo da Microsoft para dispositivos Apple (versão prévia)
@@ -35,7 +35,7 @@ Nesta versão de visualização pública, o plug-in de SSO corporativo está dis
 
 O plug-in Microsoft Enterprise SSO para dispositivos Apple oferece os seguintes benefícios:
 
-- Fornece SSO para contas do Azure AD em todos os aplicativos que dão suporte ao recurso de logon único corporativo da Apple.
+- Fornece SSO para contas do Azure AD em todos os aplicativos que dão suporte ao recurso Enterprise Single Sign-On da Apple.
 - Entregue automaticamente no Microsoft Authenticator e pode ser habilitado por qualquer solução de MDM (gerenciamento de dispositivo móvel).
 
 ## <a name="requirements"></a>Requisitos
@@ -125,7 +125,7 @@ Se você estiver criando um aplicativo para cenários de trabalho do frente, con
 
 ## <a name="how-the-sso-plug-in-works"></a>Como funciona o plug-in de SSO
 
-O plug-in Microsoft Enterprise SSO depende da estrutura de [logon único empresarial da Apple](https://developer.apple.com/documentation/authenticationservices/asauthorizationsinglesignonprovider?language=objc). Provedores de identidade que integram a estrutura podem interceptar o tráfego de rede para seus domínios e aprimorar ou alterar a forma como essas solicitações são tratadas. Por exemplo, o plug-in de SSO pode mostrar a IU adicional para coletar credenciais do usuário final com segurança, exigir MFA ou fornecer tokens silenciosamente para o aplicativo.
+O plug-in Microsoft Enterprise SSO conta com a [estrutura de Sign-On empresarial da Apple](https://developer.apple.com/documentation/authenticationservices/asauthorizationsinglesignonprovider?language=objc). Provedores de identidade que integram a estrutura podem interceptar o tráfego de rede para seus domínios e aprimorar ou alterar a forma como essas solicitações são tratadas. Por exemplo, o plug-in de SSO pode mostrar a IU adicional para coletar credenciais do usuário final com segurança, exigir MFA ou fornecer tokens silenciosamente para o aplicativo.
 
 Os aplicativos nativos também podem implementar operações personalizadas e conversar diretamente com o plug-in de SSO.
 Você pode aprender sobre a estrutura de logon único neste [vídeo de 2019 WWDC da Apple](https://developer.apple.com/videos/play/tech-talks/301/)

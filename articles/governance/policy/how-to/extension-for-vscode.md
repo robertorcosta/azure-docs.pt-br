@@ -4,10 +4,10 @@ description: Saiba como usar a extensão de Azure Policy para Visual Studio Code
 ms.date: 06/16/2020
 ms.topic: how-to
 ms.openlocfilehash: 9b3f27492bee5301e22e83ebf9734afa3de43897
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89648326"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Usar extensão de Azure Policy para Visual Studio Code
@@ -40,7 +40,7 @@ Depois de atender aos pré-requisitos, você pode instalar Azure Policy extensã
 
 1. Selecione **Azure Policy** nos resultados da pesquisa e, em seguida, selecione **instalar**.
 
-1. Selecione **recarregar** quando necessário.
+1. Selecione **Recarregar** quando necessário.
 
 ## <a name="set-the-azure-environment"></a>Configurar o ambiente do Azure
 
@@ -64,13 +64,13 @@ Para avaliar os recursos e os aliases de pesquisa, você deve se conectar à sua
 
      Na extensão Azure Policy, selecione **entrar no Azure**.
 
-     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-policy-extension.png" alt-text="Captura de tela de Visual Studio Code e o ícone da extensão de Azure Policy." border="false":::
+     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-policy-extension.png" alt-text="Captura de tela da seleção da entrada da nuvem do Azure da nação para Visual Studio Code." border="false":::
 
    - Paleta de Comandos
 
      Na barra de menus, vá para **Exibir**  >  **paleta de comandos**e insira **Azure: entrar**.
 
-     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-command-palette.png" alt-text="Captura de tela das opções de entrada na nuvem do Azure para Visual Studio Code na paleta de comandos." border="false":::
+     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-command-palette.png" alt-text="Captura de tela da seleção da entrada da nuvem do Azure da nação para Visual Studio Code." border="false":::
 
 1. Siga as instruções de entrada para entrar no Azure. Depois que você estiver conectado, o nome da sua conta do Azure será mostrado na barra de status na parte inferior da janela de Visual Studio Code.
 
@@ -125,7 +125,7 @@ Quando um recurso é selecionado, seja por meio da interface de pesquisa ou sele
 
 Quando um recurso estiver aberto, passar o mouse sobre o nome ou o valor da Propriedade do Resource Manager exibirá o Azure Policy alias, se houver. Neste exemplo, o recurso é um `Microsoft.Compute/virtualMachines` tipo de recurso e a propriedade **Propriedades. StorageProfile. imageReference. offer** é focalizada. Focalizar mostra os aliases correspondentes.
 
-:::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Captura de tela da extensão de Azure Policy para Visual Studio Code passando uma propriedade para exibir os nomes de alias." border="false":::
+:::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Captura de tela da seleção da entrada da nuvem do Azure da nação para Visual Studio Code." border="false":::
 
 > [!NOTE]
 > A extensão VS Code apenas expõe as propriedades do modo Resource Manager e não exibe nenhuma propriedade do [modo de Provedor de Recursos](../concepts/definition-structure.md#mode).

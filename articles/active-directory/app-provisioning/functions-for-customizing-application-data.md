@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 02/05/2020
 ms.author: kenwith
 ms.openlocfilehash: d454ab3ad382c6237ab9f8c215473801285ba3c9
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88235665"
 ---
 # <a name="how-to-write-expressions-for-attribute-mappings-in-azure-ad"></a>Como: escrever expressões para mapeamentos de atributo no Azure AD
@@ -51,8 +51,8 @@ A sintaxe de expressões para mapeamentos de atributos é semelhante à das fun�
 
 | Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **source** |Obrigatório |String |Normalmente o nome do atributo do objeto de source. |
-| **sufixo** |Obrigatório |String |A cadeia de caracteres que você deseja acrescentar ao final do valor de source. |
+| **source** |Obrigatório |Cadeia de caracteres |Normalmente o nome do atributo do objeto de source. |
+| **suffix** |Obrigatório |Cadeia de caracteres |A cadeia de caracteres que você deseja acrescentar ao final do valor de source. |
 
 ---
 ### <a name="bitand"></a>BitAnd
@@ -102,7 +102,7 @@ Retorna True se ambos os atributos têm o mesmo valor.
 
 | Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **source1  … sourceN** | Obrigatório | String |Obrigatório, número de vezes variável. Normalmente o nome do atributo do objeto de source. |
+| **source1  … sourceN** | Obrigatório | Cadeia de caracteres |Obrigatório, número de vezes variável. Normalmente o nome do atributo do objeto de source. |
 | **defaultValue** | Opcional | Cadeia de caracteres | Valor padrão a ser usado quando todos os valores de origem forem nulos. Pode ser uma cadeia de caracteres vazia ("").
 
 ---
@@ -115,7 +115,7 @@ Retorna True se ambos os atributos têm o mesmo valor.
 
 | Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **source** |Obrigatório |String |Cadeia de caracteres a ser convertida em base 64|
+| **source** |Obrigatório |Cadeia de caracteres |Cadeia de caracteres a ser convertida em base 64|
 
 **Exemplo:**<br>
 ConvertToBase64("Hello world!")                                                                                                        
@@ -131,7 +131,7 @@ ConvertToBase64("Hello world!")
 
 | Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **source** |Obrigatório |String |Cadeia de caracteres a ser convertida em UTF8 hex|
+| **source** |Obrigatório |Cadeia de caracteres |Cadeia de caracteres a ser convertida em UTF8 hex|
 
 **Exemplo:**<br>
 ConvertToUTF8Hex("Hello world!")                                                                                                         
@@ -192,9 +192,9 @@ DateFromNum(129699324000000000)
 
 | Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **source** |Obrigatório |String |Normalmente o nome do atributo do objeto de source. |
-| **inputFormat** |Obrigatório |String |Formato esperado do valor de source. Para formatos com suporte, consulte [/dotnet/Standard/base-Types/Custom-Date-and-Time-Format-Strings](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
-| **outputFormat** |Obrigatório |String |Formato da data de saída. |
+| **source** |Obrigatório |Cadeia de caracteres |Normalmente o nome do atributo do objeto de source. |
+| **inputFormat** |Obrigatório |Cadeia de caracteres |Formato esperado do valor de source. Para formatos com suporte, consulte [/dotnet/Standard/base-Types/Custom-Date-and-Time-Format-Strings](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+| **outputFormat** |Obrigatório |Cadeia de caracteres |Formato da data de saída. |
 
 ---
 ### <a name="guid"></a>Guid
@@ -229,10 +229,10 @@ IIF ([país] = "EUA", [país], [departamento])
 
 | Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **value1** |Obrigatório |String |Cadeia de caracteres a ser pesquisada |
-| **value2** |Obrigatório |String |Cadeia de caracteres a ser encontrada |
+| **value1** |Obrigatório |Cadeia de caracteres |Cadeia de caracteres a ser pesquisada |
+| **value2** |Obrigatório |Cadeia de caracteres |Cadeia de caracteres a ser encontrada |
 | **start** |Opcional |Inteiro |Posição inicial para localizar a subcadeia de caracteres|
-| **comparetype** |Opcional |Enum |Pode ser vbTextCompare ou vbBinaryCompare |
+| **comparetype** |Opcional |Enumeração |Pode ser vbTextCompare ou vbBinaryCompare |
 
 **Exemplo:**<br>
 InStr("The quick brown fox","quick")                                                                             
@@ -329,8 +329,8 @@ Se um dos valores de source for um atributo com vários valores, todos os valore
 
 | Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **separator** |Obrigatório |String |Cadeia de caracteres usada para separar os valores de source quando eles são concatenados em uma cadeia de caracteres. Pode ser "" se não for necessário nenhum separador. |
-| **source1  … sourceN** |Obrigatório, número de vezes variável |String |Valores de cadeia de caracteres a serem unidos. |
+| **separator** |Obrigatório |Cadeia de caracteres |Cadeia de caracteres usada para separar os valores de source quando eles são concatenados em uma cadeia de caracteres. Pode ser "" se não for necessário nenhum separador. |
+| **source1  … sourceN** |Obrigatório, número de vezes variável |Cadeia de caracteres |Valores de cadeia de caracteres a serem unidos. |
 
 ---
 ### <a name="left"></a>Esquerda
@@ -362,9 +362,9 @@ Retorna "Joh"
 
 | Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **source** |Obrigatório |String |Geralmente o nome do atributo. |
-| **start** |Obrigatório |inteiro |Índice na cadeia de caracteres de **origem** em que a subcadeia deve iniciar. O primeiro caractere na cadeia de caracteres terá o índice de 1, o segundo caractere terá o índice 2 e assim por diante. |
-| **length** |Obrigatório |inteiro |Comprimento da subcadeia de caracteres. Se o comprimento terminar fora da cadeia de caracteres **source**, a função retornará uma subcadeia de caracteres do índice **start** até o final da cadeia de caracteres **source**. |
+| **source** |Obrigatório |Cadeia de caracteres |Geralmente o nome do atributo. |
+| **start** |Obrigatório |Número inteiro |Índice na cadeia de caracteres de **origem** em que a subcadeia deve iniciar. O primeiro caractere na cadeia de caracteres terá o índice de 1, o segundo caractere terá o índice 2 e assim por diante. |
+| **length** |Obrigatório |Número inteiro |Comprimento da subcadeia de caracteres. Se o comprimento terminar fora da cadeia de caracteres **source**, a função retornará uma subcadeia de caracteres do índice **start** até o final da cadeia de caracteres **source**. |
 
 ---
 ### <a name="normalizediacritics"></a>NormalizeDiacritics
@@ -376,7 +376,7 @@ Retorna "Joh"
 
 | Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **source** |Obrigatório |String | Geralmente um atributo de nome ou sobrenome. |
+| **source** |Obrigatório |Cadeia de caracteres | Geralmente um atributo de nome ou sobrenome. |
 
 ---
 ### <a name="not"></a>Not
@@ -400,7 +400,7 @@ Retorna "Joh"
 
 | Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **value** |Obrigatório | String | Cadeia de caracteres de data e hora no formato com suporte. Para formatos com suporte, consulte https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx. |
+| **value** |Obrigatório | Cadeia de caracteres | Cadeia de caracteres de data e hora no formato com suporte. Para formatos com suporte, consulte https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx. |
 
 **Exemplo:**<br>
 * Exemplo de workday <br>
@@ -456,7 +456,7 @@ Retorna um atributo proxyAddress limpo em que todos os valores duplicados foram 
 
 | Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **source** |Obrigatório |String |Normalmente o nome do atributo do objeto de **origem** . |
+| **source** |Obrigatório |Cadeia de caracteres |Normalmente o nome do atributo do objeto de **origem** . |
 | **oldValue** |Opcional |Cadeia de caracteres |Valor a ser substituído em **source** ou **template**. |
 | **regexPattern** |Opcional |Cadeia de caracteres |Padrão Regex para o valor a ser substituído na **origem**. Ou, quando **replacementPropertyName** for usado, o padrão para extrair o valor de **replacementPropertyName**. |
 | **regexGroupName** |Opcional |Cadeia de caracteres |Nome do grupo dentro de **regexPattern**. Somente quando **replacementPropertyName** for usado, extrairemos o valor desse grupo como **replacementValue** de **replacementPropertyName**. |
@@ -481,7 +481,7 @@ Retorna um atributo proxyAddress limpo em que todos os valores duplicados foram 
 
 | Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **uniqueValueRule1  … uniqueValueRuleN** |Pelo menos 2 são necessários, sem limite superior |String | Lista de regras de geração de valor exclusivo para avaliar. |
+| **uniqueValueRule1  … uniqueValueRuleN** |Pelo menos 2 são necessários, sem limite superior |Cadeia de caracteres | Lista de regras de geração de valor exclusivo para avaliar. |
 
 
 ---
@@ -494,7 +494,7 @@ Retorna um atributo proxyAddress limpo em que todos os valores duplicados foram 
 
 | Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **[appRoleAssignments]** |Obrigatório |String |Objeto **[appRoleAssignments]**. |
+| **[appRoleAssignments]** |Obrigatório |Cadeia de caracteres |Objeto **[appRoleAssignments]**. |
 
 ---
 ### <a name="split"></a>Divisão
@@ -506,8 +506,8 @@ Retorna um atributo proxyAddress limpo em que todos os valores duplicados foram 
 
 | Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **source** |Obrigatório |String |Valor da **origem** para atualizar. |
-| **delimitador** |Obrigatório |String |Especifica o caractere que será usado para dividir a cadeia de caracteres (exemplo: ",") |
+| **source** |Obrigatório |Cadeia de caracteres |Valor da **origem** para atualizar. |
+| **delimitador** |Obrigatório |Cadeia de caracteres |Especifica o caractere que será usado para dividir a cadeia de caracteres (exemplo: ",") |
 
 ---
 ### <a name="stripspaces"></a>StripSpaces
@@ -519,10 +519,10 @@ Retorna um atributo proxyAddress limpo em que todos os valores duplicados foram 
 
 | Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **source** |Obrigatório |String |Valor da **origem** para atualizar. |
+| **source** |Obrigatório |Cadeia de caracteres |Valor da **origem** para atualizar. |
 
 ---
-### <a name="switch"></a>Alternar
+### <a name="switch"></a>Opção
 **Funcionamento**<br>  Switch(source, defaultValue, key1, value1, key2, value2, …)
 
 **Descrição:**<br> Quando o valor da **origem** corresponde a uma **chave**, retorna o **valor** dessa **chave**. Se o valor da **origem** não corresponder a nenhuma chave, retorna **defaultValue**.  Os parâmetros **key** e **value** devem sempre ocorrer em pares. A função sempre espera um número par de parâmetros. A função não deve ser usada para atributos referenciais como Manager. 
@@ -531,10 +531,10 @@ Retorna um atributo proxyAddress limpo em que todos os valores duplicados foram 
 
 | Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **source** |Obrigatório |String |**Source** a atualizar. |
+| **source** |Obrigatório |Cadeia de caracteres |**Source** a atualizar. |
 | **defaultValue** |Opcional |Cadeia de caracteres |Valor padrão a ser usado quando source não corresponde a nenhum parâmetro. Pode ser uma cadeia de caracteres vazia (""). |
-| **chave** |Obrigatório |String |Parâmetro **key** com o qual comparar o valor de **source**. |
-| **value** |Obrigatório |String |Valor de substituição para o **source** que corresponde ao parâmetro key. |
+| **chave** |Obrigatório |Cadeia de caracteres |Parâmetro **key** com o qual comparar o valor de **source**. |
+| **value** |Obrigatório |Cadeia de caracteres |Valor de substituição para o **source** que corresponde ao parâmetro key. |
 
 ---
 ### <a name="tolower"></a>ToLower
@@ -546,7 +546,7 @@ Retorna um atributo proxyAddress limpo em que todos os valores duplicados foram 
 
 | Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **source** |Obrigatório |String |Normalmente o nome do atributo do objeto de source |
+| **source** |Obrigatório |Cadeia de caracteres |Normalmente o nome do atributo do objeto de source |
 | **cultura** |Opcional |Cadeia de caracteres |O formato para o nome da cultura com base em RFC 4646 é *languagecode2-country/regioncode2*, em que *regioncode2* é o código de idioma de duas letras e *country/regioncode2* é o código de subcultura de duas letras. Exemplos incluem ja-JP para japonês (Japão) e en-US para inglês (Estados Unidos). Quando não há um código de idioma de duas letras disponível, um código de três letras derivado da ISO 639-2 é usado.|
 
 ---
@@ -559,7 +559,7 @@ Retorna um atributo proxyAddress limpo em que todos os valores duplicados foram 
 
 | Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **source** |Obrigatório |String |Normalmente o nome do atributo do objeto de source. |
+| **source** |Obrigatório |Cadeia de caracteres |Normalmente o nome do atributo do objeto de source. |
 | **cultura** |Opcional |Cadeia de caracteres |O formato para o nome da cultura com base em RFC 4646 é *languagecode2-country/regioncode2*, em que *regioncode2* é o código de idioma de duas letras e *country/regioncode2* é o código de subcultura de duas letras. Exemplos incluem ja-JP para japonês (Japão) e en-US para inglês (Estados Unidos). Quando não há um código de idioma de duas letras disponível, um código de três letras derivado da ISO 639-2 é usado.|
 
 ---
@@ -578,7 +578,7 @@ Se a cadeia de caracteres for menor que o número de palavras ou a cadeia não c
 | --- | --- | --- | --- |
 | **Cadeia de caracteres** |Obrigatório |Atributo de valores múltiplos |Cadeia de caracteres da qual retornar uma palavra.|
 | **WordNumber** |Necessária | Inteiro | Número que identifica qual número de palavras deve retornar|
-| **delimitadores** |Obrigatório |String| Uma cadeia de caracteres que representa os delimitadores que devem ser usados para identificar palavras|
+| **delimitadores** |Obrigatório |Cadeia de caracteres| Uma cadeia de caracteres que representa os delimitadores que devem ser usados para identificar palavras|
 
 **Exemplo:**<br>
 Word ("The Quick Brown raposa", 3, "")                                                                                       

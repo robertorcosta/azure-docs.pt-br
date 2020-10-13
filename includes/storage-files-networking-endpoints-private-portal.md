@@ -9,10 +9,10 @@ ms.date: 5/11/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: b941084c8a196081c2443364ed3fb52868386670
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
-ms.translationtype: MT
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84464926"
 ---
 Navegue até a conta de armazenamento para a qual gostaria de criar o ponto de extremidade privado. Na sumário da conta de armazenamento, selecione **Conexões de ponto de extremidade privado** e, em seguida, **+ Ponto de extremidade privado** para criar um ponto de extremidade privado. 

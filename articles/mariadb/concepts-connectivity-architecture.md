@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 6/8/2020
 ms.openlocfilehash: c3f557c757a46252b9fa0416cc62a827b233f1b2
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88065345"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mariadb"></a>Arquitetura de conectividade no banco de dados do Azure para MariaDB
@@ -28,13 +28,13 @@ Como o cliente se conecta ao banco de dados, ele obtém uma cadeia de conexão q
 
 A tabela a seguir lista os IPs primários e secundários do banco de dados do Azure para o gateway MariaDB para todas as regiões de data. O endereço IP primário é o endereço IP atual do gateway e o segundo endereço IP é um endereço IP de failover em caso de falha do primário. Conforme mencionado, os clientes devem permitir a saída para os dois endereços IP. O segundo endereço IP não escuta em nenhum serviço até que seja ativado pelo banco de dados do Azure para MariaDB para aceitar conexões.
 
-| **Nome da região** | **Endereços IP do gateway** |
+| **Nome da Região** | **Endereços IP do gateway** |
 |:----------------|:-------------|
 | Austrália Central| 20.36.105.0     |
 | Central2 da Austrália     | 20.36.113.0   |
 | Leste da Austrália | 13.75.149.87, 40.79.161.1     |
 | Sudeste da Austrália |191.239.192.109, 13.73.109.251   |
-| Brazil South | 104.41.11.5, 191.233.201.8, 191.233.200.16  |
+| Sul do Brasil | 104.41.11.5, 191.233.201.8, 191.233.200.16  |
 | Canadá Central |40.85.224.249  |
 | Leste do Canadá | 40.86.226.166    |
 | Centro dos EUA | 23.99.160.139, 13.67.215.62, 52.182.136.37, 52.182.136.38     |

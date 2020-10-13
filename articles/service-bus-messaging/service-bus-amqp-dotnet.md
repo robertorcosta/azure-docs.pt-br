@@ -4,10 +4,10 @@ description: Este artigo descreve como usar o barramento de serviço do Azure de
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 7a67ab74efc700e16f5b1689e9cc1f459ecf14bd
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88067096"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>Usar o Barramento de Serviço do .NET com AMQP 1.0
@@ -52,14 +52,14 @@ Para facilitar a interoperabilidade com clientes não .NET, use somente tipos .N
 
 | Tipo de objeto de corpo .NET | Tipo do AMQP mapeado | Tipo de seção de corpo do AMQP |
 | --- | --- | --- |
-| bool |boolean |Valor do AMQP |
+| bool |booleano |Valor do AMQP |
 | byte |ubyte |Valor do AMQP |
 | ushort |ushort |Valor do AMQP |
 | uint |uint |Valor do AMQP |
 | ulong |ulong |Valor do AMQP |
 | sbyte |byte |Valor do AMQP |
 | short |short |Valor do AMQP |
-| int |int |Valor do AMQP |
+| INT |INT |Valor do AMQP |
 | long |long |Valor do AMQP |
 | FLOAT |FLOAT |Valor do AMQP |
 | double |double |Valor do AMQP |
@@ -70,12 +70,12 @@ Para facilitar a interoperabilidade com clientes não .NET, use somente tipos .N
 | byte[] |binary |Valor do AMQP |
 | string |string |Valor do AMQP |
 | System.Collections.IList |list |Valor AMQP: os itens contidos na coleção só podem ser aqueles definidos nesta tabela. |
-| System.Array |array |Valor AMQP: os itens contidos na coleção só podem ser aqueles definidos nesta tabela. |
-| System.Collections.IDictionary |mapa |Valor AMQP: os itens contidos na coleção só podem ser aqueles definidos nesta tabela. Observação: apenas as chaves de cadeia de caracteres são suportadas. |
+| System.Array |matriz |Valor AMQP: os itens contidos na coleção só podem ser aqueles definidos nesta tabela. |
+| System.Collections.IDictionary |map |Valor AMQP: os itens contidos na coleção só podem ser aqueles definidos nesta tabela. Observação: apenas as chaves de cadeia de caracteres são suportadas. |
 | Uri |Cadeia de caracteres descrita (consulte a tabela a seguir) |Valor do AMQP |
 | DateTimeOffset |Longo descrito (consulte a tabela a seguir) |Valor do AMQP |
 | TimeSpan |Longo descrito (consulte a seguir) |Valor do AMQP |
-| Fluxo |binary |Dados do AMQP (podem ser múltiplos). As seções de Dados contêm os bytes brutos lidos do objeto Stream. |
+| STREAM |binary |Dados do AMQP (podem ser múltiplos). As seções de Dados contêm os bytes brutos lidos do objeto Stream. |
 | Outro Objeto |binary |Dados do AMQP (podem ser múltiplos). Contém o binário serializado do objeto que usa o DataContractSerializer ou um serializador fornecido pelo aplicativo. |
 
 | Tipo .NET | Tipo descrito do AMQP mapeado | Observações |
