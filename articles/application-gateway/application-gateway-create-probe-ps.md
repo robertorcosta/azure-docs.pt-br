@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: victorh
 ms.openlocfilehash: 2a269137508feb8a2d2cc0710986e1b74b91c0ea
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86186734"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-by-using-powershell-for-azure-resource-manager"></a>Criar uma investigação personalizada para o Gateway de Aplicativo do Azure usando o PowerShell do Azure Resource Manager
 
 > [!div class="op_single_selector"]
-> * [Portal do Azure](application-gateway-create-probe-portal.md)
+> * [Azure portal](application-gateway-create-probe-portal.md)
 > * [PowerShell do Azure Resource Manager](application-gateway-create-probe-ps.md)
 > * [PowerShell clássico do Azure](application-gateway-create-probe-classic-ps.md)
 
@@ -50,7 +50,7 @@ Neste artigo, você adiciona uma investigação personalizada a um gateway de ap
    Select-AzSubscription -Subscriptionid '{subscriptionGuid}'
    ```
 
-1. Crie um grupo de recursos. Você pode ignorar esta etapa se tem um grupo de recursos existente.
+1. Crie um grupos de recursos. Você pode ignorar esta etapa se tem um grupo de recursos existente.
 
    ```powershell
    New-AzResourceGroup -Name appgw-rg -Location 'West US'

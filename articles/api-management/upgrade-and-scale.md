@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 04/20/2020
 ms.author: apimpm
 ms.openlocfilehash: 93c686fb2688a7a8ae71d8156e6e5c7915d6c604
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86205757"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Fazer upgrade e dimensionar uma instância de Gerenciamento de API do Azure  
@@ -45,7 +45,7 @@ Para executar as etapas deste artigo, é necessário:
 
 ## <a name="upgrade-and-scale"></a>Atualizar e dimensionar  
 
-Você pode escolher entre quatro camadas: **Developer**, **Basic**, **Standard**e **Premium**. A camada de **Desenvolvedor** deve ser usada para avaliar o serviço; ela não deve ser usada para a produção. A camada de **Desenvolvedor** não tem um SLA e não é possível dimensioná-la (adicionar/remover unidades). 
+Você pode escolher entre quatro camadas: **Developer**, **Basic**,  **Standard**e **Premium**. A camada de **Desenvolvedor** deve ser usada para avaliar o serviço; ela não deve ser usada para a produção. A camada de **Desenvolvedor** não tem um SLA e não é possível dimensioná-la (adicionar/remover unidades). 
 
 **Basic**, **Standard**e **Premium** são as camadas de produção que têm SLA e podem ser dimensionadas. A camada **básica** é a camada mais barata com um SLA e pode ser dimensionada para até duas unidades, a camada **Standard** pode ser dimensionada para até quatro unidades. Você pode adicionar qualquer número de unidades para a camada **Premium**.
 

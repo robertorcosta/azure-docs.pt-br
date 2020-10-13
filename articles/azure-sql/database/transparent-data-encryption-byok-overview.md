@@ -13,10 +13,10 @@ ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
 ms.openlocfilehash: 4e17af8289c68ded282a9c4a9ca2d400d31ca30d
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90602659"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Transparent Data Encryption do Azure SQL com chaves gerenciadas pelo cliente
@@ -187,11 +187,11 @@ Considerações adicionais para arquivos de log: Arquivos de log de backup perma
 
 Mesmo em casos em que não haja redundância geográfica configurada para o servidor, é altamente recomendável configurar o servidor para usar dois cofres de chaves diferentes em duas regiões diferentes com o mesmo material de chave. Ele pode ser feito criando um protetor de TDE usando o cofre de chaves primário colocalizado na mesma região que o servidor e clonando a chave em um cofre de chaves em uma região diferente do Azure, de modo que o servidor tenha acesso a um segundo cofre de chaves caso o cofre de chaves primário tenha uma interrupção enquanto o banco de dados estiver em execução.
 
-Use o cmdlet backup-AzKeyVaultKey para recuperar a chave no formato criptografado do cofre de chaves primárias e, em seguida, use o cmdlet Restore-AzKeyVaultKey e especifique um cofre de chaves na segunda região para clonar a chave. Como alternativa, use o portal do Azure para fazer backup e restaurar a chave. A chave no cofre de chaves secundários na outra região não deve ser marcada como um protetor TDE e nem mesmo é permitida.
+Use o cmdlet Backup-AzKeyVaultKey para recuperar a chave no formato criptografado do cofre de chaves primárias e, em seguida, use o cmdlet Restore-AzKeyVaultKey e especifique um cofre de chaves na segunda região para clonar a chave. Como alternativa, use o portal do Azure para fazer backup e restaurar a chave. A chave no cofre de chaves secundários na outra região não deve ser marcada como um protetor TDE e nem mesmo é permitida.
 
 Se houver uma interrupção afetando o cofre de chaves primário e, somente em seguida, o sistema alternará automaticamente para a outra chave vinculada com a mesma impressão digital no cofre de chaves secundário, se existir. Observe que essa opção não ocorrerá se o protetor de TDE estiver inacessível devido a direitos de acesso revogados ou porque a chave ou o cofre de chaves é excluído, pois pode indicar que o cliente queria intencionalmente restringir o acesso do servidor à chave.
 
-![HA de servidor único](./media/transparent-data-encryption-byok-overview/customer-managed-tde-with-ha.png)
+![Single-Server HA](./media/transparent-data-encryption-byok-overview/customer-managed-tde-with-ha.png)
 
 ## <a name="geo-dr-and-customer-managed-tde"></a>TDE de recuperação geográfica e gerenciada pelo cliente
 

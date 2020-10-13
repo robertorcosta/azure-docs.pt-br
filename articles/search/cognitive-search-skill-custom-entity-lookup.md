@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.openlocfilehash: 5511551f240fe4fdd2f2aa3bc8a3a2615505f35f
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88936105"
 ---
 #     <a name="custom-entity-lookup-cognitive-skill-preview"></a>Habilidade cognitiva de pesquisa de entidade personalizada (versão prévia)
@@ -45,7 +45,7 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
 
 ## <a name="skill-inputs"></a>Entradas de habilidades
 
-| Nome de entrada      | DESCRIÇÃO                   |
+| Nome de entrada      | Descrição                   |
 |---------------|-------------------------------|
 | `text`          | O texto para analisar.          |
 | `languageCode`    | Opcional. O padrão é `"en"`.  |
@@ -54,7 +54,7 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
 ## <a name="skill-outputs"></a>Saídas de habilidades
 
 
-| Nome de saída      | DESCRIÇÃO                   |
+| Nome de saída      | Descrição                   |
 |---------------|-------------------------------|
 | `entities` | Uma matriz de objetos que contém informações sobre as correspondências que foram encontradas e os metadados relacionados. Cada uma das entidades identificadas pode conter os seguintes campos:  <ul> <li> *nome*: a entidade de nível superior identificada. A entidade representa o formulário "normalizado". </li> <li> *ID*: um identificador exclusivo para a entidade, conforme definido pelo usuário no "formato de definição de entidade personalizada".</li> <li> *Descrição*: Descrição da entidade conforme definida pelo usuário no "formato de definição de entidade personalizada". </li> <li> *tipo:* Tipo de entidade, conforme definido pelo usuário no "formato de definição de entidade personalizada".</li> <li> *subtipo:* Subtipo de entidade, conforme definido pelo usuário no "formato de definição de entidade personalizada".</li>  <li> *corresponde*: coleção que descreve cada uma das correspondências para essa entidade no texto de origem. Cada correspondência terá os seguintes membros: </li> <ul> <li> *texto*: a correspondência de texto bruto do documento de origem. </li> <li> *offset*: o local onde a correspondência foi encontrada no texto. </li> <li> *comprimento*: o comprimento do texto correspondente. </li> <li> *matchDistance*: o número de caracteres diferente dessa correspondência era do nome ou alias da entidade original.  </li> </ul> </ul>
   |
@@ -69,7 +69,7 @@ Se a definição for fornecida em linha, ela deverá ser fornecida como embutida
 
 ### <a name="csv-format"></a>Formato CSV
 
-Você pode fornecer a definição das entidades personalizadas a serem procuradas em um arquivo de valores separados por vírgulas (CSV) fornecendo o caminho para o arquivo e definindo-o no parâmetro de habilidade *entitiesDefinitionUri*  . O caminho deve estar em um local HTTPS. O arquivo de definição pode ter até 10 MB de tamanho.
+Você pode fornecer a definição das entidades personalizadas a serem procuradas em um arquivo de valor Comma-Separated (CSV) fornecendo o caminho para o arquivo e definindo-o no parâmetro de habilidade *entitiesDefinitionUri*  . O caminho deve estar em um local HTTPS. O arquivo de definição pode ter até 10 MB de tamanho.
 
 O formato CSV é simples. Cada linha representa uma entidade exclusiva, como mostrado abaixo:
 
@@ -156,7 +156,7 @@ As tabelas a seguir descrevem mais detalhadamente os diferentes parâmetros de c
 | `defaultFuzzyEditDistance` | Adicional Altera o valor de distância de edição difusa padrão para esta entidade. Ele pode ser usado para alterar o valor padrão de todos os aliases fuzzyEditDistance valores. |
 | `aliases` | Adicional Uma matriz de objetos complexos que pode ser usada para especificar grafias alternativas ou sinônimos para o nome da entidade raiz. |
 
-| Propriedades do alias | DESCRIÇÃO |
+| Propriedades do alias | Descrição |
 |------------------|-------------|
 | `text`  | A grafia alternativa ou a representação de algum nome de entidade de destino.  |
 | `caseSensitive` | Adicional Age da mesma forma que o parâmetro "caseSensitive" da entidade raiz acima, mas aplica-se somente a esse alias. |

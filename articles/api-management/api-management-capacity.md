@@ -13,10 +13,10 @@ ms.date: 06/18/2018
 ms.author: apimpm
 ms.custom: fasttrack-edit
 ms.openlocfilehash: f4eb90cc0e8867230c7fb1a2a169b5ba0126e46a
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86205884"
 ---
 # <a name="capacity-of-an-azure-api-management-instance"></a>Capacidade de uma instância de gerenciamento de API do Azure
@@ -78,7 +78,7 @@ A **métrica** de baixa capacidade não significa necessariamente que sua instâ
 ![Métrica de capacidade](./media/api-management-capacity/capacity-metric.png)  
 
 1. Navegue para sua instância do APIM no [Portal do Azure](https://portal.azure.com/).
-2. Selecione **métricas**.
+2. Selecione **Métricas**.
 3. Na seção roxa, selecione a métrica ** Capacidade ** das métricas disponíveis e deixe a agregação padrão ** Média **.
 
     > [!TIP]
