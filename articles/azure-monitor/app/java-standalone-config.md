@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/16/2020
 ms.custom: devx-track-java
 ms.openlocfilehash: 9b90f8b9336111438b4b832d557d448470959255
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91537650"
 ---
 # <a name="configuration-options---java-standalone-agent-for-azure-monitor-application-insights"></a>Opções de configuração-agente autônomo Java para Azure Monitor Application Insights
@@ -129,8 +129,8 @@ Esses são os `threshold` valores válidos que você pode especificar no `Applic
 | valor de limite   | Log4J  | Logback | JUL     |
 |-------------------|--------|---------|---------|
 | OFF               | OFF    | OFF     | OFF     |
-| FATAIS             | FATAIS  | ERROR   | SEVERE  |
-| ERRO (ou grave) | ERROR  | ERROR   | SEVERE  |
+| FATAIS             | FATAIS  | ERRO   | SEVERE  |
+| ERRO (ou grave) | ERRO  | ERRO   | SEVERE  |
 | AVISAR (ou aviso) | AVISAR   | AVISAR    | WARNING |
 | INFO              | INFO   | INFO    | INFO    |
 | CONFIG            | DEBUG  | DEBUG   | CONFIG  |

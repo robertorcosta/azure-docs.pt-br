@@ -8,12 +8,12 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: baf89ec75f844ae1a1f7797d26d2fb04a0d5df34
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1288f117a6b6c9fb05fd29578be35c676453177
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91849836"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975154"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>Integrar com aplicativos lógicos usando um conector personalizado
 
@@ -108,7 +108,7 @@ Na página *Editar conector personalizado dos aplicativos lógicos* a seguir, co
 * **Conectores personalizados**
     - Ponto de extremidade de API: REST (Mantenha o padrão)
     - Modo de importação: arquivo OpenAPI (Mantenha o padrão)
-    - Arquivo: esse será o arquivo Swagger personalizado que você baixou anteriormente. Clique em *importar*, localize o arquivo em seu computador (*Azure_Digital_Twins_Custom_Swaggers\LogicApps\preview\2020-05-31-preview\digitaltwins.jsem*) e clique em *abrir*.
+    - Arquivo: esse será o arquivo Swagger personalizado que você baixou anteriormente. Clique em *importar*, localize o arquivo em seu computador (*Azure_Digital_Twins_Custom_Swaggers \logicapps \...\digitaltwins.js*) e clique em *abrir*.
 * **Informações gerais**
     - Ícone: carregar um ícone que você deseja
     - Cor do plano de fundo do ícone: Insira o código hexadecimal no formato ' #xxxxxx ' para sua cor.
@@ -201,7 +201,7 @@ Talvez seja solicitado que você entre com suas credenciais do Azure para se con
 Na caixa novo *DigitalTwinsAdd* , preencha os campos da seguinte maneira:
 * _ID_: Preencha a *ID* do cópia do cópia digital em sua instância que você deseja que o aplicativo lógico atualize.
 * texto _: este_campo é onde você inserirá o corpo que a solicitação de API escolhida requer. Para *DigitalTwinsUpdate*, esse corpo está na forma de código de patch JSON. Para obter mais informações sobre como estruturar um patch JSON para atualizar seu número de atualizações, consulte a seção [atualizar uma atualização digital](how-to-manage-twin.md#update-a-digital-twin) de informações de *como: gerenciar gêmeos digitais*.
-* _versão da API_: na visualização pública atual, esse valor é *2020-05-31-Preview*
+* _versão_da API: a versão mais recente da API. Na visualização pública atual, esse valor é *2020-05-31-Preview*
 
 Clique em *salvar* no designer de aplicativos lógicos.
 

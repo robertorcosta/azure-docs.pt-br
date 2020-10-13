@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 9/04/2020
 ms.author: lagayhar
 ms.openlocfilehash: 80846ecb1ad48d9f8ba49f0025772b4e131c23e2
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91776350"
 ---
 # <a name="composite-bar-renderer"></a>Renderizador de barra de composição
@@ -69,7 +69,7 @@ A barra de composição com as configurações acima:
 
 Selecione o nome da coluna e a cor correspondente para renderizar a coluna nessa cor como parte da barra de composição. Você pode inserir, excluir e mover linhas para cima e para baixo.
 
-### <a name="label"></a>Rotular
+### <a name="label"></a>Label
 
 O rótulo da barra de composição é exibido na parte superior da barra de composição. Você pode usar uma mistura de texto estático, colunas e parâmetro.  Se o rótulo estiver vazio, o valor das colunas atuais será exibido como o rótulo. No exemplo anterior, se deixarmos o campo de rótulo preto, o valor do total de colunas será exibido.
 
@@ -97,7 +97,7 @@ Nenhum agregação significa não exibir nenhum resultado para essa coluna para 
 
 ![Captura de tela da barra de composição sem agregação None.](./media/workbooks-composite-bar/none.png)
 
-#### <a name="sum"></a>SUM
+#### <a name="sum"></a>Somar
 
 Se a agregação for definida como Sum, a coluna na linha do grupo mostrará a barra de composição usando a soma das colunas usadas para renderizá-la. O rótulo também usará a soma das colunas referenciadas.
 

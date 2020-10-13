@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: 66d62cde9ea17e73f561dfbce94eb3d3e7175b6d
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: b8e5c6b6b755134772cc8eaea3dab3af7f5346c9
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91827800"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963356"
 ---
 # <a name="use-spot-vms-in-azure"></a>Usar VMs pontuais no Azure
 
@@ -99,17 +99,17 @@ Você pode ver os preços históricos e as taxas de remoção por tamanho em uma
 
 **P:** Como a cota é gerenciada para VMs pontuais?
 
-**R:** As VMs pontuais terão um pool de cotas separado. A cota do Spot será compartilhada entre as VMs e as instâncias do conjunto de dimensionamento. Para saber mais, confira [Assinatura e limites de serviço, cotas e restrições do Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
+**R:** As VMs pontuais terão um pool de cotas separado. A cota do Spot será compartilhada entre as VMs e as instâncias do conjunto de dimensionamento. Para saber mais, confira [Assinatura e limites de serviço, cotas e restrições do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 
 **P:** Posso solicitar uma cota adicional para o Spot?
 
-**R:** Sim, você poderá enviar a solicitação para aumentar sua cota de VMs do Spot por meio do [processo de solicitação de cota padrão](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests).
+**R:** Sim, você poderá enviar a solicitação para aumentar sua cota de VMs do Spot por meio do [processo de solicitação de cota padrão](../azure-portal/supportability/per-vm-quota-requests.md).
 
 
 **P:** Onde posso postar perguntas?
 
-**R:** Você pode postar e marcar sua pergunta com `azure-spot` em [Perguntas e respostas](https://docs.microsoft.com/answers/topics/azure-spot.html). 
+**R:** Você pode postar e marcar sua pergunta com `azure-spot` em [Perguntas e respostas](/answers/topics/azure-spot.html). 
 
 ## <a name="next-steps"></a>Próximas etapas
 Use a [CLI](./linux/spot-cli.md), o [portal](spot-portal.md), o [modelo ARM](./linux/spot-template.md)ou o [PowerShell](./windows/spot-powershell.md) para implantar VMs pontuais.

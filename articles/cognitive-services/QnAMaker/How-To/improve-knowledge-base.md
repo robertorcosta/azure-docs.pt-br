@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/06/2020
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: 7d7dc8564ee35bcd8bfd92d996d07e1d0c365806
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91776486"
 ---
 # <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>Aceitar perguntas sugeridas sobre o aprendizado ativo na base de dados de conhecimento
@@ -132,10 +132,10 @@ Content-Type: application/json
 
 |Propriedade de solicitação HTTP|Nome|Tipo|Finalidade|
 |--|--|--|--|
-|Parâmetro de rota de URL|ID da base de dados de conhecimento|string|o GUID da base de dados de conhecimento.|
-|Subdomínio personalizado|Nome do recurso QnAMaker|string|O nome do recurso é usado como o subdomínio personalizado para seu QnA Maker. Isso estará disponível na página configurações depois que você publicar a base de dados de conhecimento. Ele é listado como o `host` .|
-|Cabeçalho|Tipo de conteúdo|string|o tipo de mídia do corpo enviado para a API. O valor padrão é: `application/json`|
-|Cabeçalho|Autorização|string|sua chave de ponto de extremidade (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
+|Parâmetro de rota de URL|ID da base de dados de conhecimento|cadeia de caracteres|o GUID da base de dados de conhecimento.|
+|Subdomínio personalizado|Nome do recurso QnAMaker|cadeia de caracteres|O nome do recurso é usado como o subdomínio personalizado para seu QnA Maker. Isso estará disponível na página configurações depois que você publicar a base de dados de conhecimento. Ele é listado como o `host` .|
+|Cabeçalho|Tipo de conteúdo|cadeia de caracteres|o tipo de mídia do corpo enviado para a API. O valor padrão é: `application/json`|
+|Cabeçalho|Autorização|cadeia de caracteres|sua chave de ponto de extremidade (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
 |Corpo da postagem|Objeto JSON|JSON|Os comentários de treinamento|
 
 O corpo JSON tem várias configurações:
@@ -143,8 +143,8 @@ O corpo JSON tem várias configurações:
 |Propriedade de corpo JSON|Tipo|Finalidade|
 |--|--|--|--|
 |`feedbackRecords`|matriz|Lista de comentários.|
-|`userId`|string|A ID de usuário da pessoa que está aceitando as perguntas sugeridas. O formato da ID de usuário cabe a você. Por exemplo, um endereço de email pode ser uma ID de usuário válida em sua arquitetura. Opcional.|
-|`userQuestion`|string|Texto exato da consulta do usuário. Obrigatórios.|
+|`userId`|cadeia de caracteres|A ID de usuário da pessoa que está aceitando as perguntas sugeridas. O formato da ID de usuário cabe a você. Por exemplo, um endereço de email pode ser uma ID de usuário válida em sua arquitetura. Opcional.|
+|`userQuestion`|cadeia de caracteres|Texto exato da consulta do usuário. Obrigatórios.|
 |`qnaID`|número|ID de pergunta, encontrada na [resposta de GenerateAnswer](metadata-generateanswer-usage.md#generateanswer-response-properties). |
 
 Um exemplo de corpo JSON é semelhante a:

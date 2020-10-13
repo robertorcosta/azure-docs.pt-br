@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2020
 ms.author: sukumari
 ms.reviewer: azmetadatadev
-ms.openlocfilehash: 2e0788b6a7eb6f1d43185d8b484adddd76374ea3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51310b1569982e0b71f39dede0d4d7dbefd1a3c9
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90086701"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975528"
 ---
 # <a name="azure-instance-metadata-service"></a>Serviço de Metadados de Instância do Azure
 
@@ -47,13 +47,15 @@ Veja abaixo o código de exemplo para recuperar todos os metadados de uma instâ
 **Solicitação**
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance?api-version=2020-06-01
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance?api-version=2020-06-01 | ConvertTo-Json
 ```
+> [!NOTE]
+> O `-NoProxy` sinalizador só está disponível no PowerShell 6 ou superior. Você pode omitir o sinalizador se não tiver uma configuração de proxy.
 
 **Resposta**
 
 > [!NOTE]
-> A resposta é uma cadeia de caracteres JSON. Todas as respostas de exemplo a seguir são estilos de formatação para facilitar a leitura.
+> A resposta é uma cadeia de caracteres JSON. Canalizamos nossa consulta REST por meio do `ConvertTo-Json` cmdlet para uma impressão bonita.
 
 ```json
 {
@@ -250,8 +252,8 @@ oferta | Oferece informações para a imagem da VM e está presente apenas para 
 osType | Linux ou Windows | 2017-04-02
 placementGroupId | [Grupo de Posicionamento](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) do conjunto de dimensionamento da sua Máquina Virtual | 2017-08-01
 plan | O [Plano](/rest/api/compute/virtualmachines/createorupdate#plan) que contém o nome, produto e editor de uma VM, se for uma imagem do Azure Marketplace | 2018-04-02
-platformUpdateDomain |  [Domínio de atualização](manage-availability.md) no qual a máquina virtual está sendo executada | 2017-04-02
-platformFaultDomain | [Domínio de falha](manage-availability.md) no qual a máquina virtual está sendo executada | 2017-04-02
+platformUpdateDomain |  [Domínio de atualização](../manage-availability.md) no qual a máquina virtual está sendo executada | 2017-04-02
+platformFaultDomain | [Domínio de falha](../manage-availability.md) no qual a máquina virtual está sendo executada | 2017-04-02
 provider | Provedor da VM | 01-10-2018
 publicKeys | [Coleção de Chaves Públicas](/rest/api/compute/virtualmachines/createorupdate#sshpublickey) atribuídas à VM e aos caminhos | 2018-04-02
 publicador | Publicador da imagem da máquina virtual | 2017-04-02
