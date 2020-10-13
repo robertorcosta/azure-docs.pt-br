@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: jushiman
 ms.openlocfilehash: eff3ff3d8fa2ab3025ca8b8d4f974d6944c88433
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91649636"
 ---
 # <a name="dv3-and-dsv3-series"></a>Séries Dv3 e DSv3
@@ -26,7 +26,7 @@ Os tamanhos da série Dv3 são executados no Intel® Xeon® Platinum 8272CL (Cas
 
 O armazenamento do disco de dados é faturado separadamente das máquinas virtuais. Para usar discos de armazenamento premium, use os tamanhos Dsv3. Os medidores de cobrança e preço para os tamanhos Dsv3 são os mesmos que os da Dv3-series.
 
-O recurso de VMs da série Dv3 Intel® tecnologia Hyper-Threading.
+O recurso de VMs da série Dv3 Intel® Hyper-Threading tecnologia.
 
 [ACU](acu.md): 160-190<br>
 [Armazenamento Premium](premium-storage-performance.md): sem suporte<br>
@@ -50,7 +50,7 @@ O recurso de VMs da série Dv3 Intel® tecnologia Hyper-Threading.
 
 Os tamanhos da série Dsv3 são executados no Intel® Xeon® Platinum 8272CL (Cascade, Lake), Intel® Xeon® 8171M 2.1 GHz (Skylake), Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) ou os processadores Intel® Xeon® E5-2673 v3 2,4 GHz (Haswell) com a tecnologia Intel Turbo Boost 2,0 e usam o armazenamento Premium. Os tamanhos da série Dsv3 oferecem uma combinação de vCPU, memória e armazenamento temporário para a maioria das cargas de trabalho de produção.
 
-O recurso de VMs da série Dsv3 Intel® tecnologia Hyper-Threading.
+O recurso de VMs da série Dsv3 Intel® Hyper-Threading tecnologia.
 
 [ACU](acu.md): 160-190<br>
 [Armazenamento Premium](premium-storage-performance.md): com suporte<br>
