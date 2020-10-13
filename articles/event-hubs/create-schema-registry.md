@@ -5,18 +5,18 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.custom: references_regions
 ms.openlocfilehash: 90556e0843cda94dc79330321d027f8d28eb7d20
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91652186"
 ---
 # <a name="create-an-azure-event-hubs-schema-registry-preview"></a>Criar um registro de esquema de hubs de eventos do Azure (versão prévia)
 Este artigo mostra como criar um grupo de esquema com esquemas em um registro de esquema hospedado pelos hubs de eventos do Azure. Para obter uma visão geral do recurso de registro de esquema dos hubs de eventos do Azure, consulte [registro de esquema do Azure em hubs de eventos](schema-registry-overview.md).
 
 > [!NOTE]
-> - O recurso de **registro de esquema** está atualmente em **Visualização**e não é recomendado para cargas de trabalho de produção.
-> - O recurso está disponível somente em camadas **padrão** e **dedicadas** , e não na camada **básica** .
+> - O recurso de **Registro de Esquema** está em **versão prévia** no momento e não é recomendado para cargas de trabalho de produção.
+> - O recurso está disponível somente nas camadas de serviço **Standard** e **Dedicado**, e não na **Básica**.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 [Crie um namespace de hubs de eventos](event-hubs-create.md#create-an-event-hubs-namespace). Você também pode usar um namespace existente. 

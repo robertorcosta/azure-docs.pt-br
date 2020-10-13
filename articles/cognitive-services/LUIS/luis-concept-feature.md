@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: 08ab71375171d4bb4167c725bc7118bec2e1ebfa
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91371976"
 ---
 # <a name="machine-learning-features"></a>Recursos de aprendizado de máquina
@@ -226,7 +226,7 @@ Depois de criar a entidade de aprendizado de máquina, você precisará adiciona
 
 Para o exemplo de reserva de tíquetes, Rotule o exemplo declarações na intenção com a `TicketBooking` entidade e todas as subentidades no texto.
 
-:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity.png" alt-text="Rotular enunciados de exemplo":::
+:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity.png" alt-text="Esquema de entidade Ticketbooking":::
 
 ### <a name="example-pizza-ordering-app"></a>Exemplo: aplicativo de pedido de pizza
 
@@ -234,13 +234,13 @@ Para um segundo exemplo, considere um aplicativo para um restaurante de pizza, q
 
 A entidade de aprendizado de máquina neste exemplo é mais complexa com subentidades aninhadas, listas de frases, entidades predefinidas e entidades personalizadas.
 
-:::image type="content" source="media/luis-concept-features/pizza-order-entity.png" alt-text="Esquema de entidade de ordem de pizza":::
+:::image type="content" source="media/luis-concept-features/pizza-order-entity.png" alt-text="Esquema de entidade Ticketbooking":::
 
 Este exemplo usa recursos no nível de subentidade e o filho do nível de subentidade. O nível que obtém o tipo de lista de frases ou modelo como um recurso é uma parte importante do design de sua entidade.
 
 Embora as subentidades possam ter muitas listas de frases como recursos que ajudam a detectar a entidade, cada uma delas tem apenas um modelo como um recurso. Neste [aplicativo de pizza](https://github.com/Azure/pizza_luis_bot/blob/master/CognitiveModels/MicrosoftPizza.json), esses modelos são listados principalmente.
 
-:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity-pizza.png" alt-text="Intenção de ordem de pizza com o exemplo rotulado declarações":::
+:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity-pizza.png" alt-text="Esquema de entidade Ticketbooking":::
 
 O exemplo rotulado corretamente declarações é exibido de forma a mostrar como as entidades são aninhadas. 
 

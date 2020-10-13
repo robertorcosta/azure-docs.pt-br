@@ -18,10 +18,10 @@ ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-python
 ms.openlocfilehash: 3b6a38087aee7f33861f980cb6d245024f8d51ee
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87852320"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Como usar Hubs de notificação do Python
@@ -448,7 +448,7 @@ hub.send_template_notification(template_payload)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Este artigo mostra como criar um cliente REST do Python para os Hubs de Notificação. A partir daqui, você pode:
+Este artigo mostra como criar um cliente REST do Python para os Hubs de Notificação. Nela você pode:
 
 - Baixe o [amostra de wrapper REST Python]completo, que contém todo o código neste artigo.
 - Continue aprendendo sobre o recurso de marcação de hubs de notificação no [tutorial de últimas notícias]

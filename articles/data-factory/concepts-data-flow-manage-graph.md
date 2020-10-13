@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/02/2020
 ms.openlocfilehash: 0cdad47123d69ca7cee468c5bb0cea3268d73bfe
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89420057"
 ---
 # <a name="managing-the-mapping-data-flow-graph"></a>Gerenciando o grafo de fluxo de dados de mapeamento
@@ -47,11 +47,11 @@ Quando o grafo está oculto, você pode mover entre transformações em um fluxo
 
 Para localizar rapidamente uma transformação em seu grafo, clique no ícone de **pesquisa** acima da configuração de zoom.
 
-![Pesquisa](media/data-flow/search-1.png "Grafo de pesquisa")
+![Pesquisar](media/data-flow/search-1.png "Grafo de pesquisa")
 
 Você pode pesquisar por nome de transformação ou descrição para localizar uma transformação.
 
-![Pesquisa](media/data-flow/search-2.png "Grafo de pesquisa")
+![Pesquisar](media/data-flow/search-2.png "Grafo de pesquisa")
 
 ## <a name="hide-reference-nodes"></a>Ocultar nós de referência
 

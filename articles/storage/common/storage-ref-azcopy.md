@@ -4,16 +4,16 @@ description: Este artigo fornece informações de referência para o comando azc
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 10/16/2019
+ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 5da3a2e5d003a191bff66af6599cae4d34ab60c6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 18972e991f08db7fa9548454a5c5cdc3ff0f552f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74038083"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "87285179"
 ---
 # <a name="azcopy"></a>azcopy
 
@@ -34,13 +34,15 @@ Para relatar problemas ou para saber mais sobre a ferramenta, consulte [https://
 
 ## <a name="options"></a>Opções
 
-**--Cap-Mbps UInt32**   Limita a taxa de transferência, em megabits por segundo. A taxa de transferência por minuto pode variar um pouco a partir do limite. Se essa opção for definida como zero ou for omitida, a taxa de transferência não será limitada.
+**--Cap-Mbps** (float) limita a taxa de transferência, em megabits por segundo. A taxa de transferência por minuto pode variar um pouco a partir do limite. Se essa opção for definida como zero ou for omitida, a taxa de transferência não será limitada.
 
-**-h,--ajuda** Ajuda para azcopy
+**--ajuda** Ajuda para azcopy
       
-**--tipo de saída**  Formato da saída do comando. As opções incluem: Text, JSON. O valor padrão é ' Text '. (padrão "texto")
+**--**  formato de tipo de saída (cadeia de caracteres) da saída do comando. As opções incluem: Text, JSON. O valor padrão é `text`. (padrão `text` )
 
-## <a name="see-also"></a>Consulte também
+**--Trusted-Microsoft-suffixs** (cadeia de caracteres) especifica sufixos de domínio adicionais onde Azure Active Directory tokens de logon podem ser enviados.  O padrão é '*. Core.Windows.net;*. core.chinacloudapi.cn; *. Core.cloudapi.de;*. core.usgovcloudapi.net '. Todos listados aqui são adicionados ao padrão. Por segurança, você só deve colocar Microsoft Azure domínios aqui. Separe várias entradas com ponto e vírgula.
+
+## <a name="see-also"></a>Confira também
 
 - [Introdução ao AzCopy](storage-use-azcopy-v10.md)
 - [azcopy bench](storage-ref-azcopy-bench.md)

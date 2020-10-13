@@ -5,13 +5,13 @@ ms.topic: how-to
 ms.date: 02/28/2020
 ms.custom: devx-track-python
 ms.openlocfilehash: 7674c2151922d26e069b5cd285cb311d7a18fa98
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87852796"
 ---
-# <a name="manage-and-configure-projects-in-azure-notebooks-preview"></a><a id="manage-and-configure-projects" />Gerenciar e configurar projetos no Azure Notebooks Preview
+# <a name="manage-and-configure-projects-in-azure-notebooks-preview"></a><a id="manage-and-configure-projects" /> Gerenciar e configurar projetos no Azure Notebooks Preview
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
@@ -38,7 +38,7 @@ Por padrão, os projetos são executados na camada de **computação gratuita** 
 
 No painel do projeto, selecione **Configurações do Projeto** e, em seguida, selecione a guia **Informações**, que contém os metadados do projeto, conforme descrito na tabela a seguir. Você pode alterar os metadados do projeto a qualquer momento.
 
-| Setting | Descrição |
+| Configuração | Descrição |
 | --- | --- |
 | Nome do projeto | Um nome amigável para seu projeto que usa o Azure Notebooks para fins de exibição. Por exemplo, "Olá, Mundo no Python". |
 | Project ID | Um identificador personalizado que se torna parte da URL que você usa para compartilhar um projeto. Essa ID pode usar apenas letras, números e hifens, é limitada a 30 caracteres e não pode ser uma [ID de projeto reservada](create-clone-jupyter-notebooks.md#reserved-project-ids). Se você não tiver certeza sobre o que usar, uma convenção comum é usar uma versão em letras minúsculas do nome do seu projeto, na qual espaços são transformados em hifens, por exemplo “projeto-meu-notebook” (truncado se necessário para encaixar o limite de comprimento). |
@@ -74,27 +74,27 @@ Cada item na lista de arquivos do projeto fornece comandos por meio de um menu d
 
 ![Comandos em um menu de contexto do arquivo](media/project-file-commands.png)
 
-| Comando | Atalho de teclado | Ação |
+| Comando | Atalho do teclado | Ação |
 | --- | --- | --- |
 | Executar | r (ou clique) | Executa um arquivo do notebook. Outros tipos de arquivos são abertos para visualização.  |
-| Copiar Link | a | Copia um link para o arquivo na área de transferência. |
+| Copiar Link | s | Copia um link para o arquivo na área de transferência. |
 | Executar no Laboratório do Jupyter | j | Executa um notebook no JupyterLab, que é uma interface mais voltada para desenvolvedores do que aquela normalmente oferecida pelo Jupyter. |
-| Visualização | p | Abre uma visualização do arquivo em HTML. Para notebooks, a visualização é uma renderização somente leitura do notebook. Para obter mais informações, confira a seção [Visualização](#preview). |
+| Versão Prévia | p | Abre uma visualização do arquivo em HTML. Para notebooks, a visualização é uma renderização somente leitura do notebook. Para obter mais informações, confira a seção [Visualização](#preview). |
 | Editar arquivo | i | Abre o arquivo para edição. |
 | Baixar | d | Baixa um arquivo zip que contém o arquivo ou o conteúdo de uma pasta. |
 | Renomear | um | Solicita um novo nome para o arquivo ou pasta. |
 | Excluir | x | Solicita confirmação e, em seguida, remove permanentemente o arquivo do projeto. Exclusões não podem ser desfeitas. |
 | Mover | m | Move um arquivo para uma pasta diferente no mesmo projeto. |
 
-#### <a name="preview"></a>Visualização
+#### <a name="preview"></a>Versão Prévia
 
 Uma visualização de um arquivo ou notebook é uma exibição somente leitura do conteúdo; a execução de células do notebook é desabilitada. Uma visualização é mostrada para qualquer pessoa que tenha um link para um arquivo ou notebook, mas não tenha se conectado ao Azure Notebooks. Uma vez conectado, um usuário pode clonar o notebook para sua própria conta ou pode baixar o notebook para o seu computador local.
 
 A página de visualização dá suporte a vários comandos da barra de ferramentas com atalhos do teclado:
 
-| Comando | Atalho de teclado | Ação |
+| Comando | Atalho do teclado | Ação |
 | --- | --- | --- |
-| Compartilhar | s | Exibe o pop-up de compartilhamento do qual você pode obter um link, compartilhar em mídias sociais, obter o HTML para inserção e enviar um email. |
+| Compartilhamento | s | Exibe o pop-up de compartilhamento do qual você pode obter um link, compartilhar em mídias sociais, obter o HTML para inserção e enviar um email. |
 | Clone | c  | Clonar o notebook para sua conta. |
 | Executar | r | Executa o notebook se você tem permissão para fazer isso. |
 | Baixar | d | Baixa uma cópia do notebook. |
@@ -190,4 +190,4 @@ Você também pode usar o comando de uma célula de código em um notebook do Py
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Como trabalhar com arquivos de dados do projeto](work-with-project-data-files.md)
-- [Acessar dados de nuvem em um notebook](access-data-resources-jupyter-notebooks.md)
+- [Acessar dados de nuvem em um bloco de anotações](access-data-resources-jupyter-notebooks.md)

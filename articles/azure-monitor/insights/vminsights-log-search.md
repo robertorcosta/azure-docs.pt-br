@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
 ms.openlocfilehash: 64884f07bc59e5ff2b29eac645ddb469ef3db465
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87325178"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms"></a>Como consultar logs do Azure Monitor para VMs
@@ -49,7 +49,7 @@ Para gerenciar o custo e a complexidade, os registros de conexão não represent
 
 | Propriedade | Descrição |
 |:--|:--|
-|Direção |Direção da conexão, o valor é *entrada* ou *saída* |
+|Direction |Direção da conexão, o valor é *entrada* ou *saída* |
 |Computador |O FQDN do computador |
 |Processo |Identidade do processo ou grupos de processos, iniciando/aceitando a conexão |
 |SourceIp |Endereço IP da origem |
@@ -115,7 +115,7 @@ Todas as propriedades RemoteIp na tabela *VMConnection* são verificadas em um c
 |Descrição |Descrição da ameaça observada. |
 |TLPLevel |O TLP (Traffic Light Protocol) é um dos valores definidos, *Branco*, *Verde*, *Âmbar*, *Vermelho*. |
 |Confiança |Os valores são *0 – 100*. |
-|Severidade |Os valores são *0 – 5*, onde *5* é o mais grave e *0* não é grave. O valor padrão é *3*.  |
+|Severity |Os valores são *0 – 5*, onde *5* é o mais grave e *0* não é grave. O valor padrão é *3*.  |
 |FirstReportedDateTime |A primeira vez que o provedor relatou o indicador. |
 |LastReportedDateTime |A última vez que o indicador foi visto pelo Interflow. |
 |IsActive |Indica que os indicadores estão desativados com o valor *Verdadeiro* ou *Falso*. |
@@ -230,7 +230,7 @@ Os registros com um tipo de *VMProcess* têm dados de inventário para processos
 |Executávelname | O nome do processo executável | 
 |DisplayName | Nome de exibição do processo |
 |Função | Função de processo: *WebServer*, *appServer*, *databaseServer*, *ldapServer*, *smbServer* |
-|Agrupar | Nome do grupo de processos. Os processos no mesmo grupo estão logicamente relacionados, por exemplo, parte do mesmo produto ou componente do sistema. |
+|Grupo | Nome do grupo de processos. Os processos no mesmo grupo estão logicamente relacionados, por exemplo, parte do mesmo produto ou componente do sistema. |
 |StartTime | O tempo de início do pool de processos |
 |FirstPid | O primeiro PID no pool de processos |
 |Descrição | A descrição do processo |
@@ -444,14 +444,14 @@ Os registros com um tipo de *InsightsMetrics* têm dados de desempenho do sistem
 |Namespace | Categoria do contador de desempenho | 
 |Nome | Nome do contador de desempenho |
 |Val | Valor coletado | 
-|Marcas | Detalhes relacionados sobre o registro. Consulte a tabela abaixo para ver as marcas usadas com diferentes tipos de registro.  |
+|Marcações | Detalhes relacionados sobre o registro. Consulte a tabela abaixo para ver as marcas usadas com diferentes tipos de registro.  |
 |AgentId | Identificador exclusivo para o agente de cada computador |
 |Type | *InsightsMetrics* |
-|_Identificação_ | ID de recurso da máquina virtual |
+|_ResourceId_ | ID de recurso da máquina virtual |
 
 Os contadores de desempenho atualmente coletados na tabela *InsightsMetrics* são listados na tabela a seguir:
 
-| Namespace | Nome | Descrição | Unidade | Marcas |
+| Namespace | Nome | Descrição | Unit | Marcações |
 |:---|:---|:---|:---|:---|
 | Computador    | Pulsação             | Pulsação do computador                        | | |
 | Memória      | AvailableMB           | Memória-bytes disponíveis                    | Megabytes      | memorySizeMB-tamanho total da memória|

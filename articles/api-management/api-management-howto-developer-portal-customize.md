@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 03/05/2020
 ms.author: apimpm
 ms.openlocfilehash: 345b4950e25f48eb1a48c5e583908d0f771771ba
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86206239"
 ---
 # <a name="access-and-customize-developer-portal"></a>Acessar e personalizar o portal do desenvolvedor
@@ -93,7 +93,7 @@ Antes de disponibilizar seu portal para os visitantes, você deve personalizar o
 > [!NOTE]
 > Devido a considerações de integração, as seguintes páginas não podem ser removidas ou movidas em uma URL diferente:,,,,,, `/404` `/500` `/captcha` `/change-password` `/config.json` `/confirm/invitation` `/confirm-v2/identities/basic/signup` , `/confirm-v2/password` , `/internal-status-0123456789abcdef` ,, `/publish` `/signin` , `/signin-sso` `/signup` .
 
-### <a name="home-page"></a>Home page
+### <a name="home-page"></a>Página inicial
 
 A **Home** Page padrão é preenchida com conteúdo fictício. Você pode remover as seções inteiras com o conteúdo ou manter a estrutura e ajustar os elementos um a um. Substitua o texto gerado e as imagens pelos seus próprios e verifique se os links apontam para os locais desejados.
 

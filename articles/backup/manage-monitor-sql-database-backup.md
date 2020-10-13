@@ -4,10 +4,10 @@ description: Este artigo descreve como gerenciar e monitorar SQL Server bancos d
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.openlocfilehash: b0df22002521c8148cac1200e79aeb0ae5a60546
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89146514"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Gerenciar e monitorar backup de bancos de dados do SQL Server
@@ -53,7 +53,7 @@ Você pode interromper o backup de um banco de dados do SQL Server de duas manei
 
 Se você optar por deixar os pontos de recuperação, tenha em mente estes detalhes:
 
-- Todos os pontos de recuperação permanecerão intactos para sempre, e toda a remoção será interrompida em parar proteção com reter dados.
+- Todos os pontos de recuperação permanecerão intactos para sempre e toda a remoção será interrompida ao parar a proteção com os dados de retenção.
 - Você será cobrado pela instância protegida e pelo armazenamento consumido. Para saber mais, confira [Preços do Backup do Azure](https://azure.microsoft.com/pricing/details/backup/).
 - Se você excluir uma fonte de dados sem interromper os backups, os novos backups falharão. Os pontos de recuperação antigos expirarão de acordo com a política, mas o ponto de recuperação mais recente sempre será mantido até que você interrompa os backups e exclua os dados.
 

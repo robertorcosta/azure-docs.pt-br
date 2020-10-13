@@ -19,10 +19,10 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 26fdf202cb9bcacee94c83578432f7a399f90a0c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91306269"
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Monitorar o AD FS usando o Azure AD Connect Health
@@ -51,7 +51,7 @@ Para selecionar métricas adicionais, especifique um intervalo de tempo ou, para
 
 |Group By | O que significa que o agrupamento e por que ele é útil? |
 | --- | --- |
-| Tudo | Mostra a contagem do número total de solicitações processadas por todos os servidores AD FS.|
+| Todos | Mostra a contagem do número total de solicitações processadas por todos os servidores AD FS.|
 | Aplicativo | Agrupa o total de solicitações com base na terceira parte confiável de destino. Esse agrupamento é útil para entender qual aplicativo está recebendo o percentual do tráfego total. |
 |  Servidor |Agrupa o total de solicitações com base no servidor que processa a solicitação. Esse agrupamento é útil para entender a distribuição de carga do tráfego total.
 | Ingresso no local |Agrupa o total de solicitações com base em se as solicitações são provenientes de dispositivos que são ingressados no local (conhecido). Esse agrupamento é útil para compreender se os recursos são acessados usando dispositivos desconhecidos para a infraestrutura de identidades. |
@@ -72,7 +72,7 @@ Para selecionar métricas adicionais, especifique um intervalo de tempo ou, para
 
 |Group By | O que significa que o agrupamento e por que ele é útil? |
 | --- | --- |
-|Tudo |Essa métrica fornece uma contagem do número médio de usuários que usam o serviço de federação na fração de tempo selecionada. Os usuários não estão agrupados. <br>A média depende da fração de tempo selecionada. |
+|Todos |Essa métrica fornece uma contagem do número médio de usuários que usam o serviço de federação na fração de tempo selecionada. Os usuários não estão agrupados. <br>A média depende da fração de tempo selecionada. |
 | Aplicativo |Agrupa o número médio de usuários com base no aplicativo de destino (terceira parte confiável). Esse agrupamento é útil para entender a quantos usuários estão usando o aplicativo. |
 
 ## <a name="performance-monitoring-for-ad-fs"></a>Monitoramento de desempenho do AD FS

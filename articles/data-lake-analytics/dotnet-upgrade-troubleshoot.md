@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.workload: big-data
 ms.date: 10/11/2019
 ms.openlocfilehash: f553da53f665676dd44ec581d082f9a39e242516
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87132374"
 ---
 # <a name="azure-data-lake-analytics-is-upgrading-to-the-net-framework-v472"></a>Azure Data Lake Analytics está atualizando para o .NET Framework v 4.7.2
@@ -45,7 +45,7 @@ Verifique o potencial de problemas de interrupção da compatibilidade com vers�
 
 Na maioria dos casos, você não deve ser afetado pela incompatibilidade com versões anteriores.
 
-## <a name="timeline"></a>Linha do Tempo
+## <a name="timeline"></a>Linha do tempo
 
 Você pode verificar a implantação do novo tempo de execução aqui, [solucionar problemas de tempo de execução](runtime-troubleshoot.md)e examinando qualquer trabalho bem-sucedido anterior.
 

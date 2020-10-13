@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/28/2019
 ms.openlocfilehash: 08354e212b8ca3cae642b599f25ed318e79f581c
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86082243"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Desenvolvimento de ação de script com o HDInsight
@@ -73,7 +73,7 @@ elif [[ $OS_VERSION == 16* ]]; then
 fi
 ```
 
-### <a name="target-the-operating-system-version"></a><a name="bps10"></a>Direcionar a versão do sistema operacional
+### <a name="target-the-operating-system-version"></a><a name="bps10"></a> Direcionar a versão do sistema operacional
 
 O HDInsight é baseado na distribuição de Ubuntu Linux. Versões diferentes do HDInsight contam com versões diferentes do Ubuntu, o que pode afetar o comportamento do seu script. Por exemplo, HDInsight 3.4 e versões mais recentes são baseados em versões do Ubuntu que usam o Upstart. As versões 3.5 e posteriores se baseiam no Ubuntu 16.04, que usa Systemd. O Systemd e Upstart contam com comandos diferentes, portanto seu script deve ser escrito para funcionar com ambos.
 
@@ -177,7 +177,7 @@ Isso redireciona as informações gravadas em STDOUT para STDERR (2) em vez diss
 
 Para obter mais informações sobre como exibir informações registradas em log por ações de script, consulte [solucionar problemas de ações de script](./troubleshoot-script-action.md).
 
-### <a name="save-files-as-ascii-with-lf-line-endings"></a><a name="bps8"></a>Salvar arquivos como ASCII com terminações de linha de LF
+### <a name="save-files-as-ascii-with-lf-line-endings"></a><a name="bps8"></a> Salvar arquivos como ASCII com terminações de linha de LF
 
 Scripts de Bash devem ser armazenados com formato ASCII, com linhas terminadas em LF. Os arquivos que são armazenados como UTF-8 ou usam CRLF como o terminação de linha podem falhar com o seguinte erro:
 
@@ -186,7 +186,7 @@ $'\r': command not found
 line 1: #!/usr/bin/env: No such file or directory
 ```
 
-### <a name="use-retry-logic-to-recover-from-transient-errors"></a><a name="bps9"></a>Use a lógica de repetição para se recuperar de erros transitórios
+### <a name="use-retry-logic-to-recover-from-transient-errors"></a><a name="bps9"></a> Use a lógica de repetição para se recuperar de erros transitórios
 
 Ao baixar arquivos, instalar pacotes usando apt-get ou outras ações que transmitem dados pela Internet, a ação pode falhar devido a erros transitórios de rede. Por exemplo, o recurso remoto com o qual você está se comunicando pode estar no processo de failover para um nó de backup.
 

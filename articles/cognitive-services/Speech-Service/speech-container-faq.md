@@ -12,10 +12,10 @@ ms.date: 07/24/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
 ms.openlocfilehash: b13a6944290f58f5ede239dee60610d67fff8b1c
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88918461"
 ---
 # <a name="speech-service-containers-frequently-asked-questions-faq"></a>Perguntas frequentes sobre os contêineres do serviço de fala
@@ -290,7 +290,7 @@ O carbono corrigiu isso na versão 1,8.
 
 Você pode ajudar a preencher as seguintes métricas de teste, incluindo quais funções testar e como testar o SDK e as APIs REST? Especialmente, as diferenças em "interativo" e "conversa", que não vi do documento/exemplo existente.
 
-| Ponto de Extremidade                                                | Teste funcional                                                   | SDK | API REST |
+| Ponto de extremidade                                                | Teste funcional                                                   | . | API REST |
 |---------------------------------------------------------|-------------------------------------------------------------------|-----|----------|
 | `/speech/synthesize/cognitiveservices/v1`               | Sintetizar texto (conversão de texto em fala)                                  |     | Sim      |
 | `/speech/recognition/dictation/cognitiveservices/v1`    | Serviços cognitivas ponto de extremidade do WebSocket v1 do ditado        | Sim | Não       |
@@ -397,25 +397,25 @@ Quantas solicitações simultâneas serão um identificador de 4 núcleos e 4 GB
 
 # <a name="speech-to-text"></a>[Conversão de fala em texto](#tab/stt)
 
-| Contêiner      | Mínimo             | Recomendado         |
+| Contêiner      | Mínimo             | Recomendadas         |
 |----------------|---------------------|---------------------|
 | Conversão de fala em texto | 2 núcleos, 2 GB de memória | 4 núcleos, 4 GB de memória |
 
 # <a name="custom-speech-to-text"></a>[Fala Personalizada para texto](#tab/cstt)
 
-| Contêiner             | Mínimo             | Recomendado         |
+| Contêiner             | Mínimo             | Recomendadas         |
 |-----------------------|---------------------|---------------------|
 | Fala Personalizada para texto | 2 núcleos, 2 GB de memória | 4 núcleos, 4 GB de memória |
 
 # <a name="text-to-speech"></a>[Conversão de texto em fala](#tab/tts)
 
-| Contêiner      | Mínimo             | Recomendado         |
+| Contêiner      | Mínimo             | Recomendadas         |
 |----------------|---------------------|---------------------|
 | Conversão de texto em fala | 1 núcleo, 2 GB de memória | 2 núcleos, 3 GB de memória |
 
 # <a name="custom-text-to-speech"></a>[Conversão de texto em fala personalizada](#tab/ctts)
 
-| Contêiner             | Mínimo             | Recomendado         |
+| Contêiner             | Mínimo             | Recomendadas         |
 |-----------------------|---------------------|---------------------|
 | Conversão de texto em fala personalizada | 1 núcleo, 2 GB de memória | 2 núcleos, 3 GB de memória |
 
@@ -561,7 +561,7 @@ Eles são para finalidades diferentes e são usados de forma diferente.
 Em C# para habilitar o ditado, invoque a `SpeechConfig.EnableDictation()` função.
 
 ### <a name="fromendpoint-apis"></a>`FromEndpoint` API
-| Idioma | Detalhes da API |
+| Linguagem | Detalhes da API |
 |----------|:------------|
 | C++ | <a href="https://docs.microsoft.com/en-us/cpp/cognitive-services/speech/speechconfig#fromendpoint" target="_blank">`SpeechConfig::FromEndpoint` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
 | C# | <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.fromendpoint?view=azure-dotnet" target="_blank">`SpeechConfig.FromEndpoint` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
@@ -582,7 +582,7 @@ Em C# para habilitar o ditado, invoque a `SpeechConfig.EnableDictation()` funç�
 
 ### <a name="fromhost-apis"></a>`FromHost` API
 
-| Idioma | Detalhes da API |
+| Linguagem | Detalhes da API |
 |--|:-|
 | C# | <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.fromhost?view=azure-dotnet" target="_blank">`SpeechConfig.FromHost` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
 | C++ | <a href="https://docs.microsoft.com/en-us/cpp/cognitive-services/speech/speechconfig#fromhost" target="_blank">`SpeechConfig::FromHost` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |

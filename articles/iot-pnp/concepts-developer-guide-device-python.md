@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: 4062716a0f2746ef37fa37a0b071871d4b18b0a7
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91579628"
 ---
 # <a name="iot-plug-and-play-device-developer-guide-python"></a>Guia do desenvolvedor do dispositivo IoT Plug and Play (Python)
@@ -36,7 +36,7 @@ device_client = IoTHubDeviceClient.create_from_symmetric_key(
 > [!TIP]
 > Para módulos e IoT Edge, use `IoTHubModuleClient` no lugar de `IoTHubDeviceClient` .
 
-## <a name="dps-payload"></a>Carga de DPS
+## <a name="dps-payload"></a>Payload de DPS
 
 Os dispositivos que usam o [DPS (serviço de provisionamento de dispositivos)](../iot-dps/about-iot-dps.md) podem incluir o `modelId` a ser usado durante o processo de provisionamento usando a carga JSON a seguir.
 

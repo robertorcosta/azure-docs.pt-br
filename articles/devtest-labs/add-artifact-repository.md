@@ -4,10 +4,10 @@ description: Saiba como especificar seu próprio repositório de artefatos para 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 7553f6b1afa416a5428577a8313bdadb669e32c2
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88270947"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>Adicionar um repositório de artefatos ao seu laboratório no DevTest Labs
@@ -180,7 +180,7 @@ New-AzResourceGroupDeployment `
     -TemplateParameterFile azuredeploy.parameters.json
 ```
 
-Depois que New-AzResourceGroupDeployment for executado com êxito, o comando produzirá informações importantes como o estado de provisionamento (deve ser bem-sucedido) e quaisquer saídas para o modelo.
+Depois que New-AzResourceGroupDeployment executado com êxito, o comando gera informações importantes como o estado de provisionamento (deve ser bem-sucedido) e todas as saídas para o modelo.
 
 ## <a name="use-azure-powershell"></a>Usar PowerShell do Azure
 Esta seção fornece um exemplo de script do PowerShell que pode ser usado para adicionar um repositório de artefatos a um laboratório. Se você não tiver Azure PowerShell, consulte [como instalar e configurar o Azure PowerShell](/powershell/azure/?view=azps-1.2.0) para obter instruções detalhadas para instalá-lo.
@@ -338,7 +338,7 @@ Set-AzContext -SubscriptionId <Your Azure subscription ID>
 ### <a name="parameters"></a>Parâmetros
 O script do PowerShell de exemplo neste artigo usa os seguintes parâmetros:
 
-| Parâmetro | Descrição |
+| Parâmetro | DESCRIÇÃO |
 | --------- | ----------- |
 | LabName | O nome do laboratório. |
 | ArtifactRepositoryName | Nome do novo repositório de artefatos. O script criará um nome aleatório para o repositório se ele não for especificado. |

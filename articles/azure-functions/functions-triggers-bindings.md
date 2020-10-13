@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 02/18/2019
 ms.author: cshoe
 ms.openlocfilehash: e00fd3d1dac0a18ac7f7377e08ae8d20ae132c56
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91652596"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Conceitos de gatilhos e de associações do Azure Functions
@@ -29,7 +29,7 @@ Considere os exemplos a seguir de como você pode implementar funções diferent
 | Cenário de exemplo | Gatilho | Associação de entrada | Associação de saída |
 |-------------|---------|---------------|----------------|
 | Uma nova mensagem de fila chega, que executa uma função para gravar em outra fila. | Espera<sup>*</sup> | *Nenhuma* | Espera<sup>*</sup> |
-|Um trabalho agendado lê o conteúdo do armazenamento de BLOBs e cria um novo documento Cosmos DB. | Temporizador | Armazenamento de Blobs | Cosmos DB |
+|Um trabalho agendado lê o conteúdo do armazenamento de BLOBs e cria um novo documento Cosmos DB. | Timer | Armazenamento de Blobs | Cosmos DB |
 |A grade de eventos é usada para ler uma imagem do armazenamento de BLOBs e um documento do Cosmos DB para enviar um email. | Grade de Eventos | Armazenamento de BLOBs e Cosmos DB | SendGrid |
 | Um webhook que usa Microsoft Graph para atualizar uma planilha do Excel. | HTTP | *Nenhuma* | Microsoft Graph |
 

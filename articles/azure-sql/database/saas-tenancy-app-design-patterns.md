@@ -11,10 +11,10 @@ ms.reviewer: ''
 ms.date: 01/25/2019
 ms.custom: seoapril2019, sqldbrb=1
 ms.openlocfilehash: 493c18efa8bad2e366424c8c8130754ce0098913
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85250683"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Padrões de locatário de banco de dados de SaaS multilocatários
@@ -186,7 +186,7 @@ A tabela a seguir resume as diferenças entre o Functions e o WebJobs.
 | Medida | Aplicativo independente | Banco de dados por locatário | Multilocatário fragmentado |
 | :---------- | :------------- | :------------------ | :------------------- |
 | Escala | Médio<br />1-100s | Muito alta<br />1-100.000s | Ilimitado<br />1-1.000.000s |
-| Isolamento de locatário | Muito alta | Alta | Baixo, exceto para qualquer locatário único (ou seja, sozinho em um banco de dados de MT). |
+| Isolamento de locatário | Muito alta | Alto | Baixo, exceto para qualquer locatário único (ou seja, sozinho em um banco de dados de MT). |
 | Banco de dados por locatário | Alta; é dimensionado para picos. | Baixo; pools usados. | Mais baixo, para locatários pequenos em MT bancos de dados. |
 | Monitoramento e gerenciamento de desempenho | Por locatário somente | Agregação + por locatário | Agregação, embora seja por locatário somente para únicos. |
 | Complexidade de desenvolvimento | Baixo | Baixo | Médio; devido à fragmentação. |

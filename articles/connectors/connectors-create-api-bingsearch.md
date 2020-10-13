@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/21/2018
 tags: connectors
-ms.openlocfilehash: e547ae59f7b3260f46756825bca2bef1c10bcc97
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 52bf42434640dc965999895549b4fa12a139dcce
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75665880"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "87284057"
 ---
 # <a name="find-results-in-bing-search-by-using-azure-logic-apps"></a>Localizar resultados em Pesquisa do Bing usando os aplicativos lógicos do Azure
 
@@ -21,7 +21,7 @@ Este artigo mostra como é possível encontrar notícias, vídeos e outros itens
 Por exemplo, é possível encontrar itens de notícias com base em critérios de pesquisa e fazer com que o Twitter publique esses itens como tweets no feed do Twitter.
 
 Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/). Se ainda não estiver familiarizado com aplicativo lógicos, consulte [O que são os Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md) e [Início Rápido: criar seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
-Para obter informações técnicas específicas do conector, consulte a [referência do conector da Pesquisa do Bing](https://docs.microsoft.com/connectors/bingsearch/).
+Para obter informações técnicas específicas do conector, consulte a [referência do conector da Pesquisa do Bing](/connectors/bingsearch/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -168,3 +168,4 @@ Para obter detalhes técnicos, como gatilhos, ações e limites, conforme descri
 ## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre outros [conectores de Aplicativos Lógicos](../connectors/apis-list.md)
+

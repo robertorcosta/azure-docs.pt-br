@@ -4,10 +4,10 @@ description: Saiba como o gerenciamento de API protege as APIs em execução nas
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: 346d0f795c3d19b115ced771991263cce2104217
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91262970"
 ---
 # <a name="api-management-to-publish-and-protect-apis-running-on-azure-vmware-solution-based-vms"></a>Gerenciamento de API para publicar e proteger APIs em execução em VMs baseadas em soluções VMware do Azure
@@ -56,4 +56,4 @@ Em uma implantação interna, as APIs são expostas para a mesma instância de g
 * O tráfego externo entra no Azure por meio do gateway de aplicativo, que usa a camada de proteção externa para o gerenciamento de API.
 
 
-:::image type="content" source="media/api-management/internal-deployment.png" alt-text="Implantação interna – gerenciamento de API para a solução do Azure VMware":::
+:::image type="content" source="media/api-management/internal-deployment.png" alt-text="Implantação externa – gerenciamento de API para a solução do Azure VMware":::

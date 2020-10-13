@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: duau
 ms.openlocfilehash: 25c0b18da1690557f11e36dd11dda693ddddb838
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89401309"
 ---
 # <a name="enable-resource-logging-in-azure-traffic-manager"></a>Habilitar o log de recursos no Gerenciador de tráfego do Azure
@@ -70,8 +70,8 @@ A tabela a seguir inclui o esquema de logs específico para o recurso de perfil 
 
 |Nome do campo|Tipo de campo|Definição|Exemplo|
 |----|----|---|---|
-|EndpointName|String|O nome do ponto de extremidade do Gerenciador de Tráfego cujo status de integridade está sendo registrado.|*myPrimaryEndpoint*|
-|Status|String|O status de integridade do ponto de extremidade do Gerenciador de Tráfego que foi investigado. O status pode ser **Operante** ou **Inoperante**.|**Operante**|
+|EndpointName|Cadeia de caracteres|O nome do ponto de extremidade do Gerenciador de Tráfego cujo status de integridade está sendo registrado.|*myPrimaryEndpoint*|
+|Status|Cadeia de caracteres|O status de integridade do ponto de extremidade do Gerenciador de Tráfego que foi investigado. O status pode ser **Operante** ou **Inoperante**.|**Operante**|
 |||||
 
 ## <a name="next-steps"></a>Próximas etapas

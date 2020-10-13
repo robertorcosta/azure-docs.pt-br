@@ -14,22 +14,22 @@ ms.topic: article
 ms.date: 07/14/2020
 ms.author: apimpm
 ms.openlocfilehash: 99784e43130b70554c05ff79a10993f2b6eebbde
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86499606"
 ---
 # <a name="api-management-cross-domain-policies"></a>Políticas entre domínios de Gerenciamento de API
 Este tópico fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](https://go.microsoft.com/fwlink/?LinkID=398186).
 
-## <a name="cross-domain-policies"></a><a name="CrossDomainPolicies"></a>Políticas entre domínios
+## <a name="cross-domain-policies"></a><a name="CrossDomainPolicies"></a> Políticas entre domínios
 
 - [Permitir chamadas entre domínios](api-management-cross-domain-policies.md#AllowCrossDomainCalls) - Torna a API acessível por meio de clientes Adobe Flash e Microsoft Silverlight baseados em navegadores.
 - [CORS](api-management-cross-domain-policies.md#CORS) - Adicionar suporte de compartilhamento de recursos entre origens (CORS) a uma operação ou a uma API para permitir chamadas entre domínios de clientes baseados em navegadores.
 - [JSONP](api-management-cross-domain-policies.md#JSONP) - Adiciona suporte JSON com preenchimento (JSONP) a uma operação ou a uma API para permitir chamadas entre domínios de clientes JavaScript baseados em navegadores.
 
-## <a name="allow-cross-domain-calls"></a><a name="AllowCrossDomainCalls"></a>Permitir chamadas entre domínios
+## <a name="allow-cross-domain-calls"></a><a name="AllowCrossDomainCalls"></a> Permitir chamadas entre domínios
 Use a política `cross-domain` para tornar a API acessível por clientes baseados em navegadores do Adobe Flash e do Microsoft Silverlight.
 
 ### <a name="policy-statement"></a>Declaração de política
@@ -53,7 +53,7 @@ Use a política `cross-domain` para tornar a API acessível por clientes baseado
 
 ### <a name="elements"></a>Elementos
 
-|Nome|Descrição|Necessária|
+|Nome|Descrição|Obrigatório|
 |----------|-----------------|--------------|
 |cross-domain|Elemento raiz. Elementos filho devem estar de acordo com a [Especificação de arquivo de política entre domínios do Adobe](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html).|Sim|
 
@@ -63,7 +63,7 @@ Essa política pode ser usada nas [seções](./api-management-howto-policies.md#
 - **Seções de política:** de entrada
 - **Escopos da política:** todos os escopos
 
-## <a name="cors"></a><a name="CORS"></a>CORS
+## <a name="cors"></a><a name="CORS"></a> CORS
 A política `cors` adiciona suporte do CORS (compartilhamento de recurso entre origens) a uma operação ou API para permitir chamadas entre domínios de clientes baseados em navegador.
 
 O CORS permite que um navegador e um servidor interajam e determina e solicitações entre origens específicas devem ou não ser aceitas (por exemplo, chamadas XMLHttpRequests feitas por meio de JavaScript em uma página da Web para outros domínios). Isso permite maior flexibilidade do que permitir somente solicitações com a mesma origem, mas é mais seguro do que permitir todas as solicitações entre origens.
@@ -124,7 +124,7 @@ Este exemplo demonstra como dar suporte a solicitações preliminares, como as c
 
 ### <a name="elements"></a>Elementos
 
-|Nome|Descrição|Necessária|Padrão|
+|Nome|Descrição|Obrigatório|Padrão|
 |----------|-----------------|--------------|-------------|
 |cors|Elemento raiz.|Sim|N/D|
 |allowed-origins|Contém elementos `origin` que descrevem as origens permitidas para solicitações entre domínios. `allowed-origins` pode conter um único elemento `origin` que especifica `*` para permitir qualquer origem, ou um ou mais elementos `origin` que contêm uma URI.|Sim|N/D|
@@ -137,7 +137,7 @@ Este exemplo demonstra como dar suporte a solicitações preliminares, como as c
 
 ### <a name="attributes"></a>Atributos
 
-|Nome|Descrição|Necessária|Padrão|
+|Nome|Descrição|Obrigatório|Padrão|
 |----------|-----------------|--------------|-------------|
 |allow-credentials|O `Access-Control-Allow-Credentials` cabeçalho na resposta de simulação será definido como o valor desse atributo e afetará a capacidade do cliente de enviar credenciais em solicitações entre domínios.|Não|false|
 |preflight-result-max-age|O `Access-Control-Max-Age` cabeçalho na resposta de simulação será definido como o valor desse atributo e afetará a capacidade do agente do usuário de armazenar em cache a resposta de simulação.|Não|0|
@@ -148,7 +148,7 @@ Essa política pode ser usada nas [seções](./api-management-howto-policies.md#
 - **Seções de política:** de entrada
 - **Escopos da política:** todos os escopos
 
-## <a name="jsonp"></a><a name="JSONP"></a>JSONP
+## <a name="jsonp"></a><a name="JSONP"></a> JSONP
 A política `jsonp` adiciona suporte a JSONP com padding (JSONP) a uma operação ou API para permitir chamadas entre domínios de clientes JavaScript baseados em navegador. O JSONP é um método usado em programas JavaScript para solicitar dados de um servidor em um domínio diferente. O JSONP ignora a limitação aplicada pela maioria dos navegadores da Web quando o acesso às páginas da Web precisa ser do mesmo domínio.
 
 ### <a name="policy-statement"></a>Declaração de política
@@ -169,13 +169,13 @@ Se você adicionar o parâmetro de retorno de chamada `?cb=XXX`, será retornado
 
 ### <a name="elements"></a>Elementos
 
-|Nome|Descrição|Necessária|
+|Nome|Descrição|Obrigatório|
 |----------|-----------------|--------------|
 |jsonp|Elemento raiz.|Sim|
 
 ### <a name="attributes"></a>Atributos
 
-|Nome|Descrição|Necessária|Padrão|
+|Nome|Descrição|Obrigatório|Padrão|
 |----------|-----------------|--------------|-------------|
 |callback-parameter-name|A chamada da função JavaScript entre domínios, prefixada com o nome do domínio onde a função reside totalmente qualificado.|Sim|N/D|
 

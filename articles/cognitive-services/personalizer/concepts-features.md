@@ -9,10 +9,10 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.openlocfilehash: 590416f077fc1ff9430e42e27217548476c9032f
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87132765"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Recursos são informações sobre ações e contexto
@@ -131,7 +131,7 @@ Estas seções a seguir são práticas comuns para melhorar os recursos enviados
 
 Por exemplo, um carimbo de data/hora que inclui os segundos é um recurso muito esparso. Ele pode se tornar mais denso (efetivo) com a classificação das horas em "manhã", "meio-dia", "tarde" etc.
 
-As informações de localização normalmente também se beneficiam da criação de classificações mais amplas. Por exemplo, uma coordenada de latitude-longitude como Lat: 47,67402 ° N, Long: 122,12154 ° W é muito precisa e força o modelo a aprender latitude e longitude como dimensões distintas. Quando você está tentando personalizar com base nas informações de localização, ele ajuda a agrupar informações de local em setores maiores. Uma maneira fácil de fazer isso é escolher uma precisão de arredondamento apropriada para os números de lat-long e combinar latitude e longitude em "areas", tornando-os em uma cadeia de caracteres. Por exemplo, uma boa maneira de representar 47,67402 ° N, Long: 122,12154 ° W em regiões com aproximadamente alguns quilômetros de largura seria "Location": "34.3, 12,1".
+As informações de localização normalmente também se beneficiam da criação de classificações mais amplas. Por exemplo, uma coordenada Latitude-Longitude como Lat: 47,67402 ° N, Long: 122,12154 ° W é muito preciso e força o modelo a aprender a latitude e a longitude como dimensões distintas. Quando você está tentando personalizar com base nas informações de localização, ele ajuda a agrupar informações de local em setores maiores. Uma maneira fácil de fazer isso é escolher uma precisão de arredondamento apropriada para os números de Lat-Long e combinar latitude e longitude em "áreas", tornando-os em uma cadeia de caracteres. Por exemplo, uma boa maneira de representar 47,67402 ° N, Long: 122,12154 ° W em regiões com aproximadamente alguns quilômetros de largura seria "Location": "34.3, 12,1".
 
 
 #### <a name="expand-feature-sets-with-extrapolated-information"></a>Expandir conjuntos de recursos com informações extrapoladas
@@ -152,7 +152,7 @@ Por exemplo:
 
 Você pode usar vários outros [Serviços Cognitivos do Azure](https://www.microsoft.com/cognitive-services), como
 
-* [Vinculação de Identidade](../entitylinking/home.md)
+* [Vinculação de entidade](../entitylinking/home.md)
 * [Análise de Texto](../text-analytics/overview.md)
 * [Emoção](../emotion/home.md)
 * [Pesquisa Visual Computacional](../computer-vision/home.md)

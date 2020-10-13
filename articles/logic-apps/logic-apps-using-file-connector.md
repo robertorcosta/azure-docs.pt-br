@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/13/2019
 ms.openlocfilehash: 65b6b1f783dbabc9ad2e1a4bf79008240d1b2726
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89659927"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Conectar a sistemas de arquivos locais com os Aplicativos Lógicos do Azure
@@ -73,9 +73,9 @@ Este artigo mostra como se conectar a um sistema de arquivos local como descrito
    | **Nome da conexão** | Sim | <*nome da conexão*> | O nome desejado para a conexão |
    | **Pasta raiz** | Sim | <*nome da pasta raiz*> | A pasta raiz do sistema de arquivos, por exemplo, se você tiver instalado seu gateway de dados local, como uma pasta local no computador em que o gateway de dados local está instalado ou a pasta de um compartilhamento de rede que o computador pode acessar. <p>Por exemplo: `\\PublicShare\\DropboxFiles` <p>A pasta raiz é a pasta pai principal, que é usada para caminhos relativos de todas as ações relacionadas ao arquivo. |
    | **Tipo de autenticação** | Não | <*tipo de autenticação*> | O tipo de autenticação que o sistema de arquivos usa: **Windows** |
-   | **Nome de usuário** | Sim | <*domínio* > \\ do < *nome de usuário*> <p>- ou - <p><*computador* > \\ local < *nome de usuário*> | O nome de usuário do computador em que você tem a pasta do sistema de arquivos. <p>Se a sua pasta do sistema de arquivos estiver no mesmo computador que o gateway de dados local, você poderá usar <nome de usuário de *computadores locais* > \\ < *username*>. |
+   | **Nome de usuário** | Sim | <*domínio* > \\ do < *nome de usuário*> <p>- ou - <p><*computador* > \\ local < *nome de usuário*> | O nome de usuário do computador em que você tem a pasta do sistema de arquivos. <p>Se a sua pasta do sistema de arquivos estiver no mesmo computador que o gateway de dados local, você poderá usar <nome de usuário de *computadores locais* > \\ < *username*>. |
    | **Senha** | Sim | <*sua senha*> | A senha do computador no qual você tem seu sistema de arquivos |
-   | **gateway** | Sim | <*installed-gateway-Name*> | O nome do seu gateway instalado anteriormente |
+   | **Gateway** | Sim | <*installed-gateway-Name*> | O nome do seu gateway instalado anteriormente |
    |||||
 
 1. Quando terminar, escolha **Criar**.
