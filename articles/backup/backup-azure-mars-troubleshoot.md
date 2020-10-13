@@ -4,10 +4,10 @@ description: Neste artigo, saiba como solucionar problemas de instalação e reg
 ms.topic: troubleshooting
 ms.date: 07/15/2019
 ms.openlocfilehash: 86f9dfd8554e2560ea16a85c3551dba3f7dc01f1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89019616"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Solucionar problemas do agente de Serviços de Recuperação do Microsoft Azure (MARS)
@@ -67,7 +67,7 @@ Recomendamos que você verifique o seguinte antes de iniciar a solução de prob
 
 | Erro do   | Ações recomendadas |
 | ---     | ---    |
-|Falha ao baixar o arquivo de credenciais do cofre. (ID: 403) | <ul><li> Tente baixar as credenciais do cofre usando um navegador diferente ou execute estas etapas: <ul><li> Inicie o Internet Explorer. Selecione F12. </li><li> Vá para a guia **rede** e limpe o cache e os cookies. </li> <li> Atualize a página.<br></li></ul> <li> Verifique se a assinatura está desabilitada/expirada.<br></li> <li> Verifique se alguma regra de firewall está bloqueando o download. <br></li> <li> Verifique se você não esgotou o limite do cofre (50 máquinas por cofre).<br></li>  <li> Verifique se o usuário tem as permissões de backup do Azure que são necessárias para baixar as credenciais do cofre e registrar um servidor com o cofre. Consulte [usar o controle de acesso baseado em função para gerenciar pontos de recuperação do backup do Azure](backup-rbac-rs-vault.md).</li></ul> |
+|Falha ao baixar o arquivo de credenciais do cofre. (ID: 403) | <ul><li> Tente baixar as credenciais do cofre usando um navegador diferente ou execute estas etapas: <ul><li> Inicie o Internet Explorer. Selecione F12. </li><li> Vá para a guia **rede** e limpe o cache e os cookies. </li> <li> Atualize a página.<br></li></ul> <li> Verifique se a assinatura está desabilitada/expirada.<br></li> <li> Verifique se alguma regra de firewall está bloqueando o download. <br></li> <li> Verifique se você não esgotou o limite do cofre (50 máquinas por cofre).<br></li>  <li> Verifique se o usuário tem as permissões de backup do Azure que são necessárias para baixar as credenciais do cofre e registrar um servidor com o cofre. Consulte [usar o controle de acesso Role-Based para gerenciar pontos de recuperação do backup do Azure](backup-rbac-rs-vault.md).</li></ul> |
 
 ## <a name="the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup"></a>O Agente de Serviços de Recuperação do Microsoft Azure não pôde se conectar ao Backup do Microsoft Azure
 
@@ -96,7 +96,7 @@ Recomendamos que você verifique o seguinte antes de iniciar a solução de prob
 - O serviço de backup Marcará esses arquivos como com falha no arquivo de log, com a seguinte convenção de nomenclatura: *LastBackupFailedFilesxxxx.txt* na pasta *C:\Program Files\Microsoft Azure Recovery Service Agent\temp*
 - Para resolver o problema, examine o arquivo de log para entender a natureza do problema:
 
-  | Código de erro             | Motivos                                             | Recomendações                                              |
+  | Código do erro             | Motivos                                             | Recomendações                                              |
   | ---------------------- | --------------------------------------------------- | ------------------------------------------------------------ |
   | 0x80070570             | O arquivo ou diretório está corrompido e ilegível. | Execute **chkdsk** no volume de origem.                             |
   | 0x80070002, 0x80070003 | O sistema não pode localizar o arquivo especificado.         | [Verifique se a pasta de rascunho não está cheia](./backup-azure-file-folder-backup-faq.md#manage-the-backup-cache-folder)  <br><br>  Verificar se o volume onde o espaço transitório está configurado existe (não excluído)  <br><br>   [Verifique se o agente MARS foi excluído do antivírus instalado no computador](./backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-another-process-or-antivirus-software-interfering-with-azure-backup)  |

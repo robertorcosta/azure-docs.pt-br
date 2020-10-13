@@ -13,12 +13,12 @@ ms.date: 09/6/2019
 ms.author: marsma
 ms.reviewer: shoatman
 ms.custom: aaddev
-ms.openlocfilehash: 21866bb7dab3d5a093ffc4655161b80853eadfc5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2a6722cfff392a18629c8bb47fad0ad5ac1a95b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77084063"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91965991"
 ---
 # <a name="adal-to-msal-migration-guide-for-android"></a>Guia de migração do ADAL para MSAL para Android
 
@@ -127,7 +127,7 @@ MSAL não tem um sinalizador para habilitar ou desabilitar a validação de auto
 
 Se você tentar usar uma autoridade que não seja conhecida pela Microsoft e não estiver incluída na sua configuração, obterá um `UnknownAuthorityException` .
 
-### <a name="logging"></a>Registro em log
+### <a name="logging"></a>Log
 Agora você pode configurar o log de forma declarativa como parte de sua configuração, como esta:
 
  ```
@@ -146,7 +146,7 @@ Considere uma conta bancária. Você pode ter mais de uma conta em mais de uma i
 
 Por analogia, como contas em uma instituição financeira, as contas na plataforma Microsoft Identity são acessadas usando credenciais. Essas credenciais são registradas com o, ou emitidas pela Microsoft. Ou pela Microsoft em nome de uma organização.
 
-Onde a plataforma de identidade da Microsoft difere de uma instituição financeira, nessa analogia, é que a plataforma de identidade da Microsoft fornece uma estrutura que permite que um usuário use uma conta e suas credenciais associadas para acessar recursos que pertencem a vários indivíduos e organizações. Isso é como ser capaz de usar um cartão emitido por um banco, no entanto, em outra instituição financeira. Isso funciona porque todas as organizações em questão estão usando a plataforma de identidade da Microsoft, que permite que uma conta seja usada em várias organizações. Este é um exemplo:
+Onde a plataforma de identidade da Microsoft difere de uma instituição financeira, nessa analogia, é que a plataforma de identidade da Microsoft fornece uma estrutura que permite que um usuário use uma conta e suas credenciais associadas para acessar recursos que pertencem a vários indivíduos e organizações. Isso é como ser capaz de usar um cartão emitido por um banco, no entanto, em outra instituição financeira. Isso funciona porque todas as organizações em questão estão usando a plataforma de identidade da Microsoft, que permite que uma conta seja usada em várias organizações. Veja um exemplo:
 
 O Sam funciona para Contoso.com, mas gerencia as máquinas virtuais do Azure que pertencem ao Fabrikam.com. Para que o Sam gerencie as máquinas virtuais da Fabrikam, ele precisa estar autorizado a acessá-las. Esse acesso pode ser concedido adicionando a conta de Sam ao Fabrikam.com e concedendo a ela uma função que permita que ele trabalhe com as máquinas virtuais. Isso seria feito com o portal do Azure.
 
@@ -238,19 +238,16 @@ public interface SilentAuthenticationCallback {
 No ADAL, há um tipo de exceção, `AuthenticationException` , que inclui um método para recuperar o valor de `ADALError` enumeração.
 No MSAL, há uma hierarquia de exceções e cada uma tem seu próprio conjunto de códigos de erro específicos associados.
 
-Lista de exceções MSAL
-
-|Exceção  | Descrição  |
-|---------|---------|
-| `MsalException`     | Exceção verificada padrão lançada por MSAL.  |
-| `MsalClientException`     | Gerado se o erro for do lado do cliente. |
-| `MsalArgumentException`     | Gerado se um ou mais argumentos de entrada forem inválidos. |
-| `MsalClientException`     | Gerado se o erro for do lado do cliente. |
-| `MsalServiceException`     | Gerado se o erro for do lado do servidor. |
-| `MsalUserCancelException`     | Gerado se o usuário cancelou o fluxo de autenticação.  |
-| `MsalUiRequiredException`     | Gerado se o token não puder ser atualizado silenciosamente.  |
-| `MsalDeclinedScopeException`     | Gerado se um ou mais escopos solicitados foram recusados pelo servidor.  |
-| `MsalIntuneAppProtectionPolicyRequiredException` | Gerado se o recurso tiver a política de proteção MAMCA habilitada. |
+| Exceção                                        | Descrição                                                         |
+|--------------------------------------------------|---------------------------------------------------------------------|
+| `MsalException`                                  | Exceção verificada padrão lançada por MSAL.                           |
+| `MsalClientException`                            | Gerado se o erro for do lado do cliente.                                 |
+| `MsalArgumentException`                          | Gerado se um ou mais argumentos de entrada forem inválidos.                 |
+| `MsalServiceException`                           | Gerado se o erro for do lado do servidor.                                 |
+| `MsalUserCancelException`                        | Gerado se o usuário cancelou o fluxo de autenticação.                |
+| `MsalUiRequiredException`                        | Gerado se o token não puder ser atualizado silenciosamente.                    |
+| `MsalDeclinedScopeException`                     | Gerado se um ou mais escopos solicitados foram recusados pelo servidor. |
+| `MsalIntuneAppProtectionPolicyRequiredException` | Gerado se o recurso tiver a política de proteção MAMCA habilitada.         |
 
 ### <a name="adalerror-to-msalexception-errorcode"></a>ADALError MsalException ErrorCode
 

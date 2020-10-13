@@ -8,12 +8,12 @@ ms.date: 6/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0583852f0be590eb1c6a4b53047f94b3ea0fbaa4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95dc5b70174cd738104260aac2e175c0657d9c90
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447817"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91966195"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-tpm-on-linux"></a>Criar e provisionar um dispositivo IoT Edge com um TPM no Linux
 
@@ -178,11 +178,36 @@ Agora que um registro existe para esse dispositivo, o tempo de execução do IoT
 
 O runtime do IoT Edge é implantado em todos os dispositivos IoT Edge. Seus componentes são executados em contêineres e permitem implantar contêineres adicionais no dispositivo para que você possa executar o código na borda. Instale o runtime do IoT Edge em sua máquina virtual.
 
-Saiba seu DPS **Escopo da ID** e do dispositivo **ID de registro** antes de começar o artigo que combine com o seu tipo de dispositivo. Se você instalou o servidor do Ubuntu de exemplo, use as instruções **x64**. Certifique-se de configurar o runtime do IoT Edge para provisionamento automático, não manual.
+Siga as etapas em [instalar o Azure IOT Edge Runtime](how-to-install-iot-edge.md)e, em seguida, retorne a este artigo para provisionar o dispositivo.
 
-Quando você chegar à etapa de configurar o daemon de segurança, certifique-se de escolher a [opção 2 provisionamento automático](how-to-install-iot-edge-linux.md#option-2-automatic-provisioning) e configurar para atestado de TPM.
+## <a name="configure-the-device-with-provisioning-information"></a>Configurar o dispositivo com informações de provisionamento
 
-[Instalar o runtime do Azure IoT Edge no Linux](how-to-install-iot-edge-linux.md)
+Depois que o tempo de execução for instalado em seu dispositivo, configure o dispositivo com as informações que ele usa para se conectar ao serviço de provisionamento de dispositivos e ao Hub IoT.
+
+1. Conheça o **escopo da ID** de DPS e a **ID de registro** do dispositivo que foram coletadas nas seções anteriores.
+
+1. Abra o arquivo de configuração no dispositivo IoT Edge.
+
+   ```bash
+   sudo nano /etc/iotedge/config.yaml
+   ```
+
+1. Localize a seção Configurações de provisionamento do arquivo. Remova a marca de comentário das linhas do provisionamento do TPM e verifique se todas as outras linhas de provisionamento foram comentadas.
+
+   A `provisioning:` linha não deve ter nenhum espaço em branco anterior e itens aninhados devem ser recuados em dois espaços.
+
+   ```yml
+   # DPS TPM provisioning configuration
+   provisioning:
+     source: "dps"
+     global_endpoint: "https://global.azure-devices-provisioning.net"
+     scope_id: "<SCOPE_ID>"
+     attestation:
+       method: "tpm"
+       registration_id: "<REGISTRATION_ID>"
+   ```
+
+1. Atualize os valores de `scope_id` e `registration_id` com suas informações de dispositivo e DPS.
 
 ## <a name="give-iot-edge-access-to-the-tpm"></a>Conceder acesso de IoT Edge no TPM
 

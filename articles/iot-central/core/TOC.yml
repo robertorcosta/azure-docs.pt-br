@@ -170,9 +170,11 @@
             - name: Alternar chat ao vivo
               href: howto-show-hide-chat.md
     - name: Solucionar problemas
-      items: null
-      '-name': Device connections
-      href: troubleshoot-connection.md
+      items:
+        - name: Conexões do dispositivo
+          href: troubleshoot-connection.md
+    - name: Perguntas frequentes
+      href: howto-faq.md
 - name: Referência
   items:
     - name: CLI do Azure
