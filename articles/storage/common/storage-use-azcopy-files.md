@@ -8,10 +8,10 @@ ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.openlocfilehash: 793f3869a9534c71d860cc8dea7a1995f5ee278d
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88871234"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>Transferir dados com o AzCopy e o Armazenamento de Arquivos 
@@ -41,7 +41,7 @@ Você pode usar o comando [azcopy Copy](storage-ref-azcopy-copy.md) para carrega
 Esta seção contém os seguintes exemplos:
 
 > [!div class="checklist"]
-> * Carregar um arquivo
+> * Fazer upload de um arquivo
 > * Carregar um diretório
 > * Carregar o conteúdo de um diretório
 > * Carregar um arquivo específico
@@ -61,7 +61,7 @@ Esta seção contém os seguintes exemplos:
 > [!NOTE]
 > AzCopy não calcula e armazena automaticamente o código hash MD5 do arquivo. Se você quiser que o AzCopy faça isso, anexe o `--put-md5` sinalizador a cada comando de cópia. Dessa forma, quando o arquivo for baixado, AzCopy calculará um hash MD5 para dados baixados e verificará se o hash MD5 armazenado na Propriedade do arquivo `Content-md5` corresponde ao hash calculado.
 
-### <a name="upload-a-file"></a>Carregar um arquivo
+### <a name="upload-a-file"></a>Fazer upload de um arquivo
 
 |    |     |
 |--------|-----------|

@@ -14,10 +14,10 @@ ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
 ms.openlocfilehash: 7d937542201792c0d1c0be69df9bd1c2b34edea3
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89434462"
 ---
 # <a name="virtual-network-service-endpoints"></a>Pontos de extremidade de serviço de Rede Virtual
@@ -62,7 +62,7 @@ Os pontos de extremidade de serviço fornecem os seguintes benefícios:
 
 - O recurso está disponível apenas para redes virtuais implantadas usando o modelo de implantação do Azure Resource Manager.
 - Os pontos de extremidade são habilitados nas sub-redes configuradas em redes virtuais do Azure. Os pontos de extremidade não podem ser usados para o tráfego de seu local para os serviços do Azure. Para obter mais informações, consulte [proteger o acesso do serviço do Azure do local](#secure-azure-services-to-virtual-networks)
-- Para o SQL do Azure, um ponto de extremidade de serviço aplica-se somente ao tráfego de serviço do Azure dentro de uma região da rede virtual. Para o armazenamento do Azure, os pontos de extremidade também se estendem para incluir regiões emparelhadas em que você implanta a rede virtual para oferecer suporte ao tráfego de armazenamento com redundância geográfica (RA-GRS) e armazenamento com redundância geográfica (GRS). Para obter mais informações, consulte [Regiões emparelhadas do Azure](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions).
+- Para o SQL do Azure, um ponto de extremidade de serviço aplica-se somente ao tráfego de serviço do Azure dentro de uma região da rede virtual. Para o armazenamento do Azure, os pontos de extremidade também se estendem para incluir regiões emparelhadas em que você implanta a rede virtual para dar suporte ao tráfego de Read-Access Geo-Redundant armazenamento (RA-GRS) e ao armazenamento de Geo-Redundant (GRS). Para obter mais informações, consulte [Regiões emparelhadas do Azure](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions).
 - Para Azure Data Lake Storage (ADLS) Gen 1, o recurso de integração VNet só está disponível para redes virtuais na mesma região. Observe também que a integração de rede virtual para ADLS Gen1 usa a segurança do ponto de extremidade do serviço de rede virtual entre sua rede virtual e Azure Active Directory (AD do Azure) para gerar declarações de segurança adicionais no token de acesso. Essas declarações, em seguida, são usadas para autenticar sua rede virtual na conta do Data Lake Storage Gen1 e permitir o acesso. A marca *Microsoft. AzureActiveDirectory* listada em serviços que dão suporte a pontos de extremidade de serviço é usada somente para dar suporte a pontos de extremidade de serviço para o ADLS Gen 1. O Azure AD não dá suporte a pontos de extremidade de serviço nativamente. Para obter mais informações sobre a integração de VNet do Azure Data Lake Store Gen 1, consulte [segurança de rede em Azure data Lake Storage Gen1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## <a name="secure-azure-services-to-virtual-networks"></a>Proteger serviços do Azure para redes virtuais

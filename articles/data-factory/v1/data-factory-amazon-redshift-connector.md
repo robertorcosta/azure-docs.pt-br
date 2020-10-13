@@ -13,10 +13,10 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 290990e312a7f591539686ecce1eec1ac742dd60
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89443017"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Mover dados do Amazon Redshift usando o Azure Data Factory
@@ -65,7 +65,7 @@ A tabela a seguir fornece descrições dos elementos JSON específicos para o se
 | **server** |O endereço IP ou nome do host do servidor Amazon Redshift. |Sim |
 | **port** |O número da porta TCP usada pelo servidor Amazon Redshift para ouvir conexões de cliente. |Não (o padrão é 5439) |
 | **database** |O nome do banco de dados do Amazon Redshift. |Sim |
-| **usu** |O nome de usuário que tem acesso ao banco de dados. |Sim |
+| **username** |O nome de usuário que tem acesso ao banco de dados. |Sim |
 | **password** |A senha para a conta de usuário. |Sim |
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
@@ -335,12 +335,12 @@ Os seguintes mapeamentos são usados quando a Atividade de Cópia converte os da
 | DECIMAL |Decimal |
 | real |Single |
 | DOUBLE PRECISION |Double |
-| BOOLEAN |String |
+| BOOLEAN |Cadeia de caracteres |
 | CHAR |String |
 | VARCHAR |String |
 | DATE |Datetime |
 | timestamp |Datetime |
-| TEXT |String |
+| TEXT |Cadeia de caracteres |
 
 ## <a name="map-source-to-sink-columns"></a>Mapear origem para colunas de coletor
 Para saber mais sobre como mapear colunas no conjunto de dados de origem para colunas no conjunto de dados de coletor, confira [Mapeando colunas de conjunto de dados no Azure Data Factory](data-factory-map-columns.md).

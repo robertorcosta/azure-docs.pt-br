@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell, references_regions
 ms.openlocfilehash: 49e82467cd5e9cef8100aa56016f778df3445f12
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91822390"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gerenciar o ciclo de vida de armazenamento de BLOBs do Azure
@@ -133,7 +133,7 @@ Há duas maneiras de adicionar uma política por meio do portal do Azure.
    }
    ```
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 1. Para obter mais informações sobre este exemplo de JSON, consulte as seções [política](#policy) e [regras](#rules) .
 
@@ -299,7 +299,7 @@ Os filtros limitam as ações de regra a um subconjunto de blobs na conta de arm
 
 Filtros incluem:
 
-| Nome do filtro | Tipo do filtro | Observações | Obrigatório |
+| Nome do filtro | Tipo de filtro | Observações | Obrigatório |
 |-------------|-------------|-------|-------------|
 | blobTypes   | Uma matriz de valores de enumeração predefinidos. | A versão atual dá suporte a `blockBlob` e `appendBlob` . Somente a exclusão tem suporte para o `appendBlob` , não há suporte para a camada de conjunto. | Sim |
 | prefixMatch | Uma matriz de cadeias de caracteres para correspondência de prefixos. Cada regra pode definir até 10 prefixos. Uma cadeia de caracteres de prefixo deve começar com um nome de contêiner. Por exemplo, se você quiser corresponder a todos os BLOBs em `https://myaccount.blob.core.windows.net/container1/foo/...` para uma regra, o prefixMatch será `container1/foo` . | Se você não definir prefixMatch, a regra se aplicará a todos os BLOBs na conta de armazenamento. | Não |

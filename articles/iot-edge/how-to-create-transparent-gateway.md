@@ -12,10 +12,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: cf7147ca1295c9f2cef5d89c232f2c266075e362
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88167395"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Configurar um dispositivo IoT Edge para agir como gateway transparente
@@ -117,7 +117,7 @@ Para implantar o módulo Hub de IoT Edge e configurá-lo com rotas para lidar co
 
 5. Selecione **Avançar: rotas**.
 
-6. Na página **rotas** , verifique se há uma rota para tratar as mensagens provenientes de dispositivos downstream. Por exemplo: 
+6. Na página **rotas** , verifique se há uma rota para tratar as mensagens provenientes de dispositivos downstream. Por exemplo:
 
    * Uma rota que envia todas as mensagens, seja de um módulo ou de um dispositivo downstream, para o Hub IoT:
        * **Nome**: `allMessagesToHub`

@@ -9,13 +9,13 @@ ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
 ms.openlocfilehash: 224f86a40fa812003463301f97bcae07de907f3c
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91579624"
 ---
-# <a name="iot-plug-and-play-bridge"></a>Ponte de Plug and Play IoT
+# <a name="iot-plug-and-play-bridge"></a>Ponte do IoT Plug and Play
 
 A ponte de Plug and Play IoT é um aplicativo de software livre para conectar dispositivos existentes conectados ao gateway do Windows ou Linux como dispositivos de IoT Plug and Play. Depois de instalar e configurar o aplicativo em seu computador Windows ou Linux, você pode usá-lo para conectar dispositivos anexados a um hub IoT. Você pode usar a ponte para mapear interfaces de Plug and Play de IoT para a telemetria os dispositivos anexados estão enviando, trabalhar com propriedades de dispositivo e invocar comandos.
 

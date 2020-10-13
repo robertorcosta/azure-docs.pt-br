@@ -13,10 +13,10 @@ ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: conversão de fala em texto, software de conversão de fala em texto
 ms.openlocfilehash: f4392881c2f572b1e53d7c283ef5c1debc1d20ea
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91359929"
 ---
 # <a name="what-is-speech-to-text"></a>O que é conversão de fala em texto?
@@ -50,7 +50,7 @@ O código de exemplo para o SDK de fala está disponível no GitHub. Esses exemp
 
 Além do modelo de serviço de fala padrão, você pode criar modelos personalizados. A personalização ajuda a superar as barreiras de reconhecimento de fala, como estilo de fala, vocabulário e ruído de fundo, consulte [fala personalizada](how-to-custom-speech.md). As opções de personalização variam por idioma/localidade, consulte [idiomas com suporte](supported-languages.md) para verificar o suporte.
 
-## <a name="batch-transcription"></a>Transcrição em lote
+## <a name="batch-transcription"></a>Transcrição de lote
 
 A transcrição do lote é um conjunto de operações da API REST que permitem transcrever uma grande quantidade de áudio no armazenamento. Será possível transmitir arquivos de áudio com um URI de SAS (assinatura de acesso compartilhado) e receber resultados de transcrição de maneira assíncrona. Consulte o [instruções](batch-transcription.md) para obter mais informações sobre como usar a API de transcrição do lote.
 

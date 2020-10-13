@@ -4,10 +4,10 @@ description: Saiba como configurar o número de alunos para um laboratório, obt
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 742fcd2b504bce7ad2257edd559e4b66a9172d24
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91399662"
 ---
 # <a name="add-and-manage-lab-users"></a>Adicionar e gerenciar os usuários do laboratório
@@ -30,7 +30,7 @@ Nesta seção, você adicionará alunos a um laboratório manualmente ou carrega
 
     ![Adicionar endereços de email dos usuários](./media/how-to-configure-student-usage/add-users-email-addresses.png)
 
-1. Clique em **Salvar**. 
+1. Selecione **Salvar**. 
 
     A lista exibe os endereços de email e os status dos usuários atuais, se eles estão registrados no laboratório ou não. 
 
@@ -57,7 +57,7 @@ Você também pode adicionar usuários carregando um arquivo CSV que contém seu
 
     ![A janela "adicionar usuários" com endereços de email do arquivo CSV](./media/how-to-configure-student-usage/add-users-window.png)
 
-1. Clique em **Salvar**. 
+1. Selecione **Salvar**. 
 
 1. No painel **usuários** , exiba a lista de alunos adicionados. 
 

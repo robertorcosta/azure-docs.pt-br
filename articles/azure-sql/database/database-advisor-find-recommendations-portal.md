@@ -12,10 +12,10 @@ ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 12/19/2018
 ms.openlocfilehash: 0b7aab13871f1450a3c6907b30b446869b2fefa7
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91443888"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Localizar e aplicar recomendações de desempenho
@@ -42,7 +42,7 @@ As recomendações são classificadas de acordo com seu impacto em potencial no 
 | Impacto | Descrição |
 |:--- |:--- |
 | Alta |Recomendações de alto impacto devem fornecer o impacto mais significativo no desempenho. |
-| Média |Recomendações de médio impacto devem melhorar o desempenho, mas não substancialmente. |
+| Médio |Recomendações de médio impacto devem melhorar o desempenho, mas não substancialmente. |
 | Baixo |Recomendações de baixo impacto devem fornecer um desempenho melhor do que seria obtido sem elas, mas as melhorias podem não ser significativas. |
 
 > [!NOTE]
@@ -132,8 +132,8 @@ A aplicação de uma recomendação pode não acontecer instantaneamente. O port
 | Pending (Pendente) |O comando Aplicar recomendação foi recebido e está programado para execução. |
 | Executando |A recomendação está sendo aplicada. |
 | Validando |A recomendação foi aplicada com êxito e o serviço está medindo os benefícios. |
-| Sucesso |A recomendação foi aplicada com êxito e benefícios foram calculados. |
-| Erro |Ocorreu um erro durante o processo de aplicação da recomendação. Este pode ser um problema temporário ou, possivelmente, uma alteração de esquema na tabela, tornando o script inválido. |
+| Êxito |A recomendação foi aplicada com êxito e benefícios foram calculados. |
+| Erro do |Ocorreu um erro durante o processo de aplicação da recomendação. Este pode ser um problema temporário ou, possivelmente, uma alteração de esquema na tabela, tornando o script inválido. |
 | Revertendo |A recomendação foi aplicada, mas foi considerada não funcional e está sendo revertida automaticamente. |
 | Revertida |A recomendação foi revertida. |
 

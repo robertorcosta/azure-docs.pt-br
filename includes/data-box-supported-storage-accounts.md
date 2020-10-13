@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 09/git14/2020
 ms.author: alkohli
 ms.openlocfilehash: 91f91b1260cc445f90c2608fc5259ad61acd37ac
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90533379"
 ---
 A seguir, há uma lista dos tipos de armazenamento com suporte para o dispositivo Data Box. Para obter uma lista completa de todos os diferentes tipos de contas de armazenamento e suas funcionalidades completas, confira [Types of storage accounts](/azure/storage/common/storage-account-overview#types-of-storage-accounts) (Tipos de contas de armazenamento).
@@ -31,10 +31,10 @@ Para ordens de exportação, a tabela a seguir mostra as contas de armazenamento
 
 | **Conta de armazenamento/Tipos de armazenamento com suporte** | **Blob de blocos** |**Blob de páginas*** |**Arquivos do Azure** |**Camadas de acesso compatíveis**|
 | --- | --- | -- | -- | -- |
-| Clássico Standard | S | S | S | |
-| Uso geral v1 Standard  | S | S | S | Quente, frio|
+| Clássico Standard | S | Y | S | |
+| Uso geral v1 Standard  | S | Y | Y | Quente, frio|
 | Uso geral v1 Premium  |  | S| | |
-| Uso geral v2 Standard  | S | S | S | Quente, frio|
+| Uso geral v2 Standard  | S | Y | Y | Quente, frio|
 | Uso geral v2 Premium  |  |S | | |
 | Armazenamento de blobs Standard |S | | |Quente, frio |
 | Armazenamento de blobs de blocos Premium |Y | | |Quente, frio |

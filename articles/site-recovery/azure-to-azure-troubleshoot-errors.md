@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/07/2020
 ms.author: rochakm
 ms.openlocfilehash: ab3597ddba3e41e88c8b2b575ed5857aca01e610
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91397956"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Solucionar problemas de erros de replicação de VMs do Azure para o Azure
@@ -281,14 +281,14 @@ Para tornar o status de replicação da VM íntegro novamente, você pode optar 
 1. Vá para **itens replicados**  >  _nome da VM_  >  **discos**.
 1. Selecione o disco desprotegido e, em seguida, selecione **habilitar replicação**:
 
-   :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/add-disk.png" alt-text="Habilite a replicação em discos de VM.":::
+   :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/add-disk.png" alt-text="erro com.":::
 
 #### <a name="to-dismiss-the-warning"></a>Para ignorar o aviso
 
 1. Vá para **itens replicados**  >  _nome da VM_.
 1. Selecione o aviso na seção **visão geral** e, em seguida, selecione **OK**.
 
-   :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png" alt-text="Ignorar aviso de novo disco.":::
+   :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png" alt-text="erro com.":::
 
 ## <a name="vm-removed-from-vault-completed-with-information-error-code-150225"></a>A VM removida do cofre foi concluída com informações (código de erro 150225)
 
@@ -309,7 +309,7 @@ Você pode ignorar esse aviso se você nunca pretender proteger essa máquina vi
 
 1. Remova o bloqueio do grupo de recursos VM ou VM. Por exemplo, na imagem a seguir, o bloqueio de recurso na VM chamada `MoveDemo` deve ser excluído:
 
-   :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="Remova o bloqueio da VM.":::
+   :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="erro com.":::
 
 1. Baixe o script para [remover uma configuração de site Recovery obsoleta](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1).
 1. Execute o script _Cleanup-stale-asr-config-Azure-VM.ps1_. Forneça a **ID da assinatura**, o **grupo de recursos da VM**e o nome da **VM** como parâmetros.
@@ -334,7 +334,7 @@ Uma configuração obsoleta pode ocorrer em uma VM do Azure se você habilitou a
 
 1. Remova o bloqueio do grupo de recursos VM ou VM. Por exemplo, na imagem a seguir, o bloqueio de recurso na VM chamada `MoveDemo` deve ser excluído:
 
-   :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="Remova o bloqueio da VM.":::
+   :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="erro com.":::
 
 1. Baixe o script para [remover uma configuração de site Recovery obsoleta](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1).
 1. Execute o script _Cleanup-stale-asr-config-Azure-VM.ps1_. Forneça a **ID da assinatura**, o **grupo de recursos da VM**e o nome da **VM** como parâmetros.
@@ -367,7 +367,7 @@ Talvez você não veja a VM que deseja habilitar para replicação se houver uma
 
 1. Remova o bloqueio, se houver, do grupo de recursos VM ou VM. Por exemplo, na imagem a seguir, o bloqueio de recurso na VM chamada `MoveDemo` deve ser excluído:
 
-   :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="Remova o bloqueio da VM.":::
+   :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="erro com.":::
 
 1. Baixe o script para [remover uma configuração de site Recovery obsoleta](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1).
 1. Execute o script _Cleanup-stale-asr-config-Azure-VM.ps1_. Forneça a **ID da assinatura**, o **grupo de recursos da VM**e o nome da **VM** como parâmetros.
@@ -404,17 +404,17 @@ Para habilitar a replicação na VM, seu estado de provisionamento deve ser **be
 
 Durante a configuração de recuperação de desastre, se a VM de origem fizer parte de uma rede virtual e outra VM da mesma rede virtual já estiver mapeada com uma rede no grupo de recursos de destino, a caixa de listagem suspensa seleção de rede estará indisponível (aparece esmaecida) por padrão.
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/unabletoselectnw.png" alt-text="Lista de seleção de rede indisponível.":::
+:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/unabletoselectnw.png" alt-text="erro com.":::
 
 ### <a name="issue-2-you-previously-protected-the-vm-and-then-you-disabled-the-replication"></a>Problema 2: você protegeu anteriormente a VM e, em seguida, desabilitou a replicação
 
 Desabilitar a replicação de uma VM não exclui o mapeamento de rede. O mapeamento deve ser excluído do cofre dos serviços de recuperação onde a VM foi protegida. Selecione o **cofre dos serviços de recuperação** e vá para **gerenciar**a  >  **infraestrutura**  >  de site Recovery para o mapeamento**de rede de máquinas virtuais do Azure**  >  **Network Mapping**.
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/delete_nw_mapping.png" alt-text="Excluir mapeamento de rede.":::
+:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/delete_nw_mapping.png" alt-text="erro com.":::
 
 A rede de destino que foi configurada durante a configuração de recuperação de desastre pode ser alterada após a configuração inicial e, depois que a VM é protegida. Para **Modificar o mapeamento de rede** , selecione o nome da rede:
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/modify_nw_mapping.png" alt-text="Modificar o mapeamento de rede.":::
+:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/modify_nw_mapping.png" alt-text="erro com.":::
 
 
 ## <a name="com-or-vss-error-code-151025"></a>COM+ ou VSS (código de erro 151025)
@@ -437,7 +437,7 @@ Defina o aplicativo do sistema COM+ e Serviço de Cópias de Sombra de Volume co
 1. Abra o console de serviços no Windows.
 1. Verifique se o aplicativo do sistema COM+ e os Serviço de Cópias de Sombra de Volume não estão definidos como **desabilitados** como seu **tipo de inicialização**.
 
-   :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/com-error.png" alt-text="Verifique o tipo de inicialização de COM mais aplicativo do sistema e Serviço de Cópias de Sombra de Volume.":::
+   :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/com-error.png" alt-text="erro com.":::
 
 ## <a name="unsupported-managed-disk-size-error-code-150172"></a>Tamanho de disco gerenciado sem suporte (código de erro 150172)
 

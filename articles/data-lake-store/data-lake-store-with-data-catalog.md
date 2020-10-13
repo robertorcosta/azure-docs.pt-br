@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: a48b30d83e3e7e1667552d107cb457e49494c575
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91578505"
 ---
 # <a name="register-data-from-azure-data-lake-storage-gen1-in-azure-data-catalog"></a>Registrar dados do Azure Data Lake Storage Gen1 no Catálogo de Dados do Azure
@@ -40,10 +40,10 @@ Antes de começar este tutorial, você deve ter o seguinte:
     ![Tela de boas-vindas](./media/data-lake-store-with-data-catalog/welcome.screen.png "Tela de boas-vindas")
 1. Na página Selecionar uma Fonte de Dados, selecione **Azure Data Lake Store**e, em seguida, clique em **Avançar**.
 
-    ![Selecione uma fonte de dados](./media/data-lake-store-with-data-catalog/select-source.png "Selecione uma fonte de dados")
+    ![Selecionar fonte de dados](./media/data-lake-store-with-data-catalog/select-source.png "Selecione uma fonte de dados")
 1. Na próxima página, forneça o nome da conta do Data Lake Storage Gen1 que você quer registrar no Catálogo de Dados. Deixe as outras opções como padrão e clique em **Conectar**.
 
-    ![Conectar à fonte de dados](./media/data-lake-store-with-data-catalog/connect-to-source.png "Conectar à fonte de dados")
+    ![Conectar-se a uma fonte de dados](./media/data-lake-store-with-data-catalog/connect-to-source.png "Conectar-se a uma fonte de dados")
 1. A próxima página pode ser dividida nos seguintes segmentos.
 
     a. A caixa **Hierarquia do Servidor** representa a estrutura da pasta da conta do Data Lake Storage Gen1. **$Root** representa a raiz da conta do Data Lake Storage Gen1 e **AmbulanceData** representa a pasta criada na raiz da conta do Data Lake Storage Gen1.

@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/08/2020
 ms.openlocfilehash: 9b34a2435486a905923e783153ccae97628193a2
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91443758"
 ---
 # <a name="import-or-export-an-azure-sql-database-without-allowing-azure-services-to-access-the-server"></a>Importar ou exportar um banco de dados SQL do Azure sem permitir que os serviços do Azure acessem o servidor
@@ -89,7 +89,7 @@ As etapas a seguir criam uma regra de firewall de IP no nível de servidor para 
 
 4. Escolha **Adicionar IP do cliente** na barra de ferramentas para adicionar o endereço IP público da máquina virtual a uma nova regra de firewall de IP no nível de servidor. Uma regra de firewall de IP no nível do servidor pode abrir a porta 1433 para um único endereço IP ou um intervalo de endereços IP.
 
-5. Clique em **Salvar**. Uma regra de firewall de IP no nível de servidor é criada para o endereço IP público da sua máquina virtual abrindo a porta 1433 no servidor.
+5. Selecione **Salvar**. Uma regra de firewall de IP no nível de servidor é criada para o endereço IP público da sua máquina virtual abrindo a porta 1433 no servidor.
 
 6. Feche a página **Configurações do Firewall**.
 

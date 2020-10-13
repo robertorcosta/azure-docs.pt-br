@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: travisw
 ms.openlocfilehash: 4bdca8921a99db764cbc8ee1edfdad8cf8b8568f
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91360932"
 ---
 # <a name="what-is-a-voice-assistant"></a>O que é um assistente de voz?
@@ -50,8 +50,8 @@ Independentemente de você escolher os comandos de [fala de linha direta](direct
 | Categoria | Recursos |
 |----------|----------|
 |[Palavra-chave personalizada](speech-devices-sdk-create-kws.md) | Os usuários podem iniciar conversas com assistentes com uma palavra-chave personalizada como "Ei contoso". Um aplicativo faz isso com um mecanismo de palavra-chave personalizado no SDK de fala, que pode ser configurado com uma palavra-chave personalizada [que você pode gerar aqui](speech-devices-sdk-create-kws.md). Os assistentes de voz podem usar a verificação de palavra-chave do lado do serviço para melhorar a precisão da ativação da palavra-chave (versus o dispositivo sozinho).
-|[Conversão de fala em texto](speech-to-text.md) | Os assistentes de voz convertem áudio em tempo real em texto reconhecido usando a [conversão de fala em texto](speech-to-text.md) do serviço de fala. Esse texto está disponível, como é transcrita, tanto para a implementação do assistente quanto para o aplicativo cliente.
-|[Conversão de texto em fala](text-to-speech.md) | As respostas textuais do assistente são sintetizadas usando a [conversão de texto em fala](text-to-speech.md) do serviço de fala. Essa síntese é disponibilizada para o aplicativo cliente como um fluxo de áudio. A Microsoft oferece a capacidade de criar sua própria voz TTS multifuncional personalizada de alta qualidade que dá uma voz à sua marca. Para saber mais, [entre em contato conosco](mailto:mstts@microsoft.com).
+|[Fala para texto](speech-to-text.md) | Os assistentes de voz convertem áudio em tempo real em texto reconhecido usando a [conversão de fala em texto](speech-to-text.md) do serviço de fala. Esse texto está disponível, como é transcrita, tanto para a implementação do assistente quanto para o aplicativo cliente.
+|[Texto em fala](text-to-speech.md) | As respostas textuais do assistente são sintetizadas usando a [conversão de texto em fala](text-to-speech.md) do serviço de fala. Essa síntese é disponibilizada para o aplicativo cliente como um fluxo de áudio. A Microsoft oferece a capacidade de criar sua própria voz TTS multifuncional personalizada de alta qualidade que dá uma voz à sua marca. Para saber mais, [entre em contato conosco](mailto:mstts@microsoft.com).
 
 ## <a name="getting-started-with-voice-assistants"></a>Introdução aos assistentes de voz
 

@@ -15,10 +15,10 @@ ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: cli,portal
 ms.openlocfilehash: 8924b77cddc9efc4d2b1b8451df38de77b37c09c
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89267336"
 ---
 # <a name="find-your-azure-subscription"></a>Encontrar sua assinatura do Azure
@@ -29,7 +29,7 @@ ms.locfileid: "89267336"
 
 ## <a name="portal"></a>[Portal](#tab/portal/)
 
-## <a name="use-the-azure-portal"></a>Use o Portal do Azure
+## <a name="use-the-azure-portal"></a>Usar o portal do Azure
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 1. No título serviços do Azure, selecione assinaturas. (Se nenhuma assinatura estiver listada, talvez seja necessário alternar os locatários do Azure AD.) Suas IDs de assinatura estão listadas na segunda coluna.
