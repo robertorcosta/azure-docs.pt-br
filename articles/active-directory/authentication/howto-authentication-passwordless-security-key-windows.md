@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 01/30/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66283e4965aea9e24da6041133e2d88e95df6755
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: b88b2ca0a420295a7a53608f02923e72045e1c44
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526979"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91964733"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-with-azure-active-directory-preview"></a>Habilitar a entrada de chave de segurança sem senha em dispositivos Windows 10 com Azure Active Directory (versão prévia)
 
@@ -91,12 +91,12 @@ Para direcionar grupos de dispositivos específicos para habilitar o provedor de
 1. Entre no [portal do Azure](https://portal.azure.com).
 1. Navegue até **Microsoft Intune**  >  perfis de**configuração de dispositivo**  >  **Profiles**  >  **Criar perfil**.
 1. Configure o novo perfil com as seguintes configurações:
-   - Nome: chaves de segurança para entrar no Windows
+   - Nome: chaves de segurança para o Windows Sign-In
    - Descrição: permite que as chaves de segurança FIDO sejam usadas durante a entrada do Windows
    - Plataforma: Windows 10 e posterior
    - Tipo de perfil: personalizado
    - Configurações personalizadas de OMA-URI:
-      - Nome: ativar as chaves de segurança do FIDO para entrar no Windows
+      - Nome: ativar as chaves de segurança FIDO para o Windows Sign-In
       - OMA-URI:./Device/Vendor/MSFT/PassportForWork/SecurityKey/UseSecurityKeyForSignin
       - Tipo de dados: inteiro
       - Valor: 1

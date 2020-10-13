@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/15/2020
 ms.author: cynthn
 ms.reviewer: cynthn
-ms.openlocfilehash: 3a206a7aabee9f75524ab4715afa30ec05c612bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d01ac7d5b01f485c3b0100c468332475a9bd4274
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91328056"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978536"
 ---
 # <a name="troubleshooting-shared-image-galleries-in-azure"></a>Solução de problemas de galerias de imagens compartilhadas no Azure
 
@@ -79,7 +79,7 @@ Possíveis causas:
 
 *O usuário que está tentando criar uma VM ou um conjunto de dimensionamento de máquinas virtuais ou não tem acesso de leitura para a versão da imagem.*
 
-Entre em contato com o proprietário da assinatura e peça para conceder acesso de leitura à versão da imagem ou aos recursos pai (como a Galeria de imagens compartilhada ou definição de imagem) por meio do [controle de acesso baseado em função do Azure (RBAC do Azure)](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles). 
+Entre em contato com o proprietário da assinatura e peça para conceder acesso de leitura à versão da imagem ou aos recursos pai (como a Galeria de imagens compartilhada ou definição de imagem) por meio do [controle de acesso baseado em função do Azure (RBAC do Azure)](../role-based-access-control/rbac-and-directory-admin-roles.md). 
 
 *A versão da imagem não foi encontrada.*
 
@@ -91,7 +91,7 @@ Verifique se o **OSType** da versão da imagem da qual você está tentando cria
 
 ## <a name="unable-to-share-resources"></a>Não é possível compartilhar recursos
 
-O compartilhamento de galeria de imagens compartilhada, definição de imagem e recursos de versão de imagem entre assinaturas é habilitado usando o Azure [RBAC (controle de acesso baseado em função do Azure)](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles). 
+O compartilhamento de galeria de imagens compartilhada, definição de imagem e recursos de versão de imagem entre assinaturas é habilitado usando o Azure [RBAC (controle de acesso baseado em função do Azure)](../role-based-access-control/rbac-and-directory-admin-roles.md). 
 
 ## <a name="replication-is-slow"></a>A replicação é lenta
 
@@ -99,7 +99,7 @@ Use o sinalizador **--expand ReplicationStatus** para verificar se a replicaçã
 
 ## <a name="azure-limits-and-quotas"></a>Limites e cotas do Azure 
 
-[Limites e cotas do Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) se aplicam a todos os recursos de versão de imagem, definição da imagem e galeria de imagens compartilhadas. Fique dentro dos limites para suas assinaturas. 
+[Limites e cotas do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md) se aplicam a todos os recursos de versão de imagem, definição da imagem e galeria de imagens compartilhadas. Fique dentro dos limites para suas assinaturas. 
 
 
 ## <a name="next-steps"></a>Próximas etapas

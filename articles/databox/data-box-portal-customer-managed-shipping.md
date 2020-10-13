@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: how-to
 ms.date: 08/12/2020
 ms.author: alkohli
-ms.openlocfilehash: cfa2dee41f07e273d933da356f74063453cb1775
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b09176ad8cb93d7710975b67de619b4f58eaa2f0
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88142529"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951903"
 ---
 # <a name="use-self-managed-shipping-for-azure-data-box-in-the-azure-portal"></a>Use a remessa autogerenciada para Azure Data Box no portal do Azure
 
@@ -41,7 +41,7 @@ Ao fazer o pedido do Data Box, você pode escolher a opção de remessa autogere
 2. Ao escolher tipo de remessa, selecione a opção **Remessa autogerenciada**. Essa opção só estará disponível se você estiver em uma região com suporte, conforme descrito em pré-requisitos.
 
 3. Depois de fornecer seu endereço para remessa, você precisará validá-lo e concluir seu pedido.
-   ![Remessa autogerenciada](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
+   ![Envio autogerenciado 2](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
 
 4. Depois que o dispositivo tiver sido preparado e você receber uma notificação por email para ele, você poderá agendar uma retirada.
 
@@ -78,7 +78,7 @@ Ao fazer o pedido do Data Box, você pode escolher a opção de remessa autogere
 
 9. Se você tiver recebido um agendamento para a retirada, o pedido deverá estar no estado **Pronto para receber no data center do Azure** no portal do Azure. Siga as instruções em **Agendar a devolução** para devolver o dispositivo.
 
-   ![Exibir seu código de autorização](media\data-box-portal-customer-managed-shipping\data-box-portal-received-complete-02b.png)
+   ![Exibindo seu código de autorização 2](media\data-box-portal-customer-managed-shipping\data-box-portal-received-complete-02b.png)
 
 10. Depois que a ID e o código de autorização são verificados e você removeu o dispositivo no datacenter, o status do pedido deve ser **Recebido**.
 

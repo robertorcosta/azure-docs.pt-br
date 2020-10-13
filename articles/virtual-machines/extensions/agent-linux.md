@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2237b0b0d0c1f6e95e100743b377f9c04f57210f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19b9259b55332d9f31fdefd166f0509e5443628d
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89279696"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91965804"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Noções básicas e uso do Agente Linux do Azure
 
@@ -93,7 +93,7 @@ O agente do Linux depende de alguns pacotes de sistema para funcionar corretamen
 * Ferramentas de rede: roteamento ip
 * Suporte a kernel para montar sistemas de arquivos UDF.
 
-Verifique se sua VM tem acesso ao endereço IP 168.63.129.16. Para obter mais informações, consulte [o que é o endereço IP 168.63.129.16](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16).
+Verifique se sua VM tem acesso ao endereço IP 168.63.129.16. Para obter mais informações, consulte [o que é o endereço IP 168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md).
 
 
 ## <a name="installation"></a>Instalação

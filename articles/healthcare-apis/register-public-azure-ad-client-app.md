@@ -8,18 +8,20 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: 6671b8aa60690bc1915e297bc31b19299be2b1da
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: f39fb5766965e3881068bd6d2fd3a8142f9eb2ac
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91629073"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975902"
 ---
 # <a name="register-a-public-client-application-in-azure-active-directory"></a>Registrar um aplicativo cliente público no Azure Active Directory
 
 Neste artigo, você aprenderá a registrar um aplicativo público em Azure Active Directory.  
 
 Os registros de aplicativo cliente são Azure Active Directory representações de aplicativos que podem autenticar e solicitar permissões de API em nome de um usuário. Clientes públicos são aplicativos como aplicativos móveis e aplicativos JavaScript de página única que não podem manter segredos confidenciais. O procedimento é semelhante ao [registro de um cliente confidencial](register-confidential-azure-ad-client-app.md), mas como os clientes públicos não podem ser confiáveis para manter um segredo do aplicativo, não há necessidade de adicionar um.
+
+O guia de início rápido fornece informações gerais sobre como [registrar um aplicativo com a plataforma de identidade da Microsoft](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app).
 
 ## <a name="app-registrations-in-azure-portal"></a>Registros de aplicativo em portal do Azure
 
@@ -38,6 +40,18 @@ Os registros de aplicativo cliente são Azure Active Directory representações 
 2. Forneça uma URL de resposta. A URL de resposta é onde os códigos de autenticação serão retornados ao aplicativo cliente. Você pode adicionar mais URLs de resposta e editar as existentes posteriormente.
 
     ![portal do Azure. Novo registro de aplicativo público.](media/how-to-aad/portal-aad-register-new-app-registration-PUB-CLIENT-NAME.png)
+
+
+Para configurar seu aplicativo de [área de trabalho](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration), [móvel](https://docs.microsoft.com/azure/active-directory/develop/scenario-mobile-app-registration) ou [de página única](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-app-registration) como aplicativo público:
+
+1. Na [portal do Azure](https://portal.azure.com), em **registros de aplicativo**, selecione seu aplicativo e, em seguida, selecione **autenticação**.
+
+2. Selecione **Configurações avançadas**  >  **tipo de cliente padrão**. Para **tratar aplicativo como um cliente público**, selecione **Sim**.
+
+3. Para um aplicativo de página única, selecione **tokens de acesso** e **tokens de ID** para habilitar o fluxo implícito.
+
+   - Se o seu aplicativo conectar usuários, selecione **Tokens de ID**.
+   - Se o seu aplicativo também precisar chamar uma API Web protegida, selecione **Tokens de acesso**.
 
 ## <a name="api-permissions"></a>Permissões de API
 

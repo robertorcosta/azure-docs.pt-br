@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 405ebbbfa4a662dd9ee3c8d10dde8f28e5ce9c66
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f23e2c58ae25fefb8508474921e476163b33e79
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87830437"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978417"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>VMs do Azure Disk Encryption para Linux 
 
@@ -26,7 +26,7 @@ Se você usar a [Central de Segurança do Azure](../../security-center/index.yml
 > [!WARNING]
 > - Se você já tiver usado o Azure Disk Encryption com o Azure AD anteriormente para criptografar uma VM, deverá continuar usando essa opção para criptografar a VM. Confira [Azure Disk Encryption com o Azure AD (versão anterior)](disk-encryption-overview-aad.md) para detalhes. 
 > - Determinadas recomendações podem aumentar o uso de recursos de dados, rede ou computação, resultando em custos adicionais de licença ou inscrição. Você deve ter uma assinatura ativa válida do Azure para criar recursos no Azure nas regiões com suporte.
-> - Atualmente, as VMs de geração 2 não são compatíveis com o Azure Disk Encryption. Confira [Suporte para VMs de geração 2 no Azure](../windows/generation-2.md) para obter detalhes.
+> - Atualmente, as VMs de geração 2 não são compatíveis com o Azure Disk Encryption. Confira [Suporte para VMs de geração 2 no Azure](../generation-2.md) para obter detalhes.
 
 Você pode aprender os conceitos básicos do Azure Disk Encryption para Linux em apenas alguns minutos com o [Início rápido: criar e criptografar uma VM do Linux com CLI do Azure](disk-encryption-cli-quickstart.md) ou o [Início rápido: criar e criptografar uma VM do Linux com o Azure PowerShell](disk-encryption-powershell-quickstart.md).
 
@@ -46,7 +46,7 @@ Quando o processo de criptografia de disco do sistema operacional for concluído
 
 O Azure Disk Encryption também está disponível para VMs com armazenamento premium.
 
-O Azure Disk Encryption não está disponível em [VMs de Geração 2](generation-2.md#generation-1-vs-generation-2-capabilities)) e [VMs da série Lsv2](../lsv2-series.md)). Para obter mais exceções, consulte [Azure Disk Encryption: Cenários sem suporte](disk-encryption-linux.md#unsupported-scenarios).
+Azure Disk Encryption não está disponível em VMs de [geração 2](../generation-2.md#generation-1-vs-generation-2-capabilities) e em [VMs da série Lsv2](../lsv2-series.md). Para obter mais exceções, consulte [Azure Disk Encryption: Cenários sem suporte](disk-encryption-linux.md#unsupported-scenarios).
 
 ### <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
 

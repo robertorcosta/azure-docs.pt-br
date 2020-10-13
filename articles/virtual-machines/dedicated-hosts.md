@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 07/28/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: 351b10b68cf1c014d358032f41bb01ac1093bd68
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b407ae18316071d77cc87992a70a4fba857ab64
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91373058"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91979012"
 ---
 # <a name="azure-dedicated-hosts"></a>Hosts dedicados do Azure
 
@@ -122,7 +122,7 @@ Nem todas as configurações de orquestração e otimizações de conjunto de es
 
 O **controle de manutenção** fornece aos clientes uma opção para ignorar atualizações de plataforma regulares agendadas em seus hosts dedicados e, em seguida, aplicá-las no momento de sua escolha dentro de uma janela sem interrupção de 35 dias.
 
-Para obter mais informações, consulte [gerenciando atualizações de plataforma com o controle de manutenção](https://docs.microsoft.com/azure/virtual-machines/maintenance-control).
+Para obter mais informações, consulte [gerenciando atualizações de plataforma com o controle de manutenção](./maintenance-control.md).
 
 ## <a name="capacity-considerations"></a>Considerações sobre a capacidade
 
@@ -142,7 +142,7 @@ O provisionamento de um host dedicado consumirá o host dedicado vCPU e a cota d
 
 ![Captura de tela da página uso e cotas no portal](./media/virtual-machines-common-dedicated-hosts/quotas.png)
 
-Para obter mais informações, consulte [cotas de vCPU de máquina virtual](/azure/virtual-machines/windows/quotas).
+Para obter mais informações, consulte [cotas de vCPU de máquina virtual](./windows/quotas.md).
 
 A avaliação gratuita e as assinaturas do MSDN não têm cota para hosts dedicados do Azure.
 
@@ -182,7 +182,7 @@ O Azure monitora e gerencia o status de integridade de seus hosts. Os seguintes 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Você pode implantar um host dedicado usando [Azure PowerShell](./windows/dedicated-hosts-powershell.md), o [portal](./windows/dedicated-hosts-portal.md)e o [CLI do Azure](./linux/dedicated-hosts-cli.md).
+- Você pode implantar um host dedicado usando [Azure PowerShell](./windows/dedicated-hosts-powershell.md), o [portal](./dedicated-hosts-portal.md)e o [CLI do Azure](./linux/dedicated-hosts-cli.md).
 
 - Há um exemplo de modelo, [aqui](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md), que usa zonas e domínios de falha para obter resiliência máxima em uma região.
 

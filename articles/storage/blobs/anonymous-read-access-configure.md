@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/08/2020
+ms.date: 10/09/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: 3a585bc2bf3872a21bde9be036628922ee5743fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7248dff25af4693f7f264c8cbf42236612dddda0
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "90087347"
+ms.locfileid: "91931063"
 ---
 # <a name="configure-anonymous-public-read-access-for-containers-and-blobs"></a>Configurar acesso de leitura público anônimo para contêineres e blobs
 
@@ -56,9 +56,9 @@ Para permitir ou impedir o acesso público para uma conta de armazenamento, conf
 > [!NOTE]
 > A propriedade **AllowBlobPublicAccess** não é definida por padrão e não retorna um valor até que você a defina explicitamente. A conta de armazenamento permite acesso público quando o valor da propriedade é **nulo** ou quando é **verdadeiro**.
 >
-> Atualmente, a propriedade **AllowBlobPublicAccess** está disponível somente para contas de armazenamento na nuvem pública do Azure.
+> A propriedade **AllowBlobPublicAccess** está disponível para todas as contas de armazenamento na nuvem pública do Azure e nas nuvens do Azure governamental.
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
 Para permitir ou impedir o acesso público para uma conta de armazenamento no portal do Azure, siga estas etapas:
 
@@ -193,7 +193,7 @@ Quando o acesso público é permitido para uma conta de armazenamento, você pod
 
 Você não pode alterar o nível de acesso público para um blob individual. O nível de acesso público é definido somente no nível de contêiner. Você pode definir o nível de acesso público do contêiner ao criar o contêiner ou pode atualizar a configuração em um contêiner existente.
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
 Para atualizar o nível de acesso público para um ou mais contêineres existentes no portal do Azure, siga estas etapas:
 

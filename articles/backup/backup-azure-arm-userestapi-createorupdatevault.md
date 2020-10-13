@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
 ms.openlocfilehash: a37808548ec58977b7d6af16c75b94b7b5efe446
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91271589"
 ---
 # <a name="create-azure-recovery-services-vault-using-rest-api"></a>Criar um cofre dos serviços de recuperação do Azure usando a API REST
@@ -40,8 +40,8 @@ As definições comuns a seguir são usadas para criar um corpo de solicitação
 
 |Nome  |Obrigatório  |Type  |Descrição  |
 |---------|---------|---------|---------|
-|eTag     |         |   String      |  eTag Opcional       |
-|local     |  true       |String         |   Localização do recurso      |
+|eTag     |         |   Cadeia de caracteres      |  eTag Opcional       |
+|local     |  true       |Cadeia de caracteres         |   Localização do recurso      |
 |properties     |         | [VaultProperties](/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Propriedades do cofre       |
 |sku     |         |  [Sku](/rest/api/recoveryservices/vaults/createorupdate#sku)       |    Identifica o identificador exclusivo do sistema para cada recurso do Azure     |
 |marcas     |         | Objeto        |     Marcações de recursos    |

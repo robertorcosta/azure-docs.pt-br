@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 05/30/2017
 ms.author: genli
-ms.openlocfilehash: 678bad67b454ec0930d2cf30df45ba7b2c822e35
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43e2f1c304a2ede10445fa656dbdd16a4b60ca3c
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91371449"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978944"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Solucionar problemas em conexões SSH com uma VM Linux do Azure que falha, apresenta erro ou é recusada
 Este artigo ajuda a encontrar e corrigir os problemas que ocorrem em razão de erros do Secure Shell (SSH), falhas na conexão de SSH ou quando o SSH é recusado ao tentar se conectar a uma máquina virtual (VM) Linux. Você pode usar o portal do Azure, a CLI do Azure ou a Extensão de Acesso da VM para Linux para solucionar problemas de conexão.
@@ -46,7 +46,7 @@ Caso você precise de etapas e explicações mais detalhadas para solução de p
 Você pode redefinir as credenciais ou configuração de SSH usando um dos seguintes métodos:
 
 * [Portal do Azure](#use-the-azure-portal) – excelente se você precisar redefinir rapidamente as credenciais de usuário ou configurações de SSH ou chave SSH e não tiver as Ferramentas do Azure instaladas.
-* [Console serial da VM do Azure](https://aka.ms/serialconsolelinux) -o console serial da VM funcionará independentemente da configuração do SSH e fornecerá a você um console interativo para sua VM. Na verdade, as situações "não é SSH" são especificamente o que o console serial foi projetado para ajudar a solucioná-lo. Mais detalhes abaixo.
+* [Console serial da VM do Azure](./serial-console-linux.md) -o console serial da VM funcionará independentemente da configuração do SSH e fornecerá a você um console interativo para sua VM. Na verdade, as situações "não é SSH" são especificamente o que o console serial foi projetado para ajudar a solucioná-lo. Mais detalhes abaixo.
 * [CLI do Azure](#use-the-azure-cli) - se você já estiver na linha de comando, redefina rapidamente a configuração ou as credenciais do SSH. Se você estiver trabalhando com uma VM clássica, poderá usar a [CLI clássica do Azure](#use-the-azure-classic-cli).
 * [Extensão VMAccessForLinux do Azure](#use-the-vmaccess-extension) – criar e reutilizar os arquivos de definição json para redefinir as credenciais de usuário ou configuração do SSH.
 

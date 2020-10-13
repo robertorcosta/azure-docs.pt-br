@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/02/2020
+ms.date: 10/09/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: 0ed8b04353c50bff53d074ebdb1efa2a286c8e59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d843440adc61b315616a05f223c5a13ebe271ed
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "90086565"
+ms.locfileid: "91930825"
 ---
 # <a name="prevent-anonymous-public-read-access-to-containers-and-blobs"></a>Impedir acesso de leitura público anônimo a contêineres e blobs
 
@@ -70,6 +70,9 @@ Os logs de armazenamento do Azure capturam detalhes sobre as solicitações feit
 Para registrar solicitações em log para sua conta de armazenamento do Azure para avaliar solicitações anônimas, você pode usar o log de armazenamento do Azure no Azure Monitor (versão prévia). Para obter mais informações, consulte [monitorar o armazenamento do Azure](../common/monitor-storage.md).
 
 O log de armazenamento do Azure no Azure Monitor dá suporte ao uso de consultas de log para analisar dados de log. Para consultar logs, você pode usar um espaço de trabalho de Log Analytics do Azure. Para saber mais sobre consultas de log, consulte [tutorial: introdução às consultas de log Analytics](../../azure-monitor/log-query/get-started-portal.md).
+
+> [!NOTE]
+> Há suporte para a visualização do log de armazenamento do Azure no Azure Monitor apenas na nuvem pública do Azure. As nuvens governamentais não dão suporte ao registro em log para o armazenamento do Azure com Azure Monitor.
 
 #### <a name="create-a-diagnostic-setting-in-the-azure-portal"></a>Criar uma configuração de diagnóstico no portal do Azure
 
