@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
 ms.openlocfilehash: 2e27b168087966701fb53cc8df19d264861257d6
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448106"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Vários front-ends para Azure Load Balancer
@@ -69,7 +69,7 @@ Definimos duas regras:
 
 O mapeamento completo no Azure Load Balancer agora é o seguinte:
 
-| Regra | Endereço IP de front-end | protocolo | porta | Destination | porta |
+| Regra | Endereço IP de front-end | protocolo | porta | Destino | porta |
 | --- | --- | --- | --- | --- | --- |
 | ![regra de verde](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |Endereço IP DIP |80 |
 | ![regra de roxo](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |65.52.0.2 |TCP |80 |Endereço IP DIP |81 |
@@ -148,7 +148,7 @@ Definimos duas regras:
 
 A tabela a seguir mostra o mapeamento completo no balanceador de carga:
 
-| Regra | Endereço IP de front-end | protocolo | porta | Destination | porta |
+| Regra | Endereço IP de front-end | protocolo | porta | Destino | porta |
 | --- | --- | --- | --- | --- | --- |
 | ![regra de verde](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |mesmo que front-end (65.52.0.1) |mesmo que front-end (80) |
 | ![regra de roxo](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |65.52.0.2 |TCP |80 |mesmo que front-end (65.52.0.2) |mesmo que front-end (80) |

@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: yelevin
 ms.openlocfilehash: 17c0ba7306ab4cc51fe8bbe3709d5b6bc85fa487
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91341229"
 ---
 # <a name="bring-your-own-machine-learning-ml-into-azure-sentinel"></a>Traga seu próprio Machine Learning (ML) para o Azure Sentinel
@@ -159,13 +159,13 @@ Depois de obter a pontuação agendada, você poderá usar o módulo no bloco de
 
 Para ver os resultados pontuados junto com os detalhes de log relacionados, volte para o portal do Azure Sentinel. Em **logs** > logs personalizados, você verá os resultados na tabela **AnomalousResourceAccessResult_CL** (ou seu próprio nome de tabela personalizado). Você pode usar esses resultados para aprimorar suas experiências de investigação e busca.
 
-:::image type="content" source="./media/bring-your-own-ml/anomalous-resource-access-logs.png" alt-text="logs de acesso a recursos anormais":::
+:::image type="content" source="./media/bring-your-own-ml/anomalous-resource-access-logs.png" alt-text="estrutura do Machine Learning":::
 
 ### <a name="build-custom-analytics-rule-with-ml-results"></a>Criar regra de análise personalizada com resultados de ML
 
 Depois de confirmar que os resultados de ML estão na tabela de logs personalizados e você estiver satisfeito com a fidelidade das pontuações, poderá criar uma detecção com base nos resultados. Vá para **análise** no portal do Azure Sentinel e [crie uma nova regra de detecção](tutorial-detect-threats-custom.md). Veja abaixo um exemplo que mostra a consulta usada para criar a detecção.
 
-:::image type="content" source="./media/bring-your-own-ml/create-byo-ml-analytics-rule.png" alt-text="Criar regra de análise personalizada para as detecções de B s M L":::
+:::image type="content" source="./media/bring-your-own-ml/create-byo-ml-analytics-rule.png" alt-text="estrutura do Machine Learning":::
 
 ### <a name="view-and-respond-to-incidents"></a>Exibir e responder a incidentes
 Depois de configurar a regra de análise com base nos resultados de ML, se houver resultados acima do limite definido na consulta, um incidente será gerado e exibido na página **incidentes** no Azure Sentinel. 

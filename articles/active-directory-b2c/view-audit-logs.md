@@ -13,10 +13,10 @@ ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 4fc25edb873a2dfe84f6ca716a71cf028c74cb2f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85383930"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Acessando os logs de auditoria do Microsoft Azure Active Directory B2C
@@ -57,9 +57,9 @@ O painel detalhes da atividade contém as seguintes informações relevantes:
 | Iniciado por (ator) | ObjectId | A **ID de objeto** do aplicativo B2C ao qual o usuário está se conectando. Esse identificador não é visível no portal do Azure, mas pode ser acessado por meio da API do Microsoft Graph. |
 | Iniciado por (ator) | SPNs | A **ID do aplicativo** B2C para o qual o usuário está entrando. |
 | Destino(s) | ObjectId | A **ID de objeto** do usuário que está entrando. |
-| Detalhes adicionais | TenantId | A **ID do locatário** do locatário do Azure ad B2C. |
-| Detalhes adicionais | PolicyId | A **ID de política** do fluxo do usuário (política) que está sendo usada para conectar o usuário. |
-| Detalhes adicionais | ApplicationId | A **ID do aplicativo** B2C para o qual o usuário está entrando. |
+| Additional Details | TenantId | A **ID do locatário** do locatário do Azure ad B2C. |
+| Additional Details | PolicyId | A **ID de política** do fluxo do usuário (política) que está sendo usada para conectar o usuário. |
+| Additional Details | ApplicationId | A **ID do aplicativo** B2C para o qual o usuário está entrando. |
 
 ## <a name="view-audit-logs-in-the-azure-portal"></a>Exibir logs de auditoria no portal do Azure
 

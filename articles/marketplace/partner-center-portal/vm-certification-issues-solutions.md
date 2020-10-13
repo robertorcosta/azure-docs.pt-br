@@ -8,10 +8,10 @@ author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 06/16/2020
 ms.openlocfilehash: d724ef463d7c7ad237b5fd023e9c15f50de96f04
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91803459"
 ---
 # <a name="common-issues-when-certifying-virtual-machine-images-for-azure-marketplace"></a>Problemas comuns ao certificar imagens de máquina virtual para o Azure Marketplace
@@ -46,7 +46,7 @@ Para habilitar as extensões de VM, faça o seguinte:
 1. Selecione sua VM do Linux.
 1. Vá para **configurações de diagnóstico**.
 1. Habilite matrizes base atualizando a **conta de armazenamento**.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
    ![Habilitar o monitoramento no nível do convidado](./media/vm-certification-issues-solutions-1.png)
 
@@ -217,7 +217,7 @@ Se a imagem não estiver instalada com uma das seguintes versões de kernel, atu
 ||7.2|3.10.0-327.79.2|
 ||7.3|3.10.0-514.66.2|
 ||7.4|3.10.0-693.50.3|
-||7.5|3.10.0-862.34.2|
+||7,5|3.10.0-862.34.2|
 ||7.6|3.10.0-957.21.3|
 ||7.7|3.10.0-1062.1.1|
 ||8.0|4.18.0-80.4.2|
@@ -338,7 +338,7 @@ Etapa 3. Após executar o comando com êxito, reinicie a VM.
 
 Etapa 4. Generalizar a VM, pegar o VHD da imagem e parar a VM.
 
-Etapa 5.     Envie novamente a imagem generalizada.
+Etapa 5.     Re-Submit a imagem generalizada.
 
 ## <a name="requesting-exceptions-custom-templates-on-vm-images-for-selective-tests"></a>Solicitando exceções (modelos personalizados) em imagens de VM para testes seletivos
 

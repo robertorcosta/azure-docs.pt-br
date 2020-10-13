@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
 ms.openlocfilehash: 02ec24677519902c299babb72e089f75dcf8b34b
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91443044"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Implantar um serviço de mesclagem dividida para mover dados entre bancos de dados compartilhados
@@ -39,7 +39,7 @@ Os arquivos são colocados em um diretório chamado **Microsoft.Azure.SqlDatabas
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-1. Crie um banco de dados do banco de dados SQL do Azure que será usado como o banco de dados de status de divisão/mesclagem. Acesse o [portal do Azure](https://portal.azure.com). Crie um novo **banco de dados SQL**. Nomeie o banco de dados e crie um novo administrador e uma senha. Certifique-se de registrar o nome e a senha para uso posterior.
+1. Crie um banco de dados do banco de dados SQL do Azure que será usado como o banco de dados de status de divisão/mesclagem. Vá para o [Portal do Azure](https://portal.azure.com). Crie um novo **banco de dados SQL**. Nomeie o banco de dados e crie um novo administrador e uma senha. Certifique-se de registrar o nome e a senha para uso posterior.
 
 1. Verifique se o servidor permite que os serviços do Azure se conectem a ele. No portal, em **Configurações de Firewall**, verifique se a configuração **Permitir acesso aos Serviços do Azure** foi definida como **Ativada**. Clique no botão “Salvar”.
 
@@ -108,7 +108,7 @@ Execute o seguinte comando na mesma janela onde o makecert foi executado; use a 
 
 ### <a name="upload-the-pfx-file-to-the-cloud-service"></a>Carregue o arquivo PFX para o serviço de nuvem
 
-1. Acesse o [portal do Azure](https://portal.azure.com).
+1. Vá para o [Portal do Azure](https://portal.azure.com).
 2. Selecione **Serviços de Nuvem**.
 3. Selecione o serviço de nuvem criado anteriormente para o serviço de Divisão/Mesclagem.
 4. Clique em **Certificados** no menu superior.

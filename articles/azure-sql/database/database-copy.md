@@ -12,10 +12,10 @@ ms.author: sashan
 ms.reviewer: ''
 ms.date: 07/29/2020
 ms.openlocfilehash: 45544d246f1390271300d5ffa1fff1fdc5d9317f
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91443779"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Copiar uma cópia transacionalmente consistente de um banco de dados no banco de dados SQL do Azure
@@ -29,7 +29,7 @@ O banco de dados SQL do Azure fornece vários métodos para criar uma cópia de 
 Uma cópia de banco de dados é um instantâneo transacionalmente consistente do banco de dados de origem a partir de um ponto no tempo depois que a solicitação de cópia é iniciada. Você pode selecionar o mesmo servidor ou um servidor diferente para a cópia. Além disso, você pode optar por manter a redundância de backup, a camada de serviço e o tamanho de computação do banco de dados de origem, ou usar uma redundância de armazenamento de backup diferente e/ou o tamanho de computação na mesma camada de serviço ou em outra. Após a conclusão da cópia, a cópia se tornará um banco de dados independente e totalmente funcional. Os logons, os usuários e as permissões no banco de dados copiado são gerenciados independentemente do banco de dados de origem. A cópia é criada usando a tecnologia de replicação geográfica. Depois que a propagação de réplica for concluída, o link de replicação geográfica será encerrado automaticamente. Todos os requisitos para usar a replicação geográfica se aplicam à operação de cópia do banco de dados. Consulte [visão geral da replicação geográfica ativa](active-geo-replication-overview.md) para obter detalhes.
 
 > [!NOTE]
-> A redundância de armazenamento de backup configurável do banco de dados SQL do Azure está disponível atualmente somente na visualização pública na região do sudeste asiático do Azure. Na visualização, se o banco de dados de origem for criado com redundância de armazenamento de backup com redundância local ou de zona, a cópia de banco de dados para um servidor em uma região diferente do Azure não terá suporte. 
+> Atualmente, a redundância do armazenamento de backup configurável do Banco de Dados SQL do Azure só está disponível na versão prévia pública na região Sudeste da Ásia do Azure. Na visualização, se o banco de dados de origem for criado com redundância de armazenamento de backup com redundância local ou de zona, a cópia de banco de dados para um servidor em uma região diferente do Azure não terá suporte. 
 
 ## <a name="logins-in-the-database-copy"></a>Logons na cópia do banco de dados
 
@@ -56,7 +56,7 @@ Para copiar um banco de dados, use os exemplos a seguir.
 Para o PowerShell, use o cmdlet [New-AzSqlDatabaseCopy](/powershell/module/az.sql/new-azsqldatabasecopy) .
 
 > [!IMPORTANT]
-> O módulo Azure Resource Manager do PowerShell (RM) ainda tem suporte do banco de dados SQL do Azure, mas todo o desenvolvimento futuro é para o módulo AZ. Sql. O módulo AzureRM continuará a receber correções de bugs até pelo menos dezembro de 2020.  Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos. Para obter mais informações sobre sua compatibilidade, consulte [apresentando o novo módulo Azure PowerShell AZ](/powershell/azure/new-azureps-module-az).
+> O módulo Azure Resource Manager do PowerShell (RM) ainda tem suporte do banco de dados SQL do Azure, mas todo o desenvolvimento futuro é para o módulo AZ. Sql. O módulo AzureRM continuará a receber as correções de bugs até pelo menos dezembro de 2020.  Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos. Para saber mais sobre a compatibilidade entre eles, confira [Apresentação do novo módulo Az do Azure PowerShell](/powershell/azure/new-azureps-module-az).
 
 ```powershell
 New-AzSqlDatabaseCopy -ResourceGroupName "<resourceGroup>" -ServerName $sourceserver -DatabaseName "<databaseName>" `
@@ -128,7 +128,7 @@ Você pode usar as etapas na seção [copiar um banco de dados SQL para um servi
 
 ## <a name="monitor-the-progress-of-the-copying-operation"></a>Monitorar o andamento da operação de cópia
 
-Monitore o processo de cópia consultando as exibições [Sys. databases](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql), [Sys. dm_database_copies](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-copies-azure-sql-database)e [Sys. dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) . Enquanto a cópia estiver em andamento, a coluna **state_desc** da exibição sys.databases para o novo banco de dados é definida como **COPYING**.
+Monitore o processo de cópia consultando os modos de exibição [Sys. databases](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql), [Sys.dm_database_copies](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-copies-azure-sql-database)e [Sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) . Enquanto a cópia estiver em andamento, a coluna **state_desc** da exibição sys.databases para o novo banco de dados é definida como **COPYING**.
 
 * Se a cópia falhar, a coluna **state_desc** da exibição sys.databases para o novo banco de dados será definida como **SUSPECT**. Execute a instrução DROP no novo banco de dados e tente novamente mais tarde.
 * Se a cópia for bem-sucedida, a coluna **state_desc** da exibição sys.databases para o novo banco de dados será definida como **ONLINE**. A cópia foi concluída e o novo banco de dados é um banco de dados normal, capaz de ser alterado de forma independente do banco de dados de origem.
@@ -177,7 +177,7 @@ Para saber mais sobre como gerenciar usuários e logons ao copiar um banco de da
 
 Os erros a seguir podem ser encontrados durante a cópia de um banco de dados no Banco de Dados SQL do Azure. Para saber mais, confira [Copiar um Banco de Dados SQL do Azure](database-copy.md).
 
-| Código do erro | Severidade | Descrição |
+| Código do erro | Gravidade | Descrição |
 | ---:| ---:|:--- |
 | 40635 |16 |O cliente com endereço IP “%.&#x2a;ls” está desabilitado temporariamente. |
 | 40637 |16 |A criação da cópia do banco de dados está desabilitada no momento. |

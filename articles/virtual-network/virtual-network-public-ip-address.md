@@ -18,10 +18,10 @@ ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: kumud
 ms.openlocfilehash: 92e71a8c08ef2c64509d7e00b0c43abdd58cf036
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91804020"
 ---
 # <a name="manage-public-ip-addresses"></a>Gerenciar endereços IP públicos
@@ -82,8 +82,8 @@ Para obter detalhes adicionais sobre os atributos específicos de um endereço I
    
 |Operação|Portal do Azure|Azure PowerShell|CLI do Azure|
 |---|---|---|---|
-|Exibir | Na seção **visão geral** de um IP público |[Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) para recuperar um objeto de endereço IP público e exibir suas configurações| [AZ Network Public-IP show](/cli/azure/network/public-ip#az-network-public-ip-show) para mostrar as configurações|
-|List | Na categoria **endereços IP públicos** |[Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) para recuperar um ou mais objetos de endereço IP público e exibir suas configurações|[AZ Network Public-IP List](/cli/azure/network/public-ip#az-network-public-ip-list) para listar endereços IP públicos|
+|Visualizar | Na seção **visão geral** de um IP público |[Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) para recuperar um objeto de endereço IP público e exibir suas configurações| [AZ Network Public-IP show](/cli/azure/network/public-ip#az-network-public-ip-show) para mostrar as configurações|
+|Lista | Na categoria **endereços IP públicos** |[Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) para recuperar um ou mais objetos de endereço IP público e exibir suas configurações|[AZ Network Public-IP List](/cli/azure/network/public-ip#az-network-public-ip-list) para listar endereços IP públicos|
 |Modificar | Para um IP dissociado, selecione **configuração** para modificar o tempo limite de ociosidade, rótulo de nome DNS ou alterar a atribuição de IP básico de estático para dinâmico  |[Set-AzPublicIpAddress](/powershell/module/az.network/set-azpublicipaddress) para atualizar as configurações |[AZ Network Public-IP Update](/cli/azure/network/public-ip#az-network-public-ip-update) para atualizar |
 
    - **Excluir**: a exclusão de IPS públicos requer que o objeto IP público não seja associado a nenhuma configuração de IP ou NIC de máquina virtual. Consulte a tabela abaixo para obter mais detalhes.

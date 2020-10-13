@@ -12,10 +12,10 @@ author: peterclu
 ms.date: 07/16/2020
 ms.custom: contperfq4, tracking-python, contperfq1
 ms.openlocfilehash: 6e7499d8402bf31d5ecc4d1b212c08b7064d0446
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91629719"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>Proteger um ambiente de treinamento Azure Machine Learning com redes virtuais
@@ -171,7 +171,7 @@ Há duas maneiras de fazer isso:
         ```
 
         > [!TIP]
-        > Se você estiver usando as regiões de US-Virgínia, EUA-Arizona ou China-East-2, esses comandos não retornarão endereços IP. Em vez disso, use um dos links a seguir para baixar uma lista de endereços IP:
+        > Se você estiver usando as regiões US-Virgínia, US-Arizona regiões ou China-East-2, esses comandos não retornarão endereços IP. Em vez disso, use um dos links a seguir para baixar uma lista de endereços IP:
         >
         > * [Intervalos de IP do Azure e marcas de serviço para o Azure governamental](https://www.microsoft.com/download/details.aspx?id=57063)
         > * [Intervalos de IP do Azure e marcas de serviço para o Azure China](https://www.microsoft.com//download/details.aspx?id=57062)

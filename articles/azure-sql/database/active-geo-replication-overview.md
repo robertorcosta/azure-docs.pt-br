@@ -12,10 +12,10 @@ ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/27/2020
 ms.openlocfilehash: 33ad1deff4d543564db1b52bce986b11758042c9
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91445069"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>Criando e usando a replicação geográfica ativa-banco de dados SQL do Azure
@@ -122,9 +122,9 @@ Os bancos de dados primário e secundário devem ter a mesma camada de serviço.
 
 Outra consequência de uma configuração secundária desbalanceada é que, após o failover, o desempenho do aplicativo pode ser afetado devido à capacidade de computação insuficiente do novo primário. Nesse caso, será necessário escalar verticalmente o objetivo do serviço de banco de dados para o nível necessário, o que pode levar tempo e recursos de computação significativos e exigirá um failover de [alta disponibilidade](high-availability-sla.md) no final do processo de escala vertical.
 
-Se você decidir criar o secundário com o tamanho de computação inferior, o gráfico de porcentagem de e/s de log no portal do Azure fornecerá uma boa maneira de estimar o tamanho mínimo de computação do secundário necessário para manter a carga de replicação. Por exemplo, se seu banco de dados primário for P6 (1000 DTU) e seu percentual de gravação de log for 50%, o secundário precisará ser pelo menos P4 (500 DTU). Para recuperar dados de e/s de log históricos, use a exibição [Sys. resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) . Para recuperar dados recentes de gravação de log com maior granularidade que reflete melhor os picos de curto prazo na taxa de log, use a exibição [Sys. dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) .
+Se você decidir criar o secundário com o tamanho de computação inferior, o gráfico de porcentagem de e/s de log no portal do Azure fornecerá uma boa maneira de estimar o tamanho mínimo de computação do secundário necessário para manter a carga de replicação. Por exemplo, se seu banco de dados primário for P6 (1000 DTU) e seu percentual de gravação de log for 50%, o secundário precisará ser pelo menos P4 (500 DTU). Para recuperar dados de e/s de log históricos, use a exibição [Sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) . Para recuperar dados recentes de gravação de log com maior granularidade que reflete melhor os picos de curto prazo na taxa de log, use [Sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) exibição.
 
-A limitação da taxa do log de transações no primário devido ao tamanho de computação inferior em um secundário é relatada usando o tipo de espera HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO, visível nas exibições de banco de dados [Sys. dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) e [Sys. dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) .
+A limitação da taxa do log de transações no primário devido ao tamanho de computação inferior em um secundário é relatada usando o tipo de espera HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO, visível nas exibições de [Sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) e [Sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) banco de dados.
 
 Por padrão, a redundância de armazenamento de backup do secundário é a mesma do banco de dados primário. Você pode optar por configurar o secundário com uma redundância de armazenamento de backup diferente. Os backups sempre são feitos no banco de dados primário. Se o secundário estiver configurado com uma redundância de armazenamento de backup diferente, após o failover quando o secundário for promovido para o primário, os backups serão cobrados de acordo com a redundância de armazenamento selecionada no novo primário (secundário anterior). 
 
@@ -132,7 +132,7 @@ Por padrão, a redundância de armazenamento de backup do secundário é a mesma
 > A taxa do log de transações no primário pode ser limitada por motivos não relacionados ao tamanho de computação inferior em um secundário. Esse tipo de limitação pode ocorrer mesmo se o secundário tiver o mesmo tamanho de computação ou maior do que o primário. Para obter detalhes, incluindo tipos de espera para diferentes tipos de limitação de taxa de log, consulte [governança de taxa de log de transações](resource-limits-logical-server.md#transaction-log-rate-governance).
 
 > [!NOTE]
-> A redundância de armazenamento de backup configurável do banco de dados SQL do Azure está disponível atualmente somente na visualização pública na região do sudeste asiático do Azure. Na versão prévia, se o banco de dados de origem for criado com redundância de backup redundante localmente ou de zona, a criação de um banco de dados secundário em uma região diferente do Azure não terá suporte. 
+> Atualmente, a redundância do armazenamento de backup configurável do Banco de Dados SQL do Azure só está disponível na versão prévia pública na região Sudeste da Ásia do Azure. Na versão prévia, se o banco de dados de origem for criado com redundância de backup redundante localmente ou de zona, a criação de um banco de dados secundário em uma região diferente do Azure não terá suporte. 
 
 Para obter mais informações sobre os tamanhos da computação do Banco de Dados SQL, confira [Quais são as Camadas de Serviço do Banco de Dados SQL](purchasing-models.md).
 
@@ -235,7 +235,7 @@ Devido à alta latência das redes de longa distância, a cópia contínua usa u
 
 ## <a name="monitoring-geo-replication-lag"></a>Monitorando o retardo da replicação geográfica
 
-Para monitorar o atraso em relação ao RPO, use *replication_lag_sec* coluna de [Sys. dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) no banco de dados primário. Ele mostra o retardo em segundos entre as transações confirmadas no primário e persistido no secundário. Por ex.: Se o valor da latência for de 1 segundo, isso significará que, se o primário for afetado por uma interrupção neste momento e o failover for iniciado, 1 segundo das transições mais recentes não será salva.
+Para monitorar o atraso em relação ao RPO, use *replication_lag_sec* coluna de [Sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) no banco de dados primário. Ele mostra o retardo em segundos entre as transações confirmadas no primário e persistido no secundário. Por ex.: Se o valor da latência for de 1 segundo, isso significará que, se o primário for afetado por uma interrupção neste momento e o failover for iniciado, 1 segundo das transições mais recentes não será salva.
 
 Para medir o retardo em relação às alterações no banco de dados primário que foram aplicadas no secundário, ou seja, disponíveis para leitura do secundário, compare *last_commit* tempo no banco de dados secundário com o mesmo valor no banco de dados primário.
 
@@ -299,7 +299,7 @@ Conforme discutido anteriormente, a replicação geográfica ativa pode ser gere
   - [Configurar e fazer failover de um banco de dados individual usando replicação geográfica ativa](scripts/setup-geodr-and-failover-database-powershell.md)
   - [Configurar e fazer failover de um banco de dados em pool usando replicação geográfica ativa](scripts/setup-geodr-and-failover-elastic-pool-powershell.md)
 - O Banco de Dados SQL do Azure também é compatível com grupos de failover automático. Para obter mais informações, confira [Usando grupos de failover automático](auto-failover-group-overview.md).
-- Para obter uma visão geral e os cenários de continuidade dos negócios, confira [Visão geral da continuidade dos negócios](business-continuity-high-availability-disaster-recover-hadr-overview.md)
+- Para uma visão geral e cenários de continuidade de negócios, consulte [visão geral da continuidade de negócios](business-continuity-high-availability-disaster-recover-hadr-overview.md)
 - Para saber mais sobre backups automatizados do Banco de Dados SQL do Azure, confira [Backups automatizados do Banco de Dados SQL](automated-backups-overview.md).
 - Para saber mais sobre como usar backups automatizados para recuperação, consulte [restaurar um banco de dados dos backups iniciados pelo serviço](recovery-using-backups.md).
 - Para saber mais sobre requisitos de autenticação para um novo servidor primário e banco de dados, consulte [Segurança do Banco de Dados SQL após a recuperação de desastres](active-geo-replication-security-configure.md).

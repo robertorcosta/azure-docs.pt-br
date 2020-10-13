@@ -5,32 +5,32 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 04/15/2020
 ms.openlocfilehash: 348c12e08a9bed98016ac825921b67836b32b9e9
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448062"
 ---
 # <a name="set-up-an-appliance-for-physical-servers"></a>Configurar um dispositivo para servidores físicos
 
 Este artigo descreve como configurar o dispositivo de migrações para Azure se você estiver avaliando servidores físicos com a ferramenta migrações para Azure: Server Assessment.
 
-O dispositivo de migrações para Azure é um dispositivo leve, usado pela avaliação de servidor de migrações para Azure para fazer o seguinte:
+O dispositivo das Migrações para Azure é um dispositivo leve, usado pela Avaliação de Servidor das Migrações para Azure com o objetivo de fazer o seguinte:
 
 - Descobrir servidores locais.
-- Enviar dados de desempenho e metadados para servidores descobertos para avaliação do Azure migrar servidor.
+- Enviar metadados e dados de desempenho para servidores descobertos para a Avaliação de Servidor das Migrações para Azure.
 
-[Saiba mais](migrate-appliance.md) sobre o dispositivo migrações para Azure.
+[Saiba mais](migrate-appliance.md) sobre o dispositivo das Migrações para Azure.
 
 
 ## <a name="appliance-deployment-steps"></a>Etapas de implantação do dispositivo
 
 Para configurar o dispositivo:
-- Forneça um nome de dispositivo e gere uma chave de projeto de migrações para Azure no Portal.
+- Forneça um nome de dispositivo e gere uma chave de projeto das Migrações para Azure no portal.
 - Baixe um arquivo compactado com o script do instalador de Migrações para Azure do portal do Azure.
 - Extraia o conteúdo do arquivo compactado. Inicie o console do PowerShell com privilégios administrativos.
 - Execute o script do PowerShell para iniciar o aplicativo Web do dispositivo.
-- Configure o dispositivo pela primeira vez e registre-o com o projeto de migrações para Azure usando a chave de projeto migrações para Azure.
+- Configure o dispositivo pela primeira vez e registre-o no projeto das Migrações para Azure usando a chave de projeto das Migrações para Azure.
 
 ### <a name="generate-the-azure-migrate-project-key"></a>Gerar a chave do projeto das Migrações para Azure
 
@@ -152,7 +152,7 @@ Isso iniciará a descoberta. São necessários aproximadamente 2 minutos por ser
 
 ## <a name="verify-servers-in-the-portal"></a>Verificar servidores no portal
 
-Após a conclusão da descoberta, você pode verificar se os servidores aparecem no Portal.
+Após a conclusão da descoberta, você poderá verificar se os servidores são exibidos no portal.
 
 1. Abra o painel das Migrações para Azure.
 2. Na página **Migrações para Azure – Servidores** > **Migrações para Azure: Avaliação de Servidor**, clique no ícone que exibe a contagem de **Servidores descobertos**.

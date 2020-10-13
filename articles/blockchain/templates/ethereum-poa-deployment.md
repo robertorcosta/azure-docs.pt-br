@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.reviewer: ravastra
 ms.custom: devx-track-js
 ms.openlocfilehash: d1d3ad94957e791b2178b6c60d4c7debdec2b391
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91283421"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Implantar o modelo de solução do consórcio de prova de autoridade Ethereum no Azure
@@ -99,7 +99,7 @@ Tipo de autenticação | O método para autenticar para a máquina virtual. | Se
 Senha | A senha para a conta de administrador para cada uma das máquinas virtuais implantadas. Todas as VMs têm inicialmente a mesma senha. Você pode alterar a senha após o provisionamento. | 12 a 72 caracteres 
 Subscription | A assinatura para a qual deseja implantar a rede consortium |
 Grupo de recursos| O grupo de recursos para o qual implantar a rede do consórcio. | myResourceGroup
-Location | A região do Azure para o grupo de recursos. | Oeste dos EUA 2
+Localização | A região do Azure para o grupo de recursos. | Oeste dos EUA 2
 
 Selecione **OK**.
 
@@ -168,7 +168,7 @@ Parâmetro | Descrição | Valor de exemplo
 ----------|-------------|--------------
 Monitoramento | Opção para habilitar o monitoramento | Habilitar
 Conectar-se a logs de Azure Monitor existentes | Opção para criar uma nova instância de logs de Azure Monitor ou ingressar em uma instância existente | Create new
-Location | A região em que a nova instância é implantada | Leste dos EUA
+Localização | A região em que a nova instância é implantada | Leste dos EUA
 ID do espaço de trabalho do log Analytics existente (conectar a logs de Azure Monitor existentes = ingressar existente)|ID do espaço de trabalho da instância existente de logs de Azure Monitor||NA
 Chave primária do log Analytics existente (conectar a logs de Azure Monitor existentes = ingressar existente)|A chave primária usada para se conectar à instância existente de logs de Azure Monitor||NA
 
@@ -331,7 +331,7 @@ Por motivos de segurança, o acesso de porta SSH é negado por uma regra de segu
 
     ![habilitar permissão ssh](./media/ethereum-poa-deployment/ssh-enable-allow.png)
 
-1. Clique em **Salvar**. As alterações podem levar alguns minutos para serem aplicadas.
+1. Selecione **Salvar**. As alterações podem levar alguns minutos para serem aplicadas.
 
 Você pode se conectar remotamente às máquinas virtuais para os nós de validador via SSH com o nome de usuário do administrador fornecido e a chave de senha/SSH. O comando SSH para acessar o primeiro nó do validador é listado na saída de implantação do modelo. Por exemplo:
 

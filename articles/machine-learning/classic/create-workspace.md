@@ -10,10 +10,10 @@ ms.author: keli19
 ms.custom: seodec18
 ms.date: 12/07/2017
 ms.openlocfilehash: 700cc461563f145f58e02f7ed9a09b2899a4eb5b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91340932"
 ---
 # <a name="create-and-share-an-machine-learning-studio-classic-workspace"></a>Criar e compartilhar um espaço de trabalho Machine Learning Studio (clássico)
@@ -59,7 +59,7 @@ Depois que o espaço de trabalho for implantado, você poderá abri-lo no Machin
 
 2. Selecione seu workspace no canto superior direito.
 
-    ![Selecione workspace](./media/create-workspace/open-workspace.png)
+    ![Selecione o workspace](./media/create-workspace/open-workspace.png)
 
 3. Clique em **meus experimentos**.
 
