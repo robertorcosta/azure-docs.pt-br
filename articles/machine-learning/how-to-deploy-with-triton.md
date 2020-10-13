@@ -10,10 +10,10 @@ author: gvashishtha
 ms.date: 09/23/2020
 ms.topic: conceptual
 ms.openlocfilehash: 17260c3890df0bd78b1503a046ff39ab173712be
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91622034"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>Serviço de alto desempenho com o servidor de inferência de Triton (visualização) 
@@ -285,7 +285,7 @@ Após a conclusão da implantação, o URI de pontuação é exibido. Para essa 
 
 Para obter informações sobre como criar um cliente que envia solicitações de inferência para o URI de pontuação, consulte [consumir um modelo implantado como um serviço Web](how-to-consume-web-service.md).
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se você planeja continuar a usar o espaço de trabalho Azure Machine Learning, mas deseja livrar-se do serviço implantado, use uma das seguintes opções:
 

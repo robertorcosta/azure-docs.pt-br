@@ -7,10 +7,10 @@ ms.service: data-share
 ms.topic: how-to
 ms.date: 10/02/2020
 ms.openlocfilehash: 3f243a1a8d4f4b3ee4688ac3942debee5282a9a4
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91761916"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Compartilhar e receber dados do Banco de Dados SQL do Azure e do Azure Synapse Analytics
@@ -54,7 +54,7 @@ Abaixo está a lista de pré-requisitos para o compartilhamento de dados da font
     1. No SQL Server, no portal do Azure, navegue até *Firewalls e redes virtuais*
     1. Clique em **Sim** para *permitir que os serviços e recursos do Azure acessem este servidor*.
     1. Clique em **+ Adicionar IP do cliente**. O endereço IP do cliente está sujeito a alterações. Esse processo talvez precise ser repetido na próxima vez em que você estiver compartilhando dados SQL do portal do Azure. Você também pode adicionar um intervalo de IP.
-    1. Clique em **Save** (Salvar). 
+    1. Clique em **Salvar**. 
 
 ### <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
@@ -169,7 +169,7 @@ Se você optar por receber dados para o Azure SQL Database, a análise de Synaps
     1. No SQL Server, no portal do Azure, navegue até *Firewalls e redes virtuais*
     1. Clique em **Sim** para *permitir que os serviços e recursos do Azure acessem este servidor*.
     1. Clique em **+ Adicionar IP do cliente**. O endereço IP do cliente está sujeito a alterações. Esse processo talvez precise ser repetido na próxima vez em que você estiver compartilhando dados SQL do portal do Azure. Você também pode adicionar um intervalo de IP.
-    1. Clique em **Save** (Salvar). 
+    1. Clique em **Salvar**. 
 
 ### <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 

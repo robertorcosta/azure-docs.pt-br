@@ -8,10 +8,10 @@ ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.custom: devx-track-python, devx-track-csharp
 ms.openlocfilehash: 53ce3764d074388213a3a4be08502b09743e28cb
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91827617"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlação de telemetria no Application Insights
@@ -34,7 +34,7 @@ Em um ambiente de microsserviços, os rastreamentos de componentes podem ir para
 
 ## <a name="example"></a>Exemplo
 
-Vamos examinar um exemplo. Um aplicativo chamado preços de ações mostra o preço atual do mercado de um estoque usando uma API externa chamada stock. O aplicativo de preços de ações tem uma página chamada Stock Page que o navegador da Web do cliente abre usando o `GET /Home/Stock` . O aplicativo consulta a API de estoque usando a chamada HTTP `GET /api/stock/value` .
+Vejamos um exemplo. Um aplicativo chamado preços de ações mostra o preço atual do mercado de um estoque usando uma API externa chamada stock. O aplicativo de preços de ações tem uma página chamada Stock Page que o navegador da Web do cliente abre usando o `GET /Home/Stock` . O aplicativo consulta a API de estoque usando a chamada HTTP `GET /api/stock/value` .
 
 Você pode analisar a telemetria resultante executando uma consulta:
 
@@ -84,7 +84,7 @@ Para obter mais informações, consulte [Application insights modelo de dados de
 
 ### <a name="enable-w3c-distributed-tracing-support-for-net-apps"></a>Habilitar o suporte ao rastreamento distribuído W3C para aplicativos .NET
 
-O rastreamento distribuído baseado em W3C de TraceContext é habilitado por padrão em todos os SDKs recentes de .NET Framework/. NET Core, juntamente com a compatibilidade com versões anteriores com o protocolo de solicitação-ID herdado.
+O rastreamento distribuído baseado em W3C de TraceContext é habilitado por padrão em todos os SDKs recentes de .NET Framework/. NET Core, juntamente com a compatibilidade com versões anteriores com o protocolo Request-Id herdado.
 
 ### <a name="enable-w3c-distributed-tracing-support-for-java-apps"></a>Habilitar suporte a rastreamento distribuído do W3C para aplicativos Java
 
@@ -170,7 +170,7 @@ Como referência, o modelo de dados OpenCensus pode ser encontrado [aqui](https:
 
 ### <a name="incoming-request-correlation"></a>Correlação de solicitação de entrada
 
-OpenCensus Python correlaciona cabeçalhos de contexto de rastreamento W3C de solicitações de entrada para as extensões que são geradas a partir das solicitações. O OpenCensus fará isso automaticamente com integrações para essas estruturas de aplicativos Web populares: Flask, Django e pirâmide. Você só precisa popular os cabeçalhos de contexto de rastreamento do W3C com o [formato correto](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format) e enviá-los com a solicitação. Veja um exemplo de aplicativo Flask que demonstra isso:
+OpenCensus Python correlaciona cabeçalhos W3C Trace-Context de solicitações de entrada para as extensões que são geradas a partir das próprias solicitações. O OpenCensus fará isso automaticamente com integrações para essas estruturas de aplicativos Web populares: Flask, Django e pirâmide. Você só precisa popular os cabeçalhos W3C Trace-Context com o [formato correto](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format) e enviá-los com a solicitação. Veja um exemplo de aplicativo Flask que demonstra isso:
 
 ```python
 from flask import Flask
