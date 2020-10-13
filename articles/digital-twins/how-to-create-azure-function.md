@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: a0f5a921ad9eba82f27b3a8945643737b6d76030
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf2894cc30873e3cbf7f379e22078dbb863ac179
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89614083"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970428"
 ---
 # <a name="connect-azure-functions-apps-for-processing-data"></a>Conectar Azure Functions aplicativos para processamento de dados
 
@@ -232,18 +232,18 @@ Observe também a **ID de objeto** mostrada na página _identidade_ , pois ela s
 
 ### <a name="assign-access-roles-using-azure-portal"></a>Atribuir funções de acesso usando portal do Azure
 
-Selecione o botão _atribuições de função do Azure_ , que abre até a página atribuições de função do Azure. Em seguida, selecione _+ Adicionar atribuição de função (versão prévia)_.
+Selecione o botão _atribuições de função do Azure_ , que abrirá a página *atribuições de função do Azure* . Em seguida, selecione _+ Adicionar atribuição de função (versão prévia)_.
 
 :::image type="content" source="media/how-to-create-azure-function/add-role-assignments.png" alt-text="Visual Studio: caixa de diálogo novo projeto":::
 
-Na janela _Adicionar atribuição de função (versão prévia)_ que é aberta, selecione
+Na página _Adicionar atribuição de função (versão prévia)_ que é aberta, selecione:
 
 * _Escopo_: grupo de recursos
 * _Assinatura_: selecione sua assinatura do Azure
 * _Grupo de recursos_: selecione o grupo de recursos na lista suspensa
 * _Função_: selecione _proprietário do gêmeos digital do Azure (versão prévia)_ na lista suspensa
 
-Salve os detalhes selecionando o botão _salvar_ .
+Em seguida, Salve seus detalhes pressionando o botão _salvar_ .
 
 :::image type="content" source="media/how-to-create-azure-function/add-role-assignment.png" alt-text="Visual Studio: caixa de diálogo novo projeto":::
 

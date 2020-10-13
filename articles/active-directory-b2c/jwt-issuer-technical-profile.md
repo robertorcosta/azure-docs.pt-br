@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 05/07/2020
+ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6b333c02c3db3e07ad10dc4e4365eb50aced694d
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: b3ad9c5d19d5d24154a8a63bfc412d6bbfdc1d8b
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945185"
+ms.locfileid: "91949217"
 ---
 # <a name="define-a-technical-profile-for-a-jwt-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico para um emissor de token JWT em uma política personalizada do Azure Active Directory B2C
 
@@ -26,7 +26,7 @@ O Azure AD B2C (Azure Active Directory B2C) emite vários tipos de tokens de seg
 
 ## <a name="protocol"></a>Protocolo
 
-O atributo **Name** do elemento **Protocol** precisa ser definido como `None`. Defina o elemento **OutputTokenFormat** como `JWT`.
+O atributo **Name** do elemento **Protocol** precisa ser definido como `OpenIdConnect`. Defina o elemento **OutputTokenFormat** como `JWT`.
 
 O exemplo a seguir mostra um perfil técnico para `JwtIssuer`:
 

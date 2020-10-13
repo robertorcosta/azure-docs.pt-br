@@ -5,14 +5,16 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 description: Descreve os processos que o Power Azure Dev Spaces e como funciona o roteamento
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres
-ms.openlocfilehash: 6987bbaaebe342b571d5b19fe0e37bebd5b8b6e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d2c6f336222b4ae0907d6579289a8cad8d73aa6
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90981303"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977962"
 ---
 # <a name="how-routing-works-with-azure-dev-spaces"></a>Como funciona o roteamento com Azure Dev Spaces
+
+[!INCLUDE [Azure Dev Spaces deprecation](../../includes/dev-spaces-deprecation.md)]
 
 O Azure Dev Spaces fornece várias maneiras de iterar e depurar rapidamente aplicativos Kubernetes e colaborar com sua equipe em um cluster do AKS (Serviço de Kubernetes do Azure). Depois que o projeto estiver sendo executado em um espaço de desenvolvimento, Azure Dev Spaces fornecerá recursos adicionais de roteamento e rede para seu projeto.
 

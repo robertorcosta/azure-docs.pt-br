@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/28/2020
 ms.author: banders
-ms.openlocfilehash: 919ff7474dd64cfe3005975beb4cab6f77c177ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7af95b9fe2f6d31faa239985f8e8165fd968372
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87825252"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978587"
 ---
 # <a name="save-costs-with-azure-dedicated-host-reservations"></a>Economize custos com reservas de host dedicadas do Azure
 
-Ao se comprometer com uma instância reservada de hosts dedicados do Azure, você pode economizar dinheiro. O desconto de reserva é aplicado automaticamente ao número de hosts dedicados em execução que correspondem ao escopo e aos atributos de reserva. Você não precisa atribuir uma reserva a um host dedicado para obter os descontos. Uma compra de instância reservada abrange apenas a parte de computação do seu uso e inclui os custos de licenciamento de software. Consulte a [visão geral dos hosts dedicados do Azure para máquinas virtuais](./windows/dedicated-hosts.md).
+Ao se comprometer com uma instância reservada de hosts dedicados do Azure, você pode economizar dinheiro. O desconto de reserva é aplicado automaticamente ao número de hosts dedicados em execução que correspondem ao escopo e aos atributos de reserva. Você não precisa atribuir uma reserva a um host dedicado para obter os descontos. Uma compra de instância reservada abrange apenas a parte de computação do seu uso e inclui os custos de licenciamento de software. Consulte a [visão geral dos hosts dedicados do Azure para máquinas virtuais](./dedicated-hosts.md).
 
 ## <a name="determine-the-right-dedicated-host-sku-before-you-buy"></a>Determine o SKU do host dedicado correto antes de comprar
 
@@ -109,7 +109,7 @@ Você não pode fazer os seguintes tipos de alterações após a compra, diretam
 
 - Quantidade
 
-- Duration
+- Duração
 
 No entanto, você pode *trocar*   uma reserva se desejar fazer alterações.
 
@@ -129,7 +129,7 @@ Para saber mais sobre as Reservas do Azure, consulte os seguintes artigos:
 
 - [O que são Reservas do Azure?](../cost-management-billing/reservations/save-compute-costs-reservations.md)
 
-- [Usando Hosts Dedicados do Azure](./windows/dedicated-hosts.md)
+- [Usando Hosts Dedicados do Azure](./dedicated-hosts.md)
 
 - [Preço de Hosts Dedicados](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/)
 

@@ -3,15 +3,15 @@ title: Balanceamento de carga do pool de hosts da área de trabalho virtual do W
 description: Saiba mais sobre métodos de balanceamento de carga do pool de hosts para um ambiente de área de trabalho virtual do Windows.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 10/12/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2b977d64dea1cef3b8142758e57d91e92e5bcc02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd8f9e4a3ef63cd97f96af3d4f96a2bb65c3cd09
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89461112"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951852"
 ---
 # <a name="host-pool-load-balancing-methods"></a>Métodos de balanceamento de carga de pool de host
 
@@ -41,3 +41,6 @@ O método amplitude-First consulta primeiro os hosts de sessão que permitem nov
 O método de balanceamento de carga de profundidade primeiro permite saturar um host de sessão por vez para otimizar esse cenário. Esse método é ideal para organizações econômicas que desejam um controle mais granular sobre o número de máquinas virtuais alocadas para um pool de hosts.
 
 O método depth-first primeiro consulta os hosts de sessão que permitem novas conexões e que não passaram por seu limite máximo de sessão. O método seleciona o host da sessão com o número mais alto de sessões. Se houver um vínculo, o método selecionará o primeiro host de sessão na consulta.
+
+>[!IMPORTANT]
+>O algoritmo de balanceamento de carga de profundidade primeiro distribui sessões para hosts de sessão com base no limite máximo de hosts de sessão. Esse parâmetro é necessário quando você usa o algoritmo de balanceamento de carga de profundidade inicial. Para obter a melhor experiência possível para o usuário, certifique-se de alterar o parâmetro máximo de limite de host de sessão para um número que melhor se adapte ao seu ambiente.

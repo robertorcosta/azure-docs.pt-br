@@ -8,16 +8,16 @@ ms.workload: infrastructure
 ms.date: 08/01/2019
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: ac915aa3baba910895e10d21148b899347e8ae4e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 884a9e82dacb2a0dfc6763809a2ccfd2b886df1a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91370480"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974168"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>Implantar VMs em hosts dedicados usando o Azure PowerShell
 
-Este artigo orienta como criar um [host dedicado](dedicated-hosts.md) do Azure para hospedar suas máquinas virtuais (VMs). 
+Este artigo orienta como criar um [host dedicado](../dedicated-hosts.md) do Azure para hospedar suas máquinas virtuais (VMs). 
 
 Verifique se você instalou Azure PowerShell versão 2.8.0 ou posterior e se está conectado a uma conta do Azure no com `Connect-AzAccount` . 
 
@@ -278,4 +278,4 @@ Remove-AzResourceGroup -Name $rgName
 
 - Há um exemplo de modelo, [aqui](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md), que usa zonas e domínios de falha para obter resiliência máxima em uma região.
 
-- Você também pode implantar hosts dedicados usando o [portal do Azure](dedicated-hosts-portal.md).
+- Você também pode implantar hosts dedicados usando o [portal do Azure](../dedicated-hosts-portal.md).

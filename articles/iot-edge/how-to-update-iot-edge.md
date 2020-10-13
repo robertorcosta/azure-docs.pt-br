@@ -9,12 +9,12 @@ ms.date: 06/22/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ee00425da89391e5228f2d48b49ca85426066f1e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e16e7fa5ecc2fb947f9f82c1cdd27af6758d6bda
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85299000"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91971742"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>Atualize o daemon de segurança do IoT Edge e o runtime
 
@@ -117,7 +117,7 @@ Se você quiser atualizar para uma versão específica do daemon de segurança, 
 >[!NOTE]
 >O `-OfflineInstallationPath` parâmetro procura um arquivo chamado **Microsoft-Azure-IoTEdge.cab** no diretório fornecido. A partir do IoT Edge versão 1.0.9-RC4, há dois arquivos. cab disponíveis para uso, um para dispositivos AMD64 e outro para ARM32. Baixe o arquivo correto para seu dispositivo e, em seguida, renomeie o arquivo para remover o sufixo de arquitetura.
 
-Para obter mais informações sobre as opções de atualização, use o comando `Get-Help Update-IoTEdge -full` ou consulte [todos os parâmetros de instalação](how-to-install-iot-edge-windows.md#all-installation-parameters).
+Para obter mais informações sobre as opções de atualização, use o comando `Get-Help Update-IoTEdge -full` ou consulte o [script do PowerShell para IOT Edge no Windows](reference-windows-scripts.md).
 
 ## <a name="update-the-runtime-containers"></a>Atualizar os contêineres de runtime
 
@@ -168,7 +168,7 @@ Se você usar marcas específicas em sua implantação (por exemplo, mcr.microso
 
    ![Atualizar versão do agente do Hub do Edge](./media/how-to-update-iot-edge/runtime-settings-edgeagent.png)
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 1. Selecione **revisão + criar**, examine a implantação e selecione **criar**.
 
@@ -213,10 +213,7 @@ Como as visualizações, as versões Release Candidate não são incluídas como
 
 Use as seções deste artigo para saber como atualizar um dispositivo IoT Edge para uma versão específica do daemon de segurança ou módulos de tempo de execução.
 
-Se você estiver instalando o IoT Edge em um novo computador, use os links a seguir para saber como instalar uma versão específica, dependendo do sistema operacional do seu dispositivo:
-
-* [Linux](how-to-install-iot-edge-linux.md#install-runtime-using-release-assets)
-* [Windows](how-to-install-iot-edge-windows.md#offline-or-specific-version-installation)
+Se você estiver instalando IoT Edge, em vez de atualizar uma instalação existente, use as etapas em [instalação offline ou de versão específica](how-to-install-iot-edge.md#offline-or-specific-version-installation).
 
 ## <a name="next-steps"></a>Próximas etapas
 

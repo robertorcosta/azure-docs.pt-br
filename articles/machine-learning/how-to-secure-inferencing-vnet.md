@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 09/24/2020
+ms.date: 10/12/2020
 ms.custom: contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: 784a0acf139aa05179fd92afb4eab299c2669590
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 806505e5ac9c9b3dcf53624a1151961b0db45ef9
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91630841"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972502"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Proteger um ambiente Azure Machine Learning inferência com redes virtuais
 
@@ -81,11 +81,17 @@ Para adicionar o AKS em uma rede virtual ao seu espaço de trabalho, use as segu
 
    ![Azure Machine Learning: Configurações de rede virtual de Computação do Machine Learning](./media/how-to-enable-virtual-network/aks-virtual-network-screen.png)
 
-1. Verifique se o grupo de NSG que controla a rede virtual tem uma regra de segurança de entrada habilitada para o ponto de extremidade de pontuação para que ela possa ser chamada de fora da rede virtual.
+1. Quando você implanta um modelo como um serviço Web no AKS, um ponto de extremidade de pontuação é criado para lidar com solicitações inferência. Certifique-se de que o grupo NSG que controla a rede virtual tenha uma regra de segurança de entrada habilitada para o endereço IP do ponto de extremidade de Pontuação se você quiser chamá-la de fora da rede virtual.
+
+    Para localizar o endereço IP do ponto de extremidade de pontuação, examine o URI de Pontuação para o serviço implantado. Para obter informações sobre como exibir o URI de pontuação, consulte [consumir um modelo implantado como um serviço Web](how-to-consume-web-service.md#connection-information).
+
    > [!IMPORTANT]
    > Mantenha as regras de saída padrão para o NSG. Para obter mais informações, consulte as regras de segurança padrão em [Grupos de segurança](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules).
 
    [![Uma regra de segurança de entrada](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png)](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png#lightbox)
+
+    > [!IMPORTANT]
+    > O endereço IP mostrado na imagem para o ponto de extremidade de pontuação será diferente para suas implantações. Embora o mesmo IP seja compartilhado por todas as implantações em um cluster AKS, cada cluster AKS terá um endereço IP diferente.
 
 Também é possível usar o SDK do Azure Machine Learning para adicionar o Serviço de Kubernetes do Azure a uma rede virtual. Se você já tem um cluster do AKS em uma rede virtual, anexe-o ao workspace conforme descrito em [Como implantar no AKS](how-to-deploy-and-where.md). O código a seguir cria uma nova instância de AKS na `default`sub-rede de uma rede virtual nomeada`mynetwork`:
 

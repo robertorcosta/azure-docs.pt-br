@@ -6,12 +6,12 @@ ms.service: security
 ms.topic: article
 ms.author: jofrance
 ms.date: 09/21/2020
-ms.openlocfilehash: 3a3e9b7406e11261aff12d77d9fbeed5debbe938
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e32e4960776084669c8f2f7743b66b9d0f9a6ae
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91744263"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978468"
 ---
 # <a name="how-to-resize-logical-volume-management-devices-that-use-azure-disk-encryption"></a>Como redimensionar dispositivos de gerenciamento de volume lógico que usam Azure Disk Encryption
 
@@ -37,7 +37,7 @@ Este artigo supõe que você:
 
 - Experiência com o Linux e o LVM.
 
-- Experiência usando caminhos */dev/disk/scsi1/* para discos de dados no Azure. Para obter mais informações, consulte [solucionar problemas de nome do dispositivo VM Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-device-names-problems). 
+- Experiência usando caminhos */dev/disk/scsi1/* para discos de dados no Azure. Para obter mais informações, consulte [solucionar problemas de nome do dispositivo VM Linux](../troubleshooting/troubleshoot-device-names-problems.md). 
 
 ## <a name="scenarios"></a>Cenários
 
@@ -572,7 +572,7 @@ Você pode usar esse método para adicionar espaço a um LV existente. Ou você 
     >
     >Para obter mais informações, consulte [Configurar LVM e RAID em dispositivos criptografados](how-to-configure-lvm-raid-on-crypt.md).
 
-    Aqui está um exemplo:
+    Veja um exemplo:
 
     ``` bash
     az vm encryption enable \

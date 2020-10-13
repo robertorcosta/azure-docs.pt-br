@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 232bc43440979a08da4a0e77d9b49bf56fdb0ae4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 06a84621c4d6abbf361eba232c776c167dc46265
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87374024"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970602"
 ---
 # <a name="azure-disk-encryption-for-linux-virtual-machines-faq"></a>Perguntas frequentes do Azure Disk Encryption para máquinas virtuais
 
@@ -164,5 +164,5 @@ Você pode fazer perguntas ou comentários na [Página de P e R da Microsoft par
 Neste documento, você aprendeu mais sobre as perguntas mais frequentes relativas ao Azure Disk Encryption. Para obter mais informações sobre esse serviço, veja os seguintes artigos:
 
 - [Visão geral do Azure Disk Encryption](disk-encryption-overview.md)
-- [Aplicar a criptografia de disco na Central de Segurança do Azure](../../security-center/security-center-virtual-machine-protection.md)
+- [Aplicar a criptografia de disco na Central de Segurança do Azure](../../security-center/asset-inventory.md)
 - [Criptografia de dados em repouso do Azure](../../security/fundamentals/encryption-atrest.md)

@@ -8,12 +8,12 @@ ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 08/12/2020
-ms.openlocfilehash: eff1db3aca2cab77d18698634b84e8e1b1c99f7e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47d82982bbb7546b53dd4754c49bd22fe958d5ef
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89375866"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91976416"
 ---
 # <a name="how-to-review-and-publish-an-offer-to-the-commercial-marketplace"></a>Como revisar e publicar uma oferta no Marketplace comercial
 
@@ -170,6 +170,84 @@ Agora que você optou por entrar em operação com sua oferta, que a torna dispo
     Garantimos que sua oferta se torne publicamente disponível no Marketplace.
 
 Depois que essas verificações de validação forem concluídas, sua oferta estará ativa no Marketplace.
+
+## <a name="publishing-history"></a>Histórico de publicação
+
+A página **histórico** no Partner Center mostra os eventos de publicação para suas ofertas do Marketplace comercial. Para cada evento, a página exibe o usuário que iniciou a ação, o tipo de evento e a data e hora do evento. As [etapas de validação e publicação](#validation-and-publishing-steps) são listadas com a data e a hora de conclusão.
+
+Para exibir o histórico de sua oferta:
+
+1.    Entre no [Partner Center](https://partner.microsoft.com/dashboard/home).
+2.    No menu de navegação à esquerda, selecione **Commercial Marketplace**  >  **visão geral**do Marketplace comercial.
+3.    Selecione sua oferta.
+4.    Selecione a guia **histórico** no menu de navegação à esquerda. A página fornece detalhes para os seguintes eventos, conforme aplicável à sua oferta:
+
+|evento    |Descrição    |
+|---------|---------------|
+|Oferta criada    |A oferta foi criada no Partner Center. Um usuário selecionou o tipo de oferta, a ID da oferta e **Commercial Marketplace**o alias de oferta na  >  **visão geral**do Marketplace comercial.    |
+|Plano criado: *nome do plano*    |Um usuário criou um novo plano inserindo a ID do plano e o nome do plano na guia **visão geral do plano** .</br>*Esse evento se aplica somente aos tipos de oferta que dão suporte a planos*.    |
+|Plano excluído    |Um usuário excluiu um plano de rascunho que não foi publicado selecionando **excluir rascunho** na página **visão geral do plano** .</br>*Esse evento se aplica somente aos tipos de oferta que dão suporte a planos*.    |
+|Reinício do plano iniciado venda: *nome do plano*    |Um usuário iniciou um plano de parada-venda selecionando **parar de vender** na página **visão geral do plano** .</br>*Esse evento se aplica somente aos tipos de oferta que dão suporte a planos*.    |
+|Desfazer plano parar venda: *nome do plano*    |Um usuário cancelou um plano de parada-venda selecionando **desfazer parar de vender** na página **visão geral do plano** .</br>*Esse evento se aplica somente aos tipos de oferta que dão suporte a planos*.    |
+|Oferta enviada para visualização    |Um usuário enviou a oferta para visualização selecionando **publicar** na página **revisar e publicar** .    |
+|Envio iniciado para visualizar cancelamento    |Um usuário solicitou a cancelamento da publicação da oferta, selecionando **Cancelar publicação** na página **visão geral da oferta** após o envio para visualização.</br>*Esse evento é exibido à medida que a solicitação de cancelamento está sendo processada*.    |
+|Envio cancelado para visualização    |Um usuário cancelou a publicação da oferta para visualização selecionando **Cancelar publicação** na página **visão geral da oferta** após o envio para visualização.</br>*Esse evento é exibido depois que a solicitação de cancelamento é processada com êxito*.    |
+|Sair para entrar no ar    |Um usuário publicou a oferta no Marketplace comercial selecionando **Go Live** na página **visão geral da oferta** .    |
+|Cancelamento de publicar no Marketplace iniciado    |Um usuário solicitou a cancelamento da publicação da oferta selecionando **Cancelar publicação** na página **visão geral da oferta** após a aprovação para entrar em tempo real.</br>*Esse evento é exibido à medida que a solicitação de cancelamento está sendo processada*.    |
+|Publicação cancelada no Marketplace comercial    |Um usuário cancelou a publicação da oferta selecionando **Cancelar publicação** na página **visão geral da oferta** após a aprovação para entrar em funcionamento.</br>*Esse evento é exibido depois que a solicitação de cancelamento é processada com êxito*.    |
+|Sincronizar público privado    |Um usuário atualizou e sincronizou o público privado selecionando **sincronizar audiência privada** na página **visão geral do plano** ou na página de **disponibilidade do plano &** .</br>*Esse evento se aplica somente a tipos de oferta que dão suporte a planos privados*.    |
+|Parar a oferta de venda    |Um usuário parou de vender a oferta selecionando **parar de vender** na página **visão geral da oferta** .    |
+
+> [!NOTE]
+> A página histórico não diz quando um rascunho de oferta foi salvo.
+
+### <a name="filter-options"></a>Opções de filtro
+
+Você pode usar filtros para restringir o histórico completo de sua oferta a eventos de publicação específicos:
+
+1.    Selecione o botão filtrar no canto superior direito da página.
+2.    Escolha um filtro e, em seguida, selecione **aplicar** para ver quais eventos de histórico correspondem aos critérios selecionados.
+3.    Selecione **limpar filtros** para retornar ao histórico completo de sua oferta.
+
+Há quatro filtros:
+* Eventos
+* Usuários
+* Data
+* Pages (Páginas)
+
+Ao escolher o filtro de **páginas** , você pode selecionar qualquer uma das páginas do Partner Center que são aplicáveis ao seu tipo de oferta. Quando aplicado, o filtro **páginas** mostra todas as **ofertas enviadas para visualizar** eventos com alterações na página selecionada.
+
+* Para todas as ofertas, a página de **instalação da oferta** é incluída por padrão para cada evento de envio.
+* Para ofertas que dão suporte a planos, a página **visão geral do plano** é incluída para cada evento de envio.
+* Para ofertas que dão suporte a test drive, a página **Test Drive** é incluída para cada evento de envio.
+
+### <a name="users"></a>Usuários
+
+Se um evento foi iniciado por um usuário, a página de histórico mostrará o usuário de acordo com os seguintes cenários:
+
+#### <a name="the-event-was-initiated-by-the-publisher"></a>O evento foi iniciado pelo Publicador
+
+Os usuários com permissões de publicação para uma oferta terão seu nome exibido para os eventos de publicação que iniciarem.
+
+[![A página histórico exibe o nome dos usuários com permissões de publicação.](./media/review-publish-offer/event-initiated-by-publisher.png)](./media/review-publish-offer/event-initiated-by-publisher.png#lightbox)
+
+#### <a name="the-event-was-initiated-by-microsoft"></a>O evento foi iniciado pela Microsoft
+
+Você pode dar permissões aos administradores da Microsoft para iniciar ações em seu nome ou tomar ações corretivas após um erro de sistema inesperado. O nome e o logotipo da Microsoft são exibidos para publicar eventos iniciados pela Microsoft em nome de sua conta.
+
+[![Exemplo de como a página de histórico exibe eventos iniciados pela Microsoft.](./media/review-publish-offer/event-initiated-by-microsoft.png)](./media/review-publish-offer/event-initiated-by-microsoft.png#lightbox)
+
+#### <a name="the-event-was-initiated-by-an-unidentified-user"></a>O evento foi iniciado por um usuário não identificado
+
+Os usuários que não estiverem mais associados a uma conta terão seu nome removido da coluna **iniciado por** depois que suas permissões de publicação forem retiradas.
+
+[![Exemplo de como a página de histórico exibe eventos iniciados por usuários não identificados.](./media/review-publish-offer/event-initiated-by-unidentified-user.png)](./media/review-publish-offer/event-initiated-by-unidentified-user.png#lightbox)
+
+#### <a name="validation-and-publishing-steps"></a>Etapas de validação e publicação
+
+Nenhum usuário é mostrado para processos do sistema que correspondem às [etapas de validação e publicação](#validation-and-publishing-steps). Esses eventos são codificados por cores de acordo com o status de conclusão do evento.
+
+[![Exemplo de como a página de histórico exibe etapas de validação e publicação.](./media/review-publish-offer/validation-and-publishing-event.png)](./media/review-publish-offer/validation-and-publishing-event.png#lightbox)
 
 ## <a name="next-steps"></a>Próximas etapas
 

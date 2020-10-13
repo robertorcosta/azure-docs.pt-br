@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: e375ce88b8e5bd96e19dc4f5da2143c3f9de53a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a762cfd1ecb4e290417b5d24b0ae75f6e10baf1
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91575853"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973692"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Perguntas frequentes sobre discos de VM IaaS do Azure e discos premium gerenciados e não gerenciados
 
@@ -136,7 +136,7 @@ Para discos gerenciados, você não pode renomeá-los. No entanto, você pode re
 
 As imagens de Geração 1 só podem usar o particionamento GPT em discos de dados, não em discos do sistema operacional. Os discos do sistema operacional devem usar o estilo de partição MBR.
 
-[As imagens de Geração 2](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2) podem usar o particionamento GPT no disco do sistema operacional e nos discos de dados.
+[As imagens de Geração 2](./generation-2.md) podem usar o particionamento GPT no disco do sistema operacional e nos discos de dados.
 
 **Quais tipos de disco dão suporte a instantâneos?**
 
@@ -241,7 +241,7 @@ Não, o upload só pode ser usado durante a criação de um novo disco vazio com
 
 **Como fazer upload para um disco gerenciado?**
 
-Crie um disco gerenciado com a propriedade [createOption](https://docs.microsoft.com/rest/api/compute/disks/createorupdate#diskcreateoption) de [creationData](https://docs.microsoft.com/rest/api/compute/disks/createorupdate#creationdata) definida como "Upload"; em seguida, você poderá carregar dados nele.
+Crie um disco gerenciado com a propriedade [createOption](/rest/api/compute/disks/createorupdate#diskcreateoption) de [creationData](/rest/api/compute/disks/createorupdate#creationdata) definida como "Upload"; em seguida, você poderá carregar dados nele.
 
 **Posso anexar um disco a uma VM enquanto ela está em um estado de upload?**
 
@@ -427,7 +427,7 @@ Você não precisa atualizar as ferramentas existentes do Azure para criar, anex
 
 **Os tamanhos de disco P4 e P6 têm suporte para discos não gerenciados ou blobs de página?**
 
-Tamanhos de disco P4 (32 GiB) e P6 (64 GiB) não têm suporte como as camadas de disco padrão para discos não gerenciados e blobs de página. Você precisa explicitamente [definir a camada de Blob](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) para P4 e P6 ter seu disco mapeado para essas camadas. Se você implantar um blob de página ou disco não gerenciado com o tamanho do disco ou o comprimento de conteúdo de menor que 32 GiB ou entre 32 GiB para 64 GiB sem definir a camada de Blob, você continuará a chegar em P10 com 500 IOPS e 100 MiB/s e o nível de preço mapeado.
+Tamanhos de disco P4 (32 GiB) e P6 (64 GiB) não têm suporte como as camadas de disco padrão para discos não gerenciados e blobs de página. Você precisa explicitamente [definir a camada de Blob](/rest/api/storageservices/set-blob-tier) para P4 e P6 ter seu disco mapeado para essas camadas. Se você implantar um blob de página ou disco não gerenciado com o tamanho do disco ou o comprimento de conteúdo de menor que 32 GiB ou entre 32 GiB para 64 GiB sem definir a camada de Blob, você continuará a chegar em P10 com 500 IOPS e 100 MiB/s e o nível de preço mapeado.
 
 **Se o meu disco gerenciado premium existente com menos de 64 GiB foi criado antes da habilitação da pequeno disco (por volta de 15 de junho de 2017), como ele é cobrado?**
 
@@ -497,6 +497,6 @@ Não.
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>E se dúvida não foi respondida aqui?
 
-Se sua pergunta não estiver listada aqui, fale conosco e nós ajudaremos a encontrar uma resposta. Você pode postar uma pergunta no final deste artigo nos comentários. Para se envolver com a equipe de armazenamento do Azure e outros membros da Comunidade sobre este artigo, use o [Microsoft Q&uma página de perguntas para o armazenamento do Azure](https://docs.microsoft.com/answers/products/azure?product=storage).
+Se sua pergunta não estiver listada aqui, fale conosco e nós ajudaremos a encontrar uma resposta. Você pode postar uma pergunta no final deste artigo nos comentários. Para se envolver com a equipe de armazenamento do Azure e outros membros da Comunidade sobre este artigo, use o [Microsoft Q&uma página de perguntas para o armazenamento do Azure](/answers/products/azure?product=storage).
 
 Para solicitar recursos, envie suas solicitações e ideias para o [Fórum de comentários do Armazenamento do Azure](https://feedback.azure.com/forums/217298-storage).

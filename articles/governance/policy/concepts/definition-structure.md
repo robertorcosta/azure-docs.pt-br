@@ -3,12 +3,12 @@ title: Detalhes da estrutura de definição de política
 description: Descreve como as definições de política são usadas para estabelecer convenções para os recursos do Azure na sua organização.
 ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2db91bd1968f816eb2a9320ee81019aeec5d2449
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: bb5eb3de1723ab75b2585c2fe62c395231455f37
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873992"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949370"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição da Política do Azure
 
@@ -114,7 +114,7 @@ Atualmente, há suporte para os seguintes modos de provedor de recursos como uma
 - `Microsoft.KeyVault.Data` para gerenciar cofres e certificados no [Azure Key Vault](../../../key-vault/general/overview.md).
 
 > [!NOTE]
-> Os modos de provedor de recursos só dão suporte a definições de políticas internas.
+> Os modos de provedor de recursos só dão suporte a definições de políticas internas e não dão suporte a [isenções](./exemption-structure.md).
 
 ## <a name="metadata"></a>Metadados
 

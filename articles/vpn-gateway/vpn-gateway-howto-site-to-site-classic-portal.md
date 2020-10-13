@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: cherylmc
-ms.openlocfilehash: aae05c89cd56ffa16994cb5696054457f1d32bc3
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 7680c7ad4b2c5c8b8c1c13fb2344575659eda140
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876134"
+ms.locfileid: "91892814"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Criar uma conexão Site a Site usando o portal do Azure (clássico)
 
@@ -109,11 +109,11 @@ As conexões Site a Site para uma rede local exigem um dispositivo VPN. Nesta et
 
 ## <a name="create-the-connection"></a><a name="CreateConnection"></a>Criar a conexão
 
-Nesta etapa, usando os valores das etapas anteriores, você define a chave compartilhada e cria a conexão. A chave que você define deve ser a mesma chave usada na configuração do dispositivo VPN.
-
 > [!NOTE]
 > Para o modelo de implantação clássico, essa etapa não está disponível no portal do Azure ou via Azure Cloud Shell. Você deve usar a versão do SM (gerenciamento de serviços) dos cmdlets Azure PowerShell localmente da sua área de trabalho.
 >
+
+Nesta etapa, usando os valores das etapas anteriores, você define a chave compartilhada e cria a conexão. A chave que você define deve ser a mesma chave usada na configuração do dispositivo VPN.
 
 1. Defina a chave compartilhada e crie a conexão.
 

@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: d5e867849d17a489fad37d09215905d23fb0ed6a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: daf54b64e33b83b909fe91455cee2f5c1ec27d3d
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85514256"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91960313"
 ---
 # <a name="contact-microsoft-support"></a>Contatar o Suporte da Microsoft
 
@@ -39,7 +39,7 @@ Dependendo do seu [plano de suporte](https://azure.microsoft.com/support/plans/)
    3. Selecione um **Plano de suporte** na lista suspensa se você tiver vários planos associados à sua assinatura. É necessário um plano de suporte pago para habilitar o Suporte Técnico.
    4. Clique em **Avançar**.
 
-       ![Contate o Suporte da MS por meio do novo portal](./media/storsimple-8000-contact-microsoft-support/contactsupport2.png)
+       ![Entre em contato com o suporte da MS por meio do novo portal 2](./media/storsimple-8000-contact-microsoft-support/contactsupport2.png)
 
 3. Na folha **Nova solicitação de suporte**, selecione **Etapa 2 Problema**. Na folha **Problema**, execute as seguintes etapas:
     
@@ -51,7 +51,7 @@ Dependendo do seu [plano de suporte](https://azure.microsoft.com/support/plans/)
     6. Marque **Compartilhar informações de diagnóstico**.
     7. Clique em **Próximo**.
 
-       ![Contate o Suporte da MS por meio do novo portal](./media/storsimple-8000-contact-microsoft-support/contactsupport3.png) 
+       ![Entre em contato com o suporte da MS por meio do novo portal 3](./media/storsimple-8000-contact-microsoft-support/contactsupport3.png) 
 
 4. Na folha **Nova solicitação de suporte**, clique em **Etapa 3 Informações de contato**. Na folha **Informações de contato**, execute as seguintes etapas:
 
@@ -59,7 +59,7 @@ Dependendo do seu [plano de suporte](https://azure.microsoft.com/support/plans/)
    2. Nas Informações de contato, informe seu nome, seu email, seu contato opcional e seu país/sua região. Marque a caixa de seleção **Salvar alterações de contato para futuras solicitações de suporte** .
    3. Clique em **Criar**.
    
-       ![Contate o Suporte da MS por meio do novo portal](./media/storsimple-8000-contact-microsoft-support/contactsupport5.png)   
+       ![Entre em contato com o suporte da MS por meio do novo portal 4](./media/storsimple-8000-contact-microsoft-support/contactsupport5.png)   
 
       O Microsoft Support usará essas informações para entrar em contato com você para obter mais informações, diagnóstico e resolução.
       Depois que você enviar sua solicitação, um engenheiro de Suporte entrará em contato com você assim que possível para prosseguir com sua solicitação.
@@ -76,11 +76,11 @@ Depois de criar um tíquete de suporte, você pode gerenciar o ciclo de vida do 
 
 2. Uma listagem tabular de Todas as solicitações de suporte é exibida na folha **Ajuda + suporte**.
 
-    ![Gerenciar solicitações de suporte](./media/storsimple-8000-contact-microsoft-support/managesupport2.png)
+    ![Gerenciar solicitações de suporte 2](./media/storsimple-8000-contact-microsoft-support/managesupport2.png)
 
 3. Selecione e clique em uma solicitação de suporte. Você pode exibir o status e os detalhes para esta solicitação. Clique em **+ Nova mensagem** se desejar acompanhar esta solicitação.
 
-    ![Gerenciar solicitações de suporte](./media/storsimple-8000-contact-microsoft-support/managesupport3.png)
+    ![Gerenciar solicitações de suporte 3](./media/storsimple-8000-contact-microsoft-support/managesupport3.png)
 
 ## <a name="start-a-support-session-in-windows-powershell-for-storsimple"></a>Iniciar uma sessão de suporte no Windows PowerShell para StorSimple
 

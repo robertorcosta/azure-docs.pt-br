@@ -3,12 +3,12 @@ title: Vincular sua ID de parceiro para habilitar o crédito ganho de parceiro e
 description: Saiba como associar sua ID de parceiro para receber o PEC (crédito ganho) do parceiro nos recursos do cliente que você gerencia por meio do Azure Lighthouse.
 ms.date: 10/05/2020
 ms.topic: how-to
-ms.openlocfilehash: 5caa205ce74152c7ec047952f66c1bf9188ddf02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d9d80a94e52f6f6a8aef5f5284659750084b0b5e
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776163"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974440"
 ---
 # <a name="link-your-partner-id-to-enable-partner-earned-credit-on-delegated-resources"></a>Vincular sua ID de parceiro para habilitar o crédito ganho de parceiro em recursos delegados
 
@@ -22,17 +22,17 @@ Se você integrar [clientes usando modelos de gerenciamento de recursos do Azure
 
 Ao integrar clientes por meio de modelos de Azure Resource Manager (modelos ARM), use o seguinte processo para vincular sua ID de parceiro e habilitar o crédito de parceiro ganha. Você precisará saber sua [ID de parceiro do MPN](/partner-center/partner-center-account-setup#locate-your-mpn-id) para concluir estas etapas. Certifique-se de usar a **ID de MPN associada** mostrada em seu perfil de parceiro.
 
-Para simplificar, é recomendável criar uma conta de entidade de serviço em seu locatário, vinculá-la à **ID do MPN associada**e, em seguida, conceder acesso a todos os clientes que você integrar com uma [função interna do Azure qualificada para o PEC](https://docs.microsoft.com/partner-center/azure-roles-perms-pec).
+Para simplificar, é recomendável criar uma conta de entidade de serviço em seu locatário, vinculá-la à **ID do MPN associada**e, em seguida, conceder acesso a todos os clientes que você integrar com uma [função interna do Azure qualificada para o PEC](/partner-center/azure-roles-perms-pec).
 
 1. [Crie uma conta de entidade de serviço](../../active-directory/develop/howto-authenticate-service-principal-powershell.md) no seu locatário de gerenciamento. Para este exemplo, vamos nomear essa conta de automação do PEC de entidade de serviço.
 1. Usando essa conta de entidade de serviço, [vincule à sua ID de MPN associada](../../cost-management-billing/manage/link-partner-id.md#link-to-a-partner-id) no seu locatário de gerenciamento. Você só precisa fazer isso uma vez.
-1. Ao integrar [um cliente usando modelos do ARM](onboard-customer.md), certifique-se de incluir uma autorização que inclua a conta de automação do PEC como um usuário com uma [função interna do Azure qualificada para o PEC](https://docs.microsoft.com/partner-center/azure-roles-perms-pec).
+1. Ao integrar [um cliente usando modelos do ARM](onboard-customer.md), certifique-se de incluir uma autorização que inclua a conta de automação do PEC como um usuário com uma [função interna do Azure qualificada para o PEC](/partner-center/azure-roles-perms-pec).
 
 Seguindo essas etapas, todos os locatários de clientes que você gerenciar serão associados à sua ID de parceiro, permitindo que você receba o PEC para esses clientes. A conta de automação do PEC não precisa autenticar ou executar nenhuma ação no locatário do cliente.
 
 ## <a name="add-your-partner-id-to-previously-onboarded-customers"></a>Adicione sua ID de parceiro aos clientes integrados anteriormente
 
-Se você já tiver integrado um cliente, talvez não queira executar outra implantação para adicionar a entidade de serviço da conta de automação do PEC. Em vez disso, você pode vincular sua **ID de MPN associada** a uma conta de usuário que já tem acesso ao trabalho no locatário desse cliente. Verifique se a conta recebeu uma [função interna do Azure qualificada para o PEC](https://docs.microsoft.com/partner-center/azure-roles-perms-pec).
+Se você já tiver integrado um cliente, talvez não queira executar outra implantação para adicionar a entidade de serviço da conta de automação do PEC. Em vez disso, você pode vincular sua **ID de MPN associada** a uma conta de usuário que já tem acesso ao trabalho no locatário desse cliente. Verifique se a conta recebeu uma [função interna do Azure qualificada para o PEC](/partner-center/azure-roles-perms-pec).
 
 Depois que a conta tiver sido [vinculada à ID de MPN associada](../../cost-management-billing/manage/link-partner-id.md#link-to-a-partner-id) no seu locatário de gerenciamento, você poderá receber o PEC para esse cliente.
 

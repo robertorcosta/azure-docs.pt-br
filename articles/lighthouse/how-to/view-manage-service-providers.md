@@ -1,14 +1,14 @@
 ---
 title: Exibir e gerenciar provedores de serviços
 description: Os clientes podem usar a página Provedores de serviços no portal do Azure para exibir informações sobre provedores de serviços, ofertas de provedor de serviço e recursos delegados.
-ms.date: 08/12/2020
+ms.date: 10/12/2020
 ms.topic: how-to
-ms.openlocfilehash: c22408a52d973a244d67528a73d4eaa487f166ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ecbeb7f5b6fccb7b66043cf57aa5f48674c6fe8b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88167157"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974389"
 ---
 # <a name="view-and-manage-service-providers"></a>Exibir e gerenciar provedores de serviços
 
@@ -76,7 +76,9 @@ Os filtros na parte superior da página permitem que você classifique e agrupe 
 
 Os clientes podem querer obter visibilidade das assinaturas e/ou dos grupos de recursos que foram delegados para o Azure Lighthouse. Isso é especialmente útil para os clientes com um grande número de assinaturas, ou que têm muitos usuários que executam tarefas de gerenciamento.
 
-Fornecemos uma [definição de política interna Azure Policy](../../governance/policy/samples/built-in-policies.md#lighthouse) para auditar a delegação de escopos para um locatário de gerenciamento. Você pode atribuir essa política a um grupo de gerenciamento que inclui todas as assinaturas que você deseja auditar. Quando você verifica a conformidade com essa política, quaisquer assinaturas delegadas e/ou grupos de recursos (dentro do grupo de gerenciamento ao qual a política é atribuída) serão mostrados em um estado não compatível. Em seguida, você pode examinar os resultados e confirmar se não há delegações inesperadas.
+Fornecemos uma [definição de política interna Azure Policy](../../governance/policy/samples/built-in-policies.md#lighthouse) para [auditar a delegação de escopos para um locatário de gerenciamento](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Lighthouse/Lighthouse_Delegations_Audit.json). Você pode atribuir essa política a um grupo de gerenciamento que inclui todas as assinaturas que você deseja auditar. Quando você verifica a conformidade com essa política, quaisquer assinaturas delegadas e/ou grupos de recursos (dentro do grupo de gerenciamento ao qual a política é atribuída) serão mostrados em um estado não compatível. Em seguida, você pode examinar os resultados e confirmar se não há delegações inesperadas.
+
+Outra [definição de política interna](../../governance/policy/samples/built-in-policies.md#lighthouse) permite restringir as [delegações a locatários de gerenciamento específicos](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Lighthouse/AllowCertainManagingTenantIds_Deny.json). De forma semelhante, essa política pode ser aplicada a um grupo de gerenciamento que inclui todas as assinaturas para as quais você deseja limitar as delegações. Depois que a política for implantada, qualquer tentativa de delegar uma assinatura a um locatário fora daqueles que você especificar será negada.
 
 Para obter mais informações sobre como atribuir uma política e exibir os resultados do estado de conformidade, consulte [início rápido: criar uma atribuição de política](../../governance/policy/assign-policy-portal.md).
 

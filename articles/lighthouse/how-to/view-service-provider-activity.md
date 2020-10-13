@@ -1,21 +1,21 @@
 ---
 title: Exibir atividade do provedor de serviços
 description: Os clientes podem exibir a atividade registrada para ver as ações executadas pelos provedores de serviço por meio do gerenciamento de recursos delegado do Azure.
-ms.date: 07/07/2020
+ms.date: 10/12/2020
 ms.topic: how-to
-ms.openlocfilehash: 0c92fc9b45d17e37fb3721d9cf087c5e7a62f6d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ec9d49de953a0fed3a5afc669e9297148aadf32
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86131473"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974304"
 ---
 # <a name="view-service-provider-activity"></a>Exibir atividade do provedor de serviços
 
 Os clientes que tiverem assinaturas delegadas para o [Azure Lighthouse](../overview.md) podem [exibir os dados do log de atividades do Azure](../../azure-monitor/platform/platform-logs-overview.md) para ver todas as ações executadas. Isso dá aos clientes visibilidade total das operações que os provedores de serviços estão realizando por meio do [Gerenciamento de recursos delegado do Azure](../concepts/azure-delegated-resource-management.md), juntamente com as operações realizadas por usuários no locatário do próprio Azure Active Directory (Azure AD) do cliente.
 
 > [!TIP]
-> Também fornecemos uma definição de política interna Azure Policy para auditar a delegação de escopos para um locatário de gerenciamento. Para obter mais informações, consulte [delegações de auditoria em seu ambiente](view-manage-service-providers.md#audit-delegations-in-your-environment).
+> Também fornecemos Azure Policy definições de política internas para [restringir a delegação a locatários de gerenciamento específicos](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Lighthouse/AllowCertainManagingTenantIds_Deny.json) e [auditar a delegação de escopos para um locatário de gerenciamento](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Lighthouse/Lighthouse_Delegations_Audit.json). Para obter mais informações, consulte [delegações de auditoria em seu ambiente](view-manage-service-providers.md#audit-delegations-in-your-environment).
 
 ## <a name="view-activity-log-data"></a>Exibir dados do log de atividades
 

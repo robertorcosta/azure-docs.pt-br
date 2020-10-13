@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/23/2020
-ms.openlocfilehash: d0c6de2fdf0720e671090e8a817b00e25c5f3d42
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/12/2020
+ms.openlocfilehash: 408f58b44bbe1ff8be7498b33a1209f4488c2ccc
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91332144"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951971"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-formerly-sql-data-warehouse-by-using-azure-data-factory"></a>Copiar e transformar dados no Azure Synapse Analytics (anteriormente SQL Data Warehouse) usando Azure Data Factory
 
@@ -564,7 +564,7 @@ Se os requisitos não forem atendidos, o Azure Data Factory verificará as confi
 
 Quando os dados de origem não são nativamente compatíveis com o polybase, habilite a cópia de dados por meio de um blob do Azure de preparo provisório ou Azure Data Lake Storage Gen2 (não pode ser o armazenamento Premium do Azure). Nesse caso, o Azure Data Factory converte automaticamente os dados para atender aos requisitos de formato de dados do PolyBase. Em seguida, ele invoca o polybase para carregar dados no Azure Synapse Analytics. Por fim, ele limpa os dados temporários do armazenamento. Confira [cópia em etapas](copy-activity-performance-features.md#staged-copy) para obter detalhes sobre como copiar dados por meio de um preparo.
 
-Para usar esse recurso, crie um [serviço vinculado do armazenamento de BLOBs do Azure](connector-azure-blob-storage.md#linked-service-properties) ou [Azure data Lake Storage Gen2 serviço vinculado](connector-azure-data-lake-storage.md#linked-service-properties) que se refere à conta de armazenamento do Azure com o armazenamento provisório. Em seguida, especifique as propriedades `enableStaging` e `stagingSettings` para a atividade de cópia, conforme mostrado no código a seguir.
+Para usar esse recurso, crie um [serviço vinculado do armazenamento de BLOBs do Azure](connector-azure-blob-storage.md#linked-service-properties) ou [Azure data Lake Storage Gen2 serviço vinculado](connector-azure-data-lake-storage.md#linked-service-properties) com a **chave de conta ou a autenticação de identidade gerenciada** que se refere à conta de armazenamento do Azure como o armazenamento provisório.
 
 >[!IMPORTANT]
 >Se o Armazenamento do Azure de preparo estiver configurado com o ponto de extremidade de serviço de VNet, você precisará usar a autenticação de identidade gerenciada – veja [Impacto de usar pontos de extremidade de serviço de VNet com Armazenamento do Azure](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Conheça as configurações necessárias em Data Factory de [autenticação de identidade gerenciada pelo blob do Azure](connector-azure-blob-storage.md#managed-identity) e [autenticação de identidade gerenciada por Azure data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity).

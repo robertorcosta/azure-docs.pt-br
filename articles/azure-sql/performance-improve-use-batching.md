@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: genemi
 ms.date: 01/25/2019
 ms.openlocfilehash: 487b668d9a3d934220fecf5c0896f7ef492c6775
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91840482"
 ---
 # <a name="how-to-use-batching-to-improve-azure-sql-database-and-azure-sql-managed-instance-application-performance"></a>Como usar o envio em lote para melhorar o desempenho do banco de dados SQL do Azure e do Azure SQL Instância Gerenciada do aplicativo
@@ -99,7 +99,7 @@ A tabela a seguir mostra alguns resultados de testes ad hoc. Os testes executara
 
 **De Local para o Azure**:
 
-| Operations | Nenhuma transação (MS) | Com transação (ms) |
+| Operações | Nenhuma transação (MS) | Com transação (ms) |
 | --- | --- | --- |
 | 1 |130 |402 |
 | 10 |1208 |1226 |
@@ -108,7 +108,7 @@ A tabela a seguir mostra alguns resultados de testes ad hoc. Os testes executara
 
 **Do Azure para o Azure (mesmo datacenter)**:
 
-| Operations | Nenhuma transação (MS) | Com transação (ms) |
+| Operações | Nenhuma transação (MS) | Com transação (ms) |
 | --- | --- | --- |
 | 1 |21 |26 |
 | 10 |220 |56 |
@@ -195,7 +195,7 @@ Na maioria dos casos, os parâmetros com valor de tabela têm um desempenho equi
 
 A tabela a seguir mostra os resultados de teste ad hoc para o uso de parâmetros com valor de tabela em milissegundos.
 
-| Operations | Local para o Azure (MS) | Mesmo datacenter do Azure (ms) |
+| Operações | Local para o Azure (MS) | Mesmo datacenter do Azure (ms) |
 | --- | --- | --- |
 | 1 |124 |32 |
 | 10 |131 |25 |
@@ -233,7 +233,7 @@ Há alguns casos nos quais é preferível usar a cópia em massa do que os parâ
 
 Os seguintes resultados de teste ad hoc mostram o desempenho do envio em lote com **SqlBulkCopy** em milissegundos.
 
-| Operations | Local para o Azure (MS) | Mesmo datacenter do Azure (ms) |
+| Operações | Local para o Azure (MS) | Mesmo datacenter do Azure (ms) |
 | --- | --- | --- |
 | 1 |433 |57 |
 | 10 |441 |32 |
@@ -276,7 +276,7 @@ Esse exemplo tem como objetivo mostrar o conceito básico. Um cenário mais real
 
 Os seguintes resultados de teste ad hoc mostram o desempenho desse tipo de instrução INSERT em milissegundos.
 
-| Operations | Parâmetros com valor de tabela (ms) | Instrução INSERT única (ms) |
+| Operações | Parâmetros com valor de tabela (ms) | Instrução INSERT única (ms) |
 | --- | --- | --- |
 | 1 |32 |20 |
 | 10 |30 |25 |

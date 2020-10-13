@@ -1,6 +1,6 @@
 ---
-title: Validação de alerta (arquivo de teste EICAR) na central de segurança do Azure | Microsoft Docs
-description: Este documento ajuda a validar os alertas de segurança na Central de Segurança do Azure.
+title: Validação de alerta na central de segurança do Azure | Microsoft Docs
+description: Saiba como validar se os alertas de segurança estão configurados corretamente na central de segurança do Azure
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 0c777c2461047f21e8fb413faec6d5f1140fc75f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 764a2263587a477eb506edec1e0f661d0ca7ae31
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91438808"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91971601"
 ---
 # <a name="alert-validation-in-azure-security-center"></a>Validação de alerta na central de segurança do Azure
 Este documento ensina você a verificar se o sistema está configurado corretamente para os alertas da Central de Segurança do Azure.
@@ -26,12 +26,6 @@ Este documento ensina você a verificar se o sistema está configurado corretame
 ## <a name="what-are-security-alerts"></a>O que são alertas de segurança?
 Alertas são as notificações que a Central de Segurança gera quando detecta ameaças em seus recursos. Ele prioriza e lista os alertas junto com as informações necessárias para investigar rapidamente o problema. A Central de Segurança também fornece recomendações sobre como corrigir um ataque.
 Para obter mais informações, consulte [alertas de segurança na central de segurança](security-center-alerts-overview.md) e [Gerenciando e respondendo a alertas de segurança](security-center-managing-and-responding-alerts.md)
-
-## <a name="alert-validation"></a>Validação de alerta
-
-* [Windows](#validate-windows)
-* [Linux](#validate-linux)
-* [Kubernetes](#validate-kubernetes)
 
 ## <a name="validate-alerts-on-windows-vms"></a>Validar alertas em VMs do Windows <a name="validate-windows"></a>
 

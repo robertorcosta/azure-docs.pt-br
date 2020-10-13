@@ -11,10 +11,10 @@ ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to
 ms.openlocfilehash: 21a0672db5a7038fbcdeb01e4cf07bcd760cf7ef
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91742988"
 ---
 # <a name="train-tensorflow-models-at-scale-with-azure-machine-learning"></a>Treine os modelos TensorFlow em escala com Azure Machine Learning
@@ -193,7 +193,7 @@ Para obter mais informações sobre como criar e usar ambientes, consulte [criar
 
 ### <a name="create-a-scriptrunconfig"></a>Criar um ScriptRunConfig
 
-Crie um objeto [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) para especificar os detalhes de configuração do seu trabalho de treinamento, incluindo o script de treinamento, o ambiente a ser usado e o destino de computação para executar. Todos os argumentos para seu script de treinamento serão passados por meio da linha de comando, se especificado no `arguments` parâmetro.
+Crie um objeto [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) para especificar os detalhes da configuração de seu trabalho de treinamento, incluindo o script de treinamento, o ambiente a ser usado e o destino de computação para a execução. Todos os argumentos para seu script de treinamento serão passados por meio da linha de comando, se especificado no `arguments` parâmetro.
 
 ```python
 from azureml.core import ScriptRunConfig

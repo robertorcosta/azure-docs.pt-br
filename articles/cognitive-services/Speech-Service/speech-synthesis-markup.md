@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 199e19116e0d8ba6bcc4954e767265e6fb4cd238
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a8dfae58b9910504a11bf3986380398499e3357
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91666340"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949591"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Melhorar a síntese com a linguagem de marcação de síntese de fala (SSML)
 
@@ -58,9 +58,9 @@ Cada documento SSML é criado com elementos SSML (ou marcas). Esses elementos s�
 
 | Atributo | Descrição | Obrigatório/Opcional |
 |-----------|-------------|---------------------|
-| `version` | Indica a versão da especificação SSML usada para interpretar a marcação do documento. A versão atual é 1,0. | Obrigatório |
-| `xml:lang` | Especifica o idioma do documento raiz. O valor pode conter um código de idioma de duas letras minúsculas (por exemplo, `en` ) ou o código de idioma e o país/região em maiúsculas (por exemplo, `en-US` ). | Obrigatório |
-| `xmlns` | Especifica o URI para o documento que define o vocabulário de marcação (os tipos de elementos e nomes de atributo) do documento SSML. O URI atual é http://www.w3.org/2001/10/synthesis . | Obrigatório |
+| `version` | Indica a versão da especificação SSML usada para interpretar a marcação do documento. A versão atual é 1,0. | Necessária |
+| `xml:lang` | Especifica o idioma do documento raiz. O valor pode conter um código de idioma de duas letras minúsculas (por exemplo, `en` ) ou o código de idioma e o país/região em maiúsculas (por exemplo, `en-US` ). | Necessária |
+| `xmlns` | Especifica o URI para o documento que define o vocabulário de marcação (os tipos de elementos e nomes de atributo) do documento SSML. O URI atual é http://www.w3.org/2001/10/synthesis . | Necessária |
 
 ## <a name="choose-a-voice-for-text-to-speech"></a>Escolha uma voz para conversão de texto em fala
 
@@ -101,7 +101,7 @@ Dentro do `speak` elemento, você pode especificar várias vozes para a saída d
 
 | Atributo | Descrição | Obrigatório/Opcional |
 |-----------|-------------|---------------------|
-| `name` | Identifica a voz usada para saída de texto para fala. Para obter uma lista completa de vozes com suporte, consulte [suporte a idiomas](language-support.md#text-to-speech). | Obrigatório |
+| `name` | Identifica a voz usada para saída de texto para fala. Para obter uma lista completa de vozes com suporte, consulte [suporte a idiomas](language-support.md#text-to-speech). | Necessária |
 
 > [!IMPORTANT]
 > Várias vozes são incompatíveis com o recurso de limite de palavra. O recurso de limite de palavra precisa ser desabilitado para usar várias vozes.
@@ -196,6 +196,8 @@ Por padrão, o serviço de conversão de texto em fala sintetiza o texto usando 
 
 Atualmente, os ajustes de estilo de fala têm suporte para essas vozes neurais:
 * `en-US-AriaNeural`
+* `en-US-JennyNeural`
+* `en-US-GuyNeural`
 * `zh-CN-XiaoxiaoNeural`
 * `zh-CN-YunyangNeural`
 
@@ -228,6 +230,10 @@ Use esta tabela para determinar quais estilos de fala têm suporte para cada voz
 |                         | `style="chat"`            | Expressa um tom casual e relaxado                         |
 |                         | `style="cheerful"`        | Expressa um tom positivo e feliz                         |
 |                         | `style="empathetic"`      | Expressa uma noção de preocupar e compreensão               |
+| `en-US-JennyNeural`     | `style="customerservice"` | Expressa um tom amigável e útil para o atendimento ao cliente  |
+|                         | `style="chat"`            | Expressa um tom casual e relaxado                         |
+|                         | `style="assistant"`       | Expressa um tom quente e relaxado para assistentes digitais    |
+| `en-US-GuyNeural`       | `style="newscast"`        | Expressa um tom formal e profissional para notícias de narração |
 | `zh-CN-XiaoxiaoNeural`  | `style="newscast"`        | Expressa um tom formal e profissional para notícias de narração |
 |                         | `style="customerservice"` | Expressa um tom amigável e útil para o atendimento ao cliente  |
 |                         | `style="assistant"`       | Expressa um tom quente e relaxado para assistentes digitais    |
@@ -611,7 +617,7 @@ As alterações de timbre podem ser aplicadas a vozes padrão na palavra ou no n
 
 | Atributo | Descrição | Obrigatório/Opcional |
 |-----------|-------------|---------------------|
-| `interpret-as` | Indica o tipo de conteúdo do texto do elemento. Para obter uma lista de tipos, consulte a tabela abaixo. | Obrigatório |
+| `interpret-as` | Indica o tipo de conteúdo do texto do elemento. Para obter uma lista de tipos, consulte a tabela abaixo. | Necessária |
 | `format` | Fornece informações adicionais sobre a formatação exata do texto do elemento para tipos de conteúdo que podem ter formatos ambíguos. O SSML define formatos para tipos de conteúdo que os usam (consulte a tabela abaixo). | Opcional |
 | `detail` | Indica o nível de detalhe a ser falado. Por exemplo, esse atributo pode solicitar que o mecanismo de síntese de fala pronuncia as marcas de pontuação. Não há valores padrão definidos para `detail` . | Opcional |
 

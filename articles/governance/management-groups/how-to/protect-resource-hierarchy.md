@@ -3,12 +3,12 @@ title: Como proteger sua hierarquia de recursos – Governança do Azure
 description: Saiba como proteger sua hierarquia de recursos com configurações de hierarquia que incluem a definição do grupo de gerenciamento padrão.
 ms.date: 09/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8630562786da922a36baa3bec4863acbb21b197d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cfaf7a732b3233536006009613cecd5aa1649dee
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91533972"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951886"
 ---
 # <a name="how-to-protect-your-resource-hierarchy"></a>Como proteger a hierarquia de recursos
 
@@ -115,5 +115,5 @@ Para desativar a configuração, use o mesmo ponto de extremidade e defina **req
 
 Para saber mais sobre grupos de gerenciamento, consulte:
 
-- [Criar grupos de gerenciamento para organizar recursos do Azure](../create.md)
+- [Criar grupos de gerenciamento para organizar recursos do Azure](../create-management-group-portal.md)
 - [Como alterar, excluir ou gerenciar seus grupos de gerenciamento](../manage.md)
