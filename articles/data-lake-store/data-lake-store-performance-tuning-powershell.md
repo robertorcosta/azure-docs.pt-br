@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 01/09/2018
 ms.author: stewu
 ms.openlocfilehash: f5e6f6601a563a387476e4e2eaf353c8bef384ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85504688"
 ---
 # <a name="performance-tuning-guidance-for-using-powershell-with-azure-data-lake-storage-gen1"></a>Orientação de ajuste de desempenho para o uso do PowerShell com o Armazenamento de Data Lake do Azure Gen1
@@ -21,7 +21,7 @@ Este artigo descreve as propriedades que você pode ajustar para obter melhor de
 
 ## <a name="performance-related-properties"></a>Propriedades relacionadas com desempenho
 
-| Property            | Padrão | Descrição |
+| Propriedade            | Padrão | Descrição |
 |---------------------|---------|-------------|
 | PerFileThreadCount  | 10      | Esse parâmetro permite que você escolha o número de threads paralelos para carregar ou baixar cada arquivo. Esse número representa o máximo de threads que pode ser alocado por arquivo, mas você pode obter menos threads dependendo do cenário (por exemplo, se você estiver carregando um arquivo de 1 KB, você obterá um thread mesmo que você peça 20 threads).  |
 | ConcurrentFileCount | 10      | Esse parâmetro é especificamente para carregar ou baixar pastas. Esse parâmetro determina o número de arquivos simultâneos que podem ser carregados ou baixados. Esse número representa o número máximo de arquivos simultâneos que podem ser carregados ou baixados ao mesmo tempo, mas você pode obter menor simultaneidade, dependendo do cenário (por exemplo, se você estiver carregando dois arquivos, você obterá dois uploads de arquivo simultâneos mesmo se você pedir 15). |

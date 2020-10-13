@@ -8,10 +8,10 @@ ms.date: 05/19/2020
 ms.author: dech
 ms.custom: devx-track-python, devx-track-csharp
 ms.openlocfilehash: 47ac6b4caf97b264df58732f8d031fc63091171e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89019259"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-c-notebooks-preview"></a>Usar comandos e recursos de notebook integrado nos notebooks C# do Azure Cosmos DB (versão prévia)
@@ -117,12 +117,12 @@ No exemplo *GetingStarted_Csharp.ipynb*, podemos imprimir a variável com nosso 
 
 :::image type="content" source="media/use-notebook-features-and-commands/csharp-query-cell.png" alt-text="Célula de consulta do Csharp":::
 
-:::image type="content" source="media/use-notebook-features-and-commands/csharp-nteract-built-in-chart.png" alt-text="Explorador de dados nteract":::
+:::image type="content" source="media/use-notebook-features-and-commands/csharp-nteract-built-in-chart.png" alt-text="Célula de consulta do Csharp":::
 
 ## <a name="use-built-in-dictionary-viewer"></a>Usar o visualizador de dicionário interno
 Você pode usar o visualizador de dicionário interno para exibir uma variável. Em uma célula, coloque a variável que você deseja visualizar na última linha, que será exibida automaticamente quando a célula for executada.
 
-:::image type="content" source="media/use-notebook-features-and-commands/csharp-built-in-dictionary-viewer.png" alt-text="Visualizador de dicionário interno":::
+:::image type="content" source="media/use-notebook-features-and-commands/csharp-built-in-dictionary-viewer.png" alt-text="Célula de consulta do Csharp":::
 
 ## <a name="upload-json-items-to-a-container"></a>Carregar itens JSON em um contêiner
 Você pode usar o comando mágico ``%%upload`` para carregar dados de um arquivo JSON em um contêiner específico do Azure Cosmos. Use o comando a seguir para carregar os itens:
@@ -160,7 +160,7 @@ Substitua ``{notebookName}`` pelo nome do notebook que você deseja executar. O 
 ## <a name="reset-notebooks-workspace"></a>Restaurar espaço de trabalho de notebook
 Para restaurar as configurações padrão do espaço de trabalho de notebooks, selecione **Restaurar espaço de trabalho** na barra de comandos. Isso removerá todos os pacotes personalizados instalados e reiniciará o servidor Jupyter. Seus notebooks, arquivos e recursos de Cosmos do Azure não serão afetados.  
 
-:::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="Restaurar espaço de trabalho de notebook":::
+:::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="Célula de consulta do Csharp":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

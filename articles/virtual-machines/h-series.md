@@ -5,15 +5,15 @@ author: ju-shim
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 09/08/2020
+ms.date: 10/09/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 56112107bbd1bb506fcbff615ec524e043d54d1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 656113df50936acf6f9a6b7e9cc8cb01a8aec2a8
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653716"
+ms.locfileid: "91931743"
 ---
 # <a name="h-series"></a>Série H
 
@@ -27,7 +27,7 @@ As VMs da série H são otimizadas para aplicativos orientados por altas frequê
 [Suporte à geração de VM](generation-2.md): geração 1<br>
 <br>
 
-| Tamanho | vCPU | Processador | Memória (GiB) | Largura de banda de memória GB/s | Frequência de CPU base (GHz) | Frequência de todos os núcleos (GHz, pico) | Frequência de núcleo único (GHz, pico) | Desempenho de RDMA (GB/s) | Suporte a MPI | Armazenamento temporário (GiB) | Discos de dados máximos | Taxa de transferência máxima do disco: IOPS | Máximo de NICs Ethernet |
+| Tamanho | vCPU | Processador | Memória (GiB) | Largura de banda de memória GB/s | Frequência de CPU base (GHz) | Frequência de todos os núcleos (GHz, pico) | Frequência de núcleo único (GHz, pico) | Desempenho de RDMA (GB/s) | Suporte a MPI | Armazenamento temporário (GiB) | Discos de dados máximos | Taxa de transferência máxima do disco: IOPS | VNICs Ethernet máx. |
 | --- | --- |--- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_H8   | 8  | Intel Xeon E5 2667 v3 | 56 | 40 | 3.2 | 3.3 | 3,6 | - | Intel 5. x, MS-MPI | 1000 | 32 | 32 x 500 | 2 |
 | Standard_H16  | 16 | Intel Xeon E5 2667 v3 | 112 | 80 | 3.2 | 3.3 | 3,6 | - | Intel 5. x, MS-MPI | 2000 | 64 | 64 x 500 | 4 |

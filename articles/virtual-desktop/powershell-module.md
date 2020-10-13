@@ -7,10 +7,10 @@ ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: f2f01e2b58c997db08ad4427de7eef1ee3760c4a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91323493"
 ---
 # <a name="set-up-the-powershell-module-for-windows-virtual-desktop"></a>Configurar o módulo do PowerShell para a Área de Trabalho Virtual do Windows
@@ -68,7 +68,7 @@ Se quiser alterar a assinatura padrão depois de entrar, execute este cmdlet:
 Select-AzSubscription -Subscription <preferredsubscriptionname>
 ```
 
-Você também pode selecionar um em uma lista usando o cmdlet Out-GridView:
+Você também pode selecionar um de uma lista usando o cmdlet Out-GridView:
 
 ```powershell
 Get-AzSubscription | Out-GridView -PassThru | Select-AzSubscription

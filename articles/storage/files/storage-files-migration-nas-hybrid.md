@@ -8,10 +8,10 @@ ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
 ms.openlocfilehash: fd8e845734169bcd73fa0e087c30c0f2fd6ef4f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85510298"
 ---
 # <a name="migrate-from-network-attached-storage-nas-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Migre do NAS (armazenamento anexado à rede) para uma implantação de nuvem híbrida com Sincronização de Arquivos do Azure
@@ -208,7 +208,7 @@ Você concluiu a migração de um compartilhamento/grupo de compartilhamentos em
 Você pode tentar executar algumas dessas cópias em paralelo. É recomendável processar o escopo de um compartilhamento de arquivos do Azure por vez.
 
 > [!WARNING]
-> Depois de mover todos os dados do NAS para o Windows Server e sua migração estiver concluída: retorne a ***todos os*** grupos de sincronização na portal do Azure e ajuste o valor de porcentagem de espaço livre do volume de camadas da nuvem para algo mais adequado para a utilização do cache, digamos 20%. 
+> Depois de mover todos os dados do NAS para o Windows Server e sua migração estiver concluída: retorne a ***todos os***  grupos de sincronização na portal do Azure e ajuste o valor de porcentagem de espaço livre do volume de camadas da nuvem para algo mais adequado para a utilização do cache, digamos 20%. 
 
 A política de espaço livre do volume de camadas de nuvem age em um nível de volume com potencialmente vários pontos de extremidade de servidor sincronizando a partir dele. Se você se esquecer de ajustar o espaço livre em um ponto de extremidade de servidor, a sincronização continuará a aplicar a regra mais restritiva e tentará manter 99% de espaço livre em disco, tornando o cache local não funcionando como você poderia esperar. A menos que seja o objetivo de ter apenas o namespace para um volume que contenha apenas dados de arquivamento raramente acessados e você esteja reservando o restante do espaço de armazenamento para outro cenário.
 
