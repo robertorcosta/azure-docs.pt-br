@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 7ab9d270ae5da52cbf9b5ba0ed4730233225a7c1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74c8924116cf9b565ea63e3b72a409686a4d725c
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653429"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975713"
 ---
 # <a name="updated-ndv2-series"></a>Série NDv2 atualizada
 
@@ -27,7 +27,7 @@ De forma crucial, o NDv2 é criado para expansão computacionalmente intensa (ap
 > [!IMPORTANT]
 > Ao [habilitar a InfiniBand](./workloads/hpc/enable-infiniband.md) na VM ND40rs_v2, use o driver 4.7-1.0.0.1 Mellanox ofed.
 >
-> Devido à maior memória da GPU, o novo ND40rs_v2 VM requer o uso de [VMs de geração 2](./windows/generation-2.md) e imagens do Marketplace. 
+> Devido à maior memória da GPU, o novo ND40rs_v2 VM requer o uso de [VMs de geração 2](./generation-2.md) e imagens do Marketplace. 
 >
 > Observação: o ND40s_v2 incluindo 16 GB de memória por GPU não está mais disponível para visualização e foi substituído pelo ND40rs_v2 atualizado.
 

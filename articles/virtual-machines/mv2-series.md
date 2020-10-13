@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: jushiman
-ms.openlocfilehash: 5bf6a17c1a4aa1c7f212045af0d1b750ddb2a906
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4de2ec68d3cd10dfc4e95c6c2232837a7fca626
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653546"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975749"
 ---
 # <a name="mv2-series"></a>Série Mv2
 
@@ -35,7 +35,7 @@ O recurso da VM Mv2-Series Intel® Hyper-Threading Technology
 | Standard_M416ms_v2<sup>1</sup> | 416 | 11400 | 8192 | 64 | 250000/1600 (14080) | 80000/2000 | 8 | 32000 |
 | Standard_M416s_v2<sup>1</sup> | 416 | 5700 | 8192 | 64 | 250000/1600 (14080) | 80000/2000 | 8 | 32000 |
 
-<sup>1</sup> as VMs da série Mv2 são somente geração 2 e dão suporte a um subconjunto de imagens com suporte de geração 2. Veja abaixo a lista completa de imagens com suporte para a série Mv2. Se você estiver usando o Linux, consulte [suporte para VMs de geração 2 no Azure](./linux/generation-2.md) para obter instruções sobre como localizar e selecionar uma imagem. Se você estiver usando o Windows, consulte [suporte para VMs de geração 2 no Azure](./windows/generation-2.md) para obter instruções sobre como localizar e selecionar uma imagem. 
+<sup>1</sup> as VMs da série Mv2 são somente geração 2 e dão suporte a um subconjunto de imagens com suporte de geração 2. Veja abaixo a lista completa de imagens com suporte para a série Mv2. Se você estiver usando o Linux, consulte [suporte para VMs de geração 2 no Azure](./generation-2.md) para obter instruções sobre como localizar e selecionar uma imagem. Se você estiver usando o Windows, consulte [suporte para VMs de geração 2 no Azure](./generation-2.md) para obter instruções sobre como localizar e selecionar uma imagem. 
 
 - Windows Server 2019 ou posterior
 - SUSE Linux Enterprise Server 12 SP4 e posterior ou SUSE Linux Enterprise Server 15 SP1 e posterior

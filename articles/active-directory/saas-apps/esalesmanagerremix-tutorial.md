@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
 ms.openlocfilehash: efcf634c9f34fd2b479140af800bb650f66bd821
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91826747"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Tutorial: Integrar o Azure Active Directory ao E Sales Manager Remix
@@ -127,7 +127,7 @@ Habilite o logon único do Microsoft Azure Active Directory no portal do Azure e
 
 1. Na seção **Referência rápida**, copie a URL de saída e a URL do serviço de logon único do SAML.
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
     ![O botão Salvar](./media/esalesmanagerremix-tutorial/tutorial_general_400.png)
 

@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: 19d6b0ebfa2570b04c3a9dda3fe69428aa0eed75
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6f7bf122b292ca144eac406957f19a13c7ba6662
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91629260"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975817"
 ---
 # <a name="register-a-service-client-application-in-azure-active-directory"></a>Registrar um aplicativo cliente de serviço no Azure Active Directory
 
@@ -73,7 +73,7 @@ O cliente de serviço precisa de um segredo (senha) para obter um token.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você aprendeu como registrar um aplicativo cliente de serviço no Azure Active Directory. Em seguida, você pode aprender sobre configurações adicionais para a API do Azure para FHIR.
+Neste artigo, você aprendeu como registrar um aplicativo cliente de serviço no Azure Active Directory. Em seguida, teste o acesso ao seu servidor FHIR usando o postmaster.
  
 >[!div class="nextstepaction"]
->[Configurações adicionais](azure-api-for-fhir-additional-settings.md)
+>[Acessar a API do Azure para FHIR com o Postman](access-fhir-postman-tutorial.md)

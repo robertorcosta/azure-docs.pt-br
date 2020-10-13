@@ -10,10 +10,10 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.openlocfilehash: 11199e5a283459d7d97f649322f9d41fc7b3e11d
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91650787"
 ---
 # <a name="supported-data-types"></a>Tipos de dados com suporte
@@ -24,7 +24,7 @@ A tabela a seguir lista os tipos de dados com suporte pelo Azure Time Series Ins
 |---|---|---|---|---|
 | **bool** | Um tipo de dados com um dos dois estados: `true` ou `false`. | `"isQuestionable" : true` | `$event.isQuestionable.Bool` ou `$event['isQuestionable'].Bool` | `isQuestionable_bool`
 | **datetime** | Representa um momento no tempo, geralmente expresso como uma data e hora do dia. Expresso no formato [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html). As propriedades DateTime são sempre armazenadas no formato UTC. Os deslocamentos de fuso horário, se formatados corretamente, serão aplicados e, em seguida, o valor armazenado em UTC. Consulte [esta](concepts-streaming-ingestion-event-sources.md#event-source-timestamp) seção para obter mais informações sobre a propriedade timestamp do ambiente e os deslocamentos de DateTime | `"eventProcessedLocalTime": "2020-03-20T09:03:32.8301668Z"` |  Se "eventProcessedLocalTime" for o carimbo de data/hora da origem do evento: `$event.$ts` . Se for outra propriedade JSON: `$event.eventProcessedLocalTime.DateTime` ou `$event['eventProcessedLocalTime'].DateTime` | `eventProcessedLocalTime_datetime`
-| **double** | Um número de precisão dupla de 64 bits  | `"value": 31.0482941` | `$event.value.Double` ou `$event['value'].Double` |  `value_double`
+| **duplo** | Um número de precisão dupla de 64 bits  | `"value": 31.0482941` | `$event.value.Double` ou `$event['value'].Double` |  `value_double`
 | **longo** | Um inteiro de 64 bits assinado  | `"value" : 31` | `$event.value.Long` ou `$event['value'].Long` |  `value_long`
 | **cadeia de caracteres** | Os valores de texto devem consistir em UTF-8 válido. Cadeias de caracteres nulas e vazias são tratadas da mesma. |  `"site": "DIM_MLGGG"`| `$event.site.String` ou `$event['site'].String`| `site_string`
 | **dinâmico** | Um tipo complexo (não primitivo) que consiste em uma matriz ou um recipiente de Propriedades (dicionário). No momento, apenas as matrizes JSON em cadeias de primitivos ou matrizes de objetos que não contêm a propriedade de TS ID ou Timestamp (s) serão armazenadas como dinâmicas. Leia este [artigo](./concepts-json-flattening-escaping-rules.md) para entender como os objetos serão mesclados e as matrizes podem ser desvertidas. As propriedades de carga armazenadas como esse tipo só podem ser acessadas selecionando `Explore Events` no time Series insights Explorer para exibir eventos brutos ou por meio da [`GetEvents`](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents)   API de consulta para análise do lado do cliente. |  `"values": "[197, 194, 189, 188]"` | A referência a tipos dinâmicos em uma expressão de série temporal ainda não tem suporte | `values_dynamic`

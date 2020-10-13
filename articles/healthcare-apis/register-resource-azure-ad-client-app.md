@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: 3c5486e31dd3227cfcc8bd3b433602ce58cfa4fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e92fab392dc73d8de0b7b2547e38b3f345562930
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87852983"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975851"
 ---
 # <a name="register-a-resource-application-in-azure-active-directory"></a>Registrar um aplicativo de recurso no Azure Active Directory
 
@@ -107,7 +107,7 @@ A API do Azure para FHIR e o servidor FHIR do OSS para Azure usam [Azure Active 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você aprendeu como registrar um aplicativo de recurso no Azure Active Directory. Em seguida, implante a API do Azure para FHIR.
+Neste artigo, você aprendeu como registrar um aplicativo de recurso no Azure Active Directory. Em seguida, Registre seu aplicativo cliente confidencial.
  
 >[!div class="nextstepaction"]
->[Implantar a API do Azure para FHIR](fhir-paas-powershell-quickstart.md)
+>[Registrar aplicativo cliente confidencial](register-confidential-azure-ad-client-app.md)
