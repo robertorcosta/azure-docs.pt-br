@@ -9,10 +9,10 @@ ms.service: virtual-machines-windows
 ms.subservice: imaging
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: a221ba8fe14db37729183774197bfc2db8bf2baa
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91328098"
 ---
 # <a name="preview-create-a-windows-vm-with-azure-image-builder-using-powershell"></a>Versão prévia: criar uma VM do Windows com o construtor de imagem do Azure usando o PowerShell
@@ -20,7 +20,7 @@ ms.locfileid: "91328098"
 Este artigo demonstra como você pode criar uma imagem personalizada do Windows usando o módulo do PowerShell do construtor de imagem de VM do Azure.
 
 > [!CAUTION]
-> O Construtor de Imagens do Azure está atualmente em versão prévia pública. Esta versão de visualização é fornecida sem um contrato de nível de serviço. Não é recomendável para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> O Construtor de Imagens do Azure está atualmente em versão prévia pública. A versão prévia é fornecida sem um contrato de nível de serviço. Ela não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -322,7 +322,7 @@ Azure-Image-Builder-Was-Here
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Se os recursos criados neste artigo não forem necessários, você poderá excluí-los executando os exemplos a seguir.
+Se os recursos criados neste artigo não forem necessários, você poderá excluí-los executando o exemplo a seguir.
 
 ### <a name="delete-the-image-builder-template"></a>Excluir o modelo do construtor de imagem
 

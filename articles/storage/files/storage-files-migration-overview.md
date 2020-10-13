@@ -8,10 +8,10 @@ ms.date: 3/18/2020
 ms.author: fauhse
 ms.subservice: files
 ms.openlocfilehash: 4223e3bc572a689472dce136b60599034566b274
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88654252"
 ---
 # <a name="migrate-to-azure-file-shares"></a>Migrar para compartilhamentos de Arquivos do Azure
@@ -152,5 +152,5 @@ A versão testada da ferramenta é a versão 4.4.1. Ele é compatível com arqui
 Aqui estão mais informações sobre as tecnologias de arquivos do Azure mencionadas neste artigo:
 
 * [Visão geral do compartilhamento de arquivos do Azure](storage-files-introduction.md)
-* [Planejar uma implantação da Sincronização de Arquivos do Azure](storage-sync-files-planning.md)
+* [Planejando uma implantação da Sincronização de Arquivos do Azure](storage-sync-files-planning.md)
 * [Sincronização de Arquivos do Azure: camadas de nuvem](storage-sync-cloud-tiering.md)

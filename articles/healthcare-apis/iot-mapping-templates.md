@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: punagpal
 ms.openlocfilehash: da5eb43f8bc2fc8b4ac213f6ff90464de5995a47
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87553638"
 ---
-# <a name="azure-iot-connector-for-fhir-preview-mapping-templates"></a>Modelos de mapeamento do Azure IoT Connector para FHIR (visualização)
+# <a name="azure-iot-connector-for-fhir-preview-mapping-templates"></a>Modelos de mapeamento do Conector IoT do Azure para FHIR (versão prévia)
 Este artigo fornece detalhes sobre como configurar o conector do Azure IoT para FHIR * usando modelos de mapeamento.
 
 O conector do Azure IoT para FHIR requer dois tipos de modelos de mapeamento baseados em JSON. O primeiro tipo, **mapeamento de dispositivo**, é responsável por mapear as cargas de dispositivo enviadas para o `devicedata` ponto de extremidade do hub de eventos do Azure. Ele extrai tipos, identificadores de dispositivo, data e hora de medição e o (s) valor (es) de medida. O segundo tipo, **mapeamento FHIR**, controla o mapeamento para o recurso FHIR. Ele permite a configuração do comprimento do período de observação, o tipo de dados FHIR usado para armazenar os valores e os códigos de terminologia. 
@@ -39,7 +39,7 @@ Veja abaixo um exemplo conceitual do que acontece durante a normalização.
 
 ![Exemplo de normalização](media/concepts-iot-mapping-templates/normalization-example.png)
 
-A própria carga de conteúdo é uma mensagem do hub de eventos do Azure, que é composta por três partes: corpo, propriedades e SystemProperties. O `Body` é uma matriz de bytes que representa uma cadeia de caracteres codificada em UTF-8. Durante a avaliação do modelo, a matriz de bytes é automaticamente convertida no valor da cadeia de caracteres. `Properties`é uma coleção de valores de chave para uso pelo criador de mensagem. `SystemProperties`também é uma coleção de valores de chave reservada pela estrutura do hub de eventos do Azure com entradas preenchidas automaticamente por ela.
+A própria carga de conteúdo é uma mensagem do hub de eventos do Azure, que é composta por três partes: corpo, propriedades e SystemProperties. O `Body` é uma matriz de bytes que representa uma cadeia de caracteres codificada em UTF-8. Durante a avaliação do modelo, a matriz de bytes é automaticamente convertida no valor da cadeia de caracteres. `Properties` é uma coleção de valores de chave para uso pelo criador de mensagem. `SystemProperties` também é uma coleção de valores de chave reservada pela estrutura do hub de eventos do Azure com entradas preenchidas automaticamente por ela.
 
 ```json
 {
@@ -352,7 +352,7 @@ Atualmente, o CodeValueFhirTemplate é o único modelo com suporte no mapeamento
 |**Componentes []. CEP**|Uma ou mais [codificações](http://hl7.org/fhir/datatypes-definitions.html#coding) a serem aplicadas ao componente.
 |**Componentes []. Valor**|O valor a ser extraído e representado no componente. Para obter mais informações, consulte [modelos de tipo de valor](#valuetypes).
 
-### <a name="value-type-templates"></a>Modelos de tipo de valor<a name="valuetypes"></a>
+### <a name="value-type-templates"></a>Modelos de tipo de valor <a name="valuetypes"></a>
 Abaixo estão os modelos de tipo de valor com suporte no momento. No futuro, outros modelos podem ser adicionados.
 #### <a name="sampleddata"></a>SampledData
 Representa o tipo de dados [SampledData](http://hl7.org/fhir/datatypes.html#SampledData) FHIR. As medidas de observação são gravadas em um fluxo de valor, começando em um ponto no tempo e incrementando para frente usando o período definido. Se nenhum valor estiver presente, um `E` será gravado no fluxo de dados. Se o período for de tal forma que mais dois valores ocupem a mesma posição no fluxo de dados, o valor mais recente será usado. A mesma lógica é aplicada quando uma observação usando o SampledData é atualizada.
@@ -376,7 +376,7 @@ Representa o tipo de dados [CodeableConcept](http://hl7.org/fhir/datatypes.html#
 
 | Propriedade | Descrição 
 | --- | --- 
-|**Texto**|Representação de texto sem formatação. 
+|**Text**|Representação de texto sem formatação. 
 |**Códigos**|Uma ou mais [codificações](http://hl7.org/fhir/datatypes-definitions.html#coding) a serem aplicadas à observação criada.
 |**Códigos []. Auto-completar**|O código para a [codificação](http://hl7.org/fhir/datatypes-definitions.html#coding).
 |**Códigos []. Sistema**|O sistema para a [codificação](http://hl7.org/fhir/datatypes-definitions.html#coding).
@@ -567,6 +567,6 @@ Confira as perguntas frequentes sobre o conector do Azure IoT para FHIR (versão
 >[!div class="nextstepaction"]
 >[Azure IoT Connector para FHIR FAQs](fhir-faq.md#azure-iot-connector-for-fhir-preview)
 
-* No portal do Azure, o conector do IoT do Azure para FHIR é conhecido como conector IoT (versão prévia).
+*No portal do Azure, o Conector IoT do Azure para FHIR é chamado de Conector IoT (versão prévia).
 
 FHIR é uma marca registrada da HL7, usada com permissão da HL7.

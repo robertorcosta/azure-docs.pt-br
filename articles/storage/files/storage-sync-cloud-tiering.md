@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 5ca65a428af02eaf5ae6ac461006c720da4461bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5aafaa02f503582bd0050f8a6389d78b52eaa76
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91538173"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939146"
 ---
 # <a name="cloud-tiering-overview"></a>Visão geral da Camada de Nuvem
 A camada de nuvem é um recurso opcional da Sincronização de Arquivos do Azure em que arquivos acessados frequentemente são armazenados em cache localmente no servidor, enquanto todos os outros arquivos são organizados em camadas para Arquivos do Azure com base nas configurações de política. Quando um arquivo está disposto em camadas, o filtro do sistema de arquivos da Sincronização de Arquivos do Azure (StorageSync.sys) substitui o arquivo localmente por um ponteiro ou ponto de nova análise. O ponto de nova análise representa uma URL para o arquivo nos Arquivos do Azure. Um arquivo em camadas tem o atributo "offline" e o atributo FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS definidos em NTFS, de modo que aplicativos de terceiros podem identificar com segurança os arquivos dispostos em camadas.
@@ -48,9 +48,9 @@ Para o Agent versões 9 e mais recentes, o tamanho mínimo do arquivo para um ar
 |8 KB (8192)                 | 16 KB   |
 |16 KB (16384)               | 32 KB   |
 |32 KB (32768)               | 64 KB   |
-|64 KB (65536) e maiores    | 128 KB  |
+|64 KB (65536)    | 128 KB  |
 
-Com o Windows Server 2019 e o agente do Sincronização de Arquivos do Azure versão 12 (versão do agente futura), os tamanhos de cluster de até 2 MB também têm suporte e camadas nesses tamanhos de cluster maiores funciona da mesma maneira. Versões mais antigas do sistema operacional ou agente dão suporte a tamanhos de cluster de até 64 KB, mas além disso, a camada de nuvem não funciona.
+Os tamanhos de cluster de até 64 KB têm suporte no momento, mas, para tamanhos maiores, a camada de nuvem não funciona.
 
 Todos os sistemas de arquivos usados pelo Windows, organizam o disco rígido com base no tamanho do cluster (também conhecido como tamanho da unidade de alocação). O tamanho do cluster representa a menor quantidade de espaço em disco que pode ser usada para manter um arquivo. Quando os tamanhos de arquivo não chegam a um múltiplo par do tamanho do cluster, o espaço adicional deve ser usado para manter o arquivo até o próximo múltiplo do tamanho do cluster.
 

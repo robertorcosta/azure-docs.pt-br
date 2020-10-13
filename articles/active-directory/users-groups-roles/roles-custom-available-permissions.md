@@ -14,10 +14,10 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 624489033097c0da4d85488b7ae376c5e0f3a56b
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90967693"
 ---
 # <a name="application-registration-permissions-for-custom-roles-in-azure-active-directory"></a>Permissões de registro de aplicativo para funções personalizadas no Azure Active Directory
@@ -117,7 +117,7 @@ Capacidade de atualizar a URL de resposta, a URL de saída, o fluxo implícito e
 
 ![Concede acesso à autenticação de registro de aplicativo, mas aos tipos de conta sem suporte](./media/roles-custom-available-permissions/supported-account-types.png)
 
-#### <a name="microsoftdirectoryapplicationsmyorganizationauthenticationupdate"></a>Microsoft. Directory/Applications. MyOrganization/autenticação/atualização
+#### <a name="microsoftdirectoryapplicationsmyorganizationauthenticationupdate"></a>microsoft.directory/applications.myOrganization/authentication/update
 
 Concede as mesmas permissões que Microsoft. Directory/Applications/Authentication/Update, mas somente para aplicativos de locatário único.
 
@@ -159,7 +159,7 @@ Capacidade de atualizar as permissões delegadas, permissões de aplicativo, apl
 
 ![Essa permissão concede acesso ao registro do aplicativo expor uma página de API](./media/roles-custom-available-permissions/app-registration-expose-api.png)
 
-#### <a name="microsoftdirectoryapplicationsmyorganizationpermissionsupdate"></a>Microsoft. Directory/Applications. MyOrganization/Permissions/Update
+#### <a name="microsoftdirectoryapplicationsmyorganizationpermissionsupdate"></a>microsoft.directory/applications.myOrganization/permissions/update
 
 Concede as mesmas permissões que Microsoft. Directory/Applications/Permissions/Update, mas somente para aplicativos de locatário único.
 

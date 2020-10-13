@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 06/10/2020
 ms.author: alsin
 ms.openlocfilehash: 54d703b8a493610174f00844cd0736f65f3ee541
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87052159"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Red Hat Enterprise Linux imagens Gold de sua própria assinatura no Azure
@@ -120,7 +120,7 @@ As instruções a seguir orientam você pelo processo de implantação inicial p
     az vm create -n rhel-byos-vm -g rhel-byos-group --image redhat:rhel-byos:rhel-lvm8:latest
     ```
 
-1. SSH em sua VM e verifique se você tem uma imagem não qualificada. Para executar esta etapa, execute `sudo yum repolist` . Para RHEL 8, use `sudo dnf repolist` . A saída solicita que você use o Gerenciador de assinaturas para registrar a VM com o Red Hat.
+1. SSH em sua VM e verifique se você tem uma imagem não qualificada. Para executar esta etapa, execute `sudo yum repolist` . Para RHEL 8, use `sudo dnf repolist` . A saída solicita que você use Subscription-Manager para registrar a VM com o Red Hat.
 
 >[!NOTE]
 >No RHEL 8, `dnf` e `yum` são intercambiáveis. Para obter mais informações, consulte o [Guia de administração do RHEL 8](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/packaging_and_distributing_software/index).

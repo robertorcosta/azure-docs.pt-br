@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 56f9976faf2a803e747bce8b851a3555e6d746b0
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89231139"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Referência das atividades de auditoria do Azure AD
@@ -267,8 +267,8 @@ Este artigo lista as atividades de auditoria que podem ser registradas nos logs 
 |Chave|Excluir configurações da empresa|
 |Chave|Rebaixar parceiro|
 |Chave|Diretório excluído|
-|Outro|Diretório excluído permanentemente|
-|Outro|Diretório agendado para exclusão|
+|Outros|Diretório excluído permanentemente|
+|Outros|Diretório agendado para exclusão|
 |Recurso|Promover empresa à condição de parceira|
 |Recurso|Limpar propriedades de gerenciamento de direitos|
 |Recurso|Remover parceiro da empresa|
@@ -507,11 +507,11 @@ Este artigo lista as atividades de auditoria que podem ser registradas nos logs 
 |Gerenciamento de diretórios|Elevate|
 |Gerenciamento de diretórios|Removido|
 |Gerenciamento de diretórios|Alterações na configuração de função|
-|Outro|ScanAlertsNow|
-|Outro|Inscrever-se|
-|Outro|Unelevate|
-|Outro|UpdateAlertSettings|
-|Outro|UpdateCurrentState|
+|Outros|ScanAlertsNow|
+|Outros|Inscrever-se|
+|Outros|Unelevate|
+|Outros|UpdateAlertSettings|
+|Outros|UpdateCurrentState|
 |Gerenciamento de política|Revisão de acesso encerrada|
 |Gerenciamento de política|Adicionar aprovador para a aprovação de solicitação|
 |Gerenciamento de política|Adicionar revisor para a revisão de acesso|
@@ -523,8 +523,8 @@ Este artigo lista as atividades de auditoria que podem ser registradas nos logs 
 
 |Auditar categoria|Atividade|
 |---|---|
-|Outro|Criar solicitação de aprovação|
-|Outro|Excluir revisão de acesso|
+|Outros|Criar solicitação de aprovação|
+|Outros|Excluir revisão de acesso|
 |Gerenciamento de Usuários|Remover revisor da revisão de acesso|
 |Gerenciamento de Usuários|Solicitar aplicação dos resultados da análise|
 |Gerenciamento de Usuários|Solicitar interrupção da análise|

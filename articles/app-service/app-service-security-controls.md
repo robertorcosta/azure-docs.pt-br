@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 93e5123e5b61c9013177f7f3c908578b68da52d6
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88962920"
 ---
 # <a name="security-controls-for-azure-app-service"></a>Controles de segurança para o serviço Azure App
@@ -49,7 +49,7 @@ Este artigo documenta os controles de segurança incorporados ao serviço Azure 
 | Criptografia no lado do servidor em repouso: chaves gerenciadas pela Microsoft | Sim | O conteúdo do arquivo do site é armazenado no armazenamento do Azure, que criptografa automaticamente o conteúdo em repouso. <br><br>Os segredos fornecidos pelo cliente são criptografados em repouso. Os segredos são criptografados em repouso enquanto estão armazenados nos bancos de dados de configuração do serviço de aplicativo.<br><br>Os discos anexados localmente podem, opcionalmente, ser usados como armazenamento temporário por sites (D:\Local e% TMP%). Os discos anexados localmente não são criptografados em repouso. | [Criptografia do Armazenamento do Azure para dados em repouso](../storage/common/storage-service-encryption.md)
 | Criptografia no lado do servidor em repouso: chaves gerenciadas pelo cliente (BYOK) | Sim | Os clientes podem optar por armazenar os segredos do aplicativo no Key Vault e recuperá-los em tempo de execução. | [Use as referências do Key Vault para o serviço de aplicativo e as funções do Azure (visualização)](app-service-key-vault-references.md)
 | Criptografia em nível de coluna (serviços de dados do Azure)| N/D | |
-| Criptografia em trânsito (como criptografia de ExpressRoute, criptografia de vnet e criptografia vnet)| Sim | Os clientes podem configurar sites para exigir e usar HTTPS para tráfego de entrada.  | [Como tornar um serviço Azure app somente HTTPS](/archive/blogs/benjaminperkins/how-to-make-an-azure-app-service-https-only) (postagem de blog)
+| Criptografia em trânsito (como criptografia de ExpressRoute, criptografia de VNet e criptografia de VNet-VNet)| Sim | Os clientes podem configurar sites para exigir e usar HTTPS para tráfego de entrada.  | [Como tornar um serviço Azure app somente HTTPS](/archive/blogs/benjaminperkins/how-to-make-an-azure-app-service-https-only) (postagem de blog)
 | Chamadas criptografadas à API| Sim | As chamadas de gerenciamento para configurar o serviço de aplicativo ocorrem por meio de chamadas [Azure Resource Manager](../azure-resource-manager/index.yml) por HTTPS. |
 
 ## <a name="configuration-management"></a>Gerenciamento de configuração

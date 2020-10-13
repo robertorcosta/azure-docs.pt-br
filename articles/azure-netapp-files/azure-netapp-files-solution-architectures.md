@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: b-juche
 ms.openlocfilehash: f6e38585e86dd962bc5f94a7c2a8a67c55f2a8fd
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91595895"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Arquiteturas da solução usando o Azure NetApp Files
@@ -34,7 +34,7 @@ Esta seção fornece referências para soluções para bancos de dados e aplicat
 
 ### <a name="oracle"></a>Oracle
 
-* [Desempenho do banco de dados Oracle em Azure NetApp Files volumes únicos](performance-oracle-single-volumes.md)
+* [Desempenho do Oracle Database em volumes únicos do Azure NetApp Files](performance-oracle-single-volumes.md)
 * [Guia de práticas recomendadas de implantação do Oracle no Azure usando o Azure NetApp Files](https://www.netapp.com/us/media/tr-4780.pdf)
 * [Imagens de VM Oracle e sua implantação no Microsoft Azure: opções de configuração de armazenamento compartilhado](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-vm-solutions#shared-storage-configuration-options)
 * [Benefícios do uso do Azure NetApp Files com o Oracle Database](solutions-benefits-azure-netapp-files-oracle-database.md)

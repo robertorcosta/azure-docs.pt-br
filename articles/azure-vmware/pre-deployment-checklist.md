@@ -4,10 +4,10 @@ description: Use esta lista de verificação como parte do processo de planejame
 ms.topic: how-to
 ms.date: 10/02/2020
 ms.openlocfilehash: 51480f72d6de6b1f49aa753e006c4683bbd48cc7
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91579511"
 ---
 # <a name="azure-vmware-solution-pre-deployment-checklist"></a>Lista de verificação de pré-implantação da solução Azure VMware
@@ -60,7 +60,7 @@ Forneça o nome da assinatura e a ID da assinatura para a solução do Azure VMw
 | Assinatura e ID | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
 | Assinatura com um EA | ☐ Sim &nbsp; &nbsp; ☐ não  |
 | Nome do Grupo de Recursos | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
-| Local | Leste dos EUA ☒ |
+| Localização | Leste dos EUA ☒ |
 | Administrador do Azure<br><br>Forneça o nome e o contato do administrador<br>atribuído para habilitar o serviço do Marketplace.<br>Colaborador é a função mínima necessária para <br>[Registre o provedor de recursos da solução VMware do Azure](tutorial-create-private-cloud.md#register-the-resource-provider). | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
 
 

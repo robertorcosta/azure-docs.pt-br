@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
 ms.openlocfilehash: fbcb262fee6a2cc62bfe64e8a8589c92b4fe2b17
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82997442"
 ---
 # <a name="voice-assistants-on-windows"></a>Assistentes de voz no Windows
@@ -43,11 +43,11 @@ Observe que isso significa que um aplicativo não pode ser ativado por voz até 
 
 ### <a name="receiving-an-activation"></a>Recebendo uma ativação
 
-Após receber a solicitação de AAR, o serviço de segundo plano inicia o aplicativo. O aplicativo recebe um sinal por meio do método ciclo de vida OnBackgroundActivated `App.xaml.cs` em com um argumento de evento exclusivo. Esse argumento informa ao aplicativo que ele foi ativado pelo AAR e que ele deve iniciar a verificação de palavra-chave.
+Após receber a solicitação de AAR, o serviço de segundo plano inicia o aplicativo. O aplicativo recebe um sinal por meio do método ciclo de vida OnBackgroundActivated em `App.xaml.cs` com um argumento de evento exclusivo. Esse argumento informa ao aplicativo que ele foi ativado pelo AAR e que ele deve iniciar a verificação de palavra-chave.
 
 Se o aplicativo verificar a palavra-chave com êxito, ele poderá fazer com que uma solicitação seja mostrada em primeiro plano. Quando essa solicitação for realizada com sucesso, o aplicativo exibirá a interface do usuário e continuará sua interação com ele.
 
-AAR ainda sinaliza aplicativos ativos quando sua palavra-chave é falada. Em vez de sinalizar por meio do método ciclo de `App.xaml.cs`vida no, no entanto, ele sinaliza um evento nas APIs do ConversationalAgent.
+AAR ainda sinaliza aplicativos ativos quando sua palavra-chave é falada. Em vez de sinalizar por meio do método ciclo de vida no `App.xaml.cs` , no entanto, ele sinaliza um evento nas APIs do ConversationalAgent.
 
 ### <a name="keyword-verification"></a>Verificação de palavra-chave
 

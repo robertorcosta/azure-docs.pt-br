@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 06/24/2020
 ms.topic: conceptual
 ms.openlocfilehash: 4338bc4a11b785b27f6316748f9cbc4eeaaddbea
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87015095"
 ---
 # <a name="start-a-runbook-from-a-webhook"></a>Iniciar runbook a partir de um webhook
@@ -89,7 +89,7 @@ Considere as seguintes estratégias:
 
 * Faça com que o runbook execute algumas validações de uma condição externa quando receber uma solicitação de webhook. Por exemplo, considere um runbook que é chamado pelo GitHub sempre que houver uma nova confirmação para um repositório GitHub. O runbook pode se conectar ao GitHub para validar se uma nova confirmação ocorreu antes de continuar.
 
-* A automação do Azure dá suporte a marcas de serviço de rede virtual do Azure, especificamente [GuestAndHybridManagement](../virtual-network/service-tags-overview.md). Você pode usar marcas de serviço para definir os controles de acesso à rede em [grupos de segurança de rede](../virtual-network/security-overview.md#security-rules) ou no [Firewall do Azure](../firewall/service-tags.md) e disparar WebHooks de dentro de sua rede virtual. As marcas de serviço podem ser usadas no lugar de endereços IP específicos quando você cria regras de segurança. Ao especificar o nome da marca de serviço **GuestAndHybridManagement** no campo de origem ou de destino apropriado de uma regra, você pode permitir ou negar o tráfego para o serviço de automação. Essa marca de serviço não dá suporte à permissão de controle mais granular restringindo intervalos de IP para uma região específica.
+* A automação do Azure dá suporte a marcas de serviço de rede virtual do Azure, especificamente [GuestAndHybridManagement](../virtual-network/service-tags-overview.md). Você pode usar marcas de serviço para definir os controles de acesso à rede em [grupos de segurança de rede](../virtual-network/security-overview.md#security-rules) ou no [Firewall do Azure](../firewall/service-tags.md) e disparar WebHooks de dentro de sua rede virtual. As marcas de serviço podem ser usadas no lugar de endereços IP específicos quando você cria regras de segurança. Ao especificar o nome da marca de serviço **GuestAndHybridManagement**  no campo de origem ou de destino apropriado de uma regra, você pode permitir ou negar o tráfego para o serviço de automação. Essa marca de serviço não dá suporte à permissão de controle mais granular restringindo intervalos de IP para uma região específica.
 
 ## <a name="create-a-webhook"></a>Criar um webhook
 

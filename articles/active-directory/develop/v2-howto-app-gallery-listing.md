@@ -13,10 +13,10 @@ ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
 ms.openlocfilehash: dc271fa768bee66107e66a1b8d4f16c1188ce418
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89439737"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Publicar seu aplicativo na Galeria de aplicativos do Azure AD
@@ -72,7 +72,7 @@ Para listar um aplicativo na Galeria de aplicativos do Azure AD, você precisa i
 
 A tabela a seguir compara os principais padrões: autenticação aberta 2,0 (OAuth 2,0) com OpenID Connect (OIDC), Security Assertion Markup Language (SAML) e especificação Web Services Federation (WS-alimentado).
 
-| Funcionalidade| OAuth/OIDC| SAML/WS-alimentado |
+| Funcionalidade| OAuth/OIDC| SAML/WS-Fed |
 | - |-|-|
 | Logon único baseado na Web| √| √ |
 | Logout único baseado na Web| √| √ |
@@ -96,7 +96,7 @@ O OAuth 2,0 é um protocolo [padrão da indústria](https://oauth.net/2/) para a
 **Algumas coisas a serem consideradas**
 - Se você já implementou o logon único baseado em SAML para seu aplicativo, talvez não queira implementar um novo padrão para obter seu aplicativo na galeria.
 
-### <a name="saml-20-or-ws-fed"></a>SAML 2,0 ou WS-alimentado
+### <a name="saml-20-or-ws-fed"></a>SAML 2,0 ou WS-Fed
 
 O SAML é um [padrão de logon único](https://www.oasis-open.org/standards#samlv2.0) maduro e amplamente adotado para aplicativos Web. Para saber mais sobre como o Azure usa SAML, consulte [como o Azure usa o protocolo SAML](active-directory-saml-protocol-reference.md). 
 
@@ -143,8 +143,8 @@ Se seu aplicativo der suporte ao SAML 2,0, você poderá integrá-lo diretamente
 
 A Microsoft não fornece, nem recomenda, bibliotecas para implementações de SAML. Há muitas bibliotecas de código-fonte aberto disponíveis.
 
-### <a name="implement-ws-fed"></a>Implementar WS-enalimentado
-Para saber mais sobre o WS-alimentado no ASP.NET Core, confira [autenticar usuários com o WS-Federation no ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/authentication/ws-federation).
+### <a name="implement-ws-fed"></a>Implementar WS-Fed
+Para saber mais sobre WS-Fed em ASP.NET Core, confira [autenticar usuários com WS-Federation no ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/authentication/ws-federation).
 
 ### <a name="implement-password-vaulting"></a>Implementar a compartimentação de senha
 
@@ -238,7 +238,7 @@ Se você quiser adicionar seu aplicativo para listar na Galeria usando o OpenID 
 
 Se você quiser adicionar seu aplicativo para listar na Galeria usando o **saml 2,0** ou o **WS-enalimentado**, selecione **SAML 2.0/WS-alimentado** , conforme mostrado.
 
-![Listando um aplicativo SAML 2,0 ou WS-enalimentado na Galeria](./media/howto-app-gallery-listing/saml.png)
+![Listando um aplicativo SAML 2,0 ou WS-Fed na Galeria](./media/howto-app-gallery-listing/saml.png)
 
 Se você quiser adicionar seu aplicativo para listar na Galeria usando o SSO de senha, selecione **SSO de senha** , conforme mostrado.
 
@@ -260,7 +260,7 @@ Você pode atualizar ou remover um aplicativo de galeria existente no [portal de
 
 ### <a name="timelines"></a>Linhas do tempo
 
-A linha do tempo para o processo de listagem de um aplicativo SAML 2,0 ou WS-enalimentado na galeria é de 7 a 10 dias úteis.
+A linha do tempo para o processo de listagem de um aplicativo SAML 2,0 ou WS-Fed na galeria é de 7 a 10 dias úteis.
 
 ![Linha do tempo para listar um aplicativo SAML na Galeria](./media/howto-app-gallery-listing/timeline.png)
 

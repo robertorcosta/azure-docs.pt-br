@@ -10,10 +10,10 @@ ms.date: 11/14/2019
 ms.author: absha
 ms.custom: mvc
 ms.openlocfilehash: 33240d1f44d2f26569791f72a3d5fc3a6656a757
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84808030"
 ---
 # <a name="configure-end-to-end-tls-by-using-application-gateway-with-the-portal"></a>Configurar o TLS de ponta a ponta usando o gateway de aplicativo com o portal
@@ -51,7 +51,7 @@ Para saber mais, confira [habilitar terminação TLS ao criar um novo gateway de
 
 4. Em **protocolo**, selecione **https**. Um painel para **certificados de autenticação de back-end ou certificados raiz confiáveis** é exibido.
 
-5. Selecione **Criar novo**.
+5. Selecione **Criar**.
 
 6. No campo **nome** , insira um nome adequado.
 
@@ -67,7 +67,7 @@ Para saber mais, confira [habilitar terminação TLS ao criar um novo gateway de
 
    ![Certificado raiz](./media/end-to-end-ssl-portal/trustedrootcert.png)
 
-8. Selecione **Salvar**.
+8. Clique em **Salvar**.
 
 ## <a name="enable-end-to-end-tls-for-an-existing-application-gateway"></a>Habilitar o TLS de ponta a ponta para um gateway de aplicativo existente
 
@@ -105,7 +105,7 @@ Se você escolher a última opção, aplique as etapas no procedimento a seguir.
 
 4. Em **protocolo**, selecione **https**. Um painel para **certificados de autenticação de back-end ou certificados raiz confiáveis** é exibido. 
 
-5. Selecione **Criar novo**.
+5. Selecione **Criar**.
 
 6. No campo **nome** , insira um nome adequado.
 

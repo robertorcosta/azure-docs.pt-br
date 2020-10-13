@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
 ms.openlocfilehash: 4ea2f88b02738645af3f8fc32d5fdb99168a1122
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82997376"
 ---
 # <a name="getting-started-with-voice-assistants-on-windows"></a>Introdução aos assistentes de voz no Windows
@@ -25,8 +25,8 @@ Este guia conduzirá você pelas etapas para começar a desenvolver um assistent
 
 Para começar a desenvolver um assistente de voz para Windows, você precisará certificar-se de que tem o ambiente de desenvolvimento adequado.
 
-- **Visual Studio:** você precisará instalar o [Microsoft Visual Studio 2017](https://visualstudio.microsoft.com/), Community Edition ou superior
-- **Versão do Windows**: um PC com uma compilação de anel rápido do Windows Insider e a versão do Windows Insider do SDK do Windows.Este código de exemplo é verificado como funcionando na versão do Windows Insider Build 19025. vb_release_analog .191112-1600 usando SDK do Windows 19018.Qualquer compilação ou SDK acima das versões especificadas deve ser compatível.
+- **Visual Studio:**   Será necessário instalar o [Microsoft Visual Studio 2017](https://visualstudio.microsoft.com/), Community Edition ou superior
+- **Versão do Windows**: um PC com uma compilação de anel rápido do Windows Insider e a versão do Windows Insider do SDK do Windows.Este código de exemplo é verificado como funcionando no Build do Windows Insider versão 19025.vb_release_analog .191112-1600 usando SDK do Windows 19018.Qualquer compilação ou SDK acima das versões especificadas deve ser compatível.
 - **Ferramentas de desenvolvimento UWP**: a carga de trabalho de desenvolvimento plataforma universal do Windows no Visual Studio.Consulte a página de [Get Set up](https://docs.microsoft.com/windows/uwp/get-started/get-set-up) do UWP para preparar seu computador para o desenvolvimento de aplicativos UWP.
 - **Um microfone funcional e saída de áudio**
 
@@ -34,7 +34,7 @@ Para começar a desenvolver um assistente de voz para Windows, você precisará 
 
 Alguns recursos necessários para um agente de voz completamente personalizado no Windows precisarão de recursos da Microsoft. O [exemplo de assistente de voz UWP](windows-voice-assistants-faq.md#the-uwp-voice-assistant-sample) fornece versões de exemplo desses recursos para desenvolvimento e teste iniciais, portanto, esta seção é desnecessária para o desenvolvimento inicial.
 
-- **Modelo de palavra-chave:** ativação de voz requer um modelo de palavra-chave da Microsoft na forma de um arquivo. bin. O arquivo. bin fornecido no exemplo do assistente de voz UWP é treinado na palavra-chave "contoso".
+- **Modelo de palavra-chave:**   A ativação por voz requer um modelo de palavra-chave da Microsoft na forma de um arquivo. bin. O arquivo. bin fornecido no exemplo do assistente de voz UWP é treinado na palavra-chave "contoso".
 - **Token de recurso de acesso limitado:** Como as APIs ConversationalAgent fornecem acesso ao áudio do microfone, elas são protegidas sob restrições de recursos de acesso limitado.Para usar um recurso de acesso limitado, será necessário obter um token de recurso de acesso limitado conectado à identidade do pacote do seu aplicativo da Microsoft.
 
 ## <a name="establish-a-dialog-service"></a>Estabelecer um serviço de diálogo

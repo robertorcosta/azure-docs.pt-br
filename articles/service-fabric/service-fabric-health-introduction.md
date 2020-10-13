@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: gwallace
 ms.openlocfilehash: f691eb6433907ed10737329de3edd78547f130f1
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86258862"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Introdução ao monitoramento da integridade do Service Fabric
@@ -211,7 +211,7 @@ Os metadados adicionados contêm:
 
 * **SourceUtcTimestamp**. A hora que o relatório foi fornecido ao cliente de integridade (Coordinated Universal Time)
 * **LastModifiedUtcTimestamp**. A hora em que o relatório foi modificado pela última vez no lado do servidor (Coordinated Universal Time).
-* **IsExpired**. Um sinalizador para indicar se o relatório estava expirado no momento que a consulta foi executada pelo Repositório de Integridade. Um evento pode ter expirado somente se RemoveWhenExpired for false. Caso contrário, o evento não é retornado pela consulta e é removido do armazenamento.
+* **Isvenceu**. Um sinalizador para indicar se o relatório estava expirado no momento que a consulta foi executada pelo Repositório de Integridade. Um evento pode ter expirado somente se RemoveWhenExpired for false. Caso contrário, o evento não é retornado pela consulta e é removido do armazenamento.
 * **LastOkTransitionAt**, **LastWarningTransitionAt**, **LastErrorTransitionAt**. A última hora para transições OK/aviso/erro. Esses campos fornecem o histórico das transições de estado de integridade para o evento.
 
 Os campos de transição de estado podem ser usados para gerar alertas mais inteligentes ou informações “históricas” de evento de integridade. Eles permitem cenários como:
