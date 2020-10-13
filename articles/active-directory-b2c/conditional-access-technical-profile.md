@@ -12,10 +12,10 @@ ms.date: 09/01/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: ef7599441cbfa11c555453adea0ca135569524b5
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91459822"
 ---
 # <a name="define-a-conditional-access-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico de acesso condicional em uma política personalizada de Azure Active Directory B2C
@@ -59,7 +59,7 @@ Para cada entrada, Azure AD B2C avalia todas as políticas e garante que todos o
 
 O elemento **InputClaims** contém uma lista de declarações a serem enviadas ao acesso condicional. Você também pode mapear o nome da sua declaração para o nome definido no perfil técnico de acesso condicional.
 
-| ClaimReferenceId | Necessária | Tipo de Dados | Descrição |
+| ClaimReferenceId | Obrigatório | Tipo de Dados | Descrição |
 | --------- | -------- | ----------- |----------- |
 | UserId | Sim | string | O identificador do usuário que entra. |
 | AuthenticationMethodsUsed | Sim |stringCollection | A lista de métodos que o usuário usou para entrar. Valores possíveis: `Password` , e `OneTimePasscode` . |
@@ -73,7 +73,7 @@ O elemento **InputClaimsTransformations** pode conter uma coleção de elementos
 
 O elemento **OutputClaims** contém uma lista de declarações geradas pelo ConditionalAccessProtocolProvider. Você também pode mapear o nome da sua declaração para o nome definido abaixo.
 
-| ClaimReferenceId | Necessária | Tipo de Dados | Descrição |
+| ClaimReferenceId | Obrigatório | Tipo de Dados | Descrição |
 | --------- | -------- | ----------- |----------- |
 | Desafios | Sim |stringCollection | Lista de ações para corrigir a ameaça identificada. Valores possíveis: `block` |
 | MultiConditionalAccessStatus | Sim | stringCollection |  |
@@ -121,7 +121,7 @@ O modo de **correção** do perfil técnico de acesso condicional informa Azure 
 
 O elemento **InputClaims** contém uma lista de declarações a serem enviadas ao acesso condicional. Você também pode mapear o nome da sua declaração para o nome definido no perfil técnico de acesso condicional.
 
-| ClaimReferenceId | Necessária | Tipo de Dados | Descrição |
+| ClaimReferenceId | Obrigatório | Tipo de Dados | Descrição |
 | --------- | -------- | ----------- |----------- |
 | ChallengesSatisfied | Sim | stringCollection| A lista de desafios satisfeitos para corrigir a ameaça identificada como retorno do modo de avaliação, desafia a reivindicação.|
 

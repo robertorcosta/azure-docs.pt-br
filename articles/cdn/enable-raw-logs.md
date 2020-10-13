@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 09/25/2020
 ms.author: allensu
 ms.openlocfilehash: c41bf8bc6e5aa3749786bc1189343dfdebdc1508
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91321094"
 ---
 # <a name="monitoring-metrics-and-raw-logs-for-azure-cdn-from-microsoft"></a>Monitoramento de métricas e logs brutos para a CDN do Azure da Microsoft
@@ -61,9 +61,9 @@ Para configurar logs brutos para seu perfil da CDN do Azure da Microsoft:
     * **Transmitir por streaming para um hub de eventos**
         * Selecione a **Assinatura**, **Namespace do hub de eventos**, **Nome do hub de eventos (opcional)** e **Nome de política do hub de eventos**.
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-02.png" alt-text="Configure o destino para as configurações de log." border="true":::
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-02.png" alt-text="Adicionar configuração de diagnóstico para o perfil CDN." border="true":::
 
-7. Clique em **Salvar**.
+7. Selecione **Salvar**.
 
 ## <a name="configuration---azure-powershell"></a>Configuração-Azure PowerShell
 
@@ -235,23 +235,23 @@ Cenários excluídos no cálculo da taxa de acertos de bytes:
 
 2. Em **monitoramento**, selecione **métricas**:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-03.png" alt-text="Métricas para o perfil CDN." border="true":::
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-03.png" alt-text="Adicionar configuração de diagnóstico para o perfil CDN." border="true":::
 
 3. Selecione **Adicionar métrica**, selecione a métrica a ser adicionada:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-04.png" alt-text="Adicione e selecione a métrica para o perfil CDN." border="true":::
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-04.png" alt-text="Adicionar configuração de diagnóstico para o perfil CDN." border="true":::
 
 4. Selecione **Adicionar filtro** para adicionar um filtro:
     
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-05.png" alt-text="Aplicar filtro à métrica." border="true":::
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-05.png" alt-text="Adicionar configuração de diagnóstico para o perfil CDN." border="true":::
 
 5. Selecione **aplicar** divisão para ver a tendência por dimensões diferentes:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-06.png" alt-text="Aplique a divisão à métrica." border="true":::
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-06.png" alt-text="Adicionar configuração de diagnóstico para o perfil CDN." border="true":::
 
 6. Selecione **novo gráfico** para adicionar um novo gráfico:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-07.png" alt-text="Adicione um novo gráfico à exibição de métrica." border="true":::
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-07.png" alt-text="Adicionar configuração de diagnóstico para o perfil CDN." border="true":::
 
 ### <a name="alerts"></a>Alertas
 
@@ -259,7 +259,7 @@ Você pode configurar alertas na CDN da Microsoft selecionando alertas de **moni
 
 Selecione **nova regra de alerta** para as métricas listadas na seção métricas:
 
-:::image type="content" source="./media/cdn-raw-logs/raw-logs-08.png" alt-text="Configure alertas para o ponto de extremidade CDN." border="true":::
+:::image type="content" source="./media/cdn-raw-logs/raw-logs-08.png" alt-text="Adicionar configuração de diagnóstico para o perfil CDN." border="true":::
 
 O alerta será cobrado com base em Azure Monitor. Para obter mais informações sobre alertas, consulte [Azure monitor alertas](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
 
@@ -270,21 +270,21 @@ Você pode habilitar métricas adicionais usando o Azure Log Analytics e logs br
 
 2. Selecione o espaço de trabalho Log Analytics que você criou:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-09.png" alt-text="Selecionar espaço de trabalho do log Analytics" border="true":::   
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-09.png" alt-text="Adicionar configuração de diagnóstico para o perfil CDN." border="true":::   
 
 3. Selecione **logs** em **geral** no espaço de trabalho do log Analytics.  Em seguida, selecione **introdução**:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-10.png" alt-text="Espaço de trabalho de recursos do log Analytics." border="true":::   
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-10.png" alt-text="Adicionar configuração de diagnóstico para o perfil CDN." border="true":::   
  
 4. Selecione **perfis CDN**.  Selecione um exemplo de consulta para executar ou fechar a tela de exemplo para inserir uma consulta personalizada:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-11.png" alt-text="Exemplo de tela de consulta." border="true":::   
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-11.png" alt-text="Adicionar configuração de diagnóstico para o perfil CDN." border="true":::   
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-12.png" alt-text="Execução da consulta." border="true":::   
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-12.png" alt-text="Adicionar configuração de diagnóstico para o perfil CDN." border="true":::   
 
 4. Para exibir dados por gráfico, selecione **gráfico**.  Selecione **fixar no painel** para fixar o gráfico no painel do Azure:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-13.png" alt-text="Fixe um gráfico no painel." border="true"::: 
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-13.png" alt-text="Adicionar configuração de diagnóstico para o perfil CDN." border="true"::: 
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste artigo, você habilitou os logs brutos HTTP para o serviço de CDN da Microsoft.

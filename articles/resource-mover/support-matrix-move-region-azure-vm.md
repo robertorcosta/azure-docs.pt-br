@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: evansma
 ms.service: resource-move
 ms.topic: how-to
-ms.date: 09/07/2020
+ms.date: 10/11/2020
 ms.author: raynew
-ms.openlocfilehash: fa71cd502f730844e4f4398d41d06ada56fc2413
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d71181c5f45ab63febae7288f07189dc52ea12fd
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90602278"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945906"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Suporte para mover VMs do Azure entre regiões do Azure
 
@@ -155,7 +155,7 @@ Disco Premium P20 ou P30 ou P40 ou P50 | 16 KB ou maior |20 MB/s | 1\.684 GB por
 NIC | Com suporte | Especifique um recurso existente na região de destino ou crie um novo recurso durante o processo de preparação. 
 Balanceador de carga interno | Com suporte | Especifique um recurso existente na região de destino ou crie um novo recurso durante o processo de preparação.  
 Balanceador de carga público | Sem suporte no momento | Especifique um recurso existente na região de destino ou crie um novo recurso durante o processo de preparação.  
-Endereço IP público | Com suporte | Especifique um recurso existente na região de destino ou crie um novo recurso durante o processo de preparação.  
+Endereço IP público | Com suporte | Especifique um recurso existente na região de destino ou crie um novo recurso durante o processo de preparação.<br/><br/> O endereço IP público é específico da região e não será retido na região de destino após a movimentação. Tenha isso em mente ao modificar as configurações de rede (incluindo regras de balanceamento de carga) no local de destino.
 Grupo de segurança de rede | Com suporte | Especifique um recurso existente na região de destino ou crie um novo recurso durante o processo de preparação.  
 Endereço IP reservado (estático) | Com suporte | Você não pode configurar isso no momento. O valor padrão é o valor de origem. <br/><br/> Se a NIC na VM de origem tiver um endereço IP estático e a sub-rede de destino tiver o mesmo endereço IP disponível, ele será atribuído à VM de destino.<br/><br/> Se a sub-rede de destino não tiver o mesmo endereço IP disponível, a movimentação de início para a VM falhará.
 Endereço IP dinâmico | Com suporte | Você não pode configurar isso no momento. O valor padrão é o valor de origem.<br/><br/> Se a NIC na origem tiver um endereçamento IP dinâmico, a NIC na VM de destino também será dinâmica por padrão.

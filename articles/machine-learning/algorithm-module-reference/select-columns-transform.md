@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/10/2019
-ms.openlocfilehash: b3a0b904d65e6597c058ccf05ec837696e9ca20e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/10/2020
+ms.openlocfilehash: 14f08502f35afdc8a9a2cdc741b539b5f9cca712
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90893630"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945577"
 ---
 # <a name="select-columns-transform"></a>Selecionar colunas para transformação
 
@@ -46,8 +46,14 @@ Esse cenário pressupõe que você deseja usar a seleção de recursos para gera
 
    *Não conecte o conjunto de dados de entrada.* Em vez disso, adicione o módulo [aplicar transformação](apply-transformation.md) e conecte a saída da transformação seleção de recursos.
 
+   A estrutura do pipeline deve ser semelhante à seguinte:
+
+   > [!div class="mx-imgBorder"]
+   > ![Amostra do pipeline](media/module/filter-based-feature-selection-score.png)
+
    > [!IMPORTANT]
    > Você não pode esperar a aplicação da [seleção de recursos baseada em filtro](filter-based-feature-selection.md) ao conjunto de texto de Pontuação e obter os mesmos resultados. Como a seleção de recursos se baseia em valores, ela pode escolher um conjunto diferente de colunas, o que causaria uma falha na operação de pontuação.
+    
 7. Envie o pipeline.
 
 Esse processo de salvar e aplicar uma seleção de coluna garante que o mesmo esquema de dados esteja disponível para treinamento e pontuação.

@@ -15,10 +15,10 @@ ms.author: RamaKoni
 ms.reviewer: sqlblt, daleche
 ms.custom: seo-lt-2019
 ms.openlocfilehash: a57a432a5f0f8e5a6bd802ec08b18350da3a77b3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91293366"
 ---
 # <a name="in-place-change-of-sql-server-version-on-azure-vm"></a>Alteração no local da versão do SQL Server na VM do Azure
@@ -69,11 +69,11 @@ Para atualizar a versão do SQL Server, obtenha a mídia de instalação do SQL 
 1. Na página **chave do produto (Product Key** ), selecione uma opção para indicar se você está atualizando para uma edição gratuita do SQL Server ou se você tem uma chave de PID para uma versão de produção do produto. Para obter mais informações, consulte [edições e recursos com suporte do SQL Server 2019 (15. x)](https://docs.microsoft.com/sql/sql-server/editions-and-components-of-sql-server-version-15?view=sql-server-ver15) e [atualizações de versão e edição com suporte (SQL Server 2016)](https://docs.microsoft.com/sql/database-engine/install-windows/supported-version-and-edition-upgrades?view=sql-server-ver15).
 1. Selecione **Avançar** até chegar à página **pronto para atualizar** e, em seguida, selecione **Atualizar**. A janela de instalação pode parar de responder por vários minutos, enquanto a alteração está sendo efetivada. Uma página **completa** confirmará que a atualização foi concluída. Para obter um procedimento passo a passo para atualizar, consulte [o procedimento completo](https://docs.microsoft.com/sql/database-engine/install-windows/upgrade-sql-server-using-the-installation-wizard-setup?view=sql-server-ver15#procedure).
 
-   :::image type="content" source="./media/change-sql-server-version/complete-page.png" alt-text="Página completa":::
+   :::image type="content" source="./media/change-sql-server-version/complete-page.png" alt-text="Seleção para atualizar a versão do SQL Server":::
 
 Se você alterou a edição do SQL Server além de alterar a versão, atualize também a edição e consulte a seção **verificar versão e edição no portal** para alterar a instância da VM do SQL.
 
-   :::image type="content" source="./media/change-sql-server-version/change-portal.png" alt-text="Alterar metadados da versão":::
+   :::image type="content" source="./media/change-sql-server-version/change-portal.png" alt-text="Seleção para atualizar a versão do SQL Server":::
 
 ## <a name="downgrade-the-version-of-sql-server"></a>Fazer downgrade da versão do SQL Server
 
@@ -91,7 +91,7 @@ Você pode fazer o downgrade da versão do SQL Server seguindo estas etapas:
 
    Certifique-se de selecionar as opções corretas ao gerar script de itens como a versão de destino, objetos dependentes e opções avançadas.
 
-   :::image type="content" source="./media/change-sql-server-version/scripting-options.png" alt-text="Opções de script":::
+   :::image type="content" source="./media/change-sql-server-version/scripting-options.png" alt-text="Seleção para atualizar a versão do SQL Server":::
 
 1. Desinstale completamente o SQL Server e todos os serviços associados.
 1. Reinicie a VM.
@@ -104,7 +104,7 @@ Você pode fazer o downgrade da versão do SQL Server seguindo estas etapas:
 
 Depois de alterar a versão do SQL Server, registre a VM do SQL Server com o [provedor de recursos da VM do SQL](sql-vm-resource-provider-register.md) novamente para que você possa usar o portal do Azure para exibir a versão do SQL Server. O número de versão listado agora deve refletir a versão e a edição recém atualizadas da instalação do SQL Server.
 
-:::image type="content" source="./media/change-sql-server-version/verify-portal.png" alt-text="Verificar versão":::
+:::image type="content" source="./media/change-sql-server-version/verify-portal.png" alt-text="Seleção para atualizar a versão do SQL Server":::
 
 > [!NOTE]
 > Se você já se registrou com o provedor de recursos da VM do SQL, cancele o [registro do RP](sql-vm-resource-provider-register.md#unregister-from-rp) e, em seguida, [Registre o recurso da VM do SQL](sql-vm-resource-provider-register.md#register-with-rp) novamente para que ele detecte a versão e a edição corretas do SQL Server que está instalado na VM. Isso atualiza os metadados e as informações de cobrança associadas a essa VM.

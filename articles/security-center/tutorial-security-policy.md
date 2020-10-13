@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: db1b73e36a4917f1a10754424b472284094b563e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 22885d9d29bfbfc008b668889f7813ece1df8918
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90894573"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945730"
 ---
 # <a name="working-with-security-policies"></a>Trabalhar com políticas de segurança
 
@@ -46,7 +46,7 @@ Para exibir suas políticas de segurança na Central de Segurança:
 
 1. No painel **Security Center**, selecione **Security policy**.
 
-    ![O painel Gerenciamento de Política](./media/security-center-policies/security-center-policy-mgt.png)
+    :::image type="content" source="./media/security-center-policies/security-center-policy-mgt.png" alt-text="A página de gerenciamento de política&quot;:::
 
    Na tela **Gerenciamento de políticas**, você pode ver o número de grupos de gerenciamento, assinaturas e workspaces, bem como a estrutura do grupo de gerenciamento.
 
@@ -57,7 +57,7 @@ Para exibir suas políticas de segurança na Central de Segurança:
    ![página de política](./media/tutorial-security-policy/security-policy-page.png)
 
     > [!NOTE]
-    > Se houver um rótulo "MG herdado" junto com a política padrão, significa que a política foi atribuída a um grupo de gerenciamento e herdada pela assinatura que você está exibindo.
+    > Se houver um rótulo &quot;MG herdado" junto com a política padrão, significa que a política foi atribuída a um grupo de gerenciamento e herdada pela assinatura que você está exibindo.
 
 
 1. Escolha entre as opções disponíveis nesta página:
@@ -68,8 +68,19 @@ Para exibir suas políticas de segurança na Central de Segurança:
 
     1. Para exibir e editar a política padrão, selecione **Exibir política efetiva** e prossiga conforme descrito abaixo. 
 
-       ![tela de política](./media/security-center-policies/policy-screen.png)
-       
+        :::image type="content" source="./media/security-center-policies/policy-screen.png" alt-text="A página de gerenciamento de política&quot;:::
+
+   Na tela **Gerenciamento de políticas**, você pode ver o número de grupos de gerenciamento, assinaturas e workspaces, bem como a estrutura do grupo de gerenciamento.
+
+1. Selecione a assinatura ou o grupo de gerenciamento cujas políticas você deseja visualizar.
+
+1. A página política de segurança para essa assinatura ou grupo de gerenciamento é exibida. Ele mostra as políticas disponíveis e atribuídas.
+
+   ![página de política](./media/tutorial-security-policy/security-policy-page.png)
+
+    > [!NOTE]
+    > Se houver um rótulo &quot;MG herdado":::
+
        Essa tela de **política de segurança** reflete a ação executada pelas políticas atribuídas na assinatura ou no grupo de gerenciamento selecionado.
        
        * Use os links na parte superior para abrir uma **atribuição** de política que se aplica à assinatura ou ao grupo de gerenciamento. Esses links permitem que você acesse a atribuição e edite ou desabilite a política. Por exemplo, se você vir que uma atribuição de política específica está efetivamente negando o Endpoint Protection, use o link para editar ou desabilitar a política.
@@ -131,8 +142,7 @@ Para obter mais informações sobre recomendações, consulte [Gerenciando recom
 ## <a name="next-steps"></a>Próximas etapas
 Este artigo explicou as políticas de segurança. Para obter informações relacionadas, consulte os seguintes artigos:
 
-* Para obter instruções sobre como definir políticas usando o PowerShell, consulte [início rápido: criar uma atribuição de política para identificar recursos sem conformidade usando o módulo Azure PowerShell](../governance/policy/assign-policy-powershell.md)
-
-* Para obter instruções sobre como editar uma política de segurança no Azure Policy, consulte [criar e gerenciar políticas para impor a conformidade](../governance/policy/tutorials/create-and-manage.md).
-
-* Para obter instruções sobre como definir uma política em assinaturas ou em grupos de gerenciamento usando Azure Policy, consulte [o que é Azure Policy?](../governance/policy/overview.md)
+- [Saiba como definir políticas usando o PowerShell](../governance/policy/assign-policy-powershell.md) - 
+- [Saiba como editar uma política de segurança no Azure Policy](../governance/policy/tutorials/create-and-manage.md) - 
+- [Saiba como definir uma política em assinaturas ou em grupos de gerenciamento usando Azure Policy](../governance/policy/overview.md).
+- [Saiba como habilitar a central de segurança em todas as assinaturas em um grupo de gerenciamento](onboard-management-group.md)

@@ -8,10 +8,10 @@ ms.date: 08/27/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc
 ms.openlocfilehash: 9a9cdef27276aa589a4aadd853185b0e3fb4be61
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91773732"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Regiões e zonas de disponibilidade no Azure
@@ -99,13 +99,13 @@ Conforme mencionado anteriormente, o Azure classifica os serviços em três cate
 > | Azure ExpressRoute | Azure Bastion | HSM Dedicado do Azure |
 > | Banco de Dados SQL do Azure | Cache Redis do Azure | Azure Dev Spaces |
 > | Serviços de Nuvem | Pesquisa Cognitiva do Azure | Gêmeos Digitais do Azure |
-> | Serviços de nuvem: série Av2 | Azure Data Explorer | Azure Lab Services |
-> | Serviços de nuvem: série Dv2 | Azure Data Share | Azure NetApp Files |
-> | Serviços de nuvem: série Dv3 | Banco de Dados do Azure para MySQL | Quantum do Azure |
-> | Serviços de nuvem: série Ev3 | Banco de Dados do Azure para PostgreSQL | Serviço de nuvem do Azure Spring |
+> | Serviços de nuvem: Av2-Series | Azure Data Explorer | Azure Lab Services |
+> | Serviços de nuvem: Dv2-Series | Azure Data Share | Azure NetApp Files |
+> | Serviços de nuvem: Dv3-Series | Banco de Dados do Azure para MySQL | Quantum do Azure |
+> | Serviços de nuvem: Ev3-Series | Banco de Dados do Azure para PostgreSQL | Serviço de nuvem do Azure Spring |
 > | Serviços de nuvem: IPs de nível de instância | Serviço de Migração de Banco de Dados do Azure | Azure Time Series Insights |
 > | Serviços de nuvem: IP Reservado | Azure Databricks | Solução VMware no Azure pela CloudSimple |
-> | Armazenamento em Disco | Proteção contra DDoS do Azure | Serviços de nuvem: série G |
+> | Armazenamento em disco | Proteção contra DDoS do Azure | Serviços de nuvem: série G |
 > | Hubs de Eventos | Azure DevTest Labs | Serviços de nuvem: série H |
 > | Key Vault | Firewall do Azure | Serviços cognitivas: Visão Personalizada |
 > | Balanceador de carga | Gerenciador de Firewall do Azure | Serviços cognitivas: Reconhecimento do Locutor |
@@ -114,7 +114,7 @@ Conforme mencionado anteriormente, o Azure classifica os serviços em três cate
 > | Conjuntos de Dimensionamento de Máquinas Virtuais | Hub IoT do Azure | Data Factory: Data Factory v1 |
 > | Máquinas Virtuais | AKS (Serviço de Kubernetes do Azure) | Data Lake Analytics |
 > | Máquinas virtuais: Av2-Series | Azure Machine Learning | Azure Machine Learning Studio (clássico)|
-> | Máquinas virtuais: BS-Series | Link Privado do Azure | Microsoft Genomics |
+> | Máquinas virtuais: Bs-Series | Link Privado do Azure | Microsoft Genomics |
 > | Máquinas virtuais: DSv2-Series | Red Hat OpenShift no Azure | Remote Rendering |
 > | Máquinas virtuais: DSv3-Series | Serviço Azure SignalR | Âncoras Espaciais |
 > | Máquinas virtuais: Dv2-Series | Azure Site Recovery | StorSimple |
@@ -122,7 +122,7 @@ Conforme mencionado anteriormente, o Azure classifica os serviços em três cate
 > | Máquinas virtuais: ESv3-Series | Stream Analytics do Azure | Máquinas virtuais: DASv4-Series |
 > | Máquinas virtuais: Ev3-Series | Azure Synapse Analytics | Máquinas virtuais: DAv4-Series |
 > | Máquinas virtuais: série F | Lote | Máquinas virtuais: DCsv2-Series |
-> | Máquinas virtuais: série FS | Serviços de nuvem: série M | Máquinas virtuais: EASv4-Series |
+> | Máquinas virtuais: FS-Series | Serviços de nuvem: série M | Máquinas virtuais: EASv4-Series |
 > | Máquinas virtuais: IPs de nível de instância | Serviços Cognitivos | Máquinas virtuais: EAv4-Series |
 > | Máquinas virtuais: IP Reservado | Serviços cognitivas: Pesquisa Visual Computacional | Máquinas virtuais: série G |
 > | Rede Virtual | Serviços cognitivas: Content Moderator | Máquinas virtuais: GS-Series |
@@ -130,7 +130,7 @@ Conforme mencionado anteriormente, o Azure classifica os serviços em três cate
 > |  | Serviços cognitivas: reconhecedor de formulário | Máquinas virtuais: HBv2-Series |
 > |  | Serviços cognitivas: Reconhecimento vocal | Máquinas virtuais: HCv1-Series |
 > |  | Serviços Cognitivos: QnA Maker | Máquinas virtuais: série H |
-> |  | Serviços cognitivas: serviços de fala | Máquinas virtuais: série LS |
+> |  | Serviços cognitivas: serviços de fala | Máquinas virtuais: LS-Series |
 > |  | Instâncias de Contêiner | Máquinas virtuais: LSv2-Series |
 > |  | Registro de Contêiner | Máquinas virtuais: Mv2-Series |
 > |  | Data Factory | Máquinas virtuais: NC-Series |
@@ -148,7 +148,7 @@ Conforme mencionado anteriormente, o Azure classifica os serviços em três cate
 > |  | Máquinas virtuais: Ddsv4-Series |  |
 > |  | Máquinas virtuais: Ddv4-Series |  |
 > |  | Máquinas virtuais: Dsv4-Series |  |
-> |  | Máquinas virtuais: dv4-Series |  |
+> |  | Máquinas virtuais: Dv4-Series |  |
 > |  | Máquinas virtuais: Edsv4-Series |  |
 > |  | Máquinas virtuais: Edv4-Series |  |
 > |  | Máquinas virtuais: Esv4-Series |  |

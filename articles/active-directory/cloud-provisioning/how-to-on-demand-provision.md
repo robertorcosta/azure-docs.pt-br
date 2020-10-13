@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 72623d69f9fb0cbc68758a362bb977e5e02d2c00
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91637032"
 ---
 # <a name="azure-ad-connect-cloud-provisioning-on-demand-provisioning"></a>Provisionamento de provisionamento por demanda do Azure AD Connect Cloud
@@ -45,7 +45,7 @@ Para usar o novo recurso, siga as etapas abaixo.
  ![Provisionamento sob demanda](media/how-to-on-demand-provision/on-demand3.png)
 7. Após a conclusão, você deverá ver uma tela de êxito e quatro caixas de seleção verdes indicando que ela foi provisionada com êxito.  Todos os erros serão exibidos à esquerda.
 
-  ![Sucesso](media/how-to-on-demand-provision/on-demand4.png)
+  ![Êxito](media/how-to-on-demand-provision/on-demand4.png)
 
 Agora você pode examinar o usuário e determinar se as alterações feitas na configuração foram aplicadas.  O restante deste documento descreverá as seções individuais que são exibidas nos detalhes de um usuário sincronizado com êxito.
 
@@ -74,7 +74,7 @@ Usando essas informações, você pode ver se uma correspondência foi encontrad
 
 ![Informações do usuário](media/how-to-on-demand-provision/on-demand11.png)
 
-Os detalhes de correspondência mostrarão uma mensagem com uma das três operações a seguir.  Elas são:
+Os detalhes de correspondência mostrarão uma mensagem com uma das três operações a seguir.  Eles são:
 - Criar-um usuário é criado no Azure AD
 - Atualização – um usuário é atualizado com base em uma alteração feita na configuração
 - Excluir-um usuário é removido do Azure AD.

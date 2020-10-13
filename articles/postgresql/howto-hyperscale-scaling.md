@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 9/18/2020
 ms.openlocfilehash: dd59d0b09a28febfc0afe35d9f008ba0e0ee19ab
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91295707"
 ---
 # <a name="server-group-size"></a>Tamanho do grupo de servidores
@@ -22,13 +22,13 @@ A opção de implantação de hiperescala (Citus) usa servidores de banco de dad
 
 O tamanho de um grupo de servidores, em termos de número de nós e sua capacidade de hardware, é fácil de alterar ([Veja abaixo](#scale-a-hyperscale-citus-server-group)). No entanto, você ainda precisa escolher um tamanho inicial para um novo grupo de servidores. Aqui estão algumas dicas para uma escolha razoável.
 
-### <a name="multi-tenant-saas-use-case"></a>Caso de uso de SaaS de vários locatários
+### <a name="multi-tenant-saas-use-case"></a>Use-Case SaaS multilocatário
 
 Para as migrações para Citus (hiperescala) de uma instância de banco de dados PostgreSQL de nó único existente, é recomendável escolher um cluster em que o número de vCores de trabalho e RAM no total seja igual ao da instância original. Nesses cenários, vimos aprimoramentos de desempenho de 2 a 3, pois a fragmentação melhora a utilização de recursos, permitindo índices menores etc.
 
 O número de vCores necessário para o nó de coordenador depende da carga de trabalho existente (taxa de transferência de gravação/leitura). O nó de coordenador não requer tanta RAM quanto nós de trabalho, mas a alocação de RAM é determinada com base na contagem de vCore (conforme descrito nas [Opções de configuração de hiperescala (Citus)](concepts-hyperscale-configuration-options.md)) para que a contagem VCORE seja essencialmente a decisão real.
 
-### <a name="real-time-analytics-use-case"></a>Caso de uso de análise em tempo real
+### <a name="real-time-analytics-use-case"></a>Use-Case Real-Time Analytics
 
 Total de vCores: quando os dados de trabalho se ajustam à RAM, você pode esperar uma melhoria de desempenho linear em hiperescala (Citus) proporcional ao número de núcleos de trabalho. Para determinar o número certo de vCores para suas necessidades, considere a latência atual para consultas em seu banco de dados de nó único e a latência necessária em hiperescala (Citus). Divida a latência atual pela latência desejada e arredonde o resultado.
 

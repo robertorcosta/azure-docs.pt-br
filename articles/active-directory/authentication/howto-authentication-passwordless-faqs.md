@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
 ms.date: 08/19/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16e232cedb13dc246bf7a568adfad401c1fe3eb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c5cc6847332765419001eadc5944905f55a425ef
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89236585"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91964784"
 ---
 # <a name="deployment-frequently-asked-questions-faqs-for-hybrid-fido2-security-keys-in-azure-ad-preview"></a>Perguntas frequentes sobre implantação (FAQs) para chaves de segurança FIDO2 híbridas no Azure AD (versão prévia)
 
@@ -160,7 +160,7 @@ Em um controlador de domínio do Windows Server 2016 ou 2019, verifique se os pa
 
 Não, esse recurso não tem suporte para o dispositivo somente no local. O provedor de credenciais FIDO2 não aparecerá.
 
-### <a name="fido2-security-key-sign-in-isnt-working-for-my-domain-admin-or-other-high-privilege-accounts-why"></a>A entrada da chave de segurança do FIDO2 não está funcionando para meu administrador de domínio ou outras contas de alto privilégio. Por quê?
+### <a name="fido2-security-key-sign-in-isnt-working-for-my-domain-admin-or-other-high-privilege-accounts-why"></a>A entrada da chave de segurança do FIDO2 não está funcionando para meu administrador de domínio ou outras contas de alto privilégio. Por que?
 
 A política de segurança padrão não concede permissão ao Azure AD para assinar contas com privilégios altos em recursos locais.
 
@@ -234,11 +234,11 @@ A solicitação HTTP é uma solicitação de PRT (token de atualização primár
 
 O Azure AD combina a chave do cliente criptografada e o buffer de mensagens na resposta de PRT como propriedades adicionais. A carga é criptografada usando a chave de sessão de dispositivo do Azure AD.
 
-| Campo              | Tipo   | Descrição  |
+| Campo              | Type   | Descrição  |
 |--------------------|--------|--------------|
-| tgt_client_key     | string | Chave de cliente codificada em Base64 (segredo). Essa chave é o segredo do cliente usado para proteger o TGT. Nesse cenário sem senha, o segredo do cliente é gerado pelo servidor como parte de cada solicitação de TGT e, em seguida, retornado ao cliente na resposta. |
+| tgt_client_key     | cadeia de caracteres | Chave de cliente codificada em Base64 (segredo). Essa chave é o segredo do cliente usado para proteger o TGT. Nesse cenário sem senha, o segredo do cliente é gerado pelo servidor como parte de cada solicitação de TGT e, em seguida, retornado ao cliente na resposta. |
 | tgt_key_type       | INT    | O tipo de chave AD DS local usado para a chave do cliente e a chave de sessão do Kerberos incluídos no KERB_MESSAGE_BUFFER. |
-| tgt_message_buffer | string | KERB_MESSAGE_BUFFER codificado na base64. |
+| tgt_message_buffer | cadeia de caracteres | KERB_MESSAGE_BUFFER codificado na base64. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

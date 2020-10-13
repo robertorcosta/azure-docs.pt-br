@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/1/2020
-ms.openlocfilehash: b32ef80ad670e369315ec3ddb6972aef30bec27a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 42ca56e33ff0bc8f48c35849480d8094a2be1cb7
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627560"
+ms.locfileid: "91876542"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Leia réplicas no Banco de Dados do Azure para MySQL
 
@@ -93,11 +93,9 @@ No prompt, insira a senha da conta de usuário.
 
 ## <a name="monitor-replication"></a>Monitorar a replicação
 
-O Banco de Dados do Azure para MySQL fornece a métrica **Atraso da replicação em segundos** no Azure Monitor. Essa métrica está disponível apenas para réplicas.
+O Banco de Dados do Azure para MySQL fornece a métrica **Atraso da replicação em segundos** no Azure Monitor. Essa métrica está disponível apenas para réplicas. Essa métrica é calculada com o uso da métrica `seconds_behind_master` disponível no comando `SHOW SLAVE STATUS` do MySQL. Defina um alerta para informá-lo quando o retardo da replicação atinge um valor que não é aceitável para sua carga de trabalho.
 
-Essa métrica é calculada com o uso da métrica `seconds_behind_master` disponível no comando `SHOW SLAVE STATUS` do MySQL.
-
-Defina um alerta para informá-lo quando o retardo da replicação atinge um valor que não é aceitável para sua carga de trabalho.
+Se você vir maior atraso de replicação, consulte [solucionar problemas de latência de replicação](howto-troubleshoot-replication-latency.md) para solucionar problemas e entender as possíveis causas.
 
 ## <a name="stop-replication"></a>Parar replicação
 

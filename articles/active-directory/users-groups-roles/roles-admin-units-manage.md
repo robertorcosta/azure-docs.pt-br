@@ -15,10 +15,10 @@ ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1166d2ad17aea97a4dd7fdda53c42d6b3df75936
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91450372"
 ---
 # <a name="manage-administrative-units-in-azure-active-directory"></a>Gerenciar unidades administrativas no Azure Active Directory
@@ -38,7 +38,7 @@ Para um controle administrativo mais granular no Azure Active Directory (AD do A
 
 ## <a name="add-an-administrative-unit"></a>Adicionar uma unidade administrativa
 
-### <a name="use-the-azure-portal"></a>Use o Portal do Azure
+### <a name="use-the-azure-portal"></a>Usar o portal do Azure
 
 1. No portal do Azure, acesse Azure AD e, no painel esquerdo, selecione **unidades administrativas**.
 
@@ -77,7 +77,7 @@ Request body
 
 No Azure AD, você pode remover uma unidade administrativa que não é mais necessária como uma unidade de escopo para funções administrativas.
 
-### <a name="use-the-azure-portal"></a>Use o Portal do Azure
+### <a name="use-the-azure-portal"></a>Usar o portal do Azure
 
 1. Na portal do Azure, vá para as unidades administrativas **do Azure ad**  >  **Administrative units**. 
 1. Selecione a unidade administrativa a ser excluída e, em seguida, selecione **excluir**. 

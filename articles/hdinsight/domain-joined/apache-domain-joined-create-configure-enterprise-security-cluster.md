@@ -9,10 +9,10 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 12/10/2019
 ms.openlocfilehash: c0e35b94b4322d9273e5793c85792eb2bbd34d05
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91536062"
 ---
 # <a name="create-and-configure-enterprise-security-package-clusters-in-azure-hdinsight"></a>Criar e configurar clusters Enterprise Security Package no Azure HDInsight
@@ -45,9 +45,9 @@ Nesta seção, você usará um modelo de implantação de início rápido do Azu
 
     |Propriedade | Valor |
     |---|---|
-    |Assinatura|Selecione a assinatura na qual você deseja implantar os recursos.|
-    |Grupo de recursos|Selecione **criar novo**e insira o nome `OnPremADVRG`|
-    |Location|Selecione uma localização.|
+    |Subscription|Selecione a assinatura na qual você deseja implantar os recursos.|
+    |Resource group|Selecione **criar novo**e insira o nome `OnPremADVRG`|
+    |Localização|Selecione uma localização.|
     |Nome de Usuário do Administrador|`HDIFabrikamAdmin`|
     |Senha do Administrador|Digite uma senha.|
     |Nome de domínio|`HDIFabrikam.com`|
@@ -291,7 +291,7 @@ Use as etapas a seguir para configurar sua rede virtual do Azure AD DS (**HDIFab
     1. Em **configurações**, selecione **servidores DNS**.
     1. Selecione **personalizado**.
     1. Na caixa de texto, insira o primeiro endereço IP (*10.0.0.4*).
-    1. Clique em **Salvar**.
+    1. Selecione **Salvar**.
     1. Repita as etapas para adicionar o outro endereço IP (*10.0.0.5*).
 
 Em nosso cenário, configuramos o Azure AD DS para usar os endereços IP 10.0.0.4 e 10.0.0.5, definindo o mesmo endereço IP na rede virtual do Azure AD DS:
@@ -392,7 +392,7 @@ Esta etapa requer os seguintes pré-requisitos:
 1. Configure o DNS personalizado na rede virtual **HDIFabrikam-AADDSVNET** .
     1. Vá para o portal do Azure > **grupos de recursos**  >  **OnPremADVRG**  >  **HDIFabrikam-AADDSVNET**  >  **servidores DNS**.
     1. Selecione **personalizado** e insira *10.0.0.4* e *10.0.0.5*.
-    1. Clique em **Salvar**.
+    1. Selecione **Salvar**.
 
         ![Salvar configurações personalizadas de DNS para uma rede virtual](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0123.png)
 
