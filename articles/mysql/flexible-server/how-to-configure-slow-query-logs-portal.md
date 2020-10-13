@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
 ms.openlocfilehash: e2046673cda17c58153ceb12eee31edb83365092
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91565659"
 ---
 # <a name="configure-and-access-slow-query-logs-for-azure-database-for-mysql---flexible-server-using-the-azure-portal"></a>Configurar e acessar logs de consulta lentos para o banco de dados do Azure para MySQL-servidor flexível usando o portal do Azure
@@ -39,7 +39,7 @@ Configure o acesso aos logs de consulta lenta do MySQL.
 1. Altere quaisquer outros parâmetros necessários (por exemplo, `long_query_time`, `log_slow_admin_statements`). Consulte os documentos de [logs de consulta lenta](./concepts-slow-query-logs.md#configure-slow-query-logging) para obter mais parâmetros.  
    :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/long-query-time.png" alt-text="Página de parâmetros do servidor.":::
 
-1. Clique em **Salvar**. 
+1. Selecione **Salvar**. 
    :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/save-parameters.png" alt-text="Página de parâmetros do servidor.":::
 
 Na página **parâmetros do servidor** , você pode retornar à lista de logs fechando a página.

@@ -10,10 +10,10 @@ services: iot-accelerators
 ms.date: 01/24/2019
 ms.topic: conceptual
 ms.openlocfilehash: f7554843db247ade1cddff78902430a5d84debe1
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87319160"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---intellij"></a>Implantar o acelerador de solução de Monitoramento Remoto localmente – IntelliJ
@@ -191,10 +191,10 @@ Cada serviço Web abre uma janela de prompt de comando e uma janela do navegador
 
 Para acessar o status dos serviços, acesse as seguintes URLs:
 
-* Gerenciador de Hub IoT:`http://localhost:9002/v1/status`
-* Telemetria do dispositivo:`http://localhost:9004/v1/status`
-* configuração`http://localhost:9005/v1/status`
-* adaptador de armazenamento:`http://localhost:9022/v1/status`
+* Gerenciador de IoT-Hub: `http://localhost:9002/v1/status`
+* Telemetria do dispositivo: `http://localhost:9004/v1/status`
+* configuração `http://localhost:9005/v1/status`
+* adaptador de armazenamento: `http://localhost:9022/v1/status`
 
 ### <a name="start-the-stream-analytics-job"></a>Iniciar o trabalho do Stream Analytics
 

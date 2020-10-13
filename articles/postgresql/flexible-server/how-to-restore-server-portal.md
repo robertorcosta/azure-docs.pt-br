@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.openlocfilehash: e69bcb3d9e4dca4c45bf9a6fe8ed4d54e7f4a8cd
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90933156"
 ---
 # <a name="point-in-time-restore-of-a-flexible-server"></a>Restauração pontual de um servidor flexível
@@ -40,7 +40,7 @@ Siga estas etapas para restaurar seu servidor flexível usando um backup existen
 
 4.  Selecione **ponto de restauração mais antigo** e forneça um novo nome de servidor no campo **restaurar para o novo servidor** . O carimbo de data/hora mais antigo no qual você pode restaurar é exibido. 
    
-   :::image type="content" source="./media/how-to-restore-server-portal/restore-earliest.png" alt-text="Hora de restauração mais antiga":::
+   :::image type="content" source="./media/how-to-restore-server-portal/restore-earliest.png" alt-text="Visão geral da restauração":::
 
 5.  Clique em **OK**.
 
@@ -61,7 +61,7 @@ Siga estas etapas para restaurar seu servidor flexível usando um backup existen
 
 5.  Selecione data e hora e forneça um novo nome de servidor no campo **restaurar para o novo servidor** . 
    
-:::image type="content" source="./media/how-to-restore-server-portal/restore-custom.png" alt-text="Tempo de restauração personalizado":::
+:::image type="content" source="./media/how-to-restore-server-portal/restore-custom.png" alt-text="Visão geral da restauração":::
  
 6.  Clique em **OK**.
 

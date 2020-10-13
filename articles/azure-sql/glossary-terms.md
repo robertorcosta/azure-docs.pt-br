@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/22/2020
 ms.openlocfilehash: 18ff2c9690de1708cd8382d83a0c01662a8e6fb0
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91619773"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Glossário de termos do Banco de Dados SQL do Azure
@@ -26,9 +26,9 @@ ms.locfileid: "91619773"
 
 |Contexto|Termo|Mais informações|
 |:---|:---|:---|
-|Serviço do Azure|Banco de Dados SQL do Azure ou Banco de Dados SQL|[Banco de Dados SQL do Azure](database/sql-database-paas-overview.md)|
+|Serviço do Azure|Banco de Dados SQL do Azure ou Banco de Dados SQL|[Banco de dados SQL do Azure](database/sql-database-paas-overview.md)|
 |Modelo de compra|Modelo de compra baseado em DTU|[Modelo de compra baseado em DTU](database/service-tiers-dtu.md)|
-||Modelo de compra baseado em vCore|[modelo de compra baseado em vCore](database/service-tiers-vcore.md)|
+||Modelo de compra baseado em vCore|[Modelo de compra baseado em vCore](database/service-tiers-vcore.md)|
 |Opção de implantação |Banco de dados individual|[Bancos de dados únicos](database/single-database-overview.md)|
 ||Pool elástico|[Pool elástico](database/elastic-pool-overview.md)|
 |Camada de serviço|Básico, Standard, Premium, Uso Geral, hiperescala Comercialmente Crítico|Para as camadas de serviço no modelo vCore, consulte [camadas de serviço do banco de dados SQL](database/service-tiers-vcore.md#service-tiers). Para as camadas de serviço no modelo de DTU, consulte [modelo de DTU](database/service-tiers-dtu.md#compare-the-dtu-based-service-tiers).|
@@ -43,8 +43,8 @@ ms.locfileid: "91619773"
 
 |Contexto|Termo|Mais informações|
 |:---|:---|:---|
-|Serviço do Azure|Instância Gerenciada do Azure SQL|[Instância Gerenciada de SQL](managed-instance/sql-managed-instance-paas-overview.md)|
-|Modelo de compra|Modelo de compra baseado em vCore|[modelo de compra baseado em vCore](database/service-tiers-vcore.md)|
+|Serviço do Azure|Instância Gerenciada do Azure SQL|[Instância Gerenciada do SQL](managed-instance/sql-managed-instance-paas-overview.md)|
+|Modelo de compra|Modelo de compra baseado em vCore|[Modelo de compra baseado em vCore](database/service-tiers-vcore.md)|
 |Opção de implantação |Instância única|[Instância única](managed-instance/sql-managed-instance-paas-overview.md)|
 ||Pool de instâncias (visualização)|[Pools da instância](managed-instance/instance-pools-overview.md)|
 |Camada de serviço|Uso Geral, Comercialmente Crítico|[Camadas de serviço do SQL Instância Gerenciada](managed-instance/sql-managed-instance-paas-overview.md#service-tiers)|

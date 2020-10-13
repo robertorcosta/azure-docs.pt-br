@@ -8,10 +8,10 @@ ms.date: 09/18/2020
 ms.author: thweiss
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: dd1a59c2e6b0656233174c53b08ab013ce73d0f1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91334422"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Configurar o Link Privado do Azure para uma conta do Azure Cosmos
@@ -98,7 +98,7 @@ Depois que o ponto de extremidade privado for provisionado, você poderá consul
 1. Pesquise o ponto de extremidade privado que você criou anteriormente. Nesse caso, é **cdbPrivateEndpoint3**.
 1. Selecione a guia **Visão Geral** para ver as configurações de DNS e os endereços IP.
 
-:::image type="content" source="./media/how-to-configure-private-endpoints/private-ip-addresses-portal.png" alt-text="Endereços IP privados no portal do Azure":::
+:::image type="content" source="./media/how-to-configure-private-endpoints/private-ip-addresses-portal.png" alt-text="Seleções para criar um ponto de extremidade privado no portal do Azure":::
 
 Vários endereços IP são criados por ponto de extremidade privado:
 
@@ -411,7 +411,7 @@ Para essas contas, você deve criar um ponto de extremidade privado para cada ti
 
 Depois que o modelo for implantado com êxito, você poderá ver uma saída semelhante à que a imagem a seguir mostra. O valor `provisioningState` será `Succeeded` se os pontos de extremidade privados estiverem configurados corretamente.
 
-:::image type="content" source="./media/how-to-configure-private-endpoints/resource-manager-template-deployment-output.png" alt-text="Saída de implantação para o modelo do Resource Manager":::
+:::image type="content" source="./media/how-to-configure-private-endpoints/resource-manager-template-deployment-output.png" alt-text="Seleções para criar um ponto de extremidade privado no portal do Azure":::
 
 Depois que o modelo é implantado, os endereços IP privados são reservados na sub-rede. A regra de firewall da conta do Azure Cosmos é configurada para aceitar conexões apenas do ponto de extremidade privado.
 

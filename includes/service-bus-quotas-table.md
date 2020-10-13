@@ -9,10 +9,10 @@ ms.date: 07/15/2020
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 535ee447ff63aabb9af1f32252fb4e4dd2c392de
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91779359"
 ---
 A tabela a seguir lista as informações de cota específicas às mensagens do Barramento de Serviço do Azure. Para obter informações sobre preços e outras cotas do Barramento de Serviço, confira [Preços do Barramento de Serviço](https://azure.microsoft.com/pricing/details/service-bus/).

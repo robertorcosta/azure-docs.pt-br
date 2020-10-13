@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/26/2020
 ms.openlocfilehash: e0333c5cabec597261938765298b622bf2fe79a4
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91542505"
 ---
 # <a name="move-an-azure-database-for-mysql-server-to-another-region-by-using-the-azure-portal"></a>Mover um banco de dados do Azure para o servidor MySQL para outra região usando o portal do Azure
@@ -33,7 +33,7 @@ Você pode usar uma [réplica de leitura entre regiões](concepts-read-replicas.
 
 Para criar um servidor de réplica de leitura entre regiões na região de destino usando o portal do Azure, use as seguintes etapas:
 
-1. Faça logon no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [Portal do Azure](https://portal.azure.com/).
 1. Selecione o servidor de banco de dados do Azure para MySQL existente que você deseja usar como o servidor de origem. Essa ação abre a página **Visão geral** do runbook.
 1. Selecione **Replicação** no menu, em **CONFIGURAÇÕES**.
 1. Selecione **para adicionar réplica**.

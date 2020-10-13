@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
 ms.openlocfilehash: 896baa70fb6e18165a025459a063e33d705261ba
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90933280"
 ---
 # <a name="security-agent-authentication-methods"></a>Métodos de autenticação do agente de segurança
@@ -48,7 +48,7 @@ Consulte [parâmetros de instalação do agente de segurança](#security-agent-i
 ## <a name="authentication-methods-known-limitations"></a>Limitações conhecidas dos métodos de autenticação
 
 - O modo de autenticação **SecurityModule** dá suporte apenas à autenticação de chave simétrica.
-- Não há suporte para o certificado assinado por uma autoridade de certificação no modo de autenticação do **dispositivo** .
+- O modo de autenticação do **dispositivo** não dá suporte para CA-Signed certificado.
 
 ## <a name="security-agent-installation-parameters"></a>Parâmetros de instalação do agente de segurança
 

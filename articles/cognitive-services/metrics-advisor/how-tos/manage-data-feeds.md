@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: aahi
 ms.openlocfilehash: 22a1be7231b730c83ca97b0f128e43258ed24533
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90932962"
 ---
 # <a name="how-to-manage-your-data-feeds"></a>Como gerenciar seus feeds de dados
@@ -106,7 +106,7 @@ As opções são:
 
 Os modelos de link de ação são usados para predefinir URLs http acionáveis, que consistem nos espaços reservados `%datafeed` , `%metric` ,, `%timestamp` `%detect_config` e `%tagset` . Você pode usar o modelo para redirecionar de uma anomalia ou de um incidente para uma URL específica para fazer uma busca detalhada.
 
-:::image type="content" source="../media/action-link-template.png" alt-text="Modelo de link de ação" lightbox="../media/action-link-template.png":::
+:::image type="content" source="../media/action-link-template.png" alt-text="Feed de dados de aterramento" lightbox="../media/action-link-template.png":::
 
 Depois de preencher o link de ação, clique em **ir para o link de ação** na opção ação da lista de incidentes e no menu do botão direito do mouse da árvore de incidentes. Substitua os espaços reservados no modelo de link de ação pelos valores correspondentes da anomalia ou do incidente.
 

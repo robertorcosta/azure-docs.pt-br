@@ -16,10 +16,10 @@ ms.date: 03/20/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
 ms.openlocfilehash: a55151ec70c27f18c9503235519d4dd2fcf5b64e
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89259652"
 ---
 # <a name="use-playready-andor-widevine-dynamic-common-encryption"></a>Usar a criptografia comum dinâmica PlayReady e/ou Widevine
@@ -55,7 +55,7 @@ Este artigo é útil para os desenvolvedores que trabalham em aplicativos que fo
 >[!NOTE]
 >Quando sua conta dos Serviços de Mídia é criada, um ponto de extremidade de streaming padrão é adicionado à sua conta em estado "Parado". Para iniciar seu conteúdo de streaming e aproveitar o empacotamento dinâmico e a criptografia dinâmica, o ponto de extremidade de streaming do qual você deseja transmitir o conteúdo deve estar no estado "Executando". 
 
-## <a name="download-the-sample"></a>Baixar o exemplo
+## <a name="download-the-sample"></a>Baixe o exemplo
 Você pode baixar o exemplo descrito neste artigo nos [exemplos do Azure no GitHub](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm).
 
 ## <a name="configure-dynamic-common-encryption-and-drm-license-delivery-services"></a>Configurar a criptografia dinâmica comum e os serviços de distribuição de licenças de DRM
