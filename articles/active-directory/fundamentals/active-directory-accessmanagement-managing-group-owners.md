@@ -12,12 +12,12 @@ ms.date: 09/11/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30b547ecd4ff76e650d7be837fa5bce03046da50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 788386dc3cbfb8b4252e8710d8ee1bfd9dbe4e66
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89318583"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969907"
 ---
 # <a name="add-or-remove-group-owners-in-azure-active-directory"></a>Adicionar ou remover proprietários do grupo no Azure Active Directory
 Os grupos do Active Directory do Azure (Azure AD) são de propriedade e gerenciados pelos proprietários do grupo. Os proprietários do grupo podem ser usuários ou entidades de serviço e podem gerenciar o grupo, incluindo a associação. Somente proprietários de grupo existentes ou administradores de gerenciamento de grupo podem atribuir proprietários de grupo. Os proprietários do grupo não precisam ser membros do grupo.
@@ -52,7 +52,7 @@ Remova um proprietário de um grupo usando o Azure AD.
 
 3. Na página **Política de MDM - Visão Geral do Oeste**, selecione **Proprietários**.
 
-    ![Política do MDM – página de visão geral do Oeste com a opção de proprietários realçada](media/active-directory-accessmanagement-managing-group-owners/remove-owners-option-overview-blade.png)
+    ![Política de MDM-página Visão geral do oeste com a opção remover proprietários realçada](media/active-directory-accessmanagement-managing-group-owners/remove-owners-option-overview-blade.png)
 
 4. Sobre o **proprietários de - Oeste - política de MDM** , selecione o usuário que você deseja remover como proprietário de um grupo, escolha **remover** na página de informações do usuário e selecione **Sim** para confirmar sua decisão.
 

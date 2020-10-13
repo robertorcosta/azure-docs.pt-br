@@ -12,10 +12,10 @@ ms.date: 09/22/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 10c460775bcb63028f03d0e8d0b1f7ed1507cdb4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91259451"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-linkedin-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e entrada com a conta do LinkedIn usando o Azure Active Directory B2C
@@ -29,7 +29,7 @@ Para usar uma conta do LinkedIn como um [provedor de identidade](authorization-c
 1. Insira o **nome do aplicativo**, a página do LinkedIn, a URL **da**política de **privacidade**e o logotipo do **aplicativo**.
 1. Concorde com os **termos de uso da API do** LinkedIn e clique em **criar aplicativo**.
 1. Selecione a guia **autenticação** . Em **chaves de autenticação**, copie os valores para **ID do cliente** e segredo do **cliente**. Você precisará de ambos para configurar o LinkedIn como um provedor de identidade em seu locatário. O **segredo do cliente** é uma credencial de segurança importante.
-1. Selecione o lápis de edição ao lado de **URLs de redirecionamento autorizado para seu aplicativo**e, em seguida, selecione **Adicionar URL de redirecionamento**. Insira `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` , substituindo `your-tenant-name` pelo nome do seu locatário. Todas as letras que você usar ao inserir o nome do locatário precisarão ser minúsculas, mesmo se o locatário estiver definido com letras maiúsculas no Azure AD B2C. Selecione **Atualização**.
+1. Selecione o lápis de edição ao lado de **URLs de redirecionamento autorizado para seu aplicativo**e, em seguida, selecione **Adicionar URL de redirecionamento**. Insira `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` , substituindo `your-tenant-name` pelo nome do seu locatário. Todas as letras que você usar ao inserir o nome do locatário precisarão ser minúsculas, mesmo se o locatário estiver definido com letras maiúsculas no Azure AD B2C. Selecione **Atualizar**.
 2. Por padrão, seu aplicativo do LinkedIn não é aprovado para escopos relacionados à entrada. Para solicitar uma revisão, selecione a guia **produtos** e, em seguida, selecione **entrar com o LinkedIn**. Quando a revisão for concluída, os escopos necessários serão adicionados ao seu aplicativo.
    > [!NOTE]
    > Você pode exibir os escopos que atualmente são permitidos para seu aplicativo na guia **autenticação** na seção **escopos do OAuth 2,0** .
@@ -43,7 +43,7 @@ Para usar uma conta do LinkedIn como um [provedor de identidade](authorization-c
 1. Insira um **Nome**. Por exemplo, *LinkedIn*.
 1. Para a **ID do cliente**, insira a ID do cliente do aplicativo do LinkedIn que você criou anteriormente.
 1. Para o **segredo do cliente**, insira o segredo do cliente que você registrou.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 ## <a name="migration-from-v10-to-v20"></a>Migração de v 1.0 para v 2.0
 

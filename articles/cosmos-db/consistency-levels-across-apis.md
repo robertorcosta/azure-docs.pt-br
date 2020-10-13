@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/6/2020
 ms.reviewer: sngun
 ms.openlocfilehash: bb8a413f2e2a3aa4a8facd533d822312bb61fa0e
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91613553"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Níveis de consistência e APIs do Azure Cosmos DB
@@ -57,7 +57,7 @@ A tabela a seguir ilustra como as preocupações nativas de gravação/leitura d
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Leia mais sobre os níveis de coerência e a compatibilidade entre as APIs do Azure Cosmos DB com as APIs de código aberto. Veja os artigos a seguir:
+Leia mais sobre os níveis de coerência e a compatibilidade entre as APIs do Azure Cosmos DB com as APIs de código aberto. Confira os seguintes artigos:
 
 * [Equilíbrio entre disponibilidade e desempenho para vários níveis de coerência](consistency-levels-tradeoffs.md)
 * [Recursos do MongoDB com suporte da API do MongoDB no Azure Cosmos DB](mongodb-feature-support.md)

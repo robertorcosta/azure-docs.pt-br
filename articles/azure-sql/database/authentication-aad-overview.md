@@ -12,10 +12,10 @@ ms.author: mireks
 ms.reviewer: vanto, sstein
 ms.date: 04/23/2020
 ms.openlocfilehash: d90cc76da20861ae9eca7aaf59a49e5f3e866c92
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91444427"
 ---
 # <a name="use-azure-active-directory-authentication"></a>Usar autenticação Azure Active Directory
@@ -118,7 +118,7 @@ Para criar um usuário de banco de dados independente no banco de dados SQL do A
   - `SUSER_ID(<admin name>)`
   - `SUSER_SID(<admin name>)`
 
-### <a name="sql-managed-instance"></a>Instância Gerenciada de SQL
+### <a name="sql-managed-instance"></a>Instância Gerenciada do SQL
 
 - As entidades de segurança do servidor do Azure AD (logons) e os usuários têm suporte para o [SQL instância gerenciada](../managed-instance/sql-managed-instance-paas-overview.md).
 - A definição de entidades de segurança do Azure AD (logons) mapeados para um grupo do Azure AD como proprietário do banco de dados não tem suporte no [SQL instância gerenciada](../managed-instance/sql-managed-instance-paas-overview.md).

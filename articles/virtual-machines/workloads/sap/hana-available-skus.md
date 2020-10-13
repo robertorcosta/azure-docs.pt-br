@@ -15,10 +15,10 @@ ms.date: 09/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 6911128cfbaa87229a09bcea0d655c6110c2d208
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91259774"
 ---
 # <a name="available-skus-for-hana-large-instances"></a>SKUs disponíveis para instâncias grandes do HANA
@@ -48,7 +48,7 @@ A lista de instâncias grandes do Azure disponíveis que são listas oferecidas 
 
 
 
-| Certificado SAP HANA | Modelo | Memória Total | DRAM de memória | Optane de memória | Armazenamento | Disponibilidade |
+| Certificado SAP HANA | Modelar | Memória Total | DRAM de memória | Optane de memória | Armazenamento | Disponibilidade |
 | --- | --- | --- | --- | --- | --- | --- |
 | YES <br />[OLAP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure&recordid=2185), [OLTP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure&recordid=2265) | SAP HANA no Azure S96<br /> – 2 x Intel® Xeon® Processador E7-8890 v4 <br /> 48 núcleos de CPU e 96 threads de CPU |  768 GB | 768 GB | --- | 3,0 TB | Disponível |
 | YES <br /> [OLAP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure&recordid=2186), [OLTP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure&recordid=2269) | SAP HANA no Azure S224<br /> – 4 x Intel® Xeon® Processador Platinum 8276 <br /> 112 núcleos de CPU e 224 threads de CPU |  3,0 TB | 3,0 TB | --- | 6,3 TB | Disponível |

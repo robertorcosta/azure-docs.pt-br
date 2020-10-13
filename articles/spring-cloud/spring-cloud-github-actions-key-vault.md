@@ -8,15 +8,15 @@ ms.topic: how-to
 ms.date: 09/08/2020
 ms.custom: devx-track-java
 ms.openlocfilehash: 995d10b3c7064e462500e0bec4d5d8aa010afe64
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90888776"
 ---
 # <a name="authenticate-azure-spring-cloud-with-key-vault-in-github-actions"></a>Autenticação do Azure Spring Cloud com o Key Vault no GitHub Actions
 
-**Este artigo aplica-se a:** ✔️ Java ✔️ C #
+**Este artigo aplica-se a:** ✔️ Java ✔️ C#
 
 O Key Vault é um local seguro para armazenar chaves. Os usuários corporativos precisam armazenar credenciais para ambientes de CI/CD no escopo que controlam. A chave para obter credenciais no cofre de chaves deve ser limitada ao escopo do recurso.  Ele tem acesso apenas ao escopo do cofre de chaves, não ao escopo do Azure inteiro. É como uma chave que só pode abrir uma caixa forte, e não uma chave mestra, que pode abrir todas as portas em um edifício. É uma maneira de obter uma chave com outra chave, que é útil em um fluxo de trabalho CICD. 
 

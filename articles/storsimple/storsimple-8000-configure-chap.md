@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 05/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 694d63dacedd8ffcd075e73bb91b5ab0a089b58c
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91766496"
 ---
 # <a name="configure-chap-for-your-storsimple-device"></a>Configure o CHAP para seu dispositivo StorSimple
@@ -59,7 +59,7 @@ Na autenticação unidirecional, o destino autentica o iniciador. Essa autentica
    3. Confirme a senha.
 
        ![Iniciador CHAP 2](./media/storsimple-8000-configure-chap/configure-chap6.png)
-3. Clique em **Save** (Salvar). Uma mensagem de confirmação é exibida. Clique em **OK** para salvar as alterações.
+3. Clique em **Salvar**. Uma mensagem de confirmação é exibida. Clique em **OK** para salvar as alterações.
 
 #### <a name="to-configure-one-way-authentication-on-the-windows-host-server"></a>Para configurar a autenticação unidirecional no servidor de host do Windows
 1. No servidor de host do Windows, inicie o Iniciador iSCSI.
@@ -113,7 +113,7 @@ Na autenticação bidirecional, o destino autentica o iniciador e, em seguida, o
    3. Confirme a senha.
 
        ![Iniciador CHAP 3](./media/storsimple-8000-configure-chap/configure-chap11.png)
-4. Clique em **Save** (Salvar). Uma mensagem de confirmação é exibida. Clique em **OK** para salvar as alterações.
+4. Clique em **Salvar**. Uma mensagem de confirmação é exibida. Clique em **OK** para salvar as alterações.
 
 #### <a name="to-configure-bidirectional-authentication-on-the-windows-host-server"></a>Para configurar a autenticação bidirecional no servidor de host do Windows
 

@@ -7,10 +7,10 @@ ms.service: data-share
 ms.topic: conceptual
 ms.date: 10/02/2020
 ms.openlocfilehash: d63cec0e0697a15efe7f15be5f6f0daaa6d6a372
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91761508"
 ---
 # <a name="roles-and-requirements-for-azure-data-share"></a>Funções e requisitos do Azure Data Share 
@@ -61,7 +61,7 @@ Para criar uma atribuição de função para a identidade gerenciada do recurso 
 1. Selecione **Adicionar uma atribuição de função**.
 1. Em *função*, selecione a função na tabela atribuição de função acima (por exemplo, para conta de armazenamento, selecione *leitor de dados de blob de armazenamento*).
 1. Em *selecionar*, digite o nome do recurso de compartilhamento de dados do Azure.
-1. Clique em *Save* (Salvar).
+1. Clique em *Salvar*.
 
 Para fontes baseadas em SQL, além das etapas acima, um usuário do SQL precisa ser criado a partir de um provedor externo no banco de dados SQL com o mesmo nome que o recurso de compartilhamento do Azure data share. Esse usuário precisa receber a permissão *db_datareader* . Um script de exemplo junto com outros pré-requisitos para o compartilhamento baseado em SQL pode ser encontrado no tutorial [compartilhar seus dados](share-your-data.md) . 
 
@@ -79,7 +79,7 @@ Para criar uma atribuição de função para a identidade gerenciada do recurso 
 1. Selecione **Adicionar uma atribuição de função**.
 1. Em *função*, selecione a função na tabela atribuição de função acima (por exemplo, para conta de armazenamento, selecione *leitor de dados de blob de armazenamento*).
 1. Em *selecionar*, digite o nome do recurso de compartilhamento de dados do Azure.
-1. Clique em *Save* (Salvar).
+1. Clique em *Salvar*.
 
 Para destino baseado em SQL, além das etapas acima, um usuário do SQL precisa ser criado a partir de um provedor externo no banco de dados SQL com o mesmo nome que o recurso de compartilhamento do Azure data share. Esse usuário precisa receber a permissão *db_datareader, db_datawriter db_ddladmin* . Um script de exemplo junto com outros pré-requisitos para o compartilhamento baseado em SQL pode ser encontrado no tutorial [aceitar e receber dados](subscribe-to-data-share.md) . 
 

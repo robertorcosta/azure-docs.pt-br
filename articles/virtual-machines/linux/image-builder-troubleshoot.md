@@ -7,12 +7,12 @@ ms.date: 10/02/2020
 ms.topic: troubleshooting
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: dd17057a56e8dfb269a22458b9aa20fefaab68bc
-ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
+ms.openlocfilehash: 7c937353c645ee5d977a52ec0f8e935eba19a940
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91661101"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969969"
 ---
 # <a name="troubleshoot-azure-image-builder-service"></a>Solucionar problemas do serviço Construtor de imagens do Azure
 
@@ -40,7 +40,7 @@ As seções a seguir incluem diretrizes de resolução de problemas para erros d
 
 ### <a name="updateupgrade-of-image-templates-is-currently-not-supported"></a>Não há suporte para atualização/atualização de modelos de imagem no momento
 
-#### <a name="error"></a>Erro
+#### <a name="error"></a>Erro do
 
 ```text
 'Conflict'. Details: Update/Upgrade of image templates is currently not supported
@@ -56,7 +56,7 @@ Se você enviar um modelo de configuração de imagem e o envio falhar, um artef
 
 ### <a name="the-resource-operation-completed-with-terminal-provisioning-state-failed"></a>A operação de recurso foi concluída com o estado de provisionamento de terminal ' Failed '
 
-#### <a name="error"></a>Erro
+#### <a name="error"></a>Erro do
 
 ```text
 Microsoft.VirtualMachineImages/imageTemplates 'helloImageTemplateforSIG01' failed with message '{
@@ -84,7 +84,7 @@ Para obter mais informações sobre como configurar permissões, consulte [confi
 
 ### <a name="error-getting-managed-image"></a>Erro ao obter imagem gerenciada
 
-#### <a name="error"></a>Erro
+#### <a name="error"></a>Erro do
 
 ```text
 Build (Managed Image) step failed: Error getting Managed Image '/subscriptions/.../providers/Microsoft.Compute/images/mymanagedmg1': Error getting managed image (...): compute.
@@ -106,7 +106,7 @@ Para obter mais informações sobre como configurar permissões, consulte [confi
 
 ### <a name="build--step-failed-for-image-version"></a>Falha na etapa de compilação da versão da imagem
 
-#### <a name="error"></a>Erro
+#### <a name="error"></a>Erro do
 ```text
 Build (Shared Image Version) step failed for Image Version '/subscriptions/.../providers/Microsoft.Compute/galleries/.../images/... /versions/0.23768.4001': Error getting Image Version '/subscriptions/.../resourceGroups/<rgName>/providers/Microsoft.Compute/galleries/.../images/.../versions/0.23768.4001': Error getting image version '... :0.23768.4001': compute.GalleryImageVersionsClient#Get: Failure responding to request: StatusCode=404 -- Original Error: autorest/azure: Service returned an error. 
 Status=404 Code="ResourceNotFound" Message="The Resource 'Microsoft.Compute/galleries/.../images/.../versions/0.23768.4001' under resource group '<rgName>' was not found."
@@ -121,7 +121,7 @@ Verifique se a imagem de origem está correta e se existe no local do serviço d
 
 ### <a name="downloading-external-file-to-local-file"></a>Baixando o arquivo externo para o arquivo local
 
-#### <a name="error"></a>Erro
+#### <a name="error"></a>Erro do
 
 ```text
 Downloading external file (<myFile>) to local file (xxxxx.0.customizer.fp) [attempt 1 of 10] failed: Error downloading '<myFile>' to 'xxxxx.0.customizer.fp'..
@@ -228,7 +228,7 @@ O customization. log inclui os seguintes estágios:
 
 ### <a name="packer-build-command-failure"></a>Falha no comando de Build do packr
 
-#### <a name="error"></a>Erro
+#### <a name="error"></a>Erro do
 
 ```text
   "provisioningState": "Succeeded",
@@ -263,7 +263,7 @@ Por exemplo:
 
 ### <a name="timeout-exceeded"></a>Tempo limite excedido
 
-#### <a name="error"></a>Erro
+#### <a name="error"></a>Erro do
 
 ```text
 Deployment failed. Correlation ID: xxxxx-xxxx-xxxx-xxxx-xxxxxxxxx. Failed in building/customizing image: Failed while waiting for packerizer: Timeout waiting for microservice to complete: 'context deadline exceeded'
@@ -289,7 +289,7 @@ A compilação excedeu o tempo limite da compilação. Esse erro é visto no ' L
 
 ### <a name="long-file-download-time"></a>Tempo de download de arquivo longo
 
-#### <a name="error"></a>Erro
+#### <a name="error"></a>Erro do
 ```text
 [086cf9c4-0457-4e8f-bfd4-908cfe3fe43c] PACKER OUT 
 myBigFile.zip 826 B / 826000 B  1.00%
@@ -312,7 +312,7 @@ O personalizador de arquivo é adequado apenas para downloads de arquivos pequen
 
 ### <a name="error-waiting-on-shared-image-gallery"></a>Erro ao aguardar na Galeria de imagens compartilhadas
 
-#### <a name="error"></a>Erro
+#### <a name="error"></a>Erro do
 
 ```text
 Deployment failed. Correlation ID: XXXXXX-XXXX-XXXXXX-XXXX-XXXXXX. Failed in distributing 1 images out of total 1: {[Error 0] [Distribute 0] Error publishing MDI to shared image gallery:/subscriptions/<subId>/resourceGroups/xxxxxx/providers/Microsoft.Compute/galleries/xxxxx/images/xxxxxx, Location:eastus. Error: Error returned from SIG client while publishing MDI to shared image gallery for dstImageLocation: eastus, dstSubscription: <subId>, dstResourceGroupName: XXXXXX, dstGalleryName: XXXXXX, dstGalleryImageName: XXXXXX. Error: Error waiting on shared image gallery future for resource group: XXXXXX, gallery name: XXXXXX, gallery image name: XXXXXX.Error: Future#WaitForCompletion: context has been cancelled: StatusCode=200 -- Original Error: context deadline exceeded}
@@ -335,7 +335,7 @@ Aumente o **buildTimeoutInMinutes**.
  
 ### <a name="low-windows-resource-information-events"></a>Poucos eventos de informações de recursos do Windows
 
-#### <a name="error"></a>Erro
+#### <a name="error"></a>Erro do
 
 ```text
 [45f485cf-5a8c-4379-9937-8d85493bc791] PACKER OUT     azure-arm: Waiting for operation to complete (system performance: 1% cpu; 37% memory)...
@@ -390,7 +390,7 @@ Aumente o tamanho da VM de compilação.
 
 ### <a name="builds-finished-but-no-artifacts-were-created"></a>Compilações concluídas, mas nenhum artefato foi criado
 
-#### <a name="error"></a>Erro
+#### <a name="error"></a>Erro do
 
 ```text
 [a170b40d-2d77-4ac3-8719-72cdc35cf889] PACKER OUT Build 'azure-arm' errored: Future#WaitForCompletion: context has been cancelled: StatusCode=200 -- Original Error: context deadline exceeded
@@ -417,7 +417,7 @@ Execute novamente a compilação para tentar novamente.
 
 ### <a name="resource-not-found"></a>Recurso não encontrado
 
-#### <a name="error"></a>Erro
+#### <a name="error"></a>Erro do
 
 ```text
   "provisioningState": "Succeeded",
@@ -440,7 +440,7 @@ Para obter mais informações sobre como configurar permissões, consulte [confi
 
 ### <a name="sysprep-timing"></a>Tempo de Sysprep
 
-#### <a name="error"></a>Erro
+#### <a name="error"></a>Erro do
 
 ```text
 [922bdf36-b53c-4e78-9cd8-6b70b9674685] PACKER OUT     azure-arm: Write-Output '>>> Waiting for GA Service (RdAgent) to start ...'
@@ -504,7 +504,7 @@ Aumente o tamanho da VM. Ou então, você pode adicionar uma personalização de
 
 ### <a name="cancelling-builder-after-context-cancellation-context-canceled"></a>Cancelando o Construtor após o contexto de cancelamento do contexto
 
-#### <a name="error"></a>Erro
+#### <a name="error"></a>Erro do
 ```text
 PACKER ERR 2020/03/26 22:11:23 Cancelling builder after context cancellation context canceled
 PACKER OUT Cancelling build after receiving terminated
@@ -522,7 +522,7 @@ PACKER ERR 2020/03/26 22:11:25 [INFO] RPC endpoint: Communicator ended with: 230
 O serviço do construtor de imagem usa a porta 22 (Linux) ou 5986 (Windows) para se conectar à VM de compilação, isso ocorre quando o serviço está desconectado da VM de compilação durante uma compilação de imagem. Os motivos para a desconexão podem variar, mas habilitar ou configurar firewalls no script pode bloquear as portas acima.
 
 #### <a name="solution"></a>Solução
-Examine os scripts de alterações/habilitação do firewall ou alterações no SSH ou no WinRM e verifique se as alterações permitem a conectividade constante entre o serviço e a VM de compilação nas portas acima. Para obter mais informações sobre a rede do Image Builder, consulte os [requisitos](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-networking).
+Examine os scripts de alterações/habilitação do firewall ou alterações no SSH ou no WinRM e verifique se as alterações permitem a conectividade constante entre o serviço e a VM de compilação nas portas acima. Para obter mais informações sobre a rede do Image Builder, consulte os [requisitos](./image-builder-networking.md).
 
 ## <a name="devops-task"></a>Tarefa do DevOps 
 
@@ -554,7 +554,7 @@ Talvez haja alguns casos em que você precise investigar compilações bem-suced
 
 ### <a name="operation-was-canceled"></a>A operação foi cancelada
 
-#### <a name="error"></a>Erro
+#### <a name="error"></a>Erro do
 
 ```text
 2020-05-05T18:28:24.9280196Z ##[section]Starting: Azure VM Image Builder Task
@@ -586,7 +586,7 @@ Talvez haja alguns casos em que você precise investigar compilações bem-suced
 
 Se a compilação não foi cancelada por um usuário, ela foi cancelada pelo agente do usuário DevOps do Azure. Provavelmente, o tempo limite de uma hora ocorreu devido a recursos de DevOps do Azure. Se você estiver usando um projeto e um agente privados, obterá 60 minutos de tempo de compilação. Se a compilação exceder o tempo limite, o DevOps cancelará a tarefa em execução.
 
-Para obter mais informações sobre as limitações e recursos de DevOps do Azure, consulte [agentes hospedados pela Microsoft](https://docs.microsoft.com/azure/devops/pipelines/agents/hosted?view=azure-devops#capabilities-and-limitations)
+Para obter mais informações sobre as limitações e recursos de DevOps do Azure, consulte [agentes hospedados pela Microsoft](/azure/devops/pipelines/agents/hosted?view=azure-devops#capabilities-and-limitations)
  
 #### <a name="solution"></a>Solução
 
@@ -594,14 +594,14 @@ Você pode hospedar seus próprios agentes do DevOps ou procurar reduzir o tempo
 
 ### <a name="slow-windows-logon-please-wait-for-the-windows-modules-installer"></a>Logon lento do Windows: ' aguarde o instalador dos módulos do Windows '
 
-#### <a name="error"></a>Erro
+#### <a name="error"></a>Erro do
 Depois de criar uma imagem do Windows 10 com o Image Builder, crie uma VM a partir da imagem, você o RDP e tenha que aguardar minutos no primeiro logon visualizando uma tela azul com a mensagem:
 ```text
 Please wait for the Windows Modules Installer
 ```
 
 #### <a name="solution"></a>Solução
-No início da compilação de imagem, verifique se não há reinicializações pendentes necessárias adicionando um personalizador de reinicialização do Windows como a última personalização e se toda a instalação do software foi concluída. Por fim, adicione a opção [/Mode: VM](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep-command-line-options) ao Sysprep padrão que o AIB usa, veja abaixo, ' VMs criadas de AIB images não criam com êxito ' > ' substituindo os comandos '  
+No início da compilação de imagem, verifique se não há reinicializações pendentes necessárias adicionando um personalizador de reinicialização do Windows como a última personalização e se toda a instalação do software foi concluída. Por fim, adicione a opção [/Mode: VM](/windows-hardware/manufacture/desktop/sysprep-command-line-options) ao Sysprep padrão que o AIB usa, veja abaixo, ' VMs criadas de AIB images não criam com êxito ' > ' substituindo os comandos '  
 
  
 ## <a name="vms-created-from-aib-images-do-not-create-successfully"></a>As VMs criadas a partir de imagens AIB não são criadas com êxito

@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: fb628df5151f9124d7b7f319ff109ffca030ee90
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91317337"
 ---
 # <a name="create-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Criar um grupo de servidores de hiperescala PostgreSQL habilitado para o Azure Arc
@@ -196,7 +196,7 @@ psql postgresql://postgres:<EnterYourPassword>@10.0.0.4:30655
 
     > \* Nos documentos acima, ignore as seções **entrar no portal do Azure**, & **criar um banco de dados do Azure para PostgreSQL-Citus (hiperescala)**. Implemente as etapas restantes em sua implantação do Azure Arc. Essas seções são específicas para o banco de dados do Azure para PostgreSQL Citus (hiperescala) oferecida como um serviço de PaaS na nuvem do Azure, mas as outras partes dos documentos são diretamente aplicáveis à sua hiperescala PostgreSQL habilitada para o Arc do Azure.
 
-- [Escalar horizontalmente seu banco de dados do Azure para o grupo de servidores de hiperescala do PostgreSQL](scale-out-postgresql-hyperscale-server-group.md)
+- [Escalar horizontalmente o grupo de servidores de Hiperescala do Banco de Dados do Azure para PostgreSQL](scale-out-postgresql-hyperscale-server-group.md)
 - [Configuração de armazenamento e conceitos de armazenamento kubernetes](storage-configuration.md)
 - [Expandindo declarações de volume persistentes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#expanding-persistent-volumes-claims)
 - [Modelo de recurso kubernetes](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/resources.md#resource-quantities)

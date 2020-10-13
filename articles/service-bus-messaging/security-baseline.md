@@ -8,10 +8,10 @@ ms.date: 09/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 0f433c33f50506309e88b7ffa2c8aaf498fb3613
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91761151"
 ---
 # <a name="azure-security-baseline-for-service-bus"></a>Linha de base de segurança do Azure para o barramento de serviço
@@ -715,7 +715,7 @@ O antimalware da Microsoft está habilitado no host subjacente que dá suporte a
 
 **Diretrizes**: o barramento de serviço do Azure fornece criptografia de dados em repouso com o Azure SSE (Azure criptografia do serviço de armazenamento). O barramento de serviço depende do armazenamento do Azure para armazenar os dados e, por padrão, todos os dados armazenados com o armazenamento do Azure são criptografados usando chaves gerenciadas pela Microsoft. Se você usar Azure Key Vault para armazenar chaves gerenciadas pelo cliente, garanta backups automatizados regulares de suas chaves.
 
-Garanta backups automatizados regulares de seus segredos do Key Vault com o seguinte comando do PowerShell: backup-AzKeyVaultSecret
+Garanta backups automatizados regulares de seus segredos de Key Vault com o seguinte comando do PowerShell: Backup-AzKeyVaultSecret
 
 - [Como configurar chaves gerenciadas pelo cliente para criptografar dados do barramento de serviço do Azure em repouso](configure-customer-managed-key.md)
 

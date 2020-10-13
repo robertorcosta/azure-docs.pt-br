@@ -15,10 +15,10 @@ ms.date: 05/04/2016
 ms.author: mimckitt
 ms.custom: devx-track-dotnet
 ms.openlocfilehash: 536a28801193cdbb4204ca1432892abdc7fb297e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91268478"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-web-role-on-azure"></a>Como fazer uma chamada telefônica usando a Twilio em uma função web no Azure
@@ -158,7 +158,7 @@ Esse código foi fornecido para mostrar a funcionalidade básica usando a Twilio
 * Leia as diretrizes de segurança do twilio em [https://www.twilio.com/docs/security][twilio_docs_security] .
 * Saiba mais sobre o twilio em [https://www.twilio.com/docs][twilio_docs] .
 
-## <a name="see-also"></a><a name="seealso"></a>Consulte também
+## <a name="see-also"></a><a name="seealso"></a>Confira também
 * [Como usar o Twilio para funcionalidades de voz e SMS do Azure](twilio-dotnet-how-to-use-for-voice-sms.md)
 
 [twilio_console]: https://www.twilio.com/console

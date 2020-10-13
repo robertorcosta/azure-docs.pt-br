@@ -4,10 +4,10 @@ description: Neste artigo, aprenda a configuração para fazer backup de bancos 
 ms.topic: conceptual
 ms.date: 03/24/2017
 ms.openlocfilehash: 29813741e88ad5f2bc5109be87939abf7cc11502
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91316912"
 ---
 # <a name="back-up-sql-server-to-azure-by-using-azure-backup-server"></a>Fazer backup de SQL Server no Azure usando Servidor de Backup do Azure
@@ -70,7 +70,7 @@ Para proteger SQL Server bancos de dados no Azure, primeiro crie uma política d
 1. Nomeie o grupo de proteção e selecione **desejo proteção online**.
 
     ![Escolha um método de proteção de dados – proteção de disco de curto prazo ou proteção online do Azure](./media/backup-azure-backup-sql/pg-name.png)
-1. Na página **especificar objetivos de curto prazo** , inclua as entradas necessárias para criar pontos de backup para o disco.
+1. Na página **especificar metas de Short-Term** , inclua as entradas necessárias para criar pontos de backup para o disco.
 
     Neste exemplo, o **período de retenção** é definido como *5 dias*. A **frequência de sincronização** de backup é definida como uma vez a cada *15 minutos*. O **backup completo expresso** é definido como *8:00 PM*.
 

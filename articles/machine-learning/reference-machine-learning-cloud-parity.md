@@ -12,10 +12,10 @@ author: Anurzeuii
 ms.date: 08/24/2020
 ms.custom: references_regions
 ms.openlocfilehash: 4a6f09fdff82b8e86c7fe75018c5267dba3c1b4a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90892981"
 ---
 # <a name="azure-machine-learning-sovereign-cloud-parity"></a>Azure Machine Learning a paridade de nuvem do soberanas
@@ -34,7 +34,7 @@ Nós visamos fornecer a paridade máxima entre nossa nuvem pública e regiões s
 
 ## <a name="azure-government"></a>Azure Government 
 
-| Recurso | Status da nuvem pública  | EUA-Virgínia | EUA-Arizona| 
+| Recurso | Status da nuvem pública  | US-Virginia | US-Arizona| 
 |----------------------------------------------------------------------------|:----------------------:|:--------------------:|:-------------:|
 | **Machine learning automatizado** | | | |
 | Criar e executar experimentos em notebooks                                    | GA                   | YES                | YES         |
@@ -112,7 +112,7 @@ Nós visamos fornecer a paridade máxima entre nossa nuvem pública e regiões s
 
 ### <a name="azure-government-scenarios"></a>Cenários do Azure governamental
 
-| Cenário                                                    | EUA-Virgínia | EUA-Arizona| Limitações  |
+| Cenário                                                    | US-Virginia | US-Arizona| Limitações  |
 |----------------------------------------------------------------------------|:----------------------:|:--------------------:|-------------|
 | **Configuração de segurança geral** |   | | |
 | Comunicação de rede privada entre serviços                                     | Não | Não | Nenhum link privado no momento | 
@@ -122,7 +122,7 @@ Nós visamos fornecer a paridade máxima entre nossa nuvem pública e regiões s
 | Acesso de raiz e SSH para recursos de computação.                                          | YES | YES |  |
 | Manter a segurança dos sistemas implantados (instâncias, pontos de extremidade, etc.), incluindo o Endpoint Protection, aplicação de patch e registro em log |  PARTIAL|  PARTIAL |ACI atrás da VNet e do ponto de extremidade privado atualmente não disponível |                                  
 | Controlar (desabilitar/limitar/restringir) o uso da integração de ACI/AKS                    | PARTIAL| PARTIAL |ACI atrás da VNet e do ponto de extremidade privado atualmente não disponível|
-| RBAC (controle de acesso baseado em função)-criações de função personalizadas                           | YES | YES |  |
+| RBAC (controle de acesso de Role-Based)-criações de função personalizadas                           | YES | YES |  |
 | Controlar o acesso a imagens ACR usadas pelo serviço ML (Azure fornecido/mantido versus personalizado)  |PARTIAL|  PARTIAL | Não há suporte para ACR por trás do ponto de extremidade privado e VNet no Azure governamental |
 | **Uso geral do serviço de Machine Learning** |  | | |
 | Capacidade de ter um ambiente de desenvolvimento para criar um modelo, treinar esse modelo, hospedá-lo como um ponto de extremidade e consumi-lo por meio de um webapp     | YES | YES |  |
@@ -229,7 +229,7 @@ Nós visamos fornecer a paridade máxima entre nossa nuvem pública e regiões s
 * O Azure China tem SKU de VM limitada, especialmente para SKU de GPU. Ele tem apenas V100 (família NCv3).
 * Os pontos de extremidade da API REST são diferentes do Azure global. Use a tabela a seguir para localizar o ponto de extremidade da API REST para as regiões do Azure China:
 
-    | Ponto de extremidade REST                 | Azure Global                                 | China – Governo                           |
+    | Ponto de extremidade REST                 | Azure Global                                 | China-Government                           |
     |------------------|--------------------------------------------|--------------------------------------------|
     | Plano de gerenciamento | `https://management.azure.com/`              | `https://management.chinacloudapi.cn/`       |
     | Plano de dados       | `https://{location}.experiments.azureml.net` | `https://{location}.experiments.ml.azure.cn` |

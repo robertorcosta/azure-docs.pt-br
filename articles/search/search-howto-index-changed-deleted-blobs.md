@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.openlocfilehash: 2e73039418233c97fc20242ed7af7df14c5b47ee
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91534770"
 ---
 # <a name="how-to-set-up-change-and-deletion-detection-for-blobs-in-azure-cognitive-search-indexing"></a>Como configurar a detecção de alteração e exclusão para BLOBs na indexação de Pesquisa Cognitiva do Azure
@@ -33,7 +33,7 @@ Há duas maneiras de implementar a abordagem de exclusão reversível. Ambos sã
 
 Nesse método, você usará o recurso de [exclusão reversível de blob nativo](../storage/blobs/soft-delete-blob-overview.md) oferecido pelo armazenamento de BLOBs do Azure. Se a exclusão reversível de blob nativo estiver habilitada em sua conta de armazenamento, sua fonte de dados terá um conjunto de políticas de exclusão reversível nativa e o indexador encontrará um blob que foi transferido para um estado de exclusão reversível, o indexador removerá esse documento do índice. Não há suporte para a política de exclusão reversível de blob nativo ao indexar blobs de Azure Data Lake Storage Gen2.
 
-Use as etapas a seguir:
+Use as seguintes etapas:
 
 1. Habilite [a exclusão reversível nativa para o armazenamento de BLOBs do Azure](../storage/blobs/soft-delete-blob-overview.md). É recomendável definir a política de retenção com um valor muito maior do que a agenda do intervalo do indexador. Dessa forma, se houver um problema ao executar o indexador ou se você tiver um grande número de documentos para indexar, haverá muito tempo para que o indexador eventualmente processe os BLOBs com exclusão reversível. Os indexadores do Azure Pesquisa Cognitiva excluirão apenas um documento do índice se ele processar o blob enquanto ele estiver em um estado de exclusão reversível.
 
@@ -66,7 +66,7 @@ Para garantir que um BLOB não excluído seja reindexado, será necessário atua
 
 Nesse método, você usará os metadados de um blob para indicar quando um documento deve ser removido do índice de pesquisa. Esse método requer duas ações separadas, excluindo o documento de pesquisa do índice, seguido pela exclusão de blob no armazenamento do Azure.
 
-Use as etapas a seguir:
+Use as seguintes etapas:
 
 1. Adicione um par chave-valor de metadados personalizados ao blob para indicar ao Azure Pesquisa Cognitiva que ele é excluído logicamente.
 

@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
 ms.openlocfilehash: dbd5724797fdaf44d147d2f29362b1e5092728dd
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91761542"
 ---
 # <a name="immersive-reader-javascript-sdk-reference-v11"></a>Referência do SDK do JavaScript do leitor de imersão (v 1.1)
@@ -43,10 +43,10 @@ launchAsync(token: string, subdomain: string, content: Content, options?: Option
 
 #### <a name="launchasync-parameters"></a>Parâmetros de launchAsync
 
-| Nome | Tipo | Descrição |
+| Nome | Type | Descrição |
 | ---- | ---- |------------ |
 | `token` | string | O token de autenticação do Azure AD. Consulte [como criar um recurso de leitura de imersão](./how-to-create-immersive-reader.md) para obter mais detalhes. |
-| `subdomain` | string | O subdomínio personalizado do seu recurso de leitor de imersão no Azure. Consulte [como criar um recurso de leitura de imersão](./how-to-create-immersive-reader.md) para obter mais detalhes. |
+| `subdomain` | cadeia de caracteres | O subdomínio personalizado do seu recurso de leitor de imersão no Azure. Consulte [como criar um recurso de leitura de imersão](./how-to-create-immersive-reader.md) para obter mais detalhes. |
 | `content` | [Conteúdo](#content) | Um objeto que contém o conteúdo a ser mostrado no leitor de imersão. |
 | `options` | [Opções](#options) | Opções para configurar determinados comportamentos do leitor de imersão. Opcional. |
 
@@ -115,7 +115,7 @@ renderButtons(options?: RenderButtonsOptions): void;
 
 #### <a name="renderbuttons-parameters"></a>Parâmetros de renderButtons
 
-| Nome | Tipo | Descrição |
+| Nome | Type | Descrição |
 | ---- | ---- |------------ |
 | `options` | [opções de renderButtons](#renderbuttons-options) | Opções para configurar determinados comportamentos da função renderButtons. Opcional. |
 
@@ -161,7 +161,7 @@ Contém a resposta da chamada para `ImmersiveReader.launchAsync` . Observe que u
 | contêiner | HTMLDivElement | Elemento HTML que contém o iframe do leitor de imersão. |
 | sessionID | String | Identificador global exclusivo para esta sessão, usado para depuração. |
  
-## <a name="error"></a>Erro
+## <a name="error"></a>Erro do
 
 Contém informações sobre um erro.
 
@@ -205,7 +205,7 @@ Contém o conteúdo a ser mostrado no leitor de imersão.
 
 #### <a name="content-parameters"></a>Parâmetros de conteúdo
 
-| Nome | Tipo | Descrição |
+| Nome | Type | Descrição |
 | ---- | ---- |------------ |
 | título | String | Texto do título mostrado na parte superior do leitor de imersão (opcional) |
 | partes | [Parte []](#chunk) | Matriz de partes |
@@ -240,11 +240,11 @@ Um único bloco de dados, que será passado para o conteúdo do leitor de imers�
 
 #### <a name="chunk-parameters"></a>Parâmetros de bloco
 
-| Nome | Tipo | Descrição |
+| Nome | Type | Descrição |
 | ---- | ---- |------------ |
 | conteúdo | String | A cadeia de caracteres que contém o conteúdo enviado ao leitor de imersão. |
 | lang | String | Idioma do texto, o valor está no formato de marca de idioma IETF BCP 47, por exemplo, en, es-ES. O idioma será detectado automaticamente se não for especificado. Confira os [Idiomas compatíveis](#supported-languages). |
-| Tipo MIME | string | Há suporte para formatos de texto sem formatação, MathML e HTML & Microsoft Word DOCX. Consulte [tipos de MIME com suporte](#supported-mime-types) para obter mais detalhes. |
+| Tipo MIME | cadeia de caracteres | Há suporte para formatos de texto sem formatação, MathML e HTML & Microsoft Word DOCX. Consulte [tipos de MIME com suporte](#supported-mime-types) para obter mais detalhes. |
 
 ##### `content`
 ```Parameters
@@ -305,17 +305,17 @@ Contém propriedades que configuram determinados comportamentos do leitor de ime
 
 #### <a name="options-parameters"></a>Parâmetros de opções
 
-| Nome | Tipo | Descrição |
+| Nome | Type | Descrição |
 | ---- | ---- |------------ |
 | uiLang | String | Idioma da interface do usuário, o valor está no formato de marca de idioma IETF BCP 47, por exemplo, en, es-ES. O padrão é o idioma do navegador, se não for especificado. |
 | tempo limite | Número | Duração (em milissegundos) antes de [launchAsync](#launchasync) falhar com um erro de tempo limite (o padrão é 15000 MS). Esse tempo limite só se aplica à inicialização inicial da página do leitor, onde o sucesso é observado quando a página do leitor é aberta e o controle giratório é iniciado. O ajuste do tempo limite não deve ser necessário. |
 | uiZIndex | Número | Z-índice do iframe que será criado (o padrão é 1000). |
-| useWebview | Booliano| Use uma marca WebView em vez de um iframe, para compatibilidade com aplicativos Chrome (o padrão é false). |
+| useWebview | Boolean| Use uma marca WebView em vez de um iframe, para compatibilidade com aplicativos Chrome (o padrão é false). |
 | onsair | Função | É executado quando o leitor de imersão é encerrado. |
-| allowFullscreen | Booliano | A capacidade de alternar a tela inteira (o padrão é true). |
-| hideExitButton | Booliano | Se deseja ou não ocultar a seta do botão de saída do leitor de imersão (o padrão é false). Isso só deve ser verdadeiro se houver um mecanismo alternativo fornecido para sair do leitor de imersão (por exemplo, uma seta para voltar da barra de ferramentas móvel). |
+| allowFullscreen | Boolean | A capacidade de alternar a tela inteira (o padrão é true). |
+| hideExitButton | Boolean | Se deseja ou não ocultar a seta do botão de saída do leitor de imersão (o padrão é false). Isso só deve ser verdadeiro se houver um mecanismo alternativo fornecido para sair do leitor de imersão (por exemplo, uma seta para voltar da barra de ferramentas móvel). |
 | cookiePolicy | [CookiePolicy](#cookiepolicy-options) | Configuração para o uso do cookie do leitor de imersão (o padrão é *CookiePolicy. Disable*). É responsabilidade do aplicativo host obter qualquer consentimento do usuário necessário de acordo com a política de conformidade do cookie da UE. Consulte [Opções de política de cookie](#cookiepolicy-options). |
-| disableFirstRun | Booliano | Desabilite a primeira experiência de execução. |
+| disableFirstRun | Boolean | Desabilite a primeira experiência de execução. |
 | readAloudOptions | [ReadAloudOptions](#readaloudoptions) | Opções para configurar a leitura em voz alta. |
 | conversãooptions | [Conversãooptions](#translationoptions) | Opções para configurar a tradução. |
 | displayOptions | [DisplayOptions](#displayoptions) | Opções para configurar o tamanho do texto, a fonte, etc. |
@@ -390,11 +390,11 @@ type ReadAloudOptions = {
 
 #### <a name="readaloudoptions-parameters"></a>Parâmetros de ReadAloudOptions
 
-| Nome | Tipo | Descrição |
+| Nome | Type | Descrição |
 | ---- | ---- |------------ |
 | voice | String | Voz, "fêmea" ou "masculino". Observe que nem todos os idiomas dão suporte a ambos os gêneros. |
 | velocidade | Número | Velocidade de reprodução, deve estar entre 0,5 e 2,5, inclusive. |
-| autoPlay | Booliano | Iniciar automaticamente leitura em voz alta quando o leitor de imersão for carregado. |
+| autoPlay | Boolean | Iniciar automaticamente leitura em voz alta quando o leitor de imersão for carregado. |
 
 ##### `voice`
 ```Parameters
@@ -429,11 +429,11 @@ type TranslationOptions = {
 
 #### <a name="translationoptions-parameters"></a>Parâmetros de translationoptions
 
-| Nome | Tipo | Descrição |
+| Nome | Type | Descrição |
 | ---- | ---- |------------ |
 | Linguagem | String | Define o idioma de tradução, o valor está no formato de marca de idioma IETF BCP 47, por exemplo: fr-FR, es-MX, zh-Hans-CN. Necessário para habilitar automaticamente a tradução de palavras ou documentos. |
-| autoEnableDocumentTranslation | Booliano | Traduza automaticamente o documento inteiro. |
-| autoEnableWordTranslation | Booliano | Habilitar automaticamente a tradução automática. |
+| autoEnableDocumentTranslation | Boolean | Traduza automaticamente o documento inteiro. |
+| autoEnableWordTranslation | Boolean | Habilitar automaticamente a tradução automática. |
 
 ##### `language`
 ```Parameters
@@ -457,10 +457,10 @@ type DisplayOptions = {
 
 #### <a name="displayoptions-parameters"></a>Parâmetros de displayoptions
 
-| Nome | Tipo | Descrição |
+| Nome | Type | Descrição |
 | ---- | ---- |------------ |
 | textSize | Número | Define o tamanho do texto escolhido. |
-| increaseSpacing | Booliano | Define se o espaçamento de texto será alternado ou desativado. |
+| increaseSpacing | Boolean | Define se o espaçamento de texto será alternado ou desativado. |
 | fontFamily | String | Define a fonte escolhida ("Calibri", "ComicSans" ou "Sitka"). |
 
 ##### `textSize`
@@ -496,19 +496,19 @@ enum CookiePolicy { Disable, Enable }
 | textSize | Número | Define o tamanho do texto escolhido. |
 | fontFamily | String | Define a fonte escolhida ("Calibri", "ComicSans" ou "Sitka"). |
 | Espaçamento de linhas | Número | Define se o espaçamento de texto será alternado ou desativado. |
-| formattingEnabled | Booliano | Define se a formatação HTML é ativada ou desativada. |
+| formattingEnabled | Boolean | Define se a formatação HTML é ativada ou desativada. |
 | - | String | Define o tema escolhido (por exemplo, "Light", "escuro"...). |
-| syllabificationEnabled | Booliano | Define se o syllabification foi alternado ou desativado. |
-| nounHighlightingEnabled | Booliano | Isso define se o realce de substantivo é alternado ou desativado. |
+| syllabificationEnabled | Boolean | Define se o syllabification foi alternado ou desativado. |
+| nounHighlightingEnabled | Boolean | Isso define se o realce de substantivo é alternado ou desativado. |
 | nounHighlightingColor | String | Define a cor de realce do substantivo escolhido. |
-| verbHighlightingEnabled | Booliano | Define se o realce de verbo é alternado ou desativado. |
+| verbHighlightingEnabled | Boolean | Define se o realce de verbo é alternado ou desativado. |
 | verbHighlightingColor | String | Define a cor de realce do verbo escolhido. |
-| adjectiveHighlightingEnabled | Booliano | Define se o realce de adjetivo é alternado ou desativado. |
+| adjectiveHighlightingEnabled | Boolean | Define se o realce de adjetivo é alternado ou desativado. |
 | adjectiveHighlightingColor | String | Define a cor de realce do adjetivo escolhido. |
-| adverbHighlightingEnabled | Booliano | Define se o realce de advérbio é alternado ou desativado. |
+| adverbHighlightingEnabled | Boolean | Define se o realce de advérbio é alternado ou desativado. |
 | adverbHighlightingColor | String | Define a cor de realce advérbio escolhida. |
-| pictureDictionaryEnabled | Booliano | Define se o dicionário de imagem é alternado ou desativado. |
-| posLabelsEnabled | Booliano | Define se o rótulo de texto sobrescrito de cada parte realçada da fala é alternado ou desativado.  |
+| pictureDictionaryEnabled | Boolean | Define se o dicionário de imagem é alternado ou desativado. |
+| posLabelsEnabled | Boolean | Define se o rótulo de texto sobrescrito de cada parte realçada da fala é alternado ou desativado.  |
 
 <br>
 
@@ -526,7 +526,7 @@ Quando a formatação estiver habilitada, o conteúdo a seguir será renderizado
 | --------- | ----------- |
 | Estilos de fonte | Negrito, itálico, sublinhado, código, tachado, sobrescrito, subscrito |
 | Listas não ordenadas | Disco, círculo, quadrado |
-| Listas ordenadas | Decimal, superior-alfa, inferior-alfa, maiúsculo-Romano, minúsculo |
+| Listas ordenadas | Decimal, Upper-Alpha, minúscula-alfa, Upper-Roman Lower-Roman |
 
 Marcas sem suporte serão renderizadas comparativamente. Não há suporte para imagens e tabelas no momento.
 

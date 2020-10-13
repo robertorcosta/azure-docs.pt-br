@@ -2,7 +2,7 @@
 title: Usar um modelo para unir uma VM do Windows ao Azure AD DS | Microsoft Docs
 description: Saiba como usar modelos de Azure Resource Manager para unir uma VM do Windows Server nova ou existente a um domínio Azure Active Directory Domain Services gerenciado.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: 4eabfd8e-5509-4acd-86b5-1318147fddb5
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
-ms.author: iainfou
-ms.openlocfilehash: fdef11fec93d4ba6254957ad14e0612e2fd05580
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: 988f009527f26a9f2be965b635d57f0bc38913c2
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86221350"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91960687"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain-using-a-resource-manager-template"></a>Ingressar uma máquina virtual do Windows Server em um Azure Active Directory Domain Services domínio gerenciado usando um modelo do Resource Manager
 
@@ -88,7 +88,7 @@ Para criar uma VM do Windows Server e, em seguida, associá-la a um domínio ger
     |---------------------------|-------|
     | Subscription              | Escolha a mesma assinatura do Azure em que você habilitou o Azure AD Domain Services. |
     | Resource group            | Escolha o grupo de recursos para sua VM. |
-    | Location                  | Selecione o local de para sua VM. |
+    | Localização                  | Selecione o local de para sua VM. |
     | Nome da VNET existente        | O nome da rede virtual existente à qual conectar a VM, como *myVnet*. |
     | Nome da sub-rede existente      | O nome da sub-rede de rede virtual existente, como *cargas de trabalho*. |
     | Prefixo do rótulo DNS          | Insira um nome DNS a ser usado para a VM, como *MyVM*. |
@@ -121,7 +121,7 @@ Para ingressar uma VM do Windows Server existente em um domínio gerenciado, con
     |---------------------------|-------|
     | Subscription              | Escolha a mesma assinatura do Azure em que você habilitou o Azure AD Domain Services. |
     | Resource group            | Escolha o grupo de recursos com sua VM existente. |
-    | Location                  | Selecione o local da VM existente. |
+    | Localização                  | Selecione o local da VM existente. |
     | Lista de VMs                   | Insira a lista separada por vírgulas das VMs existentes para ingressar no domínio gerenciado, como *myVM1, myVM2*. |
     | Nome de usuário de ingresso no domínio     | A conta de usuário no domínio gerenciado que deve ser usada para ingressar a VM no domínio gerenciado, como `contosoadmin@aaddscontoso.com` . Essa conta deve fazer parte do domínio gerenciado. |
     | Senha do usuário de ingresso no domínio | A senha da conta de usuário especificada na configuração anterior. |

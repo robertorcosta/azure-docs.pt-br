@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0aefe95f3e78afc4b449539fd683ffc1fe525a15
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89280172"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quickstart"></a>Azure Active Directory autenticação de passagem: início rápido
@@ -79,7 +79,7 @@ Verifique se os pré-requisitos a seguir estão em vigor.
 ### <a name="azure-government-cloud-prerequisite"></a>Pré-requisito de nuvem do Azure governamental
 Antes de habilitar a autenticação de passagem por meio do Azure AD Connect com a etapa 2, baixe a versão mais recente do agente PTA da portal do Azure.  Você precisa garantir que o agente seja de versões **1.5.1742.0.** ou posterior.  Para verificar seu agente, consulte [Atualizar agentes de autenticação](how-to-connect-pta-upgrade-preview-authentication-agents.md)
 
-Depois de baixar a versão mais recente do agente, prossiga com as instruções abaixo para configurar a autenticação de passagem por meio de Azure AD Connect.
+Depois de baixar a versão mais recente do agente, prossiga com as instruções abaixo para configurar a autenticação Pass-Through por meio de Azure AD Connect.
 
 ## <a name="step-2-enable-the-feature"></a>Etapa 2: habilitar o recurso
 

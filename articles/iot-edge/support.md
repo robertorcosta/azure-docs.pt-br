@@ -8,12 +8,12 @@ ms.date: 09/10/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 679fa4002f687f715ab1fe9701997d46e4b6f2cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 27d078bc1dc61079d44110999b70c5195c9c8a2a
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "90018451"
+ms.locfileid: "91874213"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Sistemas compatíveis com o Azure IoT Edge
 
@@ -114,7 +114,7 @@ Os componentes do IoT Edge podem ser instalados ou atualizados individualmente, 
 | **1.0.6** | 1.0.6.1<br>1.0.6 | 1.0.6.1<br>1.0.6 | 1.0.6.1<br>1.0.6 |  |
 | **1.0.5** | 1.0.5 | 1.0.5 | 1.0.5 | 3.0.2 |
 
-IoT Edge uses the Microsoft.Azure.Device.Client SDK. Para obter mais informações, consulte o [repositório GitHub do SDK C# de IoT do Azure](https://github.com/Azure/azure-iot-sdk-csharp) ou o [conteúdo de referência do SDK do Azure para .NET](https://docs.microsoft.com/dotnet/api/overview/azure/iot/client?view=azure-dotnet). A lista a seguir mostra a versão do SDK do cliente para a qual cada versão é testada:
+IoT Edge uses the Microsoft.Azure.Device.Client SDK. Para obter mais informações, consulte o [repositório GitHub do SDK C# de IoT do Azure](https://github.com/Azure/azure-iot-sdk-csharp) ou o [conteúdo de referência do SDK do Azure para .NET](/dotnet/api/overview/azure/iot/client). A lista a seguir mostra a versão do SDK do cliente para a qual cada versão é testada:
 
 * **IoT Edge 1.0.9**: Client SDK 1.21.1
 * **IoT Edge 1.0.8**: Client SDK 1.20.3

@@ -14,10 +14,10 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, contperfq4
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 747edfdb2a2709a842f767d2ace09662d139c827
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91666425"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Associar ou adicionar uma assinatura do Azure ao seu locatário do Azure Active Directory
@@ -46,7 +46,7 @@ Para poder associar ou adicionar sua assinatura, execute as seguintes tarefas:
 - Examine a seguinte lista de alterações que ocorrerão depois que você associar ou adicionar sua assinatura e como você pode ser afetado:
 
   - Usuários aos quais foram atribuídas funções usando o RBAC do Azure perderão seu acesso
-  - O administrador de serviços e coadministradores perderão o acesso
+  - O administrador de serviços e o Co-Administrators perderão o acesso
   - Se você tiver cofres de chaves, eles ficarão inacessíveis e você precisará corrigi-los após a associação
   - Se você tiver identidades gerenciadas para recursos como máquinas virtuais ou aplicativos lógicos, será necessário reabilitá-los ou recriá-los após a associação
   - Se você tiver um Azure Stack registrado, será necessário registrá-lo novamente após a associação

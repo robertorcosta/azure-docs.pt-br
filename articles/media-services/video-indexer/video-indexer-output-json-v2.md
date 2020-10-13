@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 08/27/2020
 ms.author: juliako
 ms.openlocfilehash: 6eecaaff836d3253d382fdf0280f9a15c3a7b00b
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89050855"
 ---
 # <a name="examine-the-video-indexer-output"></a>Examinar a saída de Video Indexer
@@ -53,7 +53,7 @@ Para obter mais informações, consulte [insights de vídeo de exibir e editar](
 
 ## <a name="root-elements-of-the-insights"></a>Elementos raiz das informações
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
 |accountId|ID da conta VI da lista de reprodução.|
 |id|ID. da lista de reprodução.|
@@ -113,7 +113,7 @@ Esta seção mostra o resumo das informações.
 
 ## <a name="videos"></a>Vídeos
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
 |accountId|A ID da conta VI do vídeo.|
 |id|ID do vídeo.|
@@ -218,7 +218,7 @@ instances|Uma lista de intervalos de tempo deste bloco.|
 
 #### <a name="transcript"></a>transcript
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
 |id|A ID da linha.|
 |text|A própria transcrição.|
@@ -256,7 +256,7 @@ Exemplo:
 
 #### <a name="ocr"></a>ocr
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
 |id|A ID da linha de OCR.|
 |text|O texto de OCR.|
@@ -291,7 +291,7 @@ Exemplo:
 
 #### <a name="keywords"></a>palavras-chave
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
 |id|A ID da palavra-chave.|
 |text|O texto da palavra-chave.|
@@ -326,7 +326,7 @@ Exemplo:
 
 Se os rostos (não os caracteres animados) estiverem presentes, Video Indexer usará API de Detecção Facial em todos os quadros do vídeo para detectar rostos e celebridades.
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
 |id|A ID da face.|
 |name|O nome da face. Pode ser “Desconhecido #0”, uma celebridade identificada ou uma pessoa treinada pelo cliente.|
@@ -371,7 +371,7 @@ Se os rostos (não os caracteres animados) estiverem presentes, Video Indexer us
 
 #### <a name="labels"></a>rótulos
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
 |id|A ID do rótulo.|
 |name|O nome do rótulo (por exemplo, "Computador", "TV").|
@@ -430,7 +430,7 @@ Se os rostos (não os caracteres animados) estiverem presentes, Video Indexer us
 
 #### <a name="scenes"></a>scenes
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
 |id|A ID da cena.|
 |instances|Uma lista de intervalos de tempo desta cena (uma cena só pode ter 1 instância).|
@@ -463,7 +463,7 @@ Se os rostos (não os caracteres animados) estiverem presentes, Video Indexer us
 
 #### <a name="shots"></a>shots
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
 |id|A ID da captura.|
 |keyFrames|Uma lista de quadros-chave dentro da captura (cada um tem uma ID e uma lista de instâncias de intervalos de tempo). Cada instância de quadro-chave tem um campo de miniaturaid, que contém a ID de miniatura do quadro-chave.|
@@ -513,7 +513,7 @@ Se os rostos (não os caracteres animados) estiverem presentes, Video Indexer us
 
 Nomes de marcas comerciais e de produtos detectados na fala para transcrição de texto e / ou Vídeo OCR. Isso não inclui reconhecimento visual de marcas ou detecção de logotipo.
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
 |id|A ID de marca.|
 |name|O nome de marcas.|
@@ -572,7 +572,7 @@ Nomes de marcas comerciais e de produtos detectados na fala para transcrição d
 
 #### <a name="statistics"></a>estatísticas
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
 |CorrespondenceCount|Número de correspondências no vídeo.|
 |SpeakerWordCount|O número de palavras por alto-falante.|
@@ -582,10 +582,10 @@ Nomes de marcas comerciais e de produtos detectados na fala para transcrição d
 
 #### <a name="audioeffects"></a>audioEffects
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
 |id|A ID do efeito de áudio.|
-|tipo|O tipo de efeito de áudio (por exemplo, Palmas, Fala, Silêncio).|
+|type|O tipo de efeito de áudio (por exemplo, Palmas, Fala, Silêncio).|
 |instances|Uma lista com os intervalos de tempo nos quais esse efeito de áudio apareceu.|
 
 ```json
@@ -611,7 +611,7 @@ Nomes de marcas comerciais e de produtos detectados na fala para transcrição d
 
 Os sentimentos são agregadas de acordo com seu campo sentimentType (Positivo/Neutro/Negativo). Por exemplo, 0-0.1, 0.1-0.2.
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
 |id|A ID do sentimento.|
 |averageScore |A média de todas as pontuações de todas as instâncias desse tipo de sentimento - Neutral/positivo/negativo|
@@ -650,7 +650,7 @@ O bloco visualContentModeration contém intervalos de tempo que o Video Indexer 
 
 Os vídeos que contêm conteúdo adulto ou atraente podem estar disponíveis apenas para visualização privada. Os usuários têm a opção de enviar uma solicitação para uma revisão humana do conteúdo. Nesse caso, o atributo IsAdult conterá o resultado da revisão humana.
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
 |id|A ID de moderação de conteúdo visual.|
 |adultScore|A pontuação de conteúdo adulta (do moderador de conteúdo).|
@@ -686,7 +686,7 @@ Os vídeos que contêm conteúdo adulto ou atraente podem estar disponíveis ape
 
 #### <a name="textualcontentmoderation"></a>textualContentModeration 
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
 |id|O ID de moderação do conteúdo textual.|
 |bannedWordsCount |O número de palavras proibidas.|
@@ -696,10 +696,10 @@ Os vídeos que contêm conteúdo adulto ou atraente podem estar disponíveis ape
 
 Video Indexer identifica emoções com base em indicações de fala e áudio. A emoção identificada poderia ser: Joy, tristeza, raiva ou medo.
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
 |id|A ID da emoção.|
-|tipo|O momento de emoção que foi identificado com base nas indicações de fala e áudio. A emoção poderia ser: alegria, tristeza, raiva ou medo.|
+|type|O momento de emoção que foi identificado com base nas indicações de fala e áudio. A emoção poderia ser: alegria, tristeza, raiva ou medo.|
 |instances|Uma lista de intervalos de tempo nos quais essa emoção apareceu.|
 
 ```json
@@ -786,7 +786,7 @@ Video Indexer identifica emoções com base em indicações de fala e áudio. A 
 
 O Video Indexer faz inferências dos principais tópicos das transcrições. Quando possível, a taxonomia [IPTC](https://iptc.org/standards/media-topics/) de 2º nível é incluída. 
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
 |id|A ID do tópico.|
 |name|O nome do tópico, por exemplo: "Produtos farmacêuticos".|
