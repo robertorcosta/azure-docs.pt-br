@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 05/20/2020
 ms.author: alkohli
 ms.openlocfilehash: c4b3479e5728c32e66bc40f950bc948bf61dce42
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91575156"
 ---
 # <a name="use-self-managed-shipping-for-azure-data-box-disk-in-the-azure-portal"></a>Use a remessa autogerenciada para Azure Data Box Disk no portal do Azure
@@ -43,7 +43,7 @@ Ao fazer o pedido do Data Box Disk, você pode escolher a opção de remessa aut
 
 3. Depois de fornecer seu endereço para remessa, você precisará validá-lo e concluir seu pedido.
 
-   ![Captura de tela da caixa de diálogo Adicionar endereço de envio com as opções enviar usando e adicionar endereço de envio, chamada out.](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
+   ![Captura de tela da caixa de diálogo Adicionar Endereço para Entrega com as opções de Enviar usando e a opção Adicionar endereço para entrega em destaque.](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
 
 4. Depois que o dispositivo tiver sido preparado e você receber uma notificação por email, você poderá agendar uma retirada. Em seu pedido do Azure Data Box Disk, acesse **Visão geral** e, em seguida, selecione **Agendar retirada**.
 

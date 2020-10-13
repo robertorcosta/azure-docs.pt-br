@@ -12,10 +12,10 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, synapse-analytics
 ms.openlocfilehash: 6f089a67262c78f31092780bb8b4d7d803d47e0d
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91369086"
 ---
 # <a name="tutorial-load-data-to--azure-synapse-analytics-sql-pool"></a>Tutorial: carregar dados no pool do SQL do Azure Synapse Analytics
@@ -83,7 +83,7 @@ Siga estas etapas para criar um pool SQL em branco.
 
 1. Selecione **revisão + criar** para revisar suas configurações e, em seguida, selecione **criar** para criar seu data warehouse. Você pode monitorar seu progresso abrindo a página **implantação em andamento** no menu **notificações** .
 
-     ![Captura de tela mostra notificações com a implantação em andamento.](./media/load-data-wideworldimportersdw/notification.png)
+     ![Captura de tela mostra o menu Notificações com a Implantação em andamento.](./media/load-data-wideworldimportersdw/notification.png)
 
 ## <a name="create-a-server-level-firewall-rule"></a>Criar uma regra de firewall no nível de servidor
 
@@ -108,7 +108,7 @@ O serviço de análise de Synapse do Azure cria um firewall no nível de servido
 
     ![regra de firewall do servidor](./media/load-data-wideworldimportersdw/server-firewall-rule.png)
 
-1. Clique em **Salvar**. Uma regra de firewall no nível do servidor é criada para o endereço IP atual que abre a porta 1433 no servidor lógico.
+1. Selecione **Salvar**. Uma regra de firewall no nível do servidor é criada para o endereço IP atual que abre a porta 1433 no servidor lógico.
 
 Agora você pode se conectar ao servidor usando o endereço IP do cliente. A conexão funciona no SQL Server Management Studio ou em outra ferramenta de sua escolha. Quando você se conectar, use a conta serveradmin criada anteriormente.  
 
@@ -536,7 +536,7 @@ Esta seção usa as tabelas externas que você definiu para carregar os dados de
 
 O script usa a instrução T-SQL [CTAS (CREATE TABLE AS SELECT)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para carregar os dados do Azure Storage Blob para novas tabelas no data warehouse. A CTAS cria uma nova tabela com base nos resultados de uma instrução select. A nova tabela tem as mesmas colunas e tipos de dados que os resultados da instrução select. Quando a instrução SELECT seleciona de uma tabela externa, os dados são importados para uma tabela relacional no data warehouse.
 
-Esse script não carrega dados nas tabelas WWI. dimension_Date e WWI. fact_Sale. Essas tabelas são geradas em uma etapa posterior para que elas tenham um número considerável de linhas.
+Esse script não carrega dados nas tabelas wwi.dimension_Date e wwi.fact_Sale. Essas tabelas são geradas em uma etapa posterior para que elas tenham um número considerável de linhas.
 
 1. Execute o seguinte script para carregar os dados para novas tabelas no data warehouse.
 
@@ -732,7 +732,7 @@ Esse script não carrega dados nas tabelas WWI. dimension_Date e WWI. fact_Sale.
 
 ## <a name="create-tables-and-procedures-to-generate-the-date-and-sales-tables"></a>Criar tabelas e procedimentos para gerar as tabelas de data e vendas
 
-Esta seção cria as tabelas WWI. dimension_Date e WWI. fact_Sale. Ele também cria procedimentos armazenados que podem gerar milhões de linhas nas tabelas WWI. dimension_Date e WWI. fact_Sale.
+Esta seção cria as tabelas wwi.dimension_Date e wwi.fact_Sale. Ele também cria procedimentos armazenados que podem gerar milhões de linhas nas tabelas wwi.dimension_Date e wwi.fact_Sale.
 
 1. Crie as tabelas dimension_Date e fact_Sale.  
 
@@ -876,7 +876,7 @@ Esta seção cria as tabelas WWI. dimension_Date e WWI. fact_Sale. Ele também c
     END;
     ```
 
-4. Crie este procedimento que popula as tabelas WWI. dimension_Date e WWI. fact_Sale. Ele chama [wwi].[PopulateDateDimensionForYear] para preencher wwi.dimension_Date.
+4. Crie este procedimento que popula as tabelas wwi.dimension_Date e wwi.fact_Sale. Ele chama [wwi].[PopulateDateDimensionForYear] para preencher wwi.dimension_Date.
 
     ```sql
     CREATE PROCEDURE [wwi].[Configuration_PopulateLargeSaleTable] @EstimatedRowsPerDay [bigint],@Year [int] AS
@@ -933,7 +933,7 @@ Esta seção cria as tabelas WWI. dimension_Date e WWI. fact_Sale. Ele também c
 
 ## <a name="generate-millions-of-rows"></a>Gerar milhões de linhas
 
-Use os procedimentos armazenados criados para gerar milhões de linhas na tabela WWI. fact_Sale e os dados correspondentes na tabela WWI. dimension_Date.
+Use os procedimentos armazenados criados para gerar milhões de linhas na tabela wwi.fact_Sale e os dados correspondentes na tabela wwi.dimension_Date.
 
 1. Execute este procedimento para propagar o [wwi].[seed_Sale] com mais linhas.
 
@@ -941,7 +941,7 @@ Use os procedimentos armazenados criados para gerar milhões de linhas na tabela
     EXEC [wwi].[InitialSalesDataPopulation]
     ```
 
-2. Execute este procedimento para preencher WWI. fact_Sale com 100.000 linhas por dia para cada dia do ano 2000.
+2. Execute este procedimento para popular wwi.fact_Sale com 100.000 linhas por dia para cada dia do ano 2000.
 
     ```sql
     EXEC [wwi].[Configuration_PopulateLargeSaleTable] 100000, 2000
@@ -1073,7 +1073,7 @@ Para obter um alto desempenho de consulta, é importante criar estatísticas em 
     EXEC [dbo].[prc_sqldw_create_stats] 1, NULL;
     ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Você está sendo cobrado por recursos de computação e por dados que você carregou em seu data warehouse. Eles são cobrados separadamente.  
 
@@ -1081,7 +1081,7 @@ Siga estas etapas para limpar os recursos conforme desejado.
 
 1. Faça logon no [portal do Azure](https://portal.azure.com) e clique no seu data warehouse.
 
-    ![Limpar os recursos](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
+    ![Limpar recursos](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
 2. Se desejar manter os dados no armazenamento, será possível pausar a computação quando você não estiver usando o data warehouse. Ao pausar a computação, você será cobrado apenas pelo armazenamento de dados e poderá retomar a computação sempre que estiver pronto para trabalhar com os dados. Para pausar a computação, clique no botão **Pausar**. Quando o data warehouse for pausado, você verá um botão **Iniciar**.  Para retomar a computação, clique **Iniciar**.
 

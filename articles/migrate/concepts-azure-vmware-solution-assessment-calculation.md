@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 06/25/2020
 ms.author: mahain
 ms.openlocfilehash: 400c2d91383b5f21fcd40fdbbe279bd83fcef51a
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91576533"
 ---
 # <a name="server-assessment-overview-migrate-to-azure-vmware-solution"></a>Visão geral da avaliação do servidor (migrar para a solução VMware do Azure)
@@ -172,7 +172,7 @@ Depois que um computador é marcado como pronto para a sincronização automáti
 
 ### <a name="ftt-sizing-parameters"></a>Parâmetros de dimensionamento de FTT
 
-O mecanismo de armazenamento usado na AVS é a vSAN. as políticas de armazenamento vSAN definem os requisitos de armazenamento para suas máquinas virtuais. Essas políticas garantem o nível de serviço necessário para suas VMs, pois determinam como o armazenamento é alocado para a VM. As combinações de FTT-RAID disponíveis são: 
+O mecanismo de armazenamento usado na AVS é a vSAN. as políticas de armazenamento vSAN definem os requisitos de armazenamento para suas máquinas virtuais. Essas políticas garantem o nível de serviço necessário para suas VMs, pois determinam como o armazenamento é alocado para a VM. As combinações de FTT-Raid disponíveis são: 
 
 **Falhas a tolerar (FTT)** | **Configuração RAID** | **Hosts mínimos necessários** | **Consideração de dimensionamento**
 --- | --- | --- | --- 

@@ -3,12 +3,12 @@ title: Provedores de recursos pelos serviços do Azure
 description: Lista todos os namespaces do provedor de recursos para Azure Resource Manager e mostra o serviço do Azure para esse namespace.
 ms.topic: conceptual
 ms.date: 09/04/2020
-ms.openlocfilehash: b740c8ee7c28bfeeaecc42121d0c7ce4a323ab3e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9e31f902d36cf84fc559337f3c69529cf1c014b
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330818"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949115"
 ---
 # <a name="resource-providers-for-azure-services"></a>Provedores de recursos para serviços do Azure
 
@@ -85,7 +85,7 @@ Este artigo mostra como os namespaces do provedor de recursos são mapeados para
 | Microsoft.DevTestLab | [Azure Lab Services](../../lab-services/index.yml) |
 | Microsoft.DigitalTwins | [Gêmeos Digitais do Azure](../../digital-twins/overview.md) |
 | Microsoft.DocumentDB | [Azure Cosmos DB](../../cosmos-db/index.yml) |
-| Microsoft.DomainRegistration | [Serviço de Aplicativo](../../app-service/index.yml) |
+| Microsoft.DomainRegistration | [Serviço de aplicativo](../../app-service/index.yml) |
 | Microsoft.DynamicsLcs | [Serviços de ciclo de vida](https://lcs.dynamics.com/Logon/Index ) |
 | Microsoft.EnterpriseKnowledgeGraph | Grafo de conhecimento corporativo |
 | Microsoft.EventGrid | [Grade de Eventos](../../event-grid/index.yml) |
@@ -110,7 +110,7 @@ Este artigo mostra como os namespaces do provedor de recursos são mapeados para
 | Microsoft.Kusto | [Azure Data Explorer](/azure/data-explorer/) |
 | Microsoft.LabServices | [Azure Lab Services](../../lab-services/index.yml) |
 | Microsoft.Logic | [Aplicativos Lógicos](../../logic-apps/index.yml) |
-| Microsoft.MachineLearning | [Machine Learning Studio](../../machine-learning/studio/index.yml) |
+| Microsoft.MachineLearning | [Machine Learning Studio](../../machine-learning/classic/index.yml) |
 | Microsoft.MachineLearningServices | [Azure Machine Learning](../../machine-learning/index.yml) |
 | Microsoft.Maintenance | [Manutenção do Azure](../../virtual-machines/maintenance-control-cli.md) |
 | Microsoft.ManagedIdentity | [Identidades gerenciadas para os recursos do Azure](../../active-directory/managed-identities-azure-resources/index.yml) |
@@ -135,7 +135,7 @@ Este artigo mostra como os namespaces do provedor de recursos são mapeados para
 | Microsoft.OperationsManagement | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft.Peering | [Serviço de Emparelhamento do Azure](../../peering-service/index.yml) |
 | Microsoft.PolicyInsights | [Azure Policy](../../governance/policy/index.yml) |
-| Microsoft. Portal<sup>1</sup> | [Azure portal](../../azure-portal/index.yml) |
+| Microsoft. Portal<sup>1</sup> | [Portal do Azure](../../azure-portal/index.yml) |
 | Microsoft.PowerBI | [Power BI](/power-bi/power-bi-overview) |
 | Microsoft.PowerBIDedicated | [Power BI Embedded](/azure/power-bi-embedded/) |
 | Microsoft. PowerPlatform | [Power Platform](/power-platform/) |

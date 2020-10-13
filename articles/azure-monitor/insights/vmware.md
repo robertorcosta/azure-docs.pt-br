@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 05/04/2018
 ms.openlocfilehash: be50deb836082354db899e84ef24d75c4d403432
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91450402"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>Monitoramento do VMware (preterido) solução no Azure Monitor
@@ -81,7 +81,7 @@ A tabela a seguir mostra os métodos de coleta de dados e outros detalhes sobre 
 
 A tabela a seguir mostram exemplos de campos de dados coletados pela solução de Monitoramento de VMware:
 
-| nome do campo | description |
+| nome do campo | descrição |
 | --- | --- |
 | Device_s |dispositivos de armazenamento do VMware |
 | ESXIFailure_s |tipos de falha |
@@ -190,7 +190,7 @@ Pode haver vários motivos:
 
     a. Verifique se o agente do Log Analytics está em execução usando `ps -ef | grep oms`. Se ele não está em execução, inicie o processo executando o comando `sudo /opt/microsoft/omsagent/bin/service_control start`
 
-     b. Abra o arquivo `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf`.
+     b. Abra o arquivo `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf` .
 
      c. Verifique se o usuário apropriado e a configuração do grupo são válidos, semelhante a: `-rw-r--r-- 1 omsagent omiusers 677 Sep 20 16:46 vmware_esxi.conf`
 

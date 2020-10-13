@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/07/2020
-ms.openlocfilehash: 5075c4858f9584cb19442e19d9009d46d0e00ff8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 85446847e8ad77bc83eea657ab17268839e0b231
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89463399"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949812"
 ---
 # <a name="indexer-access-to-data-sources-using-azure-network-security-features"></a>Acesso do indexador a fontes de dados usando recursos de segurança de rede do Azure
 
@@ -46,11 +46,11 @@ Os clientes podem proteger esses recursos por meio de vários mecanismos de isol
 | Funções do Azure | Com suporte | Com suporte, somente para determinados SKUs do Azure Functions |
 
 > [!NOTE]
-> Além das opções listadas acima, para contas de armazenamento protegidas de rede do Azure, os clientes podem aproveitar o fato de que o Azure Pesquisa Cognitiva é um [serviço da Microsoft confiável](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services). Isso significa que um serviço de pesquisa específico pode ignorar restrições de rede virtual ou IP na conta de armazenamento e pode acessar dados na conta de armazenamento, se o controle de acesso baseado em função apropriado estiver habilitado na conta de armazenamento. Os detalhes estão disponíveis no [Guia de instruções](search-indexer-howto-access-trusted-service-exception.md). Essa opção pode ser utilizada em vez de uma rota de restrição de IP, caso a conta de armazenamento ou o serviço de pesquisa não possa ser movido para uma região diferente.
+> Além das opções listadas acima, para contas de armazenamento protegidas de rede do Azure, os clientes podem aproveitar o fato de que o Azure Pesquisa Cognitiva é um [serviço da Microsoft confiável](../storage/common/storage-network-security.md#trusted-microsoft-services). Isso significa que um serviço de pesquisa específico pode ignorar restrições de rede virtual ou IP na conta de armazenamento e pode acessar dados na conta de armazenamento, se o controle de acesso baseado em função apropriado estiver habilitado na conta de armazenamento. Os detalhes estão disponíveis no [Guia de instruções](search-indexer-howto-access-trusted-service-exception.md). Essa opção pode ser utilizada em vez de uma rota de restrição de IP, caso a conta de armazenamento ou o serviço de pesquisa não possa ser movido para uma região diferente.
 
 Ao escolher qual mecanismo de acesso seguro deve ser usado por um indexador, considere as seguintes restrições:
 
-- Os [pontos de extremidade de serviço](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) não terão suporte para nenhum recurso do Azure.
+- Os [pontos de extremidade de serviço](../virtual-network/virtual-network-service-endpoints-overview.md) não terão suporte para nenhum recurso do Azure.
 - Um serviço de pesquisa não pode ser provisionado em uma rede virtual específica-essa funcionalidade não será oferecida pelo Azure Pesquisa Cognitiva.
 - Quando os indexadores utilizam pontos de extremidade privados (de saída) para acessar recursos, podem ser aplicados [encargos de link privado](https://azure.microsoft.com/pricing/details/search/) adicionais.
 
@@ -68,31 +68,31 @@ Para qualquer execução de indexador específico, o Azure Pesquisa Cognitiva de
 Se o recurso que o indexador está tentando acessar estiver restrito a apenas um determinado conjunto de intervalos de IP, você precisará expandir o conjunto para incluir os possíveis intervalos de IP dos quais uma solicitação de indexador pode se originar. Conforme mencionado acima, há dois ambientes possíveis em que os indexadores são executados e do qual as solicitações de acesso podem se originar. Você precisará adicionar os endereços IP de __ambos os__ ambientes para que o acesso do indexador funcione.
 
 - Para obter o endereço IP do ambiente particular específico do serviço de pesquisa, `nslookup` (ou `ping` ) o FQDN (nome de domínio totalmente qualificado) do seu serviço de pesquisa. O FQDN de um serviço de pesquisa na nuvem pública, por exemplo, seria `<service-name>.search.windows.net` . Essas informações estão disponíveis no portal do Azure.
-- Os endereços IP dos ambientes multilocatário estão disponíveis por meio da `AzureCognitiveSearch` marca de serviço. As [marcas de serviço do Azure](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) têm um intervalo publicado de endereços IP para cada serviço-isso está disponível por meio de uma [API de descoberta (versão prévia)](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api-public-preview) ou um [arquivo JSON baixável](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files). Em ambos os casos, os intervalos de IP são divididos por região. você pode escolher apenas os intervalos de IP atribuídos para a região em que o serviço de pesquisa é provisionado.
+- Os endereços IP dos ambientes multilocatário estão disponíveis por meio da `AzureCognitiveSearch` marca de serviço. As [marcas de serviço do Azure](../virtual-network/service-tags-overview.md) têm um intervalo publicado de endereços IP para cada serviço-isso está disponível por meio de uma [API de descoberta (versão prévia)](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) ou um [arquivo JSON baixável](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files). Em ambos os casos, os intervalos de IP são divididos por região. você pode escolher apenas os intervalos de IP atribuídos para a região em que o serviço de pesquisa é provisionado.
 
-Para determinadas fontes de dados, a própria marca de serviço pode ser usada diretamente em vez de enumerar a lista de intervalos de IP (o endereço IP do serviço de pesquisa ainda precisa ser usado explicitamente). Essas fontes de dados restringem o acesso por meio da configuração de uma [regra de grupo de segurança de rede](https://docs.microsoft.com/azure/virtual-network/security-overview), que oferece suporte nativo à adição de uma marca de serviço, ao contrário das regras de IP, como as oferecidas pelo armazenamento do Azure, COSMOSDB, SQL do Azure, etc `AzureCognitiveSearch`
+Para determinadas fontes de dados, a própria marca de serviço pode ser usada diretamente em vez de enumerar a lista de intervalos de IP (o endereço IP do serviço de pesquisa ainda precisa ser usado explicitamente). Essas fontes de dados restringem o acesso por meio da configuração de uma [regra de grupo de segurança de rede](../virtual-network/network-security-groups-overview.md), que oferece suporte nativo à adição de uma marca de serviço, ao contrário das regras de IP, como as oferecidas pelo armazenamento do Azure, COSMOSDB, SQL do Azure, etc `AzureCognitiveSearch`
 
-- [SQL Server em VMs IaaS](https://docs.microsoft.com/azure/search/search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers#restrict-access-to-the-azure-cognitive-search)
+- [SQL Server em VMs IaaS](./search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md#restrict-access-to-the-azure-cognitive-search)
 
-- [Instâncias gerenciadas do SQL](https://docs.microsoft.com/azure/search/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers#verify-nsg-rules)
+- [Instâncias gerenciadas do SQL](./search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md#verify-nsg-rules)
 
 Os detalhes são descritos no [Guia de instruções](search-indexer-howto-access-ip-restricted.md).
 
 ## <a name="granting-access-via-private-endpoints"></a>Concedendo acesso por meio de pontos de extremidade privados
 
-Os indexadores podem utilizar [pontos de extremidade privados](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) para acessar recursos, o acesso ao qual estão bloqueados para selecionar redes virtuais ou não têm nenhum acesso público habilitado.
+Os indexadores podem utilizar [pontos de extremidade privados](../private-link/private-endpoint-overview.md) para acessar recursos, o acesso ao qual estão bloqueados para selecionar redes virtuais ou não têm nenhum acesso público habilitado.
 Essa funcionalidade só está disponível para serviços pagos, com limites no número de pontos de extremidade privados que são criados. Os detalhes sobre os limites estão documentados na [página limites de Azure Search](search-limits-quotas-capacity.md).
 
 ### <a name="step-1-create-a-private-endpoint-to-the-secure-resource"></a>Etapa 1: criar um ponto de extremidade privado para o recurso seguro
 
-Os clientes devem chamar a operação de gerenciamento de pesquisa, [criar ou atualizar a API de *recurso de link privado compartilhado* ](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources/createorupdate) para criar uma conexão de ponto de extremidade privada para seu recurso seguro (por exemplo, uma conta de armazenamento). O tráfego que passa por essa conexão de ponto de extremidade privada (de saída) se originará somente da rede virtual que está no ambiente de execução do indexador "particular" específico do serviço de pesquisa.
+Os clientes devem chamar a operação de gerenciamento de pesquisa, [criar ou atualizar a API de *recurso de link privado compartilhado* ](/rest/api/searchmanagement/sharedprivatelinkresources/createorupdate) para criar uma conexão de ponto de extremidade privada para seu recurso seguro (por exemplo, uma conta de armazenamento). O tráfego que passa por essa conexão de ponto de extremidade privada (de saída) se originará somente da rede virtual que está no ambiente de execução do indexador "particular" específico do serviço de pesquisa.
 
 O Pesquisa Cognitiva do Azure validará que os chamadores dessa API têm permissões para aprovar solicitações de conexão de ponto de extremidade privado para o recurso seguro. Por exemplo, se você solicitar uma conexão de ponto de extremidade privada para uma conta de armazenamento à qual você não tem acesso, essa chamada será rejeitada.
 
 ### <a name="step-2-approve-the-private-endpoint-connection"></a>Etapa 2: aprovar a conexão de ponto de extremidade particular
 
 Quando a operação (assíncrona) que cria um recurso de link privado compartilhado for concluída, uma conexão de ponto de extremidade privado será criada em um estado "pendente". Nenhum tráfego flui pela conexão ainda.
-O cliente espera, então, localizar essa solicitação em seu recurso seguro e "aprová-la". Normalmente, isso pode ser feito por meio do portal ou por meio da [API REST](https://docs.microsoft.com/rest/api/virtualnetwork/privatelinkservices/updateprivateendpointconnection).
+O cliente espera, então, localizar essa solicitação em seu recurso seguro e "aprová-la". Normalmente, isso pode ser feito por meio do portal ou por meio da [API REST](/rest/api/virtualnetwork/privatelinkservices/updateprivateendpointconnection).
 
 ### <a name="step-3-force-indexers-to-run-in-the-private-environment"></a>Etapa 3: forçar os indexadores a serem executados no ambiente "privado"
 

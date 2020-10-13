@@ -8,10 +8,10 @@ ms.date: 06/29/2020
 ms.custom: fasttrack-edit
 author: palma21
 ms.openlocfilehash: 33355251a06ba076be3677b84e383793f9f25193
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91570372"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Controlar o tráfego de saída dos nós de cluster no Serviço de Kubernetes do Azure (AKS)
@@ -184,7 +184,7 @@ As seguintes regras de FQDN/aplicativo são necessárias para clusters do AKS qu
 | *.oms.opinsights.azure.com | **`HTTPS:443`** | Esse ponto de extremidade é usado pelo omsagent, que é usado para autenticar o serviço do log Analytics. |
 | *.monitoring.azure.com | **`HTTPS:443`** | Esse ponto de extremidade é usado para enviar dados de métricas para Azure Monitor. |
 
-### <a name="azure-dev-spaces"></a>Espaços de Desenvolvimento do Azure
+### <a name="azure-dev-spaces"></a>Azure Dev Spaces
 
 Atualize o firewall ou a configuração de segurança para permitir o tráfego de rede de e para todos os FQDNs e [serviços de infraestrutura de Azure dev Spaces][dev-spaces-service-tags]a seguir.
 
@@ -765,7 +765,7 @@ Você deve ver o aplicativo de votação AKS. Neste exemplo, o IP público do fi
 ![Captura de tela mostra o aplicativo de votação K S com botões para gatos, cachorros, redefinição e totais.](media/limit-egress-traffic/aks-vote.png)
 
 
-### <a name="clean-up-resources"></a>Limpar os recursos
+### <a name="clean-up-resources"></a>Limpar recursos
 
 Para limpar os recursos do Azure, exclua o grupo de recursos do AKS.
 
@@ -779,7 +779,7 @@ Neste artigo, você aprendeu quais portas e endereços permitir se deseja restri
 
 Se necessário, você pode generalizar as etapas acima para encaminhar o tráfego para sua solução de saída preferida, seguindo a [ `userDefinedRoute` documentação do tipo de saída](egress-outboundtype.md).
 
-Se você quiser restringir como os pods se comunicam entre si e restrições de tráfego leste-oeste no cluster, consulte [proteger o tráfego entre pods usando as políticas de rede no AKs][network-policy].
+Se você quiser restringir como os pods se comunicam entre si e East-West restrições de tráfego no cluster, consulte [proteger o tráfego entre pods usando as políticas de rede no AKs][network-policy].
 
 <!-- LINKS - internal -->
 [aks-quickstart-cli]: kubernetes-walkthrough.md

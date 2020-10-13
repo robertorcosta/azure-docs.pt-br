@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: alkohli
 ms.openlocfilehash: 5c3f87620c8a2a2d2438d7a5630541c0f76f9f17
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91575564"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box-preview"></a>Tutorial: criar ordem de exportação para Azure Data Box (versão prévia)
@@ -119,14 +119,14 @@ Execute as etapas a seguir no portal do Azure para solicitar um dispositivo.
 
    ![Detalhes do Contato](media/data-box-deploy-export-ordered/azure-data-box-export-05.png)
 
-1. Em **segurança**, se você quiser habilitar a criptografia dupla baseada em software, selecione **habilitar criptografia dupla para o pedido**. 
+1. Em **Segurança**, caso queira habilitar uma criptografia dupla baseada em software, selecione **Habilitar uma criptografia dupla para o pedido**. 
 
-   A criptografia baseada em software é executada além da criptografia AES-256 bits dos dados no Data Box.
+   Uma criptografia baseada em software será executada além da criptografia AES de 256 bits dos dados no Data Box.
 
    > [!NOTE]
-   > Habilitar essa opção pode fazer com que o processamento de pedidos e a cópia de dados demorem mais. Você não pode alterar essa opção depois de criar seu pedido.
+   > Habilitar essa opção poderá fazer com que o processamento de pedidos e a cópia de dados demorem mais. Não será possível alterar essa opção depois de criar seu pedido.
 
-   ![Tela de segurança para importação de caixa de dados, criptografia dupla](media/data-box-deploy-export-ordered/azure-data-box-export-05b.png)
+   ![Tela de segurança para importação do Data Box e de uma criptografia dupla](media/data-box-deploy-export-ordered/azure-data-box-export-05b.png)
 
    Selecione **Avançar: Detalhes de contato** para continuar.
 
