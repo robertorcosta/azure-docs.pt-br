@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.openlocfilehash: 97797e309c32c6ea996d5ae1901b9a266a683173
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91537626"
 ---
 # <a name="add-scoring-profiles-to-an-azure-cognitive-search-index"></a>Adicionar perfis de pontuação a um índice da Azure Cognitive Search
@@ -270,7 +270,7 @@ A pontuação de pesquisa é calculada com base nas propriedades estatísticas d
 
  A tabela a seguir fornece vários exemplos.  
 
-|Duração|boostingDuration|  
+|Duration|boostingDuration|  
 |--------------|----------------------|  
 |1 dia|"P1D"|  
 |2 dias e 12 horas|"P2DT12H"|  
@@ -279,7 +279,7 @@ A pontuação de pesquisa é calculada com base nas propriedades estatísticas d
 
  Para obter mais exemplos, consulte [Esquema XML: tipos de dados (site W3.org)](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration).  
 
-## <a name="see-also"></a>Consulte também  
+## <a name="see-also"></a>Confira também  
 
 + [Referência da API REST](/rest/api/searchservice/)
 + [Criar API de índice](/rest/api/searchservice/create-index)
