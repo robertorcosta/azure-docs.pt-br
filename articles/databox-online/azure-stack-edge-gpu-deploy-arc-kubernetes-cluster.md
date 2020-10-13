@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 09/01/2020
 ms.author: alkohli
-ms.openlocfilehash: 423345739ca5c078fbff4f267e1e8a118abf107c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c38b0b1d3a2e71502ac86bf46771ecfb637ba15d
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90903200"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91952209"
 ---
 # <a name="enable-azure-arc-on-kubernetes-cluster-on-your-azure-stack-edge-pro-gpu-device"></a>Habilitar o arco do Azure no cluster kubernetes no dispositivo de GPU pro do Azure Stack Edge
 
@@ -68,11 +68,11 @@ Antes de habilitar o arco do Azure no cluster kubernetes, você precisará habil
 
 1. Selecione um provedor de recursos e, na parte superior da barra de comandos, selecione **registrar**. O registro leva vários minutos. 
 
-    ![Registrar provedores de recursos kubernetes](media/azure-stack-edge-gpu-connect-powershell-interface/register-k8-resource-providers-2.png)
+    ![Registrar provedores de recursos kubernetes 2](media/azure-stack-edge-gpu-connect-powershell-interface/register-k8-resource-providers-2.png)
 
 1. Atualize a interface do usuário até ver que o provedor de recursos está registrado. Repita o processo para ambos os provedores de recursos.
     
-    ![Registrar provedores de recursos kubernetes](media/azure-stack-edge-gpu-connect-powershell-interface/register-k8-resource-providers-4.png)
+    ![Registrar provedores de recursos do kubernetes 3](media/azure-stack-edge-gpu-connect-powershell-interface/register-k8-resource-providers-4.png)
 
 Você também pode registrar provedores de recursos por meio do `az cli` . Para obter mais informações, consulte [registrar os dois provedores do Azure Arc habilitado kubernetes](../azure-arc/kubernetes/connect-cluster.md#register-the-two-providers-for-azure-arc-enabled-kubernetes)
 

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/30/2020
+ms.date: 10/09/2020
 ms.author: b-juche
-ms.openlocfilehash: e4bd6371cb0264830ed84a8e80c373c1963cd798
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 0818d113b5475e847c009f979345e103d6e089bb
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932474"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91938858"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Arquiteturas da solução usando o Azure NetApp Files
 Este artigo fornece referências a práticas recomendadas que podem ajudá-lo a entender as arquiteturas de solução para usar o Azure NetApp Files.  
@@ -73,6 +73,9 @@ Esta seção fornece referências ao SAP em soluções do Azure.
 * [SAP HANA escalar horizontalmente com o nó em espera em VMs do Azure com Azure NetApp Files no SUSE Linux Enterprise Server](../virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse.md)
 * [SAP HANA escalar horizontalmente com o nó em espera em VMs do Azure com Azure NetApp Files no Red Hat Enterprise Linux](../virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel.md)
 
+### <a name="sap-iq-nls"></a>SAP IQ-NLS
+*   [Implantar a solução SAP IQ-NLS HA usando o Azure NetApp Files no SUSE Linux Enterprise Server](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/deploy-sap-iq-nls-ha-solution-using-azure-netapp-files-on-suse/ba-p/1651172#.X2tDfpNzBh4.linkedin)
+
 ### <a name="sap-tech-community-and-blog-posts"></a>Postagens de blog e comunidade do SAP Tech 
 
 * [Azure NetApp Files – backup de SAP HANA em segundos](https://blog.netapp.com/azure-netapp-files-sap-hana-backup-in-seconds/)
@@ -91,6 +94,7 @@ Esta seção fornece referências para soluções de infraestrutura de área de 
 * [Opções de armazenamento para contêineres de perfil FSLogix na área de trabalho virtual do Windows](../virtual-desktop/store-fslogix-profile.md#azure-platform-details)
 * [Criar um contêiner de perfil do FSLogix para um pool de hosts usando Azure NetApp Files](../virtual-desktop/create-fslogix-profile-container.md)
 * [Área de Trabalho Virtual do Windows em escala corporativa](/azure/architecture/example-scenario/wvd/windows-virtual-desktop)
+* [Microsoft FSLogix para as práticas recomendadas de Azure NetApp Files empresarial](/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix#azure-netapp-files-best-practices)
 
 ## <a name="hpc-solutions"></a>Soluções de HPC
 
@@ -111,6 +115,7 @@ Esta seção fornece referências para soluções de HPC (computação de alto d
 
 * [Benefícios de usar o Azure NetApp Files para automação de design eletrônico](solutions-benefits-azure-netapp-files-electronic-design-automation.md)
 * [Azure CycleCloud: laboratório de HPC EDA com Azure NetApp Files](https://github.com/Azure/cyclecloud-hands-on-labs/blob/master/EDA/README.md)
+* [Azure para o setor semicondutor](https://azurecomcdn.azureedge.net/cvt-f40f39cd9de2d875ab0c198a8d7b186350cf0bca161e80d7896941389685d012/mediahandler/files/resourcefiles/azure-for-the-semiconductor-industry/Azure_for_the_Semiconductor_Industry.pdf)
 
 ### <a name="analytics"></a>Análise
 

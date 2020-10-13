@@ -6,14 +6,14 @@ ms.topic: article
 ms.date: 7/01/2019
 ms.author: msangapu
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: c240399f1368862a969561409371e075a010e8f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18e3f29a90ae2c6c66858e14ee91fb447a4a0045
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89435602"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91968643"
 ---
-# <a name="access-azure-storage-as-a-network-share-from-a-container-in-app-service"></a>Acessar o armazenamento do Azure como um compartilhamento de rede de um contêiner no serviço de aplicativo
+# <a name="access-azure-storage-as-a-network-share-from-a-container-in-app-service"></a>Acessar o Armazenamento do Microsoft Azure como um compartilhamento de rede de um contêiner no Serviço de Aplicativo
 
 ::: zone pivot="container-windows"
 
@@ -65,7 +65,6 @@ Este guia mostra como anexar o armazenamento do Azure a um serviço de aplicativ
 
 - O armazenamento do Azure no serviço de aplicativo está **em versão prévia** para o serviço de aplicativo no Linux e aplicativo Web para contêineres. **Não há suporte** para **cenários de produção**.
 - O armazenamento do Azure no serviço de aplicativo dá suporte à montagem de **contêineres de arquivos do Azure** (leitura/gravação) e **contêineres de blob do Azure** (somente leitura
-- O armazenamento do Azure no serviço de aplicativo **não dá suporte** ao uso da configuração de **Firewall de armazenamento** devido a limitações de infraestrutura.
 - O armazenamento do Azure no serviço de aplicativo permite que você especifique **até cinco** pontos de montagem por aplicativo.
 - O armazenamento do Azure montado em um aplicativo não pode ser acessado por pontos de extremidade de FTP/FTPs do serviço de aplicativo. Usar o [Gerenciador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/).
 

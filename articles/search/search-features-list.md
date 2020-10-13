@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.openlocfilehash: 21f5a9f58acbaf3d0444d7da10ad489ade99cd76
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 286d826f61a6c99396ef04af0a0855567bc4d1e4
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604182"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951376"
 ---
 # <a name="features-of-azure-cognitive-search"></a>Recursos do Azure Pesquisa Cognitiva
 
@@ -64,13 +64,13 @@ O Azure Pesquisa Cognitiva fornece um mecanismo de pesquisa de texto completo, a
 
 | Categorias&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Recursos |
 |-------------------|----------|
-| REST | A [**API REST do serviço**](https://docs.microsoft.com/rest/api/searchservice/) destina-se a operações de plano de dados, incluindo todas as operações relacionadas à indexação, consultas e enriquecimento de ia. Você também pode usar essa biblioteca de cliente para recuperar informações e estatísticas do sistema. <br/><br/>A [**API REST de gerenciamento**](https://docs.microsoft.com/rest/api/searchmanagement/) é para a criação do serviço e a limpeza por meio de Azure Resource Manager. Você também pode usar essa API para gerenciar chaves e provisionar um serviço.|
-| SDK do Azure para .NET | [**Azure.Search.Documents**](https://docs.microsoft.com/dotnet/api/overview/azure/search.documents-readme) é para operações de plano de dados, incluindo todas as operações relacionadas à indexação, consultas e enriquecimento de ia. Você também pode usar essa biblioteca de cliente para recuperar informações e estatísticas do sistema. <br/><br/>[**Microsoft. Azure. Management. Search**](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search) é para a criação e limpeza de serviço por meio de Azure Resource Manager. Você também pode usar essa API para gerenciar chaves e provisionar um serviço.|
-| SDK do Azure para Java | [**com.azure.search.documents**](https://docs.microsoft.com/java/api/com.azure.search.documents) é para operações de plano de dados, incluindo todas as operações relacionadas à indexação, consultas e enriquecimento de ia. Você também pode usar essa biblioteca de cliente para recuperar informações e estatísticas do sistema. <br/><br/>[**com. Microsoft. Azure. Management. Search**](https://docs.microsoft.com/java/api/overview/azure/search/management) destina-se à criação e limpeza de serviço por meio de Azure Resource Manager. Você também pode usar essa API para gerenciar chaves e provisionar um serviço.|
-| SDK do Azure para Python | [**Azure-Search-Documents**](https://docs.microsoft.com/python/api/overview/azure/search-documents-readme) é para operações de plano de dados, incluindo todas as operações relacionadas à indexação, consultas e enriquecimento de ia. Você também pode usar essa biblioteca de cliente para recuperar informações e estatísticas do sistema. <br/><br/>[**Azure-MGMT-Search**](https://docs.microsoft.com/python/api/overview/azure/search/management) é para a criação e limpeza de serviço por meio de Azure Resource Manager. Você também pode usar essa API para gerenciar chaves e provisionar um serviço. |
-| SDK do Azure para JavaScript/TypeScript | o [**Azure/Search-Documents**](https://docs.microsoft.com/javascript/api/@azure/search-documents/) é para operações de plano de dados, incluindo todas as operações relacionadas à indexação, consultas e enriquecimento de ia. Você também pode usar essa biblioteca de cliente para recuperar informações e estatísticas do sistema. <br/><br/>[**Azure/ARM-a pesquisa destina-**](https://docs.microsoft.com/javascript/api/@azure/arm-search/) se à criação e limpeza de serviços por meio de Azure Resource Manager. Você também pode usar essa API para gerenciar chaves e provisionar um serviço. |
+| REST | A [**API REST do serviço**](/rest/api/searchservice/) destina-se a operações de plano de dados, incluindo todas as operações relacionadas à indexação, consultas e enriquecimento de ia. Você também pode usar essa biblioteca de cliente para recuperar informações e estatísticas do sistema. <br/><br/>A [**API REST de gerenciamento**](/rest/api/searchmanagement/) é para a criação do serviço e a limpeza por meio de Azure Resource Manager. Você também pode usar essa API para gerenciar chaves e provisionar um serviço.|
+| SDK do Azure para .NET | [**Azure.Search.Documents**](/dotnet/api/overview/azure/search.documents-readme) é para operações de plano de dados, incluindo todas as operações relacionadas à indexação, consultas e enriquecimento de ia. Você também pode usar essa biblioteca de cliente para recuperar informações e estatísticas do sistema. <br/><br/>[**Microsoft. Azure. Management. Search**](/dotnet/api/microsoft.azure.management.search) é para a criação e limpeza de serviço por meio de Azure Resource Manager. Você também pode usar essa API para gerenciar chaves e provisionar um serviço.|
+| SDK do Azure para Java | [**com.azure.search.documents**](/java/api/com.azure.search.documents) é para operações de plano de dados, incluindo todas as operações relacionadas à indexação, consultas e enriquecimento de ia. Você também pode usar essa biblioteca de cliente para recuperar informações e estatísticas do sistema. <br/><br/>[**com. Microsoft. Azure. Management. Search**](/java/api/overview/azure/search/management) destina-se à criação e limpeza de serviço por meio de Azure Resource Manager. Você também pode usar essa API para gerenciar chaves e provisionar um serviço.|
+| SDK do Azure para Python | [**Azure-Search-Documents**](/python/api/overview/azure/search-documents-readme) é para operações de plano de dados, incluindo todas as operações relacionadas à indexação, consultas e enriquecimento de ia. Você também pode usar essa biblioteca de cliente para recuperar informações e estatísticas do sistema. <br/><br/>[**Azure-MGMT-Search**](/python/api/overview/azure/search/management) é para a criação e limpeza de serviço por meio de Azure Resource Manager. Você também pode usar essa API para gerenciar chaves e provisionar um serviço. |
+| SDK do Azure para JavaScript/TypeScript | o [**Azure/Search-Documents**](/javascript/api/@azure/search-documents/) é para operações de plano de dados, incluindo todas as operações relacionadas à indexação, consultas e enriquecimento de ia. Você também pode usar essa biblioteca de cliente para recuperar informações e estatísticas do sistema. <br/><br/>[**Azure/ARM-a pesquisa destina-**](/javascript/api/@azure/arm-search/) se à criação e limpeza de serviços por meio de Azure Resource Manager. Você também pode usar essa API para gerenciar chaves e provisionar um serviço. |
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 + [Novidades no Cognitive Search](whats-new.md)
 

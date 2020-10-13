@@ -3,16 +3,16 @@ title: Detalhes da estrutura de isenção de política
 description: Descreve a definição de isenção de política usada pelo Azure Policy para isentar recursos da avaliação de iniciativas ou definições.
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1fd14d31824dc86dcd3788607030f28f978f5801
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e6ced56c1dc65ca68998c5c58d3e985b63873e0b
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90968053"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950169"
 ---
 # <a name="azure-policy-exemption-structure"></a>Azure Policy estrutura de isenção
 
-O recurso de isenção de Azure Policy (versão prévia) é usado para _isentar_ uma hierarquia de recursos ou um recurso individual da avaliação de iniciativas ou definições. Recursos com contagem de _isenção_ para conformidade geral, mas que não podem ser avaliados ou têm uma renúncia temporária. Para obter mais informações, consulte [entender o escopo em Azure Policy](./scope.md). Azure Policy isenções só funcionam com [modos do Resource Manager](./definition-structure.md#resource-manager-modes) e não funcionam com **modos de provedor de recursos**.
+O recurso de isenção de Azure Policy (versão prévia) é usado para _isentar_ uma hierarquia de recursos ou um recurso individual da avaliação de iniciativas ou definições. Recursos com contagem de _isenção_ para conformidade geral, mas que não podem ser avaliados ou têm uma renúncia temporária. Para obter mais informações, consulte [entender o escopo em Azure Policy](./scope.md). Azure Policy isenções só funcionam com [modos do Resource Manager](./definition-structure.md#resource-manager-modes) e não funcionam com [modos de provedor de recursos](./definition-structure.md#resource-provider-modes).
 
 > [!IMPORTANT]
 > Esse recurso é gratuito durante a **Visualização**. Para obter detalhes de preços, consulte [preços de Azure Policy](https://azure.microsoft.com/pricing/details/azure-policy/). Para saber mais sobre versões prévias, consulte os [Termos de Uso Complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).

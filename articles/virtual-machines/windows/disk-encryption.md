@@ -8,12 +8,12 @@ ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 49898f2215139c4460c639dc8caa3d2764082e34
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07916b7f7e5d0f1e755ae9759a16541eede45a41
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91274768"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950475"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage-for-powershell"></a>Criptografia do Armazenamento em Disco do Azure no lado do servidor para o PowerShell
 
@@ -76,7 +76,7 @@ Clientes confidenciais de alta segurança que se preocupam com o risco associado
 
 ### <a name="supported-regions"></a>Regiões com suporte
 
-[!INCLUDE [virtual-machines-disks-double-encryption-at-rest-regions](../../../includes/virtual-machines-disks-double-encryption-at-rest-regions.md)]
+A criptografia dupla está disponível em todas as regiões em que os discos gerenciados estão disponíveis.
 
 ## <a name="server-side-encryption-versus-azure-disk-encryption"></a>Criptografia do lado do servidor versus criptografia de disco do Azure
 

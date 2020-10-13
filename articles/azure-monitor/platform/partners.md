@@ -5,10 +5,10 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 09/21/2020
 ms.openlocfilehash: b56b2386422d9f7f2fa598ff804a2206bf4b4d83
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91460077"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integrações de parceiros do Azure Monitor
@@ -82,7 +82,7 @@ O CloudMonix oferece serviços de monitoramento, automação e autorrecuperaçã
 
 O Azure permite aos clientes migrar e modernizar seus aplicativos para serem executados na nuvem, em coordenação com muitas soluções de parceiros. Um desses parceiros é Datadog, que fornece ferramentas de observação e de segurança para que os usuários compreendam a integridade e o desempenho de seus aplicativos em ambientes híbridos e de várias nuvens.  Mas a configuração das integrações necessárias geralmente requer a navegação entre a portal do Azure e a Datadog.  Esse processo adiciona complexidade, leva tempo e dificulta a solução de problemas se as coisas não estiverem funcionando.  Para reduzir a carga de gerenciamento em vários portais, a Microsoft trabalhou com o Datadog para criar uma solução Datadog integrada na plataforma de nuvem do Azure.  Disponível por meio do Azure Marketplace, essa solução fornece uma experiência direta para usar a solução de monitoramento de nuvem do Datadog no Azure.  
 
-Com a nova integração do Azure-Datadog, as organizações agora podem mapear totalmente seus sistemas herdados e baseados em nuvem, monitorar dados em tempo real durante cada fase da transição de nuvem e garantir que os aplicativos migrados atendam aos destinos de desempenho. Essa integração combina a presença global do Azure, a flexibilidade, a segurança e a conformidade com os recursos de monitoramento e registro em log do Datadog para criar a melhor experiência para empresas. Por meio dessa experiência unificada, você poderá: 
+Com a nova integração de Azure-Datadog, as organizações agora podem mapear totalmente seus sistemas herdados e baseados em nuvem, monitorar dados em tempo real durante cada fase da transição de nuvem e garantir que os aplicativos migrados atendam aos destinos de desempenho. Essa integração combina a presença global do Azure, a flexibilidade, a segurança e a conformidade com os recursos de monitoramento e registro em log do Datadog para criar a melhor experiência para empresas. Por meio dessa experiência unificada, você poderá: 
 
 - Provisione uma nova organização Datadog e configure seus recursos do Azure para enviar logs e métricas para o Datadog – uma configuração totalmente gerenciada sem infraestrutura para os clientes configurarem e operarem.  
 - Envie diretamente logs e métricas para Datadog. O processo de encaminhamento de log foi completamente automatizado; em vez de criar um pipeline de encaminhamento de log com configurações de diagnóstico, hubs de eventos e funções, você pode configurar tudo com apenas alguns cliques.
@@ -153,7 +153,7 @@ A **ponte de operações** de microfoco monitora automaticamente todos os recurs
 
 Saiba mais
 - [Visão geral do pacote de OB](https://www.microfocus.com/products/operations-bridge-suite/overview)
-- [Download](https://marketplace.microfocus.com/itom/content/obm-management-pack-for-microsoft-azure)
+- [Baixar](https://marketplace.microfocus.com/itom/content/obm-management-pack-for-microsoft-azure)
 - [SiteScope](https://docs.microfocus.com/itom/SiteScope:2019.05/MSAzureMonitor) -SiteScope é um componente do Operations Bridge Suite.
 
 

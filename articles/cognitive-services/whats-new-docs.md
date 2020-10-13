@@ -11,7 +11,7 @@ ms.openlocfilehash: 17d887f0834733fdc833bbbad66c957b057a588a
 ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91857802"
 ---
 # <a name="cognitive-services-docs-whats-new-for-september-1-2020---september-30-2020"></a>Documentos de serviços cognitivas: novidades para 1º de setembro de 2020 – 30 de setembro de 2020
@@ -80,7 +80,7 @@ Bem-vindo ao que há de novo nos documentos de serviços cognitivas de 1º de se
 - [Início Rápido: Usar as APIs REST para personalizar a solução](/azure/cognitive-services/metrics-advisor/quickstarts/rest-api.md)
 - [Como: configurar alertas e obter notificações usando um gancho](/azure/cognitive-services/metrics-advisor/how-tos/alerts.md)
 
-## <a name="text-analytics"></a>Análise de texto
+## <a name="text-analytics"></a>Análise de Texto
 
 ### <a name="updated-articles"></a>Artigos atualizados
 

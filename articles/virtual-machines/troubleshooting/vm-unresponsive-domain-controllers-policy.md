@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/08/2020
 ms.author: v-miegge
-ms.openlocfilehash: 53e1daca47a2917a19cbc30db5348e4fcc06b325
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f181a6dee7ed182150bd0cad2b51690b6c77d7a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90038984"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963118"
 ---
 # <a name="vm-is-unresponsive-while-applying-default-domain-controllers-policy"></a>A VM não responde durante a aplicação da política de controladores de domínio padrão
 
@@ -28,7 +28,7 @@ Este artigo fornece etapas para resolver problemas em que a política de control
 
 ## <a name="symptom"></a>Sintoma
 
-Ao usar o [diagnóstico de inicialização](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) para exibir a captura de tela da VM, você verá que a captura de tela exibe o sistema operacional ficando sem resposta durante a inicialização com a **política de controladores de domínio padrão**da mensagem.
+Ao usar o [diagnóstico de inicialização](./boot-diagnostics.md) para exibir a captura de tela da VM, você verá que a captura de tela exibe o sistema operacional ficando sem resposta durante a inicialização com a **política de controladores de domínio padrão**da mensagem.
 
   ![A Figura 1 exibe o sistema operacional preso com a mensagem "política de controladores de domínio padrão"](./media/vm-unresponsive-domain-controllers-policy/1-default-domain-controllers-policy.png)
 
@@ -46,7 +46,7 @@ Para resolver esse problema, primeiro você deve coletar o arquivo de despejo de
 
 ### <a name="attach-the-os-disk-to-a-new-repair-vm"></a>Anexar o disco do sistema operacional a uma nova VM de reparo
 
-1. Use as [etapas 1 a 3 dos comandos de reparo da VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) para preparar uma VM de reparo.
+1. Use as [etapas 1 a 3 dos comandos de reparo da VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) para preparar uma VM de reparo.
 
 1. Use a Conexão de Área de Trabalho Remota para conectar-se à VM de reparo.
 
@@ -56,4 +56,4 @@ Para resolver esse problema, primeiro você deve coletar o arquivo de despejo de
 
 1. Localize o arquivo Memory. dmp e [envie um tíquete de suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) com o arquivo de despejo de memória.
 
-1. Se você estiver tendo problemas para localizar o arquivo Memory. dmp, talvez queira usar [chamadas de NMI (interrupção não mascaráveis) no console serial](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-windows#use-the-serial-console-for-nmi-calls) . Siga o guia para [gerar um arquivo de despejo de memória usando chamadas NMI](https://docs.microsoft.com/windows/client-management/generate-kernel-or-complete-crash-dump).
+1. Se você estiver tendo problemas para localizar o arquivo Memory. dmp, talvez queira usar [chamadas de NMI (interrupção não mascaráveis) no console serial](./serial-console-windows.md#use-the-serial-console-for-nmi-calls) . Siga o guia para [gerar um arquivo de despejo de memória usando chamadas NMI](/windows/client-management/generate-kernel-or-complete-crash-dump).

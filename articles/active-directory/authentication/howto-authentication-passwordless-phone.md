@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 09/29/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b4792e73f6326bb9ac67ce3aabe10b8314bb826
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 053a489993c31344b96e83253c88eed93b27b145
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91568192"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91964818"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Habilitar a entrada sem senha com o aplicativo Microsoft Authenticator (versão prévia)
 
@@ -61,7 +61,7 @@ Para habilitar o método de autenticação para entrada no telefone sem senha, c
 
 Com o método de autenticação sem senha disponível para uso no Azure AD, os usuários agora devem se registrar para o método de autenticação sem senha usando as seguintes etapas:
 
-1. Navegue até [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) .
+1. Navegue até [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo).
 1. Entre e adicione o aplicativo autenticador selecionando **Adicionar método > aplicativo autenticador**e, em seguida, **Adicionar**.
 1. Siga as instruções para instalar e configurar o aplicativo Microsoft Authenticator em seu dispositivo.
 1. Selecione **concluído** para concluir a configuração do autenticador.
@@ -81,7 +81,7 @@ Para começar a usar a entrada pelo telefone, depois de digitar um nome de usuá
 
 ![Exemplo de uma entrada no navegador usando o aplicativo Microsoft Authenticator](./media/howto-authentication-passwordless-phone/web-sign-in-microsoft-authenticator-app.png)
 
-## <a name="known-issues"></a>Problemas conhecidos
+## <a name="known-issues"></a>Problemas Conhecidos
 
 Os seguintes problemas conhecidos existem na experiência de visualização atual.
 

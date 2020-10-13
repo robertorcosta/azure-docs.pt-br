@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ad0111f9be8c0b981093618be7296d0ec7f90e30
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0ab8f8ff3f2134c205338dfe8e6f2e887a5a053
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326534"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949608"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Gerenciar um grafo de gêmeos digital usando relações
 
@@ -74,7 +74,7 @@ Você pode até mesmo criar várias instâncias do mesmo tipo de relação entre
 
 ## <a name="list-relationships"></a>Listar relações
 
-Para acessar a lista de relações de um determinado matreme no grafo, você pode usar:
+Para acessar a lista de relações de **saída** provenientes de um determinado tenda no grafo, você pode usar:
 
 ```csharp
 await client.GetRelationshipsAsync(id);
@@ -110,11 +110,11 @@ public async Task<List<BasicRelationship>> FindOutgoingRelationshipsAsync(string
 
 Você pode usar as relações recuperadas para navegar para outros gêmeos em seu grafo. Para fazer isso, leia o `target` campo da relação retornada e use-o como a ID para a próxima chamada para `GetDigitalTwin` . 
 
-### <a name="find-relationships-to-a-digital-twin"></a>Localizar relações com uma teledigital
+### <a name="find-incoming-relationships-to-a-digital-twin"></a>Localizar relações de entrada para um email digital
 
-O gêmeos digital do Azure também tem uma API para localizar todas as relações de entrada para um determinado. Isso geralmente é útil para navegação reversa ou ao excluir um "r".
+O gêmeos digital do Azure também tem uma API para localizar todas as relações de **entrada** para um determinado. Isso geralmente é útil para navegação reversa ou ao excluir um "r".
 
-O exemplo de código anterior concentrou-se na localização de relações de saída. O exemplo a seguir é semelhante, mas localiza relações de entrada em vez disso. Ele também os exclui quando eles são encontrados.
+O exemplo de código anterior concentrou-se na localização de relações de saída de um entrelaçamento. O exemplo a seguir é estruturado da mesma forma, mas localiza as relações de *entrada* para a.
 
 Observe que as `IncomingRelationship` chamadas não retornam o corpo completo da relação.
 

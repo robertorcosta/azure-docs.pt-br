@@ -12,12 +12,13 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: damendo
 ms.reviewer: vinigam
-ms.openlocfilehash: f978343bd47c4b8c86653024e651b56c782f768c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: references_regions
+ms.openlocfilehash: c0d0e1c5f096a45c08265927a288b4ff56876d94
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90967496"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951546"
 ---
 # <a name="traffic-analytics"></a>Análise de Tráfego
 
@@ -58,62 +59,106 @@ A Análise de Tráfego examina os logs de fluxo NSG brutos e captura logs reduzi
 ## <a name="supported-regions-nsg"></a>Regiões com suporte: NSG 
 
 Você pode usar a análise de tráfego para NSGs em qualquer uma das seguintes regiões com suporte:
-
-* Canadá Central
-* Centro-Oeste dos EUA
-* Leste dos EUA
-* Leste dos EUA 2
-* Centro-Norte dos EUA
-* Centro-Sul dos Estados Unidos
-* Centro dos EUA
-* Oeste dos EUA
-* Oeste dos EUA 2
-* França Central
-* Europa Ocidental
-* Norte da Europa
-* Sul do Brasil
-* Oeste do Reino Unido
-* Sul do Reino Unido
-* Leste da Austrália
-* Sudeste da Austrália
-* Leste da Ásia
-* Sudeste Asiático
-* Coreia Central
-* Índia Central
-* Sul da Índia
-* Leste do Japão 
-* Oeste do Japão
-* Gov. dos EUA – Virgínia
-* Leste da China 2
+:::row:::
+   :::column span="":::
+      Austrália Central  
+      Leste da Austrália  
+      Sudeste da Austrália  
+      Sul do Brasil  
+      Canadá Central  
+      Leste do Canadá  
+      Índia Central  
+      Centro dos EUA  
+      Leste da China 2  
+      Norte da China 2  
+   :::column-end:::
+   :::column span="":::
+      Leste da Ásia  
+      Leste dos EUA  
+      Leste dos EUA 2  
+      Leste dos EUA 2 EUAP  
+      França Central  
+      Leste do Japão  
+      Oeste do Japão  
+      Coreia Central  
+      Sul da Coreia  
+      Centro-Norte dos EUA  
+   :::column-end:::
+   :::column span="":::
+      Norte da Europa  
+      Norte da África do Sul  
+      Centro-Sul dos Estados Unidos  
+      Sul da Índia  
+      Sudeste Asiático  
+      Norte da Suíça  
+      Oeste da Suíça  
+      Sul do Reino Unido  
+      Oeste do Reino Unido  
+      Gov. EUA – Arizona  
+   :::column-end:::
+   :::column span="":::
+      Gov. EUA – Texas  
+      Gov. EUA – Virgínia  
+      Leste USNat  
+      Oeste do USNat  
+      Leste USSec  
+      Oeste do USSec  
+      Centro-Oeste dos EUA  
+      Europa Ocidental  
+      Oeste dos EUA  
+      Oeste dos EUA 2  
+   :::column-end:::
+:::row-end:::
 
 ## <a name="supported-regions-log-analytics-workspaces"></a>Regiões com suporte: Workspaces do Log Analytics
 
 O espaço de trabalho do Log Analytics deve existir nas seguintes regiões:
-* Canadá Central
-* Centro-Oeste dos EUA
-* Leste dos EUA
-* Leste dos EUA 2
-* Centro-Norte dos EUA
-* Centro-Sul dos Estados Unidos
-* Centro dos EUA
-* Oeste dos EUA
-* Oeste dos EUA 2
-* Centro dos EUA
-* França Central
-* Europa Ocidental
-* Norte da Europa
-* Sul do Brasil
-* Oeste do Reino Unido
-* Sul do Reino Unido
-* Leste da Austrália
-* Sudeste da Austrália
-* Leste da Ásia
-* Sudeste Asiático
-* Coreia Central
-* Índia Central
-* Leste do Japão
-* Gov. dos EUA – Virgínia
-* Leste da China 2
+:::row:::
+   :::column span="":::
+      Austrália Central  
+      Leste da Austrália  
+      Sudeste da Austrália  
+      Sul do Brasil  
+      Canadá Central  
+      Índia Central  
+      Centro dos EUA  
+      Leste da China 2  
+      Leste da Ásia  
+      Leste dos EUA  
+   :::column-end:::
+   :::column span="":::
+      Leste dos EUA 2  
+      Leste dos EUA 2 EUAP  
+      França Central  
+      Centro-Oeste da Alemanha  
+      Japan East  
+      Coreia Central  
+      Centro-Norte dos EUA  
+      Norte da Europa  
+      Norte da África do Sul  
+      Centro-Sul dos Estados Unidos  
+   :::column-end:::
+   :::column span="":::
+      Sudeste Asiático  
+      Norte da Suíça  
+      Oeste da Suíça  
+      EAU Central  
+      Sul do Reino Unido  
+      Oeste do Reino Unido  
+      Gov. EUA – Arizona  
+      Gov. EUA – Virgínia  
+      Leste USNat  
+      Oeste do USNat  
+   :::column-end:::
+   :::column span="":::
+      Leste USSec  
+      Oeste do USSec  
+      Centro-Oeste dos EUA  
+      Europa Ocidental  
+      Oeste dos EUA  
+      Oeste dos EUA 2  
+   :::column-end:::
+:::row-end:::
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

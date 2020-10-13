@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/10/2017
 ms.author: alkohli
-ms.openlocfilehash: fa5524525aa76279cdcceaf0f5fd2a74753786ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a992e432a6111b5da02187bcf6592587c4d31bf
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91300592"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977503"
 ---
 # <a name="install-update-05-on-your-storsimple-virtual-array"></a>Instalar a Atualização 0.5 em sua StorSimple Virtual Array
 
@@ -92,26 +92,26 @@ Use esse método para instalar atualizações em um dispositivo que executa as v
 
 1. Na interface do usuário da Web local, vá para **manutenção**  >  **atualização de software**.
    
-    ![atualizar dispositivo](./media/storsimple-virtual-array-install-update-05/update1m.png)
+    ![atualizar o dispositivo 1](./media/storsimple-virtual-array-install-update-05/update1m.png)
 
 2. Em **Caminho de arquivo de atualização**, digite o nome de arquivo para a atualização ou hotfix. Você também pode navegar até o arquivo de instalação de hotfix ou atualização se colocado em um compartilhamento de rede. Clique em **Aplicar**.
    
-    ![atualizar dispositivo](./media/storsimple-virtual-array-install-update-05/update2m.png)
+    ![atualizar dispositivo 2](./media/storsimple-virtual-array-install-update-05/update2m.png)
 
 3. Será exibido um aviso. Dado que esse é um dispositivo de nó único, depois que a atualização for aplicada, o dispositivo será reiniciado e haverá tempo de inatividade. Clique no ícone de verificação.
    
-   ![atualizar dispositivo](./media/storsimple-virtual-array-install-update-05/update3m.png)
+   ![atualizar dispositivo 3](./media/storsimple-virtual-array-install-update-05/update3m.png)
 
 4. A atualização será iniciada. Depois que for atualizado com êxito, o dispositivo será reiniciado. A interface do usuário local não estará acessível durante esse tempo.
    
-    ![atualizar dispositivo](./media/storsimple-virtual-array-install-update-05/update5m.png)
+    ![atualizar o dispositivo 4](./media/storsimple-virtual-array-install-update-05/update5m.png)
 
 5. Depois que a reinicialização for concluída, você será levado à página **Entrar** . Para verificar se o software do dispositivo foi atualizado, na interface do usuário da Web local, vá para **manutenção**  >  **atualização de software**. A versão de software exibida deve ser **10.0.0.0.0.10290.0** para a Atualização 0.5.
    
    > [!NOTE]
    > Relatamos as versões de software de maneira ligeiramente diferente na interface do usuário da Web local e no portal do Azure. Por exemplo, a interface do usuário da Web local informa **10.0.0.0.0.10290** e o portal do Azure informa **10.0.10290.0** para a mesma versão.
    
-    ![atualizar dispositivo](./media/storsimple-virtual-array-install-update-05/update6m.png)
+    ![atualizar dispositivo 5](./media/storsimple-virtual-array-install-update-05/update6m.png)
 
 6. A próxima etapa é atualizar o agente de MDS. Na página **Atualização de Software**, vá até o **Caminho do arquivo de atualização** e navegue até o arquivo `GenevaMonitoringAgentPackageInstaller.msi`. Repita as etapas de 2 a 4. Depois que a matriz virtual for reiniciada, entre na interface do usuário da Web local.
 
