@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 05/26/2020
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: a3870ae192955df11107f0ebb5c618b90a0cc799
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87833242"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-mariadb-server-using-powershell"></a>Como fazer backup de um servidor do Banco de Dados do Azure para MariaDB e restaurá-lo usando o PowerShell
@@ -133,4 +133,4 @@ O servidor criado durante uma restauração não tem o ponto de extremidade de s
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Como gerar um banco de dados do Azure para a cadeia de conexão MariaDB com o PowerShell](howto-connection-string-powershell.md)
+> [Como gerar uma cadeia de conexão do Banco de Dados do Azure para MariaDB com o PowerShell](howto-connection-string-powershell.md)

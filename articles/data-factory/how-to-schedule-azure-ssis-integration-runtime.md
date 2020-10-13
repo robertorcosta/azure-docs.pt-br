@@ -14,10 +14,10 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: anandsub
 ms.openlocfilehash: 4df4f7e1db880a38f647e8e384cbfb29b70954ec
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86187244"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Como iniciar e parar o Azure-SSIS Integration Runtime em um agendamento
@@ -91,7 +91,7 @@ Se você criar um terceiro gatilho agendado para ser executado diariamente à me
    
 2. Na caixa de ferramentas **Atividades**, expanda o menu **Geral** e arraste e solte uma atividade da **Web** na superfície do designer de pipeline. Na guia **Geral** da janela Propriedades da atividade, altere o nome da atividade para **startMyIR**. Alterne para a guia **Configurações** e realize as seguintes ações.
 
-    1. Para **URL**, insira a URL a seguir para a API REST que inicia Azure-SSIS ir, substituindo `{subscriptionId}` ,, `{resourceGroupName}` `{factoryName}` e `{integrationRuntimeName}` pelos valores reais para o ir: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/start?api-version=2018-06-01` como alternativa, você também pode copiar & colar a ID de recurso do ir de sua página de monitoramento no aplicativo de interface do usuário do ADF para substituir a seguinte parte da URL acima:`/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}`
+    1. Para **URL**, insira a URL a seguir para a API REST que inicia Azure-SSIS ir, substituindo `{subscriptionId}` ,, `{resourceGroupName}` `{factoryName}` e `{integrationRuntimeName}` pelos valores reais para o ir: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/start?api-version=2018-06-01` como alternativa, você também pode copiar & colar a ID de recurso do ir de sua página de monitoramento no aplicativo de interface do usuário do ADF para substituir a seguinte parte da URL acima: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}`
     
        ![ID do Recurso de SSIS IR do ADF](./media/how-to-schedule-azure-ssis-integration-runtime/adf-ssis-ir-resource-id.png)
   
@@ -104,7 +104,7 @@ Se você criar um terceiro gatilho agendado para ser executado diariamente à me
   
 3. Clone o primeiro pipeline para criar um segundo, alterando o nome da atividade para **stopMyIR** e substituindo as propriedades a seguir.
 
-    1. Para **URL**, insira a URL a seguir para a API REST que interrompe Azure-SSIS ir, substituindo `{subscriptionId}` ,, `{resourceGroupName}` `{factoryName}` e `{integrationRuntimeName}` pelos valores reais para o ir:`https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/stop?api-version=2018-06-01`
+    1. Para **URL**, insira a URL a seguir para a API REST que interrompe Azure-SSIS ir, substituindo `{subscriptionId}` ,, `{resourceGroupName}` `{factoryName}` e `{integrationRuntimeName}` pelos valores reais para o ir: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/stop?api-version=2018-06-01`
     
     2. Para **Corpo**, insira `{"message":"Stop my IR"}`. 
 
@@ -117,7 +117,7 @@ Se você criar um terceiro gatilho agendado para ser executado diariamente à me
     1. Para **Função**, selecione **Colaborador**. 
     2. Para **Atribuir acesso a**, selecione **Usuário, grupo ou entidade de serviço do Azure AD**. 
     3. Para **Selecionar**, pesquise o nome do ADF e selecione-o. 
-    4. Clique em **Save** (Salvar).
+    4. Clique em **Salvar**.
     
    ![Atribuição de Função de Identidade Gerenciada do ADF](./media/how-to-schedule-azure-ssis-integration-runtime/adf-managed-identity-role-assignment.png)
 
@@ -371,7 +371,7 @@ Na seção anterior, você criou um runbook de Automação do Azure que pode ini
 
    ![Agendar para o início do IR do Azure-SSIS](./media/how-to-schedule-azure-ssis-integration-runtime/new-schedule-start.png)
     
-3. Alterne para a guia **parâmetros e configurações de execução** . Especifique o grupo de recursos, o ADF e os nomes de Azure-SSIS ir. Para **OPERATION**, insira **START** e selecione **OK**. Selecione **OK** novamente para visualizar o agendamento na página **Agendamentos** de seu runbook. 
+3. Alterne para a guia **parâmetros e configurações de execução** . Especifique o grupo de recursos, o ADF e os nomes de Azure-SSIS IR. Para **OPERATION**, insira **START** e selecione **OK**. Selecione **OK** novamente para visualizar o agendamento na página **Agendamentos** de seu runbook. 
 
    ![Agendar para iniciar o IR do Azure-SSIS](./media/how-to-schedule-azure-ssis-integration-runtime/start-schedule.png)
     

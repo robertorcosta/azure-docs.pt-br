@@ -15,7 +15,7 @@
 - name: Tutoriais
   expanded: true
   items:
-    - name: Introdução ao Python
+    - name: Introdução ao Python (dia 1)
       expanded: true
       items:
         - name: 1. Configurar computador local
@@ -188,6 +188,8 @@
             - name: Usar o Link Privado
               displayName: private endpoint
               href: how-to-configure-private-link.md
+            - name: Usar o DNS personalizado
+              href: how-to-custom-dns.md
             - name: Configurar serviços Web seguros
               displayName: 'ssl, tls'
               href: how-to-secure-web-service.md

@@ -14,15 +14,15 @@ ms.date: 08/01/2020
 ms.author: amverma
 ms.reviewer: cynthn
 ms.openlocfilehash: 0cbfed307cea1bd98bf864046a8c08edb849226a
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87797978"
 ---
 # <a name="enable-infiniband"></a>Habilitar InfiniBand
 
-As VMs da série [a](../../sizes-hpc.md) e da série [N](../../sizes-gpu.md) [compatíveis com RDMA](../../sizes-hpc.md#rdma-capable-instances) se comunicam pela rede InfiniBand de baixa latência e alta largura de banda. O recurso RDMA em tal interconexão é essencial para aumentar a escalabilidade e o desempenho de cargas de trabalho do HPC e do ia do nó distribuído. As VMs da série H e da série N habilitadas para InfiniBand estão conectadas em uma árvore Fat sem bloqueio com um design de pouco diâmetro para o desempenho de RDMA otimizado e consistente.
+As VMs [compatíveis com RDMA](../../sizes-hpc.md#rdma-capable-instances) da [série H](../../sizes-hpc.md) e da [série N](../../sizes-gpu.md) se comunicam pela rede InfiniBand de baixa latência e alta largura de banda. A funcionalidade RDMA em uma interconexão como essa é crítica para aumentar a escalabilidade e o desempenho de cargas de trabalho de HPC e IA de nó distribuído. As VMs das séries H e N habilitadas para InfiniBand estão conectadas em uma fat tree sem bloqueio com um design de diâmetro baixo para desempenho otimizado e consistente de RDMA.
 
 Há várias maneiras de habilitar o InfiniBand nos tamanhos de VM compatíveis.
 
@@ -73,6 +73,6 @@ sudo systemctl restart waagent
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre como instalar várias [bibliotecas MPI com suporte](setup-mpi.md) e sua configuração ideal nas VMs.
-- Examine as visão geral da série [HB](hb-series-overview.md) e [HC-Series](hc-series-overview.md) para saber mais sobre como configurar de forma ideal as cargas de trabalho para desempenho e escalabilidade.
-- Leia sobre os comunicados mais recentes e alguns exemplos e resultados do HPC nos [Blogs da comunidade de computação técnica do Azure](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
-- Para uma exibição de arquitetura de nível superior da execução de cargas de trabalho do HPC, consulte [computação de alto desempenho (HPC) no Azure](/azure/architecture/topics/high-performance-computing/).
+- Examine a [visão geral da série HB](hb-series-overview.md) e a [visão geral da série HC](hc-series-overview.md) para saber mais sobre como configurar de maneira ideal as cargas de trabalho para desempenho e escalabilidade.
+- Leia os comunicados mais recentes e alguns exemplos e resultados da HPC nos [Blogs da Tech Community da Computação do Azure](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- Para obter uma visão de nível superior da arquitetura de execução de cargas de trabalho de HPC, confira [HPC (computação de alto desempenho) no Azure](/azure/architecture/topics/high-performance-computing/).

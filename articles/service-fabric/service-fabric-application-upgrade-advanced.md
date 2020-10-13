@@ -4,10 +4,10 @@ description: Este artigo aborda alguns tópicos avançados relativos à atualiza
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.openlocfilehash: cc2fdc8f99b74078bd8d5274cbe52265ab8455ae
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86248077"
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Atualização do aplicativo Service Fabric: Tópicos avançados
@@ -100,7 +100,7 @@ A duração do atraso substituído só se aplica à instância de atualização 
 >
 
 > [!NOTE]
-> Esse recurso pode ser configurado em serviços existentes usando o cmdlet Update-ServiceFabricService ou o modelo ARM, conforme mencionado acima, quando a versão do código do cluster é 7.1.XXX ou superior.
+> Esse recurso pode ser configurado em serviços existentes usando Update-ServiceFabricService cmdlet ou o modelo ARM, conforme mencionado acima, quando a versão do código do cluster é 7.1.XXX ou superior.
 >
 >
 
