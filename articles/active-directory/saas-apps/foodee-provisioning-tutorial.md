@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 08/30/2019
 ms.author: Zhchia
 ms.openlocfilehash: 78ba57d485f9842ad8531ce22a2b932aa1a1d28b
-ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91850414"
 ---
 # <a name="tutorial-configure-foodee-for-automatic-user-provisioning"></a>Tutorial: configurar o alimento para provisionamento automático de usuário
@@ -126,7 +126,7 @@ Configure o provisionamento automático de usuário para o alimento no Azure AD 
 
     ![A caixa de texto email de notificação](common/provisioning-notification-email.png)
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 1. Em **mapeamentos**, selecione **sincronizar Azure Active Directory usuários para o alimento**.
 

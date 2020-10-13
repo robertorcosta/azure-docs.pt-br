@@ -15,10 +15,10 @@ ms.author: kenwith
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 57d66c844b7e73f1e3326d628f854a9811ca96fd
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91802694"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Movendo a autenticação do aplicativo de Serviços de Federação do Active Directory (AD FS) para Azure Active Directory
@@ -171,7 +171,7 @@ Os aplicativos que exigem os recursos a seguir não podem ser migrados hoje.
 
 **Recursos de protocolo**
 
-* Suporte para o padrão ActAs do WS-Trust
+* Suporte para o padrão de ActAs de WS-Trust
 
 * Resolução do artefato SAML
 
@@ -458,7 +458,7 @@ Dependendo de como você configura seu aplicativo, verifique se o SSO funciona c
 ‎ |
 | SSO baseado em SAML| Use o botão [testar configurações de SAML](https://docs.microsoft.com/azure/active-directory/develop/howto-v1-debug-saml-sso-issues) encontrado em **logon único**.
 ‎ |
-| SSO baseado em senha| Baixe e instale a extensão de [logon seguro do myapps](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction) [-](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction) [in Extension](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction). Essa extensão ajuda a iniciar qualquer um dos aplicativos de nuvem da sua organização que exigem que você use um processo de SSO.
+| Password-Based SSO| Baixe e instale a extensão de [logon seguro do myapps](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction) [-](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction) [in Extension](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction). Essa extensão ajuda a iniciar qualquer um dos aplicativos de nuvem da sua organização que exigem que você use um processo de SSO.
 ‎ |
 | Proxy do Aplicativo| Verifique se o conector está em execução e atribuído ao seu aplicativo. Visite o [Guia de solução de problemas de proxy de aplicativo](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-troubleshoot) para obter mais assistência.
 ‎ |
@@ -466,7 +466,7 @@ Dependendo de como você configura seu aplicativo, verifique se o SSO funciona c
 > [!NOTE]
 > Os cookies do ambiente de AD FS antigo ainda serão persistentes nos computadores do usuário. Esses cookies podem causar problemas com a migração, pois os usuários podem ser direcionados para o antigo ambiente de logon AD FS versus o novo logon do Azure AD. Talvez seja necessário limpar os cookies do navegador do usuário manualmente ou usando um script. Você também pode usar o System Center Configuration Manager ou uma plataforma semelhante.
 
-### <a name="troubleshoot"></a>Solução de problemas
+### <a name="troubleshoot"></a>Solucionar problemas
 
 Se houver erros do teste dos aplicativos migrados, a solução de problemas poderá ser a primeira etapa antes de fazer fallback para as partes confiáveis AD FS existentes. Consulte [como depurar o logon único baseado em SAML para aplicativos no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/azuread-dev/howto-v1-debug-saml-sso-issues).
 
@@ -484,7 +484,7 @@ Depois que a implantação for concluída, você poderá enviar comunicação in
 
 * Lembre os usuários de que eles podem precisar atualizar suas configurações de MFA.
 
-* Se a redefinição de senha de autoatendimento for implantada, os usuários poderão precisar atualizar ou verificar seus métodos de autenticação. Consulte os modelos de comunicação do usuário final [MFA](https://aka.ms/mfatemplates) e [SSPR](https://aka.ms/ssprtemplates) .
+* Se Self-Service redefinição de senha for implantada, os usuários talvez precisem atualizar ou verificar seus métodos de autenticação. Consulte os modelos de comunicação do usuário final [MFA](https://aka.ms/mfatemplates) e [SSPR](https://aka.ms/ssprtemplates) .
 
 Comunicação com usuários externos: esse grupo de usuários geralmente é o impacto mais crítico em caso de problemas. Isso é especialmente verdadeiro se a sua postura de segurança determinar um conjunto diferente de regras de acesso condicional ou perfis de risco para parceiros externos. Certifique-se de que os parceiros externos estejam cientes da agenda de migração na nuvem e tenham um período de tempo durante o qual eles são incentivados a participar de uma implantação piloto que testa todos os fluxos exclusivos da colaboração externa. Por fim, verifique se eles têm uma maneira de acessar a assistência técnica em caso de problemas de interrupção.
 

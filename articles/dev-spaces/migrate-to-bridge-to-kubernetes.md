@@ -1,18 +1,25 @@
 ---
 title: Migração para o Bridge to Kubernetes
 services: azure-dev-spaces
-ms.date: 09/21/2020
+ms.date: 10/12/2020
 ms.topic: conceptual
 description: Descreve os processos que o Power Azure Dev Spaces
 keywords: Azure Dev Spaces, espaços de desenvolvimento, Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, ponte para kubernetes
-ms.openlocfilehash: b585ee20efb7b377a041152996ef41d8c59c539e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc7f4f095a0306beffc0e224d7e813f7f02455da
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90994076"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962846"
 ---
 # <a name="migrating-to-bridge-to-kubernetes"></a>Migração para o Bridge to Kubernetes
+
+> [!IMPORTANT]
+> Azure Dev Spaces será desativado em 31 de outubro de 2023. Os desenvolvedores devem mudar para o uso do Bridge para o kubernetes, uma ferramenta de desenvolvedor de cliente.
+>
+> A finalidade da Azure Dev Spaces foi a de facilitar o desenvolvimento de desenvolvedores no kubernetes. Uma compensação significativa na abordagem da Azure Dev Spaces era colocar um fardo extra nos desenvolvedores para entender as configurações do Docker e do kubernetes, bem como os conceitos de implantação do kubernetes. Ao longo do tempo, também ficou claro que a abordagem de Azure Dev Spaces não reduziu efetivamente a velocidade do desenvolvimento de loop interno em kubernetes. A ponte para o kubernetes diminui efetivamente a velocidade do desenvolvimento de loops internos e evita a carga desnecessária dos desenvolvedores.
+>
+> A missão principal permanece inalterada: Crie as melhores experiências de desenvolvedor para desenvolver, testar e depurar o código de microserviço no contexto do aplicativo maior.
 
 A ponte para o kubernetes fornece uma alternativa de peso mais leve a muitos dos cenários de desenvolvimento que funcionam com Azure Dev Spaces. A ponte para o kubernetes é uma experiência somente no lado do cliente usando extensões no [Visual Studio][vs]   e [Visual Studio Code][vsc].  
 

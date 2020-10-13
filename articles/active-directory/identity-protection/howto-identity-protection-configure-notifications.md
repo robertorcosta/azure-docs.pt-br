@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 71c786aaecd3ab2f18f242cea2f5c45838f9ecf3
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91839340"
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Notificações do Azure Active Directory Identity Protection
@@ -68,6 +68,6 @@ Como administrador, você pode alternar o envio de um email de resumo semanal ou
 
 Configure o email de resumo semanal no **portal do Azure** em **Azure Active Directory**  >  **segurança identidade do Security**  >  **Protection**  >  **semanalmente Resumo**.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 - [Azure Active Directory Identity Protection](./overview-identity-protection.md)

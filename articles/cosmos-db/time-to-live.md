@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/02/2020
 ms.reviewer: sngun
 ms.openlocfilehash: 52885f874f877d9a2fd256d0212ba8693067ea8e
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91802923"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Vida útil no Azure Cosmos DB
@@ -56,7 +56,7 @@ Esta seção mostra alguns exemplos com valores de vida útil diferentes atribu�
 
 TTL no contêiner é definido como nulo (DefaultTimeToLive = NULL)
 
-|TTL no item| Resultado|
+|TTL no item| Result|
 |---|---|
 |TTL = nulo|    O TTL está desabilitado. O item nunca expirará (padrão).|
 |TTL =-1   |O TTL está desabilitado. O item nunca expirará.|
@@ -67,7 +67,7 @@ TTL no contêiner é definido como nulo (DefaultTimeToLive = NULL)
 
 TTL no contêiner é definido como-1 (DefaultTimeToLive =-1)
 
-|TTL no item| Resultado|
+|TTL no item| Result|
 |---|---|
 |TTL = nulo |O TTL está habilitado. O item nunca expirará (padrão).|
 |TTL =-1   |O TTL está habilitado. O item nunca expirará.|
@@ -78,7 +78,7 @@ TTL no contêiner é definido como-1 (DefaultTimeToLive =-1)
 
 TTL no contêiner é definido como 1000 (DefaultTimeToLive = 1000)
 
-|TTL no item| Resultado|
+|TTL no item| Result|
 |---|---|
 |TTL = nulo|    O TTL está habilitado. O item expirará após 1000 segundos (padrão).|
 |TTL =-1   |O TTL está habilitado. O item nunca expirará.|

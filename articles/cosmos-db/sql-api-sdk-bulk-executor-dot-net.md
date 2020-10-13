@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.openlocfilehash: 5203223f8468a4dfa0faf2df92e826a62f7bbfcf
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91802745"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>Biblioteca do executor em massa .NET: Fazer o download das informações 
@@ -27,7 +27,7 @@ ms.locfileid: "91802745"
 > * [SDK do Java Assíncrono v2](sql-api-sdk-async-java.md)
 > * [SDK do Java Síncrono v2](sql-api-sdk-java.md)
 > * [Spring data v2](sql-api-sdk-java-spring-v2.md)
-> * [Spring data v3](sql-api-sdk-java-spring-v3.md)
+> * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
 > * [Conector do Spark](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)

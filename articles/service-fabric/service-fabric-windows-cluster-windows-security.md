@@ -4,10 +4,10 @@ description: Saiba como configurar a segurança de nó para nó e de cliente par
 ms.topic: conceptual
 ms.date: 08/24/2017
 ms.openlocfilehash: e97a951f6dc0a97b1cfa8f960ed762084c82d2ed
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91839473"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-windows-security"></a>Proteger um cluster autônomo no Windows usando a Segurança do Windows

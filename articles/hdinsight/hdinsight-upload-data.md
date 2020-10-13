@@ -12,7 +12,7 @@ ms.openlocfilehash: 45170e9df7082e277c445a2dab6d617eb208cd44
 ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91855626"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>Carregar dados para trabalhos do Apache Hadoop no HDInsight
@@ -92,7 +92,7 @@ Consulte [Montar o Armazenamento do Azure como uma unidade local](https://docs.m
 
 ## <a name="upload-using-services"></a>Carregar usando serviços
 
-### <a name="azure-data-factory"></a>Fábrica de dados do Azure
+### <a name="azure-data-factory"></a>Azure Data Factory
 
 O serviço de Azure Data Factory é um serviço totalmente gerenciado para compor dados: armazenamento, processamento e movimentação de serviços em pipelines de produção de dados simplificados, adaptáveis e confiáveis.
 

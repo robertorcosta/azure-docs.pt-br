@@ -110,18 +110,26 @@
   items:
     - name: Atribuir usuários e gerenciar o acesso aos aplicativos
       items:
-        - name: Configurar consentimento do usuário
-          href: configure-user-consent.md
-        - name: Gerenciar e avaliar solicitações de consentimento
-          href: manage-consent-requests.md
-        - name: Conceder consentimento do administrador em todo o locatário
-          href: grant-admin-consent.md
-        - name: Configurar o fluxo de trabalho de consentimento do administrador (versão prévia)
-          href: configure-admin-consent-workflow.md
+        - name: Consentimentos e permissões
+          items:
+            - name: Configurar consentimento do usuário
+              href: configure-user-consent.md
+            - name: Configurar o consentimento do proprietário do grupo
+              href: configure-user-consent-groups.md
+            - name: Configurar as classificações de permissão
+              href: configure-permission-classifications.md
+            - name: Gerenciar as políticas de consentimento do aplicativo
+              href: manage-app-consent-policies.md
+            - name: Configurar o fluxo de trabalho de consentimento do administrador (versão prévia)
+              href: configure-admin-consent-workflow.md
+            - name: Gerenciar e avaliar solicitações de consentimento
+              href: manage-consent-requests.md
+            - name: Conceder consentimento do administrador em todo o locatário
+              href: grant-admin-consent.md
+            - name: Examinar permissões concedidas a aplicativos
+              href: manage-application-permissions.md
         - name: Gerenciar a atribuição de usuário para um aplicativo
           href: assign-user-or-group-access-portal.md
-        - name: Examinar permissões concedidas a aplicativos
-          href: manage-application-permissions.md
         - name: Criar coleções em Meus Aplicativos
           href: access-panel-collections.md
         - name: Usar o acesso a aplicativo de autoatendimento
