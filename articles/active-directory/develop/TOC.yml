@@ -4,6 +4,8 @@
   items:
     - name: O que é a plataforma de identidade da Microsoft?
       href: v2-overview.md
+    - name: O que há de novo no Docs?
+      href: whats-new-docs.md
 - name: Inícios rápidos
   expanded: true
   items:
