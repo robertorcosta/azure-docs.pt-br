@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to activate Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 15680a4f8228af95e6643478c9262653171912ca
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 6807174f374e75f826001afecc1eccf8ba1a0603
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903507"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743379"
 ---
 # <a name="tutorial-activate-azure-stack-edge-pro-with-gpu"></a>Tutorial: Ativar o Azure Stack Edge Pro com GPU
 
@@ -52,12 +52,12 @@ Antes de instalar e configurar o dispositivo do Azure Stack Edge Pro com uma GPU
 
 4. Selecione **Aplicar**.
 
-    ![Página "Detalhes de nuvem" da IU da Web local](./media/azure-stack-edge-gpu-deploy-activate/activate-2.png)
+    ![Página "Detalhes de nuvem" da IU da Web local 2](./media/azure-stack-edge-gpu-deploy-activate/activate-2.png)
 
 
 5. Primeiro, o dispositivo é ativado. Em seguida, você será solicitado a baixar o arquivo de chave.
     
-    ![Página "Detalhes de nuvem" da IU da Web local](./media/azure-stack-edge-gpu-deploy-activate/activate-3.png)
+    ![Página "Detalhes de nuvem" da IU da Web local 3](./media/azure-stack-edge-gpu-deploy-activate/activate-3.png)
     
     Selecione **Baixar e continuar** e salve o arquivo *device-serial-no.json* em um local seguro fora do dispositivo. **Esse arquivo de chave contém as chaves de recuperação para o disco do sistema operacional e discos de dados em seu dispositivo**. Essas chaves podem ser necessárias para facilitar uma futura recuperação do sistema.
 
@@ -88,7 +88,7 @@ Antes de instalar e configurar o dispositivo do Azure Stack Edge Pro com uma GPU
 
 6. Vá para a página **Visão geral**. O estado do dispositivo agora deve ser mostrado como **Ativado**.
 
-    ![Página "Detalhes de nuvem" da IU da Web local](./media/azure-stack-edge-gpu-deploy-activate/activate-4.png)
+    ![Página "Detalhes de nuvem" da IU da Web local 4](./media/azure-stack-edge-gpu-deploy-activate/activate-4.png)
  
 A ativação do dispositivo foi concluída. Agora você pode adicionar compartilhamentos em seu dispositivo.
 

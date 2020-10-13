@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
-ms.openlocfilehash: a9004577fa8d946281df88284139e2e507e485b7
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 071b311466869321a12626190e894287c28e707b
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88536420"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91774113"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-deskradar"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Deskradar
 
@@ -162,7 +162,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
 1. Na guia **SAML 2.0**, execute as seguintes etapas:
 
-    ![Configuração do Deskradar](./media/deskradar-tutorial/14-paste-urls.jpg)
+    ![Captura de tela que mostra a guia "SAML 2.0" com setas apontando para os campos "S A M L S S D U R L" e "Emissor do Provedor de Identificador".](./media/deskradar-tutorial/14-paste-urls.jpg)
 
     a. Habilitar o método de autenticação **SAML**.
 

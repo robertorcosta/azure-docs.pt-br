@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: jeedes
-ms.openlocfilehash: 9888ae6f7d28f6fef5901ea246d71d7b9ae9f78f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 4fcc9ab0811c447cebff825a0c45c9dac877219c
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88530582"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761729"
 ---
 # <a name="tutorial-integrate-carbonite-endpoint-backup-with-azure-active-directory"></a>Tutorial: Integrar o Carbonite Endpoint Backup com o Azure Active Directory
 
@@ -129,19 +129,19 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 4. Clique em **Empresa** no painel esquerdo.
 
-    ![Configuração do Carbonite Endpoint Backup ](media/carbonite-endpoint-backup-tutorial/configure1.png)
+    ![Captura de tela que mostra o Ponto de Extremidade do Carbonite com Empresa selecionado.](media/carbonite-endpoint-backup-tutorial/configure1.png)
 
 5. Clique em **Logon único**.
 
-    ![Configuração do Carbonite Endpoint Backup ](media/carbonite-endpoint-backup-tutorial/configure2.png)
+    ![Captura de tela que mostra Empresa com Logon Único selecionado.](media/carbonite-endpoint-backup-tutorial/configure2.png)
 
 6. Clique em **Habilitar** e depois em **Editar configurações** para configurar.
 
-    ![Configuração do Carbonite Endpoint Backup ](media/carbonite-endpoint-backup-tutorial/configure3.png)
+    ![Captura de tela que mostra a guia Logon único com as configurações Habilitar e Editar chamadas.](media/carbonite-endpoint-backup-tutorial/configure3.png)
 
 7. Na página **Configurações de logon único**, realize as seguintes etapas:
 
-    ![Configuração do Carbonite Endpoint Backup ](media/carbonite-endpoint-backup-tutorial/configure4.png)
+    ![Captura de tela que mostra a guia Logon Único com as informações descritas nesta etapa.](media/carbonite-endpoint-backup-tutorial/configure4.png)
 
     1. Na caixa de texto **Nome do provedor de identidade**, cole o valor do **Identificador do Azure AD** copiado do portal do Azure.
 
@@ -187,11 +187,11 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 1. Clique em **Usuários** no painel esquerdo e, em seguida, clique em **Adicionar usuário**.
 
-    ![Adicionar usuário no Carbonite Endpoint Backup](media/carbonite-endpoint-backup-tutorial/adduser1.png)
+    ![Captura de tela que mostra a página Ponto de Extremidade do Carbonite com Usuários e Adicionar usuários selecionados.](media/carbonite-endpoint-backup-tutorial/adduser1.png)
 
 1. Na página **Adicionar usuário**, realize as seguintes etapas:
 
-    ![Adicionar usuário no Carbonite Endpoint Backup](media/carbonite-endpoint-backup-tutorial/adduser2.png)
+    ![Captura de tela que mostra a página Adicionar usuário, na qual você pode executar as etapas descritas aqui.](media/carbonite-endpoint-backup-tutorial/adduser2.png)
 
     1. Insira o **Email**, o **Nome** e o **Sobrenome** do usuário e forneça as permissões necessárias para o usuário de acordo com os requisitos organizacionais.
 

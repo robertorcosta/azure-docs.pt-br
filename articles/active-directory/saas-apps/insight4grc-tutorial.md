@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: dfe5351faa8d8f555fae6b4ef1bfa7d280920de1
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 3e18b088ed4b505517f95146813b399ba62504d1
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550428"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91820452"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insight4grc"></a>Tutorial: Integração do Microsoft Active Directory do Azure com o Insight4GRC
 
@@ -100,7 +100,7 @@ Para configurar o logon único do Azure AD com o Insight4GRC, execute as seguint
 
 4. Na seção **Configuração básica do SAML**, execute as etapas a seguir caso deseje configurar o aplicativo no modo **IDP** iniciado:
 
-    ![Informações de logon único de Domínio e URLs do Insight4GRC](common/idp-intiated.png)
+    ![Captura de tela que mostra a Configuração Básica de SAML, em que você pode inserir o Identificador e a URL de Resposta e selecionar Salvar.](common/idp-intiated.png)
 
     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<subdomain>.Insight4GRC.com/SAML`
 
@@ -108,7 +108,7 @@ Para configurar o logon único do Azure AD com o Insight4GRC, execute as seguint
 
 5. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 
-    ![Informações de logon único de Domínio e URLs do Insight4GRC](common/metadata-upload-additional-signon.png)
+    ![Captura de tela que mostra Definir URLs adicionais, em que você pode inserir uma URL de Logon.](common/metadata-upload-additional-signon.png)
 
     Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://<subdomain>.Insight4GRC.com/Public/Login.aspx`
 

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/23/2020
 ms.author: banders
 ms.custom: contperfq1
-ms.openlocfilehash: ef497439d77fef63f4b0c902aee06428a30c5ff5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1fedad7dac4c253c68a0f27d0e0470123833a3be
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91276723"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666102"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Transferir a propriedade de cobrança de uma assinatura do Azure para outra conta
 
@@ -56,7 +56,7 @@ Um locatário do Azure AD (Active Directory) é criado quando você se inscreve 
 
 Quando você cria uma nova assinatura, ela é hospedada no locatário do Azure AD da sua conta. Se você quiser fornecer acesso à assinatura ou aos recursos dela a outras pessoas, será necessário convidá-las para ingressar em seu locatário. Isso ajuda a controlar o acesso às assinaturas e aos recursos.
 
-Quando você transfere a propriedade de cobrança da sua assinatura para uma conta em outro locatário do Azure AD, você pode mover a assinatura para o locatário da nova conta. Se fizer isso, todos os usuários, os grupos ou as entidades de serviço que tinham [atribuições de função do Azure](../../role-based-access-control/role-assignments-portal.md) para gerenciar assinaturas e recursos perderão o acesso. Somente o usuário da nova conta que aceitar sua solicitação de transferência terá acesso para gerenciar os recursos. O novo proprietário deve adicionar manualmente esses usuários à assinatura para fornecer acesso ao usuário que a perdeu. Para obter mais informações, confira [Transferir uma assinatura do Azure para um diretório diferente do Azure AD (versão prévia)](../../role-based-access-control/transfer-subscription.md).
+Quando você transfere a propriedade de cobrança da sua assinatura para uma conta em outro locatário do Azure AD, você pode mover a assinatura para o locatário da nova conta. Se fizer isso, todos os usuários, os grupos ou as entidades de serviço que tinham [atribuições de função do Azure](../../role-based-access-control/role-assignments-portal.md) para gerenciar assinaturas e recursos perderão o acesso. Somente o usuário da nova conta que aceitar sua solicitação de transferência terá acesso para gerenciar os recursos. O novo proprietário deve adicionar manualmente esses usuários à assinatura para fornecer acesso ao usuário que a perdeu. Para obter mais informações, confira [Transferir uma assinatura do Azure para um diretório diferente do Azure AD](../../role-based-access-control/transfer-subscription.md).
 
 ## <a name="transfer-visual-studio-and-partner-network-subscriptions"></a>Transferir assinaturas do Visual Studio e do Partner Network
 

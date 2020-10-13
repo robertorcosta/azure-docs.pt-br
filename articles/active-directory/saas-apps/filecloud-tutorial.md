@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
-ms.openlocfilehash: 155675d6d0f6026c528be66f9a67a21fe65d00ba
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f41312521202f406c3826880f345e0bbe7600bd3
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555137"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817209"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-filecloud"></a>Tutorial: integração do Azure Active Directory ao FileCloud
 
@@ -130,19 +130,19 @@ Para configurar o logon único do Azure AD com o FileCloud, execute as seguintes
 
 2. No painel de navegação esquerdo, clique em **Configurações**. 
    
-    ![Configurar o logon único no lado do aplicativo](./media/filecloud-tutorial/tutorial_filecloud_000.png)
+    ![Captura de tela que mostra "Configurações" realçado no painel de navegação esquerdo.](./media/filecloud-tutorial/tutorial_filecloud_000.png)
 
 3. Clique na guia **SSO** na seção Configurações. 
    
-    ![Configurar o logon único no lado do aplicativo](./media/filecloud-tutorial/tutorial_filecloud_001.png)
+    ![Captura de tela que mostra a seção "Configurações" com a guia "SSO" selecionada.](./media/filecloud-tutorial/tutorial_filecloud_001.png)
 
 4. Selecione **SAML** como **Tipo de SSO Padrão** em **Configurações de SSO (Logon Único)** painel.
    
-    ![Configurar o logon único no lado do aplicativo](./media/filecloud-tutorial/tutorial_filecloud_002.png)
+    ![Captura de tela que mostra o painel "Configurações de SSO (Logon Único)" com "SAML" selecionado.](./media/filecloud-tutorial/tutorial_filecloud_002.png)
 
 5. Na caixa de texto **URL de Ponto de Extremidade do IdP**, cole o valor do **Identificador do Azure AD** copiado do portal do Azure.
 
-    ![Configurar o logon único no lado do aplicativo](./media/filecloud-tutorial/tutorial_filecloud_003.png)
+    ![Captura de tela que mostra a seção "Configurações de SAML" com "URL do Ponto de Extremidade do IdP" realçado.](./media/filecloud-tutorial/tutorial_filecloud_003.png)
 
 6. Abra o arquivo de metadados baixado no bloco de notas, copie o conteúdo dele para sua área de transferência e, em seguida, cole-o na caixa de texto **Metadados IdP** no painel **Configurações de SAML**.
 

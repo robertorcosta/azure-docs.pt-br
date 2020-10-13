@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/23/2020
 ms.author: jeedes
-ms.openlocfilehash: 3c1ff9de1057a5ef551ad941965f64907e4243e5
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 93d13023dfda8164bf0d327bee6106f9803e1bf7
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555727"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775126"
 ---
 # <a name="tutorial-integrate-dropbox-business-with-azure-active-directory"></a>Tutorial: Integrar o Dropbox Business ao Azure Active Directory
 
@@ -145,27 +145,27 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 3. Se você quiser configurar manualmente o Dropbox Business, abra uma nova janela do navegador da Web, acesse o locatário do Dropbox Business e entre no locatário do Dropbox Business. Execute as seguintes etapas:
 
-    ![Configurar Logon Único](./media/dropboxforbusiness-tutorial/ic769509.png "Configurar o logon único")
+    ![Captura de tela que mostra a página "Entrada do Dropbox Business".](./media/dropboxforbusiness-tutorial/ic769509.png "Configurar o logon único")
 
 4. Clique na guia **ícone do usuário** e selecione **configurações**.
 
-    ![Configurar Logon Único](./media/dropboxforbusiness-tutorial/configure1.png "Configurar o logon único")
+    ![Captura de tela que mostra a ação "ÍCONE DO USUÁRIO" e "Configurações" selecionado.](./media/dropboxforbusiness-tutorial/configure1.png "Configurar o logon único")
 
 5. No painel de navegação à esquerda, clique em **console de administração**.
 
-    ![Configurar Logon Único](./media/dropboxforbusiness-tutorial/configure2.png "Configurar o logon único")
+    ![Captura de tela que mostra "Console de administração" selecionado.](./media/dropboxforbusiness-tutorial/configure2.png "Configurar o logon único")
 
 6. Sobre o **console de administração**, clique em **configurações** no painel de navegação à esquerda.
 
-    ![Configurar Logon Único](./media/dropboxforbusiness-tutorial/configure3.png "Configurar o logon único")
+    ![Captura de tela que mostra "Configurações" selecionado.](./media/dropboxforbusiness-tutorial/configure3.png "Configurar o logon único")
 
 7. Selecione a opção **Conexão única** na seção **Autenticação**.
 
-    ![Configurar Logon Único](./media/dropboxforbusiness-tutorial/configure4.png "Configurar o logon único")
+    ![Captura de tela que mostra a seção "Autenticação" com "Logon único" selecionado.](./media/dropboxforbusiness-tutorial/configure4.png "Configurar o logon único")
 
 8. Na seção **Conexão única**, execute as seguintes etapas:  
 
-    ![Configurar Logon Único](./media/dropboxforbusiness-tutorial/configure5.png "Configurar o logon único")
+    ![Captura de tela que mostra as definições de configuração de "Logon único".](./media/dropboxforbusiness-tutorial/configure5.png "Configurar o logon único")
 
     a. Selecione **Obrigatório** como uma opção no menu suspenso para o **Logon único**.
 

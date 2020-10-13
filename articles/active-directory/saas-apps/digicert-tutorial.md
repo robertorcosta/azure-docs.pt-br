@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/30/2019
 ms.author: jeedes
-ms.openlocfilehash: 9c9b85709ae37f1b3b6f4b4b562b7e96531f51b2
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b2027cbe3fd04f500e03a2b3bdcb7463643d15a2
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88536446"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91774451"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-digicert"></a>Tutorial: integração do Azure Active Directory com o DigiCert
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o DigiCert, execute as seguintes 
 
 5. O aplicativo DigiCert espera que as instruções SAML estejam em um formato específico. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos da seção **Atributos de Usuário** na página de integração de aplicativos. Na página **Definir Logon Único com SAML**, clique no botão **Editar** para abrir a caixa de diálogo **Atributos do Usuário**.
 
-    ![image](common/edit-attribute.png)
+    ![Captura de tela que mostra a seção "Atributos do Usuário" com o botão "Editar" selecionado.](common/edit-attribute.png)
 
 6. Na seção **Declarações de Usuário** da caixa de diálogo **Atributos de Usuário**, edite as declarações usando o **ícone Editar** ou adicione as declarações usando **Adicionar nova declaração** para configurar o atributo de token SAML conforme mostrado na imagem acima e executar as seguintes etapas: 
 
@@ -120,7 +120,7 @@ Para configurar o logon único do Azure AD com o DigiCert, execute as seguintes 
 
     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
-    ![image](common/new-save-attribute.png)
+    ![Captura de tela que mostra a seção "Declarações do usuário" com os botões "Adicionar declaração" e "Salvar" realçados.](common/new-save-attribute.png)
 
     ![image](common/new-attribute-details.png)
 

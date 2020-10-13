@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/10/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 1d39b29ba340b34d6f0add8ff5da473408bd6360
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 204e89bdf8c660a7e96438f8cb3b8a18aeaec306
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259123"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91742376"
 ---
 # <a name="tutorial-copy-data-from-azure-data-box-via-smb-preview"></a>Tutorial: Copiar dados do Azure Data Box por meio de SMB (Versão Prévia)
 
@@ -50,7 +50,7 @@ Se estiver usando um computador host do Windows Server, siga estas etapas para c
 
 1. O primeiro passo é autenticar e iniciar uma sessão. Vá para **conectar e copiar**. Selecione **Obter credenciais** para obter as credenciais de acesso dos compartilhamentos associados à sua conta de armazenamento. 
 
-    ![Obter as credenciais de compartilhamento 1](media/data-box-deploy-export-copy-data/get-share-credentials-1.png)
+    ![Obter credenciais de compartilhamento](media/data-box-deploy-export-copy-data/get-share-credentials-1.png)
 
 2. No compartilhamento de acesso e caixa de diálogo de dados de cópia, copie o **nome de usuário** e o **senha** correspondente para o compartilhamento. Selecione **OK**.
     
@@ -75,7 +75,7 @@ Se estiver usando um computador host do Windows Server, siga estas etapas para c
 
 4. Pressione Windows + R. Na janela **Executar**, especifique o `\\<device IP address>`. Selecione **OK** para abrir o Explorador de Arquivos.
     
-    ![Conecte-se para compartilhar via File Explorer 2](media/data-box-deploy-export-copy-data/connect-shares-file-explorer-1.png)
+    ![Conectar-se ao compartilhamento por meio do Explorador de Arquivos](media/data-box-deploy-export-copy-data/connect-shares-file-explorer-1.png)
 
     Agora você verá os compartilhamentos como pastas.
     

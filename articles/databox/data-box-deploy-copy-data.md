@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 09/29/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: a0622c7556896b7ae7201ffa3a7ecac8de1106a4
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: fcdc5d0e7254b8e491285baae6c2a1bc6979e437
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053534"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766307"
 ---
 ::: zone target="docs"
 
@@ -72,11 +72,11 @@ Se estiver usando um computador host do Windows Server, siga estas etapas para c
 
 1. O primeiro passo é autenticar e iniciar uma sessão. Vá para **conectar e copiar**. Selecione **SMB** para obter as credenciais de acesso aos compartilhamentos associados à sua conta de armazenamento. 
 
-    ![Obter as credenciais de compartilhamento 1](media/data-box-deploy-copy-data/get-share-credentials1.png)
+    ![Obter credenciais de compartilhamento para compartilhamentos SMB](media/data-box-deploy-copy-data/get-share-credentials1.png)
 
 2. No compartilhamento de acesso e caixa de diálogo de dados de cópia, copie o **nome de usuário** e o **senha** correspondente para o compartilhamento. Selecione **OK**.
     
-    ![Obter as credenciais de compartilhamento 1](media/data-box-deploy-copy-data/get-share-credentials2.png)
+    ![Obter nome de usuário e senha para um compartilhamento](media/data-box-deploy-copy-data/get-share-credentials2.png)
 
 3. Para acessar os compartilhamentos associados à sua conta de armazenamento (*utsac1* no exemplo a seguir) no computador host, abra uma janela Comando. No prompt de comando, digite:
 
@@ -97,11 +97,11 @@ Se estiver usando um computador host do Windows Server, siga estas etapas para c
 
 4. Pressione Windows + R. Na janela **Executar**, especifique o `\\<device IP address>`. Selecione **OK** para abrir o Explorador de Arquivos.
     
-    ![Conecte-se para compartilhar via File Explorer 2](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
+    ![Conectar-se ao compartilhamento por meio do Explorador de Arquivos](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
 
     Agora você verá os compartilhamentos como pastas.
     
-    ![Conecte-se para compartilhar via File Explorer 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png)
+    ![Compartilhamentos mostrados no Explorador de Arquivos](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png)
 
     **Sempre crie uma pasta para os arquivos que você pretende copiar no compartilhamento e, em seguida, copie os arquivos para a pasta**. A pasta criada nos compartilhamentos de blob de blocos e de blob de páginas representa um contêiner no qual os dados são carregados como blobs. Não é possível copiar arquivos diretamente para a pasta *raiz* na conta de armazenamento.
     
@@ -116,7 +116,7 @@ sudo mount -t nfs -o vers=2.1 10.126.76.138:/utSAC1_202006051000_BlockBlob /home
 Quando você estiver conectado aos compartilhamentos do Data Box, a próxima etapa será copiar dados. Antes de começar a cópia de dados, examine as considerações a seguir:
 
 * Copie os dados para os compartilhamentos que correspondem ao formato de dados apropriado. Por exemplo, copie os dados blob do bloco para o compartilhamento de blobs de bloco. Copie os VHDs para blob de páginas. Se o formato de dados não corresponder ao tipo de compartilhamento apropriado, em uma etapa posterior, o upload de dados do Azure falhará.
-* Durante a cópia de dados, verifique se o tamanho dos dados está em conformidade com os limites de tamanho descritos nos [Limites do Armazenamento do Azure e do Data Box](data-box-limits.md).
+* Ao copiar dados, verifique se o tamanho dos dados está de acordo com os limites de tamanho descritos em [Limites de tamanho da conta de armazenamento do Azure](data-box-limits.md#azure-storage-account-size-limits).
 * Se os dados, que estão sendo carregados pelo Data Box, forem carregados simultaneamente por outros aplicativos fora do Data Box, isso poderá resultar em falhas de trabalho de upload e corrupção de dados.
 * Recomendamos que:
   * Você não use o SMB e o NFS ao mesmo tempo.
@@ -225,15 +225,15 @@ Para mais informações sobre o comando Robocopy, vá para [Robocopy e alguns ex
 
 Durante o processo de cópia, se houver algum erro, você verá uma notificação.
 
-![Baixar e ver erros em Conectar e copiar](media/data-box-deploy-copy-data/view-errors-1.png)
+![Uma notificação de erro de cópia em Conectar e copiar](media/data-box-deploy-copy-data/view-errors-1.png)
 
 Selecione **Baixar lista de problemas**.
 
-![Baixar e exibir erros em Conectar e copiar](media/data-box-deploy-copy-data/view-errors-2.png)
+![Baixar e exibir erros em Conectar e copiar 2](media/data-box-deploy-copy-data/view-errors-2.png)
 
 Abra a lista para ver os detalhes do erro e selecione a URL de resolução para ver a resolução recomendada.
 
-![Baixar e exibir erros em Conectar e copiar](media/data-box-deploy-copy-data/view-errors-3.png)
+![Baixar e exibir erros em Conectar e copiar 3](media/data-box-deploy-copy-data/view-errors-3.png)
 
 Para obter mais informações, veja [Exibir logs de erros durante a cópia de dados para o Data Box](data-box-logs.md#view-error-log-during-data-copy). Para obter uma lista detalhada de erros durante a cópia de dados, veja [Solucionar problemas do Data Box](data-box-troubleshoot.md).
 

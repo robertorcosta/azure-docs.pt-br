@@ -1,23 +1,23 @@
 ---
 title: O que são Reservas do Azure?
-description: Saiba mais sobre as Reservas do Azure e sobre os preços para economizar nos custos de máquinas virtuais, de bancos de dados SQL, do Azure Cosmos DB e de outros recursos.
+description: Saiba mais sobre as Reservas do Azure e sobre os preços para economizar com instâncias reservadas de máquinas virtuais, de bancos de dados SQL, do Azure Cosmos DB e de outros recursos.
 author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: overview
-ms.date: 08/04/2020
+ms.date: 10/01/2020
 ms.author: banders
-ms.openlocfilehash: a5ab489e995506deb806fe5f0cee4a147ae42ac2
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: d8c9f35ec7a8db3a777e48a629e4af1f15090a89
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88682579"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652356"
 ---
 # <a name="what-are-azure-reservations"></a>O que são Reservas do Azure?
 
-As Reservas do Azure ajudam você a economizar dinheiro se comprometendo com planos de um ou de três anos para vários produtos. O compromisso permite que você obtenha um desconto nos recursos que usar. As reservas podem reduzir significativamente os custos de recursos em até 72% nos preços pagos conforme o uso. As reservas fornecem um desconto de cobrança e não afetam o estado de runtime dos recursos. Após você comprar uma reserva, o desconto se aplica automaticamente aos recursos correspondentes.
+As Reservas do Azure ajudam você a economizar dinheiro se comprometendo com planos de um ou de três anos para vários produtos. O compromisso permite que você obtenha um desconto nos recursos que usar. As reservas podem reduzir significativamente seus custos com recursos, podendo chegar a 72% com relação aos preços pagos conforme o uso. As reservas fornecem um desconto de cobrança e não afetam o estado de runtime dos recursos. Após você comprar uma reserva, o desconto se aplica automaticamente aos recursos correspondentes.
 
 Você pode pagar por uma reserva de forma antecipada ou mensal. O custo total das reservas antecipadas e mensais é o mesmo e você não paga nenhuma taxa adicional quando opta por pagar mensalmente. O pagamento mensal está disponível para reservas do Azure, e não para produtos de terceiros.
 
@@ -50,9 +50,9 @@ Para obter mais informações, confira [Determinar qual reserva comprar](deter
 
 Você pode comprar reservas por meio do portal do Azure, das APIs, do PowerShell e da CLI. 
 
-Acesse portal do Azure para comprar (https://ms.portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/Docs) 
+Vá para o [portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/Docs) para fazer uma compra.
 
-Para obter mais informações, confira [Comprar uma reserva](prepare-buy-reservation.md) 
+Para obter mais informações, confira [Comprar uma reserva](prepare-buy-reservation.md).
 
 ## <a name="how-is-a-reservation-billed"></a>Como uma reserva é cobrada? 
 

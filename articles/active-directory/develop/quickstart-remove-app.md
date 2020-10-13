@@ -1,6 +1,7 @@
 ---
-title: Remover um aplicativo registrado com a plataforma de identidade da Microsoft | Azure
-description: Saiba como remover um aplicativo registrado na Microsoft Identity Platform.
+title: 'Início Rápido: Remover um aplicativo registrado da plataforma de identidade da Microsoft | Azure'
+titleSuffix: Microsoft identity platform
+description: Neste guia de início rápido, você aprenderá a remover um aplicativo registrado na plataforma de identidade da Microsoft.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,12 +13,12 @@ ms.date: 05/08/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: bdcf32f53da49834b37471a8258262f0eb2b21da
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 0a0150112602cd34168f64132785faf1f8c33f62
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115315"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91612380"
 ---
 # <a name="quickstart-remove-an-application-registered-with-the-microsoft-identity-platform"></a>Início Rápido: Remover um aplicativo registrado na plataforma de identidade da Microsoft
 
@@ -30,22 +31,19 @@ Neste início rápido, você aprenderá a:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-É necessário ter um locatário com aplicativos registrados. Para aprender a adicionar aplicativos registrados, confira [Registrar um aplicativo na Microsoft Identity Platform](quickstart-register-app.md).
+* Conclusão do [Início Rápido: Registrar um aplicativo na plataforma de identidade da Microsoft](quickstart-register-app.md)
 
 ## <a name="remove-an-application-authored-by-you-or-your-organization"></a>Remover um aplicativo criado por você ou por sua organização
 
 Os aplicativos que você ou sua organização registraram são representados por um objeto de aplicativo e pelo objeto de entidade de serviço em seu locatário. Para saber mais, consulte [Objetos de aplicativo e objetos de entidade de serviço](./app-objects-and-service-principals.md).
 
-### <a name="to-remove-an-application"></a>Para remover um aplicativo
+Para excluir um aplicativo, você precisa estar listado como proprietário do aplicativo ou ter privilégios de administrador.
 
 1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
-2. Se sua conta fornecer acesso a mais de um locatário, selecione sua conta no canto superior direito e defina sua sessão do portal para o locatário desejado do Azure AD.
-3. No painel de navegação à esquerda, selecione o serviço **Azure Active Directory** e selecione **Registros de aplicativo**. Encontre e selecione o aplicativo que você deseja configurar. Depois de selecionar o aplicativo, você verá a página **Visão Geral** do aplicativo.
-4. Na página **Visão Geral**, selecione **Excluir**.
-5. Selecione **Sim** para confirmar que você deseja excluir o aplicativo.
-
-   > [!NOTE]
-   > Para excluir um aplicativo, você precisa estar listado como proprietário do aplicativo ou ter privilégios de administrador.
+1. Se sua conta fornecer acesso a mais de um locatário, selecione sua conta no canto superior direito e defina sua sessão do portal para o locatário desejado do Azure AD.
+1. No painel de navegação à esquerda, selecione o serviço **Azure Active Directory** e selecione **Registros de aplicativo**. Encontre e selecione o aplicativo que você deseja configurar. Depois de selecionar o aplicativo, você verá a página **Visão Geral** do aplicativo.
+1. Na página **Visão Geral**, selecione **Excluir**.
+1. Selecione **Sim** para confirmar que você deseja excluir o aplicativo.
 
 ## <a name="remove-an-application-authored-by-another-organization"></a>Remover um aplicativo criado por outra organização
 
@@ -55,9 +53,7 @@ Para remover o acesso de um aplicativo ao seu diretório (depois de ter dado aut
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre esses outros inícios rápidos de gerenciamento de aplicativos relacionados:
+Saiba mais sobre os objetos de entidade de serviço e aplicativo na plataforma de identidade da Microsoft:
 
-* [Registrar um aplicativo com a Microsoft Identity Platform](quickstart-register-app.md)
-* [Configurar um aplicativo cliente para acessar APIs Web](quickstart-configure-app-access-web-apis.md)
-* [Configurar um aplicativo para expor APIs Web](quickstart-configure-app-expose-web-apis.md)
-* [Modificar as contas que têm suporte por um aplicativo](quickstart-modify-supported-accounts.md)
+> [!div class="nextstepaction"]
+> [Objetos de entidade de serviço e aplicativo no Azure Active Directory](app-objects-and-service-principals.md)

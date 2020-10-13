@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
-ms.openlocfilehash: 20a6702a37a4432504d85c787218eb10a10931b9
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 17e2d04a39a2ef5a935ea6e56ef16958419eddb1
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555892"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775612"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-coralogix"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Coralogix
 
@@ -95,13 +95,14 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
  1. O aplicativo Coralogix espera as declarações SAML em um formato específico. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos da seção **Atributos de Usuário** na página de integração do aplicativo. Na página **Configurar Logon Único com o SAML**, selecione o botão **Editar** para abrir a caixa de diálogo **Atributos de Usuário**.
 
-    ![image](common/edit-attribute.png)
+    ![Captura de tela que mostra a caixa de diálogo "Atributos de Usuário" com o botão "Editar" realçado.](common/edit-attribute.png)
 
 1. Na seção **Declarações de Usuário**, na caixa de diálogo **Atributos de Usuário**, edite as declarações usando o ícone **Editar**. Adicione também as declarações usando **Adicionar nova declaração** para configurar o atributo do token SAML, conforme mostrado na imagem anterior. Em seguida, execute as etapas a seguir:
     
     a. Selecione o **ícone Editar** para abrir a caixa de diálogo **Gerenciar declarações de usuário**.
 
-    ![image](./media/coralogix-tutorial/tutorial_usermail.png) ![image](./media/coralogix-tutorial/tutorial_usermailedit.png)
+    ![Captura de tela que mostra a caixa de diálogo "Atributos e Declarações do Usuário" com o botão "Editar" realçado.](./media/coralogix-tutorial/tutorial_usermail.png)
+    ![imagem](./media/coralogix-tutorial/tutorial_usermailedit.png)
 
     b. Na lista **Escolher formato do identificador de nome**, selecione **Endereço de email**.
 

@@ -4,16 +4,16 @@ description: Acompanhar os contratos com clientes do Azure por meio da vinculaç
 author: dhirajgandhi
 ms.reviewer: dhgandhi
 ms.author: banders
-ms.date: 07/24/2020
+ms.date: 10/05/2020
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.openlocfilehash: 03953e210f1c4caf1541db272ce4c02c271dafaa
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: f030a9e75507063e104e0bae0ca5654bd3528bac
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371823"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91772712"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Vincular ID de parceiro a suas contas do Azure
 
@@ -43,7 +43,7 @@ Quando você tem acesso aos recursos do cliente, use o portal do Azure, o PowerS
 
 2. Entre no portal do Azure.
 
-3. Insira a ID de parceiro da Microsoft. A ID do parceiro é a ID do [Microsoft Partner Network](https://partner.microsoft.com/) da sua organização.
+3. Insira a ID de parceiro da Microsoft. A ID do parceiro é a ID do [Microsoft Partner Network](https://partner.microsoft.com/) da sua organização. Use a **ID do MPN Associado** mostrada em seu perfil de parceiro.
 
    ![Captura de tela que mostra o vínculo a uma ID de parceiro](./media/link-partner-id/link-partner-id01.png)
 
@@ -61,7 +61,8 @@ Quando você tem acesso aos recursos do cliente, use o portal do Azure, o PowerS
     C:\> Connect-AzAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
    ```
 
-3. Vincular a nova ID de parceiro. A ID do parceiro é a ID do [Microsoft Partner Network](https://partner.microsoft.com/) da sua organização.
+3. Vincular a nova ID de parceiro. A ID do parceiro é a ID do [Microsoft Partner Network](https://partner.microsoft.com/) da sua organização. Use a **ID do MPN Associado** mostrada em seu perfil de parceiro.
+
 
     ```azurepowershell-interactive
     C:\> new-AzManagementPartner -PartnerId 12345
@@ -141,7 +142,7 @@ A vinculação está associada no nível da conta de usuário. Só você pode ed
 
 **Qual ID MPN deverei usar se minha empresa tiver várias?**
 
-As Contas de Localização de Parceiro e as IDs MPN associadas devem ser usadas para vincular a ID do parceiro.  Saiba mais sobre [Contas de Parceiros](https://docs.microsoft.com/partner-center/account-structure)
+Use a **ID do MPN Associado** mostrada em seu perfil de parceiro.
 
 **Onde posso encontrar relatórios de receita influenciados para a ID de parceiro vinculada?**
 

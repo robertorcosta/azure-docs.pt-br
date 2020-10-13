@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/06/2020
 ms.author: jeedes
-ms.openlocfilehash: d0dffe602aef01af2fb2ef8ee9462a0bb99c1ae0
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 401b1ef4e057d145574c0a8fcbfce8c9f586c266
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555675"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775041"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-druva"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Druva
 
@@ -146,7 +146,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
 1. Na guia **Logon Único**, clique em **Editar**.
 
-    ![Configurações de logon único](./media/druva-tutorial/ic795092.png "Configurações de logon único")
+    ![Captura de tela que mostra a guia "Configurações de Acesso – Logon Único" com o botão "Editar" selecionado.](./media/druva-tutorial/ic795092.png "Configurações de logon único")
 
 1. Na página **Editar configurações de logon único**, realize as seguintes etapas:
 

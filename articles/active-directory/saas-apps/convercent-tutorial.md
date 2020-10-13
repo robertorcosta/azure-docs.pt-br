@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
-ms.openlocfilehash: f765b950074958f801bef2fdc8e555acf9a47986
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2dfc8bbb570c57ef22c2bde210dc7a64b48fb06d
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88521975"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775738"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-convercent"></a>Tutorial: Integração do Azure Active Directory ao Convercent
 
@@ -98,7 +98,7 @@ Para configurar o logon único do Azure AD com o Convercent, execute as seguinte
 
 4. Na seção **Configuração Básica do SAML**, execute as etapas a seguir caso deseje configurar o aplicativo no modo iniciado por **IDP**:
 
-    ![Informações de logon único de Domínio e URLs do Convercent](common/both-identifier.png)
+    ![Captura de tela que mostra a seção "Configuração Básica de SAML" com "Identificador (ID da Entidade)" e o botão "Salvar" realçados.](common/both-identifier.png)
 
     Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<instancename>.convercent.com/`
 

@@ -8,28 +8,31 @@ ms.topic: include
 ms.date: 03/27/2019
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: 0dd6618bdee8e6810d414d4b04b16a1e0a9c90ed
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: df71f0804b62eb4b17ff8d2f652b076b5c64c959
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "84905607"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91822788"
 ---
-Você pode acessar os logs do console gerados de dentro do contêiner. Primeiro, ative o log do contêiner executando o seguinte comando no Cloud Shell:
+Você pode acessar os logs do console gerados de dentro do contêiner.
+
+Primeiro, ative o log do contêiner executando o seguinte comando:
 
 ```azurecli-interactive
-az webapp log config --name <app-name> --resource-group myResourceGroup --docker-container-logging filesystem
+az webapp log config --name <app-name> --resource-group <resource-group-name> --docker-container-logging filesystem
 ```
+
+Substitua `<app-name>` e `<resource-group-name>` pelos nomes apropriados para seu aplicativo Web.
 
 Depois que o log do contêiner estiver ativado, execute o seguinte comando para ver o fluxo de log:
 
 ```azurecli-interactive
-az webapp log tail --name <app-name> --resource-group myResourceGroup
+az webapp log tail --name <app-name> --resource-group <resource-group-name>
 ```
 
 Se você não vir os logs do console imediatamente, verifique novamente após 30 segundos.
 
-> [!NOTE]
-> Você também pode inspecionar os arquivos de log do navegador em `https://<app-name>.scm.azurewebsites.net/api/logs/docker`.
+Para interromper o streaming de log a qualquer momento, digite **Ctrl**+**C**.
 
-Para interromper o streaming de log a qualquer momento, digite `Ctrl`+`C`.
+Você também pode inspecionar os arquivos de log em um navegador em `https://<app-name>.scm.azurewebsites.net/api/logs/docker`.

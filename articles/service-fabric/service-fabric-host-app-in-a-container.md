@@ -3,12 +3,12 @@ title: Implantar um aplicativo .NET em um contêiner do Azure Service Fabric
 description: Saiba como colocar um aplicativo existente do .NET em um contêiner usando o Visual Studio e depure os contêineres no Service Fabric localmente. O aplicativo colocado em um contêiner é enviado por push para um registro de contêiner do Azure e implantado em um cluster do Service Fabric. Quando implantado no Azure, o aplicativo usa o Banco de Dados SQL do Azure para manter os dados.
 ms.topic: tutorial
 ms.date: 07/08/2019
-ms.openlocfilehash: 4ef696156b6386c7aa1a027dcc61c988ba4692a2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b841591bb200bca7edbde24744c5b47302816ea0
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91314293"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817641"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Tutorial: Implantar um aplicativo .NET em um contêiner do Windows no Azure Service Fabric
 
@@ -45,7 +45,7 @@ Neste tutorial, você aprenderá como:
 
 1. Clique com o botão direito do mouse no projeto **FabrikamFiber.Web** > **Adicionar** > **Suporte do Orquestrador do Contêiner**.  Selecione **Service Fabric** como o orchestrator do contêiner e clique em **OK**.
 
-2. Clique em **Sim** para alternar o Docker para contêineres do Windows agora.
+2. Se solicitado, clique em **Sim** para alternar o Docker para contêineres do Windows agora.
 
    Um novo projeto de aplicativo do Service Fabric **FabrikamFiber.CallCenterApplication** é criado na solução.  Um Dockerfile é adicionado ao projeto **FabrikamFiber.Web** existente.  Um diretório **PackageRoot** também é adicionado ao projeto **FabrikamFiber.Web**, que contém o manifesto do serviço e as configurações para o novo serviço FabrikamFiber.Web.
 
@@ -109,7 +109,7 @@ Write-Host "Server name is $servername"
 
 ## <a name="update-the-web-config"></a>Atualizar a configuração da Web
 
-Novamente no projeto **FabrikamFiber.Web**, atualize a cadeia de conexão no arquivo **web.config** para que ela aponte para o SQL Server no contêiner.  Atualize a parte do *Servidor* da cadeia de conexão para o nome do servidor criado pelo script anterior. Deve ser algo como "fab-fiber-751718376.database.windows.net".
+Novamente no projeto **FabrikamFiber.Web**, atualize a cadeia de conexão no arquivo **web.config** para que ela aponte para o SQL Server no contêiner.  Atualize a parte do *Servidor* da cadeia de conexão para o nome do servidor criado pelo script anterior. Deve ser algo como "fab-fiber-751718376.database.windows.net". No XML a seguir, você precisa atualizar somente o atributo `connectionString`. Os atributos `providerName` e `name` não precisam ser alterados.
 
 ```xml
 <add name="FabrikamFiber-Express" connectionString="Server=<server name>,1433;Initial Catalog=call-center-db;Persist Security Info=False;User ID=ServerAdmin;Password=Password@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" providerName="System.Data.SqlClient" />

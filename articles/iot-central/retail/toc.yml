@@ -35,7 +35,11 @@
         - name: 0 – Implantar aplicativo de detecção de objeto e de movimento
           href: tutorial-video-analytics-deploy.md
         - name: 1 – Criar um aplicativo de análise de vídeo
-          href: tutorial-video-analytics-create-app.md
+          items:
+            - name: Detecção de objetos e de movimento (YOLO v3)
+              href: tutorial-video-analytics-create-app-yolo-v3.md
+            - name: Detecção de objetos e de movimento (OpenVINO)
+              href: tutorial-video-analytics-create-app-openvino.md
         - name: 2 – Configurar um dispositivo IoT Edge
           items:
             - name: Criar dispositivo de análise de vídeo na borda (VM do Linux)
