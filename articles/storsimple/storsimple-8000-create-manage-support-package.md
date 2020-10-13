@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: c4332f3e5a1ca6d434671d3a2cfe100a5d12795d
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 4a847b273472ecc9d2aaa3993ec9d88aa46f2e7f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86182008"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973862"
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Criar e gerenciar um pacote de suporte do StorSimple da série 8000
 
@@ -66,8 +66,8 @@ Você pode usar os seguintes parâmetros com o cmdlet Export-HcsSupportPackage.
 
 | Parâmetro | Obrigatório/Opcional | Descrição |
 | --- | --- | --- |
-| `-Path` |Obrigatório |Use para fornecer o local da pasta compartilhada de rede na qual o pacote de suporte é colocado. |
-| `-EncryptionPassphrase` |Obrigatório |Use para fornecer uma frase secreta para ajudar a criptografar o pacote de suporte. |
+| `-Path` |Necessária |Use para fornecer o local da pasta compartilhada de rede na qual o pacote de suporte é colocado. |
+| `-EncryptionPassphrase` |Necessária |Use para fornecer uma frase secreta para ajudar a criptografar o pacote de suporte. |
 | `-Credential` |Opcional |Use para fornecer credenciais de acesso para a pasta compartilhada de rede. |
 | `-Force` |Opcional |Use para ignorar a etapa de confirmação de frase secreta de criptografia. |
 | `-PackageTag` |Opcional |Use para especificar um diretório no *Caminho* no qual o pacote de suporte é colocado. O padrão é [nome do dispositivo]-[data e hora atuais:aaaa-MM-dd-HH-mm-ss]. |
@@ -108,7 +108,7 @@ Para editar um pacote de suporte antes de carregá-lo no site de Suporte da Micr
    
     `Close-HcsSupportPackage <Path to the folder that contains support package files>`
    
-    ![Editar pacote de suporte](./media/storsimple-8000-create-manage-support-package/IC750707.png)
+    ![Editar pacote de suporte 2](./media/storsimple-8000-create-manage-support-package/IC750707.png)
 8. Quando solicitado, forneça uma frase secreta de criptografia para o pacote de suporte modificado.
    
     ```powershell

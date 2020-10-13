@@ -3,16 +3,16 @@ title: Publicar uma oferta de serviço gerenciado no Azure Marketplace
 description: Saiba como publicar uma oferta de serviço gerenciado que integra os clientes ao Azure Lighthouse.
 ms.date: 08/18/2020
 ms.topic: how-to
-ms.openlocfilehash: 11fb0073bcc3ba4437f78de8b263d165f0069db8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 033003d7e782ca0e99b1fc908c5261b6e31bf613
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88589717"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974355"
 ---
 # <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Publicar uma oferta de serviço gerenciado no Azure Marketplace
 
-Neste artigo, você aprenderá a publicar uma oferta de serviço gerenciado pública ou privada para o [Azure Marketplace](https://azuremarketplace.microsoft.com) usando o programa do [Marketplace comercial](../../marketplace/partner-center-portal/commercial-marketplace-overview.md) no Partner Center. Os clientes que comprarem a oferta delegarão assinaturas ou grupos de recursos, permitindo que você os gerencie por meio [do Azure Lighthouse](../overview.md).
+Neste artigo, você aprenderá a publicar uma oferta de serviço gerenciado pública ou privada para o [Azure Marketplace](https://azuremarketplace.microsoft.com) usando o programa do [Marketplace comercial](../../marketplace/overview.md) no Partner Center. Os clientes que comprarem a oferta delegarão assinaturas ou grupos de recursos, permitindo que você os gerencie por meio [do Azure Lighthouse](../overview.md).
 
 ## <a name="publishing-requirements"></a>Publicação de requisitos
 
@@ -40,7 +40,7 @@ A tabela a seguir pode ajudar a determinar se os clientes devem ser integrados p
 
 Para obter instruções detalhadas sobre como criar sua oferta, incluindo todas as informações e ativos que você precisará fornecer, consulte [criar uma oferta de serviço gerenciado](../../marketplace/partner-center-portal/create-new-managed-service-offer.md).
 
-Para saber mais sobre o processo de publicação geral, consulte o [Guia de publicação do Azure Marketplace e do AppSource](../../marketplace/marketplace-publishers-guide.md). Você também deve examinar as [políticas de certificação do mercado comercial](/legal/marketplace/certification-policies), especialmente a seção [Serviços Gerenciados](/legal/marketplace/certification-policies#700-managed-services).
+Para saber mais sobre o processo de publicação geral, consulte o [Guia de publicação do Azure Marketplace e do AppSource](../../marketplace/overview.md). Você também deve examinar as [políticas de certificação do mercado comercial](/legal/marketplace/certification-policies), especialmente a seção [Serviços Gerenciados](/legal/marketplace/certification-policies#700-managed-services).
 
 Depois que um cliente adiciona sua oferta, ele poderá delegar uma ou mais assinaturas ou grupos de recursos, que serão [integrados ao Azure Lighthouse](#the-customer-onboarding-process).
 
@@ -64,6 +64,6 @@ Depois que o cliente delega uma assinatura (ou um ou mais grupos de recursos em 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre o [Marketplace comercial](../../marketplace/partner-center-portal/commercial-marketplace-overview.md).
+- Saiba mais sobre o [Marketplace comercial](../../marketplace/overview.md).
 - Saiba mais sobre as [experiências de gerenciamento entre locatários](../concepts/cross-tenant-management-experience.md).
 - [Exiba e gerencie clientes](view-manage-customers.md) acessando **Meus clientes** no portal do Azure.

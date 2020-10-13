@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 696b295a481d7b986f08f1d758edb8d5adca5717
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91812821"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividades de entrada no portal do Azure Active Directory
@@ -195,7 +195,7 @@ O **local** -o local do qual a conexão foi iniciada:
 
 Clique na opção **baixar** para criar um arquivo CSV ou JSON dos registros 250.000 mais recentes. Comece com [baixar os dados de entradas](quickstart-download-sign-in-report.md) se quiser trabalhar com eles fora do portal do Azure.  
 
-![Download](./media/concept-sign-ins/71.png "Baixar")
+![Baixar](./media/concept-sign-ins/71.png "Baixar")
 
 > [!IMPORTANT]
 > O número de registros que podem ser baixados é restringido pelas [políticas de retenção de relatórios do Azure Active Directory](reference-reports-data-retention.md).  
@@ -233,7 +233,7 @@ Ao clicar em um item, você verá mais detalhes sobre a operação de entrada:
 - ID do aplicativo
 - Aplicativo
 - Cliente
-- Location
+- Localização
 - Endereço IP
 - Data
 - MFA obrigatório

@@ -10,15 +10,15 @@ ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
 ms.openlocfilehash: 32e67bd7f30fecee3449935a35235844a047957b
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91574307"
 ---
-# <a name="iot-plug-and-play-architecture"></a>Arquitetura de Plug and Play de IoT
+# <a name="iot-plug-and-play-architecture"></a>Arquitetura do IoT Plug and Play
 
-O IoT Plug and Play permite que os integradores de solução integrem dispositivos inteligentes a suas soluções sem nenhuma configuração manual. No núcleo do Plug and Play IoT, é um _modelo_ de dispositivo que descreve os recursos de um dispositivo para um aplicativo habilitado para IOT plug and Play. Esse modelo é estruturado como um conjunto de interfaces que definem:
+O IoT Plug and Play permite integrar dispositivos inteligentes a soluções sem nenhuma configuração manual. No núcleo do Plug and Play IoT, é um _modelo_ de dispositivo que descreve os recursos de um dispositivo para um aplicativo habilitado para IOT plug and Play. Esse modelo é estruturado como um conjunto de interfaces que definem:
 
 - _Propriedades_ que representam o estado somente leitura ou gravável de um dispositivo ou outra entidade. Por exemplo, um número de série do dispositivo pode ser uma propriedade somente leitura e uma temperatura de destino em um termostato pode ser uma propriedade gravável.
 - _Telemetria_, que são os dados emitidos por um dispositivo, sejam esses dados um fluxo regular de leituras de sensor, um erro ocasional ou uma mensagem informativa.
@@ -28,7 +28,7 @@ Cada modelo e interface tem uma ID exclusiva.
 
 O diagrama a seguir mostra os principais elementos de uma solução de Plug and Play de IoT:
 
-:::image type="content" source="media/concepts-architecture/pnp-architecture.png" alt-text="Arquitetura de Plug and Play de IoT":::
+:::image type="content" source="media/concepts-architecture/pnp-architecture.png" alt-text="Arquitetura do IoT Plug and Play":::
 
 ## <a name="model-repository"></a>Repositório de modelos
 

@@ -2,17 +2,14 @@
 title: Depurar no Visual Studio com o Aplicativo Azure insights
 description: Análise de desempenho do aplicativo Web e diagnóstico durante a depuração e na produção.
 ms.topic: conceptual
-author: NumberByColors
-ms.author: daviste
-ms.date: 07/07/2017
-ms.reviewer: mbullwin
+ms.date: 03/17/2017
 ms.custom: vs-azure
-ms.openlocfilehash: 1bb18cc43ef306a208500ff49ec41dbfb74b788e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3937719fd47ba988cf1e0a93f4c06fcc8112d3e
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "87323461"
+ms.locfileid: "91932202"
 ---
 # <a name="debug-your-applications-with-azure-application-insights-in-visual-studio"></a>Depure seus aplicativos com o Azure Application Insights no Visual Studio
 No Visual Studio (2015 e posterior), você pode analisar o desempenho e diagnosticar problemas em seu aplicativo Web ASP.NET na depuração e na produção usando a telemetria do [Application Insights do Azure](./app-insights-overview.md).
@@ -94,8 +91,6 @@ Também será particularmente útil se você tiver [telemetria personalizada](./
 
 
 ## <a name="next-steps"></a>Próximas etapas
-|  |  |
-| --- | --- |
-| **[Adicionar mais dados](./asp-net-more.md)**<br/>Monitorar o uso, a disponibilidade, as dependências e as exceções. Integrar rastreamentos de estruturas de logs. Escrever telemetria personalizada. |![Visual Studio](./media/visual-studio/64.png) |
-| **[Trabalhando com o portal do Application Insights](./overview-dashboard.md)**<br/>Exiba painéis, poderosas ferramentas de diagnóstico e análise, alertas, um mapa de dependências em tempo real de seu aplicativo e os dados telemétricos exportados. |![Visual Studio](./media/visual-studio/62.png) |
+
+ * **[Trabalhando com o portal de Application insights](./overview-dashboard.md)**. Exiba painéis, poderosas ferramentas de diagnóstico e análise, alertas, um mapa de dependências em tempo real de seu aplicativo e os dados telemétricos exportados. 
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: ab54b68ab3f7984ee18a39cf3a81fa663af54dee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 547834542b605b226ebffd68e05296ee847dc6de
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90889108"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974321"
 ---
 # <a name="disk-bursting"></a>Intermitência de disco
 [!INCLUDE [managed-disks-bursting](../../../includes/managed-disks-bursting.md)]
@@ -29,7 +29,7 @@ A intermitência de nível de VM também está disponível na EUA Central ociden
 A intermitência é habilitada por padrão para máquinas virtuais que dão suporte a ela.
 
 ## <a name="disk-level-bursting"></a>Intermitência no nível de disco
-A intermitência também está disponível em nosso [SSDs Premium](disks-types.md#premium-ssd) para tamanhos de disco P20 e menor em todas as regiões. A intermitência de disco é habilitada por padrão em novas implantações dos tamanhos de disco que dão suporte a ela. Os tamanhos de disco existentes, se derem suporte à intermitência de disco, podem habilitar a intermitência por meio de qualquer um dos seguintes métodos: 
+A intermitência também está disponível em nosso [SSDs Premium](../disks-types.md#premium-ssd) para tamanhos de disco P20 e menor em todas as regiões. A intermitência de disco é habilitada por padrão em novas implantações dos tamanhos de disco que dão suporte a ela. Os tamanhos de disco existentes, se derem suporte à intermitência de disco, podem habilitar a intermitência por meio de qualquer um dos seguintes métodos: 
 - **Reinicializar a VM** 
 - **Desanexar e anexar novamente o disco**
 

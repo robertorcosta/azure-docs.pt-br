@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 12b0dd957cb89fc7114c752312b08f1e490499da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f8f5d7ddf25b2df6b2e07818e1b2ed7e90fb867
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "89280019"
+ms.locfileid: "91932100"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Configurar uma instância e autenticação do gêmeos digital do Azure (Portal)
 
@@ -123,12 +123,13 @@ Na página do portal para o registro do aplicativo, selecione *permissões de AP
 
 :::image type="content" source="media/how-to-set-up-instance/portal/add-permission.png" alt-text="Selecionando &quot;criar um recurso&quot; na home page da portal do Azure":::
 
-Na página *solicitar permissões de API* que segue, alterne para a guia *APIs que minha organização usa* e pesquise *gêmeos do Azure digital*. Selecione *Azure digital gêmeos* nos resultados da pesquisa para continuar com a atribuição de permissões para as APIs do gêmeos digital do Azure.
+Na página *solicitar permissões de API* que segue, alterne para a guia *APIs que minha organização usa* e pesquise *gêmeos do Azure digital*. Selecione _**Azure digital gêmeos**_ nos resultados da pesquisa para continuar com a atribuição de permissões para as APIs do gêmeos digital do Azure.
 
 :::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-1.png" alt-text="Selecionando &quot;criar um recurso&quot; na home page da portal do Azure":::
 
 >[!NOTE]
-> Se você tiver uma instância do Azure digital gêmeos existente da visualização pública anterior do serviço (antes de julho de 2020) ainda em sua assinatura, será necessário procurar o serviço de *espaços inteligentes do Azure* em vez disso. Esse é um nome mais antigo para o mesmo conjunto de APIs e não alterará sua experiência além desta etapa.
+> Se sua assinatura ainda tiver uma instância de gêmeos digital do Azure existente da visualização pública anterior do serviço (antes de julho de 2020), você precisará pesquisar e selecionar o _**serviço de espaços inteligentes do Azure**_ em vez disso. Esse é um nome mais antigo para o mesmo conjunto de APIs (Observe que a *ID do aplicativo (cliente)* é a mesma que na captura de tela acima) e sua experiência não será alterada além desta etapa.
+> :::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-1-smart-spaces.png" alt-text="Selecionando &quot;criar um recurso&quot; na home page da portal do Azure":::
 
 Em seguida, você selecionará quais permissões conceder para essas APIs. Expanda a permissão **Read (1)** e marque a caixa que diz *Read. Write* para conceder a esse aplicativo o leitor de registro e permissões de gravador.
 
@@ -163,7 +164,7 @@ Anote a ID do *aplicativo (cliente)* e a *ID do diretório (locatário)* mostrad
 ## <a name="next-steps"></a>Próximas etapas
 
 Teste as chamadas de API REST individuais em sua instância usando os comandos da CLI do Azure digital gêmeos: 
-* [referência de AZ DT](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest)
+* [referência de AZ DT](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true)
 * [*Como usar a CLI dos Gêmeos Digitais do Azure*](how-to-use-cli.md)
 
 Ou então, consulte Como conectar seu aplicativo cliente à sua instância escrevendo o código de autenticação do aplicativo cliente:

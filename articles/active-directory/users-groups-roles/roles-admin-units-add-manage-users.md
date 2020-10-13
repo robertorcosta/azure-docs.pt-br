@@ -15,10 +15,10 @@ ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0d29f4ef5806eb8ed9385696dea78f4ae0992b93
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91818197"
 ---
 # <a name="add-and-manage-users-in-an-administrative-unit-in-azure-active-directory"></a>Adicionar e gerenciar usuários em uma unidade administrativa no Azure Active Directory
@@ -106,7 +106,7 @@ No portal do Azure você pode abrir o perfil de um usuário:
 ```powershell
 Get-AzureADMSAdministrativeUnit | where { Get-AzureADMSAdministrativeUnitMember -Id $_.ObjectId | where {$_.RefObjectId -eq $userObjId} }
 ```
-Observação: por padrão, o Get-AzureADAdministrativeUnitMember retorna apenas 100 membros, você pode adicionar "-All $true" para recuperar mais membros.
+Observação: por padrão, Get-AzureADAdministrativeUnitMember retorna apenas 100 membros, você pode adicionar "-All $true" para recuperar mais membros.
 
 ### <a name="microsoft-graph"></a>Microsoft Graph
 

@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 09/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a2be5daf5bcad0f5b4530ba7a76986dae4833aa5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e401fb35e6524e8a32cbe09bf5b9c7feafbf5da
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331260"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974729"
 ---
 # <a name="ibm-db2-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Implantação do DBMS de Máquinas Virtuais do IBM Db2 Azure para carga de trabalho do SAP
 
@@ -55,9 +55,9 @@ Para obter informações sobre os tipos de VM do Azure e produtos SAP com suport
 
 ## <a name="ibm-db2-for-linux-unix-and-windows-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Diretrizes de configuração do IBM Db2 para Linux, UNIX e Windows para instalações do SAP em VMs do Azure
 ### <a name="storage-configuration"></a>Configuração de armazenamento
-Para obter uma visão geral dos tipos de armazenamento do Azure para carga de trabalho do SAP, consulte o artigo [tipos de armazenamento do Azure para carga de trabalho do SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage) todos os arquivos de banco de dados devem ser armazenados em discos montados do armazenamento de blocos do Azure (Windows: NFFS, Linux: XFS, ext4 ou ext3). Qualquer tipo de unidade de rede ou compartilhamentos remotos como os seguintes serviços do Azure **não** têm suporte para arquivos de banco de dados: 
+Para obter uma visão geral dos tipos de armazenamento do Azure para carga de trabalho do SAP, consulte o artigo [tipos de armazenamento do Azure para carga de trabalho do SAP](./planning-guide-storage.md) todos os arquivos de banco de dados devem ser armazenados em discos montados do armazenamento de blocos do Azure (Windows: NFFS, Linux: XFS, ext4 ou ext3). Qualquer tipo de unidade de rede ou compartilhamentos remotos como os seguintes serviços do Azure **não** têm suporte para arquivos de banco de dados: 
 
-* [Serviço de arquivo Microsoft Azure](https://docs.microsoft.com/archive/blogs/windowsazurestorage/introducing-microsoft-azure-file-service)
+* [Serviço de arquivo Microsoft Azure](/archive/blogs/windowsazurestorage/introducing-microsoft-azure-file-service)
 
 * [Azure NetApp Files](https://azure.microsoft.com/services/netapp/)
 

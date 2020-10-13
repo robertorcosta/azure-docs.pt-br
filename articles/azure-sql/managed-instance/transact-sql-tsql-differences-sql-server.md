@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 06/02/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 1298a1676d7a7ac0321ae768c3e596f481e80a8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36377d34a03150fefb8332bcfbe7bb6633ccc606
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617852"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973301"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Diferenças de T-SQL entre SQL Server & SQL do Azure Instância Gerenciada
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -353,7 +353,11 @@ Não há suporte para instruções DBCC não documentadas habilitadas no SQL Ser
 
 ### <a name="distributed-transactions"></a>Transações distribuídas
 
-Atualmente, não há suporte para transações de MSDTC e [elástico](../database/elastic-transactions-overview.md) no SQL instância gerenciada.
+O suporte parcial para [transações distribuídas](../database/elastic-transactions-overview.md) está atualmente em visualização pública. Os cenários com suporte são:
+* Transações em que os participantes são apenas instâncias gerenciadas do SQL do Azure que fazem parte do [grupo de confiança do servidor](https://aka.ms/mitrusted-groups).
+* Transações iniciadas do .NET (classe TransactionScope) e Transact-SQL.
+
+O Azure SQL Instância Gerenciada atualmente não dá suporte a outros cenários que são suportados regularmente pelo MSDTC local ou em máquinas virtuais do Azure.
 
 ### <a name="extended-events"></a>Eventos estendidos
 

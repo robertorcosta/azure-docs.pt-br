@@ -4,10 +4,10 @@ description: Saiba mais sobre os pré-requisitos dos requisitos de rede e os det
 ms.topic: tutorial
 ms.date: 09/21/2020
 ms.openlocfilehash: 5538f9c5d6543ca312835f4ef6437e413dea231b
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91576670"
 ---
 # <a name="networking-planning-checklist-for-azure-vmware-solution"></a>Lista de verificação de planejamento de rede da Solução VMware no Azure 

@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a9d2116062dc45f3602bf5ee0efba31ad815c0c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2f189adf198a7e04edd3900a1e6da134329857e
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447848"
+ms.locfileid: "91932134"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Autenticar um dispositivo downstream no Hub IoT do Azure
 
@@ -59,7 +59,7 @@ Ao criar a nova identidade do dispositivo, forneça as seguintes informações:
 
 * Selecione **Chave simétrica** como o tipo de autenticação.
 
-* Opcionalmente, escolha **Definir um dispositivo pai** e selecione o dispositivo de gateway de IoT Edge ao qual este dispositivo downstream se conectará. Essa etapa é opcional para a autenticação de chave simétrica, mas é recomendável porque a configuração de um dispositivo pai permite [recursos off-line](offline-capabilities.md) para seu dispositivo downstream. Você pode atualizar sempre os detalhes do dispositivo para adicionar ou alterar o pai mais tarde.
+* Selecione **definir um dispositivo pai** e selecione o IOT Edge dispositivo de gateway ao qual esse dispositivo downstream se conectará. Esta etapa habilita [recursos offline](offline-capabilities.md) para seu dispositivo downstream. Você sempre pode alterar o pai mais tarde.
 
    ![Criar ID do dispositivo com autenticação de chave simétrica no portal](./media/how-to-authenticate-downstream-device/symmetric-key-portal.png)
 
@@ -201,7 +201,7 @@ Ou:
 HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;x509=true;GatewayHostName=myGatewayDevice
 ```
 
-Se você estabeleceu uma relação pai/filho para esse dispositivo downstream, pode simplificar a cadeia de conexão chamando o gateway diretamente como o host de conexão. As relações pai/filho são necessárias para a autenticação X.509, mas opcionais para a autenticação de chave simétrica. Por exemplo:
+Graças à relação pai/filho, você pode simplificar a cadeia de conexão chamando o gateway diretamente como o host de conexão. Por exemplo:
 
 ```
 HostName=myGatewayDevice;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz

@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 10/08/2020
 ms.author: v-ekrieg
 ms.openlocfilehash: d96a73c3ba996fecf24a4232e1391f0b814be868
-ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91851247"
 ---
 # <a name="understanding-the-localconfigurationjson-file---c-agent"></a>Noções básicas sobre o arquivo LocalConfiguration.json – agente do C
@@ -42,12 +42,12 @@ As alterações feitas no arquivo de configuração ocorrem quando o agente é r
 | Identidade | "DPS", "SecurityModule", "dispositivo" | Identidade de autenticação – DPS se a autenticação for feita por meio do DPS, SecurityModule se a autenticação for feita por meio de credenciais do módulo de segurança ou dispositivo se a autenticação for feita com as credenciais do dispositivo |
 | AuthenticationMethod | "SasToken", "SelfSignedCertificate" | o segredo do usuário para autenticação-escolha SasToken se o segredo de uso for uma chave simétrica, escolha certificado autoassinado se o segredo for um certificado autoassinado  |
 | FilePath | Caminho para o arquivo (cadeia de caracteres) | Caminho para o arquivo que contém o segredo de autenticação |
-| HostName | string | O nome do host do Hub IoT do Azure. geralmente <meu Hub>. azure-devices.net |
-| DeviceId | string | A ID do dispositivo (como registrado no Hub IoT do Azure) |
+| HostName | cadeia de caracteres | O nome do host do Hub IoT do Azure. geralmente <meu Hub>. azure-devices.net |
+| DeviceId | cadeia de caracteres | A ID do dispositivo (como registrado no Hub IoT do Azure) |
 | DPS | JsonObject | Configurações relacionadas a DPS |
-| IDScope | string | Escopo da ID do DPS |
-| RegistrationId | string  | ID de registro do dispositivo DPS |
-| Registro em log | JsonObject | Configurações relacionadas ao agente de log |
+| IDScope | cadeia de caracteres | Escopo da ID do DPS |
+| RegistrationId | cadeia de caracteres  | ID de registro do dispositivo DPS |
+| Registrando em log | JsonObject | Configurações relacionadas ao agente de log |
 | SystemLoggerMinimumSeverity | 0 <= número <= 4 | mensagens de log iguais e superiores a essa gravidade serão registradas em/var/log/syslog (0 é a severidade mais baixa) |
 | DiagnosticEventMinimumSeverity | 0 <= número <= 4 | as mensagens de log iguais e superiores a essa gravidade serão enviadas como eventos de diagnóstico (0 é a severidade mais baixa) |
 
