@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4ac3a43776ee71716e618d7a1698aa1915d3d1b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c0158e4bdaff5400404b290e27837bfb3b95419
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331345"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974814"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Considerações para Implantação do DBMS de Máquinas de Virtuais do Azure para carga de trabalho do SAP
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -273,7 +273,7 @@ Há outros métodos de redundância. Para obter mais informações, consulte [Re
 
 
 ## <a name="vm-node-resiliency"></a>Resiliência de nó de VM
-O Azure oferece vários SLAs diferentes para VMs. Para obter mais informações, veja a versão mais recente do [SLA de máquinas virtuais](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/). Como a camada DBMS é essencial para a disponibilidade em um sistema SAP, você precisa entender os conjuntos de disponibilidade, Zonas de Disponibilidade e eventos de manutenção. Para obter mais informações sobre esses conceitos, confira [Gerenciar a disponibilidade de máquinas virtuais do Windows no Azure](../../windows/manage-availability.md) e [Gerenciar a disponibilidade de máquinas virtuais do Linux no Azure](../../linux/manage-availability.md).
+O Azure oferece vários SLAs diferentes para VMs. Para obter mais informações, veja a versão mais recente do [SLA de máquinas virtuais](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/). Como a camada DBMS é essencial para a disponibilidade em um sistema SAP, você precisa entender os conjuntos de disponibilidade, Zonas de Disponibilidade e eventos de manutenção. Para obter mais informações sobre esses conceitos, confira [Gerenciar a disponibilidade de máquinas virtuais do Windows no Azure](../../manage-availability.md) e [Gerenciar a disponibilidade de máquinas virtuais do Linux no Azure](../../manage-availability.md).
 
 A recomendação mínima para cenários de DBMS de produção com carga de trabalho do SAP é:
 
@@ -295,7 +295,7 @@ Essas práticas recomendadas são o resultado de centenas de implantações do c
 - As redes virtuais nas quais o aplicativo SAP é implantado não têm acesso à Internet.
 - As VMs de banco de dados são executadas na mesma rede virtual que a camada de aplicativo, separada em uma sub-rede diferente da camada de aplicativo SAP.
 - As VMs na rede virtual têm uma alocação estática do endereço IP privado. Para obter mais informações, confira [Tipos de endereço IP e métodos de alocação no Azure](../../../virtual-network/public-ip-addresses.md).
-- Restrições de roteamento de e para as VMs de DBMS *não* são definidas com firewalls instalados nas VMs DBMS locais. Em vez disso, o roteamento de tráfego é definido com [NSG (grupos de segurança de rede)](../../../virtual-network/security-overview.md).
+- Restrições de roteamento de e para as VMs de DBMS *não* são definidas com firewalls instalados nas VMs DBMS locais. Em vez disso, o roteamento de tráfego é definido com [NSG (grupos de segurança de rede)](../../../virtual-network/network-security-groups-overview.md).
 - Para separar e isolar o tráfego para a VM do DBMS, atribua diferentes NICs à VM. Cada NIC recebe um endereço IP diferente e a cada uma é atribuída a uma sub-rede de rede virtual diferente. Cada sub-rede tem regras de NSG diferentes. O isolamento ou a separação do tráfego de rede é uma medida para o roteamento. Não é usado a fim de definir cotas para taxa de transferência de rede.
 
 > [!NOTE]
@@ -304,7 +304,7 @@ Essas práticas recomendadas são o resultado de centenas de implantações do c
 
 
 > [!WARNING]
-> Não há suporte para a configuração de [dispositivos de virtuais de rede](https://azure.microsoft.com/solutions/network-appliances/) no caminho de comunicação entre o aplicativo SAP e a camada DBMS de um SAP NetWeaver, Hybris ou sistemas SAP baseados em S/4HANA. Essa restrição destina-se a questões de funcionalidade e desempenho. O caminho de comunicação entre a camada de aplicativo SAP e a camada DBMS deve ser direto. A restrição não inclui as [regras de ASG (grupo de segurança de aplicativo) e NSG](../../../virtual-network/security-overview.md) se elas permitirem um caminho de comunicação direto. 
+> Não há suporte para a configuração de [dispositivos de virtuais de rede](https://azure.microsoft.com/solutions/network-appliances/) no caminho de comunicação entre o aplicativo SAP e a camada DBMS de um SAP NetWeaver, Hybris ou sistemas SAP baseados em S/4HANA. Essa restrição destina-se a questões de funcionalidade e desempenho. O caminho de comunicação entre a camada de aplicativo SAP e a camada DBMS deve ser direto. A restrição não inclui as [regras de ASG (grupo de segurança de aplicativo) e NSG](../../../virtual-network/network-security-groups-overview.md) se elas permitirem um caminho de comunicação direto. 
 >
 > Outros cenários em que as soluções de virtualização de rede não têm suporte estão em:
 >
@@ -333,7 +333,7 @@ Caso ocorra um failover de nó do banco de dados, o aplicativo SAP não precisa 
 
 O Azure oferece dois [SKUs de balanceador de carga](../../../load-balancer/load-balancer-overview.md) diferentes: um SKU básico e um SKU padrão. Com base nas vantagens da instalação e da funcionalidade, você deve usar o SKU padrão do Azure Load Balancer. Uma das grandes vantagens da versão padrão do balanceador de carga é que o tráfego de dados não é roteado pelo balanceador de carga em si.
 
-Um exemplo de como você pode configurar um balanceador de carga interno pode ser encontrado no artigo [tutorial: configurar um grupo de disponibilidade SQL Server em máquinas virtuais do Azure manualmente](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/availability-group-manually-configure-tutorial#create-an-azure-load-balancer)
+Um exemplo de como você pode configurar um balanceador de carga interno pode ser encontrado no artigo [tutorial: configurar um grupo de disponibilidade SQL Server em máquinas virtuais do Azure manualmente](../../../azure-sql/virtual-machines/windows/availability-group-manually-configure-tutorial.md#create-an-azure-load-balancer)
 
 > [!NOTE]
 > Há diferenças no comportamento do SKU básico e Standard relacionados ao acesso de endereços IP públicos. A forma como contornar as restrições do SKU Standard para acessar endereços IP públicos é descrita no documento [conectividade de ponto de extremidade público para máquinas virtuais usando o Azure Standard Load Balancer em cenários de alta disponibilidade do SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md)

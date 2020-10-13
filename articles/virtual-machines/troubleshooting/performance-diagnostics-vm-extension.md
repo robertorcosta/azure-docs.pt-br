@@ -13,16 +13,16 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: c570c43560ad865b8bcc5161cbd0c6731ea4a237
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 16af8b8c1258ef7945e88a7af42e86a7bba2003b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90090645"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963254"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Extensão de VM de Diagnóstico de Desempenho do Azure para Windows
 
-Extensão de VM de Diagnóstico de Desempenho do Azure ajuda a coletar dados de diagnóstico de desempenho das máquinas virtuais do Windows. A extensão executa uma análise e fornece um relatório dos resultados e recomendações para identificar e resolver problemas de desempenho na máquina virtual. Essa extensão instala uma ferramenta de solução de problemas chamada [PerfInsights](https://aka.ms/perfinsights).
+Extensão de VM de Diagnóstico de Desempenho do Azure ajuda a coletar dados de diagnóstico de desempenho das máquinas virtuais do Windows. A extensão executa uma análise e fornece um relatório dos resultados e recomendações para identificar e resolver problemas de desempenho na máquina virtual. Essa extensão instala uma ferramenta de solução de problemas chamada [PerfInsights](./how-to-use-perfinsights.md).
 
 > [!NOTE]
 > Se você quer executar o diagnóstico na sua VM do portal do Azure para VMs não clássicas, é recomendável usar a nova experiência. Para obter mais informações, consulte [Diagnóstico de Desempenho para máquinas virtuais do Azure](performance-diagnostics.md) 
@@ -78,7 +78,7 @@ O JSON a seguir mostra o esquema para a Extensão da VM de Diagnóstico de Desem
 |--------------|-------------------|----------------------------|
 |apiVersion|2015-06-15|A versão da API.
 |editor|Microsoft.Azure.Performance.Diagnostics|O namespace do publicador para a extensão.
-|type|AzurePerformanceDiagnostics|O tipo da extensão de VM.
+|tipo|AzurePerformanceDiagnostics|O tipo da extensão de VM.
 |typeHandlerVersion|1.0|A versão do manipulador de extensão.
 |performanceScenario|básico|O cenário de desempenho para o qual capturar dados. Os valores válidos são: **basic**, **vmslow**, **azurefiles** e **custom**.
 |traceDurationInSeconds|300|A duração dos rastreamentos se qualquer uma das opções de rastreamento estiver selecionada.
@@ -237,7 +237,7 @@ Set-AzVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
 ```
 
 ## <a name="information-on-the-data-captured"></a>Informações sobre os dados capturados
-A ferramenta PerfInsights coleta vários logs, configurações, dados de diagnóstico, etc., dependendo do cenário selecionado. Para saber mais, confira a [Documentação de PerfInsights](https://aka.ms/perfinsights).
+A ferramenta PerfInsights coleta vários logs, configurações, dados de diagnóstico, etc., dependendo do cenário selecionado. Para saber mais, confira a [Documentação de PerfInsights](./how-to-use-perfinsights.md).
 
 ## <a name="view-and-share-the-results"></a>Exibir e compartilhar os resultados
 

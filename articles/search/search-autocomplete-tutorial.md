@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: dac1a09b7984cdc8deca22ced1e8018a761979e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1796566c0a775e5810c387a01e0b54983727fa37
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91531608"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951393"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps"></a>Adicionar preenchimento automático e sugestões aos aplicativos cliente
 
@@ -141,7 +141,7 @@ source: "/home/suggest?highlights=true&fuzzy=true&",
 
 Se você estiver usando C# e um aplicativo MVC, o arquivo **HomeController.cs** no diretório de controladores será onde você poderá criar uma classe para os resultados sugeridos. No .NET, uma função de sugestão é baseada no [método DocumentsOperationsExtensions. sugira](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest). Para obter mais informações sobre o SDK do .NET, consulte [como usar o Azure pesquisa cognitiva de um aplicativo .net](./search-howto-dotnet-sdk.md).
 
-O `InitSearch` método cria um cliente de índice http autenticado para o serviço de pesquisa cognitiva do Azure. As propriedades da classe [sugiraparameters](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggestparameters) determinam quais campos são pesquisados e retornados nos resultados, o número de correspondências e se a correspondência difusa é usada. 
+O `InitSearch` método cria um cliente de índice http autenticado para o serviço de pesquisa cognitiva do Azure. As propriedades da classe [sugiraparameters](/dotnet/api/microsoft.azure.search.models.suggestparameters) determinam quais campos são pesquisados e retornados nos resultados, o número de correspondências e se a correspondência difusa é usada. 
 
 Para preenchimento automático, a correspondência difusa é limitada a uma distância de edição (um caractere omitido ou de local incorreto). Observe que a correspondência difusa em consultas de preenchimento automático pode, às vezes, produzir resultados inesperados dependendo do tamanho do índice e de como ele é fragmentado. Para obter mais informações, consulte [conceitos de particionamento e fragmentação](search-capacity-planning.md#concepts-search-units-replicas-partitions-shards).
 

@@ -6,14 +6,16 @@ ms.topic: conceptual
 description: Saiba como configurar Azure Dev Spaces para usar um controlador de entrada do NGINX personalizado e configurar o HTTPS usando esse controlador de entrada
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s
 ms.custom: devx-track-js
-ms.openlocfilehash: 23bad8d7def12f4454986fb005158c3a65acd33e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ef462171199ce818b6146efbe705cca30b24564
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91276257"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973075"
 ---
 # <a name="use-a-custom-nginx-ingress-controller-and-configure-https"></a>Usar um controlador de entrada do NGINX personalizado e configurar o HTTPS
+
+[!INCLUDE [Azure Dev Spaces deprecation](../../../includes/dev-spaces-deprecation.md)]
 
 Este artigo mostra como configurar Azure Dev Spaces para usar um controlador de entrada do NGINX personalizado. Este artigo também mostra como configurar esse controlador de entrada personalizado para usar HTTPS.
 
