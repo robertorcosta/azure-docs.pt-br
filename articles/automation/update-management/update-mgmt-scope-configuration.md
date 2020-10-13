@@ -6,10 +6,10 @@ ms.date: 03/04/2020
 ms.topic: conceptual
 ms.custom: mvc
 ms.openlocfilehash: aafd284122ca61ba2b668186095b88003be2775c
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87449840"
 ---
 # <a name="limit-update-management-deployment-scope"></a>Limitar o escopo de implantação Gerenciamento de Atualizações
@@ -30,7 +30,7 @@ Para limitar o escopo para sua implantação de Gerenciamento de Atualizações:
 
 3. Selecione **configurações de escopo (versão prévia)** em **fontes de dados do espaço de trabalho**.
 
-4. Selecione as reticências à direita da `MicrosoftDefaultScopeConfig-Updates` configuração de escopo e selecione **Editar**.
+4. Selecione as reticências à direita da  `MicrosoftDefaultScopeConfig-Updates` configuração de escopo e selecione **Editar**.
 
 5. No painel de edição, expanda **Selecionar grupos de computadores**. O painel Grupos de Computadores mostra as pesquisas salvas que são usadas para criar a configuração de escopo. A pesquisa salva usada pelo Gerenciamento de Atualizações é:
 

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/10/2020
 ms.author: alkohli
 ms.openlocfilehash: 1d924e96cfc287060107f541e44980295eb24745
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87494478"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-export-orders"></a>Rastreamento e log de eventos para seus Azure Data Box e Azure Data Box Heavy ordens de exportação
@@ -190,7 +190,7 @@ Depois que os dados são apagados dos discos de Data Box de acordo com as diretr
 
 ### <a name="chain-of-custody-audit-logs"></a>Cadeia de logs de auditoria de custódia
 
-A cadeia de logs de auditoria de custódia contém informações sobre como ligar e acessar compartilhamentos no Data Box ou Data Box Heavy quando ele está fora do datacenter do Azure. Esses logs estão localizados em:`storage-account/azuredatabox-chainofcustodylogs`
+A cadeia de logs de auditoria de custódia contém informações sobre como ligar e acessar compartilhamentos no Data Box ou Data Box Heavy quando ele está fora do datacenter do Azure. Esses logs estão localizados em: `storage-account/azuredatabox-chainofcustodylogs`
 
 Aqui está um exemplo do log de auditoria de um Data Box:
 

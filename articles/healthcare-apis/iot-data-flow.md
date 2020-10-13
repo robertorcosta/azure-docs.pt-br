@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 07/31/2020
 ms.author: punagpal
 ms.openlocfilehash: 43b7bcba97617d6931fd5c191e62e833a25bf89d
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87513359"
 ---
-# <a name="azure-iot-connector-for-fhir-preview-data-flow"></a>Fluxo de dados do Azure IoT Connector para FHIR (visualização)
+# <a name="azure-iot-connector-for-fhir-preview-data-flow"></a>Fluxo de dados do Conector IoT do Azure para FHIR (versão prévia)
 
 Este artigo fornece uma visão geral do fluxo de dados no conector IoT do Azure para FHIR *. Você aprenderá sobre os diferentes estágios de processamento de dados no conector IoT do Azure para FHIR que transformam dados de dispositivo em recursos de [Observação](https://www.hl7.org/fhir/observation.html) baseados em FHIR.
 
-![Conector do Azure IoT para o fluxo de dados do FHIR](media/concepts-iot-data-flow/iot-connector-data-flow.png)
+![Fluxo de dados do Conector IoT do Azure para FHIR](media/concepts-iot-data-flow/iot-connector-data-flow.png)
 
 O diagrama acima mostra fluxos de dados comuns usando o conector IoT do Azure para FHIR. 
 
@@ -36,7 +36,7 @@ Normalize é o próximo estágio em que os dados do dispositivo são recuperados
 
 O processo de normalização não apenas simplifica o processamento de dados em estágios posteriores, mas também fornece a capacidade de projetar uma mensagem de entrada em várias mensagens normalizadas. Por exemplo, um dispositivo poderia enviar vários sinais vitais para temperatura do corpo, taxa de pulso, pressão de sangue e taxa de Respiration em uma única mensagem. Essa mensagem de entrada criaria quatro recursos de FHIR separados. Cada recurso representaria um sinal vital diferente, com a mensagem de entrada projetada em quatro mensagens normalizadas diferentes.
 
-## <a name="group"></a>Agrupar
+## <a name="group"></a>Grupo
 O grupo é o próximo estágio em que as mensagens normalizadas disponíveis no estágio anterior são agrupadas usando três parâmetros diferentes: identidade do dispositivo, tipo de medida e período de tempo.
 
 A identidade do dispositivo e o agrupamento do tipo de medição habilitam o uso do tipo de medição [SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData) . Esse tipo fornece uma maneira concisa de representar uma série de medidas com base em tempo de um dispositivo no FHIR. E o período de tempo controla a latência na qual os recursos de observação gerados pelo conector do Azure IoT para FHIR são gravados na API do Azure para FHIR.
@@ -62,8 +62,8 @@ Quando o recurso de observação FHIR é gerado no estágio de transformação, 
 Clique abaixo da próxima etapa para aprender a criar modelos de mapeamento de dispositivo e FHIR.
 
 >[!div class="nextstepaction"]
->[Conector do Azure IoT para modelos de mapeamento FHIR](iot-mapping-templates.md)
+>[Modelos de mapeamento do Conector IoT do Azure para FHIR](iot-mapping-templates.md)
 
-* No portal do Azure, o conector do IoT do Azure para FHIR é conhecido como conector IoT (versão prévia).
+*No portal do Azure, o Conector IoT do Azure para FHIR é chamado de Conector IoT (versão prévia).
 
 FHIR é uma marca registrada da HL7, usada com permissão da HL7.
