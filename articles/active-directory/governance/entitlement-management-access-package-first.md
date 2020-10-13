@@ -12,22 +12,22 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.subservice: compliance
-ms.date: 07/22/2020
+ms.date: 09/30/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9df1226d4b61326f8e5aa6f9b71d36eb5a33e81e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 38edbd9e491d4bea469c6b83ad98df48fbce1d4f
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91306507"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597507"
 ---
 # <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>Tutorial: Criar seu primeiro pacote de acesso no gerenciamento de direitos do Azure AD
 
 Gerenciar o acesso a todos os recursos de que os funcionários precisam, como grupos, aplicativos e sites, é uma função importante para as organizações. Você quer conceder aos funcionários o nível de acesso necessário para que eles sejam produtivos e remover o acesso quando ele não for mais necessário.
 
-Neste tutorial, você trabalhará para o Woodgrove Bank como administrador de TI. Você foi solicitado para criar um pacote de recursos para uma campanha de marketing para a qual os usuários internos podem solicitar o autoatendimento. As solicitações não exigem aprovação e o acesso do usuário expira após 30 dias. Para este tutorial, os recursos da campanha de marketing apenas são a associação em um único grupo, mas poderiam ser uma coleção de grupos, aplicativos ou sites do SharePoint Online.
+Neste tutorial, você trabalhará para o Woodgrove Bank como administrador de TI. Você foi incumbido de criar um pacote de recursos para uma campanha de marketing que os usuários internos podem usar para solicitar o autoatendimento. As solicitações não exigem aprovação e o acesso do usuário expira após 30 dias. Para este tutorial, os recursos da campanha de marketing apenas são a associação em um único grupo, mas poderiam ser uma coleção de grupos, aplicativos ou sites do SharePoint Online.
 
 ![Diagrama mostrando a visão geral do cenário.](./media/entitlement-management-access-package-first/elm-scenario-overview.png)
 
@@ -117,10 +117,14 @@ Um *pacote de acesso* é um pacote de recursos de que uma equipe ou projeto prec
 11. Na lista suspensa **Função**, selecione **Membro**.
 
     ![Novo pacote de acesso – Guia Funções de recurso](./media/entitlement-management-access-package-first/resource-roles.png)
+    >[!IMPORTANT]
+    >Os grupos atribuíveis a funções adicionados a um pacote de acesso serão indicados usando o subtipo **Atribuível a funções**. Confira [Criar um grupo atribuível a função](../users-groups-roles/roles-groups-create-eligible.md) no Azure Active Directory para obter mais detalhes sobre os grupos atribuíveis a funções do Azure AD. Se não vir um grupo atribuível a funções que deseja adicionar ou se não puder adicioná-lo, verifique se você tem a função de gerenciamento de direitos e a função do Azure AD necessárias para executar essa operação. Talvez seja necessário solicitar que alguém com as funções necessárias adicione o recurso ao seu catálogo. Para obter mais informações, confira [Funções necessárias para adicionar recursos a um catálogo](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog).
 
     >[!NOTE]
     > Ao usar [grupos dinâmicos](../users-groups-roles/groups-create-rule.md), você não verá outras funções disponíveis além do proprietário. Isso ocorre por design.
     > ![Visão geral do cenário](./media/entitlement-management-access-package-first/dynamic-group-warning.png)
+    
+
 
 12. Clique **Avançar** para abrir a guia **Solicitações**.
 

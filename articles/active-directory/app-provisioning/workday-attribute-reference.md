@@ -12,10 +12,10 @@ ms.date: 05/25/2020
 ms.author: kenwith
 ms.reviewer: celested
 ms.openlocfilehash: 5892100140c6022763453a4141d87e6a7ba4ed75
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91266557"
 ---
 # <a name="workday-attribute-reference"></a>Referência de atributos do Workday
@@ -117,7 +117,7 @@ A tabela a seguir captura a lista de atributos do Workday e as expressões XPATH
 
 Se você estiver usando a API WWS v 30.0 ou superior na URL de conexão, conforme mostrado abaixo:
 
-:::image type="content" source="../saas-apps/media/workday-inbound-tutorial/workday-url-version-info.png" alt-text="Informações de versão do Workday":::
+:::image type="content" source="../saas-apps/media/workday-inbound-tutorial/workday-url-version-info.png" alt-text="Workday sem informações de versão":::
 
 ...então, antes de ligar o trabalho de provisionamento, atualize as **expressões de API XPATH** em **Mapeamento de atributos -> Opções avançadas > Editar lista de atributos do Workday** para usar os valores listados na tabela. 
 

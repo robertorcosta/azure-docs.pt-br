@@ -16,10 +16,10 @@ ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 98e587103e63cd5cc26eab5b00864d00e0b9007f
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90089932"
 ---
 # <a name="send-secure-push-notifications-from-azure-notification-hubs"></a>Enviar notificações por push seguras dos hubs de notificação do Azure
@@ -174,7 +174,7 @@ A próxima etapa é criar o componente de segundo plano de push.
     ![Captura de tela da janela Gerenciador de Soluções com foco no Package. appxmanifest com as declarações disponíveis, declarações com suporte, notificações por push e opções de ponto de entrada descritos em vermelho.][13]
 16. No menu **arquivo** , clique em **salvar tudo**.
 
-## <a name="run-the-application"></a>Executar o aplicativo
+## <a name="run-the-application"></a>Execute o aplicativo
 
 Para executar o aplicativo, faça o seguinte:
 

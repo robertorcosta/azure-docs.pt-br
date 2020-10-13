@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/26/2019
 ms.author: damaerte
 ms.openlocfilehash: a052364b06ac1b9b30cef76db10a79e8ed85b9a3
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89470146"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Recursos e ferramentas do Azure Cloud Shell
@@ -57,11 +57,11 @@ O PowerShell no Cloud Shell contém uma compilação particular do módulo do Ex
 
 ![Captura de tela de um Azure Cloud Shell executando os comandos Connect-EXOPSSession e Get-User.](media/features-powershell/exchangeonline.png)
 
- Execute `Get-Command -Module tmp_*`
+ Executar `Get-Command -Module tmp_*`
 > [!NOTE]
 > O nome do módulo deve começar com `tmp_` , se você tiver instalado módulos com o mesmo prefixo, seus cmdlets também serão exibidos. 
 
-![Captura de tela de um Azure Cloud Shell executando o comando Get-Command-module tmp_ *.](media/features-powershell/exchangeonlinecmdlets.png)
+![Captura de tela de um Azure Cloud Shell executando o comando Get-Command-Module tmp_ *.](media/features-powershell/exchangeonlinecmdlets.png)
 
 ### <a name="deep-integration-with-open-source-tooling"></a>Ampla integração com ferramentas de software livre
 
@@ -78,11 +78,11 @@ O Cloud Shell inclui autenticação pré-configurada para ferramentas de softwar
 |Ferramentas de build            |Make<br> Maven<br> npm<br> pip         |
 |Contêineres             |[Computador do Docker](https://github.com/docker/machine)<br> [kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [CLI do DC/OS](https://github.com/dcos/dcos-cli)         |
 |Bancos de dados              |Cliente do MySQL<br> Cliente do PostgreSql<br> [Utilitário sqlcmd](/sql/tools/sqlcmd-utility)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
-|Outro                  |Cliente do iPython<br> [CLI do Cloud Foundry](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)<br> [Puppet](https://puppet.com/docs/bolt/latest/bolt.html)<br> [HashiCorp Pack](https://www.packer.io/)<br> [CLI do Office 365](https://pnp.github.io/office365-cli/)|
+|Outros                  |Cliente do iPython<br> [CLI do Cloud Foundry](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)<br> [Puppet](https://puppet.com/docs/bolt/latest/bolt.html)<br> [HashiCorp Pack](https://www.packer.io/)<br> [CLI do Office 365](https://pnp.github.io/office365-cli/)|
 
 ## <a name="language-support"></a>Suporte ao idioma
 
-|Idioma   |Versão   |
+|Linguagem   |Versão   |
 |---|---|
 |.NET Core  |[3.1.302](https://github.com/dotnet/core/blob/master/release-notes/3.1/3.1.6/3.1.302-download.md)       |
 |Go         |1,9        |

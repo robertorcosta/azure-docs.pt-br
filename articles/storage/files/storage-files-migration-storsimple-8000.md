@@ -8,10 +8,10 @@ ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
 ms.openlocfilehash: be61a6e75c4aa9b5714ffbf3b4f19656b347c493
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91653240"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>Migração do StorSimple 8100 e 8600 para Sincronização de Arquivos do Azure
@@ -427,7 +427,7 @@ Consulte os arquivos de log do Robocopy para ver se os arquivos foram deixados p
 
 É provável que seja necessário criar os compartilhamentos SMB no Windows Server que você tinha nos dados do StorSimple antes. Você pode carregar essa etapa e fazer isso mais cedo para não perder tempo aqui, mas deve garantir que antes desse ponto, nenhuma alteração nos arquivos ocorra no Windows Server.
 
-Se você tiver uma implantação DFS-N, poderá apontar os namespaces DFN para os locais da nova pasta do servidor. Se você não tiver uma implantação DFS-N e, em seguida, o dispositivo 8100 8600 foi disponibilizado localmente com um servidor Windows, você poderá pegar esse servidor fora do domínio e ingressar no domínio em seu novo Windows Server com o AFS para o domínio, atribuir a ele o mesmo nome de servidor que o servidor antigo e os mesmos nomes de compartilhamento, e o novo servidor permanecerá transparente para seus , política de grupo ou scripts.
+Se você tiver uma implantação DFS-N, poderá apontar o DFN-Namespaces para os locais da nova pasta do servidor. Se você não tiver uma implantação DFS-N e, em seguida, o dispositivo 8100 8600 foi disponibilizado localmente com um servidor Windows, você poderá pegar esse servidor fora do domínio e ingressar no domínio em seu novo Windows Server com o AFS para o domínio, atribuir a ele o mesmo nome de servidor que o servidor antigo e os mesmos nomes de compartilhamento, e o novo servidor permanecerá transparente para seus , política de grupo ou scripts.
 
 ## <a name="phase-7-deprovision"></a>Fase 7: desprovisionar
 
@@ -458,5 +458,5 @@ Familiarize-se com o Sincronização de Arquivos do Azure. Especialmente com a f
 Se você vir no portal do Azure ou nos eventos anteriores, que alguns arquivos não estão sincronizando permanentemente, examine o guia de solução de problemas para obter as etapas para resolver esses problemas.
 
 * [Visão geral do Sincronização de Arquivos do Azure: aka.ms/AFS](https://aka.ms/AFS)
-* [Disposição em camadas de nuvem](storage-sync-cloud-tiering.md) 
+* [Camadas de nuvem](storage-sync-cloud-tiering.md) 
 * [Guia de solução de problemas Sincronização de Arquivos do Azure](storage-sync-files-troubleshoot.md)

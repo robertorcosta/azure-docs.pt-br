@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
 ms.openlocfilehash: efbe8bc24b430716da46601ed073300e4c79cca7
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91743719"
 ---
 # <a name="performance-tiers-for-managed-disks-preview"></a>Níveis de desempenho para discos gerenciados (versão prévia)
@@ -20,7 +20,7 @@ ms.locfileid: "91743719"
 O Armazenamento em Disco do Azure atualmente oferece recursos internos de intermitência para fornecer um desempenho mais alto para o tratamento de tráfego inesperado de curto prazo. O SSDs Premium tem a flexibilidade para aumentar o desempenho do disco sem aumentar o tamanho real do disco. Esse recurso permite que você corresponda às necessidades de desempenho da carga de trabalho e reduza os custos. 
 
 > [!NOTE]
-> Esse recurso atualmente está em versão prévia. 
+> Esse recurso está atualmente na visualização. 
 
 Esse recurso é ideal para eventos que exigem temporariamente um nível de desempenho consistentemente mais alto, como compras de feriados, testes de desempenho ou execução de um ambiente de treinamento. Para lidar com esses eventos, você pode usar um nível de desempenho mais alto pelo tempo necessário. Em seguida, você pode retornar à camada original quando não precisar mais do desempenho adicional.
 

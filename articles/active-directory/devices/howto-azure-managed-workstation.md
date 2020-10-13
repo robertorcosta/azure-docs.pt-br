@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 841bc3ae4fbddb376ea4da8141bf4df3f895c4dc
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89269549"
 ---
 # <a name="deploy-a-secure-azure-managed-workstation"></a>Implantar uma estação de trabalho segura e gerenciada pelo Azure
@@ -29,7 +29,7 @@ Selecione um perfil antes de implantar a solução. Você pode usar vários perf
 > [!NOTE]
 > Aplique qualquer um dos perfis conforme necessário por seus requisitos. Você pode mover para outro perfil atribuindo-o em Microsoft Intune.
 
-| Perfil | Baixo | Avançado | Alto | Especializada | Protegido | Isolado |
+| Perfil | Baixo | Avançado | Alta | Especializada | Protegido | Isolado |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Usuário no Azure AD | Sim | Sim | Sim | Sim | Sim | Sim |
 | Gerenciado pelo Intune | Sim | Sim | Sim | Sim | Sim | Sim |
@@ -117,7 +117,7 @@ Para reforçar ainda mais o processo de unir dispositivos ao Azure AD:
 
 1. Vá para **Azure Active Directory** > **Dispositivos** > **Configurações do dispositivo**.
 1. Selecione **Sim** em **exigir autenticação multifator para ingressar em dispositivos**.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 #### <a name="configure-mobile-device-management"></a>Configurar o gerenciamento de dispositivos móveis
 
@@ -125,11 +125,11 @@ No Portal do Azure:
 
 1. Navegue até **Azure Active Directory**  >  **mobilidade (MDM e MAM)**  >  **Microsoft Intune**.
 1. Altere a configuração de **escopo do usuário do MDM** para **All**.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 Essas etapas permitem que você gerencie qualquer dispositivo com o Intune. Para obter mais informações, consulte [início rápido do Intune: configurar o registro automático para dispositivos Windows 10](/Intune/quickstart-setup-auto-enrollment). Você cria políticas de conformidade e configuração do Intune em uma etapa futura.
 
-#### <a name="azure-ad-conditional-access"></a>Acesso condicional do Azure AD
+#### <a name="azure-ad-conditional-access"></a>Acesso Condicional do Azure AD
 
 O acesso condicional do Azure AD pode ajudar a restringir tarefas administrativas privilegiadas a dispositivos em conformidade. Membros predefinidos do grupo de **usuários de estação de trabalho segura** são necessários para executar a autenticação multifator ao entrar em aplicativos de nuvem. Uma prática recomendada é excluir contas de acesso de emergência da política. Para obter mais informações, consulte [gerenciar contas de acesso de emergência no Azure ad](../users-groups-roles/directory-emergency-access.md).
 
@@ -183,7 +183,7 @@ Manter o Windows 10 atualizado é uma das coisas mais importantes que você pode
 
 Esta orientação recomenda que você crie um novo anel de atualização e altere as seguintes configurações padrão:
 
-No portal do Azure:
+No Portal do Azure:
 
 1. Vá para **Microsoft Intune**  >  **atualizações de software**os  >  **anéis de atualização do Windows 10**.
 1. Insira:
@@ -221,7 +221,7 @@ Para configurar a integração do Windows Defender ATP e do Intune, vá para o p
 
 1. Depois que uma conexão for estabelecida, retorne ao Intune e selecione **Atualizar** na parte superior.
 1. Defina **Conectar dispositivos Windows versão 10.0.15063 e superiores ao Windows Defender ATP** como **Ligado**.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 Para obter mais informações, consulte [Proteção Avançada contra Ameaças do Windows Defender](/Windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection).
 
@@ -345,7 +345,7 @@ O script [SetDesktopBackground.ps1](https://gallery.technet.microsoft.com/script
 1. Selecione **Criar**.
 1. Selecione **atribuições**  >  **Selecionar grupos**.
    1. Adicione as estações de **trabalho seguras**do grupo de segurança.
-   1. Clique em **Salvar**.
+   1. Selecione **Salvar**.
 
 ## <a name="enroll-and-validate-your-first-device"></a>Registrar e validar seu primeiro dispositivo
 
@@ -432,7 +432,7 @@ Implantar o agente MMA com o script do Intune PowerShell
 1. Selecione **Criar**.
 1. Selecione **atribuições**  >  **Selecionar grupos**.
    1. Adicione as estações de **trabalho seguras**do grupo de segurança.
-   1. Clique em **Salvar**.
+   1. Selecione **Salvar**.
 
 Em seguida, você deve configurar Log Analytics para receber os novos logs
 1. Na **portal do Azure**, vá para **log Analytics espaço de trabalho** > selecione-' monitoramento de estação de trabalho segura '

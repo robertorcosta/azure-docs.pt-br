@@ -10,10 +10,10 @@ ms.author: rolyon
 ms.date: 09/22/2020
 ms.custom: generated
 ms.openlocfilehash: f5d5b4f801dd406518a6ba516bf2e38e01cb96ac
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91275261"
 ---
 # <a name="azure-built-in-roles"></a>Funções internas do Azure
@@ -24,7 +24,7 @@ Este artigo lista as funções internas do Azure, que estão sempre em evoluçã
 
 A tabela a seguir fornece uma breve descrição e a ID exclusiva de cada função interna. Clique no nome de função para ver a lista de `Actions`, `NotActions`, `DataActions` e `NotDataActions` para cada função. Para obter informações sobre o que essas ações significam e como elas se aplicam aos planos de gerenciamento e de dados, consulte [Entender as definições de função do Azure](role-definitions.md).
 
-## <a name="all"></a>Tudo
+## <a name="all"></a>Todos
 
 > [!div class="mx-tableFixed"]
 > | Função interna | Descrição | ID |
@@ -113,8 +113,8 @@ A tabela a seguir fornece uma breve descrição e a ID exclusiva de cada funçã
 > | [Colaborador dos serviços de domínio do HDInsight](#hdinsight-domain-services-contributor) | Pode ler, criar, modificar e excluir operações relacionadas aos serviços de domínio necessárias para o Enterprise Security Package do HDInsight | 8d8d5a11-05d3-4bda-a417-a08778121c7c |
 > | [Colaborador do Log Analytics](#log-analytics-contributor) | O Colaborador do Log Analytics pode ler todos os dados de monitoramento e editar as configurações de monitoramento. A edição das configurações de monitoramento inclui a adição da extensão da VM às VMs, leitura das chaves da conta de armazenamento para poder configurar a coleção de logs do Armazenamento do Microsoft Azure, criação e configuração de contas de Automação, adição de soluções e configuração do diagnóstico do Azure em todos os recursos do Azure. | 92aaf0da-9dab-42b6-94a3-d43ce8d16293 |
 > | [Leitor do Log Analytics](#log-analytics-reader) | Um Leitor do Log Analytics pode exibir e pesquisar todos os dados de monitoramento além de exibir as configurações de monitoramento, incluindo a exibição da configuração do diagnóstico do Azure em todos os recursos do Azure. | 73c42c96-874c-492b-b04d-ab87d138a893 |
-> | [Colaborador do registro de esquema (versão prévia)](#schema-registry-contributor-preview) | Ler, gravar e excluir esquemas e grupos de registro de esquema. | 5dffeca3-4936-4216-b2bc-10343a5abb25 |
-> | [Leitor de registro de esquema (versão prévia)](#schema-registry-reader-preview) | Ler e listar os esquemas e grupos de registro de esquema. | 2c56ea50-c6b3-40a6-83c0-9d98858bc7d2 |
+> | [Colaborador do Registro de Esquema (Versão Prévia)](#schema-registry-contributor-preview) | Ler, gravar e excluir grupos e esquemas do Registro de Esquema. | 5dffeca3-4936-4216-b2bc-10343a5abb25 |
+> | [Leitor do Registro de Esquema (Versão Prévia)](#schema-registry-reader-preview) | Ler e listar os grupos e os esquemas do Registro de Esquema. | 2c56ea50-c6b3-40a6-83c0-9d98858bc7d2 |
 > | **Blockchain** |  |  |
 > | [Acesso ao nó de membro Blockchain (versão prévia)](#blockchain-member-node-access-preview) | Permite acesso a nós de Membro do Blockchain | 31a002a1-acaf-453e-8a5b-297c9ca1ea24 |
 > | **IA + aprendizado de máquina** |  |  |
@@ -4520,9 +4520,9 @@ Um Leitor do Log Analytics pode exibir e pesquisar todos os dados de monitoramen
 }
 ```
 
-### <a name="schema-registry-contributor-preview"></a>Colaborador do registro de esquema (versão prévia)
+### <a name="schema-registry-contributor-preview"></a>Colaborador do Registro de Esquema (Versão Prévia)
 
-Ler, gravar e excluir esquemas e grupos de registro de esquema.
+Ler, gravar e excluir grupos e esquemas do Registro de Esquema.
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -4561,9 +4561,9 @@ Ler, gravar e excluir esquemas e grupos de registro de esquema.
 }
 ```
 
-### <a name="schema-registry-reader-preview"></a>Leitor de registro de esquema (versão prévia)
+### <a name="schema-registry-reader-preview"></a>Leitor do Registro de Esquema (Versão Prévia)
 
-Ler e listar os esquemas e grupos de registro de esquema.
+Ler e listar os grupos e os esquemas do Registro de Esquema.
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
