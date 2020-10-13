@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 11/15/2019
 ms.author: kumud
 ms.openlocfilehash: 61617777efa8241c93b2b5ffe42fc1d914b6ebcf
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91531863"
 ---
 # <a name="virtual-network-peering"></a>Emparelhamento de rede virtual
@@ -110,7 +110,7 @@ O tráfego de gateway é uma propriedade de emparelhamento que permite que uma r
 
 * Você pode criar um emparelhamento entre duas redes virtuais. As redes podem pertencer à mesma assinatura, a modelos de implantação diferentes na mesma assinatura ou a assinaturas diferentes. Conclua um tutorial para um dos seguintes cenários:
 
-    |Modelo de implantação do Azure             | Assinatura  |
+    |Modelo de implantação do Azure             | Subscription  |
     |---------                          |---------|
     |Ambos Resource Manager              |[Idêntico](tutorial-connect-virtual-networks-portal.md)|
     |                                   |[Diferente](create-peering-different-subscriptions.md)|

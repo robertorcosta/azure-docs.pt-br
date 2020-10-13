@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 07/13/2020
 ms.author: terrylan
 ms.openlocfilehash: 3dd209d90947ebef7eb7b074992a55305005e7bb
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91399526"
 ---
 # <a name="azure-security-technical-capabilities"></a>Funcionalidades técnicas de segurança do Azure
@@ -78,7 +78,7 @@ A seguir estão os principais recursos de gerenciamento de identidade do Azure:
 
 - Privileged Identity Management
 
-- Identity Protection
+- Proteção de identidade
 
 #### <a name="single-sign-on"></a>Logon único
 
@@ -140,7 +140,7 @@ O Gerenciamento de identidades com privilégios do AD do Azure:
 
 - Receber alertas sobre o acesso a uma função com privilégios
 
-#### <a name="identity-protection"></a>Identity Protection
+#### <a name="identity-protection"></a>Proteção de identidade
 
 [Azure ad Identity Protection](../../active-directory/identity-protection/overview.md) é um serviço de segurança que fornece uma visão consolidada das detecções de risco e das possíveis vulnerabilidades que afetam as identidades da sua organização. A proteção de identidade usa os recursos de detecção de anomalias de Azure Active Directory existentes (disponíveis por meio dos relatórios de atividade anômala do Azure AD) e introduz novos tipos de detecção de riscos que podem detectar anomalias em tempo real.
 
@@ -167,7 +167,7 @@ Uma das chaves de proteção de dados na nuvem é responsável por possíveis es
 - Em repouso: isso inclui todos os objetos de armazenamento, contêineres e tipos de informações que existem estaticamente em mídia física, seja ela magnética ou disco óptico.
 - Em trânsito: quando os dados são transferidos entre componentes, locais ou programas, como pela rede, em um barramento de serviço (do local para a nuvem e vice-versa, incluindo conexões híbridas, como o ExpressRoute), ou durante um processo de entrada/saída, ele é considerado em movimento.
 
-### <a name="encryption-at-rest"></a>Criptografia em repouso
+### <a name="encryption-at-rest"></a>Criptografar em repouso
 
 A criptografia em repouso é discutida em detalhes na [criptografia de dados do Azure em repouso](encryption-atrest.md).
 

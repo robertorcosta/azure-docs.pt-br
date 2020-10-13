@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 11/14/2019
 ms.author: absha
 ms.openlocfilehash: 02d1d78dae4f02ac53d535f6c404b15f8d98f008
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90563736"
 ---
 # <a name="troubleshoot-azure-application-gateway-session-affinity-issues"></a>Solucionar problemas de afinidade de sessão de gateway Aplicativo Azure
@@ -195,7 +195,7 @@ Use o depurador da Web de sua escolha. Neste exemplo, usaremos o Fiddler para ca
    > [!NOTE]
    > Esse valor de ARRAffinity é o cookie-ID, que o gateway de aplicativo define para que o cliente seja enviado para um servidor de back-end específico.
 
-   ![Captura de tela mostra um exemplo de detalhes de uma entrada de log com o valor Set-cookie realçado.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-17.png)
+   ![Captura de tela mostra um exemplo de detalhes de uma entrada de log com o valor Set-Cookie realçado.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-17.png)
 
 - **Exemplo B:** O próximo log de sessão seguido pelo anterior é o cliente que responde de volta ao gateway de aplicativo, que definiu o ARRAAFFINITY. Se o ARRAffinity cookie-id corresponder, o pacote deverá ser enviado para o mesmo servidor back-end que foi usado anteriormente. Verifique as próximas várias linhas da comunicação http para ver se o cookie ARRAffinity do cliente está sendo alterado.
 

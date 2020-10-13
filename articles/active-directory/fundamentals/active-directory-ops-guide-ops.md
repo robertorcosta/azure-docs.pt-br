@@ -12,10 +12,10 @@ ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
 ms.openlocfilehash: 921a56dca8f1cda67e6f32458914fef4ac2d324c
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90601294"
 ---
 # <a name="azure-active-directory-general-operations-guide-reference"></a>Referência geral do guia de operações do Azure Active Directory
@@ -156,7 +156,7 @@ Consulte a tabela a seguir para saber o tipo de notificações que são enviadas
 
 Organizações, que configuram aplicativos para autenticar diretamente no Azure AD se beneficiam do [bloqueio inteligente do Azure ad](../authentication/concept-sspr-howitworks.md). Se você usar AD FS no Windows Server 2012 R2, implemente AD FS [proteção contra bloqueio de extranet](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection). Se você usar AD FS no Windows Server 2016 ou posterior, implemente o [bloqueio inteligente da extranet](https://support.microsoft.com/help/4096478/extranet-smart-lockout-feature-in-windows-server-2016). No mínimo, recomendamos que você habilite o bloqueio de extranet para conter o risco de ataques de força bruta contra Active Directory locais. No entanto, se você tiver AD FS no Windows 2016 ou superior, habilite também o bloqueio inteligente de extranet que ajudará a reduzir os ataques de [irrigação de senha](https://www.microsoft.com/microsoft-365/blog/2018/03/05/azure-ad-and-adfs-best-practices-defending-against-password-spray-attacks/) .
 
-Se AD FS for usado somente para a Federação do Azure AD, há alguns pontos de extremidade que podem ser desativados para minimizar a área da superfície de ataque. Por exemplo, se AD FS for usado somente para o Azure AD, você deverá desabilitar pontos de extremidade WS-Trust diferentes dos pontos de extremidade habilitados para **usernamemixed** e **windowstransport**.
+Se AD FS for usado somente para a Federação do Azure AD, há alguns pontos de extremidade que podem ser desativados para minimizar a área da superfície de ataque. Por exemplo, se AD FS for usado somente para o Azure AD, você deverá desabilitar WS-Trust pontos de extremidade diferentes dos pontos de extremidade habilitados para **usernamemixed** e **windowstransport**.
 
 ### <a name="access-to-machines-with-on-premises-identity-components"></a>Acesso a computadores com componentes de identidade local
 

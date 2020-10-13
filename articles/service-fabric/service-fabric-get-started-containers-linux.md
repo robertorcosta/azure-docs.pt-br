@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 1/4/2019
 ms.custom: devx-track-python
 ms.openlocfilehash: b9e22ada3da572d5025f56fca824089bb6e20465
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90563702"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Criar seu primeiro aplicativo de contêiner do Service Fabric no Linux
@@ -266,7 +266,7 @@ Conectar-se ao contêiner em execução. Abra um navegador da Web apontando para
 ![Olá, Mundo!][hello-world]
 
 
-## <a name="clean-up"></a>Limpar
+## <a name="clean-up"></a>Limpeza
 Use o script de desinstalação fornecido com o modelo para excluir a instância do aplicativo no cluster de desenvolvimento local e cancelar o registro do tipo de aplicativo.
 
 ```bash
@@ -373,7 +373,7 @@ Aqui estão os manifestos de aplicativo e serviço completos usados neste artigo
 Para adicionar outro serviço de contêiner a um aplicativo já criado usando o yeoman, execute as seguintes etapas:
 
 1. Altere o diretório para a raiz do aplicativo existente. Por exemplo, `cd ~/YeomanSamples/MyApplication`, se `MyApplication` é o aplicativo criado pelo Yeoman.
-2. Execute `yo azuresfcontainer:AddService`
+2. Executar `yo azuresfcontainer:AddService`
 
 <a id="manually"></a>
 

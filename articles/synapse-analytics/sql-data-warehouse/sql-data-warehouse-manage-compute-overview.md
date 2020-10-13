@@ -12,10 +12,10 @@ ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: 90815d52e6884efe6cff9a7860c093b4b5c1bc94
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85204534"
 ---
 # <a name="manage-compute-in-azure-synapse-analytics-data-warehouse"></a>Gerenciar a computação no Azure Synapse Analytics data warehouse
@@ -24,11 +24,11 @@ Saiba como gerenciar recursos de computação no pool do SQL do Azure Synapse An
 
 ## <a name="what-is-compute-management"></a>O que é o gerenciamento de computação?
 
-A arquitetura do data warehouse separa o armazenamento e a computação, permitindo que cada um escale de forma independente. Como resultado, é possível dimensionar o cálculo para atender às demandas de desempenho independentes do armazenamento de dados. Além disso, você também pode pausar e retomar os recursos de computação. Uma consequência natural dessa arquitetura é que a [cobrança](https://azure.microsoft.com/pricing/details/sql-data-warehouse/) pela computação e pelo armazenamento é separada. Se não for necessário usar o data warehouse por um tempo, você poderá economizar os custos de computação, pausando a computação.
+A arquitetura do data warehouse separa o armazenamento e a computação, permitindo que cada um escale de forma independente. Como resultado, é possível dimensionar o cálculo para atender às demandas de desempenho independentes do armazenamento de dados. Além disso, você também pode pausar e retomar os recursos de computação. Uma consequência natural dessa arquitetura é que a [cobrança](https://azure.microsoft.com/pricing/details/sql-data-warehouse/) pela computação e pelo armazenamento é separada. Se não for necessário usar o data warehouse por um tempo, você poderá economizar os custos de computação pausando a computação.
 
 ## <a name="scaling-compute"></a>Dimensionar computação
 
-Você pode escalar horizontalmente ou dimensionar a computação de volta ajustando a configuração de [unidades de data warehouse](what-is-a-data-warehouse-unit-dwu-cdwu.md) para seu pool do SQL. O desempenho de consultas e carregamento pode aumentar linearmente na medida em que você adicionar mais unidades de data warehouse.
+Você pode escalar horizontalmente ou dimensionar a computação de volta ajustando a configuração de [unidades de data warehouse](what-is-a-data-warehouse-unit-dwu-cdwu.md) para seu pool do SQL. O desempenho de consultas e do carregamento pode aumentar linearmente à medida que você adiciona mais unidades de data warehouse.
 
 Para etapas de escala horizontal, consulte os inícios rápidos do [Portal do Azure](quickstart-scale-compute-portal.md), [PowerShell](quickstart-scale-compute-powershell.md) ou [T-SQL](quickstart-scale-compute-tsql.md). Também é possível executar operações de escala horizontal com uma [API REST](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
 
@@ -36,7 +36,7 @@ Para executar uma operação de dimensionamento, o pool do SQL primeiro interrom
 
 A tabela a seguir mostra como o número de distribuições por nó de Computação altera na medida em que as unidades do data warehouse mudam.  O DW30000c fornece 60 nós de computação e Obtém um desempenho de consulta muito maior do que o DW100c.
 
-| Unidades de data warehouse  | \#de nós de computação | \# de distribuições por nó |
+| Unidades de data warehouse  | \# de nós de computação | \# de distribuições por nó |
 | -------- | ---------------- | -------------------------- |
 | DW100c   | 1                | 60                         |
 | DW200c   | 1                | 60                         |

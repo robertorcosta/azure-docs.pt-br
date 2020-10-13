@@ -4,10 +4,10 @@ description: Este artigo fornece uma visão geral detalhada do agente de servido
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.openlocfilehash: 20f56745127a5182a5dfa057a4496b127d78eac7
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91822196"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Visão geral do agente de servidores habilitados para Arc do Azure
@@ -23,7 +23,7 @@ O pacote do agente do computador conectado do Azure contém vários componentes 
 
 * O serviço de metadados de instância híbrida (HIMDS) gerencia a conexão com o Azure e a identidade do Azure do computador conectado.
 
-* O agente de configuração de convidado fornece a funcionalidade de configuração de convidado e política de convidado, como avaliar se o computador está em conformidade com as políticas necessárias.
+* O agente de configuração de convidado fornece In-Guest funcionalidade de configuração de convidado e política, como avaliar se o computador está em conformidade com as políticas necessárias.
 
     Observe o seguinte comportamento com Azure Policy [configuração de convidado](../../governance/policy/concepts/guest-configuration.md) para um computador desconectado:
 
@@ -173,7 +173,7 @@ Após a instalação do agente do Connected Machine para Windows, serão aplicad
     |Nome do serviço |Nome de exibição |Nome do processo |Descrição |
     |-------------|-------------|-------------|------------|
     |himds |Serviço de Metadados de Instância do Azure Híbrido |himds.exe |Esse serviço implementa o serviço de metadados de instância do Azure (IMDS) para gerenciar a conexão com o Azure e a identidade do Azure do computador conectado.|
-    |DscService |Serviço de Configuração de Convidado |dsc_service.exe |A base de código de configuração de estado desejado (DSC v2) usada no Azure para implementar a política no convidado.|
+    |DscService |Serviço de Configuração de Convidado |dsc_service.exe |A base de código de configuração de estado desejado (DSC v2) usada dentro do Azure para implementar In-Guest política.|
 
 * As variáveis ambientais a seguir são criadas durante a instalação do agente.
 

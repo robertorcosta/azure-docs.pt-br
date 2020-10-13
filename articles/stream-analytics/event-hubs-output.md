@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.openlocfilehash: 86a6c1a15d804a6c758e90dbd4bdd7057a7a2716
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91295253"
 ---
 # <a name="event-hubs-output-from-azure-stream-analytics"></a>Saída dos hubs de eventos de Azure Stream Analytics
@@ -62,7 +62,7 @@ No exemplo a seguir, os campos `DeviceId` e `DeviceStatus` são adicionados aos 
 
 A imagem a seguir é das propriedades de mensagem de saída esperadas inspecionadas no EventHub usando o [Gerenciador do barramento de serviço](https://github.com/paolosalvatori/ServiceBusExplorer).
 
-:::image type="content" source="media/event-hubs-output/custom-properties.png" alt-text="Propriedades personalizadas do evento":::
+:::image type="content" source="media/event-hubs-output/custom-properties.png" alt-text="Colunas da propriedade":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

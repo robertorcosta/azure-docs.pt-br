@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 07/05/2019
 ms.author: juliako
 ms.openlocfilehash: 167028cda6962445373b22c5f3d0a9e56c3e608a
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89255403"
 ---
 # <a name="manage-azure-media-services-v2-accounts"></a>Gerenciar contas do Azure Media Services v2
@@ -41,7 +41,7 @@ Os serviços de mídia v2 não dão suporte ao modelo de multilocação. Se voc�
 > [!IMPORTANT]
 > Não inicie o ponto de extremidade de streaming até que a movimentação seja concluída com êxito.
 
-### <a name="troubleshoot"></a>Solução de problemas
+### <a name="troubleshoot"></a>Solucionar problemas
 
 Se uma conta dos serviços de mídia ou uma conta de armazenamento do Azure associada se tornar "desconectada" após a movimentação do grupo de recursos, tente girar as chaves da conta de armazenamento. Se a rotação das chaves da conta de armazenamento não resolver o status "desconectado" da conta dos serviços de mídia, faça uma nova solicitação de suporte no menu "suporte + solução de problemas" na conta dos serviços de mídia.  
 

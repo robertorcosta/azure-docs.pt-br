@@ -12,10 +12,10 @@ ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 37df1a052a58271c239b8b3bcaa4808ab7c355f0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85204330"
 ---
 # <a name="json-claims-transformations"></a>Transformações de declarações JSON
@@ -58,8 +58,8 @@ O exemplo a seguir gera uma cadeia de caracteres JSON com base no valor de decla
 A transformação declarações a seguir gera uma declaração de cadeia de caracteres JSON que será o corpo da solicitação enviada para SendGrid (um provedor de email de terceiros). A estrutura do objeto JSON é definida pelas IDs na notação de ponto de InputParameters e TransformationClaimTypes do InputClaims. Os números na notação de ponto implicam matrizes. Os valores são provenientes dos valores de InputClaims e das propriedades de "valor" de InputParameters.
 
 - Declarações de entrada:
-  - **email**, personalizações de tipo de Declaração **de transformação. 0. para. 0. email**: " someone@example.com "
-  - **OTP**, as personalizações de tipo de declaração de transformação **. 0. dynamic_template_data. OTP** "346349"
+  - **email**, personalizações de tipo de Declaração  **de transformação. 0. para. 0. email**: " someone@example.com "
+  - **OTP**, tipo de declaração de transformação **personalizations.0.dynamic_template_data. OTP** "346349"
 - Parâmetro de entrada:
   - **template_id**: "d-4c56ffb40fa648b1aa6822283df94f60"
   - **de. email**: " service@contoso.com "
@@ -123,7 +123,7 @@ No exemplo a seguir, a transformação de declarações extraiu o elemento `emai
 - Parâmetro de entrada:
     - **claimToExtract**: emailAddress
 - Declarações de saída:
-  - **extractedClaim**:someone@example.com
+  - **extractedClaim**: someone@example.com
 
 
 ## <a name="getclaimsfromjsonarray"></a>GetClaimsFromJsonArray
@@ -283,7 +283,7 @@ No exemplo a seguir, a transformação de declarações extrai o primeiro elemen
 - Declarações de entrada:
   - **inputJsonClaim**: [" someone@example.com ", "alguém", 6353399]
 - Declarações de saída:
-  - **extractedClaim**:someone@example.com
+  - **extractedClaim**: someone@example.com
 
 ## <a name="xmlstringtojsonstring"></a>XmlStringToJsonString
 

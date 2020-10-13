@@ -12,10 +12,10 @@ ms.date: 12/14/2017
 ms.author: swmachan
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 16f639a2a263aee286cec8bb0827fa506b50e3df
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88921113"
 ---
 # <a name="how-to-use-the-transformtext-method"></a>Como usar o método TransformText
@@ -29,14 +29,14 @@ O método é um serviço RESTful usando GET via HTTP. Ele dá suporte a serializ
 
 ## <a name="parameters"></a>Parâmetros
 
-| Parâmetro | DESCRIÇÃO |
+| Parâmetro | Descrição |
 |:---|:---|
 | Cabeçalho de autorização | **Obrigatório** Cabeçalho HTTP usado para identificar o aplicativo. Usar chave: “Autorização” e valor “Portador” + “” + o token de acesso. Para obter detalhes, clique aqui.|
 | Linguagem | **Obrigatório** Uma cadeia de caracteres que representa o código do idioma. Esse parâmetro é suportado apenas em inglês com **en** como o nome do idioma.|
 | category | **Opcional** Uma cadeia de caracteres contendo a categoria ou domínio da tradução. Esse parâmetro oferece suporte apenas à opção padrão **general**.|
 | sentence | **Obrigatório** Uma frase que você deseja corrigir. |
 
-## <a name="return-value"></a>Retornar valor
+## <a name="return-value"></a>Valor retornado
 
 O valor retornado fornece a sentença transformada.
 

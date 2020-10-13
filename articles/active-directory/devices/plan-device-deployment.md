@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 60d3e3c174ad9a3372df084cac9eb67270779298
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90563889"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Planejar a implantação do dispositivo Azure Active Directory
@@ -34,11 +34,11 @@ Há vários métodos para integrar seus dispositivos ao Azure AD:
 
 * [Crie uma junção híbrida do Azure ad](concept-azure-ad-join-hybrid.md) entre dispositivos no seu local Active Directory e no Azure AD. 
 
-## <a name="learn"></a>Learn
+## <a name="learn"></a>Saiba mais
 
 Antes de começar, verifique se você está familiarizado com a [visão geral do gerenciamento de identidade do dispositivo](overview.md).
 
-### <a name="benefits"></a>Benefícios
+### <a name="benefits"></a>Vantagens
 
 Os principais benefícios de fornecer a seus dispositivos uma identidade do Azure AD:
 
@@ -112,7 +112,7 @@ dispositivos iOS e Android só podem ser registrados no AD do Azure. A tabela a 
 | Senha| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png)| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png)| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png) |
 | PIN do dispositivo| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png)| |  |
 | Windows Hello| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png)| |  |
-| Windows Hello for Business| | ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png)| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png) |
+| Windows Hello para Empresas| | ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png)| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png) |
 | Chaves de segurança do FIDO 2,0| | ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png)| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png) |
 | Microsoft Authenticator aplicativo (com senha)| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png)| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png)| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png) |
 |**Principais funcionalidades**| | |  |
@@ -179,7 +179,7 @@ Escolha seu procedimento de implantação após [uma comparação](azureadjoin-p
 
 Você pode determinar que o ingresso no Azure AD é a melhor solução para um dispositivo e que o dispositivo pode já estar em Estados diferentes. Aqui estão as considerações de atualização.
 
-| Estado atual do dispositivo| Estado do dispositivo desejado| Instruções |
+| Estado atual do dispositivo| Estado do dispositivo desejado| Como fazer |
 | - | - | - |
 | Ingressado no domínio local| Ingresso no AD do Azure| Desassociar o dispositivo do domínio local antes de ingressar no Azure AD |
 | Ingresso híbrido no Azure AD| Ingresso no AD do Azure| Desassociar o dispositivo do domínio local e do Azure AD antes de ingressar no Azure AD |
@@ -213,7 +213,7 @@ Se a instalação da versão necessária do Azure AD Connect não for uma opçã
 
 Você pode determinar que o ingresso do Azure AD híbrido é a melhor solução para um dispositivo e que o dispositivo pode já estar em um estado diferente. Aqui estão as considerações de atualização.
 
-| Estado atual do dispositivo| Estado do dispositivo desejado| Instruções |
+| Estado atual do dispositivo| Estado do dispositivo desejado| Como fazer |
 | - | - | - |
 | Ingresso no domínio local| Ingresso híbrido no Azure AD| Usar o Azure AD Connect ou AD FS para ingressar no Azure |
 | Ingressado no grupo de trabalho local ou novo| Ingresso híbrido no Azure AD| Com suporte com o [Windows AutoPilot](/windows/deployment/windows-autopilot/windows-autopilot). Caso contrário, o dispositivo precisa ser ingressado no domínio local antes da junção híbrida do Azure AD |

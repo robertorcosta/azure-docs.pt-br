@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 7f6be959bf09cbe20bb37dfa3d17d64467758bd6
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91397888"
 ---
 # <a name="indexers-in-azure-cognitive-search"></a>Indexadores na Pesquisa Cognitiva do Azure
@@ -51,7 +51,7 @@ Armazenamentos de dados de rastreamento de indexadores no Azure.
 * [Armazenamento de Tabelas do Azure](search-howto-indexing-azure-tables.md)
 * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Banco de Dados SQL do Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Instância Gerenciada de SQL](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
+* [Instância Gerenciada do SQL](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
 * [SQL Server em máquinas virtuais do Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 
 ## <a name="indexer-stages"></a>Estágios do indexador
@@ -88,7 +88,7 @@ Assim como os mapeamentos de campo que associam valores textuais dos campos de o
 
 A imagem a seguir mostra uma representação de [sessão de depuração](cognitive-search-debug-session.md) do indexador de exemplo dos estágios do indexador: quebra de documento, mapeamentos de campo, execução de qualificações e mapeamentos de campo de saída.
 
-:::image type="content" source="media/search-indexer-overview/sample-debug-session.png" alt-text="sessão de depuração de exemplo" lightbox="media/search-indexer-overview/sample-debug-session.png":::
+:::image type="content" source="media/search-indexer-overview/sample-debug-session.png" alt-text="Estágios do indexador" lightbox="media/search-indexer-overview/sample-debug-session.png":::
 
 ## <a name="basic-configuration-steps"></a>Etapas da configuração básica
 

@@ -1,5 +1,5 @@
 ---
-title: incluir arquivo
+title: arquivo de inclusão
 description: incluir arquivo de texto para o contrato standard do Microsoft Commercial Marketplace
 documentationcenter: partner-center-commercial-marketplace
 ms.service: marketplace
@@ -10,10 +10,10 @@ ms.custom: include file
 author: mingshen-ms
 ms.author: mingshen
 ms.openlocfilehash: e1119cf5c40cdcb1fd598b85410ea9149a7cc146
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91401014"
 ---
 A Microsoft fornece um modelo de contrato padrão para o mercado comercial.

@@ -8,15 +8,15 @@ ms.topic: troubleshooting
 ms.workload: big-data
 ms.date: 10/10/2019
 ms.openlocfilehash: 39b4a3bc5e5f70a5699f4fd84ec86dc61cf21483
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87475253"
 ---
 # <a name="learn-how-to-troubleshoot-u-sql-runtime-failures-due-to-runtime-changes"></a>Saiba como solucionar falhas de tempo de execução do U-SQL devido a alterações no tempo de execução
 
-O tempo de execução do Azure Data Lake U-SQL, incluindo o compilador, o otimizador e o Gerenciador de trabalhos, é o que processa seu código U-SQL.
+O runtime U-SQL do Azure Data Lake, incluindo o compilador, o otimizador e o gerenciador de trabalhos, é o que processa seu código U-SQL.
 
 ## <a name="choosing-your-u-sql-runtime-version"></a>Escolhendo sua versão de tempo de execução do U-SQL
 
@@ -25,7 +25,7 @@ Quando você envia trabalhos do U-SQL do Visual Studio, do SDK do ADL ou do port
 Você também pode escolher uma versão de tempo de execução personalizada; Porque você deseja experimentar uma nova atualização, precisa permanecer em uma versão mais antiga de um tempo de execução ou ser fornecido com um hotfix para um problema relatado em que não é possível esperar pela nova atualização regular.
 
 > [!CAUTION]
-> Escolher um tempo de execução diferente do padrão tem o potencial de quebrar seus trabalhos do U-SQL. Use essas outras versões somente para teste.
+> A escolha de um runtime diferente do padrão apresenta o potencial de interromper seus trabalhos do U-SQL. Use essas outras versões somente para teste.
 
 Em casos raros, Suporte da Microsoft pode fixar uma versão diferente de um tempo de execução como o padrão para sua conta. Verifique se você reverta esse PIN assim que possível. Se você permanecer fixado a essa versão, ela expirará em alguma data posterior.
 
@@ -55,7 +55,7 @@ Há dois possíveis problemas de versão de tempo de execução que você pode e
 
 2. Você esteve usando um tempo de execução não padrão de forma explícita ou implícita quando foi fixado em sua conta e esse tempo de execução foi removido após algum tempo. Se você encontrar tempos de execução ausentes, atualize seus scripts para executar com o tempo de execução padrão atual. Se você precisar de mais tempo, entre em contato com Suporte da Microsoft
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Confira também
 
 - [Visão geral da Análise Azure Data Lake](data-lake-analytics-overview.md)
 - [Gerenciar Azure Data Lake Analytics usando portal do Azure](data-lake-analytics-manage-use-portal.md)

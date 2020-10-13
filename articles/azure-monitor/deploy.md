@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
 ms.openlocfilehash: 0a5c788b4429b5048a1b94fa8adfb2d9367982da
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90033465"
 ---
 # <a name="deploy-azure-monitor"></a>Implantar o Azure Monitor
@@ -168,7 +168,7 @@ As [pastas de trabalho](platform/workbooks-overview.md) no Azure monitor permite
 
 Consulte [Azure monitor pastas de trabalho](platform/workbooks-overview.md) para obter detalhes sobre como criar pastas de trabalho personalizadas.
 
-### <a name="create-dashboards"></a>Criar dashboards
+### <a name="create-dashboards"></a>Crie painéis
 Os [painéis do Azure](../azure-portal/azure-portal-dashboards.md) são a principal tecnologia de painel para o Azure e permitem que você combine Azure monitor dados com dados de outros serviços para fornecer um único painel de vidro em sua infraestrutura do Azure. Consulte [criar e compartilhar painéis de dados de log Analytics](learn/tutorial-logs-dashboards.md) para obter detalhes sobre como criar um painel que inclui dados de Logs de Azure monitor. 
 
 Consulte [criar painéis de KPI personalizados usando o aplicativo Azure insights](learn/tutorial-app-dashboards.md) para obter detalhes sobre como criar um painel que inclui dados de Application insights. 

@@ -9,10 +9,10 @@ ms.date: 10/30/2019
 ms.author: zivr
 ms.custom: include file
 ms.openlocfilehash: b5827d60b5968eb9f5e9e0a2ca5ec884366aea3d
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91377343"
 ---
 Colocar VMs em uma única região reduz a distância física entre as instâncias. Colocá-los em uma única zona de disponibilidade também os colocará fisicamente juntos. No entanto, à medida que a superfície do Azure cresce, uma única zona de disponibilidade pode abranger vários data centers físicos, o que pode resultar em uma latência de rede impactando seu aplicativo. 
@@ -58,7 +58,7 @@ Você pode fazer o seguinte para verificar o status de alinhamento de seus grupo
 
 - O status de colocação do grupo de posicionamento de proximidade pode ser exibido usando o portal, a CLI e o PowerShell.
 
-    -   Ao usar o PowerShell, o status de colocalização pode ser obtido usando o cmdlet Get-AzProximityPlacementGroup, incluindo o parâmetro opcional '-ColocationStatus '.
+    -   Ao usar o PowerShell, o status de colocalização pode ser obtido usando Get-AzProximityPlacementGroup cmdlet, incluindo o parâmetro opcional '-ColocationStatus '.
 
     -   Ao usar a CLI, o status de colocalização pode ser obtido usando `az ppg show` incluindo o parâmetro opcional '--include-outlocation-status '.
 

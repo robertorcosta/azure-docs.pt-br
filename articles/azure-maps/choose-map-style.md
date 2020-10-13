@@ -10,10 +10,10 @@ services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
 ms.openlocfilehash: e993e3086ac63a6e9d5b8372327e35016b36239f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91285155"
 ---
 # <a name="change-the-style-of-the-map"></a>Alterar o estilo do mapa
@@ -101,7 +101,7 @@ A imagem abaixo mostra o controle seletor de estilo exibido no `icon` layout.
 
 A imagem abaixo mostra o controle seletor de estilo exibido no `list` layout.
 
-:::image type="content" source="./media/choose-map-style/style-picker-list-layout.png" alt-text="Layout da lista do seletor de estilo":::
+:::image type="content" source="./media/choose-map-style/style-picker-list-layout.png" alt-text="Layout do ícone do seletor de estilo":::
 
 > [!IMPORTANT]
 > Por padrão, o controle seletor de estilo lista todos os estilos disponíveis no tipo de preço S0 dos mapas do Azure. Se você quiser reduzir o número de estilos nessa lista, passe uma matriz dos estilos que você deseja que apareça na lista na `mapStyle` opção do seletor de estilo. Se você estiver usando S1 e quiser mostrar todos os estilos disponíveis, defina a `mapStyles` opção do seletor de estilo como `"all"` .

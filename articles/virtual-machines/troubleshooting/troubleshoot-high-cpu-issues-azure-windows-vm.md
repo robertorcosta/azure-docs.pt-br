@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 9/24/2020
 ms.author: mnanda
 ms.openlocfilehash: 3bd19f301b1afd7dd1c35f03f6f6131a26b00708
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91596830"
 ---
 # <a name="troubleshoot-high-cpu-issues-for-azure-windows-virtual-machines"></a>Solucionar problemas de alta utilização de CPU para máquinas virtuais do Windows do Azure
@@ -35,7 +35,7 @@ Além dos problemas de latência de rede e e/s, a solução de problemas de CPU 
 
 A maioria das suas ferramentas de solução de problemas de desempenho existentes, como PerfMon ou Procmon, que são usadas para servidores locais funcionarão em VMs do Windows do Azure. No entanto, o PerfInsights é explicitamente projetado para VMs do Azure para fornecer mais informações, incluindo práticas recomendadas do Azure, práticas recomendadas de SQL, gráficos de latência de e/s de alta resolução, guias de CPU e memória e assim por diante.
 
-Quer seja executado como modo de usuário ou modo kernel, qualquer thread de um processo ativo requer ciclos de CPU para executar o código do qual ele foi criado. Muitos problemas estão diretamente relacionados à carga de trabalho. O tipo de carga de trabalho que existe no servidor orienta o consumo de recursos, incluindo a CPU.
+Independentemente de ser executado como User-Mode ou modo kernel, qualquer thread de um processo ativo requer ciclos de CPU para executar o código do qual ele foi criado. Muitos problemas estão diretamente relacionados à carga de trabalho. O tipo de carga de trabalho que existe no servidor orienta o consumo de recursos, incluindo a CPU.
 
 #### <a name="common-factors"></a>Fatores comuns
 
@@ -184,7 +184,7 @@ Se você expandir o evento de **conclusões** , verá vários detalhes important
 
 Há um subtab dedicado sob **CPU** que pode ser usado para análise de padrão detalhada, por núcleo ou por processo.
 
-A guia **principais consumidores de CPU** tem duas seções separadas de interesse e você pode exibir as estatísticas por processador aqui. O design do aplicativo é frequentemente um thread único ou se fixa em um único processador. Nesse cenário, um ou alguns núcleos são executados às 100 por cento, enquanto outros núcleos são executados nos níveis esperados. Esses cenários são mais complexos porque a média de CPU no servidor parece ser executada conforme o esperado, mas os processos que são fixados em núcleos com alto uso serão mais lentos do que o esperado.
+A guia **principais consumidores de CPU** tem duas seções separadas de interesse e você pode exibir as estatísticas por processador aqui. O design do aplicativo frequentemente é Single-Threaded ou se fixa a um único processador. Nesse cenário, um ou alguns núcleos são executados às 100 por cento, enquanto outros núcleos são executados nos níveis esperados. Esses cenários são mais complexos porque a média de CPU no servidor parece ser executada conforme o esperado, mas os processos que são fixados em núcleos com alto uso serão mais lentos do que o esperado.
 
   ![uso de alta utilização de CPU](./media/troubleshoot-high-cpu-issues-azure-windows-vm/9-high-cpu-usage.png)
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: aahi
 ms.openlocfilehash: dffd12f319bd2766decda5874299cd7115f0502b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91309193"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>Como usar Análise de Texto para integridade (versão prévia)
@@ -47,7 +47,7 @@ A extração de relações identifica conexões significativas entre os conceito
 > ![Renovar integridade](../media/ta-for-health/health-relation-extraction.png)
 
 
-#### <a name="entity-linking"></a>[Vinculação de Identidade](#tab/entity-linking)
+#### <a name="entity-linking"></a>[Vinculação de entidade](#tab/entity-linking)
 
 A vinculação de entidade ambiguidade entidades distintas associando entidades nomeadas mencionadas em texto a conceitos encontrados em um banco de dados predefinido de conceitos. Por exemplo, o sistema de idiomas médicos unificados (UMLS).
 
