@@ -6,10 +6,10 @@ services: container-service
 ms.topic: article
 ms.date: 08/17/2020
 ms.openlocfilehash: 42e9f2128063caa13cf3fca1a28ec7e6465ba74e
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88855687"
 ---
 # <a name="create-an-https-ingress-controller-and-use-your-own-tls-certificates-on-azure-kubernetes-service-aks"></a>Crie um controlador de ingresso HTTPS e use seus próprios certificados TLS no Serviço de Kubernetes do Azure (AKS)
@@ -305,7 +305,7 @@ $ curl -v -k --resolve demo.azure.com:443:EXTERNAL_IP https://demo.azure.com/hel
 [...]
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Este artigo usou o Helm para instalar os componentes de ingresso e os aplicativos de amostra. Quando você implanta um gráfico Helm, vários recursos do Kubernetes são criados. Esses recursos incluem pods, implantações e serviços. Para limpar esses recursos, você pode excluir o namespace de exemplo inteiro ou os recursos individuais.
 

@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.openlocfilehash: 10c7d4146d61f5b589b29bc8faad5fa8e60a293a
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88924020"
 ---
 # <a name="how-to-rebuild-an-index-in-azure-cognitive-search"></a>Como recriar um índice no Azure Pesquisa Cognitiva
@@ -37,7 +37,7 @@ Contanto que você não esteja alterando a estrutura do índice, você pode atua
 
 Remova e recrie um índice se qualquer uma das condições a seguir for verdadeira. 
 
-| Condição | DESCRIÇÃO |
+| Condição | Descrição |
 |-----------|-------------|
 | Alterar uma definição de campo | A revisão de um nome de campo, de um tipo de dados ou de [atributos de índice](/rest/api/searchservice/create-index) específicos (pesquisáveis, filtráveis, classificáveis, com faceta) exige uma recompilação completa. |
 | Atribuir um analisador a um campo | Os [analisadores](search-analyzers.md) são definidos em um índice e, em seguida, são atribuídos aos campos. É possível adicionar uma nova definição de analisador a um índice a qualquer momento, mas só é possível *atribuir* um analisador quando o campo é criado. Isso é verdadeiro para as propriedades **analyzer** e **indexAnalyzer**. A propriedade **searchAnalyzer** é uma exceção (é possível atribuir essa propriedade a um campo existente). |

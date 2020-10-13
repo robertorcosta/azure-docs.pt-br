@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: victorh
 ms.openlocfilehash: 5dc8bf670e14d8a44b10b8093d786091791ae793
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86186768"
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Criar uma investigação personalizada para o Gateway de Aplicativo usando o portal
 
 > [!div class="op_single_selector"]
-> * [Portal do Azure](application-gateway-create-probe-portal.md)
+> * [Azure portal](application-gateway-create-probe-portal.md)
 > * [PowerShell do Azure Resource Manager](application-gateway-create-probe-ps.md)
 > * [PowerShell clássico do Azure](application-gateway-create-probe-classic-ps.md)
 

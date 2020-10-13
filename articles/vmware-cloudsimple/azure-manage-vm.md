@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 82aa1ba6ec20e8242568a2725899ddc515a4dc0f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87082062"
 ---
 # <a name="manage-your-cloudsimple-private-cloud-virtual-machines-in-azure"></a>Gerenciar suas máquinas virtuais de nuvem privada do CloudSimple no Azure
@@ -28,8 +28,8 @@ Os seguintes controles estão disponíveis na página **visão geral** da máqui
 | Conectar | Conecte-se à VM especificada.  |
 | Iniciar | Inicie a VM especificada.  |
 | Reiniciar | Desligue e, em seguida, ligue a VM especificada.  |
-| Stop | Desligue a VM específica.  |
-| Captura | Capture uma imagem da VM especificada para que ela possa ser usada como uma imagem para criar outras VMs. Consulte [criar uma imagem gerenciada de uma VM generalizada no Azure](../virtual-machines/windows/capture-image-resource.md).   |
+| Parar | Desligue a VM específica.  |
+| Capturar | Capture uma imagem da VM especificada para que ela possa ser usada como uma imagem para criar outras VMs. Consulte [criar uma imagem gerenciada de uma VM generalizada no Azure](../virtual-machines/windows/capture-image-resource.md).   |
 | Mover | Mover para a VM especificada.  |
 | Excluir | Remova a VM especificada.  |
 | Atualizar | Atualize os dados na exibição.  |
@@ -49,14 +49,14 @@ Os gráficos a seguir são exibidos.
 
 ## <a name="manage-vm-disks"></a>Gerenciar discos de VM
 
-Para adicionar um disco de VM, abra a página **discos** da VM selecionada. Para adicionar um disco, clique em **adicionar disco**. Defina cada uma das configurações a seguir inserindo ou selecionando uma opção embutida. Clique em **Save** (Salvar).
+Para adicionar um disco de VM, abra a página **discos** da VM selecionada. Para adicionar um disco, clique em **adicionar disco**. Defina cada uma das configurações a seguir inserindo ou selecionando uma opção embutida. Clique em **Salvar**.
 
    | Item | Descrição |
    | ------------ | ------------- |
    | Nome | Insira um nome para identificar o disco.  |
    | Tamanho | Selecione um dos tamanhos disponíveis.  |
    | Controlador SCSI | Selecione um controlador SCSI. Os controladores disponíveis variam para os diferentes sistemas operacionais com suporte.  |
-   | Mode | Determina como o disco participa em instantâneos. Escolha uma destas opções: <br> – Persistente independente: todos os dados gravados no disco são gravados permanentemente.<br> -Independente, não persistente: as alterações gravadas no disco são descartadas quando você desliga ou redefine a máquina virtual.  Esse modo permite que você sempre reinicie a VM no mesmo estado. Saiba mais na [documentação da VMware](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html). |
+   | Modo | Determina como o disco participa em instantâneos. Escolha uma destas opções: <br> – Persistente independente: todos os dados gravados no disco são gravados permanentemente.<br> -Independente, não persistente: as alterações gravadas no disco são descartadas quando você desliga ou redefine a máquina virtual.  Esse modo permite que você sempre reinicie a VM no mesmo estado. Saiba mais na [documentação da VMware](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html). |
 
 Para excluir um disco, selecione-o e clique em **excluir**.
 
@@ -72,7 +72,7 @@ Para alterar a capacidade da VM, abra a página **tamanho** da VM selecionada. E
 
 ## <a name="manage-network-interfaces"></a>Gerenciar interfaces de rede
 
-Para adicionar uma interface, clique em **Adicionar interface de rede**. Defina cada uma das configurações a seguir inserindo ou selecionou uma opção embutida. Clique em **Save** (Salvar).
+Para adicionar uma interface, clique em **Adicionar interface de rede**. Defina cada uma das configurações a seguir inserindo ou selecionou uma opção embutida. Clique em **Salvar**.
 
    | Control | Descrição |
    | ------------ | ------------- |

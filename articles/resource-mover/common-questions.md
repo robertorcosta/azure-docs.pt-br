@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: raynew
 ms.openlocfilehash: 68e5f937b8ad8367abf488598bda311a39d462c6
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90600646"
 ---
 # <a name="common-questions"></a>Perguntas comuns
@@ -34,14 +34,14 @@ No momento, você pode mover recursos de qualquer região pública de origem par
 
 ### <a name="what-resources-can-i-move-across-regions-using-resource-mover"></a>Quais recursos posso mover entre regiões usando o Resource mover?
 
-Usando o Resource mover, atualmente, você pode mover os seguintes recursos entre regiões:
+Usando o Resource Mover, no momento, você pode mover os seguintes recursos entre regiões:
 
 - VMs do Azure e discos associados
 - NICs
 - Conjuntos de disponibilidade 
 - Redes virtuais do Azure 
 - Endereços IP públicos
-- NSGs (grupos de segurança de rede)
+- Grupos de segurança de rede (NSGs):
 - Balanceadores de carga internos e públicos 
 - Bancos de dados SQL do Azure e pools elásticos
 
@@ -71,12 +71,12 @@ A [identidade gerenciada](../active-directory/managed-identities-azure-resources
 
 ### <a name="what-managed-identity-permissions-does-resource-mover-need"></a>Para quais permissões de identidade gerenciada o movimentador de recursos precisa?
 
-A identidade gerenciada do Azure Resource mover precisa de pelo menos estas permissões: 
+A identidade gerenciada do Azure Resource Mover precisa de pelo menos estas permissões: 
 
 - Permissão para gravar/criar recursos na assinatura do usuário, disponível com a função *colaborador* . 
 - Permissão para criar atribuições de função. Normalmente, disponível com as funções de *administrador de acesso de usuário* ou *proprietário* , ou com uma função personalizada que tenha a *permissão Microsoft. Authorization/role assignments/Write* atribuída. Essa permissão não será necessária se a identidade gerenciada do recurso de compartilhamento de dados já tiver acesso concedido ao armazenamento de dados do Azure. 
  
-Quando você adiciona recursos no Hub do movimentador de recursos no portal, as permissões são manipuladas automaticamente, desde que o usuário tenha as permissões descritas acima. Se você adicionar recursos com o PowerShell, atribua permissões manualmente.
+Quando você adiciona recursos no hub do Resource Mover no portal, as permissões são tratadas automaticamente, desde que o usuário tenha as permissões descritas acima. Se você adicionar recursos com o PowerShell, atribua permissões manualmente.
 
 > [!IMPORTANT]
 > É altamente recomendável que você não modifique ou remova as atribuições de função de identidade. 
@@ -96,4 +96,4 @@ Altere as combinações de origem/destino conforme necessário usando a opção 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Saiba mais](about-move-process.md) sobre os componentes do Resource mover e o processo de movimentação.
+[Saiba mais](about-move-process.md) sobre os componentes do Resource Mover e sobre o processo de movimentação.

@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 05/08/2020
 ms.openlocfilehash: 0f17e489cabb047ca2e9f0ad7406c34cd292e556
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91309482"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glossário de noções básicas de linguagem de conceitos e vocabulário comuns
@@ -194,7 +194,7 @@ No LUIS, você [rotula](label-entity-example-utterance.md) uma palavra ou frase 
 
 Consulte a definição de [aplicativo (aplicativo)](#application-app).
 
-## <a name="model"></a>Modelo
+## <a name="model"></a>Modelar
 
 Um modelo (aprendido pelo computador) é uma função que faz uma previsão sobre os dados de entrada. Em LUIS, nos referimos aos classificadores de intenção e aos extratores de entidade genericamente como "modelos", e nos referimos a uma coleção de modelos treinados, publicados e consultados juntos como um "aplicativo".
 
@@ -287,7 +287,7 @@ Em LUIS [listar entidades](reference-entity-list.md), você pode criar um valor 
 |--|--|
 |Pequena| o pouco, 8 onças|
 |Médio| regular, 12 onças|
-|Grande| Big, 16 onças|
+|grande| Big, 16 onças|
 |Xtra grande| o maior, 24 onças|
 
 O modelo retornará o valor normalizado para a entidade quando qualquer um dos sinônimos for visto na entrada.

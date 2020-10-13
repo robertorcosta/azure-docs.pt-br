@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
 ms.openlocfilehash: 4498e78b408f64ab5bc00b9f8730559b90c95d57
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88817319"
 ---
 # <a name="use-the-azure-portal-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Use o portal do Azure para habilitar a criptografia de ponta a ponta usando a criptografia no host
@@ -63,7 +63,7 @@ Você deve implantar uma nova VM para habilitar a criptografia no host, ela não
 1. Na folha **discos** , selecione **Sim** para **criptografia no host**.
 1. Faça as seleções restantes como desejar.
 
-    :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-at-host-disk-blade.png" alt-text="Captura de tela da folha discos de criação de máquina virtual, a criptografia no host é realçada.":::
+    :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-at-host-disk-blade.png" alt-text="Captura de tela da folha noções básicas de criação de máquina virtual, região e tamanho de V M são realçados.":::
 
 1. Conclua o processo de implantação da VM, faça seleções que se ajustam ao seu ambiente.
 
