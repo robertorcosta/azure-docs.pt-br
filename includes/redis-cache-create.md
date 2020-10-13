@@ -2,26 +2,27 @@
 title: incluir arquivo
 description: incluir arquivo
 services: redis-cache
-author: wesmc7777
+author: curib
 ms.service: cache
 ms.topic: include
-ms.date: 11/05/2019
-ms.author: wesmc
+ms.date: 10/06/2020
+ms.author: cauribeg
 ms.custom: include file
-ms.openlocfilehash: e0557f8eb2fd120baeebee96acb4ef539344e3e7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ae9526a47a77118503274fc824538980ebcd50de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87528813"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91829230"
 ---
-1. Para criar um cache, entre no [portal do Azure](https://portal.azure.com) e selecione **Criar um recurso**. 
-   
-   ![Selecionar Criar um recurso](media/redis-cache-create/create-a-resource.png)
+1. Para criar um cache, entre no [portal do Azure](https://portal.azure.com) e selecione **Criar um recurso**.
+
+    :::image type="content" source="media/redis-cache-create/create-resource.png" alt-text="Selecionar o Cache do Azure para Redis.":::
+
    
 1. Na página **Novo**, selecione **Bancos de dados** e, em seguida, **Cache do Azure para Redis**.
-   
-   ![Selecionar Cache do Azure para Redis](media/redis-cache-create/redis-cache-new-cache-menu.png)
+
+    :::image type="content" source="media/redis-cache-create/select-cache.png" alt-text="Selecionar o Cache do Azure para Redis.":::
    
 1. Na página **Novo Cache Redis**, defina as configurações para o novo cache.
    
@@ -32,15 +33,23 @@ ms.locfileid: "87528813"
    | **Grupo de recursos** | Clique na lista suspensa e selecione um grupo de recursos ou selecione **Criar** e insira um novo nome de grupo de recursos. | Nome do grupo de recursos no qual o cache e outros recursos serão criados. Ao colocar todos os seus recursos de aplicativos em um só grupo de recursos, você pode gerenciá-los ou excluí-los juntos com facilidade. | 
    | **Localidade** | Clique na lista suspensa e selecione uma localização. | Selecione uma [região](https://azure.microsoft.com/regions/) perto de outros serviços que usarão o cache. |
    | **Tipo de preços** | Clique na lista suspensa e selecione um [Tipo de preço](https://azure.microsoft.com/pricing/details/cache/). |  O tipo de preço determina o tamanho, o desempenho e os recursos disponíveis para o cache. Para obter mais informações, confira [Visão geral do Cache do Azure para Redis](../articles/azure-cache-for-redis/cache-overview.md). |
-   
-1. Selecione **Criar**. 
-   
-   ![Criar um Cache Redis do Azure](media/redis-cache-create/redis-cache-cache-create.png) 
-   
-   > [!NOTE]
-   > Espera-se que o provisionamento do cache leve cerca de 15 a 20 minutos.   
-   
-   Monitore o progresso na página **Visão Geral** do Cache do Azure para Redis. Quando o **Status** for mostrado como **Em execução**, o cache estará pronto para uso.
-   
-   ![Cache Redis do Azure criado](media/redis-cache-create/redis-cache-cache-created.png)
 
+1. Selecione a guia **Rede** ou clique no botão **Rede** na parte inferior da página.
+
+1. Na guia **Rede**, escolha o método de conectividade.
+
+1. Selecione **Próximo: Avançado** ou clique no botão **Próximo: Avançado** na parte inferior da página.
+
+1. Na guia **Avançado** de uma instância de cache Básico ou Standard, selecione a alternância Habilitar se desejar habilitar uma porta não TLS.
+
+1. Na guia **Avançado** de uma instância de cache Premium, defina as configurações da porta não TLS, do clustering e da persistência de dados.
+
+1. Selecione **Próximo: Marcas** ou clique no botão **Próximo: Botão** Categorias na parte inferior da página.
+
+1. Opcionalmente, na guia **Marcas**, insira o nome e o valor caso deseje categorizar o recurso. 
+
+1. Selecione  **Analisar + criar**. Você será levado para a guia Examinar + criar, na qual o Azure validará a configuração.
+
+1. Depois que a mensagem em verde Validação aprovada for exibida, selecione **Criar**.
+
+A criação do cache demora um pouco. Monitore o progresso na página  **Visão Geral**  do Cache do Azure para Redis. Quando o  **Status**  for mostrado como  **Em execução**, o cache estará pronto para uso. 

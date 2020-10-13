@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 13c15eeb98b13d0fe9a5b7797ec942209d403cc6
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91447748"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-x509-certificates"></a>Criar e provisionar um dispositivo IoT Edge usando certificados X. 509
@@ -116,7 +116,7 @@ Para obter mais informações sobre registros no serviço de provisionamento de 
       }
       ```
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 Agora que um registro existe para esse dispositivo, o tempo de execução do IoT Edge pode provisionar automaticamente o dispositivo durante a instalação. Continue na seção [instalar o IOT Edge Runtime](#install-the-iot-edge-runtime) para configurar o dispositivo de IOT Edge.
 
@@ -142,7 +142,7 @@ Ao criar um grupo de registros, você tem a opção de usar um certificado verif
 
    Se você estiver usando os certificados de demonstração, carregue o `<wrkdir>/certs/azure-iot-test-only.root.ca.cert.pem` certificado.
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 1. O certificado agora deve estar listado na página **certificados** . Selecione-o para abrir os detalhes do certificado.
 
@@ -201,7 +201,7 @@ Para obter mais informações sobre registros no serviço de provisionamento de 
       }
       ```
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 Agora que um registro existe para esse dispositivo, o tempo de execução do IoT Edge pode provisionar automaticamente o dispositivo durante a instalação. Continue na próxima seção para configurar o dispositivo IoT Edge.
 

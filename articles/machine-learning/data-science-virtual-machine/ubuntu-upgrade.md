@@ -11,13 +11,13 @@ ms.author: samkemp
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.openlocfilehash: d57de4d52ccf3a029a8dd1350635fb65dd3ac829
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91828351"
 ---
-# <a name="upgrade-your-data-science-virtual-machine-to-ubuntu-1804"></a>Atualizar seu Máquina Virtual de Ciência de Dados para o Ubuntu 18, 4
+# <a name="upgrade-your-data-science-virtual-machine-to-ubuntu-1804"></a>Atualizar sua Máquina Virtual de Ciência de Dados para o Ubuntu 18.04
 
 Se você tiver um Máquina Virtual de Ciência de Dados executando uma versão mais antiga, como Ubuntu 16, 4 ou CentOS, você deve migrar o DSVM para o Ubuntu 18, 4. A migração garantirá que você obtenha os patches, Drivers, software pré-instalado e versões de biblioteca mais recentes do sistema operacional. Este documento explica como migrar de versões mais antigas do Ubuntu ou do CentOS. 
 

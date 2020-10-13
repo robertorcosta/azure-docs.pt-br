@@ -4,12 +4,12 @@ description: Obter a exibição de página e contagens de sessão, dados de clie
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 5a90f0b4223d69ccb6c4def871eb9d5bf5fbc2e8
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.openlocfilehash: b109aaea1ae5e751f40b55a3c703f0739661e10d
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91841434"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91876202"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas da Web
 
@@ -104,7 +104,7 @@ Cada opção de configuração é mostrada acima em uma nova linha, se você nã
 
 As opções de configuração disponíveis são 
 
-| Nome | Tipo | Descrição
+| Nome | Type | Descrição
 |------|------|----------------
 | src | Cadeia de caracteres **[obrigatório]** | A URL completa para onde carregar o SDK. Esse valor é usado para o atributo "src" de um &lt; script/marca dinamicamente adicionado &gt; . Você pode usar o local da CDN pública ou sua própria hospedada de forma privada.
 | name | Cadeia de caracteres *[opcional]* | O nome global do SDK inicializado, por padrão, é `appInsights` . Portanto, ```window.appInsights``` será uma referência à instância inicializada. Observação: se você fornecer um valor de nome ou uma instância anterior parece ser atribuída (por meio do nome global appInsightsSDK), esse valor de nome também será definido no namespace global como ```window.appInsightsSDK=<name value>``` , isso é exigido pelo código de inicialização do SDK para garantir que ele esteja inicializando e atualizando o esqueleto de trecho e os métodos de proxy corretos.
@@ -200,6 +200,41 @@ A maioria dos campos de configuração são nomeados de modo que eles podem ser 
 | ajaxPerfLookupDelay | 25 | O padrão é 25 MS. A quantidade de tempo de espera antes de tentar novamente localizar os intervalos do Windows. performance para uma `ajax` solicitação, o tempo é em milissegundos e é passado diretamente para setTimeout ().
 | enableUnhandledPromiseRejectionTracking | false | Se verdadeiro, as rejeições de promessa sem tratamento serão coletadas e relatadas como um erro de JavaScript. Quando disableExceptionTracking for true (não rastrear exceções), o valor de configuração será ignorado e as rejeições de promessa sem tratamento não serão relatadas.
 
+## <a name="enable-time-on-page-tracking"></a>Habilitar rastreamento de tempo na página
+
+Por configuração `autoTrackPageVisitTime: true` , o tempo que um usuário gasta em cada página é acompanhado. Em cada novo PageView, a duração que o usuário gastou na página *anterior* é enviada como uma [métrica personalizada](../platform/metrics-custom-overview.md) chamada `PageVisitTime` . Essa métrica personalizada é visível na [Metrics Explorer](../platform/metrics-getting-started.md) como uma "métrica baseada em log".
+
+## <a name="enable-correlation"></a>Habilitar correlação
+
+A correlação gera e envia dados que habilitam o rastreamento distribuído e alimentam o [mapa do aplicativo](../app/app-map.md), a exibição de [transação de ponta a ponta](../app/app-map.md#go-to-details)e outras ferramentas de diagnóstico.
+
+O exemplo a seguir mostra todas as configurações possíveis necessárias para habilitar a correlação, com observações específicas do cenário abaixo:
+
+```javascript
+// excerpt of the config section of the JavaScript SDK snippet with correlation
+// between client-side AJAX and server requests enabled.
+cfg: { // Application Insights Configuration
+    instrumentationKey: "YOUR_INSTRUMENTATION_KEY_GOES_HERE"
+    disableFetchTracking: false,
+    enableCorsCorrelation: true,
+    enableRequestHeaderTracking: true,
+    enableResponseHeaderTracking: true,
+    correlationHeaderExcludedDomains: ['myapp.azurewebsites.net', '*.queue.core.windows.net']
+    /* ...Other Configuration Options... */
+}});
+</script>
+
+``` 
+
+Se qualquer um dos servidores de terceiros aos quais o cliente se comunica não puder aceitar os `Request-Id` cabeçalhos e e `Request-Context` você não puder atualizar sua configuração, você precisará colocá-los em uma lista de exclusões por meio da `correlationHeaderExcludeDomains` propriedade de configuração. Esta propriedade dá suporte a curingas.
+
+O lado do servidor precisa ser capaz de aceitar conexões com esses cabeçalhos presentes. Dependendo da `Access-Control-Allow-Headers` configuração no lado do servidor, muitas vezes é necessário estender a lista do lado do servidor adicionando `Request-Id` e `Request-Context` .
+
+Acesso-controle-permitir-cabeçalhos: `Request-Id` , `Request-Context` , `<your header>`
+
+> [!NOTE]
+> Se você estiver usando o OpenTelemtry ou Application Insights SDKs lançados no 2020 ou posterior, é recomendável usar o [WC3 TraceContext](https://www.w3.org/TR/trace-context/). Consulte as diretrizes de configuração [aqui](../app/correlation.md#enable-w3c-distributed-tracing-support-for-web-apps).
+
 ## <a name="single-page-applications"></a>Aplicativos de página única
 
 Por padrão, esse SDK **não** tratará da alteração de rota baseada em estado que ocorre em aplicativos de página única. Para habilitar o controle de alterações de rota automático para seu aplicativo de página única, você pode adicionar `enableAutoRouteTracking: true` à sua configuração de instalação.
@@ -208,10 +243,6 @@ Atualmente, oferecemos um [plug-in reajam](javascript-react-plugin.md)separado, 
 > [!NOTE]
 > Use `enableAutoRouteTracking: true` somente se você **não** estiver usando o plug-in reagir. Ambos são capazes de enviar novos PageViews quando a rota é alterada. Se ambos estiverem habilitados, PageViews duplicados poderão ser enviados.
 
-## <a name="configuration-autotrackpagevisittime"></a>Configuração: autoTrackPageVisitTime
-
-Por configuração `autoTrackPageVisitTime: true` , o tempo que um usuário gasta em cada página é acompanhado. Em cada novo PageView, a duração que o usuário gastou na página *anterior* é enviada como uma [métrica personalizada](../platform/metrics-custom-overview.md) chamada `PageVisitTime` . Essa métrica personalizada é visível na [Metrics Explorer](../platform/metrics-getting-started.md) como uma "métrica baseada em log".
-
 ## <a name="extensions"></a>Extensões
 
 | Extensões |
@@ -219,38 +250,6 @@ Por configuração `autoTrackPageVisitTime: true` , o tempo que um usuário gast
 | [React](javascript-react-plugin.md)|
 | [React Native](javascript-react-native-plugin.md)|
 | [Angular](javascript-angular-plugin.md) |
-
-## <a name="correlation"></a>Correlação
-
-A correlação do cliente com o lado do servidor tem suporte para:
-
-- Solicitações XHR/AJAX 
-- Buscar solicitações 
-
-O cliente para correlação do lado do servidor **não tem suporte** para `GET` `POST` solicitações e.
-
-### <a name="enable-cross-component-correlation-between-client-ajax-and-server-requests"></a>Habilitar a correlação entre componentes entre o AJAX do cliente e as solicitações do servidor
-
-Para habilitar a `CORS` correlação, o cliente precisa enviar dois cabeçalhos de solicitação adicionais `Request-Id` e `Request-Context` o lado do servidor precisa ser capaz de aceitar conexões com esses cabeçalhos presentes. O envio desses cabeçalhos é habilitado pela configuração `enableCorsCorrelation: true` na configuração do SDK do JavaScript. 
-
-Dependendo da `Access-Control-Allow-Headers` configuração no lado do servidor, muitas vezes é necessário estender a lista do lado do servidor adicionando `Request-Id` e `Request-Context` .
-
-Acesso-controle-permitir-cabeçalhos: `Request-Id` , `Request-Context` , `<your header>`
-
-Se qualquer um dos servidores de terceiros aos quais o cliente se comunica não puder aceitar os `Request-Id` cabeçalhos e e `Request-Context` você não puder atualizar sua configuração, você precisará colocá-los em uma lista de exclusões por meio da `correlationHeaderExcludeDomains` propriedade de configuração. Esta propriedade dá suporte a curingas.
-
-```javascript
-// excerpt of the config section of the JavaScript SDK snippet with correlation
-// between client-side AJAX and server requests enabled.
-cfg: { // Application Insights Configuration
-    instrumentationKey: "YOUR_INSTRUMENTATION_KEY_GOES_HERE"
-    enableCorsCorrelation: true,
-    correlationHeaderExcludedDomains: ['myapp.azurewebsites.net', '*.queue.core.windows.net']
-    /* ...Other Configuration Options... */
-}});
-</script>
-
-``` 
 
 ## <a name="explore-browserclient-side-data"></a>Explorar dados do navegador/cliente
 

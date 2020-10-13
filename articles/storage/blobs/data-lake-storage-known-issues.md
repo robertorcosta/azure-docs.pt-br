@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/26/2020
+ms.date: 10/08/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: c1e9e3d63e8a4f7fe461e2d33603da91d3d9bec6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fee5427981cbd2c04a5ee88500a1aee77e2e5ffd
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91441779"
+ms.locfileid: "91876117"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemas conhecidos com o Azure Data Lake Storage Gen2 | Microsoft Docs
 
@@ -41,7 +41,7 @@ APIs de Blob e APIs do Data Lake Storage Gen2 podem operar nos mesmos dados.
 
 Esta seção descreve problemas e limitações com o uso de APIs de Blob e APIs do Data Lake Storage Gen2 para operar nos mesmos dados.
 
-* Você não pode usar as APIs de Blob e as APIs do Data Lake Storage para gravar na mesma instância de um arquivo. Se você gravar em um arquivo usando APIs Data Lake Storage Gen2, os blocos desse arquivo não estarão visíveis para chamadas para a API de Blob [Obter Lista de Blocos](https://docs.microsoft.com/rest/api/storageservices/get-block-list). Você pode substituir um arquivo usando as APIs do Data Lake Storage Gen2 ou as APIs de Blob. Isso não afetará as propriedades do arquivo.
+* Você não pode usar API e APIs de Data Lake Storage para gravar na mesma instância de um arquivo. Se você gravar em um arquivo usando APIs Data Lake Storage Gen2, os blocos desse arquivo não estarão visíveis para chamadas para a API de Blob [Obter Lista de Blocos](https://docs.microsoft.com/rest/api/storageservices/get-block-list). A única exceção é quando o uso de você está substituindo. Você pode substituir um arquivo/BLOB usando uma das APIs.
 
 * Quando você usar a operação [Listar Blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) sem especificar um delimitador, os resultados incluirão diretórios e blobs. Se você optar por usar um delimitador, use apenas uma barra (`/`). Esse é o único delimitador compatível.
 

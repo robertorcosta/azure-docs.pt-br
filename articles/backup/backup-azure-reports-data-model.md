@@ -4,10 +4,10 @@ description: Esse modelo de dados está em referência ao modo específico de re
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.openlocfilehash: c2c5d37596be104c4b1dc7e865586a4728a27bae
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91569600"
 ---
 # <a name="data-model-for-azure-backup-diagnostics-events"></a>Modelo de dados para eventos de diagnóstico de backup do Azure
@@ -86,7 +86,7 @@ Essa tabela fornece detalhes sobre campos relacionados ao alerta.
 | BackupManagementType           | Texto          | Tipo de provedor para o servidor executando o trabalho de backup, por exemplo, IaaSVM, fileFolder |
 | CountOfAlertsConsolidated      | Número        | Número de alertas consolidados se for um alerta consolidado  |
 | ProtectedContainerUniqueId     | Texto          | Identificador exclusivo do servidor protegido associado ao alerta |
-| Recomendado              | Texto          | Ação recomendada para resolver o alerta                      |
+| RecommendedAction              | Texto          | Ação recomendada para resolver o alerta                      |
 | schemaVersion                  | Texto          | Versão atual do esquema, por exemplo, **V2**            |
 | Estado                          | Texto          | Estado atual do objeto de alerta, por exemplo, Ativo, Excluído |
 | StorageUniqueId                | Texto          | ID exclusiva usada para identificar a entidade de armazenamento                |

@@ -10,15 +10,15 @@ ms.author: keli19
 ms.custom: seodec18, devx-track-csharp
 ms.date: 02/14/2019
 ms.openlocfilehash: 2f115313b17ed159973d2545b947e2ff031508eb
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91362326"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Treinar novamente e implantar um modelo de machine learning
 
-**aplica-se a:** ![ Aplica-se a. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) não ![ se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**APLICA-SE A:**  ![Aplica-se a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clássico) ![Não se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
 
 
 O novo treinamento é uma maneira de garantir que os modelos de machine learning fiquem precisos e baseados nos dados disponíveis mais relevantes. Este artigo mostra como treinar novamente e implantar um modelo de aprendizado de máquina como um novo serviço Web no Studio (clássico). Se você estiver buscando readaptar um serviço Web clássico, [exiba este artigo de instruções.](retrain-classic-web-service.md)

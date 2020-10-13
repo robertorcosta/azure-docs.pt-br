@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
 ms.openlocfilehash: eaa7efe761490a639acabd9fd6d91378e1259a67
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91779769"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -411,7 +411,7 @@ Posteriormente, você pode atualizar o modo de dimensionamento invocando o `upda
 view.updateScalingMode('Crop')
 ```
 
-## <a name="device-management"></a>Gerenciamento de dispositivos
+## <a name="device-management"></a>Gerenciamento de dispositivo
 
 `DeviceManager` permite que você enumere dispositivos locais que podem ser usados em uma chamada para transmitir seus fluxos de áudio/vídeo. Ele também permite solicitar permissão de um usuário para acessar o microfone e a câmera usando a API do navegador nativo.
 

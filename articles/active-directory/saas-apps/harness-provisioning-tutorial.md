@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 10/29/2019
 ms.author: Zhchia
 ms.openlocfilehash: b78de4769f49954c4d4e860e75818f6485247a17
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91305623"
 ---
 # <a name="tutorial-configure-harness-for-automatic-user-provisioning"></a>Tutorial: configurar o Harness para provisionamento automático de usuário
@@ -78,7 +78,7 @@ Antes de configurar e habilitar o provisionamento automático de usuário, decid
 
 Antes de configurar o Harness para o provisionamento automático de usuário com o Azure AD, você precisará adicionar o Harness da Galeria de aplicativos do Azure AD à sua lista de aplicativos SaaS gerenciados.
 
-1. No [portal do Azure](https://portal.azure.com), no painel esquerdo, selecione **Azure Active Directory**.
+1. No [Portal do Azure](https://portal.azure.com), no painel esquerdo, selecione **Azure Active Directory**.
 
     ![Botão "Azure Active Directory"](common/select-azuread.png)
 
@@ -134,7 +134,7 @@ Para configurar o provisionamento automático de usuário para o Harness no Azur
 
     ![A caixa "email de notificação"](common/provisioning-notification-email.png)
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 1. Em **mapeamentos**, selecione **sincronizar Azure Active Directory usuários a serem aproveitados**.
 

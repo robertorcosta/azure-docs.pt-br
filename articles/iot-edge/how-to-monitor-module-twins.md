@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1bf2e3f07d9e5576f62ef9badd9c8a46ac92fad0
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 1a11d3a9a972188af4cf8f054349da98d69691a3
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91450157"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91876151"
 ---
 # <a name="monitor-module-twins"></a>Monitorar módulos gêmeos
 
@@ -168,15 +168,15 @@ Se você estiver enfrentando problemas com seus dispositivos downstream, examina
 
 As informações sobre a conectividade de seus módulos personalizados são mantidas no módulo do agente de IoT Edge. O módulo para o módulo personalizado é usado principalmente para manter os dados da solução. As propriedades desejadas que você definiu em seu deployment.jsno arquivo são refletidas no módulo e o módulo pode atualizar os valores de propriedade relatados conforme necessário.
 
-Você pode usar sua linguagem de programação preferida com os [SDKs de dispositivo do Hub IOT do Azure](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-device-sdks) para atualizar os valores de propriedade relatados no módulo "/", com base no código do aplicativo do seu módulo. O procedimento a seguir usa o SDK do Azure para .NET para fazer isso, usando o código do módulo [SimulatedTemperatureSensor](https://github.com/Azure/iotedge/blob/dd5be125df165783e4e1800f393be18e6a8275a3/edge-modules/SimulatedTemperatureSensor/src/Program.cs) :
+Você pode usar sua linguagem de programação preferida com os [SDKs de dispositivo do Hub IOT do Azure](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks) para atualizar os valores de propriedade relatados no módulo "/", com base no código do aplicativo do seu módulo. O procedimento a seguir usa o SDK do Azure para .NET para fazer isso, usando o código do módulo [SimulatedTemperatureSensor](https://github.com/Azure/iotedge/blob/dd5be125df165783e4e1800f393be18e6a8275a3/edge-modules/SimulatedTemperatureSensor/src/Program.cs) :
 
-1. Crie uma instância do [ModuleClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient) com o método [CreateFromEnvironmentAysnc](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.createfromenvironmentasync) .
+1. Crie uma instância do [ModuleClient](/dotnet/api/microsoft.azure.devices.client.moduleclient) com o método [CreateFromEnvironmentAysnc](/dotnet/api/microsoft.azure.devices.client.moduleclient.createfromenvironmentasync) .
 
-1. Obtenha uma coleção das propriedades do módulo ' s ' com o método [GetTwinAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.gettwinasync?view=azure-dotnet) .
+1. Obtenha uma coleção das propriedades do módulo ' s ' com o método [GetTwinAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient.gettwinasync) .
 
-1. Crie um ouvinte (passando um retorno de chamada) para detectar alterações nas propriedades desejadas com o método [SetDesiredPropertyUpdateCallbackAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.setdesiredpropertyupdatecallbackasync?view=azure-dotnet) .
+1. Crie um ouvinte (passando um retorno de chamada) para detectar alterações nas propriedades desejadas com o método [SetDesiredPropertyUpdateCallbackAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.setdesiredpropertyupdatecallbackasync) .
 
-1. No seu método de retorno de chamada, atualize as propriedades relatadas no módulo "atualizar" com o método [UpdateReportedPropertiesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient) , passando um [entrelaçacollection](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.shared.twincollection) dos valores de propriedade que você deseja definir.
+1. No seu método de retorno de chamada, atualize as propriedades relatadas no módulo "atualizar" com o método [UpdateReportedPropertiesAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient) , passando um [entrelaçacollection](/dotnet/api/microsoft.azure.devices.shared.twincollection) dos valores de propriedade que você deseja definir.
 
 ## <a name="access-the-module-twins"></a>Acessar o módulo gêmeos
 

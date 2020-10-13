@@ -10,10 +10,10 @@ ms.author: larryfr
 author: BlackMist
 ms.date: 07/08/2020
 ms.openlocfilehash: e1b92563acd6983b1680cacc06a8f2d0789dddf1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91302495"
 ---
 # <a name="what-are-azure-machine-learning-environments"></a>O que são ambientes Azure Machine Learning?
@@ -85,7 +85,7 @@ A segunda etapa será omitida se você especificar [dependências gerenciadas pe
 
 Se você usar a mesma definição de ambiente para outra execução, o serviço de Azure Machine Learning reutiliza a imagem armazenada em cache do ACR do espaço de trabalho. 
 
-Para exibir os detalhes de uma imagem armazenada em cache, use o método [Environment. get_image_details](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-image-details-workspace-) .
+Para exibir os detalhes de uma imagem armazenada em cache, use [Environment.get_image_details](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-image-details-workspace-) método.
 
 Para determinar se deve reutilizar uma imagem armazenada em cache ou criar uma nova, o serviço computa [um valor de hash](https://en.wikipedia.org/wiki/Hash_table) da definição do ambiente e o compara com os hashes dos ambientes existentes. O hash se baseia em:
  

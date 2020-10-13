@@ -13,10 +13,10 @@ ms.author: sashan
 ms.reviewer: mathoma, sstein, danil
 ms.date: 09/26/2019
 ms.openlocfilehash: 23fdc69b59cc1415d06bd394fd9ef729b7ef4ce0
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448793"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>Recuperar usando backups automatizados de banco de dados-banco de dados SQL do Azure & SQL Instância Gerenciada
@@ -88,7 +88,7 @@ Para recuperar um banco de dados em um ponto no tempo usando o portal do Azure, 
 
   ![Captura de tela das opções de restauração do banco de dados SQL.](./media/recovery-using-backups/pitr-backup-sql-database-annotated.png)
 
-#### <a name="sql-managed-instance"></a>Instância Gerenciada de SQL
+#### <a name="sql-managed-instance"></a>Instância Gerenciada do SQL
 
 Para fazer a recuperação pontual de um banco de dados de instância gerenciada usando o portal do Azure, abra a página de visão geral do banco de dados e selecione **Restaurar** na barra de ferramentas. Escolha o ponto de backup pontual a partir do qual um novo banco de dados será criado.
 
@@ -114,7 +114,7 @@ Para recuperar um banco de dados excluído para a hora de exclusão usando o por
 
   ![Captura de tela de restaurar banco de dados excluído](./media/recovery-using-backups/restore-deleted-sql-database-annotated.png)
 
-#### <a name="sql-managed-instance"></a>Instância Gerenciada de SQL
+#### <a name="sql-managed-instance"></a>Instância Gerenciada do SQL
 
 Para recuperar um banco de dados gerenciado usando o portal do Azure, abra a página de visão geral da instância gerenciada e selecione **Bancos de dados excluídos**. Selecione um banco de dados excluído que você quer restaurar e digite o nome do novo banco de dados que será criado com os dados restaurados do backup.
 
@@ -128,7 +128,7 @@ Use os scripts de exemplo a seguir para restaurar um banco de dados excluído pa
 
 Para obter um exemplo de script do PowerShell mostrando como restaurar um banco de dados excluído no banco de dados SQL do Azure, consulte [restaurar um banco de dados usando o PowerShell](scripts/restore-database-powershell.md).
 
-#### <a name="sql-managed-instance"></a>Instância Gerenciada de SQL
+#### <a name="sql-managed-instance"></a>Instância Gerenciada do SQL
 
 Para obter um exemplo de script do PowerShell mostrando como restaurar um banco de dados de instância excluído, consulte [restaurar banco de dados de instância excluído usando o PowerShell](../managed-instance/point-in-time-restore.md#restore-a-deleted-database)
 
@@ -163,7 +163,7 @@ Para restaurar geograficamente um único banco de dados do portal do Azure na re
 
 Conclua o processo de criação de um novo banco de dados a partir do backup. Quando você cria um banco de dados no banco de dados SQL do Azure, ele contém o backup de restauração geográfica restaurado.
 
-#### <a name="sql-managed-instance"></a>Instância Gerenciada de SQL
+#### <a name="sql-managed-instance"></a>Instância Gerenciada do SQL
 
 Para restaurar geograficamente um banco de dados de instância gerenciada do portal do Azure para uma instância gerenciada em uma região da sua escolha, selecione uma instância gerenciada na qual você deseja restaurar um banco de dados. Siga estas etapas:
 
@@ -182,7 +182,7 @@ Conclua o processo de criação de um novo banco de dados. Ao criar o banco de d
 
 Para um script do PowerShell que mostra como executar a restauração geográfica para um único banco de dados, consulte [usar o PowerShell para restaurar um banco de dados individual para um ponto anterior no tempo](scripts/restore-database-powershell.md).
 
-#### <a name="sql-managed-instance"></a>Instância Gerenciada de SQL
+#### <a name="sql-managed-instance"></a>Instância Gerenciada do SQL
 
 Para um script do PowerShell que mostre como executar a restauração geográfica de um banco de dados de instância gerenciada, consulte [Usar o PowerShell para restaurar um banco de dados de Instância Gerenciada para outra região geográfica](../managed-instance/scripts/restore-geo-backup.md).
 
@@ -221,7 +221,7 @@ Para restaurar um banco de dados autônomo ou em pool, confira [Restore-AzSqlDat
   > [!TIP]
   > Para obter um exemplo de script do PowerShell que mostra como executar uma restauração pontual de um banco de dados, consulte [restaurar um banco de dados usando o PowerShell](scripts/restore-database-powershell.md).
 
-#### <a name="sql-managed-instance"></a>Instância Gerenciada de SQL
+#### <a name="sql-managed-instance"></a>Instância Gerenciada do SQL
 
 Para restaurar um banco de dados de instância gerenciada, consulte [Restore-AzSqlInstanceDatabase](/powershell/module/az.sql/restore-azsqlinstancedatabase).
 
@@ -246,7 +246,7 @@ Para restaurar um banco de dados usando a API REST:
 
 Para restaurar um banco de dados usando o CLI do Azure, consulte [AZ SQL DB Restore](/cli/azure/sql/db#az-sql-db-restore).
 
-#### <a name="sql-managed-instance"></a>Instância Gerenciada de SQL
+#### <a name="sql-managed-instance"></a>Instância Gerenciada do SQL
 
 Para restaurar um banco de dados de instância gerenciada usando a CLI do Azure, consulte [az sql midb restore](/cli/azure/sql/midb#az-sql-midb-restore).
 

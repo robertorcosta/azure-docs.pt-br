@@ -8,10 +8,10 @@ ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: f4687add8fdd55c8084a7180a6e0a3bffd9751b1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91715160"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Linha de base de segurança do Azure para armazenamento do Azure
@@ -316,7 +316,7 @@ Você também pode habilitar um acesso just-in-time/apenas o suficiente usando A
 
 **Responsabilidade**: Cliente
 
-### <a name="34-use-azure-active-directory-single-sign-on-sso"></a>3,4: usar o logon único (SSO) do Azure Active Directory
+### <a name="34-use-azure-active-directory-single-sign-on-sso"></a>3,4: usar Azure Active Directory único Sign-On (SSO)
 
 **Diretrizes**: sempre que possível, use Azure Active Directory SSO em vez de configurar credenciais autônomas individuais por serviço. Use as recomendações de gerenciamento de acesso e identidade da central de segurança do Azure. 
 
@@ -960,7 +960,7 @@ Você também pode examinar previamente qualquer conteúdo para malware antes de
 
 Você também pode habilitar a automação do Azure para fazer instantâneos regulares dos BLOBs.
 
-- [Noções básicas sobre a redundância de armazenamento do Azure e os contratos de nível de serviço](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
+- [Noções básicas sobre contratos de Service-Level e redundância de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
 
 - [Criar um instantâneo de um blob](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob)
 

@@ -10,15 +10,15 @@ ms.author: keli19
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
 ms.openlocfilehash: cff4704b388594511809d92957cbbce97e948f2f
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91362411"
 ---
 # <a name="evaluate-model-performance-in-azure-machine-learning-studio-classic"></a>Avaliar o desempenho do modelo no Azure Machine Learning Studio (clássico)
 
-**aplica-se a:** ![ Aplica-se a. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) não ![ se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**APLICA-SE A:**  ![Aplica-se a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clássico) ![Não se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
 
 
 Neste artigo, você pode aprender sobre as métricas que você pode usar para monitorar o desempenho do modelo no Azure Machine Learning Studio (clássico).  Avaliar o desempenho de um modelo é um dos estágios principais do processo de ciência de dados. Indica o êxito da pontuação (previsões) de um conjunto de dados feitas por meio de um modelo treinado. Azure Machine Learning Studio (clássico) dá suporte à avaliação de modelo por meio de dois módulos de aprendizado de máquina principais: 

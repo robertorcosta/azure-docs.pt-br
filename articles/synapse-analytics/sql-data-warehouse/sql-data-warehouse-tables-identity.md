@@ -11,12 +11,12 @@ ms.date: 07/20/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 375c97179351e1dbf90ce4488114cb232d6dd450
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 8b4e9aa73a959bcaac18df38f975331ecbf6b034
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121316"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91875998"
 ---
 # <a name="using-identity-to-create-surrogate-keys-in-synapse-sql-pool"></a>Usando a identidade para criar chaves substitutas no pool SQL Synapse
 
@@ -26,7 +26,8 @@ Neste artigo, você encontrará recomendações e exemplos para usar a proprieda
 
 Uma chave substituta em uma tabela é uma coluna com um identificador exclusivo para cada linha. A chave não é gerada de dados da tabela. Os modeladores de dados gostam de criar chaves substitutas em suas tabelas quando criam modelos de data warehouse. Você pode usar a propriedade IDENTITY para atingir esse objetivo de forma simples e eficiente, sem afetar o desempenho de carga.
 > [!NOTE]
-> Não é garantido que o valor de identidade no SQL Synapse seja exclusivo se o usuário inserir explicitamente um valor duplicado com "SET IDENTITY_INSERT ON" ou propagar novamente a identidade. Para obter detalhes, consulte [identidade de CREATE TABLE (Transact-SQL) (Propriedade)](/sql/t-sql/statements/create-table-transact-sql-identity-property?view=azure-sqldw-latest). 
+> No Azure Synapse Analytics, o valor de identidade aumenta sozinho em cada distribuição e não se sobrepõe aos valores de identidade em outras distribuições.  Não é garantido que o valor de identidade em Synapse seja exclusivo se o usuário inserir explicitamente um valor duplicado com "SET IDENTITY_INSERT ON" ou propagar novamente a identidade. Para obter detalhes, consulte [identidade de CREATE TABLE (Transact-SQL) (Propriedade)](/sql/t-sql/statements/create-table-transact-sql-identity-property?view=azure-sqldw-latest). 
+
 
 ## <a name="creating-a-table-with-an-identity-column"></a>Criando uma tabela com uma coluna IDENTITY
 
@@ -125,7 +126,7 @@ FROM    dbo.T1
 ;
 ```
 
-## <a name="loading-data"></a>Carregando dados
+## <a name="loading-data"></a>Carregar dados
 
 A presença da propriedade IDENTITY tem algumas implicações no seu código de carregamento de dados. Esta seção destaca alguns padrões básicos para carregar dados em tabelas usando IDENTITY.
 
@@ -163,7 +164,7 @@ DBCC PDW_SHOWSPACEUSED('dbo.T1');
 > Não é possível usar `CREATE TABLE AS SELECT` atualmente ao carregar dados em uma tabela com uma coluna IDENTITY.
 >
 
-Para obter mais informações sobre como carregar dados, consulte [criação de extração, carregamento e transformação (ELT) para o pool SQL Synapse](design-elt-data-loading.md) e [as práticas recomendadas de carregamento](guidance-for-loading-data.md).
+Para obter mais informações sobre como carregar dados, consulte [criação de extração, carregamento e transformação (ELT) para o pool SQL Synapse](design-elt-data-loading.md) e  [as práticas recomendadas de carregamento](guidance-for-loading-data.md).
 
 ## <a name="system-views"></a>Exibições do sistema
 

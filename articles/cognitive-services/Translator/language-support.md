@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
 ms.openlocfilehash: a913756c0348622ec0d885c50b55d5cecf6dd91d
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91568090"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Suporte a idiomas e regiões para conversão de texto e fala
@@ -191,7 +191,7 @@ O método Transliterate suporta os seguintes idiomas. Em "Para / De", "<->" indi
 [Exibir a documentação de referência de operação de transliteração](reference/v3-0-translate.md)
 
 
-| Linguagem    | Código de idioma | Script | Para/De | Script|
+| Linguagem    | Código de idioma | script | Para/De | script|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Árabe | `ar` | Árabe `Arab` | <--> | Latim `Latn` |
 | Bangla  | `bn` | Bengalês `Beng` | <--> | Latim `Latn` |
@@ -201,7 +201,7 @@ O método Transliterate suporta os seguintes idiomas. Em "Para / De", "<->" indi
 | Chinês (Tradicional) | `zh-Hant` | Chinês tradicional `Hant`| <--> | Chinês simplificado `Hans` |
 | Guzerate | `gu`  | Guzerate `Gujr` | <--> | Latim `Latn` |
 | Hebraico | `he` | Hebraico `Hebr` | <--> | Latim `Latn` |
-| Hindi | `hi` | Devanagari `Deva` | <--> | Latim `Latn` |
+| Híndi | `hi` | Devanagari `Deva` | <--> | Latim `Latn` |
 | Japonês | `ja` | Japonês `Jpan` | <--> | Latim `Latn` |
 | canarim | `kn` | Canarim `Knda` | <--> | Latim `Latn` |
 | Malaiala | `ml` | Malaiala `Mlym` | <--> | Latim `Latn` |
@@ -211,7 +211,7 @@ O método Transliterate suporta os seguintes idiomas. Em "Para / De", "<->" indi
 | Sérvio (cirílico) | `sr-Cyrl` | Cirílico `Cyrl`  | --> | Latim `Latn` |
 | Sérvio (latino) | `sr-Latn` | Latim `Latn` | --> | Cirílico `Cyrl`|
 | Tâmil | `ta` | Tâmil `Taml` | <--> | Latim `Latn` |
-| Telugu | `te` | Télugo `Telu` | <--> | Latim `Latn` |
+| Télugo | `te` | Télugo `Telu` | <--> | Latim `Latn` |
 | Tailandês | `th` | Tailandês `Thai` | --> | Latim `Latn` |
 
 ### <a name="dictionary"></a>Dicionário
@@ -352,7 +352,7 @@ A tradução de fala está disponível usando o tradutor com o serviço de fala 
 ### <a name="speech-to-text"></a>Conversão de fala em texto
 Converta a fala em texto para traduzir para o idioma de texto de sua escolha. A conversão de fala em texto é usada para a tradução de fala para texto ou para tradução de fala para fala quando usada em conjunto com a síntese de fala.
 
-| Idioma    |
+| Language    |
 |:----------- |
 |Árabe|
 |Cantonês (tradicional)|
@@ -366,7 +366,7 @@ Converta a fala em texto para traduzir para o idioma de texto de sua escolha. A 
 |Francês|
 |Alemão|
 |Guzerate|
-|Hindi|
+|Híndi|
 |Italiano|
 |Japonês|
 |Coreano|
@@ -386,7 +386,7 @@ Converta a fala em texto para traduzir para o idioma de texto de sua escolha. A 
 ### <a name="text-to-speech"></a>Conversão de texto em fala
 Converter texto em fala. A conversão de texto em fala é usada para adicionar saída audível de resultados de tradução ou para tradução de fala a fala quando usada com a fala em texto. 
 
-| Idioma    |
+| Language    |
 |:----------- |
 |Árabe|
 |Búlgaro|

@@ -12,13 +12,13 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
 ms.openlocfilehash: 2b98b11d85bde8dd49b6bbde5d048493493b73f5
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91620232"
 ---
-# <a name="managed-api-reference-for-azure-sql-managed-instance"></a>Referência de API gerenciada para o Azure SQL Instância Gerenciada
+# <a name="managed-api-reference-for-azure-sql-managed-instance"></a>Referência de API gerenciada para a Instância Gerenciada de SQL do Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 Você pode criar e configurar instâncias gerenciadas do Azure SQL Instância Gerenciada usando o portal do Azure, o PowerShell, o CLI do Azure, a API REST e o Transact-SQL. Neste artigo, você pode encontrar uma visão geral das funções e da API que você pode usar para criar e configurar instâncias gerenciadas.

@@ -14,12 +14,12 @@ ms.custom:
 - seo-dt-2019
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: 9a8ae9be983ecb0e6b50ef889525ae33726c2d97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 673480d1b5171e03b701cd2102c7a640aae58ad0
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330325"
+ms.locfileid: "91893740"
 ---
 # <a name="online-migration-issues--limitations-to-azure-db-for-mysql-with-azure-database-migration-service"></a>Problemas de migração online & limitações do Azure DB para MySQL com o serviço de migração de banco de dados do Azure
 
@@ -82,12 +82,12 @@ As colunas de LOB (Objeto Grande) são aquelas cujo tamanho pode aumentar muito.
 
     **Solução alternativa**: substitua chave primária por outros tipos de dados ou colunas que não sejam de LOB.
 
-- **Limitação**: se o tamanho da coluna de LOB (Objeto Grande) for maior que 32 KB, os dados poderão ser truncados no destino. Você pode verificar o tamanho da coluna de LOB usando esta consulta:
+- **Limitação**: se o comprimento da coluna de objeto grande (LOB) for maior do que o parâmetro "limitar tamanho de LOB" (não deve ser maior que 64 KB), os dados poderão ser truncados no destino. Você pode verificar o tamanho da coluna de LOB usando esta consulta:
     ```
     SELECT max(length(description)) as LEN from catalog;
     ```
 
-    **Solução alternativa**: se você tiver um objeto LOB maior que 32 KB, contate a equipe de engenharia em [solicitar migrações de banco de dados do Azure](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
+    **Solução alternativa**: se você tiver um objeto LOB maior que 64 KB, use o parâmetro "permitir tamanho de LOB ilimitado". Observe que as migrações que usam o parâmetro "permitir tamanho de LOB ilimitado" serão mais lentas do que as migrações usando o parâmetro "limitar tamanho de LOB".
 
 ## <a name="limitations-when-migrating-online-from-aws-rds-mysql"></a>Limitações ao migrar online do AWS RDS MySQL
 

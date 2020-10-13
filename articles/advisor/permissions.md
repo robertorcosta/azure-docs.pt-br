@@ -4,10 +4,10 @@ description: As permissões do Advisor e como elas podem bloquear sua capacidade
 ms.topic: article
 ms.date: 04/03/2019
 ms.openlocfilehash: 402a21c47c4cba8f747d5d4601f9c95034c99262
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91712929"
 ---
 # <a name="permissions-in-azure-advisor"></a>Permissões no Azure Advisor

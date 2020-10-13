@@ -10,15 +10,15 @@ ms.author: keli19
 ms.custom: devx-track-python, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/12/2019
 ms.openlocfilehash: 5c728b219168f61f7f791b7db280a701ff216985
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91362377"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio-classic"></a>Executar scripts do Python Machine Learning no Azure Machine Learning Studio (clássico)
 
-**aplica-se a:** ![ Aplica-se a. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) não ![ se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**APLICA-SE A:**  ![Aplica-se a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clássico) ![Não se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
 
 
 O Python é uma ferramenta valiosa na conjunto de ferramentas de muitos cientistas de dados. Ele é usado em todos os estágios de fluxos de trabalho de aprendizado de máquina típicos, incluindo exploração de dados, extração de recursos, treinamento e validação de modelo e implantação.
@@ -149,7 +149,7 @@ Esse processo é ilustrado nas imagens a seguir que criam uma matriz de gráfico
 
 O ambiente Anaconda instalado no estúdio (clássico) contém pacotes comuns, como NumPy, SciPy e scikits-learn. Esses pacotes podem ser usados efetivamente para processamento de dados em um pipeline de Machine Learning.
 
-Por exemplo, o experimento e o script a seguir ilustram o uso de aprendizes do Ensemble no scikits-Learn para calcular pontuações de importância de recursos para um conjunto de informações. As pontuações podem ser usadas para executar a seleção de recursos supervisionados antes de serem alimentadas em outro modelo.
+Por exemplo, o experimento e o script a seguir ilustram o uso de aprendizes do Ensemble no Scikits-Learn para calcular pontuações de importância de recursos para um conjunto de informações. As pontuações podem ser usadas para executar a seleção de recursos supervisionados antes de serem alimentadas em outro modelo.
 
 Aqui está a função Python usada para calcular as pontuações de importância e ordenar os recursos com base nas pontuações:
 
