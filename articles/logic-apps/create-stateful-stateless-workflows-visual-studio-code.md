@@ -7,10 +7,10 @@ ms.reviewer: deli, rohitha, vikanand, hongzili, sopai, absaafan, logicappspm
 ms.topic: conceptual
 ms.date: 09/26/2020
 ms.openlocfilehash: cc52358af203bafc87c5f9ac3ae1f237c0c7ae6c
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91597787"
 ---
 # <a name="create-stateful-or-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Criar fluxos de trabalho com ou sem estado no Visual Studio Code com a extensão de aplicativos lógicos do Azure (versão prévia)
@@ -967,7 +967,7 @@ Esta tabela especifica o comportamento do fluxo de trabalho filho com base em se
 | Sem estado | Sem estado | Gatilho e espera |
 ||||
 
-## <a name="limits"></a>Limites
+## <a name="limits"></a>limites
 
 Embora muitos [limites existentes para aplicativos lógicos do Azure](../logic-apps/logic-apps-limits-and-config.md) sejam os mesmos para esse tipo de recurso, aqui estão as diferenças nesta extensão de visualização pública:
 

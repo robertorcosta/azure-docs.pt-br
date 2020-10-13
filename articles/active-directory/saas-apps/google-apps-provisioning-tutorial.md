@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 01/06/2020
 ms.author: Zhchia
 ms.openlocfilehash: 3f2f62fe158b946e00c7f81d0cb7eeb0d8f09437
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91331119"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Tutorial: configurar o G Suite para provisionamento automático de usuários
@@ -163,79 +163,79 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
 
    |Atributo|Type|
    |---|---|
-   |primaryEmail|String|
+   |primaryEmail|Cadeia de caracteres|
    |relation. [tipo EQ "Gerenciador"]. valor|String|
    |name.familyName|String|
    |name.givenName|String|
-   |suspenso|String|
-   |externalIds. [tipo EQ "personalizado"]. valor|String|
-   |externalIds. [tipo EQ "organização"]. valor|String|
-   |atende. [tipo EQ "trabalho"]. país|String|
-   |atende. [tipo EQ "trabalho"]. streetAddress|String|
-   |atende. [tipo EQ "trabalho"]. região|String|
-   |atende. [tipo EQ "trabalho"]. localidade|String|
-   |atende. [tipo EQ "trabalho"]. CEP|String|
-   |e-mail. [tipo EQ "trabalho"]. endereço|String|
-   |organizações. [tipo EQ "trabalho"]. departamento|String|
-   |organizações. [tipo EQ "trabalho"]. título|String|
-   |phoneNumbers. [tipo EQ "trabalho"]. valor|String|
-   |phoneNumbers. [tipo EQ "móvel"]. valor|String|
-   |phoneNumbers. [tipo EQ "work_fax"]. valor|String|
-   |e-mail. [tipo EQ "trabalho"]. endereço|String|
-   |organizações. [tipo EQ "trabalho"]. departamento|String|
-   |organizações. [tipo EQ "trabalho"]. título|String|
-   |phoneNumbers. [tipo EQ "trabalho"]. valor|String|
-   |phoneNumbers. [tipo EQ "móvel"]. valor|String|
-   |phoneNumbers. [tipo EQ "work_fax"]. valor|String|
-   |atende. [tipo EQ "Home"]. país|String|
-   |atende. [type EQ "Home"]. formatado|String|
-   |atende. [type EQ "Home"]. localidade|String|
-   |atende. [type EQ "Home"]. postalCode|String|
-   |atende. [tipo EQ "Home"]. região|String|
-   |atende. [type EQ "Home"]. streetAddress|String|
-   |atende. [tipo EQ "other"]. país|String|
-   |atende. [tipo EQ "other"]. formatado|String|
-   |atende. [tipo EQ "other"]. localidade|String|
-   |atende. [tipo EQ "other"]. postalCode|String|
-   |atende. [tipo EQ "other"]. região|String|
-   |atende. [tipo EQ "other"]. streetAddress|String|
-   |atende. [tipo EQ "trabalho"]. formatado|String|
-   |changePasswordAtNextLogin|String|
-   |e-mail. [tipo EQ "Home"]. endereço|String|
-   |e-mail. [tipo EQ "other"]. endereço|String|
-   |externalIds. [tipo EQ "conta"]. valor|String|
-   |externalIds. [tipo EQ "personalizado"]. CustomType|String|
-   |externalIds. [tipo EQ "cliente"]. valor|String|
-   |externalIds. [tipo EQ "login_id"]. valor|String|
-   |externalIds. [tipo EQ "rede"]. valor|String|
-   |gênero. Type|String|
-   |GeneratedImmutableId|String|
-   |Identificador|String|
-   |IMS. [type EQ "Home"]. protocolo|String|
-   |IMS. [tipo EQ "other"]. protocolo|String|
-   |IMS. [tipo EQ "trabalho"]. protocolo|String|
-   |includeInGlobalAddressList|String|
-   |ipWhitelisted|String|
-   |organizações. [tipo EQ "School"]. costCenter|String|
-   |organizações. [tipo EQ "escola"]. departamento|String|
-   |organizações. [tipo EQ "School"]. domínio|String|
-   |organizações. [tipo EQ "School"]. fullTimeEquivalent|String|
-   |organizações. [tipo EQ "escola"]. local|String|
-   |organizações. [tipo EQ "escola"]. nome|String|
-   |organizações. [tipo EQ "escola"]. símbolo|String|
-   |organizações. [tipo EQ "escola"]. título|String|
-   |organizações. [tipo EQ "trabalho"]. costCenter|String|
-   |organizações. [tipo EQ "trabalho"]. domínio|String|
-   |organizações. [tipo EQ "trabalho"]. fullTimeEquivalent|String|
-   |organizações. [tipo EQ "trabalho"]. local|String|
-   |organizações. [tipo EQ "trabalho"]. nome|String|
-   |organizações. [tipo EQ "trabalho"]. símbolo|String|
-   |OrgUnitPath|String|
-   |phoneNumbers. [tipo EQ "Home"]. valor|String|
-   |phoneNumbers. [tipo EQ "other"]. valor|String|
-   |aos. [tipo EQ "Home"]. valor|String|
-   |aos. [tipo EQ "other"]. valor|String|
-   |aos. [tipo EQ "trabalho"]. valor|String|
+   |suspenso|Cadeia de caracteres|
+   |externalIds. [tipo EQ "personalizado"]. valor|Cadeia de caracteres|
+   |externalIds. [tipo EQ "organização"]. valor|Cadeia de caracteres|
+   |atende. [tipo EQ "trabalho"]. país|Cadeia de caracteres|
+   |atende. [tipo EQ "trabalho"]. streetAddress|Cadeia de caracteres|
+   |atende. [tipo EQ "trabalho"]. região|Cadeia de caracteres|
+   |atende. [tipo EQ "trabalho"]. localidade|Cadeia de caracteres|
+   |atende. [tipo EQ "trabalho"]. CEP|Cadeia de caracteres|
+   |e-mail. [tipo EQ "trabalho"]. endereço|Cadeia de caracteres|
+   |organizações. [tipo EQ "trabalho"]. departamento|Cadeia de caracteres|
+   |organizações. [tipo EQ "trabalho"]. título|Cadeia de caracteres|
+   |phoneNumbers. [tipo EQ "trabalho"]. valor|Cadeia de caracteres|
+   |phoneNumbers. [tipo EQ "móvel"]. valor|Cadeia de caracteres|
+   |phoneNumbers. [tipo EQ "work_fax"]. valor|Cadeia de caracteres|
+   |e-mail. [tipo EQ "trabalho"]. endereço|Cadeia de caracteres|
+   |organizações. [tipo EQ "trabalho"]. departamento|Cadeia de caracteres|
+   |organizações. [tipo EQ "trabalho"]. título|Cadeia de caracteres|
+   |phoneNumbers. [tipo EQ "trabalho"]. valor|Cadeia de caracteres|
+   |phoneNumbers. [tipo EQ "móvel"]. valor|Cadeia de caracteres|
+   |phoneNumbers. [tipo EQ "work_fax"]. valor|Cadeia de caracteres|
+   |atende. [tipo EQ "Home"]. país|Cadeia de caracteres|
+   |atende. [type EQ "Home"]. formatado|Cadeia de caracteres|
+   |atende. [type EQ "Home"]. localidade|Cadeia de caracteres|
+   |atende. [type EQ "Home"]. postalCode|Cadeia de caracteres|
+   |atende. [tipo EQ "Home"]. região|Cadeia de caracteres|
+   |atende. [type EQ "Home"]. streetAddress|Cadeia de caracteres|
+   |atende. [tipo EQ "other"]. país|Cadeia de caracteres|
+   |atende. [tipo EQ "other"]. formatado|Cadeia de caracteres|
+   |atende. [tipo EQ "other"]. localidade|Cadeia de caracteres|
+   |atende. [tipo EQ "other"]. postalCode|Cadeia de caracteres|
+   |atende. [tipo EQ "other"]. região|Cadeia de caracteres|
+   |atende. [tipo EQ "other"]. streetAddress|Cadeia de caracteres|
+   |atende. [tipo EQ "trabalho"]. formatado|Cadeia de caracteres|
+   |changePasswordAtNextLogin|Cadeia de caracteres|
+   |e-mail. [tipo EQ "Home"]. endereço|Cadeia de caracteres|
+   |e-mail. [tipo EQ "other"]. endereço|Cadeia de caracteres|
+   |externalIds. [tipo EQ "conta"]. valor|Cadeia de caracteres|
+   |externalIds. [tipo EQ "personalizado"]. CustomType|Cadeia de caracteres|
+   |externalIds. [tipo EQ "cliente"]. valor|Cadeia de caracteres|
+   |externalIds. [tipo EQ "login_id"]. valor|Cadeia de caracteres|
+   |externalIds. [tipo EQ "rede"]. valor|Cadeia de caracteres|
+   |gênero. Type|Cadeia de caracteres|
+   |GeneratedImmutableId|Cadeia de caracteres|
+   |Identificador|Cadeia de caracteres|
+   |IMS. [type EQ "Home"]. protocolo|Cadeia de caracteres|
+   |IMS. [tipo EQ "other"]. protocolo|Cadeia de caracteres|
+   |IMS. [tipo EQ "trabalho"]. protocolo|Cadeia de caracteres|
+   |includeInGlobalAddressList|Cadeia de caracteres|
+   |ipWhitelisted|Cadeia de caracteres|
+   |organizações. [tipo EQ "School"]. costCenter|Cadeia de caracteres|
+   |organizações. [tipo EQ "escola"]. departamento|Cadeia de caracteres|
+   |organizações. [tipo EQ "School"]. domínio|Cadeia de caracteres|
+   |organizações. [tipo EQ "School"]. fullTimeEquivalent|Cadeia de caracteres|
+   |organizações. [tipo EQ "escola"]. local|Cadeia de caracteres|
+   |organizações. [tipo EQ "escola"]. nome|Cadeia de caracteres|
+   |organizações. [tipo EQ "escola"]. símbolo|Cadeia de caracteres|
+   |organizações. [tipo EQ "escola"]. título|Cadeia de caracteres|
+   |organizações. [tipo EQ "trabalho"]. costCenter|Cadeia de caracteres|
+   |organizações. [tipo EQ "trabalho"]. domínio|Cadeia de caracteres|
+   |organizações. [tipo EQ "trabalho"]. fullTimeEquivalent|Cadeia de caracteres|
+   |organizações. [tipo EQ "trabalho"]. local|Cadeia de caracteres|
+   |organizações. [tipo EQ "trabalho"]. nome|Cadeia de caracteres|
+   |organizações. [tipo EQ "trabalho"]. símbolo|Cadeia de caracteres|
+   |OrgUnitPath|Cadeia de caracteres|
+   |phoneNumbers. [tipo EQ "Home"]. valor|Cadeia de caracteres|
+   |phoneNumbers. [tipo EQ "other"]. valor|Cadeia de caracteres|
+   |aos. [tipo EQ "Home"]. valor|Cadeia de caracteres|
+   |aos. [tipo EQ "other"]. valor|Cadeia de caracteres|
+   |aos. [tipo EQ "trabalho"]. valor|Cadeia de caracteres|
    
 
 10. Na seção **mapeamentos** , selecione **provisionar grupos de Azure Active Directory**.
@@ -244,10 +244,10 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
 
       |Atributo|Type|
       |---|---|
-      |email|String|
-      |Membros|String|
+      |email|Cadeia de caracteres|
+      |Membros|Cadeia de caracteres|
       |name|String|
-      |description|String|
+      |descrição|String|
 
 12. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
