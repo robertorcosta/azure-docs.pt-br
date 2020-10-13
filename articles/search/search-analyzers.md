@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 06/20/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 01b57526b15a806271d58b250f06a4372fe56b72
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91532254"
 ---
 # <a name="analyzers-for-text-processing-in-azure-cognitive-search"></a>Analisadores para processamento de texto no Azure Pesquisa Cognitiva
@@ -375,7 +375,7 @@ Crie um objeto [CustomAnalyzer](/dotnet/api/microsoft.azure.search.models.custom
 
 + [Configurar analisadores personalizados](index-add-custom-analyzers.md) para o mínimo de processamento ou processamento especializado em campos individuais.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
  [API REST para pesquisar documentos](/rest/api/searchservice/search-documents) 
 

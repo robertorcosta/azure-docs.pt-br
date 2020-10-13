@@ -13,10 +13,10 @@ ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: a48a6de406f14c5339a4e6d92cd09a12357b73f5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84195975"
 ---
 # <a name="move-data-by-using-copy-activity"></a>Mover dados usando a Atividade de Cópia
@@ -107,17 +107,17 @@ Quando os armazenamentos de dados de origem e de coletor residem na nuvem, o Dat
 | Brasil | Sul do Brasil | Sul do Brasil |
 | Europa | Norte da Europa | Norte da Europa |
 | &nbsp; | Europa Ocidental | Europa Ocidental |
-| Reino Unido | Oeste do Reino Unido | Sul do Reino Unido |
+| United Kingdom | Oeste do Reino Unido | Sul do Reino Unido |
 | &nbsp; | Sul do Reino Unido | Sul do Reino Unido |
 | Pacífico Asiático | Sudeste Asiático | Sudeste Asiático |
 | &nbsp; | Leste da Ásia | Sudeste Asiático |
 | Austrália | Leste da Austrália | Leste da Austrália |
-| &nbsp; | Sudeste da Austrália | Sudeste da Austrália |
+| &nbsp; | Sudeste da Austrália | Australia Southeast |
 | Índia | Índia Central | Índia Central |
 | &nbsp; | Oeste da Índia | Índia Central |
 | &nbsp; | Sul da Índia | Índia Central |
 | Japão | Leste do Japão | Leste do Japão |
-| &nbsp; | Oeste do Japão | Leste do Japão |
+| &nbsp; | Oeste do Japão | Japan East |
 | Coreia do Sul | Coreia Central | Coreia Central |
 | &nbsp; | Sul da Coreia | Coreia Central |
 

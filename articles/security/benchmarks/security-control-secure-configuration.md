@@ -8,10 +8,10 @@ ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 347a63cc77c565d800328c19d1d543c2c9efafc0
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89400085"
 ---
 # <a name="security-control-secure-configuration"></a>Controle de segurança: configuração segura
@@ -22,7 +22,7 @@ Estabeleça, implemente e gerencie ativamente (acompanhe, relate e corrija) a co
 
 | ID do Azure | IDs de CIS | Responsabilidade |
 |--|--|--|
-| 7.1 | 5,1 | Cliente |
+| 7.1 | 5.1 | Cliente |
 
 Use aliases de Azure Policy para criar políticas personalizadas para auditar ou impor a configuração dos recursos do Azure. Você também pode usar definições de Azure Policy internas.
 
@@ -42,7 +42,7 @@ Você também pode usar recomendações da central de segurança do Azure como u
 
 | ID do Azure | IDs de CIS | Responsabilidade |
 |--|--|--|
-| 7.2 | 5,1 | Cliente |
+| 7.2 | 5.1 | Cliente |
 
 Use as recomendações da central de segurança do Azure para manter as configurações de segurança em todos os recursos de computação.  Além disso, você pode usar imagens personalizadas do sistema operacional ou a configuração de estado da automação do Azure para estabelecer a configuração de segurança do sistema operacional exigido por sua organização.
 

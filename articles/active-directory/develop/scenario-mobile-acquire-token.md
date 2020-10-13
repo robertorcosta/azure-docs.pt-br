@@ -14,10 +14,10 @@ ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.openlocfilehash: dfccc274ef920c59d39c160055ab27a6900c839c
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88141271"
 ---
 # <a name="get-a-token-for-a-mobile-app-that-calls-web-apis"></a>Obter um token para um aplicativo móvel que chama APIs da Web
@@ -207,7 +207,7 @@ catch(MsalUiRequiredException)
 
 #### <a name="mandatory-parameters-in-msalnet"></a>Parâmetros obrigatórios em MSAL.NET
 
-`AcquireTokenInteractive`tem apenas um parâmetro obrigatório: `scopes` . O `scopes` parâmetro enumera cadeias de caracteres que definem os escopos para os quais um token é necessário. Se o token for para Microsoft Graph, você poderá encontrar os escopos necessários na referência de API de cada API Microsoft Graph. Na referência, vá para a seção "permissões".
+`AcquireTokenInteractive` tem apenas um parâmetro obrigatório: `scopes` . O `scopes` parâmetro enumera cadeias de caracteres que definem os escopos para os quais um token é necessário. Se o token for para Microsoft Graph, você poderá encontrar os escopos necessários na referência de API de cada API Microsoft Graph. Na referência, vá para a seção "permissões".
 
 Por exemplo, para [listar os contatos do usuário](/graph/api/user-list-contacts), use o escopo "User. Read", "Contacts. Read". Para obter mais informações, confira [Referência de permissões do Microsoft Graph](/graph/permissions-reference).
 
@@ -225,19 +225,19 @@ O `WithPrompt()` parâmetro controla a interatividade com o usuário especifican
 
 A classe define as constantes a seguir:
 
-- `SelectAccount`força o serviço de token de segurança (STS) a apresentar a caixa de diálogo de seleção de conta. A caixa de diálogo contém as contas para as quais o usuário tem uma sessão. Você pode usar essa opção quando quiser permitir que o usuário escolha entre diferentes identidades. Essa opção faz com que a MSAL envie `prompt=select_account` para o provedor de identidade.
+- `SelectAccount` força o serviço de token de segurança (STS) a apresentar a caixa de diálogo de seleção de conta. A caixa de diálogo contém as contas para as quais o usuário tem uma sessão. Você pode usar essa opção quando quiser permitir que o usuário escolha entre diferentes identidades. Essa opção faz com que a MSAL envie `prompt=select_account` para o provedor de identidade.
 
     A `SelectAccount` constante é o padrão e fornece efetivamente a melhor experiência possível com base nas informações disponíveis. As informações disponíveis podem incluir a conta, a presença de uma sessão para o usuário e assim por diante. Não altere esse padrão, a menos que você tenha um bom motivo para fazê-lo.
-- `Consent`permite que você solicite o consentimento do usuário mesmo que o consentimento tenha sido concedido antes. Nesse caso, a MSAL envia `prompt=consent` para o provedor de identidade.
+- `Consent` permite que você solicite o consentimento do usuário mesmo que o consentimento tenha sido concedido antes. Nesse caso, a MSAL envia `prompt=consent` para o provedor de identidade.
 
     Talvez você queira usar a `Consent` constante em aplicativos com foco em segurança, em que a governança da organização exige que os usuários vejam a caixa de diálogo de consentimento sempre que usarem o aplicativo.
-- `ForceLogin`permite que o serviço solicite credenciais ao usuário mesmo se o prompt não for necessário.
+- `ForceLogin` permite que o serviço solicite credenciais ao usuário mesmo se o prompt não for necessário.
 
     Essa opção pode ser útil se a aquisição de token falhar e você quiser permitir que o usuário entre novamente. Nesse caso, a MSAL envia `prompt=login` para o provedor de identidade. Talvez você queira usar essa opção em aplicativos com foco em segurança, em que o controle da organização exige que o usuário entre cada vez que acessarem partes específicas do aplicativo.
-- `Never`é somente para .NET 4,5 e Windows Runtime (WinRT). Essa constante não solicitará o usuário, mas tentará usar o cookie armazenado na exibição da Web oculta inserida. Para obter mais informações, consulte [usando navegadores da Web com MSAL.net](./msal-net-web-browsers.md).
+- `Never` é somente para .NET 4,5 e Windows Runtime (WinRT). Essa constante não solicitará o usuário, mas tentará usar o cookie armazenado na exibição da Web oculta inserida. Para obter mais informações, consulte [usando navegadores da Web com MSAL.net](./msal-net-web-browsers.md).
 
     Se essa opção falhar, o `AcquireTokenInteractive` lançará uma exceção para notificá-lo de que uma interação de interface do usuário é necessária. Em seguida, você precisa usar outro `Prompt` parâmetro.
-- `NoPrompt`não envia um prompt para o provedor de identidade.
+- `NoPrompt` não envia um prompt para o provedor de identidade.
 
     Essa opção é útil somente para políticas de edição de perfil no Azure Active Directory B2C. Para obter mais informações, consulte [especificações do B2C](https://aka.ms/msal-net-b2c-specificities).
 

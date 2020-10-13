@@ -14,10 +14,10 @@ ms.reviewer: maghan
 manager: anandsub
 robots: noindex
 ms.openlocfilehash: 45aa444393ed81bc320a770203ca114c35e16107
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84195911"
 ---
 # <a name="troubleshoot-data-factory-issues"></a>Solucionar problemas do Data Factory
@@ -47,9 +47,9 @@ Caso você receba esse erro, o provedor de recursos do Azure Data Factory não f
 ### <a name="problem-unauthorized-error-when-running-a-data-factory-cmdlet"></a>Problema: Erro não autorizado ao executar um cmdlet da Data Factory
 Você provavelmente não está usando a assinatura ou conta do Azure correta com o Azure PowerShell. Use os cmdlets a seguir para selecionar a assinatura e conta do Azure corretas para usar com o Azure PowerShell.
 
-1. Connect-AzAccount-use a ID de usuário e a senha corretas
-2. Get-AzSubscription-exibe todas as assinaturas da conta.
-3. Select-AzSubscription &lt; nome &gt; da assinatura-selecione a assinatura correta. Use a mesma assinatura usada para criar um data factory no portal do Azure.
+1. Connect-AzAccount-usar a ID de usuário e a senha corretas
+2. Get-AzSubscription-exiba todas as assinaturas da conta.
+3. &lt;Nome da assinatura Select-AzSubscription &gt; -Selecione a assinatura correta. Use a mesma assinatura usada para criar um data factory no portal do Azure.
 
 ### <a name="problem-fail-to-launch-data-management-gateway-express-setup-from-azure-portal"></a>Problema: falha ao inicializar a Configura Expressa do Gateway de Gerenciamento de Dados no portal do Azure
 A instalação Expressa do Gateway de Gerenciamento de Dados requer o Internet Explorer ou um navegador da Web compatível com Microsoft ClickOnce. Se a Instalação Expressa não for iniciada, siga um destes procedimentos:

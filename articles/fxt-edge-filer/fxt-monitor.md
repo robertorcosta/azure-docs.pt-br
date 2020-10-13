@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 06/20/2019
 ms.author: rohogue
 ms.openlocfilehash: 7027fe9988c0c559db72c3c388c7a579d533c57e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85509431"
 ---
 # <a name="monitor-azure-fxt-edge-filer-hardware-status"></a>Monitorar o status de hardware do arquivo do Azure FXT Edge
@@ -60,7 +60,7 @@ Os indicadores de status à esquerda mostram uma luz âmbar sólida se houver um
 
 Se você ainda tiver o erro depois de tentar essas soluções, [entre em contato com o suporte](fxt-support-ticket.md) para obter ajuda. 
 
-| Ícone | Descrição | Condição de erro | Soluções possíveis |
+| ícone | Descrição | Condição de erro | Soluções possíveis |
 |----------------|---------------|--------------------|----------------------|
 | ![ícone de unidade](media/fxt-monitor/fxt-hd-icon.jpg) | Status da unidade | Erro de unidade | Verifique o log de eventos do sistema para determinar se a unidade tem um erro ou <br>Execute o teste de diagnóstico online apropriado; Reinicie o sistema e execute o diagnóstico inserido (ePSA) ou <br>Se as unidades estiverem configuradas em uma matriz RAID, reinicie o sistema e insira o programa utilitário de configuração do adaptador de host |
 |![ícone de temperatura](media/fxt-monitor/fxt-temp-icon.jpg) | Status da temperatura | Erro térmico-por exemplo, um ventilador falhou ou a temperatura ambiente está fora do intervalo | Verifique as seguintes condições endereçáveis: <br>Um ventilador de resfriamento está ausente ou falhou <br>A tampa do sistema, a cobertura de ar, o módulo de memória em branco ou o colchete de fundo é removido <br>A temperatura ambiente é muito alta <br>O fluxo de ar externo está obstruído |

@@ -12,10 +12,10 @@ ms.date: 06/24/2019
 ms.author: kenwith
 ms.reviewer: japere
 ms.openlocfilehash: 413cfe4f3aed446ad26a210b4faa452c4f624685
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88640847"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Solucionar problemas e mensagens de erro do Proxy do Aplicativo
@@ -85,7 +85,7 @@ Esta lista cobre os erros que os usuários finais podem encontrar quando tentam 
 
 Se você encontrar um erro ou problema com o Proxy de Aplicativo do Azure AD que não está listado neste guia de solução de problemas, conte-nos. Envie um email para nossa [equipe de comentários](mailto:aadapfeedback@microsoft.com) com os detalhes do erro encontrado.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Confira também
 * [Habilitar o Proxy de Aplicativo para o Azure Active Directory](application-proxy-add-on-premises-application.md)
 * [Publique aplicativos com proxy de aplicativo](application-proxy-add-on-premises-application.md)
 * [Habilitar logon único](application-proxy-configure-single-sign-on-with-kcd.md)

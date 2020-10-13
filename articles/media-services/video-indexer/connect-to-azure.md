@@ -11,15 +11,15 @@ ms.topic: article
 ms.date: 05/08/2020
 ms.author: juliako
 ms.openlocfilehash: 405533aad8247350d45cc53009abe6b58a511264
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83005940"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Crie uma conta do Video Indexer conectada ao Azure
 
-Quando cria uma conta do Video Indexer, você pode escolher uma conta de avaliação gratuita (em que você obtém um determinado número de minutos de indexação gratuitos) ou uma opção paga (em que você não está limitado pela cota). O Video Indexer fornece até 600 minutos de indexação gratuita para usuários do site e até 2400 minutos de indexação gratuita para usuários da API com uma conta de avaliação gratuita. Com a opção pago, você cria uma conta de Video Indexer que está conectada à sua assinatura do Azure e uma conta dos serviços de mídia do Azure. Você paga por minutos indexados, bem como os encargos relacionados à conta de mídia.
+Quando cria uma conta do Video Indexer, você pode escolher uma conta de avaliação gratuita (em que você obtém um determinado número de minutos de indexação gratuitos) ou uma opção paga (em que você não está limitado pela cota). O Video Indexer fornece até 600 minutos de indexação gratuita para usuários do site e até 2400 minutos de indexação gratuita para usuários da API com uma conta de avaliação gratuita. Com a opção paga, você cria uma conta do Video Indexer conectada à sua assinatura do Azure e a uma conta dos Serviços de Mídia do Azure. Você paga por minutos indexados e pelos encargos relacionados à conta de mídia.
 
 Este artigo mostra como criar uma conta do Video Indexer vinculada a uma assinatura do Azure e uma conta dos Serviços de Mídia do Azure. O tópico fornece etapas para conectar o Azure usando o fluxo automático (padrão). Também mostra como conectar o Azure manualmente (avançado).
 
@@ -144,7 +144,7 @@ Na caixa de diálogo **Conectar o Video Indexer a uma assinatura do Azure** da p
 
 Na caixa de diálogo, forneça as informações a seguir:
 
-|Setting|Descrição|
+|Configuração|Descrição|
 |---|---|
 |Região da conta do Indexador de Vídeo|O nome da região da conta do Video Indexer. Para obter um melhor desempenho e reduzir os custos, é altamente recomendável especificar o nome da região em que o recurso dos serviços de mídia do Azure e a conta de armazenamento do Azure estão localizados. |
 |Locatário do Azure AD|O nome do locatário do Azure AD, por exemplo "contoso.onmicrosoft.com". As informações do locatário podem ser recuperadas no portal do Azure. Coloque o cursor sobre o nome do usuário conectado no canto superior direito. Localize o nome à direita de **Domínio**.|

@@ -16,10 +16,10 @@ ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9a32874cebcd8335967eaf8a07a56346e8ad6460
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88213629"
 ---
 # <a name="set-up-self-service-group-management-in-azure-active-directory"></a>Configurar o gerenciamento de grupo de autoatendimento no Azure Active Directory 
@@ -33,7 +33,7 @@ Quando grupos de segurança são criados no portal do Azure ou usando o PowerShe
 Grupos criados em | Comportamento padrão do grupo de segurança | Comportamento padrão do grupo de Microsoft 365
 ------------------ | ------------------------------- | ---------------------------------
 [Azure AD PowerShell](groups-settings-cmdlets.md) | Somente proprietários podem adicionar membros<br>Visível, mas não disponível para junção no painel de acesso | Abrir para ingressar para todos os usuários
-[Portal do Azure](https://portal.azure.com) | Somente proprietários podem adicionar membros<br>Visível, mas não disponível para junção no painel de acesso<br>O proprietário não é atribuído automaticamente na criação do grupo | Abrir para ingressar para todos os usuários
+[Azure portal](https://portal.azure.com) | Somente proprietários podem adicionar membros<br>Visível, mas não disponível para junção no painel de acesso<br>O proprietário não é atribuído automaticamente na criação do grupo | Abrir para ingressar para todos os usuários
 [Painel de acesso](https://account.activedirectory.windowsazure.com/r#/joinGroups) | Abrir para ingressar para todos os usuários<br>As opções de associação podem ser alteradas quando o grupo é criado | Abrir para ingressar para todos os usuários<br>As opções de associação podem ser alteradas quando o grupo é criado
 
 ## <a name="self-service-group-management-scenarios"></a>Cenários de gerenciamento de grupo de autoatendimento
@@ -66,5 +66,5 @@ Esses artigos fornecem mais informações sobre o Active Directory do Azure.
 * [Gerenciar o acesso a recursos com grupos do Azure Active Directory](../fundamentals/active-directory-manage-groups.md)
 * [Cmdlets do Azure Active Directory para definir configurações de grupo](groups-settings-cmdlets.md)
 * [Gerenciamento de aplicativos no Microsoft Azure Active Directory](../manage-apps/what-is-application-management.md)
-* [O que é o Active Directory do Azure?](../fundamentals/active-directory-whatis.md)
+* [O que é o Azure Active Directory?](../fundamentals/active-directory-whatis.md)
 * [Integrar suas identidades locais com o Azure Active Directory](../hybrid/whatis-hybrid-identity.md)

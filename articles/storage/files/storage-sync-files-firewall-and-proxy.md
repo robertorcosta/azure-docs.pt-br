@@ -8,10 +8,10 @@ ms.date: 06/24/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: e4f011d9286a0685f1b091b930155db969407423
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87903707"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Configurações de proxy e firewall da Sincronização de arquivos do Azure
@@ -113,7 +113,7 @@ Por motivos de BCDR (continuidade dos negócios e recuperação de desastres), v
 |--------|--------|----------------------|---------------|---------------|
 | Público |Leste da Austrália | https: \/ /australiaeast01.AFS.Azure.net<br>https: \/ /Kailani-Aue.One.Microsoft.com | Australia Southeast | https: \/ /TM-australiaeast01.AFS.Azure.net<br>https: \/ /TM-Kailani-Aue.One.Microsoft.com |
 | Público |Australia Southeast | https: \/ /australiasoutheast01.AFS.Azure.net<br>https: \/ /Kailani-aus.One.Microsoft.com | Leste da Austrália | https: \/ /TM-australiasoutheast01.AFS.Azure.net<br>https: \/ /TM-Kailani-aus.One.Microsoft.com |
-| Público | Brazil South | https: \/ /brazilsouth01.AFS.Azure.net | Centro-Sul dos Estados Unidos | https: \/ /TM-brazilsouth01.AFS.Azure.net |
+| Público | Sul do Brasil | https: \/ /brazilsouth01.AFS.Azure.net | Centro-Sul dos Estados Unidos | https: \/ /TM-brazilsouth01.AFS.Azure.net |
 | Público | Canadá Central | https: \/ /canadacentral01.AFS.Azure.net<br>https: \/ /Kailani-CAC.One.Microsoft.com | Leste do Canadá | https: \/ /TM-canadacentral01.AFS.Azure.net<br>https: \/ /TM-Kailani-CAC.One.Microsoft.com |
 | Público | Leste do Canadá | https: \/ /canadaeast01.AFS.Azure.net<br>https: \/ /Kailani-CAE.One.Microsoft.com | Canadá Central | https: \/ /TM-canadaeast01.AFS.Azure.net<br>https: \/ /TM-Kailani.CAE.One.Microsoft.com |
 | Público | Índia Central | https: \/ /centralindia01.AFS.Azure.net<br>https: \/ /Kailani-CIN.One.Microsoft.com | Sul da Índia | https: \/ /TM-centralindia01.AFS.Azure.net<br>https: \/ /TM-Kailani-CIN.One.Microsoft.com |
@@ -266,7 +266,7 @@ if ($found) {
 Você pode usar os intervalos de endereços IP no `$ipAddressRanges` para atualizar o firewall. Verifique o site do seu firewall/dispositivo de rede para obter informações sobre como atualizar seu firewall.
 
 ## <a name="test-network-connectivity-to-service-endpoints"></a>Testar a conectividade de rede para pontos de extremidade de serviço
-Depois que um servidor é registrado com o serviço de Sincronização de Arquivos do Azure, o cmdlet Test-StorageSyncNetworkConnectivity e ServerRegistration.exe podem ser usados para testar as comunicações com todos os pontos de extremidade (URLs) específicos desse servidor. Esse cmdlet pode ajudar a solucionar problemas quando a comunicação incompleta impede que o servidor trabalhe totalmente com o Sincronização de Arquivos do Azure e ele pode ser usado para ajustar as configurações de proxy e firewall.
+Depois que um servidor é registrado com o serviço Sincronização de Arquivos do Azure, o cmdlet Test-StorageSyncNetworkConnectivity e ServerRegistration.exe podem ser usados para testar as comunicações com todos os pontos de extremidade (URLs) específicos desse servidor. Esse cmdlet pode ajudar a solucionar problemas quando a comunicação incompleta impede que o servidor trabalhe totalmente com o Sincronização de Arquivos do Azure e ele pode ser usado para ajustar as configurações de proxy e firewall.
 
 Para executar o teste de conectividade de rede, instale Sincronização de Arquivos do Azure Agent versão 9,1 ou posterior e execute os seguintes comandos do PowerShell:
 ```powershell
@@ -280,6 +280,6 @@ As listas no início deste documento contém as URLs de Sincronização de Arqui
 A configuração das regras de firewall de restrição de domínio pode ser uma medida para melhorar a segurança. Se essas configurações de firewall são utilizadas, é necessário ter em mente que URLs serão adicionadas e poderão até mesmo ser alteradas ao longo do tempo. Consulte este artigo periodicamente.
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Planejar uma implantação da Sincronização de Arquivos do Azure](storage-sync-files-planning.md)
+- [Planejando uma implantação da Sincronização de Arquivos do Azure](storage-sync-files-planning.md)
 - [Implantar a Sincronização de Arquivos do Azure](storage-sync-files-deployment-guide.md)
 - [Monitorar a Sincronização de Arquivos do Azure](storage-sync-files-monitoring.md)

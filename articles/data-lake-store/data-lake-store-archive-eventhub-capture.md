@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 8be242369ecae2c809a38428284c9ddcad440e3f
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91578233"
 ---
 # <a name="use-azure-data-lake-storage-gen1-to-capture-data-from-event-hubs"></a>Use o Azure Data Lake Storage Gen1 para capturar dados dos Hubs de Eventos
@@ -117,6 +117,6 @@ Agora, você pode testar a solução enviando dados para o Hub de Eventos do Azu
 Quando os dados estiverem no Data Lake Storage Gen1, você poderá executar trabalhos de análise para processar e juntar os dados. Confira [Exemplo de USQL Avro](https://github.com/Azure/usql/tree/master/Examples/AvroExamples) sobre como fazer isso usando o Azure Data Lake Analytics.
   
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 * [Proteger dados no Armazenamento do Data Lake Gen1](data-lake-store-secure-data.md)
 * [Copiar dados do Azure Storage Blobs para o Data Lake Storage Gen1](data-lake-store-copy-data-azure-storage-blob.md)

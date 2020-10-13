@@ -14,10 +14,10 @@ ms.date: 02/27/2020
 ms.author: kumud
 ms.reviewer: kumud
 ms.openlocfilehash: 3542ae2e94c2fa3d3e9d6100738b2aabded94d15
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91306660"
 ---
 # <a name="application-security-groups"></a>Grupos de segurança do aplicativo
@@ -32,7 +32,7 @@ Na figura anterior, *NIC1* e *NIC2* são membros do grupo de segurança de aplic
 
 Essa regra é necessária para permitir o tráfego da Internet para os servidores Web. Como o tráfego de entrada da Internet é negado pela regra de segurança padrão **DenyAllInbound**, nenhuma regra adicional é necessária para os grupos de segurança do aplicativo *AsgLogic* ou *AsgDb*.
 
-|Prioridade|Fonte|Portas de origem| Destino | Portas de destino | Protocolo | Access |
+|Prioridade|Fonte|Portas de origem| Destino | Portas de destino | Protocolo | Acesso |
 |---|---|---|---|---|---|---|
 | 100 | Internet | * | AsgWeb | 80 | TCP | Allow |
 
@@ -40,7 +40,7 @@ Essa regra é necessária para permitir o tráfego da Internet para os servidore
 
 Já que a regra de segurança padrão **AllowVNetInBound** permite toda a comunicação entre recursos na mesma rede virtual, essa regra é necessária para negar o tráfego de todos os recursos.
 
-|Prioridade|Fonte|Portas de origem| Destino | Portas de destino | Protocolo | Access |
+|Prioridade|Fonte|Portas de origem| Destino | Portas de destino | Protocolo | Acesso |
 |---|---|---|---|---|---|---|
 | 120 | * | * | AsgDb | 1433 | Qualquer | Negar |
 
@@ -48,7 +48,7 @@ Já que a regra de segurança padrão **AllowVNetInBound** permite toda a comuni
 
 Essa regra permite o tráfego do grupo de segurança de aplicativo *AsgLogic* para o grupo de segurança de aplicativo *AsgDb*. A prioridade para essa regra é mais alta do que a prioridade para a regra *Deny-Database-All*. Como resultado, essa regra é processada antes da regra *Deny-Database-All* e, portanto, o tráfego do grupo de segurança de aplicativo *AsgLogic* é permitido enquanto todos os outros tráfegos são bloqueados.
 
-|Prioridade|Fonte|Portas de origem| Destino | Portas de destino | Protocolo | Access |
+|Prioridade|Fonte|Portas de origem| Destino | Portas de destino | Protocolo | Acesso |
 |---|---|---|---|---|---|---|
 | 110 | AsgLogic | * | AsgDb | 1433 | TCP | Allow |
 

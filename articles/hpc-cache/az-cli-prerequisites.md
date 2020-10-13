@@ -7,13 +7,13 @@ ms.topic: how-to
 ms.date: 07/08/2020
 ms.author: v-erkel
 ms.openlocfilehash: 7d0844e699c012d987c23a75e2b0874005cf535a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87096038"
 ---
-# <a name="set-up-azure-cli-for-azure-hpc-cache"></a>Configurar CLI do Azure para o cache HPC do Azure
+# <a name="set-up-azure-cli-for-azure-hpc-cache"></a>Configurar a CLI do Azure para o Azure HPC Cache
 
 Siga estas etapas para preparar seu ambiente antes de usar CLI do Azure para criar ou gerenciar um cache do HPC do Azure.
 

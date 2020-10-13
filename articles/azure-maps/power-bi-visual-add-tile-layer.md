@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 ms.custom: ''
 ms.openlocfilehash: 8a0d930d1c0fd30c48d97b0d1d4b94548077fbca
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86261609"
 ---
 # <a name="add-a-tile-layer"></a>Adicionar uma camada de bloco
@@ -54,8 +54,8 @@ A URL do bloco uma URL https para um modelo de URL de bloco que usa os seguintes
 -   `{x}` - posição X do bloco. Também precisa `{y}` e `{z}`.
 -   `{y}` - posição Y do bloco. Também precisa `{x}` e `{z}`.
 -   `{z}` -Nível de zoom do bloco. Também precisa `{x}` e `{y}`.
--   `{quadkey}`-Identificador de bloco `quadkey` com base na Convenção de nomenclatura do sistema de blocos do Bing Maps.
--   `{bbox-epsg-3857}`-Uma cadeia de caracteres de caixa delimitadora com o formato `{west},{south},{east},{north}` no sistema de referência espacial do EPSG 3857.
+-   `{quadkey}` -Identificador de bloco `quadkey` com base na Convenção de nomenclatura do sistema de blocos do Bing Maps.
+-   `{bbox-epsg-3857}` -Uma cadeia de caracteres de caixa delimitadora com o formato `{west},{south},{east},{north}` no sistema de referência espacial do EPSG 3857.
 
 Por exemplo, a seguir está uma URL de bloco formatada para o [serviço de bloco de radar meteorológico](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview) no mapas do Azure. Observe que `[subscription-key]` é um espaço reservado para sua chave de assinatura do Azure Maps.
 

@@ -1,5 +1,5 @@
 ---
-title: Habilitar Azure Monitor para VMs usando modelos do Resource Manager
+title: Habilitar o Azure Monitor para VMs usando modelos do Resource Manager
 description: Este artigo descreve como habilitar Azure Monitor para VMs para uma ou mais máquinas virtuais do Azure ou conjuntos de dimensionamento de máquinas virtuais usando modelos de Azure PowerShell ou Azure Resource Manager.
 ms.subservice: ''
 ms.topic: conceptual
@@ -7,13 +7,13 @@ author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
 ms.openlocfilehash: 89a9a1b762e02237a8ee08dca5d6eedefabaafbb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87328101"
 ---
-# <a name="enable-azure-monitor-for-vms-using-resource-manager-templates"></a>Habilitar Azure Monitor para VMs usando modelos do Resource Manager
+# <a name="enable-azure-monitor-for-vms-using-resource-manager-templates"></a>Habilitar o Azure Monitor para VMs usando modelos do Resource Manager
 Este artigo descreve como habilitar Azure Monitor para VMs para uma máquina virtual ou um conjunto de dimensionamento de máquinas virtuais usando modelos do Resource Manager. Esse procedimento pode ser usado para o seguinte:
 
 - Máquina virtual do Azure

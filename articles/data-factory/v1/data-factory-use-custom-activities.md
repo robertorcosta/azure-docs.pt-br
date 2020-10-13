@@ -14,10 +14,10 @@ ms.custom: devx-track-csharp
 manager: anandsub
 robots: noindex
 ms.openlocfilehash: b8935b9f2c3c598aee7c5d0eb37f21d8114dac42
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88997448"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-version-1-pipeline"></a>Usar atividades personalizadas em um pipeline Azure Data Factory versão 1
@@ -608,7 +608,7 @@ Nesta etapa, você cria conjuntos de dados para representar a entrada e saída d
     }
     ```
 
-    Observe o seguinte:
+    Observe os seguintes pontos:
 
    * **Simultaneidade** é definido como **2** para que duas fatias sejam processadas em paralelo por 2 VMs no pool do Lote do Azure.
    * Há uma atividade na seção de atividades, que é do tipo **DotNetActivity**.

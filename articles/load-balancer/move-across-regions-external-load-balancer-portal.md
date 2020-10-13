@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: allensu
 ms.openlocfilehash: 0598f21cddbaeef6b3cd10cd77250eeae8bd34bf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84808722"
 ---
 # <a name="move-an-external-load-balancer-to-another-region-by-using-the-azure-portal"></a>Mover um balanceador de carga externo para outra região usando o portal do Azure
@@ -182,7 +182,7 @@ Os procedimentos a seguir mostram como preparar o balanceador externo de carga p
 
     1. Em outra guia ou janela do navegador, entre no [portal do Azure](https://portal.azure.com) e selecione **grupos de recursos**.
     2. Localize o grupo de recursos de destino que contém o IP público que você moveu nas etapas anteriores. Selecione-a.
-    3. Selecione **configurações**  >  **Propriedades**.
+    3. Selecione **Configurações** > **Propriedades**.
     4. Na folha à direita, realce a **ID do recurso** e copie-a para a área de transferência. Como alternativa, você pode selecionar **copiar para a área de transferência** à direita do caminho da **ID de recurso** .
     5. Cole a ID do recurso na propriedade **valor** no editor **Editar parâmetros** que está aberto na outra janela do navegador ou na guia:
 
@@ -405,7 +405,7 @@ Os procedimentos a seguir mostram como preparar o balanceador externo de carga p
 
 Se você quiser descartar o IP público de destino e o balanceador de carga externo, exclua o grupo de recursos que os contém. Para fazer isso, selecione o grupo de recursos no painel no portal e, em seguida, selecione **excluir** na parte superior da página Visão geral.
 
-## <a name="clean-up"></a>Limpar
+## <a name="clean-up"></a>Limpeza
 
 Para confirmar as alterações e concluir a movimentação do IP público e do balanceador de carga externo, exclua o IP público de origem e o balanceador de carga externo ou grupo de recursos. Para fazer isso, selecione esse grupo de recursos no painel no portal e, em seguida, selecione **excluir** na parte superior de cada página.
 

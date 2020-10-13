@@ -5,20 +5,20 @@ ms.date: 06/25/2019
 ms.service: cognitive-services
 ms.topic: include
 ms.openlocfilehash: ce4cc68826b39b5707549afc799d2d214e8876c6
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88639202"
 ---
 Se você precisar configurar um proxy HTTP para fazer solicitações de saída, use estes dois argumentos:
 
 | Nome | Tipo de dados | Descrição |
 |--|--|--|
-|HTTPS_PROXY|string|O proxy a ser usado, por exemplo, `https://proxy:8888`<br>`<proxy-url>`|
-|HTTPS_PROXY_CREDS|string|Quaisquer credenciais necessárias para autenticação no proxy, por exemplo, nomedeusuario:senha.|
-|`<proxy-user>`|string|O usuário para o proxy.|
-|`<proxy-password>`|string|A senha associada ao `<proxy-user>` para o proxy.|
+|HTTPS_PROXY|cadeia de caracteres|O proxy a ser usado, por exemplo, `https://proxy:8888`<br>`<proxy-url>`|
+|HTTPS_PROXY_CREDS|cadeia de caracteres|Quaisquer credenciais necessárias para autenticação no proxy, por exemplo, nomedeusuario:senha.|
+|`<proxy-user>`|cadeia de caracteres|O usuário para o proxy.|
+|`<proxy-password>`|cadeia de caracteres|A senha associada ao `<proxy-user>` para o proxy.|
 ||||
 
 

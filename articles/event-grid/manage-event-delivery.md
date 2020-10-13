@@ -4,13 +4,13 @@ description: Descreve como personalizar opções de entrega de eventos para a Gr
 ms.topic: conceptual
 ms.date: 07/20/2020
 ms.openlocfilehash: e780ddd5c49b1a2cced10a1907d25784b0285f01
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91261797"
 ---
-# <a name="set-dead-letter-location-and-retry-policy"></a>Definir a localização da letra de inatividade e a política de repetição
+# <a name="set-dead-letter-location-and-retry-policy"></a>Definir a localização de mensagens mortas e a política de repetição
 
 Ao criar uma assinatura de evento, você pode personalizar as configurações para entrega de eventos. Este artigo mostra como configurar um local de mensagens mortas e personalizar as configurações de repetição. Para obter informações sobre esses recursos, consulte [Entrega e repetição de mensagens da Grade de Eventos](delivery-and-retry.md).
 
