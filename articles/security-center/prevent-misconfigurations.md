@@ -9,22 +9,22 @@ ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: memildin
 ms.openlocfilehash: 19e9a33350b6a1a67986dc35a372f737e45ab39a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90906390"
 ---
 # <a name="prevent-misconfigurations-with-enforcedeny-recommendations"></a>Evitar configurações incorretas com recomendações de aplicação/negação
 
-As configurações incorretas de segurança são uma grande causa de incidentes de segurança. A central de segurança agora tem a capacidade de ajudar a *evitar* configurações incorretas de novos recursos em relação a recomendações específicas. 
+Configurações incorretas de segurança são uma das principais causas de incidentes de segurança. Agora, a Central de Segurança pode ajudar a *impedir* configurações incorretas de novos recursos, com relação a recomendações específicas. 
 
-Esse recurso pode ajudar a manter suas cargas de trabalho seguras e estabilizar sua pontuação segura.
+Esse recurso pode ajudar a manter suas cargas de trabalho seguras e estabilizar sua classificação de segurança.
 
 A imposição de uma configuração segura, com base em uma recomendação específica, é oferecida em dois modos:
 
-- Usando o efeito de **negação** de Azure Policy, você pode interromper a criação de recursos não íntegros
-- Usando a opção **impor** , você pode aproveitar o efeito de **DeployIfNotExist** da política do Azure e corrigir automaticamente os recursos sem conformidade após a criação
+- Usando o efeito **Negar** do Azure Policy, você pode interromper a criação de recursos não íntegros
+- Usando a opção **Impor**, você pode aproveitar o efeito **DeployIfNotExist** da política do Azure e corrigir automaticamente os recursos fora de conformidade após a criação
 
 Isso pode ser encontrado na parte superior da página de detalhes do recurso para obter as recomendações de segurança selecionadas (consulte [recomendações com as opções Deny/Force](#recommendations-with-denyenforce-options)).
 
@@ -41,18 +41,18 @@ Isso pode ser encontrado na parte superior da página de detalhes do recurso par
     > [!TIP]
     > Você pode usar os três pontos no final da linha para alterar uma única assinatura ou usar as caixas de seleção para selecionar várias assinaturas ou grupos e, em seguida, selecionar **alterar para negar**.
 
-    :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-prevent-resource-creation.png" alt-text="Definindo o escopo para Azure Policy negar":::
+    :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-prevent-resource-creation.png" alt-text="Página de recomendação com o botão negar realçado":::
 
 
 ## <a name="enforce-a-secure-configuration"></a>Impor uma configuração segura
 
 1. Abra a recomendação na qual você implantará uma implantação de modelo se novos recursos não atenderem e selecione o botão **impor** na parte superior da página.
 
-    :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-enforce-button.png" alt-text="Página de recomendação com o botão impor realçado":::
+    :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-enforce-button.png" alt-text="Página de recomendação com o botão negar realçado":::
 
     O painel de configuração é aberto com todas as opções de configuração de política. 
 
-    :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-enforce-config.png" alt-text="Impor opções de configuração":::
+    :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-enforce-config.png" alt-text="Página de recomendação com o botão negar realçado":::
 
 1. Defina o escopo, o nome da atribuição e outras opções relevantes.
 

@@ -13,10 +13,10 @@ ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 09/23/2020
 ms.openlocfilehash: 942cbda3652692acc8eedf2ec9508bb501a60547
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91332093"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copiar dados de e para Dynamics 365 (Common Data Service) ou Dynamics CRM usando o Azure Data Factory
@@ -378,7 +378,7 @@ Configure o tipo de dados Data Factory correspondente em uma estrutura de conjun
 | Tipo de dados do Dynamics | Tipo de dados provisório do Data Factory | Tem suporte como origem | Tem suporte como coletor |
 |:--- |:--- |:--- |:--- |
 | AttributeTypeCode.BigInt | long | ✓ | ✓ |
-| AttributeTypeCode.Boolean | Booliano | ✓ | ✓ |
+| AttributeTypeCode.Boolean | Boolean | ✓ | ✓ |
 | AttributeType.Customer | GUID | ✓ | ✓ (Consulte as [diretrizes](#writing-data-to-a-lookup-field)) |
 | AttributeType.DateTime | Datetime | ✓ | ✓ |
 | AttributeType.Decimal | Decimal | ✓ | ✓ |
@@ -386,7 +386,7 @@ Configure o tipo de dados Data Factory correspondente em uma estrutura de conjun
 | AttributeType.EntityName | String | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
 | AttributeType.Lookup | GUID | ✓ | ✓ (Consulte as [diretrizes](#writing-data-to-a-lookup-field)) |
-| AttributeType.ManagedProperty | Booliano | ✓ | |
+| AttributeType.ManagedProperty | Boolean | ✓ | |
 | AttributeType.Memo | String | ✓ | ✓ |
 | AttributeType.Money | Decimal | ✓ | ✓ |
 | AttributeType.Owner | GUID | ✓ | ✓ (Consulte as [diretrizes](#writing-data-to-a-lookup-field)) |

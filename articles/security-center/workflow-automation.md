@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: memildin
 ms.openlocfilehash: b713977d811411ea2ccd7dfa22c7757321ecd7aa
-ms.sourcegitcommit: 5b69ba21787c07547edfbfd5254eaf34315cfadd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91712282"
 ---
 # <a name="create-automatic-responses-to-alerts-and-recommendations-with-workflow-automation"></a>Criar respostas automáticas para alertas e recomendações com a automação do fluxo de trabalho
@@ -31,9 +31,9 @@ Este artigo descreve o recurso de automação de fluxo de trabalho da central de
 |Aspecto|Detalhes|
 |----|:----|
 |Estado da versão:|GA (em disponibilidade geral)|
-|Preço:|Grátis|
+|Preço:|Gratuita|
 |Funções e permissões necessárias:|**Função de administrador de segurança** ou **proprietário** no grupo de recursos<br>Também deve ter permissões de gravação para o recurso de destino<br><br>Para trabalhar com fluxos de trabalho de aplicativos lógicos do Azure, você também deve ter as seguintes funções/permissões de aplicativos lógicos:<br> - Permissões de [operador de aplicativo lógico](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-operator) são necessárias ou acesso de leitura/gatilho do aplicativo lógico (essa função não pode criar ou editar aplicativos lógicos; *executar* apenas os existentes)<br> - As permissões de [colaborador do aplicativo lógico](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-contributor) são necessárias para a criação e modificação do aplicativo lógico<br>Se você quiser usar conectores de aplicativos lógicos, talvez precise de credenciais adicionais para entrar em seus respectivos serviços (por exemplo, suas instâncias de Outlook/equipes/margem de atraso)|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) National/soberanas (US Gov, China gov, outros gov)|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Nacionais/soberanas (US Gov, China Gov, outros Gov)|
 |||
 
 

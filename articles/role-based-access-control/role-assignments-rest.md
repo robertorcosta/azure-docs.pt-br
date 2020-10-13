@@ -16,15 +16,15 @@ ms.date: 05/06/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: d66b4c8e9f41f661cfc399f72a9ad97405a860fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84790839"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-the-rest-api"></a>Adicionar ou remover atribuições de função do Azure usando a API REST
 
-[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)]Este artigo descreve como atribuir funções usando a API REST.
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] Este artigo descreve como atribuir funções usando a API REST.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -58,7 +58,7 @@ Para conceder acesso no Azure RBAC, adicione uma atribuição de função. Para 
 1. Dentro do URI, substitua *{scope}* pelo escopo da atribuição de função.
 
     > [!div class="mx-tableFixed"]
-    > | Escopo | Tipo |
+    > | Escopo | Type |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Grupo de gerenciamento |
     > | `subscriptions/{subscriptionId1}` | Subscription |
@@ -72,7 +72,7 @@ Para conceder acesso no Azure RBAC, adicione uma atribuição de função. Para 
 1. No corpo da solicitação, substitua *{Scope}* pelo escopo da atribuição de função.
 
     > [!div class="mx-tableFixed"]
-    > | Escopo | Tipo |
+    > | Escopo | Type |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Grupo de gerenciamento |
     > | `subscriptions/{subscriptionId1}` | Subscription |
@@ -132,7 +132,7 @@ No RBAC do Azure, para remover o acesso, você deve remover uma atribuição de 
 1. Dentro do URI, substitua *{scope}* pelo escopo para remoção da atribuição de função.
 
     > [!div class="mx-tableFixed"]
-    > | Escopo | Tipo |
+    > | Escopo | Type |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Grupo de gerenciamento |
     > | `subscriptions/{subscriptionId1}` | Subscription |
@@ -170,5 +170,5 @@ O texto a seguir mostra um exemplo da saída:
 
 - [Listar atribuições de função do Azure usando a API REST](role-assignments-list-rest.md)
 - [Implantar recursos com modelos do Resource Manager e a API REST do Resource Manager](../azure-resource-manager/templates/deploy-rest.md)
-- [Referência da API REST do Azure](/rest/api/azure/)
+- [Referência de API REST do Azure](/rest/api/azure/)
 - [Criar ou atualizar funções personalizadas do Azure usando a API REST](custom-roles-rest.md)

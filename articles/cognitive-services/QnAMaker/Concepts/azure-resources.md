@@ -6,10 +6,10 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.openlocfilehash: 62f627fb9765f2a86a373f74c33437680c9305af
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91777047"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Recursos do Azure para QnA Maker
@@ -146,7 +146,7 @@ Para consultar a base de dados de conhecimento publicada, todas as bases de conh
 
 QnA Maker cria vários recursos do Azure. Para reduzir o gerenciamento e beneficiar-se do compartilhamento de custos, use a tabela a seguir para entender o que você pode e não consegue compartilhar:
 
-|Serviço|Compartilhamento|Motivo|
+|Serviço|Compartilhar|Motivo|
 |--|--|--|
 |Serviços Cognitivos|X|Não é possível por design|
 |Plano do Serviço de Aplicativo|✔|Espaço em disco fixo alocado para um plano do serviço de aplicativo. Se outros aplicativos que compartilham o mesmo plano do serviço de aplicativo usarem um espaço em disco significativo, a instância do serviço de aplicativo do QnAMaker encontrará problemas.|

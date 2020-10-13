@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/10/2020
 ms.openlocfilehash: 4fd16e9dcf9f0b75b48311adf3e9282adbce2a25
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91708706"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---single-server"></a>Monitorar e ajustar o Banco de Dados do Azure para PostgreSQL – Servidor único
@@ -22,7 +22,7 @@ O Banco de Dados do Azure para PostgreSQL oferece várias métricas que fornecem
 ### <a name="list-of-metrics"></a>Lista de métricas
 Essas métricas estão disponíveis para o Banco de Dados do Azure para PostgreSQL:
 
-|Métrica|Nome de exibição da métrica|Unidade|Descrição|
+|Métrica|Nome de exibição da métrica|Unit|Descrição|
 |---|---|---|---|
 |cpu_percent|Porcentagem de CPU|Porcentagem|O percentual de CPU em uso.|
 |memory_percent|Porcentagem de memória|Porcentagem|O percentual de memória em uso.|

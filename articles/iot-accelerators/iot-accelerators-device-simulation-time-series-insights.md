@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 88255e60593403951db5b984bb9c69b1060a93c2
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91540567"
 ---
 # <a name="use-time-series-insights-to-visualize-telemetry-sent-from-the-device-simulation-solution-accelerator"></a>Use as informações do Time Series para visualizar a telemetria enviada a partir do acelerador de solução do Device Simulation
@@ -68,7 +68,7 @@ As etapas a seguir usam a CLI do Azure no Azure Cloud Shell para criar o grupo d
     | Nome do ambiente | A captura de tela a seguir usa o nome **Contoso-TSI**. Ao concluir esta etapa, escolha seu próprio nome exclusivo. |
     | Subscription | Na lista suspensa, selecione sua assinatura do Azure. |
     | Resource group | **contoso-simulation**. Use o nome do seu acelerador de solução. |
-    | Location | Este exemplo usa **Leste dos EUA**. Crie seu ambiente na mesma região que seu acelerador de simulação de dispositivo. |
+    | Localização | Este exemplo usa **Leste dos EUA**. Crie seu ambiente na mesma região que seu acelerador de simulação de dispositivo. |
     | Sku |**S1** |
     | Capacity | **1** |
 
@@ -163,7 +163,7 @@ O explorador do Time Series Insights é um aplicativo da web que você pode usar
 
     ![Painel do Explorador de análise de séries de tempo](./media/iot-accelerators-device-simulation-time-series-insights/time-series-insights-dashboard.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se você planejar explorar ainda mais, deixe o acelerador de solução implantado.
 

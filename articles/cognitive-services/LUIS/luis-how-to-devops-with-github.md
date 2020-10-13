@@ -12,13 +12,13 @@ ms.topic: conceptual
 ms.date: 06/5/2020
 ms.author: anwigley
 ms.openlocfilehash: 6df65040277ac61cca5fb4bf7fce5b5a7b2f3afe
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84783756"
 ---
-# <a name="apply-devops-to-luis-app-development-using-github-actions"></a>Aplicar DevOps ao desenvolvimento de aplicativo do LUIS usando ações do GitHub
+# <a name="apply-devops-to-luis-app-development-using-github-actions"></a>Aplicar DevOps ao desenvolvimento de aplicativo do LUIS usando GitHub Actions
 
 Acesse o [repositório de modelos Luis DevOps](https://github.com/Azure-Samples/LUIS-DevOps-Template) para obter uma solução completa que implementa DevOps e práticas recomendadas de engenharia de software para Luis. Você pode usar este repositório de modelos para criar seu próprio Repository com suporte interno para fluxos de trabalho e práticas de CI/CD que habilitam o [controle do código-fonte](luis-concept-devops-sourcecontrol.md), [compilações automatizadas](luis-concept-devops-automation.md), [testes](luis-concept-devops-testing.md)e [Gerenciamento de liberações](luis-concept-devops-automation.md#release-management) com o Luis para seu próprio projeto.
 
@@ -38,6 +38,6 @@ O [repositório de modelos Luis DevOps](https://github.com/Azure-Samples/LUIS-De
 ## <a name="next-steps"></a>Próximas etapas
 
 * Use o [repositório de modelos Luis DevOps](https://github.com/Azure-Samples/LUIS-DevOps-Template) para aplicar o DevOps com seu próprio projeto.
-* [Controle do código-fonte e estratégias de ramificação para LUIS](luis-concept-devops-sourcecontrol.md)
-* [Testando o LUIS DevOps](luis-concept-devops-testing.md)
+* [Controle do código-fonte e estratégias de branch do LUIS](luis-concept-devops-sourcecontrol.md)
+* [Teste para DevOps do LUIS](luis-concept-devops-testing.md)
 * [Fluxos de trabalho de automação para LUIS DevOps](luis-concept-devops-automation.md)

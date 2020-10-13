@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: JenCook
 ms.openlocfilehash: f9b73e0919d660947edd0417f7379b3f6e6140c0
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88245845"
 ---
 # <a name="solutions-on-azure-virtual-machines"></a>Soluções em máquinas virtuais do Azure
@@ -47,7 +47,7 @@ az vm list-skus `
     --query "[?family=='standardDCSv2Family']"
 ```
 ### <a name="dedicated-host-requirements"></a>Requisitos de host dedicado
-A implantação de um tamanho de máquina virtual **Standard_DC8_v2** na família de VM da série DCSv2 ocupará o host completo e não será compartilhada com outros locatários ou assinaturas. Essa família de SKU de VM fornece o isolamento que você pode precisar para atender aos requisitos regulatórios de conformidade e segurança que normalmente são atendidos por ter um serviço de host dedicado. Quando você escolher **Standard_DC8_v2** SKU, o servidor host físico alocará todos os recursos de hardware disponíveis, incluindo a memória EPC somente para sua máquina virtual. Observe que essa funcionalidade existe por design de infraestrutura e todos os recursos do **Standard_DC8_v2** terão suporte. Essa implantação não é igual ao serviço de [host dedicado do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts) que é fornecido por outras famílias de VM do Azure.
+A implantação de um tamanho de máquina virtual **Standard_DC8_v2** na família de VM DCSv2-Series ocupará o host completo e não será compartilhada com outros locatários ou assinaturas. Essa família de SKU de VM fornece o isolamento que você pode precisar para atender aos requisitos regulatórios de conformidade e segurança que normalmente são atendidos por ter um serviço de host dedicado. Quando você escolher **Standard_DC8_v2** SKU, o servidor host físico alocará todos os recursos de hardware disponíveis, incluindo a memória EPC somente para sua máquina virtual. Observe que essa funcionalidade existe por design de infraestrutura e todos os recursos do **Standard_DC8_v2** terão suporte. Essa implantação não é igual ao serviço de [host dedicado do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts) que é fornecido por outras famílias de VM do Azure.
 
 
 ## <a name="deployment-considerations"></a>Considerações de implantação
@@ -84,7 +84,7 @@ O Azure Resource Manager é p serviço de implantação e gerenciamento do Azure
 
 Para saber mais sobre os modelos do ARM, confira [implantação de modelo visão geral](../azure-resource-manager/templates/overview.md).
 
-Para implantar uma VM da série DCsv2 em um modelo do ARM, você usará o [recurso de máquina virtual](../virtual-machines/windows/template-description.md). Certifique-se de especificar as propriedades corretas em **vmSize** e para **imageReference**.
+Para implantar uma VM DCsv2-Series em um modelo ARM, você usará o [recurso de máquina virtual](../virtual-machines/windows/template-description.md). Certifique-se de especificar as propriedades corretas em **vmSize** e para **imageReference**.
 
 ### <a name="vm-size"></a>Tamanho da VM
 

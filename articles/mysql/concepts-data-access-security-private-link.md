@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.openlocfilehash: e49fd0d2b4d8fc801372dbc766c2fdc7beb21b10
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90905920"
 ---
 # <a name="private-link-for-azure-database-for-mysql"></a>Link privado para o banco de dados do Azure para MySQL
@@ -72,21 +72,21 @@ Depois que o administrador de rede cria o ponto de extremidade privado (PE), o a
 
 * Selecione uma PEC individual na lista selecionando-a.
 
-:::image type="content" source="media/concepts-data-access-and-security-private-link/select-private-link.png" alt-text="Selecione a aprovação de ponto de extremidade particular pendente":::
+:::image type="content" source="media/concepts-data-access-and-security-private-link/select-private-link.png" alt-text="Selecione o portal de ponto de extremidade privado":::
 
 * O administrador do servidor MySQL pode optar por aprovar ou rejeitar um PEC e, opcionalmente, adicionar uma resposta de texto curto.
 
-:::image type="content" source="media/concepts-data-access-and-security-private-link/select-private-link-message.png" alt-text="Selecione a mensagem de ponto de extremidade particular":::
+:::image type="content" source="media/concepts-data-access-and-security-private-link/select-private-link-message.png" alt-text="Selecione o portal de ponto de extremidade privado":::
 
 * Após a aprovação ou rejeição, a lista refletirá o estado apropriado junto com o texto de resposta
 
-:::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-approved-connection.png" alt-text="Selecione o estado final do ponto de extremidade privado":::
+:::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-approved-connection.png" alt-text="Selecione o portal de ponto de extremidade privado":::
 
 ## <a name="use-cases-of-private-link-for-azure-database-for-mysql"></a>Casos de uso de link privado para o banco de dados do Azure para MySQL
 
 Os clientes podem se conectar ao ponto de extremidade privado da mesma VNet, rede virtual emparelhada na mesma região ou via conexão VNet a VNet entre regiões. Além disso, os clientes podem se conectar localmente usando o ExpressRoute, o emparelhamento privado ou o túnel de VPN. Veja abaixo um diagrama simplificado que mostra os casos de uso comuns.
 
-:::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-overview.png" alt-text="Selecione a visão geral do ponto de extremidade privado":::
+:::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-overview.png" alt-text="Selecione o portal de ponto de extremidade privado":::
 
 ### <a name="connecting-from-an-azure-vm-in-peered-virtual-network-vnet"></a>Como se conectar por meio de uma VM do Azure na VNET (Rede Virtual) emparelhada
 Configure o [emparelhamento VNet](https://docs.microsoft.com/azure/virtual-network/tutorial-connect-virtual-networks-powershell) para estabelecer a conectividade com o banco de dados do Azure para MySQL de uma VM do Azure em uma VNet emparelhada.

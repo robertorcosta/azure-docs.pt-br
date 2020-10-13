@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
 ms.openlocfilehash: 973b8a49c4a849f5a50fb3ab72321746a5ca06a7
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86083467"
 ---
 # <a name="visualize-apache-hive-data-with-microsoft-power-bi-using-odbc-in-azure-hdinsight"></a>Visualize os dados do Apache Hive com o Microsoft Power BI usando o ODBC no Azure HDInsight
@@ -34,7 +34,7 @@ Antes de prosseguir com este artigo, você deve ter os seguintes itens:
 
 * Cluster HDInsight. O cluster pode ser um cluster HDInsight com Hive ou um cluster de Consulta Interativa recém-lançado. Para a criação de clusters, consulte [Criar cluster](apache-hadoop-linux-tutorial-get-started.md).
 
-* [Microsoft Power BI Desktop](https://powerbi.microsoft.com/desktop/). Você pode baixar uma cópia do [Centro de Download da Microsoft](https://www.microsoft.com/download/details.aspx?id=45331).
+* [Microsoft Power bi desktop](https://powerbi.microsoft.com/desktop/). Você pode baixar uma cópia do [Centro de Download da Microsoft](https://www.microsoft.com/download/details.aspx?id=45331).
 
 ## <a name="create-hive-odbc-data-source"></a>Criar uma fonte de dados ODBC do Hive
 
@@ -72,7 +72,7 @@ Continue do último procedimento.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você aprendeu como visualizar os dados de HDInsight usando o Power BI.  Para saber mais, leia os seguintes artigos:
+Neste artigo, você aprendeu como visualizar os dados de HDInsight usando o Power BI.  Confira os seguintes artigos para saber mais:
 
 * [Conectar o Excel ao HDInsight com o Driver ODBC do Microsoft Hive](./apache-hadoop-connect-excel-hive-odbc-driver.md).
 * [Conecte o Excel ao Apache Hadoop usando Power Query](apache-hadoop-connect-excel-power-query.md).

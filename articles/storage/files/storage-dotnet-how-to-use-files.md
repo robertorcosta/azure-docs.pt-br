@@ -10,10 +10,10 @@ ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-csharp
 ms.openlocfilehash: fbfc347e1b514f9f59e2f238d2b1bfbaf59f2172
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91710695"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Desenvolvimento para o Arquivos do Azure com .NET

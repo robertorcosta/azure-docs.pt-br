@@ -4,10 +4,10 @@ description: Este artigo resume o suporte ao backup do Azure quando você usa o 
 ms.date: 02/17/2019
 ms.topic: conceptual
 ms.openlocfilehash: 011e115c7f3cc94b03ffd9ad2467406c60738033
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91332688"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Matriz de suporte para backup com o Backup do Microsoft Azure Server ou o System Center DPM
@@ -102,7 +102,7 @@ Você pode implantar o MABS em uma VM do Azure Stack para poder gerenciar o back
 **.NET Framework no MABS** | A VM MABS precisa .NET Framework 3,3 SP1 ou posterior instalado.
 **Domínio do MABS** | A VM do MABS deve ser associada a um domínio. Um usuário de domínio com privilégios de administrador deve instalar o MABS na VM.
 **Backup de dados da VM do Azure Stack** | Você pode fazer backup de arquivos, pastas e aplicativos.
-**Compatibilidade de backup** | Esses sistemas operacionais têm suporte para VMs das quais você deseja fazer backup:<br/><br/> Canal semestral do Windows Server (datacenter, Enterprise, Standard)<br/><br/> Windows Server 2016, Windows Server 2012 R2, Windows Server 2008 R2
+**Compatibilidade de backup** | Esses sistemas operacionais têm suporte para VMs das quais você deseja fazer backup:<br/><br/> Windows Server Semi-Annual Channel (datacenter, Enterprise, Standard)<br/><br/> Windows Server 2016, Windows Server 2012 R2, Windows Server 2008 R2
 **Suporte SQL Server para VMs Azure Stack** | Faça backup SQL Server 2016, SQL Server 2014, SQL Server 2012 SP1.<br/><br/> Fazer backup e recuperar um banco de dados.
 **Compatibilidade do SharePoint para VMs do Azure Stack** | SharePoint 2016, SharePoint 2013, SharePoint 2010.<br/><br/> Faça backup e recupere um farm, banco de dados, front-end e servidor Web.
 **Requisitos de rede para backups de VMs** | Todas as VMs na carga de trabalho Azure Stack devem pertencer à mesma rede virtual e pertencer à mesma assinatura.

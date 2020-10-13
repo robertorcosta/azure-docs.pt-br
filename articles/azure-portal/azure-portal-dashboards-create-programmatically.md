@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 03/23/2020
 ms.author: mblythe
 ms.openlocfilehash: bdaf1261e9945aa862157f7e43a44387e14d3657
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84764036"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Criar de maneira programática Painéis do Azure
@@ -35,7 +35,7 @@ Independentemente das ferramentas usadas, para criar um Dashboard programaticame
 
 A maneira mais prática de criar esse documento JSON é usar o portal do Azure. Você pode adicionar e posicionar seus blocos interativamente. Em seguida, exporte o JSON e crie um modelo do resultado para uso posterior em scripts, programas e ferramentas de implantação.
 
-## <a name="create-a-dashboard"></a>Criar um painel
+## <a name="create-a-dashboard"></a>Criar um dashboard
 
 Para criar um painel, selecione **painel** no menu [portal do Azure](https://portal.azure.com) e, em seguida, selecione **novo painel**.
 
@@ -78,7 +78,7 @@ Para publicar esse painel para qualquer máquina virtual no futuro, parametrizar
 Há duas abordagens para APIs que criam recursos no Azure:
 
 * APIs imperativas criam um recurso por vez. Para saber mais, confira [Recursos](/rest/api/resources/resources).
-* Um sistema de implantação baseado em modelo que cria vários recursos dependentes com uma única chamada à API. Para obter mais informações, consulte [implantar recursos com modelos e Azure PowerShell do Resource Manager](../azure-resource-manager/resource-group-template-deploy.md).
+* Um sistema de implantação baseado em modelo que cria vários recursos dependentes com uma única chamada à API. Para obter mais informações, consulte  [implantar recursos com modelos e Azure PowerShell do Resource Manager](../azure-resource-manager/resource-group-template-deploy.md).
 
 A implantação baseada em modelo dá suporte à parametrização e modelagem. Usamos essa abordagem neste artigo.
 

@@ -4,10 +4,10 @@ description: Quando um recurso não está em conformidade, há muitos motivos po
 ms.date: 09/30/2020
 ms.topic: how-to
 ms.openlocfilehash: df1eefec782835838add0beb8939bf4ff1a8a194
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91541264"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Determinar as causas de não conformidade
@@ -30,7 +30,7 @@ Quando um recurso não está em conformidade, os detalhes de conformidade desse 
 
 Para exibir os detalhes de conformidade, siga estas etapas:
 
-1. Inicie o serviço de Azure Policy no portal do Azure selecionando **todos os serviços**, em seguida, procurando e selecionando **política**.
+1. Inicie o serviço do Azure Policy no portal do Azure selecionando **Todos os serviços** e, em seguida, pesquisando e selecionando **Política**.
 
 1. Na página **Visão geral** ou **Conformidade**, escolha uma política em um **estado de conformidade** que seja de _Não conformidade_.
 
@@ -197,7 +197,7 @@ Audit that an application is installed inside Windows VMs                 NonCom
 
 Como parte de uma nova **versão preliminar pública**, os últimos 14 dias de histórico de alterações estão disponíveis para todos os recursos do Azure que dão suporte à [exclusão de modo completo](../../../azure-resource-manager/templates/complete-mode-deletion.md). O histórico de alterações fornece detalhes sobre quando uma alteração foi detectada e uma _comparação visual_ para cada alteração. Uma detecção de alteração é disparada quando as propriedades de Azure Resource Manager são adicionadas, removidas ou alteradas.
 
-1. Inicie o serviço de Azure Policy no portal do Azure selecionando **todos os serviços**, em seguida, procurando e selecionando **política**.
+1. Inicie o serviço do Azure Policy no portal do Azure selecionando **Todos os serviços** e, em seguida, pesquisando e selecionando **Política**.
 
 1. Na página **Visão geral** ou **Conformidade**, escolha uma política em qualquer **estado de conformidade**.
 

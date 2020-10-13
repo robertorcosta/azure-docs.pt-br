@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: aahi
 ms.openlocfilehash: b67de07777fa3f4f2b6190d8b003eb0495e66d15
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91400478"
 ---
 # <a name="extract-information-in-excel-using-text-analytics-and-power-automate"></a>Extrair informações no Excel usando a Análise de Texto e o Power Automate 
@@ -23,7 +23,7 @@ Neste tutorial, você criará um fluxo de automatização de energia para extrai
 
 Esse fluxo usará uma planilha de problemas relatados sobre um apartamento complexo e os classificará em duas categorias: encanamento e outros. Ele também extrairá os nomes e números de telefone dos locatários que os enviaram. Por fim, o fluxo acrescentará essas informações à planilha do Excel. 
 
-Neste tutorial, você aprenderá como:
+Neste tutorial, você aprenderá a:
 
 > [!div class="checklist"]
 > * Usar a automatização de energia para criar um fluxo
@@ -44,16 +44,18 @@ Neste tutorial, você aprenderá como:
 Baixe o arquivo do Excel de exemplo do [GitHub](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/TextAnalytics/sample-data/ReportedIssues.xlsx). Esse arquivo deve ser armazenado em sua conta do OneDrive for Business.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/example-data.png" alt-text="Exemplos do arquivo do Excel.":::
+> :::image type="content" source="../media/tutorials/excel/example-data.png" alt-text="Exemplos do arquivo do Excel.&quot;:::
 
-Os problemas são relatados em texto não processado. Usaremos o reconhecimento de entidade nomeada do API de Análise de Texto para extrair o nome da pessoa e o número de telefone. Em seguida, o fluxo procurará a palavra "encanamento" na descrição para categorizar os problemas. 
+Os problemas são relatados em texto não processado. Usaremos o reconhecimento de entidade nomeada do API de Análise de Texto para extrair o nome da pessoa e o número de telefone. Em seguida, o fluxo procurará a palavra &quot;encanamento" na descrição para categorizar os problemas. 
 
 ## <a name="create-a-new-power-automate-workflow"></a>Criar um novo fluxo de trabalho de automação de energia
 
 Vá para o [site de energia automatizada](https://preview.flow.microsoft.com/)e faça logon. Em seguida, clique em **criar** e **agendar fluxo**.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/flow-creation.png" alt-text="A tela de criação de fluxo.":::
+> :::image type="content" source="../media/tutorials/excel/flow-creation.png" alt-text="Exemplos do arquivo do Excel.&quot;:::
+
+Os problemas são relatados em texto não processado. Usaremos o reconhecimento de entidade nomeada do API de Análise de Texto para extrair o nome da pessoa e o número de telefone. Em seguida, o fluxo procurará a palavra &quot;encanamento":::
 
 
 Na página **criar um fluxo agendado** , inicialize o fluxo com os seguintes campos:
@@ -72,41 +74,53 @@ Na página **criar um fluxo agendado** , inicialize o fluxo com os seguintes cam
 Crie variáveis que representem as informações que serão adicionadas ao arquivo do Excel. Clique em **nova etapa** e procure a **variável de inicialização**. Faça isso quatro vezes para criar quatro variáveis.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/initialize-variables.png" alt-text="Inicialize as variáveis.":::
+> :::image type="content" source="../media/tutorials/excel/initialize-variables.png" alt-text="Exemplos do arquivo do Excel.&quot;:::
+
+Os problemas são relatados em texto não processado. Usaremos o reconhecimento de entidade nomeada do API de Análise de Texto para extrair o nome da pessoa e o número de telefone. Em seguida, o fluxo procurará a palavra &quot;encanamento":::
 
 Adicione as informações a seguir às variáveis que você criou. Elas representam as colunas do arquivo do Excel. Se alguma variável for recolhida, você poderá clicar nelas para expandi-las.
 
 | Ação |Nome   | Type | Valor |
 |---------|---------|---|---|
-| Inicializar variável | var_person | String | Pessoa |
+| Inicializar variável | var_person | String | Person |
 | Inicializar variável 2 | var_phone | String | Phone_Number |
 | Inicializar variável 3 | var_plumbing | String | detalhes técnicos |
 | Inicializar a variável 4 | var_other | String | other | 
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/flow-variables.png" alt-text="informações contidas nas variáveis de fluxo":::
+> :::image type="content" source="../media/tutorials/excel/flow-variables.png" alt-text="Exemplos do arquivo do Excel.&quot;:::
+
+Os problemas são relatados em texto não processado. Usaremos o reconhecimento de entidade nomeada do API de Análise de Texto para extrair o nome da pessoa e o número de telefone. Em seguida, o fluxo procurará a palavra &quot;encanamento":::
 
 ## <a name="read-the-excel-file"></a>Ler o arquivo do Excel
 
 Clique em **nova etapa** e digite **Excel**e, em seguida, selecione **listar linhas presentes em uma tabela** na lista de ações.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/list-excel-rows.png" alt-text="adicionar linhas do Excel.":::
+> :::image type="content" source="../media/tutorials/excel/list-excel-rows.png" alt-text="Exemplos do arquivo do Excel.&quot;:::
+
+Os problemas são relatados em texto não processado. Usaremos o reconhecimento de entidade nomeada do API de Análise de Texto para extrair o nome da pessoa e o número de telefone. Em seguida, o fluxo procurará a palavra &quot;encanamento":::
 
 Adicione o arquivo do Excel ao fluxo preenchendo os campos nesta ação. Este tutorial requer que o arquivo tenha sido carregado no OneDrive for Business.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/list-excel-rows-options.png" alt-text="adicionar linhas do Excel.":::
+> :::image type="content" source="../media/tutorials/excel/list-excel-rows-options.png" alt-text="Exemplos do arquivo do Excel.&quot;:::
+
+Os problemas são relatados em texto não processado. Usaremos o reconhecimento de entidade nomeada do API de Análise de Texto para extrair o nome da pessoa e o número de telefone. Em seguida, o fluxo procurará a palavra &quot;encanamento":::
 
 Clique em **nova etapa** e adicione uma **aplicação a cada** ação.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/add-apply-action.png" alt-text="Adicione um comando Apply.":::
+> :::image type="content" source="../media/tutorials/excel/add-apply-action.png" alt-text="Exemplos do arquivo do Excel.&quot;:::
+
+Os problemas são relatados em texto não processado. Usaremos o reconhecimento de entidade nomeada do API de Análise de Texto para extrair o nome da pessoa e o número de telefone. Em seguida, o fluxo procurará a palavra &quot;encanamento":::
 
 Clique em **selecionar uma saída da etapa anterior**. Na caixa conteúdo dinâmico que aparece, selecione **valor**.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/select-output.png" alt-text="Selecione saída do arquivo do Excel.":::
+> :::image type="content" source="../media/tutorials/excel/select-output.png" alt-text="Exemplos do arquivo do Excel.&quot;:::
+
+Os problemas são relatados em texto não processado. Usaremos o reconhecimento de entidade nomeada do API de Análise de Texto para extrair o nome da pessoa e o número de telefone. Em seguida, o fluxo procurará a palavra &quot;encanamento":::
 
 ## <a name="send-a-request-to-the-text-analytics-api"></a>Enviar uma solicitação para o API de Análise de Texto
 
@@ -128,19 +142,25 @@ Em seu fluxo, insira as informações a seguir para criar uma nova conexão de A
 | URL do site        | O ponto de extremidade para seu recurso de Análise de Texto.                                                       |
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/add-credentials.png" alt-text="Adicione Análise de Texto credenciais ao seu fluxo.":::
+> :::image type="content" source="../media/tutorials/excel/add-credentials.png" alt-text="Exemplos do arquivo do Excel.&quot;:::
+
+Os problemas são relatados em texto não processado. Usaremos o reconhecimento de entidade nomeada do API de Análise de Texto para extrair o nome da pessoa e o número de telefone. Em seguida, o fluxo procurará a palavra &quot;encanamento":::
 
 ## <a name="extract-the-excel-content"></a>Extrair o conteúdo do Excel 
 
 Depois que a conexão for criada, procure **análise de texto** e selecione **entidades**. Isso irá extrair informações da coluna Descrição do problema.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/extract-info.png" alt-text="Adicione Análise de Texto credenciais ao seu fluxo.":::
+> :::image type="content" source="../media/tutorials/excel/extract-info.png" alt-text="Exemplos do arquivo do Excel.&quot;:::
+
+Os problemas são relatados em texto não processado. Usaremos o reconhecimento de entidade nomeada do API de Análise de Texto para extrair o nome da pessoa e o número de telefone. Em seguida, o fluxo procurará a palavra &quot;encanamento":::
 
 Clique no campo de **texto** e selecione **Descrição** nas janelas de conteúdo dinâmico que aparecem. Insira `en` para o idioma. (Clique em mostrar opções avançadas se você não vir o idioma)
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/description-from-dynamic-content.png" alt-text="Adicione Análise de Texto credenciais ao seu fluxo.":::
+> :::image type="content" source="../media/tutorials/excel/description-from-dynamic-content.png" alt-text="Exemplos do arquivo do Excel.&quot;:::
+
+Os problemas são relatados em texto não processado. Usaremos o reconhecimento de entidade nomeada do API de Análise de Texto para extrair o nome da pessoa e o número de telefone. Em seguida, o fluxo procurará a palavra &quot;encanamento":::
 
 
 ## <a name="extract-the-person-name"></a>Extrair o nome da pessoa
@@ -148,49 +168,67 @@ Clique no campo de **texto** e selecione **Descrição** nas janelas de conteúd
 Em seguida, localizaremos o tipo de entidade Person na saída Análise de Texto. Em **aplicar a cada**, clique em **Adicionar uma ação**e crie outra **se aplicar a cada** ação. Clique dentro da caixa de texto e selecione **entidades** na janela de conteúdo dinâmico que aparece.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/add-apply-action-2.png" alt-text="Adicione Análise de Texto credenciais ao seu fluxo.":::
+> :::image type="content" source="../media/tutorials/excel/add-apply-action-2.png" alt-text="Exemplos do arquivo do Excel.&quot;:::
+
+Os problemas são relatados em texto não processado. Usaremos o reconhecimento de entidade nomeada do API de Análise de Texto para extrair o nome da pessoa e o número de telefone. Em seguida, o fluxo procurará a palavra &quot;encanamento":::
 
 Dentro do recém-criado **aplica-se a cada 2** ação, clique em **Adicionar uma ação**e adicione um controle de **condição** .
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/create-condition.png" alt-text="Adicione Análise de Texto credenciais ao seu fluxo.":::
+> :::image type="content" source="../media/tutorials/excel/create-condition.png" alt-text="Exemplos do arquivo do Excel.&quot;:::
+
+Os problemas são relatados em texto não processado. Usaremos o reconhecimento de entidade nomeada do API de Análise de Texto para extrair o nome da pessoa e o número de telefone. Em seguida, o fluxo procurará a palavra &quot;encanamento":::
 
 Na janela condição, clique na primeira caixa de texto. Na janela de conteúdo dinâmico, pesquise **tipo de entidades** e selecione-o.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/choose-entities-value.png" alt-text="Adicione Análise de Texto credenciais ao seu fluxo.":::
+> :::image type="content" source="../media/tutorials/excel/choose-entities-value.png" alt-text="Exemplos do arquivo do Excel.&quot;:::
+
+Os problemas são relatados em texto não processado. Usaremos o reconhecimento de entidade nomeada do API de Análise de Texto para extrair o nome da pessoa e o número de telefone. Em seguida, o fluxo procurará a palavra &quot;encanamento":::
 
 Verifique se a segunda caixa está definida como **sendo igual a**. Em seguida, selecione a terceira caixa e procure `var_person` na janela de conteúdo dinâmico. 
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/choose-variable-value.png" alt-text="Adicione Análise de Texto credenciais ao seu fluxo.":::
+> :::image type="content" source="../media/tutorials/excel/choose-variable-value.png" alt-text="Exemplos do arquivo do Excel.&quot;:::
+
+Os problemas são relatados em texto não processado. Usaremos o reconhecimento de entidade nomeada do API de Análise de Texto para extrair o nome da pessoa e o número de telefone. Em seguida, o fluxo procurará a palavra &quot;encanamento":::
 
 Na condição **se sim** , digite Excel e, em seguida, selecione **atualizar uma linha**.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/yes-column-action.png" alt-text="Adicione Análise de Texto credenciais ao seu fluxo.":::
+> :::image type="content" source="../media/tutorials/excel/yes-column-action.png" alt-text="Exemplos do arquivo do Excel.&quot;:::
+
+Os problemas são relatados em texto não processado. Usaremos o reconhecimento de entidade nomeada do API de Análise de Texto para extrair o nome da pessoa e o número de telefone. Em seguida, o fluxo procurará a palavra &quot;encanamento":::
 
 Insira as informações do Excel e atualize a **coluna de chave**, o **valor de chave** e os campos **PersonName** . Isso acrescentará o nome detectado pela API à planilha do Excel. 
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/yes-column-action-options.png" alt-text="Adicione Análise de Texto credenciais ao seu fluxo.":::
+> :::image type="content" source="../media/tutorials/excel/yes-column-action-options.png" alt-text="Exemplos do arquivo do Excel.&quot;:::
+
+Os problemas são relatados em texto não processado. Usaremos o reconhecimento de entidade nomeada do API de Análise de Texto para extrair o nome da pessoa e o número de telefone. Em seguida, o fluxo procurará a palavra &quot;encanamento":::
 
 ## <a name="get-the-phone-number"></a>Obter o número de telefone
 
 Minimize a ação **aplicar a cada 2** clicando no nome. Em seguida, adicione outro **se aplicar a cada** ação, como antes. Ele será chamado **de aplicar a cada 3**. Selecione a caixa de texto e adicione **entidades** como a saída para esta ação. 
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/add-apply-action-3.png" alt-text="Adicione Análise de Texto credenciais ao seu fluxo.":::
+> :::image type="content" source="../media/tutorials/excel/add-apply-action-3.png" alt-text="Exemplos do arquivo do Excel.&quot;:::
+
+Os problemas são relatados em texto não processado. Usaremos o reconhecimento de entidade nomeada do API de Análise de Texto para extrair o nome da pessoa e o número de telefone. Em seguida, o fluxo procurará a palavra &quot;encanamento":::
 
 Em **aplicar a cada 3**, adicione um controle de **condição** . Ela será nomeada **condição 2**. Na primeira caixa de texto, pesquise e adicione o **tipo de entidades** na janela de conteúdo dinâmico. Verifique se a caixa central está definida como **igual a**. Em seguida, na caixa de texto à direita, digite `var_phone` . 
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/condition-2-options.png" alt-text="Adicione Análise de Texto credenciais ao seu fluxo.":::
+> :::image type="content" source="../media/tutorials/excel/condition-2-options.png" alt-text="Exemplos do arquivo do Excel.&quot;:::
+
+Os problemas são relatados em texto não processado. Usaremos o reconhecimento de entidade nomeada do API de Análise de Texto para extrair o nome da pessoa e o número de telefone. Em seguida, o fluxo procurará a palavra &quot;encanamento":::
 
 Na condição **se sim** , adicione uma ação **atualizar uma linha** . Em seguida, insira as informações como fizemos acima, para a coluna números de telefone da planilha do Excel. Isso acrescentará o número de telefone detectado pela API à planilha do Excel. 
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/condition-2-yes-column.png" alt-text="Adicione Análise de Texto credenciais ao seu fluxo.":::
+> :::image type="content" source="../media/tutorials/excel/condition-2-yes-column.png" alt-text="Exemplos do arquivo do Excel.&quot;:::
+
+Os problemas são relatados em texto não processado. Usaremos o reconhecimento de entidade nomeada do API de Análise de Texto para extrair o nome da pessoa e o número de telefone. Em seguida, o fluxo procurará a palavra &quot;encanamento":::
 
 
 ## <a name="get-the-plumbing-issues"></a>Obter os problemas de encanamento
@@ -198,23 +236,21 @@ Na condição **se sim** , adicione uma ação **atualizar uma linha** . Em segu
 Minimize **aplicar a cada 3** clicando no nome. Em seguida, crie outro **se aplicar a cada** na ação pai. Selecione a caixa de texto e adicione **entidades** como a saída para esta ação na janela de conteúdo dinâmico. 
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/add-apply-action-4.png" alt-text="Adicione Análise de Texto credenciais ao seu fluxo.":::
+> :::image type="content" source="../media/tutorials/excel/add-apply-action-4.png" alt-text="Exemplos do arquivo do Excel.&quot;:::
 
-
-Em seguida, o fluxo verificará se a descrição do problema da linha da tabela do Excel contém a palavra "encanamento". Se sim, ele adicionará "encanamento" na coluna IssueType. Caso contrário, entraremos em "other".
+Os problemas são relatados em texto não processado. Usaremos o reconhecimento de entidade nomeada do API de Análise de Texto para extrair o nome da pessoa e o número de telefone. Em seguida, o fluxo procurará a palavra &quot;encanamento" na coluna IssueType. Caso contrário, entraremos em "other".
 
 Dentro da ação **aplicar a cada 4** , adicione um controle de **condição** . Ele será denominado **condição 3**. Na primeira caixa de texto, procure e adicione a **Descrição** do arquivo do Excel, usando a janela de conteúdo dinâmico. Verifique se a caixa central diz **contém**. Em seguida, na caixa de texto à direita, localize e selecione `var_plumbing` . 
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/condition-3-options.png" alt-text="Adicione Análise de Texto credenciais ao seu fluxo.":::
+> :::image type="content" source="../media/tutorials/excel/condition-3-options.png" alt-text="Exemplos do arquivo do Excel.&quot;:::
 
-
-Na condição **se sim** , clique em **Adicionar uma ação**e selecione **atualizar uma linha**. Em seguida, insira as informações como antes. Na coluna IssueType, selecione `var_plumbing` . Isso aplicará um rótulo de "encanamento" à linha.
-
-Na condição **se não** , clique em **Adicionar uma ação**e selecione **atualizar uma linha**. Em seguida, insira as informações como antes. Na coluna IssueType, selecione `var_other` . Isso aplicará um rótulo "outro" à linha.
+Os problemas são relatados em texto não processado. Usaremos o reconhecimento de entidade nomeada do API de Análise de Texto para extrair o nome da pessoa e o número de telefone. Em seguida, o fluxo procurará a palavra &quot;encanamento" à linha.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/plumbing-issue-condition.png" alt-text="Adicione Análise de Texto credenciais ao seu fluxo.":::
+> :::image type="content" source="../media/tutorials/excel/plumbing-issue-condition.png" alt-text="Exemplos do arquivo do Excel.&quot;:::
+
+Os problemas são relatados em texto não processado. Usaremos o reconhecimento de entidade nomeada do API de Análise de Texto para extrair o nome da pessoa e o número de telefone. Em seguida, o fluxo procurará a palavra &quot;encanamento":::
 
 ## <a name="test-the-workflow"></a>Testar o fluxo de trabalho
 
@@ -223,7 +259,9 @@ No canto superior direito da tela, clique em **salvar**e **teste**. Selecione  *
 O arquivo do Excel será atualizado em sua conta do OneDrive. Ele será semelhante ao mostrado abaixo.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/updated-excel-sheet.png" alt-text="A planilha do Excel atualizada.":::
+> :::image type="content" source="../media/tutorials/excel/updated-excel-sheet.png" alt-text="Exemplos do arquivo do Excel.&quot;:::
+
+Os problemas são relatados em texto não processado. Usaremos o reconhecimento de entidade nomeada do API de Análise de Texto para extrair o nome da pessoa e o número de telefone. Em seguida, o fluxo procurará a palavra &quot;encanamento":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -4,13 +4,13 @@ description: Descreve como carregar uma imagem personalizada na Galeria de image
 ms.date: 09/30/2020
 ms.topic: how-to
 ms.openlocfilehash: cd701215eb375b7f9b867ba05082afc7ed348ff7
-ms.sourcegitcommit: 5b69ba21787c07547edfbfd5254eaf34315cfadd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91712383"
 ---
-# <a name="upload-a-custom-image-to-shared-image-gallery"></a>Carregar uma imagem personalizada na Galeria de imagens compartilhadas
+# <a name="upload-a-custom-image-to-shared-image-gallery"></a>Carregar uma imagem personalizada na Galeria de Imagens Compartilhadas
 
 A Galeria de imagens compartilhadas está disponível para você para importar suas próprias imagens personalizadas para a criação de laboratórios no Azure Lab Services. Os departamentos de ti da Universidade encontrarão imagens de importação especialmente benéficos pelos seguintes motivos: 
 

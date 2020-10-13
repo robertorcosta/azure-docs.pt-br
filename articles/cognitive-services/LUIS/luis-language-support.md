@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 12/09/2019
 ms.openlocfilehash: e377f910e1c1ddda864ea312b40fe3608c166376
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91541383"
 ---
 # <a name="language-and-region-support-for-luis"></a>Suporte de idioma e região para o LUIS
@@ -28,7 +28,7 @@ Se você precisar de um aplicativo de cliente LUIS com vários idiomas, como um 
 
 O LUIS compreende declarações nos seguintes idiomas:
 
-| Idioma |Localidade  |  Domínio predefinido | Entidade predefinida | Recomendações da lista de frases | **[Análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Sentimento e<br>Palavras-chave)|
+| Language |Localidade  |  Domínio predefinido | Entidade predefinida | Recomendações da lista de frases | **[Análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Sentimento e<br>Palavras-chave)|
 |--|--|:--:|:--:|:--:|:--:|
 | Inglês (Estados Unidos) |`en-US` | ✔ | ✔  |✔|✔|
 | Árabe (visualização-árabe moderno padrão) |`ar-AR`|-|-|-|-|
@@ -38,7 +38,7 @@ O LUIS compreende declarações nos seguintes idiomas:
 | Francês (Canadá) |`fr-CA` |-|-|-|✔|
 | Alemão |`de-DE` |✔| ✔ |✔ |✔|
 | Guzerate | `gu-IN`|-|-|-|-|
-| Hindi | `hi-IN`|-|✔|-|-|
+| Híndi | `hi-IN`|-|✔|-|-|
 | Italiano |`it-IT` |✔| ✔ |✔|✔|
 | *[Japonês](#japanese-support-notes) |`ja-JP` |✔| ✔ |✔|Somente frase principal|
 | Coreano |`ko-KR` |✔|-|-|Somente frase principal|
@@ -82,7 +82,7 @@ Os idiomas híbridos combinam palavras de duas culturas, como inglês e chinês.
 ## <a name="tokenization"></a>Geração de tokens
 Para executar o aprendizado de máquina, o LUIS divide uma declaração em [tokens](luis-glossary.md#token) com base na cultura.
 
-|Idioma|  cada espaço ou caractere especial | nível do caractere|palavras compostas
+|Language|  cada espaço ou caractere especial | nível do caractere|palavras compostas
 |--|:--:|:--:|:--:|
 |Árabe|✔|||
 |Chinês||✔||
@@ -92,7 +92,7 @@ Para executar o aprendizado de máquina, o LUIS divide uma declaração em [toke
 |Francês (fr-CA)|✔|||
 |Alemão|✔||✔|
 |Guzerate|✔|||
-|Hindi|✔|||
+|Híndi|✔|||
 |Italiano|✔|||
 |Japonês|||✔
 |Coreano||✔||
@@ -101,7 +101,7 @@ Para executar o aprendizado de máquina, o LUIS divide uma declaração em [toke
 |Espanhol (es-ES)|✔|||
 |Espanhol (es-MX)|✔|||
 |Tâmil|✔|||
-|Telugu|✔|||
+|Télugo|✔|||
 |Turco|✔|||
 
 

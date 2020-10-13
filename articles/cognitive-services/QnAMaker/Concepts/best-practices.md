@@ -6,10 +6,10 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 02/15/2020
 ms.openlocfilehash: 15cb1391cb6482401c2a091a4d5c0e9d819ba52d
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91777013"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Melhores práticas de uma base de dados de conhecimento do QnA Maker
@@ -134,7 +134,7 @@ Por exemplo, você pode ter duas perguntas e respostas separadas com as seguinte
 
 Uma vez que essas perguntas e respostas são formuladas com palavras muito semelhantes, essa semelhança poderia levar a pontuações muito semelhantes para muitas consultas do usuário formuladas como *"qual é a localização de `<x>`"*. Em vez disso, tente diferenciar claramente usando consultas como *"onde fica o estacionamento"* e *"onde fica o caixa eletrônico"*, evitando palavras como "localização", que poderiam estar em muitas perguntas em sua base de dados.
 
-## <a name="collaborate"></a>Colaboração
+## <a name="collaborate"></a>Colaborar
 O QnA Maker permite que os usuários [colaborem](../How-to/collaborate-knowledge-base.md) em uma base de dados de conhecimento. Os usuários precisam de acesso ao grupo de recursos do QnA Maker do Azure para acessar as bases de dados de conhecimento. Algumas organizações podem querer terceirizar a edição e manutenção da base de dados de conhecimento e ainda proteger o acesso aos recursos do Azure. Esse modelo de editor-aprovador é realizado configurando dois [serviços do QnA Maker](../How-to/set-up-qnamaker-service-azure.md) idênticos em assinaturas diferentes e designando um deles para o ciclo de teste e edição. Quando o teste estiver concluído, o conteúdo da base de dados de conhecimento será transferido com um processo de [importação-exportação](../Tutorials/migrate-knowledge-base.md) para o serviço do QnA Maker do aprovador que, por fim, publicará a base de dados de conhecimento e atualizará o ponto de extremidade.
 
 

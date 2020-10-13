@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: avgupta
 ms.openlocfilehash: a3c1699dd4b7b828c7dc652f14f431878f785061
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88207144"
 ---
 # <a name="back-up-app-configuration-stores-automatically"></a>Fazer backup de repositórios de configuração de aplicativo automaticamente
@@ -248,7 +248,7 @@ Se você não vir a nova configuração em seu armazenamento secundário:
 - Você também pode configurar o monitoramento e os alertas para Azure Functions usando o [aplicativo Azure insights](/azure/azure-functions/functions-monitoring?tabs=cmd). 
 
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 Se você planeja continuar trabalhando com essa configuração de aplicativo e assinatura de evento, não limpe os recursos criados neste artigo. Se você não planeja continuar, use o comando a seguir para excluir os recursos criados neste artigo.
 
 ```azurecli-interactive

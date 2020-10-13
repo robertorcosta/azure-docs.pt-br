@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
 ms.openlocfilehash: 66c56ae6730043022a0d8bf3c94f7c6ce14d9852
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84809351"
 ---
 # <a name="upgrade-azure-public-load-balancer"></a>Atualizar Load Balancer públicos do Azure
@@ -41,7 +41,7 @@ Há um script de Azure PowerShell disponível que faz o seguinte:
 
 ## <a name="download-the-script"></a>Baixar o script
 
-Baixe o script de migração do [Galeria do PowerShell](https://www.powershellgallery.com/packages/AzurePublicLBUpgrade/2.0).
+Baixe o script de migração do  [Galeria do PowerShell](https://www.powershellgallery.com/packages/AzurePublicLBUpgrade/2.0).
 ## <a name="use-the-script"></a>Usar o script
 
 Há duas opções para você dependendo da configuração e das preferências do ambiente do PowerShell local:
@@ -51,7 +51,7 @@ Há duas opções para você dependendo da configuração e das preferências do
 
 Para determinar se você tem os módulos AZ do Azure instalados, execute `Get-InstalledModule -Name az` . Se você não vir nenhum módulo AZ instalado, poderá usar o `Install-Script` método.
 
-### <a name="install-using-the-install-script-method"></a>Instalar usando o método Install-Script
+### <a name="install-using-the-install-script-method"></a>Instalar usando o método de Install-Script
 
 Para usar essa opção, você não deve ter os módulos AZ do Azure instalados no seu computador. Se eles estiverem instalados, o comando a seguir exibirá um erro. Você pode desinstalar os módulos AZ do Azure ou usar a outra opção para baixar o script manualmente e executá-lo.
   
@@ -103,7 +103,7 @@ Aqui estão alguns cenários de como adicionar VMs a pools de back-end do Load B
    
     1. Selecione o pool de back-end que corresponde ao pool de back-end do Load Balancer básico, selecione o seguinte valor: 
       - **Máquina virtual**: lista suspensa e selecione as VMs do pool de back-end correspondente do Load Balancer básico.
-    1. Selecione **Salvar**.
+    1. Clique em **Salvar**.
     >[!NOTE]
     >Para VMs que têm IPs públicos, você precisará criar endereços IP padrão primeiro, em que o mesmo endereço IP não é garantido. Desassocie as VMs de IPs básicos e associe-as aos endereços IP padrão recém-criados. Em seguida, você poderá seguir as instruções para adicionar VMs ao pool de back-end de Standard Load Balancer. 
 

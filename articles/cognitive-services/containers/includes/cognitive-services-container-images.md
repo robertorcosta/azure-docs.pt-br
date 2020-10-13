@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 09/03/2020
 ms.author: aahi
 ms.openlocfilehash: d514460f3cd80b5b85604251743abbbbcd1adc8c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90906996"
 ---
 ### <a name="container-repositories-and-images"></a>Repositórios e imagens de contêiner
@@ -56,7 +56,7 @@ Consulte [como executar e instalar contêineres de análise de texto](../../text
 
 Consulte [como executar e instalar contêineres do detector de anomalias](../../anomaly-detector/anomaly-detector-container-howto.md) para obter mais informações.
 
-**Serviço de fala**
+**Serviço de Fala**
 
 > [!NOTE]
 > Para usar os contêineres de fala, você precisará concluir um [formulário de solicitação online](https://aka.ms/csgate).

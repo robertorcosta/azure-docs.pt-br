@@ -8,10 +8,10 @@ ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: f75f0d1ae12db11590f8ce62f3c7b4c0f3e12817
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91541485"
 ---
 # <a name="addremove-an-azure-file-sync-server-endpoint"></a>Adicionar/remover um ponto de extremidade do servidor de Sincronização de Arquivos do Azure
@@ -73,5 +73,5 @@ Para remover o ponto de extremidade do servidor:
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Registrar/cancelar o registro de um servidor com a Sincronização de Arquivos do Azure](storage-sync-files-server-registration.md)
-- [Planejar uma implantação da Sincronização de Arquivos do Azure](storage-sync-files-planning.md)
+- [Planejando uma implantação da Sincronização de Arquivos do Azure](storage-sync-files-planning.md)
 - [Monitorar a Sincronização de Arquivos do Azure](storage-sync-files-monitoring.md)

@@ -8,10 +8,10 @@ ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 515cfd5267917f88131571adcb1bea0db274157c
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89437931"
 ---
 # <a name="azure-security-baseline-for-azure-data-factory"></a>Linha de base de segurança do Azure para Azure Data Factory
@@ -30,7 +30,7 @@ Para obter mais informações, confira a [Visão geral sobre linhas de base de s
 
 **Orientação**: ao criar um Azure-SSIS Integration Runtime (ir), você tem a opção de associá-lo a uma rede virtual. Isso permitirá que Azure Data Factory crie determinados recursos de rede, como um NSG (grupo de segurança de rede) e um balanceador de carga. Você também tem a capacidade de fornecer seu próprio endereço IP público estático ou ter Azure Data Factory criar um para você. No NSG que é criado automaticamente pelo Azure Data Factory, a porta 3389 está aberta para todo o tráfego por padrão. Bloqueie isso para garantir que somente os administradores tenham acesso.
 
-O IRs auto-hospedado pode ser implantado em um computador local ou em uma máquina virtual do Azure dentro de uma rede virtual. Verifique se sua implantação de sub-rede de rede virtual tem um NSG configurado para permitir somente acesso administrativo. A Azure-SSIS IR não permitiu a saída da porta 3389 por padrão na regra de firewall do Windows em cada nó IR para proteção. Você pode proteger seus recursos configurados pela rede virtual associando um NSG à sub-rede e Configurando regras estritas.
+Self-Hosted IRs pode ser implantado em um computador local ou em uma máquina virtual do Azure dentro de uma rede virtual. Verifique se sua implantação de sub-rede de rede virtual tem um NSG configurado para permitir somente acesso administrativo. A Azure-SSIS IR não permitiu a saída da porta 3389 por padrão na regra de firewall do Windows em cada nó IR para proteção. Você pode proteger seus recursos configurados pela rede virtual associando um NSG à sub-rede e Configurando regras estritas.
 
 Onde o link privado está disponível, use pontos de extremidade privados para proteger os recursos que estão sendo vinculados ao pipeline de Azure Data Factory, como o SQL Server do Azure. Com o link privado, o tráfego entre sua rede virtual e o serviço atravessa a rede de backbone da Microsoft, eliminando a exposição da Internet pública.
 
@@ -331,7 +331,7 @@ Além disso, no nível do locatário, Azure Active Directory (AD) tem funções 
 
 Embora o Azure AD seja o método recomendado para administrar o acesso do usuário, tenha em mente que, se você estiver executando Integration Runtime em uma VM (máquina virtual) do Azure, sua VM também poderá ter contas locais. As contas locais e de domínio devem ser examinadas e gerenciadas, normalmente com uma superfície mínima. Além disso, aconselhamos que o Privileged Identity Manager seja revisado pelo recurso just in time para reduzir a disponibilidade de permissões administrativas.
 
-* [Funções e permissões do Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-roles-permissions)
+* [Funções e permissões para o Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-roles-permissions)
 
 * [Informações sobre o Privileged Identity Manager](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan)
 
@@ -370,7 +370,7 @@ Se você estiver executando seu Integration Runtime em uma máquina virtual do A
 
 * [Informações sobre o Privileged Identity Manager](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan)
 
-* [Funções e permissões do Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-roles-permissions)
+* [Funções e permissões para o Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-roles-permissions)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -608,7 +608,7 @@ Para suas Data Factory fontes de dados, como o banco de dado SQL do Azure, consu
 
 * [Como configurar o RBAC do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
-* [Funções e permissões do Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-roles-permissions)
+* [Funções e permissões para o Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-roles-permissions)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -896,7 +896,7 @@ Observe que isso só se aplicará se o Integration Runtime estiver em execução
 
 * [O que é o Firewall do Azure?](https://docs.microsoft.com/azure/firewall/overview)
 
-* [O que é o Firewall do aplicativo Web do Azure?](https://docs.microsoft.com/azure/web-application-firewall/overview)
+* [O que é o Firewall do Aplicativo Web do Azure?](https://docs.microsoft.com/azure/web-application-firewall/overview)
 
 * [Grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/security-overview)
 
@@ -994,7 +994,7 @@ A função colaborador de Data Factory pode ser usada para criar e gerenciar fá
 
 * [Como configurar o RBAC do Azure](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal)
 
-* [Funções e permissões do Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-roles-permissions)
+* [Funções e permissões para o Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-roles-permissions)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
