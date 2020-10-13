@@ -3,12 +3,12 @@ title: Detectar movimento, gravar vídeo nos Serviços de Mídia do Azure
 description: Este guia de início rápido mostra como usar a Análise de Vídeo ao vivo no IoT Edge para detectar o movimento em uma transmissão de vídeo ao vivo e gravar clipes de vídeo nos Serviços de Mídia do Azure.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: d4301a9c0c5684be04ee2cfbace60c1bb1904876
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 861351e16120c3f46612ba35518135fbfaf4c81b
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89568992"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776469"
 ---
 # <a name="quickstart-detect-motion-record-video-to-media-services"></a>Início Rápido: Detectar movimento e gravar vídeo em Serviços de Mídia
 
@@ -39,6 +39,16 @@ Ao concluir as etapas abaixo, você terá usado a Análise de Vídeo ao vivo no 
 ## <a name="use-direct-method-calls"></a>Usar chamadas de método direto
 
 Você pode usar o módulo para analisar transmissões de vídeo ao vivo invocando os métodos diretos dele. Leia [Métodos Diretos para Análise de Vídeo ao vivo no IoT Edge](direct-methods.md) para entender todos os métodos diretos fornecidos pelo módulo. 
+
+1. No Visual Studio Code, abra a guia **Extensões** (ou pressione CTRL + SHIFT + X) e pesquise pelo Hub IoT do Azure.
+1. Clique com o botão direito do mouse e selecione **Configurações da Extensão**.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Gravação de vídeo baseada em evento em Ativos baseados em eventos em movimento":::
+1. Pesquise e habilite “Mostrar Mensagem Detalhada”.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Gravação de vídeo baseada em evento em Ativos baseados em eventos em movimento":::
 
 ### <a name="invoke-graphtopologylist"></a>Invocar GraphTopologyList
 Esta etapa enumera todas as [topologias de grafo](media-graph-concept.md#media-graph-topologies-and-instances) no módulo.

@@ -1,7 +1,7 @@
 ---
-title: Obter token e chamar o Microsoft Graph com a identidade do aplicativo de console | Azure
+title: 'Início Rápido: Obter token e chamar o Microsoft Graph em um aplicativo de console | Azure'
 titleSuffix: Microsoft identity platform
-description: Saiba como obter um token e chamar uma API do Microsoft Graph protegida com ele usando um aplicativo .NET Core
+description: Neste início rápido, você verá como um aplicativo de exemplo do .NET Core pode usar o fluxo de credenciais do cliente para obter um token e chamar o Microsoft Graph.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 07/16/2019
+ms.date: 10/05/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: e33b912ab65a3565e42c294388949a5c55b4ee8a
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: bf9a2232a04b929d716d3b2412f1b2c666b29f62
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683746"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767283"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-using-console-apps-identity"></a>Início Rápido: Adquirir um token e chamar a API do Microsoft Graph usando a identidade de aplicativo do console
 
@@ -25,7 +25,7 @@ Neste início rápido, você aprenderá a escrever um aplicativo .NET Core que p
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este início rápido requer o [.NET Core 2.2](https://www.microsoft.com/net/download/dotnet-core/2.2).
+Este guia de início rápido exige o [.NET Core 3.1](https://www.microsoft.com/net/download/dotnet-core).
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Registrar e baixar o aplicativo de início rápido
@@ -48,12 +48,12 @@ Este início rápido requer o [.NET Core 2.2](https://www.microsoft.com/net/down
 >
 > 1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
 > 1. Se sua conta fornecer acesso a mais de um locatário, selecione sua conta no canto superior direito e defina sua sessão do portal para o locatário desejado do Azure AD.
-> 1. Navegue até a página [Registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) da plataforma de identidade da Microsoft para desenvolvedores.
+> 1. Navegue até a página [Registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) da plataforma de identidade da Microsoft para desenvolvedores pesquisando **Registros de aplicativo** na barra de pesquisa do portal do Azure.
 > 1. Selecione **Novo registro**.
 > 1. Quando a página **Registrar um aplicativo** for exibida, insira as informações de registro do aplicativo.
 > 1. Na seção **Nome**, insira um nome de aplicativo relevante que será exibido aos usuários do aplicativo, por exemplo, `Daemon-console`, e selecione **Registrar** para criar o aplicativo.
 > 1. Após o registro, selecione o menu **Certificados e segredos**.
-> 1. Em **Segredos do cliente**, selecione **+ Novo segredo do cliente**. Dê a ele um nome e selecione **Adicionar**. Copie o segredo em um local seguro. Você precisará dele em seu código.
+> 1. Em **Segredos do cliente**, selecione **+ Novo segredo do cliente**. Dê a ele um nome e selecione **Adicionar**. Copie o segredo em um local seguro. Você precisará dele para usá-lo no código, e ele não será exibido novamente no portal.
 > 1. Agora, selecione o menu **Permissões de API**, selecione o botão **+ Adicionar uma permissão** e selecione **Microsoft Graph**.
 > 1. Selecione **Permissões de aplicativo**.
 > 1. No nó **Usuário**, selecione **User.Read.All** e selecione **Adicionar permissões**
@@ -73,6 +73,11 @@ Este início rápido requer o [.NET Core 2.2](https://www.microsoft.com/net/down
 
 > [!div renderon="docs"]
 > [Baixar o projeto do Visual Studio](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/master.zip)
+
+> [!div renderon="docs"]
+> > [!NOTE]
+> > Execute o projeto fornecido no Visual Studio ou no Visual Studio para Mac
+
 
 > [!div class="sxs-lookup" renderon="portal"]
 > Execute o projeto usando o Visual Studio 2019.
@@ -115,7 +120,7 @@ Se você tentar executar o aplicativo neste ponto, receberá o erro *HTTP 403 �
 ##### <a name="global-tenant-administrator"></a>Administrator de locatário global
 
 > [!div renderon="docs"]
-> Se você for um administrador de locatário global, acesse a página **Permissões de API** no Registro de Aplicativo do Portal do Azure (versão prévia) e selecione **Dar consentimento de administrador para {nome do locatário}** (em que {nome do locatário} é o nome do seu diretório).
+> Se você for um administrador de locatários global, no portal do Azure, navegue até **Aplicativos empresariais** > clique no seu registro de aplicativo > escolha **"Permissões"** na seção Segurança do painel de navegação esquerdo. Clique no botão grande rotulado **Conceder consentimento do administrador para {Nome do Locatário}** (em que {Nome do Locatário} é o nome do seu diretório).
 
 > [!div renderon="portal" class="sxs-lookup"]
 > Se você for um administrador global, acesse a página **Permissões de API**, selecione **Dar consentimento de administrador para Insira_o_nome_do_locatário_aqui**
@@ -144,10 +149,10 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 > [!div renderon="docs"]
 > #### <a name="step-5-run-the-application"></a>Etapa 5: Executar o aplicativo
 
-Se você estiver usando o Visual Studio, pressione **F5** para executar o aplicativo. Caso contrário, execute o aplicativo por meio do prompt de comando ou console:
+Se estiver usando o Visual Studio ou o Visual Studio para Mac, clique em **F5** para executar o aplicativo. Caso contrário, execute o aplicativo por meio do prompt de comando, do console ou do terminal:
 
 ```console
-cd {ProjectFolder}\daemon-console\1-Call-Graph
+cd {ProjectFolder}\1-Call-MSGraph\daemon-console
 dotnet run
 ```
 
@@ -170,12 +175,7 @@ MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Ident
 
  Você pode instalar o MSAL.NET executando o comando abaixo no **Console do Gerenciador de Pacotes** do Visual Studio:
 
-```powershell
-Install-Package Microsoft.Identity.Client
-```
-
-Como alternativa, se você não estiver usando o Visual Studio, poderá executar o seguinte comando para adicionar MSAL ao seu projeto:
-
+```powershell twhitney
 ```console
 dotnet add package Microsoft.Identity.Client
 ```
@@ -204,7 +204,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 > | `config.ClientId` | É a **ID do aplicativo (cliente)** relativa ao aplicativo registrado no portal do Azure. Você pode encontrar esse valor na página **Visão Geral** do aplicativo no portal do Azure. |
 > | `config.Authority`    | (Opcional) O ponto de extremidade do STS para o usuário autenticar. Normalmente, `https://login.microsoftonline.com/{tenant}` para a nuvem pública, em que {tenant} é o nome do seu locatário ou ID do seu locatário.|
 
-Para saber mais, confira a [documentação de referência do `ConfidentialClientApplication`](/dotnet/api/microsoft.identity.client.iconfidentialclientapplication?view=azure-dotnet)
+Para saber mais, confira a [documentação de referência do `ConfidentialClientApplication`](/dotnet/api/microsoft.identity.client.iconfidentialclientapplication)
 
 ### <a name="requesting-tokens"></a>Solicitando tokens
 
@@ -219,28 +219,13 @@ result = await app.AcquireTokenForClient(scopes)
 > |---------|---------|
 > | `scopes` | Contém os escopos solicitados. Para clientes confidenciais, ele deve usar um formato semelhante a `{Application ID URI}/.default` para indicar que os escopos solicitados são os estaticamente definidos no objeto de aplicativo definido no portal do Azure (no caso do Microsoft Graph, `{Application ID URI}` aponta para `https://graph.microsoft.com`). Para APIs Web personalizadas, o `{Application ID URI}` é definido na seção **Expor uma API** no Registro de Aplicativo do portal do Azure (versão prévia). |
 
-Para saber mais, confira a [documentação de referência do `AcquireTokenForClient`](/dotnet/api/microsoft.identity.client.confidentialclientapplication.acquiretokenforclient?view=azure-dotnet)
+Para saber mais, confira a [documentação de referência do `AcquireTokenForClient`](/dotnet/api/microsoft.identity.client.confidentialclientapplication.acquiretokenforclient)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre aplicativos daemon, confira a página de aterrissagem do cenário
+Para saber mais sobre aplicativos daemon, confira a visão geral do cenário:
 
 > [!div class="nextstepaction"]
 > [Aplicativo daemon que chama APIs Web](scenario-daemon-overview.md)
-
-Para o tutorial do aplicativo daemon, confira:
-
-> [!div class="nextstepaction"]
-> [Tutorial do console de .NET Core do daemon](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2)
-
-Saiba mais sobre permissões e consentimento:
-
-> [!div class="nextstepaction"]
-> [Permissões e consentimento](v2-permissions-and-consent.md)
-
-Para saber mais sobre o fluxo de autenticação para este cenário, consulte o fluxo de credenciais de cliente Oauth 2.0:
-
-> [!div class="nextstepaction"]
-> [Fluxo de credenciais do cliente Oauth](v2-oauth2-client-creds-grant-flow.md)

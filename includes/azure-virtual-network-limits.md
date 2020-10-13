@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 8d5f9b360e1d81bae62e34a8e20d61636e1d22ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: baf3d02e1c0ecf51ddea043ee560d5054f09d057
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91859618"
+ms.locfileid: "91936153"
 ---
 ### <a name="networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>Limites de rede – Azure Resource Manager
 Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo **Azure Resource Manager** por região e assinatura. Saiba como [exibir seu uso de recursos atual em relação a seus limites de assinatura](../articles/networking/check-usage-against-limits.md).
@@ -75,6 +75,7 @@ Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo Azure 
 | Recursos de back-end por Load Balancer <sup>1<sup> | 150                   |
 | Portas de alta disponibilidade                 | 1 por front-end interno       |
 | Regras de saída por Load Balancer        | 600                           |
+| Load Balancers por VM                   | 2 (1 público e 1 interno)   |
 
 <sup>1</sup>O limite é até 150 recursos, em qualquer combinação de recursos de máquina virtual autônoma, recursos do conjunto de disponibilidade e grupos de posicionamento de conjunto de dimensionamento da máquina virtual.
 
@@ -88,6 +89,7 @@ Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo Azure 
 | Configuração do IP de front-end              | 200                          |
 | Tamanho do pool de back-end                       | 300 configurações de IP, conjunto de disponibilidade único |
 | Conjuntos de disponibilidade por Load Balancer     | 1                            |
+| Load Balancers por VM                   | 2 (1 público e 1 interno)  |
 
 <a name="virtual-networking-limits-classic"></a>Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo modelo de implantação **clássico** por assinatura. Saiba como [exibir seu uso de recursos atual em relação a seus limites de assinatura](../articles/networking/check-usage-against-limits.md).
 

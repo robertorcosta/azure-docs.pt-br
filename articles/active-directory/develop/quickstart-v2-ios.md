@@ -1,6 +1,7 @@
 ---
-title: Início rápido para iOS e macOS da plataforma de identidade da Microsoft | Azure
-description: Saiba como conectar usuários e consultar o Microsoft Graph em um aplicativo iOS ou macOS.
+title: 'Início Rápido: Adicionar a entrada com a conta da Microsoft a um aplicativo iOS ou macOS | Azure'
+titleSuffix: Microsoft identity platform
+description: Neste guia de início rápido, saiba como um aplicativo iOS ou macOS pode conectar usuários, obter um token de acesso da plataforma de identidade da Microsoft e chamar a API do Microsoft Graph.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -12,12 +13,12 @@ ms.date: 09/24/2019
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.openlocfilehash: 39062396e0076af5901f2fc7d76f5c989e2ccc3a
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 6ab826b6816c8f1b71a28c6bf501b651baa2cfff
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115247"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91613451"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>Início Rápido: Conectar usuários e chamar a API do Microsoft Graph de um aplicativo iOS ou macOS
 
@@ -25,13 +26,16 @@ Este início rápido contém um exemplo de código que demonstra como um aplicat
 
 Este início rápido se aplica a aplicativos iOS e macOS. Algumas etapas são necessárias apenas para aplicativos iOS. Essas etapas destacam que se aplicam somente ao iOS.
 
-![Mostra como o aplicativo de exemplo gerado por este início rápido funciona](media/quickstart-v2-ios/ios-intro.svg)
+## <a name="prerequisites"></a>Pré-requisitos
 
-> [!NOTE]
-> **Pré-requisitos**
-> * XCode 10+
-> * iOS 10+
-> * macOS 10.12+
+* Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* XCode 10+
+* iOS 10+
+* macOS 10.12+
+
+## <a name="how-the-sample-works"></a>Como o exemplo funciona
+
+![Mostra como o aplicativo de exemplo gerado por este início rápido funciona](media/quickstart-v2-ios/ios-intro.svg)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Registrar e baixar o aplicativo de início rápido
@@ -70,16 +74,16 @@ Este início rápido se aplica a aplicativos iOS e macOS. Algumas etapas são ne
 >
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Já configurado](media/quickstart-v2-ios/green-check.png) Seu aplicativo já está configurado com esses atributos
-> 
+>
 > #### <a name="step-2-download-the-sample-project"></a>Etapa 2: Baixar o projeto de exemplo
 > > [!div id="autoupdate_ios" class="nextstepaction"]
 > > [Baixar o exemplo de código para iOS]()
-> 
+>
 > > [!div id="autoupdate_macos" class="nextstepaction"]
 > > [Baixar o exemplo de código para macOS]()
 > [!div renderon="docs"]
 > #### <a name="step-2-download-the-sample-project"></a>Etapa 2: Baixar o projeto de exemplo
-> 
+>
 > - [Baixar o exemplo de código para iOS](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)
 > - [Baixar o exemplo de código para macOS](https://github.com/Azure-Samples/active-directory-macOS-swift-native-v2/archive/master.zip)
 
@@ -262,13 +266,11 @@ self.applicationContext!.getCurrentAccount(with: nil) { (currentAccount, previou
 > | `scopes` | Contém os escopos que estão sendo solicitados (ou seja, `[ "user.read" ]` para o Microsoft Graph ou `[ "<Application ID URL>/scope" ]` para as APIs Web personalizadas (`api://<Application ID>/access_as_user`)) |
 > | `account` | A conta para a qual um token está sendo solicitado. Este é um guia de início rápido sobre um aplicativo de conta única. Se quiser criar um aplicativo de várias contas, você precisará definir a lógica para identificar qual conta usar em solicitações de token usando `accountsFromDeviceForParameters:completionBlock:` e passando o `accountIdentifier` correto |
 
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
 ## <a name="next-steps"></a>Próximas etapas
 
-Experimente o tutorial para iOS e macOS para obter um guia passo a passo completo sobre a criação de aplicativos, incluindo uma explicação completa sobre este início rápido.
-
-### <a name="learn-how-to-create-the-application-used-in-this-quickstart"></a>Saiba como criar o aplicativo usado neste início rápido
+Prossiga para o tutorial passo a passo, em que você criará um aplicativo iOS ou macOS que obtém um token de acesso da plataforma de identidade da Microsoft e o utilizará para chamar a API do Microsoft Graph.
 
 > [!div class="nextstepaction"]
-> [Tutorial sobre como chamar a API do Graph para iOS e macOS](./tutorial-v2-ios.md)
-
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+> [Tutorial: Conectar usuários e chamar o Microsoft Graph em um aplicativo iOS ou macOS](tutorial-v2-ios.md)

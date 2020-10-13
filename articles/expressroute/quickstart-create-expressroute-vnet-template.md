@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: subject-armsq
 ms.date: 08/31/2020
 ms.author: duau
-ms.openlocfilehash: f1dbb9623ddc87f9940fd97b05abbee113fd71c4
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: f45fc32e99fff7403c40048b8c7ad117b0395cc9
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90016547"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759230"
 ---
 # <a name="quickstart-create-an-expressroute-circuit-with-private-peering-using-an-arm-template"></a>Início Rápido: Criar um circuito do ExpressRoute com o emparelhamento privado usando um modelo do ARM
 
@@ -92,11 +92,11 @@ O Azure PowerShell é usado para implantar o modelo. Além do Azure PowerShell, 
 
 1. O grupo de recursos deve conter os seguintes recursos vistos aqui:
 
-     :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-resource-group.png" alt-text="Grupo de recursos de implantação do ExpressRoute":::
+     :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-resource-group.png" alt-text="Saída de implantação do PowerShell do modelo do Resource Manager no ExpressRoute":::
 
 1. Selecione o circuito **er-ck01** do ExpressRoute para confirmar se o status do circuito é **Habilitado**, o status do provedor é **Não provisionado** e o emparelhamento privado tem o status **Provisionado**.
 
-    :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-circuit.png" alt-text="Circuito de implantação do ExpressRoute":::
+    :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-circuit.png" alt-text="Saída de implantação do PowerShell do modelo do Resource Manager no ExpressRoute":::
 
 > [!NOTE]
 > Você precisará chamar o provedor para concluir o processo de provisionamento para vincular a rede virtual ao circuito.
@@ -120,11 +120,7 @@ Neste início rápido, você criou:
 * IP público
 * grupos de segurança de rede
 
-Para saber mais sobre como vincular uma rede virtual a um circuito, prossiga para os tutoriais do ExpressRoute.
+Para saber como vincular uma rede virtual a um circuito, prossiga para os tutoriais do ExpressRoute.
 
 > [!div class="nextstepaction"]
 > [Tutoriais do ExpressRoute](expressroute-howto-linkvnet-portal-resource-manager.md)
-
-* Para saber mais sobre fluxos de trabalho do ExpressRoute, confira [Fluxos de trabalho do ExpressRoute](expressroute-workflows.md).
-* Para obter mais informações sobre o emparelhamento de circuito, veja [Circuitos e domínios de roteamento do ExpressRoute](expressroute-circuit-peerings.md).
-* Para saber mais sobre redes virtuais, confira [Visão geral da rede virtual](../virtual-network/virtual-networks-overview.md).

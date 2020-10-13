@@ -3,17 +3,17 @@ title: O que há de novo na Área de Trabalho Virtual do Windows? - Azure
 description: Novos recursos e atualizações de produto para a Área de Trabalho Virtual do Windows.
 author: Heidilohr
 ms.topic: overview
-ms.date: 09/02/2020
+ms.date: 10/01/2020
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
 ms.custom: references_regions
-ms.openlocfilehash: d698470f450f6fe903ab68334764e0918d659d7f
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 0191d6ad74a9b6349f5d1724f9483607dce2d926
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89319807"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91630002"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>O que há de novo na Área de Trabalho Virtual do Windows?
 
@@ -25,6 +25,29 @@ A Área de Trabalho Virtual do Windows é atualizada regularmente. Neste artigo,
 - Correções de bug
 
 Este artigo é atualizado mensalmente. Volte a consultá-lo com frequência para acompanhar as atualizações.
+
+## <a name="september-2020"></a>Setembro de 2020
+
+Estas foram as alterações de setembro de 2020:
+
+- Otimizamos o desempenho reduzindo a latência de conexão nas seguintes regiões geográficas do Azure:
+    - Alemanha
+    - África do Sul (somente para ambientes de validação)
+
+Agora você pode usar o [avaliador de experiência](https://azure.microsoft.com/services/virtual-desktop/assessment/) para estimar a qualidade da experiência do usuário nessas áreas.
+
+- Lançamos a versão 1.2.1364 do cliente da Área de Trabalho do Windows para a Área de Trabalho Virtual do Windows. Nesta atualização, fizemos as seguintes alterações:
+    - Correção de um problema em que o SSO (logon único) não funcionava no Windows 7.
+    - Correção de um problema que fazia com que o cliente fosse desconectado quando um usuário que habilitou a otimização de mídia para o Teams tentasse fazer uma chamada ou ingressar em uma reunião do Teams, enquanto outro aplicativo tinha um fluxo de áudio aberto no modo exclusivo.
+    - Correção de um problema em que o Teams não enumerava dispositivos de áudio ou de vídeo quando a otimização de mídia para o Teams estava habilitada.
+    - Adicionado um link "Precisa de ajuda com as configurações?" para a página de configurações da área de trabalho.
+    - Corrigido um problema com o botão "Assinar" que acontecia ao usar temas escuros de alto contraste.
+    
+- Graças à enorme ajuda dos nossos usuários, corrigimos dois problemas críticos no cliente da Área de Trabalho Remota da Microsoft Store. Continuaremos a examinar os comentários e corrigir os problemas, conforme ampliamos nossa versão em fases do cliente para mais usuários em todo o mundo.
+    
+- Adicionamos um novo recurso que permite alterar a localização da VM, a imagem, o grupo de recursos, o nome do prefixo, a configuração de rede como parte do fluxo de trabalho para adicionar uma VM à sua implantação no portal do Azure.
+
+- Agora, os profissionais de TI podem gerenciar VMs do Windows 10 Enterprise ingressadas no Azure Active Directory híbrido usando o Microsoft Endpoint Manager. Para saber mais, confira [nossa postagem no blog](https://techcommunity.microsoft.com/t5/microsoft-endpoint-manager-blog/microsoft-endpoint-manager-announces-support-for-windows-virtual/ba-p/1681048).
 
 ## <a name="august-2020"></a>Agosto de 2020
 
@@ -144,4 +167,3 @@ Confira estes artigos para saber mais sobre as atualizações para nossos client
 ## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre os planos futuros no [roteiro da Área de Trabalho Virtual do Windows no Microsoft 365](https://www.microsoft.com/microsoft-365/roadmap?filters=Windows%20Virtual%20Desktop).
-

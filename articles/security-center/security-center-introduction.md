@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 2eee46f99af247ffd0e11b262ace0a96453270d4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a6f0af188bb999acecad7fee0a90256eff05f902
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91323667"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91742070"
 ---
 # <a name="what-is-azure-security-center"></a>O que é a Central de Segurança do Azure?
 
@@ -43,7 +43,8 @@ Para ajudá-lo a se proteger contra esses desafios, a Central de Segurança forn
 
 -   **Ficar seguro com mais rapidez**: Na Central de Segurança, tudo é feito na velocidade da nuvem. Por ser integrada nativamente, a implantação da Central de Segurança é fácil, oferecendo provisionamento automático e proteção com os serviços do Azure.
 
-[!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
+> [!NOTE]
+> Esse serviço dá suporte ao [Azure Lighthouse](../lighthouse/overview.md), que permite que os provedores de serviços entrem no próprio locatário para gerenciar assinaturas e grupos de recursos delegados pelos clientes. Para cenários da Central de Segurança do Azure, uma assinatura precisa ser delegada em vez de grupos de recursos individuais.
 
 ## <a name="architecture"></a>Arquitetura
 

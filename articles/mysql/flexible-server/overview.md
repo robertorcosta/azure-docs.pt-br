@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/21/2020
-ms.openlocfilehash: 4b629ddeb1db8dd94c1c96ecb62fafb9ca7bfc60
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: d3d58cab6e3b9ed0bf3b8ed409aa736357687f09
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91569658"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759638"
 ---
 # <a name="azure-database-for-mysql---flexible-server-preview"></a>Banco de Dados do Azure para MySQL – Servidor Flexível (versão prévia)
 
@@ -54,7 +54,9 @@ Confira [conceitos de alta disponibilidade](concepts-high-availability.md) para 
 
 ## <a name="automated-patching-with-managed-maintenance-window"></a>Aplicação de patch automatizada com janela de manutenção gerenciada
 
-O serviço executa a aplicação automatizada de patch do hardware, do sistema operacional e do mecanismo de banco de dados subjacentes. A aplicação de patch inclui atualizações de segurança e software. Para o mecanismo MySQL, as atualizações de versão secundárias também são incluídas como parte da versão de manutenção planejada. Os usuários podem configurar o agendamento de aplicação de patch para que ele seja gerenciado pelo sistema ou definir um agendamento personalizado. Durante o agendamento de manutenção, o patch é aplicado e o servidor talvez precisará ser reiniciado como parte do processo de aplicação de patch para concluir a atualização. Com o agendamento personalizado, os usuários podem tornar o ciclo de aplicação de patch previsível e escolher uma janela de manutenção com impacto mínimo sobre os negócios. No geral, o serviço segue a agenda de lançamento mensal como parte do lançamento e da integração contínua. 
+O serviço executa a aplicação automatizada de patch do hardware, do sistema operacional e do mecanismo de banco de dados subjacentes. A aplicação de patch inclui atualizações de segurança e software. Para o mecanismo MySQL, as atualizações de versão secundárias também são incluídas como parte da versão de manutenção planejada. Os usuários podem configurar o agendamento de aplicação de patch para que ele seja gerenciado pelo sistema ou definir um agendamento personalizado. Durante o agendamento de manutenção, o patch é aplicado e o servidor talvez precisará ser reiniciado como parte do processo de aplicação de patch para concluir a atualização. Com o agendamento personalizado, os usuários podem tornar o ciclo de aplicação de patch previsível e escolher uma janela de manutenção com impacto mínimo sobre os negócios. No geral, o serviço segue a agenda de lançamento mensal como parte do lançamento e da integração contínua.
+
+Confira [Manutenção agendada](concepts-maintenance.md) para obter mais detalhes. 
 
 ## <a name="automatic-backups"></a>Backups automáticos
 
@@ -87,13 +89,15 @@ Confira [Conceitos de computação e armazenamento](concepts-compute-storage.md)
 
 O serviço de servidor flexível permite que você pare e inicie o servidor sob demanda para otimizar o custo. A cobrança da camada de computação é interrompida imediatamente quando o servidor é parado. Com isso, você pode ter uma redução de custo significativa durante o desenvolvimento e o teste e para cargas de trabalho de produção previsíveis com limite de tempo. O servidor permanece no estado parado por sete dias, a menos que ele seja reiniciado antes. 
 
+Confira [Conceitos de servidor](concept-servers.md) para saber mais. 
+
 ## <a name="enterprise-grade-security-and-privacy"></a>Segurança de nível empresarial e privacidade
 
 O serviço de servidor flexível usa o módulo de criptografia validado por FIPS 140-2 para a criptografia de armazenamento de dados em repouso. Os dados, incluindo backups, e os arquivos temporários criados durante a execução de consultas são criptografados. O serviço usa a criptografia AES de 256 bits incluída na criptografia de armazenamento do Azure, e as chaves podem ser gerenciadas pelo sistema (padrão). 
 
 O serviço criptografa os dados em movimento com o protocolo TLS imposto por padrão. Os Servidores Flexíveis só dão suporte a conexões criptografadas usando TLS 1.2 e todas as conexões de entrada com TLS 1.0 e TLS 1.1 serão negadas. 
 
-Confira [como usar conexões criptografadas para servidores flexíveis](/articles/mysql/flexible-server/how-to-connect-tls-ssl.md) para saber mais.
+Confira [como usar conexões criptografadas para servidores flexíveis](https://docs.mongodb.com/manual/tutorial/configure-ssl) para saber mais.
 
 Os servidores flexíveis permitem acesso privado completo aos servidores usando a [integração de VNet](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) (rede virtual) do Azure. Os servidores da rede virtual do Azure só podem ser acessados e conectados por meio de endereços IP privados. Com a Integração VNET, o acesso público é negado e os servidores não podem ser acessados por meio de pontos de extremidade públicos. 
 

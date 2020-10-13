@@ -6,18 +6,18 @@ author: lgayhardt
 ms.custom: devx-track-java
 ms.author: lagayhar
 ms.date: 05/24/2019
-ms.openlocfilehash: f0583af05ae7d8e365b50610bfb812ac7764f223
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12497d3ac86888ed861e8d5f655f45c8cbe4b6e3
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90602458"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996157"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>Início rápido: introdução ao Application Insights em um projeto Web Java
 
 
 > [!IMPORTANT]
-> A abordagem recomendada para monitorar aplicativos Java é usar a instrumentação automática sem alterar o código. Siga as diretrizes para [Application insights o agente do Java 3,0](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent).
+> A abordagem recomendada para monitorar aplicativos Java é usar a instrumentação automática sem alterar o código. Siga as diretrizes para [Application insights o agente do Java 3,0](./java-in-process-agent.md).
 
 Neste guia de início rápido, você usa Application Insights SDK para instrumentar solicitação, controlar dependências e coletar contadores de desempenho, diagnosticar problemas de desempenho e exceções e escrever código para controlar o que os usuários fazem com seu aplicativo.
 
@@ -199,7 +199,7 @@ Agora, publique seu aplicativo no servidor, permita que as pessoas o usem e obse
 
 ## <a name="azure-app-service-aks-vms-config"></a>Azure App serviço, AKS, configuração de VMs
 
-A melhor e mais fácil abordagem para monitorar seus aplicativos em execução em qualquer um dos provedores de recursos do Azure é usar Application Insights instrumentação automática por meio do [agente do Java 3,0](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent).
+A melhor e mais fácil abordagem para monitorar seus aplicativos em execução em qualquer um dos provedores de recursos do Azure é usar Application Insights instrumentação automática por meio do [agente do Java 3,0](./java-in-process-agent.md).
 
 
 ## <a name="exceptions-and-request-failures"></a>Falhas de solicitação e exceções
@@ -293,7 +293,7 @@ O Application Insights pode testar seu site em intervalos regulares para verific
 
 [Saiba mais sobre como configurar testes da Web de disponibilidade.][availability]
 
-## <a name="questions-problems"></a>Perguntas? Problemas?
+## <a name="questions-problems"></a>Dúvidas? Problemas?
 [Solucionar problemas de Java](java-troubleshoot.md)
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -313,4 +313,3 @@ O Application Insights pode testar seu site em intervalos regulares para verific
 [javalogs]: java-trace-logs.md
 [metrics]: ../platform/metrics-charts.md
 [usage]: javascript.md
-

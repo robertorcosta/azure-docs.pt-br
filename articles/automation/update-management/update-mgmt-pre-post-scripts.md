@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 05/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 32a8214a5bd6844c9177c7af159a453bc3673efc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed3a8909bc0d5ac135023b55178cec606344353b
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87449857"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996767"
 ---
 # <a name="manage-pre-scripts-and-post-scripts"></a>Gerenciar pré-scripts e pós-scripts
 
@@ -137,7 +137,7 @@ foreach($summary in $finalStatus)
 
 ## <a name="interact-with-machines"></a>Interação com computadores
 
-Pré-scripts e pós-tarefas são executados como runbooks em sua conta da Automação e não diretamente nos computadores em sua implantação. As pré-tarefas e as pós-tarefas também são executadas no contexto do Azure e não têm acesso a computadores não Azure. As seções a seguir mostram como você pode interagir com os computadores diretamente, sejam eles VMs do Azure ou computadores não Azure.
+Pré-scripts e pós-scripts são executados como runbooks em sua conta de automação e não diretamente nos computadores em sua implantação. As pré-tarefas e as pós-tarefas também são executadas no contexto do Azure e não têm acesso a computadores não Azure. As seções a seguir mostram como você pode interagir com os computadores diretamente, sejam eles VMs do Azure ou computadores não Azure.
 
 ### <a name="interact-with-azure-machines"></a>Interação com computadores Azure
 

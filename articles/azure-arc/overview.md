@@ -3,12 +3,12 @@ title: Visão geral do Azure Arc
 description: Saiba o que é o Azure Arc e como ele ajuda os clientes a habilitar o gerenciamento e a governança dos recursos híbridos com outros serviços e recursos do Azure.
 ms.date: 09/23/2020
 ms.topic: overview
-ms.openlocfilehash: e6dc052655bffae949399f77a26d7b76c5b0d13c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8e48378e5032768b3f56a5d99c1189e282ff37f8
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91335391"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714150"
 ---
 # <a name="azure-arc-overview"></a>Visão geral do Azure Arc
 
@@ -56,7 +56,7 @@ A funcionalidade do plano de controle do Azure Arc é oferecida sem custo adicio
 
 * Pesquisa e indexação por meio do Azure Resource Graph.
 
-* Acesso e segurança por meio de RBAC e de assinaturas.
+* Acesso e segurança por meio do RBAC e das assinaturas do Azure.
 
 * Ambientes e automação por meio de modelos e extensões.
 

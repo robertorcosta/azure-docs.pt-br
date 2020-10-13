@@ -1,7 +1,7 @@
 ---
-title: Conectar usuários em aplicativos de página única Angular – Azure
+title: 'Início Rápido: Conectar usuários em aplicativos de página única Angular – Azure'
 titleSuffix: Microsoft identity platform
-description: Saiba como um aplicativo Angular pode chamar uma API que exige tokens de acesso usando a plataforma de identidade da Microsoft.
+description: Neste guia de início rápido, você aprenderá como um aplicativo Angular pode chamar uma API que exige tokens de acesso emitidos pela plataforma de identidade da Microsoft.
 services: active-directory
 author: jasonnutter
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 03/18/2020
 ms.author: janutter
-ms.openlocfilehash: 23b25340906ddb4501492b048740f590c13654c4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4179807b349504d1ac0932f8d0816603f83afae4
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91258023"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91613417"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-an-angular-single-page-application"></a>Início Rápido: Conectar usuários e obter um token de acesso em um aplicativo de página única Angular
 

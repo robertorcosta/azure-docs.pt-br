@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: d457e911dec481e2b1a8bdae1ca05f80452bb883
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: f3fd214fa62d95430bd8ca62e78fd3df30c77d19
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85557175"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91652441"
 ---
 # <a name="quickstart-convert-a-model-for-rendering"></a>Início Rápido: Converter um modelo para renderização
 
@@ -189,7 +189,7 @@ O script de conversão gera um URI de *SAS (Assinatura de Acesso Compartilhado)*
 O URI de SAS criado pelo script de conversão só será válido por 24 horas. No entanto, depois de expirar, você não precisa converter seu modelo novamente. Em vez disso, você pode criar uma SAS no portal, conforme descrito nas próximas etapas:
 
 1. Vá para o [Portal do Azure](https://www.portal.azure.com)
-1. Clique no recurso de **Conta de armazenamento**: ![Acesso à assinatura](./media/portal-storage-accounts.png)
+1. Clique no recurso de **Conta de armazenamento**: ![Captura de tela que realça o recurso de conta de armazenamento selecionado.](./media/portal-storage-accounts.png)
 1. Na tela a seguir, clique em **Gerenciador de armazenamento** no painel esquerdo e localize o modelo de saída (arquivo *.arrAsset*) no contêiner de Armazenamento de Blobs *arroutput*. Clique com o botão direito do mouse no arquivo e selecione **Obter Assinatura de Acesso Compartilhado** no menu de contexto: ![Acesso à assinatura](./media/portal-storage-explorer.png)
 1. Uma nova tela é aberta, em que você pode selecionar uma data de expiração. Pressione **Criar**e copie o URI mostrado na próxima caixa de diálogo. Esse novo URI substitui o URI temporário que o script criou.
 

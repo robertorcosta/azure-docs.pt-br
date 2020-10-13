@@ -1,7 +1,7 @@
 ---
-title: Adicionar entrada com a Microsoft para um aplicativo Web do ASP.NET Core | Azure
+title: 'Início Rápido: Adicionar a opção Entrar com a conta da Microsoft a um aplicativo Web ASP.NET Core | Azure'
 titleSuffix: Microsoft identity platform
-description: Saiba como implementar a opção de entrar com a conta da Microsoft em um aplicativo Web do ASP.NET Core usando o OpenID Connect
+description: Neste guia de início rápido, você aprenderá como um aplicativo implementa a opção Entrar com a conta da Microsoft em um aplicativo Web ASP.NET Core usando o OpenID Connect
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -12,18 +12,23 @@ ms.workload: identity
 ms.date: 09/11/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 1d31fc70aaf8449ed8bdafe4e290113e20865906
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: bf80a15131a8808359d21d5a9655ef04db236178
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90902360"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91613485"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Início Rápido: Adicionar entrada com a Microsoft para um aplicativo Web do ASP.NET Core
 
 Neste início rápido, você usará um exemplo de código para saber como um aplicativo Web ASP.NET Core pode entrar em contas pessoais (hotmail.com, outlook.com e outras) e contas corporativas e de estudante em qualquer instância do Azure AD (Azure Active Directory). (Confira [Como o exemplo funciona](#how-the-sample-works) para ver uma ilustração.)
 
 > [!div renderon="docs"]
+> ## <a name="prerequisites"></a>Pré-requisitos
+>
+> * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) ou [Visual Studio Code](https://code.visualstudio.com/)
+> * [SDK do .NET Core 3.1 ou posterior](https://dotnet.microsoft.com/download)
+>
 > ## <a name="register-and-download-your-quickstart-app"></a>Registrar e baixar o aplicativo de início rápido
 > Você tem duas opções para iniciar o aplicativo de início rápido:
 > * [Express] [Opção 1: Registrar e configurar o aplicativo automaticamente e, em seguida, baixar seu exemplo de código](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
@@ -108,7 +113,7 @@ Neste início rápido, você usará um exemplo de código para saber como um apl
 >
 > Depois de consentir com as permissões solicitadas, o aplicativo exibe que você fez logon com êxito usando suas credenciais do Azure Active Directory.
 >
-> :::image type="content" source="media/quickstart-v2-aspnet-core-webapp/webapp-02-signed-in.png" alt-text="Navegador da Web exibindo o aplicativo Web em execução e o usuário conectado":::
+> :::image type="content" source="media/quickstart-v2-aspnet-core-webapp/webapp-02-signed-in.png" alt-text="Caixa de diálogo de consentimento mostrando as permissões que o aplicativo está solicitando do > usuário":::
 
 ## <a name="more-information"></a>Mais informações
 

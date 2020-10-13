@@ -6,12 +6,12 @@ ms.service: azure-portal
 ms.topic: quickstart
 ms.author: mblythe
 ms.date: 09/11/2020
-ms.openlocfilehash: 21dcadaa929b90e72c7d429229fc6ac4e0a66683
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 3b9783e7f452b38292c784d44ddb60672e150961
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90605349"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91650384"
 ---
 # <a name="view-and-filter-azure-resource-information"></a>Exibir e filtrar informações de recursos do Azure
 
@@ -53,7 +53,11 @@ Para excluir uma exibição:
 
 ## <a name="summarize-resources-with-visuals"></a>Resumir recursos com visuais
 
-As exibições que examinamos até agora foram _exibições de lista_, mas também há _exibições de resumo_ que incluem visuais. Você pode salvar e usar essas exibições assim como você pode listar exibições. Os filtros persistem entre os dois tipos de exibições. Para salvar e usar uma exibição de resumo:
+As exibições que examinamos até agora foram _exibições de lista_, mas também há _exibições de resumo_ que incluem visuais. Você pode salvar e usar essas exibições assim como você pode listar exibições. Os filtros persistem entre os dois tipos de exibições. Há exibições padrão, como a exibição **Localização** mostrada abaixo, bem como exibições relevantes para serviços específicos, como a exibição **Status** para máquinas virtuais.
+
+:::image type="content" source="media/manage-filter-resource-views/summary-map.png" alt-text="Exibição do portal do Azure de todos os recursos":::
+
+Para salvar e usar uma exibição de resumo:
 
 1. No menu Exibir, selecione **Exibição de resumo**.
 

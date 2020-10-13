@@ -9,12 +9,12 @@ ms.subservice: managed-hsm
 ms.topic: quickstart
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 705e389c83fbab6075c25a3f56e5392fb8cafcd9
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 86d0a336a7d3f5d12ed8e53de802616f839f9eba
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90998266"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91756804"
 ---
 # <a name="quickstart-provision-and-activate-a-managed-hsm-using-azure-cli"></a>Início Rápido: Provisionar e ativar um HSM gerenciado usando a CLI do Azure
 
@@ -76,7 +76,7 @@ az keyvault create --hsm-name "ContosoMHSM" --resource-group "ContosoResourceGro
 A saída deste comando mostra as propriedades do HSM Gerenciado que você criou. As duas propriedades mais importantes são:
 
 * **nome**: No exemplo, o nome é ContosoMHSM. Você usará esse nome para outros comandos do Key Vault.
-* **hsmUri**: no exemplo, o URI é https://contosohsm.managedhsm.azure.net. os aplicativos que usam o HSM por meio da API REST devem usar essa URI.
+* **hsmUri**: no exemplo, o URI é 'https://contosohsm.managedhsm.azure.net '. os aplicativos que usam o HSM por meio da API REST devem usar essa URI.
 
 Sua conta do Azure agora está autorizada a executar qualquer operação neste HSM Gerenciado. Até o momento, ninguém mais tem autorização.
 

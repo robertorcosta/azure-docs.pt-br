@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 688541147a9a765ed94d8e6c18ce4ee63615f627
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: b35268cd8d36901f750225713407c5392e5c429e
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91580763"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759162"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-c"></a>Início Rápido: interagir com um dispositivo IoT Plug and Play conectado à sua solução (C#)
 
@@ -48,7 +48,7 @@ Neste início rápido, você usa um dispositivo de termostato de exemplo escrito
 
 1. No Visual Studio, navegue até **Projeto > Propriedades do Termostato > Depurar**. Em seguida, adicione as seguintes variáveis de ambiente ao projeto:
 
-    | Nome | Valor |
+    | Name | Valor |
     | ---- | ----- |
     | IOTHUB_DEVICE_SECURITY_TYPE | DPS |
     | IOTHUB_DEVICE_DPS_ENDPOINT | global.azure-devices-provisioning.net |
@@ -66,7 +66,7 @@ Neste início rápido, você usa um dispositivo de termostato de exemplo escrito
 Em [Configurar o ambiente para os inícios rápidos e os tutoriais do IoT Plug and Play](set-up-environment.md), você criou duas variáveis de ambiente para configurar o exemplo a ser conectado ao hub IoT e ao dispositivo:
 
 * **IOTHUB_CONNECTION_STRING**: a cadeia de conexão do hub IoT anotada anteriormente.
-* **DEVICE_ID**: `"my-pnp-device"`.
+* **IOTHUB_DEVICE_ID**: `"my-pnp-device"`.
 
 Neste guia de início rápido, você usa uma solução de IoT de exemplo em C# para interagir com o dispositivo de exemplo que acabou de configurar.
 
@@ -74,9 +74,9 @@ Neste guia de início rápido, você usa uma solução de IoT de exemplo em C# p
 
 1. No Visual Studio, navegue até **Projeto > Propriedades do Termostato > Depurar**. Em seguida, adicione as seguintes variáveis de ambiente ao projeto:
 
-    | Nome | Valor |
+    | Name | Valor |
     | ---- | ----- |
-    | DEVICE_ID | my-pnp-device |
+    | IOTHUB_DEVICE_ID | my-pnp-device |
     | IOTHUB_CONNECTION_STRING | O valor anotado quando você concluiu [Configurar seu ambiente](set-up-environment.md) |
 
 1. Agora você pode compilar o exemplo no Visual Studio e executá-lo no modo de depuração.
@@ -92,7 +92,7 @@ s_logger.LogDebug($"Model Id of this Twin is: {twin.ModelId}");
 ```
 
 > [!NOTE]
-> Este exemplo usa o namespace **Microsoft.Azure.Devices.Client;** do **cliente do serviço Hub IoT**. Para saber mais sobre como recuperar a ID do modelo, confira o [guia do desenvolvedor](concepts-developer-guide.md).
+> Este exemplo usa o namespace **Microsoft.Azure.Devices.Client;** do **cliente do serviço Hub IoT**. Para saber mais sobre como recuperar a ID do modelo, confira o [guia do desenvolvedor](concepts-developer-guide-service.md).
 
 Esse código gera a seguinte saída:
 

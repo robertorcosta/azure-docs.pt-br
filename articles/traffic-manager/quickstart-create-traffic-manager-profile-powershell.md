@@ -10,20 +10,22 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/25/2020
+ms.date: 10/01/2020
 ms.author: duau
-ms.openlocfilehash: f3ecdfb03a6e6d1aab355edf7c370b29240e0543
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 9b34a17cc9add0bed4bffb7677aa81bb17f3125b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88929509"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91631555"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application-using-azure-powershell"></a>Início Rápido: Criar um perfil do Gerenciador de Tráfego para um aplicativo Web de alta disponibilidade usando o Azure PowerShell
 
 Este início rápido descreve como criar um perfil do Gerenciador de Tráfego que fornece alta disponibilidade para seu aplicativo Web.
 
 Neste início rápido, você criará duas instâncias de um aplicativo Web. Cada uma delas está em execução em uma região diferente do Azure. Você criará um perfil do Gerenciador de Tráfego baseado na [prioridade de ponto de extremidade](traffic-manager-routing-methods.md#priority-traffic-routing-method). O perfil direciona o tráfego de usuário para o site primário executando o aplicativo Web. O Gerenciador de Tráfego monitora o aplicativo Web continuamente. Se o site primário estiver indisponível, ele fornece failover automático para o site de backup.
+
+## <a name="prerequisites"></a>Pré-requisitos
 
 Caso não tenha uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) agora.
 
@@ -35,7 +37,6 @@ Se você optar por instalar e usar o PowerShell localmente, este artigo exigirá
 Crie um grupo de recursos usando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).
 
 ```azurepowershell-interactive
-
 
 # Variables
 $Location1="WestUS"
@@ -70,7 +71,7 @@ New-AzTrafficManagerProfile `
 Para esse início rápido, você precisará implantar duas instâncias de um aplicativo Web em duas regiões do Azure diferentes (*Oeste dos EUA* e *Leste dos EUA*). Cada uma servirá como os pontos de extremidade primário e de failover do Gerenciador de Tráfego.
 
 ### <a name="create-web-app-service-plans"></a>Criar planos de Serviço de Aplicativo Web
-Criar planos de Serviço de Aplicativo Web usando [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) para as duas instâncias do aplicativo Web que você implantará em duas regiões do Azure diferentes.
+Crie planos do serviço de Aplicativo Web usando [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) para as duas instâncias do aplicativo Web que você implantará em duas regiões diferentes do Azure.
 
 ```azurepowershell-interactive
 

@@ -3,12 +3,12 @@ title: Habilitar Azure Monitor para contêineres | Microsoft Docs
 description: Este artigo descreve como habilitar e configurar Azure Monitor para contêineres para que você possa entender como o contêiner está sendo executado e quais problemas relacionados ao desempenho foram identificados.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 1cb393faded714593ce635669f585d5979ee69b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69022643e3346444eee95f4487eeed292c4ef139
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87320299"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994060"
 ---
 # <a name="enable-azure-monitor-for-containers"></a>Habilitar Azure Monitor para contêineres
 
@@ -43,7 +43,7 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
    Você pode criar um espaço de trabalho ao habilitar o monitoramento para o novo cluster AKS ou pode permitir que a experiência de integração crie um espaço de trabalho padrão no grupo de recursos padrão da assinatura do cluster AKS. 
    
    Se você optar por criar o espaço de trabalho por conta própria, poderá criá-lo por meio de: 
-   - [Azure Resource Manager](../platform/template-workspace-configuration.md)
+   - [Azure Resource Manager](../samples/resource-manager-workspace.md)
    - [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)
    - [O portal do Azure](../learn/quick-create-workspace.md) 
    
@@ -131,4 +131,3 @@ Para habilitar Azure Monitor para contêineres, use um dos métodos descritos na
 ## <a name="next-steps"></a>Próximas etapas
 
 Agora que você habilitou o monitoramento, você pode começar a analisar o desempenho dos clusters kubernetes hospedados no AKS (serviço kubernetes do Azure), Azure Stack ou em outro ambiente. Para saber como usar Azure Monitor para contêineres, consulte [Exibir o desempenho do cluster kubernetes](container-insights-analyze.md).
-

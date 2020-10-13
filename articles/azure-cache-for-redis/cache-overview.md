@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: overview
 ms.date: 05/12/2020
-ms.openlocfilehash: 3751560125ea8ac6cc00ed63521bff30b751e688
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 26f6c8e3aceddc6f766bb43a1e384d761dee32bf
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009589"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91631365"
 ---
 # <a name="azure-cache-for-redis"></a>Cache Redis do Azure
 O Cache do Azure para Redis fornece um armazenamento de dados na memória com base no software open-source [Redis](https://redis.io/). O Redis melhora o desempenho e a escalabilidade de um aplicativo que usa muito armazenamentos de dados de back-end. Ele é capaz de processar grandes volumes de solicitação de aplicativo mantendo os dados acessados com frequência na memória do servidor, que pode ser gravada e lida rapidamente. O Redis traz uma solução de armazenamento de dados crítica de baixa latência e alta taxa de transferência para aplicativos modernos.
@@ -31,12 +31,20 @@ O Cache do Azure para Redis aprimora o desempenho do aplicativo dando suporte a 
 | Enfileiramento de mensagens e trabalhos | Aplicativos geralmente adicionam tarefas a uma fila quando as operações associadas à solicitação levam tempo para serem executadas. As operações de execução mais longa são enfileiradas para serem processadas em sequência, muitas vezes por outro servidor.  Esse método de adiamento do trabalho é chamado de enfileiramento de tarefas. O Cache do Azure para Redis fornece uma fila distribuída para habilitar esse padrão em seu aplicativo.|
 | Transações distribuídas | Às vezes, os aplicativos exigem uma série de comandos em relação a um armazenamento de dados de back-end para serem executados como uma única operação atômica. Todos os comandos devem ter êxito ou ser revertidos para o estado inicial. O Cache do Azure para Redis dá suporte à execução de um lote de comandos como uma única [transação](https://redis.io/topics/transactions). |
 
+## <a name="redis-versions"></a>Versão do Redis
+
+O Cache do Azure para Redis dá suporte ao Redis versão 4.x e, como versão prévia, 6.0. Tomamos a decisão de ignorar o Redis 5.0 para oferecer a você a última versão. Anteriormente, o Cache do Azure para Redis mantinha apenas uma só versão do Redis. Ele fornecerá uma atualização de versão principal mais recente e, pelo menos, uma versão estável mais antiga no futuro. Você pode [escolher qual versão](cache-how-to-version.md) funciona melhor para seu aplicativo.
+
+> [!NOTE]
+> Atualmente, o Redis 6.0 está em versão prévia. [Entre em contato conosco](mailto:azurecache@microsoft.com) se estiver interessado. Essa versão prévia é fornecida sem um Contrato de Nível de Serviço e não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>
+
 ## <a name="service-tiers"></a>Camadas de serviço
 O Cache do Azure para Redis está disponível nas seguintes camadas:
 
 | Camada | Descrição |
 |---|---|
-Basic | Um cache de nó único. Essa camada dá suporte a vários tamanhos de memória (250 MB a 53 GB) e é ideal para o desenvolvimento/teste e para cargas de trabalho não críticas. A camada Básica não tem nenhum SLA (Contrato de Nível de Serviço). |
+| Basic | Um cache de nó único. Essa camada dá suporte a vários tamanhos de memória (250 MB a 53 GB) e é ideal para o desenvolvimento/teste e para cargas de trabalho não críticas. A camada Básica não tem nenhum SLA (Contrato de Nível de Serviço). |
 | Standard | Um cache replicado em uma configuração primária/réplica de dois nós gerenciado pelo Azure com um [SLA](https://azure.microsoft.com/support/legal/sla/cache/v1_0/) de alta disponibilidade. |
 | Premium | A camada Premium é a camada pronta para Empresas. Os Caches da camada Premium dão suporte a mais recursos e têm uma maior taxa de transferência com latências menores. Os caches na camada Premium são implantados em um hardware mais potente, fornecendo um melhor desempenho em comparação com a camada Básica ou Standard. Essa vantagem significa que a taxa de transferência para um cache do mesmo tamanho será maior na camada Premium comparado à camada Standard. |
 

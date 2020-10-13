@@ -3,12 +3,12 @@ title: Visão Geral do exemplo de blueprint da Base do CAF
 description: Visão geral e arquitetura do exemplo de blueprint do CAF (Cloud Adoption Framework) para o Azure Foundation.
 ms.date: 09/14/2020
 ms.topic: sample
-ms.openlocfilehash: cce5ea001b32ae92542f38f8f11427e85075cee9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3e2a5bcbb68ef0b51cf02ebb7a7e34913e2a1e6
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "90531688"
+ms.locfileid: "91929601"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Visão geral do exemplo de blueprint do Cloud Adoption Framework da Microsoft para o Azure Foundation
 
@@ -27,17 +27,18 @@ Essa implementação incorpora vários serviços do Azure usados para oferecer u
 - Uma instância do [Azure Key Vault](../../../../key-vault/general/overview.md) usada para hospedar segredos usados para as VMs implantadas no ambiente de serviços compartilhados
 - Implantar o [Log Analytics](../../../../azure-monitor/overview.md) garante que todas as ações e os serviços serão registrados em um local central desde o momento em que você iniciar sua implantação segura nas [Contas de Armazenamento](../../../../storage/common/storage-introduction.md) para log de diagnósticos
 - Implantar a [Central de Segurança do Azure](../../../../security-center/security-center-intro.md) (versão padrão) fornece proteção contra ameaças para suas cargas de trabalho migradas
-- O blueprint também define e implanta as [Políticas do Azure](../../../policy/overview.md), para 
-  - Marcação (CostCenter) aplicada a grupos de recursos
-  - Acrescentar recursos no grupo de recursos com a marca CostCenter
-  - Região do Azure permitida para recursos e grupos de recursos
-  - SKUs de conta de armazenamento permitidas (escolha durante a implantação)
-  - SKUs de VM do Azure permitidas (escolha durante a implantação)
-  - Exigir a implantação do Observador de Rede 
-  - Exigir criptografia de transferência segura na Conta de Armazenamento do Microsoft Azure
-  - Negar tipos de recursos (escolher durante a implantação)  
-- Iniciativas
-  - Habilitar o monitoramento na Central de Segurança do Azure (mais de 100 definições de política)
+- O blueprint também define e implanta as definições do [Azure Policy](../../../policy/overview.md):
+  - Definições de política:
+    - Marcação (CostCenter) aplicada a grupos de recursos
+    - Acrescentar recursos no grupo de recursos com a marca CostCenter
+    - Região do Azure permitida para recursos e grupos de recursos
+    - SKUs de conta de armazenamento permitidas (escolha durante a implantação)
+    - SKUs de VM do Azure permitidas (escolha durante a implantação)
+    - Exigir a implantação do Observador de Rede 
+    - Exigir criptografia de transferência segura na Conta de Armazenamento do Microsoft Azure
+    - Negar tipos de recursos (escolher durante a implantação)  
+  - Iniciativas da política:
+    - Habilitar o monitoramento na Central de Segurança do Azure (mais de 100 definições de política)
 
 Todos esses elementos cumprem as práticas comprovadas publicadas no [Centro de Arquitetura do Azure – Arquiteturas de Referência](/azure/architecture/reference-architectures/).
 

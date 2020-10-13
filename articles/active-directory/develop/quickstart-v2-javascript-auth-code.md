@@ -1,7 +1,7 @@
 ---
-title: Conectar usuários em SPAs (aplicativos de página única) JavaScript com código de autenticação | Azure
+title: 'Início Rápido: Conectar usuários em SPAs (aplicativos de página única) JavaScript com código de autenticação | Azure'
 titleSuffix: Microsoft identity platform
-description: Saiba como um SPA (aplicativo de página única) JavaScript pode conectar usuários de contas pessoais, contas corporativas e de estudante usando o fluxo de código de autorização.
+description: Neste guia de início rápido, saiba como um SPA (aplicativo de página única) JavaScript pode conectar usuários de contas pessoais, contas corporativas e contas de estudante usando o fluxo de código de autorização.
 services: active-directory
 author: hahamil
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: 224ce2ea64016db7b632ac36193f39e679c8da4b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 35362733849305ad2ad7e008840d53ba085fa987
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91257972"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91613434"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa-using-the-auth-code-flow"></a>Início Rápido: Conectar usuários e obter um token de acesso em um SPA JavaScript usando o fluxo de código de autenticação
 

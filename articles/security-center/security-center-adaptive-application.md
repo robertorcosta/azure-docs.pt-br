@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: 12140b71f8ef720a9e48b486a43e683b5766d102
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c3f3aad08266337756038dfa6ac6ff0c9afe093c
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91439009"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996798"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Use controles de aplicativo adaptáveis para reduzir as superfícies de ataque de suas máquinas
 
@@ -149,6 +149,23 @@ Para editar as regras para um grupo de computadores:
 
 1. Para aplicar as alterações, selecione **salvar**.
 
+
+## <a name="review-and-edit-a-groups-settings"></a>Examinar e editar as configurações de um grupo
+
+1. Para exibir os detalhes e as configurações do grupo, selecione **configurações de grupo**
+
+    Esse painel mostra o nome do grupo (que pode ser modificado), o tipo de sistema operacional, o local e outros detalhes relevantes.
+
+    :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-group-settings.png" alt-text="Abrindo controles de aplicativo adaptáveis no painel do Azure" lightbox="./media/security-center-adaptive-application/adaptive-application-group-settings.png":::
+
+    > [!IMPORTANT]
+    > A opção **impor** nas configurações do modo de proteção do tipo de arquivo fica esmaecida em todos os cenários. Não há opções de imposição disponíveis no momento. 
+    >
+    > :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-modes.png" alt-text="Abrindo controles de aplicativo adaptáveis no painel do Azure":::
+
+1. Opcionalmente, modifique os modos de proteção de tipo de arquivo ou nome do grupo.
+
+1. Selecione **aplicar** e **salvar**.
 
 
 

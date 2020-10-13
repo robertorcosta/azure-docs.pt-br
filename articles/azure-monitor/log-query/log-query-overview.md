@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/19/2019
-ms.openlocfilehash: 5a47de51a90d926b47f6b465d6c10111407da9c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55463f6af47ef8eda712b1787a89a710c08c1fe6
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90033159"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995199"
 ---
 # <a name="overview-of-log-queries-in-azure-monitor"></a>Visão geral das consultas de log no Azure Monitor
 As consultas de log ajudam você a aproveitar totalmente o valor dos dados coletados nos [logs de Azure monitor](../platform/data-platform-logs.md). Uma linguagem de consulta eficiente permite unir dados de várias tabelas, agregar grandes conjuntos de dados e executar operações complexas com o mínimo de código. Praticamente qualquer pergunta pode ser respondida e a análise realizada desde que os dados de suporte tenham sido coletados e você entenda como construir a consulta correta.
@@ -38,7 +38,7 @@ Consulte Introdução [às consultas de log no Azure monitor](get-started-querie
 Veja [Azure monitor diferenças na linguagem de consulta de log](data-explorer-difference.md) para pequenas diferenças na versão do KQL usada pelo Azure monitor.
 
 ## <a name="what-data-is-available-to-log-queries"></a>Quais dados estão disponíveis para registrar consultas?
-Todos os dados coletados em logs de Azure Monitor estão disponíveis para recuperar e analisar em consultas de log. Diferentes fontes de dados gravarão seus dados em tabelas diferentes, mas você pode incluir várias tabelas em uma única consulta para analisar dados em várias fontes. Ao criar uma consulta, você começa determinando quais tabelas possuem os dados procurados. Consulte [estrutura de logs de Azure monitor](logs-structure.md) para obter uma explicação de como os dados são estruturados.
+Todos os dados coletados em logs de Azure Monitor estão disponíveis para recuperar e analisar em consultas de log. Diferentes fontes de dados gravarão seus dados em tabelas diferentes, mas você pode incluir várias tabelas em uma única consulta para analisar dados em várias fontes. Ao criar uma consulta, você começa determinando quais tabelas possuem os dados procurados. Consulte [estrutura de logs de Azure monitor](../platform/data-platform-logs.md) para obter uma explicação de como os dados são estruturados.
 
 ## <a name="what-does-a-log-query-look-like"></a>Como é a aparência de uma consulta de log?
 Uma consulta pode ser tão simples quanto um único nome de tabela para recuperar todos os registros dessa tabela:

@@ -1,22 +1,21 @@
 ---
-title: Visão geral do Azure Key Vault – Azure Key Vault | Microsoft Docs
+title: Visão geral do Azure Key Vault – Azure Key Vault
 description: O Azure Key Vault é um armazenamento de segredos seguro, fornecendo gerenciamento de segredos, chaves e certificados, todos com suporte de módulos de segurança de hardware.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: overview
 ms.custom: mvc
-ms.date: 01/07/2019
+ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 500648b3037a81b39f474538ec062ef922b6e2df
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: a9886b005c5459456e005273dd11e2c3c183176f
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89421638"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91744229"
 ---
 # <a name="about-azure-key-vault"></a>Sobre o Azure Key Vault
 
@@ -24,8 +23,9 @@ O Azure Key Vault ajuda a resolver os problemas a seguir:
 
 - **Gerenciamento de Segredos** – O Azure Key Vault pode ser usado para armazenar com segurança e controlar firmemente o acesso a tokens, senhas, certificados, chaves de API e outros segredos
 - **Gerenciamento de Chaves** – O Azure Key Vault também pode ser usado como uma solução de gerenciamento de chaves. O Azure Key Vault torna fácil criar e controlar as chaves de criptografia usadas para criptografar seus dados. 
-- **Gerenciamento de Certificado** – O Azure Key Vault também é um serviço que permite provisionar, gerenciar e implantar com facilidade certificados de protocolo TLS/SSL (Transport Layer Security/Secure Sockets Layer) públicos e privados para uso com o Azure e seus recursos internos conectados com facilidade. 
-- **Armazenar segredos apoiados por Módulos de Segurança de Hardware** – os segredos, as chaves e os certificados no repositório são criptografados com a chave de software (camada Standard) ou a chave de HSMs validada do FIPS 140-2 Nível 2 (camada Premium) 
+- **Gerenciamento de Certificado** – O Azure Key Vault também é um serviço que permite provisionar, gerenciar e implantar com facilidade certificados de protocolo TLS/SSL (Transport Layer Security/Secure Sockets Layer) públicos e privados para uso com o Azure e seus recursos internos conectados com facilidade.
+
+O Azure Key Vault tem duas camadas de serviço: Standard, que faz a criptografia com uma chave de software e uma camada Premium, que inclui chaves protegidas por HSM. Para ver uma comparação entre as camadas Standard e Premium, confira a [página de preços do Azure Key Vault](/pricing/details/key-vault).
 
 ## <a name="why-use-azure-key-vault"></a>Por que usar o Azure Key Vault?
 
@@ -37,13 +37,11 @@ Os aplicativos podem acessar com segurança as informações necessárias usando
 
 ### <a name="securely-store-secrets-and-keys"></a>Armazene segredos e chaves com segurança
 
-Os segredos e as chaves são protegidas pelo Azure, usando módulos de segurança de hardware (HSMs), comprimentos da chave e algoritmos padrão da indústria. Os HSMs usados são validados pelo padrão FIPS (Federal Information Processing Standards) 140-2 Nível 2.
-
 O acesso a um cofre de chaves requer a devida autenticação e autorização antes de um chamador (usuário ou aplicativo) poder obter acesso. A autenticação estabelece a identidade do chamador e a autorização determina as operações que ele tem permissão para executar.
 
 A autenticação é feita pelo Azure Active Directory. A autorização pode ser feita por meio de RBAC (controle de acesso baseado em função) ou de política de acesso do Key Vault. O RBAC é usado quando é necessário lidar com o gerenciamento dos cofres e a política de acesso do cofre de chaves é usada na tentativa de acessar dados armazenados em um cofre.
 
-Os Azure Key Vaults podem ser qualquer software ou hardware protegido por HSM. Para situações que exijam garantia extra, você pode importar ou gerar chaves em HSMs (módulos de segurança de hardware) que nunca deixam os limites do HSM. A Microsoft usa módulos de segurança de hardware nCipher. Você pode usar as ferramentas nCipher para mover uma chave de seu HSM para o Azure Key Vault.
+Os Azure Key Vaults podem ser protegidos por software ou, com a camada do Azure Key Vault Premium, protegidos por hardware por HSMs (módulos de segurança de hardware). As chaves, os segredos e os certificados protegidos por software são protegidos pelo Azure por meio de algoritmos padrão do setor e comprimentos de chave.  Para situações que exijam garantia extra, você pode importar ou gerar chaves em HSMs que nunca deixam os limites do HSM. O Azure Key Vault usa HSMs nCipher, que são validados pelo FIPS 140-2 Nível 2. Você pode usar as ferramentas nCipher para mover uma chave de seu HSM para o Azure Key Vault.
 
 Por fim, o Azure Key Vault foi projetado para que a Microsoft não veja nem extraia seus dados.
 

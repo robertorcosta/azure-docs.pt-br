@@ -1,7 +1,7 @@
 ---
-title: Conectar usuários em aplicativos de página única JavaScript | Azure
+title: 'Início Rápido: Conectar usuários em aplicativos de página única JavaScript | Azure'
 titleSuffix: Microsoft identity platform
-description: Saiba como um aplicativo JavaScript pode chamar uma API que exige tokens de acesso usando a plataforma de identidade da Microsoft.
+description: Neste guia de início rápido, você aprenderá como um aplicativo JavaScript pode chamar uma API que exige tokens de acesso emitidos pela plataforma de identidade da Microsoft.
 services: active-directory
 author: navyasric
 manager: CelesteDG
@@ -12,23 +12,22 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: b6e3e0c1ecf9ce3a9d86f6b03c3ad3efc5676b5c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1f5281ead3c0487b6052859df3b33fa6ddaaf45a
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91257921"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91613315"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Início Rápido: Conectar usuários e obter um token de acesso em um JavaScript SPA
 
-Neste início rápido, você usará um exemplo de código para aprender como um SPA (aplicativo de página única) do JavaScript pode conectar usuários de contas pessoais, contas corporativas e de estudante. Um SPA JavaScript também pode obter um token de acesso para chamar a API do Microsoft Graph ou qualquer API Web. (Confira [Como o exemplo funciona](#how-the-sample-works) para ver uma ilustração.)
+Neste início rápido, você usará um exemplo de código para aprender como um SPA (aplicativo de página única) do JavaScript pode conectar usuários de contas pessoais, contas corporativas e de estudante. Um SPA JavaScript também pode obter um token de acesso para chamar a API do Microsoft Graph ou qualquer API Web. Confira [Como o exemplo funciona](#how-the-sample-works) para ver uma ilustração.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Assinatura do Azure – [crie uma assinatura do Azure gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Node.js](https://nodejs.org/en/download/)
 * [Visual Studio Code](https://code.visualstudio.com/download) (para editar arquivos de projeto)
-
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-application"></a>Registrar e baixar o aplicativo de início rápido
@@ -300,9 +299,4 @@ myMSALObj.acquireTokenPopup(requestObj)
 Para obter um guia passo a passo mais detalhado sobre como criar aplicativo para este início rápido, confira:
 
 > [!div class="nextstepaction"]
-> [Tutorial para entrar e chamar o MS Graph](./tutorial-v2-javascript-spa.md)
-
-Para navegar pelo repositório da MSAL em busca de documentos, perguntas frequentes, problemas e muito mais, confira:
-
-> [!div class="nextstepaction"]
-> [Repositório GitHub do MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)
+> [Tutorial: Conectar usuários e chamar a API do Microsoft Graph em um SPA (aplicativo de página única) JavaScript](tutorial-v2-javascript-spa.md)

@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.topic: quickstart
 ms.date: 05/12/2020
 ms.openlocfilehash: 3df6cb1afe8a6249eadbbd3f61619e66be2d2478
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "83402486"
 ---
 # <a name="quickstart-create-an-enterprise-tier-cache-preview"></a>Início Rápido: Criar um cache de camada Enterprise (versão prévia)
@@ -44,7 +44,7 @@ Não há nenhum custo para ingressar na versão prévia. Registre-se por meio do
    | ------------ |  ------- | -------------------------------------------------- |
    | **Assinatura** | Clique na lista suspensa e selecione sua assinatura. | A assinatura na qual essa nova instância do Cache do Azure para Redis será criada. | 
    | **Grupo de recursos** | Clique na lista suspensa e selecione um grupo de recursos ou selecione **Criar** e insira um novo nome de grupo de recursos. | Nome do grupo de recursos no qual o cache e outros recursos serão criados. Ao colocar todos os seus recursos de aplicativos em um só grupo de recursos, você pode gerenciá-los ou excluí-los juntos com facilidade. | 
-   | **Nome DNS** | Insira um nome global exclusivo. | O nome de cache precisa ser uma cadeia de caracteres com 1 a 63 caracteres que contém somente números, letras ou hifens. O nome precisa começar e terminar com um número ou uma letra e não pode conter hifens consecutivos. O *nome do host* da instância de cache será *\<nome DNS>.<Azure region>.redisenterprise.cache.azure.net*. | 
+   | **Nome DNS** | Insira um nome global exclusivo. | O nome de cache precisa ser uma cadeia de caracteres com 1 a 63 caracteres que contém somente números, letras ou hifens. O nome precisa começar e terminar com um número ou uma letra e não pode conter hifens consecutivos. O *nome do host* da instância de cache será *\<DNS name>.<Azure region>.redisenterprise.cache.azure.net*. | 
    | **Localidade** | Clique na lista suspensa e selecione uma localização. | As camadas Enterprise estão disponíveis no Oeste dos EUA, no Leste dos EUA 2 e no Oeste da Europa. |
    | **Camada de cache** | Selecione no menu suspenso uma camada *Enterprise DRAM* ou *Enterprise SSD* e um tamanho. |  A camada determina o tamanho, o desempenho e os recursos disponíveis para o cache. |
    

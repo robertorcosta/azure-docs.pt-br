@@ -7,12 +7,12 @@ keywords: azure automation, DSC, powershell, state configuration, update managem
 ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: d10570efe49203f879cdceae776af5c3bc6991c0
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 0e4be48157650ace3d7bebcc3a5689caef1ba779
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448064"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715964"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Uma introdução à Automação do Azure
 
@@ -64,7 +64,7 @@ A Automação do Azure é composta por um conjunto de recursos compartilhados qu
 
 ### <a name="role-based-access-control"></a>Controle de acesso baseado em função
 
-A Automação do Azure dá suporte ao RBAC (controle de acesso baseado em função) para regular o acesso à conta de Automação e aos recursos dela. Para saber mais sobre como configurar o RBAC na conta, nos runbooks e nos trabalhos de Automação, confira [Controle de acesso baseado em função para a Automação do Azure](automation-role-based-access-control.md).
+A Automação do Azure dá suporte ao RBAC do Azure (controle de acesso baseado em função do Azure) para regular o acesso à conta de Automação e aos recursos dela. Para saber mais sobre como configurar o RBAC do Azure na conta, nos runbooks e nos trabalhos de Automação, confira [Controle de acesso baseado em função para a Automação do Azure](automation-role-based-access-control.md).
 
 ### <a name="source-control-integration"></a>Integração de controle do código-fonte
 
@@ -86,7 +86,7 @@ A Automação do Azure dá suporte ao gerenciamento durante todo o ciclo de vida
 * **Localizar alterações** – identifique alterações que podem causar erros de configuração e aprimore a conformidade operacional.
 * **Monitorar** – isole alterações no computador que estão causando problemas e corrija-as ou escalone-as para sistemas de gerenciamento.
 * **Proteger** – coloque computadores em quarentena se forem gerados alertas de segurança. Defina requisitos no convidado.
-* **Administrar** – configure o RBAC para equipes. Recupere recursos não utilizados.
+* **Administrar** – Configure o RBAC do Azure para equipes. Recupere recursos não utilizados.
 
 [!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 

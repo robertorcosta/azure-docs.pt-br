@@ -8,15 +8,15 @@ ms.subservice: core
 ms.author: keli19
 author: likebupt
 ms.reviewer: peterlu
-ms.date: 09/04/2020
+ms.date: 10/12/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 95b41723d3cb398caad3a0cf388b7810deda78dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 00b689e4546d1f639f76ccbdf45348c43a678066
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90933099"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996279"
 ---
 # <a name="use-the-studio-to-deploy-models-trained-in-the-designer"></a>Use o Studio para implantar modelos treinados no designer
 
@@ -26,6 +26,7 @@ A implantação no estúdio consiste nas seguintes etapas:
 
 1. Registre o modelo treinado.
 1. Baixe o script de entrada e o arquivo de dependências Conda para o modelo.
+1. Adicional Configure o script de entrada.
 1. Implante o modelo em um destino de computação.
 
 Você também pode implantar modelos diretamente no designer para ignorar as etapas de registro de modelo e download de arquivo. Isso pode ser útil para a implantação rápida. Para obter mais informações, consulte [implantar um modelo com o designer](tutorial-designer-automobile-price-deploy.md).
@@ -36,7 +37,14 @@ Os modelos treinados no designer também podem ser implantados por meio do SDK o
 
 * [Um espaço de trabalho Azure Machine Learning](how-to-manage-workspace.md)
 
-* Um pipeline de treinamento concluído que contém um [módulo de modelo Train](./algorithm-module-reference/train-model.md)
+* Um pipeline de treinamento concluído que contém um dos seguintes módulos:
+    - [Módulo Treinar Modelo](./algorithm-module-reference/train-model.md)
+    - [Módulo treinar modelo de detecção de anomalias](./algorithm-module-reference/train-anomaly-detection-model.md)
+    - [Módulo treinar modelo de clustering](./algorithm-module-reference/train-clustering-model.md)
+    - [Módulo de modelo Train Pytorch](./algorithm-module-reference/train-pytorch-model.md)
+    - [Treinar módulo Recomendador SVD](./algorithm-module-reference/train-svd-recommender.md)
+    - [Treinar módulo de modelo do Vowpal Wabbit](./algorithm-module-reference/train-vowpal-wabbit-model.md)
+    - [Módulo de modelo profundo de treinamento amplo &](./algorithm-module-reference/train-wide-and-deep-recommender.md)
 
 ## <a name="register-the-model"></a>Registre o modelo
 
@@ -136,9 +144,67 @@ score_result = service.run(json.dumps(sample_data))
 print(f'Inference result = {score_result}')
 ```
 
+### <a name="consume-computer-vision-related-real-time-endpoints"></a>Consumir pontos de extremidade em tempo real relacionados à pesquisa Visual computacional
+
+Ao consumir pontos de extremidade em tempo real relacionados à pesquisa Visual computacional, você precisa converter imagens em bytes, já que o serviço Web aceita apenas a cadeia de caracteres como entrada. Veja a seguir o código de exemplo:
+
+```python
+import base64
+import json
+from copy import deepcopy
+from pathlib import Path
+from azureml.studio.core.io.image_directory import (IMG_EXTS, image_from_file, image_to_bytes)
+from azureml.studio.core.io.transformation_directory import ImageTransformationDirectory
+
+# image path
+image_path = Path('YOUR_IMAGE_FILE_PATH')
+
+# provide the same parameter setting as in the training pipeline. Just an example here.
+image_transform = [
+    # format: (op, args). {} means using default parameter values of torchvision.transforms.
+    # See https://pytorch.org/docs/stable/torchvision/transforms.html
+    ('Resize', 256),
+    ('CenterCrop', 224),
+    # ('Pad', 0),
+    # ('ColorJitter', {}),
+    # ('Grayscale', {}),
+    # ('RandomResizedCrop', 256),
+    # ('RandomCrop', 224),
+    # ('RandomHorizontalFlip', {}),
+    # ('RandomVerticalFlip', {}),
+    # ('RandomRotation', 0),
+    # ('RandomAffine', 0),
+    # ('RandomGrayscale', {}),
+    # ('RandomPerspective', {}),
+]
+transform = ImageTransformationDirectory.create(transforms=image_transform).torch_transform
+
+# download _samples.json file under Outputs+logs tab in the right pane of Train Pytorch Model module
+sample_file_path = '_samples.json'
+with open(sample_file_path, 'r') as f:
+    sample_data = json.load(f)
+
+# use first sample item as the default value
+default_data = sample_data[0]
+data_list = []
+for p in image_path.iterdir():
+    if p.suffix.lower() in IMG_EXTS:
+        data = deepcopy(default_data)
+        # convert image to bytes
+        data['image'] = base64.b64encode(image_to_bytes(transform(image_from_file(p)))).decode()
+        data_list.append(data)
+
+# use data.json as input of consuming the endpoint
+data_file_path = 'data.json'
+with open(data_file_path, 'w') as f:
+    json.dump(data_list, f)
+```
+
 ## <a name="configure-the-entry-script"></a>Configurar o script de entrada
 
-Alguns módulos no designer como [Score SVD recomendador](./algorithm-module-reference/score-svd-recommender.md), [Pontuação de largura e de fundo profundo](./algorithm-module-reference/score-wide-and-deep-recommender.md)e [Pontuação Vowpal modelo de Wabbit](./algorithm-module-reference/score-vowpal-wabbit-model.md) têm parâmetros para diferentes modos de pontuação. Nesta seção, você aprenderá a atualizar esses parâmetros no arquivo de script de entrada também.
+Alguns módulos no designer como [Score SVD recomendador](./algorithm-module-reference/score-svd-recommender.md), [Pontuação de largura e de fundo profundo](./algorithm-module-reference/score-wide-and-deep-recommender.md)e [Pontuação Vowpal modelo de Wabbit](./algorithm-module-reference/score-vowpal-wabbit-model.md) têm parâmetros para diferentes modos de pontuação. 
+
+Nesta seção, você aprenderá a atualizar esses parâmetros no arquivo de script de entrada também.
 
 O exemplo a seguir atualiza o comportamento padrão para um modelo de **recomendador profundo de & de nível** treinado. Por padrão, o `score.py` arquivo informa ao serviço Web para prever as classificações entre usuários e itens. 
 

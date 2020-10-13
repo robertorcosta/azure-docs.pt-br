@@ -3,12 +3,12 @@ title: Kubernetes monitoramento com Azure Monitor para contêineres | Microsoft 
 description: Este artigo descreve como você pode exibir e analisar o desempenho de um cluster kubernetes com Azure Monitor para contêineres.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: 888853f0e9e7634cafa5e480752371c501376158
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d267715ed9748c69c33bbd7bc5af0db7b118502
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90988136"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994769"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Monitorar o desempenho do cluster kubernetes com Azure Monitor para contêineres
 
@@ -293,7 +293,7 @@ Os ícones no campo status indicam os status online de pods, conforme descrito n
 
 ## <a name="workbooks"></a>Pastas de trabalho
 
-As pastas de trabalho combinam texto, [consultas de log](../log-query/query-language.md), [métricas](../platform/data-platform-metrics.md)e parâmetros em relatórios interativos sofisticados. As Pastas de Trabalho são editáveis por qualquer membro da equipe com acesso aos mesmos recursos do Azure.
+As pastas de trabalho combinam texto, [consultas de log](/azure/data-explorer/kusto/query/), [métricas](../platform/data-platform-metrics.md)e parâmetros em relatórios interativos sofisticados. As Pastas de Trabalho são editáveis por qualquer membro da equipe com acesso aos mesmos recursos do Azure.
 
 Azure Monitor para contêineres inclui quatro pastas de trabalho para você começar:
 
@@ -321,8 +321,8 @@ Você acessa essas pastas de trabalho selecionando cada uma na lista suspensa **
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Examine [criar alertas de desempenho com Azure monitor para contêineres](container-insights-alerts.md) para saber como criar alertas para alta utilização de CPU e memória para dar suporte aos procedimentos e processos DevOps ou operacionais.
+- Examine [criar alertas de desempenho com Azure monitor para contêineres](./container-insights-log-alerts.md) para saber como criar alertas para alta utilização de CPU e memória para dar suporte aos procedimentos e processos DevOps ou operacionais.
 
 - Visualize [exemplos de consulta de log](container-insights-log-search.md#search-logs-to-analyze-data) para ver consultas e exemplos predefinidos para avaliar ou personalizar para alertar, visualizar ou analisar seus clusters.
 
-- Exiba [monitorar a integridade do cluster](container-insights-health.md) para saber mais sobre como exibir o status de integridade do cluster kubernetes.
+- Exiba [monitorar a integridade do cluster](./container-insights-overview.md) para saber mais sobre como exibir o status de integridade do cluster kubernetes.

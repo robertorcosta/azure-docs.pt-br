@@ -1,6 +1,7 @@
 ---
-title: Adicionar entrada de OIDC a um aplicativo Web do Node.js – plataforma de identidade da Microsoft | Azure
-description: Saiba como implementar a autenticação em um aplicativo Web Node.js usando o OpenID Connect.
+title: 'Início Rápido: Adicionar a entrada do usuário a um aplicativo Web Node.js | Azure'
+titleSuffix: Microsoft identity platform
+description: Neste guia de início rápido, você aprenderá a implementar a autenticação em um aplicativo Web Node.js usando o OpenID Connect.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, devx-track-js
-ms.openlocfilehash: 8e42d906cce65cf51d6359343bc4f218b94a05fb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 34baa054104a6cf2c78864cc2827b16c1eedb084
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91257683"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91613298"
 ---
 # <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>Início Rápido: Adicionar entrada usando o OpenID Connect para um aplicativo Web do Node.js
 
@@ -24,11 +25,8 @@ Neste início rápido, você aprenderá a configurar a autenticação do OpenID 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para executar esta amostra, você precisará do seguinte:
-
-* Instalar o Node.js do http://nodejs.org/
-
-* Uma [conta Microsoft](https://www.outlook.com) ou um [Programa para Desenvolvedores do Microsoft 365](/office/developer-program/office-365-developer-program)
+- Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- [Node.js](https://nodejs.org/en/download/).
 
 ## <a name="register-your-application"></a>Registre seu aplicativo
 1. Entre no [portal do Azure](https://portal.azure.com/) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.

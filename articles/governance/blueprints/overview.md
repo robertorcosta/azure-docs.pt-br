@@ -1,14 +1,14 @@
 ---
 title: Visão geral do Azure Blueprint
 description: Entenda como o serviço do Azure Blueprints permite criar, definir e implantar artefatos no seu ambiente do Azure.
-ms.date: 08/27/2020
+ms.date: 09/30/2020
 ms.topic: overview
-ms.openlocfilehash: 499f2c4afa55913b6af714d20ec1d52e2ecbbc47
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: f2e3c23c9cb83d2cb58b1e8f69a2a470a6f36f6d
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91541757"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91614250"
 ---
 # <a name="what-is-azure-blueprints"></a>O que é o Azure Blueprints?
 
@@ -45,7 +45,7 @@ Uma política pode ser incluída como um dos muitos _artefatos_ em uma definiç�
 
 ## <a name="blueprint-definition"></a>Definição de planta
 
-Um plano gráfico é composto por _artefatos_. O Azure Blueprints atualmente dá suporte aos seguintes recursos como artefatos:
+Um blueprint é composto por _artefatos_. O Azure Blueprints atualmente dá suporte aos seguintes recursos como artefatos:
 
 |Recurso  | Opções de hierarquia| Descrição  |
 |---------|---------|---------|
@@ -74,7 +74,10 @@ Quando um plano gráfico é criado, ele é considerado para estar no modo **rasc
 
 ## <a name="blueprint-assignment"></a>Atribuição de planta
 
-Cada **Versão** **Publicada** de um blueprint pode ser atribuída (com um comprimento de nome máximo de 90 caracteres) a uma assinatura existente. No portal, o blueprint usará como padrão a **Versão** em vez do que foi **Publicado** mais recentemente. Se houver parâmetros de artefatos (ou parâmetros de blueprint), os parâmetros serão definidos durante o processo de atribuição.
+Cada **Versão** **Publicada** de um blueprint pode ser atribuída (com um tamanho de nome máximo de 90 caracteres) a uma assinatura ou um grupo de gerenciamento existente. No portal, o blueprint usará como padrão a **Versão** em vez do que foi **Publicado** mais recentemente. Se houver parâmetros de artefato ou de blueprint, eles serão definidos durante o processo de atribuição.
+
+> [!NOTE]
+> A atribuição de uma definição de blueprint a um grupo de gerenciamento significa que o objeto de atribuição existe no grupo de gerenciamento. A implantação de artefatos ainda é direcionada a uma assinatura. Para executar uma atribuição de grupo de gerenciamento, a [API REST Criar ou Atualizar](/rest/api/blueprints/assignments/createorupdate) precisa ser usada e o corpo da solicitação precisa incluir um valor para `properties.scope` a fim de definir a assinatura de destino.
 
 ## <a name="permissions-in-azure-blueprints"></a>Permissões nos Blueprints do Azure
 

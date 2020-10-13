@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: overview
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 29930a835297b0ddd3a91534dab9ccb6d74896e3
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 8ac5b0976e677cc48fb3fe47c50797b07acdbc44
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90967552"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91708859"
 ---
 # <a name="about-keys"></a>Sobre chaves
 
@@ -47,7 +47,7 @@ As chaves protegidas por HSM (também conhecidas como chaves HSM) são processad
 - Os cofres usam HSMs validados **FIPS 140-2 Nível 2** para proteger as chaves HSM na infraestrutura de back-end do HSM compartilhado. 
 - Os pools de HSM gerenciados usam módulos HSM validados **FIPS 140-2 Nível 3** para proteger suas chaves. Cada pool de HSM é uma instância de locatário única isolada com seu próprio [domínio de segurança](../managed-hsm/security-domain.md) que fornece isolamento de criptografia completo em relação a todos os outros pools de HSM que compartilham a mesma infraestrutura de hardware.
 
-Essas chaves são protegidas em pools de HSM de locatário único. Você pode importar uma RSA, EC e uma chave simétrica em forma flexível ou exportar de um dispositivo HSM com suporte. Você também pode gerar chaves em pools de HSM. Quando você importa chaves HSM com chaves que usam o método descrito na [especificação BYOK (Bring Your Own Key)](../keys/byok-specification.md), isso habilita o material de chave de transporte seguro em pools de HSM gerenciados. 
+Essas chaves são protegidas em pools de HSM de locatário único. Você pode importar uma RSA, EC e uma chave simétrica em forma flexível ou exportar de um dispositivo HSM com suporte. Você também pode gerar chaves em pools de HSM. Quando você importa chaves HSM usando o método descrito na [especificação de BYOK (Bring Your Own Key)](../keys/byok-specification.md), isso habilita o material de chave de transporte seguro em pools do HSM Gerenciado. 
 
 Para obter mais informações sobre fronteiras geográficas, consulte [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/privacy/)
 

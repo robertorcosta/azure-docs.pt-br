@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: quickstart
-ms.date: 09/14/2020
+ms.date: 09/30/2020
 ms.author: aahi
-ms.openlocfilehash: 0453ec9eac2b73b5372c143b23d6db98f65e38aa
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 004685a50e2413c29528ad3aca08a0150843a8aa
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90943582"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91631352"
 ---
 # <a name="quickstart-monitor-your-first-metric-using-the-web-portal"></a>Início Rápido: Monitore sua primeira métrica usando o portal da Web
 
@@ -38,6 +38,13 @@ Quando provisiona uma instância do Assistente de Métricas, você pode usar as 
 > * Se quiser usar a API REST para interagir com o serviço, você precisará da chave e do ponto de extremidade do recurso criado. É possível encontrá-los na guia **Chaves e pontos de extremidade** no recurso.
 
 Este documento usa um Banco de Dados SQL como exemplo para criar seu primeiro monitor.
+
+## <a name="sign-in-to-your-workspace"></a>Entrar no seu workspace
+
+Depois que o recurso for implantado e criado, entre no [portal do Assistente de Métricas](https://go.microsoft.com/fwlink/?linkid=2143774). Selecione seu workspace para começar a monitorar as métricas. 
+ 
+No momento, é possível criar um recurso do Assistente de Métricas em cada região disponível. Você pode alternar os workspaces no portal do Assistente de Métricas a qualquer momento.
+
 
 ## <a name="onboard-time-series-data"></a>Integrar dados de série temporal
 
@@ -90,7 +97,7 @@ Quando o esquema de dados for carregado e mostrado conforme abaixo, selecione os
 |**Ignorar**     | Ignorar a coluna selecionada.        |         |
 
 
-:::image type="content" source="../media/schema-configuration.png" alt-text="Configuração de esquema" lightbox="../media/schema-configuration.png":::
+:::image type="content" source="../media/schema-configuration.png" alt-text="Configurações de conexão" lightbox="../media/schema-configuration.png":::
 
 ### <a name="automatic-roll-up-settings"></a>Configurações de acúmulo automático
 
@@ -110,7 +117,7 @@ Quando a detecção for aplicada, clique em uma das métricas listadas no feed d
 - Atualizar a configuração de detecção para chegar aos resultados esperados
 - Configurar notificações de anomalias detectadas
 
-:::image type="content" source="../media/metric-details.png" alt-text="Detalhes da métrica" lightbox="../media/metric-details.png":::
+:::image type="content" source="../media/metric-details.png" alt-text="Configurações de conexão" lightbox="../media/metric-details.png":::
 
 ## <a name="view-the-diagnostic-insights"></a>Exibir os insights de diagnóstico
 
@@ -118,13 +125,13 @@ Após o ajuste da configuração de detecção, as anomalias encontradas devem r
 
 Para exibir insights de diagnóstico, clique nos pontos vermelhos nas visualizações de série temporal, que representam as anomalias detectadas. Aparecerá uma janela com um link para a página de análise de incidentes. 
 
-:::image type="content" source="../media/incident-link.png" alt-text="Link do incidente" lightbox="../media/incident-link.png":::
+:::image type="content" source="../media/incident-link.png" alt-text="Configurações de conexão" lightbox="../media/incident-link.png":::
 
 Após clicar no link, você será dinamizado para a página de análise de incidentes, que analisa a anomalia correspondente e apresenta diversos insights de diagnóstico. Na parte superior, haverá estatísticas sobre o incidente, como a **Gravidade**, as **Anomalias envolvidas** e a **Hora de início** e a **Hora de término** do impacto. 
 
 Em seguida, você verá a anomalia ancestral do incidente, bem como um aviso automatizado sobre a causa raiz. Esse aviso automatizado sobre a causa raiz é gerado pela análise da árvore de incidentes de todas as anomalias relacionadas, incluindo: desvio, distribuição e contribuição para as anomalias pai. 
 
-:::image type="content" source="../media/incident-diagnostic.png" alt-text="Diagnóstico de incidente" lightbox="../media/incident-diagnostic.png":::
+:::image type="content" source="../media/incident-diagnostic.png" alt-text="Configurações de conexão" lightbox="../media/incident-diagnostic.png":::
 
 Com base nesses dados, você já pode ter uma visão clara do que está acontecendo e do impacto do incidente, bem como da causa raiz mais provável. Dessa forma, é possível agir imediatamente para resolver o incidente o quanto antes. 
 

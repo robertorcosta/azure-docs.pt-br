@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/30/2020
 ms.author: allensu
-ms.openlocfilehash: 6b9f454c75a10644e86931dc86ebd9514e5431d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0fcd0315afcbf38af2b8175deda748522cb335ec
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91649789"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996849"
 ---
 # <a name="outbound-connections"></a>Conexões de saída
 
@@ -136,7 +136,7 @@ Regras de saída permitem que você controle:
 - Quais máquinas virtuais devem ser traduzidas para quais endereços IP públicos.
 - Como as portas [SNAT](#snat) de saída devem ser fornecidas.
 - Para quais protocolos fornecer tradução de saída.
-- Qual duração usar para tempo limite de ociosidade de conexão de saída (4-120 minutos).
+- Qual duração usar para tempo limite de ociosidade de conexão de saída (4-100 minutos).
 - Se deseja enviar uma redefinição de TCP no tempo limite ocioso
 - Protocolos de transporte TCP e UDP com uma única regra
 

@@ -7,14 +7,14 @@ author: TheovanKraay
 ms.author: thvankra
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 05/18/2020
+ms.date: 10/01/2020
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: d24116701347c7d4b60494219b56877e0b121ea3
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 46826319cdd2ba55d469704a09656b61c96ce798
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017458"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743126"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-net-core-and-azure-cosmos-db"></a>Início Rápido: Criar um aplicativo do Cassandra com o .NET Core e o Azure Cosmos DB
 
@@ -156,6 +156,12 @@ Agora, volte ao portal do Azure para obter informações sobre a cadeia de conex
 
     `private const string Password = "2Ggkr662ifxz2Mg...==";`
 
+1. Volte ao portal e copie o valor do PONTO DE CONTATO. Cole o valor do PONTO DE CONTATO do portal sobre `<PROVIDE>` na linha 16.
+
+    A linha 16 de Program.cs agora será semelhante a 
+
+    `private const string CASSANDRACONTACTPOINT = "quickstart-cassandra-api.cassandra.cosmos.azure.com";`
+
 1. Salve o arquivo Program.cs.
     
 ## <a name="run-the-net-core-app"></a>Execute o aplicativo .NET Core
@@ -169,13 +175,13 @@ Agora, volte ao portal do Azure para obter informações sobre a cadeia de conex
     ```
 3. Aperte CTRL + F5 para executar o aplicativo. Seu aplicativo é exibido na janela do seu console. 
 
-    :::image type="content" source="./media/create-cassandra-dotnet/output.png" alt-text="Exibir e verificar a saída":::
+    :::image type="content" source="./media/create-cassandra-dotnet/output.png" alt-text="Exibir e copiar uma chave de acesso no portal do Azure, página Cadeia de Conexão":::
 
     Pressione CTRL + C para interromper a execução do programa e feche a janela do console. 
     
 4. No portal do Azure, abra **Data Explorer** para consultar, modificar e trabalhar com esses novos dados.
 
-    :::image type="content" source="./media/create-cassandra-dotnet/data-explorer.png" alt-text="Exibir os dados no Data Explorer":::
+    :::image type="content" source="./media/create-cassandra-dotnet/data-explorer.png" alt-text="Exibir e copiar uma chave de acesso no portal do Azure, página Cadeia de Conexão":::
 
 ## <a name="review-slas-in-the-azure-portal"></a>Examinar SLAs no Portal do Azure
 

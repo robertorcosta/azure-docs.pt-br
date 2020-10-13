@@ -8,12 +8,12 @@ ms.topic: overview
 author: peterclu
 ms.author: peterlu
 ms.date: 08/24/2020
-ms.openlocfilehash: 40a4fbd956b12d469247cb178007d0259cbeac75
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 7b0db0f97531c60b3e809dd0dafa042dbcc2b542
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90902929"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91667428"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>O que é o Azure Machine Learning Studio?
 
@@ -88,7 +88,7 @@ A tabela a seguir resume as principais diferenças entre o ML Studio (clássico)
 | Destinos de computação de treinamento | Destino de computação proprietário, apenas suporte à CPU | Ampla gama de [destinos de computação de treinamento](concept-compute-target.md#train) personalizáveis. Inclui suporte à GPU e à CPU | 
 | Destinos de computação de implantação | Formato do serviço Web proprietário, não personalizável | Ampla gama de [destinos de computação de implantação](concept-compute-target.md#deploy) personalizáveis. Inclui suporte à GPU e à CPU |
 | Pipeline de ML | Sem suporte | Crie [pipelines](concept-ml-pipelines.md) flexíveis e modulares para automatizar fluxos de trabalho |
-| MLOps | Gerenciamento e implantação de modelos básicos | Controle de versão de entidade (modelo, dados, fluxos de trabalho), automação de fluxo de trabalho, integração com ferramentas CICDs [e muito mais](concept-model-management-and-deployment.md) |
+| MLOps | Gerenciamento e implantação de modelos básicos; implantações somente da CPU | Controle de versão de entidade (modelo, dados, fluxos de trabalho), automação de fluxo de trabalho, integração às ferramentas de CI/CD, implantações de CPU e GPU, [entre outros](concept-model-management-and-deployment.md) |
 | Formato do modelo | Formato proprietário, somente Studio (clássico) | Vários formatos compatíveis dependendo do tipo de trabalho de treinamento |
 | Treinamento de modelo automatizado e ajuste de hiperparâmetro |  Sem suporte | [Com suporte](concept-automated-ml.md). Opções code first e sem código. | 
 | Detecção de descompasso de dados | Sem suporte | [Com suporte](how-to-monitor-datasets.md) |

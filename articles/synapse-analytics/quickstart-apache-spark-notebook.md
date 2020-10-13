@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: quickstart
 ms.date: 04/15/2020
-ms.openlocfilehash: aca58328ada4f01072cf3779735bcd5cb518ef0a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: cf899962f6e62b0943f48494bf5c3fe27a6327a9
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91260760"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91651710"
 ---
 # <a name="quickstart-create-an-apache-spark-pool-in-azure-synapse-analytics-using-web-tools"></a>Início Rápido: Criar um Pool do Apache Spark no Azure Synapse Analytics usando ferramentas da Web
 
@@ -85,7 +85,7 @@ Um notebook é um ambiente interativo que dá suporte a várias linguagens de pr
 
     ![Exibição do gerenciador de armazenamento da saída](./media/quickstart-apache-spark-notebook/spark-get-started-default-storage.png "Exibição do gerenciador de armazenamento da saída")
 
-    ![Exibição do gerenciador de armazenamento da saída](./media/quickstart-apache-spark-notebook/spark-get-started-default-storage2.png "Exibição do gerenciador de armazenamento da saída")
+    ![Captura de tela que realça o caminho padrão > demodata > demo_df.](./media/quickstart-apache-spark-notebook/spark-get-started-default-storage2.png "Exibição do gerenciador de armazenamento da saída")
 
 ## <a name="run-spark-sql-statements"></a>Executar Instruções Spark SQL
 

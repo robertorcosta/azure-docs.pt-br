@@ -1,6 +1,7 @@
 ---
-title: Adicionar entrada com a conta da Microsoft a um aplicativo Web Python da plataforma de identidade da Microsoft | Azure
-description: Saiba como implementar a opção Entrar com a conta da Microsoft em um aplicativo Web do Python usando o OAuth2
+title: 'Início Rápido: Adicionar a opção Entrar com a conta Microsoft a um aplicativo Web do Python | Azure'
+titleSuffix: Microsoft identity platform
+description: Neste guia de início rápido, saiba como um aplicativo Web do Python pode conectar usuários, obter um token de acesso da plataforma de identidade da Microsoft e chamar a API do Microsoft Graph.
 services: active-directory
 author: abhidnya13
 manager: CelesteDG
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
 ms.custom: aaddev, devx-track-python, scenarios:getting-started, languages:Python
-ms.openlocfilehash: 6b58e927952b2a51289c3017455cc7d66545fe86
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 63abbc739849a201275995c81a28ede9f9c84b5a
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120313"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91613332"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>Início Rápido: Adicionar a opção Entrar com a conta da Microsoft a um aplicativo Web do Python
 
@@ -26,8 +27,7 @@ Após concluir este guia, seu aplicativo aceitará conexões de contas Microsoft
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para executar esta amostra, você precisará do seguinte:
-
+- Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Python 2.7 e posterior](https://www.python.org/downloads/release/python-2713) ou [Python 3 e posterior](https://www.python.org/downloads/release/python-364/)
 - [Flask](http://flask.pocoo.org/), [Flask-Session](https://pypi.org/project/Flask-Session/), [solicitações](https://requests.kennethreitz.org/en/master/)
 - [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python)
@@ -97,7 +97,7 @@ Para executar esta amostra, você precisará do seguinte:
 
 > [!div class="sxs-lookup" renderon="portal"]
 > Baixe o projeto e extraia o arquivo zip para uma pasta local mais próxima da pasta raiz, por exemplo, **C:\Azure-Samples**
-> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [!div class="sxs-lookup" renderon="portal" id="autoupdate" class="nextstepaction"]
 > [Baixe o exemplo de código](https://github.com/Azure-Samples/ms-identity-python-webapp/archive/master.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -162,11 +162,11 @@ Adicione a referência à MSAL Python adicionando o seguinte código ao início 
 import msal
 ```
 
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre aplicativos Web que conectam usuários e, em seguida, chamam APIs Web:
+Saiba mais sobre os aplicativos Web que se conectam aos usuários em nossa série de cenários de várias partes.
 
 > [!div class="nextstepaction"]
-> [Cenário: aplicativos Web que conectam usuários](scenario-web-app-sign-user-overview.md)
-
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+> [Cenário: Aplicativo Web que conecta usuários](scenario-web-app-sign-user-overview.md)

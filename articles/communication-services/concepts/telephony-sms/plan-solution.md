@@ -2,105 +2,79 @@
 title: Planejar sua solução de telefonia e SMS dos Serviços de Comunicação do Azure
 titleSuffix: An Azure Communication Services concept document
 description: Saiba como planejar com eficiência o uso de números de telefone e telefonia.
-author: stkozak
-manager: rampras
+author: prakulka
+manager: nmurav
 services: azure-communication-services
-ms.author: stkozak
-ms.date: 06/23/2020
+ms.author: prakulka
+ms.date: 10/05/2020
 ms.topic: overview
+ms.custom: references_regions
 ms.service: azure-communication-services
-ms.openlocfilehash: 39f88ab8b735438f60d8e20513ea5cbda43d41ee
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 6a63df282cadf86668e69d2422a6c791e86010b6
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90943127"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767127"
 ---
 # <a name="plan-your-telephony-and-sms-solution"></a>Planejar sua solução de telefonia e SMS
 
-[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-Este documento descreve os vários tipos de número e planos de telefonia que os Serviços de Comunicação do Azure têm a oferecer. Vamos percorrer os fluxos de decisão para ajudá-lo a selecionar um provedor de serviços de voz, tipos de números de telefone, planos e recursos disponibilizados por meio dos Serviços de Comunicação.
 
-## <a name="about-phone-numbers-in-azure-communications-services"></a>Sobre números de telefone em Serviços de Comunicação do Azure
+Os Serviços de Comunicação do Azure permitem que você use números de telefone para fazer chamadas de voz e enviar mensagens SMS com a PSTN (Rede Telefônica Pública Comutada). Neste documento, examinaremos os tipos de número de telefone, os planos e a disponibilidade de região para planejar sua solução de telefonia e SMS usando os Serviços de Comunicação.
 
-Os Serviços de Comunicação do Azure permitem que você use números de telefone para fazer e receber chamadas telefônicas e mensagens SMS. Esses números de telefone podem ser usados para configurar a ID de Chamadas em chamadas de saída feitas pelo seu serviço.
-  
-Se você não tem um número de telefone para importar para sua solução de Serviços de Comunicação, a maneira mais simples de começar é obter um novo número de telefone dos Serviços de Comunicação do Azure, o que pode ser feito em questão de minutos.
+[!INCLUDE [Emergency Calling Notice](../../includes/emergency-calling-notice-include.md)]
 
-Se você tem um número de telefone que deseja continuar usando em sua solução (por exemplo, 1-800–EMPRESA), pode portar o número de telefone do provedor atual para os Serviços de Comunicação.
-
-O diagrama a seguir ajuda você a navegar pelas opções disponíveis:
-
-:::image type="content" source="../media/plan-solution/decision-tree-basic.png" alt-text="Diagrama que mostra como tomar uma decisão sobre seus números de telefone.":::
-
-Agora, vamos examinar os tipos de número de telefone e os recursos disponíveis por meio dos Serviços de Comunicação. 
-
-## <a name="microsoft-direct-offer-of-phone-numbers-and-capabilities"></a>Oferta direta da Microsoft de funcionalidades e números de telefone
-
-Os Serviços de Comunicação do Azure fornecem excelente flexibilidade para os desenvolvedores. Na maioria dos números de telefone, permitimos que você configure um conjunto de planos "a la carte". Alguns desenvolvedores precisam de apenas um plano de chamada de entrada, enquanto outros podem optar por chamadas de entrada e de saída de planos de SMS. Esses planos podem ser selecionados à medida que você aluga e/ou porta seus números de telefone nos Serviços de Comunicação.
-
-Os planos disponíveis dependem do país e do tipo de número de telefone em que você está operando. O diagrama a seguir representa o fluxo de decisão:    Os planos disponíveis dependem do país e do tipo de número de telefone em que você está operando.
-
-<!-- Tami/team have rejected this multiple times despite updates, says it needs to be higher res - need to work with her to get approval for this image. Commenting out to move our staging forward. :::image type="content" source="../../media/example-decision-flow.png" alt-text="Example for the decision flow"::: -->
-
-Para selecionar um tipo de número de telefone, vamos examinar o plano de numeração de telefone internacional.
-
-### <a name="optional-reading-international-public-telecommunication-numbering-plan-e164"></a>Leitura opcional. Plano de numeração de telecomunicação pública internacional (E.164)
-
-> [!NOTE]
-> É recomendável examinar essas informações mesmo que você esteja familiarizado com o plano de numeração de telefone E.164, a fim de entender melhor os tipos de número e as funcionalidades oferecidas pela oferta direta dos Serviços de Comunicação do Azure.
-
-O plano de numeração de telecomunicações pública internacional é definido na recomendação da ITU (União Internacional de Telecomunicações) E.164. Os números em conformidade são limitados a um máximo de 15 dígitos.
-
-O número de telefone consiste em
-
--   Um prefixo "+"
--   Um prefixo de discagem internacional ou código de país/região (um, dois ou três dígitos) 
--   *(Opcional)* um código de destino nacional ou um plano de numeração, normalmente conhecido como código de área. O comprimento desse código depende do país. No Estados Unidos, ele tem três dígitos. Na Austrália e na Nova Zelândia, ele tem um dígito. Alemanha, Japão, México e outros países têm comprimentos variáveis de códigos de área. Por exemplo, na Alemanha, o código de área pode ter de dois a cinco dígitos, enquanto no Japão, pode ter de um a cinco dígitos.
--   Um número de assinante
-
-> [!NOTE]
-> A classificação acima não está totalmente em conformidade com o padrão E.164 da ITU e destina-se a fornecer uma descrição simplificada. Por exemplo, o número do assinante é subdividido dentro do padrão. Se você está interessado em aprender sobre o plano de numeração internacional em mais detalhes, o [padrão E.164 da ITU](https://www.itu.int/rec/T-REC-E.164) é um excelente ponto de partida.  
-
-Aqui estão alguns exemplos que ajudarão você a entender melhor o plano de numeração:
-
-Um número de telefone regional nos EUA:
-
-:::image type="content" source="../media/plan-solution/regional-us.png" alt-text="Exemplo de um número de telefone regional nos EUA":::
-
-Um número de telefone regional no Canadá:
-
-:::image type="content" source="../media/plan-solution/regional-canada.png" alt-text="Exemplo de um número de telefone regional no Canadá":::
-
-Um número de chamada gratuita na região América do Norte:
-
-:::image type="content" source="../media/plan-solution/tollfree-us.png" alt-text="Exemplo de um número gratuito de chamada em América do Norte":::
-
-Um número de telefone celular no Reino Unido:
-
-:::image type="content" source="../media/plan-solution/mobile-uk.png" alt-text="Exemplo de um número de telefone celular no Reino Unido":::
-
-Em seguida, vamos examinar os tipos de números de telefone específicos disponíveis nos Serviços de Comunicação do Azure.
 
 ## <a name="phone-number-types-in-azure-communication-services"></a>Tipos de número de telefone nos Serviços de Comunicação do Azure
+ 
+Os Serviços de Comunicação oferecem dois tipos de números de telefone: **local** e **gratuito**. 
 
-A Microsoft oferece planos regionais e gratuitos para códigos curtos e números de telefone celular em alguns países, onde aplicável.
+### <a name="local-numbers"></a>Números locais
+Os números locais (geográficos) são números de telefone de 10 dígitos que consistem nos códigos de área locais dos Estados Unidos. Por exemplo, `+1 (206) XXX-XXXX` é um número local com o código de área `206`. Esse código de área é atribuído à cidade de Seattle. Esses números de telefone geralmente são usados por indivíduos e empresas locais. Os Serviços de Comunicação do Azure oferecem números locais nos Estados Unidos. Esses números podem ser usados para fazer chamadas telefônicas, mas não para enviar mensagens SMS. 
+
+### <a name="toll-free-numbers"></a>Números de chamada gratuita
+Os números de chamada gratuita são números de telefone de 10 dígitos com códigos de área distintos que podem ser chamados em qualquer número de telefone gratuito. Por exemplo, `+1 (800) XXX-XXXX` é um número de chamada gratuita na região América do Norte. Geralmente, esses números de telefone são usados para fins de atendimento ao cliente. Os Serviços de Comunicação do Azure oferecem números de chamada gratuita nos Estados Unidos. Esses números podem ser usados para fazer chamadas telefônicas e enviar mensagens SMS. Os números de chamada gratuita não podem ser usados por pessoas e só podem ser atribuídos a aplicativos.
+
+#### <a name="choosing-a-phone-number-type"></a>Como escolher um tipo de número de telefone
+
+Se o seu número de telefone for usado por um aplicativo (por exemplo, para fazer chamadas ou enviar mensagens em nome do seu serviço), você poderá selecionar um número de chamada gratuita ou local (geográfico). Selecione um número de chamada gratuita se o seu aplicativo estiver enviando mensagens SMS e/ou fazendo chamadas.
+
+Se ele estiver sendo usado por uma pessoa (por exemplo, um usuário do seu aplicativo de chamada), o número de telefone local (geográfico) precisará ser usado. 
 
 A tabela a seguir resume esses tipos de números de telefone: 
 
-| Tipo de número de telefone | Exemplo                              | Disponibilidade do país    | Caso de uso comum                                                                                                     |
-| ----------------- | ------------------------------------ | ----------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| Regional          | \+ 1 (código de área geográfica) XXX XX XX  | EUA, Canadá, Porto Rico | Como atribuir números de telefone a usuários em aplicativos ou atribuir a sistemas/bots de IVR (resposta por voz interativa) |
-| Chamada gratuita         | \+ 1 (*código* de área gratuita) XXX XX XX | EUA, Canadá, Porto Rico | Como atribuir a sistemas IVR (resposta por voz interativa)/bots, aplicativos de SMS                                        |
+| Tipo de número de telefone | Exemplo                              | Disponibilidade do país    | Funcionalidade de número de telefone |Caso de uso comum                                                                                                     |
+| ----------------- | ------------------------------------ | ----------------------- | ------------------------|------------------------------------------------------------------------------------------------------------------- |
+| Local (geográfico)        | +1 (código de área local) XXX XX XX  | EUA                      | Chamada (saída) | Como atribuir números de telefone aos usuários nos seus aplicativos  |
+| Chamada gratuita         | \+ 1 (*código* de área gratuita) XXX XX XX | EUA                      | Chamada (de saída), SMS (entrada/saída)| Como atribuir números de telefone a sistemas IVR (resposta interativa de voz)/bots, aplicativos de SMS                                        |
 
-## <a name="plans"></a>Planos 
 
-Vamos examinar os recursos que você pode habilitar para seus números de telefone. Esses recursos variam por país devido a requisitos regulatórios. Os Serviços de Comunicação do Azure oferecem os seguintes recursos:
+## <a name="phone-number-plans-in-azure-communication-services"></a>Planos de número de telefone nos Serviços de Comunicação do Azure 
 
-- **SMS de saída unidirecional**, útil para cenários de notificação e autenticação de dois fatores.
-- **SMS de entrada e saída de duas vias**, um pacote predefinido que permite enviar e receber SMS como parte de um plano.
-- **PSTN de chamada**, você pode selecionar uma chamada de entrada e usar a ID de Chamadas para fazer chamadas de saída.
+Para a maioria dos números de telefone, permitimos que você configure um conjunto de planos "a la carte". Alguns desenvolvedores precisam de apenas um plano de chamada de saída, enquanto outros podem optar por chamadas de saída e de saída de planos de SMS. Esses planos podem ser selecionados à medida que você aluga seus números de telefone nos Serviços de Comunicação do Azure.
+
+Os planos disponíveis dependem do país em que você está operando, no caso de uso e no tipo de número de telefone escolhido. Esses planos variam conforme o país devido a requisitos regulatórios. Os Serviços de Comunicação do Azure oferecem os seguintes planos:
+
+- **SMS de saída unidirecional** Esse plano permite que você envie mensagens SMS para os usuários. Ele é útil em cenários como notificações e alertas de autenticação de dois fatores. 
+- **SMS de entrada e saída bidirecional** Esse plano permite que você envie e receba mensagens dos usuários usando números de telefone. Ele é útil em cenários de atendimento ao cliente.
+- **Chamada telefônica de saída unidirecional** Esse plano permite que você faça chamadas para os usuários e configure a ID de Chamadas das chamadas de saída feitas pelo serviço. Ele é útil em cenários de notificação de voz e atendimento ao cliente.
+
+## <a name="countryregion-availability"></a>Disponibilidade do país/da região
+
+A tabela a seguir mostra em que localização você pode adquirir diferentes tipos de números de telefone, juntamente com as funcionalidades de SMS e chamada de entrada e saída associados a esses tipos de número de telefone.
+
+|Tipo de número| Adquirir números em | Fazer chamadas para                                        | Receber chamadas de                                    |Enviar mensagens para       | Receber mensagens de |
+|-----------| ------------------ | ---------------------------------------------------  |-------------------------------------------------------|-----------------------|--------|
+| Local (geográfico)  | EUA                 | EUA, Canadá, Reino Unido, Alemanha, França. +mais*| EUA, Canadá, Reino Unido, Alemanha, França. +mais* |Não disponível| Não disponível |
+| Chamada gratuita | EUA                 | EUA                                                   | EUA                                                    |EUA                | EUA |
+
+*Para obter mais detalhes sobre os destinos e os preços das chamadas, veja a [página de preços](../pricing.md).
+
+## <a name="azure-subscriptions-eligibility"></a>Qualificação das assinaturas do Azure
+
+Para adquirir um número de telefone, você precisa ter uma assinatura paga do Azure. Os números de telefone não podem ser adquiridos em contas de avaliação. 
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -113,5 +87,5 @@ Vamos examinar os recursos que você pode habilitar para seus números de telefo
 ### <a name="conceptual-documentation"></a>Documentação conceitual
 
 - [Conceitos de voz e vídeo](../voice-video-calling/about-call-types.md)
-- [Fluxos de Chamadas e Fluxos de SMS](../call-flows.md)
+- [Fluxos de chamadas](../call-flows.md)
 - [Preços](../pricing.md)
