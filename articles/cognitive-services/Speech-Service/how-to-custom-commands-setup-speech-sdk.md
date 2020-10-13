@@ -12,10 +12,10 @@ ms.date: 06/18/2020
 ms.author: xiaojul
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 49922599adb30e6c631f29b4831fda60cc000a40
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91360116"
 ---
 # <a name="integrate-with-a-client-application-using-speech-sdk"></a>Integrar com um aplicativo cliente usando o SDK de fala
@@ -404,7 +404,7 @@ Adicione a fonte code-behind da seguinte maneira:
 
 1. Na barra de menus, escolha **arquivo**  >  **salvar tudo** para salvar suas alterações
 
-## <a name="try-it-out"></a>Experimente
+## <a name="try-it-out"></a>Experimentar
 
 1. Na barra de menus, escolha **Compilar** > **Compilar Solução** para compilar o aplicativo. O código deve compilar sem erros.
 

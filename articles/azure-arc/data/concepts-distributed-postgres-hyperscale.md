@@ -11,10 +11,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: c01da4aed9e27296ea7b570420bb190b16749848
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90933631"
 ---
 # <a name="concepts-for-distributing-data-with-arc-enabled-postgresql-hyperscale-server-group"></a>Conceitos para distribuição de dados com o grupo de servidores de hiperescala PostgreSQL habilitado para Arc
@@ -23,7 +23,7 @@ Este artigo explica os principais conceitos que são importantes para se benefic
 Os artigos vinculados abaixo apontam para os conceitos explicados para o banco de dados do Azure para PostgreSQL Citus (hiperescala). É a mesma tecnologia que o Azure Arc habilitou o hiperescala do PostgreSQL para que os mesmos conceitos e perspectivas se apliquem.
 
 **Qual é a diferença entre eles?**
-- _Citus (banco de dados do Azure para PostgreSQL em hiperescala)_
+- _Banco de Dados do Azure para PostgreSQL – Hiperescala (Citus)_
 
 Esse é o fator forma de hiperescala do mecanismo de banco de dados Postgres disponível como um banco de dados como um serviço no Azure (PaaS). Ele é alimentado pela extensão Citus que habilita a experiência de hiperescala. Neste formato, o serviço é executado nos data centers da Microsoft e é operado pela Microsoft.
 
@@ -46,7 +46,7 @@ Veja mais informações em [nós e tabelas no banco de dados do Azure para Postg
 ## <a name="determine-the-application-type"></a>Determinar o tipo de aplicativo
 Identificar claramente o tipo de aplicativo que você está compilando é importante. Por quê? Como a execução de consultas eficientes em um grupo de servidores de hiperescala PostgreSQL habilitado para o Azure Arc requer que as tabelas sejam distribuídas corretamente entre servidores. A distribuição recomendada varia de acordo com o tipo de aplicativo e seus padrões de consulta. Há, em geral, dois tipos de aplicativos que funcionam bem na hiperescala postgres habilitada para o Azure Arc:
 - Aplicativos multilocatários
-- Aplicativos em tempo real
+- Real-Time aplicativos
 
 A primeira etapa na modelagem de dados é identificar quais deles se assemelham mais bem ao seu aplicativo.
 

@@ -1,19 +1,20 @@
 ---
-title: Otimizar os custos para o armazenamento de BLOBs com capacidade reservada-armazenamento do Azure
+title: Otimizar custos para o armazenamento de blobs com capacidade reservada
+titleSuffix: Azure Storage
 description: Saiba como comprar a capacidade reservada do armazenamento do Azure para economizar custos em blob de blocos e recursos de Azure Data Lake Storage Gen2.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/01/2020
+ms.date: 10/08/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: c06bbc412a51fc919b862aeb3f62ec58feec89cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf96906b0dab9a94febe83468f813c7cae0675b0
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "84259194"
+ms.locfileid: "91874808"
 ---
 # <a name="optimize-costs-for-blob-storage-with-reserved-capacity"></a>Otimizar custos para o armazenamento de blobs com capacidade reservada
 
@@ -29,7 +30,7 @@ As seções a seguir descrevem os termos de uma reserva de armazenamento do Azur
 
 ### <a name="reservation-capacity"></a>Capacidade de reserva
 
-Você pode comprar a capacidade reservada do armazenamento do Azure em unidades de 100 TB e 1 PB por mês por um período de um ou três anos.
+Você pode comprar a capacidade reservada do armazenamento do Azure em unidades de 100 TiB e 1 PiB por mês para um período de um ou três anos.
 
 ### <a name="reservation-scope"></a>Escopo de reserva
 
@@ -62,7 +63,7 @@ Para comprar a capacidade reservada:
 
 Ao comprar uma reserva de armazenamento do Azure, você deve escolher a opção região, camada de acesso e redundância para a reserva. Sua reserva é válida somente para dados armazenados nessa região, camada de acesso e nível de redundância. Por exemplo, suponha que você compre uma reserva de dados no oeste dos EUA para a camada quente usando o ZRS (armazenamento com redundância de zona). Você não pode usar a mesma reserva de dados no leste dos EUA, dados na camada de arquivo ou dados no armazenamento com redundância geográfica (GRS). No entanto, você pode comprar outra reserva para suas necessidades adicionais.  
 
-As reservas estão disponíveis hoje para blocos de 100 TB ou 1 PB, com descontos mais altos para blocos de 1 PB. Quando você compra uma reserva no portal do Azure, a Microsoft pode fornecer recomendações com base no uso anterior para ajudar a determinar qual reserva você deve comprar.
+As reservas estão disponíveis hoje para blocos de 100 TiB ou 1 PiB, com descontos maiores para 1 blocos PiB. Quando você compra uma reserva no portal do Azure, a Microsoft pode fornecer recomendações com base no uso anterior para ajudar a determinar qual reserva você deve comprar.
 
 ## <a name="purchase-azure-storage-reserved-capacity"></a>Comprar capacidade reservada do armazenamento do Azure
 
@@ -86,7 +87,7 @@ Siga estas etapas para comprar a capacidade reservada:
    | **Camada de acesso** | A camada de acesso em que o para o qual a reserva está em vigor. As opções incluem *quente*, *fria*ou *arquivo morto*. Para obter mais informações sobre as camadas de acesso, consulte [armazenamento de BLOBs do Azure: camadas de acesso quentes, frias e de arquivo](storage-blob-storage-tiers.md). |
    | **Redundância** | A opção de redundância para a reserva. As opções incluem *LRS*, *ZRS*, *grs*, *GZRS*, *ra-grs*e *ra-GZRS*. Para obter mais informações sobre as opções de redundância, consulte [redundância de armazenamento do Azure](../common/storage-redundancy.md). |
    | **Frequência de cobrança** | Indica com que frequência a conta é cobrada pela reserva. As opções incluem *mensalmente* ou *antecipadamente*. |
-   | **Tamanho** | A região em que a reserva está em vigor. |
+   | **Tamanho** | A quantidade de capacidade a ser reservada. |
    |**Termo**  | Um ano ou três anos.   |
 
 1. Depois de selecionar os parâmetros para sua reserva, o portal do Azure exibirá o custo. O portal também mostra a porcentagem de desconto sobre a cobrança paga conforme o uso.

@@ -1,14 +1,14 @@
 ---
 title: Experiências de gerenciamento entre locatários
 description: O gerenciamento de recursos delegados do Azure permite uma experiência de gerenciamento entre locatários.
-ms.date: 09/30/2020
+ms.date: 10/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 60eab197e38c7b6ef3b7f2d9442a0b7583f66d09
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 7b2476d58cdfe057a94c52b40af7694abc7b263f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91739724"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970632"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gerenciamento entre locatários
 
@@ -35,10 +35,12 @@ Você pode executar tarefas de gerenciamento em recursos delegados diretamente n
 
 O [cmdlet Azure PowerShell Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription) mostra os `HomeTenantId` `ManagedByTenantIds` atributos e para cada assinatura, permitindo que você identifique se uma assinatura retornada pertence a um locatário gerenciado ou ao seu locatário de gerenciamento.
 
-Da mesma forma, CLI do Azure comandos como a [lista de contas AZ](/cli/azure/account#az-account-list) mostram os `homeTenantId` `managedByTenants` atributos e.
+Da mesma forma, CLI do Azure comandos como a [lista de contas AZ](/cli/azure/account#az-account-list) mostram os `homeTenantId` `managedByTenants` atributos e. Se você não vir esses valores ao usar a CLI do Azure, tente limpar o cache executando `az account clear` seguido por `az login --identity`.
 
-> [!TIP]
-> Se você não vir esses valores ao usar a CLI do Azure, tente limpar o cache executando `az account clear` seguido por `az login --identity`.
+Na API REST do Azure, os comandos [Subscription-Get](/rest/api/resources/subscriptions/get) e [subscriptions-List](/rest/api/resources/subscriptions/list) incluem `ManagedByTenant` .
+
+> [!NOTE]
+> Além das informações de locatário relacionadas ao Lighthouse do Azure, os locatários mostrados por essas APIs também podem refletir locatários de parceiros para Azure Databricks ou aplicativos gerenciados do Azure.
 
 Também fornecemos APIs que são específicas para executar tarefas do Azure Lighthouse. Para saber mais, confira a seção **Referência**.
 

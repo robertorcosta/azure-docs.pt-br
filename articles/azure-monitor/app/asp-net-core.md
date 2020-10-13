@@ -4,12 +4,12 @@ description: Monitorar aplicativos web ASP.NET Core de disponibilidade, desempen
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 04/30/2020
-ms.openlocfilehash: cb192aa44e9e2ab8578881494852ddd41ae9094d
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.openlocfilehash: 825cd451120f06597922c142dfc6bf8c10f5c700
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91839003"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91875114"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights para aplicativos ASP.NET Core
 
@@ -134,7 +134,7 @@ As [métricas dinâmicas](./live-stream.md) podem ser usadas para verificar rapi
 
 ### <a name="ilogger-logs"></a>Logs do ILogger
 
-Os logs emitidos por meio `ILogger` de severidade `Warning` e acima são capturados automaticamente. Siga [ILogger docs](ilogger.md#control-logging-level) para personalizar quais níveis de log são capturados por Application insights.
+A configuração padrão coleta `ILogger` logs de severidade `Warning` e acima. Essa configuração pode ser [personalizada](#how-do-i-customize-ilogger-logs-collection).
 
 ### <a name="dependencies"></a>Dependências
 

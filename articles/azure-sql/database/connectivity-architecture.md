@@ -13,10 +13,10 @@ ms.author: rohitna
 ms.reviewer: sstein, vanto
 ms.date: 06/26/2020
 ms.openlocfilehash: 71bd250cbfb2642a291d495273c4cd66ebb2c350
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91325378"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-connectivity-architecture"></a>Banco de dados SQL do Azure e arquitetura de conectividade do Azure Synapse Analytics
@@ -98,7 +98,7 @@ Os detalhes de como o tráfego deve ser migrado para novos gateways em regiões 
 | Centro da Índia        | 104.211.96.159     |
 | Sul da Índia          | 104.211.224.146    |
 | Oeste da Índia           | 104.211.160.80     |
-| Leste do Japão           | 13.78.61.196, 40.79.184.8, 13.78.106.224, 191.237.240.43, 40.79.192.5 |
+| Japan East           | 13.78.61.196, 40.79.184.8, 13.78.106.224, 191.237.240.43, 40.79.192.5 |
 | Oeste do Japão           | 104.214.148.156, 40.74.100.192, 191.238.68.11, 40.74.97.10 |
 | Coreia Central        | 52.231.32.42       |
 | Sul da Coreia          | 52.231.200.86      |

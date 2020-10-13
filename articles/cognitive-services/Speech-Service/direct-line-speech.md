@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: trbye
 ms.openlocfilehash: 2b0bb997ecea55d25748152bab7bb6963d67657f
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91357634"
 ---
 # <a name="what-is-direct-line-speech"></a>O que é o Direct Line Speech?
@@ -35,7 +35,7 @@ Para obter um guia passo a passo completo sobre como criar um assistente de voz 
 
 Também oferecemos guias de início rápido projetados para que você esteja executando código e aprendendo as APIs rapidamente. Esta tabela inclui uma lista de guias de início rápido do assistente de voz organizadas por linguagem e plataforma.
 
-| Início Rápido | Plataforma | Referência de API |
+| Guia de Início Rápido | Plataforma | Referência de API |
 |------------|----------|---------------|
 | C#, UWP | Windows | [Procurar](https://aka.ms/csspeech/csharpref) |
 | Java | Windows, macOS, Linux | [Procurar](https://aka.ms/csspeech/javaref) |

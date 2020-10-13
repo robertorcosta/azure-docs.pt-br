@@ -12,10 +12,10 @@ ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
 ms.openlocfilehash: c8f73c0789cd0211deeb66af5c7300a81d7b1be0
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91619807"
 ---
 # <a name="extended-events-in-azure-sql-database"></a>Eventos estendidos no Banco de Dados SQL do Azure 
@@ -36,7 +36,7 @@ Informações adicionais sobre eventos estendidos estão disponíveis em:
 
 Este tópico pressupõe que você já tem algum conhecimento de:
 
-- [Banco de Dados SQL do Azure](https://azure.microsoft.com/services/sql-database/)
+- [Banco de dados SQL do Azure](https://azure.microsoft.com/services/sql-database/)
 - [Eventos estendidos](/sql/relational-databases/extended-events/extended-events)
 
 - A grande parte de nossa documentação sobre eventos estendidos se aplica a SQL Server, banco de dados SQL do Azure e Instância Gerenciada do SQL do Azure.
@@ -51,12 +51,12 @@ A exposição prévia aos itens a seguir é útil ao escolher o Arquivo de Event
 
 Os tópicos relacionados fornecem dois exemplos de código:
 
-- [Código de destino do buffer de anéis para eventos estendidos no banco de dados SQL do Azure](xevent-code-ring-buffer.md)
+- [Código de destino do Buffer de Anéis para eventos estendidos no Banco de Dados SQL do Azure](xevent-code-ring-buffer.md)
 
   - Script curto e simples de Transact-SQL.
   - Enfatizamos no tópico do exemplo de código que, quando você concluir um destino de Buffer de Anéis, será necessário liberar seus recursos executando uma instrução alter-drop `ALTER EVENT SESSION ... ON DATABASE DROP TARGET ...;` . Mais tarde, você poderá adicionar outra instância do Buffer de Anéis com `ALTER EVENT SESSION ... ON DATABASE ADD TARGET ...`.
 
-- [Código de destino do arquivo de evento para eventos estendidos no banco de dados SQL do Azure](xevent-code-event-file.md)
+- [Código de destino do arquivo de evento para eventos estendidos no Banco de Dados SQL do Azure](xevent-code-event-file.md)
 
   - A Fase 1 é PowerShell a fim de criar o contêiner de Armazenamento do Azure
   - Fase 2 é Transact-SQL que usa o contêiner de Armazenamento do Azure.
@@ -92,8 +92,8 @@ O Banco de Dados SQL do Azure tem [exibições de gerenciamento dinâmico (DMVs)
 | **sys.dm_xe_database_session_event_actions** |Retorna informações sobre ações da sessão de evento. |
 | **sys.dm_xe_database_session_events** |Retorna informações sobre os eventos da sessão. |
 | **sys.dm_xe_database_session_object_columns** |Mostra os valores de configuração de objetos associados a uma sessão. |
-| **sys. dm_xe_database_session_targets** |Retorna informações sobre os destinos da sessão. |
-| **sys. dm_xe_database_sessions** |Retorna uma linha para cada sessão de evento com escopo no banco de dados atual. |
+| **sys.dm_xe_database_session_targets** |Retorna informações sobre os destinos da sessão. |
+| **sys.dm_xe_database_sessions** |Retorna uma linha para cada sessão de evento com escopo no banco de dados atual. |
 
 No Microsoft SQL Server, exibições de catálogo semelhantes são nomeadas sem a parte do * \_ banco de dados* do nome, como:
 

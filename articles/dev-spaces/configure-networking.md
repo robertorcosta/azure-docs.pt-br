@@ -5,14 +5,16 @@ ms.date: 03/17/2020
 ms.topic: conceptual
 description: Descreve os requisitos de rede para executar o Azure Dev Spaces nos serviços Kubernetess do Azure
 keywords: Azure Dev Spaces, espaços de desenvolvimento, Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, CNI, kubenet, SDN, rede
-ms.openlocfilehash: 0d9ebbec3e3c07a466acb58e88b67e6a32a20edb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09114ab13555cbf9ef42b37c86ffb76a8fe3ab3f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88214176"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970331"
 ---
 # <a name="configure-networking-for-azure-dev-spaces-in-different-network-topologies"></a>Configurar a rede para Azure Dev Spaces em topologias de rede diferentes
+
+[!INCLUDE [Azure Dev Spaces deprecation](../../includes/dev-spaces-deprecation.md)]
 
 O Azure Dev Spaces é executado em clusters do AKS (serviço kubernetes do Azure) com a configuração de rede padrão. Se você quiser alterar a configuração de rede do cluster AKS, como colocar o cluster atrás de um firewall, usar grupos de segurança de rede ou usar políticas de rede, você precisará incorporar considerações adicionais para a execução de Azure Dev Spaces.
 

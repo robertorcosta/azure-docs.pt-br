@@ -1,16 +1,14 @@
 ---
 title: Criar um novo recurso baseado em espaço de trabalho do Azure Monitor Application Insights | Microsoft Docs
 description: Saiba mais sobre as etapas necessárias para habilitar os novos recursos baseados em espaço de trabalho do Azure Monitor Application Insights.
-author: mrbullwinkle
-ms.author: mbullwin
 ms.topic: conceptual
-ms.date: 09/10/2020
-ms.openlocfilehash: 196be1caf91b6f1f1731d7c4afbfe72482c8f2ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/06/2020
+ms.openlocfilehash: 9b91e5065729bee6af3f8018c36930e132eb1a15
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90894544"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945406"
 ---
 # <a name="workspace-based-application-insights-resources"></a>Recursos baseados em workspace do Application Insights
 
@@ -206,6 +204,10 @@ No painel de recursos do Application Insights, selecione **Propriedades** > **Al
 ## <a name="export-telemetry"></a>Exportar telemetria
 
 A funcionalidade de exportação contínua herdada não tem suporte para recursos baseados em espaço de trabalho. Em vez disso, selecione **Configurações de diagnóstico** > **Adicionar configurações de diagnóstico** de dentro de seu recurso do Application Insights. Você pode selecionar todas as tabelas ou um subconjunto de tabelas para arquivar em uma conta de armazenamento ou transmitir para um hub de eventos do Azure.
+
+> [!NOTE]
+> Não há encargos adicionais para a exportação de telemetria no momento. As informações de preço para esse recurso estarão disponíveis na [página de preços do Azure monitor](https://azure.microsoft.com/pricing/details/monitor/).  Antes do início da cobrança, as notificações serão enviadas. Se você optar por continuar usando <feature name> após o período de aviso, você será cobrado na taxa aplicável. 
+ 
 
 ## <a name="next-steps"></a>Próximas etapas
 

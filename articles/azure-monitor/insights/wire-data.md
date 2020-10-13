@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 05/29/2020
 ms.openlocfilehash: 06698ad3ab2ceb76278e23bc1ac0002b9c2284f9
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91445770"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Solução Wire Data 2.0 (versão prévia) no Azure Monitor
@@ -193,7 +193,7 @@ Use as opções da tabela a seguir para instalar a partir de uma linha de comand
 
 InstallDependencyAgent-Windows.exe /?
 
-| **Identificar** | **Descrição** |
+| **Sinalizador** | **Descrição** |
 | --- | --- |
 | <code>/?</code> | Obtenha uma lista das opções de linha de comando. |
 | <code>/S</code> | Realize uma instalação silenciosa sem solicitações ao usuário. |
@@ -218,7 +218,7 @@ Para ver uma lista dos sinalizadores de instalação, execute o programa de inst
 InstallDependencyAgent-Linux64.bin -help
 ```
 
-| **Identificar** | **Descrição** |
+| **Sinalizador** | **Descrição** |
 | --- | --- |
 | <code>-help</code> | Obtenha uma lista das opções de linha de comando. |
 | <code>-s</code> | Realize uma instalação silenciosa sem solicitações ao usuário. |
@@ -393,9 +393,9 @@ Um registro com um tipo de _WireData_ é criado para cada tipo de dados de entra
 | ReceivedBytes | Quantidade de bytes recebidos |
 | ProtocolName | Nome do protocolo de rede usado |
 | IPVersion | Versão IP |
-| Direção | Entrada ou saída |
+| Direction | Entrada ou saída |
 | MaliciousIP | Endereço IP de uma fonte mal-intencionada conhecida |
-| Severidade | Gravidade de suspeita de malware |
+| Severity | Gravidade de suspeita de malware |
 | RemoteIPCountry | País/região do endereço IP remoto |
 | ManagementGroupName | Nome do grupo de gerenciamento do Operations Manager |
 | SourceSystem | Fonte na qual o dados foram coletados |

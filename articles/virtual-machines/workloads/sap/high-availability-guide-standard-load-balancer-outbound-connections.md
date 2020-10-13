@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/16/2020
 ms.author: radeltch
-ms.openlocfilehash: a0dc9f673abcac549fffc7291b8ac376c297da6b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d3ecae17ae14effe48f5a7a0ee3f73d3054a220
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87836115"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961469"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>Conectividade de ponto de extremidade público para Máquinas Virtuais usando o Azure Standard Load Balancer em cenários de alta disponibilidade do SAP
 
@@ -67,12 +67,12 @@ Leia os seguintes documentos primeiro:
   * [Visão geral do Firewall do Azure](../../../firewall/overview.md): visão geral do Firewall do Azure
   * [Tutorial: Implantar e configurar o Firewall do Azure](../../../firewall/tutorial-firewall-deploy-portal.md): instruções sobre como configurar o Firewall do Azure por meio do portal do Azure
 * [Redes virtuais – regras definidas pelo usuário](../../../virtual-network/virtual-networks-udr-overview.md#user-defined): conceitos e regras de roteamento do Azure  
-* [Marcas de Serviço de Grupos de Segurança](../../../virtual-network/security-overview.md#service-tags): como simplificar os Grupos de Segurança de Rede e a configuração do Firewall com marcas de serviço
+* [Marcas de Serviço de Grupos de Segurança](../../../virtual-network/network-security-groups-overview.md#service-tags): como simplificar os Grupos de Segurança de Rede e a configuração do Firewall com marcas de serviço
 
 ## <a name="additional-external-azure-standard-load-balancer-for-outbound-connections-to-internet"></a>Standard Azure Load Balancer adicionais externos para conexões de saída com a Internet
 
 Uma opção para ter conectividade de saída para pontos de extremidade públicos, sem permitir a entrada da conectividade do ponto de extremidade público para a VM, é criar um segundo balanceador de carga com o endereço IP público, adicionar as VMs ao pool de back-end do segundo balanceador de carga e definir somente [regras de saída](../../../load-balancer/load-balancer-outbound-connections.md#outboundrules).  
-Use [Grupos de Segurança de Rede](../../../virtual-network/security-overview.md) para controlar os pontos de extremidade públicos que podem ser acessados para chamadas de saída da VM.  
+Use [Grupos de Segurança de Rede](../../../virtual-network/network-security-groups-overview.md) para controlar os pontos de extremidade públicos que podem ser acessados para chamadas de saída da VM.  
 Para obter mais informações, confira o Cenário 2 no documento [Conexões de saída](../../../load-balancer/load-balancer-outbound-connections.md#scenarios).  
 A configuração tem a seguinte aparência:  
 
@@ -81,11 +81,11 @@ A configuração tem a seguinte aparência:
 ### <a name="important-considerations"></a>Considerações importantes
 
 - Você pode usar um Load Balancer Público adicional em várias VMs na mesma sub-rede para obter conectividade de saída para o ponto de extremidade público e otimizar o custo  
-- Use [Grupos de Segurança de Rede](../../../virtual-network/security-overview.md) para controlar quais pontos de extremidade públicos podem ser acessados nas VMs. Você pode atribuir o Grupo de Segurança de Rede à sub-rede ou a cada VM. Sempre que possível, use [Marcas de serviço](../../../virtual-network/security-overview.md#service-tags) para reduzir a complexidade das regras de segurança.  
+- Use [Grupos de Segurança de Rede](../../../virtual-network/network-security-groups-overview.md) para controlar quais pontos de extremidade públicos podem ser acessados nas VMs. Você pode atribuir o Grupo de Segurança de Rede à sub-rede ou a cada VM. Sempre que possível, use [Marcas de serviço](../../../virtual-network/network-security-groups-overview.md#service-tags) para reduzir a complexidade das regras de segurança.  
 - O Azure Standard Load Balancer com o endereço IP público e as regras de saída permite o acesso direto ao ponto de extremidade público. Se você tiver requisitos de segurança corporativa de que todo o tráfego de saída deva passar por meio da solução corporativa centralizada para auditoria e registro em log, talvez não seja possível atender ao requisito nesse cenário.  
 
 >[!TIP]
->Sempre que possível, use [Marcas de serviço](../../../virtual-network/security-overview.md#service-tags) para reduzir a complexidade do Grupo de Segurança de Rede. 
+>Sempre que possível, use [Marcas de serviço](../../../virtual-network/network-security-groups-overview.md#service-tags) para reduzir a complexidade do Grupo de Segurança de Rede. 
 
 ### <a name="deployment-steps"></a>Etapas de implantação.
 
@@ -117,7 +117,7 @@ A configuração tem a seguinte aparência:
 
    ![Conexão de saída com um segundo Load Balancer com IP público](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-network-security-groups.png)
 
-   Para obter mais informações sobre os grupos de segurança de rede do Azure, confira [Grupos de Segurança](../../../virtual-network/security-overview.md). 
+   Para obter mais informações sobre os grupos de segurança de rede do Azure, confira [Grupos de Segurança](../../../virtual-network/network-security-groups-overview.md). 
 
 ## <a name="azure-firewall-for-outbound-connections-to-internet"></a>Firewall do Azure para conexões de saída com a Internet
 
@@ -137,7 +137,7 @@ A arquitetura seria semelhante a:
 - Se a solução de firewall corporativo não for o Firewall do Azure e você tiver requisitos de segurança que façam com que todo o tráfego de saída deva passar por uma solução corporativa centralizada, essa solução poderá não ser prática.  
 
 >[!TIP]
->Sempre que possível, use [Marcas de serviço](../../../virtual-network/security-overview.md#service-tags) para reduzir a complexidade das regras do Firewall do Azure.  
+>Sempre que possível, use [Marcas de serviço](../../../virtual-network/network-security-groups-overview.md#service-tags) para reduzir a complexidade das regras do Firewall do Azure.  
 
 ### <a name="deployment-steps"></a>Etapas de implantação.
 

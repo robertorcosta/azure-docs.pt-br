@@ -12,10 +12,10 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: 0e14bba7b2982dd12fcca0d7aedc864b2a65288f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91259944"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-synapse-analytics-sql-pool"></a>Usar Azure Functions para gerenciar recursos de computação no pool do SQL do Azure Synapse Analytics
@@ -139,7 +139,7 @@ Esta seção demonstra brevemente o que é necessário para aproveitar mais os r
 
 Escale verticalmente diariamente às 8:00 até DW600c e reduza às 20:00 para DW200c.
 
-| Função  | Agenda     | Operação                                |
+| Função  | Agendamento     | Operação                                |
 | :-------- | :----------- | :--------------------------------------- |
 | Function1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW600c"}` |
 | Function2 | 0 0 20 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW200c"}` |
@@ -148,7 +148,7 @@ Escale verticalmente diariamente às 8:00 até DW600c e reduza às 20:00 para DW
 
 Escalar verticalmente verticalmente às 8:00 para DW1000c, reduzir horizontalmente uma vez para DW600 em 16:00 e reduzir verticalmente em 19:10 para DW200c.
 
-| Função  | Agenda     | Operação                                |
+| Função  | Agendamento     | Operação                                |
 | :-------- | :----------- | :--------------------------------------- |
 | Function1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW1000c"}` |
 | Function2 | 0 0 16 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600c"}` |
@@ -158,7 +158,7 @@ Escalar verticalmente verticalmente às 8:00 para DW1000c, reduzir horizontalmen
 
 Escale verticalmente às 8:00 até DW1000c, escale para baixo uma vez para DW600c às 16:00 nos dias da semana. Pausar sexta-feira às 23:00, retomar segunda-feira de manhã às 7:00.
 
-| Função  | Agenda       | Operação                                |
+| Função  | Agendamento       | Operação                                |
 | :-------- | :------------- | :--------------------------------------- |
 | Function1 | 0 0 8 * * 1-5  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW1000c"}` |
 | Function2 | 0 0 16 * * 1-5 | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600c"}` |

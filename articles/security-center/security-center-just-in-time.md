@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: memildin
 ms.openlocfilehash: 4a709527c0de2e092bcca2bbd9bc596aa0eb4cc0
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91440720"
 ---
 # <a name="secure-your-management-ports-with-just-in-time-access"></a>Proteja suas portas de gerenciamento com acesso just-in-time
@@ -34,10 +34,10 @@ Esta página ensina como incluir o JIT em seu programa de segurança. Você apre
 |Aspecto|Detalhes|
 |----|:----|
 |Estado da versão:|GA (em disponibilidade geral)|
-|Refere|Requer o [Azure defender para servidores](defender-for-servers-introduction.md)|
+|Preço:|Requer [Azure Defender para Servidores](defender-for-servers-introduction.md)|
 |VMs com suporte:|![Sim, ](./media/icons/yes-icon.png) VMs implantadas por meio de Azure Resource Manager.<br>![Nenhuma ](./media/icons/no-icon.png) VM implantada com modelos de implantação clássicos. [Saiba mais sobre esses modelos de implantação](../azure-resource-manager/management/deployment-models.md).<br>![Não há ](./media/icons/no-icon.png) VMs protegidas pelos firewalls do Azure controlados pelo [Gerenciador de firewall do Azure](https://docs.microsoft.com/azure/firewall-manager/overview)|
 |Funções e permissões necessárias:|As funções **leitor** e **SecurityReader** podem exibir o status e os parâmetros do JIT.<br>Para criar funções personalizadas que podem funcionar com o JIT, consulte [quais permissões são necessárias para configurar e usar o JIT?](just-in-time-explained.md#what-permissions-are-needed-to-configure-and-use-jit).<br>Para criar uma função com privilégios mínimos para usuários que precisam solicitar acesso JIT a uma VM e não executar outras operações JIT, use o [script set-JitLeastPrivilegedRole](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20scripts/JIT%20Custom%20Role) das páginas da Comunidade do GitHub da central de segurança.|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) National/soberanas (US Gov, China gov, outros gov)|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Nacionais/soberanas (US Gov, China Gov, outros Gov)|
 |||
 
 
@@ -97,7 +97,7 @@ Na central de segurança, você pode habilitar e configurar o acesso à VM JIT.
 
      1. Selecione **OK**.
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 
 
