@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.openlocfilehash: d538625785020b2d3ab39b88c3c7a0ddcf18bfc8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91249596"
 ---
 # <a name="use-java-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Use o Java para gerenciar diretórios, arquivos e ACLs no Azure Data Lake Storage Gen2
@@ -28,7 +28,7 @@ Este artigo mostra como usar o Java para criar e gerenciar diretórios, arquivos
 > * Uma assinatura do Azure. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 > * Uma conta de armazenamento precisa ter o HNS (namespace hierárquico) habilitado. Siga [estas](data-lake-storage-quickstart-create-account.md) instruções para criar um.
 
-## <a name="set-up-your-project"></a>Configurar o projeto
+## <a name="set-up-your-project"></a>Configurar o seu projeto
 
 Para começar, abra [esta página](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake) e localize a versão mais recente da biblioteca do Java. Em seguida, abra o arquivo *pom.xml* em seu editor de texto. Adicione um elemento Dependency que faz referência a essa versão.
 

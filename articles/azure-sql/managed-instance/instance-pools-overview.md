@@ -13,10 +13,10 @@ ms.author: bonova
 ms.reviewer: sstein
 ms.date: 09/05/2019
 ms.openlocfilehash: 3753004b2bd9c18399655cffd594392b63c14264
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91325157"
 ---
 # <a name="what-is-an-azure-sql-managed-instance-pool-preview"></a>O que é um pool de Instância Gerenciada do Azure SQL (versão prévia)?
@@ -24,7 +24,7 @@ ms.locfileid: "91325157"
 
 Os pools de instância no Azure SQL Instância Gerenciada fornecem uma maneira conveniente e econômica de migrar instâncias de SQL Server menores para a nuvem em escala.
 
-Os pools de instância permitem pré-provisionar os recursos de computação de acordo com os requisitos de migração totais. Em seguida, você pode implantar várias instâncias gerenciadas individuais até seu nível de computação pré-provisionado. Por exemplo, se você pré-provisionar 8 vCores, poderá implantar duas instâncias de vCore 2 e uma de vCore 4 e, em seguida, migrar os bancos de dados para essas instâncias. Antes dos pools de instância estarem disponíveis, as cargas de trabalho menores e menos intensivas de computação geralmente teriam de ser consolidadas em uma instância gerenciada maior ao migrar para a nuvem. A necessidade de migrar grupos de bancos de dados para uma instância grande normalmente exigiu um planejamento de capacidade cuidadoso e governança de recursos, considerações de segurança adicionais e alguma consolidação de dados extra funciona no nível da instância.
+Os pools de instância permitem pré-provisionar os recursos de computação de acordo com os requisitos de migração totais. Em seguida, você pode implantar várias instâncias gerenciadas individuais até seu nível de computação pré-provisionado. Por exemplo, se você pré-provisionar 8 vCores, poderá implantar a instância 2 2-vCore e 1 4-vCore e, em seguida, migrar bancos de dados para essas instâncias. Antes dos pools de instância estarem disponíveis, as cargas de trabalho menores e menos intensivas de computação geralmente teriam de ser consolidadas em uma instância gerenciada maior ao migrar para a nuvem. A necessidade de migrar grupos de bancos de dados para uma instância grande normalmente exigiu um planejamento de capacidade cuidadoso e governança de recursos, considerações de segurança adicionais e alguma consolidação de dados extra funciona no nível da instância.
 
 Além disso, os pools de instância dão suporte à integração VNet nativa para que você possa implantar vários pools de instância e várias instâncias únicas na mesma sub-rede.
 
@@ -113,7 +113,7 @@ Recursos opcionais ou recursos que exigem a escolha de valores específicos (com
 
 Embora as instâncias gerenciadas nos pools tenham vCore e RAM dedicados, elas compartilham o disco local (para uso de tempdb) e os recursos de rede. Não é provável, mas é possível experimentar o efeito *vizinho ruidosa* se várias instâncias no pool tiverem alto consumo de recursos ao mesmo tempo. Se você observar esse comportamento, considere implantar essas instâncias em um pool maior ou como instâncias únicas.
 
-## <a name="security-considerations"></a>Considerações sobre segurança
+## <a name="security-considerations"></a>Considerações de segurança
 
 Como as instâncias implantadas em um pool compartilham a mesma máquina virtual, convém considerar a desabilitação de recursos que introduzem riscos mais altos de segurança ou a controlar firmemente as permissões de acesso a esses recursos. Por exemplo, integração CLR, backup e restauração nativos, email de banco de dados, etc.
 
@@ -152,10 +152,10 @@ Para obter detalhes completos sobre o preço do pool de instâncias, consulte a 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para começar a usar os pools de instância, consulte [Guia de instruções sobre pools do SQL instância gerenciada](instance-pools-configure.md).
-- Para saber como criar sua primeira instância gerenciada, consulte [Guia de início rápido](instance-create-quickstart.md).
+- Para saber como criar sua primeira instância gerenciada, confira o [Guia de início rápido](instance-create-quickstart.md).
 - Para obter uma lista de recursos e comparação, consulte [recursos comuns do SQL do Azure](../database/features-comparison.md).
-- Para obter mais informações sobre a configuração da VNet, consulte [configuração da vnet do SQL instância gerenciada](connectivity-architecture-overview.md).
-- Para obter um início rápido que cria uma instância gerenciada e restaura um banco de dados de um arquivo de backup, consulte [criar uma instância gerenciada](instance-create-quickstart.md).
-- Para obter um tutorial sobre como usar o serviço de migração de banco de dados do Azure para migração, consulte [migração de SQL instância gerenciada usando o serviço de migração de banco](../../dms/tutorial-sql-server-to-managed-instance.md)
-- Para o monitoramento avançado do desempenho do banco de dados do SQL Instância Gerenciada com inteligência de solução de problemas interna, consulte [monitorar o instância gerenciada SQL do Azure usando o análise de SQL do Azure](../../azure-monitor/insights/azure-sql.md).
+- Para obter mais informações sobre a configuração de VNet, confira [Configuração de VNet de Instância Gerenciada de SQL](connectivity-architecture-overview.md).
+- Para obter um início rápido que cria uma instância gerenciada e restaura um banco de dados de um arquivo de backup, confira [Criar uma instância gerenciada](instance-create-quickstart.md).
+- Para obter um tutorial sobre como usar o Serviço de Migração de Banco de Dados do Azure para migração, confira [Migração de Instância Gerenciada de SQL usando o Serviço de Migração de Banco de Dados](../../dms/tutorial-sql-server-to-managed-instance.md).
+- Para obter o monitoramento avançado do desempenho de banco de dados da Instância Gerenciada de SQL com inteligência de solução de problemas interna, confira [Monitorar a Instância Gerenciada de SQL do Azure usando a Análise de SQL do Azure](../../azure-monitor/insights/azure-sql.md).
 - Para obter informações sobre preços, consulte [preços do SQL instância gerenciada](https://azure.microsoft.com/pricing/details/sql-database/managed/).

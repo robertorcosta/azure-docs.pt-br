@@ -9,10 +9,10 @@ ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to create a Network Virtual Appliance (NVA) in my Virtual WAN hub.
 ms.openlocfilehash: 014339b02167a1bb4cba11cc10c9740b8fa53f2c
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91773239"
 ---
 # <a name="how-to-create-a-network-virtual-appliance-in-an-azure-virtual-wan-hub-preview"></a>Como criar uma solução de virtualização de rede em um hub de WAN virtual do Azure (versão prévia)
@@ -90,7 +90,7 @@ Nesta etapa, você criará uma solução de virtualização de rede no Hub. O pr
    * **Unidades de infraestrutura NVA** -indique o número de unidades de infraestrutura NVA com as quais você deseja implantar esse NVA. Escolha a quantidade de capacidade de largura de banda agregada que você deseja fornecer em todos os sites de ramificação que serão conectados a esse Hub por meio desse NVA.
    * O **token** -Barracuda requer que você forneça um token de autenticação aqui para se identificar como um usuário registrado deste produto. Você precisará obtê-lo do Barracuda.
 1. Selecione o botão **revisar e criar** para continuar.
-1. Nesta página, você será solicitado a aceitar os termos do contrato de acesso coadministrador. Isso é padrão com aplicativos gerenciados em que o Publicador terá acesso a alguns recursos nessa implantação. Marque a caixa **concordo com os termos e condições acima** e, em seguida, selecione **criar**.
+1. Nesta página, você será solicitado a aceitar os termos do contrato de acesso de Co-Admin. Isso é padrão com aplicativos gerenciados em que o Publicador terá acesso a alguns recursos nessa implantação. Marque a caixa **concordo com os termos e condições acima** e, em seguida, selecione **criar**.
 
 ## <a name="connect-the-vnet-to-the-hub"></a><a name="vnet"></a>Conectar a VNet ao hub
 

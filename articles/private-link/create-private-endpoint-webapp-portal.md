@@ -9,10 +9,10 @@ ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.openlocfilehash: 3e0f05240aba9b5c92689315e409aaabe793b3f4
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91772831"
 ---
 # <a name="connect-privately-to-a-web-app-by-using-azure-private-endpoint"></a>Conectar-se de forma privada a um aplicativo Web usando o ponto de extremidade privado do Azure
@@ -206,7 +206,7 @@ Nesta seção, você se conecta de modo privado ao aplicativo Web usando o ponto
 
 Agora você está acessando seu aplicativo Web por meio do ponto de extremidade privado.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando você terminar de usar o ponto de extremidade privado, o aplicativo Web e a VM, exclua o grupo de recursos e todos os recursos que ele contém.
 

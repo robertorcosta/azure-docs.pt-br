@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/20/2018
 ms.openlocfilehash: cb66c0371914b29c3db911823519b29df8c4b16c
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91616458"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync"></a>Solucionar problemas com a Sincronização de Dados SQL do Azure
@@ -26,7 +26,7 @@ Este artigo descreve como solucionar problemas conhecidos com o Sincronização 
 Para obter uma visão geral da Sincronização de Dados SQL, consulte [Sincronizar dados entre vários bancos de dados locais e de nuvem com a Sincronização de Dados SQL no Azure](sql-data-sync-data-sql-server-sql-database.md).
 
 > [!IMPORTANT]
-> O Sincronização de Dados SQL **não dá suporte ao** Azure SQL instância gerenciada no momento.
+> No momento, a Sincronização de Dados SQL **não** dá suporte à Instância Gerenciada de SQL do Azure.
 
 ## <a name="sync-issues"></a>Problemas de sincronização
 

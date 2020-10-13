@@ -9,10 +9,10 @@ ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
 ms.openlocfilehash: e488f2ddc44f1339d648cd6fe6b1aae18b748679
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90892654"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>Entender as métricas para o Azure Spring Cloud
@@ -88,15 +88,15 @@ Você também pode usar a opção **aplicar divisão** , que irá desenhar vári
 
 As tabelas a seguir mostram as métricas e os detalhes disponíveis.
 
-### <a name="error"></a>Erro
+### <a name="error"></a>Erro do
 >[!div class="mx-tdCol2BreakAll"]
->| Name | Nome da métrica do atuador Spring | Unidade | Detalhes |
+>| Nome | Nome da métrica do atuador Spring | Unit | Detalhes |
 >|----|----|----|------------|
->| Tomcat. global. Error | Tomcat. global. Error | Contagem | Número de erros que ocorreram em solicitações processadas |
+>| Tomcat. global. Error | Tomcat. global. Error | Count | Número de erros que ocorreram em solicitações processadas |
 
 ### <a name="performance"></a>Desempenho
 >[!div class="mx-tdCol2BreakAll"]
->| Name | Nome da métrica do atuador Spring | Unidade | Detalhes |
+>| Nome | Nome da métrica do atuador Spring | Unit | Detalhes |
 >|----|----|----|------------|
 >| System. CPU. Usage | System. CPU. Usage | Porcentagem | Uso recente da CPU para todo o sistema. Esse valor é um duplo no intervalo [0,0, 1,0]. Um valor de 0,0 significa que todas as CPUs estavam ociosas durante o período de tempo recente observado, enquanto um valor de 1,0 significa que todas as CPUs estavam executando ativamente 100% do tempo durante o período recente observado.|
 >| Process. CPU. Usage | Percentual de Uso de CPU do Aplicativo | Porcentagem | Uso recente da CPU para o processo de Máquina Virtual Java. Esse valor é um duplo no intervalo [0,0, 1,0]. Um valor de 0,0 significa que nenhuma das CPUs estavam executando threads do processo JVM durante o período de tempo recente observado, enquanto um valor de 1,0 significa que todas as CPUs estavam ativamente executando threads da JVM 100% do tempo durante o período recente observado. Os threads da JVM incluem os threads do aplicativo, bem como os threads internos da JVM.|
@@ -107,70 +107,70 @@ As tabelas a seguir mostram as métricas e os detalhes disponíveis.
 >| JVM. GC. Live. Data. Size | JVM. GC. Live. Data. Size | Bytes | Tamanho do pool de memória de geração antiga após um GC completo. |
 >| JVM. GC. Memory. promovida | JVM. GC. Memory. promovida | Bytes | Contagem de aumentos positivos no tamanho do pool de memória de geração antiga antes do GC ser após o GC. |
 >| JVM. GC. Memory. allocated | JVM. GC. Memory. allocated | Bytes | Incrementado para um aumento no tamanho do pool de memória de geração jovem após um GC antes do próximo. |
->| JVM. GC. PAUSE. total. Count | JVM. GC. PAUSE (total-contagem) | Contagem | Contagem total de GC após esse JMV iniciado, incluindo GC jovem e antigo. |
+>| JVM. GC. PAUSE. total. Count | JVM. GC. PAUSE (total-contagem) | Count | Contagem total de GC após esse JMV iniciado, incluindo GC jovem e antigo. |
 >| JVM. GC. PAUSE. total. time | JVM. GC. PAUSE (tempo total) | Milissegundos | Tempo total de GC consumido após esse JMV iniciado, incluindo o GC jovem e antigo. |
 
 ::: zone pivot="programming-language-csharp"
 ### <a name="performance-net"></a>Desempenho (.NET)
 
 >[!div class="mx-tdCol2BreakAll"]
->| Name | Nome da métrica do atuador Spring | Unidade | Detalhes |
+>| Nome | Nome da métrica do atuador Spring | Unit | Detalhes |
 >|------|-----------------------------|------|---------|
 >| Uso da CPU       | uso da CPU      | Milissegundos | Quantidade de tempo que o processo utilizou a CPU. |
 >| Conjunto de trabalho     | conjunto de trabalho    | Megabytes    | Quantidade de conjunto de trabalho usado pelo processo. |
 >| Tamanho do heap do GC    | GC-heap-tamanho   | Megabytes    | Tamanho total do heap relatado pelo coletor de lixo. |
->| Contagem de GC de Gen 0  | Gen-0-GC-contagem | Contagem        | Número de coletas de lixo de geração 0 por segundo. |
->| Contagem de GC de Gen 1  | Gen-1-GC-contagem | Contagem        | Número de coletas de lixo de geração 1 por segundo. |
->| Contagem de GC de Gen 2  | Gen-2-GC-contagem | Contagem        | Número de coletas de lixo de geração 2 por segundo. |
+>| Contagem de GC de Gen 0  | Gen-0-GC-contagem | Count        | Número de coletas de lixo de geração 0 por segundo. |
+>| Contagem de GC de Gen 1  | Gen-1-GC-contagem | Count        | Número de coletas de lixo de geração 1 por segundo. |
+>| Contagem de GC de Gen 2  | Gen-2-GC-contagem | Count        | Número de coletas de lixo de geração 2 por segundo. |
 >| Tamanho do heap de geração 0 | Ger-0-tamanho     | Bytes        | Tamanho da pilha de geração 0. |
 >| Tamanho do heap de geração 1 | Ger-1-tamanho     | Bytes        | Tamanho de heap de geração 1. |
 >| Tamanho do heap de geração 2 | Gen-2-tamanho     | Bytes        | Tamanho de heap de geração 2. |
 >| Tamanho do heap de LOH   | Loh-tamanho       | Bytes        | Tamanho do heap de heap de objeto grande. |
 >| Taxa de alocação | taxa de alocação     | Bytes        | Número de bytes alocados por segundo. |
->| Contagem de assembly  | assembly-contagem | Contagem        | Número de assemblies carregados. |
->| Contagem de exceção | contagem de exceção | Contagem       | Número de exceções por segundo. |
->| Contagem de threads do pool de threads      | ThreadPool-contagem de threads              | Contagem | Número de threads do pool de threads. |
->| Monitorar contagem de contenções de bloqueio | monitor-contagem de contenção de bloqueio        | Contagem | O número de vezes por segundo em que houve contenção ao tentar usar um bloqueio de monitor. |
->| Comprimento da fila do pool de threads      | ThreadPool-comprimento da fila              | Contagem | Comprimento da fila de itens de trabalho do pool de threads. |
->| Contagem de itens concluídos do pool de threads | ThreadPool-concluído-itens-contagem | Contagem | O pool de threads concluiu a contagem de itens de trabalho. |
->| Contagem de temporizadores ativos               | active-timer-Count               | Contagem | O número de temporizadores que estão ativos no momento. Um temporizador ativo é aquele registrado para tique em algum momento no futuro e ainda não foi cancelado. |
+>| Contagem de assembly  | assembly-contagem | Count        | Número de assemblies carregados. |
+>| Contagem de exceção | contagem de exceção | Count       | Número de exceções por segundo. |
+>| Contagem de threads do pool de threads      | ThreadPool-contagem de threads              | Count | Número de threads do pool de threads. |
+>| Monitorar contagem de contenções de bloqueio | monitor-contagem de contenção de bloqueio        | Count | O número de vezes por segundo em que houve contenção ao tentar usar um bloqueio de monitor. |
+>| Comprimento da fila do pool de threads      | ThreadPool-comprimento da fila              | Count | Comprimento da fila de itens de trabalho do pool de threads. |
+>| Contagem de itens concluídos do pool de threads | ThreadPool-concluído-itens-contagem | Count | O pool de threads concluiu a contagem de itens de trabalho. |
+>| Contagem de temporizadores ativos               | active-timer-Count               | Count | O número de temporizadores que estão ativos no momento. Um temporizador ativo é aquele registrado para tique em algum momento no futuro e ainda não foi cancelado. |
 
 Para obter mais informações, consulte [dotnet Counters](/dotnet/core/diagnostics/dotnet-counters).
 ::: zone-end
 
 ### <a name="request"></a>Solicitação
 >[!div class="mx-tdCol2BreakAll"]
->| Name | Nome da métrica do atuador Spring | Unidade | Detalhes |
+>| Nome | Nome da métrica do atuador Spring | Unit | Detalhes |
 >|----|----|----|------------|
 >| Tomcat. global. sent | Tomcat. global. sent | Bytes | Quantidade de dados do servidor Web Tomcat enviados |
 >| Tomcat. global. Received | Tomcat. global. Received | Bytes | Quantidade de dados do servidor Web Tomcat recebidos |
->| Tomcat. global. Request. total. Count | Tomcat. global. Request (total-contagem) | Contagem | Contagem total de solicitações processadas do servidor Web Tomcat |
+>| Tomcat. global. Request. total. Count | Tomcat. global. Request (total-contagem) | Count | Contagem total de solicitações processadas do servidor Web Tomcat |
 >| Tomcat. global. Request. Max | Tomcat. global. Request. Max | Milissegundos | Tempo máximo do servidor Web Tomcat para processar uma solicitação |
 
 ::: zone pivot="programming-language-csharp"
 ### <a name="request-net"></a>Solicitação (.NET)
 
 >[!div class="mx-tdCol2BreakAll"]
->| Name | Nome da métrica do atuador Spring | Unidade | Detalhes |
+>| Nome | Nome da métrica do atuador Spring | Unit | Detalhes |
 >|------|-----------------------------|------|---------|
->| Solicitações por segundo | solicitações por segundo | Contagem | Taxa de solicitação. |
->| Total de solicitações | total-solicitações | Contagem | Número total de solicitações. |
->| Solicitações atuais | solicitações atuais | Contagem | Número de solicitações atuais. |
->| Solicitações com falha | solicitações com falha | Contagem | Número de solicitações com falha. |
+>| Solicitações por segundo | solicitações por segundo | Count | Taxa de solicitação. |
+>| Total de solicitações | total-solicitações | Count | Número total de solicitações. |
+>| Solicitações atuais | solicitações atuais | Count | Número de solicitações atuais. |
+>| Solicitações falhas | solicitações com falha | Count | Número de solicitações com falha. |
 
 Para obter mais informações, consulte [dotnet Counters](/dotnet/core/diagnostics/dotnet-counters).
 ::: zone-end
 
 ### <a name="session"></a>Session
 >[!div class="mx-tdCol2BreakAll"]
->| Name | Nome da métrica do atuador Spring | Unidade | Detalhes |
+>| Nome | Nome da métrica do atuador Spring | Unit | Detalhes |
 >|----|----|----|------------|
->| Tomcat. Sessions. Active. Max | Tomcat. Sessions. Active. Max | Contagem | Número máximo de sessões que estão ativas ao mesmo tempo |
+>| Tomcat. Sessions. Active. Max | Tomcat. Sessions. Active. Max | Count | Número máximo de sessões que estão ativas ao mesmo tempo |
 >| Tomcat. Sessions. Alive. Max | Tomcat. Sessions. Alive. Max | Milissegundos | Tempo mais longo (em segundos) que uma sessão expirada esteve ativa |
->| Tomcat. Sessions. Created | Tomcat. Sessions. Created | Contagem | Número de sessões que foram criadas |
->| Tomcat. Sessions. Expired | Tomcat. Sessions. Expired | Contagem | Número de sessões que expiraram |
->| Tomcat. Sessions. Rejected | Tomcat. Sessions. Rejected | Contagem | Número de sessões que não foram criadas porque o número máximo de sessões ativas foi atingido. |
->| Tomcat. Sessions. Active. Current | Tomcat. Sessions. Active. Current | Contagem | Contagem ativa da sessão Tomcat |
+>| Tomcat. Sessions. Created | Tomcat. Sessions. Created | Count | Número de sessões que foram criadas |
+>| Tomcat. Sessions. Expired | Tomcat. Sessions. Expired | Count | Número de sessões que expiraram |
+>| Tomcat. Sessions. Rejected | Tomcat. Sessions. Rejected | Count | Número de sessões que não foram criadas porque o número máximo de sessões ativas foi atingido. |
+>| Tomcat. Sessions. Active. Current | Tomcat. Sessions. Active. Current | Count | Contagem ativa da sessão Tomcat |
 
 ## <a name="see-also"></a>Confira também
 

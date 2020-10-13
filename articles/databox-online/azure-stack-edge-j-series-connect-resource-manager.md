@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
 ms.openlocfilehash: 5cf406dc0577f477858dd8a6570f7975747112e0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90891232"
 ---
 # <a name="connect-to-azure-resource-manager-on-your-azure-stack-edge-pro-device"></a>Conectar-se a Azure Resource Manager em seu dispositivo do Azure Stack Edge pro
@@ -99,10 +99,10 @@ Para uso somente de teste e desenvolvimento, você pode usar o Windows PowerShel
 
 3. Para todos esses certificados, verifique se o nome da entidade e o nome alternativo da entidade estão em conformidade com as seguintes diretrizes:
 
-    |Tipo |Nome da entidade (SN)  |SAN (nome alternativo da entidade)  |Exemplo de nome da entidade |
+    |Type |Nome da entidade (SN)  |SAN (nome alternativo da entidade)  |Exemplo de nome da entidade |
     |---------|---------|---------|---------|
     |Azure Resource Manager|`management.<Device name>.<Dns Domain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`|`management.mydevice1.microsoftdatabox.com` |
-    |Armazenamento de blob|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
+    |Armazenamento de blobs|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
     |Certificado único de várias SANs para ambos os pontos de extremidade|`<Device name>.<dnsdomain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`<br>`*.blob.<Device name>.<Dns Domain>`|`mydevice1.microsoftdatabox.com` |
 
 Para obter mais informações sobre certificados, acesse como [gerenciar certificados](azure-stack-edge-j-series-manage-certificates.md).
@@ -460,4 +460,4 @@ Você passou para o ambiente desejado.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Implante VMs em seu dispositivo Azure Stack Edge pro](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md).
+[Implantar VMs no dispositivo Azure Stack Edge Pro](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md).

@@ -11,10 +11,10 @@ ms.author: sstein
 ms.reviewer: sashan, moslake
 ms.date: 09/30/2020
 ms.openlocfilehash: 44dafd1b0043c2daa7065069f571f13529303a73
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91614420"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>Visão geral do modelo vCore-banco de dados SQL do Azure e Azure SQL Instância Gerenciada 
@@ -111,7 +111,7 @@ To enable M-series hardware for a subscription and region, a support request mus
 |Série Fsv2     |-Processadores Intel® 8168 (Skylake)<br>-Apresentando uma velocidade de clock de Turbo principal de 3,4 GHz e uma velocidade máxima de clock de único núcleo de 3,7 GHz.<br>-Provisionar até 72 vCores (1 vCore = 1 Hyper-thread)|-1,9 GB por vCore<br>-Provisionar até 136 GB|
 |Série M     |-Processadores Intel® E7-8890 v3 2,5 GHz e Intel® 8280M 2,7 GHz (cascade)<br>-Provisionar até 128 vCores (1 vCore = 1 Hyper-thread)|-29 GB por vCore<br>-Provisionar até 3,7 TB|
 
-\* Na exibição de gerenciamento dinâmico [Sys. dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) , a geração de hardware para bancos de dados usando os processadores Intel® SP-8160 (Skylake) aparece como Gen6, enquanto a geração de hardware para bancos de dados usando o Intel® 8272CL (cascadey Lake) aparece como Gen7. Os limites de recursos para todos os bancos de dados do Gen5 são os mesmos, independentemente do tipo de processador (Broadwell, Skylake ou Cascade Lake).
+\* Na exibição de gerenciamento dinâmico [Sys.dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) , a geração de hardware para bancos de dados usando os processadores Intel® SP-8160 (Skylake) aparece como Gen6, enquanto a geração de hardware para bancos de dados usando o Intel® 8272CL (cascadey Lake) aparece como Gen7. Os limites de recursos para todos os bancos de dados do Gen5 são os mesmos, independentemente do tipo de processador (Broadwell, Skylake ou Cascade Lake).
 
 Para obter mais informações sobre limites de recursos, consulte [limites de recursos para VCORE (bancos de dados individuais)](resource-limits-vcore-single-databases.md)ou [limites de recursos para pools elásticos (VCORE)](resource-limits-vcore-elastic-pools.md).
 
