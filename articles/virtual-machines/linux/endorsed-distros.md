@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: conceptual
 ms.date: 10/09/2020
 ms.author: guybo
-ms.openlocfilehash: 1417635c0e510badd191e99786f49dfb509c8206
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: 0236644930af699180cf26b4baee7bb591d8bbaa
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893400"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978927"
 ---
 # <a name="endorsed-linux-distributions-on-azure"></a>Distribuições do Linux endossadas no Azure
 
@@ -39,7 +39,7 @@ O agente Linux do Azure já está pré-instalado nas imagens do Azure Marketplac
 | Debian da Credativ |8.x, 9.x |No kernel |Pacote: no repositório, em "waagent"  <br/>Código-fonte: [GitHub](https://github.com/Azure/WALinuxAgent) |
 |Flatcar contêiner Linux por Kinvolk| Pro, estável, beta| No kernel | o wa-Linux-Agent já está instalado em/usr/share/OEM/bin/waagent |
 | Oracle Linux pela Oracle |6.x, 7.x, 8.x |No kernel |Pacote: no repositório, em "WALinuxAgent"  <br/>Código-fonte: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
-| [Red Hat Enterprise Linux por Red Hat](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/overview) |6.x, 7.x, 8.x |No kernel |Pacote: no repositório, em "WALinuxAgent"  <br/>Código-fonte: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| [Red Hat Enterprise Linux por Red Hat](../workloads/redhat/overview.md) |6.x, 7.x, 8.x |No kernel |Pacote: no repositório, em "WALinuxAgent"  <br/>Código-fonte: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | SUSE Linux Enterprise pelo SUSE |SLES/SLES para SAP 11. x, 12. x, 15. x <br/> [Ciclo de vida da imagem de nuvem pública SUSE](https://www.suse.com/c/suse-public-cloud-image-life-cycle/) |No kernel |Pacote:<p> para 11, no repositório [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools)<br>para 12, incluído no módulo "Public Cloud" em "python-azure-agent"<br/>Código-fonte: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
 | openSUSE por SUSE |openSUSE Leap 15.x |No kernel |Pacote: no repositório [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) em "python-azure-agent" <br/>Código-fonte: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | Ubuntu por Canonical |Servidor Ubuntu e pro. 16. x, 18. x, 20. x<p>Informações sobre o suporte estendido para Ubuntu 12, 4 e 14, 4 podem ser encontradas aqui: [manutenção de segurança estendida do Ubuntu](https://www.ubuntu.com/esm). |No kernel |Pacote: no repositório, em "WALinuxAgent"  <br/>Código-fonte: [GitHub](https://github.com/Azure/WALinuxAgent) |

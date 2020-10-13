@@ -8,16 +8,16 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 30fc71e6f59766a759cdb8e4e503123623f48bd9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4fbffaa7bc68bb32bd07b657f4b769e5af4302bf
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320465"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950017"
 ---
 # <a name="accessing-data-in-storage-accounts-securely-via-trusted-service-exception"></a>Acessando dados em contas de armazenamento com segurança por meio de exceção de serviço confiável
 
-Os indexadores que acessam dados em contas de armazenamento podem usar a funcionalidade de [exceção de serviço confiável](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) para acessar dados com segurança. Esse mecanismo oferece aos clientes que não conseguem conceder [acesso ao indexador por meio de regras de firewall IP](search-indexer-howto-access-ip-restricted.md) uma alternativa simples, segura e gratuita para acessar dados em contas de armazenamento.
+Os indexadores que acessam dados em contas de armazenamento podem usar a funcionalidade de [exceção de serviço confiável](../storage/common/storage-network-security.md#exceptions) para acessar dados com segurança. Esse mecanismo oferece aos clientes que não conseguem conceder [acesso ao indexador por meio de regras de firewall IP](search-indexer-howto-access-ip-restricted.md) uma alternativa simples, segura e gratuita para acessar dados em contas de armazenamento.
 
 > [!NOTE]
 > O suporte para acessar dados em contas de armazenamento por meio de uma exceção de serviço confiável é limitado ao armazenamento de BLOBs do Azure e Azure Data Lake armazenamento de Gen2. Não há suporte para o armazenamento de tabelas do Azure.

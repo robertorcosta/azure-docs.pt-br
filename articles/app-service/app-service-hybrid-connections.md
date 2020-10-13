@@ -8,10 +8,10 @@ ms.date: 06/08/2020
 ms.author: ccompy
 ms.custom: seodec18, fasttrack-edit
 ms.openlocfilehash: 1cb86f77a6ffcbb0fb45b3a57b57de531822f2b0
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91742597"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Conexões Híbridas do Serviço de Aplicativo do Azure
@@ -134,7 +134,7 @@ Para adicionar uma ou mais Conexões Híbridas a seu HCM:
 1. Selecione as Conexões Híbridas que você deseja que o HCM retransmita.
 ![Captura de tela de Conexões Híbridas][9]
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 Agora você pode ver as Conexões Híbridas adicionadas. Você também pode selecionar a Conexão híbrida configurada para ver os detalhes.
 

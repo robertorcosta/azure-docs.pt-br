@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 09/01/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 63bc3caf97e1325c365171ba3f8e6353885d9b68
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30e76ec3085922ec2a1d4693681eb97c9052c026
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89322544"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978723"
 ---
 # <a name="creating-generalized-images-without-a-provisioning-agent"></a>Criando imagens generalizadas sem um agente de provisionamento
 
@@ -199,7 +199,7 @@ WantedBy=multi-user.target
 Esse serviço em sistema faz três coisas para o provisionamento básico:
 
 1. Relatórios prontos para o Azure (para indicar que ele foi fornecido com êxito).
-1. Renomeia a VM com base no nome da VM fornecida pelo usuário ao extrair esses dados do [serviço de metadados de instância do Azure (IMDS)](https://docs.microsoft.com/azure/virtual-machines/linux/instance-metadata-service). **Observação** O IMDS também fornece outros [metadados de instância](https://docs.microsoft.com/azure/virtual-machines/linux/instance-metadata-service#accessing-azure-instance-metadata-service), como chaves públicas SSH, para que você possa definir mais do que o nome do host.
+1. Renomeia a VM com base no nome da VM fornecida pelo usuário ao extrair esses dados do [serviço de metadados de instância do Azure (IMDS)](./instance-metadata-service.md). **Observação** O IMDS também fornece outros [metadados de instância](./instance-metadata-service.md#accessing-azure-instance-metadata-service), como chaves públicas SSH, para que você possa definir mais do que o nome do host.
 1. Desabilita a si mesmo para que ele só seja executado na primeira inicialização e não nas reinicializações subsequentes.
 
 Com a unidade no sistema de arquivos, execute o seguinte para habilitá-lo:

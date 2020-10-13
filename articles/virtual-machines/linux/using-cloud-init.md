@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 06/15/2020
 ms.author: danis
-ms.openlocfilehash: 7ddbb48f3598780988feb25a11729a5086d31fde
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a87c2b571027e0304909e69b252c9e080c4da9c1
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88869262"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978621"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Suporte à cloud-init para máquinas virtuais no Azure
 Este artigo mostra que o suporte que existe para a [cloud-init](https://cloudinit.readthedocs.io) para configurar uma máquina virtual VM ou conjuntos de dimensionamento de máquinas virtuais no momento do provisionamento no Azure. Essas configurações de cloud-init são executadas na primeira inicialização depois que os recursos são provisionados pelo Azure.  
@@ -152,7 +152,7 @@ az vm create \
 
 Quando a VM tiver sido criada, a CLI do Azure mostrará informações específicas para a sua implantação. Anote `publicIpAddress`. Esse endereço é usado para acessar a VM.  Leva algum tempo para que a VM seja criada, os pacotes sejam instalados e o aplicativo comece a funcionar. Há tarefas em segundo plano que continuarão em execução depois que a CLI do Azure faz você voltar para o prompt. Você pode usar SSH na VM e usar as etapas descritas na seção de resolução de problemas para exibir os logs de cloud-init. 
 
-Você também pode implantar uma VM habilitada para Cloud-init passando os [parâmetros no modelo ARM](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-cli#inline-parameters).
+Você também pode implantar uma VM habilitada para Cloud-init passando os [parâmetros no modelo ARM](../../azure-resource-manager/templates/deploy-cli.md#inline-parameters).
 
 ## <a name="troubleshooting-cloud-init"></a>Resolução de problemas do cloud-init
 Depois que a VM tiver sido provisionada, o cloud-init será executado em todos os módulos e o script definido em `--custom-data` para configurar a VM.  Se você precisar solucionar quaisquer erros ou omissões da configuração, você precisará pesquisar o nome do módulo (`disk_setup` ou `runcmd` por exemplo) no log do cloud-init - localizado em **/var/log/cloud-init.log**.
@@ -173,4 +173,3 @@ Para obter exemplos de alterações de configuração do cloud-init, consulte os
 - [Run a package manager to update existing packages on first boot](cloudinit-update-vm.md) (Executar um gerenciador de pacotes para atualizar os pacotes existentes na primeira inicialização)
 - [Change VM local hostname](cloudinit-update-vm-hostname.md) (Alterar o nome do host local da VM) 
 - [Install an application package, update configuration files and inject keys](tutorial-automate-vm-deployment.md) (Instalar um pacote de aplicativo, atualizar os arquivos de configuração e injetar chaves)
- 

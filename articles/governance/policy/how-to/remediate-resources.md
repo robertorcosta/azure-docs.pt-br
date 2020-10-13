@@ -1,14 +1,14 @@
 ---
 title: Corrigir recursos sem conformidade
 description: Este guia o orienta pela correção de recursos que não estão em conformidade com as políticas no Azure Policy.
-ms.date: 09/22/2020
+ms.date: 10/05/2020
 ms.topic: how-to
-ms.openlocfilehash: 3b2d145322be8b70e096e49be892018952519cf0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76d2e57c1b5df965c81c88506ff2c2f70b2cb1f8
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91269838"
+ms.locfileid: "91876321"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Corrigir recursos que não estão em conformidade com o Azure Policy
 
@@ -17,7 +17,7 @@ Recursos que não estão em conformidade com uma política de **deployIfNotExist
 ## <a name="how-remediation-security-works"></a>Como funciona a correção de segurança
 
 Quando o Azure Policy executa o modelo na definição de política **deployIfNotExists**, ele faz isso usando uma [identidade gerenciada](../../../active-directory/managed-identities-azure-resources/overview.md).
-O Azure Policy cria uma identidade gerenciada para cada atribuição, mas precisa ter detalhes sobre quais funções devem receber a identidade gerenciada. Se a identidade gerenciada não tiver funções, esse erro será exibido durante a atribuição da política ou uma iniciativa. Quando o portal é usado, o Azure Policy concederá automaticamente a identidade gerenciada às funções listadas quando a atribuição for iniciada. Ao usar o SDK, as funções devem ser concedidas manualmente à identidade gerenciada. O _local_ da identidade gerenciada não afeta sua operação com Azure Policy.
+O Azure Policy cria uma identidade gerenciada para cada atribuição, mas precisa ter detalhes sobre quais funções devem receber a identidade gerenciada. Se a identidade gerenciada estiver sem funções, um erro será exibido durante a atribuição da política ou de uma iniciativa. Quando o portal é usado, o Azure Policy concederá automaticamente a identidade gerenciada às funções listadas quando a atribuição for iniciada. Ao usar o SDK, as funções devem ser concedidas manualmente à identidade gerenciada. O _local_ da identidade gerenciada não afeta sua operação com Azure Policy.
 
 :::image type="content" source="../media/remediate-resources/missing-role.png" alt-text="Captura de tela de uma política deployIfNotExists que não tem uma permissão definida na identidade gerenciada." border="false":::
 

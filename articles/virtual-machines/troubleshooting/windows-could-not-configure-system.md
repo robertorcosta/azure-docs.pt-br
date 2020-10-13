@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/09/2020
 ms.author: v-miegge
-ms.openlocfilehash: 9c170607d6300c4921285e85ac78db5a8a18ad9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bde091b4a4559c3574ee122d74574d1f9477f3fd
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90078795"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977041"
 ---
 # <a name="troubleshoot-windows-could-not-finish-configuring-the-system"></a>A solução de problemas do Windows não pôde concluir a configuração do sistema
 
@@ -28,7 +28,7 @@ Este artigo fornece etapas para resolver problemas em que o processo Sysprep imp
 
 ## <a name="symptom"></a>Sintoma
 
-Quando você usar o [diagnóstico de inicialização](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) para exibir a captura de tela da VM, verá que a captura de tela exibe um erro de instalação do Windows enquanto a instalação do Windows está iniciando serviços. O erro exibirá a mensagem:
+Quando você usar o [diagnóstico de inicialização](./boot-diagnostics.md) para exibir a captura de tela da VM, verá que a captura de tela exibe um erro de instalação do Windows enquanto a instalação do Windows está iniciando serviços. O erro exibirá a mensagem:
 
 `Windows could not finish configuring the system. To attempt to resume configuration, restart the computer. Setup is starting services`
 
@@ -36,8 +36,8 @@ Quando você usar o [diagnóstico de inicialização](https://docs.microsoft.com
 
 ## <a name="cause"></a>Causa
 
-Esse erro é causado quando o sistema operacional (SO) não consegue concluir o [processo do Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep-process-overview). Esse erro ocorrerá quando você tentar uma inicialização inicial de uma VM generalizada. Se você encontrar esse problema, recrie a imagem generalizada, pois a imagem está em um estado não implantável e não pode ser recuperada.
+Esse erro é causado quando o sistema operacional (SO) não consegue concluir o [processo do Sysprep](/windows-hardware/manufacture/desktop/sysprep-process-overview). Esse erro ocorrerá quando você tentar uma inicialização inicial de uma VM generalizada. Se você encontrar esse problema, recrie a imagem generalizada, pois a imagem está em um estado não implantável e não pode ser recuperada.
 
 ## <a name="solution"></a>Solução
 
-Para corrigir esse problema, siga as [diretrizes do Azure sobre como preparar/capturar uma imagem](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed) e preparar uma nova imagem generalizada.
+Para corrigir esse problema, siga as [diretrizes do Azure sobre como preparar/capturar uma imagem](../windows/upload-generalized-managed.md) e preparar uma nova imagem generalizada.

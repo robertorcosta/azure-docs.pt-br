@@ -7,12 +7,12 @@ ms.date: 3/10/2020
 ms.topic: conceptual
 ms.service: iot-edge
 ms.reviewer: arduppal
-ms.openlocfilehash: da163e902d06bd98ac47a24256cb809cb222173b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b5b7b45cc52d900e5ecde59e6a5ae203533286b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80804615"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978859"
 ---
 # <a name="deploy-the-azure-blob-storage-on-iot-edge-module-to-your-device"></a>Implantar o armazenamento de Blobs do Azure no módulo IoT Edge para seu dispositivo
 
@@ -21,7 +21,10 @@ Há várias maneiras de implantar módulos em um dispositivo IoT Edge e todos el
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Um [Hub IoT](../iot-hub/iot-hub-create-through-portal.md) na assinatura do Azure.
-- Um [Dispositivo do IoT Edge](how-to-register-device.md) com o runtime do IoT Edge instalado.
+- Um dispositivo IoT Edge.
+
+  Se você não tiver um dispositivo IoT Edge configurado, poderá criar um em uma máquina virtual do Azure. Siga as etapas em um dos artigos de início rápido para [criar um dispositivo Linux Virtual](quickstart-linux.md) ou [criar um dispositivo virtual do Windows](quickstart.md).
+
 - [Visual Studio Code](https://code.visualstudio.com/) e as [ferramentas de IOT do Azure](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) se estiver implantando do Visual Studio Code.
 
 ## <a name="deploy-from-the-azure-portal"></a>Implantar do portal do Azure
@@ -32,7 +35,7 @@ O portal do Azure orienta você durante a criação de um manifesto de implanta�
 
 1. Entre no [Portal do Azure](https://portal.azure.com) e navegue até o Hub IoT.
 1. Selecionar **IoT Edge** do menu.
-1. Clique na ID do dispositivo de destino na lista de dispositivos.
+1. Clique no ID do dispositivo alvo da lista de dispositivos.
 1. Selecione **definir módulos**.
 
 ### <a name="configure-a-deployment-manifest"></a>Configurar um manifesto de implantação
@@ -203,10 +206,10 @@ O Azure IoT Edge disponibiliza modelos no Visual Studio Code para ajudar você a
      - Para contêineres do Linux, o formato é ** \<your storage path or volume> :/blobroot**. Por exemplo:
          - usar [montagem de volume](https://docs.docker.com/storage/volumes/): `my-volume:/blobroot`
          - usar [montagem de associação](https://docs.docker.com/storage/bind-mounts/): `/srv/containerdata:/blobroot` . Certifique-se de seguir as etapas para [conceder acesso ao diretório para o usuário do contêiner](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux)
-     - Para contêineres do Windows, o formato é ** \<your storage path or volume> : C:/BlobRoot**. Por exemplo
-         - usar [montagem de volume](https://docs.docker.com/storage/volumes/): `my-volume:C:/BlobRoot` .
-         - usar [montagem de associação](https://docs.docker.com/storage/bind-mounts/): `C:/ContainerData:C:/BlobRoot` .
-         - Em vez de usar sua unidade local, você pode mapear seu local de rede SMB, para obter mais informações, consulte [usando o compartilhamento SMB como seu armazenamento local](how-to-store-data-blob.md#using-smb-share-as-your-local-storage)
+     - Para contêineres do Windows, o formato é ** \<your storage path or volume> : C:/BlobRoot**. Por exemplo:
+         - Usar [montagem de volume](https://docs.docker.com/storage/volumes/): `my-volume:C:/BlobRoot` .
+         - Usar [montagem de associação](https://docs.docker.com/storage/bind-mounts/): `C:/ContainerData:C:/BlobRoot` .
+         - Em vez de usar sua unidade local, você pode mapear o local de rede SMB. Para obter mais informações, consulte [usando o compartilhamento SMB como seu armazenamento local](how-to-store-data-blob.md#using-smb-share-as-your-local-storage).
 
      > [!IMPORTANT]
      > Não altere a segunda metade do valor de montagem de armazenamento, que aponta para um local específico no armazenamento de BLOBs no módulo IoT Edge. A montagem de armazenamento sempre deve terminar com **:/blobroot** para contêineres do Linux e **: C:/blobroot** para contêineres do Windows.

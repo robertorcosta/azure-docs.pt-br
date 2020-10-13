@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.date: 08/4/2020
 ms.custom: avverma
-ms.openlocfilehash: c57025346a9f623e3fe5536b36820ea62f355cc0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6ee4179dce905d637e933743ade7452a2484077
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91341227"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978553"
 ---
 # <a name="put-calls-for-creation-or-updates-on-compute-resources"></a>COLOCAR chamadas para criação ou atualizações em recursos de computação
 
@@ -66,5 +66,4 @@ Isso é importante ao enviar operações de atualização para um recurso com a 
 `
 
 ## <a name="next-steps"></a>Próximas etapas
-Saiba mais sobre criar ou atualizar chamadas para [máquinas virtuais](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate) e [conjuntos de dimensionamento de máquinas virtuais](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate)
-
+Saiba mais sobre criar ou atualizar chamadas para [máquinas virtuais](/rest/api/compute/virtualmachines/createorupdate) e [conjuntos de dimensionamento de máquinas virtuais](/rest/api/compute/virtualmachinescalesets/createorupdate)

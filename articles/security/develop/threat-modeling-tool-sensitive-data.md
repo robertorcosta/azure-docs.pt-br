@@ -16,19 +16,19 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 3ee0a376b28676e3f74ac2e53010c2c953ad9d7b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c3b47659486ef32bdb0a9a26d1b0f39c5bcd7a9
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317813"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949744"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Estrutura de segurança: Dados confidenciais | Atenuações 
 | Produto/Serviço | Artigo |
 | --------------- | ------- |
 | **Limite de confiança de computador** | <ul><li>[Garantir que os binários sejam obscurecidos se contiverem informações confidenciais](#binaries-info)</li><li>[Considere usar o EFS (sistema de arquivos criptografados) é usado para proteger dados confidenciais específicos do usuário](#efs-user)</li><li>[Garantir que os dados confidenciais armazenados pelo aplicativo no sistema de arquivos sejam criptografados](#filesystem)</li></ul> | 
 | **Aplicativo Web** | <ul><li>[Garantir que o conteúdo confidencial não seja armazenado em cache no navegador](#cache-browser)</li><li>[Criptografar as seções dos arquivos de configuração do aplicativo Web que contêm dados confidenciais](#encrypt-data)</li><li>[Desabilitar explicitamente o atributo HTML de preenchimento automático em formulários e entradas confidenciais](#autocomplete-input)</li><li>[Garantir que os dados confidenciais exibidos na tela do usuário sejam mascarados](#data-mask)</li></ul> | 
-| **Backup de banco de dados** | <ul><li>[Implementar a máscara de dados dinâmicos para limitar a exposição de dados confidenciais usuários sem privilégios](#dynamic-users)</li><li>[Verifique se as senhas estão armazenadas no formato de hash salted](#salted-hash)</li><li>[Certifique-se de que os dados confidenciais nas colunas de dados estejam criptografados](#db-encrypted)</li><li>[Verifique se a criptografia no nível do banco de dados (TDE) está habilitada](#tde-enabled)</li><li>[Garantir que os backups de banco de dados sejam criptografados](#backup)</li></ul> | 
+| **Banco de dados** | <ul><li>[Implementar a máscara de dados dinâmicos para limitar a exposição de dados confidenciais usuários sem privilégios](#dynamic-users)</li><li>[Verifique se as senhas estão armazenadas no formato de hash salted](#salted-hash)</li><li>[Certifique-se de que os dados confidenciais nas colunas de dados estejam criptografados](#db-encrypted)</li><li>[Verifique se a criptografia no nível do banco de dados (TDE) está habilitada](#tde-enabled)</li><li>[Garantir que os backups de banco de dados sejam criptografados](#backup)</li></ul> | 
 | **API da Web** | <ul><li>[Garantir que os dados confidenciais relevantes para a API da Web não sejam armazenados no armazenamento do navegador](#api-browser)</li></ul> | 
 | Azure Document DB | <ul><li>[Criptografar dados confidenciais armazenados no Azure Cosmos DB](#encrypt-docdb)</li></ul> | 
 | **Limite de confiança da VM da IaaS do Azure** | <ul><li>[Usar Azure Disk Encryption para criptografar discos usados por máquinas virtuais](#disk-vm)</li></ul> | 
@@ -88,7 +88,7 @@ ms.locfileid: "91317813"
   <system.webServer>
    <httpProtocol>
     <customHeaders>
-        <add name="Cache-Control" value="no-cache" />
+        <add name="Cache-Control" value="no-store" />
         <add name="Pragma" value="no-cache" />
         <add name="Expires" value="-1" />
     </customHeaders>

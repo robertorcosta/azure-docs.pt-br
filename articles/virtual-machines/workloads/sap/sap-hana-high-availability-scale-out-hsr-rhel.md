@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/02/2020
 ms.author: radeltch
-ms.openlocfilehash: edca4b44bd9e7aa9f100db3cea0bc69880a4c533
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 658470a3c19f8484ac56f6a1d88d23c3d7b4147e
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91744723"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978098"
 ---
 # <a name="high-availability-of-sap-hana-scale-out-system-on-red-hat-enterprise-linux"></a>Alta disponibilidade de SAP HANA sistema de expansão em Red Hat Enterprise Linux 
 
@@ -100,7 +100,7 @@ A configuração apresentada mostra três nós do HANA em cada site, além do n�
 O sistema de arquivos compartilhado do HANA `/hana/shared` na arquitetura apresentada é fornecido pelo [Azure NetApp files](../../../azure-netapp-files/azure-netapp-files-introduction.md). Ele é montado por meio do NFSv 4.1 em cada nó do HANA no mesmo site de replicação do sistema do HANA. Sistemas de arquivos `/hana/data` e `/hana/log` sistemas de arquivos locais e não são compartilhados entre os nós do BD Hana. SAP HANA será instalado no modo não compartilhado. 
 
 > [!TIP]
-> Para configurações de armazenamento SAP HANA recomendadas, consulte [SAP Hana configurações de armazenamento de VMs do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage).   
+> Para configurações de armazenamento SAP HANA recomendadas, consulte [SAP Hana configurações de armazenamento de VMs do Azure](./hana-vm-operations-storage.md).   
 
 [![Expansão de SAP HANA com o cluster HSR e pacemaker](./media/sap-hana-high-availability-rhel/sap-hana-high-availability-scale-out-hsr-rhel.png)](./media/sap-hana-high-availability-rhel/sap-hana-high-availability-scale-out-hsr-rhel-detail.png#lightbox)
 
@@ -128,7 +128,7 @@ Para a configuração apresentada neste documento, implante sete máquinas virtu
   
    Para o nó do fabricante principal, você pode implantar uma VM pequena, pois essa VM não executa nenhum dos recursos de SAP HANA. A VM de criador de maioria é usada na configuração do cluster para obter um número ímpar de nós de cluster em um cenário de divisão-cérebro. A VM de maior fabricante precisa apenas de uma interface de rede virtual na `client` sub-rede neste exemplo.        
 
-   Implantar discos gerenciados locais para o `/hana/data` e o `/hana/log` . A configuração de armazenamento mínima recomendada para o `/hana/data` e `/hana/log` é descrita em [SAP Hana configurações de armazenamento de VMs do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage).
+   Implantar discos gerenciados locais para o `/hana/data` e o `/hana/log` . A configuração de armazenamento mínima recomendada para o `/hana/data` e `/hana/log` é descrita em [SAP Hana configurações de armazenamento de VMs do Azure](./hana-vm-operations-storage.md).
 
    Implante a interface de rede primária para cada VM na `client` sub-rede da rede virtual.  
    Quando a VM é implantada via portal do Azure, o nome da interface de rede é gerado automaticamente. Nestas instruções para simplificar, vamos nos referir às interfaces de rede primárias geradas automaticamente, que são anexadas à `client` sub-rede da rede virtual do Azure como **Hana-S1-DB1-Client**, **Hana-S1-DB2-Client**, **Hana-S1-DB3-Client**e assim por diante.  
@@ -229,7 +229,7 @@ Para a configuração apresentada neste documento, implante sete máquinas virtu
 
 ### <a name="deploy-the-azure-netapp-files-infrastructure"></a>Implantar a infraestrutura de Azure NetApp Files 
 
-Implante os volumes seja para o `/hana/shared` sistema de arquivos. Você precisará de um `/hana/shared` volume separado para cada site de replicação do sistema do Hana. Para obter mais informações, consulte [Configurar a infraestrutura de Azure NetApp files](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel#set-up-the-azure-netapp-files-infrastructure).
+Implante os volumes seja para o `/hana/shared` sistema de arquivos. Você precisará de um `/hana/shared` volume separado para cada site de replicação do sistema do Hana. Para obter mais informações, consulte [Configurar a infraestrutura de Azure NetApp files](./sap-hana-scale-out-standby-netapp-files-rhel.md#set-up-the-azure-netapp-files-infrastructure).
 
 Neste exemplo, os seguintes volumes de Azure NetApp Files foram usados: 
 
@@ -1160,7 +1160,7 @@ Inclua todas as máquinas virtuais, incluindo o criador principal no cluster.
       ```
 
 
-É recomendável testar exaustivamente a configuração de cluster SAP HANA, executando também os testes, documentados em [ha para SAP Hana em VMs do Azure no RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel#test-the-cluster-setup).
+É recomendável testar exaustivamente a configuração de cluster SAP HANA, executando também os testes, documentados em [ha para SAP Hana em VMs do Azure no RHEL](./sap-hana-high-availability-rhel.md#test-the-cluster-setup).
 
 
 ## <a name="next-steps"></a>Próximas etapas

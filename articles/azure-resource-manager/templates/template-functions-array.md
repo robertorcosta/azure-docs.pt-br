@@ -2,13 +2,13 @@
 title: Funções de modelo – matrizes
 description: Descreve as funções a serem usadas em um modelo de Azure Resource Manager para trabalhar com matrizes.
 ms.topic: conceptual
-ms.date: 04/27/2020
-ms.openlocfilehash: 4d4ee96888aee5421d88b5371ac25a69c0af4fd7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/12/2020
+ms.openlocfilehash: a5cf73203cf59a0b9f2b5f49c923d0a077c065fc
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84677841"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91979131"
 ---
 # <a name="array-functions-for-arm-templates"></a>Funções de matriz para modelos ARM
 
@@ -278,12 +278,11 @@ Cria uma matriz de parâmetros.
 
 | Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |String, Inteiro, Matriz ou Objeto |O primeiro valor na matriz. |
-| argumentos adicionais |Não |String, Inteiro, Matriz ou Objeto |Valores adicionais na matriz. |
+| args |Não |String, Inteiro, Matriz ou Objeto |Os valores na matriz. |
 
 ### <a name="return-value"></a>Valor retornado
 
-Uma matriz .
+Uma matriz . Quando nenhum parâmetro é fornecido, ele retorna uma matriz vazia.
 
 ### <a name="example"></a>Exemplo
 
@@ -321,6 +320,10 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
         "arrayArray": {
             "type": "array",
             "value": "[createArray(parameters('arrayToTest'))]"
+        },
+        "emptyArray": {
+            "type": "array",
+            "value": "[createArray()]"
         }
     }
 }
@@ -334,6 +337,7 @@ A saída do exemplo anterior com os valores padrão é:
 | intArray | Array | [1, 2, 3] |
 | objectArray | Array | [{"one": "a", "two": "b", "three": "c"}] |
 | arrayArray | Array | [["one", "two", "three"]] |
+| emptyArray | Array | [] |
 
 ## <a name="empty"></a>vazio
 
