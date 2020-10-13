@@ -8,12 +8,12 @@ ms.date: 08/10/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: 76591b9f397bd84e5afac19a56dd2c6467f4650f
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: c1de8ebbd9ad381628cfeb19413baa295b42b3db
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962223"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91739826"
 ---
 # <a name="create-two-web-apps-connected-securely-with-private-endpoint-and-vnet-integration"></a>Criar dois aplicativos Web conectados com segurança por meio da Integração VNET e do ponto de extremidade privado
 
@@ -21,7 +21,7 @@ Este artigo ilustra um exemplo de uso do [ponto de extremidade privado](../netwo
 - Implantar uma VNET
 - Criar a primeira sub-rede para a integração
 - Criar a segunda sub-rede para o ponto de extremidade privado; é necessário definir um parâmetro específico para desabilitar as políticas de rede
-- Implantar um Plano do Serviço de Aplicativo do tipo PremiumV2, SKU mínimo necessário para o recurso de ponto de extremidade privado
+- Implantar um Plano do Serviço de Aplicativo do tipo PremiumV2 ou PremiumV3, necessário para o recurso de Ponto de extremidade privado
 - Criar o aplicativo Web front-end com algumas configurações de aplicativo específicas para consumir a zona DNS privada; [mais detalhes](../web-sites-integrate-with-vnet.md#azure-dns-private-zones)
 - Conectar o aplicativo Web front-end à sub-rede de integração
 - Criar o aplicativo Web de back-end

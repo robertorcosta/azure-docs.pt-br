@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/28/2020
 ms.author: jeedes
-ms.openlocfilehash: ad68208f8993ce84c71c97d97de7e2b090f1e7da
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6ab6a355b986daeca41ffd18a51689cd9d880dcd
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549406"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713812"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-askyourteam"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao AskYourTeam
 
@@ -131,19 +131,19 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 1. Clique em **Minha Organização**.
 
-    ![Configuração do AskYourTeam](./media/askyourteam-tutorial/user1.png)
+    ![Captura de tela que mostra o link Minha Organização.](./media/askyourteam-tutorial/user1.png)
 
 1. Clique em **Integrações**.
 
-    ![Configuração do AskYourTeam](./media/askyourteam-tutorial/configure1.png)
+    ![Captura de tela que mostra o link Integrações.](./media/askyourteam-tutorial/configure1.png)
 
 1. Clique em **Editar Configurações**.
 
-    ![Configuração do AskYourTeam](./media/askyourteam-tutorial/configure2.png)
+    ![Captura de tela que mostra a mensagem Logon Único com um botão Editar Configurações.](./media/askyourteam-tutorial/configure2.png)
 
 1. Na página **Editar a Integração de Logon Único**, execute as seguintes etapas: 
 
-    ![Configuração do AskYourTeam](./media/askyourteam-tutorial/configure3.png)
+    ![Captura de tela que mostra Editar Integração de Logon Único, em que pode inserir os valores para esta etapa.](./media/askyourteam-tutorial/configure3.png)
 
     a. Na caixa de texto **URL de Serviço de Logon Único do SAML**, cole o valor da **URL do Logon** copiado do portal do Azure.
 
@@ -168,15 +168,15 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 1. Clique em **Minha Organização**.
 
-    ![Configuração do AskYourTeam](./media/askyourteam-tutorial/user1.png)
+    ![Captura de tela que mostra o link Minha Organização, em que inicia essa tarefa.](./media/askyourteam-tutorial/user1.png)
 
 1. Clique em **Usuários** e selecione **Novo Usuário**.
 
-    ![Configuração do AskYourTeam](./media/askyourteam-tutorial/user2.png)
+    ![Captura de tela que mostra o link Usuários com Novo Usuário.](./media/askyourteam-tutorial/user2.png)
 
 1. Na seção **Novo Usuário**, execute as seguintes etapas:
 
-    ![Configuração do AskYourTeam](./media/askyourteam-tutorial/user3.png)
+    ![Captura de tela que mostra a seção Novo Usuário, em que você insere as informações do usuário.](./media/askyourteam-tutorial/user3.png)
 
     1. Na caixa de texto **Nome**, insira o nome do usuário.
 

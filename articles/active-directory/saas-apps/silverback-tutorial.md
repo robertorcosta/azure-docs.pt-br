@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 43f7cddfa6fb887fd421d1f90a41145c6182654d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 4df9b28d7a0d3e6b96aca3c99b5dacda3d41a676
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88517039"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91828025"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silverback"></a>Tutorial: Integração do Microsoft Azure Active Directory com Silverback
 
@@ -160,7 +160,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
@@ -213,7 +213,7 @@ Para habilitar os usuários do Microsoft Azure Active Directory no Silverback, d
 
     c. Na caixa de texto **Sobrenome**, insira o nome do usuário como **Fernandes**.
 
-    d. Na caixa de texto **Endereço de Email**, insira o email do usuário como **Brittasimon@contoso.com** .
+    d. Na caixa de texto **Endereço de email**, insira o email do usuário como **brendafernandes\@contoso.com**.
 
     e. Na caixa de texto **Senha**, insira sua senha.
 

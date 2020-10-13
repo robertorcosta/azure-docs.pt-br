@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: c14d70f7489115b980479e7225cc3b47f80b3f2f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 64156741437a6805b7060d2aaa67b8de5b4aad13
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554950"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826445"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-flock"></a>Tutorial: Integração do Azure Active Directory ao Flock
 
@@ -128,7 +128,7 @@ Para configurar o logon único do Azure AD com o Flock, execute as seguintes eta
 
 2. Selecione a guia **Autenticação** do painel de navegação esquerdo e, em seguida, selecione **Autenticação SAML**.
 
-    ![Configuração do Flock](./media/flock-tutorial/configure1.png)
+    ![Captura de tela que mostra a guia "Autenticação" com "Autenticação SAML" selecionada.](./media/flock-tutorial/configure1.png)
 
 3. Na seção **Autenticação SAML** , realize as seguintes etapas:
 
@@ -203,11 +203,11 @@ Para permitir que os usuários do Azure AD façam logon no Flock, eles devem ser
 
 2. Clique em **Gerenciar equipe** do painel de navegação esquerdo.
 
-    ![Adicionar Funcionário](./media/flock-tutorial/user1.png)
+    ![Captura de tela que mostra "Gerenciar Equipe" selecionado.](./media/flock-tutorial/user1.png)
 
 3. Clique na guia **Adicionar membro** e, em seguida, selecione **Membros da equipe**.
 
-    ![Adicionar Funcionário](./media/flock-tutorial/user2.png)
+    ![Captura de tela que mostra a guia "Adicionar Membro" e "Membros da Equipe" selecionados.](./media/flock-tutorial/user2.png)
 
 4. Insira o endereço de email do usuário como **brendafernandes\@contoso.com** e, em seguida, selecione **Adicionar Usuários**.
 

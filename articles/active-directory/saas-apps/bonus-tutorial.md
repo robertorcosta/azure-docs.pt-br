@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
-ms.openlocfilehash: fd82d3d2d2a76e0c0671c57d9254ff8c9030d3a3
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7c1bd1b3f9931eff2f19eac7b78881d4f7ad8ae0
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548252"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91744308"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bonusly"></a>Tutorial: integração do Azure Active Directory ao Bonusly
 
@@ -222,11 +222,11 @@ Para permitir que os usuários do Azure AD se conectem ao Bonusly, eles precisam
 
 1. Clique em **Adicionar Usuário**.
 
-    ![Adicionar Usuário](./media/bonus-tutorial/ic781044.png "Adicionar usuário")
+    ![Captura de tela que mostra Gerenciar Usuários, em que você pode selecionar Adicionar Usuário.](./media/bonus-tutorial/ic781044.png "Adicionar usuário")
 
 1. No diálogo **Adicionar Usuário** , realize as seguintes etapas:
 
-    ![Adicionar Usuário](./media/bonus-tutorial/ic781045.png "Adicionar usuário")  
+    ![Captura de tela que mostra a caixa de diálogo Adicionar Usuário, em que pode inserir essas informações.](./media/bonus-tutorial/ic781045.png "Adicionar usuário")  
 
     a. Na caixa de texto **Nome**, digite o nome do usuário, como **Brenda**.
 

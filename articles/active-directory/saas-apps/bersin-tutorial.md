@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 6fb8117a3e834dec71b9dbc98b4a34512a43f646
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: c032d8a5dc6cbfe181dccc6c7b4fd1db35a9a3a9
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88540688"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741444"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bersin"></a>Tutorial: Integração do Azure Active Directory com Bersin
 
@@ -98,7 +98,7 @@ Para configurar o logon único do Azure AD com o Bersin, execute as seguintes et
 
 4. Na seção **Configuração Básica do SAML**, caso deseje configurar o aplicativo no modo iniciado por **IDP**, execute a seguinte etapa:
 
-    ![Informações de logon único de Domínio e URLs do Bersin](common/idp-identifier-relay.png)
+    ![Captura de tela que mostra a Configuração Básica de SAML, em que você pode inserir o Identificador e a URL de Resposta e selecionar Salvar.](common/idp-identifier-relay.png)
 
     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://www.bersin.com/shibboleth`
 
@@ -108,7 +108,7 @@ Para configurar o logon único do Azure AD com o Bersin, execute as seguintes et
 
 5. Clique em **Definir URLs adicionais** e execute as seguintes etapas caso deseje configurar o aplicativo no modo iniciado por **SP**:
 
-    ![Informações de logon único de Domínio e URLs do Bersin](common/metadata-upload-additional-signon.png)
+    ![Captura de tela que mostra Definir URLs adicionais, em que você pode inserir uma URL de Logon.](common/metadata-upload-additional-signon.png)
 
     Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://www.bersin.com/Login.aspx`
 

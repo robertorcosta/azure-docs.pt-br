@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: aahi
-ms.openlocfilehash: 8e73ed8ac4712e84a900dcd85dbc8d756ccbdd62
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: a44655571099d936b34a4233bc12fa099e5bc338
+ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905776"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91660948"
 ---
 # <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>Tutorial: Visualizar anomalias usando a detecção em lotes e o Power BI
 
@@ -56,7 +56,7 @@ O Power BI converterá os carimbos de data/hora na primeira coluna em um tipo de
 
 Clique na faixa de opções **Transformar** no Editor do Power Query. No grupo **Qualquer Coluna**, abra o menu suspenso **Tipo de Dados:** e selecione **Texto**.
 
-![Uma imagem da tela "Navegador" da fonte de dados no Power BI](../media/tutorials/data-type-drop-down.png)
+![Uma imagem do menu suspenso de tipo de dados](../media/tutorials/data-type-drop-down.png)
 
 Quando você receber um aviso sobre a alteração do tipo de coluna, clique em **Substituir Atual**. Em seguida, clique em **Fechar e Aplicar** ou **Aplicar** na faixa de opções **Página Inicial**.
 
@@ -66,7 +66,7 @@ Para formatar e enviar o arquivo de dados para a API do Detector de Anomalias, i
 
 Verifique se a nova consulta está selecionada e, em seguida, clique em **Editor Avançado**.
 
-![Uma imagem do botão "Editor Avançado" no Power BI](../media/tutorials/advanced-editor-screen.png)
+![Uma imagem da tela "Editor Avançado"](../media/tutorials/advanced-editor-screen.png)
 
 No Editor Avançado, use o snippet do Power Query M a seguir para extrair as colunas da tabela e enviá-la à API. Depois disso, a consulta criará uma tabela com base na resposta JSON e a retornará. Substitua a variável `apiKey` pela chave de API válida do Detector de Anomalias e `endpoint` pelo ponto de extremidade. Depois de inserir a consulta no Editor Avançado, clique em **Concluído**.
 
@@ -80,7 +80,7 @@ No Editor Avançado, use o snippet do Power Query M a seguir para extrair as col
     jsonbody    = "{ ""Granularity"": ""daily"", ""Sensitivity"": 95, ""Series"": "& jsontext &" }",
     bytesbody   = Text.ToBinary(jsonbody),
     headers     = [#"Content-Type" = "application/json", #"Ocp-Apim-Subscription-Key" = apikey],
-    bytesresp   = bytesresp  = Web.Contents(endpoint, [Headers=headers, Content=bytesbody, ManualStatusHandling={400}]),
+    bytesresp   = Web.Contents(endpoint, [Headers=headers, Content=bytesbody, ManualStatusHandling={400}]),
     jsonresp    = Json.Document(bytesresp),
 
     respTable = Table.FromColumns({
@@ -114,7 +114,7 @@ No Editor Avançado, use o snippet do Power Query M a seguir para extrair as col
 
 Invoque a consulta na folha de dados selecionando `Sheet1` abaixo de **Inserir Parâmetro** e clique em **Invocar**.
 
-![Uma imagem do botão "Editor Avançado"](../media/tutorials/invoke-function-screenshot.png)
+![Uma imagem da função de invocação](../media/tutorials/invoke-function-screenshot.png)
 
 ## <a name="data-source-privacy-and-authentication"></a>Privacidade e autenticação da fonte de dados
 
@@ -148,11 +148,11 @@ Adicione os campos a seguir da **Função Invocada** ao campo **Valores** do gr�
 * LowerMargins
 * ExpectedValues
 
-![Uma imagem da tela da nova medida rápida](../media/tutorials/chart-settings.png)
+![Uma imagem das configurações do gráfico](../media/tutorials/chart-settings.png)
 
 Depois de adicionar os campos, clique no gráfico e redimensione-o para mostrar todos os pontos de dados. O gráfico será semelhante à captura de tela abaixo:
 
-![Uma imagem da tela da nova medida rápida](../media/tutorials/chart-visualization.png)
+![Uma imagem da visualização do gráfico](../media/tutorials/chart-visualization.png)
 
 ### <a name="display-anomaly-data-points"></a>Exibir pontos de dados de anomalias
 
@@ -162,15 +162,15 @@ No lado direito da janela do Power BI, abaixo do painel **CAMPOS**, clique com o
 
 Na tela exibida, selecione **Valor filtrado** como o cálculo. Defina **Valor Base** como `Sum of Value`. Em seguida, arraste `IsAnomaly` dos campos **Função Invocada** para **Filtro**. Selecione `True` no menu suspenso **Filtro**.
 
-![Uma imagem da tela da nova medida rápida](../media/tutorials/new-quick-measure-2.png)
+![Uma segunda imagem da tela de nova medida rápida](../media/tutorials/new-quick-measure-2.png)
 
 Depois de clicar em **OK**, você terá um campo `Value for True` na parte inferior da lista de campos. Clique com o botão direito do mouse nele e renomeie-o para **Anomalias**. Adicione-o aos **Valores** do gráfico. Em seguida, selecione a ferramenta **Formato** e defina o tipo do eixo X como **Categórico**.
 
-![Uma imagem da tela da nova medida rápida](../media/tutorials/format-x-axis.png)
+![Uma imagem do eixo x do formato](../media/tutorials/format-x-axis.png)
 
 Aplique cores ao gráfico clicando na ferramenta **Formato** e **Cores de dados**. O gráfico deverá ter uma aparência semelhante à seguinte:
 
-![Uma imagem da tela da nova medida rápida](../media/tutorials/final-chart.png)
+![Uma imagem do gráfico final](../media/tutorials/final-chart.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

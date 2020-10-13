@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 787de3e3e44ca921c5dccd7b51a2e655a31d112b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: ba76618892cace6681c82e96d7a2f9b36f839664
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555943"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775506"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-datahug"></a>Tutorial: integração do Azure Active Directory ao Datahug
 
@@ -99,7 +99,7 @@ Para configurar o logon único do Azure AD com o Datahug, execute as seguintes e
 
 4. Na seção **Configuração básica do SAML**, execute as etapas a seguir caso deseje configurar o aplicativo no modo **IDP** iniciado:
 
-    ![Informações de logon único de Domínio e URLs do Datahug](common/idp-intiated.png)
+    ![Captura de tela que mostra a seção "Configuração Básica de SAML" com "Identificador", "URL de resposta" e o botão "Salvar" realçados.](common/idp-intiated.png)
 
     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://apps.datahug.com/identity/<uniqueID>`
 
@@ -206,11 +206,11 @@ Quando se usa o Datahug, o provisionamento é uma tarefa manual.
 
 2. Passe o mouse sobre a **engrenagem** no canto superior direito e clique em **Configurações**
    
-    ![Adicionar Funcionário](./media/datahug-tutorial/1.png)
+    ![Captura de tela que mostra a página inicial "Datahug" com o ícone "Engrenagem" selecionado e "Configurações" selecionadas no menu suspenso.](./media/datahug-tutorial/1.png)
 
 3. Escolha **Pessoas** e clique na guia **Adicionar Usuários**
 
-    ![Adicionar Funcionário](./media/datahug-tutorial/2.png)
+    ![Captura de tela que mostra a página "Configurações" com a guia "Pessoas" e "Adicionar Usuários" selecionado.](./media/datahug-tutorial/2.png)
 
 4. Digite o email da pessoa para a qual você gostaria de criar uma conta e clique em **Adicionar**.
 

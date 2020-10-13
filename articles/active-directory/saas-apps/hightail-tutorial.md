@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 0348e5c773f37606a3975a8e62e556bef291a758
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: d39f46469d80b3e2d7bf361bd349a39afb16bd2d
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297222"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826184"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hightail"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Hightail
 
@@ -155,15 +155,15 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 1. Clique no **ícone de Usuário** no canto superior direito da página. 
 
-    ![Configurar o logon único](./media/hightail-tutorial/configure1.png)
+    ![Captura de tela que mostra o ícone do usuário.](./media/hightail-tutorial/configure1.png)
 
 1. Clique na guia **Exibir Console de Administrador**.
 
-    ![Configurar o logon único](./media/hightail-tutorial/configure2.png)
+    ![Captura de tela que mostra o botão Exibir Console do Administrador para o Usuário.](./media/hightail-tutorial/configure2.png)
 
 1. No menu superior, clique na guia **SAML** e execute estas etapas:
 
-    ![Configurar o logon único](./media/hightail-tutorial/configure3.png)
+    ![Captura de tela mostra a guia SAML, na qual você pode inserir o logon URL e o certificado SAML.](./media/hightail-tutorial/configure3.png)
 
     a. Na caixa de texto **URL de Logon**, cole o valor da **URL de Logon** copiado do portal do Azure.
 

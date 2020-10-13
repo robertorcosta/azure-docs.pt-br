@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 07/10/2020
+ms.date: 10/01/2020
 ms.author: alkohli
-ms.openlocfilehash: 301c75df6bedf430af64bbeff63f2eb759691355
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: bd8e6d4175c57bd31c3fd83bf6f9669d2b65ffb2
+ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86208746"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91660829"
 ---
 # <a name="tutorial-copy-data-from-azure-data-box-via-nfs-preview"></a>Tutorial: Copiar dados do Azure Data Box por meio de NFS (versão prévia)
 
@@ -45,15 +45,17 @@ Antes de começar, verifique se:
 
 [!INCLUDE [data-box-shares](../../includes/data-box-shares.md)]
 
-Se você estiver usando um computador host Linux, execute as seguintes etapas para configurar o Data Box para permitir o acesso aos clientes NFS.
+Se você estiver usando um computador host Linux, execute as seguintes etapas para configurar o Data Box para permitir o acesso aos clientes NFS. O Data Box pode conectar até cinco clientes NFS por vez.
 
-1. Forneça os endereços IP dos clientes permitidos que podem acessar o compartilhamento. Na interface do usuário da web local, acesse **Conectar e copiar** a página. Sob **as configurações de NFS**, clique em **acesso para cliente NFS**. 
+1. Forneça os endereços IP dos clientes permitidos que podem acessar o compartilhamento:
 
-    ![Configurar o acesso de cliente NFS 1](media/data-box-deploy-export-copy-data/nfs-client-access-1.png)
+    1.  Na IU da Web local, acesse a página **Conectar e copiar**. Sob **as configurações de NFS**, clique em **acesso para cliente NFS**. 
 
-2. Forneça o endereço IP do cliente NFS e clique em **Add**. Você pode configurar o acesso para vários clientes NFS repetindo essa etapa. Clique em **OK**.
+        ![Abrir o acesso ao cliente NFS](media/data-box-deploy-export-copy-data/nfs-client-access-1.png)
 
-    ![Configurar o acesso do cliente NFS 2](media/data-box-deploy-export-copy-data/nfs-client-access-2.png)
+    1. Para adicionar um cliente NFS, forneça o endereço IP do cliente e clique em **Adicionar**. O Data Box pode conectar até cinco clientes NFS por vez. Quando terminar, clique em **OK**.
+
+         ![Adicionar um cliente NFS](media/data-box-deploy-export-copy-data/nfs-client-access-2.png)
 
 2. Assegure-se de que o computador host Linux tenha uma [versão suportada](data-box-system-requirements.md) do cliente NFS instalado. Use a versão específica para sua distribuição do Linux. 
 

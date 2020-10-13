@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
-ms.openlocfilehash: ec0cc88122521a5f59da45107956b4f25156b02f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0c32dbdafe8d2681d341cb7f2ee6f0ce45123cab
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545243"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826385"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-image-relay"></a>Tutorial: Integração do Azure Active Directory com o Image Relay
 
@@ -128,27 +128,27 @@ Para configurar o logon único do Azure AD com o Image Relay, execute as seguint
 
 2. Na barra de ferramentas na parte superior, clique na carga de trabalho **Usuários e Permissões**.
 
-    ![Configurar o logon único](./media/imagerelay-tutorial/tutorial_imagerelay_06.png) 
+    ![A captura de tela mostra Usuários e permissões selecionado na barra de ferramentas.](./media/imagerelay-tutorial/tutorial_imagerelay_06.png) 
 
 3. Clique em **Criar Nova Permissão**.
 
-    ![Configurar o logon único](./media/imagerelay-tutorial/tutorial_imagerelay_08.png)
+    ![A captura de tela mostra uma caixa de texto para inserir o título da Permissão e uma opção para escolher o Tipo de Permissão.](./media/imagerelay-tutorial/tutorial_imagerelay_08.png)
 
 4. Na carga de trabalho **Configurações de Logon Único**, marque a caixa de seleção **Este Grupo pode apenas entrar via logon único** e clique em **Salvar**.
 
-    ![Configurar o logon único](./media/imagerelay-tutorial/tutorial_imagerelay_09.png) 
+    ![A captura de tela mostra as Configurações de Logon Único, nas quais você pode selecionar a opção.](./media/imagerelay-tutorial/tutorial_imagerelay_09.png) 
 
 5. Vá para **Configurações da Conta**.
 
-    ![Configurar o logon único](./media/imagerelay-tutorial/tutorial_imagerelay_10.png) 
+    ![A captura de tela mostra a opção de barra de ferramentas de Configurações da Conta.](./media/imagerelay-tutorial/tutorial_imagerelay_10.png) 
 
 6. Vá para a carga de trabalho **Configurações de Logon Único** .
 
-    ![Configurar o logon único](./media/imagerelay-tutorial/tutorial_imagerelay_11.png)
+    ![A captura de tela mostra a opção de menu Configurações de Logon Único.](./media/imagerelay-tutorial/tutorial_imagerelay_11.png)
 
 7. Na caixa de diálogo **Configurações de SAML** , execute as seguintes etapas:
 
-    ![Configurar o logon único](./media/imagerelay-tutorial/tutorial_imagerelay_12.png)
+    ![A captura de tela mostra a caixa de diálogo Configurações de SAML, em que você pode inserir as informações.](./media/imagerelay-tutorial/tutorial_imagerelay_12.png)
 
     a. Na caixa de texto **URL de Logon**, cole o valor da **URL de Logon** copiado do portal do Azure.
 
@@ -160,19 +160,19 @@ Para configurar o logon único do Azure AD com o Image Relay, execute as seguint
 
     e. Em **Certificado x.509**, clique em **Atualizar Certificado**.
 
-    ![Configurar o logon único](./media/imagerelay-tutorial/tutorial_imagerelay_17.png)
+    ![A captura de tela mostra a opção Atualizar Certificado.](./media/imagerelay-tutorial/tutorial_imagerelay_17.png)
 
     f. Abra o certificado baixado no Bloco de Notas, copie o conteúdo e cole-o na caixa de texto **Certificado x.509**.
 
-    ![Configurar o logon único](./media/imagerelay-tutorial/tutorial_imagerelay_18.png)
+    ![A captura de tela mostra o certificado X ponto 509.](./media/imagerelay-tutorial/tutorial_imagerelay_18.png)
 
     g. Na seção **Provisionamento do Usuário Just-In-Time**, marque **Habilitar o Provisionamento do Usuário Just-In-Time**.
 
-    ![Configurar o logon único](./media/imagerelay-tutorial/tutorial_imagerelay_19.png)
+    ![A captura de tela mostra a seção Provisionamento de Usuário Just-In-Time com o controle de habilitação selecionado.](./media/imagerelay-tutorial/tutorial_imagerelay_19.png)
 
     h. Selecione o grupo de permissão (por exemplo, **SSO Básico**) que tem permissão para entrar somente por meio de logon único.
 
-    ![Configurar o logon único](./media/imagerelay-tutorial/tutorial_imagerelay_20.png)
+    ![A captura de tela mostra a seção Provisionamento de Usuário Just-In-Time com SSO Básico selecionado.](./media/imagerelay-tutorial/tutorial_imagerelay_20.png)
 
     i. Clique em **Save** (Salvar).
 
@@ -237,11 +237,11 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Image 
 
 2. Acesse **Usuários e Permissões** e selecione **Criar Usuário SSO**.
 
-    ![Configurar o logon único](./media/imagerelay-tutorial/tutorial_imagerelay_21.png) 
+    ![A captura de tela mostra Criar Usuário de SSO selecionado no menu.](./media/imagerelay-tutorial/tutorial_imagerelay_21.png) 
 
 3. Insira o **Email**, o **Nome**, o **Sobrenome** e a **Empresa** do usuário que você deseja provisionar e selecione o grupo de permissões (por exemplo, SSO Básico), que é o grupo que pode entrar somente por meio de logon único.
 
-    ![Configurar o logon único](./media/imagerelay-tutorial/tutorial_imagerelay_22.png)
+    ![A captura de tela mostra a página Criar um Usuário de SSO, em que você pode inserir as informações necessárias.](./media/imagerelay-tutorial/tutorial_imagerelay_22.png)
 
 4. Clique em **Criar**.
 

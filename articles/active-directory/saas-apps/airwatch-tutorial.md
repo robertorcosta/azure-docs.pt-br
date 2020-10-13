@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 049066ffc5ce0aea2af956343dfa7ba97b6b5bb4
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2baff2ac2af10caf857fd08b0d7e7df5030220e4
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88542811"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758108"
 ---
 # <a name="tutorial-integrate-airwatch-with-azure-active-directory"></a>Tutorial: Integrar o AirWatch ao Azure Active Directory
 
@@ -125,7 +125,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Clique na guia **Usuário**, na caixa de texto **DN Base**, digite seu nome de domínio e clique em **Salvar**.
 
-   ![Usuário](./media/airwatch-tutorial/ic791922.png "Usuário")
+   ![Captura de tela que realça a caixa de texto DN de Base.](./media/airwatch-tutorial/ic791922.png "Usuário")
 
 1. Clique na guia **Servidor** .
 
@@ -133,7 +133,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Execute as seguintes etapas na seção **LDAP**:
 
-    ![Upload](./media/airwatch-tutorial/ic791924.png "LDAP")   
+    ![Captura de tela que mostra as alterações que você precisa fazer na seção LDAP.](./media/airwatch-tutorial/ic791924.png "LDAP")   
 
     a. Para **Tipo de Diretório**, selecione **Nenhum**.
 
@@ -223,7 +223,7 @@ Para permitir que os usuários do Azure AD se conectem ao AirWatch, eles devem s
 
 3. No menu **Usuários**, clique em **Exibição de Lista** e em **Adicionar > Adicionar Usuário**.
   
-   ![Adicionar Usuário](./media/airwatch-tutorial/ic791930.png "Adicionar usuário")
+   ![Captura de tela que realça os botões Adicionar e Adicionar Usuário.](./media/airwatch-tutorial/ic791930.png "Adicionar usuário")
 
 4. No diálogo **Adicionar/Editar Usuário** , realize as seguintes etapas:
 

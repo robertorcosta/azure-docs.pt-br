@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/25/2020
 ms.author: jeedes
-ms.openlocfilehash: 02358dcffa6f757e3c61b3c1ae0e7c5298f7d9ca
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 63d3a874c3d3d55ec1e3af3765ae63119dca287b
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88542675"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740349"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-britive"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Britive
 
@@ -129,11 +129,11 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
 1. Clique no **Ícone de Configurações de Administração** e selecione **e Segurança**.
 
-    ![Configuração do Britive](./media/britive-tutorial/configure1.png)
+    ![Captura de tela que mostra o site do Britive com Configurações e Segurança selecionados.](./media/britive-tutorial/configure1.png)
 
 1. Selecione **Configuração do SSO**, realize as seguintes etapas:
 
-    ![Configuração do Britive](./media/britive-tutorial/configure2.png)
+    ![Captura de tela mostra a Configuração do SSO, você insere as informações nesta etapa.](./media/britive-tutorial/configure2.png)
 
     a. Copie o valor **Público-alvo/ID da Entidade** e cole-o na caixa de texto **Identificador (ID da Entidade)** na seção **Configuração Básica de SAML** no portal do Azure.
 
@@ -147,15 +147,15 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
 1. Clique em **Ícone de Configurações de Administrador** e selecione **Administração do Usuário**.
 
-    ![Configuração do Britive](./media/britive-tutorial/user1.png)
+    ![Captura de tela que mostra o site do Britive com Configurações e Administração do Usuário selecionados.](./media/britive-tutorial/user1.png)
 
 1. Clique em **ADICIONAR USUÁRIO**.
 
-    ![Configuração do Britive](./media/britive-tutorial/user2.png)
+    ![Captura de tela que mostra o botão ADICIONAR USUÁRIO.](./media/britive-tutorial/user2.png)
 
 1. Preencha todos os detalhes necessários do usuário de acordo com o requisito da sua organização e clique em **ADICIONAR USUÁRIO**.
 
-    ![Configuração do Britive](./media/britive-tutorial/user3.png)
+    ![Captura de tela que mostra a página Adicionar um Usuário, em que você insere as informações do usuário.](./media/britive-tutorial/user3.png)
 
 ## <a name="test-sso"></a>Testar o SSO
 

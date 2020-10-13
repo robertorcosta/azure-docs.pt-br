@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 2b8e8a6df2fc355ad6a8ef50d801dc7457e97c63
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2e355241191a4bdcab12c7c0b6527706b044a70c
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547759"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714473"
 ---
 # <a name="tutorial-integrate-appraisd-with-azure-active-directory"></a>Tutorial: Integrar o Appraisd ao Azure Active Directory
 
@@ -86,7 +86,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. O aplicativo Appraisd espera as declarações SAML em um formato específico, o que exige a adição de mapeamentos de atributo personalizado à configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão, em que **nameidentifier** é mapeado com **user.userprincipalname**. O aplicativo Appraisd espera que **nameidentifier** seja mapeado com **user.mail**. Portanto, você precisa editar o mapeamento de atributo clicando no ícone **Editar** e alterar o mapeamento de atributo.
 
-    ![image](common/edit-attribute.png)
+    ![Captura de tela que mostra o painel Atributos do Usuário, com o ícone Editar realçado.](common/edit-attribute.png)
 
 1. Na página **Configurar o Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, localize **Certificado (Base64)** e escolha **Baixar** para fazer o download do certificado e salvá-lo no computador.
 
@@ -110,15 +110,15 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 4. No canto superior direito da página, clique no ícone **Configurações**, em seguida, navegue até **Configuração**.
 
-    ![image](./media/appraisd-tutorial/tutorial_appraisd_sett.png)
+    ![Captura de tela que mostra o link de Configuração em destaque.](./media/appraisd-tutorial/tutorial_appraisd_sett.png)
 
 5. Do lado esquerdo do menu, clique em **Logon único SAML**.
 
-    ![image](./media/appraisd-tutorial/tutorial_appraisd_single.png)
+    ![Captura de tela que mostra as opções de Configuração com a opção de Logon único do SAML realçada.](./media/appraisd-tutorial/tutorial_appraisd_single.png)
 
 6. Na página **Configuração de Logon Único SAML 2.0**, realize as seguintes etapas:
 
-    ![image](./media/appraisd-tutorial/tutorial_appraisd_saml.png)
+    ![Captura de tela que mostra a página Configuração de Logon Único SAML 2.0, em que é possível editar o Estado de Retransmissão Padrão e a URL de logon iniciado pelo serviço.](./media/appraisd-tutorial/tutorial_appraisd_saml.png)
 
     a. Copiar o **Estado de retransmissão padrão** de valor e cole-o na caixa de texto **Estado de retransmissão** **Configuração SAML Básica** no portal do Azure.
 
@@ -126,7 +126,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 7. Role para baixo em sintonia **identificando usuários**, execute as seguintes etapas:
 
-    ![image](./media/appraisd-tutorial/tutorial_appraisd_identifying.png)
+    ![Captura de tela que mostra a Identificação de usuários, em que pode inserir os valores desta etapa.](./media/appraisd-tutorial/tutorial_appraisd_identifying.png)
 
     a. Na caixa de texto **URL do Provedor de identidade de Logon único**, cole o valor da **URL de logon**, que você copiou do portal do Azure e clique em **Salvar**.
 
@@ -174,15 +174,15 @@ Para habilitar o Azure Active Directory, os usuários entram no Appraisd, eles d
 
 2. No canto superior direito da página, clique no ícone **Configurações**, em seguida, navegue até **Centro de administração**.
 
-    ![image](./media/appraisd-tutorial/tutorial_appraisd_admin.png)
+    ![Captura de tela que mostra as opções de configurações, em que pode selecionar o Centro de administração.](./media/appraisd-tutorial/tutorial_appraisd_admin.png)
 
 3. Na barra de ferramentas na parte superior da página, clique em **Pessoas**, em seguida, navegue até **Adicionar um novo usuário**.
 
-    ![image](./media/appraisd-tutorial/tutorial_appraisd_user.png)
+    ![Captura de tela que mostra a página do Appraisd com Pessoas e Adicionar novo usuário em destaque.](./media/appraisd-tutorial/tutorial_appraisd_user.png)
 
 4. Na página **Adicionar um novo usuário**, execute as seguintes etapas:
 
-    ![image](./media/appraisd-tutorial/tutorial_appraisd_newuser.png)
+    ![Captura de tela que mostra a página Adicionar um novo usuário.](./media/appraisd-tutorial/tutorial_appraisd_newuser.png)
 
     a. Na caixa de texto **Nome**, insira o nome do usuário como **Brenda**.
 

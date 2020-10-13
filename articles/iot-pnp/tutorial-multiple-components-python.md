@@ -7,12 +7,12 @@ ms.date: 7/14/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 084ba93baa35790da58e7765750bb79de27ed69c
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 1b329206dcc41d8f7fcb3874da037f5b57142722
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91578012"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613655"
 ---
 # <a name="tutorial-connect-a-sample-iot-plug-and-play-multiple-component-device-application-to-iot-hub-python"></a>Tutorial: Conectar um aplicativo de exemplo de dispositivo de vários componentes do IoT Plug and Play ao Hub IoT (Python)
 
@@ -57,13 +57,13 @@ Este exemplo implementa um dispositivo controlador de temperatura do IoT Plug an
 A pasta *azure-iot-sdk-python\azure-iot-device\samples\pnp* contém o código de exemplo do dispositivo IoT Plug and Play. Os arquivos para o exemplo do controlador de temperatura são:
 
 - temp_controller_with_thermostats.py
-- pnp_helper_preview_refresh.py
+- pnp_helper.py
 
 O controlador de temperatura tem vários componentes e um componente padrão, com base no modelo de DTDL do controlador de temperatura.
 
 Abra o arquivo *temp_controller_with_thermostats.py* em um editor de sua escolha. O código neste arquivo:
 
-1. Importa `pnp_helper_preview_refresh.py` para obter acesso aos métodos auxiliares.
+1. Importa `pnp_helper.py` para obter acesso aos métodos auxiliares.
 
 1. Define dois DTMIs (identificadores de modelo de gêmeos digitais) que representam com exclusividade duas interfaces diferentes, definidas no modelo de DTDL. Os componentes em um controlador de temperatura real devem implementar essas duas interfaces. Essas duas interfaces já estão publicadas em um repositório central. Esses DTMIs devem ser conhecidos do usuário e variar dependendo do cenário de implementação do dispositivo. Para o exemplo atual, essas duas interfaces representam:
 

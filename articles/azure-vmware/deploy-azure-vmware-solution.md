@@ -2,13 +2,14 @@
 title: Implantar e configurar a Solução VMware no Azure
 description: Saiba como usar as informações coletadas na fase de planejamento para implantar a nuvem privada da Solução VMware no Azure.
 ms.topic: tutorial
+ms.author: tredavis
 ms.date: 10/02/2020
-ms.openlocfilehash: af2a9e4fcb4125683342ad739e3890671f64b0bf
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: c20bf0f4a8c182d5ade1caec0dd66100c4613204
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91598179"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776418"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>Implantar e configurar a Solução VMware no Azure
 
@@ -28,17 +29,15 @@ Use as informações coletadas no artigo [Planejando a implantação da Soluçã
 
 [!INCLUDE [create-avs-private-cloud-azure-portal](includes/create-private-cloud-azure-portal-steps.md)]
 
-
+>[!NOTE]
+>Para obter uma visão geral de ponta a ponta desta etapa, assista ao vídeo [Solução VMware no Azure: implantação](https://www.youtube.com/embed/1JLB3L2WDWI). 
 
 ## <a name="create-the-jump-box"></a>Criar o jumpbox
 
 >[!IMPORTANT]
 >Se você tiver deixado a opção **Rede Virtual** em branco durante a etapa de provisionamento inicial na tela **Criar uma Nuvem Privada**, conclua o tutorial [Configurar a rede da nuvem privada do VMware](tutorial-configure-networking.md) **antes** de continuar com esta seção.  
 
-
-
 Depois de implantar a Solução VMware no Azure, você criará o jumpbox da rede virtual que se conecta com o vCenter e com o NSX. Após a configuração dos circuitos do ExpressRoute e do Alcance Global do ExpressRoute, o jumpbox não será necessário.  Mas é útil acessar o vCenter e o NSX na Solução VMware no Azure.  
-
 
 :::image type="content" source="media/pre-deployment/jump-box-diagram.png" alt-text="Criar o jumpbox da Solução VMware no Azure" border="false" lightbox="media/pre-deployment/jump-box-diagram.png":::
 

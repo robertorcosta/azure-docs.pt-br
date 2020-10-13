@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/14/2020
 ms.author: jeedes
-ms.openlocfilehash: 7377c6ea92ea53ca14525938e7522448afac541c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d2a3eda97fec03e767425b7f7a126073b2f13ca5
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548327"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713637"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory à AWS (Amazon Web Services)
 
@@ -304,7 +304,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
 18. Crie uma política para este usuário.
 
-    ![Captura de tela de Adicionar usuário](./media/amazon-web-service-tutorial/adduser2.png)
+    ![Captura de tela que mostra a página Adicionar usuário, na qual você pode criar uma política para o usuário.](./media/amazon-web-service-tutorial/adduser2.png)
 
     a. Selecione **Anexar políticas existentes diretamente**.
 
@@ -322,7 +322,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
 20. Baixe as credenciais do usuário de um usuário.
 
-    ![Captura de tela de Adicionar usuário](./media/amazon-web-service-tutorial/adduser4.png)
+    ![Captura de tela que mostra a página Adicionar usuário com um botão Baixar .csv para obter as credenciais do usuário.](./media/amazon-web-service-tutorial/adduser4.png)
 
     a. Copie a **ID de chave de acesso** do usuário e a **Chave de acesso secreta**.
 

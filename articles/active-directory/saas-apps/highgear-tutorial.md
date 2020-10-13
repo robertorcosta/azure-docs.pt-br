@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/16/2019
 ms.author: jeedes
-ms.openlocfilehash: af2630b977c1ce34712a582175674277799f105b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a48772c4325717a64bd36873675ff19c6a332de0
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550598"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817162"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-highgear"></a>Tutorial: Integração do Azure Active Directory ao HighGear
 
@@ -99,7 +99,7 @@ Para configurar o logon único do Azure AD com o sistema HighGear, execute as et
 
 4. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
 
-    ![Informações de logon único em domínio e URLs do HighGear](common/idp-intiated.png)
+    ![Captura de tela que mostra a Configuração Básica de SAML, em que você pode inserir o Identificador e a URL de Resposta e selecionar Salvar.](common/idp-intiated.png)
 
     a. Na caixa de texto **Identificador**, cole o valor do campo **ID da entidade do provedor de serviço** que está na página Configurações de logon único no sistema HighGear.
 
@@ -116,7 +116,7 @@ Para configurar o logon único do Azure AD com o sistema HighGear, execute as et
 
     c. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 
-     ![Informações de logon único em domínio e URLs do HighGear](common/metadata-upload-additional-signon.png)
+     ![Captura de tela que mostra Definir URLs adicionais, em que você pode inserir uma URL de Logon.](common/metadata-upload-additional-signon.png)
 
      Na caixa de texto **URL de logon**, cole o valor do campo **ID da entidade do provedor de serviço** que está na página Configurações de logon único no sistema HighGear. (Essa ID da entidade também é a URL base do sistema HighGear que deve ser usada para o logon iniciado por SP.)
 

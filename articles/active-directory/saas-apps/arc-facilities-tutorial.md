@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/05/2019
 ms.author: jeedes
-ms.openlocfilehash: bca696cc633a1d2a4fd64180135bb4b1e25f801c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 953b1d766788092564ae32f6c0ab1fb3e57c492f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88540569"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713888"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-arc-facilities"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao ARC Facilities
 
@@ -84,15 +84,15 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. O aplicativo ARC Facilities espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados de acordo com a sua configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão. Clique no ícone **Editar** para abrir a caixa de diálogo Atributos de usuário.
 
-    ![image](common/edit-attribute.png)
+    ![Captura de tela que mostra a caixa de diálogo Atributos do Usuário, com o ícone Editar em destaque.](common/edit-attribute.png)
 
 1. Além do demonstrado acima, o aplicativo ARC Facilities espera que mais alguns atributos sejam passados na resposta SAML. Na seção**Atributos e Declarações de Usuário** na caixa de diálogo **Declarações de Grupo (Versão Prévia)** , execute as seguintes etapas:
 
     a. Clique na **caneta** ao lado de **Grupos retornados na declaração**.
 
-    ![image](./media/arc-facilities-tutorial/config01.png)
+    ![Captura de tela que mostra Atributos e Declarações de Usuário com uma caneta ao lado de Grupos retornados na declaração em destaque.](./media/arc-facilities-tutorial/config01.png)
 
-    ![image](./media/arc-facilities-tutorial/config02.png)
+    ![Captura de tela mostra Declarações de Grupo com Todos os grupos e a ID do Grupo selecionados e o botão Salvar em destaque.](./media/arc-facilities-tutorial/config02.png)
 
     b. Selecione **Todos os Grupos** na lista de opções.
 

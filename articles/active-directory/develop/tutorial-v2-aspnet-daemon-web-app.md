@@ -1,5 +1,6 @@
 ---
-title: Criar um daemon multilocatário que usa o ponto de extremidade da plataforma de identidade da Microsoft
+title: 'Tutorial: Criar um daemon multilocatário que acessa dados corporativos do Microsoft Graph | Azure'
+titleSuffix: Microsoft identity platform
 description: Neste tutorial, saiba como chamar uma API Web do ASP.NET protegida pelo Azure Active Directory em um aplicativo de área de trabalho do Windows (WPF). O cliente do WPF autentica um usuário, solicita um token de acesso e chama a API Web.
 services: active-directory
 author: jmprieur
@@ -11,14 +12,14 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 4b05bbf818676cc70f485dd94ece79141e8f01a4
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 72b72959f7b5c89bfad4495c8534de5dfaaefe8b
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90982855"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611088"
 ---
-# <a name="tutorial-build-a-multitenant-daemon-that-uses-the-microsoft-identity-platform-endpoint"></a>Tutorial: Criar um daemon multilocatário que usa o ponto de extremidade da plataforma de identidade da Microsoft
+# <a name="tutorial-build-a-multi-tenant-daemon-that-uses-the-microsoft-identity-platform"></a>Tutorial: Criar um daemon multilocatário que usa a plataforma de identidade da Microsoft
 
 Neste tutorial, você aprenderá a usar a plataforma de identidade da Microsoft para acessar os dados de clientes empresariais da Microsoft em um processo de execução longa e não interativa. O daemon de exemplo usa a [concessão de credenciais de cliente OAuth2](v2-oauth2-client-creds-grant-flow.md) para adquirir um token de acesso. Em seguida, o daemon usa o token para chamar o [Microsoft Graph](https://graph.microsoft.io) e acessar dados organizacionais.
 
@@ -30,28 +31,23 @@ Neste tutorial, você aprenderá a usar a plataforma de identidade da Microsoft 
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
+## <a name="prerequisites"></a>Pré-requisitos
+
+- [Visual Studio 2017 ou 2019](https://visualstudio.microsoft.com/downloads/).
+- Um locatário do Azure AD. Para saber mais, consulte [Como obter um locatário do Azure AD](quickstart-create-new-tenant.md).
+- Uma ou mais contas de usuário em seu locatário do Azure AD. Este exemplo não funcionará com uma conta Microsoft. Se você tiver entrado no [portal do Azure](https://portal.azure.com) com uma conta Microsoft e nunca tiver criado uma conta de usuário em seu diretório, faça isso agora.
+
+## <a name="scenario"></a>Cenário
+
 O aplicativo é criado como um aplicativo MVC ASP.NET. Ele usa o middleware OWIN OpenID Connect para conectar usuários.
 
 O componente "daemon" neste exemplo é um controlador de API, `SyncController.cs`. Quando o controlador é chamado, ele efetua pull em uma lista de usuários no Microsoft Graph no locatário do Azure AD (Azure Active Directory) do cliente. O `SyncController.cs` é disparado por uma chamada AJAX no aplicativo Web. Ele usa a [MSAL (biblioteca de autenticação da Microsoft) para .NET](msal-overview.md) para adquirir um token de acesso para o Microsoft Graph.
 
->[!NOTE]
-> Se você é novo na plataforma de identidade da Microsoft, recomendamos começar com o [início rápido do daemon do .NET Core](quickstart-v2-netcore-daemon.md).
-
-## <a name="scenario"></a>Cenário
-
-Já que o aplicativo é um aplicativo multilocatário para clientes empresariais da Microsoft, ele deve fornecer uma maneira para que os clientes "inscrevam" ou "conectem" o aplicativo aos dados da empresa. Durante o fluxo de conexão, um administrador da empresa primeiro concede *permissões de aplicativo* diretamente ao aplicativo para que ele possa acessar os dados da empresa de maneira não interativa, sem a presença de um usuário conectado. A maior parte da lógica neste exemplo mostra como alcançar esse fluxo de conexão usando a plataforma de identidade de ponto de extremidade de [consentimento do administrador](v2-permissions-and-consent.md#using-the-admin-consent-endpoint).
+Como o aplicativo é multilocatário para clientes empresariais da Microsoft, ele precisa permitir que os clientes "inscrevam" ou "conectem" o aplicativo aos dados da empresa. Durante o fluxo de conexão, um administrador da empresa primeiro concede *permissões de aplicativo* diretamente ao aplicativo para que ele possa acessar os dados da empresa de maneira não interativa, sem a presença de um usuário conectado. A maior parte da lógica neste exemplo mostra como alcançar esse fluxo de conexão usando a plataforma de identidade de ponto de extremidade de [consentimento do administrador](v2-permissions-and-consent.md#using-the-admin-consent-endpoint).
 
 ![O diagrama mostra o Aplicativo UserSync com três itens locais que se conectam ao Azure. O Start dot Auth adquire um token interativamente para se conectar ao Azure AD, o AccountController obtém o consentimento do administrador para se conectar ao Azure AD e o SyncController lê o usuário para se conectar ao Microsoft Graph.](./media/tutorial-v2-aspnet-daemon-webapp/topology.png)
 
 Para obter mais informações sobre os conceitos usados neste exemplo, leia a [documentação do protocolo de credenciais do cliente do ponto de extremidade da plataforma de identidade](v2-oauth2-client-creds-grant-flow.md).
-
-## <a name="prerequisites"></a>Pré-requisitos
-
-Para executar o exemplo presente neste início rápido, você precisará de:
-
-- [Visual Studio 2017 ou 2019](https://visualstudio.microsoft.com/downloads/).
-- Um locatário do Azure AD. Para saber mais, consulte [Como obter um locatário do Azure AD](quickstart-create-new-tenant.md).
-- Uma ou mais contas de usuário em seu locatário do Azure AD. Este exemplo não funcionará com uma conta Microsoft (anteriormente, conta do Windows Live). Se você tiver entrado no [portal do Azure](https://portal.azure.com) com uma conta Microsoft e nunca tiver criado uma conta de usuário em seu diretório, precisará fazer isso agora.
 
 ## <a name="clone-or-download-this-repository"></a>Clonar ou baixar este repositório
 
@@ -256,17 +252,8 @@ Se você encontrar um bug no MSAL.NET, crie um registro do problema em [Problema
 Para fornecer uma recomendação, acesse a [página Voz do Usuário](https://feedback.azure.com/forums/169401-azure-active-directory).
 
 ## <a name="next-steps"></a>Próximas etapas
-Saiba mais sobre os diferentes [fluxos de autenticação e cenários de aplicativos](authentication-flows-app-scenarios.md) aos quais a plataforma de identidade da Microsoft dá suporte.
 
-Para obter mais informações, confira a seguinte documentação conceitual:
+Saiba mais sobre a criação de aplicativos daemon que usam a plataforma de identidade da Microsoft para acessar APIs Web protegidas:
 
-- [Locatários no Azure Active Directory](single-and-multi-tenant-apps.md)
-- [Noções básicas sobre experiências de consentimento de aplicativo do Azure AD](application-consent-experience.md)
-- [Entrar qualquer usuário do Azure Active Directory usando o padrão de aplicativo multilocatário](howto-convert-app-to-be-multi-tenant.md)
-- [Entenda o consentimento do usuário e do administrador](howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent)
-- [Objetos de entidade de serviço e aplicativo no Azure Active Directory](app-objects-and-service-principals.md)
-- [Início Rápido: Registrar um aplicativo na plataforma de identidade da Microsoft](quickstart-register-app.md)
-- [Início Rápido: Configurar um aplicativo cliente para acessar APIs Web](quickstart-configure-app-access-web-apis.md)
-- [Adquirir um token para um aplicativo com fluxos de credencial do cliente](msal-client-applications.md)
-
-Para um aplicativo do daemon de console multilocatário mais simples, veja o [Início rápido do daemon do .NET Core](quickstart-v2-netcore-daemon.md).
+> [!div class="nextstepaction"]
+> [Cenário: Aplicativo daemon que chama APIs Web](scenario-daemon-overview.md)

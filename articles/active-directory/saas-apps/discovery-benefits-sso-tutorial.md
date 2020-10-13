@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/03/2019
 ms.author: jeedes
-ms.openlocfilehash: 3beefb467f7875e6bc76765811c6525f5dab9393
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 83f1eef14a5c22fbab998fb6c939775873748670
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88536165"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91774089"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-discovery-benefits-sso"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao SSO da Discovery Benefits
 
@@ -86,7 +86,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     a. Clique no ícone **Editar** para abrir a caixa de diálogo **Identificador Exclusivo do Usuário (ID do Nome)** .
 
-    ![Configuração de SSO da Discovery Benefits](./media/discovery-benefits-sso-tutorial/attribute01.png)
+    ![Captura de tela que mostra a seção "Atributos e Declarações do Usuário" com as reticências "Declaração necessária" no lado direito selecionadas.](./media/discovery-benefits-sso-tutorial/attribute01.png)
 
     ![Configuração de SSO da Discovery Benefits](./media/discovery-benefits-sso-tutorial/attribute02.png)
 
@@ -103,7 +103,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     f. Nós preenchemos automaticamente as declarações adicionais que são necessárias para a configuração de SSO (`SSOInstance` e `SSOID`). Use o ícone **Editar** para mapear os valores de acordo com sua organização.
 
-    ![Configuração de SSO da Discovery Benefits](./media/discovery-benefits-sso-tutorial/attribute03.png)
+    ![Captura de tela que mostra "Atributos e Declarações do Usuário" com os valores "Instância de SSO" e "ID de SSO" realçados.](./media/discovery-benefits-sso-tutorial/attribute03.png)
 
 1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação SAML**, localize **Certificado (Base64)** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
 

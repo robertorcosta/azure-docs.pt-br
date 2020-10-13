@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/30/2020
 ms.author: jeedes
-ms.openlocfilehash: ffa4f0ab40e413da78257bde81a00fd3910131b1
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 08a9cbadb86f59cca1f361dc66ee03a300f91968
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555959"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759468"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-coggle"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Coggle
 
@@ -146,19 +146,19 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 2. Clique na conta do **Coggle** e selecione **Minhas Configurações**.
 
-    ![Configuração do Coggle](./media/Coggle-tutorial/configure1.png)
+    ![Captura de tela mostra o site da empresa Coggle com Minhas Configurações selecionado.](./media/Coggle-tutorial/configure1.png)
 
 3. Clique no **Logotipo** a seguir e selecione **Autenticação**.
 
-    ![Configuração do Coggle](./media/Coggle-tutorial/configure2.png)
+    ![Captura de tela que mostra um ícone de baleia e Autenticação selecionado.](./media/Coggle-tutorial/configure2.png)
 
 4. Clique em **Editar Configuração do SAML**.
 
-    ![Configuração do Coggle](./media/Coggle-tutorial/configure3.png)
+    ![Captura de tela que mostra a página Integração de SAML com a opção Editar Configuração de SAML.](./media/Coggle-tutorial/configure3.png)
 
 5. Na página da caixa de diálogo **Integração SAML**, realize as seguintes etapas:
 
-    ![Configuração do Coggle](./media/Coggle-tutorial/configure4.png)
+    ![Captura de tela mostra a página Integração de SAML em que você pode inserir as informações nesta etapa.](./media/Coggle-tutorial/configure4.png)
 
     a. Na caixa de texto **Ponto de Entrada (URL de SSO do Provedor de Identidade)** , cole o valor da **URL de Logon** copiado do portal do Azure.
 

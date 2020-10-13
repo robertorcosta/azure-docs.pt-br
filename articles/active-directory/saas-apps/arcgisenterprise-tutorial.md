@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/28/2018
 ms.author: jeedes
-ms.openlocfilehash: a544a98b3a9d5c2d30f95240325e91018d2f40c9
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: fc0303cc4ba00f873ecfea7b02047ebd1bff7da1
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549591"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713879"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arcgis-enterprise"></a>Tutorial: Integração do Azure Active Directory com o ArcGIS Enterprise
 
@@ -104,7 +104,7 @@ Para configurar o logon único do AD do Azure com o [nome do aplicativo], execut
 
 4. Na seção **Configuração básica do SAML**, execute as etapas a seguir caso deseje configurar o aplicativo no modo iniciado por **IDP**:
 
-    ![Informações de domínio e de URLs do ArcGIS Enterprise para logon único](common/idp-intiated.png)
+    ![Captura de tela que mostra a Configuração Básica de SAML, em que você pode inserir o Identificador e a URL de Resposta e selecionar Salvar.](common/idp-intiated.png)
 
     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `<EXTERNAL_DNS_NAME>.portal`
 
@@ -112,7 +112,7 @@ Para configurar o logon único do AD do Azure com o [nome do aplicativo], execut
 
     c. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 
-    ![Informações de domínio e de URLs do ArcGIS Enterprise para logon único](common/metadata-upload-additional-signon.png)
+    ![Captura de tela que mostra Definir URLs adicionais, em que você pode inserir uma URL de Logon.](common/metadata-upload-additional-signon.png)
 
     Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://<EXTERNAL_DNS_NAME>/portal/sharing/rest/oauth2/saml/signin`
 
@@ -138,19 +138,19 @@ Para configurar o logon único do AD do Azure com o [nome do aplicativo], execut
 
 1. Selecione **Organização > EDITAR CONFIGURAÇÕES**.
 
-    ![Configuração do ArcGIS Enterprise](./media/arcgisenterprise-tutorial/configure1.png)
+    ![Captura de tela que mostra a guia Organização do ArcGIS Enterprise com Editar configurações em destaque.](./media/arcgisenterprise-tutorial/configure1.png)
 
 1. Selecione a guia **Segurança**.
 
-    ![Configuração do ArcGIS Enterprise](./media/arcgisenterprise-tutorial/configure2.png)
+    ![Captura de tela que mostra a guia Segurança selecionada.](./media/arcgisenterprise-tutorial/configure2.png)
 
 1. Role para baixo até a seção **Logons corporativos via SAML** e selecione **DEFINIR LOGON CORPORATIVO**.
 
-    ![Configuração do ArcGIS Enterprise](./media/arcgisenterprise-tutorial/configure3.png)
+    ![Captura de tela que mostra Logons Corporativos via SAML, em que pode selecionar Definir Logon Corporativo.](./media/arcgisenterprise-tutorial/configure3.png)
 
 1. Na seção **Configurar Provedores de Identidade**, execute as seguintes etapas:
 
-    ![Configuração do ArcGIS Enterprise](./media/arcgisenterprise-tutorial/configure4.png)
+    ![Captura de tela que mostra Definir Provedor de Identidade, em que pode executar as etapas descritas aqui.](./media/arcgisenterprise-tutorial/configure4.png)
 
     a. Forneça um nome como **Teste do Azure Active Directory** na caixa de texto **Nome**.
 
@@ -158,7 +158,7 @@ Para configurar o logon único do AD do Azure com o [nome do aplicativo], execut
 
     c. Clique em **Mostrar configurações avançadas**, copie o valor da **ID da Entidade** e cole-o na caixa de texto **Identificador** na seção **Domínio e URLs do ArcGIS Enterprise** no portal do Azure.
     
-    ![Configuração do ArcGIS Enterprise](./media/arcgisenterprise-tutorial/configure5.png)
+    ![Captura de tela que mostra onde obter a ID da Entidade e atualizar o provedor de identidade.](./media/arcgisenterprise-tutorial/configure5.png)
 
     d. Clique em **ATUALIZAR PROVEDOR DE IDENTIDADE**.
 

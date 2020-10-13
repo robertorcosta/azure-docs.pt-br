@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/14/2020
 ms.author: jeedes
-ms.openlocfilehash: 2fadfac3fe9e66c3a05e2cceed19def607ff72c3
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d980e0a5dd4b042f919775c205a20ea69e51f0bd
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88539259"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708995"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-123formbuilder-sso"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao 123FormBuilder SSO
 
@@ -133,7 +133,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 1. Para configurar o logon único no lado do **123FormBuilder SSO**, acesse [https://www.123formbuilder.com/form-2709121/](https://www.123formbuilder.com/form-2709121/) e siga estas etapas:
 
-    ![Configurar o logon único](./media/123formbuilder-tutorial/submit.png) 
+    ![Captura de tela que mostra a tela de configuração do SAML de SSO – Provedor de Identidade.](./media/123formbuilder-tutorial/submit.png) 
 
     a. Na caixa de texto **Email**, digite o email do usuário como `B.Simon@Contoso.com`.
 

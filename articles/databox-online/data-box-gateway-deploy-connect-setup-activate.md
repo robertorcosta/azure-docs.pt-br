@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: alkohli
-ms.openlocfilehash: 78c06cc7f08fe94a25ea63d9bf76cc1352d9f2b7
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: cb6ef6ac25c4afa72160ba437e0ea3b5492cfd93
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "82561693"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741951"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-gateway"></a>Tutorial: Conectar, configurar e ativar o Azure Data Box Gateway
 
@@ -126,7 +126,7 @@ O painel exibe as várias configurações necessárias para configurar e registr
     
     3. O dispositivo está ativado e as atualizações críticas, se disponíveis, são aplicadas automaticamente. Você verá uma notificação nesse sentido. Monitore o progresso da atualização por meio do portal do Azure.
 
-        ![Página "Configurações de nuvem" da IU da Web local](./media/data-box-gateway-deploy-connect-setup-activate/image12.png)
+        ![Página das "Configurações de nuvem" da IU da Web local 2](./media/data-box-gateway-deploy-connect-setup-activate/image12.png)
         
         **A caixa de diálogo também tem uma chave de recuperação que você deve copiar e salvar em um local seguro. Essa chave é usada para recuperar os dados no caso de o dispositivo não poder ser inicializado.**
 

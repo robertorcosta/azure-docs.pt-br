@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/31/2020
 ms.author: jeedes
-ms.openlocfilehash: 8abf36e79f83c69dd927acd21c5c8652122fc82d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6050b9f4a14f39245c7424f47dae081e9efc6ff1
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544070"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826136"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hive"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Hive
 
@@ -147,11 +147,11 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 1. Clique no **Perfil do Usuário** e clique em **Seu workspace**.
 
-    ![Configuração do Hive](./media/hive-tutorial/configure1.png)
+    ![Captura de tela que mostra o site do Hive com Seu workspace selecionado no menu.](./media/hive-tutorial/configure1.png)
 
 1. Clique em **Autenticação** e execute as seguintes etapas:
 
-    ![Configuração do Hive](./media/hive-tutorial/configure2.png)
+    ![Captura de tela que mostra a página Autenticação em que as tarefas são descritas.](./media/hive-tutorial/configure2.png)
 
     a. Copie a **Sua ID do Workspace** e acrescente-a à **URL de Logon** e à **URL de Resposta** na **Seção de Configuração Básica do SAML** no portal do Azure.
 

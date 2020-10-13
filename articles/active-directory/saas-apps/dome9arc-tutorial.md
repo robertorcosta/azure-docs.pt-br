@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 9435a0eccff5a3be0dc9e0a2844bae175d753a5c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: be9d0503b411577d4ecbfb65c4bdae42a571d175
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555864"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775128"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-check-point-cloudguard-dome9-arc"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Check Point CloudGuard Dome9 Arc
 
@@ -156,11 +156,11 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
 2. Clique nas **Configurações de Perfil** no canto superior direito e depois em **Configurações de Conta**. 
 
-    ![Configuração do Check Point CloudGuard Dome9 Arc](./media/dome9arc-tutorial/configure1.png)
+    ![Captura de tela que mostra o menu "Configurações de Perfil" com "Configurações da Conta" selecionado.](./media/dome9arc-tutorial/configure1.png)
 
 3. Navegue até **SSO** e, em seguida, clique em **HABILITAR**.
 
-    ![Configuração do Check Point CloudGuard Dome9 Arc](./media/dome9arc-tutorial/configure2.png)
+    ![Captura de tela que mostra a guia "SSO" e "Habilitar" selecionados.](./media/dome9arc-tutorial/configure2.png)
 
 4. Na seção de Configuração de SSO, execute as seguintes etapas:
 
@@ -189,11 +189,11 @@ Para permitir que os usuários do Azure AD entrem no Check Point CloudGuard Dome
 
 2. Clique em **Usuários e Funções** e, em seguida, clique em **Usuários**.
 
-    ![Adicionar Funcionário](./media/dome9arc-tutorial/user1.png)
+    ![Captura de tela que mostra "Usuários e Funções" com a ação "Usuários" selecionada.](./media/dome9arc-tutorial/user1.png)
 
 3. Clique em **ADICIONAR USUÁRIO**.
 
-    ![Adicionar Funcionário](./media/dome9arc-tutorial/user2.png)
+    ![Captura de tela que mostra "Usuários e Funções" com o botão "ADICIONAR USUÁRIO" selecionado.](./media/dome9arc-tutorial/user2.png)
 
 4. Na seção **Criar Usuário** , realize as seguintes etapas:
 

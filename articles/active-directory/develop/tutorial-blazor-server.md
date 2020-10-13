@@ -8,12 +8,12 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 09/15/2020
-ms.openlocfilehash: c696d8834c24a792432469bf7b1adffc87f718ba
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 42aa51fdd3b0da5a0d438ba46b39bada159aeba6
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91372958"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611464"
 ---
 # <a name="tutorial-create-a-blazor-server-app-that-uses-the-microsoft-identity-platform-for-authentication"></a>Tutorial: Criar um aplicativo Blazor Server que usa a plataforma de identidade da Microsoft para autenticação
 
@@ -40,7 +40,7 @@ Todo aplicativo que usar o Azure AD (Azure Active Directory) para autenticação
 
 Em **Autenticação** > **Concessão implícita**, marque as caixas de seleção para **Tokens de acesso** e **Tokens de ID** e selecione o botão **Salvar**.
 
-Por fim, como o aplicativo chama uma API protegida (nesse caso, o Microsoft Graph), ele precisa de um segredo do cliente para verificar a identidade ao solicitar um token de acesso para chamar essa API. 
+Por fim, como o aplicativo chama uma API protegida (nesse caso, o Microsoft Graph), ele precisa de um segredo do cliente para verificar a identidade ao solicitar um token de acesso para chamar essa API.
 
 1. No mesmo registro de aplicativo, em **Gerenciar**, selecione **Certificados e segredos**.
 2. Crie um **Segredo do cliente** que nunca expira.
@@ -48,7 +48,7 @@ Por fim, como o aplicativo chama uma API protegida (nesse caso, o Microsoft Grap
 
 ## <a name="create-the-app-using-the-net-cli"></a>Criar o aplicativo usando a CLI do .NET
 
-Execute o comando a seguir para baixar os modelos para Microsoft.Identity.Web, que usaremos neste tutorial. 
+Execute o comando a seguir para baixar os modelos para Microsoft.Identity.Web, que usaremos neste tutorial.
 
 ```dotnetcli
 dotnet new --install Microsoft.Identity.Web.ProjectTemplates::0.4.0-preview
@@ -74,19 +74,19 @@ Agora, navegue até o novo aplicativo Blazor em seu editor e adicione o segredo 
 
 ## <a name="test-the-app"></a>Testar o aplicativo
 
-Agora você pode criar e executar o aplicativo. Ao executar esse aplicativo de modelo, você precisa especificar a estrutura a ser executada usando --framework. Este tutorial usa o SDK do .NET Core 3.1. 
+Agora você pode criar e executar o aplicativo. Ao executar esse aplicativo de modelo, você precisa especificar a estrutura a ser executada usando --framework. Este tutorial usa o SDK do .NET Core 3.1.
 
 ```dotnetcli
 dotnet run --framework netcoreapp3.1
 ```
 
-No navegador, navegue até `https://localhost:5001` e faça logon usando uma conta de usuário do Azure AD para ver o aplicativo em execução. 
+No navegador, navegue até `https://localhost:5001` e faça logon usando uma conta de usuário do Azure AD para ver o aplicativo em execução.
 
 ## <a name="retrieving-data-from-microsoft-graph"></a>Recuperar dados do Microsoft Graph
 
 O [Microsoft Graph](/graph/overview) oferece uma variedade de APIs que fornecem acesso aos dados do Microsoft 365 dos seus usuários. Usando a plataforma de identidade da Microsoft como o provedor de identidade para seu aplicativo, você tem acesso mais fácil a essas informações porque o Microsoft Graph dá suporte direto aos tokens emitidos pela plataforma de identidade da Microsoft. Nesta seção, você adicionará código que pode exibir os emails do usuário conectado na página "buscar dados" do aplicativo.
 
-Antes de começar, faça logoff do seu aplicativo, pois você fará alterações nas permissões necessárias e seu token atual não funcionará. Se você ainda não fez isso, execute o aplicativo novamente e selecione **Fazer logoff** antes de atualizar o código abaixo. 
+Antes de começar, faça logoff do seu aplicativo, pois você fará alterações nas permissões necessárias e seu token atual não funcionará. Se você ainda não fez isso, execute o aplicativo novamente e selecione **Fazer logoff** antes de atualizar o código abaixo.
 
 Agora, você atualizará o registro e o código do aplicativo para extrair o email de um usuário e exibir as mensagens no aplicativo. Para fazer isso, primeiro estenda as permissões de registro do aplicativo no Azure AD para habilitar o acesso aos dados de email. Em seguida, adicione o código ao aplicativo Blazor para recuperar e exibir esses dados em uma das páginas.
 
@@ -201,5 +201,7 @@ Depois de dar consentimento, navegue até a página "Buscar dados" para ler algu
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Melhores práticas e recomendações da plataforma de identidade da Microsoft](./identity-platform-integration-checklist.md)
-- [Noções básicas da Web do Microsoft Identity](https://github.com/AzureAD/microsoft-identity-web/wiki/Microsoft-Identity-Web-basics)
+Saiba mais sobre como chamar aplicativos Web que conectam usuários em nossa série de cenários de várias partes:
+
+> [!div class="nextstepaction"]
+> [Cenário: Aplicativo Web que conecta usuários](scenario-web-app-sign-user-overview.md)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
-ms.openlocfilehash: e9ca679c7bb8deedca20a5aa97cbb53a9139ea8a
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6d0062214b4faa0cb2b26c30f1c2833d25d5493e
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88536845"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91774450"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-deputy"></a>Tutorial: Integração do Azure Active Directory com o Deputy
 
@@ -99,7 +99,7 @@ Para configurar o logon único do Azure AD com o Deputy, execute as seguintes et
 
 4. Na seção **Configuração básica do SAML**, execute as etapas a seguir caso deseje configurar o aplicativo no modo **IDP** iniciado:
 
-    ![Informações de logon único de Domínio e URLs do Deputy](common/idp-intiated.png)
+    ![Captura de tela que mostra a seção "Configuração Básica de SAML" com "Identificador", "URL de resposta" e o botão "Salvar" realçados.](common/idp-intiated.png)
 
     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
 
@@ -171,7 +171,7 @@ Para configurar o logon único do Azure AD com o Deputy, execute as seguintes et
 
 1. Navegue até a seguinte URL: `https://(your-subdomain).deputy.com/exec/config/system_config`. Vá para as **Configurações de Segurança** e clique em **Editar**.
    
-    ![Configurar o logon único](./media/deputy-tutorial/tutorial_deputy_004.png)
+    ![Captura de tela que mostra a página "Configuração do Sistema" com o botão "Configurações de Segurança – Editar" selecionado.](./media/deputy-tutorial/tutorial_deputy_004.png)
 
 2. Na página **Configurações de Segurança** , execute etapas abaixo.
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/23/2018
 ms.author: duau
-ms.openlocfilehash: e79dde0178c74965bde14956203e31e82e80d93e
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 4f646cdb4a3f000df219f627cbd7e7c841ed68ab
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89398402"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651234"
 ---
 # <a name="tutorial-improve-website-response-using-traffic-manager"></a>Tutorial: Melhorar a resposta de site usando o Gerenciador de Tráfego
 
@@ -203,7 +203,7 @@ Nesta seção, você pode ver que o Gerenciador de Tráfego é a ação.
 5. Você pode receber um aviso do certificado durante o processo de logon. Se você receber o aviso, selecione **Sim** ou **Continuar**, para prosseguir com a conexão.
 1. Em um navegador da Web na VM *myVMEastUS*, digite o nome do DNS do seu perfil do Gerenciador de Tráfego para visualizar seu site. Uma vez que a máquina virtual está localizada no **Leste dos EUA**, você será encaminhado para o site mais próximo hospedado no servidor mais próximo do IIS *myIISVMEastUS* que está localizado no **Leste dos EUA**.
 
-   ![Testar perfil de Gerenciador de Tráfego](./media/tutorial-traffic-manager-improve-website-response/eastus-traffic-manager-test.png)
+   ![Captura de tela que mostra o perfil do "Gerenciador de Tráfego" em um navegador da Web.](./media/tutorial-traffic-manager-improve-website-response/eastus-traffic-manager-test.png)
 
 2. Em seguida, conecte-se à VM *myVMWestEurope* localizada na **Europa Ocidental** usando as etapas 1 a 5 e navegue para o nome de domínio de perfil do Gerenciador de Tráfego do Microsoft Azure dessa VM. Desde a máquina virtual localizada na **Europa Ocidental**, você agora é roteado para o site hospedado o mais próximo do servidor do IIS *myIISVMWestEurope* que está localizado no **Oeste da Europa**.
 

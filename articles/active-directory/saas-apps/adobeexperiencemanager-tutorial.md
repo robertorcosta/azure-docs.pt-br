@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 1088827ead320007c758d8e843a15328f108c035
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 4607d4dfba68ca8f78ec4e3aaa4da36966ea843a
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543016"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760801"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-experience-manager"></a>Tutorial: integração do Azure Active Directory com o Adobe Experience Manager
 
@@ -101,7 +101,7 @@ Para configurar o logon único do AD do Azure com o [nome do aplicativo], execut
 
 4. Na seção **Configuração básica do SAML**, execute as etapas a seguir caso deseje configurar o aplicativo no modo **IDP** iniciado:
 
-    ![Informações de logon único sobre Domínio e URLs do Adobe Experience Manager](common/idp-intiated.png)
+    ![Captura de tela que mostra a seção Configuração Básica de SAML e realça as caixas de texto Identificador e URL de Resposta.](common/idp-intiated.png)
 
     a. Na caixa de texto **Identificador**, digite um valor exclusivo definido também no servidor do AEM.
 
@@ -136,35 +136,35 @@ Para configurar o logon único do AD do Azure com o [nome do aplicativo], execut
 
 2. Selecione **Configurações** > **Segurança** > **Usuários**.
 
-    ![Configurar o botão salvar do logon único](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_user.png)
+    ![Captura de tela que mostra o bloco Usuários no Adobe Experience Manager.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_user.png)
 
 3. Selecione **Administrador** ou qualquer outro usuário relevante.
 
-    ![Botão Salvar em Configurar Logon Único](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin6.png)
+    ![Captura de tela que realça o usuário Administrator.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin6.png)
 
 4. Selecione **Configurações da conta** > **Gerenciar TrustStore**.
 
-    ![Botão Salvar em Configurar Logon Único](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_managetrust.png)
+    ![Captura de tela que mostra Gerenciar TrustStore em Configurações da conta.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_managetrust.png)
 
 5. Em **Adicionar Certificado do arquivo CER**, clique no botão **Selecionar Arquivo de Certificado**. Navegue até o arquivo de certificado que você baixou do Portal do Azure e selecione-o.
 
-    ![Configurar o botão salvar do logon único](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_user2.png)
+    ![Captura de tela que realça o botão Selecionar Arquivo de Certificado.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_user2.png)
 
 6. O certificado é adicionado ao TrustStore. Observe o alias do certificado.
 
-    ![Botão Salvar em Configurar Logon Único](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin7.png)
+    ![Captura de tela que mostra que o certificado é adicionado ao TrustStore.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin7.png)
 
 7. Na página **Usuários**, selecione **authentication-service**.
 
-    ![Botão Salvar em Configurar Logon Único](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin8.png)
+    ![Captura de tela que realça o serviço de autenticação na tela.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin8.png)
 
 8. Selecione **Configurações de conta** > **Criar/gerenciar repositório de chaves**. Criar repositório de chaves fornecendo uma senha.
 
-    ![Botão Salvar em Configurar Logon Único](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin9.png)
+    ![Captura de tela que realça Gerenciar KeyStore.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin9.png)
 
 9. Volte para a tela de administrador. Em seguida, selecione **Configurações** > **Operações** > **Console Web**.
 
-    ![Botão Salvar em Configurar Logon Único](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin1.png)
+    ![Captura de tela que realça o Console Web em Operações na seção Configurações.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin1.png)
 
     Isso abre a página de configuração.
 
@@ -172,7 +172,7 @@ Para configurar o logon único do AD do Azure com o [nome do aplicativo], execut
 
 10. Localize **Manipulador de autenticação do Adobe Granite SAML 2.0**. Selecione então o ícone **Adicionar**.
 
-    ![Botão Salvar em Configurar Logon Único](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin3.png)
+    ![Captura de tela que realça o Manipulador de Autenticação do Adobe Granite SAML 2.0.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin3.png)
 
 11. Siga as ações a seguir nesta página.
 

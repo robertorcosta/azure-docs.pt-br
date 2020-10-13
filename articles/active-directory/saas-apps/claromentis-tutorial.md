@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/04/2019
 ms.author: jeedes
-ms.openlocfilehash: dba77045f8aef1799717c6f6af91046b3ca6119e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 3b8f91bca3650004472d8fe51d4e92b42ade3122
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88520304"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759723"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-claromentis"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Claromentis
 
@@ -138,19 +138,19 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 1. Clique no **ícone de aplicativos** e selecione **Administrador**.
 
-    ![Configuração do Claromentis](./media/claromentis-tutorial/config1.png)
+    ![Captura de tela que mostra o site do Claromentis com Administrador selecionado.](./media/claromentis-tutorial/config1.png)
 
 1. Selecione a guia **Manipulador de Logon Personalizado**.
 
-    ![Configuração do Claromentis](./media/claromentis-tutorial/config2.png)
+    ![Captura de tela que mostra a página Administração com o Manipulador de Logon Personalizado selecionado.](./media/claromentis-tutorial/config2.png)
 
 1. Selecione **Configuração do SAML**.
 
-    ![Configuração do Claromentis](./media/claromentis-tutorial/config3.png)
+    ![Captura de tela que mostra a página de configuração para SAML.](./media/claromentis-tutorial/config3.png)
 
 1. Na guia **Configuração do SAML**, role para baixo até a seção **Configuração** e execute estas etapas:
 
-    ![Configuração do Claromentis](./media/claromentis-tutorial/config4.png)
+    ![Captura de tela que mostra a seção Configuração da página em que você pode inserir as informações descritas nesta etapa.](./media/claromentis-tutorial/config4.png)
 
     a. Na caixa de texto **Nome do Contato Técnico**, insira o nome da pessoa de contato técnico.
 
@@ -160,7 +160,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 1. Role para baixo até **Fontes de Autenticação** e execute as etapas a seguir:
 
-    ![Configuração do Claromentis](./media/claromentis-tutorial/config5.png)
+    ![Captura de tela que mostra a seção Fontes de Autenticação em que você pode inserir as informações descritas nesta etapa.](./media/claromentis-tutorial/config5.png)
 
     a. Na caixa de texto **IDP**, insira o valor do **Identificador do Azure AD** copiado do portal do Azure.
 
@@ -172,7 +172,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 1. Você observará que todas as URLs foram preenchidas na seção **Provedor de Identidade** na seção **Configuração do SAML**.
 
-    ![Configuração do Claromentis](./media/claromentis-tutorial/config6.png)
+    ![Captura de tela que mostra a página Provedor de Identidade preenchida com URLs.](./media/claromentis-tutorial/config6.png)
 
     a. Copie **Identificador (ID da Entidade)** , cole esse valor na caixa de texto **Identificador** na seção **Configuração Básica de SAML** no portal do Azure.
 

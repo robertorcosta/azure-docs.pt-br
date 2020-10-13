@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 07/10/2019
 ms.author: dekapur
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 4c812ab4f6c8908e3cabcf2d3afcc63959073ed4
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 1940e65fc5a9fd4aecd0b0cbcf6631e0628bda91
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020101"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653121"
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>Tutorial: Monitorar e diagnosticar um aplicativo ASP.NET Core no Service Fabric usando o Application Insights
 
@@ -191,7 +191,7 @@ Rolar a janela *Pesquisar* para baixo mostrará toda a telemetria de entrada que
 
 Além disso, você pode clicar no *Mapa do aplicativo* no menu à esquerda na página Visão Geral ou clicar no ícone do **Mapa da aplicativo** para ir até o mapa que mostra os dois serviços conectados.
 
-![Detalhes de rastreamento do AI](./media/service-fabric-tutorial-monitoring-aspnet/app-map-new.png)
+![Captura de tela que realça o Mapa do aplicativo no menu à esquerda.](./media/service-fabric-tutorial-monitoring-aspnet/app-map-new.png)
 
 O mapa de aplicativos pode ajudar a entender melhor a topologia do seu aplicativo, principalmente quando você começa a adicionar vários serviços diferentes que funcionam em conjunto. Ele também fornece dados básicos sobre taxas de sucesso de solicitação e pode ajudá-lo a diagnosticar a solicitação com falha para entender onde as coisas podem ter dado errado. Para saber mais sobre como usar o mapa de aplicativos, consulte [Mapa de aplicativos no Azure Application Insights](../azure-monitor/app/app-map.md).
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/05/2019
 ms.author: jeedes
-ms.openlocfilehash: d629e5d572f1e8fff05104a4a5004b7aaa8c7a0d
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 12f6e66140b3654f1283cad45c97325e2bfb1a28
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892942"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775655"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-confluence-saml-sso-by-microsoft"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao SSO de SAML para o Confluence da Microsoft
 
@@ -159,11 +159,11 @@ Nesta seção, você permite que B. Fernandes use o logon único do Azure conced
 
 1. Passe o cursor do mouse sobre a engrenagem e clique em **Complementos**.
 
-    ![Configurar o logon único](./media/confluencemicrosoft-tutorial/addon1.png)
+    ![Captura de tela que mostra o ícone de "Engrenagem" selecionado e "Complementos" realçado no menu suspenso.](./media/confluencemicrosoft-tutorial/addon1.png)
 
 1. Baixe o plug-in no [Centro de Download da Microsoft](https://www.microsoft.com/download/details.aspx?id=56503). Carregar manualmente o plug-in fornecido pela Microsoft usando o menu **Carregar complemento**. O download do plug-in está coberto pelo [Contrato de Serviço da Microsoft](https://www.microsoft.com/servicesagreement/).
 
-    ![Configurar o logon único](./media/confluencemicrosoft-tutorial/addon12.png)
+    ![Captura de tela que mostra a página "Gerenciar Complementos" com a ação "Carregar complemento" selecionada.](./media/confluencemicrosoft-tutorial/addon12.png)
 
 1. Para executar o cenário do proxy reverso do Confluence ou o cenário do balanceador de carga, execute as seguintes etapas:
 
@@ -174,19 +174,19 @@ Nesta seção, você permite que B. Fernandes use o logon único do Azure conced
 
     `scheme="https" proxyName="<subdomain.domain.com>" proxyPort="<proxy_port>" secure="true"`
 
-    ![Configurar o logon único](./media/confluencemicrosoft-tutorial/reverseproxy1.png)
+    ![Captura de tela que mostra o arquivo "server.xml" com o atributo adicionado à porta "conector".](./media/confluencemicrosoft-tutorial/reverseproxy1.png)
 
     b. Altere o **URL base** em **Configurações do sistema** de acordo com o balanceador de proxy/carga.
 
-    ![Configurar o logon único](./media/confluencemicrosoft-tutorial/reverseproxy2.png)
+    ![Captura de tela que mostra a página "Administração – Configurações" com a "URL Base" realçada.](./media/confluencemicrosoft-tutorial/reverseproxy2.png)
 
 1. Depois que o plug-in for instalado, ele será exibido na seção de complementos **Instalados pelo Usuário** da seção **Gerenciar Complemento**. Clique em **Configurar** para configurar o novo plug-in.
 
-    ![Configurar o logon único](./media/confluencemicrosoft-tutorial/addon15.png)
+    ![Captura de tela que mostra a seção "Usuário Instalado" com o botão "Configurar" realçado.](./media/confluencemicrosoft-tutorial/addon15.png)
 
 1. Realize as seguintes etapas na página de configuração:
 
-    ![Configurar o logon único](./media/confluencemicrosoft-tutorial/addon54.png)
+    ![Captura de tela que mostra a página de configuração de logon único.](./media/confluencemicrosoft-tutorial/addon54.png)
 
     > [!TIP]
     > Verifique se há apenas um certificado mapeado no aplicativo, para que não haja nenhum erro na resolução dos metadados. Se houver vários certificados, após a resolução dos metadados, o administrador receberá um erro.
@@ -237,7 +237,7 @@ Para permitir que os usuários do Azure AD entrem no servidor local do Confluenc
 
 1. Na seção usuários, clique na guia **Adicionar usuários**. Na página da caixa de diálogo **Adicionar um Usuário**, execute as seguintes etapas:
 
-    ![Adicionar Funcionário](./media/confluencemicrosoft-tutorial/user2.png)
+    ![Captura de tela que mostra "Administração do Confluence" com a guia "Adicionar Usuários" selecionada e informações de "Adicionar um Usuário" inseridas.](./media/confluencemicrosoft-tutorial/user2.png)
 
     a. Na caixa de texto **Nome de usuário**, digite o email do usuário, como B. Fernandes.
 

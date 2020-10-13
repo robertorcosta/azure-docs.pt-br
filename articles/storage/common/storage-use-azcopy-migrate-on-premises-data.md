@@ -8,12 +8,12 @@ ms.date: 05/14/2019
 ms.author: normesta
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: f2b46e37241cf142f751f2f65a1ef9f092166ec8
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 5b37417efdb99f6b90983b86954da70fa6f7c6a9
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86120629"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91716088"
 ---
 #  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-with-azcopy"></a>Tutorial: migrar dados do local para a nuvem com o AzCopy
 
@@ -62,7 +62,7 @@ Coloque o arquivo do AzCopy em qualquer lugar do computador. Adicione a localiza
 
 ## <a name="authenticate-with-azure-ad"></a>Autenticar com o Azure AD
 
-Primeiro, atribua a função [Colaborador de Dados do Blob de Armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor) à sua identidade. Confira [Grant access to Azure blob and queue data with RBAC in the Azure portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal) (Permitir acesso a dados de blob e fila do Azure com o RBAC no portal do Azure).
+Primeiro, atribua a função [Colaborador de Dados do Blob de Armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor) à sua identidade. Confira [Usar o portal do Azure para atribuir uma função do Azure para acesso aos dados de blob e de fila](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal).
 
 Em seguida, abra um prompt de comando, digite o comando a seguir e pressione a tecla ENTER.
 

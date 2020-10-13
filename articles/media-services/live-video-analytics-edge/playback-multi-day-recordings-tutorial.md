@@ -3,12 +3,12 @@ title: Reproduzir gravações de vários dias – Azure
 description: Neste tutorial, você aprenderá a usar as APIs do Serviço de Mídia do Azure para reproduzir uma gravação de vídeo contínua de vários dias.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: e01c8603869f17ef2d68a39861f11818a4cea975
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 1ec9260be7241057478b06446ac2aa53c14bcb47
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530566"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803425"
 ---
 # <a name="tutorial-playback-of-multi-day-recordings"></a>Tutorial: Reproduzir gravações de vários dias  
 
@@ -70,22 +70,15 @@ Em seguida, no Visual Studio Code, abra src/ams-asset-player. Esta pasta contém
 } 
 ```
 
-No Visual Studio Code, você pode clicar no ícone de execução à esquerda (ou Ctrl + Shift + D) para abrir os aplicativos disponíveis a serem executados:
+1. No Visual Studio Code, abra a guia **Extensões** (ou pressione Ctrl+Shift+X) e pesquise pelo Hub IoT do Azure.
+1. Clique com o botão direito do mouse e selecione **Configurações da Extensão**.
 
-![A captura de tela mostra um menu no Visual Studio Code com o item Executar selecionado.](./media/playback-multi-day-recordings-tutorial/run.png)
- 
-Selecione o aplicativo Player de Ativos do AMS na caixa suspensa conforme mostrado abaixo e pressione F5 para iniciar a depuração.
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Configurações da Extensão":::
+1. Pesquise e habilite “Mostrar Mensagem Detalhada”.
 
-![A captura de tela mostra um menu no Visual Studio Code com o Player de Ativos do AMS selecionado.](./media/playback-multi-day-recordings-tutorial/debug.png)
-
-O aplicativo de exemplo criará e iniciará seu aplicativo de navegador padrão e abrirá a página do Player de Ativos do AMS.
-
-> [!NOTE]
-> Dependendo das configurações de segurança no seu navegador, você poderá ver uma mensagem de aviso. Já que a página da Web está sendo executada localmente, você pode optar por ignorar o aviso.
-
-O Player de Ativos do AMS solicita que você insira o nome de um ativo do Serviço de Mídia. Você deve usar o nome do Ativo que usou para gravar vídeo no [Tutorial: gravação de vídeo contínua](continuous-video-recording-tutorial.md).
-
-Ao digitar o nome do ativo e pressionar enviar, o código do Player carregará a URL de streaming. Para obter mais informações, confira [Guia de instruções: reprodução de gravações](playback-recordings-how-to.md). Se, como recomendado, você ainda estiver gravando no ativo, o player detectará isso e tentará direcionar a reprodução para a parte mais recente do vídeo gravado. Você pode ver o carimbo de data/hora (em UTC) na parte superior esquerda do player. Na captura de tela abaixo, observe como o botão "Ao vivo" está selecionado.
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Configurações da Extensão" está selecionado.
 
 ![STREAM](./media/playback-multi-day-recordings-tutorial/assetplayer1.png)
  

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
-ms.openlocfilehash: aababc6ffd84540b99ba68f6bbb449d2aa78ed4b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1eb408025a45f09a6bdb854f4379a560842ef2d7
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551728"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826265"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-envi-mmis"></a>Tutorial: integração do Microsoft Azure Active Directory ao Envi MMIS
 
@@ -99,7 +99,7 @@ Para configurar o logon único do Azure AD com o Envi MMIS, execute as seguintes
 
 4. Na seção **Configuração básica do SAML**, execute as etapas a seguir caso deseje configurar o aplicativo no modo **IDP** iniciado:
 
-    ![Informações de logon único de Domínio e URLs do Envi MMIS](common/idp-intiated.png)
+    ![Captura de tela que mostra "Configuração Básica de SAML" com "Identificador", "URL de Resposta" e o botão "Salvar" realçados.](common/idp-intiated.png)
 
     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://www.<CUSTOMER DOMAIN>.com/Account`
 
@@ -134,23 +134,23 @@ Para configurar o logon único do Azure AD com o Envi MMIS, execute as seguintes
 
 2. Clique na guia **Meu Domínio**.
 
-    ![Botão Salvar em Configurar Logon Único](./media/envimmis-tutorial/configure1.png)
+    ![A captura de tela mostra o menu "Usuário" com "Meu Domínio" selecionado.](./media/envimmis-tutorial/configure1.png)
 
 3. Clique em **Editar**.
 
-    ![Botão Salvar em Configurar Logon Único](./media/envimmis-tutorial/configure2.png)
+    ![A captura de tela mostra o botão "Editar" selecionado.](./media/envimmis-tutorial/configure2.png)
 
 4. Selecione a caixa de seleção **Usar autenticação remota** e, em seguida, selecione **Redirecionamento HTTP** da lista suspensa **Tipo de Autenticação**.
 
-    ![Botão Salvar em Configurar Logon Único](./media/envimmis-tutorial/configure3.png)
+    ![A captura de tela mostra a guia "Detalhes" com "Usar autenticação remota" marcada e "Redirecionamento HTTP" selecionado.](./media/envimmis-tutorial/configure3.png)
 
 5. Selecione a guia **Recursos** e, em seguida, clique em **Carregar Metadados**.
 
-    ![Botão Salvar em Configurar Logon Único](./media/envimmis-tutorial/configure4.png)
+    ![A captura de tela mostra a guia "Recursos" com a ação "Carregar Metadados" selecionada.](./media/envimmis-tutorial/configure4.png)
 
 6. Na janela pop-up **Carregar Metadados**, realize as seguintes etapas:
 
-    ![Botão Salvar em Configurar Logon Único](./media/envimmis-tutorial/configure5.png)
+    ![A captura de tela mostra o pop-up "Carregar Metadados" com a opção "Arquivo" selecionada e o ícone "escolher arquivo" e o botão "OK" realçados.](./media/envimmis-tutorial/configure5.png)
 
     a. Selecione a opção **Arquivo** na lista suspensa **Carregar Formulário**.
 
@@ -223,11 +223,11 @@ Para permitir que os usuários do Azure AD entrem no Envi MMIS, eles precisarão
 
 2. Clique na guia **Lista de Usuário**.
 
-    ![Adicionar Funcionário](./media/envimmis-tutorial/user1.png)
+    ![A captura de tela mostra o menu "Usuário" com a "Lista de Usuários" selecionada.](./media/envimmis-tutorial/user1.png)
 
 3. Clique no botão **Adicionar Usuário**.
 
-    ![Adicionar Funcionário](./media/envimmis-tutorial/user2.png)
+    ![A captura de tela mostra a seção "Usuários" com o botão "Adicionar Usuário" selecionado.](./media/envimmis-tutorial/user2.png)
 
 4. Na seção **Adicionar Usuário** , realize as seguintes etapas:
 

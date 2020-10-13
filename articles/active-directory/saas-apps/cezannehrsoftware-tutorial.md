@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
-ms.openlocfilehash: 0c9e0b6a81742ea4022bb8db2dd8d933f917331b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b5739ea49bb9f5823538e9a41660a572a3cede04
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88529977"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760710"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>Tutorial: Integração do Azure Active Directory ao Cezanne HR Software
 
@@ -130,19 +130,19 @@ Para configurar o logon único do Azure AD com o Cezanne HR Software, execute as
 
 2. No painel de navegação esquerdo, clique em **Configuração do Sistema**. Vá para **Configurações de Segurança**. Em seguida, navegue até **Configuração de Logon Único**.
 
-    ![Configurar o logon único no lado do aplicativo](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_000.png)
+    ![A captura de tela mostra o locatário de software Cezanne H R com Configurações de Segurança e a Configuração de Logon Único selecionada.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_000.png)
 
 3. No painel **Permitir que os usuários façam logon usando o SSO (Serviço de Logon Único)** a seguir, marque a caixa **SAML 2.0** e selecione a opção **Configuração Avançada**.
 
-    ![Configurar o logon único no lado do aplicativo](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_001.png)
+    ![A captura de tela mostra o painel Permitir usuários com SAML 2.0 e Configuração Avançada selecionados.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_001.png)
 
 4. Clique no botão **Adicionar Novo** .
 
-    ![Configurar o logon único no lado do aplicativo](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_002.png)
+    ![A captura de tela mostra o botão Adicionar.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_002.png)
 
 5. Execute as etapas a seguir na seção **PROVEDORES DE IDENTIDADE DO SAML 2.0** .
 
-    ![Configurar o logon único no lado do aplicativo](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_003.png)
+    ![A captura de tela mostra um painel em que você pode inserir os valores descritos nesta etapa.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_003.png)
 
     a. Insira o nome do seu Provedor de Identidade como o **Nome de Exibição**.
 
@@ -160,7 +160,7 @@ Para configurar o logon único do Azure AD com o Cezanne HR Software, execute as
 
 6. Clique no botão **Salvar** .
 
-    ![Configurar o logon único no lado do aplicativo](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_004.png)
+    ![A captura de tela mostra o botão Salvar para Configuração de Logon Único.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_004.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -223,11 +223,11 @@ Para habilitar usuários do AD do Azure a fazer logon no Cezanne HR Software, el
 
 2. No painel de navegação esquerdo, clique em **Configuração do Sistema**. Vá para **Gerenciar Usuários**. Em seguida, navegue até **Add New User**.
 
-    ![Novo usuário](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_005.png "Novo Usuário")
+    ![A captura de tela mostra o locatário de software Cezanne H R com Gerenciar Usuários e Adicionar Usuário selecionados.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_005.png "Novo Usuário")
 
 3. Na seção **DETALHES PESSOAIS**, execute as etapas abaixo:
 
-    ![Novo usuário](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_006.png "Novo Usuário")
+    ![A captura de tela mostra a seção DETALHES DA PESSOA, em que você pode inserir os valores descritos nesta etapa.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_006.png "Novo Usuário")
 
     a. Defina **Internal User** como OFF.
 
@@ -239,7 +239,7 @@ Para habilitar usuários do AD do Azure a fazer logon no Cezanne HR Software, el
 
 4. Na seção **Informações da Conta** , execute as etapas abaixo:
 
-    ![Novo usuário](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_007.png "Novo Usuário")
+    ![A captura de tela mostra INFORMAÇÕES DA CONTA em que você pode inserir os valores descritos nesta etapa.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_007.png "Novo Usuário")
 
     a. Na caixa de texto **Nome de usuário**, digite o email do usuário, como Brittasimon@contoso.com.
 
@@ -251,15 +251,15 @@ Para habilitar usuários do AD do Azure a fazer logon no Cezanne HR Software, el
 
 5. Navegue até a guia **Logon Único** e selecione **Adicionar Novo** na área **Identificadores SAML 2.0**.
 
-    ![Usuário](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_008.png "Usuário")
+    ![A captura de tela mostra a guia Logon Único, na qual você pode selecionar Adicionar.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_008.png "Usuário")
 
 6. Escolha o **Provedor de Identidade** para o Provedor de Identidade e, na caixa de texto de **Identificador do Usuário**, insira o endereço de email da conta de Brenda Fernandes.
 
-    ![Usuário](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_009.png "Usuário")
+    ![A captura de tela mostra os identificadores SAML 2.0 em que você pode selecionar seu Provedor de Identidade e o Identificador de Usuário.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_009.png "Usuário")
 
 7. Clique no botão **Salvar** .
 
-    ![Usuário](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_010.png "Usuário")
+    ![A captura de tela mostra o botão Salvar para as Configurações do Usuário.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_010.png "Usuário")
 
 ### <a name="test-single-sign-on"></a>Testar logon único
 

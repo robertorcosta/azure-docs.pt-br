@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 50b5e21c8dc441187b3d78310db55b84aa1cd158
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7f8bc88cf34c3bbea168bd95d2d03bdc3373ad07
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551023"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817040"
 ---
 # <a name="tutorial-integrate-freedcamp-with-azure-active-directory"></a>Tutorial: Integração do Freedcamp com o Azure Active Directory
 
@@ -108,11 +108,11 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 4. No canto superior direito da página, clique em **perfil** e navegue até **Minha Conta**.
 
-    ![Configuração de Freedcamp](./media/freedcamp-tutorial/config01.png)
+    ![Captura de tela que mostra "Perfil" e "Minha Conta" selecionados.](./media/freedcamp-tutorial/config01.png)
 
 5. Do lado esquerdo da barra de menus, clique em **SSO** e, na página **Suas conexões SSO** execute as seguintes etapas:
 
-    ![Configuração de Freedcamp](./media/freedcamp-tutorial/config02.png)
+    ![Captura de tela que mostra "SSO" selecionado na barra de menus do lado esquerdo e a página "Suas Conexões de SSO" com valores inseridos e o botão "Enviar" selecionado.](./media/freedcamp-tutorial/config02.png)
 
     a. Na caixa de texto **Título**, digite o título.
 
@@ -168,7 +168,7 @@ Para permitir que os usuários do Azure AD entrem no Freedcamp, eles precisam se
 
 3. No lado direito da página Gerenciar Sistema, execute as seguintes etapas:
 
-    ![Configuração de Freedcamp](./media/freedcamp-tutorial/config04.png)
+    ![Captura de tela que mostra o botão "Adicionar ou Convidar Usuários" selecionado, o campo "Email" realçado e o botão "Adicionar Usuário" selecionado.](./media/freedcamp-tutorial/config04.png)
 
     a. Clique em **Adicionar ou convidar Usuários**.
 

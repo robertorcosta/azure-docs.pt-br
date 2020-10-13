@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/09/2019
 ms.author: jeedes
-ms.openlocfilehash: b11955c040225f66bc3eda9fe762cb1cbfc2d308
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 9836c4e8f644a4e1b39e5aef7208262d6701f5bb
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88542846"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760669"
 ---
 # <a name="tutorial-integrate-aha-with-azure-active-directory"></a>Tutorial: Integre o Aha! ao Azure Active Directory
 
@@ -148,7 +148,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
 6. Clique em **Segurança e logon único**.
 
-    ![Segurança e logon único](./media/aha-tutorial/IC798952.png "Segurança e logon único")
+    ![Captura de tela que realça a opção de menu Segurança e logon único.](./media/aha-tutorial/IC798952.png "Segurança e logon único")
 
 7. Na seção **Logon Único**, como **Provedor de Identidade**, selecione **SAML2.0**.
 

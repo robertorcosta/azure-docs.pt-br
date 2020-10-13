@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 219dd6e4a8f04da8b28a28e5473394f0721e4013
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 03b8110db94a08f44035e75371fd7641fcd91626
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545195"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826363"
 ---
 # <a name="tutorial-integrate-ilms-with-azure-active-directory"></a>Tutorial: Integrar o iLMS ao Azure Active Directory
 
@@ -130,29 +130,29 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 2. Clique em **SSO:SAML** na guia **Configurações** para abrir as configurações do SAML e realize as seguintes etapas:
 
-    ![Configurar o logon único](./media/ilms-tutorial/1.png)
+    ![Captura de tela que mostra a guia Configurações de ILMS, em que é possível selecionar SSO: SAML.](./media/ilms-tutorial/1.png)
 
 3. Expanda a seção **Provedor de Serviços** e copie o valor do **Identificador** e da **(URL) do Ponto de Extremidade**.
 
-    ![Configurar o logon único](./media/ilms-tutorial/2.png) 
+    ![Captura de tela que mostra as configurações de SAML nas quais você pode obter os valores.](./media/ilms-tutorial/2.png) 
 
 4. Na seção **Provedor de Identidade**, clique em **Importar Metadados**.
 
 5. Escolha o arquivo de **Metadados de Federação** baixado no portal do Azure na seção **Certificado de Autenticação SAML**.
 
-    ![Configurar o logon único](./media/ilms-tutorial/tutorial_ilms_ssoconfig1.png)
+    ![Captura de tela que mostra as configurações de SAML em que você pode selecionar o arquivo de metadados.](./media/ilms-tutorial/tutorial_ilms_ssoconfig1.png)
 
 6. Se você desejar habilitar o provisionamento JIT para criar contas do iLMS para cancelar o reconhecimento de usuários, realize as seguintes etapas:
 
     a. Marque a opção **Criar Conta de Usuário Não Reconhecido**.
 
-    ![Configurar o logon único](./media/ilms-tutorial/tutorial_ilms_ssoconfig2.png)
+    ![Captura de tela que mostra a opção Criar Conta de Usuário Não Reconhecida.](./media/ilms-tutorial/tutorial_ilms_ssoconfig2.png)
 
     b. Mapeie os atributos no Azure AD com os atributos no iLMS. Na coluna de atributos, especifique o nome dos atributos ou o valor padrão.
 
     c. Acesse a guia **Regras de Negócios** e realize as seguintes etapas:
 
-    ![Configurar o logon único](./media/ilms-tutorial/5.png)
+    ![Captura de tela que mostra as configurações de Regras de Negócios nas quais você pode inserir as informações nesta etapa.](./media/ilms-tutorial/5.png)
 
     d. Marque a opção **Criar Regiões, Divisões e Departamentos Não Reconhecidos** para criar Regiões, Divisões e Departamentos que ainda não existem no momento do Logon Único.
 
@@ -164,7 +164,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 7. Clique no botão **Salvar** para salvar as alterações.
 
-    ![Configurar o logon único](./media/ilms-tutorial/save.png)
+    ![Captura de tela que mostra o botão Salvar.](./media/ilms-tutorial/save.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -206,11 +206,11 @@ Caso precise criar um usuário manualmente, siga as etapas abaixo:
 
 2. Clique em **Registrar Usuário** na guia **Usuários** para abrir a página **Registrar Usuário**.
 
-   ![Adicionar Funcionário](./media/ilms-tutorial/3.png)
+   ![Captura de tela que mostra a guia Configurações de ILMS, em que é possível selecionar Registrar Usuário.](./media/ilms-tutorial/3.png)
 
 3. Na página **Registrar Usuário**, execute as etapas a seguir.
 
-    ![Adicionar Funcionário](./media/ilms-tutorial/create_testuser_add.png)
+    ![Captura de tela que mostra a página Registrar Usuário, em que você insere as informações especificadas.](./media/ilms-tutorial/create_testuser_add.png)
 
     a. Na caixa de texto **Nome**, digite o nome do usuário como Brenda.
 

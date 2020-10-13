@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 4f5994aa4114f12b55f2e232ea5a35fa2df87626
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8f5a8abf4272cf90691e60f97416023a76252e41
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547708"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740441"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bugsnag"></a>Tutorial: Integração do Azure Active Directory ao Bugsnag
 
@@ -100,7 +100,7 @@ Para configurar o logon único do Azure AD com o Bugsnag, execute as seguintes e
 
 4. Na seção **Configuração Básica do SAML**, execute as etapas a seguir caso deseje configurar o aplicativo no modo iniciado por **IDP**:
 
-    ![Informações de logon único de Domínio e URLs do Bugsnag](common/both-replyurl.png)
+    ![Captura de tela que mostra a Configuração Básica de SAML, em que você pode inserir a URL de Resposta e selecionar Salvar.](common/both-replyurl.png)
 
     Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão: `https://app.bugsnag.com/user/sign_in/saml/<org_slug>/acs`
 
@@ -109,7 +109,7 @@ Para configurar o logon único do Azure AD com o Bugsnag, execute as seguintes e
 
 5. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 
-    ![Informações de logon único de Domínio e URLs do Bugsnag](common/both-signonurl.png)
+    ![Captura de tela que mostra Definir URLs adicionais, em que você pode inserir uma URL de Logon.](common/both-signonurl.png)
 
     Na caixa de texto **URL de Logon**, digite uma URL como: `https://app.bugsnag.com/user/identity_provider`
 

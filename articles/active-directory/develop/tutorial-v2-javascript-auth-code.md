@@ -1,7 +1,7 @@
 ---
-title: Tutorial de aplicativo de página única JavaScript – fluxo de código de autenticação | Azure
+title: 'Tutorial: Criar um aplicativo de página única JavaScript que usa o fluxo de código de autenticação | Azure'
 titleSuffix: Microsoft identity platform
-description: Como aplicativos SPA JavaScript podem usar o fluxo de código de autenticação para chamar uma API que exige tokens de acesso pelo Ponto de Extremidade do Azure Active Directory v2.0
+description: Neste tutorial, você cria um SPA JavaScript que pode conectar usuários e usar o fluxo de código de autenticação para obter um token de acesso da plataforma de identidade da Microsoft e chamar a API do Microsoft Graph.
 services: active-directory
 author: hahamil
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: 7a136c03db6e27763a22d92d2c335f23c616856e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3caf12e13b5999c40843f1203ac8ce7f2f21ef6b
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91256799"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665864"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-app-spa-using-auth-code-flow"></a>Tutorial: Conectar usuários e chamar a API do Microsoft Graph de um SPA (aplicativo de página única) JavaScript usando o fluxo de código de autenticação
 
@@ -32,6 +32,11 @@ Este tutorial mostra como criar um SPA (aplicativo de página única) JavaScript
 A MSAL.js 2.0 tem aprimoramentos com relação à MSAL.js 1.0, dando suporte ao fluxo do código de autorização no navegador em vez do fluxo de concessão implícita. A MSAL.js 2.0 **NÃO** dá suporte ao fluxo implícito.
 
 [!INCLUDE [MSAL.js 2.0 and Azure AD B2C temporary incompatibility notice](../../../includes/msal-b2c-cors-compatibility-notice.md)]
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+* [Node.js](https://nodejs.org/en/download/) para executar um servidor Web local
+* [Visual Studio Code](https://code.visualstudio.com/download) ou outro editor de código
 
 ## <a name="how-the-tutorial-app-works"></a>Como o aplicativo tutorial funciona
 
@@ -52,11 +57,6 @@ Prefere baixar o projeto de exemplo completo deste tutorial? Para executar o pro
 Em seguida, pule para a [etapa de configuração](#register-your-application) para configurar o exemplo de código antes de executá-lo.
 
 Para continuar com o tutorial e criar o aplicativo por conta própria, vá para a próxima seção, [Pré-requisitos](#prerequisites).
-
-## <a name="prerequisites"></a>Pré-requisitos
-
-* [Node.js](https://nodejs.org/en/download/) para executar um servidor Web local
-* [Visual Studio Code](https://code.visualstudio.com/download) ou outro editor de código
 
 ## <a name="create-your-project"></a>Criar seu projeto
 
@@ -551,7 +551,9 @@ Quando um usuário selecione o botão **Entrar** pela primeira vez, o método `s
 
 Neste ponto, um código de autorização protegido por PKCE é enviado para o ponto de extremidade de token protegido por CORS e é trocado por tokens. Um token de ID, um token de acesso e um token de atualização são recebidos pelo seu aplicativo e processados por *msal.js* e as informações contidas no token são armazenadas em cache.
 
-O token de ID contém informações básicas sobre o usuário, como o nome de exibição dele. Se você planeja usar dados fornecidos pelo token de ID, seu servidor de back-end *precisa* validá-los para ter certeza de que o token foi emitido para um usuário válido para o seu aplicativo. O token de atualização tem um tempo de vida limitado e expira após 24 horas. O token de atualização pode ser usado para obter silenciosamente novos tokens de acesso.
+O token de ID contém informações básicas sobre o usuário, como o nome de exibição dele. Se você planeja usar dados fornecidos pelo token de ID, seu servidor de back-end *precisa* validá-los para ter certeza de que o token foi emitido para um usuário válido para o seu aplicativo.
+
+O token de acesso tem um tempo de vida limitado e expira após 24 horas. O token de atualização pode ser usado para obter silenciosamente novos tokens de acesso.
 
 O SPA criado neste tutorial chama `acquireTokenSilent` e/ou `acquireTokenPopup` para adquirir um *token de acesso* usado para consultar a API do Microsoft Graph para obter informações de perfil do usuário. Se você precisar de uma amostra que valida o token de ID, confira o aplicativo de exemplo [active-directory-javascript-singlepageapp-dotnet-webapi-v2](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) no GitHub. Esta amostra usa um ASP.NET Web API para validação de token.
 
@@ -649,14 +651,7 @@ Se uma API de back-end não exigir um escopo, o que não é recomendado, você p
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você criou um SPA (aplicativo de página única) JavaScript que usa a MSAL (Biblioteca de Autenticação da Microsoft) para JavaScript v 2.0 para:
+Se quiser se aprofundar no desenvolvimento de aplicativos de página única JavaScript na plataforma de identidade da Microsoft, confira nossa série de cenários com várias partes:
 
-> [!div class="checklist"]
-> * Executar o fluxo do código de autorização do OAuth 2.0 com PKCE
-> * Entrar em contas Microsoft pessoais, bem como contas corporativas e de estudante
-> * Adquirir um token de acesso
-> * Chame a API do Microsoft Graph ou sua própria API que exige tokens de acesso obtidos do ponto de extremidade da plataforma de identidade da Microsoft
-
-Para saber mais sobre o fluxo de código de autorização, incluindo as diferenças entre os fluxos de código implícito e de autenticação, confira [Plataforma de identidade da Microsoft e o fluxo de código de autorização OAuth 2.0](v2-oauth2-auth-code-flow.md).
-
-Se quiser se aprofundar no desenvolvimento de aplicativos de página única JavaScript na plataforma de identidade da Microsoft, a série de artigos [Cenário: aplicativo de página única](scenario-spa-overview.md) em várias partes pode ajudar você a começar.
+> [!div class="nextstepaction"]
+> [Cenário: Aplicativo de página única](scenario-spa-overview.md)

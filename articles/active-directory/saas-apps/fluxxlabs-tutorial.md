@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/21/2020
 ms.author: jeedes
-ms.openlocfilehash: 756bbaab1cbf359def01e371e4370607bee67ce3
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 00cf3e33c87255485f7ea73526e474b0d941124b
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554850"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826378"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-fluxx-labs"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Fluxx Labs
 
@@ -139,15 +139,15 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
 2. Selecione **Administrador** abaixo da seção **Configurações**.
 
-    ![Configuração do Fluxx Labs](./media/fluxxlabs-tutorial/config1.png)
+    ![Captura de tela que mostra a seção "Configurações" com "Administrador" selecionado.](./media/fluxxlabs-tutorial/config1.png)
 
 3. No Painel de Administração, selecione **Plug-ins** > **Integrações** e, em seguida, selecione **SSO de SAML (Desabilitado)**
 
-    ![Configuração do Fluxx Labs](./media/fluxxlabs-tutorial/config2.png)
+    ![Captura de tela que mostra a guia "Integrações" com "SSO SAML (Desabilitado)" selecionado.](./media/fluxxlabs-tutorial/config2.png)
 
 4. Na seção de atributos, realize as seguintes etapas:
 
-    ![Configuração do Fluxx Labs](./media/fluxxlabs-tutorial/config3.png)
+    ![Captura de tela que mostra a seção "Atributos" com "SSO SAML" marcado, valores inseridos em campos e o botão "Salvar" selecionado.](./media/fluxxlabs-tutorial/config3.png)
 
     a. Marque a caixa de seleção **SSO do SAML**.
 
@@ -180,11 +180,11 @@ Para permitir que os usuários do Azure AD entrem no Fluxx Labs, eles precisam s
 
 2. Clique no **ícone** exibido abaixo.
 
-    ![Configuração do Fluxx Labs](./media/fluxxlabs-tutorial/config6.png)
+    ![Captura de tela que mostra as opções do administrador com o ícone "Mais" selecionado em "Seu Painel Está Vazio".](./media/fluxxlabs-tutorial/config6.png)
 
 3. No painel, clique no ícone exibido abaixo para abrir o cartão **Novas PESSOAS**.
 
-    ![Configuração do Fluxx Labs](./media/fluxxlabs-tutorial/config4.png)
+    ![Captura de tela que mostra o menu "Gerenciamento de Contatos" com o ícone "Mais" ao lado de "Pessoas" selecionado.](./media/fluxxlabs-tutorial/config4.png)
 
 4. Na seção **NOVAS PESSOAS**, execute as etapas a seguir:
 

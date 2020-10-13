@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
-ms.openlocfilehash: 16783d344c6a0dedec4e24d49150e0b4b2edbe3e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1c6faf2bb1811f7b27a49f8029c833499273d8a1
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548133"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817111"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-help-scout"></a>Tutorial: integração do Azure Active Directory com o Help Scout
 
@@ -89,7 +89,7 @@ Para configurar o logon único do Azure AD com o Help Scout, execute as seguinte
 
 1. Na seção **Configuração básica do SAML**, execute as etapas a seguir caso deseje configurar o aplicativo no modo **IDP** iniciado:
 
-    ![Informações de logon único de Domínio e URLs do Help Scout](common/idp-intiated.png)
+    ![Captura de tela que mostra a Configuração Básica de SAML, em que você pode inserir o Identificador e a URL de Resposta e selecionar Salvar.](common/idp-intiated.png)
 
     a. **Identificador** é o **URI do Público-alvo (ID da Entidade do Provedor de Serviços)** do Help Scout e começa com `urn:`
 
@@ -100,7 +100,7 @@ Para configurar o logon único do Azure AD com o Help Scout, execute as seguinte
 
 1. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 
-    ![Informações de logon único de Domínio e URLs do Help Scout](common/metadata-upload-additional-signon.png)
+    ![Captura de tela que mostra Definir URLs adicionais, em que você pode inserir uma URL de Logon.](common/metadata-upload-additional-signon.png)
 
     Na caixa de texto **URL de Logon**, digite uma URL como: `https://secure.helpscout.net/members/login/`
 
@@ -183,15 +183,15 @@ Nesta seção, você permite que B.Fernandes use o logon único do Azure concede
 
 1. Clique em **Gerenciar** no menu superior e, em seguida, selecione **Empresa** no menu suspenso.
 
-    ![Configurar o logon único](./media/helpscout-tutorial/settings1.png)
+    ![Captura de tela que mostra o menu Gerenciar com Empresa selecionado.](./media/helpscout-tutorial/settings1.png)
 
 1. Selecione **Autenticação** no painel de navegação à esquerda.
 
-    ![Configurar o logon único](./media/helpscout-tutorial/settings2.png)
+    ![Captura de tela que mostra Autenticação selecionado.](./media/helpscout-tutorial/settings2.png)
 
 1. Isso direciona-o à seção de configurações do SAML e executa as seguintes etapas:
 
-    ![Configurar o logon único](./media/helpscout-tutorial/settings3.png)
+    ![Captura de tela mostra a guia Logon Único, em que você insere as informações especificadas.](./media/helpscout-tutorial/settings3.png)
 
     a. Copie o valor da **URL de Postback (URL do Serviço do Consumidor de Declaração)** e cole o valor na caixa de texto **URL de Resposta** na seção **Configuração Básica do SAML** no portal do Azure.
 
@@ -199,7 +199,7 @@ Nesta seção, você permite que B.Fernandes use o logon único do Azure concede
 
 1. Ative a opção **Habilitar SAML** e execute as seguintes etapas:
 
-    ![Configurar o logon único](./media/helpscout-tutorial/settings4.png)
+    ![Captura de tela que mostra a guia Logon Único, em que você habilita o SAML e adiciona outras informações.](./media/helpscout-tutorial/settings4.png)
 
     a. Na caixa de texto **URL de Logon Único**, cole o valor da **URL de Logon** copiado do portal do Azure.
 

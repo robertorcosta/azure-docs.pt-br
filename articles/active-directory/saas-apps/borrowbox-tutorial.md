@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: d7cab94520464662589ca952e9d50102f450ab8d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: c0ffa67725c3178155c495754ca67270c946778b
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548254"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91744297"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-borrowbox"></a>Tutorial: Integração do Azure Active Directory com BorrowBox
 
@@ -100,11 +100,11 @@ Para configurar o logon único do Azure AD com o BorrowBox, execute as seguintes
 
 4. Na seção **Configuração Básica do SAML**, o usuário não precisa executar nenhuma etapa, pois o aplicativo já está pré-integrado ao Azure.
 
-    ![[Nome do aplicativo] Informações de logon único de domínio e URLs](common/preintegrated.png)
+    ![[Captura de tela que mostra a Configuração Básica de SAML.] Informações de logon único de Domínio e URLs](common/preintegrated.png)
 
 5. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 
-    ![[Nome do aplicativo] Informações de logon único de domínio e URLs](common/metadata-upload-additional-signon.png)
+    ![[Captura de tela que mostra Definir URLs adicionais, em que você pode inserir uma URL de Logon.] Informações de logon único de Domínio e URLs](common/metadata-upload-additional-signon.png)
 
     Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://fe.bolindadigital.com/wldcs_bol_fo/b2i/mainPage.html?b2bSite=<ID>`
 

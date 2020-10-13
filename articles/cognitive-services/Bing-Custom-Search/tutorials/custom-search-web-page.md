@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: aahi
-ms.openlocfilehash: da1ada27b9420643f6f0b15f0986c245ba585acd
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: a07365dd313f75a844e41b71427d8ddcf78ded85
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85921946"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91742495"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>Tutorial: Compilar uma página da Web de pesquisa personalizada
 
@@ -118,7 +118,7 @@ A Pesquisa personalizada fornece uma interface do usuário hospedada para render
   
 5. Selecione suas chaves de assinatura nas listas suspensas. Ou você pode inserir a chave de assinatura manualmente.
   
-   ![Captura de tela da etapa de configurações adicionais da UI hospedada](./media/custom-search-hosted-ui-subscription-key.png)
+   ![Captura de tela da chave de assinatura da interface do usuário hospedada](./media/custom-search-hosted-ui-subscription-key.png)
 
 [!INCLUDE [publish or revert](../includes/publish-revert.md)]
 
@@ -144,7 +144,7 @@ O restante deste tutorial ilustra a **Opção 1: snippet JavaScript**.
   
 4. Na janela, **Aplicativo Web New ASP.NET Core**, selecione **Aplicativo Web** e clique em **OK**.  
   
-   ![Captura de tela da janela novo projeto](./media/custom-search-new-webapp.png)  
+   ![Captura de tela da janela de novo aplicativo Web](./media/custom-search-new-webapp.png)  
 
 ## <a name="edit-indexcshtml"></a>Editar index.cshtml
 

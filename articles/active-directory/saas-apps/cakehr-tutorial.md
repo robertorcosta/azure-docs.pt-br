@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 2884302ae636739243e0277fa49ef6889b077c86
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8464d8918ccb6351de06dcba9a355e93c2cd97cd
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547583"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740336"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cakehr"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao CakeHR
 
@@ -142,11 +142,11 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 1. No canto superior direito da página, clique em **Perfil** e navegue até **Configurações**.
 
-    ![Configuração do CakeHR](./media/cakehr-tutorial/config01.png)
+    ![Captura de tela mostra o Perfil com as Configurações selecionadas.](./media/cakehr-tutorial/config01.png)
 
 1. No lado esquerdo da barra de menus, clique em **INTEGRAÇÕES** > **SSO DO SAML** e execute as seguintes etapas:
 
-    ![Configuração do CakeHR](./media/cakehr-tutorial/config02.png)
+    ![Captura de tela que mostra o painel de Configuração, no qual você executa essas etapas.](./media/cakehr-tutorial/config02.png)
 
     a. Na caixa de texto **ID da Entidade**, digite `cake.hr`.
 
@@ -168,11 +168,11 @@ Para permitir que os usuários do Azure AD entrem no CakeHR, eles precisam ser p
 
 2. No lado esquerdo da barra de menus, clique em **EMPRESA** > **ADICIONAR**.
 
-    ![Configuração do CakeHR](./media/cakehr-tutorial/config03.png)
+    ![Captura de tela que mostra o CakeHR com a EMPRESA e ADICIONAR selecionados.](./media/cakehr-tutorial/config03.png)
 
 3. No pop-up **Adicionar novo funcionário**, execute as seguintes etapas:
 
-     ![Configuração do CakeHR](./media/cakehr-tutorial/config04.png)
+     ![Captura de tela que mostra Adicionar novo funcionário, em que executa essas etapas.](./media/cakehr-tutorial/config04.png)
 
     a. Na caixa de texto **Nome completo**, insira o nome do usuário como B.Fernandes.
 

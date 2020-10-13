@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: jeedes
-ms.openlocfilehash: ecaeea625bc4891c95614292a44d31b616d39eb2
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a70216286e6f19f565d189c1c16f8862494e3aef
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549278"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743073"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-beyondtrust-remote-support"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Suporte Remoto BeyondTrust
 
@@ -155,7 +155,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 1. Clique no menu **STATUS** e copie o **Identificador**, **URL de Resposta** e **URL de Logon** e use esses valores na seção **Configuração básica de SAML** no portal do Azure.
 
-    ![Configurar o Suporte Remoto BeyondTrust](./media/bomgarremotesupport-tutorial/config-url-values.png)
+    ![Captura de tela que mostra o menu Status no BeyondTrust Remote Support, em que pode coletar essas informações.](./media/bomgarremotesupport-tutorial/config-url-values.png)
 
 1. Navegue até a interface de Suporte Remoto BeyondTrust/login em `https://support.example.com/login` no qual **support.example.com** é o nome de host primário do seu dispositivo e autentique usando suas credenciais administrativas.
 
@@ -165,20 +165,20 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 1. Na seção Configurações do Provedor de Identidade, há uma opção para carregar os Metadados do Provedor de Identidade. Localize o arquivo de XML de metadados que você baixou do portal do Azure e clique no botão **Carregar**. A **ID da Entidade**, **URL de Logon único** e Certificado serão automaticamente carregados, além disso **Associação de Protocolo** precisará ser alterado para **HTTP POST**. Confira a captura de tela abaixo:
 
-    ![Configurar o Suporte Remoto BeyondTrust](./media/bomgarremotesupport-tutorial/config-uploadfile.png)
+    ![Captura de tela que mostra a seção Configurações do Provedor de Identidade, em que você executa essas ações.](./media/bomgarremotesupport-tutorial/config-uploadfile.png)
 
 ### <a name="create-beyondtrust-remote-support-test-user"></a>Criar usuário de teste do Suporte Remoto BeyondTrust
 
 Definiremos as configurações de provisionamento do usuário aqui. Os valores usados nesta seção serão referenciados na seção **Atributos e Declarações do Usuário** no portal do Azure. Configuramos isso como os valores padrão que já foram importados no momento da criação, no entanto, o valor pode ser personalizado, se necessário.
 
-![Criando usuário](./media/bomgarremotesupport-tutorial/config-user1.png)
+![Captura de tela que mostra as Configurações de Provisionamento de Usuário, em que pode configurar valores de usuário.](./media/bomgarremotesupport-tutorial/config-user1.png)
 
 > [!NOTE]
 > Os atributos de grupos e email não são necessários para essa implementação. Se você estiver utilizando grupos do Azure AD e atribuindo-os a Políticas de Grupo de Suporte Remoto BeyondTrust para permissões, a ID de objeto do grupo precisará ser referenciada por meio de suas propriedades no portal do Azure e colocada na seção ‘grupos disponíveis’. Depois que isso tiver sido concluído, a ID de objeto/grupo do AD agora estará disponível para atribuição a uma política de grupo para permissões.
 
-![Criando usuário](./media/bomgarremotesupport-tutorial/config-user2.png)
+![Captura de tela que mostra a seção TI, com Tipo de associação, Origem, Tipo e ID do Objeto.](./media/bomgarremotesupport-tutorial/config-user2.png)
 
-![Criando usuário](./media/bomgarremotesupport-tutorial/config-user3.png)
+![Captura de tela que mostra a página Configurações Básicas de uma política de grupo.](./media/bomgarremotesupport-tutorial/config-user3.png)
 
 > [!NOTE]
 > Como alternativa, uma política de grupo padrão pode ser definida no provedor de segurança SAML2. Ao definir essa opção, você atribuirá a todos os usuários que autenticam por meio do SAML as permissões especificadas na política de grupo. A política de Membros Gerais está incluída no Suporte Remoto BeyondTrust/Acesso Remoto Privilegiado com permissões limitadas, que podem ser usadas para testar a autenticação e atribuir usuários às políticas corretas. Os usuários não preencherão a lista de usuários do SAML2 por meio de /login > Usuários e Segurança até a primeira tentativa de autenticação bem-sucedida. As informações adicionais em políticas de Grupo podem ser encontradas no link a seguir: `https://www.beyondtrust.com/docs/remote-support/getting-started/admin/group-policies.htm`

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
-ms.openlocfilehash: ef388426584dc013d102b929627ce2ba45431d5c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 32dd392965e8bf33c835b435b5a2a01460740d2b
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547487"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91823690"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ideascale"></a>Tutorial: integração do Active Directory do Azure ao IdeaScale
 
@@ -137,7 +137,7 @@ Para configurar o logon único do Azure AD com o IdeaScale, execute as seguintes
 
 3. Vá para **Segurança \> Configurações de Logon Único**.
 
-    ![Configurações de Logon Único](./media/ideascale-tutorial/ic790848.png "Configurações de Logon Único")
+    ![Captura de tela que mostra as Configurações de Logon Único selecionadas no menu Segurança.](./media/ideascale-tutorial/ic790848.png "Configurações de Logon Único")
 
 4. Para **Tipo de Logon Único**, selecione **SAML 2.0**.
 
@@ -145,7 +145,7 @@ Para configurar o logon único do Azure AD com o IdeaScale, execute as seguintes
 
 5. No diálogo **Configurações de Logon Único** , realize as seguintes etapas:
 
-    ![Configurações de Logon Único](./media/ideascale-tutorial/ic790850.png "Configurações de Logon Único")
+    ![Captura de tela que mostra a caixa de diálogo Configurações de Logon Único.](./media/ideascale-tutorial/ic790850.png "Configurações de Logon Único")
 
     a. Na caixa de texto **ID da Entidade de IdP SAML**, cole o valor do **Identificador do Azure AD** copiado do portal do Azure.
 

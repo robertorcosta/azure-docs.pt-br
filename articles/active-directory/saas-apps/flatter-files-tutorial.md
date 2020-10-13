@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 7dd13df6222f6441b7edb2bd9a789c1f102168d7
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 596a6657018658d2d00abe7f221ffae9a6730a7a
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554951"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826457"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-flatter-files"></a>Tutorial: Integração do Active Directory do Azure ao Flatter Files
 
@@ -121,11 +121,11 @@ Para configurar o logon único do Azure AD com o Flatter Files, execute as segui
 
 2. Clique em **PAINEL**. 
    
-    ![Configurar o logon único](./media/flatter-files-tutorial/tutorial_flatter_files_05.png)  
+    ![Captura de tela que mostra "PAINEL" selecionado no aplicativo "Arquivos Mais Simples".](./media/flatter-files-tutorial/tutorial_flatter_files_05.png)  
 
 3. Clique em **Configurações** e execute as etapas a seguir na guia **Empresa**: 
    
-    ![Configurar o logon único](./media/flatter-files-tutorial/tutorial_flatter_files_06.png)  
+    ![Captura de tela que mostra a guia "Empresa" com "Usar SAML 2.0 para autenticação" marcada e o botão "Configurar SAML" selecionado.](./media/flatter-files-tutorial/tutorial_flatter_files_06.png)  
     
     a. Selecione **Usar SAML 2.0 para Autenticação**.
     
@@ -207,7 +207,7 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Flatte
 
 2. No painel de navegação à esquerda, clique em **Configurações** e, em seguida, clique na guia **Usuários**.
    
-    ![Criar um usuário do Flatter Files](./media/flatter-files-tutorial/tutorial_flatter_files_09.png)
+    ![Captura de tela que mostra a página "Configurações" com a guia "Usuários" selecionada.](./media/flatter-files-tutorial/tutorial_flatter_files_09.png)
 
 3. Clique em **Adicionar Usuário**. 
 

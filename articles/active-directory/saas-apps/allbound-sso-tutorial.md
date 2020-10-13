@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: fd4c059b7f37960f0a76de8df3d99d2aefae94ef
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: c9ca3b98d01e44c0c899e165e5f892ab5d9a5954
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548371"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715926"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-allbound-sso"></a>Tutorial: integração do Microsoft Azure Active Directory com o Allbound SSO
 
@@ -100,7 +100,7 @@ Para configurar o logon único do Azure AD com o Allbound SSO, execute as seguin
 
 4. Na seção **Configuração básica do SAML**, execute as etapas a seguir caso deseje configurar o aplicativo no modo **IDP** iniciado:
 
-    ![Informações do domínio Allbound SSO Domain e URLs single sign-on](common/idp-intiated.png)
+    ![Captura de tela que mostra a Configuração Básica de SAML, em que você pode inserir um Identificador e uma URL de Resposta e, então, selecionar Salvar.](common/idp-intiated.png)
 
     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.allbound.com/`
 
@@ -108,7 +108,7 @@ Para configurar o logon único do Azure AD com o Allbound SSO, execute as seguin
 
 5. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 
-    ![Informações do domínio Allbound SSO Domain e URLs single sign-on](common/metadata-upload-additional-signon.png)
+    ![Captura de tela que mostra Definir URLs adicionais, em que você pode inserir uma URL de Logon.](common/metadata-upload-additional-signon.png)
 
     Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://<SUBDOMAIN>.allbound.com/`
 

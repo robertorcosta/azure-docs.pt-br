@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.openlocfilehash: ed587e8ee54aeb36b6790314e849f38b1bab1007
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 286d350493afb1e74f9d2ba6eb445b2c46d995b6
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549374"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713561"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-bamboo-by-resolution-gmbh"></a>Tutorial: Integração do Azure Active Directory com o SSO do SAML para Bamboo da Resolution GmbH
 
@@ -100,7 +100,7 @@ Para configurar o logon único do Azure AD com o SSO de SAML para Bamboo da Reso
 
 4. Na seção **Configuração Básica do SAML**, caso deseje configurar o aplicativo no modo iniciado por **IDP** execute as seguintes etapas:
 
-    ![Informações de logon único de domínio e URLs do SSO do SAML para Bamboo da Resolution GmbH](common/idp-intiated.png)
+    ![Informações de logon único de Domínio e URLs do SSO do SAML para Bamboo da Resolution GmbH.](common/idp-intiated.png)
 
     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<server-base-url>/plugins/servlet/samlsso`
 
@@ -108,7 +108,7 @@ Para configurar o logon único do Azure AD com o SSO de SAML para Bamboo da Reso
 
 5. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 
-    ![Informações de logon único de domínio e URLs do SSO do SAML para Bamboo da Resolution GmbH](common/metadata-upload-additional-signon.png)
+    ![Captura de tela que mostra Definir URLs adicionais, em que você pode inserir uma URL de Logon.](common/metadata-upload-additional-signon.png)
 
     Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://<server-base-url>/plugins/servlet/samlsso`
 

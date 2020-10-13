@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 5ca2e37c3524dc75328b0b6615e15c58652d20d1
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a7ab3d32253b354f759c4d348526e22521a5fde4
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88542948"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760709"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-agiloft"></a>Tutorial: Integração do Azure Active Directory ao Agiloft
 
@@ -100,7 +100,7 @@ Para configurar o logon único do Azure AD com o Agiloft, siga estas etapas:
 
 4. Na seção **Configuração básica do SAML**, execute as etapas a seguir caso deseje configurar o aplicativo no modo **IDP** iniciado:
 
-    ![Informações de logon único de URLs e Domínio do Agiloft](common/idp-intiated.png)
+    ![Captura de tela que realça as caixas de texto Identificador e URL de Resposta.](common/idp-intiated.png)
 
     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
 
@@ -150,11 +150,11 @@ Para configurar o logon único do Azure AD com o Agiloft, siga estas etapas:
 
 2. Clique em **Instalação** (no Painel Esquerdo) e, em seguida, selecione em **Acessar**.
 
-    ![Configuração do Agiloft](./media/agiloft-tutorial/setup1.png)
+    ![Captura de tela que realça a seção Acesso.](./media/agiloft-tutorial/setup1.png)
 
 3. Clique no botão **Configurar Logon Único do SAML 2.0**.
 
-    ![Configuração do Agiloft](./media/agiloft-tutorial/setup2.png)
+    ![Captura de tela que realça o botão Configurar Logon Único do SAML 2.0.](./media/agiloft-tutorial/setup2.png)
 
 4. Uma caixa de diálogo de assistente é exibida. Na caixa de diálogo, clique no **Detalhes do Provedor de Identidade** e preencha os campos a seguir:  
 

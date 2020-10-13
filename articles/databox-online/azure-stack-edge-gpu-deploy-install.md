@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/02/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Pro in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: b9f3b564e36939197acd532a37f9a6098fbc870f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: ba903793844e44b26931a70183860c983adaf18a
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90900018"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743396"
 ---
 # <a name="tutorial-install-azure-stack-edge-pro-with-gpu"></a>Tutorial: instalar o Azure Stack Edge Pro com GPU
 
@@ -124,7 +124,7 @@ Localize os componentes para instalação do conjunto do kit de trilho:
 3. Fixe os trilhos de montagem esquerdo e direito nas bordas verticais dianteiras do rack usando dois pares de parafusos.
 4. Deslize os suportes traseiros esquerdo e direito para frente em direção às bordas verticais traseiras do rack e fixe-os usando dois pares de parafusos.
 
-    ![Instalar e remover trilhos com ferramentas](./media/azure-stack-edge-deploy-install/installing-removing-tooled-rails.png)
+    ![Instalar e remover trilhos com ferramentas 2](./media/azure-stack-edge-deploy-install/installing-removing-tooled-rails.png)
 
 ### <a name="install-the-system-in-a-rack"></a>Instalar o sistema em um rack
 
@@ -207,11 +207,11 @@ Execute as etapas a seguir para cabear o dispositivo para obter energia e rede.
 
     - Dispositivo com 3 slots PCI e uma GPU
 
-        ![Backplane de um dispositivo cabeado](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-one-gpu.png)
+        ![Plano traseiro de um dispositivo cabeado 2](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-one-gpu.png)
 
     - Dispositivo com 3 slots PCI e duas GPU
 
-        ![Backplane de um dispositivo cabeado](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-two-gpu.png)
+        ![Plano traseiro de um dispositivo cabeado 3](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-two-gpu.png)
 
 2. Localize os slots do disco e o botão de energia na parte frontal do dispositivo.
 

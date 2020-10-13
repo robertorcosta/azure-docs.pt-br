@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 06c4945c6fee82b3ce622304351c3ad6d9ae282d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 21899ab40836b8ad083c0f005d43084c65c1b6fa
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544651"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759876"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clear-review"></a>Tutorial: integração do Azure Active Directory ao Clear Review
 
@@ -102,7 +102,7 @@ Para configurar o logon único do Azure AD com o Clear Review, execute as seguin
 
 4. Na seção **Configuração Básica do SAML**, caso deseje configurar o aplicativo no modo iniciado por **IDP** execute as seguintes etapas:
 
-    ![Informações de logon único em Domínio e URLs do Clear Review](common/idp-intiated.png)
+    ![Captura de tela que mostra a Configuração Básica de SAML, em que você pode inserir o Identificador e a URL de Resposta e selecionar Salvar.](common/idp-intiated.png)
 
     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<customer name>.clearreview.com/sso/metadata/`
 
@@ -110,7 +110,7 @@ Para configurar o logon único do Azure AD com o Clear Review, execute as seguin
 
 5. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 
-    ![Informações de logon único em Domínio e URLs do Clear Review](common/metadata-upload-additional-signon.png)
+    ![Captura de tela que mostra Definir URLs adicionais, em que você pode inserir uma URL de Logon.](common/metadata-upload-additional-signon.png)
 
     Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://<customer name>.clearreview.com`
 
@@ -119,15 +119,15 @@ Para configurar o logon único do Azure AD com o Clear Review, execute as seguin
 
 6. O aplicativo Clear Review espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados de acordo com a sua configuração de atributos do token SAML. A captura de tela a seguir mostra a lista de atributos padrão, em que **nameidentifier** é mapeado com **user.userprincipalname**. O aplicativo Clear Review espera que **nameidentifier** seja mapeado com **user.mail**. Portanto, você precisa editar o mapeamento de atributo clicando no ícone **Editar** e alterar o mapeamento de atributo.
 
-    ![image](common/edit-attribute.png)
+    ![Captura de tela que mostra Atributos de usuário com o ícone Editar selecionado.](common/edit-attribute.png)
 
 7. Na caixa de diálogo **Atributos de Usuário**, realize as seguintes etapas:
 
     a. Clique no **ícone de edição** à direita do **valor do identificador de nome**.
 
-    ![image](./media/clearreview-tutorial/attribute02.png)
+    ![Captura de tela que mostra Atributos e Declarações do Usuário, com o ícone Editar selecionado.](./media/clearreview-tutorial/attribute02.png)
 
-    ![image](./media/clearreview-tutorial/attribute01.png)
+    ![Captura de tela que mostra a caixa de diálogo Gerenciar declarações do usuário, na qual você pode inserir os valores descritos.](./media/clearreview-tutorial/attribute01.png)
 
     b. Na lista **Atributo de origem**, selecione o valor do atributo **user.mail** para essa linha.
 
@@ -153,15 +153,15 @@ Para configurar o logon único do Azure AD com o Clear Review, execute as seguin
 
 2. Selecione **Admin** do painel de navegação esquerdo.
 
-    ![Botão Salvar em Configurar Logon Único](./media/clearreview-tutorial/tutorial_clearreview_app_admin1.png)
+    ![A captura de tela mostra o portal de revisão clara com o administrador selecionado.](./media/clearreview-tutorial/tutorial_clearreview_app_admin1.png)
 
 3. Na seção **Integrações** na parte inferior da página, clique no botão **Alterar** à direita de **Configurações de Logon Único**.
 
-    ![Botão Salvar em Configurar Logon Único](./media/clearreview-tutorial/tutorial_clearreview_app_admin2.png)
+    ![A captura de tela mostra o botão de alteração de logon único.](./media/clearreview-tutorial/tutorial_clearreview_app_admin2.png)
 
 4. Na página **Configurações de Logon Único**, realize as seguintes etapas
 
-    ![Botão Salvar em Configurar Logon Único](./media/clearreview-tutorial/tutorial_clearreview_app_admin3.png)
+    ![A captura de tela mostra a página de configurações de logon único, na qual você pode inserir as informações nesta etapa.](./media/clearreview-tutorial/tutorial_clearreview_app_admin3.png)
 
     a. Na caixa de texto **URL do Emissor**, cole o valor do **Identificador do Azure AD** copiado do portal do Azure.
 

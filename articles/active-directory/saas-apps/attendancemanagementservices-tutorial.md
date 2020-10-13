@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
-ms.openlocfilehash: df04cc41f2b5947bb0cf23715a857a3449627f23
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d8050b87d122ef676b52f1cab5e06175a55602b1
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550233"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713856"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-attendance-management-services"></a>Tutorial: Integração do Azure Active Directory com o Serviços de Gerenciamento de Participação
 
@@ -128,11 +128,11 @@ Para configurar o logon único do Microsoft Azure AD com os Serviços de Gerenci
 
 1. Clique em **Autenticação SAML** na **seção Gerenciamento de segurança**.
 
-    ![Configuração de Serviços de Gerenciamento de Participação](./media/attendancemanagementservices-tutorial/user1.png)
+    ![Captura de tela que mostra a autenticação SAML selecionada em uma página que usa caracteres não latinos.](./media/attendancemanagementservices-tutorial/user1.png)
 
 1. Execute as seguintes etapas:
 
-    ![Configuração de Serviços de Gerenciamento de Participação](./media/attendancemanagementservices-tutorial/user2.png)
+    ![Captura de tela que mostra a janela em que pode executar as tarefas descritas nesta etapa.](./media/attendancemanagementservices-tutorial/user2.png)
 
     a. Selecione **Usar autenticação SAML**.
 
@@ -206,15 +206,15 @@ Para permitir que os usuários do Microsoft Azure AD entrem nos Serviços de Ger
 
 1. Clique em **Gerenciamento de usuários** na **seção Gerenciamento de segurança**.
 
-    ![Adicionar Funcionário](./media/attendancemanagementservices-tutorial/user5.png)
+    ![Captura de tela que mostra Gerenciamento de usuários selecionado em uma página que usa caracteres não latinos.](./media/attendancemanagementservices-tutorial/user5.png)
 
 1. Clique em **Novas regras de logon**.
 
-    ![Adicionar Funcionário](./media/attendancemanagementservices-tutorial/user3.png)
+    ![Captura de tela que mostra a seleção da opção de adição.](./media/attendancemanagementservices-tutorial/user3.png)
 
 1. Na seção **Informações de OBCiD**, realize as seguintes etapas:
 
-    ![Adicionar Funcionário](./media/attendancemanagementservices-tutorial/user4.png)
+    ![Captura de tela que mostra a janela em que pode executar as tarefas descritas.](./media/attendancemanagementservices-tutorial/user4.png)
 
     a. Na caixa de texto **OBCiD**, digite o email do usuário como `BrittaSimon\@contoso.com`.
 

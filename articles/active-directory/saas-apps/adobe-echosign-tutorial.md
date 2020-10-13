@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
-ms.openlocfilehash: b7d1ea6c1ee21970a598855471284130160e1d65
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 18a034c6af9659e113a821e072098aee873c2ee2
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88537850"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760794"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-sign"></a>Tutorial: Integração do Azure Active Directory ao Adobe Sign
 
@@ -151,7 +151,7 @@ Para configurar o logon único do Azure AD com o Adobe Sign, realize as etapas a
 
 1. Na seção **Configuração do SAML**, execute as seguintes etapas:
   
-   ![Captura de tela das configurações do SAML](./media/adobe-echosign-tutorial/ic789521.png "Configurações do SAML")
+   ![Captura de tela que realça as configurações de SAML, incluindo SAML obrigatório.](./media/adobe-echosign-tutorial/ic789521.png "Configurações do SAML")
    
    ![Captura de tela das configurações do SAML](./media/adobe-echosign-tutorial/ic789522.png "Configurações do SAML")
 

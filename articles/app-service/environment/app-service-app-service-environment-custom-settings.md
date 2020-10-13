@@ -4,15 +4,15 @@ description: Defina as configurações que se aplicam a todo o Ambiente do Servi
 author: stefsch
 ms.assetid: 1d1d85f3-6cc6-4d57-ae1a-5b37c642d812
 ms.topic: tutorial
-ms.date: 12/19/2019
+ms.date: 10/03/2020
 ms.author: stefsch
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 09c41c7480b262e6f1a912ad4b708e485d86bf56
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 88163c07d570df5e0ff343776c17c463010ce368
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85833495"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713283"
 ---
 # <a name="custom-configuration-settings-for-app-service-environments"></a>Definições de configuração personalizadas para Ambientes de Serviço de Aplicativo
 ## <a name="overview"></a>Visão geral
@@ -67,12 +67,12 @@ O Ambiente do Serviço de Aplicativo funciona como um sistema de caixa preta em 
 "clusterSettings": [
     {
         "name": "InternalEncryption",
-        "value": "1"
+        "value": "true"
     }
 ],
 ```
+Isso vai criptografar o tráfego de rede interno em seu ASE entre os front-ends e as funções de trabalho, criptografar o arquivo de paginação e criptografar os discos das funções de trabalho. Depois que o InternalEncryption clusterSetting estiver habilitado, o desempenho do sistema poderá ser afetado. Ao fazer a alteração para habilitar InternalEncryption, seu ASE estará em um estado instável até que a alteração seja totalmente propagada. A propagação completa da alteração pode levar algumas horas para ser concluída, dependendo de quantas instâncias você tem em seu ASE. É altamente recomendável não habilitar isso em um ASE enquanto ele estiver em uso. Se você precisa habilitá-lo em um ASE usado ativamente, recomendamos desviar o tráfego para um ambiente de backup até o fim da operação. 
 
-Depois que o InternalEncryption clusterSetting estiver habilitado, o desempenho do sistema poderá ser afetado. Ao fazer a alteração para habilitar InternalEncryption, seu ASE estará em um estado instável até que a alteração seja totalmente propagada. A propagação completa da alteração pode levar algumas horas para ser concluída, dependendo de quantas instâncias você tem em seu ASE. É altamente recomendável não habilitar isso em um ASE enquanto ele estiver em uso. Se você precisa habilitá-lo em um ASE usado ativamente, recomendamos desviar o tráfego para um ambiente de backup até o fim da operação. 
 
 ## <a name="disable-tls-10-and-tls-11"></a>Desabilitar o TLS 1.0 e TLS 1.1
 

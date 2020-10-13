@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: jeedes
-ms.openlocfilehash: 1db1589561968cf1e2974edcee2bfe1cccb4a327
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7b32c5576ef38f07d28777e1a72aafa935042930
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549234"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775653"
 ---
 # <a name="tutorial-integrate-costpoint-with-azure-active-directory"></a>Tutorial: Integrar o Costpoint com o Azure Active Directory
 
@@ -43,7 +43,7 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 
 A configuração de SSO do SAML do Costpoint é explicada no guia **DeltekCostpoint711Security.pdf**. Baixe este guia do site de suporte do Deltek Costpoint e consulte a seção **Instalação de Logon Único do SAML** > **Configurar Logon Único do SAML entre o Costpoint e o Microsoft Azure**. Siga as instruções e gere um arquivo **XML de Metadados de Federação do Costpoint SP**. 
 
-![Utilitário de Configuração do Costpoint](./media/costpoint-tutorial/config-utility.png)
+![Captura de tela que mostra o "Utilitário de Configuração do Produto" com a guia "WebLogic – Segurança" selecionada.](./media/costpoint-tutorial/config-utility.png)
 
 ## <a name="add-costpoint-from-the-gallery"></a>Adicionar o Costpoint da galeria
 
@@ -166,7 +166,7 @@ Nesta seção, você permitirá que B. Fernandes use o logon único do Azure con
 
 ### <a name="create-a-costpoint-test-user"></a>Criar um usuário de teste do Costpoint
 
-Nesta seção, você criará um usuário no Costpoint. Suponha que a ID de usuário seja **B.FERNANDES** e o nome do usuário seja **B. Fernandes**. Trabalhe com a [equipe de suporte ao Cliente do Costpoint](https://www.deltek.com/about/contact-us) para adicionar o usuário à plataforma Costpoint. O usuário deve ser criado e ativado antes que possa usar o logon único.
+Nesta seção, você criará um usuário no Costpoint. Suponha que a ID de usuário seja **B.FERNANDES** e o nome do usuário seja **B.Fernandes**. Trabalhe com a [equipe de suporte ao Cliente do Costpoint](https://www.deltek.com/about/contact-us) para adicionar o usuário à plataforma Costpoint. O usuário deve ser criado e ativado antes que possa usar o logon único.
 
 Depois que o usuário é criado, a seleção de **Método de Autenticação** do usuário deve ser **Active Directory**, a caixa de seleção **Logon Único do SAML** deve ser selecionada e o nome de usuário do Azure Active Directory precisa ser **Active Directory ou ID do Certificado** (mostrado na captura de tela abaixo).
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/11/2019
 ms.author: jeedes
-ms.openlocfilehash: eb59d7ecd6183d144fd275a50f3682a2b961df98
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: c953297d4e66f737250451b9a5f42ce7f45dd2e4
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550955"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91821262"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-freshworks"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Freshworks
 
@@ -95,7 +95,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
      ![image](common/edit-certificate.png)
 
-     ![Configuração do Freshworks](./media/freshworks-tutorial/response.png)
+     ![Captura de tela que mostra a caixa de diálogo "Certificado de Autenticação SAML" com o botão "Editar" selecionado.](./media/freshworks-tutorial/response.png)
 
     a. Selecione **Assinar resposta SAML** como **Opção de Assinatura**.
 
@@ -141,7 +141,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 2. No lado esquerdo do menu, clique no ícone **Segurança** ; em seguida, marque a opção **Logon único** e selecione **SSO SAML** em **Métodos de Autenticação**.
 
-    ![Configuração do Freshworks](./media/freshworks-tutorial/configure01.png)
+    ![Captura de tela que mostra a seção "Segurança – Métodos de Autenticação" com a opção "Logon único" ativada e "SSO SAML" selecionado.](./media/freshworks-tutorial/configure01.png)
 
 3. Na seção **Logon único**, siga estas etapas:
 

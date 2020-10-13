@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 22225d9810c7b913505cb003a1ed2ce8f1a144e1
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b22bf4ee3ff830a80ee97851f08173257697c50d
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555323"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826497"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-evernote"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Evernote
 
@@ -92,7 +92,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 7. Para modificar as opções de **Autenticação**, clique no botão **Editar** para abrir a caixa de diálogo **Certificado de Autenticação SAML**.
 
-    ![image](common/edit-certificate.png) 
+    ![Captura de tela que mostra a caixa de diálogo "Certificado de Autenticação SAML" com o botão "Editar" selecionado.](common/edit-certificate.png) 
 
     ![image](./media/evernote-tutorial/samlassertion.png)
 
@@ -181,7 +181,7 @@ No caso do Evernote, o provisionamento é uma tarefa manual.
 
 3. No **'Console de Administração'** , acesse **'Adicionar usuários'** .
 
-    ![Add-testUser](./media/evernote-tutorial/create_aaduser_0001.png)
+    ![Captura de tela que mostra o menu "Usuários" com "Adicionar Usuários" selecionado.](./media/evernote-tutorial/create_aaduser_0001.png)
 
 4. **Adicionar membros da equipe** na caixa de texto **Email**, digite o endereço de email da conta de usuário e clique em **Convidar.**
 

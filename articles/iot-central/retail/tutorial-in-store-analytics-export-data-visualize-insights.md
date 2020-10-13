@@ -11,12 +11,12 @@ ms.custom:
 ms.author: dobett
 author: dominicbetts
 ms.date: 11/12/2019
-ms.openlocfilehash: 6062e8a74af4bb0a19d02ccf9a4c50da0cc4a7c5
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.openlocfilehash: f00448f19cc0a2118477a9527005548fea25537e
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80999566"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651438"
 ---
 # <a name="tutorial-export-data-from-azure-iot-central-and-visualize-insights-in-power-bi"></a>Tutorial: Exportar dados do Azure IoT Central e visualizar informações no Power BI
 
@@ -409,7 +409,7 @@ Para adicionar a lógica ao design do aplicativo lógico, selecione **Modo de ex
     * Selecione o campo **Carimbo de data/hora** e, em seguida, selecione **x-opt-enqueuedtime** na lista de **Conteúdo dinâmico**.
     * Selecione o campo **Tempo de espera 1** e, em seguida, selecione **Ver mais** ao lado de **Analisar telemetria**. Em seguida, selecione **Tempo de espera 1**.
     * Selecione o campo **Tempo de espera 2** e, em seguida, selecione **Ver mais** ao lado de **Analisar telemetria**. Em seguida, selecione **Tempo de espera 2**.
-    * Selecione **Salvar** para salvar as alterações. A ação **Interface de tempo de espera** é semelhante à captura de tela a seguir: ![Ação de ocupação](./media/tutorial-in-store-analytics-visualize-insights/occupancy-action-1.png)
+    * Selecione **Salvar** para salvar as alterações. A ação **Interface de tempo de espera** é semelhante à captura de tela a seguir: ![Captura de tela que mostra a ação "Interface de tempo de espera".](./media/tutorial-in-store-analytics-visualize-insights/occupancy-action-1.png)
 1. Selecione a ação **Interface de contagem de pessoas** e selecione **Adicionar uma ação**.
 1. Em **Pesquisar conectores e ações**, insira **Power BI** e pressione **Enter**.
 1. Selecione a ação **Adicionar linhas a uma ação de conjunto de dados (visualização)** .
@@ -484,7 +484,7 @@ Adicione quatro blocos de cartão para mostrar o comprimento da fila e o tempo d
 
 Redimensione e reorganize os blocos no painel para se parecer com a captura de tela a seguir:
 
-![Painel do Power BI](./media/tutorial-in-store-analytics-visualize-insights/pbi-dashboard.png)
+![Captura de tela que mostra o dashboard do Power BI com blocos redimensionados e reorganizados.](./media/tutorial-in-store-analytics-visualize-insights/pbi-dashboard.png)
 
 Você pode adicionar alguns recursos gráficos adicionais para personalizar ainda mais o painel:
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/29/2020
 ms.author: jeedes
-ms.openlocfilehash: adbadc14caad6594dc30f0f9fd9cb1cb49b47888
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7d3dccc8d34852b967bffcf57e2f3609d9786279
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544257"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826678"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-egress"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Egress
 
@@ -146,7 +146,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 1. Clique em **Convidar Usuários** no menu do lado esquerdo e clique em **Convidar Usuário Único** para adicionar o usuário.
 
-    ![Criar usuário de teste do Egress](./media/egress-tutorial/create-user-1.PNG)
+    ![Captura de tela que mostra a página "Convidar Usuários" com o botão "Convidar Usuário Único" selecionado.](./media/egress-tutorial/create-user-1.PNG)
 
 1. Preencha os campos obrigatórios e clique em **Convidar**.
 

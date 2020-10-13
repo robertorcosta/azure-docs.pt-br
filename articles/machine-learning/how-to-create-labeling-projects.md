@@ -8,12 +8,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: e74d22d3d45079a6568f6fca35dc5d84e2d7469f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e30140dc23e64bfc733a0a51fa77fe811ba8fbc7
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897981"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776112"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Criar um projeto de rotulagem de dados e exportar rótulos 
 
@@ -156,6 +156,9 @@ O número exato de imagens rotuladas necessárias para iniciar a rotulagem assis
 
 Como os rótulos finais ainda dependem da entrada do rotulador, essa tecnologia, às vezes, é chamada de rotulagem *humanos no loop*.
 
+> [!NOTE]
+> A rotulagem de dados assistida da ML não é compatível com contas de armazenamento padrão protegidas uma [rede virtual](how-to-network-security-overview.md). Você deve usar uma conta de armazenamento não padrão para rotular dados assistidos por ML. A conta de armazenamento não padrão pode ser protegida pela rede virtual. 
+
 ### <a name="clustering"></a>Clustering
 
 Depois que um número especificado de rótulos é enviado, o modelo de machine learning para classificação de imagens começa a agrupar imagens semelhantes.  Essas imagens semelhantes são apresentadas aos rotuladores na mesma tela para acelerar a marcação manual. O clustering é especialmente útil quando o rotulador exibe uma grade de 4, 6 ou 9 imagens. 
@@ -186,7 +189,7 @@ Para pausar ou reiniciar o projeto, alterne o status **Em execução** no canto 
 
 A guia **Painel** mostra o progresso da tarefa de rotulagem.
 
-:::image type="content" source="media/how-to-create-labeling-projects/labeling-dashboard.png" alt-text="Painel de rotulagem de dados":::
+:::image type="content" source="media/how-to-create-labeling-projects/labeling-dashboard.png" alt-text="Assistente de criação de projeto de rotulagem":::
 
 O gráfico de progresso mostra quantos itens foram rotulados e quantos ainda não foram feitos.  Os itens pendentes podem estar:
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
-ms.openlocfilehash: 149656bebac7e8fab24dc1e1847a4e56bf5f3888
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0465d6219f9c9d13b4dd3321beb90af524cade36
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547334"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741476"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bime"></a>Tutorial: Integração do Azure Active Directory ao Bime
 
@@ -132,7 +132,7 @@ Para configurar o logon único do Azure AD com o Bime, execute as seguintes etap
 
 2. Na barra de ferramentas, clique em **Administrador** e em **Conta**.
   
-    ![Administrador](./media/bime-tutorial/ic775558.png "Admin")
+    ![Captura de tela mostra o item de Administrador selecionado e a Conta selecionada.](./media/bime-tutorial/ic775558.png "Admin")
 
 3. Na página de configuração da conta, execute as seguintes etapas:
   
@@ -207,7 +207,7 @@ Para que possam fazer logon no Bime, os usuários do Azure AD deverão ser provi
 
 2. Na barra de ferramentas, clique em **Administrador** e em **Usuários**.
 
-    ![Administrador](./media/bime-tutorial/ic775561.png "Admin")
+    ![Captura de tela mostra o item de Administrador selecionado e os Usuários selecionados.](./media/bime-tutorial/ic775561.png "Admin")
 
 3. Na **Lista de Usuários**, clique em **Adicionar Novo Usuário** (“+”).
 

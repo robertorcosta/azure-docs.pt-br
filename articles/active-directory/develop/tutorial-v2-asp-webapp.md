@@ -12,14 +12,14 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: 6a5fb517b3ea6626a929da10954bd58cc8e39ef0
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 9ff43202bdace577024413c9cc177de2997a0ad5
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91574221"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627934"
 ---
-# <a name="add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Adicionar a entrada com a conta da Microsoft a um aplicativo Web ASP.NET
+# <a name="tutorial-add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Tutorial: Adicionar a entrada com a conta da Microsoft a um aplicativo Web ASP.NET
 
 Este guia demonstra como implementar a opção Entrar com a conta da Microsoft por meio de uma solução ASP.NET MVC usando um aplicativo tradicional baseado em navegador da Web e o OpenID Connect.
 
@@ -295,7 +295,7 @@ Esse controlador demonstra os usos do atributo `[Authorize]` para proteger um co
         {
             var userClaims = User.Identity as System.Security.Claims.ClaimsIdentity;
 
-            //You get the user’s first and last name below:
+            //You get the user's first and last name below:
             ViewBag.Name = userClaims?.FindFirst("name")?.Value;
 
             // The 'preferred_username' claim can be used for showing the username
@@ -313,7 +313,7 @@ Esse controlador demonstra os usos do atributo `[Authorize]` para proteger um co
     ```
 
 ### <a name="more-information"></a>Mais informações
-Devido ao uso do atributo `[Authorize]`, todos os métodos desse controlador podem ser executados apenas se o usuário está autenticado. Se o usuário não estiver autenticado e tentar acessar o controlador, o OWIN iniciará um desafio de autenticação e forçará o usuário a se autenticar. O código anterior examina a lista de declarações em busca de atributos de usuário específicos incluídos no token de ID do usuário. Esses atributos incluem o nome completo do usuário e o nome de usuário, bem como a entidade de identificador de usuário global. Também contém a *ID de Locatário*, que representa a ID da organização do usuário.
+Devido ao uso do atributo `[Authorize]`, todos os métodos desse controlador podem ser executados apenas se o usuário está autenticado. Se o usuário não estiver autenticado e tentar acessar o controlador, o OWIN iniciará um desafio de autenticação e forçará o usuário a se autenticar. O código anterior examina a lista de declarações em busca de atributos de usuário específicos incluídos no token de ID do usuário. Esses atributos incluem o nome completo do usuário e o nome de usuário, bem como a entidade de identificador de usuário global. Ele também contém a *ID de Locatário*, que representa a ID da organização do usuário.
 
 ## <a name="create-a-view-to-display-the-users-claims"></a>Criar uma exibição para exibir as declarações do usuário
 
@@ -370,7 +370,7 @@ Para registrar seu aplicativo rapidamente, siga estas etapas:
 Para registrar seu aplicativo e adicionar as informações de registro do aplicativo à solução manualmente, siga estas etapas:
 
 1. Abra o Visual Studio e, em seguida:
-   1. no Gerenciador de Soluções, selecione o projeto e exiba a janela Propriedades (se uma janela Propriedades não for exibida, pressione F4).
+   1. no Gerenciador de Soluções, selecione o projeto para exibir a janela Propriedades (se uma janela Propriedades não for exibida, pressione F4).
    1. Altere habilitado para SSL `True`.
    1. Clique com o botão direito do mouse no projeto no Visual Studio, selecione **Propriedades** e, em seguida, selecione a guia **Web**. Na seção **Servidores**, altere a configuração de **URL do projeto** para **URL do SSL**.
    1. Copie a URL do SSL. Você adicionará essa URL à lista de URLs de Redirecionamento na lista de URLs de Redirecionamento do portal de Registro na próxima etapa.<br/><br/>![Propriedades do projeto](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
@@ -427,7 +427,7 @@ Depois de navegar para a exibição do controlador, você deverá visualizar uma
 
 |Propriedade |Valor |Descrição |
 |---|---|---|
-|**Nome** |Nome completo do usuário | Nome e sobrenome do usuário
+|**Nome** |Nome completo do usuário | O nome e o sobrenome do usuário
 |**Nome de usuário** |usuário<span>@domain.com</span> | O nome de usuário que é usado para identificar o usuário|
 |**Assunto** |Assunto |Uma cadeia de caracteres que identifica de maneira exclusiva o usuário na Web|
 |**ID do locatário** |Guid | Um **GUID** que representa de maneira exclusiva a organização do Azure AD do usuário|

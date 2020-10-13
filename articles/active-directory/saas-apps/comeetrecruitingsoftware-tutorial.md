@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/22/2019
 ms.author: jeedes
-ms.openlocfilehash: a47721122456d32cef91de4bd5ef2b92738bf496
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: ed68e02be500ebd863eb7d6d54ddffe63873fe61
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88520084"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91774474"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-comeet-recruiting-software"></a>Tutorial: Integração do Active Directory do Azure com o software de recrutamento Comeet
 
@@ -99,7 +99,7 @@ Para configurar o logon único do Azure AD com o Comeet Recruiting Software, exe
 
 4. Na seção **Configuração básica do SAML**, execute as etapas a seguir caso deseje configurar o aplicativo no modo **IDP** iniciado:
 
-    ![Comeet Recruiting Software Domínio e URLs de conexão única](common/idp-intiated.png)
+    ![Captura de tela que mostra a seção "Configuração Básica de SAML" com a ação "Salvar", o campo "Identificador" e o campo "URL de Resposta" realçados.](common/idp-intiated.png)
 
     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://app.comeet.co/adfs_auth/acs/<UNIQUEID>/`
 
@@ -116,7 +116,7 @@ Para configurar o logon único do Azure AD com o Comeet Recruiting Software, exe
 
 5. O aplicativo Comeet Recruiting Software espera que as declarações SAML estejam em um formato específico. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos da seção **Atributos de Usuário** na página de integração de aplicativos. Na página **Definir Logon Único com SAML**, clique no botão **Editar** para abrir a caixa de diálogo **Atributos do Usuário**.
 
-    ![image](common/edit-attribute.png)
+    ![Captura de tela que mostra a seção "Atributos do Usuário" com o botão "Editar" selecionado.](common/edit-attribute.png)
 
 6. Na seção **Declarações de Usuário** da caixa de diálogo **Atributos de Usuário**, edite as declarações usando o **ícone Editar** ou adicione as declarações usando **Adicionar nova declaração** para configurar o atributo de token SAML conforme mostrado na imagem acima e executar as seguintes etapas: 
 
@@ -127,7 +127,7 @@ Para configurar o logon único do Azure AD com o Comeet Recruiting Software, exe
 
     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
-    ![image](common/new-save-attribute.png)
+    ![Captura de tela que mostra a seção "Declarações do usuário" com as ações "Adicionar declaração" e "Salvar" realçadas.](common/new-save-attribute.png)
 
     ![image](common/new-attribute-details.png)
 

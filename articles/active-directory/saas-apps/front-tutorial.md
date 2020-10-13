@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 606ee409a241db7b4deb9d15db86b034b8fbffd3
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: bbd39c85385d6690a80f540c9e0cd23a321e7e84
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550959"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91821229"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-front"></a>Tutorial: integração do Azure Active Directory ao Front
 
@@ -128,23 +128,23 @@ Para configurar o logon único do Azure AD com o Front, execute as seguintes eta
 
 2. Acesse as **Configurações (ícone de engrenagem na parte inferior da barra lateral esquerda) > Preferências**.
    
-    ![Configurar o logon único no lado do aplicativo](./media/front-tutorial/tutorial_front_000.png)
+    ![Captura de tela que mostra "Configurações (ícone de engrenagem)" selecionado com "Preferências" realçado.](./media/front-tutorial/tutorial_front_000.png)
 
 3. Clique no link **Logon Único** .
    
-    ![Configurar o logon único no lado do aplicativo](./media/front-tutorial/tutorial_front_001.png)
+    ![Captura de tela que mostra a seção "Preferências da empresa" com o link "Logon Único" selecionado.](./media/front-tutorial/tutorial_front_001.png)
 
 4. Selecione **SAML** na lista suspensa do **Logon Único**.
    
-    ![Configurar o logon único no lado do aplicativo](./media/front-tutorial/tutorial_front_002.png)
+    ![Captura de tela que mostra a lista suspensa "logon único" com "SAML" selecionado.](./media/front-tutorial/tutorial_front_002.png)
 
 5. Na caixa de texto **Ponto de Entrada**, insira o valor da **URL de Logon** do assistente de configuração do aplicativo do Azure AD.
     
-    ![Configurar o logon único no lado do aplicativo](./media/front-tutorial/tutorial_front_003.png)
+    ![Captura de tela que mostra a caixa de texto "Ponto de Entrada".](./media/front-tutorial/tutorial_front_003.png)
 
 6. Abra o arquivo de **Certificado (Base64)** baixado no bloco de notas, copie o conteúdo dele para a área de transferência e, depois, cole-o na caixa de texto **Certificado de autenticação**.
     
-    ![Configurar o logon único no lado do aplicativo](./media/front-tutorial/tutorial_front_004.png)
+    ![Captura de tela que mostra "Certificado de autenticação" realçado com a caixa de texto esmaecida.](./media/front-tutorial/tutorial_front_004.png)
 
 7. Na seção de **Configurações de provedores de serviço**, execute as seguintes etapas:
 

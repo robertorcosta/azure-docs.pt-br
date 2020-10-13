@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: jeedes
-ms.openlocfilehash: d743785ad5525f582e5cb25df715d8211121e809
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 898f579446008bd696b4c120a56a960458e5640f
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547249"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776061"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-communifire"></a>Tutorial: integração do Azure Active Directory ao Communifire
 
@@ -101,7 +101,7 @@ Para configurar o logon único do Azure AD com o Communifire, execute as seguint
 
 4. Na seção **Configuração básica do SAML**, execute as etapas a seguir caso deseje configurar o aplicativo no modo **IDP** iniciado:
 
-    ![Informações de logon único de Domínio e URLs do Communifire](common/idp-intiated.png)
+    ![Captura de tela que mostra a seção "Configuração Básica de SAML" com a ação "Salvar", o campo "Identificador" e o campo "URL de Resposta" realçados.](common/idp-intiated.png)
 
     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<subdomain>.communifire.com`
 

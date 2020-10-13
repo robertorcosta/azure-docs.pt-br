@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/23/2019
 ms.author: jeedes
-ms.openlocfilehash: 6773805fac9a23ca918a1bf6e4889d3e1a3bb336
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a2c1ba8feb933be7c4970f061dd5acdc1ef68a16
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550087"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775432"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-darwinbox"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory com o Darwinbox
 
@@ -143,19 +143,19 @@ Ao clicar no bloco do Darwinbox no Painel de Acesso, você deverá ser conectado
 
 1. Abra o aplicativo móvel Darwinbox. Clique em **Inserir a URL da Organização** agora para inserir a URL da sua organização na caixa de texto e clique no botão de seta.
 
-    ![Aplicativo móvel Darwinbox](media/darwinbox-tutorial/DarwinboxMobile01.jpg)
+    ![Captura de tela que mostra o aplicativo móvel "Darwinbox" com "Inserir URL da Organização" selecionado e um exemplo de organização e botão de "Seta" realçados.](media/darwinbox-tutorial/DarwinboxMobile01.jpg)
 
 1. Caso você tenha vários domínios, clique no seu domínio.
 
-    ![Aplicativo móvel Darwinbox](media/darwinbox-tutorial/DarwinboxMobile02.jpg)
+    ![Captura de tela que mostra o botão "Escolher seu domínio" com um domínio de exemplo selecionado.](media/darwinbox-tutorial/DarwinboxMobile02.jpg)
 
 1. Insira seu email do Azure AD no aplicativo Darwinbox e clique em **Avançar**.
 
-    ![Aplicativo móvel Darwinbox](media/darwinbox-tutorial/DarwinboxMobile03.jpg)
+    ![Captura de tela que mostra a entrada "Entrar" com o botão "Avançar" realçado.](media/darwinbox-tutorial/DarwinboxMobile03.jpg)
 
 1. Insira sua senha do Azure AD no aplicativo Darwinbox e clique em **Entrar**.
 
-    ![Aplicativo móvel Darwinbox](media/darwinbox-tutorial/DarwinboxMobile04.jpg)
+    ![Captura de tela que mostra a tela "Inserir senha" com o botão "Avançar" realçado.](media/darwinbox-tutorial/DarwinboxMobile04.jpg)
 
 1. Por fim, após entrar com sucesso, a home page do aplicativo será exibida.
 

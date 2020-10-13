@@ -5,16 +5,18 @@ ms.date: 03/30/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 1a29b8cfbc07e1232ffee788da8d195d39b9ca93
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 7940e0f90e29e5c69ccde79dfbec889dbe31fe63
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531635"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758975"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Criar uma função no Linux usando um contêiner personalizado
 
 Neste tutorial, você cria e implanta seu código no Azure Functions como um contêiner do Docker personalizado usando uma imagem base do Linux. Normalmente, você usa uma imagem personalizada quando suas funções exigem uma versão de linguagem específica ou têm uma configuração ou dependência específica que não é fornecida pela imagem interna.
+
+Para implantar seu código de função em um contêiner Linux personalizado, você precisa ter a hospedagem em um [Plano Premium](functions-premium-plan.md#features) ou em um [Plano dedicado (Serviço de Aplicativo)](functions-scale.md#app-service-plan). A conclusão deste tutorial gera custos de alguns dólares dos EUA em sua conta do Azure, que você pode minimizar [limpando os recursos](#clean-up-resources) quando terminar.
 
 Você também pode usar um contêiner padrão do Serviço de Aplicativo do Azure, conforme descrito em [Criar sua primeira função hospedada em Linux](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python). Imagens base com suporte para Azure Functions encontram-se no [repositório de imagens de base do Azure Functions](https://hub.docker.com/_/microsoft-azure-functions-base).
 
@@ -31,7 +33,7 @@ Neste tutorial, você aprenderá como:
 > * Habilitar conexões SSH para o contêiner.
 > * Adicionar uma associação de saída de armazenamento de filas. 
 
-Você pode seguir este tutorial em qualquer computador que execute o Windows, o macOS ou o Linux. A realização do tutorial gerará custos de alguns dólares americanos em sua conta do Azure.
+Você pode seguir este tutorial em qualquer computador que execute o Windows, o macOS ou o Linux. 
 
 [!INCLUDE [functions-requirements-cli](../../includes/functions-requirements-cli.md)]
 
@@ -243,7 +245,7 @@ Use comandos da CLI do Azure para criar esses itens. Cada comando fornece uma sa
     az functionapp plan create --resource-group AzureFunctionsContainers-rg --name myPremiumPlan --location westeurope --number-of-workers 1 --sku EP1 --is-linux
     ```   
 
-    Há suporte para a hospedagem no Linux de contêineres de funções personalizadas nos [Planos Dedicados (Serviço de Aplicativo)](functions-scale.md#app-service-plan) e [Planos Premium](functions-premium-plan.md#features). Aqui, usamos o plano Premium, que pode ser dimensionado conforme necessário. Para saber mais sobre hospedagem, confira [Comparação de planos de hospedagem do Azure Functions](functions-scale.md). Para calcular os custos, confira a [Página de preços do Functions](https://azure.microsoft.com/pricing/details/functions/).
+    Aqui, usamos o plano Premium, que pode ser dimensionado conforme necessário. Para saber mais sobre hospedagem, confira [Comparação de planos de hospedagem do Azure Functions](functions-scale.md). Para calcular os custos, confira a [Página de preços do Functions](https://azure.microsoft.com/pricing/details/functions/).
 
     O comando também provisiona uma instância associada do Azure Application Insights no mesmo grupo de recursos, com a qual você pode monitorar seu aplicativo de funções e exibir logs. Para saber mais, consulte [Monitorar Azure Functions](functions-monitoring.md). A instância não gera nenhum custo até você ativá-la.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 34e36be8ee9444b5612901439aa5dca4771f2dda
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8fdb59db7e11e3c8b946be940a2f98bd42810b88
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551644"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758295"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cloudpassage"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao CloudPassage
 
@@ -85,7 +85,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     b. Na caixa de texto **URL de Resposta**, digite uma URL usando o padrão a seguir: `https://portal.cloudpassage.com/saml/consume/accountid`. Você pode obter o valor para este atributo clicando em **documentação de instalação do SSO** na seção **Configurações de Logon Único** do seu portal CloudPassage.
 
-    ![Configurar o logon único](./media/cloudpassage-tutorial/tutorial_cloudpassage_05.png)
+    ![Captura de tela que mostra o portal do CloudPassage com o link Documentação de Instalação do SSO em destaque.](./media/cloudpassage-tutorial/tutorial_cloudpassage_05.png)
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Resposta e a URL de Logon reais. Entre em contato com a [equipe de suporte ao cliente do CloudPassage](https://www.cloudpassage.com/company/contact/) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -146,15 +146,15 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 1. No menu, na parte superior, clique em **Configurações** e clique em **Administração do Site**. 
    
-    ![Configurar o logon único][12]
+    ![Captura de tela que mostra o site do CloudPassage com Administração do Site selecionado.][12]
 
 1. Clique na guia **Configurações de Autenticação** . 
    
-    ![Configurar o logon único][13]
+    ![Captura de tela que mostra o site do CloudPassage com a guia Configurações de Autenticação selecionada.][13]
 
 1. Na seção **Configurações de Logon Único** , realize as seguintes etapas: 
    
-    ![Configurar o logon único][14]
+    ![Captura de tela que mostra a seção Configurações de Logon Único, em que você pode inserir as informações nesta etapa.][14]
 
     a. Marque a caixa de seleção **Habilitar SSO (Logon Único) (Documentação de instalação de SSO)** .
     
@@ -178,15 +178,15 @@ O objetivo desta seção é criar um usuário chamado B.Fernandes no CloudPassag
 
 1. Na barra de ferramentas, na parte superior, clique em **Configurações** e clique em **Administração do Site**. 
    
-    ![Criar um usuário de teste CloudPassage][22] 
+    ![Captura de tela que mostra o CloudPassage com Administração do Site selecionado.][22] 
 
 1. Clique na guia **Usuários** e clique em **Adicionar Novo Usuário**. 
    
-    ![Criar um usuário de teste CloudPassage][23]
+    ![Captura de tela que mostra a Administração do Site do CloudPassage com a guia Usuários selecionada e a opção para Adicionar Novo Usuário.][23]
 
 1. Na seção **Adicionar Novo Usuário** , realize as seguintes etapas: 
    
-    ![Criar um usuário de teste CloudPassage][24]
+    ![Captura de tela que mostra a seção Adicionar Novo Usuário, em que você pode e especificar informações do usuário.][24]
     
     a. Na caixa de texto **Nome** , digite Brenda. 
   

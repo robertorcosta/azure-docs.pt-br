@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 6f2b7ec07583859e12711237c6a899d61335c969
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b05a85dd61cdf4edc366edc3fbf20e4097308d09
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545465"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713578"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amplitude"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Amplitude
 
@@ -141,15 +141,15 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 1. Clique no **Administrador do Plano** da barra de navegação esquerda.
 
-    ![Configurar o logon único](./media/amplitude-tutorial/configure1.png)
+    ![Captura de tela que mostra o menu do Amplitude com Administrador do Plano selecionado.](./media/amplitude-tutorial/configure1.png)
 
 1. Selecione **Metadados do Microsoft Azure Active Directory** da **Integração de SSO**.
 
-    ![Configurar o logon único](./media/amplitude-tutorial/configure2.png)
+    ![Captura de tela que mostra o painel Administrador do Plano com o link para os Metadados do Microsoft Azure Active Directory em destaque.](./media/amplitude-tutorial/configure2.png)
 
 1. Na seção **Configurações de Logon Único**, execute as seguintes etapas:
 
-    ![Configurar o logon único](./media/amplitude-tutorial/configure3.png)
+    ![Captura de tela que mostra a seção Configurar Logon Único com os valores descritos nesta etapa.](./media/amplitude-tutorial/configure3.png)
 
     a. Abra o **XML de Metadados** baixado do Portal do Azure no bloco de notas, cole o conteúdo na caixa de texto **Metadados do Microsoft Azure Active Directory**.
 

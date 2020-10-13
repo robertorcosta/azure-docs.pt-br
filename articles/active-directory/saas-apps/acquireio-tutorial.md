@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 1bdda60d3b6f5e763bd31b25ab0fd8c2783f978d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: cd07370c75ac64fa8e3806fed50a64db90122c76
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88537860"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708298"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-acquireio"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao AcquireIO
 
@@ -134,15 +134,15 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure dand
 
 1. Do lado esquerdo do menu, clique em **App Store**.
 
-     ![Configuração da AcquireIO](./media/acquireio-tutorial/config01.png)
+     ![Captura de tela que realça App Store.](./media/acquireio-tutorial/config01.png)
 
 1. Role a página para baixo até **Active Directory** e clique em **Instalar**.
 
-    ![Configuração da AcquireIO](./media/acquireio-tutorial/config02.png)
+    ![Captura de tela que realça a seção Active Directory e o botão Instalar.](./media/acquireio-tutorial/config02.png)
 
 1. No pop-up do Active Directory, execute as seguintes etapas:
 
-    ![Configuração da AcquireIO](./media/acquireio-tutorial/config03.png)
+    ![Captura de tela que mostra a tela Active Directory.](./media/acquireio-tutorial/config03.png)
 
     a. Clique para **Copiar** a URL de resposta para sua instância e cole-a na caixa de texto **URL de Resposta** na seção **Configuração Básica de SAML** no portal do Azure.
 
@@ -162,7 +162,7 @@ Para permitir que os usuários do Microsoft Azure AD façam logon na AcquireIO, 
 
 1. No lado esquerdo do menu, clique em **Perfis** e navegue até **Adicionar Perfil**.
 
-     ![Configuração da AcquireIO](./media/acquireio-tutorial/config04.png)
+     ![Captura de tela que realça os Perfis no menu no lado esquerdo da tela, bem como a opção Adicionar Perfil.](./media/acquireio-tutorial/config04.png)
 
 1. No pop-up **Adicionar cliente**, execute as seguintes etapas:
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 98740153def94742a8bbba1ee6f4f022b614ecfa
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 12c0647e0244464966c52bafe8c976eb4a35ddda
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88537100"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741203"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-benselect"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao BenSelect
 
@@ -89,15 +89,15 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. O aplicativo BenSelect espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados de acordo com a sua configuração de atributos do token SAML. A captura de tela a seguir mostra a lista de atributos padrão.
 
-    ![image](common/edit-attribute.png)
+    ![Captura de tela que mostra Atributos do Usuário com atributos padrão, como givenname user.givenname e emailaddress user.mail.](common/edit-attribute.png)
 
 1. Clique no ícone **Editar** para editar o valor de **Valor do identificador de nome**.
 
-    ![image](media/benselect-tutorial/mail-prefix1.png)
+    ![Captura de tela que mostra o painel Atributos e Declarações do Usuário, com o ícone Editar em destaque.](media/benselect-tutorial/mail-prefix1.png)
 
 1. Na seção **Gerenciar declarações do usuário**, realize as seguintes etapas:
 
-    ![image](media/benselect-tutorial/mail-prefix2.png)
+    ![Captura de tela que mostra Gerenciar declarações do usuário, em que você pode inserir os valores descritos nesta etapa.](media/benselect-tutorial/mail-prefix2.png)
 
     a. Selecione **Transformação** como uma **Origem**.
 

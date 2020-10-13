@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 09/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 4818755e48a4d497d70920a62a9505346176ed73
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 026caf101f58ff9d93e3306d0bd224f24e8af864
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371279"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743940"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware"></a>Tutorial: Provisionar o Azure Data Box Gateway no VMware
 
@@ -145,11 +145,11 @@ Execute as etapas a seguir para provisionar um dispositivo virtual no seu hiperv
 
     Na mesma página, clique em **Adicionar disco rígido** e, em seguida, selecione **Disco rígido existente**. Selecione o arquivo VMDK no repositório de dados. Isso adicionará um disco do sistema operacional. 
 
-     ![Personalizar a página de configurações](./media/data-box-gateway-deploy-provision-vmware/image14.png)
+     ![Página Personalizar configurações 2](./media/data-box-gateway-deploy-provision-vmware/image14.png)
 
     Role a tela para baixo até ver o **Novo disco rígido** e expanda-o para exibir as configurações. Defina o **Nó do Dispositivo Virtual** como **Controlador IDE 0**.
 
-     ![Personalizar a página de configurações](./media/data-box-gateway-deploy-provision-vmware/image15.png)
+     ![Página Personalizar configurações 3](./media/data-box-gateway-deploy-provision-vmware/image15.png)
 
 17. (Opcional) *Execute esta etapa somente se você estiver executando o VMware ESXi Server 6.7*. Na página **Personalizar as configurações**, clique em **Opções de VM**. Acesse **Opções de inicialização > Firmware** e altere-a para **BIOS**. Por padrão, o valor é definido como EFI. Clique em **Próximo**.
 
@@ -157,8 +157,8 @@ Execute as etapas a seguir para provisionar um dispositivo virtual no seu hiperv
 
 18. Na página **Pronto para Concluir** , examine todas as configurações associadas à nova máquina virtual. Verifique se a CPU é 4, memória é 8192 MB, adaptador de rede é 1 e Disco rígido 2 tem o controlador IDE 0. Clique em **Concluir**.
    
-    ![Pronto para Concluir página](./media/data-box-gateway-deploy-provision-vmware/image16.png)
-    ![pronto para Concluir página](./media/data-box-gateway-deploy-provision-vmware/image17.png)
+    ![Página Pronto para Concluir](./media/data-box-gateway-deploy-provision-vmware/image16.png)
+    ![Página Pronto para Concluir 2](./media/data-box-gateway-deploy-provision-vmware/image17.png)
 
 Sua máquina virtual está agora provisionada. Você verá uma notificação sobre isso, e a nova máquina virtual será adicionada à lista de VMs.
 

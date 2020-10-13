@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 072c02401a5d1ef49a3f25828f5b60fa8504d2ee
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: c62967950d9f6d9ba9e3578357f65cc4988412c2
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555092"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91824910"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-filesanywhere"></a>Tutorial: Integração do Azure Active Directory com o FilesAnywhere
 
@@ -101,7 +101,7 @@ Para configurar o logon único do Azure AD com o FilesAnywhere, execute as segui
 
 4. Na seção **Configuração Básica do SAML**, execute as etapas a seguir caso deseje configurar o aplicativo no modo iniciado por **IDP**:
 
-    ![Informações de logon único de Domínio e URLs do FilesAnywhere](common/both-replyurl.png)
+    ![Captura de tela que mostra a seção "Configuração Básica de SAML" com "URL de Resposta" realçado e o botão "Salvar" selecionado.](common/both-replyurl.png)
 
     Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão: `https://<company name>.filesanywhere.com/saml20.aspx?c=<Client Id>`
 
@@ -116,7 +116,7 @@ Para configurar o logon único do Azure AD com o FilesAnywhere, execute as segui
 
 6. O aplicativo FilesAnywhere espera as declarações SAML em um formato específico, o que exige a adição de mapeamentos de atributo personalizado à configuração de atributos do token SAML. A captura de tela a seguir mostra a lista de atributos padrão. Clique no ícone Editar para adicionar os atributos.
 
-    ![image](common/edit-attribute.png)
+    ![Captura de tela que mostra a seção "Atributos do Usuário" com o botão "Editar" selecionado.](common/edit-attribute.png)
 
     Quando os usuários se inscrevem no FilesAnywhere, eles obtêm o valor do atributo **clientid** da [equipe do FilesAnywhere](mailto:support@FilesAnywhere.com). É necessário adicionar o atributo "ID do cliente" com o valor exclusivo fornecido pelo FilesAnywhere.
 
@@ -128,7 +128,7 @@ Para configurar o logon único do Azure AD com o FilesAnywhere, execute as segui
 
     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
-    ![image](common/new-save-attribute.png)
+    ![Captura de tela que mostra a caixa de diálogo "Declarações do Usuário" com os "Adicionar declaração" e "Salvar" selecionados.](common/new-save-attribute.png)
 
     ![image](common/new-attribute-details.png)
 

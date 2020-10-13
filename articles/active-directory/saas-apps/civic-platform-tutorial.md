@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 47ffaef940b3fe2ffe033405a712195c5c74d774
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 85b355981a50804f1c43441efa38c5db59967c1d
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88520355"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760624"
 ---
 # <a name="tutorial-integrate-civic-platform-with-azure-active-directory"></a>Tutorial: Integrar o Civic Platform ao Azure Active Directory
 
@@ -91,7 +91,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique no botão copiar para copiar **URL de metadados de federação de aplicativos** e salve-a no computador.
 
-    ![O link de download do Certificado](common/copy-metadataurl.png)
+    ![Captura de tela que mostra a página de Certificado de Autenticação SAML em que é possível copiar a URL de Metadados de Federação de Aplicativo.](common/copy-metadataurl.png)
 
 1. Navegue até **Azure Active Directory** > **Registros de aplicativo** no Azure AD e selecione seu aplicativo.
 
@@ -120,21 +120,21 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Clique em **Opções Padrão**.
 
-    ![O link de download do Certificado](media/civic-platform-tutorial/standard-choices.png)
+    ![Captura de tela que mostra o site Atlassian Cloud com opções padrão chamadas em Ferramentas de Administrador.](media/civic-platform-tutorial/standard-choices.png)
 
 1. Crie uma opção **ssoconfig** padrão.
 
 1. Pesquise **ssoconfig** e envie.
 
-    ![O link de download do Certificado](media/civic-platform-tutorial/sso-config.png)
+    ![Captura de tela que mostra a Pesquisa de Opções padrão com o Nomear Configuração de SSO inserido.](media/civic-platform-tutorial/sso-config.png)
 
 1. Expanda SSOCONFIG, clicando no ponto vermelho.
 
-    ![O link de download do Certificado](media/civic-platform-tutorial/sso-config01.png)
+    ![Captura de tela que mostra Procurar Opções Padrão com SSO CONFIG disponível.](media/civic-platform-tutorial/sso-config01.png)
 
 1. Forneça informações de configuração relacionadas a SSO na seguinte etapa:
 
-    ![O link de download do Certificado](media/civic-platform-tutorial/sso-config02.png)
+    ![Captura de tela que mostra a Edição do Item de Opções Padrão para a SSO CONFIG.](media/civic-platform-tutorial/sso-config02.png)
 
     1. No campo **applicationid**, insira o valor da **ID do Aplicativo** que você copiou do portal do Azure.
 

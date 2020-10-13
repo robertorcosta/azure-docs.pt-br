@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7509a17127f04220a8e8450a81627354b28bdacd
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: bcee951dc85d9c317bad481ebdb91ff6c761371c
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89006458"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653665"
 ---
 # <a name="tutorial-viewing-a-remotely-rendered-model"></a>Tutorial: Exibir um modelo renderizado remotamente
 
@@ -76,10 +76,10 @@ Você precisa modificar o arquivo `Packages/manifest.json` que está localizado 
 
 Depois que você modificar e salvar o manifesto, o Unity será atualizado automaticamente. Confirme se os pacotes foram carregados na janela *Projeto*:
 
-:::image type="content" source="./media/confirm-packages.png" alt-text="confirmar importações de pacote":::
+:::image type="content" source="./media/confirm-packages.png" alt-text="Novo projeto do Unity":::
 
 Se os pacotes não estiverem sendo carregados, verifique se há erros no console do Unity. Se não houver erros e você ainda não vir nenhum pacote na pasta **Packages**, marque o botão de alternância de visibilidade do pacote.
-![Propriedades da câmera do Unity](./media/unity-package-visibility.png)
+![Captura de tela com uma seta apontando para o botão de alternância de visibilidade do pacote.](./media/unity-package-visibility.png)
 
 ## <a name="ensure-you-have-the-latest-version-of-the-package"></a>Verificar se tem a versão mais recente do pacote
 
@@ -120,7 +120,7 @@ As etapas a seguir garantem que seu projeto esteja usando a versão mais recente
 
 1. Selecione **Gráficos** no menu de lista à esquerda
 1. Altere a configuração de **Pipeline de Renderização Passível de Script** para *HybridRenderingPipeline*.\
-    ![alterando as configurações gráficas do projeto](./media/settings-graphics-render-pipeline.png)\
+    ![Captura de tela que aponta para em que altera a configuração do Pipeline de Renderização Passível de Script para HybridRenderingPipeline.](./media/settings-graphics-render-pipeline.png)\
     Às vezes, a interface do usuário não preenche a lista de tipos de pipeline disponíveis dos pacotes. Se isso ocorrer, o ativo *HybridRenderingPipeline* deverá ser arrastado para o campo manualmente:
     ![alterando as configurações gráficas do projeto](./media/hybrid-rendering-pipeline.png)
 
@@ -597,7 +597,7 @@ Para progredir de **NotAuthorized** para **NoSession**, normalmente apresentarí
 1. Arraste o componente para o próprio evento, para fazer referência a si mesmo.
 ![Ignorar autenticação](./media/bypass-authorization-add-event.png)\
 1. Na lista suspensa, selecione **RemoteRenderingCoordinator -> BypassAuthorization**.
-![Ignorar autenticação](./media/bypass-authorization-event.png)
+![Captura de tela que mostra a opção RemoteRenderingCoordinator.BypassAuthorization selecionada.](./media/bypass-authorization-event.png)
 
 ## <a name="create-or-join-a-remote-session"></a>Criar ou ingressar em uma sessão remota
 
@@ -724,7 +724,7 @@ private void LateUpdate()
 
 Com a base necessária em vigor, você está pronto para carregar um modelo na sessão remota e começar a receber quadros.
 
-![Pilha 4 do ARR](./media/remote-render-stack-4.png)
+![Diagrama que mostra o fluxo do processo para se preparar para carregar e exibir um modelo.](./media/remote-render-stack-4.png)
 
 O método **LoadModel** foi projetado para aceitar um caminho de modelo, um manipulador de progresso e uma transformação pai. Esses argumentos serão usados para carregar um modelo na sessão remota, atualizar o usuário sobre o progresso do carregamento e orientar o modelo renderizado remotamente com base na transformação pai.
 

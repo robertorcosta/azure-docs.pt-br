@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
-ms.openlocfilehash: b206d5e8721ee87b699765c0fc2a7df6177fc8cf
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d753aef3c7cd855b1ab137e85a233a1bca27c25a
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544384"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826787"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-edubrite-lms"></a>Tutorial: Integração do Azure Active Directory com o EduBrite LMS
 
@@ -101,7 +101,7 @@ Para configurar o logon único do Azure AD com o EduBrite, execute as seguintes 
 
 4. Na seção **Configuração Básica do SAML**, caso deseje configurar o aplicativo no modo iniciado por **IDP** execute as seguintes etapas:
 
-    ![Informações de logon único de Domínio e URLs do EduBrite LMS](common/idp-intiated.png)
+    ![Captura de tela que mostra "Configuração Básica de SAML" com "Identificador", "URL de Resposta" e o botão "Salvar" realçados.](common/idp-intiated.png)
 
     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<customer-specific>.edubrite.com`
 
