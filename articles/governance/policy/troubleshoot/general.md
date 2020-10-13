@@ -3,12 +3,12 @@ title: Solução de problemas comuns
 description: Saiba como solucionar problemas com a criação de definições de política, o SDK e o complemento para kubernetes.
 ms.date: 10/05/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 6026dc75187c8a70203a2484380eed70d519599d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98b5f1658a7d3fc7c4a7db7145b92bb6065befc5
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743430"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999902"
 ---
 # <a name="troubleshoot-errors-using-azure-policy"></a>Solucionar erros usando Azure Policy
 
@@ -169,6 +169,24 @@ O gráfico Helm com o nome `azure-policy-addon` já foi instalado ou parcialment
 #### <a name="resolution"></a>Resolução
 
 Siga as instruções para [remover o Azure Policy para o complemento kubernetes](../concepts/policy-for-kubernetes.md#remove-the-add-on)e execute o `helm install azure-policy-addon` comando novamente.
+
+### <a name="scenario-azure-virtual-machine-user-assigned-identities-are-replaced-by-system-assigned-managed-identities"></a>Cenário: as identidades atribuídas ao usuário da máquina virtual do Azure são substituídas por identidades gerenciadas atribuídas pelo sistema
+
+#### <a name="issue"></a>Problema
+
+Depois de atribuir iniciativas de política de configuração de convidado às configurações de auditoria dentro de computadores, as identidades gerenciadas atribuídas pelo usuário que foram atribuídas ao computador não serão mais atribuídas. Somente uma identidade gerenciada atribuída pelo sistema é atribuída.
+
+#### <a name="cause"></a>Causa
+
+As definições de política usadas anteriormente nas definições de DeployIfNotExists de configuração de convidado garantiram a atribuição de uma identidade atribuída pelo sistema ao computador, mas também removemos as atribuições de identidade atribuídas pelo usuário.
+
+#### <a name="resolution"></a>Resolução
+
+As definições que anteriormente causaram esse problema aparecem como \[ preteridas \] e são substituídas por definições de política que gerenciam os pré-requisitos sem remover a identidade gerenciada atribuída pelo usuário. Uma etapa manual é necessária. Exclua as atribuições de política existentes que estão marcadas como \[ preteridas \] e substitua-as pela iniciativa de política de pré-requisito atualizada e definições de política que têm o mesmo nome que o original.
+
+Para obter uma narração detalhada, consulte a seguinte postagem no blog:
+
+[Alteração importante liberada para políticas de auditoria de configuração de convidado](https://techcommunity.microsoft.com/t5/azure-governance-and-management/important-change-released-for-guest-configuration-audit-policies/ba-p/1655316)
 
 ## <a name="next-steps"></a>Próximas etapas
 

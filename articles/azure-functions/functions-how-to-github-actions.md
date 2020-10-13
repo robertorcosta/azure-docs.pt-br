@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python, github-actions-azure
-ms.openlocfilehash: 48482658fdabc3e826b6855c500829a16c166749
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f35a8130c834112961f4542883704c2b8dbd08f
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91851111"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999245"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>Entrega contínua usando a ação do GitHub
 
@@ -32,6 +32,18 @@ Para um fluxo de trabalho Azure Functions, o arquivo tem três seções:
 > [!NOTE]
 > Você não precisará criar uma entidade de serviço se decidir usar o perfil de publicação para autenticação.
 
+## <a name="downloading-and-using-a-publish-profile-as-deployment-credential-recommended"></a>Baixando e usando um perfil de publicação como uma credencial de implantação (recomendado)
+
+Para baixar o perfil de publicação do seu aplicativo de funções:
+
+1. Selecione a página **visão geral** do aplicativo de funções e, em seguida, selecione **obter perfil de publicação**.
+
+   :::image type="content" source="media/functions-how-to-github-actions/get-publish-profile.png" alt-text="Baixar perfil de publicação":::
+
+1. Salve e copie o conteúdo do arquivo de configurações de publicação.
+
+## <a name="create-a-service-principal-deprecated"></a>Criar uma entidade de serviço (preterida)
+=======
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma conta do Azure com uma assinatura ativa. [Criar uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
@@ -44,7 +56,8 @@ Para um fluxo de trabalho Azure Functions, o arquivo tem três seções:
 
 A maneira recomendada para autenticar com Azure Functions para ações do GitHub é com um perfil de publicação. Você também pode autenticar com uma entidade de serviço, mas o processo requer mais etapas. 
 
-Salve a credencial de perfil de publicação ou a entidade de serviço como um [segredo do GitHub](https://docs.github.com/en/actions/reference/encrypted-secrets) para autenticar com o Azure. Você acessará o segredo em seu fluxo de trabalho. 
+## <a name="configure-the-github-secret"></a>Configurar o segredo do GitHub
+= = = = = = = Salvar sua credencial de perfil de publicação ou entidade de serviço como um [segredo do GitHub](https://docs.github.com/en/actions/reference/encrypted-secrets) para autenticar com o Azure. Você acessará o segredo em seu fluxo de trabalho. 
 
 # <a name="publish-profile"></a>[Perfil de publicação](#tab/publish-profile)
 

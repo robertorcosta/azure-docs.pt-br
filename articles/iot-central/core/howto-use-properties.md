@@ -1,18 +1,18 @@
 ---
 title: Usar propriedades em uma solução de IoT Central do Azure
 description: Saiba como usar propriedades somente leitura e graváveis em uma solução de IoT Central do Azure.
-author: v-krghan
-ms.author: v-krghan
+author: dominicbetts
+ms.author: dobett
 ms.date: 08/12/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: eb949f6f0895743250ead0276692497432bfeed5
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: a750a98c27fd62288993b2203acc2032ccf39d71
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940558"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999759"
 ---
 # <a name="use-properties-in-an-azure-iot-central-solution"></a>Usar propriedades em uma solução de IoT Central do Azure
 
@@ -35,7 +35,7 @@ A tabela a seguir mostra as definições de configuração para uma funcionalida
 | Campo           | Descrição                                                                                                                                                                                                                        |
 |-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Nome de exibição    | O nome de exibição do valor da propriedade usado em dashboards e formulários.                                                                                                                                                              |
-| Nome            | O nome da propriedade. O Azure IoT Central gera um valor para esse campo a partir do nome de exibição, mas você pode escolher seu próprio valor, se necessário. Este campo deve ser alfanumérico.                                                 |
+| Name            | O nome da propriedade. O Azure IoT Central gera um valor para esse campo a partir do nome de exibição, mas você pode escolher seu próprio valor, se necessário. Este campo deve ser alfanumérico.                                                 |
 | Tipo de funcionalidade | Propriedade.                                                                                                                                                                                                                          |
 | Tipo semântico   | O tipo semântico da propriedade, como temperatura, estado ou evento. A escolha do tipo semântico determina quais dos campos a seguir estão disponíveis.                                                                       |
 | Esquema          | O tipo de dados de propriedade, como duplo, cadeia de caracteres ou vetor. As opções disponíveis são determinadas pelo tipo semântico. O esquema não está disponível para os tipos semânticos de evento e estado.                                               |
@@ -45,7 +45,7 @@ A tabela a seguir mostra as definições de configuração para uma funcionalida
 | Unit            | Uma unidade para o valor da propriedade, como **mph**, **%** ou ** &deg; C**.                                                                                                                                                              |
 | Unidade de exibição    | Uma unidade de exibição para uso em dashboards e formulários.                                                                                                                                                                                    |
 | Comentário         | Comentários sobre a funcionalidade de propriedade.                                                                                                                                                                                        |
-| Descrição     | Uma descrição da funcionalidade de propriedade.                                                                                                                                                                                          |
+| Description     | Uma descrição da funcionalidade de propriedade.                                                                                                                                                                                          |
 
 As propriedades também podem ser definidas em uma interface em um modelo de dispositivo, conforme mostrado aqui:
 
@@ -246,8 +246,8 @@ A mensagem de resposta deve incluir `ac` os `av` campos e. O campo `ad` é opcio
 | ----- | ----- | ----------- |
 | `'ac': 200` | Concluído | A operação de alteração de propriedade foi concluída com êxito. |
 | `'ac': 202` ou `'ac': 201` | Pending (Pendente) | A operação de alteração de propriedade está pendente ou em andamento. |
-| `'ac': 4xx` | Erro do | A alteração de propriedade solicitada não era válida ou teve um erro. |
-| `'ac': 5xx` | Erro do | O dispositivo apresentou um erro inesperado ao processar a alteração solicitada. |
+| `'ac': 4xx` | Erro | A alteração de propriedade solicitada não era válida ou teve um erro. |
+| `'ac': 5xx` | Erro | O dispositivo apresentou um erro inesperado ao processar a alteração solicitada. |
 
 
 Para obter mais informações sobre dispositivos gêmeos, consulte [configurar seus dispositivos de um serviço de back-end](https://docs.microsoft.com/azure/iot-hub/tutorial-device-twins).

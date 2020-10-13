@@ -3,12 +3,12 @@ title: Configurar o firewall de IP para o namespace de retransmissão do Azure
 description: Este artigo descreve como usar regras de firewall para permitir conexões de endereços IP específicos para o namespace de Retransmissão do Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 250158aff2ceb89e2823b711717f1d3a1cad438c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad8feed5df49dcc4503226a5fae50195bb9d48aa
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90976019"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999498"
 ---
 # <a name="configure-ip-firewall-for-an-azure-relay-namespace"></a>Configurar firewall de IP para um namespace de Retransmissão do Azure
 Por padrão, os namespaces de Retransmissão são acessíveis da Internet, desde que a solicitação acompanhe autenticação e autorização válidas. Com o firewall de IP, você pode restringir ainda mais a um conjunto de endereços IPv4 ou intervalos de endereços IPv4 na notação [CIDR (roteamento entre domínios sem classificação)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
@@ -76,7 +76,7 @@ O modelo usa um parâmetro: **ipMask**, que é um endereço IPv4 único ou um bl
       }
     },
     "variables": {
-      "namespaceNetworkRuleSetName": "[concat(parameters('relayNamespaceName'), concat('/', 'default'))]",
+      "namespaceNetworkRuleSetName": "[concat(parameters('relayNamespaceName'), concat('/', 'default'))]"
     },
     "resources": [
       {
@@ -93,7 +93,7 @@ O modelo usa um parâmetro: **ipMask**, que é um endereço IPv4 único ou um bl
       {
         "apiVersion": "2018-01-01-preview",
         "name": "[variables('namespaceNetworkRuleSetName')]",
-        "type": "Microsoft.Relay/namespaces/networkruleset",
+        "type": "Microsoft.Relay/namespaces/networkrulesets",
         "dependsOn": [
           "[concat('Microsoft.Relay/namespaces/', parameters('relayNamespaceName'))]"
         ],
@@ -109,6 +109,7 @@ O modelo usa um parâmetro: **ipMask**, que é um endereço IPv4 único ou um bl
                 "action":"Allow"
             }
           ],
+          "virtualNetworkRules": [],
           "trustedServiceAccessEnabled": false,
           "defaultAction": "Deny"
         }

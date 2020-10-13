@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: 81a65c088fd83ce179f67edd1ecdb96149dd1614
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed371cf230df3070ce1a545895831ae56d320d99
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840244"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "92000208"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Como configurar o Cache do Azure para Redis
 Este tópico descreve as configurações disponíveis para suas instâncias de Cache do Azure para Redis. Este tópico também aborda a configuração padrão do servidor Redis para instâncias do Cache do Azure para Redis.
@@ -39,7 +39,7 @@ Você pode exibir e definir as seguintes configurações usando o **Menu recurso
     * [Chaves de acesso](#access-keys)
     * [Configurações avançadas](#advanced-settings)
     * [Assistente do Cache do Azure para Redis](#azure-cache-for-redis-advisor)
-    * [Escala](#scale)
+    * [Dimensionar](#scale)
     * [Tamanho do cluster](#cluster-size)
     * [Persistência de dados](#redis-data-persistence)
     * [Agende atualizações](#schedule-updates)
@@ -74,7 +74,7 @@ Clique em **Log de auditoria** para exibir as ações executadas em seu cache. V
 
 A seção **(IAM) do controle de acesso** fornece suporte para controle de acesso baseado em função (RBAC) no Portal do Azure. Essas configurações ajudam as organizações a atenderem seus requisitos de gerenciamento de acesso de maneira simples e precisa. Para saber mais, confira [Role-based access control in the Azure portal](../role-based-access-control/role-assignments-portal.md)(Controle de acesso baseado em função no portal do Azure).
 
-### <a name="tags"></a>Marcas
+### <a name="tags"></a>Marcações
 
 A seção **Marcas** o ajuda a organizar seus recursos. Para obter mais informações, veja [Usando marcas para organizar os recursos do Azure](../azure-resource-manager/management/tag-resources.md).
 
@@ -91,7 +91,7 @@ A seção **Configurações** permite acessar e definir as seguintes configuraç
 * [Chaves de acesso](#access-keys)
 * [Configurações avançadas](#advanced-settings)
 * [Assistente do Cache do Azure para Redis](#azure-cache-for-redis-advisor)
-* [Escala](#scale)
+* [Dimensionar](#scale)
 * [Tamanho do cluster](#cluster-size)
 * [Persistência de dados](#redis-data-persistence)
 * [Agende atualizações](#schedule-updates)
@@ -214,7 +214,7 @@ Para alterar o tamanho do cluster, use o controle deslizante ou digite um númer
 
 
 ### <a name="redis-data-persistence"></a>Persistência de dados do Redis
-Clique em **persistência de dados** para habilitar, desabilitar ou configurar a persistência de dados para seu cache Premium. O Cache do Azure para Redis oferece persistência Redis usando [persistência RDB](cache-how-to-premium-persistence.md#configure-rdb-persistence) ou [persistência AOF](cache-how-to-premium-persistence.md#configure-aof-persistence).
+Clique em **persistência de dados** para habilitar, desabilitar ou configurar a persistência de dados para seu cache Premium. O Cache do Azure para Redis oferece persistência Redis usando persistência RDB ou persistência AOF.
 
 Para saber mais, confira [Como configurar a persistência para um Cache do Azure para Redis Premium](cache-how-to-premium-persistence.md).
 

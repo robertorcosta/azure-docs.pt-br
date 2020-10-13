@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 07/09/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, H1Hack27Feb2017
-ms.openlocfilehash: 9a3ffeb4ff58cc4af2309268f1a95cd9d354de8b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31d5c528112ccacab47282729b1b5f8a72f19af0
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88206637"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999284"
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Associação de Twilio para o Azure Functions
 
@@ -203,7 +203,7 @@ module.exports = function (context, myQueueItem) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-O exemplo a seguir mostra como enviar uma mensagem SMS usando a associação de saída, conforme definido no *function.js*a seguir.
+O exemplo a seguir mostra como enviar uma mensagem SMS usando a associação de saída, conforme definido no seguinte *function.jsem*.
 
 ```json
     {
@@ -329,7 +329,7 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 | propriedade function.json v1 | propriedade function.json v2 | Propriedade de atributo |Descrição|
 |---------|---------|---------|----------------------|
-|**tipo**|**type**| deve ser definido como `twilioSms`.|
+|**tipo**|**tipo**| deve ser definido como `twilioSms`.|
 |**direction**|**direction**| deve ser definido como `out`.|
 |**name**|**name**| Nome da variável usada no código de função para a mensagem de texto SMS do Twilio. |
 |**accountSid**|**accountSidSetting**| **AccountSidSetting**| Esse valor deve ser definido como o nome de uma configuração de aplicativo que contém o SID da conta do twilio ( `TwilioAccountSid` ). Se não configurado, o nome da configuração do aplicativo padrão será "AzureWebJobsTwilioAccountSid". |

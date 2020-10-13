@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/12/2020
+ms.date: 10/13/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 676b6abb28abf58287bfc9036ca907ae6a1ee192
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 20480a252d7aedfd48a59bc05166f645e02e37e9
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961282"
+ms.locfileid: "91998431"
 ---
 # <a name="json-claims-transformations"></a>Transformações de declarações JSON
 
@@ -112,7 +112,7 @@ O exemplo a seguir gera uma cadeia de caracteres JSON com base nos valores da de
 </ClaimsTransformation>
 ```
 
-A transformação declarações a seguir gera uma declaração de cadeia de caracteres JSON que será o corpo da solicitação enviada a uma API REST. A estrutura do objeto JSON é definida pelas IDs na notação de ponto de InputParameters e TransformationClaimTypes do InputClaims. Os números na notação de ponto implicam matrizes. Os valores são provenientes dos valores de InputClaims e das propriedades de "valor" de InputParameters.
+A transformação declarações a seguir gera uma declaração de cadeia de caracteres JSON que será o corpo da solicitação enviada a uma API REST. A estrutura do objeto JSON é definida pelas IDs na notação de ponto de InputParameters e TransformationClaimTypes do InputClaims. Os valores são provenientes dos valores de InputClaims e das propriedades de "valor" de InputParameters.
 
 - Declarações de entrada:
   - **email**, tipo de declaração de transformação  **customerEntity. email**: " john.s@contoso.com "

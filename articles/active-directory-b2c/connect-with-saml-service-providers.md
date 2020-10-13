@@ -12,12 +12,12 @@ ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 2df2cf2a9d0a89f72078cd0da36272781e89e338
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 18afa6b2e974c605b18d4e38b82061234619e9ff
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961316"
+ms.locfileid: "91998109"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registrar um aplicativo SAML no Azure AD B2C
 
@@ -454,7 +454,7 @@ Um token SAML é um token de segurança que é emitido pelo Azure AD B2C após u
 |`<Response>` `<Assertion>` `<Subject>` `<Conditions>` |`NotBefore` |A hora na qual o token se torna válido. O valor de hora é codificado em UTC. O aplicativo deve usar essa declaração para verificar a validade do tempo de vida do token. Para alterar as configurações em seus tempos de vida de token, defina os `TokenNotBeforeSkewInSeconds` [metadados](saml-issuer-technical-profile.md#metadata) do perfil técnico de emissão de token SAML. |
 |`<Response>` `<Assertion>` `<Subject>` `<Conditions>` | `NotOnOrAfter` | A hora em que o token se torna inválido. O aplicativo deve usar essa declaração para verificar a validade do tempo de vida do token. O valor é 15 minutos após o `NotBefore` e não pode ser alterado.|
 |`<Response>` `<Assertion>` `<Conditions>` `<AudienceRestriction>` `<Audience>` | |Uma referência de URI que identifica um público-alvo. Ele identifica o destinatário pretendido do token. O valor é idêntico à solicitação SAML `AssertionConsumerServiceURL` .|
-|`<Response>``<Assertion>` `<saml:AttributeStatement>` coleção de`<Attribute>` | | A coleção de asserções (declarações), conforme configurada nas declarações de saída do [perfil técnico de terceira parte confiável](relyingparty.md#technicalprofile) . Você pode configurar o nome da asserção definindo o `PartnerClaimType` da declaração de saída. |
+|`<Response>``<Assertion>` `<AttributeStatement>` coleção de`<Attribute>` | | A coleção de asserções (declarações), conforme configurada nas declarações de saída do [perfil técnico de terceira parte confiável](relyingparty.md#technicalprofile) . Você pode configurar o nome da asserção definindo o `PartnerClaimType` da declaração de saída. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

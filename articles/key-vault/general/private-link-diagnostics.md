@@ -7,12 +7,12 @@ ms.date: 09/30/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 52ac5b89a0c7173b9b2585f84b5f34361b4b136c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 156edbeda225b5457d6f5e7d29482e393b510736
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91744212"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91998405"
 ---
 # <a name="diagnose-private-links-configuration-issues-on-azure-key-vault"></a>Diagnosticar problemas de configuração de links privados em Azure Key Vault
 
@@ -34,7 +34,7 @@ Se você for novo neste recurso, consulte [integrar o Key Vault com o link priva
 ### <a name="problems-not-covered-by-this-article"></a>Problemas não cobertos por este artigo
 
 - Há um problema de conectividade intermitente. Em um determinado cliente, você vê algumas solicitações funcionando e algumas não funcionam. *Problemas intermitentes normalmente não são causados por um problema na configuração de links particulares; Eles são um sinal de sobrecarga de rede ou de cliente.*
-- Você está usando um produto do Azure que dá suporte a BYOK (Bring Your Own Key) ou CMK (chaves gerenciadas pelo cliente) e que o produto não pode acessar o cofre de chaves. *Examine a documentação do outro produto. Verifique se ele declara explicitamente o suporte para cofres de chaves com o firewall habilitado. Contate o suporte do produto para esse produto específico, se necessário.*
+- Você está usando um produto do Azure que dá suporte a BYOK (Bring Your Own Key), CMK (chaves gerenciadas pelo cliente) ou acesso a segredos armazenados no cofre de chaves. Quando você habilita o firewall nas configurações do Key Vault, esse produto não pode acessar o cofre de chaves. *Examine a documentação específica do produto. Verifique se ele declara explicitamente o suporte para cofres de chaves com o firewall habilitado. Contate o suporte para esse produto específico, se necessário.*
 
 ### <a name="how-to-read-this-article"></a>Como ler este artigo
 
@@ -46,9 +46,11 @@ Vamos começar!
 
 ### <a name="confirm-that-your-client-runs-at-the-virtual-network"></a>Confirmar que o cliente é executado na rede virtual
 
-Este guia destina-se a ajudá-lo a corrigir conexões com o Key Vault provenientes do código do aplicativo. Os exemplos são aplicativos e scripts que são executados em máquinas virtuais do Azure, clusters de Service Fabric do Azure, serviço Azure App, serviço kubernetes do Azure (AKS) e outros semelhantes.
+Este guia destina-se a ajudá-lo a corrigir conexões com o Key Vault provenientes do código do aplicativo. Os exemplos são aplicativos e scripts que são executados em máquinas virtuais do Azure, clusters de Service Fabric do Azure, serviço Azure App, serviço kubernetes do Azure (AKS) e outros semelhantes. Este guia também se aplica a acessos executados na interface do usuário do portal do Azure Web-base, em que o navegador acessa diretamente o cofre de chaves.
 
-Por definição de links privados, o aplicativo ou o script deve estar em execução no computador, cluster ou ambiente conectado à rede virtual em que o [recurso de ponto de extremidade privado](../../private-link/private-endpoint-overview.md) foi implantado. Se o aplicativo estiver em execução em uma rede conectada pela Internet arbitrária, este guia não será aplicável e provavelmente os links privados não poderão ser usados.
+Por definição de links privados, o aplicativo, o script ou o portal deve estar em execução no computador, cluster ou ambiente conectado à rede virtual em que o [recurso de ponto de extremidade particular](../../private-link/private-endpoint-overview.md) foi implantado.
+
+Se o aplicativo, o script ou o portal estiver sendo executado em uma rede conectada pela Internet arbitrária, este guia não será aplicável e provavelmente os links privados não poderão ser usados. Essa limitação também se aplica a comandos executados no Azure Cloud Shell, porque eles são executados em um computador remoto do Azure fornecido sob demanda em vez do navegador do usuário.
 
 ### <a name="if-you-use-a-managed-solution-refer-to-specific-documentation"></a>Se você usar uma solução gerenciada, consulte a documentação específica
 
@@ -74,7 +76,7 @@ As etapas a seguir validam que a conexão de ponto de extremidade privada foi ap
 >[!IMPORTANT]
 > Alterar as configurações de firewall pode remover o acesso de clientes legítimos que ainda não estão usando links privados. Verifique se você está ciente das implicações de cada alteração na configuração do firewall.
 
-Uma noção importante é que os links privados só *dão* acesso ao seu cofre de chaves. Ele não *Remove* nenhum acesso existente. Para bloquear efetivamente os acessos da Internet pública, você deve habilitar o Firewall do cofre de chaves explicitamente:
+Uma noção importante é que o recurso de links privados só *fornece* acesso ao cofre de chaves em uma rede virtual fechada para evitar dados vazamento. Ele não *Remove* nenhum acesso existente. Para bloquear efetivamente os acessos da Internet pública, você deve habilitar o Firewall do cofre de chaves explicitamente:
 
 1. Abra o portal do Azure e abra o recurso do cofre de chaves.
 2. No menu à esquerda, selecione **rede**.
@@ -229,11 +231,11 @@ Sua assinatura do Azure deve ter um recurso de [zona DNS privado](../../dns/priv
 
 Você pode verificar a presença desse recurso acessando a página de assinatura no portal e selecionando "recursos" no menu à esquerda. O nome do recurso deve ser `privatelink.vaultcore.azure.net` , e o tipo de recurso deve ser **DNS privado zona**.
 
-Normalmente, esse recurso é criado automaticamente quando você cria um ponto de extremidade privado usando um método típico. Mas há casos em que esse recurso não é criado automaticamente e você precisa fazê-lo manualmente. Esse recurso pode ter sido excluído acidentalmente também.
+Normalmente, esse recurso é criado automaticamente quando você cria um ponto de extremidade privado usando um procedimento comum. Mas há casos em que esse recurso não é criado automaticamente e você precisa fazê-lo manualmente. Esse recurso pode ter sido excluído acidentalmente também.
 
 Se você não tiver esse recurso, crie um novo DNS privado recurso de zona em sua assinatura. Lembre-se de que o nome deve ser exatamente `privatelink.vaultcore.azure.net` , sem espaços ou pontos adicionais. Se você especificar o nome errado, a resolução de nome explicada neste artigo não funcionará. Para obter mais informações sobre como criar esse recurso, consulte [criar uma zona DNS privada do Azure usando o portal do Azure](../../dns/private-dns-getstarted-portal.md). Se você seguir essa página, poderá ignorar a criação de rede virtual porque, neste ponto, você já deve ter uma. Você também pode ignorar procedimentos de validação com máquinas virtuais.
 
-### <a name="confirm-that-the-private-dns-zone-must-be-linked-to-the-virtual-network"></a>Confirme se a zona de DNS privado deve ser vinculada à rede virtual
+### <a name="confirm-that-the-private-dns-zone-is-linked-to-the-virtual-network"></a>Confirme se a zona de DNS privado está vinculada à rede virtual
 
 Não é suficiente ter uma zona de DNS privado. Ele também deve ser vinculado à rede virtual que contém o ponto de extremidade privado. Se a zona de DNS privado não estiver vinculada à rede virtual correta, qualquer resolução de DNS dessa rede virtual ignorará a zona de DNS privado.
 
@@ -259,9 +261,9 @@ Além disso, o valor do `A` registro (o endereço IP) deve ser [o endereço IP p
 
 Se houver várias redes virtuais e cada uma tiver seu próprio recurso de ponto de extremidade privado referenciando o mesmo cofre de chaves, o nome do host do cofre de chaves precisará ser resolvido para um endereço IP privado diferente, dependendo da rede. Isso significa que várias zonas de DNS privado também são necessárias, cada uma vinculada a uma rede virtual diferente e o uso de um endereço IP diferente no `A` registro.
 
-Em cenários mais avançados, há várias redes virtuais com emparelhamento habilitado. Nesse caso, apenas uma rede virtual precisa do recurso de ponto de extremidade privado, embora ambos precisem ser vinculados ao recurso de zona de DNS privado. Esse cenário não é coberto diretamente por este documento.
+Em cenários mais avançados, as redes virtuais podem ter o emparelhamento habilitado. Nesse caso, apenas uma rede virtual precisa do recurso de ponto de extremidade privado, embora ambos precisem ser vinculados ao recurso de zona de DNS privado. Esse cenário não é coberto diretamente por este documento.
 
-### <a name="fact-you-have-control-over-dns-resolution"></a>Fato: você tem controle sobre a resolução DNS
+### <a name="understand-that-you-have-control-over-dns-resolution"></a>Entenda que você tem controle sobre a resolução de DNS
 
 Conforme explicado na [seção anterior](#key-vault-with-private-link-resolving-from-arbitrary-internet-machine), um cofre de chaves com links privados tem o alias `{vaultname}.privatelink.vaultcore.azure.net` em seu registro *público* . O servidor DNS usado pela rede virtual usa o registro público, mas verifica cada alias para um registro *privado* e, se um for encontrado, ele interromperá os seguintes aliases definidos no registro público.
 
@@ -324,9 +326,9 @@ O `addr` campo no `x-ms-keyvault-network-info` cabeçalho mostra o endereço IP 
 ### <a name="query-the-key-vault-ip-address-directly"></a>Consultar diretamente o endereço IP do cofre de chaves
 
 >[!IMPORTANT]
-> O acesso ao cofre de chaves sem validação de certificado HTTPS é perigoso e só pode ser usado para fins de aprendizado. O código de produção nunca deve acessar o cofre de chaves sem essa validação do lado do cliente. Mesmo que você esteja apenas Diagnosticando problemas, você pode estar sujeito a uma tentativa de violação contínua que não será revelada se você sempre desabilitar a validação de certificado HTTPS em suas solicitações para o cofre de chaves.
+> O acesso ao cofre de chaves sem validação de certificado HTTPS é perigoso e só pode ser usado para fins de aprendizado. O código de produção nunca deve acessar o cofre de chaves sem essa validação do lado do cliente. Mesmo que você esteja apenas Diagnosticando problemas, você pode estar sujeito a tentativas de violação que não serão reveladas se você desabilitar frequentemente a validação de certificado HTTPS em suas solicitações para o cofre de chaves.
 
-Se você instalou uma versão recente do PowerShell, poderá usar `-SkipCertificateCheck` para ignorar as verificações de certificado HTTPS e, em seguida, poderá direcionar diretamente o [endereço IP do cofre de chaves](#find-the-key-vault-private-ip-address-in-the-virtual-network) :
+Se você instalou uma versão recente do PowerShell, pode usar `-SkipCertificateCheck` para ignorar as verificações de certificado HTTPS, então você pode direcionar o [endereço IP do cofre de chaves](#find-the-key-vault-private-ip-address-in-the-virtual-network) diretamente:
 
     PS C:\> $(Invoke-WebRequest -SkipCertificateCheck -Uri https://10.1.2.3/healthstatus).Headers
 
@@ -354,7 +356,7 @@ Muitos sistemas operacionais permitem definir um endereço IP fixo explícito po
 
 ### <a name="promiscuous-proxies-fiddler-etc"></a>Proxies promíscuos (Fiddler, etc.)
 
-Exceto explicitamente indicado, as opções de diagnóstico neste artigo só funcionarão se não houver nenhum proxy promíscuo presente no ambiente. Embora esses proxies sejam frequentemente instalados exclusivamente no computador que está sendo diagnosticado (o Fiddler é o exemplo mais comum), os administradores avançados podem substituir CAs (autoridades de certificação) raiz e instalar um proxy promíscuo em dispositivos de gateway que atendem a vários computadores na rede. Esses proxies podem afetar substancialmente a segurança e a confiabilidade. A Microsoft não oferece suporte a configurações que usam esses produtos.
+Exceto quando explicitamente indicado, as opções de diagnóstico neste artigo só funcionarão se não houver nenhum proxy promíscuo presente no ambiente. Embora esses proxies sejam frequentemente instalados exclusivamente no computador que está sendo diagnosticado (o Fiddler é o exemplo mais comum), os administradores avançados podem substituir CAs (autoridades de certificação) raiz e instalar um proxy promíscuo em dispositivos de gateway que atendem a vários computadores na rede. Esses proxies podem afetar substancialmente a segurança e a confiabilidade. A Microsoft não oferece suporte a configurações que usam esses produtos.
 
 ### <a name="other-things-that-may-affect-connectivity"></a>Outras coisas que podem afetar a conectividade
 

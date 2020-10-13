@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: aahi
-ms.openlocfilehash: 8f0a40e30cc58a01a66ba808076fe1d42c31c326
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 17c9797935612c8697d30455e28cc91321b84772
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978876"
+ms.locfileid: "91999666"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>O que há de novo na API de Análise de Texto?
 
@@ -23,7 +23,7 @@ O API de Análise de Texto é atualizado em uma base contínua. Para se manter a
 
 ## <a name="october-2020"></a>Outubro de 2020
 
-* Suporte a hindi para Análise de Sentimento, começando com a versão do modelo `2020-04-01` . 
+* Suporte a hindi para Análise de Sentimento v3. x, começando com a versão do modelo `2020-04-01` . 
 
 ## <a name="september-2020"></a>Setembro de 2020
 
@@ -170,7 +170,7 @@ Tipos de entidade adicionais agora estão disponíveis no serviço de visualiza�
 * Reconhecimento dos seguintes tipos de entidade geral (somente em inglês):
     * Persontype
     * Produto
-    * evento
+    * Evento
     * Entidade geopolítica (GPE) como um subtipo no local
     * Habilidade
 
@@ -198,7 +198,7 @@ Tipos de entidade adicionais agora estão disponíveis no serviço de visualiza�
 * [Versão do modelo](concepts/model-versioning.md) `2019-10-01` , que inclui:
     * Detecção expandida e categorização de entidades encontradas no texto. 
     * Reconhecimento dos seguintes novos tipos de entidade:
-        * Número de telefone
+        * Número do telefone
         * Endereço IP
 
 A vinculação de entidades dá suporte a inglês e espanhol. O suporte ao idioma NER varia de acordo com o tipo de entidade.
