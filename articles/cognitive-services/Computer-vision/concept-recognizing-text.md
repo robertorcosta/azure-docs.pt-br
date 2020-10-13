@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: cbcfddcd02a3998b3b35b01d386816735c59ae7e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 32759ed59e280980abdced46c29390e00ee7229c
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90526401"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973267"
 ---
 # <a name="optical-character-recognition-ocr"></a>OCR (reconhecimento óptico de caracteres)
 
@@ -24,7 +24,7 @@ O API da Pesquisa Visual Computacional do Azure inclui recursos de OCR (reconhec
 
 ## <a name="read-api"></a>API de leitura 
 
-A [API de leitura](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) do pesquisa Visual computacional é a tecnologia de OCR mais recente do Azure ([saiba o que há de novo](./whats-new.md)) que extrai o texto impresso (em vários idiomas), texto manuscrito (somente em inglês), dígitos e símbolos de moeda de imagens e documentos PDF de várias páginas. Ele é otimizado para extrair texto de imagens com texto pesado e documentos PDF de várias páginas com idiomas mistos. Ele dá suporte à detecção de texto impresso e manuscrito na mesma imagem ou documento.
+A [API de leitura](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) do pesquisa Visual computacional é a tecnologia de OCR mais recente do Azure ([saiba o que há de novo](./whats-new.md)) que extrai o texto impresso (em vários idiomas), texto manuscrito (somente em inglês), dígitos e símbolos de moeda de imagens e documentos PDF de várias páginas. Ele é otimizado para extrair texto de imagens com texto pesado e documentos PDF de várias páginas com idiomas mistos. Ele dá suporte à detecção de texto impresso e manuscrito na mesma imagem ou documento.
 
 ![Como o OCR converte imagens e documentos em uma saída estruturada com texto extraído](./Images/how-ocr-works.svg)
 
@@ -36,21 +36,21 @@ A chamada de **leitura** leva imagens e documentos como sua entrada. Eles têm o
 * O tamanho do arquivo deve ser menor que 50 MB (4 MB para a camada gratuita) e dimensões, pelo menos, 50 x 50 pixels e no máximo 10000 x 10000 pixels. 
 * As dimensões de PDF devem ter no máximo 17 x 17 polegadas, correspondendo a tamanhos de papel ofício ou a3 e menores.
 
-### <a name="read-31-preview-allows-selecting-pages"></a>Ler 3,1 visualização permite selecionar página (s)
-Com a [API de visualização de leitura 3,1](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005), para grandes documentos de várias páginas, você pode fornecer números de página ou intervalos de página específicos como um parâmetro de entrada para extrair texto apenas dessas páginas. Esse é um novo parâmetro de entrada além do parâmetro de idioma opcional.
+### <a name="read-32-preview-allows-selecting-pages"></a>Ler 3,2 visualização permite selecionar página (s)
+Com a [API de visualização de leitura 3,2](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005), para grandes documentos de várias páginas, você pode fornecer números de página ou intervalos de página específicos como um parâmetro de entrada para extrair texto apenas dessas páginas. Esse é um novo parâmetro de entrada além do parâmetro de idioma opcional.
 
 > [!NOTE]
 > **Entrada de idioma** 
 >
-> A [chamada de leitura](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) tem um parâmetro de solicitação opcional para o idioma. Esse é o código de idioma BCP-47 do texto no documento. A leitura dá suporte à identificação automática de idioma e a documentos multilíngues, portanto, forneça apenas um código de idioma se desejar forçar o processamento do documento como aquele idioma específico.
+> A [chamada de leitura](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) tem um parâmetro de solicitação opcional para o idioma. Esse é o código de idioma BCP-47 do texto no documento. A leitura dá suporte à identificação automática de idioma e a documentos multilíngues, portanto, forneça apenas um código de idioma se desejar forçar o processamento do documento como aquele idioma específico.
 
 ## <a name="the-read-call"></a>A chamada de leitura
 
-A [chamada de leitura](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) da API de leitura usa um documento de imagem ou PDF como entrada e extrai o texto de forma assíncrona. A chamada retorna com um campo de cabeçalho de resposta chamado `Operation-Location` . O `Operation-Location` valor é uma URL que contém a ID da operação a ser usada na próxima etapa.
+A [chamada de leitura](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) da API de leitura usa um documento de imagem ou PDF como entrada e extrai o texto de forma assíncrona. A chamada retorna com um campo de cabeçalho de resposta chamado `Operation-Location` . O `Operation-Location` valor é uma URL que contém a ID da operação a ser usada na próxima etapa.
 
 |Cabeçalho de resposta| URL do resultado |
 |:-----|:----|
-|Operation-Location | `https://cognitiveservice/vision/v3.0/read/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f` |
+|Operation-Location | `https://cognitiveservice/vision/v3.2/read/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f` |
 
 > [!NOTE]
 > **Billing** 
@@ -59,7 +59,7 @@ A [chamada de leitura](https://westcentralus.dev.cognitive.microsoft.com/docs/se
 
 ## <a name="the-get-read-results-call"></a>A chamada obter resultados da leitura
 
-A segunda etapa é chamar a operação [obter resultados de leitura](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) . Essa operação usa como entrada a ID da operação que foi criada pela operação de leitura. Ele retorna uma resposta JSON que contém um campo de **status** com os seguintes valores possíveis. Você chama essa operação iterativamente até que ela retorne com o valor **Succeeded** . Use um intervalo de 1 a 2 segundos para evitar exceder a taxa de solicitações por segundo (RPS).
+A segunda etapa é chamar a operação [obter resultados de leitura](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d9869604be85dee480c8750) . Essa operação usa como entrada a ID da operação que foi criada pela operação de leitura. Ele retorna uma resposta JSON que contém um campo de **status** com os seguintes valores possíveis. Você chama essa operação iterativamente até que ela retorne com o valor **Succeeded** . Use um intervalo de 1 a 2 segundos para evitar exceder a taxa de solicitações por segundo (RPS).
 
 |Campo| Type | Valores possíveis |
 |:-----|:----:|:----|
@@ -83,7 +83,7 @@ Consulte o exemplo a seguir de uma resposta JSON bem-sucedida:
   "createdDateTime": "2020-05-28T05:13:21Z",
   "lastUpdatedDateTime": "2020-05-28T05:13:22Z",
   "analyzeResult": {
-    "version": "3.0.0",
+    "version": "3.1.0",
     "readResults": [
       {
         "page": 1,
@@ -128,8 +128,8 @@ Consulte o exemplo a seguir de uma resposta JSON bem-sucedida:
   }
 }
 ```
-### <a name="read-31-preview-adds-text-line-style-latin-languages-only"></a>Ler 3,1 Visualização adiciona estilo de linha de texto (somente idiomas latinos)
-A [API de visualização de leitura 3,1](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005) gera um objeto de **aparência** que classifica se cada linha de texto é um estilo de impressão ou de manuscrito, juntamente com uma pontuação de confiança. Esse recurso tem suporte apenas para idiomas latinos.
+### <a name="read-32-preview-adds-text-line-style-latin-languages-only"></a>Ler 3,2 visualização adiciona estilo de linha de texto (somente idiomas latinos)
+A [API de visualização de leitura 3,2](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005) gera um objeto de **aparência** que classifica se cada linha de texto é um estilo de impressão ou de manuscrito, juntamente com uma pontuação de confiança. Esse recurso tem suporte apenas para idiomas latinos.
 
 ```json
   "appearance": {
@@ -140,12 +140,12 @@ A [API de visualização de leitura 3,1](https://westus2.dev.cognitive.microsoft
 Comece a usar o [Pesquisa Visual computacional início rápido do SDK do OCR](./quickstarts-sdk/client-library.md) e os [guias de início rápido da API REST de leitura](./QuickStarts/CSharp-hand-text.md) para começar a integrar os recursos de OCR em seus aplicativos.
 
 ## <a name="supported-languages-for-print-text"></a>Idiomas com suporte para imprimir texto
-A [API Read 3,0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) dá suporte à extração de texto impresso em idiomas inglês, espanhol, alemão, francês, italiano, Português e holandês.
+A [API Read 3,2](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) dá suporte à extração de texto impresso em idiomas inglês, espanhol, alemão, francês, italiano, Português e holandês.
 
 Consulte os [idiomas com suporte](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr) para obter a lista completa de idiomas com suporte para OCR.
 
-### <a name="read-31-preview-adds-simplified-chinese-and-japanese"></a>Leia 3,1 Visualização adiciona chinês simplificado e japonês
-A [Visualização pública da API de leitura 3,1](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005) adiciona suporte para chinês simplificado e japonês. Se o seu cenário exigir suporte a mais idiomas, consulte a seção [API de OCR](#ocr-api) . 
+### <a name="read-32-preview-adds-simplified-chinese-and-japanese"></a>Leia 3,2 visualização adiciona chinês simplificado e japonês
+A [Visualização pública da API de leitura 3,2](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005) adiciona suporte para chinês simplificado e japonês. Se o seu cenário exigir suporte a mais idiomas, consulte a seção [API de OCR](#ocr-api) . 
 
 ## <a name="supported-languages-for-handwritten-text"></a>Idiomas com suporte para texto manuscrito
 Atualmente, a operação de leitura dá suporte à extração de texto manuscrito exclusivamente em inglês.
@@ -202,6 +202,6 @@ Assim como acontece com todos os serviços cognitivas, os desenvolvedores que us
 ## <a name="next-steps"></a>Próximas etapas
 
 - Introdução ao [Pesquisa Visual computacional Leia os guias de início rápido do SDK do 3,0](./quickstarts-sdk/client-library.md) em C#, Java, JavaScript ou Python.
-- Use os [guias de início rápido da API REST de leitura 3,0](./QuickStarts/CSharp-hand-text.md) em C#, Java, JavaScript ou Python para saber como usar as APIs REST.
-- Saiba mais sobre a [API REST de leitura 3,0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005).
-- Saiba mais sobre a [API REST de visualização pública 3,1 de leitura](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005) com suporte adicional para chinês simplificado e japonês.
+- Use os [guias de início rápido da API REST de leitura 3,1](./QuickStarts/CSharp-hand-text.md) em C#, Java, JavaScript ou Python para saber como usar as APIs REST.
+- Saiba mais sobre a [API REST de leitura 3,1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005).
+- Saiba mais sobre a [API REST de visualização pública 3,2 de leitura](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005) com suporte adicional para chinês simplificado e japonês.

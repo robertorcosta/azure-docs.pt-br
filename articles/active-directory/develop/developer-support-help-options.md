@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.openlocfilehash: af363bb30d6515ce969afe146c780baa4b31cd83
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88117202"
 ---
 # <a name="support-and-help-options-for-developers"></a>Opções de suporte e ajuda para desenvolvedores
@@ -30,7 +30,7 @@ Se começar a integração ao Azure AD (Azure Active Directory), identidades da 
 > * Se você encontrar um problema em uma de nossas bibliotecas de autenticação, será gerado um problema do *GitHub*
 > * Por fim, se precisar falar com alguém, talvez queira abrir uma solicitação de suporte
 
-## <a name="search"></a>Pesquisar
+## <a name="search"></a>Search
 
 Se tiver uma pergunta relacionada a desenvolvimento, poderá encontrar a resposta na documentação, nos [exemplos do GitHub](https://github.com/azure-samples) ou nas respostas às perguntas no [Stack Overflow](https://www.stackoverflow.com).
 

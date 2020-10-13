@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
 ms.openlocfilehash: c707f6108c73a268bcac18c45afb70ae17185bb8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91308105"
 ---
 # <a name="conceptual-understanding-of-x509-ca-certificates-in-the-iot-industry"></a>Entendimento conceitual de certificados de AC X.509 no setor de IoT
@@ -71,7 +71,7 @@ Para adquirir um Certificado de Autoridade de Certificação X.509, a Empresa X 
 
 ### <a name="creating-a-self-signed-x509-ca-certificate"></a>Criar um Certificado de Autoridade de Certificação X.509 autoassinado
 
-O processo para criar um certificado de autoridade de certificação X. 509 autoassinado é semelhante a comprar com a exceção de envolver um assinante de terceiros como a autoridade de certificação raiz. Em nosso exemplo, a Empresa X assinará o seu certificado de autoridade em vez de uma autoridade de certificação raiz. A Empresa X pode escolher essa opção para teste até que esteja pronta para adquirir um certificado de autoridade. A empresa-X também poderá usar um certificado de autoridade de certificação X. 509 autoassinado em produção, se o widget inteligente X não se destinar a se conectar a qualquer serviço de terceiros fora do Hub IoT.
+O processo para criar um Self-Signed certificado de autoridade de certificação X. 509 é semelhante a comprar com a exceção de envolver um assinante de terceiros como a autoridade de certificação raiz. Em nosso exemplo, a Empresa X assinará o seu certificado de autoridade em vez de uma autoridade de certificação raiz. A Empresa X pode escolher essa opção para teste até que esteja pronta para adquirir um certificado de autoridade. A empresa-X também poderá usar um certificado de autoridade de certificação X. 509 autoassinado em produção, se o widget inteligente X não se destinar a se conectar a qualquer serviço de terceiros fora do Hub IoT.
 
 ## <a name="register-the-x509-certificate-to-iot-hub"></a>Registrar o certificado X.509 no Hub IoT
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
 ms.openlocfilehash: 0ed237debc2395ed307658b2d57a541574f9478a
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87284142"
 ---
 # <a name="add-parameters-to-commands"></a>Adicionar parâmetros a comandos
@@ -36,7 +36,7 @@ Edite o comando de **ativação** existente para ativar e desativar vários disp
    1. Selecione **renomear**. Nas janelas de **comando renomear** , altere o **nome** para **TurnOnOff**.
 
 1. Em seguida, você adiciona um novo parâmetro a esse comando, que representa se o usuário deseja ativar ou desativar o dispositivo.
-   1. Selecione **Adicionar** presente na parte superior do painel central. Na lista suspensa, selecione **parâmetro**.
+   1. Selecione  **Adicionar** presente na parte superior do painel central. Na lista suspensa, selecione **parâmetro**.
    1. No painel direito, na seção **parâmetros** , adicione o valor na caixa **nome** como **Onoff**.
    1. Selecione **obrigatório**. Na janela **Adicionar resposta para um parâmetro necessário** , selecione **editor simples**. Na **primeira variação**, adicione
         ```
@@ -55,13 +55,13 @@ Edite o comando de **ativação** existente para ativar e desativar vários disp
        | Nome               | `OnOff`           | Um nome descritivo para o parâmetro                                                                           |
        | É global          | unchecked       | Caixa de seleção que indica se um valor para esse parâmetro é globalmente aplicado a todos os comandos no aplicativo|
        | Obrigatório           | checked         | Caixa de seleção que indica se um valor para esse parâmetro é necessário antes de concluir o comando |
-       | Resposta para o parâmetro obrigatório      |Editor simples >`On or Off?`      | Um prompt para solicitar o valor desse parâmetro quando ele não for conhecido |
+       | Resposta para o parâmetro obrigatório      |Editor simples > `On or Off?`      | Um prompt para solicitar o valor desse parâmetro quando ele não for conhecido |
        | Type               | String          | O tipo de parâmetro, como número, Cadeia de caracteres, data/hora ou Geografia   |
        | Configuração      | Aceitar valores de entrada predefinidos do catálogo interno | Para cadeias de caracteres, isso limita as entradas a um conjunto de valores possíveis |
        | Valores de entrada predefinidos     | `on`, `off`           | Conjunto de valores possíveis e seus aliases         |
        
         
-   1. Para adicionar valores de entrada predefinidos, selecione **Adicionar uma entrada predefinida** e na janela **novo item** , digite o **nome** conforme fornecido na tabela acima. Nesse caso, não estamos usando aliases, portanto, você pode deixá-lo em branco.
+   1. Para adicionar valores de entrada predefinidos, selecione **Adicionar uma entrada predefinida** e na janela **novo item**  , digite o **nome** conforme fornecido na tabela acima. Nesse caso, não estamos usando aliases, portanto, você pode deixá-lo em branco.
    
       > [!div class="mx-imgBorder"]
       > ![Criar parâmetro](media/custom-commands/create-on-off-parameter.png)
@@ -78,7 +78,7 @@ Edite o comando de **ativação** existente para ativar e desativar vários disp
        | Nome               | `SubjectDevice`         |
        | É global          | unchecked             |
        | Obrigatório           | checked               |
-       | Resposta para o parâmetro obrigatório     | Editor simples >`Which device do you want to control?`    | 
+       | Resposta para o parâmetro obrigatório     | Editor simples > `Which device do you want to control?`    | 
        | Type               | String                |          |
        | Configuração      | Aceitar valores de entrada predefinidos do catálogo interno | 
        | Valores de entrada predefinidos | `tv`, `fan`               |
@@ -90,9 +90,9 @@ Edite o comando de **ativação** existente para ativar e desativar vários disp
 
 Para comandos com parâmetros, é útil adicionar frases de exemplo que abrangem todas as combinações possíveis. Por exemplo:
 
-* Informações completas do parâmetro-`turn {OnOff} the {SubjectDevice}`
-* Informações de parâmetro parcial-`turn it {OnOff}`
-* Nenhuma informação de parâmetro-`turn something`
+* Informações completas do parâmetro- `turn {OnOff} the {SubjectDevice}`
+* Informações de parâmetro parcial- `turn it {OnOff}`
+* Nenhuma informação de parâmetro- `turn something`
 
 As frases de exemplo com um grau diferente de informações permitem que o aplicativo de comandos personalizados resolva as resoluções de uma imagem e as resoluções de vários desligamentos com informações parciais.
 
@@ -109,7 +109,7 @@ turn something
 Clique em **Salvar**.
 
 > [!TIP]
-> No editor de sentenças de exemplo, use chaves para fazer referência aos parâmetros. - `turn {OnOff} the {SubjectDevice}`Use a guia para preenchimento automático apoiado por parâmetros criados anteriormente.
+> No editor de sentenças de exemplo, use chaves para fazer referência aos parâmetros. - `turn {OnOff} the {SubjectDevice}` Use a guia para preenchimento automático apoiado por parâmetros criados anteriormente.
 
 ### <a name="modify-completion-rules-to-include-parameters"></a>Modificar regras de conclusão para incluir parâmetros
 
@@ -126,7 +126,7 @@ Modifique a regra de conclusão existente **ConfirmationResponse**.
     ```
 1. Clique em **Salvar**.
 
-### <a name="try-it-out"></a>Experimente
+### <a name="try-it-out"></a>Experimentar
 1. Selecione o ícone de **treinamento** na parte superior do painel direito.
 
 1. Quando o treinamento for concluído, selecione **testar**. Uma janela **testar seu aplicativo** será exibida.
@@ -151,7 +151,7 @@ Adicionar nova **temperatura** de parâmetro com a seguinte configuração
 | ------------------ | ----------------|
 | Nome               | `Temperature`           |
 | Obrigatório           | checked         |
-| Resposta para o parâmetro obrigatório      | Editor simples >`What temperature would you like?`
+| Resposta para o parâmetro obrigatório      | Editor simples > `What temperature would you like?`
 | Type               | Número          |
 
 
@@ -169,9 +169,9 @@ Edite as regras de conclusão existentes de acordo com a configuração a seguir
 | Configuração      | Valor sugerido     |
 | ------------------ | ----------------|
 | Condições         | Temperatura > parâmetro obrigatório           |
-| Ações           | Enviar > de resposta de fala`Ok, setting temperature to {Temperature} degrees` |
+| Ações           | Enviar > de resposta de fala `Ok, setting temperature to {Temperature} degrees` |
 
-### <a name="try-it-out"></a>Experimente
+### <a name="try-it-out"></a>Experimentar
 
 **Treine** e **teste** as alterações com algumas interações.
 
@@ -188,7 +188,7 @@ Adicione um parâmetro chamado **DateTime** com a configuração a seguir.
    | --------------------------------- | ----------------------------------------|
    | Nome                              | `DateTime`                               |
    | Obrigatório                          | checked                                 |
-   | Resposta para o parâmetro obrigatório   | Editor simples >`For what time?`            | 
+   | Resposta para o parâmetro obrigatório   | Editor simples > `For what time?`            | 
    | Type                              | Datetime                                |
    | Padrões de data                     | Se a data estiver ausente, use hoje mesmo            |
    | Padrões de tempo                     | Se o tempo estiver ausente, use o início do dia     |
@@ -210,10 +210,10 @@ Edite as regras de conclusão existentes de acordo com a configuração a seguir
 
    | Configuração    | Valor sugerido                               |
    | ---------- | ------------------------------------------------------- |
-   | Ações    | Enviar resposta de fala-`Ok, alarm set for {DateTime}`  |
+   | Ações    | Enviar resposta de fala- `Ok, alarm set for {DateTime}`  |
 
 
-### <a name="try-it-out"></a>Experimente
+### <a name="try-it-out"></a>Experimentar
 
 **Treine** e **teste** as alterações.
 - Entrada: Definir alarme para amanhã às 12h
