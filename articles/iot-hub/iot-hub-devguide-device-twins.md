@@ -1,22 +1,22 @@
 ---
 title: Compreender dispositivos gêmeos no Hub IoT do Azure| Microsoft Docs
 description: Guia de desenvolvedor ‑ use dispositivos gêmeos para sincronizar os dados de estado e de configuração entre os dispositivos e o Hub IoT
-author: ash2017
+author: nehsin
 manager: philmea
-ms.author: asrastog
+ms.author: nehsin
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 02/01/2020
+ms.date: 09/29/2020
 ms.custom:
 - mqtt
 - 'Role: Cloud Development'
-ms.openlocfilehash: 4887315ddef3f15ee3f6ef5ad80cf8df8b1dcd34
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef1d6787ab3d4083ee6418694d1965ea0f90f730
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87327762"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996130"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Entender e usar dispositivos gêmeos no Hub IoT
 
@@ -250,7 +250,7 @@ Marcas, propriedades desejadas e propriedades reportadas são objetos JSON com a
 
 * **Chaves**: todas as chaves em objetos JSON são codificadas em UTF-8, diferencia maiúsculas de minúsculas e até 1 KB de comprimento. Os caracteres permitidos excluem caracteres de controle UNICODE (segmentos C0 e C1) e `.`, `$` e SP.
 
-* **Valores**: todos os valores em objetos JSON podem ser dos seguintes tipos JSON: booliano, número, Cadeia de caracteres, objeto. Não há permissão para matrizes.
+* **Valores**: todos os valores em objetos JSON podem ser dos seguintes tipos JSON: booliano, número, Cadeia de caracteres, objeto. Também há suporte para matrizes.
 
     * Os inteiros podem ter um valor mínimo de-4503599627370496 e um valor máximo de 4503599627370495.
 

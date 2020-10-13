@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 10/12/2020
 ms.author: alkohli
-ms.openlocfilehash: e542480db4ed82cf84c6ce04c62e2a07b6193f4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d835507a17417f8b500c0fc13d0a662e606a37ff
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320720"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996417"
 ---
 # <a name="system-requirements-for-azure-stack-edge-pro-with-gpu"></a>Requisitos do sistema para o Azure Stack Edge pro com GPU 
 
@@ -32,21 +32,29 @@ Os requisitos de sistema para o Azure Stack Edge pro incluem:
 
 [!INCLUDE [Supported protocols for clients accessing device](../../includes/azure-stack-edge-gateway-supported-client-protocols.md)]
 
-## <a name="supported-storage-accounts"></a>Contas de armazenamento com suporte
+## <a name="supported-azure-storage-accounts"></a>Contas de armazenamento do Azure com suporte
 
 [!INCLUDE [Supported storage accounts](../../includes/azure-stack-edge-gateway-supported-storage-accounts.md)]
 
-## <a name="supported-tiered-storage-accounts"></a>Contas de armazenamento em camadas com suporte
+## <a name="supported-edge-storage-accounts"></a>Contas de armazenamento de borda com suporte
 
-Quando gerenciados do Azure Stack, as seguintes contas de armazenamento em camadas têm suporte com interfaces SMB/NFS/REST.
+As contas de armazenamento de borda a seguir têm suporte com a interface REST do dispositivo. As contas de armazenamento de borda são criadas no dispositivo. Para obter mais informações, consulte [Edge Storage accounts](azure-stack-edge-j-series-manage-storage-accounts.md#about-edge-storage-accounts).
 
 |Type  |Conta de armazenamento  |Comentários  |
 |---------|---------|---------|
 |Standard     |GPv1: BLOB de blocos         |         |
-|    |  Armazenamento de BLOBs: BLOB de blocos       | Com suporte apenas para NAS     |
 
-* Atualmente, não há suporte para BLOBs de páginas e arquivos do Azure no Azure Stack.
-* * Camada quente e frio não existem no Azure Stack. Use o Azure PowerShell para mover os dados para a camada de arquivo depois que os dados forem carregados. Para obter instruções passo a passo, acesse [usar Azure PowerShell para definir a camada de blob]()
+* Atualmente, não há suporte para BLOBs de páginas e arquivos do Azure.
+
+## <a name="supported-local-azure-resource-manager-storage-accounts"></a>Contas de armazenamento de Azure Resource Manager locais com suporte
+
+Essas contas de armazenamento são criadas por meio das APIs locais do dispositivo quando você está se conectando ao Azure Resource Manager local. Há suporte para as seguintes contas de armazenamento:
+
+|Type  |Conta de armazenamento  |Comentários  |
+|---------|---------|---------|
+|Standard     |GPv1: BLOB de blocos, BLOB de páginas        | O tipo de SKU é Standard_LRS       |
+|Premium     |GPv1: BLOB de blocos, BLOB de páginas        | O tipo de SKU é Premium_LRS        |
+
 
 ## <a name="supported-storage-types"></a>Tipos de armazenamento com suporte
 
@@ -71,7 +79,7 @@ O Azure IoT Edge permite a comunicação de saíde de um dispositivo do Edge loc
 
 Use a tabela a seguir para a configuração de porta dos servidores que hospedam o runtime do Azure IoT Edge:
 
-| Nº da porta | Entrada ou saída | Escopo da porta | Obrigatório | Diretrizes |
+| Nº da porta | Entrada ou saída | Escopo da porta | Necessária | Diretrizes |
 |----------|-----------|------------|----------|----------|
 | TCP 443 (HTTPS)| Saída       | WAN        | Sim      | Saída aberta para o provisionamento do IoT Edge. Essa configuração é necessária ao usar scripts manuais ou o DPS (serviço de provisionamento de dispositivos) do Azure IoT.|
 

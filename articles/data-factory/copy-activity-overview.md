@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.author: jingwang
-ms.openlocfilehash: 5eade0ad48dcdd1f0c18ef6e65e498a7b9c79c15
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 8a84c9979bdfac1165d44d03572567ab1ea7ab1f
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951666"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995340"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Atividade de cópia no Azure Data Factory
 
@@ -201,7 +201,7 @@ Para configurá-lo programaticamente, adicione a `additionalColumns` propriedade
 
 | Propriedade | Descrição | Necessária |
 | --- | --- | --- |
-| additionalColumns | Adicione colunas de dados adicionais para copiar para o coletor.<br><br>Cada objeto sob a `additionalColumns` matriz representa uma coluna extra. O `name` define o nome da coluna e `value` indica o valor de dados dessa coluna.<br><br>Os valores de dados permitidos são:<br>- **`$$FILEPATH`** -uma variável reservada indica armazenar o caminho relativo dos arquivos de origem para o caminho da pasta especificado no conjunto de uma. Aplicar à fonte baseada em arquivo.<br>- **$ $Column: <source_column_name>** -um padrão de variável reservada indica a duplicação da coluna de origem especificada como outra coluna<br>- **Expressão**<br>- **Valor estático** | Não |
+| additionalColumns | Adicione colunas de dados adicionais para copiar para o coletor.<br><br>Cada objeto sob a `additionalColumns` matriz representa uma coluna extra. O `name` define o nome da coluna e `value` indica o valor de dados dessa coluna.<br><br>Os valores de dados permitidos são:<br>- **`$$FILEPATH`** -uma variável reservada indica armazenar o caminho relativo dos arquivos de origem para o caminho da pasta especificado no conjunto de uma. Aplicar à fonte baseada em arquivo.<br>- **`$$COLUMN:<source_column_name>`** -um padrão de variável reservada indica a duplicação da coluna de origem especificada como outra coluna<br>- **Expressão**<br>- **Valor estático** | Não |
 
 **Exemplo:**
 

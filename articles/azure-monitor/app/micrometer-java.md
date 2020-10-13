@@ -6,19 +6,19 @@ author: lgayhardt
 ms.custom: devx-track-java
 ms.author: lagayhar
 ms.date: 11/01/2018
-ms.openlocfilehash: e6d464b415c956a0a8486f7c0d41c6e6a32b7c03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 16f4cfd70cf4dbeaeb1376368787b3fa0e4b9a52
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761593"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994028"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk"></a>Como usar o micrômetro com o Java SDK do Azure Application Insights
 
 > [!NOTE]
 > Application Insights SDK do Java não dá suporte ao Spring webfluxo. 
 >
-> O webfluxo e o micrometer têm suporte em [Application insights agente do Java 3,0](https://docs.microsoft.com/azure/azure-monitor/app/java-on-premises) que não requer instrumentação. 
+> O webfluxo e o micrometer têm suporte em [Application insights agente do Java 3,0](./java-on-premises.md) que não requer instrumentação. 
 
 O monitoramento de aplicativos de micrômetros mede as métricas para código de aplicativo baseado em JVM e permite exportar os dados para seus sistemas de monitoramento favoritos. Este artigo ensinará como usar o Micrômetro com o Application Insights para aplicativos Spring Boot e não-Spring Boot.
 
@@ -279,4 +279,3 @@ Adicione o seguinte código de ligação ao arquivo de configuração:
 
 * Para saber mais sobre o micrometer, consulte a [documentação](https://micrometer.io/docs)oficial do micrometer.
 * Para saber mais sobre o Spring no Azure, consulte a documentação oficial do [Spring on Azure](/java/azure/spring-framework/?view=azure-java-stable).
-

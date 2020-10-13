@@ -3,14 +3,14 @@ title: Migração para o Bridge to Kubernetes
 services: azure-dev-spaces
 ms.date: 10/12/2020
 ms.topic: conceptual
-description: Descreve os processos que o Power Azure Dev Spaces
+description: Descreve o processo de migração do Azure Dev Spaces para a ponte para o kubernetes
 keywords: Azure Dev Spaces, espaços de desenvolvimento, Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, ponte para kubernetes
-ms.openlocfilehash: cc7f4f095a0306beffc0e224d7e813f7f02455da
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 2b923e87e1eefe9cb0ba4afc018eed728ee6aaba
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962846"
+ms.locfileid: "91993937"
 ---
 # <a name="migrating-to-bridge-to-kubernetes"></a>Migração para o Bridge to Kubernetes
 
@@ -84,10 +84,34 @@ A ponte para o kubernetes tem a flexibilidade de trabalhar com aplicativos em ex
 
 1. Atualize o IDE do Visual Studio para a versão 16,7 ou superior e instale a ponte para a extensão kubernetes do [Visual Studio Marketplace][vs-marketplace].
 1. Desabilite o controlador de Azure Dev Spaces usando o portal do Azure ou a [CLI do Azure dev Spaces][azds-delete].
-1. Remova o `azds.yaml` arquivo do seu projeto.
+1. Use [Azure cloud Shell](https://shell.azure.com). Ou no Mac, Linux ou Windows com o bash instalado, abra um prompt de shell bash. Verifique se as seguintes ferramentas estão disponíveis no seu ambiente de linha de comando: CLI do Azure, Docker, kubectl, ondulação, tar e gunzip.
+1. Crie um registro de contêiner ou use um existente. Você pode criar um registro de contêiner no Azure usando o [registro de contêiner do Azure](../container-registry/index.yml) ou usando o [Hub do Docker](https://hub.docker.com/).
+1. Execute o script de migração para converter os ativos de Azure Dev Spaces para ponte para ativos kubernetes. O script cria uma nova imagem compatível com a ponte para kubernetes, carrega-a no registro designado e, em seguida, usa [Helm](https://helm.sh) para atualizar o cluster com a imagem. Você deve fornecer o grupo de recursos, o nome do cluster AKS e um registro de contêiner. Há outras opções de linha de comando, conforme mostrado aqui:
+
+   ```azure-cli
+   curl -sL https://aka.ms/migrate-tool | bash -s -- -g ResourceGroupName -n AKSName -h ContainerRegistryName -r PathOfTheProject -y
+   ```
+
+   O script dá suporte aos seguintes sinalizadores:
+
+   ```cmd  
+    -g Name of resource group of AKS Cluster [required]
+    -n Name of AKS Cluster [required]
+    -h Container registry name. Examples: ACR, Docker [required]
+    -k Kubernetes namespace to deploy resources (uses 'default' otherwise)
+    -r Path to root of the project that needs to be migrated (default = current working directory)
+    -t Image name & tag in format 'name:tag' (default is 'projectName:stable')
+    -i Enable a public endpoint to access your service over internet. (default is false)
+    -y Doesn't prompt for non-tty terminals
+    -d Helm Debug switch
+   ```
+
+1. Migre manualmente todas as personalizações, como as configurações de variável de ambiente, em *azds. YAML* para o arquivo *Values. yml* do seu projeto.
+1. adicional Remova o `azds.yaml` arquivo do seu projeto.
 1. Reimplante o aplicativo.
 1. Configure a ponte para o kubernetes em seu aplicativo implantado. Para obter mais informações sobre como usar o Bridge para kubernetes no Visual Studio, consulte [usar o Bridge para kubernetes][use-btk-vs].
 1. Inicie a depuração no Visual Studio usando a ponte recém-criada para kubernetes o perfil de depuração.
+1. Você pode executar o script novamente conforme necessário para reimplantar o cluster.
 
 ### <a name="use-visual-studio-code-to-transition-to-bridge-to-kubernetes-from-azure-dev-spaces"></a>Use Visual Studio Code para fazer a transição para a ponte para o kubernetes da Azure Dev Spaces
 

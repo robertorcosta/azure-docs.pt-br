@@ -3,12 +3,12 @@ title: Alertas de log de Azure Monitor para contêineres | Microsoft Docs
 description: Este artigo descreve como criar alertas de log personalizados para utilização de memória e CPU de Azure Monitor para contêineres.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: 8c02442fef9b174075065e7852b7a25233899c48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ddf898978bdaf51cb81a95c3209855c51212280f
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91294539"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995252"
 ---
 # <a name="how-to-create-log-alerts-from-azure-monitor-for-containers"></a>Como criar alertas de log de Azure Monitor para contêineres
 
@@ -307,4 +307,4 @@ Esta seção percorre a criação de uma regra de alerta de medição de métric
 
 - Exiba [exemplos de consulta de log](container-insights-log-search.md#search-logs-to-analyze-data) para ver consultas predefinidas e exemplos para avaliar ou personalizar para alertar, Visualizar ou analisar seus clusters.
 
-- Para saber mais sobre Azure Monitor e como monitorar outros aspectos do cluster do kubernetes, consulte [Exibir o desempenho do cluster kubernetes](container-insights-analyze.md) e [exibir a integridade do cluster do kubernetes](container-insights-health.md).
+- Para saber mais sobre Azure Monitor e como monitorar outros aspectos do cluster do kubernetes, consulte [Exibir o desempenho do cluster kubernetes](container-insights-analyze.md) e [exibir a integridade do cluster do kubernetes](./container-insights-overview.md).

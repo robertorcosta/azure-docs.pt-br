@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 10/12/2020
 tags: connectors
-ms.openlocfilehash: 2993fc718462d1ac2a9cfd02be5642fb21f86702
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5834a1927fda71faa924e14265fb7f82034887de
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90526520"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996351"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Trocar mensagens na nuvem usando os aplicativos lógicos do Azure e o barramento de serviço do Azure
 
@@ -79,7 +79,7 @@ Confirme se seu aplicativo lógico tem permissões para acessar o namespace do B
    Alguns gatilhos, como **quando uma ou mais mensagens chegam em um gatilho de fila (conclusão automática)** , podem retornar uma ou mais mensagens. Quando esses gatilhos são acionados, eles retornam entre um e o número de mensagens que é especificado pela propriedade **contagem máxima de mensagens** do gatilho.
 
     > [!NOTE]
-    > O gatilho de preenchimento automático conclui automaticamente uma mensagem, mas a conclusão ocorre apenas na próxima execução do gatilho. Esse comportamento pode afetar o design do seu aplicativo lógico. Por exemplo, evite alterar a simultaneidade no gatilho de preenchimento automático porque essa alteração pode resultar em mensagens duplicadas se o aplicativo lógico entrar em um estado limitado. A alteração do controle de simultaneidade cria estas condições: os gatilhos limitados são ignorados com o `WorkflowRunInProgress` código, a operação de conclusão não acontecerá e a próxima execução do gatilho ocorrerá após o intervalo de sondagem. Você precisa definir a duração do bloqueio do barramento de serviço para um valor maior que o intervalo de sondagem. No entanto, apesar dessa configuração, a mensagem ainda pode não ser concluída se seu aplicativo lógico permanecer em um estado limitado no próximo intervalo de sondagem.
+    > O gatilho de preenchimento automático conclui automaticamente uma mensagem, mas a conclusão ocorre apenas na próxima chamada para o barramento de serviço. Esse comportamento pode afetar o design do seu aplicativo lógico. Por exemplo, evite alterar a simultaneidade no gatilho de preenchimento automático porque essa alteração pode resultar em mensagens duplicadas se o aplicativo lógico entrar em um estado limitado. A alteração do controle de simultaneidade cria estas condições: os gatilhos limitados são ignorados com o `WorkflowRunInProgress` código, a operação de conclusão não acontecerá e a próxima execução do gatilho ocorrerá após o intervalo de sondagem. Você precisa definir a duração do bloqueio do barramento de serviço para um valor maior que o intervalo de sondagem. No entanto, apesar dessa configuração, a mensagem ainda pode não ser concluída se seu aplicativo lógico permanecer em um estado limitado no próximo intervalo de sondagem.
 
 1. Se o seu gatilho estiver se conectando ao seu namespace do barramento de serviço pela primeira vez, siga estas etapas quando o designer do aplicativo lógico solicitar informações de conexão.
 
@@ -162,6 +162,10 @@ Confirme se seu aplicativo lógico tem permissões para acessar o namespace do B
 Quando você precisar enviar mensagens relacionadas em uma ordem específica, poderá usar o [padrão *comboio sequencial* ](/azure/architecture/patterns/sequential-convoy) usando o conector do [barramento de serviço do Azure](../connectors/connectors-create-api-servicebus.md). As mensagens correlacionadas têm uma propriedade que define a relação entre essas mensagens, como a ID da [sessão](../service-bus-messaging/message-sessions.md) no barramento de serviço.
 
 Ao criar um aplicativo lógico, você pode selecionar o modelo **entrega em ordem correlacionada usando sessões do barramento de serviço** , que implementa o padrão comboio sequencial. Para obter mais informações, consulte [enviar mensagens relacionadas na ordem](../logic-apps/send-related-messages-sequential-convoy.md).
+
+## <a name="delays-in-updates-to-your-logic-app-taking-effect"></a>Atrasos em atualizações para seu aplicativo lógico entrar em vigor
+
+Se o intervalo de sondagem de um gatilho do barramento de serviço for pequeno, como 10 segundos, as atualizações para seu aplicativo lógico poderão não entrar em vigor por até 10 minutos. Para contornar esse problema, você pode aumentar temporariamente o intervalo de sondagem para um valor maior, como 30 segundos ou 1 minuto, antes de atualizar seu aplicativo lógico. Depois de fazer a atualização, você pode redefinir o intervalo de sondagem para o valor original. 
 
 <a name="connector-reference"></a>
 

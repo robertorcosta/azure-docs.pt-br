@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: 714a43ec197ac150488d4443c1eb6fe1be1da232
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 845336385fe7490d4c62df41af873c237ae34871
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91575513"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996321"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Azure Monitor os clusters dedicados
 
@@ -49,7 +49,7 @@ Há dois modos de cobrança para uso em um cluster. Eles podem ser especificados
 
 1. **Cluster**: nesse caso (que é o padrão), a cobrança de dados ingeridos é feita no nível do cluster. As quantidades de dados ingeridos de cada workspace associado a um cluster são agregadas para calcular a fatura diária do cluster. 
 
-2. **Espaços de trabalho**: os custos de reserva de capacidade para o cluster são atribuídos proporcionalmente aos espaços de trabalho no cluster (após a contabilização de alocações por nó da [central de segurança do Azure](https://docs.microsoft.com/azure/security-center/) para cada espaço de trabalho).
+2. **Espaços de trabalho**: os custos de reserva de capacidade para o cluster são atribuídos proporcionalmente aos espaços de trabalho no cluster (após a contabilização de alocações por nó da [central de segurança do Azure](../../security-center/index.yml) para cada espaço de trabalho).
 
 Observe que, se o seu espaço de trabalho estiver usando o tipo de preço herdado por nó, quando ele estiver vinculado a um cluster, ele será cobrado com base nos dados ingeridos em relação à reserva de capacidade do cluster e não mais por nó. As alocações de dados por nó da central de segurança do Azure continuarão a ser aplicadas.
 
@@ -87,7 +87,7 @@ Get-Job -Command "New-AzOperationalInsightsCluster*" | Format-List -Property *
 
 **REST**
 
-*Chamar* 
+*Call* 
 ```rst
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
 Authorization: Bearer <token>
@@ -184,7 +184,7 @@ Update-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -Cl
 
 Por exemplo: 
 
-*Chamar*
+*Call*
 
 ```rst
 PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
@@ -321,7 +321,7 @@ Você pode verificar o estado de associação do workspace de duas maneiras:
 
 - Copie o valor da URL de Azure-AsyncOperation da resposta e siga a verificação de status de operações assíncronas.
 
-- Enviar [espaços de trabalho – obter](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) solicitação e observar a resposta. O espaço de trabalho associado tem um clusterResourceId em "recursos".
+- Enviar [espaços de trabalho – obter](/rest/api/loganalytics/workspaces/get) solicitação e observar a resposta. O espaço de trabalho associado tem um clusterResourceId em "recursos".
 
 Uma solicitação de envio é semelhante ao seguinte:
 

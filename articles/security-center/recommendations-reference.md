@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/07/2020
 ms.author: memildin
-ms.openlocfilehash: afe6d89db81a372bf4b8f318e2439140fe434cd1
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: 276368eaf54ea87dddd2b292b07084e09d97d5ec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91802014"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850395"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Recomendações de segurança – um guia de referência
 
@@ -37,6 +37,7 @@ Sua classificação de segurança é baseada no número de recomendações da Ce
 |Recomendação|Descrição e política relacionada|Severity|Correção rápida habilitada? ([Saiba mais](security-center-remediate-recommendations.md#quick-fix-remediation))|Tipo de recurso|
 |----|----|----|----|----|
 |**As recomendações da Proteção de Rede Adaptável devem ser aplicadas nas máquinas virtuais para a Internet**|A Central de Segurança do Azure analisou os padrões de comunicação de tráfego da Internet das máquinas virtuais listadas abaixo e determinou que as regras existentes nos NSGs associados a elas são excessivamente permissivas, resultando em uma maior superfície de ataque potencial.<br>Isso normalmente ocorre quando o endereço IP não se comunica regularmente com o recurso. Como alternativa, o endereço IP foi sinalizado como mal-intencionado pelas fontes de inteligência contra ameaças da Central de Segurança.<br>(Política relacionada: As recomendações da Proteção de Rede Adaptável devem ser aplicadas nas máquinas virtuais para a Internet)|Alta|N|Máquina virtual|
+|**Todo o tráfego da Internet deve ser roteado por meio do Firewall do Azure implantado**|A Central de Segurança do Azure identificou que algumas de suas sub-redes não estão protegidas com um firewall de última geração. Proteja as sub-redes de potenciais ameaças restringindo o acesso a elas com o Firewall do Azure ou com um firewall de última geração compatível.<br>(Política relacionada: [versão prévia] todo o tráfego da Internet deve ser roteado por meio do seu Firewall implantado do Azure)|Alta|N|Sub-rede|
 |**Todas as portas de rede devem ser restritas no NSG associado à sua VM**|Proteja os grupos de segurança de rede de suas VMs na Internet, restringindo o acesso às regras de permissão existentes.<br>Essa recomendação é disparada quando qualquer porta é aberta para *todas* as fontes (exceto para as portas 22, 3389, 5985, 5986, 80 e 1443).<br>(Política relacionada: O acesso pelo ponto de extremidade para a Internet deve ser restrito)|Alta|N|Máquina virtual|
 |**A Proteção contra DDoS Standard deve ser habilitada**|Proteja as redes virtuais que contêm aplicativos com IPs públicos habilitando o padrão de serviço de proteção DDOS. A proteção contra DDoS permite a mitigação dos ataques volumétricos e protocolares da rede.<br>(Política relacionada: A Proteção contra DDoS Standard deve ser habilitada)|Alta|N|Rede virtual|
 |**O aplicativo de funções deve ser acessível apenas por HTTPS**|Habilitar o acesso “somente por HTTPS” para aplicativos de funções. O uso do HTTPS garante a autenticação do servidor/serviço e protege os dados em trânsito de ataques de interceptação de camada de rede.<br>(Política relacionada: O aplicativo de funções deve ser acessível apenas por HTTPS)|Médio|**S**|Aplicativo de funções|
