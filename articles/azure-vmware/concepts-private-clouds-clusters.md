@@ -4,10 +4,10 @@ description: Saiba mais sobre os principais recursos dos data centers definidos 
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.openlocfilehash: 715293d9951876ff0f794f8f6b580093f89571b3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91316861"
 ---
 #  <a name="azure-vmware-solution-private-cloud-and-cluster-concepts"></a>Conceitos de nuvem privada e de cluster da solução Azure VMware
@@ -38,7 +38,7 @@ Nós de infraestrutura hiperconvergentes e bare-metal são usados em clusters de
 
 | Tipo de host              |             CPU             |   RAM (GB)   |  Camada de cache do vSAN NVMe (TB, bruto)  |  tipo de capacidade vSAN SSD (TB, RAW)  |
 | :---                   |            :---:            |    :---:     |               :---:              |                :---:               |
-| High-end (ele)          |  dual Intel 18 Core de 2,3 GHz  |     576      |                3.2               |                15,20               |
+| High-End (HE)          |  dual Intel 18 Core de 2,3 GHz  |     576      |                3.2               |                15,20               |
 
 Os hosts que são usados para criar ou dimensionar clusters são adquiridos de um pool isolado de hosts. Esses hosts passaram por testes de hardware e tiveram todos os dados excluídos com segurança dos discos flash. Quando você remove um host de um cluster, os discos internos são apagados com segurança e os hosts são colocados no pool isolado de hosts. Quando você adiciona um host a um cluster, é usado um host limpo do pool isolado.
 
@@ -61,7 +61,7 @@ As políticas e os processos de atualização gerais para o software da platafor
 
 A manutenção do host e o gerenciamento do ciclo de vida são feitos sem afetar a capacidade ou o desempenho de clusters de nuvem privada. Exemplos de manutenção automatizada do host incluem atualizações de firmware e reparo ou substituição de hardware.
 
-A Microsoft é responsável pelo gerenciamento do ciclo de vida de dispositivos NSX-T, como NSX-T Manager e NSX-T Edge. A Microsoft também é responsável por inicializar a configuração de rede, como a criação do gateway de camada 0 e a habilitação do roteamento norte-sul. Como administrador de sua nuvem privada da solução Azure VMware, você é responsável pela configuração do NSX-T SDN. Por exemplo, segmentos de rede, regras de firewall distribuídas, gateways de camada 1 e balanceadores de carga.
+A Microsoft é responsável pelo gerenciamento do ciclo de vida de dispositivos NSX-T, como NSX-T Manager e NSX-T Edge. A Microsoft também é responsável por inicializar a configuração de rede, como a criação do gateway de camada 0 e a habilitação do roteamento de North-South. Como administrador de sua nuvem privada da solução Azure VMware, você é responsável pela configuração do NSX-T SDN. Por exemplo, segmentos de rede, regras de firewall distribuídas, gateways de camada 1 e balanceadores de carga.
 
 > [!IMPORTANT]
 > Um administrador da solução Azure VMware não deve modificar a configuração do gateway da camada 0 ou da borda do NSX-T. Isso pode resultar em uma perda de serviço.

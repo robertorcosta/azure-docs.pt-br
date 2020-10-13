@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
 ms.openlocfilehash: 3aab1329dc7bbcc70621684b3f1ac2362f4bc458
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91268257"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Pontuação segura na Central de Segurança do Azure
@@ -57,7 +57,7 @@ A central de segurança exibe sua pontuação de forma proeminente no Portal: é
 
 ### <a name="get-your-secure-score-from-the-rest-api"></a>Obtenha sua pontuação segura da API REST
 
-Você pode acessar sua pontuação por meio da [API de Pontuação segura](https://docs.microsoft.com/rest/api/securitycenter/securescores/) (atualmente em visualização). Os métodos de API fornecem a flexibilidade para consultar os dados e criar seu próprio mecanismo de relatório de suas pontuações seguras ao longo do tempo. Por exemplo, você pode usar a API de **pontuações seguras** para obter a pontuação de uma assinatura específica. Além disso, você pode usar a API de **controles de Pontuação segura** para listar os controles de segurança e a pontuação atual de suas assinaturas.
+Você pode acessar sua pontuação por meio da [API de Pontuação segura](https://docs.microsoft.com/rest/api/securitycenter/securescores/) (atualmente em visualização). Os métodos de API oferecem a flexibilidade para consultar os dados e criar seu mecanismo de relatório das suas classificações de segurança ao longo do tempo. Por exemplo, você pode usar a API **Classificações de Segurança** para obter a classificação de uma assinatura específica. Além disso, você pode usar a API **Controles de Classificação de Segurança** para listar os controles de segurança e a classificação atual das suas assinaturas.
 
 ![Recuperando uma única Pontuação segura por meio da API](media/secure-score-security-controls/single-secure-score-via-api.png)
 
@@ -95,17 +95,17 @@ A pontuação máxima para esse controle, Aplicar atualizações do sistema, é 
 
 Somente as recomendações internas têm um impacto na pontuação segura.
 
-As recomendações sinalizadas como **Visualização** não estão incluídas nos cálculos da sua pontuação segura. Eles ainda devem ser corrigidos sempre que possível, para que, quando o período de visualização terminar, eles contribuam para a sua pontuação.
+As recomendações sinalizadas como **Visualização** não estão incluídas nos cálculos da sua pontuação segura. Elas ainda deverão ser corrigidas sempre que possível, para que, quando o período de versão prévia terminar, elas contribuam para a sua classificação.
 
-Um exemplo de uma recomendação de visualização:
+Um exemplo de recomendação de versão prévia:
 
-:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Recomendação com o sinalizador de visualização":::
+:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Recomendação com o sinalizador de versão prévia":::
 
 ## <a name="improve-your-secure-score"></a>Melhorar sua pontuação segura
 
 Para melhorar sua pontuação segura, corrija as recomendações de segurança da sua lista de recomendações. Você pode corrigir cada recomendação manualmente para cada recurso ou usando a opção **Correção Rápida!** (quando disponível) para aplicar rapidamente uma correção para uma recomendação a um grupo de recursos. Para obter mais informações, consulte [Recomendações de correção](security-center-remediate-recommendations.md).
 
-Outra maneira de melhorar sua pontuação e garantir que os usuários não criem recursos que afetam negativamente sua pontuação é configurar as opções de aplicação e negação nas recomendações relevantes. Saiba mais em [evitar configurações incorretas com recomendações de aplicação/negação](prevent-misconfigurations.md).
+Outra maneira de melhorar sua pontuação e garantir que os usuários não criem recursos que afetam negativamente sua pontuação é configurar as opções de aplicação e negação nas recomendações relevantes. Saiba mais em [Impedir configurações incorretas com as recomendações de Impor/Negar](prevent-misconfigurations.md).
 
 ## <a name="security-controls-and-their-recommendations"></a>Controles de segurança e suas recomendações
 

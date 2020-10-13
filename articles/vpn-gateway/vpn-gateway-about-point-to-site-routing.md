@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/07/2020
 ms.author: cherylmc
 ms.openlocfilehash: 0b9b8ba555cddd56c49c750709e69ec180291c95
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91827205"
 ---
 # <a name="about-point-to-site-vpn-routing"></a>Sobre o roteamento VPN Ponto a Site
@@ -44,7 +44,7 @@ A conexão de gateway VPN Ponto a Site neste exemplo é para uma rede virtual qu
 
 * Rotas adicionadas aos clientes não Windows: 10.1.0.0/16, 192.168.0.0/24
 
-### <a name="access"></a>Access
+### <a name="access"></a>Acesso
 
 * Os clientes Windows podem acessar VNet1
 
@@ -74,7 +74,7 @@ Os clientes que usam o Windows podem acessar VNets emparelhadas diretamente, mas
 
 * Rotas adicionadas aos clientes não Windows: 10.1.0.0/16, 10.2.0.0/16, 10.4.0.0/16, 192.168.0.0/24
 
-### <a name="access"></a>Access
+### <a name="access"></a>Acesso
 
 * Os clientes Windows podem acessar VNet1, VNet2 e VNet4, mas o cliente VPN deve ser baixado novamente para que as alterações de topologia entrem em vigor.
 
@@ -102,7 +102,7 @@ Os clientes que usam o Windows ou outro sistema operacional com suporte só pode
 
 * Rotas adicionadas aos clientes não Windows: 10.1.0.0/16, 10.2.0.0/16, 192.168.0.0/24
 
-### <a name="access"></a>Access
+### <a name="access"></a>Acesso
 
 * Os clientes Windows podem acessar apenas VNet1
 
@@ -130,7 +130,7 @@ Clientes que usam Windows ou outro sistema operacional com suporte podem acessar
 
 * Rotas adicionadas aos clientes não Windows: 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16, 192.168.0.0/24
 
-### <a name="access"></a>Access
+### <a name="access"></a>Acesso
 
 * Os clientes Windows podem acessar VNet1, VNet2 e VNet3, mas rotas para VNet2 e VNet3 devem ser adicionadas manualmente.
 
@@ -156,7 +156,7 @@ Os clientes do Windows e não Windows podem acessar apenas VNet1.
 
 * Rotas adicionadas aos clientes não Windows: 10.1.0.0/16, 192.168.0.0/24
 
-### <a name="access"></a>Access
+### <a name="access"></a>Acesso
 
 * Os clientes Windows podem acessar apenas VNet1
 
@@ -182,7 +182,7 @@ Os clientes Windows podem acessar VNet e filial (Site1), mas as rotas para Site1
 
 * Rotas adicionadas aos clientes não Windows: 10.1.0.0/16, 10.101.0.0/16, 192.168.0.0/24
 
-### <a name="access"></a>Access
+### <a name="access"></a>Acesso
 
 * Os clientes Windows podem acessar VNet1 e Site1, mas rotas para Site1 devem ser adicionadas manualmente.
 
@@ -213,7 +213,7 @@ Todos os clientes podem acessar apenas VNet1.
 
 * Rotas adicionadas aos clientes não Windows: 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16, 10.101.0.0/16, 192.168.0.0/24
 
-### <a name="access"></a>Access
+### <a name="access"></a>Acesso
 
 * Os clientes Windows podem acessar apenas VNet1
 
@@ -243,7 +243,7 @@ Os clientes que usam o Windows podem acessar VNets e sites que são conectados u
 
 * Rotas adicionadas aos clientes não Windows: 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16, 10.101.0.0/16, 192.168.0.0/24
 
-### <a name="access"></a>Access
+### <a name="access"></a>Acesso
 
 * Os clientes Windows podem acessar VNet1, VNet2, VNet3 e Site1, mas as rotas para VNet2, VNet3 e Site1 devem ser adicionadas manualmente ao cliente.
 

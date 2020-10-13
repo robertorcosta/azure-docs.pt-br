@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/29/2020
 ms.author: duau
 ms.openlocfilehash: 1a8064c3ff89c0bc8b0ceb5249492b912c219ce8
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91535824"
 ---
 # <a name="caching-with-azure-front-door"></a>Caching com a porta frontal do Azure
@@ -113,7 +113,7 @@ A ordem de cabeçalhos a seguir é usada para determinar por quanto tempo um ite
 2. Cache-Control: Max-age =\<seconds>
 3. Expira \<http-date>
 
-Cabeçalhos de resposta de controle de cache que indicam que a resposta não será armazenada em cache, como Cache-Control: privado, Cache-Control: no-cache e Cache-Control: no-Store são respeitados.  Se nenhum controle de cache estiver presente, o comportamento padrão é que a porta frontal armazenará em cache o recurso por X quantidade de tempo em que X é separado aleatoriamente entre 1 e 3 dias.
+Cache-Control cabeçalhos de resposta que indicam que a resposta não será armazenada em cache, como Cache-Control: privado, Cache-Control: no-cache e Cache-Control: no-Store são respeitados.  Se nenhum Cache-Control estiver presente, o comportamento padrão é que a porta frontal armazenará em cache o recurso por X período de tempo em que X é separado aleatoriamente entre 1 e 3 dias.
 
 ## <a name="request-headers"></a>Cabeçalhos de solicitação
 

@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 06/17/2020
-ms.openlocfilehash: b88a9477c9d63becb32bc95ca78b4a8117168a47
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 10/10/2020
+ms.openlocfilehash: 2ec1726056c7ab223f7d3de70a715a8254e95db4
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90907764"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940202"
 ---
 # <a name="tune-model-hyperparameters"></a>Ajustar os hiperparâmetros de modelo
 
@@ -77,9 +77,9 @@ Esta seção descreve como executar uma varredura de parâmetro básica, que tre
 
 Quando o treinamento for concluído:
 
-+ Para exibir os resultados da varredura, clique com o botão direito do mouse no módulo e selecione **Visualizar**.
++ Para exibir os resultados da varredura, você pode clicar com o botão direito do mouse no módulo e selecionar **Visualizar**ou clicar com o botão direito do mouse na porta de saída à esquerda do módulo a ser visualizado.
 
-    A saída inclui todas as métricas de limpeza e de precisão do parâmetro que se aplicam ao tipo de modelo, mas a métrica que você selecionou para classificação determina qual modelo é considerado "melhor".
+    Os **resultados da varredura** incluem todas as métricas de limpeza e precisão do parâmetro que se aplicam ao tipo de modelo, e a métrica que você selecionou para classificação determina qual modelo é considerado "melhor".
 
 + Para salvar um instantâneo do modelo treinado, selecione a guia **saídas + logs** no painel direito do módulo modelo de **treinamento** . Selecione o ícone **registrar conjunto de registros** para salvar o modelo como um módulo reutilizável.
 

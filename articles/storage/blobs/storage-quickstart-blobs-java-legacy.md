@@ -9,10 +9,10 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.openlocfilehash: 9ab45495283f8751912d93e9799958a8effc887a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87323733"
 ---
 # <a name="quickstart-manage-blobs-with-java-v8-sdk"></a>Início rápido: gerenciar BLOBs com o SDK do Java V8
@@ -32,7 +32,7 @@ Neste início rápido, você aprenderá a gerenciar blobs usando o Java. Os blob
 
 O [aplicativo de exemplo](https://github.com/Azure-Samples/storage-blobs-java-quickstart) é um aplicativo de console básico.
 
-Use o [git](https://git-scm.com/) para baixar uma cópia do aplicativo em seu ambiente de desenvolvimento.
+Use o [git](https://git-scm.com/) para baixar uma cópia do aplicativo para seu ambiente de desenvolvimento.
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-blobs-java-quickstart.git
