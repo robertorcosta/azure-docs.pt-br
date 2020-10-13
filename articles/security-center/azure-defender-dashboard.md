@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
 ms.openlocfilehash: 35469c7a11d47e586187b55bde1e8ad8a0c94f5f
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448416"
 ---
 # <a name="the-azure-defender-dashboard"></a>O painel do Azure defender
@@ -27,7 +27,7 @@ Para acessar o painel do Azure defender, selecione **Azure defender** na seção
 
 ## <a name="whats-shown-on-the-dashboard"></a>O que é mostrado no painel?
 
-:::image type="content" source="./media/azure-defender-dashboard/sample-defender-dashboard-numbered.png" alt-text="Um exemplo do painel do Azure defender" lightbox="./media/azure-defender-dashboard/sample-defender-dashboard-numbered.png":::
+:::image type="content" source="./media/azure-defender-dashboard/sample-defender-dashboard-numbered.png" alt-text="Um exemplo do painel do Azure Defender" lightbox="./media/azure-defender-dashboard/sample-defender-dashboard-numbered.png":::
 
 O painel inclui as seguintes seções:
 

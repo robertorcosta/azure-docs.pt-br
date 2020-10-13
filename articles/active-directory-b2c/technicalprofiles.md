@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/05/2020
+ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a788134f64066b0469d34fbfbacacd8c45438bde
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 295c6376d555585d58f7c0b57c3ac4ba682e9bd5
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85203139"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948265"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -84,8 +84,8 @@ O **TechnicalProfile** contém os seguintes elementos:
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
 | Domínio | 0:1 | O nome de domínio do perfil técnico. Por exemplo, se o perfil técnico especificar o provedor de identidade Facebook, o nome de domínio será Facebook.com. |
-| DisplayName | 1:1 | O nome do perfil técnico que pode ser exibido aos usuários. |
-| Descrição | 0:1 | A descrição do perfil técnico que pode ser exibida aos usuários. |
+| DisplayName | 1:1 | O nome de exibição do perfil técnico. |
+| Descrição | 0:1 | A descrição do perfil técnico. |
 | Protocolo | 0:1 | O protocolo usado para a comunicação com a outra parte. |
 | Metadados | 0:1 | Uma coleção de pares chave-valor que são usados pelo protocolo para a comunicação com o ponto de extremidade no decorrer de uma transação. |
 | InputTokenFormat | 0:1 | O formato do token de entrada. Valores possíveis: `JSON`, `JWT`, `SAML11` ou `SAML2`. O valor `JWT` representa um Token Web JSON de acordo com a especificação IETF. O valor `SAML11` representa um token de segurança SAML 1.1 de acordo com a especificação OASIS.  O valor `SAML2` representa um token de segurança SAML 2.0 de acordo com a especificação OASIS. |
@@ -199,7 +199,7 @@ O elemento **DisplayClaim** contém os seguintes atributos:
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Não | O identificador de um tipo de declaração já definido na seção ClaimsSchema no arquivo de política ou no arquivo de política pai. |
 | DisplayControlReferenceId | Não | O identificador de um [controle de exibição](display-controls.md) já definido na seção de ClaimsSchema no arquivo de política ou de política pai. |
-| Obrigatório | Não | Indica se a declaração de exibição é necessária. |
+| Necessária | Não | Indica se a declaração de exibição é necessária. |
 
 O **DisplayClaim** requer que você especifique um `ClaimTypeReferenceId` ou o `DisplayControlReferenceId` .
 

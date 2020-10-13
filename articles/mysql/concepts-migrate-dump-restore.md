@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 2/27/2020
 ms.openlocfilehash: a0171481b97cff2ea085a80b387bff13590529a5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90905901"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Migrar seu banco de dados MySQL para o Banco de Dados do Azure para MySQL usando despejo e restauração
@@ -67,7 +67,7 @@ Para se conectar, localize as informações de conexão na página **Visão Gera
 
 Adicione as informações de conexão ao MySQL Workbench.
 
-:::image type="content" source="./media/concepts-migrate-dump-restore/2_setup-new-connection.png" alt-text="Cadeia de Conexão do MySQL Workbench":::
+:::image type="content" source="./media/concepts-migrate-dump-restore/2_setup-new-connection.png" alt-text="Encontrar as informações de conexão no portal do Azure":::
 
 ## <a name="preparing-the-target-azure-database-for-mysql-server-for-fast-data-loads"></a>Preparar o servidor do Banco de Dados do Azure para MySQL de destino para cargas de dados rápidas
 Para preparar o servidor do Banco de Dados do Azure para MySQL de destino para carregamentos de dados mais rápidos, os parâmetros de servidor e a configuração a seguir precisam ser alterados.

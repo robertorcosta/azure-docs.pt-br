@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 10/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4650df71acb088fafc1280d31d9abfb398e06741
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ffed14c1877f92b8f8989ea65500f441506fa34
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87284482"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977282"
 ---
 # <a name="azure-disk-encryption-for-windows-vms"></a>Azure Disk Encryption para VMs do Windows 
 
@@ -37,7 +37,7 @@ As VMs do Windows estão disponíveis em [vários tamanhos](../sizes-general.md)
 
 O Azure Disk Encryption também está disponível para VMs com armazenamento premium.
 
-Azure Disk Encryption não está disponível em VMs de [geração 2](generation-2.md#generation-1-vs-generation-2-capabilities) e em [VMs da série Lsv2](../lsv2-series.md). Para obter mais exceções, consulte [Azure Disk Encryption: Cenários sem suporte](disk-encryption-windows.md#unsupported-scenarios).
+Azure Disk Encryption não está disponível em VMs de [geração 2](../generation-2.md#generation-1-vs-generation-2-capabilities) e em [VMs da série Lsv2](../lsv2-series.md). Para obter mais exceções, consulte [Azure Disk Encryption: Cenários sem suporte](disk-encryption-windows.md#unsupported-scenarios).
 
 ### <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
 

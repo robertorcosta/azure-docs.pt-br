@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ccec58f012dcd4b6371c15e79fa964600e775f54
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ea10ee5b6fb14558e6bb93b83da0d5c46cff330
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88654643"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977639"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>SAP Business One em Máquinas Virtuais do Microsoft Azure
 Este documento fornece diretrizes para implantar o SAP Business One em Máquinas Virtuais do Microsoft Azure. A documentação não substitui a documentação de instalação do Business One para SAP. A documentação deve abranger as diretrizes básicas de planejamento e implantação da infraestrutura do Azure para executar os aplicativos do Business One.
@@ -95,7 +95,7 @@ A infraestrutura de rede necessária para implantar no Azure, depende se você i
 A configuração simplificada apresentada introduz várias instâncias de segurança que permitem controlar e limitar roteamento. Isso inicia com 
 
 - O roteador/firewall no lado local do cliente.
-- A próxima instância é o [Grupo de Segurança de Rede do Azure](../../../virtual-network/security-overview.md) que é possível usar para introduzir regras de roteamento e segurança para a VNet do Azure na qual executa a configuração do SAP Business.
+- A próxima instância é o [Grupo de Segurança de Rede do Azure](../../../virtual-network/network-security-groups-overview.md) que é possível usar para introduzir regras de roteamento e segurança para a VNet do Azure na qual executa a configuração do SAP Business.
 - Para evitar que usuários do cliente Business One também vejam o servidor que executa o servidor do Business One, o qual executa o banco de dados, separe a VM que hospeda o cliente Business One e o servidor do Business Onde em duas sub-redes diferentes dentro da VNet.
 - Você usaria o NSG do Azure atribuído às duas sub-redes diferentes novamente para limitar o acesso ao servidor do Business One.
 
@@ -111,7 +111,7 @@ Para o tipo de banco de dados, o SQL Server e o SAP HANA estão disponíveis. In
 
 Embora enfatizado nos documentos de banco de dados específicos e genéricos, é necessário que você esteja familiarizado com:
 
-- [Gerenciar a disponibilidade de máquinas virtuais do Windows no Azure](../../windows/manage-availability.md) e [Gerenciar a disponibilidade de máquinas virtuais do Linux no Azure](../../linux/manage-availability.md)
+- [Gerenciar a disponibilidade de máquinas virtuais do Windows no Azure](../../manage-availability.md) e [Gerenciar a disponibilidade de máquinas virtuais do Linux no Azure](../../manage-availability.md)
 - [SLA para Máquinas Virtuais](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/)
 
 Esses documentos devem ajudá-lo a decidir sobre a seleção de tipos de armazenamento e a configuração de alta disponibilidade.

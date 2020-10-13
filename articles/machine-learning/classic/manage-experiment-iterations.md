@@ -10,15 +10,15 @@ ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/20/2017
 ms.openlocfilehash: 374320c0becfecc6691af91b36a1d80b087300e6
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91361936"
 ---
 # <a name="manage-experiment-runs-in-azure-machine-learning-studio-classic"></a>Gerenciar execuções de experimento no Azure Machine Learning Studio (clássico)
 
-**aplica-se a:** ![ Aplica-se a. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) não ![ se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**APLICA-SE A:**  ![Aplica-se a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clássico) ![Não se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
 
 
 Desenvolver um modelo de análise de previsão é um processo iterativo - como modificar as várias funções e parâmetros de seu teste, seus resultados convergem até você ficar satisfeito com um modelo treinado e eficiente. A chave para esse processo está em acompanhar várias iterações dos parâmetros e configurações do seu teste.

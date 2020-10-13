@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.subservice: alerts
 ms.openlocfilehash: e49525018a3e23ecbbf92d7a8b3f7c50804432b8
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91358654"
 ---
 # <a name="use-the-voluntary-migration-tool-to-migrate-your-classic-alert-rules"></a>Use a ferramenta de migração voluntária para migrar suas regras de alerta clássicas
@@ -83,7 +83,7 @@ Quando uma assinatura se tornar pronta para migração, o proprietário da assin
 
 ### <a name="who-can-trigger-the-migration"></a>Quem pode disparar a migração?
 
-Os usuários que têm a função de colaborador de monitoramento atribuída a eles no nível de assinatura são capazes de disparar a migração. [Saiba mais sobre o controle de acesso baseado em função para o processo de migração](alerts-understand-migration.md#who-can-trigger-the-migration).
+Os usuários que têm a função de colaborador de monitoramento atribuída a eles no nível de assinatura são capazes de disparar a migração. [Saiba mais sobre Role-Based controle de acesso para o processo de migração](alerts-understand-migration.md#who-can-trigger-the-migration).
 
 ### <a name="how-long-will-the-migration-take"></a>Quanto tempo a migração levará?
 
@@ -95,5 +95,5 @@ Consulte o [Guia de solução de problemas](alerts-understand-migration.md#commo
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Preparar a migração](alerts-prepare-migration.md)
+- [Preparar para a migração](alerts-prepare-migration.md)
 - [Entender como a ferramenta de migração funciona](alerts-understand-migration.md)

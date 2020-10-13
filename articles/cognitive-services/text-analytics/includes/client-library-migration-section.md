@@ -10,10 +10,10 @@ ms.topic: include
 ms.date: 05/13/2020
 ms.author: aahi
 ms.openlocfilehash: 5f53c3ebe4bd15bc6afa8a62758309e9f40a71f0
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91779918"
 ---
 Para usar a versão mais recente da biblioteca de cliente do Análise de Texto v3, você precisará baixar o pacote de software mais recente no `Azure.AI.TextAnalytics` namespace. A seção **configuração** no artigo de [início rápido](../quickstarts/text-analytics-sdk.md) lista os comandos que você pode usar para seu idioma preferencial, com código de exemplo.

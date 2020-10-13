@@ -4,10 +4,10 @@ description: Referência de evento de tarefa de lote concluída. Esse evento é 
 ms.topic: reference
 ms.date: 10/08/2020
 ms.openlocfilehash: 11f727b07723f32cd08130b4af17e57ede3d264f
-ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91850884"
 ---
 # <a name="task-complete-event"></a>Evento de conclusão de tarefa

@@ -13,10 +13,10 @@ ms.author: jrasnick
 ms.reviewer: sstein
 ms.date: 04/19/2020
 ms.openlocfilehash: 61160943fc5762fd492f61a75a44159f2ef9cab2
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448787"
 ---
 # <a name="monitoring-microsoft-azure-sql-database-and-azure-sql-managed-instance-performance-using-dynamic-management-views"></a>Monitoramento do desempenho do Banco de Dados SQL do Microsoft Azure e da Instância Gerenciada de SQL usando DMV
@@ -252,7 +252,7 @@ GO
 
 ## <a name="identify-tempdb-performance-issues"></a>Identificar `tempdb` problemas de desempenho
 
-Ao identificar problemas de desempenho de e/s, os principais tipos de espera de associado `tempdb` é de problemas `PAGELATCH_*` (não `PAGEIOLATCH_*`). No entanto, `PAGELATCH_*` esperas sempre significam que você tem `tempdb` contenção.  Essa espera também pode significar que você tenha a contenção de página de dados de objeto de usuário devido a solicitações simultâneas, visando a mesma página de dados. Para confirmar ainda mais a `tempdb` contenção, use [sys. dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) para confirmar que o valor de wait_resource começa com `2:x:y` onde 2 é `tempdb` a ID do banco de dados, `x` é a ID do arquivo e `y` é a ID da página.  
+Ao identificar problemas de desempenho de e/s, os principais tipos de espera de associado `tempdb` é de problemas `PAGELATCH_*` (não `PAGEIOLATCH_*`). No entanto, `PAGELATCH_*` esperas sempre significam que você tem `tempdb` contenção.  Essa espera também pode significar que você tenha a contenção de página de dados de objeto de usuário devido a solicitações simultâneas, visando a mesma página de dados. Para confirmar ainda mais a `tempdb` contenção, use [Sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) para confirmar que o valor de wait_resource começa com `2:x:y` onde 2 é `tempdb` a ID do banco de dados, `x` é a ID do arquivo e `y` é a ID da página.  
 
 Contenção de tempdb, de um método comum é reduzir ou reescrever o código do aplicativo que se baseia em `tempdb`.  Áreas de uso comum `tempdb` incluem:
 
@@ -499,7 +499,7 @@ GO
 
 ## <a name="monitoring-connections"></a>Monitoramento de conexões
 
-Você pode usar a exibição [Sys. dm_exec_connections](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-connections-transact-sql) para recuperar informações sobre as conexões estabelecidas com um servidor específico e uma instância gerenciada e os detalhes de cada conexão. Além disso, a exibição [sys.dm_exec_sessions](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sessions-transact-sql) é útil ao recuperar informações sobre todas as conexões de usuário e tarefas internas ativas.
+Você pode usar a exibição [Sys.dm_exec_connections](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-connections-transact-sql) para recuperar informações sobre as conexões estabelecidas com um servidor específico e uma instância gerenciada e os detalhes de cada conexão. Além disso, a exibição [sys.dm_exec_sessions](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sessions-transact-sql) é útil ao recuperar informações sobre todas as conexões de usuário e tarefas internas ativas.
 
 A consulta a seguir recupera as informações sobre a conexão atual:
 
@@ -525,13 +525,13 @@ Você pode monitorar o uso de recursos do banco de dados SQL usando o [banco de 
 
 Você também pode monitorar o uso usando estas exibições:
 
-- Banco de dados SQL do Azure: [Sys. dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
-- Instância Gerenciada do SQL do Azure: [Sys. server_resource_stats](/sql/relational-databases/system-catalog-views/sys-server-resource-stats-azure-sql-database)
-- O banco de dados SQL do Azure e o SQL Azure Instância Gerenciada: [Sys. resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
+- Banco de dados SQL do Azure: [Sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
+- Instância Gerenciada do SQL do Azure: [Sys.server_resource_stats](/sql/relational-databases/system-catalog-views/sys-server-resource-stats-azure-sql-database)
+- Banco de dados SQL do Azure e Azure SQL Instância Gerenciada: [Sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
 
 ### <a name="sysdm_db_resource_stats"></a>sys.dm_db_resource_stats
 
-Você pode usar a exibição [Sys. dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) em todos os bancos de dados. A exibição **sys.dm_db_resource_stats** mostra dados de uso de recursos recentes em relação à camada de serviço. A porcentagem média de CPU, E/S de dados, gravações de log e memória é registrada a cada 15 segundos e armazenada por 1 hora.
+Você pode usar a exibição [Sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) em cada banco de dados. A exibição **sys.dm_db_resource_stats** mostra dados de uso de recursos recentes em relação à camada de serviço. A porcentagem média de CPU, E/S de dados, gravações de log e memória é registrada a cada 15 segundos e armazenada por 1 hora.
 
 Como essa exibição oferece uma visão mais granular do uso de recursos, use **sys.dm_db_resource_stats** primeiro para qualquer análise de estado atual ou para solução de problemas. Por exemplo, esta consulta mostra o uso médio e máximo dos recursos do banco de dados atual durante a última hora:
 
@@ -552,7 +552,7 @@ Para outras consultas, consulte os exemplos em [sys.dm_db_resource_stats](https:
 
 ### <a name="sysserver_resource_stats"></a>sys.server_resource_stats
 
-Você pode usar [Sys. server_resource_stats](/sql/relational-databases/system-catalog-views/sys-server-resource-stats-azure-sql-database) para retornar dados de uso de CPU, e/s e armazenamento para uma instância gerenciada do SQL do Azure. Os dados são coletados e agregados em intervalos de cinco minutos. Há uma linha para cada relatório de 15 segundos. Os dados retornados incluem uso de CPU, tamanho de armazenamento, utilização de e/s e SKU de instância gerenciada. Os dados históricos são retidos por aproximadamente 14 dias.
+Você pode usar [Sys.server_resource_stats](/sql/relational-databases/system-catalog-views/sys-server-resource-stats-azure-sql-database) para retornar dados de uso de CPU, e/s e armazenamento para uma instância gerenciada do SQL do Azure. Os dados são coletados e agregados em intervalos de cinco minutos. Há uma linha para cada relatório de 15 segundos. Os dados retornados incluem uso de CPU, tamanho de armazenamento, utilização de e/s e SKU de instância gerenciada. Os dados históricos são retidos por aproximadamente 14 dias.
 
 ```sql
 DECLARE @s datetime;  
@@ -568,7 +568,7 @@ HAVING AVG(avg_cpu_percent) >= 80
 
 ### <a name="sysresource_stats"></a>sys. resource_stats
 
-A exibição [Sys. resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) no banco de dados **mestre** tem informações adicionais que podem ajudá-lo a monitorar o desempenho do banco de dados em sua camada de serviço e tamanho de computação específicos. Os dados são coletados a cada 5 minutos e são mantidos por aproximadamente 14 dias. Essa exibição é útil para uma análise histórica de longo prazo de como seu banco de dados usa recursos.
+A exibição de [Sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) no banco de dados **mestre** tem informações adicionais que podem ajudá-lo a monitorar o desempenho do banco de dados em sua camada de serviço e tamanho de computação específicos. Os dados são coletados a cada 5 minutos e são mantidos por aproximadamente 14 dias. Essa exibição é útil para uma análise histórica de longo prazo de como seu banco de dados usa recursos.
 
 O grafo a seguir mostra o uso de recursos da CPU para um banco de dados Premium com o tamanho da computação P2 para cada hora em uma semana. Esse grafo começa em uma segunda-feira, mostra 5 dias úteis e, depois, um fim de semana, em que ocorrem muito menos atividades no aplicativo.
 
@@ -578,10 +578,10 @@ Segundo os dados, atualmente esse banco de dados tem um pico de carga de CPU de 
 
 Outros tipos de aplicativos podem interpretar o mesmo grafo de forma diferente. Por exemplo, se um aplicativo tentar processar dados de folha de pagamento por dia e incluir o mesmo gráfico, esse tipo de modelo de "trabalho em lotes" poderá funcionar bem em um tamanho da computação P1. O tamanho da computação P1 tem 100 DTUs, comparadas a 200 DTUs do tamanho da computação P2. O tamanho da computação P1 fornece que metade do desempenho do P2. Portanto, 50% de uso da CPU em P2 equivale a 100% de uso da CPU em P1. Se o aplicativo não tiver tempo limite, talvez não faça diferença se um trabalho demora 2 horas ou 2,5 horas para ser concluído, desde que seja concluído hoje. Um aplicativo dessa categoria provavelmente pode usar um tamanho da computação P1. Você pode tirar proveito do fato de que há períodos do dia em que o uso de recursos é menor, o que significa que um "pico grande" pode ser extrapolado para um dos ciclos mais tarde. O tamanho da computação P1 pode ser bom para esse tipo de aplicativo (e economiza dinheiro), desde que os trabalhos possam ser concluídos no horário todos os dias.
 
-O mecanismo de banco de dados expõe informações de recursos consumidas para cada banco de dados ativo na exibição **Sys. resource_stats** do banco de dados **mestre** em cada servidor. Os dados na tabela são agregados em intervalos de cinco minutos. Com as camadas de serviço Básica, Standard e Premium, os dados podem demorar mais de 5 minutos para aparecer na tabela, o que significa que esses dados são mais úteis para análise histórica do que para análise em tempo real. Consulte a exibição **sys.resource_stats** para ver o histórico recente de um banco de dados e validar se a reserva escolhida ofereceu o desempenho desejado quando necessário.
+O mecanismo de banco de dados expõe informações de recursos consumidas para cada banco de dados ativo na exibição **Sys.resource_stats** do banco de dados **mestre** em cada servidor. Os dados na tabela são agregados em intervalos de cinco minutos. Com as camadas de serviço Básica, Standard e Premium, os dados podem demorar mais de 5 minutos para aparecer na tabela, o que significa que esses dados são mais úteis para análise histórica do que para análise em tempo real. Consulte a exibição **sys.resource_stats** para ver o histórico recente de um banco de dados e validar se a reserva escolhida ofereceu o desempenho desejado quando necessário.
 
 > [!NOTE]
-> No banco de dados SQL do Azure, você deve estar conectado ao banco de dados **mestre** para consultar **Sys. resource_stats** nos exemplos a seguir.
+> No banco de dados SQL do Azure, você deve estar conectado ao banco de dados **mestre** para consultar **Sys.resource_stats** nos exemplos a seguir.
 
 Este exemplo mostra como os dados nesse modo de exibição são expostos:
 
@@ -594,7 +594,7 @@ ORDER BY start_time DESC
 
 ![Exibição do catálogo sys.resource_stats](./media/monitoring-with-dmvs/sys_resource_stats.png)
 
-O exemplo a seguir mostra diferentes maneiras pelas quais você pode usar a exibição de catálogo **Sys. resource_stats** para obter informações sobre como seu banco de dados usa recursos:
+O exemplo a seguir mostra diferentes maneiras pelas quais você pode usar a exibição de catálogo **Sys.resource_stats** para obter informações sobre como seu banco de dados usa recursos:
 
 1. Para examinar o uso de recursos da semana passada para o banco de dados userdb1, você pode executar esta consulta:
 
@@ -714,7 +714,7 @@ WHERE D.name = 'MyDatabase'
 
 Novamente, essas consultas retornam uma contagem pontual. Se você coletar vários exemplos ao longo do tempo, terá a melhor compreensão do uso da sessão.
 
-Você pode obter estatísticas históricas em sessões consultando a exibição [Sys. resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) e revisando a coluna **active_session_count** .
+Você pode obter estatísticas históricas em sessões consultando a exibição de [Sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) e revisando a coluna **active_session_count** .
 
 ## <a name="monitoring-query-performance"></a>Monitoramento de desempenho da consulta
 
@@ -743,7 +743,7 @@ ORDER BY 2 DESC;
 
 ### <a name="monitoring-blocked-queries"></a>Monitoramento de consultas bloqueadas
 
-Consultas lentas ou demoradas podem contribuir para consumo excessivo de recursos e ser a consequência de consultas bloqueadas. A causa do bloqueio pode ser projeto inadequado de aplicativos, planos de consulta incorretos, a falta de índices úteis e assim por diante. Você pode usar a exibição sys. dm_tran_locks para obter informações sobre a atividade de bloqueio atual no banco de dados. Para obter um exemplo de código, consulte [Sys. dm_tran_locks (Transact-SQL)](https://msdn.microsoft.com/library/ms190345.aspx).
+Consultas lentas ou demoradas podem contribuir para consumo excessivo de recursos e ser a consequência de consultas bloqueadas. A causa do bloqueio pode ser projeto inadequado de aplicativos, planos de consulta incorretos, a falta de índices úteis e assim por diante. Você pode usar a exibição sys.dm_tran_locks para obter informações sobre a atividade de bloqueio atual no banco de dados. Para obter um exemplo de código, consulte [Sys.dm_tran_locks (Transact-SQL)](https://msdn.microsoft.com/library/ms190345.aspx).
 
 ### <a name="monitoring-query-plans"></a>Monitoramento de planos de consulta
 

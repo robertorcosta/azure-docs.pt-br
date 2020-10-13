@@ -14,7 +14,7 @@ ms.openlocfilehash: 824b8f386e6bf822444450305e603e6068a34c5e
 ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91854351"
 ---
 # <a name="add-an-api-connector-to-a-sign-up-user-flow"></a>Adicionar um conector de API a um fluxo de usuário de inscrição
@@ -36,7 +36,7 @@ Para usar um [conector de API](api-connectors-overview.md), primeiro crie o cone
    - Somente a autenticação básica tem suporte no momento. Se você quiser usar uma API sem autenticação básica para fins de desenvolvimento, basta inserir um **nome de usuário** e **senha** ' fictícios ' que sua API pode ignorar. Para usar com uma função do Azure com uma chave de API, você pode incluir o código como um parâmetro de consulta na **URL do ponto de extremidade** (por exemplo, https []() ://contoso.azurewebsites.NET/API/Endpoint<b>? Code = 0123456789</b>).
 
    ![Configurar um novo conector de API](./media/add-api-connector/api-connector-config.png)
-8. Clique em **Salvar**.
+8. Selecione **Salvar**.
 
 ## <a name="the-request-sent-to-your-api"></a>A solicitação enviada à sua API
 Um conector de API se materializa como uma solicitação **http post** , enviando atributos de usuário (' declarações ') como pares de chave-valor em um corpo JSON. Os atributos são serializados da mesma forma para [Microsoft Graph](https://docs.microsoft.com/graph/api/resources/user#properties) Propriedades de usuário. 
@@ -96,7 +96,7 @@ Siga estas etapas para adicionar um conector de API a um fluxo de usuário de in
 
    ![Adicionar APIs ao fluxo do usuário](./media/add-api-connector/api-connectors-user-flow-select.png)
 
-6. Clique em **Salvar**.
+6. Selecione **Salvar**.
 
 ## <a name="after-signing-in-with-an-identity-provider"></a>Depois de entrar com um provedor de identidade
 

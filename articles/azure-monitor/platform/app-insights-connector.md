@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 02/13/2019
 ms.openlocfilehash: 09485d3279e4ca4fff5b6492bab432d8034d7e42
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91449405"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Solução de gerenciamento do Conector do Application Insights (preterida)
@@ -60,7 +60,7 @@ Ao contrário da maioria das outras soluções do Log Analytics, os dados não s
 1. Habilite a solução Análise de Aplicativos Web do Azure no [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AppInsights?tab=Overview) ou usando o processo descrito em [Adicionar soluções do Log Analytics por meio da Galeria de Soluções](../insights/solutions.md).
 2. Navegue até o [Portal do Azure](https://portal.azure.com). Selecione **Todos os serviços** para abrir o Application Insights. Em seguida, procure Application Insights. 
 3. Em **Assinaturas**, selecione uma assinatura que tem os recursos do Application Insights e, em seguida, em **Nome**, selecione um ou mais aplicativos.
-4. Clique em **Save** (Salvar).
+4. Clique em **Salvar**.
 
 Em aproximadamente 30 minutos, os dados ficarão disponíveis e o bloco do Application Insights será atualizado com os dados, como a seguinte imagem:
 
@@ -225,7 +225,7 @@ Um registro com um *tipo* de *ApplicationInsights* é criado para cada tipo de d
 
 ### <a name="exception-specific-fields"></a>Campos específicos à exceção
 
-| Tipo | ApplicationInsights |
+| Type | ApplicationInsights |
 | --- | --- |
 | TelemetryType | Exceção |
 | ExceptionType | Tipo de exceção |

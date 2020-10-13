@@ -13,10 +13,10 @@ ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
 ms.openlocfilehash: e2cdf7d5213f1667b0b588cc5bfa9f105245b6b3
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91619110"
 ---
 # <a name="powershell-and-the-azure-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell e o CLI do Azure: habilitar Transparent Data Encryption com chave gerenciada pelo cliente de Azure Key Vault
@@ -45,7 +45,7 @@ Para obter instruções de instalação do módulo Az, confira [Instalar o Azure
 Para obter informações específicas sobre Key Vault, consulte [instruções do PowerShell do Key Vault](../../key-vault/secrets/quick-create-powershell.md) e [como usar Key Vault exclusão reversível com o PowerShell](../../key-vault/general/soft-delete-powershell.md).
 
 > [!IMPORTANT]
-> O módulo Azure Resource Manager do PowerShell (RM) ainda tem suporte, mas todo o desenvolvimento futuro é para o módulo AZ. Sql. O módulo AzureRM continuará a receber correções de bugs até pelo menos dezembro de 2020.  Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos. Para obter mais informações sobre sua compatibilidade, consulte [apresentando o novo módulo Azure PowerShell AZ](/powershell/azure/new-azureps-module-az).
+> Ainda há suporte para o módulo do ARM (Azure Resource Manager) do PowerShell, mas todo o desenvolvimento futuro destina-se ao módulo Az.Sql. O módulo AzureRM continuará a receber as correções de bugs até pelo menos dezembro de 2020.  Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos. Para saber mais sobre a compatibilidade entre eles, confira [Apresentação do novo módulo Az do Azure PowerShell](/powershell/azure/new-azureps-module-az).
 
 ## <a name="assign-an-azure-active-directory-azure-ad-identity-to-your-server"></a>Atribuir uma identidade do Azure Active Directory (Azure AD) ao seu servidor
 
@@ -123,7 +123,7 @@ Get-AzSqlDatabaseTransparentDataEncryptionActivity -ResourceGroupName <SQLDataba
 
 # <a name="the-azure-cli"></a>[A CLI do Azure](#tab/azure-cli)
 
-Para instalar a versão necessária do CLI do Azure (versão 2,0 ou posterior) e conectar-se à sua assinatura do Azure, consulte [instalar e configurar a interface de linha de comando de plataforma cruzada do azure 2,0](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Para instalar a versão necessária do CLI do Azure (versão 2,0 ou posterior) e conectar-se à sua assinatura do Azure, consulte [instalar e configurar a interface de Command-Line de plataforma cruzada do azure 2,0](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 Para obter informações específicas sobre Key Vault, consulte [gerenciar Key Vault usando a cli 2,0](../../key-vault/general/manage-with-cli2.md) e [como usar Key Vault exclusão reversível com a CLI](../../key-vault/general/soft-delete-cli.md).
 

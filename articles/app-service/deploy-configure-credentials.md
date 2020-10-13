@@ -6,10 +6,10 @@ ms.date: 08/14/2019
 ms.reviewer: byvinyal
 ms.custom: seodec18
 ms.openlocfilehash: 50b3cae00110a64e4d95171822bf1d2a282d2cc1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91715406"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configurar as credenciais de implantação do Serviço de Aplicativo do Azure
@@ -23,7 +23,7 @@ Você pode configurar as credenciais de usuário na [página de recursos](../azu
 
 ### <a name="in-the-cloud-shell"></a>No Cloud Shell
 
-Para configurar o usuário de implantação no [Cloud Shell](https://shell.azure.com), execute o comando [az webapp deployment user set](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set). Substitua \<username> e \<password> por um nome de usuário de implantação e senha. 
+Para configurar o usuário de implantação no [Cloud Shell](https://shell.azure.com), execute o comando [az webapp deployment user set](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set). Substitua \<username> e \<password> pelo nome de usuário e a senha do usuário de implantação. 
 
 - O nome de usuário deve ser exclusivo no Azure. Para envios por push do Git local, não deve conter o símbolo "\@". 
 - A senha deve ter pelo menos oito caracteres, com dois destes três elementos: letras, números, símbolos. 

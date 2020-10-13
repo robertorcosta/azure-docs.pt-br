@@ -13,10 +13,10 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 84f488863a39307ac7b55d5238fab786084a3614
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91259536"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Personalizar a interface do usuário no Azure Active Directory B2C
@@ -156,7 +156,7 @@ A tabela abaixo lista os fragmentos de HTML que o Azure AD B2C mescla ao element
 | Inscrição de conta social | Pode aparecer ao se inscrever usando uma conta existente de um provedor de identidade social, como o Facebook ou Google. Ele é usado quando informações adicionais devem ser coletadas do cliente usando um formulário de inscrição. |
 | Inscrição ou entrada unificada | Controla tanto a inscrição quanto a entrada de clientes, que podem usar provedores de identidade social como Facebook, Google ou contas locais. |
 | Autenticação multifator | Os clientes podem verificar seus números de telefone (usando mensagem de texto ou de voz) durante a inscrição ou entrada. |
-| Erro | Fornece informações de erro para o cliente. |
+| Erro do | Fornece informações de erro para o cliente. |
 
 ## <a name="company-branding"></a>Identidade visual da empresa
 
@@ -189,7 +189,7 @@ Depois de configurar a identidade visual da empresa, habilite-a em seus fluxos d
 1. Selecione o fluxo de usuário para o qual você deseja habilitar a identidade visual da empresa. A identidade visual da empresa **não tem suporte** para a *entrada* padrão e os tipos de fluxo de usuário de *edição de perfil* padrão.
 1. Em **Personalizar**, selecione **layouts de página**e, em seguida, selecione o layout que você deseja marcar. Por exemplo, selecione **página de inscrição ou inscrição unificada**.
 1. Para a **versão de layout de página (visualização)**, escolha a versão **1.2.0** ou superior.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 Se você quiser marcar todas as páginas no fluxo do usuário, defina a versão de layout da página para cada layout de página no fluxo do usuário.
 

@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/26/2020
 ms.openlocfilehash: fe5ba25904298fe1a394a4b01d6bdacc72d599c9
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448681"
 ---
 # <a name="split-image-directory"></a>Dividir Diretório de Imagens
@@ -35,19 +35,19 @@ Esse módulo é particularmente útil quando você precisa separar dados de imag
 
 ### <a name="expected-inputs"></a>Entradas esperadas
 
-| Nome                  | Tipo           | Descrição              |
+| Nome                  | Type           | Descrição              |
 | --------------------- | -------------- | ------------------------ |
 | Diretório da imagem de entrada | ImageDirectory | Diretório de imagens a ser dividido |
 
 ### <a name="module-parameters"></a>Parâmetros do módulo
 
-| Nome                                   | Tipo  | Intervalo | Opcional | Descrição                            | Padrão |
+| Nome                                   | Type  | Intervalo | Opcional | Descrição                            | Padrão |
 | -------------------------------------- | ----- | ----- | -------- | -------------------------------------- | ------- |
 | Fração de imagens na primeira saída | Float | 0-1   | Obrigatório | Fração de imagens na primeira saída | 0,9     |
 
-### <a name="outputs"></a>Saídas
+### <a name="outputs"></a>outputs
 
-| Nome                    | Tipo           | Descrição                              |
+| Nome                    | Type           | Descrição                              |
 | ----------------------- | -------------- | ---------------------------------------- |
 | Directory1 da imagem de saída | ImageDirectory | Diretório de imagens que contém imagens selecionadas |
 | Directory2 da imagem de saída | ImageDirectory | Diretório de imagem que contém todas as outras imagens |
