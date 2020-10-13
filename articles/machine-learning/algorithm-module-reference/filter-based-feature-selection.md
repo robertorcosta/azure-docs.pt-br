@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/10/2019
-ms.openlocfilehash: 1afa5df20c9bcbf63f8ad9f527e54f622eba3d19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/10/2020
+ms.openlocfilehash: f4a7f5581703ae6932f3b40e62085fed76f5e6f2
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90893791"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945695"
 ---
 # <a name="filter-based-feature-selection"></a>Seleção de recursos baseada em filtro
 
@@ -90,8 +90,14 @@ Você escolhe uma métrica estatística padrão. O módulo computa a correlaçã
 
     - Se você especificar menos colunas de resultado do que as colunas de recurso, os recursos serão classificados por Pontuação decrescente. Somente os recursos principais são retornados. 
 
-7.  Envie o pipeline ou selecione o módulo seleção de recursos baseada em filtro e selecione **executar selecionado**.
+7.  Envie o pipeline.
 
+> [!IMPORTANT]
+> Se você pretende usar a **seleção de recursos baseada em filtro** na inferência, será necessário usar a [transformação selecionar colunas](./select-columns-transform.md) para armazenar o resultado selecionado e [aplicar a transformação](./apply-transformation.md) para aplicar a transformação de recurso selecionado ao conjunto de texto de pontuação.
+>
+> Consulte a captura de tela a seguir para criar seu pipeline, para garantir que as seleções de coluna sejam as mesmas para o processo de pontuação.
+> [!div class="mx-imgBorder"]
+> ![Amostra do pipeline](media/module/filter-based-feature-selection-score.png)
 
 ## <a name="results"></a>Resultados
 

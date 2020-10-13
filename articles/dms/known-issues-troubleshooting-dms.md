@@ -12,10 +12,10 @@ ms.custom: seo-lt-2019
 ms.topic: troubleshooting
 ms.date: 02/20/2020
 ms.openlocfilehash: f0ec9d2a3794ea910339b4d329bb28f23c5a76b1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91297351"
 ---
 # <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>Solucionar problemas e erros comuns do serviço de migração de banco de dados do Azure
@@ -64,7 +64,7 @@ Você recebe o seguinte erro ao interromper a instância do serviço de migraç�
 
 | Causa         | Resolução |
 | ------------- | ------------- |
-| Esse erro é exibido quando a instância de serviço que você está tentando parar inclui atividades que ainda estão em execução ou estão presentes em projetos de migração. <br><br><br><br><br><br> | Verifique se não há atividades em execução na instância do serviço de migração de banco de dados do Azure que você está tentando parar. Você também pode excluir as atividades ou projetos antes de tentar interromper o serviço. As etapas a seguir ilustram como remover projetos para limpar a instância do serviço de migração excluindo todas as tarefas em execução:<br>1. Install-Module-Name AzureRM. datamigration <br>2. login-AzureRmAccount <br>3. Select-AzureRmSubscription-Subscriptionname " \<subName> " <br> 4. Remove-AzureRmDataMigrationProject-name \<projectName> -ResourceGroupName \<rgName> -ServiceName \<serviceName> -DeleteRunningTask |
+| Esse erro é exibido quando a instância de serviço que você está tentando parar inclui atividades que ainda estão em execução ou estão presentes em projetos de migração. <br><br><br><br><br><br> | Verifique se não há atividades em execução na instância do serviço de migração de banco de dados do Azure que você está tentando parar. Você também pode excluir as atividades ou projetos antes de tentar interromper o serviço. As etapas a seguir ilustram como remover projetos para limpar a instância do serviço de migração excluindo todas as tarefas em execução:<br>1. Install-Module-Name AzureRM. datamigration <br>2. Login-AzureRmAccount <br>3. Select-AzureRmSubscription-Subscriptionname " \<subName> " <br> 4. Remove-AzureRmDataMigrationProject-name \<projectName> -ResourceGroupName \<rgName> -ServiceName \<serviceName> -DeleteRunningTask |
 
 ## <a name="error-when-attempting-to-start-azure-database-migration-service"></a>Erro ao tentar iniciar o serviço de migração de banco de dados do Azure
 

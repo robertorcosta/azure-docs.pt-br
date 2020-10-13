@@ -4,12 +4,12 @@ description: Neste artigo, saiba mais sobre os cenários e limitações com supo
 ms.topic: conceptual
 ms.date: 11/7/2019
 ms.custom: references_regions
-ms.openlocfilehash: e3bfc5ab9a91ae3aee73d7ed24161acae60211ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3ad68fcaaa820daca842d567ecd40f011df729f
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89022319"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91946358"
 ---
 # <a name="support-matrix-for-backup-of-sap-hana-databases-on-azure-vms"></a>Matriz de suporte para backup de bancos de dados do SAP HANA em VMs do Azure
 
@@ -32,7 +32,7 @@ O Backup do Azure oferece suporte ao backup de bancos de dados SAP HANA no Azure
 | **Tamanho do banco de dados do HANA**     | Bancos de dados do HANA com tamanho <= 2 TB (esse não é o tamanho da memória do sistema HANA)               |                                                              |
 | **Tipos de backup**           | Backups completos, diferenciais e de log                          | Incremental, instantâneos                                       |
 | **Restaurar tipos**          | Consulte a observação [1642148](https://launchpad.support.sap.com/#/notes/1642148) do SAP HANA para saber mais sobre os tipos de restauração compatíveis |                                                              |
-| **Limites do backup**          | Até 2 TB de tamanho de backup completo por instância do SAP HANA         |                                                              |
+| **Limites do backup**          | Até 2 TB de tamanho de backup completo por instância de SAP HANA (limite flexível)         |                                                              |
 | **Configurações especiais** |                                                              | SAP HANA + Camadas dinâmicas <br>  Clonagem por meio do LaMa        |
 
 ------

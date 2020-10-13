@@ -8,10 +8,10 @@ author: emuench
 ms.author: navits
 ms.date: 07/17/2020
 ms.openlocfilehash: 10137e59e0ea06fa785fccc215c867b6d8c0cb76
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91651149"
 ---
 # <a name="appsource-dynamics-365-finance-and-operations-functional-validation"></a>Validação funcional de operações e finanças do AppSource Dynamics 365
@@ -56,11 +56,11 @@ Para agendar uma chamada de revisão final, entre em contato [appsourceCRM@micro
 
       2. Vá para gerenciamento de soluções do **LCS**  >  **Solution Management**  >  **pacote de solução de teste**. Faça capturas de tela que incluem a visão geral do pacote e o conteúdo mostrado nestes exemplos:
 
-    | Campo | Image <img src="" width="400px">|
+    | Campo | Imagem <img src="" width="400px">|
     | --- | --- |
     | Visão geral do pacote | [![Captura de tela que mostra a janela "visão geral do pacote".](media/dynamics-365-finance-operations/package-overview-45.png)](media/dynamics-365-finance-operations/package-overview.png#lightbox) |
     | <ul><li>Aprovadores de solução</li></ul> | [![Tela de visão geral do pacote](media/dynamics-365-finance-operations/solution-approvers-45.png)](media/dynamics-365-finance-operations/solution-approvers.png#lightbox) |
-    | Conteúdo do pacote<ul><li>Modelo</li><li>Pacote de implantação de software</li></ul> | [![Tela de conteúdo do pacote um](media/dynamics-365-finance-operations/package-contents-1-45.png)](media/dynamics-365-finance-operations/package-contents-1.png#lightbox) |
+    | Conteúdo do pacote<ul><li>Modelar</li><li>Pacote de implantação de software</li></ul> | [![Tela de conteúdo do pacote um](media/dynamics-365-finance-operations/package-contents-1-45.png)](media/dynamics-365-finance-operations/package-contents-1.png#lightbox) |
     | <ul><li>Configuração do Windows</li><li>Backup de banco de dados</li></ul><br>Os artefatos não são necessários na seção de **configuração do Windows** . | [![Tela de conteúdo do pacote dois](media/dynamics-365-finance-operations/package-contents-2-45.png)](media/dynamics-365-finance-operations/package-contents-2.png#lightbox) |
     | <ul><li>Power BI modelo de relatório</li><li>Artefato de BPM</li></ul><br>Os artefatos não são necessários na seção **Power bi** . | [![Tela de conteúdo do pacote três](media/dynamics-365-finance-operations/package-contents-3-45.png)](media/dynamics-365-finance-operations/package-contents-3.png#lightbox) |
     | <ul><li>Processar pacote de dados</li><li>Contrato de licença da solução e política de privacidade</li></ul><br>As seções **configuração do Windows** e modelo de relatório de **Power bi** são opcionais a serem incluídas para ofertas de finanças e operações. | [![Tela de conteúdo do pacote quatro](media/dynamics-365-finance-operations/package-contents-4-45.png)](media/dynamics-365-finance-operations/package-contents-4.png#lightbox) |

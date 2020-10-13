@@ -13,19 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 7f6c0f2a311590219fb59bfe1ec63831c03e8af2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0efb2c26a63418835dd2b7561a1fb9d3a9d5fee8
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91314429"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945543"
 ---
 # <a name="security-recommendations-in-azure-security-center"></a>Recomendações de segurança na Central de Segurança do Azure 
 Este tópico explica como exibir e entender as recomendações na central de segurança do Azure para ajudá-lo a proteger seus recursos do Azure.
 
-> [!NOTE]
-> Este documento apresenta o serviço usando uma implantação de exemplo.  Este documento não é um guia passo a passo.
->
 
 ## <a name="what-are-security-recommendations"></a>O que são recomendações de segurança?
 
@@ -35,39 +32,36 @@ A Central de Segurança analisa periodicamente o estado de segurança dos seus r
 
 Cada recomendação fornece:
 
-- Uma breve descrição do problema.
-- As etapas de correção para executar a fim de implementar a recomendação.
-- Os recursos afetados.
+- Uma descrição breve do problema
+- As etapas de correção para executar a fim de implementar a recomendação
+- Os recursos afetados
 
 ## <a name="monitor-recommendations"></a>Recomendações de monitor <a name="monitor-recommendations"></a>
 
-A central de segurança analisa o estado de segurança de seus recursos para identificar possíveis vulnerabilidades. O bloco **recomendações** em **visão geral** mostra o número total de recomendações identificadas pela central de segurança.
+A central de segurança analisa o estado de segurança de seus recursos para identificar possíveis vulnerabilidades. 
 
-![Visão geral da central de segurança](./media/security-center-recommendations/asc-overview.png)
-
-1. Selecione o **bloco recomendações** em **visão geral**. A lista de **recomendações** é aberta.
-
-1. As recomendações são agrupadas em controles de segurança.
+1. No menu da central de segurança, abra a página **recomendações** para ver as recomendações aplicáveis ao seu ambiente. As recomendações são agrupadas em controles de segurança.
 
       ![Recomendações agrupadas por controle de segurança](./media/security-center-recommendations/view-recommendations.png)
 
-1. Expanda um controle e selecione uma recomendação específica para exibir a página de recomendação.
+1. Expanda um controle e selecione uma recomendação específica para exibir a página de detalhes de recomendação.
 
     :::image type="content" source="./media/security-center-recommendations/recommendation-details-page.png" alt-text="Página de detalhes de recomendação." lightbox="./media/security-center-recommendations/recommendation-details-page.png":::
 
     A página inclui:
 
-    - **Aplicar** e **negar** botões em recomendações com suporte (consulte [evitar configurações incorretas com recomendações de impor/negar](prevent-misconfigurations.md))
-    - **Indicador de severidade**
-    - **Intervalo de atualização**  (quando relevante) 
-    - **Descrição** -uma breve descrição do problema
-    - **Etapas de correção** -uma descrição das etapas manuais necessárias para corrigir o problema de segurança nos recursos afetados. Para obter recomendações com ' correção rápida ', você pode selecionar **Exibir lógica de correção** antes de aplicar a correção sugerida aos seus recursos. 
-    - **Recursos afetados** -seus recursos são agrupados em guias:
+    1. **Aplicar** e **negar** botões em recomendações com suporte (consulte [evitar configurações incorretas com recomendações de impor/negar](prevent-misconfigurations.md))
+    1. **Indicador de severidade**
+    1. **Intervalo de atualização**  (quando relevante) 
+    1. **Descrição** -uma breve descrição do problema
+    1. **Etapas de correção** -uma descrição das etapas manuais necessárias para corrigir o problema de segurança nos recursos afetados. Para obter recomendações com ' correção rápida ', você pode selecionar **Exibir lógica de correção** antes de aplicar a correção sugerida aos seus recursos. 
+    1. **Recursos afetados** -seus recursos são agrupados em guias:
         - **Recursos íntegros** – recursos relevantes que não são afetados ou nos quais você já corrigiu o problema.
         - **Recursos não íntegros** – recursos que ainda são afetados pelo problema identificado.
         - **Recursos não aplicáveis** – recursos para os quais a recomendação não pode dar uma resposta definitiva. A guia não aplicável também inclui os motivos para cada recurso. 
 
             :::image type="content" source="./media/security-center-recommendations/recommendations-not-applicable-reasons.png" alt-text="Página de detalhes de recomendação.":::
+    1. Botões de ação para corrigir a recomendação ou disparar um aplicativo lógico.
 
 ## <a name="preview-recommendations"></a>Recomendações de visualização
 

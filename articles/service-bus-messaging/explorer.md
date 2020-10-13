@@ -4,10 +4,10 @@ description: Este artigo fornece informações sobre como usar o Gerenciador do 
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: e5e97c6860c2cc01048f4f7caf9f40f9e07592d0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91295593"
 ---
 # <a name="use-service-bus-explorer-to-perform-data-operations-on-service-bus-preview"></a>Usar o Gerenciador do Barramento de Serviço para realizar as operações de dados no Barramento de Serviço (versão prévia)
@@ -51,7 +51,7 @@ Depois de escolher as **'Filas'** ou **'Tópicos'** , escolha a fila ou o tópic
 
 Selecione o **"Gerenciador de Barramento de Serviço (versão prévia)"** no menu de navegação à esquerda
 
-:::image type="content" source="./media/service-bus-explorer/left-navigation-menu-selected.png" alt-text="Menu de navegação à esquerda do Gerenciador SB":::
+:::image type="content" source="./media/service-bus-explorer/left-navigation-menu-selected.png" alt-text="Seleção de entidade":::
 
 ### <a name="sending-a-message-to-a-queue-or-topic"></a>Enviar uma mensagem a uma fila ou um tópico
 
@@ -66,17 +66,17 @@ Para compor uma mensagem aqui -
 
 Depois que a mensagem tiver sido composta, pressione enviar.
 
-:::image type="content" source="./media/service-bus-explorer/send-experience.png" alt-text="Compor mensagem":::
+:::image type="content" source="./media/service-bus-explorer/send-experience.png" alt-text="Seleção de entidade":::
 
 Quando a operação de envio for concluída com êxito, 
 
 * Se estiver enviando para a fila, o contador de métrica de **Mensagens ativas** será incrementado.
 
-    :::image type="content" source="./media/service-bus-explorer/queue-after-send-metrics.png" alt-text="QueueAfterSendMetrics":::
+    :::image type="content" source="./media/service-bus-explorer/queue-after-send-metrics.png" alt-text="Seleção de entidade":::
 
 * Se enviar para o Tópico, o contador de métricas de **Mensagens ativas** será incrementado na assinatura para a qual a mensagem foi roteada.
 
-    :::image type="content" source="./media/service-bus-explorer/topic-after-send-metrics.png" alt-text="TopicAfterSendMetrics":::
+    :::image type="content" source="./media/service-bus-explorer/topic-after-send-metrics.png" alt-text="Seleção de entidade":::
 
 ### <a name="receiving-a-message-from-a-queue"></a>Recebe uma mensagem de uma Fila
 
@@ -93,18 +93,18 @@ Para receber uma mensagem de uma fila (ou sua subfila de mensagens mortas)
 1. Clique na guia ***Receber*** no Gerenciador do barramento de serviço.
 2. Verifique as métricas para ver se há **Mensagens ativas** ou **Mensagens mortas** a serem recebidas.
 
-    :::image type="content" source="./media/service-bus-explorer/queue-after-send-metrics.png" alt-text="QueueAfterSendMetrics":::
+    :::image type="content" source="./media/service-bus-explorer/queue-after-send-metrics.png" alt-text="Seleção de entidade":::
 
 3. Escolha entre a fila de ***Fila*** ou a subfila ***Mensagens mortas***.
 
-    :::image type="content" source="./media/service-bus-explorer/queue-or-deadletter.png" alt-text="QueueOrDeadletter":::
+    :::image type="content" source="./media/service-bus-explorer/queue-or-deadletter.png" alt-text="Seleção de entidade":::
 
 4. Clique no botão ***Receber***, seguido por ***Sim*** para confirmar a operação 'Receber e excluir'.
 
 
 Quando a operação de recebimento for bem-sucedida, os detalhes da mensagem serão exibidos na grade, como mostrado abaixo. Você pode selecionar a mensagem da grade para exibir seus detalhes.
 
-:::image type="content" source="./media/service-bus-explorer/receive-message-from-queue-2.png" alt-text="Captura de tela da janela filas no Gerenciador do barramento de serviço do Azure com detalhes da mensagem exibidos para uma mensagem ativa selecionada na fila.":::
+:::image type="content" source="./media/service-bus-explorer/receive-message-from-queue-2.png" alt-text="Seleção de entidade":::
 
 
 ### <a name="peeking-a-message-from-a-queue"></a>Espiar uma mensagem de uma Fila
@@ -113,21 +113,21 @@ Com a funcionalidade de Espiar, você pode usar o Gerenciador do Barramento de S
 
 1. Para espiar a mensagem em uma fila, clique na guia ***Espiar*** no Gerenciador do Barramento de Serviço.
 
-    :::image type="content" source="./media/service-bus-explorer/peek-tab-selected.png" alt-text="PeekTab":::
+    :::image type="content" source="./media/service-bus-explorer/peek-tab-selected.png" alt-text="Seleção de entidade":::
 
 2. Verifique as métricas para ver se há **Mensagens ativas** ou **Mensagens mortas** a serem recebidas.
 
-    :::image type="content" source="./media/service-bus-explorer/queue-after-send-metrics.png" alt-text="QueueAfterSendMetrics":::
+    :::image type="content" source="./media/service-bus-explorer/queue-after-send-metrics.png" alt-text="Seleção de entidade":::
 
 3. Escolha entre a fila de ***Fila*** ou a subfila ***Mensagens mortas***.
 
-    :::image type="content" source="./media/service-bus-explorer/queue-or-deadletter.png" alt-text="QueueOrDeadletter":::
+    :::image type="content" source="./media/service-bus-explorer/queue-or-deadletter.png" alt-text="Seleção de entidade":::
 
 4. Clique no botão ***Espiar***. 
 
 Depois que a operação de inspeção for concluída, até 32 mensagens aparecerão na grade, como mostrado abaixo. Para exibir os detalhes de uma mensagem específica, selecione-a na grade. 
 
-:::image type="content" source="./media/service-bus-explorer/peek-message-from-queue-2.png" alt-text="PeekMessageFromQueue":::
+:::image type="content" source="./media/service-bus-explorer/peek-message-from-queue-2.png" alt-text="Seleção de entidade":::
 
 > [!NOTE]
 >
@@ -146,17 +146,17 @@ Assim como ocorre com uma fila, a operação ***Receber*** pode ser executada em
 
 1. Clique na guia ***Receber*** e selecione a assinatura ***Específica*** no seletor de lista suspensa.
 
-    :::image type="content" source="./media/service-bus-explorer/receive-subscription-tab-selected.png" alt-text="ReceiveTabSelected":::
+    :::image type="content" source="./media/service-bus-explorer/receive-subscription-tab-selected.png" alt-text="Seleção de entidade":::
 
 2. Escolha entre o ***Assinatura*** ou a subentidade de ***Mensagens mortas***.
 
-    :::image type="content" source="./media/service-bus-explorer/subscription-or-deadletter.png" alt-text="SubscriptionOrDeadletter":::
+    :::image type="content" source="./media/service-bus-explorer/subscription-or-deadletter.png" alt-text="Seleção de entidade":::
 
 3. Clique no botão ***Receber***, seguido por ***Sim*** para confirmar a operação 'Receber e excluir'.
 
 Quando a operação de recebimento for bem-sucedida, os detalhes da mensagem recebida serão exibidos na grade, como mostrado abaixo. Para exibir os detalhes da mensagem, clique na mensagem.
 
-:::image type="content" source="./media/service-bus-explorer/receive-message-from-subscription.png" alt-text="Captura de tela da guia receber no Gerenciador do barramento de serviço do Azure com detalhes da mensagem exibidos para uma mensagem ativa que foi recebida.":::
+:::image type="content" source="./media/service-bus-explorer/receive-message-from-subscription.png" alt-text="Seleção de entidade":::
 
 ### <a name="peeking-a-message-from-a-subscription"></a>Espiar mensagens de uma assinatura
 
@@ -164,17 +164,17 @@ Para simplesmente procurar as mensagens em uma Assinatura ou na subentidade de m
 
 1. Clique na guia ***Espiar*** e selecione a assinatura ***Específica*** no seletor de lista suspensa.
 
-    :::image type="content" source="./media/service-bus-explorer/peek-subscription-tab-selected.png" alt-text="PeekTabSelected":::
+    :::image type="content" source="./media/service-bus-explorer/peek-subscription-tab-selected.png" alt-text="Seleção de entidade":::
 
 2. Escolha entre o ***Assinatura*** ou a subentidade de ***Mensagens mortas***.
 
-    :::image type="content" source="./media/service-bus-explorer/subscription-or-deadletter.png" alt-text="SubscriptionOrDeadletter":::
+    :::image type="content" source="./media/service-bus-explorer/subscription-or-deadletter.png" alt-text="Seleção de entidade":::
 
 3. Clique no botão ***Espiar***.
 
 Depois que a operação de inspeção for concluída, até 32 mensagens aparecerão na grade, como mostrado abaixo. Para exibir os detalhes de uma mensagem específica, selecione-a na grade. 
 
-:::image type="content" source="./media/service-bus-explorer/peek-message-from-subscription.png" alt-text="PeekMessageFromSubscription":::
+:::image type="content" source="./media/service-bus-explorer/peek-message-from-subscription.png" alt-text="Seleção de entidade":::
 
 > [!NOTE]
 >

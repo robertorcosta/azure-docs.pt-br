@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: seodec18
 ms.openlocfilehash: e9491757852b42faef40c107540e0ce3da3c7f99
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91650894"
 ---
 # <a name="querying-data-from-azure-time-series-insights-gen2"></a>Consultando dados de Azure Time Series Insights Gen2
@@ -24,7 +24,7 @@ Azure Time Series Insights Gen2 permite consultar dados em eventos e metadados a
 Três categorias de API principais estão disponíveis no Azure Time Series Insights Gen2:
 
 * **APIs de ambiente**: essas APIs habilitam consultas no próprio ambiente de Azure Time Series insights Gen2. Eles podem ser usados para reunir a lista de ambientes aos quais o chamador tem acesso e os metadados do ambiente.
-* **APIs de consulta de modelo de série temporal (TSM-Q)**: habilita operações de criação, leitura, atualização e exclusão (CRUD) em metadados armazenados no modelo de série temporal do ambiente. Eles podem ser usados para acessar e editar instâncias, tipos e hierarquias.
+* **APIs do Model-Query série temporal (TSM-Q)**: habilita operações de criação, leitura, atualização e exclusão (CRUD) em metadados armazenados no modelo de série temporal do ambiente. Eles podem ser usados para acessar e editar instâncias, tipos e hierarquias.
 * **APIs de consulta de série temporal (TSQ)**: habilita a recuperação de dados de telemetria ou eventos conforme eles são registrados do provedor de origem e permite cálculos e agregações de alto desempenho nos dados usando funções escalares e agregadas avançadas.
 
 Azure Time Series Insights Gen2 usa uma linguagem de expressão baseada em cadeia de caracteres avançada, [TSX (expressão de série temporal)](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax), para expressar cálculos em [variáveis de série temporal](./concepts-variables.md).

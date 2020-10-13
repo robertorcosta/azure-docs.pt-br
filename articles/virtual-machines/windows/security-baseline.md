@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 7726a0f1acb8f7fde2b491979d478badeca1b384
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e79055c3dbc710be23a82eede98e1b55b17e10d5
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89400374"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978013"
 ---
 # <a name="azure-security-baseline-for-windows-virtual-machines"></a>Linha de base de segurança do Azure para Máquinas Virtuais do Windows
 
@@ -32,7 +32,7 @@ Para obter mais informações, consulte [Visão geral sobre linhas de base de se
 
 Como alternativa, se você tiver um caso de uso específico para um firewall centralizado, o Firewall do Azure também poderá ser usado para atender a esses requisitos.
 
-* [Redes virtuais e máquinas virtuais no Azure](./network-overview.md)
+* [Redes virtuais e máquinas virtuais no Azure](../network-overview.md)
 
 * [Como criar uma Rede Virtual](../../virtual-network/quick-create-portal.md)
 
@@ -80,7 +80,7 @@ Você pode usar o acesso à rede just in time da central de segurança do Azure 
 
 * [Como implantar o Firewall do Azure](../../firewall/tutorial-firewall-deploy-portal.md)
 
-* [Compreender a inteligência contra ameaças integrada da Central de Segurança do Azure](../../security-center/threat-protection.md)
+* [Compreender a inteligência contra ameaças integrada da Central de Segurança do Azure](../../security-center/azure-defender.md)
 
 * [Entender a proteção de rede adaptável da central de segurança do Azure](../../security-center/security-center-adaptive-network-hardening.md)
 
@@ -146,7 +146,7 @@ Você pode usar o acesso à rede just in time da central de segurança do Azure 
 
 * [Como configurar e gerenciar o Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-* [Exemplos de Azure Policy para rede](/azure/governance/policy/samples/#network)
+* [Exemplos de Azure Policy para rede](../../governance/policy/samples/built-in-policies.md#network)
 
 * [Como criar um blueprint do Azure](../../governance/blueprints/create-blueprint-portal.md)
 
@@ -180,7 +180,7 @@ Use Azure Policy para validar (e/ou corrigir) as configurações do recurso de r
 
 * [Como configurar e gerenciar o Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-* [Exemplos de Azure Policy para rede](/azure/governance/policy/samples/#network)
+* [Exemplos de Azure Policy para rede](../../governance/policy/samples/built-in-policies.md#network)
 
 **Monitoramento da central de segurança do Azure**: não disponível
 
@@ -252,7 +252,7 @@ Se sua organização quiser manter os dados do log de eventos de segurança da m
 
 **Orientação**: Verifique se as contas de armazenamento ou os espaços de trabalho log Analytics usados para armazenar logs de máquina virtual têm o período de retenção de log definido de acordo com os regulamentos de conformidade da sua organização.
 
-* [Como monitorar máquinas virtuais no Azure](./monitor.md)
+* [Como monitorar máquinas virtuais no Azure](../../azure-monitor/insights/monitor-vm-azure.md)
 
 * [Como configurar Log Analytics período de retenção do espaço de trabalho](../../azure-monitor/platform/manage-cost-storage.md)
 
@@ -458,7 +458,7 @@ Como alternativa, você pode habilitar o e os dados integrados para o Azure Sent
 
 * [Como realizar consultas personalizadas no Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
 
-* [Como monitorar máquinas virtuais no Azure](./monitor.md)
+* [Como monitorar máquinas virtuais no Azure](../../azure-monitor/insights/monitor-vm-azure.md)
 
 **Monitoramento da central de segurança do Azure**: não disponível
 
@@ -508,7 +508,7 @@ Como alternativa, você pode habilitar o e os dados integrados para o Azure Sent
 
 * [Como criar assinaturas adicionais do Azure](../../cost-management-billing/manage/create-subscription.md)
 
-* [Como criar Grupos de Gerenciamento](../../governance/management-groups/create.md)
+* [Como criar Grupos de Gerenciamento](../../governance/management-groups/create-management-group-portal.md)
 
 * [Como criar e usar marcas](../../azure-resource-manager/management/tag-resources.md)
 
@@ -610,7 +610,7 @@ A Microsoft usa o protocolo TLS para proteger dados quando está viajando entre 
 
 **Orientação**: siga as recomendações da central de segurança do Azure sobre como executar avaliações de vulnerabilidade em suas máquinas virtuais do Azure. Use a solução recomendada de segurança do Azure ou de terceiros para executar avaliações de vulnerabilidade para suas máquinas virtuais.
 
-* [Como implementar recomendações de avaliação de vulnerabilidade da central de segurança do Azure](../../security-center/security-center-vulnerability-assessment-recommendations.md)
+* [Como implementar recomendações de avaliação de vulnerabilidade da central de segurança do Azure](../../security-center/deploy-vulnerability-assessment-vm.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -692,7 +692,7 @@ A Microsoft usa o protocolo TLS para proteger dados quando está viajando entre 
 
 * [Como criar assinaturas adicionais do Azure](../../cost-management-billing/manage/create-subscription.md)
 
-* [Como criar Grupos de Gerenciamento](../../governance/management-groups/create.md)
+* [Como criar Grupos de Gerenciamento](../../governance/management-groups/create-management-group-portal.md)
 
 * [Como criar e usar marcas](../../azure-resource-manager/management/tag-resources.md)
 
@@ -775,7 +775,7 @@ Além de usar Controle de Alterações para o monitoramento de aplicativos de so
 
 * [Como configurar e gerenciar o Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-* [Como negar um tipo de recurso específico com o Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
+* [Como negar um tipo de recurso específico com o Azure Policy](../../governance/policy/samples/index.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -817,13 +817,13 @@ Além de usar Controle de Alterações para o monitoramento de aplicativos de so
 
 **Orientação**: aplicativos de alto risco implantados em seu ambiente do Azure podem ser isolados usando rede virtual, sub-rede, assinaturas, grupos de gerenciamento, etc. e suficientemente protegidos com um firewall do Azure, o WAF (firewall do aplicativo Web) ou o NSG (grupo de segurança de rede).
 
-* [Redes virtuais e máquinas virtuais no Azure](./network-overview.md)
+* [Redes virtuais e máquinas virtuais no Azure](../network-overview.md)
 
 * [Visão geral do Firewall do Azure](../../firewall/overview.md)
 
 * [Visão geral de Firewall de Aplicativo Web](../../web-application-firewall/overview.md)
 
-* [Visão geral da segurança da rede](../../virtual-network/security-overview.md)
+* [Visão geral da segurança da rede](../../virtual-network/network-security-groups-overview.md)
 
 * [Visão geral da rede virtual do Azure](../../virtual-network/virtual-networks-overview.md)
 

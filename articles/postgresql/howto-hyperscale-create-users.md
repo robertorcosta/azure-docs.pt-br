@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 1/8/2019
 ms.openlocfilehash: 3d23ee6119b625e11ce44bb9ad11ce4b3ee0280d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91295729"
 ---
 # <a name="create-users-in-azure-database-for-postgresql---hyperscale-citus"></a>Criar usuários no banco de dados do Azure para PostgreSQL-Citus (hiperescala)
@@ -50,9 +50,9 @@ Conforme mencionado, a `citus` conta de administrador não tem permissão para c
 
    :::image type="content" source="media/howto-hyperscale-create-users/1-role-page.png" alt-text="A página funções":::
 
-2. Insira o nome da função e a senha. Clique em **Save** (Salvar).
+2. Insira o nome da função e a senha. Clique em **Salvar**.
 
-   :::image type="content" source="media/howto-hyperscale-create-users/2-add-user-fields.png" alt-text="Adicionar função":::
+   :::image type="content" source="media/howto-hyperscale-create-users/2-add-user-fields.png" alt-text="A página funções":::
 
 O usuário será criado no nó de coordenador do grupo de servidores e propagado para todos os nós de trabalho. As funções criadas por meio do portal do Azure têm o `LOGIN` atributo, o que significa que são usuários verdadeiros que podem entrar no banco de dados.
 
@@ -77,7 +77,7 @@ GRANT SELECT ON ALL TABLES IN SCHEMA public TO db_user;
 
 Para atualizar um usuário, visite a página **funções** para seu grupo de servidores Citus (hiperescala) e clique nas reticências **...** ao lado do usuário. As reticências abrirão um menu para excluir o usuário ou redefinir sua senha.
 
-   :::image type="content" source="media/howto-hyperscale-create-users/edit-role.png" alt-text="Editar uma função":::
+   :::image type="content" source="media/howto-hyperscale-create-users/edit-role.png" alt-text="A página funções":::
 
 A `citus` função é privilegiada e não pode ser excluída.
 

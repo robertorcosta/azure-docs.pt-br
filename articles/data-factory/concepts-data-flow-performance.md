@@ -7,12 +7,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
 ms.date: 08/12/2020
-ms.openlocfilehash: 4a78e966d420591ebe7a9607777158cf17ddf698
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a6f2c16730a9140fdbd1710a3aa0df0ee91795d6
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91370871"
+ms.locfileid: "91874825"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guia de desempenho e ajuste de fluxos de dados de mapeamento
 
@@ -260,6 +260,10 @@ Se você usar valores literais em suas condições de junção ou tiver várias 
 #### <a name="sorting-before-joins"></a>Classificação antes de junções
 
 Ao contrário da junção de mesclagem em ferramentas como o SSIS, a transformação de junção não é uma operação de junção de mesclagem obrigatória. As chaves de junção não exigem classificação antes da transformação. A equipe de Azure Data Factory não recomenda usar transformações de classificação no mapeamento de fluxos de dados.
+
+### <a name="window-transformation-performance"></a>Desempenho de transformação de janela
+
+A [transformação janela](data-flow-window.md) particiona os dados por valor em colunas que você seleciona como parte da ```over()``` cláusula nas configurações de transformação. Há uma série de funções analíticas e de agregação muito populares que são expostas na transformação do Windows. No entanto, se seu caso de uso for gerar uma janela sobre todo o conjunto de linhas para fins de classificação ```rank()``` ou número de linha ```rowNumber()``` , é recomendável que você use a [transformação Classificação](data-flow-rank.md) e a [transformação chave substituta](data-flow-surrogate-key.md). Essas transformações executarão melhor as operações completas de conjunto de usuários usando essas funções.
 
 ### <a name="repartitioning-skewed-data"></a>Reparticionando dados distorcidos
 

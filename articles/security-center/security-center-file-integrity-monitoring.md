@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: b64ff51836f8d291acf57b1cd9ca100c4f87ebed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0b6b27f4f71e9159c17ec2df68c6af5f1b98b177
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541162"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91946086"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitoramento de integridade de arquivo na central de segurança do Azure
 Saiba como configurar o FIM (monitoramento de integridade de arquivo) na central de segurança do Azure usando este passo a passos.
@@ -29,28 +29,32 @@ Saiba como configurar o FIM (monitoramento de integridade de arquivo) na central
 |Aspecto|Detalhes|
 |----|:----|
 |Estado da versão:|GA (em disponibilidade geral)|
-|Preço:|Requer [Azure Defender para Servidores](defender-for-servers-introduction.md)|
+|Preço:|Requer o [Azure defender para servidores](defender-for-servers-introduction.md).<br>O FIM carrega dados no espaço de trabalho do Log Analytics. Encargos de dados se aplicam, com base na quantidade de dados que você carregar. Consulte [Preço do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) para saber mais.|
 |Funções e permissões necessárias:|O **proprietário do espaço de trabalho** pode habilitar/desabilitar o fim (para obter mais informações, consulte [funções do Azure para log Analytics](https://docs.microsoft.com/services-hub/health/azure-roles#azure-roles)).<br>O **leitor** pode exibir os resultados.|
-|Nuvens:|![Sim ](./media/icons/yes-icon.png) nuvens comerciais<br>![Sim ](./media/icons/yes-icon.png) US gov<br>![Nenhuma ](./media/icons/no-icon.png) China gov, outros gov<br>Com suporte apenas em regiões em que a solução de controle de alterações da automação do Azure está disponível.<br>Consulte [regiões com suporte para o espaço de trabalho log Analytics vinculado](../automation/how-to/region-mappings.md).<br>[Saiba mais sobre o controle de alterações](../automation/change-tracking.md) |
+|Nuvens:|![Sim ](./media/icons/yes-icon.png) nuvens comerciais<br>![Sim ](./media/icons/yes-icon.png) US gov<br>![Nenhuma ](./media/icons/no-icon.png) China gov, outros gov<br>Com suporte apenas em regiões em que a solução de controle de alterações da automação do Azure está disponível.<br>Consulte [regiões com suporte para o espaço de trabalho log Analytics vinculado](../automation/how-to/region-mappings.md).<br>[Saiba mais sobre o controle de alterações](../automation/change-tracking.md).|
 |||
 
-
-
-
-
 ## <a name="what-is-fim-in-security-center"></a>O que é FIM na Central de Segurança?
-O FIM (monitoramento de integridade de arquivo), também conhecido como monitoramento de alterações, examina arquivos e registros de sistema operacional, software de aplicativo e outros para alterações que possam indicar um ataque. Um método de comparação é usado para determinar se o estado atual do arquivo é diferente da última verificação do arquivo. Você pode aproveitar essa comparação para determinar se foram feitas modificações válidas ou suspeitas em seus arquivos.
+O FIM (monitoramento de integridade de arquivo), também conhecido como monitoramento de alterações, examina arquivos do sistema operacional, registros do Windows, software de aplicativo, arquivos do sistema Linux e muito mais, para alterações que possam indicar um ataque. 
 
-O monitoramento de integridade de arquivo da central de segurança valida a integridade dos arquivos do Windows, do registro do Windows e dos arquivos do Linux. Você seleciona os arquivos que deseja monitorar habilitando o FIM. A Central de Segurança monitora os arquivos com o FIM habilitado para atividades como:
+A central de segurança recomenda as entidades para monitorar com o FIM e você também pode definir suas próprias políticas ou entidades do FIM para monitorar. O FIM alerta você sobre atividades suspeitas, como:
 
-- Criação e remoção de arquivo e Registro
+- Criação ou remoção de chave de arquivo e registro
 - Modificações de arquivo (alterações de tamanho do arquivo, listas de controle de acesso e hash do conteúdo)
 - Modificações de registro (alterações de tamanho, listas de controle de acesso, tipo e conteúdo)
 
-A Central de Segurança recomenda entidades para serem monitoradas, nas quais você pode facilmente habilitar o FIM. Você também pode definir suas próprias políticas de FIM ou entidades para serem monitoradas. Este passo a passo mostra como fazer isso.
+Neste tutorial, você aprenderá a:
 
-> [!NOTE]
-> O recurso de monitoramento de integridade de arquivo (FIM) funciona para computadores e VMs com Windows e Linux e está disponível somente quando o **Azure defender para servidores** está habilitado. Consulte [preços](security-center-pricing.md) para saber mais. O FIM carrega dados no espaço de trabalho do Log Analytics. Encargos de dados se aplicam, com base na quantidade de dados que você carregar. Consulte [Preço do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) para saber mais.
+> [!div class="checklist"]
+> * Examine a lista de entidades sugeridas para monitorar com o FIM
+> * Definir suas próprias regras personalizadas do FIM
+> * Auditar alterações em suas entidades monitoradas
+> * Usar curingas para simplificar o rastreamento em diretórios
+
+
+## <a name="how-does-fim-work"></a>Como funciona o FIM?
+
+Ao comparar o estado atual desses itens com o estado durante a verificação anterior, o FIM alertará se forem feitas modificações suspeitas.
 
 O FIM usa a solução de Controle de Alterações do Azure para controlar e identificar as alterações em seu ambiente. Quando o monitoramento de integridade de arquivo estiver habilitado, você terá um recurso de **controle de alterações** do tipo **solução**. Para obter detalhes de frequência de coleta de dados, consulte [Detalhes de coleta de dados do Controle de Alterações](https://docs.microsoft.com/azure/automation/automation-change-tracking#change-tracking-data-collection-details) para Controle de Alterações do Azure.
 
@@ -58,11 +62,11 @@ O FIM usa a solução de Controle de Alterações do Azure para controlar e iden
 > Se você remover o recurso de **controle de alterações** , desabilitará também o recurso de monitoramento de integridade de arquivo na central de segurança.
 
 ## <a name="which-files-should-i-monitor"></a>Quais arquivos devo monitorar?
-Você deve pensar sobre os arquivos que são críticos para seu sistema e aplicativos ao escolher quais arquivos monitorar. Considere a possibilidade de escolher os arquivos que você não pretende alterar sem planejamento. Escolher arquivos que são alterados com frequência por aplicativos ou sistema operacional (como arquivos de log e arquivos de texto) cria muito ruído que torna difícil de identificar um ataque.
+Ao escolher quais arquivos monitorar, considere quais arquivos são essenciais para seu sistema e aplicativos. Monitore arquivos que você não espera alterar sem planejamento. Se você escolher arquivos que são frequentemente alterados por aplicativos ou sistema operacional (como arquivos de log e arquivos de texto), ele criará muitos ruídos, dificultando a identificação de um ataque.
 
-A central de segurança fornece a seguinte lista de itens recomendados para monitorar com base em padrões de ataque conhecidos. Isso inclui arquivos e chaves do registro do Windows. Todas as chaves estão em HKEY_LOCAL_MACHINE ("HKLM" na tabela).
+A central de segurança fornece a seguinte lista de itens recomendados para monitorar com base em padrões de ataque conhecidos.
 
-|**Arquivos do Linux**|**Arquivos do Windows**|**Chave do registro do Windows**|
+|Arquivos do Linux|Arquivos do Windows|Chaves do registro do Windows (HKLM = HKEY_LOCAL_MACHINE)|
 |:----|:----|:----|
 |/bin/login|C:\autoexec.bat|HKLM\SOFTWARE\Microsoft\Cryptography\OID\EncodingType 0 \ CryptSIPDllRemoveSignedDataMsg \{ C689AAB8-8E78-11D0-8C47-00C04FC295EE}|
 |/bin/passwd|C:\boot.ini|HKLM\SOFTWARE\Microsoft\Cryptography\OID\EncodingType 0 \ CryptSIPDllRemoveSignedDataMsg \{ 603BCC1F-4B59-4E08-B724-D2C6297EF351}|
@@ -96,6 +100,8 @@ A central de segurança fornece a seguinte lista de itens recomendados para moni
 
 
 ## <a name="enable-file-integrity-monitoring"></a>Habilitar o monitoramento de integridade de arquivo 
+
+O FIM só está disponível nas páginas da central de segurança na portal do Azure. Atualmente, não há uma API REST para trabalhar com o FIM.
 
 1. Na área de **proteção avançada** do painel do **Azure defender** , selecione **monitoramento de integridade de arquivo**.
 

@@ -4,12 +4,12 @@ description: Saiba mais sobre cenários de segurança para um cluster do Azure S
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.custom: sfrev
-ms.openlocfilehash: 258a6dd141ccc31516e37dac9f265328f981bbf5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d6f3e94a735a6a8880d726890f1eb7ac346c755
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86261063"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91946188"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Cenários de segurança do cluster do Service Fabric
 
@@ -134,7 +134,7 @@ O conceito para criar clusters seguros é o mesmo, sejam clusters do Linux ou do
 
 ### <a name="client-authentication-certificates-optional"></a>Certificados de autenticação de cliente (opcional)
 
-Qualquer número de certificados adicionais pode ser especificado para operações do administrador ou do usuário. O cliente pode usar esse certificado quando a autenticação mútua é necessária. Normalmente, os certificados do cliente não são emitidos por uma AC de terceiros. Em vez disso, o armazenamento Pessoal do local atual do usuário geralmente contém certificados de cliente colocados lá por uma autoridade raiz. O certificado deve ter um **valor de Propósito Final** de **Autenticação do Cliente**.  
+Qualquer número de certificados adicionais pode ser especificado para operações do administrador ou do usuário. O cliente pode usar esses certificados quando a autenticação mútua é necessária. Normalmente, os certificados do cliente não são emitidos por uma AC de terceiros. Em vez disso, o armazenamento Pessoal do local atual do usuário geralmente contém certificados de cliente colocados lá por uma autoridade raiz. O certificado deve ter um **valor de Propósito Final** de **Autenticação do Cliente**.  
 
 Por padrão, o certificado de cluster tem privilégios de cliente do administrador. Esses certificados de cliente adicionais não devem ser instalados no cluster, mas são especificados como permitidos na configuração do cluster.  No entanto, os certificados do cliente precisam ser instalados nas máquinas clientes para se conectar ao cluster e executar quaisquer operações.
 
