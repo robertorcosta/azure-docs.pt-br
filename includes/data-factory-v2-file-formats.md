@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 07/16/2020
 ms.author: jingwang
 ms.openlocfilehash: 54487cc8992149e6d8b599bb2a4b35e2c252404d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
-ms.translationtype: MT
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86522424"
 ---
 <!--
     Common for all ADF file-based connectors
 -->
 
-O Azure Data Factory dá suporte aos seguintes formatos de arquivo. Consulte cada artigo para configurações baseadas em formato.
+O Azure Data Factory é compatível com os formatos de arquivo a seguir. Confira cada artigo para obter configurações baseadas em formato.
 
 - [Formato Avro](../articles/data-factory/format-avro.md)
 - [Formato binário](../articles/data-factory/format-binary.md)

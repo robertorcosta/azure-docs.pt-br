@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/08/2020
-ms.openlocfilehash: 4ec7cd2b0f573a9a74f82546da2367edcf721539
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2f2272363cbc26895b061fe7b6263ed2a29fbab
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91441453"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993250"
 ---
 # <a name="deploy-azure-monitor-at-scale-using-azure-policy"></a>Implantar Azure Monitor em escala usando Azure Policy
 Embora alguns recursos de Azure Monitor sejam configurados uma vez ou um número limitado de vezes, outros devem ser repetidos para cada recurso que você deseja monitorar. Este artigo descreve métodos para usar o Azure Policy para implementar Azure Monitor em escala para garantir que o monitoramento seja configurado de forma consistente e precisa para todos os seus recursos do Azure.
@@ -33,7 +33,7 @@ Azure Policy consiste nos objetos na tabela a seguir. Consulte [Azure Policy obj
 | Atribuição | Uma definição ou iniciativa de política não entrará em vigor até ser atribuída a um escopo. Por exemplo, atribua uma política a um grupo de recursos para aplicá-la a todos os recursos criados nesse recurso ou aplique-a a uma assinatura para aplicá-la a todos os recursos nessa assinatura.  Para obter mais detalhes, consulte [Azure Policy estrutura de atribuição](../governance/policy/concepts/assignment-structure.md). |
 
 ## <a name="built-in-policy-definitions-for-azure-monitor"></a>Definições de política internas para o Azure Monitor
-Azure Policy inclui várias definições predefinidas relacionadas a Azure Monitor. Você pode atribuir essas definições de política à sua assinatura existente ou usá-las como base para criar suas próprias definições personalizadas. Para obter uma lista completa do política interna na categoria **monitoramento** , consulte [Azure Policy definições de política internas para Azure monitor](samples/policy-samples.md).
+Azure Policy inclui várias definições predefinidas relacionadas a Azure Monitor. Você pode atribuir essas definições de política à sua assinatura existente ou usá-las como base para criar suas próprias definições personalizadas. Para obter uma lista completa do política interna na categoria **monitoramento** , consulte [Azure Policy definições de política internas para Azure monitor](./samples/policy-reference.md).
 
 Para exibir as definições de política internas relacionadas ao monitoramento, faça o seguinte:
 

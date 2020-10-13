@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: videor, jeevanb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 33f3766e02316eccb519bea15246541531750ed1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d681eba53aa85fe5df05f8404bcddb7c6877477
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90007965"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91992791"
 ---
 # <a name="conditional-access-programmatic-access"></a>Acesso condicional: acesso programático
 
@@ -78,7 +78,7 @@ Automatize o backup e a restauração de políticas de acesso condicional com ap
 
 ### <a name="emergency-access-accounts"></a>Contas de acesso de emergência
 
-Vários administradores podem criar políticas de acesso condicional e podem esquecer de adicionar suas [contas de acesso de emergência](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access) como uma exclusão para essas políticas. Este exemplo garante que todas as políticas sejam atualizadas para incluir suas contas de acesso de emergência designadas.
+Vários administradores podem criar políticas de acesso condicional e podem esquecer de adicionar suas [contas de acesso de emergência](../users-groups-roles/directory-emergency-access.md) como uma exclusão para essas políticas. Este exemplo garante que todas as políticas sejam atualizadas para incluir suas contas de acesso de emergência designadas.
 
 - [Gerenciar a atribuição de contas de acesso de emergência a políticas de acesso condicional usando chamadas à API de Microsoft Graph](https://github.com/Azure-Samples/azure-ad-conditional-access-apis/tree/main/05-manage/02-emergency-access)
 

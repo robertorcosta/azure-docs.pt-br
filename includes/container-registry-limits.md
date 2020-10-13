@@ -9,15 +9,15 @@ ms.date: 06/18/2020
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: 3f68ca0fc577e6cf3f896ede0418f11f59756701
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
-ms.translationtype: MT
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86512599"
 ---
 | Recurso | Basic | Standard | Premium |
 |---|---|---|---|
-| Armazenamento incluído<sup>1</sup> (GIB) | 10 | 100 | 500 |
+| Armazenamento incluído<sup>1</sup> (GiB) | 10 | 100 | 500 |
 | Limite de armazenamento (TiB) | 20| 20 | 20 |
 | Tamanho máximo da camada de imagem (GiB) | 200 | 200 | 200 |
 | ReadOps por minuto<sup>2, 3</sup> | 1,000 | 3\.000 | 10.000 |
@@ -28,7 +28,7 @@ ms.locfileid: "86512599"
 | Replicação geográfica | N/D | N/D | [Com suporte][geo-replication] |
 | Confiança em conteúdo | N/D | N/D | [Com suporte][content-trust] |
 | Link privado com pontos de extremidade privados | N/D | N/D | [Com suporte][plink] |
-| &bull;Pontos de extremidade privados | N/D | N/D | 10 |
+| &bull; Pontos de extremidade privados | N/D | N/D | 10 |
 | Acesso VNet do ponto de extremidade de serviço | N/D | N/D | [Visualização][vnet] |
 | Chaves gerenciadas pelo cliente | N/D | N/D | [Com suporte][cmk] |
 | Permissões no escopo do repositório | N/D | N/D | [Visualização][token]|
@@ -37,7 +37,7 @@ ms.locfileid: "86512599"
 | &bull; Repositórios por mapa de escopo | N/D | N/D | 500 |
 
 
-<sup>1</sup> armazenamento incluído na taxa diária para cada camada. Para armazenamento adicional, você será cobrado por uma taxa diária adicional por GiB, até o limite de armazenamento. Para obter informações de taxa, confira [Preço de Registro de Contêiner do Azure][pricing].
+<sup>1</sup> Armazenamento incluído na taxa diária de cada camada. Para obter um armazenamento adicional, será cobrada uma taxa diária adicional por GiB, até o limite de armazenamento. Para obter informações de taxa, confira [Preço de Registro de Contêiner do Azure][pricing].
 
 <sup>2</sup>*ReadOps*, *WriteOps* e *Largura de Banda* são estimativas mínimas. O Registro de Contêiner do Azure se esforça para aprimorar o desempenho conforme os requisitos de uso.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f1bde255355e7a4f47df6a3969837410692cef5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ca23c1503b01c1aa9523edc2576599d7b6ab458
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91266052"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91992809"
 ---
 # <a name="continuous-access-evaluation"></a>Avaliação contínua de acesso
 
@@ -103,7 +103,7 @@ Se você não estiver usando clientes compatíveis com CAE, o tempo de vida do t
 
 1. Um cliente com capacidade de CAE apresenta credenciais ou um token de atualização para o Azure AD solicitando um token de acesso para algum recurso.
 1. Um token de acesso é retornado junto com outros artefatos para o cliente.
-1. Um administrador [revoga explicitamente todos os tokens de atualização para o usuário](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). Um evento de revogação será enviado para o provedor de recursos do Azure AD.
+1. Um administrador [revoga explicitamente todos os tokens de atualização para o usuário](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). Um evento de revogação será enviado para o provedor de recursos do Azure AD.
 1. Um token de acesso é apresentado ao provedor de recursos. O provedor de recursos avalia a validade do token e verifica se há qualquer evento de revogação para o usuário. O provedor de recursos usa essas informações para decidir conceder acesso ao recurso ou não.
 1. Nesse caso, o provedor de recursos nega o acesso e envia um desafio de declaração 401 + de volta para o cliente.
 1. O cliente com capacidade de CAE compreende o desafio de declaração 401 +. Ele ignora os caches e volta para a etapa 1, enviando seu token de atualização junto com o desafio de declaração de volta para o Azure AD. O Azure AD reavaliará todas as condições e solicitará que o usuário se autentique novamente nesse caso.
@@ -159,7 +159,7 @@ Se esse cenário existir em seu ambiente para evitar loops infinitos, o Azure AD
 | Canal Empresarial Semestral | Se definido como Enabled ou 1, CAE não terá suporte. | Se definido como Enabled ou 1, CAE não terá suporte. |
 | Canal Atual <br> ou <br> Canal Empresarial Mensal | CAE tem suporte independentemente da configuração | CAE tem suporte independentemente da configuração |
 
-Para obter uma explicação dos canais de atualização do Office, consulte [visão geral dos canais de atualização para aplicativos Microsoft 365](https://docs.microsoft.com/deployoffice/overview-update-channels). É recomendável que as organizações não desabilitem o Gerenciador de contas da Web (WAM).
+Para obter uma explicação dos canais de atualização do Office, consulte [visão geral dos canais de atualização para aplicativos Microsoft 365](/deployoffice/overview-update-channels). É recomendável que as organizações não desabilitem o Gerenciador de contas da Web (WAM).
 
 ### <a name="policy-change-timing"></a>Tempo de alteração de política
 

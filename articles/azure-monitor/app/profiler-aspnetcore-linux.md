@@ -7,12 +7,12 @@ author: cweining
 ms.author: cweining
 ms.date: 02/23/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 652d63cbf71f7a998462780a5057ce8269463da4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69ec25348c3056536a2e09fd889b48e1e63ea7bb
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88930376"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91992768"
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Criar o perfil de aplicativos web ASP.NET Core Azure Linux com o Application Insights Profiler
 
@@ -107,7 +107,7 @@ As seguintes instruções se aplicam a todos os ambientes de desenvolvimento do 
 
     ![Configurar o repositório Git](./media/profiler-aspnetcore-linux/setup-git-repo.png)
 
-Para obter mais opções de implantação, consulte a [documentação do serviço de aplicativo](https://docs.microsoft.com/azure/app-service).
+Para obter mais opções de implantação, consulte a [documentação do serviço de aplicativo](../../app-service/index.yml).
 
 ## <a name="deploy-your-project"></a>Implantar o projeto
 
@@ -172,4 +172,3 @@ Para obter mais opções de implantação, consulte a [documentação do serviç
 Se você usar contêineres personalizados hospedados pelos Serviço de Aplicativo do Azure, siga as instruções em [ Habilitar o Criador de Perfil de Serviço para um aplicativo em contêineres do ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/tree/master/examples/EnableServiceProfilerForContainerApp) para habilitar o Application Insights Profiler.
 
 Relate quaisquer problemas ou sugestões ao repositório do Github do Application Insights: [ApplicationInsights-Profiler-AspNetCore: problemas](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/issues).
-

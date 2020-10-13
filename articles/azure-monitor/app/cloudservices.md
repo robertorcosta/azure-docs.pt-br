@@ -4,12 +4,12 @@ description: Monitorar suas funções da Web e de trabalho com eficiência com o
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 09/05/2018
-ms.openlocfilehash: 676d3543cbcbf86feb67cad4bd2b9709c2b81437
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cae2e4e1d5b5e199e772c5263a46d82289f5d6ac
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91759366"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91992843"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights para serviços de nuvem do Azure
 O [Application Insights][start] pode monitorar os [aplicativos de serviço de nuvem do Azure](https://azure.microsoft.com/services/cloud-services/) para analisar a disponibilidade, o desempenho, as falhas e o uso combinando os dados de SDKs do Application Insights com os dados do [Diagnóstico do Azure](../platform/diagnostics-extension-overview.md) a partir de seus serviços de nuvem. Com os comentários que você obtiver sobre o desempenho e a eficiência de seu aplicativo em uso, você pode fazer escolhas informadas sobre a direção do projeto em cada ciclo de vida de desenvolvimento.
@@ -67,7 +67,7 @@ Para evitar essa situação, crie recursos separados para cada configuração de
 
 Para enviar a telemetria para os recursos apropriados, você pode configurar o SDK do Application Insights para que ele escolha uma chave de instrumentação diferente dependendo da configuração de compilação. 
 
-Saiba como [definir dinamicamente a chave de instrumentação](https://docs.microsoft.com/azure/azure-monitor/app/separate-resources#dynamic-ikey) para diferentes estágios. 
+Saiba como [definir dinamicamente a chave de instrumentação](./separate-resources.md#dynamic-ikey) para diferentes estágios. 
 
 ## <a name="create-an-application-insights-resource-for-each-role"></a>Criar um recurso do Application Insights para cada função
 
@@ -290,4 +290,3 @@ Você compilou para .NET 4.6? O .NET 4.6 não tem suporte automático nas funç�
 [qna]: ../faq.md
 [redfield]: ./monitor-performance-live-website-now.md
 [start]: ./app-insights-overview.md
-

@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 11/04/2019
+ms.date: 10/12/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9b5bc3f87296ea1af5de28178df6d8f27c965476
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ddc0dc433a5d8c09c692e6304647fb391694e8c8
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87116076"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993167"
 ---
 # <a name="collect-azure-active-directory-b2c-logs-with-application-insights"></a>Coletar logs de Azure Active Directory B2C com Application Insights
 
@@ -89,7 +89,7 @@ Se você ainda não tiver uma, crie uma instância do Application Insights em su
 Há um pequeno atraso, normalmente menos de cinco minutos, antes que você possa ver novos logs em Application Insights.
 
 1. Abra o recurso do Application Insights que você criou no [Portal do Azure](https://portal.azure.com).
-1. No menu **visão geral** , selecione **análise**.
+1. Na página **visão geral** , selecione **logs**.
 1. Abra uma nova guia no Application Insights.
 
 Aqui está uma lista de consultas que você pode usar para ver os logs:

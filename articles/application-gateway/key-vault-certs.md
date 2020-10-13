@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: victorh
-ms.openlocfilehash: c1f6cc21c7a45dbc5c7be7e3f3cc46b4ec4e8c39
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e7c4842494c144f5cd64d46f53f7a99266064680
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87282340"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993649"
 ---
 # <a name="tls-termination-with-key-vault-certificates"></a>Terminação de TLS com certificados de Key Vault
 
@@ -32,7 +32,7 @@ A integração do gateway de aplicativo com o Key Vault oferece muitos benefíci
 - Suporte para importar certificados existentes para o cofre de chaves. Ou use Key Vault APIs para criar e gerenciar novos certificados com qualquer um dos parceiros de Key Vault confiáveis.
 - Suporte para renovação automática de certificados armazenados em seu cofre de chaves.
 
-O gateway de aplicativo atualmente dá suporte apenas a certificados validados por software. Não há suporte para certificados validados do HSM (módulo de segurança de hardware). Depois que o gateway de aplicativo é configurado para usar certificados de Key Vault, suas instâncias recuperam o certificado do Key Vault e os instalam localmente para terminação de TLS. As instâncias também sondam Key Vault em intervalos de 24 horas para recuperar uma versão renovada do certificado, se existir. Se um certificado atualizado for encontrado, o certificado TLS/SSL atualmente associado ao ouvinte HTTPS será girado automaticamente.
+O gateway de aplicativo atualmente dá suporte apenas a certificados validados por software. Não há suporte para certificados validados do HSM (módulo de segurança de hardware). Depois que o gateway de aplicativo é configurado para usar certificados de Key Vault, suas instâncias recuperam o certificado do Key Vault e os instalam localmente para terminação de TLS. As instâncias também sondam Key Vault em intervalos de 4 horas para recuperar uma versão renovada do certificado, se existir. Se um certificado atualizado for encontrado, o certificado TLS/SSL atualmente associado ao ouvinte HTTPS será girado automaticamente.
 
 > [!NOTE]
 > O portal do Azure dá suporte apenas a certificados do keyvault, não a segredos. O gateway de aplicativo ainda dá suporte à referência de segredos do keyvault, mas somente por meio de recursos que não são do portal, como PowerShell, CLI, API, modelos ARM, etc. 

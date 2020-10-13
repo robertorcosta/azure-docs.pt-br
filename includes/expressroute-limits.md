@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 07/25/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 146a257a9b8f31e79283d71ede1e1c5c0355765c
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: d1402bcc0c46003429e1809e8d09e9662218cd82
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89147765"
 ---
 | Recurso | Limite |
@@ -24,10 +24,8 @@ ms.locfileid: "89147765"
 | Número máximo de rotas anunciadas do emparelhamento privado do Azure do espaço de endereço da VNet para uma conexão do ExpressRoute |200 |
 | Número máximo de rotas anunciadas para emparelhamento do Microsoft com o Standard do ExpressRoute |200 |
 | Número máximo de rotas anunciadas para o emparelhamento da Microsoft com o complemento ExpressRoute Premium |200 |
-| Número máximo de circuitos do ExpressRoute vinculados a um gateway de desempenho padrão/ErGw1AZ |4 | 
-| Número máximo de circuitos do ExpressRoute vinculados a um gateway de alto desempenho/ErGw2AZ |8 | 
-| Número máximo de circuitos do ExpressRoute vinculados a um gateway de ultradesempenho/ErGw3AZ |16 | 
-| Número máximo de circuitos do ExpressRoute vinculados à mesma rede virtual em diferentes locais de emparelhamento (todos os SKUs) |4 |
+| Número máximo de circuitos do ExpressRoute vinculados à mesma rede virtual no mesmo local de emparelhamento |4 |
+| Número máximo de circuitos do ExpressRoute vinculados à mesma rede virtual em diferentes locais de emparelhamento |4 |
 | Número de links de rede virtual permitido por circuito do ExpressRoute |Confira a tabela [Número de redes virtuais por circuito do ExpressRoute](#vnetpercircuit).  |
 
 #### <a name="number-of-virtual-networks-per-expressroute-circuit"></a><a name="vnetpercircuit"></a> Número de redes virtuais por circuito do ExpressRoute
