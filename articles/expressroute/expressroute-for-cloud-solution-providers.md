@@ -9,10 +9,10 @@ ms.date: 10/10/2016
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 17b8fc3824fb1c7e6cfcfc3d4333dc226b51724d
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91653631"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>ExpressRoute para Provedores de Soluções na Nuvem (CSP)
@@ -112,7 +112,7 @@ A tabela de rotas padrão inclui as seguintes rotas:
 ![Diagrama que mostra as opções de roteamento padrão.](./media/expressroute-for-cloud-solution-providers/default-routing.png)  
 
 ### <a name="user-defined-routing-udr"></a>Roteamento definido pelo usuário (UDR)
-As rotas definidas pelo usuário permitem o controle do tráfego de saída da sub-rede atribuída para outras sub-redes na rede virtual ou em um dos outros gateways predefinidos (ExpressRoute, Internet ou VPN). A tabela padrão de roteamento do sistema pode ser substituída por uma tabela de roteamento definida pelo usuário que substitua a tabela de roteamento padrão com rotas personalizadas. Com o roteamento definido pelo usuário, os clientes podem criar rotas específicas para dispositivos como firewalls ou dispositivos de detecção de intrusão, além de bloquear o acesso a sub-redes específicas da sub-rede que hospeda a rota definida pelo usuário. Para obter uma visão geral das rotas definidas pelo usuário, procure [aqui](../virtual-network/virtual-networks-udr-overview.md). 
+As rotas definidas pelo usuário permitem o controle do tráfego de saída da sub-rede atribuída para outras sub-redes na rede virtual ou em um dos outros gateways predefinidos (ExpressRoute, Internet ou VPN). A tabela padrão de roteamento do sistema pode ser substituída por uma tabela de roteamento definida pelo usuário que substitua a tabela de roteamento padrão com rotas personalizadas. Com o roteamento definido pelo usuário, os clientes podem criar rotas específicas para dispositivos como firewalls ou dispositivos de detecção de intrusão, além de bloquear o acesso a sub-redes específicas da sub-rede que hospeda a rota definida pelo usuário. Para obter uma visão geral de User-Defined rotas, veja [aqui](../virtual-network/virtual-networks-udr-overview.md). 
 
 ## <a name="security"></a>Segurança
 Dependendo do modelo em uso, Connect-To ou Connect-Through, seu cliente definirá as políticas de segurança na Rede Virtual ou fornecer os requisitos da política de segurança ao CSP para que ele defina nas Redes Virtuais. Os critérios de segurança a seguir podem ser definidos:

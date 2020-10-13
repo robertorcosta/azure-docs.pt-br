@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 05/30/2017
 ms.author: genli
 ms.openlocfilehash: 678bad67b454ec0930d2cf30df45ba7b2c822e35
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91371449"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Solucionar problemas em conexões SSH com uma VM Linux do Azure que falha, apresenta erro ou é recusada
@@ -52,7 +52,7 @@ Você pode redefinir as credenciais ou configuração de SSH usando um dos segui
 
 Após cada etapa de solução de problemas, tente se conectar à VM novamente. Caso você ainda não consiga conectar, tente a próxima etapa.
 
-## <a name="use-the-azure-portal"></a>Use o Portal do Azure
+## <a name="use-the-azure-portal"></a>Usar o portal do Azure
 O portal do Azure fornece uma maneira rápida para redefinir as credenciais de usuário ou configuração do SSH sem instalar as ferramentas no computador local.
 
 Para começar, selecione sua VM no portal do Azure. Role para baixo até a seção **Suporte + Solução de problemas** e selecione **Redefinir senha** como no exemplo a seguir:

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cf03dffe82d611f10639af2a147bc2d9e9316621
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90052767"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Como funciona: Redefinição de senha de autoatendimento do Azure AD
@@ -52,7 +52,7 @@ Depois que o portal do SSPR for exibido no idioma necessário, será solicitado 
     * Se os métodos de autenticação não estiverem configurados, é aconselhável que o usuário entre em contato com o administrador para redefinir a senha.
   * Se a política exigir dois métodos, verifique se o usuário tem os dados apropriados definidos para pelo menos dois dos métodos de autenticação habilitados pela política de administrador.
     * Se os métodos de autenticação não estiverem configurados, é aconselhável que o usuário entre em contato com o administrador para redefinir a senha.
-  * Se uma função de administrador do Azure for atribuída ao usuário, a política de senha forte de duas portas será imposta. Para obter mais informações, consulte [diferenças de política de redefinição de administrador](concept-sspr-policy.md#administrator-reset-policy-differences).
+  * Se uma função de administrador do Azure for atribuída ao usuário, a política de senha forte de duas portas será imposta. Para obter mais informações, confira [Diferenças da política de redefinição de senha de administrador](concept-sspr-policy.md#administrator-reset-policy-differences).
 * Verifica se a senha do usuário é gerenciada localmente, como se o locatário do Azure AD estiver usando a autenticação federada, de passagem ou de hash de senha:
   * Se o Write-back SSPR estiver configurado e a senha do usuário for gerenciada localmente, o usuário poderá continuar a autenticar e redefinir sua senha.
   * Se o Write-back SSPR não for implantado e a senha do usuário for gerenciada localmente, o usuário será solicitado a entrar em contato com o administrador para redefinir sua senha.

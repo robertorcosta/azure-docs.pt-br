@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
 ms.openlocfilehash: 8f755b42249a88a2d37117003d561f79aea6b170
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88165984"
 ---
 #  <a name="xamarin-android-system-browser-considerations-for-using-msalnet"></a>Considerações do navegador do sistema do Xamarin Android para uso do MSAL.NET
@@ -44,8 +44,8 @@ A tabela a seguir lista os dispositivos e navegadores que foram testados quanto 
 
 | Dispositivo | Navegador     |  Result  | 
 | ------------- |:-------------:|:-----:|
-| Huawei/um + | Chrome\* | Aprovado|
-| Huawei/um + | Microsoft Edge\* | Aprovado|
+| Huawei/um + | Monocromático\* | Aprovado|
+| Huawei/um + | Edge\* | Aprovado|
 | Huawei/um + | Firefox\* | Aprovado|
 | Huawei/um + | Corajoso\* | Aprovado|
 | Um + | Ecosia\* | Aprovado|
@@ -60,7 +60,7 @@ A tabela a seguir lista os dispositivos e navegadores que foram testados quanto 
 | Um + | Navegador CM | Usuário cancelou a autenticação|
 | Huawei/um + | Nenhum instalado | Exceção AndroidActivityNotFound|
 
-\*Dá suporte a guias personalizadas
+\* Dá suporte a guias personalizadas
 
 ## <a name="known-issues"></a>Problemas conhecidos
 

@@ -10,13 +10,13 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: kgremban
 ms.openlocfilehash: 21fde76dc5791030a7afa280e00642119cbe464c
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89660046"
 ---
-# <a name="install-the-azure-iot-edge-runtime-on-debian-based-linux-systems"></a>Instalar o runtime do Azure IoT Edge em sistemas Linux baseados em Debian
+# <a name="install-the-azure-iot-edge-runtime-on-debian-based-linux-systems"></a>Instalar o tempo de execução de Azure IoT Edge em sistemas Linux baseados em Debian
 
 O runtime do Azure IoT Edge é o que transforma um dispositivo em um dispositivo do IoT Edge. O runtime pode ser implantado em dispositivos pequenos como um Raspberry Pi ou grandes como um servidor industrial. Após um dispositivo ser configurado com o runtime do IoT Edge, você pode começar a implantar a lógica de negócios nele da nuvem. Para saber mais, confira [entender o tempo de execução de Azure IOT Edge e sua arquitetura](iot-edge-runtime.md).
 
@@ -166,7 +166,7 @@ sudo systemctl restart iotedge
 
 ### <a name="option-2-automatic-provisioning"></a>Opção 2: provisionamento automático
 
-IoT Edge dispositivos podem ser provisionados automaticamente usando o [DPS (serviço de provisionamento de dispositivos) do Hub IOT do Azure](../iot-dps/index.yml). Atualmente, o IoT Edge dá suporte a três mecanismos de atestado ao usar o provisionamento automático, mas seus requisitos de hardware podem afetar suas escolhas. Por exemplo, os dispositivos Raspberry Pi não vêm com um chip Trusted Platform Module (TPM) por padrão. Para obter mais informações, confira os seguintes artigos:
+IoT Edge dispositivos podem ser provisionados automaticamente usando o [DPS (serviço de provisionamento de dispositivos) do Hub IOT do Azure](../iot-dps/index.yml). Atualmente, o IoT Edge dá suporte a três mecanismos de atestado ao usar o provisionamento automático, mas seus requisitos de hardware podem afetar suas escolhas. Por exemplo, os dispositivos Raspberry Pi não vêm com um chip Trusted Platform Module (TPM) por padrão. Para obter mais informações, consulte os seguintes artigos:
 
 * [Criar e provisionar um dispositivo IoT Edge com um TPM virtual em uma VM do Linux](how-to-auto-provision-simulated-device-linux.md)
 * [Criar e provisionar um dispositivo IoT Edge usando certificados X. 509](how-to-auto-provision-x509-certs.md)

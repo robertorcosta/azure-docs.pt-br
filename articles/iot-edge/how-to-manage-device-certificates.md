@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 9e3925d2c14d51785ed4fe00a508ea353490e1cd
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89669036"
 ---
 # <a name="manage-certificates-on-an-iot-edge-device"></a>Gerenciar certificados em um dispositivo IoT Edge
@@ -57,7 +57,7 @@ Para ver um exemplo desses certificados, examine os scripts que criam certificad
 
 Instale a cadeia de certificados no dispositivo IoT Edge e configure o tempo de execução IoT Edge para fazer referência aos novos certificados.
 
-Por exemplo, se você usou os scripts de exemplo para [criar certificados de demonstração](how-to-create-test-certificates.md), copie os seguintes arquivos para o dispositivo IOT-Edge:
+Por exemplo, se você usou os scripts de exemplo para [criar certificados de demonstração](how-to-create-test-certificates.md), copie os seguintes arquivos para o dispositivo IoT-Edge:
 
 * Certificado de autoridade de certificação do dispositivo: `<WRKDIR>\certs\iot-edge-device-MyEdgeDeviceCA-full-chain.cert.pem`
 * Chave privada da AC do dispositivo: `<WRKDIR>\private\iot-edge-device-MyEdgeDeviceCA.key.pem`

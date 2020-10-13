@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: eb9d901a32d558f676ba10eaf65b54c51bfbcda8
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89259171"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Cenários e disponibilidade de recursos dos Serviços de Mídia em datacenters
@@ -113,7 +113,7 @@ Para obter informações sobre a disponibilidade nos datacenters, consulte a se�
 3. Visualize seu stream ao vivo.
 4. Entregue o conteúdo por meio de protocolos de streaming comuns (por exemplo, MPEG DASH, Smooth, HLS) diretamente aos seus clientes ou a uma CDN (Rede de Distribuição de Conteúdo) para uma distribuição posterior.
 
-    - ou -
+    -ou-
 
     Registre e armazene o conteúdo incluído para uma transmissão posterior (Vídeo sob Demanda).
 

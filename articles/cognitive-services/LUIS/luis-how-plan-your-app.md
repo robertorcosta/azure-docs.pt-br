@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/14/2020
 ms.openlocfilehash: 69f2048da0b4690d9de72e96e296edbd55c4cd9f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91309448"
 ---
 # <a name="plan-your-luis-app-schema-with-subject-domain-and-data-extraction"></a>Planejar o esquema do aplicativo LUIS com a extração de dados e domínio do assunto
@@ -71,7 +71,7 @@ A `FlightAction` entidade seria estruturada no seguinte pseudocódigo de entidad
 * Vooaction
     * Ação
     * Origem
-    * Destination
+    * Destino
 
 Para ajudar a extração, adicione recursos às subentidades. Você escolherá seus recursos com base no vocabulário que espera ver no usuário declarações e os valores que você deseja que sejam retornados na resposta de previsão.
 

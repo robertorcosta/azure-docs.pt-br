@@ -9,10 +9,10 @@ author: sandeeppujar
 ms.date: 04/30/2020
 ms.custom: device-developer
 ms.openlocfilehash: 34b767a2cc48c94fdb5c2db032321b9254bf4ce2
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90017686"
 ---
 # <a name="connect-an-azure-sphere-device-to-your-azure-iot-central-application"></a>Conectar um dispositivo do Azure Sphere ao aplicativo do Azure IoT Central
@@ -67,7 +67,7 @@ Para habilitar o exemplo para se conectar ao IoT Central, você deve [configurar
 
 Quando o dispositivo está conectado ao IoT Central, você pode ver a telemetria no painel.
 
-:::image type="content" source="media/howto-connect-sphere/sphere-view.png" alt-text="Painel para Azure Sphere DevKit":::
+:::image type="content" source="media/howto-connect-sphere/sphere-view.png" alt-text="Modelo de dispositivo para Azure Sphere DevKit":::
 
 ## <a name="create-a-simulated-device"></a>Criar um dispositivo simulado
 

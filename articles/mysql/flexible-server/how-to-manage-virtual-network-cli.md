@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
 ms.openlocfilehash: 5cd35b896419dd30a8a4a18056ac1ccd48d7df6c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91331702"
 ---
 # <a name="create-and-manage-virtual-networks-for-azure-database-for-mysql---flexible-server-using-the-azure-cli"></a>Criar e gerenciar redes virtuais para o banco de dados do Azure para MySQL-servidor flexível usando o CLI do Azure
@@ -18,7 +18,7 @@ ms.locfileid: "91331702"
 > [!IMPORTANT]
 > Atualmente, o Servidor Flexível do Banco de Dados do Azure para MySQL está em versão prévia pública
 
-O Servidor Flexível do Banco de Dados do Azure para MySQL oferece suporte a dois tipos de métodos de conectividade de rede mutuamente exclusivos, para se conectar ao seu servidor flexível. As duas opções são:
+O servidor flexível do banco de dados do Azure para MySQL é compatível com tipos de métodos de conectividade de rede mutuamente exclusivos, para se conectar ao seu servidor flexível. As duas opções são:
 
 - Acesso público (endereços IP permitidos)
 - Acesso privado (Integração VNet)
@@ -53,7 +53,7 @@ az account set --subscription <subscription id>
 Você pode usar o `az mysql flexible-server` comando para criar o servidor flexível com *acesso privado (integração VNet)*. Esse comando usa o acesso privado (integração VNet) como o método de conectividade padrão. Uma rede virtual e uma sub-rede serão criadas para você se nenhuma for fornecida. Você também pode fornecer a rede virtual e a sub-rede já existentes usando a ID de sub-rede. <!-- You can provide the **vnet**,**subnet**,**vnet-address-prefix** or**subnet-address-prefix** to customize the virtual network and subnet.--> Há várias opções para criar um servidor flexível usando a CLI, conforme mostrado nos exemplos abaixo.
 
 >[!Important]
-> O uso desse comando delegará a sub-rede a **Microsoft. DBforMySQL/flexibleServers**. Essa delegação significa que somente os Servidores Flexíveis do Banco de Dados do Azure para MySQL podem usar essa sub-rede. Nenhum outro tipo de recurso do Azure pode estar na sub-rede delegada.
+> O uso desse comando delegará a sub-rede a **Microsoft. DBforMySQL/flexibleServers**. Essa delegação significa que somente os servidores flexíveis do banco de dados do Azure para MySQL podem usar essa sub-rede. Nenhum outro tipo de recurso do Azure pode estar na sub-rede delegada.
 >
 
 Consulte a documentação de [referência](/cli/azure/mysql/flexible-server) do CLI do Azure para obter a lista completa de parâmetros da CLI configuráveis. Por exemplo, nos comandos abaixo, você pode opcionalmente especificar o grupo de recursos.

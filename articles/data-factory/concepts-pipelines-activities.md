@@ -10,10 +10,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.openlocfilehash: b6a3e67ffd909262da2f890874f049dfac59a4ce
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90562002"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines e atividades no Azure Data Factory
@@ -56,7 +56,7 @@ Atividades de transformação de dados | Ambiente de computação
 [MapReduce](transform-data-using-hadoop-map-reduce.md) | HDInsight [Hadoop]
 [Streaming do Hadoop](transform-data-using-hadoop-streaming.md) | HDInsight [Hadoop]
 [Spark](transform-data-using-spark.md) | HDInsight [Hadoop]
-[Atividades de Machine Learning: Execução de lote e Recurso de atualização](transform-data-using-machine-learning.md) | VM do Azure
+[Atividades de Machine Learning: execução do Lote e recurso de atualização](transform-data-using-machine-learning.md) | VM do Azure
 [Procedimento armazenado](transform-data-using-stored-procedure.md) | Azure SQL, Azure Synapse Analytics (anteriormente SQL Data Warehouse) ou SQL Server
 [U-SQL](transform-data-using-data-lake-analytics.md) | Análise Azure Data Lake
 [Atividade personalizada](transform-data-using-dotnet-custom-activity.md) | Lote do Azure

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: bd09b734f1ac5ac3c98b6c0c717a48de19b0106f
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89261063"
 ---
 # <a name="playing-your-content-with-existing-players"></a>Reprodução de seu conteúdo com players existentes
@@ -59,7 +59,7 @@ Use o [Player de Mídia do Azure](https://aka.ms/azuremediaplayer) para reproduz
 
 [https://dashif.org](https://dashif.org)
 
-### <a name="other"></a>Outro
+### <a name="other"></a>Outros
 Para testar as URLs de HLS, você também pode usar:
 
 * **Safari** em um dispositivo iOS ou

@@ -9,10 +9,10 @@ ms.author: terrylan
 manager: rkarlin
 ms.date: 09/15/2020
 ms.openlocfilehash: 52cb5ac5423aac0599ba2827667ee670dde286a5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91331651"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Sistema de Proteção de Dados do Cliente para Microsoft Azure
@@ -20,15 +20,15 @@ ms.locfileid: "91331651"
 > [!NOTE]
 > Para usar esse recurso, sua organização deve ter um [plano de suporte do Azure](https://azure.microsoft.com/support/plans/) com um nível mínimo de **desenvolvedor**.
 
-Sistema de Proteção de Dados do Cliente para Microsoft Azure fornece uma interface para os clientes revisarem e aprovarem ou rejeitarem solicitações de acesso a dados do cliente. Ele é usado nos casos em que um engenheiro da Microsoft precisa acessar os dados do cliente durante uma solicitação de suporte.
+O Sistema de Proteção de Dados do Cliente para Microsoft Azure fornece uma interface para os clientes revisarem e aprovarem ou rejeitarem solicitações de acesso a dados do cliente. Ele é usado quando um engenheiro da Microsoft precisa acessar os dados do cliente durante uma solicitação de suporte.
 
 Este artigo aborda como Sistema de Proteção de Dados do Cliente solicitações são iniciadas, controladas e armazenadas para revisões e auditorias posteriores.
 
-O Sistema de Proteção de Dados do Cliente agora está disponível para o público geral e atualmente habilitado para acesso à área de trabalho remota a máquinas virtuais.
+O Sistema de Proteção de Dados do Cliente agora está disponível para o público geral e atualmente habilitado para acesso da área de trabalho remota a máquinas virtuais.
 
 ## <a name="supported-services-and-scenarios-in-preview"></a>Serviços e cenários com suporte na visualização
 
-Os serviços a seguir agora estão atualmente em visualização para Sistema de Proteção de Dados do Cliente:
+Os serviços a seguir agora estão na versão prévia do Sistema de Proteção de Dados do Cliente:
 
 - Gerenciamento de API
 - Serviço de aplicativo do Azure
@@ -56,19 +56,19 @@ Para habilitar Sistema de Proteção de Dados do Cliente para essas ofertas de v
 
 Os seguintes serviços e cenários estão atualmente em disponibilidade geral para Sistema de Proteção de Dados do Cliente.
 
-### <a name="remote-desktop-access-to-virtual-machines"></a>Acesso à área de trabalho remota a máquinas virtuais
+### <a name="remote-desktop-access-to-virtual-machines"></a>Acesso da área de trabalho remota a máquinas virtuais
 
-O Sistema de Proteção de Dados do Cliente está habilitado no momento para solicitações de acesso à área de trabalho remota para máquinas virtuais. Há suporte para as seguintes cargas de trabalho:
-- PaaS (plataforma como serviço)-serviços de nuvem do Azure (função Web e função de trabalho)
-- IaaS (infraestrutura como serviço)-Windows e Linux (somente Azure Resource Manager)
-- Conjunto de dimensionamento de máquinas virtuais-Windows e Linux
+O Sistema de Proteção de Dados do Cliente agora está habilitado para solicitações de acesso de área de trabalho remota a máquinas virtuais. As seguintes cargas de trabalho são compatíveis:
+- Plataforma como serviço (PaaS) – Serviços de Nuvem do Azure (função Web e função de trabalho)
+- Infraestrutura como serviço (IaaS) – Windows e Linux (somente Azure Resource Manager)
+- Conjunto de dimensionamento de máquinas virtuais – Windows e Linux
 
 > [!NOTE]
-> As instâncias clássicas do IaaS não são suportadas pelo Sistema de Proteção de Dados do Cliente. Se você tiver cargas de trabalho em execução em instâncias clássicas de IaaS, recomendamos migrá-las dos modelos de implantação clássico para o Resource Manager. Para obter instruções, consulte [migração de recursos de IaaS com suporte da plataforma do clássico para o Azure Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-overview.md).
+> As instâncias clássicas do IaaS não são suportadas pelo Sistema de Proteção de Dados do Cliente. Se você tiver cargas de trabalho em execução em instâncias clássicas de IaaS, recomendamos migrá-las dos modelos de implantação clássico para o Resource Manager. Para obter instruções, consulte [Migração de recursos de IaaS compatíveis com a plataforma do Classic para o Azure Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-overview.md).
 
 #### <a name="detailed-audit-logs"></a>Logs de auditoria detalhados
 
-Para cenários que envolvem acesso à área de trabalho remota, você pode usar logs de eventos do Windows para examinar as ações executadas pelo engenheiro da Microsoft. Considere usar a central de segurança do Azure para coletar seus logs de eventos e copiar os dados para o espaço de trabalho para análise. Para obter mais informações, consulte [coleta de dados na central de segurança do Azure](../../security-center/security-center-enable-data-collection.md).
+Para cenários que envolvem acesso à área de trabalho remota, você pode usar logs de eventos do Windows para revisar as ações executadas pelo engenheiro da Microsoft. Considere usar a Central de Segurança do Azure para coletar seus logs de eventos e copiar os dados para o workspace para análise. Para obter mais informações, consulte [Coleta de dados na Central de Segurança do Azure](../../security-center/security-center-enable-data-collection.md).
 
 ## <a name="workflow"></a>Fluxo de trabalho
 
@@ -125,27 +125,27 @@ Para fins de auditoria, as ações executadas nesse fluxo de trabalho são regis
 
 ## <a name="auditing-logs"></a>Logs de auditoria
 
-Os logs de Sistema de Proteção de Dados do Cliente são armazenados nos logs de atividade. No portal do Azure, selecione **logs de atividade** para exibir informações de auditoria relacionadas a sistema de proteção de dados do cliente solicitações. Você pode filtrar ações específicas, como:
-- **Negar solicitação de lockbox**
-- **Criar solicitação de lockbox**
-- **Aprovar solicitação de lockbox**
+Os logs do Sistema de Proteção de Dados do Cliente são armazenados nos logs de atividade. No portal do Azure, selecione **logs de atividade** para exibir informações de auditoria relacionadas a sistema de proteção de dados do cliente solicitações. Você pode filtrar por ações específicas, como:
+- **Negar solicitação do sistema de proteção de dados**
+- **Criar solicitação do sistema de proteção de dados**
+- **Aprovar solicitação do sistema de proteção de dados**
 - **Expiração da solicitação de lockbox**
 
 Por exemplo:
 
 ![Logs de atividades de Sistema de Proteção de Dados do Cliente do Azure](./media/customer-lockbox-overview/customer-lockbox-activitylogs.png)
 
-## <a name="customer-lockbox-integration-with-azure-security-benchmark"></a>Integração do Sistema de Proteção de Dados do Cliente com o benchmark de segurança do Azure
+## <a name="customer-lockbox-integration-with-azure-security-benchmark"></a>Integração do Sistema de Proteção de Dados do Cliente com o Azure Security Benchmark
 
 Apresentamos um novo controle de linha de base ([3,13](../benchmarks/security-control-identity-access-control.md#313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios)) no benchmark de segurança do Azure que cobre sistema de proteção de dados do cliente aplicabilidade. Agora, os clientes podem aproveitar o parâmetro de comparação para examinar Sistema de Proteção de Dados do Cliente aplicabilidade para um serviço.
 
 ## <a name="exclusions"></a>Exclusões
 
-Sistema de Proteção de Dados do Cliente solicitações não são disparadas nos seguintes cenários de suporte de engenharia:
+As solicitações do Sistema de Proteção de Dados do Cliente não são acionadas nos seguintes cenários de suporte de engenharia:
 
 - Um engenheiro da Microsoft precisa fazer uma atividade que está fora dos procedimentos operacionais padrão. Por exemplo, para recuperar ou restaurar serviços em cenários inesperados ou imprevisíveis.
 
-- Um engenheiro da Microsoft acessa a plataforma do Azure como parte da solução de problemas e, inadvertidamente, tem acesso aos dados do cliente. Por exemplo, a equipe de rede do Azure executa a solução de problemas que resulta em uma captura de pacote em um dispositivo de rede. No entanto, se o cliente criptografou os dados enquanto estava em trânsito, o engenheiro não poderá ler os dados.
+- Um engenheiro da Microsoft acessa a plataforma do Azure como parte da solução de problemas e, inadvertidamente, tem acesso aos dados do cliente. Por exemplo, a equipe de rede do Azure executa a solução de problemas que resulta em uma captura de pacote em um dispositivo de rede. No entanto, se o cliente criptografou os dados enquanto estavam em trânsito, eles não podem ser lidos pelo engenheiro.
 
 ## <a name="next-steps"></a>Próximas etapas
 
