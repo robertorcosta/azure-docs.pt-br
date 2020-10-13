@@ -11,12 +11,12 @@ ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
 ms.custom: how-to, seodec18
-ms.openlocfilehash: ab94af9ec172a3e88d523024c1e00d3a0d944798
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: a9259e287c75a3a39ad1d4e701638f38b4512ee0
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873074"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91966399"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gerenciar acesso a um workspace do Azure Machine Learning
 
@@ -66,6 +66,22 @@ az ml workspace share -w my_workspace -g my_resource_group --role Contributor --
 ## <a name="azure-machine-learning-operations"></a>Operações de Azure Machine Learning
 
 Azure Machine Learning ações internas para muitas operações e tarefas. Para obter uma lista completa, consulte [operações do provedor de recursos do Azure](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
+
+## <a name="mlflow-operations-in-azure-machine-learning"></a>Operações de MLflow no Azure Machine Learning
+
+Esta tabela descreve o escopo de permissão que deve ser adicionado a ações na função personalizada criada para executar operações de MLflow.
+
+| Operação MLflow | Escopo |
+| --- | --- |
+| Listar todos os experimentos no repositório de acompanhamento de espaço de trabalho, obter um experimento por ID, obter um experimento por nome | Microsoft. MachineLearningServices/espaços de trabalho/experimentos/leitura |
+| Criar um experimento com um nome, definir uma marca em um experimento, restaurar um experimento marcado para exclusão| Microsoft. MachineLearningServices/Workspaces/experimentos/Write | 
+| Excluir um experimento | Microsoft. MachineLearningServices/espaços de trabalho/experimentos/excluir |
+| Obter uma execução e dados e metadados relacionados, obter uma lista de todos os valores da métrica especificada para uma determinada execução, listar artefatos para uma execução | Microsoft. MachineLearningServices/espaços de trabalho/experimentos/execuções/leitura |
+| Criar uma nova execução em um experimento, excluir execuções, restaurar execuções excluídas, métricas de log na execução atual, definir marcas em uma execução, excluir marcas em uma execução, parâmetros de log (par chave-valor) usado para uma execução, registrar em log um lote de métricas, parâmetros e marcas para uma execução, atualizar status da execução | Microsoft. MachineLearningServices/Workspaces/experimentos/execuções/gravação |
+| Obter modelo registrado por nome, buscar uma lista de todos os modelos registrados no registro, Pesquisar modelos registrados, modelos de versão mais recentes para cada estágio de solicitações, obter a versão de um modelo registrado, Pesquisar versões de modelo, obter URI onde os artefatos da versão do modelo são armazenados, Pesquisar execuções por IDs de experimento | Microsoft. MachineLearningServices/Workspaces/Models/Read |
+| Criar um novo modelo registrado, atualizar o nome/descrição de um modelo registrado, renomear o modelo registrado existente, criar uma nova versão do modelo, atualizar a descrição de uma versão do modelo, fazer a transição de um modelo registrado para um dos estágios | Microsoft. MachineLearningServices/Workspaces/Models/Write |
+| Excluir um modelo registrado junto com todas as suas versões, excluir versões específicas de um modelo registrado | Microsoft. MachineLearningServices/Workspaces/modelos/excluir |
+
 
 ## <a name="create-custom-role"></a>Criar função personalizada
 
@@ -253,6 +269,46 @@ Sim, aqui estão alguns cenários comuns com definições de função propostas 
         ]
     }
     ```
+     
+* __Personalizar o cientista de dados de MLflow__: permite que um cientista de dados execute todas as operações com suporte do MLflow do AzureML **, exceto**:
+
+   * Criação de computação
+   * Implantando modelos em um cluster AKS de produção
+   * Implantando um ponto de extremidade de pipeline em produção
+
+   `mlflow_data_scientist_custom_role.json` :
+   ```json
+   {
+        "Name": "MLFlow Data Scientist Custom",
+        "IsCustom": true,
+        "Description": "Can perform azureml mlflow integrated functionalities that includes mlflow tracking, projects, model registry",
+        "Actions": [
+            "Microsoft.MachineLearningServices/workspaces/experiments/read",
+            "Microsoft.MachineLearningServices/workspaces/experiments/write",
+            "Microsoft.MachineLearningServices/workspaces/experiments/delete",
+            "Microsoft.MachineLearningServices/workspaces/experiments/runs/read",
+            "Microsoft.MachineLearningServices/workspaces/experiments/runs/write",
+            "Microsoft.MachineLearningServices/workspaces/models/read",
+            "Microsoft.MachineLearningServices/workspaces/models/write",
+            "Microsoft.MachineLearningServices/workspaces/models/delete"
+        ],
+        "NotActions": [
+            "Microsoft.MachineLearningServices/workspaces/delete",
+            "Microsoft.MachineLearningServices/workspaces/write",
+            "Microsoft.MachineLearningServices/workspaces/computes/*/write",
+            "Microsoft.MachineLearningServices/workspaces/computes/*/delete", 
+            "Microsoft.Authorization/*",
+            "Microsoft.MachineLearningServices/workspaces/computes/listKeys/action",
+            "Microsoft.MachineLearningServices/workspaces/listKeys/action",
+            "Microsoft.MachineLearningServices/workspaces/services/aks/write",
+            "Microsoft.MachineLearningServices/workspaces/services/aks/delete",
+            "Microsoft.MachineLearningServices/workspaces/endpoints/pipelines/write"
+        ],
+     "AssignableScopes": [
+            "/subscriptions/<subscription_id>"
+        ]
+    }
+    ```   
 
 * __MLOps Custom__: permite que você atribua uma função a uma entidade de serviço e use-a para automatizar seus pipelines do MLOps. Por exemplo, para enviar execuções em um pipeline já publicado:
 

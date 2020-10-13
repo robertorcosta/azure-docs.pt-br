@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/05/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: f89358f4ca34c39527d7e65307ada042ba3df7e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6519f9d549c513e03400366447812a170f9ab41c
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776146"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978655"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Armazenamento Premium do Azure: projeto para alto desempenho
 
@@ -130,7 +130,7 @@ Os contadores do PerfMon estão disponíveis para processador, memória e cada d
 | **IOPS Máxima** |Quantidade de memória exigida para execução perfeita do aplicativo |% de Bytes Confirmados em Uso |Usar o vmstat |
 | **IOPS Máxima** |Quantidade de CPU exigida para a execução perfeita do aplicativo |% do Tempo do Processador |%util |
 
-Saiba mais sobre o [iostat](https://linux.die.net/man/1/iostat) e [PerfMon](https://docs.microsoft.com/windows/win32/perfctrs/performance-counters-portal).
+Saiba mais sobre o [iostat](https://linux.die.net/man/1/iostat) e [PerfMon](/windows/win32/perfctrs/performance-counters-portal).
 
 
 
@@ -343,7 +343,7 @@ Há definições de configuração que você pode alterar para influenciar esse 
 
 Por exemplo, digamos que seu aplicativo que usa SQL Server está executando uma consulta grande e uma operação de índice ao mesmo tempo. Vamos supor que você gostaria que a operação de índice tivesse um desempenho melhor do que a consulta grande. Nesse caso, você pode definir o valor MAXDOP da operação de índice para que seja maior que o valor MAXDOP da consulta. Dessa forma, o SQL Server tem maior número de processadores que pode aproveitar para a operação de índice em comparação ao número de processadores que pode dedicar à consulta grande. Lembre-se de que você não controla o número de threads que o SQL Server usará para cada operação. É possível controlar o número máximo de processadores que está sendo dedicado ao multithreading.
 
-Saiba mais sobre [Graus de Paralelismo](https://technet.microsoft.com/library/ms188611.aspx) no SQL Server. Descubra as configurações que influenciam o multithreading em seu aplicativo e as respectivas configurações para otimizar o desempenho.
+Saiba mais sobre [Graus de Paralelismo](/previous-versions/sql/sql-server-2008-r2/ms188611(v=sql.105)) no SQL Server. Descubra as configurações que influenciam o multithreading em seu aplicativo e as respectivas configurações para otimizar o desempenho.
 
 ## <a name="queue-depth"></a>Profundidade da fila
 

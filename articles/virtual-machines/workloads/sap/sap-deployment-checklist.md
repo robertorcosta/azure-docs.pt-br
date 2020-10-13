@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9991bae3d5c8487cc80cca0bf9a249e715b5c521
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e80332b172eeb4c49ae068e1781ffcaf1657f13
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89650694"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978213"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Cargas de trabalho do SAP no Azure: lista de verificação de planejamento e implantação
 
@@ -60,8 +60,8 @@ Durante essa fase, você planeja a migração da carga de trabalho do SAP para a
     - O uso de configurações de cluster de vários SID para serviços centrais do SAP tem suporte em sistemas operacionais convidados Windows, SLES e RHEL no Azure. Tenha em mente que o RADIUS pode aumentar o mais ASCS/SCS que você coloca em um cluster de vários SID. Você pode encontrar a documentação para o respectivo cenário de sistema operacional convidado nestes artigos:
         - [Alta disponibilidade de vários SIDs da instância do SAP ASCS/SCS com clustering de failover do Windows Server e disco compartilhado no Azure](./sap-ascs-ha-multi-sid-wsfc-shared-disk.md)
         - [Alta disponibilidade de vários SIDs da instância do SAP ASCS com clustering de failover do Windows Server e compartilhamento de arquivos no Azure](./sap-ascs-ha-multi-sid-wsfc-file-share.md)
-        - [Alta disponibilidade para SAP NetWeaver em VMs do Azure em SUSE Linux Enterprise Server para aplicativos SAP guia de vários SIDs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid)
-        - [Alta disponibilidade para SAP NetWeaver em VMs do Azure em Red Hat Enterprise Linux para aplicativos SAP guia de vários SIDs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-multi-sid)
+        - [Alta disponibilidade para SAP NetWeaver em VMs do Azure em SUSE Linux Enterprise Server para aplicativos SAP guia de vários SIDs](./high-availability-guide-suse-multi-sid.md)
+        - [Alta disponibilidade para SAP NetWeaver em VMs do Azure em Red Hat Enterprise Linux para aplicativos SAP guia de vários SIDs](./high-availability-guide-rhel-multi-sid.md)
     - Arquitetura de alta disponibilidade e recuperação de desastres.
         - Com base no RTO e no RPO, defina o que a arquitetura de alta disponibilidade e recuperação de desastre precisará ser parecida.
         - Para alta disponibilidade em uma zona, verifique o que o DBMS desejado tem a oferecer no Azure. A maioria dos pacotes DBMS oferece métodos síncronos de uma espera ativa síncrona, que é recomendável para sistemas de produção. Verifique também a documentação relacionada ao SAP para bancos de dados diferentes, começando com [considerações para implantação de DBMS de máquinas virtuais do Azure para cargas de trabalho do SAP](./dbms_guide_general.md) e documentos relacionados.
@@ -109,7 +109,7 @@ Recomendamos que você configure e valide uma solução HADR completa e um desig
            -  [Tamanhos das máquinas virtuais do Windows no Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). É importante considerar a taxa de *transferência máxima do disco não armazenado em cache* para o dimensionamento.
            -  [Tamanhos das máquinas virtuais do Linux no Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). É importante considerar a taxa de *transferência máxima do disco não armazenado em cache* para o dimensionamento.
    2. Armazenamento.
-        - Verificar o documento [tipos de armazenamento do Azure para carga de trabalho SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage)
+        - Verificar o documento [tipos de armazenamento do Azure para carga de trabalho SAP](./planning-guide-storage.md)
         - No mínimo, use o [armazenamento de SSD standard do Azure](../../disks-types.md#standard-ssd) para VMs que representam as camadas do aplicativo SAP e para a implantação de DBMSs que não são sensíveis ao desempenho.
         - Em geral, não recomendamos o uso de [discos HDD standard do Azure](../../disks-types.md#standard-hdd).
         - Use o [armazenamento Premium do Azure](../../disks-types.md#premium-ssd) para qualquer VM DBMS que seja sensível ao desempenho remotamente.
@@ -127,7 +127,7 @@ Recomendamos que você configure e valide uma solução HADR completa e um desig
         - Avalie e teste o caminho de dados entre a camada de aplicativo SAP e a camada do DBMS SAP.
             -  O posicionamento de [dispositivos virtuais de rede do Azure](https://azure.microsoft.com/solutions/network-appliances/) no caminho de comunicação entre o aplicativo SAP e a camada DBMS de sistemas SAP baseados em SAP NetWeaver, Hybris ou S/4HANA não tem suporte.
             -  Não há suporte para o posicionamento da camada de aplicativo SAP e do DBMS do SAP em diferentes redes virtuais do Azure que não são emparelhadas.
-            -  Você pode usar [as regras grupo de segurança de aplicativos e grupo de segurança de rede](../../../virtual-network/security-overview.md) para definir rotas entre a camada de aplicativo SAP e a camada do DBMS SAP.
+            -  Você pode usar [as regras grupo de segurança de aplicativos e grupo de segurança de rede](../../../virtual-network/network-security-groups-overview.md) para definir rotas entre a camada de aplicativo SAP e a camada do DBMS SAP.
         - Verifique se a [rede acelerada do Azure](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) está habilitada nas VMs usadas na camada de aplicativo SAP e na camada do DBMS SAP. Lembre-se de que diferentes níveis de sistema operacional são necessários para dar suporte à Rede Acelerada no Azure:
             - Windows Server 2012 R2 ou posterior.
             - SUSE Linux 12 SP3 ou posterior.
@@ -138,7 +138,7 @@ Recomendamos que você configure e valide uma solução HADR completa e um desig
         - Se você estiver usando Azure Load Balancer junto com os sistemas operacionais convidados do Linux, verifique se o parâmetro de rede do Linux **net.IPv4.tcp_timestamps** está definido como **0**. Essa recomendação entra em conflito com recomendações em versões mais antigas do [SAP note #2382421](https://launchpad.support.sap.com/#/notes/2382421). A nota SAP agora é atualizada para declarar que esse parâmetro precisa ser definido como **0** para funcionar com os balanceadores de carga do Azure.
         - Considere usar [grupos de posicionamento de proximidade do Azure](../../linux/co-location.md) para obter a latência de rede ideal. Para obter mais informações, consulte [grupos de posicionamento de proximidade do Azure para latência de rede ideal com aplicativos SAP](sap-proximity-placement-scenarios.md).
    4. Implantações de alta disponibilidade e recuperação de desastres.
-        - Se você implantar a camada de aplicativo SAP sem definir uma zona de disponibilidade do Azure específica, certifique-se de que todas as VMs que executam instâncias de diálogo do SAP ou instâncias de middleware de um único sistema SAP sejam implantadas em um [conjunto de disponibilidade](../../windows/manage-availability.md).
+        - Se você implantar a camada de aplicativo SAP sem definir uma zona de disponibilidade do Azure específica, certifique-se de que todas as VMs que executam instâncias de diálogo do SAP ou instâncias de middleware de um único sistema SAP sejam implantadas em um [conjunto de disponibilidade](../../manage-availability.md).
         - Se você não precisar de alta disponibilidade para os serviços centrais do SAP e o DBMS, poderá implantar essas VMs no mesmo conjunto de disponibilidade que a camada de aplicativo SAP.
         - Se você proteger os serviços SAP central e a camada do DBMS para alta disponibilidade usando a replicação passiva, coloque os dois nós para os serviços centrais do SAP em um conjunto de disponibilidade separado e os dois nós DBMS em outro conjunto de disponibilidade.
         - Se você implantar o no Zonas de Disponibilidade do Azure, não poderá usar conjuntos de disponibilidade. Mas você precisa se certificar de implantar os nós de serviços centrais ativos e passivos em duas Zonas de Disponibilidade diferentes. Use Zonas de Disponibilidade que tenham a menor latência entre eles.
@@ -179,7 +179,7 @@ Recomendamos que você configure e valide uma solução HADR completa e um desig
    4. Teste a arquitetura e a funcionalidade de DR entre regiões.
 1. Verificações de segurança.
    1. Teste a validade da arquitetura do Azure RBAC (controle de acesso baseado em função) do Azure. O objetivo é separar e limitar o acesso e as permissões de equipes diferentes. Por exemplo, os membros da equipe SAP devem ser capazes de implantar VMs e atribuir discos do armazenamento do Azure em uma determinada rede virtual do Azure. Mas a equipe da SAP não deve ser capaz de criar suas próprias redes virtuais ou alterar as configurações de redes virtuais existentes. Os membros da equipe de rede não devem ser capazes de implantar VMs em redes virtuais nas quais o aplicativo SAP e as VMs do DBMS estão em execução. Nem os membros dessa equipe podem alterar atributos de VMs ou até mesmo excluir VMs ou discos.  
-   1.  Verifique se o [grupo de segurança de rede e as regras de ASC](../../../virtual-network/security-overview.md) funcionam conforme o esperado e proteja os recursos protegidos.
+   1.  Verifique se o [grupo de segurança de rede e as regras de ASC](../../../virtual-network/network-security-groups-overview.md) funcionam conforme o esperado e proteja os recursos protegidos.
    1.  Verifique se todos os recursos que precisam ser criptografados foram criptografados. Defina e implemente processos para fazer backup de certificados, armazenar e acessar esses certificados e restaurar as entidades criptografadas.
    1.  Use [Azure Disk Encryption](../../../security/fundamentals/azure-disk-encryption-vms-vmss.md) para discos do sistema operacional, quando possível, de um ponto de vista de suporte do so.
    1.  Certifique-se de que você não está usando muitas camadas de criptografia. Em alguns casos, faz sentido usar Azure Disk Encryption junto com um dos métodos Transparent Data Encryption DBMS para proteger diferentes discos ou componentes no mesmo servidor.  Por exemplo, em um servidor do SAP DBMS, o Azure Disk Encryption (ADE) pode ser habilitado no disco de inicialização do sistema operacional (se o sistema operacional oferecer suporte a ADE) e os discos de dados não usados pelos arquivos de persistência de dados do DBMS.  Um exemplo é usar o ADE no disco que contém as chaves de criptografia do DBMS TDE.

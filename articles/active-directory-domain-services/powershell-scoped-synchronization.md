@@ -2,20 +2,20 @@
 title: Sincronização com escopo usando o PowerShell para Azure AD Domain Services | Microsoft Docs
 description: Saiba como usar o PowerShell do Azure AD para configurar a sincronização com escopo do Azure AD para um Azure Active Directory Domain Services domínio gerenciado
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/24/2020
-ms.author: iainfou
-ms.openlocfilehash: 197ae37b0c63b19ebe4dcdf2732169be0f357a07
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: dc6ebb88440ecdccc3ea78d85f0b6186100da01a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87293937"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91967876"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-azure-active-directory-domain-services-using-azure-ad-powershell"></a>Configurar a sincronização com escopo do Azure AD para Azure Active Directory Domain Services usando o PowerShell do Azure AD
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 9a31a22a5b037162198f594d9bcf35c91a0a4654
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 25e3a9cb363ae4e64b953aeb7a6da4e2e66c9fc7
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91306864"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977091"
 ---
 # <a name="azure-serial-console-for-linux"></a>Console serial do Azure para Linux
 
@@ -73,7 +73,7 @@ Oracle Linux        | Acesso ao console serial habilitado por padrão.
 ### <a name="custom-linux-images"></a>Imagens personalizadas do Linux
 Para ativar o console serial para sua imagem customizada da VM Linux, ative o acesso ao console no arquivo */ etc / inittab* para executar um terminal em`ttyS0`. Por exemplo: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. Talvez você também precise gerar um Getty em ttyS0. Isso pode ser feito com `systemctl start serial-getty@ttyS0.service` .
 
-Você também vai querer adicionar ttyS0 como o destino para a saída serial. Para obter mais informações sobre como configurar uma imagem personalizada para trabalhar com o console serial, consulte os requisitos gerais do sistema em [criar e carregar um VHD do Linux no Azure](https://aka.ms/createuploadvhd#general-linux-system-requirements).
+Você também vai querer adicionar ttyS0 como o destino para a saída serial. Para obter mais informações sobre como configurar uma imagem personalizada para trabalhar com o console serial, consulte os requisitos gerais do sistema em [criar e carregar um VHD do Linux no Azure](../linux/create-upload-generic.md#general-linux-system-requirements).
 
 Se você está construindo um kernel personalizado, considere habilitar esses flags do kernel: `CONFIG_SERIAL_8250=y` e `CONFIG_MAGIC_SYSRQ_SERIAL=y`. O arquivo de configuração normalmente está localizado na */boot/* caminho.
 
@@ -128,7 +128,7 @@ Problema                           |   Atenuação
 Pressionando **Enter** depois que o banner de conexão não faz com que um prompt de login seja exibido. | O GRUB pode não estar configurado corretamente. Execute os seguintes comandos: `grub2-mkconfig -o /etc/grub2-efi.cfg` e/ou `grub2-mkconfig -o /etc/grub2.cfg` . Para mais informações, consulte [Hitting enter não faz nada](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Esse problema pode ocorrer se você estiver executando uma VM personalizada, um dispositivo protegido ou uma configuração do GRUB que faz com que o Linux falhe na conexão com a porta serial.
 O texto do console serial ocupa apenas uma parte do tamanho da tela (geralmente depois de usar um editor de texto). | Os consoles seriais não dão suporte à negociação do tamanho da janela ([RFC 1073](https://www.ietf.org/rfc/rfc1073.txt)), o que significa que nenhum sinal SIGWINCH será enviado para atualizar o tamanho da tela e a VM não saberá o tamanho do seu terminal. Instale o xterm ou um utilitário semelhante para fornecer o comando `resize` e, em seguida, execute `resize`.
 Colar longas cadeias de caracteres não funciona. | O console serial limita o comprimento de cadeias de caracteres colados em terminal a 2048 caracteres para impedir a sobrecarga da largura de banda de porta serial.
-Entrada de teclado irregular em imagens SLES BYOS. A entrada do teclado é reconhecida apenas esporadicamente. | Isso é um problema com o pacote Plymouth. Plymouth não deve ser executado no Azure porque você não precisa de uma tela inicial e Plymouth interfere na capacidade da plataforma de usar o console serial. Remova Plymouth com `sudo zypper remove plymouth` e reinicialize. Como alternativa, modifique a linha de kernel da configuração do GRUB anexando `plymouth.enable=0` ao final da linha. Você pode fazer isso [editando a entrada de inicialização no momento da inicialização](https://aka.ms/serialconsolegrub#single-user-mode-in-suse-sles)ou editando a linha de GRUB_CMDLINE_LINUX no `/etc/default/grub` , recriando o grub com `grub2-mkconfig -o /boot/grub2/grub.cfg` e reinicializando.
+Entrada de teclado irregular em imagens SLES BYOS. A entrada do teclado é reconhecida apenas esporadicamente. | Isso é um problema com o pacote Plymouth. Plymouth não deve ser executado no Azure porque você não precisa de uma tela inicial e Plymouth interfere na capacidade da plataforma de usar o console serial. Remova Plymouth com `sudo zypper remove plymouth` e reinicialize. Como alternativa, modifique a linha de kernel da configuração do GRUB anexando `plymouth.enable=0` ao final da linha. Você pode fazer isso [editando a entrada de inicialização no momento da inicialização](./serial-console-grub-single-user-mode.md#single-user-mode-in-suse-sles)ou editando a linha de GRUB_CMDLINE_LINUX no `/etc/default/grub` , recriando o grub com `grub2-mkconfig -o /boot/grub2/grub.cfg` e reinicializando.
 
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes

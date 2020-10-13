@@ -6,12 +6,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 639764c9cae5e27e90a55da00b246807e49d2a20
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a3a7cad8399146834eed0282e0655a551bc083a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88652841"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977265"
 ---
 # <a name="move-mainframe-storage-to-azure"></a>Mover o armazenamento de mainframe para o Azure
 
@@ -51,13 +51,13 @@ O armazenamento do Azure está disponível como [discos do Azure](../../../manag
 
 <table>
 <thead>
-    <tr><th>Tipo</th><th>Descrição</th><th>Use quando desejar:</th></tr>
+    <tr><th>Type</th><th>Descrição</th><th>Use quando desejar:</th></tr>
 </thead>
 <tbody>
 <tr><td>Arquivos do Azure
 </td>
 <td>
-Fornece uma interface SMB, bibliotecas de cliente e uma interface <a href="https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api">REST</a> que permite o acesso de qualquer lugar a arquivos armazenados.
+Fornece uma interface SMB, bibliotecas de cliente e uma interface <a href="/rest/api/storageservices/file-service-rest-api">REST</a> que permite o acesso de qualquer lugar a arquivos armazenados.
 </td>
 <td><ul>
 <li>Levante e desloca um aplicativo para a nuvem quando o aplicativo usa as APIs do sistema de arquivos nativo para compartilhar dados entre ele e outros aplicativos em execução no Azure.</li>
@@ -67,7 +67,7 @@ Fornece uma interface SMB, bibliotecas de cliente e uma interface <a href="https
 </tr>
 <tr><td>Blobs do Azure
 </td>
-<td>Fornece bibliotecas de cliente e uma interface <a href="https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api">REST</a> que permite que dados não estruturados sejam armazenados e acessados em grande escala em blobs de blocos. Também dá suporte ao <a href="/azure/storage/blobs/data-lake-storage-introduction">Azure Data Lake Storage Gen2</a> para soluções de análise de big data do enterprise.
+<td>Fornece bibliotecas de cliente e uma interface <a href="/rest/api/storageservices/blob-service-rest-api">REST</a> que permite que dados não estruturados sejam armazenados e acessados em grande escala em blobs de blocos. Também dá suporte ao <a href="/azure/storage/blobs/data-lake-storage-introduction">Azure Data Lake Storage Gen2</a> para soluções de análise de big data do enterprise.
 </td>
 <td><ul>
 <li>Suporte a streaming e cenários de acesso aleatório em um aplicativo.</li>
@@ -77,7 +77,7 @@ Fornece uma interface SMB, bibliotecas de cliente e uma interface <a href="https
 </tr>
 <tr><td>Discos do Azure
 </td>
-<td>Fornece bibliotecas de cliente e uma interface <a href="https://docs.microsoft.com/rest/api/compute/disks">REST</a> que permite que os dados sejam armazenados de forma persistente e acessados de um disco rígido virtual anexado.
+<td>Fornece bibliotecas de cliente e uma interface <a href="/rest/api/compute/disks">REST</a> que permite que os dados sejam armazenados de forma persistente e acessados de um disco rígido virtual anexado.
 </td>
 <td><ul>
 <li>Migre e SHIFTe os aplicativos que usam APIs do sistema de arquivos nativas para ler e gravar dados em discos persistentes.</li>
@@ -94,7 +94,7 @@ O tipo de armazenamento de um determinado sistema depende dos requisitos do sist
 
 O SSDs fornece o melhor desempenho de armazenamento no Azure. As seguintes opções estão disponíveis (a partir da escrita deste documento):
 
-| Tipo         | Tamanho           | IOPS                  |
+| Type         | Tamanho           | IOPS                  |
 |--------------|----------------|-----------------------|
 | SSD Ultra    | 4 GB a 64 TB  | 1.200 a 160.000 IOPS |
 | SSD Premium  | 32 GB a 32 TB | 12 a 15.000 IOPS     |

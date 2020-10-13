@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: kegorman
-ms.openlocfilehash: 70de7363634cee2790a40ecf056134cf002c762d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c84d97a86dd1dc912964b78d488c460faa744dd2
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91274700"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977333"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Projete e implemente um banco de dados Oracle no Azure
 
@@ -49,11 +49,11 @@ A tabela a seguir lista algumas das diferenças entre uma implementação local 
 | **Rede** |LAN/WAN  |SDN (Rede definida por software)|
 | **Grupo de segurança** |Ferramentas de restrições de IP/porta |[Grupo de segurança de rede (NSG)](https://azure.microsoft.com/blog/network-security-groups) |
 | **Resiliência** |MTBF (tempo médio entre falhas) |MTTR (tempo médio para recuperação)|
-| **Manutenção planejada** |Aplicação de patch/upgrades|[Conjuntos de disponibilidade](../../windows/infrastructure-example.md) (aplicação de patch/upgrades gerenciados pelo Azure) |
+| **Manutenção planejada** |Aplicação de patch/upgrades|[Conjuntos de disponibilidade](/previous-versions/azure/virtual-machines/windows/infrastructure-example) (aplicação de patch/upgrades gerenciados pelo Azure) |
 | **Recurso** |Dedicado  |Compartilhado com outros clientes|
 | **Regiões** |Datacenters |[Pares de regiões](../../regions.md#region-pairs)|
 | **Storage** |SAN/discos físicos |[Armazenamento gerenciado pelo Azure](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
-| **Escala** |Escala vertical |Escala horizontal|
+| **Dimensionar** |Escala vertical |Escala horizontal|
 
 
 ### <a name="requirements"></a>Requisitos
@@ -230,7 +230,7 @@ Depois de instalar e configurar seu ambiente do Azure, a próxima etapa será pr
 - [Configurar o Oracle ASM](configure-oracle-asm.md)
 - [Configurar o Oracle Data Guard](configure-oracle-dataguard.md)
 - [Configurar o Oracle Golden Gate](configure-oracle-golden-gate.md)
-- [Backup e recuperação do Oracle](oracle-backup-recovery.md)
+- [Backup e recuperação do Oracle](./oracle-overview.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 

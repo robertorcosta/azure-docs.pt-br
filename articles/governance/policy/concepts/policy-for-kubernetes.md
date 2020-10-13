@@ -3,12 +3,12 @@ title: Saiba Azure Policy para kubernetes
 description: Saiba como o Azure Policy usa o Rego e o Open Policy Agent para gerenciar clusters que executam o Kubernetes no Azure ou localmente.
 ms.date: 09/29/2020
 ms.topic: conceptual
-ms.openlocfilehash: 67c6af4842ea1f404468497930b08c36ecd1abb9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3478a98ef98001ee8a2e3bb502bf289ed52285e7
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540244"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951529"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Noções básicas sobre clusters do Azure Policy para Kubernetes
 
@@ -57,6 +57,7 @@ As seguintes limitações gerais se aplicam ao complemento de Azure Policy para 
 - Não há suporte para instalações do gatekeeper fora do Azure Policy complemento. Desinstale todos os componentes instalados por uma instalação anterior do gatekeeper antes de habilitar o complemento de Azure Policy.
 - Os [motivos para não conformidade](../how-to/determine-non-compliance.md#compliance-reasons) não estão disponíveis para o `Microsoft.Kubernetes.Data` 
    [modo do provedor de recursos](./definition-structure.md#resource-provider-modes). Use os [detalhes do componente](../how-to/determine-non-compliance.md#component-details-for-resource-provider-modes).
+- Não há suporte para [isenções](./exemption-structure.md) nos [modos de provedor de recursos](./definition-structure.md#resource-provider-modes).
 
 As seguintes limitações se aplicam somente ao complemento Azure Policy para AKS:
 

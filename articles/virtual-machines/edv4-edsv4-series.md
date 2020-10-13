@@ -9,16 +9,16 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/04/2020
-ms.openlocfilehash: 4c69f78ababedde30e9cb41613b8e9537c738b5f
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: eb809b2dabe2d8b28f05b328877e1a20dbeacbc3
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945627"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977605"
 ---
 # <a name="edv4-and-edsv4-series"></a>Séries Edv4 e Edsv4
 
-As séries Edv4 e Edsv4 são executadas nos processadores Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) em uma configuração hyper-threaded e são ideais para vários aplicativos empresariais com uso intensivo de memória e contam com até 504 GiB de RAM, com Tecnologia [Intel&reg;](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html) Turbo Boost 2.0, Tecnologia [Intel&reg;](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) Hyper-Threading e [Intel&reg; Advanced Vector Extensions 512 (Intel&reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). Eles também dão suporte ao [ &reg; aumento de aprendizado profundo da Intel](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html). Esses novos tamanhos de VM terão 50% de armazenamento local maior, bem como um IOPS de disco local melhor para leitura e gravação em comparação com os tamanhos de [Ev3/Esv3](./ev3-esv3-series.md) com [VMs Gen2](./linux/generation-2.md). Ele apresenta toda a velocidade do relógio Turbo principal de 3,4 GHz. 
+As séries Edv4 e Edsv4 são executadas nos processadores Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) em uma configuração hyper-threaded e são ideais para vários aplicativos empresariais com uso intensivo de memória e contam com até 504 GiB de RAM, com Tecnologia [Intel&reg;](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html) Turbo Boost 2.0, Tecnologia [Intel&reg;](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) Hyper-Threading e [Intel&reg; Advanced Vector Extensions 512 (Intel&reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). Eles também dão suporte ao [ &reg; aumento de aprendizado profundo da Intel](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html). Esses novos tamanhos de VM terão 50% de armazenamento local maior, bem como um IOPS de disco local melhor para leitura e gravação em comparação com os tamanhos de [Ev3/Esv3](./ev3-esv3-series.md) com [VMs Gen2](./generation-2.md). Ele apresenta toda a velocidade do relógio Turbo principal de 3,4 GHz. 
 
 ## <a name="edv4-series"></a>Série Edv4
 

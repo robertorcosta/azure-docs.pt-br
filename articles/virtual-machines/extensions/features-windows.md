@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 611edb06762b96ded7671b70ec0f5d4f07f51848
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 78ea26adb8299cc13d4677c66a0e06cba901d9dc
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87829077"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977367"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Recursos e extensões da máquina virtual para Windows
 
@@ -70,7 +70,7 @@ Os pacotes de extensão são baixados do repositório de extensão do Armazename
 > [!IMPORTANT]
 > Se você tiver bloqueado o acesso ao *168.63.129.16* usando o firewall convidado ou com um proxy, as extensões falharão independentemente das anteriores. As portas 80, 443 e 32526 são necessárias.
 
-Os agentes só podem ser usados para baixar os pacotes de extensão e o status do relatório. Por exemplo, se uma instalação da extensão precisar baixar um script do GitHub (Script Personalizado) ou precisar ter acesso ao Armazenamento do Microsoft Azure (Backup do Azure), então outras portas de firewall/Grupo de Segurança de Rede precisarão ser abertas. Diferentes extensões têm requisitos diferentes, já que são aplicativos por si só. Para extensões que exigem acesso ao armazenamento ou Azure Active Directory do Azure, você pode permitir o acesso usando as [marcas do serviço NSG do Azure](../../virtual-network/security-overview.md#service-tags) para armazenamento ou AzureActiveDirectory.
+Os agentes só podem ser usados para baixar os pacotes de extensão e o status do relatório. Por exemplo, se uma instalação da extensão precisar baixar um script do GitHub (Script Personalizado) ou precisar ter acesso ao Armazenamento do Microsoft Azure (Backup do Azure), então outras portas de firewall/Grupo de Segurança de Rede precisarão ser abertas. Diferentes extensões têm requisitos diferentes, já que são aplicativos por si só. Para extensões que exigem acesso ao armazenamento ou Azure Active Directory do Azure, você pode permitir o acesso usando as [marcas do serviço NSG do Azure](../../virtual-network/network-security-groups-overview.md#service-tags) para armazenamento ou AzureActiveDirectory.
 
 O agente convidado do Windows não tem suporte de servidor proxy para redirecionar solicitações de tráfego do agente por meio do, o que significa que o agente convidado do Windows dependerá do seu proxy personalizado (se você tiver um) para acessar recursos na Internet ou no host por meio de 168.63.129.16 IP.
 

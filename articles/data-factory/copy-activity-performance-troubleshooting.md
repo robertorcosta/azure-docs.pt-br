@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/10/2020
-ms.openlocfilehash: d464124c6841cb2e3186d521b93d7ae08f94c9e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/12/2020
+ms.openlocfilehash: b21f7ba81a74482da6fc4a59948bf16036e5d337
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440517"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951070"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Solucionar problemas de desempenho da atividade de cópia
 
@@ -40,7 +40,7 @@ Como referência, no momento as dicas de ajuste de desempenho fornecem sugestõe
 | Específico do armazenamento de dados   | Carregando dados no **Azure Synpase Analytics (anteriormente conhecido como SQL DW)**: sugira usar o polybase ou a instrução de cópia se ele não for usado. |
 | &nbsp;                | Copiando dados de/para o banco de dado **SQL do Azure**: quando DTU está sob alta utilização, sugira atualizar para uma camada superior. |
 | &nbsp;                | Copiando dados de/para **Azure Cosmos DB**: quando ru está sob alta utilização, sugira atualizar para ru maior. |
-|                       | Copiando dados da **tabela SAP**: ao copiar uma grande quantidade de dados, sugira para aproveitar a opção de partição do conector SAP para habilitar a carga paralela e aumentar o número máximo de partições. |
+|                       | Copiando dados da **tabela SAP**: ao copiar uma grande quantidade de dados, sugira aproveitar a opção de partição do conector SAP para habilitar a carga paralela e aumentar o número máximo de partições. |
 | &nbsp;                | Ingestão de dados do **Amazon redshift**: sugira o uso de Unload se ele não for usado. |
 | Limitação do repositório de dados | Se várias operações de leitura/gravação forem limitadas pelo armazenamento de dados durante a cópia, sugira verificar e aumentar a taxa de solicitação permitida para o armazenamento de dados ou reduzir a carga de trabalho simultânea. |
 | Tempo de execução de integração  | Se você usar um **ir (autohospedado Integration Runtime)** e a atividade de cópia aguardar tempo na fila até que o ir tenha o recurso disponível para ser executado, sugira escalar horizontalmente/verticalmente o ir. |
@@ -74,7 +74,7 @@ Quando o desempenho da atividade de cópia não atender à sua expectativa, para
 
     - Verifique se você pode [copiar arquivos com base no caminho ou nome do arquivo particionado DateTime](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md). Dessa forma, não traz a responsabilidade de listar a origem.
 
-    - Verifique se você pode usar o filtro nativo do repositório de dados, especificamente "**prefixo**" para o Amazon S3 e o blob do Azure. O filtro de prefixo é um filtro do servidor de armazenamento de dados e teria um desempenho muito melhor.
+    - Verifique se você pode usar o filtro nativo do repositório de dados em vez disso, especificamente "**prefixo**" para o Amazon S3/blob do Azure/armazenamento de arquivos do Azure e "**listAfter/listBefore**" para ADLS Gen1. Esses filtros são um filtro do lado do servidor do armazenamento de dados e teriam um desempenho muito melhor.
 
     - Considere dividir um único conjunto de dados grande em vários conjuntos de dados menores e permitir que esses trabalhos de cópia sejam executados simultaneamente, cada um resolve a parte dos dados. Você pode fazer isso com Lookup/GetMetadata + ForEach + copiar. Consulte [copiar arquivos de vários contêineres](solution-template-copy-files-multiple-containers.md) ou [migrar dados do Amazon S3 para ADLS Gen2](solution-template-migration-s3-azure.md) modelos de solução como exemplo geral.
 
@@ -128,7 +128,7 @@ Quando o desempenho da cópia não atender à sua expectativa, para solucionar p
 
     - Verifique se você pode [copiar arquivos com base no caminho ou nome do arquivo particionado DateTime](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md). Dessa forma, não traz a responsabilidade de listar a origem.
 
-    - Verifique se você pode usar o filtro nativo do repositório de dados, especificamente "**prefixo**" para o Amazon S3 e o blob do Azure. O filtro de prefixo é um filtro do servidor de armazenamento de dados e teria um desempenho muito melhor.
+    - Verifique se você pode usar o filtro nativo do repositório de dados em vez disso, especificamente "**prefixo**" para o Amazon S3/blob do Azure/armazenamento de arquivos do Azure e "**listAfter/listBefore**" para ADLS Gen1. Esses filtros são um filtro do lado do servidor do armazenamento de dados e teriam um desempenho muito melhor.
 
     - Considere dividir um único conjunto de dados grande em vários conjuntos de dados menores e permitir que esses trabalhos de cópia sejam executados simultaneamente, cada um resolve a parte dos dados. Você pode fazer isso com Lookup/GetMetadata + ForEach + copiar. Consulte [copiar arquivos de vários contêineres](solution-template-copy-files-multiple-containers.md) ou [migrar dados do Amazon S3 para ADLS Gen2](solution-template-migration-s3-azure.md) modelos de solução como exemplo geral.
 

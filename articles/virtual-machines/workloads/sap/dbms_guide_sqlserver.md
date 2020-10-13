@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 56a7b91327e84ca36e6ec6e4b15f594dbc61830e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76bc3273177e94c7619d69293c1e79546d96662c
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91274292"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977299"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Implantação do DBMS de Máquinas de Virtuais do SQL Server Azure para NetWeaver do SAP
 
@@ -384,13 +384,13 @@ O SQL Server 2014 e versões mais recentes abrem a possibilidade para armazenar 
 * O cache baseado em host disponível para discos de Armazenamento Premium do Azure não está disponível para arquivos de dados do SQL Server colocados diretamente nos blobs do Azure.
 * Em VMs da série M, acelerador de gravação do Azure não pode ser usado para dar suporte a gravações de submilissegundo contra o arquivo de log de transações do SQL Server. 
 
-Os detalhes dessa funcionalidade podem ser encontrados no artigo [arquivos de dados do SQL Server no Microsoft Azure](https://docs.microsoft.com/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure)
+Os detalhes dessa funcionalidade podem ser encontrados no artigo [arquivos de dados do SQL Server no Microsoft Azure](/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure)
 
 Recomendação para sistemas de produção é para evitar essa configuração em vez disso, escolha os posicionamentos de dados do SQL Server e arquivos de log em VHDs do armazenamento Premium do Azure, em vez de diretamente nos blobs do Azure.
 
 
 ## <a name="sql-server-2014-buffer-pool-extension"></a>Extensão do pool de buffers do SQL Server 2014
-O SQL Server 2014 introduziu um novo recurso, chamado [Extensão do Pool de Buffers](https://docs.microsoft.com/sql/database-engine/configure-windows/buffer-pool-extension). Essa funcionalidade estende o pool de buffers do SQL Server, que é mantida na memória com um cache de segundo nível apoiado por SSDs local de um servidor ou VM. A extensão do pool de buffers permite manter um conjunto de trabalho maior de dados 'na memória'. Em comparação ao acesso ao Armazenamento Standard do Azure, o acesso à extensão do pool de buffers, que é armazenado em SSDs locais de uma VM do Azure, é muito mais rápido. Comparando a extensão do Pool de buffers do Cache de leitura de armazenamento do Azure Premium, conforme recomendado para arquivos de dados do SQL Server, não há vantagens significativas são esperadas para as extensões do Pool de Buffer. O motivo é que ambos os caches (extensão do pool de buffers do SQL Server e o cache de leitura do Armazenamento Premium) estão usando os discos locais dos nós de computação do Azure.
+O SQL Server 2014 introduziu um novo recurso, chamado [Extensão do Pool de Buffers](/sql/database-engine/configure-windows/buffer-pool-extension). Essa funcionalidade estende o pool de buffers do SQL Server, que é mantida na memória com um cache de segundo nível apoiado por SSDs local de um servidor ou VM. A extensão do pool de buffers permite manter um conjunto de trabalho maior de dados 'na memória'. Em comparação ao acesso ao Armazenamento Standard do Azure, o acesso à extensão do pool de buffers, que é armazenado em SSDs locais de uma VM do Azure, é muito mais rápido. Comparando a extensão do Pool de buffers do Cache de leitura de armazenamento do Azure Premium, conforme recomendado para arquivos de dados do SQL Server, não há vantagens significativas são esperadas para as extensões do Pool de Buffer. O motivo é que ambos os caches (extensão do pool de buffers do SQL Server e o cache de leitura do Armazenamento Premium) estão usando os discos locais dos nós de computação do Azure.
 
 Experiências obtidas nesse meio tempo com a extensão do Pool de buffers do SQL Server com carga de trabalho do SAP é misto e ainda não permitir recomendações claras se deve usá-lo em todos os casos. O caso ideal é que o conjunto de trabalho que requer que o aplicativo SAP se ajuste na memória principal. Com o Azure, entretanto, oferecendo VMs que vêm com até 4 TB de memória, deve ser possível manter o conjunto de trabalho na memória. Portanto, o uso da extensão do Pool de buffers é limitado a alguns casos raros e não deve ser um caso de base.  
 
@@ -408,7 +408,7 @@ Você tem várias possibilidades para executar backups 'manuais' por:
 
 O primeiro método é bem conhecido e aplicado em muitos casos no mundo local. No entanto, ele deixa você com a tarefa para resolver o local de backup de prazo mais longo. Como você não deseja manter seus backups para 30 ou mais dias no armazenamento do Azure conectado localmente, você tem a necessidade de usar os serviços de Backup do Azure ou outra ferramenta de backup/recuperação de terceiros que inclui o acesso e gerenciamento de retenção para seus backups. Ou, você cria um servidor de arquivos grandes no Azure usando espaços de armazenamento do Windows.
 
-O segundo método é descrito mais próximos no artigo [SQL Server Backup para URL](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/backup-restore). Diferentes versões do SQL Server têm algumas variações nessa funcionalidade. Portanto, você deve verificar a documentação para sua verificação de versão específica do SQL Server. É importante observar que este artigo lista muitas restrições. Você tem a possibilidade de realizar o backup contra:
+O segundo método é descrito mais próximos no artigo [SQL Server Backup para URL](../../../azure-sql/virtual-machines/windows/backup-restore.md). Diferentes versões do SQL Server têm algumas variações nessa funcionalidade. Portanto, você deve verificar a documentação para sua verificação de versão específica do SQL Server. É importante observar que este artigo lista muitas restrições. Você tem a possibilidade de realizar o backup contra:
 
 - Um único blob de páginas do Azure, que, em seguida, limita o tamanho do backup para 1000 GB. Essa restrição também limita a taxa de transferência que você pode obter.
 - Vários blobs de blocos do Azure (até 64), que permitem que um tamanho do backup teórico de 12 TB. No entanto, testes com bancos de dados do cliente revelaram que o tamanho máximo de backup pode ser menor do que seu limite teórico. Nesse caso, você é responsável por gerenciar também os backups de retenção de backups e o acesso.
@@ -422,7 +422,7 @@ Mais detalhes sobre os recursos desse método podem ser encontrados nesses artig
 - SQL Server 2014: [Backup Automatizado para Máquinas Virtuais do SQL Server 2014 (Resource Manager)](../../../azure-sql/virtual-machines/windows/automated-backup-sql-2014.md)
 - SQL Server 2016/2017: [Backup Automatizado v2 para Máquinas Virtuais do Azure (Resource Manager)](../../../azure-sql/virtual-machines/windows/automated-backup.md)
 
-Observando a documentação, você pode ver que a funcionalidade com as versões mais recentes do SQL Server foi aprimorada. Mais alguns detalhes sobre backups automatizados são liberados no artigo do SQL Server [SQL Server Managed Backup to Microsoft Azure](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-managed-backup-to-microsoft-azure). O limite de tamanho do backup teórico é 12 TB.  Os backups automatizados podem ser um bom método para tamanhos de backup de até 12 TB. Uma vez que vários blobs são gravados em paralelo, você pode esperar uma produtividade maior que 100 MB/s. 
+Observando a documentação, você pode ver que a funcionalidade com as versões mais recentes do SQL Server foi aprimorada. Mais alguns detalhes sobre backups automatizados são liberados no artigo do SQL Server [SQL Server Managed Backup to Microsoft Azure](/sql/relational-databases/backup-restore/sql-server-managed-backup-to-microsoft-azure). O limite de tamanho do backup teórico é 12 TB.  Os backups automatizados podem ser um bom método para tamanhos de backup de até 12 TB. Uma vez que vários blobs são gravados em paralelo, você pode esperar uma produtividade maior que 100 MB/s. 
  
 
 ### <a name="azure-backup-for-sql-server-vms"></a>Backup do Azure para VMs de SQL Server
@@ -468,10 +468,10 @@ Se o resultado for diferente, INTERROMPA a implantação do SAP e investigue por
 Usando o SQL Server em implantações de IaaS do Azure para SAP, você tem várias possibilidades diferentes para adicionar para implantar a camada de DBMS altamente disponível. Como já foi discutido em [Considerações sobre a implantação de DBMS para máquinas virtuais do Azure para carga de trabalho do SAP](dbms_guide_general.md) , o Azure fornece diferentes SLAs de tempo de indisponibilidade para uma única VM e um par de VMs implantadas em um conjunto de disponibilidade do Azure. Pressupõe-se a unidade para o SLA de tempo de atividade para suas implantações de produção que requer a implantação em conjuntos de disponibilidade do Azure. Nesse caso, você precisa implantar um mínimo de duas VMs em tal conjunto de disponibilidade. Uma máquina virtual executará a instância do SQL Server Active Directory. A outra VM executará a instância passiva
 
 ### <a name="sql-server-clustering-using-windows-scale-out-file-server-or-azure-shared-disk"></a>Clustering de SQL Server usando o servidor de arquivos de escalabilidade horizontal do Windows ou o disco compartilhado do Azure
-Com o Windows Server 2016, a Microsoft introduziu [Espaços de Armazenamento Diretos](/windows-server/storage/storage-spaces/storage-spaces-direct-overview). Com base na implantação de Espaços de Armazenamento Diretos, SQL Server o clustering FCI tem suporte em geral. O Azure também oferece [discos compartilhados do Azure](https://docs.microsoft.com/azure/virtual-machines/disks-shared-enable?tabs=azure-cli) que podem ser usados para clustering do Windows. Para a carga de trabalho do SAP, não estamos dando suporte a essas opções de alta disponibilidade. 
+Com o Windows Server 2016, a Microsoft introduziu [Espaços de Armazenamento Diretos](/windows-server/storage/storage-spaces/storage-spaces-direct-overview). Com base na implantação de Espaços de Armazenamento Diretos, SQL Server o clustering FCI tem suporte em geral. O Azure também oferece [discos compartilhados do Azure](../../disks-shared-enable.md?tabs=azure-cli) que podem ser usados para clustering do Windows. Para a carga de trabalho do SAP, não estamos dando suporte a essas opções de alta disponibilidade. 
 
 ### <a name="sql-server-log-shipping"></a>Envio de logs do SQL Server
-Um dos métodos de HA (alta disponibilidade) é o envio de logs do SQL Server. Se as VMs que participam da configuração de HA tiverem uma resolução de nome funcionando, não haverá problema e a configuração no Azure não será diferente de nenhuma configuração feita localmente. No que diz respeito à configuração do Envio de Logs e dos princípios em torno disso. Detalhes de envio de logs do SQL Server podem ser encontrados no artigo [sobre o Log de envio (SQL Server)](https://docs.microsoft.com/sql/database-engine/log-shipping/about-log-shipping-sql-server).
+Um dos métodos de HA (alta disponibilidade) é o envio de logs do SQL Server. Se as VMs que participam da configuração de HA tiverem uma resolução de nome funcionando, não haverá problema e a configuração no Azure não será diferente de nenhuma configuração feita localmente. No que diz respeito à configuração do Envio de Logs e dos princípios em torno disso. Detalhes de envio de logs do SQL Server podem ser encontrados no artigo [sobre o Log de envio (SQL Server)](/sql/database-engine/log-shipping/about-log-shipping-sql-server).
 
 Funcionalidade de envio de log do SQL Server foi mal usada no Azure para alcançar alta disponibilidade dentro de uma região do Azure. No entanto nos seguintes cenários clientes SAP estavam usando o envio de logs com êxito em conjunto com o Azure:
 
@@ -519,7 +519,7 @@ O SQL Server Always On é a funcionalidade de recuperação de desastre e alta d
 Muitos clientes estão aproveitando a funcionalidade do SQL Server Always On para a funcionalidade de recuperação de desastres adicionais entre regiões do Azure. Vários clientes também usam a capacidade de executar backups de uma réplica secundária. 
 
 ## <a name="sql-server-transparent-data-encryption"></a>Transparent Data Encryption do SQL Server
-Há um número de clientes que estão usando o SQL Server [Criptografia de Dados Transparente (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) quando implantar o seu SQL Server do SAP bancos de dados no Azure. A funcionalidade de TDE do SQL Server é totalmente suportada pelo SAP (consulte a nota SAP [#1380493](https://launchpad.support.sap.com/#/notes/1380493)). 
+Há um número de clientes que estão usando o SQL Server [Criptografia de Dados Transparente (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) quando implantar o seu SQL Server do SAP bancos de dados no Azure. A funcionalidade de TDE do SQL Server é totalmente suportada pelo SAP (consulte a nota SAP [#1380493](https://launchpad.support.sap.com/#/notes/1380493)). 
 
 ### <a name="applying-sql-server-tde"></a>Aplicação de TDE do SQL Server
 Nos casos em que você executa uma migração heterogênea de outro DBMS, em execução local, para o Windows/SQL Server em execução no Azure, você deve criar o banco de dados de destino vazio no SQL Server antecipadamente. Como próxima etapa, você aplicaria a funcionalidade de TDE do SQL Server. Enquanto ainda estiver executando seu sistema de produção local. Motivo para executar a essa sequência é que o processo de criptografia de banco de dados vazio pode levar bastante tempo. Os processos de importação do SAP seriam, em seguida, importar os dados para o banco de dados criptografado durante a fase de tempo de inatividade. A sobrecarga da importação para um banco de dados criptografado tem um impacto de tempo menor de forma que criptografar o banco de dados após a fase de exportação a busca fase de tempo. Foram feitas experiências negativas ao tentar aplicar TDE com carga de trabalho do SAP em execução na parte superior do banco de dados. Portanto, a recomendação está tratando a implementação do TDE como uma atividade que precisa ser executada sem a carga de trabalho do SAP no banco de dados específico.
@@ -537,9 +537,9 @@ O Azure oferece o serviço de uma [Key Vault](https://azure.microsoft.com/servic
 
 Lista de mais detalhes para usar o Azure Key Vault para a TDE do SQL Server, como:
 
-- [Gerenciamento extensível de chaves Usando o Azure Key Vault (SQL Server)](https://docs.microsoft.com/sql/relational-databases/security/encryption/extensible-key-management-using-azure-key-vault-sql-server).
-- [Gerenciamento extensível de chaves de TDE do SQL Server usando o Azure Key Vault - Etapas de Configuração](https://docs.microsoft.com/sql/relational-databases/security/encryption/setup-steps-for-extensible-key-management-using-the-azure-key-vault).
-- [SQL Server Connector manutenção e solução de problemas](https://docs.microsoft.com/sql/relational-databases/security/encryption/sql-server-connector-maintenance-troubleshooting?).
+- [Gerenciamento extensível de chaves Usando o Azure Key Vault (SQL Server)](/sql/relational-databases/security/encryption/extensible-key-management-using-azure-key-vault-sql-server).
+- [Gerenciamento extensível de chaves de TDE do SQL Server usando o Azure Key Vault - Etapas de Configuração](/sql/relational-databases/security/encryption/setup-steps-for-extensible-key-management-using-the-azure-key-vault).
+- [SQL Server Connector manutenção e solução de problemas](/sql/relational-databases/security/encryption/sql-server-connector-maintenance-troubleshooting).
 - [Mais perguntas dos clientes sobre o SQL Server Transparent Data Encryption – TDE + Azure Key Vault](/archive/blogs/saponsqlserver/more-questions-from-customers-about-sql-server-transparent-data-encryption-tde-azure-key-vault).
 
 

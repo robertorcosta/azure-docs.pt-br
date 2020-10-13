@@ -2,13 +2,13 @@
 title: Funções de modelo – lógica
 description: Descreve as funções a serem usadas em um modelo do Resource Manager para determinar valores lógicos.
 ms.topic: conceptual
-ms.date: 04/27/2020
-ms.openlocfilehash: 8fe1c00240fc24c3c1454b118f9e0d9a9d54fe4e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/12/2020
+ms.openlocfilehash: ede41bd6c03eb7a01ae63526810d0310f31e4014
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84677382"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978502"
 ---
 # <a name="logical-functions-for-arm-templates"></a>Funções lógicas para modelos ARM
 
@@ -16,9 +16,11 @@ O Gerenciador de recursos fornece várias funções para fazer comparações em 
 
 * [and](#and)
 * [bool](#bool)
+* [false](#false)
 * [if](#if)
 * [not](#not)
 * [or](#or)
+* [true](#true)
 
 ## <a name="and"></a>e
 
@@ -85,7 +87,12 @@ Converte o parâmetro em um booliano.
 | arg1 |Sim |cadeia de caracteres ou inteiro |O valor a ser convertido em um booliano. |
 
 ### <a name="return-value"></a>Valor retornado
+
 Um booliano do valor convertido.
+
+### <a name="remarks"></a>Comentários
+
+Você também pode usar [true ()](#true) e [false ()](#false) para obter valores Boolianos.
 
 ### <a name="examples"></a>Exemplos
 
@@ -125,6 +132,44 @@ A saída do exemplo anterior com os valores padrão é:
 | falseString | Bool | Falso |
 | trueInt | Bool | True |
 | falseInt | Bool | Falso |
+
+## <a name="false"></a>false
+
+`false()`
+
+Retorna false.
+
+### <a name="parameters"></a>Parâmetros
+
+A função false não aceita nenhum parâmetro.
+
+### <a name="return-value"></a>Valor retornado
+
+Um booliano que é sempre false.
+
+### <a name="example"></a>Exemplo
+
+O exemplo a seguir retorna um valor de saída falso.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [],
+    "outputs": {
+        "falseOutput": {
+            "value": "[false()]",
+            "type" : "bool"
+        }
+    }
+}
+```
+
+O resultado do exemplo anterior é:
+
+| Nome | Type | Valor |
+| ---- | ---- | ----- |
+| falseOutput | Bool | Falso |
 
 ## <a name="if"></a>if
 
@@ -180,7 +225,7 @@ O resultado do exemplo anterior é:
 | Nome | Type | Valor |
 | ---- | ---- | ----- |
 | yesOutput | String | sim |
-| noOutput | String | não |
+| noOutput | String | no |
 | objectOutput | Objeto | { "test": "value1" } |
 
 O [modelo de exemplo](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json) a seguir mostra como usar essa função com expressões que são apenas condicionalmente válidas.
@@ -355,6 +400,44 @@ O resultado do exemplo anterior é:
 | andExampleOutput | Bool | Falso |
 | orExampleOutput | Bool | True |
 | notExampleOutput | Bool | Falso |
+
+## <a name="true"></a>true
+
+`true()`
+
+Retorna verdadeiro.
+
+### <a name="parameters"></a>Parâmetros
+
+A função true não aceita nenhum parâmetro.
+
+### <a name="return-value"></a>Valor retornado
+
+Um booliano que é sempre verdadeiro.
+
+### <a name="example"></a>Exemplo
+
+O exemplo a seguir retorna um valor de saída verdadeiro.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [],
+    "outputs": {
+        "trueOutput": {
+            "value": "[true()]",
+            "type" : "bool"
+        }
+    }
+}
+```
+
+O resultado do exemplo anterior é:
+
+| Nome | Type | Valor |
+| ---- | ---- | ----- |
+| trueOutput | Bool | True |
 
 ## <a name="next-steps"></a>Próximas etapas
 

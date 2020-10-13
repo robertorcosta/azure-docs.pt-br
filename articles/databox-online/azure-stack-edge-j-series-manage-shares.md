@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 44f22f365699ddc345849df78d6e27c2703d785b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8fbf765168fd848a2ae349badf4017289b5a4380
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904697"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91952260"
 ---
-# <a name="use-the-azure-portal-to-manage-shares-on-your-azure-stack-edge-pro"></a>Use o portal do Azure para gerenciar compartilhamentos em seu Azure Stack Edge pro
+# <a name="use-azure-portal-to-manage-shares-on-your-azure-stack-edge-pro"></a>Use portal do Azure para gerenciar compartilhamentos em seu Azure Stack Edge pro
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
@@ -59,13 +59,13 @@ Execute as etapas a seguir no portal do Azure para criar um compartilhamento.
 
 7. Para acessar com facilidade os compartilhamentos por meio dos módulos de computação de borda, use o ponto de montagem local. Selecione **Usar o compartilhamento com a Computação de borda** para que o compartilhamento seja montado automaticamente depois que ele é criado. Quando essa opção é selecionada, o módulo de borda também pode usar a computação com o ponto de montagem local.
 
-8. Clique em **Criar** para criar o compartilhamento. Você será notificado de que a criação do compartilhamento está em andamento. Depois que o compartilhamento for criado com as configurações especificadas, a folha **Compartilhamentos** será atualizada para refletir o novo compartilhamento.
+8. Clique em **criar** para criar o compartilhamento. Você será notificado de que a criação do compartilhamento está em andamento. Depois que o compartilhamento é criado com as configurações especificadas, a folha **compartilhamentos** é atualizada para refletir o novo compartilhamento.
 
 ## <a name="add-a-local-share"></a>Adicionar um compartilhamento local
 
 1. Na portal do Azure, vá para o recurso de borda do Azure Stack e vá para **Gateway > compartilhamentos**. Selecione **+ Adicionar compartilhamento** na barra de comandos.
 
-    ![Selecionar Adicionar compartilhamento](media/azure-stack-edge-j-series-manage-shares/add-local-share-1.png)
+    ![Selecione Adicionar compartilhamento 2](media/azure-stack-edge-j-series-manage-shares/add-local-share-1.png)
 
 2. Em **Adicionar compartilhamento**, especifique as configurações de compartilhamento. Forneça um nome exclusivo para seu compartilhamento.
     
@@ -86,7 +86,7 @@ Execute as etapas a seguir no portal do Azure para criar um compartilhamento.
 
     ![Criar um compartilhamento local](media/azure-stack-edge-j-series-manage-shares/add-local-share-2.png)
 
-    Você verá uma notificação indicando que a criação do compartilhamento está em andamento. Depois que o compartilhamento for criado com as configurações especificadas, a folha **Compartilhamentos** será atualizada para refletir o novo compartilhamento.
+    Você verá uma notificação indicando que a criação do compartilhamento está em andamento. Depois que o compartilhamento é criado com as configurações especificadas, a folha **compartilhamentos** é atualizada para refletir o novo compartilhamento.
 
     ![Exibir atualizações da folha Compartilhamentos](media/azure-stack-edge-j-series-manage-shares/add-local-share-3.png)
     
@@ -125,7 +125,7 @@ Execute as etapas a seguir no portal do Azure para desmontar um compartilhamento
 
 1. Na portal do Azure, vá para o recurso de borda do Azure Stack e vá para **Gateway > compartilhamentos**.
 
-    ![Selecionar compartilhamento](media/azure-stack-edge-j-series-manage-shares/unmount-share-1.png)
+    ![Selecionar compartilhamento 2](media/azure-stack-edge-j-series-manage-shares/unmount-share-1.png)
 
 2. Na lista de compartilhamentos, selecione o compartilhamento que você deseja desmontar. Você deseja certificar-se de que o compartilhamento que você desmontar não é usado por todos os módulos. Se o compartilhamento for usado por um módulo, então você verá problemas com o módulo correspondente. Selecione **desmontar**.
 
@@ -145,7 +145,7 @@ Para excluir um compartilhamento, siga estas etapas no portal do Azure.
 
 1. Na lista de compartilhamentos, selecione e clique no compartilhamento que você deseja excluir.
 
-    ![Selecionar compartilhamento](media/azure-stack-edge-j-series-manage-shares/delete-share-1.png)
+    ![Selecionar compartilhamento 3](media/azure-stack-edge-j-series-manage-shares/delete-share-1.png)
 
 2. Clique em **Excluir**.
 
@@ -169,7 +169,7 @@ Para atualizar um compartilhamento, siga estas etapas no portal do Azure.
 
 1.  No portal do Azure, acesse **Compartilhamentos**. Selecione e clique no compartilhamento que você deseja atualizar.
 
-    ![Selecionar compartilhamento](media/azure-stack-edge-j-series-manage-shares/refresh-share-1.png)
+    ![Selecione compartilhamento 4](media/azure-stack-edge-j-series-manage-shares/refresh-share-1.png)
 
 2.  Clique em **Atualizar**. 
 

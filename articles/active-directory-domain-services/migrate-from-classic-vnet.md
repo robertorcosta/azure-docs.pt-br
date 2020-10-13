@@ -1,20 +1,20 @@
 ---
 title: Migrar Azure AD Domain Services de uma rede virtual clássica | Microsoft Docs
 description: Saiba como migrar um domínio Azure AD Domain Services gerenciado existente do modelo de rede virtual clássica para uma rede virtual baseada no Resource Manager.
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 09/24/2020
-ms.author: iainfou
-ms.openlocfilehash: ef05704ea03316ef0c95510e27ee630ddcfb0b44
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.author: joflore
+ms.openlocfilehash: a66268c0cd0c2382b412873ec7f78b87d3491594
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91266897"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91968167"
 ---
 # <a name="migrate-azure-active-directory-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>Migrar Azure Active Directory Domain Services do modelo de rede virtual clássica para o Gerenciador de recursos
 
@@ -174,7 +174,7 @@ Antes de começar o processo de migração, conclua as seguintes verificações 
 
     Verifique se as configurações de rede não bloqueiam as portas necessárias necessárias para o AD DS do Azure. As portas devem ser abertas na rede virtual clássica e na rede virtual do Resource Manager. Essas configurações incluem tabelas de rotas (embora não seja recomendável usar tabelas de rotas) e grupos de segurança de rede.
 
-    O Azure AD DS precisa de um grupo de segurança de rede para proteger as portas necessárias para o domínio gerenciado e bloquear todo o tráfego de entrada. Esse grupo de segurança de rede atua como uma camada extra de proteção para bloquear o acesso ao domínio gerenciado. Para exibir as portas necessárias, consulte [grupos de segurança de rede e portas necessárias][network-ports].
+    O Azure AD DS precisa de um grupo de segurança de rede para proteger as portas necessárias para o domínio gerenciado e bloquear todo o resto do tráfego de entrada. Esse grupo de segurança de rede atua como uma camada extra de proteção para bloquear o acesso ao domínio gerenciado. Para ver as portas exigidas, confira [Grupos de segurança de rede e portas exigidas][network-ports].
 
     Se você usar LDAP seguro, adicione uma regra ao grupo de segurança de rede para permitir o tráfego de entrada para a porta *TCP* *636*. Para obter mais informações, consulte [bloquear o acesso LDAP seguro pela Internet](tutorial-configure-ldaps.md#lock-down-secure-ldap-access-over-the-internet)
 

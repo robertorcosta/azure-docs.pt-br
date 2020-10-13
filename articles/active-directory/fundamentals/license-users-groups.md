@@ -14,12 +14,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c69f2ce964d9171197771d783358dcef2ca60726
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 7473da6289d4b871ae77f18fab4c00cebcb55d98
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89319518"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977007"
 ---
 # <a name="assign-or-remove-licenses-in-the-azure-active-directory-portal"></a>Atribuir ou remover licenças no portal de Azure Active Directory
 
@@ -102,11 +102,11 @@ Certifique-se de que qualquer pessoa que precise usar um serviço licenciado do 
 
 1. Na página **Atribuir**, selecione **Usuários e grupos** e pesquise e selecione o grupo que você está atribuindo a licença.
 
-    ![Atribuir página de licença, com pesquisa realçada e opções de seleção](media/license-users-groups/assign-group-license-blade-with-highlight.png)
+    ![Página atribuir licença, com a pesquisa realçada e selecione as opções 2](media/license-users-groups/assign-group-license-blade-with-highlight.png)
 
 1. Selecione **Opções de atribuição**, verifique se você tem as opções de licença apropriadas ativadas e, em seguida, selecione **OK**.
 
-    ![Página de opção de licença, com todas as opções disponíveis no plano de licença](media/license-users-groups/license-option-blade-group-assignments.png)
+    ![Página de opção de licença, com todas as opções disponíveis no plano de licença 2](media/license-users-groups/license-option-blade-group-assignments.png)
 
     A página **Atribuir licença** é atualizada para mostrar que um usuário está selecionado e que as atribuições estão configuradas.
 
@@ -135,7 +135,7 @@ Você pode remover uma licença da página de usuário do Azure AD de um usuári
 
 1. Selecione **remover licença**.
 
-    ![Página Grupos de Licenciados com a opção Remover Licença Destacada](media/license-users-groups/license-products-group-blade-with-remove-option-highlight.png)
+    ![Página grupos licenciados com a opção remover licença realçada 2](media/license-users-groups/license-products-group-blade-with-remove-option-highlight.png)
     
     > [!NOTE]
     > Quando uma conta de usuário local sincronizada com o Azure AD fica fora do escopo da sincronização ou quando a sincronização é removida, o usuário é excluído de maneira reversível no Azure AD. Quando isso ocorrer, as licenças atribuídas ao usuário diretamente ou por meio do licenciamento baseado em grupo serão marcadas como **suspensas** em vez de **excluídas**.
