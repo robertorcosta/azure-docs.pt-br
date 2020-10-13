@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 01064c3668b673baea7aedd9a65c92b03c48dc10
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90055996"
 ---
 # <a name="use-the-mmc-menu-actions-in-storsimple-snapshot-manager"></a>Usar as ações de menu do MMC no StorSimple Snapshot Manager
@@ -26,7 +26,7 @@ ms.locfileid: "90055996"
 ## <a name="overview"></a>Visão geral
 No StorSimple Snapshot Manager, você verá as seguintes ações listadas em todos os menus de ação e todas as variações do painel de **Ações** .
 
-* Exibir
+* Visualizar
 * Nova Janela a Partir Daqui 
 * Atualizar 
 * Exportar Lista 
@@ -34,7 +34,7 @@ No StorSimple Snapshot Manager, você verá as seguintes ações listadas em tod
 
 Essas ações fazem parte do MMC (Console de Gerenciamento Microsoft) e não são específicas ao StorSimple Snapshot Manager. Este tutorial descreve essas ações e explica como usar cada uma delas no StorSimple Snapshot Manager.
 
-## <a name="view"></a>Exibir
+## <a name="view"></a>Visualizar
 Você pode usar a opção **Visualizar** para alterar a visualização do painel **Resultados** e alterar a visualização da janela do console. 
 
 #### <a name="to-change-the-results-pane-view"></a>Para alterar o modo de exibição de painel de Resultados

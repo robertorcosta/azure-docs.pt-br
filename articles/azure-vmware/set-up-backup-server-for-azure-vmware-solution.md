@@ -4,10 +4,10 @@ description: Configure seu ambiente de solução do Azure VMware para fazer back
 ms.topic: how-to
 ms.date: 06/09/2020
 ms.openlocfilehash: 37fd74f9859813061ff5653fd2c2b0b6cad319e3
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91579633"
 ---
 # <a name="set-up-azure-backup-server-for-azure-vmware-solution"></a>Configurar Servidor de Backup do Azure para a solução VMware do Azure
@@ -74,7 +74,7 @@ A tabela a seguir resume o número máximo de cargas de trabalho protegidas para
 
 | Máximo de cargas de trabalho protegidas | Tamanho médio da carga de trabalho | Variação de carga de trabalho média (diariamente) | IOPS de armazenamento mínimo | Tipo/tamanho de disco recomendado      | Tamanho de VM recomendado |
 |-------------------------|-----------------------|--------------------------------|------------------|-----------------------------------|---------------------|
-| 20                      | 100 GB                | Variação de 5% NET                   | 2.000             | HDD Standard (8 TB ou acima do tamanho por disco)  | A4V2       |
+| 20                      | 100 GB                | Variação de 5% NET                   | 2\.000             | HDD Standard (8 TB ou acima do tamanho por disco)  | A4V2       |
 | 40                      | 150 GB                | Variação de 10% NET                  | 4\.500             | SSD Premium * (1 TB ou acima do tamanho por disco) | DS3_V2     |
 | 60                      | 200 GB                | Variação de 10% NET                  | 10.500            | SSD Premium * (8 TB ou acima do tamanho por disco) | DS3_V2     |
 
@@ -140,7 +140,7 @@ Um cofre dos serviços de recuperação é uma entidade de armazenamento que arm
 
 1. No menu esquerdo, selecione **Todos os serviços**.
 
-   ![No menu esquerdo, selecione Todos os serviços.](../backup/media/backup-create-rs-vault/click-all-services.png)
+   ![No menu à esquerda, selecione todos os serviços.](../backup/media/backup-create-rs-vault/click-all-services.png)
 
 1. Na caixa de diálogo **todos os serviços** , insira **serviços de recuperação** e selecione **cofres dos serviços de recuperação** na lista.
 

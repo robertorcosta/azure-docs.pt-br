@@ -10,10 +10,10 @@ ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18, devx-track-python
 ms.openlocfilehash: 512776f2498a88f1fda9b5e7f0e2db0ddd32b955
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88962321"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Perguntas frequentes sobre tecnologias de código aberto para Aplicativos Web do Azure
@@ -34,7 +34,7 @@ Para ativar o registro em log de PHP:
 6. Defina o nome de arquivo para **.user.ini**.
 7. Selecione o ícone de lápis ao lado de **.user.ini**.
 8. No arquivo, adicione este código:`log_errors=on`
-9. Clique em **Salvar**.
+9. Selecione **Salvar**.
 10. Selecione o ícone de lápis ao lado de **wp-config.php**.
 11. Adicione o texto para o código a seguir:
     ```php

@@ -10,10 +10,10 @@ ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/17/2020
 ms.openlocfilehash: d8268ebf89bed6b67919e77576118343b58edb6c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88516615"
 ---
 # <a name="azure-active-directory-service-principal-with-azure-sql"></a>Entidade de serviço do Azure Active Directory com o SQL do Azure
@@ -81,7 +81,7 @@ Para habilitar uma criação de objeto do Azure AD no banco de dados SQL e no Az
 > [!IMPORTANT]
 > As etapas 1 e 2 devem ser executadas na ordem acima. Primeiro, crie ou atribua a identidade do servidor, depois de conceder a permissão [**leitores de diretório**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) . Omitir uma dessas etapas ou ambas causará um erro de execução durante a criação de um objeto do Azure AD no Azure SQL em nome de um aplicativo do Azure AD. Para obter instruções passo a passo para criar um usuário do Azure AD em nome de um aplicativo do Azure AD, consulte [tutorial: criar usuários do Azure ad usando aplicativos do Azure ad](authentication-aad-service-principal-tutorial.md).
 >
-> Em **Visualização pública**, você pode atribuir a função de **leitores de diretório** a um grupo no Azure AD. Os proprietários do grupo podem então adicionar a identidade gerenciada como um membro desse grupo, o que pode ignorar a necessidade de um administrador **global** ou de **funções com privilégios Administrator** para conceder a função de **leitores de diretório** . Para obter mais informações sobre esse recurso, consulte [função de leitores de diretório no Azure Active Directory para Azure SQL](authentication-aad-directory-readers-role.md).
+> Em **Visualização pública**, você pode atribuir a função de **leitores de diretório** a um grupo no Azure AD. Os proprietários do grupo podem então adicionar a identidade gerenciada como um membro desse grupo, o que pode ignorar a necessidade de um administrador **global** ou de **funções com privilégios Administrator** para conceder a função de **leitores de diretório** . Para obter mais informações sobre esse recurso, confira [Função Leitores de Diretório no Azure Active Directory para o SQL do Azure](authentication-aad-directory-readers-role.md).
 
 ## <a name="troubleshooting-and-limitations-for-public-preview"></a>Solução de problemas e limitações para visualização pública
 

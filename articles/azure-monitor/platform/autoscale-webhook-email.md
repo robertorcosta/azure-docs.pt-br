@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/03/2017
 ms.subservice: autoscale
 ms.openlocfilehash: 3b1f13fd1ce8bedcbe58385d4cee321f1d1405df
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86505512"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Use ações de dimensionamento automático para enviar notificações de alerta por email e webhook no Azure Monitor
@@ -58,7 +58,7 @@ Ao usar a API REST ou o modelo do Resource Manager, inclua o elemento notificaç
 
 | Campo | Obrigatório? | Descrição |
 | --- | --- | --- |
-| operação |sim |o valor deve ser "Scale" |
+| operation |sim |o valor deve ser "Scale" |
 | sendToSubscriptionAdministrator |sim |o valor deve ser "true" ou "false" |
 | sendToSubscriptionCoAdministrators |sim |o valor deve ser "true" ou "false" |
 | customEmails |sim |o valor pode ser null [] ou uma matriz da cadeia de caracteres de emails |
@@ -102,7 +102,7 @@ Quando a notificação de escala automática é gerada, os metadados a seguir s�
 | Campo | Obrigatório? | Descrição |
 | --- | --- | --- |
 | status |sim |O status que indica que uma ação de escala automática foi gerada |
-| operação |sim |Para um aumento de instâncias, será "Escalar Horizontalmente" e para uma diminuição de instâncias, será "Reduzir Horizontalmente" |
+| operation |sim |Para um aumento de instâncias, será "Escalar Horizontalmente" e para uma diminuição de instâncias, será "Reduzir Horizontalmente" |
 | contexto |sim |O contexto de ação de escala automática |
 | timestamp |sim |Carimbo de data/hora de quando a ação de escala automática foi disparada |
 | id |Sim |ID do Gerenciador de Recursos da configuração de autoescala |

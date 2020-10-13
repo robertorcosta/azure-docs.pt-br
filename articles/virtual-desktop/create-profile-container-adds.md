@@ -7,10 +7,10 @@ ms.date: 04/10/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: ea834ed874f3011d95f8b924df860576f72bc4ee
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88825606"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-azure-ad-ds"></a>Criar um contêiner de perfil com arquivos do Azure e AD DS do Azure
@@ -71,7 +71,7 @@ Para atribuir permissões de acesso de usuários:
 
 6. Selecione um nome ou endereço de email para a identidade de Azure Active Directory de destino.
 
-7. Selecione **Salvar**.
+7. Clique em **Salvar**.
 
 ## <a name="get-the-storage-account-access-key"></a>Obter a chave de acesso da conta de armazenamento
 

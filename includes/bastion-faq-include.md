@@ -9,10 +9,10 @@ ms.date: 05/04/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: efb32631c5ee1eedece6d2a06b94702b602ed418
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
-ms.translationtype: MT
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86276100"
 ---
 ### <a name="which-regions-are-available"></a><a name="regions"></a>Quais regiões estão disponíveis?
@@ -49,9 +49,9 @@ Neste momento, apenas o recurso de copiar/colar texto é compatível. Recursos c
 
 Use o navegador Microsoft Edge ou o Google Chrome no Windows. Para o Apple Mac, use o navegador Google Chrome. O Microsoft Edge Chromium também é compatível com o Windows e o Mac, respectivamente.
 
-### <a name="where-does-azure-bastion-store-customer-data"></a><a name="data"></a>Onde o Azure bastiões armazena dados do cliente?
+### <a name="where-does-azure-bastion-store-customer-data"></a><a name="data"></a>Onde o Azure Bastion armazena dados do cliente?
 
-A bastiões do Azure não move nem armazena os dados do cliente fora da região em que ele está implantado.
+O Azure Bastion não move nem armazena dados do cliente fora da região em que está implantado.
 
 ### <a name="are-any-roles-required-to-access-a-virtual-machine"></a><a name="roles"></a>É necessário ter alguma função para acessar uma máquina virtual?
 

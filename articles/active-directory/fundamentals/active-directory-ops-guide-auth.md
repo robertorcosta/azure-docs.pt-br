@@ -12,10 +12,10 @@ ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
 ms.openlocfilehash: 178c54b9726f21775603d67cb0911237aa4caf01
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90601357"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Guia de referência de operações de gerenciamento de autenticação Azure Active Directory
@@ -105,7 +105,7 @@ Para entender melhor suas opções de autenticação, consulte [escolher o méto
 
 ### <a name="programmatic-usage-of-credentials"></a>Uso programático de credenciais
 
-Os scripts do Azure AD usando o PowerShell ou aplicativos que usam a API Microsoft Graph exigem autenticação segura. O gerenciamento de credenciais deficiente executando esses scripts e ferramentas aumenta o risco de roubo de credenciais. Se você estiver usando scripts ou aplicativos que dependem de Senhas embutidas em código ou de senha, você deve primeiro examinar as senhas em arquivos de configuração ou código-fonte e, em seguida, substituir essas dependências e usar identidades gerenciadas do Azure, autenticação integrada do Windows ou [certificados](../reports-monitoring/tutorial-access-api-with-certificates.md) sempre que possível. Para aplicativos em que as soluções anteriores não são possíveis, considere o uso de [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
+Os scripts do Azure AD usando o PowerShell ou aplicativos que usam a API Microsoft Graph exigem autenticação segura. O gerenciamento de credenciais deficiente executando esses scripts e ferramentas aumenta o risco de roubo de credenciais. Se você estiver usando scripts ou aplicativos que dependem de Senhas embutidas em código ou de senha, você deve primeiro examinar as senhas em arquivos de configuração ou código-fonte e, em seguida, substituir essas dependências e usar identidades gerenciadas do Azure, Integrated-Windows autenticação ou [certificados](../reports-monitoring/tutorial-access-api-with-certificates.md) sempre que possível. Para aplicativos em que as soluções anteriores não são possíveis, considere o uso de [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
 
 Se você determinar que há entidades de serviço com credenciais de senha e não tiver certeza de como essas credenciais de senha são protegidas por scripts ou aplicativos, entre em contato com o proprietário do aplicativo para entender melhor os padrões de uso.
 
@@ -115,7 +115,7 @@ A Microsoft também recomenda que você entre em contato com os proprietários d
 
 ### <a name="on-premises-authentication"></a>Autenticação local
 
-A autenticação federada com autenticação integrada do Windows (IWA) ou autenticação gerenciada de SSO (logon único) contínuo com sincronização de hash de senha ou autenticação de passagem é a melhor experiência de usuário quando dentro da rede corporativa com a linha de visão para controladores de domínio locais. Ele minimiza a solicitação de credencial fadiga e reduz o risco de os usuários se depararem com ataques de phishing. Se você já estiver usando a autenticação gerenciada por nuvem com PHS ou PTA, mas os usuários ainda precisarem digitar sua senha ao autenticar localmente, você deverá implantar imediatamente o [SSO contínuo](../hybrid/how-to-connect-sso.md). Por outro lado, se você estiver atualmente federado com planos para eventualmente migrar para a autenticação gerenciada pela nuvem, deverá implementar o SSO contínuo como parte do projeto de migração.
+A autenticação federada com autenticação integrada do Windows (IWA) ou autenticação gerenciada simples de Sign-On único (SSO) com sincronização de hash de senha ou autenticação de passagem é a melhor experiência de usuário quando dentro da rede corporativa com a linha de visão para controladores de domínio locais. Ele minimiza a solicitação de credencial fadiga e reduz o risco de os usuários se depararem com ataques de phishing. Se você já estiver usando a autenticação gerenciada por nuvem com PHS ou PTA, mas os usuários ainda precisarem digitar sua senha ao autenticar localmente, você deverá implantar imediatamente o [SSO contínuo](../hybrid/how-to-connect-sso.md). Por outro lado, se você estiver atualmente federado com planos para eventualmente migrar para a autenticação gerenciada pela nuvem, deverá implementar o SSO contínuo como parte do projeto de migração.
 
 ### <a name="device-trust-access-policies"></a>Políticas de acesso de confiança do dispositivo
 
@@ -143,7 +143,7 @@ Se você estiver gerenciando dispositivos com MDM ou Microsoft Intune, mas não 
 - [Como planejar sua implementação de junção do Azure Active Directory híbrido](../devices/hybrid-azuread-join-plan.md)
 - [Configurações de acesso à identidade e ao dispositivo](/microsoft-365/enterprise/microsoft-365-policies-configurations)
 
-### <a name="windows-hello-for-business"></a>Windows Hello for Business
+### <a name="windows-hello-for-business"></a>Windows Hello para Empresas
 
 No Windows 10, o [Windows Hello para empresas](/windows/security/identity-protection/hello-for-business/hello-identity-verification) substitui senhas com autenticação forte de dois fatores em computadores. O Windows Hello para empresas permite uma experiência de MFA mais simplificada para os usuários e reduz sua dependência de senhas. Se você não começou a distribuir dispositivos com Windows 10 ou os implantou parcialmente, recomendamos que você atualize para o Windows 10 e [habilite o Windows Hello para empresas](/windows/security/identity-protection/hello-for-business/hello-manage-in-organization) em todos os dispositivos.
 

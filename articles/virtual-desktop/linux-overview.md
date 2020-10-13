@@ -6,16 +6,16 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0a53e9ae42031203347784b78e162e8f806eb3c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 16659eafccd4c15e37ef8a6d16a3765d0afdbc3e
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320227"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91960636"
 ---
 # <a name="linux-support"></a>Suporte para Linux
 
-Você pode acessar os recursos da área de trabalho virtual do Windows de seus dispositivos Linux com os seguintes clientes com suporte, fornecidos por nossos parceiros de cliente fino do Linux. Estamos trabalhando com vários parceiros para habilitar clientes de área de trabalho virtual do Windows com suporte em mais sistemas operacionais e dispositivos baseados em Linux. Se você precisar de suporte para área de trabalho virtual do Windows em uma plataforma Linux que não esteja listada aqui, informe-nos em nossa [página uservoice](https://remotedesktop.uservoice.com/forums/923035-remote-desktop-support-on-linux).
+Você pode acessar os recursos da área de trabalho virtual do Windows de seus dispositivos Linux com o [cliente Web](connect-web.md) ou os seguintes clientes com suporte, fornecidos por nossos parceiros de cliente fino do Linux. Estamos trabalhando com vários parceiros para habilitar clientes de área de trabalho virtual do Windows com suporte em mais sistemas operacionais e dispositivos baseados em Linux. Se você precisar de suporte para área de trabalho virtual do Windows em uma plataforma Linux que não está listada aqui, informe-nos em nossa [página uservoice](https://remotedesktop.uservoice.com/forums/923035-remote-desktop-support-on-linux).
 
 ## <a name="connect-with-your-linux-device"></a>Conecte-se ao seu dispositivo Linux
 

@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: ddb99fd7a7ce8265a6e9c63555cd6a226caacc4c
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89440721"
 ---
 # <a name="datasets-in-azure-data-factory-version-1"></a>Conjuntos de valores no Azure Data Factory (versão 1)
@@ -109,7 +109,7 @@ No exemplo a seguir, o DataSet representa uma tabela chamada **MyTable** em um b
 }
 ```
 
-Observe o seguinte:
+Observe os seguintes pontos:
 
 * **Type** é definido como AzureSqlTable.
 * a propriedade do tipo **TableName** (específica ao tipo AzureSqlTable) é definida como MyTable.

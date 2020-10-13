@@ -17,10 +17,10 @@ ms.reviewer: jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f2625698ae1d76dbae3ed8a8855b88dd6ac7bb17
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84763679"
 ---
 # <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>As opções avançadas de assinatura de certificado no token SAML para aplicativos da galeria no Azure Active Directory
@@ -62,10 +62,10 @@ Para alterar as opções de assinatura de certificado SAML de um aplicativo e o 
 Em seguida, altere as opções de assinatura de certificado no token SAML para esse aplicativo:
 
 1. No painel esquerdo da página Visão geral do aplicativo, selecione **logon único**.
-1. Se a página **Configurar logon único com SAML-Preview** for exibida, vá para a etapa 5.
+1. Se a página **configurar Sign-On única com o SAML-Preview** for exibida, vá para a etapa 5.
 1. Se a página **selecionar um método de logon único** não for exibida, selecione **Alterar modos de logon único** para exibir essa página.
 1. Na página **selecionar um método de logon único** , selecione **SAML** , se disponível. (Se o **SAML** não estiver disponível, o aplicativo não oferece suporte a SAML e você poderá ignorar o restante deste procedimento e artigo.)
-1. Na página **Configurar logon único com SAML-Preview** , localize o cabeçalho do certificado de **autenticação SAML** e selecione o ícone de **edição** (um lápis). A página **certificado de autenticação SAML** é exibida.
+1. Na página **configurar Sign-On único com SAML-Preview** , localize o cabeçalho do **certificado de autenticação SAML** e selecione o ícone de **edição** (um lápis). A página **certificado de autenticação SAML** é exibida.
 
    ![Exemplo: página de certificado de autenticação SAML](./media/certificate-signing-options/saml-signing-page.png)
 
