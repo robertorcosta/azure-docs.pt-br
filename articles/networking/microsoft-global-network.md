@@ -14,10 +14,10 @@ ms.date: 06/13/2019
 ms.author: kumud
 ms.reviewer: ypitsch
 ms.openlocfilehash: 05e966d3f4631e3c344bd97c0faec99cc3c6dd66
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91819894"
 ---
 # <a name="microsoft-global-network"></a>Rede global da Microsoft
@@ -36,7 +36,7 @@ Optar pela [melhor experiência possível](https://www.sdxcentral.com/articles/n
  
 Se estiver se conectando de Londres a Tóquio ou de Washington DC a Los Angeles, o desempenho da rede será quantificado e afetado por coisas como latência, tremulação, perda de pacotes e taxa de transferência.  Na Microsoft, preferimos e usamos interconexões diretas em oposição aos links de trânsito, isso mantém o tráfego de resposta simétrico e ajuda a manter saltos, partes emparelhadas e caminhos o mais curto e simples possível. 
 
-Por exemplo, se um usuário em Londres tentar acessar um serviço em Tokyo, o tráfego da Internet entrará em uma de nossas bordas em Londres, passará pela WAN da Microsoft pela França, nossos caminhos de trans-Saudita entre a Europa e a Índia e, em seguida, para o Japão onde o serviço está hospedado. O tráfego de resposta é simétrico. Às vezes, isso é chamado de [Roteamento de irfriar](https://en.wikipedia.org/wiki/Hot-potato_and_cold-potato_routing) , o que significa que o tráfego permanece na rede da Microsoft o mais longo possível antes de sua entrega.  
+Por exemplo, se um usuário em Londres tentar acessar um serviço em Tokyo, o tráfego da Internet entrará em uma de nossas bordas em Londres, passará pela WAN da Microsoft pela França, nossos caminhos de Trans-Arabia entre a Europa e a Índia e, em seguida, para o Japão onde o serviço está hospedado. O tráfego de resposta é simétrico. Às vezes, isso é chamado de [Roteamento de irfriar](https://en.wikipedia.org/wiki/Hot-potato_and_cold-potato_routing) , o que significa que o tráfego permanece na rede da Microsoft o mais longo possível antes de sua entrega.  
   
 Então, isso significa qualquer e todo o tráfego ao usar os serviços da Microsoft? Sim, qualquer tráfego entre data centers, dentro de Microsoft Azure ou entre serviços da Microsoft, como máquinas virtuais, Microsoft 365, XBox, bancos de dados SQL, armazenamento e redes virtuais, é roteado em nossa rede global e nunca pela Internet pública, para garantir o desempenho e a integridade ideais.  
  

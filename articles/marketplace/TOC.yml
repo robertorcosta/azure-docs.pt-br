@@ -115,13 +115,13 @@
               href: partner-center-portal/azure-vm-create-offer.md
             - name: Criar ativo técnico da VM do Azure
               items:
-                - name: Certificação de máquina virtual – problemas e soluções
+                - name: Problemas de certificação de máquina virtual
                   href: partner-center-portal/vm-certification-issues-solutions.md
                 - name: Criar ativo técnico de VM do Azure
                   href: partner-center-portal/create-azure-vm-technical-asset.md
                 - name: Perguntas frequentes sobre ativos técnicos da VM do Azure
                   href: partner-center-portal/common-issues-during-vhd-creation.md
-                - name: Testar a máquina virtual implantada do VHD
+                - name: Testar a máquina virtual implantada por meio do VHD
                   href: partner-center-portal/azure-vm-image-certification.md
                 - name: URI DE SAS
                   items:
@@ -328,6 +328,8 @@
       href: partner-center-portal/support.md
     - name: Disponibilidade geográfica e moedas
       href: marketplace-geo-availability-currencies.md
+    - name: Localizar as IDs do locatário e do objeto
+      href: find-tenant-object-id.md
     - name: Países e regiões com suporte
       href: sell-from-countries.md
     - name: Marcas HTML com suporte

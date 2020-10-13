@@ -8,10 +8,10 @@ author: github-2407
 ms.author: krsh
 ms.date: 08/14/2020
 ms.openlocfilehash: 83fc141a658fb3f5f639d56794c77fe7a3ff28bf
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91821323"
 ---
 # <a name="test-a-virtual-machine-image-for-azure-marketplace"></a>Testar uma imagem de máquina virtual para o Azure Marketplace
@@ -1000,7 +1000,7 @@ Por fim, selecione Gerar Relatório para baixar os resultados do teste e os arqu
 > [!Note]
 > Alguns Publicadores têm cenários em que as VMs precisam ser bloqueadas, pois têm software como firewalls instalados na VM. Nesse caso, os editores podem baixar a [ferramenta de teste certificada](https://aka.ms/AzureCertificationTestTool) aqui e fornecer o relatório no [suporte ao editor do Marketplace](https://aka.ms/marketplacepublishersupport)
 
-## <a name="how-to-use-powershell-to-consume-the-self-test-api"></a>Como usar o PowerShell para consumir a API de teste automático
+## <a name="how-to-use-powershell-to-consume-the-self-test-api"></a>Como usar o PowerShell para consumir a API de Self-Test
 
 ### <a name="on-linux-os"></a>No SO Linux
 
@@ -1735,7 +1735,7 @@ For ($i = 0; $i -lt $actualresult.Tests.Length; $i++) {
 
 ![Resultados de teste em um visualizador JSON online.](media/vm/test-results-json-viewer-2.png)
 
-## <a name="how-to-use-curl-to-consume-the-self-test-api-on-linux-os"></a>Como usar a rotação para consumir a API de teste automático no sistema operacional Linux
+## <a name="how-to-use-curl-to-consume-the-self-test-api-on-linux-os"></a>Como usar a rotação para consumir a API de Self-Test no sistema operacional Linux
 
 Chame a API em ONDULAção:
 
