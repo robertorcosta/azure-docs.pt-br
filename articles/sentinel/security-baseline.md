@@ -9,10 +9,10 @@ ms.date: 09/10/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 25571db967608c238bccb1ab44f75a0a163803d5
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90020248"
 ---
 # <a name="azure-security-baseline-for-azure-sentinel"></a>Linha de base de segurança do Azure para Azure Sentinel
@@ -551,7 +551,7 @@ Use o Azure Resource Graph para consultar/descobrir recursos em suas assinaturas
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9,4: garantir a proteção de backups e chaves gerenciadas pelo cliente
 
-**Diretrizes**: habilite a exclusão reversível em Key Vault para proteger as chaves contra exclusão acidental ou mal-intencionada. No caso de um usuário revogar a chave de criptografia da chave, excluindo-a ou removendo o acesso ao Azure Sentinel, em uma hora, o Azure Sentinel honrará a alteração e se comportará como se os dados não estivessem mais disponíveis. Neste ponto, qualquer operação executada que use recursos de armazenamento persistente, como ingestão de dados, alterações de configuração persistente e criação de incidentes, será impedida. Os dados armazenados anteriormente não serão excluídos, mas permanecerão inacessíveis. Os dados inacessíveis são administrados pela política de retenção de dados e serão limpos de acordo com essa política.
+**Diretrizes**: habilite Soft-Delete no Key Vault para proteger as chaves contra exclusão acidental ou mal-intencionada. No caso de um usuário revogar a chave de criptografia da chave, excluindo-a ou removendo o acesso ao Azure Sentinel, em uma hora, o Azure Sentinel honrará a alteração e se comportará como se os dados não estivessem mais disponíveis. Neste ponto, qualquer operação executada que use recursos de armazenamento persistente, como ingestão de dados, alterações de configuração persistente e criação de incidentes, será impedida. Os dados armazenados anteriormente não serão excluídos, mas permanecerão inacessíveis. Os dados inacessíveis são administrados pela política de retenção de dados e serão limpos de acordo com essa política.
 
 A única operação possível após a revogação ou exclusão da chave de criptografia é a exclusão da conta.
 

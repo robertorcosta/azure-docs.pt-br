@@ -4,10 +4,10 @@ description: Saiba como codificar e testar o Azure Functions no computador local
 ms.topic: conceptual
 ms.date: 09/04/2018
 ms.openlocfilehash: 2362fcd27f1b5f7c0b3411eae5b3b94c7dc6cf4c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86540172"
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Codificar e testar o Azure Functions localmente
@@ -18,7 +18,7 @@ Enquanto você é capaz de desenvolver e testar o Azure Functions no [Portal do 
 
 A maneira como você desenvolve funções em seu computador local depende de seu [idioma](supported-languages.md) e preferências de ferramentas. Os ambientes na tabela a seguir dão suporte a desenvolvimento local:
 
-|Ambiente                              |Idiomas         |Descrição|
+|Ambiente                              |Languages         |Descrição|
 |-----------------------------------------|------------|---|
 |[Visual Studio Code](functions-develop-vs-code.md)| [C# (biblioteca de classes)](functions-dotnet-class-library.md), [script c# (. CSX)](functions-reference-csharp.md), [JavaScript](functions-reference-node.md), [PowerShell](./functions-create-first-function-vs-code.md?pivots=programming-language-powershell), [Python](functions-reference-python.md) | A [extensão do Azure Functions para VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) adiciona suporte ao Functions para o VS Code. Requer as Ferramentas Essenciais. Oferece suporte ao desenvolvimento em Linux, MacOS e Windows ao usar a versão 2.x das Ferramentas Essenciais. Para saber mais, confira [Criar sua primeira função usando o Visual Studio Code](functions-create-first-function-vs-code.md). |
 | [Prompt de comando ou terminal](functions-run-local.md) | [C# (biblioteca de classes)](functions-dotnet-class-library.md), [script c# (. CSX)](functions-reference-csharp.md), [JavaScript](functions-reference-node.md), [PowerShell](functions-reference-powershell.md), [Python](functions-reference-python.md) | [Azure Functions Core Tools] fornece o tempo de execução principal e os modelos para a criação de funções, que habilitam o desenvolvimento local. A versão 2.x oferece suporte a desenvolvimento em Linux, MacOS e Windows. Todos os ambientes contam com ferramentas essenciais para o runtime local do Functions. |

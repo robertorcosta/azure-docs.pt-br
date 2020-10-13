@@ -12,10 +12,10 @@ ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to
 ms.openlocfilehash: d7cd452b6d1107f440d952c7db930281f3d86c11
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91743791"
 ---
 # <a name="train-keras-models-at-scale-with-azure-machine-learning"></a>Treine os modelos Keras em escala com Azure Machine Learning
@@ -170,7 +170,7 @@ dataset = Dataset.get_by_name(ws, 'mnist-dataset')
 dataset.to_path()
 ```
 
-Crie um objeto ScriptRunConfig para especificar os detalhes de configuração do seu trabalho de treinamento, incluindo o script de treinamento, o ambiente a ser usado e o destino de computação para executar.
+Crie um objeto ScriptRunConfig para especificar os detalhes da configuração de seu trabalho de treinamento, incluindo o script de treinamento, o ambiente a ser usado e o destino de computação para a execução.
 
 Todos os argumentos para seu script de treinamento serão passados por meio da linha de comando, se especificado no `arguments` parâmetro. O DatasetConsumptionConfig para nosso filedataset é passado como um argumento para o script de treinamento, para o `--data-folder` argumento. O Azure ML resolverá esse DatasetConsumptionConfig para o ponto de montagem do repositório de armazenamento de backup, que pode ser acessado do script de treinamento.
 

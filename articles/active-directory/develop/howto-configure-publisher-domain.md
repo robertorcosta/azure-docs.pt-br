@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
 ms.openlocfilehash: d62328534157a1e2d9e53830be9d6b87e08c9e40
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87129263"
 ---
 # <a name="how-to-configure-an-applications-publisher-domain"></a>Como configurar um domínio do Publicador de um aplicativo
@@ -34,7 +34,7 @@ A tabela a seguir resume o comportamento padrão do valor de domínio do Publica
 
 | Domínios verificados por locatário | Valor padrão do domínio do Publicador |
 |-------------------------|----------------------------|
-| nulo | nulo |
+| null | null |
 | *. onmicrosoft.com | *. onmicrosoft.com |
 | -*. onmicrosoft.com<br/>-domain1.com<br/>-domain2.com (primário) | domain2.com |
 
@@ -97,7 +97,7 @@ Se seu aplicativo não estiver registrado em um locatário, você verá apenas a
 - Se o seu locatário tiver domínios verificados, selecione um dos domínios na lista suspensa **selecionar um domínio verificado** .
 
 >[!Note]
-> O cabeçalho ' Content-Type ' esperado que deve ser retornado é `application/json` . Você pode receber um erro, conforme mencionado abaixo, se você usar qualquer outra coisa como`application/json; charset=utf-8` 
+> O cabeçalho ' Content-Type ' esperado que deve ser retornado é `application/json` . Você pode receber um erro, conforme mencionado abaixo, se você usar qualquer outra coisa como `application/json; charset=utf-8` 
 > 
 >``` "Verification of publisher domain failed. Error getting JSON file from https:///.well-known/microsoft-identity-association. The server returned an unexpected content type header value. " ```
 >

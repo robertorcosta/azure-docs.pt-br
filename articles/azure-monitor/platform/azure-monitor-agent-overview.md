@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/10/2020
 ms.openlocfilehash: cc49bec71f6c591ca3036592b0949e3fc7cef48e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91263769"
 ---
 # <a name="azure-monitor-agent-overview-preview"></a>Visão geral do agente de Azure Monitor (versão prévia)
@@ -99,9 +99,9 @@ O agente de Azure Monitor é implementado como uma [extensão de VM do Azure](..
 
 | Propriedade | Windows | Linux |
 |:---|:---|:---|
-| Editor | Microsoft. Azure. monitor  | Microsoft. Azure. monitor |
+| Publicador | Microsoft. Azure. monitor  | Microsoft. Azure. monitor |
 | Type      | AzureMonitorWindowsAgent | AzureMonitorLinuxAgent  |
-| TypeHandlerVersion  | 1.0 | 1.5 |
+| TypeHandlerVersion  | 1,0 | 1.5 |
 
 Instale o agente de Azure Monitor usando qualquer um dos métodos para instalar agentes de máquina virtual, incluindo o seguinte usando o PowerShell ou a CLI. Como alternativa, você pode instalar o agente e configurar a coleta de dados em máquinas virtuais em sua assinatura do Azure usando o portal com o procedimento descrito em [Configurar coleta de dados para o agente de Azure monitor (versão prévia)](data-collection-rule-azure-monitor-agent.md#create-using-the-azure-portal).
 

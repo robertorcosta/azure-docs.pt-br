@@ -14,10 +14,10 @@ ms.date: 08/24/2020
 ms.author: kumud
 ms.reviewer: kumud
 ms.openlocfilehash: e60cdfb00d0dc9d446bd52a72e9fd15676acd285
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89458188"
 ---
 # <a name="how-network-security-groups-filter-network-traffic"></a>Como os grupos de segurança de rede filtram o tráfego de rede
@@ -52,7 +52,7 @@ Em relação ao tráfego de saída, o Azure processa as regras em um grupo de se
 - **VM4**: todo o tráfego é permitido da *VM4*, pois um grupo de segurança de rede não está associado ao adaptador de rede anexado à máquina virtual, ou para a *Subnet3*.
 
 
-## <a name="intra-subnet-traffic"></a>Tráfego de intra-subnet
+## <a name="intra-subnet-traffic"></a>Tráfego de Intra-Subnet
 
 É importante observar que as regras de segurança em um NSG associado a uma sub-rede podem afetar a conectividade entre as VMs dentro dela. Por exemplo, se uma regra for adicionada a *NSG1* que nega todo o tráfego de entrada e de saída, *VM1* e *VM2* não poderão se comunicar entre si. Outra regra teria que ser adicionada especificamente para permitir isso. 
 

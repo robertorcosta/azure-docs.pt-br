@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 01/25/2019
 ms.custom: devx-track-python
 ms.openlocfilehash: e8c3a0d60e10b1cf1f8a827cec8fcc25f3d33b05
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90564297"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Como criar seu primeiro aplicativo de contêiner do Service Fabric no Windows
@@ -130,7 +130,7 @@ helloworldapp                 latest              8ce25f5d6a79        2 minutes 
 ## <a name="run-the-application-locally"></a>Executar o aplicativo localmente
 Verifique a imagem localmente antes de enviá-la ao registro de contêiner. 
 
-Execute o aplicativo:
+Executar o aplicativo:
 
 ```
 docker run -d --name my-web-site helloworldapp
@@ -331,7 +331,7 @@ O aplicativo está pronto quando ele está em ```Ready``` estado: ![pronto][2]
 
 Abra um navegador e navegue até `http://containercluster.westus2.cloudapp.azure.com:8081`. Você deve ver o cabeçalho "Olá, Mundo!" ser exibido no navegador.
 
-## <a name="clean-up"></a>Limpar
+## <a name="clean-up"></a>Limpeza
 
 Você continua a incorrer em encargos enquanto o cluster estiver em execução, considere [excluir o cluster](./service-fabric-tutorial-delete-cluster.md).
 

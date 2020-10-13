@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 706770db4309d1a909bc1161ab9d6657b6c5310a
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91533541"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-privileged-identity-management"></a>Configurar alertas de segurança para funções do Azure AD no Privileged Identity Management
@@ -82,7 +82,7 @@ Esta seção lista todos os alertas de segurança para funções do Azure AD, ju
 
 | | |
 | --- | --- |
-| **Gravidade** | Média |
+| **Gravidade** | Médio |
 | **Por que recebo este alerta?** | As contas em uma função privilegiada não alteraram sua senha nos últimos 90 dias. Essas contas podem ser de serviço ou compartilhadas, que não estejam passando por manutenção e estejam vulneráveis aos invasores. |
 | **Como corrigir?** | Examine as contas na lista. Se eles não precisarem mais de acesso, remova-os de suas funções privilegiadas. |
 | **Prevenção** | Certifique-se de que as contas compartilhadas estejam girando senhas fortes quando houver uma alteração nos usuários que conhecem a senha. </br>Examine regularmente as contas com funções privilegiadas usando [revisões de acesso](pim-how-to-start-security-review.md) e remova as atribuições de função que não são mais necessárias. |
@@ -181,7 +181,7 @@ Esta seção lista todos os alertas de segurança para funções do Azure AD, ju
 
 | | |
 | --- | --- |
-| **Gravidade** | Média |
+| **Gravidade** | Médio |
 | **Por que recebo este alerta?** | As contas em uma função privilegiada não alteraram sua senha nos últimos 90 dias. Essas contas podem ser de serviço ou compartilhadas, que não estejam passando por manutenção e estejam vulneráveis aos invasores. |
 | **Como corrigir?** | Examine as contas na lista. Se eles não precisarem mais de acesso, remova-os de suas funções privilegiadas. |
 | **Prevenção** | Certifique-se de que as contas compartilhadas estejam girando senhas fortes quando houver uma alteração nos usuários que conhecem a senha. </br>Examine regularmente as contas com funções privilegiadas usando [revisões de acesso](pim-how-to-start-security-review.md) e remova as atribuições de função que não são mais necessárias. |

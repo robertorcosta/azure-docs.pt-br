@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 13ed87903845d9f8295e56f187b643d73fbfb04e
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88717856"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrar sua infraestrutura VPN com a MFA do Azure usando a extensão Servidor de Políticas de Rede para o Azure

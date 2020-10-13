@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 10/13/2017
 ms.author: alkohli
 ms.openlocfilehash: 0c54b4e3015e255a6948202a6c3ea7a83362032f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85514909"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Solução de recuperação de desastre automatizada usando o Azure Site Recovery para compartilhamentos de arquivos hospedados no StorSimple
@@ -91,7 +91,7 @@ Esta etapa exige que você prepare o ambiente do servidor de arquivos local, cri
          > [!NOTE]
          > O nome do arquivo poderá mudar dependendo da versão.
       
-1. Clique em **Próximo**.
+1. Clique em **Avançar**.
 1. Aceite os **Termos do Contrato** e, em seguida, clique em **Avançar**.
 1. Clique em **Concluir**.
 1. Crie os compartilhamentos de arquivos usando volumes criados fora do armazenamento do StorSimple. Para obter mais informações, confira [Usar o serviço StorSimple Manager para gerenciar volumes](storsimple-manage-volumes.md).
@@ -104,7 +104,7 @@ Esta etapa exige que você prepare o ambiente do servidor de arquivos local, cri
    1. Crie contêineres de volume e, em seguida, crie volumes. (Esses volumes são para os compartilhamentos de arquivos nas VMs do servidor de arquivos). Copie o nome do iniciador e dê um nome apropriado para os Registros de Controle de Acesso ao criar os volumes.
    1. Selecione a guia **Configurar** e anote o endereço IP do dispositivo.
    1. Em suas VMs locais, acesse o **iniciador iSCSI** novamente e digite o IP na seção Conexão Rápida. Clique em **Conexão Rápida** (o dispositivo agora deve estar conectado).
-   1. Abra a portal do Azure e selecione a guia **volumes e dispositivos** . clique em **Configurar automaticamente**. O volume que você criou deverá aparecer.
+   1. Abra a portal do Azure e selecione a guia **volumes e dispositivos** . Clique em **Configurar automaticamente**. O volume que você criou deverá aparecer.
    1. No portal, selecione a guia **Dispositivos** e, em seguida, selecione **Criar um Novo Dispositivo Virtual.**  (Este dispositivo virtual será usado se ocorrer um failover). Esse novo dispositivo virtual pode ser mantido em estado offline para evitar custos extras. Para colocar o dispositivo virtual offline, acesse a seção **Máquinas Virtuais** no Portal e desligue-o.
    1. Volte para as VMs locais e abra o Gerenciamento de Disco (pressione a tecla Windows + X e selecione **Gerenciamento de Disco**).
    1. Você notará alguns discos extras (dependendo do número de volumes que você criou). Clique com o botão direito do mouse no primeiro, selecione **Inicializar Disco** e selecione **OK**. Clique com o botão direito do mouse na seção **Não Alocado**, selecione **Novo Volume Simples**, atribua uma letra da unidade e conclua o assistente.
@@ -170,7 +170,7 @@ Você pode criar um plano de recuperação no ASR para automatizar o processo de
    
 1. Na conta de automação, clique em **Variáveis** &gt; **Adicionar uma variável** e adicione os seguintes variáveis. Você pode optar por criptografar esses ativos. Essas variáveis são específicas do plano de recuperação. Se o seu plano de recuperação, que você criará na próxima etapa, o nome será TestPlan, as variáveis deverão ser TestPlan-StorSimRegKey, TestPlan-AzureSubscriptionName e assim por diante.
 
-   - **BaseUrl**: A URL do Gerenciador de recursos de url para a nuvem do Azure. Obter usando **Get-AzEnvironment | SELECT – nome do objeto, cmdlet ResourceManagerUrl** .
+   - **BaseUrl**: A URL do Gerenciador de recursos de url para a nuvem do Azure. Obtenha usando **Get-AzEnvironment | Select-Object Name, ResourceManagerUrl** cmdlet.
    - _RecoveryPlanName_**-ResourceGroupName**: o grupo do Gerenciador de recursos que tem o recurso StorSimple.
    - _RecoveryPlanName_**-ManagerName**: o recurso storsimple que tem o dispositivo storsimple.
    - _RecoveryPlanName_**-DeviceName**: o dispositivo StorSimple que precisa ser reprovado.

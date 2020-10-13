@@ -14,10 +14,10 @@ ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4543a46c9362ac6d20cc7597de9f59c1a7520163
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90600789"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Quatro etapas para uma base de identidade forte com Azure Active Directory
@@ -131,7 +131,7 @@ No local de trabalho digital de hoje, é importante balancear a segurança com a
 
 Esta seção lista as recomendações para remover o conflito de sua organização, capacitando seus usuários enquanto você ainda está atento.
 
-### <a name="enable-self-service-password-reset-for-all-users"></a>Habilitar a redefinição de senha de autoatendimento para todos os usuários
+### <a name="enable-self-service-password-reset-for-all-users"></a>Habilitar Self-Service redefinição de senha para todos os usuários
 
 A SSPR ( [redefinição de senha de autoatendimento](../authentication/tutorial-enable-sspr.md) ) do Azure oferece um meio simples para os administradores de ti permitirem que os usuários redefinam e desbloqueiem suas senhas ou contas sem intervenção do administrador. O sistema inclui relatórios detalhados que acompanham quando os usuários acessam o sistema junto com as notificações para alertá-lo para uso indevido ou um abuso.
 
@@ -147,7 +147,7 @@ Da mesma forma, o [relatório de gerenciamento de senhas de autoatendimento](../
 
 ### <a name="self-service-app-management"></a>Gerenciamento de aplicativo de autoatendimento
 
-Antes que os usuários possam detectar aplicativos automaticamente no painel de acesso, você precisa habilitar o [acesso de aplicativo de autoatendimento](../manage-apps/access-panel-manage-self-service-access.md) a todos os aplicativos que você deseja permitir que os usuários autodescubram e solicitem acesso ao. O acesso ao aplicativo de autoatendimento é uma ótima maneira de permitir que os usuários autodescubram aplicativos e, opcionalmente, permitem que o grupo de negócios aprove o acesso a esses aplicativos. Você pode permitir que o grupo de negócios gerencie as credenciais atribuídas a esses usuários para [aplicativos de logon único com senha](../manage-apps/application-sign-in-problem-password-sso-gallery.md#configure-password-sso-for-an-azure-ad-gallery-app) diretamente em seus painéis de acesso.
+Antes que os usuários possam detectar aplicativos automaticamente no painel de acesso, você precisa habilitar o [acesso de aplicativo de autoatendimento](../manage-apps/access-panel-manage-self-service-access.md) a todos os aplicativos que você deseja permitir que os usuários autodescubram e solicitem acesso ao. O acesso ao aplicativo de autoatendimento é uma ótima maneira de permitir que os usuários autodescubram aplicativos e, opcionalmente, permitem que o grupo de negócios aprove o acesso a esses aplicativos. Você pode permitir que o grupo de negócios gerencie as credenciais atribuídas a esses usuários para a [senha Single-Sign nos aplicativos](../manage-apps/application-sign-in-problem-password-sso-gallery.md#configure-password-sso-for-an-azure-ad-gallery-app) diretamente dos respectivos painéis de acesso.
 
 ### <a name="self-service-group-management"></a>Gerenciamento de grupo de autoatendimento
 

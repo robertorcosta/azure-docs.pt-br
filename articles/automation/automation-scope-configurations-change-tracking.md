@@ -6,10 +6,10 @@ ms.date: 03/04/2020
 ms.topic: conceptual
 ms.custom: mvc
 ms.openlocfilehash: 353f29d9b4c6599226619d40e4378e21618bcad4
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86185901"
 ---
 # <a name="limit-change-tracking-and-inventory-deployment-scope"></a>Limitar Controle de Alterações e escopo de implantação de estoque
@@ -30,7 +30,7 @@ Para limitar o escopo para sua implantação de Controle de Alterações e inven
 
 3. Selecione **configurações de escopo (versão prévia)** em **fontes de dados do espaço de trabalho**.
 
-4. Selecione as reticências à direita da `MicrosoftDefaultScopeConfig-ChangeTracking` configuração de escopo e clique em **Editar**. 
+4. Selecione as reticências à direita da  `MicrosoftDefaultScopeConfig-ChangeTracking` configuração de escopo e clique em **Editar**. 
 
 5. No painel Edição, selecione **Selecionar Grupos de Computadores**. O painel Grupos de Computadores mostra as pesquisas salvas que são usadas para criar a configuração de escopo. A pesquisa salva usada pelo Controle de Alterações e pelo inventário é:
 

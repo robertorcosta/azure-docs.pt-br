@@ -12,10 +12,10 @@ ms.date: 05/13/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 98c42a61e65935446f948e35cb08ed2893dd0b7b
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91532510"
 ---
 # <a name="speech-to-text-rest-api"></a>API REST de conversão de fala em texto
@@ -55,7 +55,7 @@ Esses parâmetros podem ser incluídos na string de consulta da solicitação RE
 
 | Parâmetro | Descrição | Obrigatório/Opcional |
 |-----------|-------------|---------------------|
-| `language` | Identifica a linguagem falada que está sendo reconhecida. Consulte [idiomas com suporte](language-support.md#speech-to-text). | Necessária |
+| `language` | Identifica a linguagem falada que está sendo reconhecida. Consulte [idiomas com suporte](language-support.md#speech-to-text). | Obrigatório |
 | `format` | Especifica o formato do resultado. Os valores aceitos são `simple` e `detailed`. Resultados simples incluem `RecognitionStatus`, `DisplayText`, `Offset` e `Duration`. As respostas detalhadas incluem quatro representações diferentes de texto de exibição. A configuração padrão é `simple`. | Opcional |
 | `profanity` | Especifica como lidar com palavrões em resultados de reconhecimento. Os valores aceitos são `masked` , que substitui profanação por asteriscos, `removed` , que remove toda a profanação do resultado, ou `raw` , que inclui a profanação no resultado. A configuração padrão é `masked`. | Opcional |
 | `cid` | Ao usar o [portal de fala personalizada](how-to-custom-speech.md) para criar modelos personalizados, você pode usar modelos personalizados por meio de sua **ID de ponto de extremidade** encontrada na página **implantação** . Use a **ID do ponto de extremidade** como o argumento para o `cid` parâmetro de cadeia de caracteres de consulta. | Opcional |
@@ -69,7 +69,7 @@ Esta tabela lista cabeçalhos obrigatórios e opcionais para solicitações de f
 | `Ocp-Apim-Subscription-Key` | Sua chave de assinatura do serviço de Fala. | Esse cabeçalho ou `Authorization` é obrigatório. |
 | `Authorization` | Um token de autorização precedido pela palavra `Bearer`. Para obter mais informações, consulte [Autenticação](#authentication). | Esse cabeçalho ou `Ocp-Apim-Subscription-Key` é obrigatório. |
 | `Pronunciation-Assessment` | Especifica os parâmetros para mostrar as pontuações de pronúncia nos resultados de reconhecimento, que avaliam a qualidade de pronúncia da entrada de fala, com indicadores de precisão, fluência, integridade, etc. Esse parâmetro é um JSON codificado em base64 contendo vários parâmetros detalhados. Consulte [parâmetros de avaliação de pronúncia](#pronunciation-assessment-parameters) para saber como criar esse cabeçalho. | Opcional |
-| `Content-type` | Descreve o formato e o codec dos dados de áudio fornecidos. Os valores aceitos são `audio/wav; codecs=audio/pcm; samplerate=16000` e `audio/ogg; codecs=opus`. | Necessária |
+| `Content-type` | Descreve o formato e o codec dos dados de áudio fornecidos. Os valores aceitos são `audio/wav; codecs=audio/pcm; samplerate=16000` e `audio/ogg; codecs=opus`. | Obrigatório |
 | `Transfer-Encoding` | Especifica que os dados de áudio em partes estão sendo enviados, em vez de um único arquivo. Use este cabeçalho somente se agrupar dados de áudio. | Opcional |
 | `Expect` | Se usar transferência em partes, envie `Expect: 100-continue`. O serviço de Fala reconhece a solicitação inicial e aguarda os dados adicionais.| Necessário se enviar dados de áudio em partes. |
 | `Accept` | Se fornecido, deve ser `application/json`. O serviço de fala fornece resultados em JSON. Algumas estruturas de solicitação fornecem um valor padrão incompatível. É uma boa prática sempre incluir `Accept` . | Opcional, mas recomendado. |
@@ -92,7 +92,7 @@ Esta tabela lista os parâmetros obrigatórios e opcionais para avaliação de p
 
 | Parâmetro | Descrição | Obrigatório/Opcional |
 |-----------|-------------|---------------------|
-| ReferenceText | O texto em relação ao qual a pronúncia será avaliada. | Necessária |
+| ReferenceText | O texto em relação ao qual a pronúncia será avaliada. | Obrigatório |
 | GradingSystem | O sistema de ponto para a calibragem de pontuação. Os valores aceitos são `FivePoint` e `HundredMark`. A configuração padrão é `FivePoint`. | Opcional |
 | Granularidade | A granularidade da avaliação. Os valores aceitos são `Phoneme` , que mostra a pontuação no nível de texto completo, Word e fonema, `Word` , que mostra a pontuação no texto completo e no nível de palavra, `FullText` , que mostra a pontuação somente no nível de texto completo. A configuração padrão é `Phoneme`. | Opcional |
 | Dimensão | Define os critérios de saída. Os valores aceitos são `Basic` , que mostram apenas a pontuação de precisão, `Comprehensive` mostra pontuações em mais dimensões (por exemplo, Pontuação fluência e pontuação de integridade no nível de texto completo, tipo de erro no nível de palavra). Verifique os [parâmetros de resposta](#response-parameters) para ver as definições de diferentes dimensões de Pontuação e tipos de erro do Word. A configuração padrão é `Basic`. | Opcional |

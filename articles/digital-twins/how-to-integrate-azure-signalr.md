@@ -8,10 +8,10 @@ ms.date: 09/02/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.openlocfilehash: 38e3526627eb4191643f8bc86b9ce5f49e41a71f
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90564399"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-signalr-service"></a>Integrar o gêmeos digital do Azure ao serviço de Signaler do Azure
@@ -61,7 +61,7 @@ Primeiro, vá para o navegador em que o portal do Azure está aberto e conclua a
 
 1. Selecione o ícone para copiar a cadeia de conexão primária.
 
-    :::image type="content" source="media/how-to-integrate-azure-signalr/signalr-keys.png" alt-text="Captura de tela da portal do Azure que mostra a página de chaves para a instância do Signalr. O ícone ' copiar para área de transferência ' ao lado da cadeia de conexão primária é realçado." lightbox="media/how-to-integrate-azure-signalr/signalr-keys.png":::
+    :::image type="content" source="media/how-to-integrate-azure-signalr/signalr-keys.png" alt-text="Uma exibição dos serviços do Azure em um cenário de ponta a ponta. Descreve dados que fluem de um dispositivo para o Hub IoT, por meio de uma função do Azure (seta B) para uma instância do gêmeos digital do Azure (seção A) e, em seguida, pela grade de eventos para outra função do Azure para processamento (seta C). A seção D mostra os dados que fluem da mesma grade de eventos na seta C para uma função do Azure rotulada ' difusão '. ' Broadcast ' comunica-se com outra função do Azure rotulada como ' Negotiate ', e ' Broadcast ' e ' Negotiate ' se comunicam com dispositivos de computador." lightbox="media/how-to-integrate-azure-signalr/signalr-keys.png":::
 
 Em seguida, inicie o Visual Studio (ou outro editor de código de sua escolha) e abra a solução de código na pasta *Azure_Digital_Twins_samples > ADTSampleApp* . Em seguida, execute as seguintes etapas para criar as funções:
 
@@ -139,11 +139,11 @@ Em seguida, inicie o Visual Studio (ou outro editor de código de sua escolha) e
 Em seguida, publique sua função no Azure, usando as etapas descritas na [seção *publicar o aplicativo* ](tutorial-end-to-end.md#publish-the-app) do tutorial *conectar uma solução de ponta a ponta* . Você pode publicá-lo no mesmo serviço de aplicativo/aplicativo de funções usado no tutorial de ponta a ponta pré-requisito ou criar um novo — mas talvez você queira usar o mesmo para minimizar a duplicação. Além disso, conclua a publicação do aplicativo com as seguintes etapas:
 1. Colete a **URL do ponto de extremidade http**da função *Negotiate* . Para fazer isso, vá para a página de [aplicativos da função](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites/kind/functionapp) do portal do Azure e selecione seu aplicativo de funções na lista. No menu do aplicativo, selecione *funções* e escolha a função *Negotiate* .
 
-    :::image type="content" source="media/how-to-integrate-azure-signalr/functions-negotiate.png" alt-text="Portal do Azure exibição do aplicativo de funções, com ' Functions ' realçado no menu. A lista de funções é mostrada na página e a função ' Negotiate ' também é realçada.":::
+    :::image type="content" source="media/how-to-integrate-azure-signalr/functions-negotiate.png" alt-text="Uma exibição dos serviços do Azure em um cenário de ponta a ponta. Descreve dados que fluem de um dispositivo para o Hub IoT, por meio de uma função do Azure (seta B) para uma instância do gêmeos digital do Azure (seção A) e, em seguida, pela grade de eventos para outra função do Azure para processamento (seta C). A seção D mostra os dados que fluem da mesma grade de eventos na seta C para uma função do Azure rotulada ' difusão '. ' Broadcast ' comunica-se com outra função do Azure rotulada como ' Negotiate ', e ' Broadcast ' e ' Negotiate ' se comunicam com dispositivos de computador.":::
 
     Pressione *obter URL da função* e copie o valor **para cima por meio de _/API_ (não inclua o último _/Negotiate?_)**. Você o usará posteriormente.
 
-    :::image type="content" source="media/how-to-integrate-azure-signalr/get-function-url.png" alt-text="Portal do Azure exibição da função ' Negotiate '. O botão ' obter URL da função ' está realçado e a parte da URL do início por meio de '/API '":::
+    :::image type="content" source="media/how-to-integrate-azure-signalr/get-function-url.png" alt-text="Uma exibição dos serviços do Azure em um cenário de ponta a ponta. Descreve dados que fluem de um dispositivo para o Hub IoT, por meio de uma função do Azure (seta B) para uma instância do gêmeos digital do Azure (seção A) e, em seguida, pela grade de eventos para outra função do Azure para processamento (seta C). A seção D mostra os dados que fluem da mesma grade de eventos na seta C para uma função do Azure rotulada ' difusão '. ' Broadcast ' comunica-se com outra função do Azure rotulada como ' Negotiate ', e ' Broadcast ' e ' Negotiate ' se comunicam com dispositivos de computador.":::
 
 1. Por fim, adicione a cadeia de **conexão** do signalr do Azure de antes às configurações do aplicativo da função, usando o comando CLI do Azure a seguir. O comando pode ser executado no [Azure cloud Shell](https://shell.azure.com)ou localmente se você tiver o CLI do Azure [instalado em seu computador](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest):
  
@@ -153,7 +153,7 @@ Em seguida, publique sua função no Azure, usando as etapas descritas na [seç�
 
     A saída desse comando imprime todas as configurações de aplicativo configuradas para sua função do Azure. Procure `AzureSignalRConnectionString` na parte inferior da lista para verificar se ela foi adicionada.
 
-    :::image type="content" source="media/how-to-integrate-azure-signalr/output-app-setting.png" alt-text="Trecho da saída em uma janela de comando, mostrando um item de lista chamado ' AzureSignalRConnectionString '":::
+    :::image type="content" source="media/how-to-integrate-azure-signalr/output-app-setting.png" alt-text="Uma exibição dos serviços do Azure em um cenário de ponta a ponta. Descreve dados que fluem de um dispositivo para o Hub IoT, por meio de uma função do Azure (seta B) para uma instância do gêmeos digital do Azure (seção A) e, em seguida, pela grade de eventos para outra função do Azure para processamento (seta C). A seção D mostra os dados que fluem da mesma grade de eventos na seta C para uma função do Azure rotulada ' difusão '. ' Broadcast ' comunica-se com outra função do Azure rotulada como ' Negotiate ', e ' Broadcast ' e ' Negotiate ' se comunicam com dispositivos de computador.":::
 
 #### <a name="connect-the-function-to-event-grid"></a>Conectar a função à Grade de Eventos
 
@@ -163,7 +163,7 @@ Para fazer isso, você criará uma **assinatura de grade de eventos** do tópico
 
 No [portal do Azure](https://portal.azure.com/), navegue até o tópico da grade de eventos pesquisando pelo nome dele na barra de pesquisa superior. Selecione *+ Assinatura de Evento*.
 
-:::image type="content" source="media/how-to-integrate-azure-signalr/event-subscription-1b.png" alt-text="Portal do Azure: assinatura de evento da Grade de Eventos":::
+:::image type="content" source="media/how-to-integrate-azure-signalr/event-subscription-1b.png" alt-text="Uma exibição dos serviços do Azure em um cenário de ponta a ponta. Descreve dados que fluem de um dispositivo para o Hub IoT, por meio de uma função do Azure (seta B) para uma instância do gêmeos digital do Azure (seção A) e, em seguida, pela grade de eventos para outra função do Azure para processamento (seta C). A seção D mostra os dados que fluem da mesma grade de eventos na seta C para uma função do Azure rotulada ' difusão '. ' Broadcast ' comunica-se com outra função do Azure rotulada como ' Negotiate ', e ' Broadcast ' e ' Negotiate ' se comunicam com dispositivos de computador.":::
 
 Na página *Criar Assinatura de Evento*, preencha os campos da seguinte maneira (os campos preenchidos por padrão não são mencionados):
 * *DETALHES DA ASSINATURA DE EVENTO* > **Nome**: dê um nome à assinatura de evento.
@@ -172,7 +172,7 @@ Na página *Criar Assinatura de Evento*, preencha os campos da seguinte maneira 
     - Preencha sua **assinatura**, **grupo de recursos**, **aplicativo de funções** e **função** (*difusão*). Alguns deles poderão ser preenchidos automaticamente após a seleção da assinatura.
     - Clique em **Confirmar seleção**.
 
-:::image type="content" source="media/how-to-integrate-azure-signalr/create-event-subscription.png" alt-text="Portal do Azure exibição da criação de uma assinatura de evento. Os campos acima são preenchidos e os botões ' confirmar seleção ' e ' criar ' são realçados.":::
+:::image type="content" source="media/how-to-integrate-azure-signalr/create-event-subscription.png" alt-text="Uma exibição dos serviços do Azure em um cenário de ponta a ponta. Descreve dados que fluem de um dispositivo para o Hub IoT, por meio de uma função do Azure (seta B) para uma instância do gêmeos digital do Azure (seção A) e, em seguida, pela grade de eventos para outra função do Azure para processamento (seta C). A seção D mostra os dados que fluem da mesma grade de eventos na seta C para uma função do Azure rotulada ' difusão '. ' Broadcast ' comunica-se com outra função do Azure rotulada como ' Negotiate ', e ' Broadcast ' e ' Negotiate ' se comunicam com dispositivos de computador.":::
 
 Na página *Criar Assinatura de Evento*, selecione **Criar**.
 
@@ -186,7 +186,7 @@ Durante o pré-requisito do tutorial de ponta a ponta, você [configurou o simul
 
 Agora, tudo o que você precisa fazer é iniciar o projeto de simulador, localizado em *Azure_Digital_Twins_samples > DeviceSimulator > DeviceSimulator. sln*. Se você estiver usando o Visual Studio, poderá abrir o projeto e executá-lo com esse botão na barra de ferramentas:
 
-:::image type="content" source="media/how-to-integrate-azure-signalr/start-button-simulator.png" alt-text="O botão de início do Visual Studio (projeto DeviceSimulator)":::
+:::image type="content" source="media/how-to-integrate-azure-signalr/start-button-simulator.png" alt-text="Uma exibição dos serviços do Azure em um cenário de ponta a ponta. Descreve dados que fluem de um dispositivo para o Hub IoT, por meio de uma função do Azure (seta B) para uma instância do gêmeos digital do Azure (seção A) e, em seguida, pela grade de eventos para outra função do Azure para processamento (seta C). A seção D mostra os dados que fluem da mesma grade de eventos na seta C para uma função do Azure rotulada ' difusão '. ' Broadcast ' comunica-se com outra função do Azure rotulada como ' Negotiate ', e ' Broadcast ' e ' Negotiate ' se comunicam com dispositivos de computador.":::
 
 Uma janela do console será aberta e exibirá mensagens da telemetria de temperatura simulada. Eles estão sendo enviados por meio de sua instância do gêmeos digital do Azure, em que eles são coletados pelo Azure Functions e Signalr.
 
@@ -214,7 +214,7 @@ Em seguida, defina as permissões em seu aplicativo de funções no portal do Az
 1. Na página de [aplicativos da função](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites/kind/functionapp) do portal do Azure, selecione sua instância do aplicativo de funções.
 1. Role para baixo no menu de instância e selecione *CORS*. Na página CORS, adicione `http://localhost:3000` como uma origem permitida inserindo-a na caixa vazia. Marque a caixa *habilitar acesso-controle-permitir-credenciais* e clique em *salvar*.
 
-    :::image type="content" source="media/how-to-integrate-azure-signalr/cors-setting-azure-function.png" alt-text="Configuração de CORS no Azure function":::
+    :::image type="content" source="media/how-to-integrate-azure-signalr/cors-setting-azure-function.png" alt-text="Uma exibição dos serviços do Azure em um cenário de ponta a ponta. Descreve dados que fluem de um dispositivo para o Hub IoT, por meio de uma função do Azure (seta B) para uma instância do gêmeos digital do Azure (seção A) e, em seguida, pela grade de eventos para outra função do Azure para processamento (seta C). A seção D mostra os dados que fluem da mesma grade de eventos na seta C para uma função do Azure rotulada ' difusão '. ' Broadcast ' comunica-se com outra função do Azure rotulada como ' Negotiate ', e ' Broadcast ' e ' Negotiate ' se comunicam com dispositivos de computador.":::
 
 ### <a name="see-the-results"></a>Confira os resultados
 
@@ -226,7 +226,7 @@ npm start
 
 Isso abrirá uma janela do navegador que executa o aplicativo de exemplo, que exibe um medidor de temperatura Visual. Depois que o aplicativo estiver em execução, você deverá começar a ver os valores de telemetria de temperatura do simulador de dispositivo que se propagam por meio do Azure digital gêmeos sendo refletido pelo aplicativo Web em tempo real.
 
-:::image type="content" source="media/how-to-integrate-azure-signalr/signalr-webapp-output.png" alt-text="Trecho do aplicativo Web do cliente de exemplo, mostrando um medidor de temperatura Visual. A temperatura refletida é 67,52":::
+:::image type="content" source="media/how-to-integrate-azure-signalr/signalr-webapp-output.png" alt-text="Uma exibição dos serviços do Azure em um cenário de ponta a ponta. Descreve dados que fluem de um dispositivo para o Hub IoT, por meio de uma função do Azure (seta B) para uma instância do gêmeos digital do Azure (seção A) e, em seguida, pela grade de eventos para outra função do Azure para processamento (seta C). A seção D mostra os dados que fluem da mesma grade de eventos na seta C para uma função do Azure rotulada ' difusão '. ' Broadcast ' comunica-se com outra função do Azure rotulada como ' Negotiate ', e ' Broadcast ' e ' Negotiate ' se comunicam com dispositivos de computador.":::
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

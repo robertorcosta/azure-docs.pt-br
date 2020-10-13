@@ -12,10 +12,10 @@ ms.author: moslake
 ms.reviewer: jrasnick, sstein
 ms.date: 03/12/2019
 ms.openlocfilehash: 2e751a77d40403c7bdd4644e8e6fb03ff89063e8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91335059"
 ---
 # <a name="manage-file-space-for-databases-in-azure-sql-database"></a>Gerenciar o espaço de arquivo para bancos de dados no banco de dados SQL do Azure
@@ -146,7 +146,7 @@ Modifique os exemplos a seguir para retornar uma tabela que lista o espaço aloc
 Os resultados da consulta para determinar o espaço alocado para cada banco de dados no pool podem ser incluídos juntos para determinar o espaço do pool elástico alocado. O espaço do pool elástico alocado não deve exceder o tamanho máximo do pool elástico.  
 
 > [!IMPORTANT]
-> O módulo Azure Resource Manager do PowerShell ainda tem suporte do Banco de Dados SQL do Azure, mas todo o desenvolvimento futuro é para o módulo Az.Sql. O módulo AzureRM continuará a receber correções de bugs até pelo menos dezembro de 2020. Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos. Para obter mais informações sobre sua compatibilidade, consulte [apresentando o novo módulo Azure PowerShell AZ](/powershell/azure/new-azureps-module-az).
+> O módulo Azure Resource Manager do PowerShell ainda tem suporte do Banco de Dados SQL do Azure, mas todo o desenvolvimento futuro é para o módulo Az.Sql. O módulo AzureRM continuará a receber as correções de bugs até pelo menos dezembro de 2020. Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos. Para saber mais sobre a compatibilidade entre eles, confira [Apresentação do novo módulo Az do Azure PowerShell](/powershell/azure/new-azureps-module-az).
 
 O script do PowerShell requer o módulo do SQL Server PowerShell - consulte [Download do módulo do PowerShell](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module) para instalar.
 

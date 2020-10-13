@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2019
 ms.openlocfilehash: 69824df1b84f6cdfafa08a662816281442ad44fd
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86044372"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Detecção de anomalias no Azure Stream Analytics
@@ -119,7 +119,7 @@ O desempenho desses modelos depende do tamanho do histórico, da duração da ja
 * **Carga de eventos** -quanto maior a **carga de eventos**, mais trabalho é executado pelos modelos, o que afeta o consumo da CPU. O trabalho pode ser escalado horizontalmente, tornando-o embaraçosamente paralelo, pressupondo que faça sentido para que a lógica comercial use mais partições de entrada.
 * Particionamento de nível de **função**  -  O **particionamento de nível de função** é feito usando ```PARTITION BY``` a chamada de função de detecção de anomalias. Esse tipo de particionamento adiciona uma sobrecarga, pois o estado precisa ser mantido para vários modelos ao mesmo tempo. O particionamento no nível de função é usado em cenários como o particionamento no nível do dispositivo.
 
-### <a name="relationship"></a>Relação
+### <a name="relationship"></a>Relationship
 O tamanho do histórico, a duração da janela e a carga total do evento são relacionados da seguinte maneira:
 
 windowDuration (em MS) = 1000 * historySize/(total de eventos de entrada por segundo/contagem de partições de entrada)
@@ -133,14 +133,14 @@ A tabela a seguir inclui as observações de taxa de transferência para um úni
 | --------------------- | -------------------- | -------------------------- |
 | 60 | 55 | 2.200 |
 | 600 | 728 | 1.650 |
-| 6\.000 | 10.910 | 1\.100 |
+| 6\.000 | 10.910 | 1.100 |
 
 A tabela a seguir inclui as observações de taxa de transferência para um único nó (6 SU) para o caso particionado:
 
 | Tamanho do histórico (eventos) | Duração da janela (MS) | Total de eventos de entrada por segundo | Contagem de dispositivos |
 | --------------------- | -------------------- | -------------------------- | ------------ |
-| 60 | 1.091 | 1\.100 | 10 |
-| 600 | 10.910 | 1\.100 | 10 |
+| 60 | 1.091 | 1.100 | 10 |
+| 600 | 10.910 | 1.100 | 10 |
 | 6\.000 | 218.182 | <550 | 10 |
 | 60 | 21.819 | 550 | 100 |
 | 600 | 218.182 | 550 | 100 |

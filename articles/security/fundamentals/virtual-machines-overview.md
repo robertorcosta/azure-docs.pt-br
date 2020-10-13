@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 10/2/2019
 ms.author: terrylan
 ms.openlocfilehash: d2862d5ab2c42ebdd1787022dc86119bc4e0f596
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86229356"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Visão geral de segurança de máquinas virtuais do Azure
@@ -79,7 +79,7 @@ O Cofre de Chaves oferece a opção de armazenar as chaves em HSMs (módulos de 
 
 Saiba mais:
 
-* [O que é o Azure Key Vault?](/azure/key-vault/key-vault-overview)
+* [O que é o Cofre da Chave do Azure?](/azure/key-vault/key-vault-overview)
 * [Blog do Cofre de Chaves do Azure](https://blogs.technet.microsoft.com/kv/)
 
 ## <a name="virtual-machine-disk-encryption"></a>Criptografia de disco da máquina virtual
@@ -116,7 +116,7 @@ Recuperação de Site:
 
 Saiba mais:
 
-* [O que é Azure Site Recovery?](/azure/site-recovery/site-recovery-overview)
+* [O que é o Azure Site Recovery?](/azure/site-recovery/site-recovery-overview)
 * [Como funciona Azure Site Recovery?](/azure/site-recovery/site-recovery-components)
 * [Quais cargas de trabalho são protegidas por Azure Site Recovery?](/azure/site-recovery/site-recovery-workload)
 
@@ -160,7 +160,7 @@ Saiba mais:
 
 Embora a computação confidencial não seja tecnicamente parte da segurança da máquina virtual, o tópico da segurança da máquina virtual pertence ao assunto de "computação" de nível superior. A computação confidencial pertence dentro da categoria de segurança de "computação".
 
-A computação confidencial garante que quando os dados estiverem "em claro", o que é necessário para um processamento eficiente, os dados serão protegidos dentro de um ambiente de execução confiável https://en.wikipedia.org/wiki/Trusted_execution_environment (também conhecido como enclave), um exemplo do que é mostrado na figura abaixo.  
+A computação confidencial garante que quando os dados estiverem "em claro", o que é necessário para um processamento eficiente, os dados serão protegidos dentro de um ambiente de execução confiável  https://en.wikipedia.org/wiki/Trusted_execution_environment (também conhecido como enclave), um exemplo do que é mostrado na figura abaixo.  
 
 Os TEEs garantem que não há como visualizar os dados ou as operações internas de fora, mesmo com um depurador. Eles até garantem que apenas o código autorizado tenha permissão para acessar os dados. Se o código for alterado ou adulterado, as operações serão negadas e o ambiente desativado. O TEE aplica essas proteções durante a execução do código dentro dele.
 

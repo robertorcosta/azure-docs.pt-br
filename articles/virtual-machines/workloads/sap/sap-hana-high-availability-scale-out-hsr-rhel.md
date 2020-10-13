@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 10/02/2020
 ms.author: radeltch
 ms.openlocfilehash: edca4b44bd9e7aa9f100db3cea0bc69880a4c533
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91744723"
 ---
 # <a name="high-availability-of-sap-hana-scale-out-system-on-red-hat-enterprise-linux"></a>Alta disponibilidade de SAP HANA sistema de expansão em Red Hat Enterprise Linux 
@@ -84,10 +84,10 @@ Antes de começar, consulte as seguintes notas e documentos do SAP:
   * [Administração de complemento de alta disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
   * [Referência de complemento de alta disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
   * [Guia de rede Red Hat Enterprise Linux](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide)
-  * [Como fazer configurar SAP HANA replicação de sistema de expansão em um cluster pacemaker com sistemas de arquivos do HANA em compartilhamentos NFS](https://access.redhat.com/solutions/5423971)
+  * [Como fazer configurar SAP HANA replicação do sistema Scale-Out em um cluster pacemaker com os sistemas de arquivos do HANA em compartilhamentos NFS](https://access.redhat.com/solutions/5423971)
 * Documentação do RHEL específica do Azure:
   * [Instalar o SAP HANA no Red Hat Enterprise Linux para uso no Microsoft Azure](https://access.redhat.com/public-cloud/microsoft-azure)
-  * [Solução de Red Hat Enterprise Linux para SAP HANA a expansão e a replicação do sistema](https://access.redhat.com/solutions/4386601)
+  * [Solução Red Hat Enterprise Linux para SAP HANA Scale-Out e replicação do sistema](https://access.redhat.com/solutions/4386601)
 * [Aplicativos SAP NetApp no Microsoft Azure usando o Azure NetApp Files][anf-sap-applications-azure]
 * [Documentação do Azure NetApp Files][anf-azure-doc] 
 
@@ -152,7 +152,7 @@ Para a configuração apresentada neste documento, implante sete máquinas virtu
 
     d. Selecione **rede**e, em seguida, anexe a interface de rede. Na lista suspensa **anexar interface de rede** , selecione as interfaces de rede já criadas para as `inter` sub-redes e `hsr` .  
     
-    e. Clique em **Salvar**. 
+    e. Selecione **Salvar**. 
  
     f. Repita as etapas b a e para as máquinas virtuais restantes (em nosso exemplo,  **Hana-S1-DB2**, **Hana-S1-DB3**, **Hana-S2-DB1**, **Hana-S2-DB2** e **Hana-S2-DB3**).
  
@@ -836,7 +836,7 @@ Inclua todas as máquinas virtuais, incluindo o criador principal no cluster.
     ```
 
    > [!TIP]
-   > Se sua configuração incluir outros sistemas de arquivos, além `hana/shared` de/, que são montados em NFS, inclua a `sequential=false` opção para que não haja nenhuma dependência de ordenação entre os sistemas de arquivos. Todos os sistemas de arquivos montados em NFS devem iniciar, antes do recurso de atributo correspondente, mas não precisam iniciar em nenhum pedido em relação uns aos outros. Para obter mais informações, consulte [como fazer configurar SAP Hana expansão de HSR em um cluster do pacemaker quando os sistemas de arquivos do Hana forem compartilhamentos NFS](https://access.redhat.com/solutions/5423971).  
+   > Se sua configuração incluir outros sistemas de arquivos, além `hana/shared` de/, que são montados em NFS, inclua a `sequential=false` opção para que não haja nenhuma dependência de ordenação entre os sistemas de arquivos. Todos os sistemas de arquivos montados em NFS devem iniciar, antes do recurso de atributo correspondente, mas não precisam iniciar em nenhum pedido em relação uns aos outros. Para obter mais informações, consulte [como fazer configurar SAP HANA Scale-Out HSR em um cluster do pacemaker quando os sistemas de arquivos do Hana forem compartilhamentos NFS](https://access.redhat.com/solutions/5423971).  
 
 8. **[1]** Coloque pacemaker no modo de manutenção, em preparação para a criação dos recursos de cluster do Hana.  
     ```

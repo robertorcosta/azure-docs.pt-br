@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 10/20/2019
 ms.author: jingwang
 ms.openlocfilehash: dda761e12abe7ec866ad9426982563b6f629f6b2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85513292"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory"></a>Copiar dados do Office 365 para o Azure usando Azure Data Factory
@@ -77,7 +77,7 @@ As seções a seguir fornecem detalhes sobre as propriedades usadas para definir
 
 As propriedades a seguir têm suporte para o serviço vinculado do Office 365:
 
-| Property | Descrição | Obrigatório |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade de tipo deve ser definida como: **Office365** | Sim |
 | office365TenantId | ID de locatário do Azure ao qual a conta do Office 365 pertence. | Sim |
@@ -117,7 +117,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados do Office 365, há suporte para as seguintes propriedades:
 
-| Property | Descrição | Obrigatório |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade tipo do conjunto de dados deve ser definida como: **Office365Table** | Sim |
 | tableName | Nome do conjunto de dados para extrair do Office 365. Confira [aqui](https://docs.microsoft.com/graph/data-connect-datasets#datasets) a lista de conjuntos de dados do Office 365 disponíveis para extração. | Sim |
@@ -151,7 +151,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados do Office 365, há suporte para as seguintes propriedades na seção **origem** da atividade de cópia:
 
-| Property | Descrição | Obrigatório |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade Type da fonte da atividade de cópia deve ser definida como: **Office365Source** | Sim |
 | allowedGroups | Predicado de seleção de grupo.  Use essa propriedade para selecionar até 10 grupos de usuários para os quais os dados serão recuperados.  Se nenhum grupo for especificado, os dados serão retornados para toda a organização. | Não |

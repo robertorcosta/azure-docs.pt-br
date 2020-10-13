@@ -7,10 +7,10 @@ ms.custom: devx-track-java
 ms.author: lagayhar
 ms.date: 05/24/2019
 ms.openlocfilehash: f0583af05ae7d8e365b50610bfb812ac7764f223
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90602458"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>Início rápido: introdução ao Application Insights em um projeto Web Java
@@ -293,7 +293,7 @@ O Application Insights pode testar seu site em intervalos regulares para verific
 
 [Saiba mais sobre como configurar testes da Web de disponibilidade.][availability]
 
-## <a name="questions-problems"></a>Dúvidas? Problemas?
+## <a name="questions-problems"></a>Perguntas? Problemas?
 [Solucionar problemas de Java](java-troubleshoot.md)
 
 ## <a name="next-steps"></a>Próximas etapas

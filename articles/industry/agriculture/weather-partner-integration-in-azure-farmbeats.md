@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 07/09/2020
 ms.author: sunasing
 ms.openlocfilehash: a2677b5343b2d65a39e7c9f6d5006db599c1ac73
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86496988"
 ---
 # <a name="weather-partner-integration"></a>Integração com parceiros de clima
@@ -18,7 +18,7 @@ Este artigo fornece informações sobre o componente Docker do **conector** do A
 
  > [!NOTE]
  > Para a finalidade desta documentação, usaremos uma implementação de referência criada usando o NOAA dos conjuntos de documentos abertos do Azure e está disponível em [https://github.com/azurefarmbeats/noaa_docker](https://github.com/azurefarmbeats/noaa_docker) .
- > A imagem do Docker correspondente está disponível em[https://hub.docker.com/r/azurefarmbeats/farmbeats-noaa](https://hub.docker.com/r/azurefarmbeats/farmbeats-noaa)
+ > A imagem do Docker correspondente está disponível em [https://hub.docker.com/r/azurefarmbeats/farmbeats-noaa](https://hub.docker.com/r/azurefarmbeats/farmbeats-noaa)
 
 Um parceiro meteorológico precisará fornecer uma imagem/programa do Docker (com especificações mencionadas abaixo) e hospedar a imagem do Docker em um registro de contêiner acessível pelos clientes. O parceiro meteorológico precisará fornecer as seguintes informações para seus clientes:
 
@@ -36,10 +36,10 @@ Usando as informações acima do Docker, o cliente registrará um parceiro meteo
 
 As APIs FarmBeats contêm documentação técnica do Swagger. Para obter informações sobre todas as APIs e suas solicitações ou respostas correspondentes, consulte [FarmBeats Swagger](https://aka.ms/farmbeatsswagger). 
 
-Se você tiver instalado o FarmBeats, poderá acessar seu Swagger do FarmBeats em`https://yourfarmbeatswebsitename-api.azurewebsites.net/swagger`
+Se você tiver instalado o FarmBeats, poderá acessar seu Swagger do FarmBeats em `https://yourfarmbeatswebsitename-api.azurewebsites.net/swagger`
 
 Observe que "-API" é anexado ao nome do site FarmBeats.
-O ponto de extremidade da API será:`https://yourfarmbeatswebsitename-api.azurewebsites.net`
+O ponto de extremidade da API será: `https://yourfarmbeatswebsitename-api.azurewebsites.net`
 
 ### <a name="datahub-lib"></a>Datahub lib
 
@@ -160,7 +160,7 @@ Esse componente será invocado toda vez que um usuário FarmBeats executar um tr
   weatherDataModelId  | ID do WeatherDataModel correspondente que foi criado durante a inicialização|
   local  | representa latitude, longitude e elevação |
   Nome | Nome do objeto |
-  Descrição | Descrição |
+  DESCRIÇÃO | Descrição |
   farmid | **opcional** ID do farm – fornecido pelo cliente como parte do parâmetro de trabalho |
   Propriedades  | Propriedades adicionais do fabricante.
 

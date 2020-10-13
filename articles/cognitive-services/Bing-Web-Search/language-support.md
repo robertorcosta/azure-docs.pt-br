@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: aahi
 ms.openlocfilehash: e378bc88d28173eaed0308db3034a54236d63098
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91262817"
 ---
 # <a name="language-and-region-support-for-the-bing-web-search-api"></a>Suporte de idioma e região para a API de Pesquisa na Web do Bing
@@ -68,7 +68,7 @@ Como alternativa, você pode especificar o mercado usando o parâmetro de consul
 
 ## <a name="markets"></a>Mercados
 
-|País/Região|Idioma|Código de mercado|
+|País/Região|Linguagem|Código de mercado|
 |-------|--------|-----------|
 |Argentina|Espanhol|es-AR|
 |Austrália|Inglês|en-AU|
@@ -107,8 +107,8 @@ Como alternativa, você pode especificar o mercado usando o parâmetro de consul
 |Suíça|Alemão|de-CH|
 |Taiwan|Chinês tradicional|zh-TW|
 |Turquia|Turco|tr-TR|
-|Reino Unido|Inglês|en-GB|
-|Estados Unidos|Inglês|en-US|
+|United Kingdom|Inglês|en-GB|
+|Estados Unidos|Inglês|pt-BR|
 |Estados Unidos|Espanhol|es-US|
 
 ## <a name="next-steps"></a>Próximas etapas

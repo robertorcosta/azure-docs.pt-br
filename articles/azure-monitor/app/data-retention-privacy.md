@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 06/30/2020
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: 2205ab1115a66092ae6dd6d75ee7004ab281eec7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91263905"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Coleta, retenção e armazenamento de dados no Application Insights
@@ -257,7 +257,7 @@ Os SDKs variam entre diferentes plataformas, e há vários componentes que você
 | [Adicionar o Application Insights SDK a um projeto Web .NET][greenbrown] |ServerContext<br/>Inferido<br/>Contadores de desempenho<br/>Requests<br/>**Exceções**<br/>Session<br/>usuários |
 | [Instalar o Monitor de Status no IIS][redfield] |Dependências<br/>ServerContext<br/>Inferido<br/>Contadores de desempenho |
 | [Adicionar o Application Insights SDK a um aplicativo Web Java][java] |ServerContext<br/>Inferido<br/>Solicitação<br/>Session<br/>usuários |
-| [Adicionar SDK do JavaScript à página da Web][client] |ClientContext  <br/>Inferido<br/>Página<br/>ClientPerf<br/>Ajax |
+| [Adicionar SDK do JavaScript à página da Web][client] |ClientContext  <br/>Inferido<br/>?<br/>ClientPerf<br/>Ajax |
 | [Definir propriedades padrão][apiproperties] |**Propriedades** em todos os eventos padrão e personalizados |
 | [Chamar TrackMetric][api] |Valores numéricos<br/>**Propriedades** |
 | [Chamar Track*][api] |Nome do evento<br/>**Propriedades** |

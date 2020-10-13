@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 805ab0e78f0679ce483af3a73203b41132be2a59
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90054765"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-volume-groups"></a>Usar o StorSimple Snapshot Manager para criar e gerenciar grupos de volumes
@@ -52,7 +52,7 @@ Se você clicar no nó **Grupos de Volumes**, o painel **Resultados** mostrará 
 |:--- |:--- |
 | Nome |A coluna **Nome** contém o nome do grupo de volumes. |
 | Aplicativo |A coluna **Aplicativos** mostra o número de gravadores VSS atualmente instalados e em execução no host do Windows. |
-| Selecionada |A coluna **Selecionado** mostra o número de volumes contidos no grupo de volumes. Um zero (0) indica que nenhum aplicativo está associado aos volumes no grupo de volumes. |
+| Selecionado |A coluna **Selecionado** mostra o número de volumes contidos no grupo de volumes. Um zero (0) indica que nenhum aplicativo está associado aos volumes no grupo de volumes. |
 | Importado |A coluna **Importado** mostra o número de volumes importados. Quando definida como **True**, essa coluna indica que um grupo de volumes foi importado do portal do Azure e não foi criado no StorSimple Snapshot Manager. |
 
 > [!NOTE]

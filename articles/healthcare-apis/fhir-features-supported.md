@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 02/07/2019
 ms.author: matjazl
 ms.openlocfilehash: afb4026a7865f2cc8f831d8d1d7b1d332014d310
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90007563"
 ---
 # <a name="features"></a>Recursos
@@ -127,7 +127,7 @@ Cosmos DB é um banco de dados multimodelo distribuído globalmente (API do SQL,
 
 ## <a name="role-based-access-control"></a>Controle de acesso baseado em função
 
-O servidor FHIR usa [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) para controle de acesso. Especificamente, o RBAC (controle de acesso baseado em função) é imposto, se o `FhirServer:Security:Enabled` parâmetro de configuração for definido como `true` , e todas as solicitações (exceto `/metadata` ) para o servidor FHIR devem ter o `Authorization` cabeçalho de solicitação definido como `Bearer <TOKEN>` . O token deve conter uma ou mais funções, conforme definido na `roles` declaração. Uma solicitação será permitida se o token contiver uma função que permita a ação especificada no recurso especificado.
+O servidor FHIR usa [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) para controle de acesso. Especificamente, o controle de acesso Role-Based (RBAC) é imposto, se o `FhirServer:Security:Enabled` parâmetro de configuração for definido como `true` , e todas as solicitações (exceto `/metadata` ) para o servidor FHIR devem ter o `Authorization` cabeçalho de solicitação definido como `Bearer <TOKEN>` . O token deve conter uma ou mais funções, conforme definido na `roles` declaração. Uma solicitação será permitida se o token contiver uma função que permita a ação especificada no recurso especificado.
 
 Atualmente, as ações permitidas para uma determinada função são aplicadas *globalmente* na API.
 

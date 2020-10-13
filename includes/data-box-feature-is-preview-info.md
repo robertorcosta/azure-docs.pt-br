@@ -1,6 +1,6 @@
 ---
-title: Indica que este recurso de Azure Data Box está em visualização | Microsoft Docs
-description: Observação comum que indica que esse recurso de Azure Data Box está em visualização.
+title: Indica que este recurso do Azure Data Box está na versão prévia | Microsoft Docs
+description: Observação comum que indica que este recurso do Azure Data Box está em versão prévia.
 services: databox
 author: priestlg
 ms.service: databox
@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 06/01/2020
 ms.author: v-grpr
 ms.openlocfilehash: b5ac3288f6c2d7216cf620b130cd10d1190b7f78
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
-ms.translationtype: MT
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86201256"
 ---
 > [!NOTE]
-> O recurso exportar dados para Azure Data Box está em visualização no momento.
+> O recurso de exportação de dados no Azure Data Box está na versão prévia.

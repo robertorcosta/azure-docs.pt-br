@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.openlocfilehash: 21f5a9f58acbaf3d0444d7da10ad489ade99cd76
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90604182"
 ---
 # <a name="features-of-azure-cognitive-search"></a>Recursos do Azure Pesquisa Cognitiva
@@ -72,6 +72,6 @@ O Azure Pesquisa Cognitiva fornece um mecanismo de pesquisa de texto completo, a
 
 ## <a name="see-also"></a>Confira também
 
-+ [O que há de novo no Pesquisa Cognitiva](whats-new.md)
++ [Novidades no Cognitive Search](whats-new.md)
 
 + [Recursos de visualização no Pesquisa Cognitiva](search-api-preview.md)
