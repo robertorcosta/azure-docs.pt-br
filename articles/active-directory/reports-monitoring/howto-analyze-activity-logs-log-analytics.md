@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ab60cb83e68a0c325ec1e2ac102870493016b57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a48a72aa021a17c59adb86bece66cec966e234bd
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89231224"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056133"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs"></a>Analisar logs de atividade do Azure AD com os logs do Azure Monitor
 
@@ -100,16 +100,13 @@ Você também pode configurar alertas em sua consulta. Por exemplo, para configu
 
 5. Depois de configurar o alerta, selecione **Criar alerta** para habilitá-lo. 
 
-## <a name="install-and-use-pre-built-views-for-azure-ad-activity-logs"></a>Instalar e usar exibições predefinidas para logs de atividades do Azure AD
+## <a name="use-pre-built-workbooks-for-azure-ad-activity-logs"></a>Usar pastas de trabalho predefinidas para logs de atividades do Azure AD
 
-Você também pode baixar as exibições do Log Analytics predefinidas para logs de atividades do Azure AD. As exibições fornecem vários relatórios relacionados a cenários comuns que envolvem eventos de auditoria e entrada. Você também pode alertar sobre qualquer um dos dados fornecidos nos relatórios seguindo as etapas descritas na seção anterior.
+As pastas de trabalho fornecem vários relatórios relacionados a cenários comuns envolvendo auditoria, entrada e eventos de provisionamento. Você também pode alertar sobre qualquer um dos dados fornecidos nos relatórios seguindo as etapas descritas na seção anterior.
 
-* **Eventos de provisionamento de conta do Azure AD**: Essa exibição mostra os relatórios relacionados à auditoria da atividade de provisionamento, como o número de novos usuários provisionados e falhas de provisionamento, número de usuários atualizados e falhas de atualização, além de número de usuários desprovisionados e falhas correspondentes.    
-* **Eventos de entradas**: Essa exibição mostra os relatórios mais relevantes relacionados à atividade de entrada de monitoramento, como entradas por aplicativo, usuário, dispositivo, bem como exibição resumida de acompanhamento do número de entradas ao longo do tempo.
-* **Usuários que executam o consentimento**: essa exibição mostra os relatórios relacionados ao consentimento do usuário, como o consentimento dados por usuário, entradas por usuários que recebeu consentimento, bem como entradas por aplicativo para todos os aplicativos baseados em consentimento. 
-
-Saiba como [instalar e usar as exibições do Log Analytics para logs de atividades do Azure AD](howto-install-use-log-analytics-views.md). 
-
+* **Análise de provisionamento**: esta [pasta de trabalho](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics) mostra relatórios relacionados à atividade de provisionamento de auditoria, como o número de novos usuários provisionados e falhas de provisionamento, número de usuários atualizados e falhas de atualização e o número de usuários desprovisionados e falhas correspondentes.    
+* **Eventos de entradas**: esta pasta de trabalho mostra os relatórios mais relevantes relacionados à atividade de entrada de monitoramento, como entradas por aplicativo, usuário, dispositivo, bem como uma exibição de resumo que controla o número de entradas ao longo do tempo.
+* **Informações de acesso condicional**: a [pasta de trabalho](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-insights-reporting) informações de acesso condicional e relatórios permite que você entenda o impacto das políticas de acesso condicional em sua organização ao longo do tempo. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 09/21/2020
 ms.author: aahi
-ms.openlocfilehash: 714a4709eceea875798940de962716d34437f2a9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 856e73181ee02fe2bb21c4317ec8c733e2536d53
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91530452"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973114"
 ---
 # <a name="migrate-to-the-read-v3x-ocr-containers"></a>Migrar para contêineres de OCR de Leitura v3.x
 
@@ -65,10 +65,10 @@ O núcleo e a memória correspondem às configurações `--cpus` e `--memory`, q
 >[!NOTE]
 > O MongoDB não é mais compatível com as versões 3.x do contêiner. Em vez disso, os contêineres são compatíveis com o Armazenamento do Azure e com sistemas de arquivos offline.
 
-| Implementação |  Argumento(s) de runtime necessário(s) |
+| Implementação |    Argumento(s) de runtime necessário(s) |
 |---------|---------|
-|Nível de arquivo (padrão)   | Nenhum argumento de runtime é necessário. O diretório `/share` será usado. |
-|Blob do Azure | `Storage:ObjectStore:AzureBlob:ConnectionString={AzureStorageConnectionString}` |
+|Nível de arquivo (padrão)    | Nenhum argumento de runtime é necessário. O diretório `/share` será usado. |
+|Blob do Azure    | `Storage:ObjectStore:AzureBlob:ConnectionString={AzureStorageConnectionString}` |
 
 ## <a name="queue-implementations"></a>Implementações de fila
 
@@ -78,7 +78,7 @@ Na v3.x do contêiner, o RabbitMQ não é compatível no momento. As implementa�
 |---------|---------|-------|
 | Na memória (padrão) | Nenhum argumento de runtime é necessário. | Desenvolvimento e teste |
 | Filas do Azure | `Queue:Azure:ConnectionString={AzureStorageConnectionString}` | Produção |
-| RabbitMQ  | Indisponível | Produção |
+| RabbitMQ    | Indisponível | Produção |
 
 Para obter uma redundância adicionada, o contêiner de Leitura v3.x usa um temporizador de visibilidade para garantir que as solicitações possam ser processadas com êxito em caso de falha, durante a execução em uma configuração de vários contêineres. 
 
@@ -86,7 +86,7 @@ Defina o temporizador com `Queue:Azure:QueueVisibilityTimeoutInMilliseconds`, qu
 
 | Valor padrão | Valor recomendado |
 |---------|---------|
-| 30000 |   120000 |
+| 30000 |    120000 |
 
 
 ## <a name="next-steps"></a>Próximas etapas

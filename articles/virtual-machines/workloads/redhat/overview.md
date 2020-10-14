@@ -1,20 +1,18 @@
 ---
 title: Visão geral de cargas de trabalho do Red Hat no Azure | Microsoft Docs
 description: Saiba mais sobre as ofertas de produtos do Red Hat disponíveis no Azure.
-services: virtual-machines-linux
 author: asinn826
-manager: borisb2015
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
 ms.topic: overview
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 7394cb50010bddddf8f8eff4b4f04eaf4d3231b6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.reviewer: cynthn
+ms.openlocfilehash: 61f7461633aba18a21fcc18709055dc790ffee7b
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87052114"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993239"
 ---
 # <a name="red-hat-workloads-on-azure"></a>Cargas de trabalho do Red Hat no Azure
 
@@ -45,7 +43,7 @@ O Azure também oferece imagens do Red Hat Gold (`rhel-byos`). Essas imagens pod
 
 ### <a name="generation-2-images"></a>Imagens da Geração 2
 
-As VMs (máquinas virtuais) da Geração 2 fornecem alguns recursos mais recentes em comparação com as VMs da Geração 1. Para obter mais informações, confira a documentação da [Geração 2](../../linux/generation-2.md). A principal diferença da perspectiva de imagens do RHEL é que as VMs da Geração 2 usam uma UEFI em vez da interface de firmware do BIOS. Elas também usam uma GPT (tabela de partição GUID) em vez de um MBR (registro mestre de inicialização) no tempo de inicialização. O uso de uma GPT permite, entre outras coisas, tamanhos de disco do sistema operacional maiores que 2 TB. Além disso, as [VMs da série Mv2](../../mv2-series.md) são executadas apenas nas imagens da Geração 2.
+As VMs (máquinas virtuais) da Geração 2 fornecem alguns recursos mais recentes em comparação com as VMs da Geração 1. Para obter mais informações, confira a documentação da [Geração 2](../../generation-2.md). A principal diferença da perspectiva de imagens do RHEL é que as VMs da Geração 2 usam uma UEFI em vez da interface de firmware do BIOS. Elas também usam uma GPT (tabela de partição GUID) em vez de um MBR (registro mestre de inicialização) no tempo de inicialização. O uso de uma GPT permite, entre outras coisas, tamanhos de disco do sistema operacional maiores que 2 TB. Além disso, as [VMs da série Mv2](../../mv2-series.md) são executadas apenas nas imagens da Geração 2.
 
 As imagens do RHEL da Geração 2 estão disponíveis no Azure Marketplace. Procure "gen2" no SKU da imagem na lista de todas as imagens exibidas quando você usa a CLI do Azure. Acesse a guia **Avançado** no processo de implantação da VM para implantar uma VM da Geração 2.
 

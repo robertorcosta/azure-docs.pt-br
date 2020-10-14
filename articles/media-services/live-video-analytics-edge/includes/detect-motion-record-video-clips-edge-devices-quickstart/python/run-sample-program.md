@@ -1,54 +1,20 @@
 ---
-ms.openlocfilehash: 93c88f34e32e2057efd3eae25b1f41f58b948575
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: f5e180cb85e65cf832ffe0a3746e25790644e1ba
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88682072"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91829051"
 ---
-1. Inicie uma sessão de depuração pressionando F5. A janela **TERMINAL** imprime algumas mensagens.
-1. O código *operations.json* chama os métodos diretos `GraphTopologyList` e `GraphInstanceList`. Se você limpou os recursos após os inícios rápidos anteriores, esse processo retornará listas vazias e, em seguida, pausará. Pressione Enter.
-    
-    ```
-    --------------------------------------------------------------------------
-    Executing operation GraphTopologyList
-    -----------------------  Request: GraphTopologyList  --------------------------------------------------
-    {
-      "@apiVersion": "1.0"
-    }
-    ---------------  Response: GraphTopologyList - Status: 200  ---------------
-    {
-      "value": []
-    }
-    --------------------------------------------------------------------------
-    Executing operation WaitForInput
-    Press Enter to continue
-    ```
-  
-  A janela **TERMINAL** mostra o próximo conjunto de chamadas de método direto:  
-  
-  * Uma chamada para `GraphTopologySet` que usa o `topologyUrl` 
-  * Uma chamada para `GraphInstanceSet` que usa o seguinte corpo:
-  
-  ```
-  {
-    "@apiVersion": "1.0",
-    "name": "Sample-Graph",
-    "properties": {
-      "topologyName": "EVRToFilesOnMotionDetection",
-      "description": "Sample graph description",
-      "parameters": [
-        {
-          "name": "rtspUrl",
-          "value": "rtsp://rtspsim:554/media/lots_015.mkv"
-        },
-        {
-          "name": "rtspUserName",
-          "value": "testuser"
-        },
-        {
-          "name": "rtspPassword",
-          "value": "testpassword"
+1. No Visual Studio Code, abra a guia **Extensões** (ou pressione Ctrl+Shift+X) e pesquise pelo Hub IoT do Azure.
+1. Clique com o botão direito do mouse e selecione **Configurações da Extensão**.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="../../../media/run-program/extensions-tab.png" alt-text="Configurações da Extensão":::
+1. Pesquise e habilite “Mostrar Mensagem Detalhada”.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="../../../media/run-program/show-verbose-message.png" alt-text="Configurações da Extensão"
         }
       ]
     }

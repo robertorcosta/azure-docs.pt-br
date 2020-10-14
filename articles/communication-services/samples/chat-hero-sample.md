@@ -2,19 +2,19 @@
 title: Exemplo de destaque de chat de grupo
 titleSuffix: An Azure Communication Services sample overview
 description: Visão geral do exemplo de destaque do chat usando os Serviços de Comunicação do Azure para permitir que os desenvolvedores aprendam mais sobre o funcionamento interno do exemplo e saibam como modificá-lo.
-author: ddematheu
+author: ddematheu2
 manager: nimag
 services: azure-communication-services
 ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: b97b80927739d9a8658213a00b415c0bf321528b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 51b985cd67e1b540e2f24f2f37b19f9bff4223db
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91460553"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962982"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>Introdução ao exemplo de destaque de chat de grupo
 
@@ -78,7 +78,6 @@ Você pode testar o exemplo localmente abrindo várias sessões do navegador com
 2. `git clone https://github.com/Azure/Communication.git`
 3. Obtenha a `Connection String` do portal do Azure. Para obter mais informações sobre cadeias de conexão, confira [Criar Recursos de Comunicação do Azure](../quickstarts/create-communication-resource.md)
 4. Depois de obter a `Connection String`, adicione a cadeia de conexão ao arquivo **Chat/appsettings.json** encontrado na pasta Chat. Insira a cadeia de conexão na variável: `ResourceConnectionString`.
-5. Atualize o ENVIRONMENT_URL em `./Chat/ClientApp/src/constants.tsx` com a localização do seu recurso. (por exemplo, https://<RESOURCE_NAME>.communication.azure.com)
 
 ### <a name="local-run"></a>Execução local
 
@@ -115,6 +114,6 @@ Para obter mais informações, consulte os seguintes artigos:
 
 - [GitHub de Comunicação do Azure](https://github.com/Azure/communication) – Encontre mais exemplos e informações na página oficial do GitHub
 - [Redux](https://redux.js.org/) – gerenciamento de estado do lado do cliente
-- [FluentUI](https://developer.microsoft.com/fluentui#/) – biblioteca de interface do usuário da Microsoft
+- [FluentUI](https://aka.ms/fluent-ui) – biblioteca de interface do usuário da Microsoft
 - [React](https://reactjs.org/) – biblioteca para criar interfaces do usuário
 - [ASP.NET Core](https://docs.microsoft.com/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-3.1&preserve-view=true) – Estrutura para criar aplicativos Web

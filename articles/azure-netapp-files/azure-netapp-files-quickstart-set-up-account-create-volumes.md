@@ -8,12 +8,12 @@ ms.workload: storage
 ms.topic: quickstart
 ms.date: 09/22/2020
 ms.custom: devx-track-azurecli, subject-armqs
-ms.openlocfilehash: d118bef4a7ccc263010fe176432a5301c4104118
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 088961d58cee2f1bb0c6ac042d9d8ee2ad50ba14
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91533886"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91931335"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Início Rápido: Configurar o Azure NetApp Files e criar um volume do NFS 
 
@@ -164,7 +164,7 @@ Confira [Como se registrar no Azure NetApp Files](azure-netapp-files-register.md
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-O snippet de código a seguir mostrará como criar uma conta do NetApp em um modelo ARM (modelo do Azure Resource Manager) usando o recurso [Microsoft.NetApp/netAppAccounts](https://docs.microsoft.com/azure/templates/microsoft.netapp/netappaccounts). Para executar o código, baixe o [modelo ARM completo](https://github.com/Azure/azure-quickstart-templates/blob/master/101-anf-nfs-volume/azuredeploy.json) de nosso repositório GitHub.
+O snippet de código a seguir mostrará como criar uma conta do NetApp em um modelo ARM (modelo do Azure Resource Manager) usando o recurso [Microsoft.NetApp/netAppAccounts](/azure/templates/microsoft.netapp/netappaccounts). Para executar o código, baixe o [modelo ARM completo](https://github.com/Azure/azure-quickstart-templates/blob/master/101-anf-nfs-volume/azuredeploy.json) de nosso repositório GitHub.
 
 :::code language="json" source="~/quickstart-templates/101-anf-nfs-volume/azuredeploy.json" range="177-183":::
 
@@ -238,7 +238,7 @@ O snippet de código a seguir mostrará como criar uma conta do NetApp em um mod
 
 <!-- [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)] -->
 
-O snippet de código a seguir mostrará como criar um pool de capacidade em um modelo ARM (modelo do Azure Resource Manager) usando o recurso [Microsoft.NetApp/netAppAccounts/capacityPools](https://docs.microsoft.com/azure/templates/microsoft.netapp/netappaccounts/capacitypools). Para executar o código, baixe o [modelo ARM completo](https://github.com/Azure/azure-quickstart-templates/blob/master/101-anf-nfs-volume/azuredeploy.json) de nosso repositório GitHub.
+O snippet de código a seguir mostrará como criar um pool de capacidade em um modelo ARM (modelo do Azure Resource Manager) usando o recurso [Microsoft.NetApp/netAppAccounts/capacityPools](/azure/templates/microsoft.netapp/netappaccounts/capacitypools). Para executar o código, baixe o [modelo ARM completo](https://github.com/Azure/azure-quickstart-templates/blob/master/101-anf-nfs-volume/azuredeploy.json) de nosso repositório GitHub.
 
 :::code language="json" source="~/quickstart-templates/101-anf-nfs-volume/azuredeploy.json" range="184-196":::
 
@@ -387,7 +387,7 @@ O snippet de código a seguir mostrará como criar um pool de capacidade em um m
 
 <!-- [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)] --> 
 
-Os snippets de código a seguir mostrarão como configurar uma VNet e criar um volume do Azure NetApp Files em um modelo ARM (modelo do Azure Resource Manager). A configuração da VNet usará o recurso [Microsoft.Network/virtualNetworks](https://docs.microsoft.com/azure/templates/Microsoft.Network/virtualNetworks). A criação de volume usará o recurso [Microsoft.NetApp/netAppAccounts/capacityPools/volumes](https://docs.microsoft.com/azure/templates/microsoft.netapp/netappaccounts/capacitypools/volumes). Para executar o código, baixe o [modelo ARM completo](https://github.com/Azure/azure-quickstart-templates/blob/master/101-anf-nfs-volume/azuredeploy.json) de nosso repositório GitHub.
+Os snippets de código a seguir mostrarão como configurar uma VNet e criar um volume do Azure NetApp Files em um modelo ARM (modelo do Azure Resource Manager). A configuração da VNet usará o recurso [Microsoft.Network/virtualNetworks](/azure/templates/Microsoft.Network/virtualNetworks). A criação de volume usará o recurso [Microsoft.NetApp/netAppAccounts/capacityPools/volumes](/azure/templates/microsoft.netapp/netappaccounts/capacitypools/volumes). Para executar o código, baixe o [modelo ARM completo](https://github.com/Azure/azure-quickstart-templates/blob/master/101-anf-nfs-volume/azuredeploy.json) de nosso repositório GitHub.
 
 :::code language="json" source="~/quickstart-templates/101-anf-nfs-volume/azuredeploy.json" range="148-176":::
 
@@ -465,4 +465,4 @@ Use o portal do Azure, o PowerShell ou a CLI do Azure para excluir o grupo de re
 > [!div class="nextstepaction"]
 > [Hierarquia de armazenamento do Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)   
 > [Níveis de serviço do Azure NetApp Files](azure-netapp-files-service-levels.md)   
-> [Criar um volume NFS](azure-netapp-files-create-volumes.md)   
+> [Criar um volume NFS](azure-netapp-files-create-volumes.md)

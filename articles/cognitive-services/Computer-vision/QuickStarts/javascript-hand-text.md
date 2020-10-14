@@ -11,18 +11,18 @@ ms.topic: quickstart
 ms.date: 10/05/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-js
-ms.openlocfilehash: 4100bf38b61d1b6eb7c3dfad3f1434a885c7d2ae
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: a8451ea302492d936628f4426a31c9b9e4cc1234
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91760845"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977126"
 ---
 # <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-javascript"></a>Início Rápido: Extrair um texto impresso e manuscrito usando a API REST da Pesquisa Visual Computacional e o JavaScript
 
-Neste início rápido, você extrairá o texto impresso e manuscrito de uma imagem usando a API REST da Pesquisa Visual Computacional. Com os métodos [Read](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) e [Get Read Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750), você pode detectar um texto em uma imagem e extrair os caracteres reconhecidos em um fluxo de caracteres legível por computador. 
+Neste início rápido, você extrairá o texto impresso e manuscrito de uma imagem usando a API REST da Pesquisa Visual Computacional. Com os métodos [Read](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) e [Get Read Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d9869604be85dee480c8750), você pode detectar um texto em uma imagem e extrair os caracteres reconhecidos em um fluxo de caracteres legível por computador. 
 
-O método [Read](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) é executado de maneira assíncrona. Esse método não retorna todas as informações no corpo de uma resposta bem-sucedida. Em vez disso, o método Batch Read retorna um URI no valor do campo de cabeçalho de resposta `Operation-Location`. Em seguida, você poderá chamar esse URI, que representa a API [Get Read Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) para verificar o status e retornar os resultados da chamada do método Read.
+O método [Read](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) é executado de maneira assíncrona. Esse método não retorna todas as informações no corpo de uma resposta bem-sucedida. Em vez disso, o método Batch Read retorna um URI no valor do campo de cabeçalho de resposta `Operation-Location`. Em seguida, você poderá chamar esse URI, que representa a API [Get Read Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d9869604be85dee480c8750) para verificar o status e retornar os resultados da chamada do método Read.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -61,7 +61,7 @@ Para criar e executar o exemplo, siga estas etapas:
         let endpoint = document.getElementById("endpoint").value;
         if (!subscriptionKey) { throw new Error('Please enter your subscription key and endpoint.'); }
         
-        var uriBase = endpoint + "/vision/v3.0/read/analyze";
+        var uriBase = endpoint + "/vision/v3.1/read/analyze";
 
         // Display the image.
         var sourceImageUrl = document.getElementById("inputImage").value;
@@ -195,7 +195,7 @@ Uma resposta com êxito é retornada em JSON. A página da Web de exemplo analis
   "createdDateTime": "2020-05-28T05:13:21Z",
   "lastUpdatedDateTime": "2020-05-28T05:13:22Z",
   "analyzeResult": {
-    "version": "3.0.0",
+    "version": "3.1.0",
     "readResults": [
       {
         "page": 1,

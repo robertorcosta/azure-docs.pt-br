@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 09/30/2020
 ms.author: b-juche
-ms.openlocfilehash: beb1cc9957f7b43bc6ad9b9b6ee6c7707eb0c2d6
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 56ae3ac1331ed054a1fb808ae06e990b67c06bae
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91571539"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91932406"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Novidades do Azure NetApp Files
 
@@ -31,7 +31,7 @@ O Azure NetApp Files é atualizado regularmente. Este artigo mostra um resumo do
 
   O Azure NetApp Files agora é compatível com a replicação entre regiões. Com essa nova funcionalidade de recuperação de desastre, é possível replicar os volumes do Azure NetApp Files de uma região do Azure para outra de maneira rápida e econômica. Isso protege seus dados contra falhas regionais imprevistas. A replicação entre regiões do Azure NetApp Files usa a tecnologia NetApp SnapMirror®. Somente os blocos alterados são enviados pela rede em um formato compactado e eficiente. Essa tecnologia proprietária minimiza a quantidade de dados necessária para replicar entre as regiões. Desse modo, você economiza nos custos de transferência de dados. Além disso, reduz o tempo de replicação para que você possa ter um RPO (Objetivo de Ponto de Recuperação) menor.
 
-* [Pool de Capacidade de QoS Manual](manage-manual-qos-capacity-pool.md) (Versão Prévia)  
+* [Pool de Capacidade de QoS Manual](manual-qos-capacity-pool-introduction.md) (Versão Prévia)  
 
     Em um pool de capacidade com QoS manual, é possível atribuir a capacidade e a taxa de transferência a um volume de modo independente. A taxa de transferência total de todos os volumes criados com um pool de capacidade com QoS manual é limitada pela taxa de transferência total do pool. Esse valor é determinado pela combinação do tamanho do pool com a taxa de transferência no nível do serviço. Como alternativa, o [tipo de QoS](azure-netapp-files-understand-storage-hierarchy.md#qos_types) do pool de capacidade pode ser automático, que é o padrão. Em um pool de capacidade com QoS automático, a taxa de transferência é atribuída automaticamente aos volumes no pool, proporcionalmente à cota de tamanho atribuída aos volumes.
 
