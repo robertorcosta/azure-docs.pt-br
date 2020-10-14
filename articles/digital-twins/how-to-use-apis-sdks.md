@@ -7,32 +7,32 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e9804eb2af28108572688244d6d7b513454e375b
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 1cf7bd744870b9f0a04d63445268b2ccd3134a66
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018994"
+ms.locfileid: "92046750"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Usar as APIs e os SDKs dos Gêmeos Digitais do Azure
 
 O Azure digital gêmeos vem equipado com APIs de **plano de controle** e APIs de **plano de dados** para gerenciar sua instância e seus elementos. 
-* As APIs do plano de controle são APIs [de Azure Resource Manager (ARM)](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) e abrangem operações de gerenciamento de recursos, como criar e excluir sua instância. 
+* As APIs do plano de controle são APIs [de Azure Resource Manager (ARM)](../azure-resource-manager/management/overview.md) e abrangem operações de gerenciamento de recursos, como criar e excluir sua instância. 
 * As APIs do plano de dados são APIs de gêmeos digitais do Azure e são usadas para operações de gerenciamento de dados, como gerenciar modelos, gêmeos e o grafo.
 
 Este artigo fornece uma visão geral das APIs disponíveis e os métodos para interagir com elas. Você pode usar as APIs REST diretamente com seus swaggers associados ou por meio de um SDK.
 
 ## <a name="overview-control-plane-apis"></a>Visão geral: APIs do plano de controle
 
-As APIs do plano de controle são APIs [ARM](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) usadas para gerenciar sua instância do gêmeos digital do Azure como um todo, para que elas abranjam operações como criar ou excluir toda a sua instância. Você também vai usá-los para criar e excluir pontos de extremidade.
+As APIs do plano de controle são APIs [ARM](../azure-resource-manager/management/overview.md) usadas para gerenciar sua instância do gêmeos digital do Azure como um todo, para que elas abranjam operações como criar ou excluir toda a sua instância. Você também vai usá-los para criar e excluir pontos de extremidade.
 
 A versão mais atual da API do plano de controle para visualização pública é _**2020-03-01-Preview**_.
 
 Para usar as APIs do plano de controle:
 * Você pode chamar as APIs diretamente referenciando o Swagger mais recente na [pasta Swagger do plano de controle](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins). Esse repositório também inclui uma pasta de exemplos que mostram o uso.
 * Atualmente, você pode acessar SDKs para APIs de controle no...
-  - [.Net (C#)](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/1.0.0-preview.1) ([origem](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins)) ([referência [gerada automaticamente]](https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet-preview&preserve-view=true))
-  - [Java](https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_03_01_preview/azure-mgmt-digitaltwins) ([origem](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins)) ([referência [gerada automaticamente]](https://docs.microsoft.com/java/api/overview/azure/digitaltwins/management?view=azure-java-preview&preserve-view=true))
+  - [.Net (C#)](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/1.0.0-preview.1) ([origem](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins)) ([referência [gerada automaticamente]](/dotnet/api/overview/azure/digitaltwins/management?preserve-view=true&view=azure-dotnet-preview))
+  - [Java](https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_03_01_preview/azure-mgmt-digitaltwins) ([origem](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins)) ([referência [gerada automaticamente]](/java/api/overview/azure/digitaltwins/management?preserve-view=true&view=azure-java-preview))
   - [JavaScript](https://www.npmjs.com/package/@azure/arm-digitaltwins) ([origem](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/arm-digitaltwins))
   - [Python](https://pypi.org/project/azure-mgmt-digitaltwins/) ([origem](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-mgmt-digitaltwins))
   - [Fonte de go](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/digitaltwins/mgmt/2020-03-01-preview/digitaltwins)
@@ -52,18 +52,18 @@ A versão mais atual da API do plano de dados para visualização pública é _*
 Para usar as APIs do plano de dados:
 * Você pode chamar as APIs diretamente, por...
    - referenciando o Swagger mais recente na [pasta Swagger do plano de dados](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins). Esse repositório também inclui uma pasta de exemplos que mostram o uso. 
-   - exibindo a [documentação de referência da API](https://docs.microsoft.com/rest/api/azure-digitaltwins/).
+   - exibindo a [documentação de referência da API](/rest/api/azure-digitaltwins/).
 * Você pode usar o SDK do **.net (C#)** . Para usar o SDK do .NET...
    - Você pode exibir e adicionar o pacote do NuGet: [Azure. DigitalTwins. Core](https://www.nuget.org/packages/Azure.DigitalTwins.Core). 
    - Você pode encontrar a origem do SDK, incluindo uma pasta de exemplos, no GitHub: [biblioteca de cliente do Azure IOT digital gêmeos para .net](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). 
-   - Você pode exibir a [documentação de referência do SDK](https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins?view=azure-dotnet-preview&preserve-view=true).
+   - Você pode exibir a [documentação de referência do SDK](/dotnet/api/overview/azure/digitaltwins?preserve-view=true&view=azure-dotnet-preview).
    - Você pode ver informações detalhadas e exemplos de uso, continuando para a seção [SDK (plano de dados) do .net (C#)](#net-c-sdk-data-plane) deste artigo.
 * Você pode usar o SDK do **JavaScript** . Para usar o SDK do JavaScript...
    - Você pode exibir e instalar o pacote em NPM: [biblioteca de cliente do gêmeos do Azure digital para JavaScript](https://www.npmjs.com/package/@azure/digital-twins/v/1.0.0-preview.1).
-   - Você pode exibir a [documentação de referência do SDK](https://docs.microsoft.com/javascript/api/@azure/digital-twins/?view=azure-node-latest&preserve-view=true).
+   - Você pode exibir a [documentação de referência do SDK](/javascript/api/@azure/digital-twins/?preserve-view=true&view=azure-node-latest).
 * Você pode usar o SDK do **Java** . Para usar o SDK do Java...
    - Você pode exibir e instalar o pacote do Maven: [`com.azure:azure-digitaltwins-core`](https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0-beta.1/jar)
-   - Você pode exibir a [documentação de referência do SDK](https://docs.microsoft.com/java/api/overview/azure/digitaltwins/client?view=azure-java-preview&preserve-view=true)
+   - Você pode exibir a [documentação de referência do SDK](/java/api/overview/azure/digitaltwins/client?preserve-view=true&view=azure-java-preview)
 * Você pode gerar um SDK para outro idioma usando o REST. Siga as instruções em [*como criar SDKs personalizados para o Azure digital gêmeos com o REST*](how-to-create-custom-sdks.md).
 
 Você também pode exercitar as APIs do plano de datas interagindo com o gêmeos digital do Azure por meio da [CLI](how-to-use-cli.md).
@@ -273,15 +273,15 @@ client.UpdateDigitalTwin("myTwin", uou.Serialize());
 
 A lista a seguir fornece detalhes adicionais e diretrizes gerais para o uso de APIs e SDKs.
 
-* Para usar o SDK, crie uma instância da `DigitalTwinsClient` classe. O construtor requer credenciais que podem ser obtidas com uma variedade de métodos de autenticação no `Azure.Identity` pacote. Para obter mais informações `Azure.Identity` , consulte a [documentação do namespace](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true). 
-* Você pode achar o `InteractiveBrowserCredential` útil ao começar, mas há várias outras opções, incluindo credenciais para [identidade gerenciada](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true), que você provavelmente usará para autenticar as [Azure Functions configuradas com o MSI](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet) no Azure digital gêmeos. Para obter mais informações `InteractiveBrowserCredential` , consulte a [documentação](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true)de sua classe.
+* Para usar o SDK, crie uma instância da `DigitalTwinsClient` classe. O construtor requer credenciais que podem ser obtidas com uma variedade de métodos de autenticação no `Azure.Identity` pacote. Para obter mais informações `Azure.Identity` , consulte a [documentação do namespace](/dotnet/api/azure.identity?preserve-view=true&view=azure-dotnet). 
+* Você pode achar o `InteractiveBrowserCredential` útil ao começar, mas há várias outras opções, incluindo credenciais para [identidade gerenciada](/dotnet/api/azure.identity.interactivebrowsercredential?preserve-view=true&view=azure-dotnet), que você provavelmente usará para autenticar as [Azure Functions configuradas com o MSI](../app-service/overview-managed-identity.md?tabs=dotnet) no Azure digital gêmeos. Para obter mais informações `InteractiveBrowserCredential` , consulte a [documentação](/dotnet/api/azure.identity.interactivebrowsercredential?preserve-view=true&view=azure-dotnet)de sua classe.
 * Todas as chamadas à API de serviço são expostas como funções de membro na `DigitalTwinsClient` classe.
 * Todas as funções de serviço existem em versões síncronas e assíncronas.
-* Todas as funções de serviço geram uma exceção para qualquer status de retorno de 400 ou acima. Certifique-se de encapsular chamadas em uma `try` seção e capturar pelo menos `RequestFailedExceptions` . Para obter mais informações sobre esse tipo de exceção, consulte [aqui](https://docs.microsoft.com/dotnet/api/azure.requestfailedexception?view=azure-dotnet&preserve-view=true).
-* A maioria dos métodos de serviço retorna `Response<T>` ou ( `Task<Response<T>>` para as chamadas assíncronas), em que `T` é a classe de objeto de retorno para a chamada de serviço. A [`Response`](https://docs.microsoft.com/dotnet/api/azure.response-1?view=azure-dotnet&preserve-view=true) classe encapsula o retorno de serviço e apresenta valores de retorno em seu `Value` campo.  
-* Métodos de serviço com resultados paginados retornam `Pageable<T>` ou `AsyncPageable<T>` como resultados. Para obter mais informações sobre a `Pageable<T>` classe, consulte [aqui](https://docs.microsoft.com/dotnet/api/azure.pageable-1?view=azure-dotnet-preview&preserve-view=true); para obter mais informações `AsyncPageable<T>` , consulte [aqui](https://docs.microsoft.com/dotnet/api/azure.asyncpageable-1?view=azure-dotnet-preview&preserve-view=true).
-* Você pode iterar por meio de resultados paginados usando um `await foreach` loop. Para obter mais informações sobre esse processo, consulte [aqui](https://docs.microsoft.com/archive/msdn-magazine/2019/november/csharp-iterating-with-async-enumerables-in-csharp-8).
-* O SDK subjacente é `Azure.Core` . Consulte a [documentação do namespace do Azure](https://docs.microsoft.com/dotnet/api/azure?view=azure-dotnet-preview&preserve-view=true) para obter referência sobre os tipos e a infraestrutura do SDK.
+* Todas as funções de serviço geram uma exceção para qualquer status de retorno de 400 ou acima. Certifique-se de encapsular chamadas em uma `try` seção e capturar pelo menos `RequestFailedExceptions` . Para obter mais informações sobre esse tipo de exceção, consulte [aqui](/dotnet/api/azure.requestfailedexception?preserve-view=true&view=azure-dotnet).
+* A maioria dos métodos de serviço retorna `Response<T>` ou ( `Task<Response<T>>` para as chamadas assíncronas), em que `T` é a classe de objeto de retorno para a chamada de serviço. A [`Response`](/dotnet/api/azure.response-1?preserve-view=true&view=azure-dotnet) classe encapsula o retorno de serviço e apresenta valores de retorno em seu `Value` campo.  
+* Métodos de serviço com resultados paginados retornam `Pageable<T>` ou `AsyncPageable<T>` como resultados. Para obter mais informações sobre a `Pageable<T>` classe, consulte [aqui](/dotnet/api/azure.pageable-1?preserve-view=true&view=azure-dotnet-preview); para obter mais informações `AsyncPageable<T>` , consulte [aqui](/dotnet/api/azure.asyncpageable-1?preserve-view=true&view=azure-dotnet-preview).
+* Você pode iterar por meio de resultados paginados usando um `await foreach` loop. Para obter mais informações sobre esse processo, consulte [aqui](/archive/msdn-magazine/2019/november/csharp-iterating-with-async-enumerables-in-csharp-8).
+* O SDK subjacente é `Azure.Core` . Consulte a [documentação do namespace do Azure](/dotnet/api/azure?preserve-view=true&view=azure-dotnet-preview) para obter referência sobre os tipos e a infraestrutura do SDK.
 
 Os métodos de serviço retornam objetos fortemente tipados sempre que possível. No entanto, como o Azure digital gêmeos se baseia em modelos personalizados – configurados pelo usuário em tempo de execução (por meio de modelos de DTDL carregados para o serviço), muitas APIs de serviço levam e retornam dados de alto nível no formato JSON.
 

@@ -4,12 +4,12 @@ description: Fornece respostas para algumas das perguntas mais comuns sobre a so
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: dikamath
-ms.openlocfilehash: 67309aafe5c1bc841399006285a9862f711e4296
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: bd75e3d708ddfb9d5545111e7bc4935c8dd50141
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018552"
+ms.locfileid: "92045220"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Perguntas frequentes sobre a solução do Azure VMware
 
@@ -73,6 +73,9 @@ Sim, desde que o sistema no qual ele está instalado possa acessar o vCenter de 
 #### <a name="are-there-special-instructions-for-installing-and-using-vmrc-with-azure-vmware-solution-vms"></a>Há instruções especiais para instalar e usar o VMRC com VMs de solução do Azure VMware?
 Não, use as [instruções fornecidas pelo VMware](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-89E7E8F0-DB2B-437F-8F70-BA34C505053F.html) e realize os pré-requisitos de VM especificados nessas instruções. 
 
+#### <a name="is-vmware-hcx-supported-on-vpns"></a>O VMware HCX tem suporte em VPNs?
+Não.
+
 
 ## <a name="compute-network-storage-and-backup"></a>Computação, rede, armazenamento e backup
 
@@ -111,6 +114,10 @@ Como essas soluções de backup são instaladas e gerenciadas pelos clientes, el
 #### <a name="what-is-the-correct-storage-policy-for-the-dedup-set-up"></a>Qual é a política de armazenamento correta da configuração de eliminação de duplicatas?
 
 Use a política de armazenamento *thin_provision* para o modelo de VM.  O padrão é *thick_provision*.
+
+#### <a name="are-the-snmp-infrastructure-logs-shared"></a>Os logs de infraestrutura SNMP são compartilhados?
+
+Não.
 
 ## <a name="hosts-clusters-and-private-clouds"></a>Hosts, clusters e nuvens privadas
 

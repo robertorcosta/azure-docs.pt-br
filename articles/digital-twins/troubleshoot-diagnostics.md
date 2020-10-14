@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/28/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: fc397b6d6beb719e11dc3959bbcf4d75c08a8dda
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f4abf78c153bd3d61068e4b7607794d6ccf1ed04
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88723921"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047668"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Solução de problemas do Azure digital gêmeos: log de diagnóstico
 
@@ -57,7 +57,7 @@ As novas configurações terão efeito em aproximadamente 10 minutos. Depois dis
 
 Aqui estão mais detalhes sobre as categorias de log que podem ser selecionadas em **detalhes da categoria** ao definir as configurações de diagnóstico.
 
-| Categoria do log | Descrição |
+| Categoria do log | Description |
 | --- | --- |
 | ADTModelsOperation | Registrar em log todas as chamadas de API pertencentes a modelos |
 | ADTQueryOperation | Registrar em log todas as chamadas de API pertencentes a consultas |
@@ -73,7 +73,7 @@ Cada categoria de log consiste em operações de gravação, leitura, exclusão 
 | Excluir | Delete (excluir) |
 | Ação | POST |
 
-Aqui está uma lista abrangente das operações e das [chamadas da API REST do Azure digital gêmeos](https://docs.microsoft.com/rest/api/azure-digitaltwins/) que são registradas em log em cada categoria. 
+Aqui está uma lista abrangente das operações e das [chamadas da API REST do Azure digital gêmeos](/rest/api/azure-digitaltwins/) que são registradas em log em cada categoria. 
 
 >[!NOTE]
 > Cada categoria de log contém várias operações/chamadas à API REST. Na tabela a seguir, cada categoria de log é mapeada para todas as operações/chamadas à API REST abaixo dela até que a próxima categoria de log seja listada. 

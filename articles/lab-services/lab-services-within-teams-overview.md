@@ -3,18 +3,21 @@ title: Azure Lab Services no Microsoft Teams
 description: Fornece uma visão geral do uso de Azure Lab Services no Microsoft Teams.
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: 8b70ab3cbf1a342646f6a2897550c4bf8f7601a7
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 0c7defdb6f801a10c5fadfdca805381a31f39378
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946591"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047821"
 ---
 # <a name="azure-lab-services-within-microsoft-teams"></a>Azure Lab Services no Microsoft Teams
 
-Os proprietários/criadores do Azure Lab Services agora podem criar laboratórios no Microsoft Teams.
+Azure Lab Services podem ser aproveitadas no Microsoft Teams usando o aplicativo **Azure Lab Services** Teams. Qualquer proprietário de equipe com acesso de proprietário/colaborador/criador às contas de laboratório poderá criar laboratórios e provisionar máquinas virtuais para todos na equipe.
 
-Este artigo descreve os benefícios da integração de equipes e fornece links para outros artigos para obter instruções sobre como gerenciar o Azure Lab Services dentro das equipes. 
+Este artigo descreve os benefícios de usar Azure Lab Services dentro de equipes e fornece links para outros artigos para obter instruções sobre como criar e gerenciar laboratórios dentro de equipes. 
+
+> [!NOTE]
+>**Azure Lab Services** O aplicativo de equipes pode ser adicionado somente a uma equipe, ele não pode ser adicionado a bate-papos individuais ou a chats de grupo.
 
 ## <a name="benefits"></a>Vantagens
 
@@ -31,8 +34,8 @@ Azure Lab Services integração com o Microsoft Teams ajudará educadores a conf
 
 Veja os artigos a seguir:
 
-- [Comece e crie um laboratório de serviços de laboratório das equipes](how-to-get-started-create-lab-within-teams.md)
-- [Gerenciar listas de usuários do Lab Services de equipes](how-to-manage-user-lists-within-teams.md)
-- [Gerenciar um pool de VMs no Lab Services das equipes](how-to-manage-vm-pool-within-teams.md)
-- [Criar agendas de serviços de laboratório de equipes](how-to-create-schedules-within-teams.md)
-- [Acessar uma VM (exibição de aluno) no Lab Services das equipes](how-to-access-vm-for-students-within-teams.md)
+- [Comece e crie um laboratório dentro das equipes](how-to-get-started-create-lab-within-teams.md)
+- [Gerenciar listas de usuários do laboratório dentro das equipes](how-to-manage-user-lists-within-teams.md)
+- [Gerenciar o pool de VMs do laboratório dentro das equipes](how-to-manage-vm-pool-within-teams.md)
+- [Criar e gerenciar agendas de laboratório dentro das equipes](how-to-create-schedules-within-teams.md)
+- [Acessar uma VM nas equipes – exibição de aluno](how-to-access-vm-for-students-within-teams.md)

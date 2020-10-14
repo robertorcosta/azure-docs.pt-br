@@ -8,12 +8,12 @@ ms.author: kgremban
 ms.date: 3/27/2020
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 823b16dcaf113136b10fdaa054da20840b99f02d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1883ffdff20bbbef8efec1440854f01a21a281dc
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91297038"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045713"
 ---
 # <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge"></a>Use o Visual Studio 2019 para desenvolver e depurar módulos para Azure IoT Edge
 
@@ -32,7 +32,7 @@ Este artigo mostra como usar as ferramentas de Azure IoT Edge para o Visual Stud
 
 Este artigo presume que você esteja usando um computador ou uma máquina virtual que executa Windows como seu computador de desenvolvimento. Em computadores com Windows, você pode desenvolver módulos do Windows ou Linux. Para desenvolver módulos do Windows, use um computador Windows executando a versão 1809/Build 17763 ou mais recente. Para desenvolver módulos do Linux, use um computador Windows que atenda aos [requisitos do Docker desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install).
 
-Como este artigo usa o Visual Studio 2019 como a ferramenta de desenvolvimento principal, instale o Visual Studio. Certifique-se de incluir o desenvolvimento **do Azure** e o **desenvolvimento de desktops com** cargas de trabalho do C++ em sua instalação do Visual Studio 2019. Você pode [Modificar o Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/modify-visual-studio?view=vs-2019) para adicionar as cargas de trabalho necessárias.
+Como este artigo usa o Visual Studio 2019 como a ferramenta de desenvolvimento principal, instale o Visual Studio. Certifique-se de incluir o desenvolvimento **do Azure** e o **desenvolvimento de desktops com** cargas de trabalho do C++ em sua instalação do Visual Studio 2019. Você pode [Modificar o Visual Studio 2019](/visualstudio/install/modify-visual-studio?view=vs-2019) para adicionar as cargas de trabalho necessárias.
 
 Depois que o Visual Studio 2019 estiver pronto, você também precisará das seguintes ferramentas e componentes:
 
@@ -62,7 +62,7 @@ Depois que o Visual Studio 2019 estiver pronto, você também precisará das seg
   vcpkg.exe --triplet x64-windows integrate install
   ```
 
-- [Registro de Contêiner do Azure](https://docs.microsoft.com/azure/container-registry/) ou [Hub do Docker](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags).
+- [Registro de Contêiner do Azure](../container-registry/index.yml) ou [Hub do Docker](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags).
 
   > [!TIP]
   > Você pode usar um registro do Docker local, em vez de um registro em nuvem, para fins de protótipo e teste.

@@ -8,18 +8,18 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: d1288f117a6b6c9fb05fd29578be35c676453177
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 4e9b9a7fb6e739b3bd288557457d1c152e372e26
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91975154"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045288"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>Integrar com aplicativos lógicos usando um conector personalizado
 
 O [aplicativo lógico do Azure](../logic-apps/logic-apps-overview.md) é um serviço de nuvem que ajuda a automatizar fluxos de trabalho entre aplicativos e serviços. Ao conectar aplicativos lógicos às APIs do gêmeos digital do Azure, você pode criar fluxos automatizados em todo o gêmeos digital do Azure e seus dados.
 
-Atualmente, o Azure digital gêmeos não tem um conector certificado (pré-compilado) para aplicativos lógicos. Em vez disso, o processo atual para usar aplicativos lógicos com o Azure digital gêmeos é criar um [**conector de aplicativos lógicos personalizados**](../logic-apps/custom-connector-overview.md), usando um [Swagger do Azure digital gêmeos personalizado](https://docs.microsoft.com/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) que foi modificado para funcionar com aplicativos lógicos.
+Atualmente, o Azure digital gêmeos não tem um conector certificado (pré-compilado) para aplicativos lógicos. Em vez disso, o processo atual para usar aplicativos lógicos com o Azure digital gêmeos é criar um [**conector de aplicativos lógicos personalizados**](../logic-apps/custom-connector-overview.md), usando um [Swagger do Azure digital gêmeos personalizado](/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) que foi modificado para funcionar com aplicativos lógicos.
 
 > [!NOTE]
 > Há várias versões do Swagger contidas no exemplo personalizado do Swagger vinculado acima. A versão mais recente será encontrada na subpasta com a data mais recente, mas ainda há suporte para as versões anteriores contidas no exemplo.
@@ -93,7 +93,7 @@ Você será levado para a página de implantação do conector. Quando terminar 
 
 Em seguida, você configurará o conector que criou para alcançar o gêmeos digital do Azure.
 
-Primeiro, baixe um Swagger personalizado do Azure digital gêmeos que foi modificado para funcionar com aplicativos lógicos. Baixe o exemplo de **swaggers personalizados do Azure digital gêmeos** deste [**link**](https://docs.microsoft.com/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) pressionando o botão *baixar zip* . Navegue até a pasta *Azure_Digital_Twins_Custom_Swaggers.zip* baixada e descompacte-a. 
+Primeiro, baixe um Swagger personalizado do Azure digital gêmeos que foi modificado para funcionar com aplicativos lógicos. Baixe o exemplo de **swaggers personalizados do Azure digital gêmeos** deste [**link**](/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) pressionando o botão *baixar zip* . Navegue até a pasta *Azure_Digital_Twins_Custom_Swaggers.zip* baixada e descompacte-a. 
 
 O Swagger personalizado para este tutorial está localizado na pasta _**Azure_Digital_Twins_Custom_Swaggers \logicapps**_ . Esta pasta contém subpastas chamadas *stable* e *Preview*, que contêm diferentes versões do Swagger organizadas por data. A pasta com a data mais recente conterá a cópia mais recente do Swagger. Seja qual for a versão selecionada, o arquivo do Swagger é nomeado _**digitaltwins.js**_.
 
@@ -213,7 +213,7 @@ Você pode escolher outras operações selecionando _+ nova etapa_ na mesma jane
 
 Agora que seu aplicativo lógico foi criado, o evento de atualização do matremeing que você definiu no designer de aplicativos lógicos deve ocorrer em uma recorrência de cada três segundos. Isso significa que, após três segundos, você deve ser capaz de consultar seus valores de atualização e ver os novos valors de patches refletidos.
 
-Você pode consultar seu matreme por meio do método de escolha (como um [aplicativo cliente personalizado](tutorial-command-line-app.md), o [aplicativo de exemplo do Azure digital gêmeos Explorer](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/), [SDKs e APIs](how-to-use-apis-sdks.md)ou a [CLI](how-to-use-cli.md)). 
+Você pode consultar seu matreme por meio do método de escolha (como um [aplicativo cliente personalizado](tutorial-command-line-app.md), o [aplicativo de exemplo do Azure digital gêmeos Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/), [SDKs e APIs](how-to-use-apis-sdks.md)ou a [CLI](how-to-use-cli.md)). 
 
 Para obter mais informações sobre como consultar sua instância do gêmeos digital do Azure, consulte [*como consultar o grafo de entrelaçamento*](how-to-query-graph.md).
 

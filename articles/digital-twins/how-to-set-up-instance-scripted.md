@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 83741f5bc55eb222b379a274ef403f766553b21f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e8e26f73aef155e4194ca7a4178827b6a7366fb
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91328620"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047413"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Configurar uma instância e autenticação do gêmeos digital do Azure (com script)
 
@@ -20,7 +20,7 @@ ms.locfileid: "91328620"
 
 Este artigo aborda as etapas para **Configurar uma nova instância de gêmeos digital do Azure**, incluindo a criação da instância e a configuração da autenticação. Depois de concluir este artigo, você terá uma instância do gêmeos digital do Azure pronta para começar a programar.
 
-Esta versão deste artigo conclui essas etapas executando um exemplo de [ **script de implantação automatizado** ](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/) que simplifica o processo. 
+Esta versão deste artigo conclui essas etapas executando um exemplo de [ **script de implantação automatizado** ](/samples/azure-samples/digital-twins-samples/digital-twins-samples/) que simplifica o processo. 
 * Para exibir as etapas manuais da CLI em que o script é executado nos bastidores, consulte a versão da CLI deste artigo: [*como: configurar uma instância e autenticação (CLI)*](how-to-set-up-instance-cli.md).
 * Para exibir as etapas manuais de acordo com o portal do Azure, consulte a versão do portal deste artigo: [*como configurar uma instância e autenticação (Portal)*](how-to-set-up-instance-portal.md).
 
@@ -28,7 +28,7 @@ Esta versão deste artigo conclui essas etapas executando um exemplo de [ **scri
 
 ## <a name="prerequisites-download-the-script"></a>Pré-requisitos: baixar o script
 
-O script de exemplo é escrito no PowerShell. Ele faz parte dos [**exemplos de gêmeos digitais do Azure**](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/), que você pode baixar em seu computador navegando até esse link de exemplo e selecionando o botão *baixar zip* abaixo do título.
+O script de exemplo é escrito no PowerShell. Ele faz parte dos [**exemplos de gêmeos digitais do Azure**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/), que você pode baixar em seu computador navegando até esse link de exemplo e selecionando o botão *baixar zip* abaixo do título.
 
 Isso baixará o projeto de exemplo em seu computador como _**Azure_Digital_Twins_samples.zip**_. Navegue até a pasta em seu computador e descompacte-a para extrair os arquivos.
 
@@ -165,7 +165,7 @@ Se uma ou ambas as etapas de verificação não forem bem-sucedidas, tente criar
 ## <a name="next-steps"></a>Próximas etapas
 
 Teste as chamadas de API REST individuais em sua instância usando os comandos da CLI do Azure digital gêmeos: 
-* [referência de AZ DT](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true)
+* [referência de AZ DT](/cli/azure/ext/azure-iot/dt?preserve-view=true&view=azure-cli-latest)
 * [*Como usar a CLI dos Gêmeos Digitais do Azure*](how-to-use-cli.md)
 
 Ou então, consulte Como conectar seu aplicativo cliente à sua instância escrevendo o código de autenticação do aplicativo cliente:

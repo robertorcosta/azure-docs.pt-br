@@ -4,12 +4,12 @@ description: Resume o suporte para a recuperação de desastre de VMs do Azure e
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: raynew
-ms.openlocfilehash: dd4cbf0228bc68fa253f9e7a06b4eaba5157d2bd
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 390dba92091a9e419bcd7a8f0e8e83f65597305e
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91952073"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045322"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de suporte para recuperação de desastre de VM do Azure entre regiões do Azure
 
@@ -247,6 +247,7 @@ Geração 2 (inicialização de UEFI) | Com suporte
 Discos NVMe | Sem suporte
 Discos compartilhados do Azure | Sem suporte
 Opção de transferência segura | Com suporte
+Discos habilitados para acelerador de gravação | Sem suporte
 
 >[!IMPORTANT]
 > Para evitar problemas de desempenho, verifique se você está seguindo as metas de desempenho e escalabilidade de disco de VM para VMs do [Linux](../virtual-machines/linux/disk-scalability-targets.md) ou do [Windows](../virtual-machines/windows/disk-scalability-targets.md). Se você usar as configurações padrão, o Site Recovery criará as contas de armazenamento e discos necessários com base na configuração de origem. Se você personalizar e selecionar suas configurações, siga as metas de desempenho e escalabilidade de discos para suas VMs de origem.

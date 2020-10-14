@@ -3,19 +3,19 @@ title: Como adicionar feeds de dados de fontes diferentes ao orientador de métr
 titleSuffix: Azure Cognitive Services
 description: Adicionar feeds de dados diferentes ao orientador de métricas
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.author: aahi
-ms.openlocfilehash: 11b75bcadc6292c17ef7e1e0f482d0c53bd9f8f5
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: mbullwin
+ms.openlocfilehash: a37f3cfd250d152129245395680dbd847359e869
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91971941"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046903"
 ---
 # <a name="add-data-feeds-from-different-data-sources-to-metrics-advisor"></a>Adicionar feeds de dados de diferentes fontes de dados ao orientador de métricas
 

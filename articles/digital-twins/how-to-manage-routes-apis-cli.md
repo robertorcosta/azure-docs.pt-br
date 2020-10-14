@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 7365e4904bb8e1920e7d4c57c165e489f2ff302e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 65e7a425fdf8ee1b253bcb696792b569b7195d4c
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540584"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047362"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Gerenciar pontos de extremidade e rotas no gêmeos digital do Azure (APIs e CLI)
 
@@ -44,7 +44,7 @@ Para vincular um ponto de extremidade ao Azure digital gêmeos, o tópico da gra
 
 ### <a name="create-an-event-grid-endpoint"></a>Criar um ponto de extremidade de grade de eventos
 
-O exemplo a seguir mostra como criar um ponto de extremidade do tipo grade de evento usando o CLI do Azure. Você pode usar [Azure cloud Shell](https://shell.azure.com)ou [instalar a CLI localmente](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+O exemplo a seguir mostra como criar um ponto de extremidade do tipo grade de evento usando o CLI do Azure. Você pode usar [Azure cloud Shell](https://shell.azure.com)ou [instalar a CLI localmente](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 
 Primeiro, crie um tópico de grade de eventos. Você pode usar o comando a seguir ou exibir as etapas em mais detalhes visitando [a seção *criar um tópico personalizado* ](../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic) do guia de início rápido *eventos personalizados* da grade de eventos.
 

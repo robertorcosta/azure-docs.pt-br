@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
-ms.openlocfilehash: f64b5a186c026bf752d7975ac4337535ca64458e
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: b3cc70eadfaa1295cd67fa3f2b36c97f107b4bad
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876525"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046988"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Backup e restauração no Banco de Dados do Azure para MySQL
 
@@ -19,18 +19,29 @@ O Banco de Dados do Azure para MySQL cria backups de servidor automaticamente e 
 
 ## <a name="backups"></a>Backups
 
-O banco de dados do Azure para MySQL faz backups dos arquivos de data e do log de transações. Dependendo do tamanho máximo de armazenamento com suporte, pegamos backups completos e diferenciais (servidores de armazenamento máximo de 4 TB) ou backups de instantâneo (até 16 TB de servidores de armazenamento máximo). Esses backups permitem que você restaure um servidor pontualmente dentro de seu período de retenção de backup configurado. O período de retenção de backup padrão é de sete dias. Opcionalmente, você pode [configurá-lo](howto-restore-server-portal.md#set-backup-configuration) até 35 dias. Todos os backups são criptografados usando a criptografia AES de 256 bits.
+O banco de dados do Azure para MySQL faz backups dos arquivos de data e do log de transações. Esses backups permitem que você restaure um servidor pontualmente dentro de seu período de retenção de backup configurado. O período de retenção de backup padrão é de sete dias. Opcionalmente, você pode [configurá-lo](howto-restore-server-portal.md#set-backup-configuration) até 35 dias. Todos os backups são criptografados usando a criptografia AES de 256 bits.
 
 Esses arquivos de backup não são expostos pelo usuário e não podem ser exportados. Esses backups só podem ser usados para operações de restauração no banco de dados do Azure para MySQL. Você pode usar [mysqldump](concepts-migrate-dump-restore.md) para copiar um banco de dados.
 
-### <a name="backup-frequency"></a>Frequência de backup
+O tipo e a frequência de backup estão dependendo do armazenamento de back-end para os servidores.
 
-#### <a name="servers-with-up-to-4-tb-storage"></a>Servidores com armazenamento de até 4 TB
+### <a name="backup-type-and-frequency"></a>Tipo e frequência de backup
 
-Para servidores que dão suporte a até 4 TB de armazenamento máximo, os backups completos ocorrem uma vez a cada semana. Os backups diferenciais ocorrem duas vezes por dia. Os backups de log de transações ocorrem a cada cinco minutos.
+#### <a name="basic-storage-servers"></a>Servidores de armazenamento básico
 
-#### <a name="servers-with-up-to-16-tb-storage"></a>Servidores com armazenamento de até 16 TB
-Em um subconjunto de [regiões do Azure](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage), todos os servidores recentemente provisionados podem dar suporte a armazenamento de até 16 TB. Os backups nesses grandes servidores de armazenamento são baseados em instantâneo. O primeiro backup de instantâneo completo é agendado imediatamente após a criação de um servidor. O primeiro backup de instantâneo completo é mantido como o backup base do servidor. Os backups de instantâneo subsequentes são apenas backups diferenciais. 
+Os servidores de armazenamento básico são o armazenamento de back-end para [servidores SKU básicos](concepts-pricing-tiers.md). Os backups em servidores de armazenamento básico são baseados em instantâneo. Um instantâneo de banco de dados completo é executado diariamente. Não há backups diferenciais executados para servidores de armazenamento básicos e todos os backups de instantâneo são apenas backups de banco de dados completos. 
+
+Os backups de log de transações ocorrem a cada cinco minutos. 
+
+#### <a name="general-purpose-storage-servers-with-up-to-4-tb-storage"></a>Servidores de armazenamento de uso geral com armazenamento de até 4 TB
+
+Para servidores que dão suporte a até 4 TB de armazenamento de uso geral máximo, os backups completos ocorrem a cada semana. Os backups diferenciais ocorrem duas vezes por dia. Os backups de log de transações ocorrem a cada cinco minutos. Os backups no armazenamento de uso geral até o armazenamento de 4 TB não são baseados em instantâneo e consomem largura de banda de e/s no momento do backup. Para bancos de dados grandes (> 1TB) no armazenamento de 4 TB, recomendamos que você considere 
+
+- Provisionando mais IOPs para considerar o backup do IOs  
+- Como alternativa, migre para o armazenamento de uso geral que dá suporte a até 16 TB de armazenamento se o armazenamento estiver disponível em suas [regiões do Azure](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage)preferenciais. Não há nenhum custo adicional para o armazenamento de uso geral que dá suporte a até 16 TB de armazenamento. Para obter assistência com a migração para o armazenamento de 16 TB, abra um tíquete de suporte em portal do Azure. 
+
+#### <a name="general-purpose-storage-servers-with-up-to-16-tb-storage"></a>Servidores de armazenamento de uso geral com armazenamento de até 16 TB
+Em um subconjunto de [regiões do Azure](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage), todos os servidores recentemente provisionados podem dar suporte ao armazenamento de uso geral de até 16 TB de armazenamento. Os backups nesses servidores de armazenamento de 16 TB são baseados em instantâneo. O primeiro backup de instantâneo completo é agendado imediatamente após a criação de um servidor. O primeiro backup de instantâneo completo é mantido como o backup base do servidor. Os backups de instantâneo subsequentes são apenas backups diferenciais. 
 
 Os backups de instantâneo diferenciais ocorrem pelo menos uma vez por dia. Os backups de instantâneo diferenciais não ocorrem em um agendamento fixo. Os backups de instantâneo diferenciais ocorrem a cada 24 horas, a menos que o log de transações (binlog no MySQL) exceda 50 GB desde o último backup diferencial. Em um dia, são permitidos no máximo seis instantâneos diferenciais. 
 

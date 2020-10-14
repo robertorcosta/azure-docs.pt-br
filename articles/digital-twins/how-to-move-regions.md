@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.service: digital-twins
-ms.openlocfilehash: 1725c3ff162e4f6b7ac3a5ea1ede6976c827b510
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c7f9ed9558adc9d129d1df767a05aff1fa4c66c
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91328480"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047379"
 ---
 # <a name="move-an-azure-digital-twins-instance-to-a-different-azure-region"></a>Mover uma instância do gêmeos digital do Azure para uma região diferente do Azure
 
@@ -49,18 +49,18 @@ Aqui estão algumas perguntas que talvez você queira considerar:
     - Serviço de provisionamento de dispositivos (DPS)
 * Quais outros **aplicativos pessoais ou da empresa** tenho que se conectem à minha instância?
 
-Você pode coletar essas informações usando o [portal do Azure](https://portal.azure.com), [APIs e SDKs do gêmeos digital do Azure](how-to-use-apis-sdks.md), [comandos da CLI do gêmeos digital do Azure](how-to-use-cli.md)ou o exemplo do [Explorer do Azure digital gêmeos (ADT)](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) .
+Você pode coletar essas informações usando o [portal do Azure](https://portal.azure.com), [APIs e SDKs do gêmeos digital do Azure](how-to-use-apis-sdks.md), [comandos da CLI do gêmeos digital do Azure](how-to-use-cli.md)ou o exemplo do [Explorer do Azure digital gêmeos (ADT)](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) .
 
 ## <a name="prepare"></a>Preparar
 
-Nesta seção, você se preparará para recriar sua instância **baixando seus modelos, gêmeos e grafo originais** de sua instância original. Este artigo faz isso usando o exemplo do [Gerenciador de gêmeos (ADT) do Azure digital](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) .
+Nesta seção, você se preparará para recriar sua instância **baixando seus modelos, gêmeos e grafo originais** de sua instância original. Este artigo faz isso usando o exemplo do [Gerenciador de gêmeos (ADT) do Azure digital](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) .
 
 >[!NOTE]
 >Talvez você já tenha arquivos que contenham os modelos e/ou o grafo em sua instância. Nesse caso, não é necessário baixar tudo novamente — apenas as partes que você está perdendo ou as coisas que podem ter mudado desde que você carregou originalmente esses arquivos (como gêmeos que podem ter sido atualizados com novos dados).
 
 ### <a name="limitations-of-adt-explorer"></a>Limitações do ADT Explorer
 
-O [exemplo do Gerenciador do gêmeos (ADT) do Azure digital](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) é um exemplo de aplicativo cliente que dá suporte a uma representação visual do grafo e fornece interação visual com sua instância. Este artigo mostra como usá-lo para baixar e, posteriormente, carregar novamente, seus modelos, gêmeos e grafos.
+O [exemplo do Gerenciador do gêmeos (ADT) do Azure digital](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) é um exemplo de aplicativo cliente que dá suporte a uma representação visual do grafo e fornece interação visual com sua instância. Este artigo mostra como usá-lo para baixar e, posteriormente, carregar novamente, seus modelos, gêmeos e grafos.
 
 Observe, no entanto, que esse é um **exemplo** e não uma ferramenta completa. Ele não foi testado com estresse e não foi criado para lidar com grafos de um grande tamanho. Consequentemente, tenha em mente as seguintes limitações de exemplo prontas para uso:
 * No momento, o exemplo só foi testado em tamanhos de grafo de até 1000 nós e 2000 relações
@@ -76,7 +76,7 @@ Se o exemplo não for capaz de lidar com o tamanho do grafo, você poderá expor
 
 Para prosseguir com o ADT Explorer, primeiro Baixe o código do aplicativo de exemplo e configure-o para ser executado em seu computador. 
 
-Navegue até o exemplo aqui: [Gerenciador de gêmeos digital do Azure (ADT)](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Clique no botão *Baixar o ZIP* para baixar um arquivo *.ZIP* deste código de exemplo em seu computador como _**ADT_Explorer.zip**_. Descompacte o arquivo.
+Navegue até o exemplo aqui: [Gerenciador de gêmeos digital do Azure (ADT)](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Clique no botão *Baixar o ZIP* para baixar um arquivo *.ZIP* deste código de exemplo em seu computador como _**ADT_Explorer.zip**_. Descompacte o arquivo.
 
 Em seguida, configure as permissões para que o ADT Explorer seja executado em seu computador. Para fazer isso, siga as etapas na seção [*set ADT Explorer Permissions*](quickstart-adt-explorer.md#set-adt-explorer-permissions) do início rápido do Azure digital gêmeos.
 
@@ -219,7 +219,7 @@ Depois de concluir essa etapa, sua nova instância na região de destino deverá
 Para verificar se a nova instância foi configurada corretamente, você pode usar as seguintes ferramentas:
 * O [**portal do Azure**](https://portal.azure.com) (bom para verificar se a nova instância existe e está na região de destino correta; também é bom para verificar pontos de extremidade e rotas e conexões com outros serviços do Azure)
 * Os [ **comandos da CLI** do Azure digital gêmeos](how-to-use-cli.md) (bom para verificar se a nova instância existe e está na região de destino correta; também pode ser usado para verificar os dados da instância)
-* [**ADT Explorer**](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) (bom para verificar dados de instância, como modelos, gêmeos e grafo)
+* [**ADT Explorer**](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) (bom para verificar dados de instância, como modelos, gêmeos e grafo)
 * Os [SDKs e APIs do gêmeos digital do Azure](how-to-use-apis-sdks.md) (bom para verificar dados de instância, como modelos, gêmeos e grafo; também é bom para verificar pontos de extremidade e rotas)
 
 Você também pode tentar executar qualquer aplicativo personalizado ou fluxos de ponta a ponta que você tenha executado com sua instância original, para ajudá-lo a verificar se eles estão trabalhando corretamente com a nova instância.

@@ -9,12 +9,12 @@ ms.date: 06/22/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: e16e7fa5ecc2fb947f9f82c1cdd27af6758d6bda
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 7cde23372f6a3af0320e2d48c78a0d7fe69a2600
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91971742"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045696"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>Atualize o daemon de segurança do IoT Edge e o runtime
 
@@ -168,7 +168,7 @@ Se você usar marcas específicas em sua implantação (por exemplo, mcr.microso
 
    ![Atualizar versão do agente do Hub do Edge](./media/how-to-update-iot-edge/runtime-settings-edgeagent.png)
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 1. Selecione **revisão + criar**, examine a implantação e selecione **criar**.
 
@@ -194,7 +194,7 @@ Dois componentes são usados para atualizar um dispositivo IoT Edge:
 
 3. Se o arquivo. cab baixado tiver um sufixo de arquitetura, renomeie o arquivo para apenas **Microsoft-Azure-IoTEdge.cab**.
 
-4. Para atualizar com componentes offline, [dot Source](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_scripts?view=powershell-7#script-scope-and-dot-sourcing) a cópia local do script do PowerShell. Em seguida, use o `-OfflineInstallationPath` parâmetro como parte do `Update-IoTEdge` comando e forneça o caminho absoluto para o diretório de arquivos. Por exemplo,
+4. Para atualizar com componentes offline, [dot Source](/powershell/module/microsoft.powershell.core/about/about_scripts?view=powershell-7#script-scope-and-dot-sourcing) a cópia local do script do PowerShell. Em seguida, use o `-OfflineInstallationPath` parâmetro como parte do `Update-IoTEdge` comando e forneça o caminho absoluto para o diretório de arquivos. Por exemplo,
 
    ```powershell
    . <path>\IoTEdgeSecurityDaemon.ps1

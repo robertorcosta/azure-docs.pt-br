@@ -8,12 +8,12 @@ ms.date: 6/3/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 8f739982ac9193c80cae23d91b77091f75c3fd13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f6c6c1cfdfef864be17adfed2d115150c4fbede0
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90564350"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045118"
 ---
 # <a name="use-azure-digital-twins-to-update-an-azure-maps-indoor-map"></a>Usar o gêmeos digital do Azure para atualizar um mapa interno do Azure Maps
 
@@ -64,7 +64,7 @@ Esse padrão lê-se diretamente da sala, em vez do dispositivo IoT, que oferece 
     >[!NOTE]
     >Atualmente, há um **problema conhecido** no Cloud Shell afetando estes grupos de comandos: `az dt route`, `az dt model` e `az dt twin`.
     >
-    >Para resolver, execute `az login` no Cloud Shell antes de executar o comando ou use a [CLI local](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) em vez do Cloud Shell. Para obter mais detalhes sobre isso, confira [*Solução de problemas: Problemas conhecidos nos Gêmeos Digitais do Azure*](troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell).
+    >Para resolver, execute `az login` no Cloud Shell antes de executar o comando ou use a [CLI local](/cli/azure/install-azure-cli?view=azure-cli-latest) em vez do Cloud Shell. Para obter mais detalhes sobre isso, confira [*Solução de problemas: Problemas conhecidos nos Gêmeos Digitais do Azure*](troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell).
 
     ```azurecli
     az dt route create -n <your-Azure-Digital-Twins-instance-name> --endpoint-name <Event-Grid-endpoint-name> --route-name <my_route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
@@ -74,7 +74,7 @@ Esse padrão lê-se diretamente da sala, em vez do dispositivo IoT, que oferece 
 
 Você vai criar uma função disparada por grade de eventos dentro de seu aplicativo de funções do tutorial de ponta a ponta ([*tutorial: conectar uma solução de ponta a ponta*](./tutorial-end-to-end.md)). Essa função desempacotará essas notificações e enviará atualizações para um recurso do Azure Maps de estado para atualizar a temperatura de uma sala. 
 
-Consulte o seguinte documento para obter informações de referência: [*gatilho de grade de eventos do Azure para Azure Functions*](https://docs.microsoft.com/azure/azure-functions/functions-bindings-event-grid-trigger).
+Consulte o seguinte documento para obter informações de referência: [*gatilho de grade de eventos do Azure para Azure Functions*](../azure-functions/functions-bindings-event-grid-trigger.md).
 
 Substitua o código da função pelo código a seguir. Ele filtrará somente as atualizações no espaço gêmeos, lerá a temperatura atualizada e enviará essas informações para o Azure Maps.
 

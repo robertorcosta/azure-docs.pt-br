@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/31/2020
-ms.openlocfilehash: b010a90929a5eb905f21ebe23aa971f05d210941
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/14/2020
+ms.openlocfilehash: f9907b746c1dceb0b0e847c09ea4a549138f0064
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91282690"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047719"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Copiar dados do Amazon Simple Storage Service usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -47,10 +47,9 @@ Especificamente, esse conector Amazon S3 dá suporte à cópia de arquivos como 
 
 ## <a name="required-permissions"></a>Permissões necessárias
 
-Para copiar dados do Amazon S3, verifique se você recebeu as seguintes permissões:
+Para copiar dados do Amazon S3, verifique se você recebeu as seguintes permissões para operações de objeto do Amazon S3: `s3:GetObject` e `s3:GetObjectVersion` .
 
-- **Para a execução da atividade de cópia**: `s3:GetObject` e `s3:GetObjectVersion` para operações de objeto do Amazon S3.
-- **Para data Factory criação de GUI**: `s3:ListAllMyBuckets` e `s3:ListBucket` / `s3:GetBucketLocation` para operações de Bucket do Amazon S3. As permissões também são necessárias para operações como testar conexões e navegar para caminhos de arquivo. Se você não quiser conceder essas permissões, ignore a conexão de teste na página de criação do serviço vinculado e especifique o caminho diretamente nas configurações do conjunto de configuração.
+Se você usar a interface do usuário do data Factory para criar, `s3:ListAllMyBuckets` `s3:ListBucket` / `s3:GetBucketLocation` serão necessárias permissões adicionais para operações como testar a conexão com o serviço vinculado e navegar da raiz. Se você não quiser conceder essas permissões, poderá escolher as opções "testar a conexão com o caminho do arquivo" ou "procurar a partir do caminho especificado" na interface do usuário.
 
 Para obter a lista completa de permissões do Amazon S3, consulte [especificando permissões em uma política](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html) no site do AWS.
 
@@ -70,14 +69,14 @@ As propriedades a seguir têm suporte para um serviço vinculado do Amazon S3:
 | accessKeyId | ID da chave de acesso secreta. |Sim |
 | secretAccessKey | A chave de acesso do secreta em si. Marque esse campo como **SecureString** para armazená-lo com segurança no Data Factory ou [referencie um segredo armazenado no Cofre de Chaves do Azure](store-credentials-in-key-vault.md). |Sim |
 | serviceUrl | Especifique o ponto de extremidade S3 personalizado se você estiver copiando dados de um provedor de armazenamento compatível com S3 que não seja o serviço do Amazon S3 oficial. Por exemplo, para copiar dados do Google Cloud Storage, especifique `https://storage.googleapis.com`. | Não |
-| connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o tempo de execução de integração do Azure ou o tempo de execução de integração auto-hospedado (se o armazenamento de dados estiver em uma rede privada). Se essa propriedade não for especificada, o serviço usará o tempo de execução de integração do Azure padrão. |Não |
+| connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o tempo de execução de integração do Azure ou o tempo de execução de integração auto-hospedado (se o armazenamento de dados estiver em uma rede privada). Se essa propriedade não for especificada, o serviço usará o tempo de execução de integração do Azure padrão. |No |
 
 Esse conector requer chaves de acesso para uma conta de IAM (gerenciamento de acesso e identidade) AWS para copiar dados do Amazon S3. Não há suporte para [credenciais de segurança temporárias](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) agora.
 
 >[!TIP]
 >Especifique a URL do serviço S3 personalizado se você estiver copiando dados de um armazenamento compatível com S3 que não seja o serviço do Amazon S3 oficial.
 
-Aqui está um exemplo:
+Veja um exemplo:
 
 ```json
 {
@@ -166,7 +165,7 @@ As propriedades a seguir têm suporte para o Amazon S3 em `storeSettings` config
 | deleteFilesAfterCompletion | Indica se os arquivos binários serão excluídos do repositório de origem após a movimentação com êxito para o repositório de destino. A exclusão do arquivo é por arquivo, portanto, quando a atividade de cópia falhar, você verá que alguns arquivos já foram copiados para o destino e excluídos da origem, enquanto outros ainda permanecem no repositório de origem. <br/>Esta propriedade só é válida no cenário de cópia de arquivos binários. O valor padrão: false. |Não |
 | modifiedDatetimeStart    | Os arquivos são filtrados com base no atributo: última modificação. <br>Os arquivos serão escolhidos se a hora da última alteração estiver dentro do período entre `modifiedDatetimeStart` e `modifiedDatetimeEnd`. O tempo é aplicado a um fuso horário UTC no formato "2018-12-01T05:00:00Z". <br> As propriedades podem ser **nulas**, o que significa que nenhum filtro de atributo de arquivo será aplicado ao conjunto de um.  Quando `modifiedDatetimeStart` tem um valor DateTime, mas `modifiedDatetimeEnd` é **nulo**, os arquivos cujo último atributo modificado é maior ou igual ao valor DateTime serão selecionados.  Quando `modifiedDatetimeEnd` tem um valor DateTime, mas `modifiedDatetimeStart` é **nulo**, os arquivos cujo último atributo modificado é menor que o valor DateTime será selecionado.<br/>Essa propriedade não se aplica quando você configura `fileListPath`. | Não                                            |
 | modifiedDatetimeEnd      | Mesmo que acima.                                               | Não                                                          |
-| enablePartitionDiscovery | Para arquivos que são particionados, especifique se deseja analisar as partições do caminho do arquivo e adicioná-las como colunas de origem adicionais.<br/>Os valores permitidos são **false** (padrão) e **true**. | Não                                            |
+| enablePartitionDiscovery | Para arquivos que são particionados, especifique se deseja analisar as partições do caminho do arquivo e adicioná-las como colunas de origem adicionais.<br/>Os valores permitidos são **false** (padrão) e **true**. | No                                            |
 | partitionRootPath | Quando a descoberta de partição estiver habilitada, especifique o caminho raiz absoluto para ler as pastas particionadas como colunas de dados.<br/><br/>Se não for especificado, por padrão,<br/>-Quando você usa o caminho do arquivo no conjunto de programas ou na lista de arquivos na origem, o caminho raiz da partição é o caminho configurado no conjunto de um.<br/>-Quando você usa o filtro de pasta curinga, o caminho raiz da partição é o subcaminho antes do primeiro caractere curinga.<br/>-Quando você usa o prefixo, o caminho raiz da partição é subcaminho antes do último "/". <br/><br/>Por exemplo, supondo que você configure o caminho no conjunto de um como "raiz/pasta/ano = 2020/mês = 08/dia = 27":<br/>-Se você especificar o caminho raiz da partição como "raiz/pasta/ano = 2020", a atividade de cópia irá gerar mais duas colunas `month` e `day` com o valor "08" e "27", respectivamente, além das colunas dentro dos arquivos.<br/>-Se o caminho raiz da partição não for especificado, nenhuma coluna extra será gerada. | Não                                            |
 | maxConcurrentConnections | O número de conexões simultâneas com o armazenamento de dados. Especifique somente quando desejar limitar as conexões simultâneas ao armazenamento de dados. | Não                                                          |
 

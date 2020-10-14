@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 10/06/2020
 ms.author: kgremban
-ms.openlocfilehash: 8cfb7c5a0821bd030252a105b98b1c138b9ef820
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b1aa12bd73772b5d6332a36d749ec4d7d10d4026
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979377"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048178"
 ---
 # <a name="set-up-an-azure-iot-edge-device-with-x509-certificate-authentication"></a>Configurar um dispositivo Azure IoT Edge com autenticação de certificado X. 509
 
@@ -91,12 +91,12 @@ Todos os habilitado borda dispositivos que se conectam ao seu hub IoT são lista
 ### <a name="prerequisites-for-the-azure-cli"></a>Pré-requisitos da CLI do Azure
 
 * Um [Hub IoT](../iot-hub/iot-hub-create-using-cli.md) na assinatura do Azure.
-* [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) em seu ambiente. No mínimo, a versão da CLI do Azure deve ser 2.0.70 ou superior. Use `az --version` para validar. Esta versão dá suporte aos comandos da extensão az e introduz a estrutura de comandos Knack.
+* [CLI do Azure](/cli/azure/install-azure-cli) em seu ambiente. No mínimo, a versão da CLI do Azure deve ser 2.0.70 ou superior. Use `az --version` para validar. Esta versão dá suporte aos comandos da extensão az e introduz a estrutura de comandos Knack.
 * A [extensão de IoT para a CLI do Azure](https://github.com/Azure/azure-iot-cli-extension).
 
 ### <a name="create-an-iot-edge-device-with-the-azure-cli"></a>Criar um dispositivo do IoT Edge com a CLI do Azure
 
-Use o comando [az iot hub device-identity create](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-create) para criar uma nova identidade de dispositivo no hub IoT. Por exemplo:
+Use o comando [az iot hub device-identity create](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-create) para criar uma nova identidade de dispositivo no hub IoT. Por exemplo:
 
    ```azurecli
    az iot hub device-identity create --device-id [device id] --hub-name [hub name] --edge-enabled --auth-method x509_thumbprint --primary-thumbprint [SHA thumbprint] --secondary-thumbprint [SHA thumbprint]
@@ -113,7 +113,7 @@ Esse comando inclui vários parâmetros:
 
 ### <a name="view-iot-edge-devices-with-the-azure-cli"></a>Exibir dispositivos do IoT Edge com a CLI do Azure
 
-Use o comando [az iot hub device-identity list](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-list) para exibir todos os dispositivos no hub IoT. Por exemplo:
+Use o comando [az iot hub device-identity list](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-list) para exibir todos os dispositivos no hub IoT. Por exemplo:
 
    ```azurecli
    az iot hub device-identity list --hub-name [hub name]

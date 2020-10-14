@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/12/2020
 ms.author: cynthn
-ms.openlocfilehash: dd2d42bb83afa5a97bd5bd71d7b1a4bcc506d93e
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 73a7090afe771eef82523753c4067399d9f5dd5e
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976157"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048076"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>Visualização: Use chaves gerenciadas pelo cliente para criptografar imagens
 
@@ -41,7 +41,7 @@ Há várias limitações ao usar chaves gerenciadas pelo cliente para criptograf
 
 - Os conjuntos de chaves de criptografia são recursos regionais, de modo que cada região requer um conjunto de chaves de criptografia diferente.
 
-- Não é possível compartilhar imagens que usam chaves gerenciadas pelo cliente. 
+- Você não pode copiar ou compartilhar imagens que usam chaves gerenciadas pelo cliente. 
 
 - Após usar suas próprias chaves para criptografar um disco ou uma imagem, não é possível usar novamente chaves gerenciadas pela plataforma para criptografar esses discos ou imagens.
 

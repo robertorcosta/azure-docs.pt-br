@@ -3,19 +3,19 @@ title: Configurar alertas do assistente de métricas
 titleSuffix: Azure Cognitive Services
 description: Como configurar seus alertas do supervisor de métricas usando ganchos para email, Web e Azure DevOps.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/14/2020
-ms.author: aahi
-ms.openlocfilehash: 870b412a1fa5d362ac7b5be1df6c92d95c2936ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: mbullwin
+ms.openlocfilehash: ab1c07bd7814afb054bb20b77bbc84c1ee9df017
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90977786"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046784"
 ---
 # <a name="how-to-configure-alerts-and-get-notifications-using-a-hook"></a>Como: configurar alertas e obter notificações usando um gancho
 
@@ -36,7 +36,7 @@ Um cabo de email é o canal para que os alertas de anomalias sejam enviados aos 
 
 |Parâmetro |Descrição  |
 |---------|---------|
-| Nome | Nome do gancho de email |
+| Name | Nome do gancho de email |
 | Enviar email para| Endereços de email que enviarão alerta para|
 | Link externo | Campo opcional que habilita um redirecionamento personalizado, como para notas de solução de problemas. |
 | Título de alerta de anomalias personalizado | O modelo de título dá suporte a,,,,,,, `${severity}` `${alertSettingName}` `${datafeedName}` `${metricName}` `${detectConfigName}` `${timestamp}` `${topDimension}` `${incidentCount}` , `${anomalyCount}`
@@ -75,9 +75,9 @@ Para criar um gancho de DevOps do Azure, você precisará adicionar as informaç
 
 |Parâmetro |Descrição  |
 |---------|---------|
-| Nome | Um nome para o gancho |
+| Name | Um nome para o gancho |
 | Organização | A organização à qual seu DevOps pertence |
-| Projeto | O projeto específico no DevOps. |
+| Project | O projeto específico no DevOps. |
 | Token de acesso |  Um token para autenticação no DevOps. | 
 
 > [!Note]

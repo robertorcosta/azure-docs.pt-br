@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 05/25/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 65462937db4711066bdb8b31cc22de508321d701
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 118e137f06a49f2c125b1ca156877514d65af86f
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91950900"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047056"
 ---
 # <a name="use-the-azure-digital-twins-cli"></a>Usar a CLI dos Gêmeos Digitais do Azure
 
@@ -35,13 +35,13 @@ Além de geralmente gerenciar sua instância, a CLI também é uma ferramenta ú
 
 ## <a name="get-the-extension"></a>Obter a extensão
 
-Os comandos do gêmeos digital do Azure fazem parte da [extensão do Azure IOT para CLI do Azure](https://github.com/Azure/azure-iot-cli-extension). Você pode exibir a lista completa de comandos e seu uso como parte da documentação de referência para o `az iot` conjunto de comandos: [referência de comando *AZ DT* ](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true).
+Os comandos do gêmeos digital do Azure fazem parte da [extensão do Azure IOT para CLI do Azure](https://github.com/Azure/azure-iot-cli-extension). Você pode exibir a lista completa de comandos e seu uso como parte da documentação de referência para o `az iot` conjunto de comandos: [referência de comando *AZ DT* ](/cli/azure/ext/azure-iot/dt?preserve-view=true&view=azure-cli-latest).
 
-Você pode ter certeza de que tem a versão mais recente da extensão com essas etapas. Você pode executar esses comandos no [Azure cloud Shell](../cloud-shell/overview.md) ou em um [CLI do Azure local](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+Você pode ter certeza de que tem a versão mais recente da extensão com essas etapas. Você pode executar esses comandos no [Azure cloud Shell](../cloud-shell/overview.md) ou em um [CLI do Azure local](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 
 [!INCLUDE [digital-twins-cloud-shell-extensions.md](../../includes/digital-twins-cloud-shell-extensions.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Explore a CLI e seu conjunto completo de comandos por meio dos documentos de referência:
-* [referência de comando *AZ DT*](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true)
+* [referência de comando *AZ DT*](/cli/azure/ext/azure-iot/dt?preserve-view=true&view=azure-cli-latest)

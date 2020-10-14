@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 08/12/2020
+ms.date: 10/07/2020
 ms.author: anfeldma
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 9d0f7b693eab275e232454cdf92f77b9ecfac1af
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 321b80e8aa86703cad16e70af46d016b9dc6555f
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91802626"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047991"
 ---
 # <a name="azure-cosmos-db-net-sdk-v3-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK V3 para a API do SQL: download e notas de versão
 > [!div class="op_single_selector"]
@@ -43,6 +43,7 @@ ms.locfileid: "91802626"
 |**Amostras**|[Exemplos de código .NET](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage)|
 |**Introdução**|[Introdução ao SDK do .NET do Azure Cosmos DB](sql-api-get-started.md)|
 |**Tutorial do aplicativo Web**|[Desenvolvimento de aplicativos Web com o Azure Cosmos DB](sql-api-dotnet-application.md)|
+|**Tutorial de Entity Framework Core**|[Entity Framework Core com o provedor de Azure Cosmos DB](/ef/core/providers/cosmos/#get-started)|
 |**Framework atualmente com suporte**|[Microsoft .NET Standard 2.0](/dotnet/standard/net-standard)|
 
 [!INCLUDE[Release notes](~/samples-cosmosdb-dotnet-v3/changelog.md)]

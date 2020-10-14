@@ -7,12 +7,12 @@ ms.author: aymarqui
 ms.date: 09/02/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 38e3526627eb4191643f8bc86b9ce5f49e41a71f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0c3d3a050c0b929a3f1042b42006c289ddeb9acb
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90564399"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048110"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-signalr-service"></a>Integrar o gêmeos digital do Azure ao serviço de Signaler do Azure
 
@@ -39,9 +39,9 @@ Você estará anexando o serviço de Signalr do Azure ao gêmeos digital do Azur
 ## <a name="download-the-sample-applications"></a>Baixar os aplicativos de exemplo
 
 Primeiro, baixe os aplicativos de exemplo necessários. Você precisará dos seguintes itens:
-* [**Exemplos de gêmeos digitais do Azure**](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/): Este exemplo contém um *AdtSampleApp* que mantém duas funções do Azure para mover dados em torno de uma instância do Azure digital gêmeos (você pode aprender sobre esse cenário mais detalhadamente no [*tutorial: conectar uma solução de ponta a ponta*](tutorial-end-to-end.md)). Ele também contém um aplicativo de exemplo *DeviceSimulator* que simula um dispositivo IOT, gerando um novo valor de temperatura a cada segundo. 
+* [**Exemplos de gêmeos digitais do Azure**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/): Este exemplo contém um *AdtSampleApp* que mantém duas funções do Azure para mover dados em torno de uma instância do Azure digital gêmeos (você pode aprender sobre esse cenário mais detalhadamente no [*tutorial: conectar uma solução de ponta a ponta*](tutorial-end-to-end.md)). Ele também contém um aplicativo de exemplo *DeviceSimulator* que simula um dispositivo IOT, gerando um novo valor de temperatura a cada segundo. 
     - Navegue até o link de exemplo e clique no botão *baixar zip* para baixar uma cópia do exemplo em seu computador, como _**Azure_Digital_Twins_samples.zip**_. Descompacte a pasta.
-* [**Exemplo de aplicativo Web de integração do signalr**](https://docs.microsoft.com/samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/): Este é um aplicativo Web de reação de exemplo que consumirá dados de telemetria do gêmeos digital do Azure de um serviço de Signaler do Azure.
+* [**Exemplo de aplicativo Web de integração do signalr**](/samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/): Este é um aplicativo Web de reação de exemplo que consumirá dados de telemetria do gêmeos digital do Azure de um serviço de Signaler do Azure.
     -  Navegue até o link de exemplo e clique no botão *baixar zip* para baixar uma cópia do exemplo em seu computador, como _**Azure_Digital_Twins_SignalR_integration_web_app_sample.zip**_. Descompacte a pasta.
 
 [!INCLUDE [Create instance](../azure-signalr/includes/signalr-quickstart-create-instance.md)]
@@ -145,7 +145,7 @@ Em seguida, publique sua função no Azure, usando as etapas descritas na [seç�
 
     :::image type="content" source="media/how-to-integrate-azure-signalr/get-function-url.png" alt-text="Uma exibição dos serviços do Azure em um cenário de ponta a ponta. Descreve dados que fluem de um dispositivo para o Hub IoT, por meio de uma função do Azure (seta B) para uma instância do gêmeos digital do Azure (seção A) e, em seguida, pela grade de eventos para outra função do Azure para processamento (seta C). A seção D mostra os dados que fluem da mesma grade de eventos na seta C para uma função do Azure rotulada ' difusão '. ' Broadcast ' comunica-se com outra função do Azure rotulada como ' Negotiate ', e ' Broadcast ' e ' Negotiate ' se comunicam com dispositivos de computador.":::
 
-1. Por fim, adicione a cadeia de **conexão** do signalr do Azure de antes às configurações do aplicativo da função, usando o comando CLI do Azure a seguir. O comando pode ser executado no [Azure cloud Shell](https://shell.azure.com)ou localmente se você tiver o CLI do Azure [instalado em seu computador](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest):
+1. Por fim, adicione a cadeia de **conexão** do signalr do Azure de antes às configurações do aplicativo da função, usando o comando CLI do Azure a seguir. O comando pode ser executado no [Azure cloud Shell](https://shell.azure.com)ou localmente se você tiver o CLI do Azure [instalado em seu computador](/cli/azure/install-azure-cli?view=azure-cli-latest):
  
     ```azurecli
     az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "AzureSignalRConnectionString=<your-Azure-SignalR-ConnectionString>"
@@ -232,7 +232,7 @@ Isso abrirá uma janela do navegador que executa o aplicativo de exemplo, que ex
 
 Se você não precisar mais dos recursos criados neste artigo, siga estas etapas para excluí-los. 
 
-Usando o CLI do Azure de Azure Cloud Shell ou local, você pode excluir todos os recursos do Azure em um grupo de recursos com o comando [AZ Group Delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) . Remover o grupo de recursos também será removido...
+Usando o CLI do Azure de Azure Cloud Shell ou local, você pode excluir todos os recursos do Azure em um grupo de recursos com o comando [AZ Group Delete](/cli/azure/group?view=azure-cli-latest#az-group-delete) . Remover o grupo de recursos também será removido...
 * a instância do gêmeos digital do Azure (do tutorial de ponta a ponta)
 * o Hub IoT e o registro do dispositivo de Hub (do tutorial de ponta a ponta)
 * o tópico da grade de eventos e as assinaturas associadas

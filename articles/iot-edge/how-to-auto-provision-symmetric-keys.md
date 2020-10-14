@@ -9,12 +9,12 @@ ms.date: 4/3/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 791aadf349654e1e62c3ac2b98a955de7b46c0b7
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 10ed546e8f05f4a93e4523c7870f79d41aa1f622
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966110"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045985"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>Criar e provisionar um dispositivo IoT Edge usando o atestado de chave simétrica
 
@@ -26,7 +26,7 @@ Este artigo mostra como criar um registro individual de serviço de provisioname
 * Crie um registro individual para o dispositivo.
 * Instale o IoT Edge Runtime e conecte-se ao Hub IoT.
 
-O atestado de chave simétrica é uma abordagem simples para autenticar o dispositivo com uma instância do serviço de provisionamento de dispositivos. Esse método de atestado representa uma experiência de "Olá, Mundo" para desenvolvedores que são novos no provisionamento de dispositivos ou não tem requisitos de segurança rígidos. O atestado de dispositivo usando um [TPM](../iot-dps/concepts-tpm-attestation.md) ou [certificados X. 509](../iot-dps/concepts-security.md#x509-certificates) é mais seguro e deve ser usado para requisitos de segurança mais rígidos.
+O atestado de chave simétrica é uma abordagem simples para autenticar o dispositivo com uma instância do serviço de provisionamento de dispositivos. Esse método de atestado representa uma experiência de "Olá, Mundo" para desenvolvedores que são novos no provisionamento de dispositivos ou não tem requisitos de segurança rígidos. O atestado de dispositivo usando um [TPM](../iot-dps/concepts-tpm-attestation.md) ou [certificados X. 509](../iot-dps/concepts-x509-attestation.md) é mais seguro e deve ser usado para requisitos de segurança mais rígidos.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -96,7 +96,7 @@ Ao criar uma inscrição no DPS, tem a oportunidade de declarar um **Estado inic
 
    1. Verifique se a **entrada habilitar** está definida como **habilitar**.
 
-   1. Selecione **Salvar**.
+   1. Clique em **Salvar**.
 
 Agora que um registro existe para esse dispositivo, o tempo de execução do IoT Edge pode provisionar automaticamente o dispositivo durante a instalação. Certifique-se de copiar o valor de **chave primária** do registro a ser usado ao instalar o IOT Edge Runtime ou se você pretende criar chaves de dispositivo para uso com um registro de grupo.
 

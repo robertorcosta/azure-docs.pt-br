@@ -3,12 +3,12 @@ title: Como usar a funcionalidade de IP público na WAN virtual
 description: Este artigo explica como usar a funcionalidade de IP público na WAN virtual do Azure.
 ms.topic: how-to
 ms.date: 10/30/2020
-ms.openlocfilehash: ec8af45a98e82a7c1c657776c4fee2c3ef068dca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61ed6487bc000a35fd25cabde2b562b6eb08da46
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91744744"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048297"
 ---
 # <a name="how-to-use-the-public-ip-functionality-in-azure-virtual-wan"></a>Como usar a funcionalidade de IP público na WAN virtual do Azure
 
@@ -29,9 +29,9 @@ Este artigo fornece detalhes sobre como você pode usar a funcionalidade IP púb
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
--   Ambiente da solução VMware do Azure
-
--   Um servidor Webem execução no ambiente da solução VMware do Azure.
+- Ambiente da solução VMware do Azure
+- Um servidor Webem execução no ambiente da solução VMware do Azure.
+- Um novo intervalo de IP não sobreposto para a implantação do Hub WAN virtual, normalmente um `/24` .
 
 ## <a name="reference-architecture"></a>Arquitetura de referência
 
@@ -62,15 +62,15 @@ Nesse cenário, você deve publicar o servidor webiis na Internet. Use o recurso
 
    :::image type="content" source="media/public-ip-usage/connectivity-public-ip-tab.png" alt-text="Diagrama de arquitetura de IP público" border="true" lightbox="media/public-ip-usage/connectivity-public-ip-tab.png":::
 
-2.  Aceite os valores padrão ou altere-os e, em seguida, selecione **criar**.
+1. Aceite os valores padrão ou altere-os e, em seguida, selecione **criar**.
 
-   -  Grupo de recursos de rede de longa distância virtual
+   - Grupo de recursos de rede de longa distância virtual
 
-   -  Nome da rede virtual de longa distância
+   - Nome da rede virtual de longa distância
 
-   -  Bloco de endereço do Hub virtual
+   - Bloco de endereço de Hub virtual (usando novo intervalo de IP não sobreposto)
 
-   -  Número de IPs públicos (1-100)
+   - Número de IPs públicos (1-100)
 
 Leva cerca de uma hora para concluir a implantação de todos os componentes. Essa implantação só precisa ocorrer uma vez para dar suporte a todos os IPs públicos futuros para esse ambiente de solução do Azure VMware.  
 
@@ -120,7 +120,7 @@ Depois que todos os componentes forem implantados, você poderá vê-los no grup
 
 1. Selecione **Adicionar uma coleção de regras**, forneça os detalhes abaixo e selecione **Adicionar** e, em seguida, **Avançar: inteligência contra ameaças**.
 
-   -  Nome
+   -  Name
    -  Tipo de coleção de regras-DNAT
    -  Prioridade
    -  Ação de coleção de regras – permitir

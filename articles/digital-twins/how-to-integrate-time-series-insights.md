@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 7/14/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 636332c52ea71c7f84cca2f7ef526bc31200e11c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4eef56bd19ed9912625c8ddca3cbf9ff46a59309
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91822177"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048059"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-time-series-insights"></a>Integrar o gêmeos digital do Azure ao Azure Time Series Insights
 
@@ -58,7 +58,7 @@ O tutorial do Azure digital gêmeos [*: conectar uma solução de ponta a ponta*
     az eventhubs eventhub create --name <name for your Twins event hub> --resource-group <resource group name> --namespace-name <Event Hubs namespace from above>
     ```
 
-3. Crie uma [regra de autorização](https://docs.microsoft.com/cli/azure/eventhubs/eventhub/authorization-rule?view=azure-cli-latest#az-eventhubs-eventhub-authorization-rule-create) com permissões de envio e recebimento.
+3. Crie uma [regra de autorização](/cli/azure/eventhubs/eventhub/authorization-rule?view=azure-cli-latest#az-eventhubs-eventhub-authorization-rule-create) com permissões de envio e recebimento.
 
     ```azurecli
     # Create an authorization rule. Specify a name for the rule.
@@ -76,7 +76,7 @@ O tutorial do Azure digital gêmeos [*: conectar uma solução de ponta a ponta*
     >[!NOTE]
     >Atualmente, há um **problema conhecido** no Cloud Shell afetando estes grupos de comandos: `az dt route`, `az dt model` e `az dt twin`.
     >
-    >Para resolver, execute `az login` no Cloud Shell antes de executar o comando ou use a [CLI local](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) em vez do Cloud Shell. Para obter mais detalhes sobre isso, confira [*Solução de problemas: Problemas conhecidos nos Gêmeos Digitais do Azure*](troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell).
+    >Para resolver, execute `az login` no Cloud Shell antes de executar o comando ou use a [CLI local](/cli/azure/install-azure-cli?view=azure-cli-latest) em vez do Cloud Shell. Para obter mais detalhes sobre isso, confira [*Solução de problemas: Problemas conhecidos nos Gêmeos Digitais do Azure*](troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell).
 
     ```azurecli
     az dt route create -n <your Azure Digital Twins instance name> --endpoint-name <Event Hub endpoint from above> --route-name <name for your route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
@@ -159,7 +159,7 @@ Para criar o segundo Hub de eventos, você pode usar as instruções de CLI do A
     # Create an event hub. Specify a name for the event hub. 
     az eventhubs eventhub create --name <name for your TSI event hub> --resource-group <resource group name from earlier> --namespace-name <Event Hubs namespace from earlier>
     ```
-3. Criar uma [regra de autorização](https://docs.microsoft.com/cli/azure/eventhubs/eventhub/authorization-rule?view=azure-cli-latest#az-eventhubs-eventhub-authorization-rule-create) com permissões de envio e recebimento
+3. Criar uma [regra de autorização](/cli/azure/eventhubs/eventhub/authorization-rule?view=azure-cli-latest#az-eventhubs-eventhub-authorization-rule-create) com permissões de envio e recebimento
     ```azurecli
     # Create an authorization rule. Specify a name for the rule.
     az eventhubs eventhub authorization-rule create --rights Listen Send --resource-group <resource group name> --namespace-name <Event Hubs namespace from earlier> --eventhub-name <TSI event hub name from above> --name <name for your TSI auth rule>
@@ -203,7 +203,7 @@ Em seguida, você irá configurar uma instância de Time Series Insights para re
 
 1. Na portal do Azure, comece a criar um recurso de Time Series Insights. 
     1. Selecione o tipo de preço **PAYG (visualização)** .
-    2. Será necessário escolher uma ID de **série temporal** para esse ambiente. Sua ID de série temporal pode ter até três valores que você usará para pesquisar seus dados em Time Series Insights. Para este tutorial, você pode usar **$dtId**. Leia mais sobre como selecionar um valor de ID nas [*práticas recomendadas para escolher uma ID de série temporal*](https://docs.microsoft.com/azure/time-series-insights/how-to-select-tsid).
+    2. Será necessário escolher uma ID de **série temporal** para esse ambiente. Sua ID de série temporal pode ter até três valores que você usará para pesquisar seus dados em Time Series Insights. Para este tutorial, você pode usar **$dtId**. Leia mais sobre como selecionar um valor de ID nas [*práticas recomendadas para escolher uma ID de série temporal*](../time-series-insights/how-to-select-tsid.md).
     
         :::image type="content" source="media/how-to-integrate-time-series-insights/create-twin-id.png" alt-text="Uma exibição dos serviços do Azure em um cenário de ponta a ponta, realçando Time Series Insights":::
 
@@ -213,7 +213,7 @@ Em seguida, você irá configurar uma instância de Time Series Insights para re
 
 ## <a name="begin-sending-iot-data-to-azure-digital-twins"></a>Começar a enviar dados de IoT para o Azure digital gêmeos
 
-Para começar a enviar dados para Time Series Insights, você precisará começar a atualizar as propriedades de atualização de troca digital no Azure digital gêmeos com valores de dados em alteração. Use o comando [AZ DT myupdate](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt/twin?view=azure-cli-latest#ext-azure-iot-az-dt-twin-update) .
+Para começar a enviar dados para Time Series Insights, você precisará começar a atualizar as propriedades de atualização de troca digital no Azure digital gêmeos com valores de dados em alteração. Use o comando [AZ DT myupdate](/cli/azure/ext/azure-iot/dt/twin?view=azure-cli-latest#ext-azure-iot-az-dt-twin-update) .
 
 [!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 

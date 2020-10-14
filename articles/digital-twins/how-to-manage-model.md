@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: be79f7bd6687b2e53e6abe19dc0a20999942071d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: a7fcd32335b5d9e04986355adeea473cf77b970e
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974951"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048195"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Gerenciar modelos de gêmeos digitais do Azure
 
@@ -84,7 +84,7 @@ As seções a seguir mostram como concluir diferentes operações de gerenciamen
 Depois que os modelos são criados, você pode carregá-los na instância do gêmeos digital do Azure.
 
 > [!TIP]
-> É recomendável validar seus modelos offline antes de carregá-los na instância do gêmeos digital do Azure. Você pode usar a [biblioteca do analisador do lado do cliente DTDL](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/) e a [amostra do validador DTDL](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) descritas em [*instruções: analisar e validar modelos*](how-to-parse-models.md) para verificar seus modelos antes de carregá-los para o serviço.
+> É recomendável validar seus modelos offline antes de carregá-los na instância do gêmeos digital do Azure. Você pode usar a [biblioteca do analisador do lado do cliente DTDL](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/) e a [amostra do validador DTDL](/samples/azure-samples/dtdl-validator/dtdl-validator) descritas em [*instruções: analisar e validar modelos*](how-to-parse-models.md) para verificar seus modelos antes de carregá-los para o serviço.
 
 Quando estiver pronto para carregar um modelo, você poderá usar o seguinte trecho de código:
 

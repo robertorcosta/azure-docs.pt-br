@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 9580f1c7a29b19bb926a7079b95cb3ed0b314d05
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1fcfc7a9e632e5db1fb809dba7a938c8641c9ddc
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91579513"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048093"
 ---
 # <a name="what-is-the-azure-certified-device-program"></a>O que é o programa de dispositivo certificado pelo Azure?
 
@@ -102,7 +102,7 @@ Para cada dispositivo que você deseja certificar, use os formulários no portal
 
 Esta fase interage com seu dispositivo e executa uma série de testes depois que o dispositivo usa o DPS para se conectar ao Hub IoT. Ao concluir, você pode exibir um conjunto de arquivos de log com os resultados de teste do dispositivo.
 
-O portal de certificação tem instruções sobre como se conectar à instância do Hub IoT usada para teste. Você pode estabelecer a conexão de DPS por meio de qualquer um dos [métodos de atestado com suporte](https://aka.ms/acdAttestation).
+O portal de certificação tem instruções sobre como se conectar à instância do Hub IoT usada para teste. Você pode estabelecer a conexão de DPS por meio de qualquer um dos [métodos de atestado com suporte](../iot-dps/concepts-service.md#attestation-mechanism).
 
 A equipe do dispositivo Azure Certified pode entrar em contato com o Device Builder para mais validação manual do dispositivo.
 

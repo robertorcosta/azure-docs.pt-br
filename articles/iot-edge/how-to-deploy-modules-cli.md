@@ -4,18 +4,17 @@ description: Use a CLI do Azure com a Extensão de IoT do Azure para efetuar pus
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 08/16/2019
+ms.date: 10/13/2020
 ms.topic: conceptual
-ms.reviewer: menchi
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 762f7dd74fc87a2a9472cf456e4488133ee4de90
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 86cccbc9a72459ad038defca32e232381368ef45
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978808"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046682"
 ---
 # <a name="deploy-azure-iot-edge-modules-with-azure-cli"></a>Implantar módulos do Azure IoT Edge com CLI do Azure
 
@@ -32,7 +31,7 @@ Este artigo mostra como criar um manifesto de implantação JSON e usar esse arq
 
   Se você não tiver um dispositivo IoT Edge configurado, poderá criar um em uma máquina virtual do Azure. Siga as etapas em um dos artigos de início rápido para [criar um dispositivo Linux Virtual](quickstart-linux.md) ou [criar um dispositivo virtual do Windows](quickstart.md).
 
-* [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) em seu ambiente. No mínimo, a versão da CLI do Azure deve ser 2.0.70 ou superior. Use `az --version` para validar. Esta versão dá suporte aos comandos da extensão az e introduz a estrutura de comandos Knack.
+* [CLI do Azure](/cli/azure/install-azure-cli) em seu ambiente. No mínimo, a versão da CLI do Azure deve ser 2.0.70 ou superior. Use `az --version` para validar. Esta versão dá suporte aos comandos da extensão az e introduz a estrutura de comandos Knack.
 * A [extensão de IoT para a CLI do Azure](https://github.com/Azure/azure-iot-cli-extension).
 
 ## <a name="configure-a-deployment-manifest"></a>Configurar um manifesto de implantação
@@ -43,13 +42,16 @@ Para implantar módulos usando a CLI do Azure, salve o manifesto de implantaçã
 
 A seguir, é apresentado um manifesto básico de implantação com um módulo como um exemplo:
 
+>[!NOTE]
+>Este manifesto de implantação de exemplo usa a versão de esquema 1,1 para o agente de IoT Edge e o Hub. A versão de esquema 1,1 foi lançada junto com IoT Edge versão 1.0.10 e habilita recursos como ordem de inicialização de módulo e priorização de rota.
+
 ```json
 {
   "content": {
     "modulesContent": {
       "$edgeAgent": {
         "properties.desired": {
-          "schemaVersion": "1.0",
+          "schemaVersion": "1.1",
           "runtime": {
             "type": "docker",
             "settings": {
@@ -92,7 +94,7 @@ A seguir, é apresentado um manifesto básico de implantação com um módulo co
       },
       "$edgeHub": {
         "properties.desired": {
-          "schemaVersion": "1.0",
+          "schemaVersion": "1.1",
           "routes": {
             "upstream": "FROM /messages/* INTO $upstream"
           },
