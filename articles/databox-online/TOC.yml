@@ -31,10 +31,6 @@
           href: azure-stack-edge-gpu-deploy-activate.md
         - name: 8 – Configurar a computação
           href: azure-stack-edge-gpu-deploy-configure-compute.md
-        - name: 9A – Adicionar um compartilhamento e conectar-se a ele
-          href: azure-stack-edge-j-series-deploy-add-shares.md
-        - name: 9B – Adicionar contas de armazenamento e conectar-se a elas
-          href: azure-stack-edge-j-series-deploy-add-storage-accounts.md
     - name: Conceitos
       items:
         - name: Examinar os requisitos
@@ -61,6 +57,8 @@
               href: azure-stack-edge-gpu-kubernetes-rbac.md
             - name: Cargas de trabalho do Kubernetes
               href: azure-stack-edge-gpu-kubernetes-workload-management.md
+        - name: Exibir integração do Key Vault
+          href: azure-stack-edge-gpu-activation-key-vault.md
     - name: Como
       items:
         - name: Implantar exemplos do IoT Edge
@@ -87,6 +85,8 @@
               items:
                 - name: Aplicativo sem estado
                   href: azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md
+                - name: Desenvolver um módulo C#
+                  href: azure-stack-edge-j-series-create-iot-edge-module.md
             - name: Via Azure Arc (versão prévia)
               items:
                 - name: Habilitar o Arc no cluster do Kubernetes
@@ -123,12 +123,14 @@
               href: azure-stack-edge-j-series-create-certificates-tool.md
             - name: Solucionar erros de certificado
               href: azure-stack-edge-j-series-certificate-troubleshooting.md
-        - name: Desenvolver um módulo C#
-          href: azure-stack-edge-j-series-create-iot-edge-module.md
         - name: Gerenciar a computação de borda
           href: azure-stack-edge-j-series-manage-compute.md
         - name: Gerenciar o gateway de armazenamento
           items:
+            - name: Adicionar e conectar para compartilhar
+              href: azure-stack-edge-j-series-deploy-add-shares.md
+            - name: Adicionar contas de armazenamento e conectar-se a elas
+              href: azure-stack-edge-j-series-deploy-add-storage-accounts.md
             - name: Compartilhamentos
               href: azure-stack-edge-j-series-manage-shares.md
             - name: Usuários
@@ -149,6 +151,10 @@
               href: azure-stack-edge-return-device.md
             - name: Substituir dispositivo
               href: azure-stack-edge-replace-device.md
+            - name: Preparar-se para uma falha do dispositivo
+              href: azure-stack-edge-gpu-prepare-device-failure.md
+            - name: Recuperar-se de uma falha do dispositivo
+              href: azure-stack-edge-gpu-recover-device-failure.md
         - name: Monitoramento
           items:
             - name: Usar gráficos de métricas
@@ -161,6 +167,8 @@
               href: azure-stack-edge-gpu-troubleshoot.md
             - name: Problemas de ordenação
               href: azure-stack-edge-troubleshoot-ordering.md
+            - name: Problemas de ativação
+              href: azure-stack-edge-gpu-troubleshoot-activation.md
             - name: Contatar o Suporte da Microsoft
               href: azure-stack-edge-contact-microsoft-support.md
     - name: Notas de versão

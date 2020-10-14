@@ -1,6 +1,6 @@
 ---
-title: incluir arquivo
-description: incluir arquivo
+title: arquivo de inclusão
+description: arquivo de inclusão
 services: storage
 author: roygara
 ms.service: storage
@@ -9,14 +9,14 @@ ms.date: 12/27/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 27e3f0ef7539f3fb875c087ff7d1351916877d19
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81536464"
 ---
-Compartilhamentos de arquivos padrão com capacidade de 100 TiB têm certas limitações.
+Os compartilhamentos de arquivo padrão com capacidade de 100 TiB têm certas limitações.
 
-- Atualmente, há suporte apenas para contas de armazenamento com redundância local (LRS) e ZRS (armazenamento com redundância de zona).
-- Depois de habilitar grandes compartilhamentos de arquivos, você não pode converter contas de armazenamento para GRS (armazenamento com redundância geográfica) ou contas de GZRS (armazenamento com redundância de zona geográfica).
-- Depois de habilitar grandes compartilhamentos de arquivos, você não pode desabilitá-lo.
+- Atualmente, há suporte somente para as contas LRS (armazenamento com redundância local) e ZRS (armazenamento com redundância de zona).
+- Depois de habilitar grandes compartilhamentos de arquivo, você não poderá converter contas de armazenamento em GRS (armazenamento com redundância geográfica) ou GZRS (armazenamento com redundância de zona geográfica).
+- Depois de habilitar grandes compartilhamentos de arquivo, você não poderá desabilitá-los.

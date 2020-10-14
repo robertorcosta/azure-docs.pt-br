@@ -7,12 +7,12 @@ ms.date: 08/25/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f0f0452854ef7456d1bdf7caf0674fab5bd14557
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d57c1828b9456851d37a65b88eb5f8ea860a80fe
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91297123"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045849"
 ---
 # <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-starter"></a>Criar um pipeline de CI/CD para IoT Edge com o iniciador DevOps do Azure
 
@@ -62,7 +62,7 @@ O DevOps Starter cria um pipeline de CI/CD no Azure DevOps. É possível criar u
 
    ![Nome e criar projeto](media/how-to-devops-starter/create-project.png)
 
-Após alguns minutos, o painel inicial do DevOps é exibido no portal do Azure. Selecione o nome do projeto para ver o andamento. Talvez seja necessário atualizar a página. Um aplicativo de IoT Edge é configurado em um repositório em sua organização do Azure DevOps, é executado um build, e seu aplicativo é implantado no IoT Edge. Esse painel oferece visibilidade ao seu repositório de código, pipeline de CI/CD e seu aplicativo no Azure.
+Após alguns minutos, o painel do DevOps Starter será exibido no portal do Azure. Selecione o nome do projeto para ver o andamento. Talvez seja necessário atualizar a página. Um aplicativo de IoT Edge é configurado em um repositório em sua organização do Azure DevOps, é executado um build, e seu aplicativo é implantado no IoT Edge. Esse painel oferece visibilidade ao seu repositório de código, pipeline de CI/CD e seu aplicativo no Azure.
 
    ![Exibir projeto no portal do Azure](./media/how-to-devops-starter/portal.png)
 
@@ -81,7 +81,7 @@ O iniciador DevOps criou um repositório Git para seu projeto no Azure Repos. Ne
 
    ![Abrir arquivo module.json no Azure Repos](./media/how-to-devops-starter/open-module-json.png)
 
-3. Observe que esse arquivo usa as [Variáveis de build do Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=vsts#build-variables) no parâmetro **version**. Com essa configuração, uma nova versão do módulo é criada sempre que um novo build é executado.
+3. Observe que esse arquivo usa as [Variáveis de build do Azure DevOps](/azure/devops/pipelines/build/variables?view=vsts#build-variables) no parâmetro **version**. Com essa configuração, uma nova versão do módulo é criada sempre que um novo build é executado.
 
 ## <a name="examine-the-cicd-pipeline"></a>Examinar o pipeline de CI/CD
 

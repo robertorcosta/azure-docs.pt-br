@@ -8,12 +8,12 @@ ms.date: 05/05/2020
 ms.topic: conceptual
 ms.service: digital-twins
 services: digital-twins
-ms.openlocfilehash: 31da6a6b5375571f53cd7b478e957cc350ef591c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60aa6ed3f1b66d88d05751fdee2444120705f8d2
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86522339"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047685"
 ---
 # <a name="azure-digital-twins-customer-data-request-features"></a>Recursos de solicitação de dados do cliente do Azure digital gêmeos
 
@@ -35,7 +35,7 @@ O Azure digital gêmeos armazena a *ID de objeto* [Azure Active Directory](../ac
 
 ## <a name="deleting-customer-data"></a>Excluindo os dados do cliente
 
-Os administradores do gêmeos digital do Azure podem usar o portal do Azure para excluir dados relacionados aos usuários. Também é possível executar operações de exclusão em gêmeos digitais individuais usando as APIs REST do Azure digital gêmeos. Para obter mais informações sobre as APIs disponíveis, consulte a [documentação de APIs REST do Azure digital gêmeos](https://docs.microsoft.com/rest/api/azure-digitaltwins/).
+Os administradores do gêmeos digital do Azure podem usar o portal do Azure para excluir dados relacionados aos usuários. Também é possível executar operações de exclusão em gêmeos digitais individuais usando as APIs REST do Azure digital gêmeos. Para obter mais informações sobre as APIs disponíveis, consulte a [documentação de APIs REST do Azure digital gêmeos](/rest/api/azure-digitaltwins/).
 
 ## <a name="exporting-customer-data"></a>Exportando os dados do cliente
 
@@ -45,4 +45,4 @@ Os dados do cliente, incluindo funções de usuário e atribuições de função
 
 ## <a name="links-to-additional-documentation"></a>Links para documentação adicional
 
-Para obter uma lista completa das APIs do serviço de gêmeos digital do Azure, consulte a [documentação de APIs REST do Azure digital gêmeos](https://docs.microsoft.com/rest/api/azure-digitaltwins/).
+Para obter uma lista completa das APIs do serviço de gêmeos digital do Azure, consulte a [documentação de APIs REST do Azure digital gêmeos](/rest/api/azure-digitaltwins/).
