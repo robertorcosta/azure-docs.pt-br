@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b99ac957c9c5030b484b244223847be4aa53a39d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 174ad4692d043390e6773a98e31f0985d75c8e2e
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88749092"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018807"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Fontes de dados com suporte no Azure Analysis Services
 
@@ -79,7 +79,7 @@ As fontes de dados e conectores mostrados no Assistente Obter Dados ou de Import
 **Observações:**  
 <a name="tab1400b">6</a> - Tabular 1400 e modelos superiores somente.  
 <a name="sqlim">7</a> - Quando especificado como uma fonte de dados do *provedor* em modelos tabulares nos níveis de compatibilidade 1200 e superiores, especifique o Driver do Microsoft OLE DB para SQL Server MSOLEDBSQL (recomendado), SQL Server Native Client 11.0 ou Provedor de Dados .NET Framework para SQL Server.  
-<a name="instgw">8</a> - Se MSOLEDBSQL for especificado como o provedor de dados, será necessário baixar e instalar o [Driver do Microsoft OLE DB para SQL Server](https://docs.microsoft.com/sql/connect/oledb/oledb-driver-for-sql-server) no mesmo computador que o gateway de dados local.  
+<a name="instgw">8</a> - Se MSOLEDBSQL for especificado como o provedor de dados, será necessário baixar e instalar o [Driver do Microsoft OLE DB para SQL Server](/sql/connect/oledb/oledb-driver-for-sql-server) no mesmo computador que o gateway de dados local.  
 <a name="oracle">9</a> - Para modelos tabulares de nível de compatibilidade 1200, ou como uma fonte de dados do *provedor* nos modelos tabulares de nível de compatibilidade 1400 e superiores, especifique o Provedor de Dados Oracle para .NET. Se especificado como uma fonte de dados estruturada, certifique-se de [habilitar o provedor gerenciado Oracle](#enable-oracle-managed-provider).   
 <a name="teradata">10</a> - Para modelos tabulares de nível de compatibilidade 1200, ou como uma fonte de dados do *provedor* nos modelos tabulares de nível de compatibilidade 1400 e superiores, especifique o Provedor de Dados Teradata para .NET.  
 <a name="filesSP">11</a> - Arquivos no SharePoint local não são suportados.
