@@ -11,12 +11,12 @@ metadata:
   ms.author: kgremban
   manager: philmea
   ms.date: 08/05/2019
-  ms.openlocfilehash: d3a71cd919660686c77b866b9e7fab461678da96
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 9145d327901835bd6feda8db2e5ac5eacc03b5e5
+  ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "89300350"
+  ms.lasthandoff: 10/13/2020
+  ms.locfileid: "91971669"
 landingContent:
 - title: Desenvolver para dispositivos Linux
   linkLists:
@@ -46,18 +46,16 @@ landingContent:
     links:
     - text: Usar o Visual Studio 2017 para desenvolver e depurar módulos
       url: how-to-visual-studio-develop-module.md
-- title: Provisionar dispositivos IoT Edge
+- title: Criar um dispositivo do IoT Edge
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Instalar o IoT Edge no Linux
-      url: how-to-install-iot-edge-linux.md
-    - text: Instalar o IoT Edge no Windows
-      url: how-to-install-iot-edge-windows.md
-    - text: Provisionar automaticamente dispositivos Linux
-      url: how-to-auto-provision-simulated-device-linux.md
-    - text: Provisionar automaticamente dispositivos Windows
-      url: how-to-auto-provision-simulated-device-windows.md
+    - text: Instalar o runtime do Azure IoT Edge
+      url: how-to-install-iot-edge.md
+    - text: Registrar e provisionar apenas um dispositivo
+      url: how-to-manual-provision-symmetric-key.md
+    - text: Registrar e provisionar dispositivos em escala
+      url: how-to-auto-provision-symmetric-keys.md
 - title: Participe da comunidade de open-source
   linkLists:
   - linkListType: get-started

@@ -7,16 +7,16 @@ ms.date: 09/23/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: edcfcda8de1fade605c409537155231d90d5849e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d61ca10612a0935f8483745d164835d7498280c0
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91610068"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042806"
 ---
 # <a name="implement-iot-plug-and-play-on-constrained-devices"></a>Implementar Plug and Play IoT em dispositivos restritos
 
-Se você estiver desenvolvendo para *dispositivos restritos*, poderá usar o plug and Play de IOT com o [SDK do Azure para bibliotecas de cliente IOT C](https://aka.ms/embeddedcsdk) ou com os [RTOs do Azure](https://docs.microsoft.com/azure/rtos/overview-rtos). Este artigo inclui links e recursos para esses cenários restritos.
+Se você estiver desenvolvendo para *dispositivos restritos*, poderá usar o plug and Play de IOT com o [SDK do Azure para bibliotecas de cliente IOT C](https://aka.ms/embeddedcsdk) ou com os [RTOs do Azure](/azure/rtos/overview-rtos). Este artigo inclui links e recursos para esses cenários restritos.
 
 ## <a name="use-the-sdk-for-embedded-c"></a>Usar o SDK para C inserido
 
@@ -39,7 +39,7 @@ O SDK do repositório C inserido contém [vários exemplos](https://github.com/A
 
 ## <a name="using-azure-rtos"></a>Usando os RTOS do Azure
 
-Os RTOS do Azure incluem uma camada leve que adiciona conectividade nativa aos serviços de nuvem do Azure IoT. Essa camada fornece um mecanismo simples para conectar dispositivos restritos ao IoT do Azure ao usar os recursos avançados dos RTOS do Azure. Para saber mais, confira o [que é Microsoft Azure RTOs](https://docs.microsoft.com/azure/rtos/overview-rtos).
+Os RTOS do Azure incluem uma camada leve que adiciona conectividade nativa aos serviços de nuvem do Azure IoT. Essa camada fornece um mecanismo simples para conectar dispositivos restritos ao IoT do Azure ao usar os recursos avançados dos RTOS do Azure. Para saber mais, confira o [que é Microsoft Azure RTOs](/azure/rtos/overview-rtos).
 
 ### <a name="toolchains"></a>Cadeias
 

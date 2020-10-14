@@ -10,18 +10,18 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: b5d2156707d8a4c308ed577b7407d5eae30edc65
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: f5f2a9800d3796d217294e757076d6ff706281d1
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979370"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044191"
 ---
 # <a name="retrieve-logs-from-iot-edge-deployments"></a>Recuperar logs de implantações IoT Edge
 
 Recupere logs de suas implantações IoT Edge sem precisar de acesso físico ou SSH ao dispositivo usando os métodos diretos incluídos no módulo IoT Edge Agent. Os métodos diretos são implementados no dispositivo e, em seguida, podem ser invocados na nuvem. O agente de IoT Edge inclui métodos diretos que ajudam a monitorar e gerenciar seus dispositivos de IoT Edge remotamente. Os métodos diretos discutidos neste artigo estão geralmente disponíveis com a versão 1.0.10.
 
-Para obter mais informações sobre métodos diretos, como usá-los e como implementá-los em seus próprios módulos, consulte [entender e invocar métodos diretos do Hub IOT](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-direct-methods).
+Para obter mais informações sobre métodos diretos, como usá-los e como implementá-los em seus próprios módulos, consulte [entender e invocar métodos diretos do Hub IOT](../iot-hub/iot-hub-devguide-direct-methods.md).
 
 Os nomes desses métodos diretos são tratados com diferenciação de maiúsculas e minúsculas.
 
@@ -63,17 +63,17 @@ Esse método aceita uma carga JSON com o esquema a seguir:
     }
 ```
 
-| Nome | Type | Descrição |
+| Nome | Tipo | Description |
 |-|-|-|
 | schemaVersion | cadeia de caracteres | Definida como `1.0` |
 | itens | Matriz JSON | Uma matriz com `id` e `filter` tuplas. |
-| ID | cadeia de caracteres | Uma expressão regular que fornece o nome do módulo. Ele pode corresponder a vários módulos em um dispositivo de borda. O formato de [expressões regulares do .net](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions) é esperado. |
+| ID | cadeia de caracteres | Uma expressão regular que fornece o nome do módulo. Ele pode corresponder a vários módulos em um dispositivo de borda. O formato de [expressões regulares do .net](/dotnet/standard/base-types/regular-expressions) é esperado. |
 | filter | Seção JSON | Filtros de log a serem aplicados aos módulos que correspondem à `id` expressão regular na tupla. |
 | engloba | Número inteiro | Número de linhas de log no passado para recuperar a partir da versão mais recente. OPCIONAL. |
 | since | Número inteiro | Apenas retorne logs desde o momento, como uma duração (1 d, 90 m, 2 dias 3 horas 2 minutos), carimbo de data/hora do rfc3339 ou carimbo de data/hora do UNIX.  Se ambos `tail` e `since` forem especificados, os logs serão recuperados usando o `since` valor primeiro. Em seguida, o `tail` valor é aplicado ao resultado e o resultado final é retornado. OPCIONAL. |
 | until | Número inteiro | Só retorna logs antes da hora especificada, como um carimbo de data/hora rfc3339, um carimbo de data/hora do UNIX ou duração (1 d, 90 m, 2 dias 3 horas 2 minutos). OPCIONAL. |
 | nível de log | Número inteiro | Filtrar linhas de log menores ou iguais ao nível de log especificado. As linhas de log devem seguir o formato de log recomendado e usar o padrão de [nível de severidade de syslog](https://en.wikipedia.org/wiki/Syslog#Severity_level) . OPCIONAL. |
-| regex | cadeia de caracteres | Filtre as linhas de log que têm conteúdo que corresponde à expressão regular especificada usando o formato de [expressões regulares .net](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions) . OPCIONAL. |
+| regex | cadeia de caracteres | Filtre as linhas de log que têm conteúdo que corresponde à expressão regular especificada usando o formato de [expressões regulares .net](/dotnet/standard/base-types/regular-expressions) . OPCIONAL. |
 | codificando | cadeia de caracteres | `gzip` ou `none`. O padrão é `none`. |
 | contentType | string | `json` ou `text`. O padrão é `text`. |
 
@@ -164,9 +164,9 @@ Esse método aceita um conteúdo JSON semelhante a **GetModuleLogs**, com a adi�
     }
 ```
 
-| Nome | Type | Descrição |
+| Nome | Tipo | Description |
 |-|-|-|
-| sasURL | Cadeia de caracteres (URI) | [URL de assinatura de acesso compartilhado com acesso de gravação ao contêiner de armazenamento de BLOBs do Azure](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/). |
+| sasURL | Cadeia de caracteres (URI) | [URL de assinatura de acesso compartilhado com acesso de gravação ao contêiner de armazenamento de BLOBs do Azure](/archive/blogs/jpsanders/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer). |
 
 Uma solicitação bem-sucedida para carregar logs retorna um **"status": 200** seguido por uma carga com o esquema a seguir:
 
@@ -178,7 +178,7 @@ Uma solicitação bem-sucedida para carregar logs retorna um **"status": 200** s
     }
 ```
 
-| Nome | Type | Descrição |
+| Nome | Tipo | Descrição |
 |-|-|-|
 | status | string | Um dos `NotStarted` , `Running` , `Completed` , `Failed` ou `Unknown` . |
 | message | string | Mensagem se houver erro, Cadeia de caracteres vazia, caso contrário. |
@@ -259,7 +259,7 @@ Na portal do Azure, invoque o método com o nome do método `UploadModuleLogs` e
 
 ## <a name="upload-support-bundle-diagnostics"></a>Carregar o diagnóstico do pacote de suporte
 
-Use o método direto **UploadSupportBundle** para agrupar e carregar um arquivo zip de logs de módulo IOT Edge para um contêiner de armazenamento de BLOBs do Azure disponível. Esse método direto executa o [`iotedge support-bundle`](https://docs.microsoft.com/azure/iot-edge/troubleshoot#gather-debug-information-with-support-bundle-command) comando em seu dispositivo IOT Edge para obter os logs.
+Use o método direto **UploadSupportBundle** para agrupar e carregar um arquivo zip de logs de módulo IOT Edge para um contêiner de armazenamento de BLOBs do Azure disponível. Esse método direto executa o [`iotedge support-bundle`](./troubleshoot.md#gather-debug-information-with-support-bundle-command) comando em seu dispositivo IOT Edge para obter os logs.
 
 Esse método aceita uma carga JSON com o esquema a seguir:
 
@@ -273,10 +273,10 @@ Esse método aceita uma carga JSON com o esquema a seguir:
     }
 ```
 
-| Nome | Type | Descrição |
+| Nome | Tipo | Description |
 |-|-|-|
 | schemaVersion | cadeia de caracteres | Definida como `1.0` |
-| sasURL | Cadeia de caracteres (URI) | [URL de assinatura de acesso compartilhado com acesso de gravação ao contêiner de armazenamento de BLOBs do Azure](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/) |
+| sasURL | Cadeia de caracteres (URI) | [URL de assinatura de acesso compartilhado com acesso de gravação ao contêiner de armazenamento de BLOBs do Azure](/archive/blogs/jpsanders/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer) |
 | since | Número inteiro | Apenas retorne logs desde o momento, como uma duração (1 d, 90 m, 2 dias 3 horas 2 minutos), carimbo de data/hora do rfc3339 ou carimbo de data/hora do UNIX. OPCIONAL. |
 | until | Número inteiro | Só retorna logs antes da hora especificada, como um carimbo de data/hora rfc3339, um carimbo de data/hora do UNIX ou duração (1 d, 90 m, 2 dias 3 horas 2 minutos). OPCIONAL. |
 | edgeRuntimeOnly | booleano | Se verdadeiro, apenas os logs de retorno do agente do Edge, Hub do Edge e o daemon de segurança do Edge. Padrão: falso.  OPCIONAL. |
@@ -294,7 +294,7 @@ Uma solicitação bem-sucedida para carregar logs retorna um **"status": 200** s
     }
 ```
 
-| Nome | Type | Descrição |
+| Nome | Tipo | Descrição |
 |-|-|-|
 | status | string | Um dos `NotStarted` , `Running` , `Completed` , `Failed` ou `Unknown` . |
 | message | string | Mensagem se houver erro, Cadeia de caracteres vazia, caso contrário. |
@@ -352,7 +352,7 @@ Uma solicitação bem-sucedida para carregar logs retorna um **"status": 200** s
     }
 ```
 
-| Nome | Type | Descrição |
+| Nome | Tipo | Descrição |
 |-|-|-|
 | status | string | Um dos `NotStarted` , `Running` , `Completed` , `Failed` ou `Unknown` . |
 | message | string | Mensagem se houver erro, Cadeia de caracteres vazia, caso contrário. |

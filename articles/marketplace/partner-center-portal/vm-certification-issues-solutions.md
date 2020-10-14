@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 06/16/2020
-ms.openlocfilehash: d724ef463d7c7ad237b5fd023e9c15f50de96f04
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/14/2020
+ms.openlocfilehash: 1a8dbbb42a548a8c4e9a1117166aa621e8734208
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91803459"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044489"
 ---
 # <a name="common-issues-when-certifying-virtual-machine-images-for-azure-marketplace"></a>Problemas comuns ao certificar imagens de máquina virtual para o Azure Marketplace
 
@@ -46,7 +46,7 @@ Para habilitar as extensões de VM, faça o seguinte:
 1. Selecione sua VM do Linux.
 1. Vá para **configurações de diagnóstico**.
 1. Habilite matrizes base atualizando a **conta de armazenamento**.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
    ![Habilitar o monitoramento no nível do convidado](./media/vm-certification-issues-solutions-1.png)
 
@@ -217,7 +217,7 @@ Se a imagem não estiver instalada com uma das seguintes versões de kernel, atu
 ||7.2|3.10.0-327.79.2|
 ||7.3|3.10.0-514.66.2|
 ||7.4|3.10.0-693.50.3|
-||7,5|3.10.0-862.34.2|
+||7.5|3.10.0-862.34.2|
 ||7.6|3.10.0-957.21.3|
 ||7.7|3.10.0-1062.1.1|
 ||8.0|4.18.0-80.4.2|
@@ -372,6 +372,61 @@ Os editores devem entrar em contato com o suporte ao [Editor do Marketplace](htt
    7. Linha do tempo-data até a qual esta exceção foi solicitada 
    8.   Anexo-anexe qualquer documento de evidência de importância. Para VMs bloqueadas, anexe o relatório de teste e os modelos personalizados, forneça o modelo ARM personalizado como anexo. Falha ao anexar o relatório para VMs bloqueadas e o modelo ARM personalizado para modelos personalizados resultará em negação de solicitação
 
+## <a name="how-to-address-a-vulnerability-or-exploit-in-a-vm-offer"></a>Como tratar uma vulnerabilidade ou exploração em uma oferta de VM
+
+Essas perguntas frequentes ajudam a fornecer uma imagem de VM (máquina virtual) quando uma vulnerabilidade ou exploração é descoberta com uma de suas imagens de VM. Estas perguntas frequentes se aplicam somente às ofertas de máquina virtual do Azure que são publicadas no Azure Marketplace.
+
+> [!NOTE]
+> Não é possível remover a última imagem de VM de um plano e não é possível parar de vender o último plano de uma oferta.
+
+Realize um dos seguintes procedimentos:
+
+1. Se você tiver uma nova imagem de VM para substituir a imagem de VM vulnerável, vá para [como fornecer uma imagem de VM fixa](#how-to-provide-a-fixed-vm-image).
+1. Se você não tiver uma nova imagem de VM para substituir a única imagem de VM em um plano e se tiver concluído o plano, poderá [parar de vender o plano](update-existing-offer.md#stop-selling-an-offer-or-plan).
+1. Se você não planeja substituir a única imagem de VM na oferta, recomendamos que você [pare de vender a oferta](update-existing-offer.md#stop-selling-an-offer-or-plan).
+
+### <a name="how-to-provide-a-fixed-vm-image"></a>Como fornecer uma imagem de VM fixa
+
+Para fornecer uma imagem de VM fixa para substituir uma imagem de VM que tem uma vulnerabilidade ou exploração, você deve fazer o seguinte:
+
+1. Forneça uma nova imagem de VM para resolver a vulnerabilidade ou exploração de segurança.
+1. Remova a imagem da VM que tem a vulnerabilidade de segurança ou exploração.
+1. Republique a oferta.
+
+#### <a name="provide-a-new-vm-image-to-address-the-security-vulnerability-or-exploit"></a>Forneça uma nova imagem de VM para resolver a vulnerabilidade ou exploração de segurança
+
+Para concluir essas etapas, você precisará preparar o ativo técnico para a imagem de VM que deseja adicionar. Para obter mais informações, consulte [criar ativos técnicos para uma oferta de máquina virtual do Azure Marketplace](create-azure-vm-technical-asset.md) e [obter um URI de SAS para sua imagem de VM](get-sas-uri.md).
+
+1. Entre no [Partner Center](https://partner.microsoft.com/dashboard/home).
+1. No menu de navegação à esquerda, selecione **Commercial Marketplace**  >  **visão geral**do Marketplace comercial.
+1. Na coluna **alias da oferta** , selecione a oferta.
+1. Na guia **visão geral do plano** , na coluna **nome** , selecione o plano ao qual você deseja adicionar a VM.
+1. Na guia **configuração técnica** , em **imagens de VM**, selecione **+ Adicionar imagem de VM**.
+   > [!NOTE]
+   > Você pode adicionar apenas uma imagem de VM a um plano de cada vez. Para adicionar várias imagens de VM, publique a primeira e aguarde até atingir o estágio de _aprovação do Publicador_ antes de adicionar a próxima imagem de VM.
+1. Nas caixas que aparecem, forneça uma nova versão de disco e a imagem de máquina virtual.
+1. Selecione **Salvar rascunho**.
+1. Continue na próxima seção para remover a imagem da VM com a vulnerabilidade de segurança.
+
+#### <a name="remove-the-vm-image-that-has-the-security-vulnerability-or-exploit"></a>Remover a imagem de VM que tem a vulnerabilidade de segurança ou exploração
+
+Entre no [Partner Center](https://partner.microsoft.com/dashboard/home).
+1. No menu de navegação à esquerda, selecione **Commercial Marketplace**  >  **visão geral**do Marketplace comercial.
+1. Na coluna **alias da oferta** , selecione a oferta.
+1. Na guia **visão geral do plano** , na coluna **nome** , selecione o plano com a VM que você deseja remover.
+1. Na guia **configuração técnica** , em **imagens de VM**, ao lado da imagem de VM que você deseja remover, selecione **remover imagem de VM**.
+1. Na caixa de diálogo exibida, selecione **continuar**.
+1. Selecione **Salvar rascunho**.
+1. Continue na próxima seção para republicar a oferta.
+
+#### <a name="republish-the-offer"></a>Republicar a oferta
+
+Depois de remover ou substituir a imagem da VM, você precisará republicar a oferta.
+1. Selecione **revisar e publicar**.
+1. Se você precisar fornecer informações à equipe de certificação, adicione-as à caixa **notas de certificação** .
+1. Selecione **Publicar**.
+
+Para obter mais detalhes sobre o processo de publicação, consulte [como examinar e publicar uma oferta no Marketplace comercial](../review-publish-offer.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

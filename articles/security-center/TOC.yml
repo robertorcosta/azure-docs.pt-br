@@ -50,7 +50,7 @@
           displayName: 'KV, akv'
           href: defender-for-key-vault-introduction.md
         - name: Azure Defender para Kubernetes
-          displayName: 'clusters, k8s'
+          displayName: 'clusters, k8s, aks'
           href: defender-for-kubernetes-introduction.md
         - name: Azure Defender para registros de contêiner
           displayName: 'ACR, registry, images'
@@ -58,7 +58,7 @@
         - name: Proteções adicionais contra ameaças
           href: other-threat-protections.md
     - name: Recursos de segurança de contêiner da Central de Segurança
-      displayName: 'kubernetes, aks, acr, registries'
+      displayName: 'kubernetes, aks, acr, registries, k8s'
       href: container-security.md
     - name: Preços
       href: security-center-pricing.md
@@ -79,6 +79,8 @@
           href: quickstart-onboard-gcp.md
     - name: Automatizar integração usando o PowerShell
       href: security-center-powershell-onboarding.md
+    - name: Habilitar a Central de Segurança para um grupo de gerenciamento
+      href: onboard-management-group.md
     - name: Configurar a coleta de dados
       href: security-center-enable-data-collection.md
     - name: Configure notificações por email
@@ -140,8 +142,6 @@
             - name: Automatizar respostas a recomendações
               displayName: workflow
               href: workflow-automation.md
-            - name: Exportar recomendações
-              href: continuous-export.md
             - name: Isentar um recurso de uma recomendação
               href: exempt-resource.md
     - name: Alertas do Azure Defender
@@ -180,6 +180,9 @@
             - name: Examinar e corrigir vulnerabilidades em suas VMs
               displayName: 'qualys, rapid7, vulnerability'
               href: remediate-vulnerability-findings-vm.md
+            - name: Desabilitar conclusões de vulnerabilidades específicas
+              displayName: 'qualys, rapid7, vulnerability'
+              href: remediate-vulnerability-findings-vm.md#disable-specific-findings-preview
         - name: Proteger as portas de gerenciamento com acesso just-in-time à VM
           items:
             - name: Visão geral do acesso just-in-time à VM
@@ -213,6 +216,15 @@
     - name: Usar o Azure Defender para registros de contêiner
       displayName: 'ACR, registry, images'
       href: defender-for-container-registries-usage.md
+    - name: Exporte alertas e recomendações
+      items:
+        - name: 'Exportar para um SIEM, SOAR ou ITSM'
+          displayName: 'continuous, SIEM, SOAR, Splunk, QRadar, ServiceNow, ArcSight, Monitor, Graph, Sentinel,'
+          href: export-to-siem.md
+        - name: Exportar para um workspace do Log Analytics ou para um Hub de Eventos do Azure
+          href: continuous-export.md
+        - name: Baixar um relatório CSV com todos os alertas
+          href: continuous-export.md#manual-one-time-export-of-alerts-and-recommendations
     - name: Manipular alertas do Azure Defender
       items:
         - name: Gerenciar alertas de segurança
@@ -226,16 +238,14 @@
           href: security-center-incident.md
         - name: Gerar relatórios de inteligência contra ameaças
           href: security-center-threat-report.md
-        - name: Validar a sua configuração de alerta (arquivo de teste EICAR)
+        - name: Validar a configuração do alerta
+          displayname: 'eicar, Kubernetes, Linux'
           href: security-center-alert-validation.md
         - name: Automatizar as respostas para alertas
           displayName: workflow
           href: workflow-automation.md
-        - name: Exportar alertas
-          displayName: continuous
-          href: continuous-export.md
     - name: Proteger as cargas de trabalho do Kubernetes
-      displayName: 'k8s, containers'
+      displayName: 'k8s, containers, aks'
       href: kubernetes-workload-protections.md
     - name: Gerenciar dados de usuário de investigação
       href: security-center-investigation-user-data.md

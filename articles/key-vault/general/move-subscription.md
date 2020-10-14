@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to move my vault to another subscription.
-ms.openlocfilehash: e6ab37539d00b6748d0e63a3f559bf70f493cf42
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a06fd55d73c37caaa35797131d2b31817bf90f0
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89394725"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042398"
 ---
 # <a name="moving-an-azure-key-vault-to-another-subscription"></a>Movendo um Azure Key Vault para outra assinatura
 
@@ -36,6 +36,9 @@ Quando você cria um cofre de chaves, ele é automaticamente vinculado à ID de 
 * Adicionar novas entradas de política de acesso associadas ao locatário B.
 
 ## <a name="limitations"></a>Limitações
+
+> [!IMPORTANT]
+> Os **cofres de chaves usados para a criptografia de disco não podem ser movidos** Se você estiver usando o Key Vault com criptografia de disco para uma VM, o cofre de chaves não poderá ser movido para um grupo de recursos diferente ou uma assinatura enquanto a criptografia de disco estiver habilitada. Você deve desabilitar a criptografia de disco antes de mover o cofre de chaves para um novo grupo de recursos ou assinatura. 
 
 Algumas entidades de serviço (usuários e aplicativos) estão associadas a um locatário específico. Se você mover o cofre de chaves para uma assinatura em outro locatário, haverá uma chance de que você não consiga restaurar o acesso a uma entidade de serviço específica. Verifique se todas as entidades de serviço essenciais existem no locatário em que você está movendo o cofre de chaves.
 

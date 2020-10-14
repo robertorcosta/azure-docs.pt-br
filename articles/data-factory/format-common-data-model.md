@@ -5,14 +5,14 @@ author: djpmsft
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/05/2020
+ms.date: 10/13/2020
 ms.author: daperlov
-ms.openlocfilehash: 483e26cf4044b909c8d7923cfd74bd6fcf871e2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e846ed02d1a0ac22c9c9479f3367800d1dc9dd2
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87905254"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042585"
 ---
 # <a name="common-data-model-format-in-azure-data-factory"></a>Formato de modelo de dados comuns no Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -35,22 +35,24 @@ O Common Data Service está disponível como um [conjunto de dados embutido](dat
 
 A tabela abaixo lista as propriedades com suporte por uma fonte CDM. Você pode editar essas propriedades na guia **Opções de origem** .
 
-| Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
+| Name | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Formatar | O formato deve ser `cdm` | sim | `cdm` | format |
 | Formato de metadados | Onde a referência de entidade para os dados está localizada. Se estiver usando o CDM versão 1,0, escolha manifesto. Se estiver usando uma versão do CDM anterior a 1,0, escolha model.jsem. | Sim | `'manifest'` ou `'model'` | manifestatype |
-| Local raiz: contêiner | Nome do contêiner da pasta CDM | sim | String | fileSystem |
-| Local raiz: caminho da pasta | Local da pasta raiz da pasta CDM | sim | String | folderPath |
-| Arquivo de manifesto: caminho da entidade | Caminho da pasta da entidade na pasta raiz | não | String | entityPath |
+| Local raiz: contêiner | Nome do contêiner da pasta CDM | sim | Cadeia de caracteres | fileSystem |
+| Local raiz: caminho da pasta | Local da pasta raiz da pasta CDM | sim | Cadeia de caracteres | folderPath |
+| Arquivo de manifesto: caminho da entidade | Caminho da pasta da entidade na pasta raiz | no | Cadeia de caracteres | entityPath |
 | Arquivo de manifesto: nome do manifesto | Nome do arquivo de manifesto. O valor padrão é ' default '  | Não | String | manifestName |
-| Filtrar por última modificação | Escolher filtrar arquivos com base na última alteração | não | Timestamp | modifiedAfter <br> modifiedBefore | 
+| Filtrar por última modificação | Escolher filtrar arquivos com base na última alteração | no | Timestamp | modifiedAfter <br> modifiedBefore | 
 | Serviço vinculado de esquema | O serviço vinculado em que o corpus está localizado | Sim, se estiver usando o manifesto | `'adlsgen2'` ou `'github'` | corpusStore | 
-| Contêiner de referência de entidade | O contêiner Corpus está em | Sim, se estiver usando Manifest e corpus no ADLS Gen2 | String | adlsgen2_fileSystem |
-| Repositório de referência de entidade | Nome do repositório GitHub | Sim, se estiver usando o manifesto e o corpus no GitHub | String | github_repository |
-| Ramificação de referência de entidade | Branch do repositório do GitHub | Sim, se estiver usando o manifesto e o corpus no GitHub | String |  github_branch |
-| Pasta Corpus | o local raiz do corpus | Sim, se estiver usando o manifesto | String | corpusPath |
-| Entidade Corpus | Caminho para referência de entidade | sim | String | entidade |
-| Não permitir nenhum arquivo encontrado | Se for true, um erro não será gerado se nenhum arquivo for encontrado | não | `true` ou `false` | ignoreNoFilesFound |
+| Contêiner de referência de entidade | O contêiner Corpus está em | Sim, se estiver usando Manifest e corpus no ADLS Gen2 | Cadeia de caracteres | adlsgen2_fileSystem |
+| Repositório de referência de entidade | Nome do repositório GitHub | Sim, se estiver usando o manifesto e o corpus no GitHub | Cadeia de caracteres | github_repository |
+| Ramificação de referência de entidade | Branch do repositório do GitHub | Sim, se estiver usando o manifesto e o corpus no GitHub | Cadeia de caracteres |  github_branch |
+| Pasta Corpus | o local raiz do corpus | Sim, se estiver usando o manifesto | Cadeia de caracteres | corpusPath |
+| Entidade Corpus | Caminho para referência de entidade | sim | Cadeia de caracteres | entidade |
+| Não permitir nenhum arquivo encontrado | Se for true, um erro não será gerado se nenhum arquivo for encontrado | no | `true` ou `false` | ignoreNoFilesFound |
+
+Se a definição de entidade que você deseja usar na transformação de origem estiver localizada no mesmo diretório que a pasta de dados, você poderá cancelar a seleção de "usar entidade de corpus" e simplesmente digitar a entidade da entidade que deseja usar como referência de entidade.
 
 ### <a name="sink-settings"></a>Configurações do coletor
 
@@ -112,24 +114,24 @@ source(output(
 
 A tabela abaixo lista as propriedades com suporte de um coletor CDM. Você pode editar essas propriedades na guia **configurações** .
 
-| Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
+| Name | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Formatar | O formato deve ser `cdm` | sim | `cdm` | format |
-| Local raiz: contêiner | Nome do contêiner da pasta CDM | sim | String | fileSystem |
-| Local raiz: caminho da pasta | Local da pasta raiz da pasta CDM | sim | String | folderPath |
-| Arquivo de manifesto: caminho da entidade | Caminho da pasta da entidade na pasta raiz | não | String | entityPath |
+| Local raiz: contêiner | Nome do contêiner da pasta CDM | sim | Cadeia de caracteres | fileSystem |
+| Local raiz: caminho da pasta | Local da pasta raiz da pasta CDM | sim | Cadeia de caracteres | folderPath |
+| Arquivo de manifesto: caminho da entidade | Caminho da pasta da entidade na pasta raiz | no | Cadeia de caracteres | entityPath |
 | Arquivo de manifesto: nome do manifesto | Nome do arquivo de manifesto. O valor padrão é ' default ' | Não | String | manifestName |
 | Serviço vinculado de esquema | O serviço vinculado em que o corpus está localizado | sim | `'adlsgen2'` ou `'github'` | corpusStore | 
-| Contêiner de referência de entidade | O contêiner Corpus está em | Sim, se corpus em ADLS Gen2 | String | adlsgen2_fileSystem |
-| Repositório de referência de entidade | Nome do repositório GitHub | Sim, se corpus no GitHub | String | github_repository |
-| Ramificação de referência de entidade | Branch do repositório do GitHub | Sim, se corpus no GitHub | String |  github_branch |
-| Pasta Corpus | o local raiz do corpus | sim | String | corpusPath |
-| Entidade Corpus | Caminho para referência de entidade | sim | String | entidade |
-| Caminho da partição | Local onde a partição será gravada | não | String | partitionPath |
-| Limpar a pasta | Se a pasta de destino for limpa antes da gravação | não | `true` ou `false` | truncate |
-| Tipo de formato | Escolha para especificar o formato parquet | não | `parquet` Se especificado | subformat |
-| Delimitador de coluna | Se estiver gravando em DelimitedText, como delimitar colunas | Sim, se estiver gravando em DelimitedText | String | columnDelimiter |
-| Primeira linha como cabeçalho | Se estiver usando DelimitedText, se os nomes de coluna são adicionados como um cabeçalho | não | `true` ou `false` | columnNamesAsHeader |
+| Contêiner de referência de entidade | O contêiner Corpus está em | Sim, se corpus em ADLS Gen2 | Cadeia de caracteres | adlsgen2_fileSystem |
+| Repositório de referência de entidade | Nome do repositório GitHub | Sim, se corpus no GitHub | Cadeia de caracteres | github_repository |
+| Ramificação de referência de entidade | Branch do repositório do GitHub | Sim, se corpus no GitHub | Cadeia de caracteres |  github_branch |
+| Pasta Corpus | o local raiz do corpus | sim | Cadeia de caracteres | corpusPath |
+| Entidade Corpus | Caminho para referência de entidade | sim | Cadeia de caracteres | entidade |
+| Caminho da partição | Local onde a partição será gravada | no | Cadeia de caracteres | partitionPath |
+| Limpar a pasta | Se a pasta de destino for limpa antes da gravação | no | `true` ou `false` | truncate |
+| Tipo de formato | Escolha para especificar o formato parquet | no | `parquet` Se especificado | subformat |
+| Delimitador de coluna | Se estiver gravando em DelimitedText, como delimitar colunas | Sim, se estiver gravando em DelimitedText | Cadeia de caracteres | columnDelimiter |
+| Primeira linha como cabeçalho | Se estiver usando DelimitedText, se os nomes de coluna são adicionados como um cabeçalho | no | `true` ou `false` | columnNamesAsHeader |
 
 ### <a name="cdm-sink-data-flow-script-example"></a>Exemplo de script de fluxo de dados do coletor CDM
 

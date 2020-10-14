@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/29/2020
+ms.date: 10/06/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: c78cfd2a453a082ce3f352504719a7fb8cc2b8ec
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: f8f5d41b7f4df3cd82a388bc24ccc8fa5a9a91f6
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875947"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044098"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gerenciar o uso e os custos com logs do Azure Monitor    
 
@@ -102,7 +102,7 @@ As assinaturas que tinham um workspace do Log Analytics ou um recurso do Applica
 
 O uso no tipo de preço autônomo é cobrado pelo volume de dados ingeridos. Ele é relatado no serviço de **log Analytics** e o medidor é denominado "dados analisados". 
 
-O tipo de preço Por Nó faz a cobrança por VM monitorada (nó) em uma granularidade de hora. Para cada nó monitorado, são alocados 500 MB de dados por dia ao workspace, os quais não são cobrados. Essa alocação é agregada no nível do workspace. Os dados ingeridos em quantidade acima da alocação diária de dados agregados são cobrados por GB como excedentes de dados. Observe que, em sua fatura, o serviço será **Insight e Análise** para o uso do Log Analytics caso o workspace esteja no tipo de preço Por Nó. O uso é relatado em três medidores:
+O tipo de preço Por Nó faz a cobrança por VM monitorada (nó) em uma granularidade de hora. Para cada nó monitorado, são alocados 500 MB de dados por dia ao workspace, os quais não são cobrados. Essa alocação é calculada com granularidade por hora e é agregada no nível do espaço de trabalho a cada dia. Os dados ingeridos em quantidade acima da alocação diária de dados agregados são cobrados por GB como excedentes de dados. Observe que, em sua fatura, o serviço será **Insight e Análise** para o uso do Log Analytics caso o workspace esteja no tipo de preço Por Nó. O uso é relatado em três medidores:
 
 1. Node: é o uso do número de nós monitorados (VMs) em unidades de nó * meses.
 2. Dados excedentes por nó: Este é o número de GB de dados ingeridos excedendo a alocação de dados agregada.
@@ -125,6 +125,10 @@ Nenhum dos tipos de preço herdados tem preços baseados na região.
 
 > [!NOTE]
 > Para usar os direitos provenientes da aquisição de OMS E1 Suite, OMS E2 Suite OMS ou Complemento do OMS para System Center, escolha o tipo de preço *Por Nó* do Log Analytics.
+
+## <a name="log-analytics-and-security-center"></a>Central de Log Analytics e segurança
+
+A cobrança da [central de segurança do Azure](https://docs.microsoft.com/azure/security-center/) está diretamente ligada à cobrança log Analytics. A central de segurança fornece a alocação de 500 MB/nó/dia em relação a um conjunto de [tipos de dados de segurança](https://docs.microsoft.com/azure/azure-monitor/reference/tables/tables-category#security) (WindowsEvent, SecurityAlert, SecurityBaseline, SecurityBaselineSummary, SecurityDetection, SecurityEvent, WindowsFirewall, MaliciousIPCommunication, LinuxAuditLog, SysmonEvent, ProtectionStatus) e os tipos de dados Update e UpdateSummary quando a solução gerenciamento de atualizações não está em execução no espaço de trabalho ou o direcionamento de solução está habilitado. Se o espaço de trabalho estiver no tipo de preço herdado por nó, a central de segurança e as alocações de Log Analytics serão combinadas e aplicadas em conjunto a todos os dados ingeridos faturáveis.  
 
 ## <a name="change-the-data-retention-period"></a>Alterar o período de retenção de dados
 
@@ -284,6 +288,24 @@ find where TimeGenerated > ago(24h) project _BilledSize, Computer
 | summarize TotalVolumeBytes=sum(_BilledSize) by computerName
 ```
 
+### <a name="nodes-billed-by-the-legacy-per-node-pricing-tier"></a>Nós cobrados pelo tipo de preço herdado por nó
+
+O [tipo de preço herdado por nó](#legacy-pricing-tiers) cobra por nós com granularidade por hora e também não conta os nós enviando apenas um conjunto de tipos de dados de segurança. Sua contagem diária de nós estaria próxima da seguinte consulta:
+
+```kusto
+find where TimeGenerated >= startofday(ago(7d)) and TimeGenerated < startofday(now()) project Computer, _IsBillable, Type, TimeGenerated
+| where Type !in ("SecurityAlert", "SecurityBaseline", "SecurityBaselineSummary", "SecurityDetection", "SecurityEvent", "WindowsFirewall", "MaliciousIPCommunication", "LinuxAuditLog", "SysmonEvent", "ProtectionStatus", "WindowsEvent")
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| where _IsBillable == true
+| summarize billableNodesPerHour=dcount(computerName) by bin(TimeGenerated, 1h)
+| summarize billableNodesPerDay = sum(billableNodesPerHour)/24., billableNodeMonthsPerDay = sum(billableNodesPerHour)/24./31.  by day=bin(TimeGenerated, 1d)
+| sort by day asc
+```
+
+O número de unidades em sua fatura está em unidades de nó * meses, que é representado por `billableNodeMonthsPerDay` na consulta. Se o espaço de trabalho tiver a solução Gerenciamento de Atualizações instalada, adicione os tipos de dados Update e UpdateSummary à lista na cláusula WHERE da consulta acima. Por fim, há uma complexidade adicional no algoritmo de cobrança real quando o direcionamento de solução é usado e não é representado na consulta acima. 
+
+
 > [!TIP]
 > Use essas consultas `find` com moderação como verificações entre tipos de dados, uma que a execução delas faz um uso [intensivo de recursos](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization#query-performance-pane). Caso não precise de resultados **por computador**, consulte o tipo de dados Uso (veja abaixo).
 
@@ -338,7 +360,7 @@ Usage
 | where TimeGenerated > ago(32d)
 | where StartTime >= startofday(ago(31d)) and EndTime < startofday(now())
 | where IsBillable == true
-| summarize BillableDataGB = sum(Quantity) / 1000 by Solution, DataType
+| summarize BillableDataGB = sum(Quantity) by Solution, DataType
 | sort by Solution asc, DataType asc
 ```
 

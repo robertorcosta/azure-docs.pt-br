@@ -3,19 +3,19 @@ title: Integre seu feed de dados ao assistente de métricas
 titleSuffix: Azure Cognitive Services
 description: Como começar a integrar seus feeds de dados ao assistente de métricas.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/14/2020
-ms.author: aahi
-ms.openlocfilehash: 83ff710804b43837657ea0da7c8f44c245017c7e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: mbullwin
+ms.openlocfilehash: fe3b87c733f54d8bd52c4d973977e3c8cbfefe19
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90933689"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043182"
 ---
 # <a name="how-to-onboard-your-metric-data-to-metrics-advisor"></a>Como: carregar seus dados de métrica para o assistente de métricas
 
@@ -82,7 +82,7 @@ Se o carimbo de data/hora de um ponto de dados for omitido, o supervisor de mét
 
 Se você quiser ignorar colunas, é recomendável atualizar sua consulta ou fonte de dados para excluir essas colunas. Você também pode ignorar colunas usando **ignorar colunas** e, em seguida, **ignorar** nas colunas específicas. Se uma coluna deve ser uma dimensão e é definida erroneamente como *ignorada*, o Orientador de métrica pode acabar ingerindo dados parciais. Por exemplo, suponha que os dados da consulta sejam os seguintes:
 
-| ID da linha | Timestamp | País | Linguagem | Receita |
+| ID da linha | Timestamp | País | Idioma | Receita |
 | --- | --- | --- | --- | --- |
 | 1 | 2019/11/10 | China | ZH-CN | 10000 |
 | 2 | 2019/11/10 | China | EN-US | 1000 |
@@ -109,7 +109,7 @@ Considere os seguintes cenário:
 
     Essa opção significa que o Orientador de métricas não precisa acumular os dados porque as linhas já estão somadas. Por exemplo, se você selecionar *somente nulo*, a segunda linha de dados no exemplo abaixo será vista como uma agregação de todos os países e idiomas *en-US*; a quarta linha de dados que tem um valor vazio para *Country* , no entanto, será vista como uma linha comum que pode indicar dados incompletos.
     
-    | País | Linguagem | Receita |
+    | País | Idioma | Receita |
     |---------|----------|--------|
     | China   | ZH-CN    | 10000  |
     | NULO  | EN-US    | 999999 |

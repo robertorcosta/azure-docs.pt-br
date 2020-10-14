@@ -3,19 +3,19 @@ title: Gerenciar feeds de dados no assistente de métricas
 titleSuffix: Azure Cognitive Services
 description: Saiba como gerenciar feeds de dados que você adicionou ao assistente de métricas.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 08/28/2020
-ms.author: aahi
-ms.openlocfilehash: 22a1be7231b730c83ca97b0f128e43258ed24533
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: mbullwin
+ms.openlocfilehash: de8d5d8e9fc5ce1df05cfd4c67ef146760e2c7e9
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90932962"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043163"
 ---
 # <a name="how-to-manage-your-data-feeds"></a>Como gerenciar seus feeds de dados
 

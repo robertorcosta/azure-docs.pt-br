@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: pdecarlo
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 95fd10ab7de4885d3630b5defe4080fe0203b62f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d14ef742c19556a9df2bd193a54bfaa1672d5964
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91296970"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044217"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>Executar Azure IoT Edge em Máquinas Virtuais do Ubuntu
 
@@ -50,7 +50,7 @@ O [botão implantar no Azure](../azure-resource-manager/templates/deploy-to-azur
 
     **Nome de usuário do administrador**: um nome de usuário, que será fornecido com privilégios de raiz na implantação.
 
-    **Cadeia de conexão do dispositivo**: uma [cadeia de conexão de dispositivo](how-to-register-device.md) para um dispositivo que foi criado no [Hub IOT](../iot-hub/about-iot-hub.md)pretendido.
+    **Cadeia de conexão do dispositivo**: uma [cadeia de conexão de dispositivo](./how-to-manual-provision-symmetric-key.md) para um dispositivo que foi criado no [Hub IOT](../iot-hub/about-iot-hub.md)pretendido.
 
     **Tamanho da VM**: o [tamanho](../cloud-services/cloud-services-sizes-specs.md) da máquina virtual a ser implantada
 

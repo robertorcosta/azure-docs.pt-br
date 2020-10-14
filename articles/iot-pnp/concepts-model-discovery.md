@@ -7,12 +7,12 @@ ms.date: 07/23/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 165f83e0f021d23c26333a294ffe992838bda6b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: caaa4499cbed1dce1a858c33a9488650649a5a44
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91577706"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042908"
 ---
 # <a name="use-iot-plug-and-play-models-in-an-iot-solution"></a>Usar modelos de Plug and Play de IoT em uma solução de IoT
 
@@ -40,10 +40,10 @@ Uma solução pode obter a ID do modelo do dispositivo IoT Plug and Play usando 
 
 ### <a name="get-device-twin-api"></a>Obter API de dispositivo
 
-A solução pode usar a API de [obtenção de dispositivo](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.deviceclient.getdevicetwin?view=azure-java-stable&preserve-view=true) para recuperar a ID de modelo do dispositivo de plug and Play de IOT.
+A solução pode usar a API de [obtenção de dispositivo](/java/api/com.microsoft.azure.sdk.iot.device.deviceclient.getdevicetwin?preserve-view=true&view=azure-java-stable) para recuperar a ID de modelo do dispositivo de plug and Play de IOT.
 
 > [!TIP]
-> Para módulos e módulos de IoT Edge, use [ModuleClient. Getentrelaçar](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.moduleclient.gettwin?view=azure-java-stable&preserve-view=true).
+> Para módulos e módulos de IoT Edge, use [ModuleClient. Getentrelaçar](/java/api/com.microsoft.azure.sdk.iot.device.moduleclient.gettwin?preserve-view=true&view=azure-java-stable).
 
 No trecho de resposta do dispositivo de dispositivos a seguir, `modelId` contém a ID do modelo de um dispositivo de plug and Play IOT:
 
@@ -71,7 +71,7 @@ No trecho de resposta do dispositivo de dispositivos a seguir, `modelId` contém
 
 ### <a name="get-digital-twin-api"></a>Obter a API de entrelaça digital
 
-A solução pode usar a API de [obtenção digital](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin/getdigitaltwin) para recuperar a ID do modelo implementado pelo dispositivo de plug and Play de IOT.
+A solução pode usar a API de [obtenção digital](/rest/api/iothub/service/digitaltwin/getdigitaltwin) para recuperar a ID do modelo implementado pelo dispositivo de plug and Play de IOT.
 
 No seguinte trecho de resposta digital de FileUp, `$metadata.$model` contém a ID do modelo de um dispositivo de plug and Play IOT:
 
@@ -121,7 +121,7 @@ As soluções podem usar o [repositório](concepts-model-repository.md) de model
 
 Depois de identificar a ID do modelo para uma nova conexão de dispositivo, siga estas etapas:
 
-1. Recupere a definição do modelo usando a ID do modelo do repositório de modelos. Para obter mais informações, consulte [obter modelos](https://docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/getmodelasync/getmodelasync).
+1. Recupere a definição do modelo usando a ID do modelo do repositório de modelos. Para obter mais informações, consulte [obter modelos](/rest/api/iothub/digitaltwinmodelrepositoryservice/getmodelasync/getmodelasync).
 
 1. Usando a definição de modelo do dispositivo conectado, você pode enumerar os recursos do dispositivo.
 
@@ -144,5 +144,5 @@ Depois de identificar a ID do modelo para uma nova conexão de dispositivo, siga
 Agora que você aprendeu a integrar os modelos de IoT Plug and Play em uma solução de IoT, algumas próximas etapas sugeridas são:
 
 - [Interagir com um dispositivo da sua solução](quickstart-service-node.md)
-- [API REST de monodigital de IoT](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin)
+- [API REST de monodigital de IoT](/rest/api/iothub/service/digitaltwin)
 - [Azure IoT Explorer](howto-use-iot-explorer.md)

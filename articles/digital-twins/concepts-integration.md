@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/16/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 4fcad5798d421939717a6beae01ae9930cfcb117
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 118b02ab694d27dbe4e13cbfa1a617a56b052772
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015014"
+ms.locfileid: "92043061"
 ---
 # <a name="integrate-azure-digital-twins-with-other-services"></a>Integrar o gêmeos digital do Azure a outros serviços
 
@@ -20,7 +20,7 @@ O Azure digital gêmeos normalmente é usado junto com outros serviços para cri
 
 Usando as [**rotas de eventos**](concepts-route-events.md), o Azure digital gêmeos pode receber dados de serviços upstream, como o [Hub IOT](../iot-hub/about-iot-hub.md) ou [aplicativos lógicos](../logic-apps/logic-apps-overview.md), que são usados para entregar telemetria e notificações. 
 
-O Azure digital gêmeos também pode rotear dados para serviços downstream, como [mapas do Azure](../azure-maps/about-azure-maps.md) e [Time Series insights](../time-series-insights/time-series-insights-update-overview.md), para armazenamento, integração de fluxo de trabalho, análise e muito mais. 
+O Azure digital gêmeos também pode rotear dados para serviços downstream, como [mapas do Azure](../azure-maps/about-azure-maps.md) e [Time Series insights](../time-series-insights/overview-what-is-tsi.md), para armazenamento, integração de fluxo de trabalho, análise e muito mais. 
 
 ## <a name="data-ingress"></a>Entrada de dados
 
@@ -41,7 +41,7 @@ O Azure digital gêmeos pode enviar dados para **pontos de extremidade**conectad
 
 Os pontos de extremidade são anexados ao Azure digital gêmeos usando APIs de gerenciamento ou o portal do Azure. Saiba mais sobre como anexar um ponto de extremidade ao gêmeos digital do Azure em [*instruções: gerenciar pontos de extremidade e rotas*](how-to-manage-routes-apis-cli.md).
 
-Há muitos outros serviços em que você pode querer direcionar, por fim, os dados, como o [armazenamento do Azure](../storage/common/storage-introduction.md), [mapas do Azure](../azure-maps/about-azure-maps.md)ou [Time Series insights](../time-series-insights/time-series-insights-update-overview.md). Para enviar seus dados a serviços como esses, anexe o serviço de destino a um ponto de extremidade.
+Há muitos outros serviços em que você pode querer direcionar, por fim, os dados, como o [armazenamento do Azure](../storage/common/storage-introduction.md), [mapas do Azure](../azure-maps/about-azure-maps.md)ou [Time Series insights](../time-series-insights/overview-what-is-tsi.md). Para enviar seus dados a serviços como esses, anexe o serviço de destino a um ponto de extremidade.
 
 Por exemplo, se você também estiver usando mapas do Azure e quiser correlacionar o local com o grafo do Azure digital gêmeos [bigráfica](concepts-twins-graph.md), poderá usar Azure Functions com a grade de eventos para estabelecer a comunicação entre todos os serviços em sua implantação. Saiba mais sobre isso em [ *instruções: usar o gêmeos digital do Azure para atualizar um mapa interno do Azure Maps*](how-to-integrate-maps.md)
 

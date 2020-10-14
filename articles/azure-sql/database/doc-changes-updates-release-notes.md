@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: 3950cc16cd8661ee4e509cf14d12f561cb29c4ea
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 4328d1da8c82bc09aa8353838d08c31ea77f58aa
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940698"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043384"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>O que há de novo no banco de dados SQL do Azure & SQL Instância Gerenciada?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -39,14 +39,14 @@ Esta tabela fornece uma comparação rápida para a alteração na terminologia:
 |**Termo novo**  | **Termo anterior**  |**Explicação** |
 |---------|---------|---------|
 |**Instância Gerenciada do SQL do Azure** | *Instância gerenciada* do banco de dados SQL do Azure| O Azure SQL Instância Gerenciada é seu próprio produto na família SQL do Azure, em vez de apenas uma opção de implantação no banco de dados SQL do Azure. | 
-|**Banco de dados SQL do Azure**|Banco de dados *individual* do banco de dados SQL do Azure| A menos que seja especificado explicitamente de outra forma, o nome do produto banco de dados SQL do Azure inclui bancos e dados individuais implantados em um pool elástico. |
-|**Banco de dados SQL do Azure**|*Pool elástico* do banco de dados SQL do Azure| A menos que seja especificado explicitamente de outra forma, o nome do produto banco de dados SQL do Azure inclui bancos e dados individuais implantados em um pool elástico.  |
-|**Banco de dados SQL do Azure** |Banco de Dados SQL do Azure | Embora o termo permaneça o mesmo, ele só se aplica a implantações de banco de dados único e de pool elástico e não inclui a instância gerenciada. |
+|**Banco de Dados SQL do Azure**|Banco de dados *individual* do banco de dados SQL do Azure| A menos que seja especificado explicitamente de outra forma, o nome do produto banco de dados SQL do Azure inclui bancos e dados individuais implantados em um pool elástico. |
+|**Banco de Dados SQL do Azure**|*Pool elástico* do banco de dados SQL do Azure| A menos que seja especificado explicitamente de outra forma, o nome do produto banco de dados SQL do Azure inclui bancos e dados individuais implantados em um pool elástico.  |
+|**Banco de Dados SQL do Azure** |Banco de Dados SQL do Azure | Embora o termo permaneça o mesmo, ele só se aplica a implantações de banco de dados único e de pool elástico e não inclui a instância gerenciada. |
 | **SQL do Azure**| N/D | Isso se refere à família de SQL Server de produtos do mecanismo de banco de dados que estão disponíveis no Azure: banco de dados SQL do Azure, SQL Instância Gerenciada do Azure e SQL Server em VMs do Azure. | 
 
 ## <a name="features-in-public-preview"></a>Inclui versão prévia pública
 
-### <a name="azure-sql-database"></a>[Banco de dados SQL do Azure](#tab/single-database)
+### <a name="azure-sql-database"></a>[Banco de Dados SQL do Azure](#tab/single-database)
 
 | Recurso | Detalhes |
 | ---| --- |
@@ -64,6 +64,7 @@ Esta tabela fornece uma comparação rápida para a alteração na terminologia:
 
 | Recurso | Detalhes |
 | ---| --- |
+| <a href="/azure/azure-sql/database/elastic-transactions-overview">Transações distribuídas</a> | Transações distribuídas entre instâncias gerenciadas. |
 | <a href="/azure/sql-database/sql-database-instance-pools">Pools da instância</a> | Uma maneira conveniente e econômica de migrar instâncias do SQL menores para a nuvem. |
 | <a href="https://aka.ms/managed-instance-aadlogins">Entidades de segurança do servidor do Azure AD (logons) de nível de entidade</a> | Crie logons em nível de instância usando uma instrução <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Create login from external Provider</a> . |
 | [Replicação transacional](../managed-instance/replication-transactional-overview.md) | Replique as alterações de suas tabelas em outros bancos de dados do SQL Instância Gerenciada, do SQL Database ou do SQL Server. Ou atualize suas tabelas quando algumas linhas forem alteradas em outras instâncias do SQL Instância Gerenciada ou SQL Server. Para obter informações, consulte [Configurar a replicação no Azure SQL instância gerenciada](../managed-instance/replication-between-two-instances-configure-tutorial.md). |

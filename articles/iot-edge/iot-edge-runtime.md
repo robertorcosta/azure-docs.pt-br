@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp, mqtt, devx-track-csharp
-ms.openlocfilehash: 8cbfc374a5964983c43594fef5d97986e51c0d83
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 4e4895b227bfc699e94155515e829d0bf33aaf9b
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91971686"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043044"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Reconhecer o runtime do Azure IoT Edge e sua arquitetura
 
@@ -71,7 +71,7 @@ Para receber uma mensagem, registre um retorno de chamada que processa as mensag
    await client.SetInputMessageHandlerAsync("input1", messageProcessor, userContext);
    ```
 
-Para obter mais informações sobre a classe ModuleClient e seus métodos de comunicação, consulte a referência de API para sua linguagem de SDK preferida: [C#](/dotnet/api/microsoft.azure.devices.client.moduleclient), [C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h), [python](/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient), [Java](/java/api/com.microsoft.azure.sdk.iot.device.moduleclient)ou [Node.js](/javascript/api/azure-iot-device/moduleclient).
+Para obter mais informações sobre a classe ModuleClient e seus métodos de comunicação, consulte a referência de API para sua linguagem de SDK preferida: [C#](/dotnet/api/microsoft.azure.devices.client.moduleclient), [C](/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h), [python](/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient), [Java](/java/api/com.microsoft.azure.sdk.iot.device.moduleclient)ou [Node.js](/javascript/api/azure-iot-device/moduleclient).
 
 O desenvolvedor da solução é responsável por especificar as regras que determinam como o hub do IoT Edge passa mensagens entre os módulos. As regras de roteamento são definidas na nuvem e enviadas por push para IoT Edge Hub em seu módulo. A mesma sintaxe para rotas do Hub IoT é usada para definir rotas entre módulos no Azure IoT Edge. Para obter mais informações, confira [Aprenda a implantar módulos e estabelecer rotas no IoT Edge](module-composition.md).
 
@@ -126,15 +126,15 @@ Para obter mais informações sobre a estrutura de segurança do Azure IoT Edge,
 
 ## <a name="runtime-quality-telemetry"></a>Telemetria de qualidade de tempo de execução
 
-IoT Edge coleta telemetria anônima do tempo de execução do host e dos módulos do sistema para melhorar a qualidade do produto. Essas informações são chamadas de telemetria de qualidade de tempo de execução (RQT). O RQT é enviado periodicamente como mensagens do dispositivo para a nuvem para o Hub IoT do agente de IoT Edge. As mensagens RQT não aparecem na telemetria regular do cliente e não consomem nenhuma cota de mensagem.
+IoT Edge coleta a telemetria anônima do tempo de execução do host e dos módulos do sistema para melhorar a qualidade do produto. Essas informações são chamadas de telemetria de qualidade de tempo de execução. A telemetria coletada é enviada periodicamente como mensagens do dispositivo para a nuvem para o Hub IoT do agente de IoT Edge. Essas mensagens não aparecem na telemetria regular do cliente e não consomem nenhuma cota de mensagem.
 
-Uma lista completa das métricas coletadas por edgeAgent e edgeHub está disponível na [seção métricas disponíveis do artigo acesso IOT Edge tempo de execução de métricas](how-to-access-built-in-metrics.md#available-metrics). Um subconjunto dessas métricas é coletado pelo agente de IoT Edge como parte do RQT. As métricas coletadas como parte de RQT incluem a marca `ms_telemetry` .
+O agente de IoT Edge e o Hub geram métricas que você pode coletar para entender o desempenho do dispositivo. Um subconjunto dessas métricas é coletado pelo agente de IoT Edge como parte da telemetria de qualidade de tempo de execução. As métricas coletadas para telemetria de qualidade de tempo de execução são rotuladas com a marca `ms_telemetry` . Para obter informações sobre todas as métricas disponíveis, consulte [acessar métricas internas](how-to-access-built-in-metrics.md).
 
-Como parte da anonimato, todas as informações pessoais ou organizacionais, como nomes de dispositivos e módulos, são removidas antes do carregamento.
+Todas as informações pessoais ou organizacionais, como nomes de dispositivos e módulos, são removidas antes do carregamento para garantir a natureza anônima da telemetria de qualidade de tempo de execução.
 
-A frequência padrão de RQT é uma mensagem enviada ao Hub IoT a cada 24 horas e coleta local por edgeAgent a cada hora.
+O agente de IoT Edge coleta a telemetria a cada hora e envia uma mensagem ao Hub IoT a cada 24 horas.
 
-Se você quiser recusar o RQT, há duas maneiras de fazer isso:
+Se você quiser recusar o envio de telemetria de tempo de execução de seus dispositivos, há duas maneiras de fazer isso:
 
 * Defina a `SendRuntimeQualityTelemetry` variável de ambiente para `false` para **edgeAgent**ou
 * Desmarque a opção na portal do Azure durante a implantação.

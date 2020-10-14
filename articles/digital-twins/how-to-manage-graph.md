@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: a0ab8f8ff3f2134c205338dfe8e6f2e887a5a053
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 8c698cdf5b26cb1682eec2828922517cf4272275
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91949608"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048433"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Gerenciar um grafo de gêmeos digital usando relações
 
@@ -247,7 +247,7 @@ Considere a tabela de dados a seguir, descrevendo um conjunto de gêmeos e rela�
 | quarto    | Room21 | Floor02 | contains | … |
 | quarto    | Room22 | Floor02 | contains | … |
 
-O código a seguir usa a [API Microsoft Graph](https://docs.microsoft.com/graph/overview) para ler uma planilha e construir um grafo do Azure digital gêmeos bispersão dos resultados.
+O código a seguir usa a [API Microsoft Graph](/graph/overview) para ler uma planilha e construir um grafo do Azure digital gêmeos bispersão dos resultados.
 
 ```csharp
 var range = msftGraphClient.Me.Drive.Items["BuildingsWorkbook"].Workbook.Worksheets["Building"].usedRange;

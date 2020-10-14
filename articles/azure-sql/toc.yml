@@ -90,6 +90,8 @@
                   href: database/transparent-data-encryption-tde-overview.md
                 - name: BYOK (Bring Your Own Key)
                   href: database/transparent-data-encryption-byok-overview.md
+            - name: Transações distribuídas
+              href: database/elastic-transactions-overview.md
         - name: Continuidade de negócios
           displayName: 'Backup, back up, restore, recovery'
           items:
@@ -862,6 +864,8 @@
               href: managed-instance/public-endpoint-overview.md
             - name: Auditoria
               href: managed-instance/auditing-configure.md
+            - name: Grupos de confiança do servidor
+              href: managed-instance/server-trust-group-overview.md
     - name: Como
       items:
         - name: Visão geral

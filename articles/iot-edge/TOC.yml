@@ -111,28 +111,26 @@
       href: iot-edge-glossary.md
 - name: Guias de instruções
   items:
-    - name: Registrar um dispositivo IoT Edge
-      href: how-to-register-device.md
-    - name: Instalar e gerenciar o IoT Edge
+    - name: Criar um dispositivo do IoT Edge
       items:
-        - name: Linux
-          href: how-to-install-iot-edge-linux.md
-        - name: Windows
-          href: how-to-install-iot-edge-windows.md
-        - name: Contêineres do Linux no Windows
-          href: how-to-install-iot-edge-windows-with-linux.md
-        - name: VM do Windows Server
-          href: how-to-install-iot-edge-windows-server-vm.md
-        - name: VM do Ubuntu
-          href: how-to-install-iot-edge-ubuntuvm.md
-        - name: Kubernetes
-          href: how-to-install-iot-edge-kubernetes.md
+        - name: Instalar o runtime
+          href: how-to-install-iot-edge.md
+        - name: Registrar e autenticar o dispositivo
+          items:
+            - name: Autenticação da chave simétrica
+              href: how-to-manual-provision-symmetric-key.md
+            - name: Autenticação do certificado X.509
+              href: how-to-manual-provision-x509.md
+        - name: Atualizar o runtime
+          href: how-to-update-iot-edge.md
         - name: Gerenciar certificados do dispositivo
           href: how-to-manage-device-certificates.md
         - name: Criar certificados de teste
           href: how-to-create-test-certificates.md
-        - name: Atualizar versão de execução
-          href: how-to-update-iot-edge.md
+        - name: IoT Edge no Kubernetes
+          href: how-to-install-iot-edge-kubernetes.md
+        - name: Máquina virtual do IoT Edge usando um modelo do Resource Manager
+          href: how-to-install-iot-edge-ubuntuvm.md
     - name: Provisionamento automático com DPS
       items:
         - name: Atestado de TPM
@@ -183,6 +181,10 @@
           href: how-to-monitor-module-twins.md
         - name: Métodos diretos do EdgeAgent
           href: how-to-edgeagent-direct-method.md
+        - name: Recuperar logs do IoT Edge
+          href: how-to-retrieve-iot-edge-logs.md
+        - name: Acessar métricas internas
+          href: how-to-access-built-in-metrics.md
     - name: Usar dispositivos do IoT Edge como gateways
       items:
         - name: Criar um gateway transparente
@@ -225,6 +227,8 @@
           href: troubleshoot-common-errors.md
 - name: Referência
   items:
+    - name: Scripts de gerenciamento de dispositivo do Windows
+      href: reference-windows-scripts.md
     - name: CLI do Azure
       href: /cli/azure/azure-cli-reference-for-IoT
 - name: Recursos

@@ -7,16 +7,16 @@ ms.date: 07/20/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: a0fa8c1c3d897ce65c70b6097dd323139716b8c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f1c52b764634f8086763aca67dfc32b507d2edd
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613383"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042840"
 ---
 # <a name="manage-iot-plug-and-play-digital-twins"></a>Gerenciar gêmeos digital de IoT Plug and Play
 
-O IoT Plug and Play dá suporte a **obter** operações digitais de atualização de e/ou **Atualizar** para gerenciar o digital gêmeos. Você pode usar as [APIs REST](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin) ou um dos SDKs de [serviço](libraries-sdks.md).
+O IoT Plug and Play dá suporte a **obter** operações digitais de atualização de e/ou **Atualizar** para gerenciar o digital gêmeos. Você pode usar as [APIs REST](/rest/api/iothub/service/digitaltwin) ou um dos SDKs de [serviço](libraries-sdks.md).
 
 No momento da gravação, a versão da API do digital up é `2020-09-30` .
 
@@ -194,5 +194,5 @@ As atualizações podem falhar se os valores relatados de um dispositivo não es
 Agora que você aprendeu sobre o digital gêmeos, aqui estão alguns recursos adicionais:
 
 - [Interagir com um dispositivo da sua solução](quickstart-service-node.md)
-- [API REST de monodigital de IoT](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin)
+- [API REST de monodigital de IoT](/rest/api/iothub/service/digitaltwin)
 - [Azure IoT Explorer](howto-use-iot-explorer.md)

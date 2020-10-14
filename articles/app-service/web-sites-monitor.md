@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/23/2020
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 888118d227529110c209d7c8d5a3bb79cfcf3a9a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 327abb2e67f21c2893fc652b0e30c640980914c2
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88959784"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044523"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Monitorar aplicativos no Serviço de Aplicativo do Azure
 O [serviço de Azure app](https://go.microsoft.com/fwlink/?LinkId=529714) fornece funcionalidade de monitoramento interna para aplicativos Web, móveis e aplicativos de API no [portal do Azure](https://portal.azure.com).
@@ -31,7 +31,7 @@ Se o aplicativo estiver hospedado em um plano *Básico*, *Standard* ou *Premium*
 
 As cotas para aplicativos Gratuitos ou Compartilhados são:
 
-| Quota | Descrição |
+| Quota | Description |
 | --- | --- |
 | **CPU (Curto)** | A quantidade de CPU permitida para esse aplicativo em um intervalo de cinco minutos. Essa cota é definida novamente a cada cinco minutos. |
 | **CPU (Dia)** | A quantidade total de CPU permitida para esse aplicativo em um dia. Essa cota é definida novamente a cada 24 horas, à meia-noite UTC. |
@@ -58,7 +58,7 @@ Aumente ou remova cotas de seu aplicativo atualizando seu Plano do Serviço de A
 ## <a name="understand-metrics"></a>Entender as métricas
 
 > [!NOTE]
-> O **uso do sistema de arquivos** é uma nova métrica sendo distribuída globalmente, nenhum dado é esperado, a menos que você tenha recebido acesso para visualização privada.
+> O **uso do sistema de arquivos** é uma nova métrica sendo distribuída globalmente, nenhum dado é esperado, a menos que seu aplicativo esteja hospedado em um ambiente do serviço de aplicativo.
 > 
 
 > [!IMPORTANT]

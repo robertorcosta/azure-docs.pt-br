@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 483c29d4aed4102440b09f26fe6778709836145f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b449913c9d1abbbec84f0ff77f7a1c1bc5321bf
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91629821"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048450"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Idiomas compatíveis e suporte de voz para o serviço de Fala
 
@@ -154,7 +154,7 @@ Para obter mais informações sobre a disponibilidade regional, consulte [regiõ
 | `en-CA` | Inglês (Canadá) | Feminino | `en-CA-ClaraNeural` | Geral |
 | `en-GB` | Inglês (Reino Unido) | Feminino | `en-GB-LibbyNeural` | Geral |
 | `en-GB` | Inglês (Reino Unido) | Feminino | `en-GB-MiaNeural` | Geral |
-| `en-GB` <sup>Novo</sup> | Inglês (Reino Unido) | Masculino | `En-GB-RyanNeural` | Geral |
+| `en-GB` <sup>Novo</sup> | Inglês (Reino Unido) | Masculino | `en-GB-RyanNeural` | Geral |
 | `en-IE` <sup>Novo</sup> | Inglês-Irlandês (Irlanda) | Feminino | `en-IE-EmilyNeural` | Geral |
 | `en-IN` | Inglês (Índia) | Feminino | `en-IN-NeerjaNeural` | Geral |
 | `en-US` | Inglês (Estados Unidos) | Feminino | `en-US-AriaNeural` | Geral, com vários estilos de voz disponíveis |
