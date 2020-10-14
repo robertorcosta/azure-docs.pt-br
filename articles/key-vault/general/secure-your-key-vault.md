@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: sudbalas
-ms.openlocfilehash: 9060c00e1523db0671d9698465c8e8fcb6340785
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: efbed9ec44bd386a4540c397ca8958fb3ccea807
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842828"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019878"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Proteger o acesso a um cofre de chaves
 
@@ -79,7 +79,7 @@ Crie um cofre de chaves em um grupo de recursos e gerencie o acesso usando o Azu
 
 Há várias funções predefinidas. Se uma função predefinida não atender às suas necessidades, você poderá definir sua própria função. Para obter mais informações, veja [Funções internas do Azure](../../role-based-access-control/built-in-roles.md). 
 
-Você precisa ter `Microsoft.Authorization/roleAssignments/write` permissões e `Microsoft.Authorization/roleAssignments/delete` , como administrador de [acesso do usuário](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles.md#user-access-administrator) ou [proprietário](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles.md#owner)
+Você precisa ter `Microsoft.Authorization/roleAssignments/write` permissões e `Microsoft.Authorization/roleAssignments/delete` , como administrador de [acesso do usuário](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) ou [proprietário](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)
 
 > [!IMPORTANT]
 > Se um usuário tem permissões `Contributor` para um plano de gerenciamento de cofre de chaves, pode conceder a si mesmo o acesso ao plano de dados definindo a política de acesso do Key Vault. Você deve controlar rigorosamente quem tem função de acesso `Contributor` aos cofres de chaves. Certifique-se de que apenas pessoas autorizadas possam acessar e gerenciar seus cofres de chaves, chaves, segredos e certificados.
@@ -187,7 +187,7 @@ A tabela a seguir resume as permissões de acesso para as funções e o aplicati
 | Equipe de segurança | [Colaborador do Key Vault](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-contributor) | Certificados: todas as operações <br> Chaves: todas as operações <br> Segredos: todas as operações | [Key Vault administrador (versão prévia)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-administrator-preview) |
 | Desenvolvedores e&nbsp;operadores | Permissão para implantar o Key Vault<br><br> **Observação**: essa permissão possibilita que as VMs implantadas busquem segredos do cofre de chaves. | Nenhum | Nenhum |
 | Auditores | Nenhum | Certificados: lista <br> Chaves: lista<br>Segredos: lista<br><br> **Observação**: essa permissão possibilita que os auditores inspecionem os atributos (marcas, datas de ativação, datas de validade) de chaves e segredos que não são emitidos nos logs. | [Key Vault Reader (visualização)]https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-reader-preview |
-| Conta de Armazenamento do Azure | Nenhum | Chaves: obter, lista, wrapKey, unwrapKey <br> | [Criptografia do serviço de criptografia Key Vault](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-crypto-service-encryption-preview) |
+| Conta de Armazenamento do Azure | Não | Chaves: obter, lista, wrapKey, unwrapKey <br> | [Criptografia do serviço de criptografia Key Vault](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-crypto-service-encryption-preview) |
 | Aplicativo | Nenhum | Segredos: obter, listar <br> Certificados: obter, listar | [Leitor de Key Vault (visualização)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-reader-preview), [Key Vault usuário de segredo (versão prévia)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-secrets-user-preview) |
 
 As três funções da equipe precisam ter acesso a outros recursos e a permissões do Key Vault. Para implantar VMs (ou o recurso aplicativos Web do serviço Azure App), os desenvolvedores e operadores precisam de acesso de implantação. Os auditores precisam de acesso de leitura para a Conta de armazenamento em que os logs do Key Vault estão armazenados.

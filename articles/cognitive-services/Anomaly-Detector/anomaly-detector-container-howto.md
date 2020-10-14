@@ -3,21 +3,21 @@ title: Instalar e executar contêineres do Docker para a API do detector de anom
 titleSuffix: Azure Cognitive Services
 description: Use os algoritmos da API do detector de anomalias para localizar anomalias em seus dados, localmente usando um contêiner do Docker.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 09/28/2020
-ms.author: aahi
+ms.author: mbullwin
 ms.custom: cog-serv-seo-aug-2020
 keywords: no local, Docker, contêiner, streaming, algoritmos
-ms.openlocfilehash: ff4d15b33cb261e71ea883c0245afe5781005e38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e20ff5022b9b4a5b601160516f255af991a540c6
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91459993"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018603"
 ---
 # <a name="install-and-run-docker-containers-for-the-anomaly-detector-api"></a>Instalar e executar contêineres do Docker para a API do detector de anomalias 
 
@@ -59,7 +59,7 @@ Você deve atender aos seguintes pré-requisitos antes de usar contêineres de d
 
 A tabela a seguir descreve os núcleos e memória de CPU mínimos e recomendados para alocar para o contêiner do detector de anomalias.
 
-| QPS (consultas por segundo) | Mínimo | Recomendadas |
+| QPS (consultas por segundo) | Mínimo | Recomendado |
 |-----------|---------|-------------|
 | 10 QPS | 4 núcleos, 1 GB de memória | 8 núcleos de memória de 2 GB |
 | 20 QPS | 8 núcleos, 2 GB de memória | 16 núcleos de 4 GB de memória |

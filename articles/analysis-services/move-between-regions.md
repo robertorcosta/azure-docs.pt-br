@@ -8,12 +8,12 @@ ms.date: 06/09/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 4844f3e34a6b49559affbb4d4ed7bc5b5e38e538
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f7ecf960ae94fae4d829e73daf051b9062e478d
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87050365"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018187"
 ---
 # <a name="move-analysis-services-to-a-different-region"></a>Mover Analysis Services para uma região diferente
 
@@ -88,7 +88,7 @@ Para exportar um modelo com o portal do Azure:
 
 Para exportar um modelo usando o PowerShell:
 
-1. Entre em sua assinatura do Azure com o comando [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) e siga as instruções na tela:
+1. Entre em sua assinatura do Azure com o comando [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) e siga as instruções na tela:
 
    ```azurepowershell-interactive
    Connect-AzAccount
@@ -177,7 +177,7 @@ Para modificar o modelo:
 
 #### <a name="regions"></a>Regiões
 
-Para obter regiões do Azure, confira [locais do Azure](https://azure.microsoft.com/global-infrastructure/locations/). Para obter regiões usando o PowerShell, execute o comando [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) .
+Para obter regiões do Azure, confira [locais do Azure](https://azure.microsoft.com/global-infrastructure/locations/). Para obter regiões usando o PowerShell, execute o comando [Get-AzLocation](/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) .
 
 ```azurepowershell-interactive
    Get-AzLocation | format-table 
@@ -301,4 +301,4 @@ Remove-AzAnalysisServicesServer -Name "myserver" -ResourceGroupName "myResourceG
 ---
 
 > [!NOTE]
-> Depois de concluir uma movimentação de região, é recomendável que o novo servidor de destino use um contêiner de armazenamento na mesma região para backups, em vez do contêiner de armazenamento na região do servidor de origem. 
+> Depois de concluir uma movimentação de região, é recomendável que o novo servidor de destino use um contêiner de armazenamento na mesma região para backups, em vez do contêiner de armazenamento na região do servidor de origem.

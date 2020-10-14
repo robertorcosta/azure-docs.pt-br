@@ -3,12 +3,12 @@ title: Detalhes da estrutura de definição de política
 description: Descreve como as definições de política são usadas para estabelecer convenções para os recursos do Azure na sua organização.
 ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: bb5eb3de1723ab75b2585c2fe62c395231455f37
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 7b6cb1b9e9a57fb3278ec931364bc355258d649d
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91949370"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019946"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição da Política do Azure
 
@@ -77,7 +77,7 @@ Use **displayName** e **description** para identificar a definição de polític
 > [!NOTE]
 > Durante a criação ou a atualização de uma definição de política, **id**, **type** e **name** são definidos por propriedades externas ao JSON e não são necessários no arquivo JSON. O fetch da definição de política por meio do SDK retorna a as propriedades **id**, **type** e **name** como parte do JSON, mas cada uma delas é uma informação somente leitura relacionada à definição de política.
 
-## <a name="type"></a>Type
+## <a name="type"></a>Tipo
 
 Embora a propriedade **Type** não possa ser definida, há três valores que são retornados pelo SDK e visíveis no Portal:
 
@@ -306,6 +306,9 @@ Há suporte para os seguintes campos:
 - `type`
 - `location`
   - Use **global** para recursos independentes de local.
+- `id`
+  - Retorna a ID de recurso do recurso que está sendo avaliado.
+  - Exemplo: `/subscriptions/06be863d-0996-4d56-be22-384767287aa2/resourceGroups/myRG/providers/Microsoft.KeyVault/vaults/myVault`
 - `identity.type`
   - Retorna o tipo de [identidade gerenciada](../../../active-directory/managed-identities-azure-resources/overview.md) habilitada no recurso.
 - `tags`

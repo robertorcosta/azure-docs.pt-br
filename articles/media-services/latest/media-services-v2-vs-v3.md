@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 10/01/2020
 ms.author: inhenkel
-ms.openlocfilehash: 515379a4207a582b441d132b1c28ff11bc83c714
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23baa6ed92aa01251b4c7ccf34ef784910a0321f
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91651744"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019827"
 ---
 # <a name="media-services-v2-vs-v3"></a>Serviços de mídia v2 versus v3
 
@@ -74,7 +74,7 @@ Este artigo descreve as alterações introduzidas nos Serviços de Mídia do Azu
 
 A API de v3 tem as seguintes falhas de recurso em relação a API v2. Fechar as lacunas está em andamento.
 
-* O [Codificador Premium](../previous/media-services-premium-workflow-encoder-formats.md) e os legados [processadores analíticos de mídia](../previous/media-services-analytics-overview.md) (Visualização do Azure Media Indexer 2, API de Detecção Facial, etc.) não podem ser acessados pela v3.<br/>Os clientes que desejam migrar da visualização do Indexador de Mídia 1 ou 2 podem usar imediatamente a predefinição AudioAnalyzer na API v3.  Essa nova predefinição contém mais recursos que o antigo Indexador de Mídia 1 ou 2. 
+* O [Codificador Premium](../previous/media-services-encode-asset.md) e os legados [processadores analíticos de mídia](../previous/legacy-components.md) (Visualização do Azure Media Indexer 2, API de Detecção Facial, etc.) não podem ser acessados pela v3.<br/>Os clientes que desejam migrar da visualização do Indexador de Mídia 1 ou 2 podem usar imediatamente a predefinição AudioAnalyzer na API v3.  Essa nova predefinição contém mais recursos que o antigo Indexador de Mídia 1 ou 2. 
 * Muitos dos [recursos avançados do Media Encoder Standard em APIs v2](../previous/media-services-advanced-encoding-with-mes.md) não estão disponíveis atualmente na v3, como:
   
     * A união de ativos
@@ -115,7 +115,7 @@ A tabela a seguir mostra como as propriedades do [ativo](/rest/api/media/assets/
 
 Para proteger os Ativos em repouso, os ativos devem ser criptografados pela criptografia do armazenamento. A tabela a seguir mostra como a criptografia do armazenamento funciona nos Serviços de Mídia:
 
-|Opção de criptografia|Descrição|Serviços de Mídia v2|Serviços de Mídia v3|
+|Opção de criptografia|Description|Serviços de Mídia v2|Serviços de Mídia v3|
 |---|---|---|---|
 |Criptografia do Armazenamento dos Serviços de Mídia|Criptografia AES-256, chave gerenciada pelos serviços de mídia.|Com suporte<sup>(1)</sup>|Sem suporte<sup>(2)</sup>|
 |[Criptografia do Serviço de Armazenamento para dados em repouso](../../storage/common/storage-service-encryption.md)|Criptografia do lado do servidor oferecida pelo armazenamento do Azure, chave gerenciada pelo Azure ou por cliente.|Com suporte|Com suporte|

@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.date: 02/25/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 6ed382e88700e4ecd7f8de20a2c8da7ed3c13566
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43565e812abcf0b7dbb992ac4d25a62a4d08df2b
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77925924"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018637"
 ---
 # <a name="web-application-firewall-waf-with-front-door-service-exclusion-lists"></a>WAF (firewall do aplicativo Web) com listas de exclusão de serviço de porta frontal 
 
@@ -45,6 +45,17 @@ Você pode especificar um cabeçalho de solicitação exato, corpo, cookie ou um
 Os nomes de cabeçalho e cookie não diferenciam maiúsculas de minúsculas.
 
 Você pode aplicar a lista de exclusões a todas as regras no conjunto de regras gerenciadas, às regras de um grupo de regras específico ou a uma única regra, conforme mostrado no exemplo anterior. 
+
+## <a name="define-exclusion-based-on-web-application-firewall-logs"></a>Definir a exclusão com base nos logs de firewall do aplicativo Web
+ O [monitoramento e o registro em log do firewall do aplicativo Web do Azure](waf-front-door-monitor.md) mostra os detalhes correspondentes de uma solicitação bloqueada. Se um valor de cabeçalho, um valor de cookie, um valor de argumento de postagem ou um valor de argumento de consulta produzir falsos positivos para algumas regras, você poderá excluir essa parte da solicitação de ser considerada pela regra. A tabela a seguir mostra os valores de exemplo dos logs do WAF e as condições de exclusão correspondentes.
+
+|matchVariableName de logs do WAF    |Exclusão de regra no portal|
+|--------|------|
+|CookieValue: SOME_NAME  |Nome do cookie de solicitação igual a SOME_NAME|
+|HeaderValue: SOME_NAME  |O nome do cabeçalho da solicitação é igual a SOME_NAME|
+|Createparamvalue: SOME_NAME|  Nome dos argumentos da postagem do corpo da solicitação é igual a SOME_NAME|
+|QueryParamValue: SOME_NAME| Nome de argumentos da cadeia de caracteres de consulta igual a SOME_NAME|
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

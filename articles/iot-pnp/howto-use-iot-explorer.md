@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: e64586ced7a619de02ae3a9d6beda35660ca04a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf68bdafbb8b6fde187a2d787bb5464e5ece4cb2
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91577570"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019147"
 ---
 # <a name="install-and-use-azure-iot-explorer"></a>Instalar e usar o Azure IoT Explorer
 
@@ -36,7 +36,7 @@ Para usar a ferramenta do Azure IoT Explorer, você precisa de:
 Vá para [versões do Azure IOT Explorer](https://github.com/Azure/azure-iot-explorer/releases) e expanda a lista de ativos para a versão mais recente. Baixe e instale a versão mais recente do aplicativo.
 
 >[!Important]
->Da versão 0.11.0 o Gerenciador de IoT só dá suporte à versão de GA de Plug and Play de IoT (de setembro de 2020). Para usar os recursos disponíveis na versão prévia anterior de agosto de 2019, instale um atualização de 0,10. x.
+> Atualize para a versão 0,13. x para resolver modelos de qualquer repositório com base em [https://github.com/Azure/iot-plugandplay-models](https://github.com/Azure/iot-plugandplay-models)
 
 ## <a name="use-azure-iot-explorer"></a>Usar o Azure IoT Explorer
 
@@ -124,7 +124,7 @@ Para enviar um comando para um dispositivo, vá para a guia **comandos** :
 
 Para exibir a telemetria da interface selecionada, vá para a guia **telemetria** .
 
-#### <a name="known-issues"></a>Problemas conhecidos
+#### <a name="known-issues"></a>Problemas Conhecidos
 
 - Suporte a IoT Edge: a versão atual não mostra IoT Edge dispositivos na lista de dispositivos.
 - Recursos de linguagem DTDL: o IoT Explorer 0.12. x não é totalmente compatível com DTDL v2, recursos sem suporte incluem:
@@ -136,4 +136,4 @@ Para exibir a telemetria da interface selecionada, vá para a guia **telemetria*
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo de instruções, você aprendeu a instalar e usar o Azure IoT Explorer para interagir com seus dispositivos de Plug and Play de IoT. Uma próxima etapa sugerida é aprender a usar os [comandos CLI do Azure IoT plug and Play](./howto-use-iot-pnp-cli.md).
+Neste artigo de instruções, você aprendeu a instalar e usar o Azure IoT Explorer para interagir com seus dispositivos de Plug and Play de IoT. Uma próxima etapa sugerida é aprender a [instalar e usar as ferramentas de criação do DTDL](howto-use-dtdl-authoring-tools.md).

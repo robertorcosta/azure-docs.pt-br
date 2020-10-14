@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 1d090070dd7b2afe5ea1ece9b5da8b8b5b7b0780
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed13111584e7e9621ec2ccde16efb3cdf2eef50c
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87438966"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92016171"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Instalar e configurar um gateway de dados local
 
@@ -67,20 +67,20 @@ Para saber mais sobre como Azure Analysis Services funciona com o gateway, consu
    > [!NOTE]
    > Se você entrar com uma conta de domínio, ela será mapeada para sua conta organizacional no Azure AD. Sua conta organizacional é usada como administrador do gateway.
 
-## <a name="register"></a>Registrar
+## <a name="register"></a>Registre-se
 
 Para criar um recurso de gateway no Azure, você precisa registrar a instância local que instalou com o Serviço de Nuvem do Gateway. 
 
 1.  Selecione **Registrar um novo gateway neste computador**.
 
-    ![Registrar](media/analysis-services-gateway-install/aas-gateway-register-new.png)
+    ![Registre-se](media/analysis-services-gateway-install/aas-gateway-register-new.png)
 
 2. Digite um nome e uma chave de recuperação para o gateway. Por padrão, o gateway usa a região padrão de sua assinatura. Se precisar selecionar uma região diferente, selecione **Alterar Região**.
 
     > [!IMPORTANT]
     > Salve sua chave de recuperação em um local seguro. A chave de recuperação é necessária para controlar, migrar ou restaurar um gateway. 
 
-   ![Registrar](media/analysis-services-gateway-install/aas-gateway-register-name.png)
+   ![Registre-se](media/analysis-services-gateway-install/aas-gateway-register-name.png)
 
 
 ## <a name="create-an-azure-gateway-resource"></a>Criar um recurso de gateway do Azure
@@ -132,7 +132,7 @@ Depois de instalar e registrar seu gateway, você precisará criar um recurso de
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Use [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource) para obter a ResourceId do gateway. Em seguida, conecte o recurso de gateway a um servidor novo ou existente especificando **-GatewayResourceID** em [set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver) ou [New-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/new-azanalysisservicesserver).
+Use [Get-AzResource](/powershell/module/az.resources/get-azresource) para obter a ResourceId do gateway. Em seguida, conecte o recurso de gateway a um servidor novo ou existente especificando **-GatewayResourceID** em [set-AzAnalysisServicesServer](/powershell/module/az.analysisservices/set-azanalysisservicesserver) ou [New-AzAnalysisServicesServer](/powershell/module/az.analysisservices/new-azanalysisservicesserver).
 
 Para obter a ID de recurso do gateway:
 
@@ -151,7 +151,7 @@ Set-AzAnalysisServicesServer -ResourceGroupName $RGName -Name $servername -Gatew
 ```
 ---
 
-É isso. Se precisar abrir portas ou solucionar qualquer problema, não deixe de conferir [Gateway de dados local](analysis-services-gateway.md).
+Isso é tudo. Se precisar abrir portas ou solucionar qualquer problema, não deixe de conferir [Gateway de dados local](analysis-services-gateway.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

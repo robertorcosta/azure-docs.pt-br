@@ -3,12 +3,12 @@ title: Implantar a Análise Dinâmica de Vídeo no Azure Stack Edge
 description: Este artigo lista as etapas que ajudarão você a implantar a análise de vídeo ao vivo em seu Azure Stack Edge.
 ms.topic: how-to
 ms.date: 09/09/2020
-ms.openlocfilehash: b13bb779a5a780b21f2d5d96ed8831ef5c26564d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f33b6fb0f0dc5c5b733a0fcb021e2792ce9c6ec6
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90932946"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019589"
 ---
 # <a name="deploy-live-video-analytics-on-azure-stack-edge"></a>Implantar a Análise Dinâmica de Vídeo no Azure Stack Edge
 
@@ -21,27 +21,27 @@ Para a análise de vídeo ao vivo, implantaremos por meio do Hub IoT, mas os Azu
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Assinatura do Azure à qual você tem [privilégios de proprietário](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner).
-* Um recurso do [Azure Stack Edge](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-gpu-deploy-prep)
+* Assinatura do Azure à qual você tem [privilégios de proprietário](../../role-based-access-control/built-in-roles.md#owner).
+* Um recurso do [Azure Stack Edge](../../databox-online/azure-stack-edge-gpu-deploy-prep.md)
    
-* [Um hub IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal)
-* Uma [entidade de serviço](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/create-custom-azure-resource-manager-role-how-to#create-service-principal) para o módulo análise de vídeo ao vivo.
+* [Um hub IoT](../../iot-hub/iot-hub-create-through-portal.md)
+* Uma [entidade de serviço](./create-custom-azure-resource-manager-role-how-to.md#create-service-principal) para o módulo análise de vídeo ao vivo.
 
    Use uma destas regiões em que o Hub IoT está disponível: leste dos EUA 2, EUA Central, norte EUA Central, leste do Japão, oeste dos EUA 2, Oeste EUA Central, leste do Canadá, Sul do Reino Unido, França central, sul da França, Norte da Suíça, Oeste da Suíça e oeste do Japão.
 * Conta de armazenamento
 
     É recomendável que você use contas de armazenamento de uso geral v2 (GPv2).  
-    Saiba mais sobre uma [conta de armazenamento de uso geral v2](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade?tabs=azure-portal).
+    Saiba mais sobre uma [conta de armazenamento de uso geral v2](../../storage/common/storage-account-upgrade.md?tabs=azure-portal).
 * O [Visual Studio Code](https://code.visualstudio.com/) em seu computador de desenvolvimento. Verifique se você tem a [Extensão do Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * Verifique se a rede à qual seu computador de desenvolvimento está conectado permite o Advanced Message Queueing Protocol pela porta 5671. Essa configuração permite que o Azure IoT Tools se comunique com o Hub IoT do Azure.
 
 ## <a name="configuring-azure-stack-edge-for-using-live-video-analytics"></a>Configurando o Azure Stack Edge para usar a análise de vídeo ao vivo
 
-O Azure Stack Edge é uma solução de hardware como serviço e um dispositivo de computação de borda habilitado para ia com recursos de transferência de dados de rede. Leia mais sobre [Azure Stack borda e instruções de configuração detalhadas](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-prep). Para começar, siga as instruções nos links abaixo:
+O Azure Stack Edge é uma solução de hardware como serviço e um dispositivo de computação de borda habilitado para ia com recursos de transferência de dados de rede. Leia mais sobre [Azure Stack borda e instruções de configuração detalhadas](../../databox-online/azure-stack-edge-deploy-prep.md). Para começar, siga as instruções nos links abaixo:
 
-* [Azure Stack a criação de recursos de borda/Gateway do Data Box](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-prep)
-* [Instalar e configurar](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-install)
-* [Conexão e ativação](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-connect-setup-activate)
+* [Azure Stack a criação de recursos de borda/Gateway do Data Box](../../databox-online/azure-stack-edge-deploy-prep.md)
+* [Instalar e configurar](../../databox-online/azure-stack-edge-deploy-install.md)
+* [Conexão e ativação](../../databox-online/azure-stack-edge-deploy-connect-setup-activate.md)
 
 ### <a name="attach-an-iot-hub-to-azure-stack-edge"></a>Anexar um hub IoT ao Azure Stack Edge
 
@@ -80,7 +80,7 @@ Antes de continuar, verifique se:
 
 * Você ativou seu Azure Stack recurso de borda.
 * Você tem acesso a um sistema de cliente Windows executando o PowerShell 5,0 ou posterior para acessar o recurso de borda do Azure Stack.
-* Para implantar um cluster kubernetes, você precisa configurar o recurso de borda do Azure Stack por meio de sua [interface do usuário da Web local](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-connect-setup-activate#connect-to-the-local-web-ui-setup). 
+* Para implantar um cluster kubernetes, você precisa configurar o recurso de borda do Azure Stack por meio de sua [interface do usuário da Web local](../../databox-online/azure-stack-edge-deploy-connect-setup-activate.md#connect-to-the-local-web-ui-setup). 
     
     * Para habilitar a computação, na interface do usuário da Web local do seu dispositivo, vá para a página computação.
     

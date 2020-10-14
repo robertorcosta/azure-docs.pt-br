@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/05/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 141649f7620063b58134caaa878162f3a7e767e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2e17e99208d076d05132638b5161a284b73986f
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91739895"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018620"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrar seu aplicativo a uma rede virtual do Azure
 
@@ -149,6 +149,10 @@ Três custos estão relacionados ao uso do recurso de Integração VNET exigido 
 * **Custos do gateway de VPN**: há um custo para o gateway de rede virtual necessário para a VPN ponto a site. Para obter mais informações, confira [Preços do gateway de VPN][VNETPricing].
 
 ## <a name="troubleshooting"></a>Solução de problemas
+
+> [!NOTE]
+> Não há suporte para integração VNET em cenários de Docker Compose no serviço de aplicativo.
+>
 
 [!INCLUDE [app-service-web-vnet-troubleshooting](../../includes/app-service-web-vnet-troubleshooting.md)]
 

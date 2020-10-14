@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 7da19ddd96c15ff5688d6e153d1859ed8c11ec8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b404d05f512449c99e60c0bfdc93aab22c399ef
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91616543"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019011"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Entender os modelos de entrelaçamento no Azure digital gêmeos
 
@@ -57,7 +57,7 @@ Aqui estão algumas orientações adicionais sobre como distinguir entre campos 
 
 A diferença entre as propriedades e a telemetria para os modelos de gêmeos digital do Azure é a seguinte:
 * Espera-se que **as propriedades** tenham armazenamento de backup. Isso significa que você pode ler uma propriedade a qualquer momento e recuperar seu valor. Se a propriedade for gravável, você também poderá armazenar um valor na propriedade.  
-* A **telemetria** é mais semelhante a um fluxo de eventos; é um conjunto de mensagens de dados que têm breves providas. Se você não configurar a escuta para o evento e as ações a serem executadas quando isso acontecer, não haverá nenhum rastreamento do evento posteriormente. Você não pode voltar a fazê-lo e lê-lo mais tarde. 
+* A **telemetria** é mais semelhante a um fluxo de eventos; é um conjunto de mensagens de dados que têm breves providas. Se você não configurar a escuta para o evento e as ações a serem executadas quando isso acontecer, não haverá nenhum rastreamento do evento posteriormente. Não é possível voltar a ele e lê-lo mais tarde. 
   - Em termos do C#, a telemetria é como um evento em C#. 
   - Em termos de IoT, a telemetria normalmente é uma única medida enviada por um dispositivo.
 

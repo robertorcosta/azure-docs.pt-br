@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/07/2020
+ms.date: 10/13/2020
 ms.author: b-juche
-ms.openlocfilehash: 80746d7cef4bb0a70c6bb9eb6ff2e053ea6c7a0a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c79586703c49fe37d4d0915f49b69e6aa842083e
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91824688"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017515"
 ---
 # <a name="metrics-for-azure-netapp-files"></a>Métricas do Azure NetApp Files
 
@@ -86,6 +86,9 @@ Azure NetApp Files fornece métricas sobre armazenamento alocado, uso de armazen
 
 
 ## <a name="volume-replication-metrics"></a><a name="replication"></a>Métricas de replicação de volume
+
+> [!NOTE] 
+> O tamanho da transferência de rede (por exemplo, as métricas de *transferência total de replicação de volume* ) pode ser diferente dos volumes de origem ou de destino de uma replicação entre regiões. Esse comportamento é um resultado de um mecanismo de replicação eficiente ser usado para minimizar o custo de transferência de rede.
 
 - *O status de replicação do volume é íntegro*   
     A condição da relação de replicação. Um estado íntegro é indicado pelo `1` . Um estado não íntegro é indicado por `0` .

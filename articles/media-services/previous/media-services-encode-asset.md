@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: juliako
-ms.openlocfilehash: 5d5a00488321c9c67dd1469b1d8476636675aa8f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e841d1922beb3f0276ff94cacbbdf566b23cdf6e
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91281007"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017277"
 ---
 # <a name="overview-of-azure-on-demand-media-encoders"></a>Visão geral dos codificadores de mídia sob demanda do Azure
 
@@ -53,7 +53,7 @@ Por padrão, cada conta dos Serviços de Mídia pode ter uma tarefa de codifica�
 [Formatos e codecs](media-services-media-encoder-standard-formats.md)
 
 ### <a name="presets"></a>Predefinições
-O Codificador de Mídia Padrão é configurado usando um dos codificadores predefinidos descritos [aqui](https://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+O Codificador de Mídia Padrão é configurado usando um dos codificadores predefinidos descritos [aqui](./media-services-mes-presets-overview.md).
 
 ### <a name="input-and-output-metadata"></a>Metadados de entrada e saída
 Os metadados de entrada dos codificadores estão descritos [aqui](media-services-input-metadata-schema.md).
@@ -69,7 +69,7 @@ Para obter informações, veja [Como cortar vídeos usando o Codificador de Míd
 ### <a name="create-overlays"></a>Criar sobreposições
 Para obter informações, veja [Como criar sobreposições usando o Codificador de Mídia Padrão](media-services-advanced-encoding-with-mes.md#overlay).
 
-### <a name="see-also"></a>Confira também
+### <a name="see-also"></a>Veja também
 [O blog Serviços de Mídia](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)
 
 ### <a name="known-issues"></a>Problemas conhecidos

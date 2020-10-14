@@ -4,12 +4,12 @@ description: Fornece respostas para algumas das perguntas mais comuns sobre a so
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: dikamath
-ms.openlocfilehash: a3e50a6a34a6588ecce8b9ecc3c6b358fddc38b7
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 67309aafe5c1bc841399006285a9862f711e4296
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948707"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018552"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Perguntas frequentes sobre a solução do Azure VMware
 
@@ -66,6 +66,13 @@ A Microsoft e a Red Hat compartilham uma equipe de suporte integrada e colocaliz
 #### <a name="is-vmware-hcx-enterprise-edition-available-and-if-so-how-much-does-it-cost"></a>O VMware HCX Enterprise Edition está disponível e, nesse caso, o quanto custa?
 
 O VMware HCX EE (Edição Enterprise) está disponível com a Solução VMware no Azure como uma função ou um serviço de *Versão prévia*. Embora o VMware HCX EE para a Solução VMware no Azure esteja em Versão prévia, ele é uma função ou um serviço gratuito e está sujeito aos termos e condições do serviço de Versão prévia. Depois que o serviço VMware HCX EE ficar em GA, você receberá um aviso de 30 dias de que a cobrança será iniciada. Você também terá a opção de desativar ou recusar o serviço.
+
+#### <a name="can-azure-vmware-solution-vms-be-managed-by-vmrc"></a>As VMs de solução do Azure VMware podem ser gerenciadas pelo VMRC?
+Sim, desde que o sistema no qual ele está instalado possa acessar o vCenter de nuvem privada e que está usando o DNS público (para que possa resolver nomes de host ESXi).
+
+#### <a name="are-there-special-instructions-for-installing-and-using-vmrc-with-azure-vmware-solution-vms"></a>Há instruções especiais para instalar e usar o VMRC com VMs de solução do Azure VMware?
+Não, use as [instruções fornecidas pelo VMware](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-89E7E8F0-DB2B-437F-8F70-BA34C505053F.html) e realize os pré-requisitos de VM especificados nessas instruções. 
+
 
 ## <a name="compute-network-storage-and-backup"></a>Computação, rede, armazenamento e backup
 

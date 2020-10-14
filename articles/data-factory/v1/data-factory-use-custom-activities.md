@@ -13,12 +13,12 @@ ms.author: abnarain
 ms.custom: devx-track-csharp
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: b8935b9f2c3c598aee7c5d0eb37f21d8114dac42
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8cd72d34535ac3a2aec60aa3d2369da34dd7194
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88997448"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017396"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-version-1-pipeline"></a>Usar atividades personalizadas em um pipeline Azure Data Factory versão 1
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -31,7 +31,7 @@ ms.locfileid: "88997448"
 Há dois tipos de atividades que você pode usar em um pipeline do Azure Data Factory.
 
 - [Atividades de movimentação de dados](data-factory-data-movement-activities.md) para mover dados entre [armazenamentos de dados de origem e coletor com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats).
-- [Atividades de transformação de dados](data-factory-data-transformation-activities.md) para transformar dados usando serviços de computação, como Azure HDInsight, lote do azure e Azure Machine Learning.
+- [Atividades de transformação de dados](data-factory-data-transformation-activities.md) para transformar dados usando serviços de computação, como Azure HDInsight, lote do azure e Azure Machine Learning Studio (clássico).
 
 Para mover dados de/para um armazenamento de dados que não tenha suporte do Data Factory, você pode criar uma **atividade personalizada** com lógica de movimentação de dados própria e usar a atividade em um pipeline. De forma semelhante, se precisar transformar/processar dados de uma maneira que não tenha suporte do Data Factory, crie uma atividade personalizada com lógica de transformação de dados própria e use a atividade em um pipeline.
 
@@ -50,7 +50,7 @@ O passo a passo a seguir fornece instruções para criar uma atividade personali
 ### <a name="azure-batch-prerequisites"></a>Pré-requisitos de Lote do Azure
 No passo a passo, você executa suas atividades personalizadas do .NET usando o Lote do Azure como um recurso de computação. O **Lote do Azure** é um serviço de plataforma para execução de aplicativos paralelos em grande escala e aplicativos HPC (computação de alto desempenho) com eficiência na nuvem. O lote do Azure agenda o trabalho de computação intensiva para ser executado em uma coleção gerenciada **de máquinas virtuais**e pode dimensionar automaticamente os recursos de computação para atender às necessidades de seus trabalhos. Consulte o artigo [Noções básicas de Lote do Azure][batch-technical-overview] para obter uma visão geral do serviço de Lote do Azure.
 
-Para o tutorial, crie uma conta do Lote do Azure com um pool de VMs. Siga estas etapas:
+Para o tutorial, crie uma conta do Lote do Azure com um pool de VMs. Aqui estão as etapas para fazer isso:
 
 1. Crie uma **conta do lote do Azure** usando o [portal do Azure](https://portal.azure.com). Consulte o artigo [Criar e gerenciar uma conta do Lote do Azure][batch-create-account] para obter instruções.
 2. Anote o nome, a chave, o URI e o nome do pool da conta do Lote do Azure. Você vai precisar destes dados para criar um serviço vinculado do Lote do Azure.
@@ -1025,7 +1025,7 @@ O exemplo do [Azure Data Factory – ambiente local](https://github.com/gbrueckl
 | Amostra | Qual atividade personalizada realiza |
 | --- | --- |
 | [HTTP Data Downloader](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/HttpDataDownloaderSample). |Baixa dados de um ponto de extremidade de HTTP para o Armazenamento de Blobs do Azure usando uma atividade de C# personalizada no Data Factory. |
-| [Exemplo de análise de opinião no Twitter](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-CustomC%23Activity) |Invoca um modelo do Azure Machine Learning Studio e faz análise de sentimento, pontuação, previsão, etc. |
+| [Exemplo de análise de opinião no Twitter](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-CustomC%23Activity) |Invoca um modelo de Azure Machine Learning Studio (clássico) e análise de sentimentos, pontuação, previsão, etc. |
 | [Execute o script do R](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample). |Invoca o script de R executando o RScript.exe no seu cluster do HDInsight que já tem o R instalado nele. |
 | [Atividade cruzada do .NET no AppDomain](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/CrossAppDomainDotNetActivitySample) |Usa versões de assembly diferente daquelas usadas pelo iniciador do Data Factory |
 | [Reprocessar um modelo no Azure Analysis Services](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/AzureAnalysisServicesProcessSample) |  Reprocessar um modelo no Azure Analysis Services. |

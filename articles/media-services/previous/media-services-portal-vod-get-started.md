@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 223779dfba5faa77e38221d6f6f4e26dbc44b0cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8b2454bb0e39f5923af00502367f7b16bb040a4
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89268376"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018977"
 ---
 # <a name="get-started-with-delivering-content-on-demand-by-using-the-azure-portal"></a>Introdução ao fornecimento de conteúdo sob demanda usando o portal do Azure
 
@@ -127,7 +127,7 @@ Uma URL de assinatura de acesso compartilhado tem o seguinte formato:
 > 
 > 
 
-Para atualizar uma data de validade em um localizador, você pode usar uma [API REST](/rest/api/media/operations/locator#update_a_locator) ou uma [API .NET](https://go.microsoft.com/fwlink/?LinkID=533259). 
+Para atualizar uma data de validade em um localizador, você pode usar uma [API REST](/rest/api/media/operations/locator#update_a_locator) ou uma [API .NET](/dotnet/api/microsoft.windowsazure.mediaservices.client.ilocator). 
 
 > [!NOTE]
 > Quando você atualiza a data de validade de um localizador SAS, a URL é alterada.

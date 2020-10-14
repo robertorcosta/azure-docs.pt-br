@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: 2ba7dc3b0f2bc4f62234c480da0af1061dea1f91
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2fbaaac0095622f14d5bc0033b7787bec8ec2fa2
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90885571"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018280"
 ---
 # <a name="azure-stream-analytics-feature-comparison"></a>Comparação de recursos do Azure Stream Analytics
 
@@ -44,8 +44,8 @@ Com o Azure Stream Analytics, você pode criar soluções de streaming na nuvem 
 |Função de código personalizado C# e desserializador|Modo somente leitura|Sim|Não|
 |UDF e UDA do JavaScript     |Sim         |Sim         |Somente Windows         |
 |Serviço Machine Learning     |Sim        |Sim         |Não         |
-|Machine Learning Studio     |Sim, mas a consulta não pode ser testada        |Sim |Não         |
-|Nível de Compatibilidade     |1,0</br>1,1</br>1,2 (padrão)         |1,0</br>1,1</br>1,2 (padrão)           |1,0</br>1,1</br>1,2 (padrão)           |
+|Azure Machine Learning Studio (clássico)|Sim, mas a consulta não pode ser testada        |Sim |Não         |
+|Nível de Compatibilidade     |1.0</br>1,1</br>1,2 (padrão)         |1.0</br>1,1</br>1,2 (padrão)           |1.0</br>1,1</br>1,2 (padrão)           |
 |Funções internas de detecção de anomalias baseadas em ML     |Sim         |Sim         |Sim         |
 |Funções geoespaciais internas     |Sim         |Sim         |Sim         |
 

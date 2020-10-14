@@ -16,12 +16,12 @@ ms.date: 09/22/2019
 ms.author: juliako
 ms.reviewer: johndeu
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5665357474b392a413d2b70f9c321b5da3e0bfe5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 06bd9f159281a1353ca9474bf0876e99b6d1940a
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89256439"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018943"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer"></a>Indexando arquivos de mídia com o Indexador de Mídia do Azure
 
@@ -48,7 +48,7 @@ Você pode especificar mais detalhes para as tarefas de indexação usando uma c
 
 Você também pode processar vários arquivos de mídia ao mesmo tempo usando um arquivo de manifesto.
 
-Para saber mais, consulte [Predefinição de tarefa para o Indexador de Mídia do Azure](./media-services-analytics-overview.md).
+Para saber mais, consulte [Predefinição de tarefa para o Indexador de Mídia do Azure](./legacy-components.md).
 
 ## <a name="index-an-asset"></a>Indexe um ativo
 O método a seguir carrega um arquivo de mídia como um ativo e cria um trabalho para indexar o ativo.
@@ -161,7 +161,7 @@ Se nem todos os arquivos de mídia de entrada forem indexados com êxito, o trab
 ## <a name="index-multiple-files"></a>Indexar vários arquivos
 O método a seguir carrega vários arquivos de mídia como um ativo e cria um trabalho para indexar todos esses arquivos em um lote.
 
-Um arquivo de manifesto com a extensão ".lst" é criado e carregado para o ativo. O arquivo de manifesto contém a lista de todos os arquivos de ativo. Para saber mais, consulte [Predefinição de tarefa para o Indexador de Mídia do Azure](./media-services-analytics-overview.md).
+Um arquivo de manifesto com a extensão ".lst" é criado e carregado para o ativo. O arquivo de manifesto contém a lista de todos os arquivos de ativo. Para saber mais, consulte [Predefinição de tarefa para o Indexador de Mídia do Azure](./legacy-components.md).
 
 ```csharp
     static bool RunBatchIndexingJob(string[] inputMediaFiles, string outputFolder)
@@ -246,16 +246,16 @@ As mesmas saídas (como trabalhos com êxito) são geradas. Você pode consultar
 ### <a name="task-preset-for-azure-media-indexer"></a><a id="preset"></a> Predefinição de tarefa para o Indexador de Mídia do Azure
 O processamento do Indexador de Mídia do Azure pode ser personalizado por meio do fornecimento de uma predefinição de tarefa opcional junto com a tarefa.  Veja a seguir uma descrição do formato deste xml de configuração.
 
-| Nome | Exigir | Descrição |
+| Name | Exigir | Description |
 | --- | --- | --- |
 | **input** |false |Arquivos do ativo que você deseja indexar.</p><p>O Azure Media Indexer dá suporte aos seguintes formatos de arquivo de mídia: MP4, WMV, MP3, M4A, WMA, AAC, WAV.</p><p>Você pode especificar os nomes dos arquivos no atributo **name** ou **list** do elemento **input** (como mostrado abaixo). Se você não especificar qual arquivo de ativo será indexado, o arquivo primário será o escolhido. Se nenhum arquivo de ativo primário for definido, o primeiro arquivo no ativo de entrada será indexado.</p><p>Para especificar explicitamente o nome de arquivo do ativo, faça isto:<br/>`<input name="TestFile.wmv">`<br/><br/>Você também pode indexar vários arquivos de ativo ao mesmo tempo (até 10 arquivos). Para fazer isso:<br/><br/><ol class="ordered"><li><p>Crie um arquivo de texto (arquivo de manifesto) e dê a ele uma extensão .lst. </p></li><li><p>Adicione uma lista de todos os nomes de arquivo de ativo em seu ativo de entrada para esse arquivo de manifesto. </p></li><li><p>Adicione (carregue) o arquivo de manifesto ao ativo.  </p></li><li><p>Especifique o nome do arquivo de manifesto no atributo list da entrada.<br/>`<input list="input.lst">`</li></ol><br/><br/>Observação: se você adicionar mais de 10 arquivos ao arquivo de manifesto, o trabalho de indexação falhará com o código de erro 2006. |
 | **los** |false |Metadados para os arquivos de ativo especificados usados para a Adaptação de Vocabulário.  É útil para preparar o Indexador a fim de reconhecer palavras de vocabulário que não são padrão, como nomes próprios.<br/>`<metadata key="..." value="..."/>` <br/><br/>Você pode fornecer **valores** para **chaves** predefinidas. No momento, as chaves a seguir têm suporte:<br/><br/>"title" e "description" - usadas para a adaptação do vocabulário a fim de ajustar o modelo de idioma para o seu trabalho e melhorar a precisão do reconhecimento de fala.  Os valores propagam pesquisas na Internet para encontrar documentos de texto contextualmente relevantes, usando o conteúdo para aumentar o dicionário interno durante sua tarefa de Indexação.<br/>`<metadata key="title" value="[Title of the media file]" />`<br/>`<metadata key="description" value="[Description of the media file] />"` |
-| **Features** <br/><br/>  Adicionado na versão 1.2. Atualmente, o único recurso com suporte é o reconhecimento de fala (“ASR”). |false |O recurso de Reconhecimento de Fala tem as seguintes chaves de configurações:<table><tr><th><p>Chave</p></th>        <th><p>Descrição</p></th><th><p>Valor de exemplo</p></th></tr><tr><td><p>Language</p></td><td><p>O idioma natural a ser reconhecido no arquivo de multimídia.</p></td><td><p>Inglês, espanhol</p></td></tr><tr><td><p>CaptionFormats</p></td><td><p>uma lista separada por pontos-e-vírgulas dos formatos de legenda de saída desejados (se houver)</p></td><td><p>ttml; webvtt</p></td></tr><tr><td><p></p></td><td><p> </p></td><td><p>Verdadeiro, Falso</p></td></tr><tr><td><p>GenerateKeywords</p></td><td><p>Um sinalizador booliano que especifica se um arquivo XML de palavras-chave é necessário.</p></td><td><p>True; False. </p></td></tr><tr><td><p>ForceFullCaption</p></td><td><p>Um sinalizador booliano que especifica se deve ou não forçar legendas completas (independentemente do nível de confiança).  </p><p>O padrão é false, e nesse caso palavras e frases que têm um nível de confiança inferior a 50% são omitidas das saídas da legenda final e substituídas por reticências (“...”).  As reticências são úteis para controle de qualidade de legenda e auditoria.</p></td><td><p>True; False. </p></td></tr></table> |
+| **Features** <br/><br/>  Adicionado na versão 1.2. Atualmente, o único recurso com suporte é o reconhecimento de fala (“ASR”). |false |O recurso de Reconhecimento de Fala tem as seguintes chaves de configurações:<table><tr><th><p>Chave</p></th>        <th><p>Descrição</p></th><th><p>Valor de exemplo</p></th></tr><tr><td><p>Idioma</p></td><td><p>O idioma natural a ser reconhecido no arquivo de multimídia.</p></td><td><p>Inglês, espanhol</p></td></tr><tr><td><p>CaptionFormats</p></td><td><p>uma lista separada por pontos-e-vírgulas dos formatos de legenda de saída desejados (se houver)</p></td><td><p>ttml; webvtt</p></td></tr><tr><td><p></p></td><td><p> </p></td><td><p>Verdadeiro, Falso</p></td></tr><tr><td><p>GenerateKeywords</p></td><td><p>Um sinalizador booliano que especifica se um arquivo XML de palavras-chave é necessário.</p></td><td><p>True; False. </p></td></tr><tr><td><p>ForceFullCaption</p></td><td><p>Um sinalizador booliano que especifica se deve ou não forçar legendas completas (independentemente do nível de confiança).  </p><p>O padrão é false, e nesse caso palavras e frases que têm um nível de confiança inferior a 50% são omitidas das saídas da legenda final e substituídas por reticências (“...”).  As reticências são úteis para controle de qualidade de legenda e auditoria.</p></td><td><p>True; False. </p></td></tr></table> |
 
-### <a name="error-codes"></a><a id="error_codes"></a>Códigos do Erro
+### <a name="error-codes"></a><a id="error_codes"></a>Códigos de erro
 Em caso de erros, o Indexador de Mídia do Azure deverá relatar um dos seguintes códigos de erro:
 
-| Código | Nome | Possíveis motivos |
+| Código | Name | Possíveis motivos |
 | --- | --- | --- |
 | 2000 |Configuração inválida |Configuração inválida |
 | 2001 |Ativos de entrada inválidos |Faltando ativos de entrada ou um ativo vazio. |
@@ -278,6 +278,6 @@ Atualmente, há suporte para os idiomas inglês e espanhol.
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Links relacionados
-[Visão geral do Azure Media Services Analytics](media-services-analytics-overview.md)
+[Visão geral do Azure Media Services Analytics](./legacy-components.md)
 
-[Indexando arquivos de mídia com a Preview do Indexador de Mídia do Azure 2](media-services-process-content-with-indexer2.md)
+[Indexando arquivos de mídia com a Preview do Indexador de Mídia do Azure 2](./legacy-components.md)
