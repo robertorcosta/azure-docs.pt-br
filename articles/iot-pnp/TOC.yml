@@ -95,8 +95,6 @@
       href: howto-use-iot-explorer.md
     - name: Instalar e usar a ponte do IoT Plug and Play
       href: howto-use-iot-pnp-bridge.md
-    - name: Instalar e usar a extensão da CLI do Azure IoT
-      href: howto-use-iot-pnp-cli.md
     - name: Instalar e usar ferramentas de criação de DTDL
       href: howto-use-dtdl-authoring-tools.md
     - name: Usar o C inserido
