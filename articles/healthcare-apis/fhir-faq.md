@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 08/03/2020
 ms.author: matjazl
-ms.openlocfilehash: 35b59fb0583911b5b9faee96276d1bb09a8d6679
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c32ebef16750954f3df1a1d1b379bf42853f2b3
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91269702"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056848"
 ---
 # <a name="frequently-asked-questions-about-the-azure-api-for-fhir"></a>Perguntas frequentes sobre a API do Azure para FHIR
 
@@ -43,6 +43,10 @@ A API do Azure para FHIR é uma versão hospedada e gerenciada do Microsoft FHIR
 Quando estiver executando o FHIR Server para Azure, você terá acesso direto aos serviços subjacentes. Mas você também é responsável por manter e atualizar o servidor e todo o trabalho de conformidade necessário se estiver armazenando PHI dados.
 
 Do ponto de vista do desenvolvimento, todos os recursos são implantados no Microsoft FHIR Server de software livre para o Azure primeiro. Depois de ser validado em código-fonte aberto, ele será liberado para a solução de PaaS API do Azure para FHIR. O tempo entre a versão em software livre e PaaS depende da complexidade do recurso e de outras prioridades de roteiro. 
+
+### <a name="where-can-i-see-what-is-releasing-into-the-azure-api-for-fhir"></a>Onde posso ver o que está lançando na API do Azure para FHIR?
+
+Para ver algumas das novidades na API do Azure para FHIR, consulte a [versão](https://github.com/microsoft/fhir-server/releases) do servidor FHIR de código-fonte aberto. Trabalhamos para marcar itens com o Azure-API-for-FHIR se eles forem liberados para o serviço gerenciado e estiverem geralmente disponíveis duas semanas depois que estiverem na página de lançamento em código aberto. Também incluímos instruções sobre como testar a compilação [aqui](https://github.com/microsoft/fhir-server/blob/master/docs/Testing-Releases.md) se você quiser testar em seu próprio ambiente. Estamos avaliando como compartilhar melhor as atualizações de serviço gerenciados adicionais.
 
 ### <a name="what-is-smart-on-fhir"></a>O que é inteligente no FHIR?
 

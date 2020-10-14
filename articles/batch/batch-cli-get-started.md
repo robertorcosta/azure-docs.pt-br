@@ -4,12 +4,12 @@ description: Obtenha uma introdução rápida dos comandos do Lote na CLI do Azu
 ms.topic: how-to
 ms.date: 07/24/2018
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
-ms.openlocfilehash: 048dbad89893354ae78c03fc522f8ebeeb6a80f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92d5e60f549855b39185564f7f6d2902b765cf76
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87531670"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92055504"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Gerenciar recursos do Lote com a CLI do Azure
 
@@ -107,7 +107,7 @@ Instalando a extensão de CLI do Lote do Azure, você pode usar a CLI do Azure p
 
 ## <a name="script-examples"></a>Exemplos de script
 
-Consulte os [exemplos de script da CLI](cli-samples.md) para o Lote a fim de realizar tarefas comuns. Estes exemplos abordam muitos dos comandos disponíveis na CLI do Azure para o Lote para criar e gerenciar contas, pools, trabalhos e tarefas. 
+Consulte os [exemplos de script da CLI](./scripts/batch-cli-sample-create-account.md) para o Lote a fim de realizar tarefas comuns. Estes exemplos abordam muitos dos comandos disponíveis na CLI do Azure para o Lote para criar e gerenciar contas, pools, trabalhos e tarefas.
 
 ## <a name="json-files-for-resource-creation"></a>Arquivos JSON para a criação de recursos
 

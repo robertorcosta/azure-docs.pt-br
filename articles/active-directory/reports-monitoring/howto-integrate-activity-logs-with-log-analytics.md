@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f70d1caacfd655c956d4fcc36e3f0d3848d8f0fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01f762ef1fa3a997c01873df02abf87362b8c06f
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89230561"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92055946"
 ---
 # <a name="integrate-azure-ad-logs-with-azure-monitor-logs"></a>Integrar logs do Azure AD com logs de Azure Monitor
 
@@ -46,6 +46,7 @@ Você pode rotear os logs de atividade de auditoria e logs de atividade de entra
 
 * **Logs de auditoria**: o [relatório de atividade de logs de auditoria](concept-audit-logs.md) fornece acesso ao histórico de todas as tarefas que são executadas em seu locatário.
 * **Logs de entrada**: com o [relatório de atividade de entrada](concept-sign-ins.md), você pode determinar quem executou as tarefas que são relatadas nos logs de auditoria.
+* **Logs de provisionamento**: com os [logs de provisionamento](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics), você pode monitorar quais usuários foram criados, atualizados e excluídos em todos os aplicativos de terceiros. 
 
 > [!NOTE]
 > Não há suporte para logs de atividades de auditoria e entradas relacionados ao B2C no momento.

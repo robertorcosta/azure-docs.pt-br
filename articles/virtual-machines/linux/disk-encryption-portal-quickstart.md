@@ -7,12 +7,12 @@ ms.service: virtual-machines-linux
 ms.subservice: security
 ms.topic: quickstart
 ms.date: 10/02/2019
-ms.openlocfilehash: 563b9c03141357eeacf9a7d890c386faae52c6df
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2a5588940d4efacc08d89b72bde4433d725a4994
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88510684"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978400"
 ---
 # <a name="quickstart-create-and-encrypt-a-virtual-machine-with-the-azure-portal"></a>Início Rápido: Criar e criptografar uma máquina virtual com o portal do Azure
 
@@ -38,7 +38,7 @@ Entre no [portal do Azure](https://portal.azure.com).
     :::image type="content" source="../media/disk-encryption/portal-quickstart-linux-vm-creation.png" alt-text="Tela de criação de VM do Linux&quot;:::
 
     > [!WARNING]
-    > A guia &quot;Discos&quot; apresenta o campo &quot;Tipo de Criptografia&quot; em **Opções de disco**. Esse campo é usado para especificar as opções de criptografia dos [Managed Disks](managed-disks-overview.md) + CMK, **não** do Azure Disk Encryption.
+    > A guia &quot;Discos&quot; apresenta o campo &quot;Tipo de Criptografia&quot; em **Opções de disco**. Esse campo é usado para especificar as opções de criptografia dos [Managed Disks](../managed-disks-overview.md) + CMK, **não** do Azure Disk Encryption.
     >
     > Para evitar confusões, sugerimos que você ignore completamente a guia *Discos* ao seguir este tutorial.
 
@@ -47,7 +47,7 @@ Entre no [portal do Azure](https://portal.azure.com).
     :::image type="content" source="../media/disk-encryption/portal-quickstart-vm-creation-storage.png" alt-text="Tela de criação de VM do Linux&quot;:::
 
     > [!WARNING]
-    > A guia &quot;Discos&quot; apresenta o campo &quot;Tipo de Criptografia&quot; em **Opções de disco**. Esse campo é usado para especificar as opções de criptografia dos [Managed Disks](managed-disks-overview.md) + CMK, **não** do Azure Disk Encryption.
+    > A guia &quot;Discos&quot; apresenta o campo &quot;Tipo de Criptografia&quot; em **Opções de disco**. Esse campo é usado para especificar as opções de criptografia dos [Managed Disks](../managed-disks-overview.md) + CMK, **não** do Azure Disk Encryption.
     >
     > Para evitar confusões, sugerimos que você ignore completamente a guia *Discos* ao seguir este tutorial.
 
@@ -68,7 +68,7 @@ Levará alguns minutos para que sua VM seja implantada. Quando a implantação f
     :::image type="content" source="../media/disk-encryption/portal-quickstart-disks-to-encryption.png" alt-text="Tela de criação de VM do Linux&quot;:::
 
     > [!WARNING]
-    > A guia &quot;Discos&quot; apresenta o campo &quot;Tipo de Criptografia&quot; em **Opções de disco**. Esse campo é usado para especificar as opções de criptografia dos [Managed Disks](managed-disks-overview.md) + CMK, **não** do Azure Disk Encryption.
+    > A guia &quot;Discos&quot; apresenta o campo &quot;Tipo de Criptografia&quot; em **Opções de disco**. Esse campo é usado para especificar as opções de criptografia dos [Managed Disks](../managed-disks-overview.md) + CMK, **não** do Azure Disk Encryption.
     >
     > Para evitar confusões, sugerimos que você ignore completamente a guia *Discos* ao seguir este tutorial.
 
@@ -80,7 +80,7 @@ Levará alguns minutos para que sua VM seja implantada. Quando a implantação f
     :::image type="content" source="../media/disk-encryption/portal-qs-keyvault-create.png" alt-text="Tela de criação de VM do Linux&quot;:::
 
     > [!WARNING]
-    > A guia &quot;Discos&quot; apresenta o campo &quot;Tipo de Criptografia&quot; em **Opções de disco**. Esse campo é usado para especificar as opções de criptografia dos [Managed Disks](managed-disks-overview.md) + CMK, **não** do Azure Disk Encryption.
+    > A guia &quot;Discos&quot; apresenta o campo &quot;Tipo de Criptografia&quot; em **Opções de disco**. Esse campo é usado para especificar as opções de criptografia dos [Managed Disks](../managed-disks-overview.md) + CMK, **não** do Azure Disk Encryption.
     >
     > Para evitar confusões, sugerimos que você ignore completamente a guia *Discos* ao seguir este tutorial.
 
@@ -94,7 +94,7 @@ Levará alguns minutos para que sua VM seja implantada. Quando a implantação f
     :::image type="content" source="../media/disk-encryption/portal-quickstart-keyvault-enable.png" alt-text="Tela de criação de VM do Linux&quot;:::
 
     > [!WARNING]
-    > A guia &quot;Discos&quot; apresenta o campo &quot;Tipo de Criptografia&quot; em **Opções de disco**. Esse campo é usado para especificar as opções de criptografia dos [Managed Disks](managed-disks-overview.md) + CMK, **não** do Azure Disk Encryption.
+    > A guia &quot;Discos&quot; apresenta o campo &quot;Tipo de Criptografia&quot; em **Opções de disco**. Esse campo é usado para especificar as opções de criptografia dos [Managed Disks](../managed-disks-overview.md) + CMK, **não** do Azure Disk Encryption.
     >
     > Para evitar confusões, sugerimos que você ignore completamente a guia *Discos* ao seguir este tutorial.
 

@@ -9,12 +9,12 @@ ms.service: iot-pnp
 services: iot-pnp
 manager: eliotgra
 ms.custom: references_regions
-ms.openlocfilehash: 3f74c593cd44470efd231578fddcf53715a3979a
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 3a5d0ba92ab976f9ea3aa2722f92865f06d5a70e
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91575088"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045033"
 ---
 # <a name="what-is-iot-plug-and-play"></a>O que é IoT Plug and Play?
 
@@ -26,7 +26,7 @@ O IoT Plug and Play permite integrar dispositivos inteligentes a soluções sem 
 
 É possível agrupar esses elementos em interfaces para reutilização entre modelos para facilitar a colaboração e acelerar o desenvolvimento.
 
-Para fazer o IoT Plug and Play funcionar com os [Gêmeos Digitais do Azure](../digital-twins/about-digital-twins.md), defina modelos e interfaces usando a [DTDL (Linguagem de Definição de Gêmeo Digital)](https://github.com/Azure/opendigitaltwins-dtdl). O IoT Plug and Play e as DTDL estão abertos para a Comunidade, e a Microsoft agradece a colaboração com clientes, parceiros e o setor. Ambos se baseiam em padrões W3C abertos, tais como JSON-LD e RDF, o que permite uma adoção mais fácil entre serviços e ferramentas.
+Para fazer o IoT Plug and Play funcionar com os [Gêmeos Digitais do Azure](../digital-twins/overview.md), defina modelos e interfaces usando a [DTDL (Linguagem de Definição de Gêmeo Digital)](https://github.com/Azure/opendigitaltwins-dtdl). O IoT Plug and Play e as DTDL estão abertos para a Comunidade, e a Microsoft agradece a colaboração com clientes, parceiros e o setor. Ambos se baseiam em padrões W3C abertos, tais como JSON-LD e RDF, o que permite uma adoção mais fácil entre serviços e ferramentas.
 
 Não há nenhum custo adicional para usar o IoT Plug and Play e o DTDL. As taxas Standard para o [Hub IoT do Azure](../iot-hub/about-iot-hub.md) e outros serviços do Azure permanecem as mesmas.
 
@@ -68,14 +68,9 @@ Como desenvolvedor de dispositivos, você pode desenvolver um produto de hardwar
 
 O [programa de certificação de dispositivo do IoT Plug and Play](howto-certify-device.md) verifica se um dispositivo atende aos requisitos de certificação do IoT Plug and Play. Você pode adicionar um dispositivo certificado ao [catálogo de dispositivos Azure Certified para IoT](https://aka.ms/devicecatalog).
 
-## <a name="regional-availability"></a>Disponibilidade regional
-
-Esta atualização do IoT Plug and Play está disponível nos hubs IoT criados nas regiões EUA Central, Norte da Europa e Leste do Japão.
-
 ## <a name="next-steps"></a>Próximas etapas
 
 Agora que você tem uma visão geral do IoT Plug and Play, a próxima etapa sugerida é experimentar um dos guias de início rápido:
 
 - [Conectar um dispositivo ao Hub IoT (C)](./quickstart-connect-device-c.md)
 - [Interagir com um dispositivo da sua solução (Node.js)](./quickstart-service-node.md)
-

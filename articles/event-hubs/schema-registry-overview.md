@@ -4,12 +4,12 @@ description: Neste artigo, você terá uma visão geral da compatibilidade do Re
 ms.topic: overview
 ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: a0cc54f6ada1a5900e817c8e22fc192cd73f6550
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 30ef2f102a4b8d9f9908ba915f179889710bafd0
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91653563"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91938790"
 ---
 # <a name="azure-schema-registry-in-event-hubs-preview"></a>Registro de Esquema do Azure nos Hubs de Eventos (versão prévia)
 Em muitos cenários de streaming de eventos e mensagens, o conteúdo tem dados estruturados que estão sendo serializados ou desserializados com um formato controlado por esquema, como o Apache Avro. Tanto os remetentes quanto os destinatários podem querer validar a integridade dos dados com um documento de esquema, como o esquema JSON. Para formatos controlados por esquema, disponibilizar o esquema para o consumidor da mensagem é um pré-requisito para que ele consiga desserializar os dados. 
@@ -41,7 +41,7 @@ Os esquemas definem o contrato entre os produtores e os consumidores. Um esquema
 - [Java – azure-data-schemaregistry-avro](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/schemaregistry/azure-data-schemaregistry-avro/)
 - [Python – azure-schemaregistry-avroserializer](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/schemaregistry/azure-schemaregistry-avroserializer)
 - [JavaScript – @azure/schema-registry-avro](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/schemaregistry/schema-registry-avro)
-- [Apache Kafka](https://github.com/Azure/azure-schema-registry-for-kafka/tree/master/avro/samples) – Execute serializadores e desserializadores Apache Avro integrados ao Kafka e compatíveis com o Registro de Esquema do Azure. O serializador de cliente Apache Kafka do cliente Java para o Registro de Esquema do Azure pode ser usado em cenários do Apache Kafka e com implantações ou serviços de nuvem baseados no Apache Kafka®. 
+- [Apache Kafka](https://github.com/Azure/azure-schema-registry-for-kafka/) – Execute serializadores e desserializadores Apache Avro integrados ao Kafka e compatíveis com o Registro de Esquema do Azure. O serializador de cliente Apache Kafka do cliente Java para o Registro de Esquema do Azure pode ser usado em cenários do Apache Kafka e com implantações ou serviços de nuvem baseados no Apache Kafka®. 
 
 A imagem seguinte mostra o fluxo de informações do registro de esquema com os Hubs de Eventos: 
 
@@ -70,4 +70,4 @@ Para ver instruções sobre como criar o registro de um aplicativo usando o port
     - [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/schemaregistry/azure-data-schemaregistry-avro/src/samples)
     - [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/schemaregistry/schema-registry-avro/samples )
     - [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/schemaregistry/azure-schemaregistry-avroserializer/samples )
-    - [Integração do Kafka ao Avro para o Registro de Esquema do Azure](https://github.com/Azure/azure-schema-registry-for-kafka/tree/master/avro/samples)
+    - [Integração do Kafka ao Avro para o Registro de Esquema do Azure](https://github.com/Azure/azure-schema-registry-for-kafka/tree/master/csharp/avro/samples)

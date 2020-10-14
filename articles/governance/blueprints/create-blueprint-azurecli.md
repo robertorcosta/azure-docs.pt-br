@@ -1,14 +1,14 @@
 ---
 title: 'Início Rápido: criar um blueprint com a CLI do Azure'
 description: Neste início rápido, você usa o Azure Blueprints para criar, definir e implantar artefatos usando a CLI do Azure.
-ms.date: 06/02/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: 3dfb74469bc186c25b918bfe87c7ce6f1930f2e1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 790e23897a24ea06565572163b8226af88e0bb7c
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91667683"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057953"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-azure-cli"></a>Início Rápido: definir e atribuir um Blueprint do Azure com a CLI do Azure
 

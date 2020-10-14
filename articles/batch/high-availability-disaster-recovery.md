@@ -3,12 +3,12 @@ title: Alta disponibilidade e recuperação de desastre
 description: Aprenda a projetar seu aplicativo de Lote para uma interrupção regional.
 ms.topic: how-to
 ms.date: 01/29/2019
-ms.openlocfilehash: 1e22cb19aba1dcedc4ece7ddc2d1de0ab3233238
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c77e6fa672d26545af47b262a982a7d0d7303eec
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83725730"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058005"
 ---
 # <a name="design-your-application-for-high-availability"></a>Projetar aplicativo para a alta disponibilidade
 
@@ -39,5 +39,5 @@ Considere os seguintes pontos ao projetar uma solução que pode fazer failover:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre como criar contas do Lote com o [portal do Azure](batch-account-create-portal.md), a [CLI do Azure](cli-samples.md), o [PowerShell](batch-powershell-cmdlets-get-started.md) ou a [API de gerenciamento do Lote](batch-management-dotnet.md).
+- Saiba mais sobre como criar contas do Lote com o [portal do Azure](batch-account-create-portal.md), a [CLI do Azure](./scripts/batch-cli-sample-create-account.md), o [PowerShell](batch-powershell-cmdlets-get-started.md) ou a [API de gerenciamento do Lote](batch-management-dotnet.md).
 - Cotas padrão estão associadas a uma conta do Lote. [Este artigo](batch-quota-limit.md) detalha os valores de cota padrão e descreve como as cotas podem ser aumentadas.

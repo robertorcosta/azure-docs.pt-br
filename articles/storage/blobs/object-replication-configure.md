@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/09/2020
+ms.date: 10/14/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 0e42c8e22d004b574e65442f0fbdfce1c9bcabd7
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: bca960100ee0c9d7e2a779dc86030fc59949dca5
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91939402"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92055963"
 ---
 # <a name="configure-object-replication-for-block-blobs"></a>Configurar a replicação de objeto para BLOBs de blocos
 
@@ -365,7 +365,16 @@ Para verificar o status de replicação de um blob na conta de origem no portal 
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-N/D
+Para verificar o status de replicação de um blob na conta de origem com o PowerShell, obtenha o valor da propriedade **ReplicationStatus** de replicação de objeto, conforme mostrado no exemplo a seguir. Lembre-se de substituir os valores entre colchetes angulares pelos seus próprios valores:
+
+```powershell
+$ctxSrc = (Get-AzStorageAccount -ResourceGroupName $rgname `
+    -StorageAccountName $srcAccountName).Context
+$blobSrc = Get-AzStorageBlob -Container $srcContainerName1 `
+    -Context $ctxSrc `
+    -Blob <blob-name>
+$blobSrc.BlobProperties.ObjectReplicationSourceProperties[0].Rules[0].ReplicationStatus
+```
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 

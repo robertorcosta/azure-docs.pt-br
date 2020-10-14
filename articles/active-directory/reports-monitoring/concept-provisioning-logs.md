@@ -17,12 +17,12 @@ ms.date: 10/07/2020
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6109f35c42d4b4a44430eeb99ec115f4cdc1a619
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61a143d4294359249bffceac12e65c36ea9e5fb9
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91812549"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056150"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Provisionando relatórios no portal de Azure Active Directory (versão prévia)
 
@@ -42,7 +42,7 @@ Este tópico fornece uma visão geral do relatório de provisionamento.
 ## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="who-can-access-the-data"></a>Quem pode acessar os dados?
-* Proprietários do aplicativo
+* Os proprietários do aplicativo podem exibir os logs dos aplicativos que eles possuem
 * Usuários das funções administrador de segurança, leitor de segurança, leitor de relatórios, administrador de aplicativos e administrador de aplicativos de nuvem
 * Administradores globais
 
@@ -56,7 +56,7 @@ Seu locatário deve ter uma licença de Azure AD Premium associada a ele para ve
 Os logs de provisionamento fornecem respostas para as seguintes perguntas:
 
 * Quais grupos foram criados com êxito no ServiceNow?
-* Como as funções foram importadas do Amazon Web Services?
+* Quais funções foram importadas do Amazon Web Services?
 * Quais usuários não foram criados com êxito no DropBox?
 
 Você pode acessar os logs de provisionamento selecionando **logs de provisionamento** na seção **monitoramento** da folha **Azure Active Directory** na [portal do Azure](https://portal.azure.com). Pode levar até duas horas para que alguns registros de provisionamento sejam exibidos no Portal.
@@ -119,7 +119,7 @@ Ao selecionar um período de tempo personalizado, você pode configurar uma data
 
 O filtro **Status** permite que você selecione:
 
-- Todos
+- Tudo
 - Sucesso
 - Falha
 - Ignorado
@@ -132,7 +132,7 @@ O filtro de **ação** permite filtrar o:
 - Atualizar
 - Excluir
 - Desabilitar
-- Outros
+- Outro
 
 Além disso, para os filtros do modo de exibição padrão, você também pode definir os seguintes filtros:
 
@@ -211,7 +211,7 @@ A guia **Resumo** fornece uma visão geral do que aconteceu e identificadores pa
 
 ## <a name="what-you-should-know"></a>O que você deve saber
 
-- O portal do Azure repositórios relataram dados de provisionamento por 30 dias se você tiver uma edição Premium e 7 dias se tiver uma edição gratuita. Os logs de provisionamento podem ser publicados no log Analytics para retenção além de 30 dias. 
+- O portal do Azure repositórios relataram dados de provisionamento por 30 dias se você tiver uma edição Premium e 7 dias se tiver uma edição gratuita. Os logs de provisionamento podem ser publicados no [log Analytics](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics) para retenção além de 30 dias. 
 
 - Você pode usar o atributo ID de alteração como um identificador exclusivo. Isso é, por exemplo, útil ao interagir com o suporte ao produto.
 

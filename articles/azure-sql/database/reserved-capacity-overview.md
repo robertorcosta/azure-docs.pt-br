@@ -11,20 +11,22 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein
-ms.date: 08/29/2019
-ms.openlocfilehash: 7a7373f5fcd36298d2feeff6a2a5b67c9e10e40b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/13/2020
+ms.openlocfilehash: c1bedf56896332430c6f4b937aab37764a0c6a43
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321587"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058260"
 ---
 # <a name="save-costs-for-resources-with-reserved-capacity---azure-sql-database--sql-managed-instance"></a>Economize custos para recursos com capacidade reservada-banco de dados SQL do Azure & SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)] 
 
 Economize dinheiro com o banco de dados SQL do Azure e o SQL Instância Gerenciada confirmando uma reserva de recursos de computação em comparação com os preços pagos conforme o uso. Com a capacidade reservada, você faz um compromisso para o banco de dados SQL e/ou o SQL Instância Gerenciada usar por um período de um ou três anos para obter um desconto significativo nos custos de computação. Para comprar a capacidade reservada, você precisa especificar a região do Azure, o tipo de implantação, o nível de desempenho e o termo.
 
-Você não precisa atribuir a reserva a um banco de dados ou instância gerenciada específica. A correspondência de implantações existentes que já estão em execução ou aquelas que foram implantadas recentemente Obtém o benefício automaticamente. Ao comprar uma reserva, você compromete o uso dos custos de computação por um período de um ou três anos. Assim que você comprar uma reserva, os encargos de computação que corresponderem aos atributos de reserva não serão mais cobrados com as tarifas pagas conforme o uso. Uma reserva não abrange os encargos de software, rede ou armazenamento associados ao serviço. No final do prazo de reserva, o benefício de cobrança expira e o banco de dados ou a instância gerenciada é cobrada com o preço pago conforme o uso. As reservas não são renovadas automaticamente. Para obter informações sobre preços, consulte a [oferta de capacidade reservada](https://azure.microsoft.com/pricing/details/sql-database/managed/).
+Você não precisa atribuir a reserva a um banco de dados ou instância gerenciada específica. A correspondência de implantações existentes que já estão em execução ou aquelas que foram implantadas recentemente Obtém o benefício automaticamente. Ao comprar uma reserva, você compromete o uso dos custos de computação por um período de um ou três anos. Assim que você comprar uma reserva, os encargos de computação que corresponderem aos atributos de reserva não serão mais cobrados com as tarifas pagas conforme o uso. 
+
+Uma reserva se aplica a réplicas de computação secundárias primárias e faturáveis, mas não abrange os encargos de software, rede ou armazenamento associados ao serviço. No final do prazo de reserva, o benefício de cobrança expira e o banco de dados ou a instância gerenciada é cobrada com o preço pago conforme o uso. As reservas não são renovadas automaticamente. Para obter informações sobre preços, consulte a [oferta de capacidade reservada](https://azure.microsoft.com/pricing/details/sql-database/managed/).
 
 Você pode comprar a capacidade reservada no [portal do Azure](https://portal.azure.com). Pague pela reserva [antecipadamente ou com pagamentos mensais](../../cost-management-billing/reservations/prepare-buy-reservation.md). Para comprar uma capacidade reservada:
 
@@ -32,6 +34,9 @@ Você pode comprar a capacidade reservada no [portal do Azure](https://portal.az
 - Para as assinaturas Enterprise, a opção **Adicionar Instâncias Reservadas** deve estar habilitada no [Portal EA](https://ea.azure.com). Ou, se essa configuração estiver desabilitada, você deve ser um administrador de EA na assinatura. Capacidade reservada.
 
 Para obter mais informações sobre como clientes corporativos e clientes pagos conforme o uso são cobrados por compras de reserva, consulte [entender o uso de reserva do Azure para seu registro corporativo](../../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md) e [entender o uso de reserva do Azure para sua assinatura pré-paga](../../cost-management-billing/reservations/understand-reserved-instance-usage.md).
+
+> [!NOTE]
+> A compra da capacidade reservada não aloca previamente ou reserva recursos específicos de infraestrutura (máquinas virtuais ou nós) para seu uso.
 
 ## <a name="determine-correct-size-before-purchase"></a>Determinar o tamanho correto antes da compra
 
@@ -52,7 +57,7 @@ Por exemplo, vamos supor que você esteja executando uma finalidade geral, Gen5 
     
     | Campo      | Descrição|
     |------------|--------------|
-    |Subscription|A assinatura usada para pagar pela reserva de capacidade. São cobrados os custos iniciais para a reserva à forma de pagamento na assinatura. O tipo de assinatura deve ser um Enterprise Agreement (número da oferta MS-AZR-0017P ou MS-AZR-0148P) ou um contrato individual com preço pago conforme o uso (número da oferta MS-AZR-0003P ou MS-AZR-0023P). Para uma assinatura de empresa, os encargos são deduzidos do saldo do compromisso monetário do registro ou cobrados como média. Para uma assinatura individual com o preço pago conforme o uso, os encargos são cobrados no cartão de crédito ou no método de pagamento de fatura na assinatura.|
+    |Assinatura|A assinatura usada para pagar pela reserva de capacidade. São cobrados os custos iniciais para a reserva à forma de pagamento na assinatura. O tipo de assinatura deve ser um Enterprise Agreement (número da oferta MS-AZR-0017P ou MS-AZR-0148P) ou um contrato individual com preço pago conforme o uso (número da oferta MS-AZR-0003P ou MS-AZR-0023P). Para uma assinatura de empresa, os encargos são deduzidos do saldo do compromisso monetário do registro ou cobrados como média. Para uma assinatura individual com o preço pago conforme o uso, os encargos são cobrados no cartão de crédito ou no método de pagamento de fatura na assinatura.|
     |Escopo       |O escopo da reserva de vCore pode cobrir uma assinatura ou várias assinaturas (escopo compartilhado). Se você selecionar <br/><br/>**Compartilhado**, o desconto de reserva vCore é aplicado ao banco de dados ou instância gerenciada em execução em qualquer assinatura no contexto de cobrança. Para clientes empresariais, o escopo compartilhado é o registro e inclui todas as assinaturas no registro. Para clientes de Pagamento Conforme o Uso, o escopo compartilhado consiste em todas as assinaturas de Pagamento Conforme o Uso criadas pelo administrador da conta.<br/><br/>**Assinatura única**, o desconto de reserva vCore é aplicado aos bancos de dados ou instâncias gerenciadas nesta assinatura. <br/><br/>**Um grupo de recursos único**, o desconto de reserva é aplicado às instâncias de bancos de dados ou instâncias gerenciadas na assinatura selecionada e ao grupo de recursos selecionado dentro dessa assinatura.|
     |Região      |A região do Azure que é coberta pela reserva de capacidade.|
     |Tipo de implantação|O tipo de recurso de SQL para o qual você deseja comprar a reserva.|

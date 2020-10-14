@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: 7714ec29b3cbe17c7700b48111ea2b455aa18b7e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0df3c6b1851767616111308ad0bacce227ba1a83
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91532220"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948894"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novidades no Azure Cognitive Search
 
@@ -26,11 +26,11 @@ Crie uma identidade para um serviço de pesquisa no Azure Active Directory e use
 
 |Recurso&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Categoria | Descrição | Disponibilidade  |
 |------------------------------|----------|-------------|---------------|
-| [Identidade de Serviço Gerenciada](search-howto-managed-identities-data-sources.md) | Indexadores, segurança | Crie uma identidade para um serviço de pesquisa no Azure Active Directory e, em seguida, use as permissões RBAC para permitir acesso às fontes de dados do Azure. Essa abordagem elimina a necessidade de credenciais na cadeia de conexão. <br><br>Uma forma adicional de usar uma identidade de serviço gerenciada será por meio de uma [exceção de serviço confiável](search-indexer-howto-access-trusted-service-exception.md) se as regras de IP não forem uma opção. | Em disponibilidade geral. Acesse essa funcionalidade ao usar o portal ou [Criar Fonte de Dados (REST)](https://docs.microsoft.com/rest/api/searchservice/create-data-source) com api-version=2020-06-30. |
-| [Solicitações de saída usando um link privado](search-indexer-howto-access-private.md) | Indexadores, segurança | Crie um recurso de link privado compartilhado que os indexadores podem usar ao acessar os recursos do Azure protegidos pelo Link Privado do Azure. Para obter mais informações sobre todas as maneiras como você pode proteger as conexões do indexador, confira [Proteger recursos de indexador usando os recursos de segurança de rede do Azure](search-indexer-securing-resources.md). | Em disponibilidade geral. Acesse essa funcionalidade ao usar o portal ou [Recurso de Link Privado Compartilhado](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources) com api-version=2020-08-01. |
-| [API REST de Gerenciamento (2020-08-01)](https://docs.microsoft.com/rest/api/searchmanagement/management-api-versions) | REST | A nova API REST estável adiciona suporte para a criação de recursos de link privado compartilhado. | Em disponibilidade geral. |
-| [API REST de Gerenciamento (2020-08-01-Preview)](https://docs.microsoft.com/rest/api/searchmanagement/management-api-versions) | REST | Adiciona o recurso de link privado compartilhado ao Azure Functions e ao Azure SQL para Bancos de Dados MySQL. | Versão prévia pública. |
-| [SDK do .NET de Gerenciamento 4.0](https://docs.microsoft.com/dotnet/api/overview/azure/search/management) | SDK .NET | Atualização do SDK do Azure para o SDK de gerenciamento, versão de API REST direcionada 2020-08-01. | Em disponibilidade geral. |
+| [Identidade de Serviço Gerenciada](search-howto-managed-identities-data-sources.md) | Indexadores, segurança | Crie uma identidade para um serviço de pesquisa no Azure Active Directory e, em seguida, use as permissões RBAC para permitir acesso às fontes de dados do Azure. Essa abordagem elimina a necessidade de credenciais na cadeia de conexão. <br><br>Uma forma adicional de usar uma identidade de serviço gerenciada será por meio de uma [exceção de serviço confiável](search-indexer-howto-access-trusted-service-exception.md) se as regras de IP não forem uma opção. | Em disponibilidade geral. Acesse essa funcionalidade ao usar o portal ou [Criar Fonte de Dados (REST)](/rest/api/searchservice/create-data-source) com api-version=2020-06-30. |
+| [Solicitações de saída usando um link privado](search-indexer-howto-access-private.md) | Indexadores, segurança | Crie um recurso de link privado compartilhado que os indexadores podem usar ao acessar os recursos do Azure protegidos pelo Link Privado do Azure. Para obter mais informações sobre todas as maneiras como você pode proteger as conexões do indexador, confira [Proteger recursos de indexador usando os recursos de segurança de rede do Azure](search-indexer-securing-resources.md). | Em disponibilidade geral. Acesse essa funcionalidade ao usar o portal ou [Recurso de Link Privado Compartilhado](/rest/api/searchmanagement/sharedprivatelinkresources) com api-version=2020-08-01. |
+| [API REST de Gerenciamento (2020-08-01)](/rest/api/searchmanagement/management-api-versions) | REST | A nova API REST estável adiciona suporte para a criação de recursos de link privado compartilhado. | Em disponibilidade geral. |
+| [API REST de Gerenciamento (2020-08-01-Preview)](/rest/api/searchmanagement/management-api-versions) | REST | Adiciona o recurso de link privado compartilhado ao Azure Functions e ao Azure SQL para Bancos de Dados MySQL. | Versão prévia pública. |
+| [SDK do .NET de Gerenciamento 4.0](/dotnet/api/overview/azure/search/management) | SDK .NET | Atualização do SDK do Azure para o SDK de gerenciamento, versão de API REST direcionada 2020-08-01. | Em disponibilidade geral. |
 
 ## <a name="august-2020"></a>Agosto de 2020
 

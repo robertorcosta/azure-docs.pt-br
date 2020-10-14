@@ -3,12 +3,12 @@ title: Usar o Servidor de Backup do Azure para fazer backup de cargas de trabalh
 description: Neste artigo, veja como preparar o ambiente para proteger e fazer backup de cargas de trabalho usando o MABS (Servidor de Backup do Microsoft Azure).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 6fe03260cc1759929e7ff9886b1b232a37056866
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1be2af43f4d923a27fd96c5c0888a234725775a3
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90975500"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056694"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instalar e atualizar o Servidor de Backup do Azure
 
@@ -80,7 +80,7 @@ Se você enviar dados de backup para o Azure ou mantê-los localmente, o Servido
 
 ### <a name="set-storage-replication"></a>Definir replicação de armazenamento
 
-A opção de replicação de armazenamento permite que você escolha entre o armazenamento com redundância geográfica e armazenamento com redundância local. Por padrão, os cofres dos Serviços de Recuperação usam armazenamento com redundância geográfica. Se este cofre for o primário, deixe a opção de armazenamento definida como armazenamento com redundância geográfica. Escolha o armazenamento com redundância local se quiser uma opção mais barata que não seja tão durável. Leia [mais sobre as](../storage/common/storage-redundancy.md#geo-redundant-storage)opções de armazenamento com redundância [local](../storage/common/storage-redundancy.md#locally-redundant-storage) e com redundância de [zona](../storage/common/storage-redundancy.md#zone-redundant-storage) na [visão geral da replicação de armazenamento do Azure](../storage/common/storage-redundancy.md).
+A opção de replicação de armazenamento permite que você escolha entre o armazenamento com redundância geográfica e armazenamento com redundância local. Por padrão, os cofres dos Serviços de Recuperação usam armazenamento com redundância geográfica. Se este cofre for o primário, deixe a opção de armazenamento definida como armazenamento com redundância geográfica. Escolha o armazenamento com redundância local se quiser uma opção mais barata que não seja tão durável. Leia mais sobre as opções de armazenamento [com redundância geográfica](../storage/common/storage-redundancy.md#geo-redundant-storage), [localmente redundante](../storage/common/storage-redundancy.md#locally-redundant-storage)e [com redundância de zona](../storage/common/storage-redundancy.md#zone-redundant-storage) na [visão geral da replicação de armazenamento do Azure](../storage/common/storage-redundancy.md).
 
 Para editar a configuração de replicação de armazenamento:
 
@@ -200,6 +200,9 @@ Quando o processo de extração for concluído, marque a caixa para iniciar o *s
     ![Fornecer local para a instalação de arquivos](./media/backup-azure-microsoft-azure-backup/space-screen.png)
 
     O local temporário é um requisito para o backup do Azure. Verifique se o local temporário é de pelo menos 5% dos dados planejados para fazer backup na nuvem. Para proteção de disco, será necessário configurar discos separados após a conclusão da instalação. Para obter mais informações sobre pools de armazenamento, consulte [preparar o armazenamento de dados](/system-center/dpm/plan-long-and-short-term-data-storage).
+
+    Os requisitos de capacidade para armazenamento em disco dependem principalmente do tamanho dos dados protegidos, do tamanho do ponto de recuperação diário, da taxa de crescimento de dados de volume esperados e dos objetivos do período de retenção. Recomendamos que o armazenamento em disco seja o dobro do tamanho dos dados protegidos. Isso pressupõe um tamanho de ponto de recuperação diário que tenha 10% do tamanho dos dados protegidos e um período de retenção de 10 dias. Para obter uma boa estimativa de tamanho, examine o [planejador de capacidade do DPM](https://www.microsoft.com/download/details.aspx?id=54301). 
+
 5. Forneça uma senha forte para contas de usuário locais restritas e selecione **Avançar**.
 
     ![Fornecer senha forte](./media/backup-azure-microsoft-azure-backup/security-screen.png)
