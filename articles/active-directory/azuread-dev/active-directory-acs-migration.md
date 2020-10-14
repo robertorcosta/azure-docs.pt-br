@@ -13,12 +13,12 @@ ms.date: 10/03/2018
 ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9fddd5cb749b1dfe50505c139ed7900f709b584e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f40c91672310d5963dab01180ea92633e970c5c
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90706244"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92055352"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Como migrar do Serviço de Controle de Acesso do Azure
 
@@ -187,7 +187,7 @@ A tabela a seguir compara os recursos do Controle de Acesso que são relevantes 
 
 Em um alto nível, o *Azure Active Directory provavelmente é a melhor opção para a sua migração se você permitir que os usuários entrem somente com suas contas corporativas ou de estudante da Microsoft*.
 
-| Funcionalidade | Suporte do Controle de Acesso | Suporte do Azure AD |
+| Recurso | Suporte do Controle de Acesso | Suporte do Azure AD |
 | ---------- | ----------- | ---------------- |
 | **Tipos de contas** | | |
 | Contas corporativas ou de estudante da Microsoft | Com suporte | Com suporte |
@@ -214,7 +214,7 @@ Em um alto nível, o *Azure Active Directory provavelmente é a melhor opção p
 
 Se você decidir que o Azure AD é o melhor caminho de migração para seus aplicativos e serviços, lembre-se de duas maneiras de integrar seu aplicativo com o Azure AD.
 
-Para usar o WS-Federation ou WIF para integrar com o Azure AD, é recomendável seguir a abordagem descrita em [Configurar SSO federado para um aplicativo sem galeria](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md). O artigo refere-se à configuração do Azure AD para logon único baseado em SAML, mas serve também para a configuração do WS-Federation. Seguir essa abordagem requer uma licença do Azure AD Premium. Essa abordagem tem duas vantagens:
+Para usar o WS-Federation ou WIF para integrar com o Azure AD, é recomendável seguir a abordagem descrita em [Configurar SSO federado para um aplicativo sem galeria](../manage-apps/configure-saml-single-sign-on.md). O artigo refere-se à configuração do Azure AD para logon único baseado em SAML, mas serve também para a configuração do WS-Federation. Seguir essa abordagem requer uma licença do Azure AD Premium. Essa abordagem tem duas vantagens:
 
 - Você obtém toda a flexibilidade da personalização do token do Azure AD. Você pode personalizar as declarações que são emitidas pelo Azure AD para corresponder as declarações que são emitidas pelo Controle de Acesso. Especialmente, isso inclui a declaração do identificador de nome e ID de usuário. Para continuar a receber identificadores de usuário consistente para seus usuários depois que você alterar tecnologias, certifique-se de que as IDs de usuário emitidas pelo Azure AD correspondem com aquelas emitidas pelo Controle de Acesso.
 - Você pode configurar um certificado de autenticação de token que é específico para seu aplicativo, e com um tempo de vida que você controla.
@@ -226,7 +226,7 @@ Uma abordagem alternativa é seguir [este código de exemplo](https://github.com
 
 Se você escolher essa abordagem, é preciso entender a [sobreposição de chave de assinatura no Azure AD](../develop/active-directory-signing-key-rollover.md). Esta abordagem usa a chave de assinatura global do Azure AD para emitir tokens. Por padrão, o WIF não atualiza automaticamente as chaves de assinatura. Quando o Azure AD girar suas chaves de assinatura globais, sua implementação do WIF precisará estar preparada para aceitar as alterações. Para obter mais informações, consulte [Informações importantes sobre substituição de chave de assinatura no Azure AD](/previous-versions/azure/dn641920(v=azure.100)).
 
-Se você pode integrar-se ao Azure AD por meio dos protocolos do OAuth ou OpenID Connect, recomendamos que o faça. Disponibilizamos uma ampla documentação e orientações sobre como integrar o Azure AD ao seu aplicativo Web em nosso [Guia de desenvolvedor do Azure AD](https://aka.ms/aaddev).
+Se você pode integrar-se ao Azure AD por meio dos protocolos do OAuth ou OpenID Connect, recomendamos que o faça. Disponibilizamos uma ampla documentação e orientações sobre como integrar o Azure AD ao seu aplicativo Web em nosso [Guia de desenvolvedor do Azure AD](../develop/index.yml).
 
 #### <a name="migrate-to-azure-active-directory-b2c"></a>Migrar para o Azure Active Directory B2C
 
@@ -238,7 +238,7 @@ No entanto, o Azure AD B2C não oferece suporte para a variedade de protocolos d
 
 A tabela a seguir compara os recursos do Controle de Acesso que são relevantes para aplicativos web aos que estão disponíveis no Azure AD B2C. Em um nível elevado, o *Azure AD B2C é provavelmente a escolha certa para a sua migração se seu aplicativo for voltado a clientes, ou se ele oferecer suporte a muitos tipos de contas.*
 
-| Funcionalidade | Suporte do Controle de Acesso | Suporte do Azure AD B2C |
+| Recurso | Suporte do Controle de Acesso | Suporte do Azure AD B2C |
 | ---------- | ----------- | ---------------- |
 | **Tipos de contas** | | |
 | Contas corporativas ou de estudante da Microsoft | Com suporte | Com suporte via políticas personalizadas  |
@@ -320,7 +320,7 @@ Nossa recomendação para este tipo de fluxo de autenticação é migrar para o 
 
 Você também usar o Azure AB para a autenticação de servidor para servidor usando a implementação do Azure AD da concessão de credenciais de cliente do OAuth. A tabela a seguir compara os recursos do Controle de Acesso na autenticação de servidor para servidor com aquelas que estão disponíveis no Azure AD.
 
-| Funcionalidade | Suporte do Controle de Acesso | Suporte do Azure AD |
+| Recurso | Suporte do Controle de Acesso | Suporte do Azure AD |
 | ---------- | ----------- | ---------------- |
 | Como registrar um serviço Web | Crie uma terceira parte confiável no portal de gerenciamento do Controle de Acesso | Crie um aplicativo web do Azure AD no portal do Azure |
 | Como registrar um cliente | Crie uma terceira parte confiável no portal de gerenciamento do Controle de Acesso | Crie outro aplicativo web do Azure AD no portal do Azure |
@@ -332,7 +332,7 @@ Você também usar o Azure AB para a autenticação de servidor para servidor us
 
 Para obter diretrizes sobre a implementação de cenários de servidor para servidor, consulte os seguintes recursos:
 
-- Seção serviço a serviço do [Guia do desenvolvedor do Azure ad](https://aka.ms/aaddev)
+- Seção serviço a serviço do [Guia do desenvolvedor do Azure ad](../develop/index.yml)
 - [Exemplo de código do Daemon usando as credenciais do cliente de senha simples](https://github.com/Azure-Samples/active-directory-dotnet-daemon)
 - [Exemplo de código do Daemon usando as credenciais do cliente de certificado](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)
 

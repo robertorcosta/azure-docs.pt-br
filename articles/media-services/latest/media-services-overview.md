@@ -17,12 +17,12 @@ ms.workload: media
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: mvc
-ms.openlocfilehash: b11cd602850d23ac6ec37a9be51912adceb9afbc
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 58a142f0be87bb56f9ded9ace5a5143931740e93
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89267574"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019849"
 ---
 # <a name="azure-media-services-v3-overview"></a>Visão geral dos Serviços de Mídia do Azure v3
 
@@ -33,7 +33,7 @@ Os Serviços de Mídia do Azure são uma plataforma baseada em nuvem que permite
 Os SDKs dos Serviços de Mídia v3 são baseados na [Especificação de OpenAPI dos Serviços de Mídia v3 (Swagger)](https://aka.ms/ams-v3-rest-sdk).
 
 > [!NOTE]
-> No momento, você pode usar o [portal do Azure](https://portal.azure.com/) para: gerenciar os [Eventos ao vivo](live-events-outputs-concept.md) dos Serviços de Mídia v3, exibir (não gerenciar) [Ativos](assets-concept.md) do v3 e [obter informações sobre como acessar APIs](./access-api-howto.md). Para todas as outras tarefas de gerenciamento (por exemplo, [Transformações e Trabalhos](transforms-jobs-concept.md) e [Proteção de conteúdo](content-protection-overview.md)), use a [API REST](/rest/api/media/), a [CLI](https://aka.ms/ams-v3-cli-ref) ou um dos [SDKs](media-services-apis-overview.md#sdks) com suporte.
+> No momento, você pode usar o [portal do Azure](https://portal.azure.com/) para: gerenciar os [Eventos ao vivo](live-events-outputs-concept.md) dos Serviços de Mídia v3, exibir (não gerenciar) [Ativos](assets-concept.md) do v3 e [obter informações sobre como acessar APIs](./access-api-howto.md). Para todas as outras tarefas de gerenciamento (por exemplo, [Transformações e Trabalhos](transforms-jobs-concept.md) e [Proteção de conteúdo](content-protection-overview.md)), use a [API REST](/rest/api/media/), a [CLI](/cli/azure/ams) ou um dos [SDKs](media-services-apis-overview.md#sdks) com suporte.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

@@ -5,12 +5,12 @@ ms.date: 9/22/2020
 ms.topic: quickstart
 ms.reviewer: ravastra
 ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: 899778d60c32de7b0079e3858407c3e9fbed6f54
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b57c44e79d599ab41b2c3356ee337811acdf639d
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91347805"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948333"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-azure-powershell"></a>Início Rápido: criar um membro do blockchain do Azure Blockchain Service usando o Azure PowerShell
 
@@ -20,7 +20,7 @@ Neste início rápido, você implanta um novo membro do blockchain e consórcio 
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-Se você optar por usar o PowerShell localmente, este artigo exigirá que você instale o módulo Az PowerShell e conecte-se à sua conta do Azure usando o cmdlet [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount). Para obter mais informações sobre como instalar o módulo Az PowerShell, confira [Instalar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+Se você optar por usar o PowerShell localmente, este artigo exigirá que você instale o módulo Az PowerShell e conecte-se à sua conta do Azure usando o cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). Para obter mais informações sobre como instalar o módulo Az PowerShell, confira [Instalar o Azure PowerShell](/powershell/azure/install-az-ps).
 
 > [!IMPORTANT]
 > Enquanto o módulo **Az.Blockchain** do PowerShell está na versão prévia, você precisa instalá-lo separadamente do módulo Az do PowerShell usando o cmdlet `Install-Module`. Quando esse módulo do PowerShell estiver em disponibilidade geral, ele passará a fazer parte das versões futuras do módulo Az PowerShell e estará disponível nativamente no Azure Cloud Shell.
@@ -41,7 +41,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Blockchain
 
 ## <a name="choose-a-specific-azure-subscription"></a>Escolher uma assinatura específica do Azure
 
-Se tiver várias assinaturas do Azure, escolha a que for adequada para cobrança do recurso. Selecione uma assinatura específica usando o cmdlet [Set-AzContext](https://docs.microsoft.com/powershell/module/az.accounts/set-azcontext).
+Se tiver várias assinaturas do Azure, escolha a que for adequada para cobrança do recurso. Selecione uma assinatura específica usando o cmdlet [Set-AzContext](/powershell/module/az.accounts/set-azcontext).
 
 ```azurepowershell-interactive
 Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
@@ -61,7 +61,7 @@ $location = 'eastus'
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um [grupo de recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) usando o cmdlet [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados como um grupo.
+Crie um [grupo de recursos do Azure](../../azure-resource-manager/management/overview.md) usando o cmdlet [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados como um grupo.
 
 O exemplo a seguir cria um grupo de recursos com base no nome na variável `$resourceGroupName` na região especificada na variável `$location`.
 

@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.custom: references_regions
 author: bwren
 ms.author: bwren
-ms.date: 10/13/2020
-ms.openlocfilehash: 59febbac1a83e45c8b2bf9c233c3772f561eb111
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.date: 10/14/2020
+ms.openlocfilehash: 6b94b6d66046c29de99339887d5c5c87d6c5bb5f
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/14/2020
-ms.locfileid: "92049649"
+ms.locfileid: "92055929"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics exportar dados de espaço de trabalho no Azure Monitor (versão prévia)
 Log Analytics exportação de dados de espaço de trabalho no Azure Monitor permite que você exporte continuamente os dados de tabelas selecionadas no espaço de trabalho Log Analytics para uma conta de armazenamento do Azure ou hubs de eventos do Azure conforme ele é coletado. Este artigo fornece detalhes sobre esse recurso e as etapas para configurar a exportação de dados em seus espaços de trabalho.
@@ -254,6 +254,10 @@ No momento, as tabelas com suporte são limitadas às especificadas abaixo. Todo
 | AADDomainServicesLogonLogoff | |
 | AADDomainServicesPolicyChange | |
 | AADDomainServicesPrivilegeUse | |
+| AADManagedIdentitySignInLogs | |
+| AADNonInteractiveUserSignInLogs | |
+| AADProvisioningLogs | |
+| AADServicePrincipalSignInLogs | |
 | ADAssessmentRecommendation | |
 | ADFActivityRun | |
 | ADFPipelineRun | |
@@ -268,7 +272,8 @@ No momento, as tabelas com suporte são limitadas às especificadas abaixo. Todo
 | ADXQuery | |
 | AegDeliveryFailureLogs | |
 | AegPublishFailureLogs | |
-| Alerta | Alguns dos dados para essa tabela são ingeridos por meio da conta de armazenamento. Esta parte está ausente na exportação no momento. |
+| Alerta |Suporte parcial. Alguns dos dados para essa tabela são ingeridos por meio da conta de armazenamento. Esses dados não são exportados no momento. |
+| Anomalias | |
 | ApiManagementGatewayLogs | |
 | AppCenterError | |
 | AppPlatformSystemLogs | |
@@ -277,6 +282,7 @@ No momento, as tabelas com suporte são limitadas às especificadas abaixo. Todo
 | AppServiceConsoleLogs | |
 | AppServiceFileAuditLogs | |
 | AppServiceHTTPLogs | |
+| AppServiceIPSecAuditLogs | |
 | AppServicePlatformLogs | |
 | AuditLogs | |
 | AutoscaleEvaluationsLog | |
@@ -291,7 +297,7 @@ No momento, as tabelas com suporte são limitadas às especificadas abaixo. Todo
 | CommonSecurityLog | |
 | CommonSecurityLog | |
 | ComputerGroup | |
-| ConfigurationData | Alguns dos dados são ingeridos por meio de serviços internos que não têm suporte para exportação. Esta parte está ausente na exportação no momento. |
+| ConfigurationData | Suporte parcial. Alguns dos dados são ingeridos por meio de serviços internos que não têm suporte para exportação. Esses dados não são exportados no momento. |
 | ContainerImageInventory | |
 | ContainerInventory | |
 | ContainerLog | |
@@ -312,15 +318,43 @@ No momento, as tabelas com suporte são limitadas às especificadas abaixo. Todo
 | DnsEvents | |
 | DnsInventory | |
 | Dynamics365Activity | |
-| Evento | Alguns dos dados para essa tabela são ingeridos por meio da conta de armazenamento. Esta parte está ausente na exportação no momento. |
+| Evento | Suporte parcial. Alguns dos dados para essa tabela são ingeridos por meio da conta de armazenamento. Esses dados não são exportados no momento. |
 | ExchangeAssessmentRecommendation | |
 | ExchangeAssessmentRecommendation | |
 | FailedIngestion | |
 | FunctionAppLogs | |
-| Pulsação | Com suporte | |
+| HDInsightAmbariClusterAlerts | |
+| HDInsightAmbariSystemMetrics | |
+| HDInsightGatewayAuditLogs | |
+| HDInsightHadoopAndYarnLogs | |
+| HDInsightHadoopAndYarnMetrics | |
+| HDInsightHBaseLogs | |
+| HDInsightHBaseMetrics | |
+| HDInsightHiveAndLLAPLogsSample | |
+| HDInsightKafkaLogs | |
+| HDInsightKafkaMetrics | |
+| HDInsightOozieLogs | |
+| HDInsightSecurityLogs | |
+| HDInsightSparkApplicationEvents | |
+| HDInsightSparkBlockManagerEvents | |
+| HDInsightSparkEnvironmentEvents | |
+| HDInsightSparkEventsLog | |
+| HDInsightSparkExecutorEvents | |
+| HDInsightSparkExtraEvents | |
+| HDInsightSparkJobEvents | |
+| HDInsightSparkLogs | |
+| HDInsightSparkSQLExecutionEvents | |
+| HDInsightSparkStageEvents | |
+| HDInsightSparkStageTaskAccumulables | |
+| HDInsightSparkTaskEvents | |
+| HDInsightStormLogs | |
+| HDInsightStormMetrics | |
+| HDInsightStormTopologyMetrics | |
+| Pulsação | |
 | HuntingBookmark | |
-| InsightsMetrics | Alguns dos dados são ingeridos por meio de serviços internos que não têm suporte para exportação. Esta parte está ausente na exportação no momento. |
+| InsightsMetrics | Suporte parcial. Alguns dos dados são ingeridos por meio de serviços internos que não têm suporte para exportação. Esta parte está ausente na exportação no momento. |
 | IntuneAuditLogs | |
+| IntuneDeviceComplianceOrg | |
 | IntuneOperationalLogs | |
 | KubeEvents | |
 | KubeHealth | |
@@ -329,24 +363,30 @@ No momento, as tabelas com suporte são limitadas às especificadas abaixo. Todo
 | KubePodInventory | |
 | KubeServices | |
 | KubeServices | |
+| LAQueryLogs | |
 | McasShadowItReporting | |
 | MicrosoftAzureBastionAuditLogs | |
 | MicrosoftDataShareReceivedSnapshotLog | |
 | MicrosoftDataShareSentSnapshotLog | |
 | MicrosoftDataShareShareLog | |
 | MicrosoftHealthcareApisAuditLogs | |
+| NWConnectionMonitorDestinationListenerResult | |
+| NWConnectionMonitorDNSResult | |
+| NWConnectionMonitorPathResult | |
 | NWConnectionMonitorPathResult | |
 | NWConnectionMonitorTestResult | |
-| OfficeActivity | Alguns dos dados a serem ingeridos por meio de WebHooks do O365 à LA. Esta parte está ausente na exportação no momento. |
-| Operação | Alguns dos dados são ingeridos por meio de serviços internos que não têm suporte para exportação. Esta parte está ausente na exportação no momento. |
-| Perf | Com suporte | |
-| SCCMAssessmentRecommendation | | 
+| NWConnectionMonitorTestResult | |
+| OfficeActivity | Suporte parcial. Alguns dos dados a serem ingeridos por meio de WebHooks do Office 365 para o Log Analytics. Esses dados não são exportados no momento. |
+| Operação | Suporte parcial. Alguns dos dados são ingeridos por meio de serviços internos que não têm suporte para exportação. Esses dados não são exportados no momento. |
+| Perf | Suporte parcial. Somente os dados de desempenho do Windows têm suporte no momento. Os dados de desempenho do Linux não são exportados no momento. |
+| ProtectionStatus | |
+| SCCMAssessmentRecommendation | |
 | SCOMAssessmentRecommendation | |
 | SecurityAlert | |
 | SecurityBaseline | |
 | SecurityBaselineSummary | |
 | SecurityDetection | |
-| SecurityEvent | Com suporte | |
+| SecurityEvent | |
 | SecurityIncident | |
 | SecurityIoTRawEvent | |
 | SecurityNestedRecommendation | |
@@ -359,24 +399,29 @@ No momento, as tabelas com suporte são limitadas às especificadas abaixo. Todo
 | SPAssessmentRecommendation | |
 | SQLAssessmentRecommendation | |
 | SucceededIngestion | |
-| syslog |Parcial | Alguns dos dados para essa tabela são ingeridos por meio da conta de armazenamento. Esta parte está ausente na exportação no momento. |
+| SynapseGatewayEvents | |
+| SynapseRBACEvents | |
+| syslog | Suporte parcial. Alguns dos dados para essa tabela são ingeridos por meio da conta de armazenamento. Esses dados não são exportados no momento. |
 | ThreatIntelligenceIndicator | |
-| Atualizar |Parcial | Alguns dos dados são ingeridos por meio de serviços internos que não têm suporte para exportação. Esta parte está ausente na exportação no momento. |
+| Atualizar | Suporte parcial. Alguns dos dados são ingeridos por meio de serviços internos que não têm suporte para exportação. Esses dados não são exportados no momento. |
 | UpdateRunProgress | |
 | UpdateSummary | |
 | Uso | |
 | UserAccessAnalytics | |
 | UserPeerAnalytics | |
+| Watchlist | |
 | WindowsEvent | |
 | WindowsFirewall | |
-| WireData |Parcial | Alguns dos dados são ingeridos por meio de serviços internos que não têm suporte para exportação. Esta parte está ausente na exportação no momento. |
+| WireData | Suporte parcial. Alguns dos dados são ingeridos por meio de serviços internos que não têm suporte para exportação. Esses dados não são exportados no momento. |
 | WorkloadMonitoringPerf | |
 | WorkloadMonitoringPerf | |
+| WVDAgentHealthStatus | |
 | WVDCheckpoints | |
 | WVDConnections | |
 | WVDErrors | |
 | WVDFeeds | |
 | WVDManagement | |
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

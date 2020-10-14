@@ -1,14 +1,14 @@
 ---
 title: Visão geral do Azure Resource Graph
 description: Entenda como o serviço do Azure Resource Graph habilita a consulta complexa de recursos em grande escala entre assinaturas e locatários.
-ms.date: 08/13/2020
+ms.date: 10/14/2020
 ms.topic: overview
-ms.openlocfilehash: f2de6ce52870417eab1c74333dfce2905317e73d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8e61dadc44a2b07066f7bac761c366c746cef1f1
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91531676"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057766"
 ---
 # <a name="what-is-azure-resource-graph"></a>O que é o Azure Resource Graph?
 

@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: 4328d1da8c82bc09aa8353838d08c31ea77f58aa
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: ebbdd103350e1de36d45ecf84acf15d477fa34db
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/14/2020
-ms.locfileid: "92043384"
+ms.locfileid: "92058124"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>O que há de novo no banco de dados SQL do Azure & SQL Instância Gerenciada?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -98,6 +98,8 @@ Os seguintes recursos estão habilitados no modelo de implantação do SQL Inst�
 
 |Problema  |Data descoberta  |Status  |Data resolvida  |
 |---------|---------|---------|---------|
+|[As transações distribuídas podem ser executadas após a remoção de Instância Gerenciada do grupo de confiança do servidor](#distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group)|Setembro de 2020|Tem solução alternativa||
+|[As transações distribuídas não podem ser executadas após Instância Gerenciada operação de dimensionamento](#distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation)|Setembro de 2020|Tem solução alternativa||
 |[BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql) no SQL do Azure e `BACKUP` / `RESTORE` na instrução no instância gerenciada não é possível usar o Azure ad gerenciar identidade para autenticar no armazenamento do Azure|Setembro de 2020|Tem solução alternativa||
 |[A entidade de serviço não pode acessar o Azure AD e o AKV](#service-principal-cannot-access-azure-ad-and-akv)|2020 de agosto|Tem solução alternativa||
 |[A restauração do backup manual sem soma de verificação pode falhar](#restoring-manual-backup-without-checksum-might-fail)|Maio de 2020|Resolvido|Junho de 2020|
@@ -127,6 +129,14 @@ Os seguintes recursos estão habilitados no modelo de implantação do SQL Inst�
 |Recurso Database Mail com servidores de email externos (não Azure) usando conexão segura||Resolvido|Out 2019|
 |Bancos de dados independentes sem suporte no SQL Instância Gerenciada||Resolvido|Ago 2019|
 
+### <a name="distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group"></a>As transações distribuídas podem ser executadas após a remoção de Instância Gerenciada do grupo de confiança do servidor
+
+Os [grupos de confiança do servidor](https://docs.microsoft.com/azure/azure-sql/managed-instance/server-trust-group-overview) são usados para estabelecer a confiança entre as instâncias gerenciadas que são pré-requisitos para executar [transações distribuídas](https://docs.microsoft.com/azure/azure-sql/database/elastic-transactions-overview). Depois de remover Instância Gerenciada do grupo de confiança do servidor ou excluir o grupo, você ainda poderá executar transações distribuídas. Há uma solução alternativa que você pode aplicar para ter certeza de que as transações distribuídas estão desabilitadas e que é o [failover manual iniciado pelo usuário](https://docs.microsoft.com/azure/azure-sql/managed-instance/user-initiated-failover) no instância gerenciada.
+
+### <a name="distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation"></a>As transações distribuídas não podem ser executadas após Instância Gerenciada operação de dimensionamento
+
+Instância Gerenciada operações de dimensionamento que incluem a alteração da camada de serviço ou o número de vCores redefinirão as configurações de grupo de confiança do servidor no back-end e desabilitarão [as transações distribuídas](https://docs.microsoft.com/azure/azure-sql/database/elastic-transactions-overview) Como alternativa, exclua e crie um novo [grupo de confiança do servidor](https://docs.microsoft.com/azure/azure-sql/managed-instance/server-trust-group-overview) no portal do Azure.
+
 ### <a name="bulk-insert-and-backuprestore-statements-cannot-use-managed-identity-to-access-azure-storage"></a>Instruções BULK INSERT e BACKUP/RESTOre não podem usar identidade gerenciada para acessar o armazenamento do Azure
 
 A instrução BULK INSERT não pode usar `DATABASE SCOPED CREDENTIAL` com identidade gerenciada para autenticar no armazenamento do Azure. Como alternativa, mude para autenticação de assinatura de acesso compartilhado. O exemplo a seguir não funcionará no Azure SQL (banco de dados e Instância Gerenciada):
@@ -146,7 +156,7 @@ BULK INSERT Sales.Invoices FROM 'inv-2017-12-08.csv' WITH (DATA_SOURCE = 'MyAzur
 
 Em algumas circunstâncias, pode haver um problema com a entidade de serviço usada para acessar os serviços do Azure AD e do Azure Key Vault (AKV). Como resultado, esse problema afeta o uso da autenticação do Azure AD e da TDE (criptografia de banco de dados transparente) com o SQL Instância Gerenciada. Isso pode ser experiente como um problema de conectividade intermitente ou não ser capaz de executar instruções como criar logon/usuário do provedor externo ou executar como logon/usuário. A configuração do TDE com a chave gerenciada pelo cliente em um novo Azure SQL Instância Gerenciada também pode não funcionar em algumas circunstâncias.
 
-**Solução alternativa**: para evitar que esse problema ocorra em seu instância gerenciada do SQL antes de executar qualquer comando de atualização ou, caso você já tenha enfrentado esse problema após os comandos de atualização, vá para o portal do Azure, acesse SQL instância gerenciada [Active Directory folha de administração](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell#azure-portal). Verifique se você pode ver a mensagem de erro "Instância Gerenciada precisa de uma entidade de serviço para acessar Azure Active Directory. Clique aqui para criar uma entidade de serviço ". Caso você tenha encontrado essa mensagem de erro, clique nela e siga as instruções passo a passo fornecidas até que esse erro seja resolvido.
+**Solução alternativa**: para evitar que esse problema ocorra em seu instância gerenciada do SQL antes de executar qualquer comando de atualização ou, caso você já tenha enfrentado esse problema após os comandos de atualização, acesse portal do Azure, acesse o SQL instância gerenciada [Active Directory folha de administração](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell#azure-portal). Verifique se você pode ver a mensagem de erro "Instância Gerenciada precisa de uma entidade de serviço para acessar Azure Active Directory. Clique aqui para criar uma entidade de serviço ". Caso você tenha encontrado essa mensagem de erro, clique nela e siga as instruções passo a passo fornecidas até que esse erro seja resolvido.
 
 ### <a name="restoring-manual-backup-without-checksum-might-fail"></a>A restauração do backup manual sem CHECKSUM pode falhar
 

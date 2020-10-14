@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.devlang: azurepowershell
 ms.date: 09/22/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9c921541cc1f27eb7a9af186c25346f101ba65d2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6912f7f6fdc88c5d611bfbfd78f15e5f7a949f70
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91347778"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951835"
 ---
 # <a name="quickstart-create-an-azure-custom-resource-provider-with-azure-powershell"></a>Início Rápido: Criar um provedor de recursos personalizado do Azure com o Azure PowerShell
 
@@ -25,7 +25,7 @@ Neste início rápido, você aprenderá a criar um provedor de recursos personal
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-Se você optar por usar o PowerShell localmente, este artigo exigirá que você instale o módulo Az PowerShell e conecte-se à sua conta do Azure usando o cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). Para obter mais informações sobre como instalar o módulo Az PowerShell, confira [Instalar o Azure PowerShell](/powershell/azure/install-az-ps). Se você optar por usar o Cloud Shell, confira [Visão geral do Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) para obter mais informações.
+Se você optar por usar o PowerShell localmente, este artigo exigirá que você instale o módulo Az PowerShell e conecte-se à sua conta do Azure usando o cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). Para obter mais informações sobre como instalar o módulo Az PowerShell, confira [Instalar o Azure PowerShell](/powershell/azure/install-az-ps). Se você optar por usar o Cloud Shell, confira [Visão geral do Azure Cloud Shell](../../cloud-shell/overview.md) para obter mais informações.
 
 > [!IMPORTANT]
 > Enquanto o módulo **Az.CustomProviders** do PowerShell estiver em versão prévia, você precisará instalá-lo separadamente usando o cmdlet `Install-Module`. Quando esse módulo do PowerShell estiver em disponibilidade geral, ele passará a fazer parte das versões futuras do módulo Az PowerShell e estará disponível nativamente no Azure Cloud Shell.

@@ -3,19 +3,19 @@ title: 'Início Rápido: Criar um índice de pesquisa no PowerShell usando APIs 
 titleSuffix: Azure Cognitive Search
 description: Neste início rápido da API REST, saiba como criar um índice, carregar dados e executar consultas usando o Invoke-RestMethod do PowerShell e a API REST do Azure Cognitive Search.
 manager: nitinme
-author: tchristiani
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 08/17/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f803532e7d08d0de21541cb5d1b52639b623bb90
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8ad5c73fee93d935ad050cea8feca2754649a61f
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89078292"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058498"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-powershell-using-rest-apis"></a>Início Rápido: Criar um índice da Pesquisa Cognitiva do Azure no PowerShell usando as APIs REST
 > [!div class="op_single_selector"]

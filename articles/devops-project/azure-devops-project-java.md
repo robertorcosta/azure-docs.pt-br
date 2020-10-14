@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: mlearned
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 29b05feab0a44629c3d450709a3bc05481be6e84
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8f74d2b5ab2cc85edbc8b1ea9f7d230f0215f35d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91330359"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91854589"
 ---
 # <a name="set-up-a-cicd-pipeline-for-a-java-app-with-azure-devops-starter"></a>Configurar um pipeline de CI/CD para um aplicativo Java com o Azure DevOps Starter
 
@@ -131,4 +131,4 @@ No painel **Histórico**, é exibida uma trilha de auditoria das alterações re
 Quando você configurou seu processo de CI/CD, os pipelines de build e de lançamento foram criados automaticamente. Você pode modificar esses pipelines de build e de lançamento para atender às necessidades de sua equipe. Para saber mais sobre o pipeline de CI/CD, confira:
 
 > [!div class="nextstepaction"]
-> [Personalizar o processo de CD](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Personalizar o processo de CD](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)

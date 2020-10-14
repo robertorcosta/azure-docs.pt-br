@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 7/01/2019
 ms.author: msangapu
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 18e3f29a90ae2c6c66858e14ee91fb447a4a0045
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d435a33ba45daf2c8a6a42e51c3e0d58f3abc23b
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968643"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057749"
 ---
 # <a name="access-azure-storage-as-a-network-share-from-a-container-in-app-service"></a>Acessar o Armazenamento do Microsoft Azure como um compartilhamento de rede de um contêiner no Serviço de Aplicativo
 
@@ -90,7 +90,7 @@ Você deve fazer isso para todos os outros diretórios que você deseja que seja
 
 Depois de criar sua [conta de armazenamento do Azure, o compartilhamento de arquivos e o diretório](#prerequisites), agora você pode configurar seu aplicativo com o armazenamento do Azure.
 
-Para montar uma conta de armazenamento em um diretório em seu aplicativo do serviço de aplicativo, use o [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) comando. Tipo de armazenamento pode ser AzureBlob ou AzureFiles. AzureFiles é usado neste exemplo. A configuração do caminho de montagem corresponde à pasta que você deseja montar do armazenamento do Azure. Configurá-lo como '/' monta todo o armazenamento do Azure.
+Para montar uma conta de armazenamento em um diretório em seu aplicativo do serviço de aplicativo, use o [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) comando. Tipo de armazenamento pode ser AzureBlob ou AzureFiles. AzureFiles é usado neste exemplo. A configuração do caminho de montagem corresponde à pasta dentro do contêiner que você deseja montar no armazenamento do Azure. Configurá-lo como '/' monta o contêiner inteiro no armazenamento do Azure.
 
 
 > [!CAUTION]

@@ -4,12 +4,12 @@ description: Neste artigo, descubra respostas para perguntas comuns sobre como f
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 8813794d44803a32bc6e156d3ca76360d84604c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51c54aa732259180a5393488891b21956553f581
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91370820"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056711"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Perguntas frequentes-fazer backup de VMs do Azure
 
@@ -21,7 +21,7 @@ Este artigo responde a perguntas comuns sobre o backup de VMs do Azure com o ser
 
 Ao criar uma VM, você pode habilitar o backup para VMs que executam [sistemas operacionais com suporte](backup-support-matrix-iaas.md#supported-backup-actions).
 
-### <a name="why-initial-backup-is-taking-lot-of-time-to-complete"></a>Por que o backup inicial está demorando muito tempo para ser concluído?
+### <a name="why-initial-backup-is-taking-lot-of-time-to-complete"></a>Por que o backup inicial está demorando tanto para ser concluído?
 
 O backup inicial é sempre um backup completo e dependerá do tamanho dos dados e do processamento do backup. <br>
 Para melhorar o desempenho de backup, consulte [práticas recomendadas de backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#best-practices); [Considerações de backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#backup-and-restore-considerations) e [desempenho de backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#backup-performance)<br>
@@ -79,7 +79,7 @@ Remova o bloqueio e desmarque a coleção de pontos de restauração desse grupo
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disks"></a>O backup do Azure dá suporte a discos gerenciados por SSD padrão?
 
-Sim, o backup do Azure dá suporte a [discos gerenciados SSD padrão](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/).
+Sim, o backup do Azure dá suporte a [discos gerenciados SSD padrão](https://docs.microsoft.com/azure/virtual-machines/disks-types#standard-ssd).
 
 ### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>Podemos fazer backup de uma VM com um disco ativado pelo Acelerador de Gravação?
 
@@ -161,7 +161,7 @@ Operações como segredo/chave de sobreposição não exigem essa etapa e o mesm
 
 Sim, você acessa a VM uma vez restaurada devido a uma VM que tem uma relação quebrada com o controlador de domínio. Para obter mais informações, confira este [artigo](./backup-azure-arm-restore-vms.md#post-restore-steps)
 
-### <a name="why-restore-operation-is-taking-long-time-to-complete"></a>Por que a operação de restauração está demorando muito tempo para ser concluída?
+### <a name="why-restore-operation-is-taking-long-time-to-complete"></a>Por que a operação de restauração está demorando muito para ser concluída?
 
 O tempo total de restauração depende das operações de entrada/saída por segundo (IOPS) e da taxa de transferência da conta de armazenamento. O tempo total de restauração poderá ser afetado se a conta de armazenamento de destino for carregada com outras operações de leitura e gravação de aplicativo. Para melhorar a operação de restauração, selecione uma conta de armazenamento que não esteja carregada com outros dados de aplicativo.
 

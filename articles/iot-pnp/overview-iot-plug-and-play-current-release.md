@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: c7ebcdac3174f7eb497ae3e976386ab92212e1ba
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4bd1bb93c9ce0f491c5bf1153917491b88d55109
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91715562"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043707"
 ---
 # <a name="whats-in-the-current-iot-plug-and-play-release"></a>O que a versão atual do IoT Plug and Play inclui
 
@@ -41,10 +41,7 @@ Para saber mais sobre como os dispositivos IoT Plug and Play funcionam com a DTD
 
 - Extensão de IoT da CLI do Azure 0.10.0.
 
-    Para saber mais, confira [Instalar e usar a extensão de IoT do Azure para a CLI do Azure](howto-use-iot-pnp-cli.md).
-
-    > [!TIP]
-    > A extensão de IoT do Azure inclui comandos que ajudam na certificação de dispositivos. Consulte `az iot product -h`.
+    A extensão de IoT do Azure inclui comandos que ajudam na certificação de dispositivos. Consulte `az iot product -h`.
 
 ## <a name="libraries-and-sdks"></a>Bibliotecas e SDKs
 
@@ -64,7 +61,7 @@ Para saber mais sobre as bibliotecas e os SDKs, confira [SDKs da Microsoft para 
 
 ## <a name="rest-apis"></a>APIs REST
 
-API REST [2020-09-30](https://docs.microsoft.com/rest/api/iothub).
+API REST [2020-09-30](/rest/api/iothub).
 
 Para saber mais, confira o [Guia do desenvolvedor do IoT Plug and Play](concepts-developer-guide-service.md).
 

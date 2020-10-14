@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 1cf7bd744870b9f0a04d63445268b2ccd3134a66
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: bfeafdea149cd41ea35562c2ff4b9e67a99b95d0
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046750"
+ms.locfileid: "92058515"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Usar as APIs e os SDKs dos Gêmeos Digitais do Azure
 
@@ -26,12 +26,12 @@ Este artigo fornece uma visão geral das APIs disponíveis e os métodos para in
 
 As APIs do plano de controle são APIs [ARM](../azure-resource-manager/management/overview.md) usadas para gerenciar sua instância do gêmeos digital do Azure como um todo, para que elas abranjam operações como criar ou excluir toda a sua instância. Você também vai usá-los para criar e excluir pontos de extremidade.
 
-A versão mais atual da API do plano de controle para visualização pública é _**2020-03-01-Preview**_.
+A versão mais atual da API do plano de controle para visualização pública é _**2020-10-31**_.
 
 Para usar as APIs do plano de controle:
 * Você pode chamar as APIs diretamente referenciando o Swagger mais recente na [pasta Swagger do plano de controle](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins). Esse repositório também inclui uma pasta de exemplos que mostram o uso.
 * Atualmente, você pode acessar SDKs para APIs de controle no...
-  - [.Net (C#)](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/1.0.0-preview.1) ([origem](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins)) ([referência [gerada automaticamente]](/dotnet/api/overview/azure/digitaltwins/management?preserve-view=true&view=azure-dotnet-preview))
+  - [.Net (C#)](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/) ([origem](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins)) ([referência [gerada automaticamente]](/dotnet/api/overview/azure/digitaltwins/management?preserve-view=true&view=azure-dotnet-preview))
   - [Java](https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_03_01_preview/azure-mgmt-digitaltwins) ([origem](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins)) ([referência [gerada automaticamente]](/java/api/overview/azure/digitaltwins/management?preserve-view=true&view=azure-java-preview))
   - [JavaScript](https://www.npmjs.com/package/@azure/arm-digitaltwins) ([origem](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/arm-digitaltwins))
   - [Python](https://pypi.org/project/azure-mgmt-digitaltwins/) ([origem](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-mgmt-digitaltwins))
@@ -47,7 +47,7 @@ As APIs do plano de dados são as APIs do Azure digital gêmeos usadas para gere
 * **Consulta** -a categoria de consulta permite que os desenvolvedores [encontrem conjuntos de gêmeos digitais no grafo de entrelaçamento](how-to-query-graph.md) entre relações.
 * **EventRoutes** -a categoria EventRoutes contém APIs para [rotear dados](concepts-route-events.md), por meio do sistema e para serviços downstream.
 
-A versão mais atual da API do plano de dados para visualização pública é _**2020-05-31-Preview**_. A versão da API _2020-03-01-Preview_ para operações do plano de dados agora foi preterida.
+A versão mais atual da API do plano de dados para visualização pública é _**2020-10-31**_.
 
 Para usar as APIs do plano de dados:
 * Você pode chamar as APIs diretamente, por...
@@ -112,8 +112,8 @@ try {
     Console.WriteLine($"Load model: {rex.Status}:{rex.Message}");
 }
 // Read a list of models back from the service
-AsyncPageable<DigitalTwinsModelData> modelDataList = client.GetModelsAsync();
-await foreach (DigitalTwinsModelData md in modelDataList)
+AsyncPageable<ModelData> modelDataList = client.GetModelsAsync();
+await foreach (ModelData md in modelDataList)
 {
     Console.WriteLine($"Type name: {md.DisplayName}: {md.Id}");
 }

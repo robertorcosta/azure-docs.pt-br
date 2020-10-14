@@ -2,18 +2,18 @@
 title: Início rápido da biblioteca de cliente .NET do Detector de Anomalias
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/22/2020
-ms.author: aahi
-ms.openlocfilehash: 635b99df65676a4b8652d22db33002364abb1b23
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.author: mbullwin
+ms.openlocfilehash: 22732ae10fb328839c47194e0a33faf18514ff45
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91319227"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018418"
 ---
 Introdução à biblioteca de clientes Detector de Anomalias para .NET. Siga estas etapas para instalar o pacote e começar a usar os algoritmos fornecidos pelo serviço. O serviço Detector de Anomalias permite localizar anormalidades em seus dados de série temporal usando automaticamente os modelos de melhor ajuste, independentemente do setor, cenário ou volume de dados.
 

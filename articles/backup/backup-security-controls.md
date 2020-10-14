@@ -3,12 +3,12 @@ title: Controles de segurança
 description: Saiba mais sobre os controles de segurança usados no serviço de backup do Azure. Esses controles ajudam o serviço a prevenir, detectar e responder a vulnerabilidades de segurança.
 ms.topic: conceptual
 ms.date: 09/23/2019
-ms.openlocfilehash: 7ff3ff5c1b024a228778b0214e67239d3c8ab721
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40bd35bdf83d336aebd37cdda0a0b59164ac9f7a
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89418748"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92055878"
 ---
 # <a name="security-controls-for-azure-backup"></a>Controles de segurança para o backup do Azure
 
@@ -30,7 +30,7 @@ Este artigo documenta os controles de segurança incorporados ao backup do Azure
 
 | Controle de segurança | Sim/Não | Observações| Documentação
 |---|---|--|--|
-| Suporte ao monitoramento do Azure (como o log Analytics, app insights)| Sim | Há suporte para Log Analytics por meio de logs de recursos. Para obter mais informações, consulte [monitorar cargas de trabalho protegidas de backup do Azure usando o log Analytics](https://azure.microsoft.com/blog/monitor-all-azure-backup-protected-workloads-using-log-analytics/). |  |
+| Suporte ao monitoramento do Azure (como o log Analytics, app insights)| Sim | Há suporte para Log Analytics por meio de logs de recursos. Para obter mais informações, consulte [monitorar cargas de trabalho protegidas de backup do Azure usando o log Analytics](backup-azure-diagnostics-mode-data-model.md). |  |
 | Registro e auditoria do plano de gerenciamento e controle| Sim | Todas as ações disparadas pelo cliente no portal do Azure são registradas em logs de atividades. |  |
 | Log e auditoria do plano de dados| Não | O plano de dados do Backup do Azure não pode ser acessado diretamente.  |  |
 

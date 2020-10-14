@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 8f9ed14a0bcef346281c38146cbb2d9551633c15
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: df409af61556dfa113327302be9c1464e1427a14
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89421503"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91829145"
 ---
 ### <a name="examine-and-edit-the-sample-files"></a>Examinar e editar os arquivos de exemplo
 
@@ -111,9 +111,18 @@ Como parte dos pré-requisitos, você baixou o código de exemplo para uma pasta
 
 ### <a name="prepare-to-monitor-events"></a>Preparar-se para monitorar eventos
 
-Clique com o botão direito do mouse no dispositivo de Análise Dinâmica de Vídeo e selecione **Iniciar Monitoramento de Ponto de Extremidade de Evento Interno**. Essa etapa é necessária para monitorar os eventos do Hub IoT na janela **SAÍDA** do Visual Studio Code.
+1. No Visual Studio Code, abra a guia **Extensões** (ou pressione Ctrl+Shift+X) e pesquise pelo Hub IoT do Azure.
+1. Clique com o botão direito do mouse e selecione **Configurações da Extensão**.
 
-![Começar a monitorar](../../../media/quickstarts/start-monitoring-built-event-endpoint-grpc.png)
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="../../../media/run-program/extensions-tab.png" alt-text="Configurações da Extensão":::
+1. Pesquise e habilite “Mostrar Mensagem Detalhada”.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="../../../media/run-program/show-verbose-message.png" alt-text="Configurações da Extensão":::
+1. Clique com o botão direito do mouse no dispositivo de Análise Dinâmica de Vídeo e selecione **Iniciar Monitoramento de Ponto de Extremidade de Evento Interno**. Essa etapa é necessária para monitorar os eventos do Hub IoT na janela **SAÍDA** do Visual Studio Code.
+
+   ![Começar a monitorar](../../../media/quickstarts/start-monitoring-built-event-endpoint-grpc.png)
 
 ### <a name="run-the-sample-program"></a>Executar o programa de exemplo
 

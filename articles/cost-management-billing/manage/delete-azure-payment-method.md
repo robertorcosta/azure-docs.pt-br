@@ -7,16 +7,16 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 10/07/2020
 ms.author: banders
-ms.openlocfilehash: a579dd22aa814340b4b72d74907739c942570c23
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 15d6c7731b541de638ceaf7828a7ce962cbf154a
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91270654"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827546"
 ---
-# <a name="delete-an-azure-billing-payment-method-preview"></a>Excluir uma forma de pagamento da cobrança do Azure (versão prévia)
+# <a name="delete-an-azure-billing-payment-method"></a>Excluir uma forma de pagamento da cobrança do Azure
 
 Este documento fornece instruções para ajudar você a excluir uma forma de pagamento, como um cartão de crédito, de diferentes tipos de assinaturas do Azure. Você pode excluir uma forma de pagamento para:
 

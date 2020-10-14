@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 65cd35dd60ed05da51b6da56882af4522b1b7573
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 369f79a436d76e6a1bf1a1ce64f7754f25a5abc5
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/14/2020
-ms.locfileid: "92043401"
+ms.locfileid: "92058039"
 ---
 # <a name="distributed-transactions-across-cloud-databases-preview"></a>Transações distribuídas entre bancos de dados na nuvem (visualização)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -145,14 +145,14 @@ O código Transact-SQL de exemplo a seguir usa [Iniciar transação distribuída
     -- Configure the Linked Server
     -- Add one Azure SQL Managed Instance as Linked Server
     EXEC sp_addlinkedserver
-        @server='managedinstance02', -- Linked server name
+        @server='RemoteServer', -- Linked server name
         @srvproduct='',
         @provider='sqlncli', -- SQL Server Native Client
-        @datasrc='sql-managed-instance-02.48ea8fd5ac90.database.windows.net' -- Managed Instance endpoint
+        @datasrc='managed-instance-server.46e7afd5bc81.database.windows.net' -- Managed Instance endpoint
 
     -- Add credentials and options to this Linked Server
     EXEC sp_addlinkedsrvlogin
-        @rmtsrvname = 'managedinstance02', -- Linked server name
+        @rmtsrvname = 'RemoteServer', -- Linked server name
         @useself = 'false',
         @rmtuser = '<login_name>',         -- login
         @rmtpassword = '<secure_password>' -- password
@@ -244,7 +244,7 @@ Use os cmdlets do PowerShell a seguir para gerenciar as relações de comunicaç
 
 ## <a name="transactions-across-multiple-servers-for-azure-sql-managed-instance"></a>Transações em vários servidores para o Azure SQL Instância Gerenciada
 
-As transações distribuídas têm suporte em diferentes servidores no Azure SQL Instância Gerenciada. Quando as transações passam por limites de Instância Gerenciada, as instâncias participantes precisam primeiro ser inseridas em uma relação de segurança e comunicação mútua. Isso é feito configurando o [grupo de confiança do servidor](https://aka.ms/mitrusted-groups), que pode ser feito em portal do Azure.
+As transações distribuídas têm suporte em diferentes servidores no Azure SQL Instância Gerenciada. Quando as transações passam por limites de Instância Gerenciada, as instâncias participantes precisam primeiro ser inseridas em uma relação de segurança e comunicação mútua. Isso é feito com a criação de um [grupo de confiança do servidor](https://aka.ms/mitrusted-groups), que pode ser feito em portal do Azure. Se as instâncias gerenciadas não estiverem na mesma rede virtual, o [emparelhamento de rede virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) precisará ser configurado e as regras de entrada e saída do grupo de segurança de rede precisarão permitir as portas 5024 e 11000-12000 em todas as redes virtuais de participação.
 
   ![Grupos de confiança do servidor no portal do Azure][3]
 

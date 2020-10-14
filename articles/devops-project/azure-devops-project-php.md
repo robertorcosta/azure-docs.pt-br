@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 3e4913c4be0d59bc37e3da2358c4f8ec302a26e5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 99c8bc00beb7b189b200e0b02435262ae34835d2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "82233781"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856085"
 ---
 # <a name="create-a-cicd-pipeline-for-php-with-azure-devops-starter"></a>Criar um pipeline de CI/CD para PHP com o Azure DevOps Starter
 
@@ -125,4 +125,4 @@ Caso não tenha uma assinatura do Azure, você pode obter uma gratuitamente via 
 Quando você configurou seu processo de CI/CD, os pipelines de build e de lançamento foram criados automaticamente. Você pode modificar esses pipelines de build e de lançamento para atender às necessidades de sua equipe. Para saber mais sobre o pipeline de CI/CD, consulte este tutorial:
 
 > [!div class="nextstepaction"]
-> [Personalizar o processo de CD](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Personalizar o processo de CD](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)

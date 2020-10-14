@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a5a69bedb45f8037f3a97f5ebf4e2128930330a
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.openlocfilehash: a9433945ffe1181b62ee193baf1c2dd0b89ec14c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91728345"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856799"
 ---
 # <a name="what-is-azure-ad-connect-cloud-provisioning"></a>O que é o provisionamento em nuvem do Azure AD Connect?
 O provisionamento em nuvem do Azure AD Connect é um novo agente da Microsoft projetado para atender e atingir suas metas de identidade híbrida para a sincronização de usuários, grupos e contatos com o Azure AD.  Ele pode ser usado junto com a sincronização do Azure AD Connect e oferece os seguintes benefícios:
@@ -34,7 +34,7 @@ Com o provisionamento em nuvem do Azure AD Connect, o provisionamento do AD para
 ## <a name="azure-ad-connect-cloud-provisioning-video"></a>Vídeo sobre o provisionamento em nuvem do Azure AD Connect
 O seguinte vídeo breve fornece uma excelente visão geral do provisionamento em nuvem do Azure AD Connect:
 
-> [!VIDEO https://youtube/embed/mOT3ID02_YQ]
+> [!VIDEO https://youtube.com/embed/mOT3ID02_YQ]
 
 
 ## <a name="comparison-between-azure-ad-connect-and-cloud-provisioning"></a>Comparação entre o Azure AD Connect e o provisionamento em nuvem

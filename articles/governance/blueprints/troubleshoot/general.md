@@ -1,14 +1,14 @@
 ---
 title: Solução de problemas comuns
 description: Saiba como solucionar problemas de criação, atribuição e remoção de plantas como violações de política e funções de parâmetro Blueprint.
-ms.date: 06/29/2020
+ms.date: 10/14/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: e8362e2a22317d73e0fd392bd497cd9f2c5ffe4f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1689141f95aaac9183391af79edb0cabf5343b6
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89651316"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058277"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Solucionar problemas usando o Azure Blueprint
 
@@ -59,7 +59,7 @@ Passar um parâmetro de blueprint que usa uma função, como `[resourceGroup().t
 
 #### <a name="resolution"></a>Resolução
 
-Para passar uma função como um parâmetro, faça o escape de toda a cadeia de caracteres com `[`, de modo que o parâmetro de blueprint se pareça com `[[resourceGroup().tags.myTag]`. O caractere de escape faz com que o Blueprints trate o valor como uma cadeia de caracteres ao processar o blueprint. O Blueprints, em seguida, coloca a função no artefato, permitindo que ela seja dinâmica conforme o esperado. Para obter mais informações, consulte [sintaxe e expressões em modelos de Azure Resource Manager](../../../azure-resource-manager/templates/template-expressions.md).
+Para passar uma função como um parâmetro, faça o escape de toda a cadeia de caracteres com `[`, de modo que o parâmetro de blueprint se pareça com `[[resourceGroup().tags.myTag]`. O caractere de escape faz com que o Blueprints trate o valor como uma cadeia de caracteres ao processar o blueprint. Em seguida, o serviço plantas coloca a função no artefato, permitindo que ele seja dinâmico conforme o esperado. Para obter mais informações, consulte [sintaxe e expressões em modelos de Azure Resource Manager](../../../azure-resource-manager/templates/template-expressions.md).
 
 ## <a name="delete-errors"></a>Erros de exclusão
 
@@ -75,7 +75,7 @@ Uma atribuição de Blueprint pode ficar paralisada em um estado não terminal q
 
 #### <a name="resolution"></a>Resolução
 
-As atribuições do Blueprint em um estado não terminal são marcadas automaticamente **com falha** após um tempo limite de _6 horas_ . Depois que o tempo limite tiver ajustado o estado da atribuição Blueprint, a exclusão poderá ser repetida.
+As atribuições do Blueprint em um estado não terminal são marcadas automaticamente **com falha** após um tempo limite de _seis horas_ . Depois que o tempo limite tiver ajustado o estado da atribuição Blueprint, a exclusão poderá ser repetida.
 
 ## <a name="next-steps"></a>Próximas etapas
 

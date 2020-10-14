@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 9/22/2020
 ms.author: amgowda
-ms.openlocfilehash: ae3090689f9999c9ea6aa65447dadbdd7b0b2026
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2aa30f86b32005b9c85664b5bb2d0772a6e5f443
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90998274"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940762"
 ---
 # <a name="confidential-computing-nodes-on-azure-kubernetes-service-public-preview"></a>Nós de computação confidencial no Serviço de Kubernetes do Azure (visualização pública)
 
@@ -40,7 +40,7 @@ O AKS (Serviço de Kubernetes do Azure) dá suporte à adição dos [nós de com
 
 #### <a name="sgx-device-plugin"></a>Plug-in de dispositivo SGX <a id="sgx-plugin"></a>
 
-O Plug-in de dispositivo SGX implementa a interface de plug-in de dispositivo do Kubernetes para a memória EPC. Efetivamente, esse plug-in faz da memória EPC um tipo de recurso adicional no Kubernetes. Os usuários podem especificar limites para esse recurso, assim como ocorre com outros recursos. Além da função de agendamento, o plug-in do dispositivo ajuda a atribuir permissões do driver do dispositivo SGX aos contêineres de carga de trabalho confidenciais. Veja um exemplo de implementação da amostra de implantação baseada em memória EPC (`kubernetes.azure.com/sgx_epc_mem_in_MiB`) [aqui](https://github.com/azure-samples/confidential-computing/blob/main/containersamples/helloworld/helloworld.yaml)
+O Plug-in de dispositivo SGX implementa a interface de plug-in de dispositivo do Kubernetes para a memória EPC. Efetivamente, esse plug-in faz da memória EPC um tipo de recurso adicional no Kubernetes. Os usuários podem especificar limites para esse recurso, assim como ocorre com outros recursos. Além da função de agendamento, o plug-in do dispositivo ajuda a atribuir permissões do driver do dispositivo SGX aos contêineres de carga de trabalho confidenciais. Veja um exemplo de implementação da amostra de implantação baseada em memória EPC (`kubernetes.azure.com/sgx_epc_mem_in_MiB`) [aqui](https://github.com/Azure-Samples/confidential-computing/blob/main/containersamples/helloworld/helm/templates/helloworld.yaml)
 
 #### <a name="sgx-quote-helper-service"></a>Serviço de auxiliar de cotação do SGX <a id="sgx-quote"></a>
 

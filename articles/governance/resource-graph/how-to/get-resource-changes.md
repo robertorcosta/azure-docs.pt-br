@@ -1,14 +1,14 @@
 ---
 title: Obter alterações de recurso
 description: Entenda como localizar quando um recurso foi alterado, obter uma lista das propriedades que foram alteradas e avaliar as diferenças.
-ms.date: 08/10/2020
+ms.date: 10/14/2020
 ms.topic: how-to
-ms.openlocfilehash: 02dfd2b8b66cd09be39a44166a0fd62bb13c8395
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bab51ac7b55e2a838d98b46a09289f2cc19bfde3
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88056560"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057562"
 ---
 # <a name="get-resource-changes"></a>Obter alterações de recurso
 
@@ -279,7 +279,7 @@ A resposta é semelhante a este exemplo:
 }
 ```
 
-**beforeSnapshot** e **afterSnapshot** cada uma delas fornecem o tempo que o instantâneo foi tirado e as propriedades nesse momento. A alteração ocorreu em algum ponto entre esses instantâneos. Observando o exemplo acima, podemos ver que a propriedade alterada foi **supportsHttpsTrafficOnly**.
+**beforeSnapshot** e **afterSnapshot** cada uma delas fornecem o tempo que o instantâneo foi tirado e as propriedades nesse momento. A alteração ocorreu em algum ponto entre esses instantâneos. Observando o exemplo anterior, podemos ver que a propriedade alterada foi **supportsHttpsTrafficOnly**.
 
 Para comparar os resultados, use a propriedade **changes** no **resourceChanges** ou avalie a parte **content** de cada instantâneo no **resourceChangeDetails** para determinar a diferença. Se você comparar os instantâneos, o **carimbo de data/hora** sempre será mostrado como uma diferença, apesar de ser esperado.
 

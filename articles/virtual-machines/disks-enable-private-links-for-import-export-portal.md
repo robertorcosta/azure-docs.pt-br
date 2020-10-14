@@ -8,12 +8,12 @@ ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: ab861b3ed265da9060e2367bdfdeeeee7047c584
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 95c4464d1ab8416f609f75f2b59fb85a578ef5b7
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88815854"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91979046"
 ---
 # <a name="use-the-azure-portal-to-restrict-importexport-access-for-managed-disks-with-private-links"></a>Usar o portal do Azure para restringir o acesso de importação/exportação aos discos gerenciados com Links Privados
 
@@ -30,12 +30,6 @@ Você pode definir a propriedade NetworkAccessPolicy como `DenyAll` para impedir
 ## <a name="regional-availability"></a>Disponibilidade regional
 
 [!INCLUDE [virtual-machines-disks-private-links-regions](../../includes/virtual-machines-disks-private-links-regions.md)]
-
-## <a name="prerequisites"></a>Pré-requisitos
-
-Para usar pontos de extremidade privados para exportar e importar discos gerenciados, habilite o recurso na sua assinatura. Envie um email para mdprivatelinks@microsoft.com com as suas IDs de assinatura para habilitar o recurso para suas assinaturas.
-
-Você precisará anotar a rede virtual da VM à qual os discos estão anexados. A rede virtual é necessária ao configurar o ponto de extremidade privado.
 
 ## <a name="create-a-disk-access-resource"></a>Criar um recurso de acesso a disco
 
@@ -101,4 +95,4 @@ Agora você concluiu a configuração de Links Privados que podem ser usados ao 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Perguntas frequentes sobre os Links Privados](./faq-for-disks.md#private-links-for-securely-exporting-and-importing-managed-disks)
-- [Exportar/copiar instantâneos gerenciados como VHD para uma conta de armazenamento em outa região com o PowerShell](scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-storage-account.md)
+- [Exportar/copiar instantâneos gerenciados como VHD para uma conta de armazenamento em outa região com o PowerShell](./scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account.md)

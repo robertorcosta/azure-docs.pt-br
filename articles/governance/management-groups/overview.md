@@ -4,12 +4,12 @@ description: Saiba mais sobre os grupos de gerenciamento, o funcionamento de sua
 ms.date: 09/22/2020
 ms.topic: overview
 ms.custom: contperfq1
-ms.openlocfilehash: e3bc3ee34227fd23ea9f56070f8ea7776a10a134
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: be3369369f28930fd1ecad295a4dad4d14e75cd3
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91533798"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951869"
 ---
 # <a name="what-are-azure-management-groups"></a>O que são grupos de gerenciamento do Azure?
 
@@ -202,6 +202,6 @@ Ao analisar a consulta em grupos de gerenciamento fora do portal do Azure, o esc
 
 Para saber mais sobre grupos de gerenciamento, consulte:
 
-- [Criar grupos de gerenciamento para organizar recursos do Azure](./create.md)
+- [Criar grupos de gerenciamento para organizar recursos do Azure](./create-management-group-portal.md)
 - [Como alterar, excluir ou gerenciar seus grupos de gerenciamento](./manage.md)
 - Veja opções para [Como proteger sua hierarquia de recursos](./how-to/protect-resource-hierarchy.md)
