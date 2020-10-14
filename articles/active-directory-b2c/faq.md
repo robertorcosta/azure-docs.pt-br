@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 10/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e701ac8cee15a338c363ec2697e02e82bb4f4e68
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4db3c58da791a5cad5fc3b9c98f245202d8119e2
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91396426"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92054756"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Perguntas frequentes (FAQ)
 
@@ -149,7 +149,6 @@ Você pode usar nossa nova experiência unificada de **registros de aplicativo**
 1. Selecione cada usuário por vez (exclua o usuário *administrador de assinatura* no qual você está conectado no momento). Selecione **excluir** na parte inferior da página e selecione **Sim** quando solicitado.
 1. Selecione **Azure Active Directory** no menu à esquerda.
 1. Em **gerenciar**, selecione **configurações do usuário**.
-1. Se houver, em **conexões de conta do LinkedIn**, selecione **não**e, em seguida, selecione **salvar**.
 1. Em **gerenciar**, selecione **Propriedades**
 1. Em **Gerenciamento de acesso para recursos do Azure**, selecione **Sim** e, em seguida, selecione **Salvar**.
 1. Saia do portal do Azure e, em seguida, entre novamente para atualizar seu acesso.

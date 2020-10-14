@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/04/2020
+ms.date: 10/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 30c64e4cf467f4e505327414e15b23ee2c6d1543
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f2b4d6da8d4d69a44ca3aabd755c72fd87aaa8e
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89611644"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92054892"
 ---
 # <a name="define-a-saml-identity-provider-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico do provedor de identidade SAML em uma política personalizada Azure Active Directory B2C
 
@@ -166,7 +166,7 @@ O elemento **CryptographicKeys** contém os seguintes atributos:
 | Atributo |Obrigatório | Descrição |
 | --------- | ----------- | ----------- |
 | SamlMessageSigning |Sim | O certificado X509 (conjunto de chaves RSA) a ser usado para assinar as mensagens de SAML. O Azure AD B2C usa essa chave para assinar as solicitações e enviá-las para o provedor de identidade. |
-| SamlAssertionDecryption |Sim | O certificado X509 (conjunto de chaves RSA) a ser usado para descriptografar as mensagens de SAML. Esse certificado deve ser fornecido pelo provedor de identidade. O Azure AD B2C usa esse certificado para descriptografar os dados enviados pelo provedor de identidade. |
+| SamlAssertionDecryption |Não | O certificado X509 (conjunto de chaves RSA). Um provedor de identidade SAML usa a parte pública do certificado para criptografar a asserção da resposta SAML. Azure AD B2C usa a parte privada do certificado para descriptografar a asserção. |
 | MetadataSigning |Não | O certificado X509 (conjunto de chaves RSA) a ser usado para assinar os metadados de SAML. O Azure AD B2C usa essa chave para assinar os metadados.  |
 
 ## <a name="saml-entityid-customization"></a>Personalização de EntityId SAML

@@ -4,16 +4,16 @@ description: Visão geral de como expor uma API hospedada no serviço de aplicat
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.reviewer: sunayv
-ms.openlocfilehash: 7d968c62afbfc92952f747e1e7627c98fe07436d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 359f19598d5f1dff6cda4b303d33ed721ed72d97
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87015078"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92054790"
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Exportando uma API hospedada no Azure para o PowerApps e o Microsoft Flow
 
-O [PowerApps](https://powerapps.microsoft.com/guided-learning/learning-introducing-powerapps/) é um serviço para a criação e utilização de aplicativos comerciais personalizados que se conectam aos seus dados e trabalham entre plataformas. O [Microsoft Flow](/learn/modules/get-started-with-flow/index) facilita a automação de fluxos de trabalho e processos de negócios entre seus aplicativos e serviços favoritos. O PowerApps e o Microsoft Flow vêm com uma variedade de conectores integrados para fontes de dados como Office 365, Dynamics 365, Salesforce e muito mais. Em alguns casos, construtores de aplicativo e fluxo também querem se conectar a fontes de dados e APIs criados por sua organização.
+O [PowerApps](https://powerapps.microsoft.com/guided-learning/learning-introducing-powerapps/) é um serviço para a criação e utilização de aplicativos comerciais personalizados que se conectam aos seus dados e trabalham entre plataformas. A [automatização de energia](/learn/modules/get-started-with-flow/index) torna mais fácil automatizar fluxos de trabalho e processos de negócios entre seus aplicativos e serviços favoritos. O PowerApps e o Microsoft Flow vêm com uma variedade de conectores integrados para fontes de dados como Office 365, Dynamics 365, Salesforce e muito mais. Em alguns casos, construtores de aplicativo e fluxo também querem se conectar a fontes de dados e APIs criados por sua organização.
 
 Da mesma forma, os desenvolvedores que desejam expor suas APIs mais amplamente dentro da organização podem querer disponibilizá-las para construtores de aplicativos e fluxos. Este artigo mostra como exportar uma API criada com [Azure Functions](../azure-functions/functions-overview.md) ou [serviço Azure app](../app-service/overview.md). A API exportada torna-se um *conector personalizado*, usado no PowerApps e no Microsoft Flow, assim como um conector interno.
 

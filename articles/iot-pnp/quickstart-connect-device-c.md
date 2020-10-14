@@ -7,12 +7,12 @@ ms.date: 07/14/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: d8782bf6cab85b1b87c0cfc418a4731cc134db8f
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: e490171fd533783aab9fd44798a9c81c55faf89f
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91577060"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047923"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-device-application-running-on-linux-or-windows-to-iot-hub-c"></a>Início Rápido: Conectar um aplicativo de exemplo do dispositivo do IoT Plug and Play no Linux ou no Windows ao Hub IoT (C)
 
@@ -52,7 +52,7 @@ gcc --version
 
 Para concluir este início rápido no Windows, instale o seguinte software em um ambiente do Windows local:
 
-* [Visual Studio (Community, Professional ou Enterprise)](https://visualstudio.microsoft.com/downloads/) – inclua a carga de trabalho **Desenvolvimento para Desktop com C++** ao [instalar](https://docs.microsoft.com/cpp/build/vscpp-step-0-installation?view=vs-2019&preserve-view=true) o Visual Studio.
+* [Visual Studio (Community, Professional ou Enterprise)](https://visualstudio.microsoft.com/downloads/) – inclua a carga de trabalho **Desenvolvimento para Desktop com C++** ao [instalar](/cpp/build/vscpp-step-0-installation?preserve-view=true&view=vs-2019) o Visual Studio.
 * [Git](https://git-scm.com/download/).
 * [CMake](https://cmake.org/download/).
 
@@ -159,4 +159,4 @@ O código usa a biblioteca Parson para analisar objetos JSON nos conteúdos envi
 Neste início rápido, você aprendeu a conectar um dispositivo IoT Plug and Play a um Hub IoT. Para saber mais sobre como criar uma solução que interage com os dispositivos IoT Plug and Play, confira:
 
 > [!div class="nextstepaction"]
-> [Instruções: Conectar-se a um dispositivo e interagir com ele](howto-develop-solution.md)
+> [Instruções: Conectar-se a um dispositivo e interagir com ele](./quickstart-service-node.md)
