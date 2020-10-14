@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 29d80d2c6dc4e090e30d7a90460dc970ff4d8ca9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 05994a61b0afd0190e3fc1d4b841d576cec047f5
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89320674"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015831"
 ---
 # <a name="analyze-video-and-audio-files-with-azure-media-services"></a>Analisar arquivos de vídeo e áudio com os serviços de mídia do Azure
 
@@ -42,7 +42,7 @@ O Serviços de Mídia do Microsoft Azure atualmente suporta as seguintes predefi
 
 |**Nome da predefinição**|**Cenário**|**Detalhes**|
 |---|---|---|
-|[AudioAnalyzerPreset](/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Analisar áudio|A predefinição aplica um conjunto predefinido de operações de análise baseadas em IA, incluindo transcrição de fala. Atualmente, a predefinição dá suporta ao processamento de conteúdo com uma única faixa do áudio que contenha fala em um único idioma. É possível especificar o idioma o conteúdo de áudio na entrada usando o formato BCP-47 de 'marca de idioma-região'. Os idiomas com suporte são Inglês (' en-US ' e ' en-GB '), espanhol (' es-ES ' e ' es-MX '), francês (' fr-FR '), italiano (' it-IT '), japonês (' ja-JP '), Português (' pt-BR '), chinês (' ZH-CN '), alemão (' de-DE '), árabe (' ar-ex ' e ' ar-SY '), russo (' ru-RU '), híndi (' hi-IN ') e coreano (' ko-KR ').<br/><br/> Se o idioma não for especificado ou definido como nulo, a detecção automática de idioma escolherá o primeiro idioma detectado e continuará com o idioma selecionado durante o arquivo. O recurso de detecção automática de idioma suporta atualmente inglês, chinês, francês, alemão, italiano, japonês, espanhol, russo e português. Ele não dá suporte à alternância dinâmica entre os idiomas após a detecção do primeiro idioma. O recurso de detecção automática de idioma funciona melhor com gravações de áudio com fala claramente discernível. Se a detecção automática de idioma falhar ao localizar o idioma, a transcrição retornará para o inglês.|
+|[AudioAnalyzerPreset](/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Analisando o padrão de áudio|A predefinição aplica um conjunto predefinido de operações de análise baseadas em IA, incluindo transcrição de fala. Atualmente, a predefinição dá suporta ao processamento de conteúdo com uma única faixa do áudio que contenha fala em um único idioma. É possível especificar o idioma o conteúdo de áudio na entrada usando o formato BCP-47 de 'marca de idioma-região'. Os idiomas com suporte são Inglês (' en-US ' e ' en-GB '), espanhol (' es-ES ' e ' es-MX '), francês (' fr-FR '), italiano (' it-IT '), japonês (' ja-JP '), Português (' pt-BR '), chinês (' ZH-CN '), alemão (' de-DE '), árabe (' ar-ex ' e ' ar-SY '), russo (' ru-RU '), híndi (' hi-IN ') e coreano (' ko-KR ').<br/><br/> Se o idioma não for especificado ou definido como nulo, a detecção automática de idioma escolherá o primeiro idioma detectado e continuará com o idioma selecionado durante o arquivo. O recurso de detecção automática de idioma suporta atualmente inglês, chinês, francês, alemão, italiano, japonês, espanhol, russo e português. Ele não dá suporte à alternância dinâmica entre os idiomas após a detecção do primeiro idioma. O recurso de detecção automática de idioma funciona melhor com gravações de áudio com fala claramente discernível. Se a detecção automática de idioma falhar ao localizar o idioma, a transcrição retornará para o inglês.|[AudioAnalyzerPreset](/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Analisando o áudio básico|"Esse modo executa a transcrição de fala em texto e a geração de um arquivo de subtítulo/legenda do VTT. A saída desse modo inclui um arquivo JSON do insights, incluindo apenas palavras-chave, transcrição e informações de tempo. A detecção automática de idioma e os diarization de orador não estão incluídos nesse modo. " A lista de idiomas com suporte está disponível aqui: https://go.microsoft.com/fwlink/?linkid=2109463|
 |[VideoAnalyzerPreset](/rest/api/media/transforms/createorupdate#videoanalyzerpreset)|Analisar áudio e vídeo|Extraia insights (metadados avançados) de áudio e vídeo e gere um arquivo no formato JSON. É possível especificar se deseja extrair apenas insights de áudio ao processar um arquivo de vídeo. Para obter mais informações, consulte [Analisar vídeo](analyze-videos-tutorial-with-api.md).|
 |[FaceDetectorPreset](/rest/api/media/transforms/createorupdate#facedetectorpreset)|Detectando rostos presentes em vídeo|Descreve as configurações a serem usadas ao analisar um vídeo para detectar todas as faces presentes.|
 
@@ -71,7 +71,7 @@ A saída inclui um arquivo JSON (insights.jsem) com todas as informações encon
 
 ### <a name="transcript"></a>transcript
 
-|Nome|Descrição|
+|Name|Descrição|
 |---|---|
 |id|A ID da linha.|
 |text|A própria transcrição.|
@@ -109,7 +109,7 @@ Exemplo:
 
 ### <a name="ocr"></a>ocr
 
-|Nome|Descrição|
+|Name|Descrição|
 |---|---|
 |id|A ID da linha de OCR.|
 |text|O texto de OCR.|
@@ -152,12 +152,12 @@ Exemplo:
 
 ### <a name="faces"></a>faces
 
-|Nome|Descrição|
+|Name|Descrição|
 |---|---|
 |id|A ID da face.|
 |name|O nome da face. Pode ser ' desconhecido #0 ', um celebridade identificado ou uma pessoa treinada para o cliente.|
 |confidence|A confiança de identificação da face.|
-|descrição|Uma descrição da celebridade. |
+|description|Uma descrição da celebridade. |
 |thumbnailId|O ID da miniatura dessa face.|
 |knownPersonId|A ID interna (se for uma pessoa conhecida).|
 |referenceId|A ID do Bing (se for um celebridade do Bing).|
@@ -197,7 +197,7 @@ Exemplo:
 
 ### <a name="shots"></a>shots
 
-|Nome|Descrição|
+|Name|Descrição|
 |---|---|
 |id|A ID da captura.|
 |keyFrames|Uma lista com os quadros-chave dentro da captura (cada um tem uma ID e uma lista de intervalos de tempo de instâncias). As instâncias de frames principais têm um campo thumbnailId com o ID de miniatura da keyFrame.|
@@ -254,7 +254,7 @@ Exemplo:
 
 ### <a name="statistics"></a>estatísticas
 
-|Nome|Descrição|
+|Name|Descrição|
 |---|---|
 |CorrespondenceCount|Número de correspondências no vídeo.|
 |WordCount|O número de palavras por alto-falante.|
@@ -267,7 +267,7 @@ Exemplo:
 
 Os sentimentos são agregadas de acordo com seu campo sentimentType (Positivo/Neutro/Negativo). Por exemplo, 0-0.1, 0.1-0.2.
 
-|Nome|Descrição|
+|Name|Descrição|
 |---|---|
 |id|A ID do sentimento.|
 |averageScore |A média de todas as pontuações de todas as instâncias desse tipo de sentimento - Neutral/positivo/negativo|
@@ -302,7 +302,7 @@ Os sentimentos são agregadas de acordo com seu campo sentimentType (Positivo/Ne
 
 ### <a name="labels"></a>rótulos
 
-|Nome|Descrição|
+|Name|Descrição|
 |---|---|
 |id|A ID do rótulo.|
 |name|O nome do rótulo (por exemplo, "Computador", "TV").|
@@ -360,7 +360,7 @@ Os sentimentos são agregadas de acordo com seu campo sentimentType (Positivo/Ne
 
 ### <a name="keywords"></a>palavras-chave
 
-|Nome|Descrição|
+|Name|Descrição|
 |---|---|
 |id|A ID da palavra-chave.|
 |text|O texto da palavra-chave.|
@@ -411,7 +411,7 @@ O bloco visualContentModeration contém intervalos de tempo que o Video Indexer 
 
 Os vídeos que contêm conteúdo adulto ou atraente podem estar disponíveis apenas para visualização privada. Os usuários podem enviar uma solicitação para uma revisão humana do conteúdo; nesse caso, o `IsAdult` atributo conterá o resultado da revisão humana.
 
-|Nome|Descrição|
+|Name|Descrição|
 |---|---|
 |id|A ID de moderação de conteúdo visual.|
 |adultScore|A pontuação de conteúdo adulta (do moderador de conteúdo).|

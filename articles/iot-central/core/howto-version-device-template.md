@@ -1,20 +1,20 @@
 ---
 title: Noções básicas sobre o controle de versão de modelo de dispositivo para aplicativos Azure IoT Central | Microsoft Docs
 description: Iterar modelos de dispositivo criando novas versões e sem afetar os dispositivos conectados em tempo real
-author: sarahhubbard
-ms.author: sahubbar
+author: philmea
+ms.author: philmea
 ms.date: 04/24/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.custom: device-developer
-ms.openlocfilehash: 2025b127a428afa478cfe839c7619df2d7d688d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c13c0b8cb118df877642328fa1b5512be31cffa
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90015952"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014419"
 ---
 # <a name="create-a-new-device-template-version"></a>Criar uma nova versão do modelo de dispositivo
 
@@ -93,7 +93,7 @@ Determinados elementos de seus recursos de dispositivo podem ser editados sem a 
 1. Selecione o modelo de dispositivo que você deseja personalizar.
 1. Escolha a guia **Personalizar** .
 1. Todos os recursos definidos no modelo de funcionalidade do dispositivo estão listados aqui. Você pode editar, salvar e usar todos esses campos sem a necessidade de versão do seu modelo de dispositivo. Se houver campos que você deseja editar que sejam somente leitura, você deverá fazer a versão do modelo de dispositivo para alterá-los. Selecione um campo que você deseja editar e insira um novo valor.
-1. Clique em **Salvar**. Agora, esses valores substituem tudo o que foi salvo inicialmente em seu modelo de dispositivo e são usados em todo o aplicativo.
+1. Clique em **Save** (Salvar). Agora, esses valores substituem tudo o que foi salvo inicialmente em seu modelo de dispositivo e são usados em todo o aplicativo.
 
 ## <a name="version-a-device-template"></a>Versão um modelo de dispositivo
 

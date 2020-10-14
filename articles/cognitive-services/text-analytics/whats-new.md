@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: aahi
-ms.openlocfilehash: 17c9797935612c8697d30455e28cc91321b84772
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: f79152dbfa5a0576cd13484f9b3704eaed3901ea
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999666"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015917"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>O que há de novo na API de Análise de Texto?
 
@@ -24,6 +24,7 @@ O API de Análise de Texto é atualizado em uma base contínua. Para se manter a
 ## <a name="october-2020"></a>Outubro de 2020
 
 * Suporte a hindi para Análise de Sentimento v3. x, começando com a versão do modelo `2020-04-01` . 
+* Versão de modelo `2020-09-01` para o ponto de extremidade/Languages v3, que adiciona melhorias de detecção de linguagem e maior precisão.
 
 ## <a name="september-2020"></a>Setembro de 2020
 
@@ -191,9 +192,9 @@ Tipos de entidade adicionais agora estão disponíveis no serviço de visualiza�
 
 #### <a name="named-entity-recognition-ner"></a>NER (Reconhecimento de Entidade Nomeada)
 
-* Um [novo ponto de extremidade](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionPii) para reconhecer tipos de entidade de informações pessoais (somente em inglês)
+* Um [novo ponto de extremidade](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesRecognitionPii) para reconhecer tipos de entidade de informações pessoais (somente em inglês)
 
-* Separe pontos de extremidade para [reconhecimento de entidade](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral) e [vinculação de entidade](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesLinking).
+* Separe pontos de extremidade para [reconhecimento de entidade](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesRecognitionGeneral) e [vinculação de entidade](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesLinking).
 
 * [Versão do modelo](concepts/model-versioning.md) `2019-10-01` , que inclui:
     * Detecção expandida e categorização de entidades encontradas no texto. 
@@ -205,7 +206,7 @@ A vinculação de entidades dá suporte a inglês e espanhol. O suporte ao idiom
 
 #### <a name="sentiment-analysis-v3-public-preview"></a>Análise de Sentimento v3 em versão prévia pública
 
-* Um [novo ponto de extremidade](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/Sentiment) para análise de sentimentos.
+* Um [novo ponto de extremidade](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/Sentiment) para análise de sentimentos.
 * [Versão do modelo](concepts/model-versioning.md) `2019-10-01` , que inclui:
 
     * Melhorias significativas na precisão e nos detalhes da categorização e da Pontuação de texto da API.

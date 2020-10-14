@@ -1,27 +1,22 @@
 ---
-title: Publicar a Área de Trabalho Remota com o Proxy de Aplicativo do Azure AD | Microsoft Docs
-description: Aborda como configurar o proxy de aplicativo com o RDS
+title: Publicar a Área de Trabalho Remota com o Proxy de Aplicativo do Azure Active Directory
+description: Aborda como configurar o proxy de aplicativo com o Serviços de Área de Trabalho Remota (RDS)
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: kenwith
-ms.custom: it-pro
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ffdccf9cf3b6de4ba15d6076d7a5b9e0a93f464
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83d7ed6c937d515520058819636bc23c8de173fd
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89396753"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015269"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publicar a Área de Trabalho Remota com o Proxy de Aplicativo do Azure AD
 
@@ -146,6 +141,6 @@ Para usar a autenticação de passagem, há apenas duas modificações às etapa
 2. Em [Tráfego de RDS direto para o Proxy de Aplicativo](#direct-rds-traffic-to-application-proxy), ignore totalmente a etapa 8.
 
 ## <a name="next-steps"></a>Próximas etapas
-
-[Habilitar o acesso remoto ao SharePoint com o Azure proxy de aplicativo do AD](application-proxy-integrate-with-sharepoint-server.md) 
- [Considerações de segurança para acessar aplicativos remotamente usando o Azure proxy de aplicativo do AD](application-proxy-security.md)
+- [Habilitar acesso remoto ao SharePoint com o Proxy de Aplicativo do Azure AD](application-proxy-integrate-with-sharepoint-server.md)
+- [Considerações de segurança para acessar aplicativos remotamente usando o Proxy de Aplicativo do Azure AD](application-proxy-security.md)
+- [Práticas recomendadas para o balanceamento de carga de vários servidores de aplicativos](application-proxy-high-availability-load-balancing.md#best-practices-for-load-balancing-among-multiple-app-servers)

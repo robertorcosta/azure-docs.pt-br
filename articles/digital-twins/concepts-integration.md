@@ -7,16 +7,18 @@ ms.author: baanders
 ms.date: 3/16/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 7e360c158c7887109684d13f774cbbda1813373e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4fcad5798d421939717a6beae01ae9930cfcb117
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91729127"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015014"
 ---
 # <a name="integrate-azure-digital-twins-with-other-services"></a>Integrar o gêmeos digital do Azure a outros serviços
 
-O Azure digital gêmeos normalmente é usado junto com outros serviços. Usando as [**rotas de eventos**](concepts-route-events.md), o Azure digital gêmeos recebe dados de serviços upstream, como o [Hub IOT](../iot-hub/about-iot-hub.md) ou [aplicativos lógicos](../logic-apps/logic-apps-overview.md), que são usados para entregar telemetria e notificações. 
+O Azure digital gêmeos normalmente é usado junto com outros serviços para criar soluções flexíveis e conectadas que usam seus dados de várias maneiras.
+
+Usando as [**rotas de eventos**](concepts-route-events.md), o Azure digital gêmeos pode receber dados de serviços upstream, como o [Hub IOT](../iot-hub/about-iot-hub.md) ou [aplicativos lógicos](../logic-apps/logic-apps-overview.md), que são usados para entregar telemetria e notificações. 
 
 O Azure digital gêmeos também pode rotear dados para serviços downstream, como [mapas do Azure](../azure-maps/about-azure-maps.md) e [Time Series insights](../time-series-insights/time-series-insights-update-overview.md), para armazenamento, integração de fluxo de trabalho, análise e muito mais. 
 
@@ -24,7 +26,7 @@ O Azure digital gêmeos também pode rotear dados para serviços downstream, com
 
 O Azure digital gêmeos pode ser orientado com dados e eventos de qualquer serviço —[Hub IOT](../iot-hub/about-iot-hub.md), [aplicativos lógicos](../logic-apps/logic-apps-overview.md), seu próprio serviço personalizado e muito mais. Isso permite que você colete a telemetria de dispositivos físicos em seu ambiente e processe esses dados usando o grafo de gêmeos digital do Azure na nuvem.
 
-O Azure digital gêmeos não tem um hub IoT interno. Você pode usar um hub IoT existente atualmente em produção ou implantar um novo. Isso lhe dá acesso completo a todos os recursos de gerenciamento de dispositivos do Hub IoT.
+Em vez de ter um hub IoT interno em segundo plano, o Azure digital gêmeos permite que você "Traga seu próprio Hub IoT" para usar com o serviço. Você pode usar um hub IoT existente atualmente em produção ou implantar um novo para ser usado para essa finalidade. Isso lhe dá acesso completo a todos os recursos de gerenciamento de dispositivos do Hub IoT.
 
 Para ingerir dados de qualquer fonte no Azure digital gêmeos, use uma [**função do Azure**](../azure-functions/functions-overview.md). Saiba mais sobre esse padrão em [*como: a telemetria de ingestão do Hub IOT*](how-to-ingest-iot-hub-data.md)ou experimente você mesmo no tutorial do Azure digital gêmeos [*: Conecte uma solução de ponta a ponta*](tutorial-end-to-end.md). 
 

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/06/2020
+ms.date: 10/12/2020
 ms.author: b-juche
-ms.openlocfilehash: 1c64bd10b34b61797cb3bf3de0cd7d2aa819e795
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7eac6a40476cffe875a03de49c9c9311ffbf4d39
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777116"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92016035"
 ---
 # <a name="service-levels-for-azure-netapp-files"></a>Níveis de serviço do Azure NetApp Files
 Os níveis de serviço são um atributo de um pool de capacidade. Os níveis de serviço são definidos e diferenciados pela taxa de transferência máxima permitida para um volume no pool de capacidade com base na cota atribuída ao volume.
@@ -53,15 +53,15 @@ O diagrama a seguir mostra exemplos de limite de taxa de transferência de volum
 
 ![Ilustração de nível de serviço](../media/azure-netapp-files/azure-netapp-files-service-levels.png)
 
-* No exemplo 1 acima, um volume de um pool de capacidade de QoS automático com a camada de armazenamento Premium atribuído a 2 TiB de cota será atribuído a um limite de taxa de transferência de 128 MiB/s (2 TiB * 64 MiB/s). Esse cenário se aplica independentemente do tamanho do pool de capacidade ou do consumo real do volume.
+* No exemplo 1, um volume de um pool de capacidade de QoS automático com a camada de armazenamento Premium atribuído a 2 TiB de cota será atribuído a um limite de taxa de transferência de 128 MiB/s (2 TiB * 64 MiB/s). Esse cenário se aplica independentemente do tamanho do pool de capacidade ou do consumo real do volume.
 
-* No exemplo 2 acima, um volume de um pool de capacidade de QoS automático com a camada de armazenamento Premium atribuído 100 GiB de cota será atribuído a um limite de taxa de transferência de 6,25 MiB/s (0, 9765625 TiB * 64 MiB/s). Esse cenário se aplica independentemente do tamanho do pool de capacidade ou do consumo real do volume.
+* No exemplo 2, um volume de um pool de capacidade de QoS automático com a camada de armazenamento Premium atribuído 100 GiB de cota será atribuído a um limite de taxa de transferência de 6,25 MiB/s (0, 9765625 TiB * 64 MiB/s). Esse cenário se aplica independentemente do tamanho do pool de capacidade ou do consumo real do volume.
 
 ### <a name="throughput-limit-examples-of-volumes-in-a-manual-qos-capacity-pool"></a>Exemplos de limite de taxa de transferência de volumes em um pool de capacidade de QoS manual 
 
 Se você usar um pool de capacidade de QoS manual, poderá atribuir a capacidade e a taxa de transferência para um volume de forma independente. Ao criar um volume em um pool de capacidade de QoS manual, você pode especificar o valor da taxa de transferência (MiB/S). A taxa de transferência total atribuída a volumes em um pool de capacidade de QoS manual depende do tamanho do pool e do nível de serviço. Ele é limitado por (tamanho do pool de capacidade no nível de serviço TiB x taxa de transferência/TiB). Por exemplo, um pool de capacidade de 10 TiB com o nível de ultra serviço tem uma capacidade de taxa de transferência total de 1280 MiB/s (10 TiB x 128 MiB/s/TiB) disponíveis para os volumes.
 
-Para um sistema SAP HANA, esse pool de capacidade pode ser usado para criar os seguintes volumes. Cada volume fornece o tamanho individual e a taxa de transferência para atender aos requisitos do aplicativo:
+Por exemplo, para um sistema de SAP HANA, esse pool de capacidade pode ser usado para criar os seguintes volumes. Cada volume fornece o tamanho individual e a taxa de transferência para atender aos requisitos do aplicativo:
 
 * SAP HANA volume de dados: tamanho 4 TiB com até 704 MiB/s
 * Volume de log do SAP HANA: tamanho de 0,5 TiB com até 256 MiB/s
@@ -76,7 +76,7 @@ O diagrama a seguir ilustra os cenários para os volumes de SAP HANA:
 
 - [Página de preços do Azure NetApp Files](https://azure.microsoft.com/pricing/details/storage/netapp/)
 - [Modelo de custo para o Azure NetApp Files](azure-netapp-files-cost-model.md) 
-- [Configurar um pool de capacidade](azure-netapp-files-set-up-capacity-pool.md)
+- [Criar um pool de capacidade](azure-netapp-files-set-up-capacity-pool.md)
 - [Contrato de Nível de Serviço (SLA) para Azure NetApp Files](https://azure.microsoft.com/support/legal/sla/netapp/)
 - [Alterar dinamicamente o nível de serviço de um volume](dynamic-change-volume-service-level.md) 
 - [Objetivos de nível de serviço para replicação entre regiões](cross-region-replication-introduction.md#service-level-objectives)

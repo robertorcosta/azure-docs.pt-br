@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: e4c0ee0b1a049a7e82cbd1fac8e261fff5fdf375
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 884b1b85da5b52101ae5a0053003d47260a1134d
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89269719"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015814"
 ---
 # <a name="media-services-regulatory-compliance"></a>Conformidade regulatória dos serviços de mídia
 
@@ -33,11 +33,11 @@ Os serviços do governo dos serviços de mídia são compatíveis com o DoD CC S
 
 Uma revisão dos serviços de mídia de 3PAO e JAB não está planejada para 2020.
 
-Leia mais sobre a conformidade dos serviços do Azure no artigo [Serviços do Azure por FedRAMP e SRG de escopo de auditoria do DoD CC](https://docs.microsoft.com/azure/azure-government/compliance/azure-services-in-fedramp-auditscope) .
+Leia mais sobre a conformidade dos serviços do Azure no artigo [Serviços do Azure por FedRAMP e SRG de escopo de auditoria do DoD CC](../../azure-government/compliance/azure-services-in-fedramp-auditscope.md) .
 
 ## <a name="azure-compliance-documentation"></a>Documentação de conformidade do Azure
 
-Se sua organização precisar estar em conformidade com os padrões legais ou regulatórios para serviços globais, governamentais, regionais, financeiros, de saúde, mídia e produção, comece com a [documentação de conformidade do Azure](https://docs.microsoft.com/azure/compliance/).
+Se sua organização precisar estar em conformidade com os padrões legais ou regulatórios para serviços globais, governamentais, regionais, financeiros, de saúde, mídia e produção, comece com a [documentação de conformidade do Azure](../../compliance/index.yml).
 
 Você também encontrará recursos de conformidade adicionais, como relatórios de auditoria, uma lista de verificação para privacidade e Regulamento Geral sobre a Proteção de Dados (GDPR), plantas de conformidade, diretrizes nacionais e regionais, implementação e mapeamentos, bem como White papers e relatórios de analistas.
 

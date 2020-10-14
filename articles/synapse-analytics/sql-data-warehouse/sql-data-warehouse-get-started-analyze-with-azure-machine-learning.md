@@ -12,12 +12,12 @@ ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tag: azure-Synapse
-ms.openlocfilehash: 9cf65b2fdeb7faa03b950593db86dd32a4ef91a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea4038e88d41a089958d4199e4c5a00f0d2acabd
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86495679"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015559"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Analisar dados com o Azure Machine Learning
 
@@ -56,7 +56,7 @@ FROM [dbo].[vTargetMail]
 
 Depois que os dados estiverem disponíveis no Azure Data Lake Storage, os repositórios de dados no Azure Machine Learning serão usados para [se conectar aos serviços de armazenamento do Azure](https://docs.microsoft.com/azure/machine-learning/how-to-access-data). Siga as etapas abaixo para criar um repositório de armazenamento e um conjunto de uma correspondente:
 
-1. Inicie o Azure Machine Learning Studio em portal do Azure ou entre no [Azure Machine Learning Studio](https://ml.azure.com/).
+1. Inicie o Azure Machine Learning Studio de portal do Azure ou entre no [Azure Machine Learning Studio](https://ml.azure.com/).
 
 1. Clique em **repositórios de armazenamento** no painel esquerdo na seção **gerenciar** e, em seguida, clique em **novo repositório de armazenamento**.
 

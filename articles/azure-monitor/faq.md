@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2020
-ms.openlocfilehash: 4b7f596d2184d25229cc1a8e496d0d78eaaabdb6
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 180490dc79554efa072311e9a2b7f5df348b432b
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994673"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014232"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Perguntas frequentes sobre o Azure Monitor
 
@@ -401,7 +401,7 @@ Cada item transmitido carrega uma propriedade `itemCount` que mostra quantos eve
 
 **Não há suporte**para a movimentação de recursos de Application insights existentes de uma região para outra no momento. Os dados históricos que você coletou **não podem ser migrados** para uma nova região. A única solução parcial é:
 
-1. Crie um recurso novo Application Insights ([clássico](app/create-new-resource.md) ou [baseado em espaço de trabalho](/app/create-workspace-resource.md)) na nova região.
+1. Crie um recurso novo Application Insights ([clássico](app/create-new-resource.md) ou [baseado em espaço de trabalho](/azure/azure-monitor/app/create-workspace-resource)) na nova região.
 2. Recrie todas as personalizações exclusivas específicas para o recurso original no novo recurso.
 3. Modifique seu aplicativo para usar a [chave de instrumentação](app/create-new-resource.md#copy-the-instrumentation-key) ou a cadeia de [conexão](app/sdk-connection-string.md)do novo recurso de região.  
 4. Teste para confirmar se tudo está continuando a funcionar conforme o esperado com o novo recurso Application Insights. 
@@ -414,7 +414,7 @@ Personalizações exclusivas que normalmente precisam ser recriadas ou atualizad
 - Recrie alertas de disponibilidade.
 - Recrie qualquer configuração de RBAC (controle de acesso Role-Based) personalizada que seja necessária para que os usuários acessem o novo recurso. 
 - Replique as configurações que envolvem amostragem de ingestão, retenção de dados, limite diário e habilitação de métricas personalizadas. Essas configurações são controladas por meio do painel **uso e custos estimados** .
-- Qualquer integração que dependa de chaves de API, como [anotações de versão](/app/annotations.md), o canal de [controle seguro de métricas ao vivo](app/live-stream.md#secure-the-control-channel) , etc. Será necessário gerar novas chaves de API e atualizar a integração associada. 
+- Qualquer integração que dependa de chaves de API, como [anotações de versão](/azure/azure-monitor/app/annotations), o canal de [controle seguro de métricas ao vivo](app/live-stream.md#secure-the-control-channel) , etc. Será necessário gerar novas chaves de API e atualizar a integração associada. 
 - A exportação contínua em recursos clássicos precisaria ser configurada novamente.
 - As configurações de diagnóstico em recursos baseados em espaço de trabalho precisariam ser configuradas novamente.
 

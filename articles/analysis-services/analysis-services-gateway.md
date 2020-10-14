@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ee332eb7dea86e07c2d8f9b75a0e152dc7482a41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fed184c349789dc38f12f62567acc0d0500ca94c
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87438831"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92016086"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Conectando-se a fontes de dados locais com o gateway de dados local
 
@@ -91,11 +91,11 @@ Você pode forçar o gateway para se comunicar com o Barramento de Serviço do A
 
 Os artigos a seguir estão incluídos no conteúdo geral do gateway de dados local que se aplica a todos os serviços aos quais o gateway dá suporte:
 
-* [Perguntas frequentes de gateway de dados no local](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem-faq)   
-* [Usar o aplicativo de gateway de dados local](https://docs.microsoft.com/data-integration/gateway/service-gateway-app)   
-* [Administração de nível de locatário](https://docs.microsoft.com/data-integration/gateway/service-gateway-tenant-level-admin)
-* [Definir configurações de proxy](https://docs.microsoft.com/data-integration/gateway/service-gateway-proxy)   
-* [Ajustar as configurações de comunicação](https://docs.microsoft.com/data-integration/gateway/service-gateway-communication)   
-* [Configurar arquivos de log](https://docs.microsoft.com/data-integration/gateway/service-gateway-log-files)   
-* [Solucionar problemas](https://docs.microsoft.com/data-integration/gateway/service-gateway-tshoot)
-* [Monitorar e otimizar o desempenho do gateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-performance)
+* [Perguntas frequentes de gateway de dados no local](/data-integration/gateway/service-gateway-onprem-faq)   
+* [Usar o aplicativo de gateway de dados local](/data-integration/gateway/service-gateway-app)   
+* [Administração de nível de locatário](/data-integration/gateway/service-gateway-tenant-level-admin)
+* [Definir configurações de proxy](/data-integration/gateway/service-gateway-proxy)   
+* [Ajustar as configurações de comunicação](/data-integration/gateway/service-gateway-communication)   
+* [Configurar arquivos de log](/data-integration/gateway/service-gateway-log-files)   
+* [Solucionar problemas](/data-integration/gateway/service-gateway-tshoot)
+* [Monitorar e otimizar o desempenho do gateway](/data-integration/gateway/service-gateway-performance)

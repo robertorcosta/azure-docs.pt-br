@@ -6,12 +6,12 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/09/2020
-ms.openlocfilehash: 9eb1f9162f0546e08f59391af1042becad25cf3b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6f34b36d495a2ef326727629d090a0da5260ce10
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91803986"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014555"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Perguntas frequentes sobre o Link do Azure Synapse para Azure Cosmos DB
 
@@ -35,7 +35,9 @@ Na versão de visualização, quando o link Synapse do Azure está habilitado pa
 
 ### <a name="is-backup-and-restore-supported-for-azure-synapse-link-enabled-accounts"></a>O backup e a restauração têm suporte para contas habilitadas do Azure Synapse link?
 
-Em versão prévia, para contas de banco de dados habilitadas para o link do Azure Synapse, não há suporte para backup e restauração de contêineres. Se você tiver cargas de trabalho de produção que exigem a funcionalidade de backup e restauração, recomendamos não habilitar o link Synapse nessas contas de banco de dados. 
+Para os contêineres com o repositório analítico ativado, o backup automático e a restauração de seus dados no repositório analítico não têm suporte no momento. 
+
+Quando o link do Synapse estiver habilitado em uma conta de banco de dados, Azure Cosmos DB continuará a [fazer backups](https://docs.microsoft.com/azure/cosmos-db/online-backup-and-restore) de seus dados automaticamente no armazenamento transacional (somente) de contêineres no intervalo de backup agendado, como sempre. É importante observar que, quando um contêiner com o armazenamento analítico ativado é restaurado para uma nova conta, o contêiner será restaurado somente com armazenamento transacional e nenhum repositório analítico habilitado. 
 
 ### <a name="can-i-disable-the-azure-synapse-link-feature-for-my-azure-cosmos-db-account"></a>Posso desabilitar o recurso de link Synapse do Azure para minha conta de Azure Cosmos DB?
 

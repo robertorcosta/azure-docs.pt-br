@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: eb9d901a32d558f676ba10eaf65b54c51bfbcda8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99604092ea901458062abd6423d74ad8f1f2c8d7
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89259171"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014402"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Cenários e disponibilidade de recursos dos Serviços de Mídia em datacenters
 
@@ -89,10 +89,10 @@ Para obter informações sobre a disponibilidade nos datacenters, consulte a se�
 
 ## <a name="use-media-analytics-to-derive-actionable-insights-from-your-videos"></a>Use a Análise de Mídia para obter informações acionáveis de seus vídeos
 
-A Análise de Mídia é uma coleção de componentes de fala e de visão que facilitam a obtenção de análises acionáveis dos arquivos de vídeo de organizações e de empresas. Para saber mais, confira [Visão geral a Análise dos Serviços de Mídia do Azure](media-services-analytics-overview.md).
+A Análise de Mídia é uma coleção de componentes de fala e de visão que facilitam a obtenção de análises acionáveis dos arquivos de vídeo de organizações e de empresas. Para saber mais, confira [Visão geral a Análise dos Serviços de Mídia do Azure](./legacy-components.md).
 
 1. Carregue um arquivo de mídia de alta qualidade em um ativo.
-2. Processe seus vídeos com um dos serviços de Análise de Mídia descritos na seção [Visão geral da Análise de Mídia](media-services-analytics-overview.md).
+2. Processe seus vídeos com um dos serviços de Análise de Mídia descritos na seção [Visão geral da Análise de Mídia](./legacy-components.md).
 3. O processador de mídia da Análise de Mídia produz arquivos MP4 ou arquivos JSON. Se um processador de mídia produzir um arquivo MP4, você poderá baixar o arquivo progressivamente. Se um processador de mídia produzir um arquivo JSON, você poderá baixar o arquivo do Armazenamento de Blobs do Azure.
 
 Para obter informações sobre a disponibilidade nos datacenters, consulte a seção [Disponibilidade](#availability).
@@ -113,7 +113,7 @@ Para obter informações sobre a disponibilidade nos datacenters, consulte a se�
 3. Visualize seu stream ao vivo.
 4. Entregue o conteúdo por meio de protocolos de streaming comuns (por exemplo, MPEG DASH, Smooth, HLS) diretamente aos seus clientes ou a uma CDN (Rede de Distribuição de Conteúdo) para uma distribuição posterior.
 
-    -ou-
+    - ou -
 
     Registre e armazene o conteúdo incluído para uma transmissão posterior (Vídeo sob Demanda).
 
@@ -179,10 +179,10 @@ Os clientes dos Serviços de Mídia podem escolher um ponto de extremidade de st
 
 #### <a name="availability"></a>Disponibilidade
 
-|Nome|Status|Datacenters
+|Name|Status|Datacenters
 |---|---|---|
-|Standard|GA|Todos|
-|Premium|GA|Todos|
+|Standard|GA|Tudo|
+|Premium|GA|Tudo|
 
 ### <a name="live-encoding"></a>Codificação ativa
 
@@ -198,12 +198,12 @@ A AMS oferece dois codificadores de sob demanda **Media Encoder Standard** e **F
 
 |Nome do processador de mídia|Status|Datacenters
 |---|---|---|
-|Media Encoder Standard|GA|Todos|
+|Media Encoder Standard|GA|Tudo|
 |Fluxo de trabalho do Media Encoder Premium|GA|Todos, exceto China|
 
 ### <a name="analytics-media-processors"></a>Processadores de mídia da Análise
 
-A Análise de Mídia é uma coleção de componentes de fala e pesquisa visual que facilitam a obtenção de análises acionáveis dos arquivos de vídeo de organizações e de empresas. Para saber mais, confira [Visão geral a Análise dos Serviços de Mídia do Azure](media-services-analytics-overview.md).
+A Análise de Mídia é uma coleção de componentes de fala e pesquisa visual que facilitam a obtenção de análises acionáveis dos arquivos de vídeo de organizações e de empresas. Para saber mais, confira [Visão geral a Análise dos Serviços de Mídia do Azure](./legacy-components.md).
 
 > [!NOTE]
 > Alguns processadores de mídia de análise serão desativados. Para ver as datas de desativação, consulte o tópico [Componentes herdados](legacy-components.md).
@@ -213,10 +213,10 @@ A Análise de Mídia é uma coleção de componentes de fala e pesquisa visual q
 |Nome do processador de mídia|Status|Datacenters
 |---|---|---|
 |Detector de Rostos em Mídias do Azure|Visualização|Todos|
-|Indexador de Mídia do Azure|GA|Todos|
+|Indexador de Mídia do Azure|GA|Tudo|
 |Detector de Movimento em Mídias do Azure|Visualização|Todos|
 |OCR de Mídia do Azure|Visualização|Todos|
-|Azure Media Redactor|GA|Todos|
+|Azure Media Redactor|GA|Tudo|
 |Miniaturas de Vídeo de Mídia do Azure|Visualização|Todos|
 
 ### <a name="protection"></a>Proteção
@@ -227,10 +227,10 @@ Os Serviços de Mídia do Microsoft Azure permitem proteger a mídia desde o mom
 
 |Criptografia|Status|Datacenters|
 |---|---|---| 
-|Armazenamento|GA|Todos|
-|Chaves AES-128|GA|Todos|
-|FairPlay|GA|Todos|
-|PlayReady|GA|Todos|
+|Armazenamento|GA|Tudo|
+|Chaves AES-128|GA|Tudo|
+|FairPlay|GA|Tudo|
+|PlayReady|GA|Tudo|
 |Widevine|GA|Todos, exceto Alemanha, Governo Federal e China.
 
 ### <a name="reserved-units-rus"></a>Unidades Reservadas (URs)
@@ -253,7 +253,7 @@ Para obter mais informações, consulte a seção sobre [dimensionamento](#scali
 
 |Nome do tipo de UR|Status|Datacenters
 |---|---|---|
-|S1|GA|Todos|
+|S1|GA|Tudo|
 |S2|GA|Todos, exceto sul do Brasil e Oeste da Índia|
 |S3|GA|Todos, exceto Oeste da Índia|
 

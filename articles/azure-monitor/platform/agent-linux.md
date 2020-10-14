@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: 4414dc86ff318cfff5d224ce7aa064c31f3df460
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61233173452bb45162c7b254203e0ff2922a9784
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91294516"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92013739"
 ---
 # <a name="install-log-analytics-agent-on-linux-computers"></a>Instalar o Agente do Log Analytics em computadores Linux
 Este artigo fornece detalhes sobre como instalar o agente de Log Analytics em computadores Linux usando os seguintes métodos:
@@ -215,7 +215,7 @@ A atualização de uma versão anterior, começando com a versão 1.0.0-47, tem 
 ## <a name="cache-information"></a>Informações de cache
 Os dados do agente de Log Analytics para Linux são armazenados em cache no computador local em *% STATE_DIR_WS%/out_oms_common*. buffer * antes de ser enviado para Azure monitor. Os dados de log personalizados são armazenados em buffer em *% STATE_DIR_WS%/out_oms_blob*. buffer *. O caminho pode ser diferente para algumas [soluções e tipos de dados](https://github.com/microsoft/OMS-Agent-for-Linux/search?utf8=%E2%9C%93&q=+buffer_path&type=).
 
-O agente tenta carregar a cada 20 segundos. Se falhar, ele aguardará um período de tempo cada vez maior até que tenha êxito. Ele aguardará 30 segundos antes da segunda tentativa, 60 segundos antes da próxima, 120 segundos e assim por diante até um máximo de 9 minutos entre as repetições até que ele se conecte com êxito novamente. O agente tentará novamente 10 vezes para um determinado bloco de dados antes de descartar e passar para o próximo. Isso continuará até que o agente possa ser carregado com êxito novamente. O significa que os dados podem ser armazenados em buffer em até 8,5 horas antes de serem descartados.
+O agente tenta carregar a cada 20 segundos. Se falhar, ele aguardará um período de tempo cada vez maior até que tenha êxito: 30 segundos antes da segunda tentativa, 60 segundos antes da terceira, 120 segundos... e até um máximo de 16 minutos entre as repetições até que ele se conecte com êxito novamente. O agente tentará novamente até seis vezes para um determinado bloco de dados antes de descartar e passar para o próximo. Isso continuará até que o agente possa ser carregado com êxito novamente. Isso significa que os dados podem ser armazenados em buffer em até aproximadamente 30 minutos antes de serem descartados.
 
 O tamanho de cache padrão é 10 MB, mas pode ser modificado no [arquivo omsagent. conf](https://github.com/microsoft/OMS-Agent-for-Linux/blob/e2239a0714ae5ab5feddcc48aa7a4c4f971417d4/installer/conf/omsagent.conf).
 
