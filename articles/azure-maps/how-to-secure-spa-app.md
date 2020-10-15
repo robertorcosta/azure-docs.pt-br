@@ -1,7 +1,7 @@
 ---
 title: Como proteger um aplicativo de página única com entrada não interativa
 titleSuffix: Azure Maps
-description: Como configurar um aplicativo de página única com controle de acesso baseado em função do Azure AD não interativo e SDK da Web do Azure Maps.
+description: Como configurar um aplicativo de página única com o controle de acesso baseado em função do Azure não interativo (RBAC do Azure) e o SDK da Web do Azure Maps.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 06/12/2020
@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: devx-track-js
-ms.openlocfilehash: e49954065f8a4ec03eb54d7333a3fff34bafb143
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 000f6a80a2cee14abc3d954de479dd87b1edf876
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319649"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090243"
 ---
 # <a name="how-to-secure-a-single-page-application-with-non-interactive-sign-in"></a>Como proteger um aplicativo de página única com entrada não interativa
 

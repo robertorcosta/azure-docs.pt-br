@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: ed371cf230df3070ce1a545895831ae56d320d99
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 22025e7be9a0ff276336511a906055dc31a67230
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "92000208"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089716"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Como configurar o Cache do Azure para Redis
 Este tópico descreve as configurações disponíveis para suas instâncias de Cache do Azure para Redis. Este tópico também aborda a configuração padrão do servidor Redis para instâncias do Cache do Azure para Redis.
@@ -72,7 +72,7 @@ Clique em **Log de auditoria** para exibir as ações executadas em seu cache. V
 
 ### <a name="access-control-iam"></a>Controle de acesso (IAM)
 
-A seção **(IAM) do controle de acesso** fornece suporte para controle de acesso baseado em função (RBAC) no Portal do Azure. Essas configurações ajudam as organizações a atenderem seus requisitos de gerenciamento de acesso de maneira simples e precisa. Para saber mais, confira [Role-based access control in the Azure portal](../role-based-access-control/role-assignments-portal.md)(Controle de acesso baseado em função no portal do Azure).
+A seção de **controle de acesso (iam)** fornece suporte para o controle de acesso baseado em função do Azure (RBAC do Azure) no portal do Azure. Essas configurações ajudam as organizações a atenderem seus requisitos de gerenciamento de acesso de maneira simples e precisa. Para obter mais informações, consulte [controle de acesso baseado em função do Azure no portal do Azure](../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="tags"></a>Marcações
 
@@ -329,7 +329,7 @@ Para reinicializar um ou mais nós do cache, selecione os nós desejados e cliqu
 A seção **Monitoramento** permite que você configure o diagnóstico e o monitoramento do Cache do Azure para Redis.
 Para saber mais sobre diagnóstico e monitoramento do Cache do Azure para Redis, confira [Como monitorar o Cache do Azure para Redis](cache-how-to-monitor.md).
 
-![Diagnósticos](./media/cache-configure/redis-cache-diagnostics.png)
+![Diagnóstico](./media/cache-configure/redis-cache-diagnostics.png)
 
 * [Métricas do Redis](#redis-metrics)
 * [Regras de alerta](#alert-rules)
@@ -342,7 +342,7 @@ Clique em **Métricas do Redis** para [exibir métricas](cache-how-to-monitor.md
 
 Clique em **Regras de alerta** para configurar alertas com base na métrica do Cache do Azure para Redis. Para obter mais informações, consulte [Alertas](cache-how-to-monitor.md#alerts).
 
-### <a name="diagnostics"></a>Diagnósticos
+### <a name="diagnostics"></a>Diagnóstico
 
 Por padrão, as métricas de cache no Azure Monitor são [armazenadas durante 30 dias](../azure-monitor/platform/data-platform-metrics.md) e, em seguida, excluídas. Para manter suas métricas de cache por mais de 30 dias, clique em **Diagnóstico** para [configurar a conta de armazenamento](cache-how-to-monitor.md#export-cache-metrics) usada para armazenar o diagnóstico de cache.
 

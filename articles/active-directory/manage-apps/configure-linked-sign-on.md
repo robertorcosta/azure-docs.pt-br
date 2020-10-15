@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/30/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 67cb8d6bf6dd61fb5ba7aec70a79078cbe2b8b13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49191ffc0033559f0668a5330b8c91643dee39d3
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91597847"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073964"
 ---
 # <a name="understand-linked-sign-on"></a>Entender o logon vinculado
 
@@ -35,7 +35,7 @@ Alguns cenários comuns em que a opção link é valiosa incluem:
 
 Para aprimorar o conhecimento rapidamente, percorra a [série de guias de início rápido](view-applications-portal.md) sobre o gerenciamento de aplicativos. No guia de início rápido, onde você configura o logon único, você também encontrará a opção **vinculada** . 
 
-A opção **vinculada** não fornece funcionalidade de logon por meio do Azure AD. A opção simplesmente define o local ao qual os usuários serão enviados quando selecionam o aplicativo em [meus aplicativos](https://myapps.microsoft.com/) ou o iniciador de aplicativo Microsoft 365.
+A opção **vinculada** não fornece funcionalidade de logon por meio do Azure AD. A opção simplesmente define o local ao qual os usuários serão enviados quando selecionam o aplicativo em [meus aplicativos](https://myapps.microsoft.com/) ou o iniciador de aplicativo Microsoft 365.  Como a entrada não fornece funcionalidade de logon por meio do Azure AD, o acesso condicional não está disponível para aplicativos configurados com logon único vinculado.
 
 > [!IMPORTANT] 
 > Há alguns cenários em que a opção de **logon único** não estará na navegação de um aplicativo em **aplicativos empresariais**. 
