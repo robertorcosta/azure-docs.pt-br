@@ -6,12 +6,12 @@ ms.subservice: shared-capabilities
 ms.date: 01/13/2020
 ms.topic: conceptual
 ms.custom: has-adal-ref
-ms.openlocfilehash: 39085aa7967ffeac3416b61f32146ac023b46dfe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a3cff616f814b8e5209b15f9d3f7439533452ca
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86186649"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071754"
 ---
 # <a name="manage-connections-in-azure-automation"></a>Gerenciar conexões na Automação do Azure
 
@@ -54,7 +54,7 @@ As cmdlets internos na tabela a seguir são usados para acessar conexões em seu
 
 |Cmdlet Interno|Descrição|
 |---|---|
-|`Get-AutomationConnection` | Recupera os valores dos diferentes campos na conexão e os retorna como uma [tabela de hash](https://go.microsoft.com/fwlink/?LinkID=324844). Você pode usar essa tabela de hash com os comandos apropriados no runbook ou na configuração DSC.|
+|`Get-AutomationConnection` | Recupera os valores dos diferentes campos na conexão e os retorna como uma [tabela de hash](/powershell/module/microsoft.powershell.core/about/about_hash_tables). Você pode usar essa tabela de hash com os comandos apropriados no runbook ou na configuração DSC.|
 
 >[!NOTE]
 >Evite usar variáveis com o parâmetro `Name` de `Get-AutomationConnection`. O uso de variáveis neste caso pode complicar a descoberta de dependências entre runbooks ou configurações DSC e ativos de conexão em tempo de design.
