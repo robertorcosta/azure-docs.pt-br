@@ -5,12 +5,12 @@ author: jjbfour
 ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: jobreen
-ms.openlocfilehash: b6984bfdf7ec078d02999bccf77f3592cfbcab27
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6e11e08d861538ddf395f522495798546e04ca7c
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75648673"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948945"
 ---
 # <a name="set-up-azure-functions-for-azure-custom-providers"></a>Configurar o Azure Functions para os Provedores Personalizados do Azure
 
@@ -51,7 +51,7 @@ Para configurar a função do Azure para incluir os métodos de solicitação RE
 > [!NOTE]
 > Se o arquivo de projeto C# estiver ausente do diretório do projeto, adicione-o manualmente. Ou ele será exibido depois que a extensão Microsoft.Azure.WebJobs.Extensions.Storage for instalada no aplicativo de funções.
 
-Em seguida, atualize o arquivo de projeto C# para incluir bibliotecas úteis do NuGet. Essas bibliotecas facilitam a análise das solicitações de entrada de provedores personalizados. Siga as etapas para [adicionar extensões por meio do portal](../../azure-functions/install-update-binding-extensions-manual.md) e atualize o arquivo de projeto C# para incluir as seguintes referências de pacote:
+Em seguida, atualize o arquivo de projeto C# para incluir bibliotecas úteis do NuGet. Essas bibliotecas facilitam a análise das solicitações de entrada de provedores personalizados. Siga as etapas para [adicionar extensões por meio do portal](../../azure-functions/functions-bindings-register.md) e atualize o arquivo de projeto C# para incluir as seguintes referências de pacote:
 
 ```xml
 <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.Storage" Version="3.0.4" />
@@ -80,4 +80,3 @@ O seguinte elemento XML é um arquivo de projeto C# de exemplo:
 Neste tutorial, você configurou um aplicativo de funções do Azure para funcionar como um ponto de extremidade de provedor personalizado do Azure.
 
 Para saber como criar um ponto de extremidade de provedor personalizado RESTful, confira [Tutorial: Como criar um ponto de extremidade de provedor personalizado RESTful](./tutorial-custom-providers-function-authoring.md).
-

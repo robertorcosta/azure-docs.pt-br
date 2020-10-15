@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 4db7727558d0b7f4c26aba3ffa823bebb07862f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6b94c30f00765164385987ed0ea9b201044f248
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91713775"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077432"
 ---
 # <a name="azure-security-baseline-for-api-management"></a>Linha de base de segurança do Azure para Gerenciamento de API
 
@@ -100,7 +100,7 @@ Use a inteligência contra ameaças integrada da Central de Segurança do Azure 
 
 * [Como configurar a Proteção contra DDoS do Azure Standard](../virtual-network/manage-ddos-protection.md)
 
-* [Compreender a inteligência contra ameaças integrada da Central de Segurança do Azure](../security-center/threat-protection.md)
+* [Compreender a inteligência contra ameaças integrada da Central de Segurança do Azure](../security-center/azure-defender.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -588,7 +588,7 @@ Configure o monitoramento avançado com o Gerenciamento de API usando a polític
 
 * [Como criar assinaturas adicionais do Azure](../cost-management-billing/manage/create-subscription.md)
 
-* [Como criar Grupos de Gerenciamento](../governance/management-groups/create.md)
+* [Como criar Grupos de Gerenciamento](../governance/management-groups/create-management-group-portal.md)
 
 * [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
@@ -774,7 +774,7 @@ Além disso, use o Azure Policy para colocar restrições nos tipos de recursos 
 
 * [Como criar assinaturas adicionais do Azure](../cost-management-billing/manage/create-subscription.md)
 
-* [Como criar Grupos de Gerenciamento](../governance/management-groups/create.md)
+* [Como criar Grupos de Gerenciamento](../governance/management-groups/create-management-group-portal.md)
 
 * [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
@@ -838,7 +838,7 @@ Use o Azure Resource Graph para consultar/descobrir recursos em suas assinaturas
 
 * [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Como negar um tipo de recurso específico com o Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
+* [Como negar um tipo de recurso específico com o Azure Policy](../governance/policy/samples/index.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -1114,7 +1114,7 @@ As identidades gerenciadas podem ser usadas para obter certificados de Azure Key
 
 Habilite a exclusão reversível no Key Vault para proteger chaves contra exclusão acidental ou mal-intencionada.
 
-* [Como habilitar a exclusão reversível no Key Vault](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
+* [Como habilitar a exclusão reversível no Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
