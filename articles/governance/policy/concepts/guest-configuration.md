@@ -1,14 +1,14 @@
 ---
 title: Aprenda a auditar o conteúdo de máquinas virtuais
 description: Saiba como o Azure Policy usa o agente de Configuração de Convidado para auditar as configurações dentro de máquinas virtuais.
-ms.date: 08/07/2020
+ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: d396403f23df1e0c48ea66e0c2a23866f790d3c5
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e941938fce09e8729856322a5b6572b46a3714be
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974712"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075477"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Entender a Configuração de Convidado do Azure Policy
 
@@ -18,8 +18,7 @@ Azure Policy pode auditar as configurações dentro de um computador, tanto para
 - Configuração ou presença do aplicativo
 - Configurações do ambiente
 
-Neste momento, a maioria das políticas de Configuração de Convidado do Azure Policy auditam somente as configurações dentro do computador.
-Elas não aplicam as configurações. A exceção é uma política interna [referenciada abaixo](#applying-configurations-using-guest-configuration).
+Neste momento, a maioria Azure Policy definições de política de configuração de convidado apenas configurações de auditoria dentro do computador. Elas não aplicam as configurações. A exceção é uma política interna [referenciada abaixo](#applying-configurations-using-guest-configuration).
 
 ## <a name="enable-guest-configuration"></a>Habilitar configuração de convidado
 
@@ -59,8 +58,7 @@ O cliente de Configuração Convidado verifica o novo conteúdo a cada 5 minutos
 
 ## <a name="supported-client-types"></a>Tipos de clientes com suporte
 
-As políticas de configuração de convidado são inclusivas de novas versões. As versões mais antigas dos sistemas operacionais disponíveis no Azure Marketplace serão excluídas se o agente de configuração do convidado não for compatível.
-A tabela a seguir mostra uma lista de sistemas operacionais compatíveis em imagens do Azure:
+As definições de política de configuração de convidado são inclusivas de novas versões. As versões mais antigas dos sistemas operacionais disponíveis no Azure Marketplace serão excluídas se o agente de configuração do convidado não for compatível. A tabela a seguir mostra uma lista de sistemas operacionais compatíveis em imagens do Azure:
 
 |Publicador|Nome|Versões|
 |-|-|-|
@@ -72,7 +70,7 @@ A tabela a seguir mostra uma lista de sistemas operacionais compatíveis em imag
 |Red Hat|Red Hat Enterprise Linux|7,4-7,8|
 |Suse|SLES|12 SP3-SP5|
 
-As imagens de máquina virtual personalizadas são compatíveis com as políticas de Configuração de Convidado, desde que sejam um dos sistemas operacionais na tabela acima.
+As definições de política de configuração de convidado dão suporte a imagens de máquina virtual personalizadas, desde que sejam um dos sistemas operacionais na tabela acima.
 
 ## <a name="network-requirements"></a>Requisitos de rede
 
@@ -86,7 +84,7 @@ As máquinas virtuais que usam redes virtuais para comunicação exigirão acess
 
 ### <a name="communicate-over-private-link-in-azure"></a>Comunicar-se sobre o link privado no Azure
 
-As máquinas virtuais podem usar o [link privado](../../../private-link/private-link-overview.md) para comunicação com o serviço de configuração do convidado. Aplique a marca com o nome `EnablePrivateNeworkGC` e o valor `TRUE` para habilitar esse recurso. A marca pode ser aplicada antes ou depois que as políticas de configuração de convidado são aplicadas ao computador.
+As máquinas virtuais podem usar o [link privado](../../../private-link/private-link-overview.md) para comunicação com o serviço de configuração do convidado. Aplique a marca com o nome `EnablePrivateNeworkGC` e o valor `TRUE` para habilitar esse recurso. A marca pode ser aplicada antes ou após as definições de política de configuração de convidado serem aplicadas ao computador.
 
 O tráfego é roteado usando o [endereço IP público virtual](../../../virtual-network/what-is-ip-address-168-63-129-16.md) do Azure para estabelecer um canal seguro e autenticado com recursos da plataforma Azure.
 
@@ -111,9 +109,9 @@ Se o computador tiver atualmente uma identidade de sistema atribuída pelo usuá
 
 ## <a name="guest-configuration-definition-requirements"></a>Requisitos de definição da Configuração de Convidado
 
-As políticas de configuração de convidado usam o efeito **AuditIfNotExists** . Quando a definição é atribuída, um serviço de back-end manipula automaticamente o ciclo de vida de todos os requisitos no `Microsoft.GuestConfiguration` provedor de recursos do Azure.
+Definições de política de configuração de convidado usam o efeito **AuditIfNotExists** . Quando a definição é atribuída, um serviço de back-end manipula automaticamente o ciclo de vida de todos os requisitos no `Microsoft.GuestConfiguration` provedor de recursos do Azure.
 
-As políticas de **AuditIfNotExists** não retornarão resultados de conformidade até que todos os requisitos sejam atendidos no computador. As exigências são descritas na seção [implantar requisitos para máquinas virtuais do Azure](#deploy-requirements-for-azure-virtual-machines)
+As definições de política **AuditIfNotExists** não retornarão resultados de conformidade até que todos os requisitos sejam atendidos no computador. Os requisitos são descritos na seção [implantar requisitos para máquinas virtuais do Azure](#deploy-requirements-for-azure-virtual-machines)
 
 > [!IMPORTANT]
 > Em uma versão anterior da configuração de convidado, era necessária uma iniciativa para combinar as definições **DeployIfNoteExists** e **AuditIfNotExists** . As definições de **DeployIfNotExists** não são mais necessárias. As definições e intiaitives são rotuladas `[Deprecated]` , mas as atribuições existentes continuarão a funcionar. Para obter informações, consulte a postagem no blog: [alteração importante liberada para políticas de auditoria de configuração de convidado](https://techcommunity.microsoft.com/t5/azure-governance-and-management/important-change-released-for-guest-configuration-audit-policies/ba-p/1655316)
@@ -138,15 +136,15 @@ Somente a definição _Configurar o fuso horário em computadores Windows_ faz a
 Ao atribuir definições que começam com _Configurar_, você também deve atribuir a definição _Implantar pré-requisitos para habilitar a política de Configuração de Convidado em VMs do Windows_. Você pode combinar essas definições em uma mesma iniciativa, se assim escolher.
 
 > [!NOTE]
-> A diretiva de zona de tempo interna é a única definição que dá suporte à configuração de configurações dentro de computadores e políticas personalizadas que definem configurações dentro de computadores não têm suporte.
+> A diretiva de zona de tempo interna é a única definição que dá suporte à configuração de configurações dentro de computadores e definições de política personalizadas que definem configurações dentro de computadores não têm suporte.
 
 #### <a name="assigning-policies-to-machines-outside-of-azure"></a>Atribuindo políticas a computadores fora do Azure
 
-As políticas de auditoria disponíveis para a Configuração de Convidado incluem o tipo de recurso **Microsoft.HybridCompute/machines**. Todos os computadores integrados ao [Azure Arc para servidores](../../../azure-arc/servers/overview.md) que estão no escopo da atribuição de política são incluídos automaticamente.
+As definições de política de auditoria disponíveis para a configuração de convidado incluem o tipo de recurso **Microsoft. HybridCompute/Machines** . Todos os computadores integrados ao [Azure Arc para servidores](../../../azure-arc/servers/overview.md) que estão no escopo da atribuição de política são incluídos automaticamente.
 
 ### <a name="multiple-assignments"></a>Atribuições múltiplas
 
-Atualmente, as políticas de Configuração de Convidado só são compatíveis com a realização da mesma atribuição de convidado uma vez por computador, mesmo que a atribuição de política use parâmetros diferentes.
+Atualmente, as definições de política de configuração de convidado só dão suporte à atribuição de atribuições de convidado uma vez por máquina, mesmo que a atribuição de política use parâmetros diferentes.
 
 ## <a name="client-log-files"></a>Arquivos de log do cliente
 
