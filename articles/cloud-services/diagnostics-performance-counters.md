@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: tagore
-ms.openlocfilehash: 3b4028a09f69acd5d7a6579b4610785ed32e227d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39843ad83830a72b5d6b01cc00ecd65269c02e12
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77469520"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078588"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Coletar contadores de desempenho para o Serviço de Nuvem do Azure
 
@@ -70,7 +70,7 @@ Get-Counter -ListSet * | Where-Object CounterSetName -eq "Processor" | Select -E
 \Processor(*)\C3 Transitions/sec
 ```
 
-Esses caminhos de contador individuais podem ser adicionados à estrutura de diagnóstico que seu serviço de nuvem usa. Para obter mais informações sobre como um caminho de contador de desempenho é construído, consulte [Especificar um Caminho do Contador](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85)).
+Esses caminhos de contador individuais podem ser adicionados à estrutura de diagnóstico que seu serviço de nuvem usa. Para obter mais informações sobre como um caminho de contador de desempenho é construído, consulte [Especificar um Caminho do Contador](/windows/win32/perfctrs/specifying-a-counter-path).
 
 ## <a name="collect-a-performance-counter"></a>Coletar um contador de desempenho
 
@@ -290,8 +290,5 @@ Como indicado anteriormente, os contadores de desempenho que você deseja coleta
 
 - [Application Insights para serviços de nuvem do Azure](../azure-monitor/app/cloudservices.md#performance-counters)
 - [Contadores de desempenho do sistema no Application Insights](../azure-monitor/app/performance-counters.md)
-- [Especificar um Caminho do Contador](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85))
+- [Especificar um Caminho do Contador](/windows/win32/perfctrs/specifying-a-counter-path)
 - [Esquema do Diagnóstico do Azure - Contadores de Desempenho](../azure-monitor/platform/diagnostics-extension-schema-windows.md#performancecounters-element)
-
-
-

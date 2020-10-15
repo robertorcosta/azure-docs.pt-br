@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: apimpm
-ms.openlocfilehash: a0786c1ce5d3a693dabe422b65af7177e16c20b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3886f82180728bc6f454b1a49b5551bc4831869e
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87905509"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070887"
 ---
 # <a name="policies-in-azure-api-management"></a>Políticas do Gerenciamento de API do Azure
 
@@ -70,7 +70,7 @@ Consulte a [referência de política](./api-management-policies.md) para obter u
 
 ## <a name="policy-samples"></a>Exemplos de política
 
-Consulte em [Exemplos de política](policy-samples.md) mais exemplos de código.
+Consulte em [Exemplos de política](./policy-reference.md) mais exemplos de código.
 
 ## <a name="examples"></a>Exemplos
 
@@ -119,7 +119,7 @@ Para obter mais informações sobre como trabalhar com políticas, consulte:
 
 + [Transformar APIs](transform-api.md)
 + [Referência de Política](./api-management-policies.md) para uma lista completa das instruções de política e suas configurações
-+ [Exemplos de política](policy-samples.md)   
++ [Exemplos de política](./policy-reference.md)   
 
 [Policy Reference]: ./api-management-policies.md
 [Product]: api-management-howto-add-products.md

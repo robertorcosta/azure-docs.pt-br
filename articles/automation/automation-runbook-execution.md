@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 10/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 883cf48fd38d79544d08a68f2c18fc2d2efb4706
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ac7d99f4a47711f9974d30d877a3237eec15443
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776282"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078826"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Execução de runbook na Automação do Azure
 
@@ -71,7 +71,7 @@ Seus runbooks devem incluir lógica para lidar com [recursos](/rest/api/resource
 
 ## <a name="security"></a>Segurança
 
-A automação do Azure usa a [ASC (Central de Segurança do Azure)](../security-center/security-center-intro.md) para fornecer segurança aos seus recursos e detectar comprometimento em sistemas Linux. A segurança é fornecida em suas cargas de trabalho, independentemente de os recursos estarem ou não no Azure. Confira [Introdução à autenticação na Automação do Azure](automation-security-overview.md).
+A automação do Azure usa a [ASC (Central de Segurança do Azure)](../security-center/security-center-introduction.md) para fornecer segurança aos seus recursos e detectar comprometimento em sistemas Linux. A segurança é fornecida em suas cargas de trabalho, independentemente de os recursos estarem ou não no Azure. Confira [Introdução à autenticação na Automação do Azure](automation-security-overview.md).
 
 A ASC impõe restrições quanto aos usuários que podem executar scripts, assinados ou não, em uma VM. Se você for um usuário com acesso raiz a uma VM, deverá configurar explicitamente a máquina com uma assinatura digital ou desativá-la. Caso contrário, você só poderá executar um script para aplicar as atualizações do sistema operacional após criar uma conta de Automação do Azure e habilitar o recurso apropriado.
 
