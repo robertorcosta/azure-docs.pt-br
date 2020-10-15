@@ -9,10 +9,10 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.custom: mvc, seodec18, devx-track-azurecli
 ms.openlocfilehash: 6a84b6df5a47604cbceeb172597e955c478fe75f
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88959753"
 ---
 # <a name="create-an-app-service-app-and-deploy-code-to-a-staging-environment-using-azure-cli"></a>Criar um aplicativo do Serviço de Aplicativo e implantar o código em um ambiente de preparo usando a CLI do Azure

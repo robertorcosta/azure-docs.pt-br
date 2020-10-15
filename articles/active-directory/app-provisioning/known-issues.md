@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 09/11/2020
 ms.reviewer: arvinh
-ms.openlocfilehash: 2f83679a39f919e5e9932303731560aedd796233
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b4c02efffb39e88a01c35d3c818930a0f6fd9cf
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90052368"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92069748"
 ---
 # <a name="known-issues-application-provisioning"></a>Problemas conhecidos: provisionamento de aplicativos
 Problemas conhecidos que você deve estar atento ao trabalhar com o provisionamento de aplicativos. Você pode fornecer comentários sobre o serviço de provisionamento de aplicativos no UserVoice, confira [UserVoice de provisionamento de aplicativos do Azure ad](https://aka.ms/appprovisioningfeaturerequest). Nós observamos com atenção o UserVoice para que possamos melhorar o serviço. 
@@ -72,7 +72,7 @@ Se você criar um registro de aplicativo, a entidade de serviço correspondente 
 
 **O intervalo de provisionamento é fixo**
 
-O [tempo](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user#how-long-will-it-take-to-provision-users) entre os ciclos de provisionamento não é configurável no momento. 
+O [tempo](./application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users) entre os ciclos de provisionamento não é configurável no momento. 
 
 **Alterações que não se movem do aplicativo de destino para o Azure AD**
 

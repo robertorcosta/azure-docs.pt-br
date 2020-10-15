@@ -4,12 +4,12 @@ description: Detalhes da iniciativa interna de Conformidade Regulatória do NIST
 ms.date: 10/07/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 196522101cbc09a8c6a3ee12593a273e6565da88
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 8c1e41036e71c91fbe4f8438c0271fb7f7db2e4a
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91823985"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91930128"
 ---
 # <a name="details-of-the-nist-sp-800-53-r4-regulatory-compliance-built-in-initiative"></a>Detalhes da iniciativa interna de Conformidade Regulatória do NIST SP 800-53 R4
 
@@ -23,7 +23,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do NIS
 
 > [!IMPORTANT]
 > Cada controle abaixo está associado com uma ou mais definições do [Azure Policy](../overview.md).
-> Essas políticas podem ajudar você a [avaliar a conformidade](../how-to/get-compliance-data.md) com o controle. No entanto, geralmente não há uma correspondência 1:1 ou completa entre um controle e uma ou mais políticas. Dessa forma, **Conformidade** no Azure Policy refere-se somente às próprias definições de política e não garante que você esteja em conformidade total com todos os requisitos de um controle. Além disso, o padrão de conformidade inclui controles que não são abordados por nenhuma definição do Azure Policy no momento. Portanto, a conformidade no Azure Policy é somente uma exibição parcial do status de conformidade geral. As associações entre os domínios de conformidade, os controles e as definições do Azure Policy para este padrão de conformidade podem ser alteradas ao longo do tempo. Para exibir o histórico de alterações, confira o [Histórico de Confirmações do GitHub](https://github.com/Azure/azure-policy/commits/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/NIST80053_audit.json).
+> Essas políticas podem ajudar você a [avaliar a conformidade](../how-to/get-compliance-data.md) com o controle. No entanto, geralmente não há uma correspondência um para um ou completa entre um controle e uma ou mais políticas. Dessa forma, **Conformidade** no Azure Policy refere-se somente às próprias definições de política e não garante que você esteja em conformidade total com todos os requisitos de um controle. Além disso, o padrão de conformidade inclui controles que não são abordados por nenhuma definição do Azure Policy no momento. Portanto, a conformidade no Azure Policy é somente uma exibição parcial do status de conformidade geral. As associações entre os domínios de conformidade, os controles e as definições do Azure Policy para este padrão de conformidade podem ser alteradas ao longo do tempo. Para exibir o histórico de alterações, confira o [Histórico de Confirmações do GitHub](https://github.com/Azure/azure-policy/commits/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/NIST80053_audit.json).
 
 ## <a name="access-control"></a>Controle de acesso
 

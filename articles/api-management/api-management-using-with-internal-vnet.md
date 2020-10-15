@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: apimpm
-ms.openlocfilehash: ac9554ae5ca151a377395d3b16598f7070c87d10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 06d114c500722259d02a940633a76d043b83064a
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87386037"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077483"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Usar o serviço de Gerenciamento de API do Azure com rede virtual interna
 Com as VNETs (Redes Virtuais) do Azure, o Gerenciamento de API pode gerenciar as APIs que não estão acessíveis pela Internet. Várias tecnologias de VPN estão disponíveis para fazer a conexão. O Gerenciamento de API pode ser implantado em dois modos principais dentro de uma rede virtual:
@@ -51,7 +51,7 @@ Para executar as etapas descritas neste artigo, você precisa ter:
 + Quando um serviço de gerenciamento de API é implantado em uma rede virtual, uma [lista de portas](./api-management-using-with-vnet.md#required-ports) é usada e precisa ser aberta. 
 
 ## <a name="creating-an-api-management-in-an-internal-virtual-network"></a><a name="enable-vpn"> </a>Criar um Gerenciamento de API em uma rede virtual interna
-O serviço de gerenciamento de API em uma rede virtual interna é hospedado atrás de um [balanceador de carga interno (clássico)](/azure/load-balancer/load-balancer-get-started-ilb-classic-cloud). Essa é a única opção disponível e não pode ser alterada.
+O serviço de gerenciamento de API em uma rede virtual interna é hospedado atrás de um [balanceador de carga interno (clássico)](/previous-versions/azure/load-balancer/load-balancer-get-started-ilb-classic-cloud). Essa é a única opção disponível e não pode ser alterada.
 
 ### <a name="enable-a-virtual-network-connection-using-the-azure-portal"></a>Habilite uma conexão de rede virtual usando o portal do Azure
 
@@ -61,7 +61,7 @@ O serviço de gerenciamento de API em uma rede virtual interna é hospedado atr�
 
     ![Menu para configurar um Gerenciamento de API do Azure em uma rede virtual interna][api-management-using-internal-vnet-menu]
 
-4. Clique em **Salvar**.
+4. Selecione **Salvar**.
 
 Depois que a implantação for realizada com sucesso, você deverá ver o endereço IP virtual **privado** e o endereço IP virtual **público** do seu serviço de gerenciamento de API na folha visão geral. O endereço IP virtual **privado** é um endereço IP com balanceamento de carga de dentro da sub-rede delegada do gerenciamento de API em que os `gateway` `portal` pontos de extremidade, `management` e `scm` podem ser acessados. O endereço IP virtual **público** é usado **somente** para o tráfego do plano de controle para `management` o ponto de extremidade pela porta 3443 e pode ser bloqueado para o [ApiManagement][ServiceTags] servicetag.
 
@@ -143,4 +143,4 @@ Confira os seguintes artigos para saber mais:
 [Create API Management service]: get-started-create-service-instance.md
 [Common network configuration problems]: api-management-using-with-vnet.md#network-configuration-issues
 
-[ServiceTags]: ../virtual-network/security-overview.md#service-tags
+[ServiceTags]: ../virtual-network/network-security-groups-overview.md#service-tags
