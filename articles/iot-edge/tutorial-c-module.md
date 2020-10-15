@@ -9,12 +9,12 @@ ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 9676b9f5c1cc8d1768aaf6e83e1b4e363e3e6ece
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4c2505f210b1a2b52b64c25b4ffa0c26bb30d7ee
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320652"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044676"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-linux-devices"></a>Tutorial: Desenvolver um módulo do IoT Edge em C para dispositivos Linux
 
@@ -50,7 +50,7 @@ Antes de iniciar este tutorial, você deve ter passado pelo tutorial anterior pa
 
 * Um [Hub IoT](../iot-hub/iot-hub-create-through-portal.md) na camada padrão ou gratuito no Azure.
 * Um [dispositivo Linux que executa o Azure IoT Edge](quickstart-linux.md)
-* Um registro de contêiner, como o [Registro de Contêiner do Azure](https://docs.microsoft.com/azure/container-registry/).
+* Um registro de contêiner, como o [Registro de Contêiner do Azure](../container-registry/index.yml).
 * O [Visual Studio Code](https://code.visualstudio.com/) configurado com o [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * O [Docker CE](https://docs.docker.com/install/) configurado para executar contêineres do Linux.
 
@@ -364,7 +364,7 @@ Caso contrário, é possível excluir as configurações locais e os recursos do
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você criou um módulo do IoT Edge que contém código para filtrar os dados brutos gerados pelo seu dispositivo IoT Edge. Quando estiver pronto para criar seus próprios módulos, você poderá saber mais sobre como [desenvolver seus próprios módulos do IoT Edge](module-development.md) ou como [desenvolver módulos com o Visual Studio Code](how-to-vs-code-develop-module.md). Para obter exemplos dos módulos do IoT Edge, incluindo o módulo de temperatura simulada, confira [Exemplos do módulo do IoT Edge](https://github.com/Azure/iotedge/tree/master/edge-modules) e [Exemplos do SDK de C do IoT](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples).
+Neste tutorial, você criou um módulo do IoT Edge que contém código para filtrar os dados brutos gerados pelo seu dispositivo IoT Edge.
 
 É possível passar para os próximos tutoriais para saber como o Azure IoT Edge pode ajudar você a implantar os serviços de nuvem do Azure para processar e analisar dados na borda.
 
