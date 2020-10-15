@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: 71147352c5b75195ed0dff2b05acc5315f3183cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12f65d0e7f9c380f77fe4189d26fdeafd426295b
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90933677"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090787"
 ---
 # <a name="connect-your-data-from-defender-for-iot-to-azure-sentinel-preview"></a>Conectar seus dados do defender para IoT ao Azure Sentinel (versão prévia)
 
-A central de segurança do Azure para o conector de dados do IoT no Azure Sentinel está atualmente em visualização pública. Esse recurso é fornecido sem um contrato de nível de serviço e não é recomendado para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/).
+O conector de dados do Azure defender para IoT no Azure Sentinel está atualmente em visualização pública. Esse recurso é fornecido sem um contrato de nível de serviço e não é recomendado para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/).
 
 Neste guia, saiba como conectar seus dados do defender para IoT ao Azure Sentinel.
 
@@ -32,6 +32,8 @@ Neste guia, saiba como conectar seus dados do defender para IoT ao Azure Sentine
 
 Conecte alertas do defender para IoT e transmita-os diretamente para o Azure Sentinel.
 
+Ao integrar mais rigidamente o Azure defender para IoT com o Azure Sentinel, o primeiro SIEM nativo de nuvem e o primeiro SIEM com IoT nativo e tem segurança, a Microsoft fornece uma abordagem mais simples para a segurança unificada em redes industriais e de ti. Quando combinado com o aprendizado de máquina do Azure Sentinel, essa integração permite que as organizações detectem rapidamente ataques de várias etapas que geralmente cruzam e ficam em limites. Além disso, a integração do Azure defender para IoT com os recursos de orquestração de segurança, automação e resposta (disparar) do Azure Sentinel permite a resposta e a prevenção automáticas usando guias estratégicos internos de OT. 
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Você deve ter permissões de **leitura** e **gravação** do espaço de trabalho.
@@ -39,8 +41,6 @@ Conecte alertas do defender para IoT e transmita-os diretamente para o Azure Sen
 - Você deve ter permissões de **leitura** e **gravação** no **Hub IOT do Azure** que deseja conectar.
 - Você também deve ter permissões de **leitura** e **gravação** no **grupo de recursos do Hub IOT do Azure**.
 
-> [!NOTE]
-> Você deve ter o licenciamento da camada Standard da central de segurança do Azure em execução na sua assinatura para enviar alertas gerais de recursos do Azure. Com o licenciamento de camada gratuita necessário para o defender para IoT, somente os alertas relacionados ao defender para IoT serão encaminhados para o Azure Sentinel.
 
 ## <a name="connect-to-defender-for-iot"></a>Conectar-se ao defender para IoT
 
@@ -53,7 +53,7 @@ Conecte alertas do defender para IoT e transmita-os diretamente para o Azure Sen
 > [!NOTE]
 >Pode levar 10 segundos ou mais para atualizar a lista de hubs depois de fazer alterações de conexão.
 
-## <a name="log-analytics-alert-display"></a>Log Analytics exibição de alertas
+## <a name="using-log-analytics-for-alert-display"></a>Usando Log Analytics para exibição de alerta
 
 Para usar o esquema relevante no Log Analytics para exibir os alertas do defender para IoT:
 

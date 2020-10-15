@@ -11,18 +11,18 @@ ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6ebb81e6f5adce1dbc301ac905fed5af1ee6a825
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eab8993a98ce202964ade9fb5deae5c741ac7eb6
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91758298"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090345"
 ---
 # <a name="create-a-service-sas-for-a-container-or-blob-with-net"></a>Criar uma SAS de serviço para um contêiner ou BLOB com .NET
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-Este artigo mostra como usar a chave da conta de armazenamento para criar uma SAS de serviço para um contêiner ou BLOB com a [biblioteca de cliente de armazenamento do Azure para .net](/dotnet/api/overview/azure/storage?view=azure-dotnet).
+Este artigo mostra como usar a chave da conta de armazenamento para criar uma SAS de serviço para um contêiner ou BLOB com a [biblioteca de cliente de armazenamento do Azure para .net](/dotnet/api/overview/azure/storage).
 
 ## <a name="create-a-service-sas-for-a-blob-container"></a>Criar uma SAS de serviço para um contêiner de BLOBs
 

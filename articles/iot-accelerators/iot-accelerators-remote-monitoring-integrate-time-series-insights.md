@@ -8,12 +8,12 @@ ms.date: 09/12/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: b0ab1e2e43210ecd7a61b7dffcb12d2c7c5c1c46
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b6219c82dc23deb467e87a6866839b8eace8b5d
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86536599"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072638"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Integrar o Azure Time Series Insights com o Monitoramento Remoto
 
@@ -126,7 +126,7 @@ Para garantir que todos os usuários com acesso à sua solução de monitorament
 1. Escolha **Salvar** para criar a atribuição de função. Após alguns instantes, a entidade de segurança é atribuída a função nas políticas de acesso de dados.
 
 > [!NOTE]
-> Se você precisar conceder acesso a usuários adicionais para o gerenciador do Time Series Insights, use estas etapas para [conceder o acesso a dados](../time-series-insights/time-series-insights-data-access.md#grant-data-access).
+> Se você precisar conceder acesso a usuários adicionais para o gerenciador do Time Series Insights, use estas etapas para [conceder o acesso a dados](../time-series-insights/concepts-access-policies.md#grant-data-access).
 
 ## <a name="configure-azure-stream-analytics"></a>Configurar o Azure Stream Analytics 
 
@@ -217,7 +217,7 @@ Configure o ambiente da implementação de `basic` para os microsserviços atual
 
 1. Faça pull do [arquivo YAML do Docker Compose mais recente](https://github.com/Azure/pcs-cli/tree/5a9b4e0dbe313172eff19236e54a4d461d4f3e51/solutions/remotemonitoring/single-vm) do repositório GitHub usando a marca mais recente. 
 
-1. SSH na VM seguindo as etapas descritas em [como criar e usar chaves SSH](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows).
+1. SSH na VM seguindo as etapas descritas em [como criar e usar chaves SSH](../virtual-machines/linux/ssh-from-windows.md).
 
 1. Uma vez conectado, digite `cd /app`.
 
@@ -300,4 +300,4 @@ Configurar o ambiente de `standard` implantação para os serviços de micro atu
 
 * Para aprender sobre como explorar seus dados e diagnosticar um alerta no explorador do Time Series Insights, consulte nosso tutorial sobre [conduzir uma análise de causa raiz](iot-accelerators-remote-monitoring-root-cause-analysis.md).
 
-* Para aprender a explorar e consultar dados no explorador Estatísticas de Tempo, consulte a documentação no [explorador do Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-explorer).
+* Para aprender a explorar e consultar dados no explorador Estatísticas de Tempo, consulte a documentação no [explorador do Azure Time Series Insights](../time-series-insights/time-series-insights-explorer.md).

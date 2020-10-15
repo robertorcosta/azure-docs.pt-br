@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 05/27/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 8cda46a011ae92f26a15a4e9a918559801ce299c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0c90062f1968cc7be5a742a67363f57b9632fdfa
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906866"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090668"
 ---
 # <a name="java-and-base-os-for-spring-microservice-apps"></a>Java e sistema operacional base para Aplicativos de microsserviços do Spring
 
@@ -46,7 +46,7 @@ Os sistemas azul examinarão continuamente as alterações nos sistemas operacio
     * Ubuntu 20, 4 LTS (focal fossa). Os aplicativos continuarão a permanecer na versão mais recente do LTS do Ubuntu.
     * Consulte [Ubuntu 20, 4 LTS (focal fossa)](http://releases.ubuntu.com/focal/)
 * Como posso baixar um tempo de execução Java com suporte para dev local? 
-    * Consulte [instalar o JDK para Azure e Azure Stack](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install)
+    * Consulte [instalar o JDK para Azure e Azure Stack](/azure/developer/java/fundamentals/java-jdk-install)
 * Como posso obter suporte para problemas no nível do tempo de execução Java?
     * Abra um tíquete de suporte com o suporte do Azure.
  
@@ -57,4 +57,4 @@ Os sistemas azul examinarão continuamente as alterações nos sistemas operacio
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Início Rápido: Implantar seu primeiro aplicativo do Azure Spring Cloud](spring-cloud-quickstart.md)
-* [Suporte a longo prazo Java para Azure e Azure Stack](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support)
+* [Suporte a longo prazo Java para Azure e Azure Stack](/azure/developer/java/fundamentals/java-jdk-long-term-support)

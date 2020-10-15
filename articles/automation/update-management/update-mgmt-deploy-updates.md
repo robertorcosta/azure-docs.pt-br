@@ -3,18 +3,18 @@ title: Como criar implantações de atualização para a automação do Azure Ge
 description: Este artigo descreve como agendar implantações de atualização e revisar seu status.
 services: automation
 ms.subservice: update-management
-ms.date: 09/16/2020
+ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: fa5cabd5410f0cbe7382db0289d98bc69d4a01fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5f7d86ff668a151bdf83908c3199d01a0a53246
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91294709"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073743"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>Como implantar atualizações e examinar os resultados
 
-Este artigo descreve como agendar uma implantação de atualização e examinar o processo após a conclusão da implantação. Você pode configurar uma implantação de atualização de uma máquina virtual do Azure selecionada, do servidor habilitado para Arc selecionado ou da conta de automação em todos os computadores e servidores configurados. 
+Este artigo descreve como agendar uma implantação de atualização e examinar o processo após a conclusão da implantação. Você pode configurar uma implantação de atualização de uma máquina virtual do Azure selecionada, do servidor habilitado para Arc selecionado ou da conta de automação em todos os computadores e servidores configurados.
 
 Em cada cenário, a implantação que você cria tem como destino o computador ou servidor selecionado, ou no caso de criação de uma implantação da sua conta de automação, você pode direcionar um ou mais computadores. Quando você agenda uma implantação de atualização de uma VM do Azure ou de um servidor habilitado para Arc, as etapas são as mesmas para a implantação de sua conta de automação, com as seguintes exceções:
 
@@ -59,7 +59,7 @@ Para agendar uma nova implantação de atualização, execute as etapas a seguir
     > [!NOTE]
     > Essa opção não estará disponível se você tiver selecionado uma VM do Azure ou um servidor habilitado para Arc. O computador é direcionado automaticamente para a implantação agendada.
 
-6. Na região **Computadores para atualizar**, selecione uma pesquisa salva, um grupo importado ou selecione **Computadores** no menu suspenso e selecione computadores individuais. Com essa opção, você pode ver a prontidão do agente do Log Analytics para cada computador. Para saber mais sobre os diferentes métodos de criação de grupos de computadores nos logs do Azure Monitor, confira [Grupos de computadores nos logs do Azure Monitor](../../azure-monitor/platform/computer-groups.md).
+6. Na região **Computadores para atualizar**, selecione uma pesquisa salva, um grupo importado ou selecione **Computadores** no menu suspenso e selecione computadores individuais. Com essa opção, você pode ver a prontidão do agente do Log Analytics para cada computador. Para saber mais sobre os diferentes métodos de criação de grupos de computadores nos logs do Azure Monitor, confira [Grupos de computadores nos logs do Azure Monitor](../../azure-monitor/platform/computer-groups.md). Você pode incluir até um máximo de 500 computadores em uma implantação de atualização agendada.
 
     > [!NOTE]
     > Essa opção não estará disponível se você tiver selecionado uma VM do Azure ou um servidor habilitado para Arc. O computador é direcionado automaticamente para a implantação agendada.
@@ -89,7 +89,7 @@ Para agendar uma nova implantação de atualização, execute as etapas a seguir
 
     * As janelas de manutenção controlam o número de atualizações que são instaladas.
     * O Gerenciamento de Atualizações não interromperá a instalação de novas atualizações se o fim de uma janela de manutenção estiver se aproximando.
-    * O Gerenciamento de Atualizações não encerrará as atualizações em andamento se a janela de manutenção for excedida.
+    * O Gerenciamento de Atualizações não encerrará as atualizações em andamento se a janela de manutenção for excedida. As atualizações restantes a serem instaladas não serão tentadas. Se isso estiver ocorrendo de forma consistente, reavalie a duração da janela de manutenção.
     * Se a janela de manutenção é excedida no Windows, isso geralmente ocorre devido a uma longa instalação de atualização do service pack.
 
     > [!NOTE]

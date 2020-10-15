@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 3383971b9984e6f565feebc3bdfb968fb77cbe85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6fb4d1459584e8dd2b230a424f043ad086f2570d
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311086"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089444"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Gerenciar autenticação no Azure Mapas
 
@@ -41,7 +41,7 @@ Dependendo das necessidades do aplicativo, há caminhos específicos para proteg
 A tabela a seguir descreve os cenários comuns de autenticação e autorização no Azure Maps. A tabela fornece uma comparação dos tipos de proteção que cada cenário oferece.
 
 > [!IMPORTANT]
-> A Microsoft recomenda implementar o Azure Active Directory (Azure AD) com o RBAC (controle de acesso baseado em função) para aplicativos de produção.
+> A Microsoft recomenda implementar o Azure Active Directory (Azure AD) com o Azure RBAC (controle de acesso baseado em função) para aplicativos de produção.
 
 | Cenário                                                                                    | Autenticação | Autorização | Esforço de desenvolvimento | Esforço operacional |
 | ------------------------------------------------------------------------------------------- | -------------- | ------------- | ------------------ | ------------------ |
@@ -63,10 +63,10 @@ Para exibir as funções do Azure que estão disponíveis para mapas do Azure, v
 
 ## <a name="view-role-assignments"></a>Exibir atribuições de função
 
-Para exibir usuários e aplicativos que receberam o RBAC para mapas do Azure, vá para **controle de acesso (iam)**. Lá, selecione **atribuições de função**e, em seguida, filtre por **mapas do Azure**.
+Para exibir usuários e aplicativos que receberam acesso para mapas do Azure, vá para **controle de acesso (iam)**. Lá, selecione **atribuições de função**e, em seguida, filtre por **mapas do Azure**.
 
 > [!div class="mx-imgBorder"]
-> ![Exibir usuários e aplicativos que receberam o RBAC](./media/how-to-manage-authentication/how-to-view-amrbac.png)
+> ![Exibir usuários e aplicativos que receberam acesso](./media/how-to-manage-authentication/how-to-view-amrbac.png)
 
 ## <a name="request-tokens-for-azure-maps"></a>Solicitar tokens para o Azure Mapas
 

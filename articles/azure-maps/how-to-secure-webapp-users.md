@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: devx-track-js
-ms.openlocfilehash: 50194341d1d34da4b02558461f532ae64b941b16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1668c7ccad75771a598aaa55f5403f070ea2dff8
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319615"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090209"
 ---
 # <a name="secure-a-web-application-with-user-sign-in"></a>Proteger um aplicativo Web com entrada do usuário
 
@@ -59,7 +59,7 @@ Você deve criar o aplicativo Web no Azure AD para que os usuários entrem. Esse
    * Para uma implementação não AspNetCore ou outra, consulte [adquirir token para o aplicativo](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-call-api-acquire-token) na documentação do Azure AD.
    * O ponto de extremidade de token protegido é responsável por retornar um token de acesso para o usuário autenticado e autorizado a chamar as APIs REST do Azure Maps.
 
-8. Configure o controle de acesso baseado em função do Azure para usuários ou grupos. Consulte [conceder acesso baseado em função para usuários](#grant-role-based-access-for-users-to-azure-maps).
+8. Configure o controle de acesso baseado em função do Azure (RBAC do Azure) para usuários ou grupos. Consulte [conceder acesso baseado em função para usuários](#grant-role-based-access-for-users-to-azure-maps).
 
 9. Configure a página do aplicativo Web com o SDK da Web do Azure Maps para acessar o ponto de extremidade de token seguro. 
 
@@ -94,7 +94,7 @@ var map = new atlas.Map("map", {
     });
 ```
 
-[!INCLUDE [grant role access to users](./includes/grant-rbac-users.md)]
+[!INCLUDE [grant role-based access to users](./includes/grant-rbac-users.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 

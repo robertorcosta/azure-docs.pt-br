@@ -4,22 +4,22 @@ description: Detalhes de tudo o que é necessário para começar a usar os pré-
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: rkarlin
 manager: rkarlin
 editor: ''
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/09/2020
-ms.author: mlottner
+ms.date: 10/07/2020
+ms.author: rkarlin
 ms.custom: references_regions
-ms.openlocfilehash: 19263f8db58c8d20288d3ae74c24efd85667bc33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b0913dc48f807c26396a38e31d293877b4561b7d
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90932966"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089172"
 ---
 # <a name="azure-defender-for-iot-prerequisites"></a>Pré-requisitos do Azure defender para IoT
 
@@ -27,61 +27,23 @@ Este artigo fornece uma explicação dos diferentes componentes do serviço defe
 
 ## <a name="minimum-requirements"></a>Requisitos mínimos
 
-- Camada padrão do Hub IoT
-  - Privilégios de nível do **proprietário** da função do Azure
-- [Espaço de trabalho Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
-- Central de segurança do Azure (recomendado)
-  - O uso da central de segurança do Azure é uma recomendação, e não um requisito. Sem a central de segurança do Azure, você não poderá exibir os outros recursos do Azure no Hub IoT.
+- Monitoramento sem agente para dispositivos IoT e OT (com base na tecnologia CyberX)
+    - Comutadores de rede com suporte para monitoramento de tráfego por meio de porta SPAN
+    - Dispositivos de hardware para sensor NTA, para obter mais informações, consulte [hardware certificado](https://aka.ms/AzureDefenderforIoTBareMetalAppliance)
+    - Função **colaborador** de assinatura do Azure (necessária somente durante a integração para definir dispositivos confirmados)
+    - Função de **colaborador** do Hub IOT (camada gratuita ou Standard) (para gerenciamento conectado à nuvem)
+- Segurança para dispositivos IoT gerenciados gerenciados por meio do Hub IoT do Azure
+    - Função de **colaborador** do Hub IOT (camada Standard)
+    - Hub IoT: **a alternância de recursos do Azure defender para IOT** deve ser habilitada
+    - Para o suporte ao módulo de segurança no nível do dispositivo  
+        - Agentes do defender for IoT dão suporte a uma lista crescente de dispositivos e plataformas, consulte a [lista de plataformas com suporte](how-to-deploy-agent.md)
 
-## <a name="working-with-defender-for-iot-service"></a>Trabalhando com o serviço defender para IoT
-
-Os insights e relatórios do defender for IoT estão disponíveis usando o Hub IoT do Azure e a central de segurança do Azure. Para habilitar o defender para IoT no Hub IoT do Azure, é necessária uma conta com privilégios de nível de **proprietário** . Depois de habilitar o ASC para IoT em seu hub IoT, o defender for IoT insights será exibido como o recurso de **segurança** no Hub IOT do Azure e como  **IOT** na central de segurança do Azure.
 
 ## <a name="supported-service-regions"></a>Regiões de serviço com suporte
 
-No momento, o defender para IoT tem suporte para hubs IoT nas seguintes regiões do Azure:
-
-- Centro dos EUA
-- Leste dos EUA
-- Leste dos EUA 2
-- Centro-Oeste dos EUA
-- Oeste dos EUA
-- Oeste dos EUA 2
-- Centro-Sul dos EUA
-- Centro-Norte dos EUA
-- Canadá Central
-- Leste do Canadá
-- Norte da Europa
-- Sul do Brasil
-- França Central
-- Oeste do Reino Unido
-- Sul do Reino Unido
-- Europa Ocidental
-- Norte da Europa
-- Oeste do Japão
-- Japan East
-- Australia Southeast
-- Leste da Austrália
-- Leste da Ásia
-- Sudeste Asiático
-- Coreia Central
-- Sul da Coreia
-- Índia Central
-- Sul da Índia
+Consulte [regiões com suporte do Hub IOT](https://azure.microsoft.com/global-infrastructure/services/?products=iot-hub) para obter mais informações. 
 
 O defender para IoT roteia todo o tráfego de todas as regiões européias para a Europa Ocidental data center regionais e todas as regiões restantes para o data center regional EUA Central.
-
-## <a name="wheres-my-iot-hub"></a>Onde está meu Hub IoT?
-
-Verifique o local do Hub IoT para verificar a disponibilidade do serviço antes de começar.
-
-1. Abra seu Hub IoT.
-1. Clique em **Visão Geral**.
-1. Verifique se o local listado corresponde a uma das [regiões de serviço com suporte](#supported-service-regions).
-
-## <a name="supported-platforms-for-agents"></a>Plataformas com suporte para agentes
-
-Agentes do defender for IoT dão suporte a uma lista crescente de dispositivos e plataformas. Consulte a [lista de plataformas com suporte](how-to-deploy-agent.md) para verificar sua biblioteca de dispositivos existente ou planejada.
 
 ## <a name="next-steps"></a>Próximas etapas
 

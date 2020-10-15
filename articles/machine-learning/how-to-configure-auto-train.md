@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperfq1
-ms.openlocfilehash: 6d05f5fa20b5deee14b1a2fada389d869d48908a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fc5b958813ea1107d98525b6dfc1b0b56c9c5400
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91709080"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091195"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurar experimentos de ML automatizado no Python
 
@@ -333,7 +333,7 @@ run = experiment.submit(automl_config, show_output=True)
 
 Há algumas opções que você pode definir para encerrar seu experimento.
 
-|Critérios| descrição
+|Critérios| description
 |----|----
 Nenhum &nbsp; critério | Se você não definir nenhum parâmetro de saída, o experimento continuará até que nenhum outro progresso seja feito em sua métrica primária.
 Após &nbsp; um &nbsp; período &nbsp; de &nbsp; tempo| Use `experiment_timeout_minutes` em suas configurações para definir por quanto tempo, em minutos, seu experimento deve continuar a ser executado. <br><br> Para ajudar a evitar falhas de tempo limite de experimento, há um mínimo de 15 minutos ou 60 minutos se a linha por tamanho de coluna exceder 10 milhões.
@@ -343,7 +343,7 @@ Uma &nbsp; Pontuação &nbsp; foi &nbsp; &nbsp; atingida| Usar `experiment_exit_
 
 Será possível exibir os resultados de treinamento em um widget ou embutidos se você estiver usando um notebook. Confira [Track and evaluate models](how-to-monitor-view-training-logs.md#monitor-automated-machine-learning-runs) (Rastrear e avaliar modelos) para obter mais detalhes.
 
-Consulte [entender os resultados automatizados do Machine Learning](how-to-understand-automated-ml.md) para obter definições e exemplos dos gráficos de desempenho e métricas fornecidos para cada execução. 
+Consulte [avaliar os resultados do experimento automatizado do Machine Learning](how-to-understand-automated-ml.md) para obter definições e exemplos dos gráficos de desempenho e métricas fornecidos para cada execução. 
 
 Para obter um resumo do personalização e entender quais recursos foram adicionados a um modelo específico, consulte [transparência do personalização](how-to-configure-auto-features.md#featurization-transparency). 
 

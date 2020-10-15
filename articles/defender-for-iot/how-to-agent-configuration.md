@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: c348b800e9587f13e6ff004317a2aa12efb03394
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa863ce556840903d16238d6afef32136ba2b80d
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90933263"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090838"
 ---
 # <a name="tutorial-configure-security-agents"></a>Tutorial: configurar agentes de segurança
 
@@ -118,7 +118,7 @@ A tabela a seguir contém as propriedades controláveis do defender para agentes
 Os valores padrão estão disponíveis no esquema adequado no [GitHub](https\://aka.ms/iot-security-module-default).
 
 | Nome| Status | Valores válidos| Valores padrão| Descrição |
-|----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
+|----------|--------|--|-------|----|
 |highPriorityMessageFrequency|Obrigatório: falso |Valores válidos: duração no formato ISO 8601 |Valor padrão: PT7M |Intervalo de tempo máximo antes que as mensagens de alta prioridade sejam enviadas.|
 |lowPriorityMessageFrequency |Obrigatório: falso|Valores válidos: duração no formato ISO 8601 |Valor padrão: PT5H |Tempo máximo antes que as mensagens de baixa prioridade sejam enviadas.|
 |snapshotFrequency |Exigir: falso|Valores válidos: duração no formato ISO 8601 |Valor padrão PT13H |Intervalo de tempo para a criação de instantâneos de status do dispositivo.|
@@ -129,20 +129,20 @@ Os valores padrão estão disponíveis no esquema adequado no [GitHub](https\://
 ### <a name="supported-security-events"></a>Eventos de segurança com suporte
 
 |Nome do evento| PropertyName | Valor padrão| Evento de instantâneo| Status de detalhes  |
-|----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
+|----------|-|---------|----|----|
 |Evento de diagnóstico|eventPriorityDiagnostic| Desativado| Falso| Eventos de diagnóstico relacionados ao agente. Use esse evento para log detalhado.|
 |Erro de configuração |eventPriorityConfigurationError |Baixo |Falso |O agente não pôde analisar a configuração. Verifique a configuração em relação ao esquema.|
-|Estatísticas de eventos descartados |eventPriorityDroppedEventsStatistics |Baixo |True|Estatísticas de evento relacionadas ao agente. |
-|Hardware conectado|eventPriorityConnectedHardware |Baixo |True |Instantâneo de todo o hardware conectado ao dispositivo.|
-|Portas de escuta|eventPriorityListeningPorts |Alto |True |Instantâneo de todas as portas de escuta abertas no dispositivo.|
+|Estatísticas de eventos descartados |eventPriorityDroppedEventsStatistics |Baixo |Verdadeiro|Estatísticas de evento relacionadas ao agente. |
+|Hardware conectado|eventPriorityConnectedHardware |Baixo |Verdadeiro |Instantâneo de todo o hardware conectado ao dispositivo.|
+|Portas de escuta|eventPriorityListeningPorts |Alto |Verdadeiro |Instantâneo de todas as portas de escuta abertas no dispositivo.|
 |Criar processo |eventPriorityProcessCreate |Baixo |Falso |Audita a criação do processo no dispositivo.|
 |Término do processo|eventPriorityProcessTerminate |Baixo |Falso |Audita o encerramento do processo no dispositivo.|
-|Informações do sistema |eventPrioritySystemInformation |Baixo |True |Um instantâneo das informações do sistema (por exemplo: sistema operacional ou CPU).|
-|Usuários locais| eventPriorityLocalUsers |Alto |True|Um instantâneo dos usuários locais registrados no sistema. |
+|Informações do sistema |eventPrioritySystemInformation |Baixo |Verdadeiro |Um instantâneo das informações do sistema (por exemplo: sistema operacional ou CPU).|
+|Usuários locais| eventPriorityLocalUsers |Alto |Verdadeiro|Um instantâneo dos usuários locais registrados no sistema. |
 |Logon|  eventPriorityLogin |Alto|Falso|Auditar os eventos de logon para o dispositivo (logons locais e remotos).|
 |Criação de conexão |eventPriorityConnectionCreate|Baixo|Falso|Audita as conexões TCP criadas de e para o dispositivo. |
-|Configuração do firewall| eventPriorityFirewallConfiguration|Baixo|True|Instantâneo da configuração de firewall do dispositivo (regras de firewall). |
-|Linha de base do so| eventPriorityOSBaseline| Baixo|True|Instantâneo da verificação de linha de base do so do dispositivo.|
+|Configuração do firewall| eventPriorityFirewallConfiguration|Baixo|Verdadeiro|Instantâneo da configuração de firewall do dispositivo (regras de firewall). |
+|Linha de base do so| eventPriorityOSBaseline| Baixo|Verdadeiro|Instantâneo da verificação de linha de base do so do dispositivo.|
 |
 
 ## <a name="next-steps"></a>Próximas etapas

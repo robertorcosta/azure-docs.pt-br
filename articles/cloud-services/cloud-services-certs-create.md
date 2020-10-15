@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: tagore
-ms.openlocfilehash: 08ce69856dd36b6029297109fcb8610b856c8b98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8650b8670c61cab15b26163dd5108145b8509434
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88142359"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072417"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Visão geral sobre certificados para os Serviços de Nuvem do Azure
 Os certificados são usados no Azure para serviços de nuvem ([certificados de serviço](#what-are-service-certificates)) e para a autenticação com o gerenciamento de API ([certificados de gerenciamento](#what-are-management-certificates)). Esse tópico fornece uma visão geral de ambos os tipos de certificado, como [criá-los](#create) e implantá-los no Azure.
@@ -76,7 +76,7 @@ Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $pass
 > Se você quiser usar o certificado com um endereço IP em vez de um domínio, use o endereço IP no parâmetro - DnsName.
 
 
-Se você quiser usar este [certificado com o portal de gerenciamento](../azure-api-management-certs.md), exporte-o para um arquivo **.cer** :
+Se você quiser usar este [certificado com o portal de gerenciamento](/previous-versions/azure/azure-api-management-certs), exporte-o para um arquivo **.cer** :
 
 ```powershell
 Export-Certificate -Type CERT -Cert $cert -FilePath .\my-cert-file.cer
@@ -91,8 +91,4 @@ Há muitas páginas na Internet que tratam de como fazer isso com o IIS. [Este](
 ## <a name="next-steps"></a>Próximas etapas
 [Carregar seu certificado de serviço no portal do Azure](cloud-services-configure-ssl-certificate-portal.md).
 
-Carregar um [certificado de gerenciamento de API](../azure-api-management-certs.md) no portal do Azure.
-
-
-
-
+Carregar um [certificado de gerenciamento de API](/previous-versions/azure/azure-api-management-certs) no portal do Azure.

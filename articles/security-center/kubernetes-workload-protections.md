@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 09/12/2020
 ms.author: memildin
-ms.openlocfilehash: 500131121640026fd3fda5be9eecb376d2db8f0e
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 38c5df6a05d327e0b057501846e70d1f3c6c4896
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999319"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091144"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Proteger as cargas de trabalho do Kubernetes
 
@@ -67,21 +67,21 @@ A central de segurança do Azure inclui um conjunto de recomendações que estã
     > 
     > Se você não inserir os parâmetros necessários para as recomendações que exigem configuração, suas cargas de trabalho serão mostradas como não íntegras.
 
-    | Nome da recomendação                                                                   | Controle de segurança                         | Configuração necessária |
-    |---------------------------------------------------------------------------------------|------------------------------------------|------------------------|
-    | Limites de memória e CPU do contêiner devem ser aplicados (visualização)                          | Proteger aplicativos contra ataques de DDoS | No                     |
-    | Contêineres com privilégios devem ser evitados (versão prévia)                                     | Gerenciar acesso e permissões            | No                     |
-    | O sistema de arquivos raiz imutável (somente leitura) deve ser imposto para contêineres (versão prévia)     | Gerenciar acesso e permissões            | No                     |
-    | O contêiner com elevação de privilégio deve ser evitado (versão prévia)                       | Gerenciar acesso e permissões            | No                     |
-    | Os contêineres em execução como usuário raiz devem ser evitados (visualização)                           | Gerenciar acesso e permissões            | No                     |
-    | Os contêineres que compartilham namespaces de host confidenciais devem ser evitados (visualização)              | Gerenciar acesso e permissões            | No                     |
-    | Os recursos do Linux com privilégios mínimos devem ser impostos para contêineres (versão prévia)       | Gerenciar acesso e permissões            | **Sim**                |
-    | O uso de montagens de volume HostPath Pod deve ser restrito a uma lista conhecida (versão prévia)    | Gerenciar acesso e permissões            | **Sim**                |
-    | Os contêineres devem escutar somente em portas permitidas (versão prévia)                              | Restringir o acesso não autorizado à rede     | **Sim**                |
-    | Os serviços devem escutar somente em portas permitidas (versão prévia)                                | Restringir o acesso não autorizado à rede     | **Sim**                |
-    | O uso de rede e portas do host deve ser restrito (versão prévia)                     | Restringir o acesso não autorizado à rede     | **Sim**                |
-    | Substituir ou desabilitar o perfil AppArmor de contêineres deve ser restrito (versão prévia) | Corrigir as configurações de segurança        | **Sim**                |
-    | As imagens de contêiner devem ser implantadas somente de registros confiáveis (versão prévia)            | Corrigir vulnerabilidades                | **Sim**                |
+    | Nome da recomendação                                                         | Controle de segurança                         | Configuração necessária |
+    |-----------------------------------------------------------------------------|------------------------------------------|------------------------|
+    | Limites de memória e CPU do contêiner devem ser impostos                          | Proteger aplicativos contra ataques de DDoS | Não                     |
+    | Contêineres privilegiados devem ser evitados                                     | Gerenciar acesso e permissões            | Não                     |
+    | O sistema de arquivos raiz imutável (somente leitura) deve ser imposto para contêineres     | Gerenciar acesso e permissões            | Não                     |
+    | O contêiner com elevação de privilégio deve ser evitado                       | Gerenciar acesso e permissões            | Não                     |
+    | Os contêineres em execução como usuário raiz devem ser evitados                           | Gerenciar acesso e permissões            | Não                     |
+    | Os contêineres que compartilham namespaces de host confidenciais devem ser evitados              | Gerenciar acesso e permissões            | Não                     |
+    | Os recursos do Linux com privilégios mínimos devem ser impostos para contêineres       | Gerenciar acesso e permissões            | **Sim**                |
+    | O uso de montagens de volume HostPath Pod deve ser restrito a uma lista conhecida    | Gerenciar acesso e permissões            | **Sim**                |
+    | Os contêineres devem escutar somente em portas permitidas                              | Restringir o acesso não autorizado à rede     | **Sim**                |
+    | Os serviços devem escutar somente em portas permitidas                                | Restringir o acesso não autorizado à rede     | **Sim**                |
+    | O uso de rede e portas do host deve ser restrito                     | Restringir o acesso não autorizado à rede     | **Sim**                |
+    | Substituir ou desabilitar o perfil AppArmor de contêineres deve ser restrito | Corrigir as configurações de segurança        | **Sim**                |
+    | As imagens de contêiner devem ser implantadas somente de registros confiáveis            | Corrigir vulnerabilidades                | **Sim**                |
 
 
 1. Para as recomendações com parâmetros devem ser personalizadas, defina os parâmetros:
@@ -92,7 +92,7 @@ A central de segurança do Azure inclui um conjunto de recomendações que estã
     1. Selecione "ASC padrão".
     1. Abra a guia **parâmetros** e modifique os valores conforme necessário.
     1. Selecione **Examinar + salvar**.
-    1. Clique em **Salvar**.
+    1. Selecione **Salvar**.
 
 
 1. Para impor qualquer uma das recomendações, 

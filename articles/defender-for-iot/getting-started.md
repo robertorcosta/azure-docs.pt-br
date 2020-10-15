@@ -13,35 +13,55 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: aaed6cd789ca6178410c05b940a8f498e2c067a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3de253ee6f45f9296d6b09189fe4bc488be36ad
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90933823"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090056"
 ---
-# <a name="get-started-with-defender-for-iot"></a>Introdução ao defender para IoT
+# <a name="getting-started-with-azure-defender-for-iot"></a>Introdução ao Azure defender para IoT
 
-Este artigo fornece uma explicação dos diferentes componentes do serviço defender para IoT e explica como começar a usar o serviço usando duas opções de implantação possíveis.
+Este artigo descreve os processos de implantação e integração necessários para obter o Azure defender para IoT em execução. Também são necessárias etapas adicionais. É recomendável que você compreenda essas etapas e se familiarize com as informações em documentos que o acompanham.
 
-Procurando uma introdução ao módulo de segurança para os RTOS do Azure? Vá para a seção [início rápido do módulo de segurança para os RTOs do Azure](quickstart-azure-rtos-security-module.md) . 
+Depois de concluir todas as etapas, os sensores do Azure defender para IoT monitorarão sua rede. Dependendo de como você configura sua solução, as detecções também podem ser enviadas para o console de gerenciamento local ou para o Hub IoT.
 
-## <a name="deployment-options"></a>Opções de implantação
+Conclua as etapas a seguir para colocar o Azure defender para IoT em funcionamento.
 
-Escolha o cenário de serviço que melhor atenda aos requisitos de dispositivo e de ambiente de IoT.
+## <a name="1-set-up-azure"></a>1. configurar o Azure
 
-### <a name="built-in-deployment"></a>Implantação interna
+- Configure uma conta do Azure. Para obter mais informações, consulte [criar uma conta do Azure](https://docs.microsoft.com/learn/modules/create-an-azure-account/).
 
-Usando a opção de implantação integrada e integrada, o defender para IoT pode ser rapidamente integrado ao seu hub IoT e fornecer análise de segurança da configuração do Hub IoT, identidade e gerenciamento do dispositivo e padrões de comunicação do dispositivo Hub.
+- Firewall ou proxy: se você tiver um firewall ou dispositivo de rede intermediário semelhante configurado para permitir conexões específicas, verifique se *. azure-devices.net:443 está aberto no firewall ou proxy. Se não houver suporte para caracteres curinga ou se você quiser mais controle, o FQDN do Hub IoT específico deverá ser aberto em seu FW ou proxy. Para obter mais informações, consulte [referência-pontos de extremidade do Hub IOT](/azure/iot-hub/iot-hub-devguide-endpoints).
 
-Inicie uma [implantação interna com](iot-hub-integration.md) recomendações e monitoramento do Hub IOT.
-    <br>
+## <a name="2-deploy-hardware-software-and-onboard-to-sensor"></a>2. implantar hardware, software e integrado ao sensor
 
-### <a name="enhanced-deployment"></a>Implantação avançada
+- Comprar o hardware do sensor e instalar o software. Siga as etapas descritas aqui e para obter mais informações, consulte este artigo e o [Guia de hardware do defender for IOT](https://aka.ms/AzureDefenderforIoTBareMetalAppliance) e o [Guia de instalação](https://aka.ms/AzureDefenderforIoTInstallSensorISO).
 
-Para recursos de segurança aprimorados, implantar o defender para agentes de IoT, além de habilitar a segurança do Hub IoT, fornece coleta de eventos baseada em agente, análise e detecção de ameaças de dados de segurança chave de seus dispositivos IoT, bem como recursos de gerenciamento de postura de segurança abrangentes.
+  - Depois de instalar o sensor, registre com segurança as credenciais de entrada do sensor. Você precisará das credenciais para carregar o arquivo de ativação no sensor.
 
-Inicie uma [implantação avançada](security-agents.md) com uma solução de gerenciamento de postura de segurança e proteção de ameaças abrangente baseada em agente.
+  - Se você estiver trabalhando com sensores gerenciados localmente, registre com segurança o endereço IP do sensor ou o nome do sensor definido na instalação. Talvez você queira usá-lo ao criar um nome de sensor durante o registro do sensor no portal do defender para IoT. Você pode usá-los mais tarde para garantir o controle mais fácil e a nomenclatura consistente entre o nome de registro no portal do Azure defender para IoT e o endereço IP do sensor implantado exibido no console do sensor.
+
+- Registre o sensor no portal do defender para IoT e baixe um arquivo de ativação do sensor.
+
+- Carregue o arquivo de ativação em seu sensor.
+
+## <a name="3-perform-network-setup-for-sensor-monitoring-and-management"></a>3. executar a configuração de rede para monitoramento e gerenciamento de sensor
+
+- Conecte seu sensor à rede. Descrito no [Guia de configuração de rede](https://aka.ms/AzureDefenderForIoTNetworkSetup).
+
+## <a name="4-start-discovering-your-network"></a>4. começar a descobrir sua rede
+
+- Ajuste as configurações do sistema no console do sensor.
+
+- Conecte os sensores a um console de gerenciamento local.
+
+Para obter mais informações, consulte o [Guia do usuário do sensor do Azure defender para IOT](https://aka.ms/AzureDefenderforIoTUserGuide) e o [Guia do usuário do console de gerenciamento local do defender para IOT](https://aka.ms/DefenderForIoTManagementConsole).
+
+## <a name="5-populate-azure-sentinel-with-alert-information"></a>5. popular o Azure Sentinel com informações de alerta
+
+- Para enviar informações de alerta para o Azure Sentinel, configure o Azure Sentinel: [conecte seus dados do defender for IOT ao Azure Sentinel](how-to-configure-with-sentinel.md).
+ 
 
 ## <a name="next-steps"></a>Próximas etapas
 

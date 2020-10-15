@@ -43,7 +43,19 @@
         - name: Repositório de exemplos de lote
           href: 'https://github.com/Azure/azure-batch-samples'
     - name: CLI do Azure
-      href: cli-samples.md
+      items:
+        - name: Criar uma conta do Lote no modo de serviço do Lote
+          href: ./scripts/batch-cli-sample-create-account.md
+        - name: Criar uma conta do Lote no modo de assinatura do usuário
+          href: ./scripts/batch-cli-sample-create-user-subscription-account.md
+        - name: Adicionar um aplicativo a uma conta de Lote do Azure
+          href: ./scripts/batch-cli-sample-add-application.md
+        - name: Criar e gerenciar um pool do Linux
+          href: ./scripts/batch-cli-sample-manage-linux-pool.md
+        - name: Criar e gerenciar um pool do Windows
+          href: ./scripts/batch-cli-sample-manage-windows-pool.md
+        - name: Executar um trabalho e tarefas
+          href: ./scripts/batch-cli-sample-run-job.md
 - name: Conceitos
   items:
     - name: Segurança
