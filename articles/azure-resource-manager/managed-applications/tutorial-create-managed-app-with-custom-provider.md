@@ -6,12 +6,12 @@ ms.author: lazinnat
 author: lazinnat
 ms.date: 06/20/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e8824f534f573d97353cc86d2a1b112b1acdb211
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: ace58bd3bb89f9e8545bf125f272e62c3a134061
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87494495"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949805"
 ---
 # <a name="tutorial-create-managed-application-with-custom-actions-and-resources"></a>Tutorial: criar um aplicativo gerenciado com ações e recursos personalizados
 
@@ -353,6 +353,6 @@ Se você tiver dúvidas sobre os Aplicativos Gerenciados do Azure, tente pergunt
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para publicar o aplicativo gerenciado no Azure Marketplace, veja [Aplicativos Gerenciados do Azure no Marketplace](publish-marketplace-app.md).
+Para publicar o aplicativo gerenciado no Azure Marketplace, veja [Aplicativos Gerenciados do Azure no Marketplace](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md).
 
 Saiba mais sobre os [Provedores Personalizados do Azure](../custom-providers/overview.md).

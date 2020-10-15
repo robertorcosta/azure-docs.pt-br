@@ -4,10 +4,10 @@ description: Etapas de implantação da amostra de blueprint FedRAMP High, inclu
 ms.date: 07/31/2020
 ms.topic: sample
 ms.openlocfilehash: c444d943f1fc72e33cb34a36bd0fa6d97ddf87ef
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87495872"
 ---
 # <a name="deploy-the-fedramp-high-blueprint-sample"></a>Implantar o exemplo de blueprint do FedRAMP High
