@@ -1,20 +1,20 @@
 ---
 title: Tutorial – Criar um domínio gerenciado do Azure Active Directory Domain Services | Microsoft Docs
 description: Neste tutorial, você aprenderá a criar e configurar um domínio gerenciado do Azure Active Directory Domain Services usando o portal do Azure.
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: dc225cef2981bd6307a919d52b75d3e0791e46cf
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.author: joflore
+ms.openlocfilehash: 53720b19daa436893073b4f40528a49add653ff3
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87490993"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91967232"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Criar e configurar um domínio gerenciado do Azure Active Directory Domain Services
 
