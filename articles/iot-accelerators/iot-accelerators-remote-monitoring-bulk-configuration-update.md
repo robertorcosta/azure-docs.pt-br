@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: philmea
-ms.openlocfilehash: 8309b625a590131c5f521335e180967ab2c2667c
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 57d2ac4f1e80c24a750e0e5f8eb22850718594a1
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91363147"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071023"
 ---
 # <a name="tutorial-manage-your-connected-devices-in-bulk"></a>Tutorial: Gerenciar dispositivos conectados em massa
 
@@ -59,7 +59,7 @@ Antes de iniciar:
 * Verifique se o [carregador de inicialização em seu dispositivo IoT DevKit está na versão 1.4.0 ou posterior](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/).
 * Verifique se o SDK do IoT DevKit possui a mesma versão do carregador de inicialização. Você pode atualizar o SDK do IoT DevKit usando o Azure IoT Workbench no VS Code. Abra a paleta de comandos e insira **Arduino: Board Manager**. Para obter mais informações, consulte [Preparar o ambiente de desenvolvimento](../iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started.md#prepare-the-development-environment).
 
-Você também precisará conectar pelo menos um dispositivo IoT DevKit ao seu acelerador de solução de Monitoramento Remoto. Se você ainda não conectou um dispositivo IoT DevKit, consulte [Conectar o MXChip IoT DevKit AZ3166 ao acelerador de solução de Monitoramento Remoto de IoT](iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md).
+Você também precisará conectar pelo menos um dispositivo IoT DevKit ao seu acelerador de solução de Monitoramento Remoto. Se você ainda não conectou um dispositivo IoT DevKit, consulte [Conectar o MXChip IoT DevKit AZ3166 ao acelerador de solução de Monitoramento Remoto de IoT](./iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoring-v2.md).
 
 ## <a name="navigate-to-the-dashboard"></a>Navegue até o painel
 
@@ -274,4 +274,4 @@ Na página **Implantações**, clique em uma implantação para ver o status dos
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Este tutorial mostrou como atualizar o firmware de um grupo de dispositivos conectados à sua solução. Para atualizar os dispositivos, sua solução usa gerenciamento de dispositivo automático. Para saber mais sobre o recurso de gerenciamento de dispositivo automático no hub IoT que é a base da sua solução, consulte [Configurar e monitorar dispositivos IoT em escala usando o portal do Azure](../iot-hub/iot-hub-auto-device-config.md).
+Este tutorial mostrou como atualizar o firmware de um grupo de dispositivos conectados à sua solução. Para atualizar os dispositivos, sua solução usa gerenciamento de dispositivo automático. Para saber mais sobre o recurso de gerenciamento de dispositivo automático no hub IoT que é a base da sua solução, consulte [Configurar e monitorar dispositivos IoT em escala usando o portal do Azure](../iot-hub/iot-hub-automatic-device-management.md).

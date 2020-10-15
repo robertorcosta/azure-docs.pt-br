@@ -9,12 +9,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
-ms.openlocfilehash: 13d5be5b1e0bcdf84001f21a45364296d67a5da4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7742267f5ce199f3a5bffc52200374d2323f0622
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87013890"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072451"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-powershell"></a>Habilitar a Conexão de Área de Trabalho Remota para uma função nos serviços de nuvem do Azure usando o PowerShell
 
@@ -30,7 +30,7 @@ Este artigo descreve como habilitar a área de trabalho remota em suas funções
 ## <a name="configure-remote-desktop-from-powershell"></a>Configurar a Área de Trabalho Remota por meio do PowerShell
 O cmdlet [Set-AzureServiceRemoteDesktopExtension](/powershell/module/servicemanagement/azure.service/set-azureserviceremotedesktopextension?view=azuresmps-3.7.0) permite habilitar a Área de Trabalho Remota em funções especificadas ou todas as funções da implantação do serviço de nuvem. O cmdlet permite que você especifique o nome de usuário e a senha para o usuário da área de trabalho remota por meio do parâmetro *Credential* , que aceita um objeto PSCredential.
 
-Se estiver usando o PowerShell interativamente, você pode definir facilmente o objeto PSCredential chamando o cmdlet [Get-Credentials](https://technet.microsoft.com/library/hh849815.aspx) .
+Se estiver usando o PowerShell interativamente, você pode definir facilmente o objeto PSCredential chamando o cmdlet [Get-Credentials](/powershell/module/microsoft.powershell.security/get-credential) .
 
 ```powershell
 $remoteusercredentials = Get-Credential
@@ -38,7 +38,7 @@ $remoteusercredentials = Get-Credential
 
 Esse comando exibirá uma caixa de diálogo, permitindo que você insira o nome de usuário e a senha para o usuário remoto de modo seguro.
 
-Já que o PowerShell ajuda em cenários de automação, você também pode configurar o objeto **PSCredential** de modo que não exija interação do usuário. Primeiro, você precisa configurar uma senha de segurança. Comece com a especificação de uma senha de texto sem formatação e converta-a em uma cadeia de caracteres segura usando [ConvertTo-SecureString](https://technet.microsoft.com/library/hh849818.aspx). Em seguida, você precisa converter essa cadeia de caracteres segura em uma cadeia de caracteres criptografada padrão usando [ConvertFrom-SecureString](https://technet.microsoft.com/library/hh849814.aspx). Agora você pode salvar essa cadeia de caracteres criptografada padrão em um arquivo, usando [Set-Content](https://technet.microsoft.com/library/ee176959.aspx).
+Já que o PowerShell ajuda em cenários de automação, você também pode configurar o objeto **PSCredential** de modo que não exija interação do usuário. Primeiro, você precisa configurar uma senha de segurança. Comece com a especificação de uma senha de texto sem formatação e converta-a em uma cadeia de caracteres segura usando [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring). Em seguida, você precisa converter essa cadeia de caracteres segura em uma cadeia de caracteres criptografada padrão usando [ConvertFrom-SecureString](/powershell/module/microsoft.powershell.security/convertfrom-securestring). Agora você pode salvar essa cadeia de caracteres criptografada padrão em um arquivo, usando [Set-Content](/previous-versions/windows/it-pro/windows-powershell-1.0/ee176959(v=technet.10)).
 
 Você também pode criar um arquivo de senha segura para que não precise digitar a senha em todas as ocasiões. Além disso, um arquivo de senha segura é melhor do que um arquivo de texto sem formatação. Use o PowerShell a seguir para criar um arquivo de senha de segurança:
 
@@ -47,9 +47,9 @@ ConvertTo-SecureString -String "Password123" -AsPlainText -Force | ConvertFrom-S
 ```
 
 > [!IMPORTANT]
-> Ao definir a senha, atenda aos [requisitos de complexidade](https://technet.microsoft.com/library/cc786468.aspx).
+> Ao definir a senha, atenda aos [requisitos de complexidade](/previous-versions/windows/it-pro/windows-server-2003/cc786468(v=ws.10)).
 
-Para criar o objeto de credencial com base no arquivo de senha segura, você deve ler os conteúdos do arquivo e convertê-los novamente em uma cadeia de caracteres segura, usando [ConvertTo-SecureString](https://technet.microsoft.com/library/hh849818.aspx).
+Para criar o objeto de credencial com base no arquivo de senha segura, você deve ler os conteúdos do arquivo e convertê-los novamente em uma cadeia de caracteres segura, usando [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring).
 
 O cmdlet [Set-AzureServiceRemoteDesktopExtension](/powershell/module/servicemanagement/azure.service/set-azureserviceremotedesktopextension?view=azuresmps-3.7.0) também aceita um parâmetro *Expiration* que especifica um **DateTime** (data e hora) em que a conta de usuário vai expirar. Por exemplo, você pode definir a conta a expirar em alguns dias após a data e hora atuais.
 
@@ -101,5 +101,3 @@ Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallCo
 ## <a name="additional-resources"></a>Recursos adicionais
 
 [Como configurar serviços de nuvem](cloud-services-how-to-configure-portal.md)
-
-
