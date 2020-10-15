@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
-ms.openlocfilehash: 6ac3457a22128f313084ab070a5a61c2d26d4b85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01d50f6228d63801f62ae933a8367f842d89ef97
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87851674"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071363"
 ---
 # <a name="api-management-advanced-policies"></a>Políticas avançadas de Gerenciamento de API
 
-Este tópico fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](https://go.microsoft.com/fwlink/?LinkID=398186).
+Este tópico fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](./api-management-policies.md).
 
 ## <a name="advanced-policies"></a><a name="AdvancedPolicies"></a> Políticas avançadas
 
@@ -1025,7 +1025,7 @@ No exemplo a seguir há duas políticas `choose` como políticas filho imediatas
 
 | Atributo | Descrição                                                                                                                                                                                                                                                                                                                                                                                                            | Obrigatório | Padrão |
 | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| for       | Determina se a política `wait` aguarda todas as políticas filho imediatas a serem concluídas ou apenas uma. Valores permitidos são:<br /><br /> - `all` – aguarda todas as políticas filho imediatas serem concluídas<br />-Any-aguardar a conclusão de qualquer política filho imediata. Concluída a primeira política filho imediata, a política `wait` é concluída e a execução de qualquer outra política filho imediata é encerrada. | Não       | all     |
+| para       | Determina se a política `wait` aguarda todas as políticas filho imediatas a serem concluídas ou apenas uma. Valores permitidos são:<br /><br /> - `all` – aguarda todas as políticas filho imediatas serem concluídas<br />-Any-aguardar a conclusão de qualquer política filho imediata. Concluída a primeira política filho imediata, a política `wait` é concluída e a execução de qualquer outra política filho imediata é encerrada. | Não       | all     |
 
 ### <a name="usage"></a>Uso
 
@@ -1041,4 +1041,4 @@ Para obter mais informações sobre como trabalhar com políticas, consulte:
 -   [Políticas no Gerenciamento de API](api-management-howto-policies.md)
 -   [Expressões de política](api-management-policy-expressions.md)
 -   [Referência de Política](./api-management-policies.md) para uma lista completa das instruções de política e suas configurações
--   [Exemplos de política](policy-samples.md)
+-   [Exemplos de política](./policy-reference.md)

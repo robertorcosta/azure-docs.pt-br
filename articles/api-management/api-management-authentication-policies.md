@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/12/2020
 ms.author: apimpm
-ms.openlocfilehash: 4d077f6b3c84b0279a7a1c99243240192c2b45d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 44ebd2d3084ab8df63f2c941e6e924e6f2a86d65
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86243708"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071278"
 ---
 # <a name="api-management-authentication-policies"></a>Políticas de autenticação de Gerenciamento de API
-Este tópico fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](https://go.microsoft.com/fwlink/?LinkID=398186).
+Este tópico fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](./api-management-policies.md).
 
 ##  <a name="authentication-policies"></a><a name="AuthenticationPolicies"></a> Políticas de autenticação
 
@@ -54,7 +54,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 
 ### <a name="attributes"></a>Atributos
 
-|Nome|Descrição|Obrigatório|Padrão|
+|Name|Descrição|Obrigatório|Padrão|
 |----------|-----------------|--------------|-------------|
 |Nome de Usuário|Especifica o nome de usuário da credencial do Basic.|Sim|N/D|
 |password|Especifica a senha da credencial do Basic.|Sim|N/D|
@@ -67,7 +67,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 -   **Escopos da política:** todos os escopos
 
 ##  <a name="authenticate-with-client-certificate"></a><a name="ClientCertificate"></a> Autenticar com o certificado de cliente
- Use a política `authentication-certificate` para autenticar com um serviço de back-end usando um certificado de cliente. O certificado precisa ser [instalado no Gerenciamento de API](https://go.microsoft.com/fwlink/?LinkID=511599) primeiro e é identificado por sua impressão digital.
+ Use a política `authentication-certificate` para autenticar com um serviço de back-end usando um certificado de cliente. O certificado precisa ser [instalado no Gerenciamento de API](./api-management-howto-mutual-certificates.md) primeiro e é identificado por sua impressão digital.
 
 ### <a name="policy-statement"></a>Declaração de política
 
@@ -103,7 +103,7 @@ Neste exemplo, o certificado do cliente é definido na política em vez de ser r
   
 ### <a name="attributes"></a>Atributos  
   
-|Nome|Descrição|Obrigatório|Padrão|  
+|Name|Descrição|Obrigatório|Padrão|  
 |----------|-----------------|--------------|-------------|  
 |thumbprint|A impressão digital do certificado do cliente.|`thumbprint`Ou `certificate-id` deve estar presente.|N/D|
 |ID do certificado|O nome do recurso do certificado.|`thumbprint`Ou `certificate-id` deve estar presente.|N/D|
@@ -180,7 +180,7 @@ Tanto a identidade atribuída pelo sistema quanto qualquer uma das várias ident
   
 ### <a name="attributes"></a>Atributos  
   
-|Nome|Descrição|Obrigatório|Padrão|  
+|Name|Descrição|Obrigatório|Padrão|  
 |----------|-----------------|--------------|-------------|  
 |recurso|Cadeia. A ID do aplicativo da API Web de destino (recurso protegido) em Azure Active Directory.|Sim|N/D|
 |ID do cliente|Cadeia. A ID do aplicativo da identidade atribuída pelo usuário no Azure Active Directory.|Não|identidade atribuída pelo sistema|
@@ -200,4 +200,4 @@ Para obter mais informações sobre como trabalhar com políticas, consulte:
 + [Políticas no Gerenciamento de API](api-management-howto-policies.md)
 + [Transformar APIs](transform-api.md)
 + [Referência de Política](./api-management-policies.md) para uma lista completa das instruções de política e suas configurações
-+ [Exemplos de política](policy-samples.md)
++ [Exemplos de política](./policy-reference.md)
