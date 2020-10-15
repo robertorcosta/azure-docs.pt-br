@@ -3,16 +3,17 @@ title: Exibições do sistema com suporte na visualização de Synapse SQL-Works
 description: Links para a documentação de exibições do sistema com suporte no SQL Synapse.
 author: filippopovic
 ms.service: synapse-analytics
+ms.subservice: sql
 ms.topic: reference
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: e77c85b734784c37b8e0d599c02f8807123038dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7079bbcf3bd7cb7f6073b132cd558386744f6884
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88796724"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92092759"
 ---
 # <a name="system-views-supported-in-synapse-sql"></a>Exibições do sistema com suporte no SQL Synapse
 Links para a documentação para instruções T-SQL com suporte no SQL Synapse.

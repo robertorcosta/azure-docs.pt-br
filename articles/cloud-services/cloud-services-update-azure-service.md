@@ -7,12 +7,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: tagore
-ms.openlocfilehash: 731f4e8cc8a93f33d6887f44fc8d09585e92a75a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f12e5b6b0b2902d69936b9cf2695b7ee21db88e2
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75360337"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075035"
 ---
 # <a name="how-to-update-a-cloud-service"></a>Como atualizar um serviço de nuvem
 
@@ -21,7 +21,7 @@ A atualização de um serviço de nuvem, incluindo suas funções e o SO convida
 ## <a name="update-an-azure-service"></a>Atualizar um serviço do Azure
 O Azure organiza suas instâncias de função em agrupamentos lógicos chamados de domínios de atualização (UD). Os domínios de atualização (UD) são conjuntos lógicos de instâncias de função que são atualizados como um grupo.  O Azure atualiza um serviço de nuvem um UD por vez, o que permite que instâncias em outros UDs continuem a atender ao tráfego.
 
-O número padrão de domínios de atualização é de cinco. Você pode especificar um número diferente de domínios de atualização incluindo o atributo upgradeDomainCount no arquivo de definição do serviço (.csdef). Para obter mais informações sobre o atributo upgradeDomainCount, consulte [esquema de definição de serviços de nuvem do Azure (arquivo. csdef)](https://docs.microsoft.com/azure/cloud-services/schema-csdef-file).
+O número padrão de domínios de atualização é de cinco. Você pode especificar um número diferente de domínios de atualização incluindo o atributo upgradeDomainCount no arquivo de definição do serviço (.csdef). Para obter mais informações sobre o atributo upgradeDomainCount, consulte [esquema de definição de serviços de nuvem do Azure (arquivo. csdef)](./schema-csdef-file.md).
 
 Quando você executa uma atualização in-loco de uma ou mais funções em seu serviço, o Azure atualiza conjuntos de instâncias de função de acordo com o domínio de atualização ao qual elas pertencem. O Azure atualiza todas as instâncias em um determinado domínio de atualização. Ele faz isso interrompendo as atualizações, atualizando-as, colocando-as online novamente e, em seguida, passando-as para o próximo domínio. Ao interromper somente as instâncias em execução no domínio de atualização atual, o Azure garante que uma atualização ocorrerá com o menor impacto possível no serviço em execução. Para saber mais, veja [Como atualizar os lucros](#howanupgradeproceeds) posteriormente neste artigo.
 
@@ -182,7 +182,4 @@ O diagrama a seguir ilustra como é a distribuição de um serviço que contém 
 ## <a name="next-steps"></a>Próximas etapas
 [Como gerenciar serviços de nuvem](cloud-services-how-to-manage-portal.md)  
 [Como monitorar serviços de nuvem](cloud-services-how-to-monitor.md)  
-[Como configurar serviços de nuvem](cloud-services-how-to-configure-portal.md)  
-
-
-
+[Como configurar serviços de nuvem](cloud-services-how-to-configure-portal.md)

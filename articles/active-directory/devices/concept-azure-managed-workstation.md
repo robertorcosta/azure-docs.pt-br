@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4298518dae9afdf197321073846fa1ab9262ec0a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84d0731a67ac47b8b0fc73cb485857458b3febbb
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90601377"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093303"
 ---
 # <a name="understand-secure-azure-managed-workstations"></a>Entenda as estações de trabalho seguras e gerenciadas pelo Azure
 
@@ -64,7 +64,7 @@ Todos os usuários e operadores se beneficiam ao usar uma estação de trabalho 
 * Estação de trabalho altamente confidencial, como um terminal de pagamento SWIFT
 * Estação de trabalho lidando com segredos comerciais
 
-Para reduzir o risco, você deve implementar controles de segurança elevados para estações de trabalho privilegiadas que fazem uso dessas contas. Para obter mais informações, consulte o [Guia de implantação de recursos Azure Active Directory](../fundamentals/active-directory-deployment-checklist-p2.md), o [roteiro do Microsoft 365](https://aka.ms/o365secroadmap)e a proteção do [roteiro de acesso privilegiado](https://aka.ms/sparoadmap)).
+Para reduzir o risco, você deve implementar controles de segurança elevados para estações de trabalho privilegiadas que fazem uso dessas contas. Para obter mais informações, consulte o [Guia de implantação de recursos Azure Active Directory](../fundamentals/active-directory-deployment-checklist-p2.md), o [roteiro do Microsoft 365](/microsoft-365/security/office-365-security/security-roadmap)e a proteção do [roteiro de acesso privilegiado](/windows-server/identity/securing-privileged-access/securing-privileged-access)).
 
 ## <a name="why-use-dedicated-workstations"></a>Por que usar estações de trabalho dedicadas?
 
