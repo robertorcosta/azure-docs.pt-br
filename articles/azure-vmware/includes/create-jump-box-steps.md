@@ -4,10 +4,10 @@ description: Etapas para criar a caixa de salto da Solução VMware no Azure.
 ms.topic: include
 ms.date: 09/28/2020
 ms.openlocfilehash: 5d5a5d82cf6e70e7ad55bcfa10c7f85372131c87
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91578403"
 ---
 <!-- Used in deploy-azure-vmware-solution.md and tutorial-access-private-cloud.md -->

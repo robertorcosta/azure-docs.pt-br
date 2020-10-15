@@ -7,10 +7,10 @@ ms.subservice: language-understanding
 ms.topic: include
 ms.date: 06/22/2020
 ms.openlocfilehash: aa0ba1de63cbcf1d9485c71b6bec7a29afb5140f
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91544907"
 ---
 1. No [portal do LUIS](https://www.luis.ai), na página **Meus aplicativos**, selecione **+ Novo aplicativo para conversa**, em seguida, **Importar como JSON**. Localize o arquivo JSON salvo na etapa anterior. Você não precisa alterar o nome do aplicativo. Selecione **Concluído**

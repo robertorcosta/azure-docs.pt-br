@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 9a15125e5b15db18b3844c79d3c8b44f26006053
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 68f7e010a2d60640447a87d2fb910a1c96f2db83
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554608"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91938488"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobile-xpense"></a>Tutorial: Integração do Azure Active Directory com o Mobile Xpense
 
@@ -99,7 +99,7 @@ Para configurar o logon único do Azure AD com o Mobile Xpense, execute as segui
 
 4. Na seção **Configuração básica do SAML**, execute as etapas a seguir caso deseje configurar o aplicativo no modo **IDP** iniciado:
 
-    ![Informações de logon único de Domínio e URLs do Mobile Xpense](common/idp-intiated.png)
+    ![Captura de tela que mostra a Configuração Básica de SAML, em que você pode inserir o Identificador e a URL de Resposta e selecionar Salvar.](common/idp-intiated.png)
 
     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://mobilexpense.com/ServiceProvider`
 
@@ -107,7 +107,7 @@ Para configurar o logon único do Azure AD com o Mobile Xpense, execute as segui
 
 5. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 
-    ![Informações de logon único de Domínio e URLs do Mobile Xpense](common/metadata-upload-additional-signon.png)
+    ![Captura de tela que mostra Definir URLs adicionais, em que você pode inserir uma URL de Logon.](common/metadata-upload-additional-signon.png)
 
     Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://<sub-domain>.mobilexpense.com/<customername>`
 

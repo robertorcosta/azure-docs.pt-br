@@ -3,12 +3,12 @@ title: Tutorial – Emparelhar ambientes locais com uma nuvem privada
 description: Saiba como criar um emparelhamento de Alcance Global do ExpressRoute com uma nuvem privada em uma Solução VMware no Azure.
 ms.topic: tutorial
 ms.date: 09/21/2020
-ms.openlocfilehash: 07b7e1c2636f3754eda56af574586a1027403d3e
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 9de6cbe177ac8d2ca4957e80c7ca1072a0d7985e
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91576720"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948299"
 ---
 # <a name="tutorial-peer-on-premises-environments-to-a-private-cloud"></a>Tutorial: Emparelhar ambientes locais com uma nuvem privada
 
@@ -83,7 +83,7 @@ Agora que você criou uma chave de autorização para o circuito do ExpressRoute
 Ampliamos os [comandos da CLI](../expressroute/expressroute-howto-set-global-reach-cli.md) com detalhes e exemplos específicos para ajudar você a configurar o emparelhamento do Alcance Global do ExpressRoute entre ambientes locais e uma nuvem privada da Solução VMware no Azure.  
 
 > [!TIP]  
-> Para ser breve quanto à saída de comando da CLI do Azure, estas instruções podem usar um argumento [`–query` para executar uma consulta JMESPath e mostrar apenas os resultados necessários](https://docs.microsoft.com/cli/azure/query-azure-cli).
+> Para ser breve quanto à saída de comando da CLI do Azure, estas instruções podem usar um argumento [`–query` para executar uma consulta JMESPath e mostrar apenas os resultados necessários](/cli/azure/query-azure-cli).
 
 
 1. Entre no portal do Azure usando a mesma assinatura que o circuito do ExpressRoute local e abra uma Cloud Shell. Deixe o shell como Bash.
