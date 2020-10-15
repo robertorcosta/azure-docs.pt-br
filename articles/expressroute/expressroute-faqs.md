@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: duau
-ms.openlocfilehash: 6253dd616ca184449f3f144d538c1ed20de54cc2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d91d896da21d9d96e45c0eab3d5d895364f3e149
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89566413"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077347"
 ---
 # <a name="expressroute-faq"></a>Perguntas Frequentes sobre ExpressRoute
 
@@ -242,6 +242,9 @@ Sim. Se você não anunciou rotas padrão (0.0.0.0/0) ou prefixos de rotas de In
 ### <a name="can-i-block-internet-connectivity-to-virtual-networks-connected-to-expressroute-circuits"></a>Posso bloquear a conectividade à Internet em minhas redes virtuais conectadas a circuitos de ExpressRoute?
 
 Sim. Você pode anunciar rotas padrão (0.0.0.0/0) para bloquear toda a conectividade com a Internet para máquinas virtuais implantadas em uma rede virtual e rotear todo o tráfego de saída através do circuito de ExpressRoute.
+
+> [!NOTE]
+> Se a rota anunciada de 0.0.0.0/0 for retirada das rotas anunciadas (por exemplo, devido a uma interrupção ou configuração incorreta), o Azure fornecerá uma [rota do sistema](../virtual-network/virtual-networks-udr-overview.md#system-routes) para os recursos na rede virtual conectada para fornecer conectividade com a Internet.  Para garantir que o tráfego de saída para a Internet seja bloqueado, é recomendável posicionar um grupo de segurança de rede em todas as sub-redes com uma regra de negação de saída para o tráfego da Internet.
 
 Se você anunciar rotas padrão, forçamos o tráfego para serviços oferecidos pelo peering da Microsoft (como armazenamento do Azure e SQL DB) de volta às suas instalações. Você precisará configurar seus roteadores para retornar o tráfego para o Azure por meio do caminho de peering da Microsoft ou pela Internet. Se você tiver ativado um ponto de extremidade de serviço para o serviço, o tráfego para o serviço não será forçado para suas instalações. O tráfego permanece dentro da rede de backbone do Azure. Para saber mais sobre os pontos de extremidade do serviço, consulte [Pontos de extremidade de serviço de rede virtual](../virtual-network/virtual-network-service-endpoints-overview.md?toc=%2fazure%2fexpressroute%2ftoc.json)
 
