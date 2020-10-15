@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 6446e138df1fe744d70be085d0aecac58e2c1c45
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d93a43a44a9ccff4e7918e556b9d759e270d2f42
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91255291"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072077"
 ---
 # <a name="configure-an-aks-cluster"></a>Configurar um cluster do AKS
 
@@ -176,10 +176,10 @@ Se você quiser criar pools de nós com o tempo de execução Moby (Docker), pod
 
 ## <a name="generation-2-virtual-machines-preview"></a>Máquinas virtuais de geração 2 (versão prévia)
 
-O Azure dá suporte a [VMS (máquinas virtuais) de geração 2 (Gen2)](../virtual-machines/windows/generation-2.md). As VMs de geração 2 oferecem suporte a recursos principais que não têm suporte em VMs de geração 1 (GEN1). Esses recursos incluem memória aumentada, Intel com Software Guard Extensions (Intel SGX) e memória persistente virtualizada (vPMEM).
+O Azure dá suporte a [VMS (máquinas virtuais) de geração 2 (Gen2)](../virtual-machines/generation-2.md). As VMs de geração 2 oferecem suporte a recursos principais que não têm suporte em VMs de geração 1 (GEN1). Esses recursos incluem memória aumentada, Intel com Software Guard Extensions (Intel SGX) e memória persistente virtualizada (vPMEM).
 
 As VMs de geração 2 usam a nova arquitetura de inicialização baseada em UEFI, em vez da arquitetura baseada em BIOS usada pelas VMs de geração 1.
-Somente SKUs e tamanhos específicos dão suporte a VMs Gen2. Verifique a [lista de tamanhos com suporte](../virtual-machines/windows/generation-2.md#generation-2-vm-sizes)para ver se sua SKU dá suporte ou requer Gen2.
+Somente SKUs e tamanhos específicos dão suporte a VMs Gen2. Verifique a [lista de tamanhos com suporte](../virtual-machines/generation-2.md#generation-2-vm-sizes)para ver se sua SKU dá suporte ou requer Gen2.
 
 Além disso, nem todas as imagens de VM dão suporte a Gen2, em AKS Gen2 VMs usarão a nova [imagem AKs Ubuntu 18, 4](#os-configuration). Esta imagem dá suporte a todos os tamanhos e SKUs de Gen2.
 

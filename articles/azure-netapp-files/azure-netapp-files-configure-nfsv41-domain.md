@@ -11,14 +11,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/08/2019
+ms.date: 10/14/2020
 ms.author: b-juche
-ms.openlocfilehash: e749f27875612136c50938712fded6a371f8c7ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c3c853190d5f63bbe9012727d8b7b7ac91da135f
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91325616"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072145"
 ---
 # <a name="configure-nfsv41-default-domain-for-azure-netapp-files"></a>Configurar o domínio padrão do NFSv4.1 para o Azure NetApp Files
 
@@ -26,11 +26,11 @@ NFSv4 introduz o conceito de domínio de autenticação. O Azure NetApp Files at
 
 ## <a name="default-behavior-of-usergroup-mapping"></a>Comportamento padrão do mapeamento de usuário/grupo
 
-O mapeamento raiz é padronizado para o `nobody` usuário porque o domínio NFSv4 está definido como `localdomain` . Ao montar um volume Azure NetApp Files NFSv 4.1 como raiz, você verá permissões de arquivo da seguinte maneira:  
+O mapeamento de raiz usa como padrão o `nobody` usuário, pois o domínio NFSv4 é definido como `localdomain` por padrão. Ao montar um volume Azure NetApp Files NFSv 4.1 como raiz, você verá permissões de arquivo da seguinte maneira:  
 
 ![Comportamento padrão do mapeamento de usuário/grupo para NFSv 4.1](../media/azure-netapp-files/azure-netapp-files-nfsv41-default-behavior-user-group-mapping.png)
 
-Como mostra o exemplo acima, o usuário `file1` deve ser `root` , mas é mapeado para `nobody` por padrão.  Este artigo mostra como definir o `file1` usuário como `root` .  
+Como mostra o exemplo acima, o usuário `file1` deve ser `root` , mas é mapeado para `nobody` por padrão.  Este artigo mostra como definir o `file1` usuário como `root` alterando a `idmap Domain` configuração para `defaultv4iddomain.com` .  
 
 ## <a name="steps"></a>Etapas 
 

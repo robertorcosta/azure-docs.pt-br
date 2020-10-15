@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.topic: article
 ms.workload: identity
-ms.date: 05/26/2020
+ms.date: 10/14/2020
 ms.author: chmutali
-ms.openlocfilehash: 8c76bddc0fae024b0dd2bdd27d6b1e10d71dec71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1428a92857f48920c86ed7a3f0719fa42b38b24
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90017465"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072026"
 ---
 # <a name="tutorial-configure-attribute-writeback-from-azure-ad-to-workday"></a>Tutorial: configurar o Write-back de atributo do Azure AD para o workday
 O objetivo deste tutorial é mostrar as etapas que você precisa executar para os atributos de write-back do Azure AD para o workday. O aplicativo de provisionamento de write-back do workday dá suporte à atribuição de valores aos seguintes atributos do workday:
@@ -144,16 +144,31 @@ Depois que as configurações do aplicativo de provisionamento do Workday tivere
 
 1. Na guia **Provisionamento**, defina o **Status de Provisionamento** para **Em**.
 
+1. Na lista suspensa **escopo** , selecione **sincronizar todos os usuários e grupos**. Com essa opção, o aplicativo write-back gravará atributos mapeados de todos os usuários do Azure ad para o workday, sujeito às regras de escopo definidas em **mapeamentos**  ->  **escopo do objeto de origem**. 
+
+   > [!div class="mx-imgBorder"]
+   > ![Selecionar escopo de write-back](./media/sap-successfactors-inbound-provisioning/select-writeback-scope.png)
+
+   > [!NOTE]
+   > O aplicativo de provisionamento de write-back do workday não oferece suporte à opção **sincronizar somente usuários e grupos atribuídos**.
+ 
+
 2. Clique em **Save** (Salvar).
 
 3. Esta operação iniciará a sincronização inicial, o que pode levar um número variável de horas, dependendo de quantos usuários estiverem no diretório de origem. Você pode verificar a barra de progresso para acompanhar o progresso do ciclo de sincronização. 
 
-4. A qualquer momento, verifique os **Logs de auditoria** no portal do Azure para ver as ações que o serviço de provisionamento executou. Os logs de auditoria lista todos os eventos de sincronização individuais executados pelo serviço de provisionamento, como quais usuários são importados da origem e exportados para o aplicativo de destino.  
+4. A qualquer momento, verifique a guia **logs de provisionamento** no portal do Azure para ver quais ações o serviço de provisionamento executou. Os logs de auditoria lista todos os eventos de sincronização individuais executados pelo serviço de provisionamento, como quais usuários são importados da origem e exportados para o aplicativo de destino.  
 
 5. Depois que a sincronização inicial for concluída, ela gravará um relatório de resumo na guia **provisionamento** , conforme mostrado abaixo.
 
      > [!div class="mx-imgBorder"]
      > ![Barra de progresso de provisionamento](./media/sap-successfactors-inbound-provisioning/prov-progress-bar-stats.png)
+
+## <a name="known-issues-and-limitations"></a>Limitações e problemas conhecidos
+
+* O aplicativo de write-back usa um valor predefinido para parâmetros **Communication_Usage_Type_ID** e **Phone_Device_Type_ID**. Se o seu locatário do workday estiver usando um valor diferente para esses atributos, a operação de write-back não terá sucesso. Uma solução alternativa sugerida é atualizar o Type_IDs no workday. 
+* Quando o aplicativo de write-back é configurado para atualizar números de telefone secundários, ele não substitui o número de telefone secundário existente no workday. Ele adiciona mais um número de telefone secundário ao registro de trabalho. Não há nenhuma solução alternativa para esse comportamento. 
+
 
 ## <a name="next-steps"></a>Próximas etapas
 
