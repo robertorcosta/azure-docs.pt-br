@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: lcozzens
-ms.openlocfilehash: ef4633953f7ac03737608124309d94e436913794
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99c74547d5f48f57af56af69f47190d80d9cd350
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715435"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074950"
 ---
 # <a name="azure-app-configuration-faq"></a>Perguntas frequentes sobre configuração do Azure App
 
@@ -45,11 +45,11 @@ Sim. A configuração de aplicativo criptografa todos os valores de chave que el
 
 ## <a name="where-does-data-stored-in-app-configuration-reside"></a>Onde residem os dados armazenados na configuração do aplicativo? 
 
-Os dados do cliente armazenados na configuração do aplicativo residem na região em que o repositório de configuração de aplicativo do cliente foi criado. A configuração do aplicativo pode replicar dados para [regiões emparelhadas](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) para resiliência de dados, mas não replicará nem moverá os dados do cliente fora de sua área geográfica, conforme definido pela [residência de dados no Azure](https://azure.microsoft.com/global-infrastructure/data-residency/). Os clientes e usuários finais podem mover, copiar ou acessar os dados do cliente de qualquer local globalmente.
+Os dados do cliente armazenados na configuração do aplicativo residem na região em que o repositório de configuração de aplicativo do cliente foi criado. A configuração do aplicativo pode replicar dados para [regiões emparelhadas](../best-practices-availability-paired-regions.md) para resiliência de dados, mas não replicará nem moverá os dados do cliente fora de sua área geográfica, conforme definido pela [residência de dados no Azure](https://azure.microsoft.com/global-infrastructure/data-residency/). Os clientes e usuários finais podem mover, copiar ou acessar os dados do cliente de qualquer local globalmente.
 
 ## <a name="how-is-app-configuration-different-from-azure-app-service-settings"></a>Como a configuração do aplicativo é diferente das configurações do Azure App Service?
 
-Azure App serviço permite que você defina as configurações do aplicativo para cada instância do serviço de aplicativo. Essas configurações são passadas como variáveis de ambiente para o código do aplicativo. Você pode associar uma configuração a um slot de implantação específico, se desejar. Para obter mais informações, consulte [definir configurações de aplicativo](/azure/app-service/configure-common#configure-app-settings).
+Azure App serviço permite que você defina as configurações do aplicativo para cada instância do serviço de aplicativo. Essas configurações são passadas como variáveis de ambiente para o código do aplicativo. Você pode associar uma configuração a um slot de implantação específico, se desejar. Para obter mais informações, consulte [definir configurações de aplicativo](../app-service/configure-common.md#configure-app-settings).
 
 Por outro lado, Azure App configuração permite que você defina as configurações que podem ser compartilhadas entre vários aplicativos. Isso inclui aplicativos em execução no serviço de aplicativo, bem como outras plataformas. O código do aplicativo acessa essas configurações por meio dos provedores de configuração para .NET e Java, por meio do SDK do Azure ou diretamente por meio de APIs REST.
 

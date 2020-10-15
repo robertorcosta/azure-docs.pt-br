@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/23/2020
 ms.author: mblythe
-ms.openlocfilehash: 06cf0a5692b3d80a07c305f53c9e3801cbdb5110
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4241e51f186ea973702562ab27bb7f13a77de57
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84764002"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089478"
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>Criar e compartilhar painéis no Portal do Azure
 
@@ -118,7 +118,7 @@ Os dados no painel mostram automaticamente a atividade das últimas 24 horas. Pa
 
 1. Escolha a granularidade de tempo a ser exibida. Você pode mostrar qualquer lugar de incrementos de um minuto para um mês.
 
-1. Escolha **Aplicar**.
+1. Selecione **Aplicar**.
 
 ## <a name="delete-a-tile"></a>Excluir um bloco
 
@@ -142,7 +142,7 @@ Para usar um painel existente como modelo para um novo painel, siga estas etapas
 
 ## <a name="publish-and-share-a-dashboard"></a>Publicar e compartilhar um painel
 
-Quando você cria um painel, ele é privado por padrão, o que significa que você é o único que pode vê-lo. Para disponibilizar os painéis para outras pessoas, você pode publicá-los e compartilhá-los. Para obter mais informações, consulte [compartilhar painéis do Azure usando o controle de acesso Role-Based](azure-portal-dashboard-share-access.md).
+Quando você cria um painel, ele é privado por padrão, o que significa que você é o único que pode vê-lo. Para disponibilizar os painéis para outras pessoas, você pode publicá-los e compartilhá-los. Para obter mais informações, consulte [compartilhar painéis do Azure usando o controle de acesso baseado em função do Azure](azure-portal-dashboard-share-access.md).
 
 ### <a name="open-a-shared-dashboard"></a>Abrir um painel compartilhado
 
@@ -178,5 +178,5 @@ Para excluir permanentemente um painel particular ou compartilhado, siga estas e
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Compartilhar painéis do Azure usando o Controle de Acesso Baseado em Função](azure-portal-dashboard-share-access.md)
+* [Compartilhar painéis do Azure usando o controle de acesso baseado em função do Azure](azure-portal-dashboard-share-access.md)
 * [Criar programaticamente os painéis do Azure](azure-portal-dashboards-create-programmatically.md)
