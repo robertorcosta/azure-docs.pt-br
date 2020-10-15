@@ -5,12 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: c98aeaff3ba39a28fad68454d76f6f4d33f44e5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 763b9977f756075789b826c2f1e01cd41ac60a73
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87836727"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091161"
 ---
 # <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>Saiba mais sobre as diferenças entre os Serviços de Nuvem e o Service Fabric antes de migrar os aplicativos.
 O Service Fabric do Microsoft Azure é a plataforma de aplicativos de nuvem de última geração para aplicativos distribuídos altamente escalonáveis e altamente confiáveis. Ele apresenta muitos recursos novos para empacotamento, implantação, atualização e gerenciamento de aplicativos em nuvem distribuídos. 
@@ -69,7 +69,7 @@ Com a comunicação direta, as camadas podem se comunicar diretamente por meio d
 
 O Service Fabric fornece um mecanismo de descoberta de serviço chamado Serviço de Nomenclatura, que pode ser usado para resolver endereços de ponto de extremidade de serviços. 
 
-![Comunicação direta do Service Fabric][6]
+![Diagrama que mostra como Service Fabric fornece um mecanismo de descoberta de serviço, chamado de Serviço de Nomenclatura, que pode ser usado para resolver endereços de ponto de extremidade de serviços.][6]
 
 ### <a name="queues"></a>Filas
 Um mecanismo de comunicação comum entre camadas em ambientes sem estado, como os Serviços de Nuvem, é o uso de uma fila de armazenamento externo para armazenar permanentemente as tarefas de trabalho de uma camada para outra. Um cenário comum é uma camada da Web que envia os trabalhos para uma fila do Azure ou Barramento de Serviço, onde as instâncias de função de trabalho podem remover os trabalhos da fila e processá-los.

@@ -1,19 +1,19 @@
 ---
-title: Gerenciar backups com o controle de acesso Role-Based
-description: Use o Controle de Acesso baseado em função para gerenciar o acesso a operações de gerenciamento de backups em um cofre dos Serviços de Recuperação.
+title: Gerenciar backups com o controle de acesso baseado em função do Azure
+description: Use o controle de acesso baseado em função do Azure para gerenciar o acesso às operações de gerenciamento de backup no cofre dos serviços de recuperação.
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/24/2019
-ms.openlocfilehash: c24d075dcb9ac36ce741db746d69aa9e61fac39d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0dd8d08c4ee79082f47929cf7d453f3f4bbd60ee
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89376121"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090872"
 ---
-# <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Use o Controle de Acesso baseado em função para gerenciar pontos de recuperação de Backup do Azure
+# <a name="use-azure-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Usar o controle de acesso baseado em função do Azure para gerenciar pontos de recuperação do backup do Azure
 
-O Azure RBAC (controle de acesso baseado em função) permite o gerenciamento de acesso refinado para o Azure. Com o RBAC, você pode separar as tarefas dentro de sua equipe e conceder somente a quantidade de acesso que os usuários precisam para realizar seus trabalhos.
+O Azure RBAC (controle de acesso baseado em função) permite o gerenciamento de acesso refinado para o Azure. Com o Azure RBAC, você pode separar as tarefas dentro de sua equipe e permitir somente a quantidade de acesso de que os usuários precisam para realizar os trabalhos deles.
 
 > [!IMPORTANT]
 > As funções fornecidas pelo backup do Azure são limitadas a ações que podem ser executadas em portal do Azure ou por meio da API REST ou dos cmdlets do PowerShell ou do cofre dos serviços de recuperação. Ações executadas na interface do usuário do cliente do agente de backup do Azure ou na interface do usuário do System Center Data Protection Manager ou da interface do usuário do Servidor de Backup do Azure estão fora do controle dessas funções.
@@ -77,9 +77,9 @@ A tabela a seguir captura as ações de gerenciamento de backup e a função cor
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Controle de acesso baseado em função do Azure (RBAC do Azure)](../role-based-access-control/role-assignments-portal.md): introdução ao rbac no portal do Azure.
+* [Controle de acesso baseado em função do Azure (RBAC do Azure)](../role-based-access-control/role-assignments-portal.md): introdução ao RBAC do azure no portal do Azure.
 * Saiba como gerenciar o acesso com:
   * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
   * [CLI do Azure](../role-based-access-control/role-assignments-cli.md)
   * [REST API](../role-based-access-control/role-assignments-rest.md)
-* [Solução de problemas de Controle de Acesso Baseado em Função](../role-based-access-control/troubleshooting.md): obtenha sugestões para corrigir problemas comuns.
+* [Solução de problemas do controle de acesso baseado em função do Azure](../role-based-access-control/troubleshooting.md): Obtenha sugestões para corrigir problemas comuns.

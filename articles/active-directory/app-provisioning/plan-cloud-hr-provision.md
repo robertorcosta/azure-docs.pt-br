@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 3a3f461941bfcd5091ebb14818bac05d6844b3fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb36366143286c05603a8d14b5ad56ebb6544bda
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90706347"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070377"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planejar o aplicativo de RH de nuvem para Azure Active Directory provisionamento de usuário
 
@@ -31,7 +31,7 @@ O Azure AD usa essa integração para habilitar os seguintes fluxos de trabalho 
 - **Write-back para o aplicativo de RH na nuvem:** Grave os endereços de email e os atributos de nome de usuário do Azure AD de volta para o aplicativo de RH na nuvem.
 
 > [!NOTE]
-> Este plano de implantação mostra como implantar seus fluxos de trabalho de aplicativo de RH na nuvem com o provisionamento de usuário do Azure AD. Para obter informações sobre como implantar o provisionamento automático de usuário em aplicativos SaaS (software como serviço), consulte [planejar uma implantação de provisionamento de usuário automático](https://aka.ms/deploymentplans/provisioning).
+> Este plano de implantação mostra como implantar seus fluxos de trabalho de aplicativo de RH na nuvem com o provisionamento de usuário do Azure AD. Para obter informações sobre como implantar o provisionamento automático de usuário em aplicativos SaaS (software como serviço), consulte [planejar uma implantação de provisionamento de usuário automático](./plan-auto-user-provisioning.md).
 
 ## <a name="enabled-hr-scenarios"></a>Cenários de RH habilitados
 
@@ -52,7 +52,7 @@ A integração do aplicativo de RH de nuvem com o provisionamento de usuário do
 - Exigir ingressar, mover e deixar os usuários serem sincronizados com um ou mais Active Directory florestas, domínios e UOs com base apenas nas informações de alteração detectadas no aplicativo de RH de nuvem.
 - Use Microsoft 365 para email.
 
-## <a name="learn"></a>Saiba mais
+## <a name="learn"></a>Learn
 
 O provisionamento de usuário cria uma base para a governança de identidade contínua. Ele aprimora a qualidade dos processos de negócios que dependem de dados de identidade autoritativa.
 
@@ -92,7 +92,7 @@ Você também precisa de uma licença de assinatura Azure AD Premium P1 ou super
 
 | **Recursos** | **Link e descrição** |
 |:-|:-|
-| vídeos | [O que é o provisionamento de usuário no diretório ativo do Azure?](https://youtu.be/_ZjARPpI6NI) |
+| Vídeos | [O que é o provisionamento de usuário no diretório ativo do Azure?](https://youtu.be/_ZjARPpI6NI) |
 | | [Como implantar o provisionamento de usuário no Active Directory do Azure](https://youtu.be/pKzyts6kfrw) |
 | Tutoriais | [Lista de tutoriais sobre como integrar aplicativos SaaS ao Azure AD](../saas-apps/tutorial-list.md) |
 | | [Tutorial: Configurar o Workday para provisionamento automático do usuário](../saas-apps/workday-inbound-tutorial.md#frequently-asked-questions-faq) |
@@ -126,7 +126,7 @@ Considere suas necessidades organizacionais enquanto determina a estratégia par
 
 ### <a name="engage-the-right-stakeholders"></a>Envolva os participantes certos
 
-Quando os projetos de tecnologia falham, normalmente fazem isso devido a expectativas incompatíveis com o impacto, os resultados e as responsabilidades. Para evitar essas armadilhas, [Verifique se você está participando dos participantes certos](https://aka.ms/deploymentplans). Além disso, certifique-se de que as funções de Stakeholder no projeto sejam bem compreendidas. Documente os participantes e suas entradas e responsabilidades de projeto.
+Quando os projetos de tecnologia falham, normalmente fazem isso devido a expectativas incompatíveis com o impacto, os resultados e as responsabilidades. Para evitar essas armadilhas, [Verifique se você está participando dos participantes certos](../fundamentals/active-directory-deployment-plans.md). Além disso, certifique-se de que as funções de Stakeholder no projeto sejam bem compreendidas. Documente os participantes e suas entradas e responsabilidades de projeto.
 
 Inclua um representante da organização de RH que possa fornecer entradas sobre processos de negócios e identidade de trabalho existentes, além de requisitos de processamento de dados de trabalho.
 
@@ -378,7 +378,7 @@ O Azure AD pode fornecer informações adicionais sobre o uso de provisionamento
 
 Após um [ciclo inicial](../app-provisioning/how-provisioning-works.md#initial-cycle)bem-sucedido, o serviço de provisionamento do Azure ad continua a executar atualizações incrementais de back-to-back indefinidamente, em intervalos definidos nos tutoriais específicos de cada aplicativo, até que um dos seguintes eventos ocorra:
 
-- O serviço é interrompido manualmente. Um novo ciclo inicial é disparado usando o [portal do Azure](https://portal.azure.com/) ou o comando de [API Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview) apropriado.
+- O serviço é interrompido manualmente. Um novo ciclo inicial é disparado usando o [portal do Azure](https://portal.azure.com/) ou o comando de [API Microsoft Graph](/graph/api/resources/synchronization-overview) apropriado.
 - Um novo ciclo inicial é disparado devido a uma alteração nos mapeamentos de atributo ou em filtros de escopo.
 - O processo de provisionamento entra em quarentena devido a uma alta taxa de erros. Ele permanece em quarentena por mais de quatro semanas, quando é automaticamente desabilitado.
 
@@ -416,6 +416,6 @@ Para solucionar quaisquer problemas que possam ser reativados durante o provisio
 ### <a name="next-steps"></a>Próximas etapas
 
 - [Escrevendo expressões para mapeamentos de atributo](functions-for-customizing-application-data.md)
-- [Visão geral da API de sincronização do Azure AD](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
+- [Visão geral da API de sincronização do Azure AD](/graph/api/resources/synchronization-overview)
 - [Ignorar a exclusão de contas de usuário que saem do escopo](skip-out-of-scope-deletions.md)
 - [Agente de provisionamento do Azure AD Connect: histórico de lançamento de versão](provisioning-agent-release-version-history.md)

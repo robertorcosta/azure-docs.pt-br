@@ -3,12 +3,12 @@ title: Visão geral dos cofres de backup
 description: Uma visão geral dos cofres de backup.
 ms.topic: conceptual
 ms.date: 08/17/2020
-ms.openlocfilehash: 773152212ed831c0083cfdf912f45ece578d079f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c189997ecc4814917182246b35003649d317ac77
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90994091"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091280"
 ---
 # <a name="backup-vaults-overview"></a>Visão geral dos cofres de backup
 
@@ -16,7 +16,7 @@ Este artigo descreve os recursos de um cofre de backup. Um cofre de backup é um
 
 - **Recursos aprimorados para ajudar a proteger os dados de backup**: com cofres de backup, o backup do Azure fornece recursos de segurança para proteger os backups na nuvem. Esses recursos de segurança asseguram que você possa proteger seus backups e recuperar dados com segurança, mesmo que os servidores de produção e de backup estejam comprometidos. [Saiba mais](backup-azure-security-feature.md)
 
-- **RBAC (Controle de Acesso Baseado em Função)**: o RBAC oferece controle de gerenciamento de acesso detalhado no Azure. [O Azure fornece várias funções internas](../role-based-access-control/built-in-roles.md), e o Backup do Azure tem três [funções internas para gerenciar pontos de recuperação](backup-rbac-rs-vault.md). Os cofres de backup são compatíveis com o RBAC, que restringe o acesso de backup e restauração ao conjunto definido de funções de usuário. [Saiba mais](backup-rbac-rs-vault.md)
+- **Controle de acesso baseado em função do Azure (RBAC do Azure)**: o RBAC do Azure fornece controle de gerenciamento de acesso refinado no Azure. [O Azure fornece várias funções internas](../role-based-access-control/built-in-roles.md), e o Backup do Azure tem três [funções internas para gerenciar pontos de recuperação](backup-rbac-rs-vault.md). Os cofres de backup são compatíveis com o RBAC do Azure, que restringe o acesso de backup e restauração ao conjunto definido de funções de usuário. [Saiba mais](backup-rbac-rs-vault.md)
 
 ## <a name="storage-settings-in-the-backup-vault"></a>Configurações de armazenamento no cofre de backup
 

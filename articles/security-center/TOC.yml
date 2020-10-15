@@ -169,15 +169,15 @@
           href: update-regulatory-compliance-packages.md
     - name: Usar o Azure Defender para servidores
       items:
-        - name: Verificação de vulnerabilidades de VMs
+        - name: Verificação de vulnerabilidade
           items:
-            - name: Verificar as VMs com a solução de VA integrada
-              displayName: 'qualys, vulnerability'
+            - name: Scanner de VA integrado para computadores
+              displayName: 'qualys, vulnerability, arc'
               href: deploy-vulnerability-assessment-vm.md
             - name: Verificar as VMs com uma solução de VA BYOL
               displayName: 'qualys, rapid7, vulnerability'
               href: deploy-vulnerability-assessment-byol-vm.md
-            - name: Examinar e corrigir vulnerabilidades em suas VMs
+            - name: Avaliar e corrigir vulnerabilidades
               displayName: 'qualys, rapid7, vulnerability'
               href: remediate-vulnerability-findings-vm.md
             - name: Desabilitar conclusões de vulnerabilidades específicas

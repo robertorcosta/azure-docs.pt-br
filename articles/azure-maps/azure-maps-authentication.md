@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 4a923fd34391137f2064cb338ea180ae3782f5e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ad4724280039f2820611a621186d8174e9af986
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88036837"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091399"
 ---
 # <a name="authentication-with-azure-maps"></a>Autenticação com Azure Mapas
 
@@ -51,7 +51,7 @@ Para obter informações gerais sobre como autenticar com o Azure AD, consulte [
 
 ### <a name="managed-identities-for-azure-resources-and-azure-maps"></a>Identidades gerenciadas para recursos do Azure e os Azure Mapas
 
-[Identidades gerenciadas para recursos do Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) fornecem serviços do Azure com uma entidade de segurança baseada em aplicativo gerenciado automaticamente, que pode ser autenticada com o Azure AD. Com o RBAC (controle de acesso baseado em função), a entidade de segurança de identidade gerenciada pode ser autorizada a acessar os serviços do Azure Maps. Alguns exemplos de identidades gerenciadas incluem: Azure App Service, Azure Functions e máquinas virtuais do Azure. Para obter uma lista de identidades gerenciadas, consulte [identidades gerenciadas para recursos do Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities).
+[Identidades gerenciadas para recursos do Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) fornecem serviços do Azure com uma entidade de segurança baseada em aplicativo gerenciado automaticamente, que pode ser autenticada com o Azure AD. Com o Azure RBAC (controle de acesso baseado em função), a entidade de segurança de identidade gerenciada pode ser autorizada a acessar os serviços do Azure Maps. Alguns exemplos de identidades gerenciadas incluem: Azure App Service, Azure Functions e máquinas virtuais do Azure. Para obter uma lista de identidades gerenciadas, consulte [identidades gerenciadas para recursos do Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities).
 
 ### <a name="configuring-application-azure-ad-authentication"></a>Configurando a autenticação do Azure AD do aplicativo
 
@@ -82,7 +82,7 @@ Para obter informações sobre como exibir a ID do cliente, consulte [Exibir det
 
 O Azure Maps dá suporte ao acesso a todos os tipos principais para o Azure [RBAC (controle de acesso baseado em função)](https://docs.microsoft.com/azure/role-based-access-control/overview) , incluindo: usuários individuais do Azure AD, grupos, aplicativos, recursos do Azure e identidades gerenciadas do Azure. Os tipos de entidade são concedidos a um conjunto de permissões, também conhecido como uma definição de função. Uma definição de função fornece permissões para ações da API REST. A aplicação de acesso a uma ou mais contas do Azure Maps é conhecida como um escopo. Ao aplicar uma entidade de segurança, definição de função e escopo, uma atribuição de função é criada. 
 
-As seções a seguir discutem conceitos e componentes da integração do Azure Maps com o controle de acesso baseado em função do Azure AD. Como parte do processo para configurar sua conta do Azure Maps, um diretório do AD do Azure é associado à assinatura do Azure que a conta do Azure Maps reside. 
+As seções a seguir discutem conceitos e componentes da integração do Azure Maps com o RBAC do Azure. Como parte do processo para configurar sua conta do Azure Maps, um diretório do AD do Azure é associado à assinatura do Azure que a conta do Azure Maps reside. 
 
 Ao configurar o RBAC do Azure, você escolhe uma entidade de segurança e a aplica a uma atribuição de função. Para saber como adicionar atribuições de função no portal do Azure, consulte [Adicionar ou remover atribuições de função do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 
@@ -104,7 +104,7 @@ Alguns serviços do Azure Maps podem exigir privilégios elevados para executar 
 | Criador            | Colaborador de dados do Azure Maps |
 | Espacial            | Colaborador de dados do Azure Maps |
 
-Para obter informações sobre como exibir as configurações do RBAC, confira [Como configurar o RBAC para os Azure Mapas](https://aka.ms/amrbac).
+Para obter informações sobre como exibir as configurações do RBAC do Azure, consulte [como configurar o Azure RBAC para mapas do Azure](https://aka.ms/amrbac).
 
 #### <a name="custom-role-definitions"></a>Definições de função personalizadas
 
@@ -131,9 +131,9 @@ Atribuir uma atribuição de função a um grupo de recursos pode habilitar o ac
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre o RBAC, consulte
+Para saber mais sobre o RBAC do Azure, consulte
 > [!div class="nextstepaction"]
-> [Controle de acesso baseado em função](https://docs.microsoft.com/azure/role-based-access-control/overview)
+> [Controle de acesso baseado em função do Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
 Para saber mais sobre como autenticar um aplicativo com o Azure AD e o Azure Maps, consulte
 > [!div class="nextstepaction"]
