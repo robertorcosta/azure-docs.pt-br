@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 4fc8a0a4ea5063f52b6f9553018bddddd7bcf312
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: eadbc7e7831805c92fdc13982516f64cdf725dd8
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90974609"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963713"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>Tutorial: Usar a Central de Segurança do Azure para monitorar máquinas virtuais do Linux
 
@@ -70,7 +70,7 @@ Para configurar uma política de segurança para uma assinatura inteira:
 
 ## <a name="view-vm-configuration-health"></a>Exibir a integridade da configuração da VM
 
-Depois de ter ativado a coleta de dados e definir uma política de segurança, a Central de segurança começa a fornecer alertas e recomendações. À medida que as VMs são implantadas, o agente de coleta de dados é instalado. A Central de segurança é preenchida com os dados para as novas VMs. Para obter informações detalhadas sobre a integridade de configuração de VM, consulte [Proteger suas VMs na Central de segurança](../../security-center/security-center-virtual-machine-protection.md). 
+Depois de ter ativado a coleta de dados e definir uma política de segurança, a Central de segurança começa a fornecer alertas e recomendações. À medida que as VMs são implantadas, o agente de coleta de dados é instalado. A Central de segurança é preenchida com os dados para as novas VMs. Para obter informações detalhadas sobre a integridade de configuração de VM, consulte [Proteger suas VMs na Central de segurança](../../security-center/asset-inventory.md). 
 
 Conforme os dados são coletados, a integridade de recursos de cada VM e os recursos do Azure relacionados são agregados. As informações são mostradas em um gráfico de fácil leitura. 
 

@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 4fb64a2ea55744d66b203ef4d901f22ae4695e1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d27537f017707e937303dd0c08a589db28aac6ef
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91630416"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071431"
 ---
 # <a name="backup-and-restore-for-azure-arc-enabled-postgresql-hyperscale-server-groups"></a>Backup e restauração para grupos de servidores de hiperescala PostgreSQL habilitados para o Azure Arc
 
@@ -82,7 +82,12 @@ azdata arc postgres server create -n postgres01 --workers 2 --storage-class-back
 
 ## <a name="take-manual-full-backup"></a>Fazer backup completo manual
 
+
 Em seguida, faça um backup completo manual.
+
+> [!CAUTION]
+> **Somente para usuários do Azure kubernetes Service (AKs):** estamos cientes de um problema com a realização de backups de um grupo de servidores hospedado no AKs (serviço kubernetes do Azure). Já estamos trabalhando para corrigi-lo. Até que a atualização seja implantada em uma versão ou atualização futura, antes de fazer um backup, você precisará excluir os pods de seus grupos de servidores. Para cada um dos pods do seu grupo de servidores (você lista os pods executando **kubectl Get pods-n \<namespace name> **), exclua-os executando **kubectl Delete Pod \<server group pod name> -n \<namespace name> **. Não exclua pods que não fazem parte do seu grupo de servidores. A exclusão de pods não coloca seus dados em risco. Aguarde até que todos os pods fiquem online novamente e em STATUS = em execução antes de fazer um backup. O status do pod é fornecido na saída do comando kubectl Get pods acima.
+
 
 Para fazer um backup completo de todos os dados e pastas de log do seu grupo de servidores, execute o seguinte comando:
 
