@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
 ms.openlocfilehash: ff408f114784fa3f0b8fab49521b5ec7ec2be102
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88797710"
 ---
 # <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps-preview"></a>Tutorial: Publicar um site do Hugo na Versão Prévia dos Aplicativos Web Estáticos do Azure
@@ -115,7 +115,7 @@ As etapas a seguir mostram como criar um novo aplicativo de site estático e imp
 
 1. Para _SKU_, selecione **Gratuito**.
 
-   :::image type="content" source="./media/publish-hugo/basic-app-details.png" alt-text="Detalhes preenchidos":::
+   :::image type="content" source="./media/publish-hugo/basic-app-details.png" alt-text="Criar um recurso de Aplicativos Web Estáticos do Azure no portal":::
 
 1. Clique no botão **Entrar com o GitHub**.
 
@@ -125,7 +125,7 @@ As etapas a seguir mostram como criar um novo aplicativo de site estático e imp
 
 1. Para _Branch_, selecione **master**.
 
-   :::image type="content" source="./media/publish-hugo/completed-github-info.png" alt-text="Informações do GitHub concluídas":::
+   :::image type="content" source="./media/publish-hugo/completed-github-info.png" alt-text="Criar um recurso de Aplicativos Web Estáticos do Azure no portal":::
 
 ### <a name="build"></a>Build
 
@@ -149,7 +149,7 @@ Em seguida, você adiciona as definições de configuração que o processo de c
 
 1. Na janela _Visão geral_ do portal do Azure para o recurso de Aplicativos Web Estáticos do Azure recém-criados, clique no link _URL_ para abrir o aplicativo implantado.
 
-   :::image type="content" source="./media/publish-hugo/deployed-app.png" alt-text="Aplicativo implantado":::
+   :::image type="content" source="./media/publish-hugo/deployed-app.png" alt-text="Criar um recurso de Aplicativos Web Estáticos do Azure no portal":::
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

@@ -1,10 +1,10 @@
 ---
-title: Arquitetura da solução
-description: Saiba mais sobre o fluxo de informações no serviço Azure defender para IoT.
+title: Arquitetura do Azure defender para IoT
+description: Saiba mais sobre o Azure defender para arquitetura de IoT e fluxo de informações.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: elazark
+author: rkarlin
 manager: rkarlin
 editor: ''
 ms.devlang: na
@@ -12,40 +12,93 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2020
-ms.author: v-ekrieg
-ms.openlocfilehash: 3fc695770350e5a60ae3da9ab1796da5cac99370
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: rkarlin
+ms.openlocfilehash: ea62592ed155215b14666d0d56e09dbb1a83ed6e
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843406"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093456"
 ---
 # <a name="azure-defender-for-iot-architecture"></a>Arquitetura do Azure defender para IoT
 
-Este artigo explica a arquitetura do sistema funcional da solução defender para IoT.
+Este artigo descreve a arquitetura do sistema funcional da solução defender para IoT.
 
 ## <a name="defender-for-iot-components"></a>Componentes do defender para IoT
 
-O defender para IoT é composto pelos seguintes componentes:
+O defender para IoT conecta-se à nuvem do Azure, bem como a componentes locais. A solução foi projetada para escalabilidade em ambientes grandes e geograficamente distribuídos com vários locais remotos. Essa solução permite uma arquitetura distribuída de várias camadas por país, região, unidade de negócios ou zona. 
 
-- Integração do Hub IoT
-- Agentes de dispositivo (opcional)
-- Enviar SDK de mensagem de segurança
-- Pipeline de análise
+O Azure defender para IoT inclui os seguintes componentes: 
+- Sensores do Azure defender para IoT
+- Consoles de gerenciamento:
+    - Console do sensor
+    - Console de gerenciamento local
+    - Portal do Azure
+- Agente de segurança inserido (módulo de segurança e SDK do IoT)
 
-### <a name="defender-for-iot-workflows"></a>Fluxos de trabalho do defender para IoT
+![Defender para arquitetura de IoT](./media/architecture/defender-iot-security-architecture.png)
 
-O defender para IoT funciona em um dos dois fluxos de trabalho de recursos: interno e avançado
+### <a name="azure-defender-for-iot-sensors"></a>Sensores do Azure defender para IoT
 
-### <a name="built-in"></a>Interno
+Os sensores do defender for IoT detectam e monitoram continuamente os dispositivos de rede. Os sensores coletam o tráfego de rede do ICS usando o monitoramento passivo (sem agente) nos dispositivos IoT e OT. 
+ 
+Desenvolvido especificamente para IoT e para redes, a tecnologia sem agente oferece visibilidade profunda do IoT e tem risco em minutos de serem conectados à rede. Ele tem impacto zero no desempenho na rede e nos dispositivos de rede devido à sua abordagem não invasiva de NTA (análise de tráfego de rede). 
+ 
+Aproveitando a análise de comportamento patenteado, de IoT e de OT e a inspeção de pacotes (DPI) de camada 7, ela permite que você analise além das soluções tradicionais baseadas em assinatura para detectar imediatamente as ameaças avançadas de IoT e de OT (como malware sem arquivo) com base em atividades anormais ou não autorizadas. 
+  
+Os sensores do defender for IoT se conectam a uma porta de SPAN ou toque de rede e imediatamente começa a executar DPI no IoT e no tráfego de rede. 
+ 
+A coleta de dados, o processamento, a análise e os alertas ocorrem diretamente no sensor. Isso o torna ideal para locais com baixa largura de banda ou conectividade de alta latência, pois apenas os metadados são transferidos para o console de gerenciamento.
 
-No modo **interno** , o defender para IOT é habilitado quando você opta por ativar a opção de **segurança** em seu hub IOT. Oferecendo monitoramento, recomendações e alertas em tempo real, o modo interno oferece visibilidade de dispositivo de etapa única e segurança inigualável. O modo de compilação não requer a instalação do agente em nenhum dispositivo e usa análises avançadas em atividades registradas para analisar e proteger o dispositivo de campo.
+O sensor inclui cinco mecanismos de detecção de análise. Os mecanismos acionam alertas com base na análise de tráfego em tempo real e gravados previamente. Os seguintes mecanismos estão disponíveis: 
 
-### <a name="enhanced"></a>Avançado
+#### <a name="protocol-violation-detection-engine"></a>Mecanismo de detecção de violação de protocolo
+O mecanismo de detecção de violação de protocolo identifica o uso de estruturas de pacote e valores de campo que violam as especificações do protocolo ICS, por exemplo: exceção Modbus e inicialização de um alerta de código de função obsoleto.
 
-No modo **avançado** , depois de ativar a opção de **segurança** em seu hub IOT e instalar o defender para agentes de dispositivo IOT em seus dispositivos, os agentes coletam, agregam e analisam eventos de segurança brutos de seus dispositivos. Os eventos de segurança brutos podem incluir conexões IP, criação de processo, logons de usuário e outras informações relevantes de segurança. Os defensores de agentes de dispositivo IoT também tratam da agregação de eventos para ajudar a evitar alta taxa de transferência de rede. Os agentes são altamente personalizáveis, permitindo que você os use para tarefas específicas, como enviar apenas informações importantes no SLA mais rápido ou para agregar informações de segurança extensivas e contexto em segmentos maiores, evitando custos de serviço mais altos.
+#### <a name="policy-violation-detection-engine"></a>Mecanismo de detecção de violação de política
+Usando o Machine Learning, o mecanismo de detecção de violação de política alerta os usuários de qualquer desvio do comportamento de linha de base, como o uso não autorizado de códigos de função específicos, o acesso a objetos específicos ou alterações na configuração do dispositivo. Por exemplo: DeltaV versão de software alterada e alertas de programação PLC não autorizados. Especificamente, o mecanismo de violação de política modela as redes ICS como sequências determinísticas de Estados e transições — usando uma técnica patenteada chamada modelagem de estado finito industrial (IFSM). O mecanismo de detecção de violação de política estabelece uma linha de base das redes ICS, para que a plataforma exija um período de aprendizado mais curto para criar uma linha de base da rede do que abordagens matemáticas genéricas ou análises, que foram originalmente desenvolvidas para ela em vez de se ter redes.
 
-![Defender para arquitetura de IoT](./media/architecture/azure-iot-security-architecture.png)
+#### <a name="industrial-malware-detection-engine"></a>Mecanismo de detecção de malware industrial
+O mecanismo de detecção de malware industrial identifica comportamentos que indicam a presença de malware conhecido, como Conficker, energia preta, Havex, WannaCry, NotPetya e Triton. 
+
+#### <a name="anomaly-detection-engine"></a>Mecanismo de detecção de anomalias
+O mecanismo de detecção de anomalias detecta comportamentos e comunicações M2M (máquina a máquina) incomuns. Ao modelar redes ICS como sequências determinísticas de Estados e transições, a plataforma requer um período de aprendizado mais curto do que abordagens matemáticas genéricas ou análises originalmente desenvolvidas para ela em vez de OT. Ele também detecta anomalias mais rapidamente, com um mínimo de falsos positivos. Os alertas do mecanismo de detecção de anomalias incluem tentativas de logon SMB excessivas e alertas de verificação de PLC detectados.
+
+#### <a name="operational-incident-detection"></a>Detecção de incidente operacional
+A detecção de incidentes operacionais detecta problemas operacionais, como conectividade intermitente que pode indicar sinais de falha de equipamentos antecipados. Por exemplo, a suspeita de dispositivo ser desconectada (sem resposta) e o comando Siemens S7 Stop PLC recebe alertas.
+
+
+### <a name="management-consoles"></a>Consoles de gerenciamento
+O gerenciamento do Azure defender para IoT em ambientes híbridos é realizado por meio de dois portais de gerenciamento: 
+- Console do sensor
+- O console de gerenciamento local
+- O portal do Azure
+
+#### <a name="sensor-console"></a>Console do sensor
+As detecções de sensor são exibidas no console do sensor, onde podem ser exibidas, investigadas e analisadas em um mapa de rede, inventário de ativos e em uma ampla gama de relatórios, por exemplo, relatórios de avaliação de risco, Data Mining consultas e vetores de ataque. Você também pode usar o console do para exibir e lidar com ameaças detectadas por mecanismos de sensor, encaminhar informações para sistemas de terceiros, gerenciar usuários e muito mais.
+
+![Console do sensor do defender para IoT](./media/architecture/sensor-console.png)
+
+#### <a name="on-premises-management-console"></a>Console de gerenciamento local
+O console de gerenciamento local permite que os operadores da SOC (central de operações de segurança) gerenciem e analisem alertas agregados de vários sensores em um único painel e fornece uma visão geral da integridade das redes de OT.
+
+Essa arquitetura fornece uma exibição unificada abrangente da rede em um nível de SOC, tratamento otimizado de alertas e o controle da segurança de rede operacional, garantindo que a tomada de decisões e o gerenciamento de riscos permaneçam sem falhas.
+
+Além de multilocação, monitoramento, análise de dados e controle remoto de sensor centralizado, o console de gerenciamento fornece ferramentas adicionais de manutenção do sistema (como exclusão de alertas) e recursos de relatório totalmente personalizados para cada um dos dispositivos remotos. Essa arquitetura escalonável dá suporte ao gerenciamento local em nível de site, nível de zona e gerenciamento global no SOC.
+
+O console de gerenciamento pode ser implantado para configuração de alta disponibilidade, que fornece um console de backup que recebe periodicamente backups de todos os arquivos de configuração necessários para a recuperação. Se o console mestre falhar, os dispositivos de gerenciamento de site local realizarão failover automaticamente para sincronizar com o console de backup a fim de manter a disponibilidade sem interrupção.
+
+#### <a name="azure-portal"></a>Portal do Azure
+
+O portal do defender para IoT no Azure é usado para ajudá-lo a: ·   Compre dispositivos de solução ·   Instalar e atualizar software ·   Sensores integrados ao Azure ·   Atualizar pacotes de inteligência contra ameaças
+
+## <a name="embedded-security-agent-built-in-mode"></a>Agente de segurança inserido: modo interno
+
+No modo **interno** , o defender para IOT é habilitado quando você opta por ativar a opção de **segurança** em seu hub IOT. Oferecendo monitoramento, recomendações e alertas em tempo real, o modo interno oferece visibilidade de dispositivo de etapa única e segurança inigualável. O modo de compilação não requer a instalação do agente em nenhum dispositivo e usa análises avançadas em atividades registradas para analisar e proteger o dispositivo de campo e o Hub IoT.
+
+## <a name="embedded-security-agent-enhanced-mode"></a>Agente de segurança inserido: modo avançado
+
+No modo **avançado** , depois de ativar a opção de **segurança** em seu hub IOT e instalar o defender para agentes de dispositivo IOT em seus dispositivos, os agentes coletam, agregam e analisam eventos de segurança brutos de seus dispositivos. Os eventos de segurança brutos podem incluir conexões IP, criação de processo, logons de usuário e outras informações relevantes de segurança. Agentes de dispositivo do defender para IoT também manipulam a agregação de eventos para ajudar a evitar alta taxa de transferência de rede. Os agentes são altamente personalizáveis, permitindo que você os use para tarefas específicas, como enviar apenas informações importantes no SLA mais rápido ou para agregar informações de segurança extensivas e contexto em segmentos maiores, evitando custos de serviço mais altos.
 
 Os agentes de dispositivo e outros aplicativos usam o **SDK de mensagens de segurança do Azure Send** para enviar informações de segurança para o Hub IOT do Azure. O Hub IoT obtém essas informações e as encaminha para o serviço defender para IoT.
 

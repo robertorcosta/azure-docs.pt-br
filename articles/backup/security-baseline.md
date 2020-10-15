@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: a05c7a6f9c3752507705e1c4242becfe1d65ffd6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24bdb192ddfe1759cb1d70fff9936979f5e28143
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334830"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093354"
 ---
 # <a name="azure-security-baseline-for-backup"></a>Linha de base de segurança do Azure para backup
 
@@ -486,7 +486,7 @@ O backup do Azure fornece três funções internas para controlar as operações
 
 - [Como configurar o RBAC do Azure](../role-based-access-control/role-assignments-portal.md)
 
-- [Use o Controle de Acesso baseado em função para gerenciar pontos de recuperação de Backup do Azure](./backup-rbac-rs-vault.md)
+- [Usar o controle de acesso baseado em função do Azure para gerenciar pontos de recuperação do backup do Azure](./backup-rbac-rs-vault.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
