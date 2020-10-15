@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 477f38e18f1bee881e4a9df23dd37048f39549be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 219c0b90bceb2a123d2e4af21ac7fa1edea58d54
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87092738"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070003"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de configuração e gerenciamento para Serviços de Nuvem do Azure: perguntas frequentes
 
@@ -77,7 +77,7 @@ Este artigo inclui perguntas frequentes sobre a configuração e o gerenciamento
 
 ### <a name="why-is-the-certificate-chain-of-my-cloud-service-tlsssl-certificate-incomplete"></a>Por que a cadeia de certificados do meu serviço de nuvem TLS/certificado SSL está incompleta?
     
-É recomendável que os clientes instalem uma cadeia de certificados completa (certificado de folha, certificados intermediários e certificado raiz), em vez de apenas o certificado de folha. Ao instalar apenas o certificado de folha, você confia no Windows para criar a cadeia de certificados percorrendo a CTL. Se ocorrerem problemas intermitentes de rede ou DNS no Azure ou no Windows Update quando o Windows estiver tentando validar o certificado, o certificado poderá ser considerado inválido. Ao instalar a cadeia de certificados completa, esse problema pode ser evitado. O blog em [Como instalar um certificado SSL encadeado](https://blogs.msdn.microsoft.com/azuredevsupport/2010/02/24/how-to-install-a-chained-ssl-certificate/) mostra como fazer isso.
+É recomendável que os clientes instalem uma cadeia de certificados completa (certificado de folha, certificados intermediários e certificado raiz), em vez de apenas o certificado de folha. Ao instalar apenas o certificado de folha, você confia no Windows para criar a cadeia de certificados percorrendo a CTL. Se ocorrerem problemas intermitentes de rede ou DNS no Azure ou no Windows Update quando o Windows estiver tentando validar o certificado, o certificado poderá ser considerado inválido. Ao instalar a cadeia de certificados completa, esse problema pode ser evitado. O blog em [Como instalar um certificado SSL encadeado](/archive/blogs/azuredevsupport/how-to-install-a-chained-ssl-certificate) mostra como fazer isso.
 
 ### <a name="what-is-the-purpose-of-the-windows-azure-tools-encryption-certificate-for-extensions"></a>Qual é a finalidade do "Certificado de Criptografia das Ferramentas do Microsoft Azure para Extensões"?
 
@@ -111,11 +111,11 @@ Você pode automatizar essa tarefa usando um script de inicialização (lote/cmd
 
 ### <a name="what-is-the-purpose-of-the-microsoft-azure-service-management-for-machinekey-certificate"></a>Qual é a finalidade do certificado de “Gerenciamento de Serviço do Microsoft Azure para MachineKey”?
 
-Este certificado é usado para encriptar chaves de máquina em Funções de Web do Azure. Para saber mais, confira [este comunicado](https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731).
+Este certificado é usado para encriptar chaves de máquina em Funções de Web do Azure. Para saber mais, confira [este comunicado](/security-updates/securityadvisories/2018/4092731).
 
 Para obter mais informações, consulte os seguintes artigos:
-- [Como configurar e executar tarefas de inicialização para um serviço de nuvem](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)
-- [Tarefas de inicialização comuns do Serviço de Nuvem](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks-common)
+- [Como configurar e executar tarefas de inicialização para um serviço de nuvem](./cloud-services-startup-tasks.md)
+- [Tarefas de inicialização comuns do Serviço de Nuvem](./cloud-services-startup-tasks-common.md)
 
 ## <a name="monitoring-and-logging"></a>Monitoramento e registro em log
 
@@ -139,16 +139,16 @@ Você esgotou a cota de armazenamento local para gravar no diretório de log.Par
 * Aumentar os limite de cota para recursos locais.
 
 Para obter mais informações, consulte um dos seguintes documentos:
-* [Armazenar e exibir dados de diagnóstico no Armazenamento do Azure](/azure/storage/common/storage-introduction)
-* [Logs do IIS param de gravar no serviço de nuvem](https://blogs.msdn.microsoft.com/cie/2013/12/21/iis-logs-stops-writing-in-cloud-service/)
+* [Armazenar e exibir dados de diagnóstico no Armazenamento do Azure](../storage/common/storage-introduction.md)
+* [Logs do IIS param de gravar no serviço de nuvem](/archive/blogs/cie/iis-logs-stops-writing-in-cloud-service)
 
 ### <a name="how-do-i-enable-wad-logging-for-cloud-services"></a>Como habilitar o registro em log do WAD para serviços de nuvem?
 Você pode habilitar o log do Windows Azure Diagnostics (WAD) através das seguintes opções:
-1. [Ativar a partir do Visual Studio](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
-2. [Habilitar por meio de código .NET](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics)
-3. [Ativar através do Powershell](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell)
+1. [Ativar a partir do Visual Studio](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
+2. [Habilitar por meio de código .NET](./cloud-services-dotnet-diagnostics.md)
+3. [Ativar através do Powershell](./cloud-services-diagnostics-powershell.md)
 
-Para obter as configurações atuais do WAD do seu Serviço em Nuvem, você pode usar [Get-AzureServiceDiagnosticsExtensions](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell#get-current-diagnostics-extension-configuration) pscmd ou pode visualizá-lo no portal a partir da folha "Serviços em Nuvem -> Extensões".
+Para obter as configurações atuais do WAD do seu Serviço em Nuvem, você pode usar [Get-AzureServiceDiagnosticsExtensions](./cloud-services-diagnostics-powershell.md#get-current-diagnostics-extension-configuration) pscmd ou pode visualizá-lo no portal a partir da folha "Serviços em Nuvem -> Extensões".
 
 
 ## <a name="network-configuration"></a>Configuração de rede
@@ -248,7 +248,7 @@ Para obter mais detalhes sobre como utilizar uma métrica personalizada por meio
 
 Para obter mais informações sobre como integrar o Diagnóstico do Microsoft Azure com o Application Insights para serviços de nuvem, consulte [Enviar serviço de nuvem, máquina virtual ou dados de diagnóstico do Service Fabric para o Application Insights](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 
-Para obter mais informações sobre como habilitar o Application Insights para serviços de nuvem, consulte [Application Insights para serviços de nuvem do Azure](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices)
+Para obter mais informações sobre como habilitar o Application Insights para serviços de nuvem, consulte [Application Insights para serviços de nuvem do Azure](../azure-monitor/app/cloudservices.md)
 
 Para obter mais informações sobre como habilitar o log de Diagnóstico do Microsoft Azure para serviços de nuvem, consulte [Configurar diagnósticos para serviços de nuvem do Azure e máquinas virtuais](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
 
@@ -313,7 +313,7 @@ A associação SNI pode ser configurada usando o cmdlet **New-webbind** do Power
 New-WebBinding -Name $WebsiteName -Protocol "https" -Port 443 -IPAddress $IPAddress -HostHeader $HostHeader -SslFlags $sslFlags
 ```
 
-Conforme descrito [aqui](https://technet.microsoft.com/library/ee790567.aspx), o $sslFlags poderia ser um dos valores como o seguinte:
+Conforme descrito [aqui](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee790567(v=technet.10)), o $sslFlags poderia ser um dos valores como o seguinte:
 
 |Valor|Significado|
 ------|------
@@ -324,7 +324,7 @@ Conforme descrito [aqui](https://technet.microsoft.com/library/ee790567.aspx), o
  
 **Método 2: código de uso**
 
-A associação de SNI também pode ser configurada por meio de código na inicialização da função conforme descrito nesta [postagem no blog](https://blogs.msdn.microsoft.com/jianwu/2014/12/17/expose-ssl-service-to-multi-domains-from-the-same-cloud-service/):
+A associação de SNI também pode ser configurada por meio de código na inicialização da função conforme descrito nesta [postagem no blog](/archive/blogs/jianwu/expose-ssl-service-to-multi-domains-from-the-same-cloud-service):
 
 ```csharp
 //<code snip> 
@@ -356,7 +356,6 @@ Um serviço de nuvem já implantado é cobrado pela computação e armazenamento
 
 Encontre a seguir o que você pode fazer para reduzir sua cobrança sem perder o endereço IP para seu serviço:
 
-1. [Reserve o endereço IP](../virtual-network/virtual-networks-reserved-public-ip.md) antes de excluir as implantações.  Você será cobrado somente para esse endereço IP. Para obter mais informações sobre cobrança de endereço IP, consulte [preços de endereços IP](https://azure.microsoft.com/pricing/details/ip-addresses/).
+1. [Reserve o endereço IP](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip) antes de excluir as implantações.  Você será cobrado somente para esse endereço IP. Para obter mais informações sobre cobrança de endereço IP, consulte [preços de endereços IP](https://azure.microsoft.com/pricing/details/ip-addresses/).
 2. Exclua as implantações. Não exclua xxx.cloudapp.net, para que você possa usá-lo no futuro.
 3. Se você desejar reimplantar o serviço de nuvem usando a mesma reserva de IP de sua assinatura, consulte [endereços IP reservados para serviços de nuvem e máquinas virtuais](https://azure.microsoft.com/blog/reserved-ip-addresses/).
-

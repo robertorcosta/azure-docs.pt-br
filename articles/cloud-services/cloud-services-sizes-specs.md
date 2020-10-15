@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
-ms.openlocfilehash: 2549cb0408c9dad3e92f2cec9625757de45a10dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 52fad84c9ed145b4acec73ffad1fa470acf94532
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82086242"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076939"
 ---
 # <a name="sizes-for-cloud-services"></a>Tamanhos dos serviços de nuvem
 Este tópico descreve os tamanhos disponíveis e as opções para instâncias de função de Serviço de Nuvem (funções web e funções de trabalho). Ele também fornece considerações de implantação a serem observadas ao planejar o uso desses recursos. Cada tamanho tem uma ID que você coloca em seu [arquivo de definição de serviço](cloud-services-model-and-package.md#csdef). Os preços para cada tamanho estão disponíveis na página [Preços de Serviços de Nuvem](https://azure.microsoft.com/pricing/details/cloud-services/).
@@ -36,7 +36,7 @@ O tamanho da máquina virtual afeta os preços. O tamanho também afeta a capaci
 
 As considerações a seguir podem ajudá-lo a escolher um tamanho:
 
-* Os tamanhos A8-A11 e série H também são conhecidos como *instâncias de computação intensiva*. O hardware de datacenter do Azure que executa esses tamanhos é projetado e otimizado para aplicativos de uso intensivo de computação e rede, incluindo aplicativos, modelagem e simulações de cluster HPC (computação de alto desempenho). A série de A8-A11 usa Intel Xeon E5-2670 a 2,6 GHz e a série H usa Intel Xeon E5-2667 v3 a 3,2 GHz. Para obter informações detalhadas e considerações sobre o uso desses tamanhos, veja [Tamanhos de VM de computação de alto desempenho](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Os tamanhos A8-A11 e série H também são conhecidos como *instâncias de computação intensiva*. O hardware de datacenter do Azure que executa esses tamanhos é projetado e otimizado para aplicativos de uso intensivo de computação e rede, incluindo aplicativos, modelagem e simulações de cluster HPC (computação de alto desempenho). A série de A8-A11 usa Intel Xeon E5-2670 a 2,6 GHz e a série H usa Intel Xeon E5-2667 v3 a 3,2 GHz. Para obter informações detalhadas e considerações sobre o uso desses tamanhos, veja [Tamanhos de VM de computação de alto desempenho](../virtual-machines/sizes-hpc.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json).
 * As séries Dv3, Dv2, D e G são ideais para aplicativos que exigem CPUs mais rápidas, melhor desempenho de disco local ou que têm uma maior demanda de memória. Elas oferecem uma combinação poderosa para vários aplicativos de nível empresarial.
 * Alguns dos hosts físicos em data centers do Azure podem não aceitar tamanhos de máquina virtual maiores, como A5 – A11. Como resultado, você poderá ver a mensagem de erro **Falha ao configurar a máquina virtual {nome da máquina}** ou **Falha ao criar a máquina virtual {nome da máquina}** ao redimensionar uma máquina virtual existente para um novo tamanho, criar uma nova máquina virtual em uma rede virtual criada antes de 16 de abril de 2013 ou adicionar uma nova máquina virtual a um serviço de nuvem existente. Confira [Erro: "Falha ao configurar a máquina virtual"](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) no fórum de suporte de soluções alternativas para cada cenário de implantação.
 * Sua assinatura também pode limitar o número de núcleos que você pode implantar em determinadas famílias de tamanho. Para aumentar a cota, entre em contato com o Suporte do Azure.
@@ -79,16 +79,16 @@ As tabelas a seguir mostram os tamanhos e as capacidades oferecidas.
 | Tamanho            | Núcleos de CPU | Memória: GiB  | Armazenamento temporário: GiB       | NICs máximas / largura de banda da rede |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | ExtraSmall      | 1         | 0,768        | 20                   | 1 / baixa |
-| Pequena           | 1         | 1,75         | 225                  | 1 / moderada |
+| Pequeno           | 1         | 1,75         | 225                  | 1 / moderada |
 | Médio          | 2         | 3,5          | 490                  | 1 / moderada |
-| grande           | 4         | 7            | 1000                 | 2 / alta |
+| Grande           | 4         | 7            | 1000                 | 2 / alta |
 | ExtraLarge      | 8         | 14           | 2040                 | 4 / alta |
 | A5              | 2         | 14           | 490                  | 1 / moderada |
 | A6              | 4         | 28           | 1000                 | 2 / alta |
 | A7              | 8         | 56           | 2040                 | 4 / alta |
 
 ## <a name="a-series---compute-intensive-instances"></a>Série A – Instâncias de computação intensiva
-Para obter informações e considerações sobre o uso desses tamanhos, veja [Tamanhos de VM de computação de alto desempenho](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Para obter informações e considerações sobre o uso desses tamanhos, veja [Tamanhos de VM de computação de alto desempenho](../virtual-machines/sizes-hpc.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json).
 
 | Tamanho            | Núcleos de CPU | Memória: GiB  | Armazenamento temporário: GiB       | NICs máximas / largura de banda da rede |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
@@ -217,7 +217,4 @@ Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceS
 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre a [assinatura do Azure e limites de serviço, cotas e restrições](../azure-resource-manager/management/azure-subscription-service-limits.md).
-* Saiba mais [sobre tamanhos de VM de computação de alto desempenho](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para cargas de trabalho do HPC.
-
-
-
+* Saiba mais [sobre tamanhos de VM de computação de alto desempenho](../virtual-machines/sizes-hpc.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json) para cargas de trabalho do HPC.
