@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: apimpm
-ms.openlocfilehash: 99784e43130b70554c05ff79a10993f2b6eebbde
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31d26769fa3ef49684f8a2eedf6a0691316e742b
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86499606"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071227"
 ---
 # <a name="api-management-cross-domain-policies"></a>Políticas entre domínios de Gerenciamento de API
-Este tópico fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](https://go.microsoft.com/fwlink/?LinkID=398186).
+Este tópico fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](./api-management-policies.md).
 
 ## <a name="cross-domain-policies"></a><a name="CrossDomainPolicies"></a> Políticas entre domínios
 
@@ -137,7 +137,7 @@ Este exemplo demonstra como dar suporte a solicitações preliminares, como as c
 
 ### <a name="attributes"></a>Atributos
 
-|Nome|Descrição|Obrigatório|Padrão|
+|Name|Descrição|Obrigatório|Padrão|
 |----------|-----------------|--------------|-------------|
 |allow-credentials|O `Access-Control-Allow-Credentials` cabeçalho na resposta de simulação será definido como o valor desse atributo e afetará a capacidade do cliente de enviar credenciais em solicitações entre domínios.|Não|false|
 |preflight-result-max-age|O `Access-Control-Max-Age` cabeçalho na resposta de simulação será definido como o valor desse atributo e afetará a capacidade do agente do usuário de armazenar em cache a resposta de simulação.|Não|0|
@@ -175,7 +175,7 @@ Se você adicionar o parâmetro de retorno de chamada `?cb=XXX`, será retornado
 
 ### <a name="attributes"></a>Atributos
 
-|Nome|Descrição|Obrigatório|Padrão|
+|Name|Descrição|Obrigatório|Padrão|
 |----------|-----------------|--------------|-------------|
 |callback-parameter-name|A chamada da função JavaScript entre domínios, prefixada com o nome do domínio onde a função reside totalmente qualificado.|Sim|N/D|
 
@@ -192,4 +192,4 @@ Para obter mais informações sobre como trabalhar com políticas, consulte:
 + [Políticas no Gerenciamento de API](api-management-howto-policies.md)
 + [Transformar APIs](transform-api.md)
 + [Referência de Política](./api-management-policies.md) para uma lista completa das instruções de política e suas configurações
-+ [Exemplos de política](policy-samples.md)
++ [Exemplos de política](./policy-reference.md)

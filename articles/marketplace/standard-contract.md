@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 05/20/2020
-ms.openlocfilehash: 3487b5a069b1862ec302a979318ea78722b1433c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3079cb18f7bc88d691081a7970f5833e8b8d6887
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361680"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078180"
 ---
 # <a name="standard-contract-for-microsoft-commercial-marketplace"></a>Contrato Standard para o Marketplace comercial da Microsoft
 
@@ -34,7 +34,7 @@ Há dois tipos de aditamentos disponíveis para editores do marketplace comercia
 * Aditamentos personalizados: São aditamentos especiais ao Contrato Standard destinados apenas a clientes específicos por meio de IDs de locatário do Azure. Os editores podem escolher o locatário que desejam usar como destino. Somente os clientes do locatário serão apresentados com os termos de aditamento personalizados no fluxo de compra da oferta.  Os clientes precisam aceitar os termos do Contrato Standard e os aditamentos para usar sua oferta.
 
 >[!Note]
->Esses dois tipos de aditamentos se sobrepõem. Os clientes aos quais os aditamentos personalizados são direcionados também terão o aditamento universal para o Contrato Standard durante a compra.
+>Esses dois tipos de aditamentos se sobrepõem. Os clientes aos quais os aditamentos personalizados são direcionados também terão o aditamento universal para o Contrato Standard durante a compra. As emendas são limitadas a 4000 caracteres, incluindo espaços.
 
 Você pode aproveitar o Contrato Standard do Marketplace comercial da Microsoft para os seguintes tipos de oferta:  Aplicativos do Azure (modelos de solução e aplicativos gerenciados), máquinas virtuais e SaaS.
 

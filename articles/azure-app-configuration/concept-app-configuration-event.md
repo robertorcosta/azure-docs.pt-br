@@ -7,18 +7,18 @@ ms.author: jimmyca
 ms.date: 02/20/2020
 ms.topic: article
 ms.service: azure-app-configuration
-ms.openlocfilehash: ae3417f991c0d810d8946cdaf358218ebbe4f6a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 640be797b2653f9e6c969306b7e2b99393b99c39
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88590023"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078197"
 ---
 # <a name="reacting-to-azure-app-configuration-events"></a>Reagindo a Azure App eventos de configuração
 
 Azure App eventos de configuração permitem que os aplicativos reajam às alterações nos valores de chave. Isso é feito sem a necessidade de código complicado ou serviços de sondagem caros e ineficientes. Em vez disso, os eventos são enviados por Push por meio da [grade de eventos do Azure](https://azure.microsoft.com/services/event-grid/) para assinantes como [Azure Functions](https://azure.microsoft.com/services/functions/), [aplicativos lógicos do Azure](https://azure.microsoft.com/services/logic-apps/)ou até mesmo para seu próprio ouvinte HTTP personalizado. Criticamente, você paga apenas pelo que usar.
 
-Azure App eventos de configuração são enviados para a grade de eventos do Azure, que fornece serviços de entrega confiáveis para seus aplicativos por meio de políticas de repetição avançadas e entrega de mensagens mortas. Para saber mais, confira [entrega e repetição de mensagem da grade de eventos](https://docs.microsoft.com/azure/event-grid/delivery-and-retry).
+Azure App eventos de configuração são enviados para a grade de eventos do Azure, que fornece serviços de entrega confiáveis para seus aplicativos por meio de políticas de repetição avançadas e entrega de mensagens mortas. Para saber mais, confira [entrega e repetição de mensagem da grade de eventos](../event-grid/delivery-and-retry.md).
 
 Os cenários de evento de configuração de aplicativo comuns incluem a atualização da configuração do aplicativo, o disparo de implantações ou qualquer fluxo de trabalho orientado à configuração. Quando as alterações não forem frequentes, mas seu cenário exigir uma capacidade de resposta imediata, a arquitetura baseada em eventos pode ser especialmente eficaz.
 
@@ -43,13 +43,13 @@ Azure App eventos de configuração contêm todas as informações de que você 
 > |subject|string|O URI do valor de chave que é o assunto do evento.|
 > |eventTime|string|A data/hora em que o evento foi gerado, no formato ISO 8601.|
 > |eventType|string|"Microsoft. AppConfiguration. KeyValueModified" ou "Microsoft. AppConfiguration. KeyValueDeleted".|
-> |ID|string|Um identificador exclusivo deste evento.|
+> |ID|cadeia de caracteres|Um identificador exclusivo deste evento.|
 > |dataVersion|string|A versão do esquema do objeto de dados.|
 > |metadataVersion|string|A versão do esquema de propriedades de nível superior.|
 > |data|objeto|Coleção de dados de eventos específicos de configuração de Azure App|
-> |Data. Key|string|A chave do valor de chave que foi modificado ou excluído.|
-> |Data. Label|string|O rótulo, se houver, do valor de chave que foi modificado ou excluído.|
-> |Data. ETag|string|Para `KeyValueModified` a eTag do novo valor de chave. Para `KeyValueDeleted` a eTag do valor de chave que foi excluído.|
+> |Data. Key|cadeia de caracteres|A chave do valor de chave que foi modificado ou excluído.|
+> |Data. Label|cadeia de caracteres|O rótulo, se houver, do valor de chave que foi modificado ou excluído.|
+> |Data. ETag|cadeia de caracteres|Para `KeyValueModified` a eTag do novo valor de chave. Para `KeyValueDeleted` a eTag do valor de chave que foi excluído.|
 
 Aqui está um exemplo de um evento KeyValueModified:
 ```json

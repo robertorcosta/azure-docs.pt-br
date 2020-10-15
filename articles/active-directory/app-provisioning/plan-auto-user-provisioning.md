@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/17/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 24de1b2cfc5e0804039923f23b6a5cd9f6c6fb80
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7d05cd394453ff7c3a40b80a4cd6c850b86ee21
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88235684"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070360"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planejar uma implantação de provisionamento do usuário automática
 
@@ -26,7 +26,7 @@ O provisionamento automático de usuário do Azure Active Directory (AD do Azure
 
 Consulte [automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com Azure Active Directory](../app-provisioning/user-provisioning.md) para entender melhor a funcionalidade.
 
-## <a name="learn"></a>Saiba mais
+## <a name="learn"></a>Learn
 
 O provisionamento de usuário cria uma base para o controle de identidade contínuo e aprimora a qualidade dos processos de negócios que dependem de dados de identidade autoritativa.
 
@@ -69,7 +69,7 @@ Este artigo usa os seguintes termos:
 | Recursos| Link e descrição |
 | - | - |
 | Webinars sob demanda| [Gerenciar seus aplicativos empresariais com o Azure AD](https://info.microsoft.com/CO-AZUREPLAT-WBNR-FY18-03Mar-06-ManageYourEnterpriseApplicationsOption1-MCW0004438_02OnDemandRegistration-ForminBody.html)<br>Saiba como o Azure AD pode ajudá-lo a obter o SSO para seus aplicativos SaaS corporativos e as práticas recomendadas para controlar o acesso. |
-| vídeos| [O que é o provisionamento de usuário no diretório ativo do Azure?](https://youtu.be/_ZjARPpI6NI) <br> [Como implantar o provisionamento de usuário no diretório ativo do Azure?](https://youtu.be/pKzyts6kfrw) <br> [Integrando o Salesforce ao Azure AD: como automatizar o provisionamento de usuários](https://azure.microsoft.com/resources/videos/integrating-salesforce-with-azure-ad-how-to-automate-user-provisioning/) |
+| Vídeos| [O que é o provisionamento de usuário no diretório ativo do Azure?](https://youtu.be/_ZjARPpI6NI) <br> [Como implantar o provisionamento de usuário no diretório ativo do Azure?](https://youtu.be/pKzyts6kfrw) <br> [Integrando o Salesforce ao Azure AD: como automatizar o provisionamento de usuários](https://azure.microsoft.com/resources/videos/integrating-salesforce-with-azure-ad-how-to-automate-user-provisioning/) |
 | Cursos online| SkillUp online:  [Gerenciando identidades](https://skillup.online/courses/course-v1:Microsoft+AZ-100.5+2018_T3/about) <br> Saiba como integrar o Azure AD com muitos aplicativos SaaS e proteger o acesso do usuário a esses aplicativos. |
 | Manuais| [Autenticação moderna com Azure Active Directory para aplicativos Web (referência do desenvolvedor) 1ª edição](https://www.amazon.com/Authentication-Directory-Applications-Developer-Reference/dp/0735696942/ref=sr_1_fkmr0_1?keywords=Azure+multifactor+authentication&qid=1550168894&s=gateway&sr=8-1-fkmr0).  <br> Este é um guia autoritativo e aprofundado para a criação de soluções de autenticação Active Directory para esses novos ambientes. |
 | Tutoriais| Consulte a [lista de tutoriais sobre como integrar aplicativos SaaS com o Azure ad](../saas-apps/tutorial-list.md). |
@@ -129,7 +129,7 @@ Considere suas necessidades organizacionais para determinar a estratégia para i
 
 ### <a name="engage-the-right-stakeholders"></a>Envolva os participantes certos
 
-Quando os projetos de tecnologia falham, normalmente é devido a expectativas incompatíveis com o impacto, os resultados e as responsabilidades. Para evitar essas armadilhas, [certifique-se de que você esteja participando dos participantes certos](https://aka.ms/deploymentplans) e que as funções de Stakeholder no projeto sejam bem compreendidas ao documentar os participantes e sua entrada e responsabilidades de projeto.
+Quando os projetos de tecnologia falham, normalmente é devido a expectativas incompatíveis com o impacto, os resultados e as responsabilidades. Para evitar essas armadilhas, [certifique-se de que você esteja participando dos participantes certos](../fundamentals/active-directory-deployment-plans.md) e que as funções de Stakeholder no projeto sejam bem compreendidas ao documentar os participantes e sua entrada e responsabilidades de projeto.
 
 ### <a name="plan-communications"></a>Planejar comunicações
 
@@ -264,7 +264,7 @@ O serviço de provisionamento armazena o estado de ambos os sistemas após o cic
 
 Use o [portal do Azure](https://portal.azure.com/) para gerenciar o provisionamento e desprovisionamento de conta de usuário automático para aplicativos que dão suporte a ele. Siga as etapas em [como fazer configurar o provisionamento automático para um aplicativo?](../app-provisioning/user-provisioning.md)
 
-O serviço de provisionamento de usuário do Azure AD também pode ser configurado e gerenciado usando-se a [API do Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview).
+O serviço de provisionamento de usuário do Azure AD também pode ser configurado e gerenciado usando-se a [API do Microsoft Graph](/graph/api/resources/synchronization-overview).
 
 ## <a name="manage-automatic-user-provisioning"></a>Gerenciar o provisionamento automático de usuário
 
@@ -274,7 +274,7 @@ Agora que você implantou o, precisa gerenciar a solução.
 
 Após um [ciclo inicial](../app-provisioning/user-provisioning.md)bem-sucedido, o serviço de provisionamento do Azure ad executará atualizações incrementais indefinidamente, em intervalos específicos de cada aplicativo, até que um dos seguintes eventos ocorra:
 
-* O serviço é interrompido manualmente e um novo ciclo inicial é disparado usando o [portal do Azure](https://portal.azure.com/)ou usando o comando da [API Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview) apropriado.
+* O serviço é interrompido manualmente e um novo ciclo inicial é disparado usando o [portal do Azure](https://portal.azure.com/)ou usando o comando da [API Microsoft Graph](/graph/api/resources/synchronization-overview) apropriado.
 
 * Um novo ciclo inicial é disparado por uma alteração nos mapeamentos de atributo ou em filtros de escopo.
 
@@ -310,7 +310,7 @@ Consulte os links a seguir para solucionar quaisquer problemas que possam ser re
 
 * [Escrevendo expressões para mapeamentos de atributo](../app-provisioning/functions-for-customizing-application-data.md)
 
-* [Visão geral da API de sincronização do Azure AD](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
+* [Visão geral da API de sincronização do Azure AD](/graph/api/resources/synchronization-overview)
 
 * [Ignorar a exclusão de contas de usuário que saem do escopo](skip-out-of-scope-deletions.md)
 

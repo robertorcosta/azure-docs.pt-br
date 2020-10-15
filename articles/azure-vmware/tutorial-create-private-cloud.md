@@ -3,12 +3,12 @@ title: Tutorial – Implantar o Cluster de vSphere no Azure
 description: Saiba como implantar um Cluster de vSphere no Azure usando a Solução VMware no Azure
 ms.topic: tutorial
 ms.date: 09/21/2020
-ms.openlocfilehash: 3fab49640364ef1b2e68953d366b20f77556b486
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: b673a67fac734c9cb63e96b6a0c3dc9182f4b994
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91578302"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91952277"
 ---
 # <a name="tutorial-deploy-an-azure-vmware-solution-private-cloud-in-azure"></a>Tutorial: Implantar uma nuvem privada da Solução VMware no Azure
 
@@ -43,7 +43,7 @@ Você pode criar uma nuvem privada da Solução VMware no Azure usando o [portal
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-Em vez de usar o portal do Azure para criar uma nuvem privada da Solução VMware no Azure, você pode usar a CLI do Azure usando o Azure Cloud Shell.  Para obter uma lista de comandos que você pode usar com a Solução VMware no Azure, confira [comandos azure vmware](https://docs.microsoft.com/cli/azure/ext/vmware/vmware).
+Em vez de usar o portal do Azure para criar uma nuvem privada da Solução VMware no Azure, você pode usar a CLI do Azure usando o Azure Cloud Shell.  Para obter uma lista de comandos que você pode usar com a Solução VMware no Azure, confira [comandos azure vmware](/cli/azure/ext/vmware/vmware).
 
 #### <a name="open-azure-cloud-shell"></a>Abrir o Azure Cloud Shell
 
@@ -96,7 +96,7 @@ Depois que uma nuvem privada for excluída, não será possível recuperar as m�
 
 ## <a name="azure-vmware-commands"></a>Comandos da VMware no Azure
 
-Para obter uma lista de comandos que você pode usar com a Solução VMware no Azure, confira [comandos azure vmware](https://docs.microsoft.com/cli/azure/ext/vmware/vmware).
+Para obter uma lista de comandos que você pode usar com a Solução VMware no Azure, confira [comandos azure vmware](/cli/azure/ext/vmware/vmware).
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: cherylmc
-ms.openlocfilehash: 9ca190ae9e5679ce7622f89b39507d69d87f5b88
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 4b1007fe89cf455b6af8ebba00f24e8019ad8013
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875521"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078282"
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Configurar uma conexão entre redes virtuais (clássico)
 
@@ -32,8 +32,6 @@ Este artigo ajuda a criar uma conexão de gateway de VPN entre redes virtuais. A
 >
 
 ![Diagrama de conectividade VNet a VNet](./media/vpn-gateway-howto-vnet-vnet-portal-classic/v2vclassic.png)
-
-
 
 ## <a name="about-vnet-to-vnet-connections"></a>Sobre conexões de rede virtual a rede virtual
 
@@ -61,7 +59,7 @@ Você talvez queira conectar redes virtuais pelos seguintes motivos:
 
 Para saber mais sobre conexões de Rede Virtual a Rede Virtual, confira as [Considerações sobre Rede Virtual para Rede Virtual](#faq) no final deste artigo.
 
-### <a name="working-with-azure-powershell"></a><a name="powershell"></a>Trabalhando com o Azure PowerShell
+## <a name="prerequisites"></a>Pré-requisitos
 
 Podemos usar o portal para a maioria das etapas, mas você deve usar o PowerShell para criar conexões entre as redes virtuais. Você não pode criar as conexões usando o portal do Azure. [!INCLUDE [vpn-gateway-classic-powershell](../../includes/vpn-gateway-powershell-classic-locally.md)]
 
@@ -87,7 +85,7 @@ Nesta etapa, você cria duas redes virtuais clássicas. Se estiver usando este a
 Nome: TestVNet1<br>
 Espaço de endereço: 10.11.0.0/16, 10.12.0.0/16 (opcional)<br>
 Nome da sub-rede: padrão<br>
-Intervalo de endereços da sub-rede: 10.11.0.1/24<br>
+Intervalo de endereços da sub-rede: 10.11.0.0/24<br>
 Grupo de recursos: ClassicRG<br>
 Local: Leste dos EUA<br>
 GatewaySubnet: 10.11.1.0/27
