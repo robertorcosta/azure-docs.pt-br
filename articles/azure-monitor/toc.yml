@@ -214,6 +214,8 @@
           href: log-query/scope.md
         - name: Experiência com logs simples
           href: log-query/simple-logs.md
+        - name: Consulta com o Azure Data Explorer
+          href: platform/azure-data-explorer-monitor-proxy.md
         - name: Consultas de logs
           items:
             - name: Colunas padrão
@@ -303,6 +305,14 @@
               href: platform/service-providers.md
             - name: Clusters dedicados
               href: log-query/logs-dedicated-clusters.md
+        - name: Exportação de dados
+          items:
+            - name: Exportação de dados do workspace
+              href: platform/logs-data-export.md
+            - name: Exportação com Aplicativos Lógicos
+              href: platform/logs-export-logic-app.md
+            - name: Consulta de dados exportados com o Data Explorer
+              href: platform/azure-data-explorer-query-storage.md
     - name: Metrics Explorer
       items:
         - name: Introdução ao Metrics Explorer

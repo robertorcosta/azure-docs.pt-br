@@ -8,19 +8,19 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: df59d944a15e22e9884b0d177deedb9968ea1aef
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 6bdf008c13a1466ec47134c303902a1f9d19545b
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994980"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072757"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guia do desenvolvedor do Cofre da Chave do Azure
 
 O Key Vault permite acessar com segurança informações confidenciais nos aplicativos:
 
 - Chaves, segredos e certificados são protegidos sem precisar escrever o código por conta própria e você pode usá-los facilmente de seus aplicativos.
-- Você pode fazer com que os clientes tenham e gerenciem suas próprias chaves, segredos e certificados para que você possa se concentrar em fornecer os principais recursos de software. Dessa forma, seus aplicativos não terão a responsabilidade ou a responsabilidade potencial das chaves de locatário, dos segredos e dos certificados dos seus clientes.
+- Você permite que os clientes tenham e gerenciem suas próprias chaves, segredos e certificados para que você possa se concentrar em fornecer os principais recursos de software. Dessa forma, seus aplicativos não terão a responsabilidade ou a responsabilidade potencial das chaves de locatário, dos segredos e dos certificados dos seus clientes.
 - Seu aplicativo pode usar chaves para assinatura e criptografia, mas mantém o gerenciamento de chaves externo do seu aplicativo. Para obter mais informações sobre chaves, consulte [sobre chaves](../keys/about-keys.md)
 - Você pode gerenciar credenciais como senhas, chaves de acesso, tokens SAS que as armazenam em Key Vault como segredos, consulte [sobre segredos](../secrets/about-secrets.md)
 - Gerenciar certificados. Para obter mais informações, consulte [sobre certificados](../certificates/about-certificates.md)

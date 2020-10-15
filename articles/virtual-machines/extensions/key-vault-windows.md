@@ -8,12 +8,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 1e7a58ba5e858b44f137834b2e1ab5472b9d0965
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 2595c79c024ea7583f6c6a263dcf4f6034ba6df9
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970071"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072281"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Extensão da máquina virtual de Key Vault para Windows
 
@@ -106,6 +106,10 @@ O JSON a seguir mostra o esquema para a extensão da VM de Key Vault. A extensã
 Extensões de VM do Azure podem ser implantadas com modelos do Azure Resource Manager. Modelos são ideais ao implantar uma ou mais máquinas virtuais que exigem renovação de certificados pós-implantação. A extensão pode ser implantada em VMs individuais ou conjunto de dimensionamento de máquinas virtuais. O esquema e a configuração são comuns a ambos os tipos de modelo. 
 
 A configuração JSON para uma extensão de máquina virtual deve ser aninhada dentro do fragmento do recurso de máquina virtual do modelo, especificamente o objeto `"resources": []` para o modelo de máquina virtual e, no caso de conjunto de dimensionamento de máquinas virtuais, no objeto `"virtualMachineProfile":"extensionProfile":{"extensions" :[]`.
+
+ > [!NOTE]
+> A extensão de VM exigiria que a identidade gerenciada do sistema ou do usuário fosse atribuída para autenticar no Key Vault.  Consulte [como autenticar para Key Vault e atribuir uma política de acesso de Key Vault.](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
+> 
 
 ```json
     {
@@ -201,9 +205,9 @@ A CLI do Azure pode ser usada para implantar a extensão da VM do Key Vault em u
 
    ```azurecli
         # Start the deployment
-        az vmss extension set -n "KeyVaultForWindows" `
+        az vmss extension set -name "KeyVaultForWindows" `
          --publisher Microsoft.Azure.KeyVault `
-         -g "<resourcegroup>" `
+         -resource-group "<resourcegroup>" `
          --vmss-name "<vmName>" `
          --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCerts> \"] }}'
     ```

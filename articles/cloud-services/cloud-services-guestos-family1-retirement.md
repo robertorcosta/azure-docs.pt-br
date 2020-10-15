@@ -9,12 +9,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 5/21/2017
 ms.author: raiye
-ms.openlocfilehash: c930636f9af45edc66670c3f757333fef8e8756e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6de03969a22c5b699fdfd2be17a6ba65905d23e6
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89458817"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073386"
 ---
 # <a name="guest-os-family-1-retirement-notice"></a>Aviso de desativação da família 1 de SO convidados
 A desativação da família 1 do sistema operacional foi anunciada em 1º de junho de 2013.
@@ -23,7 +23,7 @@ A desativação da família 1 do sistema operacional foi anunciada em 1º de jun
 
 **3 de novembro de 2014** O suporte estendido para a família 1 dos sistemas operacionais convidados terminou e está totalmente desativado. Todos os serviços que ainda estão na família 1 serão afetados. Podemos interromper esses serviços a qualquer momento. Não há nenhuma garantia de que seus serviços continuarão sendo executados, a menos que você os atualize manualmente por conta própria.
 
-Se você tiver outras dúvidas, visite a [página de perguntas e respostas da Microsoft para Serviços de Nuvem](https://docs.microsoft.com/answers/topics/azure-cloud-services.html) ou [entre em contato com o Suporte do Azure](https://azure.microsoft.com/support/options/).
+Se você tiver outras dúvidas, visite a [página de perguntas e respostas da Microsoft para Serviços de Nuvem](/answers/topics/azure-cloud-services.html) ou [entre em contato com o Suporte do Azure](https://azure.microsoft.com/support/options/).
 
 ## <a name="are-you-affected"></a>Você foi afetado?
 Os Serviços de Nuvem são afetados se qualquer uma das opções a seguir se aplicar:
@@ -32,7 +32,7 @@ Os Serviços de Nuvem são afetados se qualquer uma das opções a seguir se apl
 2. Você não tem um valor para osFamily especificado explicitamente no arquivo ServiceConfiguration.cscfg para seu serviço de nuvem. Atualmente, o sistema usa o valor padrão de "1" nesse caso.
 3. O Portal do Azure lista o valor da família do Sistema Operacional Convidado como "Windows Server 2008".
 
-Para definir quais dos serviços de nuvem estão executando qual família de SO, execute o script a seguir no Azure PowerShell, embora você deva [configurar o Azure PowerShell](/powershell/azure/) primeiro. Para saber mais sobre o script, confira [Fim da vida útil da família 1 dos sistemas operacionais convidados do Azure: junho de 2014](https://docs.microsoft.com/archive/blogs/ryberry/azure-guest-os-family-1-end-of-life-june-2014).
+Para definir quais dos serviços de nuvem estão executando qual família de SO, execute o script a seguir no Azure PowerShell, embora você deva [configurar o Azure PowerShell](/powershell/azure/) primeiro. Para saber mais sobre o script, confira [Fim da vida útil da família 1 dos sistemas operacionais convidados do Azure: junho de 2014](/archive/blogs/ryberry/azure-guest-os-family-1-end-of-life-june-2014).
 
 ```Powershell
 foreach($subscription in Get-AzureSubscription) {

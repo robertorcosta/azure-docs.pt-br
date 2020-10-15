@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: article
 ms.date: 06/8/2020
 ms.author: chenyl
-ms.openlocfilehash: abe7503e7eb73d533ae901af21de001960173fb0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc7082744bc43baad2e26d09a83907540cf6a1df
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85559411"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92094068"
 ---
 # <a name="managed-identities-for-azure-signalr-service"></a>Identidades gerenciadas para o serviço de Signaler do Azure
 
@@ -28,7 +28,7 @@ Para configurar uma identidade gerenciada no portal do Azure, primeiro você cri
 
 2. Selecionar **Identidade**.
 
-4. Na guia **atribuído pelo sistema** , alterne o **status** para **ativado**. Clique em **Salvar**.
+4. Na guia **atribuído pelo sistema** , alterne o **status** para **ativado**. Selecione **Salvar**.
 
     :::image type="content" source="media/signalr-howto-use-managed-identity/system-identity-portal.png" alt-text="Adicionar uma identidade atribuída pelo sistema no portal":::
 
@@ -65,7 +65,7 @@ O serviço de Signaler do Azure é um serviço totalmente gerenciado, portanto, 
     - [ID de recurso de um serviço do Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities#azure-services-that-support-azure-ad-authentication)
 
     > [!NOTE]
-    > Se você validar um token de acesso por conta própria em seu serviço, poderá escolher qualquer um dos formatos de recurso. Apenas certifique-se de que o valor do **recurso** nas configurações de **autenticação** e a validação são consistentes. Se você usar o RBAC (controle de acesso baseado em função) para um plano de dados, deverá usar o recurso que o provedor de serviços solicitar.
+    > Se você validar um token de acesso por conta própria em seu serviço, poderá escolher qualquer um dos formatos de recurso. Apenas certifique-se de que o valor do **recurso** nas configurações de **autenticação** e a validação são consistentes. Se você usar o controle de acesso baseado em função do Azure (RBAC do Azure) para um plano de dados, deverá usar o recurso que o provedor de serviços solicita.
 
 ### <a name="validate-access-tokens"></a>Validar tokens de acesso
 

@@ -207,6 +207,8 @@
               href: container-registry-tasks-authentication-key-vault.md
         - name: Execução rápida de tarefas com o modelo do Resource Manager
           href: container-registry-task-run-template.md
+        - name: Executar tarefa em pool de agentes dedicados (versão prévia)
+          href: tasks-agent-pools.md
         - name: Criar imagem com Buildpacks (versão prévia)
           href: container-registry-tasks-pack-build.md
         - name: Exibir logs de tarefas

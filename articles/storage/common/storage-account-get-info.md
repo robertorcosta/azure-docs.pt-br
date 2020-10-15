@@ -10,16 +10,16 @@ ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8fa1e258b07ab98040cbbc5217be789e0bb1b783
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17f18f84ac1c1738f8c248bb0071c748e15dacf3
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89020126"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090923"
 ---
 # <a name="get-storage-account-type-and-sku-name-with-net"></a>Obter tipo de conta de armazenamento e nome de SKU com .NET
 
-Este artigo mostra como obter o tipo de conta de armazenamento do Azure e o nome do SKU para um BLOB usando a [biblioteca de cliente de armazenamento do Azure para .net](/dotnet/api/overview/azure/storage?view=azure-dotnet).
+Este artigo mostra como obter o tipo de conta de armazenamento do Azure e o nome do SKU para um BLOB usando a [biblioteca de cliente de armazenamento do Azure para .net](/dotnet/api/overview/azure/storage).
 
 As informações de conta estão disponíveis nas versões de serviço que começam com a versão 2018-03-28.
 
@@ -27,11 +27,11 @@ As informações de conta estão disponíveis nas versões de serviço que come�
 
 **Tipo de conta**: os tipos de conta válidos incluem,,, `BlobStorage` `BlockBlobStorage` `FileStorage` `Storage` e `StorageV2` . A [visão geral da conta de armazenamento do Azure](storage-account-overview.md) tem mais informações, incluindo descrições das várias contas de armazenamento.
 
-**Nome do SKU**: nomes de SKU válidos incluem,,,,,, `Premium_LRS` `Premium_ZRS` `Standard_GRS` `Standard_GZRS` `Standard_LRS` `Standard_RAGRS` `Standard_RAGZRS` e `Standard_ZRS` . Os nomes de SKU diferenciam maiúsculas de minúsculas e são campos de cadeia de caracteres na [classe SkuName](/dotnet/api/microsoft.azure.management.storage.models.skuname?view=azure-dotnet).
+**Nome do SKU**: nomes de SKU válidos incluem,,,,,, `Premium_LRS` `Premium_ZRS` `Standard_GRS` `Standard_GZRS` `Standard_LRS` `Standard_RAGRS` `Standard_RAGZRS` e `Standard_ZRS` . Os nomes de SKU diferenciam maiúsculas de minúsculas e são campos de cadeia de caracteres na [classe SkuName](/dotnet/api/microsoft.azure.management.storage.models.skuname).
 
 ## <a name="retrieve-account-information"></a>Recuperar informações da conta
 
-Para obter o tipo de conta de armazenamento e o nome do SKU associado a um blob, chame o método [accountproperties](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getaccountproperties?view=azure-dotnet) ou [GetAccountPropertiesAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getaccountpropertiesasync?view=azure-dotnet) .
+Para obter o tipo de conta de armazenamento e o nome do SKU associado a um blob, chame o método [accountproperties](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getaccountproperties) ou [GetAccountPropertiesAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getaccountpropertiesasync) .
 
 O exemplo de código a seguir recupera e exibe as propriedades da conta somente leitura.
 
