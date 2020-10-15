@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 04/14/2020
 ms.author: vlvinogr
 ms.custom: include file
-ms.openlocfilehash: 9ed918c841989cb50efa362251d09c0b655b7fc4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c36a541c9380596884252efcba4a9c0ca2be33f
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89570102"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92082234"
 ---
 | Recurso | Limite |
 | ---------------------------------------------------------------------- | -------------------------- |
@@ -39,7 +39,7 @@ ms.locfileid: "89570102"
 <sup>2</sup>O tamanho do cache por unidade depende do tipo de preço. Para ver os tipos de preço e os limites de escala deles, confira [Preços de Gerenciamento de API](https://azure.microsoft.com/pricing/details/api-management/).<br/>
 <sup>3</sup>As conexões são colocadas em pool e reutilizadas, a menos que sejam explicitamente encerradas pelo back-end.<br/>
 <sup>4</sup>Esse é o limite por unidade dos níveis Básico, Standard e Premium. O nível Desenvolvedor está limitado a 1.024. Esse limite não se aplica ao nível de Consumo.<br/>
-<sup>5</sup>Esse limite se aplica aos níveis Básico, Standard e Premium. No nível de Consumo, o tamanho do documento de política é limitado a 4 KiB.<br/>
+<sup>5</sup>Esse limite se aplica aos níveis Básico, Standard e Premium. No nível de Consumo, o tamanho do documento de política é limitado a 16 KiB.<br/>
 <sup>6</sup>Vários domínios personalizados têm suporte apenas nos níveis Desenvolvedor e Premium.<br/>
 <sup>7</sup>Certificados de autoridade de certificação não têm suporte no nível de Consumo.<br/>
 <sup>8</sup>Esse limite aplica-se apenas ao nível de Consumo. Não há nenhum limite nessas categorias para outros níveis.<br/>

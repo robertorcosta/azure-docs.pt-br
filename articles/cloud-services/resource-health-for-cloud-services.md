@@ -7,17 +7,17 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 9/1/2020
 ms.author: tagore
-ms.openlocfilehash: ea25695ddc36571bef3ff61df7de3e71f6f939ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f99dd8131df9f8bc5d3e4013d4438faa8c25e53b
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90056040"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072706"
 ---
 # <a name="resource-health-check-rhc-support-for-azure-cloud-services-classic"></a>Suporte à verificação de Resource Health (RHC) para serviços de nuvem do Azure (clássico)
 Este artigo fala sobre o suporte de verificação de Resource Health (RHC) para [serviços de nuvem do Microsoft Azure (clássico)](https://azure.microsoft.com/services/cloud-services)
 
-[Azure Resource Health](https://docs.microsoft.com/azure/service-health/resource-health-overview) para serviços de nuvem ajuda você a diagnosticar e obter suporte para problemas de serviço que afetam sua implantação de serviço de nuvem, funções & instâncias de função. Ele relata a integridade atual e passada de seus serviços de nuvem na implantação, função & nível de instância de função.
+[Azure Resource Health](../service-health/resource-health-overview.md) para serviços de nuvem ajuda você a diagnosticar e obter suporte para problemas de serviço que afetam sua implantação de serviço de nuvem, funções & instâncias de função. Ele relata a integridade atual e passada de seus serviços de nuvem na implantação, função & nível de instância de função.
 
 Relatórios de status do Azure sobre problemas que afetam um amplo conjunto de clientes do Azure. Resource Health fornece um painel personalizado da integridade de seus recursos. Resource Health mostra todas as ocasiões em que os recursos não estão disponíveis devido a problemas de serviço do Azure. Esses dados tornam mais fácil para você ver se um SLA foi violado.
 
@@ -30,7 +30,7 @@ O Resource Health é relatado em um nível de implantação ou função. A verif
 As verificações de integridade de recursos funcionam apenas para implantação de slot de produção. Ainda não há suporte para a implantação de slot de preparo. 
 
 ## <a name="does-resource-health-check-also-check-the-health-of-the-application"></a>O Resource Health verifica também a integridade do aplicativo?
-Não, a verificação de integridade ocorre apenas para instâncias de função e não monitora a integridade do aplicativo. Por ex.: Mesmo que 1 das três instâncias de função não estejam íntegras, o aplicativo ainda poderá estar disponível. RHC não usa [investigações de balanceador de carga](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview) ou investigação de agente convidado. Portanto, os clientes devem continuar usando as investigações do balanceador de carga para monitorar a integridade de seus aplicativos. 
+Não, a verificação de integridade ocorre apenas para instâncias de função e não monitora a integridade do aplicativo. Por ex.: Mesmo que 1 das três instâncias de função não estejam íntegras, o aplicativo ainda poderá estar disponível. RHC não usa [investigações de balanceador de carga](../load-balancer/load-balancer-custom-probe-overview.md) ou investigação de agente convidado. Portanto, os clientes devem continuar usando as investigações do balanceador de carga para monitorar a integridade de seus aplicativos. 
 
 ## <a name="what-are-the-annotations-for-cloud-services"></a>Quais são as anotações para os serviços de nuvem?
 As anotações são o status de integridade da implantação ou das funções. Há diferentes anotações com base no status de integridade, motivo para alteração de status, etc. 

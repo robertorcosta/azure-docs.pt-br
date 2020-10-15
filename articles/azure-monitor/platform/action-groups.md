@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 7937b412b1eb3f311f0212f19c4eb9fc7782459d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 534e78018d19ff496dc4d2b3b54a3d0b3c46cf0f
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327724"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093745"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerenciar grupos de ações no portal do Azure
 Um grupo de ações é uma coleção de preferências de notificação definidas pelo proprietário de uma assinatura do Azure. Alertas do Azure Monitor e da Integridade do Serviço usam grupos de ações para notificar usuários de que um alerta foi disparado. Vários alertas podem usar o mesmo grupo de ação ou grupos de ações diferentes dependendo dos requisitos do usuário. Você pode configurar até 2 mil grupos de ação em uma assinatura.
@@ -287,7 +287,32 @@ Para receber atualizações sobre as alterações para esses endereços IP, é r
 
 É possível ter um número limitado de ações de webhook em um grupo de ações.
 
+### <a name="service-tag"></a>Marca de serviço
+Uma marca de serviço representa um grupo de prefixos de endereço IP de um determinado serviço do Azure. A Microsoft gerencia os prefixos de endereço abordados pela marca de serviço e atualiza automaticamente a marca de serviço à medida que os endereços são alterados, minimizando a complexidade de atualizações frequentes para regras de segurança de rede para um The Action.
 
+1. Em portal do Azure em pesquisa de serviços do Azure para *grupo de segurança de rede*.
+2. Clique em **Adicionar** e crie um grupo de segurança de rede.
+
+   1. Adicione o nome do grupo de recursos e insira os *detalhes da instância*.
+   1. Clique em **revisão + criar** e, em seguida, clique em *criar*.
+   
+   :::image type="content" source="media/action-groups/action-group-create-security-group.png" alt-text="Exemplo de como criar um grupo de segurança de rede."border="true":::
+
+3. Vá para o grupo de recursos e clique em *grupo de segurança de rede* que você criou.
+
+    1. Selecione *regras de segurança de entrada*.
+    1. Clique em **Adicionar**.
+    
+    :::image type="content" source="media/action-groups/action-group-add-service-tag.png" alt-text="Exemplo de como adicionar uma marca de serviço."border="true":::
+
+4. Uma nova janela será aberta no painel direito.
+    1.  Selecionar origem: **marca de serviço**
+    1.  Marca de serviço de **origem: resourcegroup**
+    1.  Clique em **Adicionar**.
+    
+    :::image type="content" source="media/action-groups/action-group-service-tag.png" alt-text="Exemplo de como adicionar a marca de serviço."border="true":::
+
+O uso da **marca de serviço** para o The Action ajuda a minimizar a complexidade de atualizações frequentes para endereços IP.
 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre o [comportamento de alertas por SMS](./alerts-sms-behavior.md).  

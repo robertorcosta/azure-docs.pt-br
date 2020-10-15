@@ -12,19 +12,19 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 12/20/2019
 ms.author: mblythe
-ms.openlocfilehash: b77c9cfd6e4d1721839acb9db5469b5f0ac73a48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 014463fb0a5af639ff0da5f8db2805f9796fd928
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90561594"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072468"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>A estrutura de Painéis do Azure
 Este documento explica a estrutura de um painel do Azure, usando o painel a seguir como exemplo:
 
 ![painel de amostra](./media/azure-portal-dashboards-structure/sample-dashboard.png)
 
-Como os [painéis compartilhados do Azure são recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), este painel pode ser representado como JSON.  O JSON a seguir representa o painel visualizado acima.
+Como os [painéis compartilhados do Azure são recursos](../azure-resource-manager/management/overview.md), este painel pode ser representado como JSON.  O JSON a seguir representa o painel visualizado acima.
 
 ```json
 
@@ -303,7 +303,7 @@ O nome é o segmento da ID do recurso que não inclui a assinatura, o tipo de re
 Todos os painéis são do tipo __Microsoft.Portal/dashboards__.
 
 ### <a name="the-location-property"></a>A propriedade location
-Ao contrário de outros recursos, os painéis não têm um componente de runtime.  Para os painéis, o local indica a localização geográfica principal que armazena a representação JSON do painel. O valor deve ser um dos códigos de local que podem ser buscados usando a [API de locais no recurso de assinaturas](https://docs.microsoft.com/rest/api/resources/subscriptions).
+Ao contrário de outros recursos, os painéis não têm um componente de runtime.  Para os painéis, o local indica a localização geográfica principal que armazena a representação JSON do painel. O valor deve ser um dos códigos de local que podem ser buscados usando a [API de locais no recurso de assinaturas](/rest/api/resources/subscriptions).
 
 ### <a name="the-tags-property"></a>A propriedade tags
 Marcas são um recurso comum de recursos do Azure que lhe permitem organizar seus recursos por pares de valor de nome arbitrário. Para os painéis, há uma marca especial chamada __título oculto__. Se seu painel tem essa propriedade preenchida, ele é usado como o nome de exibição para o painel no portal. As IDs de recurso do Azure não podem ser renomeadas, mas as marcas podem. Esta marca dá uma maneira de ter um nome de exibição renomeável para seu painel.

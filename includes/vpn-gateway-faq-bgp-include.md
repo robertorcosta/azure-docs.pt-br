@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/17/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 32e4658af48a0ae3bde08de18cf1d8204878d671
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6054fe5f71f54794d4974a71cdfd61a7959534ff
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91025023"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92082200"
 ---
 ### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>O BGP tem suporte em todas as SKUs de Gateway de VPN do Azure?
 O BGP tem suporte em todos os SKUs de Gateway de VPN do Azure, exceto o SKU Básico.
@@ -108,3 +108,6 @@ Sim.
 
 ### <a name="what-should-i-add-to-my-on-premises-vpn-device-for-the-bgp-peering-session"></a>O que devo adicionar a meu dispositivo VPN local para a sessão de emparelhamento de BGP?
 Você deve adicionar uma rota de host do endereço IP de Par de BGP do Azure em seu dispositivo VPN apontando para o túnel de VPN S2S IPsec. Por exemplo, se o IP de Par de VPN do Azure for "10.12.255.30", você deverá adicionar uma rota de host para "10.12.255.30" com uma interface de nexthop da interface de túnel IPsec correspondente em seu dispositivo VPN.
+
+### <a name="does-the-virtual-network-gateway-support-bidirectional-forwarding-detection-bfd-for-site-to-site-connections-with-bgp"></a>O gateway de rede virtual dá suporte à detecção de encaminhamento bidirecional (BFD) para conexões entre sites com o BGP?
+Não. A detecção de encaminhamento bidirecional (BFD) é um protocolo que pode ser usado com o BGP para uma detecção mais rápida do tempo de inatividade do vizinho, sem o uso de keepalive do BGP padrão. O BFD usa temporizadores de subsegundos projetados para funcionar em ambientes de LAN, mas não na Internet pública ou em conexões de rede de longa distância. Para conexões por Internet pública, não é raro ter pacotes atrasados ou até mesmo ignorados. Portanto, a introdução desses temporizadores agressivos poderia gerar instabilidade, resultando em potenciais retardamentos de rotas pelo BGP. Para um tempo de convergência mais rápido, uma opção é configurar seu dispositivo local com temporizadores menores do que o intervalo padrão de keepalive de 60 segundos e do que o temporizador de espera de 180 segundos.

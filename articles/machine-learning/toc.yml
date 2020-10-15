@@ -166,6 +166,8 @@
               href: how-to-setup-authentication.md
             - name: Gerenciar usuários e funções
               href: how-to-assign-roles.md
+            - name: Usar identidades gerenciadas para controle de acesso
+              href: how-to-use-managed-identities.md
             - name: Usar a identidade do Azure AD em implantações do AKS
               href: how-to-use-azure-ad-identity.md
         - name: Segurança de rede
