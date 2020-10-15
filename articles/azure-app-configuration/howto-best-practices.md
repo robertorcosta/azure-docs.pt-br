@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: lcozzens
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: d532b8aab87840f4b6ad90daedba743597f4fe43
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c45d1668ad39e9584a89921f46218ba243978a05
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88588051"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078044"
 ---
 # <a name="azure-app-configuration-best-practices"></a>Práticas recomendadas de configuração do Azure App
 
@@ -42,7 +42,7 @@ Os *Rótulos* são um atributo nas chaves. Eles são usados para criar variantes
 
 A configuração de aplicativo trata todas as chaves armazenadas com ela como entidades independentes. A configuração do aplicativo não tenta inferir nenhuma relação entre as chaves ou para herdar valores de chave com base em sua hierarquia. Você pode agregar vários conjuntos de chaves, no entanto, usando rótulos acoplados ao empilhamento de configuração adequado no código do aplicativo.
 
-Vamos examinar um exemplo. Suponha que você tenha uma configuração chamada **Asset1**, cujo valor pode variar com base no ambiente de desenvolvimento. Você cria uma chave chamada "Asset1" com um rótulo vazio e um rótulo chamado "desenvolvimento". No primeiro rótulo, você coloca o valor padrão para **Asset1**e coloca um valor específico para "desenvolvimento" no último.
+Vejamos um exemplo. Suponha que você tenha uma configuração chamada **Asset1**, cujo valor pode variar com base no ambiente de desenvolvimento. Você cria uma chave chamada "Asset1" com um rótulo vazio e um rótulo chamado "desenvolvimento". No primeiro rótulo, você coloca o valor padrão para **Asset1**e coloca um valor específico para "desenvolvimento" no último.
 
 No seu código, você primeiro recupera os valores de chave sem rótulos e, em seguida, recupera o mesmo conjunto de valores de chave pela segunda vez com o rótulo "desenvolvimento". Quando você recupera os valores da segunda vez, os valores anteriores das chaves são substituídos. O sistema de configuração do .NET Core permite que você "empilhe" vários conjuntos de dados de configuração em cima um do outro. Se existir uma chave em mais de um conjunto, o último conjunto que a contém será usado. Com uma estrutura de programação moderna, como o .NET Core, você obterá essa capacidade de empilhamento gratuitamente se usar um provedor de configuração nativo para acessar a configuração do aplicativo. O trecho de código a seguir mostra como você pode implementar o empilhamento em um aplicativo .NET Core:
 
@@ -69,7 +69,7 @@ Uma opção melhor é usar o recurso identidades gerenciadas no Azure Active Dir
 Você pode fornecer acesso à configuração de aplicativo para aplicativos Web ou funções usando qualquer um dos seguintes métodos:
 
 * Por meio do portal do Azure, insira a cadeia de conexão para o repositório de configurações do aplicativo nas configurações do aplicativo do serviço de aplicativo.
-* Armazene a cadeia de conexão em seu repositório de configuração de aplicativo no Key Vault e [referencie-a do serviço de aplicativo](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references).
+* Armazene a cadeia de conexão em seu repositório de configuração de aplicativo no Key Vault e [referencie-a do serviço de aplicativo](../app-service/app-service-key-vault-references.md).
 * Use identidades gerenciadas do Azure para acessar o repositório de configuração de aplicativo. Para obter mais informações, consulte [integrar com identidades gerenciadas do Azure](howto-integrate-azure-managed-service-identity.md).
 * Enviar por push a configuração de aplicativo para o serviço de aplicativo. A configuração de aplicativo fornece uma função de exportação (em portal do Azure e a CLI do Azure) que envia dados diretamente para o serviço de aplicativo. Com esse método, você não precisa alterar o código do aplicativo.
 
@@ -85,7 +85,7 @@ Solicitações excessivas para a configuração do aplicativo podem resultar na 
 
 ## <a name="importing-configuration-data-into-app-configuration"></a>Importando dados de configuração para configuração de aplicativo
 
-A configuração de aplicativo oferece a opção de [importar](https://aka.ms/azconfig-importexport1) em massa suas definições de configuração de seus arquivos de configuração atuais usando o portal do Azure ou a CLI. Você também pode usar as mesmas opções para exportar valores da configuração do aplicativo, por exemplo, entre os repositórios relacionados. Se você quiser configurar uma sincronização contínua com seu repositório GitHub, poderá usar nossa [ação do GitHub](https://aka.ms/azconfig-gha2) para que possa continuar usando as práticas de controle do código-fonte existentes e obter os benefícios da configuração do aplicativo.
+A configuração de aplicativo oferece a opção de [importar](./howto-import-export-data.md) em massa suas definições de configuração de seus arquivos de configuração atuais usando o portal do Azure ou a CLI. Você também pode usar as mesmas opções para exportar valores da configuração do aplicativo, por exemplo, entre os repositórios relacionados. Se você quiser configurar uma sincronização contínua com seu repositório GitHub, poderá usar nossa [ação do GitHub](./concept-github-action.md) para que possa continuar usando as práticas de controle do código-fonte existentes e obter os benefícios da configuração do aplicativo.
 
 ## <a name="multi-region-deployment-in-app-configuration"></a>Implantação em várias regiões na configuração do aplicativo
 

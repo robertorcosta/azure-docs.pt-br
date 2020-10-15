@@ -8,12 +8,12 @@ ms.date: 04/29/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: 0a684151e01b298c60ff17ef1470e0648a425850
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bbd895686b52ae7d1ced00b635d4d33e93c970a7
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73889244"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92069838"
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>Integrar a solução de Monitoramento Remoto com o Azure Data Lake Store
 
@@ -89,7 +89,7 @@ Crie um trabalho do Azure Stream Analytics para transmitir os dados de seu hub I
 
     ![Selecione a entrada](./media/iot-accelerators-integrate-data-lake/stream-analytics-new-input.png)
 
-1. Clique em **Salvar**.
+1. Clique em **Save** (Salvar).
 
 1. Na página Visão geral, clique em **Saídas**.
 
@@ -118,7 +118,7 @@ Crie um trabalho do Azure Stream Analytics para transmitir os dados de seu hub I
     > [!NOTE]
     > Se você vir um erro na janela pop-up, abra uma nova janela de navegador no Modo Anônimo e tente novamente.
 
-1. Clique em **Salvar**.
+1. Clique em **Save** (Salvar).
 
 ## <a name="edit-the-stream-analytics-query"></a>Editar a consulta do Stream Analytics
 
@@ -141,7 +141,7 @@ O Azure Stream Analytics usa uma linguagem de consulta do tipo SQL para especifi
 
     ![Consulta do Stream Analytics](./media/iot-accelerators-integrate-data-lake/stream-analytics-query.png)
 
-1. Clique em **Salvar**.
+1. Clique em **Save** (Salvar).
 1. Clique em **Sim** para aceitar as alterações.
 
 ## <a name="start-the-stream-analytics-job"></a>Iniciar o trabalho do Stream Analytics
@@ -180,4 +180,4 @@ O Azure Stream Analytics usa uma linguagem de consulta do tipo SQL para especifi
 
 ## <a name="next-steps"></a>Próximas etapas
 
-O Azure Data Lake Analytics pode ser usado para executar análise de big data em seus conjuntos de dados do Data Lake Store. Saiba mais na [Documentação do Data Lake Analytics](https://docs.microsoft.com/azure/data-lake-analytics).
+O Azure Data Lake Analytics pode ser usado para executar análise de big data em seus conjuntos de dados do Data Lake Store. Saiba mais na [Documentação do Data Lake Analytics](../data-lake-analytics/index.yml).
