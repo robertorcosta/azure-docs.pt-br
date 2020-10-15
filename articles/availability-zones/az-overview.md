@@ -1,5 +1,5 @@
 ---
-title: Regiões e zonas de disponibilidade no Azure
+title: Regiões e Zonas de Disponibilidade no Azure
 description: Saiba mais sobre regiões e Zonas de Disponibilidade no Azure para atender aos seus requisitos técnicos e regulatórios.
 author: cynthn
 ms.service: azure
@@ -7,14 +7,14 @@ ms.topic: article
 ms.date: 08/27/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: 9a9cdef27276aa589a4aadd853185b0e3fb4be61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5178bf6955203c6a5625b941dd0102f2f4458abc
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91773732"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078367"
 ---
-# <a name="regions-and-availability-zones-in-azure"></a>Regiões e zonas de disponibilidade no Azure
+# <a name="regions-and-availability-zones-in-azure"></a>Regiões e Zonas de Disponibilidade no Azure
 
 Os serviços de Microsoft Azure estão disponíveis globalmente para orientar suas operações de nuvem em um nível ideal. Você pode escolher a melhor região para suas necessidades com base nas considerações técnicas e regulatórias: recursos de serviço, residência de dados, requisitos de conformidade e latência.
 
@@ -37,7 +37,7 @@ Para entender melhor as regiões e Zonas de Disponibilidade no Azure, é útil e
 
 ## <a name="regions"></a>Regiões
 
-Uma região é um conjunto de data centers implantados em um perímetro definido por latência e conectados por meio de uma rede regional de baixa latência. O Azure oferece a você a flexibilidade de implantar aplicativos onde você precisa, incluindo em várias regiões para fornecer resiliência entre regiões. Para obter mais informações, consulte [visão geral do pilar de resiliência](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview).
+Uma região é um conjunto de data centers implantados em um perímetro definido por latência e conectados por meio de uma rede regional de baixa latência. O Azure oferece a você a flexibilidade de implantar aplicativos onde você precisa, incluindo em várias regiões para fornecer resiliência entre regiões. Para obter mais informações, consulte [visão geral do pilar de resiliência](/azure/architecture/framework/resiliency/overview).
 
 ## <a name="availability-zones"></a>Zonas de Disponibilidades
 
@@ -92,12 +92,12 @@ Conforme mencionado anteriormente, o Azure classifica os serviços em três cate
 > | Foundational | Base | Especializada |
 > | --- | --- | --- |
 > | Armazenamento de conta | Gerenciamento de API | API do Azure para FHIR |
-> | Gateway de Aplicativo | Configuração de aplicativos | Azure Analysis Services |
+> | Gateway de Aplicativo | Configuração de Aplicativos | Azure Analysis Services |
 > | Serviço de Backup do Azure | Serviço de Aplicativo | Serviço do Azure Blockchain |
 > | Azure Cosmos DB | Automação | Azure Blueprints |
 > | Azure Data Lake Storage Gen2 | Azure Active Directory Domain Services | Banco de Dados do Azure para MariaDB |
 > | Azure ExpressRoute | Azure Bastion | HSM Dedicado do Azure |
-> | Banco de Dados SQL do Azure | Cache Redis do Azure | Azure Dev Spaces |
+> | Banco de Dados SQL do Azure | Cache do Azure para Redis | Azure Dev Spaces |
 > | Serviços de Nuvem | Pesquisa Cognitiva do Azure | Gêmeos Digitais do Azure |
 > | Serviços de nuvem: Av2-Series | Azure Data Explorer | Azure Lab Services |
 > | Serviços de nuvem: Dv2-Series | Azure Data Share | Azure NetApp Files |
@@ -105,11 +105,11 @@ Conforme mencionado anteriormente, o Azure classifica os serviços em três cate
 > | Serviços de nuvem: Ev3-Series | Banco de Dados do Azure para PostgreSQL | Serviço de nuvem do Azure Spring |
 > | Serviços de nuvem: IPs de nível de instância | Serviço de Migração de Banco de Dados do Azure | Azure Time Series Insights |
 > | Serviços de nuvem: IP Reservado | Azure Databricks | Solução VMware no Azure pela CloudSimple |
-> | Armazenamento em disco | Proteção contra DDoS do Azure | Serviços de nuvem: série G |
+> | Armazenamento em Disco | Proteção contra DDoS do Azure | Serviços de nuvem: série G |
 > | Hubs de Eventos | Azure DevTest Labs | Serviços de nuvem: série H |
 > | Key Vault | Firewall do Azure | Serviços cognitivas: Visão Personalizada |
 > | Balanceador de carga | Gerenciador de Firewall do Azure | Serviços cognitivas: Reconhecimento do Locutor |
-> | Barramento de Serviço | Funções do Azure | Data Box Heavy |
+> | Barramento de Serviço | Azure Functions | Data Box Heavy |
 > | Service Fabric | Azure HPC Cache | Catálogo de Dados |
 > | Conjuntos de Dimensionamento de Máquinas Virtuais | Hub IoT do Azure | Data Factory: Data Factory v1 |
 > | Máquinas Virtuais | AKS (Serviço de Kubernetes do Azure) | Data Lake Analytics |
@@ -170,9 +170,9 @@ Não há custo adicional para máquinas virtuais implantadas em uma Zona de Disp
 - [Criar uma máquina virtual](../virtual-machines/windows/create-portal-availability-zone.md)
 - [Adicionar um Disco Gerenciado usando o PowerShell](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
 - [Criar um conjunto de dimensionamento de máquinas virtuais com redundância de zona](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
-- [Balancear carga de VMs entre zonas usando um Load Balancer Standard com um front-end com redundância de zona](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)
-- [Balancear carga de VMs em uma zona usando um Load Balancer Standard com um front-end zonal](../load-balancer/load-balancer-standard-public-zonal-cli.md)
-- [Armazenamento com redundância de zona](../storage/common/storage-redundancy-zrs.md)
+- [Balancear carga de VMs entre zonas usando um Load Balancer Standard com um front-end com redundância de zona](../load-balancer/quickstart-load-balancer-standard-public-cli.md)
+- [Balancear carga de VMs em uma zona usando um Load Balancer Standard com um front-end zonal](../load-balancer/quickstart-load-balancer-standard-public-cli.md)
+- [Armazenamento com redundância de zona](../storage/common/storage-redundancy.md)
 - [Banco de Dados SQL](../azure-sql/database/high-availability-sla.md#zone-redundant-configuration)
 - [Recuperação de desastre geográfico dos Hubs de Eventos](../event-hubs/event-hubs-geo-dr.md#availability-zones)
 - [Recuperação de desastre geográfico do Barramento de Serviço](../service-bus-messaging/service-bus-geo-dr.md#availability-zones)

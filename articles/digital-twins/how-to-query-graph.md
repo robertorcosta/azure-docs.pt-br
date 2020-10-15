@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 24229c331d0c7c4b2327e8e609e9d75b6654868f
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 127fd9a9e47a85479018524998e33f44b0a65ba8
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931965"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078469"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Consultar o grafo gêmeos do Azure digital
 
@@ -75,6 +75,64 @@ JOIN LightBulb RELATED LightPanel.contains
 WHERE IS_OF_MODEL(LightPanel, 'dtmi:contoso:com:lightpanel;1')  
 AND IS_OF_MODEL(LightBulb, 'dtmi:contoso:com:lightbulb ;1')  
 AND Room.$dtId IN ['room1', 'room2'] 
+```
+
+### <a name="specify-return-set-with-projections"></a>Especificar conjunto de retorno com projeções
+
+Usando projeções, você pode escolher as colunas que uma consulta retornará. 
+
+>[!NOTE]
+>Neste momento, não há suporte para propriedades complexas. Para garantir que as propriedades de projeção sejam válidas, combine as projeções com uma `IS_PRIMITIVE` verificação. 
+
+Aqui está um exemplo de uma consulta que usa projeção para retornar gêmeos e relações. A consulta a seguir projeta o *consumidor*, a *fábrica* e a *borda* de um cenário em que um *alocador* com uma ID de *ABC* está relacionado ao *consumidor* por meio de uma relação de *Factory. Customer*e essa relação é apresentada como a *borda*.
+
+```sql
+SELECT Consumer, Factory, Edge 
+FROM DIGITALTWINS Factory 
+JOIN Consumer RELATED Factory.customer Edge 
+WHERE Factory.$dtId = 'ABC' 
+```
+
+Você também pode usar projeção para retornar uma propriedade de uma folha de entrelaçar. A consulta a seguir projeta a propriedade *Name* dos *consumidores* que estão relacionados à *fábrica* com uma ID de *ABC* por meio de uma relação de *Factory. Customer*. 
+
+```sql
+SELECT Consumer.name 
+FROM DIGITALTWINS Factory 
+JOIN Consumer RELATED Factory.customer Edge 
+WHERE Factory.$dtId = 'ABC' 
+AND IS_PRIMITIVE(Consumer.name)
+```
+
+Você também pode usar projeção para retornar uma propriedade de uma relação. Como no exemplo anterior, a consulta a seguir projeta a propriedade *Name* dos *consumidores* relacionados à *fábrica* com uma ID de *ABC* por meio de uma relação de *Factory. Customer*; Mas agora ele também retorna duas propriedades dessa relação, *Prop1* e *prop2*. Ele faz isso nomeando a *borda* da relação e reunindo suas propriedades.  
+
+```sql
+SELECT Consumer.name, Edge.prop1, Edge.prop2, Factory.area 
+FROM DIGITALTWINS Factory 
+JOIN Consumer RELATED Factory.customer Edge 
+WHERE Factory.$dtId = 'ABC' 
+AND IS_PRIMITIVE(Factory.area) AND IS_PRIMITIVE(Consumer.name) AND IS_PRIMITIVE(Edge.prop1) AND IS_PRIMITIVE(Edge.prop2)
+```
+
+Você também pode usar aliases para simplificar consultas com projeção.
+
+A consulta a seguir faz as mesmas operações que o exemplo anterior, mas ele é alias dos nomes de propriedade para `consumerName` , `first` `second` e `factoryArea` . 
+ 
+```sql
+SELECT Consumer.name AS consumerName, Edge.prop1 AS first, Edge.prop2 AS second, Factory.area AS factoryArea 
+FROM DIGITALTWINS Factory 
+JOIN Consumer RELATED Factory.customer Edge 
+WHERE Factory.$dtId = 'ABC' 
+AND IS_PRIMITIVE(Factory.area) AND IS_PRIMITIVE(Consumer.name) AND IS_PRIMITIVE(Edge.prop1) AND IS_PRIMITIVE(Edge.prop2)" 
+```
+
+Aqui está uma consulta semelhante que consulta o mesmo conjunto como acima, mas projeta apenas a propriedade *Consumer.Name* como `consumerName` e projeta a *fábrica* completa como um conjunto de entrelaçamento. 
+
+```sql
+SELECT Consumer.name AS consumerName, Factory 
+FROM DIGITALTWINS Factory 
+JOIN Consumer RELATED Factory.customer Edge 
+WHERE Factory.$dtId = 'ABC' 
+AND IS_PRIMITIVE(Factory.area) AND IS_PRIMITIVE(Consumer.name) 
 ```
 
 ### <a name="query-by-property"></a>Consulta por Propriedade
@@ -224,7 +282,7 @@ Esta seção contém referência para os operadores e funções disponíveis ao 
 
 Há suporte para os seguintes operadores:
 
-| Family | Operadores |
+| Família | Operadores |
 | --- | --- |
 | Lógico |AND, OR, NOT |
 | Comparação |=,! =, <, >, <=, >= |

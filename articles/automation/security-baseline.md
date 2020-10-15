@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: a57473a26d5fe809274f14c8767356914e0d4962
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d3f04777983d24d5219c55c5309b7d12c214594
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89400510"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070683"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Linha de base de segurança do Azure para automação
 
@@ -84,7 +84,7 @@ Você pode usar o acesso à rede just in time da central de segurança do Azure 
 
 * [Como implantar o Firewall do Azure](../firewall/tutorial-firewall-deploy-portal.md)
 
-* [Compreender a inteligência contra ameaças integrada da Central de Segurança do Azure](../security-center/threat-protection.md)
+* [Compreender a inteligência contra ameaças integrada da Central de Segurança do Azure](../security-center/azure-defender.md)
 
 * [Entender a proteção de rede adaptável da central de segurança do Azure](../security-center/security-center-adaptive-network-hardening.md)
 
@@ -150,7 +150,7 @@ Você também pode usar plantas do Azure para simplificar implantações do Azur
 
 * [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Exemplos de Azure Policy para rede](/azure/governance/policy/samples/#network)
+* [Exemplos de Azure Policy para rede](../governance/policy/samples/built-in-policies.md#network)
 
 * [Como criar um blueprint do Azure](../governance/blueprints/create-blueprint-portal.md)
 
@@ -520,7 +520,7 @@ No entanto, ao usar Hybrid runbook Workers apoiado pelas máquinas virtuais do A
 
 * [Como criar assinaturas adicionais do Azure](../cost-management-billing/manage/create-subscription.md)
 
-* [Como criar Grupos de Gerenciamento](../governance/management-groups/create.md)
+* [Como criar Grupos de Gerenciamento](../governance/management-groups/create-management-group-portal.md)
 
 * [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
@@ -720,7 +720,7 @@ Se você estiver usando Hybrid runbook Workers apoiado pelas máquinas virtuais 
 
 * [Como criar assinaturas adicionais do Azure](../cost-management-billing/manage/create-subscription.md)
 
-* [Como criar Grupos de Gerenciamento](../governance/management-groups/create.md)
+* [Como criar Grupos de Gerenciamento](../governance/management-groups/create-management-group-portal.md)
 
 * [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
@@ -752,7 +752,7 @@ Além disso, use o grafo de recursos do Azure para consultar/descobrir recursos 
 
 * [Como criar consultas com o Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-* [Azure Policy os internos de exemplo para a automação do Azure](./policy-samples.md)
+* [Azure Policy os internos de exemplo para a automação do Azure](./policy-reference.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -854,7 +854,7 @@ O controle de aplicativo adaptável é uma solução inteligente, automatizada e
 
 * [Visão geral do firewall do aplicativo Web do Azure](../web-application-firewall/overview.md)
 
-* [Grupos de segurança de rede](../virtual-network/security-overview.md)
+* [Grupos de segurança de rede](../virtual-network/network-security-groups-overview.md)
 
 * [Visão geral da rede virtual do Azure](../virtual-network/virtual-networks-overview.md)
 
@@ -882,7 +882,7 @@ Você também pode usar recomendações da central de segurança do Azure como u
 
 * [Tutorial: Criar e gerenciar políticas para impor a conformidade](../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Policy os internos de exemplo para a automação do Azure](./policy-samples.md)
+* [Azure Policy os internos de exemplo para a automação do Azure](./policy-reference.md)
 
 * [Exportação única e de vários recursos para um modelo no portal do Azure](../azure-resource-manager/templates/export-template-portal.md)
 
@@ -920,7 +920,7 @@ Ao usar o recurso Hybrid Runbook Worker, use a recomendação da central de segu
 
 * [Implantar uma conta de automação usando um modelo de Azure Resource Manager](./quickstart-create-automation-account-template.md#deploy-the-template)
 
-* [Azure Policy os internos de exemplo para a automação do Azure](./policy-samples.md)
+* [Azure Policy os internos de exemplo para a automação do Azure](./policy-reference.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -984,7 +984,7 @@ Ao usar o recurso Hybrid Runbook Worker, verifique se você está limitando corr
 
 * [Como usar aliases](../governance/policy/concepts/definition-structure.md#aliases)
 
-* [Azure Policy os internos de exemplo para a automação do Azure](./policy-samples.md)
+* [Azure Policy os internos de exemplo para a automação do Azure](./policy-reference.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -1014,7 +1014,7 @@ Ao usar o recurso Hybrid Runbook Worker, aproveite a central de segurança do Az
 
 * [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Policy os internos de exemplo para a automação do Azure](./policy-samples.md)
+* [Azure Policy os internos de exemplo para a automação do Azure](./policy-reference.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 

@@ -9,10 +9,10 @@ ms.date: 02/21/2018
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: dc4281c17b92e1720625764a52a34a94d6f296ab
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67171853"
 ---
 Antes de criar qualquer item, vamos revisar o conceito de escopo. O Azure fornece quatro níveis de gerenciamento: grupos de gerenciamento, assinatura, grupo de recursos e recursos. [Grupos de gerenciamento](../articles/billing/billing-enterprise-mgmt-group-overview.md) estão em uma versão prévia. A imagem a seguir mostra um exemplo dessas camadas.

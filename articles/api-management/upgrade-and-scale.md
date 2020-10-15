@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 93c686fb2688a7a8ae71d8156e6e5c7915d6c604
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 626f5b67905e5dd89cf8f12460bc2378451614de
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86205757"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078299"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Fazer upgrade e dimensionar uma instância de Gerenciamento de API do Azure  
 
@@ -74,7 +74,7 @@ Você pode atualizar e fazer downgrade de e para qualquer camada. A atualizaçã
 1. Navegue até o serviço de gerenciamento de API no [portal do Azure](https://portal.azure.com/).
 2. Clique no **tipo de preço** no menu.
 3. Selecione a camada de serviço desejada na lista suspensa. Use o controle deslizante para especificar a escala do serviço de gerenciamento de API após a alteração.
-4. Clique em **Salvar**.
+4. Clique em **Save** (Salvar).
 
 ## <a name="downtime-during-scaling-up-and-down"></a>Tempo de inatividade durante a expansão e a redução
 Se você estiver dimensionando de ou para a camada de desenvolvedor, haverá tempo de inatividade. Caso contrário, não há nenhum tempo de inatividade. 
@@ -84,4 +84,4 @@ Se você estiver dimensionando de ou para a camada de desenvolvedor, haverá tem
 
 - [Como implantar uma instância do serviço de Gerenciamento de API do Azure em múltiplas regiões do Azure](api-management-howto-deploy-multi-region.md)
 - [Como dimensionar automaticamente uma instância do serviço de gerenciamento de API do Azure](api-management-howto-autoscale.md)
-- [Otimize e economize em seus gastos com a nuvem](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+- [Otimize e economize em seus gastos com a nuvem](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
