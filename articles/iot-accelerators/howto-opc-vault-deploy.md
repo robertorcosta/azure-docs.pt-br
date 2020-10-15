@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 365cb0912d84f0664b2a5432cd54cd553df62466
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98dc9345d2c8b392fd094458b612857d6d454739
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91282016"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071482"
 ---
 # <a name="build-and-deploy-the-opc-vault-certificate-management-service"></a>Compilar e implantar o serviço de gerenciamento de certificados do compartimento OPC
 
@@ -31,7 +31,7 @@ Este artigo explica como implantar o serviço de gerenciamento de certificados d
 
 Atualmente, a operação de compilação e implantação é limitada ao Windows.
 Os exemplos são todos escritos para .NET Standard C#, que você precisa para criar o serviço e os exemplos para implantação.
-Todas as ferramentas de que você precisa para .NET Standard vêm com as ferramentas do .NET Core. Consulte [introdução ao .NET Core](https://docs.microsoft.com/dotnet/articles/core/getting-started).
+Todas as ferramentas de que você precisa para .NET Standard vêm com as ferramentas do .NET Core. Consulte [introdução ao .NET Core](/dotnet/articles/core/getting-started).
 
 1. [Instale o .NET Core 2.1 +][dotnet-install].
 2. [Instale o Docker][docker-url] (opcional, somente se o Build do Docker local for necessário).
