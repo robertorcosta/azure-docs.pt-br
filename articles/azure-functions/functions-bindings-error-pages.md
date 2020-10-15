@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.author: cshoe
-ms.openlocfilehash: befdb4a8cceaef18961c1e9297e23ed5d405ff50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0617d55f7c67c788b1e898d963f7d509cef72d49
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77586182"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096837"
 ---
 # <a name="azure-functions-error-handling"></a>Tratamento de erros do Azure Functions
 
@@ -40,4 +40,4 @@ Ao integrar com os serviços do Azure, os erros podem se originar das APIs dos s
 
 + [Barramento de Serviço](functions-bindings-service-bus-output.md#exceptions-and-return-codes)
 
-+ [Armazenamento de tabelas](functions-bindings-storage-table.md#exceptions-and-return-codes)
++ [Armazenamento de tabelas](functions-bindings-storage-table-output.md#exceptions-and-return-codes)

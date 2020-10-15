@@ -3,12 +3,12 @@ title: Compreender o bloqueio de recursos
 description: Saiba mais sobre as opções de bloqueio em plantas do Azure para proteger recursos ao atribuir um plano gráfico.
 ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8ac5c918a3c370b9d8e88800e05f83e585550e3c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01f69cbfebe203407287392c2433181396b541b2
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91744008"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92095987"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Entenda o bloqueio de recursos nos Blueprints do Azure
 
@@ -39,7 +39,7 @@ Isso protege a consistência do plano gráfico em definido e o ambiente em que e
 
 ### <a name="assign-at-management-group"></a>Atribuir no grupo de gerenciamento
 
-Uma opção adicional para impedir que os proprietários da assinatura removam uma atribuição de Blueprint é atribuir o plano gráfico a um grupo de gerenciamento. Nesse cenário, somente os **proprietários** do grupo de gerenciamento têm as permissões necessárias para remover a atribuição do Blueprint.
+A única opção para impedir que os proprietários da assinatura removam uma atribuição de Blueprint é atribuir o plano gráfico a um grupo de gerenciamento. Nesse cenário, somente os **proprietários** do grupo de gerenciamento têm as permissões necessárias para remover a atribuição do Blueprint.
 
 Para atribuir o Blueprint a um grupo de gerenciamento em vez de uma assinatura, a chamada à API REST muda para esta aparência:
 

@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/20/2020
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 84850b7d44033a2759c51c5c6b9c53d1c945a99d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 27a00c69a4423e45b46b9c3d0340bb7cd1a35d65
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87005371"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92095891"
 ---
 # <a name="localization-element"></a>Elemento de localização
 
@@ -163,6 +163,7 @@ A referência ElementType para um tipo de declaração, uma transformação de d
 |Mensagem de usuário de predicado|`Predicate`|O nome do predicado| O atributo do predicado a ser localizado. Valores possíveis: `HelpText` .|
 |Mensagem de usuário do grupo de predicado|`InputValidation`|A ID do elemento PredicateValidation.|A ID do elemento de predicado. O grupo de predicado deve ser um filho do elemento de validação de predicado, conforme definido no ElementID.|
 |Elementos da interface do usuário |`UxElement` | | A ID do elemento de interface do usuário a ser localizado.|
+|[Controle de exibição](display-controls.md) |`DisplayControl` |A ID do controle de exibição. | A ID do elemento de interface do usuário a ser localizado.|
 
 ## <a name="examples"></a>Exemplos
 
@@ -330,6 +331,23 @@ O valor UxElement é usado para localizar um dos elementos da interface do usuá
 ```xml
 <LocalizedString ElementType="UxElement" StringId="button_continue">Create new account</LocalizedString>
 <LocalizedString ElementType="UxElement" StringId="button_cancel">Cancel</LocalizedString>
+```
+
+### <a name="displaycontrol"></a>DisplayControl
+
+O valor de DisplayControl é usado para localizar um dos elementos da interface do usuário do [controle de exibição](display-controls.md) . O exemplo a seguir mostra como localizar os botões enviar e verificar. 
+
+```xml
+<LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_send_code">Send verification code</LocalizedString>
+<LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_verify_code">Verify code</LocalizedString>
+```
+
+Na seção de metadados de um perfil técnico autodeclarado, o ContentDefinition referenciado precisa ter DataUri definido como versão de [layout de página](page-layout.md) 2.1.0 ou superior. Por exemplo:
+
+```xml
+<ContentDefinition Id="api.selfasserted">
+  <DataUri>urn:com:microsoft:aad:b2c:elements:selfasserted:2.1.0</DataUri>
+  ...
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

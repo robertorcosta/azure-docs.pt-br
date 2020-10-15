@@ -8,12 +8,12 @@ services: azure-spatial-anchors
 ms.service: azure-spatial-anchors
 ms.date: 02/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: d76207d9991d496c36fa8f9db3911a62d003fafe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d55890fc97ff24bd4b77628791bdda60c5f54347
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83006141"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096140"
 ---
 # <a name="building-in-unity-with-azure-spatial-anchors"></a>Criando no Unity com âncoras espaciais do Azure
 
@@ -22,12 +22,12 @@ As seguintes plataformas são compatíveis:
 
 **Unity para HoloLens**
 
-[Início Rápido: criar um aplicativo Unity para HoloLens que usa as Âncoras Espaciais do Azure](https://docs.microsoft.com/azure/spatial-anchors/quickstarts/get-started-unity-hololens)
+[Início Rápido: criar um aplicativo Unity para HoloLens que usa as Âncoras Espaciais do Azure](./quickstarts/get-started-unity-hololens.md)
 
 **Unity para Android**
 
-[Início rápido: criar um aplicativo do Unity para Android que usa âncoras espaciais do Azure](https://docs.microsoft.com/azure/spatial-anchors/quickstarts/get-started-unity-android)
+[Início rápido: criar um aplicativo do Unity para Android que usa âncoras espaciais do Azure](./quickstarts/get-started-unity-android.md)
 
 **Unity para iOS**
 
-[Início rápido: criar um aplicativo do Unity iOS que usa âncoras espaciais do Azure](https://docs.microsoft.com/azure/spatial-anchors/quickstarts/get-started-unity-ios)
+[Início rápido: criar um aplicativo do Unity iOS que usa âncoras espaciais do Azure](./quickstarts/get-started-unity-ios.md)

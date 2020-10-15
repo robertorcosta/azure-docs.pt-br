@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/06/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: f8f5d41b7f4df3cd82a388bc24ccc8fa5a9a91f6
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 0f71b1e75ecb60a53a004b7bf1bf0bd0c7522cc9
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044098"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096514"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gerenciar o uso e os custos com logs do Azure Monitor    
 
@@ -46,9 +46,9 @@ Além disso, observe que algumas soluções, como a [Central de Segurança do Az
 
 ### <a name="log-analytics-dedicated-clusters"></a>Clusters dedicados do Log Analytics
 
-Os clusters dedicados do Log Analytics são coleções de workspace em um único cluster gerenciado do Azure Data Explorer para dar suporte a cenários avançados, como [Chaves Gerenciadas pelo Cliente](customer-managed-keys.md).  Log Analytics clusters dedicados usam um modelo de preços de reserva de capacidade que deve ser configurado para pelo menos 1000 GB/dia. Esse nível de capacidade tem um desconto de 25% em comparação com o preço pago conforme o uso. Qualquer uso acima do nível de reserva será cobrado com a taxa de Pagamento Conforme o Uso. A Reserva de Capacidade do cluster tem um período de compromisso de 31 dias após o aumento do nível de reserva. Durante o período de compromisso, o nível de reserva de capacidade não pode ser reduzido, mas ele pode ser aumentado a qualquer momento. Quando os espaços de trabalho estão associados a um cluster, a cobrança de ingestão de dados para esses espaços de trabalho é feita no nível do cluster usando o nível de reserva de capacidade configurado. Saiba mais sobre [criação de clusters do Log Analytics](customer-managed-keys.md#create-cluster-resource) e [associação de workspaces a ele](customer-managed-keys.md#workspace-association-to-cluster-resource). As informações de preços de reserva de capacidade estão disponíveis na [página de preços Azure monitor]( https://azure.microsoft.com/pricing/details/monitor/).  
+Os clusters dedicados do Log Analytics são coleções de workspace em um único cluster gerenciado do Azure Data Explorer para dar suporte a cenários avançados, como [Chaves Gerenciadas pelo Cliente](customer-managed-keys.md).  Log Analytics clusters dedicados usam um modelo de preços de reserva de capacidade que deve ser configurado para pelo menos 1000 GB/dia. Esse nível de capacidade tem um desconto de 25% em comparação com o preço pago conforme o uso. Qualquer uso acima do nível de reserva será cobrado com a taxa de Pagamento Conforme o Uso. A Reserva de Capacidade do cluster tem um período de compromisso de 31 dias após o aumento do nível de reserva. Durante o período de compromisso, o nível de reserva de capacidade não pode ser reduzido, mas ele pode ser aumentado a qualquer momento. Quando os espaços de trabalho estão associados a um cluster, a cobrança de ingestão de dados para esses espaços de trabalho é feita no nível do cluster usando o nível de reserva de capacidade configurado. Saiba mais sobre [criação de clusters do Log Analytics](customer-managed-keys.md#create-cluster) e [associação de workspaces a ele](customer-managed-keys.md#link-workspace-to-cluster). As informações de preços de reserva de capacidade estão disponíveis na [página de preços Azure monitor]( https://azure.microsoft.com/pricing/details/monitor/).  
 
-O nível de reserva de capacidade do cluster é configurado por meio de programação com Azure Resource Manager usando o `Capacity` parâmetro em `Sku` . A `Capacity` é especificada em unidades de GB e pode ter valores de 1.000 GB/dia ou mais em incrementos de 100 GB/dia. Isso é detalhado em [Azure monitor chave gerenciada pelo cliente](customer-managed-keys.md#create-cluster-resource). Caso o cluster precise de uma reserva acima de 2.000 GB/dia, entre em contato conosco pelo email [LAIngestionRate@microsoft.com](mailto:LAIngestionRate@microsoft.com).
+O nível de reserva de capacidade do cluster é configurado por meio de programação com Azure Resource Manager usando o `Capacity` parâmetro em `Sku` . A `Capacity` é especificada em unidades de GB e pode ter valores de 1.000 GB/dia ou mais em incrementos de 100 GB/dia. Isso é detalhado em [Azure monitor chave gerenciada pelo cliente](customer-managed-keys.md#create-cluster). Caso o cluster precise de uma reserva acima de 2.000 GB/dia, entre em contato conosco pelo email [LAIngestionRate@microsoft.com](mailto:LAIngestionRate@microsoft.com).
 
 Há dois modos de cobrança para uso em um cluster. Eles podem ser especificados pelo `billingType` parâmetro ao [Configurar o cluster](customer-managed-keys.md#cmk-management). Os dois modos são: 
 

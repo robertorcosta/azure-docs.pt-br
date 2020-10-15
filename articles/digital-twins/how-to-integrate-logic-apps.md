@@ -8,12 +8,12 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 4e9b9a7fb6e739b3bd288557457d1c152e372e26
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: cbd8c91391cc1e3afe930094f34e5015ea3c3450
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045288"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92097517"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>Integrar com aplicativos lógicos usando um conector personalizado
 
@@ -93,9 +93,9 @@ Você será levado para a página de implantação do conector. Quando terminar 
 
 Em seguida, você configurará o conector que criou para alcançar o gêmeos digital do Azure.
 
-Primeiro, baixe um Swagger personalizado do Azure digital gêmeos que foi modificado para funcionar com aplicativos lógicos. Baixe o exemplo de **swaggers personalizados do Azure digital gêmeos** deste [**link**](/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) pressionando o botão *baixar zip* . Navegue até a pasta *Azure_Digital_Twins_Custom_Swaggers.zip* baixada e descompacte-a. 
+Primeiro, baixe um Swagger personalizado do Azure digital gêmeos que foi modificado para funcionar com aplicativos lógicos. Baixe o exemplo de **Swagger (conector de aplicativos lógicos) do Azure digital gêmeos personalizado** desse [**link**](/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) pressionando o botão *baixar zip* . Navegue até a pasta *Azure_Digital_Twins_custom_Swaggers__Logic_Apps_connector_.zip* baixada e descompacte-a. 
 
-O Swagger personalizado para este tutorial está localizado na pasta _**Azure_Digital_Twins_Custom_Swaggers \logicapps**_ . Esta pasta contém subpastas chamadas *stable* e *Preview*, que contêm diferentes versões do Swagger organizadas por data. A pasta com a data mais recente conterá a cópia mais recente do Swagger. Seja qual for a versão selecionada, o arquivo do Swagger é nomeado _**digitaltwins.js**_.
+O Swagger personalizado para este tutorial está localizado na pasta _* * Azure_Digital_Twins_custom_Swaggers__Logic_Apps_connector_\LogicApps **_. Esta pasta contém subpastas chamadas *stable* e *Preview*, que contêm diferentes versões do Swagger organizadas por data. A pasta com a data mais recente conterá a cópia mais recente do Swagger. Seja qual for a versão selecionada, o arquivo Swagger é nomeado _** digitaltwins.jsem * * _.
 
 > [!NOTE]
 > A menos que você esteja trabalhando com um recurso de visualização, geralmente é recomendável usar a versão *estável* mais recente do Swagger. No entanto, versões anteriores e versões prévias do Swagger também têm suporte. 
@@ -108,7 +108,7 @@ Na página *Editar conector personalizado dos aplicativos lógicos* a seguir, co
 * **Conectores personalizados**
     - Ponto de extremidade de API: REST (Mantenha o padrão)
     - Modo de importação: arquivo OpenAPI (Mantenha o padrão)
-    - Arquivo: esse será o arquivo Swagger personalizado que você baixou anteriormente. Clique em *importar*, localize o arquivo em seu computador (*Azure_Digital_Twins_Custom_Swaggers \logicapps \...\digitaltwins.js*) e clique em *abrir*.
+    - Arquivo: esse será o arquivo Swagger personalizado que você baixou anteriormente. Clique em *importar*, localize o arquivo em seu computador (*Azure_Digital_Twins_custom_Swaggers__Logic_Apps_connector_ \LogicApps \...\digitaltwins.js*) e clique em *abrir*.
 * **Informações gerais**
     - Ícone: carregar um ícone que você deseja
     - Cor do plano de fundo do ícone: Insira o código hexadecimal no formato ' #xxxxxx ' para sua cor.

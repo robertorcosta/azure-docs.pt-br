@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e39548a923e76fc118dec4158398d02577ec20c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 300b9b6279231079807f8c923570bddab657ff56
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91610051"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92095884"
 ---
 # <a name="initiate-a-storage-account-failover"></a>Iniciar um failover de conta de armazenamento
 
@@ -51,7 +51,7 @@ Para iniciar um failover da conta do portal do Azure, siga estas etapas:
 
 1. Verifique se a conta de armazenamento está configurada para GRS (armazenamento com redundância geográfica) ou RA-GRS (armazenamento com redundância geográfica com acesso de leitura). Se não estiver, selecione **Configuração** em **Configurações** para atualizar sua conta, acrescentando redundância geográfica a ela.
 1. A propriedade **Hora da Última Sincronização** indica o atraso do secundário em relação ao primário. A **Hora da Última Sincronização** fornece uma estimativa da extensão da perda de dados que você experimentará após a conclusão do failover. Para obter mais informações sobre como verificar a propriedade **hora da última sincronização** , consulte [verificar a propriedade hora da última sincronização de uma conta de armazenamento](last-sync-time-get.md).
-1. Selecione **preparar para failover**.
+1. Selecione **Preparar para failover**.
 1. Revise a caixa de diálogo de confirmação. Quando você estiver pronto, insira **Sim** para confirmar e iniciar o failover.
 
     :::image type="content" source="media/storage-initiate-account-failover/portal-failover-confirm.png" alt-text="Captura de tela mostrando o status de failover e de replicação geográfica":::
@@ -107,6 +107,8 @@ az storage account failover \ --name accountName
 Quando você inicia um failover de conta para sua conta de armazenamento, os registros DNS para o ponto de extremidade secundário são atualizados para que o ponto de extremidade secundário se torne o ponto de extremidade primário. Verifique se você compreende o impacto potencial para sua conta de armazenamento antes de iniciar um failover.
 
 Para estimar a extensão de perda de dados provável antes de iniciar um failover, verifique a propriedade **hora da última sincronização** . Para obter mais informações sobre como verificar a propriedade **hora da última sincronização** , consulte [verificar a propriedade hora da última sincronização de uma conta de armazenamento](last-sync-time-get.md).
+
+O tempo necessário para o failover após a inicialização pode variar, embora normalmente menos de uma hora.
 
 Após o failover, o tipo de conta de armazenamento é automaticamente convertido em LRS (Armazenamento com Redundância Local) na nova região primária. Você pode reabilitar o GRS (armazenamento com redundância geográfica) ou o RA-GRS (armazenamento com redundância geográfica com acesso de leitura) para a conta. Observe que a conversão de LRS em GRS ou RA-GRS acarreta um custo adicional. Para obter informações adicionais, veja [Detalhes de preço de largura de banda](https://azure.microsoft.com/pricing/details/bandwidth/).
 

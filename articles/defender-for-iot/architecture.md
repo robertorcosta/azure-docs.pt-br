@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2020
 ms.author: rkarlin
-ms.openlocfilehash: ea62592ed155215b14666d0d56e09dbb1a83ed6e
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 4189cb8628db58343c816535836af82825014b7e
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093456"
+ms.locfileid: "92096310"
 ---
 # <a name="azure-defender-for-iot-architecture"></a>Arquitetura do Azure defender para IoT
 
@@ -29,12 +29,19 @@ Este artigo descreve a arquitetura do sistema funcional da solução defender pa
 O defender para IoT conecta-se à nuvem do Azure, bem como a componentes locais. A solução foi projetada para escalabilidade em ambientes grandes e geograficamente distribuídos com vários locais remotos. Essa solução permite uma arquitetura distribuída de várias camadas por país, região, unidade de negócios ou zona. 
 
 O Azure defender para IoT inclui os seguintes componentes: 
-- Sensores do Azure defender para IoT
-- Consoles de gerenciamento:
-    - Console do sensor
-    - Console de gerenciamento local
-    - Portal do Azure
-- Agente de segurança inserido (módulo de segurança e SDK do IoT)
+
+**Implantações conectadas na nuvem**
+
+- VM ou dispositivo de sensor do Azure defender para IoT
+- portal do Azure para gerenciamento de nuvem e integração ao Azure Sentinel
+- Console de gerenciamento local para gerenciamento de sites locais
+- Um agente de segurança inserido (opcional)
+
+**Implantações de ar-gapped (offline)**
+
+- VM ou dispositivo de sensor do Azure defender para IoT
+- Console de gerenciamento local para gerenciamento de sites locais
+
 
 ![Defender para arquitetura de IoT](./media/architecture/defender-iot-security-architecture.png)
 

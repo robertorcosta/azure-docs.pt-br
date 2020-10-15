@@ -10,12 +10,12 @@ author: saachigopal
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 8239d037d6bd68638998cbb36c47c7dac4bce30d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13a88b327b5ba56b52cd4f08d9c7fae5d653ed38
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537609"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92095935"
 ---
 # <a name="train-a-model-using-a-custom-docker-image"></a>Treinar um modelo usando uma imagem personalizada do Docker
 
@@ -29,7 +29,7 @@ Embora Azure Machine Learning forneça uma imagem base padrão do Docker, você 
 Execute este código em qualquer um destes ambientes:
 * Instância de computação do Azure Machine Learning - nenhum download ou instalação é necessária
     * Conclua o [tutorial: ambiente de instalação e espaço de trabalho](tutorial-1st-experiment-sdk-setup.md) para criar um servidor de notebook dedicado pré-carregado com o SDK e o repositório de exemplo.
-    * No repositório de [exemplos](https://github.com/Azure/azureml-examples)de Azure Machine Learning, encontre um bloco de anotações concluído navegando até este diretório: **instruções-uso-azureml > ml-frameworks > fastai > Train-com-Custom-Docker** 
+    * No repositório de [exemplos](https://github.com/Azure/azureml-examples)de Azure Machine Learning, encontre um notebook concluído navegando até este diretório: **notebooks > fastai > Train-pets-resnet34. ipynb** 
 
 * Seu próprio servidor Jupyter Notebook
     * Crie um [arquivo de configuração de workspace](how-to-configure-environment.md#workspace).

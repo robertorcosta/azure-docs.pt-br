@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/13/2020
 ms.author: harshacs
-ms.openlocfilehash: f0a3ac0c81291a1231ef660481d8e31b38c0e212
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 622f0d66f2c8a9f7cf0539d14499897acf7b68e6
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631334"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096327"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Sobre a rede na recuperação de desastre da VM do Azure
 
@@ -40,13 +40,13 @@ As redes geralmente são protegidas usando firewalls e NSGs (grupos de seguranç
 >[!IMPORTANT]
 > O uso de um proxy autenticado para controlar a conectividade de rede não é compatível com o Site Recovery e a replicação não pode ser habilitada.
 
+>[!NOTE]
+> A filtragem baseada em endereço IP não deve ser executada para controlar a conectividade de saída.
+> Azure Site Recovery endereços IP não devem ser adicionados na tabela de roteamento do Azure para controlar a conectividade de saída.
 
 ## <a name="outbound-connectivity-for-urls"></a>Conectividade de saída para URLs
 
 Se você está usando um proxy de firewall baseado em URL para controlar a conectividade de saída, permita estas URLs do Site Recovery:
-
->[!NOTE]
-> A filtragem baseada em endereço IP não deve ser executada para controlar a conectividade de saída.
 
 **URL** | **Detalhes**
 --- | ---
@@ -59,7 +59,7 @@ login.microsoftonline.com | Necessário para autorização e autenticação para
 
 ## <a name="outbound-connectivity-using-service-tags"></a>Conectividade de saída usando marcas de serviço
 
-Se você estiver usando um NSG para controlar a conectividade de saída, essas marcas de serviço precisarão ser permitidas.
+Ao usar o NSG para controlar a conectividade de saída, essas marcas de serviço precisam ser permitidas.
 
 - Para as contas de armazenamento na região de origem:
     - Crie uma [marcação de serviço de armazenamento](../virtual-network/security-overview.md#service-tags) com base na regra NSG para a região de origem.

@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/05/2020
+ms.date: 10/14/2020
 ms.author: jingwang
-ms.openlocfilehash: 10121243961d4c81ecc67d7453019c26743fe610
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 146f9ea918f75e0521209d9db712bdcab76a8e7e
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87845758"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096582"
 ---
 # <a name="copy-data-from-an-odata-source-by-using-azure-data-factory"></a>Copiar dados de uma fonte OData usando o Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -59,7 +59,8 @@ As propriedades a seguir são compatíveis com o serviço vinculado do OData:
 |:--- |:--- |:--- |
 | type | A propriedade **type** precisa ser definida como **OData**. |Sim |
 | url | A URL raiz do serviço OData. |Sim |
-| authenticationType | O tipo de autenticação usado para se conectar à fonte OData. Os valores permitidos são **Anonymous**, **Basic**, **Windows**e **AadServicePrincipal**. Não há suporte para o OAuth baseado em usuário. | Sim |
+| authenticationType | O tipo de autenticação usado para se conectar à fonte OData. Os valores permitidos são **Anonymous**, **Basic**, **Windows**e **AadServicePrincipal**. Não há suporte para o OAuth baseado em usuário. Além disso, você pode configurar cabeçalhos de autenticação na `authHeader` propriedade.| Sim |
+| authHeaders | Cabeçalhos de solicitação HTTP adicionais para autenticação.<br/> Por exemplo, para usar a autenticação de chave de API, você pode selecionar o tipo de autenticação como "anônimo" e especificar a chave de API no cabeçalho. | Não |
 | userName | Especifique o **userName** se estiver usando a autenticação Básica ou do Windows. | Não |
 | password | Especifique a **senha** da conta de usuário que você especificou para **userName**. Marque esse campo como um tipo **SecureString** para armazená-lo com segurança no Data Factory. Você também pode [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não |
 | servicePrincipalId | Especifique a ID do cliente do aplicativo do Azure Active Directory. | Não |
@@ -193,6 +194,31 @@ As propriedades a seguir são compatíveis com o serviço vinculado do OData:
     "connectVia": {
         "referenceName": "<name of Integration Runtime>",
         "type": "IntegrationRuntimeReference"
+    }
+}
+```
+
+**Exemplo 6: usando a autenticação de chave de API**
+
+```json
+{
+    "name": "ODataLinkedService",
+    "properties": {
+        "type": "OData",
+        "typeProperties": {
+            "url": "<endpoint of OData source>",
+            "authenticationType": "Anonymous",
+            "authHeader": {
+                "APIKey": {
+                    "type": "SecureString",
+                    "value": "<API key>"
+                }
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
     }
 }
 ```

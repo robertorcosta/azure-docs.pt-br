@@ -12,12 +12,12 @@ ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 05/14/2020
-ms.openlocfilehash: 0c3fa3e61f3e35bcd29e923b87ddf68f0860486e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17831f06d4176ae6666bbc7b05a11ee689b842fc
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89483126"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096684"
 ---
 # <a name="built-in-and-preinstalled-components-on-azure-ssis-integration-runtime"></a>Componentes internos e pré-instalados no Azure-SSIS Integration Runtime
 
@@ -29,7 +29,7 @@ Este artigo descreve todos os componentes internos e pré-instalados, como clien
 
 | Type | Nome – Versão – Plataforma |
 |------|---------------------------|
-| **Clientes/drivers/provedores internos** | *Acessar o Mecanismo de Banco de Dados 2016 Redistribuível* – RTM – X64<br/><br/>*Objetos de Gerenciamento de Análise da Microsoft* – 15.0.1000.81 – X64<br/><br/>*Provedor OLEDB do Microsoft Analysis Services* – 15.0.1000.81 – X64<br/><br/>*Driver ODBC da Microsoft 13 para SQL Server* – 14.0.900.902 – X64<br/><br/>*Driver OLEDB da Microsoft 18 para SQL Server* – 18.1.0.0 – X64<br/><br/>*Provedor OLEDB da Microsoft para DB2* – 6.0 – X64<br/><br/>*SDK de componentes clientes do SharePoint Online* – 15.4711.1001 – X64 |
+| **Clientes/drivers/provedores internos** | *Acessar o Mecanismo de Banco de Dados 2016 Redistribuível* – RTM – X64<br/><br/>*Objetos de Gerenciamento de Análise da Microsoft* – 15.0.1000.81 – X64<br/><br/>*Provedor OLEDB do Microsoft Analysis Services* – 15.0.1000.81 – X64<br/><br/>*Microsoft SQL Server 2012 Native Client* -11.4.7462.6-x64<br/><br/>*Driver ODBC da Microsoft 13 para SQL Server* – 14.0.900.902 – X64<br/><br/>*Driver OLEDB da Microsoft 18 para SQL Server* – 18.1.0.0 – X64<br/><br/>*Provedor OLEDB da Microsoft para DB2* – 6.0 – X64<br/><br/>*SDK de componentes clientes do SharePoint Online* – 15.4711.1001 – X64 |
 
 ## <a name="built-in-and-preinstalled-connection-managers-on-azure-ssis-ir"></a>Gerenciadores de conexões internos e pré-instalados no Azure-SSIS IR
 

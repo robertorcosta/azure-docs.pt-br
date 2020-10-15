@@ -7,16 +7,16 @@ ms.date: 09/14/2020
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 911f819343f675ebe0a2604d912e6e26aa646eb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e06c79b9cbd5643d119974a4ed8628ea1b1cd4f
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90533030"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096752"
 ---
 # <a name="x509-certificate-attestation"></a>Atestado do certificado X.509
 
-Este artigo fornece uma visão geral dos conceitos envolvidos ao provisionar dispositivos usando o atestado de certificado X. 509. Este artigo é relevante para todas as personas envolvidas na preparação de um dispositivo para implantação.
+Este artigo fornece uma visão geral dos conceitos do DPS (serviço de provisionamento de dispositivos) envolvidos ao provisionar dispositivos usando o atestado de certificado X. 509. Este artigo é relevante para todas as personas envolvidas na preparação de um dispositivo para implantação.
 
 Os certificados X. 509 podem ser armazenados em um HSM de módulo de segurança de hardware.
 
@@ -44,6 +44,12 @@ Um certificado raiz é um certificado X.509 autoassinado que representa uma AC (
 
 Um certificado intermediário é um certificado X.509 que foi assinado pelo certificado raiz (ou por outro certificado intermediário com o certificado raiz em sua cadeia). O último certificado intermediário em uma cadeia é usado para assinar o certificado de folha. Um certificado intermediário também pode ser referenciado como um certificado de AC intermediário.
 
+##### <a name="why-are-intermediate-certs-useful"></a>Por que os certificados intermediários são úteis?
+Os certificados intermediários são usados de várias maneiras. Por exemplo, certificados intermediários podem ser usados para agrupar dispositivos por linhas de produtos, clientes comprando dispositivos, divisões de empresa ou fábricas. 
+
+Imagine que a contoso é uma grande corporação com sua própria PKI (infraestrutura de chave pública) usando o certificado raiz chamado *ContosoRootCert*. Cada subsidiária da Contoso tem seu próprio certificado intermediário assinado por *ContosoRootCert*. Cada subsidiária usará seu certificado intermediário para assinar seus certificados folha para cada dispositivo. Nesse cenário, a Contoso pode usar uma única instância de DPS em que o *ContosoRootCert* foi verificado com a [prova de posse](./how-to-verify-certificates.md). Eles podem ter um grupo de registro para cada subsidiária. Dessa forma, cada subsidiária individual não precisará se preocupar com a verificação de certificados.
+
+
 ### <a name="end-entity-leaf-certificate"></a>Certificado "secundário" de entidade final
 
 O certificado de folha, ou certificado de entidade final, identifica o proprietário do certificado. Ele tem o certificado raiz em sua cadeia de certificados, bem como zero ou mais certificados intermediários. O certificado de folha não é usado para assinar outros certificados. Ele identifica exclusivamente o dispositivo para o serviço de provisionamento e, às vezes, são referenciados como um certificado de dispositivo. Durante a autenticação, o dispositivo usa a chave privada associada ao certificado para responder a um desafio de comprovação de posse do serviço.
@@ -54,12 +60,42 @@ Para saber mais, consulte [Autenticação de dispositivos assinados com certific
 
 ## <a name="controlling-device-access-to-the-provisioning-service-with-x509-certificates"></a>Controlando o acesso de dispositivo para o serviço de provisionamento com certificados X.509
 
-O serviço de provisionamento expõe dois tipos de entrada de registro que você pode usar para controlar o acesso de dispositivos que usam o mecanismo de atestado X.509:  
+O serviço de provisionamento expõe dois tipos de registro que você pode usar para controlar o acesso do dispositivo com o mecanismo de atestado X. 509:  
 
 - As entradas de [registro individual](./concepts-service.md#individual-enrollment) são configuradas com o certificado do dispositivo associado a um dispositivo específico. Essas entradas controlam os registros de dispositivos específicos.
 - As entradas de [grupo de registros](./concepts-service.md#enrollment-group) são associadas a um certificado de AC intermediário ou raiz. Essas entradas controlam os registros de todos os dispositivos que têm esse certificado raiz ou intermediário em sua cadeia de certificados. 
 
-Quando um dispositivo se conecta ao serviço de provisionamento, o serviço prioriza entradas de registro mais específicas em relação a entradas de registro menos específicas. Ou seja, se existir um registro individual para o dispositivo, o serviço de provisionamento aplicará essa entrada. Se não houver nenhum registro individual para o dispositivo e existir um grupo de registro para o primeiro certificado intermediário na cadeia de certificados do dispositivo, o serviço aplicará essa entrada, e assim por diante para cima na cadeia até a raiz. O serviço aplica a primeira entrada aplicável que encontrar, como:
+#### <a name="dps-device-chain-requirements"></a>Requisitos da cadeia de dispositivos do DPS
+
+Quando um dispositivo está tentando fazer o registro por meio do DPS usando um grupo de registro, o dispositivo deve enviar a cadeia de certificados do certificado de folha para um certificado verificado com [prova de posse](how-to-verify-certificates.md). Caso contrário, haverá falha na autenticação.
+
+Por exemplo, se apenas o certificado raiz for verificado e um certificado intermediário for carregado no grupo de registro, o dispositivo deverá apresentar a cadeia de certificados do certificado de folha até o certificado raiz verificado. Essa cadeia de certificados incluiria qualquer certificado intermediário entre eles. A autenticação falhará se o DPS não puder atravessar a cadeia de certificados para um certificado verificado.
+
+Por exemplo, considere uma empresa usando a seguinte cadeia de dispositivos para um dispositivo.
+
+![Cadeia de certificados de dispositivo de exemplo](./media/concepts-x509-attestation/example-device-cert-chain.png) 
+
+Somente o certificado raiz é verificado e o certificado *intermediate2* é carregado no grupo de registro.
+
+![Exemplo de raiz verificada](./media/concepts-x509-attestation/example-root-verified.png) 
+
+Se o dispositivo enviar apenas a seguinte cadeia de dispositivo durante o provisionamento, a autenticação falhará. Porque o DPS não pode tentar a autenticação supondo a validade do certificado *intermediate1*
+
+![Cadeia de certificados com falha de exemplo](./media/concepts-x509-attestation/example-fail-cert-chain.png) 
+
+Se o dispositivo enviar a cadeia de dispositivos completa da seguinte maneira durante o provisionamento, o DPS poderá tentar a autenticação do dispositivo.
+
+![Cadeia de certificados de dispositivo de exemplo](./media/concepts-x509-attestation/example-device-cert-chain.png) 
+
+
+
+
+> [!NOTE]
+> Certificados intermediários também podem ser verificados com [prova de posse](how-to-verify-certificates.md).
+
+
+#### <a name="dps-order-of-operations-with-certificates"></a>Ordem de DPS de operações com certificados
+Quando um dispositivo se conecta ao serviço de provisionamento, o serviço prioriza entradas de registro mais específicas em relação a entradas de registro menos específicas. Ou seja, se existir um registro individual para o dispositivo, o serviço de provisionamento aplicará essa entrada. Se não houver nenhum registro individual para o dispositivo e um grupo de registro para o primeiro certificado intermediário na cadeia de certificados do dispositivo existir, o serviço aplicará essa entrada e assim por diante, na cadeia para a raiz. O serviço aplica a primeira entrada aplicável que encontrar, como:
 
 - Se a primeira entrada de registro encontrada estiver habilitada, o serviço provisionará o dispositivo.
 - Se a primeira entrada de registro encontrada estiver desabilitada, o serviço não provisionará o dispositivo.  

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 17b8fc3824fb1c7e6cfcfc3d4333dc226b51724d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18ee64e6866764e250cfa08a1d4721674bb66e5a
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653631"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92097330"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>ExpressRoute para Provedores de Soluções na Nuvem (CSP)
 A Microsoft fornece serviços de hiperescala para revendedores e distribuidores tradicionais (CSP) poderem provisionar rapidamente novos serviços e soluções para seus clientes sem a necessidade de investir no desenvolvimento desses novos serviços. Para permitir que o Provedor de Soluções na Nuvem (CSP) tenha a capacidade de gerenciar esses novos serviços diretamente, a Microsoft oferece programas e APIs que permitem que o CSP gerencie recursos do Microsoft Azure em nome de seus clientes. Um desses recursos é o ExpressRoute. o ExpressRoute permite que o CSP conecte os recursos do cliente aos serviços do Azure. O ExpressRoute é um link de comunicação privada de alta velocidade para serviços no Azure. 
@@ -21,7 +21,7 @@ A Microsoft fornece serviços de hiperescala para revendedores e distribuidores 
 O ExpressRoute é composto por um par de circuitos para alta disponibilidade que são anexados a assinaturas de um único cliente e não podem ser compartilhados por vários clientes. Cada circuito deve ser encerrado em um roteador diferente para manter a alta disponibilidade.
 
 > [!NOTE]
-> Existem limites de largura de banda e de conexão no ExpressRoute, o que significa que as implementações grandes/complexas exigirão vários circuitos de ExpressRoute para um único cliente.
+> Há limites para a largura de banda e o número de conexões possíveis em cada circuito do ExpressRoute. Se as necessidades de um único cliente excederem esses limites, elas precisarão de vários circuitos do ExpressRoute para a implementação da rede híbrida.
 > 
 > 
 
@@ -75,30 +75,30 @@ O ExpressRoute dá suporte a velocidades de rede de 50 MB/s a 10 GB/s. Isso perm
 O ExpressRoute oferece suporte à conexão de várias Redes Virtuais a um único circuito de ExpressRoute para a melhor utilização das conexões de alta velocidade. Um único circuito de ExpressRoute pode ser compartilhado entre várias assinaturas do Azure pertencentes ao mesmo cliente.
 
 ## <a name="configuring-expressroute"></a>Configuração do ExpressRoute
-O ExpressRoute pode ser configurado para oferecer suporte a três tipos de tráfego ([domínios de roteamento](#expressroute-routing-domains)) em um único circuito de ExpressRoute. Esse tráfego é dividido em emparelhamento da Microsoft, emparelhamento público e emparelhamento privado do Azure. Você pode escolher o envio de um ou de todos os tipos de tráfego em um único circuito de ExpressRoute ou usar vários circuitos de ExpressRoute, dependendo do tamanho do circuito de ExpressRoute e do isolamento exigidos pelo cliente. A postura de segurança do cliente pode não permitir o tráfego público e o tráfego privado no mesmo circuito.
+O ExpressRoute pode ser configurado para oferecer suporte a três tipos de tráfego ([domínios de roteamento](#expressroute-routing-domains)) em um único circuito de ExpressRoute. Esse tráfego é segregado em emparelhamento privado, emparelhamento da Microsoft e emparelhamento público (preterido). Você pode escolher o envio de um ou de todos os tipos de tráfego em um único circuito de ExpressRoute ou usar vários circuitos de ExpressRoute, dependendo do tamanho do circuito de ExpressRoute e do isolamento exigidos pelo cliente. A postura de segurança do cliente pode não permitir o tráfego público e o tráfego privado no mesmo circuito.
 
 ### <a name="connect-through-model"></a>Modelo Connect-Through
-Em uma configuração de conexão, você será responsável por todas as bases de rede para conectar os recursos de datacenter de seus clientes às assinaturas hospedadas no Azure. Cada um dos seus clientes que quiser usar recursos do Azure terá sua própria conexão de ExpressRoute, que será gerenciada por você. Você usará os mesmos métodos que o cliente usaria para adquirir o circuito de ExpressRoute. Em seguida, você seguirá as mesmas etapas descritas no artigo [Fluxos de trabalho do ExpressRoute](expressroute-workflows.md) para o provisionamento de circuitos e os estados de circuito. Em seguida, você irá configurar as rotas BGP (Border Gateway Protocol) para controlar o tráfego que flui entre a rede local e a Rede Virtual do Azure.
+Em uma configuração de conexão, você será responsável por todas as bases de rede para conectar os recursos do datacenter do cliente às assinaturas hospedadas no Azure. Cada um de seus clientes que desejam usar os recursos do Azure precisará de sua própria conexão de ExpressRoute, que será gerenciada por você. Você usará os mesmos métodos que o cliente usaria para adquirir o circuito do ExpressRoute. Você seguirá as mesmas etapas descritas no artigo fluxos de [trabalho do ExpressRoute](expressroute-workflows.md) para provisionamento de circuito e Estados de circuito. Em seguida, você irá configurar as rotas de Border Gateway Protocol (BGP) para controlar o fluxo de tráfego entre a rede local e a vNet do Azure.
 
 ### <a name="connect-to-model"></a>Modelo Connect-To
-Em uma configuração Connect-To, ou seu cliente já tem uma conexão existente com o Azure ou iniciará uma conexão com o provedor de serviços de Internet ao vincular o ExpressRoute do próprio datacenter do seu cliente diretamente ao Azure, em vez de ao seu datacenter. Para iniciar o processo de provisionamento, o cliente seguirá as etapas como descrito no modelo Connect-Through, acima. Depois que o circuito tiver sido estabelecido, seu cliente precisará configurar os roteadores locais para que eles possam acessar sua rede e as Redes Virtuais do Azure.
+Em uma configuração de conexão, seu cliente já tem uma conexão existente com o Azure ou iniciará uma conexão com o provedor de serviços de Internet vinculando o ExpressRoute de seu próprio datacenter diretamente ao Azure, em vez de seu datacenter. Para iniciar o processo de provisionamento, o cliente seguirá as etapas como descrito no modelo Connect-Through, acima. Depois que o circuito tiver sido estabelecido, o cliente precisará configurar os roteadores locais para poder acessar a rede e o Azure vNets.
 
 Você pode auxiliar na configuração da conexão e na configuração das rotas para permitir que os recursos do seu datacenter também se comuniquem com os recursos do cliente em seu datacenter, ou com os recursos hospedados no Azure.
 
 ## <a name="expressroute-routing-domains"></a>Domínios de roteamento do ExpressRoute
-o ExpressRoute oferece três domínios de roteamento: público, privado e emparelhamento da Microsoft. Cada um dos domínios de roteamento é configurado com roteadores idênticos na configuração ativa-ativa para alta disponibilidade. Para obter mais detalhes sobre os domínios de roteamento do ExpressRoute, entre [aqui](expressroute-circuit-peerings.md).
+O ExpressRoute oferece dois domínios de roteamento para novos circuitos: emparelhamento privado e emparelhamento da Microsoft. Cada um dos domínios de roteamento é configurado com roteadores idênticos na configuração ativa-ativa para alta disponibilidade. Para obter mais detalhes sobre os domínios de roteamento do ExpressRoute, entre [aqui](expressroute-circuit-peerings.md).
 
 Você pode definir filtros de rotas personalizados para permitir apenas as rotas necessárias. Para saber mais ou para ver como fazer essas alterações, confira o artigo: [Criar e modificar o roteamento de um circuito de ExpressRoute usando o PowerShell](expressroute-howto-routing-classic.md) para obter mais detalhes sobre os filtros de roteamento.
 
 > [!NOTE]
-> Para o emparelhamento da Microsoft e público, a conectividade deve passar por um endereço IP público de propriedade do cliente ou do CSP e deve aderir a todas as regras definidas. Para obter mais informações, consulte a página [pré-requisitos do ExpressRoute](expressroute-prerequisites.md) .  
+> Para o emparelhamento da Microsoft, a conectividade deve ser apesar de um endereço IP público de Propriedade do cliente ou CSP e deve aderir a todas as regras definidas. Para obter mais informações, consulte a página [pré-requisitos do ExpressRoute](expressroute-prerequisites.md) .  
 > 
 > 
 
 ## <a name="routing"></a>Roteamento
 o ExpressRoute se conecta às redes do Azure por meio do Gateway de Rede Virtual do Azure. Os gateways de rede fornecem roteamento para as redes virtuais do Azure.
 
-A criação de redes virtuais do Azure também cria uma tabela de roteamento padrão para a Rede Virtual direcionar o tráfego de/para sub-redes da Rede Virtual. Se a tabela de rotas padrão for insuficiente para a solução, você poderá criar rotas personalizadas para o tráfego de saída para dispositivos personalizados ou para bloquear rotas para sub-redes ou redes externas específicas.
+A criação de redes virtuais do Azure também cria uma tabela de roteamento padrão para a Rede Virtual direcionar o tráfego de/para sub-redes da Rede Virtual. Se a tabela de rotas padrão for insuficiente para a solução, as rotas personalizadas poderão ser criadas para rotear o tráfego de saída para dispositivos personalizados ou para bloquear rotas para sub-redes específicas ou redes externas.
 
 ### <a name="default-routing"></a>Roteamento padrão
 A tabela de rotas padrão inclui as seguintes rotas:
