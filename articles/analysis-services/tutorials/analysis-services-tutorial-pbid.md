@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: 950447aa146f05714b6ec5ea3d6e47c368a2140e
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 46805427e6d00e858cf869eef68bf68549f57fb9
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89229303"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018110"
 ---
 # <a name="tutorial-connect-with-power-bi-desktop"></a>Tutorial: Conectar com Power BI Desktop
 
@@ -70,4 +70,4 @@ No **Portal do Azure** > servidor > **Visão geral** > **Nome do servidor**, cop
 Se não for mais necessário, não salve o relatório ou exclua o arquivo caso já o tenha salvado.
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste tutorial, você aprendeu a usar o Power BI Desktop para se conectar a um modelo de dados em um servidor e criar um relatório básico. Se você não está familiarizado com a criação de um modelo de dados, consulte o [Tutorial de modelagem de dados tabular de Vendas pela Internet da Adventure Works](https://docs.microsoft.com/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial) na documentação do SQL Server Analysis Services.
+Neste tutorial, você aprendeu a usar o Power BI Desktop para se conectar a um modelo de dados em um servidor e criar um relatório básico. Se você não está familiarizado com a criação de um modelo de dados, consulte o [Tutorial de modelagem de dados tabular de Vendas pela Internet da Adventure Works](/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial) na documentação do SQL Server Analysis Services.
