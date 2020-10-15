@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
-ms.openlocfilehash: bddb4ea3759d19d1e122739fb69cf9bf96c66635
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3b6f90d0aa26b478c0f2fcefac55dcd509da437
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86243538"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070938"
 ---
 # <a name="error-handling-in-api-management-policies"></a>Tratamento de erro em políticas de Gerenciamento de API
 
@@ -80,9 +80,9 @@ As políticas a seguir podem ser usadas na seção da política `on-error`.
 
 Quando ocorre um erro e o controle salta para a `on-error` seção de política, o erro é armazenado no [contexto. Propriedade LastError](api-management-policy-expressions.md#ContextVariables) , que pode ser acessada por políticas na `on-error` seção. LastError tem as propriedades a seguir.
 
-| Nome       | Type   | Descrição                                                                                               | Obrigatório |
+| Nome       | Tipo   | Descrição                                                                                               | Obrigatório |
 | ---------- | ------ | --------------------------------------------------------------------------------------------------------- | -------- |
-| `Source`   | string | Indica o elemento em que ocorreu o erro. Pode ser a política ou um nome de etapa de pipeline interno.      | Sim      |
+| `Source`   | cadeia de caracteres | Indica o elemento em que ocorreu o erro. Pode ser a política ou um nome de etapa de pipeline interno.      | Sim      |
 | `Reason`   | string | Código de erro amigável para computadores, que pode ser usado no tratamento de erro.                                       | Não       |
 | `Message`  | string | Descrição de erro legível por humanos.                                                                         | Sim      |
 | `Scope`    | string | Nome do escopo em que ocorreu o erro e pode ser um dos "global", "produto", "api" ou "operação" | Não       |
@@ -190,4 +190,4 @@ Para obter mais informações sobre como trabalhar com políticas, consulte:
 -   [Políticas no Gerenciamento de API](api-management-howto-policies.md)
 -   [Transformar APIs](transform-api.md)
 -   [Referência de Política](./api-management-policies.md) para uma lista completa das instruções de política e suas configurações
--   [Exemplos de política](policy-samples.md)
+-   [Exemplos de política](./policy-reference.md)

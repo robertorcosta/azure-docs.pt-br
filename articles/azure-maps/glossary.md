@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 4c3e6216c172b0ba1273fea1690c030a05f4c456
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 831fc28711a181d45a8c69e3f46056604b30649e
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83742226"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089461"
 ---
 # <a name="glossary"></a>Glossário
 
@@ -53,7 +53,7 @@ A lista a seguir descreve as palavras comuns usadas com os serviços do Azure Ma
 
 <a name="azure-location-based-services-lbs"></a> **Serviços do Azure baseados na localização (LBS)** : nome anterior do Azure Mapas quando estava em versão prévia.
 
-<a name="azure-active-directory"></a> **Azure Active Directory (Azure AD)** : o Azure AD é o serviço de gerenciamento de acesso e identidade baseado em nuvem da Microsoft. A integração do Azure AD com o Azure Mapas está agora disponível na visualização para todas as APIs do Azure Mapas. O Azure AD é compatível com RBAC (controle de acesso baseado em função) para permitir um acesso refinado aos recursos do Azure Mapas. Para saber mais sobre a integração do Azure Mapas com o Azure AD, confira [Azure Mapas e Azure AD](azure-maps-authentication.md) e [Gerenciar autenticação no Azure Mapas](how-to-manage-authentication.md).
+<a name="azure-active-directory"></a> **Azure Active Directory (Azure AD)** : o Azure AD é o serviço de gerenciamento de acesso e identidade baseado em nuvem da Microsoft. A integração do Azure AD com o Azure Mapas está agora disponível na visualização para todas as APIs do Azure Mapas. O Azure AD dá suporte ao Azure RBAC (controle de acesso baseado em função) para permitir o acesso refinado aos recursos do Azure Maps. Para saber mais sobre a integração do Azure Mapas com o Azure AD, confira [Azure Mapas e Azure AD](azure-maps-authentication.md) e [Gerenciar autenticação no Azure Mapas](how-to-manage-authentication.md).
 
 <a name="azure-maps-key"></a> **Chave do Azure Mapas**: Consulte [Autenticação de chave compartilhada](#shared-key-authentication).
 
