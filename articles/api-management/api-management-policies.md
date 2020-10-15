@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: b6416438b8c970f4a92f73004e67f90a28210500
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe5c13b8c34d29be9a62717215271c10a48e9ac6
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335459"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076888"
 ---
 # <a name="api-management-policies"></a>Políticas de Gerenciamento de API
 Esta seção fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](api-management-howto-policies.md).
@@ -87,4 +87,4 @@ Para obter mais informações sobre como trabalhar com políticas, consulte:
 
 + [Políticas no Gerenciamento de API](api-management-howto-policies.md)
 + [Transformar APIs](transform-api.md)
-+ [Exemplos de política](policy-samples.md)
++ [Exemplos de política](./policy-reference.md)

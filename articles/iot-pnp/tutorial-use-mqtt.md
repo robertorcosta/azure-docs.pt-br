@@ -7,12 +7,12 @@ ms.date: 05/13/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 2e05165a78a54d6aaa49c28a649a97235891f927
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: d0ac0f000b6a096ae3de1f4f00a17b64f1948c1e
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91577910"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046274"
 ---
 # <a name="use-mqtt-to-develop-an-iot-plug-and-play-device-client"></a>Usar o MQTT para desenvolver um cliente de dispositivo IoT Plug and Play
 
@@ -26,7 +26,7 @@ O exemplo neste tutorial usa a biblioteca MQTT [Eclipse Mosquitto](http://mosqui
 
 Para realizar este tutorial no Windows, instale o seguinte software em um ambiente Windows local:
 
-* [Visual Studio (Community, Professional ou Enterprise)](https://visualstudio.microsoft.com/downloads/) – inclua a carga de trabalho **Desenvolvimento para Desktop com C++** ao [instalar](https://docs.microsoft.com/cpp/build/vscpp-step-0-installation?view=vs-2019&preserve-view=true) o Visual Studio
+* [Visual Studio (Community, Professional ou Enterprise)](https://visualstudio.microsoft.com/downloads/) – inclua a carga de trabalho **Desenvolvimento para Desktop com C++** ao [instalar](/cpp/build/vscpp-step-0-installation?preserve-view=true&view=vs-2019) o Visual Studio
 * [Git](https://git-scm.com/download/)
 * [CMake](https://cmake.org/download/)
 

@@ -9,12 +9,12 @@ ms.date: 08/04/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 3d5ca648b149fa85b28f695956a438cdac9e67e8
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: a8d09f762002c89d225ccc00eac83da336850a3c
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90086616"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047940"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Tutorial: Armazenar dados na borda com os bancos de dados do SQL Server
 
@@ -42,7 +42,7 @@ Antes de iniciar este tutorial, você deve ter passado pelo tutorial anterior pa
 * Um [Hub IoT](../iot-hub/iot-hub-create-through-portal.md) na camada padrão ou gratuito no Azure.
 * Um [dispositivo Linux AMD64 que executa o Azure IoT Edge](quickstart-linux.md).
   * Dispositivos ARM, como Raspberry PIS, não podem executar o SQL Server. Se quiser usar o SQL em um dispositivo ARM, poderá se inscrever para experimentar o [SQL do Azure no Edge](https://azure.microsoft.com/services/sql-edge/) na versão prévia.
-* Um registro de contêiner, como o [Registro de Contêiner do Azure](https://docs.microsoft.com/azure/container-registry/).
+* Um registro de contêiner, como o [Registro de Contêiner do Azure](../container-registry/index.yml).
 * O [Visual Studio Code](https://code.visualstudio.com/) configurado com o [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * O [Docker CE](https://docs.docker.com/install/) configurado para executar contêineres do Linux.
 
@@ -228,7 +228,7 @@ Um [Manifesto de implantação](module-composition.md) declara quais módulos o 
 7. Localize a seção de **módulos**. Você deverá ver três módulos. O módulo *SimulatedTemperatureSensor* está incluído por padrão em novas soluções e fornece dados de teste para usar com seus outros módulos. O módulo *sqlFunction* é o módulo que você criou inicialmente e que foi atualizado com o novo código. Por fim, o módulo *sql* foi importado do Azure Marketplace.
 
    >[!Tip]
-   >O módulo do SQL Server vem com uma senha padrão definida nas variáveis de ambiente do manifesto de implantação. Sempre que você criar um contêiner do SQL Server em um ambiente de produção, será necessário [alterar a senha do administrador do sistema padrão](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker).
+   >O módulo do SQL Server vem com uma senha padrão definida nas variáveis de ambiente do manifesto de implantação. Sempre que você criar um contêiner do SQL Server em um ambiente de produção, será necessário [alterar a senha do administrador do sistema padrão](/sql/linux/quickstart-install-connect-docker).
 
 8. Feche o arquivo **deployment.template.json**.
 
@@ -331,9 +331,9 @@ Caso contrário, você pode excluir as configurações locais e os recursos do A
 
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+Neste tutorial, você criou um módulo do Azure Functions que contém código para filtrar os dados brutos gerados pelo seu dispositivo IoT Edge. Quando estiver pronto para criar seus próprios módulos, você pode saber mais sobre como [Desenvolver o Azure Functions com o Azure IoT Edge para Visual Studio Code](./how-to-vs-code-develop-module.md).
 
-Neste tutorial, você criou um módulo do Azure Functions que contém código para filtrar os dados brutos gerados pelo seu dispositivo IoT Edge. Quando estiver pronto para criar seus próprios módulos, você pode saber mais sobre como [Desenvolver o Azure Functions com o Azure IoT Edge para Visual Studio Code](how-to-develop-csharp-function.md).
+## <a name="next-steps"></a>Próximas etapas
 
 Se você quiser tentar outro método de armazenamento na borda, leia sobre como usar o armazenamento de BLOBs do Azure no IoT Edge.
 

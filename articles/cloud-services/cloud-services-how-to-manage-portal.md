@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
-ms.openlocfilehash: 471aa6e5297f8b68f08567a66e3f07e9688ca57e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84e450a55f9482c3a713943adfcc4d7940ab873f
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87002923"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076701"
 ---
 # <a name="manage-cloud-services-in-the-azure-portal"></a>Gerenciar Serviços de Nuvem no portal do Azure
 Na área de **Serviços de Nuvem** do portal do Azure, você pode:
@@ -83,7 +83,7 @@ Observe que as atualizações do SO convidado e as operações de recuperação 
 
 **Uma troca incorre em tempo de inatividade para meu aplicativo? Como devo tratá-lo?**
 
-Conforme descrito na seção anterior, uma troca de implantação normalmente é rápida, pois é apenas uma alteração de configuração no Azure Load Balancer. Em alguns casos, ela pode levar 10 segundos ou mais e resultar em falhas de conexão transitórias. Para limitar o impacto sobre os clientes, considere a implementação da [lógica de repetição do cliente](../best-practices-retry-general.md).
+Conforme descrito na seção anterior, uma troca de implantação normalmente é rápida, pois é apenas uma alteração de configuração no Azure Load Balancer. Em alguns casos, ela pode levar 10 segundos ou mais e resultar em falhas de conexão transitórias. Para limitar o impacto sobre os clientes, considere a implementação da [lógica de repetição do cliente](/azure/architecture/best-practices/transient-faults).
 
 ## <a name="delete-deployments-and-a-cloud-service"></a>Excluir implantações e um Serviço de Nuvem
 Antes de poder excluir um serviço de nuvem, você deve excluir cada implantação existente.
@@ -124,6 +124,3 @@ A folha **Visão geral** tem uma barra de status na parte superior. Quando você
 * Saiba como [implantar um serviço de nuvem](cloud-services-how-to-create-deploy-portal.md).
 * Configure um [nome de domínio personalizado](cloud-services-custom-domain-name-portal.md).
 * Configurar [certificados TLS/SSL](cloud-services-configure-ssl-certificate-portal.md).
-
-
-
