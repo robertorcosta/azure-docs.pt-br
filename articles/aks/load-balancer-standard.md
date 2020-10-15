@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/14/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: a58b00018f6ac89f024661d8d3f50ea5249e620b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 414ae3b2adb60b9442a69e3ebcc8b13b29c67cb7
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89182115"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070496"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>Usar um Standard Load Balancer público no AKS (serviço kubernetes do Azure)
 
@@ -322,7 +322,7 @@ Abaixo está uma lista de anotações com suporte para serviços kubernetes com 
 | `service.beta.kubernetes.io/azure-load-balancer-internal`         | `true` ou `false`                     | Especifique se o balanceador de carga deve ser interno. O padrão é público se não estiver definido.
 | `service.beta.kubernetes.io/azure-load-balancer-internal-subnet`  | Nome da sub-rede                    | Especifique a qual sub-rede o balanceador de carga interno deve ser associado. O padrão é a sub-rede configurada no arquivo de configuração de nuvem se não estiver definida.
 | `service.beta.kubernetes.io/azure-dns-label-name`                 | Nome do rótulo DNS em IPs públicos   | Especifique o nome do rótulo DNS para o serviço **público** . Se estiver definido como uma cadeia de caracteres vazia, a entrada DNS no IP público não será usada.
-| `service.beta.kubernetes.io/azure-shared-securityrule`            | `true` ou `false`                     | Especifique que o serviço deve ser exposto usando uma regra de segurança do Azure que pode ser compartilhada com outro serviço, que é uma determinada especificação de regras para um aumento no número de serviços que podem ser expostos. Esta anotação depende do recurso de [regras de segurança aumentadas](../virtual-network/security-overview.md#augmented-security-rules) do Azure de grupos de segurança de rede. 
+| `service.beta.kubernetes.io/azure-shared-securityrule`            | `true` ou `false`                     | Especifique que o serviço deve ser exposto usando uma regra de segurança do Azure que pode ser compartilhada com outro serviço, que é uma determinada especificação de regras para um aumento no número de serviços que podem ser expostos. Esta anotação depende do recurso de [regras de segurança aumentadas](../virtual-network/network-security-groups-overview.md#augmented-security-rules) do Azure de grupos de segurança de rede. 
 | `service.beta.kubernetes.io/azure-load-balancer-resource-group`   | Nome do grupo de recursos            | Especifique o grupo de recursos de IPs públicos do Load Balancer que não estão no mesmo grupo de recursos que a infraestrutura de cluster (grupo de recursos de nó).
 | `service.beta.kubernetes.io/azure-allowed-service-tags`           | Lista de marcas de serviço permitidas          | Especifique uma lista de [marcas de serviço][service-tags] permitidas separadas por vírgula.
 | `service.beta.kubernetes.io/azure-load-balancer-tcp-idle-timeout` | Tempos limite de ociosidade de TCP em minutos          | Especifique o tempo, em minutos, para que os tempos limite de ociosidade de conexão TCP ocorram no balanceador de carga. O valor padrão e mínimo é 4. O valor máximo é 30. Deve ser um inteiro.
@@ -426,4 +426,4 @@ Saiba mais sobre como usar o Load Balancer interno para o tráfego de entrada na
 [requirements]: #requirements-for-customizing-allocated-outbound-ports-and-idle-timeout
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [troubleshoot-snat]: #troubleshooting-snat
-[service-tags]: ../virtual-network/security-overview.md#service-tags
+[service-tags]: ../virtual-network/network-security-groups-overview.md#service-tags

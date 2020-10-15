@@ -3,12 +3,12 @@ title: Aprimore a confiabilidade do seu aplicativo com o Advisor
 description: Use o Azure Advisor para garantir e melhorar a confiabilidade em implantações críticas do Azure para os negócios.
 ms.topic: article
 ms.date: 09/27/2020
-ms.openlocfilehash: 1e256d99f8d78ddff318f963dcb21e9b4537f110
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0ced690ae735a281fdf8b1c3a020ff8c63ce469b
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91405183"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078027"
 ---
 # <a name="improve-the-reliability-of-your-application-by-using-azure-advisor"></a>Melhorar a confiabilidade do seu aplicativo usando o Azure Advisor
 
@@ -44,7 +44,7 @@ Se um perfil do Gerenciador de tráfego estiver configurado para roteamento geog
 
 ## <a name="use-soft-delete-on-your-azure-storage-account-to-save-and-recover-data-after-accidental-overwrite-or-deletion"></a>Use a exclusão reversível em sua conta de armazenamento do Azure para salvar e recuperar dados após substituição ou exclusão acidental
 
-Habilite a [exclusão reversível](../storage/blobs/soft-delete-overview.md) na conta de armazenamento para que os blobs excluídos passem para um estado de exclusão reversível, em vez de serem excluídos permanentemente. Quando os dados são substituídos, um instantâneo de exclusão reversível é gerado para salvar o estado dos dados substituídos. Usar a exclusão reversível permite que você se recupere de exclusões acidentais ou substituições. O Advisor identifica as contas de armazenamento do Azure que não têm a exclusão reversível habilitada e sugere que você a habilite.
+Habilite a [exclusão reversível](../storage/blobs/soft-delete-blob-overview.md) na conta de armazenamento para que os blobs excluídos passem para um estado de exclusão reversível, em vez de serem excluídos permanentemente. Quando os dados são substituídos, um instantâneo de exclusão reversível é gerado para salvar o estado dos dados substituídos. Usar a exclusão reversível permite que você se recupere de exclusões acidentais ou substituições. O Advisor identifica as contas de armazenamento do Azure que não têm a exclusão reversível habilitada e sugere que você a habilite.
 
 ## <a name="configure-your-vpn-gateway-to-active-active-for-connection-resiliency"></a>Configure seu gateway de VPN como ativo-ativo para ter resiliência de conexão
 
@@ -80,23 +80,23 @@ O Azure Advisor detecta as regras de alerta de log que têm consultas inválidas
 
 ## <a name="configure-consistent-indexing-mode-on-your-azure-cosmos-db-collection"></a>Configurar o modo de indexação consistente na sua coleção de Azure Cosmos DB
 
-A configuração de contêineres de Azure Cosmos DB com modo de indexação lento pode afetar a atualização dos resultados da consulta. O Advisor detecta contêineres configurados dessa forma e recomenda alternar para o modo consistente. [Saiba mais sobre políticas de indexação no Azure Cosmos DB.](https://aka.ms/cosmosdb/how-to-manage-indexing-policy)
+A configuração de contêineres de Azure Cosmos DB com modo de indexação lento pode afetar a atualização dos resultados da consulta. O Advisor detecta contêineres configurados dessa forma e recomenda alternar para o modo consistente. [Saiba mais sobre políticas de indexação no Azure Cosmos DB.](../cosmos-db/how-to-manage-indexing-policy.md)
 
 ## <a name="configure-your-azure-cosmos-db-containers-with-a-partition-key"></a>Configurar os contêineres do Azure Cosmos DB com uma chave de partição
 
-O Azure Advisor identifica Azure Cosmos DB coleções não particionadas que estão se aproximando da cota de armazenamento provisionada. Recomenda-se migrar essas coleções para novas coleções com uma definição de chave de partição para que elas possam ser dimensionadas automaticamente pelo serviço. [Saiba mais sobre como escolher uma chave de partição.](https://aka.ms/cosmosdb/choose-partitionkey)
+O Azure Advisor identifica Azure Cosmos DB coleções não particionadas que estão se aproximando da cota de armazenamento provisionada. Recomenda-se migrar essas coleções para novas coleções com uma definição de chave de partição para que elas possam ser dimensionadas automaticamente pelo serviço. [Saiba mais sobre como escolher uma chave de partição.](../cosmos-db/partitioning-overview.md)
 
 ## <a name="upgrade-your-azure-cosmos-db-net-sdk-to-the-latest-version-from-nuget"></a>Atualizar o SDK do .NET Azure Cosmos DB para a versão mais recente do NuGet
 
-O Azure Advisor identifica Azure Cosmos DB contas que estão usando versões antigas do SDK do .NET. Ele recomenda que você atualize para a versão mais recente do NuGet para as correções mais recentes, aprimoramentos de desempenho e recursos de recurso. [Saiba mais sobre Azure Cosmos DB SDK do .NET.](https://aka.ms/cosmosdb/sql-api-sdk-dotnet)
+O Azure Advisor identifica Azure Cosmos DB contas que estão usando versões antigas do SDK do .NET. Ele recomenda que você atualize para a versão mais recente do NuGet para as correções mais recentes, aprimoramentos de desempenho e recursos de recurso. [Saiba mais sobre Azure Cosmos DB SDK do .NET.](../cosmos-db/sql-api-sdk-dotnet-standard.md)
 
 ## <a name="upgrade-your-azure-cosmos-db-java-sdk-to-the-latest-version-from-maven"></a>Atualizar o SDK do Java do Azure Cosmos DB para a versão mais recente do Maven
 
-O Azure Advisor identifica Azure Cosmos DB contas que estão usando versões antigas do SDK do Java. Ele recomenda que você atualize para a versão mais recente do Maven para as correções mais recentes, aprimoramentos de desempenho e recursos de recurso. [Saiba mais sobre Azure Cosmos DB SDK do Java.](https://aka.ms/cosmosdb/sql-api-sdk-async-java)
+O Azure Advisor identifica Azure Cosmos DB contas que estão usando versões antigas do SDK do Java. Ele recomenda que você atualize para a versão mais recente do Maven para as correções mais recentes, aprimoramentos de desempenho e recursos de recurso. [Saiba mais sobre Azure Cosmos DB SDK do Java.](../cosmos-db/sql-api-sdk-java-v4.md)
 
 ## <a name="upgrade-your-azure-cosmos-db-spark-connector-to-the-latest-version-from-maven"></a>Atualizar o conector do Spark Azure Cosmos DB para a versão mais recente do Maven
 
-O Azure Advisor identifica Azure Cosmos DB contas que estão usando versões antigas do conector Azure Cosmos DB Spark. Ele recomenda que você atualize para a versão mais recente do Maven para as correções mais recentes, aprimoramentos de desempenho e recursos de recurso. [Saiba mais sobre o conector do Spark Azure Cosmos DB.](https://aka.ms/cosmosdb/spark-connector)
+O Azure Advisor identifica Azure Cosmos DB contas que estão usando versões antigas do conector Azure Cosmos DB Spark. Ele recomenda que você atualize para a versão mais recente do Maven para as correções mais recentes, aprimoramentos de desempenho e recursos de recurso. [Saiba mais sobre o conector do Spark Azure Cosmos DB.](../cosmos-db/spark-connector.md)
 
 ## <a name="consider-moving-to-kafka-21-on-hdinsight-40"></a>Considere a mudança para o Kafka 2,1 no HDInsight 4,0
 
@@ -110,10 +110,10 @@ A partir de 1º de julho de 2020, você não poderá criar novos clusters Spark 
 As máquinas virtuais que não têm replicação habilitada para outra região não são resilientes a interrupções regionais. A replicação de máquinas virtuais reduz qualquer impacto adverso nos negócios durante interrupções de região do Azure. O Advisor detecta VMs em que a replicação não está habilitada e recomenda habilitá-la. Ao habilitar a replicação, se houver uma interrupção, você poderá rapidamente abrir suas máquinas virtuais em uma região remota do Azure. [Saiba mais sobre a replicação da máquina virtual.](../site-recovery/azure-to-azure-quickstart.md)
 
 ## <a name="upgrade-to-the-latest-version-of-the-azure-connected-machine-agent"></a>Atualizar para a versão mais recente do agente de Azure Connected Machine
-O [agente do computador conectado do Azure](https://docs.microsoft.com/azure/azure-arc/servers/manage-agent) é atualizado regularmente com correções de bugs, aprimoramentos de estabilidade e novas funcionalidades. Identificamos os recursos que não estão funcionando na versão mais recente do agente do computador e essa recomendação do Advisor irá sugerir que você atualize seu agente para a versão mais recente para a melhor experiência de Arc do Azure.
+O [agente do computador conectado do Azure](../azure-arc/servers/manage-agent.md) é atualizado regularmente com correções de bugs, aprimoramentos de estabilidade e novas funcionalidades. Identificamos os recursos que não estão funcionando na versão mais recente do agente do computador e essa recomendação do Advisor irá sugerir que você atualize seu agente para a versão mais recente para a melhor experiência de Arc do Azure.
 
 ## <a name="do-not-override-hostname-to-ensure-website-integrity"></a>Não substitua o nome do host para garantir a integridade do site
-O Advisor recomenda tentar evitar a substituição do nome do host ao configurar o gateway de aplicativo. Ter um domínio diferente no front-end do Gateway de Aplicativo do que o usado para acessar o back-end pode levar a uma interrupção de cookies ou do redirecionamento de URLs. Observe que esse pode não ser o caso em todas as situações, e determinadas categorias de back-ends (como API REST) em geral são menos sensíveis a isso. Verifique se o back-end é capaz de lidar com isso ou atualize a configuração do Gateway de Aplicativo para que o nome do host não precise ser substituído para o back-end. Quando usado com o serviço de aplicativo, anexe um nome de domínio personalizado ao aplicativo Web e evite usar o *nome de host. azurewebsites.net em direção ao back-end.* [Saiba mais sobre o domínio personalizado](https://aka.ms/appgw-advisor-usecustomdomain).
+O Advisor recomenda tentar evitar a substituição do nome do host ao configurar o gateway de aplicativo. Ter um domínio diferente no front-end do Gateway de Aplicativo do que o usado para acessar o back-end pode levar a uma interrupção de cookies ou do redirecionamento de URLs. Observe que esse pode não ser o caso em todas as situações, e determinadas categorias de back-ends (como API REST) em geral são menos sensíveis a isso. Verifique se o back-end é capaz de lidar com isso ou atualize a configuração do Gateway de Aplicativo para que o nome do host não precise ser substituído para o back-end. Quando usado com o serviço de aplicativo, anexe um nome de domínio personalizado ao aplicativo Web e evite usar o *nome de host. azurewebsites.net em direção ao back-end.* [Saiba mais sobre o domínio personalizado](../application-gateway/troubleshoot-app-service-redirection-app-service-url.md).
 
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Como acessar as recomendações de alta disponibilidade no Advisor
 
