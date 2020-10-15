@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 09/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: f5dc9305df8ce0e26e13738d605849fa75cc53a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c88d21c6ad17c613c5d708bf697ae8717c9ec91
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90087874"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075256"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Visão geral do Hybrid Runbook Worker
 
@@ -67,7 +67,7 @@ Se você usar um firewall para restringir o acesso à Internet, precisará confi
 
 ### <a name="service-tags"></a>Marcas de serviço
 
-A automação do Azure dá suporte a marcas de serviço de rede virtual do Azure, começando com a marca de serviço [GuestAndHybridManagement](../virtual-network/service-tags-overview.md). Você pode usar marcas de serviço para definir os controles de acesso à rede em [grupos de segurança de rede](../virtual-network/security-overview.md#security-rules) ou no [Firewall do Azure](../firewall/service-tags.md). As marcas de serviço podem ser usadas no lugar de endereços IP específicos quando você cria regras de segurança. Ao especificar o nome da marca de serviço **GuestAndHybridManagement**  no campo de origem ou de destino apropriado de uma regra, você pode permitir ou negar o tráfego para o serviço de automação. Essa marca de serviço não dá suporte à permissão de controle mais granular restringindo intervalos de IP para uma região específica.
+A automação do Azure dá suporte a marcas de serviço de rede virtual do Azure, começando com a marca de serviço [GuestAndHybridManagement](../virtual-network/service-tags-overview.md). Você pode usar marcas de serviço para definir os controles de acesso à rede em [grupos de segurança de rede](../virtual-network/network-security-groups-overview.md#security-rules) ou no [Firewall do Azure](../firewall/service-tags.md). As marcas de serviço podem ser usadas no lugar de endereços IP específicos quando você cria regras de segurança. Ao especificar o nome da marca de serviço **GuestAndHybridManagement**  no campo de origem ou de destino apropriado de uma regra, você pode permitir ou negar o tráfego para o serviço de automação. Essa marca de serviço não dá suporte à permissão de controle mais granular restringindo intervalos de IP para uma região específica.
 
 A marca de serviço para o serviço de automação do Azure fornece somente IPs usados para os seguintes cenários:
 

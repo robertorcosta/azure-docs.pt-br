@@ -9,10 +9,10 @@ ms.devlang: php
 ms.date: 9/21/2020
 ms.custom: mvc
 ms.openlocfilehash: 1bad9a7da6f0604f910ce1095b734043be8cf3c3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90929213"
 ---
 # <a name="tutorial-build-a-php-laravel-and-mysql-flexible-server-preview-app-in-azure-app-service"></a>Tutorial: Compilar um aplicativo PHP (Laravel) e Servidor Flexível MySQL (versão prévia) no Serviço de Aplicativo do Azure
@@ -134,7 +134,7 @@ php artisan serve
 
 Navegue até `http://localhost:8000` em um navegador. Adicione algumas tarefas à página.
 
-:::image type="content" source="media/tutorial-php-database-app/mysql-connect-success.png" alt-text="O PHP se conecta com êxito ao MySQL":::
+:::image type="content" source="media/tutorial-php-database-app/mysql-connect-success.png" alt-text="Aplicativo Web PHP no Azure com Servidor Flexível":::
 
 Para interromper o PHP, digite `Ctrl + C` no terminal.
 
@@ -257,7 +257,7 @@ Navegue até `http://localhost:8000`. Se a página for carregada sem erros, o ap
 
 Adicione algumas tarefas à página.
 
-:::image type="content" source="media/tutorial-php-database-app/mysql-connect-success.png" alt-text="O PHP se conecta com êxito ao Banco de Dados do Azure para MySQL":::
+:::image type="content" source="media/tutorial-php-database-app/mysql-connect-success.png" alt-text="Aplicativo Web PHP no Azure com Servidor Flexível":::
 
 Para interromper o PHP, digite `Ctrl + C` no terminal.
 
@@ -414,7 +414,7 @@ remote: Running deployment command...
 
 Navegue até `http://<app-name>.azurewebsites.net` e adicione algumas tarefas à lista.
 
-:::image type="content" source="media/tutorial-php-database-app/php-mysql-in-azure.png" alt-text="Aplicativo Web PHP no Azure":::
+:::image type="content" source="media/tutorial-php-database-app/php-mysql-in-azure.png" alt-text="Aplicativo Web PHP no Azure com Servidor Flexível":::
 
 Parabéns! Você está executando um aplicativo PHP controlado por dados no Serviço de Aplicativo do Azure.
 
@@ -534,7 +534,7 @@ php artisan serve
 
 Para ver a alteração de status da tarefa, navegue para `http://localhost:8000` e marque a caixa de seleção.
 
-:::image type="content" source="media/tutorial-php-database-app/complete-checkbox.png" alt-text="Caixa de seleção adicionada à tarefa":::
+:::image type="content" source="media/tutorial-php-database-app/complete-checkbox.png" alt-text="Aplicativo Web PHP no Azure com Servidor Flexível":::
 
 Para interromper o PHP, digite `Ctrl + C` no terminal.
 
@@ -556,7 +556,7 @@ git push azure master
 
 Quando `git push` for concluído, navegue até o aplicativo do Azure e teste a nova funcionalidade.
 
-:::image type="content" source="media/tutorial-php-database-app/complete-checkbox-published.png" alt-text="Alterações de banco de dados e modelos publicadas no Azure":::
+:::image type="content" source="media/tutorial-php-database-app/complete-checkbox-published.png" alt-text="Aplicativo Web PHP no Azure com Servidor Flexível":::
 
 Se você tiver adicionado tarefas, elas serão retidas no banco de dados. As atualizações no esquema de dados deixam os dados existentes intactos.
 
