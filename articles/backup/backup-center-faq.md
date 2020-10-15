@@ -3,12 +3,12 @@ title: Centro de backup-perguntas frequentes
 description: Este artigo responde às perguntas frequentes sobre o centro de backup
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: b10a9e73e65cf12c43ce28b429a8f12e0b960a76
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e227eb6a14d06791e52ec33e090afdcb01bab61
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90994335"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92094034"
 ---
 # <a name="backup-center---frequently-asked-questions"></a>Centro de backup-perguntas frequentes
 
@@ -34,7 +34,7 @@ Não. O centro de backup vem pronto para uso. No entanto, para exibir [relatóri
 
 ### <a name="do-i-need-to-have-any-special-permissions-to-use-backup-center"></a>Preciso ter permissões especiais para usar o centro de backup?
 
-O centro de backup, como tal, não precisa de nenhuma nova permissão. Desde que você tenha o nível certo de acesso de RBAC para os recursos que você está gerenciando, você pode usar o centro de backup para esses recursos. Por exemplo, para exibir informações sobre seus backups, você precisará de acesso de **leitor** aos seus cofres. Para configurar o backup e executar outras ações relacionadas ao backup, você precisará de funções de **operador de backup** ou colaborador de **backup** . Saiba mais sobre as [funções RBAC para o backup do Azure](https://docs.microsoft.com/azure/backup/backup-rbac-rs-vault).
+O centro de backup, como tal, não precisa de nenhuma nova permissão. Contanto que você tenha o nível certo de acesso do RBAC do Azure para os recursos que você está gerenciando, você pode usar o centro de backup para esses recursos. Por exemplo, para exibir informações sobre seus backups, você precisará de acesso de **leitor** aos seus cofres. Para configurar o backup e executar outras ações relacionadas ao backup, você precisará de funções de **operador de backup** ou colaborador de **backup** . Saiba mais sobre as [funções do Azure para o backup do Azure](https://docs.microsoft.com/azure/backup/backup-rbac-rs-vault).
 
 ## <a name="pricing"></a>Preços
 

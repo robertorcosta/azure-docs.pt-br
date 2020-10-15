@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: cba3f47015072f16112ef981d2f59d0c73cb69c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d82b7223c2b392e6b9aebffdc545dc38b38ca2f
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88142478"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074219"
 ---
 # <a name="troubleshooting-allocation-failure-when-you-deploy-cloud-services-in-azure"></a>Solução de problemas de falha de alocação ao implantar Serviços de Nuvem no Azure
 ## <a name="summary"></a>Resumo
@@ -70,4 +70,4 @@ Estes são os cenários comuns de alocação que causam a fixação de uma solic
      ```
    * Siga o nº 2 acima, lembrando de especificar o novo IP reservado no CSCFG do serviço.
 4. Remover o grupo de afinidade para novas implantações: grupos de afinidade não são mais recomendados. Execute as etapas para o nº 1 acima a fim de implantar um novo serviço de nuvem. Certifique-se de que o serviço de nuvem não esteja em um grupo de afinidade.
-5. Converter para uma rede virtual regional: confira [Como migrar de grupos de afinidades para uma rede virtual regional (VNet)](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
+5. Converter para uma rede virtual regional: confira [Como migrar de grupos de afinidades para uma rede virtual regional (VNet)](/previous-versions/azure/virtual-network/virtual-networks-migrate-to-regional-vnet).

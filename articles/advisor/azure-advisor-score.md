@@ -3,12 +3,12 @@ title: Otimizar cargas de trabalho do Azure usando a Pontuação do supervisor
 description: Use a Pontuação do supervisor para aproveitar ao máximo o Azure
 ms.topic: article
 ms.date: 09/09/2020
-ms.openlocfilehash: 29d8480f501a78c1668b52034f439f998419f9d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4c401a8b532c247806c5fe30728a1f4afd334a4
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335612"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074015"
 ---
 # <a name="optimize-azure-workloads-using-advisor-score"></a>Otimizar cargas de trabalho do Azure usando a Pontuação do supervisor
 
@@ -17,7 +17,7 @@ ms.locfileid: "91335612"
 O Azure Advisor fornece recomendações de práticas recomendadas para suas cargas de trabalho. Essas recomendações são personalizadas e acionáveis para ajudá-lo a:
 * Melhorar a postura de suas cargas de trabalho e otimizar suas implantações do Azure
 * Impeça proativamente os principais problemas seguindo as práticas recomendadas
-* Avalie suas cargas de trabalho do Azure em relação aos cinco pilares do [Microsoft Azure Well-Architected Framework](https://docs.microsoft.com/azure/architecture/framework/)
+* Avalie suas cargas de trabalho do Azure em relação aos cinco pilares do [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/)
 
 Como um recurso fundamental do Advisor, a **Pontuação do consultor** é criada para ajudá-lo a atingir essas metas com eficiência e eficiência. 
 
@@ -56,7 +56,7 @@ O cálculo da Pontuação do supervisor pode ser resumido em quatro etapas:
   * Os recursos com recomendações duradouras conterão mais em relação à sua pontuação.
   * Os recursos que você adiar ou ignorar no Advisor serão removidos inteiramente do seu cálculo de pontuação. 
     
-O Advisor aplica esse modelo a um nível de categoria do Advisor (a segurança usa o modelo de [Pontuação segura](https://docs.microsoft.com/azure/security-center/secure-score-security-controls#introduction-to-secure-score) ), fornecendo a Pontuação do consultor para cada categoria e uma média simples produz a pontuação final do consultor.
+O Advisor aplica esse modelo a um nível de categoria do Advisor (a segurança usa o modelo de [Pontuação segura](../security-center/secure-score-security-controls.md#introduction-to-secure-score) ), fornecendo a Pontuação do consultor para cada categoria e uma média simples produz a pontuação final do consultor.
 
 
 ## <a name="advisor-score-faq"></a>Perguntas frequentes sobre a Pontuação do supervisor

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
 ms.custom: devx-track-js
-ms.openlocfilehash: 1ceac6edf6cadd380d6eeec545a85c4822748d3a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: de98d9db515e4ed88759efa7f22dddcca06151c8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91316113"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91854674"
 ---
 # <a name="deploy-nodejs-apps-powered-by-azure-cosmos-db-with-devops-starter"></a>Implantar aplicativos Node.js da plataforma Azure Cosmos DB com o DevOps Starter
 
@@ -167,6 +167,4 @@ Você pode modificar esses pipelines de build e de lançamento para atender às 
 > * Confirmar alterações no Git e implantá-las automaticamente no Azure
 > * Limpar os recursos
 
-Confira [Definir seu pipeline de CD (implantação contínua) de várias fases](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=azure-devops&viewFallbackFrom=vsts) para obter mais informações e próximas etapas.
-
-
+Confira [Definir seu pipeline de CD (implantação contínua) de várias fases](/azure/devops/pipelines/release/define-multistage-release-process?view=azure-devops&viewFallbackFrom=vsts) para obter mais informações e próximas etapas.
