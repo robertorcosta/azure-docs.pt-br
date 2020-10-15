@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: ce8dbe017e3cc80588cd1aa37ad02a82199ccc10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aec8448cb82480397f561e095420bbd49982d4b2
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90892569"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093031"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>Analisar logs e métricas com configurações de diagnóstico
 
@@ -27,7 +27,7 @@ Usando a funcionalidade de diagnóstico do Azure Spring Cloud, você pode analis
 Escolha a categoria de log e a categoria de métrica que você deseja monitorar.
 
 > [!TIP]
-> Deseja apenas transmitir seus logs? Confira este [CLI do Azure comando](https://docs.microsoft.com/cli/azure/ext/spring-cloud/spring-cloud/app?view=azure-cli-latest&preserve-view=true#ext-spring-cloud-az-spring-cloud-app-logs)!
+> Deseja apenas transmitir seus logs? Confira este [CLI do Azure comando](/cli/azure/ext/spring-cloud/spring-cloud/app?preserve-view=true&view=azure-cli-latest#ext-spring-cloud-az-spring-cloud-app-logs)!
 
 ## <a name="logs"></a>Logs
 
@@ -38,7 +38,7 @@ Escolha a categoria de log e a categoria de métrica que você deseja monitorar.
 
 ## <a name="metrics"></a>Métricas
 
-Para obter uma lista completa de métricas, consulte [métricas de nuvem Spring](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-concept-metrics#user-metrics-options).
+Para obter uma lista completa de métricas, consulte [métricas de nuvem Spring](./spring-cloud-concept-metrics.md#user-metrics-options).
 
 Para começar, habilite um desses serviços para receber os dados. Para saber mais sobre como configurar Log Analytics, consulte [introdução ao log Analytics no Azure monitor](../azure-monitor/log-query/get-started-portal.md).
 
@@ -110,7 +110,7 @@ Há vários métodos para exibir os logs e as métricas, conforme descrito nos c
 > [!NOTE]
 > `==` diferencia maiúsculas de minúsculas, mas `=~` não é.
 
-Para saber mais sobre a linguagem de consulta usada no Log Analytics, consulte [Azure monitor consultas de log](../azure-monitor/log-query/query-language.md).
+Para saber mais sobre a linguagem de consulta usada no Log Analytics, consulte [Azure monitor consultas de log](/azure/data-explorer/kusto/query/).
 
 ### <a name="use-your-storage-account"></a>Usar sua conta de armazenamento
 
@@ -131,7 +131,7 @@ Para saber mais sobre como enviar informações de diagnóstico para uma conta d
 1. Para examinar os logs de aplicativo, procure um hub de eventos chamado **insights-logs-applicationconsole**.
 1. Para revisar as métricas do aplicativo, procure um hub de eventos chamado **insights-métricas-PT1M**.
 
-Para saber mais sobre como enviar informações de diagnóstico para um hub de eventos, confira [Streaming diagnóstico do Azure dados no Hot Path usando os hubs de eventos](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-stream-event-hubs).
+Para saber mais sobre como enviar informações de diagnóstico para um hub de eventos, confira [Streaming diagnóstico do Azure dados no Hot Path usando os hubs de eventos](../azure-monitor/platform/diagnostics-extension-stream-event-hubs.md).
 
 ## <a name="analyze-the-logs"></a>Analisar os logs
 
@@ -178,7 +178,7 @@ AppPlatformLogsforSpring
 
 O Azure Monitor fornece amplo suporte para consultar logs de aplicativos usando Log Analytics. Para saber mais sobre esse serviço, confira [introdução às consultas de log em Azure monitor](../azure-monitor/log-query/get-started-queries.md). Para obter mais informações sobre como criar consultas para analisar os logs do aplicativo, consulte [visão geral das consultas de log no Azure monitor](../azure-monitor/log-query/log-query-overview.md).
 
-## <a name="frequently-asked-questions-faq"></a>Perguntas frequentes
+## <a name="frequently-asked-questions-faq"></a>Perguntas frequentes (FAQ)
 
 ### <a name="how-to-convert-multi-line-java-stack-traces-into-a-single-line"></a>Como converter rastreamentos de pilha Java de várias linhas em uma única linha?
 

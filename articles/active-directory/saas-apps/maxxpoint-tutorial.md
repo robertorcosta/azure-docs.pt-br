@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 50cc53e7e8a5f39b53d6dcd39de61894cbbb3842
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 4d325eb0dbd5d30e94df07ebad21ff30316bcbb4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88518859"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91858142"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-maxxpoint"></a>Tutorial: Integração do Azure Active Directory ao MaxxPoint
 
@@ -99,11 +99,11 @@ Para configurar o logon único do Azure AD com o MaxxPoint, execute as seguintes
 
 4. Na seção **Configuração de SAML Básica**, se você desejar configurar o aplicativo no modo iniciado pelo **IDP**, o usuário não precisará executar nenhuma etapa, pois o aplicativo já estará pré-integrado ao Azure.
 
-    ![Informações de logon único de Domínio e URLs do MaxxPoint](common/preintegrated.png)
+    ![Captura de tela que mostra a Configuração Básica de SAML.](common/preintegrated.png)
 
 5. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 
-    ![Informações de logon único de Domínio e URLs do MaxxPoint](common/metadata-upload-additional-signon.png)
+    ![Captura de tela que mostra Definir URLs adicionais, em que você pode inserir uma URL de Logon.](common/metadata-upload-additional-signon.png)
 
     Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://maxxpoint.westipc.com/default/sso/login/entity/<customer-id>-azure`
 

@@ -555,6 +555,8 @@
           href: client-images.md
         - name: Como baixar o disco existente
           href: download-vhd.md
+        - name: Disco gerenciado da versão da imagem
+          href: ../managed-disk-from-image-version.md
     - name: Como proteger VMs
       items:
         - name: Recomendações

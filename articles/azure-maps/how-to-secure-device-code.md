@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 7e61a881470b206981b65e175c1f7f40b161ebf8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e62a5c984afb434b8c47b5ee8c5c66c61485dbfc
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319751"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090430"
 ---
 # <a name="secure-an-input-constrained-device-with-azure-ad-and-azure-maps-rest-apis"></a>Proteger um dispositivo restrito de entrada com as APIs REST do Azure AD e do Azure Maps
 
@@ -55,7 +55,7 @@ Crie o aplicativo baseado em dispositivo no Azure AD para habilitar a entrada no
     > [!div class="mx-imgBorder"]
     > ![Selecionar permissões de API de aplicativo](./media/how-to-manage-authentication/select-app-permissions.png)
 
-6. Configure o controle de acesso baseado em função do Azure para usuários ou grupos. Consulte [conceder acesso baseado em função para usuários do Azure Maps](#grant-role-based-access-for-users-to-azure-maps).
+6. Configure o controle de acesso baseado em função do Azure (RBAC do Azure) para usuários ou grupos. Consulte [conceder acesso baseado em função para usuários para mapas do Azure](#grant-role-based-access-for-users-to-azure-maps).
 
 7. Adicione código para adquirir o fluxo de token no aplicativo, para obter detalhes de implementação, consulte [fluxo de código de dispositivo](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-acquire-token#device-code-flow). Ao adquirir tokens, referencie o escopo: `user_impersonation` que foi selecionado nas etapas anteriores.
 
@@ -110,7 +110,7 @@ Corpo:
 }
 ```
 
-[!INCLUDE [grant role access to users](./includes/grant-rbac-users.md)]
+[!INCLUDE [grant role-based access to users](./includes/grant-rbac-users.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2bec6667ea44e195ea1fccb5313b45ed060312a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 35c4875ca9bf3165fff84164eb3bb7ebe44cf932
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89000100"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093388"
 ---
 # <a name="debug-your-service-fabric-application-by-using-visual-studio"></a>Depurar seu aplicativo do Service Fabric usando o Visual Studio
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ Você pode economizar tempo e dinheiro implantando e depurando seu aplicativo do
 1. Inicie um cluster de desenvolvimento local seguindo as etapas em [Configurando o ambiente de desenvolvimento do Service Fabric](service-fabric-get-started.md).
 2. Pressione **F5** ou clique em **Depurar** > **Iniciar Depuração**.
    
-    ![Iniciar depuração de um aplicativo][startdebugging]
+    ![Captura de tela que mostra o menu Depurar.][startdebugging]
 3. Defina os pontos de interrupção em seu código e explore o aplicativo clicando nos comandos do menu **Depurar** .
    
    > [!NOTE]

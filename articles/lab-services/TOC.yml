@@ -64,7 +64,9 @@
               href: how-to-manage-user-lists-within-teams.md
             - name: Gerenciar pool de VMs
               href: how-to-manage-vm-pool-within-teams.md
-            - name: Criar agendamentos
+            - name: Excluir laboratórios
+              href: how-to-get-started-create-lab-within-teams.md#deleting-classroom-labs
+            - name: Agendamentos e configurações
               href: how-to-create-schedules-within-teams.md
             - name: Acessar uma VM (exibição de estudante)
               href: how-to-access-vm-for-students-within-teams.md
