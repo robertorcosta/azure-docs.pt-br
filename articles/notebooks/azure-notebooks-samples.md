@@ -4,10 +4,10 @@ description: Exemplos são uma ótima maneira de experimentar o Jupyter Notebook
 ms.topic: sample
 ms.date: 01/11/2019
 ms.openlocfilehash: 397e40f628e6e935fef74d2225d2e477aac7b276
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85833988"
 ---
 # <a name="discover-and-use-sample-notebooks-in-azure-notebooks-preview"></a>Descobrir e usar notebooks de exemplo na versão prévia do Azure Notebooks

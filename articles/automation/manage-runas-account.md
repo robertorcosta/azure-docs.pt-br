@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 09/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3357cb40ff476a3cc0bce259930068aeccf2c10c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0849eb0c421883ecb0510451ff81b604538c9cc3
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91767422"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92069884"
 ---
 # <a name="manage-an-azure-automation-run-as-account"></a>Gerenciar uma conta Executar como da Automação do Azure
 
@@ -214,7 +214,7 @@ Você pode permitir que a Automação do Azure verifique se Key Vault e sua enti
 * Conceder permissões a um Key Vault.
 * Definir a política de acesso.
 
-Você pode usar o script [Extend-AutomationRunAsAccountRoleAssignmentToKeyVault.ps1](https://aka.ms/AA5hugb) no Galeria do PowerShell para conceder permissões de conta Executar como para Key Vault. Consulte [atribuir uma política de acesso Key Vault](/azure/key-vault/general/assign-access-policy-powershell) para obter mais detalhes sobre como definir permissões em Key Vault.
+Você pode usar o script [Extend-AutomationRunAsAccountRoleAssignmentToKeyVault.ps1](https://aka.ms/AA5hugb) no Galeria do PowerShell para conceder permissões de conta Executar como para Key Vault. Consulte [atribuir uma política de acesso Key Vault](../key-vault/general/assign-access-policy-powershell.md) para obter mais detalhes sobre como definir permissões em Key Vault.
 
 ## <a name="resolve-misconfiguration-issues-for-run-as-accounts"></a>Resolver problemas de configuração incorreta para contas Executar como
 

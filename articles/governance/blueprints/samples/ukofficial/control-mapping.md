@@ -1,14 +1,14 @@
 ---
 title: Controles da amostra de blueprint do UK OFFICIAL e do UK NHS
-description: Mapeamento de controle das amostras de blueprint do UK OFFICIAL e do UK NHS. Cada controle é mapeado para uma ou mais Políticas do Azure que auxiliam na avaliação.
+description: Mapeamento de controle das amostras de blueprint do UK OFFICIAL e do UK NHS. Cada controle é mapeado para uma ou mais definições do Azure Policy que auxiliam na avaliação.
 ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: dd16e6e62e5df3bae083cc4df05207f1f518d560
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: b798ac98e057b85cce0faa835575dbb0d50f9c8c
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91540380"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91931265"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Mapeamento de controle das amostras de blueprint do UK OFFICIAL e do UK NHS
 
@@ -17,7 +17,7 @@ O artigo a seguir fornece detalhes sobre como as amostras de blueprint do UK OFF
 Os mapeamentos a seguir são para os controles **UK OFFICIAL** e **UK NHS**. Use a navegação no lado direito para ir diretamente para um mapeamento de controle específico. Muitos dos controles mapeados são implementados com uma iniciativa do [Azure Policy](../../../policy/overview.md). Para examinar a iniciativa completa, abra **Política** no portal do Azure e selecione a página **Definições**. Em seguida, localize e selecione os controles de **\[versão prévia\] UK OFFICIAL e UK NHS de Auditoria e implante Extensões de VM específicas para dar suporte aos requisitos de auditoria** da iniciativa de política interna.
 
 > [!IMPORTANT]
-> Cada controle abaixo está associado com uma ou mais definições do [Azure Policy](../../../policy/overview.md). Essas políticas podem ajudar você a [avaliar a conformidade](../../../policy/how-to/get-compliance-data.md) com o controle. No entanto, geralmente não há uma correspondência 1:1 ou completa entre um controle e uma ou mais políticas. Dessa forma, **Conformidade** no Azure Policy refere-se somente às próprias políticas. Não garante que você está totalmente em conformidade com todos os requisitos de um controle. Além disso, o padrão de conformidade inclui controles que não são abordados por nenhuma definição do Azure Policy no momento. Portanto, a conformidade no Azure Policy é somente uma exibição parcial do status de conformidade geral. As associações entre controles e definições do Azure Policy desta amostra de blueprint de conformidade podem ser alteradas ao longo do tempo. Para exibir o histórico de alterações, confira o [Histórico de Confirmações do GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/ukofficial/control-mapping.md).
+> Cada controle abaixo está associado com uma ou mais definições do [Azure Policy](../../../policy/overview.md). Essas políticas podem ajudar você a [avaliar a conformidade](../../../policy/how-to/get-compliance-data.md) com o controle. No entanto, geralmente não há uma correspondência um para um ou completa entre um controle e uma ou mais políticas. Dessa forma, **Conformidade** no Azure Policy refere-se somente às próprias políticas. Não garante que você está totalmente em conformidade com todos os requisitos de um controle. Além disso, o padrão de conformidade inclui controles que não são abordados por nenhuma definição do Azure Policy no momento. Portanto, a conformidade no Azure Policy é somente uma exibição parcial do status de conformidade geral. As associações entre controles e definições do Azure Policy desta amostra de blueprint de conformidade podem ser alteradas ao longo do tempo. Para exibir o histórico de alterações, confira o [Histórico de Confirmações do GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/ukofficial/control-mapping.md).
 
 ## <a name="1-data-in-transit-protection"></a>1 Proteção de dados em trânsito
 
@@ -33,8 +33,7 @@ O blueprint ajuda você a garantir que a transferência de informações com os 
 
 ## <a name="23-data-at-rest-protection"></a>2.3 Proteção de dados em repouso
 
-Esse blueprint ajuda você a impor sua política sobre o uso de controles de criptografia por meio da atribuição de definições do [Azure Policy](../../../policy/overview.md) que impõem controles de criptografia específicos e auditam o uso de configurações de criptografia fraca.
-Entender em que local os recursos do Azure podem ter configurações de criptografia não ideais pode ajudá-lo a tomar ações corretivas para garantir que os recursos sejam configurados de acordo com a política de segurança de informações. Especificamente, as políticas atribuídas por esse blueprint exigem criptografia para contas do Data Lake Storage; exigem Transparent Data Encryption em bancos de dados SQL; auditam a criptografia ausente em contas de armazenamento, bancos de dados SQL, discos de máquina virtual e variáveis da conta de automação; auditam conexões não seguras para contas de armazenamento e o Cache Redis; auditam a criptografia fraca de senhas de máquina virtual; e auditam a comunicação não criptografada do Service Fabric.
+Esse blueprint ajuda você a impor sua política sobre o uso de controles de criptografia por meio da atribuição de definições do [Azure Policy](../../../policy/overview.md) que impõem controles de criptografia específicos e auditam o uso de configurações de criptografia fraca. Entender em que local os recursos do Azure podem ter configurações de criptografia não ideais pode ajudá-lo a tomar ações corretivas para garantir que os recursos sejam configurados de acordo com a política de segurança de informações. Especificamente, as políticas atribuídas por esse blueprint exigem criptografia para contas do Data Lake Storage; exigem Transparent Data Encryption em bancos de dados SQL; auditam a criptografia ausente em contas de armazenamento, bancos de dados SQL, discos de máquina virtual e variáveis da conta de automação; auditam conexões não seguras para contas de armazenamento e o Cache Redis; auditam a criptografia fraca de senhas de máquina virtual; e auditam a comunicação não criptografada do Service Fabric.
 
 - A criptografia de disco deve ser aplicada em máquinas virtuais
 - As variáveis da conta de automação devem ser criptografadas
@@ -76,7 +75,8 @@ Este blueprint ajuda a proteger os ativos do sistema de informações atribuindo
 
 ## <a name="9-secure-user-management"></a>9 Gerenciamento seguro de usuários 
 
-O Azure RBAC (controle de acesso baseado em função) ajuda a gerenciar quem tem acesso aos recursos no Azure. Usando o portal do Azure, você pode examinar quem tem acesso aos recursos do Azure e suas permissões. Esse blueprint ajuda você a restringir e controlar os direitos de acesso por meio da atribuição de definições do [Azure Policy](../../../policy/overview.md) para auditar contas externas com permissões de proprietário e/ou leitura/gravação e contas com permissões de proprietário, leitura e/ou gravação que não têm a autenticação multifator habilitada.
+O Azure RBAC (controle de acesso baseado em função) ajuda a gerenciar quem tem acesso aos recursos no Azure.
+Usando o portal do Azure, você pode examinar quem tem acesso aos recursos do Azure e suas permissões. Esse blueprint ajuda você a restringir e controlar os direitos de acesso por meio da atribuição de definições do [Azure Policy](../../../policy/overview.md) para auditar contas externas com permissões de proprietário e/ou leitura/gravação e contas com permissões de proprietário, leitura e/ou gravação que não têm a autenticação multifator habilitada.
 
 - O MFA deve ser habilitado em contas com permissões de proprietário em sua assinatura
 - A MFA deve ser habilitada nas contas com permissões de gravação na sua assinatura
@@ -101,7 +101,8 @@ Este blueprint atribui definições do Azure Policy para auditar o uso da autent
 - Um administrador do Azure Active Directory deve ser provisionado para servidores SQL
 - Os clusters do Service Fabric só devem usar o Azure Active Directory para autenticação de cliente
 
-Esse blueprint também atribui definições do Azure Policy para auditar as contas que devem ser priorizadas para revisão, incluindo contas preteridas e contas externas. Quando necessário, as contas podem ser impedidas de entrar (ou removidas), o que remove imediatamente os direitos de acesso aos recursos do Azure. Esse blueprint atribui duas definições do Azure Policy para auditar contas preteridas que devem ser consideradas para remoção.
+Esse blueprint também atribui definições do Azure Policy para auditar as contas que devem ser priorizadas para revisão, incluindo contas preteridas e contas externas. Quando necessário, as contas podem ser impedidas de entrar (ou removidas), o que remove imediatamente os direitos de acesso aos recursos do Azure.
+Esse blueprint atribui duas definições do Azure Policy para auditar contas preteridas que devem ser consideradas para remoção.
 
 - As contas preteridas devem ser removidas de sua assinatura
 - As contas preteridas com permissões de proprietário devem ser removidas de sua assinatura
@@ -137,7 +138,8 @@ Esse blueprint também ajuda você a controlar o acesso aos recursos do Azure po
 
 ## <a name="11-external-interface-protection"></a>11 Proteção de interface externa
 
-Além de usar mais de 25 políticas para o gerenciamento seguro de usuários apropriado, este blueprint ajuda a proteger interfaces de serviço contra acesso não autorizado atribuindo uma definição do [Azure Policy](../../../policy/overview.md) que monitora contas de armazenamento irrestritas. As contas de armazenamento com acesso irrestrito podem permitir o acesso inadvertido a informações contidas no sistema de informações. Esse blueprint também atribui uma política que habilita controles de aplicativo adaptáveis em máquinas virtuais.
+Além de usar mais de 25 políticas para o gerenciamento seguro de usuários apropriado, este blueprint ajuda a proteger interfaces de serviço contra acesso não autorizado atribuindo uma definição do [Azure Policy](../../../policy/overview.md) que monitora contas de armazenamento irrestritas.
+As contas de armazenamento com acesso irrestrito podem permitir o acesso inadvertido a informações contidas no sistema de informações. Esse blueprint também atribui uma política que habilita controles de aplicativo adaptáveis em máquinas virtuais.
 
 - Auditar o acesso irrestrito à rede para contas de armazenamento
 - Os controles de aplicativos adaptáveis devem ser habilitados em máquinas virtuais
@@ -151,7 +153,8 @@ Além de usar mais de 25 políticas para o gerenciamento seguro de usuários apr
 
 ## <a name="13-audit-information-for-users"></a>13 Informações de auditoria para usuários
 
-Este blueprint ajuda você a garantir que os eventos do sistema sejam registrados em log por meio da atribuição de definições do [Azure Policy](../../../policy/overview.md) que auditam as configurações do log de auditoria em recursos do Azure. Uma política atribuída também audita se as máquinas virtuais não estão enviando logs para um workspace especificado do Log Analytics.
+Este blueprint ajuda você a garantir que os eventos do sistema sejam registrados em log por meio da atribuição de definições do [Azure Policy](../../../policy/overview.md) que auditam as configurações do log de auditoria em recursos do Azure.
+Uma política atribuída também audita se as máquinas virtuais não estão enviando logs para um workspace especificado do Log Analytics.
 
 - A Segurança de Dados Avançada deve ser habilitada nos servidores SQL
 - Configuração de diagnóstico de auditoria

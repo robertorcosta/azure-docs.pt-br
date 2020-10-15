@@ -8,12 +8,12 @@ author: troy0820
 ms.author: b-trconn
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc
-ms.openlocfilehash: 0cd6797bcdfadca807e25f8b3decf34bd553fc56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9eac34d643ba0df4be79a064858c580c884de727
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89470044"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078554"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-cluster-application-restore"></a>Criar uma restauração do aplicativo de cluster do Azure Red Hat OpenShift 4
 
@@ -23,7 +23,7 @@ Neste artigo, você irá preparar seu ambiente para criar uma restauração do a
 > * Configurar os pré-requisitos e instalar as ferramentas necessárias
 > * Criar uma restauração de aplicativo do Azure Red Hat OpenShift 4
 
-Se você optar por instalar e usar a CLI localmente, este tutorial exigirá a execução da CLI do Azure versão 2.6.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
+Se você optar por instalar e usar a CLI localmente, este tutorial exigirá a execução da CLI do Azure versão 2.6.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -45,7 +45,7 @@ oc get backups -n velero
 Quando tiver o backup que deseja restaurar, você precisará executar a restauração com o seguinte comando:
 
 ```bash
-velero restore create --from-backup <name of backup from above output list>
+velero restore create <name of restore> --from-backup <name of backup from above output list>
 ```
 
 Esta etapa criará os objetos kubernetes dos quais foi feito backup da etapa anterior ao criar um backup.
@@ -57,14 +57,36 @@ oc get restore -n velero <name of restore created previously> -o yaml
 ```
 Quando a fase diz `Completed` , o aplicativo Red Hat 4 do Azure deve ser restaurado.
 
+## <a name="restore-an-azure-red-hat-openshift-4-application-with-included-snapshots"></a>Restaurar um aplicativo Red Hat OpenShift 4 do Azure com instantâneos incluídos
+
+
+Para criar uma restauração de um aplicativo Red Hat OpenShift 4 do Azure com volumes persistentes usando o Velero, você precisará executar a restauração com o seguinte comando:
+
+```bash
+velero restore create <name of the restore> --from-backup <name of backup from above output list> --exclude-resources="nodes,events,events.events.k8s.io,backups.ark.heptio.com,backups.velero.io,restores.ark.heptio.com,restores.velero.io"
+```
+Esta etapa criará os objetos kubernetes dos quais foi feito backup da etapa anterior ao criar um backup.
+
+Para ver o status da restauração, execute a seguinte etapa:
+
+```bash
+oc get restore -n velero <name of restore created previously> -o yaml
+```
+Quando a fase diz `Completed` , o aplicativo Red Hat 4 do Azure deve ser restaurado.
+
+Para obter mais informações sobre como criar backups e restaurações usando o Velero, consulte [backup OpenShift Resources da maneira nativa](https://www.openshift.com/blog/backup-openshift-resources-the-native-way)
+
 ## <a name="next-steps"></a>Próximas etapas
 
 Neste artigo, um aplicativo de cluster do Azure Red Hat OpenShift 4 foi restaurado. Você aprendeu a:
 
 > [!div class="checklist"]
 > * Criar uma restauração de aplicativo de cluster OpenShift v4 usando Velero
+> * Criar uma restauração de aplicativo de cluster OpenShift V4 com instantâneos usando Velero
 
 
 Avance para o próximo artigo para saber mais sobre os recursos com suporte do Azure Red Hat OpenShift 4.
 
 * [Recursos com suporte do Azure Red Hat OpenShift v4](supported-resources.md)
+
+

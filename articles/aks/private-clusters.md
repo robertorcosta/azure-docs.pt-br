@@ -4,12 +4,12 @@ description: Saiba como criar um cluster privado do AKS (Serviço de Kubernetes 
 services: container-service
 ms.topic: article
 ms.date: 7/17/2020
-ms.openlocfilehash: 10cbd58807c213418a88b42887cdb76868eac34e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 825e97bfc80695180195fde07eaa1a25ac74b49b
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87015642"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078146"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Criar um cluster privado do Serviço de Kubernetes do Azure
 
@@ -21,8 +21,7 @@ O plano de controle ou o servidor de API está em uma assinatura do Azure gerenc
 
 O cluster privado está disponível em regiões públicas em que há [suporte para AKs](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
 
-* Atualmente, não há suporte para o Azure China 21Vianet.
-* Atualmente, não há suporte para US Gov Texas devido ao suporte de link privado ausente.
+Atualmente, não há suporte para US Gov Texas devido ao suporte de link privado ausente.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
