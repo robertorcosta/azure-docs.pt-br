@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.author: jeedes
-ms.openlocfilehash: 5457730494d509a2923ce929f41e397cb6064126
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 236c24ac63aef6b802edf53f9c414a522c2308e4
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550045"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015082"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cylanceprotect"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao CylancePROTECT
 
@@ -144,7 +144,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 ## <a name="configure-cylanceprotect-sso"></a>Configurar o SSO do CylancePROTECT
 
-Para configurar o logon único no lado do **CylancePROTECT**, é necessário enviar o **Certificado (Base64)** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do CylancePROTECT](https://www.cylance.com/en-us/resources/support/support-overview.html). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados. Para obter mais informações, use a documentação do Cylance: [https://support.cylance.com/s/article/Use-Microsoft-Azure-with-CylancePROTECT4](https://support.cylance.com/s/article/Use-Microsoft-Azure-with-CylancePROTECT4).
+Para configurar o logon único no lado do **CylancePROTECT**, é necessário enviar o **Certificado (Base64)** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do CylancePROTECT](https://www.cylance.com/en-us/resources/support/support-overview.html). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados. Para obter mais informações, use a documentação do Cylance: [https://support.cylance.com/s/](https://support.cylance.com/s/).
 
 ### <a name="create-cylanceprotect-test-user"></a>Criar um usuário de teste do CylancePROTECT
 
