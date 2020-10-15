@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: d58827632a36a69bc9b9592c607364daa6ef7d97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 64529a8c63a83976a0b2cb4170b53633185ee88c
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904226"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093626"
 ---
 # <a name="azure-spring-cloud-developer-resources"></a>Recursos para desenvolvedores do Azure Spring Cloud
 
@@ -23,9 +23,9 @@ Como desenvolvedor, talvez os seguintes recursos do Azure Spring Cloud sejam út
 * [Roteiro do Azure](https://azure.microsoft.com/updates)
 * [Perguntas frequentes](spring-cloud-faq.md)
 * [Guia de Solução de problemas](spring-cloud-troubleshoot.md)
-* [Página de perguntas e respostas da Microsoft](https://docs.microsoft.com/answers/topics/azure-spring-cloud.html)
+* [Página de perguntas e respostas da Microsoft](/answers/topics/azure-spring-cloud.html)
 * [Arquitetura de microsserviços do Spring Cloud da Pivotal](https://docs.pivotal.io/spring-cloud-services/1-5/common/index.html)
 * [Steeltoe](https://steeltoe.io/)
 * [Site do Spring Cloud Java](https://spring.io/)
 * [Estrutura do Spring](https://cloud.spring.io/spring-cloud-azure/)
-* [Spring no Azure](https://docs.microsoft.com/azure/developer/java/spring-framework/)
+* [Spring no Azure](/azure/developer/java/spring-framework/)

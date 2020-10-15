@@ -9,18 +9,18 @@ ms.date: 09/22/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e8a35902c198412f6e41c0cf39162836deb5e443
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ebf383c1a904027d3ff5a1864ea9f50e87a5fa8
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91280089"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093286"
 ---
 # <a name="list-blobs-with-net"></a>Listar blobs com .NET
 
 Ao listar blobs do seu código, você pode especificar várias opções para gerenciar o modo como os resultados são retornados do Armazenamento do Azure. Você pode especificar o número de resultados a serem retornados em cada conjunto de resultados e, em seguida, recuperar os conjuntos subsequentes. Você pode especificar um prefixo para retornar os blobs cujos nomes começam com esse caractere ou cadeia de caracteres. Além disso, você pode listar os blobs em uma estrutura de listagem plana ou hierarquicamente. Uma listagem hierárquica retorna blobs como se eles estivessem organizados em pastas.
 
-Esse artigo mostra como listar blobs usando a [biblioteca de clientes do Armazenamento do Azure para .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).  
+Esse artigo mostra como listar blobs usando a [biblioteca de clientes do Armazenamento do Azure para .NET](/dotnet/api/overview/azure/storage).  
 
 ## <a name="understand-blob-listing-options"></a>Noções básicas sobre as opções de listagem de blobs
 
@@ -28,10 +28,10 @@ Para listar os blobs em uma conta de armazenamento, chame um destes métodos:
 
 # <a name="net-v12"></a>[.NET V12](#tab/dotnet)
 
-- [BlobContainerClient. getblobs](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobs?view=azure-dotnet)
-- [BlobContainerClient.GetBlobsAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsasync?view=azure-dotnet)
-- [BlobContainerClient.GetBlobsByHierarchy](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsbyhierarchy?view=azure-dotnet)
-- [BlobContainerClient.GetBlobsByHierarchyAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsbyhierarchyasync?view=azure-dotnet)
+- [BlobContainerClient. getblobs](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobs)
+- [BlobContainerClient.GetBlobsAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsasync)
+- [BlobContainerClient.GetBlobsByHierarchy](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsbyhierarchy)
+- [BlobContainerClient.GetBlobsByHierarchyAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsbyhierarchyasync)
 
 # <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
 
@@ -65,7 +65,7 @@ Para filtrar a lista de BLOBs, especifique uma cadeia de caracteres para o `pref
 
 Você pode retornar metadados de blob com os resultados. 
 
-- Se você estiver usando o SDK do .NET V12, especifique o valor de **metadados** para a enumeração [BlobTraits](https://docs.microsoft.com/dotnet/api/azure.storage.blobs.models.blobtraits?view=azure-dotnet) .
+- Se você estiver usando o SDK do .NET V12, especifique o valor de **metadados** para a enumeração [BlobTraits](https://docs.microsoft.com/dotnet/api/azure.storage.blobs.models.blobtraits) .
 
 - Se você estiver usando o SDK do .NET v11, especifique o valor de **metadados** para a enumeração [BlobListingDetails](/dotnet/api/microsoft.azure.storage.blob.bloblistingdetails) . O Armazenamento do Azure inclui metadados com cada blob retornado, portanto, você não precisa chamar nenhum dos métodos **FetchAttributes** neste contexto para recuperar os metadados do blob.
 
@@ -153,7 +153,7 @@ Quando você chama uma operação de listagem hierarquicamente, o Armazenamento 
 
 # <a name="net-v12"></a>[.NET V12](#tab/dotnet)
 
-Para listar os BLOBs hierarquicamente, chame o método [BlobContainerClient. GetBlobsByHierarchy](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsbyhierarchy?view=azure-dotnet)ou [BlobContainerClient. GetBlobsByHierarchyAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsbyhierarchyasync?view=azure-dotnet) .
+Para listar os BLOBs hierarquicamente, chame o método [BlobContainerClient. GetBlobsByHierarchy](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsbyhierarchy)ou [BlobContainerClient. GetBlobsByHierarchyAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsbyhierarchyasync) .
 
 O exemplo a seguir lista os BLOBs no contêiner especificado usando uma listagem hierárquica, com um tamanho de segmento opcional especificado, e grava o nome do blob na janela do console.
 

@@ -3,12 +3,12 @@ title: Detalhes da estrutura de definição de política
 description: Descreve como as definições de política são usadas para estabelecer convenções para os recursos do Azure na sua organização.
 ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7b6cb1b9e9a57fb3278ec931364bc355258d649d
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 84af781ae58ab45b69d71ebdc22fbced910da246
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019946"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074253"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição da Política do Azure
 
@@ -111,7 +111,7 @@ O seguinte modo de provedor de recursos tem suporte completo:
 Atualmente, há suporte para os seguintes modos de provedor de recursos como uma **Visualização**:
 
 - `Microsoft.ContainerService.Data` para gerenciar as regras do controlador de admissão no [Serviço de Kubernetes do Azure](../../../aks/intro-kubernetes.md). As definições que usam esse modo de provedor de recursos **devem** usar o efeito [EnforceRegoPolicy](./effects.md#enforceregopolicy) . Esse modo é _preterido_.
-- `Microsoft.KeyVault.Data` para gerenciar cofres e certificados no [Azure Key Vault](../../../key-vault/general/overview.md).
+- `Microsoft.KeyVault.Data` para gerenciar cofres e certificados no [Azure Key Vault](../../../key-vault/general/overview.md). Para obter mais informações sobre essas definições de política, consulte [integrar Azure Key Vault com Azure Policy](../../../key-vault/general/azure-policy.md).
 
 > [!NOTE]
 > Os modos de provedor de recursos só dão suporte a definições de políticas internas e não dão suporte a [isenções](./exemption-structure.md).
@@ -609,8 +609,20 @@ As seguintes funções estão disponíveis apenas em regras de política:
     "definitionReferenceId": "StorageAccountNetworkACLs"
   }
   ```
-  
-  
+
+
+- `ipRangeContains(range, targetRange)`
+    - **Range**: [obrigatório] cadeia de caracteres de sequência que especifica um intervalo de endereços IP.
+    - **targetRange**: [Required] String-String especificando um intervalo de endereços IP.
+
+    Retorna se o intervalo de endereços IP fornecido contém o intervalo de endereços IP de destino. Os intervalos vazios ou a combinação entre as famílias de IP não são permitidas e resultam em falha de avaliação.
+
+    Formatos com suporte:
+    - Endereço IP único (exemplos: `10.0.0.0` , `2001:0DB8::3:FFFE` )
+    - Intervalo CIDR (exemplos: `10.0.0.0/24` , `2001:0DB8::/110` )
+    - Intervalo definido pelos endereços IP inicial e final (exemplos: `192.168.0.1-192.168.0.9` , `2001:0DB8::-2001:0DB8::3:FFFF` )
+
+
 #### <a name="policy-function-example"></a>Exemplo de função de política
 
 Este exemplo de regra de política usa a função de recurso `resourceGroup` para obter a propriedade **name**, combinada com a matriz `concat` e o objeto de função para criar uma condição `like` que impõe o nome do recurso para iniciar com o nome do grupo de recursos.

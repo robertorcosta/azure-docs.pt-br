@@ -180,8 +180,10 @@
               href: manage/pay-by-invoice.md
             - name: Criar assinaturas adicionais
               href: manage/create-subscription.md
-            - name: Criar assinaturas programaticamente
+            - name: Criar assinaturas de maneira programática com a API mais recente
               href: manage/programmatically-create-subscription.md
+            - name: Criar assinaturas de maneira programática com a API de versão prévia
+              href: manage/programmatically-create-subscription-preview.md
             - name: Conceder acesso para criar assinaturas de EA
               href: manage/grant-access-to-create-subscription.md
             - name: Exportar informações da assinatura
@@ -338,6 +340,12 @@
               href: reservations/reservation-renew.md?toc=/azure/cost-management-billing/toc.json
     - name: Solucionar problemas
       items:
+        - name: Problemas na cobrança do EA com arquivos de uso
+          href: manage/troubleshoot-ea-billing-issues-usage-file-pivot-tables.md
+        - name: Problemas na cobrança do MCA com arquivos de uso
+          href: manage/troubleshoot-customer-agreement-billing-issues-usage-file-pivot-tables.md
+        - name: Problemas na cobrança do CSP com arquivos de uso
+          href: manage/troubleshoot-csp-billing-issues-usage-file-pivot-tables.md
         - name: Nenhuma assinatura encontrada
           href: manage/no-subscriptions-found.md
         - name: Problemas no pagamento
