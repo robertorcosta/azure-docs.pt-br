@@ -8,16 +8,16 @@ ms.date: 10/06/2019
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 97926d5bdf3123ae50714d36ad0234872f67aa96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30eb19e418292e74989be81d94ed684c917f6971
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90908290"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92088628"
 ---
 # <a name="use-distributed-tracing-with-azure-spring-cloud"></a>Usar o rastreamento distribuído com o Azure Spring Cloud
 
-Com as ferramentas de rastreamento distribuído do Azure Spring Cloud, você pode depurar e monitorar problemas complexos com facilidade. O Azure Spring Cloud integra o [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) ao [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) do Azure. Essa integração fornece uma funcionalidade avançada de rastreamento distribuído no portal do Azure.
+Com as ferramentas de rastreamento distribuído do Azure Spring Cloud, você pode depurar e monitorar problemas complexos com facilidade. O Azure Spring Cloud integra o [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) ao [Application Insights](../azure-monitor/app/app-insights-overview.md) do Azure. Essa integração fornece uma funcionalidade avançada de rastreamento distribuído no portal do Azure.
 
 ::: zone pivot="programming-language-csharp"
 Neste artigo, você aprenderá a habilitar um aplicativo Steeltoe do .NET Core para usar o rastreamento distribuído.
@@ -144,15 +144,15 @@ Caso já tenha criado e implantado um aplicativo, modifique a taxa de amostra. F
 
 ## <a name="view-the-application-map"></a>Exibir o mapa do aplicativo
 
-Retorne à página **Rastreamento Distribuído** e selecione **Exibir mapa do aplicativo**. Examine a representação visual do aplicativo das configurações de monitoramento. Para saber como usar o mapa do aplicativo, confira [Mapa do aplicativo: Triagem dos aplicativos distribuídos](https://docs.microsoft.com/azure/azure-monitor/app/app-map).
+Retorne à página **Rastreamento Distribuído** e selecione **Exibir mapa do aplicativo**. Examine a representação visual do aplicativo das configurações de monitoramento. Para saber como usar o mapa do aplicativo, confira [Mapa do aplicativo: Triagem dos aplicativos distribuídos](../azure-monitor/app/app-map.md).
 
 ## <a name="use-search"></a>Usar a pesquisa
 
-Use a função de pesquisa para consultar outros itens de telemetria específicos. Na página de **Rastreamento Distribuído**, selecione **Pesquisar**. Para obter mais informações sobre como usar a função de pesquisa, confira [Como usar a pesquisa no Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/diagnostic-search).
+Use a função de pesquisa para consultar outros itens de telemetria específicos. Na página de **Rastreamento Distribuído**, selecione **Pesquisar**. Para obter mais informações sobre como usar a função de pesquisa, confira [Como usar a pesquisa no Application Insights](../azure-monitor/app/diagnostic-search.md).
 
 ## <a name="use-application-insights"></a>Usar o Application insights
 
-O Application Insights fornece funcionalidades de monitoramento além do mapa do aplicativo e da função de pesquisa. Pesquise o nome do aplicativo no portal do Azure e, em seguida, abra uma página do Application Insights para encontrar informações de monitoramento. Para obter mais diretrizes sobre como usar essas ferramentas, confira [Consultas de log do Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/query-language).
+O Application Insights fornece funcionalidades de monitoramento além do mapa do aplicativo e da função de pesquisa. Pesquise o nome do aplicativo no portal do Azure e, em seguida, abra uma página do Application Insights para encontrar informações de monitoramento. Para obter mais diretrizes sobre como usar essas ferramentas, confira [Consultas de log do Azure Monitor](/azure/data-explorer/kusto/query/).
 
 ## <a name="disable-application-insights"></a>Desabilitar o Application Insights
 

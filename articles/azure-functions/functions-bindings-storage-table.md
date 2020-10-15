@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 50706e1b525a3e3a39701ef2135d44c02c35077e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70329d07a9966a5cbdafcd64000470c4edcbca9e
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89181129"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072043"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Associações de armazenamento de tabelas do Azure Functions
 
@@ -273,8 +273,8 @@ public class Person : TableEntity
 ```
 
 ```csharp
-#r "Microsoft.Azure.Cosmos"
-using Microsoft.Azure.Cosmos.Table;
+#r "Microsoft.WindowsAzure.Storage"
+using Microsoft.WindowsAzure.Storage.Table;
 using System;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
@@ -976,9 +976,9 @@ Acesse o evento de saída usando `context.bindings.<name>`, em que `<name>` é o
 
 Há duas opções para a saída de uma mensagem de linha de armazenamento de tabela de uma função:
 
-- **Valor de retorno**: defina a `name` propriedade no *function.js* como `$return` . Com essa configuração, o valor de retorno da função é persistido como uma linha de armazenamento de tabela.
+- **Valor retornado**: defina a propriedade `name` no *function.json* como `$return`. Com essa configuração, o valor de retorno da função é persistido como uma linha de armazenamento de tabela.
 
-- **Imperativo**: passe um valor para o método [set](/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) do parâmetro declarado como um tipo [out](/python/api/azure-functions/azure.functions.out?view=azure-python) . O valor passado para `set` é persistido como uma mensagem do hub de eventos.
+- **Imperativo**: passe um valor para [definir](/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) o método do parâmetro declarado como um tipo de [Saída](/python/api/azure-functions/azure.functions.out?view=azure-python). O valor passado para `set` será mantido como uma mensagem do Hub de Eventos.
 
 # <a name="java"></a>[Java](#tab/java)
 

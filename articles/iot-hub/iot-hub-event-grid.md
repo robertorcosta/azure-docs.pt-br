@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - 'Role: Cloud Development'
-ms.openlocfilehash: c1dc3b5fe4eecea42baf7073b9c806eea1648cff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af1e47c61977d0bc5d03f8cdb87393ed2014e736
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90056159"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072298"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Reagir aos eventos do Hub IoT usando a Grade de Eventos para disparar ações
 
@@ -73,6 +73,8 @@ O exemplo a seguir mostra o esquema de um evento de dispositivo conectado:
   "metadataVersion": "1"
 }]
 ```
+
+
 
 ### <a name="device-telemetry-schema"></a>Esquema de telemetria do dispositivo
 
@@ -163,6 +165,10 @@ O exemplo a seguir mostra o esquema de um evento criado de dispositivo:
   "metadataVersion": "1"
 }]
 ```
+
+
+> [!WARNING]
+> *Os dados de entrelaçamento* associados a um evento de criação de dispositivo são uma configuração padrão e não *devem* ser dependentes para `authenticationType` as propriedades real e outras do dispositivo em um dispositivo recém-criado. Para `authenticationType` o e outras propriedades de dispositivo em um dispositivo recém-criado, use a API do Gerenciador de registro fornecida nos SDKs do Azure IOT.
 
 Para obter uma descrição detalhada de cada propriedade, consulte [esquema de evento da grade de eventos do Azure para o Hub IOT](../event-grid/event-schema-iot-hub.md).
 
