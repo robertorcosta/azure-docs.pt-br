@@ -1,6 +1,6 @@
 ---
 title: 'WAN virtual do Azure: criar uma solução de virtualização de rede (NVA) no Hub'
-description: Neste tutorial, saiba como implantar uma solução de virtualização de rede no Hub WAN virtual.
+description: Saiba como implantar uma solução de virtualização de rede no Hub WAN virtual.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -8,23 +8,23 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to create a Network Virtual Appliance (NVA) in my Virtual WAN hub.
-ms.openlocfilehash: 014339b02167a1bb4cba11cc10c9740b8fa53f2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e174f9b78606e0bea5cded3a176f4207745bb5c
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91773239"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077296"
 ---
 # <a name="how-to-create-a-network-virtual-appliance-in-an-azure-virtual-wan-hub-preview"></a>Como criar uma solução de virtualização de rede em um hub de WAN virtual do Azure (versão prévia)
 
-Este tutorial mostra como usar a WAN virtual para se conectar aos seus recursos no Azure por meio de uma NVA ( **solução de virtualização de rede** ) no Azure. Esse tipo de conexão exige um dispositivo VPN localizado no local que tenha um endereço IP público voltado para o exterior atribuído a ele. Para saber mais sobre WAN Virtual, confira a [Visão geral de WAN Virtual](virtual-wan-about.md).
+Este artigo mostra como usar a WAN virtual para se conectar aos seus recursos no Azure por meio de uma NVA ( **solução de virtualização de rede** ) no Azure. Esse tipo de conexão exige um dispositivo VPN localizado no local que tenha um endereço IP público voltado para o exterior atribuído a ele. Para obter mais informações sobre WAN virtual, consulte o [que é WAN virtual?](virtual-wan-about.md).
 
 As etapas neste artigo o ajudarão a criar uma solução de virtualização de rede de **Wan CloudGen Barracuda** no Hub de WAN virtual. Para concluir este exercício, você deve ter um dispositivo de nuvem Barracuda (CPE) e uma licença para o dispositivo de WAN Barracuda CloudGen que você implanta no hub antes de começar.
 
 Para obter a documentação de implantação do **Cisco SD-Wan** na WAN virtual do Azure, envie um email para a Cisco no seguinte endereço de email: vwan_public_preview@external.cisco.com
 
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="prerequisites"></a>Pré-requisitos
 
 Verifique se você atende aos seguintes critérios antes de iniciar a configuração:
 
@@ -98,5 +98,5 @@ Nesta etapa, você criará uma solução de virtualização de rede no Hub. O pr
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para saber mais sobre a WAN Virtual, consulte a página [Visão geral de WAN Virtual](virtual-wan-about.md).
+* Para saber mais sobre a WAN virtual, consulte a página [o que é WAN virtual?](virtual-wan-about.md) .
 * Para saber mais sobre o NVAs em um hub de WAN virtual, consulte [sobre a solução de virtualização de rede no Hub de WAN virtual (versão prévia)](about-nva-hub.md).

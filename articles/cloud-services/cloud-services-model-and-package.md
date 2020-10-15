@@ -7,12 +7,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
-ms.openlocfilehash: 32603f4ab33e020245861e5dc66d2ade545fa627
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 180295599082a762fc525c4740079ceefc0954a1
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872129"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077177"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>Qual é o modelo de serviço de nuvem e como empacotá-lo?
 Um serviço de nuvem é criado a partir de três componentes, a definição do serviço *(.csdef)*, configuração do serviço *(.cscfg)* e pacote do serviço *(.cspkg)*. Os arquivos **ServiceDefinition.csdef** e **ServiceConfig.cscfg** são baseados no XML, descrevem a estrutura do serviço de nuvem e como ela é configurada; coletivamente são chamados de modelo. O **ServicePackage.cspkg** é um arquivo zip gerado do **ServiceDefinition.csdef** e entre outras coisas, contém todas as dependências necessárias com base no binário. O Azure cria um serviço de nuvem para o **ServicePackage.cspkg** e o **ServiceConfig.cscfg**.
@@ -289,9 +289,6 @@ Estou usando o Visual Studio e desejo...
 [deploy]: cloud-services-how-to-create-deploy-portal.md
 [remotedesktop]: cloud-services-role-enable-remote-desktop-new-portal.md
 [vs_remote]: cloud-services-role-enable-remote-desktop-visual-studio.md
-[vs_deploy]: ../vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md
-[vs_reconfigure]: ../vs-azure-tools-configure-roles-for-cloud-service.md
-[vs_create]: ../vs-azure-tools-azure-project-create.md
-
-
-
+[vs_deploy]: /visualstudio/azure/vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio
+[vs_reconfigure]: /visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service
+[vs_create]: /visualstudio/azure/vs-azure-tools-azure-project-create

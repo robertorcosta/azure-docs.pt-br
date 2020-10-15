@@ -3,12 +3,12 @@ title: Controles de amostra de blueprint do PCI-DSS v3.2.1
 description: Mapeamento de controle da amostra de blueprint do Padrão de Segurança de Dados do Setor de Cartões de Pagamento v3.2.1 para Azure Policy e Azure RBAC.
 ms.date: 08/19/2020
 ms.topic: sample
-ms.openlocfilehash: 3d7bdd62dcc5b65b0978444e74013d289f03ed6a
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: c634e8cc64f6376251e2cd07725c5c5a643b27c7
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91541638"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91931420"
 ---
 # <a name="control-mapping-of-the-pci-dss-v321-blueprint-sample"></a>Mapeamento de controle da amostra de blueprint do PCI-DSS v3.2.1
 
@@ -17,7 +17,7 @@ O artigo a seguir apresenta detalhes sobre como a amostra do Azure Blueprints PC
 Os seguintes mapeamentos referem-se aos controles de **PCI-DSS v3.2.1:2018**. Use a navegação no lado direito para ir diretamente para um mapeamento de controle específico. Muitos dos controles mapeados são implementados com uma iniciativa do [Azure Policy](../../../policy/overview.md). Para examinar a iniciativa completa, abra **Política** no portal do Azure e selecione a página **Definições**. Em seguida, localize e selecione os controles de **\[Versão Prévia\] PCI-DSS v3.2.1:2018 de Auditoria e implante Extensões de VM específicas para dar suporte aos requisitos de auditoria** da iniciativa de política interna.
 
 > [!IMPORTANT]
-> Cada controle abaixo está associado com uma ou mais definições do [Azure Policy](../../../policy/overview.md). Essas políticas podem ajudar você a [avaliar a conformidade](../../../policy/how-to/get-compliance-data.md) com o controle. No entanto, geralmente não há uma correspondência 1:1 ou completa entre um controle e uma ou mais políticas. Dessa forma, **Conformidade** no Azure Policy refere-se somente às próprias políticas. Não garante que você está totalmente em conformidade com todos os requisitos de um controle. Além disso, o padrão de conformidade inclui controles que não são abordados por nenhuma definição do Azure Policy no momento. Portanto, a conformidade no Azure Policy é somente uma exibição parcial do status de conformidade geral. As associações entre controles e definições do Azure Policy desta amostra de blueprint de conformidade podem ser alteradas ao longo do tempo. Para exibir o histórico de alterações, confira o [Histórico de Confirmações do GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/pci-dss-3.2.1/control-mapping.md).
+> Cada controle abaixo está associado com uma ou mais definições do [Azure Policy](../../../policy/overview.md). Essas políticas podem ajudar você a [avaliar a conformidade](../../../policy/how-to/get-compliance-data.md) com o controle. No entanto, geralmente não há uma correspondência um para um ou completa entre um controle e uma ou mais políticas. Dessa forma, **Conformidade** no Azure Policy refere-se somente às próprias políticas. Não garante que você está totalmente em conformidade com todos os requisitos de um controle. Além disso, o padrão de conformidade inclui controles que não são abordados por nenhuma definição do Azure Policy no momento. Portanto, a conformidade no Azure Policy é somente uma exibição parcial do status de conformidade geral. As associações entre controles e definições do Azure Policy desta amostra de blueprint de conformidade podem ser alteradas ao longo do tempo. Para exibir o histórico de alterações, confira o [Histórico de Confirmações do GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/pci-dss-3.2.1/control-mapping.md).
 
 ## <a name="132-and-134-boundary-protection"></a>1.3.2 e 1.3.4 Proteção de limite
 

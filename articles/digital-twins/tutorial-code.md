@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: bd8eee2fd6134bb36c0b0ab45492567f4fdbec26
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8e7ad721eba103679f55886053e8ba9e888573c0
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91297497"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057477"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Tutorial: Codificação com as APIs dos Gêmeos Digitais do Azure
 
@@ -181,7 +181,7 @@ No diretório em que você criou o projeto, crie um arquivo *.json* chamado *Sam
 > Se você estiver usando o Visual Studio para este tutorial, o ideal será selecionar o arquivo JSON recém-criado e definir a propriedade *Copiar para o Diretório de Saída* na inspeção de propriedade como *Copiar se for o Mais Recente* ou *Sempre Copiar*. Isso permitirá que o Visual Studio localize o arquivo JSON com o caminho padrão quando você executar o programa com **F5** durante o restante do tutorial.
 
 > [!TIP] 
-> Há uma [amostra de Validador DTDL](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) independente de linguagem que pode ser usada para verificar os documentos do modelo e ver se a DTDL é válida. Ela se baseia na biblioteca do analisador de DTDL, que é explicada mais detalhadamente em [*Como analisar e validar modelos*](how-to-parse-models.md).
+> Há uma [amostra de Validador DTDL](/samples/azure-samples/dtdl-validator/dtdl-validator) independente de linguagem que pode ser usada para verificar os documentos do modelo e ver se a DTDL é válida. Ela se baseia na biblioteca do analisador de DTDL, que é explicada mais detalhadamente em [*Como analisar e validar modelos*](how-to-parse-models.md).
 
 Em seguida, adicione mais um código a *Program.cs* para carregar o modelo recém-criado na sua instância dos Gêmeos Digitais do Azure.
 

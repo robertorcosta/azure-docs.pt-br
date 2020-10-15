@@ -1,14 +1,14 @@
 ---
 title: Controles de amostra de blueprint do SWIFT CSP-CSCF v2020
-description: Mapeamento de controle da amostra de blueprint da SWIFT CSP-CSCF v2020. Cada controle é mapeado para uma ou mais Políticas do Azure que auxiliam na avaliação.
+description: Mapeamento de controle da amostra de blueprint da SWIFT CSP-CSCF v2020. Cada controle é mapeado para uma ou mais definições do Azure Policy que auxiliam na avaliação.
 ms.date: 08/18/2020
 ms.topic: sample
-ms.openlocfilehash: 868971b0523e077f0f76c0340a87df550448913a
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 5aa4ee556c4ec7348566f45592b5e9fbf00eaf20
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91540805"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91932185"
 ---
 # <a name="control-mapping-of-the-swift-csp-cscf-v2020-blueprint-sample"></a>Mapeamento de controle da amostra de blueprint SWIFT CSP-CSCF v2020
 
@@ -17,11 +17,11 @@ O artigo a seguir fornece detalhes sobre como a amostra de blueprint SWIFT CSP-C
 Os mapeamentos a seguir referem-se aos controles **SWIFT CSP-CSCF v2020**. Use a navegação no lado direito para ir diretamente para um mapeamento de controle específico. Muitos dos controles mapeados são implementados com uma iniciativa do [Azure Policy](../../../policy/overview.md). Para examinar a iniciativa completa, abra **Política** no portal do Azure e selecione a página **Definições**. Em seguida, localize e selecione a iniciativa de política interna **\[Versão prévia\]: Auditar os controles SWIFT CSP-CSCF v2020 e implantar extensões de VM específicas para dar suporte aos requisitos de auditoria**.
 
 > [!IMPORTANT]
-> Cada controle abaixo está associado com uma ou mais definições do [Azure Policy](../../../policy/overview.md). Essas políticas podem ajudar você a [avaliar a conformidade](../../../policy/how-to/get-compliance-data.md) com o controle. No entanto, geralmente não há uma correspondência 1:1 ou completa entre um controle e uma ou mais políticas. Dessa forma, **Conformidade** no Azure Policy refere-se somente às próprias políticas. Não garante que você está totalmente em conformidade com todos os requisitos de um controle. Além disso, o padrão de conformidade inclui controles que não são abordados por nenhuma definição do Azure Policy no momento. Portanto, a conformidade no Azure Policy é somente uma exibição parcial do status de conformidade geral. As associações entre controles e definições do Azure Policy desta amostra de blueprint de conformidade podem ser alteradas ao longo do tempo. Para exibir o histórico de alterações, confira o [Histórico de Confirmações do GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/swift-2020/control-mapping.md).
+> Cada controle abaixo está associado com uma ou mais definições do [Azure Policy](../../../policy/overview.md). Essas políticas podem ajudar você a [avaliar a conformidade](../../../policy/how-to/get-compliance-data.md) com o controle. No entanto, geralmente não há uma correspondência um para um ou completa entre um controle e uma ou mais políticas. Dessa forma, **Conformidade** no Azure Policy refere-se somente às próprias políticas. Não garante que você está totalmente em conformidade com todos os requisitos de um controle. Além disso, o padrão de conformidade inclui controles que não são abordados por nenhuma definição do Azure Policy no momento. Portanto, a conformidade no Azure Policy é somente uma exibição parcial do status de conformidade geral. As associações entre controles e definições do Azure Policy desta amostra de blueprint de conformidade podem ser alteradas ao longo do tempo. Para exibir o histórico de alterações, confira o [Histórico de Confirmações do GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/swift-2020/control-mapping.md).
 
 ## <a name="12-and-51-account-management"></a>1.2 e 5.1 Gerenciamento de Contas
 
-Este blueprint ajuda a analisar contas que podem não estar em conformidade com os requisitos de gerenciamento de conta de sua organização. Este blueprint atribui definições do [Azure Policy](../../../policy/overview.md) que auditam contas externas com permissões de leitura, gravação e proprietário em contas de assinatura e preteridas. Revisando as contas auditadas por essas políticas, você pode adotar as medidas adequadas a fim de garantir que os requisitos de gerenciamento de conta sejam atendidos.
+Este blueprint ajuda você a examinar as contas que possam não estar em conformidade com os requisitos de gerenciamento de conta de sua organização. Este blueprint atribui definições do [Azure Policy](../../../policy/overview.md) que auditam contas externas com permissões de leitura, gravação e proprietário em contas de assinatura e preteridas. Revisando as contas auditadas por essas políticas, você pode adotar as medidas adequadas a fim de garantir que os requisitos de gerenciamento de conta sejam atendidos.
 
 - As contas preteridas devem ser removidas de sua assinatura
 - As contas preteridas com permissões de proprietário devem ser removidas de sua assinatura
@@ -63,7 +63,7 @@ O [Azure RBAC (controle de acesso baseado em função)](../../../../role-based-a
 
 ## <a name="22-and-27-security-attributes"></a>2.2 e 2.7 Atributos de Segurança
 
-A capacidade de classificação e descoberta de dados da Segurança de Dados Avançada do Banco de Dados SQL do Azure fornece funcionalidades para descobrir, classificar, rotular e proteger os dados confidenciais em seus bancos de dados. Pode ser usada para fornecer visibilidade em seu estado de classificação do banco de dados e para controlar o acesso a dados confidenciais no banco de dados e, além de suas bordas. A Segurança de Dados Avançada pode ajudá-lo a garantir que as informações sejam associadas aos atributos de segurança apropriados de sua organização. Este blueprint atribui definições do [Azure Policy](../../../policy/overview.md) para monitorar e impor o uso da Segurança de Dados Avançada no SQL Server. 
+A capacidade de classificação e descoberta de dados da Segurança de Dados Avançada do Banco de Dados SQL do Azure fornece funcionalidades para descobrir, classificar, rotular e proteger os dados confidenciais em seus bancos de dados. Pode ser usada para fornecer visibilidade em seu estado de classificação do banco de dados e para controlar o acesso a dados confidenciais no banco de dados e, além de suas bordas. A Segurança de Dados Avançada pode ajudá-lo a garantir que as informações sejam associadas aos atributos de segurança apropriados de sua organização. Este blueprint atribui definições do [Azure Policy](../../../policy/overview.md) para monitorar e impor o uso da Segurança de Dados Avançada no SQL Server.
 
 - A Segurança de Dados Avançada deve ser habilitada nos servidores SQL
 - Implantar Segurança de Dados Avançada em servidores SQL
@@ -105,7 +105,8 @@ Dados de log coletados pelo Azure Monitor são armazenados em um workspace do Lo
 
 ## <a name="13-22-27-64-and-65a-audit-generation"></a>1.3, 2.2, 2.7, 6.4 e 6.5A Geração de Auditoria
 
-Este blueprint ajuda você a garantir que os eventos do sistema sejam registrados em log por meio da atribuição de definições do [Azure Policy](../../../policy/overview.md) que auditam as configurações do log de auditoria em recursos do Azure. Essas definições de política auditam e impõem a implantação do agente do Log Analytics em máquinas virtuais do Azure, bem como as configurações de auditoria para outros tipos de recursos do Azure. Essas definições de política também auditam a configuração dos logs de diagnóstico para fornecer informações sobre as operações executadas em recursos do Azure. Além disso, a auditoria e a Segurança de Dados Avançada são configuradas em servidores SQL.
+Este blueprint ajuda você a garantir que os eventos do sistema sejam registrados em log por meio da atribuição de definições do [Azure Policy](../../../policy/overview.md) que auditam as configurações do log de auditoria em recursos do Azure.
+Essas definições de política auditam e impõem a implantação do agente do Log Analytics em máquinas virtuais do Azure, bem como as configurações de auditoria para outros tipos de recursos do Azure. Essas definições de política também auditam a configuração dos logs de diagnóstico para fornecer informações sobre as operações executadas em recursos do Azure. Além disso, a auditoria e a Segurança de Dados Avançada são configuradas em servidores SQL.
 
 - Auditar a implantação do Agente do Log Analytics – imagem de VM (sistema operacional) não listada
 - Implantar o Agente do Log Analytics no VMSS (Conjuntos de Dimensionamento de VMs) do Linux
@@ -153,7 +154,7 @@ Esse blueprint ajuda a restringir e controlar o acesso atribuindo uma definiçã
 
 ## <a name="23-and-41-authenticator-management"></a>2.3 e 4.1 Gerenciamento de Autenticador
 
-Este blueprint atribui definições do [Azure Policy](../../../policy/overview.md) que auditam as máquinas virtuais do Linux que permitem conexões remotas em contas sem senhas e/ou que têm permissões incorretas definidas no arquivo de senha. Este blueprint também atribui definições de política que auditam a configuração do tipo de criptografia de senha para máquinas virtuais do Windows. Monitorar esses indicadores ajuda você a garantir que os autenticadores do sistema estejam em conformidade com a política de identificação e autenticação de sua organização.
+Este blueprint atribui definições do [Azure Policy](../../../policy/overview.md) que auditam as máquinas virtuais do Linux que permitem conexões remotas em contas sem senhas e/ou que têm permissões incorretas definidas no arquivo de senha. Este blueprint também atribui definições de política que auditam a configuração do tipo de criptografia de senha para máquinas virtuais do Windows. O monitoramento desses indicadores ajuda você a garantir que os autenticadores do sistema estejam em conformidade com a política de identificação e autenticação de sua organização.
 
 - Mostrar os resultados da auditoria das VMs do Linux que não têm as permissões de arquivo de senha definidas como 0644
 - Implantar requisitos para auditar as VMs do Linux que não têm as permissões de arquivo de senha definidas como 0644
@@ -181,7 +182,8 @@ Este blueprint ajuda você a impor senhas fortes por meio da atribuição de def
 
 ## <a name="22-and-27-vulnerability-scanning"></a>2.2 e 2.7 Verificação de Vulnerabilidade
 
-Este blueprint ajuda você a gerenciar as vulnerabilidades do sistema de informações por meio da atribuição de definições do [Azure Policy](../../../policy/overview.md) que monitoram vulnerabilidades do sistema operacional, vulnerabilidades do SQL e vulnerabilidades da máquina virtual na Central de Segurança do Azure. A Central de Segurança do Azure fornece funcionalidades de relatórios que permitem ter insights em tempo real sobre o estado de segurança de recursos implantados do Azure. Este blueprint também atribui definições de política que auditam e impõem a Segurança de Dados Avançada em servidores SQL. A segurança de dados avançada inclui recursos de avaliação de vulnerabilidade e proteção avançada contra ameaças para ajudá-lo a entender as vulnerabilidades de seus recursos implantados.
+Este blueprint ajuda você a gerenciar as vulnerabilidades do sistema de informações por meio da atribuição de definições do [Azure Policy](../../../policy/overview.md) que monitoram vulnerabilidades do sistema operacional, vulnerabilidades do SQL e vulnerabilidades da máquina virtual na Central de Segurança do Azure.
+A Central de Segurança do Azure fornece funcionalidades de relatórios que permitem ter insights em tempo real sobre o estado de segurança de recursos implantados do Azure. Este blueprint também atribui definições de política que auditam e impõem a Segurança de Dados Avançada em servidores SQL. A segurança de dados avançada inclui recursos de avaliação de vulnerabilidade e proteção avançada contra ameaças para ajudá-lo a entender as vulnerabilidades de seus recursos implantados.
 
 - A Segurança de Dados Avançada deve ser habilitada nos servidores SQL
 - A auditoria no SQL Server deve ser habilitada
@@ -191,14 +193,13 @@ Este blueprint ajuda você a gerenciar as vulnerabilidades do sistema de informa
 
 ## <a name="13-denial-of-service-protection"></a>1.3 Proteção contra Negação de Serviço
 
-O nível padrão da proteção contra DDoS (ataque de negação de serviço distribuído) do Azure fornece recursos adicionais e recursos de mitigação com relação à camada de serviço básica. Esses recursos adicionais incluem a integração do Azure Monitor e a capacidade de examinar relatórios de mitigação pós-ataque. Esse blueprint atribui uma definição do [Azure Policy](../../../policy/overview.md) que audita se o nível padrão da proteção contra DDoS está habilitada. Compreender a diferença de funcionalidade entre as camadas de serviço pode ajudar você a selecionar a melhor solução para tratar das proteções contra negação de serviço para seu ambiente do Azure.
+O nível Standard da proteção contra DDoS (ataque de negação de serviço distribuído) do Azure fornece recursos adicionais e funcionalidades de mitigação com relação à camada de serviço básica. Esses recursos adicionais incluem a integração do Azure Monitor e a capacidade de examinar relatórios de mitigação pós-ataque. Esse blueprint atribui uma definição do [Azure Policy](../../../policy/overview.md) que audita se o nível padrão da proteção contra DDoS está habilitada. Compreender a diferença de funcionalidade entre as camadas de serviço pode ajudar você a selecionar a melhor solução para tratar das proteções contra negação de serviço para seu ambiente do Azure.
 
 - A Proteção contra DDoS do Azure Standard deve estar habilitada
 
 ## <a name="11-and-61-boundary-protection"></a>1.1 e 6.1 Proteção de Limite
 
-Este blueprint ajuda você a gerenciar e controlar o limite do sistema por meio da atribuição de uma definição do [Azure Policy](../../../policy/overview.md) que monitora as recomendações de proteção do grupo de segurança de rede na Central de Segurança do Azure. A Central de Segurança do Azure analisa padrões de tráfego de máquinas virtuais voltadas para a Internet e fornece recomendações de regras de grupo de segurança de rede para reduzir a superfície de ataque potencial.
-Além disso, este blueprint atribui definições de política que monitoram pontos de extremidade, contas de armazenamento e aplicativos desprotegidos. Os pontos de extremidade e os aplicativos que não estão protegidos por um firewall e as contas de armazenamento com acesso irrestrito podem permitir o acesso não intencional às informações contidas no sistema de informações.
+Este blueprint ajuda você a gerenciar e controlar o limite do sistema por meio da atribuição de uma definição do [Azure Policy](../../../policy/overview.md) que monitora as recomendações de proteção do grupo de segurança de rede na Central de Segurança do Azure. A Central de Segurança do Azure analisa padrões de tráfego de máquinas virtuais voltadas para a Internet e fornece recomendações de regras de grupo de segurança de rede para reduzir a superfície de ataque potencial. Além disso, este blueprint atribui definições de política que monitoram pontos de extremidade, contas de armazenamento e aplicativos desprotegidos. Os pontos de extremidade e os aplicativos que não estão protegidos por um firewall e as contas de armazenamento com acesso irrestrito podem permitir o acesso não intencional às informações contidas no sistema de informações.
 
 - As recomendações da Proteção de Rede Adaptável devem ser aplicadas nas máquinas virtuais para a Internet
 - O acesso pelo ponto de extremidade para a Internet deve ser restrito
@@ -218,7 +219,7 @@ O acesso JIT (Just-In-Time) à máquina virtual bloqueia o tráfego de entrada �
 
 ## <a name="21-24-24a-25a-and-26-transmission-confidentiality-and-integrity--cryptographic-or-alternate-physical-protection"></a>2.1, 2.4, 2.4A, 2.5A e 2.6 Confidencialidade e Integridade de Transmissão | Proteção Física Criptográfica ou Alternativa
 
-Este blueprint ajuda você a proteger a confidencialidade e a integridade das informações transmitidas por meio da atribuição de definições do [Azure Policy](../../../policy/overview.md) que ajudam a monitorar o mecanismo criptográfico implementado para protocolos de comunicação. A garantia de que a comunicação seja criptografada corretamente pode ajudá-lo a atender aos requisitos de sua organização ou proteger as informações contra divulgação e modificação não autorizadas.
+Este blueprint ajuda você a proteger a confidencialidade e a integridade das informações transmitidas por meio da atribuição de definições do [Azure Policy](../../../policy/overview.md) que ajudam a monitorar o mecanismo criptográfico implementado para protocolos de comunicação. A garantia de que a comunicação é criptografada corretamente pode ajudar você a atender aos requisitos de sua organização ou proteger as informações contra divulgação e modificação não autorizadas.
 
 - O aplicativo de API só deve estar acessível via HTTPS
 - Mostrar os resultados da auditoria dos servidores Web do Windows que não estão usando protocolos de comunicação segura

@@ -8,10 +8,10 @@ ms.date: 11/05/2019
 ms.author: dech
 ms.reviewer: sngun
 ms.openlocfilehash: 9b2ef5ddb56e3d0422a2a876993ddda0bd97e4ff
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85961091"
 ---
 # <a name="tutorial-create-a-notebook-in-azure-cosmos-db-to-analyze-and-visualize-the-data"></a>Tutorial: Criar um notebook no Azure Cosmos DB para analisar e visualizar os dados
@@ -30,11 +30,11 @@ Nesta seção, você criará o banco de dados do Azure Cosmos e o contêiner e i
 
 1. Acesse a guia **Notebooks**, selecione `…` ao lado de **Meus Notebooks** e crie um **Notebook**. Selecione **Python 3** como o kernel padrão.
 
-   :::image type="content" source="./media/create-notebook-visualize-data/create-new-notebook.png" alt-text="Crie um notebook":::
+   :::image type="content" source="./media/create-notebook-visualize-data/create-new-notebook.png" alt-text="Crie um notebook&quot;:::
 
 1. Depois que um notebook for criado, será possível renomeá-lo para algo como **VisualizeRetailData.ipynb.**
 
-1. Em seguida, você criará um banco de dados chamado "RetailDemo" e um contêiner chamado "WebsiteData" para armazenar os dados de varejo. Você pode usar /CartID como a chave de partição. Copie e cole o código a seguir para uma nova célula em seu notebook e o execute:
+1. Em seguida, você criará um banco de dados chamado &quot;RetailDemo&quot; e um contêiner chamado &quot;WebsiteData" para armazenar os dados de varejo. Você pode usar /CartID como a chave de partição. Copie e cole o código a seguir para uma nova célula em seu notebook e o execute:
 
    ```python
    import azure.cosmos
@@ -49,7 +49,11 @@ Nesta seção, você criará o banco de dados do Azure Cosmos e o contêiner e i
 
    Para executar uma célula, selecione `Shift + Enter` ou selecione a célula e escolha a opção **Executar Célula Ativa** na barra de navegação do Data Explorer.
 
-   :::image type="content" source="./media/create-notebook-visualize-data/run-active-cell.png" alt-text="Executar a célula ativa":::
+   :::image type="content" source="./media/create-notebook-visualize-data/run-active-cell.png" alt-text="Crie um notebook&quot;:::
+
+1. Depois que um notebook for criado, será possível renomeá-lo para algo como **VisualizeRetailData.ipynb.**
+
+1. Em seguida, você criará um banco de dados chamado &quot;RetailDemo&quot; e um contêiner chamado &quot;WebsiteData":::
 
    O banco de dados e o contêiner são criados em sua conta atual do Azure Cosmos. O contêiner é provisionado com 400 RU/s. Você verá a saída a seguir depois que o banco de dados e o contêiner forem criados. 
 
@@ -60,23 +64,11 @@ Nesta seção, você criará o banco de dados do Azure Cosmos e o contêiner e i
 
    Também é possível atualizar a guia **Dados** e ver os recursos recém-criados:
 
-   :::image type="content" source="media/create-notebook-visualize-data/refresh-data-tab.png" alt-text="Atualize a guia dados para ver o novo contêiner":::
+   :::image type="content" source="media/create-notebook-visualize-data/refresh-data-tab.png" alt-text="Crie um notebook&quot;:::
 
-1. Em seguida, você importará os dados de varejo de exemplo para o contêiner do Azure Cosmos. Veja o formato de um item dos dados de varejo:
+1. Depois que um notebook for criado, será possível renomeá-lo para algo como **VisualizeRetailData.ipynb.**
 
-   ```json
-    {
-       "CartID":5399,
-       "Action":"Viewed",
-       "Item":"Cosmos T-shirt",
-       "Price":350,
-       "UserName":"Demo.User10",
-       "Country":"Iceland",
-       "EventDate":"2015-06-25T00:00:00",
-       "Year":2015,"Latitude":-66.8673,
-       "Longitude":-29.8214,
-       "Address":"852 Modesto Loop, Port Ola, Iceland",
-       "id":"00ffd39c-7e98-4451-9b91-b2bcf2f9a32d"
+1. Em seguida, você criará um banco de dados chamado &quot;RetailDemo&quot; e um contêiner chamado &quot;WebsiteData"
     }
    ```
 
@@ -135,7 +127,11 @@ Em uma nova célula de notebook, execute o código a seguir para ler os 10 prime
 df_cosmos.head(10)
 ```
 
-:::image type="content" source="./media/create-notebook-visualize-data/run-query-get-top10-items.png" alt-text="Executar consulta para obter os 10 primeiros itens":::
+:::image type="content" source="./media/create-notebook-visualize-data/run-query-get-top10-items.png" alt-text="Crie um notebook&quot;:::
+
+1. Depois que um notebook for criado, será possível renomeá-lo para algo como **VisualizeRetailData.ipynb.**
+
+1. Em seguida, você criará um banco de dados chamado &quot;RetailDemo&quot; e um contêiner chamado &quot;WebsiteData":::
 
 ## <a name="run-queries-and-analyze-your-data"></a>Executar as consultas e analisar seus dados
 
@@ -148,7 +144,11 @@ Nesta seção, você executará algumas consultas nos dados recuperados.
    display(df_revenue.head(5))
    ```
 
-   :::image type="content" source="./media/create-notebook-visualize-data/total-sales-revenue-output.png" alt-text="Saída da receita de vendas total":::
+   :::image type="content" source="./media/create-notebook-visualize-data/total-sales-revenue-output.png" alt-text="Crie um notebook&quot;:::
+
+1. Depois que um notebook for criado, será possível renomeá-lo para algo como **VisualizeRetailData.ipynb.**
+
+1. Em seguida, você criará um banco de dados chamado &quot;RetailDemo&quot; e um contêiner chamado &quot;WebsiteData":::
 
 * **Consulta2:** para obter uma lista dos cinco principais itens comprados, abra uma nova célula de notebook e execute o seguinte código:
 
@@ -159,7 +159,11 @@ Nesta seção, você executará algumas consultas nos dados recuperados.
    pd.DataFrame(df_cosmos[df_cosmos['Action']=='Purchased'].groupby('Item').size().sort_values(ascending=False).head(5), columns=['Count'])
    ```
 
-   :::image type="content" source="./media/create-notebook-visualize-data/top5-purchased-items.png" alt-text="Cinco itens mais comprados":::
+   :::image type="content" source="./media/create-notebook-visualize-data/top5-purchased-items.png" alt-text="Crie um notebook&quot;:::
+
+1. Depois que um notebook for criado, será possível renomeá-lo para algo como **VisualizeRetailData.ipynb.**
+
+1. Em seguida, você criará um banco de dados chamado &quot;RetailDemo&quot; e um contêiner chamado &quot;WebsiteData":::
 
 ## <a name="visualize-your-data"></a>Visualize seus dados  
 
@@ -235,7 +239,11 @@ Nesta seção, você executará algumas consultas nos dados recuperados.
 
    A saída exibe o mapa mundial com diferentes cores. As cores mais escuras para mais claras representam os países/regiões com maior renda para os países com menor renda.
 
-   :::image type="content" source="./media/create-notebook-visualize-data/countries-revenue-map-visualization.png" alt-text="Visualização do mapa da receita de países/regiões":::
+   :::image type="content" source="./media/create-notebook-visualize-data/countries-revenue-map-visualization.png" alt-text="Crie um notebook&quot;:::
+
+1. Depois que um notebook for criado, será possível renomeá-lo para algo como **VisualizeRetailData.ipynb.**
+
+1. Em seguida, você criará um banco de dados chamado &quot;RetailDemo&quot; e um contêiner chamado &quot;WebsiteData":::
 
 1. Vamos ver outro caso de visualização de dados. O contêiner WebsiteData tem um registro de usuários que exibiram um item, o adicionaram ao carrinho e o compraram. Vamos plotar a taxa de conversão de itens adquiridos. Execute o código a seguir em uma nova célula para visualizar a taxa de conversão para cada item:
 
@@ -286,7 +294,11 @@ Nesta seção, você executará algumas consultas nos dados recuperados.
    show(p)
    ```
 
-   :::image type="content" source="./media/create-notebook-visualize-data/visualize-purchase-conversion-rate.png" alt-text="Visualizar taxa de conversão de compra":::
+   :::image type="content" source="./media/create-notebook-visualize-data/visualize-purchase-conversion-rate.png" alt-text="Crie um notebook&quot;:::
+
+1. Depois que um notebook for criado, será possível renomeá-lo para algo como **VisualizeRetailData.ipynb.**
+
+1. Em seguida, você criará um banco de dados chamado &quot;RetailDemo&quot; e um contêiner chamado &quot;WebsiteData":::
 
 ## <a name="next-steps"></a>Próximas etapas
 
