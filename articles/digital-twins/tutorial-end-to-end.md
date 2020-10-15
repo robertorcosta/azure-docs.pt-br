@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 0db39884ef54310db849abcef1062adbaeb9f22e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e7d966aa5aa4b5a498c80cab26686411dd586185
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91292635"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044591"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Tutorial: Criar uma solução de ponta a ponta
 
@@ -446,7 +446,7 @@ Aqui, temos uma revisão do cenário que você criou neste tutorial.
 
 Se você não precisa mais dos recursos criados neste tutorial, siga estas etapas para excluí-los. 
 
-Usando o [Azure Cloud Shell](https://shell.azure.com), exclua todos os recursos do Azure em um grupo de recursos com o comando [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest&preserve-view=true#az-group-delete). Isso remove o grupo de recursos, a instância dos Gêmeos Digitais do Azure, o hub IoT e o registro do dispositivo de hub, os aplicativos do Azure Functions, o tópico da Grade de Eventos e as assinaturas associadas, incluindo ambas as funções e os recursos associados, como o armazenamento.
+Usando o [Azure Cloud Shell](https://shell.azure.com), exclua todos os recursos do Azure em um grupo de recursos com o comando [az group delete](/cli/azure/group?preserve-view=true&view=azure-cli-latest#az-group-delete). Isso remove o grupo de recursos, a instância dos Gêmeos Digitais do Azure, o hub IoT e o registro do dispositivo de hub, os aplicativos do Azure Functions, o tópico da Grade de Eventos e as assinaturas associadas, incluindo ambas as funções e os recursos associados, como o armazenamento.
 
 > [!IMPORTANT]
 > A exclusão de um grupo de recursos é irreversível. O grupo de recursos e todos os recursos contidos nele são excluídos permanentemente. Não exclua acidentalmente o grupo de recursos ou os recursos incorretos. 
