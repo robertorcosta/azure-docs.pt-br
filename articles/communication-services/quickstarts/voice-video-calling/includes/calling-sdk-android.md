@@ -4,18 +4,18 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: bed2a4ccbe87aef9afa395ed789da393e885cc89
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 368c594352b59f7ec6d04b12ca44e0cd492dc907
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91779739"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92082202"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - Um recurso dos Serviços de Comunicação implantado. [Crie um recurso dos Serviços de Comunicação](../../create-communication-resource.md).
-- Um `User Access Token` para habilitar o cliente de chamada. Para obter mais informações sobre [como obter um `User Access Token` ](../../access-tokens.md)
+- Um `User Access Token` para habilitar o cliente de chamada. Para obter mais informações sobre [como obter um `User Access Token`](../../access-tokens.md)
 - Opcional: conclua o guia de início rápido para [começar a adicionar a chamada ao seu aplicativo](../getting-started-with-calling.md)
 
 ## <a name="setting-up"></a>Configurando
@@ -517,7 +517,7 @@ Objeto do processador seguindo as APIs
 // Create a view for a video stream
 renderer.createView()
 ```
-* Descartar renderizador e todos `RendererView` associados a este renderizador
+* Descarte o renderizador e todos `RendererView` associados a esse renderizador. A ser chamado quando você tiver removido todas as exibições associadas da interface do usuário.
 ```java
 renderer.dispose()
 ```

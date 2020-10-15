@@ -3,12 +3,12 @@ title: Implantar o horizonte na solução VMware do Azure
 description: Saiba como implantar o VMware horizonte na solução VMware do Azure.
 ms.topic: how-to
 ms.date: 09/29/2020
-ms.openlocfilehash: bda4be049e360670cb7038bfbb3070c2a5f262c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f8951c1c346eb15ac981b99a4dbf1541f3e3eed
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91729042"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078877"
 ---
 # <a name="deploy-horizon-on-azure-vmware-solution"></a>Implantar o horizonte na solução VMware do Azure 
 
@@ -197,11 +197,14 @@ Trabalhe com sua equipe de vendas do VMware EUC para determinar o custo de licen
 
 Com base na arquitetura de implantação padrão, as VMs de infraestrutura de horizonte são constituídas de servidores de conexão, UAGs, gerenciadores de volume de aplicativo e são implantadas na rede virtual do Azure do cliente. Instâncias nativas adicionais do Azure são necessárias para dar suporte aos serviços de HA (alta disponibilidade), Microsoft SQL ou Microsoft Active Directory (AD) no Azure. Veja a seguir uma lista de instâncias do Azure com base em um exemplo de implantação de 2.000-desktop. 
 
+>[!NOTE]
+>Para poder lidar com falhas, implante mais um servidor do que o necessário para o número de conexões (n + 1). O número mínimo recomendado de instâncias do servidor de conexão, UAG e Gerenciador de volumes de aplicativos é 2, e o número de necessário aumentará com base na quantidade de usuários que o ambiente dará suporte.  Um único servidor de conexão dá suporte a um máximo de 4.000 sessões, embora 2.000 seja recomendado como uma prática recomendada. Até sete servidores de conexão têm suporte por Pod, com uma recomendação de 12.000 sessões ativas no total por Pod. Para obter os números mais recentes, consulte o [artigo da base de dados de conhecimento do VMware sobre limites e recomendações de dimensionamento do VMware horizonte 7](https://kb.vmware.com/s/article/2150348).
+
 | Componente de infraestrutura de horizonte | Instância do Azure | Número de instâncias necessárias (para 2.000-desktops)    | Comentário  |
 |----------------------------------|----------------|----------------------------------------------------|----------|
-| Servidor de conexão                | D4sv3          | 2       | *Inclui 1 instância para HA*             |    
-| UAG                              | F2sv2          | 2       | *Inclui 1 instância para HA*             |
-| Gerenciador de volumes de aplicativos              | D4sv3          | 2       | *Inclui 1 instância para HA*             |
+| Servidor de conexão                | D4sv3          | 2       | *Consulte a observação acima*                         |    
+| UAG                              | F2sv2          | 2       | *Consulte a observação acima*                         |
+| Gerenciador de volumes de aplicativos              | D4sv3          | 2       | *Consulte a observação acima*                         |
 | Conector de nuvem                  | D4sv3          | 1       |                                          |
 | Controlador do AD                    | D4sv3          | 2       | *Opção para usar o serviço MSFT AD no Azure* |
 | Banco de dados MS-SQL                  | D4sv3          | 2       | *Opção para usar o serviço SQL no Azure*     |

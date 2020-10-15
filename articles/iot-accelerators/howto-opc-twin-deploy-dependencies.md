@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: ae0e18a2dfbce52e50b4a8b58d478a46dff12922
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 42024fc506de7befed7c44ebcc410756b6f43a35
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91282095"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078979"
 ---
 # <a name="deploying-dependencies-for-local-development"></a>Implantando dependências para desenvolvimento local
 
@@ -24,7 +24,7 @@ Este artigo explica como implantar apenas os serviços da plataforma Azure neces
 
 ## <a name="deploy-azure-platform-services"></a>Implantar serviços da plataforma Azure
 
-1. Verifique se você tem o PowerShell e as extensões do [PowerShell do AzureRM](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) instaladas.  Abra um prompt de comando ou terminal e execute:
+1. Verifique se você tem o PowerShell e as extensões do [PowerShell do AzureRM](/powershell/azure/azurerm/install-azurerm-ps) instaladas.  Abra um prompt de comando ou terminal e execute:
 
    ```bash
    git clone https://github.com/Azure/azure-iiot-components

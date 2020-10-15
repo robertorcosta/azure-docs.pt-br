@@ -5,22 +5,22 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 10/13/2020
+ms.date: 10/14/2020
 ms.author: cherylmc
-ms.openlocfilehash: 851ec86feb5244ff43759a7aef2b80876dcfa734
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: e4f0a3ea85fa479826fe9e666df2b18f8dba7ce3
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018535"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92079115"
 ---
 # <a name="create-an-azure-bastion-host-using-azure-cli"></a>Criar um host de bastiões do Azure usando CLI do Azure
 
-Este artigo mostra como criar um host de bastiões do Azure usando CLI do Azure. Depois de implantar a bastiões, você pode se conectar a uma VM por meio de seu endereço IP privado por meio do navegador usando o portal do Azure. Sua VM não precisa de um endereço IP público, um cliente adicional ou um software especial. A implantação do Azure Bastion é feita por rede virtual, não por assinatura/conta ou máquina virtual. A experiência ininterrupta de RDP/SSH está disponível para todas as VMs na mesma rede virtual.
+Este artigo mostra como criar um host de bastiões do Azure usando CLI do Azure. Depois de provisionar o serviço de bastiões do Azure em sua rede virtual, a experiência ininterrupta de RDP/SSH estará disponível para todas as VMs na mesma rede virtual. A implantação do Azure Bastion é feita por rede virtual, não por assinatura/conta ou máquina virtual.
 
-Opcionalmente, você pode criar um host de bastiões do Azure usando o [portal do Azure](tutorial-create-host-portal.md)ou usando [Azure PowerShell](bastion-create-host-powershell.md).
+Opcionalmente, você pode criar um host de bastiões do Azure usando o [portal do Azure](./tutorial-create-host-portal.md)ou usando [Azure PowerShell](bastion-create-host-powershell.md).
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="prerequisites"></a>Pré-requisitos
 
 Verifique se você tem uma assinatura do Azure. Se ainda não tiver uma assinatura do Azure, você poderá ativar os [Benefícios do assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) ou inscrever-se para obter uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial).
 
@@ -53,7 +53,5 @@ Esta seção ajuda você a criar um novo recurso de bastiões do Azure usando o 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Conecte-se a uma máquina virtual.
-   * [VM Linux](bastion-connect-vm-ssh.md)
-   * [VM Windows](bastion-connect-vm-rdp.md)
-
+* Leia as [perguntas frequentes sobre bastiões](bastion-faq.md) para obter informações adicionais.
+* Para usar grupos de segurança de rede com a sub-rede do Azure Bastion, confira [Trabalhar com NSGs](bastion-nsg.md).

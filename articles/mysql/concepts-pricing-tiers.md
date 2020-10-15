@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.openlocfilehash: 163f440c9f98a1d53793fddab2590f7345944fda
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/14/2020
+ms.openlocfilehash: 7cc19adcc4769baaf34a75ef7217de639d0a357c
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87171010"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92079030"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Tipos de preço no Banco de Dados do Azure para MySQL
 
@@ -51,7 +51,7 @@ O armazenamento provisionado é a quantidade de capacidade de armazenamento disp
 | IOPS | Variável |3 IOPS/GB<br/>Mín 100 IOPS<br/>IOPS máx. 20.000 | 3 IOPS/GB<br/>Mín 100 IOPS<br/>IOPS máx. 20.000 |
 
 > [!NOTE]
-> O armazenamento de até 16TB e 20.000 IOPS tem suporte nas seguintes regiões: leste dos EUA, leste dos EUA 2, EUA Central, oeste dos EUA, norte EUA Central, Sul EUA Central, Europa Setentrional, Europa Ocidental, Sul do Reino Unido, Oeste do Reino Unido, Sudeste Asiático, Ásia Oriental, leste do Japão, oeste do Japão, Coreia central, Coreia do Sul, leste da Austrália, sudeste da Austrália, oeste dos EUA 2 e Oeste EUA Central.
+> O armazenamento de até 16TB e 20.000 IOPS tem suporte nas seguintes regiões: leste dos EUA, leste dos EUA 2, EUA Central, oeste dos EUA, norte EUA Central, Sul EUA Central, Europa Setentrional, Europa Ocidental, Sul do Reino Unido, Oeste do Reino Unido, Sudeste Asiático, Ásia Oriental, leste do Japão, oeste do Japão, Coreia central, Coréia do Sul, leste da Austrália, sudeste da Austrália, oeste dos EUA 2, Oeste EUA Central e central do Canadá.
 >
 > Todas as outras regiões dão suporte a até 4 TB de armazenamento e até 6000 IOPS.
 >
