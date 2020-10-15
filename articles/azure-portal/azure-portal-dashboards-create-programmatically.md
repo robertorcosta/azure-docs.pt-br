@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/23/2020
 ms.author: mblythe
-ms.openlocfilehash: bdaf1261e9945aa862157f7e43a44387e14d3657
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c7fcced1833cb5f4ccb9c2c2fd44dd84a9abb3cb
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84764036"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077857"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Criar de maneira programática Painéis do Azure
 
@@ -78,13 +78,13 @@ Para publicar esse painel para qualquer máquina virtual no futuro, parametrizar
 Há duas abordagens para APIs que criam recursos no Azure:
 
 * APIs imperativas criam um recurso por vez. Para saber mais, confira [Recursos](/rest/api/resources/resources).
-* Um sistema de implantação baseado em modelo que cria vários recursos dependentes com uma única chamada à API. Para obter mais informações, consulte  [implantar recursos com modelos e Azure PowerShell do Resource Manager](../azure-resource-manager/resource-group-template-deploy.md).
+* Um sistema de implantação baseado em modelo que cria vários recursos dependentes com uma única chamada à API. Para obter mais informações, consulte  [implantar recursos com modelos e Azure PowerShell do Resource Manager](../azure-resource-manager/templates/deploy-powershell.md).
 
 A implantação baseada em modelo dá suporte à parametrização e modelagem. Usamos essa abordagem neste artigo.
 
 ## <a name="programmatically-create-a-dashboard-from-your-template-using-a-template-deployment"></a>Criar programaticamente um painel de seu modelo usando uma implantação de modelo
 
-O Azure oferece a capacidade de coordenar a implantação de vários recursos. Você cria um modelo de implantação que expressa o conjunto de recursos a serem implantados e as relações entre eles.  O formato JSON de cada recurso é o mesmo como se você estivesse criando um de cada vez. A diferença é que a linguagem do modelo adiciona alguns conceitos como variáveis, parâmetros, funções básicas e muito mais. Essa sintaxe estendida só tem suporte no contexto de uma implantação de modelo. Ele não funcionará se for usado com as APIs imperativas discutidas anteriormente. Para obter mais informações, consulte [entender a estrutura e a sintaxe dos modelos de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
+O Azure oferece a capacidade de coordenar a implantação de vários recursos. Você cria um modelo de implantação que expressa o conjunto de recursos a serem implantados e as relações entre eles.  O formato JSON de cada recurso é o mesmo como se você estivesse criando um de cada vez. A diferença é que a linguagem do modelo adiciona alguns conceitos como variáveis, parâmetros, funções básicas e muito mais. Essa sintaxe estendida só tem suporte no contexto de uma implantação de modelo. Ele não funcionará se for usado com as APIs imperativas discutidas anteriormente. Para obter mais informações, consulte [entender a estrutura e a sintaxe dos modelos de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md).
 
 A parametrização deve ser feita usando a sintaxe do parâmetro do modelo.  Você substitui todas as instâncias da ID de recurso que encontramos anteriormente, conforme mostrado aqui.
 
@@ -125,7 +125,7 @@ Declare os metadados de modelo necessários e os parâmetros na parte superior d
 Depois de configurar o modelo, implante-o usando qualquer um dos seguintes métodos:
 
 * [APIs REST](/rest/api/resources/deployments)
-* [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
+* [PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
 * [CLI do Azure](/cli/azure/group/deployment#az-group-deployment-create)
 * [A página de implantação do modelo de portal do Azure](https://portal.azure.com/#create/Microsoft.Template)
 

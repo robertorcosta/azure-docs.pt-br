@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 0182c3aa9095ad6f7bf3d8d86f115517e9efb020
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3097f7b0b6b69dc470877d4951efbcbd3c7482b1
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86249596"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078486"
 ---
 # <a name="api-management-transformation-policies"></a>Políticas de transformação de Gerenciamento de API
-Este tópico fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](https://go.microsoft.com/fwlink/?LinkID=398186).
+Este tópico fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](./api-management-policies.md).
 
 ##  <a name="transformation-policies"></a><a name="TransformationPolicies"></a> Políticas de transformação
 
@@ -75,7 +75,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 
 ### <a name="attributes"></a>Atributos
 
-|Nome|Descrição|Obrigatório|Padrão|
+|Name|Descrição|Obrigatório|Padrão|
 |----------|-----------------|--------------|-------------|
 |aplicar|O atributo deve ser definido como um dos valores a seguir.<br /><br /> –  always – sempre aplicar conversão.<br />–  content-type-json – converter somente se o cabeçalho Content-Type da resposta indica a presença de JSON.|Sim|N/D|
 |consider-accept-header|O atributo deve ser definido como um dos valores a seguir.<br /><br /> –  true – aplica conversão se XML é solicitado no cabeçalho Accept da solicitação.<br />–  false – sempre aplicar conversão.|Não|true|
@@ -119,7 +119,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 
 ### <a name="attributes"></a>Atributos
 
-|Nome|Descrição|Obrigatório|Padrão|
+|Name|Descrição|Obrigatório|Padrão|
 |----------|-----------------|--------------|-------------|
 |kind|O atributo deve ser definido como um dos valores a seguir.<br /><br /> – javascript-friendly – o JSON convertido tem um formato amigável para desenvolvedores de JavaScript.<br />– direct – o JSON convertido reflete a estrutura do documento XML original.|Sim|N/D|
 |aplicar|O atributo deve ser definido como um dos valores a seguir.<br /><br /> – always – converter sempre.<br />–  content-type-xml – converter somente se o cabeçalho Content-Type da resposta indica a presença de XML.|Sim|N/D|
@@ -155,7 +155,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 
 ### <a name="attributes"></a>Atributos
 
-|Nome|Descrição|Obrigatório|Padrão|
+|Name|Descrição|Obrigatório|Padrão|
 |----------|-----------------|--------------|-------------|
 |de|A cadeia de caracteres a ser pesquisada.|Sim|N/D|
 |para|A cadeia de caracteres substituta. Especifique uma cadeia de substituição de comprimento zero para remover a cadeia de caracteres de pesquisa.|Sim|N/D|
@@ -266,7 +266,7 @@ Neste exemplo, a política encaminha a solicitação para um back-end de Service
 
 ### <a name="attributes"></a>Atributos
 
-|Nome|Descrição|Obrigatório|Padrão|
+|Name|Descrição|Obrigatório|Padrão|
 |----------|-----------------|--------------|-------------|
 |base-url|Nova URL base do serviço de back-end.|Um `base-url` ou `backend-id` deve estar presente.|N/D|
 |backend-id|Identificador do back-end para o qual encaminhar. (As entidades de back-end são gerenciadas por meio da [API](/rest/api/apimanagement/2019-12-01/backend) e do [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|Um `base-url` ou `backend-id` deve estar presente.|N/D|
@@ -732,4 +732,4 @@ Para obter mais informações, consulte estes tópicos:
 
 + [Políticas no Gerenciamento de API](api-management-howto-policies.md)
 + [Referência de Política](./api-management-policies.md) para uma lista completa das instruções de política e suas configurações
-+ [Exemplos de política](policy-samples.md)
++ [Exemplos de política](./policy-reference.md)

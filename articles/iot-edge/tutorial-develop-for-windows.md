@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: a0bc934d32a2d09fcd6b52ec1f186855bf0da92c
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 0728e5d12b13164d127941a49603836ff92fd515
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91449610"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045781"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>Tutorial: Desenvolver módulos do IoT Edge para dispositivos Windows
 
@@ -87,13 +87,13 @@ Este tutorial ensina as etapas de desenvolvimento para o Visual Studio 2019. Se 
 
 1. Prepare o Visual Studio 2019 no seu computador de desenvolvimento.
 
-   * Se você ainda não tiver o Visual Studio em seu computador de desenvolvimento, [instale o Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/install-visual-studio) com as cargas de trabalho a seguir:
+   * Se você ainda não tiver o Visual Studio em seu computador de desenvolvimento, [instale o Visual Studio 2019](/visualstudio/install/install-visual-studio) com as cargas de trabalho a seguir:
 
       * Desenvolvimento do Azure
       * Desenvolvimento para desktop com C++
       * Desenvolvimento multiplataforma com o .NET Core
 
-   * Se você já tiver o Visual Studio de 2019 no computador de desenvolvimento, siga as etapas em [Modificar o Visual Studio](https://docs.microsoft.com/visualstudio/install/modify-visual-studio) para adicionar as cargas de trabalho necessárias.
+   * Se você já tiver o Visual Studio de 2019 no computador de desenvolvimento, siga as etapas em [Modificar o Visual Studio](/visualstudio/install/modify-visual-studio) para adicionar as cargas de trabalho necessárias.
 
 2. Baixe e instale a extensão [Ferramentas do Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) para Visual Studio 2019.
 
@@ -181,17 +181,17 @@ O modelo de solução criado inclui um exemplo de código para um módulo do IoT
 
 Cada módulo pode ter várias filas de *entrada* e de *saída* declaradas em seu código. O hub do IoT Edge em execução no dispositivo roteia mensagens da saída de um módulo para a entrada de um ou mais módulos. O código específico para declarar entradas e saídas varia entre as linguagens, mas o conceito é o mesmo em todos os módulos. Para saber mais sobre o roteamento entre módulos, confira [Declarar rotas](module-composition.md#declare-routes).
 
-O código de exemplo C# que vem com o modelo de projeto usa a [classe ModuleClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet) do SDK do Hub IoT para .NET.
+O código de exemplo C# que vem com o modelo de projeto usa a [classe ModuleClient](/dotnet/api/microsoft.azure.devices.client.moduleclient) do SDK do Hub IoT para .NET.
 
 1. No arquivo **program.cs**, localize o método **SetInputMessageHandlerAsync**.
 
-2. O método [SetInputMessageHandlerAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.setinputmessagehandlerasync?view=azure-dotnet) configura uma fila de entrada para receber mensagens de entrada. Examine essa função e veja como inicializa uma fila de entrada chamada **input1**.
+2. O método [SetInputMessageHandlerAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient.setinputmessagehandlerasync) configura uma fila de entrada para receber mensagens de entrada. Examine essa função e veja como inicializa uma fila de entrada chamada **input1**.
 
    ![Localizar o nome de entrada no construtor SetInputMessageHandlserAsync](./media/tutorial-develop-for-windows/declare-input-queue.png)
 
 3. Em seguida, localize o método **SendEventAsync**.
 
-4. O método [SendEventAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.sendeventasync?view=azure-dotnet) processa as mensagens recebidas e configura uma fila de saída para passá-las a diante. Examine esse método e veja que inicia uma fila de saída chamada **output1**.
+4. O método [SendEventAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient.sendeventasync) processa as mensagens recebidas e configura uma fila de saída para passá-las a diante. Examine esse método e veja que inicia uma fila de saída chamada **output1**.
 
    ![Localizar o nome da saída no construtor SendEventAsync](./media/tutorial-develop-for-windows/declare-output-queue.png)
 
