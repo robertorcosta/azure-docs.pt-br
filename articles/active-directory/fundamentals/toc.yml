@@ -49,6 +49,34 @@
           href: active-directory-architecture.md
         - name: Integração de todos os seus aplicativos com o Azure AD
           href: five-steps-to-full-application-integration-with-azure-ad.md
+        - name: Protocolos de autenticação e provisionamento
+          items:
+            - name: Visão geral
+              href: auth-sync-overview.md
+            - name: Autenticação baseada em cabeçalho
+              href: auth-header-based.md
+            - name: Autenticação LDAP
+              href: auth-ldap.md
+            - name: Autenticação OAuth 2.0
+              href: auth-oauth2.md
+            - name: Autenticação do Open ID Connect
+              href: auth-oidc.md
+            - name: Autenticação baseada em senha
+              href: auth-password-based-sso.md
+            - name: Autenticação Radius
+              href: auth-radius.md
+            - name: Autenticação de gateway de área de trabalho remota
+              href: auth-remote-desktop-gateway.md
+            - name: Autenticação de SAML
+              href: auth-saml.md
+            - name: Autenticação do Windows – KCD
+              href: auth-kcd.md
+            - name: Sincronização de diretório
+              href: sync-directory.md
+            - name: Sincronização de LDAP
+              href: sync-ldap.md
+            - name: Sincronização do SCIM
+              href: sync-scim.md
     - name: Guia de implantação
       items:
         - name: 'Implantação de 30, 90 e muito mais'

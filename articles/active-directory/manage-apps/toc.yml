@@ -230,12 +230,8 @@
               href: application-sign-in-problem-application-error.md
             - name: Problema ao entrar em um aplicativo da Microsoft
               href: application-sign-in-problem-first-party-microsoft.md
-            - name: Problema com logon único federado - aplicativo inexistente na galeria
-              href: application-sign-in-problem-federated-sso-non-gallery.md
-            - name: Problema com logon único federado - aplicativo da galeria
+            - name: Problema com logon único
               href: application-sign-in-problem-federated-sso-gallery.md
-            - name: Problema com aplicativo desenvolvido de forma personalizada
-              href: application-sign-in-problem-custom-dev.md
         - name: Solucionar problemas de aplicativos locais
           items:
             - name: Solução de problemas de Proxy de Aplicativo
