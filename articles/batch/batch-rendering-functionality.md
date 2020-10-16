@@ -5,12 +5,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: how-to
-ms.openlocfilehash: 6e34e0ef9035882a32ff46222686db4a948d7997
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77a6ec54495b394c597f6d6b4ddb5f5fe3285550
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85957453"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107463"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Recursos de renderização de Lote do Azure
 
@@ -75,7 +75,7 @@ Arnold 2017 command line|kick.exe|ARNOLD_2017_EXEC|
 
 Assim como acontece com outras cargas de trabalho, a renderização dos requisitos do sistema de aplicativos varia e os requisitos de desempenho variam para tarefas e projetos.  Uma grande variedade de famílias de VMs está disponível no Azure, dependendo de seus requisitos - menor custo, melhor preço / desempenho, melhor desempenho e assim por diante.
 Alguns aplicativos de renderização, como o Arnold, são baseados em CPU; outros, como o V-Ray e o Blender Cycles, podem usar CPUs e / ou GPUs.
-Para obter uma descrição de famílias de VM disponíveis e tamanhos de VM [Consulte tipos de VM e tamanhos](../virtual-machines/windows/sizes.md).
+Para obter uma descrição de famílias de VM disponíveis e tamanhos de VM [Consulte tipos de VM e tamanhos](../virtual-machines/sizes.md).
 
 ### <a name="low-priority-vms"></a>VMs de baixa prioridade
 

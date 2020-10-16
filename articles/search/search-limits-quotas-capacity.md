@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/07/2020
-ms.openlocfilehash: 6c422b9a70f679279d1310444aafb1f9131ff944
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.date: 10/14/2020
+ms.openlocfilehash: f3763857af1df8f34f38b36835a667c6610e1909
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91949843"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107820"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Limites de serviço no Azure Cognitive Search
 
@@ -101,10 +101,9 @@ Os tempos máximos de execução existem para fornecer balanceamento e estabilid
 > [!NOTE]
 > Conforme indicado nos [Limites de índice](#index-limits), os indexadores também impõem o limite superior de 3.000 elementos em todas as coleções complexas por documento, começando com a versão mais recente da API GA que dá suporte a tipos complexos (`2019-05-06`) em diante. Isso significa que, se criou o indexador com uma versão de API anterior, você não estará sujeito a esse limite. Para preservar a compatibilidade máxima, um indexador criado com uma versão de API anterior e, em seguida, atualizado com uma versão de API `2019-05-06` ou posterior, será **excluído** dos limites mesmo assim. Os clientes devem estar cientes do impacto adverso de ter coleções complexas muito grandes (como declarado anteriormente) e é altamente recomendável criar novos indexadores com a versão mais recente da API GA.
 
-### <a name="shared-private-link-resource-limits"></a>Limites de recurso de link privado compartilhado
+## <a name="shared-private-link-resource-limits"></a>Limites de recurso de link privado compartilhado
 
-> [!NOTE]
-> Os indexadores podem acessar recursos com segurança por meio de pontos de extremidade privados gerenciados por meio da [API de recurso de link privado compartilhado](/rest/api/searchmanagement/sharedprivatelinkresources) , conforme descrito neste [Guia de instruções](search-indexer-howto-access-private.md)
+Os indexadores podem acessar outros recursos do Azure por meio de [pontos de extremidade privados](search-indexer-howto-access-private.md) gerenciados por meio da [API de recurso de link privado compartilhado](/rest/api/searchmanagement/sharedprivatelinkresources). Esta seção descreve os limites associados a esse recurso.
 
 | Recurso | Grátis | Basic | S1 | S2 | S3 | S3 HD | L1 | L2
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -113,7 +112,7 @@ Os tempos máximos de execução existem para fornecer balanceamento e estabilid
 | Pontos de extremidade privados máximos | N/D | 10 ou 30 | 100 | 400 | 400 | N/D | 20 | 20 |
 | Tipos de recursos distintos máximos<sup>2</sup> | N/D | 4 | 7 | 15 | 15 | N/D | 4 | 4 |
 
-<sup>1</sup> a enriquecimento de ia e a análise de imagem são computacionalmente intensivas e consomem quantidades desproporcionais de capacidade de processamento disponível e, portanto, para as camadas de serviço de pesquisa mais baixa, as configurações para execução no ambiente privado podem ter um impacto adverso no desempenho e na estabilidade do serviço de pesquisa.
+<sup>1</sup> a enriquecimento de ia e a análise de imagem são computacionalmente intensivas e consomem quantidades desproporcionais de capacidade de processamento disponível. Por esse motivo, as conexões privadas são desabilitadas em camadas inferiores para evitar um impacto adverso no desempenho e na estabilidade do próprio serviço de pesquisa.
 
 <sup>2</sup> o número de tipos de recursos distintos é calculado como o número de `groupId` valores exclusivos usados em todos os recursos de link privado compartilhado para um determinado serviço de pesquisa, independentemente do status do recurso.
 

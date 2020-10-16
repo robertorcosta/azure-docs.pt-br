@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: 440eb1f39284f8d99a8d6b9067b018c4a54fcd27
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d683ef92c4e8d11e9defbed5454e5849211bf8f7
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87083014"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104743"
 ---
 # <a name="customize-an-http-endpoint-in-azure-functions"></a>Personalizar um ponto de extremidade HTTP no Azure Functions
 
@@ -45,7 +45,7 @@ Por padrão, a função de gatilho HTTP é configurada para aceitar qualquer mé
 
     Você não incluiu o `/api` prefixo de caminho base no modelo de rota, pois ele é manipulado por uma configuração global.
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 Para obter mais informações sobre como personalizar funções HTTP, consulte [Azure Functions associações http](./functions-bindings-http-webhook.md).
 
@@ -75,7 +75,7 @@ Na próxima seção, você pausará a API por meio de um proxy. Os Proxies do Az
 Um proxy pode apontar para qualquer recurso HTTP, como:
 - Funções do Azure 
 - Aplicativos de API no [Serviço de Aplicativo do Azure](../app-service/overview.md)
-- Contêineres de docker no [Serviço de Aplicativo no Linux](../app-service/containers/app-service-linux-intro.md)
+- Contêineres de docker no [Serviço de Aplicativo no Linux](../app-service/overview.md#app-service-on-linux)
 - Qualquer outra API hospedada
 
 Para saber mais sobre proxies, confira [Trabalhar com Proxies do Azure Functions].
@@ -95,7 +95,7 @@ Repita as etapas para [Criar um aplicativo de função](./functions-create-first
     > [!NOTE] 
     > As configurações do aplicativo são recomendadas para a configuração do host a fim de evitar uma dependência do ambiente embutida no código para o proxy. Usar configurações do aplicativo significa que você pode mover a configuração do proxy entre ambientes, e as configurações de aplicativo específicas ao ambiente serão aplicadas.
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 ### <a name="creating-a-proxy-on-the-frontend"></a>Criar um proxy no front-end
 

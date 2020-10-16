@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: fe5c13b8c34d29be9a62717215271c10a48e9ac6
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 312a496a5acda05a6b04a0bb47abb101f4ffcc8e
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076888"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107582"
 ---
 # <a name="api-management-policies"></a>Políticas de Gerenciamento de API
 Esta seção fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](api-management-howto-policies.md).
@@ -79,7 +79,7 @@ Esta seção fornece uma referência para as políticas de Gerenciamento de API 
     -   [Transformar XML usando um XSLT](api-management-transformation-policies.md#XSLTransform) – aplica uma transformação XSL para XML no corpo da solicitação ou resposta.
 - [Políticas de integração do Dapr](api-management-dapr-policies.md)
     - [Enviar solicitação para um serviço](api-management-dapr-policies.md#invoke) – usa o tempo de execução Dapr para localizar e se comunicar de forma confiável com um microserviço Dapr.
-    -  [Enviar mensagem para o tópico pub/sub](api-management-dapr-policies.md#pubsub) – usa o tempo de execução Dapr para publicar uma mensagem em um tópico de publicação/assinatura. publique-Subscribe-Messaging/README. MD) para saber mais sobre as mensagens de publicação/assinatura no Dapr.
+    -  [Enviar mensagem para o tópico pub/sub](api-management-dapr-policies.md#pubsub) – usa o tempo de execução Dapr para publicar uma mensagem em um tópico publicar/assinar.
     -  [Disparar Associação de saída](api-management-dapr-policies.md#bind) – usa o tempo de execução Dapr para invocar um sistema externo por meio da Associação de saída.
 
 ## <a name="next-steps"></a>Próximas etapas

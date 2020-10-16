@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: troubleshooting
 ms.date: 10/05/2020
 ms.subservice: alerts
-ms.openlocfilehash: 579729eca8269d75569166a5bda32a979544b164
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0546bd173a5cab456c0ccdafcd5a35c11b0d5ee9
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715321"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102146"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Solucionando problemas em alertas de métrica Azure Monitor 
 
@@ -77,14 +77,14 @@ Para obter mais informações sobre como coletar dados do sistema operacional co
 > Se você configurou as métricas de convidado a serem enviadas para um espaço de trabalho Log Analytics, as métricas serão exibidas no recurso de espaço de trabalho Log Analytics e começarão a mostrar dados **somente** após a criação de uma regra de alerta que as monitore. Para isso, siga as etapas para [configurar um alerta de métrica para os logs](./alerts-metric-logs.md#configuring-metric-alert-for-logs).
 
 > [!NOTE] 
-> O monitoramento de uma métrica de convidado para várias máquinas virtuais com uma única regra de alerta não tem suporte dos alertas de métrica no momento. Você pode conseguir isso com uma [regra de alerta de log](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log). Para fazer isso, verifique se as métricas de convidado são coletadas para um espaço de trabalho Log Analytics e crie uma regra de alerta de log no espaço de trabalho.
+> O monitoramento de uma métrica de convidado para várias máquinas virtuais com uma única regra de alerta não tem suporte dos alertas de métrica no momento. Você pode conseguir isso com uma [regra de alerta de log](./alerts-unified-log.md). Para fazer isso, verifique se as métricas de convidado são coletadas para um espaço de trabalho Log Analytics e crie uma regra de alerta de log no espaço de trabalho.
 
 ## <a name="cant-find-the-metric-to-alert-on"></a>Não é possível encontrar a métrica para alertar
 
-Se você estiver procurando alerta em uma métrica específica, mas não puder vê-la ao criar uma regra de alerta, verifique o seguinte:
-- Se você não puder ver nenhuma métrica para o recurso, [Verifique se o tipo de recurso tem suporte para alertas de métrica](./alerts-metric-near-real-time.md).
-- Se você puder ver algumas métricas para o recurso, mas não conseguir encontrar uma métrica específica, [Verifique se essa métrica está disponível](./metrics-supported.md)e, nesse caso, consulte a descrição da métrica para verificar se ela está disponível apenas em versões ou edições específicas do recurso.
-- Se a métrica não estiver disponível para o recurso, ela poderá estar disponível nos logs de recursos e pode ser monitorada usando alertas de log. Consulte aqui para obter mais informações sobre como [coletar e analisar logs de recursos de um recurso do Azure](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs).
+Se você quiser criar um alerta em uma métrica específica, mas não puder vê-la ao criar uma regra de alerta, verifique o seguinte:
+- Se você não conseguir ver nenhuma métrica para o recurso, [verifique se o tipo de recurso é compatível com alertas de métrica](./alerts-metric-near-real-time.md).
+- Se você conseguir ver algumas métricas para o recurso, mas não conseguir encontrar uma métrica específica, [verifique se essa métrica está disponível](./metrics-supported.md)e, em caso afirmativo, veja a descrição da métrica para verificar se ela está disponível apenas em versões ou edições específicas do recurso.
+- Se a métrica não estiver disponível para o recurso, ela poderá estar disponível nos logs de recursos e poderá ser monitorada usando alertas de log. Veja aqui para obter mais informações sobre como [coletar e analisar logs de recursos de um recurso do Azure](../learn/tutorial-resource-logs.md).
 
 ## <a name="cant-find-the-metric-dimension-to-alert-on"></a>Não é possível localizar a dimensão métrica para alertar
 

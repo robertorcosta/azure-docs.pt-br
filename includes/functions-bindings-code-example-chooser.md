@@ -5,18 +5,18 @@ ms.topic: include
 ms.date: 09/24/2020
 ms.author: glenga
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 33e3e45626818a8786d32d3864b67bb0f9004b91
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 541b72fdd97c48388d5f954d5ee13399d24bf22a
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91652594"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92116752"
 ---
 # <a name="c"></a>[C#](#tab/csharp)
 
 | Serviço | Exemplos | Exemplos |
 | ---- | ----- | ------ | 
-| Armazenamento de blobs | [Gatilho](../articles/azure-functions/functions-bindings-storage-blob-trigger.md?tabs=csharp#example)<br/>[Entrada](../articles/azure-functions/functions-bindings-storage-blob-input.md?tabs=csharp#example)<br/>[Saída](../articles/azure-functions/functions-bindings-storage-blob-output.md?tabs=csharp#example) | [Link](https://www.serverlesslibrary.net/?technology=Blob%20Storage&language=C%23) |
+| Armazenamento de blob | [Gatilho](../articles/azure-functions/functions-bindings-storage-blob-trigger.md?tabs=csharp#example)<br/>[Entrada](../articles/azure-functions/functions-bindings-storage-blob-input.md?tabs=csharp#example)<br/>[Saída](../articles/azure-functions/functions-bindings-storage-blob-output.md?tabs=csharp#example) | [Link](https://www.serverlesslibrary.net/?technology=Blob%20Storage&language=C%23) |
 | Azure Cosmos DB |[Gatilho](../articles/azure-functions/functions-bindings-cosmosdb-v2-trigger.md?tabs=csharp#example)<br/>[Entrada](../articles/azure-functions/functions-bindings-cosmosdb-v2-input.md?tabs=csharp#example)<br/>[Saída](../articles/azure-functions/functions-bindings-cosmosdb-v2-output.md?tabs=csharp#example) | [Link](https://www.serverlesslibrary.net/?technology=Cosmos%2CCosmos%20DB&language=C%23) |
 | Grade de Eventos |[Gatilho](../articles/azure-functions/functions-bindings-event-grid-trigger.md?tabs=csharp#example)<br/>[Saída](../articles/azure-functions/functions-bindings-event-grid-output.md?tabs=csharp#example) | [Link](https://www.serverlesslibrary.net/?technology=Event%20Grid&language=C%23) |
 | Hubs de Eventos |[Gatilho](../articles/azure-functions/functions-bindings-event-hubs-trigger.md?tabs=csharp#example)<br/>[Saída](../articles/azure-functions/functions-bindings-event-hubs-output.md?tabs=csharp#example) | |
@@ -26,7 +26,7 @@ ms.locfileid: "91652594"
 | SendGrid | [Saída](../articles/azure-functions/functions-bindings-sendgrid.md?tabs=csharp#example) | |
 | Barramento de Serviço |[Gatilho](../articles/azure-functions/functions-bindings-service-bus-trigger.md?tabs=csharp#example)<br/>[Saída](../articles/azure-functions/functions-bindings-service-bus-output.md?tabs=csharp#example) | [Link](https://www.serverlesslibrary.net/?technology=Service%20Bus%20Queue&language=C%23) |
 | SignalR| [Gatilho](../articles/azure-functions/functions-bindings-signalr-service-trigger.md?tabs=csharp#example)<br/>[Entrada](../articles/azure-functions/functions-bindings-signalr-service-input.md?tabs=csharp#example)<br/>[Saída](../articles/azure-functions/functions-bindings-signalr-service-output.md?tabs=csharp) | |
-| Armazenamento de tabela| [Entrada](../articles/azure-functions/functions-bindings-storage-table.md?tabs=csharp#input)<br/>[Saída](../articles/azure-functions/functions-bindings-storage-table.md?tabs=csharp#output) | |
+| Armazenamento de tabela| [Entrada](../articles/azure-functions/functions-bindings-storage-table-input.md?tabs=csharp)<br/>[Saída](../articles/azure-functions/functions-bindings-storage-table-output.md?tabs=csharp) | |
 | Timer | [Gatilho](../articles/azure-functions/functions-bindings-timer.md?tabs=csharp#example) | [Link](https://www.serverlesslibrary.net/?language=C%23&filtertext=timer) |
 | Twilio | [Saída](../articles/azure-functions/functions-bindings-twilio.md?tabs=csharp#example---functions-2x-and-higher) | [Link](https://www.serverlesslibrary.net/?language=C%23&filtertext=twilio) |
 
@@ -34,7 +34,7 @@ ms.locfileid: "91652594"
 
 | Serviço | Exemplos | Exemplos |
 | ---- | ----- | ------ | 
-| Armazenamento de blobs | [Gatilho](../articles/azure-functions/functions-bindings-storage-blob-trigger.md?tabs=java#example)<br/>[Entrada](../articles/azure-functions/functions-bindings-storage-blob-input.md?tabs=java#example)<br/>[Saída](../articles/azure-functions/functions-bindings-storage-blob-output.md?tabs=java#example) | [Link](https://www.serverlesslibrary.net/?technology=Blob%20Storage&language=Java) |
+| Armazenamento de blob | [Gatilho](../articles/azure-functions/functions-bindings-storage-blob-trigger.md?tabs=java#example)<br/>[Entrada](../articles/azure-functions/functions-bindings-storage-blob-input.md?tabs=java#example)<br/>[Saída](../articles/azure-functions/functions-bindings-storage-blob-output.md?tabs=java#example) | [Link](https://www.serverlesslibrary.net/?technology=Blob%20Storage&language=Java) |
 | Azure Cosmos DB |[Gatilho](../articles/azure-functions/functions-bindings-cosmosdb-v2-trigger.md?tabs=java#example)<br/>[Entrada](../articles/azure-functions/functions-bindings-cosmosdb-v2-input.md?tabs=java#example)<br/>[Saída](../articles/azure-functions/functions-bindings-cosmosdb-v2-output.md?tabs=java#example) | [Link](https://www.serverlesslibrary.net/?technology=Cosmos%2CCosmos%20DB&language=Java) |
 | Grade de Eventos |[Gatilho](../articles/azure-functions/functions-bindings-event-grid-trigger.md?tabs=java#example)<br/>[Saída](../articles/azure-functions/functions-bindings-event-grid-output.md?tabs=java#example) | [Link](https://www.serverlesslibrary.net/?technology=Event%20Grid&language=Java) |
 | Hubs de Eventos |[Gatilho](../articles/azure-functions/functions-bindings-event-hubs-trigger.md?tabs=java#example)<br/>[Saída](../articles/azure-functions/functions-bindings-event-hubs-output.md?tabs=java#example) | |
@@ -44,7 +44,7 @@ ms.locfileid: "91652594"
 | SendGrid | [Saída](../articles/azure-functions/functions-bindings-sendgrid.md?tabs=java#example) | |
 | Barramento de Serviço |[Gatilho](../articles/azure-functions/functions-bindings-service-bus-trigger.md?tabs=java#example)<br/>[Saída](../articles/azure-functions/functions-bindings-service-bus-output.md?tabs=java#example) | [Link](https://www.serverlesslibrary.net/?technology=Service%20Bus%20Queue&language=Java) |
 | SignalR| [Gatilho](../articles/azure-functions/functions-bindings-signalr-service-trigger.md?tabs=java#example)<br/>[Entrada](../articles/azure-functions/functions-bindings-signalr-service-input.md?tabs=java#example)<br/>[Saída](../articles/azure-functions/functions-bindings-signalr-service-output.md?tabs=java) | |
-| Armazenamento de tabela| [Entrada](../articles/azure-functions/functions-bindings-storage-table.md?tabs=java#input)<br/>[Saída](../articles/azure-functions/functions-bindings-storage-table.md?tabs=java#output) | |
+| Armazenamento de tabela| [Entrada](../articles/azure-functions/functions-bindings-storage-table-input.md?tabs=java)<br/>[Saída](../articles/azure-functions/functions-bindings-storage-table-output.md?tabs=java) | |
 | Timer | [Gatilho](../articles/azure-functions/functions-bindings-timer.md?tabs=java#example) | [Link](https://www.serverlesslibrary.net/?language=Java&filtertext=timer) |
 | Twilio | [Saída](../articles/azure-functions/functions-bindings-twilio.md?tabs=java#example---functions-2x-and-higher) | [Link](https://www.serverlesslibrary.net/?language=Java&filtertext=twilio) |
 
@@ -52,7 +52,7 @@ ms.locfileid: "91652594"
 
 | Serviço | Exemplos | Exemplos |
 | ---- | ----- | ------ | 
-| Armazenamento de blobs | [Gatilho](../articles/azure-functions/functions-bindings-storage-blob-trigger.md?tabs=javascript#example)<br/>[Entrada](../articles/azure-functions/functions-bindings-storage-blob-input.md?tabs=javascript#example)<br/>[Saída](../articles/azure-functions/functions-bindings-storage-blob-output.md?tabs=javascript#example) | [Link](https://www.serverlesslibrary.net/?technology=Blob%20Storage&language=JavaScript) |
+| Armazenamento de blob | [Gatilho](../articles/azure-functions/functions-bindings-storage-blob-trigger.md?tabs=javascript#example)<br/>[Entrada](../articles/azure-functions/functions-bindings-storage-blob-input.md?tabs=javascript#example)<br/>[Saída](../articles/azure-functions/functions-bindings-storage-blob-output.md?tabs=javascript#example) | [Link](https://www.serverlesslibrary.net/?technology=Blob%20Storage&language=JavaScript) |
 | Azure Cosmos DB |[Gatilho](../articles/azure-functions/functions-bindings-cosmosdb-v2-trigger.md?tabs=javascript#example)<br/>[Entrada](../articles/azure-functions/functions-bindings-cosmosdb-v2-input.md?tabs=javascript#example)<br/>[Saída](../articles/azure-functions/functions-bindings-cosmosdb-v2-output.md?tabs=javascript#example) | [Link](https://www.serverlesslibrary.net/?technology=Cosmos%2CCosmos%20DB&language=JavaScript) |
 | Grade de Eventos |[Gatilho](../articles/azure-functions/functions-bindings-event-grid-trigger.md?tabs=javascript#example)<br/>[Saída](../articles/azure-functions/functions-bindings-event-grid-output.md?tabs=javascript#example) | [Link](https://www.serverlesslibrary.net/?technology=Event%20Grid&language=JavaScript) |
 | Hubs de Eventos |[Gatilho](../articles/azure-functions/functions-bindings-event-hubs-trigger.md?tabs=javascript#example)<br/>[Saída](../articles/azure-functions/functions-bindings-event-hubs-output.md?tabs=javascript#example) | |
@@ -62,7 +62,7 @@ ms.locfileid: "91652594"
 | SendGrid | [Saída](../articles/azure-functions/functions-bindings-sendgrid.md?tabs=javascript#example) | |
 | Barramento de Serviço |[Gatilho](../articles/azure-functions/functions-bindings-service-bus-trigger.md?tabs=javascript#example)<br/>[Saída](../articles/azure-functions/functions-bindings-service-bus-output.md?tabs=javascript#example) | [Link](https://www.serverlesslibrary.net/?technology=Service%20Bus%20Queue&language=JavaScript) |
 | SignalR| [Gatilho](../articles/azure-functions/functions-bindings-signalr-service-trigger.md?tabs=javascript#example)<br/>[Entrada](../articles/azure-functions/functions-bindings-signalr-service-input.md?tabs=javascript#example)<br/>[Saída](../articles/azure-functions/functions-bindings-signalr-service-output.md?tabs=javascript) | |
-| Armazenamento de tabela| [Entrada](../articles/azure-functions/functions-bindings-storage-table.md?tabs=javascript#input)<br/>[Saída](../articles/azure-functions/functions-bindings-storage-table.md?tabs=javascript#output) | |
+| Armazenamento de tabela| [Entrada](../articles/azure-functions/functions-bindings-storage-table-input.md?tabs=javascript)<br/>[Saída](../articles/azure-functions/functions-bindings-storage-table-output.md?tabs=javascript) | |
 | Timer | [Gatilho](../articles/azure-functions/functions-bindings-timer.md?tabs=javascript#example) | [Link](https://www.serverlesslibrary.net/?language=JavaScript&filtertext=timer) |
 | Twilio | [Saída](../articles/azure-functions/functions-bindings-twilio.md?tabs=javascript#example---functions-2x-and-higher) | [Link](https://www.serverlesslibrary.net/?language=JavaScript&filtertext=twilio) |
 
@@ -70,7 +70,7 @@ ms.locfileid: "91652594"
 
 | Serviço | Exemplos | Exemplos |
 | ---- | ----- | ------ | 
-| Armazenamento de blobs | [Gatilho](../articles/azure-functions/functions-bindings-storage-blob-trigger.md?tabs=powershell#example)<br/>[Entrada](../articles/azure-functions/functions-bindings-storage-blob-input.md?tabs=powershell#example)<br/>[Saída](../articles/azure-functions/functions-bindings-storage-blob-output.md?tabs=powershell#example) | [Link](https://www.serverlesslibrary.net/?technology=Blob%20Storage&language=PowerShell) |
+| Armazenamento de blob | [Gatilho](../articles/azure-functions/functions-bindings-storage-blob-trigger.md?tabs=powershell#example)<br/>[Entrada](../articles/azure-functions/functions-bindings-storage-blob-input.md?tabs=powershell#example)<br/>[Saída](../articles/azure-functions/functions-bindings-storage-blob-output.md?tabs=powershell#example) | [Link](https://www.serverlesslibrary.net/?technology=Blob%20Storage&language=PowerShell) |
 | Azure Cosmos DB |[Gatilho](../articles/azure-functions/functions-bindings-cosmosdb-v2-trigger.md?tabs=powershell#example)<br/>[Entrada](../articles/azure-functions/functions-bindings-cosmosdb-v2-input.md?tabs=powershell#example)<br/>[Saída](../articles/azure-functions/functions-bindings-cosmosdb-v2-output.md?tabs=powershell#example) | [Link](https://www.serverlesslibrary.net/?technology=Cosmos%2CCosmos%20DB&language=PowerShell) |
 | Grade de Eventos |[Gatilho](../articles/azure-functions/functions-bindings-event-grid-trigger.md?tabs=powershell#example)<br/>[Saída](../articles/azure-functions/functions-bindings-event-grid-output.md?tabs=powershell#example) | [Link](https://www.serverlesslibrary.net/?technology=Event%20Grid&language=PowerShell) |
 | Hubs de Eventos |[Gatilho](../articles/azure-functions/functions-bindings-event-hubs-trigger.md?tabs=powershell#example)<br/>[Saída](../articles/azure-functions/functions-bindings-event-hubs-output.md?tabs=powershell#example) | |
@@ -80,7 +80,7 @@ ms.locfileid: "91652594"
 | SendGrid | [Saída](../articles/azure-functions/functions-bindings-sendgrid.md?tabs=powershell#example) | |
 | Barramento de Serviço |[Gatilho](../articles/azure-functions/functions-bindings-service-bus-trigger.md?tabs=powershell#example)<br/>[Saída](../articles/azure-functions/functions-bindings-service-bus-output.md?tabs=powershell#example) | [Link](https://www.serverlesslibrary.net/?technology=Service%20Bus%20Queue&language=PowerShell) |
 | SignalR| [Gatilho](../articles/azure-functions/functions-bindings-signalr-service-trigger.md?tabs=powershell#example)<br/>[Entrada](../articles/azure-functions/functions-bindings-signalr-service-input.md?tabs=powershell#example)<br/>[Saída](../articles/azure-functions/functions-bindings-signalr-service-output.md?tabs=powershell) | |
-| Armazenamento de tabela| [Entrada](../articles/azure-functions/functions-bindings-storage-table.md?tabs=powershell#input)<br/>[Saída](../articles/azure-functions/functions-bindings-storage-table.md?tabs=powershell#output) | |
+| Armazenamento de tabela| [Entrada](../articles/azure-functions/functions-bindings-storage-table-input.md?tabs=powershell)<br/>[Saída](../articles/azure-functions/functions-bindings-storage-table-output.md?tabs=powershell) | |
 | Timer | [Gatilho](../articles/azure-functions/functions-bindings-timer.md?tabs=powershell#example) | [Link](https://www.serverlesslibrary.net/?language=PowerShell&filtertext=timer) |
 | Twilio | [Saída](../articles/azure-functions/functions-bindings-twilio.md?tabs=powershell#example---functions-2x-and-higher) | [Link](https://www.serverlesslibrary.net/?language=PowerShell&filtertext=twilio) |
 
@@ -88,7 +88,7 @@ ms.locfileid: "91652594"
 
 | Serviço | Exemplos | Exemplos |
 | ---- | ----- | ------ | 
-| Armazenamento de blobs | [Gatilho](../articles/azure-functions/functions-bindings-storage-blob-trigger.md?tabs=python#example)<br/>[Entrada](../articles/azure-functions/functions-bindings-storage-blob-input.md?tabs=python#example)<br/>[Saída](../articles/azure-functions/functions-bindings-storage-blob-output.md?tabs=python#example) | [Link](https://www.serverlesslibrary.net/?technology=Blob%20Storage&language=Python) |
+| Armazenamento de blob | [Gatilho](../articles/azure-functions/functions-bindings-storage-blob-trigger.md?tabs=python#example)<br/>[Entrada](../articles/azure-functions/functions-bindings-storage-blob-input.md?tabs=python#example)<br/>[Saída](../articles/azure-functions/functions-bindings-storage-blob-output.md?tabs=python#example) | [Link](https://www.serverlesslibrary.net/?technology=Blob%20Storage&language=Python) |
 | Azure Cosmos DB |[Gatilho](../articles/azure-functions/functions-bindings-cosmosdb-v2-trigger.md?tabs=python#example)<br/>[Entrada](../articles/azure-functions/functions-bindings-cosmosdb-v2-input.md?tabs=python#example)<br/>[Saída](../articles/azure-functions/functions-bindings-cosmosdb-v2-output.md?tabs=python#example) | [Link](https://www.serverlesslibrary.net/?technology=Cosmos%2CCosmos%20DB&language=Python) |
 | Grade de Eventos |[Gatilho](../articles/azure-functions/functions-bindings-event-grid-trigger.md?tabs=python#example)<br/>[Saída](../articles/azure-functions/functions-bindings-event-grid-output.md?tabs=python#example) | [Link](https://www.serverlesslibrary.net/?technology=Event%20Grid&language=Python) |
 | Hubs de Eventos |[Gatilho](../articles/azure-functions/functions-bindings-event-hubs-trigger.md?tabs=python#example)<br/>[Saída](../articles/azure-functions/functions-bindings-event-hubs-output.md?tabs=python#example) | |
@@ -98,7 +98,7 @@ ms.locfileid: "91652594"
 | SendGrid | [Saída](../articles/azure-functions/functions-bindings-sendgrid.md?tabs=python#example) | |
 | Barramento de Serviço |[Gatilho](../articles/azure-functions/functions-bindings-service-bus-trigger.md?tabs=python#example)<br/>[Saída](../articles/azure-functions/functions-bindings-service-bus-output.md?tabs=python#example) | [Link](https://www.serverlesslibrary.net/?technology=Service%20Bus%20Queue&language=Python) |
 | SignalR| [Gatilho](../articles/azure-functions/functions-bindings-signalr-service-trigger.md?tabs=python#example)<br/>[Entrada](../articles/azure-functions/functions-bindings-signalr-service-input.md?tabs=python#example)<br/>[Saída](../articles/azure-functions/functions-bindings-signalr-service-output.md?tabs=python) | |
-| Armazenamento de tabela| [Entrada](../articles/azure-functions/functions-bindings-storage-table.md?tabs=python#input)<br/>[Saída](../articles/azure-functions/functions-bindings-storage-table.md?tabs=python#output) | |
+| Armazenamento de tabela| [Entrada](../articles/azure-functions/functions-bindings-storage-table-input.md?tabs=python)<br/>[Saída](../articles/azure-functions/functions-bindings-storage-table-output.md?tabs=python) | |
 | Timer | [Gatilho](../articles/azure-functions/functions-bindings-timer.md?tabs=python#example) | [Link](https://www.serverlesslibrary.net/?language=Python&filtertext=timer) |
 | Twilio | [Saída](../articles/azure-functions/functions-bindings-twilio.md?tabs=python#example---functions-2x-and-higher) | [Link](https://www.serverlesslibrary.net/?language=Python&filtertext=twilio) |
 

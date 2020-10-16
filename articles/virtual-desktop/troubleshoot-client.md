@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 08/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d1862e2e0dd9b1e566c6ee5d01a09213a0be4f8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c6083dbcc270c0e9dde1da45ed01369d03146237
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88134472"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108959"
 ---
 # <a name="troubleshoot-the-remote-desktop-client"></a>Solucionar problemas do cliente do Área de Trabalho Remota
 
@@ -83,6 +83,20 @@ Se o cliente Web continuar solicitando credenciais, siga estas instruções:
 3. Limpar cookies do navegador. Para obter mais informações, consulte [como excluir arquivos de cookie no Internet Explorer](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer).
 4. Limpe o cache do navegador. Para obter mais informações, consulte [limpar o cache do navegador para seu navegador](https://binged.it/2RKyfdU).
 5. Abra seu navegador em modo privado.
+
+## <a name="windows-client-blocks-windows-virtual-desktop-classic-feed"></a>O Windows Client bloqueia o feed da área de trabalho virtual do Windows (clássico)
+
+Se o feed do cliente do Windows não mostrar aplicativos da área de trabalho virtual do Windows (clássico), siga estas instruções:
+
+1. Verifique se a política de acesso condicional inclui as IDs de aplicativo associadas à área de trabalho virtual do Windows (clássico).
+2. Verifique se a política de acesso condicional bloqueia todo o acesso, exceto as IDs de aplicativo da área de trabalho virtual do Windows (clássica). Nesse caso, você precisará adicionar a ID do aplicativo **9cdead84-A844-4324-93f2-b2e6bb768d07** à política para permitir que o cliente descubra os feeds.
+
+Se não for possível localizar a ID do aplicativo 9cdead84-A844-4324-93f2-b2e6bb768d07 na lista, você precisará registrar o provedor de recursos da área de trabalho virtual do Windows. Para registrar o provedor de recursos:
+
+1. Entre no portal do Azure.
+2. Acesse **assinatura**e selecione sua assinatura.
+3. No menu no lado esquerdo da página, selecione **provedor de recursos**.
+4. Localize e selecione **Microsoft. DesktopVirtualization**e, em seguida, selecione **registrar novamente**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

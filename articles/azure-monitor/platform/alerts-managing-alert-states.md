@@ -5,16 +5,16 @@ ms.subservice: alerts
 ms.topic: conceptual
 author: anantr
 ms.date: 09/24/2018
-ms.openlocfilehash: a53390dee8eb504f92e66bb3573814bd411be0b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b91c3d59a5a37457d67fdfbc646334fccb331df5
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91358956"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104794"
 ---
 # <a name="manage-alert-and-smart-group-states"></a>Gerenciar alertas e estados de grupos inteligentes
 
-Os alertas no Azure Monitor agora têm um [estado de alerta e uma condição do monitor](https://aka.ms/azure-alerts-overview) e, da mesma forma, os Grupos Inteligentes têm um [estado do grupo inteligente](https://aka.ms/smart-groups). As alterações no estado agora são capturadas no histórico associado ao respectivo grupo inteligente ou de alerta. Este artigo orienta você pelo processo de alteração do estado, para um grupo inteligente e de alerta.
+Os alertas no Azure Monitor agora têm um [estado de alerta e uma condição do monitor](./alerts-overview.md) e, da mesma forma, os Grupos Inteligentes têm um [estado do grupo inteligente](./alerts-smartgroups-overview.md?toc=%252fazure%252fazure-monitor%252ftoc.json). As alterações no estado agora são capturadas no histórico associado ao respectivo grupo inteligente ou de alerta. Este artigo orienta você pelo processo de alteração do estado, para um grupo inteligente e de alerta.
 
 ## <a name="change-the-state-of-an-alert"></a>Alterar o estado de um alerta
 
@@ -46,4 +46,3 @@ Os alertas no Azure Monitor agora têm um [estado de alerta e uma condição do 
 
 1. Depois que isso for feito, a alteração de estado será registrada no histórico do grupo inteligente respectivo. Isso pode ser exibido ao abrir a respectiva página de detalhes e, em seguida, verificando a seção de histórico.     
 ![Captura de tela mostra o histórico de alterações para o grupo inteligente.](./media/alerts-managing-alert-states/state-sg-history.jpg)
-

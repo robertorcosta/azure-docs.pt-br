@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 09/09/2020
-ms.openlocfilehash: 667ca4701ed8e781a2270b42802bab31e6e9c8ee
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 532d96163e2ec66730dc3fdf87f10904fd584224
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096225"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107990"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Chave do Azure Monitor gerenciada pelo cliente 
 
@@ -304,7 +304,7 @@ A linguagem de consulta usada em Log Analytics é expressiva e pode conter infor
 > [!NOTE]
 > Log Analytics consultas podem ser salvas em vários repositórios, dependendo do cenário usado. As consultas permanecem criptografadas com a chave da Microsoft (MMK) nos seguintes cenários, independentemente da configuração de CMK: pastas de trabalho no Azure Monitor, painéis do Azure, aplicativo lógico do Azure, Azure Notebooks e Runbooks de automação.
 
-Quando você coloca seu próprio armazenamento (BYOS) e o vincula ao seu espaço de trabalho, o serviço carrega as consultas *salvas* e *alertas de log* para sua conta de armazenamento. Isso significa que você controla a conta de armazenamento e a [política de criptografia em repouso](../../storage/common/encryption-customer-managed-keys.md) usando a mesma chave usada para criptografar dados no cluster log Analytics ou em uma chave diferente. No entanto, você será responsável pelos custos associados a essa conta de armazenamento. 
+Quando você coloca seu próprio armazenamento (BYOS) e o vincula ao seu espaço de trabalho, o serviço carrega as consultas *salvas* e *alertas de log* para sua conta de armazenamento. Isso significa que você controla a conta de armazenamento e a [política de criptografia em repouso](../../storage/common/customer-managed-keys-overview.md) usando a mesma chave usada para criptografar dados no cluster log Analytics ou em uma chave diferente. No entanto, você será responsável pelos custos associados a essa conta de armazenamento. 
 
 **Considerações antes de definir CMK para consultas**
 * Você precisa ter permissões de ' gravação ' no espaço de trabalho e na conta de armazenamento
@@ -374,7 +374,7 @@ O Lockbox fornece a você o controle para aprovar ou rejeitar a solicitação de
 
 No Azure Monitor, você tem esse controle sobre os dados em espaços de trabalho vinculados ao seu Log Analytics cluster dedicado. O controle de lockbox se aplica aos dados armazenados em um cluster Log Analytics dedicado, em que é mantido isolado nas contas de armazenamento do cluster em sua assinatura protegida por lockbox.  
 
-Saiba mais sobre [sistema de proteção de dados do cliente para Microsoft Azure](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)
+Saiba mais sobre [sistema de proteção de dados do cliente para Microsoft Azure](../../security/fundamentals/customer-lockbox-overview.md)
 
 ## <a name="cmk-management"></a>Gerenciamento de CMK
 

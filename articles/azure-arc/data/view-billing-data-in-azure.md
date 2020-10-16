@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 55269b45159210eec2ec7a6dd8eaea661ff13ebd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5335442c7ffcdca950ba0e9c5f3b6bc9e4be9f63
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760299"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108143"
 ---
 # <a name="upload-billing-data-to-azure-and-view-it-in-the-azure-portal"></a>Carregar dados de cobrança no Azure e exibi-los no portal do Azure
 
@@ -30,7 +30,7 @@ No futuro, haverá dois modos nos quais você pode executar seus serviços de da
 - **Conectado indiretamente** – não há nenhuma conexão direta com o Azure. Os dados são enviados para o Azure somente por meio de um processo de exportação/carregamento. Todas as implantações do Azure Arc Data Services funcionam neste modo hoje em visualização.
 - **Conectado diretamente** – neste modo, haverá uma dependência no serviço kubernetes habilitado para Arc do Azure para fornecer uma conexão direta entre o Azure e o cluster kubernetes no qual os serviços de dados habilitados para Arc do Azure estão em execução. Isso permitirá mais recursos e também permitirá que você use o portal do Azure e o CLI do Azure para gerenciar seus serviços de dados habilitados para o Azure Arc, exatamente como você gerencia seus serviços de dados no PaaS do Azure.  Esse modo de conectividade ainda não está disponível na versão prévia, mas será disponibilizado em breve.
 
-Você pode ler mais sobre a diferença entre os [modos de conectividade](https://docs.microsoft.com/azure/azure-arc/data/connectivity).
+Você pode ler mais sobre a diferença entre os [modos de conectividade](./connectivity.md).
 
 No modo indiretamente conectado, os dados de cobrança são exportados periodicamente do controlador de dados de arco do Azure para um arquivo seguro e, em seguida, carregados no Azure e processados.  No próximo modo conectado diretamente, os dados de cobrança serão enviados automaticamente para o Azure aproximadamente 1/hora para fornecer uma exibição quase em tempo real dos custos de seus serviços. O processo de exportar e carregar os dados no modo indiretamente conectado também pode ser automatizado usando scripts ou poderemos criar um serviço que o fará para você.
 

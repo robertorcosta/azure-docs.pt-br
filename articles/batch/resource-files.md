@@ -3,12 +3,12 @@ title: Criar e usar arquivos de recurso
 description: Saiba como criar arquivos de recurso do Lote a partir de várias fontes de entrada. Este artigo aborda alguns métodos comuns sobre como criar e colocar arquivos de recursos em uma VM.
 ms.date: 03/18/2020
 ms.topic: how-to
-ms.openlocfilehash: 22c0220d08660402bef3fd4aaf0add6adc12a295
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84a5e9780b4fa0abfec5b736e04d385f14716873
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89230935"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92109282"
 ---
 # <a name="creating-and-using-resource-files"></a>Criar e usar arquivos de recurso
 
@@ -61,7 +61,7 @@ string containerSasUrl = String.Format("{0}{1}", container.Uri, sasToken);
 ResourceFile inputFile = ResourceFile.FromStorageContainerUrl(containerSasUrl);
 ```
 
-Uma alternativa para gerar uma URL de SAS é habilitar o acesso de leitura pública anônima para um contêiner e seus blobs no armazenamento de Blobs do Azure. Ao fazer isso, você poderá conceder acesso somente leitura a esses recursos sem compartilhar a chave da conta nem exigir uma SAS. O acesso de leitura público é geralmente usado para cenários em que você quer que determinados blobs estejam sempre disponíveis para acesso de leitura anônimo. Se esse cenário se adequar à sua solução, confira o artigo [Acesso anônimo a blobs](../storage/blobs/storage-manage-access-to-resources.md) para saber mais sobre como gerenciar o acesso aos seus dados de blob.
+Uma alternativa para gerar uma URL de SAS é habilitar o acesso de leitura pública anônima para um contêiner e seus blobs no armazenamento de Blobs do Azure. Ao fazer isso, você poderá conceder acesso somente leitura a esses recursos sem compartilhar a chave da conta nem exigir uma SAS. O acesso de leitura público é geralmente usado para cenários em que você quer que determinados blobs estejam sempre disponíveis para acesso de leitura anônimo. Se esse cenário se adequar à sua solução, confira o artigo [Acesso anônimo a blobs](../storage/blobs/anonymous-read-access-configure.md) para saber mais sobre como gerenciar o acesso aos seus dados de blob.
 
 ### <a name="storage-container-name"></a>Nome do contêiner de armazenamento
 

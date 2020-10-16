@@ -4,12 +4,12 @@ description: Saiba como desenvolver funções usando Python
 ms.topic: article
 ms.date: 12/13/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: f9b81a7263dc9a1bdae9fd881519ac734da2c6bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0de25cc804844b5aa414e521fa641761d9a4b4f4
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88642190"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108415"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guia do desenvolvedor de Python para o Azure Functions
 
@@ -295,21 +295,38 @@ Nessa função, o valor do parâmetro de consulta `name` é obtido do parâmetro
 
 Da mesma forma, você pode definir `status_code` e `headers` para a mensagem de resposta no objeto retornado [HttpResponse].
 
-## <a name="scaling-and-concurrency"></a>Dimensionamento e simultaneidade
+## <a name="scaling-and-performance"></a>Dimensionamento e desempenho
 
-Por padrão, o Azure Functions monitora automaticamente a carga em seu aplicativo e cria instâncias de host adicionais para Python conforme a necessidade. O Functions usa limites internos (não configuráveis pelo usuário) em tipos de gatilhos diferentes para decidir quando adicionar instâncias, por exemplo, a idade das mensagens e o tamanho da fila para QueueTrigger. Para obter mais informações, confira [Como funcionam os planos de consumo e Premium](functions-scale.md#how-the-consumption-and-premium-plans-work).
+É importante entender como suas funções são executadas e como esse desempenho afeta a maneira como seu aplicativo de funções é dimensionado. Isso é particularmente importante ao criar aplicativos altamente com alto desempenho. Veja a seguir vários fatores a serem considerados ao criar, gravar e configurar seus aplicativos de funções.
 
-Esse comportamento de dimensionamento é suficiente para vários aplicativos. No entanto, os aplicativos com alguma das seguintes características podem não ser dimensionados com eficiência:
+### <a name="horizontal-scaling"></a>Dimensionamento horizontal
+Por padrão, o Azure Functions monitora automaticamente a carga em seu aplicativo e cria instâncias de host adicionais para Python conforme a necessidade. O Functions usa limites internos para diferentes tipos de gatilhos para decidir quando adicionar instâncias, como a idade das mensagens e o tamanho da fila para QueueTrigger. Esses limites não são configuráveis pelo usuário. Para obter mais informações, confira [Como funcionam os planos de consumo e Premium](functions-scale.md#how-the-consumption-and-premium-plans-work).
 
-- O aplicativo precisa lidar com muitas invocações simultâneas.
-- O aplicativo processa um grande número de eventos de E/S.
-- O aplicativo está associado a E/S.
+### <a name="improving-throughput-performance"></a>Melhorando o desempenho da taxa de transferência
 
-Nesses casos, você pode melhorar ainda mais o desempenho com o emprego de padrões assíncronos e o uso de vários processos de trabalho de linguagem.
+Uma chave para melhorar o desempenho é entender como seu aplicativo usa recursos e ser capaz de configurar seu aplicativo de funções de forma adequada.
 
-### <a name="async"></a>Assíncrono
+#### <a name="understanding-your-workload"></a>Compreendendo sua carga de trabalho
 
-Como o Python é um runtime de thread único, uma instância de host para Python pode processar apenas uma invocação de função por vez. Para aplicativos que processam um grande número de eventos de E/S e/ou são associados a E/S, você pode melhorar o desempenho executando as funções de forma assíncrona.
+As configurações padrão são adequadas para a maioria dos aplicativos Azure Functions. No entanto, você pode melhorar o desempenho da taxa de transferência de seus aplicativos empregando configurações com base em seu perfil de carga de trabalho. A primeira etapa é entender o tipo de carga de trabalho que você está executando.
+
+|| Carga de trabalho associada à e/s | Carga de trabalho associada à CPU |
+|--| -- | -- |
+|Características do aplicativo de funções| <ul><li>O aplicativo precisa lidar com muitas invocações simultâneas.</li> <li> O aplicativo processa um grande número de eventos de e/s, como chamadas de rede e leitura/gravação em disco.</li> </ul>| <ul><li>O aplicativo executa cálculos de execução longa, como o redimensionamento de imagem.</li> <li>O aplicativo faz a transformação de dados.</li> </ul> |
+|Exemplos| <ul><li>APIs da Web</li><ul> | <ul><li>Processamento de dados</li><li> Inferência de Machine Learning</li><ul>|
+
+ 
+> [!NOTE]
+>  Como a carga de trabalho das funções reais é a maioria das vezes uma combinação de e/s e de CPU associada, é recomendável criar o perfil da carga de trabalho em cargas de produção realistas.
+
+
+#### <a name="performance-specific-configurations"></a>Configurações específicas de desempenho
+
+Depois de entender o perfil de carga de trabalho do seu aplicativo de funções, veja a seguir as configurações que você pode usar para melhorar o desempenho da taxa de transferência de suas funções.
+
+##### <a name="async"></a>Async
+
+Como o [Python é um tempo de execução de thread único](https://wiki.python.org/moin/GlobalInterpreterLock), uma instância de host para Python pode processar apenas uma invocação de função por vez. Para aplicativos que processam um grande número de eventos de e/s e/ou são associados a e/s, você pode melhorar significativamente o desempenho executando funções de forma assíncrona.
 
 Para executar uma função de forma assíncrona, use a instrução `async def`, que executa a função com [asyncio](https://docs.python.org/3/library/asyncio.html) diretamente:
 
@@ -317,6 +334,21 @@ Para executar uma função de forma assíncrona, use a instrução `async def`, 
 async def main():
     await some_nonblocking_socket_io_op()
 ```
+Aqui está um exemplo de uma função com um gatilho HTTP que usa o cliente http [aiohttp](https://pypi.org/project/aiohttp/) :
+
+```python
+import aiohttp
+
+import azure.functions as func
+
+async def main(req: func.HttpRequest) -> func.HttpResponse:
+    async with aiohttp.ClientSession() as client:
+        async with client.get("PUT_YOUR_URL_HERE") as response:
+            return func.HttpResponse(await response.text())
+
+    return func.HttpResponse(body='NotFound', status_code=404)
+```
+
 
 Uma função sem a palavra-chave `async` é executada automaticamente em um pool de threads asyncio:
 
@@ -327,11 +359,25 @@ def main():
     some_blocking_socket_io()
 ```
 
-### <a name="use-multiple-language-worker-processes"></a>Usar vários processos de trabalho de linguagem
+Para obter o benefício total da execução de funções de forma assíncrona, a operação/biblioteca de e/s usada em seu código também precisa ter a implementação assíncrona. O uso de operações de e/s síncronas em funções que são definidas como assíncronas **pode prejudicar** o desempenho geral.
+
+Aqui estão alguns exemplos de bibliotecas de cliente que implementaram o padrão assíncrono:
+- [aiohttp](https://pypi.org/project/aiohttp/) -cliente/servidor http para asyncio 
+- [API de fluxos](https://docs.python.org/3/library/asyncio-stream.html) -primitivos assíncronos/em espera de alto nível para trabalhar com a conexão de rede
+- Fila [Janus](https://pypi.org/project/janus/) – fila com reconhecimento de asyncio seguro para o Python
+- [pyzmq](https://pypi.org/project/pyzmq/) -associações do Python para ZeroMQ
+ 
+
+##### <a name="use-multiple-language-worker-processes"></a>Usar vários processos de trabalho de linguagem
 
 Por padrão, cada instância de host do Functions tem um processo de trabalho de linguagem único. Você pode aumentar o número de processos de trabalho por host (até 10) com a configuração de aplicativo [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count). O Azure Functions tenta distribuir uniformemente invocações de função simultâneas entre esses trabalhos.
 
+Para aplicativos associados à CPU, você deve definir o número de trabalho de linguagem como igual ou maior que o número de núcleos disponíveis por aplicativo de funções. Para saber mais, confira [SKUs de instância disponíveis](functions-premium-plan.md#available-instance-skus). 
+
+Os aplicativos associados à e/s também podem se beneficiar do aumento do número de processos de trabalho além do número de núcleos disponíveis. Tenha em mente que definir o número de trabalhadores muito alto pode afetar o desempenho geral devido ao maior número de alternâncias de contexto necessárias. 
+
 O FUNCTIONS_WORKER_PROCESS_COUNT se aplica a cada host que o Functions cria quando escala horizontalmente seu aplicativo para atender à demanda.
+
 
 ## <a name="context"></a>Contexto
 

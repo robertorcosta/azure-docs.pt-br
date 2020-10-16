@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: fed184c349789dc38f12f62567acc0d0500ca94c
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 0d8960ddd8f617c59d6ac025fafe413256bc5b94
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92016086"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107599"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Conectando-se a fontes de dados locais com o gateway de dados local
 
@@ -29,22 +29,6 @@ Por Azure Analysis Services, obter a configuração com o gateway na primeira ve
 - **Criar um recurso de gateway no Azure** – nesta etapa, você cria um recurso de gateway no Azure.
 
 - **Conectar o recurso de gateway aos servidores** -assim que tiver um recurso de gateway, você poderá começar a conectar servidores a ele. Você pode conectar vários servidores e outros recursos fornecidos que estão na mesma região.
-
-
-
-## <a name="how-it-works"></a>Como ele funciona
-O gateway que você instala em um computador de sua organização é executado como um serviço Windows, o **Gateway de dados local**. Esse serviço local é registrado no Serviço de Nuvem do Gateway por meio do Barramento de Serviço do Azure. Em seguida, você cria um recurso de gateway de dados local para uma assinatura do Azure. Seus servidores de Azure Analysis Services são então conectados ao recurso de gateway do Azure. Quando modelos em seu servidor precisarem se conectar às fontes de dados locais para consultas ou processamento, um fluxo de dados e consultas atravessará o recurso de gateway, o Barramento de Serviço do Azure, o serviço de gateway de dados local e suas fontes de dados. 
-
-![Como ele funciona](./media/analysis-services-gateway/aas-gateway-how-it-works.png)
-
-Fluxo de dados e consultas:
-
-1. Uma consulta é criada pelo serviço de nuvem com as credenciais criptografadas para a fonte de dados local. Ela é enviada para uma fila de processamento do gateway.
-2. O serviço de nuvem do gateway analisa a consulta e envia a solicitação para o [Barramento de Serviço do Azure](https://azure.microsoft.com/documentation/services/service-bus/).
-3. O gateway de dados local sonda o Barramento de Serviço do Azure para verificar solicitações pendentes.
-4. O gateway obtém a consulta, descriptografa as credenciais e conecta-se às fontes de dados com essas credenciais.
-5. O gateway envia a consulta à fonte de dados para execução.
-6. Os resultados são enviados da fonte de dados de volta para o gateway e, em seguida, para o serviço de nuvem e seu servidor.
 
 ## <a name="installing"></a>Instalando
 
@@ -76,16 +60,6 @@ Estes são os nomes de domínio totalmente qualificados usados pelo Gateway.
 | *.msftncsi.com |443 |Usado para testar a conectividade com a Internet se o gateway não poder ser acessado pelo serviço do Power BI. |
 | *.microsoftonline p.com |443 |Usado para autenticação, dependendo da configuração. |
 | dc.services.visualstudio.com    |443 |Usado pelo AppInsights para coletar telemetria. |
-
-### <a name="forcing-https-communication-with-azure-service-bus"></a>Forçar a comunicação HTTPS com o Barramento de Serviço do Azure
-
-Você pode forçar o gateway para se comunicar com o Barramento de Serviço do Azure usando HTTPS em vez de TCP direto; no entanto, fazer isso pode reduzir consideravelmente o desempenho. Você pode modificar o arquivo *Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config* alterando o valor de `AutoDetect` para `Https`. Normalmente, esse arquivo fica localizado em *C:\Arquivos de Programas\Gateway de dados local*.
-
-```
-<setting name="ServiceBusSystemConnectivityModeString" serializeAs="String">
-    <value>Https</value>
-</setting>
-```
 
 ## <a name="next-steps"></a>Próximas etapas 
 

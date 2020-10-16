@@ -9,16 +9,16 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: aa13baf7c6fc6d3bb66b97e533da29e4a1a6e73c
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: a96be6d4da3d292b2e9881652aad28f318ccee8a
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876236"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107565"
 ---
 # <a name="azure-data-studio-dashboards"></a>Painéis de Azure Data Studio
 
-[Azure Data Studio](https://aka.ms/azuredatastudio) fornece uma experiência semelhante à portal do Azure para exibir informações sobre seus recursos de arco do Azure.  Essas exibições são chamadas de **painéis** e têm um layout e opções semelhantes ao que você poderia ver sobre um determinado recurso na portal do Azure, mas oferece a flexibilidade de ver essas informações localmente em seu ambiente em casos em que você não tem uma conexão disponível para o Azure.
+[Azure Data Studio](/sql/azure-data-studio/what-is) fornece uma experiência semelhante à portal do Azure para exibir informações sobre seus recursos de arco do Azure.  Essas exibições são chamadas de **painéis** e têm um layout e opções semelhantes ao que você poderia ver sobre um determinado recurso na portal do Azure, mas oferece a flexibilidade de ver essas informações localmente em seu ambiente em casos em que você não tem uma conexão disponível para o Azure.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -26,7 +26,7 @@ ms.locfileid: "91876236"
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-- Baixar [Azure Data Studio](https://aka.ms/getazuredatastudio)
+- Baixar [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)
 - A extensão Arc do Azure está instalada
 
 ### <a name="determine-the-data-controller-server-api-endpoint-url"></a>Determinar a URL do ponto de extremidade da API do servidor do controlador de dados

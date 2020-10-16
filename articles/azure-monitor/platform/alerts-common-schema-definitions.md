@@ -5,16 +5,16 @@ author: ofirmanor
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
-ms.openlocfilehash: 2d3da9273651b23a80b0f5e2874581a744caf533
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a1851b71ac017349ff131811d946ec2c077440b
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330869"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92105984"
 ---
 # <a name="common-alert-schema-definitions"></a>Definições comuns do esquema de alertas
 
-Este artigo descreve as [definições comuns de esquema de alerta](https://aka.ms/commonAlertSchemaDocs) para o Azure Monitor, incluindo aquelas para webhooks, Aplicativos Lógicos do Azure, Azure Functions e runbooks de automação do Azure. 
+Este artigo descreve as [definições comuns de esquema de alerta](./alerts-common-schema.md) para o Azure Monitor, incluindo aquelas para webhooks, Aplicativos Lógicos do Azure, Azure Functions e runbooks de automação do Azure. 
 
 Qualquer instância de alerta descreve o recurso que foi afetado e a causa do alerta. Essas instâncias são descritas no esquema comum nas seguintes seções:
 * **Conceitos básicos**: um conjunto de campos padronizados, comum em todos os tipos de alertas, que descrevem em qual recurso o alerta está, junto com os metadados de alerta comuns adicionais (por exemplo, severidade ou descrição). 
@@ -541,5 +541,5 @@ Qualquer instância de alerta descreve o recurso que foi afetado e a causa do al
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre o [esquema de alerta comum](https://aka.ms/commonAlertSchemaDocs).
-- Saiba [como criar um aplicativo lógico que usa o esquema de alerta comum para lidar com todos os seus alertas](./alerts-common-schema-integrations.md). 
+- Saiba mais sobre o [esquema de alerta comum](./alerts-common-schema.md).
+- Saiba [como criar um aplicativo lógico que usa o esquema de alerta comum para lidar com todos os seus alertas](./alerts-common-schema-integrations.md).

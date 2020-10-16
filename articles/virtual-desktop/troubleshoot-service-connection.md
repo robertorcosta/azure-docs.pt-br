@@ -3,15 +3,15 @@ title: Solucionar problemas de conexão de serviço da Área de Trabalho Virtual
 description: Como resolver problemas durante a configuração de conexões de serviço em um ambiente de locatário de área de trabalho virtual do Windows.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 09/14/2020
+ms.date: 10/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5eb5602b8330906311df4a0d1f59bc5e5130237e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a9eb99ae7af88e77fa597fa92ff8e6278c307e6
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90089897"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108942"
 ---
 # <a name="windows-virtual-desktop-service-connections"></a>Conexões de serviço da Área de Trabalho Virtual do Windows
 
@@ -45,6 +45,13 @@ Um usuário consegue iniciar clientes da Área de Trabalho Remota e se autentica
 Esse erro geralmente aparece depois que um usuário moveu sua assinatura de um locatário do Azure AD para outro. Como resultado, o serviço perde o controle de suas atribuições de usuário, pois eles ainda estão vinculados ao locatário antigo do Azure AD.
 
 Para resolver isso, tudo o que você precisa fazer é reatribuir os usuários aos seus grupos de aplicativos.
+
+Isso também pode ocorrer se um provedor CSP criou a assinatura e, em seguida, transferiu para o cliente. Para resolver isso, registre novamente o provedor de recursos.
+
+1. Entre no portal do Azure.
+2. Acesse **assinatura**e selecione sua assinatura.
+3. No menu no lado esquerdo da página, selecione **provedor de recursos**.
+4. Localize e selecione **Microsoft. DesktopVirtualization**e, em seguida, selecione **registrar novamente**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

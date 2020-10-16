@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 132711b4a3fc584261cd577b4b8f1d4fb13da09d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7eeafe41888163c27f583529bed1998f067e107f
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91819395"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107616"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Conceder aos usuários B2B do Microsoft Azure AD acesso aos aplicativos locais
 
@@ -43,7 +43,7 @@ Para fornecer aos usuários B2B acesso a aplicativos locais que são protegidos 
 - **Autorização por meio de um objeto de usuário B2B no diretório local**. O aplicativo deve executar verificações de acesso do usuário e conceder acesso aos recursos corretos. A IWA e KCD exigem um objeto de usuário no Active Directory do Windows Server local para concluir essa autorização. Conforme descrito em [Como o logon único com KCD funciona](../manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#how-single-sign-on-with-kcd-works), o Proxy de aplicativo precisa desse objeto de usuário para representar o usuário e obter um token do Kerberos no aplicativo. 
 
    > [!NOTE]
-   > Ao configurar o Proxy de Aplicativo do AD do Azure, verifique se a **identidade de logon delegada** está definida como **nome principal do usuário** (padrão) para logon único do Iwa.
+   > Ao configurar o Proxy de Aplicativo do AD do Azure, verifique se a **identidade de logon delegada** está definida como **nome principal do usuário** (padrão) na configuração de logon único para IWA (autenticação integrada do Windows).
 
    Para o cenário de usuário B2B, há dois métodos disponíveis que você pode usar para criar os objetos de usuário convidado que são necessários para autorização no diretório local:
 
