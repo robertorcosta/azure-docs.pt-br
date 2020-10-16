@@ -65,7 +65,7 @@
             - name: Gerenciar pool de VMs
               href: how-to-manage-vm-pool-within-teams.md
             - name: Excluir laboratórios
-              href: how-to-get-started-create-lab-within-teams.md#deleting-classroom-labs
+              href: how-to-delete-lab-within-teams.md
             - name: Agendamentos e configurações
               href: how-to-create-schedules-within-teams.md
             - name: Acessar uma VM (exibição de estudante)

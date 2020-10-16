@@ -386,7 +386,7 @@
       items:
         - name: Visão geral
           href: security-overview.md
-        - name: Controle de Acesso Baseado em Função
+        - name: Controle de acesso baseado em função do Azure
           href: backup-rbac-rs-vault.md
         - name: Exclusão reversível
           items:
