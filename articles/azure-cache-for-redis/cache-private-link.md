@@ -5,13 +5,13 @@ author: curib
 ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: e2c071ff9cf020f99e990e670cfb29cca3c1ebbc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/14/2020
+ms.openlocfilehash: 93a21b627acfb127c98ead465ebeadc8a472bdfd
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91838646"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122697"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link-public-preview"></a>Cache do Azure para Redis com o link privado do Azure (visualização pública)
 Neste artigo, você aprenderá a criar uma rede virtual e um cache do Azure para a instância Redis com um ponto de extremidade privado usando o portal do Azure. Você também aprenderá a adicionar um ponto de extremidade privado a um cache do Azure existente para a instância do Redis.
@@ -21,8 +21,9 @@ O ponto de extremidade privado do Azure é uma interface de rede que conecta voc
 ## <a name="prerequisites"></a>Pré-requisitos
 * Assinatura do Azure- [crie uma gratuitamente](https://azure.microsoft.com/free/)
 
-> [!NOTE]
+> [!IMPORTANT]
 > Para usar pontos de extremidade privados, seu cache do Azure para instância Redis precisa ter sido criado após 28 de julho de 2020.
+> Atualmente, a replicação geográfica, as regras de firewall, o suporte ao console do portal, a vários pontos de extremidade por cache clusterizado, a persistência para os caches injetados por firewall e VNet não têm suporte. 
 >
 >
 
@@ -109,6 +110,23 @@ Para criar uma instância de cache, siga estas etapas.
 
 A criação do cache demora um pouco. Monitore o progresso na página  **Visão Geral**  do Cache do Azure para Redis. Quando o  **Status**  for mostrado como  **Em execução**, o cache estará pronto para uso. 
     
+> [!IMPORTANT]
+> 
+> Há um `publicNetworkAccess` sinalizador que é `Enabled` por padrão. 
+> Esse sinalizador destina-se a permitir que você opcionalmente permita o acesso de ponto de extremidade público e privado ao cache se ele estiver definido como `Enabled` . Se definido como `Disabled` , ele só permitirá acesso de ponto de extremidade privado. Você pode definir o valor como `Disabled` com a seguinte solicitação de patch.
+> ```http
+> PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/{resourcegroup}/providers/Microsoft.Cache/Redis/{cache}?api-version=2020-06-01
+> {    "properties": {
+>        "publicNetworkAccess":"Disabled"
+>    }
+> }
+> ```
+>
+
+> [!IMPORTANT]
+> 
+> Para se conectar a um cache clusterizado, é `publicNetworkAccess` necessário definir como `Disabled` e só pode haver uma conexão de ponto de extremidade privada. 
+>
 
 ## <a name="create-a-private-endpoint-with-an-existing-azure-cache-for-redis-instance"></a>Criar um ponto de extremidade privado com um cache do Azure existente para a instância do Redis 
 

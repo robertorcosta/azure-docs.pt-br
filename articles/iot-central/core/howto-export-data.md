@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.topic: how-to
 ms.service: iot-central
 ms.custom: contperfq1
-ms.openlocfilehash: 9738b7d3fb435888e7ffc248b7b2ac6c0ef42471
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2cbdeca41746099643fb06ff5861a39b2e032b33
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90974395"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126696"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export"></a>Exportar dados de IoT para destinos de nuvem usando a exportação de dados
 
@@ -43,7 +43,7 @@ Para usar os recursos de exportação de dados, você deve ter um [aplicativo v3
 
 O destino de exportação deve existir antes de você configurar a exportação de dados. Os seguintes tipos de destino estão disponíveis no momento:
 
-- Hubs de eventos do Azure
+- Hubs de Eventos do Azure
 - Fila do Barramento de Serviço do Azure
 - Tópico do Barramento de Serviço do Azure
 - Armazenamento do Blobs do Azure
@@ -93,13 +93,13 @@ Se você não tiver um namespace do barramento de serviço existente para export
 
 Se você não tiver uma conta de armazenamento do Azure existente para a qual exportar, siga estas etapas:
 
-1. Crie uma [conta de armazenamento no portal do Azure](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Você pode saber mais sobre como criar novas [contas de armazenamento de BLOBs do Azure](https://aka.ms/blobdocscreatestorageaccount) ou [contas de armazenamento Azure data Lake Storage v2](../../storage/blobs/data-lake-storage-quickstart-create-account.md). A exportação de dados só pode gravar dados em contas de armazenamento que dão suporte a blobs de blocos. A lista a seguir mostra os tipos de conta de armazenamento compatíveis conhecidos:
+1. Crie uma [conta de armazenamento no portal do Azure](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Você pode saber mais sobre como criar novas [contas de armazenamento de BLOBs do Azure](../../storage/blobs/storage-quickstart-blobs-portal.md) ou [contas de armazenamento Azure data Lake Storage v2](../../storage/common/storage-account-create.md). A exportação de dados só pode gravar dados em contas de armazenamento que dão suporte a blobs de blocos. A lista a seguir mostra os tipos de conta de armazenamento compatíveis conhecidos:
 
     |Nível de desempenho|Tipo de Conta|
     |-|-|
     |Standard|Uso Geral v2|
     |Standard|Uso Geral v1|
-    |Standard|Armazenamento de blobs|
+    |Standard|Armazenamento de blob|
     |Premium|Armazenamento de blobs de blocos|
 
 1. Para criar um contêiner em sua conta de armazenamento, vá para sua conta de armazenamento. Em **Serviço Blob**, selecione **Procurar Blobs**. Selecione **+ Contêiner** na parte superior para criar um contêiner.
@@ -272,7 +272,7 @@ O exemplo a seguir mostra uma mensagem de alteração de propriedade exportada r
 
 A tabela a seguir mostra as diferenças entre a [exportação de dados herdados](howto-export-data-legacy.md) e os novos recursos de exportação de dados:
 
-| Capacidades  | Exportação de dados herdados | Nova exportação de dados |
+| Funcionalidades  | Exportação de dados herdados | Nova exportação de dados |
 | :------------- | :---------- | :----------- |
 | Tipos de dados disponíveis | Telemetria, dispositivos, modelos de dispositivo | Telemetria, alterações de propriedade |
 | Filtragem | Nenhum | Depende do tipo de dados exportado. Para telemetria, filtragem por telemetria, propriedades de mensagem, valores de propriedade |

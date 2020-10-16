@@ -7,12 +7,12 @@ ms.date: 9/12/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: cc52610eacc3916b7a8978cba17a1db3f3d50686
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 899fddf08a817126ce775733da38ffd10ab3ab23
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447678"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91952107"
 ---
 # <a name="azure-security-centers-overview-page"></a>Página de visão geral da Central de Segurança do Azure
 
@@ -38,7 +38,7 @@ A **barra de menus superior** oferece:
 
 No centro da página estão **quatro blocos centrais**, cada um se vinculando a um painel dedicado para mostrar mais detalhes:
 - **Classificação de segurança**: a Central de Segurança avalia continuamente seus recursos, suas assinaturas e a organização em busca de problemas de segurança. Em seguida, ele agrega todas as conclusões em uma única pontuação para que você possa ver, rapidamente, sua situação de segurança atual: quanto maior a pontuação, menor o nível de risco identificado. [Saiba mais](secure-score-security-controls.md).
-- **Conformidade**: a Central de Segurança fornece insights sobre a sua postura de conformidade, com base em avaliações contínuas do seu ambiente do Azure. A Central de Segurança analisa fatores de risco em seu ambiente de nuvem híbrida de acordo com as melhores práticas de segurança. Essas avaliações são mapeadas para controles de conformidade com base em um conjunto compatível de padrões.[Saiba mais](security-center-compliance-dashboard.md).
+- **Conformidade**: a Central de Segurança fornece insights sobre a sua postura de conformidade, com base em avaliações contínuas do seu ambiente do Azure. A Central de Segurança analisa fatores de risco em seu ambiente de nuvem híbrida de acordo com as melhores práticas de segurança. Essas avaliações são mapeadas para controles de conformidade de um conjunto compatível de padrões. [Saiba mais](security-center-compliance-dashboard.md).
 - **Azure Defender**: esta é a PPCTN (plataforma de proteção de cargas de trabalho na nuvem) integrada à Central de Segurança para proteção avançada e inteligente das suas cargas de trabalho híbridas e do Azure. O bloco mostra a cobertura dos seus recursos conectados (para as assinaturas atualmente selecionadas) e os alertas recentes, codificados por cor e por severidade. [Saiba mais](azure-defender.md).
 - **Inventário**: o bloco mostra o número de VMs não monitoradas e um barômetro simples dos seus recursos monitorados pela Central de Segurança. [Saiba mais](asset-inventory.md).
 

@@ -1,6 +1,6 @@
 ---
-title: Fornecer detalhes de contato de segurança na Central de Segurança do Azure | Microsoft Docs
-description: Este documento mostra como fornecer detalhes de contato de segurança na Central de Segurança do Azure.
+title: Configurar notificações por email para alertas da Central de Segurança do Azure
+description: Saiba como ajustar os tipos de emails enviados pela Central de Segurança do Azure para alertas de segurança.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -11,20 +11,23 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/11/2020
+ms.date: 10/07/2020
 ms.author: memildin
-ms.openlocfilehash: aa35d1325e339af515c8bfc052d1af524b464e09
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac50b17826f9f3d06d01d3cce9704094fddf1b1d
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91446019"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945610"
 ---
-# <a name="set-up-email-notifications-for-security-alerts"></a>Configurar notificações por email para alertas de segurança 
+# <a name="configure-email-notifications-for-security-alerts"></a>Configurar notificações por email para alertas de segurança 
 
-Para garantir que as pessoas certas na sua organização sejam notificadas sobre alertas de segurança no ambiente, insira os endereços de email delas na página de configurações **Notificações por email**.
+Os alertas de segurança precisam acessar as pessoas certas em sua organização. Por padrão, a Central de Segurança envia os proprietários da assinatura sempre que um alerta de alta severidade é disparado para a assinatura deles. Esta página explica como personalizar essas notificações.
 
-Ao configurar suas notificações, você pode configurar os emails a serem enviados a indivíduos específicos ou a qualquer pessoa com uma função específica do Azure em uma assinatura. 
+Para definir suas preferências para emails de notificação, a página de configurações **Notificações por email** da Central de Segurança do Azure permite que você escolha:
+
+- ***quem* deve ser notificado** – os emails podem ser enviados a indivíduos selecionados ou a qualquer pessoa com uma função do Azure especificada para uma assinatura. 
+- ***sobre o que* eles devem ser notificados** – modifique os níveis de severidade para os quais a Central de Segurança deve enviar notificações.
 
 Para evitar o excesso de alertas, a Central de Segurança limita o volume de emails enviados. Para cada assinatura, a Central de Segurança envia:
 
@@ -32,9 +35,8 @@ Para evitar o excesso de alertas, a Central de Segurança limita o volume de ema
 - um máximo de **dois** emails por dia para alertas de **severidade média**
 - um máximo de **um** email por dia para alertas de **baixa severidade**
 
-
 :::image type="content" source="./media/security-center-provide-security-contacts/email-notification-settings.png" alt-text="Como configurar os detalhes do contato que receberá os emails sobre os alertas de segurança." :::
-
+ 
 ## <a name="availability"></a>Disponibilidade
 
 |Aspecto|Detalhes|
@@ -42,27 +44,27 @@ Para evitar o excesso de alertas, a Central de Segurança limita o volume de ema
 |Estado da versão:|GA (em disponibilidade geral)|
 |Preço:|Gratuita|
 |Funções e permissões necessárias:|**Administrador de Segurança**<br>**Proprietário da assinatura** |
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) US Gov (parcial)<br>![Não](./media/icons/no-icon.png) China Gov, outros Gov|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Nacionais/soberanas (US Gov, China Gov, outros Gov)|
 |||
 
 
-## <a name="set-up-email-notifications-for-alerts"></a>Configurar notificações por email para alertas <a name="email"></a>
+## <a name="customize-the-security-alerts-email-notifications"></a>Personalizar as notificações por email de alertas de segurança<a name="email"></a>
 
 Você pode enviar notificações por email a indivíduos ou a todos os usuários com funções específicas do Azure.
 
-1. Na área **Preços e configurações** da Central de Segurança, escolha a assinatura relevante e selecione **Notificações por email**.
+1. Na área **Preços e configurações** da Central de Segurança, selecione a assinatura relevante e **Notificações por email**.
 
-1. Defina os destinatários das notificações:
+1. Defina os destinatários para suas notificações com uma opção ou com as duas:
 
     - Na lista suspensa, selecione uma das funções disponíveis.
-    - E/ou insira endereços de email específicos separados por vírgulas. Não há um limite para o número de endereços de email que podem ser inseridos.
+    - Insira endereços de email específicos separados por vírgulas. Não há um limite para o número de endereços de email que podem ser inseridos.
 
 1. Para aplicar as informações de contato de segurança à sua assinatura, selecione **Salvar**.
 
 
 ## <a name="see-also"></a>Confira também
-Para saber mais sobre alertas de segurança, confira o seguinte:
+Para saber mais sobre alertas de segurança, confira as seguintes páginas:
 
-* [Alertas de segurança – um guia de referência](alerts-reference.md): saiba mais sobre os alertas de segurança que você poderá ver no módulo Proteção contra Ameaças da Central de Segurança do Azure
-* [Gerenciar alertas de segurança e responder a eles na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md): saiba como gerenciar alertas de segurança e responder a eles
-* [Automação de fluxo de trabalho](workflow-automation.md): automatizar respostas para alertas com a lógica de notificação personalizada
+- [Alertas de segurança – um guia de referência](alerts-reference.md): saiba mais sobre os alertas de segurança que você poderá ver no módulo Proteção contra Ameaças da Central de Segurança do Azure
+- [Gerenciar alertas de segurança e responder a eles na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md): saiba como gerenciar alertas de segurança e responder a eles
+- [Automação de fluxo de trabalho](workflow-automation.md): automatize respostas para alertas com a lógica de notificação personalizada

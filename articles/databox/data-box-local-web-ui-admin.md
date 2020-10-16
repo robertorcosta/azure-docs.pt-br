@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 09/23/2020
 ms.author: alkohli
-ms.openlocfilehash: 8455fafe9ce2465df450e9556e8b2442b01e4e23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f4f9f65b562b01466aec69cd541ea77f443f803
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449741"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127517"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Use a interface do usuário da Web local para administrar seu Data Box e Data Box Heavy
 
@@ -177,7 +177,7 @@ A computação de soma de verificação durante a preparação para envio é fei
     ![Desabilitar a soma de verificação](media/data-box-local-web-ui-admin/disable-checksum.png)
 
 2. **Desabilitar** a validação de soma de verificação
-3. Escolha **Aplicar**.
+3. Selecione **Aplicar**.
 
 > [!NOTE]
 > A opção de computação de soma de verificação de ignorar está disponível somente quando a Azure Data Box é desbloqueada. Você não verá essa opção quando o dispositivo estiver bloqueado.
@@ -198,7 +198,7 @@ Para habilitar a assinatura SMB em seu dispositivo do Azure:
 
     ![Habilitar assinatura SMB](media/data-box-local-web-ui-admin/data-box-smb-signing-1.png)
 
-3. Escolha **Aplicar**.
+3. Selecione **Aplicar**.
 4. Na interface do usuário da Web local, acesse **Desligar ou reiniciar**.
 5. Selecione **Reiniciar**.
 
@@ -206,7 +206,7 @@ Para habilitar a assinatura SMB em seu dispositivo do Azure:
 
 Os usuários da interface do usuário da Web têm privilégios de operador de backup em compartilhamentos SMB por padrão. Se você não quiser isso, use os **privilégios de habilitar operador back** para desabilitar ou habilitar os privilégios.
 
-Para obter informações, consulte operadores de backup em [grupos de segurança Active Directory](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-security-groups#backup-operators).
+Para obter informações, consulte operadores de backup em [grupos de segurança Active Directory](/windows/security/identity-protection/access-control/active-directory-security-groups#backup-operators).
 
 Para habilitar privilégios de operador de backup em seu dispositivo do Azure:
 
@@ -241,7 +241,7 @@ Para habilitar a transferência de ACLs para arquivos do Azure:
 
      ![Habilitar ACLs para arquivos do Azure](media/data-box-local-web-ui-admin/data-box-acls-for-azure-files-1.png)
   
-3. Escolha **Aplicar**.
+3. Selecione **Aplicar**.
 4. Na interface do usuário da Web local, acesse **Desligar ou reiniciar**.
 5. Selecione **Reiniciar**.
 
@@ -261,7 +261,7 @@ Para habilitar o TLS 1,1 em seu dispositivo do Azure:
 
     ![Habilitar TLS 1,1](media/data-box-local-web-ui-admin/data-box-tls-1-1.png)
 
-3. Escolha **Aplicar**.
+3. Selecione **Aplicar**.
 4. Na interface do usuário da Web local, acesse **Desligar ou reiniciar**.
 5. Selecione **Reiniciar**.
 

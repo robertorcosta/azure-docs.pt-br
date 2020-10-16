@@ -6,16 +6,19 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 976b423822fa667df713382b34d7208cb0e3b002
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b57a1f3dc1f2d86b992ce2480acd9c44df8d1e7
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540652"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122493"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-postgresql-single-server"></a>Noções básicas sobre as alterações na AC raiz alterar para o banco de dados do Azure para PostgreSQL servidor único
 
-O banco de dados do Azure para PostgreSQL alterará o certificado raiz para o aplicativo/driver cliente habilitado com SSL, usado para [se conectar ao servidor de banco de dados](concepts-connectivity-architecture.md). O certificado raiz atualmente disponível está definido para expirar em 26 de outubro de 2020 (10/26/2020) como parte das práticas recomendadas de manutenção e segurança padrão. Este artigo fornece mais detalhes sobre as alterações futuras, os recursos que serão afetados e as etapas necessárias para garantir que seu aplicativo mantenha a conectividade com o servidor de banco de dados.
+O banco de dados do Azure para PostgreSQL alterará o certificado raiz para o aplicativo/driver cliente habilitado com SSL, usado para [se conectar ao servidor de banco de dados](concepts-connectivity-architecture.md). O certificado raiz atualmente disponível está definido para expirar em 15 de fevereiro de 2021 (02/15/2021) como parte das práticas recomendadas de manutenção e segurança padrão. Este artigo fornece mais detalhes sobre as alterações futuras, os recursos que serão afetados e as etapas necessárias para garantir que seu aplicativo mantenha a conectividade com o servidor de banco de dados.
+
+>[!NOTE]
+> Com base nos comentários dos clientes, estendemos a substituição do certificado raiz para nossa CA raiz Baltimore existente de outubro de 26, 2020 até 15 de fevereiro de 2021. Esperamos que essa extensão forneça tempo de avanço suficiente para que nossos usuários implementem as alterações do cliente se elas forem afetadas.
 
 ## <a name="what-update-is-going-to-happen"></a>Qual atualização vai acontecer?
 
@@ -23,7 +26,7 @@ Em alguns casos, os aplicativos usam um arquivo de certificado local gerado por 
 
 De acordo com os requisitos de conformidade do setor, os fornecedores de CA começaram a revogar certificados de CA para CAs não compatíveis, exigindo que os servidores usem certificados emitidos por CAs compatíveis e assinados por certificados de autoridade de certificação dessas CAs em conformidade. Como o banco de dados do Azure para PostgreSQL atualmente usa um desses certificados não compatíveis, que aplicativos cliente usam para validar suas conexões SSL, precisamos garantir que as ações apropriadas sejam tomadas (descritas abaixo) para minimizar o impacto potencial nos servidores PostgreSQL.
 
-O novo certificado será usado a partir de 26 de outubro de 2020 (10/26/2020). Se você usar a validação de autoridade de certificação ou a validação completa do certificado do servidor ao se conectar de um cliente PostgreSQL (sslmode = Verify-CA ou sslmode = Verify-Full), será necessário atualizar a configuração do aplicativo antes de 26 de outubro de 2020 (10/26/2020).
+O novo certificado será usado a partir de 15 de fevereiro de 2021 (02/15/2021). Se você usar a validação de autoridade de certificação ou a validação completa do certificado do servidor ao conectar-se de um cliente PostgreSQL (sslmode = Verify-CA ou sslmode = Verify-Full), será necessário atualizar a configuração do aplicativo antes de 15 de fevereiro de 2021 (02/15/2021).
 
 ## <a name="how-do-i-know-if-my-database-is-going-to-be-affected"></a>Como fazer saber se meu banco de dados será afetado?
 
@@ -84,6 +87,9 @@ Se você estiver usando o certificado raiz Baltimore CyberTrust para verificar a
 *   Certificado inválido/certificado revogado
 *   A conexão atingiu o tempo limite
 
+> [!NOTE]
+> Não remova nem altere o **certificado Baltimore** até que a alteração de certificado seja feita. Enviaremos uma comunicação depois que a alteração for feita, após a qual é seguro descartar o certificado Baltimore. 
+
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 ### <a name="1-if-i-am-not-using-ssltls-do-i-still-need-to-update-the-root-ca"></a>1. se eu não estiver usando SSL/TLS, ainda precisarei atualizar a autoridade de certificação raiz?
@@ -92,8 +98,8 @@ Nenhuma ação será necessária se você não estiver usando SSL/TLS.
 ### <a name="2-if-i-am-using-ssltls-do-i-need-to-restart-my-database-server-to-update-the-root-ca"></a>2. se eu estiver usando SSL/TLS, preciso reiniciar meu servidor de banco de dados para atualizar a AC raiz?
 Não, você não precisa reiniciar o servidor de banco de dados para começar a usar o novo certificado. Essa é uma alteração no lado do cliente e as conexões de entrada do cliente precisam usar o novo certificado para garantir que eles possam se conectar ao servidor de banco de dados.
 
-### <a name="3-what-will-happen-if-i-do-not-update-the-root-certificate-before-october-26-2020-10262020"></a>3. o que acontecerá se eu não atualizar o certificado raiz antes de 26 de outubro de 2020 (10/26/2020)?
-Se você não atualizar o certificado raiz antes de 26 de outubro de 2020, seus aplicativos que se conectam via SSL/TLS e a verificação para o certificado raiz não poderão se comunicar com o servidor de banco de dados PostgreSQL e o aplicativo terá problemas de conectividade com o servidor de banco de dados PostgreSQL.
+### <a name="3-what-will-happen-if-i-do-not-update-the-root-certificate-before-february-15-2021-02152021"></a>3. o que acontecerá se eu não atualizar o certificado raiz antes de 15 de fevereiro de 2021 (02/15/2021)?
+Se você não atualizar o certificado raiz antes de 15 de fevereiro de 2021 (02/15/2021), seus aplicativos que se conectam via SSL/TLS e a verificação para o certificado raiz não poderão se comunicar com o servidor de banco de dados PostgreSQL e o aplicativo terá problemas de conectividade com o servidor de banco de dados PostgreSQL.
 
 ### <a name="4-what-is-the-impact-if-using-app-service-with-azure-database-for-postgresql"></a>4. qual é o impacto se estiver usando o serviço de aplicativo com o banco de dados do Azure para PostgreSQL?
 Para os serviços de aplicativos do Azure, conectando-se ao banco de dados do Azure para PostgreSQL, podemos ter dois cenários possíveis e depende de como você está usando SSL com seu aplicativo.
@@ -111,11 +117,11 @@ Para o conector que usa o autohospedado Integration Runtime em que você inclui 
 ### <a name="7-do-i-need-to-plan-a-database-server-maintenance-downtime-for-this-change"></a>7. preciso planejar um tempo de inatividade de manutenção do servidor de banco de dados para essa alteração?
 Não. Como a alteração aqui é apenas no lado do cliente para se conectar ao servidor de banco de dados, não há nenhum tempo de inatividade de manutenção necessário para o servidor de banco de dados para essa alteração.
 
-### <a name="8--what-if-i-cannot-get-a-scheduled-downtime-for-this-change-before-october-26-2020-10262020"></a>8. e se eu não conseguir um tempo de inatividade agendado para essa alteração antes de 26 de outubro de 2020 (10/26/2020)?
+### <a name="8--what-if-i-cannot-get-a-scheduled-downtime-for-this-change-before-february-15-2021-02152021"></a>8. e se eu não conseguir um tempo de inatividade agendado para essa alteração antes de 15 de fevereiro de 2021 (02/15/2021)?
 Como os clientes usados para se conectar ao servidor precisam atualizar as informações do certificado, conforme descrito na seção corrigir [aqui](./concepts-certificate-rotation.md#what-do-i-need-to-do-to-maintain-connectivity), não precisamos de um tempo de inatividade para o servidor nesse caso.
 
-### <a name="9-if-i-create-a-new-server-after-october-26-2020-will-i-be-impacted"></a>9. se eu criar um novo servidor após 26 de outubro de 2020, serei afetado?
-Para servidores criados após 26 de outubro de 2020 (10/26/2020), você pode usar o certificado emitido recentemente para seus aplicativos se conectarem usando SSL.
+### <a name="9-if-i-create-a-new-server-after-february-15-2021-02152021-will-i-be-impacted"></a>9. se eu criar um novo servidor após 15 de fevereiro de 2021 (02/15/2021), serei afetado?
+Para servidores criados após 15 de fevereiro de 2021 (02/15/2021), você pode usar o certificado emitido recentemente para seus aplicativos se conectarem usando SSL.
 
 ### <a name="10-how-often-does-microsoft-update-their-certificates-or-what-is-the-expiry-policy"></a>10. com que frequência o Microsoft atualiza seus certificados ou qual é a política de expiração?
 Esses certificados usados pelo banco de dados do Azure para PostgreSQL são fornecidos por autoridades de certificação (CA) confiáveis. Portanto, o suporte desses certificados no banco de dados do Azure para PostgreSQL está vinculado ao suporte desses certificados pela CA. No entanto, como nesse caso, pode haver bugs imprevistos nesses certificados predefinidos, que precisam ser corrigidos no início.
@@ -129,5 +135,8 @@ Para verificar se você está usando a conexão SSL para se conectar ao servidor
 ### <a name="13-is-there-an-action-needed-if-i-already-have-the-digicertglobalrootg2-in-my-certificate-file"></a>13. há uma ação necessária se eu já tiver o DigiCertGlobalRootG2 no meu arquivo de certificado?
 Não. Não há nenhuma ação necessária se o arquivo de certificado já tiver o **DigiCertGlobalRootG2**.
 
-### <a name="14-what-if-i-have-further-questions"></a>14. e se eu tiver outras dúvidas?
+### <a name="14-what-is-you-are-using-docker-image-of-pgbouncer-sidecar-provided-by-microsoft"></a>14. o que você está usando a imagem do Docker da PgBouncer sidecar fornecida pela Microsoft?
+Uma nova imagem do Docker que dá suporte a [**Baltimore**](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) e [**DigiCert**](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) é publicada abaixo [aqui](https://hub.docker.com/_/microsoft-azure-oss-db-tools-pgbouncer-sidecar) (marca mais recente). Você pode extrair essa nova imagem para evitar qualquer interrupção na conectividade a partir de 15 de fevereiro de 2021. 
+
+### <a name="15-what-if-i-have-further-questions"></a>15. e se eu tiver outras dúvidas?
 Se você tiver dúvidas, obtenha respostas de especialistas da Comunidade no [Microsoft Q&A](mailto:AzureDatabaseforPostgreSQL@service.microsoft.com). Se você tiver um plano de suporte e precisar de ajuda técnica,  [entre em contato conosco](mailto:AzureDatabaseforPostgreSQL@service.microsoft.com)

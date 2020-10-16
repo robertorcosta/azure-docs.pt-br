@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - contperfq1
 - device-developer
-ms.openlocfilehash: d6dd1bbf853a13948f55db4ae694b28cb7549c9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8fb60a4b549a7203057dd60298d2ae0540450d6
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91803782"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122646"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Definir um novo tipo de dispositivo IoT em seu aplicativo do Azure IoT Central
 
@@ -45,7 +45,7 @@ Em um aplicativo IoT Central, um modelo de dispositivo usa um modelo de capacida
 - Crie um modelo de funcionalidade do dispositivo usando o Visual Studio Code. Implemente o código do dispositivo do modelo. Importe manualmente o modelo de funcionalidade do dispositivo para o aplicativo do IoT Central e, em seguida, adicione todas as propriedades de nuvem, personalizações e painéis de que seu aplicativo do IoT Central precisa.
 - Crie um modelo de funcionalidade do dispositivo usando o Visual Studio Code. Implemente o código do dispositivo por meio do modelo e conecte o dispositivo real ao aplicativo do IoT Central usando uma conexão device-first. O IoT Central localiza e importa o modelo de funcionalidade do dispositivo do repositório público para você. Em seguida, você pode adicionar propriedades de nuvem, personalizações e dashboards necessários para o aplicativo do IoT Central ao modelo de dispositivo.
 
-Você também pode adicionar modelos de dispositivo a um aplicativo IoT Central usando a [API REST](https://docs.microsoft.com/learn/modules/manage-iot-central-apps-with-rest-api/) ou a [CLI](howto-manage-iot-central-from-cli.md).
+Você também pode adicionar modelos de dispositivo a um aplicativo IoT Central usando a [API REST](/learn/modules/manage-iot-central-apps-with-rest-api/) ou a [CLI](howto-manage-iot-central-from-cli.md).
 
 Alguns [modelos de aplicativos](concepts-app-templates.md) já incluem modelos de dispositivo que são úteis no cenário ao qual o modelo de aplicativo dá suporte. Por exemplo, consulte [arquitetura da análise na loja](../retail/store-analytics-architecture.md).
 

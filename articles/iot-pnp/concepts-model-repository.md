@@ -7,12 +7,12 @@ ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: cfdf22ac9b97ff7187bc360efe07cfe16249bd6b
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 95c9b6dee402bc0c2dd2cab8ef3200cfd9213d61
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042874"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126817"
 ---
 # <a name="device-model-repository"></a>Repositório de modelos de dispositivo
 
@@ -30,7 +30,7 @@ A Microsoft hospeda um DMR público com estas características:
 
 ## <a name="custom-device-model-repository"></a>Repositório de modelos de dispositivo personalizado
 
-Você pode usar o mesmo padrão DMR em qualquer mídia de armazenamento, como sistema de arquivos local ou servidores Web HTTP personalizados, para criar um DMR personalizado. Você pode recuperar modelos do DMR personalizado da mesma maneira que o DRM público simplesmente alterando a URL base usada para acessar o DMR.
+Você pode usar o mesmo padrão DMR em qualquer mídia de armazenamento, como sistema de arquivos local ou servidores Web HTTP personalizados, para criar um DMR personalizado. Você pode recuperar modelos do DMR personalizado da mesma maneira que a partir do DMR público, simplesmente alterando a URL base usada para acessar o DMR.
 
 > [!NOTE]
 > As ferramentas usadas para validar os modelos no DMR público podem ser reutilizadas em repositórios personalizados.

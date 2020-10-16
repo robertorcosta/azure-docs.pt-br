@@ -1,22 +1,22 @@
 ---
-title: Migrar um aplicativo do Android | Microsoft Azure Mapas
-description: Como migrar um aplicativo Android do Google Maps para o Microsoft Azure Mapas
+title: Tutorial – Migrar um aplicativo do Android | Microsoft Azure Mapas
+description: Tutorial sobre como migrar um aplicativo Android do Google Maps para o Microsoft Azure Mapas
 author: rbrundritt
 ms.author: richbrun
 ms.date: 08/19/2020
-ms.topic: how-to
+ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 96f68bdf58d9cc98815e4ae76ae01da87c38dc88
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b493b78971b7e802d82e8f61203abdaaca527016
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319632"
+ms.locfileid: "91873856"
 ---
-# <a name="migrate-an-android-app-from-google-maps"></a>Migrar um aplicativo Android do Google Maps
+# <a name="tutorial---migrate-an-android-app-from-google-maps"></a>Tutorial – Migrar um aplicativo Android do Google Maps
 
 O SDK do Android dos Azure Mapas tem uma interface de API semelhante à do SDK da Web. Se você desenvolveu um desses SDKs, muitos dos mesmos conceitos, melhores práticas e arquiteturas se aplicam.
 

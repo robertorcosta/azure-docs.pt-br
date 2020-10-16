@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: f39efcbfe7f0094e9481049a1678dba8a045888f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f9f8be81c5b90ff5e7172b2aba41a108afc64bd
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91714259"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126834"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Conectar-se ao Azure IoT Central
 
@@ -185,7 +185,7 @@ O fluxo é ligeiramente diferente dependendo de se os dispositivos usam tokens S
 
 ## <a name="individual-enrollment-based-device-connectivity"></a>Conectividade de dispositivo baseada em registros individuais
 
-Para clientes que conectam dispositivos com suas próprias credenciais de autenticação, use registros individuais. Um registro individual é uma entrada para um único dispositivo que tem permissão para se conectar. Os registros individuais podem usar certificados X.509 de folha ou tokens SAS (de um Trusted Platform Module físico ou virtual) como mecanismos de certificação. A ID do dispositivo (também conhecida como ID de registro) em um registro individual é alfanumérica, com letras minúsculas, e pode conter hifens. Para obter mais informações, consulte [Registro individual do DPS](https://docs.microsoft.com/azure/iot-dps/concepts-service#individual-enrollment).
+Para clientes que conectam dispositivos com suas próprias credenciais de autenticação, use registros individuais. Um registro individual é uma entrada para um único dispositivo que tem permissão para se conectar. Os registros individuais podem usar certificados X.509 de folha ou tokens SAS (de um Trusted Platform Module físico ou virtual) como mecanismos de certificação. A ID do dispositivo (também conhecida como ID de registro) em um registro individual é alfanumérica, com letras minúsculas, e pode conter hifens. Para obter mais informações, consulte [Registro individual do DPS](../../iot-dps/concepts-service.md#individual-enrollment).
 
 > [!NOTE]
 > Ao criar um registro individual para um dispositivo, ele tem precedência sobre as opções de registro de grupo padrão em seu aplicativo IoT Central.
@@ -204,7 +204,7 @@ O IoT Central tem suporte para os seguintes mecanismos de atestado de registros 
     > [!TIP]
     > Para fazer testes, você pode usar [Ferramentas do SDK do dispositivo de provisionamento de dispositivos IoT do Azure para Node.js](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/tools) para gerar um certificado autoassinado: `node create_test_cert.js device "mytestdevice"`
 
-- **Atestado TPM (Trusted Platform Module):** Um [TPM](https://docs.microsoft.com/azure/iot-dps/concepts-tpm-attestation) é um tipo de módulo de segurança de hardware. Usar um TPM é uma das maneiras mais seguras de se conectar um dispositivo. Este artigo pressupõe que você está usando um TPM discreto, de firmware ou integrado. Os TPMs emulados para software são adequados para fazer protótipos ou teste, mas não oferecem o mesmo nível de segurança dos TPMs discretos, de firmware ou integrados. Não use TPMs de software na produção. Para criar um registro individual que use um TPM, abra a página **Conexão de Dispositivo**, selecione **Registro individual** como o método de conexão e **TPM** como o mecanismo. Insira a chave de endosso de TPM e salve as informações de conexão do dispositivo.
+- **Atestado TPM (Trusted Platform Module):** Um [TPM](../../iot-dps/concepts-tpm-attestation.md) é um tipo de módulo de segurança de hardware. Usar um TPM é uma das maneiras mais seguras de se conectar um dispositivo. Este artigo pressupõe que você está usando um TPM discreto, de firmware ou integrado. Os TPMs emulados para software são adequados para fazer protótipos ou teste, mas não oferecem o mesmo nível de segurança dos TPMs discretos, de firmware ou integrados. Não use TPMs de software na produção. Para criar um registro individual que use um TPM, abra a página **Conexão de Dispositivo**, selecione **Registro individual** como o método de conexão e **TPM** como o mecanismo. Insira a chave de endosso de TPM e salve as informações de conexão do dispositivo.
 
 ## <a name="automatically-associate-with-a-device-template"></a>Associar a um modelo de dispositivo automaticamente
 

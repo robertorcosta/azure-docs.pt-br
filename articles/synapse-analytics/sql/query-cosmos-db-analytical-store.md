@@ -1,5 +1,5 @@
 ---
-title: Consultar dados de Azure Cosmos DB usando o SQL Server sem o link Synapse do Azure (versão prévia)
+title: Consultar dados de Azure Cosmos DB usando o pool SQL sem servidor no link Synapse do Azure (versão prévia)
 description: Neste artigo, você aprenderá a consultar Azure Cosmos DB usando o SQL sob demanda no link Synapse do Azure (versão prévia).
 services: synapse analytics
 author: jovanpop-msft
@@ -9,24 +9,24 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: d0f8fa313687b3bd45bd95f1c9ea864567821775
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 3367a20ca5e2dc59880ed66939413606ff83963b
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102350"
+ms.locfileid: "92122714"
 ---
-# <a name="query-azure-cosmos-db-data-using-sql-serverless-in-azure-synapse-link-preview"></a>Consultar dados de Azure Cosmos DB usando o SQL Server sem o link Synapse do Azure (versão prévia)
+# <a name="query-azure-cosmos-db-data-with-serverless-sql-pool-in-azure-synapse-link-preview"></a>Consultar dados de Azure Cosmos DB com o pool SQL sem servidor no link Synapse do Azure (versão prévia)
 
-O Synapse SQL Serverless (anteriormente SQL sob demanda) permite que você analise dados em seus contêineres de Azure Cosmos DB que estão habilitados com o [link Synapse do Azure](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) quase em tempo real sem afetar o desempenho de suas cargas de trabalho transacionais. Ele oferece uma sintaxe de T-SQL familiar para consultar dados do [armazenamento analítico](../../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) e conectividade integrada a uma ampla gama de ferramentas de consulta de BI e ad hoc por meio da interface T-SQL.
+O pool SQL sem servidor do Synapse (anteriormente SQL sob demanda) permite que você analise dados em seus contêineres de Azure Cosmos DB que estão habilitados com o [link Synapse do Azure](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) quase em tempo real sem afetar o desempenho de suas cargas de trabalho transacionais. Ele oferece uma sintaxe de T-SQL familiar para consultar dados do [armazenamento analítico](../../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) e conectividade integrada a uma ampla gama de ferramentas de consulta de BI e ad hoc por meio da interface T-SQL.
 
-Para consultar Azure Cosmos DB, a área de superfície de [seleção](/sql/t-sql/queries/select-transact-sql?view=sql-server-ver15) completa é suportada por meio da função [OPENROWSET](develop-openrowset.md) , incluindo a maioria dos [operadores e funções SQL](overview-features.md). Você também pode armazenar os resultados da consulta que lê dados de Azure Cosmos DB juntamente com os dados no armazenamento de BLOBs do Azure ou Azure Data Lake Storage usando [criar tabela externa como SELECT](develop-tables-cetas.md#cetas-in-sql-on-demand). Atualmente, não é possível armazenar os resultados da consulta sem SQL Server para Azure Cosmos DB usando [CETAS](develop-tables-cetas.md#cetas-in-sql-on-demand).
+Para consultar Azure Cosmos DB, a área de superfície de [seleção](/sql/t-sql/queries/select-transact-sql?view=sql-server-ver15) completa é suportada por meio da função [OPENROWSET](develop-openrowset.md) , incluindo a maioria dos [operadores e funções SQL](overview-features.md). Você também pode armazenar os resultados da consulta que lê dados de Azure Cosmos DB juntamente com os dados no armazenamento de BLOBs do Azure ou Azure Data Lake Storage usando [criar tabela externa como SELECT](develop-tables-cetas.md#cetas-in-sql-on-demand). Atualmente, não é possível armazenar os resultados da consulta do pool SQL sem servidor para Azure Cosmos DB usando [CETAS](develop-tables-cetas.md#cetas-in-sql-on-demand).
 
-Neste artigo, você aprenderá a escrever uma consulta usando o SQL Server que irá consultar dados de contêineres de Azure Cosmos DB que estão com o link Synapse habilitado. Em seguida, você pode saber mais sobre como criar exibições sem SQL Server em Azure Cosmos DB contêineres e conectá-las a modelos de Power BI [neste tutorial.](./tutorial-data-analyst.md) 
+Neste artigo, você aprenderá a escrever uma consulta com o pool SQL sem servidor que consultará dados de contêineres de Azure Cosmos DB que estão com o link Synapse habilitado. Em seguida, você pode saber mais sobre como criar exibições de pool de SQL sem servidor em Azure Cosmos DB contêineres e conectá-las a modelos de Power BI [neste tutorial.](./tutorial-data-analyst.md) 
 
 ## <a name="overview"></a>Visão geral
 
-Para dar suporte à consulta e análise de dados no repositório analítico Azure Cosmos DB, o SQL Server usa a seguinte `OPENROWSET` sintaxe:
+Para dar suporte à consulta e análise de dados no repositório analítico Azure Cosmos DB, o pool SQL sem servidor usa a seguinte `OPENROWSET` sintaxe:
 
 ```sql
 OPENROWSET( 
@@ -49,7 +49,7 @@ A cadeia de conexão tem o seguinte formato:
 O nome do contêiner de Azure Cosmos DB é especificado sem aspas na `OPENROWSET` sintaxe. Se o nome do contêiner tiver caracteres especiais (por exemplo, um traço '-'), o nome deverá ser encapsulado dentro do `[]` (colchetes) na `OPENROWSET` sintaxe.
 
 > [!NOTE]
-> O SQL Serverless não dá suporte à consulta Azure Cosmos DB armazenamento transacional.
+> O pool SQL sem servidor não dá suporte à consulta Azure Cosmos DB repositório transacional.
 
 ## <a name="sample-data-set"></a>Conjunto de dados de exemplo
 
@@ -57,14 +57,14 @@ Os exemplos neste artigo baseiam-se nos dados do [Centro Europeu para prevençã
 
 Você pode ver a licença e a estrutura de dados nessas páginas e baixar dados de exemplo para conjuntos de dados [ECDC](https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.json) e [Cord19](https://azureopendatastorage.blob.core.windows.net/covid19temp/comm_use_subset/pdf_json/000b7d1517ceebb34e1e3e817695b6de03e2fa78.json) .
 
-Para acompanhar este artigo mostrando como consultar dados de Cosmos DB com o SQL Server sem nenhum, certifique-se de criar os seguintes recursos:
+Para acompanhar este artigo mostrando como consultar dados de Cosmos DB com o pool SQL sem servidor, certifique-se de criar os seguintes recursos:
 * Uma conta de banco de dados Azure Cosmos DB que esteja com o [link Synapse habilitado](../../cosmos-db/configure-synapse-link.md)
 * Um banco de dados Azure Cosmos DB chamado `covid`
 * Dois contêineres Azure Cosmos DB chamados `EcdcCases` e `Cord19` com os conjuntos de dados de exemplo acima carregados.
 
 ## <a name="explore-azure-cosmos-db-data-with-automatic-schema-inference"></a>Explorar Azure Cosmos DB dados com inferência de esquema automática
 
-A maneira mais fácil de explorar dados no Azure Cosmos DB é aproveitando a capacidade de inferência automática de esquemas. Ao omitir a `WITH` cláusula da `OPENROWSET` instrução, você pode instruir o SQL Server a detectar automaticamente (inferir) o esquema do repositório analítico do contêiner de Azure Cosmos DB.
+A maneira mais fácil de explorar dados no Azure Cosmos DB é aproveitando a capacidade de inferência automática de esquemas. Ao omitir a `WITH` cláusula da `OPENROWSET` instrução, você pode instruir o pool SQL sem servidor a detectar automaticamente (inferir) o esquema do repositório analítico do Azure Cosmos DB contêiner.
 
 ```sql
 SELECT TOP 10 *
@@ -73,7 +73,7 @@ FROM OPENROWSET(
        'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
        EcdcCases) as documents
 ```
-No exemplo acima, estamos instruindo o SQL Server a se conectar ao `covid` banco de dados em Azure Cosmos DB conta `MyCosmosDbAccount` autenticada usando a chave de Azure Cosmos dB (fictícia no exemplo acima). Em seguida, estamos acessando o `EcdcCases` repositório analítico do contêiner na `West US 2` região. Como não há projeção de propriedades específicas, a `OPENROWSET` função retornará todas as propriedades dos itens de Azure Cosmos DB.
+No exemplo acima, estamos instruindo o pool SQL sem servidor a se conectar ao `covid` banco de dados em Azure Cosmos DB conta `MyCosmosDbAccount` autenticada usando a chave Azure Cosmos dB (fictícia no exemplo acima). Em seguida, estamos acessando o `EcdcCases` repositório analítico do contêiner na `West US 2` região. Como não há projeção de propriedades específicas, a `OPENROWSET` função retornará todas as propriedades dos itens de Azure Cosmos DB.
 
 Se você precisar explorar dados do outro contêiner no mesmo banco de Azure Cosmos DB, poderá usar a mesma cadeia de conexão e o contêiner de referência necessário como terceiro parâmetro:
 
@@ -120,7 +120,7 @@ Examine as [regras para mapeamentos de tipo SQL](#azure-cosmos-db-to-sql-type-ma
 
 ## <a name="querying-nested-objects-and-arrays"></a>Consultando objetos aninhados e matrizes
 
-Azure Cosmos DB permite que você represente modelos de dados mais complexos, compondo-os como objetos ou matrizes aninhados. O recurso AutoSync do link do Synapse para Azure Cosmos DB gerencia a representação do esquema no repositório analítico, que inclui o tratamento de tipos de dados aninhados, permitindo uma consulta avançada do SQL Server.
+Azure Cosmos DB permite que você represente modelos de dados mais complexos, compondo-os como objetos ou matrizes aninhados. O recurso AutoSync do link do Synapse para Azure Cosmos DB gerencia a representação do esquema no repositório analítico, que inclui o tratamento de tipos de dados aninhados, permitindo uma consulta avançada de um pool SQL sem servidor.
 
 Por exemplo, o conjunto de dados de [cabo-19](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/) tem documentos JSON seguindo a seguinte estrutura:
 
@@ -172,7 +172,7 @@ FROM
     ) AS docs;
 ```
 
-Saiba mais sobre a análise [de tipos de dados complexos em Synapse link](../how-to-analyze-complex-schema.md) e [estruturas aninhadas no SQL Server](query-parquet-nested-types.md).
+Saiba mais sobre a análise [de tipos de dados complexos no link do Synapse](../how-to-analyze-complex-schema.md) e [estruturas aninhadas no pool SQL sem servidor](query-parquet-nested-types.md).
 
 > [!IMPORTANT]
 > Se você vir caracteres inesperados em seu texto como `MÃƒÂ©lade` em vez de `Mélade` , o agrupamento do banco de dados não será definido como agrupamento [UTF8](https://docs.microsoft.com/sql/relational-databases/collations/collation-and-unicode-support#utf8) . 
@@ -181,7 +181,7 @@ Saiba mais sobre a análise [de tipos de dados complexos em Synapse link](../how
 
 ## <a name="flattening-nested-arrays"></a>Mesclando matrizes aninhadas
 
-Azure Cosmos DB dados podem ter submatrizes aninhadas, como a matriz do autor do conjunto de dados [Cord19](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/) :
+Azure Cosmos DB dados podem ter submatrizes aninhadas como a matriz do autor do conjunto de dados [Cord19](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/) :
 
 ```json
 {
@@ -203,7 +203,7 @@ Azure Cosmos DB dados podem ter submatrizes aninhadas, como a matriz do autor do
 }
 ```
 
-Em alguns casos, talvez seja necessário "unir" as propriedades do item superior (metadados) com todos os elementos da matriz (autores). O SQL Serverless permite mesclar estruturas aninhadas aplicando `OPENJSON` a função na matriz aninhada:
+Em alguns casos, talvez seja necessário "unir" as propriedades do item superior (metadados) com todos os elementos da matriz (autores). O pool SQL sem servidor permite mesclar estruturas aninhadas aplicando a `OPENJSON` função na matriz aninhada:
 
 ```sql
 SELECT
@@ -238,7 +238,7 @@ Informações complementares de um epidemi de eco... | `[{"first":"Nicolas","las
 
 ## <a name="azure-cosmos-db-to-sql-type-mappings"></a>Azure Cosmos DB para mapeamentos de tipo SQL
 
-É importante primeiro observar que, embora Azure Cosmos DB armazenamento transacional seja independente de esquema, o armazenamento analítico é esquematizados para otimizar o desempenho de consultas analíticas. Com o recurso AutoSync do link do Synapse, o Azure Cosmos DB gerencia a representação do esquema no repositório analítico, que inclui o tratamento de tipos de dados aninhados. Como o SQL Server não consulta o repositório analítico, é importante entender como mapear Azure Cosmos DB tipos de dados de entrada para tipos de dados SQL.
+É importante primeiro observar que, embora Azure Cosmos DB armazenamento transacional seja independente de esquema, o armazenamento analítico é esquematizados para otimizar o desempenho de consultas analíticas. Com o recurso AutoSync do link do Synapse, o Azure Cosmos DB gerencia a representação do esquema no repositório analítico, que inclui o tratamento de tipos de dados aninhados. Como o pool SQL sem servidor consulta o repositório analítico, é importante entender como mapear Azure Cosmos DB tipos de dados de entrada para tipos de dados SQL.
 
 Azure Cosmos DB contas da API do SQL (Core) dão suporte a tipos de propriedade JSON de número, Cadeia de caracteres, booliano, nulo, objeto aninhado ou matriz. Você precisaria escolher tipos SQL que correspondam a esses tipos de JSON se estiver usando a `WITH` cláusula in `OPENROWSET` . Veja abaixo os tipos de coluna SQL que devem ser usados para diferentes tipos de propriedade no Azure Cosmos DB.
 
@@ -258,9 +258,9 @@ Para consultar Azure Cosmos DB contas do tipo de API do Mongo DB, você pode sab
 ## <a name="known-issues"></a>Problemas conhecidos
 
 - O alias **deve** ser especificado após `OPENROWSET` a função (por exemplo, `OPENROWSET (...) AS function_alias` ). A omissão do alias pode causar problemas de conexão e o ponto de extremidade SQL sem servidor Synapse pode estar temporariamente indisponível. Esse problema será resolvido em 2020 de novembro.
-- Atualmente, o SQL sem servidor Synapse não dá suporte a [Azure Cosmos DB esquema de fidelidade total](../../cosmos-db/analytical-store-introduction.md#schema-representation). Use o SQL sem servidor Synapse somente para acessar Cosmos DB esquema bem definido.
+- O pool SQL sem servidor atualmente não dá suporte a [Azure Cosmos DB esquema de fidelidade total](../../cosmos-db/analytical-store-introduction.md#schema-representation). Use o pool SQL sem servidor somente para acessar Cosmos DB esquema bem definido.
 
-A lista de possíveis erros e ações de solução de problemas estão listadas na tabela a seguir:
+Possíveis erros e ações de solução de problemas estão listados na tabela a seguir:
 
 | Erro | Causa raiz |
 | --- | --- |

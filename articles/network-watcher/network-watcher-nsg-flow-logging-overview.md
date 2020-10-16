@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: c0001add9ddbafb67dc7ac305c5fc171a8e24a51
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d7d477e50ef4fc47042d57aa973d483a784465d
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89070574"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127328"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introdução ao log de fluxo dos grupos de segurança da rede
 
@@ -317,7 +317,7 @@ Use o link relevante abaixo para obter guias sobre como habilitar logs de fluxo.
 
 ## <a name="updating-parameters"></a>Atualizando parâmetros
 
-**Azure portal**
+**Portal do Azure**
 
 Na portal do Azure, navegue até a seção de logs de fluxo NSG no observador de rede. Em seguida, clique no nome do NSG. Isso abrirá o painel configurações para o log de fluxo. Altere os parâmetros desejados e clique em **salvar** para implantar as alterações.
 
@@ -361,7 +361,11 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 **Fluxos de entrada registrados de IPS de Internet para VMs sem IPS públicos**: VMs que não têm um endereço IP público atribuído por meio de um endereço IP público associado à NIC como um IP público em nível de instância, ou que fazem parte de um pool de back-end do Load Balancer básico, usam [SNAT padrão](../load-balancer/load-balancer-outbound-connections.md) e têm um endereço IP atribuído pelo Azure para facilitar a conectividade de saída. Como resultado, você poderá ver entradas de log de fluxo de fluxos de endereços IP da Internet, se o fluxo for destinado a uma porta no intervalo de portas atribuídas para SNAT. Embora o Azure não permita esses fluxos para a VM, a tentativa é registrada e aparece no log de fluxo do NSG do observador de rede por design. Recomendamos que o tráfego de Internet de entrada indesejado seja explicitamente bloqueado com NSG.
 
-## <a name="best-practices"></a>Práticas recomendadas
+**Serviços incompatíveis**: devido às limitações da plataforma atual, um pequeno conjunto de serviços do Azure não tem suporte dos logs de fluxo do NSG. A lista atual de serviços incompatíveis é
+- [AKS (Serviço de Kubernetes do Azure)](https://azure.microsoft.com/services/kubernetes-service/)
+- [Aplicativos Lógicos](https://azure.microsoft.com/services/logic-apps/) 
+
+## <a name="best-practices"></a>Melhores práticas
 
 **Habilitar em VNETs/sub-redes críticas**: os logs de fluxo devem ser habilitados em todas as VNETs/sub-redes críticas em sua assinatura como uma prática recomendada de auditoria e de segurança. 
 

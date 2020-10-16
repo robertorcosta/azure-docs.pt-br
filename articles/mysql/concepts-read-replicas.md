@@ -1,17 +1,17 @@
 ---
-title: Réplicas de leitura - Banco de Dados do Azure para MySQL.
+title: Ler réplicas-banco de dados do Azure para MySQL
 description: 'Saiba mais sobre réplicas de leitura no Banco de Dados do Azure para MySQL: como escolher regiões, criar réplicas, conectar réplicas, monitorar replicação e parar replicação.'
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/1/2020
-ms.openlocfilehash: 42ca56e33ff0bc8f48c35849480d8094a2be1cb7
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.date: 10/15/2020
+ms.openlocfilehash: de1e0e077eacfe4779834c46da7de4d8c4a2c75f
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876542"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126645"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Leia réplicas no Banco de Dados do Azure para MySQL
 
@@ -38,7 +38,7 @@ Como réplicas são somente leitura, elas não reduzem diretamente os encargos d
 O recurso de réplica de leitura usa replicação assíncrona do MySQL. O recurso não se destina a cenários de replicação síncrona. Haverá um atraso mensurável entre a origem e a réplica. Os dados na réplica acabarão se tornando consistentes com os dados no mestre. Use este recurso para cargas de trabalho que podem acomodar esse atraso.
 
 > [!IMPORTANT]
-> O banco de dados do Azure para MySQL usa log binário baseado em **linha** . Se a sua tabela não tiver uma chave primária, todas as linhas da tabela serão verificadas em busca de operações DML. Isso causa um aumento no atraso da replicação. Para garantir que a réplica seja capaz de acompanhar as alterações na origem, geralmente é recomendável adicionar uma chave primária em tabelas no servidor de origem antes de criar o servidor de réplica ou recriar o servidor de réplica se você já tiver um.
+> O Banco de Dados do Azure para MySQL usa o log binário baseado em **LINHA**. Se a tabela não tiver uma chave primária, todas as linhas da tabela serão verificadas em busca de operações DML. Isso causa um aumento no atraso da replicação. Para garantir que a réplica consiga acompanhar as alterações na origem, geralmente é recomendável adicionar uma chave primária em tabelas no servidor de origem antes de criar o servidor de réplica ou recriar o servidor de réplica se você já tiver um.
 
 ## <a name="cross-region-replication"></a>Replicação entre regiões
 Você pode criar uma réplica de leitura em uma região diferente do seu servidor de origem. A replicação entre regiões pode ser útil para cenários como o planejamento de recuperação de desastres ou para trazer dados mais próximos dos seus usuários.
@@ -50,7 +50,7 @@ Você pode ter um servidor de origem em qualquer [região do banco de dados do A
 ### <a name="universal-replica-regions"></a>Regiões de réplica universal
 Você pode criar uma réplica de leitura em qualquer uma das seguintes regiões, independentemente de onde o servidor de origem está localizado. As regiões de réplica universal compatíveis incluem:
 
-Leste da Austrália, sudeste da Austrália, EUA Central, Ásia Oriental, leste dos EUA, leste dos EUA 2, leste do Japão, oeste do Japão, Coreia central, sul da Coreia, norte EUA Central, Europa Setentrional, Sul EUA Central, Sudeste Asiático, Sul do Reino Unido, Oeste do Reino Unido, Europa Ocidental, oeste dos EUA, oeste dos EUA 2, Oeste EUA Central.
+Leste da Austrália, sudeste da Austrália, sul do Brasil, centro do Canadá, leste do Canadá, EUA Central, Ásia Oriental, leste dos EUA, leste dos EUA 2, leste do Japão, oeste do Japão, Coreia central, sul da Coreia, norte EUA Central, Europa Setentrional, Sul EUA Central, Sudeste Asiático, Sul do Reino Unido, oeste do Reino Unido, Europa Ocidental, oeste dos EUA, oeste dos EUA 2, Oeste EUA Central.
 
 ### <a name="paired-regions"></a>Regiões emparelhadas
 Além das regiões de réplica universal, você pode criar uma réplica de leitura na região emparelhada do Azure do seu servidor de origem. Se não souber o par da sua região, você pode encontrar essa informação no [artigo Regiões emparelhadas do Azure](../best-practices-availability-paired-regions.md).

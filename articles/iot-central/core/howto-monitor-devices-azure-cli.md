@@ -9,12 +9,12 @@ ms.service: iot-central
 ms.custom: devx-track-azurecli, device-developer
 services: iot-central
 manager: corywink
-ms.openlocfilehash: 276513e41b1595180acb0a596b236428032d87a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b266def0dbe81542714fc6d47986f3cde8235dd0
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90015969"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122953"
 ---
 # <a name="monitor-device-connectivity-using-azure-cli"></a>Monitorar a conectividade do dispositivo usando a CLI do Azure
 
@@ -22,11 +22,11 @@ ms.locfileid: "90015969"
 
 Use a extensão CLI do Azure IoT para ver as mensagens que seus dispositivos estão enviando para IoT Central e observar alterações no dispositivo. Você pode usar essa ferramenta para depurar e observar a conectividade do dispositivo e diagnosticar problemas de mensagens do dispositivo que não estão atingindo a nuvem ou os dispositivos que não estão respondendo a alterações de conexão.
 
-[Visite a referência de extensões de CLI do Azure para obter mais detalhes](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/central?view=azure-cli-latest)
+[Visite a referência de extensões de CLI do Azure para obter mais detalhes](/cli/azure/ext/azure-iot/iot/central?view=azure-cli-latest)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-+ CLI do Azure instalado e é a versão 2.7.0 ou superior. Verifique a versão do seu CLI do Azure executando `az --version` . Saiba como instalar e atualizar a partir do [CLI do Azure docs](https://docs.microsoft.com/cli/azure/install-azure-cli)
++ CLI do Azure instalado e é a versão 2.7.0 ou superior. Verifique a versão do seu CLI do Azure executando `az --version` . Saiba como instalar e atualizar a partir do [CLI do Azure docs](/cli/azure/install-azure-cli)
 + Uma conta corporativa ou de estudante no Azure, adicionada como um usuário em um aplicativo IoT Central.
 
 ## <a name="install-the-iot-central-extension"></a>Instalar a extensão de IoT Central

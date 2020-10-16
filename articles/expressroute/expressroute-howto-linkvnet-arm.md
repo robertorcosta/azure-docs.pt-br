@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: vincular uma VNet a um circuito do ExpressRoute-Azure PowerShell'
-description: Este tutorial fornece uma visão geral de como vincular redes virtuais (VNets) a circuitos de ExpressRoute usando o modelo de implantação do Gerenciador de recursos e Azure PowerShell.
+title: 'Tutorial: Vincular uma VNet a um circuito do ExpressRoute – Azure PowerShell'
+description: Este tutorial fornece uma visão geral de como vincular as redes virtuais (VNets) aos circuitos do ExpressRoute usando o modelo de implantação do Resource Manager e do Azure PowerShell.
 services: expressroute
 author: duongau
 ms.service: expressroute
@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 10/06/2020
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: b536b0e2601ce1ae9dd3d40723f4cab09a3a4c48
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 69067ca34b231f1b14f8cc854288c3ed4c4ac82a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91772950"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91855983"
 ---
-# <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Conectar uma rede virtual a um circuito do ExpressRoute
+# <a name="tutorial-connect-a-virtual-network-to-an-expressroute-circuit"></a>Tutorial: Conectar uma rede virtual a um circuito do ExpressRoute
 > [!div class="op_single_selector"]
 > * [Azure portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-linkvnet-arm.md)
@@ -28,11 +28,11 @@ Este artigo ajuda a vincular as VNets (redes virtuais) aos circuitos do Azure Ex
 
 * Você pode vincular até 10 redes virtuais a um circuito de ExpressRoute padrão. Todas as redes virtuais deverão estar na mesma região geopolítica ao usar um circuito de ExpressRoute padrão. 
 
-* Uma única rede virtual pode ser vinculada a até quatro circuitos de ExpressRoute. Use as etapas neste artigo para criar um novo objeto de conexão para cada circuito do ExpressRoute ao qual você está se conectando. Os circuitos de ExpressRoute podem estar na mesma assinatura, assinaturas diferentes ou uma mistura de ambos.
+* Uma única rede virtual pode ser vinculada a até quatro circuitos de ExpressRoute. Siga as etapas neste artigo para criar um objeto de conexão para cada circuito do ExpressRoute ao qual você está se conectando. Os circuitos de ExpressRoute podem estar na mesma assinatura, assinaturas diferentes ou uma mistura de ambos.
 
-* Se você habilitar o complemento Premium do ExpressRoute, poderá vincular redes virtuais fora da região geopolítica do circuito do ExpressRoute. O complemento Premium também permitirá que você conecte mais de 10 redes virtuais ao seu circuito de ExpressRoute, dependendo da largura de banda escolhida. Confira as [perguntas frequentes](expressroute-faqs.md) para obter mais detalhes sobre o complemento premium.
+* Se habilitar o complemento premium do ExpressRoute, você poderá vincular redes virtuais fora da região geopolítica do circuito do ExpressRoute. O complemento premium também permitirá que você conecte mais de 10 redes virtuais ao circuito do ExpressRoute, dependendo da largura de banda escolhida. Confira as [perguntas frequentes](expressroute-faqs.md) para obter mais detalhes sobre o complemento premium.
 
-Neste tutorial, você aprenderá como:
+Neste tutorial, você aprenderá a:
 > [!div class="checklist"]
 > - Conectar uma rede virtual na mesma assinatura a um circuito
 > - Conectar uma rede virtual em uma assinatura diferente a um circuito
@@ -46,7 +46,7 @@ Neste tutorial, você aprenderá como:
 * Você deve ter um circuito do ExpressRoute ativo. 
   * Siga as instruções para [criar um circuito do ExpressRoute](expressroute-howto-circuit-arm.md) e para que o circuito seja habilitado pelo provedor de conectividade. 
   * Verifique se o emparelhamento privado do Azure está configurado para seu circuito. Veja o artigo [Configurar roteamento](expressroute-howto-routing-arm.md) para obter instruções sobre roteamento. 
-  * Verifique se o emparelhamento privado do Azure é configurado e estabelece o emparelhamento via protocolo BGP entre sua rede e a Microsoft para conectividade de ponta a ponta.
+  * Verifique se o emparelhamento privado do Azure está configurado e estabelece o emparelhamento via protocolo BGP entre a rede e a Microsoft a fim de proporcionar conectividade de ponta a ponta.
   * Verifique se tem uma rede virtual e um gateway de rede virtual criados e totalmente provisionados. Siga as instruções para [criar um gateway de rede virtual para ExpressRoute](expressroute-howto-add-gateway-resource-manager.md). Um gateway de rede virtual para ExpressRoute usa o GatewayType “ExpressRoute”, não VPN.
 
 ### <a name="working-with-azure-powershell"></a>Trabalhando com o Azure PowerShell
@@ -67,7 +67,7 @@ $connection = New-AzVirtualNetworkGatewayConnection -Name "ERConnection" -Resour
 ## <a name="connect-a-virtual-network-in-a-different-subscription-to-a-circuit"></a>Conectar uma rede virtual em uma assinatura diferente a um circuito
 Você pode compartilhar um circuito do ExpressRoute entre várias assinaturas. A figura a seguir mostra um esquema simples de como funciona o compartilhamento de circuitos do ExpressRoute entre várias assinaturas.
 
-Cada uma das nuvens menores dentro da nuvem grande é usada para representar assinaturas pertencentes a diferentes departamentos dentro de uma organização. Cada um dos departamentos dentro da organização usa sua própria assinatura para implantar seus serviços, mas eles podem compartilhar um único circuito do ExpressRoute para se conectar de volta à sua rede local. Um único departamento (neste exemplo: TI) pode ter o circuito do ExpressRoute. Outras assinaturas dentro da organização podem usar o circuito do ExpressRoute.
+Cada uma das nuvens menores dentro da nuvem grande é usada para representar assinaturas pertencentes a diferentes departamentos dentro de uma organização. Cada um dos departamentos dentro da organização usa a própria assinatura para implantar os serviços deles, mas podem compartilhar um circuito do ExpressRoute para se conectar de volta à sua rede local. Um único departamento (neste exemplo: TI) pode ter o circuito do ExpressRoute. Outras assinaturas dentro da organização podem usar o circuito do ExpressRoute.
 
 > [!NOTE]
 > As cobranças por conectividade e largura de banda pelo circuito ExpressRoute serão aplicadas ao proprietário da assinatura. Todas as redes virtuais compartilham a mesma largura de banda.
@@ -77,7 +77,7 @@ Cada uma das nuvens menores dentro da nuvem grande é usada para representar ass
 
 ### <a name="administration---circuit-owners-and-circuit-users"></a>Administração – proprietários e usuários do circuito
 
-O “proprietário do circuito” é um usuário avançado autorizado do recurso de circuito do ExpressRoute. O proprietário do circuito pode criar autorizações que podem ser resgatadas pelos ‘usuários do circuito’. Os usuários de circuito são proprietários de gateways de rede virtual que não estão na mesma assinatura que o circuito de ExpressRoute. Usuários do circuito podem resgatar autorizações (uma autorização por rede virtual).
+O “proprietário do circuito” é um usuário avançado autorizado do recurso de circuito do ExpressRoute. O proprietário do circuito pode criar autorizações que podem ser resgatadas pelos ‘usuários do circuito’. Os usuários do circuito são proprietários de gateways de rede virtual que não estão na mesma assinatura que o circuito do ExpressRoute. Usuários do circuito podem resgatar autorizações (uma autorização por rede virtual).
 
 O proprietário do circuito tem a capacidade de modificar e revogar autorizações a qualquer momento. Revogar uma autorização faz com que todas as conexões de links sejam excluídas da assinatura cujo acesso foi revogado.
 
@@ -85,7 +85,7 @@ O proprietário do circuito tem a capacidade de modificar e revogar autorizaçõ
 
 **Criar uma autorização**
 
-O proprietário do circuito cria uma autorização, que cria uma chave de autorização a ser usada por um usuário de circuito para conectar seus gateways de rede virtual ao circuito do ExpressRoute. Uma autorização é válida apenas para uma conexão.
+O proprietário do circuito cria uma autorização, que, por sua vez, cria uma chave de autorização que pode ser usada por um usuário do circuito para conectar os respectivos gateways de rede virtual ao circuito do ExpressRoute. Uma autorização é válida apenas para uma conexão.
 
 O seguinte snippet de cmdlet mostra como criar uma autorização:
 
@@ -98,7 +98,7 @@ $circuit = Get-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
 $auth1 = Get-AzExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "MyAuthorization1"
 ```
 
-A resposta para os comandos anteriores conterá a chave de autorização e o status:
+A resposta aos comandos anteriores conterá a chave de autorização e o status:
 
 ```azurepowershell
 Name                   : MyAuthorization1
@@ -180,7 +180,7 @@ Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connecti
 O intervalo de *RoutingWeight* é de 0 a 32.000. O valor padrão é 0.
 
 ## <a name="configure-expressroute-fastpath"></a>Configurar o ExpressRoute FastPath 
-Você pode habilitar o [ExpressRoute FastPath](expressroute-about-virtual-network-gateways.md) se o seu gateway de rede virtual for de altíssimo desempenho ou ErGw3AZ. O FastPath melhora o desempenho do caminho de dados, como pacotes por segundo e conexões por segundo entre sua rede local e sua rede virtual. 
+Você poderá habilitar o [ExpressRoute FastPath](expressroute-about-virtual-network-gateways.md) se o gateway de rede virtual for de Ultradesempenho ou ErGw3AZ. O FastPath aprimora o desempenho do caminho de dados, como pacotes por segundo e conexões por segundo entre sua rede local e sua rede virtual. 
 
 **Configurar o FastPath em uma nova conexão**
 
@@ -190,7 +190,7 @@ $gw = Get-AzVirtualNetworkGateway -Name "MyGateway" -ResourceGroupName "MyRG"
 $connection = New-AzVirtualNetworkGatewayConnection -Name "MyConnection" -ResourceGroupName "MyRG" -ExpressRouteGatewayBypass -VirtualNetworkGateway1 $gw -PeerId $circuit.Id -ConnectionType ExpressRoute -Location "MyLocation" 
 ``` 
 
-**Atualizando uma conexão existente para habilitar o FastPath**
+**Como atualizar uma conexão existente para habilitar o FastPath**
 
 ```azurepowershell-interactive 
 $connection = Get-AzVirtualNetworkGatewayConnection -Name "MyConnection" -ResourceGroupName "MyRG" 
@@ -198,9 +198,9 @@ $connection.ExpressRouteGatewayBypass = $True
 Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection
 ``` 
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
-Se você não precisar mais da conexão do ExpressRoute, na assinatura em que o gateway está localizado, use o `Remove-AzVirtualNetworkGatewayConnection` comando para remover o vínculo entre o gateway e o circuito.
+Se você não precisar mais da conexão do ExpressRoute, na assinatura em que o gateway está localizado, use o comando `Remove-AzVirtualNetworkGatewayConnection` para remover o vínculo entre o gateway e o circuito.
 
 ```azurepowershell-interactive
 Remove-AzVirtualNetworkGatewayConnection "MyConnection" -ResourceGroupName "MyRG"

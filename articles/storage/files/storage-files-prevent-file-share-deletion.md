@@ -8,12 +8,12 @@ ms.date: 05/28/2020
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: 11940a43438b72eb8a2e9391d56806744c4c27fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50dbca7e32548380c6dbf338260b98ce59cda715
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86527805"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122408"
 ---
 # <a name="prevent-accidental-deletion-of-azure-file-shares"></a>Impedir exclusão acidental de compartilhamentos de arquivo do Azure
 
@@ -37,7 +37,7 @@ A exclusão reversível para compartilhamentos de arquivos do Azure (versão pr�
 
 ### <a name="enabling-or-disabling-soft-delete"></a>Habilitando ou desabilitando a exclusão reversível
 
-A exclusão reversível para compartilhamentos de arquivos está habilitada no nível da conta de armazenamento, por isso, as configurações de exclusão reversível se aplicam a todos os compartilhamentos de arquivos em uma conta de armazenamento. Você pode habilitar ou desabilitar a exclusão reversível a qualquer momento. Quando você cria uma nova conta de armazenamento, a exclusão reversível para compartilhamentos de arquivos é desabilitada por padrão. A exclusão reversível também é desabilitada por padrão para contas de armazenamento existentes. Se você tiver configurado o [backup de compartilhamento de arquivos do Azure](../../backup/azure-file-share-backup-overview.md) para um compartilhamento de arquivos do Azure, a exclusão reversível para compartilhamentos de arquivos do Azure será habilitada automaticamente na conta de armazenamento desse compartilhamento.
+A exclusão reversível para compartilhamentos de arquivos está habilitada no nível da conta de armazenamento, por isso, as configurações de exclusão reversível se aplicam a todos os compartilhamentos de arquivos em uma conta de armazenamento. Você pode habilitar ou desabilitar a exclusão reversível a qualquer momento. Quando você cria uma nova conta de armazenamento, a exclusão reversível para compartilhamentos de arquivos é desabilitada por padrão enquanto o recurso está em visualização pública. Depois que a exclusão reversível se tornar disponível de forma geral, ela será habilitada por padrão. A exclusão reversível permanecerá desabilitada por padrão para contas de armazenamento existentes. Se você tiver configurado o [backup de compartilhamento de arquivos do Azure](../../backup/azure-file-share-backup-overview.md) para um compartilhamento de arquivos do Azure, a exclusão reversível para compartilhamentos de arquivos do Azure será habilitada automaticamente na conta de armazenamento desse compartilhamento.
 
 Se você habilitar a exclusão temporária para compartilhamentos de arquivo, excluir alguns compartilhamentos de arquivo e desabilitar a exclusão temporária, você ainda poderá acessar e recuperar esses compartilhamentos se eles tiverem sido salvos nesse período. Quando habilitar a exclusão temporária, você precisará também configurar o período de retenção.
 
