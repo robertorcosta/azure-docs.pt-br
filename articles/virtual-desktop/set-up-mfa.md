@@ -3,15 +3,15 @@ title: Configurar a autenticação multifator do Azure para área de trabalho vi
 description: Como configurar a autenticação multifator do Azure para aumentar a segurança na área de trabalho virtual do Windows.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 09/14/2020
+ms.date: 10/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e31693eafcf32de1460cfa5b74ae35ffd05b5a67
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e67e3d391ba69bacb82a9154f577942a017e5795
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90089914"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108976"
 ---
 # <a name="enable-azure-multi-factor-authentication-for-windows-virtual-desktop"></a>Habilitar a Autenticação Multifator do Azure para a Área de Trabalho Virtual do Windows
 
@@ -64,6 +64,8 @@ Veja como criar uma política de acesso condicional que requer autenticação mu
 
    >[!IMPORTANT]
    > Não selecione o aplicativo chamado provedor de Azure Resource Manager de área de trabalho virtual do Windows (50e95039-B200-4007-bc97-8d5790743a63). Este aplicativo é usado somente para recuperar o feed do usuário e não deve ter MFA.
+   > 
+   > Se você estiver usando a área de trabalho virtual do Windows (clássico), se a política de acesso condicional bloquear todo o acesso e excluir somente as IDs do aplicativo de área de trabalho virtual do Windows, você poderá corrigir isso adicionando a ID do aplicativo 9cdead84-A844-4324-93f2-b2e6bb768d07 à política. Não adicionar essa ID de aplicativo bloqueará a descoberta de feed de recursos de área de trabalho virtual do Windows (clássico).
 
 10. Vá para **condições**  >  **aplicativos de cliente**e selecione para onde deseja aplicar a política:
     

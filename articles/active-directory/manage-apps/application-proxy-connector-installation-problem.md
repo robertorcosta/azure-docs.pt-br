@@ -1,37 +1,32 @@
 ---
-title: Problemas ao instalar o conector de agente do Application Proxy | Microsoft Docs
-description: Como solucionar problemas que você poderá enfrentar ao instalar o conector de agente do Application Proxy
+title: Problema ao instalar o conector de agente de Application Proxy
+description: Como solucionar problemas que você pode enfrentar ao instalar o conector do agente de proxy de aplicativo para Azure Active Directory.
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/21/2018
 ms.author: kenwith
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 602ca070bcaefd20585681e409ab85e9d455160a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7babe23426cafe01cadc7a5557f91896aa9bbae4
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84764682"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108194"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problema ao instalar o conector de agente de Application Proxy
 
-Conector do Application Proxy do Microsoft AAD é um componente de domínio interno que usa conexões de saída para estabelecer a conectividade do ponto de extremidade da nuvem disponível para o domínio interno.
+Microsoft Azure Active Directory conector de proxy de aplicativo é um componente de domínio interno que usa conexões de saída para estabelecer a conectividade do ponto de extremidade disponível na nuvem para o domínio interno.
 
 ## <a name="general-problem-areas-with-connector-installation"></a>Áreas de problemas gerais com a instalação do conector
 
 Quando a instalação de um conector falhar, a causa raiz é geralmente uma das seguintes áreas:
 
-1.  **Conectividade** – para concluir uma instalação bem-sucedida, o novo conector precisa registrar e estabelecer as propriedades de confiança futuras. Isso é feito ao conectar ao serviço de nuvem do Application Proxy do AAD.
+1.  **Conectividade** – para concluir uma instalação bem-sucedida, o novo conector precisa registrar e estabelecer as propriedades de confiança futuras. Isso é feito conectando-se ao serviço de nuvem Proxy de Aplicativo do Azure Active Directory.
 
 2.  **Estabelecimento de confiança** – o novo conector cria um certificado autoassinado e registra ao serviço de nuvem.
 
@@ -42,7 +37,7 @@ Quando a instalação de um conector falhar, a causa raiz é geralmente uma das 
 
 ## <a name="verify-connectivity-to-the-cloud-application-proxy-service-and-microsoft-login-page"></a>Verifique a conectividade com o serviço de Application Proxy de nuvem e a página de Logon da Microsoft
 
-**Objetivo:** Verifique se o computador do conector pode se conectar ao ponto de extremidade de registro do Application Proxy do AAD, bem como página de logon do Microsoft.
+**Objetivo:** Verifique se o computador do conector pode se conectar ao ponto de extremidade de registro do proxy de aplicativo, bem como à página de logon da Microsoft.
 
 1.  No servidor do conector, execute um teste de porta usando [Telnet](https://docs.microsoft.com/windows-server/administration/windows-commands/telnet) ou outra ferramenta de teste de porta para verificar se as portas 443 e 80 estão abertas.
 
@@ -67,7 +62,7 @@ Quando a instalação de um conector falhar, a causa raiz é geralmente uma das 
 
 **Para verificar o certificado do cliente:**
 
-Verifique a impressão digital do certificado do cliente atual. O repositório de certificados pode ser encontrado no proxy de aplicativo%ProgramData%\microsoft\Microsoft AAD Connector\Config\TrustSettings.xml
+Verifique a impressão digital do certificado do cliente atual. O repositório de certificados pode ser encontrado em `%ProgramData%\microsoft\Microsoft AAD Application Proxy Connector\Config\TrustSettings.xml` .
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -79,23 +74,17 @@ Verifique a impressão digital do certificado do cliente atual. O repositório d
 </ConnectorTrustSettingsFile>
 ```
 
-Aqui estão os possíveis valores de **IsInUserStore** e significados:
+Os valores possíveis de **IsInUserStore** são **true** e **false**. Um valor **true** significa que o certificado renovado automaticamente é armazenado no contêiner pessoal no repositório de certificados do usuário do serviço de rede. Um valor **false** significa que o certificado do cliente foi criado durante a instalação ou o registro iniciado pelo comando Register-AppProxyConnector e ele é armazenado no contêiner pessoal no repositório de certificados do computador local.
 
-- **false** -o certificado do cliente foi criado durante a instalação ou o registro iniciado pelo comando Register-AppProxyConnector. Ele é armazenado no contêiner pessoal no repositório de certificados do computador local. 
-
-Siga as etapas para verificar o certificado:
-
-1. Executar **certlm. msc**
-2. No console de gerenciamento, expanda o contêiner pessoal e clique em certificados
-3. Localize o certificado emitido por **connectorregistrationca.msappproxy.net**
-
-- **true** – o certificado renovado automaticamente é armazenado no contêiner pessoal no repositório de certificados do usuário do serviço de rede. 
-
-Siga as etapas para verificar o certificado:
-
+Se o valor for **true**, siga estas etapas para verificar o certificado:
 1. Baixar [PsTools.zip](https://docs.microsoft.com/sysinternals/downloads/pstools)
 2. Extraia o [PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec) do pacote e execute o **PsExec-i-u "NT authority\network Service" cmd.exe** em um prompt de comando elevado.
 3. Executar **certmgr. msc** no prompt de comando exibido recentemente
+4. No console de gerenciamento, expanda o contêiner pessoal e clique em certificados
+5. Localize o certificado emitido por **connectorregistrationca.msappproxy.net**
+
+Se o valor for **false**, siga estas etapas para verificar o certificado:
+1. Executar **certlm. msc**
 2. No console de gerenciamento, expanda o contêiner pessoal e clique em certificados
 3. Localize o certificado emitido por **connectorregistrationca.msappproxy.net**
 

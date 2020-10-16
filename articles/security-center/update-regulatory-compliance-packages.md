@@ -1,6 +1,6 @@
 ---
-title: Como atualizar para o monitoramento de conformidade regulatória dinâmica no painel de conformidade regulatória da Central de Segurança do Azure | Microsoft Docs
-description: Como atualizar os pacotes da conformidade regulatória
+title: Usando o painel de conformidade regulatória na central de segurança do Azure
+description: Saiba como adicionar e remover padrões regulatórios do painel de conformidade regulatória na central de segurança
 services: security-center
 documentationcenter: na
 author: memildin
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 10/15/2020
 ms.author: memildin
-ms.openlocfilehash: adac0d460753f24d06bffc72f9b2b38c2a3306d7
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 5e32aa8491e18a66a3e8b90f065e6b785d1e3bd9
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078095"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92106256"
 ---
 # <a name="customizing-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Como personalizar o conjunto de padrões em seu painel de conformidade regulatória
 

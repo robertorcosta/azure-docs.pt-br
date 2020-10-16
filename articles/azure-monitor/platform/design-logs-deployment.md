@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: 6bdc7a087e60791ba3e3367aca3ea3a4500478ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 21da883867da41e81ed1787faa0ebe0e6dd25d99
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91534192"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107871"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Projetando a implantação de logs do Azure Monitor
 
@@ -91,7 +91,7 @@ Os usuários têm duas opções para acessar os dados:
     > - Service Fabric
     > - Application Insights
     >
-    > Você pode testar se os logs estão corretamente associados ao recurso executando uma consulta e inspecionando os registros nos quais você está interessado. Se a ID de recurso correta estiver na propriedade [_ResourceId](log-standard-properties.md#_resourceid) , os dados estarão disponíveis para consultas centradas em recursos.
+    > Você pode testar se os logs estão corretamente associados ao recurso executando uma consulta e inspecionando os registros nos quais você está interessado. Se a ID de recurso correta estiver na propriedade [_ResourceId](./log-standard-columns.md#_resourceid) , os dados estarão disponíveis para consultas centradas em recursos.
 
 Azure Monitor determina automaticamente o modo correto dependendo do contexto do qual você executa a pesquisa de log. O escopo é sempre apresentado na seção superior esquerda de Log Analytics.
 
@@ -164,4 +164,3 @@ Ao planejar a migração para esse modelo, considere o seguinte:
 ## <a name="next-steps"></a>Próximas etapas
 
 Para implementar as permissões de segurança e os controles recomendados neste guia, examine [gerenciar o acesso aos logs](manage-access.md).
-

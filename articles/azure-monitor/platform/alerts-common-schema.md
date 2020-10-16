@@ -4,12 +4,12 @@ description: Compreendendo o esquema de alerta comum, por que você deve usá-lo
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
-ms.openlocfilehash: faf9975e2795623305583d061d1af7f5eb0cfbe0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb182f88a896be436e3981ff4e361010ee2655f6
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86539475"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108823"
 ---
 # <a name="common-alert-schema"></a>Esquema comum de alertas
 
@@ -39,7 +39,7 @@ O esquema de alerta comum se manifestará principalmente em suas notificações 
 
 O novo esquema também permitirá uma experiência de consumo de alerta mais rica em ambos os portal do Azure e no aplicativo móvel do Azure no futuro imediato. 
 
-[Saiba mais sobre as definições de esquema para os Runbooks/aplicativos lógicos/Azure Functions/automação.](https://aka.ms/commonAlertSchemaDefinitions)
+[Saiba mais sobre as definições de esquema para os Runbooks/aplicativos lógicos/Azure Functions/automação.](./alerts-common-schema-definitions.md)
 
 > [!NOTE]
 > As seguintes ações não dão suporte ao esquema de alerta comum: Conector ITSM.
@@ -120,5 +120,5 @@ Por exemplo, o corpo da solicitação a seguir feita para [criar ou atualizar](/
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Definições comuns de esquema de alerta para WebHooks/aplicativos lógicos/Azure Functions/Runbooks de automação.](https://aka.ms/commonAlertSchemaDefinitions)
-- [Saiba como criar um aplicativo lógico que aproveita o esquema de alerta comum para lidar com todos os seus alertas.](./alerts-common-schema-integrations.md) 
+- [Definições comuns de esquema de alerta para WebHooks/aplicativos lógicos/Azure Functions/Runbooks de automação.](./alerts-common-schema-definitions.md)
+- [Saiba como criar um aplicativo lógico que aproveita o esquema de alerta comum para lidar com todos os seus alertas.](./alerts-common-schema-integrations.md)

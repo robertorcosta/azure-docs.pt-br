@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/07/2020
-ms.author: cherylmc
-ms.openlocfilehash: 51004005e10416f3138f69f91b93b9cd19ed3944
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/15/2020
+ms.author: alzam
+ms.openlocfilehash: 09d39acc867124acfd5c3c38d5c26053218972e7
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91819758"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92109095"
 ---
 # <a name="azure-active-directory-authentication-configure-a-vpn-client-for-p2s-openvpn-protocol-connections"></a>Autenticação de Azure Active Directory: configurar um cliente VPN para conexões de protocolo P2S OpenVPN
 
@@ -153,6 +153,10 @@ Essas etapas ajudam a configurar sua conexão para se conectar automaticamente c
     ![diagnose](./media/openvpn-azure-ad-client/diagnose/diagnose4.jpg)
 
 ## <a name="faq"></a>Perguntas frequentes
+
+### <a name="is-the-azure-vpn-client-supported-with-windows-fips-mode"></a>O cliente VPN do Azure tem suporte com o modo FIPS do Windows?
+
+Sim, com o hotfix do [KB4577063](https://support.microsoft.com/help/4577063/windows-10-update-kb4577063) .
 
 ### <a name="how-do-i-add-dns-suffixes-to-the-vpn-client"></a>Como fazer adicionar sufixos DNS ao cliente VPN?
 

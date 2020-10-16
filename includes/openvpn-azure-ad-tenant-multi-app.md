@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 05/21/2020
+ms.date: 10/15/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 8172e0e208d9a780c7676d7cb0e77dbc1c16f493
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: df3d1c34fe0fc045e829c2ea9166664f06fd3127
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90606212"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92116658"
 ---
 ## <a name="1-create-the-azure-ad-tenant"></a><a name="tenant"></a>1. Criar o locatário do Azure AD
 
@@ -70,6 +70,10 @@ Registre o cliente VPN no locatário do Azure AD.
     ```
     https://https://login.chinacloudapi.cn/common/oauth2/authorize?client_id=49f817b6-84ae-4cc0-928c-73f27289b3aa&response_type=code&redirect_uri=https://portal.azure.cn&nonce=1234&prompt=admin_consent
     ```
+
+> [!NOTE]
+> Se você usar uma conta de administrador global que não seja nativa ao locatário do Azure AD para fornecer consentimento, substitua "Common" pela ID de diretório do Azure AD na URL. Você também pode precisar substituir "Common" pela sua ID de diretório em alguns outros casos também.
+>
 
 5. Selecione a conta de **Administrador global**, se solicitado.
 

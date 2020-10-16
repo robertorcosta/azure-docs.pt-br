@@ -5,12 +5,12 @@ author: eamonoreilly
 ms.topic: conceptual
 ms.custom: devx-track-dotnet, devx-track-azurepowershell
 ms.date: 04/22/2019
-ms.openlocfilehash: 1da4154530f823d391aea779011a34a35edfd070
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 796aca02e6f70da8f5b94f6bbdbd2fd1d535bd77
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89071152"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108466"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guia do desenvolvedor do PowerShell do Azure Functions
 
@@ -77,8 +77,8 @@ $TriggerMetadata.sys
 | Propriedade   | Descrição                                     | Type     |
 |------------|-------------------------------------------------|----------|
 | UtcNow     | Quando, em UTC, a função foi disparada        | Datetime |
-| MethodName | O nome da função que foi disparada     | string   |
-| RandGuid   | um GUID exclusivo para esta execução da função | string   |
+| MethodName | O nome da função que foi disparada     | cadeia de caracteres   |
+| RandGuid   | um GUID exclusivo para esta execução da função | cadeia de caracteres   |
 
 Cada tipo de gatilho tem um conjunto diferente de metadados. Por exemplo, o `$TriggerMetadata` para `QueueTrigger` contém o `InsertionTime` , `Id` , `DequeueCount` , entre outras coisas. Para obter mais informações sobre os metadados do gatilho de fila, acesse a [documentação oficial para gatilhos de fila](functions-bindings-storage-queue-trigger.md#message-metadata). Verifique a documentação nos [gatilhos](functions-triggers-bindings.md) com os quais você está trabalhando para ver o que acontece nos metadados do gatilho.
 
@@ -143,7 +143,7 @@ Os seguintes parâmetros comuns também têm suporte:
 * `PipelineVariable`
 * `OutVariable` 
 
-Para obter mais informações, consulte [sobre CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
+Para obter mais informações, consulte [sobre CommonParameters](/powershell/module/microsoft.powershell.core/about/about_commonparameters).
 
 #### <a name="push-outputbinding-example-http-responses"></a>Exemplo de Push-OutputBinding: respostas HTTP
 
@@ -233,7 +233,7 @@ O registro em log nas funções do PowerShell funciona como log normal do PowerS
 
 | Nível de log de funções | Cmdlet de registro em log |
 | ------------- | -------------- |
-| Erro do | **`Write-Error`** |
+| Erro | **`Write-Error`** |
 | Aviso | **`Write-Warning`**  | 
 | Informação | **`Write-Information`** <br/> **`Write-Host`** <br /> **`Write-Output`**      | Informação | Grava no log do nível de _informações_ . |
 | Depurar | **`Write-Debug`** |
@@ -276,7 +276,7 @@ Há vários gatilhos e associações disponíveis para você usar com seu aplica
 Todos os gatilhos e associações são representados no código como alguns tipos de dados reais:
 
 * Hashtable
-* string
+* cadeia de caracteres
 * byte[]
 * INT
 * double
@@ -299,10 +299,10 @@ O objeto de solicitação que é passado para o script é do tipo `HttpRequestCo
 |-----------|----------------------------------------------------------------|---------------------------|
 | **`Body`**    | Um objeto que contém o corpo da solicitação. `Body` é serializado no melhor tipo com base nos dados. Por exemplo, se os dados forem JSON, eles serão passados como uma tabela de hash. Se os dados forem uma cadeia de caracteres, eles serão passados como uma cadeia de caracteres. | objeto |
 | **`Headers`** | Um dicionário que contém os cabeçalhos de solicitação.                | <de cadeia de caracteres de dicionário, Cadeia de caracteres><sup>*</sup> |
-| **`Method`** | O método HTTP da solicitação.                                | string                    |
+| **`Method`** | O método HTTP da solicitação.                                | cadeia de caracteres                    |
 | **`Params`**  | Um objeto que contém os parâmetros de roteamento da solicitação. | <de cadeia de caracteres de dicionário, Cadeia de caracteres><sup>*</sup> |
 | **`Query`** | Um objeto que contém os parâmetros da consulta.                  | <de cadeia de caracteres de dicionário, Cadeia de caracteres><sup>*</sup> |
-| **`Url`** | A URL da solicitação.                                        | string                    |
+| **`Url`** | A URL da solicitação.                                        | cadeia de caracteres                    |
 
 <sup>*</sup> Todas as chaves não diferenciam `Dictionary<string,string>` maiúsculas de minúsculas.
 
@@ -313,7 +313,7 @@ O objeto de resposta que você deve enviar de volta é do tipo `HttpResponseCont
 | Propriedade      | Descrição                                                 | Type                      |
 |---------------|-------------------------------------------------------------|---------------------------|
 | **`Body`**  | Um objeto que contém o corpo da resposta.           | objeto                    |
-| **`ContentType`** | Uma pequena mão para definir o tipo de conteúdo para a resposta. | string                    |
+| **`ContentType`** | Uma pequena mão para definir o tipo de conteúdo para a resposta. | cadeia de caracteres                    |
 | **`Headers`** | Um objeto que contém os cabeçalhos da resposta.               | Dicionário ou Hashtable   |
 | **`StatusCode`**  | O código de status HTTP da resposta.                       | cadeia de caracteres ou inteiro             |
 
@@ -560,7 +560,7 @@ Há alguns modelos de simultaneidade que você pode explorar dependendo do tipo 
 
 Defina essas variáveis de ambiente nas [configurações de aplicativo](functions-app-settings.md) do seu aplicativo de funções.
 
-Dependendo do seu caso de uso, Durable Functions pode melhorar significativamente a escalabilidade. Para saber mais, consulte [padrões de aplicativo Durable Functions](/azure/azure-functions/durable/durable-functions-overview?tabs=powershell#application-patterns).
+Dependendo do seu caso de uso, Durable Functions pode melhorar significativamente a escalabilidade. Para saber mais, consulte [padrões de aplicativo Durable Functions](./durable/durable-functions-overview.md?tabs=powershell#application-patterns).
 
 >[!NOTE]
 > Você pode receber avisos de "solicitações sendo enfileiradas devido a nenhum Runspaces disponível", observe que isso não é um erro. A mensagem está informando que as solicitações estão sendo enfileiradas e elas serão tratadas quando as solicitações anteriores forem concluídas.

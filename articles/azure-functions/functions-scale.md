@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 08/17/2020
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c5dd703851054b058d96440a3a994b9d10eecfa3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 88e9d16a205df16a2be63e67f45cdbcf9144b30f
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372656"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108449"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Escala e hospedagem no Azure Functions
 
@@ -26,7 +26,7 @@ Os planos de consumo e Premium adicionam capacidade de computação automaticame
 
 O plano Premium fornece recursos adicionais, como instâncias de computação Premium, a capacidade de manter instâncias quentes indefinidamente e conectividade VNet.
 
-O plano do serviço de aplicativo permite que você aproveite a infraestrutura dedicada, que você gerencia. Seu aplicativo de funções não é dimensionado com base em eventos, o que significa que nunca é dimensionado para zero. (Requer que o [Always on](#always-on) esteja habilitado.)
+O plano do serviço de aplicativo permite que você aproveite a infraestrutura dedicada, que você gerencia. Seu aplicativo de funções não é dimensionado com base em eventos, o que significa que ele nunca é dimensionado para zero. (Requer que o [Always on](#always-on) esteja habilitado.)
 
 Para obter uma comparação detalhada entre os vários planos de hospedagem (incluindo a hospedagem baseada em kubernetes), consulte a [seção comparação de planos de hospedagem](#hosting-plans-comparison).
 
@@ -168,7 +168,7 @@ az resource update --resource-type Microsoft.Web/sites -g <resource_group> -n <f
 
 Há muitos aspectos de um aplicativo de funções que afetarão a qualidade da escala, incluindo a configuração do host, o espaço de runtime e a eficiência dos recursos.  Para obter mais informações, consulte a [seção de escalabilidade do artigo sobre considerações de desempenho](functions-best-practices.md#scalability-best-practices). Adicionalmente, é necessário que você saiba como as conexões se comportam na medida em que o aplicativo de funções é dimensionado. Para saber mais, confira [Como gerenciar conexões no Azure Functions](manage-connections.md).
 
-Para obter mais informações sobre o dimensionamento em Python e Node.js, consulte [Azure Functions guia do desenvolvedor do Python – dimensionamento e simultaneidade](functions-reference-python.md#scaling-and-concurrency) e [Azure Functions Node.js guia do desenvolvedor – dimensionamento e simultaneidade](functions-reference-node.md#scaling-and-concurrency).
+Para obter mais informações sobre o dimensionamento em Python e Node.js, consulte [Azure Functions guia do desenvolvedor do Python – dimensionamento e simultaneidade](functions-reference-python.md#scaling-and-performance) e [Azure Functions Node.js guia do desenvolvedor – dimensionamento e simultaneidade](functions-reference-node.md#scaling-and-concurrency).
 
 ### <a name="billing-model"></a>Modelo de cobrança
 
@@ -188,7 +188,7 @@ A tabela de comparação a seguir mostra todos os aspectos importantes para ajud
 ### <a name="plan-summary"></a>Resumo do plano
 | | |
 | --- | --- |  
-|**[Plano de consumo](#consumption-plan)**| Dimensione automaticamente e pague apenas pelos recursos de computação quando suas funções estiverem em execução. No plano de consumo, as instâncias do host do Functions são adicionadas e removidas dinamicamente com base no número de eventos de entrada.<br/> ✔ Plano de hospedagem padrão.<br/>✔ Pague somente quando suas funções estiverem em execução.<br/>✔ escalar horizontalmente automaticamente, mesmo durante períodos de alta carga.|  
+|**[Plano de Consumo](#consumption-plan)**| Dimensione automaticamente e pague apenas pelos recursos de computação quando suas funções estiverem em execução. No plano de consumo, as instâncias do host do Functions são adicionadas e removidas dinamicamente com base no número de eventos de entrada.<br/> ✔ Plano de hospedagem padrão.<br/>✔ Pague somente quando suas funções estiverem em execução.<br/>✔ escalar horizontalmente automaticamente, mesmo durante períodos de alta carga.|  
 |**[Plano Premium](#premium-plan)**|Embora o dimensionamento automático seja baseado sob demanda, use trabalhos pré-configurados para executar aplicativos sem atraso depois de ficar ocioso, executar em instâncias mais poderosas e conectar-se ao VNETs. Considere o plano Azure Functions Premium nas seguintes situações, além de todos os recursos do plano do serviço de aplicativo: <br/>✔ Seus aplicativos de funções são executados continuamente ou quase continuamente.<br/>✔ Você tem um número alto de execuções pequenas e tem uma cobrança de alta execução, mas a cobrança de baixo GB por segundo no plano de consumo.<br/>✔ Você precisa de mais opções de CPU ou memória do que o fornecido pelo plano de consumo.<br/>✔ Seu código precisa ser executado por mais tempo do que o máximo permitido no plano de consumo.<br/>✔ Você precisa de recursos que estão disponíveis apenas em um plano Premium, como a conectividade de rede virtual.|  
 |**[Plano dedicado](#app-service-plan)**<sup>1</sup>|Execute suas funções em um plano do serviço de aplicativo em taxas regulares do plano do serviço de aplicativo. Boa opção para operações de longa execução, bem como quando mais custos e dimensionamento de previsão são necessários. Considere um plano do serviço de aplicativo nas seguintes situações:<br/>✔ Você tem VMs subutilizadas existentes que já estão executando outras instâncias do serviço de aplicativo.<br/>✔ Você deseja fornecer uma imagem personalizada na qual executar suas funções.|  
 |**[Ase](#app-service-plan)**<sup>1</sup>|O Ambiente do Serviço de Aplicativo (ASE) é um recurso do serviço de aplicativo que fornece um ambiente totalmente isolado e dedicado para executar com segurança aplicativos do serviço de aplicativo em alta escala. ASEs são apropriadas para cargas de trabalho de aplicativo que exigem: <br/>✔ Escala muito alta.<br/>✔ Isolamento de computação completo e acesso seguro à rede.<br/>✔ Utilização de memória alta.|  
@@ -200,7 +200,7 @@ A tabela de comparação a seguir mostra todos os aspectos importantes para ajud
 
 | | Linux<sup>1</sup><br/>Somente código | Windows<sup>2</sup><br/>Somente código | Linux<sup>1, 3</sup><br/>Contêiner do Docker |
 | --- | --- | --- | --- |
-| **[Plano de consumo](#consumption-plan)** | .NET Core<br/>Node.js<br/>Java<br/>Python | .NET Core<br/>Node.js<br/>Java<br/>PowerShell Core | Sem suporte  |
+| **[Plano de Consumo](#consumption-plan)** | .NET Core<br/>Node.js<br/>Java<br/>Python | .NET Core<br/>Node.js<br/>Java<br/>PowerShell Core | Sem suporte  |
 | **[Plano Premium](#premium-plan)** | .NET Core<br/>Node.js<br/>Java<br/>Python|.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core |.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core<br/>Python  | 
 | **[Plano dedicado](#app-service-plan)**<sup>4</sup> | .NET Core<br/>Node.js<br/>Java<br/>Python|.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core |.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core<br/>Python |
 | **[Ase](#app-service-plan)**<sup>4</sup> | .NET Core<br/>Node.js<br/>Java<br/>Python |.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core  |.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core<br/>Python | 
@@ -215,7 +215,7 @@ A tabela de comparação a seguir mostra todos os aspectos importantes para ajud
 
 | | Escalar horizontalmente | N º máximo de instâncias |
 | --- | --- | --- |
-| **[Plano de consumo](#consumption-plan)** | Controlado por evento. Escale horizontalmente de forma automática, mesmo durante períodos de carga alta. A infraestrutura de Azure Functions dimensiona os recursos de CPU e memória adicionando instâncias adicionais do host do functions, com base no número de eventos em que suas funções são disparadas. | 200 |
+| **[Plano de Consumo](#consumption-plan)** | Controlado por evento. Escale horizontalmente de forma automática, mesmo durante períodos de carga alta. A infraestrutura de Azure Functions dimensiona os recursos de CPU e memória adicionando instâncias adicionais do host do functions, com base no número de eventos em que suas funções são disparadas. | 200 |
 | **[Plano Premium](#premium-plan)** | Controlado por evento. Escale horizontalmente de forma automática, mesmo durante períodos de carga alta. A infraestrutura de Azure Functions dimensiona os recursos de CPU e memória adicionando instâncias adicionais do host do functions, com base no número de eventos em que suas funções são disparadas. |100|
 | **[Plano dedicado](#app-service-plan)**<sup>1</sup> | Manual/dimensionamento automático |10-20|
 | **[Ase](#app-service-plan)**<sup>1</sup> | Manual/dimensionamento automático |100 |
@@ -247,7 +247,7 @@ A tabela de comparação a seguir mostra todos os aspectos importantes para ajud
 
 | | | 
 | --- | --- |
-| **[Plano de consumo](#consumption-plan)** | Pague apenas pelo tempo em que suas funções são executadas. A cobrança baseia-se no número de execuções, no tempo de execução e na memória usada. |
+| **[Plano de Consumo](#consumption-plan)** | Pague apenas pelo tempo em que suas funções são executadas. A cobrança baseia-se no número de execuções, no tempo de execução e na memória usada. |
 | **[Plano Premium](#premium-plan)** | O plano Premium é baseado no número de segundos de núcleo e na memória usada nas instâncias necessárias e pré-configuradas. Pelo menos uma instância por plano deve ser mantida quase sempre. Este plano fornece preços mais previsíveis. |
 | **[Plano dedicado](#app-service-plan)**<sup>1</sup> | Você paga o mesmo para aplicativos de funções em um plano do serviço de aplicativo como faria para outros recursos do serviço de aplicativo, como aplicativos Web.|
 | **[Ase](#app-service-plan)**<sup>1</sup> | Há uma taxa mensal simples para um ASE que paga pela infraestrutura e não muda com o tamanho do ASE. Além disso, há um custo por vCPU do plano do serviço de aplicativo. Todos os aplicativos hospedados no ASE estão em um SKU de preços Isolado. |

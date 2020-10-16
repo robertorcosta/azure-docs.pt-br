@@ -12,10 +12,10 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: be43b74e7128f9b250d25f8bdb2642c6f7b41d2a
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87115527"
 ---
 # <a name="request-an-access-token-in-azure-active-directory-b2c"></a>Solicitar um token de acesso no Azure Active Directory B2C
@@ -50,7 +50,7 @@ O exemplo a seguir mostra os escopos codificados em uma URL:
 scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fapi%2Fread%20openid%20offline_access
 ```
 
-Se você solicitar mais escopos do que o permitido para o aplicativo cliente, a chamada terá sucesso se pelo menos uma permissão for concedida. A declaração **scp** no token de acesso resultante é preenchida apenas com as permissões que foram concedidas com êxito. O padrão de OpenID Connect especifica vários valores especiais de escopo. Os seguintes escopos representam a permissão para acessar o perfil do usuário:
+Se você solicitar mais escopos do que o permitido para o aplicativo cliente, a chamada terá sucesso se pelo menos uma permissão for concedida. A declaração **scp** no token de acesso resultante é preenchida apenas com as permissões que foram concedidas com êxito. O padrão de OpenID Connect especifica vários valores especiais de escopo. Os seguintes escopos declaram a permissão para acessar o perfil do usuário:
 
 - **openid** - Solicita um token de ID.
 - **offline_access** - Solicita um token de atualização usando [fluxos de Código de autenticação](authorization-code-flow.md).

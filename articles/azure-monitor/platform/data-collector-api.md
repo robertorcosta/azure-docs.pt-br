@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/14/2020
-ms.openlocfilehash: 40f688d6acd1714999210e67567d25faa14c5d6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94abc54c63b7d2a9998cffe7cf1396f81a26a5a1
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87384847"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107973"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Enviar dados de log para o Azure Monitor com a API do Coletor de Dados HTTP (visualização pública)
 Este artigo mostra como usar a API do Coletor de Dados HTTP para enviar dados de log para o Azure Monitor a partir de um cliente API REST.  O artigo descreve como formatar dados coletados pelo script ou aplicativo, incluí-los em uma solicitação e ter essa solicitação autorizada pelo Azure Monitor.  Os exemplos são fornecidos para PowerShell, C# e Python.
@@ -54,7 +54,7 @@ Para usar a API do Coletor de Dados HTTP, crie uma solicitação POST que inclua
 | Autorização |A assinatura de autorização. Posteriormente neste artigo, você pode ler sobre como criar um cabeçalho HMAC-SHA256. |
 | Log-Type |Especifique o tipo de registro dos dados que estão sendo enviados. Pode conter apenas letras, números e sublinhado (_) e não pode exceder 100 caracteres. |
 | x-ms-date |A data em que a solicitação foi processada, no formato RFC 1123. |
-| x-MS-AzureResourceId | ID de recurso do recurso do Azure ao qual os dados devem ser associados. Isso popula a propriedade [_ResourceId](log-standard-properties.md#_resourceid) e permite que os dados sejam incluídos em consultas de [contexto de recurso](design-logs-deployment.md#access-mode) . Se esse campo não for especificado, os dados não serão incluídos nas consultas de contexto de recurso. |
+| x-MS-AzureResourceId | ID de recurso do recurso do Azure ao qual os dados devem ser associados. Isso popula a propriedade [_ResourceId](./log-standard-columns.md#_resourceid) e permite que os dados sejam incluídos em consultas de [contexto de recurso](design-logs-deployment.md#access-mode) . Se esse campo não for especificado, os dados não serão incluídos nas consultas de contexto de recurso. |
 | time-generated-field | O nome de um campo nos dados que contém o carimbo de data/hora do item de dados. Se você especificar um campo, seu conteúdo será usado para **TimeGenerated**. Se esse campo não for especificado, o padrão para **TimeGenerated** será a hora em que a mensagem é incluída. O conteúdo do campo de mensagem deve seguir o formato ISO 8601 AAAA-MM-DDThh:mm:ssZ. |
 
 ## <a name="authorization"></a>Autorização
@@ -134,9 +134,9 @@ Para identificar o tipo de dados de uma propriedade, o Azure Monitor adiciona um
 
 | Tipo de dados de propriedade | Sufixo |
 |:--- |:--- |
-| Cadeia de caracteres |_s |
-| Booliano |_b |
-| Double |_d |
+| String |_s |
+| Boolean |_b |
+| Duplo |_d |
 | Data/hora |_t |
 | GUID (armazenado como uma cadeia de caracteres) |_g |
 

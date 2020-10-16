@@ -5,18 +5,18 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/28/2019
 ms.author: cshoe
-ms.openlocfilehash: 863620ce6f0af33b05ef290ae95ccdc99a53a54d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1446808b77e5eea78a9912db4c7a8e2dd783f33a
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77523029"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104369"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>Associações do Serviço SignalR para o Azure Functions
 
 Este conjunto de artigos explica como autenticar e enviar mensagens em tempo real para clientes conectados ao [serviço de signaler do Azure](https://azure.microsoft.com/services/signalr-service/) usando associações de serviço de sinalização no Azure functions. O Azure Functions dá suporte a associações de entrada e saída para o Serviço SignalR.
 
-| Ação | Type |
+| Ação | Tipo |
 |---------|---------|
 | Retornar a URL do ponto de extremidade de serviço e o token de acesso | [Associação de entrada](./functions-bindings-signalr-service-input.md) |
 | Enviar mensagens do serviço Signalr |[Associação de saída](./functions-bindings-signalr-service-output.md) |
@@ -27,7 +27,7 @@ Este conjunto de artigos explica como autenticar e enviar mensagens em tempo rea
 
 Trabalhar com o gatilho e as associações exige que você referencie o pacote apropriado. O pacote NuGet é usado para bibliotecas de classes do .NET enquanto o pacote de extensão é usado para todos os outros tipos de aplicativos.
 
-| Linguagem                                        | Adicionar por...                                   | Comentários 
+| Language                                        | Adicionar por...                                   | Comentários 
 |-------------------------------------------------|---------------------------------------------|-------------|
 | C#                                              | Instalando o [pacote NuGet], versão 3. x | |
 | Script C#, Java, JavaScript, Python, PowerShell | Registrando o [pacote de extensão]          | A [extensão de ferramentas do Azure] é recomendada para uso com Visual Studio Code. |
@@ -36,7 +36,7 @@ Trabalhar com o gatilho e as associações exige que você referencie o pacote a
 [Pacote NuGet]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SignalRService
 [core tools]: ./functions-run-local.md
 [pacote de extensão]: ./functions-bindings-register.md#extension-bundles
-[Atualizar suas extensões]: ./install-update-binding-extensions-manual.md
+[Atualizar suas extensões]: ./functions-bindings-register.md
 [Extensão de ferramentas do Azure]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 
 Para obter detalhes sobre como configurar e usar o serviço de sinalização e Azure Functions juntos, consulte [Azure Functions desenvolvimento e configuração com o serviço de signaler do Azure](../azure-signalr/signalr-concept-serverless-development-config.md).
@@ -56,4 +56,4 @@ Para usar as anotações do serviço Signalr em funções Java, você precisa ad
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Retornar a URL do ponto de extremidade de serviço e o token de acesso (Associação de entrada)](./functions-bindings-signalr-service-input.md)
-- [Enviar mensagens do serviço Signalr (Associação de saída)](./functions-bindings-signalr-service-output.md) 
+- [Enviar mensagens do serviço Signalr (Associação de saída)](./functions-bindings-signalr-service-output.md)

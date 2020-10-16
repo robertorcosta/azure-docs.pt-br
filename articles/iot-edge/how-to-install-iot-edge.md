@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: kgremban
-ms.openlocfilehash: 3a02459f5b92aa7d708c29c737ed9428ed14215a
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 7ab62b04f8bea76c7efb587665f87ccaf123da24
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045679"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108993"
 ---
 # <a name="install-or-uninstall-the-azure-iot-edge-runtime"></a>Instalar ou desinstalar o tempo de execução de Azure IoT Edge
 
@@ -83,6 +83,12 @@ IoT Edge com contêineres do Linux podem ser executados em qualquer versão do W
 Azure IoT Edge se baseia em um mecanismo de contêiner [compatível com o OCI](https://www.opencontainers.org/) . Verifique se o dispositivo pode dar suporte a contêineres.
 
 Se você estiver instalando o IoT Edge em uma máquina virtual, habilite a virtualização aninhada e aloque pelo menos 2 GB de memória. Para Hyper-V, as máquinas virtuais de geração 2 têm virtualização aninhada habilitada por padrão. Para o VMware, há uma alternância para habilitar o recurso em sua máquina virtual.
+
+Se você estiver instalando IoT Edge em um dispositivo IoT Core, use o seguinte comando em uma [sessão remota do PowerShell](/windows/iot-core/connect-your-device/powershell) para verificar se os contêineres do Windows têm suporte em seu dispositivo:
+
+```powershell
+Get-Service vmcompute
+```
 
 ---
 
@@ -160,6 +166,9 @@ Se a versão que você deseja instalar não estiver listada, siga as etapas de [
 
 # <a name="windows"></a>[Windows](#tab/windows)
 
+>[!TIP]
+>Para dispositivos IoT Core, é recomendável executar os comandos de instalação usando uma sessão remota do PowerShell. Para obter mais informações, consulte [usando o PowerShell para Windows IOT](/windows/iot-core/connect-your-device/powershell).
+
 1. Execute o PowerShell como administrador.
 
    Use uma sessão AMD64 do PowerShell, não o PowerShell (x86). Se não tiver certeza de qual tipo de sessão você está usando, execute o seguinte comando:
@@ -186,7 +195,7 @@ Se a versão que você deseja instalar não estiver listada, siga as etapas de [
    Deploy-IoTEdge -ContainerOs Linux
    ```
 
-3. Neste ponto, a saída pode solicitar que você reinicie. Nesse caso, reinicie o dispositivo agora.
+3. Neste ponto, os dispositivos IoT Core podem ser reiniciados automaticamente. Dispositivos Windows 10 ou Windows Server podem solicitar a reinicialização. Nesse caso, reinicie o dispositivo agora.
 
 Ao instalar o IoT Edge em um dispositivo, você pode usar parâmetros adicionais para modificar o processo, incluindo:
 
@@ -321,6 +330,8 @@ Se você quiser remover a instalação do IoT Edge do dispositivo Windows, use o
 . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
 Uninstall-IoTEdge
 ```
+
+O `Uninstall-IoTEdge` comando não funciona no Windows IOT Core. Para remover IoT Edge, você precisa reimplantar sua imagem do Windows IoT Core.
 
 Para obter mais informações sobre as opções de desinstalação, use o comando `Get-Help Uninstall-IoTEdge -full` .
 

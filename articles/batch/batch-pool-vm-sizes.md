@@ -4,12 +4,12 @@ description: Como escolher entre os tamanhos de VM disponíveis para nós de com
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.custom: seodec18
-ms.openlocfilehash: 2819bb5e4000f18653e47b616a551d69ec525d2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6dc1b3cf708a6dbaacc87e6c9fc00ae6f0ff3440
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91271300"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107497"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Escolher um tamanho de VM para nós de computação em um pool do Lote do Azure
 
@@ -24,7 +24,7 @@ Há algumas exceções e limitações para escolher um tamanho de VM:
 
 ### <a name="pools-in-virtual-machine-configuration"></a>Pools na configuração de Máquina Virtual
 
-Os pools de lote na configuração da máquina virtual oferecem suporte a quase todos os tamanhos de VM ([Linux](../virtual-machines/linux/sizes.md), [Windows](../virtual-machines/windows/sizes.md)). Veja a tabela a seguir para saber mais sobre tamanhos compatíveis e restrições.
+Os pools de lote na configuração da máquina virtual oferecem suporte a quase todos os tamanhos de VM ([Linux](../virtual-machines/sizes.md), [Windows](../virtual-machines/sizes.md)). Veja a tabela a seguir para saber mais sobre tamanhos compatíveis e restrições.
 
 | Série da VM  | Tamanhos com suporte |
 |------------|---------|

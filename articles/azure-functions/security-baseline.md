@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 21e2b197c31a30ab8a249e2e8e398072a624154c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 423fdcdf48d90b4c428497f22cb6924900de8931
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89394084"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107514"
 ---
 # <a name="azure-security-baseline-for-azure-functions"></a>Linha de base de segurança do Azure para Azure Functions
 
@@ -90,7 +90,7 @@ Além disso, configure um gateway de front-end, como o Firewall do aplicativo We
 
 - [Como implantar o Firewall do Azure](../firewall/tutorial-firewall-deploy-portal.md)
 
-- [Compreender a inteligência contra ameaças integrada da Central de Segurança do Azure](../security-center/threat-protection.md)
+- [Compreender a inteligência contra ameaças integrada da Central de Segurança do Azure](../security-center/azure-defender.md)
 
 - [Entender a proteção de rede adaptável da central de segurança do Azure](../security-center/security-center-adaptive-network-hardening.md)
 
@@ -545,7 +545,7 @@ Você também pode usar pontos de extremidade privados para executar o isolament
 
 - [Como criar assinaturas adicionais do Azure](../cost-management-billing/manage/create-subscription.md)
 
-- [Como criar Grupos de Gerenciamento](../governance/management-groups/create.md)
+- [Como criar Grupos de Gerenciamento](../governance/management-groups/create-management-group-portal.md)
 
 - [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
@@ -649,7 +649,7 @@ Além disso, siga as recomendações da central de segurança do Azure para ajud
 
 - [Como adicionar validação de segurança contínua ao pipeline de CI/CD](/azure/devops/migrate/security-validation-cicd-pipeline?view=azure-devops)
 
-- [Como implementar recomendações de avaliação de vulnerabilidade da central de segurança do Azure](../security-center/security-center-vulnerability-assessment-recommendations.md)
+- [Como implementar recomendações de avaliação de vulnerabilidade da central de segurança do Azure](../security-center/deploy-vulnerability-assessment-vm.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -727,7 +727,7 @@ Além disso, use a política do Azure para colocar restrições no tipo de recur
 
 - [Como criar assinaturas adicionais do Azure](../cost-management-billing/manage/create-subscription.md)
 
-- [Como criar Grupos de Gerenciamento](../governance/management-groups/create.md)
+- [Como criar Grupos de Gerenciamento](../governance/management-groups/create-management-group-portal.md)
 
 - [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
@@ -1087,7 +1087,7 @@ Se você estiver usando chaves gerenciadas pelo cliente, verifique se Soft-Delet
 
 - [Criptografia do Armazenamento do Azure em repouso](../storage/common/storage-service-encryption.md)
 
-- [Como habilitar a exclusão reversível no Key Vault](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
+- [Como habilitar a exclusão reversível no Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 

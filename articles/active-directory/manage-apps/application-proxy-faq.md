@@ -1,5 +1,5 @@
 ---
-title: Perguntas frequentes sobre o Azure Proxy de Aplicativo do AD | Microsoft Docs
+title: Proxy de Aplicativo do Azure Active Directory perguntas frequentes
 description: Aprenda as respostas para perguntas frequentes sobre como usar o Proxy de Aplicativo do AD do Azure para publicar aplicativos internos e locais para usuários remotos.
 services: active-directory
 author: kenwith
@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: edf51dad768e8d8b5ea5dc6c1eff88f43f0f6b70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28c34e97fa340b6fb95877ebece740897ae72e7a
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88589156"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104556"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Perguntas frequentes sobre o proxy de aplicativo Active Directory (Azure AD)
 
@@ -84,7 +84,6 @@ O proxy de aplicativo requer o Windows Server 2012 R2 ou posterior. Atualmente, 
     HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 (DWORD) Value: 0 
     ```
 
-
 ## <a name="application-configuration"></a>Configuração de aplicativo
 
 ### <a name="i-am-receiving-an-error-about-an-invalid-certificate-or-possible-wrong-password"></a>Estou recebendo um erro sobre um certificado inválido ou uma possível senha incorreta
@@ -124,6 +123,12 @@ Para obter mais informações, consulte o White Paper [noções básicas sobre a
 ### <a name="does-ntlm-authentication-work-with-azure-ad-application-proxy"></a>A autenticação NTLM funciona com o Proxy de Aplicativo do AD do Azure?
 
 A autenticação NTLM não pode ser usada como um método de pré-autenticação ou logon único. A autenticação NTLM pode ser usada somente quando pode ser negociada diretamente entre o cliente e o aplicativo Web publicado. Usar a autenticação NTLM geralmente faz com que uma solicitação de entrada apareça no navegador.
+
+### <a name="can-i-use-the-logon-identity-on-premises-user-principal-name-or-on-premises-sam-account-name-in-a-b2b-iwa-single-sign-on-scenario"></a>Posso usar a identidade de logon "nome principal de usuário local" ou "nome de conta SAM local" em um cenário de logon único IWA B2B?
+
+Não, isso não funcionará, pois um usuário convidado no Azure AD não tem o atributo exigido por qualquer uma das identidades de logon mencionadas acima.
+
+Nesse caso, haverá um fallback para "nome principal do usuário". Para obter mais detalhes sobre o cenário B2B, leia [conceder usuários B2B no acesso do Azure ad aos seus aplicativos locais](../external-identities/hybrid-cloud-to-on-premises.md).
 
 ## <a name="pass-through-authentication"></a>Autenticação de passagem
 
@@ -198,5 +203,5 @@ Esse cenário não tem suporte diretamente. As opções para esse cenário são:
 1. Publique as URLs HTTP e HTTPS como aplicativos separados com um curinga, mas forneça a cada um um domínio personalizado diferente. Essa configuração funcionará, pois elas têm diferentes URLS externas.
 
 2. Publique a URL HTTPS por meio de um aplicativo curinga. Publicar os aplicativos HTTP separadamente usando estes cmdlets do PowerShell do proxy de aplicativo:
-   - [Gerenciamento de aplicativos de proxy de aplicativo](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management)
-   - [Gerenciamento de conector de proxy de aplicativo](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_connector_management)
+   - [Gerenciamento de aplicativos de proxy de aplicativo](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management&preserve-view=true)
+   - [Gerenciamento de conector de proxy de aplicativo](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_connector_management&preserve-view=true)

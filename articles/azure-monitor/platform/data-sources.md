@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/06/2020
-ms.openlocfilehash: 8ef498a51f25a6b084a0d048661f3d18a5881644
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48336b65ec564f834ef8a1e8f4911c89b1a37f31
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91802049"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107939"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Fontes de dados de monitoramento para Azure Monitor
 O Azure Monitor se baseia em uma [plataforma de dados de monitoramento comum](data-platform.md) que inclui [logs](data-platform-logs.md) e [métricas](data-platform-metrics.md). Coletar dados nessa plataforma permite que os dados de vários recursos sejam analisados juntos usando um conjunto comum de ferramentas no Azure Monitor. Os dados de monitoramento também podem ser enviados para outros locais para dar suporte a determinados cenários, e alguns recursos podem gravar em outros locais antes que possam ser coletados em logs ou métricas.
@@ -20,7 +20,7 @@ Este artigo descreve as diferentes fontes de monitoramento de dados coletadas po
 
 ## <a name="application-tiers"></a>Camadas de aplicativo
 
-Fontes de dados de monitoramento de aplicativos do Azure podem ser organizadas em camadas, as camadas mais altas sendo seu próprio aplicativo e as camadas inferiores são componentes da plataforma do Azure. O método de acesso a dados de cada camada varia. As camadas de aplicativo são resumidas na tabela abaixo, e as fontes de dados de monitoramento em cada camada são apresentadas nas seções a seguir. Consulte [monitorando locais de dados no Azure](data-locations.md) para obter uma descrição de cada local de dados e como você pode acessar seus dados.
+Fontes de dados de monitoramento de aplicativos do Azure podem ser organizadas em camadas, as camadas mais altas sendo seu próprio aplicativo e as camadas inferiores são componentes da plataforma do Azure. O método de acesso a dados de cada camada varia. As camadas de aplicativo são resumidas na tabela abaixo, e as fontes de dados de monitoramento em cada camada são apresentadas nas seções a seguir. Consulte [monitorando locais de dados no Azure](../monitor-reference.md) para obter uma descrição de cada local de dados e como você pode acessar seus dados.
 
 
 ![Camadas de monitoramento](../media/overview/overview.png)
@@ -208,4 +208,4 @@ Outros serviços no Azure gravam dados na plataforma de dados Azure Monitor. Iss
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre os [tipos de dados de monitoramento coletados pelo Azure Monitor](data-platform.md) e como exibir e analisar esses dados.
-- Liste os [diferentes locais em que os recursos do Azure armazenam dados](data-locations.md) e como você pode acessá-los. 
+- Liste os [diferentes locais em que os recursos do Azure armazenam dados](../monitor-reference.md) e como você pode acessá-los.

@@ -7,12 +7,12 @@ services: monitoring
 ms.topic: conceptual
 ms.date: 9/30/2020
 ms.subservice: alerts
-ms.openlocfilehash: 96f0cda9bdf6a17adb4d8d50b63ef5588e52f700
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d99e37171f2fb5b86bee897caca55c3e8782f92e
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578097"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108806"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Recursos com suporte para alertas de métrica no Azure Monitor
 
@@ -119,7 +119,7 @@ Esta é a lista completa das origens métricas do Azure Monitor com suporte pelo
 ## <a name="payload-schema"></a>Esquema de conteúdo
 
 > [!NOTE]
-> Você também pode usar o [esquema de alerta comum](https://aka.ms/commonAlertSchemaDocs), que fornece a vantagem de ter uma única carga de alerta extensível e unificada em todos os serviços de alerta no Azure monitor, para suas integrações de webhook. [Saiba mais sobre as definições de esquema de alerta comuns.](https://aka.ms/commonAlertSchemaDefinitions)
+> Você também pode usar o [esquema de alerta comum](./alerts-common-schema.md), que fornece a vantagem de ter uma única carga de alerta extensível e unificada em todos os serviços de alerta no Azure monitor, para suas integrações de webhook. [Saiba mais sobre as definições de esquema de alerta comuns.](./alerts-common-schema-definitions.md)
 
 
 A operação POST contém a carga JSON e esquema a seguir para todos os alertas de métrica mais recentes quando o [grupo de ações ](./action-groups.md) adequadamente configurado é usado:
@@ -180,4 +180,3 @@ A operação POST contém a carga JSON e esquema a seguir para todos os alertas 
 * Saiba mais sobre a nova [Experiência de alertas](./alerts-overview.md).
 * Saiba mais sobre os [alertas de log no Azure](./alerts-unified-log.md).
 * Saiba mais sobre [alertas no Azure](./alerts-overview.md).
-

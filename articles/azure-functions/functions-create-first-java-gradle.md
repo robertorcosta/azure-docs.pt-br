@@ -6,12 +6,12 @@ ms.custom: devx-track-java
 ms.author: karler
 ms.topic: how-to
 ms.date: 04/08/2020
-ms.openlocfilehash: ce2169838faaee8da459f80979fa31318e9d50c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9592d848398c71bc573c073f0b712898f666640
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87322169"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104862"
 ---
 # <a name="use-java-and-gradle-to-create-and-publish-a-function-to-azure"></a>Usar Java e gradle para criar e publicar uma função no Azure
 
@@ -24,7 +24,7 @@ Este artigo mostra como criar e publicar um projeto de função Java para Azure 
 
 Para desenvolver funções usando Java, você deve ter o seguinte instalado:
 
-- [Java Developer Kit](https://aka.ms/azure-jdks), versão 8
+- [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), versão 8
 - [CLI do Azure]
 - [Azure Functions Core Tools](./functions-run-local.md#v2) versão 2.6.666 ou posterior
 - [Gradle](https://gradle.org/), versão 4,10 e posterior

@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 1dc1198ab9c546ef1defa1891777c4c8081171e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 115ff1b59ecbe3f4fdb089c2bd61da955fba3984
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85957171"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104539"
 ---
 # <a name="azure-event-grid-bindings-for-azure-functions"></a>Associações da grade de eventos do Azure para Azure Functions
 
@@ -23,7 +23,7 @@ Os *manipuladores* de eventos recebem e processam eventos. O Azure Functions é 
 
 Se preferir, você pode usar um gatilho HTTP para manipular eventos de grade de eventos; consulte [receber eventos para um ponto de extremidade http](../event-grid/receive-events.md). No momento, você não pode usar um gatilho de grade de eventos para um aplicativo Azure Functions quando o evento é entregue no [esquema CloudEvents](../event-grid/cloudevents-schema.md#azure-functions). Em vez disso, use um gatilho HTTP.
 
-| Ação | Type |
+| Ação | Tipo |
 |---------|---------|
 | Executar uma função quando um evento de grade de eventos for despachado | [Gatilho](./functions-bindings-event-grid-trigger.md) |
 | Envia um evento de grade de eventos |[Associação de saída](./functions-bindings-event-grid-output.md) |
@@ -36,7 +36,7 @@ O código nessa referência usa como padrão a sintaxe do .NET Core, usada nas f
 
 Trabalhar com o gatilho e as associações exige que você referencie o pacote apropriado. O pacote NuGet é usado para bibliotecas de classes do .NET enquanto o pacote de extensão é usado para todos os outros tipos de aplicativos.
 
-| Linguagem                                        | Adicionar por...                                   | Comentários 
+| Language                                        | Adicionar por...                                   | Comentários 
 |-------------------------------------------------|---------------------------------------------|-------------|
 | C#                                              | Instalando o [pacote NuGet], versão 2. x | |
 | Script C#, Java, JavaScript, Python, PowerShell | Registrando o [pacote de extensão]          | A [extensão de ferramentas do Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) é recomendada para uso com Visual Studio Code. |
@@ -45,7 +45,7 @@ Trabalhar com o gatilho e as associações exige que você referencie o pacote a
 [core tools]: ./functions-run-local.md
 [pacote de extensão]: ./functions-bindings-register.md#extension-bundles
 [Pacote NuGet]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid
-[Atualizar suas extensões]: ./install-update-binding-extensions-manual.md
+[Atualizar suas extensões]: ./functions-bindings-register.md
 [Azure Tools extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 
 ### <a name="functions-1x"></a>Funções 1.x

@@ -7,12 +7,12 @@ ms.author: aymarqui
 ms.date: 09/02/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 0c3d3a050c0b929a3f1042b42006c289ddeb9acb
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: fd23cab844d40f75aa0034096be1bca897d54ff6
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048110"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108347"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-signalr-service"></a>Integrar o gêmeos digital do Azure ao serviço de Signaler do Azure
 
@@ -195,7 +195,7 @@ Você não precisa fazer mais nada neste console, mas deixe-o em execução enqu
 ### <a name="configure-the-sample-client-web-app"></a>Configurar o aplicativo Web do cliente de exemplo
 
 Em seguida, configure o **exemplo de aplicativo Web de integração do signalr** com estas etapas:
-1. Usando o Visual Studio ou qualquer editor de código de sua escolha, abra a pasta _**Azure_Digital_Twins_SignalR_integration_web_app_sample**_ descompactada que você baixou na seção [*pré-requisitos*](#prerequisites) .
+1. Usando o Visual Studio ou qualquer editor de código de sua escolha, abra a pasta _**Azure_Digital_Twins_SignalR_integration_web_app_sample**_ descompactada que você baixou na seção [*baixar aplicativos de exemplo*](#download-the-sample-applications) .
 
 1. Abra o arquivo *src/App.js* e substitua a URL em `HubConnectionBuilder` pela URL do ponto de extremidade http da função **Negotiate** que você salvou anteriormente:
 
