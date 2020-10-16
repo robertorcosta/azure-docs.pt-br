@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
-ms.openlocfilehash: 49f944aa98bf0bf8090b10d2feeb50af4a2d42b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf744e4edc9e631ce1efd04688611fb78fb6fce2
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85955481"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131183"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Fontes de dados de desempenho do Windows e do Linux no Azure Monitor
 Os contadores de desempenho no Windows e Linux fornecem informações sobre o desempenho de componentes de hardware, sistemas operacionais e aplicativos.  O Azure Monitor pode coletar contadores de desempenho em intervalos frequentes para análises NRT (Near Real Time), além de agregar dados de desempenho para análise e relatório de longo prazo.
@@ -133,13 +133,13 @@ A tabela a seguir lista os objetos e contadores que você pode especificar no ar
 | Processador | % de Tempo Privilegiado |
 | Processador | % Tempo do Processador |
 | Processador | % de Tempo do Usuário |
-| System (sistema) | Memória Física Livre |
-| System (sistema) | Espaço Livre em Arquivos de Paginação |
-| System (sistema) | Memória Virtual Livre |
-| System (sistema) | Processos |
-| System (sistema) | Tamanho Armazenado em Arquivos de Paginação |
-| System (sistema) | Tempo de atividade |
-| System (sistema) | Usuários |
+| Sistema | Memória Física Livre |
+| Sistema | Espaço Livre em Arquivos de Paginação |
+| Sistema | Memória Virtual Livre |
+| Sistema | Processos |
+| Sistema | Tamanho Armazenado em Arquivos de Paginação |
+| Sistema | Tempo de atividade |
+| Sistema | Usuários |
 
 
 A seguir está a configuração padrão para as métricas de desempenho.
@@ -156,7 +156,7 @@ A seguir está a configuração padrão para as métricas de desempenho.
 <source>
     type oms_omi
     object_name "Logical Disk"
-    instance_regex ".*
+    instance_regex ".*"
     counter_name_regex ".*"
     interval 5m
 </source>
@@ -164,7 +164,7 @@ A seguir está a configuração padrão para as métricas de desempenho.
 <source>
     type oms_omi
     object_name "Processor"
-    instance_regex ".*
+    instance_regex ".*"
     counter_name_regex ".*"
     interval 30s
 </source>

@@ -3,12 +3,12 @@ title: Detalhes da estrutura de definição de política
 description: Descreve como as definições de política são usadas para estabelecer convenções para os recursos do Azure na sua organização.
 ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 84af781ae58ab45b69d71ebdc22fbced910da246
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 8e7cea1d03b0a236b9a485c2e640d7bf3f4e8e7e
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074253"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132475"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição da Política do Azure
 
@@ -77,7 +77,7 @@ Use **displayName** e **description** para identificar a definição de polític
 > [!NOTE]
 > Durante a criação ou a atualização de uma definição de política, **id**, **type** e **name** são definidos por propriedades externas ao JSON e não são necessários no arquivo JSON. O fetch da definição de política por meio do SDK retorna a as propriedades **id**, **type** e **name** como parte do JSON, mas cada uma delas é uma informação somente leitura relacionada à definição de política.
 
-## <a name="type"></a>Tipo
+## <a name="type"></a>Type
 
 Embora a propriedade **Type** não possa ser definida, há três valores que são retornados pelo SDK e visíveis no Portal:
 
@@ -589,8 +589,8 @@ A função a seguir está disponível para uso em uma regra de política, mas di
 As seguintes funções estão disponíveis apenas em regras de política:
 
 - `addDays(dateTime, numberOfDaysToAdd)`
-  - **DateTime**: [Required] String-String no formato de data/hora Universal ISO 8601 `yyyy-MM-ddTHH:mm:ss.fffffffZ` .
-  - **numberOfDaysToAdd**: [obrigatório] número inteiro de dias para adicionar.
+  - **DateTime**: [Required] String-String no formato de data/hora Universal ISO 8601 ' aaaa-mm-ddThh: mm: SS. FFFFFFFZ'
+  - **numberOfDaysToAdd**: [obrigatório] inteiro; número de dias a ser adicionado
 - `field(fieldName)`
   - **fieldName**: [obrigatório] cadeia de caracteres; nome do [field](#fields) a ser recuperado
   - Retorna o valor desse campo do recurso que está sendo avaliado pela condição if.

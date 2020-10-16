@@ -1,0 +1,103 @@
+---
+title: Proteger e isolar clusters do Azure HDInsight com o link privado (visualização)
+description: Saiba como isolar clusters do Azure HDInsight em uma rede virtual usando o link privado do Azure.
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
+ms.service: hdinsight
+ms.topic: conceptual
+ms.date: 10/15/2020
+ms.openlocfilehash: c51b99ed04357cdebaabbde2b2bd0400adcfef30
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92134121"
+---
+# <a name="secure-and-isolate-azure-hdinsight-clusters-with-private-link-preview"></a>Proteger e isolar clusters do Azure HDInsight com o link privado (visualização)
+
+Na [arquitetura de rede virtual padrão](./hdinsight-virtual-network-architecture.md)do Azure hdinsight, o provedor de recursos do HDINSIGHT (RP) se comunica com o cluster usando endereços IP públicos. Alguns cenários exigem isolamento de rede completo sem uso de endereços IP públicos. Neste artigo, você aprenderá sobre os controles avançados que você pode usar para criar um cluster HDInsight privado. Para obter informações sobre como restringir o tráfego de e para o cluster sem o isolamento de rede completo, consulte [controlar o tráfego de rede no Azure HDInsight](./control-network-traffic.md).
+
+Você pode criar clusters HDInsight privados Configurando propriedades de rede específicas em um modelo de Azure Resource Manager (ARM). Há duas propriedades que você usa para criar clusters HDInsight privados:
+
+* Remova os endereços IP públicos definindo `resourceProviderConnection` para saída.
+* Habilite o link privado do Azure e use [pontos de extremidade privados](../private-link/private-endpoint-overview.md) definindo `privateLink` como habilitado.
+
+## <a name="remove-public-ip-addresses"></a>Remover endereços IP públicos
+
+Por padrão, o RP do HDInsight usa uma conexão de *entrada* para o cluster usando IPS públicos. Quando a `resourceProviderConnection` propriedade de rede é definida como *saída*, ela reverte as conexões para o RP do HDInsight para que as conexões sejam sempre iniciadas de dentro do cluster para o RP. Sem uma conexão de entrada, não há necessidade de marcas de serviço de entrada ou endereços IP públicos.
+
+Os balanceadores de carga básicos usados na arquitetura de rede virtual padrão fornecem automaticamente o NAT público (conversão de endereços de rede) para acessar as dependências de saída necessárias, como o HDInsight RP. Se você quiser restringir a conectividade de saída à Internet pública, poderá [configurar um firewall](./hdinsight-restrict-outbound-traffic.md), mas isso não é um requisito.
+
+Configurar `resourceProviderConnection` para saída também permite que você acesse recursos específicos do cluster, como Azure data Lake Storage Gen2 ou metastores externos, usando pontos de extremidade privados. Você deve configurar os pontos de extremidade privados e as entradas de DNS antes de criar o cluster HDInsight. Recomendamos que você crie e forneça todos os bancos de dados do SQL externos necessários, como Apache Ranger, Ambari, Oozie e metastores do hive, durante a criação do cluster.
+
+Não há suporte para pontos de extremidade privados para Azure Key Vault. Se você estiver usando Azure Key Vault para criptografia CMK em repouso, o ponto de extremidade de Azure Key Vault deverá ser acessível de dentro da sub-rede do HDInsight sem nenhum ponto de extremidade privado.
+
+O diagrama a seguir mostra a aparência de uma possível arquitetura de rede virtual do HDInsight quando `resourceProviderConnection` é definido como de saída:
+
+:::image type="content" source="media/hdinsight-private-link/outbound-resource-provider-connection-only.png" alt-text="Diagrama da arquitetura do HDInsight usando uma conexão do provedor de recursos de saída":::
+
+Depois de criar o cluster, você deve configurar a resolução de DNS apropriada. O seguinte registro DNS de nome canônico (CNAME) é criado na zona DNS pública gerenciada pelo Azure: `azurehdinsight.net` .
+
+```dns
+<clustername>    CNAME    <clustername>-int
+```
+
+Para acessar o cluster usando FQDNs de cluster, você pode usar os IPs privados do balanceador de carga interno diretamente ou usar sua própria zona de DNS privado para substituir os pontos de extremidade do cluster conforme apropriado para suas necessidades. Por exemplo, você pode ter uma zona de DNS privado, `azurehdinsight.net` . e adicione seus IPs privados, conforme necessário:
+
+```dns
+<clustername>        A   10.0.0.1
+<clustername-ssh>    A   10.0.0.2
+```
+
+## <a name="enable-private-link"></a>Habilitar link privado
+
+O link privado, que é desabilitado por padrão, requer um amplo conhecimento de rede para configurar UDR (rotas definidas pelo usuário) e regras de firewall corretamente antes de criar um cluster. O acesso de link privado ao cluster só estará disponível quando a `resourceProviderConnection` propriedade de rede estiver definida como de *saída* , conforme descrito na seção anterior.
+
+Quando `privateLink` é definido como *habilitar*, os [balanceadores de carga Standard](../load-balancer/load-balancer-overview.md) internos (SLB) são criados e um serviço de vínculo privado do Azure é provisionado para cada SLB. O serviço de vínculo privado é o que permite que você acesse o cluster HDInsight de pontos de extremidade privados.
+
+Os balanceadores de carga padrão não fornecem automaticamente o NAT de saída público como os balanceadores de carga básicos. Você deve fornecer sua própria solução NAT, como [NAT de rede virtual](../virtual-network/nat-overview.md) ou [Firewall](./hdinsight-restrict-outbound-traffic.md), para dependências de saída. Seu cluster HDInsight ainda precisa de acesso às suas dependências de saída. Se essas dependências de saída não forem permitidas, a criação do cluster poderá falhar.
+
+### <a name="prepare-your-environment"></a>Prepare o seu ambiente
+
+O diagrama a seguir mostra um exemplo da configuração de rede necessária antes de criar um cluster. Neste exemplo, todo o tráfego de saída é [forçado](../firewall/forced-tunneling.md) ao firewall do Azure usando UDR e as dependências de saída necessárias devem ser "permitidas" no firewall antes de criar um cluster. Para Enterprise Security Package clusters, a conectividade de rede com Azure Active Directory Domain Services pode ser fornecida pelo emparelhamento VNet.
+
+:::image type="content" source="media/hdinsight-private-link/before-cluster-creation.png" alt-text="Diagrama da arquitetura do HDInsight usando uma conexão do provedor de recursos de saída":::
+
+Depois de configurar a rede, você pode criar um cluster com a conexão do provedor de recursos de saída e o link privado habilitado, conforme mostrado na figura a seguir. Nessa configuração, não há nenhum IPs público e o serviço de vínculo privado é provisionado para cada balanceador de carga padrão.
+
+:::image type="content" source="media/hdinsight-private-link/after-cluster-creation.png" alt-text="Diagrama da arquitetura do HDInsight usando uma conexão do provedor de recursos de saída":::
+
+### <a name="access-a-private-cluster"></a>Acessar um cluster privado
+
+Para acessar clusters privados, você pode usar diretamente os IPs privados do Load balancer interno ou pode usar extensões de DNS de link privado e pontos de extremidade privados. Quando a `privateLink` configuração estiver definida como habilitada, você poderá criar seus próprios pontos de extremidade privados e configurar a resolução DNS por meio de zonas DNS privadas.
+
+As entradas de link privado criadas na zona DNS pública gerenciada pelo Azure `azurehdinsight.net` são as seguintes:
+
+```dns
+<clustername>        CNAME    <clustername>.privatelink
+<clustername>-int    CNAME    <clustername>-int.privatelink
+<clustername>-ssh    CNAME    <clustername>-ssh.privatelink
+```
+
+A imagem a seguir mostra um exemplo das entradas DNS privadas necessárias para acessar o cluster de uma rede virtual que não está emparelhada ou não tem uma linha de visão direta para os balanceadores de carga do cluster. Você pode usar a zona privada do Azure para substituir `*.privatelink.azurehdinsight.net` os FQDNs e resolver seus próprios endereços IP de pontos de extremidade privados.
+
+:::image type="content" source="media/hdinsight-private-link/access-private-clusters.png" alt-text="Diagrama da arquitetura do HDInsight usando uma conexão do provedor de recursos de saída":::
+
+## <a name="arm-template-properties"></a>Propriedades do modelo ARM
+
+O trecho de código JSON a seguir inclui as duas propriedades de rede que você precisa configurar em seu modelo do ARM para criar um cluster HDInsight privado.
+
+```json
+networkProperties: {
+    "resourceProviderConnection": "Inbound" | "Outbound",
+    "privateLink": "Enabled" | "Disabled"
+}
+```
+
+Para obter um modelo completo com muitos dos recursos de segurança do HDInsight Enterprise, incluindo o link privado, consulte [modelo de segurança do hdinsight Enterprise](https://github.com/Azure-Samples/hdinsight-enterprise-security/tree/main/ESP-HIB-PL-Template).
+
+## <a name="next-steps"></a>Próximas etapas
+
+* [Enterprise Security Package para o Azure HDInsight](enterprise-security-package.md)
+* [Informações gerais e diretrizes de segurança corporativa no Azure HDInsight](./domain-joined/general-guidelines.md)

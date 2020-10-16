@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
-ms.date: 09/30/2020
+ms.date: 10/15/2020
 ms.author: mbullwin
-ms.openlocfilehash: 42b23876761afa213b07f07b3a61e125dcf0824b
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 6b5292ca7e1220b60b1b2a2501b3150550da8db9
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046801"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131676"
 ---
 # <a name="metrics-advisor-frequently-asked-questions"></a>Perguntas frequentes do assistente de métricas
 
@@ -31,7 +31,7 @@ O [site de demonstração](https://anomaly-detector.azurewebsites.net/) está di
 
 :::image type="content" source="media/pricing.png" alt-text="Mensagem quando um recurso F0 já existe":::
 
-Durante a visualização pública, apenas uma instância do assistente de métricas pode ser criada em uma assinatura, em uma região.
+Durante a visualização pública, somente uma instância do Orientador de métricas pode ser criada por região em uma assinatura.
 
 Se você já tiver uma instância criada na mesma região usando a mesma assinatura, poderá tentar uma região diferente ou uma assinatura diferente para criar uma nova instância. Você também pode excluir uma instância existente para criar uma nova.
 
@@ -108,6 +108,40 @@ Se não houver limites, você poderá usar a "detecção inteligente", que é al
 
 Se seus dados normalmente estiverem muito instáveis e flutuar muito e você quiser ser alertado quando ficar muito estável ou se se tornar uma linha simples, o "limite de alteração" poderá ser configurado para detectar esses pontos de dados quando a alteração for muito pequena.
 Veja [as configurações de detecção de anomalias](how-tos/configure-metrics.md#anomaly-detection-methods) para obter detalhes.
+
+## <a name="advanced-concepts"></a>Conceitos avançados
+
+### <a name="how-does-metric-advisor-build-an-incident-tree-for-multi-dimensional-metrics"></a>Como o Orientador de métrica cria uma árvore de incidentes para métricas multidimensionais?
+
+Uma métrica pode ser dividida em várias séries temporais por dimensões. Por exemplo, a métrica `Response latency` é monitorada para todos os serviços pertencentes à equipe. A `Service` categoria pode ser usada como uma dimensão para enriquecer a métrica, portanto, podemos `Response latency` dividir por `Service1` , `Service2` e assim por diante. Cada serviço pode ser implantado em computadores diferentes em vários data centers, portanto, a métrica pode ser dividida por `Machine` e `Data center` .
+
+|Serviço| Data center| Computador  | 
+|----|------|----------------   |
+| S1 |  DC1 |   M1 |
+| S1 |  DC1 |   M2 |
+| S1 |  DC2 |   M3 |
+| S1 |  DC2 |   M4 |
+| S2 |  DC1 |   M1 |
+| S2 |  DC1 |   M2 |
+| S2 |  DC2 |   M5 |
+| S2 |  DC2 |   M6 |
+| ...|      |      |
+
+A partir do total `Response latency` , podemos fazer uma busca detalhada na métrica por `Service` `Data center` e `Machine` . No entanto, talvez faça mais sentido para os proprietários de serviço usarem o caminho `Service`  ->  `Data center`  ->  `Machine` ou talvez faça mais sentido para os engenheiros de infraestrutura usarem o caminho `Data Center`  ->  `Machine`  ->  `Service` . Tudo depende dos requisitos de negócios individuais de seus usuários. 
+
+No Orientador de métrica, os usuários podem especificar qualquer caminho que desejem fazer uma busca detalhada ou ROLLUP de um nó da topologia hierárquica. Mais precisamente, a topologia hierárquica é um grafo acíclico direcionado em vez de uma estrutura de árvore. Há uma topologia hierárquica completa que consiste em todas as combinações de dimensão em potencial, como esta: 
+
+:::image type="content" source="media/dimension-combinations-view.png" alt-text="Mensagem quando um recurso F0 já existe" lightbox="media/dimension-combinations-view.png":::
+
+Em teoria, se a dimensão `Service` tiver `Ls` valores distintos, a dimensão `Data center` tiver `Ldc` valores distintos e a dimensão `Machine` tiver `Lm` valores distintos, poderá haver `(Ls + 1) * (Ldc + 1) * (Lm + 1)` combinações de dimensões na topologia hierárquica. 
+
+Mas geralmente nem todas as combinações de dimensão são válidas, o que pode reduzir significativamente a complexidade. Atualmente, se os usuários agregarem a própria métrica, não limitaremos o número de dimensões. Se você precisar usar a funcionalidade de acúmulo fornecida pelo assistente de métricas, o número de dimensões não deverá ser maior que 6. No entanto, limitamos o número de séries temporais expandidas pelas dimensões de uma métrica para menos de 10.000.
+
+A ferramenta de **árvore de incidentes** na página de diagnóstico mostra apenas nós em que uma anomalia foi detectada, em vez de toda a topologia. Isso é para ajudá-lo a se concentrar no problema atual. Ele também pode não mostrar todas as anomalias dentro da métrica e, em vez disso, exibirá as principais anomalias com base na contribuição. Dessa forma, podemos descobrir rapidamente o impacto, o escopo e o caminho de propagação dos dados anormais. Que reduz significativamente o número de anomalias que precisamos focar e ajuda os usuários a entender e localizar seus principais problemas. 
+ 
+Por exemplo, quando ocorre uma anomalia `Service = S2 | Data Center = DC2 | Machine = M5` , o desvio da anomalia afeta o nó pai `Service= S2` que também detectou a anomalia, mas a anomalia não afeta toda a data center em `DC2` todos os serviços `M5` . A árvore de incidentes seria criada como na captura de tela abaixo, a principal anomalia é capturada em `Service = S2` , e a causa raiz pode ser analisada em dois caminhos que resultam `Service = S2 | Data Center = DC2 | Machine = M5` .
+
+ :::image type="content" source="media/root-cause-paths.png" alt-text="5 os vértices rotulados com dois caminhos distintos conectados por bordas com um nó comum rotulado S2. A principal anomalia é capturada em Service = S2, e a causa raiz pode ser analisada pelos dois caminhos que levam ao serviço = S2 | Data Center = DC2 | Machine = M5" lightbox="media/root-cause-paths.png":::
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Visão geral do Assistente de Métricas](overview.md)

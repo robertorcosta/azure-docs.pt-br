@@ -9,12 +9,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 06/07/2017
-ms.openlocfilehash: f5ecd2334ca80f5561c0611239b5bb00d222112a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c6797a0f0f2d4d655bcdabe732f6b14c8f0f562
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76277183"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131200"
 ---
 # <a name="overview-of-integration-between-application-gateway-and-azure-security-center"></a>Visão geral da integração entre o Gateway de Aplicativo e a Central de Segurança do Azure
 
@@ -44,7 +44,7 @@ Se você não tiver um Gateway de Aplicativo existente ou quiser criar um novo, 
 
 Se você tiver um gateway de aplicativo existente, é possível escolhê-lo em **Usar solução existente**
 
-![Página para adicionar um firewall do aplicativo Web][4]
+![Captura de tela da página Adicionar um firewall do aplicativo Web. Em usar solução existente, um gateway de aplicativo fica visível.][4]
 
 Adicionar um aplicativo Web a um gateway de aplicativo através da Central de Segurança do Azure não adiciona o recurso como um membro do pool de back-end. Isso deve ser feito diretamente no recurso de gateway do aplicativo.
 
@@ -62,7 +62,7 @@ Clique em **Vincular Aplicativo** para abrir **Vincular Aplicativos**, aqui voc�
 
 A Central de segurança controla os aplicativos adicionados a um gateway de aplicativo como um recurso protegido.  Ela monitora a integridade desse recurso e garante que ele seja protegido por um gateway de aplicativo. A próxima etapa é adicionar o IP privado, o IP público ou a NIC de sua máquina virtual para o pool de back-end do gateway de aplicativo. Até que isso seja feito, uma recomendação adicional de **Finalizar a proteção do aplicativo** é mostrada até que o recurso seja adicionado.
 
-![Página para adicionar um firewall do aplicativo Web][5]
+![Captura de tela da página finalizar proteção do aplicativo, com um aplicativo visível. O texto explica quais etapas executar para proteger o aplicativo.][5]
 
 ## <a name="security-alerts"></a>Alertas de segurança
 

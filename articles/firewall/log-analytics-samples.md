@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: how-to
 ms.date: 09/11/2020
 ms.author: victorh
-ms.openlocfilehash: 5acbc1f3b8c5519c22105f05219ab2cef5c15892
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d4ed76e849385c4edecb7bd97d58087c8e5b4b3
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90023866"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132781"
 ---
 # <a name="azure-monitor-logs-for-azure-firewall"></a>Logs de Azure Monitor para o Firewall do Azure
 
@@ -170,11 +170,11 @@ AzureDiagnostics
 
 As seguintes amostras de log mostram os dados incluídos em uma entrada de log.
 
-![entrada de log um](media/log-analytics-samples/log1.png)
+:::image type="content" source="media/log-analytics-samples/log1.png" alt-text="Captura de tela de uma entrada de log. Vários valores são visíveis, como um carimbo de data/hora, um protocolo, um número de porta, uma ação, uma coleção de regras e uma regra." border="false":::
 
-![entrada de log dois ](media/log-analytics-samples/log2.png)
+:::image type="content" source="media/log-analytics-samples/log2.png" alt-text="Captura de tela de uma entrada de log. Vários valores são visíveis, como um carimbo de data/hora, um protocolo, um número de porta, uma ação, uma coleção de regras e uma regra." border="false":::
 
-![entrada de log três](media/log-analytics-samples/log3.png)
+:::image type="content" source="media/log-analytics-samples/log3.png" alt-text="Captura de tela de uma entrada de log. Vários valores são visíveis, como um carimbo de data/hora, um protocolo, um número de porta, uma ação, uma coleção de regras e uma regra." border="false":::
 ## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre diagnóstico e monitoramento do Firewall do Azure, confira [Tutorial: Monitorar métricas e logs do Firewall do Azure](tutorial-diagnostics.md).

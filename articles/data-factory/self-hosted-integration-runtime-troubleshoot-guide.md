@@ -5,14 +5,14 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 09/14/2020
+ms.date: 10/16/2020
 ms.author: abnarain
-ms.openlocfilehash: 1a68263598cb2cba8cc0853f5dd1be7c62dc062e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0957b74bf13acfcc80e38cccaec389fbbd19fa0
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90069468"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131287"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Solução de problemas do runtime de integração auto-hospedada
 
@@ -615,6 +615,37 @@ O exemplo abaixo mostra como seria um bom cenário.
 
     ![Fluxo de trabalho de handshake TCP 4](media/self-hosted-integration-runtime-troubleshoot-guide/tcp-4-handshake-workflow.png) 
 
+
+### <a name="receiving-email-to-update-the-network-configuration-to-allow-communication-with-new-ip-addresses"></a>Recebendo email para atualizar a configuração de rede para permitir a comunicação com novos endereços IP
+
+#### <a name="symptoms"></a>Sintomas
+
+Você pode receber a notificação de email abaixo, que recomenda que você atualize a configuração de rede para permitir a comunicação com novos endereços IP para Azure Data Factory em 8 de novembro de 2020:
+
+   ![Notificação por email](media/self-hosted-integration-runtime-troubleshoot-guide/email-notification.png)
+
+#### <a name="resolution"></a>Resolução
+
+Essa notificação destina-se a **comunicações de saída** de seu **Integration Runtime** em execução **no local** ou dentro de uma **rede virtual privada do Azure** para o serviço ADF. Por exemplo, se você tiver um ir de IR ou SQL Server Integration Services do Azure (SSIS) por hospedagem própria na VNET do Azure, que precisa acessar o serviço ADF, será necessário examinar se você precisa adicionar esse novo intervalo de IP em suas regras de **NSG (grupo de segurança de rede)** . Se sua regra NSG de saída usar a marca de serviço, não haverá nenhum impacto.
+
+#### <a name="more-details"></a>Mais detalhes
+
+Esses novos intervalos **de IP só têm impacto sobre** as regras de comunicação de saída do seu **firewall local** ou da **rede virtual privada do Azure** para o serviço ADF (consulte [configuração de firewall e permissão de lista de permissões para o endereço IP](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway) para referência), para cenários em que você tem um ir de ir ou SSIS de hospedagem autônoma na rede local ou na rede virtual do Azure, que precisa se comunicar com o
+
+Para usuários existentes usando a **VPN do Azure**:
+
+1. Verifique todas as regras de NSG de saída em sua rede privada onde o SSIS ou o Azure SSIS está configurado. Se não houver nenhuma restrição de saída, não haverá impacto sobre elas.
+1. Se você tiver restrições de regra de saída, verifique se você usa a marca de serviço ou não. Se você usar a marca de serviço, não será necessário alterar nem adicionar nada, pois os novos intervalos de IP estão sob a marca de serviço existente. 
+  
+    ![Verificação de destino](media/self-hosted-integration-runtime-troubleshoot-guide/destination-check.png)
+
+1. Se você usar endereços IP diretamente em sua configuração de regra, verifique se você adicionou todos os intervalos de IP no [link de download do intervalo IP de marcas de serviço](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files). Já colocamos os novos intervalos de IP neste arquivo. Para novos usuários: você só precisará acompanhar a configuração de ir de IR ou do SSIS auto-hospedado relevante em nosso documento para configurar as regras de NSG.
+
+Para usuários existentes que têm o SSIS IR ou o IR hospedado internamente **local**:
+
+- Valide com sua equipe de infraestrutura de rede e veja se é necessário incluir os novos endereços de intervalo IP na comunicação para regras de saída.
+- Para regras de firewall baseadas em nomes FQDN, nenhuma atualização é necessária quando você usa as configurações documentadas na [configuração do firewall e a configuração da lista de permissões para o endereço IP](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway). 
+- Alguns firewalls locais dão suporte a marcas de serviço, se você usar o arquivo atualizado de configuração de marcas de serviço do Azure, nenhuma outra alteração será necessária.
 
 ## <a name="self-hosted-ir-sharing"></a>Compartilhamento do IR auto-hospedado
 
