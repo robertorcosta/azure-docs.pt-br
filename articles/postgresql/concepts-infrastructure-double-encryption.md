@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 6/30/2020
-ms.openlocfilehash: 241c404eff1242c52520f94d5d955db7e260148c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d3a3582891ab3d3e4bfb53cbba0c0b2826cba56b
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537898"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123347"
 ---
 # <a name="azure-database-for-postgresql-infrastructure-double-encryption"></a>Criptografia dupla da infraestrutura do banco de dados do Azure para PostgreSQL
 
@@ -20,7 +20,7 @@ O banco de dados do Azure para PostgreSQL usa a [criptografia de armazenamento d
 A criptografia dupla de infraestrutura adiciona uma segunda camada de criptografia usando chaves gerenciadas pelo serviço. Ele usa o módulo de criptografia validado pelo FIPS 140-2, mas com um algoritmo de criptografia diferente. Isso fornece uma camada adicional de proteção para seus dados em repouso. A chave usada na criptografia dupla de infraestrutura também é gerenciada pelo serviço banco de dados do Azure para PostgreSQL. A criptografia dupla de infraestrutura não é habilitada por padrão, pois a camada adicional de criptografia pode ter um impacto no desempenho.
 
 > [!NOTE]
-> Esse recurso está disponível em todas as regiões do Azure em que o banco de dados do Azure para PostgreSQL dá suporte aos tipos de preço "Uso Geral" e "memória otimizada".
+> Este recurso só tem suporte para os tipos de preço "Uso Geral" e "memória otimizada" no banco de dados do Azure para PostgreSQL.
 
 A criptografia da camada de infraestrutura tem a vantagem de ser implementada na camada mais próxima do dispositivo de armazenamento ou dos cabos de rede. O banco de dados do Azure para PostgreSQL implementa as duas camadas de criptografia usando chaves gerenciadas pelo serviço. Embora ainda tecnicamente na camada de serviço, é muito próximo do hardware que armazena os dados em repouso. Opcionalmente, você ainda pode habilitar a criptografia de dados em repouso usando a [chave gerenciada pelo cliente](concepts-data-encryption-postgresql.md) para o servidor PostgreSQL provisionado.  
 
@@ -29,7 +29,7 @@ A implementação nas camadas de infraestrutura também dá suporte a uma divers
 > [!NOTE]
 > Usar a criptografia dupla de infraestrutura terá impacto no desempenho no banco de dados do Azure para o servidor PostgreSQL devido ao processo de criptografia adicional.
 
-## <a name="benefits"></a>Vantagens
+## <a name="benefits"></a>Benefícios
 
 A criptografia dupla de infraestrutura para o banco de dados do Azure para PostgreSQL oferece os seguintes benefícios:
 

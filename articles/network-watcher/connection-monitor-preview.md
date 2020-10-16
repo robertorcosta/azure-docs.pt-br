@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 31733abc945fe7c751f786649fb05b753a7c243d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80934dca73d7f8a205c62a49c418828cab1820e7
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91408786"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123725"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor-preview"></a>Monitoramento de conectividade de rede com o monitor de conexão (versão prévia)
 
@@ -123,10 +123,10 @@ Todas as fontes, destinos e configurações de teste que você adiciona a um gru
 
 | Número do teste | Fonte | Destino | Configuração de teste |
 | --- | --- | --- | --- |
-| 1 | Um | D | Configuração 1 |
-| 2 | Um | D | Configuração 2 |
-| 3 | Um | E | Configuração 1 |
-| 4 | Um | E | Configuração 2 |
+| 1 | A | D | Configuração 1 |
+| 2 | A | D | Configuração 2 |
+| 3 | A | E | Configuração 1 |
+| 4 | A | E | Configuração 2 |
 | 5 | B | D | Configuração 1 |
 | 6 | B | D | Configuração 2 |
 | 7 | B | E | Configuração 1 |
@@ -143,9 +143,7 @@ Os monitores de conexão têm os seguintes limites de escala:
 * Máximo de monitores de conexão por assinatura por região: 100
 * Máximo de grupos de teste por monitor de conexão: 20
 * Máximo de origens e destinos por monitor de conexão: 100
-* Configurações de teste máximas por monitor de conexão: 
-    * 20 por meio de ARMClient
-    * 2 por meio do portal do Azure
+* Configurações de teste máximas por monitor de conexão: 20
 
 ## <a name="analyze-monitoring-data-and-set-alerts"></a>Analisar dados de monitoramento e definir alertas
 

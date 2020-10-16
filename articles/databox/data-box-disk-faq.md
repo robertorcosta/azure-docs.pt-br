@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: alkohli
-ms.openlocfilehash: f2231b74034ba6cea672a7bbf68f506fce423d45
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9305ff5904588241ff8319f28eab2ce20ad77876
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88826133"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125108"
 ---
 # <a name="azure-data-box-disk-frequently-asked-questions"></a>Azure Data Box Disk: Perguntas frequentes
 
@@ -66,7 +66,7 @@ Por exemplo, se você quisesse mover dados em seu local no Canadá para uma cont
 
 ### <a name="option-1"></a>Opção 1: 
 
-Envie um [disco com suporte](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements?toc=/azure/storage/blobs/toc.json#supported-disks) contendo dados usando o [serviço de importação/exportação do Azure](https://docs.microsoft.com/azure/storage/common/storage-import-export-service) do local de origem no Canadá para o datacenter do Azure westus.
+Envie um [disco com suporte](../storage/common/storage-import-export-requirements.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json#supported-disks) contendo dados usando o [serviço de importação/exportação do Azure](../storage/common/storage-import-export-service.md) do local de origem no Canadá para o datacenter do Azure westus.
 
 ### <a name="option-2"></a>Opção 2:
 
@@ -77,7 +77,7 @@ Envie um [disco com suporte](https://docs.microsoft.com/azure/storage/common/sto
 3. Você pode usar uma ferramenta como AzCopy para copiar os dados para uma conta de armazenamento em Westus. Essa etapa incorre em custos de [largura de banda](https://azure.microsoft.com/pricing/details/bandwidth/) e [armazenamento padrão](https://azure.microsoft.com/pricing/details/storage/) que não estão incluídos na cobrança de disco do data box.
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues--with-data-box-disks"></a>Q. Quem devo contatar se eu encontrar problemas com discos do Data Box?
-a. Caso tenha problemas com os Data Box Disks, [contate o Suporte da Microsoft](https://docs.microsoft.com/azure/databox/data-box-disk-contact-microsoft-support).
+a. Caso tenha problemas com os Data Box Disks, [contate o Suporte da Microsoft](./data-box-disk-contact-microsoft-support.md).
 
 ## <a name="configure-and-connect"></a>Configuração e conexão
  
@@ -147,7 +147,7 @@ a.  Para acelerar o processo de cópia:
 - Use diversos fluxos de cópia de dados. Por exemplo, com o Robocopy, use a opção de vários threads. Para obter mais informações sobre o comando exato usado, acesse [Tutorial: copiar dados para o Azure Data Box Disk e verificar](data-box-disk-deploy-copy-data.md#copy-data-to-disks).
 - Use várias sessões.
 - Em vez de copiar arquivos por compartilhamento de rede (onde você poderia ser limitado pelas velocidades da rede), tenha os dados no mesmo computador em que os discos estão conectados.
-- Verifique se você está usando USB 3.0 ou posterior em todo o processo de cópia. Baixe e use a [ferramenta USBView](https://docs.microsoft.com/windows-hardware/drivers/debugger/usbview) para identificar os controladores USB e dispositivos USB conectados ao computador.
+- Verifique se você está usando USB 3.0 ou posterior em todo o processo de cópia. Baixe e use a [ferramenta USBView](/windows-hardware/drivers/debugger/usbview) para identificar os controladores USB e dispositivos USB conectados ao computador.
 - Avalie o desempenho do computador usado para copiar os dados. Baixe e use a [ferramenta FIO Bluestop](https://ci.appveyor.com/project/axboe/fio) para avaliar o desempenho do hardware do servidor. Selecione o build x86 ou x64 mais recente, selecione a guia **Artefatos** e baixe a MSI.
 
 ### <a name="q-how-to-speed-up-the-data-if-the-source-data-has-small-files-kbs-or-few-mbs"></a>Q. Como acelerar os dados se a fonte de dados tiver arquivos pequeno (KBs ou alguns MBs)?

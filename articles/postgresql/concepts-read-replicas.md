@@ -5,13 +5,13 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/10/2020
-ms.openlocfilehash: 124034fc6c999c37c6e79547b062508c957d1bac
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.date: 10/15/2020
+ms.openlocfilehash: 3b660875288db1f16f13d58b1538a876e2ff2666
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91939827"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123280"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Ler réplicas no banco de dados do Azure para PostgreSQL-servidor único
 
@@ -43,7 +43,7 @@ Você pode ter um servidor primário em qualquer [região do banco de dados do A
 ### <a name="universal-replica-regions"></a>Regiões de réplica universal
 Você sempre pode criar uma réplica de leitura em qualquer uma das seguintes regiões, independentemente de onde o servidor primário está localizado. Estas são as regiões de réplica universal:
 
-Leste da Austrália, sudeste da Austrália, EUA Central, Ásia Oriental, leste dos EUA, leste dos EUA 2, leste do Japão, oeste do Japão, Coreia central, sul da Coreia, norte EUA Central, Europa Setentrional, Sul EUA Central, Sudeste Asiático, Sul do Reino Unido, Oeste do Reino Unido, Europa Ocidental, oeste dos EUA, oeste dos EUA 2, Oeste EUA Central.
+Leste da Austrália, sudeste da Austrália, sul do Brasil, centro do Canadá, leste do Canadá, EUA Central, Ásia Oriental, leste dos EUA, leste dos EUA 2, leste do Japão, oeste do Japão, Coreia central, sul da Coreia, norte EUA Central, Europa Setentrional, Sul EUA Central, Sudeste Asiático, Sul do Reino Unido, oeste do Reino Unido, Europa Ocidental, oeste dos EUA, oeste dos EUA 2, Oeste EUA Central.
 
 ### <a name="paired-regions"></a>Regiões emparelhadas
 Além das regiões de réplica universal, você pode criar uma réplica de leitura na região emparelhada do Azure de seu servidor primário. Se não souber o par da sua região, você pode encontrar essa informação no [artigo Regiões emparelhadas do Azure](../best-practices-availability-paired-regions.md).

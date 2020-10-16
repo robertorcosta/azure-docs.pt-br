@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2019
 ms.author: mbaldwin
 ms.custom: include file
-ms.openlocfilehash: 6f7f319d2ebb4cd39933addf04f249df02d7819f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 234aa602cccb90d130e4d4b6aca375726ca29f0d
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81314111"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91989633"
 ---
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -148,7 +148,7 @@ o Azure Disk Encryption não dá suporte à especificação de números de porta
 Use o comando [az keyvault key create](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-create) da CLI do Azure para gerar uma nova KEK e armazená-la no cofre de chaves.
 
 ```azurecli-interactive
-az keyvault key create --name "myKEK" --vault-name "<your-unique-keyvault-name>" --kty RSA-HSM
+az keyvault key create --name "myKEK" --vault-name "<your-unique-keyvault-name>" --kty RSA
 ```
 
 Em vez disso, você pode importar uma chave privada usando o comando [az keyvault key import](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-import) da CLI do Azure:

@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 08/23/2019
 ms.topic: how-to
 manager: philmea
-ms.openlocfilehash: e000e2979436605b9274792ad3dde8eb1fa80976
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43c201150ab0b2d5d350aa228a4ade5e2faf3461
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653342"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123106"
 ---
 # <a name="create-and-manage-an-azure-iot-central-application-from-the-csp-portal"></a>Criar e gerenciar um aplicativo de IoT Central do Azure no portal do CSP
 
@@ -63,7 +63,7 @@ Como o Azure IoT Central tem contexto fornecidas para gerenciar o cliente seleci
 
 Um locatário do Azure Active Directory contém identidades de usuário, credenciais e outras informações organizacionais. Várias assinaturas do Azure podem ser associadas a um único locatário do Azure Active Directory.
 
-Para saber mais, consulte [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/).
+Para saber mais, consulte [Azure Active Directory](../../active-directory/index.yml).
 
 ## <a name="azure-subscription"></a>Assinatura do Azure
 
@@ -71,9 +71,9 @@ Uma assinatura do Azure permite que você crie instâncias de serviços do Azure
 
 Se você não tiver uma assinatura do Azure, poderá criar uma no Microsoft Partner Center. Após criar a assinatura do Azure, navegue de volta para a página **Criar Aplicativo**. A nova assinatura aparece na lista suspensa **Assinatura do Azure**.
 
-Para saber mais, consulte [Assinaturas do Azure](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing).
+Para saber mais, consulte [Assinaturas do Azure](../../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing).
 
-## <a name="location"></a>Localização
+## <a name="location"></a>Location
 
 **Local** é a [geografia](https://azure.microsoft.com/global-infrastructure/geographies/) onde você gostaria de criar o aplicativo. Normalmente, você deve escolher a localização fisicamente mais próxima de seus dispositivos para obter um desempenho ideal. No momento, você pode criar um aplicativo IoT Central nas regiões da **Austrália**, **Pacífico Asiático**, **Europa**, **Estados Unidos**, **Reino Unido**e **Japão** . Depois de escolher uma localização, você não poderá mover o aplicativo posteriormente para outra localização.
 

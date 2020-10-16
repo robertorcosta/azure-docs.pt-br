@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/08/2020
 ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2a72e22b600f7dd7737a877e2fdf5d34c4dd4b4c
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: ac7fc5af21f11699331d41a074e88ae757170664
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876083"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975987"
 ---
 # <a name="tutorial-configure-route-filters-for-microsoft-peering-azure-cli"></a>Tutorial: Configurar filtros de rota para emparelhamento da Microsoft: CLI do Azure
 
@@ -51,7 +51,7 @@ Para anexar filtros de rota aos serviços do Microsoft 365, você precisa ter au
 > O emparelhamento da Microsoft de circuitos de ExpressRoute configurados antes de 1º de agosto de 2017 terá todos os prefixos de serviço anunciados através do emparelhamento da Microsoft, mesmo que os filtros de rota não estejam definidos. O emparelhamento da Microsoft de circuitos de ExpressRoute configurados em ou após 1º de agosto de 2017 não terá nenhum prefixo anunciado até que um filtro de rota seja anexado ao circuito.
 > 
 
-## <a name="prerequisites"></a><a name="workflow"></a>Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para se conectar aos serviços por meio do emparelhamento da Microsoft, você precisa concluir as seguintes etapas de configuração:
 
@@ -143,7 +143,7 @@ Depois que um filtro de rota é desanexado do circuito de ExpressRoute, nenhum p
 az network express-route peering update --circuit-name MyCircuit -g ExpressRouteResourceGroupName --name MicrosoftPeering --remove routeFilter
 ```
 
-## <a name="clean-up-resources"></a><a name="delete"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Você só poderá excluir um filtro de rota se ele não estiver anexado a nenhum circuito. Verifique se o filtro de rota não está anexado a nenhum circuito antes de tentar excluí-lo. Você pode excluir um filtro de rota usando o seguinte comando:
 

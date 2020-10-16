@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/05/2020
 ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: eebb2693d3bc0f65059c6c3c377f1afb7ae7eccd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1d50c3f8f94fbfd7dbcb9b25e051b7f2951c518
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91757564"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969051"
 ---
 # <a name="quickstart-create-and-modify-an-expressroute-circuit-using-azure-cli"></a>Início Rápido: Criar e modificar um circuito do ExpressRoute usando a CLI do Azure
 
@@ -347,7 +347,7 @@ Para desprovisionar e excluir um circuito do ExpressRoute, você precisa entende
 * Se o estado de provisionamento do provedor de serviço de circuito de ExpressRoute for **Provisionando** ou **Provisionado**, você deverá trabalhar com seu provedor de serviços para que ele desprovisione o circuito. Continuaremos a reservar recursos e a cobrar de você até que o provedor de serviços complete o desprovisionamento do circuito e nos notifique.
 * Se o provedor de serviços tiver desprovisionado o circuito (ou seja, se o estado de provisionamento do provedor de serviços tiver sido definido como **Não provisionado**), então você poderá excluir o circuito. Então, a cobrança pelo circuito será interrompida.
 
-## <a name="clean-up-resources"></a><a name="cleanup"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Você pode excluir o circuito do ExpressRoute executando o comando a seguir:
 

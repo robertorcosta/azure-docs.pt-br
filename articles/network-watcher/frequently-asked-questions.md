@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2019
 ms.author: damendo
-ms.openlocfilehash: b48aab918b477f5c689a50ca476b0b1336642f0f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd23dff3f60ab52a82633b9876b67c628a8e2dc7
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77471849"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123520"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-network-watcher"></a>Perguntas frequentes (FAQ) sobre o observador de rede do Azure
 O serviço [observador de rede do Azure](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) fornece um conjunto de ferramentas para monitorar, diagnosticar, exibir métricas e habilitar ou desabilitar logs de recursos em uma rede virtual do Azure. Este artigo responde a perguntas comuns sobre o serviço.
@@ -34,13 +34,13 @@ O observador de rede fornece três conjuntos principais de recursos
   * A [exibição de topologia](https://docs.microsoft.com/azure/network-watcher/view-network-topology) mostra os recursos em sua rede virtual e as relações entre eles.
   * O [Monitor de conexão](https://docs.microsoft.com/azure/network-watcher/connection-monitor) permite monitorar a conectividade e a latência entre uma VM e outro recurso de rede.
   * O [Monitor de desempenho de rede](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor) permite que você monitore a conectividade e as latências entre arquiteturas de rede híbridas, circuitos de Expressroute e pontos de extremidade de serviço/aplicativo.  
-* Diagnósticos
+* Diagnóstico
   * A [verificação de fluxo de IP](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview) permite detectar problemas de filtragem de tráfego em um nível de VM.
   * O [próximo salto](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview) ajuda a verificar as rotas de tráfego e detectar problemas de roteamento.
   * A [solução de problemas de conexão](https://docs.microsoft.com/azure/network-watcher/network-watcher-connectivity-portal) permite uma verificação única de conectividade e latência entre uma VM e outro recurso de rede.
   * A [captura de pacotes](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview) permite capturar todo o tráfego em uma VM em sua rede virtual.
   * A [solução de problemas de VPN](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-overview) executa várias verificações de diagnóstico em seus gateways de VPN e conexões para ajudar a depurar problemas.
-* Registro em log
+* Registrando em log
   * Os [logs de fluxo do NSG](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview) permitem registrar todo o tráfego em seus [NSGs (grupos de segurança de rede)](https://docs.microsoft.com/azure/virtual-network/security-overview)
   * O [análise de tráfego](https://docs.microsoft.com/azure/network-watcher/traffic-analytics) processa seus dados de log de fluxo do NSG, permitindo que você visualize, consulte, analise e entenda o tráfego de rede.
 
@@ -80,6 +80,14 @@ O observador de rede precisa ser habilitado apenas uma vez para uma assinatura p
 
 ### <a name="how-can-i-manage-the-network-watcher-resource"></a>Como posso gerenciar o recurso do observador de rede? 
 O recurso do observador de rede representa o serviço de back-end para o observador de rede e é totalmente gerenciado pelo Azure. Os clientes não precisam gerenciá-lo. Não há suporte para operações como mover no recurso. No entanto, [o recurso pode ser excluído](https://docs.microsoft.com/azure/network-watcher/network-watcher-create#delete-a-network-watcher-in-the-portal). 
+
+## <a name="service-availability-and-redundancy"></a>Disponibilidade e redundância do serviço 
+
+### <a name="is-the-network-watcher-service-zone-resilient"></a>A zona de serviço do observador de rede é resiliente? 
+Sim. Por padrão, o serviço observador de rede é resiliente por zona. 
+
+### <a name="how-do-i-configure-the-network-watcher-service-to-be-zone-resilient"></a>Como fazer configurar o serviço do observador de rede para ser resistente a zona? 
+Nenhuma configuração de cliente é necessária para habilitar a resiliência de zona. A resiliência de zona para recursos do observador de rede está disponível por padrão e gerenciada pelo próprio serviço. 
 
 ## <a name="nsg-flow-logs"></a>Logs de fluxo do NSG
 

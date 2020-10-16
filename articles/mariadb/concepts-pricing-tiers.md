@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 8ac47937650d766a159c53f7390a8f1e355a28c2
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 5001864bd80917aef6d8631fe2b5097b22afbe03
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074797"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125774"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Banco de dados do Azure para níveis de preços do MariaDB
 
@@ -71,7 +71,7 @@ Estamos aumentando os limites de armazenamento em nossas camadas de Uso Geral e 
 | IOPS | 3 IOPS/GB<br/>Mín 100 IOPS<br/>IOPS máx. 20.000| 3 IOPS/GB<br/>Mín 100 IOPS<br/>IOPS máx. 20.000 |
 
 > [!IMPORTANT]
-> O armazenamento grande está atualmente em visualização pública nas seguintes regiões: leste dos EUA, leste dos EUA 2, EUA Central, oeste dos EUA, norte EUA Central, Sul EUA Central, Europa Setentrional, Europa Ocidental, Sul do Reino Unido, Oeste do Reino Unido, Sudeste Asiático, Ásia Oriental, leste do Japão, oeste do Japão, Coreia central, Coreia do Canadá, leste da Austrália, sudeste da Austrália
+> O armazenamento grande está atualmente em visualização pública nas seguintes regiões: leste dos EUA, leste dos EUA 2, sul do Brasil, EUA Central, oeste dos EUA, norte EUA Central, Sul EUA Central, Europa Setentrional, Europa Ocidental, Sul do Reino Unido, Oeste do Reino Unido, Sudeste Asiático, Ásia Oriental, leste do Japão, oeste do Japão, Coreia central, Coréia do Sul, leste da Austrália, sudeste da Austrália, oeste dos EUA, Canadá EUA Central e central do Canadá.
 >
 > Todas as outras regiões dão suporte a até 4 TB de armazenamento e até 6000 IOPS.
 >

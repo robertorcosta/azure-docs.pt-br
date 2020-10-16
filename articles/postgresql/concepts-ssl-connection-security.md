@@ -6,18 +6,25 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 2785f79d327402a40be0a905877b5113b3f751b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c98ee8f747975d4237c2906be2060eddbc7b9990
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710440"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123262"
 ---
 # <a name="configure-tls-connectivity-in-azure-database-for-postgresql---single-server"></a>Configurar a conectividade TLS no banco de dados do Azure para PostgreSQL-servidor único
 
 O banco de dados do Azure para PostgreSQL prefere conectar seus aplicativos cliente ao serviço PostgreSQL usando TLS (segurança de camada de transporte), anteriormente conhecido como protocolo SSL (SSL). A imposição de conexões TLS entre o servidor de banco de dados e os aplicativos cliente ajuda a proteger contra ataques "Man-in-the-middle" criptografando o fluxo de dados entre o servidor e seu aplicativo.
 
 Por padrão, o serviço de banco de dados PostgreSQL está configurado para exigir conexão TLS. Você pode optar por desabilitar a exigência de TLS se o aplicativo cliente não oferecer suporte à conectividade TLS.
+
+>[!NOTE]
+> Com base nos comentários dos clientes, estendemos a substituição do certificado raiz para nossa CA raiz Baltimore existente até 15 de fevereiro de 2021 (02/15/2021).
+
+> [!IMPORTANT] 
+> O certificado raiz SSL está definido para expirar a partir de 15 de fevereiro de 2021 (02/15/2021). Atualize seu aplicativo para usar o [novo certificado](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem). Para saber mais, confira [atualizações de certificado planejadas](concepts-certificate-rotation.md)
+
 
 ## <a name="enforcing-tls-connections"></a>Impondo conexões TLS
 
