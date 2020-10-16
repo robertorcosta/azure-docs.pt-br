@@ -1,23 +1,23 @@
 ---
-title: Escolha um tipo de preço ou SKU
+title: Escolher um tipo de preço
 titleSuffix: Azure Cognitive Search
-description: 'Os Pesquisa Cognitiva do Azure podem ser provisionados nestes SKUs: gratuito, básico e Standard, e Standard está disponível em várias configurações de recursos e níveis de capacidade.'
+description: 'Os Pesquisa Cognitiva do Azure podem ser provisionados nessas camadas: gratuita, básica e Standard, e Standard está disponível em várias configurações de recursos e níveis de capacidade.'
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/14/2020
-ms.openlocfilehash: 0b0ff0abe438b2be3602b10d1c449901ef916901
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.date: 10/14/2020
+ms.openlocfilehash: 0acd0d1d463280cddc8c1f4bb389a056d474ea38
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948078"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92101266"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Escolha um tipo de preço para o Azure Pesquisa Cognitiva
 
-Quando você cria um serviço de Pesquisa Cognitiva do Azure, um [recurso é criado](search-create-service-portal.md) em um tipo de preço (ou SKU) que é corrigido durante o tempo de vida do serviço. As camadas incluem gratuito, básico, Standard e otimizado para armazenamento. O padrão e o armazenamento otimizado estão disponíveis com várias configurações e capacidades.
+Quando você cria um serviço de Pesquisa Cognitiva do Azure, um [recurso é criado](search-create-service-portal.md) em um tipo de preço que é corrigido durante o tempo de vida do serviço. As camadas incluem gratuito, básico, Standard e otimizado para armazenamento. O padrão e o armazenamento otimizado estão disponíveis com várias configurações e capacidades.
 
 A maioria dos clientes começa com a camada gratuita para que eles possam avaliar o serviço. Após a avaliação, é comum criar um segundo serviço em uma das camadas mais altas para implantações de desenvolvimento e produção.
 
@@ -27,15 +27,15 @@ A tabela a seguir descreve as restrições de recurso relacionadas à camada.
 
 | Recurso | Limitações |
 |---------|-------------|
-| [indexadores](search-indexer-overview.md) | Os indexadores não estão disponíveis no S3 HD. |
+| [indexadores](search-indexer-overview.md) | Os indexadores não estão disponíveis no S3 HD.  |
 | [Enriquecimento de IA](search-security-manage-encryption-keys.md) | É executado na camada gratuita, mas não é recomendado. |
 | [Chaves de criptografia gerenciadas pelo cliente](search-security-manage-encryption-keys.md) | Não disponível na camada gratuita. |
 | [Acesso de firewall IP](service-configure-firewall.md) | Não disponível na camada gratuita. |
-| [Integração com o link privado do Azure](service-create-private-endpoint.md) | Não disponível na camada gratuita. |
+| [Ponto de extremidade privado (integração com o link privado do Azure)](service-create-private-endpoint.md) | Para conexões de entrada para um serviço de pesquisa, não disponível na camada gratuita. Para conexões de saída por indexadores para outros recursos do Azure, não disponível em alta ou S3 HD. Para indexadores que usam habilidades, não disponível em gratuito, básico, S1 ou S3 HD.|
 
 A maioria dos recursos está disponível em todas as camadas, incluindo recursos gratuitos, mas que usam muitos recursos podem não funcionar bem, a menos que você forneça capacidade suficiente. Por exemplo, o [enriquecimento de ia](cognitive-search-concept-intro.md) tem habilidades de longa execução que atingirão o tempo limite em um serviço gratuito, a menos que o conjunto de informações seja pequeno.
 
-## <a name="tiers-skus"></a>Camadas (SKUs)
+## <a name="tiers"></a>Tiers
 
 As camadas são diferenciadas por:
 
@@ -158,7 +158,7 @@ Para determinar o tamanho de um índice, você precisa [compilar um](search-what
 Para pesquisa de texto completo, a estrutura de dados primária é uma estrutura de [índice invertida](https://en.wikipedia.org/wiki/Inverted_index) , que tem características diferentes dos dados de origem. Para um índice invertido, o tamanho e a complexidade são determinados pelo conteúdo, não necessariamente pela quantidade de dados que você feedu nele. Uma fonte de dados grande com alta redundância pode resultar em um índice menor do que um conjunto de dado menor que contém conteúdo altamente variável. Portanto, raramente é possível inferir o tamanho do índice com base no tamanho do conjunto de datas original.
 
 > [!NOTE] 
-> Mesmo que a estimativa de necessidades futuras de índices e armazenamento possa parecer uma tarefa de adivinhação, vale a pena fazer isso. Se a capacidade de uma camada for muito baixa, você precisará provisionar um novo serviço em uma camada mais alta e, em seguida, [recarregar os índices](search-howto-reindex.md). Não há nenhuma atualização in-loco de um serviço de uma SKU para outra.
+> Mesmo que a estimativa de necessidades futuras de índices e armazenamento possa parecer uma tarefa de adivinhação, vale a pena fazer isso. Se a capacidade de uma camada for muito baixa, você precisará provisionar um novo serviço em uma camada mais alta e, em seguida, [recarregar os índices](search-howto-reindex.md). Não há nenhuma atualização in-loco de um serviço de uma camada para outra.
 >
 
 ### <a name="estimate-with-the-free-tier"></a>Estimar com a camada gratuita

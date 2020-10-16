@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.date: 10/07/2020
+ms.date: 10/15/2020
 ms.reviewer: ''
-ms.openlocfilehash: 8ed4edb8739758af057276bd21c4ad62bf9ab974
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ae5d5e488a7bbe0e80f5a8960be27fd3de8489a
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91848850"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102992"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Camadas de serviço no modelo de compra baseado em DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -40,7 +40,7 @@ Escolher uma camada de serviço depende principalmente da continuidade dos negó
 |**SLA de tempo de atividade**|99,99%|99,99%|99,99%|
 |**Retenção de backup máxima**|7 dias|35 dias|35 dias|
 |**CPU**|Baixo|Baixo, Médio, Alto|Médio, Alto|
-|**IOPS (aproximado)**\* |1-5 IOPS por DTU| 1-5 IOPS por DTU | 25 IOPS por DTU|
+|**IOPS (aproximado)**\* |1-4 IOPS por DTU| 1-4 IOPS por DTU | 25 IOPS por DTU|
 |**Latência de E/S (aproximada)**|5 ms (leitura), 10 ms (gravação)|5 ms (leitura), 10 ms (gravação)|2 ms (leitura/gravação)|
 |**Indexação ColumnStore** |N/D|S3 e acima|Com suporte|
 |**OLTP na memória**|N/D|N/D|Com suporte|

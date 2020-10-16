@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: d11d3edc4eec0a006e71ef1787cbbd62a7f5957e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7cb9d5c5c2ca850678d3f3194a9af8de526ada4
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856969"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92103383"
 ---
 # <a name="use-azure-powershell-to-create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-as-additional-storage"></a>Use o Azure PowerShell para criar um cluster do HDInsight com o Armazenamento de Data Lake do Azure Gen1 (como armazenamento adicional)
 
@@ -250,7 +250,7 @@ Após configurar um cluster HDInsight, você poderá executar trabalhos de teste
 
 Nesta seção, você acessará o cluster Linux HDInsight criado por você por SSH e executará uma consulta Hive de exemplo.
 
-* Se você estiver usando um cliente Windows para acessar o cluster por SSH, veja [Usar SSH com Hadoop baseado em Linux no HDInsight do Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
+* Se você estiver usando um cliente Windows para acessar o cluster por SSH, veja [Usar SSH com Hadoop baseado em Linux no HDInsight do Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 * Se você estiver usando um cliente Linux para acessar o cluster por SSH, veja [Usar SSH com Hadoop baseado em Linux no HDInsight do Linux](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md)
 
 1. Uma vez conectado, inicie a CLI do Hive usando o seguinte comando:
@@ -287,7 +287,7 @@ Após configurar o cluster HDInsight para usar o Data Lake Storage Gen1, você p
 
 Nesta seção, você acessará o cluster Linux HDInsight criado por você por SSH e executará os comandos HDFS.
 
-* Se você estiver usando um cliente Windows para acessar o cluster por SSH, veja [Usar SSH com Hadoop baseado em Linux no HDInsight do Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
+* Se você estiver usando um cliente Windows para acessar o cluster por SSH, veja [Usar SSH com Hadoop baseado em Linux no HDInsight do Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 * Se você estiver usando um cliente Linux para acessar o cluster por SSH, veja [Usar SSH com Hadoop baseado em Linux no HDInsight do Linux](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md)
 
 Uma vez conectado, use o comando do sistema de arquivos HDFS a seguir para listar os arquivos na conta de armazenamento com Data Lake Storage Gen1.
@@ -310,5 +310,5 @@ Também é possível usar o comando `hdfs dfs -put` para carregar alguns arquivo
 * [Usar Data Lake Storage Gen1 com clusters HDInsight do Azure](../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen1.md)
 * [Portal: Criar um cluster de HDInsight para usar o Data Lake armazenamento Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-[makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
-[pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
+[makecert]: /windows-hardware/drivers/devtest/makecert
+[pvk2pfx]: /windows-hardware/drivers/devtest/pvk2pfx

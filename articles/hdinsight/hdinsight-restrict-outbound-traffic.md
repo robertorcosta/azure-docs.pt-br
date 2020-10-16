@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/17/2020
-ms.openlocfilehash: f87c3665f558b3185e95b0ad0aa18a883439a221
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc90389e9f600f1411699700989e38c78bee99cc
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87006510"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92103332"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>Configurar o tráfego de rede de saída para clusters do Azure HDInsight usando o firewall
 
@@ -23,11 +23,11 @@ Este artigo fornece as etapas para proteger o tráfego de saída do seu cluster 
 
 Os clusters do HDInsight normalmente são implantados em uma rede virtual. O cluster tem dependências em serviços fora dessa rede virtual.
 
-Há várias dependências que exigem tráfego de entrada. O tráfego de gerenciamento de entrada não pode ser enviado por meio de um dispositivo de firewall. Os endereços de origem para esse tráfego são conhecidos e publicados [aqui](hdinsight-management-ip-addresses.md). Você também pode criar regras de NSG (Grupo de Segurança de Rede) com essas informações para proteger o tráfego de entrada para os clusters.
+O tráfego de gerenciamento de entrada não pode ser enviado por meio de um firewall. Você pode usar marcas de serviço NSG para o tráfego de entrada conforme documentado [aqui](https://docs.microsoft.com/azure/hdinsight/hdinsight-service-tags). 
 
-As dependências de tráfego de saída do HDInsight são quase totalmente definidas com FQDNs. E elas não têm endereços IP estáticos por trás. A falta de endereços estáticos significa que os NSGs (Grupos de Segurança de Rede) não podem ser usados para bloquear o tráfego de saída de um cluster. Os endereços mudam com frequência suficiente para que não seja possível configurar regras com base na resolução de nomes e uso.
+As dependências de tráfego de saída do HDInsight são quase totalmente definidas com FQDNs. E elas não têm endereços IP estáticos por trás. A falta de endereços estáticos significa que os NSGs (Grupos de Segurança de Rede) não podem ser usados para bloquear o tráfego de saída de um cluster. Os endereços IP são alterados com frequência suficiente não é possível configurar regras com base na resolução de nome e no uso atuais.
 
-Proteja os endereços de saída com um firewall que pode controlar o tráfego de saída com base em nomes de domínio. O Firewall do Azure restringe o tráfego de saída com base no FQDN de destino ou nas [marcas de FQDN](../firewall/fqdn-tags.md).
+Proteja os endereços de saída com um firewall que pode controlar o tráfego de saída com base em FQDNs. O Firewall do Azure restringe o tráfego de saída com base no FQDN de destino ou nas [marcas de FQDN](../firewall/fqdn-tags.md).
 
 ## <a name="configuring-azure-firewall-with-hdinsight"></a>Como configurar o Firewall do Azure com o HDInsight
 
@@ -79,7 +79,7 @@ Crie uma coleção de regras de aplicativo que permita que o cluster envie e rec
     | --- | --- | --- | --- | --- |
     | Rule_2 | * | https:443 | login.windows.net | Permite a atividade de logon do Windows |
     | Rule_3 | * | https:443 | login.microsoftonline.com | Permite a atividade de logon do Windows |
-    | Rule_4 | * | https:443,http:80 | storage_account_name.blob.core.windows.net | Substitua `storage_account_name` pelo nome da conta de armazenamento real. Se o seu cluster tiver o suporte de WASB, adicione uma regra para WASB. Para usar APENAS conexões HTTPS, verifique se ["transferência segura necessária"](../storage/common/storage-require-secure-transfer.md) está habilitada na conta de armazenamento. |
+    | Rule_4 | * | https:443,http:80 | storage_account_name.blob.core.windows.net | Substitua `storage_account_name` pelo nome da conta de armazenamento real. Para usar APENAS conexões HTTPS, verifique se ["transferência segura necessária"](../storage/common/storage-require-secure-transfer.md) está habilitada na conta de armazenamento. Se você estiver usando um ponto de extremidade privado para acessar contas de armazenamento, essa etapa não será necessária e o tráfego de armazenamento não será encaminhado para o firewall.|
 
    ![Título: Entrar nos detalhes da coleção de regras de aplicativo](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
 
@@ -101,21 +101,12 @@ Crie as regras de rede para configurar corretamente o cluster do HDInsight.
     |Prioridade|200|
     |Ação|Allow|
 
-    **Seção de endereços IP**
-
-    | Nome | Protocolo | Endereços de origem | Endereços de destino | Portas de destino | Observações |
-    | --- | --- | --- | --- | --- | --- |
-    | Rule_1 | UDP | * | * | 123 | Serviço de tempo |
-    | Rule_2 | Qualquer | * | DC_IP_Address_1, DC_IP_Address_2 | * | Se você estiver usando o EPS (Enterprise Security Package), adicione uma regra de rede na seção Endereços IP que permite a comunicação com o AAD-DS para clusters ESP. Você pode encontrar os endereços IP dos controladores de domínio na seção AAD-DS no portal |
-    | Rule_3 | TCP | * | Endereço IP da sua conta do Data Lake Storage | * | Se você estiver usando o Azure Data Lake Storage, poderá adicionar uma regra de rede na seção Endereços IP para resolver um problema de SNI com ADLS Gen1 e Gen2. Esta opção roteará o tráfego para o firewall. Isso pode resultar em custos mais altos para cargas de dados grandes, mas o tráfego será registrado e auditável nos logs de firewall. Determine o endereço IP para sua conta do Data Lake Storage. Você pode usar um comando do PowerShell como `[System.Net.DNS]::GetHostAddresses("STORAGEACCOUNTNAME.blob.core.windows.net")` para resolver o FQDN para um endereço IP.|
-    | Rule_4 | TCP | * | * | 12000 | (Opcional) Se você estiver usando o Log Analytics, crie uma regra de rede na seção Endereços IP para habilitar a comunicação com seu workspace do Log Analytics. |
-
     **Seção de marcas de serviço**
 
     | Nome | Protocolo | Endereços de Origem | Marcas de serviço | Portas de destino | Observações |
     | --- | --- | --- | --- | --- | --- |
-    | Rule_7 | TCP | * | SQL | 1433 | Configure uma regra de rede na seção Marcas de Serviço para SQL que permitirá que você registre e audite o tráfego do SQL. A menos que você tenha configurado pontos de extremidade de serviço para SQL Server na sub-rede do HDInsight, que ignorará o firewall. |
-    | Rule_8 | TCP | * | Azure Monitor | * | (Opcional) Os clientes que planejam usar o recurso de dimensionamento automático devem adicionar essa regra. |
+    | Rule_5 | TCP | * | SQL | 1433 | Se você estiver usando os SQL Servers padrão fornecidos pelo HDInsight, configure uma regra de rede na seção marcas de serviço para SQL que permitirá que você registre e audite o tráfego do SQL. A menos que você tenha configurado pontos de extremidade de serviço para SQL Server na sub-rede do HDInsight, que ignorará o firewall. Se você estiver usando o SQL Server personalizado para Ambari, Oozie, Ranger e Hive metastroes, você só precisará permitir o tráfego para seus próprios servidores SQL personalizados.|
+    | Rule_6 | TCP | * | Azure Monitor | * | (Opcional) Os clientes que planejam usar o recurso de dimensionamento automático devem adicionar essa regra. |
     
    ![Título: Inserir coleção de regras de aplicativos](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
 
@@ -125,9 +116,7 @@ Crie as regras de rede para configurar corretamente o cluster do HDInsight.
 
 Crie uma tabela de rotas com as seguintes entradas:
 
-* Todos os endereços IP de [Serviços de integridade e gerenciamento: todas as regiões](../hdinsight/hdinsight-management-ip-addresses.md#health-and-management-services-all-regions) com um tipo do próximo salto de **Internet**.
-
-* Dois endereços IP para a região em que o cluster é criado de [Serviços de integridade e gerenciamento: regiões específicas](../hdinsight/hdinsight-management-ip-addresses.md#health-and-management-services-specific-regions) com um tipo do próximo salto de **Internet**.
+* Todos os endereços IP dos [serviços de integridade e gerenciamento](../hdinsight/hdinsight-management-ip-addresses.md#health-and-management-services-all-regions) com um tipo de próximo salto de **Internet**. Ele deve incluir 4 IPs de regiões genéricas, bem como 2 IPs para sua região específica. Essa regra só será necessária se o ResourceProviderConnection estiver definido como *entrada*. Se o ResourceProviderConnection for definido como *saída* , esses IPS não serão necessários no UDR. 
 
 * Uma rota da Solução de Virtualização para o endereço IP 0.0.0.0/0 com o próximo salto sendo seu endereço IP privado do Firewall do Azure.
 

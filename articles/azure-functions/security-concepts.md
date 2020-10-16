@@ -3,12 +3,12 @@ title: Proteger o Azure Functions
 description: Saiba mais sobre como tornar o código de função em execução no modo seguro do Azure contra ataques comuns.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: 470ee517b929b7327df76963e21c88db21d363da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd97193fdf6549e667578e36f0be9104e4381d30
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761406"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102299"
 ---
 # <a name="securing-azure-functions"></a>Proteger o Azure Functions
 
@@ -24,7 +24,7 @@ Esta seção orienta você sobre como configurar e executar seu aplicativo de fu
 
 ### <a name="security-center"></a>Central de Segurança
 
-A Central de Segurança integra-se ao seu aplicativo de funções no portal. Ele fornece, gratuitamente, uma avaliação rápida de possíveis vulnerabilidades de segurança relacionadas à configuração. Os aplicativos de funções em execução em um plano dedicado também podem usar os recursos de segurança em tempo real da Central de Segurança para obter um custo adicional. Para saber mais, confira [Proteger seus aplicativos Web e APIs do Azure App Service](https://docs.microsoft.com/azure/security-center/defender-for-app-service-introduction). 
+A Central de Segurança integra-se ao seu aplicativo de funções no portal. Ele fornece, gratuitamente, uma avaliação rápida de possíveis vulnerabilidades de segurança relacionadas à configuração. Os aplicativos de funções em execução em um plano dedicado também podem usar os recursos de segurança em tempo real da Central de Segurança para obter um custo adicional. Para saber mais, confira [Proteger seus aplicativos Web e APIs do Azure App Service](../security-center/defender-for-app-service-introduction.md). 
 
 ### <a name="log-and-monitor"></a>Registrar e monitorar
 
@@ -76,7 +76,7 @@ Para saber mais sobre as chaves de acesso, consulte o [Artigo de associação de
 
 Por padrão, as chaves são armazenadas em um contêiner de armazenamento de BLOBs na conta fornecida pela `AzureWebJobsStorage` configuração. Você pode usar configurações de aplicativo específicas para substituir esse comportamento e armazenar as chaves em um local diferente.
 
-|Localização  |Configuração | Valor | Descrição  |
+|Location  |Configuração | Valor | Descrição  |
 |---------|---------|---------|---------|
 |Conta de armazenamento diferente     |  `AzureWebJobsSecretStorageSas`       | `<BLOB_SAS_URL` | Armazena chaves no armazenamento de blobs de uma segunda conta de armazenamento, com base na URL da SAS fornecida. As chaves são criptografadas antes de serem armazenadas usando um segredo exclusivo para seu aplicativo de funções. |
 |Sistema de arquivos   | `AzureWebJobsSecretStorageType`   |  `files`       | As chaves são mantidas no sistema de arquivos, criptografadas antes do armazenamento usando um segredo exclusivo para seu aplicativo de funções. |

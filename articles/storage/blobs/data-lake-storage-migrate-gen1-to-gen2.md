@@ -8,12 +8,12 @@ ms.date: 03/11/2020
 ms.service: storage
 ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: bc6d4a60c3db6b2537a0f300562db1df5e249b43
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0b85164042ef8ba0dda5f83dbfe49f585a11f7c
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91716147"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102633"
 ---
 # <a name="migrate-azure-data-lake-storage-from-gen1-to-gen2"></a>Migrar Azure Data Lake Storage de Gen1 para Gen2
 
@@ -122,7 +122,7 @@ Vamos examinar mais de perto cada padrão.
  
 ### <a name="lift-and-shift-pattern"></a>Padrão de comparação de precisão e deslocamento
 
-Esse é o padrão mais simples.
+Esse é o padrão mais simples. 
 
 1. Interrompa todas as gravações no Gen1.
 
@@ -131,6 +131,8 @@ Esse é o padrão mais simples.
 3. Operações de ingestão de ponto e cargas de trabalho para Gen2.
 
 4. Descomissionamento de Gen1.
+
+Confira nosso código de exemplo para o padrão de comparação de precisão e deslocamento em nosso exemplo de migração de comparação de [precisão e deslocamento](https://github.com/rukmani-msft/adlsgen1togen2migrationsamples/blob/master/src/Lift%20and%20Shift/README.md).
 
 > [!div class="mx-imgBorder"]
 > ![padrão de comparação de precisão e deslocamento](./media/data-lake-storage-migrate-gen1-to-gen2/lift-and-shift.png)
@@ -153,6 +155,9 @@ Esse é o padrão mais simples.
 
 4. Descomissionamento de Gen1.
 
+Confira nosso código de exemplo para o padrão de cópia incremental em nosso [exemplo de migração de cópia incremental](https://github.com/rukmani-msft/adlsgen1togen2migrationsamples/blob/master/src/Incremental/README.md).
+
+
 > [!div class="mx-imgBorder"]
 > ![Padrão de cópia incremental](./media/data-lake-storage-migrate-gen1-to-gen2/incremental-copy.png)
 
@@ -174,6 +179,8 @@ Esse é o padrão mais simples.
 
 4. Interrompa todas as gravações para Gen1 e, em seguida, encerre o Gen1.
 
+Confira nosso código de exemplo para o padrão de pipeline duplo em nosso [exemplo de migração de pipeline duplo](https://github.com/rukmani-msft/adlsgen1togen2migrationsamples/blob/master/src/Dual%20pipeline/README.md).
+
 > [!div class="mx-imgBorder"]
 > ![Padrão de pipeline duplo](./media/data-lake-storage-migrate-gen1-to-gen2/dual-pipeline.png)
 
@@ -192,6 +199,8 @@ Esse é o padrão mais simples.
 3. Quando todas as movimentações forem concluídas, interrompa todas as gravações para Gen1 e desative a replicação bidirecional.
 
 4. Descomissionamento de Gen1.
+
+Confira nosso código de exemplo para o padrão de sincronização bidirecional em nosso [exemplo de migração bidirecional de sincronização](https://github.com/rukmani-msft/adlsgen1togen2migrationsamples/blob/master/src/Bi-directional/README.md).
 
 > [!div class="mx-imgBorder"]
 > ![Padrão bidirecional](./media/data-lake-storage-migrate-gen1-to-gen2/bidirectional-sync.png)

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: cff2e918c7b67f6d3bccb9b56366cbf034ed1bb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7acd287964d25cc7e98c11ec1986c73d8ae265da
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89300095"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104131"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Gerenciar acesso a dados de log e workspaces no Azure Monitor
 
@@ -48,7 +48,7 @@ Você pode alterar essa configuração na página **Propriedades** do espaço de
 
 ![Alterar modo de acesso do espaço de trabalho](media/manage-access/change-access-control-mode.png)
 
-### <a name="using-powershell"></a>Usando o PowerShell
+### <a name="using-powershell"></a>Usar o PowerShell
 
 Use o seguinte comando para examinar o modo de controle de acesso para todos os espaços de trabalho na assinatura:
 
@@ -134,7 +134,7 @@ Os membros da função *Leitor do Log Analytics* podem:
 
 A função de leitor do Log Analytics inclui as seguintes ações do Azure:
 
-| Type    | Permissão | Descrição |
+| Tipo    | Permissão | Descrição |
 | ------- | ---------- | ----------- |
 | Ação | `*/read`   | Capacidade de exibir todos os recursos do Azure e a configuração do recurso. Inclui exibir: <br> Status de extensão da máquina virtual <br> Configuração do diagnóstico do Azure nos recursos <br> Todas as propriedades e configurações de todos os recursos. <br> Para espaços de trabalho, ele permite permissões totalmente irrestritas para ler as configurações do espaço de trabalho e executar a consulta nos dados. Veja as opções mais granulares acima. |
 | Ação | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Preterido, sem necessidade de atribuí-los aos usuários. |
@@ -243,7 +243,7 @@ Consulte [definindo o controle de acesso por tabela](#table-level-rbac) abaixo s
 
 O **RBAC em nível de tabela** permite que você defina um controle mais granular para dados em um espaço de trabalho log Analytics além das outras permissões. Esse controle permite que você defina tipos de dados específicos que são acessíveis somente para um conjunto específico de usuários.
 
-Você implementa o controle de acesso de tabela com as [funções personalizadas do Azure](../../role-based-access-control/custom-roles.md) para conceder acesso a [tabelas](../log-query/logs-structure.md) específicas no espaço de trabalho. Essas funções são aplicadas a espaços de trabalho com o contexto do espaço de trabalho ou os [modos de controle de acesso](design-logs-deployment.md#access-control-mode) de contexto de recurso, independentemente do modo de [acesso](design-logs-deployment.md#access-mode)do usuário.
+Você implementa o controle de acesso de tabela com as [funções personalizadas do Azure](../../role-based-access-control/custom-roles.md) para conceder acesso a [tabelas](./data-platform-logs.md) específicas no espaço de trabalho. Essas funções são aplicadas a espaços de trabalho com o contexto do espaço de trabalho ou os [modos de controle de acesso](design-logs-deployment.md#access-control-mode) de contexto de recurso, independentemente do modo de [acesso](design-logs-deployment.md#access-mode)do usuário.
 
 Crie uma [função personalizada](../../role-based-access-control/custom-roles.md) com as ações a seguir para definir o acesso ao controle de acesso à tabela.
 

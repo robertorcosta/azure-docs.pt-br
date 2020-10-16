@@ -11,12 +11,12 @@ ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/08/2020
-ms.openlocfilehash: 2f4e0728a863521f772f4d1c9531b07f427bfb3e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5888f2c432757b3139306df12711353859ead9e1
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595063"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92101895"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Controle do código-fonte no Azure Data Factory
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -162,6 +162,8 @@ O painel de configuração mostra as seguintes configurações do repositório d
 - O GitHub Enterprise com uma versão mais antiga que 2.14.0 não funciona no navegador Microsoft Edge.
 
 - A integração do GitHub com as ferramentas de criação visual do Data Factory funciona apenas na versão geralmente disponível do Data Factory.
+
+- Azure Data Factory não dá suporte a contas da organização do GitHub
 
 - É possível buscar um máximo de 1.000 entidades por tipo de recurso (como pipelines e conjuntos de valores) em uma única ramificação do GitHub. Se esse limite for atingido, sugerimos dividir seus recursos em alocadores separados. O Git do Azure DevOps não tem essa limitação.
 

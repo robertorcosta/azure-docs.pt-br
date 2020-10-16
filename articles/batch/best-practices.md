@@ -3,12 +3,12 @@ title: Práticas recomendadas
 description: Conheça as melhores práticas e dicas úteis para desenvolver sua solução de Lote do Azure.
 ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 695f213c0683bd158539b97719f2c2d8c0210edf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0663d1910e2b67b8302e41a96509bdd84cd1a3a0
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91849482"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102771"
 ---
 # <a name="azure-batch-best-practices"></a>Melhores práticas do Lote do Azure
 
@@ -63,7 +63,7 @@ Ao criar um pool no Lote do Azure usando a Configuração de Máquina Virtual, v
 
 ### <a name="third-party-images"></a>Imagens de terceiros
 
-Os pools podem ser criados usando imagens de terceiros publicadas no Azure Marketplace. Com as contas do lote do modo de assinatura do usuário, você pode ver o erro "falha na alocação devido à verificação da qualificação de compra do Marketplace" ao criar um pool com determinadas imagens de terceiros. Para resolver esse erro, aceite os termos definidos pelo editor da imagem. Você pode fazer isso usando [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.marketplaceordering/set-azurermmarketplaceterms) ou [CLI do Azure](https://docs.microsoft.com/cli/azure/vm/image/terms).
+Os pools podem ser criados usando imagens de terceiros publicadas no Azure Marketplace. Com as contas do lote do modo de assinatura do usuário, você pode ver o erro "falha na alocação devido à verificação da qualificação de compra do Marketplace" ao criar um pool com determinadas imagens de terceiros. Para resolver esse erro, aceite os termos definidos pelo editor da imagem. Você pode fazer isso usando [Azure PowerShell](/powershell/module/azurerm.marketplaceordering/set-azurermmarketplaceterms) ou [CLI do Azure](/cli/azure/vm/image/terms).
 
 ### <a name="azure-region-dependency"></a>Dependência da região do Azure
 

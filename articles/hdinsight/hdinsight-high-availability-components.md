@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: ac63846e2679e9b4a51cb26b32415eb81a4b76ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26c7029e710479b8785e06b1d65ff7b5270aeab0
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842573"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102924"
 ---
 # <a name="high-availability-services-supported-by-azure-hdinsight"></a>Serviços de alta disponibilidade com suporte do Azure HDInsight
 
@@ -56,13 +56,13 @@ A Microsoft fornece suporte para os quatro serviços Apache na tabela a seguir e
 
 | Serviço | Nós de cluster | Tipos de cluster | Finalidade |
 |---|---|---|---|
-| Servidor Apache Ambari| Cabeçalho ativo | Todos | Monitora e gerencia o cluster.|
+| Servidor Apache Ambari| Cabeçalho ativo | Tudo | Monitora e gerencia o cluster.|
 | Linha do Tempo do Aplicativo Server para Apache YARN | Cabeçalho ativo | Todos, exceto Kafka | Mantém informações de depuração sobre trabalhos do YARN em execução no cluster.|
 | Servidor de histórico de trabalho para o MapReduce do Hadoop | Cabeçalho ativo | Todos, exceto Kafka | Mantém dados de depuração para trabalhos MapReduce.|
 | Apache Livy | Cabeçalho ativo | Spark | Permite uma interação fácil com um cluster Spark em uma interface REST |
 
 >[!Note]
-> Os clusters do Enterprise Security Package do HDInsight (ESP) fornecem atualmente a alta disponibilidade do servidor Ambari.
+> Os clusters do Enterprise Security Package do HDInsight (ESP) fornecem atualmente a alta disponibilidade do servidor Ambari. Linha do Tempo do Aplicativo Server, servidor de histórico de trabalho e Livy estão todos em execução apenas em headnode0 e não fazem failover para headnode1 quando Ambari failsover. O banco de dados de linha do tempo do aplicativo também está em headnode0 e não em Ambari SQL Server.
 
 ### <a name="architecture"></a>Arquitetura
 

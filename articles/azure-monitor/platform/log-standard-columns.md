@@ -6,15 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/09/2020
-ms.openlocfilehash: 01c0b6f280b8179760c6ecc55fd7feca3ddf2080
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 695b0b0ac06e63912ca0a471be3d96c148458c29
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90038965"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104233"
 ---
 # <a name="standard-columns-in-azure-monitor-logs"></a>Colunas padrão em logs de Azure Monitor
-Os dados em logs de Azure Monitor são [armazenados como um conjunto de registros em um espaço de trabalho log Analytics ou Application insights aplicativo](../log-query/logs-structure.md), cada um com um tipo de dados específico que tem um conjunto exclusivo de colunas. Muitos tipos de dados terão colunas padrão comuns em vários tipos. Este artigo descreve essas colunas e fornece exemplos de como você pode usá-las em consultas.
+Os dados em logs de Azure Monitor são [armazenados como um conjunto de registros em um espaço de trabalho log Analytics ou Application insights aplicativo](./data-platform-logs.md), cada um com um tipo de dados específico que tem um conjunto exclusivo de colunas. Muitos tipos de dados terão colunas padrão comuns em vários tipos. Este artigo descreve essas colunas e fornece exemplos de como você pode usá-las em consultas.
 
 Os aplicativos baseados em espaço de trabalho no Application Insights armazenam seus dados em um espaço de trabalho Log Analytics e usam as mesmas colunas padrão que outras outras tabelas no espaço de trabalho. Os aplicativos clássicos armazenam seus dados separadamente e têm colunas padrão diferentes, conforme especificado neste artigo.
 
@@ -212,4 +212,3 @@ union withsource = tt *
 - Leia mais sobre como os [dados de log do Azure Monitor são armazenados](../log-query/log-query-overview.md).
 - Obtenha uma lição sobre como [escrever consultas de log](../log-query/get-started-queries.md).
 - Obtenha uma lição sobre como [unir tabelas em consultas de log](../log-query/joins.md).
-

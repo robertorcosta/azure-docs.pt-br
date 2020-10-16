@@ -4,12 +4,12 @@ description: Saiba mais sobre o esquema JSON que é enviado para uma URL de webh
 ms.topic: conceptual
 ms.date: 03/31/2017
 ms.subservice: alerts
-ms.openlocfilehash: 018bf7ac9c24669df798e9ba05c667dcb72d94a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0ebaf7f0cc52ac131573226dfff5516581745c67
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87321829"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104267"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhook para alertas de log de atividades do Azure
 Como parte da definição de um grupo de ações, você pode configurar pontos de extremidade de webhook para receber notificações de alerta do log de atividades. Os webhooks permitem rotear uma notificação de alerta do Azure para outros sistemas para pós-processamento ou notificações personalizadas. Este artigo mostra a aparência do conteúdo para o HTTP POST para um webhook.
@@ -19,7 +19,7 @@ Para saber mais sobre alertas do log de atividades, veja como [Criar alertas do 
 Para saber mais sobre grupos de ações, veja como [criar grupos de ações](./action-groups.md).
 
 > [!NOTE]
-> Você também pode usar o [esquema de alerta comum](https://aka.ms/commonAlertSchemaDocs), que fornece a vantagem de ter uma única carga de alerta extensível e unificada em todos os serviços de alerta no Azure monitor, para suas integrações de webhook. [Saiba mais sobre as definições de esquema de alerta comuns.](https://aka.ms/commonAlertSchemaDefinitions)
+> Você também pode usar o [esquema de alerta comum](./alerts-common-schema.md), que fornece a vantagem de ter uma única carga de alerta extensível e unificada em todos os serviços de alerta no Azure monitor, para suas integrações de webhook. [Saiba mais sobre as definições de esquema de alerta comuns.](./alerts-common-schema-definitions.md)
 
 
 ## <a name="authenticate-the-webhook"></a>Autenticar o webhook
@@ -262,9 +262,9 @@ Para obter detalhes de esquema específico sobre alertas de log de atividades de
 | conditionType |Sempre "Evento". |
 | name |Nome da regra de alerta. |
 | id |ID do recurso do alerta. |
-| descrição |Descrição do alerta definida quando o alerta é criado. |
+| description |Descrição do alerta definida quando o alerta é criado. |
 | subscriptionId |Id de assinatura do Azure. |
-| timestamp |Hora quando o evento foi gerado pelo serviço do Azure que processou a solicitação. |
+|  timestamp |Hora quando o evento foi gerado pelo serviço do Azure que processou a solicitação. |
 | resourceId |ID de recurso do recurso afetado. |
 | resourceGroupName |Nome do grupo de recursos do recurso afetado. |
 | properties |Conjunto de pares `<Key, Value>` (ou seja, `Dictionary<String, String>`) que inclui detalhes sobre o evento. |
@@ -292,4 +292,3 @@ Para obter detalhes de esquema específico em todos os outros alertas do log de 
 * [Usar aplicativo lógico para enviar um SMS por meio do Twilio de um alerta do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). Este exemplo serve para alertas de métrica, mas pode ser modificado para funcionar com um alerta do log de atividades.
 * [Usar aplicativo lógico para enviar uma mensagem do Slack de um alerta do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). Este exemplo serve para alertas de métrica, mas pode ser modificado para funcionar com um alerta do log de atividades.
 * [Usar aplicativo lógico para enviar uma mensagem a uma fila do Azure de um alerta do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app). Este exemplo serve para alertas de métrica, mas pode ser modificado para funcionar com um alerta do log de atividades.
-

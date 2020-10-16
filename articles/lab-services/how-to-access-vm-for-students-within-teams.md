@@ -3,12 +3,12 @@ title: Acessar uma VM (exibição de aluno) no laboratório do Azure das equipes
 description: Saiba como acessar uma VM (exibição de aluno) no laboratório do Azure por meio das equipes.
 ms.topic: article
 ms.date: 10/07/2020
-ms.openlocfilehash: 346f4bcd75356b0466b1eea46e1da74aa2c63784
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: c786a8b3fcee57cefb551a61087d4b49ee5e93c0
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92043438"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102401"
 ---
 # <a name="access-a-vm-student-view-in-azure-lab-from-teams"></a>Acessar uma VM (exibição de aluno) no laboratório do Azure das equipes
 
@@ -16,7 +16,7 @@ Quando um laboratório é criado dentro das equipes, os usuários podem exibir e
 
 ## <a name="view-labs"></a>Exibir laboratórios
 
-Se o laboratório ainda estiver sendo publicado ou se uma sincronização ainda não for disparada depois de ser adicionada à equipe, mensagens semelhantes serão mostradas para os alunos. Para ' se o laboratório ainda estiver sendo publicado ou se uma sincronização ainda não for disparada depois de ser adicionada à equipe, mensagens semelhantes serão mostradas aos membros da equipe.
+Se o laboratório ainda estiver sendo publicado ou se uma sincronização ainda não for disparada depois de ser adicionada à equipe, mensagens semelhantes serão mostradas aos membros da equipe.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/how-to-access-vm-for-students-within-teams/lab.png" alt-text="Laboratório de Azure Lab Services":::

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/01/2019
 ms.author: jeedes
-ms.openlocfilehash: a77fa5702b8ab5728f387eae02cc97f997a406a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e22511717b6a86f9e0cf53986152c4d6bab68780
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91273289"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92101759"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Tutorial: configurar o Salesforce para provisionamento automático de usuário
 
@@ -77,15 +77,15 @@ O objetivo desta seção é descrever como habilitar o provisionamento de contas
 
 6. Para obter o token de segurança do Salesforce, abra uma nova guia e entre na mesma conta de administrador do Salesforce. No canto superior direito da página, clique em seu nome e em **Configurações**.
 
-    ![Habilitar o provisionamento automático de usuários.](./media/salesforce-provisioning-tutorial/sf-my-settings.png "Habilitar o provisionamento automático de usuários.")
+    ![Captura de tela mostra o link configurações selecionado.](./media/salesforce-provisioning-tutorial/sf-my-settings.png "Habilitar o provisionamento automático de usuários.")
 
 7. No painel de navegação esquerdo, clique em **Minhas Informações Pessoais** para expandir a seção correspondente e clique em **Redefinir Meu Token de Segurança**.
   
-    ![Habilitar o provisionamento automático de usuários.](./media/salesforce-provisioning-tutorial/sf-personal-reset.png "Habilitar o provisionamento automático de usuários.")
+    ![A captura de tela mostra redefinir meu token de segurança selecionado de minhas informações pessoais.](./media/salesforce-provisioning-tutorial/sf-personal-reset.png "Habilitar o provisionamento automático de usuários.")
 
 8. Na página **Redefinir Token de Segurança**, clique no botão **Redefinir Token de Segurança**.
 
-    ![Habilitar o provisionamento automático de usuários.](./media/salesforce-provisioning-tutorial/sf-reset-token.png "Habilitar o provisionamento automático de usuários.")
+    ![Captura de tela mostra a página do token de segurança REST, com texto explicativo e a opção para redefinir o token de segurança](./media/salesforce-provisioning-tutorial/sf-reset-token.png "Habilitar o provisionamento automático de usuários.")
 
 9. Marque a caixa de entrada de email associada a essa conta de administrador. Procure um email do Salesforce.com que contenha o novo token de segurança.
 

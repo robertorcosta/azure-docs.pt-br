@@ -4,12 +4,12 @@ description: Saiba como usar o dimensionador automático de cluster para dimensi
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: 9f1dcc64569e9822e3703312740450e2528479dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7368745d3b6bf9731f987d6f4fc36b81d354fed8
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88257519"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92103859"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Dimensionar automaticamente um cluster para atender às demandas de aplicativo no AKS (Serviço de Kubernetes do Azure)
 
@@ -135,18 +135,8 @@ Você também pode configurar detalhes mais granulares do dimensionador automát
 
 > [!IMPORTANT]
 > O perfil de dimensionamento automático de cluster afeta todos os pools de nós que usam o dimensionador automático de clusters. Não é possível definir um perfil de dimensionamento automático por pool de nós.
-
-### <a name="install-aks-preview-cli-extension"></a>Instalar a extensão da CLI aks-preview
-
-Para definir o perfil de configurações do dimensionador automático de cluster, você precisa da versão 0.4.30 ou posterior da extensão de CLI de *aks-preview*. Instale a extensão de CLI do Azure *aks-preview* usando o comando [az extension add][az-extension-add] e, em seguida, verifique se há atualizações disponíveis usando o comando [az extension update][az-extension-update]:
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
+>
+> O perfil de autoescalar do cluster requer a versão *2.11.1* ou posterior do CLI do Azure. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure][azure-cli-install].
 
 ### <a name="set-the-cluster-autoscaler-profile-on-an-existing-aks-cluster"></a>Definir o perfil de dimensionamento automático de cluster em um cluster do AKS existente
 

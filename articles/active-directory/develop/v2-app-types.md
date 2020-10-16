@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev, fasttrack-edit
-ms.openlocfilehash: c468ecb390a3ad321f9fe0619204994dfbf3fbb4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d04dd0ec7c6d3166e2170001d6ff341d203c0d6b
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91256749"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92103145"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Tipos de aplicativo para a plataforma de identidade da Microsoft
 
@@ -46,7 +46,7 @@ Muitos aplicativos modernos têm um aplicativo de página única front-end escri
 
 O diagrama de fluxo abaixo demonstra a concessão de código de autorização OAuth 2,0 (com detalhes sobre o PKCE omitido), em que o aplicativo recebe um código do ponto de extremidade da plataforma Microsoft Identity `authorize` e o resgata para tokens e tokens de atualização usando solicitações da Web entre sites. O token de atualização expira a cada 24 horas e o aplicativo deve solicitar outro código. Além do token de acesso, um `id_token` que representa o usuário conectado ao aplicativo cliente normalmente também é solicitado por meio do mesmo fluxo e/ou uma solicitação separada do OpenID Connect (não mostrada aqui).
 
-![Fluxo de código para aplicativos SPA](media/v2-oauth-auth-code-spa/active-directory-oauth-code-spa.png)
+:::image type="content" source="media/v2-oauth-auth-code-spa/active-directory-oauth-code-spa.svg" alt-text="Diagrama mostrando o fluxo do código de autorização OAuth 2 entre um aplicativo de página única e o ponto de extremidade do serviço de token de segurança." border="false":::
 
 Para ver esse cenário em ação, confira nosso [Tutorial: Conectar usuários e chamar a API do Microsoft Graph de um SPA (aplicativo de página única) JavaScript usando o fluxo de código de autenticação](tutorial-v2-javascript-auth-code.md).
 

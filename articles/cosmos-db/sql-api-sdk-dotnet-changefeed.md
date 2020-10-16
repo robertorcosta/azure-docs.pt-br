@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.openlocfilehash: e4c2969db560ff20cae2ed7b9ffbe0cea206c7a1
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91611564"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>SDK do Processador do Feed de Alterações do .NET: Downloads e notas sobre a versão
@@ -22,19 +22,19 @@ ms.locfileid: "91611564"
 > * [SDK v3 do .NET](sql-api-sdk-dotnet-standard.md)
 > * [SDK do .NET v2](sql-api-sdk-dotnet.md)
 > * [SDK v2 do .NET Core](sql-api-sdk-dotnet-core.md)
-> * [SDK v2 do feed de alterações do .NET](sql-api-sdk-dotnet-changefeed.md)
+> * [SDK do Feed de Alterações do .NET v2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [SDK do Java v4](sql-api-sdk-java-v4.md)
 > * [SDK do Java Assíncrono v2](sql-api-sdk-async-java.md)
 > * [SDK do Java Síncrono v2](sql-api-sdk-java.md)
-> * [Spring data v2](sql-api-sdk-java-spring-v2.md)
-> * [Spring data v3](sql-api-sdk-java-spring-v3.md)
+> * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
+> * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
 > * [Conector do Spark](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
-> * Deixa (/rest/api
-> * [Provedor de recursos REST] (/rest/api
+> * [REST](/rest/api
+> * [Provedor de recursos REST](/rest/api
 > * [SQL](sql-api-query-reference.md)
-> * [Executor em massa-.NET v2](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Executor em massa – .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Executor em massa – Java](sql-api-sdk-bulk-executor-java.md)
 
 |   |   |
@@ -52,11 +52,11 @@ ms.locfileid: "91611564"
 ### <a name="v2-builds"></a>v2 builds
 
 ### <a name="232"></a><a id="2.3.2"></a>2.3.2
-* Adição de compatibilidade de armazenamento de concessão com o SDK do [v3 que habilita caminhos de migração automática. Um aplicativo pode migrar para o SDK v3 e migrar de volta para a biblioteca do processador do feed de alterações sem perder nenhum estado.
+* Foi adicionada a compatibilidade do repositório de concessão com o SDK V3 que habilita caminhos de migração quente. Um aplicativo pode ser migrado para o SDK V3 e retornar para a biblioteca do processador do Feed de Alterações sem perder nenhum estado.
 
 ### <a name="231"></a><a id="2.3.1"></a>2.3.1
-* Corrigido um caso quando `FeedProcessing.ChangeFeedObserverCloseReason.Unknown` o motivo de fechamento foi enviado para `FeedProcessing.IChangeFeedObserver.CloseAsync` se a partição não puder ser encontrada ou se a réplica de destino não estiver atualizada com a sessão de leitura. Nesses casos `FeedProcessing.ChangeFeedObserverCloseReason.ResourceGone` , e os `FeedProcessing.ChangeFeedObserverCloseReason.ReadSessionNotAvailable` motivos de fechamento agora são usados.
-* Foi adicionado um novo motivo de fechamento `FeedProcessing.ChangeFeedObserverCloseReason.ReadSessionNotAvailable` que é enviado para fechar o observador do feed de alterações quando a réplica de destino não está atualizada com a sessão de leitura.
+* Foi corrigido um caso em que o motivo de fechamento `FeedProcessing.ChangeFeedObserverCloseReason.Unknown` era enviado para `FeedProcessing.IChangeFeedObserver.CloseAsync` quando a partição não era encontrada ou a réplica de destino não estava atualizada com a sessão de leitura. Nesses casos, agora são usados os motivos de fechamento `FeedProcessing.ChangeFeedObserverCloseReason.ResourceGone` e `FeedProcessing.ChangeFeedObserverCloseReason.ReadSessionNotAvailable`.
+* Foi adicionado o novo motivo de fechamento `FeedProcessing.ChangeFeedObserverCloseReason.ReadSessionNotAvailable` que é enviado para fechar o observador do feed de alterações quando a réplica de destino não está atualizada com a sessão de leitura.
 
 ### <a name="230"></a><a id="2.3.0"></a>2.3.0
 * Adição de um novo método `ChangeFeedProcessorBuilder.WithCheckpointPartitionProcessorFactory` e da interface pública `ICheckpointPartitionProcessorFactory` correspondente. Isso permite que uma implementação da interface de `IPartitionProcessor` use o mecanismo de ponto de verificação interno. O novo alocador é semelhante ao atual `IPartitionProcessorFactory`, exceto que seu método `Create` também usa o parâmetro `ILeaseCheckpointer`.
@@ -72,9 +72,9 @@ ms.locfileid: "91611564"
   * Adição de um novo valor enum: `Monitoring.MonitoredOperation.ReadChangeFeed`. Quando o valor de `HealthMonitoringRecord.Operation` é definido como `Monitoring.MonitoredOperation.ReadChangeFeed`, isso indica que o problema de integridade está relacionado à leitura do feed de alterações.
 
 ### <a name="227"></a><a id="2.2.7"></a>2.2.7
-* Melhor estratégia de balanceamento de carga para o cenário ao obter todas as concessões leva mais tempo do que o intervalo de expiração da concessão, por exemplo, devido a problemas de rede:
-  * Nesse cenário, o algoritmo de balanceamento de carga usado para considerar de forma falsa as concessões expiradas, causando o roubo de concessões de proprietários ativos. Isso poderia disparar o rebalanceamento desnecessário de várias concessões.
-  * Esse problema foi corrigido nesta versão, evitando a repetição em conflito ao adquirir a concessão expirada cujo proprietário não foi alterado e adiando a aquisição da concessão expirada para a próxima iteração de balanceamento de carga.
+* Aprimoramento na estratégia de balanceamento de carga para o cenário em que a obtenção de todas as concessões demora mais que o intervalo de expiração da concessão, por exemplo, devido a problemas de rede:
+  * Nesse cenário, o algoritmo de balanceamento de carga considerava incorretamente as concessões como expiradas, causando o roubo de concessões de proprietários ativos. Isso podia disparar um rebalanceamento desnecessário de várias concessões.
+  * Esse problema foi corrigido nesta versão, evitando uma nova tentativa em conflito ao adquirir a concessão expirada cujo proprietário não foi alterado e adiar a aquisição da concessão expirada para a próxima iteração de balanceamento de carga.
 
 ### <a name="226"></a><a id="2.2.6"></a>2.2.6
 * Melhoria no tratamento de exceções de Observador.
@@ -84,7 +84,7 @@ ms.locfileid: "91611564"
 
 ### <a name="225"></a><a id="2.2.5"></a>2.2.5
 * Suporte adicionado para manipular a divisão em coleções que usam taxa de transferência de banco de dados compartilhado.
-  * Esta versão corrige um problema que pode ocorrer durante a divisão em coleções usando a taxa de transferência do banco de dados compartilhado quando dividir o resultado em rebalanceamento de partição com apenas um intervalo de chaves de partição filho criado, em vez de dois. Quando isso acontece, o Processador do Feed de Alterações poderá ficar preso ao excluir a concessão para o intervalo de chave de partição antigo e não criar novas concessões. Esse problema foi corrigido nesta versão.
+  * Esta versão corrige um problema que pode ocorrer durante a divisão em coleções que usam a taxa de transferência de banco de dados compartilhado, quando a divisão resulta no rebalanceamento da partição com somente um intervalo de chave de partição filho em vez de dois. Quando isso acontece, o Processador do Feed de Alterações poderá ficar preso ao excluir a concessão para o intervalo de chave de partição antigo e não criar novas concessões. Esse problema foi corrigido nesta versão.
 
 ### <a name="224"></a><a id="2.2.4"></a>2.2.4
 * Adicionada nova propriedade ChangeFeedProcessorOptions.StartContinuation para dar suporte ao feed de alterações do token de continuação da solicitação. Isso é usado apenas quando a coleção de concessão estiver vazia ou uma concessão não tiver ContinuationToken definido. Para concessões na coleção de concessão que têm o ContinuationToken definido, o ContinuationToken é usado e ChangeFeedProcessorOptions.StartContinuation será ignorado.
@@ -100,11 +100,11 @@ ms.locfileid: "91611564"
 * Esta versão corrige um problema que ocorre durante o processamento de uma divisão na coleção monitorada e usa uma coleção de concessão particionada. Ao processar uma concessão de partição de divisão, a concessão correspondente a essa partição não pode ser excluída. Esse problema foi corrigido nesta versão.
 
 ### <a name="221"></a><a id="2.2.1"></a>2.2.1
-* Corrigido o cálculo do estimador para contas com várias regiões de gravação e novo formato de token de sessão.
+* Foi corrigido o cálculo do avaliador para contas com várias regiões de gravação e um novo formato do token de sessão.
 
 ### <a name="220"></a><a id="2.2.0"></a>2.2.0
 * Adicionado suporte a coleções particionadas de concessão. A chave de partição deve ser definida como /id.
-* Pequena alteração interruptiva: os métodos da interface IChangeFeedDocumentClient e a classe ChangeFeedDocumentClient foram alterados para incluir parâmetros de RequestOptions e CancellationToken. IChangeFeedDocumentClient é um ponto de extensibilidade avançado que permite que você forneça a implementação personalizada do cliente de documento para usar com o processador do feed de alterações, por exemplo, decorar o DocumentClient e interceptar todas as chamadas para ele para fazer rastreamento extra, tratamento de erros etc. Com essa atualização, o código que implementa IChangeFeedDocumentClient precisará ser alterado para incluir novos parâmetros na implementação.
+* Pequena alteração interruptiva: os métodos da interface IChangeFeedDocumentClient e a classe ChangeFeedDocumentClient foram alterados para incluir parâmetros de RequestOptions e CancellationToken. O IChangeFeedDocumentClient é um ponto de extensibilidade avançado que permite fornecer uma implementação personalizada do Cliente de Documento a ser usado com o Processador do Feed de Alterações. Por exemplo, decorar o DocumentClient e interceptar todas as chamadas a ele para executar um rastreamento extra, o tratamento de erro e outras ações. Com essa atualização, o código que implementa IChangeFeedDocumentClient precisará ser alterado para incluir novos parâmetros na implementação.
 * Pequenos aprimoramentos de diagnóstico.
 
 ### <a name="210"></a><a id="2.1.0"></a>2.1.0
@@ -191,7 +191,7 @@ ms.locfileid: "91611564"
 A Microsoft fornecerá uma notificação pelo menos **12 meses** antes de desativar um SDK, a fim de realizar uma transição tranquila para uma versão mais recente/com suporte. Os novos recursos, funcionalidades e otimizações são adicionados apenas ao SDK atual. Portanto, recomendamos que você atualize sempre que possível para a versão do SDK mais recente.
 
 > [!WARNING]
-> Após 31 de agosto de 2022, o Azure Cosmos DB não fará mais correções de bugs, adicionará novos recursos e dará suporte às versões 1. x do Azure Cosmos DB .NET ou SDK do .NET Core para a API do SQL. Se você preferir não atualizar, as solicitações enviadas da versão 1. x do SDK continuarão a ser servidas pelo serviço de Azure Cosmos DB.
+> Após 31 de agosto de 2022, o Azure Cosmos DB não fará mais correções de bug, não adicionará novos recursos nem dará suporte às versões 1.x do SDK do .NET Core ou do .NET do Azure Cosmos DB para a API do SQL. Se você preferir não fazer a atualização, as solicitações enviadas da versão 1.x do SDK continuarão a ser atendidas pelo serviço Azure Cosmos DB.
 
 <br/>
 

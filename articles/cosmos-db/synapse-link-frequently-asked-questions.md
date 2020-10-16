@@ -6,12 +6,12 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/09/2020
-ms.openlocfilehash: 6f34b36d495a2ef326727629d090a0da5260ce10
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: ebd3893f6443edda276bfb3b1e39ae0fe093acb2
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014555"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104097"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Perguntas frequentes sobre o Link do Azure Synapse para Azure Cosmos DB
 
@@ -97,6 +97,10 @@ Os dados no repositório analítico são particionados com base no particionamen
 ### <a name="can-i-customize-or-override-the-way-transactional-data-is-transformed-into-columnar-format-in-the-analytical-store"></a>Posso personalizar ou substituir a maneira como os dados transacionais são transformados em formato de coluna no repositório analítico?
 
 No momento, você não pode transformar os itens de dados quando eles são automaticamente propagados do repositório transacional para o repositório analítico. Se você tiver cenários bloqueados por essa limitação, envie um email para a [equipe do Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com).
+
+### <a name="is-analytical-store-supported-by-terraform"></a>O repositório analítico é compatível com o Terraform?
+
+Atualmente, o Terraform não dá suporte a contêineres de repositório analítico. Consulte os [problemas do GitHub Terraform](https://github.com/hashicorp/terraform/issues) para obter mais informações.
 
 ## <a name="analytical-time-to-live-ttl"></a>Tempo de vida (TTL) analítico
 
