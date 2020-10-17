@@ -3,12 +3,12 @@ title: Gerenciar imagens assinadas
 description: Saiba como habilitar a confiança de conteúdo do registro de contêiner do Azure e enviar e efetuar pull de imagens assinadas. A confiança de conteúdo implementa a relação de confiança de conteúdo do Docker e é um recurso da camada de serviço Premium.
 ms.topic: article
 ms.date: 09/18/2020
-ms.openlocfilehash: cfe337a0f46e37ed616664e8e0645e319bcfb519
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f44cea09521dc235ad0d555264b165c9a3842a14
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91409157"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148575"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Confiança de conteúdo no Registro de Contêiner do Azure
 
@@ -115,7 +115,7 @@ az role assignment create --scope $REGISTRY_ID --role AcrImageSigner --assignee 
 A `<service principal ID>` pode ser a **appId**, **objectId** da entidade de serviço ou um de seus **servicePrincipalNames**. Para mais informações sobre como trabalhar com entidades de serviço e o Registro de Contêiner do Azure, confira [Autenticação do Registro de Contêiner do Azure com entidades de serviço](container-registry-auth-service-principal.md).
 
 > [!IMPORTANT]
-> Depois de quaisquer alterações de função, execute `az acr login` para atualizar o token de identidade local para a CLI do Azure para que as novas funções entrem em vigor. Para obter informações sobre como verificar funções para uma identidade, consulte [gerenciar o acesso aos recursos do Azure usando RBAC e CLI do Azure](../role-based-access-control/role-assignments-cli.md) e [solucionar problemas do RBAC do Azure](../role-based-access-control/troubleshooting.md).
+> Depois de quaisquer alterações de função, execute `az acr login` para atualizar o token de identidade local para a CLI do Azure para que as novas funções entrem em vigor. Para obter informações sobre como verificar funções para uma identidade, consulte [Adicionar ou remover atribuições de função do Azure usando CLI do Azure](../role-based-access-control/role-assignments-cli.md) e [solucionar problemas do RBAC do Azure](../role-based-access-control/troubleshooting.md).
 
 ## <a name="push-a-trusted-image"></a>Enviar uma imagem confiável por push
 

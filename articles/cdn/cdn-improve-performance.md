@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 02/28/2018
 ms.author: allensu
-ms.openlocfilehash: 3b8ce5b82b7d2022fd7feea1cd9efe8d524ee6a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ceed62d466627d6a23554229bd6f4b96c674c7e9
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91358280"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148745"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Melhorar o desempenho compactando os arquivos na CDN do Azure
 A compactação de arquivo é um método simples e eficiente para melhorar a velocidade de transferência de arquivos e aumentar o desempenho de carregamento de páginas, reduzindo o tamanho de arquivos antes de serem enviados do servidor. Ela pode reduzir os custos de largura de banda e oferece uma experiência mais responsiva para os seus usuários.
@@ -113,6 +113,8 @@ Se a solicitação dá suporte a mais de um tipo de compactação, a compactaç�
 
 Quando uma solicitação de um ativo especificar a compactação gzip e is resultados da solicitação em um cache se perderem, a CDN do Azure realize compactação gzip do ativo diretamente no servidor POP. Depois disso, o arquivo compactado será servido do cache.
 
+Se a origem usar a CTE (codificação de transferência em bloco) para enviar dados compactados para o POP do CDN, não haverá suporte para os tamanhos de resposta maiores que 8MB. 
+
 ### <a name="azure-cdn-from-verizon-profiles"></a>Perfis da CDN do Azure da Verizon
 
 Para os perfis da **CDN Standard do Azure da Verizon** e ** CDN Premium do Azure da Verizon**, apenas arquivos qualificáveis são comprimidos. Para se qualificar para a compactação, um arquivo deve:
@@ -165,6 +167,6 @@ Para pontos de extremidade habilitados para streaming da CDN dos Serviços de M�
 - application/vnd.apple.mpegurl
 - application/f4m+xml 
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 * [Solucionando problemas de compactação de arquivo CDN](cdn-troubleshoot-compression.md)    
 

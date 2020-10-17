@@ -3,12 +3,12 @@ title: Configurar um laboratório para usar Área de Trabalho Remota gateway no 
 description: Saiba como configurar um laboratório no Azure DevTest Labs com um gateway de área de trabalho remota para garantir o acesso seguro às VMs do laboratório sem precisar expor a porta RDP.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: bc45a0c2953f8f84289fa01d4af72bf98544bd7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b48a0709deb21ca0f8a27d1cf953c7d8d4ba2cc8
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87288072"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144705"
 ---
 # <a name="configure-your-lab-in-azure-devtest-labs-to-use-a-remote-desktop-gateway"></a>Configurar seu laboratório no Azure DevTest Labs para usar um gateway de área de trabalho remota
 No Azure DevTest Labs, você pode configurar um gateway de área de trabalho remota para seu laboratório para garantir o acesso seguro às VMs (máquinas virtuais) do laboratório sem a necessidade de expor a porta RDP. O laboratório fornece um local central para que os usuários do laboratório exibam e se conectem a todas as máquinas virtuais às quais eles têm acesso. O botão **conectar** na página **máquina virtual** cria um arquivo RDP específico do computador que você pode abrir para se conectar ao computador. Você pode personalizar e proteger ainda mais a conexão RDP conectando seu laboratório a um gateway de área de trabalho remota. 
@@ -79,7 +79,7 @@ Configure o laboratório para usar a autenticação de token usando estas etapas
 1. **Salvar** For.
 
     > [!NOTE] 
-    > Ao clicar em **salvar**, você concorda em [área de trabalho remota termos de licença do gateway](https://www.microsoft.com/licensing/product-licensing/products). Para obter mais informações sobre o gateway remoto, consulte [Bem-vindo ao serviços de área de trabalho remota](https://aka.ms/rds) e [implantar seu ambiente de área de trabalho remota](/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure).
+    > Ao clicar em **salvar**, você concorda em [área de trabalho remota termos de licença do gateway](https://www.microsoft.com/licensing/product-licensing/products). Para obter mais informações sobre o gateway remoto, consulte [Bem-vindo ao serviços de área de trabalho remota](/windows-server/remote/remote-desktop-services/Welcome-to-rds) e [implantar seu ambiente de área de trabalho remota](/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure).
 
 
 Se a configuração do laboratório por meio da automação for preferida, consulte [Set-DevTestLabGateway.ps1](https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/GatewaySample/tools/Set-DevTestLabGateway.ps1) para obter um exemplo de script do PowerShell para definir as configurações de **segredo** do gateway e **do nome de host** . O [repositório GitHub Azure DevTest Labs](https://github.com/Azure/azure-devtestlab) também fornece um modelo de Azure Resource Manager que cria ou atualiza um laboratório com as configurações de **nome de host** e de **segredo** do gateway do gateway.
@@ -94,7 +94,7 @@ Aqui está um exemplo de NSG que permite apenas o tráfego que passa pela primei
 ## <a name="sample-to-create-a-remote-desktop-gateway"></a>Exemplo para criar um gateway de área de trabalho remota
 
 > [!NOTE] 
-> Usando os modelos de exemplo, você concorda em [área de trabalho remota termos de licença do gateway](https://www.microsoft.com/licensing/product-licensing/products). Para obter mais informações sobre o gateway remoto, consulte [Bem-vindo ao serviços de área de trabalho remota](https://aka.ms/rds) e [implantar seu ambiente de área de trabalho remota](/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure).
+> Usando os modelos de exemplo, você concorda em [área de trabalho remota termos de licença do gateway](https://www.microsoft.com/licensing/product-licensing/products). Para obter mais informações sobre o gateway remoto, consulte [Bem-vindo ao serviços de área de trabalho remota](/windows-server/remote/remote-desktop-services/Welcome-to-rds) e [implantar seu ambiente de área de trabalho remota](/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure).
 
 O [repositório GitHub Azure DevTest Labs](https://github.com/Azure/azure-devtestlab) fornece alguns exemplos para ajudar a configurar os recursos necessários para usar a autenticação de token e o gateway de área de trabalho remota com o DevTest Labs. Esses exemplos incluem modelos de Azure Resource Manager para máquinas de gateway, configurações de laboratório e aplicativo de funções.
 

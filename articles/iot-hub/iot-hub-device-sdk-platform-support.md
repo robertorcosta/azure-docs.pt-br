@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.author: robinsh
-ms.openlocfilehash: 4081fe8ba97ba2dd27680cf5f0fa60abd59e44a9
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 5df36cdb3c02fd4c813625c4869c21581f009b02
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072264"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152210"
 ---
 # <a name="azure-iot-device-sdks-platform-support"></a>Suporte à plataforma de SDKs do dispositivo IoT do Azure
 
@@ -74,7 +74,7 @@ O [SDK do dispositivo .net (C#) do Hub IOT do Azure](https://github.com/Azure/az
 | Linux                                | .NET Core 2.1                                              |
 | SKUs do Windows 10 desktop e Server   | .NET Core 2,1, .NET Framework 4.5.1 ou .NET Framework 4,7 |
 
-O SDK do .NET também pode ser usado com o Windows IoT core com o [agente de dispositivo do Azure](https://github.com/ms-iot/azure-client-tools/blob/master/docs/device-agent/device-agent.md) ou [um NTService personalizado que pode usar o RPC para se comunicar com os aplicativos UWP](https://docs.microsoft.com/samples/microsoft/windows-iotcore-samples/ntservice-rpc/).
+O SDK do .NET também pode ser usado com o Windows IoT core com o [agente de dispositivo do Azure](https://github.com/ms-iot/azure-client-tools/blob/master/docs/device-agent/device-agent.md) ou [um NTService personalizado que pode usar o RPC para se comunicar com os aplicativos UWP](/samples/microsoft/windows-iotcore-samples/ntservice-rpc/).
 
 ### <a name="nodejs-sdk"></a>SDK do Node.js
 
@@ -124,7 +124,7 @@ Se não for possível usar um dos SDKs de dispositivo do Hub IoT, você poderá 
 
 ## <a name="support-and-other-resources"></a>Suporte e outros recursos
 
-Se você tiver problemas ao usar os SDKs do dispositivo IoT do Azure, há várias maneiras de buscar o suporte resumido abaixo. Para obter informações completas sobre todas as suas opções de suporte, consulte [suporte do Azure IOT e opções de ajuda](https://aka.ms/iothelp). 
+Se você tiver problemas ao usar os SDKs do dispositivo IoT do Azure, há várias maneiras de buscar o suporte resumido abaixo. Para obter informações completas sobre todas as suas opções de suporte, consulte [suporte do Azure IOT e opções de ajuda](../iot-fundamentals/iot-support-help.md). 
 
 **Relatando bugs** – os bugs nos SDKs do dispositivo podem ser relatados na página problemas do projeto do GitHub relevante. As correções passam rapidamente do projeto para as atualizações do produto.
 
@@ -138,7 +138,7 @@ Se você tiver problemas ao usar os SDKs do dispositivo IoT do Azure, há vária
 
 * [Problemas do SDK do Python no Hub IoT do Azure](https://github.com/Azure/azure-iot-sdk-python/issues)
 
-**Perguntas técnicas** – você pode fazer perguntas técnicas no [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-iot-sdk.html) e [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-sdk) usando a marca *Azure-IOT-SDK*.
+**Perguntas técnicas** – você pode fazer perguntas técnicas no [Microsoft Q&A](/answers/topics/azure-iot-sdk.html) e [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-sdk) usando a marca *Azure-IOT-SDK*.
 
 **Equipe de suporte ao cliente da Microsoft** – os usuários que têm um [plano de suporte](https://azure.microsoft.com/support/plans/) podem envolver a equipe de suporte ao cliente da Microsoft criando uma nova solicitação de suporte diretamente do [portal do Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 

@@ -10,14 +10,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/30/2020
+ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: ce24bf541c5a71c50bb34f5e42aa3452f01b871c
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 8800adae73de2672dd89678a6346fe6b0df755ba
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978162"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144194"
 ---
 # <a name="high-availability-of-sap-hana-scale-up-with-azure-netapp-files-on-red-hat-enterprise-linux"></a>Alta disponibilidade de SAP HANA escalar verticalmente com Azure NetApp Files no Red Hat Enterprise Linux
 
@@ -227,6 +227,13 @@ Primeiro, você precisa criar os volumes do Azure NetApp Files. Em seguida, exec
 5.  Crie a máquina virtual 1 (**hanadb1**). 
 6.  Crie a máquina virtual 2 (**hanadb2**).  
 7.  Ao criar a máquina virtual, não adicionaremos nenhum disco, pois todos os nossos pontos de montagem estarão em compartilhamentos NFS de Azure NetApp Files. 
+
+> [!IMPORTANT]
+> Não há suporte para IP flutuante em uma configuração de IP secundário de NIC em cenários de balanceamento de carga. Para obter detalhes, consulte [limitações do Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). Se você precisar de um endereço IP adicional para a VM, implante uma segunda NIC.    
+
+> [!NOTE] 
+> Quando as VMs sem endereços IP públicos forem colocadas no pool de back-end do Standard Azure Load Balancer (sem endereço IP público), não haverá nenhuma conectividade de saída com a Internet se não houver configuração adicional a fim de permitir o roteamento para pontos de extremidade públicos. Para obter detalhes sobre como alcançar conectividade de saída, veja [Conectividade de ponto de extremidade público para Máquinas Virtuais usando o Azure Standard Load Balancer em cenários de alta disponibilidade do SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md).
+
 8.  Se estiver usando o Standard Load Balancer, siga estas etapas de configuração:
     1.  Primeiro, crie um pool de IP de front-end:
         1.  Abra o balanceador de carga, selecione **pool de front-end** e selecione **Adicionar**.
@@ -255,8 +262,6 @@ Primeiro, você precisa criar os volumes do Azure NetApp Files. Em seguida, exec
         1.  Certifique-se de **habilitar IP Flutuante**.
         1.  Selecione **OK**.
 
-> [!NOTE] 
-> Quando as VMs sem endereços IP públicos forem colocadas no pool de back-end do Standard Azure Load Balancer (sem endereço IP público), não haverá nenhuma conectividade de saída com a Internet se não houver configuração adicional a fim de permitir o roteamento para pontos de extremidade públicos. Para obter detalhes sobre como alcançar conectividade de saída, veja [Conectividade de ponto de extremidade público para Máquinas Virtuais usando o Azure Standard Load Balancer em cenários de alta disponibilidade do SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md).
 
 9. Como alternativa, se o seu cenário impõe o uso do balanceador de carga básico, siga estas etapas de configuração:
     1.  Configure o balanceador de carga. Primeiro, crie um pool de IP de front-end:

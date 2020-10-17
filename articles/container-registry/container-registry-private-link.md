@@ -3,12 +3,12 @@ title: Configurar link privado
 description: Configure um ponto de extremidade privado em um registro de contêiner e habilite o acesso em um link privado em uma rede virtual local. O acesso ao link privado é um recurso da camada de serviço Premium.
 ms.topic: article
 ms.date: 10/01/2020
-ms.openlocfilehash: 793003edea853922f78b36f0dc1a6e35205cdadb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6bea4b2a6bedeac9dd0ff36631ba46adf4be4f8f
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743634"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148481"
 ---
 # <a name="connect-privately-to-an-azure-container-registry-using-azure-private-link"></a>Conectar-se de forma privada a um registro de contêiner do Azure usando o link privado do Azure
 
@@ -375,7 +375,7 @@ az acr private-endpoint-connection list \
   --registry-name $REGISTRY_NAME 
 ```
 
-Ao configurar uma conexão de ponto de extremidade privado usando o procedimento neste artigo, o registro aceitará automaticamente conexões de clientes e serviços que tenham permissões de RBAC no registro. Você pode configurar o ponto de extremidade para exigir aprovação manual de conexões. Para informações sobre como aprovar e rejeitar conexões de ponto de extremidade privado, consulte [Gerenciar uma conexão de ponto de extremidade privado](../private-link/manage-private-endpoint.md).
+Quando você configura uma conexão de ponto de extremidade privado usando as etapas neste artigo, o registro aceita automaticamente conexões de clientes e serviços que têm permissões de RBAC do Azure no registro. Você pode configurar o ponto de extremidade para exigir aprovação manual de conexões. Para informações sobre como aprovar e rejeitar conexões de ponto de extremidade privado, consulte [Gerenciar uma conexão de ponto de extremidade privado](../private-link/manage-private-endpoint.md).
 
 ## <a name="add-zone-records-for-replicas"></a>Adicionar registros de zona para réplicas
 

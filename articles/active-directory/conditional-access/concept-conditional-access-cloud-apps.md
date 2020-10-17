@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/11/2020
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f65a43cf5730f56b43d79388a0e73ea93e3225b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 658d18ed3c9eefeedffd82bbccedbde0621fe748
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91801980"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145527"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Acesso Condicional: Aplicativos na nuvem ou ações
 
@@ -121,8 +121,7 @@ Além dos aplicativos Microsoft, os administradores podem adicionar qualquer apl
 - Aplicativos que usam [logon único baseado em senha](../manage-apps/configure-password-single-sign-on-non-gallery-applications.md)
 
 > [!NOTE]
-> Como a política de Acesso condicional define os requisitos para acessar um serviço que você não pode aplicar a um aplicativo cliente (público/nativo). Em outras palavras, a política não é definida diretamente em um aplicativo cliente (público/nativo), mas é aplicada quando um cliente chama um serviço. Por exemplo, uma política definida no serviço SharePoint se aplica aos clientes que chamam o SharePoint. Uma política definida no Exchange se aplica à tentativa de acessar o email usando o cliente do Outlook. É por isso que aplicativos cliente (públicos/nativos) não estão disponíveis para seleção no seletor de Aplicativos de Nuvem e a opção de Acesso Condicional não está disponível nas configurações do aplicativo para o aplicativo cliente (público/nativo) registrado em seu locatário. 
-
+> Como a política de acesso condicional define os requisitos para acessar um serviço, você não pode aplicá-lo a um aplicativo cliente (público/nativo). Em outras palavras, a política não é definida diretamente em um aplicativo cliente (público/nativo), mas é aplicada quando um cliente chama um serviço. Por exemplo, uma política definida no serviço SharePoint se aplica aos clientes que chamam o SharePoint. Uma política definida no Exchange se aplica à tentativa de acessar o email usando o cliente do Outlook. É por isso que aplicativos cliente (públicos/nativos) não estão disponíveis para seleção no seletor de Aplicativos de Nuvem e a opção de Acesso Condicional não está disponível nas configurações do aplicativo para o aplicativo cliente (público/nativo) registrado em seu locatário. 
 
 ## <a name="user-actions"></a>Ações do usuário
 

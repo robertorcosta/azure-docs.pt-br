@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.topic: how-to
 ms.date: 12/05/2016
-ms.openlocfilehash: cbce903bc7463cd917d48e341614afbe18536262
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f47e201f0fe6f44eb33916b2b3ed71ef963d5a1
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87531201"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148134"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Gerenciar o Azure Data Lake Analytics usando o portal do Azure
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -91,9 +91,9 @@ Você pode usar o **Assistente para Adicionar Usuário** para provisionar facilm
 7. Examine todas as alterações selecionadas e, em seguida, clique em **Executar**.
 8. Quando o assistente for concluído, clique em **Concluído**.
 
-## <a name="manage-role-based-access-control"></a>Gerenciar o controle de acesso baseado em função
+## <a name="manage-azure-role-based-access-control"></a>Gerenciar o controle de acesso baseado em função do Azure
 
-Como outros serviços do Azure, você pode usar o RBAC (controle de acesso baseado em função) para controlar como os usuários interagem com o serviço.
+Assim como outros serviços do Azure, você pode usar o Azure RBAC (controle de acesso baseado em função) para controlar como os usuários interagem com o serviço.
 
 As funções padrão do Azure têm os seguintes recursos:
 * **Proprietário**: pode enviar, monitorar e cancelar trabalhos de qualquer usuário e configurar a conta.

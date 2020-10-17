@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 2b69eb076c727a4383b7459ef914ac79dca31c84
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1fc768890e932d1f17ad111b4681b75721ae1e06
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91628410"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148106"
 ---
 # <a name="azure-arc-enabled-postgresql-hyperscale-server-group-placement"></a>Posicionamento do grupo de servidores de hiperescala do PostgreSQL habilitado para o Azure Arc
 
@@ -67,8 +67,8 @@ postgres01-2         3/3     Running   0          9h
 Cada um desses pods hospeda uma instância do PostgreSQL. Juntos, eles formam o grupo de servidores de hiperescala PostgreSQL habilitados para o Azure Arc:
 
 ```output
-Pod name    Role in the server group
-postgres01-0            Coordinator
+Pod name        Role in the server group
+postgres01-0  Coordinator
 postgres01-1    Worker
 postgres01-2    Worker
 ```
@@ -121,7 +121,7 @@ Containers:
 
 Cada pod que faz parte do grupo de servidores de hiperescala PostgreSQL habilitado para Arc do Azure hospeda os três contêineres a seguir:
 
-|Contêineres|Descrição
+|Contêineres|Description
 |----|----|
 |`Fluentbit` |Data * coletor de logs: https://fluentbit.io/
 |`Postgres`|Parte da instância PostgreSQL do grupo de servidores de hiperescala PostgreSQL habilitados para o Azure Arc

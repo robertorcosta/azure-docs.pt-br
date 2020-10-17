@@ -10,12 +10,12 @@ ms.tgt_pltfrm: arduino
 ms.date: 04/02/2018
 ms.author: liydu
 ms.custom: mqtt
-ms.openlocfilehash: 09ea3ceb15c9b175b8366bf3ac57a61e468ab72a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb8bf593568825793a1a205a2955599b16fa78cf
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91356019"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151750"
 ---
 # <a name="send-messages-to-an-mqtt-server"></a>Enviar mensagens para um servidor MQTT
 
@@ -31,7 +31,7 @@ Neste projeto, você aprenderá a:
 
 ## <a name="what-you-need"></a>O que você precisa
 
-Siga o [Guia de Introdução](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started) para:
+Siga o [Guia de Introdução](./iot-hub-arduino-iot-devkit-az3166-get-started.md) para:
 
 * Ter seu DevKit conectado ao Wi-Fi
 * Preparar o ambiente de desenvolvimento
@@ -81,11 +81,11 @@ Se você encontrar problemas, consulte [as perguntas frequentes do Kit de Desenv
 * [Gitter.im](https://gitter.im/Microsoft/azure-iot-developer-kit)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 * [Como conectar o IoT DevKit AZ3166 ao Hub IoT na nuvem](iot-hub-arduino-iot-devkit-az3166-get-started.md)
 * [Shake, Shake para um Tweet](iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você aprendeu como configurar seu MXChip IOT DevKit como um cliente MQTT e usar a biblioteca de cliente MQTT para enviar mensagens para um agente MQTT, aqui está a próxima etapa sugerida: [visão geral do acelerador de solução de monitoramento remoto do Azure IOT](https://docs.microsoft.com/azure/iot-suite/)
+Agora que você aprendeu como configurar seu MXChip IOT DevKit como um cliente MQTT e usar a biblioteca de cliente MQTT para enviar mensagens para um agente MQTT, aqui está a próxima etapa sugerida: [visão geral do acelerador de solução de monitoramento remoto do Azure IOT](/azure/iot-suite/)

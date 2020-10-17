@@ -3,12 +3,12 @@ title: Linha de base de segurança do Azure para Azure DevTest Labs
 description: Linha de base de segurança do Azure para Azure DevTest Labs
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: 49b07242068df5d7c46c602140c8b3e1f778e90c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 838501bf4195c99c4d4ef7805fb8f4cba79e05d2
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89398314"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151880"
 ---
 # <a name="azure-security-baseline-for-azure-devtest-labs"></a>Linha de base de segurança do Azure para Azure DevTest Labs
 
@@ -264,7 +264,7 @@ Você pode simplificar esse processo criando configurações de diagnóstico par
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4,1: manter um inventário de informações confidenciais
 **Diretrizes:** Use marcas para ajudar a controlar os recursos do Azure que armazenam ou processam informações confidenciais.
 
-- [Como criar e usar marcas](../azure-resource-manager/resource-group-using-tags.md)
+- [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoramento da central de segurança do Azure:** Não aplicável
 
@@ -273,10 +273,10 @@ Você pode simplificar esse processo criando configurações de diagnóstico par
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2: isolar sistemas que armazenam ou processam informações confidenciais
 **Diretrizes:** Implemente assinaturas ou grupos de gerenciamento separados para desenvolvimento, teste e produção. Azure DevTest Labs instâncias devem ser separadas por rede virtual/sub-rede e marcadas adequadamente. 
 
-- [Como criar assinaturas adicionais do Azure](../billing/billing-create-subscription.md)
-- [Como criar grupos de gerenciamento](../governance/management-groups/create.md)
+- [Como criar assinaturas adicionais do Azure](../cost-management-billing/manage/create-subscription.md)
+- [Como criar grupos de gerenciamento](../governance/management-groups/create-management-group-portal.md)
 - [Como configurar uma rede virtual para o DevTest Labs](devtest-lab-configure-vnet.md)
-- [Como criar e usar marcas](../azure-resource-manager/resource-group-using-tags.md)
+- [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 - [Como criar e usar marcas para DevTest Labs](devtest-lab-add-tag.md)
 
 **Monitoramento da central de segurança do Azure:** Não disponível no momento
@@ -380,7 +380,7 @@ A Microsoft executa o gerenciamento de vulnerabilidades nos recursos subjacentes
 **Diretrizes:** Use o Azure Gerenciamento de Atualizações para garantir que as atualizações de segurança mais recentes sejam instaladas em suas VMs Windows e Linux hospedadas no DevTest Labs. Para VMs do Windows, verifique se Windows Update foi habilitado e definido para atualizar automaticamente. Atualmente, essa configuração não está disponível para configurar por meio do DevTest Labs, no entanto, o administrador de laboratório/administrador de assinaturas pode definir essa configuração nas VMs de computação subjacentes em sua assinatura. 
 
 - [Como configurar Gerenciamento de Atualizações para VMs no Azure](../automation/update-management/update-mgmt-overview.md)
-- [Entender as políticas de segurança do Azure monitoradas pela central de segurança](../security-center/security-center-policy-definitions.md)
+- [Entender as políticas de segurança do Azure monitoradas pela central de segurança](../security-center/policy-reference.md)
 
 **Monitoramento da central de segurança do Azure:** Não aplicável
 
@@ -444,7 +444,7 @@ Como administrador de assinatura, você também pode usar a solução de Gerenci
 **Diretrizes:** Use marcação, grupos de gerenciamento e assinaturas separadas, além de laboratórios separados, quando apropriado, para organizar e controlar laboratórios e recursos relacionados ao laboratório. Reconcilie o inventário regularmente e garanta que os recursos não autorizados sejam excluídos da assinatura rapidamente.
 
 - [Como criar assinaturas adicionais do Azure](../cost-management-billing/manage/create-subscription.md)
-- [Como criar Grupos de Gerenciamento](../governance/management-groups/create.md)
+- [Como criar Grupos de Gerenciamento](../governance/management-groups/create-management-group-portal.md)
 - [Como criar um laboratório usando o DevTest Labs](devtest-lab-create-lab.md)
 - [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 - [Como configurar marcas para um laboratório](devtest-lab-add-tag.md)
@@ -517,7 +517,7 @@ Além de usar Controle de Alterações para o monitoramento de aplicativos de so
 
 Confira os seguintes artigos: 
 - [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
-- [Como negar um tipo de recurso específico com o Azure Policy](../governance/policy/samples/not-allowed-resource-types.md)
+- [Como negar um tipo de recurso específico com o Azure Policy](../governance/policy/samples/index.md)
 
 **Monitoramento da central de segurança do Azure:** Ok
 
@@ -559,7 +559,7 @@ Confira os seguintes artigos:
 - [Configurar a rede virtual para o DevTest Labs](devtest-lab-configure-vnet.md)
 - [Visão geral do Firewall do Azure](../firewall/overview.md)
 - [Visão geral de Firewall de Aplicativo Web](../web-application-firewall/overview.md)
-- [Visão geral da segurança da rede](../virtual-network/security-overview.md)
+- [Visão geral da segurança da rede](../virtual-network/network-security-groups-overview.md)
 - [Visão geral da rede virtual do Azure]()
 - [Organizar seus recursos com grupos de gerenciamento do Azure](../governance/management-groups/overview.md)
 - [Guia de decisão da assinatura](/azure/cloud-adoption-framework/decision-guides/subscriptions/)
@@ -617,7 +617,7 @@ Você também pode usar recomendações da central de segurança do Azure como u
 
 Além disso, as imagens de máquina virtual do Azure Marketplace publicadas pela Microsoft são gerenciadas e mantidas pela Microsoft.
 
-- [Como implementar recomendações de avaliação de vulnerabilidade da central de segurança do Azure](../security-center/security-center-vulnerability-assessment-recommendations.md)
+- [Como implementar recomendações de avaliação de vulnerabilidade da central de segurança do Azure](../security-center/deploy-vulnerability-assessment-vm.md)
 - [Visão geral do State Configuration da Automação do Azure](../automation/automation-dsc-overview.md)
 - [Script de exemplo para carregar um VHD para o Azure e criar uma nova VM](../virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script.md)
 - [Como criar uma fábrica de imagens no DevTest Labs](image-factory-create.md)
@@ -629,8 +629,8 @@ Além disso, as imagens de máquina virtual do Azure Marketplace publicadas pela
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5: armazenar configuração de recursos do Azure com segurança
 **Diretrizes:** Use o Azure DevOps para armazenar e gerenciar com segurança seu código, como políticas personalizadas do Azure, modelos de Azure Resource Manager e scripts de configuração de estado desejado. Para acessar os recursos que você gerencia no Azure DevOps, você pode conceder ou negar permissões a usuários específicos, grupos de segurança internos ou grupos definidos no Azure Active Directory (AD do Azure), se integrados ao Azure DevOps.
 
-- [Azure Repos o tutorial do git](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow)
-- [Sobre permissões e grupos](https://docs.microsoft.com/azure/devops/organizations/security/about-permissions?view=azure-devops&tabs=preview-page)
+- [Azure Repos o tutorial do git](/azure/devops/repos/git/gitworkflow)
+- [Sobre permissões e grupos](/azure/devops/organizations/security/about-permissions?tabs=preview-page&view=azure-devops)
 - [Integração entre Azure DevTest Labs e o fluxo de trabalho DevOps do Azure](devtest-lab-dev-ops.md)
 
 **Monitoramento da central de segurança do Azure:** Não aplicável
@@ -681,7 +681,7 @@ Além disso, as imagens de máquina virtual do Azure Marketplace publicadas pela
 ### <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7.10: implementar monitoramento automatizado de configuração para sistemas operacionais
 **Diretrizes:** Use a central de segurança do Azure para executar verificações de linha de base para configurações do sistema operacional e do Docker para contêineres.
 
-- [Entenda as recomendações do contêiner da Central de Segurança do Azure](../security-center/security-center-container-recommendations.md)
+- [Entenda as recomendações do contêiner da Central de Segurança do Azure](../security-center/container-security.md)
 
 **Monitoramento da central de segurança do Azure:** Não aplicável
 
@@ -692,7 +692,7 @@ Além disso, as imagens de máquina virtual do Azure Marketplace publicadas pela
 
 - [Configurar a identidade gerenciada para implantar ambientes de Azure Resource Manager no DevTest Labs](use-managed-identities-environments.md)
 - [Configurar identidade gerenciada para implantar máquinas virtuais no DevTest Labs](enable-managed-identities-lab-vms.md)
-- [Como criar um cofre de chaves](../key-vault/quick-create-portal.md)
+- [Como criar um cofre de chaves](../key-vault/secrets/quick-create-portal.md)
 - [Como autenticar-se no Key Vault](../key-vault/general/authentication.md)
 - [Como atribuir uma política de acesso de Key Vault](../key-vault/general/assign-access-policy-portal.md)
 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: compliance
 ms.topic: how-to
-ms.date: 09/14/2020
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19c6bf058af62f830c825eef900bff712ba07181
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 233645519a6a918e451c425971d2e2e16f788f3a
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90085902"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145408"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory termos de uso
 
@@ -92,7 +92,7 @@ Depois de ter finalizado seu documento de termos de uso, use o procedimento a se
 
 1. Use as configurações de **expiração de início** e de **frequência** para especificar o agendamento de expirações de termos de uso. A tabela a seguir mostra o resultado para duas configurações de exemplo:
 
-   | Expirar a partir de | Frequência | Result |
+   | Expirar a partir de | Frequência | Resultado |
    | --- | --- | --- |
    | Data de hoje  | Mensalmente | A partir de hoje, os usuários devem aceitar os termos de uso e, em seguida, reaceitar todos os meses. |
    | Data no futuro  | Mensalmente | A partir de hoje, os usuários devem aceitar os termos de uso. Quando a data futura chegar, os consentimentos irão expirar e depois os usuários devem aceitar novamente a todos os meses.  |
@@ -253,7 +253,7 @@ A configuração **exigir que os usuários consentim em cada dispositivo** permi
 Segue uma lista dos softwares e plataformas com suporte.
 
 > [!div class="mx-tableFixed"]
-> |  | iOS | Android | Windows 10 | Outros |
+> |  | iOS | Android | Windows 10 | Outro |
 > | --- | --- | --- | --- | --- |
 > | **Aplicativo nativo** | Sim | Sim | Sim |  |
 > | **Microsoft Edge** | Sim | Sim | Sim |  |
@@ -392,4 +392,3 @@ R: Termos de uso utiliza os seguintes pontos de extremidade para autenticação:
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Início Rápido: Exigir a aceitação dos termos de uso antes de acessar os aplicativos de nuvem](require-tou.md)
-- [Práticas recomendadas para acesso condicional no Azure Active Directory](best-practices.md)

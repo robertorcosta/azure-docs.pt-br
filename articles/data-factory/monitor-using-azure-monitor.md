@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: 6f0e688f3d483536e0d82186dd8e498cdadf97da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6862fa6c9dfa3e8ba26d6f07dc1d9096cf16f092
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87563544"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151912"
 ---
 # <a name="monitor-and-alert-data-factory-by-using-azure-monitor"></a>Monitorar e alertar Data Factory usando Azure Monitor
 
@@ -40,7 +40,7 @@ Data Factory armazena dados de execução de pipeline por apenas 45 dias. Use Az
   * Você deseja escrever consultas complexas em um conjunto avançado de métricas que são publicadas pelo Data Factory para monitorar. Você pode criar alertas personalizados nessas consultas via monitor.
   * Você quer monitorar os data factories. Você pode rotear dados de várias fábricas de dados para um único espaço de trabalho de monitoramento.
 
-Você também pode usar uma conta de armazenamento ou um namespace de Hub de eventos que não esteja na assinatura do recurso que emite logs. O usuário que define a configuração deve ter acesso de RBAC (controle de acesso baseado em função) apropriado para ambas as assinaturas.
+Você também pode usar uma conta de armazenamento ou um namespace de Hub de eventos que não esteja na assinatura do recurso que emite logs. O usuário que define a configuração deve ter acesso apropriado ao RBAC (controle de acesso baseado em função) do Azure para ambas as assinaturas.
 
 ## <a name="configure-diagnostic-settings-and-workspace"></a>Definir configurações de diagnóstico e espaço de trabalho
 
@@ -82,7 +82,7 @@ Crie ou adicione configurações de diagnóstico para seu data factory.
     > [!NOTE]
     > Como uma tabela de log do Azure não pode ter mais de 500 colunas, é **altamente recomendável** selecionar o _modo específico do recurso_. Para obter mais informações, consulte [log Analytics limitações conhecidas](../azure-monitor/platform/resource-logs-collect-workspace.md#column-limit-in-azurediagnostics).
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 Após alguns instantes, a nova configuração aparecerá na lista de configurações dessa data factory. Os logs de diagnóstico são transmitidos para esse espaço de trabalho assim que novos dados de evento são gerados. Até 15 minutos podem decorrer entre o momento em que um evento é emitido e quando ele aparece no Log Analytics.
 
@@ -221,7 +221,7 @@ PUT
 https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnosticSettings/service?api-version={api-version}
 ```
 
-##### <a name="headers"></a>headers
+##### <a name="headers"></a>Cabeçalhos
 
 * Substitua `{api-version}` por `2016-09-01`.
 * Substitua `{resource-id}` pela ID do recurso para o qual você deseja editar as configurações de diagnóstico. Para obter mais informações, consulte [usando grupos de recursos para gerenciar seus recursos do Azure](../azure-resource-manager/management/manage-resource-groups-portal.md).
@@ -269,7 +269,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| Propriedade | Type | Descrição |
+| Propriedade | Tipo | Description |
 | --- | --- | --- |
 | **storageAccountId** |String | A ID de recurso da conta de armazenamento para a qual você deseja enviar os logs de diagnóstico. |
 | **serviceBusRuleId** |String | A ID da regra de barramento de serviço do namespace do barramento de serviço no qual você deseja que os hubs de eventos sejam criados para os logs de diagnóstico de streaming. A ID da regra tem o formato `{service bus resource ID}/authorizationrules/{key name}` .|
@@ -341,7 +341,7 @@ GET
 https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnosticSettings/service?api-version={api-version}
 ```
 
-##### <a name="headers"></a>headers
+##### <a name="headers"></a>Cabeçalhos
 
 * Substitua `{api-version}` por `2016-09-01`.
 * Substitua `{resource-id}` pela ID do recurso para o qual você deseja editar as configurações de diagnóstico. Para obter mais informações, consulte [usando grupos de recursos para gerenciar seus recursos do Azure](../azure-resource-manager/management/manage-resource-groups-portal.md).
@@ -442,7 +442,7 @@ Para obter mais informações, consulte [configurações de diagnóstico](https:
 }
 ```
 
-| Propriedade | Type | Descrição | Exemplo |
+| Propriedade | Tipo | Descrição | Exemplo |
 | --- | --- | --- | --- |
 | **Level** |String | O nível dos logs de diagnóstico. Para logs de execução de atividade, defina o valor da propriedade como 4. | `4` |
 | **correlationId** |String | A ID exclusiva para acompanhar uma solicitação específica. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
@@ -488,7 +488,7 @@ Para obter mais informações, consulte [configurações de diagnóstico](https:
 }
 ```
 
-| Propriedade | Type | Descrição | Exemplo |
+| Propriedade | Tipo | Descrição | Exemplo |
 | --- | --- | --- | --- |
 | **Level** |String | O nível dos logs de diagnóstico. Para logs de execução de atividade, defina o valor da propriedade como 4. | `4` |
 | **correlationId** |String | A ID exclusiva para acompanhar uma solicitação específica. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
@@ -531,7 +531,7 @@ Para obter mais informações, consulte [configurações de diagnóstico](https:
 }
 ```
 
-| Propriedade | Type | Descrição | Exemplo |
+| Propriedade | Tipo | Descrição | Exemplo |
 | --- | --- | --- | --- |
 | **Level** |String | O nível dos logs de diagnóstico. Para logs de execução de atividade, defina o valor da propriedade como 4. | `4` |
 | **correlationId** |String | A ID exclusiva para acompanhar uma solicitação específica. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
@@ -568,7 +568,7 @@ Aqui estão os atributos de log das operações de início/parada/manutenção d
 }
 ```
 
-| Propriedade                   | Type   | Descrição                                                   | Exemplo                        |
+| Propriedade                   | Tipo   | Descrição                                                   | Exemplo                        |
 | -------------------------- | ------ | ------------------------------------------------------------- | ------------------------------ |
 | **time**                   | String | A hora do evento no formato UTC: `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 | **operationName**          | String | O nome da operação de IR do SSIS                            | `Start/Stop/Maintenance` |
@@ -608,7 +608,7 @@ Aqui estão os atributos de log das condições relacionadas às mensagens de ev
 }
 ```
 
-| Propriedade                   | Type   | Descrição                                                          | Exemplo                        |
+| Propriedade                   | Tipo   | Descrição                                                          | Exemplo                        |
 | -------------------------- | ------ | -------------------------------------------------------------------- | ------------------------------ |
 | **time**                   | String | A hora do evento no formato UTC: `YYYY-MM-DDTHH:MM:SS.00000Z`        | `2017-06-28T21:00:27.3534352Z` |
 | **operationName**          | String | Isso é definido como `YourSSISIRName-SSISPackageEventMessageContext`       | `mysqlmissisir-SSISPackageEventMessageContext` |
@@ -658,7 +658,7 @@ Aqui estão os atributos de log das mensagens de evento que são geradas pelas e
 }
 ```
 
-| Propriedade                   | Type   | Descrição                                                        | Exemplo                        |
+| Propriedade                   | Tipo   | Descrição                                                        | Exemplo                        |
 | -------------------------- | ------ | ------------------------------------------------------------------ | ------------------------------ |
 | **time**                   | String | A hora do evento no formato UTC: `YYYY-MM-DDTHH:MM:SS.00000Z`      | `2017-06-28T21:00:27.3534352Z` |
 | **operationName**          | String | Isso é definido como `YourSSISIRName-SSISPackageEventMessages`           | `mysqlmissisir-SSISPackageEventMessages` |
@@ -707,7 +707,7 @@ Aqui estão os atributos de log das estatísticas de executável que são gerado
 }
 ```
 
-| Propriedade                   | Type   | Descrição                                                      | Exemplo                        |
+| Propriedade                   | Tipo   | Descrição                                                      | Exemplo                        |
 | -------------------------- | ------ | ---------------------------------------------------------------- | ------------------------------ |
 | **time**                   | String | A hora do evento no formato UTC: `YYYY-MM-DDTHH:MM:SS.00000Z`    | `2017-06-28T21:00:27.3534352Z` |
 | **operationName**          | String | Isso é definido como `YourSSISIRName-SSISPackageExecutableStatistics`  | `mysqlmissisir-SSISPackageExecutableStatistics` |
@@ -752,7 +752,7 @@ Aqui estão os atributos de log das estatísticas de tempo de execução para co
 }
 ```
 
-| Propriedade                   | Type   | Descrição                                                         | Exemplo                        |
+| Propriedade                   | Tipo   | Descrição                                                         | Exemplo                        |
 | -------------------------- | ------ | ------------------------------------------------------------------- | ------------------------------ |
 | **time**                   | String | A hora do evento no formato UTC: `YYYY-MM-DDTHH:MM:SS.00000Z`       | `2017-06-28T21:00:27.3534352Z` |
 | **operationName**          | String | Isso é definido como `YourSSISIRName-SSISPackageExecutionComponentPhases` | `mysqlmissisir-SSISPackageExecutionComponentPhases` |
@@ -800,7 +800,7 @@ Aqui estão os atributos de log de movimentação de dados em cada segmento de p
 }
 ```
 
-| Propriedade                     | Type   | Descrição                                                        | Exemplo                        |
+| Propriedade                     | Tipo   | Descrição                                                        | Exemplo                        |
 | ---------------------------- | ------ | ------------------------------------------------------------------ | ------------------------------ |
 | **time**                     | String | A hora do evento no formato UTC: `YYYY-MM-DDTHH:MM:SS.00000Z`      | `2017-06-28T21:00:27.3534352Z` |
 | **operationName**            | String | Isso é definido como `YourSSISIRName-SSISPackageExecutionDataStatistics` | `mysqlmissisir-SSISPackageExecutionDataStatistics` |
@@ -829,19 +829,19 @@ Log Analytics herda o esquema do monitor com as seguintes exceções:
 * Não há nenhuma coluna de "nível".
 * A coluna dinâmica "Propriedades" é preservada como o tipo de blob JSON dinâmico a seguir.
 
-    | Azure Monitor coluna | Log Analytics coluna | Type |
+    | Azure Monitor coluna | Log Analytics coluna | Tipo |
     | --- | --- | --- |
     | $. Properties. UserProperties | UserProperties | Dinâmico |
     | $. Properties. Anotações | Anotações | Dinâmico |
     | $. Properties. Entrada | Entrada | Dinâmico |
     | $. Properties. Der | Saída | Dinâmico |
-    | $. Properties. Erro. errorCode | ErrorCode | INT |
-    | $. Properties. Erro. mensagem | ErrorMessage | cadeia de caracteres |
-    | $. Properties. Ao | Erro do | Dinâmico |
+    | $. Properties. Erro. errorCode | ErrorCode | int |
+    | $. Properties. Erro. mensagem | ErrorMessage | string |
+    | $. Properties. Ao | Erro | Dinâmico |
     | $. Properties. Predecessores | Predecessores | Dinâmico |
     | $. Properties. Parâmetro | Parâmetros | Dinâmico |
     | US $.properties.SystemParameters | SystemParameters | Dinâmico |
-    | $. Properties. Sinalizadores | Marcas | Dinâmico |
+    | $. Properties. Sinalizadores | Marcações | Dinâmico |
 
 ## <a name="monitor-ssis-operations-with-azure-monitor"></a>Monitorar operações do SSIS com o Azure Monitor
 

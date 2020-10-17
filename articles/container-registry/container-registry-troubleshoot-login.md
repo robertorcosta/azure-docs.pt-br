@@ -3,12 +3,12 @@ title: Solucionar problemas de logon no registro
 description: Sintomas, causas e resolução de problemas comuns ao fazer logon em um registro de contêiner do Azure
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: d5071a1e759d26ce43d2eb5d9b8215781d813d33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f7bac49a79d32af3a0e533f4c4e3431c62b82172
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91253347"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148445"
 ---
 # <a name="troubleshoot-registry-login"></a>Solucionar problemas de logon do registro
 
@@ -95,7 +95,7 @@ Links relacionados:
 
 ### <a name="confirm-credentials-are-authorized-to-access-registry"></a>Confirmar que as credenciais estão autorizadas a acessar o registro
 
-Confirme as permissões de registro associadas às credenciais, como a `AcrPull` função RBAC para efetuar pull de imagens do registro ou a `AcrPush` função para enviar imagens por push. 
+Confirme as permissões de registro que estão associadas às credenciais, como a `AcrPull` função do Azure para efetuar pull de imagens do registro ou a `AcrPush` função para enviar imagens por push. 
 
 O acesso a um registro no portal ou gerenciamento de registro usando o CLI do Azure requer pelo menos a `Reader` função para executar Azure Resource Manager operações.
 
@@ -103,7 +103,7 @@ Você ou um proprietário do registro deve ter privilégios suficientes na assin
 
 Links relacionados:
 
-* [Funções e permissões de RBAC-registro de contêiner do Azure](container-registry-roles.md)
+* [Funções e permissões do Azure-registro de contêiner do Azure](container-registry-roles.md)
 * [Logon com o token no escopo do repositório](container-registry-repository-scoped-permissions.md)
 * [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](../role-based-access-control/role-assignments-portal.md)
 * [Use o portal para criar um aplicativo do Azure AD e uma entidade de serviço que possa acessar recursos](../active-directory/develop/howto-create-service-principal-portal.md)
@@ -142,7 +142,5 @@ Se você não resolver o problema aqui, consulte as opções a seguir.
   * [Solucionar problemas de rede com o registro](container-registry-troubleshoot-access.md)
   * [Solucionar problemas de desempenho de registro](container-registry-troubleshoot-performance.md)
 * Opções de [suporte da Comunidade](https://azure.microsoft.com/support/community/)
-* [P e R da Microsoft](https://docs.microsoft.com/answers/products/)
+* [P e R da Microsoft](/answers/products/)
 * [Abrir um tíquete de suporte](https://azure.microsoft.com/support/create-ticket/) -com base nas informações fornecidas, um diagnóstico rápido pode ser executado para falhas de autenticação no registro
-
-

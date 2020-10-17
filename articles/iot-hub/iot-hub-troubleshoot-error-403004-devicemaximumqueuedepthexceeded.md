@@ -11,12 +11,12 @@ ms.author: jlian
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: fc5029f26e5d615502925c4def4e2973c118f38d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 421066ef30e23a79b26f97939cdfffb5be83afb5
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90029980"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148234"
 ---
 # <a name="403004-devicemaximumqueuedepthexceeded"></a>403004 DeviceMaximumQueueDepthExceeded
 
@@ -38,4 +38,4 @@ O padrão com suporte para mensagens da nuvem para o dispositivo com o HTTPS sã
 
 Como alternativa, aprimore a lógica do lado do dispositivo para concluir, rejeitar ou abandonar mensagens em fila rapidamente, encurtar o tempo de vida ou considere enviar menos mensagens. Consulte [vida útil da mensagem C2D](./iot-hub-devguide-messages-c2d.md#message-expiration-time-to-live).
 
-Por fim, considere usar a [API de limpeza da fila](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-registrymanager-h/iothubregistrymanager-deletedevice) para limpar periodicamente as mensagens pendentes antes que o limite seja atingido.
+Por fim, considere usar a [API de limpeza da fila](/azure/iot-hub/iot-c-sdk-ref/iothub-registrymanager-h/iothubregistrymanager-deletedevice) para limpar periodicamente as mensagens pendentes antes que o limite seja atingido.

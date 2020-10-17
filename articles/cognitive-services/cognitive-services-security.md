@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: erhopf
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 9b90d886923f4bbdab3715130bde15ecb5921636
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ceaa04fdf8776d4fab1db4cfb1b3df4298f28de9
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326806"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152290"
 ---
 # <a name="azure-cognitive-services-security"></a>Segurança de serviços cognitivas do Azure
 
@@ -33,7 +33,7 @@ Para usuários do .NET, considere as <a href="https://docs.microsoft.com/dotnet/
 
 ## <a name="authentication"></a>Autenticação
 
-Ao discutir a autenticação, há várias concepções comuns. A autenticação e a autorização geralmente são confusas entre si. A identidade também é um componente importante na segurança. Uma identidade é uma coleção de informações sobre uma <a href="https://en.wikipedia.org/wiki/Principal_(computer_security)" target="_blank">entidade <span class="docon docon-navigate-external x-hidden-focus"></span> de segurança </a>. Os IdP (provedores de identidade) fornecem identidades aos serviços de autenticação. A autenticação é o ato de verificar a identidade de um usuário. Autorização é a especificação de direitos de acesso e privilégios para recursos para uma determinada identidade. Várias ofertas de serviços cognitivas incluem o RBAC (controle de acesso baseado em função). O RBAC poderia ser usado para simplificar parte da cerimônia envolvida com o gerenciamento manual de entidades. Para obter mais detalhes, consulte [controle de acesso baseado em função para recursos do Azure](../role-based-access-control/overview.md).
+Ao discutir a autenticação, há várias concepções comuns. A autenticação e a autorização geralmente são confusas entre si. A identidade também é um componente importante na segurança. Uma identidade é uma coleção de informações sobre uma <a href="https://en.wikipedia.org/wiki/Principal_(computer_security)" target="_blank">entidade <span class="docon docon-navigate-external x-hidden-focus"></span> de segurança </a>. Os IdP (provedores de identidade) fornecem identidades aos serviços de autenticação. A autenticação é o ato de verificar a identidade de um usuário. Autorização é a especificação de direitos de acesso e privilégios para recursos para uma determinada identidade. Várias ofertas de serviços cognitivas incluem o Azure RBAC (controle de acesso baseado em função do Azure). O RBAC do Azure poderia ser usado para simplificar parte da cerimônia envolvida com o gerenciamento manual de entidades. Para obter mais detalhes, consulte [controle de acesso baseado em função do Azure para recursos do Azure](../role-based-access-control/overview.md).
 
 Para obter mais informações sobre autenticação com chaves de assinatura, tokens de acesso e Azure Active Directory (AAD), consulte <a href="https://docs.microsoft.com/azure/cognitive-services/authentication" target="_blank">autenticar <span class="docon docon-navigate-external x-hidden-focus"></span> solicitações para serviços cognitivas do Azure</a>.
 
@@ -206,7 +206,7 @@ Sistema de Proteção de Dados do Cliente está disponível para este serviço c
 Para os serviços a seguir, os engenheiros da Microsoft não acessarão nenhum dado do cliente na camada E0: 
 
 * Reconhecimento Vocal
-* Face
+* Detecção Facial
 * Content Moderator
 * Personalizador
 

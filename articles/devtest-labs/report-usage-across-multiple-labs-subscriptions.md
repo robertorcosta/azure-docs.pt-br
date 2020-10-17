@@ -3,16 +3,16 @@ title: Azure DevTest Labs o uso em vários laboratórios e assinaturas
 description: Saiba como relatar o uso de Azure DevTest Labs em vários laboratórios e assinaturas.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 1d2663113e929145308f5a5712b968f3551668c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9640dc3fd74095a737f382994201dc5610af921a
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87287275"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152206"
 ---
 # <a name="report-azure-devtest-labs-usage-across-multiple-labs-and-subscriptions"></a>Relatório de Azure DevTest Labs uso em vários laboratórios e assinaturas
 
-A maioria das grandes organizações deseja controlar o uso de recursos para ser mais eficiente com esses recursos visualizando tendências e exceções no uso. Com base no uso de recursos, os proprietários ou gerentes de laboratório podem personalizar os laboratórios para [melhorar o uso de recursos e os custos](../cost-management-billing/manage/getting-started.md). No Azure DevTest Labs, você pode baixar o uso de recursos por laboratório, permitindo uma análise mais profunda dos padrões de uso. Esses padrões de uso podem ajudar a identificar as alterações para melhorar a eficiência. A maioria das empresas quer o uso de laboratório individual e o uso geral em [vários laboratórios e assinaturas](/azure/architecture/cloud-adoption/decision-guides/subscriptions/). 
+A maioria das grandes organizações deseja controlar o uso de recursos para ser mais eficiente com esses recursos visualizando tendências e exceções no uso. Com base no uso de recursos, os proprietários ou gerentes de laboratório podem personalizar os laboratórios para [melhorar o uso de recursos e os custos](../cost-management-billing/cost-management-billing-overview.md). No Azure DevTest Labs, você pode baixar o uso de recursos por laboratório, permitindo uma análise mais profunda dos padrões de uso. Esses padrões de uso podem ajudar a identificar as alterações para melhorar a eficiência. A maioria das empresas quer o uso de laboratório individual e o uso geral em [vários laboratórios e assinaturas](/azure/architecture/cloud-adoption/decision-guides/subscriptions/). 
 
 Este artigo discute como lidar com informações de uso de recursos em vários laboratórios e assinaturas.
 

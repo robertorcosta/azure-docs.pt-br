@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 06/08/2020
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9cdf01c9dac3c37b3af7b07adb8d202761e7640
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c650c2b828e2742df5dd92657003460bcda66a0
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91258635"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145106"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Como: exigir dispositivos gerenciados para acesso ao aplicativo de nuvem com acesso condicional
 
@@ -126,4 +126,4 @@ No Windows 7, iOS, Android, macOS e alguns navegadores da Web de terceiros, o Az
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Antes de configurar uma política de acesso condicional com base no dispositivo em seu ambiente, você deve examinar as [práticas recomendadas para acesso condicional no Azure Active Directory](best-practices.md).
+[Avalie o impacto das políticas de acesso condicional antes de habilitar amplamente com o modo somente de relatório](concept-conditional-access-report-only.md).

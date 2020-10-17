@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: fc0ad45f575f9190f15b61acdf476c716b7f1638
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a073df78adbf0104d81a96eb92ea427f60e53b01
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90933798"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151850"
 ---
 # <a name="use-azure-data-studio-to-manage-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Use Azure Data Studio para gerenciar seu grupo de servidores de hiperescala PostgreSQL habilitado para o Azure Arc
 
@@ -61,9 +61,8 @@ A exibição do painel PostgreSQL:
 
 Isso apresenta vários painéis listados no lado esquerdo do painel:
 
-- **Visão geral:** Exibe informações de resumo sobre sua instância, como nome, ID de assinatura do Azure, configuração, versão do mecanismo de banco de dados, pontos de extremidade para Grafana e Kibana...
+- **Visão geral:** Exibe informações de resumo sobre sua instância, como nome, nome de usuário do administrador do PostgreSQL, ID da assinatura do Azure, configuração, versão do mecanismo de banco de dados, pontos de extremidade para Grafana e Kibana...
 - **Cadeias de conexão:** Exibe várias cadeias de conexão que podem ser necessárias para se conectar à instância do PostgreSQL, como psql, Node.js, PHP, Ruby...
-- **Propriedades:** Exibe várias propriedades, como o nome de usuário do administrador do PostgreSQL, o grupo de recursos associados para o recurso de sombra...
 - **Diagnosticar e resolver problemas:** É a página de aterrissagem na qual você encontrará vários recursos que ajudarão você a solucionar problemas de sua instância enquanto expandimos os notebooks de solução de problemas
 - **Nova solicitação de suporte:** É a página de aterrissagem da qual você poderá solicitar assistência de nossos serviços de suporte iniciando o anúncio de visualização pública.
 

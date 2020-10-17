@@ -4,12 +4,12 @@ description: Saiba como solucionar problemas comuns ao implantar, executar ou ge
 ms.topic: article
 ms.date: 06/25/2020
 ms.custom: mvc
-ms.openlocfilehash: 46d3ad6afb1761ca9503676ad2176482b7e4530e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b31f29cdc9cd15ebf3ba88769095bfd0ef2628d2
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86260755"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148611"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Solucionar problemas comuns nas Instâncias de Contêiner do Azure
 
@@ -24,11 +24,11 @@ Ao definir a especificação de contêiner, alguns parâmetros exigem aderência
 
 | Escopo | Comprimento | Capitalização | Caracteres válidos | Padrão sugerido | Exemplo |
 | --- | --- | --- | --- | --- | --- |
-| Nome do contêiner<sup>1</sup> | 1-63 |Letras minúsculas | Alfanumérico e hífen em qualquer lugar, exceto o primeiro ou último caractere |`<name>-<role>-container<number>` |`web-batch-container1` |
+| Nome do contêiner<sup>1</sup> | 1-63 |Minúsculas | Alfanumérico e hífen em qualquer lugar, exceto o primeiro ou último caractere |`<name>-<role>-container<number>` |`web-batch-container1` |
 | Portas de contêiner | Entre 1 e 65535 |Integer |Um número inteiro entre 1 e 65535 |`<port-number>` |`443` |
 | Rótulo do nome DNS | 5 a 63 |Não diferencia maiúsculas de minúsculas |Alfanumérico e hífen em qualquer lugar, exceto o primeiro ou último caractere |`<name>` |`frontend-site1` |
 | Variável de ambiente | 1-63 |Não diferencia maiúsculas de minúsculas |Alfanumérico e sublinhado (_) em qualquer lugar, exceto o primeiro ou último caractere |`<name>` |`MY_VARIABLE` |
-| Nome do volume | 5 a 63 |Letras minúsculas |Alfanuméricos e hifens em qualquer lugar, exceto o primeiro ou o último caractere. Não pode conter dois hífenes consecutivos. |`<name>` |`batch-output-volume` |
+| Nome do volume | 5 a 63 |Minúsculas |Alfanuméricos e hifens em qualquer lugar, exceto o primeiro ou o último caractere. Não pode conter dois hífenes consecutivos. |`<name>` |`batch-output-volume` |
 
 <sup>1</sup> Restrição também para nomes de grupos de contêineres quando não especificados independentemente de instâncias de contêiner, por exemplo, com `az container create` implantações de comando.
 
@@ -198,7 +198,7 @@ Na criação inicial, os contêineres do Windows podem não ter conectividade de
 
 ### <a name="cannot-connect-to-underlying-docker-api-or-run-privileged-containers"></a>Não é possível conectar à API do Docker subjacente ou executar contêineres com privilégios
 
-As Instâncias de Contêiner do Azure não expõem acesso direto para a infraestrutura subjacente que hospeda grupos de contêineres. Isso inclui o acesso à API do Docker em execução no host do contêiner e contêineres com privilégios em execução. Se exigir interação com o Docker, verifique a [Documentação de referência do REST](https://aka.ms/aci/rest) para ver o que é compatível com a API do ACI. Se faltar alguma coisa, envie uma solicitação nos [Fóruns de comentários do ACI](https://aka.ms/aci/feedback).
+As Instâncias de Contêiner do Azure não expõem acesso direto para a infraestrutura subjacente que hospeda grupos de contêineres. Isso inclui o acesso à API do Docker em execução no host do contêiner e contêineres com privilégios em execução. Se exigir interação com o Docker, verifique a [Documentação de referência do REST](/rest/api/container-instances/) para ver o que é compatível com a API do ACI. Se faltar alguma coisa, envie uma solicitação nos [Fóruns de comentários do ACI](https://aka.ms/aci/feedback).
 
 ### <a name="container-group-ip-address-may-not-be-accessible-due-to-mismatched-ports"></a>O endereço IP do grupo de contêineres pode não estar acessível devido a portas incompatíveis
 

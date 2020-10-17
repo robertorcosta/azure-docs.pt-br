@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 792486a78dfed606ce8317d9bc037221ae33d508
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3fd1ae82450c6203833a1e7b9947d516950c0330
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91767195"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146597"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages"></a>Aprimoramentos de mensagem para mensagens do Hub IoT do dispositivo para a nuvem
 
@@ -63,8 +63,8 @@ Os aprimoramentos podem ser configurados usando os seguintes métodos:
 | **Método** | **Comando** |
 | ----- | -----| 
 | Portal | [Azure portal](https://portal.azure.com) | Consulte o [tutorial de aprimoramentos de mensagem](tutorial-message-enrichments.md) | 
-| CLI do Azure   | [enriquecimento de mensagem AZ Hub IOT](https://docs.microsoft.com/cli/azure/iot/hub/message-enrichment?view=azure-cli-latest) |
-| Azure PowerShell | [Add-AzIotHubMessageEnrichment](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubmessageenrichment) |
+| CLI do Azure   | [enriquecimento de mensagem AZ Hub IOT](/cli/azure/iot/hub/message-enrichment?view=azure-cli-latest) |
+| Azure PowerShell | [Add-AzIotHubMessageEnrichment](/powershell/module/az.iothub/add-aziothubmessageenrichment) |
 
 Adicionar aprimoramentos de mensagem não adiciona latência ao roteamento de mensagens.
 

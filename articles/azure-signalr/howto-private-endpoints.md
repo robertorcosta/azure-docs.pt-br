@@ -8,12 +8,12 @@ ms.service: signalr
 ms.topic: article
 ms.date: 05/06/2020
 ms.author: dayshen
-ms.openlocfilehash: 645b2c643c1c1d4fe82eb5998a35ccc48536603e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80369883b84ca30cae475235d41addcfba7e52e1
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84302138"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152342"
 ---
 # <a name="use-private-endpoints-for-azure-signalr-service"></a>Usar pontos de extremidade privados para o serviço de Signaler do Azure
 
@@ -57,19 +57,19 @@ Quando você resolve o nome de domínio do serviço de Signaler do Azure de fora
 
 Para o exemplo ilustrado acima, os registros de recurso de DNS para o serviço de Signaler do Azure ' foobar ', quando resolvidos de fora da VNet que hospeda o ponto de extremidade privado, serão:
 
-| Nome                                                  | Type  | Valor                                                 |
+| Nome                                                  | Tipo  | Valor                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``foobar.service.signalr.net``                        | CNAME | ``foobar.privatelink.service.signalr.net``            |
-| ``foobar.privatelink.service.signalr.net``            | Um     | \<Azure SignalR Service public IP address\>           |
+| ``foobar.privatelink.service.signalr.net``            | A     | \<Azure SignalR Service public IP address\>           |
 
 Como mencionado anteriormente, você pode negar ou controlar o acesso para clientes fora da VNet por meio do ponto de extremidade público usando o controle de acesso à rede.
 
 Os registros de recurso DNS para ' foobar ', quando resolvidos por um cliente na VNet que hospeda o ponto de extremidade privado, serão:
 
-| Nome                                                  | Type  | Valor                                                 |
+| Nome                                                  | Tipo  | Valor                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``foobar.service.signalr.net``                        | CNAME | ``foobar.privatelink.service.signalr.net``            |
-| ``foobar.privatelink.service.signalr.net``            | Um     | 10.1.1.5                                              |
+| ``foobar.privatelink.service.signalr.net``            | A     | 10.1.1.5                                              |
 
 Essa abordagem habilita o acesso ao serviço de Signaler do Azure **usando a mesma cadeia de conexão** para clientes na vnet que hospedam os pontos de extremidade privados, bem como clientes fora da vnet.
 
@@ -82,8 +82,8 @@ O nome de zona DNS recomendado para pontos de extremidade privados para o servi�
 
 Para obter mais informações sobre como configurar seu próprio servidor DNS para dar suporte a pontos de extremidade privados, consulte os seguintes artigos:
 
-- [Resolução de nomes para recursos em redes virtuais do Azure](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
-- [Configuração de DNS para pontos de extremidade privados](/azure/private-link/private-endpoint-overview#dns-configuration)
+- [Resolução de nomes para recursos em redes virtuais do Azure](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)
+- [Configuração de DNS para pontos de extremidade privados](../private-link/private-endpoint-overview.md#dns-configuration)
 
 ## <a name="create-a-private-endpoint"></a>Criar um ponto de extremidade privado
 
@@ -182,7 +182,7 @@ Para obter mais informações sobre como configurar seu próprio servidor DNS pa
 
 Para obter detalhes de preço, confira [Preço do Link Privado do Azure](https://azure.microsoft.com/pricing/details/private-link).
 
-## <a name="known-issues"></a>Problemas conhecidos
+## <a name="known-issues"></a>Problemas Conhecidos
 
 Tenha em mente os seguintes problemas conhecidos sobre pontos de extremidade privados para o serviço de Signaler do Azure
 
@@ -198,7 +198,7 @@ Essa restrição é um resultado das alterações de DNS feitas quando o serviç
 
 ### <a name="network-security-group-rules-for-subnets-with-private-endpoints"></a>Regras de grupo de segurança de rede para sub-redes com pontos de extremidade privados
 
-No momento, não é possível configurar as regras do NSG ( [grupo de segurança de rede](../virtual-network/security-overview.md) ) e as rotas definidas pelo usuário para pontos de extremidade privados. As regras de NSG aplicadas à sub-rede que hospeda o ponto de extremidade privado são aplicadas ao ponto de extremidade privado. Uma solução alternativa limitada para esse problema é implementar suas regras de acesso para pontos de extremidade privados nas sub-redes de origem, embora essa abordagem possa exigir uma sobrecarga de gerenciamento maior.
+No momento, não é possível configurar as regras do NSG ( [grupo de segurança de rede](../virtual-network/network-security-groups-overview.md) ) e as rotas definidas pelo usuário para pontos de extremidade privados. As regras de NSG aplicadas à sub-rede que hospeda o ponto de extremidade privado são aplicadas ao ponto de extremidade privado. Uma solução alternativa limitada para esse problema é implementar suas regras de acesso para pontos de extremidade privados nas sub-redes de origem, embora essa abordagem possa exigir uma sobrecarga de gerenciamento maior.
 
 ## <a name="next-steps"></a>Próximas etapas
 

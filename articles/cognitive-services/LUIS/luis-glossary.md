@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 05/08/2020
-ms.openlocfilehash: 0f17e489cabb047ca2e9f0ad7406c34cd292e556
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc7dac3767ca5c9e2429f4691a458f88ad1af707
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91309482"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151978"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glossário de noções básicas de linguagem de conceitos e vocabulário comuns
 O Glossário de Reconhecimento vocal (LUIS) explica os termos que você pode encontrar enquanto trabalha com o serviço LUIS.
@@ -96,7 +96,7 @@ Uma [intenção](#intent) é um exemplo de classificador.
 
 ## <a name="collaborator"></a>Colaborador
 
-Um colaborador é conceitualmente a mesma coisa que um [contribuinte](#contributor). Um colaborador recebe acesso quando um proprietário adiciona o endereço de email do colaborador a um aplicativo que não é controlado com o controle de acesso baseado em função do Azure (RBAC do Azure). Se você ainda estiver usando colaboradores, deverá migrar sua conta do LUIS e usar os recursos de criação do LUIS para gerenciar os colaboradores com o RBAC.
+Um colaborador é conceitualmente a mesma coisa que um [contribuinte](#contributor). Um colaborador recebe acesso quando um proprietário adiciona o endereço de email do colaborador a um aplicativo que não é controlado com o controle de acesso baseado em função do Azure (RBAC do Azure). Se você ainda estiver usando colaboradores, deverá migrar sua conta do LUIS e usar os recursos de criação do LUIS para gerenciar colaboradores com o RBAC do Azure.
 
 ## <a name="contributor"></a>Colaborador
 
@@ -109,7 +109,7 @@ Consulte também:
 
 Um descritor é o termo usado anteriormente para um [recurso](#features)de aprendizado de máquina.
 
-## <a name="domain"></a>Domínio
+## <a name="domain"></a>Domain
 
 No contexto do LUIS, um domínio é uma área de conhecimento. Seu domínio é específico do seu cenário. Domínios diferentes usam uma terminologia e linguagem específica que têm significado no contexto do domínio. Por exemplo, se você estiver criando um aplicativo para reproduzir música, seu aplicativo teria termos e idioma específicos para música – palavras como "música, faixa, álbum, letras do lado do b, artista". Para obter exemplos de domínios, consulte [domínios predefinidos](#prebuilt-domain).
 
@@ -287,7 +287,7 @@ Em LUIS [listar entidades](reference-entity-list.md), você pode criar um valor 
 |--|--|
 |Pequena| o pouco, 8 onças|
 |Médio| regular, 12 onças|
-|grande| Big, 16 onças|
+|Grande| Big, 16 onças|
 |Xtra grande| o maior, 24 onças|
 
 O modelo retornará o valor normalizado para a entidade quando qualquer um dos sinônimos for visto na entrada.

@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: article
 ms.date: 06/8/2020
 ms.author: chenyl
-ms.openlocfilehash: cc7082744bc43baad2e26d09a83907540cf6a1df
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 9b6141e6009cb868d63429836f8c8f050c792ee5
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094068"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152294"
 ---
 # <a name="managed-identities-for-azure-signalr-service"></a>Identidades gerenciadas para o serviço de Signaler do Azure
 
@@ -28,7 +28,7 @@ Para configurar uma identidade gerenciada no portal do Azure, primeiro você cri
 
 2. Selecionar **Identidade**.
 
-4. Na guia **atribuído pelo sistema** , alterne o **status** para **ativado**. Selecione **Salvar**.
+4. Na guia **atribuído pelo sistema** , alterne o **status** para **ativado**. Clique em **Salvar**.
 
     :::image type="content" source="media/signalr-howto-use-managed-identity/system-identity-portal.png" alt-text="Adicionar uma identidade atribuída pelo sistema no portal":::
 
@@ -62,20 +62,20 @@ O serviço de Signaler do Azure é um serviço totalmente gerenciado, portanto, 
     - Vazio
     - ID do aplicativo (cliente) da entidade de serviço
     - URI da ID do aplicativo da entidade de serviço
-    - [ID de recurso de um serviço do Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities#azure-services-that-support-azure-ad-authentication)
+    - [ID de recurso de um serviço do Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)
 
     > [!NOTE]
     > Se você validar um token de acesso por conta própria em seu serviço, poderá escolher qualquer um dos formatos de recurso. Apenas certifique-se de que o valor do **recurso** nas configurações de **autenticação** e a validação são consistentes. Se você usar o controle de acesso baseado em função do Azure (RBAC do Azure) para um plano de dados, deverá usar o recurso que o provedor de serviços solicita.
 
 ### <a name="validate-access-tokens"></a>Validar tokens de acesso
 
-O token no `Authorization` cabeçalho é um [token de acesso da plataforma de identidade da Microsoft](https://docs.microsoft.com/azure/active-directory/develop/access-tokens#validating-tokens).
+O token no `Authorization` cabeçalho é um [token de acesso da plataforma de identidade da Microsoft](../active-directory/develop/access-tokens.md#validating-tokens).
 
 Para validar tokens de acesso, seu aplicativo também deve validar o público e os tokens de assinatura. Estes precisam ser validados em relação aos valores no documento de descoberta OpenID. Por exemplo, consulte a [versão independente de locatário do documento](https://login.microsoftonline.com/common/.well-known/openid-configuration).
 
-O middleware Azure Active Directory (Azure AD) tem recursos internos para validar tokens de acesso. Você pode navegar pelos nossos [exemplos](https://docs.microsoft.com/azure/active-directory/develop/sample-v2-code) para encontrar um no idioma de sua escolha.
+O middleware Azure Active Directory (Azure AD) tem recursos internos para validar tokens de acesso. Você pode navegar pelos nossos [exemplos](../active-directory/develop/sample-v2-code.md) para encontrar um no idioma de sua escolha.
 
-Fornecemos bibliotecas e exemplos de código que mostram como manipular a validação de token. Há também várias bibliotecas de parceiros de software livre disponíveis para validação JWT (JSON Web token). Há pelo menos uma opção para quase todas as plataformas e idiomas. Para obter mais informações sobre as bibliotecas de autenticação do Azure AD e exemplos de código, consulte [bibliotecas de autenticação da plataforma de identidade da Microsoft](https://docs.microsoft.com/azure/active-directory/develop/reference-v2-libraries).
+Fornecemos bibliotecas e exemplos de código que mostram como manipular a validação de token. Há também várias bibliotecas de parceiros de software livre disponíveis para validação JWT (JSON Web token). Há pelo menos uma opção para quase todas as plataformas e idiomas. Para obter mais informações sobre as bibliotecas de autenticação do Azure AD e exemplos de código, consulte [bibliotecas de autenticação da plataforma de identidade da Microsoft](../active-directory/develop/reference-v2-libraries.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

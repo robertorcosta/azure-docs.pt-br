@@ -4,12 +4,12 @@ description: Obtenha uma introdução rápida dos comandos do Lote na CLI do Azu
 ms.topic: how-to
 ms.date: 07/24/2018
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
-ms.openlocfilehash: 92d5e60f549855b39185564f7f6d2902b765cf76
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: bee25d9b8985f1627a5cfc05bfb336b83be60f74
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92055504"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144760"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Gerenciar recursos do Lote com a CLI do Azure
 
@@ -79,7 +79,7 @@ Você tem duas opções para autenticação na sua conta do Lote:
     
     Quando você entra no Azure interativamente, conforme descrito na seção anterior, as credenciais são armazenadas em cache para que a CLI do Azure possa entrar na conta do Lote usando as mesmas credenciais. Se você entrar no Azure usando uma entidade de serviço, essas credenciais também serão usadas para entrar na sua conta do Lote.
 
-    Uma vantagem do Azure AD é que ele oferece RBAC (controle de acesso baseado em função). Com o RBAC, acesso de um usuário depende de suas funções atribuídas em vez da posse ou não de chaves da conta. Em vez de gerenciar chaves de conta, você pode gerenciar funções do Azure e permitir que o Azure AD lide com o acesso e a autenticação.  
+    Uma vantagem do Azure AD é que ele oferece o Azure RBAC (controle de acesso baseado em função). Com o RBAC do Azure, o acesso de um usuário depende de sua função atribuída, em vez de ter ou não as chaves de conta. Em vez de gerenciar chaves de conta, você pode gerenciar funções do Azure e permitir que o Azure AD lide com o acesso e a autenticação.  
 
      Para entrar na sua conta do Lote usando o Azure AD, chame o comando [az batch account login](/cli/azure/batch/account#az-batch-account-login): 
 

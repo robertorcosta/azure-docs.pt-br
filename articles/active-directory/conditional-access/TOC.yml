@@ -92,8 +92,6 @@
       href: terms-of-use.md
     - name: Frequência de entrada e controles de persistência do navegador
       href: howto-conditional-access-session-lifetime.md
-    - name: Práticas recomendadas
-      href: best-practices.md
     - name: Solução de problemas
       items:
         - name: Solucionar problemas de entrada

@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
-ms.openlocfilehash: 53a861761f819c2127228e7ef688f04d91744d25
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c8c545f01eb0df53ce9677b7db6f931b4d21af9
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87081246"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151894"
 ---
 # <a name="how-to-connect-to-data-sources"></a>Como se conectar a fontes de dados
 ## <a name="introduction"></a>Introdução
@@ -40,7 +40,7 @@ Ao usar o menu "Abrir em..." para as fontes de dados no portal do Catálogo de D
 | Power Query |.xlsx |Excel 2016, Excel 2010 ou Excel 2013 com o Power Query para o suplemento do Excel instalado |
 | Power BI Desktop |.pbix |Power BI Desktop de julho de 2016 ou posterior |
 | Ferramentas de dados do SQL Server |vsweb:// |Visual Studio 2013 Atualização 4 ou posterior com ferramentas do SQL Server instaladas |
-| Gerenciador de Relatórios |http:// |Consulte [requisitos do navegador para os Serviços de Relatório do SQL Server](https://technet.microsoft.com/library/ms156511.aspx) |
+| Gerenciador de Relatórios |http:// |Consulte [requisitos do navegador para os Serviços de Relatório do SQL Server](/sql/reporting-services/browser-support-for-reporting-services-and-power-view) |
 
 ## <a name="your-data-your-tools"></a>Seus dados, suas ferramentas
 As opções disponíveis no menu dependerão do tipo de ativo de dados selecionado no momento. É claro que nem todas as ferramentas possíveis serão incluídas no menu "Abrir em...", mas ainda é fácil conectar-se à fonte de dados usando uma ferramenta de cliente. Quando um ativo de dados for selecionado no portal do **Catálogo de Dados do Azure**, o local completo será exibido no painel de propriedades.
@@ -59,5 +59,5 @@ Para facilitar a descoberta de uma fonte de dados para usuários que não tenham
 ## <a name="summary"></a>Resumo
 O registro de uma fonte de dados no **Catálogo de Dados do Azure** torna os dados descobríveis ao copiar metadados estruturais e descritivos da fonte de dados para o serviço Catálogo. Depois que uma fonte de dados for registrada e descoberta, os usuários poderão se conectar à fonte de dados do menu “Abrir no...” do portal **Catálogo de Dados do Azure** ou usando suas ferramentas de dados à sua escolha.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 * [Introdução ao Catálogo de Dados do Azure](data-catalog-get-started.md) para obter detalhes passo a passo sobre como conectar as fontes de dados.

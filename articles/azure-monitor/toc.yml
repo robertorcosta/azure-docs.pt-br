@@ -293,7 +293,7 @@
                 - name: PowerShell
                   href: platform/powershell-workspace-configuration.md
                 - name: Modelo do Resource Manager
-                  href: platform/template-workspace-configuration.md
+                  href: ./samples/resource-manager-workspace.md
             - name: Excluir e recuperar um workspace
               href: platform/delete-workspace.md
             - name: Gerenciar acesso

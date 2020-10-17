@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/24/2020
+ms.date: 10/16/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: f7d56ecc7fc6bd850fced33c2c1cf20902bb2df4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 280e5012f7c41a906b5b2e266840ea3c0cc315ba
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85361824"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151710"
 ---
 # <a name="list-azure-role-assignments-using-the-azure-portal"></a>Listar atribuições de função do Azure usando o portal do Azure
 
@@ -140,14 +140,9 @@ Se estiver ficando próximo do número máximo e tentar adicionar mais atribuiç
 
 ![Controle de acesso-Adicionar aviso de atribuição de função](./media/role-assignments-list-portal/add-role-assignment-warning.png)
 
-## <a name="download-role-assignments-preview"></a>Baixar atribuições de função (versão prévia)
+## <a name="download-role-assignments"></a>Baixar atribuições de função
 
 Você pode baixar atribuições de função em um escopo em formatos CSV ou JSON. Isso pode ser útil se você precisar inspecionar a lista em uma planilha ou fazer um inventário ao migrar uma assinatura.
-
-> [!IMPORTANT]
-> O download das atribuições de função está atualmente em visualização pública.
-> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
-> Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Ao baixar atribuições de função, você deve ter em mente os seguintes critérios:
 
@@ -163,7 +158,7 @@ Siga estas etapas para baixar atribuições de função em um escopo.
 
 1. Clique em **Controle de acesso (IAM)** .
 
-1. Clique em **baixar atribuições de função (versão prévia)** para abrir o painel baixar atribuições de função.
+1. Clique em **baixar atribuições de função** para abrir o painel de atribuições de função de download.
 
     ![Controle de acesso-baixar atribuições de função](./media/role-assignments-list-portal/download-role-assignments.png)
 

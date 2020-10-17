@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 06/09/2020
+ms.date: 10/16/2020
 ms.author: baselden
 author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ef10f51f058739b0e545d341b77af4313dd9e97
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: b90ca2812651e139fb62d86ba0bf4d181d5e9d76
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91992855"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145285"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Planejar uma implantação de acesso condicional
 
@@ -67,7 +67,7 @@ Se forem necessários recursos adicionais, talvez você também precise obter li
 Os recursos a seguir podem ser úteis à medida que você aprende sobre o acesso condicional:
 
 
-#### <a name="videos"></a>vídeos
+#### <a name="videos"></a>Vídeos
 
 * [O que é Acesso Condicional?](https://youtu.be/ffMAw2IVO7A)
 * [Como implantar acesso condicional?](https://youtu.be/c_izIRNJNuk)
@@ -291,11 +291,7 @@ O Azure Active Directory permite criar [locais denominados](location-condition.m
 
 ### <a name="plan-your-policy-deployment"></a>Planeje a implantação de política
 
-Quando novas políticas estiverem prontas para seu ambiente, certifique-se de examinar cada política antes de liberá-la, para evitar resultados indesejáveis. Consulte a documentação a seguir para entender informações importantes sobre como as políticas são aplicadas e como evitar problemas
-
-* [O que você deve saber](best-practices.md)
-
-* [O que você deve evitar](best-practices.md)
+Quando novas políticas estiverem prontas para seu ambiente, certifique-se de examinar cada política antes de liberá-la, para evitar resultados indesejáveis.
 
 ## <a name="common-policies"></a>Políticas comuns
 
@@ -462,10 +458,6 @@ A condição de localização de uma política de acesso condicional permite que
 ### <a name="terms-of-use"></a>Termos de uso
 
 Antes de acessar determinados aplicativos de nuvem em seu ambiente, talvez você queira obter o consentimento dos usuários ao aceitar os Termos de uso (ToU). Siga este [Início rápido para criar os Termos de uso](require-tou.md).
-
-### <a name="classic-policies"></a>Políticas clássicas
-
-No [portal do Azure](https://portal.azure.com/), as políticas de autoridade de certificação estão em Azure Active Directory > Segurança > Acesso Condicional. Sua organização também pode ter políticas de autoridade de certificação mais antigas não criadas usando esta página. Essas políticas são conhecidas como políticas clássicas. Recomendamos que você [considere a migração dessas políticas clássicas no portal do Azure](best-practices.md).
 
 ## <a name="troubleshoot-conditional-access"></a>Solucionar Problemas de Acesso Condicional
 

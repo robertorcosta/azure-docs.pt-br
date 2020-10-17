@@ -11,12 +11,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - 'Role: Technical Support'
-ms.openlocfilehash: 4a13d1ff030a63d3ccf33297f215909f5920e16a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8194f520abf5c8d4e47fa279f6cf82013024e9ec
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87327677"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152162"
 ---
 # <a name="iot-hub-device-streams-preview"></a>Fluxos de dispositivos do Hub IoT (versão prévia)
 
@@ -26,7 +26,7 @@ Os *fluxos de dispositivos* do Hub IoT do Azure facilitam a criação de túneis
 
 Ao usar os fluxos de dispositivos do Hub IoT, os dispositivos permanecem seguros e só precisarão abrir as conexões de TCP de saída para o ponto de extremidade de streaming do Hub IoT pela porta 443. Quando um fluxo é estabelecido, os aplicativos do lado do serviço e do lado do dispositivo têm acesso via programação a um objeto de cliente do WebSocket para enviar e receber os bytes brutos entre si. As garantias de confiabilidade e ordenação fornecidas por esse túnel são similares àquelas oferecidas por TCP.
 
-## <a name="benefits"></a>Vantagens
+## <a name="benefits"></a>Benefícios
 
 Os fluxos de dispositivos do Hub IoT oferecem os seguintes benefícios:
 
@@ -103,7 +103,7 @@ A saída é um objeto JSON com todos os pontos de extremidade que seu dispositiv
 ```
 
 > [!NOTE]
-> Verifique se a CLI do Azure versão 2.0.57 ou posterior está instalada. Você pode baixar a versão mais recente na página [instalar CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) .
+> Verifique se a CLI do Azure versão 2.0.57 ou posterior está instalada. Você pode baixar a versão mais recente na página [instalar CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) .
 >
 
 ## <a name="allow-outbound-connectivity-to-the-device-streaming-endpoints"></a>Permitir conectividade de saída para os pontos de extremidade de streaming do dispositivo
@@ -119,7 +119,7 @@ az iot hub devicestream show --name <YourIoTHubName>
 ```
 
 > [!NOTE]
-> Verifique se a CLI do Azure versão 2.0.57 ou posterior está instalada. Você pode baixar a versão mais recente na página [instalar CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) .
+> Verifique se a CLI do Azure versão 2.0.57 ou posterior está instalada. Você pode baixar a versão mais recente na página [instalar CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) .
 >
 
 ## <a name="troubleshoot-via-device-streams-activity-logs"></a>Solucionar problemas por meio de logs de atividades de fluxos de dispositivos
@@ -156,7 +156,7 @@ Dois lados de cada fluxo (no lado do dispositivo e do serviço) usam o SDK do Hu
 
 ## <a name="iot-hub-device-stream-samples"></a>Amostras de fluxo de dispositivo do Hub IoT
 
-Há duas [amostras de início rápido](/azure/iot-hub) disponíveis na página do Hub IOT. Eles demonstram o uso de fluxos de dispositivo por aplicativos.
+Há duas [amostras de início rápido](./index.yml) disponíveis na página do Hub IOT. Eles demonstram o uso de fluxos de dispositivo por aplicativos.
 
 * O exemplo *Echo* demonstra o uso programático de fluxos de dispositivo (chamando diretamente a API do SDK).
 

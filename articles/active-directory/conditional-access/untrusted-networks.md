@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 11/21/2019
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b2f9a6e13fdc39ab18a2056fab15982aa9fb0e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab9d544cc205d2971b2097110d8c36c5d85fa1fd
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88948157"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144989"
 ---
 # <a name="how-to-require-mfa-for-access-from-untrusted-networks-with-conditional-access"></a>Como: exigir MFA para acesso de redes não confiáveis com acesso condicional   
 
@@ -26,10 +26,7 @@ Este artigo fornece as informações necessárias para configurar uma política 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este artigo pressupõe que você esteja familiarizado com: 
-
-- Os [conceitos básicos](overview.md) de Acesso Condicional do Azure AD 
-- As [práticas recomendadas](best-practices.md) para configurar políticas de Acesso Condicional no portal do Azure
+Este artigo pressupõe que você esteja familiarizado com os [conceitos básicos](overview.md) do acesso condicional. 
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
@@ -57,15 +54,15 @@ Em vez de tentar definir quais são todos os locais confiáveis ou não confiáv
 
 - Incluir qualquer localização 
 
-   ![Acesso condicional](./media/untrusted-networks/02.png)
+   ![Acesso Condicional](./media/untrusted-networks/02.png)
 
 - Excluir todos os locais confiáveis 
 
-   ![Acesso condicional](./media/untrusted-networks/01.png)
+   ![Acesso Condicional](./media/untrusted-networks/01.png)
 
 ## <a name="policy-deployment"></a>Implantação de política
 
-Com a abordagem descrita neste artigo, agora você pode configurar uma política de acesso condicional para locais não confiáveis. Para garantir que sua política funcione conforme o esperado, a melhor prática é testá-la antes de distribuí-la em produção. O ideal é usar um locatário de teste para verificar se a nova política funciona conforme o esperado. Para obter mais informações, confira [Como implantar uma nova política](best-practices.md#how-should-you-deploy-a-new-policy). 
+Com a abordagem descrita neste artigo, agora você pode configurar uma política de acesso condicional para locais não confiáveis. Para garantir que sua política funcione conforme o esperado, a melhor prática é testá-la antes de distribuí-la em produção. O ideal é usar um locatário de teste para verificar se a nova política funciona conforme o esperado.
 
 ## <a name="next-steps"></a>Próximas etapas
 
