@@ -7,12 +7,12 @@ ms.date: 10/03/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: github-actions-azure
-ms.openlocfilehash: 3a5e319115c124551c05f2ac5aa393ba19596d0d
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: d6f66993b0fb7f97c551f4fbcb305111cfb2097e
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893349"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150275"
 ---
 # <a name="deploy-a-custom-container-to-app-service-using-github-actions"></a>Implantar um contêiner personalizado no serviço de aplicativo usando as ações do GitHub
 
@@ -33,7 +33,7 @@ Para um fluxo de trabalho de contêiner de serviço Azure App, o arquivo tem tr�
 - Uma conta do Azure com uma assinatura ativa. [Criar uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - Uma conta do GitHub. Se você não tiver uma, Inscreva-se [gratuitamente](https://github.com/join).  
 - Um registro de contêiner em funcionamento e um aplicativo de serviço de Azure App para contêineres. Este exemplo usa o registro de contêiner do Azure. 
-    - [Saiba como criar um aplicativo de Node.js em contêiner usando o Docker, enviar por push a imagem de contêiner para um registro e, em seguida, implantar a imagem no serviço Azure App](https://docs.microsoft.com/azure/developer/javascript/tutorial-vscode-docker-node-01)
+    - [Saiba como criar um aplicativo de Node.js em contêiner usando o Docker, enviar por push a imagem de contêiner para um registro e, em seguida, implantar a imagem no serviço Azure App](/azure/developer/javascript/tutorial-vscode-docker-node-01)
 
 ## <a name="generate-deployment-credentials"></a>Gerar credenciais de implantação
 

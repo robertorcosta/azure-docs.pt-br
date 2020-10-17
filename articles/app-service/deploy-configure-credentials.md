@@ -5,15 +5,15 @@ ms.topic: article
 ms.date: 08/14/2019
 ms.reviewer: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 50b3cae00110a64e4d95171822bf1d2a282d2cc1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 653110b953b6947254d5063a9e389505d45ea4cb
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715406"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149024"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configurar as credenciais de implantação do Serviço de Aplicativo do Azure
-O [Serviço de Aplicativo do Azure](https://go.microsoft.com/fwlink/?LinkId=529714) oferece suporte a dois tipos de credenciais para a [implantação local do Git](deploy-local-git.md) e a [implantação de FTP/S](deploy-ftp.md). Essas credenciais não são iguais às suas credenciais de assinatura do Azure.
+O [Serviço de Aplicativo do Azure](./overview.md) oferece suporte a dois tipos de credenciais para a [implantação local do Git](deploy-local-git.md) e a [implantação de FTP/S](deploy-ftp.md). Essas credenciais não são iguais às suas credenciais de assinatura do Azure.
 
 [!INCLUDE [app-service-deploy-credentials](../../includes/app-service-deploy-credentials.md)]
 
@@ -96,11 +96,11 @@ Para desabilitar o acesso básico de autenticação para a porta WebDeploy e o s
 az resource update --resource-group <resource-group> --name scm --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<site-name> --set properties.allow=false
 ```
 
-Para confirmar se as credenciais do perfil de publicação estão bloqueadas no WebDeploy, tente [publicar um aplicativo Web usando o Visual Studio 2019](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+Para confirmar se as credenciais do perfil de publicação estão bloqueadas no WebDeploy, tente [publicar um aplicativo Web usando o Visual Studio 2019](/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
 
 ### <a name="disable-access-to-the-api"></a>Desabilitar o acesso à API
 
-A API na seção anterior é apoiada no controle de acesso baseado em função do Azure (RBAC do Azure), o que significa que você pode [criar uma função personalizada](https://docs.microsoft.com/azure/role-based-access-control/custom-roles#steps-to-create-a-custom-role) e atribuir usuários de priveldged menores à função para que eles não possam habilitar a autenticação básica em nenhum site. Para configurar a função personalizada, [siga estas instruções](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#create-a-custom-rbac-role).
+A API na seção anterior é apoiada no controle de acesso baseado em função do Azure (RBAC do Azure), o que significa que você pode [criar uma função personalizada](../role-based-access-control/custom-roles.md#steps-to-create-a-custom-role) e atribuir usuários de priveldged menores à função para que eles não possam habilitar a autenticação básica em nenhum site. Para configurar a função personalizada, [siga estas instruções](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#create-a-custom-rbac-role).
 
 Você também pode usar [Azure monitor](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#audit-with-azure-monitor) para auditar quaisquer solicitações de autenticação bem-sucedidas e usar [Azure Policy](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#enforce-compliance-with-azure-policy) para impor essa configuração para todos os sites em sua assinatura.
 

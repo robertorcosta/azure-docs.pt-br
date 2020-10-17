@@ -6,13 +6,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: troubleshooting
-ms.date: 10/02/2020
-ms.openlocfilehash: 620fe1e693a177123e166220ab94bbd74c4826ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/15/2020
+ms.openlocfilehash: 1b61b643ea4b195878a1d12fc1ac4bb7fef23027
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761524"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151375"
 ---
 # <a name="troubleshoot-common-issues-in-azure-data-share"></a>Solucionar problemas comuns no Azure Data Share 
 
@@ -61,12 +61,20 @@ Se esta for a primeira vez que você está compartilhando ou recebendo dados do 
 O compartilhamento baseado em SQL requer permissões adicionais. Consulte [compartilhar de fontes SQL](how-to-share-from-sql.md) para obter uma lista detalhada de pré-requisitos.
 
 ## <a name="snapshot-failed"></a>Falha no instantâneo
-O instantâneo pode falhar por vários motivos. Você pode encontrar uma mensagem de erro detalhada clicando na hora de início do instantâneo e no status de cada conjunto de informações. Estas são as razões pelas quais o instantâneo falha:
+O instantâneo pode falhar por vários motivos. Você pode encontrar uma mensagem de erro detalhada clicando na hora de início do instantâneo e no status de cada conjunto de informações. Estes são os motivos comuns pelos quais o instantâneo falha:
 
 * O compartilhamento de dados não tem permissão para ler do armazenamento de dados de origem ou gravar no armazenamento de dados de destino. Consulte [funções e requisitos](concepts-roles-permissions.md) para obter os requisitos de permissão detalhados. Se esta for a primeira vez que você está fazendo um instantâneo, pode levar alguns minutos para que o recurso de compartilhamento de dados receba acesso ao armazenamento de dados do Azure. Aguarde alguns minutos e tente novamente.
 * A conexão de compartilhamento de dados com o repositório de dados de origem ou de destino está bloqueada pelo firewall.
 * O conjunto de dados compartilhado, ou de origem ou de destino, é excluído.
-* Para o compartilhamento SQL, os tipos de dados não são suportados pelo processo de instantâneo ou pelo armazenamento de dados de destino. Consulte [compartilhar de fontes SQL](how-to-share-from-sql.md#supported-data-types) para obter detalhes.
+
+Para fontes SQL, veja a seguir as causas adicionais de falhas de instantâneo. 
+
+* O script SQL de origem ou de destino para conceder permissão de compartilhamento de dados não é executado ou é executado usando a autenticação do SQL em vez de Azure Active Directory autenticação.  
+* O armazenamento de dados SQL de origem ou de destino está em pausa.
+* Os tipos de dados SQL não são suportados pelo processo de instantâneo ou pelo armazenamento de dados de destino. Consulte [compartilhar de fontes SQL](how-to-share-from-sql.md#supported-data-types) para obter detalhes.
+* O armazenamento de dados SQL de origem ou de destino está bloqueado por outros processos. O compartilhamento de dados do Azure não aplica bloqueios ao repositório de dados SQL de origem e de destino. No entanto, os bloqueios existentes no armazenamento de dados SQL de origem e de destino causarão falha de instantâneo.
+* A tabela SQL de destino é referenciada por uma restrição FOREIGN KEY. Durante o instantâneo, se existir uma tabela de destino com o mesmo nome, o compartilhamento de dados do Azure descartará a tabela e criará uma nova tabela. Se a tabela SQL de destino for referenciada por uma restrição FOREIGN KEY, a tabela não poderá ser descartada.
+* O arquivo CSV de destino é gerado, mas os dados não podem ser lidos no Excel. Isso pode acontecer quando a tabela SQL de origem contém dados com caracteres que não são do inglês. No Excel, selecione a guia "obter dados" e escolha o arquivo CSV, selecione origem do arquivo como 65001: Unicode (UTF-8) e carregar dados.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/1/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 9a2345dce542f941df0122acd12b4acedd3b49a3
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 46b764c9fcdb771f0a82fa47c0b1aa9112bb9e94
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047227"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150516"
 ---
 # <a name="auto-manage-devices-in-azure-digital-twins-using-device-provisioning-service-dps"></a>Gerenciar dispositivos automaticamente no gêmeos digital do Azure usando o DPS (serviço de provisionamento de dispositivos)
 
@@ -69,7 +69,7 @@ Quando um novo dispositivo é provisionado usando o serviço de provisionamento 
 
 Crie uma instância do serviço de provisionamento de dispositivos, que será usada para provisionar dispositivos IoT. Você pode usar as instruções de CLI do Azure abaixo ou usar o portal do Azure: [*início rápido: configurar o serviço de provisionamento de dispositivos no Hub IOT com o portal do Azure*](../iot-dps/quick-setup-auto-provision.md).
 
-O comando a seguir CLI do Azure criará um serviço de provisionamento de dispositivos. Será necessário especificar um nome, um grupo de recursos e uma região. O comando pode ser executado no [Cloud Shell](https://shell.azure.com)ou localmente se você tiver o CLI do Azure [instalado em seu computador](/cli/azure/install-azure-cli?view=azure-cli-latest).
+O comando a seguir CLI do Azure criará um serviço de provisionamento de dispositivos. Será necessário especificar um nome, um grupo de recursos e uma região. O comando pode ser executado no [Cloud Shell](https://shell.azure.com)ou localmente se você tiver o CLI do Azure [instalado em seu computador](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 
 ```azurecli
 az iot dps create --name <Device Provisioning Service name> --resource-group <resource group name> --location <region; for example, eastus>
@@ -79,7 +79,7 @@ az iot dps create --name <Device Provisioning Service name> --resource-group <re
 
 Em seguida, você criará uma função HTTP disparada por solicitação dentro de um aplicativo de funções. Você pode usar o aplicativo de funções criado no tutorial de ponta a ponta ([*tutorial: conectar uma solução de ponta a ponta*](tutorial-end-to-end.md)) ou seu próprio.
 
-Essa função será usada pelo serviço de provisionamento de dispositivos em uma política de [alocação personalizada](../iot-dps/how-to-use-custom-allocation-policies.md) que provisiona um novo dispositivo. Para obter mais informações sobre como usar solicitações HTTP com o Azure functions, consulte [*gatilho de solicitação de http do Azure para Azure Functions*](../azure-functions/functions-bindings-http-webhook-trigger.md).
+Essa função será usada pelo serviço de provisionamento de dispositivos em uma política de [alocação personalizada](../iot-dps/how-to-use-custom-allocation-policies.md) para provisionar um novo dispositivo. Para obter mais informações sobre como usar solicitações HTTP com o Azure functions, consulte [*gatilho de solicitação de http do Azure para Azure Functions*](../azure-functions/functions-bindings-http-webhook-trigger.md).
 
 Dentro de seu projeto de aplicativo de funções, adicione uma nova função. Além disso, adicione um novo pacote NuGet ao projeto: `Microsoft.Azure.Devices.Provisioning.Service` .
 
@@ -442,7 +442,7 @@ Salve o projeto e, em seguida, publique o aplicativo de funções novamente. Par
 
 Em seguida, você precisará definir variáveis de ambiente em seu aplicativo de funções anteriormente, contendo a referência à instância de gêmeos digital do Azure que você criou e o Hub de eventos. Se você usou o tutorial de ponta a ponta ([*tutorial: conectar uma solução de ponta a ponta*](./tutorial-end-to-end.md)), a primeira configuração já estará configurada.
 
-Adicione a configuração com este comando CLI do Azure. O comando pode ser executado no [Cloud Shell](https://shell.azure.com)ou localmente se você tiver o CLI do Azure [instalado em seu computador](/cli/azure/install-azure-cli?view=azure-cli-latest).
+Adicione a configuração com este comando CLI do Azure. O comando pode ser executado no [Cloud Shell](https://shell.azure.com)ou localmente se você tiver o CLI do Azure [instalado em seu computador](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 
 ```azurecli
 az functionapp config appsettings set --settings "ADT_SERVICE_URL=https://<Azure Digital Twins instance _host name_>" -g <resource group> -n <your App Service (function app) name>
@@ -475,7 +475,7 @@ Para disparar o processo de desativação, você precisa excluir manualmente o d
 
 Na [primeira metade deste artigo](#auto-provision-device-using-device-provisioning-service), você criou um dispositivo no Hub IOT e um teledigital correspondente. 
 
-Agora, vá para o Hub IoT e exclua esse dispositivo (você pode fazer isso com um [comando CLI do Azure](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-device-identity-delete) ou na [portal do Azure](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Devices%2FIotHubs)). 
+Agora, vá para o Hub IoT e exclua esse dispositivo (você pode fazer isso com um [comando CLI do Azure](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest&preserve-view=true#ext-azure-cli-iot-ext-az-iot-hub-device-identity-delete) ou na [portal do Azure](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Devices%2FIotHubs)). 
 
 O dispositivo será removido automaticamente do Azure digital gêmeos. 
 
@@ -488,11 +488,11 @@ az dt twin show -n <Digital Twins instance name> --twin-id <Device Registration 
 Você verá que o cópia do dispositivo não pode mais ser encontrado na instância do gêmeos digital do Azure.
 :::image type="content" source="media/how-to-provision-using-dps/show-retired-twin.png" alt-text="Uma exibição de um dispositivo e vários serviços do Azure em um cenário de ponta a ponta. Os dados fluem entre um dispositivo termostato e um DPS. Os dados também fluem do DPS para o Hub IoT e para o Azure digital gêmeos por meio de uma função do Azure rotulada como ' alocação '. Os dados de uma ação manual ' excluir dispositivo ' fluem por meio do Hub IoT > hubs de eventos > Azure Functions > Azure digital gêmeos.":::
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se você não precisar mais dos recursos criados neste artigo, siga estas etapas para excluí-los.
 
-Usando o CLI do Azure de Azure Cloud Shell ou local, você pode excluir todos os recursos do Azure em um grupo de recursos com o comando [AZ Group Delete](/cli/azure/group?view=azure-cli-latest#az-group-delete) . Isso remove o grupo de recursos; a instância do gêmeos digital do Azure; o Hub IoT e o registro do dispositivo de Hub; o tópico da grade de eventos e as assinaturas associadas; o namespace de hubs de eventos e ambos os Azure Functions aplicativos, incluindo recursos associados, como armazenamento.
+Usando o CLI do Azure de Azure Cloud Shell ou local, você pode excluir todos os recursos do Azure em um grupo de recursos com o comando [AZ Group Delete](/cli/azure/group?view=azure-cli-latest&preserve-view=true#az-group-delete) . Isso remove o grupo de recursos; a instância do gêmeos digital do Azure; o Hub IoT e o registro do dispositivo de Hub; o tópico da grade de eventos e as assinaturas associadas; o namespace de hubs de eventos e ambos os Azure Functions aplicativos, incluindo recursos associados, como armazenamento.
 
 > [!IMPORTANT]
 > A exclusão de um grupo de recursos é irreversível. O grupo de recursos e todos os recursos contidos nele são excluídos permanentemente. Não exclua acidentalmente o grupo de recursos ou os recursos incorretos. 

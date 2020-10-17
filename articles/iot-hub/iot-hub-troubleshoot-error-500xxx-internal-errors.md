@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
-ms.openlocfilehash: 7f3f5177e084693c45bed1088a4e1d091be100ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f83ec4d09389d91c2dd427c9840885c0b829eafb
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84688901"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150319"
 ---
 # <a name="500xxx-internal-errors"></a>500xxx Internal errors
 
@@ -37,4 +37,4 @@ Pode haver várias causas para uma resposta de erro 500xxx. Em todos os casos, o
 
 ## <a name="solution"></a>Solução
 
-Para atenuar erros de 500xxx, emita uma nova tentativa do dispositivo. Para [gerenciar automaticamente as novas tentativas](./iot-hub-reliability-features-in-sdks.md#connection-and-retry), certifique-se de usar a versão mais recente dos [SDKs do Azure IoT](./iot-hub-devguide-sdks.md). Como prática recomendada no tratamento de falhas transitórias e novas tentativas, consulte [tratamento de falhas transitórias](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults).  Se o problema persistir, verifique [Resource Health](./iot-hub-monitor-resource-health.md#use-azure-resource-health) e o [status do Azure](https://status.azure.com/) para ver se o Hub IOT tem um problema conhecido. Você também pode usar o [recurso de failover manual](./tutorial-manual-failover.md). Se não houver nenhum problema conhecido e o problema persistir, [entre em contato com o suporte](https://azure.microsoft.com/support/options/) para obter mais investigações.
+Para atenuar erros de 500xxx, emita uma nova tentativa do dispositivo. Para [gerenciar automaticamente as novas tentativas](./iot-hub-reliability-features-in-sdks.md#connection-and-retry), certifique-se de usar a versão mais recente dos [SDKs do Azure IoT](./iot-hub-devguide-sdks.md). Como prática recomendada no tratamento de falhas transitórias e novas tentativas, consulte [tratamento de falhas transitórias](/azure/architecture/best-practices/transient-faults).  Se o problema persistir, verifique [Resource Health](./iot-hub-monitor-resource-health.md#use-azure-resource-health) e o [status do Azure](https://status.azure.com/) para ver se o Hub IOT tem um problema conhecido. Você também pode usar o [recurso de failover manual](./tutorial-manual-failover.md). Se não houver nenhum problema conhecido e o problema persistir, [entre em contato com o suporte](https://azure.microsoft.com/support/options/) para obter mais investigações.

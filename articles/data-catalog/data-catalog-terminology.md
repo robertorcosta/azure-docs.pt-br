@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: d6c813dec3922334f7462b1226ea22371fd5f43b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e636a039302d2ea61c7135bff1fceb4763f25df
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68736284"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151453"
 ---
 # <a name="azure-data-catalog-terminology"></a>Terminologia do Catálogo de Dados do Azure
 
@@ -39,7 +39,7 @@ Metadados estruturais são metadados extraídos de uma fonte de dados que descre
 
 ## <a name="descriptive-metadata"></a>Metadados descritivos
 
-Metadados descritivos são metadados que descrevem a finalidade ou a intenção de um ativo de dados. Normalmente os metadados descritivos são adicionados por usuários de catálogo usando o portal do Catálogo de Dados do Azure, mas também podem ser extraídos da fonte de dados durante o registro. Por exemplo, a ferramenta de registro do Catálogo de Dados do Azure extrairá as descrições da propriedade Descrição no SQL Server Analysis Services e SQL Server Reporting Services, e da propriedade [estendida ms_description](https://technet.microsoft.com/library/ms190243.aspx) nos bancos de dados do SQL Server, caso essas propriedades estejam preenchidas com valores.
+Metadados descritivos são metadados que descrevem a finalidade ou a intenção de um ativo de dados. Normalmente os metadados descritivos são adicionados por usuários de catálogo usando o portal do Catálogo de Dados do Azure, mas também podem ser extraídos da fonte de dados durante o registro. Por exemplo, a ferramenta de registro do Catálogo de Dados do Azure extrairá as descrições da propriedade Descrição no SQL Server Analysis Services e SQL Server Reporting Services, e da propriedade [estendida ms_description](/previous-versions/sql/sql-server-2008-r2/ms190243(v=sql.105)) nos bancos de dados do SQL Server, caso essas propriedades estejam preenchidas com valores.
 
 ## <a name="request-access"></a>Solicitar acesso
 
@@ -86,4 +86,4 @@ Registro é o ato de extrair metadados de ativos de dados de uma fonte de dados 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Início Rápido: Criar um Catálogo de Dados do Azure](data-catalog-get-started.md) 
+[Início Rápido: Criar um Catálogo de Dados do Azure](data-catalog-get-started.md)

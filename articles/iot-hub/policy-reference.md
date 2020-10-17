@@ -7,16 +7,16 @@ author: robinsh
 ms.author: robinsh
 ms.service: iot-hub
 ms.custom: subject-policy-reference
-ms.openlocfilehash: bcb7a8e040a8e32a8513e5e0e73d6c124e04563a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66b74fd8fe326666d3c34b59acba383fd4205e17
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91816281"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151325"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-iot-hub"></a>Definições internas do Azure Policy para o Hub IoT do Azure
 
-Para o código de exemplo do Hub IoT que mostra como implementar cenários comuns de IoT, confira os [Inícios rápidos do Hub IoT](https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-cli). Há inícios rápidos para várias linguagens de programação, incluindo C, Node.js e Python.
+Para o código de exemplo do Hub IoT que mostra como implementar cenários comuns de IoT, confira os [Inícios rápidos do Hub IoT](./quickstart-send-telemetry-cli.md). Há inícios rápidos para várias linguagens de programação, incluindo C, Node.js e Python.
 
 Esta página é um índice de definições de políticas internas do [Azure Policy](../governance/policy/overview.md) para o Hub IoT do Azure. Para obter políticas internas adicionais do Azure Policy para outros serviços, confira [Definições internas do Azure Policy](../governance/policy/samples/built-in-policies.md).
 

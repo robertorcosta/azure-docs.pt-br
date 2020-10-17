@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 2dc802166b605ad7853c0910f1bab2a51f1f7297
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02bfb7da51f243de8320d0230259577e337231fd
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91574136"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149272"
 ---
 # <a name="securing-data-stored-in-azure-data-lake-storage-gen1"></a>Protegendo Dados Armazenados no Armazenamento de Data Lake do Azure Gen1
-A proteção de dados no Azure Data Lake Storage Gen1 é uma abordagem em três etapas.  Controle de acesso baseado em regra (RBAC) e listas de controle de acesso (ACLs) devem ser definidas para possibilitar o acesso completo a dados para usuários e grupos de segurança.
+A proteção de dados no Azure Data Lake Storage Gen1 é uma abordagem em três etapas.  Tanto o controle de acesso baseado em função do Azure (RBAC do Azure) quanto as listas de controle de acesso (ACLs) devem ser definidos para habilitar totalmente o acesso aos dados para usuários e grupos de segurança.
 
 1. Comece criando grupos de segurança no Azure Active Directory (Azure AD). Esses grupos de segurança são usados para implementar o controle de acesso baseado em função do Azure (RBAC do Azure) no portal do Azure. Para obter mais informações, consulte [RBAC do Azure](../role-based-access-control/role-assignments-portal.md).
 2. Atribua os grupos de segurança do Azure AD à conta de Data Lake Storage Gen1. Isso controla o acesso à conta do Data Lake Storage Gen1 do portal e das operações de gerenciamento do portal ou das APIs.
@@ -68,7 +68,7 @@ Quando você atribui usuários ou grupos de segurança a contas do Data Lake Sto
     Para as operações de dados, as permissões do sistema de arquivos individual definem o que os usuários podem fazer. Portanto, um usuário com uma função de Leitor pode exibir somente as configurações administrativas associadas à conta, mas possivelmente pode ler e gravar dados com base nas permissões de sistema de arquivo atribuídas a ele. As permissões do sistema de arquivos Data Lake Storage Gen1 são descritas em [Atribuir grupo de segurança como ACLs ao sistema de arquivos do Azure Data Lake Storage Gen1](#filepermissions).
 
     > [!IMPORTANT]
-    > Somente a função do **Proprietário** automaticamente habilita o acesso de sistema de arquivos. O **Colaborador**, **Leitor**, e todas as outras funções exigem ACLs para permitir qualquer nível de acesso a arquivos e pastas.  A função do **Proprietário** fornece arquivo de superusuário e permissões que não podem ser substituídas via ACLs. Para obter mais informações sobre como as políticas RBAC mapeiam o acesso a dados, consulte [RBAC para gerenciamento de conta](data-lake-store-security-overview.md#rbac-for-account-management).
+    > Somente a função do **Proprietário** automaticamente habilita o acesso de sistema de arquivos. O **Colaborador**, **Leitor**, e todas as outras funções exigem ACLs para permitir qualquer nível de acesso a arquivos e pastas.  A função do **Proprietário** fornece arquivo de superusuário e permissões que não podem ser substituídas via ACLs. Para obter mais informações sobre como as políticas RBAC do Azure são mapeadas para acesso a dados, consulte [RBAC do Azure para gerenciamento de conta](data-lake-store-security-overview.md#azure-rbac-for-account-management).
 
 4. Se você deseja adicionar um grupo/usuário não listado na folha **Adicionar permissões**, você pode convidá-los digitando seu endereço de email na caixa de texto **Selecionar**, e em seguida, selecione-os na lista.
    
@@ -147,11 +147,11 @@ Quando você remove as ACLs do grupo de segurança de um sistema de arquivos do 
    
     ![Captura de tela da folha de acesso com a opção de engenharia de dados chamada saída e a folha detalhes de acesso com a opção remover chamada out.](./media/data-lake-store-secure-data/adl.remove.acl.png "Atribuir permissões ao grupo")
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 * [Visão Geral do Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Copiar dados do Azure Storage Blobs para o Data Lake Storage Gen1](data-lake-store-copy-data-azure-storage-blob.md)
 * [Usar o Azure Data Lake Analytics com o Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Usar o Azure HDInsight com o Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
 * [Introdução ao Armazenamento do Data Lake Gen1 usando o PowerShell](data-lake-store-get-started-powershell.md)
-* [Comece a usar o Data Lake Storage Gen1 usando o .NET SDK](data-lake-store-get-started-net-sdk.md)
+* [Introdução ao Data Lake Storage Gen1 usando o SDK do .NET](data-lake-store-get-started-net-sdk.md)
 * [Acesse os logs de diagnóstico do Data Lake Storage Gen1](data-lake-store-diagnostic-logs.md)

@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: ef8b3865b0914c0d06ff69d20396f1ff368642bc
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: bcacd6c2e1353c71d8e4e25c95ee2b563e7b3fba
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102720"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150414"
 ---
 # <a name="indexer-connections-through-a-private-endpoint-azure-cognitive-search"></a>Conexões do indexador por meio de um ponto de extremidade privado (Azure Pesquisa Cognitiva)
 
@@ -33,7 +33,7 @@ Por meio de sua API REST de gerenciamento, o Azure Pesquisa Cognitiva fornece um
 
 As conexões de ponto de extremidade privado para alguns recursos só podem ser criadas com a versão de visualização da API de gerenciamento de pesquisa ( `2020-08-01-Preview` ou posterior), indicada com a marca "Preview" na tabela a seguir. Recursos sem a marca "visualização" podem ser criados usando a versão de API de visualização ou de disponibilidade geral ( `2020-08-01` ou posterior).
 
-Veja a seguir a lista de recursos do Azure para os quais os pontos de extremidade privados de saída podem ser criados a partir do Azure Pesquisa Cognitiva. `groupId` listado na tabela abaixo precisa ser usado exatamente (diferenciando maiúsculas de minúsculas) na API para criar um recurso de link privado compartilhado.
+Veja a seguir a lista de recursos do Azure para os quais os pontos de extremidade privados de saída podem ser criados a partir do Azure Pesquisa Cognitiva. Os `groupId` valores listados na tabela a seguir precisam ser usados exatamente como gravados (diferenciando maiúsculas de minúsculas) na API para criar um recurso de link privado compartilhado.
 
 | Recursos do Azure | ID do Grupo |
 | --- | --- |
@@ -47,7 +47,7 @@ Veja a seguir a lista de recursos do Azure para os quais os pontos de extremidad
 
 A lista de recursos do Azure para os quais há suporte para conexões de ponto de extremidade privadas de saída também pode ser consultada usando a [API de lista com suporte](/rest/api/searchmanagement/privatelinkresources/listsupported).
 
-Neste artigo, uma combinação de [ARMClient](https://github.com/projectkudu/ARMClient) e [postmaster](https://www.postman.com/) é usada para demonstrar as chamadas à API REST.
+No restante deste artigo, uma combinação de [ARMClient](https://github.com/projectkudu/ARMClient) e [postmaster](https://www.postman.com/) é usada para demonstrar as chamadas à API REST.
 
 > [!NOTE]
 > Ao longo deste artigo, suponha que o nome do serviço de pesquisa é __contoso-Search,__ que existe no grupo de recursos __contoso__ de uma assinatura com a ID de assinatura __00000000-0000-0000-0000-000000000000__. A ID de recurso deste serviço de pesquisa será `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search`

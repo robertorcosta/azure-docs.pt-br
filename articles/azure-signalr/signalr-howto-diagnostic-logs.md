@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: wanl
-ms.openlocfilehash: 55482457058d01162116494b637661db40010a50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b0c1a91df30ee6a88f055dc47cfdef339e2ee2b2
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85131952"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151059"
 ---
 # <a name="resource-logs-for-azure-signalr-service"></a>Logs de recursos do serviço de Signaler do Azure
 
@@ -20,8 +20,8 @@ Este tutorial discute quais logs de recursos do serviço de Signaler do Azure s�
 ## <a name="prerequisites"></a>Pré-requisitos
 Para habilitar os logs de recursos, você precisará de algum lugar para armazenar os dados de log. Este tutorial usa o armazenamento do Azure e o Log Analytics.
 
-* [Armazenamento do Azure](../azure-monitor/platform/resource-logs-collect-storage.md) – mantém logs de recursos para auditoria de política, análise estática ou backup.
-* [Log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md) -uma ferramenta de análise e pesquisa de logs flexível que permite a análise de logs brutos gerados por um recurso do Azure.
+* [Armazenamento do Azure](../azure-monitor/platform/resource-logs.md#send-to-azure-storage) – mantém logs de recursos para auditoria de política, análise estática ou backup.
+* [Log Analytics](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace) -uma ferramenta de análise e pesquisa de logs flexível que permite a análise de logs brutos gerados por um recurso do Azure.
 
 ## <a name="set-up-resource-logs-for-an-azure-signalr-service"></a>Configurar logs de recursos para um serviço de Signaler do Azure
 
@@ -68,7 +68,7 @@ As cadeias de caracteres JSON do log de arquivo incluem os elementos listados na
 
 **Formato**
 
-Nome | Descrição
+Name | Descrição
 ------- | -------
 time | Hora do evento de log
 nível | Nível de evento de log
@@ -81,7 +81,7 @@ properties | Propriedades detalhadas relacionadas a esse evento de log. Para obt
 
 **Tabela de propriedades**
 
-Nome | Descrição
+Name | Descrição
 ------- | -------
 type | Tipo do evento de log. Atualmente, fornecemos informações sobre a conectividade com o serviço de Signaler do Azure. Somente o `ConnectivityLogs` tipo está disponível
 collection | Coleção do evento de log. Os valores permitidos são: `Connection` , `Authorization` e `Throttling`
@@ -128,7 +128,7 @@ Para exibir os logs de recursos, siga estas etapas:
 
 As colunas de log de arquivo incluem os elementos listados na tabela a seguir:
 
-Nome | Descrição
+Name | Descrição
 ------- | ------- 
 TimeGenerated | Hora do evento de log
 Coleção | Coleção do evento de log. Os valores permitidos são: `Connection` , `Authorization` e `Throttling`
@@ -162,7 +162,7 @@ A diferença entre `ConnectionAborted` e `ConnectionEnded` é que é `Connection
 
 Os motivos de anulação são listados na tabela a seguir:
 
-Motivo | Descrição
+Motivo | Description
 ------- | ------- 
 A contagem de conexões atinge o limite | A contagem de conexões atinge o limite do seu tipo de preço atual. Considerar a escala vertical da unidade de serviço
 O servidor de aplicativos fechou a conexão | O servidor de aplicativos dispara o abortion. Ele pode ser considerado como um abortion esperado

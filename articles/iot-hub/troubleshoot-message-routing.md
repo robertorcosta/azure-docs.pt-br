@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: asrastog
-ms.openlocfilehash: 871a4c7d99fc44cf9868f19e41560e6e7a2e22f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84be56ae372f8a902b12c06f9ce93c1f7210dc5b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84793277"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150592"
 ---
 # <a name="troubleshooting-message-routing"></a>Solucionando problemas de roteamento de mensagens
 
@@ -42,7 +42,7 @@ Todas as [métricas do Hub IOT](iot-hub-devguide-endpoints.md) relacionadas ao r
 Observe os **routes** [logs de diagnóstico](iot-hub-monitor-resource-health.md#routes) de rotas para obter mais informações sobre as [operações](#operation-names) de roteamento e ponto de extremidade, ou identificar erros e [código de erro](#common-error-codes) relevante para entender ainda mais o problema. Por exemplo, o nome da operação **RouteEvaluationError** no log indica que a rota não pôde ser avaliada devido a um problema com o formato da mensagem. Use as dicas fornecidas para os [nomes de operação](#operation-names) específicos para atenuar o problema. Quando um evento é registrado como um erro, o log também fornecerá mais informações sobre o motivo da falha na avaliação. Por exemplo, se o nome da operação for **EndpointUnhealthy**, os [códigos de erro](#common-error-codes) 403004 indicarão que o ponto de extremidade ficou sem espaço.
 
 #### <a name="the-health-of-the-endpoint"></a>A integridade do ponto de extremidade
-Use a integridade de ponto de [extremidade Get](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) da API REST para obter o [status de integridade](iot-hub-devguide-endpoints.md#custom-endpoints) dos pontos de extremidade. A API *obter integridade do ponto de extremidade* também fornece informações sobre a última vez em que uma mensagem foi enviada com êxito ao ponto de extremidade, o [último erro conhecido](#last-known-errors-for-iot-hub-routing-endpoints), o último tempo de erro conhecido e a última vez que uma tentativa de envio foi feita para esse ponto de extremidade. Use a atenuação possível fornecida para o [último erro conhecido](#last-known-errors-for-iot-hub-routing-endpoints)específico.
+Use a integridade de ponto de [extremidade Get](/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) da API REST para obter o [status de integridade](iot-hub-devguide-endpoints.md#custom-endpoints) dos pontos de extremidade. A API *obter integridade do ponto de extremidade* também fornece informações sobre a última vez em que uma mensagem foi enviada com êxito ao ponto de extremidade, o [último erro conhecido](#last-known-errors-for-iot-hub-routing-endpoints), o último tempo de erro conhecido e a última vez que uma tentativa de envio foi feita para esse ponto de extremidade. Use a atenuação possível fornecida para o [último erro conhecido](#last-known-errors-for-iot-hub-routing-endpoints)específico.
 
 ### <a name="i-suddenly-stopped-getting-messages-at-the-built-in-endpoint"></a>Repentinamente, parei de receber mensagens no ponto de extremidade interno
 
@@ -52,9 +52,9 @@ Para solucionar esse problema, analise o seguinte.
 Depois que uma rota é criada, os dados param de fluir para o ponto de extremidade interno, a menos que uma rota seja criada para esse ponto de extremidade. Para garantir que as mensagens continuem a fluir para o ponto de extremidade interno se uma nova rota for adicionada, configure uma rota para o ponto de extremidade de *eventos* . 
 
 #### <a name="was-the-fallback-route-disabled"></a>A rota de fallback foi desabilitada?
-A rota de fallback envia todas as mensagens que não satisfazem as condições de consulta em nenhuma das rotas existentes para os [hubs de eventos internos](iot-hub-devguide-messages-read-builtin.md) (mensagens/eventos) que são compatíveis com os [hubs de eventos](https://docs.microsoft.com/azure/event-hubs/). Se o roteamento de mensagens estiver habilitado, você poderá habilitar a funcionalidade de rota de fallback. Se não houver nenhuma rota para o ponto de extremidade interno e houver uma rota de fallback habilitada, somente as mensagens que não corresponderem a nenhuma condição de consulta nas rotas serão enviadas ao ponto de extremidade interno. Além disso, se todas as rotas existentes forem excluídas, a rota de fallback precisará ser habilitada para receber todos os dados no ponto de extremidade interno.
+A rota de fallback envia todas as mensagens que não satisfazem as condições de consulta em nenhuma das rotas existentes para os [hubs de eventos internos](iot-hub-devguide-messages-read-builtin.md) (mensagens/eventos) que são compatíveis com os [hubs de eventos](../event-hubs/index.yml). Se o roteamento de mensagens estiver habilitado, você poderá habilitar a funcionalidade de rota de fallback. Se não houver nenhuma rota para o ponto de extremidade interno e houver uma rota de fallback habilitada, somente as mensagens que não corresponderem a nenhuma condição de consulta nas rotas serão enviadas ao ponto de extremidade interno. Além disso, se todas as rotas existentes forem excluídas, a rota de fallback precisará ser habilitada para receber todos os dados no ponto de extremidade interno.
 
-Você pode habilitar/desabilitar a rota de fallback na folha de roteamento de mensagens portal do Azure >. Você também pode usar o Azure Resource Manager para [FallbackRouteProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) para usar um ponto de extremidade personalizado para a rota de fallback.
+Você pode habilitar/desabilitar a rota de fallback na folha de roteamento de mensagens portal do Azure >. Você também pode usar o Azure Resource Manager para [FallbackRouteProperties](/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) para usar um ponto de extremidade personalizado para a rota de fallback.
 
 ## <a name="last-known-errors-for-iot-hub-routing-endpoints"></a>Últimos erros conhecidos para pontos de extremidade de roteamento do Hub IoT
 

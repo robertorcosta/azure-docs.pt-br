@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 10/02/2020
-ms.openlocfilehash: 3f243a1a8d4f4b3ee4688ac3942debee5282a9a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/15/2020
+ms.openlocfilehash: 1bf5966ab3e4bb62c2be302a7791cadad9761a70
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761916"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150374"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Compartilhar e receber dados do Banco de Dados SQL do Azure e do Azure Synapse Analytics
 
@@ -264,7 +264,7 @@ Quando você compartilha dados da fonte SQL, o mapeamento a seguir é usado de S
 | SMALLINT |Int16 |
 | SMALLMONEY |Decimal |
 | sql_variant |Objeto |
-| text |String, Char[] |
+| texto |String, Char[] |
 | time |TimeSpan |
 | timestamp |Byte[] |
 | TINYINT |Int16 |
@@ -277,7 +277,23 @@ Quando você compartilha dados da fonte SQL, o mapeamento a seguir é usado de S
 > 1. Para tipos de dados que são mapeados para o tipo provisório decimal, o instantâneo atualmente dá suporte à precisão de até 28. Se você tiver dados que exijam precisão maior que 28, considere converter para uma cadeia de caracteres. 
 > 1.  Se você estiver compartilhando dados de um banco de dados SQL do Azure para o Azure Synapse Analytics, nem todos os tipos de dado têm suporte. Consulte [tipos de dados de tabela no pool SQL do Synapse](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-data-types) para obter detalhes. 
 
+## <a name="sql-always-encrypted-or-dynamic-data-masking"></a>SQL Always Encrypted ou Máscara de Dados Dinâmicos
+Atualmente, o compartilhamento de dados do Azure não oferece suporte a bancos de dados SQL do Azure com Always Encrypted configurado. 
+
+Para tabelas SQL de origem com máscara de dados dinâmicos, os dados aparecerão mascarados no lado do destinatário.
+
+## <a name="sql-snapshot-performance"></a>Desempenho de instantâneo do SQL
+O desempenho do instantâneo do SQL é afetado por vários fatores. É sempre recomendável realizar seus próprios testes de desempenho. Veja abaixo alguns fatores de exemplo que afetam o desempenho.
+
+* Configuração de hardware (por exemplo, vCores, Memory, DWU) do armazenamento de dados SQL de origem e de destino. 
+* Acesso simultâneo aos armazenamentos de dados de origem e de destino. Se você estiver compartilhando várias tabelas e exibições do mesmo armazenamento de dados SQL, ou receber várias tabelas e exibições no mesmo armazenamento de dados SQL, o desempenho será afetado.   
+* Local dos armazenamentos de dados de origem e de destino. 
+
+## <a name="troubleshoot-sql-snapshot-failure"></a>Solucionar falhas de instantâneo do SQL
+A causa mais comum de falha de instantâneo é que o compartilhamento de dados não tem permissão para o armazenamento de dados de origem ou de destino. Para conceder permissão de compartilhamento de dados para o armazenamento de dados SQL de origem ou de destino, você deve executar o script SQL fornecido ao conectar-se ao SQL Database usando a autenticação Azure Active Directory. Para solucionar falhas adicionais de instantâneo de SQL, consulte [solucionar problemas de instantâneo](data-share-troubleshoot.md#snapshot-failed).
 
 ## <a name="next-steps"></a>Próximas etapas
-Você aprendeu como compartilhar e receber dados da conta de armazenamento usando o serviço de compartilhamento de dados do Azure. Para saber mais sobre o compartilhamento de outras fontes de dados, continue com [os armazenamentos de dados com suporte](supported-data-stores.md).
+Você aprendeu a compartilhar e receber dados de fontes SQL usando o serviço de compartilhamento de dados do Azure. Para saber mais sobre o compartilhamento de outras fontes de dados, continue com [os armazenamentos de dados com suporte](supported-data-stores.md).
+
+
 

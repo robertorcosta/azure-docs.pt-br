@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: robinsh
-ms.openlocfilehash: c54853717f7e0b234df013e5aee575682d0d3d97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 370ea2f16632ae18142f0770742e5a52d3cabae0
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75429146"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151658"
 ---
 # <a name="how-to-clone-an-azure-iot-hub-to-another-region"></a>Como clonar um hub IoT do Azure para outra região
 
@@ -107,7 +107,7 @@ Esta seção fornece instruções específicas para migrar o Hub.
 
 ### <a name="find-the-original-hub-and-export-it-to-a-resource-template"></a>Localize o Hub original e exporte-o para um modelo de recurso.
 
-1. Faça logon no [Portal do Azure](https://portal.azure.com). 
+1. Entre no [portal do Azure](https://portal.azure.com). 
 
 1. Vá para **grupos de recursos** e selecione o grupo de recursos que contém o Hub que você deseja mover. Você também pode acessar **recursos** e encontrar o Hub dessa maneira. Selecione o Hub.
 
@@ -347,7 +347,7 @@ Agora você tem um modelo que criará um novo hub que parece quase exatamente co
 
 Crie o novo hub no novo local usando o modelo. Se você tiver recursos de roteamento que serão movidos, os recursos deverão ser configurados no novo local e as referências no modelo serão atualizadas para corresponder. Se você não estiver movendo os recursos de roteamento, eles deverão estar no modelo com as chaves atualizadas.
 
-1. Faça logon no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 
 1. Selecione **Criar um recurso**. 
 
@@ -385,7 +385,7 @@ O Portal agora valida o modelo e implanta o Hub clonado. Se você tiver dados de
 
 Agora que seu clone está em execução, você precisa copiar todos os dispositivos do Hub original para o clone. 
 
-Há várias maneiras de realizar isso. Você usou originalmente o [DPS (serviço de provisionamento de dispositivos)](/azure/iot-dps/about-iot-dps)para provisionar os dispositivos ou não fez isso. Se você fez isso, isso não é difícil. Se você não fez isso, isso pode ser muito complicado. 
+Há várias maneiras de realizar isso. Você usou originalmente o [DPS (serviço de provisionamento de dispositivos)](../iot-dps/about-iot-dps.md)para provisionar os dispositivos ou não fez isso. Se você fez isso, isso não é difícil. Se você não fez isso, isso pode ser muito complicado. 
 
 Se você não usou o DPS para provisionar seus dispositivos, poderá ignorar a próxima seção e começar a [usar a importação/exportação para mover os dispositivos para o novo hub](#using-import-export-to-move-the-devices-to-the-new-hub).
 
@@ -601,4 +601,4 @@ Para obter mais informações sobre o Hub IoT e o desenvolvimento para o Hub, co
 
 * [Visão geral do gerenciamento de dispositivos do Hub IoT](iot-hub-device-management-overview.md)
 
-* Se você quiser implantar o aplicativo de exemplo, consulte [implantação de aplicativo do .NET Core](https://docs.microsoft.com/dotnet/core/deploying/index).
+* Se você quiser implantar o aplicativo de exemplo, consulte [implantação de aplicativo do .NET Core](/dotnet/core/deploying/index).

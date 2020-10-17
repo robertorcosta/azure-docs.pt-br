@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: troubleshooting
 ms.date: 05/06/2020
-ms.openlocfilehash: a09989e57729862cb18f148f95eb83f81a775b7d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8eb37b993ee5bc3944228cba72be0557b52e3dc6
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542216"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149265"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Perguntas frequentes sobre o LUIS (Serviço Inteligente de Reconhecimento Vocal)
 
@@ -77,7 +77,7 @@ Leia mais sobre [erros de importação de versão](luis-how-to-manage-versions.m
 
 ## <a name="collaborating-and-contributing"></a>Colaborando e contribuindo
 
-### <a name="how-do-i-give-collaborators-access-to-luis-with-azure-active-directory-azure-ad-or-role-based-access-control-rbac"></a>Como posso dar aos colaboradores acesso ao LUIS com Azure AD (Azure Active Directory) ou RBAC (controle de acesso baseado em função)?
+### <a name="how-do-i-give-collaborators-access-to-luis-with-azure-active-directory-azure-ad-or-azure-role-based-access-control-azure-rbac"></a>Como fazer fornecer aos colaboradores acesso ao LUIS com Azure Active Directory (Azure AD) ou controle de acesso baseado em função do Azure (RBAC do Azure)?
 
 Confira [Recursos do Azure Active Directory](luis-how-to-collaborate.md#azure-active-directory-resources) e [Usuário do locatário do Azure Active Directory](luis-how-to-collaborate.md#azure-active-directory-tenant-user) para saber como conceder acesso aos colaboradores.
 

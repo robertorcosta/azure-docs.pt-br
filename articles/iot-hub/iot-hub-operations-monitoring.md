@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: nberdy
 ms.custom: amqp, devx-track-csharp
-ms.openlocfilehash: 9d9824be536ca657d9213a47898ad19b0c39d8b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 956a676709322860da7f08d032d370ed66f55b3f
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89022013"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92139339"
 ---
 # <a name="iot-hub-operations-monitoring-deprecated"></a>Monitoramento de operações do Hub IoT (preterido)
 
@@ -191,7 +191,7 @@ A categoria de roteamento de mensagem acompanha os erros que ocorrem durante a a
 
 ## <a name="connect-to-the-monitoring-endpoint"></a>Conectar-se ao ponto de extremidade de monitoramento
 
-O ponto de extremidade de monitoramento em seu Hub IoT é um ponto de extremidade compatível com o Hub de Eventos. Você pode usar qualquer mecanismo que funciona com os Hubs de Eventos para ler mensagens de monitoramento desse ponto de extremidade. A amostra a seguir cria um leitor básico que não é adequado para uma implantação com alta taxa de transferência. Para obter mais informações sobre como processar as mensagens dos Hubs de Eventos, confira o tutorial [Introdução aos Hubs de Eventos](../event-hubs/event-hubs-csharp-ephcs-getstarted.md) .
+O ponto de extremidade de monitoramento em seu Hub IoT é um ponto de extremidade compatível com o Hub de Eventos. Você pode usar qualquer mecanismo que funciona com os Hubs de Eventos para ler mensagens de monitoramento desse ponto de extremidade. A amostra a seguir cria um leitor básico que não é adequado para uma implantação com alta taxa de transferência. Para obter mais informações sobre como processar as mensagens dos Hubs de Eventos, confira o tutorial [Introdução aos Hubs de Eventos](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md) .
 
 Para se conectar ao ponto de extremidade de monitoramento, você precisa de uma cadeia de conexão e do nome do ponto de extremidade. As etapas a seguir mostram como localizar os valores necessários no portal:
 
@@ -271,4 +271,4 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
 * [Guia do desenvolvedor do Hub IoT](iot-hub-devguide.md)
 
-* [Implantando o AI em dispositivos de borda com o Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Implantando o AI em dispositivos de borda com o Azure IoT Edge](../iot-edge/quickstart-linux.md)

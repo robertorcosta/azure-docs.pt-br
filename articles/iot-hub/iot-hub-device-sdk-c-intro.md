@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 3acac0c85aa6f3e3725dcf54a646f8ac16250e24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24f1332e940929cff6aeb6a0d5d3c43e28d36f22
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87324039"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149182"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>SDK do dispositivo IoT do Azure para C
 
@@ -38,7 +38,7 @@ Este artigo apresenta a arquitetura do SDK do dispositivo IoT do Azure para C. E
 
 ## <a name="sdk-architecture"></a>Arquitetura do SDK
 
-Você pode encontrar o [**SDK do dispositivo IoT do Azure para C**](https://github.com/Azure/azure-iot-sdk-c) no repositório GitHub e exibir os detalhes da API [na referência da API do C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/).
+Você pode encontrar o [**SDK do dispositivo IoT do Azure para C**](https://github.com/Azure/azure-iot-sdk-c) no repositório GitHub e exibir os detalhes da API [na referência da API do C](/azure/iot-hub/iot-c-sdk-ref/).
 
 A versão mais recente das bibliotecas pode ser encontrada na ramificação **mestre** deste repositório:
 
@@ -587,4 +587,4 @@ Para saber mais sobre como desenvolver para o Hub IoT, confira os [SDKs de IoT d
 
 Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
-* [Implantando o AI em dispositivos de borda com o Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Implantando o AI em dispositivos de borda com o Azure IoT Edge](../iot-edge/quickstart-linux.md)

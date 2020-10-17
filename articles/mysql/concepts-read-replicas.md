@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: de1e0e077eacfe4779834c46da7de4d8c4a2c75f
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 81c6cd6ffe200f0fbc9df20f4fa7e2e147db86af
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126645"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151175"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Leia réplicas no Banco de Dados do Azure para MySQL
 
@@ -24,7 +24,7 @@ Para saber mais sobre recursos e problemas de replicação do MySQL, consulte a 
 > [!NOTE]
 > Comunicação livre de desvio
 >
-> A Microsoft dá suporte a um ambiente diversificado e de inclusão. Este artigo contém referências à palavra _subordinada_. O [Guia de estilo da Microsoft para comunicação sem tendência](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) reconhece isso como uma palavra de exclusão. A palavra é usada neste artigo para fins de consistência porque, atualmente, ela é a palavra que aparece no software. Quando o software for atualizado para remover a palavra, este artigo será atualizado para estar em alinhamento.
+> A Microsoft é compatível com um ambiente diversificado e inclusivo. Este artigo contém referências à palavra _escravo_. O [guia de estilo para comunicação sem desvios](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) da Microsoft reconhece esse termo como uma palavra excludente. A palavra é usada neste artigo para fins de consistência, uma vez que, atualmente, é a palavra que aparece no software. Quando o software for atualizado e esta palavra for removida, este artigo será atualizado para manter o alinhamento.
 >
 
 ## <a name="when-to-use-a-read-replica"></a>Quando usar uma réplica de leitura
@@ -128,6 +128,26 @@ Depois que você decidir que deseja fazer failover para uma réplica,
     
 Depois que o aplicativo processar leituras e gravações com êxito, você terá concluído o failover. A quantidade de tempo de inatividade com a qual suas experiências de aplicativo dependerão quando você detectar um problema e concluir as etapas 1 e 2 acima.
 
+## <a name="global-transaction-identifier-gtid"></a>GTID (identificador de transação global)
+
+O GTID (identificador de transação global) é um identificador exclusivo criado com cada transação confirmada em um servidor de origem e está desativado por padrão no banco de dados do Azure para MySQL. O GTID tem suporte nas versões 5,7 e 8,0 e somente em servidores que dão suporte a armazenamento de até 16 TB. Para saber mais sobre o GTID e como ele é usado na replicação, confira replicação do MySQL [com a](https://dev.mysql.com/doc/refman/5.7/en/replication-gtids.html) documentação do GTID.
+
+O MySQL dá suporte a dois tipos de transações: transações GTID (identificadas com GTID) e transações anônimas (não têm um GTID alocado)
+
+Os seguintes parâmetros de servidor estão disponíveis para configurar o GTID: 
+
+|**Parâmetro de servidor**|**Descrição**|**Valor padrão**|**Valores**|
+|--|--|--|--|
+|`gtid_mode`|Indica se GTIDs são usadas para identificar transações. As alterações entre os modos só podem ser feitas uma etapa por vez em ordem crescente (por exemplo, `OFF` -> `OFF_PERMISSIVE` -> `ON_PERMISSIVE` -> `ON`)|`OFF`|`OFF`: As transações de replicação e novas devem ser anônimas <br> `OFF_PERMISSIVE`: As novas transações são anônimas. As transações replicadas podem ser transações anônimas ou GTIDs. <br> `ON_PERMISSIVE`: As novas transações são transações GTID. As transações replicadas podem ser transações anônimas ou GTIDs. <br> `ON`: As transações novas e replicadas devem ser transações GTID.|
+|`enforce_gtid_consistency`|Impõe a consistência do GTID permitindo a execução apenas das instruções que podem ser registradas de forma transacional segura. Esse valor deve ser definido como `ON` antes de habilitar a replicação GTID. |`OFF`|`OFF`: Todas as transações têm permissão para violar a consistência de GTID.  <br> `ON`: Nenhuma transação tem permissão para violar a consistência de GTID. <br> `WARN`: Todas as transações têm permissão para violar a consistência de GTID, mas um aviso é gerado. | 
+
+> [!NOTE]
+> Quando o GTID estiver habilitado, você não poderá desativá-lo. Se você precisar desativar GTID, entre em contato com o suporte. 
+
+Para habilitar o GTID e configurar o comportamento de consistência, atualize os `gtid_mode` parâmetros do e do `enforce_gtid_consistency` servidor usando o [portal do Azure](howto-server-parameters.md), o [CLI do Azure](howto-configure-server-parameters-using-cli.md)ou o [PowerShell](howto-configure-server-parameters-using-powershell.md).
+
+Se GTID estiver habilitado em um servidor de origem ( `gtid_mode` = on), as réplicas recém-criadas também terão GTID habilitado e usarão a replicação GTID. Para manter a replicação consistente, você não pode atualizar `gtid_mode` no (s) servidor (es) de origem ou de réplica.
+
 ## <a name="considerations-and-limitations"></a>Considerações e limitações
 
 ### <a name="pricing-tiers"></a>Tipos de preço
@@ -178,9 +198,18 @@ O parâmetro [`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server-
 
 Para atualizar um dos parâmetros acima no servidor de origem, exclua os servidores de réplica, atualize o valor do parâmetro no mestre e recrie as réplicas.
 
-### <a name="other"></a>Outros
+### <a name="gtid"></a>GTID
 
-- O GTID (identificadores de transação globais) não são compatíveis.
+GTID tem suporte em:
+- MySQL versões 5,7 e 8,0 
+- Servidores que dão suporte a armazenamento de até 16 TB. Consulte o artigo [tipo de preço](concepts-pricing-tiers.md#storage) para obter a lista completa de regiões que dão suporte ao armazenamento de 16 TB. 
+
+GTID está desativado por padrão. Quando o GTID estiver habilitado, você não poderá desativá-lo. Se você precisar desativar GTID, entre em contato com o suporte. 
+
+Se o GTID estiver habilitado em um servidor de origem, as réplicas recém-criadas também terão GTID habilitado e usarão a replicação GTID. Para manter a replicação consistente, você não pode atualizar `gtid_mode` no (s) servidor (es) de origem ou de réplica.
+
+### <a name="other"></a>Outro
+
 - A criação de uma réplica de uma réplica não é suportada.
 - Tabelas na memória podem fazer com que as réplicas fiquem fora de sincronia. Esta é uma limitação da tecnologia de replicação do MySQL. Leia mais na [documentação de referência do MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html) para mais informações.
 - Verifique se as tabelas do servidor de origem têm chaves primárias. A falta de chaves primárias pode resultar em latência de replicação entre a origem e as réplicas.

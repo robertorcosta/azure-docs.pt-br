@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/30/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: e9a776aad966bb74e22f6d7fb8d66530e4b4db92
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab26ad08947a4a9929ae0d41b669160b3d159224
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91255189"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150227"
 ---
 # <a name="implementing-a-layered-security-architecture-with-app-service-environments"></a>Implementando uma arquitetura de segurança em camadas com Ambientes do Serviço de Aplicativo
 Como os Ambientes do Serviço de Aplicativo fornecem um ambiente de runtime isolado implantado em uma rede virtual, os desenvolvedores podem criar uma arquitetura de segurança em camadas fornecendo diferentes níveis de acesso à rede para cada camada de aplicativo físico.
@@ -115,7 +115,7 @@ Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecur
 Com o NSG aplicado à sub-rede, somente três Ambientes do Serviço de Aplicativo upstream e o Ambiente do Serviço de Aplicativo contendo o back-end da API têm permissão para realizar chamadas no ambiente de “apiase”.
 
 ## <a name="additional-links-and-information"></a>Informações e links adicionais
-Informações sobre [grupos de segurança de rede](../../virtual-network/security-overview.md).
+Informações sobre [grupos de segurança de rede](../../virtual-network/network-security-groups-overview.md).
 
 Noções básicas sobre [endereços IP de saída][NetworkArchitecture] e Ambientes do Serviço de Aplicativo.
 

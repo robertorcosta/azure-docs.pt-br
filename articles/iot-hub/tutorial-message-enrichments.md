@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/20/2019
 ms.author: robinsh
 ms.custom: mqtt, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 1e04ed8fe9087cb06b1533887da3c0fed61259ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 030a69c7eca70c081a1d9392bfa527f3386d7c2b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89019718"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150602"
 ---
 # <a name="tutorial-use-azure-iot-hub-message-enrichments"></a>Tutorial: usar os aprimoramentos de mensagem do Hub IoT do Azure
 
@@ -77,7 +77,7 @@ Se você ainda não tiver feito isso, abra uma [janela de Cloud Shell](https://s
 
 Aqui estão os recursos criados pelo script. *Aprimorado* significa que o recurso é para mensagens com aprimoramentos. *Original* significa que o recurso é para mensagens que não são aprimoradas.
 
-| Nome | Valor |
+| Name | Valor |
 |-----|-----|
 | resourceGroup | ContosoResourcesMsgEn |
 | nome do contêiner | original  |
@@ -297,7 +297,7 @@ Você pode usar um modelo do Resource Manager para criar e configurar os recurso
 
    Aqui estão os recursos criados carregando o modelo. **Aprimorado** significa que o recurso é para mensagens com aprimoramentos. **Original** significa que o recurso é para mensagens que não são aprimoradas. Esses são os mesmos valores usados no script de CLI do Azure.
 
-   | Nome | Valor |
+   | Name | Valor |
    |-----|-----|
    | resourceGroup | ContosoResourcesMsgEn |
    | nome do contêiner | original  |
@@ -310,7 +310,7 @@ Você pode usar um modelo do Resource Manager para criar e configurar os recurso
    | Nome da rota 1 | ContosoStorageRouteOriginal |
    | Nome da rota 2 | ContosoStorageRouteEnriched |
 
-1. Selecione **Salvar**. O painel **implantação personalizada** é exibido e mostra todos os parâmetros usados pelo modelo. O único campo que você precisa definir é **grupo de recursos**. Crie um novo ou selecione um na lista suspensa.
+1. Clique em **Salvar**. O painel **implantação personalizada** é exibido e mostra todos os parâmetros usados pelo modelo. O único campo que você precisa definir é **grupo de recursos**. Crie um novo ou selecione um na lista suspensa.
 
    Aqui está a metade superior do painel de **implantação personalizado** . Você pode ver onde você preenche o grupo de recursos.
 
@@ -380,13 +380,13 @@ Esta é uma mensagem não enriqueceda. Observe que "meu Hub IoT", "devicelocatio
 {"EnqueuedTimeUtc":"2019-05-10T06:06:32.7220000Z","Properties":{"level":"storage"},"SystemProperties":{"connectionDeviceId":"Contoso-Test-Device","connectionAuthMethod":"{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}","connectionDeviceGenerationId":"636930642531278483","enqueuedTime":"2019-05-10T06:06:32.7220000Z"},"Body":"eyJkZXZpY2VJZCI6IkNvbnRvc28tVGVzdC1EZXZpY2UiLCJ0ZW1wZXJhdHVyZSI6MjkuMjMyMDE2ODQ4MDQyNjE1LCJodW1pZGl0eSI6NjQuMzA1MzQ5NjkyODQ0NDg3LCJwb2ludEluZm8iOiJUaGlzIGlzIGEgc3RvcmFnZSBtZXNzYWdlLiJ9"}
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Para remover todos os recursos criados neste tutorial, exclua o grupo de recursos. Essa ação também exclui todos os recursos contidos no grupo. Nesse caso, ela remove o hub IoT, a conta de armazenamento e o próprio grupo de recursos.
 
 ### <a name="use-the-azure-cli-to-clean-up-resources"></a>Usar a CLI do Azure para limpar os recursos
 
-Para remover o grupo de recursos, use o comando [excluir grupo az](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete). Lembre-se de que `$resourceGroup` foi definido como **ContosoResourcesMsgEn** no início deste tutorial.
+Para remover o grupo de recursos, use o comando [excluir grupo az](/cli/azure/group?view=azure-cli-latest#az-group-delete). Lembre-se de que `$resourceGroup` foi definido como **ContosoResourcesMsgEn** no início deste tutorial.
 
 ```azurecli-interactive
 az group delete --name $resourceGroup

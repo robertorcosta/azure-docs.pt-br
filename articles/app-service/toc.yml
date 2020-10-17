@@ -28,6 +28,7 @@
     - name: Site HTML estático
       href: quickstart-html.md
     - name: Modelo de ARM
+      displayName: Resource Manager
       href: quickstart-arm-template.md
     - name: Contêiner personalizado
       href: quickstart-custom-container.md
