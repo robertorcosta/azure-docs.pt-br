@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: ccf470abadb28919e4fca3c4862b71946a5bb204
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9423069b917c37e77b70a4466e489918cd330c4
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87800493"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143921"
 ---
 # <a name="azure-resource-logs"></a>Logs de recursos do Azure
 Os logs de recursos do Azure são [logs de plataforma](platform-logs-overview.md) que fornecem informações sobre as operações que foram executadas em um recurso do Azure. O conteúdo dos logs de recursos varia de acordo com o serviço do Azure e o tipo de recurso. Os logs de recursos não são coletados por padrão. Você deve criar uma configuração de diagnóstico para cada recurso do Azure para enviar seus logs de recursos para um Log Analytics espaço de trabalho para usar com [logs de Azure monitor](data-platform-logs.md), hubs de eventos do Azure para encaminhar fora do Azure ou para o armazenamento do Azure para arquivamento.
@@ -27,7 +27,7 @@ Consulte [criar configurações de diagnóstico para enviar logs e métricas de 
 - Use consultas de log para executar análises complexas e obter informações aprofundadas sobre dados de log.
 - Use alertas de log com lógica de alerta complexa.
 
-[Crie uma configuração de diagnóstico](diagnostic-settings.md) para enviar logs de recursos para um espaço de trabalho log Analytics. Esses dados são armazenados em tabelas, conforme descrito em [estrutura de logs de Azure monitor](../log-query/logs-structure.md). As tabelas usadas pelos logs de recursos dependem do tipo de coleção que o recurso está usando:
+[Crie uma configuração de diagnóstico](diagnostic-settings.md) para enviar logs de recursos para um espaço de trabalho log Analytics. Esses dados são armazenados em tabelas, conforme descrito em [estrutura de logs de Azure monitor](./data-platform-logs.md). As tabelas usadas pelos logs de recursos dependem do tipo de coleção que o recurso está usando:
 
 - Diagnóstico do Azure-todos os dados gravados estão na tabela _AzureDiagnostics_ .
 - Dados específicos do recurso são gravados em uma tabela individual para cada categoria do recurso.
@@ -43,7 +43,7 @@ Considere o exemplo a seguir em que as configurações de diagnóstico estão se
 
 A tabela AzureDiagnostics terá a seguinte aparência:  
 
-| ResourceProvider    | Categoria     | Um  | B  | C  | D  | E  | F  | G  | H  | I  |
+| ResourceProvider    | Categoria     | A  | B  | C  | D  | E  | F  | G  | H  | I  |
 | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
 | Microsoft. Service1 | AuditLogs    | X1 | Y1 | z1 |    |    |    |    |    |    |
 | Microsoft. Service1 | ErrorLogs    |    |    |    | q1 | W1 | E1 |    |    |    |
@@ -60,7 +60,7 @@ O exemplo acima resultaria em três tabelas sendo criadas:
  
 - Tabela *Service1AuditLogs* da seguinte maneira:
 
-    | Provedor de recursos | Categoria | Um | B | C |
+    | Provedor de recursos | Categoria | A | B | C |
     | -- | -- | -- | -- | -- |
     | Service1 | AuditLogs | X1 | Y1 | z1 |
     | Service1 | AuditLogs | x5 | y5 | z5 |
@@ -102,7 +102,7 @@ Há um limite de propriedade de 500 para qualquer tabela nos logs de Azure Monit
 
 Se você estiver coletando logs de recursos de vários serviços, o _AzureDiagnostics_ poderá exceder esse limite e os dados serão perdidos. Até que todos os serviços do Azure ofereçam suporte ao modo específico de recurso, você deve configurar recursos para gravar em vários espaços de trabalho para reduzir a possibilidade de atingir o limite de coluna de 500.
 
-### <a name="azure-data-factory"></a>Azure Data Factory
+### <a name="azure-data-factory"></a>Fábrica de dados do Azure
 Azure Data Factory, devido a um conjunto detalhado de logs, é um serviço que é conhecido por gravar um grande número de colunas e, potencialmente, fazer com que o _AzureDiagnostics_ exceda seu limite. Para qualquer configuração de diagnóstico configurada antes do modo específico do recurso ter sido habilitado, haverá uma nova coluna criada para cada parâmetro de usuário nomeado exclusivamente em relação a qualquer atividade. Mais colunas serão criadas por causa da natureza detalhada das entradas e saídas da atividade.
  
 Você deve migrar seus logs para usar o modo específico do recurso assim que possível. Se você não puder fazer isso imediatamente, uma alternativa provisória é isolar Azure Data Factory logs em seu próprio espaço de trabalho para minimizar a chance desses logs, afetando outros tipos de log que estão sendo coletados em seus espaços de trabalho.

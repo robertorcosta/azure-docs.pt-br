@@ -7,12 +7,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.openlocfilehash: ad1e09a0f9d1e0f9e4a748220edf5eced96123f8
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 07a8ece76bffe0fbbcbc211e83730433cdeda2c4
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932559"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143796"
 ---
 # <a name="workbook-drop-down-parameters"></a>Parâmetros de menu suspenso da pasta de trabalho
 
@@ -154,5 +154,5 @@ Aqui está um exemplo para a lista suspensa de seleção múltipla no trabalho:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Comece a aprender mais](workbooks-visualizations.md) sobre pastas de trabalho muitas opções de visualizações ricas.
+* [Comece a aprender mais](./workbooks-overview.md#visualizations) sobre pastas de trabalho muitas opções de visualizações ricas.
 * [Controle](workbooks-access-control.md) e compartilhe o acesso aos recursos da pasta de trabalho.

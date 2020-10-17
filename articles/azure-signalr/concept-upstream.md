@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.author: chenyl
-ms.openlocfilehash: c3e317a87ba888fac3c069cc5327bd89c859e9de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d51f5e8d2fac1e2b180a608c840d0a322e76271
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89514230"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143242"
 ---
 # <a name="upstream-settings"></a>Configurações de upstream
 
@@ -34,7 +34,7 @@ Quando o evento especificado ocorre, as regras de um item são verificadas uma a
 
 Você pode parametrizar a URL para dar suporte a vários padrões. Há três parâmetros predefinidos:
 
-|Parâmetro predefinido|Descrição|
+|Parâmetro predefinido|Description|
 |---------|---------|
 |82801ER| Um hub é um conceito do serviço de Signaler do Azure. Um hub é uma unidade de isolamento. O escopo de usuários e a entrega de mensagens é restrito a um Hub.|
 |Categorias| Uma categoria pode ser um dos seguintes valores: <ul><li>**conexões**: eventos de tempo de vida da conexão. Ele é acionado quando uma conexão de cliente é conectada ou desconectada. Ele inclui eventos conectados e desconectados.</li><li>**mensagens**: acionadas quando os clientes invocam um método de Hub. Ele inclui todos os outros eventos, exceto aqueles na categoria **conexões** .</li></ul>|
@@ -88,7 +88,7 @@ Ao selecionar `ManagedIdentity` , você deve habilitar uma identidade gerenciada
 
 ## <a name="create-upstream-settings-via-resource-manager-template"></a>Criar configurações de upstream por meio do modelo do Resource Manager
 
-Para criar configurações de upstream usando um [modelo de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview), defina a `upstream` Propriedade na `properties` propriedade. O trecho a seguir mostra como definir a `upstream` propriedade para criar e atualizar configurações de upstream.
+Para criar configurações de upstream usando um [modelo de Azure Resource Manager](../azure-resource-manager/templates/overview.md), defina a `upstream` Propriedade na `properties` propriedade. O trecho a seguir mostra como definir a `upstream` propriedade para criar e atualizar configurações de upstream.
 
 ```JSON
 {
@@ -123,7 +123,7 @@ POST
 
 ### <a name="request-header"></a>Cabeçalho da solicitação
 
-|Nome |Descrição|
+|Name |Descrição|
 |---------|---------|
 |X-ASRS-Connection-ID |A ID de conexão para a conexão do cliente.|
 |X-ASRS-Hub |O Hub ao qual a conexão do cliente pertence.|
@@ -145,19 +145,19 @@ Content-Type: application/json
 
 Tipo de conteúdo: `application/json`
 
-|Nome  |Tipo  |Descrição  |
+|Nome  |Tipo  |Description  |
 |---------|---------|---------|
-|Erro do |string |A mensagem de erro de uma conexão fechada. Vazio quando as conexões fecham sem erros.|
+|Erro |string |A mensagem de erro de uma conexão fechada. Vazio quando as conexões fecham sem erros.|
 
 #### <a name="invocation-message"></a>Mensagem de invocação
 
 Tipo de conteúdo: `application/json` ou `application/x-msgpack`
 
-|Nome  |Tipo  |Descrição  |
+|Nome  |Tipo  |Description  |
 |---------|---------|---------|
 |InvocationId |string | Uma cadeia de caracteres opcional que representa uma mensagem de invocação. Encontre detalhes em [invocações](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocations).|
 |Destino |string | O mesmo que o evento e o mesmo que o destino em uma [mensagem de invocação](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocation-message-encoding). |
-|Argumentos |Matriz de objeto |Uma matriz que contém argumentos a serem aplicados ao método referido em `Target` . |
+|Arguments |Matriz de objeto |Uma matriz que contém argumentos a serem aplicados ao método referido em `Target` . |
 
 ### <a name="signature"></a>Assinatura
 

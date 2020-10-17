@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: robinsh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5b9170e0fcf4bba8b928522cdc881f34968d771f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d53e0cb92ead0d60ae335e95903cd69ae2700140
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89003857"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92142823"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>Importar e exportar em massa identidades de dispositivos do Hub IoT
 
@@ -27,7 +27,7 @@ As operações de importação e exportação ocorrem no contexto de *Trabalhos*
 
 A classe **RegistryManager** inclui os métodos **ExportDevicesAsync** e **ImportDevicesAsync** que usam a estrutura **Job**. Esses métodos permitem exportar, importar e sincronizar todo o registro de identidade de um Hub IoT.
 
-Este tópico discute o uso da classe **registrymanager** e do sistema de **trabalho** para executar importações e exportações em massa de dispositivos de e para o registro de identidade de um hub IOT. Você também pode usar o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure para habilitar o provisionamento sem toque e Just-In-Time para um ou mais hubs IoT sem a necessidade de intervenção humana. Para obter mais informações, consulte a [documentação do serviço de provisionamento](/azure/iot-dps).
+Este tópico discute o uso da classe **registrymanager** e do sistema de **trabalho** para executar importações e exportações em massa de dispositivos de e para o registro de identidade de um hub IOT. Você também pode usar o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure para habilitar o provisionamento sem toque e Just-In-Time para um ou mais hubs IoT sem a necessidade de intervenção humana. Para obter mais informações, consulte a [documentação do serviço de provisionamento](../iot-dps/index.yml).
 
 ## <a name="what-are-jobs"></a>O que são trabalhos?
 
@@ -262,7 +262,7 @@ Se o arquivo de importação incluir metadados gêmeos, esses metadados substitu
 
 Use a propriedade opcional **importMode** nos dados de serialização de importação para cada dispositivo para controlar o processo de importação por dispositivo. A propriedade **importMode** tem as seguintes opções:
 
-| importMode | Descrição |
+| importMode | Description |
 | --- | --- |
 | **createOrUpdate** |Se um dispositivo não existir com a **ID**especificada, ele será registrado recentemente. <br/>Se o dispositivo já existir, as informações existentes serão substituídas pelos dados de entrada fornecidos sem considerar o valor de **ETag** . <br> Opcionalmente, o usuário pode especificar dados gêmeos junto com os dados do dispositivo. O ETag de ' s ', se especificado, é processado independentemente da eTag do dispositivo. Se houver uma incompatibilidade com a ETag de ' s existente, um erro será gravado no arquivo de log. |
 | **create** |Se um dispositivo não existir com a **ID**especificada, ele será registrado recentemente. <br/>Se o dispositivo já existir, um erro será gravado no arquivo de log. <br> Opcionalmente, o usuário pode especificar dados gêmeos junto com os dados do dispositivo. O ETag de ' s ', se especificado, é processado independentemente da eTag do dispositivo. Se houver uma incompatibilidade com a ETag de ' s existente, um erro será gravado no arquivo de log. |
@@ -399,7 +399,7 @@ while(true)
 
 ## <a name="get-the-container-sas-uri"></a>Obter o URI de SAS do contêiner
 
-O exemplo de código a seguir mostra como gerar um [URI SAS](../storage/common/storage-dotnet-shared-access-signature-part-1.md) com as permissões de leitura, gravação e exclusão para um contêiner de blobs:
+O exemplo de código a seguir mostra como gerar um [URI SAS](../storage/common/storage-sas-overview.md) com as permissões de leitura, gravação e exclusão para um contêiner de blobs:
 
 ```csharp
 static string GetContainerSasUri(CloudBlobContainer container)
@@ -438,8 +438,8 @@ Para saber mais sobre como gerenciar o Hub IoT do Azure, confira os seguintes ar
 Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
 * [Guia do desenvolvedor do Hub IoT](iot-hub-devguide.md)
-* [Implantando o AI em dispositivos de borda com o Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Implantando o AI em dispositivos de borda com o Azure IoT Edge](../iot-edge/quickstart-linux.md)
 
 Para explorar usando o Serviço de Provisionamento de Dispositivos do Hub IoT para habilitar o provisionamento sem toque e Just-In-Time, consulte: 
 
-* [Serviço de Provisionamento de Dispositivos no Hub IoT do Azure](/azure/iot-dps)
+* [Serviço de Provisionamento de Dispositivos no Hub IoT do Azure](../iot-dps/index.yml)

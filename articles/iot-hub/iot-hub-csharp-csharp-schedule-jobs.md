@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: robinsh
 ms.custom: mqtt, devx-track-csharp
-ms.openlocfilehash: d99cc571394ad7a9c85fb7367c672f96a7302362
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0391afe5562238f488fde7e50d914c46a5c32944
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89018494"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92142459"
 ---
 # <a name="schedule-and-broadcast-jobs-net"></a>Agendar e transmitir trabalhos (.NET)
 
@@ -261,7 +261,7 @@ Nesta seção, você cria um aplicativo de console .NET (usando C#) que usa trab
     ```
 
     > [!NOTE]
-    > Para obter mais informações sobre a sintaxe de consulta, consulte [linguagem de consulta do Hub IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language).
+    > Para obter mais informações sobre a sintaxe de consulta, consulte [linguagem de consulta do Hub IoT](./iot-hub-devguide-query-language.md).
     >
 
 1. Por fim, adicione as seguintes linhas ao método **Principal** :
@@ -311,4 +311,4 @@ Neste tutorial, você usou um trabalho para agendar um método direto para um di
 
 * Para continuar com a introdução ao Hub IoT e aos padrões de gerenciamento de dispositivo como uma atualização de firmware remota sem fio, leia o [Tutorial: Como fazer uma atualização de firmware](tutorial-firmware-update.md).
 
-* Para saber mais sobre como implantar IA em dispositivos de borda com o Azure IoT Edge, confira [Introdução ao IoT Edge](../iot-edge/tutorial-simulate-device-linux.md).
+* Para saber mais sobre como implantar IA em dispositivos de borda com o Azure IoT Edge, confira [Introdução ao IoT Edge](../iot-edge/quickstart-linux.md).

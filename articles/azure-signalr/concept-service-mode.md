@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: kenchen
-ms.openlocfilehash: 2cdce64b0ff03521a5848e2b4fd6e01431b5cc16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60f1ab0440120cb9a96e6c05a4fc1987ead29188
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89514779"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143255"
 ---
 # <a name="service-mode-in-azure-signalr-service"></a>Modo de serviço no serviço de Signaler do Azure
 
@@ -51,11 +51,11 @@ Além disso, não há nenhuma conexão de servidor nesse modo (se você tentar u
 > [!NOTE]
 > Ambos os modos de API REST e WebSocket têm suporte no [SDK de gerenciamento](https://github.com/Azure/azure-signalr/blob/dev/docs/management-sdk-guide.md)de serviço do signalr. Se você estiver usando um idioma diferente do .NET, também poderá invocar manualmente as APIs REST seguindo esta [especificação](https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md).
 >
-> Se você estiver usando Azure Functions, poderá usar as [associações de serviço de sinalização para Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-signalr-service) (doravante chamado Associação de função) para enviar mensagens como uma associação de saída.
+> Se você estiver usando Azure Functions, poderá usar as [associações de serviço de sinalização para Azure Functions](../azure-functions/functions-bindings-signalr-service.md) (doravante chamado Associação de função) para enviar mensagens como uma associação de saída.
 
 Também é possível que o aplicativo de servidor receba mensagens e eventos de conexão de clientes. O serviço fornecerá mensagens e eventos de conexão para pontos de extremidade pré-configurados (chamados upstream) usando WebHooks. Comparando ao modo padrão, não há nenhuma garantia de adesão e as solicitações HTTP podem ser menos eficientes do que as conexões WebSocket.
 
-Para obter mais informações sobre como configurar upstream, consulte este [documento](https://docs.microsoft.com/azure/azure-signalr/concept-upstream).
+Para obter mais informações sobre como configurar upstream, consulte este [documento](./concept-upstream.md).
 
 Veja abaixo um diagrama que ilustra como funciona o modo sem servidor:
 
