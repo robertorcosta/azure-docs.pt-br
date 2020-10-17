@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: dc77b3c8bc357b63047d20afa9493bbaaff77113
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 303a919cc0afc9b5db49918233f3e5718a896646
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91285308"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148054"
 ---
 # <a name="scale-up-and-down-an-azure-database-for-postgresql-hyperscale-server-group-using-cli-azdata-or-kubectl"></a>Escalar e reduzir verticalmente um grupo de servidores de hiperescala do banco de dados do Azure para PostgreSQL usando a CLI (azdata ou kubectl)
 
@@ -25,7 +25,7 @@ Há ocasiões em que talvez seja necessário alterar as características ou a de
 - Escalar ou reduzir verticalmente o número de vCores que cada um dos nós de coordenador ou de trabalho usa
 - Escalar ou reduzir verticalmente a memória que cada um dos nós coordenador ou de trabalho usa
 
-Este guia explica como dimensionar o vCore e/ou a memória.
+Este guia explica como dimensionar vCore e/ou memória.
 
 Escalar ou reduzir verticalmente as configurações de memória e vCore do seu grupo de servidores significa que você tem a possibilidade de definir um mínimo e/ou um máximo para cada uma das configurações vCore e de memória. Se você quiser configurar o grupo de servidores para usar um número específico de vCore ou uma quantidade específica de memória, defina as configurações mín. igual às configurações máximas.
 
@@ -185,5 +185,4 @@ Para reduzir verticalmente o grupo de servidores, execute o mesmo comando, mas d
 
 - [Escalar horizontalmente o grupo de servidores de Hiperescala do Banco de Dados do Azure para PostgreSQL](scale-out-postgresql-hyperscale-server-group.md)
 - [Configuração de armazenamento e conceitos de armazenamento kubernetes](storage-configuration.md)
-- [Expandindo declarações de volume persistentes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#expanding-persistent-volumes-claims)
 - [Modelo de recurso kubernetes](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/resources.md#resource-quantities)

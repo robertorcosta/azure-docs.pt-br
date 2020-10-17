@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 1d924e96cfc287060107f541e44980295eb24745
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01eb35a60a6d51b5742d8fedd2ee0631aa86c924
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87494478"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147949"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-export-orders"></a>Rastreamento e log de eventos para seus Azure Data Box e Azure Data Box Heavy ordens de exportação
 
@@ -25,7 +25,7 @@ A tabela a seguir mostra um resumo das etapas Data Box ordem de exportação e a
 
 | Estágio de ordem de exportação Data Box       | Ferramenta para acompanhar e auditar                                                                        |
 |----------------------------|------------------------------------------------------------------------------------------------|
-| Criar pedido               | [Configurar o controle de acesso na ordem por meio de RBAC](#set-up-access-control-on-the-order) <br> [Habilitar log detalhado na ordem](#enable-verbose-log-in-the-order)                                                    |
+| Criar pedido               | [Configurar o controle de acesso na ordem por meio do RBAC do Azure](#set-up-access-control-on-the-order) <br> [Habilitar log detalhado na ordem](#enable-verbose-log-in-the-order)                                                    |
 | Pedido processado            | [Acompanhar o pedido](#track-the-order) <ul><li> Portal do Azure </li><li> Site da transportadora </li><li>Notificações por email</ul> |
 | Configurar o dispositivo              | Acesso de credenciais de dispositivo [logs de atividade](#query-activity-logs-during-setup) registrados              |
 | Cópia de dados do dispositivo        | [Examinar logs de cópia](#copy-log) <br> [Examine os logs detalhados](#verbose-log) antes de copiar dados            |
@@ -46,7 +46,7 @@ Para restringir o acesso a um pedido, você pode:
 - Atribua uma função em um nível de pedido. O usuário só tem essas permissões, conforme definido pelas funções para interagir com essa Data Box ordem específica apenas e nada mais.
 - Atribua uma função no nível do grupo de recursos, o usuário tem acesso a todos os Data Box pedidos em um grupo de recursos.
 
-Para obter mais informações sobre o uso do RBAC sugerido, consulte [práticas recomendadas para o RBAC do Azure](../role-based-access-control/best-practices.md).
+Para obter mais informações sobre o uso do RBAC do Azure sugerido, consulte [práticas recomendadas para o RBAC do Azure](../role-based-access-control/best-practices.md).
 
 ## <a name="enable-verbose-log-in-the-order"></a>Habilitar log detalhado na ordem
 

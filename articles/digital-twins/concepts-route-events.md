@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: Entenda como rotear eventos dentro do Azure digital gêmeos e para outros serviços do Azure.
 author: baanders
 ms.author: baanders
-ms.date: 3/12/2020
+ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 02b977a7b6abdb77deec3973bd94b82fae9c2af5
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: b49e6fc45a84f600131f571d1305c8160ddb1d21
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044285"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145981"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Rotear eventos dentro e fora do Azure digital gêmeos
 
@@ -91,6 +91,20 @@ await client.CreateEventRoute("routeName", er);
 > Todas as funções do SDK são fornecidas em versões síncronas e assíncronas.
 
 As rotas também podem ser criadas usando a [CLI do Azure digital gêmeos](how-to-use-cli.md).
+
+## <a name="dead-letter-events"></a>Eventos de mensagens mortas
+Quando um ponto de extremidade não pode entregar um evento dentro de um determinado período de tempo ou depois de tentar entregar o evento um determinado número de vezes, ele pode enviar o evento não entregue para uma conta de armazenamento. Esse processo é conhecido como **mensagens mortas**. O gêmeos digital do Azure enviará um evento inativo quando **uma das condições a seguir** for atendida. 
+
+- O evento não é entregue dentro do período de vida útil
+- O número de tentativas para entregar o evento excedeu o limite
+
+Se qualquer uma das condições for atendida, o evento será descartado ou inativo.  Por padrão, cada ponto de extremidade **não** ativa as mensagens mortas. Para habilitá-lo, você deve especificar uma conta de armazenamento para manter os eventos não entregues ao criar o ponto de extremidade. Você aciona eventos dessa conta de armazenamento para resolver as entregas.
+
+Antes de configurar o local de mensagens mortas, você deve ter uma conta de armazenamento com um contêiner. Você fornece a URL para esse contêiner ao criar o ponto de extremidade. A letra de inatividade é fornecida como uma URL de contêiner com um token SAS. Esse token precisa apenas `write` de permissão para o contêiner de destino dentro da conta de armazenamento. A URL totalmente formada estará no formato de: `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
+
+Para saber mais sobre tokens SAS, confira: [ *conceder acesso limitado aos recursos de armazenamento do Azure usando assinaturas de acesso compartilhado (SAS)*](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
+
+Para saber como configurar uma mensagens mortas, consulte [*como gerenciar pontos de extremidade e rotas no gêmeos digital do Azure (APIs e CLI)*](./how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering).
 
 ### <a name="types-of-event-messages"></a>Tipos de mensagens de evento
 

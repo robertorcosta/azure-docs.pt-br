@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: jlian
-ms.openlocfilehash: c448d7e5a5e0bea29063930bed3a59a0461b8cf5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49ecf753b1dd547eab251222a6c2709d96e9c89b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91767620"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146527"
 ---
 <!--for build: for each metric, if you understand what it is, it's ok. otw add more info.  -->
 # <a name="understand-iot-hub-metrics"></a>Entender as métricas de Hub IoT
@@ -44,7 +44,7 @@ As métricas são habilitadas por padrão. Você pode exibir as métricas do Hub
 
 O Hub IoT fornece várias métricas que dão uma visão geral da integridade do hub e o número total de dispositivos conectados. É possível combinar informações de várias métricas para ter uma ideia mais ampla do estado do Hub IoT. A tabela a seguir descreve as métricas que cada Hub IoT rastreia e como cada métrica se relaciona com o status geral do Hub IoT.
 
-|Métrica|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
+|Métrica|Nome de exibição da métrica|Unit|Tipo de agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |RoutingDeliveries | Roteamento de tentativas de entrega (visualização) | Contagem | Total |Essa é a métrica de entrega de roteamento. Use as dimensões para identificar o status de entrega para um ponto de extremidade específico ou para uma fonte de roteamento específica.| Identificação<br>Resultado,<br>Roteamento,<br>EndpointType<br>FailureReasonCategory,<br>EndpointName<br>*Mais detalhes sobre dimensões [**aqui**](#dimensions)*. |
 |RoutingDeliveryLatency| Latência de roteamento (versão prévia) | Milissegundos | Média |Essa é a métrica de latência de entrega de roteamento. Use as dimensões para identificar a latência de um ponto de extremidade específico ou de uma fonte de roteamento específica.| Identificação<br>Roteamento,<br>EndpointType<br>EndpointName<br>*Mais detalhes sobre dimensões [**aqui**](#dimensions)*.|
@@ -121,7 +121,7 @@ As dimensões ajudam a identificar mais detalhes sobre as métricas. Algumas das
 |Dimensão|Valores|
 |---|---|
 |ResourceID|o recurso do Hub IoT|
-|Result|sucesso<br>falha|
+|Resultado|sucesso<br>falha|
 |Roteamento|Mensagens do dispositivo<br>Eventos de alteração de entrelaçamento<br>Eventos de ciclo de vida do dispositivo|
 |EndpointType|eventHubs<br>serviceBusQueues<br>cosmosDB<br>serviceBusTopics<br>Builtin<br>blobStorage|
 |FailureReasonCategory|inválido<br>passou<br>orfão<br>null|
@@ -139,4 +139,4 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
 * [Guia do desenvolvedor do Hub IoT](iot-hub-devguide.md)
 
-* [Implantando o AI em dispositivos de borda com o Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Implantando o AI em dispositivos de borda com o Azure IoT Edge](../iot-edge/quickstart-linux.md)

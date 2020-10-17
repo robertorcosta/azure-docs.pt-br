@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: c51b99ed04357cdebaabbde2b2bd0400adcfef30
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: d0ee9680a6b1b7c3e145137c73dda84d1a755b06
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92134121"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147923"
 ---
 # <a name="secure-and-isolate-azure-hdinsight-clusters-with-private-link-preview"></a>Proteger e isolar clusters do Azure HDInsight com o link privado (visualização)
 
@@ -56,7 +56,7 @@ O link privado, que é desabilitado por padrão, requer um amplo conhecimento de
 
 Quando `privateLink` é definido como *habilitar*, os [balanceadores de carga Standard](../load-balancer/load-balancer-overview.md) internos (SLB) são criados e um serviço de vínculo privado do Azure é provisionado para cada SLB. O serviço de vínculo privado é o que permite que você acesse o cluster HDInsight de pontos de extremidade privados.
 
-Os balanceadores de carga padrão não fornecem automaticamente o NAT de saída público como os balanceadores de carga básicos. Você deve fornecer sua própria solução NAT, como [NAT de rede virtual](../virtual-network/nat-overview.md) ou [Firewall](./hdinsight-restrict-outbound-traffic.md), para dependências de saída. Seu cluster HDInsight ainda precisa de acesso às suas dependências de saída. Se essas dependências de saída não forem permitidas, a criação do cluster poderá falhar.
+Os balanceadores de carga padrão não fornecem automaticamente o [NAT de saída público](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) como os balanceadores de carga básicos. Você deve fornecer sua própria solução NAT, como [NAT de rede virtual](../virtual-network/nat-overview.md) ou [Firewall](./hdinsight-restrict-outbound-traffic.md), para dependências de saída. Seu cluster HDInsight ainda precisa de acesso às suas dependências de saída. Se essas dependências de saída não forem permitidas, a criação do cluster poderá falhar.
 
 ### <a name="prepare-your-environment"></a>Prepare o seu ambiente
 

@@ -954,6 +954,8 @@
           href: ./domain-joined/apache-domain-joined-architecture.md
         - name: Arquitetura de rede virtual do HDInsight
           href: ./hdinsight-virtual-network-architecture.md
+        - name: Link privado
+          href: ./hdinsight-private-link.md
         - name: Protocolo TLS
           href: ./transport-layer-security.md
         - name: Planejar VNETs para o HDInsight

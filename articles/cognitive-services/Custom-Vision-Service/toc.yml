@@ -39,7 +39,7 @@
       href: use-prediction-api.md
     - name: Usar o Rotulador Inteligente
       href: suggested-tags.md
-    - name: Controle de acesso baseado em função
+    - name: Controle de acesso baseado em função do Azure
       href: role-based-access-control.md
     - name: Exportar modelos
       items:

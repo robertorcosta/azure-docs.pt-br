@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 6/08/2020
 ms.author: robinsh
-ms.openlocfilehash: ed429d2f584da20439b0cb0eedcf4742b9ae4599
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d10d0202e9e4c813cffe6373acfb5200ebb3266
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84634338"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146782"
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Visualizar dados de sensor em tempo real do Hub IoT usando o Power BI
 
@@ -140,9 +140,9 @@ No trabalho Stream Analytics, selecione **visão geral**e, em seguida, selecione
 
 ## <a name="create-and-publish-a-power-bi-report-to-visualize-the-data"></a>Criar e publicar um relatório do Power BI para visualizar os dados
 
-As etapas a seguir mostram como criar e publicar um relatório usando o serviço do Power BI. Você pode seguir estas etapas, com algumas modificações, se quiser usar a "nova aparência" em Power BI. Para entender as diferenças e como navegar na "nova aparência", consulte [a ' nova aparência ' do serviço do Power bi](https://docs.microsoft.com/power-bi/consumer/service-new-look).
+As etapas a seguir mostram como criar e publicar um relatório usando o serviço do Power BI. Você pode seguir estas etapas, com algumas modificações, se quiser usar a "nova aparência" em Power BI. Para entender as diferenças e como navegar na "nova aparência", consulte [a ' nova aparência ' do serviço do Power bi](/power-bi/consumer/service-new-look).
 
-1. Verifique se o aplicativo de exemplo está em execução em seu dispositivo. Se não, você pode consultar os tutoriais em [Configure seu dispositivo](https://docs.microsoft.com/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started).
+1. Verifique se o aplicativo de exemplo está em execução em seu dispositivo. Se não, você pode consultar os tutoriais em [Configure seu dispositivo](./iot-hub-raspberry-pi-kit-node-get-started.md).
 
 2. Entre na sua conta do [Power BI](https://powerbi.microsoft.com/en-us/).
 

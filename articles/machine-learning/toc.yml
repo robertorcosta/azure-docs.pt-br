@@ -152,13 +152,31 @@
       href: concept-onnx.md
     - name: Pipelines de Machine Learning
       href: concept-ml-pipelines.md
-    - name: Preparação e segurança corporativas
+    - name: Segurança
       items:
         - name: Visão geral de segurança empresarial
           displayName: authorization authentication encryption aad azure active directory
           href: concept-enterprise-security.md
         - name: Linha de base de segurança
           href: security-baseline.md
+    - name: ML responsável
+      items:
+        - name: Visão geral do ML responsável
+          displayName: 'responsible,ml'
+          href: concept-responsible-ml.md
+        - name: Interpretabilidade do modelo
+          displayName: explainability
+          href: how-to-machine-learning-interpretability.md
+        - name: Imparcialidade no Machine Learning
+          displayName: fairness
+          href: concept-fairness-ml.md
+        - name: Privacidade diferencial
+          displayName: 'differential,privacy'
+          href: concept-differential-privacy.md
+- name: Guias de instruções
+  items:
+    - name: Segurança
+      items:
         - name: Gerenciamento de identidades e acesso
           items:
             - name: Configurar a autenticação
@@ -212,22 +230,6 @@
         - name: Auditar e gerenciar conformidade
           href: how-to-integrate-azure-policy.md
           displayName: policy
-    - name: ML responsável
-      items:
-        - name: Visão geral do ML responsável
-          displayName: 'responsible,ml'
-          href: concept-responsible-ml.md
-        - name: Interpretabilidade do modelo
-          displayName: explainability
-          href: how-to-machine-learning-interpretability.md
-        - name: Imparcialidade no Machine Learning
-          displayName: fairness
-          href: concept-fairness-ml.md
-        - name: Privacidade diferencial
-          displayName: 'differential,privacy'
-          href: concept-differential-privacy.md
-- name: Guias de instruções
-  items:
     - name: Criar e gerenciar workspaces
       items:
         - name: Usar o portal do Azure

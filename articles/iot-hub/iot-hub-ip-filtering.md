@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/25/2020
 ms.author: robinsh
-ms.openlocfilehash: 1ba3c89ea4f964f9e6fd5f902aab29a83a058f25
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9a95c0151ed6dd3a2ad4a9d548723cdff0bcfb8
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87074725"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147086"
 ---
 # <a name="use-ip-filters"></a>Usar filtros IP
 
@@ -22,7 +22,7 @@ A segurança é um aspecto importante de qualquer solução de IoT com base no H
 
 Há dois casos de uso específicos em que é útil bloquear os pontos de extremidade do Hub IoT para determinados endereços IP:
 
-* O Hub IoT deve receber tráfego somente de um intervalo específico de endereços IP e rejeitar todo o resto. Por exemplo, caso você esteja usando o Hub IoT com o [Azure ExpressRoute](https://azure.microsoft.com/documentation/articles/expressroute-faqs/#supported-services) para criar conexões privadas entre um Hub IoT e sua infraestrutura local.
+* O Hub IoT deve receber tráfego somente de um intervalo específico de endereços IP e rejeitar todo o resto. Por exemplo, caso você esteja usando o Hub IoT com o [Azure ExpressRoute](../expressroute/expressroute-faqs.md#supported-services) para criar conexões privadas entre um Hub IoT e sua infraestrutura local.
 
 * Você precisa rejeitar tráfego de endereços IP que foram identificados como suspeitos pelo administrador do Hub IoT.
 
@@ -75,7 +75,7 @@ Para excluir uma regra de filtro de IP, selecione o ícone de lixeira na respect
 
 ## <a name="retrieve-and-update-ip-filters-using-azure-cli"></a>Recuperar e atualizar os filtros IP usando a CLI do Azure
 
-Os filtros de IP do seu Hub IoT Podem ser recuperados e atualizados por meio da [CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
+Os filtros de IP do seu Hub IoT Podem ser recuperados e atualizados por meio da [CLI do Azure](/cli/azure/?view=azure-cli-latest).
 
 Para recuperar os filtros IP atuais do Hub IoT, execute:
 
@@ -149,7 +149,7 @@ $iothubResource | Set-AzResource -Force
 
 ## <a name="update-ip-filter-rules-using-rest"></a>Atualizar as regras do filtro de IP usando REST
 
-Você também pode recuperar e modificar um filtro de IP do seu Hub IoT usando o ponto de extremidade REST do provedor de recursos do Azure. Veja `properties.ipFilterRules` no [método createorupdate](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate).
+Você também pode recuperar e modificar um filtro de IP do seu Hub IoT usando o ponto de extremidade REST do provedor de recursos do Azure. Veja `properties.ipFilterRules` no [método createorupdate](/rest/api/iothub/iothubresource/createorupdate).
 
 ## <a name="ip-filter-rule-evaluation"></a>Avaliação da regra de filtro IP
 

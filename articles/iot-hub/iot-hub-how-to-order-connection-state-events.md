@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: asrastog
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 815dc0a90d79323fb88c98867b5540105a6fa8cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90b7b6aebfce1c37bef76d371d829048d755e39e
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91356189"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147264"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Ordenar eventos de conexão de dispositivo do Hub IoT usando o Azure Cosmos DB
 
@@ -29,7 +29,7 @@ O número de sequência é uma representação em cadeia de caracteres de um nú
 
 * Uma coleção no seu banco de dados. Consulte [Adicionar uma coleção](../cosmos-db/create-sql-api-java.md#add-a-container) para obter um passo a passo. Ao criar sua coleção, use `/id` para a chave de partição.
 
-* Um Hub IoT no Azure. Se ainda não criou um, consulte a [Introdução ao Hub IoT](iot-hub-csharp-csharp-getstarted.md) para obter um passo a passo.
+* Um Hub IoT no Azure. Se ainda não criou um, consulte a [Introdução ao Hub IoT](./quickstart-send-telemetry-dotnet.md) para obter um passo a passo.
 
 ## <a name="create-a-stored-procedure"></a>Criar um procedimento armazenado
 
@@ -335,7 +335,7 @@ Você executou um aplicativo de exemplo para coletar dados de sensor e enviá-lo
 
 ## <a name="use-the-azure-cli"></a>Usar a CLI do Azure
 
-Em vez de usar o [portal do Azure](https://portal.azure.com), é possível realizar as etapas do Hub IoT usando a CLI do Azure. Para obter detalhes, consulte as páginas da CLI do Azure para [criar uma assinatura de evento](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) e [criar um dispositivo IoT](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-create).
+Em vez de usar o [portal do Azure](https://portal.azure.com), é possível realizar as etapas do Hub IoT usando a CLI do Azure. Para obter detalhes, consulte as páginas da CLI do Azure para [criar uma assinatura de evento](/cli/azure/eventgrid/event-subscription) e [criar um dispositivo IoT](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-create).
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
@@ -361,7 +361,7 @@ Se você não quiser perder o trabalho no seu aplicativo lógico, desabilite-o e
 
 7. Selecione **Excluir**.
 
-Para remover uma conta do Azure Cosmos DB no portal do Azure, clique com o botão direito do mouse no nome da conta e clique em **Excluir conta**. Consulte as instruções detalhadas para [excluir uma conta do Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/manage-account).
+Para remover uma conta do Azure Cosmos DB no portal do Azure, clique com o botão direito do mouse no nome da conta e clique em **Excluir conta**. Consulte as instruções detalhadas para [excluir uma conta do Azure Cosmos DB](../cosmos-db/how-to-manage-database-account.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

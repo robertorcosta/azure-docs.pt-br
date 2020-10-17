@@ -7,12 +7,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: twooley
-ms.openlocfilehash: 0e10afa9293bbebbb68a6fc3eae4bc3f75813ad0
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 240018381a3139a6378141d78514e43ae469de5d
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92106817"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146302"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Segurança no Azure Data Lake Storage Gen1
 
@@ -42,7 +42,7 @@ Depois que o Microsoft Azure Active Directory autentica um usuário para que ele
 * [Controle de acesso baseado em função do Azure (RBAC do Azure)](../role-based-access-control/overview.md) para gerenciamento de conta
 * ACL POSIX para acessar dados no repositório
 
-### <a name="rbac-for-account-management"></a>RBAC para o gerenciamento da conta
+### <a name="azure-rbac-for-account-management"></a>RBAC do Azure para gerenciamento de conta
 
 Quatro funções básicas são definidas para o Azure Data Lake Storage Gen1 por padrão. As funções permitem operações diferentes em uma conta do Azure Data Lake Storage Gen1 usando o portal do Azure, os cmdlets do PowerShell e as APIs REST. As funções Proprietário e Colaborador podem realizar várias funções de administração na conta. Você pode atribuir a função Leitor para os usuários que só visualizam os dados de gerenciamento da conta.
 

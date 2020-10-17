@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 2f811c504f8871b06805d5578ed2d70c651be25d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 709ebacc66382d75b79cd41edf88cad962dfd7c2
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90029827"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147721"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Entender o registro de identidade no Hub IoT
 
@@ -84,7 +84,7 @@ Use operações assíncronas no [ponto de extremidade de provedor de recursos do
 
 Para obter mais informações sobre as APIs de importação e exportação, confira [APIs REST do provedor de recursos do Hub IoT](/rest/api/iothub/iothubresource). Para saber mais sobre como executar trabalhos de importação e exportação, confira [Gerenciamento em massa de identidades de dispositivo do Hub IoT](iot-hub-bulk-identity-mgmt.md).
 
-As identidades de dispositivo também podem ser exportadas e importadas de um hub IoT por meio da API de serviço por meio da [API REST](/rest/api/iothub/service/jobs/createimportexportjob) ou de um dos [SDKs de serviço](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-service-sdks)do Hub IOT.
+As identidades de dispositivo também podem ser exportadas e importadas de um hub IoT por meio da API de serviço por meio da [API REST](/rest/api/iothub/service/jobs/createimportexportjob) ou de um dos [SDKs de serviço](./iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks)do Hub IOT.
 
 ## <a name="device-provisioning"></a>Provisionamento de dispositivos
 
@@ -112,7 +112,7 @@ Propriedades: as propriedades do sistema de mensagens são prefixadas com o sím
 
 Mensagem de notificação para dispositivo:
 
-| Nome | Valor |
+| Name | Valor |
 | --- | --- |
 |$content-type | aplicativo/json |
 |$iothub-enqueuedtime |  Hora em que a notificação foi enviada |
@@ -148,7 +148,7 @@ Corpo: esta seção está no formato JSON e representa o gêmeo da identidade de
 ```
 Mensagem de notificação para módulo:
 
-| Nome | Valor |
+| Name | Valor |
 | --- | --- |
 $content-type | aplicativo/json |
 $iothub-enqueuedtime |  Hora em que a notificação foi enviada |

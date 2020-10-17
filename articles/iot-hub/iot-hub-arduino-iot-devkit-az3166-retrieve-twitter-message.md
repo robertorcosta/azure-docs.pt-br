@@ -10,12 +10,12 @@ ms.tgt_pltfrm: arduino
 ms.date: 03/07/2018
 ms.author: liydu
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 187e44a40228adb62a1d97f4e0df8a7ad3a7e2d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af1685f6455c0642800cba7dd604fcc836bcd7a4
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91356060"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147898"
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>Shake, Shake para um tweet -- Recuperar uma mensagem do Twitter com o Azure Functions
 
@@ -23,7 +23,7 @@ Neste projeto, você aprenderá como usar o sensor de movimento para disparar um
 
 ## <a name="what-you-need"></a>O que você precisa
 
-Siga o [Guia de Introdução](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started) para:
+Siga o [Guia de Introdução](./iot-hub-arduino-iot-devkit-az3166-get-started.md) para:
 
 * Ter seu Kit de Desenvolvimento conectado ao Wi-Fi.
 * Preparar o ambiente de desenvolvimento.
@@ -207,4 +207,4 @@ Se você encontrar outros problemas, consulte [as perguntas frequentes do Kit de
 
 Agora que você aprendeu a conectar um dispositivo DevKit ao seu acelerador de solução de Monitoramento Remoto do Azure IoT e recuperar um tweet, aqui estão as próximas etapas sugeridas:
 
-* [Visão geral do acelerador de solução de Monitoramento Remoto do Azure IoT](https://docs.microsoft.com/azure/iot-suite/)
+* [Visão geral do acelerador de solução de Monitoramento Remoto do Azure IoT](/azure/iot-suite/)

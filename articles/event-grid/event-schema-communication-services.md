@@ -4,12 +4,12 @@ description: Este artigo descreve como usar os serviços de comunicação do Azu
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: mikben
-ms.openlocfilehash: fb37dfe9927c02711f4ab1b01cd89247059b27f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f84146a0513d02484f8f84560e04a977fb3ef373
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91341240"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145825"
 ---
 # <a name="azure-communication-services-as-an-event-grid-source"></a>Serviços de comunicação do Azure como uma fonte de grade de eventos
 
@@ -23,7 +23,7 @@ Este artigo fornece as propriedades e o esquema para eventos dos serviços de co
 
 ### <a name="available-event-types"></a>Tipos de evento disponíveis
 
-A Grade de eventos usa [assinaturas de evento](https://docs.microsoft.com/azure/event-grid/concepts#event-subscriptions) para rotear mensagens de evento para os assinantes. 
+A Grade de eventos usa [assinaturas de evento](./concepts.md#event-subscriptions) para rotear mensagens de evento para os assinantes. 
 
 Os Serviços de Comunicação do Azure emitem os seguintes tipos de evento:
 
@@ -45,7 +45,7 @@ Os Serviços de Comunicação do Azure emitem os seguintes tipos de evento:
 
 ## <a name="event-subjects"></a>Assuntos do evento
 
-O campo `subject` de todos os eventos dos Serviços de Comunicação identifica o usuário, o número de telefone ou a entidade direcionada pelo evento. Prefixos comuns são usados para permitir a [Filtragem da Grade de Eventos](https://docs.microsoft.com/azure/event-grid/event-filtering) simples.
+O campo `subject` de todos os eventos dos Serviços de Comunicação identifica o usuário, o número de telefone ou a entidade direcionada pelo evento. Prefixos comuns são usados para permitir a [Filtragem da Grade de Eventos](./event-filtering.md) simples.
 
 | Prefixo do assunto                              | Entidade do Serviço de Comunicação |
 | ------------------------------------------- | ---------------------------- |
@@ -345,6 +345,6 @@ Esta seção mostra um exemplo de como os dados seriam para cada evento.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para ver uma introdução à Grade de Eventos do Azure, confira [O que é uma Grade de eventos?](https://docs.microsoft.com/azure/event-grid/overview)
-* Para obter uma introdução aos Conceitos da Grade de Eventos do Azure, confira [Conceitos na Grade de Eventos?](https://docs.microsoft.com/azure/event-grid/concepts)
-* Para obter uma introdução ao SystemTopics da Grade de Eventos do Azure, confira [Tópicos do sistema na Grade de Eventos do Azure?](https://docs.microsoft.com/azure/event-grid/system-topics)
+* Para ver uma introdução à Grade de Eventos do Azure, confira [O que é uma Grade de eventos?](./overview.md)
+* Para obter uma introdução aos Conceitos da Grade de Eventos do Azure, confira [Conceitos na Grade de Eventos?](./concepts.md)
+* Para obter uma introdução ao SystemTopics da Grade de Eventos do Azure, confira [Tópicos do sistema na Grade de Eventos do Azure?](./system-topics.md)
