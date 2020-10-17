@@ -6,12 +6,12 @@ services: azure-monitor
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: dd0c08fa968f9d029f1b89be1183ab374f1b5348
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 5dd553f0a41f82991c467ab256a87beabbff25ee
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932389"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143631"
 ---
 # <a name="azure-monitor-workbooks"></a>Pastas de trabalho do Azure Monitor
 
@@ -97,7 +97,7 @@ Se selecionarmos o botão Editar imediatamente sob a grade de dados de solicita�
 
 ![Captura de tela da consulta Kusto subjacente](./media/workbooks-overview/kusto.png)
 
-Clicar nos outros botões de **edição** à direita revelará um número de componentes principais que compõem pastas de trabalho como caixas de [texto](workbooks-visualizations.md#text)baseadas em redução, elementos de interface do usuário de [seleção de parâmetros](workbooks-parameters.md) e outros [tipos de gráfico/visualização](workbooks-visualizations.md). 
+Clicar nos outros botões de **edição** à direita revelará um número de componentes principais que compõem pastas de trabalho como caixas de [texto](workbooks-text-visualizations.md)baseadas em redução, elementos de interface do usuário de [seleção de parâmetros](workbooks-parameters.md) e outros [tipos de gráfico/visualização](#visualizations). 
 
 Explorar os modelos pré-criados no modo de edição e, em seguida, modificá-los de acordo com suas necessidades e salvar sua própria pasta de trabalho personalizada é uma maneira excelente de começar a aprender o que é possível com Azure Monitor pastas de trabalho.
 
@@ -129,5 +129,5 @@ Depois de começar a criar seus próprios modelos de pasta de trabalho, você ta
 
 ## <a name="next-step"></a>Próxima etapa
 
-* [Comece a aprender mais](workbooks-visualizations.md) sobre pastas de trabalho muitas opções de visualizações ricas.
+* [Comece a aprender mais](#visualizations) sobre pastas de trabalho muitas opções de visualizações ricas.
 * [Controle](workbooks-access-control.md) e compartilhe o acesso aos recursos da pasta de trabalho.

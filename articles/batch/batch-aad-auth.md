@@ -4,12 +4,12 @@ description: O Lote dá suporte ao Azure AD para autenticação por meio do serv
 ms.topic: how-to
 ms.date: 01/28/2020
 ms.custom: has-adal-ref
-ms.openlocfilehash: 19042b4bb0998d104792d7511ab2972299b4f58d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d84086e3fa59c1e04df5b2717738da44f5c14b2
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87533505"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144816"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autenticar soluções do serviço do Lote no Active Directory
 
@@ -103,7 +103,7 @@ A seção **Permissões de API** agora mostra que o aplicativo do Azure Active D
 Para autenticar um aplicativo que é executado de forma autônoma, use uma entidade de serviço. Depois de registrar o aplicativo, siga estas etapas no portal do Azure para configurar uma entidade de serviço:
 
 1. Solicite um segredo para o aplicativo.
-1. Atribua o controle de acesso baseado em função (RBAC) ao seu aplicativo.
+1. Atribua o controle de acesso baseado em função do Azure (RBAC do Azure) ao seu aplicativo.
 
 ### <a name="request-a-secret-for-your-application"></a>Solicitar um segredo para o aplicativo
 
@@ -119,15 +119,15 @@ Siga estas etapas no portal do Azure:
 
     ![Criar uma chave secreta](./media/batch-aad-auth/secret-key.png)
 
-### <a name="assign-rbac-to-your-application"></a>Atribuir RBAC ao seu aplicativo
+### <a name="assign-azure-rbac-to-your-application"></a>Atribuir o RBAC do Azure ao seu aplicativo
 
-Para autenticar com uma entidade de serviço, é preciso atribuir uma função RBAC ao aplicativo. Siga estas etapas:
+Para autenticar com uma entidade de serviço, você precisa atribuir o RBAC do Azure ao seu aplicativo. Siga estas etapas:
 
 1. No portal do Azure, navegue para a conta do Lote usada pelo aplicativo.
 1. Na seção **Configurações** da conta do Lote, escolha **Controle de Acesso (IAM)** .
 1. Selecione a guia **Atribuições de função**.
 1. Selecione **Adicionar atribuição de função**.
-1. Na lista suspensa **Função**, escolha a função *Colaborador* ou *Leitor* para o aplicativo. Para obter mais informações sobre essas funções, consulte [Introdução ao Controle de Acesso Baseado em Função no portal do Azure](../role-based-access-control/overview.md).
+1. Na lista suspensa **Função**, escolha a função *Colaborador* ou *Leitor* para o aplicativo. Para obter mais informações sobre essas funções, consulte Introdução [ao controle de acesso baseado em função do Azure no portal do Azure](../role-based-access-control/overview.md).
 1. No campo **Selecionar**, insira o nome de seu aplicativo. Escolha o aplicativo na lista e escolha **Salvar**.
 
 Seu aplicativo agora deve aparecer em suas configurações de controle de acesso com uma função do Azure atribuída.
@@ -138,7 +138,7 @@ Seu aplicativo agora deve aparecer em suas configurações de controle de acesso
 
 Uma função personalizada concede permissão granular a um usuário para enviar trabalhos, tarefas e muito mais. Com ela, é possível impedir que os usuários executem operações que afetam o custo, como a criação de pools ou a mudança de nós.
 
-É possível usar uma função personalizada para conceder permissões a um usuário, grupo ou entidade de serviço do Azure Active Directory para as seguintes operações de RBAC:
+Você pode usar uma função personalizada para conceder permissões a um usuário, grupo ou entidade de serviço do Azure AD para as seguintes operações de RBAC do Azure:
 
 - Microsoft.Batch/batchAccounts/pools/write
 - Microsoft.Batch/batchAccounts/pools/delete

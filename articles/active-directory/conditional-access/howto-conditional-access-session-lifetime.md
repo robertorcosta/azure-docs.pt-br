@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 672918280a988771431dccc81f042226addf029d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 817a13080cedc1d737b43bae14a07a7d4a0bd416
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91265928"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145271"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Configurar o gerenciamento da sessão de autenticação com Acesso Condicional
 
@@ -134,9 +134,8 @@ Use a ferramenta What-If para simular um logon do usuário para o aplicativo de 
 
 ## <a name="policy-deployment"></a>Implantação de política
 
-Para garantir que sua política funcione conforme o esperado, a melhor prática é testá-la antes de distribuí-la em produção. O ideal é usar um locatário de teste para verificar se a nova política funciona conforme o esperado. Para obter mais informações, consulte o artigo [práticas recomendadas para acesso condicional no Azure Active Directory](best-practices.md).
+Para garantir que sua política funcione conforme o esperado, a melhor prática é testá-la antes de distribuí-la em produção. O ideal é usar um locatário de teste para verificar se a nova política funciona conforme o esperado. Para obter mais informações, consulte o artigo [planejar uma implantação de acesso condicional](plan-conditional-access.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Se você quiser saber como configurar uma política de acesso condicional, consulte o artigo [exigir MFA para aplicativos específicos com Azure Active Directory acesso condicional](../authentication/tutorial-enable-azure-mfa.md).
-* Se você estiver pronto para configurar políticas de acesso condicional para seu ambiente, consulte o artigo [práticas recomendadas para acesso condicional no Azure Active Directory](best-practices.md).
+* Se você estiver pronto para configurar políticas de acesso condicional para seu ambiente, consulte o artigo [planejar uma implantação de acesso condicional](plan-conditional-access.md).

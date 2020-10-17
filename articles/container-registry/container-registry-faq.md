@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 09/18/2020
 ms.author: sajaya
-ms.openlocfilehash: 499ef509fc9f8d9365d8db3f7058d12352db9bb2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4c65ca24b3fa4dccb2bb0060996ade50c90bd02a
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570511"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148522"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Perguntas frequentes sobre o Registro de Contêiner do Azure
 
@@ -37,7 +37,7 @@ Sim. Este é [um](https://github.com/Azure/azure-quickstart-templates/tree/maste
 
 ### <a name="is-there-security-vulnerability-scanning-for-images-in-acr"></a>Há uma verificação de vulnerabilidade de segurança para imagens no ACR?
 
-Sim. Confira a documentação da [Central de Segurança do Azure](../security-center/azure-container-registry-integration.md), [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) e [Aqua](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry).
+Sim. Confira a documentação da [Central de Segurança do Azure](../security-center/defender-for-container-registries-introduction.md), [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) e [Aqua](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry).
 
 ### <a name="how-do-i-configure-kubernetes-with-azure-container-registry"></a>Como posso configurar o Kubernetes com o Registro de Contêiner do Azure?
 
@@ -259,7 +259,7 @@ Atualmente, a quarentena da imagem é uma versão prévia do recurso do ACR. Voc
 
 ### <a name="how-do-i-enable-anonymous-pull-access"></a>Como posso habilitar o acesso de pull anônimo?
 
-Atualmente, a configuração de um registro de contêiner do Azure para acesso de pull anônimo (público) é uma versão prévia do recurso. Se você tiver qualquer [mapa de escopo (usuário) ou recursos de token](https://aka.ms/acr/repo-permissions) em seu registro, exclua-os antes de gerar um tíquete de suporte (os mapas de escopo do sistema podem ser ignorados). Para habilitar o acesso público, abra um tíquete de suporte em https://aka.ms/acr/support/create-ticket. Para obter detalhes, confira o [Fórum de Comentários do Azure](https://feedback.azure.com/forums/903958-azure-container-registry/suggestions/32517127-enable-anonymous-access-to-registries).
+Atualmente, a configuração de um registro de contêiner do Azure para acesso de pull anônimo (público) é uma versão prévia do recurso. Se você tiver qualquer [mapa de escopo (usuário) ou recursos de token](./container-registry-repository-scoped-permissions.md) em seu registro, exclua-os antes de gerar um tíquete de suporte (os mapas de escopo do sistema podem ser ignorados). Para habilitar o acesso público, abra um tíquete de suporte em https://aka.ms/acr/support/create-ticket. Para obter detalhes, confira o [Fórum de Comentários do Azure](https://feedback.azure.com/forums/903958-azure-container-registry/suggestions/32517127-enable-anonymous-access-to-registries).
 
 > [!NOTE]
 > Somente as APIs necessárias para efetuar pull de uma imagem conhecida podem ser acessadas anonimamente. Nenhuma outra API para operações como lista de marcas ou lista de repositórios é acessível anonimamente.
@@ -443,7 +443,7 @@ Entre em contato com o administrador de rede ou verifique a configuração de re
 ### <a name="why-does-my-pull-or-push-request-fail-with-disallowed-operation"></a>Por que minha solicitação de pull ou push falha com a operação não permitida?
 
 Estes são alguns cenários em que as operações podem não ser permitidas:
-* Os registros clássicos não são mais compatíveis. Atualize para uma [camada de serviço](https://aka.ms/acr/skus) com suporte usando o [az acr update](/cli/azure/acr#az-acr-update) ou o portal do Azure.
+* Os registros clássicos não são mais compatíveis. Atualize para uma [camada de serviço](./container-registry-skus.md) com suporte usando o [az acr update](/cli/azure/acr#az-acr-update) ou o portal do Azure.
 * A imagem ou o repositório pode estar bloqueado para que não possa ser excluído ou atualizado. Você pode usar o comando [az acr show repository](./container-registry-image-lock.md) para exibir os atributos atuais.
 * Algumas operações não serão permitidas se a imagem estiver em quarentena. Saiba mais sobre a [quarentena](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
 * O registro pode ter atingido seu [limite de armazenamento](container-registry-skus.md#service-tier-features-and-limits).

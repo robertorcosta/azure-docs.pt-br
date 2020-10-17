@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 219c0b90bceb2a123d2e4af21ac7fa1edea58d54
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: c4497805e64ef303c9d7340c48a49027b3a26bef
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070003"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144692"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de configuração e gerenciamento para Serviços de Nuvem do Azure: perguntas frequentes
 
@@ -217,7 +217,7 @@ Para obter mais informações, consulte [HTTP/2 on IIS](https://blogs.iis.net/da
 ## <a name="permissions"></a>Permissões
 
 ### <a name="how-can-i-implement-role-based-access-for-cloud-services"></a>Como implementar acesso baseado em função para Serviços de Nuvem?
-Serviços de Nuvem não dão suporte ao modelo RBAC (controle de acesso baseado em função), uma vez que ele não é um serviço do baseado no Azure Resource Manager.
+Os serviços de nuvem não dão suporte ao modelo do Azure RBAC (controle de acesso baseado em função), pois não é um serviço baseado em Azure Resource Manager.
 
 Consulte [Entender as diferentes funções no Azure](../role-based-access-control/rbac-and-directory-admin-roles.md).
 
