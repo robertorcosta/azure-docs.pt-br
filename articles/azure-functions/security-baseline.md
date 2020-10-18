@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 423fdcdf48d90b4c428497f22cb6924900de8931
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: f22473d4a865e2925ecbfe74d68811c12f7c26d7
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107514"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168079"
 ---
 # <a name="azure-security-baseline-for-azure-functions"></a>Linha de base de segurança do Azure para Azure Functions
 
@@ -315,7 +315,7 @@ Opcionalmente, você pode habilitar e integrar dados ao Azure Sentinel ou a um S
 
 - [Como habilitar as configurações de diagnóstico para Azure Functions](./functions-monitor-log-analytics.md)
 
-- [Como habilitar Application Insights para Azure Functions](./functions-monitoring.md#enable-application-insights-integration)
+- [Como habilitar Application Insights para Azure Functions](./configure-monitoring.md#enable-application-insights-integration)
 
 - [Como criar alertas no Azure](../azure-monitor/learn/tutorial-response.md)
 
@@ -369,7 +369,7 @@ Opcionalmente, você pode habilitar e integrar dados ao Azure Sentinel ou a um S
 
 **Orientação**: controle o acesso do plano a Azure Functions é controlado por meio de Azure Active Directory (AD). O Azure AD não tem o conceito de senhas padrão.
 
-O acesso ao plano de dados pode ser controlado por vários meios, incluindo chaves de autorização, restrições de rede e validação de uma identidade do AAD. As chaves de autorização são usadas pelos clientes que se conectam aos seus Azure Functions pontos de extremidade HTTP e podem ser regeneradas a qualquer momento. Por padrão, essas chaves são geradas para novos pontos de extremidade HTTP.
+O acesso ao plano de dados pode ser controlado por vários meios, incluindo chaves de autorização, restrições de rede e validação de uma identidade do Azure AD. As chaves de autorização são usadas pelos clientes que se conectam aos seus Azure Functions pontos de extremidade HTTP e podem ser regeneradas a qualquer momento. Por padrão, essas chaves são geradas para novos pontos de extremidade HTTP.
 
 Vários métodos de implantação estão disponíveis para aplicativos de funções, alguns dos quais podem aproveitar um conjunto de credenciais geradas. Examine os métodos de implantação que serão usados para seu aplicativo.
 
@@ -463,7 +463,7 @@ Além disso, use as detecções de risco do Azure Active Directory para ver aler
 
 - [Como configurar seu aplicativo Azure Functions para usar o logon do Azure AD](../app-service/configure-authentication-provider-aad.md)
 
-- [Como criar e configurar uma instância do AAD](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+- [Como criar e configurar uma instância do Azure AD](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 

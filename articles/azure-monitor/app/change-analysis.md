@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/04/2020
-ms.openlocfilehash: 6a5df4f6a20a9f7061f56dac507a474f7bda6100
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: ed29bfc099ce401288c07db863207a1d989a5e0d
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91992870"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168266"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Usar a análise de alterações do aplicativo (versão prévia) no Azure Monitor
 
@@ -187,7 +187,9 @@ Se for a primeira vez que você exibir o histórico de alterações após sua in
 - **Isso está demorando mais do que o esperado**. Essa mensagem significa que o registro está demorando mais do que 2 minutos. Isso é incomum, mas não significa necessariamente que algo deu errado. Você pode ir para **assinaturas | Provedor de recursos** para verificar o status de registro do provedor de recursos **Microsoft. ChangeAnalysis** . Você pode tentar usar a interface do usuário para cancelar o registro, registrar novamente ou atualizar para ver se ele ajuda. Se o problema persistir, entre em contato com o changeanalysishelp@microsoft.com suporte.
     ![Solucionar problemas de registro de RP demorando muito](./media/change-analysis/troubleshoot-registration-taking-too-long.png)
 
+![Captura de tela da ferramenta diagnosticar e resolver problemas para uma máquina virtual com ferramentas de solução de problemas selecionadas.](./media/change-analysis/vm-dnsp-troubleshootingtools.png)
 
+![Captura de tela do bloco da ferramenta analisar alterações recentes de solução de problemas para uma máquina virtual.](./media/change-analysis/analyze-recent-changes.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

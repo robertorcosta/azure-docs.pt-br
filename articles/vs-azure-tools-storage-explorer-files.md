@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/09/2017
 ms.author: cawa
-ms.openlocfilehash: fe3a8ab5b43c41b7e9f79f92de674515377fa9ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e87e3d59fec354ca3590a79accb45a74172793b
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "60456547"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167875"
 ---
 # <a name="using-storage-explorer-with-azure-file-storage"></a>Uso do Gerenciador de Armazenamento com o armazenamento de arquivos do Azure
 
@@ -73,7 +73,7 @@ As etapas a seguir ilustram como exibir o conteúdo de um compartilhamento de ar
 
 1. O painel principal exibirá o conteúdo do compartilhamento de arquivos.
     
-    ![O conteúdo do compartilhamento](media/vs-azure-tools-storage-explorer-files/image5.png)
+    ![Captura de tela do painel principal para um compartilhamento de arquivos no Gerenciador de Armazenamento mostrando o conteúdo do compartilhamento.](media/vs-azure-tools-storage-explorer-files/image5.png)
 
 ## <a name="delete-a-file-share"></a>Excluir um compartilhamento de arquivos
 
@@ -191,7 +191,7 @@ As etapas a seguir ilustram como gerenciar os arquivos (e pastas) dentro de um c
 
 1.  O painel principal exibirá o conteúdo do compartilhamento de arquivos.
 
-    ![O conteúdo do compartilhamento](media/vs-azure-tools-storage-explorer-files/image17.png)
+    ![Captura de tela do painel principal do compartilhamento de arquivos myazurefileshare em Gerenciador de Armazenamento, mostrando o conteúdo do compartilhamento com a primeira pasta selecionada.](media/vs-azure-tools-storage-explorer-files/image17.png)
 
 1.  O painel principal exibirá o conteúdo do compartilhamento de arquivos.
 

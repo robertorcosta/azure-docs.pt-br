@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/24/2019
 ms.author: vilibert
-ms.openlocfilehash: 98514bad6a04e0c3058faf3133fc44333039ce53
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 390443874ea63a8661ef8baea627015fcf679719
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361459"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167909"
 ---
 # <a name="troubleshooting-a-linux-vm-when-there-is-no-access-to-the-azure-serial-console-and-the-disk-layout-is-using-lvm-logical-volume-manager"></a>Solução de problemas de uma VM do Linux quando não há acesso ao console serial do Azure e o layout do disco está usando o LVM (Gerenciador de volume lógico)
 
@@ -71,7 +71,7 @@ Execute o comando **lsblk** para ver o LVMS da VM afetada
 
 `lsblk`
 
-![Executar lsblk](./media/chroot-logical-volume-manager/lsblk-output-mounted.png)
+![Captura de tela que mostra a saída do comando lsblk.](./media/chroot-logical-volume-manager/lsblk-output-mounted.png)
 
 
 Verifique se LVMs da VM afetada são exibidos.
@@ -198,11 +198,11 @@ Agora acesse o ambiente **chroot** novamente executando
 
 Todos os LVs devem ser visíveis como partições montadas
 
-![Avançado](./media/chroot-logical-volume-manager/chroot-all-mounts.png)
+![Captura de tela que mostra o LVs visível como partições montadas.](./media/chroot-logical-volume-manager/chroot-all-mounts.png)
 
 Consultar o **kernel** instalado
 
-![Avançado](./media/chroot-logical-volume-manager/rpm-kernel.png)
+![Captura de tela que mostra como consultar o kernel instalado.](./media/chroot-logical-volume-manager/rpm-kernel.png)
 
 Se necessário, remova ou atualize o **kernel** 
  ![ avançado](./media/chroot-logical-volume-manager/rpm-remove-kernel.png)

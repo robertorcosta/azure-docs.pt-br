@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: e554fe48c3cbf8b744bf2f435f7b51e424d28808
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1150cdb64c5fe7d1b2241cdc0ad1a6eb0a36f47f
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87079546"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168555"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Recursos avançados do Azure Metrics Explorer
 
@@ -77,15 +77,15 @@ Aplique filtros aos gráficos que mostram métricas com dimensões. Por exemplo,
 
 2. Selecione qual dimensão (propriedade) você deseja filtrar
 
-   ![imagem de métrica](./media/metrics-charts/00006.png)
+   ![Captura de tela que mostra as dimensões (Propriedades) que você pode filtrar.](./media/metrics-charts/00006.png)
 
 3. Selecione quais valores de dimensão você deseja incluir ao plotar o gráfico (este exemplo mostra a filtragem das transações de armazenamento bem-sucedidas):
 
-   ![imagem de métrica](./media/metrics-charts/00007.png)
+   ![Captura de tela que mostra a filtragem das transações de armazenamento bem-sucedidas.](./media/metrics-charts/00007.png)
 
 4. Depois de selecionar os valores de filtro, clique fora do Seletor de Filtro para fechá-lo. Agora o gráfico mostra quantas transações de armazenamento falharam:
 
-   ![imagem de métrica](./media/metrics-charts/00008.png)
+   ![Captura de tela que mostra quantas transações de armazenamento falharam](./media/metrics-charts/00008.png)
 
 5. Repita as etapas 1 a 4 para aplicar vários filtros aos mesmos gráficos.
 
@@ -104,11 +104,11 @@ Divida uma métrica pela dimensão para visualizar uma comparação de diferente
 
 2. Escolha uma dimensão na qual você deseja segmentar o gráfico:
 
-   ![imagem de métrica](./media/metrics-charts/00010.png)
+   ![Captura de tela que mostra a dimensão selecionada na qual você segmenta o gráfico.](./media/metrics-charts/00010.png)
 
    Agora o gráfico mostra várias linhas, uma para cada segmento de dimensão:
 
-   ![imagem de métrica](./media/metrics-charts/00012.png)
+   ![Captura de tela que mostra várias linhas, uma para cada segmento de dimensão.](./media/metrics-charts/00012.png)
 
 3. Clique fora do **Seletor de Agrupamento** para fechá-lo.
 
@@ -125,7 +125,7 @@ Outro exemplo é uma flutuação na memória disponível, em que o valor tecnica
 
 Para controlar o intervalo do eixo y, use o menu do gráfico "…" e selecione **Editar gráfico** para acessar configurações do gráfico avançadas. Modifique os valores na seção Intervalo do Eixo U ou use o botão **Automático** para reverter para os padrões.
 
-![imagem de métrica](./media/metrics-charts/00014-manually-set-granularity.png)
+![Captura de tela que realça a opção Editar gráfico.](./media/metrics-charts/00014-manually-set-granularity.png)
 
 > [!WARNING]
 > Bloquear os limites do eixo y para que os gráficos que acompanham várias contagens ou somas por um período (e, portanto, usam agregações máximas, mínimas, soma e contagem) geralmente requer especificar uma granularidade de tempo fixo, em vez de contar com os padrões automáticos. Isso é necessário porque os valores em gráficos mudam quando a granularidade de tempo é modificada automaticamente pelo usuário redimensionando a janela do navegador ou passando de uma resolução de tela para outra. A alteração de granularidade de tempo resultante afeta o visual do gráfico, invalidando a seleção atual do intervalo do eixo y.
@@ -138,7 +138,7 @@ Para alterar a cor de uma linha de gráfico, clique na barra colorida na legenda
 
 Depois que as cores do gráfico forem configuradas, elas permanecerão dessa maneira quando você fixar o gráfico em um painel. A seção a seguir mostra como fixar um gráfico.
 
-![imagem de métrica](./media/metrics-charts/018.png)
+![Captura de tela que mostra como fixar um gráfico.](./media/metrics-charts/018.png)
 
 ## <a name="pin-charts-to-dashboards"></a>Fixar gráficos em painéis
 

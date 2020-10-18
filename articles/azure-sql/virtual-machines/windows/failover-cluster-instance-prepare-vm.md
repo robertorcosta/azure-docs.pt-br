@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: f42d6c8015061406958bdc16473dc0f042d3143a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5eff13c9ec672937258cf35274d2f5f7bc66f18
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91272490"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164237"
 ---
 # <a name="prepare-virtual-machines-for-an-fci-sql-server-on-azure-vms"></a>Preparar máquinas virtuais para um FCI (SQL Server em VMs do Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -101,14 +101,14 @@ Depois de cancelar o registro do provedor de recursos, você pode desinstalar o 
 
 Em cada máquina virtual, abra a porta TCP do firewall do Windows que o SQL Server usa. Por padrão, essa é a porta 1433. Mas você pode alterar a porta SQL Server em uma implantação de VM do Azure, portanto, abra a porta que SQL Server usa em seu ambiente. Essa porta é aberta automaticamente em SQL Server imagens implantadas do Azure Marketplace. 
 
-Se você usar um [balanceador de carga](hadr-vnn-azure-load-balancer-configure.md), também precisará abrir a porta que a investigação de integridade usa. Por padrão, essa é a porta 59999. Mas pode ser qualquer porta TCP que você especificar ao criar o balanceador de carga. 
+Se você usar um [balanceador de carga](failover-cluster-instance-vnn-azure-load-balancer-configure.md), também precisará abrir a porta que a investigação de integridade usa. Por padrão, essa é a porta 59999. Mas pode ser qualquer porta TCP que você especificar ao criar o balanceador de carga. 
 
 Esta tabela detalha as portas que talvez você precise abrir, dependendo da configuração do FCI: 
 
    | Finalidade | Porta | Observações
    | ------ | ------ | ------
    | SQL Server | TCP 1433 | Porta normal para instâncias padrão do SQL Server. Se você tiver usado uma imagem da galeria, essa porta será aberta automaticamente. </br> </br> **Usado por**: todas as configurações de FCI. |
-   | Investigação de integridade | TCP 59999 | Qualquer porta TCP aberta. Configure a [investigação de integridade](hadr-vnn-azure-load-balancer-configure.md#configure-health-probe) do balanceador de carga e o cluster para usar essa porta. </br> </br> **Usado por**: FCI com o balanceador de carga. |
+   | Investigação de integridade | TCP 59999 | Qualquer porta TCP aberta. Configure a [investigação de integridade](failover-cluster-instance-vnn-azure-load-balancer-configure.md#configure-health-probe) do balanceador de carga e o cluster para usar essa porta. </br> </br> **Usado por**: FCI com o balanceador de carga. |
    | Compartilhamento de arquivo | UDP 445 | Porta que o serviço de compartilhamento de arquivos usa. </br> </br> **Usado por**: FCI com compartilhamento de arquivos premium. |
 
 ## <a name="join-the-domain"></a>Ingressar no domínio
@@ -133,4 +133,4 @@ Para saber mais, confira uma visão geral do [FCI com SQL Server em VMs do Azure
 
 Para obter informações adicionais, consulte: 
 - [Tecnologias de cluster do Windows](/windows-server/failover-clustering/failover-clustering-overview)   
-- [SQL Server instâncias de cluster de failover](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+- [Instâncias de cluster de failover do SQL Server](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)

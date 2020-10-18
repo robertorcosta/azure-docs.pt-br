@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
 ms.author: alkohli
-ms.openlocfilehash: 0c54b4e3015e255a6948202a6c3ea7a83362032f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30a5f92e0092d3e20db25b519fec46e6018dd543
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85514909"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168011"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Solução de recuperação de desastre automatizada usando o Azure Site Recovery para compartilhamentos de arquivos hospedados no StorSimple
 
@@ -91,7 +91,7 @@ Esta etapa exige que você prepare o ambiente do servidor de arquivos local, cri
          > [!NOTE]
          > O nome do arquivo poderá mudar dependendo da versão.
       
-1. Clique em **Avançar**.
+1. Clique em **Próximo**.
 1. Aceite os **Termos do Contrato** e, em seguida, clique em **Avançar**.
 1. Clique em **Concluir**.
 1. Crie os compartilhamentos de arquivos usando volumes criados fora do armazenamento do StorSimple. Para obter mais informações, confira [Usar o serviço StorSimple Manager para gerenciar volumes](storsimple-manage-volumes.md).
@@ -294,7 +294,7 @@ Confira o guia complementar [Solução de DR do Active Directory](../site-recove
 1. No portal do Azure, selecione o cofre **Serviços de Recuperação**&gt; **Planos de Recuperação (Recuperação de Site)** &gt; **nome_planoderecuperação** criado para a VM do servidor de arquivos.
 1. Na folha do plano de Recuperação, Clique em **Mais** &gt;  **Failover Planejado**.
 
-   ![Plano de recuperação](./media/storsimple-disaster-recovery-using-azure-site-recovery/image9.png)
+   ![Captura de tela que realça as opções de failover e failover planejadas.](./media/storsimple-disaster-recovery-using-azure-site-recovery/image9.png)
 1. Na folha **Confirmar Failover Planejado**, escolha os locais de origem e destino, selecione a rede de destino e clique no ícone de seleção ✓ para iniciar o processo de failover.
 1. Depois que as máquinas virtuais de réplica são criadas, elas ficam em um estado de confirmação pendente. Clique em **Confirmar** para confirmar o failover.
 1. Depois que a replicação é concluída, as máquinas virtuais são iniciadas no local secundário.

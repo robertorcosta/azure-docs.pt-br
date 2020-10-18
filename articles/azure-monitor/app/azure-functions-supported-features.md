@@ -6,16 +6,16 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 4/23/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 333bba2b1d3cd83457196e38b827daa78199f235
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36c5fc93886327c0e3261418343d900ee66cb4eb
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87033506"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168572"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>Recursos suportados do Application Insights para o Azure Functions
 
-O Azure Functions oferece [integração interna](../../azure-functions/functions-monitoring.md) com o Application Insights, que está disponível por meio da Interface do ILogger. Abaixo está a lista de recursos atualmente suportados. Examine o guia do Azure Functions para [Introdução ao](../../azure-functions/functions-monitoring.md#enable-application-insights-integration).
+O Azure Functions oferece [integração interna](../../azure-functions/functions-monitoring.md) com o Application Insights, que está disponível por meio da Interface do ILogger. Abaixo está a lista de recursos atualmente suportados. Examine o guia do Azure Functions para [Introdução ao](../../azure-functions/configure-monitoring.md#enable-application-insights-integration).
 
 Para obter mais informações sobre as versões de tempo de execução do functions, consulte [aqui](../../azure-functions/functions-versions.md).
 
@@ -23,7 +23,7 @@ Para obter mais informações sobre versões compatíveis do Application Insight
 
 ## <a name="supported-features"></a>Recursos compatíveis
 
-| Funções do Azure                       | V1                | V2 & V3   | 
+| Azure Functions                       | V1                | V2 & V3   | 
 |-----------------------------------    |---------------    |------------------ |
 | | | | 
 | **Coleta automática de**        |                 |                   |               
@@ -31,23 +31,23 @@ Para obter mais informações sobre versões compatíveis do Application Insight
 | &bull; Exceções                   | Sim             | Sim               | 
 | &bull; Contadores de desempenho         | Sim             | Sim               |
 | &bull; Dependências                   |                   |                   |               
-| &nbsp;&nbsp;&nbsp;&mdash; HTTP      |                 | Sim               | 
-| &nbsp;&nbsp;&nbsp;&mdash; Barramento de serviço|                 | Sim               | 
-| &nbsp;&nbsp;&nbsp;&mdash; hub de eventos  |                 | Sim               | 
-| &nbsp;&nbsp;&nbsp;&mdash; SQL       |                 | Sim               | 
+| &nbsp;&nbsp;&nbsp;&mdash; HTTP      |                 | Yes               | 
+| &nbsp;&nbsp;&nbsp;&mdash; Barramento de serviço|                 | Yes               | 
+| &nbsp;&nbsp;&nbsp;&mdash; hub de eventos  |                 | Yes               | 
+| &nbsp;&nbsp;&nbsp;&mdash; SQL       |                 | Yes               | 
 | | | | 
 | **Recursos compatíveis**                |                   |                   |               
 | &bull; QuickPulse/LiveMetrics       | Sim             | Sim               | 
-| &nbsp;&nbsp;&nbsp;&mdash; Canal de controle seguro|                 | Sim               | 
+| &nbsp;&nbsp;&nbsp;&mdash; Canal de controle seguro|                 | Yes               | 
 | &bull; Amostragem                     | Sim             | Sim               | 
-| &bull; Pulsações                   |                 | Sim               | 
+| &bull; Pulsações                   |                 | Yes               | 
 | | | | 
 | **Correlação**                       |                   |                   |               
-| &bull; Barramento de serviço                     |                   | Sim               | 
-| &bull; hub de eventos                       |                   | Sim               | 
+| &bull; Barramento de serviço                     |                   | Yes               | 
+| &bull; hub de eventos                       |                   | Yes               | 
 | | | | 
 | **Configurável**                      |                   |                   |           
-| &bull;Totalmente configurável.<br/>Ver [Azure Functions](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852) para obter instruções.<br/>Ver [Asp.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) para todas as opções.               |                   | Sim                   | 
+| &bull;Totalmente configurável.<br/>Ver [Azure Functions](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852) para obter instruções.<br/>Consulte [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) para todas as opções.               |                   | Yes                   | 
 
 
 ## <a name="performance-counters"></a>Contadores de desempenho
@@ -61,7 +61,7 @@ Os critérios de filtro personalizados especificados são enviados para o compon
 
 ## <a name="sampling"></a>amostragem
 
-As funções do Azure ativam a amostragem por padrão em suas configurações. Para obter mais informações, consulte [configurar amostragem](../../azure-functions/functions-monitoring.md#configure-sampling).
+As funções do Azure ativam a amostragem por padrão em suas configurações. Para obter mais informações, consulte [configurar amostragem](../../azure-functions/configure-monitoring.md#configure-sampling).
 
 Se o seu projeto usar uma dependência no SDK do Application Insights para fazer o acompanhamento manual de telemetria, você poderá enfrentar um comportamento estranho se a configuração de amostragem for diferente da configuração de amostragem das funções. 
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: ce5882f2621dc5b8c48bcf5be6d4ea3a2f723bfe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 782fa75cee5ffb5f9c86082a86e2b3552914c274
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962954"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168215"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Azure App restrições de acesso de serviço
 
@@ -36,7 +36,7 @@ Para adicionar uma regra de restrição de acesso ao seu aplicativo, use o menu 
 
 Na interface do usuário de restrições de acesso, você pode examinar a lista de regras de restrição de acesso definidas para seu aplicativo.
 
-![listar restrições de acesso](media/app-service-ip-restrictions/access-restrictions-browse.png)
+![Captura da tela de restrições de acesso em portal do Azure mostrando a lista de regras de restrição de acesso definidas para o aplicativo selecionado.](media/app-service-ip-restrictions/access-restrictions-browse.png)
 
 A lista mostrará todas as restrições atuais que estão em seu aplicativo. Se você tiver uma restrição de VNet em seu aplicativo, a tabela mostrará se os pontos de extremidade de serviço estão habilitados para Microsoft. Web. Quando não houver nenhuma restrição definida em seu aplicativo, seu aplicativo poderá ser acessado de qualquer lugar.  
 
@@ -68,11 +68,11 @@ Com os pontos de extremidade de serviço, você pode configurar seu aplicativo c
 
 Você pode clicar em qualquer linha para editar uma regra de restrição de acesso existente. As edições são eficazes imediatamente, incluindo as alterações na ordem de prioridade.
 
-![editar uma regra de restrição de acesso](media/app-service-ip-restrictions/access-restrictions-ip-edit.png)
+![Captura de tela da caixa de diálogo Editar restrição de IP no portal do Azure mostrando os campos para uma regra de restrição de acesso existente.](media/app-service-ip-restrictions/access-restrictions-ip-edit.png)
 
 Quando você edita uma regra, não pode alterar o tipo entre uma regra de endereço IP e uma regra de rede virtual. 
 
-![editar uma regra de restrição de acesso](media/app-service-ip-restrictions/access-restrictions-vnet-edit.png)
+![Captura de tela da caixa de diálogo Editar restrição de IP no portal do Azure mostrando as configurações para uma regra de rede virtual.](media/app-service-ip-restrictions/access-restrictions-vnet-edit.png)
 
 Para excluir uma regra, clique em **...** em sua regra e, em seguida, clique em **remover**.
 
@@ -90,7 +90,7 @@ Para o cenário em que os usuários desejam bloquear explicitamente um único en
 
 Além de poder controlar o acesso ao seu aplicativo, você também pode restringir o acesso ao site do SCM usado pelo seu aplicativo. O site do SCM é o ponto de extremidade de implantação da Web e também o console do kudu. Você pode atribuir separadamente restrições de acesso ao site do SCM do aplicativo ou usar o mesmo conjunto para o aplicativo e o site do SCM. Quando você marca a caixa para ter as mesmas restrições que seu aplicativo, tudo fica em branco. Se você desmarcar a caixa, quaisquer configurações que você tenha anteriormente no site do SCM serão aplicadas. 
 
-![listar restrições de acesso](media/app-service-ip-restrictions/access-restrictions-scm-browse.png)
+![Captura da tela de restrições de acesso em portal do Azure mostrando que nenhuma restrição de acesso está definida para o site do SCM ou o aplicativo.](media/app-service-ip-restrictions/access-restrictions-scm-browse.png)
 
 ## <a name="programmatic-manipulation-of-access-restriction-rules"></a>Manipulação programática de regras de restrição de acesso ##
 

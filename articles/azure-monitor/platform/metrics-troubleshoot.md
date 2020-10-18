@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 54f99f2f8708fca9c02950a8886a2a9b976a93dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a9286ff15834fafe4a69907836ce1abd17abca6
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440670"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168062"
 ---
 # <a name="troubleshooting-metrics-charts"></a>Solução de problemas nos gráficos de métrica
 
@@ -79,16 +79,16 @@ Esse problema pode ocorrer quando o painel foi criado com uma métrica que foi d
 ## <a name="chart-shows-dashed-line"></a>Gráfico mostra linha tracejada
 
 Os gráficos de métricas do Azure usam o estilo de linha tracejado para indicar que há um valor ausente (também conhecido como "valor nulo") entre dois pontos de dados de intervalo de tempo conhecidos. Por exemplo, se no seletor de tempo você escolheu a granularidade de tempo "1 minuto", mas a métrica foi relatada às 07:26, 07:27, 07:29 e 07:30 (Observe uma lacuna de minuto entre o segundo e o terceiro pontos de dados), uma linha tracejada se conectará a 07:27 e 07:29 e uma linha sólida conectará todos os outros pontos de dados. A linha tracejada cai para zero quando a métrica usa a agregação **Count** e **sum** . Para as agregações **AVG**, **min** ou **Max** , a linha tracejada conecta dois pontos de dados conhecidos mais próximos. Além disso, quando os dados estão ausentes no lado mais à direita ou à esquerda do gráfico, a linha tracejada se expande na direção do ponto de dados ausente.
-  ![imagem de métrica](./media/metrics-troubleshoot/missing-data-point-line-chart.png)
+  ![Captura de tela que mostra como quando os dados estão ausentes no lado mais à direita ou à esquerda do gráfico, a linha tracejada se expande para a direção do ponto de dados ausente.](./media/metrics-troubleshoot/missing-data-point-line-chart.png)
 
-**Solução:** Esse comportamento é por design. Ele é útil para identificar pontos de dados ausentes. O gráfico de linhas é uma opção superior para a visualização de tendências de métricas de alta densidade, mas pode ser difícil interpretar para as métricas com valores esparsos, especialmente quando valores corelacionados com o intervalo de tempo são importantes. A linha tracejada facilita a leitura desses gráficos, mas se seu gráfico ainda não estiver claro, considere a possibilidade de visualizar suas métricas em outro tipo de gráfico. Por exemplo, um gráfico de plotagem disperso para a mesma métrica claramente mostra cada intervalo de tempo apenas visualizando um ponto quando há um valor e ignorando o ponto de dados quando o valor está ausente: ![ imagem de métrica](./media/metrics-troubleshoot/missing-data-point-scatter-chart.png)
+**Solução:** Esse comportamento é por design. Ele é útil para identificar pontos de dados ausentes. O gráfico de linhas é uma opção superior para a visualização de tendências de métricas de alta densidade, mas pode ser difícil interpretar para as métricas com valores esparsos, especialmente quando valores corelacionados com o intervalo de tempo são importantes. A linha tracejada facilita a leitura desses gráficos, mas se seu gráfico ainda não estiver claro, considere a possibilidade de visualizar suas métricas em outro tipo de gráfico. Por exemplo, um gráfico de plotagem disperso para a mesma métrica claramente mostra cada intervalo de tempo apenas visualizando um ponto quando há um valor e ignorando o ponto de dados quando o valor está ausente: ![ captura de tela que realça a opção de menu gráfico de dispersão.](./media/metrics-troubleshoot/missing-data-point-scatter-chart.png)
 
    > [!NOTE]
    > Se você ainda preferir um gráfico de linhas para sua métrica, mover o mouse sobre o gráfico pode ajudar a avaliar a granularidade de tempo ao realçar o ponto de dados no local do ponteiro do mouse.
 
 ## <a name="chart-shows-unexpected-drop-in-values"></a>O gráfico mostra valores de queda inesperados
 
-Em muitos casos, a queda perceptível nos valores de métrica é um mal-entendido dos dados mostrados no gráfico. Você pode ser confundido por uma queda na somas ou contagens de quando o gráfico mostra os minutos mais recentes porque os últimos pontos de dados de métrica ainda não foram recebidos ou processados pelo Azure. Dependendo do serviço, a latência de métricas de processamento pode estar dentro de um intervalo de alguns minutos. Para gráficos mostrando um intervalo de tempo recente com uma granularidade de 1 ou 5 minutos, uma queda do valor nos últimos minutos torna-se mais perceptível: ![ imagem de métrica](./media/metrics-troubleshoot/drop-in-values.png)
+Em muitos casos, a queda perceptível nos valores de métrica é um mal-entendido dos dados mostrados no gráfico. Você pode ser confundido por uma queda na somas ou contagens de quando o gráfico mostra os minutos mais recentes porque os últimos pontos de dados de métrica ainda não foram recebidos ou processados pelo Azure. Dependendo do serviço, a latência de métricas de processamento pode estar dentro de um intervalo de alguns minutos. Para gráficos mostrando um intervalo de tempo recente com uma granularidade de 1 ou 5 minutos, uma queda do valor nos últimos minutos torna-se mais perceptível: ![ captura de tela que mostra uma queda do valor nos últimos minutos.](./media/metrics-troubleshoot/drop-in-values.png)
 
 **Solução:** Esse comportamento é por design. Acreditamos que é benéfico mostrar os dados assim que eles forem recebidos, mesmo quando os dados forem *parciais* ou *incompletos*. Isso permite que você tire conclusões importantes mais cedo e inicie a investigação imediatamente. Por exemplo, em uma métrica que mostra o número de falhas, ver um valor parcial X informa que havia pelo menos X falhas em um determinado minuto. Você pode começar a investigar o problema imediatamente, em vez de esperar para ver a contagem exata de falhas que ocorreram nesse minuto, que podem não ser tão importantes. O gráfico será atualizado depois de recebermos todo o conjunto de dados mas, nesse momento, ele também poderá mostrar novos pontos de dados incompletos de minutos mais recentes.
 

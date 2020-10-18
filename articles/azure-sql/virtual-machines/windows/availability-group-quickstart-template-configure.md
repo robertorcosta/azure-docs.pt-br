@@ -14,12 +14,12 @@ ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 207ee67c207f028b5f4bd45d99a7ef431429debb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf5c3f7d854081c7306a038cc452b620d1af00d0
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91293558"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167971"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-an-availability-group-for-sql-server-on-azure-vm"></a>Usar modelos de início rápido do Azure para configurar um grupo de disponibilidade para o SQL Server em uma VM do Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -33,6 +33,8 @@ Este artigo descreve como usar os modelos de início rápido do Azure para autom
    | &nbsp; | &nbsp; |
 
 Outras partes da configuração do grupo de disponibilidade devem ser feitas manualmente, como criar o grupo de disponibilidade e criar o balanceador de carga interno. Este artigo fornece a sequência de etapas manuais e automatizadas.
+
+Embora este artigo use os modelos de início rápido do Azure para configurar o ambiente do grupo de disponibilidade, também é possível fazer isso usando o [portal do Azure](availability-group-azure-portal-configure.md), [o PowerShell ou o CLI do Azure](availability-group-az-commandline-configure.md), ou [manualmente](availability-group-manually-configure-tutorial.md) também. 
  
 
 ## <a name="prerequisites"></a>Pré-requisitos 
@@ -102,6 +104,9 @@ Crie manualmente o grupo de disponibilidade, como de costume, usando o [SQL Serv
 > *Não* crie um ouvinte neste momento, pois o modelo de início rápido **101-sql-vm-aglistener-setup** faz isso automaticamente na etapa 4. 
 
 ## <a name="create-load-balancer"></a>Criar um balanceador de carga
+
+[!INCLUDE [sql-ag-use-dnn-listener](../../includes/sql-ag-use-dnn-listener.md)]
+
 O ouvinte do grupo de disponibilidade AlwaysOn requer uma instância interna do Azure Load Balancer. O balanceador de carga interno fornece um endereço IP "flutuante" para o ouvinte do grupo de disponibilidade, o que permite failover e reconexão mais rápidos. Se as VMs do SQL Server em um grupo de disponibilidade fizerem parte do mesmo conjunto de disponibilidade, você poderá usar um balanceador de carga básico. Caso contrário, precisará usar um balanceador de carga padrão. 
 
 > [!IMPORTANT]

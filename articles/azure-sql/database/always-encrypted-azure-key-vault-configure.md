@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
 ms.date: 04/23/2020
-ms.openlocfilehash: 98ba8c54b1754d6384dfcedb86e6c4889e52cb4f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26bac8115a64d78ce64bc400f98fb26cb929ba4d
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91444840"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164492"
 ---
 # <a name="configure-always-encrypted-by-using-azure-key-vault"></a>Configurar Always Encrypted usando Azure Key Vault 
 
@@ -149,7 +149,7 @@ O SSMS fornece um assistente que ajuda você a configurar facilmente o Always En
 1. Expandir **Databases**  >  **tabelas clínicas**de bancos de dados  >  **Tables**.
 2. Clique com o botão direito do mouse na tabela **Pacientes** e selecione **Criptografar Colunas** para abrir o Assistente Sempre Criptografado:
 
-    ![Criptografar Colunas](./media/always-encrypted-azure-key-vault-configure/encrypt-columns.png)
+    ![Captura de tela que realça as colunas de criptografia... opção de menu.](./media/always-encrypted-azure-key-vault-configure/encrypt-columns.png)
 
 O assistente Always Encrypted inclui as seguintes seções: **Seleção de Coluna**, **Configuração da Chave Mestra**, **Validação** e **Resumo**.
 
@@ -159,7 +159,7 @@ Clique em **Avançar** na página **Introdução** para abrir a página **Seleç
 
 Criptografe as informações de **SSN** e **BirthDate** de cada paciente. A coluna SSN usará criptografia determinística, que oferece suporte a pesquisas de igualdade, junções e agrupar por. A coluna BirthDate usará criptografia aleatória, que não oferece suporte a operações.
 
-Defina o **Tipo de Criptografia** para a coluna SSN como **Determinístico** e a coluna BirthDate como **Aleatório**. Clique em **Avançar**.
+Defina o **Tipo de Criptografia** para a coluna SSN como **Determinístico** e a coluna BirthDate como **Aleatório**. Clique em **Próximo**.
 
 ![Criptografar Colunas](./media/always-encrypted-azure-key-vault-configure/column-selection.png)
 
@@ -171,7 +171,7 @@ Este tutorial mostra como armazenar suas chaves no Cofre de Chaves do Azure.
 
 1. Selecione **Cofre de Chaves do Azure**.
 2. Selecione o cofre de chaves desejado na lista suspensa.
-3. Clique em **Avançar**.
+3. Clique em **Próximo**.
 
 ![Configuração da Chave Mestra](./media/always-encrypted-azure-key-vault-configure/master-key-configuration.png)
 
@@ -574,7 +574,7 @@ SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
 
 É possível ver que as colunas criptografadas não contêm dados de texto não criptografado.
 
-   ![Novo aplicativo de console](./media/always-encrypted-azure-key-vault-configure/ssms-encrypted.png)
+   ![Captura de tela que mostra que as colunas criptografadas não contêm nenhum dado de texto sem formatação.](./media/always-encrypted-azure-key-vault-configure/ssms-encrypted.png)
 
 Para usar o SSMS para acessar os dados de texto sem formatação, primeiro você precisa garantir que o usuário tenha as permissões adequadas para o Azure Key Vault: *get*, *unwrapKey* e *verify*. Para obter informações detalhadas, consulte [Criar e armazenar chaves mestras de coluna (Always Encrypted)](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted).
 
@@ -584,7 +584,7 @@ Em seguida, adicione o parâmetro *Column Encryption Setting=enabled* durante a 
 2. Clique em **conectar**  >  **mecanismo de banco de dados** para abrir a janela **conectar ao servidor** e clique em **Opções**.
 3. Clique em **Parâmetros Adicionais de Conexão** e digite **Column Encryption Setting=enabled**.
 
-    ![Novo aplicativo de console](./media/always-encrypted-azure-key-vault-configure/ssms-connection-parameter.png)
+    ![Captura de tela que mostra a guia parâmetros adicionais de correção.](./media/always-encrypted-azure-key-vault-configure/ssms-connection-parameter.png)
 
 4. Execute a consulta a seguir no banco de dados Clínica.
 

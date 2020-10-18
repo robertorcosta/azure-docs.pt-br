@@ -5,12 +5,12 @@ ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: bd5eea6d97ca5ff20622c651b2c6ee75f9014d55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86a512ea0e07f5eb2ce00ff27427139c5221d229
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317169"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164815"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guia do desenvolvedor de JavaScript do Azure Functions
 
@@ -133,7 +133,7 @@ As entradas são divididas em duas categorias no Azure Functions: uma é a entra
    };
    ```
 
-### <a name="outputs"></a>outputs
+### <a name="outputs"></a>Saídas
 As saídas (ligações de `direction === "out"`) podem ser gravadas por uma função de várias maneiras. Em todos os casos, a propriedade `name` da ligação, conforme definido em * function.json *, corresponde ao nome do membro do objeto gravado na sua função. 
 
 Você pode atribuir dados a associações de saída de uma das seguintes maneiras (não Combine esses métodos):
@@ -290,49 +290,17 @@ context.done(null, { myOutput: { text: 'hello there, world', noNumber: true }});
 context.log(message)
 ```
 
-Permite que você grave em logs de função de streaming no nível de rastreamento padrão. No `context.log`, há métodos de registro adicionais disponíveis para permitir que você grave logs de função em outros níveis de rastreamento:
+Permite que você grave nos logs da função de streaming no nível de rastreamento padrão, com outros níveis de log disponíveis. O log de rastreamento é descrito em detalhes na próxima seção. 
 
+## <a name="write-trace-output-to-logs"></a>Gravar saída de rastreamento em logs
 
-| Método                 | DESCRIÇÃO                                |
-| ---------------------- | ------------------------------------------ |
-| **erro (_mensagem_)**   | Grava no registro em log no nível do erro, ou em um nível inferior.   |
-| **warn(_message_)**    | Grava no registro em log no nível do aviso, ou em um nível inferior. |
-| **info(_message_)**    | Grava no registro em log no nível da informação, ou em um nível inferior.    |
-| **verbose(_message_)** | Grava no registro em log no nível detalhado.           |
+No functions, você usa os `context.log` métodos para gravar a saída do rastreamento nos logs e no console do. Quando você chama `context.log()` , sua mensagem é gravada nos logs no nível de rastreamento padrão, que é o nível de rastreamento de _informações_ . As funções integram-se com o Aplicativo Azure insights para capturar melhor os logs do aplicativo de funções. Application Insights, parte do Azure Monitor, fornece recursos para coleta, renderização visual e análise da telemetria do aplicativo e de suas saídas de rastreamento. Para saber mais, consulte [monitoramento Azure Functions](functions-monitoring.md).
 
-O exemplo a seguir grava um log no nível de rastreamento de aviso:
+O exemplo a seguir grava um log no nível de rastreamento de informações, incluindo a ID de invocação:
 
 ```javascript
-context.log.warn("Something has happened."); 
+context.log("Something has happened. " + context.invocationId); 
 ```
-
-Você pode [configurar o limite do nível de rastreamento para registro em log](#configure-the-trace-level-for-console-logging) no arquivo host.json. Para obter mais informações sobre como gravar logs, confira [Gravando saídas de rastreamento](#writing-trace-output-to-the-console) abaixo.
-
-Leia [Monitorado o Azure Functions](functions-monitoring.md) para saber mais sobre como exibir e consultar logs de função.
-
-## <a name="writing-trace-output-to-the-console"></a>Gravar a saída de rastreamento no console 
-
-No Functions, use os métodos `context.log` para gravar a saída de rastreamento no console. No Functions v2.x, as saídas de rastreio usando `console.log` são capturadas no nível do Aplicativo Function. Isso significa que as saídas de `console.log` não estão vinculadas a uma invocação de função específica e não são exibidas em logs de uma função específica. Eles, no entanto, se propagam para o Application Insights. No Functions v1.x, não é possível usar `console.log` para gravar no console.
-
-Quando você chama `context.log()`, sua mensagem é gravada no console no nível de rastreamento padrão, que é o nível de rastreamento de _informações_. O código a seguir grava no console no nível de rastreamento de informações:
-
-```javascript
-context.log({hello: 'world'});  
-```
-
-Esse código é equivalente ao código acima:
-
-```javascript
-context.log.info({hello: 'world'});  
-```
-
-Esse código grava no console no nível de erro:
-
-```javascript
-context.log.error("An error has occurred.");  
-```
-
-Como _erro_ é o nível de rastreamento mais alto, esse rastreamento é gravado na saída em todos os níveis de rastreamento enquanto o registro em log estiver habilitado.
 
 Todos os métodos `context.log` dão suporte ao mesmo formato de parâmetro que o [método util.format](https://nodejs.org/api/util.html#util_util_format_format) de Node.js. Considere o código a seguir, que grava logs de função usando o nível de rastreamento padrão:
 
@@ -348,9 +316,39 @@ context.log('Node.js HTTP trigger function processed a request. RequestUri=%s', 
 context.log('Request Headers = ', JSON.stringify(req.headers));
 ```
 
-### <a name="configure-the-trace-level-for-console-logging"></a>Configurar o nível de rastreamento para o registro em log no console
+> [!NOTE]  
+> Não usar `console.log` para gravar saídas de rastreamento. Como a saída de `console.log` é capturada no nível do aplicativo de funções, ela não está vinculada a uma invocação de função específica e não é exibida em logs de uma função específica. Além disso, a versão 1. x do tempo de execução do Functions não dá suporte ao uso do `console.log` para gravar no console.
 
-O Functions 1.x permite a definição do nível de rastreamento de limite para gravar no console, o que facilita o controle do modo de gravação dos rastreamentos no console da sua função. Para definir o limite para todos os rastreamentos gravados no console, use a propriedade `tracing.consoleLevel` no arquivo host.json. Essa configuração se aplica a todas as funções em seu aplicativo de função. O exemplo a seguir define o limite de rastreamento para habilitar o registro em log detalhado:
+### <a name="trace-levels"></a>Níveis de rastreamento
+
+Além do nível padrão, os seguintes métodos de log estão disponíveis para permitir que você grave logs de função em níveis de rastreamento específicos.
+
+| Método                 | Descrição                                |
+| ---------------------- | ------------------------------------------ |
+| **erro (_mensagem_)**   | Grava um evento de nível de erro nos logs.   |
+| **warn(_message_)**    | Grava um evento no nível de aviso nos logs. |
+| **info(_message_)**    | Grava no registro em log no nível da informação, ou em um nível inferior.    |
+| **verbose(_message_)** | Grava no registro em log no nível detalhado.           |
+
+O exemplo a seguir grava o mesmo log no nível de rastreamento de aviso, em vez do nível de informações:
+
+```javascript
+context.log.warn("Something has happened. " + context.invocationId); 
+```
+
+Como _erro_ é o nível de rastreamento mais alto, esse rastreamento é gravado na saída em todos os níveis de rastreamento enquanto o registro em log estiver habilitado.
+
+### <a name="configure-the-trace-level-for-logging"></a>Configurar o nível de rastreamento para registro em log
+
+O Functions permite que você defina o nível de rastreamento de limite para gravação nos logs ou no console do. As configurações de limite específicas dependem da sua versão do tempo de execução do functions.
+
+# <a name="v2x"></a>[v2. x +](#tab/v2)
+
+Para definir o limite para rastreamentos gravados nos logs, use a `logging.logLevel` propriedade no host.jsno arquivo. Esse objeto JSON permite que você defina um limite padrão para todas as funções em seu aplicativo de funções, além de poder definir limites específicos para funções individuais. Para saber mais, consulte [como configurar o monitoramento para Azure Functions](configure-monitoring.md).
+
+# <a name="v1x"></a>[v1. x](#tab/v1)
+
+Para definir o limite para todos os rastreamentos gravados nos logs e o console, use a `tracing.consoleLevel` propriedade no host.jsno arquivo. Essa configuração se aplica a todas as funções em seu aplicativo de função. O exemplo a seguir define o limite de rastreamento para habilitar o registro em log detalhado:
 
 ```json
 {
@@ -360,7 +358,65 @@ O Functions 1.x permite a definição do nível de rastreamento de limite para g
 }  
 ```
 
-Os valores de **consoleLevel** correspondem aos nomes dos métodos `context.log`. Para desabilitar todo o registro em log do rastreamento no console, defina **consoleLevel** como _off_. Para obter mais informações, consulte a [referência para host.json](functions-host-json-v1.md).
+Os valores de **consoleLevel** correspondem aos nomes dos métodos `context.log`. Para desabilitar todo o registro em log do rastreamento no console, defina **consoleLevel** como _off_. Para obter mais informações, consulte [host.jsna referência v1. x](functions-host-json-v1.md).
+
+---
+
+### <a name="log-custom-telemetry"></a>Registrar telemetria personalizada
+
+Por padrão, o Functions grava saída como rastreamentos para Application Insights. Para obter mais controle, você pode usar o [Application Insights Node.js SDK](https://github.com/microsoft/applicationinsights-node.js) para enviar dados de telemetria personalizados para sua instância de Application insights. 
+
+# <a name="v2x"></a>[v2. x +](#tab/v2)
+
+```javascript
+const appInsights = require("applicationinsights");
+appInsights.setup();
+const client = appInsights.defaultClient;
+
+module.exports = function (context, req) {
+    context.log('JavaScript HTTP trigger function processed a request.');
+
+    // Use this with 'tagOverrides' to correlate custom telemetry to the parent function invocation.
+    var operationIdOverride = {"ai.operation.id":context.traceContext.traceparent};
+
+    client.trackEvent({name: "my custom event", tagOverrides:operationIdOverride, properties: {customProperty2: "custom property value"}});
+    client.trackException({exception: new Error("handled exceptions can be logged with this method"), tagOverrides:operationIdOverride});
+    client.trackMetric({name: "custom metric", value: 3, tagOverrides:operationIdOverride});
+    client.trackTrace({message: "trace message", tagOverrides:operationIdOverride});
+    client.trackDependency({target:"http://dbname", name:"select customers proc", data:"SELECT * FROM Customers", duration:231, resultCode:0, success: true, dependencyTypeName: "ZSQL", tagOverrides:operationIdOverride});
+    client.trackRequest({name:"GET /customers", url:"http://myserver/customers", duration:309, resultCode:200, success:true, tagOverrides:operationIdOverride});
+
+    context.done();
+};
+```
+
+# <a name="v1x"></a>[v1. x](#tab/v1)
+
+```javascript
+const appInsights = require("applicationinsights");
+appInsights.setup();
+const client = appInsights.defaultClient;
+
+module.exports = function (context, req) {
+    context.log('JavaScript HTTP trigger function processed a request.');
+
+    // Use this with 'tagOverrides' to correlate custom telemetry to the parent function invocation.
+    var operationIdOverride = {"ai.operation.id":context.operationId};
+
+    client.trackEvent({name: "my custom event", tagOverrides:operationIdOverride, properties: {customProperty2: "custom property value"}});
+    client.trackException({exception: new Error("handled exceptions can be logged with this method"), tagOverrides:operationIdOverride});
+    client.trackMetric({name: "custom metric", value: 3, tagOverrides:operationIdOverride});
+    client.trackTrace({message: "trace message", tagOverrides:operationIdOverride});
+    client.trackDependency({target:"http://dbname", name:"select customers proc", data:"SELECT * FROM Customers", duration:231, resultCode:0, success: true, dependencyTypeName: "ZSQL", tagOverrides:operationIdOverride});
+    client.trackRequest({name:"GET /customers", url:"http://myserver/customers", duration:309, resultCode:200, success:true, tagOverrides:operationIdOverride});
+
+    context.done();
+};
+```
+
+---
+
+O parâmetro `tagOverrides` define `operation_Id` para a ID de invocação de função. Essa configuração permite que você correlacione toda a telemetria gerada automaticamente e a telemetria personalizada para uma dada invocação de função.
 
 ## <a name="http-triggers-and-bindings"></a>Gatilhos e associações HTTP
 
@@ -370,7 +426,7 @@ HTTP e gatilhos de webhook e associações de saída HTTP usam objetos de solici
 
 O objeto `context.req` (solicitação) tem as seguintes propriedades:
 
-| Propriedade      | DESCRIÇÃO                                                    |
+| Propriedade      | Descrição                                                    |
 | ------------- | -------------------------------------------------------------- |
 | _body_        | Um objeto que contém o corpo da solicitação.               |
 | _conector_     | Um objeto que contém os cabeçalhos da solicitação.                   |
@@ -385,7 +441,7 @@ O objeto `context.req` (solicitação) tem as seguintes propriedades:
 
 O objeto `context.res` (resposta) tem as seguintes propriedades:
 
-| Propriedade  | DESCRIÇÃO                                               |
+| Propriedade  | Descrição                                               |
 | --------- | --------------------------------------------------------- |
 | _body_    | Um objeto que contém o corpo da resposta.         |
 | _conector_ | Um objeto que contém os cabeçalhos da resposta.             |

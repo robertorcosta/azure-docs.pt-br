@@ -3,12 +3,12 @@ title: Referência de host.json para as funções do Azure 1.x
 description: Documentação de referência para o arquivo host.json do Azure Functions com o runtime v1.
 ms.topic: conceptual
 ms.date: 10/19/2018
-ms.openlocfilehash: 36d028d09c94ae28e77404297bd576f5e20404c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 32848c725d5c99e3814e86447d604839502054c0
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81757521"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167706"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>Referência de host.json para as funções do Azure 1.x
 
@@ -194,7 +194,7 @@ Definições de configuração para [monitor de integridade de Host](https://git
 |healthCheckThreshold|6|Número máximo de vezes que a verificação de integridade pode falhar antes de uma reciclagem de host ser iniciada.| 
 |counterThreshold|0.80|O limite no qual um contador de desempenho será considerado não íntegro.| 
 
-## <a name="http"></a>HTTP
+## <a name="http"></a>http
 
 Parâmetros de configuração para [gatilhos e associações http](functions-bindings-http-webhook.md).
 
@@ -230,7 +230,7 @@ Se você compartilhar uma conta de Armazenamento em vários aplicativos de funç
 
 ## <a name="logger"></a>agente
 
-Controles de filtragem de logs gravados por um [objeto ILogger](functions-monitoring.md#write-logs-in-c-functions) ou por [context.log](functions-monitoring.md#write-logs-in-javascript-functions).
+Controla a filtragem de logs gravados por um objeto [ILogger](functions-dotnet-class-library.md#ilogger) ou por [Context. log](functions-reference-node.md#contextlog-method).
 
 ```json
 {
@@ -340,7 +340,7 @@ Parâmetro de configuração para o comportamento de bloqueio de Singleton. Para
 
 *Versão 1.x*
 
-Parâmetros de configuração para logs que você cria usando um objeto `TraceWriter`. Consulte [Registro de logs em C#](functions-reference-csharp.md#logging) e [Registro de logs em Node.js](functions-reference-node.md#writing-trace-output-to-the-console).
+Parâmetros de configuração para logs que você cria usando um objeto `TraceWriter`. Para saber mais, consulte [log em C#].
 
 ```json
 {

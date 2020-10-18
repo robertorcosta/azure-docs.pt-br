@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.date: 08/15/2020
 ms.author: glenga
 ms.reviewer: jehollan
-ms.openlocfilehash: f535a27e3afadaf8eefc41c5f1a8ab6c02d24c04
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee2e7dc577e000878884655c0ed5f4bcb1aabab5
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715934"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167688"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Usar injeção de dependência no .NET do Azure Functions
 
@@ -131,8 +131,8 @@ Se você precisar de seu próprio provedor de log, registre um tipo personalizad
 O Application Insights é adicionado automaticamente pelo Azure Functions.
 
 > [!WARNING]
-> - Não adicione `AddApplicationInsightsTelemetry()` à coleção de serviços porque ele registra os serviços que entram em conflito com os serviços fornecidos pelo ambiente.
-> - Não registre seu próprio `TelemetryConfiguration` ou `TelemetryClient` se você estiver usando a funcionalidade interna do Application Insights. Se você precisar configurar sua própria instância `TelemetryClient`, crie uma por meio de `TelemetryConfiguration` injetado, como mostrado em [Monitorar Azure Functions](./functions-monitoring.md#version-2x-and-later-2).
+> - Não adicione `AddApplicationInsightsTelemetry()` à coleção de serviços, que registra serviços que entram em conflito com os serviços fornecidos pelo ambiente.
+> - Não Registre seu próprio `TelemetryConfiguration` ou `TelemetryClient` se você estiver usando a funcionalidade interna de Application insights. Se você precisar configurar sua própria `TelemetryClient` instância, crie uma por meio do injetado `TelemetryConfiguration` conforme mostrado em [log telemetria personalizada em funções C#](functions-dotnet-class-library.md?tabs=v2%2Ccmd#log-custom-telemetry-in-c-functions).
 
 ### <a name="iloggert-and-iloggerfactory"></a>ILogger<T> e ILoggerFactory
 
@@ -287,7 +287,7 @@ namespace MyNamespace
 }
 ```
 
-Adicione provedores de configuração à `ConfigurationBuilder` propriedade de `IFunctionsConfigurationBuilder` . Para obter mais informações sobre como usar provedores de configuração, consulte [Configuration in ASP.NET Core](/aspnet/core/fundamentals/configuration/?view=aspnetcore-3.1#configuration-providers).
+Adicione provedores de configuração à `ConfigurationBuilder` propriedade de `IFunctionsConfigurationBuilder` . Para obter mais informações sobre como usar provedores de configuração, consulte [Configuration in ASP.NET Core](/aspnet/core/fundamentals/configuration/#configuration-providers).
 
 Um `FunctionsHostBuilderContext` é obtido do `IFunctionsConfigurationBuilder.GetContext()` . Use este contexto para recuperar o nome do ambiente atual e resolver o local dos arquivos de configuração em sua pasta de aplicativo de funções.
 

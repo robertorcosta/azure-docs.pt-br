@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/17/2018
-ms.openlocfilehash: 0320be3a2cfbb96367799577a6e56bcf5da87dcb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b73fa9702a95897afbca53e2de70dcabc04a4665
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77658499"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168495"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-azure-monitor"></a>Guia de referência para exibir blocos do designer no Azure Monitor
 Usando o designer de exibição no Azure Monitor, você pode criar uma variedade de exibições personalizadas na portal do Azure que podem ajudá-lo a Visualizar dados em seu espaço de trabalho do Log Analytics. Este artigo é um guia de referência das configurações para os blocos que estão disponíveis em modos de exibição personalizados.
@@ -24,7 +24,7 @@ Para obter mais informações sobre o Designer de Exibição, consulte:
 
 Os blocos do Designer de Modos de Exibição disponíveis são descritos na tabela a seguir:  
 
-| Tile | Descrição |
+| Tile | Description |
 |:--- |:--- |
 | [Número](#number-tile) |A contagem de registros de uma consulta. |
 | [Dois números](#two-numbers-tile) |As contagens de registros de duas consultas diferentes. |
@@ -45,8 +45,8 @@ O bloco **Número** exibe a contagem de registros de uma consulta de log e um r�
 
 | Configuração | Descrição |
 |:--- |:--- |
-| Nome |O texto que é exibido na parte superior do bloco. |
-| Descrição |O texto que é exibido sob o nome do bloco. |
+| Name |O texto que é exibido na parte superior do bloco. |
+| Description |O texto que é exibido sob o nome do bloco. |
 | **Tile** | |
 | Legenda |O texto que é exibido sob o valor. |
 | Consulta |A consulta que é executada. A contagem de registros que são retornados pela consulta é exibida. |
@@ -63,8 +63,8 @@ Este bloco exibe a contagem de registros de duas consultas de log diferentes e u
 
 | Configuração | Descrição |
 |:--- |:--- |
-| Nome |O texto que é exibido na parte superior do bloco. |
-| Descrição |O texto que é exibido sob o nome do bloco. |
+| Name |O texto que é exibido na parte superior do bloco. |
+| Description |O texto que é exibido sob o nome do bloco. |
 | **Primeiro Bloco** | |
 | Legenda |O texto que é exibido sob o valor. |
 | Consulta |A consulta que é executada. A contagem de registros que são retornados pela consulta é exibida. |
@@ -84,8 +84,8 @@ O bloco **Rosca** exibe um único número que resume uma coluna de valor em uma 
 
 | Configuração | Descrição |
 |:--- |:--- |
-| Nome |O texto que é exibido na parte superior do bloco. |
-| Descrição |O texto que é exibido sob o nome do bloco. |
+| Name |O texto que é exibido na parte superior do bloco. |
+| Description |O texto que é exibido sob o nome do bloco. |
 | **Donut** | |
 | Consulta |A consulta que é executada para a rosca. A primeira propriedade é um valor de texto e a segunda é um valor numérico. Essa consulta normalmente usa a palavra-chave *medida* para resumir resultados. |
 | **Donut** |**> Centro** |
@@ -104,12 +104,12 @@ O bloco **Rosca** exibe um único número que resume uma coluna de valor em uma 
 ## <a name="line-chart-tile"></a>Bloco Gráfico de linhas
 Este bloco é um gráfico de linhas que exibe várias séries de uma consulta de log ao longo do tempo. 
 
-![Bloco gráfico de linhas e balão](media/view-designer-tiles/tile-line-chart.png)
+![Captura de tela de um bloco de gráfico de linhas no designer de exibição de Azure Monitor.](media/view-designer-tiles/tile-line-chart.png)
 
 | Configuração | Descrição |
 |:--- |:--- |
-| Nome |O texto que é exibido na parte superior do bloco. |
-| Descrição |O texto que é exibido sob o nome do bloco. |
+| Name |O texto que é exibido na parte superior do bloco. |
+| Description |O texto que é exibido sob o nome do bloco. |
 | **Gráfico de linhas** | |
 | Consulta |A consulta que é executada para o gráfico de linhas. A primeira propriedade é um valor de texto e a segunda é um valor numérico. Essa consulta normalmente usa a palavra-chave *medida* para resumir resultados. Se a consulta usar a palavra-chave *intervalo*, o eixo x usará esse intervalo de tempo. Se a consulta não usar a palavra-chave *intervalo*, o eixo x usará intervalos de horas. |
 | **Gráfico de linhas** |**> Eixo Y** |
@@ -125,12 +125,12 @@ Este bloco é um gráfico de linhas que exibe várias séries de uma consulta de
 ## <a name="line-chart-and-callout-tile"></a>Bloco gráfico de linhas e balão
 Este bloco tem um gráfico de linhas que exibe várias séries de uma consulta de log ao longo do tempo, além de um balão com um valor resumido. 
 
-![Bloco gráfico de linhas e balão](media/view-designer-tiles/tile-line-chart-callout.png)
+![Captura de tela de um gráfico de linhas e bloco de texto explicativo no designer de Azure Monitor exibição. o texto explicativo aumenta o gráfico de linhas mostrando um valor resumido.](media/view-designer-tiles/tile-line-chart-callout.png)
 
 | Configuração | Descrição |
 |:--- |:--- |
-| Nome |O texto que é exibido na parte superior do bloco. |
-| Descrição |O texto que é exibido sob o nome do bloco. |
+| Name |O texto que é exibido na parte superior do bloco. |
+| Description |O texto que é exibido sob o nome do bloco. |
 | **Gráfico de linhas** | |
 | Consulta |A consulta que é executada para o gráfico de linhas. A primeira propriedade é um valor de texto e a segunda é um valor numérico. Essa consulta normalmente usa a palavra-chave *medida* para resumir resultados. Se a consulta usar a palavra-chave *intervalo*, o eixo x usará esse intervalo de tempo. Se a consulta não usar a palavra-chave *intervalo*, o eixo x usará intervalos de horas. |
 | **Gráfico de linhas** |**> Balão** |
@@ -154,8 +154,8 @@ O bloco **Duas linhas do tempo** exibe os resultados das duas consultas de log a
 
 | Configuração | Descrição |
 |:--- |:--- |
-| Nome |O texto que é exibido na parte superior do bloco. |
-| Descrição |O texto que é exibido sob o nome do bloco. |
+| Name |O texto que é exibido na parte superior do bloco. |
+| Description |O texto que é exibido sob o nome do bloco. |
 | Primeiro Gráfico | |
 | Legenda |O texto que é exibido sob o balão para a primeira série. |
 | Color |A cor que é usada para as colunas na primeira série. |

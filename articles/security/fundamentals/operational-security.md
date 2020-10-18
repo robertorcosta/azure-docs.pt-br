@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: b6e5a22a073a2a61db4a630388fee886e2f4ed26
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5decd3e222af11c402cbff4585532a0cf22282e
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87543326"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168045"
 ---
 # <a name="azure-operational-security"></a>Segurança Operacional do Azure
 ## <a name="introduction"></a>Introdução
@@ -81,7 +81,7 @@ A principal funcionalidade dos logs de Azure Monitor é fornecida por um conjunt
 Esse método permite consolidar dados de várias fontes, de forma que você possa combinar dados dos serviços do Azure com o ambiente local existente. Ele também separa a coleta dos dados da ação executada neles para que todas as ações fiquem disponíveis para todos os tipos de dados.
 
 
-![Logs do Azure Monitor](./media/operational-security/azure-operational-security-fig2.png)
+![Diagrama que mostra a consolidação de dados de várias fontes, para que você possa combinar dados de seus serviços do Azure com seu ambiente local existente.](./media/operational-security/azure-operational-security-fig2.png)
 
 O serviço de Azure Monitor gerencia seus dados baseados em nuvem com segurança usando os seguintes métodos:
 -   segregação de dados

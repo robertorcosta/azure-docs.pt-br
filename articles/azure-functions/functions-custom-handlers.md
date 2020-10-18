@@ -5,12 +5,12 @@ author: anthonychu
 ms.author: antchu
 ms.date: 8/18/2020
 ms.topic: article
-ms.openlocfilehash: f3106553def982eb90ccc90822206e75a11ce354
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 402ce1e9e92ab87689abe9c18a503a479d7421f9
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89294587"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164543"
 ---
 # <a name="azure-functions-custom-handlers-preview"></a>Azure Functions manipuladores personalizados (versão prévia)
 
@@ -191,7 +191,7 @@ Por convenção, as respostas de função são formatadas como pares de chave/va
 | ------------- | --------- | ------------------------------------------------------------ |
 | `Outputs`     | objeto    | Mantém valores de resposta conforme definidos pela `bindings` matriz no *function.jsem*.<br /><br />Por exemplo, se uma função for configurada com uma associação de saída de fila chamada "myQueueOutput", `Outputs` conterá uma chave chamada `myQueueOutput` , que é definida pelo manipulador personalizado para as mensagens que são enviadas para a fila. |
 | `Logs`        | matriz     | As mensagens aparecem nos logs de invocação de funções.<br /><br />Ao executar no Azure, as mensagens aparecem no Application Insights. |
-| `ReturnValue` | cadeia de caracteres    | Usado para fornecer uma resposta quando uma saída é configurada como `$return` na *function.jsno* arquivo. |
+| `ReturnValue` | string    | Usado para fornecer uma resposta quando uma saída é configurada como `$return` na *function.jsno* arquivo. |
 
 Este é um exemplo de uma carga de resposta.
 
@@ -566,7 +566,7 @@ O host do Functions gera mensagens de log extras, incluindo informações relaci
 
 Localmente, os logs são impressos no console do.
 
-No Azure, os [rastreamentos de Application insights de consulta](functions-monitoring.md#query-telemetry-data) para exibir as mensagens de log. Se seu aplicativo produz um alto volume de logs, apenas um subconjunto de mensagens de log é enviado para Application Insights. [Desabilite a amostragem](functions-monitoring.md#configure-sampling) para garantir que todas as mensagens sejam registradas.
+No Azure, os [rastreamentos de Application insights de consulta](analyze-telemetry-data.md#query-telemetry-data) para exibir as mensagens de log. Se seu aplicativo produz um alto volume de logs, apenas um subconjunto de mensagens de log é enviado para Application Insights. [Desabilite a amostragem](configure-monitoring.md#configure-sampling) para garantir que todas as mensagens sejam registradas.
 
 ### <a name="test-custom-handler-in-isolation"></a>Testar manipulador personalizado em isolamento
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 8942e9180e87552ec64e0e848751f492778c9993
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83afdf7e9dc50e50d747db99cd8439d75e6f7804
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86131658"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167807"
 ---
 # <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>Solucionar problemas: falha ao excluir uma rede virtual no Azure
 
@@ -48,7 +48,7 @@ Para redes virtuais clássicas, vá para a página **Visão geral** da rede virt
 
 Para redes virtuais, vá para a página **Visão geral** da rede virtual. Confira **Dispositivos conectados** para o gateway de rede virtual.
 
-![Verifique o dispositivo conectado](media/virtual-network-troubleshoot-cannot-delete-vnet/vnet-gateway.png)
+![Captura de tela da lista de dispositivos conectados para uma rede virtual no portal do Azure. O gateway de rede virtual é realçado na lista.](media/virtual-network-troubleshoot-cannot-delete-vnet/vnet-gateway.png)
 
 Antes de remover o gateway, primeiro remova qualquer objeto de **Conexão** no gateway. 
 
@@ -56,7 +56,7 @@ Antes de remover o gateway, primeiro remova qualquer objeto de **Conexão** no g
 
 Vá para a página **Visão geral** da rede virtual. Verifique os **Dispositivos conectados** para o gateway de aplicativo.
 
-![Verifique o dispositivo conectado](media/virtual-network-troubleshoot-cannot-delete-vnet/app-gateway.png)
+![Captura de tela da lista de dispositivos conectados para uma rede virtual no portal do Azure. O gateway de aplicativo é realçado na lista.](media/virtual-network-troubleshoot-cannot-delete-vnet/app-gateway.png)
 
 Se houver um gateway de aplicativo, você deverá removê-lo antes de você pode excluir a rede virtual.
 
@@ -64,7 +64,7 @@ Se houver um gateway de aplicativo, você deverá removê-lo antes de você pode
 
 Se o Serviço de Domínio do Active Directory estiver habilitado e conectado à rede virtual, não será possível excluir essa rede virtual. 
 
-![Verifique o dispositivo conectado](media/virtual-network-troubleshoot-cannot-delete-vnet/enable-domain-services.png)
+![Captura da tela de Azure AD Domain Services na portal do Azure. O campo disponível na rede virtual/sub-rede é realçado.](media/virtual-network-troubleshoot-cannot-delete-vnet/enable-domain-services.png)
 
 Para desabilitar o serviço, consulte [Azure Active Directory Domain Services usando o portal do Azure](../active-directory-domain-services/delete-aadds.md).
 

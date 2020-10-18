@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 09/19/2020
-ms.openlocfilehash: 8023f3d7730a617ec502c8f181bad1fc27627694
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/16/2020
+ms.openlocfilehash: b25cac502a4e9a0cc5582134cb9601b75672ffd1
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91269158"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168487"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteger o acesso e os dados nos Aplicativos Lógicos do Azure
 
@@ -316,14 +316,14 @@ Junto à SAS (Assinatura de Acesso Compartilhado), você talvez queira limitar o
 
 1. Em **Configuração de controle de acesso** > **Endereços IP de entrada permitidos**, selecione **Intervalos IP específicos**.
 
-1. Em **Intervalos de IP para gatilhos**, especifique os intervalos de endereço IP que aceitam o gatilho.
+1. Quando a caixa **intervalos de IP para gatilhos** for exibida, especifique os intervalos de endereços IP que o gatilho aceita. Um intervalo IP válido usa estes formatos: *x.x.x.* ou *x.x.x. x-x.x.x. x*
 
-   Um intervalo IP válido usa estes formatos: *x.x.x.* ou *x.x.x. x-x.x.x. x*
+   Por exemplo, para fazer seu aplicativo lógico ser chamado somente como um aplicativo lógico aninhado por meio da ação HTTP, use a opção **intervalos de IP específicos** (não a **única opção outros aplicativos lógicos** ) e insira os [endereços IP de saída](../logic-apps/logic-apps-limits-and-config.md#outbound)do aplicativo lógico pai.
 
-Se você quer que seu aplicativo lógico seja acionado apenas como um aplicativo lógico aninhado, na lista de **Endereços IP de entrada permitidos**, selecione **Apenas outros Aplicativos Lógicos**. Essa opção grava uma matriz vazia em seu recurso de aplicativo lógico. Dessa forma, somente chamadas do serviço de Aplicativos Lógicos (aplicativos lógicos pai) podem disparar o aplicativo lógico aninhado.
+   No entanto, para fazer seu aplicativo lógico ser chamado somente como um aplicativo lógico aninhado por meio da [ação interna aplicativos lógicos do Azure](../logic-apps/logic-apps-http-endpoint.md), selecione a opção **somente outros aplicativos lógicos** . Essa opção grava uma matriz vazia em seu recurso de aplicativo lógico e requer que apenas chamadas de outros aplicativos lógicos "pai" possam disparar o aplicativo lógico aninhado por meio da ação interna de **aplicativos lógicos do Azure** .
 
-> [!NOTE]
-> Independentemente do endereço IP, você ainda pode executar um aplicativo lógico que tenha um gatilho baseado em solicitação usando a [API REST dos aplicativos lógicos: gatilhos de fluxo de trabalho –](/rest/api/logic/workflowtriggers/run) solicitação de execução ou usando o gerenciamento de API. Porém, esse cenário ainda requer [autenticação](../active-directory/develop/authentication-vs-authorization.md) em relação à API REST do Azure. Todos os eventos aparecem no Log de Auditoria do Azure. Verifique se você definiu as políticas de controle de acesso de forma adequada.
+   > [!NOTE]
+   > Independentemente de qualquer endereço IP que você especificar, você ainda pode executar um aplicativo lógico que tenha um gatilho baseado em solicitação usando a [API REST dos aplicativos lógicos: gatilhos de fluxo de trabalho – solicitação de execução](/rest/api/logic/workflowtriggers/run) ou usando o gerenciamento de API. Porém, esse cenário ainda requer [autenticação](../active-directory/develop/authentication-vs-authorization.md) em relação à API REST do Azure. Todos os eventos aparecem no Log de Auditoria do Azure. Verifique se você definiu as políticas de controle de acesso de forma adequada.
 
 <a name="restrict-inbound-ip-template"></a>
 
