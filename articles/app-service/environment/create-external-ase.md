@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: e4922d8855173ab2539c3960aacf54c89aaf1b7b
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: aa65508c4f8df2c11bab74cd34f3311b21c63d9c
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148261"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164594"
 ---
 # <a name="create-an-external-app-service-environment"></a>Como criar um ambiente externo do Serviço de Aplicativo
 
@@ -61,7 +61,7 @@ Para criar um ASE durante a criação de um plano do serviço de aplicativo:
 
 1. Na [portal do Azure](https://portal.azure.com/), selecione **criar um recurso**  >  **Web + celular**  >  **aplicativo Web**.
 
-    ![Criação de um aplicativo Web][1]
+    ![Captura de tela do portal do Azure mostrando Web + Celular selecionados no Azure Marketplace e a Screen para a criação de um novo aplicativo Web aberto à direita.][1]
 
 2. Selecione sua assinatura. O aplicativo e o ASE são criados nas mesmas assinaturas.
 
@@ -71,7 +71,7 @@ Para criar um ASE durante a criação de um plano do serviço de aplicativo:
 
 5. Clique no plano do serviço de aplicativo e, em seguida, selecione **Criar Novo**. Aplicativos web do Linux e aplicativos web do Windows não podem estar no mesmo Plano de Serviço de Aplicativo, mas podem estar no mesmo Ambiente de Serviço de Aplicativo. 
 
-    ![Plano do serviço de aplicativo novo][2]
+    ![Captura de tela da portal do Azure mostrando o painel do aplicativo Web, o painel plano do serviço de aplicativo e o novo painel plano do serviço de aplicativo aberto.][2]
 
 6. Na lista suspensa **local**, selecione a região na qual deseja criar o ASE. Se você selecionar um ASE existente, não será criado um novo ASE. O plano do serviço de aplicativo é criado no ASE que você selecionou. 
 
@@ -99,7 +99,7 @@ Para criar um ASE durante a criação de um plano do serviço de aplicativo:
 
 1. No [Portal do Azure](https://portal.azure.com/), **Criar um Recurso** > **Web + Celular** > **Aplicativo Web para Contêineres.** 
 
-    ![Criação de um aplicativo Web][7]
+    ![Captura de tela da portal do Azure mostrando Web + Celular selecionado no Azure Marketplace e no painel de Aplicativo Web para Contêineres aberto à direita.][7]
 
 1. Selecione sua assinatura. O aplicativo e o ASE são criados nas mesmas assinaturas.
 
@@ -107,7 +107,7 @@ Para criar um ASE durante a criação de um plano do serviço de aplicativo:
 
 1. Clique no plano do serviço de aplicativo e, em seguida, selecione **Criar Novo**. Aplicativos web do Linux e aplicativos web do Windows não podem estar no mesmo Plano de Serviço de Aplicativo, mas podem estar no mesmo Ambiente de Serviço de Aplicativo. 
 
-    ![Plano do serviço de aplicativo novo][8]
+    ![Captura de tela da portal do Azure mostrando o painel Aplicativo Web para Contêineres, o painel plano do serviço de aplicativo e o novo painel plano do serviço de aplicativo aberto.][8]
 
 1. Na lista suspensa **local**, selecione a região na qual deseja criar o ASE. Se você selecionar um ASE existente, não será criado um novo ASE. O plano do serviço de aplicativo é criado no ASE que você selecionou. 
 

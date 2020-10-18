@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: devx-track-csharp, 80e4ff38-5174-43
-ms.openlocfilehash: 094449ddcbfc2baf41657d00de030ef3c1cddbb5
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 17daef18d87c4b5c906694ab1394694b32b6b130
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108483"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164849"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Trabalhar com o Azure Functions Core Tools
 
@@ -574,15 +574,11 @@ A maneira recomendada para monitorar a execução de suas funções é integrar-
 
 ### <a name="application-insights-integration"></a>Integração do Application Insights
 
-Application Insights integração deve ser habilitada quando você cria seu aplicativo de funções no Azure. Se, por algum motivo, seu aplicativo de funções não estiver conectado a uma instância de Application Insights, será fácil fazer essa integração no portal do Azure. 
-
-[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
+Application Insights integração deve ser habilitada quando você cria seu aplicativo de funções no Azure. Se, por algum motivo, seu aplicativo de funções não estiver conectado a uma instância de Application Insights, será fácil fazer essa integração no portal do Azure. Para saber mais, confira [habilitar a integração de Application insights](configure-monitoring.md#enable-application-insights-integration).
 
 ### <a name="enable-streaming-logs"></a>Habilitar logs de streaming
 
 Você pode exibir um fluxo de arquivos de log que estão sendo gerados por suas funções em uma sessão de linha de comando em seu computador local. 
-
-#### <a name="native-streaming-logs"></a>Logs de streaming nativos
 
 [!INCLUDE [functions-streaming-logs-core-tools](../../includes/functions-streaming-logs-core-tools.md)]
 
@@ -597,7 +593,7 @@ Para arquivar uma solicitação de bug ou recurso, [abra um problema do GitHub](
 <!-- LINKS -->
 
 [Azure Functions Core Tools]: https://www.npmjs.com/package/azure-functions-core-tools
-[Portal do Azure]: https://portal.azure.com 
+[Azure portal]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 [`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
 [`AzureWebJobsStorage`]: functions-app-settings.md#azurewebjobsstorage

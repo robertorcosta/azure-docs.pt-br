@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 07/20/2020
+ms.date: 10/05/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7705792e58a50371a11d0b733b36ffa325681045
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 2006422d3516aa67076233b0b4b9d3e7c58a7232
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968626"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166498"
 ---
 # <a name="manage-user-settings-for-azure-multi-factor-authentication"></a>Gerenciar configurações de usuário para a autenticação multifator do Azure
 
@@ -36,8 +36,8 @@ Se você tiver atribuído a função de *administrador de autenticação* , pode
       > Os métodos de autenticação atualmente registrados do usuário não são excluídos quando um administrador requer um novo registro para MFA. Depois que um usuário se registra novamente para MFA, recomendamos que eles examinem suas informações de segurança e excluam os métodos de autenticação registrados anteriormente que não podem mais ser usados.
    
    - **Revogar sessões de MFA** limpa as sessões do MFA lembradas do usuário e exige que elas executem o MFA da próxima vez que for exigida pela política no dispositivo.
-
-   ![Gerenciar métodos de autenticação do portal do Azure](./media/howto-mfa-userdevicesettings/manage-authentication-methods-in-azure.png)
+   
+    :::image type="content" source="media/howto-mfa-userdevicesettings/manage-authentication-methods-in-azure.png" alt-text="Gerenciar métodos de autenticação do portal do Azure":::
 
 ## <a name="delete-users-existing-app-passwords"></a>Excluir senhas de aplicativo de usuários existentes
 

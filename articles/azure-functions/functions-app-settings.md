@@ -3,12 +3,12 @@ title: Referência de configurações de aplicativo para Azure Functions
 description: Documentação de referência para as configurações de aplicativo ou variáveis de ambiente do Azure Functions.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: b17db828aeb19c3347c0db4babf0eee2b9d5f280
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d22ab643fb4ed7eae477c8f77d9621266d9146be
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88589293"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165752"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referência de configurações de aplicativo para Azure Functions
 
@@ -23,7 +23,7 @@ Há outras opções de configuração global no arquivo [host.json](functions-ho
 
 ## <a name="appinsights_instrumentationkey"></a>APPINSIGHTS_INSTRUMENTATIONKEY
 
-A chave de instrumentação para Application Insights. Use apenas um `APPINSIGHTS_INSTRUMENTATIONKEY` ou `APPLICATIONINSIGHTS_CONNECTION_STRING` . Para saber mais, consulte [Monitorar Azure Functions](functions-monitoring.md). 
+A chave de instrumentação para Application Insights. Use apenas um `APPINSIGHTS_INSTRUMENTATIONKEY` ou `APPLICATIONINSIGHTS_CONNECTION_STRING` . Quando Application Insights é executado em uma nuvem soberanas, use `APPLICATIONINSIGHTS_CONNECTION_STRING` . Para obter mais informações, consulte [como configurar o monitoramento para Azure Functions](configure-monitoring.md). 
 
 |Chave|Valor de exemplo|
 |---|------------|
@@ -31,7 +31,12 @@ A chave de instrumentação para Application Insights. Use apenas um `APPINSIGHT
 
 ## <a name="applicationinsights_connection_string"></a>APPLICATIONINSIGHTS_CONNECTION_STRING
 
-A cadeia de conexão para Application Insights. Use `APPLICATIONINSIGHTS_CONNECTION_STRING` em vez de `APPINSIGHTS_INSTRUMENTATIONKEY` quando seu aplicativo de funções exigir as personalizações adicionadas com suporte usando a cadeia de conexão. Para obter mais informações, consulte [cadeias de conexão](../azure-monitor/app/sdk-connection-string.md). 
+A cadeia de conexão para Application Insights. Use em `APPLICATIONINSIGHTS_CONNECTION_STRING` vez de `APPINSIGHTS_INSTRUMENTATIONKEY` nos seguintes casos:
+
++ Quando seu aplicativo de funções requer as personalizações adicionadas com suporte usando a cadeia de conexão. 
++ Quando sua instância de Application Insights é executada em uma nuvem soberanas, que requer um ponto de extremidade personalizado.
+
+Para obter mais informações, consulte [cadeias de conexão](../azure-monitor/app/sdk-connection-string.md). 
 
 |Chave|Valor de exemplo|
 |---|------------|
@@ -44,7 +49,7 @@ Por padrão, os [proxies do Functions](functions-proxies.md) usam um atalho para
 |Chave|Valor|Descrição|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Chamadas com uma URL de back-end apontando para uma função no aplicativo de função local não serão enviadas diretamente para a função. Em vez disso, as solicitações são direcionadas de volta para o front-end HTTP para o aplicativo de funções.|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Chamadas com uma URL de back-end apontando para uma função no aplicativo de funções local são encaminhadas diretamente para a função. Esse é o valor padrão. |
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Chamadas com uma URL de back-end apontando para uma função no aplicativo de funções local são encaminhadas diretamente para a função. Este é o valor padrão. |
 
 ## <a name="azure_function_proxy_backend_url_decode_slashes"></a>AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES
 
@@ -204,7 +209,7 @@ Para saber mais, confira [dependências personalizadas](functions-reference-pyth
 
 _No momento, essa configuração está na versão prévia._  
 
-Essa configuração controla o registro em log do controlador de escala de Azure Functions. Para obter mais informações, consulte [dimensionar os logs do controlador](functions-monitoring.md#scale-controller-logs-preview).
+Essa configuração controla o registro em log do controlador de escala de Azure Functions. Para obter mais informações, consulte [dimensionar os logs do controlador](functions-monitoring.md#scale-controller-logs).
 
 |Chave|Valor de exemplo|
 |-|-|

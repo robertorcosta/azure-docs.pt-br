@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 06/06/2020
+ms.date: 10/16/2020
 tags: connectors
-ms.openlocfilehash: a50a171536d7f81de42da415960398d31ec64827
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a2fb2180acfe8fed5701ae4320ea0d1424ed9e0
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326772"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166277"
 ---
 # <a name="automate-workflows-for-a-sql-database-by-using-azure-logic-apps"></a>Automatizar fluxos de trabalho para um banco de dados SQL usando aplicativos lógicos do Azure
 
@@ -67,11 +67,14 @@ Agora, continue com estas etapas:
 
 ### <a name="connect-to-azure-sql-database-or-managed-instance"></a>Conectar-se ao banco de dados SQL do Azure ou Instância Gerenciada
 
+Para acessar um Instância Gerenciada do SQL do Azure sem usar o gateway de dados local ou o ambiente do serviço de integração, você precisa [Configurar o ponto de extremidade público no instância gerenciada do SQL do Azure](../azure-sql/managed-instance/public-endpoint-configure.md). O ponto de extremidade público usa a porta 3342, portanto, certifique-se de especificar esse número de porta ao criar a conexão de seu aplicativo lógico.
+
+
 Na primeira vez que você adicionar um [gatilho SQL](#add-sql-trigger) ou uma [ação SQL](#add-sql-action)e ainda não tiver criado uma conexão com seu banco de dados, você será solicitado a concluir estas etapas:
 
 1. Para **tipo de autenticação**, selecione a autenticação necessária e habilitada no banco de dados no banco de dados SQL do Azure ou azure SQL instância gerenciada:
 
-   | Autenticação | Descrição |
+   | Autenticação | Description |
    |----------------|-------------|
    | [**Integrado do Azure AD**](../azure-sql/database/authentication-aad-overview.md) | -Dá suporte ao conector de SQL Server não ISE e ISE. <p><p>-Requer uma identidade válida no Azure Active Directory (Azure AD) que tenha acesso ao seu banco de dados. <p>Para saber mais, consulte esses tópicos: <p>- [Visão geral da segurança do SQL do Azure-autenticação](../azure-sql/database/security-overview.md#authentication) <br>- [Autorizar o acesso ao banco de dados no SQL Azure-autenticação e autorização](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) <br>- [Azure SQL-autenticação integrada do Azure AD](../azure-sql/database/authentication-aad-overview.md) |
    | [**Autenticação SQL Server**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | -Dá suporte ao conector de SQL Server não ISE e ISE. <p><p>-Requer um nome de usuário válido e uma senha forte que são criados e armazenados em seu banco de dados. <p>Para saber mais, consulte esses tópicos: <p>- [Visão geral da segurança do SQL do Azure-autenticação](../azure-sql/database/security-overview.md#authentication) <br>- [Autorizar o acesso ao banco de dados no SQL Azure-autenticação e autorização](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) |
@@ -88,8 +91,8 @@ Na primeira vez que você adicionar um [gatilho SQL](#add-sql-trigger) ou uma [a
    | Propriedade | Obrigatório | Descrição |
    |----------|----------|-------------|
    | **Nome do servidor** | Sim | O endereço do SQL Server, por exemplo, `Fabrikam-Azure-SQL.database.windows.net` |
-   | **Nome do banco de dados** | Sim | O nome do banco de dados SQL, por exemplo, `Fabrikam-Azure-SQL-DB` |
-   | **Nome da tabela** | Sim | A tabela que você deseja usar, por exemplo, `SalesLT.Customer` |
+   | **Nome do banco de dados** | Yes | O nome do banco de dados SQL, por exemplo, `Fabrikam-Azure-SQL-DB` |
+   | **Nome da tabela** | Yes | A tabela que você deseja usar, por exemplo, `SalesLT.Customer` |
    ||||
 
    > [!TIP]
@@ -115,7 +118,7 @@ Na primeira vez que você adicionar um [gatilho SQL](#add-sql-trigger) ou uma [a
 
 1. Para **tipo de autenticação**, selecione a autenticação necessária e habilitada no seu SQL Server:
 
-   | Autenticação | Descrição |
+   | Autenticação | Description |
    |----------------|-------------|
    | [**Autenticação do Windows**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) | -Dá suporte apenas ao conector de SQL Server não ISE, que requer um recurso de gateway de dados criado anteriormente no Azure para sua conexão, independentemente de você usar o Azure multilocatário ou um ISE. <p><p>-Requer um nome de usuário e senha válidos do Windows para confirmar sua identidade por meio de sua conta do Windows. <p>Para obter mais informações, consulte [autenticação do Windows](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) |
    | [**Autenticação SQL Server**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | -Dá suporte ao conector de SQL Server não ISE e ISE. <p><p>-Requer um nome de usuário válido e uma senha forte que são criados e armazenados em seu SQL Server. <p>Para obter mais informações, consulte [SQL Server autenticação](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication). |
@@ -129,8 +132,8 @@ Na primeira vez que você adicionar um [gatilho SQL](#add-sql-trigger) ou uma [a
 
    | Propriedade | Obrigatório | Descrição |
    |----------|----------|-------------|
-   | **Nome do SQL Server** | Sim | O endereço do SQL Server, por exemplo, `Fabrikam-Azure-SQL.database.windows.net` |
-   | **Nome do Banco de Dados SQL** | Sim | O nome para seu banco de dados SQL Server, por exemplo, `Fabrikam-Azure-SQL-DB` |
+   | **Nome do SQL Server** | Yes | O endereço do SQL Server, por exemplo, `Fabrikam-Azure-SQL.database.windows.net` |
+   | **Nome do Banco de Dados SQL** | Yes | O nome para seu banco de dados SQL Server, por exemplo, `Fabrikam-Azure-SQL-DB` |
    | **Nome de usuário** | Sim | Seu nome de usuário para o SQL Server e o banco de dados |
    | **Senha** | Sim | Sua senha para o SQL Server e o banco de dados |
    | **Assinatura** |  Sim, para autenticação do Windows | A assinatura do Azure para o recurso de gateway de dados que você criou anteriormente no Azure |
@@ -248,6 +251,18 @@ Quando você chama um procedimento armazenado usando o conector de SQL Server, a
 
 1. Para fazer referência às propriedades de conteúdo JSON, clique dentro das caixas de edição nas quais você deseja fazer referência a essas propriedades para que a lista de conteúdo dinâmico seja exibida. Na lista, no cabeçalho [**analisar JSON**](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action) , selecione os tokens de dados para as propriedades de conteúdo JSON que você deseja.
 
+## <a name="troubleshoot-problems"></a>Solução de problemas
+
+É muito comum encontrar problemas de conectividade. Este é um exemplo de uma mensagem de erro:
+
+> `A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections.`
+>
+> `(provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) (Microsoft SQL Server, Error: 53)`
+>
+> `(provider: TCP Provider, error: 0 - No such host is known.) (Microsoft SQL Server, Error: 11001)`
+
+Siga a [solução de erros de conectividade para SQL Server](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server) para solucionar o problema.
+
 ## <a name="connector-specific-details"></a>Detalhes específicos do conector
 
 Para obter informações técnicas sobre os gatilhos, as ações e os limites desse conector, consulte a [página de referência do conector](/connectors/sql/), que é gerada a partir da descrição do Swagger.
@@ -255,4 +270,3 @@ Para obter informações técnicas sobre os gatilhos, as ações e os limites de
 ## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre [outros conectores para Aplicativos Lógicos do Azure](../connectors/apis-list.md)
-

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 8bd896573dbd0b24df11c0d66009098de19654ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2fbcacd7f2094f9b0b9dcea3fea4d804fd96923e
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74974931"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165308"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-portal"></a>Como gerenciar os registros de dispositivo com o Portal do Azure
 
@@ -24,7 +24,7 @@ Um *registro de dispositivos* cria um registro de um único dispositivo ou um gr
 
 Há duas maneiras em que você pode registrar seus dispositivos com o serviço de provisionamento:
 
-* Um **Grupo de registros** é uma entrada para um grupo de dispositivos que compartilham um mecanismo de atestado comum de certificados X.509, assinados pelo mesmo certificado de autenticação, que pode ser o [certificado raiz](https://docs.microsoft.com/azure/iot-dps/concepts-security#root-certificate) ou o [certificado intermediário](https://docs.microsoft.com/azure/iot-dps/concepts-security#intermediate-certificate), usado para produzir o certificado do dispositivo no dispositivo físico. É recomendável usar um grupo de registro para um grande número de dispositivos que compartilham uma configuração inicial desejada ou para dispositivos que vão todos para o mesmo locatário. Observe que você só pode registrar dispositivos que usam o mecanismo de atestado X.509 como *grupos de registro*. 
+* Um **Grupo de registros** é uma entrada para um grupo de dispositivos que compartilham um mecanismo de atestado comum de certificados X.509, assinados pelo mesmo certificado de autenticação, que pode ser o [certificado raiz](https://docs.microsoft.com/azure/iot-dps/concepts-security#root-certificate) ou o [certificado intermediário](https://docs.microsoft.com/azure/iot-dps/concepts-security#intermediate-certificate), usado para produzir o certificado do dispositivo no dispositivo físico. É recomendável usar um grupo de registro para um grande número de dispositivos que compartilham uma configuração inicial desejada ou para dispositivos que vão todos para o mesmo locatário. 
 
     Você pode criar um grupo de registro no portal para um grupo de dispositivos usando as etapas a seguir:
 

@@ -13,22 +13,23 @@ ms.date: 08/20/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 4020f47184e141a69586fc958f641547d7bde94d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8634efa1e8e5ab8a3b962b711ec8dfcdac4e6ced
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89482772"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164560"
 ---
-# <a name="configure-an-availability-group-for-sql-server-on-azure-vm-azure-portal---preview"></a>Configurar um grupo de disponibilidade para SQL Server na VM do Azure (portal do Azure-Preview)
+# <a name="use-azure-portal-to-configure-an-availability-group-preview-for-sql-server-on-azure-vm"></a>Use portal do Azure para configurar um grupo de disponibilidade (versão prévia) para SQL Server na VM do Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Este artigo descreve como usar o [portal do Azure](https://portal.azure.com) para configurar um grupo de disponibilidade para SQL Server em VMs do Azure. 
 
 Use o portal do Azure para criar um novo cluster ou carregar um cluster existente e, em seguida, crie o grupo de disponibilidade, o ouvinte e o balanceador de carga interno. 
 
-   > [!NOTE]
-   > Este recurso está atualmente em visualização e sendo implantado, portanto, se a região desejada não estiver disponível, verifique novamente em breve. 
+Esse recurso está atualmente na visualização. 
+
+Embora este artigo use o portal do Azure para configurar o ambiente do grupo de disponibilidade, também é possível fazer isso usando [o PowerShell ou o CLI do Azure](availability-group-az-commandline-configure.md), [modelos de início rápido do Azure](availability-group-quickstart-template-configure.md)ou [manualmente](availability-group-manually-configure-tutorial.md) também. 
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -58,7 +59,7 @@ Se você já tiver um cluster, pule esta seção e mova para a [integração do 
 
 Se você ainda não tiver um cluster existente, crie-o usando o portal do Azure com estas etapas:
 
-1. Faça logon no [Portal do Azure](https://portal.azure.com). 
+1. Entre no [portal do Azure](https://portal.azure.com). 
 1. Navegue até o recurso de [máquinas virtuais do SQL](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) . 
 1. Selecione **alta disponibilidade** em **configurações**. 
 1. Selecione **+ novo cluster de failover do Windows Server** para abrir a página **Configurar cluster de failover do Windows** .  
@@ -82,7 +83,7 @@ Se você já tiver um cluster configurado em seu ambiente de VM SQL Server, pode
 
 Para fazer isso, siga estas etapas:
 
-1. Faça logon no [Portal do Azure](https://portal.azure.com). 
+1. Entre no [portal do Azure](https://portal.azure.com). 
 1. Navegue até o recurso de [máquinas virtuais do SQL](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) . 
 1. Selecione **alta disponibilidade** em **configurações**. 
 1. Selecione **integrado cluster de failover do Windows Server existente** para abrir a página **integrado do cluster de failover do Windows Server** . 
@@ -99,7 +100,7 @@ Para fazer isso, siga estas etapas:
 
 Depois que o cluster foi criado ou integrado, crie o grupo de disponibilidade usando o portal do Azure. Para fazer isso, siga estas etapas:
 
-1. Faça logon no [Portal do Azure](https://portal.azure.com). 
+1. Entre no [portal do Azure](https://portal.azure.com). 
 1. Navegue até o recurso de [máquinas virtuais do SQL](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) . 
 1. Selecione **alta disponibilidade** em **configurações**. 
 1. Selecione **+ novo Always on grupo de disponibilidade** para abrir a página **Criar grupo de disponibilidade** .
@@ -154,7 +155,7 @@ Depois que os bancos de dados são adicionados, você pode verificar o status do
 
 Para adicionar mais SQL Server VMs ao cluster, siga estas etapas: 
 
-1. Faça logon no [Portal do Azure](https://portal.azure.com). 
+1. Entre no [portal do Azure](https://portal.azure.com). 
 1. Navegue até o recurso de [máquinas virtuais do SQL](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) . 
 1. Selecione **alta disponibilidade** em **configurações**. 
 1. Selecione **Configurar cluster de failover do Windows Server** para abrir a página **Configurar cluster de failover do Windows Server** . 
@@ -163,7 +164,7 @@ Para adicionar mais SQL Server VMs ao cluster, siga estas etapas:
 
 1. Expanda **as credenciais do cluster de failover do Windows Server** e insira nas contas usadas para o serviço de SQL Server, o operador de cluster e as contas de inicialização de cluster. 
 1. Selecione as VMs SQL Server que você deseja adicionar ao cluster. 
-1. Escolha **Aplicar**. 
+1. Selecione **Aplicar**. 
 
 Você pode verificar o status de sua implantação no **log de atividades** , que é acessível do ícone de sino na barra de navegação superior. 
 
@@ -177,7 +178,7 @@ Você pode **adicionar mais réplicas** ao grupo de disponibilidade, **Configura
 
 ## <a name="remove-cluster"></a>Remover cluster
 
-Remova todas as SQL Server VMs do cluster para destruí-las e, em seguida, remova os metadados do cluster do provedor de recursos da VM do SQL. Você pode fazer isso usando a versão mais recente do [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) ou do PowerShell. 
+Remova todas as SQL Server VMs do cluster para destruí-las e, em seguida, remova os metadados do cluster do provedor de recursos da VM do SQL. Você pode fazer isso usando a versão mais recente do [CLI do Azure](/cli/azure/install-azure-cli) ou do PowerShell. 
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -242,7 +243,7 @@ As alterações no cluster e no grupo de disponibilidade por meio do portal são
 
 Para exibir os logs da implantação e verificar o histórico de implantação, siga estas etapas:
 
-1. Faça logon no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 1. Navegue até o grupo de recursos.
 1. Selecione **Implantações** em **Configurações**.
 1. Selecione a implantação de interesse para saber mais sobre a implantação. 

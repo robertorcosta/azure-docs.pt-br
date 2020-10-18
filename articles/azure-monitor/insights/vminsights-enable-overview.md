@@ -6,12 +6,13 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/27/2020
-ms.openlocfilehash: 4041b824d099edbefcc45c68163257ca69ddf7de
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.custom: references_regions
+ms.openlocfilehash: b903fda9a64233b4906941167ca7fd5819a0316b
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91995684"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164475"
 ---
 # <a name="enable-azure-monitor-for-vms-overview"></a>Visão geral de Habilitar o Azure Monitor para VMs
 
@@ -37,30 +38,42 @@ Antes de começar, verifique se você compreende as informações descritas nas 
 >[!NOTE]
 >As informações a seguir descritas nesta seção também são aplicáveis à [solução de mapa do serviço](service-map.md).  
 
-### <a name="log-analytics"></a>Log Analytics
+### <a name="log-analytics-workspace"></a>Espaço de trabalho do Log Analytics
 
 O Azure Monitor para VMs dá suporte a um espaço de trabalho do Log Analytics nas seguintes regiões:
 
-- Centro-Oeste dos EUA
-- Oeste dos EUA
-- Oeste dos EUA 2
-- Centro-Sul dos Estados Unidos
-- Leste dos EUA
-- Leste dos EUA 2
-- Centro dos EUA
-- Centro-Norte dos EUA
-- US Gov AZ
-- VA US Gov
-- Canadá Central
-- Sul do Reino Unido
-- Norte da Europa
-- Europa Ocidental
-- Leste da Ásia
-- Sudeste Asiático
-- Índia Central
-- Leste do Japão
-- Leste da Austrália
-- Sudeste da Austrália
+- África
+  - Norte da África do Sul
+- Pacífico Asiático
+  - Leste da Ásia
+  - Sudeste Asiático
+- Austrália
+  - Leste da Austrália
+  - Sudeste da Austrália
+- Azure Government
+  - US Gov AZ
+  - VA US Gov
+- Canada
+  - Canadá Central
+- Europa
+  - Norte da Europa
+  - Europa Ocidental
+- Índia
+  - Índia Central
+- Japão
+  - Leste do Japão
+- Reino Unido
+  - Sul do Reino Unido
+- Estados Unidos
+  - Centro dos EUA
+  - Leste dos EUA
+  - Leste dos EUA 2
+  - Centro-Norte dos EUA
+  - Centro-Sul dos Estados Unidos
+  - Centro-Oeste dos EUA
+  - Oeste dos EUA
+  - Oeste dos EUA 2
+
 
 >[!NOTE]
 >Você pode monitorar as VMs do Azure em qualquer região. As VMs em si não são limitadas às regiões com suporte no espaço de trabalho Log Analytics.
@@ -98,7 +111,7 @@ Azure Monitor para VMs está disponível para servidores habilitados para Arc do
 |:--|:--|:--|
 | Agentes do Windows | Sim | Junto com o [agente do log Analytics para Windows](../platform/log-analytics-agent.md), os agentes do Windows precisam do agente de dependência. Para obter mais informações, consulte [sistemas operacionais com suporte](../platform/agents-overview.md#supported-operating-systems). |
 | Agentes do Linux | Sim | Junto com o [agente de log Analytics para Linux](../platform/log-analytics-agent.md), os agentes do Linux precisam do agente de dependência. Para obter mais informações, consulte [sistemas operacionais com suporte](#supported-operating-systems). |
-| Grupo de gerenciamento do System Center Operations Manager | Não | |
+| Grupo de gerenciamento do System Center Operations Manager | No | |
 
 ## <a name="agents"></a>Agentes
 Azure Monitor para VMs requer que os dois agentes a seguir sejam instalados em cada máquina virtual ou conjunto de dimensionamento de máquinas virtuais a ser monitorado. Instalar esses agentes e conectá-los ao espaço de trabalho é o único requisito para carregar o recurso.
@@ -114,7 +127,7 @@ A seguir estão vários métodos para implantar esses agentes.
 | Método | Descrição |
 |:---|:---|
 | [Azure portal](./vminsights-enable-portal.md) | Instale os dois agentes em uma única máquina virtual, conjunto de dimensionamento de máquinas virtuais ou máquinas virtuais híbridas conectadas com o arco do Azure. |
-| [Modelos do Gerenciador de Recursos](vminsights-enable-powershell.md) | Instale ambos os agentes usando qualquer um dos métodos com suporte para implantar um modelo do Resource Manager, incluindo a CLI e o PowerShell. |
+| [Modelos do Resource Manager](vminsights-enable-powershell.md) | Instale ambos os agentes usando qualquer um dos métodos com suporte para implantar um modelo do Resource Manager, incluindo a CLI e o PowerShell. |
 | [Azure Policy](./vminsights-enable-policy.md) | Atribua Azure Policy Initiative para instalar automaticamente os agentes quando uma máquina virtual ou um conjunto de dimensionamento de máquinas virtuais for criado. |
 | [Instalação manual](./vminsights-enable-hybrid.md) | Instale os agentes no sistema operacional convidado em computadores hospedados fora do Azure, incluindo em seu datacenter ou em outros ambientes de nuvem. |
 

@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviwer: ''
 ms.date: 04/23/2020
-ms.openlocfilehash: d234a121ee8f36389c79228d69a11d9fe999eb5f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a966579e1acc02f1479c41520dcbbc58d420647c
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91444778"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164509"
 ---
 # <a name="configure-always-encrypted-by-using-the-windows-certificate-store"></a>Configurar Always Encrypted usando o repositório de certificados do Windows
 
@@ -97,7 +97,7 @@ O SSMS fornece um assistente para configurar facilmente o Always Encrypted defin
 1. Expandir **Databases**  >  **tabelas clínicas**de bancos de dados  >  **Tables**.
 2. Clique com o botão direito do mouse na tabela **Pacientes** e selecione **Criptografar Colunas** para abrir o Assistente Sempre Criptografado:
 
-    ![Criptografar Colunas](./media/always-encrypted-certificate-store-configure/encrypt-columns.png)
+    ![Captura de tela que mostra a criptografia colunns... na tabela pacientes.](./media/always-encrypted-certificate-store-configure/encrypt-columns.png)
 
 O assistente Always Encrypted inclui as seguintes seções: **Seleção de Coluna**, CMK (**Configuração da Chave Mestra**), **Validação** e **Resumo**.
 
@@ -107,7 +107,7 @@ Clique em **Avançar** na página **Introdução** para abrir a página **Seleç
 
 Criptografe as informações de **SSN** e **BirthDate** de cada paciente. A coluna **SSN** usará criptografia determinística, que dá suporte a pesquisas de igualdade, junções e agrupamentos por categoria. A coluna **BirthDate** usará criptografia aleatória, que não permite operações.
 
-Defina o **Tipo de Criptografia** para a coluna **SSN** como **Determinístico** e a coluna **BirthDate** como **Aleatório**. Clique em **Avançar**.
+Defina o **Tipo de Criptografia** para a coluna **SSN** como **Determinístico** e a coluna **BirthDate** como **Aleatório**. Clique em **Próximo**.
 
 ![Criptografar Colunas](./media/always-encrypted-certificate-store-configure/column-selection.png)
 
@@ -149,7 +149,7 @@ Agora que o Always Encrypted está configurado, você pode compilar um aplicativ
 1. Abra o Visual Studio e crie um novo aplicativo de console em C#. Verifique se seu projeto está definido como **.NET Framework 4.6** ou posterior.
 2. Nomeie o projeto como **AlwaysEncryptedConsoleApp** e clique em **OK**.
 
-![Novo aplicativo de console](./media/always-encrypted-certificate-store-configure/console-app.png)
+![Captura de tela que mostra o projeto AlwaysEncryptedConsoleApp chamado recentemente.](./media/always-encrypted-certificate-store-configure/console-app.png)
 
 ## <a name="modify-your-connection-string-to-enable-always-encrypted"></a>Modificar a cadeia de conexão para habilitar o Always Encrypted
 
@@ -510,7 +510,7 @@ SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
 
 É possível ver que as colunas criptografadas não contêm dados de texto não criptografado.
 
-   ![Novo aplicativo de console](./media/always-encrypted-certificate-store-configure/ssms-encrypted.png)
+   ![Captura de tela que mostra dados criptografados nas colunas criptografadas.](./media/always-encrypted-certificate-store-configure/ssms-encrypted.png)
 
 Para usar o SSMS para acessar os dados de texto não criptografado, você pode adicionar o parâmetro **Column Encryption Setting=enabled** à conexão.
 
@@ -518,7 +518,7 @@ Para usar o SSMS para acessar os dados de texto não criptografado, você pode a
 2. Clique em **conectar**  >  **mecanismo de banco de dados** para abrir a janela **conectar ao servidor** e clique em **Opções**.
 3. Clique em **Parâmetros Adicionais de Conexão** e digite **Column Encryption Setting=enabled**.
 
-    ![Novo aplicativo de console](./media/always-encrypted-certificate-store-configure/ssms-connection-parameter.png)
+    ![Captura de tela que mostra a guia parâmetros de conexão adicionais com configuração de criptografia de coluna = habilitado digitado na caixa.](./media/always-encrypted-certificate-store-configure/ssms-connection-parameter.png)
 4. Execute a consulta a seguir no banco de dados **Clínica** .
 
     ```tsql

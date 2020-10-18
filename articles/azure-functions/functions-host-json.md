@@ -3,12 +3,12 @@ title: Referência host.json para o Azure Functions 2.x
 description: Documentação de referência do arquivo host.json do Azure Functions com o runtime v2.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 400ff6f9db421552b2b2736ea48265deefe676ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f58eefd636b2bd59d6b3656bf162f7d601f7ff85
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321842"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167637"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Referência ao host.json para Azure Functions 2.x e versões posteriores 
 
@@ -138,7 +138,7 @@ As seções seguintes deste artigo explicam cada propriedade de nível superior.
 
 Essa configuração é a filha de [Registro em log](#logging).
 
-Controla opções para Application Insights, incluindo [Opções de amostragem](./functions-monitoring.md#configure-sampling).
+Controla opções para Application Insights, incluindo [Opções de amostragem](./configure-monitoring.md#configure-sampling).
 
 Para obter a estrutura JSON completa, consulte o [exemplo anterior host.jsno arquivo](#sample-hostjson-file).
 
@@ -167,7 +167,7 @@ Para obter a estrutura JSON completa, consulte o [exemplo anterior host.jsno arq
 | samplingPercentageDecreaseTimeout | 00:00:01 | Quando o valor da porcentagem de amostragem é alterado, essa propriedade determina quanto tempo depois Application Insights tem permissão para reduzir a porcentagem de amostragem novamente para capturar menos dados. |
 | minSamplingPercentage | 0,1 | À medida que a porcentagem de amostragem varia, essa propriedade determina a porcentagem de amostragem mínima permitida. |
 | maxSamplingPercentage | 100.0 | À medida que a porcentagem de amostragem varia, essa propriedade determina a porcentagem máxima de amostragem permitida. |
-| movingAverageRatio | 1,0 | No cálculo da média móvel, o peso atribuído ao valor mais recente. Use um valor menor ou igual a 1. Valores menores tornam o algoritmo menos reativo a mudanças repentinas. |
+| movingAverageRatio | 1.0 | No cálculo da média móvel, o peso atribuído ao valor mais recente. Use um valor menor ou igual a 1. Valores menores tornam o algoritmo menos reativo a mudanças repentinas. |
 | excludedTypes | null | Uma lista delimitada por ponto e vírgula de tipos que você não deseja que sejam amostrados. Os tipos reconhecidos são: `Dependency` , `Event` , `Exception` ,, `PageView` `Request` e `Trace` . Todas as instâncias dos tipos especificados são transmitidas; os tipos que não são especificados são amostrados. |
 | includedTypes | null | Uma lista delimitada por ponto e vírgula dos tipos que você deseja que sejam amostrados; uma lista vazia implica todos os tipos. Tipo listado em `excludedTypes` tipos de substituição listados aqui. Os tipos reconhecidos são: `Dependency` , `Event` , `Exception` ,, `PageView` `Request` e `Trace` . As instâncias dos tipos especificados são amostradas; os tipos que não são especificados ou implícitos são transmitidos sem amostragem. |
 
@@ -283,7 +283,7 @@ Definições de configuração para [monitor de integridade de Host](https://git
 |healthCheckThreshold|6|Número máximo de vezes que a verificação de integridade pode falhar antes de uma reciclagem de host ser iniciada.| 
 |counterThreshold|0.80|O limite no qual um contador de desempenho será considerado não íntegro.| 
 
-## <a name="http"></a>HTTP
+## <a name="http"></a>http
 
 As definições de configuração podem ser encontradas em [Associações e gatilhos HTTP](functions-bindings-http-webhook-output.md#hostjson-settings).
 
@@ -310,7 +310,7 @@ Controla os comportamentos de registro em log do aplicativo de funções, inclui
 |Propriedade  |Padrão | Descrição |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Define qual nível de log de arquivos está habilitado.  As opções são: `never`, `always` e `debugOnly`. |
-|logLevel|n/a|Objeto que define a filtragem da categoria de log para funções no aplicativo. As versões 2. x e posteriores seguem o layout de ASP.NET Core para filtragem de categorias de log. Essa configuração permite filtrar o registro em log para funções específicas. Para obter mais informações, consulte [Filtragem de logs](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) na documentação do ASP.NET Core. |
+|logLevel|n/a|Objeto que define a filtragem da categoria de log para funções no aplicativo. As versões 2. x e posteriores seguem o layout de ASP.NET Core para filtragem de categorias de log. Essa configuração permite filtrar o registro em log para funções específicas. Para obter mais informações, consulte [Filtragem de logs](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1&preserve-view=true#log-filtering) na documentação do ASP.NET Core. |
 |console|n/a| A configuração de log do [console](#console). |
 |applicationInsights|n/a| A configuração [applicationInsights](#applicationinsights). |
 

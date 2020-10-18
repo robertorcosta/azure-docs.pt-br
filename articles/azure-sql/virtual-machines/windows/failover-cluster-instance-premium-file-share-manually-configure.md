@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: 1b10489ef74e681eab59694d24c4babc3ce69163
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6e33f32c6adcea12952474e3f09b45834b85c1e
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91298704"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164390"
 ---
 # <a name="create-an-fci-with-a-premium-file-share-sql-server-on-azure-vms"></a>Criar um FCI com um compartilhamento de arquivos Premium (SQL Server em VMs do Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -37,7 +37,7 @@ Antes de concluir as instruções neste artigo, você já deve ter:
 - Uma conta que tenha permissões para criar objetos em máquinas virtuais do Azure e no Active Directory.
 - [Duas ou mais máquinas virtuais do Windows Azure](failover-cluster-instance-prepare-vm.md) preparadas em um [conjunto de disponibilidade](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) ou [zonas de disponibilidade](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address)diferentes.
 - Um [compartilhamento de arquivo premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) a ser usado como a unidade clusterizada, com base na cota de armazenamento do seu banco de dados para os arquivos de dados.
-- A versão mais recente do [PowerShell](/powershell/azure/install-az-ps?view=azps-4.2.0). 
+- A versão mais recente do [PowerShell](/powershell/azure/install-az-ps). 
 
 ## <a name="mount-premium-file-share"></a>Montar compartilhamento de arquivos Premium
 
@@ -194,7 +194,7 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ## <a name="configure-connectivity"></a>Configurar a conectividade 
 
-Para rotear o tráfego adequadamente para o nó primário atual, configure a opção de conectividade adequada para o seu ambiente. Você pode criar um [balanceador de carga do Azure](hadr-vnn-azure-load-balancer-configure.md) ou, se estiver usando o SQL Server 2019 e o Windows Server 2016 (ou posterior), você poderá visualizar o recurso de [nome de rede distribuída](hadr-distributed-network-name-dnn-configure.md) em vez disso. 
+Para rotear o tráfego adequadamente para o nó primário atual, configure a opção de conectividade adequada para o seu ambiente. Você pode criar um [balanceador de carga do Azure](failover-cluster-instance-vnn-azure-load-balancer-configure.md) ou, se você estiver usando SQL Server 2019 Cu2 (ou posterior) e o Windows Server 2016 (ou posterior), poderá usar o recurso de [nome de rede distribuída](failover-cluster-instance-distributed-network-name-dnn-configure.md) em vez disso. 
 
 ## <a name="limitations"></a>Limitações
 
@@ -204,7 +204,8 @@ Para rotear o tráfego adequadamente para o nó primário atual, configure a op�
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você ainda não tiver feito isso, configure a conectividade com o FCI com um [nome de rede virtual e um balanceador de carga do Azure](hadr-vnn-azure-load-balancer-configure.md) ou [DNN (nome de rede distribuída)](hadr-distributed-network-name-dnn-configure.md). 
+Se você ainda não tiver feito isso, configure a conectividade com o FCI com um [nome de rede virtual e um balanceador de carga do Azure](failover-cluster-instance-vnn-azure-load-balancer-configure.md) ou [DNN (nome de rede distribuída)](failover-cluster-instance-distributed-network-name-dnn-configure.md). 
+
 
 Se os compartilhamentos de arquivos Premium não forem a solução de armazenamento FCI apropriada para você, considere criar o FCI usando os [discos compartilhados do Azure](failover-cluster-instance-azure-shared-disks-manually-configure.md) ou [espaços de armazenamento diretos](failover-cluster-instance-storage-spaces-direct-manually-configure.md) em vez disso. 
 
@@ -212,4 +213,4 @@ Para saber mais, confira uma visão geral do [FCI com SQL Server em VMs do Azure
 
 Para obter mais informações, consulte: 
 - [Tecnologias de cluster do Windows](/windows-server/failover-clustering/failover-clustering-overview)   
-- [SQL Server instâncias de cluster de failover](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+- [Instâncias de cluster de failover do SQL Server](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)

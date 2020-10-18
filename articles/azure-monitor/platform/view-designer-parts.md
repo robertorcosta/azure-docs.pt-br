@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2018
-ms.openlocfilehash: 1e674bf157d55c9b5f7cf49e8df5e17acb99ee3a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b670cafa4d643e37fae068a4c0033fc97a96ccd
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86539390"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166583"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Guia de referência para exibir partes de visualização do designer no Azure Monitor
 Usando o designer de exibição no Azure Monitor, você pode criar uma variedade de exibições personalizadas na portal do Azure que podem ajudá-lo a Visualizar dados em seu espaço de trabalho do Log Analytics. Este artigo é um guia de referência das configurações para as partes de visualização que estão disponíveis em modos de exibição personalizados.
@@ -24,7 +24,7 @@ Para obter mais informações sobre o Designer de Exibição, consulte:
 
 Os tipos de blocos do Designer de Modos de Exibição disponíveis são descritos na tabela a seguir:
 
-| Tipo de exibição | Descrição |
+| Tipo de exibição | Description |
 |:--- |:--- |
 | [Lista de consultas](#list-of-queries-part) |Exibe uma lista de consultas de log. Você pode selecionar cada consulta para exibir seus resultados. |
 | [Número e lista](#number-and-list-part) |O cabeçalho exibe um único número que mostra uma contagem de registros de uma consulta de log. A lista exibe os dez primeiros resultados de uma consulta com um grafo que indica o valor relativo de uma coluna numérica ou sua alteração ao longo do tempo. |
@@ -44,7 +44,7 @@ As próximas seções descrevem os tipos de bloco e suas propriedades em detalhe
 ## <a name="list-of-queries-part"></a>Lista da parte de consultas
 A parte da lista de consultas exibe uma lista de consultas de log. Você pode selecionar cada consulta para exibir seus resultados. O modo de exibição inclui uma única consulta por padrão e você pode selecionar **+ Consulta** para incluir consultas adicionais.
 
-![Lista da exibição de consultas](media/view-designer-parts/view-list-queries.png)
+![Captura de tela da parte de visualização da lista de consultas no designer de exibição de Azure Monitor.](media/view-designer-parts/view-list-queries.png)
 
 | Configuração | Descrição |
 |:--- |:--- |
@@ -60,7 +60,7 @@ A parte da lista de consultas exibe uma lista de consultas de log. Você pode se
 ## <a name="number-and-list-part"></a>Número e parte da lista
 O cabeçalho exibe um único número que mostra uma contagem de registros de uma consulta de log. A lista exibe os dez primeiros resultados de uma consulta com um grafo que indica o valor relativo de uma coluna numérica ou sua alteração ao longo do tempo.
 
-![Lista da exibição de consultas](media/view-designer-parts/view-number-list.png)
+![Captura de tela das partes de visualização número e lista no designer de exibição de Azure Monitor.](media/view-designer-parts/view-number-list.png)
 
 | Configuração | Descrição |
 |:--- |:--- |
@@ -81,7 +81,7 @@ O cabeçalho exibe um único número que mostra uma contagem de registros de uma
 | Separador de valor e nome |O delimitador de caractere único a ser usado para analisar a próxima propriedade em vários valores. Para saber mais, veja [Configurações comuns](#sparklines). |
 | Navegação clickthrough | Ação executada quando você clica em um item na lista.  Para saber mais, veja [Configurações comuns](#click-through-navigation). |
 | **Lista** |**> Títulos de coluna** |
-| Nome |O texto que é exibido na parte superior da primeira coluna. |
+| Name |O texto que é exibido na parte superior da primeira coluna. |
 | Valor |O texto que é exibido na parte superior da segunda coluna. |
 | **Lista** |**> Limites** |
 | Habilitar limites |Selecione este link para habilitar limites. Para saber mais, veja [Configurações comuns](#thresholds). |
@@ -112,7 +112,7 @@ O cabeçalho tem dois números que exibem uma contagem de registros de consultas
 | Separador de valor e nome |O delimitador de caractere único a ser usado para analisar a próxima propriedade em vários valores. Para saber mais, veja [Configurações comuns](#sparklines). |
 | Navegação clickthrough | Ação executada quando você clica em um item na lista.  Para saber mais, veja [Configurações comuns](#click-through-navigation). |
 | **Lista** |**> Títulos de coluna** |
-| Nome |O texto que é exibido na parte superior da primeira coluna. |
+| Name |O texto que é exibido na parte superior da primeira coluna. |
 | Valor |O texto que é exibido na parte superior da segunda coluna. |
 | **Lista** |**> Limites** |
 | Habilitar limites |Selecione este link para habilitar limites. Para saber mais, veja [Configurações comuns](#thresholds). |
@@ -153,7 +153,7 @@ O cabeçalho exibe um único número que resume uma coluna de valor em uma consu
 | Separador de valor e nome |O delimitador de caractere único a ser usado para analisar a próxima propriedade em vários valores. Para saber mais, veja [Configurações comuns](#sparklines). |
 | Navegação clickthrough | Ação executada quando você clica em um item na lista.  Para saber mais, veja [Configurações comuns](#click-through-navigation). |
 | **Lista** |**> Títulos de coluna** |
-| Nome |O texto que é exibido na parte superior da primeira coluna. |
+| Name |O texto que é exibido na parte superior da primeira coluna. |
 | Valor |O texto que é exibido na parte superior da segunda coluna. |
 | **Lista** |**> Limites** |
 | Habilitar limites |Selecione este link para habilitar limites. Para saber mais, veja [Configurações comuns](#thresholds). |
@@ -185,7 +185,7 @@ O cabeçalho exibe os resultados de duas consultas de log ao longo do tempo como
 | Operação |A operação a ser executada para o minigráfico. Para saber mais, veja [Configurações comuns](#sparklines). |
 | Navegação clickthrough | Ação executada quando você clica em um item na lista.  Para saber mais, veja [Configurações comuns](#click-through-navigation). |
 | **Lista** |**> Títulos de coluna** |
-| Nome |O texto que é exibido na parte superior da primeira coluna. |
+| Name |O texto que é exibido na parte superior da primeira coluna. |
 | Valor |O texto que é exibido na parte superior da segunda coluna. |
 | **Lista** |**> Limites** |
 | Habilitar limites |Selecione este link para habilitar limites. Para saber mais, veja [Configurações comuns](#thresholds). |
@@ -203,9 +203,9 @@ O cabeçalho exibe texto estático e um link opcional. A lista exibe um ou mais 
 | Color |A cor da tela de fundo do cabeçalho. |
 | **Cabeçalho** | |
 | Imagem |O arquivo de imagem que é exibido no cabeçalho. |
-| Rotular |O texto que é exibido no cabeçalho. |
+| Label |O texto que é exibido no cabeçalho. |
 | **Cabeçalho** |**> Link** |
-| Rotular |O texto do link. |
+| Label |O texto do link. |
 | Url |A URL para o link. |
 | **Itens de informações** | |
 | Título |O texto que é exibido para o título de cada item. |
@@ -246,7 +246,7 @@ O cabeçalho exibe um gráfico de linhas com várias séries de uma consulta de 
 | Separador de valor e nome |O delimitador de caractere único a ser usado para analisar a próxima propriedade em vários valores. Para saber mais, veja [Configurações comuns](#sparklines). |
 | Navegação clickthrough | Ação executada quando você clica em um item na lista.  Para saber mais, veja [Configurações comuns](#click-through-navigation). |
 | **Lista** |**> Títulos de coluna** |
-| Nome |O texto que é exibido na parte superior da primeira coluna. |
+| Name |O texto que é exibido na parte superior da primeira coluna. |
 | Valor |O texto que é exibido na parte superior da segunda coluna. |
 | **Lista** |**> Limites** |
 | Habilitar limites |Selecione este link para habilitar limites. Para saber mais, veja [Configurações comuns](#thresholds). |
@@ -282,7 +282,7 @@ O cabeçalho exibe um gráfico de linhas com várias séries de uma consulta de 
 | Separador de valor e nome |O delimitador de caractere único a ser usado para analisar a próxima propriedade em vários valores. Para saber mais, veja [Configurações comuns](#sparklines). |
 | Navegação clickthrough | Ação executada quando você clica em um item na lista.  Para saber mais, veja [Configurações comuns](#click-through-navigation). |
 | **Lista** |**> Títulos de coluna** |
-| Nome |O texto que é exibido na parte superior da primeira coluna. |
+| Name |O texto que é exibido na parte superior da primeira coluna. |
 | Valor |O texto que é exibido na parte superior da segunda coluna. |
 | **Lista** |**> Limites** |
 | Habilitar limites |Selecione este link para habilitar limites. Para saber mais, veja [Configurações comuns](#thresholds). |
@@ -326,7 +326,7 @@ A tabela a seguir descreve as configurações de navegação clickthrough.
 |:--|:--|
 | Pesquisa de Logs (Automática) | Consulta de log a ser executada quando você seleciona um item de cabeçalho.  Essa é a mesma consulta de log na qual o item se baseia.
 | Pesquisa de log        | Consulta de log a ser executada quando você seleciona um item em uma lista.  Digite a consulta na caixa **Consulta de navegação**.   Use *{selected item}* para incluir a sintaxe para o item selecionado pelo usuário.  Por exemplo, se a consulta tiver uma coluna denominada *Computer* e a consulta de navegação for *{selected item}*, uma consulta como *Computer="MyComputer"* é executada quando você seleciona um computador. Se a consulta de navegação for do tipo *Type=Event {selected item}*, a consulta *Type=Event Computer="MyComputer"* é executada. |
-| Exibir              | Modo de exibição para abrir quando você seleciona um item de cabeçalho ou um item em uma lista.  Selecione o nome de uma exibição no seu workspace na caixa **Nome de exibição**. |
+| Visualizar              | Modo de exibição para abrir quando você seleciona um item de cabeçalho ou um item em uma lista.  Selecione o nome de uma exibição no seu workspace na caixa **Nome de exibição**. |
 
 
 
@@ -352,7 +352,7 @@ A tabela a seguir descreve as configurações de limites:
 | Configuração | Descrição |
 |:--- |:--- |
 | Habilitar limites |Clique neste link para exibir um ícone de cor à esquerda de cada valor. O ícone indica a integridade do valor em relação a limites especificados. |
-| Nome |O nome do valor limite. |
+| Name |O nome do valor limite. |
 | Limite |O valor para o limite. A cor de integridade para cada item de lista é definida como a cor do maior valor limite que é excedido pelo valor do item. Se nenhum valor limite for excedido, será usada uma cor padrão. |
 | Color |A cor que indica o valor limite. |
 

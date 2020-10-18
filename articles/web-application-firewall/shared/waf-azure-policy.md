@@ -7,12 +7,12 @@ services: web-application-firewall
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: rimansdo
-ms.openlocfilehash: 937f220980d602b755b6329da4d93df0e4b372ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 564af59c473d5c3f55bef059905500496adf060c
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86224053"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165903"
 ---
 # <a name="azure-web-application-firewall-and-azure-policy"></a>Firewall e Azure Policy do aplicativo Web do Azure
 
@@ -44,7 +44,7 @@ Há várias políticas internas do Azure para gerenciar recursos do WAF. Uma an�
 3.  Na página atribuições, selecione o ícone **atribuir política** na parte superior.
 
 [!div class="mx-imgBorder"]
-![Firewall do aplicativo Web do Azure](../media/waf-azure-policy/assign-policy.png)
+![Captura de tela que mostra a guia noções básicas na página atribuir política.](../media/waf-azure-policy/assign-policy.png)
 
 4.  Na guia elementos básicos da página atribuir política, atualize os seguintes campos:
     1.  **Escopo**: Selecione quais assinaturas e grupos de recursos do Azure devem ser afetados pelo Azure Policy.
@@ -52,7 +52,7 @@ Há várias políticas internas do Azure para gerenciar recursos do WAF. Uma an�
     3.  **Definição de política**: selecione o Azure Policy a ser aplicado ao escopo com exclusões. Digite "Firewall do aplicativo Web" na barra de pesquisa para escolher o Azure Policy de firewall do aplicativo Web relevante.
 
 [!div class="mx-imgBorder"]
-![Firewall do aplicativo Web do Azure](../media/waf-azure-policy/policy-listing.png)
+![Captura de tela que mostra as definições de política disponíveis.](../media/waf-azure-policy/policy-listing.png)
 
 
 5.  Selecione a guia **parâmetros** e atualize os parâmetros de políticas. Para esclarecer ainda mais o que o parâmetro faz, passe o mouse sobre o ícone de informações ao lado do nome do parâmetro para obter mais esclarecimentos.

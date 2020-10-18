@@ -13,12 +13,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 03/23/2020
-ms.openlocfilehash: 7be78a0c05942aebb9e3154a79035d71f87becd3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca458bebf75f8e77774236166704794b817b7c3f
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334896"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167110"
 ---
 # <a name="authorize-database-access-to-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Autorizar o acesso ao banco de dados SQL, SQL Instância Gerenciada e Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -65,7 +65,7 @@ Para identificar as contas de administrador de um banco de dados, abra o portal 
 
 ![Administradores do SQL Server](./media/logins-create-manage/sql-admins.png)
 
-![Administradores do SQL Server](./media/logins-create-manage/sql-admins2.png)
+![Captura de tela que realça a opção de menu Propriedades.](./media/logins-create-manage/sql-admins2.png)
 
 > [!IMPORTANT]
 > O nome de logon do administrador não pode ser alterado após ter sido criado. Para redefinir a senha para o administrador do servidor, vá para o [portal do Azure](https://portal.azure.com), clique em **Servidores SQL**, selecione o servidor na lista e clique em **Redefinir Senha**. Para redefinir a senha para o Instância Gerenciada do SQL, vá para o portal do Azure, clique na instância e clique em **Redefinir senha**. Você também pode usar o PowerShell ou a CLI do Azure.

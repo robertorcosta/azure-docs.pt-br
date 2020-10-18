@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/08/2020
 ms.author: juliako
-ms.openlocfilehash: 405533aad8247350d45cc53009abe6b58a511264
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e97dc6ad4c6591a470e19050d79230f9ea7fd43
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83005940"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164781"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Crie uma conta do Video Indexer conectada ao Azure
 
@@ -47,7 +47,7 @@ Se você estiver mudando de uma *versão de avaliação* para conta de video ind
 
     Você usará esse membro ao conectar sua conta do Video Indexer ao Azure.
 
-    Esse usuário deve ser um membro da assinatura do Azure com uma função **Proprietário**, ou ambos **Colaborador** e **Administrador de Acesso do Usuário**. Um usuário pode ser adicionado duas vezes, com duas funções. Uma vez com o Contributor e uma vez com o User Access Administrator.
+    Esse usuário deve ser um membro da assinatura do Azure com uma função **Proprietário**, ou ambos **Colaborador** e **Administrador de Acesso do Usuário**. Um usuário pode ser adicionado duas vezes, com duas funções. Uma vez com o Contributor e uma vez com o User Access Administrator. Para obter mais informações, consulte [Exibir o acesso que um usuário tem aos recursos do Azure](https://docs.microsoft.com/azure/role-based-access-control/check-access).
 
     ![Controle de acesso](./media/create-account/access-control-iam.png)
 

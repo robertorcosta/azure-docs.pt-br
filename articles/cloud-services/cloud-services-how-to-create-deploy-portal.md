@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: tagore
-ms.openlocfilehash: b42c693943c41176936ac796f4586463e9af917c
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 66938975784f1de2abdc0ac22e62aaca82279f86
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076684"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164157"
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Como criar e implantar um serviço de nuvem
 O portal do Azure oferece duas maneiras de criar e implantar um serviço de nuvem: *Criação Rápida* e *Criação Personalizada*.
@@ -56,7 +56,7 @@ Para criar um serviço de nuvem com implantações de funções Web ou de Trabal
 1. Faça logon no [Portal do Azure](https://portal.azure.com/).
 2. Clique em **Criar um recurso > Computação**, e, em seguida, role para baixo e clique em **Serviço de Nuvem**.
 
-    ![Publicar o serviço de nuvem](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
+    ![Captura de tela que realça a opção de serviço de nuvem em criar um recurso > computação.](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
 3. No novo painel **Serviço de Nuvem**, insira um valor para o **Nome DNS**.
 4. Crie um novo **grupo de recursos** ou selecione um existente.
 5. Selecione um **Local**.
@@ -74,7 +74,7 @@ Se o pacote de implantação tiver sido [configurado para usar certificados](clo
 2. Clique em **Anexar certificado** e, em seguida, clique em **OK** no painel **Adicionar certificados**.
 3. Clique em **Criar** no painel **Serviço de Nuvem**. Quando a implantação alcançar o status **Pronto** , será possível passar às próximas etapas.
 
-    ![Publicar o serviço de nuvem](media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
+    ![Captura de tela que realça o processo para carregar um certificado.](media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
 
 ## <a name="verify-your-deployment-completed-successfully"></a>Verifique se a implantação foi concluída com êxito
 1. Clique na instância do serviço de nuvem.

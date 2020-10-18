@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: bcacd6c2e1353c71d8e4e25c95ee2b563e7b3fba
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: b81d3f74c20f42620ceeae08bec5d484909377a7
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150414"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167467"
 ---
 # <a name="indexer-connections-through-a-private-endpoint-azure-cognitive-search"></a>Conexões do indexador por meio de um ponto de extremidade privado (Azure Pesquisa Cognitiva)
 
@@ -23,7 +23,7 @@ Para usar esse método de conexão do indexador, há dois requisitos:
 
 + O recurso do Azure que fornece conteúdo ou código deve ser registrado anteriormente com o [serviço de link privado do Azure](https://azure.microsoft.com/services/private-link/).
 
-+ O serviço de Pesquisa Cognitiva do Azure deve ser básico ou superior (não disponível na camada gratuita). Além disso, para indexadores que têm um qualificable, o serviço de pesquisa deve ser S2 ou superior. Para obter mais informações, consulte [limites de serviço](search-limits-quotas-capacity.md#shared-private-link-resource-limits).
++ O serviço de Pesquisa Cognitiva do Azure deve ser básico ou superior (não disponível na camada gratuita). Além disso, se o indexador tiver um tipo de habilidade, a camada deverá ser Standard 2 (S2) ou superior. Para obter mais informações, consulte [limites de serviço](search-limits-quotas-capacity.md#shared-private-link-resource-limits).
 
 ## <a name="shared-private-link-resources-management-apis"></a>APIs de gerenciamento de recursos de link privado compartilhado
 
