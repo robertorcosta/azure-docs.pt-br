@@ -1,18 +1,18 @@
 ---
 title: 'Início Rápido: Criar e modificar um circuito com o ExpressRoute – Azure PowerShell'
-description: Criar, provisionar, verificar, atualizar, excluir e desprovisionar um circuito do ExpressRoute.
+description: Este início rápido mostra como criar, provisionar, verificar, atualizar, excluir e desprovisionar um circuito do ExpressRoute.
 services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: quickstart
-ms.date: 10/05/2020
+ms.date: 10/12/2020
 ms.author: duau
-ms.openlocfilehash: b5ac53c44429e23e2d22a934a9dc71bd485ec4cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5397dd2745a0d4e61804cf631014846ae15ec4e1
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761899"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91971516"
 ---
 # <a name="quickstart-create-and-modify-an-expressroute-circuit-using-azure-powershell"></a>Início Rápido: Criar e modificar um circuito do ExpressRoute usando o Azure PowerShell
 
@@ -371,7 +371,7 @@ Observe as seguintes informações:
 * Se o estado de provisionamento do provedor de serviço de circuito de ExpressRoute for **Provisionando** ou **Provisionado**, você deverá trabalhar com seu provedor de serviços para que ele desprovisione o circuito. Continuaremos a reservar recursos e a cobrar de você até que o provedor de serviços complete o desprovisionamento do circuito e nos notifique.
 * Se o provedor de serviços tiver desprovisionado o circuito (ou seja, se o estado de provisionamento do provedor de serviços tiver sido definido como **Não provisionado**), então você poderá excluir o circuito. Então, a cobrança pelo circuito será interrompida.
 
-## <a name="clean-up-resources"></a><a name="cleanup"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Você pode excluir o circuito do ExpressRoute executando o comando a seguir:
 

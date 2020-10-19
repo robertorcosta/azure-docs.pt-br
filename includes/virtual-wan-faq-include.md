@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 6fac71572446a80ff00368991d6cb80c572864ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 38aea30c5f716df927b5924754eb07e7f94c7ebc
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91859472"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92038623"
 ---
 ### <a name="is-azure-virtual-wan-in-ga"></a>A WAN Virtual do Azure está em GA?
 
@@ -228,7 +228,7 @@ Um hub virtual poderá propagar uma rota padrão aprendida para uma conexão VPN
 Se um Hub Virtual aprende a mesma rota de vários hubs remotos, a ordem na qual ele decide é a seguinte:
 
 1. Correspondência de prefixo mais longa.
-2. Rotas locais em entre hubs.
+2. Rotas locais no interhub (o hub virtual atribui 65520-65520 para o interhub AS)
 3. Rotas estáticas por BGP: Isso está no contexto da decisão que está sendo tomada pelo roteador do Hub Virtual. No entanto, se o tomador de decisões for o gateway de VPN em que um site anuncia rotas via BGP ou fornece prefixos de endereço estático, as rotas estáticas poderão ser preferidas em vez de rotas BGP.
 4. ER (ExpressRoute) por VPN: O ER é preferencial em relação ao VPN quando o contexto é um hub local. A conectividade de trânsito entre circuitos do ExpressRoute só está disponível por meio do Alcance Global. Portanto, em cenários em que o circuito do ExpressRoute está conectado a um hub e há outro circuito do ExpressRoute conectado a um hub diferente com conexão VPN, a VPN poderá ser preferida para cenários entre hubs.
 5. Comprimento do caminho AS.
